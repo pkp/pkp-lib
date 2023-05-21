@@ -20,6 +20,9 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\plugins\Hook;
 
+/**
+ * @template T of SubmissionFile
+ */
 class Collector implements CollectorInterface
 {
     /** @var DAO */
@@ -71,11 +74,18 @@ class Collector implements CollectorInterface
         return $this->dao->getCount($this);
     }
 
+    /**
+     * @return Collection<int,int>
+     */
     public function getIds(): Collection
     {
         return $this->dao->getIds($this);
     }
 
+    /**
+     * @copydoc DAO::getMany()
+     * @return LazyCollection<int,T>
+     */
     public function getMany(): LazyCollection
     {
         return $this->dao->getMany($this);

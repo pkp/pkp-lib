@@ -23,6 +23,10 @@ use PKP\db\DAOResultFactory;
 use PKP\db\SchemaDAO;
 use PKP\security\Role;
 
+/**
+ * @template T of Context
+ * @extends SchemaDAO<T>
+ */
 abstract class ContextDAO extends SchemaDAO
 {
     /**
@@ -30,7 +34,7 @@ abstract class ContextDAO extends SchemaDAO
      *
      * @param bool $enabledOnly true iff only enabled contexts are to be included
      *
-     * @return array
+     * @return array<int,string>
      */
     public function getNames($enabledOnly = false)
     {
@@ -45,7 +49,7 @@ abstract class ContextDAO extends SchemaDAO
     /**
      * Get a list of localized settings.
      *
-     * @return array
+     * @return string[]
      */
     public function getLocaleFieldNames()
     {
@@ -84,7 +88,7 @@ abstract class ContextDAO extends SchemaDAO
      *
      * @param string $path
      *
-     * @return ?Context
+     * @return ?T
      */
     public function getByPath($path)
     {
@@ -100,9 +104,9 @@ abstract class ContextDAO extends SchemaDAO
      * Retrieve all contexts.
      *
      * @param bool $enabledOnly true iff only enabled contexts should be included
-     * @param object $rangeInfo optional
+     * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
-     * @return DAOResultFactory containing matching Contexts
+     * @return DAOResultFactory<T> containing matching Contexts
      */
     public function getAll($enabledOnly = false, $rangeInfo = null)
     {
@@ -123,10 +127,10 @@ abstract class ContextDAO extends SchemaDAO
      *   or all contexts for site admin
      * If not user-based, retrieve all enabled contexts.
      *
-     * @param int $userId Optional user ID to find available contexts for
-     * @param object $rangeInfo optional
+     * @param ?int $userId Optional user ID to find available contexts for
+     * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
-     * @return DAOResultFactory containing matching Contexts
+     * @return DAOResultFactory<T> containing matching Contexts
      */
     public function getAvailable($userId = null, $rangeInfo = null)
     {
@@ -157,9 +161,9 @@ abstract class ContextDAO extends SchemaDAO
      * Get journals by setting.
      *
      * @param string $settingName
-     * @param int $contextId
+     * @param ?int $contextId
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<T>
      */
     public function getBySetting($settingName, $settingValue, $contextId = null)
     {

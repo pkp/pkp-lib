@@ -19,10 +19,11 @@
 namespace PKP\core;
 
 use APP\core\Services;
+use Pimple\Container;
 
 abstract class PKPServices
 {
-    /** @var Pimple\Container Pimple Dependency Injection Container */
+    /** @var Container Pimple Dependency Injection Container */
     private static $instance = null;
 
     protected $container = null;
@@ -32,7 +33,7 @@ abstract class PKPServices
      */
     private function __construct()
     {
-        $this->container = new \Pimple\Container();
+        $this->container = new Container();
         $this->init();
     }
 

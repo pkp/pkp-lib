@@ -24,8 +24,8 @@ use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
-
 use PKP\form\Form;
+use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 

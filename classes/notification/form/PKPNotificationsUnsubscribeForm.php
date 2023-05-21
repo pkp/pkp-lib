@@ -20,6 +20,7 @@
 namespace PKP\notification\form;
 
 use APP\facades\Repo;
+use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;

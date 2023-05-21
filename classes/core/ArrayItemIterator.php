@@ -76,7 +76,7 @@ class ArrayItemIterator extends ItemIterator
     /**
      * Return the next item in the iterator.
      *
-     * @return object
+     * @return ?object
      */
     public function &next()
     {

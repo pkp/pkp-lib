@@ -17,6 +17,7 @@
 namespace PKP\pages\authorDashboard;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\core\Services;
 use APP\decision\Decision;
 use APP\facades\Repo;
@@ -30,13 +31,17 @@ use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\listPanels\ContributorsListPanel;
 use PKP\context\Context;
+use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\workflow\WorkflowStageDAO;
 
@@ -125,7 +130,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
      *
      * @param int $currentStage WORKFLOW_STAGE_...
      *
-     * @return int SubmissionFile::SUBMISSION_FILE_...
+     * @return ?int SubmissionFile::SUBMISSION_FILE_...
      */
     protected function _fileStageFromWorkflowStage($currentStage)
     {

@@ -28,6 +28,7 @@ use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewerResendRequest;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
 
 class ResendRequestReviewerForm extends ReviewerNotifyActionForm

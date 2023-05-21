@@ -69,7 +69,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      *
      * @param int $contextId Context Id
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<NavigationMenuItem>
      */
     public function getByContextId($contextId)
     {
@@ -85,6 +85,8 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      * Retrieve items by menu id
      *
      * @param int $menuId
+     *
+     * @return DAOResultFactory<NavigationMenuItem>
      */
     public function getByMenuId($menuId)
     {
@@ -129,7 +131,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      * @param int $type NMI_TYPE_...
      * @param int $contextId
      *
-     * @return DAOResultFactory containing matching NavigationMenuItems
+     * @return DAOResultFactory<NavigationMenuItem> containing matching NavigationMenuItems
      */
     public function getByType($type, $contextId = null)
     {
@@ -267,8 +269,6 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      * Delete a NavigationMenuItem.
      *
      * @param NavigationMenuItem $navigationMenuItem
-     *
-     * @return bool
      */
     public function deleteObject($navigationMenuItem)
     {
@@ -279,8 +279,6 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      * Delete a NavigationMenuItem by navigationMenuItem ID.
      *
      * @param int $navigationMenuItemId
-     *
-     * @return bool
      */
     public function deleteById($navigationMenuItemId)
     {
@@ -321,7 +319,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
         $tree = $xmlParser->parse($filename);
 
         if ($contextId == \PKP\core\PKPApplication::CONTEXT_ID_NONE) {
-            $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
+            $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var \PKP\site\SiteDAO $siteDao */
             $site = $siteDao->getSite();
         }
 
@@ -517,7 +515,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * Port static page as a Custom NMI
      *
-     * @param StaticPage $staticPage
+     * @param \APP\plugins\generic\staticPages\classes\StaticPage $staticPage
      *
      * @return int The id of the inserted NMI. Null if non is inserted
      */

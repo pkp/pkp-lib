@@ -16,6 +16,7 @@
 
 namespace PKP\security\authorization;
 
+use PKP\core\PKPRequest;
 use PKP\security\authorization\internal\ContextPolicy;
 use PKP\security\authorization\internal\SubmissionFileAssignedQueryAccessPolicy;
 use PKP\security\authorization\internal\SubmissionFileAssignedReviewerAccessPolicy;
@@ -38,7 +39,7 @@ class SubmissionFileAccessPolicy extends ContextPolicy
     public const SUBMISSION_FILE_ACCESS_READ = 1;
     public const SUBMISSION_FILE_ACCESS_MODIFY = 2;
 
-    /** @var PoliceSet $_baseFileAccessPolicy the base file file policy before _SUB_EDITOR is considered */
+    /** @var PolicySet $_baseFileAccessPolicy the base file file policy before _SUB_EDITOR is considered */
     public $_baseFileAccessPolicy;
 
     /**

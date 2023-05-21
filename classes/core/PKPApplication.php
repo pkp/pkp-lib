@@ -18,7 +18,6 @@
 namespace PKP\core;
 
 use APP\core\Application;
-
 use APP\core\Request;
 use DateTime;
 use DateTimeZone;
@@ -32,6 +31,7 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\security\Role;
 use PKP\session\SessionManager;
+use PKP\site\VersionDAO;
 use PKP\submission\RepresentationDAOInterface;
 
 interface iPKPApplicationInfoProvider
@@ -446,7 +446,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     /**
      * Return the current version of the application.
      *
-     * @return Version
+     * @return \PKP\site\Version
      */
     public function getCurrentVersion()
     {

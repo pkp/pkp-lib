@@ -278,7 +278,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                                 'body' => '<p>Example email body.</p>',
                             ];
                         }
-                        throw new Exception('Unrecognized decision action type. Can not compile example request body for decisition ' . $class);
+                        throw new Exception('Unrecognized decision action type. Can not compile example request body for decision ' . $class);
                     },
                     $decision->actions ?? []
                 );

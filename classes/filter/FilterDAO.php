@@ -45,7 +45,6 @@ namespace PKP\filter;
 
 use Exception;
 use PKP\db\DAORegistry;
-
 use PKP\db\DAOResultFactory;
 
 class FilterDAO extends \PKP\db\DAO
@@ -206,7 +205,7 @@ class FilterDAO extends \PKP\db\DAO
      *  rather than actual transformations
      * @param bool $allowSubfilters
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<PersistableFilter>
      */
     public function getObjectsByClass($className, $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE, $getTemplates = false, $allowSubfilters = false)
     {
@@ -234,7 +233,7 @@ class FilterDAO extends \PKP\db\DAO
      *  rather than actual transformations
      * @param bool $allowSubfilters
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<PersistableFilter>
      */
     public function getObjectsByGroupAndClass($groupSymbolic, $className, $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE, $getTemplates = false, $allowSubfilters = false)
     {
@@ -261,7 +260,7 @@ class FilterDAO extends \PKP\db\DAO
      * @param bool $dataIsInput true if the given data object is to be checked as
      *  input type, false to check against the output type.
      *
-     * @return array a list of matched filters.
+     * @return PersistableFilter[] a list of matched filters.
      */
     public function getObjectsByTypeDescription($inputTypeDescription, $outputTypeDescription, $data = null, $dataIsInput = true)
     {
@@ -286,6 +285,7 @@ class FilterDAO extends \PKP\db\DAO
             );
 
             // Instantiate all filters.
+            /** @var DAOResultFactory<PersistableFilter> */
             $filterFactory = new DAOResultFactory($result, $this, '_fromRow', ['filter_id']);
             $filterCache[$filterCacheKey] = $filterFactory->toAssociativeArray();
         }
@@ -580,6 +580,7 @@ class FilterDAO extends \PKP\db\DAO
             'SELECT * FROM filters WHERE parent_filter_id = ? ORDER BY seq',
             [(int) $parentFilterId]
         );
+        /** @var DAOResultFactory<PersistableFilter> */
         $daoResultFactory = new DAOResultFactory($result, $this, '_fromRow', ['filter_id']);
 
         // Add sub-filters.

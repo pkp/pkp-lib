@@ -54,9 +54,9 @@ class EventLogDAO extends \PKP\db\DAO
      *
      * @param int $assocType
      * @param int $assocId
-     * @param object $rangeInfo optional
+     * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
-     * @return DAOResultFactory containing matching EventLogEntry ordered by sequence
+     * @return DAOResultFactory<EventLogEntry> containing matching EventLogEntry ordered by sequence
      */
     public function getByAssoc($assocType, $assocId, $rangeInfo = null)
     {

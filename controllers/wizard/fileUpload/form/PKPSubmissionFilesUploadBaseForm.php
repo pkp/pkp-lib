@@ -17,6 +17,7 @@
 namespace PKP\controllers\wizard\fileUpload\form;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use Exception;
@@ -25,7 +26,12 @@ use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\ConfirmationModal;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
+use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
+use PKP\user\User;
 
 class PKPSubmissionFilesUploadBaseForm extends Form
 {

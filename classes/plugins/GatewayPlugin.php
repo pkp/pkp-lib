@@ -17,6 +17,7 @@
 namespace PKP\plugins;
 
 use APP\core\Application;
+use PKP\core\PKPRequest;
 
 abstract class GatewayPlugin extends Plugin
 {

@@ -115,7 +115,7 @@ trait IsRecommendation
      */
     protected function addRecommendationQuery(EmailData $email, Submission $submission, User $editor, Context $context): void
     {
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var \StageAssignmentDAO $stageAssignmentDao */
         $queryParticipantIds = [];
         $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
         foreach ($editorsStageAssignments as $editorsStageAssignment) {
@@ -167,9 +167,9 @@ trait IsRecommendation
                 $newSubmissionFile->setData('assocId', $note->getId());
                 Repo::submissionFile()->add($newSubmissionFile);
             } elseif (isset($attachment[Mailable::ATTACHMENT_LIBRARY_FILE])) {
-                /** @var LibraryFileDAO $libraryFileDao */
+                /** @var \PKP\context\LibraryFileDAO $libraryFileDao */
                 $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
-                /** @var LibraryFile $file */
+                /** @var \PKP\context\LibraryFile $file */
                 $libraryFile = $libraryFileDao->getById($attachment[Mailable::ATTACHMENT_LIBRARY_FILE]);
                 if (!$libraryFile) {
                     throw new Exception('Could not find library file ' . $attachment[Mailable::ATTACHMENT_LIBRARY_FILE] . ' to attach to the query note.');

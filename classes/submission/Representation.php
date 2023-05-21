@@ -17,9 +17,11 @@
 namespace PKP\submission;
 
 use APP\core\Application;
-
 use APP\facades\Repo;
 
+/**
+ * @extends \PKP\core\DataObject<DAO|RepresentationDAOInterface>
+ */
 class Representation extends \PKP\core\DataObject
 {
     /**
@@ -66,11 +68,11 @@ class Representation extends \PKP\core\DataObject
     /**
      * Get the format name (if applicable).
      *
-     * @param string $locale
+     * @param ?string $locale
      *
-     * @return string
+     * @return string|array<string,string>
      */
-    public function getName($locale)
+    public function getName($locale = null)
     {
         return $this->getData('name', $locale);
     }
@@ -131,7 +133,7 @@ class Representation extends \PKP\core\DataObject
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      *
-     * @return int
+     * @return string
      */
     public function getStoredPubId($pubIdType)
     {

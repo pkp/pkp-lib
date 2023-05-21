@@ -18,6 +18,7 @@
 namespace PKP\workflow;
 
 use APP\core\Application;
+use APP\submission\Submission;
 
 class WorkflowStageDAO extends \PKP\db\DAO
 {

@@ -35,6 +35,7 @@ use PKP\mail\mailables\RevisedVersionNotify;
 use PKP\note\NoteDAO;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
+use PKP\query\QueryDAO;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -48,6 +49,7 @@ abstract class Repository
     public DAO $dao;
     public string $schemaMap = Schema::class;
     protected Request $request;
+    /** @var PKPSchemaService<SubmissionFile> */
     protected PKPSchemaService $schemaService;
 
     /** @var array<int> $reviewFileStages The file stages that are part of a review workflow stage */

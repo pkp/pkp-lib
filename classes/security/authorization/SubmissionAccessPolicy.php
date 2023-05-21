@@ -16,6 +16,7 @@
 
 namespace PKP\security\authorization;
 
+use PKP\core\PKPRequest;
 use PKP\security\authorization\internal\ContextPolicy;
 use PKP\security\authorization\internal\ReviewAssignmentAccessPolicy;
 use PKP\security\authorization\internal\SubmissionAuthorPolicy;

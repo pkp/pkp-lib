@@ -24,7 +24,9 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
+use PKP\filter\FilterGroup;
 use PKP\plugins\PluginRegistry;
+use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class NativeXmlSubmissionFileFilter extends NativeImportFilter

@@ -64,7 +64,7 @@ class PKPNativeFilterHelper
     /**
      * Parse out the object covers.
      *
-     * @param NativeExportFilter $filter
+     * @param NativeImportFilter $filter
      * @param \DOMElement $node
      * @param Publication $object
      */
@@ -75,7 +75,7 @@ class PKPNativeFilterHelper
         $coverImages = [];
 
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
-            if ($n instanceof \DOMElement) {
+            if ($n instanceof DOMElement) {
                 switch ($n->tagName) {
                     case 'cover':
                         $coverImage = $this->parsePublicationCover($filter, $n, $object);
@@ -93,7 +93,7 @@ class PKPNativeFilterHelper
     /**
      * Parse out the cover and store it in the object.
      *
-     * @param NativeExportFilter $filter
+     * @param NativeImportFilter $filter
      * @param \DOMElement $node
      * @param Publication $object
      */
@@ -112,7 +112,7 @@ class PKPNativeFilterHelper
         $coverImage = [];
 
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
-            if ($n instanceof \DOMElement) {
+            if ($n instanceof DOMElement) {
                 switch ($n->tagName) {
                     case 'cover_image':
                         $coverImage['uploadName'] = $n->textContent;

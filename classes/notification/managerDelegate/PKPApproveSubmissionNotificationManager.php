@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\notification\NotificationDAO;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
 

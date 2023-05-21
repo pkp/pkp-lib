@@ -159,7 +159,7 @@ class PKPSelectReviewerListPanel extends ListPanel
     /**
      * Helper method to get the items property according to the self::$getParams
      *
-     * @param Request $request
+     * @param \APP\core\Request $request
      *
      * @return array
      */

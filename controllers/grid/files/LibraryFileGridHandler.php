@@ -17,10 +17,12 @@
 namespace PKP\controllers\grid\files;
 
 use APP\file\LibraryFileManager;
+use PKP\context\Context;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\files\form\LibraryFileForm;
 use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\file\TemporaryFileManager;
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
@@ -168,7 +170,7 @@ class LibraryFileGridHandler extends CategoryGridHandler
     /**
      * Get an instance of the cell provider for this grid.
      *
-     * @return LibraryFileGridCellProvider
+     * @return GridColumn
      */
     public function getFileNameColumn()
     {
@@ -350,7 +352,7 @@ class LibraryFileGridHandler extends CategoryGridHandler
      * Returns a specific instance of the edit form for this grid.
      *  Must be implemented by subclasses.
      *
-     * @param Press $context
+     * @param Context $context
      * @param int $fileId
      *
      * @return LibraryFileForm

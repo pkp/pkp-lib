@@ -18,14 +18,20 @@
 namespace PKP\plugins\generic\usageEvent;
 
 use APP\core\Application;
+use APP\core\PageRouter;
 use APP\template\TemplateManager;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\core\Core;
+use PKP\core\DataObject;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\plugins\GenericPlugin;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
+use PKP\security\RoleDAO;
+use PKP\template\PKPTemplateManager;
 
 // User classification types.
 define('USAGE_EVENT_PLUGIN_CLASSIFICATION_BOT', 'bot');
@@ -189,7 +195,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
      * @param string $hookName
      * @param array $args
      *
-     * @return array
+     * @return false|?array
      */
     protected function buildUsageEvent($hookName, $args)
     {
@@ -206,7 +212,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
         $templateMgr = $args[0]; /** @var TemplateManager $templateMgr */
 
         // We are just interested in page requests.
-        if (!($router instanceof \APP\core\PageRouter)) {
+        if (!($router instanceof PageRouter)) {
             return false;
         }
 
@@ -331,7 +337,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
         $user = $request->getUser();
         $roles = [];
         if ($user) {
-            $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var PKPRoleDAO $roleDao */
+            $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
             $rolesByContext = $roleDao->getByUserIdGroupedByContext($user->getId());
             foreach ([\PKP\core\PKPApplication::CONTEXT_SITE, $context->getId()] as $workingContext) {
                 if (isset($rolesByContext[$workingContext])) {
@@ -436,7 +442,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
             // First check for a context index page view.
             if (($page == 'index' || empty($page)) && $op == 'index') {
                 $pubObject = $templateMgr->getTemplateVars('currentContext');
-                if ($pubObject instanceof \PKP\context\Context) {
+                if ($pubObject instanceof Context) {
                     $assocType = Application::getContextAssocType();
                     $canonicalUrlOp = '';
                     $canonicalUrlPage = 'index';

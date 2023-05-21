@@ -22,7 +22,6 @@ use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\form\Form;
-
 use PKP\plugins\PKPPubIdPluginHelper;
 use PKP\plugins\PluginRegistry;
 use PKP\submission\Representation;
@@ -259,7 +258,7 @@ class PKPPublicIdentifiersForm extends Form
      *
      * @param object $pubObject
      *
-     * @return int Application::ASSOC_TYPE_
+     * @return ?int Application::ASSOC_TYPE_
      */
     public function getAssocType($pubObject)
     {

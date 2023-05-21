@@ -18,7 +18,6 @@ namespace PKP\user\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
-
 use PKP\form\Form;
 use PKP\user\User;
 

@@ -58,7 +58,7 @@ class I7624_StrftimeDeprecation extends \PKP\migration\Migration
     /**
      * Convert the date format settings.
      *
-     * @param direction string 'up'|'down'
+     * @param string Direction 'up'|'down'
      */
     private function convert(string $direction)
     {

@@ -174,7 +174,7 @@ abstract class PKPRouter
      * @param PKPRequest $request the request to be routed
      * @param bool $forceReload (optional) Reset a context even if it's already been loaded
      *
-     * @return object
+     * @return Context
      */
     public function getContext($request, $forceReload = false)
     {
@@ -275,7 +275,7 @@ abstract class PKPRouter
     /**
      * Handle an authorization failure.
      *
-     * @param Request $request
+     * @param PKPRequest $request
      * @param string $authorizationMessage a translation key with the authorization
      *  failure message.
      */
@@ -298,7 +298,7 @@ abstract class PKPRouter
      * 4) execution
      * 5) client response
      *
-     * @param callable $serviceEndpoint the handler operation
+     * @param callable|array $serviceEndpoint the handler operation
      * @param PKPRequest $request
      * @param array $args
      * @param bool $validate whether or not to execute the

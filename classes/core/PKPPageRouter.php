@@ -17,17 +17,15 @@
 namespace PKP\core;
 
 use APP\core\Application;
-
-define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
-define('ROUTER_DEFAULT_OP', 'index');
-
 use APP\facades\Repo;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\Role;
-
 use PKP\security\Validation;
 use PKP\session\SessionManager;
+
+define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
+define('ROUTER_DEFAULT_OP', 'index');
 
 class PKPPageRouter extends PKPRouter
 {

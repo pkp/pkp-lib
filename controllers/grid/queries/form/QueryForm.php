@@ -17,18 +17,24 @@
 namespace PKP\controllers\grid\queries\form;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\note\NoteDAO;
+use PKP\notification\NotificationDAO;
+use PKP\query\Query;
 use PKP\query\QueryDAO;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class QueryForm extends Form
 {
@@ -308,7 +314,7 @@ class QueryForm extends Form
             $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
 
             // if current user is editor/journal manager/site admin and not have author role , add all reviewers
-            if (array_intersect($assignedRoles, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) || (empty($assignedRoles) && ($user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE)))) {
+            if (array_intersect($assignedRoles, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) || (empty($assignedRoles) && ($user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::CONTEXT_SITE)))) {
                 foreach ($reviewAssignments as $reviewAssignment) {
                     $includeUsers[] = $reviewAssignment->getReviewerId();
                 }
@@ -447,7 +453,7 @@ class QueryForm extends Form
                     // if participant has no role in this stage and is not a reviewer
                     if (empty($assignedRoles) && empty($reviewAssignments)) {
                         // if participant is current user and the user has admin or manager role, ignore participant
-                        if (($participantId == $user->getId()) && ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()))) {
+                        if (($participantId == $user->getId()) && ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()))) {
                             continue;
                         } else {
                             $this->addError('users', __('editor.discussion.errorNotStageParticipant'));
@@ -478,7 +484,7 @@ class QueryForm extends Form
                     // if participant has no role/assignment in the current stage
                     if (empty($assignedRoles)) {
                         // if participant is current user and the user has admin or manager role, ignore participant
-                        if (($participantId == $user->getId()) && ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()))) {
+                        if (($participantId == $user->getId()) && ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()))) {
                             continue;
                         } else {
                             $this->addError('users', __('editor.discussion.errorNotStageParticipant'));

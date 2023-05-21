@@ -25,13 +25,13 @@ class SubmissionFileLog extends SubmissionLog
     /**
      * Add a new file event log entry with the specified parameters
      *
-     * @param object $request
-     * @param object $submissionFile
+     * @param \APP\core\Request $request
+     * @param \PKP\submissionFile\SubmissionFile $submissionFile
      * @param int $eventType
      * @param string $messageKey
      * @param array $params optional
      *
-     * @return object SubmissionLogEntry iff the event was logged
+     * @return SubmissionFileEventLogEntry SubmissionLogEntry iff the event was logged
      */
     public static function logEvent($request, $submissionFile, $eventType, $messageKey, $params = [])
     {

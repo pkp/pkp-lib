@@ -19,8 +19,10 @@ namespace PKP\controllers\grid\files\submissionDocuments\form;
 use APP\core\Application;
 use APP\file\LibraryFileManager;
 use APP\template\TemplateManager;
+use PKP\context\LibraryFileDAO;
 use PKP\controllers\grid\files\form\LibraryFileForm;
 use PKP\db\DAORegistry;
+use PKP\file\TemporaryFileDAO;
 use PKP\file\TemporaryFileManager;
 
 class NewLibraryFileForm extends LibraryFileForm

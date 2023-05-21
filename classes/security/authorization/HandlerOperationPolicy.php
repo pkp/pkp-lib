@@ -18,7 +18,7 @@ namespace PKP\security\authorization;
 
 class HandlerOperationPolicy extends AuthorizationPolicy
 {
-    /** @var PKPRequest */
+    /** @var \PKP\core\PKPRequest */
     public $_request;
 
     /** @var array the target operations */
@@ -27,7 +27,7 @@ class HandlerOperationPolicy extends AuthorizationPolicy
     /**
      * Constructor
      *
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      * @param array|string $operations either a single operation or a list of operations that
      *  this policy is targeting.
      * @param string $message a message to be displayed if the authorization fails
@@ -53,7 +53,7 @@ class HandlerOperationPolicy extends AuthorizationPolicy
     /**
      * Return the request.
      *
-     * @return PKPRequest
+     * @return \PKP\core\PKPRequest
      */
     public function &getRequest()
     {

@@ -21,14 +21,14 @@
 
 namespace PKP\core;
 
-define('PKP_LIB_PATH', 'lib/pkp');
-define('COUNTER_USER_AGENTS_FILE', Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/counterBots/generated/COUNTER_Robots_list.txt');
-
 use Exception;
 use PKP\cache\CacheManager;
 use PKP\cache\FileCache;
 use PKP\config\Config;
 use SplFileInfo;
+
+define('PKP_LIB_PATH', 'lib/pkp');
+define('COUNTER_USER_AGENTS_FILE', Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/counterBots/generated/COUNTER_Robots_list.txt');
 
 class Core
 {
@@ -353,7 +353,7 @@ class Core
      * @param string $url Full url or just it's
      * path info.
      *
-     * @return bool
+     * @return ?bool
      */
     protected static function _checkBaseUrl($baseUrl, $url)
     {

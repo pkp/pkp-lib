@@ -46,10 +46,10 @@ trait ConvertLogFile
      */
     public function __constructTrait()
     {
-        $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
-        $contextFactory = $contextDao->getAll(); /** @var DAOResultFactory $contextFactory */
+        $contextDao = Application::getContextDAO();
+        $contextFactory = $contextDao->getAll();
         $this->contextsByPath = [];
-        while ($context = $contextFactory->next()) { /** @var Context $context */
+        while ($context = $contextFactory->next()) { /** @var \PKP\context\Context $context */
             $this->contextsByPath[$context->getPath()] = $context;
         }
     }
@@ -703,7 +703,7 @@ trait ConvertLogFile
                 }
 
                 // is this a full text or supp file
-                /** @var GenreDAO */
+                /** @var \PKP\submission\GenreDAO */
                 $genreDao = DAORegistry::getDAO('GenreDAO');
                 $genre = $genreDao->getById($submissionFile->getData('genreId'));
                 if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
@@ -786,7 +786,7 @@ trait ConvertLogFile
                     fwrite(STDERR, 'Missing issue galley ID URL parameter.' . PHP_EOL);
                     break;
                 }
-                /** @var IssueGalleyDAO */
+                /** @var \APP\issue\IssueGalleyDAO */
                 $issueGalleyDao = DAORegistry::getDAO('IssueGalleyDAO');
                 $issueId = (int) $args[0];
                 if (!Repo::issue()->exists($issueId, $newEntry['contextId'])) {
@@ -923,7 +923,7 @@ trait ConvertLogFile
                 }
 
                 // is this a full text or supp file
-                /** @var GenreDAO */
+                /** @var \PKP\submission\GenreDAO */
                 $genreDao = DAORegistry::getDAO('GenreDAO');
                 $genre = $genreDao->getById($submissionFile->getData('genreId'));
                 if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
@@ -1066,7 +1066,7 @@ trait ConvertLogFile
                 }
 
                 // is this a full text or supp file
-                /** @var GenreDAO */
+                /** @var \PKP\submission\GenreDAO */
                 $genreDao = DAORegistry::getDAO('GenreDAO');
                 $genre = $genreDao->getById($submissionFile->getData('genreId'));
                 if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {

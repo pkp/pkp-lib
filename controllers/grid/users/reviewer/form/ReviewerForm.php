@@ -34,10 +34,14 @@ use PKP\linkAction\request\AjaxAction;
 use PKP\mail\mailables\ReviewRequest;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
+use PKP\reviewForm\ReviewFormDAO;
 use PKP\security\Role;
+use PKP\security\RoleDAO;
 use PKP\submission\action\EditorAction;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
+use PKP\submission\ReviewFilesDAO;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
 class ReviewerForm extends Form
@@ -435,7 +439,7 @@ class ReviewerForm extends Form
 
         // Ensure that they are a reviewer
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-        return $roleDao->userHasRole($context->getId(), $reviewerId, \PKP\security\Role::ROLE_ID_REVIEWER);
+        return $roleDao->userHasRole($context->getId(), $reviewerId, Role::ROLE_ID_REVIEWER);
     }
 
     /**

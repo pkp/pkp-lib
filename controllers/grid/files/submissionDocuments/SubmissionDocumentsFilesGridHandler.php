@@ -18,10 +18,13 @@ namespace PKP\controllers\grid\files\submissionDocuments;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
+use PKP\context\Context;
 use PKP\controllers\grid\files\LibraryFileGridHandler;
 use PKP\controllers\grid\files\LibraryFileGridRow;
 use PKP\controllers\grid\files\submissionDocuments\form\EditLibraryFileForm;
 use PKP\controllers\grid\files\submissionDocuments\form\NewLibraryFileForm;
+use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\security\Role;

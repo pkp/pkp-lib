@@ -151,7 +151,7 @@ class XMLNode
      * @param string $name
      * @param int $index
      *
-     * @return XMLNode the ($index+1)th child matching the specified name
+     * @return ?XMLNode the ($index+1)th child matching the specified name
      */
     public function &getChildByName($name, $index = 0)
     {

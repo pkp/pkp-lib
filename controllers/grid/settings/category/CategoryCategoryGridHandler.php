@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\settings\category;
 
 use APP\category\Category;
+use APP\core\Request;
 use APP\facades\Repo;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\DataObjectGridCellProvider;
@@ -24,6 +25,7 @@ use PKP\controllers\grid\feature\OrderCategoryGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\settings\category\form\CategoryForm;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
 use PKP\linkAction\LinkAction;
@@ -315,7 +317,7 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
      *
      * @param Request $request
      *
-     * @return UserGroupForm
+     * @return CategoryForm
      */
     public function _getCategoryForm($request)
     {

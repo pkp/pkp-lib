@@ -16,10 +16,8 @@
 
 namespace PKP\plugins;
 
-define('LESS_FILENAME_SUFFIX', '.less');
-define('THEME_OPTION_PREFIX', 'themeOption_');
-
 use APP\core\Application;
+use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\statistics\StatisticsHelper;
@@ -33,6 +31,9 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\session\SessionManager;
+
+define('LESS_FILENAME_SUFFIX', '.less');
+define('THEME_OPTION_PREFIX', 'themeOption_');
 
 abstract class ThemePlugin extends LazyLoadPlugin
 {
@@ -540,8 +541,6 @@ abstract class ThemePlugin extends LazyLoadPlugin
      *
      * @param string $name The name of the option config to retrieve
      * @param array $args The new configuration settings for this option
-     *
-     * @return bool Whether the option was found and the config was updated.
      */
     public function modifyOptionsConfig($name, $args = [])
     {

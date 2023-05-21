@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\settings\roles\form;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
@@ -24,7 +25,9 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\security\Role;
+use PKP\security\RoleDAO;
 use PKP\security\Validation;
+use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\userGroup\relationships\UserGroupStage;
 use PKP\workflow\WorkflowStageDAO;
 
@@ -40,8 +43,8 @@ class UserGroupForm extends Form
     /**
      * Constructor.
      *
-     * @param Context $contextId id.
-     * @param User $userGroupId group id.
+     * @param int $contextId id.
+     * @param int $userGroupId group id.
      */
     public function __construct($contextId, $userGroupId = null)
     {

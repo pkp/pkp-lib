@@ -35,7 +35,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
      * @param int $round
      * @param int $status One of the ReviewRound::REVIEW_ROUND_STATUS_* constants.
      *
-     * @return ReviewRound
+     * @return ?ReviewRound
      */
     public function build($submissionId, $stageId, $round, $status = null)
     {
@@ -81,7 +81,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
      *
      * @param ReviewRound $reviewRound
      *
-     * @return int
+     * @return ReviewRound
      */
     public function insertObject($reviewRound)
     {
@@ -188,6 +188,8 @@ class ReviewRoundDAO extends \PKP\db\DAO
      * @param int $submissionId
      * @param int $stageId (optional)
      * @param int $round (optional)
+     *
+     * @return DAOResultFactory<ReviewRound>
      */
     public function getBySubmissionId($submissionId, $stageId = null, $round = null)
     {

@@ -20,7 +20,6 @@ namespace PKP\controllers\grid\feature;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
-
 use PKP\linkAction\request\NullAction;
 
 class OrderItemsFeature extends GridFeature

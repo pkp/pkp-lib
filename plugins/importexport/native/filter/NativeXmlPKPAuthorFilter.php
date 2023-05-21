@@ -18,9 +18,11 @@ namespace PKP\plugins\importexport\native\filter;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\publication\Publication;
 use Exception;
 use PKP\author\Author;
 use PKP\facades\Locale;
+use PKP\filter\FilterGroup;
 
 class NativeXmlPKPAuthorFilter extends NativeImportFilter
 {
@@ -71,7 +73,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
         $context = $deployment->getContext();
 
         $publication = $deployment->getPublication();
-        assert($publication instanceof \PKP\publication\PKPPublication);
+        assert($publication instanceof Publication);
 
         // Create the data object
         $author = Repo::author()->newDataObject();

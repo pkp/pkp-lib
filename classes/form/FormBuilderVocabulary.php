@@ -100,7 +100,7 @@ class FormBuilderVocabulary
     /**
      * Get the form
      *
-     * @return Object
+     * @return Form
      */
     public function getForm()
     {
@@ -851,7 +851,7 @@ class FormBuilderVocabulary
      * Custom Smarty function for labelling/highlighting of form fields.
      *
      * @param array $params can contain 'name' (field name/ID), 'required' (required field), 'key' (localization key), 'label' (non-localized label string), 'suppressId' (boolean)
-     * @param Smarty $smarty
+     * @param \Smarty $smarty
      */
     public function _smartyFBVSubLabel($params, $smarty)
     {
@@ -948,7 +948,7 @@ class FormBuilderVocabulary
      * Custom Smarty function for labelling/highlighting of form fields.
      *
      * @param array $params can contain 'name' (field name/ID), 'required' (required field), 'key' (localization key), 'label' (non-localized label string), 'suppressId' (boolean)
-     * @param Smarty $smarty
+     * @param \Smarty $smarty
      */
     public function smartyFieldLabel($params, $smarty)
     {

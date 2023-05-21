@@ -16,6 +16,8 @@
 
 namespace PKP\controllers\grid\files\submissionDocuments\form;
 
+use PKP\context\LibraryFile;
+use PKP\context\LibraryFileDAO;
 use PKP\controllers\grid\files\form\LibraryFileForm;
 use PKP\db\DAORegistry;
 

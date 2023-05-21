@@ -28,6 +28,10 @@ use PKP\submission\PKPSubmission;
 use PKP\submission\Representation;
 use PKP\submission\RepresentationDAOInterface;
 
+/**
+ * @template T of Galley
+ * @extends EntityDAO<T>
+ */
 class DAO extends EntityDAO implements RepresentationDAOInterface
 {
     use EntityWithParent;
@@ -94,6 +98,8 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
 
     /**
      * Get a list of ids matching the configured query
+     *
+     * @return Collection<int,int>
      */
     public function getIds(Collector $query): Collection
     {
@@ -105,6 +111,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
 
     /**
      * Get a collection of galleys matching the configured query
+     * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection
     {
@@ -255,11 +262,11 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
      * @param string $pubIdSettingName optional
      * (e.g. medra::status or medra::registeredDoi)
      * @param string $pubIdSettingValue optional
-     * @param DBResultRange $rangeInfo optional
+     * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
      * @deprecated 3.4.0
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<Galley>
      */
     public function getExportable($contextId, $pubIdType = null, $title = null, $author = null, $issueId = null, $pubIdSettingName = null, $pubIdSettingValue = null, $rangeInfo = null)
     {

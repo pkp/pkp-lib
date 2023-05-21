@@ -20,10 +20,10 @@ namespace PKP\security\authorization\internal;
 use APP\core\Application;
 use APP\decision\Decision;
 use APP\facades\Repo;
-
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAccessPolicy

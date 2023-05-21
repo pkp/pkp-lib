@@ -25,7 +25,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     /**
      * Generate a new data object.
      *
-     * @return \PKP\core\DataObject
+     * @return AnnouncementType
      */
     public function newDataObject()
     {
@@ -85,7 +85,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     /**
      * Update the localized settings for this object
      *
-     * @param object $announcementType
+     * @param AnnouncementType $announcementType
      */
     public function updateLocaleFields($announcementType)
     {
@@ -145,8 +145,6 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
      * deleted.
      *
      * @param AnnouncementType $announcementType
-     *
-     * @return bool
      */
     public function deleteObject($announcementType)
     {
@@ -185,7 +183,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
      *
      * @param int $contextId
      *
-     * @return Generator Matching AnnouncementTypes
+     * @return \Generator<int,AnnouncementType> Matching AnnouncementTypes
      */
     public function getByContextId($contextId)
     {

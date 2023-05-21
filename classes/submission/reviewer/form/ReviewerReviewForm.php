@@ -19,7 +19,6 @@ use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
-
 use PKP\form\Form;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;

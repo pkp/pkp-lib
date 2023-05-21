@@ -32,13 +32,13 @@ class SubmissionLog
     /**
      * Add a new event log entry with the specified parameters
      *
-     * @param object $request
-     * @param object $submission
+     * @param \APP\core\Request $request
+     * @param \APP\submission\Submission $submission
      * @param int $eventType
      * @param string $messageKey
      * @param array $params optional
      *
-     * @return object SubmissionLogEntry iff the event was logged
+     * @return \APP\log\SubmissionEventLogEntry SubmissionLogEntry iff the event was logged
      */
     public static function logEvent($request, $submission, $eventType, $messageKey, $params = [])
     {

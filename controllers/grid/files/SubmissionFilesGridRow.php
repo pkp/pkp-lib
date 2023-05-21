@@ -20,6 +20,7 @@ use PKP\controllers\api\file\linkAction\DeleteFileLinkAction;
 use PKP\controllers\api\file\linkAction\EditFileLinkAction;
 use PKP\controllers\grid\GridRow;
 use PKP\controllers\informationCenter\linkAction\FileInfoCenterLinkAction;
+use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFilesGridRow extends GridRow
 {

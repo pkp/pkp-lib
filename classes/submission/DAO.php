@@ -24,8 +24,20 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\db\DAORegistry;
+use PKP\log\SubmissionEmailLogDAO;
+use PKP\log\SubmissionEventLogDAO;
+use PKP\note\NoteDAO;
+use PKP\notification\NotificationDAO;
+use PKP\query\QueryDAO;
 use PKP\services\PKPSchemaService;
+use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 
+/**
+ * @template T of Submission
+ * @extends EntityDAO<T>
+ */
 class DAO extends EntityDAO
 {
     use EntityWithParent;
@@ -84,6 +96,8 @@ class DAO extends EntityDAO
 
     /**
      * Get a list of ids matching the configured query
+     *
+     * @return Collection<int,int>
      */
     public function getIds(Collector $query): Collection
     {
@@ -95,6 +109,7 @@ class DAO extends EntityDAO
 
     /**
      * Get a collection of announcements matching the configured query
+     * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection
     {

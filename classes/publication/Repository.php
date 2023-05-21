@@ -36,7 +36,6 @@ use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
-use PKP\user\User;
 use PKP\userGroup\UserGroup;
 use PKP\validation\ValidatorFactory;
 
@@ -51,7 +50,7 @@ abstract class Repository
     /** @var Request */
     protected $request;
 
-    /** @var PKPSchemaService */
+    /** @var PKPSchemaService<Publication> */
     protected $schemaService;
 
     public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)
@@ -93,7 +92,7 @@ abstract class Repository
      * Get an instance of the map class for mapping
      * publications to their schema
      *
-     * @param LazyCollection<UserGroup> $userGroups
+     * @param LazyCollection<int,UserGroup> $userGroups
      * @param Genre[] $genres
      */
     public function getSchemaMap(Submission $submission, LazyCollection $userGroups, array $genres): maps\Schema

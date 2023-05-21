@@ -16,6 +16,8 @@
 
 namespace PKP\controllers\api\file\linkAction;
 
+use APP\core\Request;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
 class AddRevisionLinkAction extends BaseAddFileLinkAction

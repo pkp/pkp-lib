@@ -17,9 +17,12 @@
 namespace PKP\controllers\grid\files;
 
 use APP\core\Application;
+use APP\core\Request;
+use APP\submission\Submission;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;
 use PKP\controllers\grid\files\fileList\FileGenreGridColumn;
+use PKP\controllers\grid\GridDataProvider;
 use PKP\controllers\grid\GridHandler;
 
 class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandler
@@ -27,14 +30,14 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
     /** @var FilesGridCapabilities */
     public $_capabilities;
 
-    /** @var int */
+    /** @var ?int */
     public $_stageId;
 
     /**
      * Constructor
      *
      * @param GridDataProvider $dataProvider
-     * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
+     * @param ?int $stageId One of the WORKFLOW_STAGE_ID_* constants.
      * @param int $capabilities A bit map with zero or more
      *  FILE_GRID_* capabilities set.
      */
@@ -83,7 +86,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
     {
         // We assume proper authentication by the data provider.
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        assert($submission instanceof \APP\submission\Submission);
+        assert($submission instanceof Submission);
         return $submission;
     }
 

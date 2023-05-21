@@ -18,6 +18,7 @@
 
 namespace PKP\search;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use PKP\core\PKPString;
 
@@ -30,7 +31,7 @@ class SubmissionSearchDAO extends \PKP\db\DAO
      *
      * @param string $keyword
      *
-     * @return int the keyword ID
+     * @return ?int the keyword ID
      */
     public function insertKeyword($keyword)
     {

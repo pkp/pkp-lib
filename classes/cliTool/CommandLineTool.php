@@ -52,7 +52,7 @@ class CommandLineTool
     /** @var string the username provided */
     public $username;
 
-    /** @var User the user provided */
+    /** @var \PKP\user\User the user provided */
     public $user;
 
     public function __construct($argv = [])
@@ -132,7 +132,7 @@ class CommandLineTool
     /**
      * Sets the user for the CLI Tool
      *
-     * @param User $user The user to set as the execution user of this CLI command
+     * @param \PKP\user\User $user The user to set as the execution user of this CLI command
      */
     public function setUser($user)
     {

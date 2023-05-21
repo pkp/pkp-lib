@@ -19,6 +19,7 @@ namespace PKP\services;
 use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\services\queryBuilders\PKPStatsSushiQueryBuilder;
+use PKP\site\VersionDAO;
 
 class PKPStatsSushiService
 {

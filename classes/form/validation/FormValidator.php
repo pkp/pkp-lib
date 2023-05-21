@@ -18,6 +18,8 @@
  */
 
 namespace PKP\form\validation;
+use PKP\form\Form;
+use PKP\validation\Validator;
 
 class FormValidator
 {

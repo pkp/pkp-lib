@@ -77,7 +77,7 @@ class PKPXMLParser
      *
      * @param string $file full path to the XML file
      *
-     * @return object|false actual return type depends on the handler
+     * @return ?object|false actual return type depends on the handler
      */
     public function parse($file)
     {
@@ -200,7 +200,7 @@ class PKPXMLParser
      * @param string $file full path to the XML file
      * @param array $tagsToMatch optional, if set tags not in the array will be skipped
      *
-     * @return array|null a struct of the form ($TAG => array('attributes' => array( ... ), 'value' => $VALUE), ... )
+     * @return bool|array|null a struct of the form ($TAG => array('attributes' => array( ... ), 'value' => $VALUE), ... )
      */
     public function parseStruct($file, $tagsToMatch = [])
     {

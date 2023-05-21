@@ -17,9 +17,9 @@
 namespace PKP\controllers\grid;
 
 use APP\template\TemplateManager;
-
 use Illuminate\Support\LazyCollection;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 
 class CategoryGridHandler extends GridHandler
 {
@@ -29,7 +29,7 @@ class CategoryGridHandler extends GridHandler
     /** @var array The category grid's data source. */
     public $_categoryData;
 
-    /** @var string The category id that this grid is currently rendering. */
+    /** @var ?int The category id that this grid is currently rendering. */
     public $_currentCategoryId = null;
 
 
@@ -224,7 +224,7 @@ class CategoryGridHandler extends GridHandler
      * Render a category with all the rows inside of it.
      *
      * @param array $args
-     * @param Request $request
+     * @param PKPRequest $request
      *
      * @return string the serialized row JSON message or a flag
      *  that indicates that the row has not been found.
@@ -469,7 +469,7 @@ class CategoryGridHandler extends GridHandler
     /**
      * Instantiate a new row.
      *
-     * @param Request $request
+     * @param PKPRequest $request
      * @param string $elementId
      *
      * @return GridRow

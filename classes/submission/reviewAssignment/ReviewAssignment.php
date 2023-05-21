@@ -788,7 +788,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Get number of weeks until review is due (or number of weeks overdue).
      *
-     * @return int
+     * @return ?int
      */
     public function getWeeksDue()
     {

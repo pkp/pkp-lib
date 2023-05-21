@@ -18,11 +18,13 @@ namespace PKP\controllers\grid\queries;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\PKPString;
+use PKP\note\Note;
 use PKP\submissionFile\SubmissionFile;
 
 class QueryNotesGridCellProvider extends DataObjectGridCellProvider
@@ -58,6 +60,7 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider
         $element = $row->getData();
         $columnId = $column->getId();
         assert($element instanceof \PKP\core\DataObject && !empty($columnId));
+        /** @var Note $element */
         $user = $element->getUser();
         $datetimeFormatShort = PKPString::convertStrftimeFormat(Application::get()->getRequest()->getContext()->getLocalizedDateTimeFormatShort());
 

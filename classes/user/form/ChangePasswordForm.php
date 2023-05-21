@@ -19,7 +19,6 @@ namespace PKP\user\form;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\form\Form;
-
 use PKP\security\Validation;
 use PKP\site\Site;
 use PKP\user\User;

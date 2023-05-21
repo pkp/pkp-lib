@@ -18,6 +18,8 @@
 namespace PKP\security\authorization;
 
 use APP\core\Application;
+use APP\core\Request;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -69,7 +71,7 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
         $reviewAssignment = $reviewAssignmentDao->getById($this->_reviewAssignmentId);
 
-        if (!($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment)) {
+        if (!($reviewAssignment instanceof ReviewAssignment)) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 

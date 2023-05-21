@@ -292,8 +292,6 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
      * Update OAI set objects data into data_object_tombstone_oai_set_objects table.
      *
      * @param DataObjectTombstone $dataObjectTombstone
-     *
-     * @return bool
      */
     public function updateOAISetObjects($dataObjectTombstone)
     {

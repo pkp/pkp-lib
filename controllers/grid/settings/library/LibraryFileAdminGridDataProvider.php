@@ -16,6 +16,8 @@
 
 namespace PKP\controllers\grid\settings\library;
 
+use PKP\context\Context;
+use PKP\context\LibraryFileDAO;
 use PKP\controllers\grid\CategoryGridDataProvider;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\ContextAccessPolicy;

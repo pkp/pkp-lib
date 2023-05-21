@@ -24,7 +24,9 @@ namespace PKP\submission\reviewRound;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
+use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class ReviewRound extends \PKP\core\DataObject
 {
@@ -233,7 +235,7 @@ class ReviewRound extends \PKP\core\DataObject
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($this->getId());
         foreach ($reviewAssignments as $reviewAssignment) {
-            assert($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment);
+            assert($reviewAssignment instanceof ReviewAssignment);
 
             $assignmentStatus = $reviewAssignment->getStatus();
 
@@ -286,7 +288,7 @@ class ReviewRound extends \PKP\core\DataObject
      *
      * @param bool $isAuthor True iff the status is to be shown to the author (slightly tweaked phrasing)
      *
-     * @return int
+     * @return string
      */
     public function getStatusKey($isAuthor = false)
     {

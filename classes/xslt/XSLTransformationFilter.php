@@ -16,6 +16,7 @@
 
 namespace PKP\xslt;
 
+use PKP\filter\FilterGroup;
 use PKP\filter\FilterSetting;
 use PKP\filter\PersistableFilter;
 use PKP\form\validation\FormValidator;

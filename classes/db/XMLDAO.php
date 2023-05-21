@@ -39,7 +39,7 @@ class XMLDAO
      * @see PKPXMLParser::parse()
      *
      * @param string $file
-     * @param callable $handler reference to the handler to use with the parser.
+     * @param \PKP\xml\XMLParserDOMHandler $handler reference to the handler to use with the parser.
      */
     public function parseWithHandler($file, $handler)
     {

@@ -18,6 +18,7 @@
 
 namespace PKP\user;
 
+use PKP\controlledVocab\ControlledVocab;
 use PKP\controlledVocab\ControlledVocabDAO;
 use PKP\core\ArrayItemIterator;
 use PKP\db\DAORegistry;

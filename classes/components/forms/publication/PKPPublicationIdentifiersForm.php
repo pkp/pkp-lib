@@ -15,6 +15,7 @@
 
 namespace PKP\components\forms\publication;
 
+use APP\publication\Publication;
 use PKP\components\forms\FormComponent;
 
 define('FORM_PUBLICATION_IDENTIFIERS', 'publicationIdentifiers');
@@ -30,7 +31,7 @@ class PKPPublicationIdentifiersForm extends FormComponent
     /** @var Publication The publication this form is for */
     public $publication;
 
-    /** @var Context The journal/press this publication exists in */
+    /** @var \PKP\context\Context The journal/press this publication exists in */
     public $submissionContext;
 
     /**
@@ -39,7 +40,7 @@ class PKPPublicationIdentifiersForm extends FormComponent
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
      * @param Publication $publication The publication to change settings for
-     * @param Context $submissionContext The journal/press this publication exists in
+     * @param \PKP\context\Context $submissionContext The journal/press this publication exists in
      */
     public function __construct($action, $locales, $publication, $submissionContext)
     {

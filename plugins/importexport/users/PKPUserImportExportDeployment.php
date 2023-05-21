@@ -18,7 +18,10 @@
 namespace PKP\plugins\importexport\users;
 
 use APP\core\Application;
+use PKP\context\Context;
 use PKP\plugins\importexport\PKPImportExportDeployment;
+use PKP\site\Site;
+use PKP\user\User;
 
 class PKPUserImportExportDeployment extends PKPImportExportDeployment
 {
@@ -29,7 +32,7 @@ class PKPUserImportExportDeployment extends PKPImportExportDeployment
      * Constructor
      *
      * @param Context $context
-     * @param User $user
+     * @param ?User $user
      */
     public function __construct($context, $user)
     {

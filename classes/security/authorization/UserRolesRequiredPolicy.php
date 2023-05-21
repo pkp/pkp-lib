@@ -17,9 +17,10 @@
 namespace PKP\security\authorization;
 
 use APP\core\Application;
+use APP\core\Request;
 use PKP\db\DAORegistry;
-
 use PKP\security\Role;
+use PKP\security\RoleDAO;
 
 class UserRolesRequiredPolicy extends AuthorizationPolicy
 {
@@ -29,7 +30,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
     /**
      * Constructor
      *
-     * @param PKPRequest $request
+     * @param Request $request
      */
     public function __construct($request)
     {
@@ -68,6 +69,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
 
     /**
      * Get the current context roles from all user roles.
+     * @param array<int,Role[]> $userRoles List of roles grouped by contextId
      */
     protected function _getContextRoles(int $contextId, array $userRoles): array
     {

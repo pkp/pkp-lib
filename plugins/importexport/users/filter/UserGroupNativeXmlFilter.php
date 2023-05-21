@@ -18,6 +18,8 @@ namespace PKP\plugins\importexport\users\filter;
 
 use APP\facades\Repo;
 use DOMDocument;
+use PKP\filter\FilterGroup;
+use PKP\userGroup\UserGroup;
 
 class UserGroupNativeXmlFilter extends \PKP\plugins\importexport\native\filter\NativeExportFilter
 {

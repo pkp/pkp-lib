@@ -24,7 +24,7 @@ class FormValidatorInSet extends FormValidator
     /**
      * Constructor.
      *
-     * @param Form $form the associated form
+     * @param \PKP\form\Form $form the associated form
      * @param string $field the name of the associated field
      * @param string $type the type of check, either "required" or "optional"
      * @param string $message the error message for validation failures (i18n key)

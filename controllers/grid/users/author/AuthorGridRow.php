@@ -19,7 +19,10 @@
 namespace PKP\controllers\grid\users\author;
 
 use APP\facades\Repo;
+use APP\publication\Publication;
+use APP\submission\Submission;
 use PKP\controllers\grid\GridRow;
+use PKP\core\PKPRequest;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;

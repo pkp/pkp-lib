@@ -17,17 +17,19 @@
 namespace PKP\controllers\tab\authorDashboard;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\notification\Notification;
 use APP\pages\authorDashboard\AuthorDashboardHandler;
 use APP\template\TemplateManager;
-
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
+use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
 use PKP\security\Role;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
 {

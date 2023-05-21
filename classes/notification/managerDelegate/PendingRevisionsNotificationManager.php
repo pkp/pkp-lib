@@ -22,9 +22,11 @@ use APP\facades\Repo;
 use APP\notification\Notification;
 use PKP\controllers\api\file\linkAction\AddRevisionLinkAction;
 use PKP\db\DAORegistry;
+use PKP\notification\NotificationDAO;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\workflow\WorkflowStageDAO;
 
 class PendingRevisionsNotificationManager extends NotificationManagerDelegate

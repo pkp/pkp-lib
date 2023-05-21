@@ -113,7 +113,7 @@ class FormComponent
      *
      * @param string $fieldName
      *
-     * @return Field
+     * @return ?Field
      */
     public function getField($fieldName)
     {
@@ -223,7 +223,7 @@ class FormComponent
      *
      * @param string $id The id of the item to position before or after
      * @param array $list The list of fields, groups or pages
-     * @param array $item The item to insert
+     * @param mixed $item The item to insert
      * @param string $position FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
      *
      * @return array

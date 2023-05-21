@@ -127,7 +127,7 @@ class PKPHandler
     /**
      * Set the dispatcher
      *
-     * @param PKPDispatcher $dispatcher
+     * @param Dispatcher $dispatcher
      */
     public function setDispatcher($dispatcher)
     {
@@ -159,7 +159,7 @@ class PKPHandler
      * call so that PKPHandler::authorize() will be able to enforce
      * them.
      *
-     * @param AuthorizationPolicy $authorizationPolicy
+     * @param AuthorizationPolicy|\PKP\security\authorization\PolicySet $authorizationPolicy
      * @param bool $addToTop whether to insert the new policy
      *  to the top of the list.
      */
@@ -186,7 +186,7 @@ class PKPHandler
      */
     public function &getAuthorizedContextObject($assocType)
     {
-        assert($this->_authorizationDecisionManager instanceof \PKP\security\authorization\AuthorizationDecisionManager);
+        assert($this->_authorizationDecisionManager instanceof AuthorizationDecisionManager);
         return $this->_authorizationDecisionManager->getAuthorizedContextObject($assocType);
     }
 
@@ -202,7 +202,7 @@ class PKPHandler
      */
     public function &getAuthorizedContext()
     {
-        assert($this->_authorizationDecisionManager instanceof \PKP\security\authorization\AuthorizationDecisionManager);
+        assert($this->_authorizationDecisionManager instanceof AuthorizationDecisionManager);
         return $this->_authorizationDecisionManager->getAuthorizedContext();
     }
 
@@ -214,7 +214,7 @@ class PKPHandler
      */
     public function getLastAuthorizationMessage()
     {
-        if (!$this->_authorizationDecisionManager instanceof \PKP\security\authorization\AuthorizationDecisionManager) {
+        if (!$this->_authorizationDecisionManager instanceof AuthorizationDecisionManager) {
             return '';
         }
         $authorizationMessages = $this->_authorizationDecisionManager->getAuthorizationMessages();
@@ -267,7 +267,7 @@ class PKPHandler
      *
      * @param int $roleId
      *
-     * @return array assignment for the given role.
+     * @return ?array assignment for the given role.
      */
     public function getRoleAssignment($roleId)
     {
@@ -338,7 +338,7 @@ class PKPHandler
         }
 
         // Make sure that we have a valid decision manager instance.
-        assert($this->_authorizationDecisionManager instanceof \PKP\security\authorization\AuthorizationDecisionManager);
+        assert($this->_authorizationDecisionManager instanceof AuthorizationDecisionManager);
 
         $router = $request->getRouter();
         if ($router instanceof \PKP\core\PKPPageRouter) {
@@ -562,13 +562,13 @@ class PKPHandler
      *
      * @param Request $request
      *
-     * @return mixed Either Context or null
+     * @return ?\PKP\context\Context Either Context or null
      */
     public function getSiteRedirectContext($request)
     {
         $site = $request->getSite();
         if ($site && ($contextId = $site->getRedirect())) {
-            $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
+            $contextDao = Application::getContextDAO();
             return $contextDao->getById($contextId);
         }
         return null;
@@ -577,7 +577,7 @@ class PKPHandler
     /**
      * Return the first context that user is enrolled with.
      *
-     * @param User $user
+     * @param \PKP\user\User $user
      * @param array $contexts
      *
      * @return mixed Either Context or null
@@ -645,7 +645,7 @@ class PKPHandler
 
         if ($requestedPath === 'index' || $requestedPath === '') {
             // No context requested. Check how many contexts the site has.
-            $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
+            $contextDao = Application::getContextDAO();
             $contexts = $contextDao->getAll(true);
             [$firstContext, $secondContext] = [$contexts->next(), $contexts->next()];
             if ($firstContext && !$secondContext) {

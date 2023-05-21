@@ -25,6 +25,7 @@ namespace PKP\session;
 
 use APP\facades\Repo;
 use PKP\config\Config;
+use PKP\user\User;
 
 class Session extends \PKP\core\DataObject
 {
@@ -82,7 +83,7 @@ class Session extends \PKP\core\DataObject
     /**
      * Set user ID.
      *
-     * @param int $userId
+     * @param ?int $userId
      */
     public function setUserId($userId)
     {
@@ -211,7 +212,7 @@ class Session extends \PKP\core\DataObject
     /**
      * Set session parameters.
      *
-     * @param array $data
+     * @param string $data
      */
     public function setSessionData($data)
     {

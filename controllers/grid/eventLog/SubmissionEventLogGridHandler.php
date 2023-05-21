@@ -17,15 +17,19 @@
 namespace PKP\controllers\grid\eventLog;
 
 use APP\core\Application;
+use APP\submission\Submission;
 use PKP\controllers\grid\DateGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\log\EmailLogEntry;
 use PKP\log\EventLogEntry;
+use PKP\log\SubmissionEmailLogDAO;
+use PKP\log\SubmissionEventLogDAO;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;

@@ -146,7 +146,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Create a new notification with the specified arguments and insert into DB
      *
-     * @param PKPRequest $request
+     * @param ?PKPRequest $request
      * @param int $userId (optional)
      * @param int $notificationType
      * @param int $contextId
@@ -155,7 +155,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      * @param int $level
      * @param array $params
      *
-     * @return Notification object|null
+     * @return ?Notification
      */
     public function createNotification($request, $userId = null, $notificationType = null, $contextId = null, $assocType = null, $assocId = null, $level = Notification::NOTIFICATION_LEVEL_NORMAL, $params = null)
     {
@@ -199,7 +199,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notification = $notificationDao->newDataObject();
         $notification->setUserId($userId);
-        $notification->setContextId(\PKP\core\PKPApplication::CONTEXT_ID_NONE);
+        $notification->setContextId(PKPApplication::CONTEXT_ID_NONE);
         $notification->setType($notificationType);
         $notification->setLevel(Notification::NOTIFICATION_LEVEL_TRIVIAL);
 
@@ -232,7 +232,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     }
 
     /**
-     * General notification data formating.
+     * General notification data formatting.
      *
      * @param PKPRequest $request
      * @param array $notifications

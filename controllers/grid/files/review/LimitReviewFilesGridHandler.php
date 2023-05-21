@@ -24,6 +24,7 @@ use PKP\db\DAORegistry;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\ReviewStageAccessPolicy;
 use PKP\security\Role;
+use PKP\submission\ReviewFilesDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class LimitReviewFilesGridHandler extends SelectableFileListGridHandler

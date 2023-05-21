@@ -20,6 +20,7 @@ namespace PKP\user;
 
 use PKP\controlledVocab\ControlledVocabEntryDAO;
 use PKP\db\DAOResultFactory;
+use PKP\db\DBResultRange;
 
 class InterestEntryDAO extends ControlledVocabEntryDAO
 {
@@ -48,10 +49,10 @@ class InterestEntryDAO extends ControlledVocabEntryDAO
      * particular controlled vocabulary ID.
      *
      * @param int $controlledVocabId
-     * @param RangeInfo $rangeInfo optional range information for result
+     * @param DBResultRange $rangeInfo optional range information for result
      * @param string $filter Optional filter to match to beginnings of results
      *
-     * @return object DAOResultFactory containing matching CVE objects
+     * @return DAOResultFactory<InterestEntry> Object containing matching CVE objects
      */
     public function getByControlledVocabId($controlledVocabId, $rangeInfo = null, $filter = null)
     {
@@ -82,7 +83,7 @@ class InterestEntryDAO extends ControlledVocabEntryDAO
      *
      * @param array $entryIds
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<InterestEntry>
      */
     public function getByIds($entryIds)
     {

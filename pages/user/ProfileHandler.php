@@ -19,6 +19,7 @@ namespace PKP\pages\user;
 use APP\core\Application;
 use APP\pages\user\UserHandler;
 use APP\template\TemplateManager;
+use PKP\core\PKPRequest;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
 

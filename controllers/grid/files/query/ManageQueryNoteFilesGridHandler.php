@@ -21,6 +21,7 @@ use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\controllers\grid\files\query\form\ManageQueryNoteFilesForm;
 use PKP\controllers\grid\files\SelectableSubmissionFileListCategoryGridHandler;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\security\Role;
 
 class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCategoryGridHandler

@@ -19,10 +19,15 @@ namespace PKP\plugins\importexport\users;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use Exception;
+use PKP\context\Context;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
+use PKP\file\TemporaryFileDAO;
 use PKP\file\TemporaryFileManager;
+use PKP\filter\Filter;
+use PKP\filter\FilterDAO;
 use PKP\plugins\ImportExportPlugin;
 use PKP\user\User;
 
@@ -194,7 +199,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
      * Get the XML for all of users.
      *
      * @param Context $context
-     * @param User $user
+     * @param ?User $user
      * @param Filter $filter byRef parameter - import/export filter used
      *
      * @return string XML contents representing the supplied user IDs.
@@ -217,7 +222,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
      *
      * @param array $ids mixed Array of users or user IDs
      * @param Context $context
-     * @param User $user
+     * @param ?User $user
      * @param Filter $filter byRef parameter - import/export filter used
      *
      * @return string XML contents representing the supplied user IDs.
@@ -257,7 +262,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
      *
      * @param string $importXml XML contents to import
      * @param Context $context
-     * @param User $user
+     * @param ?User $user
      * @param Filter $filter byRef parameter - import/export filter used
      *
      * @return array Set of imported users
@@ -275,7 +280,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
      * Return user filter for import purposes
      *
      * @param Context $context
-     * @param User $user
+     * @param ?User $user
      * @param bool $isImport return Import Filter if true - export if false
      *
      * @return Filter

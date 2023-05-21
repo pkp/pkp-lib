@@ -17,12 +17,14 @@
 namespace PKP\pages\sitemap;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use DOMDocument;
 use DOMNode;
 use PKP\db\DAORegistry;
 use PKP\navigationMenu\NavigationMenuItem;
+use PKP\navigationMenu\NavigationMenuItemDAO;
 
 define('SITEMAP_XSD_URL', 'https://www.sitemaps.org/schemas/sitemap/0.9');
 

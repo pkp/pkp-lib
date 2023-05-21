@@ -19,7 +19,6 @@
 namespace PKP\db;
 
 use APP\core\Application;
-
 use PKP\core\Registry;
 
 class DAORegistry

@@ -25,7 +25,6 @@ use PKP\file\TemporaryFileDAO;
 use PKP\file\TemporaryFileManager;
 use PKP\form\Form;
 use PKP\notification\PKPNotification;
-
 use PKP\plugins\PluginHelper;
 use PKP\plugins\PluginRegistry;
 

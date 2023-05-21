@@ -19,7 +19,6 @@
 namespace PKP\author;
 
 use APP\author\Author;
-
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -28,6 +27,10 @@ use PKP\core\EntityDAO;
 use PKP\facades\Repo;
 use PKP\services\PKPSchemaService;
 
+/**
+ * @template T of Author
+ * @extends EntityDAO<T>
+ */
 class DAO extends EntityDAO
 {
     /** @copydoc EntityDAO::$schema */
@@ -114,6 +117,8 @@ class DAO extends EntityDAO
 
     /**
      * Get a list of ids matching the configured query
+     *
+     * @return Collection<int,int>
      */
     public function getIds(Collector $query): Collection
     {
@@ -125,6 +130,8 @@ class DAO extends EntityDAO
 
     /**
      * Get a collection of publications matching the configured query
+     *
+     * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection
     {

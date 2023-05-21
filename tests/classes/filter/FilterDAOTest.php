@@ -21,6 +21,7 @@ namespace PKP\tests\classes\filter;
 use PKP\db\DAORegistry;
 use PKP\filter\FilterDAO;
 use PKP\filter\FilterGroup;
+use PKP\filter\FilterGroupDAO;
 use PKP\filter\GenericMultiplexerFilter;
 use PKP\filter\GenericSequencerFilter;
 use PKP\tests\DatabaseTestCase;

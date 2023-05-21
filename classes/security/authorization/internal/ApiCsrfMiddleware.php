@@ -18,8 +18,9 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
-
+use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
+use Slim\Http\Request as SlimRequest;
 
 class ApiCsrfMiddleware
 {
@@ -39,10 +40,10 @@ class ApiCsrfMiddleware
      * Middleware invokable function
      *
      * @param SlimRequest $slimRequest request
-     * @param SlimResponse $response response
+     * @param APIResponse $response response
      * @param callable $next Next middleware
      *
-     * @return SlimResponse
+     * @return APIResponse
      */
     public function __invoke($slimRequest, $response, $next)
     {

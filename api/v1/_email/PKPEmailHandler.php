@@ -19,7 +19,6 @@ namespace PKP\API\v1\_email;
 
 use APP\facades\Repo;
 use Illuminate\Support\Facades\Bus;
-use Illuminate\Support\Facades\Queue;
 use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
 use PKP\jobs\bulk\BulkEmailSender;

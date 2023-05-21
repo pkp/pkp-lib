@@ -40,7 +40,9 @@ class LocaleTest extends PKPTestCase
         parent::setUp();
         // Save the underlying Locale implementation and replaces it by a generic mock
         $this->_locale = Locale::getFacadeRoot();
-        $mock = Mockery::mock($this->_locale::class)
+        /** @var \PKP\i18n\Locale|MockInterface */
+        $mock = Mockery::mock($this->_locale::class);
+        $mock = $mock
             ->makePartial()
             // Custom locales
             ->shouldReceive('getLocales')
@@ -75,7 +77,9 @@ class LocaleTest extends PKPTestCase
 
     private function _createMetadataMock(string $locale, bool $isComplete = false): MockInterface
     {
-        return Mockery::mock(LocaleMetadata::class, [$locale])
+        /** @var LocaleMetadata|MockInterface */
+        $mock = Mockery::mock(LocaleMetadata::class, [$locale]);
+        return $mock
             ->makePartial()
             ->shouldReceive('isComplete')
             ->andReturn($isComplete)

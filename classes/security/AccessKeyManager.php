@@ -70,10 +70,10 @@ class AccessKeyManager
      *
      * @param string $context The context of the access key
      * @param int $userId The ID of the effective user for this access key
-     * @param int $assocId The associated ID of the key
+     * @param ?int $assocId The associated ID of the key
      * @param int $expiryDays The number of days before this key expires
      *
-     * @return accessKey string The generated passkey
+     * @return string The generated passkey
      */
     public function createKey($context, $userId, $assocId, $expiryDays)
     {

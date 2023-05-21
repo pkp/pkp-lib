@@ -16,13 +16,13 @@
 
 namespace PKP\cliTool;
 
-/** Default XML tasks file to parse if none is specified */
-define('TASKS_REGISTRY_FILE', 'registry/scheduledTasks.xml');
-
 use PKP\db\DAORegistry;
 use PKP\scheduledTask\ScheduledTaskDAO;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\xml\PKPXMLParser;
+
+/** Default XML tasks file to parse if none is specified */
+define('TASKS_REGISTRY_FILE', 'registry/scheduledTasks.xml');
 
 class ScheduledTaskTool extends \PKP\cliTool\CommandLineTool
 {

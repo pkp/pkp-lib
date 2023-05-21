@@ -14,6 +14,8 @@
  */
 
 namespace PKP\security\authorization;
+use PKP\core\PKPRequest;
+use PKP\core\PKPRouter;
 
 class UserRequiredPolicy extends AuthorizationPolicy
 {

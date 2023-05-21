@@ -23,7 +23,7 @@ class FormValidatorPost extends FormValidator
     /**
      * Constructor.
      *
-     * @param Form $form
+     * @param \PKP\form\Form $form
      * @param string $message the locale key to use (optional)
      */
     public function __construct(&$form, $message = 'form.postRequired')

@@ -23,6 +23,7 @@
  */
 
 namespace PKP\controllers\grid;
+use PKP\core\PKPRequest;
 
 class GridRow extends GridBodyElement
 {

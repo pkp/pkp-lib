@@ -17,6 +17,10 @@
 
 namespace PKP\core;
 
+/**
+ * @template TKey
+ * @template TValue
+ */
 class ItemIterator
 {
     /**
@@ -29,7 +33,7 @@ class ItemIterator
     /**
      * Return the next item in the iterator.
      *
-     * @return object
+     * @return TValue
      */
     public function next()
     {
@@ -39,7 +43,7 @@ class ItemIterator
     /**
      * Return the next item with key.
      *
-     * @return array ($key, $value);
+     * @return array<Tkey,TValue>
      */
     public function nextWithKey()
     {
@@ -119,7 +123,7 @@ class ItemIterator
     /**
      * Convert this iterator to an array.
      *
-     * @return array
+     * @return TValue[]
      */
     public function toArray()
     {

@@ -16,6 +16,7 @@
 
 namespace PKP\controllers\grid\queries;
 
+use APP\submission\Submission;
 use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;

@@ -22,6 +22,10 @@ use PKP\core\DataObject;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 
+/**
+ * @template T of DataObject
+ * @extends EntityDAO<T>
+ */
 class TestEntityDAO extends EntityDAO
 {
     use EntityWithParent;

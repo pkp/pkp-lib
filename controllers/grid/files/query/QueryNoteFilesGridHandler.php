@@ -22,6 +22,7 @@ use PKP\controllers\grid\files\fileList\FileListGridHandler;
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\controllers\grid\files\query\form\ManageQueryNoteFilesForm;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\Role;
 

@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
@@ -33,6 +34,7 @@ use PKP\mail\mailables\ReviewRequestSubsequent;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 
 class AdvancedSearchReviewerForm extends ReviewerForm

@@ -21,6 +21,7 @@ namespace PKP\reviewForm;
 
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
+use PKP\db\DBResultRange;
 use PKP\plugins\Hook;
 
 class ReviewFormElementDAO extends \PKP\db\DAO
@@ -225,10 +226,10 @@ class ReviewFormElementDAO extends \PKP\db\DAO
      * Retrieve all elements for a review form.
      *
      * @param int $reviewFormId
-     * @param RangeInfo $rangeInfo (optional)
+     * @param ?DBResultRange $rangeInfo (optional)
      * @param bool $included True for only included comments; false for non-included; null for both
      *
-     * @return DAOResultFactory containing ReviewFormElements ordered by sequence
+     * @return DAOResultFactory<ReviewFormElement> containing ReviewFormElements ordered by sequence
      */
     public function getByReviewFormId($reviewFormId, $rangeInfo = null, $included = null)
     {

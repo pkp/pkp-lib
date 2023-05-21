@@ -35,7 +35,9 @@ use PKP\job\resources\HttpFailedJobResource;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
+use PKP\session\SessionDAO;
 use PKP\site\VersionCheck;
+use PKP\site\VersionDAO;
 
 class AdminHandler extends Handler
 {

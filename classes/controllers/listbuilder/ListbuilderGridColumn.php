@@ -17,6 +17,7 @@
 namespace PKP\controllers\listbuilder;
 
 use PKP\controllers\grid\GridColumn;
+use PKP\controllers\listbuilder\users\UserListbuilderGridCellProvider;
 
 class ListbuilderGridColumn extends GridColumn
 {
@@ -28,7 +29,7 @@ class ListbuilderGridColumn extends GridColumn
      * @param string $title The optional title for this column.
      * @param string $titleTranslated The optional translated title for this column.
      * @param string $template The optional overridden template for this column.
-     * @param ListbuilderGridCellProvider $cellProvider The optional overridden grid cell provider.
+     * @param UserListbuilderGridCellProvider $cellProvider The optional overridden grid cell provider.
      * @param array $flags Optional set of flags for this column's display.
      */
     public function __construct(

@@ -16,6 +16,8 @@
 namespace PKP\controllers\grid\files\submissionDocuments;
 
 use APP\core\Application;
+use APP\submission\Submission;
+use PKP\context\LibraryFileDAO;
 use PKP\controllers\grid\CategoryGridDataProvider;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\SubmissionAccessPolicy;

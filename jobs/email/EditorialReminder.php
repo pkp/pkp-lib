@@ -30,9 +30,12 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\jobs\BaseJob;
 use PKP\mail\mailables\EditorialReminder as MailablesEditorialReminder;
+use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
+use PKP\workflow\WorkflowStageDAO;
 
 class EditorialReminder extends BaseJob
 {

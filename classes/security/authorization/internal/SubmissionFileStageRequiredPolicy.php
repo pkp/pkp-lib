@@ -17,9 +17,11 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy
 {

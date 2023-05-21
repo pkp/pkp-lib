@@ -17,6 +17,7 @@
 namespace PKP\security\authorization;
 
 use APP\core\Application;
+use PKP\core\PKPRequest;
 
 class AssignedStageRoleHandlerOperationPolicy extends RoleBasedHandlerOperationPolicy
 {

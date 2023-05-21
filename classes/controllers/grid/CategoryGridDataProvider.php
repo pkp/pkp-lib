@@ -80,7 +80,7 @@ class CategoryGridDataProvider extends GridDataProvider
     /**
      * Retrieve the category data to load into the grid.
      *
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      * @param array|null $filter
      *
      * @return array

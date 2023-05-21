@@ -39,7 +39,7 @@ class Email extends Step
     /**
      * @param array<User> $recipients One or more User objects who are the recipients of this email
      * @param Mailable $mailable The mailable that will be used to send this email
-     * @param array<BaseAttacher>
+     * @param array<BaseAttacher> $attachers
      */
     public function __construct(string $id, string $name, string $description, array $recipients, Mailable $mailable, array $locales, ?array $attachers = [])
     {

@@ -18,11 +18,12 @@
 
 namespace PKP\publication;
 
+use APP\author\Author;
 use APP\facades\Repo;
 use PKP\core\Core;
-
 use PKP\core\PKPString;
 use PKP\facades\Locale;
+use PKP\userGroup\UserGroup;
 
 class PKPPublication extends \PKP\core\DataObject
 {

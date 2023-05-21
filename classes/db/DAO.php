@@ -25,7 +25,6 @@ namespace PKP\db;
 
 use Generator;
 use Illuminate\Support\Facades\DB;
-
 use PKP\cache\CacheManager;
 use PKP\core\JSONMessage;
 use PKP\plugins\Hook;
@@ -59,7 +58,7 @@ class DAO
      *
      * @deprecated 3.4
      *
-     * @return Generator
+     * @return Generator<int,object>
      */
     public function retrieve($sql, $params = [], $callHooks = true)
     {
@@ -79,7 +78,7 @@ class DAO
     }
 
     /**
-     * Execute a SELECT SQL statment, returning rows in the range supplied.
+     * Execute a SELECT SQL statement, returning rows in the range supplied.
      *
      * @param string $sql the SQL statement
      * @param array $params parameters for the SQL statement
@@ -179,8 +178,6 @@ class DAO
      * @param array $keyCols Array of column names that are keys
      *
      * @deprecated 3.4
-     *
-     * @return int @see ADODB::Replace
      */
     public function replace($table, $arrFields, $keyCols)
     {
@@ -495,7 +492,7 @@ class DAO
      * Update the settings table of a data object.
      *
      * @param string $tableName
-     * @param DataObject $dataObject
+     * @param \PKP\core\DataObject $dataObject
      * @param array $idArray
      *
      * @deprecated 3.4

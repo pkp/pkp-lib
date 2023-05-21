@@ -22,10 +22,11 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\session\SessionDAO;
 use PKP\session\SessionManager;
 use PKP\site\Site;
-
 use PKP\site\SiteDAO;
+use PKP\user\User;
 
 class Validation
 {
@@ -41,7 +42,7 @@ class Validation
      * @param string $reason reference to string to receive the reason an account was disabled; null otherwise
      * @param bool $remember remember a user's session past the current browser session
      *
-     * @return User the User associated with the login credentials, or false if the credentials are invalid
+     * @return ?User the User associated with the login credentials, or false if the credentials are invalid
      */
     public static function login($username, $password, &$reason, $remember = false)
     {
@@ -104,7 +105,7 @@ class Validation
      */
     public static function registerUserSession($user, &$reason, $remember = false)
     {
-        if (!$user instanceof \PKP\user\User) {
+        if (!$user instanceof User) {
             return false;
         }
 

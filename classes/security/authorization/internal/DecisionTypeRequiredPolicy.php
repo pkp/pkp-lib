@@ -17,8 +17,9 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use PKP\core\PKPRequest;
+use PKP\decision\DecisionType;
 use PKP\security\authorization\AuthorizationPolicy;
-
 use PKP\security\authorization\DataObjectRequiredPolicy;
 
 class DecisionTypeRequiredPolicy extends DataObjectRequiredPolicy
@@ -46,7 +47,7 @@ class DecisionTypeRequiredPolicy extends DataObjectRequiredPolicy
      */
     public function dataObjectEffect()
     {
-        /** @var Type|null $decisionType */
+        /** @var ?DecisionType $decisionType */
         $decisionType = Repo::decision()->getDecisionType($this->decision);
 
         if (!$decisionType) {

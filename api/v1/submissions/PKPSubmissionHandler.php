@@ -50,6 +50,7 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\userGroup\UserGroup;
@@ -326,7 +327,7 @@ class PKPSubmissionHandler extends APIHandler
             ->filterByContextIds([$context->getId()])
             ->getMany();
 
-        /** @var GenreDAO $genreDao */
+        /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
@@ -855,7 +856,7 @@ class PKPSubmissionHandler extends APIHandler
             ->filterByContextIds([$submission->getData('contextId')])
             ->getMany();
 
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var \PKP\submission\reviewAssignment\ReviewAssignmentDAO $reviewAssignmentDao */
         $currentUserReviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer(
             $submission->getId(),
             $request->getUser()->getId()

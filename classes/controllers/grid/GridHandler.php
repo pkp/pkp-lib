@@ -43,12 +43,17 @@ use APP\template\TemplateManager;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
 use Illuminate\Support\Str;
-
+use PKP\controllers\grid\files\FilesGridDataProvider;
+use PKP\core\ItemIterator;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
+use PKP\db\DBResultRange;
+use PKP\form\Form;
 use PKP\handler\PKPHandler;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\NullAction;
 use PKP\plugins\Hook;
+use PKP\template\PKPTemplateManager;
 
 class GridHandler extends PKPHandler
 {
@@ -399,7 +404,7 @@ class GridHandler extends PKPHandler
             $this->_data = $data;
         } elseif ($data instanceof \PKP\db\DAOResultFactory) {
             $this->_data = $data->toAssociativeArray();
-        } elseif ($data instanceof \PKP\core\ItemIterator) {
+        } elseif ($data instanceof ItemIterator) {
             $this->_data = $data->toArray();
         } else {
             assert(false);
@@ -570,7 +575,7 @@ class GridHandler extends PKPHandler
      * @param PKPRequest $request
      * @param array $args
      *
-     * @return \PKP\controllers\grid\GridRow the requested grid row, already
+     * @return ?\PKP\controllers\grid\GridRow the requested grid row, already
      *  configured with id and data or null if the row
      *  could not been found.
      */
@@ -945,7 +950,7 @@ class GridHandler extends PKPHandler
      * Implement this method to load data into the grid.
      *
      * @param PKPRequest $request
-     * @param array $filter An associative array with filter data as returned by
+     * @param ?array $filter An associative array with filter data as returned by
      *  getFilterSelectionData(). If no filter has been selected by the user
      *  then the array will be empty.
      *
@@ -969,7 +974,7 @@ class GridHandler extends PKPHandler
     /**
      * Returns a Form object or the path name of a filter template.
      *
-     * @return Form|string
+     * @return Form|string|null
      */
     protected function getFilterForm()
     {
@@ -993,7 +998,7 @@ class GridHandler extends PKPHandler
      *
      * @param PKPRequest $request
      *
-     * @return array
+     * @return ?array
      */
     protected function getFilterSelectionData($request)
     {

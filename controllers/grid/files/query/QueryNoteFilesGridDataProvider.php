@@ -23,6 +23,7 @@ use PKP\controllers\api\file\linkAction\AddFileLinkAction;
 use PKP\controllers\grid\files\fileList\linkAction\SelectFilesLinkAction;
 use PKP\controllers\grid\files\SubmissionFilesGridDataProvider;
 use PKP\db\DAORegistry;
+use PKP\note\NoteDAO;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\submissionFile\SubmissionFile;
 

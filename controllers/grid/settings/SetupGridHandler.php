@@ -18,6 +18,7 @@ namespace PKP\controllers\grid\settings;
 
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\file\TemporaryFileManager;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;

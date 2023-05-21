@@ -19,6 +19,7 @@ namespace PKP\controllers\grid\admin\plugins;
 use APP\core\Application;
 use PKP\controllers\grid\plugins\PluginGridHandler;
 use PKP\controllers\grid\plugins\PluginGridRow;
+use PKP\core\PKPRequest;
 use PKP\security\authorization\PluginAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;

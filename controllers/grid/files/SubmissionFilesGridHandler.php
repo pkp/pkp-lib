@@ -17,6 +17,8 @@
 namespace PKP\controllers\grid\files;
 
 use APP\core\Application;
+use APP\submission\Submission;
+use PKP\controllers\grid\GridDataProvider;
 use PKP\controllers\grid\GridHandler;
 
 class SubmissionFilesGridHandler extends GridHandler
@@ -24,14 +26,14 @@ class SubmissionFilesGridHandler extends GridHandler
     /** @var FilesGridCapabilities */
     public $_capabilities;
 
-    /** @var int */
+    /** @var ?int */
     public $_stageId;
 
     /**
      * Constructor
      *
      * @param GridDataProvider $dataProvider
-     * @param int $stageId One of the WORKFLOW_STAGE_ID_* constants.
+     * @param ?int $stageId One of the WORKFLOW_STAGE_ID_* constants.
      * @param int $capabilities A bit map with zero or more
      *  FILE_GRID_* capabilities set.
      */
@@ -88,7 +90,7 @@ class SubmissionFilesGridHandler extends GridHandler
     {
         // We assume proper authentication by the data provider.
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        assert($submission instanceof \APP\submission\Submission);
+        assert($submission instanceof Submission);
         return $submission;
     }
 

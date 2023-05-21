@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 
+/**
+ * @template T of Announcement
+ * @extends EntityDAO<T>
+ */
 class DAO extends EntityDAO
 {
     /** @copydoc EntityDAO::$schema */
@@ -84,6 +88,8 @@ class DAO extends EntityDAO
 
     /**
      * Get a list of ids matching the configured query
+     *
+     * @return Collection<int,int>
      */
     public function getIds(Collector $query): Collection
     {
@@ -94,6 +100,8 @@ class DAO extends EntityDAO
 
     /**
      * Get a collection of announcements matching the configured query
+     *
+     * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection
     {

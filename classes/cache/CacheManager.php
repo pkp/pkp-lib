@@ -78,7 +78,7 @@ class CacheManager
      *
      * @param string $context
      * @param string $cacheId
-     * @param callable $fallback
+     * @param ?callable $fallback
      * @param string $type Type of cache: CACHE_TYPE_...
      *
      * @return GenericCache

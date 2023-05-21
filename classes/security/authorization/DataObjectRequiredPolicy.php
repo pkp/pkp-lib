@@ -16,6 +16,7 @@
 namespace PKP\security\authorization;
 
 use Exception;
+use PKP\core\PKPRequest;
 
 class DataObjectRequiredPolicy extends AuthorizationPolicy
 {
@@ -94,7 +95,7 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
     /**
      * Test the data object's effect
      *
-     * @return AUTHORIZATION_DENY|AUTHORIZATION_ACCEPT
+     * @return int AUTHORIZATION_DENY|AUTHORIZATION_ACCEPT
      */
     public function dataObjectEffect()
     {

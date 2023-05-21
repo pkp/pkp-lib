@@ -37,7 +37,7 @@ class PKPSiteAppearanceForm extends FormComponent
      *
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
-     * @param Site $site
+     * @param \PKP\site\Site $site
      * @param string $baseUrl Site's base URL. Used for image previews.
      * @param string $temporaryFileApiUrl URL to upload files to
      */

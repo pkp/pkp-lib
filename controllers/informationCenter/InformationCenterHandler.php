@@ -19,15 +19,19 @@ namespace PKP\controllers\informationCenter;
 use APP\core\Application;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
-
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\log\EventLogEntry;
 use PKP\log\SubmissionFileLog;
+use PKP\log\SubmissionLog;
+use PKP\note\NoteDAO;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
+use PKP\submissionFile\SubmissionFile;
 
 abstract class InformationCenterHandler extends Handler
 {
@@ -150,7 +154,7 @@ abstract class InformationCenterHandler extends Handler
      * @param array $args
      * @param PKPRequest $request
      *
-     * @return JSONMessage JSON object
+     * @return string
      */
     public function _listNotes($args, $request)
     {

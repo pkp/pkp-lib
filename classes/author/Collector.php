@@ -20,6 +20,9 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\plugins\Hook;
 
+/**
+ * @template T of Author
+ */
 class Collector implements CollectorInterface
 {
     public const ORDERBY_SEQUENCE = 'sequence';
@@ -31,10 +34,10 @@ class Collector implements CollectorInterface
     /** @var DAO */
     public $dao;
 
-    /** @var array|null */
+    /** @var int[]|null */
     public $contextIds = null;
 
-    /** @var array|null */
+    /** @var int[]|null */
     public $publicationIds = null;
 
     /** Get authors with a family name */
@@ -65,11 +68,18 @@ class Collector implements CollectorInterface
         return $this->dao->getCount($this);
     }
 
+    /**
+     * @return Collection<int,int>
+     */
     public function getIds(): Collection
     {
         return $this->dao->getIds($this);
     }
 
+    /**
+     * @copydoc DAO::getMany()
+     * @return LazyCollection<int,T>
+     */
     public function getMany(): LazyCollection
     {
         return $this->dao->getMany($this);

@@ -19,12 +19,14 @@ namespace PKP\controllers\grid\users\reviewer\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\mail\mailables\ReviewerRegister;
 use PKP\notification\PKPNotification;
 use PKP\security\Validation;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\user\InterestManager;
 use Symfony\Component\Mailer\Exception\TransportException;
 

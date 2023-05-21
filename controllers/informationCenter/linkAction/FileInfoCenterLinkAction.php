@@ -15,8 +15,11 @@
 
 namespace PKP\controllers\informationCenter\linkAction;
 
+use APP\core\Request;
 use PKP\controllers\api\file\linkAction\FileLinkAction;
+use PKP\core\PKPRequest;
 use PKP\linkAction\request\AjaxModal;
+use PKP\submissionFile\SubmissionFile;
 
 class FileInfoCenterLinkAction extends FileLinkAction
 {

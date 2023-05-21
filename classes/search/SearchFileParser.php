@@ -23,13 +23,14 @@
 namespace PKP\search;
 
 use PKP\config\Config;
+use PKP\submissionFile\SubmissionFile;
 
 class SearchFileParser
 {
     /** @var string the complete path to the file */
     public $filePath;
 
-    /** @var int file handle */
+    /** @var resource file handle */
     public $fp;
 
     /**

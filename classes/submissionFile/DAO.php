@@ -28,9 +28,15 @@ use PKP\core\EntityDAO;
 use PKP\db\DAORegistry;
 use PKP\plugins\PKPPubIdPluginDAO;
 use PKP\services\PKPSchemaService;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\ReviewFilesDAO;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 
+/**
+ * @template T of SubmissionFile
+ * @extends EntityDAO<T>
+ */
 class DAO extends EntityDAO implements PKPPubIdPluginDAO
 {
     /** @copydoc EntityDAO::$schema */
@@ -121,6 +127,8 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
 
     /**
      * Get a list of ids matching the configured query
+     *
+     * @return Collection<int,int>
      */
     public function getIds(Collector $query): Collection
     {
@@ -132,6 +140,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
 
     /**
      * Get a collection of announcements matching the configured query
+     * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection
     {

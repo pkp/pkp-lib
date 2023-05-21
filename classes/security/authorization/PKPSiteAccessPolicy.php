@@ -17,6 +17,7 @@ namespace PKP\security\authorization;
 
 use APP\core\Application;
 use Exception;
+use PKP\core\PKPRequest;
 
 class PKPSiteAccessPolicy extends PolicySet
 {

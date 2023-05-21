@@ -16,9 +16,11 @@
 namespace PKP\pages\libraryFiles;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\LibraryFileManager;
 use APP\handler\Handler;
+use PKP\context\LibraryFileDAO;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
 

@@ -11,17 +11,22 @@
  *
  * @ingroup plugins_importexport_native
  *
- * @brief Base class that converts a PKPPublication to a Native XML document
+ * @brief Base class that converts a Publication to a Native XML document
  */
 
 namespace PKP\plugins\importexport\native\filter;
 
 use APP\core\Application;
+use APP\plugins\importexport\native\NativeImportExportDeployment;
+use APP\publication\Publication;
 use Exception;
+use PKP\citation\CitationDAO;
 use PKP\db\DAORegistry;
+use PKP\filter\FilterGroup;
 use PKP\plugins\importexport\PKPImportExportFilter;
 use PKP\plugins\PluginRegistry;
 use PKP\submission\PKPSubmission;
+use PKP\submission\Representation;
 use PKP\submission\RepresentationDAOInterface;
 
 class PKPPublicationNativeXmlFilter extends NativeExportFilter
@@ -43,7 +48,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     /**
      * @see Filter::process()
      *
-     * @param PKPPublication $entity
+     * @param Publication $entity
      *
      * @return \DOMDocument
      */
@@ -69,7 +74,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
      * Create and return an entity node.
      *
      * @param \DOMDocument $doc
-     * @param PKPPublication $entity
+     * @param Publication $entity
      *
      * @return \DOMElement
      */
@@ -128,7 +133,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
      *
      * @param \DOMDocument $doc
      * @param \DOMElement $entityNode
-     * @param PKPPublication $entity
+     * @param Publication $entity
      */
     public function addIdentifiers($doc, $entityNode, $entity)
     {
@@ -160,7 +165,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
      *
      * @param \DOMDocument $doc
      * @param \DOMElement $entityNode
-     * @param PKPPublication $entity
+     * @param Publication $entity
      *
      * @return ?\DOMElement
      */
@@ -182,7 +187,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
      *
      * @param \DOMDocument $doc
      * @param \DOMElement $entityNode
-     * @param PKPPublication $entity
+     * @param Publication $entity
      */
     public function addMetadata($doc, $entityNode, $entity)
     {
@@ -250,7 +255,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
      *
      * @param \DOMDocument $doc
      * @param \DOMElement $entityNode
-     * @param PKPPublication $entity
+     * @param Publication $entity
      */
     public function addAuthors($doc, $entityNode, $entity)
     {

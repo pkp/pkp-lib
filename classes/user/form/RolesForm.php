@@ -17,10 +17,10 @@
 namespace PKP\user\form;
 
 use APP\core\Application;
-
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\user\InterestManager;
+use PKP\user\User;
 
 class RolesForm extends BaseProfileForm
 {

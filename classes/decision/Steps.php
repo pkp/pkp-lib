@@ -100,7 +100,7 @@ class Steps
     /**
      * Get all reviewers who completed a review in this decision's stage
      *
-     * @param array<ReviewAssignments> $reviewAssignments
+     * @param array<\PKP\submission\reviewAssignment\ReviewAssignment> $reviewAssignments
      *
      * @return array<User>
      */

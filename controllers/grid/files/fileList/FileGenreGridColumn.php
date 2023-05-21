@@ -18,6 +18,8 @@ namespace PKP\controllers\grid\files\fileList;
 use PKP\controllers\grid\ColumnBasedGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\db\DAORegistry;
+use PKP\submission\GenreDAO;
+use PKP\submissionFile\SubmissionFile;
 
 class FileGenreGridColumn extends GridColumn
 {

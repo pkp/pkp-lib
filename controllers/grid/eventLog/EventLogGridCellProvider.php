@@ -21,10 +21,10 @@ use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\db\DAORegistry;
-use PKP\log\EmailLogEntry;
 use PKP\log\EventLogEntry;
 use PKP\log\PKPSubmissionEventLogEntry;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class EventLogGridCellProvider extends DataObjectGridCellProvider
@@ -58,10 +58,10 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
      */
     public function getTemplateVarsFromRowColumn($row, $column)
     {
-        /** @var EmailLogEntry */
         $element = $row->getData();
         $columnId = $column->getId();
         assert($element instanceof \PKP\core\DataObject && !empty($columnId));
+        /** @var EventLogEntry $element */
         switch ($columnId) {
             case 'date':
                 return ['label' => $element instanceof EventLogEntry ? $element->getDateLogged() : $element->getDateSent()];

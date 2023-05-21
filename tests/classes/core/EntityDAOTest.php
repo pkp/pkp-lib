@@ -20,7 +20,6 @@ namespace PKP\tests\classes\core;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
 use PKP\core\DataObject;
 use PKP\plugins\Hook;
 use PKP\tests\PKPTestCase;

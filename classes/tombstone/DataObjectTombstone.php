@@ -134,7 +134,7 @@ class DataObjectTombstone extends \PKP\core\DataObject
      *
      * @param int $assocType
      *
-     * @return int The object id.
+     * @return ?int The object id.
      */
     public function getOAISetObjectId($assocType)
     {

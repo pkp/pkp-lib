@@ -21,11 +21,12 @@ use APP\handler\Handler;
 use APP\notification\Notification;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
-
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\Role;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 
 class PKPReviewRoundTabHandler extends Handler
 {

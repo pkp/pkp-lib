@@ -25,12 +25,14 @@ use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
 use PKP\db\DAORegistry;
+use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\SubmissionAcknowledgement;
 use PKP\mail\mailables\SubmissionAcknowledgementOtherAuthors;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignment;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\user\User;
 

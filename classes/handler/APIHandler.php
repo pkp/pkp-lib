@@ -23,18 +23,20 @@ use PKP\core\APIResponse;
 use PKP\plugins\Hook;
 use PKP\security\authorization\internal\ApiAuthorizationMiddleware;
 use PKP\security\authorization\internal\ApiCsrfMiddleware;
-
 use PKP\security\authorization\internal\ApiTokenDecodingMiddleware;
 use PKP\statistics\PKPStatisticsHelper;
 use PKP\validation\ValidatorFactory;
-
 use Slim\App;
+use Slim\Http\Request as SlimRequest;
 
 class APIHandler extends PKPHandler
 {
+    /** @var App */
     protected $_app;
+    /** @var Request */
     protected $_request;
     protected $_endpoints = [];
+    /** @var SlimRequest */
     protected $_slimRequest = null;
 
     /** @var string The endpoint pattern for this handler */
@@ -52,7 +54,7 @@ class APIHandler extends PKPHandler
     public function __construct()
     {
         parent::__construct();
-        $this->_app = new \Slim\App([
+        $this->_app = new App([
             // Load custom response handler
             'response' => function ($c) {
                 return new APIResponse();

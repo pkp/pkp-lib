@@ -175,7 +175,7 @@ class PKPRequest
     /**
      * Get the IF_MODIFIED_SINCE date (as a numerical timestamp) if available
      *
-     * @return int
+     * @return ?int
      */
     public function getIfModifiedSince()
     {
@@ -649,7 +649,7 @@ class PKPRequest
      * @param int $defaultMinute
      * @param int $defaultSecond
      *
-     * @return Date
+     * @return ?int Linux timestamp
      */
     public function getUserDateVar($prefix, $defaultDay = null, $defaultMonth = null, $defaultYear = null, $defaultHour = 0, $defaultMinute = 0, $defaultSecond = 0)
     {

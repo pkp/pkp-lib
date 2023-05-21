@@ -17,11 +17,12 @@
 namespace PKP\db;
 
 use APP\core\Services;
-
 use Exception;
-
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @template T of \PKP\core\DataObject
+ */
 abstract class SchemaDAO extends DAO
 {
     /** @var string One of the SCHEMA_... constants */
@@ -42,7 +43,7 @@ abstract class SchemaDAO extends DAO
     /**
      * Create a new \PKP\core\DataObject of the appropriate class
      *
-     * @return \PKP\core\DataObject
+     * @return T
      */
     abstract public function newDataObject();
 
@@ -51,7 +52,7 @@ abstract class SchemaDAO extends DAO
      *
      * @param int $objectId
      *
-     * @return ?\PKP\core\DataObject
+     * @return ?T
      */
     public function getById($objectId)
     {
@@ -67,7 +68,7 @@ abstract class SchemaDAO extends DAO
     /**
      * Insert a new object
      *
-     * @param \PKP\core\DataObject $object The object to insert into the database
+     * @param T $object The object to insert into the database
      *
      * @return int The new object's id
      */
@@ -131,7 +132,7 @@ abstract class SchemaDAO extends DAO
      *
      * To delete a value for a locale key, a null value must be passed.
      *
-     * @param \PKP\core\DataObject $object The object to insert into the database
+     * @param T $object The object to insert into the database
      */
     public function updateObject($object)
     {
@@ -196,7 +197,7 @@ abstract class SchemaDAO extends DAO
      *
      * A wrapper function for SchemaDAO::deleteObjectById().
      *
-     * @param \PKP\core\DataObject $object The object to insert into the database
+     * @param T $object The object to insert into the database
      */
     public function deleteObject($object)
     {
@@ -225,7 +226,7 @@ abstract class SchemaDAO extends DAO
      *
      * @param array $primaryRow The result row from the primary table lookup
      *
-     * @return DataObject
+     * @return T
      */
     public function _fromRow($primaryRow)
     {
@@ -268,7 +269,7 @@ abstract class SchemaDAO extends DAO
     /**
      * A helper function to compile the key/value set for the primary table
      *
-     * @param DataObject $object
+     * @param T $object
      *
      * @return array
      */

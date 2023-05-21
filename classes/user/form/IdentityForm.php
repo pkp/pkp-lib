@@ -17,8 +17,8 @@
 namespace PKP\user\form;
 
 use APP\core\Application;
-
 use APP\template\TemplateManager;
+use PKP\user\User;
 
 class IdentityForm extends BaseProfileForm
 {

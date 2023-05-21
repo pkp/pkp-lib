@@ -20,6 +20,8 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\core\Core;
+use PKP\filter\Filter;
+use PKP\filter\FilterGroup;
 use PKP\observers\events\BatchMetadataChanged;
 use PKP\workflow\WorkflowStageDAO;
 

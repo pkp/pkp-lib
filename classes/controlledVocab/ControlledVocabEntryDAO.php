@@ -21,6 +21,7 @@ namespace PKP\controlledVocab;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\db\DAOResultFactory;
+use PKP\db\DBResultRange;
 
 class ControlledVocabEntryDAO extends \PKP\db\DAO
 {
@@ -180,10 +181,10 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
      * particular controlled vocabulary ID.
      *
      * @param int $controlledVocabId
-     * @param null|mixed $rangeInfo
+     * @param ?DBResultRange $rangeInfo
      * @param null|mixed $filter
      *
-     * @return object DAOResultFactory containing matching CVE objects
+     * @return DAOResultFactory<ControlledVocabEntry> Object containing matching CVE objects
      */
     public function getByControlledVocabId($controlledVocabId, $rangeInfo = null, $filter = null)
     {
@@ -215,7 +216,7 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
      * @param int $contextId
      * @param string $locale
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<ControlledVocabEntry>
      */
     public function getByContextId($symbolic, $contextId, $locale, ?string $term = null)
     {

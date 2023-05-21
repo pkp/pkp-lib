@@ -22,7 +22,7 @@ class JSONMessage
     /** @var string The status of an event (e.g. false if form validation fails). */
     public $_status;
 
-    /** @var Mixed The message to be delivered back to the calling script. */
+    /** @var mixed The message to be delivered back to the calling script. */
     public $_content;
 
     /** @var string ID for DOM element that will be replaced. */
@@ -38,7 +38,7 @@ class JSONMessage
      * Constructor.
      *
      * @param bool $status The status of an event (e.g. false if form validation fails).
-     * @param Mixed $content The message to be delivered back to the calling script.
+     * @param mixed $content The message to be delivered back to the calling script.
      * @param string $elementId The DOM element to be replaced.
      * @param array $additionalAttributes Additional data to be returned.
      */

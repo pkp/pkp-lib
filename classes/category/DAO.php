@@ -19,6 +19,10 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 
+/**
+ * @template T of Category
+ * @extends EntityDAO<T>
+ */
 class DAO extends EntityDAO
 {
     use EntityWithParent;
@@ -71,6 +75,8 @@ class DAO extends EntityDAO
 
     /**
      * Get a list of ids matching the configured query
+     *
+     * @return Collection<int,int>
      */
     public function getIds(Collector $query): Collection
     {
@@ -81,6 +87,7 @@ class DAO extends EntityDAO
 
     /**
      * Get a collection of categories matching the configured query
+     * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection
     {

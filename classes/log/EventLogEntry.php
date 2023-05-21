@@ -199,7 +199,7 @@ class EventLogEntry extends \PKP\core\DataObject
         unset($params['params']); // Clean up for translate call
 
         if ($hideReviewerName) {
-            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var \PKP\submission\reviewAssignment\ReviewAssignmentDAO $reviewAssignmentDao */
             // Reviewer activity log entries (assigning, accepting, declining)
             if (isset($params['reviewerName'])) {
                 $anonymousAuthor = true;

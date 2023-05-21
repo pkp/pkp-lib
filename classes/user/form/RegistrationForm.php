@@ -176,7 +176,7 @@ class RegistrationForm extends Form
         $request = Application::get()->getRequest();
 
         // Ensure the consent checkbox has been completed for the site and any user
-        // group signups if we're in the site-wide registration form
+        // group sign-ups if we're in the site-wide registration form
         if (!$request->getContext()) {
             if ($request->getSite()->getData('privacyStatement')) {
                 $privacyConsent = $this->getData('privacyConsent');

@@ -35,9 +35,12 @@ use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
+use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
+use PKP\notification\NotificationDAO;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
+use PKP\query\Query;
 use PKP\query\QueryDAO;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
@@ -130,7 +133,7 @@ class QueriesGridHandler extends GridHandler
     /**
      * Create and return a data provider for this grid.
      *
-     * @return GridCellProvider
+     * @return QueriesGridCellProvider
      */
     public function getCellProvider()
     {
@@ -294,7 +297,7 @@ class QueriesGridHandler extends GridHandler
     /**
      * Get an instance of the queries grid access helper
      *
-     * @return QueriesGridAccessHelper
+     * @return QueriesAccessHelper
      */
     public function getAccessHelper()
     {

@@ -20,7 +20,6 @@ namespace PKP\observers\listeners;
 
 use Illuminate\Events\Dispatcher;
 use PKP\jobs\metadata\MetadataChangedJob;
-
 use PKP\observers\events\MetadataChanged;
 
 class MetadataChangedListener

@@ -19,6 +19,7 @@
 namespace PKP\tests\classes\notification;
 
 use APP\notification\Notification;
+use PHPUnit\Framework\MockObject\MockObject;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\notification\NotificationDAO;
@@ -193,7 +194,7 @@ class PKPNotificationManagerTest extends PKPTestCase
      * that is blocked by user. Will be used as return value for the
      * getUserBlockedNotifications method.
      *
-     * @return PHPUnit_Framework_MockObject_MockObject
+     * @return MockObject|PKPNotificationManager
      */
     private function getMgrStubForCreateNotificationTests($blockedNotifications = [])
     {

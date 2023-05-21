@@ -60,7 +60,7 @@ class OAIUtils
      * @param string $date UTC datestamp
      * @param string $requiredGranularity Datestamp granularity to require (default: not checked)
      *
-     * @return int timestamp
+     * @return int|string timestamp
      */
     public static function UTCtoTimestamp($date, $requiredGranularity = null)
     {

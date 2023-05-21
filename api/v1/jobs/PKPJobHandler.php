@@ -78,7 +78,7 @@ class PKPJobHandler extends APIHandler
     }
 
     /**
-     * @param \PKP\handler\Request $request
+     * @param \APP\core\Request $request
      * @param array $args
      * @param array $roleAssignments
      *

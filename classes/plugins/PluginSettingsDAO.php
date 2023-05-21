@@ -20,6 +20,7 @@ namespace PKP\plugins;
 
 use Illuminate\Support\Facades\DB;
 use PKP\cache\CacheManager;
+use PKP\cache\GenericCache;
 use PKP\xml\PKPXMLParser;
 
 class PluginSettingsDAO extends \PKP\db\DAO
@@ -30,7 +31,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
      * @param int $contextId Context ID
      * @param string $pluginName Plugin symbolic name
      *
-     * @return Cache
+     * @return GenericCache
      */
     public function _getCache($contextId, $pluginName)
     {
@@ -135,8 +136,6 @@ class PluginSettingsDAO extends \PKP\db\DAO
      * @param string $name Setting name
      * @param mixed $value Setting value
      * @param string $type data type of the setting. If omitted, type will be guessed
-     *
-     * @return bool See \Illuminate\Database\Query\Builder::updateOrInsert
      */
     public function updateSetting($contextId, $pluginName, $name, $value, $type = null)
     {

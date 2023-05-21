@@ -20,7 +20,6 @@ use APP\core\Application;
 use APP\notification\Notification;
 use PKP\db\DAORegistry;
 use PKP\notification\NotificationManagerDelegate;
-
 use PKP\notification\PKPNotification;
 
 class EditorAssignmentNotificationManager extends NotificationManagerDelegate

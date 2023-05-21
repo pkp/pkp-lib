@@ -17,6 +17,7 @@
  */
 
 namespace PKP\services\queryBuilders\interfaces;
+use Illuminate\Database\Query\Builder;
 
 interface EntityQueryBuilderInterface
 {
@@ -82,7 +83,7 @@ interface EntityQueryBuilderInterface
      *
      * See: https://laravel.com/docs/5.5/queries
      *
-     * @return Illuminate\Database\Query\Builder
+     * @return Builder
      */
     public function getQuery();
 }

@@ -22,6 +22,7 @@ use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\site\VersionDAO;
 
 class AboutSiteHandler extends Handler
 {

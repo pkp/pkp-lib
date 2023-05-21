@@ -28,6 +28,9 @@ use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\plugins\Hook;
 
+/**
+ * @template T of User
+ */
 class Collector implements CollectorInterface
 {
     public const ORDERBY_ID = 'id';
@@ -84,11 +87,18 @@ class Collector implements CollectorInterface
         return $this->dao->getCount($this);
     }
 
+    /**
+     * @copydoc DAO::getMany()
+     * @return LazyCollection<int,T>
+     */
     public function getMany(): LazyCollection
     {
         return $this->dao->getMany($this);
     }
 
+    /**
+     * @return Collection<int,int>
+     */
     public function getIds(): Collection
     {
         return $this->dao->getIds($this);

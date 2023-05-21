@@ -21,9 +21,11 @@ use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\navigationMenus\form\NavigationMenuForm;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -169,7 +171,7 @@ class NavigationMenusGridHandler extends GridHandler
      * @param array $args
      * @param PKPRequest $request
      *
-     * @return string
+     * @return JSONMessage
      */
     public function addNavigationMenu($args, $request)
     {

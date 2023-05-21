@@ -16,6 +16,7 @@
 
 namespace PKP\controllers\grid\files;
 
+use APP\submission\Submission;
 use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
@@ -50,7 +51,7 @@ class LibraryFileGridRow extends GridRow
     /**
      * Get the file type for this row
      *
-     * @return fileType
+     * @return string
      */
     public function getFileType()
     {

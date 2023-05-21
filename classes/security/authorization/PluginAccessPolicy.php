@@ -15,6 +15,7 @@
 
 namespace PKP\security\authorization;
 
+use PKP\core\PKPRequest;
 use PKP\security\authorization\internal\PluginLevelRequiredPolicy;
 use PKP\security\authorization\internal\PluginRequiredPolicy;
 use PKP\security\Role;

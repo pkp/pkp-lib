@@ -23,6 +23,7 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;

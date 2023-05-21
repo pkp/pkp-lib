@@ -19,9 +19,12 @@ namespace PKP\mail\traits;
 use APP\submission\Submission;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponse;
 use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\SubmissionComment;
+use PKP\submission\SubmissionCommentDAO;
 
 trait ReviewerComments
 {

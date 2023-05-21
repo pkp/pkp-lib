@@ -39,6 +39,8 @@ use PKP\plugins\Hook;
 use PKP\security\AccessKeyManager;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
 use Symfony\Component\Mailer\Exception\TransportException;

@@ -20,8 +20,10 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use APP\submission\Submission;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\user\User;
 
 class ReviewAssignmentAccessPolicy extends AuthorizationPolicy

@@ -36,7 +36,7 @@ class PKPMastheadForm extends FormComponent
      *
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
-     * @param Context $context Journal or Press to change settings for
+     * @param \PKP\context\Context $context Journal or Press to change settings for
      * @param string $imageUploadUrl The API endpoint for images uploaded through the rich text field
      */
     public function __construct($action, $locales, $context, $imageUploadUrl)

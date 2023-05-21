@@ -31,6 +31,7 @@ use PKP\mail\mailables\ReviewRemind;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class ReviewReminderForm extends Form

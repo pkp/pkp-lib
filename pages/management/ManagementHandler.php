@@ -296,7 +296,7 @@ class ManagementHandler extends Handler
 
         $licenseForm = new \APP\components\forms\context\LicenseForm($apiUrl, $locales, $context);
         $doiSetupSettingsForm = new DoiSetupSettingsForm($apiUrl, $locales, $context);
-        $doiRegistrationSettingsForm = new \PKP\components\forms\context\PKPDoiRegistrationSettingsForm($doiRegistrationSettingsApiUrl, $locales, $context);
+        $doiRegistrationSettingsForm = new PKPDoiRegistrationSettingsForm($doiRegistrationSettingsApiUrl, $locales, $context);
         $searchIndexingForm = new \PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
         $paymentSettingsForm = new \PKP\components\forms\context\PKPPaymentSettingsForm($paymentsUrl, $locales, $context);
 
@@ -315,7 +315,7 @@ class ManagementHandler extends Handler
             'components' => [
                 FORM_LICENSE => $licenseForm->getConfig(),
                 \PKP\components\forms\context\PKPDoiSetupSettingsForm::FORM_DOI_SETUP_SETTINGS => $doiSetupSettingsForm->getConfig(),
-                \PKP\components\forms\context\PKPDoiRegistrationSettingsForm::FORM_DOI_REGISTRATION_SETTINGS => $doiRegistrationSettingsForm->getConfig(),
+                PKPDoiRegistrationSettingsForm::FORM_DOI_REGISTRATION_SETTINGS => $doiRegistrationSettingsForm->getConfig(),
                 FORM_SEARCH_INDEXING => $searchIndexingForm->getConfig(),
                 FORM_PAYMENT_SETTINGS => $paymentSettingsForm->getConfig(),
                 FORM_CONTEXT_STATISTICS => $contextStatisticsForm->getConfig(),

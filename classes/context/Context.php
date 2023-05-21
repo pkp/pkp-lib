@@ -482,9 +482,7 @@ abstract class Context extends \PKP\core\DataObject
     abstract public function getAssocType();
 
     /**
-     * @deprecated Most settings should be available from self::getData(). In
-     *  other cases, use the context settings DAO directly.
-     *
+     * @deprecated Most settings should be available from self::getData(). In other cases, use the context settings DAO directly.
      * @param null|mixed $locale
      */
     public function getSetting($name, $locale = null)
@@ -493,9 +491,7 @@ abstract class Context extends \PKP\core\DataObject
     }
 
     /**
-     * @deprecated Most settings should be available from self::getData(). In
-     *  other cases, use the context settings DAO directly.
-     *
+     * @deprecated Most settings should be available from self::getData(). In other cases, use the context settings DAO directly.
      * @param null|mixed $locale
      */
     public function getLocalizedSetting($name, $locale = null)

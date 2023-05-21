@@ -17,6 +17,7 @@
 
 namespace PKP\validation;
 
+use PKP\controlledVocab\ControlledVocabDAO;
 use PKP\db\DAORegistry;
 
 class ValidatorControlledVocab extends Validator

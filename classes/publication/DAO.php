@@ -29,6 +29,10 @@ use PKP\submission\SubmissionKeywordDAO;
 use PKP\submission\SubmissionLanguageDAO;
 use PKP\submission\SubmissionSubjectDAO;
 
+/**
+ * @template T of Publication
+ * @extends EntityDAO<T>
+ */
 class DAO extends EntityDAO
 {
     use EntityWithParent;
@@ -113,6 +117,8 @@ class DAO extends EntityDAO
 
     /**
      * Get a list of ids matching the configured query
+     *
+     * @return Collection<int,int>
      */
     public function getIds(Collector $query): Collection
     {
@@ -124,6 +130,7 @@ class DAO extends EntityDAO
 
     /**
      * Get a collection of publications matching the configured query
+     * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection
     {

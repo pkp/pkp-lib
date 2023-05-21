@@ -22,6 +22,9 @@ use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\file\PrivateFileManager;
 use PKP\mail\Mailable;
+use PKP\site\Site;
+use PKP\site\SiteDAO;
+use PKP\xml\XMLNode;
 
 class ScheduledTaskHelper
 {

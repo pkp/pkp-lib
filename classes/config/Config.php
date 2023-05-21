@@ -21,6 +21,7 @@
 
 namespace PKP\config;
 
+use Exception;
 use PKP\core\Registry;
 
 /** The path to the default configuration file */

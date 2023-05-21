@@ -39,7 +39,7 @@ class SubmissionFileEventLogDAO extends EventLogDAO
      *
      * @param int $submissionFileId
      *
-     * @return DAOResultFactory
+     * @return \PKP\db\DAOResultFactory<SubmissionFileEventLogEntry>
      */
     public function getBySubmissionFileId($submissionFileId)
     {

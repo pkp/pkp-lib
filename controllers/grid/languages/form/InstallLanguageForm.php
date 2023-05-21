@@ -22,6 +22,7 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\i18n\LocaleMetadata;
+use PKP\site\SiteDAO;
 
 class InstallLanguageForm extends Form
 {

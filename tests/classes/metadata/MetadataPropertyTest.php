@@ -19,6 +19,8 @@
 namespace PKP\tests\classes\metadata;
 
 use InvalidArgumentException;
+use PKP\controlledVocab\ControlledVocabDAO;
+use PKP\controlledVocab\ControlledVocabEntryDAO;
 use PKP\db\DAORegistry;
 use PKP\metadata\MetadataDescription;
 use PKP\metadata\MetadataProperty;

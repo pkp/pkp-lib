@@ -36,7 +36,7 @@ class FormValidatorReCaptcha extends FormValidator
     /**
      * Constructor.
      *
-     * @param object $form
+     * @param \PKP\form\Form $form
      * @param string $userIp IP address of user request
      * @param string $message Key of message to display on mismatch
      * @param string|null $hostname Hostname to expect in validation response

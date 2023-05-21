@@ -18,6 +18,7 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use PKP\core\PKPRequest;
 use PKP\security\authorization\AuthorizationPolicy;
 
 class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy

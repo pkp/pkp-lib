@@ -21,6 +21,8 @@ use APP\core\Application;
 use Exception;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
+use PKP\submission\ReviewFilesDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAccessPolicy
@@ -43,7 +45,7 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
 
         // Get the submission file
         $submissionFile = $this->getSubmissionFile($request);
-        if (!$submissionFile instanceof \PKP\submissionFile\SubmissionFile) {
+        if (!$submissionFile instanceof SubmissionFile) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 

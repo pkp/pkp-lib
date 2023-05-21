@@ -168,11 +168,11 @@ class Galley extends Representation
      * This override exists to provide a functional getName() in order to make
      * native XML export work correctly.  It is only used in that single instance.
      *
-     * @param string $locale unused, except to match the function prototype in Representation.
+     * @param ?string $locale unused, except to match the function prototype in Representation.
      *
      * @return array
      */
-    public function getName($locale)
+    public function getName($locale = null)
     {
         return [$this->getLocale() => $this->getLabel()];
     }

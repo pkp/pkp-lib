@@ -22,7 +22,6 @@ use PKP\components\forms\FieldAutosuggestPreset;
 use PKP\components\forms\FieldSelectUsers;
 use PKP\security\Role;
 use PKP\submission\PKPSubmission;
-
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 

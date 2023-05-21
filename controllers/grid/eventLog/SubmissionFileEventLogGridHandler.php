@@ -17,7 +17,9 @@
 namespace PKP\controllers\grid\eventLog;
 
 use APP\core\Application;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\log\SubmissionFileEventLogDAO;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
 use PKP\submissionFile\SubmissionFile;
@@ -33,7 +35,7 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler
     /**
      * Get the submission file associated with this grid.
      *
-     * @return Submission
+     * @return SubmissionFile
      */
     public function getSubmissionFile()
     {

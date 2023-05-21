@@ -14,6 +14,7 @@
 
 namespace PKP\migration\install;
 
+use APP\core\Application;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -34,7 +35,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->integer('build')->default(0)->comment('Build component of version number, e.g. the 0 in OJS 2.3.8-0');
             $table->datetime('date_installed');
             $table->smallInteger('current')->default(0)->comment('1 iff the version entry being described is currently active. This permits the table to store past installation history for forensic purposes.');
-            $table->string('product_type', 30)->comment('Describes the type of product this row describes, e.g. "plugins.generic" (for a generic plugin) or "core" for the application itelf')->nullable();
+            $table->string('product_type', 30)->comment('Describes the type of product this row describes, e.g. "plugins.generic" (for a generic plugin) or "core" for the application itself')->nullable();
             $table->string('product', 30)->comment('Uniquely identifies the product this version row describes, e.g. "ojs2" for OJS 2.x, "languageToggle" for the language toggle block plugin, etc.')->nullable();
             $table->string('product_class_name', 80)->comment('Specifies the class name associated with this product, for plugins, or the empty string where not applicable.')->nullable();
             $table->smallInteger('lazy_load')->default(0)->comment('1 iff the row describes a lazy-load plugin; 0 otherwise');
@@ -157,7 +158,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->bigInteger('notification_id')->autoIncrement();
 
             $table->bigInteger('context_id')->nullable();
-            $contextDao = \APP\core\Application::getContextDAO();
+            $contextDao = Application::getContextDAO();
             $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
             $table->index(['context_id'], 'notifications_context_id');
 
@@ -203,7 +204,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->index(['user_id'], 'notification_subscription_settings_user_id');
 
             $table->bigInteger('context');
-            $contextDao = \APP\core\Application::getContextDAO();
+            $contextDao = Application::getContextDAO();
             $table->foreign('context')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
             $table->index(['context'], 'notification_subscription_settings_context');
 
@@ -227,7 +228,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->string('email_key', 255)->comment('Unique identifier for this email.');
 
             $table->bigInteger('context_id');
-            $contextDao = \APP\core\Application::getContextDAO();
+            $contextDao = Application::getContextDAO();
             $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
             $table->index(['context_id'], 'email_templates_context_id');
 

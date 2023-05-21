@@ -17,7 +17,10 @@
 namespace PKP\plugins;
 
 use APP\core\Application;
+use PKP\core\PKPRequest;
+use PKP\form\Form;
 use PKP\submissionFile\SubmissionFile;
+use PKP\template\PKPTemplateManager;
 
 class PKPPubIdPluginHelper
 {
@@ -89,7 +92,7 @@ class PKPPubIdPluginHelper
      * Init the additional form fields from public identifier plugins.
      *
      * @param int $contextId
-     * @param object $form PKPPublicIdentifiersForm|CatalogEntryFormatMetadataForm
+     * @param Form $form PKPPublicIdentifiersForm|CatalogEntryFormatMetadataForm
      * @param object $pubObject
      * 	Submission, Representation, SubmissionFile + OJS Issue
      */
@@ -112,7 +115,7 @@ class PKPPubIdPluginHelper
      * Read the additional input data from public identifier plugins.
      *
      * @param int $contextId
-     * @param object $form PKPPublicIdentifiersForm
+     * @param Form $form PKPPublicIdentifiersForm
      */
     public function readInputData($contextId, $form)
     {

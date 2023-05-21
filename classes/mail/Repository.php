@@ -32,7 +32,7 @@ class Repository
      * @param string $searchPhrase Only include mailables with a name or description matching this search phrase
      * @param ?bool $includeDisabled Whether or not to include mailables not used in this context, based on the context settings
      *
-     * @return Collection<string> The fully-qualified class name of each mailable
+     * @return Collection<int,string> The fully-qualified class name of each mailable
      */
     public function getMany(Context $context, ?string $searchPhrase = null, ?bool $includeDisabled = false): Collection
     {

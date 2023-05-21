@@ -16,6 +16,7 @@
 namespace PKP\components\forms\publication;
 
 use APP\core\Application;
+use APP\publication\Publication;
 use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
@@ -36,8 +37,8 @@ class PKPPublicationLicenseForm extends FormComponent
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
      * @param Publication $publication The publication to change settings for
-     * @param Context $context The publication's context
-     * @param LazyCollection<UserGroup> $userGroups User groups in this context
+     * @param \PKP\context\Context $context The publication's context
+     * @param LazyCollection<int,\PKP\userGroup\UserGroup> $userGroups User groups in this context
      */
     public function __construct($action, $locales, $publication, $context, LazyCollection $userGroups)
     {

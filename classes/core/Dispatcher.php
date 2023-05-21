@@ -19,7 +19,6 @@ namespace PKP\core;
 use APP\core\Services;
 use PKP\config\Config;
 use PKP\plugins\Hook;
-
 use PKP\plugins\PluginRegistry;
 use PKP\services\PKPSchemaService;
 
@@ -289,7 +288,6 @@ class Dispatcher
 
     /**
      * Handle a 404 error (page not found).
-     * @return never
      */
     public static function handle404()
     {

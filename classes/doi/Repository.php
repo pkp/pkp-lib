@@ -52,7 +52,7 @@ abstract class Repository
     /** @var Request $request */
     protected $request;
 
-    /** @var PKPSchemaService $schemaService */
+    /** @var PKPSchemaService<Doi> $schemaService */
     protected $schemaService;
 
     public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)

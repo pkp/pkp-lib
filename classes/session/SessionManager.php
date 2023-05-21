@@ -264,7 +264,7 @@ class SessionManager implements SessionHandlerInterface
         }
 
         $requestDomain = $this->request->getServerHost(includePort: false);
-        /** @var \Illuminate\Support\Collection<Session> */
+        /** @var \Illuminate\Support\Collection<int,Session> */
         $sessions = $sessionIds
             // Attempts to map the ID to an active session
             ->map(fn (string $sessionId) => $this->sessionDao->getSession($sessionId))
@@ -285,7 +285,7 @@ class SessionManager implements SessionHandlerInterface
             return $current->getSecondsLastUsed() > (int) $best?->getSecondsLastUsed() ? $current : $best;
         });
 
-        /** @var \Illuminate\Support\Collection<string> */
+        /** @var \Illuminate\Support\Collection<int,string> */
         $domains = $sessions->map(fn (Session $session) => $session->getDomain() ?: $requestDomain)->unique();
         // Prefers the parent domain (smaller length) to define the session, fallbacks to the request domain
         $bestDomain = $domains->reduce(fn (?string $best, string $current) => $best && strlen($best) <= strlen($current) ? $best : $current) ?: $requestDomain;

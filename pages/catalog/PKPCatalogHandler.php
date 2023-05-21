@@ -22,6 +22,7 @@ use APP\submission\Collector;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\config\Config;
+use PKP\core\PKPRequest;
 use PKP\db\DAO;
 use PKP\file\ContextFileManager;
 use PKP\security\authorization\ContextRequiredPolicy;
@@ -51,8 +52,6 @@ class PKPCatalogHandler extends Handler
      * ]
      *
      * @param PKPRequest $request
-     *
-     * @return string
      */
     public function category($args, $request)
     {

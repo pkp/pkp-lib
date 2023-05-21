@@ -15,11 +15,24 @@ namespace PKP\user;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use Carbon\Carbon;
 use PKP\context\Context;
+use PKP\context\SubEditorsDAO;
 use PKP\db\DAORegistry;
+use PKP\file\TemporaryFileDAO;
+use PKP\log\SubmissionEmailLogDAO;
+use PKP\log\SubmissionEventLogDAO;
+use PKP\note\NoteDAO;
+use PKP\notification\NotificationDAO;
 use PKP\plugins\Hook;
+use PKP\security\AccessKeyDAO;
 use PKP\security\Role;
+use PKP\security\RoleDAO;
+use PKP\session\SessionDAO;
+use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
+use PKP\submission\SubmissionCommentDAO;
 
 class Repository
 {
@@ -377,8 +390,8 @@ class Repository
     /**
      * Delete unvalidated expired users
      *
-     * @param object<Carbon\Carbon> $dateTillValid      The dateTime till before which user will consider expired
-     * @param array                 $excludableUsersId  The users id to exclude form delete operation
+     * @param Carbon $dateTillValid The dateTime till before which user will consider expired
+     * @param array $excludableUsersId  The users id to exclude form delete operation
      *
      * @return int The number rows affected by DB operation
      */

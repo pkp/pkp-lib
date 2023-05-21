@@ -17,6 +17,7 @@
 namespace PKP\observers\events;
 
 use APP\core\Application;
+use APP\core\PageRouter;
 use APP\core\Request;
 use APP\submission\Submission;
 use Exception;

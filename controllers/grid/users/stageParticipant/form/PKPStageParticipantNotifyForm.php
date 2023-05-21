@@ -27,15 +27,18 @@ use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\log\EventLogEntry;
 use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionLog;
+use PKP\note\NoteDAO;
+use PKP\notification\NotificationDAO;
 use PKP\notification\PKPNotification;
+use PKP\query\QueryDAO;
 use PKP\security\Role;
-
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class PKPStageParticipantNotifyForm extends Form
@@ -165,7 +168,7 @@ class PKPStageParticipantNotifyForm extends Form
             return;
         }
 
-        $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
+        $contextDao = Application::getContextDAO();
         $context = $contextDao->getById($submission->getData('contextId'));
         $mailable = $this->getStageMailable($context, $submission);
         $templateKey = $this->getData('template');

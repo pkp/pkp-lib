@@ -20,12 +20,18 @@ use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
+use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\reviewForm\ReviewFormDAO;
+use PKP\reviewForm\ReviewFormElementDAO;
+use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\SubmissionCommentDAO;
 
 class AuthorReviewerGridHandler extends PKPReviewerGridHandler
@@ -49,7 +55,7 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler
     /**
      * @see GridHandler::getRowInstance()
      *
-     * @return ReviewerGridRow
+     * @return AuthorReviewerGridRow
      */
     protected function getRowInstance()
     {

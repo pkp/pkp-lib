@@ -22,6 +22,7 @@
 
 namespace PKP\linkAction;
 
+use PKP\linkAction\request\LinkActionRequest;
 use PKP\plugins\Hook;
 
 class LinkAction
@@ -55,7 +56,7 @@ class LinkAction
     public function __construct($id, $actionRequest, $title = null, $image = null, $toolTip = null)
     {
         $this->_id = $id;
-        assert($actionRequest instanceof \PKP\linkAction\request\LinkActionRequest);
+        assert($actionRequest instanceof LinkActionRequest);
         $this->_actionRequest = $actionRequest;
         $this->_title = $title;
         $this->_image = $image;
@@ -99,8 +100,6 @@ class LinkAction
 
     /**
      * Set the localized action title.
-     *
-     * @return string
      */
     public function setTitle($title)
     {

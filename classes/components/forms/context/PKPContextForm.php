@@ -38,7 +38,7 @@ class PKPContextForm extends FormComponent
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
      * @param string $baseUrl Base URL for the site
-     * @param Context $context Journal or Press to change settings for
+     * @param \PKP\context\Context $context Journal or Press to change settings for
      */
     public function __construct($action, $locales, $baseUrl, $context)
     {

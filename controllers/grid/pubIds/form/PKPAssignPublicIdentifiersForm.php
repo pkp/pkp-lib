@@ -20,7 +20,6 @@ use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\plugins\PKPPubIdPluginHelper;
-
 use PKP\plugins\PluginRegistry;
 
 class PKPAssignPublicIdentifiersForm extends Form

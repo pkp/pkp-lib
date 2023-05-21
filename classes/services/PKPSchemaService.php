@@ -19,8 +19,12 @@ namespace PKP\services;
 use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\MessageBag;
+use PKP\core\DataObject;
 use PKP\plugins\Hook;
 
+/**
+ * @template T of DataObject
+ */
 class PKPSchemaService
 {
     public const SCHEMA_ANNOUNCEMENT = 'announcement';
@@ -436,13 +440,13 @@ class PKPSchemaService
      * ['contextName' => 'Journal of Public Knowledge']
      *
      * @param string $schemaName One of the SCHEMA_... constants
-     * @param \PKP\core\DataObject $object The object to be modified
+     * @param T $object The object to be modified
      * @param array $supportedLocales List of locale keys that should receive
      *  default content. Example: ['en', 'fr_CA']
      * @param string $primaryLocale Example: `en`
      * @param array $localeParams Key/value params for the translation strings
      *
-     * @return DataObject
+     * @return T
      */
     public function setDefaults($schemaName, $object, $supportedLocales, $primaryLocale, $localeParams = [])
     {

@@ -24,6 +24,7 @@ namespace PKP\template;
 
 use APP\core\Application;
 use APP\core\PageRouter;
+use PKP\site\VersionDAO;
 
 require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
 
@@ -52,9 +53,11 @@ use PKP\file\FileManager;
 use PKP\form\FormBuilderVocabulary;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\NullAction;
+use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\notification\NotificationDAO;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
+use PKP\plugins\ThemePlugin;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
@@ -148,7 +151,7 @@ class PKPTemplateManager extends Smarty
      */
     public function initialize($request)
     {
-        assert($request instanceof \PKP\core\PKPRequest);
+        assert($request instanceof PKPRequest);
         $this->_request = $request;
 
         $locale = Locale::getLocale();
@@ -419,7 +422,7 @@ class PKPTemplateManager extends Smarty
     /**
      * Flag the page as cacheable (or not).
      *
-     * @param bool $cacheability optional
+     * @param string $cacheability optional
      */
     public function setCacheability($cacheability = self::CACHEABILITY_PUBLIC)
     {
@@ -502,7 +505,7 @@ class PKPTemplateManager extends Smarty
     {
         $cacheDirectory = CacheManager::getFileCachePath();
         $context = $this->_request->getContext();
-        $contextId = $context instanceof \PKP\context\Context ? $context->getId() : 0;
+        $contextId = $context instanceof Context ? $context->getId() : 0;
         return "{$cacheDirectory}/{$contextId}-{$name}.css";
     }
 
@@ -1221,7 +1224,7 @@ class PKPTemplateManager extends Smarty
     {
         if (Application::isInstalled()) {
             $context = $this->_request->getContext();
-            if ($context instanceof \PKP\context\Context) {
+            if ($context instanceof Context) {
                 $resourceName .= $context->getData('themePluginPath');
             }
         }
@@ -1366,7 +1369,7 @@ class PKPTemplateManager extends Smarty
     /**
      * Return an instance of the template manager.
      *
-     * @param PKPRequest $request
+     * @param ?PKPRequest $request
      *
      * @return TemplateManager the template manager object
      */
@@ -1378,7 +1381,7 @@ class PKPTemplateManager extends Smarty
                 throw new Exception('Deprecated call without request object.');
             }
         }
-        assert($request instanceof \PKP\core\PKPRequest);
+        assert($request instanceof PKPRequest);
 
         $instance = & Registry::get('templateManager', true, null); // Reference required
 
@@ -2282,6 +2285,7 @@ class PKPTemplateManager extends Smarty
         if (empty($themePlugins)) {
             $themePlugins = PluginRegistry::loadCategory('themes', true);
         }
+        /** @var ThemePlugin[] $themePlugins */
         $activeThemeNavigationAreas = [];
         foreach ($themePlugins as $themePlugin) {
             if ($themePlugin->isActive()) {
@@ -2369,8 +2373,6 @@ class PKPTemplateManager extends Smarty
      *
      * @param array $params associative array
      * @param Smarty $smarty
-     *
-     * @return array of SubmissionFile objects
      */
     public function smartyPluckFiles($params, $smarty)
     {

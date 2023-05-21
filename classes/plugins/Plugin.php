@@ -50,17 +50,19 @@ namespace PKP\plugins;
 use APP\core\Application;
 use APP\template\TemplateManager;
 use Exception;
+use Illuminate\Database\Migrations\Migration;
 use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\core\Registry;
-
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\facades\Repo;
 use PKP\install\Installer;
 use PKP\observers\events\PluginSettingChanged;
+use PKP\site\Version;
+use PKP\site\VersionDAO;
 use PKP\template\PKPTemplateResource;
 
 // Define the well-known file name for filter configuration data.
@@ -232,7 +234,7 @@ abstract class Plugin
     /**
      * Get the installation migration for this plugin.
      *
-     * @return ?Illuminate\Database\Migrations\Migration
+     * @return ?Migration
      */
     public function getInstallMigration()
     {
@@ -280,9 +282,7 @@ abstract class Plugin
      * Get the filename of the email template data for this plugin.
      * Subclasses using email templates should override this.
      *
-     * @deprecated Starting with OJS/OMP 3.2, localized content should be
-     *  specified via getInstallEmailTemplatesFile(). (pkp/pkp-lib#5461)
-     *
+     * @deprecated Starting with OJS/OMP 3.2, localized content should be specified via getInstallEmailTemplatesFile(). (pkp/pkp-lib#5461)
      * @return string
      */
     public function getInstallEmailTemplateDataFile()
@@ -732,7 +732,7 @@ abstract class Plugin
      * Extend the {url ...} smarty to support plugins.
      *
      * @param array $params
-     * @param Smarty $smarty
+     * @param \Smarty $smarty
      *
      * @return string
      */
@@ -752,7 +752,7 @@ abstract class Plugin
     /**
      * Get the current version of this plugin
      *
-     * @return Version
+     * @return ?Version
      */
     public function getCurrentVersion()
     {

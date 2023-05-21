@@ -17,7 +17,6 @@
 namespace PKP\install\form;
 
 use APP\core\Application;
-
 use APP\install\Upgrade;
 use APP\template\TemplateManager;
 use PKP\install\Installer;

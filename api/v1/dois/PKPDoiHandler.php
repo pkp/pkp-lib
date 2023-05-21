@@ -35,7 +35,6 @@ use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-
 use Slim\Http\Request as SlimRequest;
 use Slim\Http\Response;
 
@@ -138,7 +137,7 @@ class PKPDoiHandler extends APIHandler
     }
 
     /**
-     * @param \PKP\handler\Request $request
+     * @param \APP\core\Request $request
      * @param array $args
      * @param array $roleAssignments
      *
@@ -383,7 +382,6 @@ class PKPDoiHandler extends APIHandler
             return $response->withStatus(404)->withJsonError('api.dois.404.noPubObjectIncluded');
         }
 
-        /** @var Context $context */
         $context = $this->getRequest()->getContext();
 
         $validIds = Repo::submission()

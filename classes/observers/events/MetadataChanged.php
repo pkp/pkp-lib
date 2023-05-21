@@ -19,7 +19,6 @@ declare(strict_types=1);
 namespace PKP\observers\events;
 
 use Illuminate\Foundation\Events\Dispatchable;
-
 use PKP\submission\PKPSubmission;
 
 class MetadataChanged

@@ -20,6 +20,7 @@ use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
 use PKP\controllers\grid\ColumnBasedGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
+use PKP\submissionFile\SubmissionFile;
 
 class FileNameGridColumn extends GridColumn
 {
@@ -72,7 +73,7 @@ class FileNameGridColumn extends GridColumn
     {
         $submissionFileData = $row->getData();
         $submissionFile = $submissionFileData['submissionFile'];
-        assert($submissionFile instanceof \PKP\submissionFile\SubmissionFile);
+        assert($submissionFile instanceof SubmissionFile);
         $fileExtension = pathinfo($submissionFile->getData('path'), PATHINFO_EXTENSION);
         return ['label' => '<span class="file_extension ' . $fileExtension . '">' . $submissionFile->getId() . '</span>'];
     }

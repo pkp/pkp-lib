@@ -20,6 +20,7 @@
 namespace PKP\controllers\api\file;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
@@ -34,6 +35,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
+use PKP\submission\GenreDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 
@@ -189,7 +191,7 @@ class FileApiHandler extends Handler
      * @param array $args
      * @param Request $request
      *
-     * @return string
+     * @return JSONMessage
      */
     public function recordDownload($args, $request)
     {

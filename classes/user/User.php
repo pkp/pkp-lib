@@ -21,8 +21,8 @@
 namespace PKP\user;
 
 use PKP\db\DAORegistry;
-
 use PKP\identity\Identity;
+use PKP\security\RoleDAO;
 
 class User extends Identity
 {
@@ -86,7 +86,7 @@ class User extends Identity
      *
      * @param string $locale
      *
-     * @return string
+     * @return string|array<string,string>
      */
     public function getSignature($locale)
     {

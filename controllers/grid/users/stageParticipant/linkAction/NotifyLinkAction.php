@@ -15,6 +15,8 @@
 
 namespace PKP\controllers\grid\users\stageParticipant\linkAction;
 
+use APP\core\Request;
+use APP\submission\Submission;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 

@@ -53,7 +53,7 @@ class LibraryFileDAO extends \PKP\db\DAO
      * @param int $contextId
      * @param string $type (optional)
      *
-     * @return array LibraryFiles
+     * @return DAOResultFactory<LibraryFile> LibraryFiles
      */
     public function getByContextId($contextId, $type = null)
     {
@@ -77,7 +77,7 @@ class LibraryFileDAO extends \PKP\db\DAO
      * @param string $type (optional)
      * @param int $contextId (optional)
      *
-     * @return array LibraryFiles
+     * @return DAOResultFactory<LibraryFile> LibraryFiles
      */
     public function getBySubmissionId(int $submissionId, $type = null, $contextId = null)
     {

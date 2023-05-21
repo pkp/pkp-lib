@@ -21,6 +21,7 @@ namespace PKP\reviewForm;
 
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
+use PKP\db\DBResultRange;
 use PKP\plugins\Hook;
 
 class ReviewFormDAO extends \PKP\db\DAO
@@ -229,9 +230,9 @@ class ReviewFormDAO extends \PKP\db\DAO
      *
      * @param int $assocType
      * @param int $assocId
-     * @param RangeInfo $rangeInfo (optional)
+     * @param ?DBResultRange $rangeInfo (optional)
      *
-     * @return DAOResultFactory containing matching ReviewForms
+     * @return DAOResultFactory<ReviewForm> Object containing matching ReviewForms
      */
     public function getByAssocId($assocType, $assocId, $rangeInfo = null)
     {
@@ -254,9 +255,9 @@ class ReviewFormDAO extends \PKP\db\DAO
      *
      * @param int $assocType
      * @param int $assocId
-     * @param RangeInfo $rangeInfo (optional)
+     * @param ?DBResultRange $rangeInfo (optional)
      *
-     * @return DAOResultFactory containing matching ReviewForms
+     * @return DAOResultFactory<ReviewForm> containing matching ReviewForms
      */
     public function getActiveByAssocId($assocType, $assocId, $rangeInfo = null)
     {

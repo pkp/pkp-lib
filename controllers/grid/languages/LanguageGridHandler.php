@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\languages;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\core\Services;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\GridColumn;
@@ -74,7 +75,7 @@ class LanguageGridHandler extends GridHandler
      * @param array $args
      * @param Request $request
      *
-     * @return JSONObject JSON message
+     * @return JSONMessage JSON message
      */
     public function saveLanguageSetting($args, $request)
     {
@@ -216,7 +217,7 @@ class LanguageGridHandler extends GridHandler
      * Return an instance of the cell provider
      * used by this grid.
      *
-     * @return GridCellProvider
+     * @return LanguageGridCellProvider
      */
     public function getCellProvider()
     {

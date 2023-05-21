@@ -16,15 +16,19 @@
 namespace PKP\services;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\core\Services;
 use APP\file\PublicFileManager;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
+use PKP\file\TemporaryFile;
 use PKP\file\TemporaryFileManager;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityWriteInterface;
+use PKP\site\Site;
+use PKP\site\SiteDAO;
 use PKP\validation\ValidatorFactory;
 
 class PKPSiteService implements EntityPropertyInterface
@@ -185,7 +189,7 @@ class PKPSiteService implements EntityPropertyInterface
      * This does not check if the user is authorized to edit the site, or validate or sanitize
      * the new content.
      *
-     * @param Context $site The context to edit
+     * @param Site $site The context to edit
      * @param array $params Key/value array of new data
      * @param Request $request
      *
@@ -224,7 +228,7 @@ class PKPSiteService implements EntityPropertyInterface
     /**
      * Move a temporary file to the site's public directory
      *
-     * @param Context $context
+     * @param Site $context
      * @param TemporaryFile $temporaryFile
      * @param string $fileNameBase Unique identifier to use for the filename. The
      *  Extension and locale will be appended.
@@ -234,7 +238,7 @@ class PKPSiteService implements EntityPropertyInterface
      *
      * @return string|boolean The new filename or false on failure
      */
-    public function moveTemporaryFile($context, $temporaryFile, $fileNameBase, $userId, $localeKey = '')
+    public function moveTemporaryFile($site, $temporaryFile, $fileNameBase, $userId, $localeKey = '')
     {
         $publicFileManager = new PublicFileManager();
         $temporaryFileManager = new TemporaryFileManager();

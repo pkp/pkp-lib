@@ -48,7 +48,7 @@ class APIResponse extends Response
      * Response with an error message
      *
      * @param string $msg The message translation key
-     * @param string $params Optional parameters to pass to the translation
+     * @param array $params Optional parameters to pass to the translation
      *
      * @return APIResponse
      */

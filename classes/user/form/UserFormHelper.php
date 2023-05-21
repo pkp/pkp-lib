@@ -17,9 +17,12 @@
 namespace PKP\user\form;
 
 use APP\core\Application;
-
 use APP\facades\Repo;
+use PKP\core\PKPRequest;
+use PKP\form\Form;
 use PKP\security\Role;
+use PKP\template\PKPTemplateManager;
+use PKP\user\User;
 
 class UserFormHelper
 {

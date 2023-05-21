@@ -20,6 +20,7 @@ namespace PKP\submission;
 
 use PKP\controlledVocab\ControlledVocabEntryDAO;
 use PKP\db\DAOResultFactory;
+use PKP\db\DBResultRange;
 
 class SubmissionLanguageEntryDAO extends ControlledVocabEntryDAO
 {
@@ -38,10 +39,10 @@ class SubmissionLanguageEntryDAO extends ControlledVocabEntryDAO
      * particular controlled vocabulary ID.
      *
      * @param int $controlledVocabId
-     * @param null $filter (Not yet supported)
-     * @param null|mixed $rangeInfo
+     * @param mixed $filter (Not yet supported)
+     * @param ?DBResultRange $rangeInfo
      *
-     * @return object DAOResultFactory containing matching CVE objects
+     * @return DAOResultFactory<SubmissionLanguage> Object containing matching CVE objects
      */
     public function getByControlledVocabId($controlledVocabId, $rangeInfo = null, $filter = null)
     {

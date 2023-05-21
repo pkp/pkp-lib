@@ -19,6 +19,7 @@
 
 namespace PKP\controllers\api\file\linkAction;
 
+use APP\core\Request;
 use PKP\core\PKPApplication;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\WizardModal;

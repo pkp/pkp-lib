@@ -27,9 +27,11 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\userGroup\UserGroup;
+use PKP\workflow\WorkflowStageDAO;
 
 class Schema extends \PKP\core\maps\Schema
 {
@@ -39,7 +41,7 @@ class Schema extends \PKP\core\maps\Schema
     /** @copydoc \PKP\core\maps\Schema::$schema */
     public string $schema = PKPSchemaService::SCHEMA_SUBMISSION;
 
-    /** @var LazyCollection<UserGroup> The user groups for this context. */
+    /** @var LazyCollection<int,UserGroup> The user groups for this context. */
     public LazyCollection $userGroups;
 
     /** @var Genre[] The file genres in this context. */
@@ -84,7 +86,7 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes all properties in the submission schema.
      *
-     * @param LazyCollection<UserGroup> $userGroups The user groups in this context
+     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      */
     public function map(Submission $item, LazyCollection $userGroups, array $genres): array
@@ -99,7 +101,7 @@ class Schema extends \PKP\core\maps\Schema
      *
      * Includes properties with the apiSummary flag in the submission schema.
      *
-     * @param LazyCollection<UserGroup> $userGroups The user groups in this context
+     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      */
     public function summarize(Submission $item, LazyCollection $userGroups, array $genres): array
@@ -114,7 +116,7 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @see self::map
      *
-     * @param LazyCollection<UserGroup> $userGroups The user groups in this context
+     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      */
     public function mapMany(Enumerable $collection, LazyCollection $userGroups, array $genres): Enumerable
@@ -132,7 +134,7 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @see self::summarize
      *
-     * @param LazyCollection<UserGroup> $userGroups The user groups in this context
+     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      */
     public function summarizeMany(Enumerable $collection, LazyCollection $userGroups, array $genres): Enumerable
@@ -148,7 +150,7 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Map a submission with extra properties for the submissions list
      *
-     * @param LazyCollection<UserGroup> $userGroups The user groups in this context
+     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      */
     public function mapToSubmissionsList(Submission $item, LazyCollection $userGroups, array $genres): array
@@ -163,7 +165,7 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @see self::map
      *
-     * @param LazyCollection<UserGroup> $userGroups The user groups in this context
+     * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      */
     public function mapManyToSubmissionsList(Enumerable $collection, LazyCollection $userGroups, array $genres): Enumerable

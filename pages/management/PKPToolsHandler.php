@@ -16,16 +16,17 @@
 
 namespace PKP\pages\management;
 
-define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
-
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\notification\PKPNotification;
 use PKP\plugins\ImportExportPlugin;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
+
+define('IMPORTEXPORT_PLUGIN_CATEGORY', 'importexport');
 
 class PKPToolsHandler extends ManagementHandler
 {

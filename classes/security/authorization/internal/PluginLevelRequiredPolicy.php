@@ -17,6 +17,7 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
+use PKP\core\PKPRequest;
 use PKP\security\authorization\AuthorizationPolicy;
 
 class PluginLevelRequiredPolicy extends AuthorizationPolicy

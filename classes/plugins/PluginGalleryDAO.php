@@ -22,12 +22,12 @@ use APP\core\Application;
 use DOMDocument;
 use DOMElement;
 use PKP\cache\CacheManager;
-
 use PKP\cache\FileCache;
 use PKP\controllers\grid\plugins\PluginGalleryGridHandler;
+use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
-
+use PKP\site\VersionDAO;
 use Throwable;
 
 class PluginGalleryDAO extends \PKP\db\DAO

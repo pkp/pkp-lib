@@ -193,7 +193,7 @@ class CancelReviewRound extends DecisionType implements DecisionRetractable
         }
 
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var \PKP\submission\reviewAssignment\ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewRoundId = $decision->getData('reviewRoundId');
 
         $reviewAssignmentDao->deleteByReviewRoundId($reviewRoundId);

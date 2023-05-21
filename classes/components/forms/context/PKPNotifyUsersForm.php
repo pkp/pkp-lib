@@ -41,7 +41,7 @@ class PKPNotifyUsersForm extends FormComponent
      * Constructor
      *
      * @param string $action URL to submit the form to
-     * @param Context $context Journal, press or preprint server
+     * @param \PKP\context\Context $context Journal, press or preprint server
      */
     public function __construct($action, $context)
     {

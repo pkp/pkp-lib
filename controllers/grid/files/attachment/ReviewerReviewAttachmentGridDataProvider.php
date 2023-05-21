@@ -22,6 +22,7 @@ use PKP\controllers\grid\files\SubmissionFilesGridDataProvider;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\ReviewStageAccessPolicy;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataProvider

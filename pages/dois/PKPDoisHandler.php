@@ -134,7 +134,7 @@ abstract class PKPDoisHandler extends Handler
     }
 
 
-    protected function _getRegistrationAgencyInfo(\PKP\context\Context $context): \stdClass
+    protected function _getRegistrationAgencyInfo(Context $context): \stdClass
     {
         $info = new \stdClass();
         $info->isConfigured = false;

@@ -102,7 +102,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	/**
 	 * Get the public identifier.
 	 * @param $pubObject object
-	 * 	Submission, Representation, SubmissionFile + OJS Issue
+	 * 	Publication, Representation, SubmissionFile + OJS Issue + OMP Chapter
 	 * @return string
 	 */
 	abstract function getPubId($pubObject);
@@ -258,7 +258,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 			if (empty($pubIdPrefix)) return true;
 			$newPubId = $this->constructPubId($pubIdPrefix, $fieldValue, $contextId);
 
-			if (!$this->checkDuplicate($newPubId, $pubObject->getId(), get_class($pubObject), $contextId)) {
+			if (!$this->checkDuplicate($newPubId, get_class($pubObject), $pubObject->getId(), $contextId)) {
 				$errorMsg = $this->getNotUniqueErrorMsg();
 				return false;
 			}
@@ -283,7 +283,6 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	function getDAOs() {
 		return  array(
 			DAORegistry::getDAO('PublicationDAO'),
-			DAORegistry::getDAO('SubmissionDAO'),
 			Application::getRepresentationDAO(),
 			DAORegistry::getDAO('SubmissionFileDAO'),
 		);
@@ -292,7 +291,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin {
 	/**
 	 * Can a pub id be assigned to the object.
 	 * @param $pubObject object
-	 * 	Submission, Representation, SubmissionFile + OJS Issue
+	 * 	Publication, Representation, SubmissionFile + OJS Issue + OMP Chapter
 	 * @return boolean
 	 * 	false, if the pub id contains an unresolved pattern i.e. '%' or
 	 * 	if the custom suffix is empty i.e. the pub id null.

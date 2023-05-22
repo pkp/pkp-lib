@@ -10,8 +10,23 @@
 <template slot="header">
 	<stage-bubble :stage-id="summarySubmission.stageId">
 		{{ summarySubmission.stageName }}
-		<template v-if="summarySubmission.reviewRound">
-			(Round {{ summarySubmission.reviewRound }})
+		<template v-if="
+			(
+				summarySubmission.stageId === {$smarty.const.WORKFLOW_STAGE_ID_INTERNAL_REVIEW}
+				|| summarySubmission.stageId === {$smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW}
+			)
+			&& summarySubmission.reviewRounds.length
+		">
+			{{
+				__('common.inParenthesis', {
+					text: i18nReviewRound.replace(
+						'{ldelim}$round{rdelim}',
+						summarySubmission
+							.reviewRounds[summarySubmission.reviewRounds.length - 1]
+							.round
+					)
+				})
+			}}
 		</template>
 	</stage-bubble>
 	<span class="summary__id">

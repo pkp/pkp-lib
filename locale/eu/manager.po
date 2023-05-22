@@ -2838,7 +2838,7 @@ msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr ""
+msgstr "Ebaluatzera bidalia"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
@@ -3188,6 +3188,9 @@ msgid "mailable.editorAssignedManual.name"
 msgstr ""
 
 msgid "mailable.submissionNeedsEditor.name"
+msgstr ""
+
+msgid "mailable.citationAuthorQuery.name"
 msgstr ""
 
 #~ msgid "manager.setup.selectOne"

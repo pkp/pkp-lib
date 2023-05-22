@@ -158,7 +158,7 @@ msgid "user.login.forgotPassword"
 msgstr "Forgot your password?"
 
 msgid "user.login.loginError"
-msgstr "Invalid username or password. Please try again."
+msgstr "Invalid username/email or password. Please try again."
 
 msgid "user.login"
 msgstr "Login"
@@ -452,6 +452,9 @@ msgstr "User Home"
 
 msgid "user.username"
 msgstr "Username"
+
+msgid "user.usernameOrEmail"
+msgstr "Username or Email"
 
 msgid "user.workingLanguages"
 msgstr "Working Languages"

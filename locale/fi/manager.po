@@ -343,14 +343,14 @@ msgstr "DOI-statukset"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
-"DOI-tunnusten hallinnointi on siirtynyt. Katso sivut <a href=\""
-"{$doiManagementUrl}\">DOI-hallinnointi</a> ja <a href=\"{$doiSettingsUrl"
-"}\">DOI-asetukset</a>."
+"DOI-tunnusten hallinnointi on siirtynyt. Katso sivut <a href="
+"\"{$doiManagementUrl}\">DOI-hallinnointi</a> ja <a href="
+"\"{$doiSettingsUrl}\">DOI-asetukset</a>."
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
-"DOI-tunnuksia ei voida osoittaa, ellet anna DOI-prefiksiä. <a href=\""
-"{$doiSettingsUrl}\">Lisää DOI-prefiksi</a>."
+"DOI-tunnuksia ei voida osoittaa, ellet anna DOI-prefiksiä. <a href="
+"\"{$doiSettingsUrl}\">Lisää DOI-prefiksi</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
@@ -925,12 +925,14 @@ msgstr ""
 "prefiksi:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Oletus - Luo automaattisesti yksilöllisen kahdeksanmerkkisen suffiksin."
+msgstr ""
+"Oletus - Luo automaattisesti yksilöllisen kahdeksanmerkkisen suffiksin."
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
-"Ei mitään - Suffiksi on syötettävä manuaalisesti <a href=\"{$doiManagementUrl"
-"}\">DOI-hallintasivulla</a>, eikä sitä luoda automaattisesti"
+"Ei mitään - Suffiksi on syötettävä manuaalisesti <a href="
+"\"{$doiManagementUrl}\">DOI-hallintasivulla</a>, eikä sitä luoda "
+"automaattisesti"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
 msgstr "Mukautettu malli - (ei suositella)"
@@ -3079,7 +3081,8 @@ msgid "emailTemplate.variable.statisticsReportNotify.year"
 msgstr "Raportin vuosi"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr "Numeron tunnistetiedot, mukaan lukien vuosikerta, numero, vuosi ja nimi"
+msgstr ""
+"Numeron tunnistetiedot, mukaan lukien vuosikerta, numero, vuosi ja nimi"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
 msgstr "Julkaistun numeron URL-osoite"
@@ -3155,110 +3158,148 @@ msgstr "Olemme päättäneet hylätä tämän käsikirjoituksen."
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "Olemme pyytäneet kirjoittajia lähettämään korjauksia."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
+"Olemme pyytäneet kirjoittajia toimittamaan korjatun version arviointia "
+"varten."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr ""
+msgstr "Kutsutun arvioijan pyyntö on peruttu."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr ""
+msgstr "Käsikirjoitus hyväksytty"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
+"Tämä sähköposti ilmoittaa kirjoittajalle, että hänen käsikirjoituksensa on "
+"hyväksytty julkaistavaksi."
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Käsikirjoitus lähetetty takaisin tekniseen toimitukseen"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
+"Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että hänen "
+"käsikirjoituksensa on lähetetty takaisin teknisen toimittamisen "
+"työvaiheeseen."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Käsikirjoitus lähetetty takaisin teknisestä toimituksesta"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että hänen aineistonsa "
+"on lähetetty takaisin teknisen toimittamisen työvaiheesta."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Arviointikierros peruttu"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
+"Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että hänen "
+"käsikirjoituksensa arviointikierros on peruttu."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr ""
+msgstr "Käsikirjoitus hylätty"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
+"Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että hänen "
+"käsikirjoituksensa on hylätty vertaisarvioinnin jälkeen."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Käsikirjoitus hylätty (ennen arviointia)"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Uusi arviointikierros käynnistetty"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
+"Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että hänen "
+"käsikirjoituksensa uusi arviointikierros on alkamassa."
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr ""
+msgstr "Korjauksia pyydetty"
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
+"Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle päätöksestä pyytää "
+"korjauksia vertaisarvioinnin aikana."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Lähetä uudelleen arvioitavaksi"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että hänen "
+"käsikirjoitukseen pyydetään korjauksia, jotka arvioidaan uudelleen."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Palauta hylätty käsikirjoitus"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että aiempi päätös "
+"hylätä käsikirjoitus vertaisarvioinnin jälkeen peruutetaan."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Palauta ennen arviointia hylätty käsikirjoitus"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että aiempi päätös "
+"hylätä käsikirjoitus ilman tarkistusta perutaan."
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr ""
+msgstr "Lähetä arvioitavaksi"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
+"Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että hänen "
+"käsikirjoituksensa lähetetään arviointivaiheeseen."
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "Lähetä tuotantoon"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Tämä sähköposti ilmoittaa kirjoittajalle, että hänen käsikirjoituksensa "
+"lähetetään tuotantovaiheeseen."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Käsikirjoitus hyväksytty (ilman arviointia)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että hänen "
+"käsikirjoituksensa lähetetään suoraan teknisen toimittamisen työvaiheeseen "
+"eikä sitä vertaisarvioida."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Suositus tehty"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Tämä viesti ilmoittaa vanhemmalla toimittajalle tai osastotoimittajalle, "
+"että jostakin heidän toimittamastaan käsikirjoituksesta on annettu "
+"toimituksellinen suositus. Tätä viestiä käytetään silloin, kun toimittaja "
+"saa vain suositella toimituksellista päätöstä ja kun valtuutettu toimittaja "
+"on velvollinen tallentamaan toimitukselliset päätökset. Tämä asetus voidaan "
+"valita, kun toimittajia osoitetaan käsikirjoitukseen."
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Arviointipyyntö vahvistettu"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
+"Tämä sähköposti lähetetään automaattisesti, kun arvioija hyväksyy "
+"arviointipyynnön"
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Arviointipyyntö hylätty"
 
 msgid "mailable.reviewDecline.description"
 msgstr "Arvioija lähettää tämän sähköpostin, kun hän hylkää arviointipyynnön."
@@ -3570,6 +3611,28 @@ msgstr ""
 msgid "mailable.submissionNeedsEditor.name"
 msgstr ""
 
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Käsikirjoitustiedosto {$id} ohitettiin, koska sillä ei ole kelvollista "
+"versiota."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Käsikirjoitustiedoston {$id} versio {$revision} ohitettiin, koska tiedostoa "
+"ei löytynyt polusta \"{$path}\"."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Julkaistun version {$id} kansikuvaa ei viety, koska tiedostoa ei löytynyt "
+"polusta \"{$path}\"."
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"Sähköpostit asetettu onnistuneesti jonoon lähetettäväksi mahdollisimman pian."
+
 #~ msgid "manager.setup.reviewOptions.reviewTime"
 #~ msgstr "Arvioinnin oletusmääräajat"
 
@@ -3614,18 +3677,3 @@ msgstr ""
 #~ msgstr ""
 #~ "This email is sent by a Section Editor to remind a reviewer that their "
 #~ "review is due."
-
-msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
-msgstr ""
-"Käsikirjoitustiedosto {$id} ohitettiin, koska sillä ei ole kelvollista "
-"versiota."
-
-msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
-msgstr ""
-"Käsikirjoitustiedoston {$id} versio {$revision} ohitettiin, koska tiedostoa "
-"ei löytynyt polusta \"{$path}\"."
-
-msgid "plugins.importexport.common.error.publicationCoverImageMissing"
-msgstr ""
-"Julkaistun version {$id} kansikuvaa ei viety, koska tiedostoa ei löytynyt "
-"polusta \"{$path}\"."

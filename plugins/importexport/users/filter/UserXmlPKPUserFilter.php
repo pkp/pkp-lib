@@ -299,8 +299,12 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
             if ($userGroupNodeList->length > 0) {
                 for ($i = 0 ; $i < $userGroupNodeList->length ; $i++) {
                     $n = $userGroupNodeList->item($i);
+                    
+                    /** @var \PKP\userGroup\UserGroup $userGroup */
                     foreach ($userGroups as $userGroup) {
-                        if (in_array($n->textContent, $userGroup->getName(null))) {
+                        // if the given user associated group name in within tag 'user_group_ref' is in the list of $userGroup name local list
+                        // and the user is not already assigned to that group
+                        if (in_array($n->textContent, $userGroup->getName(null)) && !Repo::userGroup()->userInGroup($userId, $userGroup->getId())) {
                             // Found a candidate; assign user to it.
                             Repo::userGroup()->assignUserToGroup($userId, $userGroup->getId());
                         }

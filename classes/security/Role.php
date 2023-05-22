@@ -21,14 +21,14 @@ namespace PKP\security;
 class Role extends \PKP\core\DataObject
 {
     // ID codes and paths for all default roles
-    public const ROLE_ID_MANAGER = 0x00000010;              // Decimal : 16
-    public const ROLE_ID_SITE_ADMIN = 0x00000001;           // Decimal : 1
-    public const ROLE_ID_SUB_EDITOR = 0x00000011;           // Decimal : 17
-    public const ROLE_ID_AUTHOR = 0x00010000;               // Decimal : 65536
-    public const ROLE_ID_REVIEWER = 0x00001000;             // Decimal : 4096
-    public const ROLE_ID_ASSISTANT = 0x00001001;            // Decimal : 4097
-    public const ROLE_ID_READER = 0x00100000;               // Decimal : 1048576
-    public const ROLE_ID_SUBSCRIPTION_MANAGER = 0x00200000; // Decimal : 2097152
+    public const ROLE_ID_MANAGER = 16;
+    public const ROLE_ID_SITE_ADMIN = 1;
+    public const ROLE_ID_SUB_EDITOR = 17;
+    public const ROLE_ID_AUTHOR = 65536;
+    public const ROLE_ID_REVIEWER = 4096;
+    public const ROLE_ID_ASSISTANT = 4096;
+    public const ROLE_ID_READER = 1048576;
+    public const ROLE_ID_SUBSCRIPTION_MANAGER = 2097152;
 
     /**
      * Constructor.

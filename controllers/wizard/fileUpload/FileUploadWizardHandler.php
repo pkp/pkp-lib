@@ -418,11 +418,11 @@ class FileUploadWizardHandler extends Handler
             return new JSONMessage(false, $uploadForm->fetch($request));
         }
 
-		$submissionFileId = $uploadForm->getRevisedFileId();
-		// Store the data of the submission file before it's replaced by the revised file
-		if ($submissionFileId) {
-			$originalFile = Repo::submissionFile()->get($submissionFileId);
-		}
+        $submissionFileId = $uploadForm->getRevisedFileId();
+        // Store the data of the submission file before it's replaced by the revised file
+        if ($submissionFileId) {
+            $originalFile = Repo::submissionFile()->get($submissionFileId);
+        }
 
         $uploadedFile = $uploadForm->execute(); /** @var SubmissionFile $uploadedFile */
         if (!is_a($uploadedFile, 'SubmissionFile')) {

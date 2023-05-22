@@ -477,7 +477,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     // Those should then be assoc type = submission file.
                     $representationUrlPath = $args[1];
                     $galley = $representationId = null;
-                    if (is_int($representationUrlPath) || ctype_digit($representationUrlPath)) {
+                    if (ctype_digit((string) $representationUrlPath)) {
                         // assume it is ID and not the URL path
                         $representationId = (int) $representationUrlPath;
                         $galley = Repo::galley()->get($representationId);
@@ -573,7 +573,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
 
                 // Find the galley and representation ID
                 $representationId = $galley = null;
-                if (is_int($representationUrlPath) || ctype_digit($representationUrlPath)) {
+                if (ctype_digit((string) $representationUrlPath)) {
                     // assume it is ID and not the URL path
                     $representationId = (int) $representationUrlPath;
                     $galley = Repo::galley()->get($representationId);
@@ -682,7 +682,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                         if ($possibleSubmissionFileId) { // it is not a remote supp file
                             $possibleSubmissionFile = Repo::submissionFile()->get($possibleSubmissionFileId, $submissionId);
                             if ($possibleSubmissionFile) {
-                                if (is_int($args[1]) || ctype_digit($args[1])) { // supp file ID
+                                if (ctype_digit((string) $args[1])) { // supp file ID
                                     if ($possibleSubmissionFile->getData('old-supp-id') == $args[1]) {
                                         // Galley and file found
                                         $galley = $possibleGalley;
@@ -882,7 +882,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 }
                 $representationId = $submissionFile->getData('assocId');
                 $publicationFormatDao = DAORegistry::getDAO('PublicationFormatDAO'); /** @var PublicationFormatDAO $publicationFormatDao */
-                if (is_int($representationUrlPath) || ctype_digit($representationUrlPath)) {
+                if (ctype_digit((string) $representationUrlPath)) {
                     // assume it is ID and not the URL path
                     if ($representationUrlPath != $representationId) {
                         fwrite(STDERR, "Submission file with the ID {$submissionFileId} does not belong to the publication format with ID {$representationUrlPath}." . PHP_EOL);
@@ -1058,7 +1058,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
 
                 // Find the galley and representation ID
                 $representationId = $galley = null;
-                if (is_int($representationUrlPath) || ctype_digit($representationUrlPath)) {
+                if (ctype_digit((string) $representationUrlPath)) {
                     // assume it is ID and not the URL path
                     $representationId = (int) $representationUrlPath;
                     $galley = Repo::galley()->get($representationId);

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-04-28 14:09+0000\n"
+"PO-Revision-Date: 2023-05-11 01:16+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -67,12 +67,15 @@ msgstr "Les paramètres régionaux suivants ne sont pas supportés : {$locales}.
 
 msgid "api.dois.403.editItemOutOfContext"
 msgstr ""
+"Vous ne pouvez pas éditer un DOI d'élément qui n'est pas dans ce contexte."
 
 msgid "api.dois.403.pubTypeNotRecognized"
 msgstr "Le type de publication n'a pas été reconnu."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
+"Ce point d'accès n'est pas disponible dans l'espace de noms à l'échelle du "
+"site et doit être demandé pour un contexte donné."
 
 msgid "api.dois.404.doiNotFound"
 msgstr "Le DOI demandé n'a pas été trouvé."
@@ -106,16 +109,22 @@ msgstr ""
 "messages d'erreur spécifiques à chaque élément."
 
 msgid "api.dois.404.noPubObjectIncluded"
-msgstr ""
+msgstr "Aucun objet de publication valide n'a été inclus dans la demande."
 
 msgid "api.dois.400.invalidPubObjectIncluded"
 msgstr ""
+"Un ou plusieurs objets de publication non valides ont été inclus dans la "
+"demande."
 
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
+"Le plugiciel actuellement configuré doit être un plugiciel d'une agence "
+"d'enregistrement."
 
 msgid "api.decisions.403.alreadyPublished"
 msgstr ""
+"Vous ne pouvez pas enregistrer une décision ou recommander une décision pour "
+"cette soumission car elle a déjà été publiée."
 
 msgid "api.emails.400.missingBody"
 msgstr "Vous devez spécifier une adresse courriel pour pouvoir faire l'envoi."
@@ -133,10 +142,10 @@ msgstr ""
 "un ou plusieurs des rôles sélectionnés."
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
-msgstr ""
+msgstr "Ceci n'est pas un modèle de courriel par défaut pour un courriel connu."
 
 msgid "api.emailTemplates.400.invalidContext"
-msgstr ""
+msgstr "Ce n'est pas un contexte valide."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "Le modèle de courriel que vous avez demandé n'a pas été trouvé."

@@ -1,11 +1,13 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2022.
+# Mathias Vitalis <mathias.vitalis@u-bordeaux.fr>, 2023.
+# Stefan Schneider <mail@stefan-schneider.at>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2022-01-12 09:18+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2023-05-17 15:49+0000\n"
+"Last-Translator: Stefan Schneider <mail@stefan-schneider.at>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -13,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
@@ -2065,7 +2067,7 @@ msgid "submission.copyrightYear"
 msgstr "Année du copyright"
 
 msgid "submission.copyrightStatement"
-msgstr "(c) Tous droits réservés {$copyrightHolder} {$copyrightYear}"
+msgstr "(c) Copyright {$copyrightHolder} {$copyrightYear}"
 
 msgid "submission.licenseURLValid"
 msgstr "Veuillez indiquer une URL à distance valide (incluez http://)."
@@ -2412,7 +2414,7 @@ msgid "submission.wizard.unableToSave"
 msgstr ""
 
 msgid "grid.category.categories"
-msgstr "catégories"
+msgstr "Catégories"
 
 msgid "catalog.sortBy.titleAsc"
 msgstr "Titre (A-Z)"
@@ -2710,4 +2712,3 @@ msgstr ""
 
 msgid "submission.submissionFile"
 msgstr "Fichier de soumission"
-

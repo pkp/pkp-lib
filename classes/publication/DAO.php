@@ -169,6 +169,9 @@ class DAO extends EntityDAO
      */
     public function isDuplicateUrlPath(string $urlPath, int $submissionId, int $contextId): bool
     {
+        if (!strlen($urlPath)) {
+            return false;
+        }
         return (bool) DB::table('publications as p')
             ->leftJoin('submissions as s', 's.submission_id', '=', 'p.submission_id')
             ->where('url_path', '=', $urlPath)

@@ -415,7 +415,7 @@ class FileManager
         if ($perms !== null) {
             return mkdir($dirPath, $perms);
         } else {
-            if (mkdir($dirPath)) {
+            if (is_dir($dirPath) || mkdir($dirPath)) {
                 return $this->setMode($dirPath, static::DIRECTORY_MODE_MASK);
             }
             return false;

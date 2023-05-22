@@ -76,12 +76,11 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
         $submission = $deployment->getSubmission();
         $context = $deployment->getContext();
         $stageName = $node->getAttribute('stage');
-        $submissionFileId = $node->getAttribute('id');
+        $submissionFileIdFromXml = $node->getAttribute('id');
         $stageNameIdMapping = $deployment->getStageNameStageIdMapping();
         assert(isset($stageNameIdMapping[$stageName]));
         $stageId = $stageNameIdMapping[$stageName];
-        $request = Application::get()->getRequest();
-        $errorOccured = false;
+        $errorOccurred = false;
 
         $genreId = null;
         $genreName = $node->getAttribute('genre');
@@ -98,7 +97,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             }
             if (!isset($genresByContextId[$context->getId()][$genreName])) {
                 $deployment->addError(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $submission->getId(), __('plugins.importexport.common.error.unknownGenre', ['param' => $genreName]));
-                $errorOccured = true;
+                $errorOccurred = true;
             } else {
                 $genre = $genresByContextId[$context->getId()][$genreName];
                 $genreId = $genre->getId();
@@ -166,8 +165,9 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             $submissionFile->setData('viewable', true);
         }
 
-        // Handle metadata in subelements
-        $allRevisionIds = [];
+        // Handle metadata in sub-elements
+        $fileIds = [];
+        $currentFileId = null;
         for ($childNode = $node->firstChild; $childNode !== null; $childNode = $childNode->nextSibling) {
             if ($childNode instanceof \DOMElement) {
                 switch ($childNode->tagName) {
@@ -196,19 +196,18 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                         break;
                     case 'file':
                         // File has already been imported so update file id
-                        if ($deployment->getFileDBId($childNode->getAttribute('id'))) {
-                            $newFileId = $deployment->getFileDBId($childNode->getAttribute('id'));
-                        } else {
-                            $newFileId = $this->handleRevisionElement($childNode);
+                        $fileId = $deployment->getFileDBId($childNode->getAttribute('id')) ?: $this->handleRevisionElement($childNode);
+                        // Failed to insert the file (error messages are set at the <file> handler)
+                        if (!$fileId) {
+                            break;
                         }
-                        if ($newFileId) {
-                            $allRevisionIds[] = $newFileId;
-                        }
+
                         // If this is the current file revision, set the submission file id
                         if ($childNode->getAttribute('id') == $node->getAttribute('file_id')) {
-                            $submissionFile->setData('fileId', $newFileId);
+                            $currentFileId = $fileId;
+                        } else { // Otherwise add it to the list of previous revisions
+                            $fileIds[] = $fileId;
                         }
-                        unset($newFileId);
 
                         break;
                     default:
@@ -217,47 +216,27 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             }
         }
 
-        if ($errorOccured) {
+        // Quit if there were errors or if the main file could not be inserted
+        if ($errorOccurred || !$currentFileId) {
             return null;
         }
 
-        // Add and edit the submission file revisions one-by-one so that a useful activity
-        // log is built and past revisions can be accessed
-        if (count($allRevisionIds) < 2) {
-            $submissionFileId = Repo::submissionFile()->add($submissionFile);
+        // Ensure the current file revision is the last to be processed
+        $fileIds[] = $currentFileId;
 
-            $submissionFile = Repo::submissionFile()->get($submissionFileId);
-        } else {
-            $currentFileId = $submissionFile->getData('fileId');
-            $allRevisionIds = array_filter($allRevisionIds, function ($fileId) use ($currentFileId) {
-                return $fileId !== $currentFileId;
-            });
-            $allRevisionIds = array_values($allRevisionIds);
+        // Consumes the first file ID to insert an initial submission file
+        $submissionFile->setData('fileId', array_shift($fileIds));
+        $submissionFile = Repo::submissionFile()->get(Repo::submissionFile()->add($submissionFile));
 
-            $submissionFileId = $submissionFile->getId();
-
-            foreach ($allRevisionIds as $i => $fileId) {
-                if ($i === 0) {
-                    $submissionFile->setData('fileId', $fileId);
-                    $id = Repo::submissionFile()->add($submissionFile);
-
-                    $submissionFile = Repo::submissionFile()->get($submissionFileId);
-                } else {
-                    Repo::submissionFile()->edit($submissionFile, ['fileId' => $fileId]);
-                }
-            }
-
-            Repo::submissionFile()->edit(
-                $submissionFile,
-                ['fileId' => $currentFileId]
-            );
-
-            $submissionFile = Repo::submissionFile()->get($submissionFileId);
+        // Edits the submission file revisions one-by-one so that a useful activity log is built and past revisions can be accessed
+        foreach ($fileIds as $fileId) {
+            Repo::submissionFile()->edit($submissionFile, ['fileId' => $fileId]);
         }
 
-        $deployment->setSubmissionFileDBId($submissionFileId, $submissionFile->getId());
+        $deployment->setSubmissionFileDBId($submissionFileIdFromXml, $submissionFile->getId());
 
-        return $submissionFile;
+        // Retrieves the updated submission file
+        return Repo::submissionFile()->get($submissionFile->getId());
     }
 
     /**
@@ -395,7 +374,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                         }
                     } else {
                         // Load pub id plugins
-                        $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $context->getId());
+                        PluginRegistry::loadCategory('pubIds', true, $context->getId());
                         $submissionFile->setStoredPubId($element->getAttribute('type'), $element->textContent);
                     }
                 }

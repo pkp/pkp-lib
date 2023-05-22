@@ -92,25 +92,16 @@ class NotificationHandler extends Handler
         $notificationId = $request->getUserVar('id');
 
         $notification = $this->_validateUnsubscribeRequest($validationToken, $notificationId);
+        $notificationsUnsubscribeForm = new PKPNotificationsUnsubscribeForm($notification, $validationToken);
 
         // Show the form on a get request
         if (!$request->isPost()) {
-            $validationToken = $request->getUserVar('validate');
-            $notificationId = $request->getUserVar('id');
-
-            $notification = $this->_validateUnsubscribeRequest($validationToken, $notificationId);
-
-
-            $notificationsUnsubscribeForm = new PKPNotificationsUnsubscribeForm($notification, $validationToken);
             $notificationsUnsubscribeForm->display($request);
             return;
         }
 
         // Otherwise process the result
         $this->setupTemplate($request);
-
-
-        $notificationsUnsubscribeForm = new PKPNotificationsUnsubscribeForm($notification, $validationToken);
 
         $notificationsUnsubscribeForm->readInputData();
 
@@ -124,16 +115,14 @@ class NotificationHandler extends Handler
         }
 
         $userId = $notification->getUserId();
-        $contextId = $notification->getContextId();
+        $user = Repo::user()->get($userId, true);
 
         $contextDao = Application::getContextDAO();
-
-        $user = Repo::user()->get($userId, true);
-        $context = $contextDao->getById($contextId);
+        $context = $contextDao->getById($notification->getContextId());
 
         $templateMgr->assign([
-            'contextName' => $context->getLocalizedName(),
-            'userEmail' => $user->getEmail(),
+            'contextName' => $context?->getLocalizedName(),
+            'userEmail' => $user?->getEmail(),
             'unsubscribeResult' => $unsubscribeResult,
         ]);
 

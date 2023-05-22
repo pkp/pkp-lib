@@ -32,7 +32,6 @@ use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\HttpsPolicy;
 use PKP\security\authorization\RestrictedSiteAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
-use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
 
@@ -139,7 +138,7 @@ class PKPHandler
      * Fallback method in case request handler does not implement index method.
      *
      * @param array $args
-     * @param PKPRequest $request
+     * @param Request $request
      */
     public function index($args, $request)
     {
@@ -416,7 +415,7 @@ class PKPHandler
      * NB: This method will be called after validation and
      * authorization.
      *
-     * @param PKPRequest $request
+     * @param Request $request
      */
     public function initialize($request)
     {
@@ -443,7 +442,7 @@ class PKPHandler
     /**
      * Return the DBResultRange structure and misc. variables describing the current page of a set of pages.
      *
-     * @param PKPRequest $request
+     * @param Request $request
      * @param string $rangeName Symbolic name of range of pages; must match the Smarty {page_list ...} name.
      * @param array $contextData If set, this should contain a set of data that are required to
      * 	define the context of this request (for maintaining page numbers across requests).
@@ -510,7 +509,7 @@ class PKPHandler
     /**
      * Set up the basic template.
      *
-     * @param PKPRequest $request
+     * @param Request $request
      */
     public function setupTemplate($request)
     {
@@ -543,7 +542,7 @@ class PKPHandler
      * context that differentiates it from other similar pages (e.g. all
      * articles vs. all articles starting with "l").
      *
-     * @param PKPRequest $request
+     * @param Request $request
      * @param array $contextData A set of information identifying the page
      *
      * @return string hash

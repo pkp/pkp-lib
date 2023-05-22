@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2023-04-30 09:49+0000\n"
+"PO-Revision-Date: 2023-05-23 06:10+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "uk/>\n"
@@ -164,7 +164,9 @@ msgid "user.login.forgotPassword"
 msgstr "Забули пароль?"
 
 msgid "user.login.loginError"
-msgstr "Невірне ім'я користувача або пароль. Будь ласка, спробуйте знову."
+msgstr ""
+"Невірне ім'я користувача / електронна пошта або пароль. Будь ласка, "
+"спробуйте знову."
 
 msgid "user.login"
 msgstr "Увійти"
@@ -470,8 +472,8 @@ msgstr "ORCID ID"
 
 msgid "user.orcid.orcidInvalid"
 msgstr ""
-"Ви вказали недійсний ORCID ID. Будь ласка, додайте повний URI (e.g. \"https"
-"://orcid.org/0000-0002-1825-0097\")."
+"Ви вказали недійсний ORCID ID. Будь ласка, додайте повний URI (наприклад, "
+"\"https://orcid.org/0000-0002-1825-0097\")."
 
 msgid "user.profile.identity"
 msgstr "Ідентифікація"
@@ -529,3 +531,6 @@ msgstr "Введіть новий пароль для оновлення пар�
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr "Пароль успішно оновлено. Будь ласка, увійдіть з оновленим паролем."
+
+msgid "user.usernameOrEmail"
+msgstr "Ім'я користувача або електронна пошта"

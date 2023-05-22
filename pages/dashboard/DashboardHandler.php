@@ -150,6 +150,7 @@ class DashboardHandler extends Handler
         ]);
 
         $templateMgr->assign([
+            'columns' => $this->getColumns(),
             'pageComponent' => 'SubmissionsPage',
             'pageTitle' => __('navigation.submissions'),
             'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
@@ -159,7 +160,7 @@ class DashboardHandler extends Handler
             'STAGE_STATUS_SUBMISSION_UNASSIGNED' => Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED,
         ]);
 
-        return $templateMgr->display('dashboard/index.tpl');
+        return $templateMgr->display('dashboard/editors.tpl');
     }
 
     /**
@@ -269,5 +270,30 @@ class DashboardHandler extends Handler
         Hook::call('Dashboard::views', [&$views, $userRoles]);
 
         return $views;
+    }
+
+    /**
+     * Define the columns in the submissions table
+     */
+    protected function getColumns(): array
+    {
+        $columns = [
+            new Column('id', __('common.id'), 'dashboard/column-id.tpl', true),
+            new Column('title', __('navigation.submissions'), 'dashboard/column-title.tpl'),
+            new Column('stage', __('workflow.stage'), 'dashboard/column-stage.tpl'),
+            new Column('days', __('editor.submission.days'), 'dashboard/column-days.tpl'),
+            new Column('activity', __('stats.editorialActivity'), 'dashboard/column-activity.tpl'),
+            new Column(
+                'actions',
+                '<span class="-screenReader">' . __('admin.jobs.list.actions') . '</span>',
+                'dashboard/column-actions.tpl'
+            ),
+        ];
+
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+
+        Hook::call('Dashboard::columns', [&$columns, $userRoles]);
+
+        return $columns;
     }
 }

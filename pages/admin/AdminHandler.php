@@ -28,6 +28,7 @@ use PDO;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
 use PKP\core\JSONMessage;
+use PKP\core\PKPContainer;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\job\resources\HttpFailedJobResource;
@@ -453,6 +454,10 @@ class AdminHandler extends Handler
         // Clear the CacheManager's caches
         $cacheManager = CacheManager::getManager();
         $cacheManager->flush();
+
+        //clear laravel cache
+        $cacheManager = PKPContainer::getInstance()['cache'];
+        $cacheManager->store()->flush();
 
         $request->redirect(null, 'admin');
     }

@@ -27,6 +27,7 @@ use PKP\cache\CacheManager;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\Core;
+use PKP\core\PKPContainer;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
@@ -713,9 +714,15 @@ class Installer
      */
     public function clearDataCache()
     {
+        // Clear the CacheManager's caches
         $cacheManager = CacheManager::getManager();
         $cacheManager->flush(null, CACHE_TYPE_FILE);
         $cacheManager->flush(null, CACHE_TYPE_OBJECT);
+
+        //clear laravel cache
+        $cacheManager = PKPContainer::getInstance()['cache'];
+        $cacheManager->store()->flush();
+        
         return true;
     }
 

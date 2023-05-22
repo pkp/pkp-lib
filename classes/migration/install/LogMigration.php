@@ -52,7 +52,7 @@ class LogMigration extends \PKP\migration\Migration
 			$table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
-            $table->string('setting_type', 6)->comment('(bool|int|float|string|object)')->nullable()->default(null);
+            $table->string('setting_type', 6)->comment('(bool|int|float|string|object)')->nullable();
             $table->unique(['log_id', 'setting_name', 'locale'], 'event_log_settings_unique');
         });
 

@@ -64,6 +64,9 @@ class DAO extends EntityDAO
             public function setCustomProps(array $props)
             {
                 $cleanProps = $this->validateCustomProps($props);
+                if (empty($cleanProps)) {
+                    return;
+                }
                 $this->customProps = $cleanProps;
             }
 

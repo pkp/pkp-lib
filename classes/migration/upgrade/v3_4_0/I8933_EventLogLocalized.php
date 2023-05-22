@@ -40,7 +40,7 @@ abstract class I8933_EventLogLocalized extends Migration
             $table->string('locale', 14)->default('')->after('log_id');
             $table->dropUnique('event_log_settings_unique');
             $table->unique(['log_id', 'locale', 'setting_name'], 'event_log_settings_unique');
-            $table->string('setting_type', 6)->default(null)->change();
+            $table->string('setting_type', 6)->nullable()->change();
         });
 
         // Events can be triggered without a user, e.g., in schedule tasks

@@ -382,15 +382,13 @@ class PKPStageParticipantNotifyForm extends Form
     {
         $currentUser = $request->getUser();
         $eventLog = Repo::eventLog()->newDataObject([
-            [
-                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
-                'assocId' => $submission->getId(),
-                'eventType' => EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT,
-                'userId' => Validation::loggedInAs() ?? $currentUser->getId(),
-                'message' => 'informationCenter.history.messageSent',
-                'isTranslated' => 0,
-                'dateLogged' => Core::getCurrentDate()
-            ]
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'eventType' => EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT,
+            'userId' => Validation::loggedInAs() ?? $currentUser->getId(),
+            'message' => 'informationCenter.history.messageSent',
+            'isTranslated' => 0,
+            'dateLogged' => Core::getCurrentDate()
         ]);
         Repo::eventLog()->add($eventLog);
 

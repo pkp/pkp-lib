@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-03-06 23:07+0000\n"
+"PO-Revision-Date: 2023-05-23 07:02+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fi/>\n"
@@ -1440,81 +1440,111 @@ msgstr "Lähetä teknisesti toimitettavaksi"
 
 msgid "editor.submission.decision.accept.description"
 msgstr ""
+"Tämä käsikirjoitus hyväksytään julkaistavaksi ja lähetetään tekniseen "
+"toimitukseen."
 
 msgid "editor.submission.decision.accept.log"
 msgstr ""
+"{$editorName} hyväksyi tämän käsikirjoituksen ja lähetti sen teknisen "
+"toimittamisen työvaiheeseen."
 
 msgid "editor.submission.decision.accept.completed"
-msgstr ""
+msgstr "Käsikirjoitus hyväksytty"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
+"Käsikirjoitus {$title} on hyväksytty julkaistavaksi ja lähetetty teknisen "
+"toimituksen työvaiheeseen. Kaikki ilmoitukset on lähetetty, lukuun ottamatta "
+"niitä, jotka päätit ohittaa."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
+"Lähetä kirjoittajille sähköpostiviesti, jossa ilmoitat, että heidän "
+"käsikirjoituksensa on hyväksytty julkaistavaksi. Tätä sähköpostia ei "
+"lähetetä ennen kuin päätös on tallennettu."
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Lähetä kirjoittajille sähköpostiviesti, jossa ilmoitat, että "
+"arviointikierros on päättynyt. Tätä sähköpostia ei lähetetä ennen kuin "
+"päätös on tallennettu."
 
 msgid "editor.submission.decision.decline"
 msgstr "Hylkää käsikirjoitus"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
+"Tätä käsikirjoitusta ei hyväksytä julkaistavaksi. Vertaisarviointivaihe "
+"suljetaan ja käsikirjoitus arkistoidaan."
 
 msgid "editor.submission.decision.decline.log"
-msgstr ""
+msgstr "{$editorName} hylkäsi tämän käsikirjoituksen."
 
 msgid "editor.submission.decision.decline.completed"
-msgstr ""
+msgstr "Käsikirjoitus hylätty"
 
 msgid "editor.submission.decision.decline.completed.description"
 msgstr ""
+"Käsikirjoitus {$title} on hylätty ja siirretty arkistoon. Kaikki ilmoitukset "
+"on lähetetty, lukuun ottamatta niitä, jotka päätit ohittaa."
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
+"Lähetä kirjoittajille sähköpostiviesti, jossa ilmoitat, että heidän "
+"käsikirjoituksensa on hylätty. Tätä sähköpostia ei lähetetä ennen kuin "
+"päätös on tallennettu."
 
 msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
+"Tätä käsikirjoitusta ei hyväksytä julkaistavaksi. Sitä ei enää arvioida, ja "
+"käsikirjoitus arkistoidaan."
 
 msgid "editor.submission.decision.newReviewRound"
-msgstr ""
+msgstr "Uusi arviointikierros"
 
 msgid "editor.submission.decision.newReviewRound.description"
-msgstr ""
+msgstr "Aloita uusi arviointikierros tälle käsikirjoitukselle."
 
 msgid "editor.submission.decision.newReviewRound.log"
-msgstr ""
+msgstr "{$editorName} loi uuden arviointikierroksen tälle käsikirjoitukselle."
 
 msgid "editor.submission.decision.newReviewRound.completed"
-msgstr ""
+msgstr "Arviointikierros luotu"
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
+"Käsikirjoitukselle {$title} on luotu uusi arviointikierros. Kirjoittajalle "
+"on ilmoitettu, ellet päättänyt ohittaa tätä sähköpostiviestiä."
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Lähetä kirjoittajille sähköpostiviesti, jossa kerrot, että heidän "
+"käsikirjoituksensa on lähetetty uudelle arviointikierrokselle. Tätä "
+"sähköpostia ei lähetetä ennen kuin päätös on tallennettu."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr ""
+"Valitse tiedostot, jotka on lähetettävä teknisen toimittamisen työvaiheeseen."
 
 msgid "editor.submission.decision.promoteFiles.review"
-msgstr ""
+msgstr "Valitse tiedostot, jotka on lähetettävä arviointivaiheeseen."
 
 msgid "editor.submission.decision.promoteFiles.production"
-msgstr ""
+msgstr "Valitse tiedostot, jotka on lähetettävä tuotantovaiheeseen."
 
 msgid "editor.submission.decision.requestRevisions"
 msgstr "Pyydä korjauksia"
 
 msgid "editor.submission.decision.requestRevisions.description"
 msgstr ""
+"Kirjoittajan on tehtävä korjaukset ennen kuin tämä käsikirjoitus hyväksytään "
+"julkaistavaksi."
 
 msgid "editor.submission.decision.requestRevisions.log"
-msgstr ""
+msgstr "{$editorName} pyysi korjauksia tähän käsikirjoitukseen."
 
 msgid "editor.submission.decision.requestRevisions.completed"
-msgstr ""
+msgstr "Korjauksia pyydetty"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
@@ -2557,4 +2587,3 @@ msgstr ""
 
 msgid "submission.submissionFile"
 msgstr "Käsikirjoitustiedosto"
-

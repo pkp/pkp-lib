@@ -197,13 +197,26 @@ class PKPStageParticipantNotifyForm extends Form
         $headNote->setAssocType(PKPApplication::ASSOC_TYPE_QUERY);
         $headNote->setAssocId($query->getId());
         $headNote->setDateCreated(Core::getCurrentDate());
-        $headNote->setTitle(
-            Mail::compileParams(
-                $template->getLocalizedData('subject'),
-                $mailable->getData()
-            )
-        );
-        $headNote->setContents($this->getData('message'));
+
+        // Populate mailable with data before compiling headNote title and content
+        $mailable
+            ->addData(['authorName' => $user->getFullName()]) // For compatibility with removed AUTHOR_ASSIGN and AUTHOR_NOTIFY
+            ->sender($request->getUser())
+            ->recipients([$user])
+            ->body($this->getData('message'))
+            ->subject($template->getLocalizedData('subject'));
+
+        // Compile and insert note
+        $headNote->setTitle(Mail::compileParams(
+            $template->getLocalizedData('subject'),
+            $mailable->getData()
+        ));
+        //Substitute email template variables not available before form being executed
+        $additionalVariables = $this->getEmailVariableNames($template->getData('key'));
+        $headNote->setContents(Mail::compileParams(
+            $this->getData('message'),
+            array_intersect_key($mailable->getData(), $additionalVariables)
+        ));
         $noteDao->insertObject($headNote);
 
         // Send the email
@@ -218,14 +231,7 @@ class PKPStageParticipantNotifyForm extends Form
             Notification::NOTIFICATION_LEVEL_TASK
         );
 
-        $mailable
-            ->addData(['authorName' => $user->getFullName()]) // For compatibility with removed AUTHOR_ASSIGN and AUTHOR_NOTIFY
-            ->sender($request->getUser())
-            ->recipients([$user])
-            ->body($this->getData('message'))
-            ->subject($template->getLocalizedData('subject'))
-            ->allowUnsubscribe($notification);
-
+        $mailable->allowUnsubscribe($notification);
         $logDao = null;
         try {
             Mail::send($mailable);
@@ -308,6 +314,9 @@ class PKPStageParticipantNotifyForm extends Form
             case 'INDEX_COMPLETE': return [
                 'recipientName' => __('user.role.editor'),
             ];
+            case 'EDITOR_ASSIGN_SUBMISSION':
+            case 'EDITOR_ASSIGN_REVIEW':
+            case 'EDITOR_ASSIGN_PRODUCTION':
             case 'EDITOR_ASSIGN': return [
                 'recipientName' => __('user.name'),
                 'recipientUsername' => __('user.username'),

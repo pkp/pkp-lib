@@ -468,6 +468,9 @@ msgstr "Add filter: {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "Clear filter: {$filterTitle}"
 
+msgid "common.filtersClear"
+msgstr "Clear Filters"
+
 msgid "common.findTemplate"
 msgstr "Find Template"
 

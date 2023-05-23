@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-05-23 07:02+0000\n"
+"PO-Revision-Date: 2023-05-23 13:31+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fi/>\n"
@@ -1062,7 +1062,7 @@ msgid "submission.submit.fileAdded"
 msgstr "Tiedosto lisätty"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Sisällytetäänkö tämä tekijä selausluetteloihin?"
+msgstr "Sisällytä tämä tekijä julkisiin luetteloihin."
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "Julkaisuluettelot"
@@ -1548,60 +1548,90 @@ msgstr "Korjauksia pyydetty"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
+"Käsikirjoitukseen {$title} on pyydetty korjauksia. Kaikki ilmoitukset on "
+"lähetetty, lukuun ottamatta niitä, jotka päätit ohittaa."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
+"Lähetä kirjoittajille sähköpostiviesti, jossa kerrot, että käsikirjoitusta "
+"on korjattava ennen kuin se voidaan hyväksyä julkaistavaksi. Liitä mukaan "
+"kaikki tiedot, joita kirjoittaja tarvitsee voidakseen korjata "
+"käsikirjoitustaan. Muista tarvittaessa anonymisoida kaikki arvioijien "
+"kommentit. Tätä sähköpostiviestiä ei lähetetä ennen kuin päätös on "
+"tallennettu."
 
 msgid "editor.submission.decision.cancelReviewRound"
-msgstr ""
+msgstr "Peru arviointikierros"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
+"Peru nykyinen arviointikierros ja lähetä käsikirjoitus takaisin edelliselle "
+"arviointikierrokselle. Jos kyseessä on ensimmäinen arviointikierros, se "
+"lähetetään takaisin käsikirjoitusvaiheeseen, eli työnkulun ensimmäiseen "
+"vaiheeseen."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
-msgstr ""
+msgstr "{$editorName} perui arviointikierroksen."
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr ""
+msgstr "Peruttiin viimeisin arviointikierros."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
+"Käsikirjoituksen {$title} arviointikierros on peruttu. Kaikki ilmoitukset on "
+"lähetetty, lukuun ottamatta niitä, jotka olet päättänyt ohittaa."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
+"Arviointikierroksen voi perua vain, jos yhdelläkään siihen liittyvällä "
+"arvioijalla ei ole valmista tai lähetettyä arviointia."
 
 msgid "editor.submission.decision.resubmit"
 msgstr "Lähetä uudelleen arvioitavaksi"
 
 msgid "editor.submission.decision.resubmit.description"
 msgstr ""
+"Kirjoittajan on toimitettava korjaukset, jotka lähetetään uudelle "
+"arviointikierrokselle, ennen kuin tämä käsikirjoitus hyväksytään "
+"julkaistavaksi."
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
+"{$editorName} pyysi korjauksia tähän käsikirjoitukseen, jotka on lähetettävä "
+"uudelle arviointikierrokselle."
 
 msgid "editor.submission.decision.resubmit.completed"
-msgstr ""
+msgstr "Korjauksia pyydetty"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
+"Käsikirjoitukseen {$title} on pyydetty korjauksia. Päätös korjausten "
+"lähettämisestä uudelle arviointikierrokselle tallennettiin. Kaikki "
+"ilmoitukset on lähetetty, lukuun ottamatta niitä, jotka päätit ohittaa."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
+"Lähetä kirjoittajille sähköpostiviesti, jossa kerrot, että käsikirjoitukseen "
+"on tehtävä korjauksia ja lähetettävä uudelle arviointikierrokselle. Liitä "
+"mukaan kaikki tiedot, jotka kirjoittaja tarvitsee korjauksia varten. Muista "
+"tarvittaessa anonymisoida arvioijien kommentit."
 
 msgid "editor.submission.decision.sendExternalReview"
-msgstr ""
+msgstr "Lähetetty arvioitavaksi"
 
 msgid "editor.submission.decision.sendExternalReview.description"
-msgstr ""
+msgstr "Tämä käsikirjoitus on valmis lähetettäväksi vertaisarviointiin."
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr ""
+msgstr "{$editorName} lähetti tämän käsikirjoituksen arviointivaiheeseen."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr ""
+msgstr "Lähetetty arvioitavaksi"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
+"Käsikirjoitus {$title} on lähetetty arviointivaiheeseen. Kirjoittajalle on "
+"ilmoitettu asiasta, ellet päättänyt ohittaa tätä sähköpostiviestiä."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Uusi arvointikierros"
@@ -1611,72 +1641,108 @@ msgstr "Lähetä tuotantoon"
 
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr ""
+"Lähetä tämä käsikirjoitus tuotantovaiheeseen, jotta se voidaan valmistella "
+"julkaistavaksi."
 
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr ""
+msgstr "{$editorName} lähetti tämän käsikirjoituksen tuotantovaiheeseen."
 
 msgid "editor.submission.decision.sendToProduction.completed"
-msgstr ""
+msgstr "Lähetetty tuotantoon"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
+"Käsikirjoitus {$title} lähetettiin tuotantovaiheeseen. Kirjoittajalle on "
+"ilmoitettu asiasta, ellet päättänyt ohittaa tätä sähköpostiviestiä."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
+"Lähetä sähköpostia kirjoittajille ja ilmoita heille, että käsikirjoitus on "
+"lähetetty tuotantovaiheeseen. Tätä sähköpostia ei lähetetä ennen kuin päätös "
+"on tallennettu."
 
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr ""
+msgstr "Peru tekninen toimittaminen"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr ""
+msgstr "Lähetä tämä käsikirjoitus takaisin teknisen toimittamisen työvaiheesta."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr ""
+"{$editorName} on lähettänyt tämän käsikirjoituksen takaisin tekniseen "
+"toimittamiseen."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr ""
+msgstr "Lähetetty takaisin tekniseen toimittamiseen"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
+"Käsikirjoitus {$title} lähetettiin takaisin teknisen toimittamisen "
+"työvaiheesta. Kirjoittajalle on ilmoitettu asiasta, ellet päättänyt ohittaa "
+"tätä sähköpostia."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Lähetä kirjoittajille sähköpostiviesti, jossa kerrot, että teknisen "
+"toimittamisen työvaihe on peruttu ja että heidän käsikirjoitustaan "
+"arvioidaan edelleen."
 
 msgid "editor.submission.decision.backToCopyediting"
-msgstr ""
+msgstr "Takaisin tekniseen toimittamiseen"
 
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr ""
+"Lähetä tämä käsikirjoitus takaisin teknisen toimittamisen työvaiheeseen."
 
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr ""
+"{$editorName} lähetti tämän käsikirjoituksen takaisin teknisen toimittamisen "
+"työvaiheeseen."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr ""
+msgstr "Lähetetty takaisin tekniseen toimittamiseen"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
+"Käsikirjoitus {$title} lähetettiin takaisin tekniseen toimittamiseen. "
+"Kirjoittajalle on ilmoitettu asiasta, ellet päättänyt ohittaa tätä "
+"sähköpostiviestiä."
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Lähetä kirjoittajille sähköpostiviesti, jossa kerrot, että tämä "
+"käsikirjoitus on lähetetty takaisin teknisen toimittamisen työvaiheeseen. "
+"Selitä, miksi tämä päätös tehtiin, ja kerro kirjoittajalle, mitä muokkausta "
+"tarvitaan vielä, ennen kuin tämä käsikirjoitus on valmis tuotantoon."
 
 msgid "editor.submission.decision.skipReview"
 msgstr "Hyväksy ja ohita arviointi"
 
 msgid "editor.submission.decision.skipReview.description"
 msgstr ""
+"Hyväksy tämä käsikirjoitus julkaistavaksi ja ohita arviointivaihe. Tämä "
+"päätös lähettää käsikirjoituksen tekniseen toimitukseen."
 
 msgid "editor.submission.decision.skipReview.log"
 msgstr ""
+"{$editorName} ohitti arviointivaiheen ja lähetti tämän käsikirjoituksen "
+"tekniseen toimitukseen."
 
 msgid "editor.submission.decision.skipReview.completed"
-msgstr ""
+msgstr "Arviointi ohitettu"
 
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
+"Käsikirjoitus {$title} on ohittanut arviointivaiheen ja lähetetty teknisen "
+"toimittamisen työvaiheeseen. Kirjoittajalle on ilmoitettu asiasta, ellet "
+"päättänyt ohittaa tätä sähköpostiviestiä."
 
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
+"Lähetä kirjoittajille sähköpostiviesti, jossa kerrot, että tämä "
+"käsikirjoitus on hyväksytty julkaistavaksi ja lähetetty tekniseen "
+"toimitukseen ilman arviointia. Tätä sähköpostia ei lähetetä ennen kuin "
+"päätös on tallennettu."
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Lähetä sisäiseen arviointiin"
@@ -1699,70 +1765,95 @@ msgstr "Peru hylkäys"
 
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
+"Peru aiempi päätös hylätä tämä käsikirjoitus ja palauta se toimitettavaksi. "
+"Kirjoittajalle on ilmoitettu asiasta, ellet päättänyt ohittaa tätä "
+"sähköpostiviestiä."
 
 msgid "editor.submission.decision.revertDecline.log"
-msgstr ""
+msgstr "{$editorName} kumosi päätöksen hylätä tämä käsikirjoitus."
 
 msgid "editor.submission.decision.revertDecline.completed"
-msgstr ""
+msgstr "Käsikirjoitus otettu uudelleen käsittelyyn"
 
 msgid "editor.submission.decision.revertDecline.completed.description"
-msgstr ""
+msgstr "Käsikirjoitus {$title} on nyt aktiivinen arviointivaiheessa."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
+"Lähetä kirjoittajille sähköpostia, jossa ilmoitat heille, että aiempi päätös "
+"hylätä tämä käsikirjoitus on peruttu. Selitä, miksi päätös kumottiin, ja "
+"kerro, onko käsikirjoitusta tarkoitus arvioida uudelleen."
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
+"Käsikirjoitus {$title} on nyt aktiivinen käsikirjoitusvaiheessa, eli "
+"ensimmäisessä työvaiheessa. Kirjoittajalle on ilmoitettu, ellet päättänyt "
+"ohittaa tätä sähköpostiviestiä."
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "Osoita toimittaja, jotta voidaan tehdä toimituksellisia päätöksiä."
+msgstr ""
+"Osoita toimittaja, jotta työvaiheessa voidaan tehdä toimituksellisia "
+"päätöksiä."
 
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
+"Lähetä päättäville toimittajille viesti, jossa kerrot suosituksesta. Selitä, "
+"miksi suositus annettiin perustuen arvioijien antamiin suosituksiin ja "
+"kommentteihin."
 
 msgid "editor.submission.recommend.accept"
-msgstr ""
+msgstr "Suosittele hyväksymistä"
 
 msgid "editor.submission.recommend.accept.description"
 msgstr ""
+"Suosittele, että tämä käsikirjoitus hyväksytään julkaistavaksi ja lähetetään "
+"tekniseen toimitukseen."
 
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
+"{$editorName} suositteli, että tämä käsikirjoitus hyväksytään ja lähetetään "
+"tekniseen toimitukseen."
 
 msgid "editor.submission.recommend.completed"
-msgstr ""
+msgstr "Suositus lähetetty"
 
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
+"Suosituksesi on tallennettu ja asiasta päättäville toimittajille on "
+"ilmoitettu."
 
 msgid "editor.submission.recommend.revisions"
-msgstr ""
+msgstr "Suosittele korjauksia"
 
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
+"Suosittele, että kirjoittajalta pyydetään korjauksia, ennen kuin tämä "
+"käsikirjoitus hyväksytään julkaistavaksi."
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "{$editorName} suositteli korjausten pyytämistä."
 
 msgid "editor.submission.recommend.resubmit"
-msgstr ""
+msgstr "Suositellaan lähettämistä uudelleen arvioitavaksi"
 
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
+"Suosittele, että kirjoittajalta pyydetään korjauksia toista "
+"arviointikierrosta varten."
 
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
+"{$editorName} suositteli, että korjauksia pyydetään ja että nämä korjaukset "
+"lähetetään uudelle arviointikierrokselle."
 
 msgid "editor.submission.recommend.decline"
-msgstr ""
+msgstr "Suosittele hylkäämistä"
 
 msgid "editor.submission.recommend.decline.description"
-msgstr ""
+msgstr "Suosittele, että käsikirjoitus hylätään."
 
 msgid "editor.submission.recommend.decline.log"
-msgstr ""
+msgstr "{$editorName} suositteli, että tämä käsikirjoitus hylätään."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Tee suositus"
@@ -1778,6 +1869,8 @@ msgstr "Suositukset: {$recommendations}"
 
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
+"Et voi antaa suositusta ennen kuin käsikirjoitukseen on osoitettu "
+"toimittaja, jolla on lupa tallentaa päätös."
 
 msgid "editor.submission.recommendation"
 msgstr "Suositus"
@@ -1811,7 +1904,7 @@ msgstr "Tarkastajaa valittaessa tapahtui virhe. Yritä uudelleen."
 
 msgid "submission.event.fileEdited"
 msgstr ""
-"Käyttäjä {$username} muokkasi tiedoston  \"{$originalFileName}\" "
+"Käyttäjä {$username} muokkasi tiedoston \"{$originalFileName}\" "
 "kuvailutietoja."
 
 msgid "submission.event.fileUploaded"
@@ -1959,6 +2052,8 @@ msgstr ""
 
 msgid "log.review.reviewerResendRequest"
 msgstr ""
+"Arviointipyyntö lähetettiin uudelleen kierroksella {$round} arvioijalle "
+"{$reviewerName} käsikirjoituksessa {$submissionid}."
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
@@ -2056,7 +2151,7 @@ msgid "submission.copyright"
 msgstr "Tekijänoikeus"
 
 msgid "submission.copyright.agree"
-msgstr ""
+msgstr "Kyllä, hyväksyn tekijänoikeuslausekkeen."
 
 msgid "submission.copyrightHolder"
 msgstr "Tekijänoikeuden haltija"
@@ -2286,7 +2381,7 @@ msgid "submission.list.confirmDelete"
 msgstr "Poista käsikirjoitus?"
 
 msgid "submission.list.viewAllSubmissions"
-msgstr ""
+msgstr "Näytä kaikki käsikirjoitukset"
 
 msgid "submission.list.viewSubmission"
 msgstr "Katso käsikirjoitusta"
@@ -2339,72 +2434,88 @@ msgstr "Osoita toimittaja"
 
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
+"Tämä käsikirjoitus on jo lähetetty. Käy katsomassa sitä <a href=\"{$url}\""
+">käsikirjoitusten hallintapaneelista</a>."
 
 msgid "submission.wizard.beforeStart"
-msgstr ""
+msgstr "Ennen kuin aloitat"
 
 msgid "submission.wizard.categories.description"
-msgstr ""
+msgstr "Valitse vain ne kategoriat, jotka sopivat käsikirjoitukseesi."
 
 msgid "submission.wizard.changeSubmission"
-msgstr ""
+msgstr "Muuta käsikirjoituksen asetuksia"
 
 msgid "submission.wizard.completeSteps"
-msgstr ""
+msgstr "Suorita seuraavat vaiheet käsikirjoitusten lähetystä varten"
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
+"Käsikirjoitus <strong>{$title}</strong> lähetetään toimitukselliseen "
+"käsittelyyn kohteeseen <strong>{$context}</strong>. Oletko varma, että "
+"haluat lähettää käsikirjoituksen?"
 
 msgid "submission.wizard.errors"
 msgstr ""
+"Yksi tai useampi ongelma on korjattava, ennen kuin voit lähettää "
+"käsikirjoituksen. Tarkista alla olevat tiedot ja tee pyydetyt muutokset."
 
 msgid "submission.wizard.validating"
-msgstr ""
+msgstr "Käsikirjoituksen tietoja tarkistetaan"
 
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
+"Lisää kaikki tiedot, jotka toimituksemme tulisi mielestäsi tietää, kun se "
+"arvioi käsikirjoitustasi."
 
 msgid "submission.wizard.confirm"
-msgstr ""
+msgstr "Vahvista seuraavat tiedot ennen lähettämistä."
 
 msgid "submission.wizard.title"
-msgstr ""
+msgstr "Lähetä käsikirjoitus"
 
 msgid "submission.wizard.titleWithStep"
-msgstr ""
+msgstr "Lähetä käsikirjoitus: {$step}"
 
 msgid "submission.wizard.noContributors"
-msgstr ""
+msgstr "Tähän käsikirjoitukseen ei ole lisätty tekijöitä."
 
 msgid "submission.wizard.missingContributorLanguage"
-msgstr ""
+msgstr "Etunimi puuttuu kielellä {$language} yhden tai useamman tekijän osalta."
 
 msgid "submission.wizard.notAllowed"
-msgstr ""
+msgstr "Ei sallittu"
 
 msgid "submission.wizard.privacyConsent"
-msgstr ""
+msgstr "Tietosuojasuostumus"
 
 msgid "submission.wizard.saved"
-msgstr ""
+msgstr "Tallennettu myöhempää täydennystä varten"
 
 msgid "submission.wizard.saved.description"
 msgstr ""
+"Käsikirjoituksesi tiedot on tallennettu järjestelmäämme, mutta sitä ei ole "
+"vielä lähetetty käsiteltäväksi. Voit palata täydentämään käsikirjoituksesi "
+"tietoja milloin tahansa seuraamalla alla olevaa linkkiä."
 
 msgid "submission.wizard.saved.emailConfirmation"
 msgstr ""
+"Olemme lähettäneet sinulle sähköpostitse kopion tästä linkistä osoitteeseen "
+"{$email}."
 
 msgid "submission.wizard.sectionClosed"
-msgstr ""
+msgstr "Osasto suljettu"
 
 msgid "submission.wizard.start"
-msgstr ""
+msgstr "Aloita käsikirjoituksen lähetys"
 
 msgid "submission.wizard.startingStatus"
-msgstr ""
+msgstr "Aloitetaan käsikirjoituksen lähetys"
 
 msgid "submission.wizard.unableToSave"
 msgstr ""
+"Tapahtui virhe, emmekä voineet tallentaa käsikirjoitustasi. Verkkoyhteytesi "
+"on saattanut katketa."
 
 msgid "grid.category.categories"
 msgstr "Kategoriat"
@@ -2422,7 +2533,7 @@ msgid "catalog.sortBy.datePublishedDesc"
 msgstr "Julkaisupäivä (uusin ensin)"
 
 msgid "category.category"
-msgstr ""
+msgstr "Kategoriat"
 
 msgid "category.coverImage"
 msgstr "Kansikuva"
@@ -2489,37 +2600,43 @@ msgstr "Oletko varma, että haluat luoda uuden version?"
 msgid "publication.wordCountLong"
 msgstr ""
 "Tiivistelmä on liian pitkä. Oikea pituus on {$limit} sanaa tai vähemmän. "
-"Tiivistelmä on nyt {$count}  sanan pituinen."
+"Tiivistelmä on nyt {$count} sanan pituinen."
 
 msgid "publication.wordCount"
 msgstr "Sanoja: {$count}/{$limit}"
 
 msgid "doi.incorrectStaleStatus"
 msgstr ""
+"Kohteen {$pubObjectTitle} DOI-tunnusta ei voitu merkitä synkronointia "
+"vaativaksi. DOI-tunnusta ei voi merkitä synkronointia vaativaksi jos sitä ei "
+"ole rekisteröity."
 
 msgid "doi.submission.notPublished"
 msgstr ""
+"Kohteen {$pubObjectTitle} DOI-tunnusta ei voitu merkitä rekisteröidyksi. "
+"Käsikirjoitus on julkaistava, ennen kuin tila voidaan päivittää."
 
 msgid "submission.viewingPreview"
 msgstr ""
 "Tämä on esikatselu eikä käsikirjoituksen versiota ole julkaistu. <a href="
 "\"{$url}\">Palaa käsikirjoitukseen</a>"
 
-#, fuzzy
 msgid "author.submit.noFiles"
-msgstr "Tähän käsikirjoitukseen ei ole liitetty tiedostoja."
+msgstr "Tähän käsikirjoitukseen ei ole lisätty tiedostoja."
 
 msgid "author.submit.confirmation"
 msgstr "Vahvistus"
 
 msgid "submission.wizard.submittingInLanguage"
-msgstr ""
+msgstr "Lähetetään kielellä <strong>{$language}</strong>."
 
 msgid "submission.wizard.submittingToSection"
-msgstr ""
+msgstr "Lähetetään osastoon <strong>{$section}</strong>."
 
 msgid "submission.wizard.submittingToSectionInLanguage"
 msgstr ""
+"Lähetetään osastoon <strong>{$section}</strong> kielellä "
+"<strong>{$language}</strong>."
 
 msgid "submission.type.tip"
 msgstr ""
@@ -2547,19 +2664,22 @@ msgid "submission.submit.selectPrincipalContact"
 msgstr "Pääasiallinen yhteyshenkilö toimituksellisissa yhteydenotoissa."
 
 msgid "submission.dataAvailability"
-msgstr ""
+msgstr "Selvitys tutkimusdatan saatavuudesta"
 
 msgid "submission.dataAvailability.tip"
 msgstr ""
+"Kerro millaista käsikirjoitusta tukevaa tutkimusaineistoa on saatavilla ja "
+"mistä se löytyy"
 
 msgid "submission.files.required.genre"
-msgstr ""
+msgstr "Sinun on lisättävä vähintään yksi {$genre}-tiedosto."
 
 msgid "submission.files.required.genres"
 msgstr ""
+"Sinun on lisättävä vähintään yksi seuraavista tiedostotyypeistä: {$genres}."
 
 msgid "publication.version"
-msgstr ""
+msgstr "Versio {$version}"
 
 #~ msgid "catalog.browseTitles"
 #~ msgstr "{$numTitles} nimikettä"
@@ -2587,3 +2707,7 @@ msgstr ""
 
 msgid "submission.submissionFile"
 msgstr "Käsikirjoitustiedosto"
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Voit päivittää tätä keskustelua {$allowedEditTimeNoticeLimit} minuuttia."

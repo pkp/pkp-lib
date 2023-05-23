@@ -925,8 +925,7 @@ msgstr ""
 "prefiksi:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr ""
-"Oletus - Luo automaattisesti yksilöllisen kahdeksanmerkkisen suffiksin."
+msgstr "Oletus - Luo automaattisesti yksilöllisen kahdeksanmerkkisen suffiksin"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
@@ -3302,7 +3301,7 @@ msgid "mailable.reviewDecline.name"
 msgstr "Arviointipyyntö hylätty"
 
 msgid "mailable.reviewDecline.description"
-msgstr "Arvioija lähettää tämän sähköpostin, kun hän hylkää arviointipyynnön."
+msgstr "Arvioija lähettää tämän sähköpostin, kun hän hylkää arviointipyynnön"
 
 msgid "mailable.reviewRemind.name"
 msgstr "Muistutus arvioinnista"
@@ -3391,8 +3390,9 @@ msgstr "Rekisteröinti arvioijaksi"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
-"This email is sent to a newly registered reviewer to welcome them to the "
-"system and provide them with a record of their username and password."
+"Tämä sähköpostiviesti lähetetään vastarekisteröidylle arvioijalle, joka "
+"toivottaa hänet tervetulleeksi järjestelmään ja antaa hänelle "
+"käyttäjätunnuksen ja salasanan."
 
 msgid "mailable.submissionSavedForLater.name"
 msgstr "Käsikirjoitus tallennettu myöhempää täydentämistä varten"
@@ -3457,8 +3457,8 @@ msgstr "Ilmoitus korjatusta versiosta"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
-"This email is automatically sent to the assigned editor when author uploads "
-"a revised version of an article."
+"Tämä sähköposti lähetetään automaattisesti osoitetulle toimittajalle, kun "
+"kirjoittaja lataa käsikirjoituksen korjatun version."
 
 msgid "mailable.announcementNotify.name"
 msgstr "Uusi julkinen ilmoitus"
@@ -3600,48 +3600,52 @@ msgstr "Älä lähetä sähköpostia toimittajille."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Tuleeko käsikirjoituksen lähettävän kirjoittajan valita käsikirjoitukselle "
+"kategoria lähetyksen yhteydessä?"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Kyllä, lisää kategorioita koskeva valinta ohjattuun lähetystoimintoon."
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Ei, älä näytä kirjoittajille tätä valintaa."
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Pyydä teknistä toimittamista"
 
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Toimittaja osoitettu"
 
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Valmis tuotantoon"
 
 msgid "mailable.system"
-msgstr ""
+msgstr "Järjestelmä"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Uusi versio luotu"
 
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Arviointi valmis"
 
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Arviointi muokattu"
 
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Ilmoitus käsikirjoituksen lähetyksestä muille kirjoittajille"
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Toimittaja osoitettu (automaattinen)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Tämä sähköposti lähetetään toimittajalle, kun hänelle osoitetaan "
+"automaattisesti jokin käsikirjoitus."
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Osoita toimittaja"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Käsikirjoitukselle tarvitaan toimittaja"
 
 msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
 msgstr ""
@@ -3659,7 +3663,7 @@ msgstr ""
 "polusta \"{$path}\"."
 
 msgid "mailable.citationAuthorQuery.name"
-msgstr ""
+msgstr "Kysymys viitteestä"
 
 msgid "manager.setup.notifyUsers.queued"
 msgstr ""

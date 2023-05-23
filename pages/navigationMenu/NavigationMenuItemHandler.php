@@ -26,7 +26,12 @@ use PKP\security\Role;
 class NavigationMenuItemHandler extends Handler
 {
     /** @var NavigationMenuItem The nmi to view */
-    public static $nmi;
+    public $nmi;
+
+    public function __construct($nmi)
+    {
+        $this->nmi = $nmi;
+    }
 
     //
     // Implement methods from Handler.
@@ -116,8 +121,8 @@ class NavigationMenuItemHandler extends Handler
 
         $navigationMenuItem = $navigationMenuItemDao->getByPath($contextId, $path);
 
-        if (isset(self::$nmi)) {
-            $templateMgr->assign('title', self::$nmi->getLocalizedTitle());
+        if (isset($this->nmi)) {
+            $templateMgr->assign('title', $this->nmi->getLocalizedTitle());
 
             $vars = [];
             if ($context) {
@@ -129,7 +134,7 @@ class NavigationMenuItemHandler extends Handler
                     '{$supportEmail}' => $context->getData('supportEmail'),
                 ];
             }
-            $templateMgr->assign('content', strtr(self::$nmi->getLocalizedContent(), $vars));
+            $templateMgr->assign('content', strtr($this->nmi->getLocalizedContent(), $vars));
 
             $templateMgr->display('frontend/pages/navigationMenuItemViewContent.tpl');
         } else {
@@ -146,15 +151,5 @@ class NavigationMenuItemHandler extends Handler
     public function index($args, $request)
     {
         $request->redirect(null, null, 'view', $request->getRequestedOp());
-    }
-
-    /**
-     * Set a $nmi to view.
-     *
-     * @param NavigationMenuItem $nmi
-     */
-    public static function setPage($nmi)
-    {
-        self::$nmi = $nmi;
     }
 }

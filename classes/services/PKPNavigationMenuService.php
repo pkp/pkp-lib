@@ -28,6 +28,7 @@ use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\navigationMenu\NavigationMenuItem;
 use PKP\navigationMenu\NavigationMenuItemAssignment;
 use PKP\navigationMenu\NavigationMenuItemAssignmentDAO;
+use PKP\pages\navigationMenu\NavigationMenuItemHandler;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\Validation;
@@ -649,6 +650,7 @@ class PKPNavigationMenuService
 
         $page = & $args[0];
         $op = & $args[1];
+        $handler = & $args[3];
 
         // Construct a path to look for
         $path = $page;
@@ -673,10 +675,8 @@ class PKPNavigationMenuService
             $page = 'pages';
             $op = 'view';
 
-
             // It is -- attach the custom NMI handler.
-            define('HANDLER_CLASS', 'NavigationMenuItemHandler');
-            \PKP\pages\navigationMenu\NavigationMenuItemHandler::setPage($customNMI);
+            $handler = new NavigationMenuItemHandler($customNMI);
 
             return true;
         }

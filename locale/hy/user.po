@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-05 12:16+0000\n"
+"PO-Revision-Date: 2023-05-23 06:10+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hy/>\n"
@@ -161,7 +161,7 @@ msgid "user.login.forgotPassword"
 msgstr "Մոռացե՞լ եք Ձեր գաղտնաբառը։"
 
 msgid "user.login.loginError"
-msgstr "Սխալ մուտքանուն կամ գաղտնաբառ. Խնդրում եմ կրկին փորձեք։"
+msgstr "Սխալ մուտքանուն/էլ. փոստ կամ գաղտնաբառ: Խնդրում եմ կրկին փորձեք։"
 
 msgid "user.login"
 msgstr "Մուտք"
@@ -523,3 +523,6 @@ msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
 "Գաղտնաբառը հաջողությամբ թարմացվել է: Խնդրում ենք մուտք գործել թարմացված "
 "գաղտնաբառով:"
+
+msgid "user.usernameOrEmail"
+msgstr "Մուտքանուն կամ էլ. փոստ"

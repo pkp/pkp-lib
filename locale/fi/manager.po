@@ -911,7 +911,7 @@ msgid "doi.manager.settings.doiSuffix.pattern"
 msgstr "DOI-suffiksi"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr "Mukautettu malli DOI-suffiksille"
+msgstr "Mukautettu rakenne DOI-suffiksille"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
@@ -934,7 +934,7 @@ msgstr ""
 "automaattisesti"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr "Mukautettu malli - (ei suositella)"
+msgstr "Mukautettu rakenne - (ei suositella)"
 
 msgid "doi.manager.settings.registrationAgency"
 msgstr "Rekisteröintitoimisto"

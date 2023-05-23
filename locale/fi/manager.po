@@ -3305,41 +3305,39 @@ msgid "mailable.reviewDecline.description"
 msgstr "Arvioija lähettää tämän sähköpostin, kun hän hylkää arviointipyynnön."
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Muistutus arvioinnista"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Toimittaja lähettää tämän sähköpostiviestin muistuttaakseen arvioijia siitä, "
+"että heidän arvionsa tulisi palauttaa."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Muistutus arvioinnista (automaattinen)"
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"This email is automatically sent when a reviewer's due date elapses (see "
-"Review Options under Settings > Workflow > Review) and one-click reviewer "
-"access is disabled. Scheduled tasks must be enabled and configured (see the "
-"site configuration file)."
+"Tämä sähköposti lähetetään automaattisesti, kun arvioija ei ole saanut "
+"arviointia valmiiksi määräaikaan mennessä."
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr ""
+msgstr "Arvioinnin vahvistus"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Toimittaja lähettää tämän sähköpostiviestin arvioijalle vahvistaakseen, että "
+"arvio on vastaanotettu, ja kiittääkseen arvioijaa hänen työstään."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Arviointipyynnön vastaus myöhässä (automaattinen)"
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
-"This email is automatically sent when a reviewer's confirmation due date "
-"elapses (see Review Options under Settings > Workflow > Review) and one-"
-"click reviewer access is disabled. Scheduled tasks must be enabled and "
-"configured (see the site configuration file)."
+"Tämä sähköposti lähetetään automaattisesti, kun määräaika, jonka kuluessa "
+"arvioijan on vastattava arviointipyyntöön, on kulunut umpeen."
 
 msgid "mailable.reviewRequest.name"
-msgstr ""
+msgstr "Arviointipyyntö"
 
 msgid "mailable.reviewRequest.description"
 msgstr ""
@@ -3347,32 +3345,31 @@ msgstr ""
 "hyväksymään tai hylkäämään käsikirjoituksen arvioinnin. "
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Myöhempi arviointipyyntö"
 
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
-"This email from the Section Editor to a Reviewer requests that the reviewer "
-"accept or decline the task of reviewing a submission for a second or greater "
-"round of review. It provides information about the submission such as the "
-"title and abstract, a review due date, and how to access the submission "
-"itself. This message is used when the Standard Review Process is selected in "
-"Management > Settings > Workflow > Review."
+"Tässä sähköpostiviestissä toimittaja pyytää arvioijaa uudelle "
+"arviointikierrokselle. Siinä annetaan tietoja käsikirjoituksesta, kuten "
+"otsikko ja tiivistelmä, arvioinnin määräpäivä ja miten itse "
+"käsikirjoitukseen pääsee käsiksi."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Käsikirjoituksesta puuttuu nykyinen julkaistu versio"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "Käsikirjoituksen lapsiobjektin {$child} käsittely epäonnistui"
 
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Toimituksellinen muistutus"
 
 msgid "mailable.editorialReminder.description"
 msgstr ""
+"Toimittajille lähetettävä automaattinen sähköpostiviesti, jossa kerrotaan "
+"keskeneräisistä tehtävistä"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Vahvista salasanan vaihtaminen"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
@@ -3381,16 +3378,16 @@ msgstr ""
 "sisältää ULR:n, jonka kautta salasana voidaan vaihtaa."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Käyttäjä luotu"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"This email is sent to a newly registered user to welcome them to the system "
-"and provide them with a record of their username and password."
+"Tämä sähköposti lähetetään uudelle käyttäjälle, kun käyttäjätilin on luonut "
+"toimituskunta. Sähköpostiviesti toivottaa käyttäjän tervetulleeksi "
+"järjestelmään ja antaa hänelle käyttäjätunnuksen ja salasanan."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Rekisteröinti arvioijaksi"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
@@ -3398,57 +3395,65 @@ msgstr ""
 "system and provide them with a record of their username and password."
 
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Käsikirjoitus tallennettu myöhempää täydentämistä varten"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Kirjoittajille lähetettävä automaattinen sähköpostiviesti, kun he "
+"tallentavat käsikirjoituksen myöhempää täydentämistä ja lähetystä varten"
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Käsikirjoituksen vastaanottaminen"
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Tämä sähköpostiviesti voidaan lähettää automaattisesti kirjoittajalle "
-"käsikirjoituksen lähettämisen päätteeksi. Viesti sisältää ohjeita "
-"käsikirjoituksen seuraamisesta toimitusprosessissa sekä kiittää kirjoittajaa "
-"käsikirjoituksen lähettämisestä."
+"Tämä sähköpostiviesti lähetetään automaattisesti kirjoittajalle, kun hän "
+"lähettää käsikirjoituksen. Siinä annetaan tietoa toimitustyön seuraamisesta "
+"ja kiitetään kirjoittajaa käsikirjoituksesta."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Käsikirjoituksen vastaanottaminen (muut kirjoittajat)"
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"This email, when enabled, is automatically sent to the other authors who are "
-"not users specified during the submission process."
+"Tämä sähköpostiviesti lähetetään automaattisesti niille kirjoittajille, "
+"jotka on nimetty käsikirjoituksen kuvailutiedoissa, mutta jotka eivät ole "
+"lähettäneet käsikirjoitusta."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Keskustelu (käsikirjoitusvaihe)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Tämä sähköposti lähetetään, kun keskustelu luodaan tai siihen vastataan "
+"käsikirjoitusvaiheessa, eli työnkulun ensimmäisessä vaiheessa."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Keskustelu (arviointi)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Tämä sähköposti lähetetään, kun keskustelu luodaan tai siihen vastataan "
+"arviointivaiheessa."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Keskustelu (tekninen toimittaminen)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Tämä sähköposti lähetetään, kun keskustelu luodaan tai siihen vastataan "
+"teknisen toimittamiseen työvaiheessa."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Keskustelu (tuotanto)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Tämä sähköposti lähetetään, kun keskustelu luodaan tai siihen vastataan "
+"tuotantovaiheessa."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Ilmoitus korjatusta versiosta"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3456,115 +3461,142 @@ msgstr ""
 "a revised version of an article."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Uusi julkinen ilmoitus"
 
 msgid "mailable.announcementNotify.description"
 msgstr "Tämä sähköpostiviesti lähetetään, kun uusi ilmoitus on luotu."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Ilmoitus toimitustyötä koskevasta raportista"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Ilmoitus arviointipyynnön muutoksista"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Tämä sähköposti ilmoittaa automaattisesti arvioijalle, kun hänen "
+"arviointipyyntönsä yksityiskohtia on muutettu."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Ilmoitus toimittajille arvioijan palautteesta"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Tämä sähköpostiviesti lähetetään automaattisesti osoitetuille toimittajille, "
+"kun arvioija antaa suosituksen"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Tunnistuslähde"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Käsikirjoitus lähetetty takaisin arviointiin"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että hänen "
+"käsikirjoituksensa on lähetetty takaisin arviointivaiheeseen."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "Käsikirjoitus lähetetty takaisin käsikirjoitusvaiheeseen"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Tässä sähköpostiviestissä ilmoitetaan kirjoittajalle, että hänen "
+"käsikirjoituksensa on lähetetty takaisin käsikirjoitusvaiheeseen, eli "
+"ensimmäiseen työvaiheeseen."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Hallinnoi sähköposteja"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Lisää ja muokkaa sähköpostipohjia</a> kaikille "
+"järjestelmän lähettämille sähköposteille.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Lisää ja muokkaa sähköpostipohjia, jotka haluat antaa käyttäjän käyttöön "
+"tätä sähköpostia lähetettäessä. Oletusasetukset ladataan automaattisesti, ja "
+"käyttäjä voi avata nopeasti kaikki muut tähän lisäämäsi pohjat."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Sähköpostipohjat"
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Muokkaa sähköpostipohjaa"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Poista sähköpostipohja"
 
 msgid "manager.mailables.removeTemplate.confirm"
-msgstr ""
+msgstr "Oletko varma, että haluat poistaa pohjan <strong>{$template}</strong>?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Palauta sähköpostipohjan oletusasetukset"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Oletko varma, että haluat palauttaa pohjan <strong>{$template}</strong> "
+"aiheen ja tekstin oletusarvoihin?"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Etsi nimen tai kuvauksen perusteella"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Anna lyhyt nimi, jonka avulla löydät tämän pohjan."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Uusi käsikirjoitus"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Määritä sähköposti-ilmoitukset, jotka lähetetään, kun uusi käsikirjoitus on "
+"lähetetty."
 
 msgid "manager.submissionAck.description"
-msgstr ""
+msgstr "Kuka saa sähköpostiviestin, kun uusi käsikirjoitus on lähetetty."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Älä lähetä sähköpostia."
 
 msgid "manager.submissionAck.submittingAuthor"
 msgstr ""
+"Lähetä sähköpostiviesti vain käsikirjoituksen lähettäneelle kirjoittajalle."
 
 msgid "manager.submissionAck.allAuthors"
 msgstr ""
+"Lähetä sähköpostiviesti kaikille käsikirjoituksessa mainituille "
+"kirjoittajille."
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Toimitukselliset päätökset"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Määritä sähköposti-ilmoitukset, jotka lähetetään kirjoittajille, kun "
+"toimituksellinen päätös on tallennettu."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Toimittajille"
 
 msgid "manager.forEditors.description"
-msgstr ""
+msgstr "Määritä toimittajille lähetettävät sähköposti-ilmoitukset."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Toimitustyön tilastot"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Lähetetäänkö toimittajille kuukausittain sähköpostiviesti, jossa on "
+"julkaisun toimitustilastot, kuten hyväksymis- ja hylkäysprosentit. "
+"Toimittajat voivat peruuttaa tämän sähköpostin tilauksen "
+"käyttäjäprofiilistaan."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Lähetä kuukausittainen sähköposti toimittajille."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Älä lähetä sähköpostia toimittajille."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""

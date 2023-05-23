@@ -3532,9 +3532,6 @@ msgstr "Ne, toto pole autorům nezobrazujte."
 msgid "mailable.copyeditRequest.name"
 msgstr "Požadovat copyediting"
 
-msgid "mailable.citationAuthorQuery.name"
-msgstr "Otázka k citacím"
-
 msgid "mailable.editorAssign.name"
 msgstr "Byl přiřazen redaktor"
 

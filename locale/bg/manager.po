@@ -3684,9 +3684,6 @@ msgstr "Не, не показвайте на авторите това поле.
 msgid "mailable.copyeditRequest.name"
 msgstr "Заявка за типографска редакция"
 
-msgid "mailable.citationAuthorQuery.name"
-msgstr "Въпрос относно цитиране"
-
 msgid "mailable.editorAssign.name"
 msgstr "Асоцииран редактор"
 

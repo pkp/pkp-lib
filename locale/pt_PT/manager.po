@@ -3604,9 +3604,6 @@ msgstr "Não, não mostre aos autores este campo."
 msgid "mailable.copyeditRequest.name"
 msgstr "Solicitar Edição de Texto"
 
-msgid "mailable.citationAuthorQuery.name"
-msgstr "Pergunta sobre Citação"
-
 msgid "mailable.editorAssign.name"
 msgstr "Editor Atribuído"
 

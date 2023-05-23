@@ -3581,9 +3581,6 @@ msgstr "Nie oczekuj wskazania kategorii dla zgłoszenia przy jego tworzeniu."
 msgid "mailable.copyeditRequest.name"
 msgstr "Prośba o korektę"
 
-msgid "mailable.citationAuthorQuery.name"
-msgstr "Pytanie o cytowanie"
-
 msgid "mailable.editorAssign.name"
 msgstr "Redaktor przydzielony do zgłoszenia"
 

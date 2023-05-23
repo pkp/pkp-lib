@@ -3468,9 +3468,6 @@ msgstr "No, do not show authors this field."
 msgid "mailable.copyeditRequest.name"
 msgstr "Request Copyedit"
 
-msgid "mailable.citationAuthorQuery.name"
-msgstr "Question About Citation"
-
 msgid "mailable.editorAssign.name"
 msgstr "Editor Assigned"
 

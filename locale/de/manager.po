@@ -3714,9 +3714,6 @@ msgstr "Nein, Autor/innen dieses Feld nicht anzeigen."
 msgid "mailable.copyeditRequest.name"
 msgstr "Lektorat anfragen"
 
-msgid "mailable.citationAuthorQuery.name"
-msgstr "Frage zur Zitation"
-
 msgid "mailable.editorAssign.name"
 msgstr "Redakteur/in zugewiesen"
 

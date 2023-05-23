@@ -3614,9 +3614,6 @@ msgstr "Ոչ, մի ցուցադրեք այս դաշտը հեղինակներին
 msgid "mailable.copyeditRequest.name"
 msgstr "Հայցեք գրական խմբագրում"
 
-msgid "mailable.citationAuthorQuery.name"
-msgstr "Հարց մեջբերումների մասին"
-
 msgid "mailable.editorAssign.name"
 msgstr "Նշանակվել է խմբագիր"
 

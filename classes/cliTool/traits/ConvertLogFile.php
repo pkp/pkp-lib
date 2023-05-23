@@ -442,7 +442,7 @@ trait ConvertLogFile
     {
         $contextPaths = [];
         $application = Application::get();
-        $contextList = $application->getContextName();
+        $contextList = [$application->getContextName()]; // Was $application->getContextList();
         $contextDepth = 1; // Was $application->getContextDepth();
 
         if ($isPathInfo) {

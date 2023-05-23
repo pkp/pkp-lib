@@ -54,7 +54,7 @@
 			<div id="table-controls" class="submissions__list__controls">
 				<button-row>
 					<template slot="end">
-						<pkp-button @click="openFilters" tabindex="0">
+						<pkp-button @click="openFilters">
 							{translate key="common.filter"}
 						</pkp-button>
 						<span v-if="isLoadingSubmissions">
@@ -68,6 +68,18 @@
 						@search-phrase-changed="setSearchPhrase"
 					></search>
 				</button-row>
+				<div
+					v-if="activeFiltersList.length"
+					class="submissions__list__filters"
+				>
+					<badge v-for="filter in activeFiltersList" :key="filter.name + filter.value">
+						<strong>{{ filter.name }}:</strong>
+						{{ filter.value }}
+					</badge>
+					<pkp-button :is-warnable="true" :is-link="true" @click="clearFilters">
+						{translate key="common.filtersClear"}
+					</pkp-button>
+				</div>
 			</div>
 			<pkp-table aria-labelledby="table-title" aria-describedby="table-controls">
 				<template slot="head">

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-04-24 10:26+0000\n"
+"PO-Revision-Date: 2023-05-24 19:47+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -2468,7 +2468,7 @@ msgid "catalog.category.noItems"
 msgstr "Rien n'a encore été publié dans cette catégorie."
 
 msgid "catalog.category.subcategories"
-msgstr "Sous-categories"
+msgstr "Sous-catégories"
 
 msgid "publication.contributors"
 msgstr "Contributeurs-trices"
@@ -2595,4 +2595,3 @@ msgstr "Version {$version}"
 
 msgid "submission.submissionFile"
 msgstr "Fichier de soumission"
-

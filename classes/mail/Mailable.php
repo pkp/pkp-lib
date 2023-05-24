@@ -483,11 +483,22 @@ class Mailable extends IlluminateMailable
         if ($type instanceof ReflectionNamedType) {
             return [$type->getName()];
         }
-        if ($type instanceof ReflectionUnionType || $type instanceof ReflectionIntersectionType) {
-            return collect($type->getTypes())
+        $isUnion = $type instanceof ReflectionUnionType;
+        if ($isUnion || $type instanceof ReflectionIntersectionType) {
+            $flattenTypes = collect($type->getTypes())
                 ->map(fn ($type) => static::getTypeNames($type))
-                ->flatten()
-                ->toArray();
+                ->flatten();
+
+            if ($isUnion) {
+                $classTypes = $flattenTypes->filter(fn ($type) => class_exists($type));
+                if ($classTypes->count() > 1) {
+                    error_log(new Exception('The Mailable uses constructor arguments to retrieve variables, but union types with more than one "active" class is not well supported, only the first found one will be used. Create a specific mailable for each variant'));
+                    // Retrieves the rest of types and only the first class one
+                    $flattenTypes = $flattenTypes->diff($classTypes)->add($classTypes->first());
+                }
+            }
+            return $flattenTypes->toArray();
+
         }
         throw new Exception('Unexpected subtype ' . $type::class);
     }

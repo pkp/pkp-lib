@@ -307,8 +307,10 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
 
         Schema::table('notifications', function (Blueprint $table) {
             $table->bigInteger('context_id')->nullable()->change();
+            $table->bigInteger('user_id')->nullable()->change();
         });
         DB::table('notifications')->where('context_id', '=', 0)->update(['context_id' => null]);
+        DB::table('notifications')->where('user_id', '=', 0)->update(['user_id' => null]);
         Schema::table('notifications', function (Blueprint $table) {
             // Renaming indexes directly not supported until MariaDB 10.5.2
             $table->dropIndex('notifications_context_id');
@@ -327,6 +329,6 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
      */
     public function down(): void
     {
-        throw new DowngradeNotSupportedException('Downgrade unsupported due to removed data');
+        throw new DowngradeNotSupportedException();
     }
 }

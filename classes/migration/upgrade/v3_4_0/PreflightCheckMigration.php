@@ -33,6 +33,9 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     abstract protected function getContextSettingsTable(): string;
     abstract protected function getContextKeyField(): string;
 
+    /** @var array<string,callable[]> Key = table name, value = list of cleanup processors */
+    protected $tableProcessors = [];
+
     /**
      * Run the migrations.
      */
@@ -207,9 +210,11 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             }
         }
         // check if there are old usage stats log files there that were not successfully processed
-        if (count(glob($usageStatsDir . '/processing/*')) !== 0 ||
+        if (
+            count(glob($usageStatsDir . '/processing/*')) !== 0 ||
             count(glob($usageStatsDir . '/reject/*')) !== 0 ||
-            count(glob($usageStatsDir . '/stage/*')) !== 0) {
+            count(glob($usageStatsDir . '/stage/*')) !== 0
+        ) {
             throw new Exception("There are one or more log files that were unable to finish processing. This happens when the scheduled task to process usage stats logs encounters a failure of some kind. These logs must be repaired and reprocessed or removed before the upgrade can continue. The logs can be found in the folders reject, processing and stage in {$usageStatsDir}.");
         }
     }
@@ -381,30 +386,70 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
     /**
      * Clears orphaned entities before introducing foreign keys
-     * - The cleanup is sorted based on the number of dependents (entities with a higher number of dependents are deleted first)
+     * - The cleanup is executed based on the relationship dependencies between the entities
      * - Some recovery might be attempted before cleaning/dropping data
      * - Rows with required, but invalid foreign keys (null/bad values) will be deleted
      * - Rows with nullable/optional foreign keys will be inspected on a case-by-case basis (if possible they will be nulled, otherwise removed)
-     * - Some consideration is given to bidirectional/direct dependencies and exceptional cases (e.g. submission.current_publication_id, which is nullable, but required)
+     * - Consideration is given to bidirectional/direct dependencies and exceptional cases (e.g. submission.current_publication_id, which is nullable, but required)
      * @see https://github.com/pkp/pkp-lib/issues/6093
      *
      * @throws Exception
      */
     protected function clearOrphanedEntities(): void
     {
-        submissions: {
-            // Depends directly on ~2 entities: context_id->journals.journal_id current_publication_id->publications.publication_id
-            // Dependent entities: ~21
+        $this->buildOrphanedEntityProcessor();
+        // Sort the tables by the number of dependent entities
+        uksort(
+            $this->tableProcessors,
+            fn (string $a, string $b) => count($this->getEntityRelationships()[$b] ?? []) <=> count($this->getEntityRelationships()[$a] ?? [])
+        );
+        // Ensures all processors run at least once
+        foreach (array_keys($this->tableProcessors) as $table) {
+            $this->processTable($table);
+        }
+    }
+
+    /**
+     * Applies the processors for the given table
+     * If changes happened (updated/deleted entries), the processors for dependent tables will be triggered
+     */
+    protected function processTable(string $tableName): void
+    {
+        $affectedRows = array_reduce($this->tableProcessors[$tableName], fn (int $affectedRows, callable $processor): int => $affectedRows += $processor(), 0);
+        if (!$affectedRows) {
+            return;
+        }
+        foreach ($this->getEntityRelationships()[$tableName] ?? [] as $dependentTable) {
+            $this->processTable($dependentTable);
+        }
+    }
+
+    /**
+     * This method must retrieve a relationship map, which is specific for each application
+     * The format is ['parent_table' => ['child_table1', 'child_table2']]
+     *
+     * @return array<string,string[]>
+     */
+    abstract protected function getEntityRelationships(): array;
+
+    /**
+     * Builds the array with all tables that require cleanup and their respective cleanup code
+     */
+    protected function buildOrphanedEntityProcessor(): void
+    {
+        $this->addTableProcessor('submissions', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~2 entities: context_id->context_table.context_id current_publication_id->publications.publication_id
             // Custom field (not found in at least one of the softwares)
-            $this->deleteRequiredReference('submissions', 'context_id', $this->getContextTable(), $this->getContextKeyField());
+            $affectedRows += $this->deleteRequiredReference('submissions', 'context_id', $this->getContextTable(), $this->getContextKeyField());
 
             // Attempts to recover the field submissions.current_publication_id before discarding the entry
             $rows = DB::table('submissions AS s')
                 ->leftJoin('publications AS p', 'p.publication_id', '=', 's.current_publication_id')
                 ->join(
                     'publications AS last',
-                    fn (JoinClause $q) => $q->where(
-                        fn (Builder $q) => $q->from('publications AS p2')
+                    fn(JoinClause $q) => $q->where(
+                        fn(Builder $q) => $q->from('publications AS p2')
                             ->whereColumn('p2.submission_id', '=', 's.submission_id')
                             ->orderByDesc('p2.publication_id')
                             ->limit(1)
@@ -417,56 +462,62 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 ->pluck('s.submission_id', 'last.publication_id');
             foreach ($rows as $publicationId => $submissionId) {
                 $this->_installer->log("The current publication ID ({$publicationId}) for the submission ID {$submissionId} is invalid, the publication ID {$publicationId} will replace it");
-                DB::table('submissions')->where('submission_id', '=', $submissionId)->update(['current_publication_id' => $publicationId]);
+                $affectedRows += DB::table('submissions')->where('submission_id', '=', $submissionId)->update(['current_publication_id' => $publicationId]);
             }
 
             // The current_publication_id is nullable, but it's in fact required by the software, so we delete orphan entries instead of nulling them
-            $this->deleteRequiredReference('submissions', 'current_publication_id', 'publications', 'publication_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('submissions', 'current_publication_id', 'publications', 'publication_id');
+            return $affectedRows;
+        });
 
-        submission_files: {
+        $this->addTableProcessor('submission_files', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~5 entities: file_id->files.file_id genre_id->genres.genre_id source_submission_file_id->submission_files.submission_file_id submission_id->submissions.submission_id uploader_user_id->users.user_id
-            // Dependent entities: ~10
-            $this->deleteRequiredReference('submission_files', 'submission_id', 'submissions', 'submission_id');
-            $this->deleteRequiredReference('submission_files', 'file_id', 'files', 'file_id');
-            $this->cleanOptionalReference('submission_files', 'uploader_user_id', 'users', 'user_id');
-            $this->cleanOptionalReference('submission_files', 'source_submission_file_id', 'submission_files', 'submission_file_id');
-            $this->cleanOptionalReference('submission_files', 'genre_id', 'genres', 'genre_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('submission_files', 'submission_id', 'submissions', 'submission_id');
+            $affectedRows += $this->deleteRequiredReference('submission_files', 'file_id', 'files', 'file_id');
+            $affectedRows += $this->cleanOptionalReference('submission_files', 'uploader_user_id', 'users', 'user_id');
+            $affectedRows += $this->cleanOptionalReference('submission_files', 'source_submission_file_id', 'submission_files', 'submission_file_id');
+            $affectedRows += $this->cleanOptionalReference('submission_files', 'genre_id', 'genres', 'genre_id');
+            return $affectedRows;
+        });
 
-        publications: {
+        $this->addTableProcessor('publications', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~4 entities: primary_contact_id->authors.author_id doi_id->dois.doi_id(not found in previous version) section_id->sections.section_id submission_id->submissions.submission_id
-            // Dependent entities: ~6
-            $this->deleteRequiredReference('publications', 'submission_id', 'submissions', 'submission_id');
-            $this->cleanOptionalReference('publications', 'primary_contact_id', 'authors', 'author_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('publications', 'submission_id', 'submissions', 'submission_id');
+            $affectedRows += $this->cleanOptionalReference('publications', 'primary_contact_id', 'authors', 'author_id');
+            return $affectedRows;
+        });
 
-        user_groups: {
-            // Depends directly on ~1 entities: context_id->journals.journal_id
-            // Dependent entities: ~6
+        $this->addTableProcessor('user_groups', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~1 entities: context_id->context_table.context_id
             // Custom field (not found in at least one of the softwares)
-            $this->cleanOptionalReference('user_groups', 'context_id', $this->getContextTable(), $this->getContextKeyField());
-        }
+            $affectedRows += $this->cleanOptionalReference('user_groups', 'context_id', $this->getContextTable(), $this->getContextKeyField());
+            return $affectedRows;
+        });
 
-        categories: {
-            // Depends directly on ~2 entities: context_id->journals.journal_id parent_id->categories.category_id
-            // Dependent entities: ~3
+        $this->addTableProcessor('categories', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~2 entities: context_id->context_table.context_id parent_id->categories.category_id
             // Custom field (not found in at least one of the softwares)
-            $this->deleteRequiredReference('categories', 'context_id', $this->getContextTable(), $this->getContextKeyField());
-            $this->deleteOptionalReference('categories', 'parent_id', 'categories', 'category_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('categories', 'context_id', $this->getContextTable(), $this->getContextKeyField());
+            $affectedRows += $this->deleteOptionalReference('categories', 'parent_id', 'categories', 'category_id');
+            return $affectedRows;
+        });
 
-        review_rounds: {
+        $this->addTableProcessor('review_rounds', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: submission_id->submissions.submission_id
-            // Dependent entities: ~3
-            $this->deleteRequiredReference('review_rounds', 'submission_id', 'submissions', 'submission_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('review_rounds', 'submission_id', 'submissions', 'submission_id');
+            return $affectedRows;
+        });
 
-        announcement_types: {
-            // Depends directly on ~1 entities: context_id->journals.journal_id
-            // Dependent entities: ~2
+        $this->addTableProcessor('announcement_types', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~1 entities: context_id->context_table.context_id
             // Deprecated/moved field (not found on previous software version)
-            // $this->deleteRequiredReference('announcement_types', 'context_id', $this->getContextTable(), $this->getContextKeyField());
+            // $affectedRows += $this->deleteRequiredReference('announcement_types', 'context_id', $this->getContextTable(), $this->getContextKeyField());
             // Clean orphaned assoc_type/assoc_id data in announcement_types
             $orphanedIds = DB::table('announcement_types AS at')
                 ->leftJoin($this->getContextTable() . ' AS c', 'at.assoc_id', '=', 'c.' . $this->getContextKeyField())
@@ -476,481 +527,533 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 ->pluck('at.type_id');
             foreach ($orphanedIds as $typeId) {
                 $this->_installer->log("Removing orphaned announcement type ID {$typeId} with no matching context ID.");
-                DB::table('announcement_types')->where('type_id', '=', $typeId)->delete();
+                $affectedRows += DB::table('announcement_types')->where('type_id', '=', $typeId)->delete();
             }
-        }
+            return $affectedRows;
+        });
 
-        authors: {
+        $this->addTableProcessor('authors', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~2 entities: publication_id->publications.publication_id user_group_id->user_groups.user_group_id
-            // Dependent entities: ~2
-            $this->deleteRequiredReference('authors', 'publication_id', 'publications', 'publication_id');
+            $affectedRows += $this->deleteRequiredReference('authors', 'publication_id', 'publications', 'publication_id');
             // This cleanup is required, but an extra validation will happen at the method checkAuthorsMissingUserGroup()
-            // $this->cleanOptionalReference('authors', 'user_group_id', 'user_groups', 'user_group_id');
-        }
+            // $affectedRows += $this->cleanOptionalReference('authors', 'user_group_id', 'user_groups', 'user_group_id');
+            return $affectedRows;
+        });
 
-        controlled_vocab_entries: {
+        $this->addTableProcessor('controlled_vocab_entries', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: controlled_vocab_id->controlled_vocabs.controlled_vocab_id
-            // Dependent entities: ~2
-            $this->deleteRequiredReference('controlled_vocab_entries', 'controlled_vocab_id', 'controlled_vocabs', 'controlled_vocab_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('controlled_vocab_entries', 'controlled_vocab_id', 'controlled_vocabs', 'controlled_vocab_id');
+            return $affectedRows;
+        });
 
-        filters: {
-            // Depends directly on ~3 entities: context_id->journals.journal_id filter_group_id->filter_groups.filter_group_id parent_filter_id->filters.filter_id
-            // Dependent entities: ~2
-            $this->deleteRequiredReference('filters', 'filter_group_id', 'filter_groups', 'filter_group_id');
-            $this->deleteOptionalReference('filters', 'parent_filter_id', 'filters', 'filter_id');
+        $this->addTableProcessor('filters', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~3 entities: context_id->context_table.context_id filter_group_id->filter_groups.filter_group_id parent_filter_id->filters.filter_id
+            $affectedRows += $this->deleteRequiredReference('filters', 'filter_group_id', 'filter_groups', 'filter_group_id');
+            $affectedRows += $this->deleteOptionalReference('filters', 'parent_filter_id', 'filters', 'filter_id');
             // Custom field (not found in at least one of the softwares)
-            $this->deleteOptionalReference('filters', 'context_id', $this->getContextTable(), $this->getContextKeyField());
-        }
+            $affectedRows += $this->deleteOptionalReference('filters', 'context_id', $this->getContextTable(), $this->getContextKeyField());
+            return $affectedRows;
+        });
 
-        genres: {
-            // Depends directly on ~1 entities: context_id->journals.journal_id
-            // Dependent entities: ~2
+        $this->addTableProcessor('genres', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~1 entities: context_id->context_table.context_id
             // Custom field (not found in at least one of the softwares)
-            $this->deleteRequiredReference('genres', 'context_id', $this->getContextTable(), $this->getContextKeyField());
-        }
+            $affectedRows += $this->deleteRequiredReference('genres', 'context_id', $this->getContextTable(), $this->getContextKeyField());
+            return $affectedRows;
+        });
 
-        navigation_menu_item_assignments: {
+        $this->addTableProcessor('navigation_menu_item_assignments', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~3 entities: navigation_menu_id->navigation_menus.navigation_menu_id navigation_menu_item_id->navigation_menu_items.navigation_menu_item_id parent_id->navigation_menu_item_assignments.navigation_menu_item_assignment_id
-            // Dependent entities: ~2
-            $this->deleteRequiredReference('navigation_menu_item_assignments', 'navigation_menu_item_id', 'navigation_menu_items', 'navigation_menu_item_id');
-            $this->deleteRequiredReference('navigation_menu_item_assignments', 'navigation_menu_id', 'navigation_menus', 'navigation_menu_id');
-            $this->deleteOptionalReference('navigation_menu_item_assignments', 'parent_id', 'navigation_menu_item_assignments', 'navigation_menu_item_assignment_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('navigation_menu_item_assignments', 'navigation_menu_item_id', 'navigation_menu_items', 'navigation_menu_item_id');
+            $affectedRows += $this->deleteRequiredReference('navigation_menu_item_assignments', 'navigation_menu_id', 'navigation_menus', 'navigation_menu_id');
+            $affectedRows += $this->deleteOptionalReference('navigation_menu_item_assignments', 'parent_id', 'navigation_menu_item_assignments', 'navigation_menu_item_assignment_id');
+            return $affectedRows;
+        });
 
-        navigation_menu_items: {
-            // Depends directly on ~1 entities: context_id->journals.journal_id
-            // Dependent entities: ~2
+        $this->addTableProcessor('navigation_menu_items', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~1 entities: context_id->context_table.context_id
             // Custom field (not found in at least one of the softwares)
-            $this->deleteOptionalReference('navigation_menu_items', 'context_id', $this->getContextTable(), $this->getContextKeyField());
-        }
+            $affectedRows += $this->deleteOptionalReference('navigation_menu_items', 'context_id', $this->getContextTable(), $this->getContextKeyField());
+            return $affectedRows;
+        });
 
-        review_assignments: {
+        $this->addTableProcessor('review_assignments', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~4 entities: reviewer_id->users.user_id review_form_id->review_forms.review_form_id review_round_id->review_rounds.review_round_id submission_id->submissions.submission_id
-            // Dependent entities: ~2
             if (Schema::hasTable('review_assignments')) {
-                $this->deleteRequiredReference('review_assignments', 'submission_id', 'submissions', 'submission_id');
-                $this->deleteRequiredReference('review_assignments', 'review_round_id', 'review_rounds', 'review_round_id');
-                $this->deleteRequiredReference('review_assignments', 'reviewer_id', 'users', 'user_id');
-                $this->cleanOptionalReference('review_assignments', 'review_form_id', 'review_forms', 'review_form_id');
+                $affectedRows += $this->deleteRequiredReference('review_assignments', 'submission_id', 'submissions', 'submission_id');
+                $affectedRows += $this->deleteRequiredReference('review_assignments', 'review_round_id', 'review_rounds', 'review_round_id');
+                $affectedRows += $this->deleteRequiredReference('review_assignments', 'reviewer_id', 'users', 'user_id');
+                $affectedRows += $this->cleanOptionalReference('review_assignments', 'review_form_id', 'review_forms', 'review_form_id');
             }
-        }
+            return $affectedRows;
+        });
 
-        review_form_elements: {
+        $this->addTableProcessor('review_form_elements', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: review_form_id->review_forms.review_form_id
-            // Dependent entities: ~2
             if (Schema::hasTable('review_form_elements')) {
-                $this->deleteRequiredReference('review_form_elements', 'review_form_id', 'review_forms', 'review_form_id');
+                $affectedRows += $this->deleteRequiredReference('review_form_elements', 'review_form_id', 'review_forms', 'review_form_id');
             }
-        }
+            return $affectedRows;
+        });
 
-        announcements: {
+        $this->addTableProcessor('announcements', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: type_id->announcement_types.type_id
-            // Dependent entities: ~1
-            $this->cleanOptionalReference('announcements', 'type_id', 'announcement_types', 'type_id');
-        }
+            $affectedRows += $this->cleanOptionalReference('announcements', 'type_id', 'announcement_types', 'type_id');
+            return $affectedRows;
+        });
 
-        citations: {
+        $this->addTableProcessor('citations', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: publication_id->publications.publication_id
-            // Dependent entities: ~1
-            $this->deleteRequiredReference('citations', 'publication_id', 'publications', 'publication_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('citations', 'publication_id', 'publications', 'publication_id');
+            return $affectedRows;
+        });
 
-        email_log: {
+        $this->addTableProcessor('email_log', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: sender_id->users.user_id
-            // Dependent entities: ~1
-            $this->deleteOptionalReference('email_log', 'sender_id', 'users', 'user_id');
-        }
+            $affectedRows += $this->deleteOptionalReference('email_log', 'sender_id', 'users', 'user_id');
+            return $affectedRows;
+        });
 
-        email_templates: {
-            // Depends directly on ~1 entities: context_id->journals.journal_id
-            // Dependent entities: ~1
+        $this->addTableProcessor('email_templates', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~1 entities: context_id->context_table.context_id
             // Custom field (not found in at least one of the softwares)
-            $this->deleteRequiredReference('email_templates', 'context_id', $this->getContextTable(), $this->getContextKeyField());
-        }
+            $affectedRows += $this->deleteRequiredReference('email_templates', 'context_id', $this->getContextTable(), $this->getContextKeyField());
+            return $affectedRows;
+        });
 
-        event_log: {
+        $this->addTableProcessor('event_log', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: user_id->users.user_id
-            // Dependent entities: ~1
-            $this->deleteRequiredReference('event_log', 'user_id', 'users', 'user_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('event_log', 'user_id', 'users', 'user_id');
+            return $affectedRows;
+        });
 
-        library_files: {
-            // Depends directly on ~2 entities: context_id->journals.journal_id submission_id->submissions.submission_id
-            // Dependent entities: ~1
+        $this->addTableProcessor('library_files', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~2 entities: context_id->context_table.context_id submission_id->submissions.submission_id
             // Custom field (not found in at least one of the softwares)
-            $this->deleteRequiredReference('library_files', 'context_id', $this->getContextTable(), $this->getContextKeyField());
-            $this->deleteOptionalReference('library_files', 'submission_id', 'submissions', 'submission_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('library_files', 'context_id', $this->getContextTable(), $this->getContextKeyField());
+            $affectedRows += $this->deleteOptionalReference('library_files', 'submission_id', 'submissions', 'submission_id');
+            return $affectedRows;
+        });
 
-        navigation_menus: {
-            // Depends directly on ~1 entities: context_id->journals.journal_id
-            // Dependent entities: ~1
+        $this->addTableProcessor('navigation_menus', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~1 entities: context_id->context_table.context_id
             // Custom field (not found in at least one of the softwares)
-            $this->deleteOptionalReference('navigation_menus', 'context_id', $this->getContextTable(), $this->getContextKeyField());
-        }
+            $affectedRows += $this->deleteOptionalReference('navigation_menus', 'context_id', $this->getContextTable(), $this->getContextKeyField());
+            return $affectedRows;
+        });
 
-        notifications: {
-            // Depends directly on ~2 entities: context_id->journals.journal_id user_id->users.user_id
-            // Dependent entities: ~1
-            $this->deleteOptionalReference('notifications', 'user_id', 'users', 'user_id');
+        $this->addTableProcessor('notifications', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~2 entities: context_id->context_table.context_id user_id->users.user_id
+            $affectedRows += $this->deleteOptionalReference('notifications', 'user_id', 'users', 'user_id');
             // Custom field (not found in at least one of the softwares)
-            $this->deleteOptionalReference('notifications', 'context_id', $this->getContextTable(), $this->getContextKeyField());
-        }
+            $affectedRows += $this->deleteOptionalReference('notifications', 'context_id', $this->getContextTable(), $this->getContextKeyField());
+            return $affectedRows;
+        });
 
-        submission_search_objects: {
+        $this->addTableProcessor('submission_search_objects', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: submission_id->submissions.submission_id
-            // Dependent entities: ~1
-            $this->deleteRequiredReference('submission_search_objects', 'submission_id', 'submissions', 'submission_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('submission_search_objects', 'submission_id', 'submissions', 'submission_id');
+            return $affectedRows;
+        });
 
-        access_keys: {
+        $this->addTableProcessor('access_keys', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: user_id->users.user_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('access_keys', 'user_id', 'users', 'user_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('access_keys', 'user_id', 'users', 'user_id');
+            return $affectedRows;
+        });
 
-        announcement_settings: {
+        $this->addTableProcessor('announcement_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: announcement_id->announcements.announcement_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('announcement_settings', 'announcement_id', 'announcements', 'announcement_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('announcement_settings', 'announcement_id', 'announcements', 'announcement_id');
+            return $affectedRows;
+        });
 
-        announcement_type_settings: {
+        $this->addTableProcessor('announcement_type_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: type_id->announcement_types.type_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('announcement_type_settings', 'type_id', 'announcement_types', 'type_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('announcement_type_settings', 'type_id', 'announcement_types', 'type_id');
+            return $affectedRows;
+        });
 
-        author_settings: {
+        $this->addTableProcessor('author_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: author_id->authors.author_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('author_settings', 'author_id', 'authors', 'author_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('author_settings', 'author_id', 'authors', 'author_id');
+            return $affectedRows;
+        });
 
-        category_settings: {
+        $this->addTableProcessor('category_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: category_id->categories.category_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('category_settings', 'category_id', 'categories', 'category_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('category_settings', 'category_id', 'categories', 'category_id');
+            return $affectedRows;
+        });
 
-        citation_settings: {
+        $this->addTableProcessor('citation_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: citation_id->citations.citation_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('citation_settings', 'citation_id', 'citations', 'citation_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('citation_settings', 'citation_id', 'citations', 'citation_id');
+            return $affectedRows;
+        });
 
-        controlled_vocab_entry_settings: {
+        $this->addTableProcessor('controlled_vocab_entry_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: controlled_vocab_entry_id->controlled_vocab_entries.controlled_vocab_entry_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('controlled_vocab_entry_settings', 'controlled_vocab_entry_id', 'controlled_vocab_entries', 'controlled_vocab_entry_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('controlled_vocab_entry_settings', 'controlled_vocab_entry_id', 'controlled_vocab_entries', 'controlled_vocab_entry_id');
+            return $affectedRows;
+        });
 
-        data_object_tombstone_oai_set_objects: {
+        $this->addTableProcessor('data_object_tombstone_oai_set_objects', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: tombstone_id->data_object_tombstones.tombstone_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('data_object_tombstone_oai_set_objects', 'tombstone_id', 'data_object_tombstones', 'tombstone_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('data_object_tombstone_oai_set_objects', 'tombstone_id', 'data_object_tombstones', 'tombstone_id');
+            return $affectedRows;
+        });
 
-        data_object_tombstone_settings: {
+        $this->addTableProcessor('data_object_tombstone_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: tombstone_id->data_object_tombstones.tombstone_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('data_object_tombstone_settings', 'tombstone_id', 'data_object_tombstones', 'tombstone_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('data_object_tombstone_settings', 'tombstone_id', 'data_object_tombstones', 'tombstone_id');
+            return $affectedRows;
+        });
 
-        edit_decisions: {
+        $this->addTableProcessor('edit_decisions', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~3 entities: editor_id->users.user_id review_round_id->review_rounds.review_round_id submission_id->submissions.submission_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('edit_decisions', 'submission_id', 'submissions', 'submission_id');
-            $this->deleteRequiredReference('edit_decisions', 'editor_id', 'users', 'user_id');
-            $this->deleteOptionalReference('edit_decisions', 'review_round_id', 'review_rounds', 'review_round_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('edit_decisions', 'submission_id', 'submissions', 'submission_id');
+            $affectedRows += $this->deleteRequiredReference('edit_decisions', 'editor_id', 'users', 'user_id');
+            $affectedRows += $this->deleteOptionalReference('edit_decisions', 'review_round_id', 'review_rounds', 'review_round_id');
+            return $affectedRows;
+        });
 
-        email_log_users: {
+        $this->addTableProcessor('email_log_users', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~2 entities: email_log_id->email_log.log_id user_id->users.user_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('email_log_users', 'user_id', 'users', 'user_id');
-            $this->deleteRequiredReference('email_log_users', 'email_log_id', 'email_log', 'log_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('email_log_users', 'user_id', 'users', 'user_id');
+            $affectedRows += $this->deleteRequiredReference('email_log_users', 'email_log_id', 'email_log', 'log_id');
+            return $affectedRows;
+        });
 
-        email_templates_settings: {
+        $this->addTableProcessor('email_templates_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: email_id->email_templates.email_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('email_templates_settings', 'email_id', 'email_templates', 'email_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('email_templates_settings', 'email_id', 'email_templates', 'email_id');
+            return $affectedRows;
+        });
 
-        event_log_settings: {
+        $this->addTableProcessor('event_log_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: log_id->event_log.log_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('event_log_settings', 'log_id', 'event_log', 'log_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('event_log_settings', 'log_id', 'event_log', 'log_id');
+            return $affectedRows;
+        });
 
-        filter_settings: {
+        $this->addTableProcessor('filter_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: filter_id->filters.filter_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('filter_settings', 'filter_id', 'filters', 'filter_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('filter_settings', 'filter_id', 'filters', 'filter_id');
+            return $affectedRows;
+        });
 
-        genre_settings: {
+        $this->addTableProcessor('genre_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: genre_id->genres.genre_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('genre_settings', 'genre_id', 'genres', 'genre_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('genre_settings', 'genre_id', 'genres', 'genre_id');
+            return $affectedRows;
+        });
 
-        context_settings: {
-            // Depends directly on ~1 entities: journal_id->journals.journal_id
-            // Dependent entities: ~0
+        $this->addTableProcessor($this->getContextSettingsTable(), function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~1 entities: context_id->context_table.context_id
             // Custom field (not found in at least one of the softwares)
-            $this->deleteRequiredReference($this->getContextSettingsTable(), $this->getContextKeyField(), $this->getContextTable(), $this->getContextKeyField());
-        }
+            $affectedRows += $this->deleteRequiredReference($this->getContextSettingsTable(), $this->getContextKeyField(), $this->getContextTable(), $this->getContextKeyField());
+            return $affectedRows;
+        });
 
-        library_file_settings: {
+        $this->addTableProcessor('library_file_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: file_id->library_files.file_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('library_file_settings', 'file_id', 'library_files', 'file_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('library_file_settings', 'file_id', 'library_files', 'file_id');
+            return $affectedRows;
+        });
 
-        navigation_menu_item_assignment_settings: {
+        $this->addTableProcessor('navigation_menu_item_assignment_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: navigation_menu_item_assignment_id->navigation_menu_item_assignments.navigation_menu_item_assignment_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('navigation_menu_item_assignment_settings', 'navigation_menu_item_assignment_id', 'navigation_menu_item_assignments', 'navigation_menu_item_assignment_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('navigation_menu_item_assignment_settings', 'navigation_menu_item_assignment_id', 'navigation_menu_item_assignments', 'navigation_menu_item_assignment_id');
+            return $affectedRows;
+        });
 
-        navigation_menu_item_settings: {
+        $this->addTableProcessor('navigation_menu_item_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: navigation_menu_item_id->navigation_menu_items.navigation_menu_item_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('navigation_menu_item_settings', 'navigation_menu_item_id', 'navigation_menu_items', 'navigation_menu_item_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('navigation_menu_item_settings', 'navigation_menu_item_id', 'navigation_menu_items', 'navigation_menu_item_id');
+            return $affectedRows;
+        });
 
-        notes: {
+        $this->addTableProcessor('notes', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: user_id->users.user_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('notes', 'user_id', 'users', 'user_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('notes', 'user_id', 'users', 'user_id');
+            return $affectedRows;
+        });
 
-        notification_settings: {
+        $this->addTableProcessor('notification_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: notification_id->notifications.notification_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('notification_settings', 'notification_id', 'notifications', 'notification_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('notification_settings', 'notification_id', 'notifications', 'notification_id');
+            return $affectedRows;
+        });
 
-        notification_subscription_settings: {
-            // Depends directly on ~2 entities: context->journals.journal_id user_id->users.user_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('notification_subscription_settings', 'user_id', 'users', 'user_id');
+        $this->addTableProcessor('notification_subscription_settings', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~2 entities: context->context_table.context_id user_id->users.user_id
+            $affectedRows += $this->deleteRequiredReference('notification_subscription_settings', 'user_id', 'users', 'user_id');
             // Custom field (not found in at least one of the softwares)
-            $this->deleteRequiredReference('notification_subscription_settings', 'context', $this->getContextTable(), $this->getContextKeyField());
-        }
+            $affectedRows += $this->deleteRequiredReference('notification_subscription_settings', 'context', $this->getContextTable(), $this->getContextKeyField());
+            return $affectedRows;
+        });
 
-        plugin_settings: {
-            // Depends directly on ~1 entities: context_id->journals.journal_id
-            // Dependent entities: ~0
+        $this->addTableProcessor('plugin_settings', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~1 entities: context_id->context_table.context_id
             // Custom field (not found in at least one of the softwares)
-            $this->deleteOptionalReference('plugin_settings', 'context_id', $this->getContextTable(), $this->getContextKeyField());
-        }
+            $affectedRows += $this->deleteOptionalReference('plugin_settings', 'context_id', $this->getContextTable(), $this->getContextKeyField());
+            return $affectedRows;
+        });
 
-        publication_categories: {
+        $this->addTableProcessor('publication_categories', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~2 entities: category_id->categories.category_id publication_id->publications.publication_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('publication_categories', 'publication_id', 'publications', 'publication_id');
-            $this->deleteRequiredReference('publication_categories', 'category_id', 'categories', 'category_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('publication_categories', 'publication_id', 'publications', 'publication_id');
+            $affectedRows += $this->deleteRequiredReference('publication_categories', 'category_id', 'categories', 'category_id');
+            return $affectedRows;
+        });
 
-        publication_settings: {
+        $this->addTableProcessor('publication_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: publication_id->publications.publication_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('publication_settings', 'publication_id', 'publications', 'publication_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('publication_settings', 'publication_id', 'publications', 'publication_id');
+            return $affectedRows;
+        });
 
-        query_participants: {
+        $this->addTableProcessor('query_participants', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~2 entities: query_id->queries.query_id user_id->users.user_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('query_participants', 'user_id', 'users', 'user_id');
-            $this->deleteRequiredReference('query_participants', 'query_id', 'queries', 'query_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('query_participants', 'user_id', 'users', 'user_id');
+            $affectedRows += $this->deleteRequiredReference('query_participants', 'query_id', 'queries', 'query_id');
+            return $affectedRows;
+        });
 
-        review_files: {
+        $this->addTableProcessor('review_files', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~2 entities: review_id->review_assignments.review_id submission_file_id->submission_files.submission_file_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('review_files', 'submission_file_id', 'submission_files', 'submission_file_id');
-            $this->deleteRequiredReference('review_files', 'review_id', 'review_assignments', 'review_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('review_files', 'submission_file_id', 'submission_files', 'submission_file_id');
+            $affectedRows += $this->deleteRequiredReference('review_files', 'review_id', 'review_assignments', 'review_id');
+            return $affectedRows;
+        });
 
-        review_form_element_settings: {
+        $this->addTableProcessor('review_form_element_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: review_form_element_id->review_form_elements.review_form_element_id
-            // Dependent entities: ~0
             if (Schema::hasTable('review_form_element_settings')) {
-                $this->deleteRequiredReference('review_form_element_settings', 'review_form_element_id', 'review_form_elements', 'review_form_element_id');
+                $affectedRows += $this->deleteRequiredReference('review_form_element_settings', 'review_form_element_id', 'review_form_elements', 'review_form_element_id');
             }
-        }
+            return $affectedRows;
+        });
 
-        review_form_responses: {
+        $this->addTableProcessor('review_form_responses', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~2 entities: review_form_element_id->review_form_elements.review_form_element_id review_id->review_assignments.review_id
-            // Dependent entities: ~0
             if (Schema::hasTable('review_form_responses')) {
-                $this->deleteRequiredReference('review_form_responses', 'review_id', 'review_assignments', 'review_id');
-                $this->deleteRequiredReference('review_form_responses', 'review_form_element_id', 'review_form_elements', 'review_form_element_id');
+                $affectedRows += $this->deleteRequiredReference('review_form_responses', 'review_id', 'review_assignments', 'review_id');
+                $affectedRows += $this->deleteRequiredReference('review_form_responses', 'review_form_element_id', 'review_form_elements', 'review_form_element_id');
             }
-        }
+            return $affectedRows;
+        });
 
-        review_form_settings: {
+        $this->addTableProcessor('review_form_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: review_form_id->review_forms.review_form_id
-            // Dependent entities: ~0
             if (Schema::hasTable('review_form_settings')) {
-                $this->deleteRequiredReference('review_form_settings', 'review_form_id', 'review_forms', 'review_form_id');
+                $affectedRows += $this->deleteRequiredReference('review_form_settings', 'review_form_id', 'review_forms', 'review_form_id');
             }
-        }
+            return $affectedRows;
+        });
 
-        review_round_files: {
+        $this->addTableProcessor('review_round_files', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~3 entities: review_round_id->review_rounds.review_round_id submission_file_id->submission_files.submission_file_id submission_id->submissions.submission_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('review_round_files', 'submission_id', 'submissions', 'submission_id');
-            $this->deleteRequiredReference('review_round_files', 'submission_file_id', 'submission_files', 'submission_file_id');
-            $this->deleteRequiredReference('review_round_files', 'review_round_id', 'review_rounds', 'review_round_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('review_round_files', 'submission_id', 'submissions', 'submission_id');
+            $affectedRows += $this->deleteRequiredReference('review_round_files', 'submission_file_id', 'submission_files', 'submission_file_id');
+            $affectedRows += $this->deleteRequiredReference('review_round_files', 'review_round_id', 'review_rounds', 'review_round_id');
+            return $affectedRows;
+        });
 
-        sessions: {
+        $this->addTableProcessor('sessions', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: user_id->users.user_id
-            // Dependent entities: ~0
-            $this->deleteOptionalReference('sessions', 'user_id', 'users', 'user_id');
-        }
+            $affectedRows += $this->deleteOptionalReference('sessions', 'user_id', 'users', 'user_id');
+            return $affectedRows;
+        });
 
-        stage_assignments: {
+        $this->addTableProcessor('stage_assignments', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~3 entities: submission_id->submissions.submission_id user_group_id->user_groups.user_group_id user_id->users.user_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('stage_assignments', 'user_id', 'users', 'user_id');
-            $this->deleteRequiredReference('stage_assignments', 'user_group_id', 'user_groups', 'user_group_id');
-            $this->deleteRequiredReference('stage_assignments', 'submission_id', 'submissions', 'submission_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('stage_assignments', 'user_id', 'users', 'user_id');
+            $affectedRows += $this->deleteRequiredReference('stage_assignments', 'user_group_id', 'user_groups', 'user_group_id');
+            $affectedRows += $this->deleteRequiredReference('stage_assignments', 'submission_id', 'submissions', 'submission_id');
+            return $affectedRows;
+        });
 
-        subeditor_submission_group: {
-            // Depends directly on ~3 entities: context_id->journals.journal_id user_group_id->user_groups.user_group_id user_id->users.user_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('subeditor_submission_group', 'user_id', 'users', 'user_id');
+        $this->addTableProcessor('subeditor_submission_group', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~3 entities: context_id->context_table.context_id user_group_id->user_groups.user_group_id user_id->users.user_id
+            $affectedRows += $this->deleteRequiredReference('subeditor_submission_group', 'user_id', 'users', 'user_id');
             // Deprecated/moved field (not found on previous software version)
-            // $this->deleteRequiredReference('subeditor_submission_group', 'user_group_id', 'user_groups', 'user_group_id');
+            // $affectedRows += $this->deleteRequiredReference('subeditor_submission_group', 'user_group_id', 'user_groups', 'user_group_id');
             // Custom field (not found in at least one of the softwares)
-            $this->deleteRequiredReference('subeditor_submission_group', 'context_id', $this->getContextTable(), $this->getContextKeyField());
-        }
+            $affectedRows += $this->deleteRequiredReference('subeditor_submission_group', 'context_id', $this->getContextTable(), $this->getContextKeyField());
+            return $affectedRows;
+        });
 
-        submission_comments: {
+        $this->addTableProcessor('submission_comments', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~2 entities: author_id->users.user_id submission_id->submissions.submission_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('submission_comments', 'submission_id', 'submissions', 'submission_id');
-            $this->deleteRequiredReference('submission_comments', 'author_id', 'users', 'user_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('submission_comments', 'submission_id', 'submissions', 'submission_id');
+            $affectedRows += $this->deleteRequiredReference('submission_comments', 'author_id', 'users', 'user_id');
+            return $affectedRows;
+        });
 
-        submission_file_revisions: {
+        $this->addTableProcessor('submission_file_revisions', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~2 entities: file_id->files.file_id submission_file_id->submission_files.submission_file_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('submission_file_revisions', 'submission_file_id', 'submission_files', 'submission_file_id');
-            $this->deleteRequiredReference('submission_file_revisions', 'file_id', 'files', 'file_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('submission_file_revisions', 'submission_file_id', 'submission_files', 'submission_file_id');
+            $affectedRows += $this->deleteRequiredReference('submission_file_revisions', 'file_id', 'files', 'file_id');
+            return $affectedRows;
+        });
 
-        submission_file_settings: {
+        $this->addTableProcessor('submission_file_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: submission_file_id->submission_files.submission_file_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('submission_file_settings', 'submission_file_id', 'submission_files', 'submission_file_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('submission_file_settings', 'submission_file_id', 'submission_files', 'submission_file_id');
+            return $affectedRows;
+        });
 
-        submission_search_object_keywords: {
+        $this->addTableProcessor('submission_search_object_keywords', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~2 entities: keyword_id->submission_search_keyword_list.keyword_id object_id->submission_search_objects.object_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('submission_search_object_keywords', 'object_id', 'submission_search_objects', 'object_id');
-            $this->deleteRequiredReference('submission_search_object_keywords', 'keyword_id', 'submission_search_keyword_list', 'keyword_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('submission_search_object_keywords', 'object_id', 'submission_search_objects', 'object_id');
+            $affectedRows += $this->deleteRequiredReference('submission_search_object_keywords', 'keyword_id', 'submission_search_keyword_list', 'keyword_id');
+            return $affectedRows;
+        });
 
-        submission_settings: {
+        $this->addTableProcessor('submission_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: submission_id->submissions.submission_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('submission_settings', 'submission_id', 'submissions', 'submission_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('submission_settings', 'submission_id', 'submissions', 'submission_id');
+            return $affectedRows;
+        });
 
-        temporary_files: {
+        $this->addTableProcessor('temporary_files', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: user_id->users.user_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('temporary_files', 'user_id', 'users', 'user_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('temporary_files', 'user_id', 'users', 'user_id');
+            return $affectedRows;
+        });
 
-        user_group_settings: {
+        $this->addTableProcessor('user_group_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: user_group_id->user_groups.user_group_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('user_group_settings', 'user_group_id', 'user_groups', 'user_group_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('user_group_settings', 'user_group_id', 'user_groups', 'user_group_id');
+            return $affectedRows;
+        });
 
-        user_group_stage: {
-            // Depends directly on ~2 entities: context_id->journals.journal_id user_group_id->user_groups.user_group_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('user_group_stage', 'user_group_id', 'user_groups', 'user_group_id');
+        $this->addTableProcessor('user_group_stage', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~2 entities: context_id->context_table.context_id user_group_id->user_groups.user_group_id
+            $affectedRows += $this->deleteRequiredReference('user_group_stage', 'user_group_id', 'user_groups', 'user_group_id');
             // Custom field (not found in at least one of the softwares)
-            $this->deleteRequiredReference('user_group_stage', 'context_id', $this->getContextTable(), $this->getContextKeyField());
-        }
+            $affectedRows += $this->deleteRequiredReference('user_group_stage', 'context_id', $this->getContextTable(), $this->getContextKeyField());
+            return $affectedRows;
+        });
 
-        user_interests: {
+        $this->addTableProcessor('user_interests', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~2 entities: controlled_vocab_entry_id->controlled_vocab_entries.controlled_vocab_entry_id user_id->users.user_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('user_interests', 'user_id', 'users', 'user_id');
-            $this->deleteRequiredReference('user_interests', 'controlled_vocab_entry_id', 'controlled_vocab_entries', 'controlled_vocab_entry_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('user_interests', 'user_id', 'users', 'user_id');
+            $affectedRows += $this->deleteRequiredReference('user_interests', 'controlled_vocab_entry_id', 'controlled_vocab_entries', 'controlled_vocab_entry_id');
+            return $affectedRows;
+        });
 
-        user_settings: {
+        $this->addTableProcessor('user_settings', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~1 entities: user_id->users.user_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('user_settings', 'user_id', 'users', 'user_id');
-        }
+            $affectedRows += $this->deleteRequiredReference('user_settings', 'user_id', 'users', 'user_id');
+            return $affectedRows;
+        });
 
-        user_user_groups: {
+        $this->addTableProcessor('user_user_groups', function (): int {
+            $affectedRows = 0;
             // Depends directly on ~2 entities: user_group_id->user_groups.user_group_id user_id->users.user_id
-            // Dependent entities: ~0
-            $this->deleteRequiredReference('user_user_groups', 'user_id', 'users', 'user_id');
-            $this->deleteRequiredReference('user_user_groups', 'user_group_id', 'user_groups', 'user_group_id');
-        }
-    }
-
-    protected function processOrphanedTable(string $sourceTable): void
-    {
-        static $notified = [];
-        if (!isset($notified[$sourceTable])) {
-            $notified[$sourceTable] = true;
-            $this->onBeforeOrphanedCleanup($sourceTable);
-        }
-    }
-
-    protected function onBeforeOrphanedCleanup(string $sourceTable): void
-    {
+            $affectedRows += $this->deleteRequiredReference('user_user_groups', 'user_id', 'users', 'user_id');
+            $affectedRows += $this->deleteRequiredReference('user_user_groups', 'user_group_id', 'user_groups', 'user_group_id');
+            return $affectedRows;
+        });
     }
 
     /**
      * Delete rows from the source table where the foreign key field contains either invalid values or NULL
      * Used for NOT NULL/required relationships
      */
-    protected function deleteRequiredReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn, bool $log = true): static
+    protected function deleteRequiredReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn, bool $log = true): int
     {
-        $this->processOrphanedTable($sourceTable);
         $ids = DB::table("{$sourceTable} AS s")
             ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
             ->whereNull("r.{$referenceColumn}")
             ->distinct()
             ->pluck("s.{$sourceColumn}");
-        if ($ids->count()) {
-            $this->_installer->log("Removing orphaned entries from \"{$sourceTable}\" with an invalid value for the required column \"{$sourceColumn}\"\. The following IDs do not exist at the reference table \"{$referenceTable}\":\n{$ids->join(', ')}");
-            $removed = 0;
-            foreach ($ids->chunk(1000) as $chunkedIds) {
-                $removed += DB::table($sourceTable)
-                    ->whereIn($sourceColumn, $chunkedIds)
-                    ->orWhereNull($sourceColumn)
-                    ->delete();
-            }
-            $this->_installer->log("{$removed} entries removed");
+
+        if (!$ids->count()) {
+            return 0;
         }
-        return $this;
+
+        $removed = 0;
+        $this->_installer->log("Removing orphaned entries from \"{$sourceTable}\" with an invalid value for the required column \"{$sourceColumn}\". The following IDs do not exist at the reference table \"{$referenceTable}\":\n{$ids->join(', ')}");
+        foreach ($ids->chunk(1000) as $chunkedIds) {
+            $removed += DB::table($sourceTable)
+                ->whereIn($sourceColumn, $chunkedIds)
+                ->orWhereNull($sourceColumn)
+                ->delete();
+        }
+        $this->_installer->log("{$removed} entries removed");
+        return $removed;
     }
 
     /**
      * Resets optional/nullable foreign key fields from the source table to NULL when the field contains invalid values
      * Used for NULLABLE relationships
      */
-    protected function cleanOptionalReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn): static
+    protected function cleanOptionalReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn): int
     {
         $ids = DB::table("{$sourceTable} AS s")
             ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
@@ -958,24 +1061,27 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             ->whereNull("r.{$referenceColumn}")
             ->distinct()
             ->pluck("s.{$sourceColumn}");
-        if ($ids->count()) {
-            $this->_installer->log("Cleaning orphaned entries from \"{$sourceTable}\" with an invalid value for the column \"{$sourceColumn}\"\. The following IDs do not exist at the reference table \"{$referenceTable}\" and will be reset to NULL:\n{$ids->join(', ')}");
-            $updated = 0;
-            foreach ($ids->chunk(1000) as $chunkedIds) {
-                $updated += DB::table($sourceTable)
-                    ->whereIn($sourceColumn, $chunkedIds)
-                    ->update([$sourceColumn => null]);
-            }
-            $this->_installer->log("{$updated} entries updated");
+
+        if (!$ids->count()) {
+            return 0;
         }
-        return $this;
+
+        $updated = 0;
+        $this->_installer->log("Cleaning orphaned entries from \"{$sourceTable}\" with an invalid value for the column \"{$sourceColumn}\"\. The following IDs do not exist at the reference table \"{$referenceTable}\" and will be reset to NULL:\n{$ids->join(', ')}");
+        foreach ($ids->chunk(1000) as $chunkedIds) {
+            $updated += DB::table($sourceTable)
+                ->whereIn($sourceColumn, $chunkedIds)
+                ->update([$sourceColumn => null]);
+        }
+        $this->_installer->log("{$updated} entries updated");
+        return $updated;
     }
 
     /**
      * Deletes rows from the source table where the foreign key field contains invalid values
      * Used for NULLABLE relationships, where the source record lose the meaning without its relationship
      */
-    protected function deleteOptionalReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn): static
+    protected function deleteOptionalReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn): int
     {
         $ids = DB::table("{$sourceTable} AS s")
             ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
@@ -983,17 +1089,27 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             ->whereNull("r.{$referenceColumn}")
             ->distinct()
             ->pluck("s.{$sourceColumn}");
-        if ($ids->count()) {
-            $this->_installer->log("Removing orphaned entries from \"{$sourceTable}\" with an invalid value for the column \"{$sourceColumn}\"\. The following IDs do not exist at the reference table \"{$referenceTable}\":\n{$ids->join(', ')}");
-            $removed = 0;
-            foreach ($ids->chunk(1000) as $chunkedIds) {
-                $removed += DB::table($sourceTable)
-                    ->whereIn($sourceColumn, $chunkedIds)
-                    ->delete();
-            }
-            $this->_installer->log("{$removed} entries removed");
+
+        if (!$ids->count()) {
+            return 0;
         }
-        return $this;
+        $this->_installer->log("Removing orphaned entries from \"{$sourceTable}\" with an invalid value for the column \"{$sourceColumn}\". The following IDs do not exist at the reference table \"{$referenceTable}\":\n{$ids->join(', ')}");
+        $removed = 0;
+        foreach ($ids->chunk(1000) as $chunkedIds) {
+            $removed += DB::table($sourceTable)
+                ->whereIn($sourceColumn, $chunkedIds)
+                ->delete();
+        }
+        $this->_installer->log("{$removed} entries removed");
+        return $removed;
+    }
+
+    /**
+     * Adds a table processor to the list and defines an optional processing priority (higher values are processed first)
+     */
+    protected function addTableProcessor(string $table, callable $processor): void
+    {
+        $this->tableProcessors[$table][] = $processor;
     }
 
         /**

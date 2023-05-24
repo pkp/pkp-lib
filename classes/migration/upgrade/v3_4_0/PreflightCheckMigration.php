@@ -586,21 +586,17 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         $this->addTableProcessor('review_assignments', function (): int {
             $affectedRows = 0;
             // Depends directly on ~4 entities: reviewer_id->users.user_id review_form_id->review_forms.review_form_id review_round_id->review_rounds.review_round_id submission_id->submissions.submission_id
-            if (Schema::hasTable('review_assignments')) {
-                $affectedRows += $this->deleteRequiredReference('review_assignments', 'submission_id', 'submissions', 'submission_id');
-                $affectedRows += $this->deleteRequiredReference('review_assignments', 'review_round_id', 'review_rounds', 'review_round_id');
-                $affectedRows += $this->deleteRequiredReference('review_assignments', 'reviewer_id', 'users', 'user_id');
-                $affectedRows += $this->cleanOptionalReference('review_assignments', 'review_form_id', 'review_forms', 'review_form_id');
-            }
+            $affectedRows += $this->deleteRequiredReference('review_assignments', 'submission_id', 'submissions', 'submission_id');
+            $affectedRows += $this->deleteRequiredReference('review_assignments', 'review_round_id', 'review_rounds', 'review_round_id');
+            $affectedRows += $this->deleteRequiredReference('review_assignments', 'reviewer_id', 'users', 'user_id');
+            $affectedRows += $this->cleanOptionalReference('review_assignments', 'review_form_id', 'review_forms', 'review_form_id');
             return $affectedRows;
         });
 
         $this->addTableProcessor('review_form_elements', function (): int {
             $affectedRows = 0;
             // Depends directly on ~1 entities: review_form_id->review_forms.review_form_id
-            if (Schema::hasTable('review_form_elements')) {
-                $affectedRows += $this->deleteRequiredReference('review_form_elements', 'review_form_id', 'review_forms', 'review_form_id');
-            }
+            $affectedRows += $this->deleteRequiredReference('review_form_elements', 'review_form_id', 'review_forms', 'review_form_id');
             return $affectedRows;
         });
 
@@ -875,28 +871,23 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         $this->addTableProcessor('review_form_element_settings', function (): int {
             $affectedRows = 0;
             // Depends directly on ~1 entities: review_form_element_id->review_form_elements.review_form_element_id
-            if (Schema::hasTable('review_form_element_settings')) {
-                $affectedRows += $this->deleteRequiredReference('review_form_element_settings', 'review_form_element_id', 'review_form_elements', 'review_form_element_id');
-            }
+            $affectedRows += $this->deleteRequiredReference('review_form_element_settings', 'review_form_element_id', 'review_form_elements', 'review_form_element_id');
             return $affectedRows;
         });
 
         $this->addTableProcessor('review_form_responses', function (): int {
             $affectedRows = 0;
             // Depends directly on ~2 entities: review_form_element_id->review_form_elements.review_form_element_id review_id->review_assignments.review_id
-            if (Schema::hasTable('review_form_responses')) {
-                $affectedRows += $this->deleteRequiredReference('review_form_responses', 'review_id', 'review_assignments', 'review_id');
-                $affectedRows += $this->deleteRequiredReference('review_form_responses', 'review_form_element_id', 'review_form_elements', 'review_form_element_id');
-            }
+            $affectedRows += $this->deleteRequiredReference('review_form_responses', 'review_id', 'review_assignments', 'review_id');
+            $affectedRows += $this->deleteRequiredReference('review_form_responses', 'review_form_element_id', 'review_form_elements', 'review_form_element_id');
             return $affectedRows;
         });
 
         $this->addTableProcessor('review_form_settings', function (): int {
             $affectedRows = 0;
             // Depends directly on ~1 entities: review_form_id->review_forms.review_form_id
-            if (Schema::hasTable('review_form_settings')) {
-                $affectedRows += $this->deleteRequiredReference('review_form_settings', 'review_form_id', 'review_forms', 'review_form_id');
-            }
+
+            $affectedRows += $this->deleteRequiredReference('review_form_settings', 'review_form_id', 'review_forms', 'review_form_id');
             return $affectedRows;
         });
 
@@ -1028,6 +1019,10 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      */
     protected function deleteRequiredReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn, ?callable $filter = null): int
     {
+        if (!$this->validateColumns($sourceTable, $sourceColumn, $referenceTable, $referenceColumn)) {
+            return 0;
+        }
+
         $filter ??= fn(Builder $q) => $q;
         $ids = $filter(
             DB::table("{$sourceTable} AS s")
@@ -1060,6 +1055,10 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      */
     protected function cleanOptionalReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn, ?callable $filter = null): int
     {
+        if (!$this->validateColumns($sourceTable, $sourceColumn, $referenceTable, $referenceColumn)) {
+            return 0;
+        }
+
         $filter ??= fn(Builder $q) => $q;
         $ids = $filter(
             DB::table("{$sourceTable} AS s")
@@ -1092,6 +1091,10 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      */
     protected function deleteOptionalReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn, ?callable $filter = null): int
     {
+        if (!$this->validateColumns($sourceTable, $sourceColumn, $referenceTable, $referenceColumn)) {
+            return 0;
+        }
+
         $filter ??= fn(Builder $q) => $q;
         $ids = $filter(
             DB::table("{$sourceTable} AS s")
@@ -1121,6 +1124,10 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      */
     protected function addTableProcessor(string $table, callable $processor): void
     {
+        if (!Schema::hasTable($table)) {
+            $this->_installer->log("Skipped cleanup of nonexistent table {$table}");
+            return;
+        }
         $this->tableProcessors[$table][] = $processor;
     }
 
@@ -1132,6 +1139,22 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     protected function ignoreZero(string $sourceColumn): callable
     {
         return fn(Builder $q) => $q->where("s.{$sourceColumn}", '!=', 0);
+    }
+
+    /**
+     * Check the existence of required columns
+     */
+    protected function validateColumns(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn): bool
+    {
+        if (!Schema::hasColumn($sourceTable, $sourceColumn)) {
+            $this->_installer->log("Cleanup on the field \"{$sourceTable}.{$sourceColumn}\" was skipped, the field was not found");
+            return false;
+        }
+        if (!Schema::hasColumn($referenceTable, $referenceColumn)) {
+            $this->_installer->log("Cleanup on the field \"{$sourceTable}.{$sourceColumn}\" was skipped, the reference field \"{$referenceTable}.{$referenceColumn}\" was not found");
+            return false;
+        }
+        return true;
     }
 
     /**

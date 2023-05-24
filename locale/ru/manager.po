@@ -3634,9 +3634,6 @@ msgstr "Нет, не показывать авторам это поле."
 msgid "mailable.copyeditRequest.name"
 msgstr "Запрос на литературное редактирование"
 
-msgid "mailable.citationAuthorQuery.name"
-msgstr "Вопрос по поводу цитирования"
-
 msgid "mailable.editorAssign.name"
 msgstr "Редактор назначен"
 

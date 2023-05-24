@@ -3600,9 +3600,6 @@ msgstr "Ні, не показувати авторам це поле."
 msgid "mailable.copyeditRequest.name"
 msgstr "Запит літературної редактури"
 
-msgid "mailable.citationAuthorQuery.name"
-msgstr "Запитання про цитування"
-
 msgid "mailable.editorAssign.name"
 msgstr "Призначено редактора"
 

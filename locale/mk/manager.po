@@ -3610,9 +3610,6 @@ msgstr "Не, не им го прикажувајте ова поле на ав�
 msgid "mailable.copyeditRequest.name"
 msgstr "Побарајте Уредување"
 
-msgid "mailable.citationAuthorQuery.name"
-msgstr "Прашање за цитирање"
-
 msgid "mailable.editorAssign.name"
 msgstr "Доделен уредник"
 

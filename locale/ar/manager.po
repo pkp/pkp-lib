@@ -3458,9 +3458,6 @@ msgstr "لا، لا تُظهر هذا الحقل للمؤلفين."
 msgid "mailable.copyeditRequest.name"
 msgstr "إلتماس التدقيق اللغوي"
 
-msgid "mailable.citationAuthorQuery.name"
-msgstr "سؤال بشأن الاقتباس"
-
 msgid "mailable.editorAssign.name"
 msgstr "المحرر تم تعيينه"
 

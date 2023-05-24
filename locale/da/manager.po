@@ -3626,9 +3626,6 @@ msgstr "Nej, vis ikke forfattere dette felt."
 msgid "mailable.copyeditRequest.name"
 msgstr "Anmod om manuskriptredigering"
 
-msgid "mailable.citationAuthorQuery.name"
-msgstr "Spørgsmål om Citation"
-
 msgid "mailable.editorAssign.name"
 msgstr "Redaktør tildelt"
 

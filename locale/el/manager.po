@@ -3440,9 +3440,6 @@ msgstr ""
 msgid "mailable.copyeditRequest.name"
 msgstr ""
 
-msgid "mailable.citationAuthorQuery.name"
-msgstr ""
-
 msgid "mailable.editorAssign.name"
 msgstr ""
 

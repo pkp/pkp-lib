@@ -351,7 +351,7 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
                 'contextName' => 'contextName',
                 'contextUrl' => 'contextUrl',
                 'participantUsername' => 'recipientUsername',
-                'contextAcronym' => 'journalAcronym',
+                'contextAcronym' => 'contextAcronym',
             ],
             'LAYOUT_REQUEST' => [
                 'participantName' => 'recipientName',

@@ -3556,9 +3556,6 @@ msgstr "Ne, ne prikaži tega polja avtorjem."
 msgid "mailable.copyeditRequest.name"
 msgstr "Zahtevaj lektoriranje"
 
-msgid "mailable.citationAuthorQuery.name"
-msgstr "Vprašanje o citiranju"
-
 msgid "mailable.editorAssign.name"
 msgstr "Dodeljen urednik"
 

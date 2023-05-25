@@ -362,7 +362,8 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
             'LAYOUT_COMPLETE' => [
                 'editorialContactName' => 'recipientName',
                 'contextName' => 'contextName',
-                'participantName' => 'senderName',
+                'participantName' => 'senderName', // OJS
+                'signatureFullName' => 'senderName', // OMP
             ],
             'EMAIL_LINK' => [
                 'authorName' => 'authors',
@@ -445,7 +446,19 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
                 'authorName' => 'recipientName',
                 'publicationUrl' => 'submissionUrl',
                 'editorialContactSignature' => 'signature'
-            ]
+            ],
+            'INDEX_REQUEST' => [
+                'participantName' => 'recipientName',
+                'contextName' => 'contextName',
+                'participantUsername' => 'recipientUsername',
+                'editorialContactSignature' => 'signature',
+                'contextUrl' => 'contextUrl',
+            ],
+            'INDEX_COMPLETE' => [
+                'editorialContactName' => 'recipientName',
+                'contextName' => 'contextName',
+                'signatureFullName' => 'senderName',
+            ],
         ];
     }
 }

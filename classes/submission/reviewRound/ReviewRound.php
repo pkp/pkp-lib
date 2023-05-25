@@ -57,6 +57,9 @@ class ReviewRound extends \PKP\core\DataObject
     // at least one revision file has been uploaded.
     public const REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED = 15;
 
+    // The following status is set when a submission return back from copyediting stage to last review round again
+    public const REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW = 16;
+
     //
     // Get/set methods
     //
@@ -269,6 +272,12 @@ class ReviewRound extends \PKP\core\DataObject
         } elseif ($pendingRecommendations) {
             return self::REVIEW_ROUND_STATUS_PENDING_RECOMMENDATIONS;
         }
+
+        // The submission back form copy editing stage to last review round
+        if ($this->getStatus() == self::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW) {
+            return self::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW;
+        }
+        
         return self::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED;
     }
 
@@ -312,6 +321,8 @@ class ReviewRound extends \PKP\core\DataObject
                 return 'editor.submission.roundStatus.recommendationsReady';
             case self::REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED:
                 return 'editor.submission.roundStatus.recommendationsCompleted';
+            case self::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW:
+                return 'editor.submission.roundStatus.returnedToReview';
             default: return null;
         }
     }

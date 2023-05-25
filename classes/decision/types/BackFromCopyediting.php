@@ -137,6 +137,11 @@ class BackFromCopyediting extends DecisionType
     {
         parent::runAdditionalActions($decision, $submission, $editor, $context, $actions);
 
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+        if($reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId())) {
+            $reviewRoundDao->updateStatus($reviewRound, ReviewRound::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW);
+        }
+
         foreach ($actions as $action) {
             switch ($action['id']) {
                 case $this->ACTION_NOTIFY_AUTHORS:

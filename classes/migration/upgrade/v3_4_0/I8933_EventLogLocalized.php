@@ -141,7 +141,7 @@ abstract class I8933_EventLogLocalized extends Migration
             return null;
         }
 
-        return DB::table($this->getContextTable())->value('primary_locale');
+        return DB::table($this->getContextTable())->where($this->getContextIdColumn(), $contextId)->value('primary_locale');
     }
 
     /**

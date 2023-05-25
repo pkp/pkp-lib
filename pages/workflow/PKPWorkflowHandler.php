@@ -561,6 +561,20 @@ abstract class PKPWorkflowHandler extends Handler
             }
         }
 
+        // if the user can make recommendations, check whether there are any decisions that can be made given
+        // the stage that we are operating into. 
+        $isOnlyRecommending = $makeRecommendation && !$makeDecision;
+
+        if ($isOnlyRecommending) {
+            $recommendatorsAvailableDecisions = Repo::decision()
+                ->getDecisionTypesMadeByRecommendingUsers($stageId);
+
+            if (!empty($recommendatorsAvailableDecisions)) {
+                // If there are any, then the user can be considered a decision user.
+                $makeDecision = true;
+            }
+        }
+
         $lastRecommendation = null;
         $allRecommendations = null;
         $hasDecidingEditors = false;
@@ -670,12 +684,18 @@ abstract class PKPWorkflowHandler extends Handler
 
             // At least one deciding editor must be assigned to make a recommendation
             && ($makeDecision || $hasDecidingEditors);
+        
+        $decisions = $this->getStageDecisionTypes($stageId);
+        if ($isOnlyRecommending) {
+            $decisions = Repo::decision()
+                ->getDecisionTypesMadeByRecommendingUsers($stageId);
+        }
 
         // Assign the actions to the template.
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'canRecordDecision' => $canRecordDecision,
-            'decisions' => $this->getStageDecisionTypes($stageId),
+            'decisions' => $decisions,
             'recommendations' => $this->getStageRecommendationTypes($stageId),
             'primaryDecisions' => $this->getPrimaryDecisionTypes(),
             'warnableDecisions' => $this->getWarnableDecisionTypes(),

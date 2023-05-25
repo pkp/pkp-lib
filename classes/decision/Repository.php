@@ -56,4 +56,14 @@ class Repository extends \PKP\decision\Repository
     {
         return [];
     }
+
+
+    public function getDecisionTypesMadeByRecommendingUsers(int $stageId): array
+    {
+        $recommendatorsAvailableDecisions = [];
+
+        Hook::call('Workflow::RecommendatorDecisions', [&$recommendatorsAvailableDecisions, $stageId]);
+
+        return $recommendatorsAvailableDecisions;
+    }
 }

@@ -14,11 +14,6 @@
 
 namespace APP\migration\upgrade\v3_4_0;
 
-use Exception;
-use Illuminate\Database\MySqlConnection;
-use Illuminate\Database\PostgresConnection;
-use Illuminate\Support\Facades\DB;
-
 class PreflightCheckMigration extends \PKP\migration\upgrade\v3_4_0\PreflightCheckMigration
 {
     protected function getContextTable(): string
@@ -36,51 +31,51 @@ class PreflightCheckMigration extends \PKP\migration\upgrade\v3_4_0\PreflightChe
         return 'journal_settings';
     }
 
-    public function up(): void
+    protected function buildOrphanedEntityProcessor(): void
     {
-        parent::up();
-        try {
-            // Clean orphaned sections entries by journal_id
-            $orphanedIds = DB::table('sections AS s')->leftJoin('journals AS j', 's.journal_id', '=', 'j.journal_id')->whereNull('j.journal_id')->distinct()->pluck('s.journal_id');
-            foreach ($orphanedIds as $journalId) {
-                DB::table('sections')->where('journal_id', '=', $journalId)->delete();
-            }
+        parent::buildOrphanedEntityProcessor();
 
-            // Clean orphaned section_settings entries
-            $orphanedIds = DB::table('section_settings AS ss')->leftJoin('sections AS s', 'ss.section_id', '=', 's.section_id')->whereNull('s.section_id')->distinct()->pluck('ss.section_id');
-            foreach ($orphanedIds as $sectionId) {
-                DB::table('section_settings')->where('section_id', '=', $sectionId)->delete();
-            }
+        $this->addTableProcessor('publications', function (): int {
+            $affectedRows = 0;
+            $affectedRows += $this->cleanOptionalReference('publications', 'section_id', 'sections', 'section_id');
+            return $affectedRows;
+        });
 
-            // Clean orphaned publications entries by primary_contact_id
-            switch (true) {
-                case DB::connection() instanceof MySqlConnection:
-                    DB::statement('UPDATE publications p LEFT JOIN authors a ON (p.primary_contact_id = a.author_id) SET p.primary_contact_id = NULL WHERE a.author_id IS NULL');
-                    break;
-                case DB::connection() instanceof PostgresConnection:
-                    DB::statement('UPDATE publications SET primary_contact_id = NULL WHERE publication_id IN (SELECT p.publication_id FROM publications p LEFT JOIN authors a ON (p.primary_contact_id = a.author_id) WHERE a.author_id IS NULL AND p.primary_contact_id IS NOT NULL)');
-                    break;
-                default: throw new Exception('Unknown database connection type!');
-            }
+        $this->addTableProcessor('publication_galleys', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~3 entities: doi_id->dois.doi_id(not found in previous version) publication_id->publications.publication_id submission_file_id->submission_files.submission_file_id
+            $affectedRows += $this->deleteRequiredReference('publication_galleys', 'publication_id', 'publications', 'publication_id');
+            $affectedRows += $this->deleteOptionalReference('publication_galleys', 'submission_file_id', 'submission_files', 'submission_file_id');
+            return $affectedRows;
+        });
 
-            // Clean orphaned publication_galleys entries by publication_id
-            $orphanedIds = DB::table('publication_galleys AS pg')->leftJoin('publications AS p', 'pg.publication_id', '=', 'p.publication_id')->whereNull('p.publication_id')->distinct()->pluck('pg.publication_id');
-            foreach ($orphanedIds as $publicationId) {
-                DB::table('publication_galleys')->where('publication_id', '=', $publicationId)->delete();
-            }
+        $this->addTableProcessor('sections', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~2 entities: review_form_id->review_forms.review_form_id server_id->servers.server_id(not found in previous version)
+            $affectedRows += $this->deleteRequiredReference('sections', $this->getContextKeyField(), $this->getContextTable(), $this->getContextKeyField());
+            $affectedRows += $this->cleanOptionalReference('sections', 'review_form_id', 'review_forms', 'review_form_id');
+            return $affectedRows;
+        });
 
-            // Clean orphaned publication_galley_settings entries
-            $orphanedIds = DB::table('publication_galley_settings AS pgs')->leftJoin('publication_galleys AS pg', 'pgs.galley_id', '=', 'pg.galley_id')->whereNull('pg.galley_id')->distinct()->pluck('pgs.galley_id');
-            foreach ($orphanedIds as $galleyId) {
-                DB::table('publication_galley_settings')->where('galley_id', '=', $galleyId)->delete();
-            }
+        $this->addTableProcessor('publication_galley_settings', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~1 entities: galley_id->publication_galleys.galley_id
+            $affectedRows += $this->deleteRequiredReference('publication_galley_settings', 'galley_id', 'publication_galleys', 'galley_id');
+            return $affectedRows;
+        });
 
-            DB::table('sections')->where('review_form_id', '=', 0)->update(['review_form_id' => null]);
-        } catch (Exception $e) {
-            if ($fallbackVersion = $this->setFallbackVersion()) {
-                $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to {$fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');
-            }
-            throw $e;
-        }
+        $this->addTableProcessor('section_settings', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~1 entities: section_id->sections.section_id
+            $affectedRows += $this->deleteRequiredReference('section_settings', 'section_id', 'sections', 'section_id');
+            return $affectedRows;
+        });
+
+        $this->addTableProcessor('server_settings', function (): int {
+            $affectedRows = 0;
+            // Depends directly on ~1 entities: server_id->servers.server_id(not found in previous version)
+            $affectedRows += $this->deleteRequiredReference($this->getContextSettingsTable(), $this->getContextKeyField(), $this->getContextTable(), $this->getContextKeyField());
+            return $affectedRows;
+        });
     }
 }

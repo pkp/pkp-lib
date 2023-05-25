@@ -154,11 +154,6 @@ class ReviewRound extends \PKP\core\DataObject
      */
     public function determineStatus()
     {
-        // The submission back form copy editing stage to last review round
-        if ($this->getStatus() == self::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW) {
-            return self::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW;
-        }
-
         // If revisions have been requested, check to see if any have been
         // submitted
         if ($this->getStatus() == self::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED || $this->getStatus() == self::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
@@ -277,6 +272,12 @@ class ReviewRound extends \PKP\core\DataObject
         } elseif ($pendingRecommendations) {
             return self::REVIEW_ROUND_STATUS_PENDING_RECOMMENDATIONS;
         }
+
+        // The submission back form copy editing stage to last review round
+        if ($this->getStatus() == self::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW) {
+            return self::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW;
+        }
+        
         return self::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED;
     }
 
@@ -321,7 +322,7 @@ class ReviewRound extends \PKP\core\DataObject
             case self::REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED:
                 return 'editor.submission.roundStatus.recommendationsCompleted';
             case self::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW:
-                return 'editor.submission.roundStatus.returnToReview';
+                return 'editor.submission.roundStatus.returnedToReview';
             default: return null;
         }
     }

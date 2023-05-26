@@ -45,89 +45,6 @@ class DAO extends EntityDAO
         'isTranslated' => 'is_translated',
     ];
 
-    public function __construct()
-    {
-        $this->deprecatedDao = new \PKP\db\DAO();
-
-        // Overriding schema service to allow adding custom data to the event log
-        $this->schemaService = new class extends PKPSchemaService {
-            /**
-             * Schema for the custom data to be recorded in the event log
-             * [
-             *   'propName' => [
-             *        'type' => ...
-             *        'multilingual' => ... (optional)
-             * ]
-             */
-            protected ?array $customProps = null;
-
-            public function setCustomProps(array $props)
-            {
-                $cleanProps = $this->validateCustomProps($props);
-                if (empty($cleanProps)) {
-                    return;
-                }
-                $this->customProps = $cleanProps;
-            }
-
-            public function getCustomProps(): ?array
-            {
-                return $this->customProps;
-            }
-
-            /**
-             * Ensures custom props don't override original schema props.
-             * Only "type" and "multilingual" flags are allowed
-             */
-            protected function validateCustomProps(array $props): array
-            {
-                // Check if property with specified name already exists
-                $schema = $this->get(PKPSchemaService::SCHEMA_EVENT_LOG);
-                if (!empty($schema->properties)) {
-                    foreach ($schema->properties as $propName => $propSchema) {
-                        if (array_key_exists($propName, $props)) {
-                            unset($props[$propName]);
-                        }
-                    }
-                }
-
-                // Ensure that unsupported props aren't get passed
-                $cleanProps = [];
-                foreach ($props as $name => $settings) {
-                    $type = $settings['type'] ?? null;
-                    if (!$type) {
-                        continue;
-                    }
-                    $cleanProps[$name] = ['type' => $settings['type']];
-
-                    $multilingual = $settings['multilingual'] ?? null;
-                    if ($multilingual) {
-                        $cleanProps[$name] = array_merge($cleanProps[$name], ['multilingual' => $settings['multilingual']]);
-                    }
-                }
-
-                return $cleanProps;
-            }
-
-            /**
-             * Add custom properties to schema dynamically
-             */
-            public function get($schemaName, $forceReload = false)
-            {
-                $schema = parent::get($schemaName, $forceReload);
-                if (!$this->getCustomProps()) {
-                    return $schema;
-                }
-
-                $customSchema = new \stdClass();
-                $customSchema->properties = json_decode(json_encode($this->getCustomProps()));
-                $schema = $this->merge($schema, $customSchema);
-                $this->_schemas[$schemaName] = $schema;;
-                return $schema;
-            }
-        };
-    }
-
     /**
      * Instantiate a new DataObject
      */
@@ -228,50 +145,18 @@ class DAO extends EntityDAO
 
     /**
      * @copydoc EntityDAO::insert()
-     *
-     * Allows inserting event log with dynamically defined custom properties.
-     * Schema supports only 'type' and 'multilingual' flags; example of the expected format:
-     * [
-     *   'name' => [
-     *        'type' => 'string',
-     *        'multilingual' => true
-     *   ]
-     * ]
      */
-    public function insert(EventLogEntry $eventLog, array $customPropsSchema = []): int
+    public function insert(EventLogEntry $eventLog): int
     {
-        $this->schemaService->setCustomProps($customPropsSchema);
-        $id = parent::_insert($eventLog);
-
-        $customProps = $this->schemaService->getCustomProps();
-        if (!$customProps) {
-            return $id;
-        }
-
-        foreach ($customProps as $propName => $propFlags) {
-            $this->setSettingType($propName, $propFlags['type'], $id);
-        }
-
-        return $id;
+        return parent::_insert($eventLog);
     }
 
     /**
      * @copydoc EntityDAO::update()
-     * See self::insert() for custom props usage
      */
-    public function update(EventLogEntry $eventLog, array $customPropsSchema = [])
+    public function update(EventLogEntry $eventLog)
     {
-        $this->schemaService->setCustomProps($customPropsSchema);
         parent::_update($eventLog);
-
-        $customProps = $this->schemaService->getCustomProps();
-        if (!$customProps) {
-            return;
-        }
-
-        foreach ($customProps as $propName => $propFlags) {
-            $this->setSettingType($propName, $propFlags['type'], $eventLog->getId());
-        }
     }
 
     /**
@@ -288,18 +173,5 @@ class DAO extends EntityDAO
     public function changeUser(int $oldUserId, int $newUserId)
     {
         DB::table($this->table)->where('user_id', $oldUserId)->update(['user_id' => $newUserId]);
-    }
-
-    /**
-     * Record setting type for custom props
-     */
-    protected function setSettingType(string $propName, string $propType, int $objectId)
-    {
-        DB::table($this->settingsTable)
-            ->where('log_id', $objectId)
-            ->where('setting_name', $propName)
-            ->update([
-                'setting_type' => $this->deprecatedDao->getType($propType)
-            ]);
     }
 }

@@ -112,9 +112,9 @@ class Repository
     }
 
     /** @copydoc DAO::insert() */
-    public function add(EventLogEntry $logEntry, array $customPropsSchema = []): int
+    public function add(EventLogEntry $logEntry): int
     {
-        $id = $this->dao->insert($logEntry, $customPropsSchema);
+        $id = $this->dao->insert($logEntry);
         Hook::call('EventLog::add', [$logEntry]);
 
         // Stamp the submission status modification date without triggering edit event
@@ -128,14 +128,14 @@ class Repository
     }
 
     /** @copydoc DAO::update() */
-    public function edit(EventLogEntry $logEntry, array $params, $customPropsSchema = [])
+    public function edit(EventLogEntry $logEntry, array $params)
     {
         $newLogEntry = clone $logEntry;
         $newLogEntry->setAllData(array_merge($newLogEntry->_data, $params));
 
         Hook::call('EventLog::edit', [$newLogEntry, $logEntry, $params]);
 
-        $this->dao->update($newLogEntry, $customPropsSchema);
+        $this->dao->update($newLogEntry);
     }
 
     /** @copydoc DAO::delete() */

@@ -57,29 +57,17 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // email_templates_default_data keys should not conflict after locale migration
             // See MergeLocalesMigration (#8598)
             $affectedLocales = MergeLocalesMigration::getAffectedLocales();
+
             $conflictingEmailKeys = collect();
             $exceptionMessage = '';
-            foreach ($affectedLocales as $localeCode => $localeTarget) {
-                $defaultLocale = $localeTarget;
-                if ($localeTarget instanceof Collection) {
-                    $defaultLocale = $localeTarget->first();
-
-                    $conflictingEmailKeys = DB::table('email_templates_default_data')
-                        ->select('email_key', DB::raw('count(*) as count'))
-                        ->where('locale', 'like', $localeCode . '_%')
-                        ->orWhere('locale', $localeCode)
-                        ->groupBy('email_key')
-                        ->havingRaw('count(*) >= 2')
-                        ->get();
-                } else {
-                    $conflictingEmailKeys = DB::table('email_templates_default_data')
-                        ->select('email_key', DB::raw('count(*) as count'))
-                        ->where('locale', $localeCode)
-                        ->orWhere('locale', $localeTarget)
-                        ->groupBy('email_key')
-                        ->havingRaw('count(*) >= 2')
-                        ->get();
-                }
+            foreach ($affectedLocales as $localeSource => $localeTarget) {
+                $conflictingEmailKeys = DB::table('email_templates_default_data')
+                    ->select('email_key', DB::raw('count(*) as count'))
+                    ->where('locale', $localeSource)
+                    ->orWhere('locale', $localeTarget)
+                    ->groupBy('email_key')
+                    ->havingRaw('count(*) >= 2')
+                    ->get();
 
                 if (!$conflictingEmailKeys->isEmpty()) {
                     foreach ($conflictingEmailKeys as $conflictingEmailKey) {
@@ -101,28 +89,11 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                     continue;
                 }
 
-                foreach ($affectedLocales as $localeCode => $localeTarget) {
-                    $defaultLocale = $localeTarget;
-                    if ($localeTarget instanceof Collection) {
-                        $defaultLocale = $localeTarget->first();
-
-                        $conflictingSettings = DB::table($tableName)
+                foreach ($affectedLocales as $localeSource => $localeTarget) {
+                    $conflictingSettings = DB::table($tableName)
                             ->select('setting_name', DB::raw('COUNT(*)'))
                             ->when($entityIdColumnName, fn ($query) => $query->addSelect($entityIdColumnName))
-                            ->where('locale', 'LIKE', $localeCode . '_%')
-                            ->orWhere('locale', $localeCode)
-                            ->when(
-                                $entityIdColumnName,
-                                fn ($query) => $query->groupBy($entityIdColumnName, 'setting_name'),
-                                fn ($query) => $query->groupBy('setting_name')
-                            )
-                            ->havingRaw('COUNT(*) >= 2')
-                            ->get();
-                    } else {
-                        $conflictingSettings = DB::table($tableName)
-                            ->select('setting_name', DB::raw('COUNT(*)'))
-                            ->when($entityIdColumnName, fn ($query) => $query->addSelect($entityIdColumnName))
-                            ->where('locale', $localeCode)
+                            ->where('locale', $localeSource)
                             ->orWhere('locale', $localeTarget)
                             ->when(
                                 $entityIdColumnName,
@@ -131,7 +102,6 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                             )
                             ->havingRaw('COUNT(*) >= 2')
                             ->get();
-                    }
 
                     if (!$conflictingSettings->isEmpty()) {
                         foreach ($conflictingSettings as $conflictingSetting) {

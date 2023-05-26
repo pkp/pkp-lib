@@ -257,8 +257,7 @@ class FileInformationCenterHandler extends InformationCenterHandler
         $templateMgr = TemplateManager::getManager($request);
 
         $lastEvent = Repo::eventLog()->getCollector()
-            ->filterByAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE)
-            ->filterByAssocId($this->submissionFile->getId())
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, [$this->submissionFile->getId()])
             ->getMany()
             ->first();
 

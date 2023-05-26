@@ -206,8 +206,7 @@ class SubmissionEventLogGridHandler extends GridHandler
         $submission = $this->getSubmission();
 
         $eventLogEntries = Repo::eventLog()->getCollector()
-            ->filterByAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION)
-            ->filterByAssocId([$submission->getId()])
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION, [$submission->getId()])
             ->getMany();
         $emailLogEntries = $submissionEmailLogDao->getBySubmissionId($submission->getId());
 

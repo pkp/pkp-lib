@@ -298,8 +298,7 @@ class DAO extends EntityDAO
         $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
 
         Repo::eventLog()->getCollector()
-            ->filterByAssocType(Application::ASSOC_TYPE_SUBMISSION)
-            ->filterByAssocId([$id])
+            ->filterByAssoc(Application::ASSOC_TYPE_SUBMISSION, [$id])
             ->getMany()
             ->each(function (EventLogEntry $logEntry) {
                 Repo::eventLog()->delete($logEntry);

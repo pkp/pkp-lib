@@ -49,21 +49,33 @@ class Collector implements CollectorInterface
         return $this->dao->getMany($this);
     }
 
-    public function filterByAssocType(?int $assocType)
+    /**
+     *
+     * @param null|int $assocType One of the Application::ASSOC_TYPE_ constants
+     * @param null|array $assocIds Match for the specified assoc type
+     */
+    public function filterByAssoc(?int $assocType, ?array $assocIds = null): self
     {
         $this->assocType = $assocType;
-        return $this;
-    }
-
-    public function filterByAssocId(?array $assocIds)
-    {
         $this->assocIds = $assocIds;
         return $this;
     }
 
-    public function filterByUserIds(?array $userIds)
+    public function filterByUserIds(?array $userIds): self
     {
         $this->userIds = $userIds;
+        return $this;
+    }
+
+    public function limit(?int $count): self
+    {
+        $this->count = $count;
+        return $this;
+    }
+
+    public function offset(?int $offset): self
+    {
+        $this->offset = $offset;
         return $this;
     }
 

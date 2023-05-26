@@ -115,8 +115,7 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler
     protected function loadData($request, $filter = null)
     {
         return Repo::eventLog()->getCollector()
-            ->filterByAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE)
-            ->filterByAssocId($this->getSubmissionFile()->getId())
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, [$this->getSubmissionFile()->getId()])
             ->getMany()
             ->toArray();
     }

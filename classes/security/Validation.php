@@ -414,9 +414,21 @@ class Validation
         }
         $sessionManager = SessionManager::getManager();
         $session = $sessionManager->getUserSession();
-		$userId = $session->getSessionVar('signedInAs');
+        $userId = $session->getSessionVar('signedInAs');
 
         return $userId ? (int) $userId : null;
+    }
+
+    /**
+     * Check if the user is logged in as a different user.
+     *
+     * @return bool
+     *
+     * @deprecated 3.4
+     */
+    public static function isLoggedInAs(): bool
+    {
+        return (bool) static::loggedInAs();
     }
 
     /**

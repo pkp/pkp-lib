@@ -50,6 +50,7 @@ abstract class I8933_EventLogLocalized extends Migration
             $table->bigInteger('user_id')->nullable()->change();
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'event_log_user_id');
+            $table->boolean('is_translated')->change();
         });
 
         $this->fixConflictingSubmissionLogConstants();

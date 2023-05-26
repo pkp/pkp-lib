@@ -32,6 +32,14 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
      */
     public function up(): void
     {
+        // This change fixes the locale column length on the static_page_settings
+        // which in 3.1.0 version was varchar(5).
+        if (Schema::hasTable('static_page_settings')) {
+            Schema::table('static_page_settings', function (Blueprint $table) {
+                $table->string('locale', 14)->change();
+            });
+        }
+
         if (empty($this->CONTEXT_TABLE) || empty($this->CONTEXT_SETTINGS_TABLE) || empty($this->CONTEXT_COLUMN)) {
             throw new Exception('Upgrade could not be completed because required properties for the MergeLocalesMigration migration are undefined.');
         }

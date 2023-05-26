@@ -25,6 +25,13 @@
 				"nullable"
 			]
 		},
+		"data": {
+			"type": "Object",
+			"description": "Additional data attached to this event log.",
+			"validation": [
+				"nullable"
+			]
+		},
 		"dateLogged": {
 			"type": "string",
 			"description": "The date this event was recorded.",

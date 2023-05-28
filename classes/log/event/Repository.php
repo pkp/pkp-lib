@@ -131,17 +131,6 @@ class Repository
         return $id;
     }
 
-    /** @copydoc DAO::update() */
-    public function edit(EventLogEntry $logEntry, array $params)
-    {
-        $newLogEntry = clone $logEntry;
-        $newLogEntry->setAllData(array_merge($newLogEntry->_data, $params));
-
-        Hook::call('EventLog::edit', [$newLogEntry, $logEntry, $params]);
-
-        $this->dao->update($newLogEntry);
-    }
-
     /** @copydoc DAO::delete() */
     public function delete(EventLogEntry $logEntry)
     {

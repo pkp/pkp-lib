@@ -152,14 +152,6 @@ class DAO extends EntityDAO
     }
 
     /**
-     * @copydoc EntityDAO::update()
-     */
-    public function update(EventLogEntry $eventLog)
-    {
-        parent::_update($eventLog);
-    }
-
-    /**
      * @copydoc EntityDAO::delete()
      */
     public function delete(EventLogEntry $eventLog)

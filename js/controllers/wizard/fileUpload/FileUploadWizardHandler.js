@@ -92,7 +92,7 @@
 			prototype.finishUrl_ = '';
 
 	/**
-	 * he URL to be called when a cancel event occurs.
+	 * The URL to be called when a cancel event occurs.
 	 * @private
 	 * @type {string}
 	 */

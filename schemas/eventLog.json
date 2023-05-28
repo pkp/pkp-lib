@@ -189,7 +189,7 @@
 		},
 		"stageId": {
 			"type": "integer",
-			"description": "The workflow stage ID associated submission is in. One of the `WORKFLOW_STAGE_ID_` constants",
+			"description": "The workflow stage ID associated submission was in when this event was logged. One of the `WORKFLOW_STAGE_ID_` constants",
 			"validation": [
 				"nullable",
 				"in:1,2,3,4,5"

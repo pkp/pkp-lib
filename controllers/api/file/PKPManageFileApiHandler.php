@@ -122,7 +122,7 @@ abstract class PKPManageFileApiHandler extends Handler
             return new JSONMessage(false);
         }
 
-        $originalFileId = $originalFile['fileId'];
+        $originalFileId = (int) $originalFile['fileId'];
 
         // Get the file name and uploader user ID
         $originalUserId = $originalFile['uploaderUserId'] ? (int)$originalFile['uploaderUserId'] : null;

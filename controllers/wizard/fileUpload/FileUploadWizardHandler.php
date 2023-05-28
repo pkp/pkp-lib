@@ -569,14 +569,14 @@ class FileUploadWizardHandler extends Handler
             ]
         ];
 
-		if ($originalFile) {
-			$uploadedFile['uploadedFile']['originalFile'] = [
-				'fileId' => $originalFile->getData('fileId'),
-				'name' => $originalFile->getData('name'),
-				'uploaderUserId' => $originalFile->getData('uploaderUserId'),
-			];
-		}
+        if ($originalFile) {
+            $uploadedFile['uploadedFile']['originalFile'] = [
+                'fileId' => $originalFile->getData('fileId'),
+                'name' => $originalFile->getData('name'),
+                'uploaderUserId' => $originalFile->getData('uploaderUserId'),
+            ];
+        }
 
-		return $uploadedFile;
+        return $uploadedFile;
     }
 }

@@ -49,7 +49,7 @@ class LogMigration extends \PKP\migration\Migration
             $table->foreign('log_id', 'event_log_settings_log_id')->references('log_id')->on('event_log')->onDelete('cascade');
             $table->index(['log_id'], 'event_log_settings_log_id');
 
-			$table->string('locale', 14)->default('');
+            $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)')->nullable();

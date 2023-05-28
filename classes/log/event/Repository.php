@@ -14,6 +14,7 @@
 namespace PKP\log\event;
 
 use APP\facades\Repo;
+use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\plugins\Hook;
@@ -80,8 +81,11 @@ class Repository
      *
      * @return array A key/value array with validation errors. Empty if no errors
      */
-    public function validate(?EventLogEntry $object, array $props, array $allowedLocales, string $primaryLocale): array
+    public function validate(?EventLogEntry $object, array $props, Context $context): array
     {
+        $allowedLocales = $context->getSupportedSubmissionLocales();;
+        $primaryLocale = $context->getPrimaryLocale();
+
         $validator = ValidatorFactory::make(
             $props,
             $this->schemaService->getValidationRules($this->dao->schema, $allowedLocales)

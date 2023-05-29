@@ -25,6 +25,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\oai\ops\OAIDAO;
 use APP\plugins\PubIdPlugin;
+use APP\submission\Submission;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleConversion;
@@ -44,7 +45,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
      * @see MetadataDataObjectAdapter::injectMetadataIntoDataObject()
      *
      * @param MetadataDescription $metadataDescription
-     * @param Preprint $targetDataObject
+     * @param Submission $targetDataObject
      */
     public function &injectMetadataIntoDataObject(&$metadataDescription, &$targetDataObject)
     {
@@ -61,7 +62,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
      */
     public function &extractMetadataFromDataObject(&$submission)
     {
-        assert($submission instanceof \APP\submission\Submission);
+        assert($submission instanceof Submission);
 
         // Retrieve data that belongs to the submission.
         // FIXME: Retrieve this data from the respective entity DAOs rather than

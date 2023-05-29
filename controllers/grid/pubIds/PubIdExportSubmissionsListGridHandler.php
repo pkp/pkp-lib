@@ -63,9 +63,7 @@ class PubIdExportSubmissionsListGridHandler extends ExportPublishedSubmissionsLi
     }
 
     /**
-     * Get the grid cell provider instance
-     *
-     * @return DataObjectGridCellProvider
+     * Add additional columns
      */
     public function addAdditionalColumns($cellProvider)
     {

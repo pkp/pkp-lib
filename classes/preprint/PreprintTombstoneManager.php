@@ -21,11 +21,11 @@ use APP\facades\Repo;
 use APP\section\Section;
 use APP\submission\Submission;
 use PKP\config\Config;
-
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\oai\OAIUtils;
 use PKP\plugins\Hook;
+use PKP\tombstone\DataObjectTombstoneDAO;
 
 class PreprintTombstoneManager
 {

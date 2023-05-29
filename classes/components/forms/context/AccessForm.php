@@ -16,6 +16,7 @@
 
 namespace APP\components\forms\context;
 
+use APP\server\Server;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 
@@ -34,7 +35,7 @@ class AccessForm extends FormComponent
      *
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
-     * @param Context $context Journal, Server or Press to change settings for
+     * @param Server $context Journal, Server or Press to change settings for
      */
     public function __construct($action, $locales, $context)
     {
@@ -45,8 +46,8 @@ class AccessForm extends FormComponent
             'label' => __('manager.distribution.publishingMode'),
             'type' => 'radio',
             'options' => [
-                ['value' => \APP\server\Server::PUBLISHING_MODE_OPEN, 'label' => __('manager.distribution.publishingMode.openAccess')],
-                ['value' => \APP\server\Server::PUBLISHING_MODE_NONE, 'label' => __('manager.distribution.publishingMode.none')],
+                ['value' => Server::PUBLISHING_MODE_OPEN, 'label' => __('manager.distribution.publishingMode.openAccess')],
+                ['value' => Server::PUBLISHING_MODE_NONE, 'label' => __('manager.distribution.publishingMode.none')],
             ],
             'value' => $context->getData('publishingMode'),
         ]))

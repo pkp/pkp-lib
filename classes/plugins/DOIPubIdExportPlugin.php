@@ -17,11 +17,12 @@
 namespace APP\plugins;
 
 use APP\facades\Repo;
+use APP\server\Server;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
-use PKP\context\Context;
 use PKP\core\PKPString;
-
 use PKP\doi\Doi;
+use PKP\galley\Galley;
 use PKP\submission\PKPSubmission;
 
 // Configuration errors.
@@ -71,7 +72,7 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
     /**
      * Mark selected submissions as registered.
      *
-     * @param Context $context
+     * @param Server $context
      * @param array $objects Array of published submissions or galleys
      */
     public function markRegistered($context, $objects)
@@ -93,7 +94,7 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
      * when several DOI registration plug-ins
      * are active at the same time.
      *
-     * @param Context $context
+     * @param Server $context
      * @param Submission|Galley $object
      * @param string $testPrefix
      */
@@ -124,7 +125,7 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
      * Get published submissions with a DOI assigned from submission IDs.
      *
      * @param array $submissionIds
-     * @param Context $context
+     * @param Server $context
      *
      * @return array
      */
@@ -149,7 +150,7 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
      * Get preprint galleys with a DOI assigned from galley IDs.
      *
      * @param array $galleyIds
-     * @param Context $context
+     * @param Server $context
      *
      * @return array
      */

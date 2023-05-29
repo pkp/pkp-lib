@@ -20,11 +20,11 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\preprint\PreprintTombstoneManager;
-
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileManager;
 use PKP\plugins\Hook;
+use PKP\submission\GenreDAO;
 
 class ContextService extends \PKP\services\PKPContextService
 {

@@ -17,7 +17,6 @@
 namespace APP\install;
 
 use APP\core\Application;
-
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\DB;
 use PKP\install\Installer;

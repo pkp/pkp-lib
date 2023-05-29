@@ -25,6 +25,7 @@ use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\plugins\Hook;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignmentDAO;
 
 class WorkflowTabHandler extends PKPWorkflowTabHandler
 {

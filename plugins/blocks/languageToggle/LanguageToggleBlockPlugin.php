@@ -15,6 +15,7 @@
 namespace APP\plugins\blocks\languageToggle;
 
 use APP\core\Application;
+use APP\core\Request;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleMetadata;
 use PKP\plugins\BlockPlugin;
@@ -64,7 +65,7 @@ class LanguageToggleBlockPlugin extends BlockPlugin
      * Get the HTML contents for this block.
      *
      * @param object $templateMgr
-     * @param PKPRequest $request
+     * @param Request $request
      */
     public function getContents($templateMgr, $request = null)
     {

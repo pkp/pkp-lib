@@ -19,6 +19,7 @@ namespace APP\pages\index;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\observers\events\UsageEvent;
+use APP\server\ServerDAO;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\config\Config;
@@ -97,7 +98,7 @@ class IndexHandler extends PKPIndexHandler
             event(new UsageEvent(Application::ASSOC_TYPE_SERVER, $server));
             return;
         } else {
-            $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var APP\server\ServerDAO $serverDao */
+            $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var ServerDAO $serverDao */
             $site = $request->getSite();
 
             if ($site->getRedirect() && ($server = $serverDao->getById($site->getRedirect())) != null) {

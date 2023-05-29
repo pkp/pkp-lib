@@ -18,6 +18,9 @@ namespace APP\plugins\importexport\native\filter;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\publication\Publication;
+use DOMElement;
+use PKP\filter\Filter;
 use PKP\plugins\importexport\native\filter\PKPNativeFilterHelper;
 
 class NativeXmlPublicationFilter extends \PKP\plugins\importexport\native\filter\NativeXmlPKPPublicationFilter

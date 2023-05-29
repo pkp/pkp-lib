@@ -16,6 +16,7 @@
 
 namespace APP\pages\search;
 
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\search\PreprintSearch;
@@ -40,7 +41,7 @@ class SearchHandler extends Handler
      * Show the search form
      *
      * @param array $args
-     * @param \PKP\core\PKPRequest $request
+     * @param Request $request
      */
     public function index($args, $request)
     {
@@ -52,7 +53,7 @@ class SearchHandler extends Handler
      * Private function to transmit current filter values
      * to the template.
      *
-     * @param \PKP\core\PKPRequest $request
+     * @param Request $request
      * @param TemplateManager $templateMgr
      * @param array $searchFilters
      */
@@ -125,7 +126,7 @@ class SearchHandler extends Handler
      * Show the search form
      *
      * @param array $args
-     * @param \PKP\core\PKPRequest $request
+     * @param Request $request
      */
     public function search($args, $request)
     {

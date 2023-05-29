@@ -22,6 +22,7 @@ use PKP\controllers\grid\feature\PagingFeature;
 use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
+use PKP\plugins\ImportExportPlugin;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -272,7 +273,7 @@ class ExportPublishedSubmissionsListGridHandler extends GridHandler
     /**
      * Get the grid cell provider instance
      *
-     * @return DataObjectGridCellProvider
+     * @return ExportPublishedSubmissionsListGridCellProvider
      */
     public function getGridCellProvider()
     {

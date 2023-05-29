@@ -21,13 +21,11 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\publication\Publication;
 use APP\submission\Submission;
-
 use PKP\context\Context;
 use PKP\core\DataObject;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
 use PKP\core\PKPString;
-
 use PKP\plugins\PKPPubIdPlugin;
 use PKP\submission\Representation;
 use PKP\submissionFile\SubmissionFile;

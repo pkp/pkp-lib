@@ -23,6 +23,9 @@ use APP\facades\Repo;
 use PKP\context\ContextDAO;
 use PKP\metadata\MetadataTypeDescription;
 
+/**
+ * @extends ContextDAO<Server>
+ */
 class ServerDAO extends ContextDAO
 {
     /** @copydoc SchemaDAO::$schemaName */
@@ -49,7 +52,7 @@ class ServerDAO extends ContextDAO
     /**
      * Create a new DataObject of the appropriate class
      *
-     * @return DataObject
+     * @return Server
      */
     public function newDataObject()
     {

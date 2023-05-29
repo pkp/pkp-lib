@@ -9,7 +9,7 @@
  *
  * @class I7191_EditorAssignments
  *
- * @brief Update the subeditor_submission_group table to accomodate new editor assignment settings
+ * @brief Update the subeditor_submission_group table to accommodate new editor assignment settings
  */
 
 namespace APP\migration\upgrade\v3_4_0;

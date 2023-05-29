@@ -18,11 +18,13 @@ use APP\core\Services;
 use APP\facades\Repo;
 use APP\preprint\PreprintTombstoneManager;
 use APP\section\Section;
+use APP\server\Server;
 use APP\server\ServerDAO;
 use PKP\context\Context;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\doi\exceptions\DoiException;
+use PKP\tombstone\DataObjectTombstoneDAO;
 
 class Repository extends \PKP\submission\Repository
 {
@@ -108,7 +110,7 @@ class Repository extends \PKP\submission\Repository
     {
         /** @var ServerDAO $contextDao */
         $contextDao = Application::getContextDAO();
-        /** @var Context $context */
+        /** @var Server $context */
         $context = $contextDao->getById($submission->getData('contextId'));
 
         // Preprint

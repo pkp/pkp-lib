@@ -36,6 +36,7 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\pages\submission\PKPSubmissionHandler;
 use PKP\plugins\Hook;
+use PKP\submission\GenreDAO;
 
 class SubmissionHandler extends PKPSubmissionHandler
 {

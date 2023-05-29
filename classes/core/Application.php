@@ -147,7 +147,9 @@ class Application extends PKPApplication
      */
     public static function getContextDAO(): ServerDAO
     {
-        return DAORegistry::getDAO('ServerDAO');
+        /** @var ServerDAO */
+        $dao = DAORegistry::getDAO('ServerDAO');
+        return $dao;
     }
 
     /**

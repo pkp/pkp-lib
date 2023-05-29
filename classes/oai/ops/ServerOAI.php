@@ -21,11 +21,13 @@
 namespace APP\oai\ops;
 
 use APP\core\Application;
+use APP\server\Server;
 use PKP\db\DAORegistry;
 use PKP\oai\OAI;
 use PKP\oai\OAIRepository;
 use PKP\oai\OAIResumptionToken;
 use PKP\plugins\Hook;
+use PKP\site\Site;
 use PKP\site\VersionDAO;
 
 class ServerOAI extends OAI
@@ -93,7 +95,7 @@ class ServerOAI extends OAI
      *
      * @param null|mixed $serverId
      *
-     * @return int
+     * @return int[]
      */
     public function setSpecToSectionId($setSpec, $serverId = null)
     {

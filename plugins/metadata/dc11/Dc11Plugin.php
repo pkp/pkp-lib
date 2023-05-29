@@ -9,7 +9,7 @@
  *
  * @class Dc11Plugin
  *
- * @brief Dublic Core version 1.1 metadata plugin
+ * @brief Dublin Core version 1.1 metadata plugin
  */
 
 namespace APP\plugins\metadata\dc11;

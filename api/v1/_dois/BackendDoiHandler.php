@@ -17,9 +17,11 @@
 namespace APP\API\v1\_dois;
 
 use APP\facades\Repo;
+use Exception;
 use PKP\core\APIResponse;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
+use PKP\submission\GenreDAO;
 use Slim\Http\Request as SlimRequest;
 
 class BackendDoiHandler extends \PKP\API\v1\_dois\PKPBackendDoiHandler

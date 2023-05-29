@@ -20,16 +20,17 @@
 namespace APP\search;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\server\Server;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
-
 use PKP\search\SubmissionSearch;
 use PKP\submission\PKPSubmission;
 use PKP\submission\SubmissionKeywordDAO;
+use PKP\user\User;
 
 class PreprintSearch extends SubmissionSearch
 {

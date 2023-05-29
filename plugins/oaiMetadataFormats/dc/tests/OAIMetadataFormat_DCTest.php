@@ -154,7 +154,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         $server->expects($this->any())
             ->method('getSetting')
             ->with('publishingMode')
-            ->will($this->returnValue(\APP\server\Server::PUBLISHING_MODE_OPEN));
+            ->will($this->returnValue(Server::PUBLISHING_MODE_OPEN));
         $server->setName('server-title', 'en');
         $server->setData('publisherInstitution', 'server-publisher');
         $server->setPrimaryLocale('en');

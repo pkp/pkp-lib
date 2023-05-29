@@ -60,25 +60,33 @@ abstract class I8933_EventLogLocalized extends Migration
 
         // Localize existing submission file name entries
         $sitePrimaryLocale = DB::table('site')->value('primary_locale');
-        DB::table('event_log_settings')
+        DB::table('event_log_settings AS es')
+            ->join('event_log AS e', 'es.log_id', '=', 'e.log_id')
             ->where('setting_name', 'filename')
-            ->lazyById(1000, 'event_log_setting_id')
-            ->each(function (object $row) use ($sitePrimaryLocale) {
-                // Check event type
-                $eventType = DB::table('event_log')
-                    ->where('log_id', $row->log_id)->value('event_type');
-                if (!$this->isEventTypeToMigrateFileName($eventType)) {
-                    return;
+            ->whereIn('event_type', [
+                SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD,
+                SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
+                SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD,
+            ])
+            ->orderBy('event_log_setting_id')
+            ->chunk(100, function (Collection $logChunks) use ($sitePrimaryLocale) {
+                $mapLocaleWithSettingIds = [];
+                foreach ($logChunks as $row) {
+                    // Get locale based on a submission file ID log entry
+                    $locale = $this->getContextPrimaryLocale($row, $sitePrimaryLocale);
+                    if (!$locale) {
+                        continue;
+                    }
+                    $mapLocaleWithSettingIds[$locale] ??= [];
+                    $mapLocaleWithSettingIds[$locale][] = $row->event_log_setting_id;
                 }
 
-                // Determine locale
-                $locale = $this->getContextPrimaryLocale($row, $sitePrimaryLocale);
-                if (!$locale) {
-                    return;
+                // Update by chunks for each locale
+                foreach ($mapLocaleWithSettingIds as $locale => $settingIds) {
+                    DB::table('event_log_settings')
+                        ->whereIn('event_log_setting_id', $settingIds)
+                        ->update(['locale' => $locale]);
                 }
-                DB::table('event_log_settings')
-                    ->where('event_log_setting_id', $row->event_log_setting_id)
-                    ->update(['locale' => $locale]);
             });
     }
 
@@ -116,47 +124,34 @@ abstract class I8933_EventLogLocalized extends Migration
      */
     protected function getContextPrimaryLocale(object $row, string $sitePrimaryLocale): ?string
     {
-        // Find correspondent submission ID to set the correct locale
-        $submissionFileId = DB::table('event_log_settings')
-            ->where('log_id', $row->log_id)
-            ->where('setting_name', 'submissionFileId')
-            ->value('setting_value');
-
-        // Entry isn't related to the submission file
-        if (!$submissionFileId) {
-            return null;
+        // Try to determine submission/submission file ID based on the assoc type
+        if ($row->assoc_type === 0x0000203) { // ASSOC_TYPE_SUBMISSION_FILE
+            $submissionFileId = $row->assoc_id;
+        } else if ($row->assoc_type === 0x0100009) { // ASSOC_TYPE_SUBMISSION
+            $submissionId = $row->assoc_id;
+        } else {
+            throw new \Exception('Unsupported assoc_type in the event log: ' . $row->assoc_type);
         }
 
-        $submissionId = DB::table('submission_files')
-            ->where('submission_file_id', $submissionFileId)
-            ->value('submission_id');
+        // Get submission from the file ID
+        if (!isset($submissionId)) {
+            $submissionId = DB::table('submission_files')
+                ->where('submission_file_id', $submissionFileId)
+                ->value('submission_id');
+        }
 
-        // Submission removed?
+        // Assuming submission file was removed
         if (!$submissionId) {
             return $sitePrimaryLocale;
         }
 
-        $contextId = DB::table('submissions')->where('submission_id', $submissionId);
+        $contextId = DB::table('submissions')->where('submission_id', $submissionId)->value('context_id');
 
         if (!$contextId) {
-            return null;
+            return $sitePrimaryLocale;
         }
 
         return DB::table($this->getContextTable())->where($this->getContextIdColumn(), $contextId)->value('primary_locale');
-    }
-
-    /**
-     * Event types that record submission file name
-     */
-    protected function isEventTypeToMigrateFileName(string $typeToCheck): bool
-    {
-        $eventTypes = [
-            SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD,
-            SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
-            SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD,
-        ];
-
-        return in_array($typeToCheck, $eventTypes);
     }
 
     /**

@@ -254,7 +254,7 @@ class PKPComponentRouterTest extends PKPRouterTestCase
     public function testUrlWithPathinfo()
     {
         $this->setTestConfiguration('request1', 'classes/core/config'); // restful URLs
-        $mockApplication = $this->_setUpMockEnvironment();
+        $this->_setUpMockEnvironment();
         $_SERVER = [
             'SERVER_NAME' => 'mydomain.org',
             'SCRIPT_NAME' => '/index.php',

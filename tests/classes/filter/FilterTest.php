@@ -83,7 +83,7 @@ class FilterTest extends PKPTestCase
         // Test unsupported input
         $unsupportedInput = new TestClass2();
 
-        $this->expectErrorMessageMatches(self::localeToRegExp(__('filter.input.error.notSupported')));
+        $this->expectExceptionMessageMatches(self::localeToRegExp(__('filter.input.error.notSupported')));
         self::assertNull($mockFilter->execute($unsupportedInput));
         self::assertNull($mockFilter->getLastInput());
         self::assertNull($mockFilter->getLastOutput());
@@ -102,8 +102,8 @@ class FilterTest extends PKPTestCase
     {
         $mockFilter = $this->getFilterMock();
         $mockFilter->setData('phpVersionMin', '20.0.0');
-        $this->expectErrorMessage(__('filter.error.missingRequirements'));
-        $testOutput = $mockFilter->execute($testInput);
+        $this->expectExceptionMessage(__('filter.error.missingRequirements'));
+        $mockFilter->execute($testInput);
     }
 
     /**

@@ -155,7 +155,8 @@ class FilterDAOTest extends DatabaseTestCase
         self::assertEquals($testFilter, $filterById);
 
         // Update filter instance
-        $testFilter = new GenericSequencerFilter($testFilter->getFilterGroup());
+        $filter = $testFilter->getFilterGroup();
+        $testFilter = new GenericSequencerFilter($filter);
         $testFilter->setDisplayName('composite filter');
         $testFilter->setSequence(9999);
         $testFilter->setId($filterId);
@@ -164,7 +165,8 @@ class FilterDAOTest extends DatabaseTestCase
         // leave out (sub-)sub-filter 2 but add a new (sub-)sub-filter 3
         // to test recursive update.
         $testFilter->addFilter($subFilter1);
-        $subFilter3 = new GenericMultiplexerFilter($testFilter->getFilterGroup());
+        $filter = $testFilter->getFilterGroup();
+        $subFilter3 = new GenericMultiplexerFilter($filter);
         $subFilter3->setDisplayName('3rd sub-filter');
         $subFilter3->addFilter($subSubFilter1);
         $subSubFilter3 = new PersistableTestFilter($testFilter->getFilterGroup());

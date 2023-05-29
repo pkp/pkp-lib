@@ -48,8 +48,13 @@ class XMLTypeDescriptionTest extends PKPTestCase
         $testXmlDom->load(dirname(__FILE__) . '/dtdsample-valid.xml');
         self::assertTrue($typeDescription->isCompatible($testXmlDom));
         $testXmlDom->load(dirname(__FILE__) . '/dtdsample-invalid.xml');
-        $this->expectWarning();
-        $typeDescription->isCompatible($testXmlDom);
+        /** @var \Throwable $e */
+        $exception = null;
+        try{
+            $typeDescription->isCompatible($testXmlDom);
+        }catch(\Throwable $exception){
+        }
+        self::assertMatchesRegularExpression('/element collection content does not follow the DTD/i', $exception?->getMessage());
 
         // Test with xsd validation
         $typeDescription = new XMLTypeDescription('schema(' . dirname(__FILE__) . '/xsdsample.xsd)');

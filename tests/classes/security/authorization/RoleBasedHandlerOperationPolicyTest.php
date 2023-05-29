@@ -76,7 +76,7 @@ class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase
         // with one role not matching.
         $rolePolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
         $rolePolicy->addPolicy($this->getAuthorizationContextManipulationPolicy());
-        $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, [self::ROLE_ID_TEST, Role::ROLE_ID_SITE_ADMIN, self::ROLE_ID_NON_AUTHORIZED], 'permittedOperation', 'some.message', true, false));
+        $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, [self::ROLE_ID_TEST, Role::ROLE_ID_SITE_ADMIN, self::ROLE_ID_NON_AUTHORIZED], 'permittedOperation', 'some.message', true));
         $decisionManager = new AuthorizationDecisionManager();
         $decisionManager->addPolicy($rolePolicy);
         self::assertEquals(AuthorizationPolicy::AUTHORIZATION_DENY, $decisionManager->decide());

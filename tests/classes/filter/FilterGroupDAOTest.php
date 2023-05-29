@@ -41,7 +41,7 @@ class FilterGroupDAOTest extends DatabaseTestCase
         $testFilterGroup->setOutputType('primitive::integer');
 
         // Insert filter group instance.
-        $filterGroupId = $filterGroupDao->insertObject($testFilterGroup, 9999);
+        $filterGroupId = $filterGroupDao->insertObject($testFilterGroup);
         self::assertTrue(is_numeric($filterGroupId));
         self::assertTrue($filterGroupId > 0);
 

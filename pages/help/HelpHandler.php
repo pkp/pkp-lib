@@ -18,6 +18,7 @@ namespace PKP\pages\help;
 
 use APP\handler\Handler;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleConversion;
 

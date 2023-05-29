@@ -22,6 +22,7 @@ use DOMDocument;
 use DOMElement;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\filter\FilterGroup;
 use PKP\plugins\importexport\PKPImportExportFilter;
 use PKP\submissionFile\SubmissionFile;
 use PKP\workflow\WorkflowStageDAO;
@@ -49,12 +50,12 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
      *
      * @param array $submissions Array of submissions
      *
-     * @return \DOMDocument
+     * @return DOMDocument
      */
     public function &process(&$submissions)
     {
         // Create the XML document
-        $doc = new \DOMDocument('1.0');
+        $doc = new DOMDocument('1.0');
         $doc->preserveWhiteSpace = false;
         $doc->formatOutput = true;
         $deployment = $this->getDeployment();
@@ -181,7 +182,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
         foreach ($publications as $publication) {
             $publicationDoc = $currentFilter->execute($publication);
 
-            if ($publicationDoc && $publicationDoc->documentElement instanceof \DOMElement) {
+            if ($publicationDoc && $publicationDoc->documentElement instanceof DOMElement) {
                 $clone = $doc->importNode($publicationDoc->documentElement, true);
                 $submissionNode->appendChild($clone);
             } else {

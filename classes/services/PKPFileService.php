@@ -18,7 +18,6 @@ namespace PKP\services;
 use APP\core\Application;
 use Exception;
 use Illuminate\Support\Facades\DB;
-
 use League\Flysystem\Filesystem;
 use League\Flysystem\Local\LocalFilesystemAdapter;
 use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
@@ -64,7 +63,7 @@ class PKPFileService
      *
      * @param int $id
      *
-     * @return stdObject
+     * @return object
      */
     public function get($id)
     {
@@ -113,8 +112,6 @@ class PKPFileService
      * Delete an uploaded file
      *
      * @param int $id
-     *
-     * @return File
      */
     public function delete($id)
     {

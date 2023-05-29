@@ -20,6 +20,9 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\grid\CategoryGridDataProvider;
 use PKP\db\DAORegistry;
+use PKP\note\NoteDAO;
+use PKP\query\QueryDAO;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider

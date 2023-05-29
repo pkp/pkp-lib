@@ -16,6 +16,7 @@
 
 namespace PKP\controllers\api\file\linkAction;
 
+use APP\core\Request;
 use PKP\submissionFile\SubmissionFile;
 
 class AddFileLinkAction extends BaseAddFileLinkAction

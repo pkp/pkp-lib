@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\form\validation\FormValidatorReCaptcha;
 use PKP\mail\mailables\PasswordResetRequested;

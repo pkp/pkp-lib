@@ -22,7 +22,10 @@ use APP\core\Services;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\navigationMenu\NavigationMenuItemAssignment;
+use PKP\navigationMenu\NavigationMenuItemAssignmentDAO;
+use PKP\navigationMenu\NavigationMenuItemDAO;
 use PKP\plugins\PluginRegistry;
 
 class NavigationMenuForm extends Form
@@ -55,7 +58,7 @@ class NavigationMenuForm extends Form
     /**
      * Get a list of localized field names for this form
      *
-     * @return array
+     * @return ?array
      */
     public function getLocaleFieldNames()
     {

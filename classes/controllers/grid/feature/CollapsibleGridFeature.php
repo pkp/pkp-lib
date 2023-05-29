@@ -19,7 +19,6 @@ namespace PKP\controllers\grid\feature;
 
 use APP\template\TemplateManager;
 use PKP\linkAction\LinkAction;
-
 use PKP\linkAction\request\NullAction;
 
 class CollapsibleGridFeature extends GridFeature

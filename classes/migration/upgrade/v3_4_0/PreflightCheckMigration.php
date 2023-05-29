@@ -711,7 +711,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     protected function setFallbackVersion(): ?string
     {
         if ($fallbackVersion = $this->_attributes['fallback'] ?? null) {
-            $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
+            $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var \PKP\site\VersionDAO $versionDao */
             $versionDao->insertVersion(\PKP\site\Version::fromString($fallbackVersion));
             return $fallbackVersion;
         }

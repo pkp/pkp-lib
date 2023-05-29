@@ -17,17 +17,18 @@
 namespace PKP\install\form;
 
 use APP\template\TemplateManager;
+use PKP\core\PKPRequest;
 use PKP\form\Form;
-
 use PKP\site\VersionCheck;
 
 class MaintenanceForm extends Form
 {
-    /** @var PKPRequest */
+    /** @var ?PKPRequest */
     public $_request;
 
     /**
      * Constructor.
+     * @param ?PKPRequest $request
      */
     public function __construct($request, $template)
     {
@@ -39,8 +40,8 @@ class MaintenanceForm extends Form
     /**
      * @copydoc Form::display
      *
-     * @param null|mixed $request
-     * @param null|mixed $template
+     * @param ?PKPRequest $request
+     * @param ?string $template
      */
     public function display($request = null, $template = null)
     {

@@ -163,7 +163,7 @@ class FilterSetting
     /**
      * Get the form validation check
      *
-     * @return FormValidator
+     * @return ?FormValidator
      */
     public function &getCheck(&$form)
     {
@@ -174,7 +174,7 @@ class FilterSetting
         }
 
         // Instantiate a simple form validator.
-        $check = new \PKP\form\validation\FormValidator($form, $this->getName(), $this->getRequired(), $this->getValidationMessage());
+        $check = new FormValidator($form, $this->getName(), $this->getRequired(), $this->getValidationMessage());
         return $check;
     }
 }

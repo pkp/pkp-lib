@@ -18,6 +18,7 @@
 namespace PKP\API\v1\stats\editorial;
 
 use APP\core\Services;
+use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -25,6 +26,7 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use Slim\Http\Request;
 
 abstract class PKPStatsEditorialHandler extends APIHandler
 {
@@ -79,10 +81,10 @@ abstract class PKPStatsEditorialHandler extends APIHandler
      * average response times and more.
      *
      * @param Request $slimRequest Slim request object
-     * @param object $response Response
+     * @param APIResponse $response Response
      * @param array $args
      *
-     * @return object Response
+     * @return APIResponse Response
      */
     public function get($slimRequest, $response, $args)
     {
@@ -137,10 +139,10 @@ abstract class PKPStatsEditorialHandler extends APIHandler
      * and declined per year.
      *
      * @param Request $slimRequest Slim request object
-     * @param object $response Response
+     * @param APIResponse $response Response
      * @param array $args
      *
-     * @return object Response
+     * @return APIResponse Response
      */
     public function getAverages($slimRequest, $response, $args)
     {

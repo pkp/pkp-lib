@@ -149,7 +149,7 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
      * @param int $userId
      * @param int $contextId
      *
-     * @return int
+     * @return string
      */
     public function insertNewRSSToken($userId, $contextId)
     {

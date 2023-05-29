@@ -21,9 +21,11 @@ namespace PKP\security\authorization\internal;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\user\User;
 
 class SubmissionAuthorPolicy extends AuthorizationPolicy

@@ -16,7 +16,6 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
-
 use PKP\security\authorization\AuthorizationPolicy;
 
 class WorkflowStageRequiredPolicy extends AuthorizationPolicy

@@ -19,7 +19,6 @@
 namespace PKP\author;
 
 use APP\facades\Repo;
-
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 
@@ -208,6 +207,8 @@ class Author extends Identity
     /**
      * Set the "show title" flag. This attribute belongs to the user group,
      * NOT the author; fetched for performance reasons only.
+     *
+     * @param bool $showTitle
      */
     public function _setShowTitle($showTitle)
     {
@@ -256,6 +257,8 @@ class Author extends Identity
 
     /**
      * Get the user group for this contributor.
+     *
+     * @return \PKP\userGroup\UserGroup
      */
     public function getUserGroup()
     {

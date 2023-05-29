@@ -20,7 +20,7 @@ use Exception;
 use Firebase\JWT\JWT;
 use Firebase\JWT\SignatureInvalidException;
 use PKP\config\Config;
-
+use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
 use Slim\Http\Request as SlimRequest;
 
@@ -128,10 +128,10 @@ class ApiTokenDecodingMiddleware
      * Middleware invokable function
      *
      * @param SlimRequest $request request
-     * @param SlimResponse $response response
+     * @param APIResponse $response response
      * @param callable $next Next middleware
      *
-     * @return bool|string|unknown
+     * @return bool|string|APIResponse
      */
     public function __invoke($request, $response, $next)
     {

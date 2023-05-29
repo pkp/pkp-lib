@@ -21,6 +21,9 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\DataObject;
 
+/**
+ * @template T of DataObject
+ */
 trait EntityWithParent
 {
     /**
@@ -30,6 +33,8 @@ trait EntityWithParent
 
     /**
      * @copydoc EntityDAO::fromRow()
+     *
+     * @return T
      */
     abstract public function fromRow(object $row): DataObject;
 
@@ -52,6 +57,8 @@ trait EntityWithParent
      *
      * Optionally, pass the ID of a parent entity to only get an object
      * if it exists and is assigned to that parent.
+     *
+     * @return ?T
      */
     public function get(int $id, int $parentId = null): ?DataObject
     {

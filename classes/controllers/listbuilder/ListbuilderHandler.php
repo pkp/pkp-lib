@@ -16,11 +16,13 @@
 
 namespace PKP\controllers\listbuilder;
 
+use APP\core\Request;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\linkAction\LinkAction;
-
+use PKP\linkAction\request\LinkActionRequest;
 use PKP\linkAction\request\NullAction;
 
 class ListbuilderHandler extends GridHandler
@@ -143,7 +145,7 @@ class ListbuilderHandler extends GridHandler
     /**
      * Get the "add item" link action.
      *
-     * @param ActionRequest $actionRequest
+     * @param LinkActionRequest $actionRequest
      *
      * @return LinkAction
      */

@@ -16,6 +16,7 @@
 namespace PKP\controllers\api\file\linkAction;
 
 use PKP\linkAction\LinkAction;
+use PKP\submissionFile\SubmissionFile;
 
 class FileLinkAction extends LinkAction
 {
@@ -32,7 +33,7 @@ class FileLinkAction extends LinkAction
      */
     public function getActionArgs($submissionFile, $stageId = null)
     {
-        assert($submissionFile instanceof \PKP\submissionFile\SubmissionFile);
+        assert($submissionFile instanceof SubmissionFile);
 
         // Create the action arguments array.
         $args = [

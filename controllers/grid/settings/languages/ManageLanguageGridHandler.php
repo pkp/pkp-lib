@@ -16,6 +16,7 @@
 
 namespace PKP\controllers\grid\settings\languages;
 
+use APP\core\Request;
 use APP\core\Services;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\languages\LanguageGridHandler;

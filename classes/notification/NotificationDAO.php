@@ -23,7 +23,6 @@ use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAOResultFactory;
-
 use PKP\plugins\Hook;
 
 class NotificationDAO extends \PKP\db\DAO
@@ -54,7 +53,7 @@ class NotificationDAO extends \PKP\db\DAO
      * Note that this method will not return fully-fledged notification objects.  Use
      *  NotificationManager::getNotificationsForUser() to get notifications with URL, and contents
      *
-     * @return object DAOResultFactory containing matching Notification objects
+     * @return DAOResultFactory<Notification> Object containing matching Notification objects
      */
     public function getByUserId(?int $userId, int $level = Notification::NOTIFICATION_LEVEL_NORMAL, ?int $type = null, ?int $contextId = null): DAOResultFactory
     {
@@ -75,6 +74,8 @@ class NotificationDAO extends \PKP\db\DAO
      *  NotificationManager::getNotificationsForUser() to get notifications with URL, and contents
      *
      * @param int $assocType Application::ASSOC_TYPE_...
+     *
+     * @return DAOResultFactory<Notification>
      */
     public function getByAssoc(int $assocType, int $assocId, ?int $userId = null, ?int $type = null, ?int $contextId = null): DAOResultFactory
     {

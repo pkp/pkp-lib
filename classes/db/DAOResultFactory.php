@@ -23,6 +23,10 @@ use Illuminate\Support\Enumerable;
 use PKP\core\ItemIterator;
 use ReflectionClass;
 
+/**
+ * @template T of \PKP\core\DataObject
+ * @extends ItemIterator<mixed,T>
+ */
 class DAOResultFactory extends ItemIterator
 {
     /** @var DAO The DAO used to create objects */
@@ -37,7 +41,7 @@ class DAOResultFactory extends ItemIterator
      */
     public $idFields;
 
-    /** @var Enumerable The results to be wrapped around */
+    /** @var \Generator<int,object>|Enumerable<int,object> The results to be wrapped around */
     public $records;
 
     /**
@@ -73,7 +77,7 @@ class DAOResultFactory extends ItemIterator
      * @param array $idFields an array of primary key field names that uniquely identify a result row in the record set. Should be data object _data array key, not database column name
      * @param string $sql Optional SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
      * @param array $params Optional parameters for SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
-     * @param DBResultRange $rangeInfo Optional pagination information. WARNING: New code should not use this.
+     * @param ?DBResultRange $rangeInfo Optional pagination information. WARNING: New code should not use this.
      */
     public function __construct($records, $dao, $functionName, $idFields = [], $sql = null, $params = [], $rangeInfo = null)
     {
@@ -100,7 +104,7 @@ class DAOResultFactory extends ItemIterator
     /**
      * Return the object representing the next row.
      *
-     * @return ?Object
+     * @return ?T
      */
     public function next()
     {
@@ -148,7 +152,7 @@ class DAOResultFactory extends ItemIterator
      *
      * @param null|mixed $idField
      *
-     * @return array|null ($key, $value)
+     * @return ?array{mixed,T} ($key, $value)
      */
     public function nextWithKey($idField = null)
     {
@@ -220,7 +224,7 @@ class DAOResultFactory extends ItemIterator
     /**
      * Convert this iterator to an array.
      *
-     * @return array
+     * @return T[]
      */
     public function toArray()
     {
@@ -234,7 +238,7 @@ class DAOResultFactory extends ItemIterator
     /**
      * Return an Iterator for this DAOResultFactory.
      *
-     * @return Iterator
+     * @return DAOResultIterator<T>
      */
     public function toIterator()
     {
@@ -244,7 +248,7 @@ class DAOResultFactory extends ItemIterator
     /**
      * Convert this iterator to an associative array by database ID.
      *
-     * @return array
+     * @return array<array-key,T>
      */
     public function toAssociativeArray($idField = 'id')
     {

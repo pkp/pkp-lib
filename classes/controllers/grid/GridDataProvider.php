@@ -20,6 +20,8 @@
 namespace PKP\controllers\grid;
 
 use Exception;
+use PKP\core\PKPRequest;
+use PKP\security\authorization\PolicySet;
 
 class GridDataProvider
 {

@@ -58,9 +58,9 @@ class EmailLogDAO extends \PKP\db\DAO
      * @param int $assocId
      * @param int $eventType
      * @param int $userId optional
-     * @param object $rangeInfo optional
+     * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
-     * @return EmailLogEntry
+     * @return DAOResultFactory<EmailLogEntry>
      */
     public function _getByEventType($assocType, $assocId, $eventType, $userId = null, $rangeInfo = null)
     {
@@ -93,9 +93,9 @@ class EmailLogDAO extends \PKP\db\DAO
      *
      * @param int $assocType
      * @param int $assocId
-     * @param object $rangeInfo optional
+     * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
-     * @return DAOResultFactory containing matching EventLogEntry ordered by sequence
+     * @return DAOResultFactory<EmailLogEntry> containing matching EmailLogEntry ordered by sequence
      */
     public function getByAssoc($assocType = null, $assocId = null, $rangeInfo = null)
     {

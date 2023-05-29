@@ -19,7 +19,10 @@
 namespace PKP\security\authorization;
 
 use APP\core\Application;
+use APP\core\Request;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\note\NoteDAO;
 
 class NoteAccessPolicy extends AuthorizationPolicy
 {

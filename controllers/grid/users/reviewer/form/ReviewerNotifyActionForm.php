@@ -23,6 +23,7 @@ use PKP\context\Context;
 use PKP\form\Form;
 use PKP\mail\Mailable;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewRound\ReviewRound;
 
 abstract class ReviewerNotifyActionForm extends Form
 {

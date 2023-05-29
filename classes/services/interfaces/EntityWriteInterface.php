@@ -48,7 +48,7 @@ interface EntityWriteInterface
      * validate or sanitize this object.
      *
      * @param object $object
-     * @param Request $request
+     * @param \APP\core\Request $request
      *
      * @return object
      */
@@ -62,7 +62,7 @@ interface EntityWriteInterface
      *
      * @param object $object
      * @param array $params Key/value array of new data
-     * @param Request $request
+     * @param \APP\core\Request $request
      *
      * @return object
      */

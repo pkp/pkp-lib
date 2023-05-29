@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use APP\section\Section;
 use APP\template\TemplateManager;
 use PKP\context\SubEditorsDAO;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\security\Role;

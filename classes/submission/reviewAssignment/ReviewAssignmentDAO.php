@@ -23,6 +23,10 @@ use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
+use PKP\notification\NotificationDAO;
+use PKP\reviewForm\ReviewFormResponseDAO;
+use PKP\submission\ReviewFilesDAO;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 
 class ReviewAssignmentDAO extends \PKP\db\DAO
 {
@@ -549,7 +553,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     /**
      * Return a new review assignment data object.
      *
-     * @return DataObject
+     * @return ReviewAssignment
      */
     public function newDataObject()
     {

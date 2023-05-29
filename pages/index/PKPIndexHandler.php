@@ -18,6 +18,8 @@ namespace PKP\pages\index;
 
 use APP\facades\Repo;
 use APP\handler\Handler;
+use PKP\context\Context;
+use PKP\template\PKPTemplateManager;
 
 class PKPIndexHandler extends Handler
 {

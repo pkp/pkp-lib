@@ -31,10 +31,14 @@ use PKP\notification\managerDelegate\EditorDecisionNotificationManager;
 use PKP\notification\managerDelegate\EditorialReportNotificationManager;
 use PKP\notification\managerDelegate\PendingRevisionsNotificationManager;
 use PKP\notification\managerDelegate\PKPEditingProductionStatusNotificationManager;
-
 use PKP\notification\managerDelegate\QueryNotificationManager;
 use PKP\notification\managerDelegate\SubmissionNotificationManager;
+use PKP\payment\QueuedPaymentDAO;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
+use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\workflow\WorkflowStageDAO;
 
 class PKPNotificationManager extends PKPNotificationOperationManager
 {
@@ -365,7 +369,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
      * this method to update notifications associated with a certain type, you need
      * to first create a manager delegate and define it in getMgrDelegate() method.
      *
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      * @param array $notificationTypes The type(s) of the notification(s) to
      * be updated.
      * @param array|null $userIds The notification user(s) id(s), or null for all.
@@ -549,7 +553,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
      *
      * @param int $notificationId
      *
-     * @return array
+     * @return ?array
      */
     private function getNotificationSettings($notificationId)
     {

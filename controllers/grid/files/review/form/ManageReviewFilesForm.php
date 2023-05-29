@@ -20,6 +20,7 @@ use APP\facades\Repo;
 use PKP\controllers\grid\files\form\ManageSubmissionFilesForm;
 use PKP\db\DAORegistry;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class ManageReviewFilesForm extends ManageSubmissionFilesForm

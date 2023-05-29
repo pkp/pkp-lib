@@ -30,6 +30,7 @@ use InvalidArgumentException;
 use LibXMLError;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
+use PKP\user\User;
 
 class PKPImportExportDeployment
 {
@@ -45,7 +46,7 @@ class PKPImportExportDeployment
     /** @var Context The current import/export context */
     private Context $_context;
 
-    /** @var User The current import/export user */
+    /** @var ?User The current import/export user */
     private $_user;
 
     /** @var ?Submission The current import/export submission */
@@ -85,7 +86,7 @@ class PKPImportExportDeployment
      * Constructor
      *
      * @param Context $context
-     * @param User $user optional
+     * @param ?User $user optional
      */
     public function __construct($context, $user = null)
     {
@@ -230,7 +231,7 @@ class PKPImportExportDeployment
      * Add the error message to the processed object ID.
      *
      * @param int $assocType Application::ASSOC_TYPE_...
-     * @param int $assocId
+     * @param ?int $assocId
      * @param string $errorMsg
      */
     public function addError($assocType, $assocId, $errorMsg)
@@ -261,7 +262,7 @@ class PKPImportExportDeployment
      *
      * @param int $assocType Application::ASSOC_TYPE_...
      *
-     * @return array
+     * @return ?array
      */
     public function getProcessedObjectsIds($assocType)
     {
@@ -276,7 +277,7 @@ class PKPImportExportDeployment
      *
      * @param int $assocType Application::ASSOC_TYPE_...
      *
-     * @return array
+     * @return ?array
      */
     public function getProcessedObjectsErrors($assocType)
     {
@@ -290,7 +291,7 @@ class PKPImportExportDeployment
      *
      * @param int $assocType Application::ASSOC_TYPE_...
      *
-     * @return array
+     * @return ?array
      */
 
     public function getProcessedObjectsWarnings($assocType)
@@ -325,7 +326,7 @@ class PKPImportExportDeployment
     /**
      * Set the import/export user.
      *
-     * @param User $user
+     * @param ?User $user
      */
     public function setUser($user)
     {
@@ -335,7 +336,7 @@ class PKPImportExportDeployment
     /**
      * Get the import/export user.
      *
-     * @return User
+     * @return ?User
      */
     public function getUser()
     {
@@ -367,7 +368,7 @@ class PKPImportExportDeployment
      *
      * @param int $fileId The old file id
      *
-     * @return int The new file id
+     * @return ?int The new file id
      */
     public function getFileDBId($fileId)
     {
@@ -411,7 +412,7 @@ class PKPImportExportDeployment
     /**
      * Get the submission file DB Id.
      *
-     * @return int The new submission file id
+     * @return ?int The new submission file id
      */
     public function getSubmissionFileDBId($submissionFileDBId)
     {

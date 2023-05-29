@@ -20,7 +20,10 @@ use APP\core\Application;
 use APP\core\Services;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\navigationMenu\NavigationMenuItem;
+use PKP\navigationMenu\NavigationMenuItemDAO;
 use PKP\security\Role;
 
 class NavigationMenuItemHandler extends Handler

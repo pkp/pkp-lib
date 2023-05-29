@@ -18,6 +18,7 @@ namespace PKP\controllers\grid\eventLog;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
 use PKP\controllers\grid\eventLog\linkAction\EmailLinkAction;
 use PKP\controllers\grid\GridRow;
@@ -26,6 +27,7 @@ use PKP\log\EmailLogEntry;
 use PKP\log\EventLogEntry;
 use PKP\log\SubmissionFileEventLogEntry;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class EventLogGridRow extends GridRow

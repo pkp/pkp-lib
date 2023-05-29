@@ -19,6 +19,7 @@
 namespace PKP\controllers\grid\announcements\form;
 
 use APP\template\TemplateManager;
+use PKP\announcement\AnnouncementTypeDAO;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 

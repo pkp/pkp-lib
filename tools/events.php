@@ -21,15 +21,12 @@ namespace PKP\tools\event;
 use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
 use PKP\cliTool\CommandLineTool;
-
 use PKP\core\EventServiceProvider;
 use PKP\core\PKPContainer;
-
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Helper\Helper;
 use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\Console\Output\StreamOutput;
-
 use Throwable;
 
 define('APP_ROOT', dirname(__FILE__, 4));

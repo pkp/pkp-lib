@@ -20,17 +20,17 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use Illuminate\Support\Facades\Mail;
-use PKP\context\ContextDAO;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
+use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\mailables\ReviewAcknowledgement;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
-use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class ThankReviewerForm extends Form
@@ -78,7 +78,7 @@ class ThankReviewerForm extends Form
         $reviewerId = $reviewAssignment->getReviewerId();
         $reviewer = Repo::user()->get($reviewerId);
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
-        $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
+        $contextDao = Application::getContextDAO();
         $context = $contextDao->getById($submission->getData('contextId'));
 
         $mailable = new ReviewAcknowledgement($context, $submission, $reviewAssignment);
@@ -113,7 +113,7 @@ class ThankReviewerForm extends Form
         $reviewerId = $reviewAssignment->getReviewerId();
         $reviewer = Repo::user()->get($reviewerId);
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
-        $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
+        $contextDao = Application::getContextDAO();
         $context = $contextDao->getById($submission->getData('contextId'));
         $user = $request->getUser();
 

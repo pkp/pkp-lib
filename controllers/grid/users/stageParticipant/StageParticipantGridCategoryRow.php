@@ -16,6 +16,7 @@
 
 namespace PKP\controllers\grid\users\stageParticipant;
 
+use APP\submission\Submission;
 use PKP\controllers\grid\GridCategoryRow;
 
 // Link actions

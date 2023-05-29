@@ -64,9 +64,9 @@ class NoteDAO extends \PKP\db\DAO
      * Retrieve Notes by user id
      *
      * @param int $userId User ID
-     * @param DBResultRange $rangeInfo Optional
+     * @param ?\PKP\db\DBResultRange $rangeInfo Optional
      *
-     * @return object DAOResultFactory containing matching Note objects
+     * @return DAOResultFactory<Note> Object containing matching Note objects
      */
     public function getByUserId($userId, $rangeInfo = null)
     {
@@ -88,7 +88,7 @@ class NoteDAO extends \PKP\db\DAO
      * @param int $orderBy Optional sorting field constant: self::NOTE_ORDER_...
      * @param int $sortDirection Optional sorting order constant: DAO::SORT_DIRECTION_...
      *
-     * @return LazyCollection<Note>
+     * @return LazyCollection<int,Note>
      */
     public function getByAssoc(
         int $assocType,
@@ -135,13 +135,13 @@ class NoteDAO extends \PKP\db\DAO
     }
 
     /**
-     * Retrieve Notes by assoc id/type
+     * Retrieve if note exists
      *
      * @param int $assocId
      * @param int $assocType
      * @param int $userId
      *
-     * @return object DAOResultFactory containing matching Note objects
+     * @return bool
      */
     public function notesExistByAssoc($assocType, $assocId, $userId = null)
     {

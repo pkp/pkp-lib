@@ -18,6 +18,8 @@ namespace PKP\plugins;
 
 use PKP\core\Core;
 use PKP\db\DAORegistry;
+use PKP\site\Version;
+use PKP\site\VersionDAO;
 
 define('PLUGIN_GALLERY_STATE_AVAILABLE', 0);
 define('PLUGIN_GALLERY_STATE_INCOMPATIBLE', 0);

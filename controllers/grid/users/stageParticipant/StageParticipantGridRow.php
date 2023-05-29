@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\users\stageParticipant;
 
 use APP\facades\Repo;
+use APP\submission\Submission;
 use PKP\controllers\grid\GridRow;
 use PKP\controllers\grid\users\stageParticipant\linkAction\NotifyLinkAction;
 use PKP\core\PKPApplication;

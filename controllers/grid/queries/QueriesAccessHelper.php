@@ -28,7 +28,10 @@ namespace PKP\controllers\grid\queries;
 
 use APP\core\Application;
 use PKP\db\DAORegistry;
+use PKP\query\Query;
+use PKP\query\QueryDAO;
 use PKP\security\Role;
+use PKP\user\User;
 
 class QueriesAccessHelper
 {

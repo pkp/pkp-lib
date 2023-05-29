@@ -17,6 +17,9 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
+use APP\core\Request;
+use PKP\core\PKPRequest;
+use PKP\plugins\Plugin;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 
@@ -57,7 +60,7 @@ class PluginRequiredPolicy extends AuthorizationPolicy
                 break;
             }
         }
-        if (!$foundPlugin instanceof \PKP\plugins\Plugin) {
+        if (!$foundPlugin instanceof Plugin) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 

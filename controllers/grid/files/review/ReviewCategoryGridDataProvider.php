@@ -16,6 +16,7 @@
 namespace PKP\controllers\grid\files\review;
 
 use PKP\controllers\grid\files\SubmissionFilesCategoryGridDataProvider;
+use PKP\submission\reviewRound\ReviewRound;
 
 class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProvider
 {

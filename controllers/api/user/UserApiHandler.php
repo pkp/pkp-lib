@@ -20,6 +20,7 @@
 namespace PKP\controllers\api\user;
 
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\handler\PKPHandler;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Validation;

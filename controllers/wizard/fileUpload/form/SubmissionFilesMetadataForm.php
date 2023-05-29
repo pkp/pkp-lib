@@ -21,6 +21,7 @@ use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\submission\GenreDAO;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFilesMetadataForm extends Form

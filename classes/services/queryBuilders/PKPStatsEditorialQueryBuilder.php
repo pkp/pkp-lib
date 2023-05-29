@@ -411,7 +411,7 @@ abstract class PKPStatsEditorialQueryBuilder
      *
      * @param array $decisions One or more Decision::*
      *
-     * @return QueryObject
+     * @return Builder
      */
     protected function _getDaysToDecisionsObject($decisions)
     {

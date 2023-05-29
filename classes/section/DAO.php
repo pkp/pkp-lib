@@ -25,6 +25,10 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 
+/**
+ * @template T of Section
+ * @extends EntityDAO<T>
+ */
 abstract class DAO extends EntityDAO
 {
     use EntityWithParent;
@@ -55,6 +59,8 @@ abstract class DAO extends EntityDAO
 
     /**
      * Get a list of sections ids matching the configured query
+     *
+     * @return Collection<int,int>
      */
     public function getIds(Collector $query): Collection
     {
@@ -66,6 +72,7 @@ abstract class DAO extends EntityDAO
 
     /**
      * Get a collection of sections matching the configured query
+     * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection
     {

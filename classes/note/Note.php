@@ -45,7 +45,7 @@ class Note extends \PKP\core\DataObject
     /**
      * Return the user of the note's author.
      *
-     * @return User
+     * @return \PKP\user\User
      */
     public function getUser()
     {

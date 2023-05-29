@@ -18,6 +18,7 @@ namespace PKP\controllers\grid\users\reviewer;
 
 use APP\core\Application;
 use APP\core\PageRouter;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
@@ -51,8 +52,12 @@ use PKP\mail\mailables\ReviewerReinstate;
 use PKP\mail\mailables\ReviewerResendRequest;
 use PKP\mail\mailables\ReviewerUnassign;
 use PKP\mail\traits\Sender;
+use PKP\notification\NotificationDAO;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
+use PKP\reviewForm\ReviewFormDAO;
+use PKP\reviewForm\ReviewFormElementDAO;
+use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
@@ -60,6 +65,8 @@ use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submission\SubmissionCommentDAO;
 use PKP\user\User;
 use Symfony\Component\Mailer\Exception\TransportException;
 
@@ -198,7 +205,7 @@ class PKPReviewerGridHandler extends GridHandler
     public function getReviewRound()
     {
         $reviewRound = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ROUND);
-        if ($reviewRound instanceof \PKP\submission\reviewRound\ReviewRound) {
+        if ($reviewRound instanceof ReviewRound) {
             return $reviewRound;
         } else {
             $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
@@ -365,7 +372,7 @@ class PKPReviewerGridHandler extends GridHandler
      * @param array $args
      * @param Request $request
      *
-     * @return string Serialized JSON object
+     * @return JSONMessage Serialized JSON object
      */
     public function createReviewer($args, $request)
     {
@@ -378,7 +385,7 @@ class PKPReviewerGridHandler extends GridHandler
      * @param array $args
      * @param Request $request
      *
-     * @return string Serialized JSON object
+     * @return JSONMessage Serialized JSON object
      */
     public function enrollReviewer($args, $request)
     {
@@ -687,7 +694,7 @@ class PKPReviewerGridHandler extends GridHandler
             ]
         );
 
-        return \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
+        return DAO::getDataChangedEvent($reviewAssignment->getId());
     }
 
     /**
@@ -810,7 +817,7 @@ class PKPReviewerGridHandler extends GridHandler
                 ReviewAssignment::SUBMISSION_REVIEWER_RATING_POOR => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_POOR),
                 ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_POOR => str_repeat($starHtml, ReviewAssignment::SUBMISSION_REVIEWER_RATING_VERY_POOR),
             ],
-            'reviewerRecommendationOptions' => \PKP\submission\reviewAssignment\ReviewAssignment::getReviewerRecommendationOptions(),
+            'reviewerRecommendationOptions' => ReviewAssignment::getReviewerRecommendationOptions(),
         ]);
 
         if ($reviewAssignment->getReviewFormId()) {
@@ -861,7 +868,7 @@ class PKPReviewerGridHandler extends GridHandler
         $thankReviewerForm->readInputData();
         if ($thankReviewerForm->validate()) {
             $thankReviewerForm->execute();
-            $json = \PKP\db\DAO::getDataChangedEvent($reviewAssignment->getId());
+            $json = DAO::getDataChangedEvent($reviewAssignment->getId());
             // Insert a trivial notification to indicate the reviewer was reminded successfully.
             $currentUser = $request->getUser();
             $notificationMgr = new NotificationManager();
@@ -880,7 +887,7 @@ class PKPReviewerGridHandler extends GridHandler
      * @param array $args
      * @param PKPRequest $request
      *
-     * @return string Serialized JSON object
+     * @return JSONMessage Serialized JSON object
      */
     public function editReminder($args, $request)
     {

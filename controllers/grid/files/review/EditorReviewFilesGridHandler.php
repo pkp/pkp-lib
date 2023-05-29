@@ -21,6 +21,7 @@ use PKP\controllers\grid\files\fileList\FileListGridHandler;
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\controllers\grid\files\review\form\ManageReviewFilesForm;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\security\Role;
 use PKP\submissionFile\SubmissionFile;
 

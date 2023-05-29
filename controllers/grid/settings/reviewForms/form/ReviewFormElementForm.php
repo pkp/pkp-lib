@@ -24,7 +24,9 @@ use APP\template\TemplateManager;
 use PKP\controllers\listbuilder\ListbuilderHandler;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\reviewForm\ReviewFormDAO;
 use PKP\reviewForm\ReviewFormElement;
+use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\security\Validation;
 
 class ReviewFormElementForm extends Form

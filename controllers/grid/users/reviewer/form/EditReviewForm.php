@@ -30,7 +30,12 @@ use PKP\form\Form;
 use PKP\mail\mailables\EditReviewNotify;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
+use PKP\reviewForm\ReviewFormDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
+use PKP\submission\ReviewFilesDAO;
+use PKP\submission\reviewRound\ReviewRound;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class EditReviewForm extends Form

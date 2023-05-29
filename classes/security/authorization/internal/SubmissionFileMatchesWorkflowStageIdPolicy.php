@@ -16,6 +16,7 @@
 namespace PKP\security\authorization\internal;
 
 use APP\facades\Repo;
+use PKP\core\PKPRequest;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\submissionFile\SubmissionFile;
 

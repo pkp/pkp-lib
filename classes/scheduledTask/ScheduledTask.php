@@ -21,7 +21,6 @@ namespace PKP\scheduledTask;
 
 use PKP\config\Config;
 use PKP\core\Core;
-
 use PKP\file\PrivateFileManager;
 
 abstract class ScheduledTask
@@ -72,7 +71,7 @@ abstract class ScheduledTask
     /**
      * Get this process id.
      *
-     * @return int
+     * @return string
      */
     public function getProcessId()
     {

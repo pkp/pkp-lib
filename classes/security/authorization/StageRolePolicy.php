@@ -21,6 +21,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignmentDAO;
 
 class StageRolePolicy extends AuthorizationPolicy
 {

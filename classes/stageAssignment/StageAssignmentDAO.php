@@ -22,6 +22,7 @@ use APP\facades\Repo;
 use PKP\core\Core;
 use PKP\db\DAOResultFactory;
 use PKP\security\Role;
+use PKP\userGroup\UserGroup;
 
 class StageAssignmentDAO extends \PKP\db\DAO
 {
@@ -51,7 +52,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
      * @param int $userGroupId (optional)
      * @param int $userId (optional)
      *
-     * @return DAOResultFactory StageAssignment
+     * @return DAOResultFactory<StageAssignment> StageAssignment
      */
     public function getBySubmissionAndStageId($submissionId, $stageId = null, $userGroupId = null, $userId = null)
     {
@@ -66,7 +67,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
      * @param int $stageId (optional)
      * @param int $userId (optional)
      *
-     * @return DAOResultFactory StageAssignment
+     * @return DAOResultFactory<StageAssignment> StageAssignment
      */
     public function getBySubmissionAndRoleIds($submissionId, $roleIds, $stageId = null, $userId = null)
     {
@@ -81,7 +82,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
      * @param int $stageId (optional)
      * @param int $userId (optional)
      *
-     * @return DAOResultFactory StageAssignment
+     * @return DAOResultFactory<StageAssignment> StageAssignment
      *
      * @deprecated 3.4
      */
@@ -95,7 +96,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
      *
      * @param int $userId
      *
-     * @return StageAssignment
+     * @return DAOResultFactory<StageAssignment>
      */
     public function getByUserId($userId)
     {
@@ -110,7 +111,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
      * @param int $userId User ID
      * @param int $stageId optional WORKFLOW_STAGE_ID_...
      *
-     * @return DAOResultFactory StageAssignment
+     * @return DAOResultFactory<StageAssignment> StageAssignment
      */
     public function getBySubmissionAndUserIdAndStageId($submissionId, $userId, $stageId = null)
     {
@@ -189,7 +190,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
      * @param int $userGroupId
      * @param int $contextId
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<StageAssignment>
      */
     public function getByUserGroupId($userGroupId, $contextId)
     {
@@ -245,7 +246,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
     /**
      * Construct a new data object corresponding to this DAO.
      *
-     * @return StageAssignmentEntry
+     * @return StageAssignment
      */
     public function newDataObject()
     {
@@ -375,7 +376,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
      * @param int[] $roleIds optional [ROLE_ID_...]
      * @param bool $single specify if only one stage assignment (default is a ResultFactory)
      *
-     * @return StageAssignment|ResultFactory Mixed, depending on $single
+     * @return null|DAOResultFactory<StageAssignment>|StageAssignment Mixed, depending on $single
      */
     public function _getByIds($submissionId = null, $stageId = null, $userGroupId = null, $userId = null, $roleIds = null, $single = false)
     {

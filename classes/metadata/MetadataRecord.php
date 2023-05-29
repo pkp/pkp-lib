@@ -95,7 +95,7 @@ class MetadataRecord
      *
      * @param string $applicationEntityId consisting of 'assocType:assocId'
      *
-     * @return bool true if the description was found and removed, otherwise false
+     * @return ?bool true if the description was found and removed, otherwise false
      *
      * @see MetadataRecord::getApplicationEntityIdFromMetadataDescription()
      */

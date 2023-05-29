@@ -17,13 +17,16 @@
 namespace PKP\controllers\grid\navigationMenus;
 
 use APP\controllers\grid\navigationMenus\form\NavigationMenuItemsForm;
+use APP\core\Request;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\navigationMenu\NavigationMenuItemDAO;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;

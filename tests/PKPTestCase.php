@@ -22,6 +22,7 @@ namespace PKP\tests;
 
 use APP\core\Application;
 use APP\core\PageRouter;
+use APP\core\Request;
 use Mockery;
 use PHPUnit\Framework\TestCase;
 use PKP\config\Config;

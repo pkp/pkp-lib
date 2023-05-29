@@ -29,7 +29,7 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
     /**
      * Constructor
      *
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      * @param array|integer $roles either a single role ID or an array of role ids
      * @param array|string $operations either a single operation or a list of operations that
      *  this policy is targeting.

@@ -27,6 +27,8 @@ use PKP\controllers\grid\settings\user\form\UserDisableForm;
 use PKP\controllers\grid\settings\user\form\UserEmailForm;
 use PKP\controllers\grid\settings\user\form\UserRoleForm;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
+use PKP\core\VirtualArrayIterator;
 use PKP\db\DAORegistry;
 use PKP\identity\Identity;
 use PKP\linkAction\LinkAction;
@@ -34,6 +36,7 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
+use PKP\security\RoleDAO;
 use PKP\security\Validation;
 
 class UserGridHandler extends GridHandler
@@ -176,7 +179,7 @@ class UserGridHandler extends GridHandler
      *
      * @param PKPRequest $request
      *
-     * @return array Grid data.
+     * @return VirtualArrayIterator Grid data.
      */
     protected function loadData($request, $filter)
     {
@@ -200,7 +203,7 @@ class UserGridHandler extends GridHandler
         $collector->limit($rangeInfo->getCount());
         $collector->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount());
         $iterator = $collector->getMany();
-        return new \PKP\core\VirtualArrayIterator(iterator_to_array($iterator, true), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
+        return new VirtualArrayIterator(iterator_to_array($iterator, true), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
     }
 
     /**
@@ -430,7 +433,7 @@ class UserGridHandler extends GridHandler
      * @param array $args
      * @param PKPRequest $request
      *
-     * @return string Serialized JSON object
+     * @return JSONMessage Serialized JSON object
      */
     public function editDisableUser($args, $request)
     {
@@ -543,7 +546,7 @@ class UserGridHandler extends GridHandler
      * @param array $args
      * @param PKPRequest $request
      *
-     * @return string Serialized JSON object
+     * @return JSONMessage Serialized JSON object
      */
     public function editEmail($args, $request)
     {

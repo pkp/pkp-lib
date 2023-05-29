@@ -22,6 +22,10 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\note\Note;
+use PKP\note\NoteDAO;
+use PKP\query\Query;
+use PKP\query\QueryDAO;
+use PKP\user\User;
 
 class QueryNoteForm extends Form
 {

@@ -37,6 +37,7 @@ use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\validation\ValidatorFactory;
@@ -54,7 +55,7 @@ abstract class Repository
     /** @var Request $request */
     protected $request;
 
-    /** @var PKPSchemaService $schemaService */
+    /** @var PKPSchemaService<Submission> $schemaService */
     protected $schemaService;
 
     public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)

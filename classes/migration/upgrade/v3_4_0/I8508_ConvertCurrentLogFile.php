@@ -9,7 +9,7 @@
  *
  * @class I8508_ConvertCurrentLogFile
  *
- * @brief Convert current and evetnually the usage stats log file from yesterday into the new format.
+ * @brief Convert current and eventually the usage stats log file from yesterday into the new format.
  */
 
 namespace PKP\migration\upgrade\v3_4_0;

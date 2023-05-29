@@ -22,6 +22,7 @@ use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
+use PKP\submission\ReviewFilesDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class ReviewerReviewFilesGridDataProvider extends ReviewGridDataProvider

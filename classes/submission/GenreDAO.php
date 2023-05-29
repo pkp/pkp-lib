@@ -23,7 +23,6 @@ use Illuminate\Support\Facades\DB;
 use PKP\db\DAO;
 use PKP\db\DAOResultFactory;
 use PKP\db\XMLDAO;
-
 use PKP\plugins\Hook;
 
 class GenreDAO extends DAO
@@ -57,9 +56,9 @@ class GenreDAO extends DAO
      * Retrieve all genres
      *
      * @param int $contextId
-     * @param object $rangeInfo optional
+     * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
-     * @return DAOResultFactory containing matching genres
+     * @return DAOResultFactory<Genre> containing matching genres
      */
     public function getEnabledByContextId($contextId, $rangeInfo = null)
     {
@@ -79,9 +78,9 @@ class GenreDAO extends DAO
      *
      * @param bool $dependentFilesOnly
      * @param int $contextId
-     * @param object $rangeInfo optional
+     * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
-     * @return DAOResultFactory containing matching genres
+     * @return DAOResultFactory<Genre> containing matching genres
      */
     public function getByDependenceAndContextId($dependentFilesOnly, $contextId, $rangeInfo = null)
     {
@@ -101,9 +100,9 @@ class GenreDAO extends DAO
      *
      * @param bool $supplementaryFilesOnly
      * @param int $contextId
-     * @param object $rangeInfo optional
+     * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<Genre>
      */
     public function getBySupplementaryAndContextId($supplementaryFilesOnly, $contextId, $rangeInfo = null)
     {
@@ -122,9 +121,9 @@ class GenreDAO extends DAO
      * Retrieve genres that are not supplementary or dependent.
      *
      * @param int $contextId
-     * @param object $rangeInfo optional
+     * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<Genre>
      */
     public function getPrimaryByContextId($contextId, $rangeInfo = null)
     {
@@ -143,9 +142,9 @@ class GenreDAO extends DAO
      * Retrieve all genres
      *
      * @param int $contextId
-     * @param object $rangeInfo optional
+     * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
-     * @return DAOResultFactory containing matching genres
+     * @return DAOResultFactory<Genre> containing matching genres
      */
     public function getByContextId($contextId, $rangeInfo = null)
     {

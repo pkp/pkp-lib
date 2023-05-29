@@ -24,8 +24,8 @@ use APP\handler\Handler;
 use APP\notification\form\NotificationSettingsForm;
 use APP\notification\NotificationManager;
 use PKP\core\JSONMessage;
-
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\security\authorization\UserRequiredPolicy;
 use PKP\session\SessionManager;
 use PKP\user\form\APIProfileForm;

@@ -90,6 +90,7 @@ class NativeImportFilter extends PKPImportExportFilter
      * Handle a singular element import
      *
      * @param \DOMElement $node
+     * @return object
      */
     public function handleElement($node)
     {

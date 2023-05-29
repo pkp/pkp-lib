@@ -21,7 +21,6 @@ namespace PKP\security\authorization\internal;
 use APP\core\Application;
 use APP\submission\Submission;
 use PKP\security\authorization\AuthorizationPolicy;
-
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileMatchesSubmissionPolicy extends SubmissionFileBaseAccessPolicy

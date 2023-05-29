@@ -25,6 +25,7 @@ use PKP\controllers\grid\GridHandler;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\navigationMenu\NavigationMenuItemDAO;
 
 class NavigationMenusGridCellProvider extends GridCellProvider
 {

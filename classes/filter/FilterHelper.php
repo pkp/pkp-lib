@@ -17,6 +17,7 @@ namespace PKP\filter;
 
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\xml\XMLNode;
 
 class FilterHelper
 {
@@ -215,13 +216,13 @@ class FilterHelper
     {
         // Retrieve the setting name.
         $nameNode = & $settingNode->getChildByName('name');
-        assert($nameNode instanceof \PKP\xml\XMLNode);
+        assert($nameNode instanceof XMLNode);
         $name = $nameNode->getValue();
 
         // Retrieve the setting value.
         $type = $settingNode->getAttribute('type');
         $valueNode = & $settingNode->getChildByName('value');
-        assert($valueNode instanceof \PKP\xml\XMLNode);
+        assert($valueNode instanceof XMLNode);
         switch ($type) {
             case 'string':
                 $value = (string)$valueNode->getValue();
@@ -272,7 +273,7 @@ class FilterHelper
             $key = $elementNode->getAttribute('key');
 
             $subArrayNode = $elementNode->getChildByName('array');
-            if ($subArrayNode instanceof \PKP\xml\XMLNode) {
+            if ($subArrayNode instanceof XMLNode) {
                 // Recurse into sub-array.
                 $value = $this->readArraySetting($subArrayNode);
             } else {

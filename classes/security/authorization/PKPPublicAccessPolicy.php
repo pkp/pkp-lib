@@ -15,6 +15,7 @@
  */
 
 namespace PKP\security\authorization;
+use PKP\core\PKPRequest;
 
 class PKPPublicAccessPolicy extends HandlerOperationPolicy
 {

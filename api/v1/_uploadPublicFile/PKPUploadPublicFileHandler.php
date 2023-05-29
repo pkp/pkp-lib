@@ -80,9 +80,9 @@ class PKPUploadPublicFileHandler extends APIHandler
      * A helper method which adds the necessary response headers to allow
      * file uploads
      *
-     * @param Response $response object
+     * @param \PKP\core\APIResponse $response object
      *
-     * @return Response
+     * @return \PKP\core\APIResponse
      */
     private function getResponse($response)
     {
@@ -92,11 +92,11 @@ class PKPUploadPublicFileHandler extends APIHandler
     /**
      * Upload a requested file
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param \Slim\Http\Request $slimRequest Slim request object
+     * @param \PKP\core\APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return \PKP\core\APIResponse
      */
     public function uploadFile($slimRequest, $response, $args)
     {
@@ -212,11 +212,11 @@ class PKPUploadPublicFileHandler extends APIHandler
      * Respond affirmatively to a HTTP OPTIONS request with headers which allow
      * file uploads
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param \Slim\Http\Request $slimRequest Slim request object
+     * @param \PKP\core\APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return \PKP\core\APIResponse
      */
     public function getOptions($slimRequest, $response, $args)
     {

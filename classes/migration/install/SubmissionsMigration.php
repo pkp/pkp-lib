@@ -17,7 +17,6 @@ namespace PKP\migration\install;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-
 use PKP\submission\PKPSubmission;
 
 class SubmissionsMigration extends \PKP\migration\Migration

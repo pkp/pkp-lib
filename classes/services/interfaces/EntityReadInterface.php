@@ -15,6 +15,7 @@
  */
 
 namespace PKP\services\interfaces;
+use Illuminate\Database\Query\Builder;
 
 interface EntityReadInterface
 {
@@ -76,7 +77,7 @@ interface EntityReadInterface
      * @param array $args Assoc array describing how the querybuilder should be
      * configured.
      *
-     * @return Object
+     * @return Builder
      */
     public function getQueryBuilder($args = []);
 }

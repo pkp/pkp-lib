@@ -18,7 +18,7 @@ namespace PKP\security\authorization\internal;
 use APP\core\Application;
 use APP\publication\Publication;
 use APP\submission\Submission;
-
+use PKP\core\PKPRequest;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\DataObjectRequiredPolicy;
 use PKP\submission\Representation;

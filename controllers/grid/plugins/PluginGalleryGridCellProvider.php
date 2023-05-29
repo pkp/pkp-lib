@@ -31,7 +31,7 @@ class PluginGalleryGridCellProvider extends GridCellProvider
      * @param \PKP\controllers\grid\GridRow $row
      * @param GridColumn $column
      *
-     * @return array
+     * @return ?array
      */
     public function getTemplateVarsFromRowColumn($row, $column)
     {

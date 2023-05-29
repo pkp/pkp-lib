@@ -67,7 +67,7 @@ class JsEventConfirmationModal extends ConfirmationModal
     /**
      * Get the extra arguments.
      *
-     * @return string
+     * @return array
      */
     public function getExtraArguments()
     {

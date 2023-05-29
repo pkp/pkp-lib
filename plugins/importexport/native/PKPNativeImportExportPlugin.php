@@ -241,8 +241,8 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
      * Get the XML for a set of submissions.
      *
      * @param array $submissionIds Array of submission IDs
-     * @param Context $context
-     * @param User|null $user
+     * @param \PKP\context\Context $context
+     * @param \PKP\user\User|null $user
      * @param array $opts
      *
      * @return string XML contents representing the supplied submission IDs.
@@ -283,7 +283,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
 
         $this->cliDeployment = $cliDeployment;
 
-        $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
+        $contextDao = Application::getContextDAO();
 
         $contextPath = $cliDeployment->contextPath;
         $context = $contextDao->getByPath($contextPath);

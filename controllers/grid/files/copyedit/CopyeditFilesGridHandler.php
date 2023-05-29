@@ -21,6 +21,7 @@ use PKP\controllers\grid\files\copyedit\form\ManageCopyeditFilesForm;
 use PKP\controllers\grid\files\fileList\FileListGridHandler;
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\security\Role;
 
 class CopyeditFilesGridHandler extends FileListGridHandler

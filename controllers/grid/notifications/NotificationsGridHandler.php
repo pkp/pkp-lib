@@ -24,10 +24,11 @@ use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
-
 use PKP\linkAction\request\NullAction;
+use PKP\notification\NotificationDAO;
 
 class NotificationsGridHandler extends GridHandler
 {
@@ -271,7 +272,7 @@ class NotificationsGridHandler extends GridHandler
     /**
      * Get unread notifications count
      *
-     * @return JSONMessage JSON object
+     * @return int
      */
     public function getUnreadNotificationsCount($user)
     {

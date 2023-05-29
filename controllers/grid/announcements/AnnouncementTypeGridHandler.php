@@ -17,10 +17,12 @@
 namespace PKP\controllers\grid\announcements;
 
 use APP\notification\NotificationManager;
+use PKP\announcement\AnnouncementTypeDAO;
 use PKP\controllers\grid\announcements\form\AnnouncementTypeForm;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
@@ -145,7 +147,7 @@ class AnnouncementTypeGridHandler extends GridHandler
      * @param array $args
      * @param PKPRequest $request
      *
-     * @return string
+     * @return JSONMessage
      */
     public function addAnnouncementType($args, $request)
     {

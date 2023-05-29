@@ -123,11 +123,11 @@ class PKPContextHandler extends APIHandler
     /**
      * Get a collection of contexts
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function getMany($slimRequest, $response, $args)
     {
@@ -196,11 +196,11 @@ class PKPContextHandler extends APIHandler
     /**
      * Get a single context
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function get($slimRequest, $response, $args)
     {
@@ -242,11 +242,11 @@ class PKPContextHandler extends APIHandler
     /**
      * Get the theme and any theme options for a context
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function getTheme($slimRequest, $response, $args)
     {
@@ -303,11 +303,11 @@ class PKPContextHandler extends APIHandler
     /**
      * Add a context
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function add($slimRequest, $response, $args)
     {
@@ -355,11 +355,11 @@ class PKPContextHandler extends APIHandler
     /**
      * Edit a context
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function edit($slimRequest, $response, $args)
     {
@@ -416,11 +416,11 @@ class PKPContextHandler extends APIHandler
     /**
      * Edit a context's theme and theme options
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function editTheme($slimRequest, $response, $args)
     {
@@ -651,11 +651,11 @@ class PKPContextHandler extends APIHandler
     /**
      * Delete a context
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function delete($slimRequest, $response, $args)
     {

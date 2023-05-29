@@ -18,6 +18,7 @@
 
 namespace PKP\controllers\modals\review;
 
+use APP\core\Request;
 use PKP\core\PKPApplication;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;

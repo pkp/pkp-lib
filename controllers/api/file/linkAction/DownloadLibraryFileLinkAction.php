@@ -15,6 +15,8 @@
 
 namespace PKP\controllers\api\file\linkAction;
 
+use APP\core\Request;
+use PKP\context\LibraryFile;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\PostAndRedirectAction;
 
@@ -68,7 +70,7 @@ class DownloadLibraryFileLinkAction extends LinkAction
      */
     public function getActionArgs(&$libraryFile)
     {
-        assert($libraryFile instanceof \PKP\context\LibraryFile);
+        assert($libraryFile instanceof LibraryFile);
 
         // Create the action arguments array.
         $args = ['libraryFileId' => $libraryFile->getId()];

@@ -28,6 +28,8 @@ use PKP\mail\mailables\ReviewerReinstate;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
+use PKP\submission\reviewRound\ReviewRound;
 
 class ReinstateReviewerForm extends ReviewerNotifyActionForm
 {

@@ -19,6 +19,7 @@ namespace PKP\plugins\importexport\native\filter;
 use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
+use PKP\filter\FilterGroup;
 
 class PKPAuthorNativeXmlFilter extends NativeExportFilter
 {

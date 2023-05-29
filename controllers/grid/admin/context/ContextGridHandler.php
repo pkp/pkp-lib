@@ -131,7 +131,7 @@ class ContextGridHandler extends GridHandler
     /**
      * @copydoc GridHandler::getRowInstance()
      *
-     * @return UserGridRow
+     * @return ContextGridRow
      */
     protected function getRowInstance()
     {

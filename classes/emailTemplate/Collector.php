@@ -19,6 +19,9 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\plugins\Hook;
 
+/**
+ * @template T of EmailTemplate
+ */
 class Collector implements CollectorInterface
 {
     public DAO $dao;
@@ -44,6 +47,10 @@ class Collector implements CollectorInterface
         $this->contextId = $contextId;
     }
 
+    /**
+     * @copydoc DAO::getMany()
+     * @return LazyCollection<int,T>
+     */
     public function getMany(): LazyCollection
     {
         return $this->dao->getMany($this);

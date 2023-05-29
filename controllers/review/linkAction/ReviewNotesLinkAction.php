@@ -16,9 +16,12 @@
 
 namespace PKP\controllers\review\linkAction;
 
+use APP\core\Request;
+use APP\submission\Submission;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\user\User;
 
 class ReviewNotesLinkAction extends LinkAction
 {

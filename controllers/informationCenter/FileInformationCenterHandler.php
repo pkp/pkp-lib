@@ -23,6 +23,7 @@ use APP\template\TemplateManager;
 use PKP\controllers\informationCenter\form\NewFileNoteForm;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\log\EventLogEntry;
 use PKP\notification\PKPNotification;

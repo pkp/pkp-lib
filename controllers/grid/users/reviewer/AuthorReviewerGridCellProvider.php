@@ -18,6 +18,7 @@ namespace PKP\controllers\grid\users\reviewer;
 
 use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
+use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\review\linkAction\ReviewNotesLinkAction;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -37,10 +38,10 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
      */
     public function getCellState($row, $column)
     {
-        /** @var ReviewAssignment */
         $reviewAssignment = $row->getData();
         $columnId = $column->getId();
         assert($reviewAssignment instanceof \PKP\core\DataObject && !empty($columnId));
+        /** @var ReviewAssignment $reviewAssignment */
         switch ($columnId) {
             case 'name':
             case 'method':
@@ -62,10 +63,10 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
      */
     public function getTemplateVarsFromRowColumn($row, $column)
     {
-        /** @var ReviewAssignment */
         $element = $row->getData();
         $columnId = $column->getId();
         assert($element instanceof \PKP\core\DataObject && !empty($columnId));
+        /** @var ReviewAssignment $element */
         switch ($columnId) {
             case 'name':
                 return ['label' => $element->getReviewerFullName()];
@@ -90,7 +91,7 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
      * @param \PKP\controllers\grid\GridRow $row
      * @param GridColumn $column
      *
-     * @return array an array of LinkAction instances
+     * @return ?array an array of LinkAction instances
      */
     public function getCellActions($request, $row, $column, $position = GridHandler::GRID_ACTION_POSITION_DEFAULT)
     {

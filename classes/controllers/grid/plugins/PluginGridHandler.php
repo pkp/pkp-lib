@@ -20,21 +20,25 @@ use APP\notification\NotificationManager;
 use Exception;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
+use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\plugins\form\UploadPluginForm;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
+use PKP\plugins\Plugin;
 use PKP\plugins\PluginHelper;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\site\Version;
 use PKP\site\VersionCheck;
+use PKP\site\VersionDAO;
 
 abstract class PluginGridHandler extends CategoryGridHandler
 {
@@ -330,7 +334,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
      * @param array $args
      * @param PKPRequest $request
      *
-     * @return string
+     * @return JSONMessage
      */
     public function uploadPlugin($args, $request)
     {
@@ -343,7 +347,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
      * @param array $args
      * @param PKPRequest $request
      *
-     * @return string
+     * @return JSONMessage
      */
     public function upgradePlugin($args, $request)
     {

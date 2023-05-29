@@ -21,8 +21,9 @@ use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\scheduledTask\ScheduledTask;
-
 use PKP\scheduledTask\ScheduledTaskHelper;
+use PKP\site\Site;
+use PKP\site\SiteDAO;
 
 abstract class FileLoader extends ScheduledTask
 {

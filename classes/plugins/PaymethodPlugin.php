@@ -16,6 +16,8 @@
 
 namespace PKP\plugins;
 
+use PKP\context\Context;
+
 abstract class PaymethodPlugin extends LazyLoadPlugin
 {
     public function register($category, $path, $mainContextId = null)
@@ -33,9 +35,9 @@ abstract class PaymethodPlugin extends LazyLoadPlugin
      * Get the payment form for this plugin.
      *
      * @param Context $context
-     * @param QueuedPayment $queuedPayment
+     * @param \PKP\payment\QueuedPayment $queuedPayment
      *
-     * @return Form
+     * @return \PKP\form\Form
      */
     abstract public function getPaymentForm($context, $queuedPayment);
 

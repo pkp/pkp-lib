@@ -24,6 +24,7 @@ use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\Mailable;
 use PKP\notification\PKPNotification;

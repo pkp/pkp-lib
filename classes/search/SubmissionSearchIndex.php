@@ -16,6 +16,7 @@
 
 namespace PKP\search;
 
+use APP\submission\Submission;
 use PKP\config\Config;
 use PKP\core\PKPString;
 

@@ -346,7 +346,7 @@ class FileManager
      * @param bool $inline print file as inline instead of attachment, optional
      * @param string $fileName Optional filename to use on the client side
      *
-     * @return bool
+     * @return ?bool
      */
     public function downloadByPath($filePath, $mediaType = null, $inline = false, $fileName = null)
     {
@@ -388,7 +388,7 @@ class FileManager
      *
      * @param string $filePath the location of the file to be deleted
      *
-     * @return bool returns true if successful
+     * @return ?bool returns true if successful
      */
     public function deleteByPath($filePath)
     {

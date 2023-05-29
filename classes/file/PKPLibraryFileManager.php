@@ -17,12 +17,13 @@
 namespace PKP\file;
 
 use PKP\context\LibraryFile;
+use PKP\context\LibraryFileDAO;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 
 class PKPLibraryFileManager extends PrivateFileManager
 {
-    /** @var Context id for the current context */
+    /** @var int Context id for the current context */
     public $contextId;
 
     /**
@@ -50,8 +51,6 @@ class PKPLibraryFileManager extends PrivateFileManager
      * Delete a file by ID.
      *
      * @param int $fileId
-     *
-     * @return int number of files removed
      */
     public function deleteById($fileId)
     {
@@ -106,7 +105,7 @@ class PKPLibraryFileManager extends PrivateFileManager
      * @param object $temporaryFile
      * @param int $libraryFileType LIBRARY_FILE_TYPE_...
      *
-     * @return LibraryFile the generated file, prepared as much as possible for insert (false if upload failed)
+     * @return false|LibraryFile the generated file, prepared as much as possible for insert (false if upload failed)
      */
     public function &copyFromTemporaryFile(&$temporaryFile, $libraryFileType)
     {

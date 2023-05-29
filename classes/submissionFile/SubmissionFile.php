@@ -19,6 +19,9 @@ namespace PKP\submissionFile;
 use APP\facades\Repo;
 use PKP\facades\Locale;
 
+/**
+ * @extends \PKP\core\DataObject<DAO>
+ */
 class SubmissionFile extends \PKP\core\DataObject
 {
     // Define the file stage identifiers.
@@ -122,7 +125,7 @@ class SubmissionFile extends \PKP\core\DataObject
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>). @endliteral
      *
-     * @return int
+     * @return string
      */
     public function getStoredPubId($pubIdType)
     {

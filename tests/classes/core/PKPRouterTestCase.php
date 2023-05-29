@@ -34,8 +34,8 @@ use PKP\tests\PKPTestCase;
  */
 class PKPRouterTestCase extends PKPTestCase
 {
-    protected PKPRouter $router;
-    protected PKPRequest $request;
+    protected PKPRouter|MockObject $router;
+    protected PKPRequest|MockObject $request;
 
     /**
      * @see PKPTestCase::getMockedRegistryKeys()
@@ -240,7 +240,7 @@ class PKPRouterTestCase extends PKPTestCase
      * PKPRequest) with customizable contexts and path info flag.
      *
      *
-     * @return unknown
+     * @return Application|MockObject
      */
     protected function _setUpMockEnvironment(string $contextName = 'firstContext')
     {

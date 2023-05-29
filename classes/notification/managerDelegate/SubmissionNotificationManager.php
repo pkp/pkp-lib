@@ -21,7 +21,6 @@ use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\core\PKPApplication;
 use PKP\notification\NotificationManagerDelegate;
-
 use PKP\notification\PKPNotification;
 
 class SubmissionNotificationManager extends NotificationManagerDelegate

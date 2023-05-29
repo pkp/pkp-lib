@@ -18,7 +18,6 @@ namespace PKP\task;
 
 use APP\core\Services;
 use APP\facades\Repo;
-
 use APP\submission\Submission;
 use PKP\core\Core;
 use PKP\scheduledTask\ScheduledTask;

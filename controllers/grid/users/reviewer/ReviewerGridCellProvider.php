@@ -20,6 +20,7 @@ use APP\facades\Repo;
 use PKP\controllers\api\task\SendReminderLinkAction;
 use PKP\controllers\api\task\SendThankYouLinkAction;
 use PKP\controllers\grid\DataObjectGridCellProvider;
+use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\review\linkAction\ReviewNotesLinkAction;
 use PKP\controllers\review\linkAction\UnconsiderReviewLinkAction;
@@ -55,9 +56,10 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
      */
     public function getCellState($row, $column)
     {
-        $reviewAssignment = $row->getData(); /** @var ReviewAssignment $reviewAssignment */
+        $reviewAssignment = $row->getData();
         $columnId = $column->getId();
         assert($reviewAssignment instanceof \PKP\core\DataObject && !empty($columnId));
+        /** @var ReviewAssignment $reviewAssignment */
         switch ($columnId) {
             case 'name':
             case 'method':
@@ -79,10 +81,10 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
      */
     public function getTemplateVarsFromRowColumn($row, $column)
     {
-        /** @var ReviewAssignment */
         $element = $row->getData();
         $columnId = $column->getId();
         assert($element instanceof \PKP\core\DataObject && !empty($columnId));
+        /** @var ReviewAssignment $element */
         switch ($columnId) {
             case 'name':
                 $isReviewAnonymous = in_array($element->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS]);

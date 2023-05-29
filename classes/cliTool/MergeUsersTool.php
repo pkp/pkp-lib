@@ -111,7 +111,7 @@ class MergeUsersTool extends \PKP\cliTool\CommandLineTool
      *
      * @param string $specifier The specifier
      *
-     * @return User|null
+     * @return \PKP\user\User|null
      */
     protected function _getUserBySpecifier($specifier)
     {

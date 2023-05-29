@@ -21,6 +21,7 @@ use PKP\controllers\api\file\linkAction\AddFileLinkAction;
 use PKP\controllers\grid\files\fileList\linkAction\SelectReviewFilesLinkAction;
 use PKP\controllers\grid\files\SubmissionFilesGridDataProvider;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
+use PKP\submission\reviewRound\ReviewRound;
 
 class ReviewGridDataProvider extends SubmissionFilesGridDataProvider
 {

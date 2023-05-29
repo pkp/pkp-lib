@@ -34,7 +34,7 @@ class PKPSearchIndexingForm extends FormComponent
      *
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
-     * @param Context $context Journal or Press to change settings for
+     * @param \PKP\context\Context $context Journal or Press to change settings for
      * @param string $sitemapUrl A URL to the context's sitemap for use in the
      *  search engine indexing group description
      */

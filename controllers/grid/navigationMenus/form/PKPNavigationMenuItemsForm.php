@@ -22,6 +22,7 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\navigationMenu\NavigationMenuItem;
+use PKP\navigationMenu\NavigationMenuItemDAO;
 
 class PKPNavigationMenuItemsForm extends Form
 {

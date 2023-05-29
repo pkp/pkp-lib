@@ -65,7 +65,7 @@ class CitationDAO extends \PKP\db\DAO
      *
      * @param int $citationId
      *
-     * @return Citation
+     * @return ?Citation
      */
     public function getById($citationId)
     {
@@ -122,9 +122,9 @@ class CitationDAO extends \PKP\db\DAO
      * Retrieve an array of citations matching a particular publication id.
      *
      * @param int $publicationId
-     * @param null|mixed $rangeInfo
+     * @param ?\PKP\db\DBResultRange $rangeInfo
      *
-     * @return DAOResultFactory containing matching Citations
+     * @return DAOResultFactory<Citation> containing matching Citations
      */
     public function getByPublicationId($publicationId, $rangeInfo = null)
     {

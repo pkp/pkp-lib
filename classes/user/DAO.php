@@ -27,6 +27,10 @@ use PKP\core\DataObject;
 use PKP\core\EntityDAO;
 use PKP\identity\Identity;
 
+/**
+ * @template T of User
+ * @extends EntityDAO<T>
+ */
 class DAO extends EntityDAO
 {
     /** @copydoc EntityDAO::$schema */
@@ -76,8 +80,6 @@ class DAO extends EntityDAO
 
     /**
      * Construct a new User object.
-     *
-     * @return User
      */
     public function newDataObject()
     {
@@ -114,6 +116,7 @@ class DAO extends EntityDAO
 
     /**
      * Get a collection of users matching the configured query
+     * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection
     {
@@ -140,6 +143,8 @@ class DAO extends EntityDAO
 
     /**
      * Get a list of ids matching the configured query
+     *
+     * @return Collection<int,int>
      */
     public function getIds(Collector $query): Collection
     {
@@ -325,8 +330,8 @@ class DAO extends EntityDAO
     /**
      * Delete unvalidated expired users
      *
-     * @param object<Carbon\Carbon> $dateTillValid      The dateTime till before which user will consider expired
-     * @param array                 $excludableUsersId  The users id to exclude form delete operation
+     * @param Carbon $dateTillValid The dateTime till before which user will consider expired
+     * @param array $excludableUsersId  The users id to exclude form delete operation
      *
      * @return int The number rows affected by DB operation
      */

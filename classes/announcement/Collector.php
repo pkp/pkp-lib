@@ -21,6 +21,9 @@ use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\plugins\Hook;
 
+/**
+ * @template T of Announcement
+ */
 class Collector implements CollectorInterface
 {
     public DAO $dao;
@@ -42,13 +45,19 @@ class Collector implements CollectorInterface
         return $this->dao->getCount($this);
     }
 
-    /** @copydoc DAO::getIds() */
+    /**
+     * @copydoc DAO::getIds()
+     * @return Collection<int,int>
+     */
     public function getIds(): Collection
     {
         return $this->dao->getIds($this);
     }
 
-    /** @copydoc DAO::getMany() */
+    /**
+     * @copydoc DAO::getMany()
+     * @return LazyCollection<int,T>
+     */
     public function getMany(): LazyCollection
     {
         return $this->dao->getMany($this);

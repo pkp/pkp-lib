@@ -24,6 +24,8 @@ use PKP\controllers\grid\GridHandler;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
+use PKP\security\RoleDAO;
+use PKP\userGroup\UserGroup;
 
 class UserGroupGridCellProvider extends GridCellProvider
 {

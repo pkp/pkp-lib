@@ -28,14 +28,18 @@ use PKP\controllers\grid\queries\form\QueryNoteForm;
 use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\note\Note;
 use PKP\note\NoteDAO;
+use PKP\notification\NotificationDAO;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\query\Query;
+use PKP\query\QueryDAO;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\Role;
+use PKP\user\User;
 
 class QueryNotesGridHandler extends GridHandler
 {

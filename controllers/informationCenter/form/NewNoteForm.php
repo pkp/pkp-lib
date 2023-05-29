@@ -19,8 +19,8 @@ namespace PKP\controllers\informationCenter\form;
 use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
-
 use PKP\form\Form;
+use PKP\note\NoteDAO;
 
 class NewNoteForm extends Form
 {

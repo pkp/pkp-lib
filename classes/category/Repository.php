@@ -30,7 +30,7 @@ class Repository
     /** @var Request $request */
     protected $request;
 
-    /** @var PKPSchemaService $schemaService */
+    /** @var PKPSchemaService<Category> $schemaService */
     protected $schemaService;
 
 

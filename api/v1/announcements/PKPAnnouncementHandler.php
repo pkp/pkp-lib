@@ -107,11 +107,11 @@ class PKPAnnouncementHandler extends APIHandler
     /**
      * Get a single submission
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param \Slim\Http\Request $slimRequest Slim request object
+     * @param \PKP\core\APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return \PKP\core\APIResponse
      */
     public function get($slimRequest, $response, $args)
     {
@@ -132,11 +132,11 @@ class PKPAnnouncementHandler extends APIHandler
     /**
      * Get a collection of announcements
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param \Slim\Http\Request $slimRequest Slim request object
+     * @param \PKP\core\APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return \PKP\core\APIResponse
      */
     public function getMany($slimRequest, $response, $args)
     {
@@ -178,11 +178,11 @@ class PKPAnnouncementHandler extends APIHandler
     /**
      * Add an announcement
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param \Slim\Http\Request $slimRequest Slim request object
+     * @param \PKP\core\APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return \PKP\core\APIResponse
      */
     public function add($slimRequest, $response, $args)
     {
@@ -262,11 +262,11 @@ class PKPAnnouncementHandler extends APIHandler
     /**
      * Edit an announcement
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param \Slim\Http\Request $slimRequest Slim request object
+     * @param \PKP\core\APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return \PKP\core\APIResponse
      */
     public function edit($slimRequest, $response, $args)
     {
@@ -310,11 +310,11 @@ class PKPAnnouncementHandler extends APIHandler
     /**
      * Delete an announcement
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param \Slim\Http\Request $slimRequest Slim request object
+     * @param \PKP\core\APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return \PKP\core\APIResponse
      */
     public function delete($slimRequest, $response, $args)
     {

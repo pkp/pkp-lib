@@ -17,6 +17,7 @@
 namespace PKP\controllers\api\file;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
@@ -24,10 +25,12 @@ use APP\template\TemplateManager;
 use PKP\controllers\wizard\fileUpload\form\SubmissionFilesMetadataForm;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
+use PKP\notification\NotificationDAO;
 use PKP\notification\PKPNotification;
 use PKP\observers\events\MetadataChanged;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
 
 abstract class PKPManageFileApiHandler extends Handler

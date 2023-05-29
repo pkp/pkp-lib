@@ -9,7 +9,7 @@
  *
  * @class I8866_DispatchRegionCodesFixingJobs
  *
- * @brief Dispatches the jobs (a job per coutry) that shell fix the old region codes, if needed i.e. if any region exists.
+ * @brief Dispatches the jobs (a job per country) that shell fix the old region codes, if needed i.e. if any region exists.
  */
 
 namespace PKP\migration\upgrade\v3_4_0;

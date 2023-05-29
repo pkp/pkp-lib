@@ -22,10 +22,12 @@ use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use PKP\core\EntityDAO;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
+use PKP\db\DAO;
 use PKP\db\SchemaDAO;
 use PKP\linkAction\LinkAction;
-
 use PKP\linkAction\request\AjaxModal;
+use PKP\template\PKPTemplateManager;
 
 abstract class PKPPubIdPlugin extends LazyLoadPlugin
 {
@@ -281,7 +283,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     /**
      * Is this object type enabled in plugin settings
      *
-     * @param object $pubObjectType
+     * @param string $pubObjectType
      * @param int $contextId
      *
      * @return bool

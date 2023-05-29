@@ -16,13 +16,13 @@ namespace PKP\userGroup;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
-use APP\submission\Submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use PKP\site\SiteDAO;
 use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\validation\ValidatorFactory;
@@ -44,7 +44,7 @@ class Repository
     /** @var Request */
     protected $request;
 
-    /** @var PKPSchemaService */
+    /** @var PKPSchemaService<UserGroup> */
     protected $schemaService;
 
     public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)
@@ -200,9 +200,10 @@ class Repository
     }
 
     /**
-    * return all user group ids given a certain role id
+    * Return all user group ids given a certain role id
     *
     * @param ?bool $default Give null for all user groups, else define whether it is default
+    * @return LazyCollection<int,UserGroup>
     */
     public function getByRoleIds(array $roleIds, int $contextId, ?bool $default = null): LazyCollection
     {
@@ -216,7 +217,8 @@ class Repository
     }
 
     /**
-    * return all user groups ids for a user id
+    * Return all user groups ids for a user id
+    * @return LazyCollection<int,UserGroup>
     */
     public function userUserGroups(int $userId, ?int $contextId = null): LazyCollection
     {
@@ -298,7 +300,7 @@ class Repository
     * @param null|mixed $roleId
     * @param null|mixed $count
     *
-    * @return LazyCollection<UserGroup>
+    * @return LazyCollection<int,UserGroup>
     */
     public function getUserGroupsByStage($contextId, $stageId, $roleId = null, $count = null): LazyCollection
     {
@@ -396,7 +398,7 @@ class Repository
             $permitSelfRegistration = $setting->getAttribute('permitSelfRegistration');
             $permitMetadataEdit = $setting->getAttribute('permitMetadataEdit');
 
-            // If has manager role then permitMetadataEdit can't be overriden
+            // If has manager role then permitMetadataEdit can't be overridden
             if (in_array($roleId, [Role::ROLE_ID_MANAGER])) {
                 $permitMetadataEdit = $setting->getAttribute('permitMetadataEdit');
             }

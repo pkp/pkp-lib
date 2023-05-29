@@ -20,9 +20,12 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\notification\NotificationDAO;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
+use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class PKPEditingProductionStatusNotificationManager extends NotificationManagerDelegate
@@ -89,7 +92,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
         $editorStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submissionId, $submission->getStageId());
 
         // Get the copyediting and production discussions
-        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
+        $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var \PKP\query\QueryDAO $queryDao */
         $productionQueries = $queryDao->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_PRODUCTION);
         $productionQuery = $productionQueries->next();
 
@@ -102,7 +105,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 
         // Get representations
         if ($latestPublication = $submission->getLatestPublication()) {
-            $representationDao = Application::getRepresentationDAO(); /** @var RepresentationDAO $representationDao */
+            $representationDao = Application::getRepresentationDAO(); /** @var \PKP\submission\RepresentationDAOInterface $representationDao */
             $representations = $representationDao->getByPublicationId($latestPublication->getId());
         } else {
             $representations = [];

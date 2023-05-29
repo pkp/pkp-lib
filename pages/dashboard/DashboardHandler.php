@@ -19,10 +19,13 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
+use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');

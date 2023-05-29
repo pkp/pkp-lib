@@ -16,7 +16,9 @@
 
 namespace PKP\plugins\importexport\native\filter;
 
+use PKP\filter\FilterGroup;
 use PKP\plugins\PluginRegistry;
+use PKP\submission\Representation;
 
 class RepresentationNativeXmlFilter extends NativeExportFilter
 {

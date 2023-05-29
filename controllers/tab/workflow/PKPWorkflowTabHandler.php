@@ -30,6 +30,7 @@ use PKP\decision\DecisionType;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 
 abstract class PKPWorkflowTabHandler extends Handler
 {
@@ -177,7 +178,7 @@ abstract class PKPWorkflowTabHandler extends Handler
      *
      * @param int $stageId
      *
-     * @return int
+     * @return ?int
      */
     protected function getEditorAssignmentNotificationTypeByStageId($stageId)
     {

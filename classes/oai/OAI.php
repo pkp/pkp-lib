@@ -25,7 +25,6 @@
 namespace PKP\oai;
 
 use APP\core\Application;
-
 use PKP\plugins\Hook;
 
 abstract class OAI

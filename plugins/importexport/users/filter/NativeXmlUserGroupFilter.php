@@ -17,7 +17,9 @@
 namespace PKP\plugins\importexport\users\filter;
 
 use APP\facades\Repo;
+use PKP\filter\FilterGroup;
 use PKP\userGroup\relationships\UserGroupStage;
+use PKP\userGroup\UserGroup;
 
 class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\NativeImportFilter
 {
@@ -60,7 +62,7 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
      *
      * @param \DOMElement $node
      *
-     * @return array Array of UserGroup objects
+     * @return UserGroup Array of UserGroup objects
      */
     public function handleElement($node)
     {

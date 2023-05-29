@@ -35,7 +35,7 @@ class PKPAnnouncementSettingsForm extends FormComponent
      *
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
-     * @param Context $context Journal or Press to change settings for
+     * @param \PKP\context\Context $context Journal or Press to change settings for
      */
     public function __construct($action, $locales, $context)
     {

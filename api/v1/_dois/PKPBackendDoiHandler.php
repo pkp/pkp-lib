@@ -18,6 +18,7 @@
 namespace PKP\API\v1\_dois;
 
 use APP\facades\Repo;
+use APP\core\Request;
 use PKP\core\APIResponse;
 use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
@@ -28,7 +29,6 @@ use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\submission\GenreDAO;
-
 use Slim\Http\Request as SlimRequest;
 
 class PKPBackendDoiHandler extends APIHandler
@@ -51,7 +51,7 @@ class PKPBackendDoiHandler extends APIHandler
     }
 
     /**
-     * @param \PKP\handler\Request $request
+     * @param Request $request
      * @param array $args
      * @param array $roleAssignments
      *

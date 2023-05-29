@@ -21,11 +21,14 @@
 namespace PKP\search;
 
 use APP\core\Application;
+use APP\core\Request;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\core\PKPString;
 use PKP\core\VirtualArrayIterator;
-
+use PKP\db\DAO;
 use PKP\plugins\Hook;
+use PKP\user\User;
 
 abstract class SubmissionSearch
 {
@@ -236,14 +239,14 @@ abstract class SubmissionSearch
      * $keywords[null] = array('Matches', 'All', 'Fields');
      *
      * @param Request $request
-     * @param object $context The context to search
+     * @param Context $context The context to search
      * @param array $keywords List of keywords
      * @param string $error a reference to a variable that will
      *  contain an error message if the search service produces
      *  an error.
-     * @param object $publishedFrom Search-from date
-     * @param object $publishedTo Search-to date
-     * @param object $rangeInfo Information on the range of results to return
+     * @param string $publishedFrom Search-from date
+     * @param string $publishedTo Search-to date
+     * @param ?\PKP\db\DBResultRange $rangeInfo Information on the range of results to return
      * @param array $exclude An array of article IDs to exclude from the result.
      *
      * @return VirtualArrayIterator An iterator with one entry per retrieved

@@ -20,7 +20,7 @@ use PKP\core\PKPString;
 
 class DateGridCellProvider extends GridCellProvider
 {
-    /** @var DataProvider The actual data provider to wrap */
+    /** @var GridCellProvider The actual data provider to wrap */
     public $_dataProvider;
 
     /** @var string The format to use; see DateTime::format */
@@ -29,7 +29,7 @@ class DateGridCellProvider extends GridCellProvider
     /**
      * Constructor
      *
-     * @param DataProvider $dataProvider The object to wrap
+     * @param GridCellProvider $dataProvider The object to wrap
      * @param string $format See DateTime::format
      */
     public function __construct($dataProvider, $format)

@@ -17,12 +17,15 @@
 namespace PKP\controllers\wizard\fileUpload\form;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\form\validation\FormValidator;
+use PKP\submission\GenreDAO;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
@@ -170,7 +173,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
      *
      * @see Form::execute()
      *
-     * @return SubmissionFile if successful, otherwise null
+     * @return ?SubmissionFile if successful, otherwise null
      */
     public function execute(...$functionParams)
     {

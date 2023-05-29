@@ -18,7 +18,9 @@
 namespace PKP\controllers\grid\files;
 
 use PKP\controllers\grid\files\fileList\linkAction\DownloadAllLinkAction;
+use PKP\core\PKPRequest;
 use PKP\file\FileArchive;
+use PKP\linkAction\LinkAction;
 
 class FilesGridCapabilities
 {
@@ -100,8 +102,6 @@ class FilesGridCapabilities
 
     /**
      * Set whether this grid allows viewing of notes or not.
-     *
-     * @return bool
      */
     public function setCanViewNotes($canViewNotes)
     {
@@ -120,8 +120,6 @@ class FilesGridCapabilities
 
     /**
      * Set whether user can download all files as an archive or not.
-     *
-     * @return bool
      */
     public function setCanDownloadAll($canDownloadAll)
     {
@@ -160,8 +158,6 @@ class FilesGridCapabilities
 
     /**
      * Set whether the grid allows file management (select existing files to add to grid)
-     *
-     * @return bool
      */
     public function setCanManage($canManage)
     {
@@ -180,8 +176,6 @@ class FilesGridCapabilities
 
     /**
      * Set whether the grid allows file metadata editing
-     *
-     * @return bool
      */
     public function setCanEdit($canEdit)
     {
@@ -196,7 +190,7 @@ class FilesGridCapabilities
      * @param array $linkParams The link action request
      * parameters.
      *
-     * @return LinkAction
+     * @return ?LinkAction
      */
     public function getDownloadAllAction($request, $files, $linkParams)
     {

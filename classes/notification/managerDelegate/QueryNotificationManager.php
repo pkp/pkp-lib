@@ -22,10 +22,10 @@ use APP\submission\Submission;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\note\NoteDAO;
-
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
 use PKP\query\Query;
+use PKP\query\QueryDAO;
 
 class QueryNotificationManager extends NotificationManagerDelegate
 {
@@ -107,7 +107,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
         assert($notification->getAssocType() == Application::ASSOC_TYPE_QUERY);
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $queryDao->getById($notification->getAssocId());
-        assert($query instanceof \PKP\query\Query);
+        assert($query instanceof Query);
         $submission = $this->getQuerySubmission($query);
 
         return Repo::submission()->getWorkflowUrlByUserRoles($submission, $notification->getUserId());
@@ -121,10 +121,10 @@ class QueryNotificationManager extends NotificationManagerDelegate
         assert($notification->getAssocType() == Application::ASSOC_TYPE_QUERY);
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $queryDao->getById($notification->getAssocId());
-        assert($query instanceof \PKP\query\Query);
+        assert($query instanceof Query);
 
         $submission = $this->getQuerySubmission($query);
-        assert($submission instanceof \APP\submission\Submission);
+        assert($submission instanceof Submission);
 
         switch ($notification->getType()) {
             case PKPNotification::NOTIFICATION_TYPE_NEW_QUERY:

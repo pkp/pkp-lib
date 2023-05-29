@@ -17,9 +17,11 @@
 namespace PKP\controllers\grid\plugins;
 
 use PKP\controllers\grid\GridRow;
+use PKP\core\PKPRouter;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
+use PKP\plugins\Plugin;
 use PKP\security\Role;
 
 class PluginGridRow extends GridRow

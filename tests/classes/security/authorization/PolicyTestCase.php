@@ -23,7 +23,9 @@ use APP\core\Application;
 use APP\core\PageRouter;
 use APP\core\Request;
 use APP\facades\Repo;
+use Mockery\Mock;
 use PKP\context\Context;
+use PKP\core\PKPRequest;
 use PKP\core\Registry;
 use PKP\handler\PKPHandler;
 use PKP\security\authorization\AuthorizationPolicy;
@@ -119,7 +121,7 @@ abstract class PolicyTestCase extends PKPTestCase
      * returned by the router.
      * @param User $user a user to be put into the registry.
      *
-     * @return PKPRequest
+     * @return PKPRequest|Mock
      */
     protected function getMockRequest($requestedOp, ?Context $context = null, $user = null)
     {

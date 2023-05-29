@@ -34,7 +34,7 @@ class ConfigParser
      *
      * @param string $file full path to the config file
      *
-     * @return array the configuration data (same format as http://php.net/parse_ini_file)
+     * @return bool|array the configuration data (same format as http://php.net/parse_ini_file)
      */
     public static function &readConfig($file)
     {

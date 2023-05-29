@@ -15,6 +15,7 @@
  */
 
 namespace PKP\plugins;
+use PKP\core\PKPRequest;
 
 abstract class BlockPlugin extends LazyLoadPlugin
 {

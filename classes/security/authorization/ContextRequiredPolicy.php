@@ -17,13 +17,13 @@ namespace PKP\security\authorization;
 
 class ContextRequiredPolicy extends AuthorizationPolicy
 {
-    /** @var PKPRouter */
+    /** @var \PKP\core\PKPRouter */
     public $_request;
 
     /**
      * Constructor
      *
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      */
     public function __construct($request, $message = 'user.authorization.contextRequired')
     {

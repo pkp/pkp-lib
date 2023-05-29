@@ -25,7 +25,7 @@ class ContextPolicy extends PolicySet
     /**
      * Constructor
      *
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      */
     public function __construct($request)
     {

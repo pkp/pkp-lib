@@ -33,7 +33,7 @@ class PKPSiteBulkEmailsForm extends FormComponent
      * Constructor
      *
      * @param string $action URL to submit the form to
-     * @param Site $site
+     * @param \PKP\site\Site $site
      * @param array $contexts List of context summary objects. See PKPContextQueryBuilder::getManySummary()
      */
     public function __construct($action, $site, $contexts)

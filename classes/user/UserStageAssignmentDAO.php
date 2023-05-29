@@ -19,9 +19,14 @@ namespace PKP\user;
 use APP\core\Application;
 use PKP\db\DAO;
 use PKP\db\DAOResultFactory;
+use PKP\db\DBResultRange;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 
+/**
+ * @deprecated 3.4.0
+ * @see \PKP\user\Collector
+ */
 class UserStageAssignmentDAO extends DAO
 {
     /**
@@ -38,14 +43,15 @@ class UserStageAssignmentDAO extends DAO
 
     /**
      * Retrieve a set of users of a user group not assigned to a given submission stage and matching the specified settings.
+     * @todo Not working and not being used, probably can be removed
      *
      * @param int $submissionId
      * @param int $stageId
      * @param int $userGroupId
      * @param string|null $name Partial string match with user name
-     * @param null|mixed $rangeInfo
+     * @param ?DBResultRange $rangeInfo
      *
-     * @return object DAOResultFactory
+     * @return DAOResultFactory Object
      */
     public function filterUsersNotAssignedToStageInUserGroup($submissionId, $stageId, $userGroupId, $name = null, $rangeInfo = null)
     {

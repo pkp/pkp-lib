@@ -22,6 +22,7 @@ use PKP\controllers\grid\GridHandler;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
+use PKP\plugins\Plugin;
 
 class PluginGridCellProvider extends GridCellProvider
 {

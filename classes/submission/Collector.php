@@ -16,6 +16,7 @@ namespace PKP\submission;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Collector as AppCollector;
+use APP\submission\Submission;
 use Exception;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\JoinClause;
@@ -23,7 +24,6 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
-
 use PKP\core\interfaces\CollectorInterface;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
@@ -31,6 +31,9 @@ use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
 
+/**
+ * @template T of Submission
+ */
 abstract class Collector implements CollectorInterface
 {
     public const ORDERBY_DATE_PUBLISHED = 'datePublished';
@@ -76,11 +79,18 @@ abstract class Collector implements CollectorInterface
         return $this->dao->getCount($this);
     }
 
+    /**
+     * @return Collection<int,int>
+     */
     public function getIds(): Collection
     {
         return $this->dao->getIds($this);
     }
 
+    /**
+     * @copydoc DAO::getMany()
+     * @return LazyCollection<int,T>
+     */
     public function getMany(): LazyCollection
     {
         return $this->dao->getMany($this);

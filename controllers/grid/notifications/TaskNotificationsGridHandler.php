@@ -18,6 +18,7 @@ namespace PKP\controllers\grid\notifications;
 
 use APP\notification\Notification;
 use PKP\db\DAORegistry;
+use PKP\notification\NotificationDAO;
 
 class TaskNotificationsGridHandler extends NotificationsGridHandler
 {

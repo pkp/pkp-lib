@@ -21,6 +21,7 @@ use PKP\controllers\grid\files\final\form\ManageFinalDraftFilesForm;
 use PKP\controllers\grid\files\SelectableSubmissionFileListCategoryGridHandler;
 use PKP\controllers\grid\files\SubmissionFilesCategoryGridDataProvider;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\security\Role;
 use PKP\submissionFile\SubmissionFile;
 

@@ -18,11 +18,13 @@ namespace PKP\API\v1\temporaryFiles;
 use APP\core\Application;
 use APP\core\Services;
 use PKP\file\TemporaryFileManager;
+use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use Slim\Http\Request as SlimRequest;
 
 class PKPTemporaryFilesHandler extends APIHandler
 {
@@ -74,9 +76,9 @@ class PKPTemporaryFilesHandler extends APIHandler
      * A helper method which adds the necessary response headers to allow
      * file uploads
      *
-     * @param Response $response object
+     * @param APIResponse $response object
      *
-     * @return Response
+     * @return APIResponse
      */
     private function getResponse($response)
     {
@@ -86,11 +88,11 @@ class PKPTemporaryFilesHandler extends APIHandler
     /**
      * Upload a requested file
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function uploadFile($slimRequest, $response, $args)
     {
@@ -135,11 +137,11 @@ class PKPTemporaryFilesHandler extends APIHandler
      * Respond affirmatively to a HTTP OPTIONS request with headers which allow
      * file uploads
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function getOptions($slimRequest, $response, $args)
     {

@@ -39,10 +39,10 @@ class SubmissionDisciplineEntryDAO extends ControlledVocabEntryDAO
      * particular controlled vocabulary ID.
      *
      * @param int $controlledVocabId
-     * @param null $filter (Not yet supported)
+     * @param mixed $filter (Not yet supported)
      * @param null|DBResultRange $rangeInfo
      *
-     * @return DAOResultFactory matching CVE objects
+     * @return DAOResultFactory<SubmissionDiscipline> matching CVE objects
      */
     public function getByControlledVocabId($controlledVocabId, $rangeInfo = null, $filter = null)
     {

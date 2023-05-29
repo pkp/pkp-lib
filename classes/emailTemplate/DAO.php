@@ -28,6 +28,10 @@ use PKP\site\Site;
 use PKP\site\SiteDAO;
 use Stringy\Stringy;
 
+/**
+ * @template T of EmailTemplate
+ * @extends EntityDAO<T>
+ */
 class DAO extends EntityDAO
 {
     /** @copydoc EntityDAO::$schema */
@@ -107,6 +111,7 @@ class DAO extends EntityDAO
 
     /**
      * Get a collection of Email Templates matching the configured query
+     * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection
     {

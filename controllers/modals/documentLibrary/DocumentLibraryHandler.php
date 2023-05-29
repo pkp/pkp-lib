@@ -18,7 +18,10 @@ namespace PKP\controllers\modals\documentLibrary;
 
 use APP\core\Application;
 use APP\handler\Handler;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
+use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
 

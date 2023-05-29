@@ -17,7 +17,7 @@
 namespace PKP\controllers\grid\files;
 
 use APP\file\LibraryFileManager;
-
+use PKP\context\Context;
 use PKP\controllers\grid\GridCategoryRow;
 
 class LibraryFileGridCategoryRow extends GridCategoryRow

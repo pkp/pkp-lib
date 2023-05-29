@@ -19,7 +19,7 @@ namespace PKP\pages\install;
 use APP\core\Application;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-
+use PKP\core\PKPRequest;
 use PKP\facades\Locale;
 use PKP\install\form\InstallForm;
 use PKP\install\form\UpgradeForm;

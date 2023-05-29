@@ -20,6 +20,7 @@ use PKP\controllers\grid\files\fileList\FileListGridHandler;
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\controllers\grid\files\final\form\ManageFinalDraftFilesForm;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\security\Role;
 
 class FinalDraftFilesGridHandler extends FileListGridHandler

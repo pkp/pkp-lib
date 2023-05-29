@@ -17,10 +17,8 @@
 namespace PKP\xslt;
 
 use DOMDocument;
-
 use PKP\config\Config;
 use PKP\file\FileManager;
-
 use XSLTProcessor;
 
 class XSLTransformer

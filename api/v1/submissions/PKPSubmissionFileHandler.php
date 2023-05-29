@@ -20,6 +20,7 @@ namespace PKP\API\v1\submissions;
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
+use PKP\core\APIResponse;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\handler\APIHandler;
@@ -123,7 +124,7 @@ class PKPSubmissionFileHandler extends APIHandler
      * @param APIResponse $response
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function getMany($slimRequest, $response, $args)
     {
@@ -240,7 +241,7 @@ class PKPSubmissionFileHandler extends APIHandler
      * @param APIResponse $response
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function get($slimRequest, $response, $args)
     {
@@ -260,7 +261,7 @@ class PKPSubmissionFileHandler extends APIHandler
      * @param APIResponse $response
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function add($slimRequest, $response, $args)
     {
@@ -384,7 +385,7 @@ class PKPSubmissionFileHandler extends APIHandler
      * @param APIResponse $response
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function edit($slimRequest, $response, $args)
     {
@@ -464,7 +465,7 @@ class PKPSubmissionFileHandler extends APIHandler
      * @param APIResponse $response
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function copy($slimRequest, $response, $args)
     {
@@ -533,7 +534,7 @@ class PKPSubmissionFileHandler extends APIHandler
      * @param APIResponse $response
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function delete($slimRequest, $response, $args)
     {
@@ -551,7 +552,7 @@ class PKPSubmissionFileHandler extends APIHandler
     /**
      * Helper method to get the file genres for the current context
      *
-     * @return Genre[]
+     * @return \PKP\submission\Genre[]
      */
     protected function getFileGenres(): array
     {

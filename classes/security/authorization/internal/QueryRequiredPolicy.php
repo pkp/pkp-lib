@@ -17,10 +17,11 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use APP\submission\Submission;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\query\Query;
+use PKP\query\QueryDAO;
 use PKP\security\authorization\AuthorizationPolicy;
-
 use PKP\security\authorization\DataObjectRequiredPolicy;
 
 class QueryRequiredPolicy extends DataObjectRequiredPolicy

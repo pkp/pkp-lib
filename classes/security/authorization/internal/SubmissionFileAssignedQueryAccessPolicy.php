@@ -19,6 +19,8 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use PKP\db\DAORegistry;
+use PKP\note\NoteDAO;
+use PKP\query\QueryDAO;
 use PKP\security\authorization\AuthorizationPolicy;
 
 class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPolicy

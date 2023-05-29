@@ -20,7 +20,6 @@ namespace PKP\site;
 
 use APP\core\Services;
 use Illuminate\Support\Facades\DB;
-
 use PKP\services\PKPSchemaService;
 
 class SiteDAO extends \PKP\db\DAO
@@ -38,7 +37,7 @@ class SiteDAO extends \PKP\db\DAO
     /**
      * Retrieve site information.
      *
-     * @return Site
+     * @return ?Site
      */
     public function getSite()
     {

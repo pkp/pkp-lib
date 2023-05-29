@@ -19,13 +19,13 @@ use PKP\config\Config;
 
 class HttpsPolicy extends AuthorizationPolicy
 {
-    /** @var PKPRequest */
+    /** @var \PKP\core\PKPRequest */
     public $_request;
 
     /**
      * Constructor
      *
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      */
     public function __construct($request)
     {

@@ -18,6 +18,8 @@ use APP\facades\Repo;
 use DOMDocument;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
+use PKP\filter\FilterDAO;
+use PKP\filter\FilterGroup;
 use PKP\plugins\importexport\native\filter\NativeExportFilter;
 use PKP\user\InterestManager;
 use PKP\user\User;

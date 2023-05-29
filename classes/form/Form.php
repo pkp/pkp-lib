@@ -227,6 +227,8 @@ class Form
      * Get the value of a form field.
      *
      * @param string $key
+     *
+     * @return mixed
      */
     public function getData($key)
     {

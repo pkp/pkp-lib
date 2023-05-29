@@ -22,6 +22,7 @@ use APP\core\Application;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
+use PKP\db\DAOResultFactory;
 use PKP\facades\Locale;
 use PKP\mail\Mailable;
 use PKP\user\User;
@@ -46,7 +47,7 @@ class SubmissionEmailLogDAO extends EmailLogDAO
      * @param int $submissionId
      * @param int $userId optional Return only emails sent to this user.
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<SubmissionEmailLogEntry>
      */
     public function getByEventType($submissionId, $eventType, $userId = null)
     {
@@ -58,7 +59,7 @@ class SubmissionEmailLogDAO extends EmailLogDAO
      *
      * @param int $submissionId
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<SubmissionEmailLogEntry>
      */
     public function getBySubmissionId($submissionId)
     {

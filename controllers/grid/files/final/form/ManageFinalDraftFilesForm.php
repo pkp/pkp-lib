@@ -41,8 +41,6 @@ class ManageFinalDraftFilesForm extends ManageSubmissionFilesForm
      * @param array $stageSubmissionFiles The files that belongs to a file stage
      * that is currently being used by a grid inside this form.
      * @param int $fileStage SubmissionFile::SUBMISSION_FILE_...
-     *
-     * @return array a list of all submission files marked as "final".
      */
     public function execute($stageSubmissionFiles = null, $fileStage = null, ...$functionArgs)
     {

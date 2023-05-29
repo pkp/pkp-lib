@@ -117,7 +117,7 @@ class NavigationMenuItemAssignment extends \PKP\core\DataObject
      * This object is only available in some cases, when the NavigationMenuItem
      * has been stored for re-use.
      *
-     * @return int
+     * @return NavigationMenuItem
      */
     public function getMenuItem()
     {

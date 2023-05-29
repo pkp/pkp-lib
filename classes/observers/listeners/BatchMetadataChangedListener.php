@@ -20,7 +20,6 @@ namespace PKP\observers\listeners;
 
 use Illuminate\Events\Dispatcher;
 use PKP\jobs\metadata\BatchMetadataChangedJob;
-
 use PKP\observers\events\BatchMetadataChanged;
 
 class BatchMetadataChangedListener

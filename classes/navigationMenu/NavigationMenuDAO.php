@@ -23,7 +23,7 @@ use PKP\cache\CacheManager;
 use PKP\cache\GenericCache;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
-
+use PKP\site\SiteDAO;
 use PKP\xml\PKPXMLParser;
 
 class NavigationMenuDAO extends \PKP\db\DAO
@@ -67,7 +67,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
      *
      * @param int $contextId Context Id
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<NavigationMenu>
      */
     public function getByContextId($contextId)
     {
@@ -81,7 +81,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
      * @param int $contextId Context Id
      * @param string $areaName Template Area name
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<NavigationMenu>
      */
     public function getByArea($contextId, $areaName)
     {
@@ -194,8 +194,6 @@ class NavigationMenuDAO extends \PKP\db\DAO
      * Delete a NavigationMenu.
      *
      * @param NavigationMenu $navigationMenu
-     *
-     * @return bool
      */
     public function deleteObject($navigationMenu)
     {

@@ -19,7 +19,10 @@ namespace PKP\plugins\importexport\native\filter;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
+use PKP\citation\CitationDAO;
 use PKP\db\DAORegistry;
+use PKP\filter\Filter;
+use PKP\filter\FilterGroup;
 use PKP\plugins\PluginRegistry;
 
 class NativeXmlPKPPublicationFilter extends NativeImportFilter
@@ -102,7 +105,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     /**
      * Populate the entity object from the node
      *
-     * @param PKPPublication $publication
+     * @param Publication $publication
      * @param \DOMElement $node
      *
      * @return Publication
@@ -120,7 +123,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
      * Handle an element whose parent is the publication element.
      *
      * @param \DOMElement $n
-     * @param PKPPublication $publication
+     * @param Publication $publication
      */
     public function handleChildElement($n, $publication)
     {
@@ -184,7 +187,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
      * Parse an identifier node and set up the publication object accordingly
      *
      * @param \DOMElement $element
-     * @param PKPPublication $publication
+     * @param Publication $publication
      */
     public function parseIdentifier($element, $publication)
     {
@@ -236,7 +239,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
      * Parse an authors element
      *
      * @param \DOMElement $node
-     * @param PKPPublication $publication
+     * @param Publication $publication
      */
     public function parseAuthors($node, $publication)
     {
@@ -263,7 +266,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
      * Parse a publication citation and add it to the publication.
      *
      * @param \DOMElement $n
-     * @param PKPPublication $publication
+     * @param Publication $publication
      */
     public function parseCitations($n, $publication)
     {

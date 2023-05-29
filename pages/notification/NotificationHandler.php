@@ -17,6 +17,7 @@
 namespace PKP\pages\notification;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\Notification;
@@ -24,7 +25,9 @@ use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
+use PKP\db\DAOResultFactory;
 use PKP\notification\form\PKPNotificationsUnsubscribeForm;
+use PKP\notification\NotificationDAO;
 
 class NotificationHandler extends Handler
 {
@@ -206,7 +209,7 @@ class NotificationHandler extends Handler
      * Add notifications from a result factory to an array of
      * existing notifications.
      *
-     * @param DAOResultFactory $resultFactory
+     * @param DAOResultFactory<Notification> $resultFactory
      * @param array $notificationArray
      */
     public function _addNotificationsToArray($resultFactory, $notificationArray)

@@ -26,7 +26,7 @@ use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use Slim\Http\Request;
+use Slim\Http\Request as SlimRequest;
 
 class PKPUserHandler extends APIHandler
 {
@@ -77,11 +77,11 @@ class PKPUserHandler extends APIHandler
     /**
      * Get a collection of users
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function getMany($slimRequest, $response, $args)
     {
@@ -158,11 +158,11 @@ class PKPUserHandler extends APIHandler
     /**
      * Get a single user
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function get($slimRequest, $response, $args)
     {
@@ -184,11 +184,11 @@ class PKPUserHandler extends APIHandler
     /**
      * Get a collection of reviewers
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function getReviewers($slimRequest, $response, $args)
     {
@@ -219,7 +219,7 @@ class PKPUserHandler extends APIHandler
         $collector = Repo::user()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->includeReviewerData()
-            ->filterByRoleIds([\PKP\security\Role::ROLE_ID_REVIEWER])
+            ->filterByRoleIds([Role::ROLE_ID_REVIEWER])
             ->filterByWorkflowStageIds([$params['reviewStage']])
             ->searchPhrase($params['searchPhrase'] ?? null)
             ->filterByReviewerRating($params['reviewerRating'] ?? null)
@@ -333,7 +333,7 @@ class PKPUserHandler extends APIHandler
     /**
      * Retrieve the user report
      */
-    public function getReport(Request $slimRequest, APIResponse $response, array $args): ?APIResponse
+    public function getReport(SlimRequest $slimRequest, APIResponse $response, array $args): ?APIResponse
     {
         $request = $this->getRequest();
 

@@ -164,10 +164,10 @@ class Schema extends \PKP\core\maps\Schema
                 case 'interests':
                     $output[$prop] = [];
                     if ($this->context) {
-                        $interestDao = DAORegistry::getDAO('InterestDAO'); /** @var InterestDAO $interestDao */
+                        $interestDao = DAORegistry::getDAO('InterestDAO'); /** @var \PKP\user\InterestDAO $interestDao */
                         $interestEntryIds = $interestDao->getUserInterestIds($user->getId());
                         if (!empty($interestEntryIds)) {
-                            $interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /** @var InterestEntryDAO $interestEntryDao */
+                            $interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /** @var \PKP\user\InterestEntryDAO $interestEntryDao */
                             $results = $interestEntryDao->getByIds($interestEntryIds);
                             $output[$prop] = [];
                             while ($interest = $results->next()) {

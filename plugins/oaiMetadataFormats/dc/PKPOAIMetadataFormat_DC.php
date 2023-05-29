@@ -19,6 +19,7 @@ namespace PKP\plugins\oaiMetadataFormats\dc;
 use PKP\core\DataObject;
 use PKP\core\PKPString;
 use PKP\metadata\MetadataDescription;
+use PKP\metadata\MetadataProperty;
 use PKP\oai\OAIUtils;
 
 class PKPOAIMetadataFormat_DC extends \PKP\oai\OAIMetadataFormat

@@ -95,7 +95,7 @@ class MetadataSchema
      *  namespace.
      * @param string $classname the fully qualified class name of
      *  this schema
-     * @param array|integer $assocTypes the association types of
+     * @param array|int $assocTypes the association types of
      *  PKP application objects that can be described using
      *  this schema. A single association type can be given as
      *  a scalar.

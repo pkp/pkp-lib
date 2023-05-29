@@ -47,7 +47,7 @@ class CompositeFilter extends PersistableFilter
      *
      * @param Filter $filter
      *
-     * @return int the filter's sequence number, null
+     * @return ?int the filter's sequence number, null
      *  if the sequence number of the filter had already been
      *  set before by a different filter and the filter has
      *  not been added.

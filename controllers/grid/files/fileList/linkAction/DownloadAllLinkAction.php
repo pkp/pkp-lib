@@ -19,6 +19,7 @@
 
 namespace PKP\controllers\grid\files\fileList\linkAction;
 
+use APP\core\Request;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\PostAndRedirectAction;
 

@@ -17,10 +17,10 @@
 namespace PKP\user\form;
 
 use APP\core\Application;
-
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\facades\Locale;
+use PKP\user\User;
 
 class ContactForm extends BaseProfileForm
 {

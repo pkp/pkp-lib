@@ -19,9 +19,15 @@
 namespace PKP\core;
 
 use APP\core\Application;
+use Exception;
+use PKP\db\DAO;
 use PKP\db\DAORegistry;
+use \PKP\filter\FilterDAO;
 use PKP\facades\Locale;
 
+/**
+ * @template T of EntityDAO|DAO
+ */
 class DataObject
 {
     /** @var array Array of object data */
@@ -113,6 +119,8 @@ class DataObject
      *
      * @param string $key
      * @param string $locale (optional)
+     *
+     * @return mixed
      */
     public function &getData($key, $locale = null)
     {
@@ -269,7 +277,7 @@ class DataObject
      * by this application entity. Only one adapter per schema
      * can be added.
      *
-     * @param MetadataDataObjectAdapter $metadataAdapter
+     * @param \PKP\metadata\MetadataDataObjectAdapter $metadataAdapter
      */
     public function addSupportedMetadataAdapter($metadataAdapter)
     {
@@ -453,7 +461,7 @@ class DataObject
      * Inject a meta-data description into this
      * data object.
      *
-     * @param MetadataDescription $metadataDescription
+     * @param \PKP\metadata\MetadataDescription $metadataDescription
      *
      * @return bool true on success, otherwise false
      */
@@ -465,7 +473,7 @@ class DataObject
         if (isset($injectionAdapters[$metadataSchemaName])) {
             // Get the meta-data adapter that supports the
             // given meta-data description's schema.
-            $metadataAdapter = $injectionAdapters[$metadataSchemaName]; /** @var MetadataDataObjectAdapter $metadataAdapter */
+            $metadataAdapter = $injectionAdapters[$metadataSchemaName]; /** @var \PKP\metadata\MetadataDataObjectAdapter $metadataAdapter */
 
             // Pass in a reference to the data object which
             // the filter will use to update the current instance
@@ -483,7 +491,7 @@ class DataObject
      * Extract a meta-data description from this
      * data object.
      *
-     * @param MetadataSchema $metadataSchema
+     * @param \PKP\metadata\MetadataSchema $metadataSchema
      *
      * @return $metadataDescription MetadataDescription
      */
@@ -507,7 +515,7 @@ class DataObject
     /**
      * Get DAO class for this object.
      *
-     * @return DAO
+     * @return T
      */
     public function getDAO()
     {

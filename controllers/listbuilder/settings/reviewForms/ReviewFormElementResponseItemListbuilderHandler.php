@@ -20,6 +20,7 @@ use PKP\controllers\listbuilder\ListbuilderHandler;
 use PKP\controllers\listbuilder\MultilingualListbuilderGridColumn;
 use PKP\controllers\listbuilder\settings\SetupListbuilderHandler;
 use PKP\db\DAORegistry;
+use PKP\reviewForm\ReviewFormElementDAO;
 
 class ReviewFormElementResponseItemListbuilderHandler extends SetupListbuilderHandler
 {

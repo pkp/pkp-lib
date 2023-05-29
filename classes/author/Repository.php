@@ -37,7 +37,7 @@ class Repository
     /** @var Request */
     protected $request;
 
-    /** @var PKPSchemaService */
+    /** @var PKPSchemaService<Author> */
     protected $schemaService;
 
     public function __construct(DAO $dao, Request $request, PKPSchemaService $schemaService)

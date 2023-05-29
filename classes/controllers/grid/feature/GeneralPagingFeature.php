@@ -21,7 +21,7 @@ namespace PKP\controllers\grid\feature;
 use APP\core\Application;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\ArrayItemIterator;
-
+use PKP\core\ItemIterator;
 use PKP\handler\PKPHandler;
 
 class GeneralPagingFeature extends GridFeature
@@ -132,7 +132,7 @@ class GeneralPagingFeature extends GridFeature
             $itemIterator = new ArrayItemIterator($data, $rangeInfo->getPage(), $rangeInfo->getCount());
             $this->_itemIterator = $itemIterator;
             $data = $itemIterator->toArray();
-        } elseif ($data instanceof \PKP\core\ItemIterator) {
+        } elseif ($data instanceof ItemIterator) {
             $this->_itemIterator = $data;
         }
     }

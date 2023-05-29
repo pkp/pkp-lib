@@ -26,16 +26,19 @@
 
 namespace PKP\submission;
 
-use APP\author\Author;
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\statistics\StatisticsHelper;
+use APP\submission\DAO;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\facades\Locale;
 
+/**
+ * @extends \PKP\core\DataObject<DAO>
+ */
 abstract class PKPSubmission extends \PKP\core\DataObject
 {
     // Submission status constants
@@ -208,7 +211,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * @copydoc \PKP\core\DataObject::getDAO()
      */
-    public function getDAO(): \APP\submission\DAO
+    public function getDAO(): DAO
     {
         return Repo::submission()->dao;
     }
@@ -242,7 +245,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      *
      * @param string $preferredLocale Preferred locale code
      *
-     * @return string Localized copyright holder.
+     * @return string|array<string,string> Localized copyright holder.
      *
      * @deprecated 3.2.0.0
      */
@@ -323,7 +326,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>). @endliteral
      *
-     * @return int
+     * @return string
      *
      * @deprecated 3.2.0.0
      */
@@ -363,7 +366,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      *
      * @param string $locale locale
      *
-     * @return string
+     * @return string|array<string,string>
      *
      * @deprecated 3.2.0.0
      */
@@ -569,7 +572,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      *
      * @param string $locale
      *
-     * @return string
+     * @return string|array<string,string>
      *
      * @deprecated 3.2.0.0
      */
@@ -621,7 +624,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      *
      * @param string $locale Locale to fetch data in.
      *
-     * @return string
+     * @return string|array<string,string>
      *
      * @deprecated 3.2.0.0
      */
@@ -658,7 +661,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      *
      * @param string $locale
      *
-     * @return string
+     * @return string|array<string,string>
      *
      * @deprecated 3.2.0.0
      */
@@ -708,7 +711,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      *
      * @param string $locale
      *
-     * @return string
+     * @return string|array<string,string>
      *
      * @deprecated 3.2.0.0
      */
@@ -758,7 +761,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      *
      * @param string $locale
      *
-     * @return string
+     * @return string|array<string,string>
      *
      * @deprecated 3.2.0.0
      */
@@ -808,7 +811,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      *
      * @param string $locale
      *
-     * @return string
+     * @return string|array<string,string>
      *
      * @deprecated 3.2.0.0
      */
@@ -858,7 +861,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      *
      * @param string $locale
      *
-     * @return string
+     * @return string|array<string,string>
      *
      * @deprecated 3.2.0.0
      */
@@ -908,7 +911,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      *
      * @param string $locale
      *
-     * @return string
+     * @return string|array<string,string>
      *
      * @deprecated 3.2.0.0
      */
@@ -942,7 +945,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      *
      * @param string $locale
      *
-     * @return string
+     * @return string|array<string,string>
      *
      * @deprecated 3.2.0.0
      */
@@ -976,7 +979,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      *
      * @param string $locale
      *
-     * @return string
+     * @return string|array<string,string>
      *
      * @deprecated 3.2.0.0
      */
@@ -1057,7 +1060,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      *
      * @param string $locale
      *
-     * @return string
+     * @return string|array<string,string>
      *
      * @deprecated 3.2.0.0
      */
@@ -1091,7 +1094,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      *
      * @param string $locale
      *
-     * @return string
+     * @return string|array<string,string>
      *
      * @deprecated 3.2.0.0
      */

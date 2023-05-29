@@ -13,10 +13,14 @@
 
 namespace PKP\core;
 
+use Exception;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAO;
 use PKP\services\PKPSchemaService;
 
+/**
+ * @template T of DataObject
+ */
 abstract class EntityDAO
 {
     /** @var string One of the \PKP\services\PKPSchemaService::SCHEMA_... constants */
@@ -64,7 +68,7 @@ abstract class EntityDAO
      */
     public $deprecatedDao;
 
-    /** @var PKPSchemaService $schemaService */
+    /** @var PKPSchemaService<T> $schemaService */
     protected $schemaService;
 
     /**
@@ -77,7 +81,19 @@ abstract class EntityDAO
     }
 
     /**
+     * Creates a new DataObject
+     *
+     * @return T
+     */
+    public function newDataObject()
+    {
+        throw new Exception('Not implemented');
+    }
+
+    /**
      * Convert a row from the database query into a DataObject
+     *
+     * @return T
      */
     public function fromRow(object $row): DataObject
     {
@@ -118,6 +134,7 @@ abstract class EntityDAO
 
     /**
      * Insert an object into the database
+     * @param T $object
      */
     protected function _insert(DataObject $object): int
     {
@@ -128,7 +145,7 @@ abstract class EntityDAO
         $primaryDbProps = $this->getPrimaryDbProps($object);
 
         if (empty($primaryDbProps)) {
-            throw new \Exception('Tried to insert ' . get_class($object) . ' without any properties for the ' . $this->table . ' table.');
+            throw new Exception('Tried to insert ' . get_class($object) . ' without any properties for the ' . $this->table . ' table.');
         }
 
         DB::table($this->table)->insert($primaryDbProps);
@@ -164,6 +181,7 @@ abstract class EntityDAO
 
     /**
      * Update an object in the database
+     * @param T $object
      */
     protected function _update(DataObject $object)
     {
@@ -235,6 +253,7 @@ abstract class EntityDAO
 
     /**
      * Delete an object from the database
+     * @param T $object
      */
     protected function _delete(DataObject $object)
     {
@@ -258,6 +277,7 @@ abstract class EntityDAO
      * array that maps them to the primary table columns.
      *
      * @see $this->primaryTableColumns
+     * @param T $object
      */
     protected function getPrimaryDbProps(DataObject $object): array
     {

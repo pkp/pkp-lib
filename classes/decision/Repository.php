@@ -33,6 +33,8 @@ use PKP\observers\events\DecisionAdded;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use PKP\stageAssignment\StageAssignment;
+use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\validation\ValidatorFactory;
@@ -48,7 +50,7 @@ abstract class Repository
     /** @var Request $request */
     protected $request;
 
-    /** @var PKPSchemaService $schemaService */
+    /** @var PKPSchemaService<Decision> $schemaService */
     protected $schemaService;
 
 
@@ -366,7 +368,7 @@ abstract class Repository
     /**
      * Get a list of all the decision types available
      *
-     * @return Collection<DecisionType>
+     * @return Collection<int,DecisionType>
      */
     abstract public function getDecisionTypes(): Collection;
 

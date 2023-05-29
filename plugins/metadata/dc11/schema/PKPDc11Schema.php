@@ -32,7 +32,7 @@ class PKPDc11Schema extends MetadataSchema
     /**
      * Constructor
      *
-     * @param int $appSpecificAssocType
+     * @param array|int $appSpecificAssocType
      */
     public function __construct($appSpecificAssocType, $classname = 'APP\plugins\metadata\dc11\schema\Dc11Schema')
     {

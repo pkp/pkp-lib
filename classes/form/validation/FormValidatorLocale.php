@@ -26,11 +26,11 @@ class FormValidatorLocale extends FormValidator
     /**
      * Constructor.
      *
-     * @param Form $form the associated form
+     * @param \PKP\form\Form $form the associated form
      * @param string $field the name of the associated field
      * @param string $type the type of check, either "required" or "optional"
      * @param string $message the error message for validation failures (i18n key)
-     * @param Validator $validator the validator used to validate this form field (optional)
+     * @param \PKP\validation\Validator $validator the validator used to validate this form field (optional)
      * @param string $requiredLocale The name of the required locale, i.e. en
      */
     public function __construct(&$form, $field, $type, $message, $requiredLocale = null, $validator = null)

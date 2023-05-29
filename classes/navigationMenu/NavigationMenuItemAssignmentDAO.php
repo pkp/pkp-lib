@@ -56,7 +56,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
      *
      * @param int $menuId
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<NavigationMenuItemAssignment>
      */
     public function getByMenuId($menuId)
     {
@@ -76,7 +76,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
      *
      * @param int $menuItemId
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<NavigationMenuItemAssignment>
      */
     public function getByMenuItemId($menuItemId)
     {
@@ -123,6 +123,8 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
      *
      * @param int $menuId
      * @param int $parentId 0 if we want to return NMIAssignments with no parents
+     *
+     * @return DAOResultFactory<NavigationMenuItemAssignment>
      */
     public function getByMenuIdAndParentId($menuId, $parentId)
     {
@@ -227,7 +229,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     /**
      * Delete all assignments by NavigationMenu ID
      *
-     * @param NavigationMenu $menuId id
+     * @param int $menuId id
      *
      * @return bool
      */
@@ -244,7 +246,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     /**
      * Delete all assignments by NavigationMenuItem ID
      *
-     * @param NavigationMenuItem $menuItemId id
+     * @param int $menuItemId id
      *
      * @return bool
      */
@@ -262,8 +264,6 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
      * Delete a NavigationMenuItemAssignment.
      *
      * @param NavigationMenuItemAssignment $navigationMenuItemAssignment
-     *
-     * @return bool
      */
     public function deleteObject($navigationMenuItemAssignment)
     {
@@ -274,8 +274,6 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
      * Delete a NavigationMenuItemAssignment by NavigationMenuItemAssignment ID.
      *
      * @param int $navigationMenuItemAssignmentId
-     *
-     * @return bool
      */
     public function deleteById($navigationMenuItemAssignmentId)
     {

@@ -38,7 +38,6 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\security\Role;
-
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\site\SiteDAO;

@@ -136,7 +136,7 @@ class SubmissionKeywordDAO extends ControlledVocabDAO
     /**
      * Delete keywords by publication ID
      *
-     * @return int|array Controlled Vocab
+     * @return ControlledVocab Controlled Vocab
      */
     public function deleteByPublicationId($publicationId)
     {

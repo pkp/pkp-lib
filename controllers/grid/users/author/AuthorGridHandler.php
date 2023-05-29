@@ -27,13 +27,14 @@ use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\settings\user\form\UserDetailsForm;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\Role;
-
 use PKP\submission\PKPSubmission;
+use PKP\user\User;
 
 class AuthorGridHandler extends GridHandler
 {

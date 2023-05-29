@@ -23,7 +23,9 @@ use DOMElement;
 use PKP\config\Config;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\filter\FilterGroup;
 use PKP\plugins\PluginRegistry;
+use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileNativeXmlFilter extends NativeExportFilter
@@ -47,12 +49,12 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
      *
      * @param SubmissionFile $submissionFile
      *
-     * @return \DOMDocument
+     * @return ?DOMDocument
      */
     public function &process(&$submissionFile)
     {
         // Create the XML document
-        $doc = new \DOMDocument('1.0');
+        $doc = new DOMDocument('1.0');
         $doc->preserveWhiteSpace = false;
         $doc->formatOutput = true;
         $deployment = $this->getDeployment();

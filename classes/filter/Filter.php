@@ -79,7 +79,6 @@ use Exception;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\core\RuntimeEnvironment;
-
 use PKP\plugins\Hook;
 
 class Filter extends \PKP\core\DataObject

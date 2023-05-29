@@ -16,6 +16,7 @@
 
 namespace PKP\controllers\confirmationModal\linkAction;
 
+use APP\core\Request;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\ConfirmationModal;
 

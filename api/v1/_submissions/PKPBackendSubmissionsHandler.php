@@ -24,7 +24,6 @@ use PKP\core\APIResponse;
 use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
-
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -130,7 +129,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
             ->filterByContextIds([$context->getId()])
             ->getMany();
 
-        /** @var GenreDAO $genreDao */
+        /** @var \PKP\submission\GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 

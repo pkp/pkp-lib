@@ -13,6 +13,7 @@
  *
  * @brief CLI tool to compile documentation on hooks in markdown
  */
+
 define('APP_ROOT', dirname(dirname(dirname(dirname(__FILE__)))));
 require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 

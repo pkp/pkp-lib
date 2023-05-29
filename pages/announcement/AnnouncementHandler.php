@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\core\PKPRequest;
 use PKP\security\authorization\ContextRequiredPolicy;
 
 class AnnouncementHandler extends Handler
@@ -46,8 +47,6 @@ class AnnouncementHandler extends Handler
      *
      * @param array $args
      * @param PKPRequest $request
-     *
-     * @return string
      */
     public function index($args, $request)
     {

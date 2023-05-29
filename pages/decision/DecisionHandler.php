@@ -33,6 +33,7 @@ use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\Genre;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewRound\ReviewRound;

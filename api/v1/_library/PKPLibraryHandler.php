@@ -24,14 +24,12 @@ use PKP\context\LibraryFile;
 use PKP\context\LibraryFileDAO;
 use PKP\core\APIResponse;
 use PKP\db\DAORegistry;
-use PKP\db\DAOResultFactory;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-
 use Psr\Http\Message\ServerRequestInterface;
 
 class PKPLibraryHandler extends APIHandler
@@ -92,17 +90,13 @@ class PKPLibraryHandler extends APIHandler
 
         $params = $slimRequest->getQueryParams();
         if (isset($params['includeSubmissionId'])) {
-            /** @var DAOResultFactory $result */
             $result = $libraryFileDao->getBySubmissionId($submission->getId());
-            /** @var LibraryFile $file */
             while ($file = $result->next()) {
                 $files[] = $this->fileToResponse($file, $libraryFileManager);
             }
         }
 
-        /** @var DAOResultFactory $result */
         $result = $libraryFileDao->getByContextId($contextId);
-        /** @var LibraryFile $file */
         while ($file = $result->next()) {
             $files[] = $this->fileToResponse($file, $libraryFileManager);
         }

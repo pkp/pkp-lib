@@ -19,9 +19,7 @@
 namespace PKP\site;
 
 use APP\core\Application;
-
 use Composer\Semver\Semver;
-
 use PKP\core\Core;
 
 class Version extends \PKP\core\DataObject

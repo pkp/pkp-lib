@@ -20,6 +20,7 @@ use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkflowStageRequiredPolicy
 {

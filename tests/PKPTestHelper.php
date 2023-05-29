@@ -17,6 +17,7 @@ namespace PKP\tests;
 
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Support\Facades\DB;
+use PHPUnit\Framework\TestCase;
 use PKP\config\Config;
 use PKP\db\DAO;
 
@@ -31,7 +32,7 @@ abstract class PKPTestHelper
      * Backup the given tables.
      *
      * @param array $tables
-     * @param PHPUnit_Framework_Assert $test
+     * @param TestCase $test
      */
     public static function backupTables($tables, $test)
     {
@@ -56,7 +57,7 @@ abstract class PKPTestHelper
      * Restore the given tables.
      *
      * @param array $tables
-     * @param PHPUnit_Framework_Assert $test
+     * @param TestCase $test
      */
     public static function restoreTables($tables, $test)
     {

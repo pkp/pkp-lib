@@ -31,6 +31,7 @@ use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\mail\Mailable;
 use PKP\note\NoteDAO;
+use PKP\notification\NotificationDAO;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
@@ -76,7 +77,7 @@ class QueryDAO extends \PKP\db\DAO
      * @param int $stageId Optional stage ID
      * @param int $userId Optional user ID; when set, show only assigned queries
      *
-     * @return DAOResultFactory Query
+     * @return DAOResultFactory<Query> Query
      */
     public function getByAssoc($assocType, $assocId, $stageId = null, $userId = null)
     {
@@ -118,7 +119,7 @@ class QueryDAO extends \PKP\db\DAO
      *
      * @param int[] $participantIds Only include queries with these participants
      *
-     * @return array [int $stageId => int $count]
+     * @return array<int,int> [int $stageId => int $count]
      */
     public function countOpenPerStage(int $submissionId, ?array $participantIds = null)
     {
@@ -164,7 +165,7 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Get a new data object
      *
-     * @return DataObject
+     * @return Query
      */
     public function newDataObject()
     {

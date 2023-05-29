@@ -17,7 +17,6 @@
 namespace PKP\controllers\grid\files\form;
 
 use APP\file\LibraryFileManager;
-
 use APP\template\TemplateManager;
 use PKP\form\Form;
 

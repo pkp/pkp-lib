@@ -23,8 +23,8 @@ use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
-
 use PKP\security\Role;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileStageAccessPolicy extends AuthorizationPolicy

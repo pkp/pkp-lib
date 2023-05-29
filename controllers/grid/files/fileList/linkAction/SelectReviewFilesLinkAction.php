@@ -16,6 +16,9 @@
 
 namespace PKP\controllers\grid\files\fileList\linkAction;
 
+use APP\core\Request;
+use PKP\submission\reviewRound\ReviewRound;
+
 class SelectReviewFilesLinkAction extends SelectFilesLinkAction
 {
     /**

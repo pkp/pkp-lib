@@ -30,7 +30,7 @@ class SubmissionCommentDAO extends \PKP\db\DAO
      * @param int $commentType Comment type
      * @param int $assocId Assoc ID
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<SubmissionComment>
      */
     public function getSubmissionComments($submissionId, $commentType = null, $assocId = null)
     {
@@ -61,7 +61,7 @@ class SubmissionCommentDAO extends \PKP\db\DAO
      *
      * @param int $userId User ID.
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<SubmissionComment>
      */
     public function getByUserId($userId)
     {
@@ -83,7 +83,7 @@ class SubmissionCommentDAO extends \PKP\db\DAO
      * @param int $reviewId (optional) The review assignment ID the comment pertains to.
      * @param bool $viewable True for only viewable comments; false for non-viewable; null for both
      *
-     * @return DAOResultFactory
+     * @return DAOResultFactory<SubmissionComment>
      */
     public function getReviewerCommentsByReviewerId($submissionId, $reviewerId = null, $reviewId = null, $viewable = null)
     {
@@ -134,7 +134,7 @@ class SubmissionCommentDAO extends \PKP\db\DAO
     /**
      * Construct a new \PKP\core\DataObject.
      *
-     * @return DataObject
+     * @return SubmissionComment
      */
     public function newDataObject()
     {
@@ -171,9 +171,9 @@ class SubmissionCommentDAO extends \PKP\db\DAO
     /**
      * inserts a new submission comment into the submission_comments table
      *
-     * @param SubmissionNote $submissionComment object
+     * @param SubmissionComment $submissionComment object
      *
-     * @return Submission note ID int
+     * @return int note ID int
      */
     public function insertObject($submissionComment)
     {

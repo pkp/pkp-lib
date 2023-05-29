@@ -17,10 +17,12 @@
 namespace PKP\services;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\services\queryBuilders\ContextQueryBuilder;
+use Illuminate\Contracts\Validation\Validator;
 use PKP\announcement\AnnouncementTypeDAO;
 use PKP\config\Config;
 use PKP\context\Context;
@@ -29,9 +31,11 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
+use PKP\db\DAOResultIterator;
 use PKP\db\DBResultRange;
 use PKP\facades\Locale;
 use PKP\file\FileManager;
+use PKP\file\TemporaryFile;
 use PKP\file\TemporaryFileManager;
 use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\navigationMenu\NavigationMenuItemDAO;
@@ -40,6 +44,7 @@ use PKP\plugins\PluginRegistry;
 use PKP\plugins\PluginSettingsDAO;
 use PKP\reviewForm\ReviewFormDAO;
 use PKP\security\Role;
+use PKP\security\RoleDAO;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
@@ -115,7 +120,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      * 		@option int offset
      * }
      *
-     * @return Iterator
+     * @return DAOResultIterator<Context>
      */
     public function getMany($args = [])
     {
@@ -412,7 +417,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             $user = Application::get()->getRequest()->getUser();
             $validator->after(function ($validator) use ($user) {
                 $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-                if (!$roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_ID_NONE, $user->getId(), Role::ROLE_ID_SITE_ADMIN)) {
+                if (!$roleDao->userHasRole(PKPApplication::CONTEXT_ID_NONE, $user->getId(), Role::ROLE_ID_SITE_ADMIN)) {
                     $validator->errors()->add('disableBulkEmailUserGroups', __('admin.settings.disableBulkEmailRoles.adminOnly'));
                 }
             });

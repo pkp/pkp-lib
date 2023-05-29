@@ -18,6 +18,7 @@ namespace PKP\API\v1\site;
 use APP\core\Application;
 use APP\core\Services;
 use APP\template\TemplateManager;
+use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
 use PKP\plugins\PluginRegistry;
 use PKP\plugins\ThemePlugin;
@@ -26,6 +27,7 @@ use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use Slim\Http\Request as SlimRequest;
 
 class PKPSiteHandler extends APIHandler
 {
@@ -88,11 +90,11 @@ class PKPSiteHandler extends APIHandler
     /**
      * Get the site
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function get($slimRequest, $response, $args)
     {
@@ -109,17 +111,18 @@ class PKPSiteHandler extends APIHandler
     /**
      * Get the active theme on the site
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function getTheme($slimRequest, $response, $args)
     {
         $site = $this->getRequest()->getSite();
-
+        /** @var ThemePlugin[] */
         $allThemes = PluginRegistry::loadCategory('themes', true);
+        /** @var ?ThemePlugin */
         $activeTheme = null;
         foreach ($allThemes as $theme) {
             if ($site->getData('themePluginPath') === $theme->getDirName()) {
@@ -145,11 +148,11 @@ class PKPSiteHandler extends APIHandler
     /**
      * Edit the site
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function edit($slimRequest, $response, $args)
     {
@@ -177,11 +180,11 @@ class PKPSiteHandler extends APIHandler
     /**
      * Edit the active theme and theme options on the site
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function editTheme($slimRequest, $response, $args)
     {

@@ -37,7 +37,7 @@ class PKPAnnouncementForm extends FormComponent
      *
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
-     * @param Context $announcementContext The context to get supported announcement types
+     * @param \PKP\context\Context $announcementContext The context to get supported announcement types
      */
     public function __construct($action, $locales, $announcementContext)
     {

@@ -61,7 +61,7 @@ class Mailer extends IlluminateMailer
     /**
      * Renders email content into HTML string
      *
-     * @param string $view
+     * @param string|object $view
      * @param array $data variable => value, 'message' is reserved for the Laravel's Swift Message (Illuminate\Mail\Message)
      *
      * @throws Exception

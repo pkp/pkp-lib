@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\settings\roles;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\feature\PagingFeature;
@@ -24,14 +25,15 @@ use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\settings\roles\form\UserGroupForm;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
-
 use PKP\security\Role;
+use PKP\security\RoleDAO;
 use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\UserGroup;
 use PKP\workflow\WorkflowStageDAO;

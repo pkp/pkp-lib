@@ -353,7 +353,7 @@ class Identity extends \PKP\core\DataObject
      *
      * @param string $locale
      *
-     * @return string
+     * @return string|array<string,string>
      */
     public function getBiography($locale)
     {

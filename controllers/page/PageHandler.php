@@ -19,6 +19,8 @@ namespace PKP\controllers\page;
 
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PKPSiteAccessPolicy;

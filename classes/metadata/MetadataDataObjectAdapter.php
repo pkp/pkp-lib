@@ -25,6 +25,8 @@
 namespace PKP\metadata;
 
 use PKP\core\DataObject;
+use PKP\filter\ClassTypeDescription;
+use PKP\filter\FilterGroup;
 use PKP\filter\PersistableFilter;
 
 class MetadataDataObjectAdapter extends PersistableFilter
@@ -87,13 +89,13 @@ class MetadataDataObjectAdapter extends PersistableFilter
         if ($mode == self::METADATA_DOA_INJECTION_MODE) {
             // We are in meta-data injection mode (or both input and output are meta-data descriptions).
             $metadataTypeDescription = & $inputType; /** @var MetadataTypeDescription $metadataTypeDescription */
-            assert($outputType instanceof \PKP\filter\ClassTypeDescription);
+            assert($outputType instanceof ClassTypeDescription);
             $dataObjectTypeDescription = & $outputType; /** @var ClassTypeDescription $dataObjectTypeDescription */
         } else {
             // We are in meta-data extraction mode.
             assert($outputType instanceof \PKP\metadata\MetadataTypeDescription);
             $metadataTypeDescription = & $outputType;
-            assert($inputType instanceof \PKP\filter\ClassTypeDescription);
+            assert($inputType instanceof ClassTypeDescription);
             $dataObjectTypeDescription = & $inputType;
         }
 

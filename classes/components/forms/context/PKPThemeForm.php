@@ -25,6 +25,7 @@ use APP\core\Application;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FormComponent;
 use PKP\plugins\PluginRegistry;
+use PKP\plugins\ThemePlugin;
 
 define('FORM_THEME', 'theme');
 
@@ -44,7 +45,7 @@ class PKPThemeForm extends FormComponent
      *
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
-     * @param Context|null $context Journal/Press to change settings for, or null
+     * @param \PKP\context\Context|null $context Journal/Press to change settings for, or null
      *  to change settings for the Site
      */
     public function __construct($action, $locales, $context = null)
@@ -61,6 +62,7 @@ class PKPThemeForm extends FormComponent
         }
 
         $themes = $themeOptions = [];
+        /** @var ThemePlugin[] */
         $plugins = PluginRegistry::loadCategory('themes', true);
         foreach ($plugins as $plugin) {
             $themes[] = [
@@ -102,7 +104,7 @@ class PKPThemeForm extends FormComponent
      * selected
      *
      * @param string $theme The theme's base plugin path
-     * @param Field $field
+     * @param \PKP\components\forms\Field $field
      * @param array $position [
      *
      *  @option string One of `before` or `after`

@@ -22,7 +22,6 @@ use DateTime;
 use Exception;
 use PKP\config\Config;
 use PKP\context\Context;
-
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
@@ -39,7 +38,7 @@ abstract class ImportExportPlugin extends Plugin
     /** @var PKPImportExportDeployment The deployment that processes import/export operations */
     public $_childDeployment = null;
 
-    /** @var Request Request made available for plugin URL generation */
+    /** @var \APP\core\Request Request made available for plugin URL generation */
     public $_request;
 
     protected const EXPORT_FILE_DATE_PART_FORMAT = 'Ymd-His';
@@ -126,7 +125,7 @@ abstract class ImportExportPlugin extends Plugin
      * @see calling conventions at http://www.smarty.net/docsv2/en/api.register.function.tpl
      *
      * @param array $params
-     * @param Smarty $smarty
+     * @param \Smarty $smarty
      *
      * @return string
      */
@@ -314,7 +313,7 @@ abstract class ImportExportPlugin extends Plugin
      * Gets template result for the export process
      *
      * @param PKPNativeImportExportDeployment $deployment
-     * @param PKPTemplateManager $templateMgr
+     * @param \PKP\template\PKPTemplateManager $templateMgr
      * @param string $exportFileName
      *
      * @return string
@@ -353,7 +352,7 @@ abstract class ImportExportPlugin extends Plugin
      * @param string $filter
      * @param string $xmlString
      * @param PKPNativeImportExportDeployment $deployment
-     * @param PKPTemplateManager $templateMgr
+     * @param \PKP\template\PKPTemplateManager $templateMgr
      *
      * @return string
      */
@@ -382,13 +381,13 @@ abstract class ImportExportPlugin extends Plugin
      * Gets the imported file path
      *
      * @param int $temporaryFileId
-     * @param User $user
+     * @param \PKP\user\User $user
      *
      * @return string
      */
     public function getImportedFilePath($temporaryFileId, $user)
     {
-        $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $temporaryFileDao */
+        $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var \PKP\file\TemporaryFileDAO $temporaryFileDao */
 
         $temporaryFile = $temporaryFileDao->getTemporaryFile($temporaryFileId, $user->getId());
         if (!$temporaryFile) {

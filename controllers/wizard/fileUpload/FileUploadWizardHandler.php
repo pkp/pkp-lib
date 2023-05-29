@@ -18,6 +18,7 @@
 namespace PKP\controllers\wizard\fileUpload;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
@@ -35,7 +36,6 @@ use PKP\security\authorization\ReviewStageAccessPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
-
 use PKP\security\Validation;
 use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;

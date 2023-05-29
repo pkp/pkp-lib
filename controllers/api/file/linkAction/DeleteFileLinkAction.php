@@ -15,7 +15,9 @@
 
 namespace PKP\controllers\api\file\linkAction;
 
+use APP\core\Request;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
+use PKP\submissionFile\SubmissionFile;
 
 class DeleteFileLinkAction extends FileLinkAction
 {

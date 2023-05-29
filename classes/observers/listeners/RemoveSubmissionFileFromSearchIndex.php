@@ -20,7 +20,6 @@ namespace PKP\observers\listeners;
 
 use Illuminate\Events\Dispatcher;
 use PKP\jobs\submissions\RemoveSubmissionFileFromSearchIndexJob;
-
 use PKP\observers\events\SubmissionFileDeleted;
 
 class RemoveSubmissionFileFromSearchIndex

@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Schema;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
 use PKP\context\Context;
+use PKP\context\LibraryFile;
 use PKP\core\Core;
 use PKP\core\PKPContainer;
 use PKP\core\PKPApplication;
@@ -36,15 +37,17 @@ use PKP\db\XMLDAO;
 use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\filter\FilterHelper;
+use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
+use PKP\site\SiteDAO;
 use PKP\site\Version;
-
 use PKP\site\VersionCheck;
 use PKP\site\VersionDAO;
 use PKP\xml\PKPXMLParser;
+use PKP\xml\XMLNode;
 
 class Installer
 {
@@ -100,7 +103,7 @@ class Installer
     /** @var string the error message, if an installation error has occurred */
     public $errorMsg;
 
-    /** @var Logger logging object */
+    /** @var object logging object */
     public $logger;
 
     /** @var array List of migrations executed already */
@@ -546,7 +549,7 @@ class Installer
     /**
      * Update the specified configuration parameters.
      *
-     * @param arrays $configParams
+     * @param array $configParams
      *
      * @return bool
      */
@@ -699,7 +702,7 @@ class Installer
     /**
      * Set the logger for this installer.
      *
-     * @param Logger $logger
+     * @param object $logger
      */
     public function setLogger($logger)
     {
@@ -765,7 +768,7 @@ class Installer
 
         if (empty($locales)) {
             $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
-            $site = $siteDao->getSite(); /** @var Site $site */
+            $site = $siteDao->getSite(); /** @var \PKP\site\Site $site */
             $locales = $site->getInstalledLocales();
         }
 
@@ -860,13 +863,13 @@ class Installer
 
         // Are there any filter groups to be installed?
         $filterGroupsNode = $tree->getChildByName('filterGroups');
-        if ($filterGroupsNode instanceof \PKP\xml\XMLNode) {
+        if ($filterGroupsNode instanceof XMLNode) {
             $filterHelper->installFilterGroups($filterGroupsNode);
         }
 
         // Are there any filters to be installed?
         $filtersNode = $tree->getChildByName('filters');
-        if ($filtersNode instanceof \PKP\xml\XMLNode) {
+        if ($filtersNode instanceof XMLNode) {
             foreach ($filtersNode->getChildren() as $filterNode) { /** @var XMLNode $filterNode */
                 $filterHelper->configureFilter($filterNode);
             }
@@ -983,7 +986,7 @@ class Installer
             $navigationMenuDao->installSettings($context->getId(), 'registry/navigationMenus.xml');
         }
 
-        $navigationMenuDao->installSettings(\PKP\core\PKPApplication::CONTEXT_ID_NONE, 'registry/navigationMenus.xml');
+        $navigationMenuDao->installSettings(PKPApplication::CONTEXT_ID_NONE, 'registry/navigationMenus.xml');
 
         return true;
     }
@@ -1046,7 +1049,7 @@ class Installer
             return "'" . preg_replace('/[^A-Za-z0-9]/', '', $name) . "'";
         }, array_keys($plugins));
 
-        $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
+        $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var \PKP\plugins\PluginSettingsDAO $pluginSettingsDao */
         $result = $pluginSettingsDao->retrieve(
             'SELECT plugin_name, context_id, setting_value FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames) . ') AND setting_name=\'context\';'
         );
@@ -1192,7 +1195,7 @@ class Installer
     {
         $roleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
 
-        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
+        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var \PKP\notification\NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         for ($contexts = Application::get()->getContextDAO()->getAll(true); $context = $contexts->next();) {
             $users = Repo::user()->getCollector()
                 ->filterByContextIds([$context->getId()])
@@ -1228,8 +1231,9 @@ class Installer
     public function fixLibraryFiles()
     {
         // Fetch all library files (no method currently in LibraryFileDAO for this)
-        $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */
+        $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var \PKP\context\LibraryFileDAO $libraryFileDao */
         $result = $libraryFileDao->retrieve('SELECT * FROM library_files');
+        /** @var DAOResultFactory<LibraryFile> */
         $libraryFiles = new DAOResultFactory($result, $libraryFileDao, '_fromRow', ['id']);
         $wrongFiles = [];
         while ($libraryFile = $libraryFiles->next()) {

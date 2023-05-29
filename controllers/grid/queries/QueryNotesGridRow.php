@@ -19,6 +19,7 @@ namespace PKP\controllers\grid\queries;
 use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
+use PKP\query\Query;
 
 class QueryNotesGridRow extends GridRow
 {

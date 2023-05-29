@@ -16,12 +16,16 @@
 
 namespace PKP\db;
 
+/**
+ * @template T of \PKP\core\DataObject
+ * @implements \Iterator<int,T>
+ */
 class DAOResultIterator implements \Iterator, \Countable
 {
-    /** @var DAOResultFactory */
+    /** @var DAOResultFactory<T> */
     public $_resultFactory;
 
-    /** @var \PKP\core\DataObject Current return value data object. */
+    /** @var T Current return value data object. */
     public $_current = null;
 
     /** @var int $_i 0-based index of current data object. */
@@ -29,6 +33,7 @@ class DAOResultIterator implements \Iterator, \Countable
 
     /**
      * Create an Iterator for the specified DAOResultFactory.
+     * @param DAOResultFactory<T> $resultFactory
      */
     public function __construct($resultFactory)
     {
@@ -37,7 +42,7 @@ class DAOResultIterator implements \Iterator, \Countable
     }
 
     /**
-     * @copydoc Iterator::current
+     * @copydoc \Iterator::current
      */
     public function current(): mixed
     {
@@ -60,7 +65,7 @@ class DAOResultIterator implements \Iterator, \Countable
     }
 
     /**
-     * @copydoc Iterator::next()
+     * @copydoc \Iterator::next()
      */
     public function next(): void
     {
@@ -81,7 +86,7 @@ class DAOResultIterator implements \Iterator, \Countable
     }
 
     /**
-     * @copydoc Iterator::valid()
+     * @copydoc \Iterator::valid()
      */
     public function valid(): bool
     {
@@ -89,7 +94,7 @@ class DAOResultIterator implements \Iterator, \Countable
     }
 
     /**
-     * @copydoc Countable::count()
+     * @copydoc \Countable::count()
      */
     public function count(): int
     {

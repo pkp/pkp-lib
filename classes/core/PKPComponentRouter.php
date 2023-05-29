@@ -47,6 +47,10 @@
 
 namespace PKP\core;
 
+use Exception;
+use PKP\config\Config;
+use PKP\plugins\Hook;
+
 // The string to be found in the URL to mark this request as a component request
 define('COMPONENT_ROUTER_PATHINFO_MARKER', '$$$call$$$');
 
@@ -61,11 +65,6 @@ define('COMPONENT_ROUTER_PARTS_MAXDEPTH', 9);
 // handler class name.
 define('COMPONENT_ROUTER_PARTS_MAXLENGTH', 50);
 define('COMPONENT_ROUTER_PARTS_MINLENGTH', 2);
-
-use Exception;
-
-use PKP\config\Config;
-use PKP\plugins\Hook;
 
 class PKPComponentRouter extends PKPRouter
 {
@@ -178,7 +177,7 @@ class PKPComponentRouter extends PKPRouter
      *
      * @param PKPRequest $request the request to be routed
      *
-     * @return callable an array with the handler instance
+     * @return callable|array|null an array with the handler instance
      *  and the handler operation to be called by call_user_func().
      */
     public function &getRpcServiceEndpoint($request)
@@ -412,7 +411,7 @@ class PKPComponentRouter extends PKPRouter
      *
      * @param PKPRequest $request the request to be routed
      *
-     * @return array a string array with the RPC service endpoint
+     * @return ?array a string array with the RPC service endpoint
      *  parts as values.
      */
     public function _getValidatedServiceEndpointParts($request)
@@ -448,7 +447,7 @@ class PKPComponentRouter extends PKPRouter
      *
      * @param PKPRequest $request the request to be routed
      *
-     * @return array an array of (non-validated) service endpoint
+     * @return ?array an array of (non-validated) service endpoint
      *  parts or null if the request is not an RPC request.
      */
     public function _retrieveServiceEndpointParts($request)
@@ -486,7 +485,7 @@ class PKPComponentRouter extends PKPRouter
      *
      * @param array $rpcServiceEndpointParts
      *
-     * @return array the validated service endpoint parts or null if validation
+     * @return ?array the validated service endpoint parts or null if validation
      *  does not succeed.
      */
     public function _validateServiceEndpointParts($rpcServiceEndpointParts)

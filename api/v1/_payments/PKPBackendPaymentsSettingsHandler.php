@@ -26,7 +26,6 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-
 use PKP\services\interfaces\EntityWriteInterface;
 
 class PKPBackendPaymentsSettingsHandler extends APIHandler
@@ -72,10 +71,10 @@ class PKPBackendPaymentsSettingsHandler extends APIHandler
     /**
      * Receive requests to edit the payments form
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param \Slim\Http\Request $slimRequest Slim request object
+     * @param \PKP\core\APIResponse $response object
      *
-     * @return Response
+     * @return \PKP\core\APIResponse
      */
     public function edit($slimRequest, $response, $args)
     {

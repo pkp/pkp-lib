@@ -19,6 +19,8 @@
 
 namespace PKP\payment;
 
+use Exception;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
 
 abstract class PaymentManager
@@ -66,7 +68,7 @@ abstract class PaymentManager
     /**
      * Abstract method for fetching the payment plugin
      *
-     * @return object
+     * @return \PKP\plugins\PaymethodPlugin
      */
     abstract public function getPaymentPlugin();
 
@@ -89,7 +91,7 @@ abstract class PaymentManager
      *
      * @param QueuedPayment $queuedPayment
      *
-     * @return Form
+     * @return \PKP\form\Form
      */
     public function getPaymentForm($queuedPayment)
     {
@@ -102,6 +104,7 @@ abstract class PaymentManager
 
     /**
      * Call the payment plugin's settings display method
+     * @todo Not working and not being used, probably can be removed
      *
      * @return bool
      */
@@ -131,7 +134,7 @@ abstract class PaymentManager
     /**
      * Fulfill a queued payment
      *
-     * @param PKPRequest $request
+     * @param \PKP\core\PKPRequest $request
      * @param QueuedPayment $queuedPayment
      *
      * @return bool success/failure

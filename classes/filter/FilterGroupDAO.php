@@ -191,7 +191,7 @@ class FilterGroupDAO extends \PKP\db\DAO
     /**
      * Construct and return a new data object
      *
-     * @return DataObject
+     * @return FilterGroup
      */
     public function newDataObject()
     {

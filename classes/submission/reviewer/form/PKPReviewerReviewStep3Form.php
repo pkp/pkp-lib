@@ -30,13 +30,20 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
 use PKP\mail\mailables\ReviewCompleteNotifyEditors;
+use PKP\notification\NotificationDAO;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
+use PKP\reviewForm\ReviewFormDAO;
 use PKP\reviewForm\ReviewFormElement;
+use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponse;
+use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\SubmissionComment;
+use PKP\submission\SubmissionCommentDAO;
 
 class PKPReviewerReviewStep3Form extends ReviewerReviewForm
 {

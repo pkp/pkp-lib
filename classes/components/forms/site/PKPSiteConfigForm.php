@@ -35,7 +35,7 @@ class PKPSiteConfigForm extends FormComponent
      *
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
-     * @param Site $site
+     * @param \PKP\site\Site $site
      */
     public function __construct($action, $locales, $site)
     {

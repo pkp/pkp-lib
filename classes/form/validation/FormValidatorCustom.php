@@ -33,7 +33,7 @@ class FormValidatorCustom extends FormValidator
     /** @var array If present, additional arguments to pass to the getMessage translation function
      * The user function is passed the form data as its first argument and $additionalArguments, if set, as the remaining arguments. This function must return a boolean value.
      *
-     * @param Form $form the associated form
+     * @param \PKP\form\Form $form the associated form
      * @param string $field the name of the associated field
      * @param string $type the type of check, either "required" or "optional"
      * @param string $message the error message for validation failures (i18n key)

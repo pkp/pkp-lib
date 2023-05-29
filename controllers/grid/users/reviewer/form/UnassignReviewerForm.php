@@ -25,9 +25,11 @@ use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewerUnassign;
+use PKP\notification\NotificationDAO;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class UnassignReviewerForm extends ReviewerNotifyActionForm
 {

@@ -27,7 +27,6 @@ use Exception;
 use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\security\Role;
-use PKP\security\Validation;
 
 class PKPAuthorForm extends Form
 {

@@ -285,8 +285,8 @@ class ValidatorFactory
      * Required props that are also multilingual will only be required in the
      * primary locale.
      *
-     * @param Illuminate\Validation\Validator $validator
-     * @param DataObject $object The object being validated or null if adding an object
+     * @param Validator $validator
+     * @param ?mixed $object The object being validated or null if adding an object
      * @param array $requiredProps List of prop names
      * @param array $multilingualProps List of prop names
      * @param array $allowedLocales List of locale codes
@@ -295,6 +295,7 @@ class ValidatorFactory
     public static function required($validator, $object, $requiredProps, $multilingualProps, $allowedLocales, $primaryLocale)
     {
         $validator->after(function ($validator) use ($object, $requiredProps, $multilingualProps, $allowedLocales, $primaryLocale) {
+            /** @var LocaleMetadata */
             $locale = Arr::first(Locale::getLocales(), fn (LocaleMetadata $locale) => $locale->locale === $primaryLocale);
             $primaryLocaleName = $locale ? $locale->getDisplayName() : $primaryLocale;
             $props = $validator->getData();
@@ -342,7 +343,7 @@ class ValidatorFactory
      * A wrapper method that calls $validator->after to check for data from
      * locales that are not allowed
      *
-     * @param Illuminate\Validation\Validator $validator
+     * @param Validator $validator
      * @param array $multilingualProps List of prop names
      * @param array $allowedLocales List of locale codes
      */
@@ -372,7 +373,7 @@ class ValidatorFactory
      * A wrapper method that validates the temporaryFileId of new file uploads
      * when an object is edited
      *
-     * @param Illuminate\Validation\Validator $validator
+     * @param Validator $validator
      * @param array $uploadProps List of prop names that may include a
      *  a temporaryFileId
      * @param array $multilingualUploadProps List of $uploadProps which are

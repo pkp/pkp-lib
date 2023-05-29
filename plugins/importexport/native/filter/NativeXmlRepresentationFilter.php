@@ -18,6 +18,8 @@ namespace PKP\plugins\importexport\native\filter;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\publication\Publication;
+use PKP\filter\FilterGroup;
 use PKP\plugins\PluginRegistry;
 use PKP\submission\Representation;
 
@@ -47,7 +49,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
         $context = $deployment->getContext();
 
         $publication = $deployment->getPublication();
-        assert($publication instanceof \PKP\publication\PKPPublication);
+        assert($publication instanceof Publication);
 
         // Create the data object
         $representationDao = Application::getRepresentationDAO();

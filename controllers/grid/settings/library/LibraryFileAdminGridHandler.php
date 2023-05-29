@@ -16,6 +16,7 @@
 
 namespace PKP\controllers\grid\settings\library;
 
+use PKP\context\Context;
 use PKP\controllers\grid\files\LibraryFileGridHandler;
 use PKP\controllers\grid\settings\library\form\EditLibraryFileForm;
 use PKP\controllers\grid\settings\library\form\NewLibraryFileForm;

@@ -26,12 +26,16 @@ use PKP\controllers\grid\settings\reviewForms\form\PreviewReviewForm;
 use PKP\controllers\grid\settings\reviewForms\form\ReviewFormForm;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\reviewForm\ReviewFormDAO;
+use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class ReviewFormGridHandler extends GridHandler
 {
@@ -155,7 +159,7 @@ class ReviewFormGridHandler extends GridHandler
     /**
      * @see GridHandler::getRowInstance()
      *
-     * @return UserGridRow
+     * @return ReviewFormGridRow
      */
     protected function getRowInstance()
     {

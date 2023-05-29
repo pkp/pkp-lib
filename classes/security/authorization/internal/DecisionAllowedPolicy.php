@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\user\User;
 
 class DecisionAllowedPolicy extends AuthorizationPolicy

@@ -18,6 +18,7 @@
 namespace APP\pages\preprints;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\security\authorization\OpsServerMustPublishPolicy;
@@ -50,7 +51,7 @@ class SectionsHandler extends Handler
      *		@option string page number
      * ]
      *
-     * @param \PKP\core\PKPRequest $request
+     * @param Request $request
      *
      * @return null|\PKP\core\JSONMessage
      */

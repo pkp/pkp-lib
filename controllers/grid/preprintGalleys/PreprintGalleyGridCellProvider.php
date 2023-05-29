@@ -17,9 +17,13 @@
 namespace APP\controllers\grid\preprintGalleys;
 
 use APP\facades\Repo;
+use APP\publication\Publication;
+use APP\submission\Submission;
 use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridHandler;
+use PKP\controllers\grid\GridRow;
+use PKP\galley\Galley;
 
 class PreprintGalleyGridCellProvider extends DataObjectGridCellProvider
 {
@@ -55,7 +59,7 @@ class PreprintGalleyGridCellProvider extends DataObjectGridCellProvider
         $element = $row->getData();
         $columnId = $column->getId();
         assert(is_a($element, 'DataObject') && !empty($columnId));
-
+        /** @var Galley $element */
         switch ($columnId) {
             case 'label':
                 return [

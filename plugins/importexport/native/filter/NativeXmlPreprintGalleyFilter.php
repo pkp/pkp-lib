@@ -18,6 +18,7 @@ namespace APP\plugins\importexport\native\filter;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use DOMElement;
 use PKP\galley\Galley;
 
 class NativeXmlPreprintGalleyFilter extends \PKP\plugins\importexport\native\filter\NativeXmlRepresentationFilter
@@ -50,7 +51,7 @@ class NativeXmlPreprintGalleyFilter extends \PKP\plugins\importexport\native\fil
      *
      * @param DOMElement $node
      *
-     * @return array Array of Galley objects
+     * @return Galley Galley object
      */
     public function handleElement($node)
     {

@@ -14,7 +14,7 @@
 namespace APP\submission;
 
 use PKP\db\DAOResultFactory;
-use PKP\db\Generator;
+use PKP\db\DBResultRange;
 use PKP\identity\Identity;
 use PKP\observers\events\SubmissionDeleted;
 
@@ -32,15 +32,15 @@ class DAO extends \PKP\submission\DAO
     /**
      * Get all published submissions (eventually with a pubId assigned and) matching the specified settings.
      *
-     * @param null|mixed $pubIdType
-     * @param null|mixed $title
-     * @param null|mixed $author
-     * @param null|mixed $issueId
-     * @param null|mixed $pubIdSettingName
-     * @param null|mixed $pubIdSettingValue
-     * @param null|mixed $rangeInfo
+     * @param ?string $pubIdType
+     * @param ?string $title
+     * @param ?string $author
+     * @param ?int $issueId
+     * @param ?string $pubIdSettingName
+     * @param ?string $pubIdSettingValue
+     * @param ?DBResultRange $rangeInfo
      *
-     * @return Generator
+     * @return DAOResultFactory<Submission>
      */
     public function getExportable(
         $contextId,

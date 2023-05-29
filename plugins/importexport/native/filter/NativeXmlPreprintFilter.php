@@ -17,6 +17,7 @@
 namespace APP\plugins\importexport\native\filter;
 
 use APP\core\Application;
+use PKP\filter\Filter;
 
 class NativeXmlPreprintFilter extends \PKP\plugins\importexport\native\filter\NativeXmlSubmissionFilter
 {

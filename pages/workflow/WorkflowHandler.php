@@ -139,7 +139,7 @@ class WorkflowHandler extends PKPWorkflowHandler
      *
      * @param int $stageId
      *
-     * @return int
+     * @return ?int
      */
     protected function getEditorAssignmentNotificationTypeByStageId($stageId)
     {

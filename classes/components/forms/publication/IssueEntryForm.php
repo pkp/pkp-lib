@@ -16,6 +16,8 @@
 namespace APP\components\forms\publication;
 
 use APP\facades\Repo;
+use APP\publication\Publication;
+use APP\server\Server;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
@@ -38,7 +40,7 @@ class IssueEntryForm extends FormComponent
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
      * @param Publication $publication The publication to change settings for
-     * @param Context $publicationContext The context of the publication
+     * @param Server $publicationContext The context of the publication
      * @param string $baseUrl Site's base URL. Used for image previews.
      * @param string $temporaryFileApiUrl URL to upload files to
      */

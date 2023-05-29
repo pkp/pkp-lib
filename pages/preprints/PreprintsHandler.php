@@ -16,6 +16,7 @@
 
 namespace APP\pages\preprints;
 
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\security\authorization\OpsServerMustPublishPolicy;
@@ -43,7 +44,7 @@ class PreprintsHandler extends Handler
      * Display the preprint archive listings
      *
      * @param array $args
-     * @param \PKP\core\PKPRequest $request
+     * @param Request $request
      *
      * @return null|\PKP\core\JSONMessage
      */

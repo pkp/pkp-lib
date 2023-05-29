@@ -21,7 +21,6 @@ namespace APP\template;
 use APP\core\Application;
 use APP\file\PublicFileManager;
 use APP\notification\Notification;
-use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -36,7 +35,7 @@ class TemplateManager extends PKPTemplateManager
     /**
      * Initialize template engine and assign basic template variables.
      *
-     * @param PKPRequest $request
+     * @param \APP\core\Request $request
      */
     public function initialize($request)
     {
@@ -49,7 +48,7 @@ class TemplateManager extends PKPTemplateManager
              * installer pages).
              */
 
-            $context = $request->getContext(); /** @var Context $context */
+            $context = $request->getContext();
             $site = $request->getSite(); /** @var Site $site */
 
             $publicFileManager = new PublicFileManager();

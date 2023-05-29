@@ -21,20 +21,26 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use APP\server\Server;
 use APP\server\ServerDAO;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\context\Context;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\db\SchemaDAO;
 use PKP\file\FileManager;
-
+use PKP\filter\FilterDAO;
+use PKP\form\Form;
+use PKP\galley\Galley;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\NullAction;
 use PKP\plugins\Hook;
+use PKP\plugins\importexport\PKPImportExportDeployment;
 use PKP\plugins\ImportExportPlugin;
 use PKP\plugins\PluginRegistry;
 use PKP\submission\PKPSubmission;
+use PKP\user\User;
 
 // The statuses.
 define('EXPORT_STATUS_ANY', '');
@@ -297,7 +303,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      * This must be implemented in the subclasses, if the action is supported.
      *
      * @param mixed $objects Array of or single published submission or galley
-     * @param Context $context
+     * @param Server $context
      * @param string $filename Export XML filename
      *
      * @return bool Whether the XML document has been registered
@@ -308,7 +314,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      * Get detailed message of the object status i.e. failure messages.
      * Parameters needed have to be in the request object.
      *
-     * @param PKPRequest $request
+     * @param Request $request
      *
      * @return string Preformatted text that will be displayed in a div element in the modal
      */
@@ -368,7 +374,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Get actions.
      *
-     * @param Context $context
+     * @param Server $context
      *
      * @return array
      */
@@ -407,7 +413,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      *
      * @param mixed $objects Array of or single published submission or galley
      * @param string $filter
-     * @param Context $context
+     * @param Server $context
      * @param bool $noValidation If set to true no XML validation will be done
      * @param null|mixed $outputErrors Error messages can be added here to handle error display external to displayXMLValidationErrors()
      *
@@ -443,7 +449,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Mark selected submissions as registered.
      *
-     * @param Context $context
+     * @param Server $context
      * @param array $objects Array of published submissions or galleys
      */
     public function markRegistered($context, $objects)
@@ -545,7 +551,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Retrieve all unregistered preprints.
      *
-     * @param Context $context
+     * @param Server $context
      *
      * @return array
      */
@@ -566,7 +572,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Check whether we are in test mode.
      *
-     * @param Context $context
+     * @param Server $context
      *
      * @return bool
      */
@@ -678,7 +684,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      *
      * @param string $scriptName The name of the command-line script (displayed as usage info)
      * @param string $command (export or register)
-     * @param Context $context
+     * @param Server $context
      * @param string $outputFile Path to the file where the exported XML should be saved
      * @param array $objects Objects to be exported or registered
      * @param string $filter Filter to use
@@ -720,7 +726,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      * Get published submissions from submission IDs.
      *
      * @param array $submissionIds
-     * @param Context $context
+     * @param Server $context
      *
      * @return array
      */
@@ -742,7 +748,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      * Get preprint galleys from galley IDs.
      *
      * @param array $galleyIds
-     * @param Context $context
+     * @param Server $context
      *
      * @return array
      */
@@ -784,7 +790,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Instantiate the export deployment.
      *
-     * @param Context $context
+     * @param Server $context
      *
      * @return PKPImportExportDeployment
      */
@@ -798,9 +804,11 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Instantiate the settings form.
      *
-     * @param Context $context
+     * @deprecated 3.4.0 This method does not work
      *
-     * @return CrossrefSettingsForm
+     * @param Server $context
+     *
+     * @return Form
      */
     public function _instantiateSettingsForm($context)
     {

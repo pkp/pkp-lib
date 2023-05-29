@@ -16,6 +16,7 @@
 
 namespace APP\pages\user;
 
+use APP\server\Server;
 use PKP\pages\user\PKPUserHandler;
 
 class UserHandler extends PKPUserHandler
@@ -23,7 +24,7 @@ class UserHandler extends PKPUserHandler
     /**
      * Determine if the server's setup has been sufficiently completed.
      *
-     * @param Object $server
+     * @param Server $server
      *
      * @return bool True iff setup is incomplete
      */

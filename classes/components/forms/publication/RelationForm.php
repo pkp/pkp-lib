@@ -18,7 +18,6 @@ namespace APP\components\forms\publication;
 use APP\publication\Publication;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldText;
-
 use PKP\components\forms\FormComponent;
 
 define('FORM_ID_RELATION', 'relation');

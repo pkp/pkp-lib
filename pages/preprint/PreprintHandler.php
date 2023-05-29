@@ -18,6 +18,7 @@
 namespace APP\pages\preprint;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
@@ -25,6 +26,7 @@ use APP\observers\events\UsageEvent;
 use APP\security\authorization\OpsServerMustPublishPolicy;
 use APP\template\TemplateManager;
 use Firebase\JWT\JWT;
+use PKP\citation\CitationDAO;
 use PKP\config\Config;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -34,7 +36,6 @@ use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\submission\Genre;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
-
 use PKP\submissionFile\SubmissionFile;
 
 class PreprintHandler extends Handler
@@ -326,7 +327,7 @@ class PreprintHandler extends Handler
      * Download an preprint file
      *
      * @param array $args
-     * @param \PKP\core\PKPRequest $request
+     * @param Request $request
      */
     public function download($args, $request)
     {

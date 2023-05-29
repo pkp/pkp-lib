@@ -76,7 +76,7 @@ class PreflightCheckMigration extends \PKP\migration\upgrade\v3_4_0\PreflightChe
             }
 
             DB::table('sections')->where('review_form_id', '=', 0)->update(['review_form_id' => null]);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to {$fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');
             }

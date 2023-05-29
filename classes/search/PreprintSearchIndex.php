@@ -18,11 +18,13 @@ namespace APP\search;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\server\Server;
+use APP\server\ServerDAO;
+use APP\submission\Submission;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\search\SearchFileParser;
-
 use PKP\search\SubmissionSearch;
 use PKP\search\SubmissionSearchIndex;
 use PKP\submissionFile\SubmissionFile;
@@ -142,7 +144,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      * @see PreprintSearchIndex::submissionMetadataChanged() above for more
      * comments.
      *
-     * @param Preprint $preprint
+     * @param Submission $preprint
      */
     public function submissionFilesChanged($preprint)
     {
@@ -350,7 +352,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      *
      * @param int $preprintId
      * @param int $type
-     * @param string $text
+     * @param string|string[] $text
      * @param int $assocId optional
      */
     protected function _updateTextIndex($preprintId, $type, $text, $assocId = null)

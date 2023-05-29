@@ -16,7 +16,6 @@
 
 namespace APP\pages\stats;
 
-use APP\template\TemplateManager;
 use PKP\pages\stats\PKPStatsHandler;
 use PKP\plugins\Hook;
 

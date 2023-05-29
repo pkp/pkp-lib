@@ -16,6 +16,10 @@
 
 namespace APP\plugins\importexport\native\filter;
 
+use APP\submission\Submission;
+use DOMDocument;
+use DOMElement;
+
 class PreprintNativeXmlFilter extends \PKP\plugins\importexport\native\filter\SubmissionNativeXmlFilter
 {
     //

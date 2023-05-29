@@ -20,9 +20,12 @@ namespace APP\API\v1\submissions;
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
+use PKP\core\APIResponse;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
+use PKP\submission\GenreDAO;
+use Slim\Http\Request as SlimRequest;
 
 class SubmissionHandler extends \PKP\API\v1\submissions\PKPSubmissionHandler
 {
@@ -69,11 +72,11 @@ class SubmissionHandler extends \PKP\API\v1\submissions\PKPSubmissionHandler
     /**
      * Create relations for publications
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function relatePublication($slimRequest, $response, $args)
     {

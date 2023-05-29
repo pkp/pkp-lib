@@ -20,6 +20,7 @@ namespace APP\oai\ops;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\server\ServerDAO;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
 use PKP\galley\DAO;
@@ -147,7 +148,7 @@ class OAIDAO extends PKPOAIDAO
      * @param string $sectionSpec
      * @param int $restrictServerId
      *
-     * @return array (int, int)
+     * @return int[] (int, int)
      */
     public function getSetServerSectionId($serverSpec, $sectionSpec, $restrictServerId = null)
     {

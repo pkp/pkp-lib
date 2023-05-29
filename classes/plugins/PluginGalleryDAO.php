@@ -92,7 +92,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
         try {
             $response = $client->request(
                 'GET',
-                PLUGIN_GALLERY_XML_URL,
+                static::PLUGIN_GALLERY_XML_URL,
                 [
                     'query' => [
                         'application' => $application->getName(),

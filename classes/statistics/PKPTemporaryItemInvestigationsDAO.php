@@ -18,9 +18,10 @@ namespace PKP\statistics;
 
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
+use PKP\db\DAO;
 use PKP\db\DAORegistry;
 
-class PKPTemporaryItemInvestigationsDAO
+class PKPTemporaryItemInvestigationsDAO extends DAO
 {
     /**
      * The name of the table.

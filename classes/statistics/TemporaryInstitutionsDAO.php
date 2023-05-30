@@ -18,8 +18,9 @@ namespace PKP\statistics;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use PKP\db\DAO;
 
-class TemporaryInstitutionsDAO
+class TemporaryInstitutionsDAO extends DAO
 {
     /** The name of the table */
     public string $table = 'usage_stats_institution_temporary_records';

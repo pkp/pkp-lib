@@ -178,7 +178,7 @@ class DAO extends EntityDAO
                 $qb->where('s.context_id', '=', (int) $contextId);
             }
 
-            $row = $qb->get(['s.submission_id']);
+            $row = $qb->get(['s.submission_id'])->first();
 
             return $row
                 ? $this->get($row->submission_id)

@@ -87,7 +87,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                             if (isset($params['reviewAssignmentId'])) {
                                 $reviewAssignment = $reviewAssignmentDao->getById($params['reviewAssignmentId']);
                                 if ($reviewAssignment && $reviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN) {
-                                    $userName = $reviewAssignment->getUserFullName();
+                                    $userName = $element->getUserFullName();
                                 }
                             }
                         }

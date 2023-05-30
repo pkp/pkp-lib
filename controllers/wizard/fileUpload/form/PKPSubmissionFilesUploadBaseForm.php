@@ -97,8 +97,8 @@ class PKPSubmissionFilesUploadBaseForm extends Form
             }
 
             // Get the review round object.
-            /** @var ReviewRound */
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRound');
+            /** @var ReviewRoundDAO */
+            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
             $this->_reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
         } elseif (!$assocType && !$reviewRound) {
             $reviewRound = null;

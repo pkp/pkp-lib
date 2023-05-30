@@ -216,7 +216,7 @@ abstract class PKPStatisticsHelper
 
         if ($flush) {
             // Salt and thus hashed IPs changed, empty the cache.
-            $this->geoDataCacheMiss($this->geoDataCache, 'ID');
+            $this->geoDataCacheMiss($this->geoDataCache);
         }
 
         $cachedGeoData = $this->geoDataCache->getContents();
@@ -305,7 +305,7 @@ abstract class PKPStatisticsHelper
 
         if ($flush) {
             // Salt and thus hashed IPs changed, empty the cache.
-            $this->institutionDataCacheMiss($this->institutionDataCache, 'ID');
+            $this->institutionDataCacheMiss($this->institutionDataCache);
         }
 
         $cachedInstitutionData = $this->institutionDataCache->getContents();

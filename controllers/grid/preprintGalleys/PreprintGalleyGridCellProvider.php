@@ -65,7 +65,6 @@ class PreprintGalleyGridCellProvider extends DataObjectGridCellProvider
                 return [
                     'label' => !$element->getRemoteUrl() && $element->getData('submissionFileId') ? '' : $element->getLabel()
                 ];
-                break;
             default: assert(false);
         }
         return parent::getTemplateVarsFromRowColumn($row, $column);

@@ -274,7 +274,6 @@ class SectionGridHandler extends SetupGridHandler
         $activeSectionsCount = (!$section->getIsInactive()) ? $activeSectionsCount - 1 : $activeSectionsCount;
         if ($activeSectionsCount < 1) {
             return new JSONMessage(false, __('manager.sections.confirmDeactivateSection.error'));
-            return false;
         }
 
         Repo::section()->delete($section);

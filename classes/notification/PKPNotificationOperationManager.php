@@ -161,27 +161,28 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     {
         $blockedNotifications = $this->getUserBlockedNotifications($userId, $contextId);
 
-        if (!in_array($notificationType, $blockedNotifications)) {
-            $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-            $notification = $notificationDao->newDataObject(); /** @var Notification $notification */
-            $notification->setUserId((int) $userId);
-            $notification->setType((int) $notificationType);
-            $notification->setContextId((int) $contextId);
-            $notification->setAssocType((int) $assocType);
-            $notification->setAssocId((int) $assocId);
-            $notification->setLevel((int) $level);
-
-            $notificationId = $notificationDao->insertObject($notification);
-
-            if ($params) {
-                $notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /** @var NotificationSettingsDAO $notificationSettingsDao */
-                foreach ($params as $name => $value) {
-                    $notificationSettingsDao->updateNotificationSetting($notificationId, $name, $value);
-                }
-            }
-
-            return $notification;
+        if (in_array($notificationType, $blockedNotifications)) {
+            return null;
         }
+        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
+        $notification = $notificationDao->newDataObject(); /** @var Notification $notification */
+        $notification->setUserId((int) $userId);
+        $notification->setType((int) $notificationType);
+        $notification->setContextId((int) $contextId);
+        $notification->setAssocType((int) $assocType);
+        $notification->setAssocId((int) $assocId);
+        $notification->setLevel((int) $level);
+
+        $notificationId = $notificationDao->insertObject($notification);
+
+        if ($params) {
+            $notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /** @var NotificationSettingsDAO $notificationSettingsDao */
+            foreach ($params as $name => $value) {
+                $notificationSettingsDao->updateNotificationSetting($notificationId, $name, $value);
+            }
+        }
+
+        return $notification;
     }
 
     /**

@@ -79,11 +79,7 @@ abstract class PaymentManager
      */
     public function isConfigured()
     {
-        $paymentPlugin = $this->getPaymentPlugin();
-        if ($paymentPlugin !== null) {
-            return $paymentPlugin->isConfigured($this->_context);
-        }
-        return false;
+        return $this->getPaymentPlugin()?->isConfigured($this->_context) ?? false;
     }
 
     /**
@@ -96,10 +92,10 @@ abstract class PaymentManager
     public function getPaymentForm($queuedPayment)
     {
         $paymentPlugin = $this->getPaymentPlugin();
-        if ($paymentPlugin !== null && $paymentPlugin->isConfigured($this->_context)) {
-            return $paymentPlugin->getPaymentForm($this->_context, $queuedPayment);
+        if (!$paymentPlugin?->isConfigured($this->_context)) {
+            throw new Exception('Payment not configured');
         }
-        return false;
+        return $paymentPlugin->getPaymentForm($this->_context, $queuedPayment);
     }
 
     /**

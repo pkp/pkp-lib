@@ -138,7 +138,8 @@ class QueryDAO extends \PKP\db\DAO
             ->toArray();
 
         return collect(Application::get()->getApplicationStages())
-            ->mapWithKeys(fn ($stageId, $key) => [$stageId => $counts[$stageId] ?? 0]);
+            ->mapWithKeys(fn ($stageId, $key) => [$stageId => $counts[$stageId] ?? 0])
+            ->toArray();
     }
 
     /**

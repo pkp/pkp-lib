@@ -361,8 +361,6 @@ abstract class Repository
         }
 
         return $sentRevisions;
-
-        return true;
     }
 
     /**

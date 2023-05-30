@@ -48,7 +48,8 @@ class FileCache extends GenericCache
 
         // If the file couldn't be opened or if a lock couldn't be acquired, quit
         if (!($fp = @fopen($this->filename, 'r')) || !flock($fp, LOCK_SH)) {
-            return $this->cache = null;
+            $this->cache = null;
+            return;
         }
 
         // Reasoning: When the include below fails, it returns "false" and we have no way to determine if it's an error or a valid cache value

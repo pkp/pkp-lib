@@ -86,8 +86,6 @@ class ApiTokenDecodingMiddleware
                 $apiToken = json_decode($apiToken);
             }
             $this->_handler->setApiToken($apiToken);
-
-            return true;
         } catch (Exception $e) {
             /**
              * If JWT decoding fails, it throws an 'UnexpectedValueException'.
@@ -119,8 +117,7 @@ class ApiTokenDecodingMiddleware
 
             throw $e;
         }
-        // If we do not have a token, it's for the authentication logic
-        // to decide if that's a problem.
+
         return true;
     }
 

@@ -118,7 +118,6 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
                 $form->initData();
                 return new JSONMessage(true, $form->fetch($request));
         }
-        return parent::manage($args, $request);
     }
 
 

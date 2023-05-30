@@ -122,8 +122,6 @@ class QueryAccessPolicy extends ContextPolicy
             $queryAccessPolicy->addPolicy($subEditorQueryAccessPolicy);
         }
         $this->addPolicy($queryAccessPolicy);
-
-        return $queryAccessPolicy;
     }
 }
 

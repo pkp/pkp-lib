@@ -128,8 +128,6 @@ class SubmissionAccessPolicy extends ContextPolicy
         }
 
         $this->addPolicy($submissionAccessPolicy);
-
-        return $submissionAccessPolicy;
     }
 }
 

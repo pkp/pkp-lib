@@ -29,6 +29,8 @@ use PKP\core\PKPRequest;
 use PKP\facades\Locale;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\form\PKPReviewerReviewStep1Form;
+use PKP\submission\reviewer\form\PKPReviewerReviewStep2Form;
 use PKP\submission\reviewer\form\PKPReviewerReviewStep3Form;
 use PKP\submission\reviewer\form\ReviewerReviewForm;
 use PKP\submission\reviewer\ReviewerAction;
@@ -205,13 +207,13 @@ class PKPReviewerHandler extends Handler
     ): ReviewerReviewForm {
         switch ($step) {
             case 1:
-                return new \PKP\submission\reviewer\form\PKPReviewerReviewStep1Form($request, $reviewSubmission, $reviewAssignment);
+                return new PKPReviewerReviewStep1Form($request, $reviewSubmission, $reviewAssignment);
             case 2:
-                return new \PKP\submission\reviewer\form\PKPReviewerReviewStep2Form($request, $reviewSubmission, $reviewAssignment);
+                return new PKPReviewerReviewStep2Form($request, $reviewSubmission, $reviewAssignment);
             case 3:
-                return new \PKP\submission\reviewer\form\PKPReviewerReviewStep3Form($request, $reviewSubmission, $reviewAssignment);
+                return new PKPReviewerReviewStep3Form($request, $reviewSubmission, $reviewAssignment);
             default:
-                return null;
+                throw new Exception("Invalid review form step {$step}");
         }
     }
 

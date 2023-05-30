@@ -39,7 +39,7 @@ use PKP\i18n\interfaces\LocaleInterface;
  * @method static string getDefaultLocale() Retrieves the default locale
  * @method static \Sokil\IsoCodes\Database\Countries getCountries(?string $locale = null) Retrieve the countries
  * @method static \Sokil\IsoCodes\Database\Currencies getCurrencies(?string $locale = null) Retrieve the currencies
- * @method static \Sokil\IsoCodes\Database\LanguagesInterface getLanguages(?string $locale = null) Retrieve the languages
+ * @method static \Sokil\IsoCodes\Database\LanguagesInterface getLanguages(?string $locale = null, bool $fromCache = true) Retrieve the languages
  * @method static \Sokil\IsoCodes\Database\Scripts getScripts(?string $locale = null) Retrieve the scripts
  * @method static array getFormattedDisplayNames(array $filterByLocales = null, array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH, bool $omitLocaleCodeInDisplay = true) Get the formatted locale display names with country if same language code present multiple times
  */

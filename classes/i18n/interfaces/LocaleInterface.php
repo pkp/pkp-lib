@@ -151,10 +151,22 @@ interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
     /**
      * Retrieve the languages
      */
-    public function getLanguages(?string $locale = null): LanguagesInterface;
+    public function getLanguages(?string $locale = null, bool $fromCache = true): LanguagesInterface;
 
     /**
      * Retrieve the scripts
      */
     public function getScripts(?string $locale = null): Scripts;
+
+    /**
+     * Get the formatted locale display names with country if same language code present multiple times
+     *
+     * @param array $filterByLocales Optional list of locales code to filter by the returned formatted names list
+     * @param array $locales Optional list of available all locales
+     * @param int $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
+     * @param bool $omitLocaleCodeInDisplay Should leave out the locale code from display. By default leave out.
+     *
+     * @return array The list of locales with formatted display name
+     */
+    public function getFormattedDisplayNames(array $filterByLocales = null, array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH, bool $omitLocaleCodeInDisplay = true): array;
 }

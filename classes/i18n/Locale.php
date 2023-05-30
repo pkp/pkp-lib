@@ -362,14 +362,7 @@ class Locale implements LocaleInterface
     }
 
     /**
-     * Get the formatted locale display names with country if same language code present multiple times
-     *
-     * @param   array $filterByLocales          Optional list of locales code to filter by the returned formatted names list
-     * @param   array $locales                  Optional list of available all locales
-     * @param   int   $langLocaleStatus         The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
-     * @param   bool  $omitLocaleCodeInDisplay  Should leave out the locale code from display. By default leave out.
-     *
-     * @return  array                           The list of locales with formatted display name
+     * @copy LocaleInterface::getFormattedDisplayNames()
      */
     public function getFormattedDisplayNames(array $filterByLocales = null, array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH, bool $omitLocaleCodeInDisplay = true): array
     {
@@ -399,10 +392,10 @@ class Locale implements LocaleInterface
     /**
      * Get the filtered locales by locale codes
      *
-     * @param   array $locales          List of available all locales
-     * @param   array $filterByLocales  List of locales code to filter by the returned formatted names list
+     * @param array $locales List of available all locales
+     * @param array $filterByLocales List of locales code to filter by the returned formatted names list
      *
-     * @return  array                   The list of locales with formatted display name
+     * @return  array The list of locales with formatted display name
      */
     protected function getFilteredLocales(array $locales, array $filterByLocales = null): array
     {

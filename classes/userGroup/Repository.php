@@ -403,7 +403,7 @@ class Repository
                 $permitMetadataEdit = $setting->getAttribute('permitMetadataEdit');
             }
 
-            $defaultStages = explode(',', $setting->getAttribute('stages'));
+            $defaultStages = explode(',', (string) $setting->getAttribute('stages'));
 
             // create a role associated with this user group
             $userGroup = $this->newDataObject();

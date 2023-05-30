@@ -16,9 +16,10 @@
 
 namespace PKP\tests\classes\filter;
 
+// Just an empty class to test instantiation.
 class TestClass2
 {
-    // Just an empty class to test instantiation.
+    public string $testField;
 }
 
 if (!PKP_STRICT_MODE) {

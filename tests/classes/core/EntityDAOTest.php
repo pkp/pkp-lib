@@ -40,7 +40,6 @@ class EntityDAOTest extends PKPTestCase
         Schema::create('test_entity_settings', function (Blueprint $table) {
             $table->bigInteger('test_id');
             $table->foreign('test_id')->references('test_id')->on('test_entity')->onDelete('cascade');
-            ;
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();

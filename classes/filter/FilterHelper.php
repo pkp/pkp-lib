@@ -116,7 +116,7 @@ class FilterHelper
 
         // We ensure idempotence of plug-in installation by checking
         // for existing identical filters.
-        $similarFilters = $filterDao->getObjectsByGroupAndClass($filterGroupSymbolic, $filterClassName, 0, $isTemplate)->toArray();
+        $similarFilters = $filterDao->getObjectsByGroupAndClass($filterGroupSymbolic, $filterClassName, 0, (bool) $isTemplate)->toArray();
 
         if (count($similarFilters) > 0) {
             // Go through similar filters and eliminate them if they don't have the exact same settings.
@@ -138,7 +138,7 @@ class FilterHelper
         }
 
         // Configure (and optionally install) the filter.
-        $installedFilter = $filterDao->configureObject($filterClassName, $filterGroupSymbolic, $settings, $isTemplate, 0, $subFilters, $persist);
+        $installedFilter = $filterDao->configureObject($filterClassName, $filterGroupSymbolic, $settings, (bool) $isTemplate, 0, $subFilters, $persist);
         if (!$installedFilter instanceof \PKP\filter\PersistableFilter) {
             throw new \Exception($filterClassName . ' expected to be an instance of PersistableFilter');
         }

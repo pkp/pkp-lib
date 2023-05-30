@@ -132,7 +132,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider
             $this->_noteId,
             null,
             null,
-            null,
+            false,
             $query->getId()
         );
     }

@@ -196,7 +196,7 @@ class FileManager
      *
      * @return bool returns true if successful
      */
-    public function writeFile($dest, &$contents)
+    public function writeFile($dest, $contents)
     {
         $success = true;
         $destDir = dirname($dest);

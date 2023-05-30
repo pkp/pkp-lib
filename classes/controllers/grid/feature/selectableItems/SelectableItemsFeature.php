@@ -49,7 +49,9 @@ class SelectableItemsFeature extends GridFeature
      */
     public function getInitializedRowInstance($args)
     {
+        /** @var \PKP\controllers\grid\CategoryGridHandler|\PKP\controllers\grid\GridHandler */
         $grid = $args['grid'];
+        /** @var \PKP\controllers\grid\GridRow */
         $row = $args['row'];
 
         if ($grid instanceof \PKP\controllers\grid\CategoryGridHandler) {

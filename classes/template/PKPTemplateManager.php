@@ -1016,7 +1016,7 @@ class PKPTemplateManager extends Smarty
                 foreach ($availableContexts as $availableContext) {
                     // Site admins redirected to the same page. Everyone else to submission lists
                     if ($isSwitchable) {
-                        $availableContext->url = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $availableContext->urlPath, $request->getRequestedPage(), $requestedOp, $request->getRequestedArgs($request));
+                        $availableContext->url = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $availableContext->urlPath, $request->getRequestedPage(), $requestedOp, $request->getRequestedArgs());
                     } else {
                         $availableContext->url = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $availableContext->urlPath, 'submissions');
                     }

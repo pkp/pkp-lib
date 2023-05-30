@@ -31,13 +31,13 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
     /** @var string The column name for a context ID: `journal_id` or `press_id` */
     protected $dbIdColumn;
 
-    /** @var bool enabled or disabled contexts */
+    /** @var ?bool enabled or disabled contexts */
     protected $isEnabled = null;
 
-    /** @var int Filter contexts by whether or not this user can access it when logged in */
+    /** @var ?int Filter contexts by whether or not this user can access it when logged in */
     protected $userId;
 
-    /** @var string search phrase */
+    /** @var ?string search phrase */
     protected $searchPhrase = null;
 
     /** @var string[] Selected columns */
@@ -46,7 +46,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
     /**
      * Set isEnabled filter
      *
-     * @param bool $isEnabled
+     * @param ?bool $isEnabled
      *
      * @return \PKP\services\queryBuilders\PKPContextQueryBuilder
      */
@@ -63,7 +63,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
      * a user group. If the context is disabled, they must be
      * assigned to ROLE_ID_MANAGER user group.
      *
-     * @param bool $userId
+     * @param ?int $userId
      *
      * @return \PKP\services\queryBuilders\PKPContextQueryBuilder
      */
@@ -76,7 +76,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
     /**
      * Set query search phrase
      *
-     * @param string $phrase
+     * @param ?string $phrase
      *
      * @return \PKP\services\queryBuilders\PKPContextQueryBuilder
      */

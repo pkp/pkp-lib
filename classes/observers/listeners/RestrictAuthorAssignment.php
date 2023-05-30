@@ -40,7 +40,7 @@ class RestrictAuthorAssignment
         /** @var StageAssignmentDAO $stageAssignmentDao */
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
 
-        $assignments = $stageAssignmentDao->getBySubmissionAndRoleIds($event->submission->getId(), Role::ROLE_ID_AUTHOR);
+        $assignments = $stageAssignmentDao->getBySubmissionAndRoleIds($event->submission->getId(), [Role::ROLE_ID_AUTHOR]);
 
         while ($assignment = $assignments->next()) {
             /** @var StageAssignment $assignment */

@@ -135,7 +135,7 @@ abstract class Repository
             $this->schemaService->getRequiredProps($this->dao->schema),
             $this->schemaService->getMultilingualProps($this->dao->schema),
             [],
-            []
+            ''
         );
 
         $validator->after(function ($validator) use ($props, $decisionType, $submission, $context) {

@@ -71,7 +71,7 @@ class Config
     public static function &reloadData()
     {
         if (($configData = & ConfigParser::readConfig(Config::getConfigFileName())) === false) {
-            fatalError(sprintf('Cannot read configuration file %s', Config::getConfigFileName()));
+            throw new Exception(sprintf('Cannot read configuration file %s', Config::getConfigFileName()));
         }
 
         return $configData;

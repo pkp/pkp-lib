@@ -1030,7 +1030,6 @@ class GridHandler extends PKPHandler
                 $templateMgr->assign('filterSelectionData', $filterSelectionData);
 
                 return $templateMgr->fetch($form);
-                break;
         }
         assert(false);
     }

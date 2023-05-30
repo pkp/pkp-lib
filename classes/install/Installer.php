@@ -418,11 +418,9 @@ class Installer
 
                 if ($sql) {
                     return $this->executeSQL($sql);
-                } else {
-                    $this->setError(self::INSTALLER_ERROR_DB, str_replace('{$file}', $fileName, __('installer.installParseDBFileError')));
-                    return false;
                 }
-                break;
+                $this->setError(self::INSTALLER_ERROR_DB, str_replace('{$file}', $fileName, __('installer.installParseDBFileError')));
+                return false;
             case 'data':
                 $fileName = $action['file'];
                 $condition = $action['attr']['condition'] ?? null;
@@ -507,10 +505,8 @@ class Installer
                 }
                 if (isset($action['attr']['class'])) {
                     return call_user_func([$action['attr']['class'], $action['attr']['function']], $this, $action['attr']);
-                } else {
-                    return call_user_func([$this, $action['attr']['function']], $this, $action['attr']);
                 }
-                break;
+                return call_user_func([$this, $action['attr']['function']], $this, $action['attr']);
             case 'note':
                 $this->log(sprintf('note: %s', $action['file']));
                 $this->notes[] = join('', file($action['file']));

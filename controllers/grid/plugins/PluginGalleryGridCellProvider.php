@@ -42,11 +42,9 @@ class PluginGalleryGridCellProvider extends GridCellProvider
             case 'name':
                 // The name is returned as an action.
                 return ['label' => ''];
-                break;
             case 'summary':
                 $label = $element->getLocalizedSummary();
                 return ['label' => $label];
-                break;
             case 'status':
                 switch ($element->getCurrentStatus()) {
                     case PLUGIN_GALLERY_STATE_NEWER:
@@ -64,7 +62,9 @@ class PluginGalleryGridCellProvider extends GridCellProvider
                     case PLUGIN_GALLERY_STATE_INCOMPATIBLE:
                         $statusKey = 'manager.plugins.noCompatibleVersion.short';
                         break;
-                    default: return assert(false);
+                    default:
+                        assert(false);
+                        return;
                 }
                 return ['label' => __($statusKey)];
             default:

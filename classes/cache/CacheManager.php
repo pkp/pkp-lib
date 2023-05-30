@@ -122,7 +122,6 @@ class CacheManager
                 break;
             default:
                 exit("Unknown cache type \"{$type}\"!\n");
-                break;
         }
         return $cache;
     }

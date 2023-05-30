@@ -231,19 +231,14 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
         switch ($stageId) {
             case WORKFLOW_STAGE_ID_SUBMISSION:
                 return [SubmissionFile::SUBMISSION_FILE_SUBMISSION];
-                break;
             case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
                 return [SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_REVISION];
-                break;
             case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
                 return [SubmissionFile::SUBMISSION_FILE_REVIEW_FILE, SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION];
-                break;
             case WORKFLOW_STAGE_ID_EDITING:
                 return [SubmissionFile::SUBMISSION_FILE_FINAL, SubmissionFile::SUBMISSION_FILE_COPYEDIT];
-                break;
             case WORKFLOW_STAGE_ID_PRODUCTION:
                 return [SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY];
-                break;
             default:
                 return [];
         }

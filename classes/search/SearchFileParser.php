@@ -136,13 +136,11 @@ class SearchFileParser
         switch ($type) {
             case 'text/plain':
                 return new self($path);
-                break;
             case 'text/html':
             case 'text/xml':
             case 'application/xhtml':
             case 'application/xml':
                 return new \PKP\search\SearchHTMLParser($path);
-                break;
         }
         return new \PKP\search\SearchHelperParser($type, $path);
     }

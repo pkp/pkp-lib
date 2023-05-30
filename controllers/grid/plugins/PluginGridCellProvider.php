@@ -44,13 +44,10 @@ class PluginGridCellProvider extends GridCellProvider
         switch ($columnId) {
             case 'name':
                 return ['label' => $plugin->getDisplayName()];
-                break;
             case 'category':
                 return ['label' => $plugin->getCategory()];
-                break;
             case 'description':
                 return ['label' => $plugin->getDescription()];
-                break;
             case 'enabled':
                 $isEnabled = $plugin->getEnabled();
                 return [
@@ -90,7 +87,6 @@ class PluginGridCellProvider extends GridCellProvider
                             __('manager.plugins.disable'),
                             null
                         )];
-                        break;
                     case !$plugin->getEnabled() && $plugin->getCanEnable():
                         // Create an action to enable the plugin
                         return [new LinkAction(
@@ -104,7 +100,6 @@ class PluginGridCellProvider extends GridCellProvider
                             __('manager.plugins.enable'),
                             null
                         )];
-                        break;
                 }
         }
         return parent::getCellActions($request, $row, $column, $position);

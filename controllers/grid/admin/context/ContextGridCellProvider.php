@@ -39,11 +39,9 @@ class ContextGridCellProvider extends GridCellProvider
             case 'name':
                 $label = $element->getLocalizedName() != '' ? $element->getLocalizedName() : __('common.untitled');
                 return ['label' => $label];
-                break;
             case 'urlPath':
                 $label = $element->getPath();
                 return ['label' => $label];
-                break;
             default:
                 break;
         }

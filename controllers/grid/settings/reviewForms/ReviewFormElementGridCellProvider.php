@@ -38,7 +38,6 @@ class ReviewFormElementGridCellProvider extends GridCellProvider
             case 'question':
                 $label = $element->getLocalizedQuestion();
                 return ['label' => $label];
-                break;
             default:
                 assert(false);
                 break;

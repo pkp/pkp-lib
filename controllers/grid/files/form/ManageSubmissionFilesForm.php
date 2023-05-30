@@ -101,11 +101,12 @@ class ManageSubmissionFilesForm extends Form
             if ($this->fileExistsInStage($submissionFile, $stageSubmissionFiles, $fileStage)) {
                 // ...update the "viewable" flag accordingly.
                 if ($isViewable != $submissionFile->getData('viewable')) {
-                    $submissionFile = Repo::submissionFile()
+                    Repo::submissionFile()
                         ->edit(
                             $submissionFile,
                             ['viewable' => $isViewable]
                         );
+                    $submissionFile = Repo::submissionFile()->get($submissionFile->getId());
                 }
             } elseif ($isViewable) {
                 // Import a file from a different workflow area

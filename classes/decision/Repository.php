@@ -380,6 +380,14 @@ abstract class Repository
     abstract public function getDeclineDecisionTypes(): array;
 
     /**
+     * Get a list of the decision types that a recommending user is 
+     * allowed to make given a submission stage id.
+     *
+     * @return DecisionType[]
+     */
+    abstract public function getDecisionTypesMadeByRecommendingUsers(int $stageId): array;
+
+    /**
      * Is the given decision a recommendation?
      */
     public function isRecommendation(int $decision): bool

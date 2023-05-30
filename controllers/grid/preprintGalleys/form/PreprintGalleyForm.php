@@ -92,7 +92,7 @@ class PreprintGalleyForm extends Form
                 'representationId' => $this->_preprintGalley->getId(),
                 'preprintGalley' => $this->_preprintGalley,
                 'preprintGalleyFile' => $preprintGalleyFile,
-                'supportsDependentFiles' => $preprintGalleyFile ? Repo::submissionFile()->supportsDependentFiles($preprintGalleyFile, $filepath) : null,
+                'supportsDependentFiles' => $preprintGalleyFile ? Repo::submissionFile()->supportsDependentFiles($preprintGalleyFile) : null,
             ]);
         }
         $context = $request->getContext();

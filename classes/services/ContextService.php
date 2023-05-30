@@ -67,7 +67,7 @@ class ContextService extends \PKP\services\PKPContextService
         $section = Repo::section()->newDataObject();
         $section->setTitle(__('section.default.title'), $context->getPrimaryLocale());
         $section->setAbbrev(__('section.default.abbrev'), $context->getPrimaryLocale());
-        $section->setPath(__('section.default.path'), $context->getPrimaryLocale());
+        $section->setPath(__('section.default.path'));
         $section->setMetaIndexed(true);
         $section->setMetaReviewed(true);
         $section->setPolicy(__('section.default.policy'), $context->getPrimaryLocale());
@@ -75,7 +75,7 @@ class ContextService extends \PKP\services\PKPContextService
         $section->setHideTitle(false);
         $section->setContextId($context->getId());
 
-        Repo::section()->add($section, $context);
+        Repo::section()->add($section);
     }
 
     /**

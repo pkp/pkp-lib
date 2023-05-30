@@ -21,10 +21,12 @@ namespace APP\controllers\grid\preprintGalleys\form;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\publication\Publication;
+use APP\server\Server;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\galley\Galley;
+use PKP\validation\Validator;
 
 class PreprintGalleyForm extends Form
 {
@@ -69,11 +71,18 @@ class PreprintGalleyForm extends Form
                 $this,
                 'locale',
                 'required',
-                'editor.submissions.galleyLocaleRequired'
-            ),
-            function ($locale) use ($server) {
-                return in_array($locale, $server->getSupportedSubmissionLocaleNames());
-            }
+                'validator.required',
+                new class ($server) extends Validator {
+                    public function __construct(private Server $server)
+                    {
+                    }
+
+                    public function isValid($locale): bool
+                    {
+                        return in_array($locale, $this->server->getSupportedSubmissionLocales());
+                    }
+                }
+            )
         );
     }
 

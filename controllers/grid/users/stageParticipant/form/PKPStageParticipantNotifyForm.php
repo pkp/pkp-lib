@@ -387,7 +387,7 @@ class PKPStageParticipantNotifyForm extends Form
             'eventType' => EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT,
             'userId' => Validation::loggedInAs() ?? $currentUser->getId(),
             'message' => 'informationCenter.history.messageSent',
-            'isTranslated' => 0,
+            'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate()
         ]);
         Repo::eventLog()->add($eventLog);

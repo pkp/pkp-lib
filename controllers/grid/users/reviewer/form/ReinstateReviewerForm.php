@@ -95,7 +95,7 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REINSTATED,
                 'userId' => Validation::loggedInAs() ?? $currentUser->getId(),
                 'message' => 'log.review.reviewReinstated',
-                'isTranslated' => 0,
+                'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
                 'reviewAssignmentId' => $reviewAssignment->getId(),
                 'reviewerName' => $reviewer->getFullName(),

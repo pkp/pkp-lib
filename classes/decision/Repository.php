@@ -238,7 +238,7 @@ abstract class Repository
                 : PKPSubmissionEventLogEntry::SUBMISSION_LOG_EDITOR_DECISION,
             'userId' => Validation::loggedInAs() ?? $this->request->getUser()?->getId(),
             'message' => $decisionType->getLog(),
-            'isTranslated' => 0,
+            'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate()
         ]);
         Repo::eventLog()->add($eventLog);

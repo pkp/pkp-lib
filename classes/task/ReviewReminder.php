@@ -102,7 +102,7 @@ class ReviewReminder extends ScheduledTask
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REMIND_AUTO,
             'userId' => null,
             'message' => 'submission.event.reviewer.reviewerRemindedAuto',
-            'isTranslated' => 0,
+            'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
             'recipientId' => $reviewer->getId(),
             'recipientName' => $reviewer->getFullName(),

@@ -71,7 +71,7 @@ trait NotifyReviewers
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_DECISION_EMAIL_SENT,
             'userId' => Validation::loggedInAs() ?? Application::get()->getRequest()->getUser()?->getId(),
             'message' => 'submission.event.decisionReviewerEmailSent',
-            'isTranslated' => 0,
+            'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
             'recipientCount' => count($recipients),
             'subject' => $email->subject,

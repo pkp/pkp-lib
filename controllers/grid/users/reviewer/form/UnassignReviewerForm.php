@@ -109,7 +109,7 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CLEAR,
                 'userId' => Validation::loggedInAs() ?? $currentUser->getId(),
                 'message' => 'log.review.reviewCleared',
-                'isTranslated' => 0,
+                'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
                 'reviewAssignmentId' => $reviewAssignment->getId(),
                 'reviewerName' => $reviewer->getFullName(),

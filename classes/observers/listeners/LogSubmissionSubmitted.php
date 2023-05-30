@@ -42,7 +42,7 @@ class LogSubmissionSubmitted
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_SUBMISSION_SUBMIT,
             'userId' => Validation::loggedInAs() ?? Application::get()->getRequest()->getUser()?->getId(),
             'message' => 'submission.event.submissionSubmitted',
-            'isTranslated' => 0,
+            'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
         ]);
         Repo::eventLog()->add($eventLog);

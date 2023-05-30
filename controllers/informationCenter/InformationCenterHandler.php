@@ -217,7 +217,7 @@ abstract class InformationCenterHandler extends Handler
             'eventType' => $eventType,
             'userId' => Validation::loggedInAs() ?? $request->getUser()->getId(),
             'message' => $logMessage,
-            'isTranslated' => 0,
+            'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate()
         ]);
         Repo::eventLog()->add($eventLog);

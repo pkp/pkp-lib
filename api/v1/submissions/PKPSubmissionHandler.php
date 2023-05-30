@@ -718,7 +718,7 @@ class PKPSubmissionHandler extends APIHandler
                 'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_COPYRIGHT_AGREED,
                 'userId' => Validation::loggedInAs() ?? $user->getId(),
                 'message' => 'submission.event.copyrightAgreed',
-                'isTranslated' => 0,
+                'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
                 'username' => $user->getUsername(),
                 'userFullName' => $user->getFullName(true, false, Locale::getLocale()),

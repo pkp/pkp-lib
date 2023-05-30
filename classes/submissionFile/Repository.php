@@ -276,7 +276,7 @@ abstract class Repository
                 'eventType' => SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD,
                 'dateLogged' => Core::getCurrentDate(),
                 'message' => 'submission.event.fileUploaded',
-                'isTranslated' => 0,
+                'isTranslated' => false,
             ]
         ));
         Repo::eventLog()->add($logEntry);
@@ -291,7 +291,7 @@ abstract class Repository
                 'eventType' => SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD,
                 'dateLogged' => Core::getCurrentDate(),
                 'message' => 'submission.event.fileRevised',
-                'isTranslated' => 0,
+                'isTranslated' => false,
             ]
         ));
         Repo::eventLog()->add($logEntry);
@@ -369,7 +369,7 @@ abstract class Repository
                 'assocId' => $submissionFile->getId(),
                 'eventType' => $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
                 'message' => $newFileUploaded ? 'submission.event.revisionUploaded' : 'submission.event.fileEdited',
-                'isTranslated' => 0,
+                'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
             ]
         ));
@@ -504,7 +504,7 @@ abstract class Repository
                 'assocId' => $submissionFile->getId(),
                 'eventType' => SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_DELETE,
                 'message' => 'submission.event.fileDeleted',
-                'isTranslated' => 0,
+                'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
             ]
         ));

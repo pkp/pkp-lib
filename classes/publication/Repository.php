@@ -356,7 +356,7 @@ abstract class Repository
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_CREATE_VERSION,
             'userId' => Validation::loggedInAs() ?? $request->getUser()?->getId(),
             'message' => 'publication.event.versionCreated',
-            'isTranslated' => 0,
+            'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
         ]);
         Repo::eventLog()->add($eventLog);
@@ -404,7 +404,7 @@ abstract class Repository
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UPDATE,
             'userId' => Validation::loggedInAs() ?? $userId,
             'message' => 'submission.event.general.metadataUpdated',
-            'isTranslated' => 0,
+            'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate(),
         ]);
         Repo::eventLog()->add($eventLog);
@@ -494,7 +494,7 @@ abstract class Repository
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_PUBLISH,
             'userId' => Validation::loggedInAs() ?? $this->request->getUser()?->getId(),
             'message' => $msg,
-            'isTranslated' => 0,
+            'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate()
         ]);
         Repo::eventLog()->add($eventLog);
@@ -585,7 +585,7 @@ abstract class Repository
             'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UNPUBLISH,
             'userId' => Validation::loggedInAs() ?? $this->request->getUser()?->getId(),
             'message' => $msg,
-            'isTranslated' => 0,
+            'isTranslated' => false,
             'dateLogged' => Core::getCurrentDate()
         ]);
         Repo::eventLog()->add($eventLog);

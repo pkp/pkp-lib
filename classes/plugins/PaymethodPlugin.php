@@ -57,6 +57,14 @@ abstract class PaymethodPlugin extends LazyLoadPlugin
      * Must be implemented in a child class to save payment settings and attach updated data to the response
      */
     abstract public function saveSettings(string $hookName, array $args);
+
+    /**
+     * Handle incoming requests/notifications
+     *
+     * @param array $args
+     * @param \APP\core\Request $request
+     */
+    abstract public function handle($args, $request);
 }
 
 if (!PKP_STRICT_MODE) {

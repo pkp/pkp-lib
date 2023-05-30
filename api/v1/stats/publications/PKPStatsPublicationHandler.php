@@ -667,7 +667,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         }
 
         if (array_key_exists('timelineInterval', $allowedParams) && !$this->isValidTimelineInterval($allowedParams['timelineInterval'])) {
-            return new \Exception('api.stats.400.invalidTimelineInterval', 400);
+            throw new \Exception('api.stats.400.invalidTimelineInterval', 400);
         }
 
         // Identify submissions which should be included in the results when a searchPhrase is passed

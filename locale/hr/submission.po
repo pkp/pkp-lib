@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2023-02-22 18:21+0000\n"
+"PO-Revision-Date: 2023-05-30 17:15+0000\n"
 "Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hr/>\n"
@@ -419,7 +419,7 @@ msgid "submission.authorWithAffiliation"
 msgstr "{$name}, {$affiliation}"
 
 msgid "submission.shortAuthor"
-msgstr "{sauthor} et al."
+msgstr "{$author} et al."
 
 msgid "submission.representationOfTitle"
 msgstr "{srepresentation} of {$title}"
@@ -2634,4 +2634,3 @@ msgstr "Verzija {$version}"
 
 msgid "submission.submissionFile"
 msgstr "Datoteka s prilogom"
-

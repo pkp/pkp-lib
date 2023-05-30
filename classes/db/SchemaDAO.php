@@ -149,7 +149,6 @@ abstract class SchemaDAO extends DAO
         );
 
         $deleteSettings = [];
-        $keyColumns = [$this->primaryKeyColumn, 'locale', 'setting_name'];
         foreach ($schema->properties as $propName => $propSchema) {
             if (array_key_exists($propName, $this->primaryTableColumns)) {
                 continue;

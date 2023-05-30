@@ -103,21 +103,6 @@ abstract class PaymentManager
     }
 
     /**
-     * Call the payment plugin's settings display method
-     * @todo Not working and not being used, probably can be removed
-     *
-     * @return bool
-     */
-    public function displayConfigurationForm()
-    {
-        $paymentPlugin = $this->getPaymentPlugin();
-        if ($paymentPlugin !== null && $paymentPlugin->isConfigured($this->_context)) {
-            return $paymentPlugin->displayConfigurationForm();
-        }
-        return false;
-    }
-
-    /**
      * Fetch a queued payment
      *
      * @param int $queuedPaymentId

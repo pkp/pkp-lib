@@ -117,14 +117,6 @@ class DAO extends EntityDAO
     }
 
     /**
-     * @copydoc EntityDAO::fromRow()
-     */
-    public function fromRow(object $row): Announcement
-    {
-        return parent::fromRow($row);
-    }
-
-    /**
      * @copydoc EntityDAO::insert()
      */
     public function insert(Announcement $announcement): int

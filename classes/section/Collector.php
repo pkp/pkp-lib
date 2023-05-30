@@ -166,7 +166,7 @@ class Collector implements CollectorInterface
                     $qb->select('p.*')
                         ->from('publications AS p')
                         ->whereNotNull('p.' . $this->dao->primaryKeyColumn)
-                        ->where(DB::raw('p.' . $this->dao->primaryKeyColumn, '=', 's.' . $this->dao->primaryKeyColumn))
+                        ->whereColumn('p.' . $this->dao->primaryKeyColumn, '=', 's.' . $this->dao->primaryKeyColumn)
                         ->where('p.status', '=', Submission::STATUS_PUBLISHED);
                 });
             })

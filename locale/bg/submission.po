@@ -584,11 +584,12 @@ msgstr "Имейл регистър (лог)"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$userFullName} ({$username}) беше причислен към това подаване на материали като "
-"{$userGroupName}."
+"{$userFullName} ({$username}) беше причислен към това подаване на материали "
+"като {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$userFullName}\" ({$username}) беше премахнат като {$userGroupName}."
+msgstr ""
+"\"{$userFullName}\" ({$username}) беше премахнат като {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Обратно към регистъра събитията (лог)"
@@ -615,10 +616,12 @@ msgstr "Първоначалното подаване на материали е
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$filename} ({$username}) се съгласи с условията за авторски права за изпращане."
+"{$filename} ({$username}) се съгласи с условията за авторски права за "
+"изпращане."
 
 msgid "submission.event.fileRevised"
-msgstr "Версия (ревизия) \"{$filename}\" беше качена за файл {$submissionFileId}."
+msgstr ""
+"Версия (ревизия) \"{$filename}\" беше качена за файл {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Метаданните за подадените материали са актуализирани"
@@ -2734,3 +2737,5 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "Файл с материали за статия"
 
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Върнат обратно в кръг за рецензиране."

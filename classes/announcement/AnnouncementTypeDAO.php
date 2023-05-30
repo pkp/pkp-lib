@@ -148,7 +148,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
      */
     public function deleteObject($announcementType)
     {
-        return $this->deleteById($announcementType->getId());
+        $this->deleteById($announcementType->getId());
     }
 
     /**

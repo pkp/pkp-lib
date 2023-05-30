@@ -80,6 +80,8 @@ class DAO extends EntityDAO
 
     /**
      * Construct a new User object.
+     *
+     * @return User
      */
     public function newDataObject()
     {

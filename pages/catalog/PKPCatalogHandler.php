@@ -110,7 +110,7 @@ class PKPCatalogHandler extends Handler
                 ->filterByContextIds([$context->getId()])->getMany()->remember(),
         ]);
 
-        return $templateMgr->display('frontend/pages/catalogCategory.tpl');
+        $templateMgr->display('frontend/pages/catalogCategory.tpl');
     }
 
     /**

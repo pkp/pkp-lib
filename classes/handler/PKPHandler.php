@@ -271,13 +271,7 @@ class PKPHandler
      */
     public function getRoleAssignment($roleId)
     {
-        if (!is_null($roleId)) {
-            if (isset($this->_roleAssignments[$roleId])) {
-                return $this->_roleAssignments[$roleId];
-            } else {
-                return null;
-            }
-        }
+        return $this->_roleAssignments[$roleId] ?? null;
     }
 
     /**

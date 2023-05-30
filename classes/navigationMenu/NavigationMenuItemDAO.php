@@ -272,7 +272,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      */
     public function deleteObject($navigationMenuItem)
     {
-        return $this->deleteById($navigationMenuItem->getId());
+        $this->deleteById($navigationMenuItem->getId());
     }
 
     /**

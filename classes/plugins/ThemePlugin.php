@@ -1040,6 +1040,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
         } elseif (Application::get()->getName() == 'ops') {
             return 'frontend-preprint-view';
         }
+        throw new Exception('Unknown application');
     }
 }
 

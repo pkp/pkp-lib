@@ -346,7 +346,7 @@ msgstr "Julkaisun tyyppi"
 msgid "metadata.property.validationMessage.publication-type"
 msgstr ""
 "Varmistathan, että asetat aina julkaisun tyypin. Tuettuja arvoja ovat kirja "
-"(kirjat ja kirjojen luvut) ja lehti (lehtien artikkelit). Muuten "
+"(kirjat ja kirjojen luvut) ja julkaisu/lehti (artikkelit). Muuten "
 "viittaustavan muotoilu ei toimi oikein."
 
 msgid "metadata.property.displayName.title-type"
@@ -581,11 +581,12 @@ msgstr "Sähköpostiloki"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"\"{$userFullName}\" ({$username}) valittiin tämän käsikirjoituksen {$userGroupName}"
-"ksi."
+"\"{$userFullName}\" ({$username}) valittiin tämän käsikirjoituksen "
+"{$userGroupName}ksi."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$userFullName}\" ({$username}) poistettiin roolista {$userGroupName}."
+msgstr ""
+"\"{$userFullName}\" ({$username}) poistettiin roolista {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Takaisin tapahtumalokiin"
@@ -608,7 +609,8 @@ msgid "submission.event.submissionSubmitted"
 msgstr "Käsikirjoituksen ensimmäinen lähetys suoritettu."
 
 msgid "submission.event.copyrightAgreed"
-msgstr "{$filename} ({$username}) on hyväksynyt tekijänoikeutta koskevat ehdot."
+msgstr ""
+"{$filename} ({$username}) on hyväksynyt tekijänoikeutta koskevat ehdot."
 
 msgid "submission.event.fileRevised"
 msgstr ""
@@ -1665,7 +1667,8 @@ msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Peru tekninen toimittaminen"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr "Lähetä tämä käsikirjoitus takaisin teknisen toimittamisen työvaiheesta."
+msgstr ""
+"Lähetä tämä käsikirjoitus takaisin teknisen toimittamisen työvaiheesta."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr ""
@@ -2434,8 +2437,8 @@ msgstr "Osoita toimittaja"
 
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
-"Tämä käsikirjoitus on jo lähetetty. Käy katsomassa sitä <a href=\"{$url}\""
-">käsikirjoitusten hallintapaneelista</a>."
+"Tämä käsikirjoitus on jo lähetetty. Käy katsomassa sitä <a href="
+"\"{$url}\">käsikirjoitusten hallintapaneelista</a>."
 
 msgid "submission.wizard.beforeStart"
 msgstr "Ennen kuin aloitat"
@@ -2481,7 +2484,8 @@ msgid "submission.wizard.noContributors"
 msgstr "Tähän käsikirjoitukseen ei ole lisätty tekijöitä."
 
 msgid "submission.wizard.missingContributorLanguage"
-msgstr "Etunimi puuttuu kielellä {$language} yhden tai useamman tekijän osalta."
+msgstr ""
+"Etunimi puuttuu kielellä {$language} yhden tai useamman tekijän osalta."
 
 msgid "submission.wizard.notAllowed"
 msgstr "Ei sallittu"
@@ -2635,8 +2639,8 @@ msgstr "Lähetetään osastoon <strong>{$section}</strong>."
 
 msgid "submission.wizard.submittingToSectionInLanguage"
 msgstr ""
-"Lähetetään osastoon <strong>{$section}</strong> kielellä "
-"<strong>{$language}</strong>."
+"Lähetetään osastoon <strong>{$section}</strong> kielellä <strong>{$language}"
+"</strong>."
 
 msgid "submission.type.tip"
 msgstr ""
@@ -2681,6 +2685,16 @@ msgstr ""
 msgid "publication.version"
 msgstr "Versio {$version}"
 
+msgid "submission.submissionFile"
+msgstr "Käsikirjoitustiedosto"
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Voit päivittää tätä keskustelua {$allowedEditTimeNoticeLimit} minuuttia."
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Palautettu arviointivaiheeseen."
+
 #~ msgid "catalog.browseTitles"
 #~ msgstr "{$numTitles} nimikettä"
 
@@ -2704,13 +2718,3 @@ msgstr "Versio {$version}"
 
 #~ msgid "publication.citations.success"
 #~ msgstr "Viitteet on päivitetty."
-
-msgid "submission.submissionFile"
-msgstr "Käsikirjoitustiedosto"
-
-msgid "submission.query.allowedEditTime"
-msgstr ""
-"Voit päivittää tätä keskustelua {$allowedEditTimeNoticeLimit} minuuttia."
-
-msgid "editor.submission.roundStatus.returnedToReview"
-msgstr "Palautettu arviointivaiheeseen."

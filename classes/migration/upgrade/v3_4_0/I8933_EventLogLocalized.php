@@ -21,12 +21,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\install\DowngradeNotSupportedException;
-use PKP\log\event\PKPSubmissionEventLogEntry;
-use PKP\log\event\SubmissionFileEventLogEntry;
 use PKP\migration\Migration;
 
 abstract class I8933_EventLogLocalized extends Migration
 {
+    const CHUNK_SIZE = 10000;
+
     abstract protected function getContextTable(): string;
 
     abstract protected function getContextIdColumn(): string;
@@ -60,20 +60,26 @@ abstract class I8933_EventLogLocalized extends Migration
 
         // Localize existing submission file name entries
         $sitePrimaryLocale = DB::table('site')->value('primary_locale');
+        $contexts = DB::table($this->getContextTable())->get([$this->getContextIdColumn(), 'primary_locale']);
+        $contextIdPrimaryLocaleMap = [];
+        foreach ($contexts as $context) {
+            $contextIdPrimaryLocaleMap[$context->{$this->getContextIdColumn()}] = $context->primary_locale;
+        }
+
         DB::table('event_log_settings AS es')
             ->join('event_log AS e', 'es.log_id', '=', 'e.log_id')
-            ->where('setting_name', 'filename')
-            ->whereIn('event_type', [
-                SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD,
-                SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
-                SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD,
+            ->where('es.setting_name', 'filename')
+            ->whereIn('e.event_type', [
+                0x50000001, // SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD,
+                0x50000010, // SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
+                0x50000008, // SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD,
             ])
             ->orderBy('event_log_setting_id')
-            ->chunk(100, function (Collection $logChunks) use ($sitePrimaryLocale) {
+            ->chunk(self::CHUNK_SIZE, function (Collection $logChunks) use ($sitePrimaryLocale, $contextIdPrimaryLocaleMap) {
                 $mapLocaleWithSettingIds = [];
                 foreach ($logChunks as $row) {
                     // Get locale based on a submission file ID log entry
-                    $locale = $this->getContextPrimaryLocale($row, $sitePrimaryLocale);
+                    $locale = $this->getContextPrimaryLocale($row, $sitePrimaryLocale, $contextIdPrimaryLocaleMap);
                     if (!$locale) {
                         continue;
                     }
@@ -122,7 +128,7 @@ abstract class I8933_EventLogLocalized extends Migration
     /**
      * Retrieve the primary locale of the context associated with a given submission file
      */
-    protected function getContextPrimaryLocale(object $row, string $sitePrimaryLocale): ?string
+    protected function getContextPrimaryLocale(object $row, string $sitePrimaryLocale, array $contextIdPrimaryLocaleMap): ?string
     {
         // Try to determine submission/submission file ID based on the assoc type
         if ($row->assoc_type === 0x0000203) { // ASSOC_TYPE_SUBMISSION_FILE
@@ -151,7 +157,7 @@ abstract class I8933_EventLogLocalized extends Migration
             return $sitePrimaryLocale;
         }
 
-        return DB::table($this->getContextTable())->where($this->getContextIdColumn(), $contextId)->value('primary_locale');
+        return $contextIdPrimaryLocaleMap[$contextId];
     }
 
     /**
@@ -159,34 +165,38 @@ abstract class I8933_EventLogLocalized extends Migration
      */
     protected function renameSettings()
     {
-        $eventTypes = $this->mapSettings()->keys()->toArray();
-        DB::table('event_log')
-            ->whereIn('event_type', $eventTypes)
-            ->orderBy('date_logged')
-            ->each(function (object $row) {
+        // First remove 'originalFileName' setting where 'name' setting exists
+        $idsToDelete = DB::table('event_log_settings AS es')
+            ->join('event_log AS e', 'es.log_id', '=', 'e.log_id')
+            ->whereIn('e.event_type', [
+                0x50000008, // SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD,
+                0x50000010, // SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT
+            ])
+            ->where('es.setting_name', 'name')
+            ->pluck('e.log_id');
 
-                // resolve conflict between 'name' and 'originalFileName'
-                if (in_array(
-                    $row->event_type,
-                    [SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD, SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT])
-                ) {
-                    if (DB::table('event_log_settings')->where('log_id', $row->log_id)->where('setting_name', 'name')->exists()) {
-                        DB::table('event_log_settings')
-                            ->where('log_id', $row->log_id)
-                            ->where('setting_name', 'originalFileName')
-                            ->delete();
-                    }
-                }
+        foreach ($idsToDelete->chunk(self::CHUNK_SIZE) as $ids) {
+            DB::table('event_log_settings')
+                ->whereIn('log_id', $ids->toArray())
+                ->where('setting_name', 'originalFileName')
+                ->delete();
+        }
 
-                // just rename other settings
-                $oldNewSettingNames = $this->mapSettings()->get($row->event_type);
-                foreach ($oldNewSettingNames as $oldSettingName => $newSettingName) {
+        // Perform setting renaming
+        foreach ($this->mapSettings() as $eventType => $settings) {
+            $idsToUpdate = DB::table('event_log')
+                ->where('event_type', $eventType)
+                ->pluck('log_id');
+
+            foreach ($settings as $oldSettingName => $newSettingName) {
+                foreach ($idsToUpdate->chunk(self::CHUNK_SIZE) as $ids) {
                     DB::table('event_log_settings')
-                        ->where('log_id', $row->log_id)
+                        ->whereIn('log_id', $ids->toArray())
                         ->where('setting_name', $oldSettingName)
                         ->update(['setting_name' => $newSettingName]);
                 }
-            });
+            }
+        }
     }
 
     /**
@@ -198,16 +208,16 @@ abstract class I8933_EventLogLocalized extends Migration
     protected function mapSettings(): Collection
     {
         return collect([
-            PKPSubmissionEventLogEntry::SUBMISSION_LOG_COPYRIGHT_AGREED => [
+            0x10000009 => [ // PKPSubmissionEventLogEntry::SUBMISSION_LOG_COPYRIGHT_AGREED
                 'name' => 'userFullName'
             ],
-            PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CONFIRMED => [
+            0x40000019 => [ // PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CONFIRMED
                 'userName' => 'editorName'
             ],
-            PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_SET_DUE_DATE => [
+            0x40000011 => [ // PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_SET_DUE_DATE
                 'dueDate' => 'reviewDueDate'
             ],
-            SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD => [
+            0x50000001 => [ // SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD
                 'originalFileName' => 'filename'
             ],
             /**
@@ -216,18 +226,18 @@ abstract class I8933_EventLogLocalized extends Migration
              * rather than the user defined localized name.
              * Keep the 'name' where it exists, otherwise preserve 'originalFileName'
              */
-            SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD => [
+            0x50000008 => [ // SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD
                 'name' => 'filename',
                 'originalFileName' => 'filename'
             ],
-            SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT => [
+            0x50000010 => [ // SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT
                 'name' => 'filename',
                 'originalFileName' => 'filename'
             ],
-            PKPSubmissionEventLogEntry::SUBMISSION_LOG_ADD_PARTICIPANT => [
+            0x10000003 => [ // PKPSubmissionEventLogEntry::SUBMISSION_LOG_ADD_PARTICIPANT
                 'name' => 'userFullName'
             ],
-            PKPSubmissionEventLogEntry::SUBMISSION_LOG_REMOVE_PARTICIPANT => [
+            0x10000004 => [ // PKPSubmissionEventLogEntry::SUBMISSION_LOG_REMOVE_PARTICIPANT
                 'name' => 'userFullName'
             ]
         ]);

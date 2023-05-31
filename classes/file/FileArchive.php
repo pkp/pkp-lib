@@ -37,6 +37,10 @@ class FileArchive
     {
         // Create a temporary file.
         $archivePath = tempnam('/tmp', 'sf-');
+        if ($archivePath === false) {
+            return false;
+        }
+        unlink($archivePath);
 
         // attempt to use Zip first, if it is available.  Otherwise
         // fall back to the tar CLI.

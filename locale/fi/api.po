@@ -1,18 +1,18 @@
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-12-12 22:52+0000\n"
+"PO-Revision-Date: 2023-06-01 05:49+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
-"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/ops/api/fi_FI/"
-">\n"
-"Language: fi_FI\n"
+"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/ops/api/fi/>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "api.announcements.400.contextsNotMatched"
-msgstr ""
+msgstr "Pyytämäsi ilmoitus ei ole osa tätä palvelinta."
 
 msgid "api.submissions.403.cantChangeContext"
 msgstr "Et voi vaihtaa käsikirjoitukseen liittyvää palvelinta."
@@ -46,13 +46,13 @@ msgid "api.contexts.404.contextNotFound"
 msgstr "Etsimääsi palvelinta ei löytynyt."
 
 msgid "api.dois.400.contextsNotMatched"
-msgstr ""
+msgstr "Pyytämäsi DOI ei kuulu tähän palvelimeen."
 
 msgid "api.dois.400.noRegistrationAgencyConfigured"
-msgstr ""
+msgstr "Tälle palvelimelle ei ole määritetty DOI-rekisteröintitoimistoa."
 
 msgid "api.emails.403.disabled"
-msgstr ""
+msgstr "Sähköposti-ilmoituksia ei ole otettu käyttöön tässä palvelimessa."
 
 msgid "api.emailTemplates.403.notAllowedChangeContext"
 msgstr ""

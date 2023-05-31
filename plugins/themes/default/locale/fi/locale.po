@@ -1,15 +1,19 @@
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-08T23:00:18+00:00\n"
-"PO-Revision-Date: 2021-01-08T23:00:18+00:00\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: \n"
+"PO-Revision-Date: 2023-06-01 05:49+0000\n"
+"Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
+"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/ops/"
+"themes-default/fi/>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "plugins.themes.default.name"
 msgstr "Oletusteema"
@@ -61,34 +65,34 @@ msgid "plugins.themes.default.option.colour.description"
 msgstr "Valitse ylätunnisteen väri."
 
 msgid "plugins.themes.default.option.showDescriptionInServerIndex.option"
-msgstr ""
+msgstr "Näytä palvelimen lyhyt kuvaus etusivulla."
 
 msgid "plugins.themes.default.option.useHomepageImageAsHeader.label"
-msgstr ""
+msgstr "Yläpalkin taustakuva"
 
 msgid "plugins.themes.default.option.useHomepageImageAsHeader.description"
-msgstr ""
+msgstr "Mikäli kotisivun kuva on annettu, näytä se yläpalkin taustakuvana."
 
 msgid "plugins.themes.default.option.useHomepageImageAsHeader.option"
-msgstr ""
+msgstr "Käytä kotisivun kuvaa yläpalkin taustakuvana."
 
 msgid "plugins.themes.default.option.displayStats.label"
-msgstr ""
+msgstr "Käyttötilastojen näyttöasetukset"
 
 msgid "plugins.themes.default.option.displayStats.none"
-msgstr ""
+msgstr "Älä näytä lukijalle käsikirjoitusten käyttötilastoja."
 
 msgid "plugins.themes.default.option.displayStats.bar"
-msgstr ""
+msgstr "Käytä pylvästyyppistä kaaviota käyttötilastojen näyttämiseen."
 
 msgid "plugins.themes.default.option.displayStats.line"
-msgstr ""
+msgstr "Käytä viivatyyppistä kaaviota käyttötilastojen näyttämiseen."
 
 msgid "plugins.themes.default.displayStats.monthInitials"
-msgstr ""
+msgstr "Tam Hel Maa Huh Tou Kes Hei Elo Syy Lok Mar Jou"
 
 msgid "plugins.themes.default.displayStats.downloads"
-msgstr ""
+msgstr "Lataukset"
 
 msgid "plugins.themes.default.displayStats.noStats"
-msgstr ""
+msgstr "Lataustietoja ei ole vielä saatavilla."

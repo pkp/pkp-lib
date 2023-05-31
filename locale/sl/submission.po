@@ -580,7 +580,8 @@ msgstr "Zaporedje e-pošte"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"\"{$userFullName}\" ({$username}) je bil dodeljen prispevku kot {$userGroupName}."
+"\"{$userFullName}\" ({$username}) je bil dodeljen prispevku kot "
+"{$userGroupName}."
 
 msgid "submission.event.participantRemoved"
 msgstr "\"{$userFullName}\" ({$username}) je odstranjen kot {$userGroupName}."
@@ -2636,6 +2637,15 @@ msgstr "Naložiti morate vsaj eno datoteko za vsak naslednji tip: {$genres}."
 msgid "publication.version"
 msgstr "Verzija {$version}"
 
+msgid "submission.query.allowedEditTime"
+msgstr "Diskusijo lahko urejate še {$allowedEditTimeNoticeLimit} minut."
+
+msgid "submission.submissionFile"
+msgstr "Datoteka s prispevkom"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Vrni nazaj v recenzijo."
+
 #~ msgid "submission.submit.form.agenciesRequired"
 #~ msgstr "Prosimo vnesite podporne organizacije."
 
@@ -2671,10 +2681,3 @@ msgstr "Verzija {$version}"
 
 #~ msgid "editor.submission.decision.backToSubmission"
 #~ msgstr "Nazaj na fazo oddaje prispevka"
-
-msgid "submission.query.allowedEditTime"
-msgstr "Diskusijo lahko urejate še {$allowedEditTimeNoticeLimit} minut."
-
-msgid "submission.submissionFile"
-msgstr "Datoteka s prispevkom"
-

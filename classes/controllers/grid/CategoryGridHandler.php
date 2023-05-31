@@ -308,7 +308,9 @@ class CategoryGridHandler extends GridHandler
      */
     protected function getRowsSequence($request)
     {
-        return array_keys($this->getGridCategoryDataElements($request, $this->getCurrentCategoryId()));
+        $categories = $this->getGridDataElements($request);
+        $categoryElement = $categories[$this->getCurrentCategoryId()];
+        return array_keys($this->getGridCategoryDataElements($request, $categoryElement));
     }
 
     /**

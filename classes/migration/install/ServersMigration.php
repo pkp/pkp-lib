@@ -47,7 +47,6 @@ class ServersMigration extends \PKP\migration\Migration
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
-            $table->string('setting_type', 6)->nullable();
 
             $table->unique(['server_id', 'locale', 'setting_name'], 'server_settings_unique');
         });

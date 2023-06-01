@@ -37,7 +37,11 @@ abstract class I3573_AddPrimaryKeys extends \PKP\migration\Migration
             try {
                 Schema::table($tableName, fn (Blueprint $table) => $table->dropUnique($oldIndexName));
             } catch (Exception $e) {
-                Schema::table($tableName, fn (Blueprint $table) => $table->dropIndex($oldIndexName));
+                try {
+                    Schema::table($tableName, fn (Blueprint $table) => $table->dropIndex($oldIndexName));
+                } catch (Exception $e) {
+                    $this->_installer->log("Failed to remove the index {$oldIndexName}, we'll assume it doesn't exist and proceed");
+                }
             }
 
             if ($isUnique) {

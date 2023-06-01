@@ -92,17 +92,17 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
                 foreach ($affectedLocales as $localeSource => $localeTarget) {
                     $conflictingSettings = DB::table($tableName)
-                            ->select('setting_name', DB::raw('COUNT(*)'))
-                            ->when($entityIdColumnName, fn ($query) => $query->addSelect($entityIdColumnName))
-                            ->where('locale', $localeSource)
-                            ->orWhere('locale', $localeTarget)
-                            ->when(
-                                $entityIdColumnName,
-                                fn ($query) => $query->groupBy($entityIdColumnName, 'setting_name'),
-                                fn ($query) => $query->groupBy('setting_name')
-                            )
-                            ->havingRaw('COUNT(*) >= 2')
-                            ->get();
+                        ->select('setting_name', DB::raw('COUNT(*)'))
+                        ->when($entityIdColumnName, fn ($query) => $query->addSelect($entityIdColumnName))
+                        ->where('locale', $localeSource)
+                        ->orWhere('locale', $localeTarget)
+                        ->when(
+                            $entityIdColumnName,
+                            fn ($query) => $query->groupBy($entityIdColumnName, 'setting_name'),
+                            fn ($query) => $query->groupBy('setting_name')
+                        )
+                        ->havingRaw('COUNT(*) >= 2')
+                        ->get();
 
                     if (!$conflictingSettings->isEmpty()) {
                         foreach ($conflictingSettings as $conflictingSetting) {
@@ -147,9 +147,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 DB::table('announcement_type_settings')->where('type_id', '=', $typeId)->delete();
             }
 
-            if ($count = DB::table('submissions AS s')->whereNull('locale')->count()) {
-                throw new Exception('There are submission records with null in the locale column. Please correct these before upgrading.');
-            }
+            $this->checkSubmissionLocale();
 
             if ($count = DB::table('announcements AS a')->leftJoin('announcement_types AS at', 'a.type_id', '=', 'at.type_id')->whereNull('at.type_id')->whereNotNull('a.type_id')->update(['a.type_id' => null])) {
                 $this->_installer->log("Reset {$count} announcements with orphaned (non-null) announcement types to no announcement type.");
@@ -766,6 +764,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      * Clears duplicated user_settings
      * This method used to be a migration, it has been incorporated at the pre-flight to avoid issues with the checks introduced by the MergeLocalesMigration
      * Given that it operates on duplicated entries, it should be ok to run it several times
+     *
      * @see https://github.com/pkp/pkp-lib/issues/7167
      */
     protected function clearDuplicatedUserSettings(): void
@@ -830,5 +829,30 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             -- Ensures a better record was found (if not found, it means the current duplicated record is the best and shouldn't be removed)
             WHERE best.user_id IS NOT NULL"
         );
+    }
+
+    /**
+     * Checks if the submission.locale field is filled, due to a bug, a fix will be attempted (retrieve the submission locale from its related publication entity)
+     *
+     * @see https://github.com/pkp/pkp-lib/issues/7190
+     */
+    protected function checkSubmissionLocale(): void
+    {
+        // First check if we still have the publications.locale field before attempting the fix
+        if (!Schema::hasColumn('publications', 'locale')) {
+            return;
+        }
+        $rows = DB::table('submissions AS s')->join('publications AS p', 'p.publication_id', '=', 's.current_publication_id')
+            ->whereNull('s.locale')
+            ->whereNotNull('p.locale')
+            ->get(['s.submission_id', 'p.locale']);
+        foreach ($rows as $row) {
+            $this->_installer->log("Updating locale of submission {$row->submission_id} to {$row->locale}.");
+            DB::table('submissions')->where('submission_id', '=', $row->submission_id)->update(['locale' => $row->locale]);
+        }
+
+        if ($count = DB::table('submissions AS s')->whereNull('locale')->count()) {
+            throw new Exception("There are {$count} submission records with null in the locale column. Please correct these before upgrading.");
+        }
     }
 }

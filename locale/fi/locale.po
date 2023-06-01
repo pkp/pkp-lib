@@ -1,177 +1,194 @@
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-06-01 22:38+0000\n"
+"Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
+"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/ops/locale/fi/>"
+"\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "context.current"
-msgstr ""
+msgstr "Nykyinen palvelin:"
 
 msgid "context.select"
-msgstr ""
+msgstr "Vaihda toiseen palvelimeen:"
 
 msgid "common.software"
-msgstr ""
+msgstr "Open Preprint Systems"
 
 msgid "navigation.browseByAuthor"
-msgstr ""
+msgstr "Kirjoittajan mukaan"
 
 msgid "navigation.skip.about"
-msgstr ""
+msgstr "Siirry palvelimen kuvaukseen"
 
 msgid "common.queue.long.submissionsUnassigned"
-msgstr ""
+msgstr "Osoittamattomat"
 
 msgid "common.queue.long.active"
-msgstr ""
+msgstr "Aktiiviset"
 
 msgid "doi.manager.settings.publications"
-msgstr ""
+msgstr "Ennakkojulkaisut"
 
 msgid "section.section"
-msgstr ""
+msgstr "Osasto"
 
 msgid "section.sections"
-msgstr ""
+msgstr "Osastot"
 
 msgid "section.title"
-msgstr ""
+msgstr "Osaston nimi"
 
 msgid "section.abbreviation"
-msgstr ""
+msgstr "Lyhenne"
 
 msgid "submission.layout.galleyPublicIdentificationExists"
-msgstr ""
+msgstr "Julkaistavan tiedoston julkinen tunnistetieto on jo olemassa."
 
 msgid "section.description"
-msgstr ""
+msgstr "Osaston arkiston kuvaus"
 
 msgid "section.pathDescription"
-msgstr ""
+msgstr "Osaston URL-polku. Käytä väliviivoja (-) välilyöntien sijasta."
 
 msgid "section.emptySection"
-msgstr ""
+msgstr "Tässä osastossa ei ole julkaistu vielä mitään."
 
 msgid "category.categories"
-msgstr ""
+msgstr "Kategoriat"
 
 msgid "common.publication"
-msgstr ""
+msgstr "Ennakkojulkaisu"
 
 msgid "common.publications"
-msgstr ""
+msgstr "Ennakkojulkaisut"
 
 msgid "preprint.details"
-msgstr ""
+msgstr "Tiedot"
 
 msgid "preprint.abstract"
-msgstr ""
+msgstr "Abstrakti"
 
 msgid "preprint.pageTitle"
-msgstr ""
+msgstr "Näytetään: {$title}"
 
 msgid "submissions.published"
-msgstr ""
+msgstr "Julkaistu"
 
 msgid "submission.search"
-msgstr ""
+msgstr "Ennakkojulkaisujen haku"
 
 msgid "submission.numberOfVersions"
-msgstr ""
+msgstr "Versiot: {$numberOfVersions}"
 
 msgid "submission.dates"
-msgstr ""
+msgstr "Lähetetty {$submitted} - Julkaistu {$published}"
 
 msgid "publication.galley.downloads"
-msgstr ""
+msgstr "Lataukset: {$downloads}"
 
 msgid "context.contexts"
-msgstr ""
+msgstr "Palvelimet"
 
 msgid "context.context"
-msgstr ""
+msgstr "Palvelin"
 
 msgid "user.authorization.representationNotFound"
-msgstr ""
+msgstr "Pyydettyä julkaistavaa tiedostoa ei löytynyt."
 
 msgid "user.noRoles.selectUsersWithoutRoles"
-msgstr ""
+msgstr "Sisällytä käyttäjät, joilla ei ole roolia tässä palvelimessa."
 
 msgid "user.register.contextsPrompt"
 msgstr ""
+"Minkä tällä sivustolla olevien palvelinten käyttäjäksi haluat rekisteröityä?"
 
 msgid "user.register.otherContextRoles"
-msgstr ""
+msgstr "Pyydä seuraavia rooleja."
 
 msgid "user.register.noContextReviewerInterests"
-msgstr ""
+msgstr "Jos pyysit arvioijan roolia, anna sinua kiinnostavat aiheet."
 
 msgid "user.role.manager"
-msgstr ""
+msgstr "Hallinnoija"
 
 msgid "user.role.subEditor"
-msgstr ""
+msgstr "Moderaattori"
 
 msgid "user.role.subEditors"
-msgstr ""
+msgstr "Moderaattorit"
 
 msgid "submission.event.submissionSubmitted"
-msgstr ""
+msgstr "Ennakkojulkaisu lähetetty"
 
 msgid "search.results.orderBy"
-msgstr ""
+msgstr "Järjestä tulokset seuraavan ominaisuuden mukaan"
 
 msgid "search.results.orderBy.preprint"
-msgstr ""
+msgstr "Ennakkojulkaisun otsikko"
 
 msgid "search.results.orderBy.author"
-msgstr ""
+msgstr "Kirjoittaja"
 
 msgid "search.results.orderBy.date"
-msgstr ""
+msgstr "Julkaisupäivämäärä"
 
 msgid "search.results.orderBy.server"
-msgstr ""
+msgstr "Palvelimen nimi"
 
 msgid "search.results.orderBy.popularityAll"
-msgstr ""
+msgstr "Suosio (kaikkien aikojen)"
 
 msgid "search.results.orderBy.popularityMonth"
-msgstr ""
+msgstr "Suosio (viime kuussa)"
 
 msgid "search.results.orderBy.relevance"
-msgstr ""
+msgstr "Relevanssi"
 
 msgid "search.results.orderDir.asc"
-msgstr ""
+msgstr "Nouseva"
 
 msgid "search.results.orderDir.desc"
-msgstr ""
+msgstr "Laskeva"
 
 msgid "manager.people.noAdministrativeRights"
 msgstr ""
+"Sinulla ei ole hallinnollisia oikeuksia tähän käyttäjään. Syynä tähän voi "
+"olla:\t\t<ul>\t\t\t<li>Käyttäjä on sivuston ylläpitäjä</li>\t\t\t"
+"<li>Käyttäjä on aktiivisena palvelimissa, joita sinä et hallinnoi</li>\t\t"
+"</ul>\tTämän tehtävän voi suorittaa vain sivuston ylläpitäjä."
 
 msgid "submission.layout.galley.remotelyHostedContent"
 msgstr ""
+"Tämä julkaistava tiedosto tulee saataville erilliselle verkkosivustolle."
 
 msgid "submission.layout.galley.remoteURL"
-msgstr ""
+msgstr "Etä-ylläpidetyn sisällön URL-osoite"
 
 msgid "user.register.registrationDisabled"
-msgstr ""
+msgstr "Tämän palvelimen käyttäjäksi ei voi rekisteröityä juuri nyt."
 
 msgid "user.register.form.privacyConsentThisContext"
 msgstr ""
+"Kyllä, annan luvan tallentaa tietojani tämän palvelimen <a href=\""
+"{$privacyUrl}\" target=\"_blank\">tietosuojaselosteen</a> kuvaamalla tavalla."
 
 msgid "user.register.form.missingContextConsent"
 msgstr ""
+"Sinun pitää hyväksyä niiden palvelinten tietosuojaselosteet, joihin olet "
+"rekisteröitymässä."
 
 msgid "user.register.form.missingSiteConsent"
-msgstr ""
+msgstr "Sinun pitää hyväksyä sivuston tietosuojaselosteen ehdot."
 
 msgid "index.latestPreprints"
-msgstr ""
+msgstr "Uusimmat ennakkojulkaisut"
 
 msgid "search.searchFor"
 msgstr ""

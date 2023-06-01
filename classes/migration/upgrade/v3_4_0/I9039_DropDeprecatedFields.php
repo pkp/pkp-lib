@@ -30,8 +30,10 @@ class I9039_DropDeprecatedFields extends Migration
             'review_assignments' => ['reviewer_file_id']
         ];
         foreach ($fieldMap as $entity => $columns) {
-            if (Schema::hasColumns($entity, $columns)) {
-                Schema::dropColumns($entity, $columns);
+            foreach ($columns as $column) {
+                if (Schema::hasColumn($entity, $column)) {
+                    Schema::dropColumns($entity, $column);
+                }
             }
         }
     }

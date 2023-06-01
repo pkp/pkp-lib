@@ -25,10 +25,13 @@ class I9039_DropDeprecatedFields extends Migration
      */
     public function up(): void
     {
-        // Drop the deprecated fields from user_settings
-        foreach (['assoc_id', 'assoc_type'] as $column) {
-            if (Schema::hasColumn('user_settings', $column)) {
-                Schema::dropColumns('user_settings', $column);
+        $fieldMap = [
+            'user_settings' => ['assoc_id', 'assoc_type'],
+            'review_assignments' => ['reviewer_file_id']
+        ];
+        foreach ($fieldMap as $entity => $columns) {
+            if (Schema::hasColumns($entity, $columns)) {
+                Schema::dropColumns($entity, $columns);
             }
         }
     }

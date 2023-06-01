@@ -70,7 +70,6 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->smallInteger('reminder_was_automatic')->default(0);
             $table->smallInteger('declined')->default(0);
             $table->smallInteger('cancelled')->default(0);
-            $table->bigInteger('reviewer_file_id')->nullable();
             $table->datetime('date_rated')->nullable();
             $table->datetime('date_reminded')->nullable();
             $table->smallInteger('quality')->nullable();

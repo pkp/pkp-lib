@@ -664,7 +664,7 @@ class DAO
         $eventData = null;
         if ($elementId) {
             $eventData = [$elementId];
-            if ($parentElementId) {
+            if (strlen($parentElementId) > 0) {
                 $eventData['parentElementId'] = $parentElementId;
             }
         }

@@ -227,7 +227,7 @@ class I7014_DoiMigration extends PKPI7014_DoiMigration
             ->select(['server_id'])
             ->get();
         $contextsWithAutomaticDeposit->each(function ($item) {
-            DB::table('journal_settings')
+            DB::table('server_settings')
                 ->insert(
                     [
                         'server_id' => $item->server_id,

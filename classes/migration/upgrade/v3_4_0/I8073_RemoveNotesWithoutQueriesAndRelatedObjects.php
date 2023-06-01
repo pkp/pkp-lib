@@ -14,6 +14,7 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
+use Exception;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -29,7 +30,6 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
 {
     private const ASSOC_TYPE_NOTE = 0x0000208; // PKPApplication::ASSOC_TYPE_NOTE
     private const ASSOC_TYPE_QUERY = 0x010000a; // PKPApplication::ASSOC_TYPE_QUERY
-    private const SUBMISSION_FILE_QUERY = 18; // SubmissionFile::SUBMISSION_FILE_QUERY
     private const FILE_MODE_MASK = 0666; // FileManager::FILE_MODE_MASK
     private const DIRECTORY_MODE_MASK = 0777; // FileManager::DIRECTORY_MODE_MASK
 
@@ -60,17 +60,25 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
         });
 
         // Does have the foreign key reference but not the CASCADE
+        try {
+            Schema::table('submission_files', fn (Blueprint $table) => $table->dropForeign('submission_files_file_id_foreign'));
+        } catch (Exception) {
+            error_log('Failed to delete foreign key submission_files.submission_files_file_id_foreign, perhaps your installation didn\'t have this constraint');
+        }
         Schema::table('submission_files', function (Blueprint $table) {
-            $table->dropForeign('submission_files_file_id_foreign');
             $table->foreign('file_id')->references('file_id')->on('files')->onDelete('cascade');
         });
 
         // Does have the foreign key reference but not the CASCADE
+        foreach (['submission_file_revisions_submission_file_id_foreign', 'submission_file_revisions_file_id_foreign'] as $keyName) {
+            try {
+                Schema::table('submission_file_revisions', fn (Blueprint $table) => $table->dropForeign($keyName));
+            } catch (Exception) {
+                error_log("Failed to delete foreign key submission_file_revisions.{$keyName}, perhaps your installation didn\'t have this constraint");
+            }
+        }
         Schema::table('submission_file_revisions', function (Blueprint $table) {
-            $table->dropForeign('submission_file_revisions_submission_file_id_foreign');
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
-
-            $table->dropForeign('submission_file_revisions_file_id_foreign');
             $table->foreign('file_id')->references('file_id')->on('files')->onDelete('cascade');
         });
 
@@ -81,15 +89,23 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
         });
 
         // Does have the foreign key reference but not the CASCADE
+        try {
+            Schema::table('review_files', fn (Blueprint $table) => $table->dropForeign('review_files_submission_file_id_foreign'));
+        } catch (Exception) {
+            error_log('Failed to delete foreign key review_files.review_files_submission_file_id_foreign, perhaps your installation didn\'t have this constraint');
+        }
         Schema::table('review_files', function (Blueprint $table) {
-            $table->dropForeign('review_files_submission_file_id_foreign');
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
             $table->index(['submission_file_id'], 'review_files_submission_file_id');
         });
 
         // Does have the foreign key reference but not the CASCADE
+        try {
+            Schema::table('review_round_files', fn (Blueprint $table) => $table->dropForeign('review_round_files_submission_file_id_foreign'));
+        } catch (Exception) {
+            error_log('Failed to delete foreign key review_round_files.review_round_files_submission_file_id_foreign, perhaps your installation didn\'t have this constraint');
+        }
         Schema::table('review_round_files', function (Blueprint $table) {
-            $table->dropForeign('review_round_files_submission_file_id_foreign');
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
         });
 

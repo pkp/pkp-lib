@@ -1,7 +1,7 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 19:20+0000\n"
+"PO-Revision-Date: 2023-06-02 20:57+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "grid/az/>\n"
@@ -630,3 +630,92 @@ msgstr "Göndərmə menyusu elementləri yoxdur"
 
 msgid "grid.navigationMenus.navigationMenu.noneExist"
 msgstr "Göndərmə menyuları yoxdur"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Bu element uzaqda yerləşir."
+
+msgid "grid.task.status.reviewReady"
+msgstr ""
+"Bu dəyərləndirmə hazırdır. Oxumaq üçün soldakı qeyd simvolunu klikləyin."
+
+msgid "grid.columns.locale.code"
+msgstr "Kod"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"{$name} adlı şəxsi çıxarmaq istədiyinizdən əminsinizmi? Bu proses ləğv edilə "
+"bilməz."
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Bu məqaləyə töhfə verənlər bu jurnalda aşağıdakı formatlarda müəyyən "
+"ediləcəkdir."
+
+msgid "grid.user.error"
+msgstr ""
+"Bu üzvü redaktə edərkən bir xəta baş verdi. Zəhmət olmasa yenidən cəhd edin."
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"Bu email göndərilərkən bir xəta baş verdi. Zəhmət olmasa email serveri "
+"konfiqurasiyanının işlədiyinə əmin olun və/və ya sistem idarəçinizə müraciət "
+"edin."
+
+msgid "grid.user.cannotAdminister"
+msgstr "Bu üzvü redaktə etmək üçün lazımi səlahiyyətə sahib deyilsiniz."
+
+msgid "grid.user.mustProvideName"
+msgstr "Zəhmət olmasa ilk üzv üçün ən azı bir soyad verin."
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Bu üzv üçün təsadüfi bir şifrə formalaşdırın."
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Üzvə xoş gəldin mesajı göndər."
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Üzvə ilk girişdə şifrə dəyişikliyini məcburi edin."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Üzvə növbəti girişdə şifrə dəyişikliyini məcburi edin."
+
+msgid "grid.user.userNoRoles"
+msgstr "Bu üzvün rolu yoxdur."
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"Bu istifadəçi kimi giriş etmək? Etdiyiniz bütün hərəkətlər bu istifadəçi adı "
+"ilə ediləcəkdir."
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr "{$userGroupName} adlı rol defoltdur və silinə bilməz."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"{$userGroupName} rolu silinə bilməz. Hazırda {$usersCount} İstifadəçi/"
+"istifadəçiləri buna təyin edilib."
+
+msgid "grid.userGroup.removed"
+msgstr "{$userGroupName} rolu silindi."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "{$userGroupName} rolu {$stageName} addımına təyin edildi."
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Bir müəllif tərəfindən gpndərisi tamamlanmayan məqalələri daxil edin."
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Bir növ seçin ..."
+
+msgid "grid.action.view"
+msgstr "Bax"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"\"{$oldUsername}\" adlı istifadəçi hesabını \"{$newUsername}\" adlı "
+"istifadəçi adı ilə birləşdirmək istədiyinizdən əminsinizmi? Daha sonra \""
+"{$oldUsername}\" adlı istifadəçi adına giriş mümkün olmayacaq. Bu hərəkət "
+"ləğv edilə bilməz."
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "{$userGroupName} rolu {$stageName} addımından silindi."

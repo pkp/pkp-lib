@@ -71,7 +71,8 @@ class NavigationMenuService extends \PKP\services\PKPNavigationMenuService
         $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
 
         $isUserLoggedIn = Validation::isLoggedIn();
-        $isUserLoggedInAs = Validation::isLoggedInAs();
+        $isUserLoggedInAs = (bool) Validation::loggedInAs();
+        ;
         $context = $request->getContext();
 
         $this->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);

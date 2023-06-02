@@ -1,24 +1,22 @@
 <?php
 
 /**
- * @file classes/log/SubmissionEventLogEntry.php
+ * @file classes/log/event/SubmissionEventLogEntry.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2003-2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionEventLogEntry
  *
  * @ingroup log
  *
- * @see SubmissionEventLogDAO
- *
  * @brief Describes an entry in the submission history log.
  */
 
-namespace APP\log;
+namespace APP\log\event;
 
-use PKP\log\PKPSubmissionEventLogEntry;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 
 // Log entry associative types. All types must be defined here
 
@@ -73,5 +71,5 @@ class SubmissionEventLogEntry extends PKPSubmissionEventLogEntry
 }
 
 if (!PKP_STRICT_MODE) {
-    class_alias('\APP\log\SubmissionEventLogEntry', '\SubmissionEventLogEntry');
+    class_alias('\APP\log\event\SubmissionEventLogEntry', '\SubmissionEventLogEntry');
 }

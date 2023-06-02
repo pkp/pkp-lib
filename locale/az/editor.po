@@ -1,7 +1,7 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 20:57+0000\n"
+"PO-Revision-Date: 2023-06-02 22:43+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/az/>\n"
@@ -350,8 +350,9 @@ msgstr "Təyinat edilmədi"
 msgid "reviewer.list.reassign"
 msgstr "Yenidən təyin edin"
 
+#, fuzzy
 msgid "reviewer.list.reassign.withName"
-msgstr "#YOX"
+msgstr "Remap {$name}"
 
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
@@ -371,17 +372,21 @@ msgstr "Bioqrafiya"
 msgid "reviewer.list.empty"
 msgstr "Rəyçi yoxdur"
 
+#, fuzzy
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr "#YOX"
+msgstr "Əvvəlki tura təyin edildi"
 
+#, fuzzy
 msgid "editor.decision.cancelDecision"
-msgstr "#YOX"
+msgstr "Qərarı ləğv edin"
 
+#, fuzzy
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr "#YOX"
+msgstr "Bu qərarı ləğv etmək istədiyinizə əminsinizmi?"
 
+#, fuzzy
 msgid "editor.decision.completeSteps"
-msgstr "#YOX"
+msgstr "Bu qərarı vermək üçün bu addımları izləyin"
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.submission.declined"

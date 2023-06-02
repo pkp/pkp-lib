@@ -1,7 +1,7 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 19:20+0000\n"
+"PO-Revision-Date: 2023-06-02 20:57+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "user/az/>\n"
@@ -190,3 +190,352 @@ msgstr "Oxucu"
 
 msgid "user.role.readers"
 msgstr "Oxucular"
+
+msgid "user.affiliation"
+msgstr "Qurum"
+
+msgid "user.authorization.accessDenied"
+msgstr "GiriŇü r…ôdd edildi."
+
+msgid "user.authorization.loginRequired"
+msgstr "√úzv giriŇüi t…ôl…ôb olunur."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr ""
+"Cari s…ôlahiyy…ôtiniz bu …ôm…ôliyyatńĪ h…ôyata ke√ßirm…ôk √ľ√ß√ľn kifay…ôt "
+"etmir."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Bu m…ôqal…ôy…ô, bu …ôm…ôliyyata giriŇü icaz…ôsi veril…ôn bir rola sahib "
+"deyilsiniz."
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"Bu …ôm…ôliyyatńĪ h…ôyata ke√ßirm…ôk √ľ√ß√ľn etibarlńĪ bi istifad…ô√ßi qrupu "
+"m√ľ…ôyy…ônl…ôŇüdirm…ôlisiniz."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Davam etm…ôzd…ôn …ôvv…ôl aŇüańüńĪda √áap ńįdar…ô√ßisi roluna sahib biri t…"
+"ôyin edilm…ôlidir. (M…ôs…ôl…ôn; √ßap v…ô ya istehsal redaktoru)"
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Hal hazńĪrda iŇü axńĪŇüńĪnńĪn bu m…ôrh…ôl…ôsin…ô giriŇüiniz yoxdur."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "He√ß bir iŇü axńĪŇüńĪ m…ôrh…ôl…ôsi qeyd edilm…ôyib."
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"SaytńĪ daxil etm…ôk √ľ√ß√ľn …ôvv…ôlc…ô yeni bir Ňüifr…ô t…ôyin etm…ôlisiniz. "
+"<br /> <br /> Ňüifr…ônizi d…ôyiŇüdirm…ôk √ľ√ß√ľn istifad…ô√ßi adńĪnńĪzńĪ, "
+"cari Ňüifr…ônizi v…ô yeni Ňüifr…ônizi daxil edin."
+
+msgid "user.hello"
+msgstr "Salam, "
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"ńįstifad…ô√ßi hesabńĪnńĪzńĪn Ňüifr…ôsini d…ôyiŇüdirm…ôk √ľ√ß√ľn hazńĪrkńĪ v…"
+"ô yeni Ňüifr…ônizi daxil edin."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Daxil etdiyiniz Ňüifr…ô x…ôtalńĪdńĪr."
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Ňěifr…ô t…ôl…ôb olunur."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Yeni Ňüifr…ôniz …ôvv…ôlki Ňüifr…ônizl…ô eynidir."
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "√úzv qrupu t…ôl…ôb olunur."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "ńįstifad…ô√ßi adńĪ girm…ôlisiniz."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "M…ôxfilik b…ôyannam…ôsinin Ňü…ôrtl…ôrini q…ôbul etm…ôlisiniz."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr ""
+"Cari Ňüifr…ô il…ô davam etm…ôk √ľ√ß√ľn Ňüifr…ô xanasńĪnńĪ boŇü buraxńĪn."
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"ńįstifad…ô√ßi adńĪ sad…ôc…ô ki√ßik h…ôrfl…ôri, saylarńĪ, tire iŇüar…ôsini v…"
+"ô alt x…ôtd…ôn ibar…ôt olmalńĪdńĪr."
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Uńüurla qeydiyyatdan ke√ßmisiniz. Profilinizi doldurmaq √ľ√ß√ľn buraya vurun "
+"<a href=\" $frofileurl }\"> </a>."
+
+msgid "user.role.reviewer"
+msgstr "R…ôy√ßi"
+
+msgid "user.role.reviewers"
+msgstr "R…ôy√ßi"
+
+msgid "user.profile.identity"
+msgstr "Ňě…ôxsiyy…ôt"
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "∆Źm…ôliyyat kimlik identifikasiyasńĪ …ôskik v…ô ya etibarsńĪzdńĪr."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"Bir m…ônb…ô olmadan bu …ôm…ôliyyat √ľ√ß√ľn √ßańüńĪrńĪŇü ed…ô bilm…ôzsiniz ("
+"Jurnal, konfrans, vs.)"
+
+msgid "user.authorization.privateOperation"
+msgstr "Bu …ôm…ôliyyat x√ľsusidir v…ô ya m√∂vcud deyildir."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "GiriŇüiniz r…ôdd edildi. Bu s…ôhif…ôy…ô giriŇü m…ôhdudlaŇüdńĪrńĪlńĪb."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Bir qoŇüma qeyd edilm…ôyib; ancaq qoŇüma z…ôruridir."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr ""
+"Bu yazńĪ √ľ√ß√ľn etibarlńĪ bir r…ôy√ßi olmadńĪńüńĪnńĪz √ľ√ß√ľn giriŇüiniz r…"
+"ôdd edildi"
+
+msgid "user.authorization.submissionQuery"
+msgstr "Bu m√ľzakir…ôy…ô daxilolma icaz…ôniz yoxdur."
+
+msgid "user.gossip.description"
+msgstr ""
+"Buraya daxil olan qeydl…ôr sad…ôc…ô idar…ô√ßil…ôr, jurnal idar…ô√ßil…ôri "
+"redaktorlar v…ô k√∂m…ôk√ßi redaktorlar t…ôr…ôfind…ôn g√∂r√ľl…ô bil…ôr."
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"Ňě…ôkill…ôr .gif, .jpg veya .png formalarńĪndan biri olmalńĪdńĪr ve √∂l√ß√ľl…"
+"ôri …ôn √ßox 150X150 olmalńĪdńĪr."
+
+msgid "user.login.accountDisabled"
+msgstr ""
+"HesabńĪnńĪz passivdir. Daha √ßox m…ôlumat √ľ√ß√ľn idar…ô√ßi il…ô …ôlaq…ô "
+"saxlayńĪn."
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"Siz…ô {$ email} adresind…ôn bir t…ôsdiq emaili g√∂nd…ôrildi. Z…ôhm…ôt "
+"olmasa, yeni hesabńĪnńĪzńĪ aktivl…ôŇüdirm…ôk √ľ√ß√ľn bu emaild…ôki t…"
+"ôlimatlarńĪ izl…ôyin. Bir email almamńĪsńĪnńĪzsa, emailin spam qovluńüuna "
+"d√ľŇü√ľb d√ľŇüm…ôdiyini yoxlayńĪn."
+
+msgid "user.login.activated"
+msgstr ""
+"HesabńĪnńĪzńĪ aktivl…ôŇüdirdiyiniz √ľ√ß√ľn t…ôŇü…ôkk√ľr edirik. ńįndi "
+"hesabńĪnńĪzńĪ formalaŇüdńĪrark…ôn siz…ô veril…ôn kimlik m…ôlumatlarńĪnńĪ "
+"istifad…ô ed…ôr…ôk daxil ola bil…ôrsiniz."
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"Dońürulama mesajńĪ email √ľnvanńĪnńĪza g√∂nd…ôrildi. Ňěifr…ônizi yenil…ôm…ôk "
+"√ľ√ß√ľn bu emaild…ôki t…ôlimatlarńĪ t…ôtbiq edin."
+
+msgid "user.login.loginError"
+msgstr ""
+"ńįstifad…ô√ßi adńĪ v…ô ya Ňüifr…ô yanlńĪŇü daxil edildi. B√∂y√ľk-ki√ßik h…"
+"ôrf uyńüunluńüuna diqq…ôt ed…ôr…ôk yenid…ôn c…ôhd edin."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"BańüńĪŇülayńĪn, bu …ôlaq…ô etibarlńĪ deyil. Ňěifr…ônizi yenil…ôm…ôk √ľ√ß√ľn "
+"yenid…ôn c…ôhd edin."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"Yeni Ňüifr…ôniz e-po√ßt √ľnvanńĪnńĪza g√∂nd…ôrildi. Yeni Ňüifr…ônizi istifad…"
+"ô ed…ôr…ôk saytńĪmńĪzla …ôlaq…ô qura bil…ôrsiniz."
+
+msgid "user.profile.form.countryRequired"
+msgstr "Bir √∂lk…ô z…ôruridir."
+
+msgid "user.profile.form.emailRequired"
+msgstr "EtibarlńĪ bir email √ľnvanńĪ t…ôl…ôb olunur."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "M√ľ…ôyy…ôn bir ad t…ôl…ôb olunur."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Qeyd olunan adńĪn …ôskik olduńüu bir dil √ľ√ß√ľn soyad …ôlav…ô etmisiniz. "
+"Z…ôhm…ôt olmazsa bu dil √ľ√ß√ľn verilmiŇü ad …ôlav…ô edin."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Bir email √ľnvanńĪ t…ôl…ôb olunur."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Yeni Ňüifr…ônizi daxil etm…ôlisiniz."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"HesabńĪnńĪzńĪn e-po√ßt √ľnvanńĪnńĪ aŇüańüńĪya daxil ets…ôniz parolunuzu nec…"
+"ô sńĪfńĪrlamaq bar…ôd…ô t…ôlimatlar ehtiva ed…ôn e-po√ßt g√∂nd…ôril…ôc…ôk."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"B…ôli, m…ôlumatlarńĪmńĪn <a href=\"{$privacyUrl}\" target=\"_blank\">m…"
+"ôxfilik b…ôyanatńĪna</a> uyńüun olaraq toplanmasńĪ v…ô saxlanmasńĪnńĪ q…ôbul "
+"edir…ôm. <a href=\"{$privacyUrl}\" target=\"_blank\">privacy statement</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "B…ôli, yeni n…ôŇürl…ôr v…ô elanlardan x…ôb…ôrdar olmaq ist…ôyir…ôm."
+
+msgid "user.register.form.emailExists"
+msgstr ""
+"Se√ßdiyiniz email √ľnvanńĪ artńĪq baŇüqa bir istifad…ô√ßi t…ôr…ôfind…ôn "
+"istifad…ô olunur."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Ňěifr…ôl…ôr uyńüun g…ôlmir."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Email √ľnvanńĪ sah…ôl…ôri uyńüun g…ôlmir."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"ńįstifad…ô√ßi adńĪ yalnńĪzca ki√ßik h…ôrfli alfanumerik, alt x…ôtt ve tire "
+"ola bil…ôr."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "∆Źn azńĪ bir v…ôzif…ô se√ßm…ôlisiniz"
+
+msgid "user.register.form.usernameExists"
+msgstr ""
+"Se√ßdiyiniz istifad…ô√ßi adńĪ artńĪq baŇüqasńĪ t…ôr…ôfind…ôn istifad…ô "
+"olunur."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Ňěifr…ô …ôn az {$length} xarakter olmalńĪdńĪr."
+
+msgid "user.register.registerAs"
+msgstr "{$contextName} formasńĪnda qeydiyyatdan ke√ßin..."
+
+msgid "user.role.siteAdmin"
+msgstr "Sayt idar…ô√ßisi"
+
+msgid "user.role.siteAdmins"
+msgstr "Sayt idar…ô√ßil…ôri"
+
+msgid "user.role.copyeditor"
+msgstr "S…ôhif…ô T…ôrtibatńĪ Redaktoru"
+
+msgid "user.role.copyeditors"
+msgstr "S…ôhif…ô t…ôrtibatńĪ redaktorlarńĪ"
+
+msgid "user.role.proofreader"
+msgstr "Test Dizayn Korrektoru"
+
+msgid "user.role.proofreaders"
+msgstr "Test dizayn korrektorlarńĪ"
+
+msgid "user.role.layoutEditor"
+msgstr "Layout redaktoru"
+
+msgid "user.role.layoutEditors"
+msgstr "Layout redaktorlarńĪ"
+
+msgid "user.roles"
+msgstr "Rol"
+
+msgid "user.sendPassword"
+msgstr "T…ôsdiql…ôm…ô"
+
+msgid "user.sendPassword.description"
+msgstr ""
+"ńįstifad…ô√ßi adńĪ v…ô Ňüifr…ôm daxil olmaqla bir t…ôsdiq e-po√ßtunu m…ôn…ô "
+"G√∂nd…ôr"
+
+msgid "user.signature"
+msgstr "ńįmza"
+
+msgid "user.title"
+msgstr "BaŇülńĪq"
+
+msgid "user.url"
+msgstr "Ana s…ôhif…ô URL"
+
+msgid "user.userHome"
+msgstr "ńįstifad…ô√ßi evi"
+
+msgid "user.username"
+msgstr "ńįstifad…ô√ßi adńĪ"
+
+msgid "user.usernameOrEmail"
+msgstr "ńįstifad…ô√ßi adńĪ v…ô ya e-po√ßt"
+
+msgid "user.workingLanguages"
+msgstr "ńįŇüg√ľzar"
+
+msgid "user.orcid"
+msgstr "Orcid ID"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"G√∂st…ôrdiyiniz orcid Ňü…ôxsiyy…ôt etibarsńĪzdńĪr. Z…ôhm…ôt olmasa, tam Uri "
+"(m…ôs…ôl…ôn, https://orcid.org/0000-0002-1825-0097 \")."
+
+msgid "user.profile.contact"
+msgstr "∆Źlaq…ô"
+
+msgid "user.profile.public"
+msgstr "ńįctimai"
+
+msgid "user.apiKey"
+msgstr "API a√ßarńĪ"
+
+msgid "user.apiKeyEnabled"
+msgstr ""
+"Bu hesaba daxil olmaq √ľ√ß√ľn API a√ßarńĪ il…ô xarici t…ôtbiql…ôri "
+"aktivl…ôŇüdirin"
+
+msgid "user.apiKey.generate"
+msgstr "Yeni API a√ßarńĪ yaradńĪn"
+
+msgid "user.apiKey.remove"
+msgstr "Silin"
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Yeni API a√ßarńĪ yaratmaq bu istifad…ô√ßi √ľ√ß√ľn m√∂vcud d√ľym…ôni "
+"etibarsńĪz ed…ôc…ôkdir."
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+"A√ßarńĪn silinm…ôsi onu istifad…ô ed…ôn h…ôr hansńĪ proqrama giriŇüi l…ôńüv "
+"ed…ôc…ôk."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Bu API a√ßarńĪnńĪ silm…ôk ist…ôdiyiniz…ô …ôminsiniz?"
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Bir API a√ßarńĪ yaratmadan …ôvv…ôl sayt administratoru konfiqurasiya "
+"faylńĪnda (\"api_key_secret\") sirrini t…ôyin etm…ôlidir."
+
+msgid "user.privacyLink"
+msgstr ""
+"M…ôlumatlarńĪnńĪz <a href=\"{$privacyurl} - h…ôd…ôf=\"_blank\"> M…ôxfilik B…"
+"ôyanatńĪ </a> -…ô uyńüun olaraq saxlanńĪlńĪr."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "G√∂st…ôril…ôn e-po√ßt √ľnvanńĪ olan istifad…ô√ßi yoxdur."
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr ""
+"{$reason} s…ôb…ôbind…ôn parol sńĪfńĪrlama t…ôl…ôbi yerin…ô yetirilm…ôdi."
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "GiriŇü Ňüifr…ônizi yenil…ôm…ôk √ľ√ß√ľn yeni bir parol daxil edin."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""
+"Ňěifr…ô uńüurla yenil…ôndi. Z…ôhm…ôt olmasa yenil…ônmiŇü parol il…ô daxil "
+"olun."

@@ -1,8 +1,632 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-06-02 19:20+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
+"Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"grid/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "grid.action.activate"
+msgstr "Aktivləşdirin"
+
+msgid "grid.action.editSponsor"
+msgstr "Sponsoru redaktə edin"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Məqalə yoxlama siyahısı"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Bütün qeydiyyatdan keçmiş istifadəçilər"
+
+msgid "grid.artworkFile.caption"
+msgstr "Alt yazı"
+
+msgid "grid.submission.itemTitle"
+msgstr "müəllif; Başlıq"
+
+msgid "grid.action.editContributor"
+msgstr "Töhfəçini redaktə edin"
+
+msgid "author.users.contributor.name"
+msgstr "Ad"
+
+msgid "author.users.contributor.email"
+msgstr "Email"
+
+msgid "author.users.contributor.role"
+msgstr "Vəzifə"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Baxış siyahılarında"
+
+msgid "grid.noItems"
+msgstr "Element yoxdur"
+
+msgid "grid.settings"
+msgstr "Tənzimlər"
+
+msgid "grid.noAuditors"
+msgstr "Müfəttiş yoxdur"
+
+msgid "grid.action.uninstall"
+msgstr "Sil"
+
+msgid "grid.action.manageAccess"
+msgstr "Girişi idarə edin"
+
+msgid "grid.action.sort"
+msgstr "Sıraya düz"
+
+msgid "grid.action.addItem"
+msgstr "Element əlavə edin"
+
+msgid "grid.action.addNote"
+msgstr "Qeyd əlavə edin"
+
+msgid "grid.action.addQuery"
+msgstr "Müzakirə əlavə edin"
+
+msgid "grid.action.updateQuery"
+msgstr "Müzakirəni yeniləyin"
+
+msgid "grid.action.readQuery"
+msgstr "Müzakirəni oxuyun"
+
+msgid "grid.action.deleteQuery"
+msgstr "Müzakirəni silin"
+
+msgid "grid.action.addUser"
+msgstr "Üzv əlavə edin"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Bu rəyçini ləğv edin"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Bu kopya faylını növbəti mərhələyə göndərmək üçün təsdiqləyin"
+
+msgid "grid.action.reload"
+msgstr "Yenidən yükləyin"
+
+msgid "grid.action.delete"
+msgstr "Silin"
+
+msgid "grid.action.deleteFile"
+msgstr "Faylı silin"
+
+msgid "grid.action.editSection"
+msgstr "Bölməni redaktə edin"
+
+msgid "grid.action.deleteMedia"
+msgstr "Medianı silin"
+
+msgid "grid.action.editMedia"
+msgstr "Medianı redaktə edin"
+
+msgid "grid.action.export"
+msgstr "İxrac"
+
+msgid "grid.action.deleteSection"
+msgstr "Bölmə silin"
+
+msgid "grid.action.editorialHistory"
+msgstr "Redaksiya keçmişi"
+
+msgid "grid.action.remove"
+msgstr "Sil"
+
+msgid "grid.action.edit"
+msgstr "Redaktə etmək"
+
+msgid "grid.action.approve"
+msgstr "Təsdiqləyin"
+
+msgid "grid.action.disapprove"
+msgstr "Təsdiqləməyin"
+
+msgid "grid.action.setApproval"
+msgstr "Təsdiqi tənzimləyin"
+
+msgid "grid.action.moreInformation"
+msgstr "Ətraflı məlumat"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Defolt tənzimlərə qayıdın"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Defolt tənzimləri geri yükləmək istədiyinizdən əminsinizmi?"
+
+msgid "grid.action.addAuthor"
+msgstr "Müəllif əlavə edin"
+
+msgid "grid.action.editAuthor"
+msgstr "Müəllifi redaktə edin"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Müəllifi silin"
+
+msgid "grid.action.addAuditor"
+msgstr "Yoxlayan əlavə edin"
+
+msgid "grid.action.upgrade"
+msgstr "Yeniləyin"
+
+msgid "grid.action.order"
+msgstr "Sıralayın"
+
+msgid "grid.action.saveOrdering"
+msgstr "Sıralamanı yadda saxlayın"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Sıralamanı ləğv edin"
+
+msgid "grid.action.extendAll"
+msgstr "Hamısını açın"
+
+msgid "grid.action.collapse"
+msgstr "Daraldın"
+
+msgid "grid.action.collapseAll"
+msgstr "Hamısını daraldın"
+
+msgid "grid.action.wizard"
+msgstr "Tənzimlər Sihirbazı"
+
+msgid "grid.action.moveItem"
+msgstr "Element köçürün"
+
+msgid "grid.action.downloadAll"
+msgstr "Bütün faylları arxiv faylı olaraq endirin"
+
+msgid "grid.action.editFile"
+msgstr "Faylı redaktə edin"
+
+msgid "grid.action.readReview"
+msgstr "Dəyərləndirməni oxuyun"
+
+msgid "grid.action.email"
+msgstr "Bir email göndər"
+
+msgid "grid.action.addReviewer"
+msgstr "Rəyçi əlavə edin"
+
+msgid "grid.action.addFile"
+msgstr "Fayl əlavə edin"
+
+msgid "grid.action.selectFiles"
+msgstr "İdarə etmək üçün faylları seçin"
+
+msgid "grid.action.requestRevisions"
+msgstr "Namizəd məqaləyə yenidən baxış tələb edin"
+
+msgid "grid.action.accept"
+msgstr "Namizəd məqaləni qəbul edin"
+
+msgid "grid.action.decline"
+msgstr "Namizəd məqaləni rədd edin"
+
+msgid "grid.action.internalReview"
+msgstr "Namizəd məqaləni dəyərləndirməyə qəbul edin"
+
+msgid "grid.action.externalReview"
+msgstr "Namizəd məqaləni dəyərləndirməyə göndər"
+
+msgid "grid.action.sendToProduction"
+msgstr "Namizəd məqaləni nəşr prosesinə daxil edin"
+
+msgid "grid.action.settings"
+msgstr "Tənzimlər"
+
+msgid "grid.action.importexport"
+msgstr ""
+"Məzmunu və ya sayt datasını idxal və ya ixcar edin (içəri və ya çölə köçürün)"
+
+msgid "grid.action.orderItems"
+msgstr "Çeşidləmə seçimini aktivləşdirin"
+
+msgid "grid.action.resetAll"
+msgstr "Bütün elementləri standart formaya çevirin"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Yeni bir email şablonu əlavə edin"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Bu email şablonunu redaktə edin"
+
+msgid "grid.action.disableEmail"
+msgstr "Bu email şablonunu passivləşdirin"
+
+msgid "grid.action.resetEmail"
+msgstr "Bu email şablonunu defolt formatına qaytarın"
+
+msgid "grid.action.expandAll"
+msgstr "Hamısını genişləndirin"
+
+msgid "grid.action.requestAccount"
+msgstr "Şəxs əlavə edin"
+
+msgid "grid.action.expand"
+msgstr "Genişləndirin"
+
+msgid "grid.action.notify"
+msgstr "Şəxsi məlumatlandırın"
+
+msgid "grid.action.addUserGroup"
+msgstr "Yeni bir üzv qrupu əlavə edin"
+
+msgid "grid.action.editUserGroup"
+msgstr "Üzv qrupunu redaktə edin"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Bu istifadəçi qrupunu çıxarın"
+
+msgid "grid.action.disable"
+msgstr "Passivləşdirin"
+
+msgid "grid.action.details"
+msgstr "Elementi göstərin"
+
+msgid "grid.action.enrolExisting"
+msgstr "Mövcud olan üzvü rəyçi kimi səlahiyyətləndirin"
+
+msgid "grid.action.selectCreate"
+msgstr "Yeni bir rəyçi yaradın"
+
+msgid "grid.action.search"
+msgstr "Axtarış"
+
+msgid "grid.action.advancedSearch"
+msgstr "İnkişaf etmiş axtarış"
+
+msgid "grid.action.viewLibrary"
+msgstr "Sənəd kitabxanasına baxın"
+
+msgid "grid.action.viewMetadata"
+msgstr "Namizəd məqalə üst datasına baxın"
+
+msgid "grid.action.sendReminder"
+msgstr "İstifadəçiyə bir tapşırıq xatırlatması Göndər"
+
+msgid "grid.action.newRound"
+msgstr "Yeni bir tur başladın"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Rəyçi bələdçisini göstərin"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Mənfəət münaqişəsi bələdçiləri politikasına baxın"
+
+msgid "grid.action.thankReviewer"
+msgstr "Bu rəyçiyə təşəkkür mesajı göndər"
+
+msgid "grid.action.uploadFile"
+msgstr "Faylı yükləyin"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Elan növü əlavə edin"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Elan əlavə edin"
+
+msgid "grid.action.addInstitution"
+msgstr "#YOX"
+
+msgid "grid.action.mergeUser"
+msgstr "Üzv birləşdirin"
+
+msgid "grid.action.unassignUser"
+msgstr "Təyin edilməmiş üzv"
+
+msgid "grid.action.history"
+msgstr "Keçmişi göstərin"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Dəyərləndirmə tamamlandı, buna diqqət etməyə bilərsiniz."
+
+msgid "grid.action.enable"
+msgstr "Aktivləşdirin"
+
+msgid "grid.action.bookInfo"
+msgstr "Namizəd məqalə detalı"
+
+msgid "grid.action.logInAs"
+msgstr "kimi daxil olun"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Bütün istifadəçiləri ixrac edin"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Bütün istifadəçiləri ixrac etmək istədiyinizdən əminsiniz?"
+
+msgid "grid.action.deactivate"
+msgstr "Passivləşdirin"
+
+msgid "grid.action.copy"
+msgstr "Kopyala"
+
+msgid "grid.action.preview"
+msgstr "Önizləmə"
+
+msgid "grid.action.install"
+msgstr "Yükləyin"
+
+msgid "grid.action.moreItems"
+msgstr "Daha çox şey gətir"
+
+msgid "grid.action.users"
+msgstr "İstifadəçiləri Göstər/Seç"
+
+msgid "grid.task.status.completed"
+msgstr "Bu iş tamamlandı"
+
+msgid "grid.task.status.new"
+msgstr "Bu yeni bir element və diqqət tələb edir."
+
+msgid "grid.task.status.uploaded"
+msgstr "Sütun başlığı bu faylı kimin yüklədiyini göstərir."
+
+msgid "grid.task.status.unfinished"
+msgstr "Dəyərləndirmə başa çatmadı"
+
+msgid "grid.columns.actions"
+msgstr "Hərəkətlər"
+
+msgid "grid.columns.institution"
+msgstr "Təşkilat"
+
+msgid "grid.columns.url"
+msgstr "Url"
+
+msgid "grid.columns.auditor"
+msgstr "Nəzarətçi"
+
+msgid "grid.columns.locale"
+msgstr "Dil"
+
+msgid "grid.sponsor.title"
+msgstr "Sponsor"
+
+msgid "grid.action.addSponsor"
+msgstr "Sponsor əlavə edin"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Sponsoru silin"
+
+msgid "grid.action.addSeries"
+msgstr "Seriya əlavə edin"
+
+msgid "grid.action.editSeries"
+msgstr "Seriyaları redaktə edin"
+
+msgid "grid.action.deleteSeries"
+msgstr "Seriyaları silin"
+
+msgid "grid.action.addCategory"
+msgstr "Kateqoriya əlavə edin"
+
+msgid "grid.action.editCategory"
+msgstr "Kateqoriya redaktə edin"
+
+msgid "grid.action.deleteCategory"
+msgstr "Kateqoriya silin"
+
+msgid "grid.contributor.title"
+msgstr "Dəstək mənbələri"
+
+msgid "grid.action.addContributor"
+msgstr "Töhfəçi əlavə edin"
+
+msgid "grid.action.deleteContributor"
+msgstr "Töhfəçini silin"
+
+msgid "grid.action.newVersion"
+msgstr "Yeni bir versiya yaradın"
+
+msgid "grid.reviewForm.title"
+msgstr "Dəyərləmdirmə formaları"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Cavab seçimləri"
+
+msgid "grid.noFiles"
+msgstr "Fayl yoxdur"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Fayllar"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Məqalə kitabxanası"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Redaksiya kitabxanası"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Dəyərləndirmə kitabxanası"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "İstehsal kitabxanası"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Dizayn şablon kitabxanası"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Yoxlama siyahısı elementi"
+
+msgid "author.users.contributor.principalContact"
+msgstr "İlkin əlaqə"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Əsas şəxs kimi təyin edin"
+
+msgid "contributor.listPanel.preview"
+msgstr "Önbaxış"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Format"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Görünüş"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Qısaldılmış"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Nəşr siyahıları"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Tam"
+
+msgid "grid.roles.currentRoles"
+msgstr "Cari vəzifələr"
+
+msgid "grid.roles.add"
+msgstr "Vəzifə əlavə edin"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Mərhələ təyinatı"
+
+msgid "grid.user.currentUsers"
+msgstr "Cari üzvlər"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Cari qeydlər"
+
+msgid "grid.user.allRoles"
+msgstr "Bütün vəzifələr"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Bütün icazə səviyyələri"
+
+msgid "grid.user.add"
+msgstr "Üzv əlavə edin"
+
+msgid "grid.user.enroll"
+msgstr "Üzvü qeydiyyatdan keçirin"
+
+msgid "grid.user.edit"
+msgstr "Üzvü redaktə edin"
+
+msgid "grid.user.email"
+msgstr "Email"
+
+msgid "grid.user.enable"
+msgstr "Aktivləşdirin"
+
+msgid "grid.user.disableReason"
+msgstr "Üzvü passivləşdirmə səbəbi"
+
+msgid "grid.user.disable"
+msgstr "Passivləşdirin"
+
+msgid "grid.user.enableReason"
+msgstr "Üzvü aktivləşdirməyin səbəbi"
+
+msgid "grid.user.generatePassword"
+msgstr "Şifrə formalaşdırın"
+
+msgid "grid.user.notifyUser"
+msgstr "Üzvü məlumatlandırın"
+
+msgid "grid.user.mustChangePassword"
+msgstr "Şifrə dəyişdirin"
+
+msgid "grid.user.moreDetails"
+msgstr "Daha çox üzv təfərrüatı"
+
+msgid "grid.user.lessDetails"
+msgstr "Daha az istifadəçi təfərrüatı"
+
+msgid "grid.user.userDetails"
+msgstr "Üzv təfərrüatları"
+
+msgid "grid.user.userRoles"
+msgstr "Üzv rolları"
+
+msgid "grid.user.step1"
+msgstr "Addım #1: Üzv detalını doldurun"
+
+msgid "grid.user.step2"
+msgstr "Addım #2: {$userFullName} adlı üzvə vəzifə əlavə edin"
+
+msgid "grid.user.addRoles"
+msgstr "Tapşırıq əlavə edin"
+
+msgid "grid.user.addRole"
+msgstr "Rol əlavə edin"
+
+msgid "grid.user.selectUser"
+msgstr "Üzv seçin"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Zəhmət olmasa bir üzv seçin"
+
+msgid "grid.user.mergeUsers"
+msgstr "İstifadəçiləri birləşdirin"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "İstifadəçi birləşdirin"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Bu istifadəçidə birləşdirin"
+
+msgid "grid.preparedEmails.title"
+msgstr "Hazırlanmış email şablonları"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Cari siyahı"
+
+msgid "grid.plugin.allCategories"
+msgstr "Bütün kateqoriyalar"
+
+msgid "grid.plugin.disable"
+msgstr "Bu əlavələri passivləşdirmək istədiyinizə əminsiniz?"
+
+msgid "grid.action.fileUnconsider"
+msgstr "Korrektor düzəlişləri edildi. Bu vəzifə dəyişdirilə bilməz."
+
+msgid "grid.artworkFile.credit"
+msgstr "Kredit"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Müəllif hüquqları sahibi"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Əlaqə məlumatları (müəllif/naşir deyilsə)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "İcazə şərtləri"
+
+msgid "grid.artworkFile.placement"
+msgstr "Məqalə yerləşdirmə"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Təyinat addımları"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Təyin edilməmiş addımlar"
+
+msgid "grid.userGroup.allStages"
+msgstr "Bütün iş axını mərhələləri"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Təyin olunmuş rolları sadalayın"
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "İcazə səviyyəsi ilə tənzimlənib"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Menyu əlavə edin"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Element əlavə edin"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Göndərmə menyusu elementləri yoxdur"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Göndərmə menyuları yoxdur"

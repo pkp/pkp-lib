@@ -25,7 +25,7 @@ use PKP\migration\Migration;
 
 abstract class I8933_EventLogLocalized extends Migration
 {
-    const CHUNK_SIZE = 10000;
+    public const CHUNK_SIZE = 10000;
 
     abstract protected function getContextTable(): string;
 
@@ -50,7 +50,7 @@ abstract class I8933_EventLogLocalized extends Migration
             $table->bigInteger('user_id')->nullable()->change();
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'event_log_user_id');
-            $table->boolean('is_translated')->change();
+            $table->boolean('is_translated')->nullable()->change();
         });
 
         $this->fixConflictingSubmissionLogConstants();
@@ -112,7 +112,7 @@ abstract class I8933_EventLogLocalized extends Migration
                 DB::table('event_log')
                     ->where('log_id', $row->log_id)
                     ->update(['event_type' => 0x30000007]); // SUBMISSION_LOG_DECISION_EMAIL_SENT
-            } else if (
+            } elseif (
                 !DB::table('event_log_settings')
                     ->where('log_id', $row->log_id)
                     ->whereIn('setting_name', ['senderId', 'senderName'])
@@ -133,7 +133,7 @@ abstract class I8933_EventLogLocalized extends Migration
         // Try to determine submission/submission file ID based on the assoc type
         if ($row->assoc_type === 0x0000203) { // ASSOC_TYPE_SUBMISSION_FILE
             $submissionFileId = $row->assoc_id;
-        } else if ($row->assoc_type === 0x0100009) { // ASSOC_TYPE_SUBMISSION
+        } elseif ($row->assoc_type === 0x0100009) { // ASSOC_TYPE_SUBMISSION
             $submissionId = $row->assoc_id;
         } else {
             throw new \Exception('Unsupported assoc_type in the event log: ' . $row->assoc_type);

@@ -577,7 +577,8 @@ msgstr "E-postlogg"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$userFullName} ({$username}) tilldelades det här bidraget som {$userGroupName}."
+"{$userFullName} ({$username}) tilldelades det här bidraget som "
+"{$userGroupName}."
 
 msgid "submission.event.participantRemoved"
 msgstr "\"{$name}\" ({$username}) togs bort som {$userGroupName}."
@@ -605,7 +606,8 @@ msgstr "Bidraget har skickats in."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$filename} ({$username}) godkände de upphovsrättsliga villkoren för bidraget."
+"{$filename} ({$username}) godkände de upphovsrättsliga villkoren för "
+"bidraget."
 
 msgid "submission.event.fileRevised"
 msgstr "Bearbetningen \"{$filename}\" för {$submissionFileId}) laddas upp."
@@ -662,6 +664,8 @@ msgstr ""
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"En automatisk påminnelse skickades till {$recipientName} angående deras "
+"granskningsuppdrag"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Ett e-postmeddelande skickades:"
@@ -686,10 +690,10 @@ msgstr ""
 "En registrering av uppladdningen sparas när filen skapas och kan inte ändras."
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "Först publicerad"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "För redaktionen"
 
 msgid "submission.galley"
 msgstr "Publiceringsversion"
@@ -969,7 +973,7 @@ msgid "submission.review"
 msgstr "Granska"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Granska och skicka"
 
 msgid "submission.reviewed"
 msgstr "Granskad"
@@ -2625,6 +2629,9 @@ msgstr ""
 msgid "publication.version"
 msgstr ""
 
+msgid "submission.submissionFile"
+msgstr "Bidragsfil"
+
 #~ msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
 #~ msgstr ""
 #~ "{$editorName} återkallade beslutet att acceptera bidraget och skickade "
@@ -2651,7 +2658,3 @@ msgstr ""
 
 #~ msgid "editor.submission.decision.backToSubmission"
 #~ msgstr "Tillbaka till inskickat-steget"
-
-msgid "submission.submissionFile"
-msgstr "Bidragsfil"
-

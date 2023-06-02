@@ -1,8 +1,2273 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-06-02 19:20+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
+"Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"common/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Daha √ßox elan ..."
+
+msgid "announcement.noneExist"
+msgstr "He√ß bir elan yoxdur."
+
+msgid "common.confirmDelete"
+msgstr ""
+"Bu elementi silm…ôk ist…ôdiyinizd…ôn …ôminsinizmi? Bu proses l…ôńüv edil…ô "
+"bilm…ôz"
+
+msgid "common.available"
+msgstr "M√∂vcud"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+"SpamlarńĪn qarŇüńĪsńĪnńĪ almaq √ľ√ß√ľn t…ôsdiql…ôm…ô yoxlamasńĪnńĪ bitirm…"
+"ôniz lazńĪmdńĪr."
+
+msgid "common.changesSaved"
+msgstr "D…ôyiŇüiklikl…ôriniz yadda saxlandńĪ"
+
+#, fuzzy
+msgid "common.details"
+msgstr "T…ôf…ôrr√ľatlar"
+
+#, fuzzy
+msgid "common.disconnected"
+msgstr "K…ôsilm…ôk"
+
+msgid "common.dragAndDropHere"
+msgstr "Burada fayllarńĪ s√ľr√ľkleyin v…ô buraxńĪn."
+
+#, fuzzy
+msgid "common.emailTemplates"
+msgstr "E-po√ßt ŇüablonlarńĪ"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Nam…ôlum bir data baza x…ôtasńĪ baŇü verdi."
+
+msgid "common.error.framesRequired"
+msgstr ""
+"Bu sayt √ß…ôr√ßiv…ô istifad…ô etmir. √á…ôr√ßiv…ô istifad…ô etm…ôy…ôn "
+"formatńĪ √ľ√ß√ľn <a href=\"{$url}\"> bura klikl…ôyin</a>."
+
+msgid "common.fileUploaderError"
+msgstr ""
+"Sistem fayl y√ľkl…ôyici √ßańürńĪlńĪr. G√∂r√ľnm√ľrs…ô, iŇü vaxtlarńĪnńĪn he√ß "
+"biri bu brauzer t…ôr…ôfind…ôn d…ôst…ôkl…ônm…ôz. Z…ôhm…ôt olmasa d…ôst…ôk "
+"√ľ√ß√ľn idar…ô√ßiy…ô m√ľraci…ôt edin."
+
+#, fuzzy
+msgid "common.formatting"
+msgstr "Formatlama"
+
+#, fuzzy
+msgid "common.geographic"
+msgstr "Cońürafi"
+
+#, fuzzy
+msgid "common.false"
+msgstr "Yalan"
+
+#, fuzzy
+msgid "common.label"
+msgstr "Etiketl…ôm…ôk"
+
+#, fuzzy
+msgid "common.lastSaved"
+msgstr "Son xilas edildi {$when}"
+
+msgid "common.lastActivity"
+msgstr "Son f…ôaliyy…ôt tarixi: {$date}"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+#, fuzzy
+msgid "common.noneSelected"
+msgstr "He√ß biri se√ßilm…ôdi"
+
+#, fuzzy
+msgid "common.noneProvided"
+msgstr "He√ß biri verilm…ôdi"
+
+msgid "common.noItemsFound"
+msgstr "He√ß bir element tapńĪlmadńĪ."
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"Y√ľkl…ôdiyiniz fayl tapńĪlmadńĪ. Z…ôhm…ôt olmasa yenid…ôn y√ľkl…ôm…ôy…ô c…"
+"ôhd edin."
+
+msgid "common.pluginEnabled"
+msgstr "\" {$pluginName}\" …ôlav…ôsi aktivl…ôŇüdirildi"
+
+msgid "common.pluginDisabled"
+msgstr "\" {$pluginName}\" …ôlav…ôsi bańülandńĪ"
+
+#, fuzzy
+msgid "common.reconnecting"
+msgstr "Yenid…ôn qoŇüulma"
+
+msgid "common.remove"
+msgstr "Sil"
+
+msgid "common.removeItem"
+msgstr "{$item} elementini J4316silin"
+
+msgid "common.removeSelection"
+msgstr "* DoldurulmasńĪ m…ôcburi olan sah…ôl…ôri g√∂st…ôrir"
+
+msgid "common.replaced"
+msgstr "D…ôyiŇüdirildi"
+
+msgid "common.replaceFile"
+msgstr "FaylńĪn √ľst√ľn…ô yazńĪn"
+
+msgid "common.requiredField"
+msgstr "* DoldurulmasńĪ m…ôcburi olan sah…ôl…ôri g√∂st…ôrir"
+
+#, fuzzy
+msgid "common.reviewRoundNumber"
+msgstr "D…ôyirmi {$round}"
+
+#, fuzzy
+msgid "common.role"
+msgstr "Rol"
+
+#, fuzzy
+msgid "common.searchPhrase"
+msgstr "AxtarńĪŇü ifad…ôsi"
+
+#, fuzzy
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} addńĪmlar"
+
+#, fuzzy
+msgid "common.uploadedBy"
+msgstr "Y√ľkl…ôndi {$name}"
+
+#, fuzzy
+msgid "common.uploadedByAndWhen"
+msgstr "{$name} {$date} il…ô y√ľkl…ôndi"
+
+msgid "common.unknownError"
+msgstr ""
+"G√∂zl…ônilm…ôy…ôn bir x…ôta baŇü verdi. Z…ôhm…ôt olmasa s…ôhif…ôni yenil…"
+"ôyin v…ô yenid…ôn c…ôhd edin."
+
+#, fuzzy
+msgid "common.unsavedChanges"
+msgstr "YoluxmamńĪŇü d…ôyiŇüiklikl…ôr"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+#, fuzzy
+msgid "common.true"
+msgstr "Həqiqət"
+
+#, fuzzy
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"{$when} -d…ôn qorunmayan d…ôyiŇüiklikl…ôr tapdńĪq. ńįŇül…ôy…ôrk…ôn serverl…ô "
+"…ôlaq…ô itirs…ôniz bu baŇü ver…ô bil…ôr. Bu d…ôyiŇüiklikl…ôrin b…ôrpasńĪ o "
+"vaxtdan b…ôri etdiyiniz h…ôr hansńĪ bir d…ôyiŇüiklikl…ôri yerin…ô yetir…ô "
+"bil…ôr. ńįndi bu d…ôyiŇüiklikl…ôri b…ôrpa etm…ôk ist…ôrdinizmi?"
+
+msgid "common.uploadFailed"
+msgstr "Fayl y√ľkl…ôn…ô bilm…ôdi v…ô g√∂zd…ôn ke√ßiril…ô bilm…ôdi"
+
+msgid "common.upload.addFile.description"
+msgstr "Komp√ľterinizd…ôn bir fayl y√ľkl…ôyin."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Se√ßilmiŇü g√∂r√ľnt√ľn√ľn √∂nbaxńĪŇüńĪ"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "YarńĪm√ßńĪq yerli a√ßar: \" {$key}"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr ""
+"T…ôqdimat m…ôrh…ôl…ôsind…ô m√ľ…ôllif t…ôr…ôfind…ôn y√ľkl…ônmiŇü fayllarńĪ "
+"…ôlav…ô edin."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"T…ôqdimat iŇü axńĪnńĪ zamanńĪ y√ľkl…ôn…ôn s…ôn…ôdl…ôr v…ô ya n…ôz…ôrd…ôn "
+"ke√ßiril…ôc…ôk fayllar zamanńĪ y√ľkl…ôn…ôn fayllarńĪ …ôlav…ô edin."
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "G√∂nd…ôrm…ô v…ô naŇüir kitabxanalarńĪndan fayllarńĪ …ôlav…ô edin."
+
+msgid "email.attachmentNotFound"
+msgstr "Fayl {$fileName} …ôlav…ô edil…ô bilm…ôz."
+
+msgid "email.body"
+msgstr "Mesaj"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Bu e-po√ßtu b…ôst…ôl…ôm…ôk √ľ√ß√ľn {$localeName} -…ô d…ôyiŇüdirm…ôk "
+"ist…ôdiyiniz…ô …ôminsiniz? E-po√ßtun m√∂vzusuna v…ô orqana etdiyi h…ôr "
+"hansńĪ bir d…ôyiŇüiklik itiril…ôc…ôkdir."
+
+msgid "email.compose.tooManyRecipients"
+msgstr "G√∂nd…ôrm…ôk ist…ôdiyiniz mesajńĪn √ßoxlu alńĪcńĪsńĪ var."
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"Son mesaj g√∂nd…ôrildikd…ôn sonra mesaj g√∂nd…ôrm…ôy…ô c…ôhd edirsiniz. Yeni "
+"mesajńĪ g√∂nd…ôrm…ôk √ľ√ß√ľn z…ôhm…ôt olmasa g√∂zl…ôyin."
+
+msgid "email.compose.error"
+msgstr ""
+"Email mesajńĪ g√∂nd…ôr…ôrk…ôn bir x…ôta baŇü verdi. Z…ôhm…ôt olmasa daha "
+"sonra yenid…ôn c…ôhd edin v…ô ya sistem idar…ô√ßisin…ô m√ľraci…ôt edin."
+
+msgid "email.invalid"
+msgstr "{$email}adresi etibarlńĪ deyil"
+
+msgid "email.multipart"
+msgstr "Bu mesaj MIME formatńĪnda √ßoxhiss…ôli bir mesajdńĪr."
+
+msgid "email.subjectRequired"
+msgstr "Z…ôhm…ôt olmasa bir email m√∂vzusu daxil edin"
+
+msgid "form.disallowedProp"
+msgstr "Bu x√ľsusiyy…ôt…ô icaz…ô verilmir."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Fayl √ßox b√∂y√ľkd√ľr ({{filesize}}mb). {{maxFilesize}}mb'd…ôn daha b√∂y√ľk "
+"fayllar y√ľkl…ôn…ô bilm…ôz."
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "BaŇüqa bir fayl y√ľkl…ôy…ô bilm…ôzsiniz."
+
+msgid "form.errorOne"
+msgstr "Z…ôhm…ôt olmasa bir x…ôtanńĪ d√ľz…ôldin"
+
+msgid "form.errorMany"
+msgstr "Z…ôhm…ôt olmasa {$count} …ôd…ôd x…ôtanńĪ d√ľz…ôldin"
+
+msgid "form.errors"
+msgstr ""
+"{$count} x…ôta il…ô √ľzl…ôŇüildiyi √ľ√ß√ľn yadda saxlana bilm…ôdi. Z…ôhm…ôt "
+"olmasa bu x…ôtalarńĪ d√ľz…ôldin v…ô yenid…ôn c…ôhd edin."
+
+msgid "form.formLanguage.description"
+msgstr "Formu doldurmaq √ľ√ß√ľn …ôvv…ôla bir dil se√ßin"
+
+msgid "form.postRequired"
+msgstr "Form dońüru bir Ňü…ôkild…ô g√∂nd…ôril…ô bilm…ôdi"
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Form g√∂nd…ôrilm…ôdi. √áńĪxmńĪŇü ola bil…ôrsiniz. Z…ôhm…ôt olmasa s…ôhif…ôni "
+"yenid…ôn y√ľkl…ôyin v…ô yenid…ôn c…ôhd edin."
+
+msgid "form.fileRequired"
+msgstr "Bir faylńĪn y√ľkl…ônm…ôsi t…ôl…ôb olunur"
+
+msgid "form.requirePrimaryLocale"
+msgstr "Bu sah…ôni {$language} il…ô doldurmalńĪsńĪnńĪz."
+
+msgid "form.requireId"
+msgstr "EtibarlńĪ bir ID daxil etm…ôlisiniz."
+
+msgid "form.saveToUpload"
+msgstr "FaylńĪ y√ľkl…ôm…ôk √ľ√ß√ľn yadda saxlanńĪ istifad…ô edin"
+
+msgid "form.invalidImage"
+msgstr ""
+"X…ôtalńĪ Ňü…ôkil y√ľkl…ôndi. EtibarlńĪ formatlarńĪ. png, .gif, v…ô ya ."
+"jpg'dir."
+
+msgid "informationCenter.noNotes"
+msgstr "G√∂st…ôril…ôc…ôk bir qeyd yoxdur"
+
+msgid "informationCenter.history.noItems"
+msgstr "Qeyd…ô alńĪnmńĪŇü g√ľnd…ôlik yoxdur."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Yeni qeyd g√∂nd…ôrildi."
+
+msgid "informationCenter.history.messageSent"
+msgstr "BildiriŇü istifad…ô√ßil…ôr…ô g√∂nd…ôrildi"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "BildiriŇü istifad…ô√ßil…ôr…ô g√∂nd…ôrildi"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "√Ėz√ľn√ľz v…ô {$userFullName} arasńĪnda bir m√ľzakir…ô baŇüladńĪn."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+"ńįstifad…ô etm…ôk √ľ√ß√ľn …ôvv…ôlc…ôd…ôn m√ľ…ôyy…ôn edilmiŇü bir mesaj se√"
+"ßin v…ô ya aŇüańüńĪdakńĪ formu doldurun."
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Z…ôhm…ôt olmasa mesaj sah…ôsini doldurduńüunuzdan v…ô …ôn az bir alńĪcńĪ "
+"se√ßdiyinizd…ôn …ômin olun."
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Bu istifad…ô√ßinin sad…ôc…ô bir redaktor q…ôrarńĪnńĪ t…ôklif etm…ôsin…ô icaz…"
+"ô verilir v…ô redaktor q…ôrarlarńĪnńĪ yadda saxlamasńĪ √ľ√ß√ľn s…ôlahiyy…"
+"ôtli bir redaktor t…ôl…ôb olunacaqdńĪr."
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Bu Ňü…ôxsin n…ôŇür t…ônziml…ôrini redakt…ô etm…ôsin…ô icaz…ô verin"
+
+msgid "navigation.backTo"
+msgstr "⟵ Geri qayıt {$page}"
+
+msgid "notification.addedAuditor"
+msgstr "N…ôzar…ôt√ßi …ôlav…ô edildi."
+
+msgid "notification.removedAuditor"
+msgstr "N…ôzar…ôt√ßi √ßńĪxarńĪldńĪ."
+
+msgid "notification.reviewAcknowledged"
+msgstr ""
+"D…ôy…ôrl…ôndirm…ô t…ôsdiql…ôndi kimi iŇüar…ôl…ôndi. Email g√∂nd…ôril…ô "
+"bilm…ôdi."
+
+msgid "notification.updatedReviewFiles"
+msgstr "D…ôy…ôrl…ôndirm…ô fayllarńĪ yenil…ôndi"
+
+msgid "search.author"
+msgstr "M√ľ…ôllifl…ôr"
+
+msgid "search.abstract"
+msgstr "X√ľlas…ô"
+
+msgid "search.advancedFilters"
+msgstr "T…ôkmill…ôŇümiŇü filtirl…ôr"
+
+msgid "notification.reminderSent"
+msgstr "Yeni Ňüifr…ôniz qeyd etdiyiniz email adresiniz…ô g√∂nd…ôrildi."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "M…ôqal…ô √ľst datasńĪ yadda saxlandńĪ"
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "B√ľt√ľn qeydiyyatlńĪ istifad…ô√ßil…ôr…ô x…ôb…ôrdarlńĪq emaili g√∂nd…ôr"
+
+msgid "search.searchResults.foundSingle"
+msgstr "Bir element tapńĪldńĪ."
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} …ôd…ôd element tapńĪldńĪ"
+
+msgid "dashboard.tasks"
+msgstr "V…ôzif…ôl…ôr"
+
+msgid "dashboard.myQueue"
+msgstr "ńįŇü n√∂vb…ôl…ôri"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "B√ľt√ľn fayllarńĪn anonim/nam…ôlum olduńüuna nec…ô …ômin olmaq olar"
+
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName} adlńĪ r…ôy√ßiy…ô M…ôqal…ôni inc…ôl…ôm…ôk √ľ√ß√ľn bir email "
+"bildiriŇüi g√∂nd…ôrildi."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName} adlńĪ r…ôy√ßi bu M…ôqal…ôni inc…ôl…ôm…ôk √ľ√ß√ľn t…ôyin "
+"edildi v…ô ancaq bir email bildiriŇüi g√∂nd…ôrilm…ôdi."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "R…ôy√ßi v…ôzif…ôsi yenil…ôndi."
+
+msgid "notification.type.reviewerComment"
+msgstr "Bir r…ôy√ßi \"{$title}\" haqqńĪnda Ňü…ôrh etdi"
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"EtibarlńĪ istifad…ô√ßi g√∂st…ôril…ôn M…ôqal…ô faylńĪna giriŇü √ľ√ß√ľn "
+"s…ôlahiyy…ôtli deyil"
+
+msgid "user.authorization.invalidPublication"
+msgstr "EtibarsńĪz n…ôŇür."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "EtibarsńĪz M…ôqal…ô"
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "EtibarsńĪz t…ômsil"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "M…ôxfilik se√ßiml…ôri"
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"HazńĪrkńĪ istifad…ô√ßi t…ôl…ôb edil…ôn M…ôqal…ônin m√ľ…ôllifi deyil. Z…ôhm…"
+"ôt olmasa istifad…ô√ßi hesabńĪ il…ô daxil olduńüunuza …ômin olun."
+
+msgid "semicolon"
+msgstr "{$label}"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Redaktor t…ônziml…ôm…ôl…ôri g√∂zl…ônilir."
+
+msgid "notification.type.editorialReport"
+msgstr "Statistik hesabat x√ľlas…ôsi."
+
+msgid "notification.editedNavigationMenu"
+msgstr "y√∂nl…ôndirm…ô menyusu uńüurla yenil…ôndi"
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"ArtńĪq {$email} adresin…ô {$contextName} t…ôr…ôfind…ôn g√∂nd…ôril…ôn q…ôbul "
+"etm…ôk ist…ôm…ôdiyiniz emaill…ôri se√ßin."
+
+msgid "validation.invalidOption"
+msgstr "Bu etibarlńĪ bir se√ßim deyil."
+
+#, fuzzy
+msgid "validator.allowable_title_html_tags"
+msgstr "YalnńĪz [{$tags}] HTML etiketl…ôrin…ô icaz…ô verilir."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "XML d√ľy√ľn√ľ idxal edil…ô bilm…ôdi"
+
+#, fuzzy
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$ {$afterSlash}"
+
+#, fuzzy
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "M√ľ…ôllif …ôlav…ô edildi"
+
+msgid "about.description"
+msgstr "A√ßńĪqlama"
+
+msgid "about.guidelines"
+msgstr "B…ôl…ôd√ßi"
+
+msgid "common.publicKnowledgeProject"
+msgstr "ńįctimai M…ôlumat Layih…ôsi"
+
+msgid "common.currentStyleSheet"
+msgstr "EtibarlńĪ stil faylńĪ"
+
+msgid "about.aboutSite"
+msgstr "Sayt haqqńĪnda"
+
+msgid "about.contact"
+msgstr "∆Źlaq…ô"
+
+msgid "about.contact.email"
+msgstr "Email"
+
+msgid "about.contact.phone"
+msgstr "Telefon"
+
+msgid "about.contact.principalContact"
+msgstr "∆Źsas …ôlaq…ô"
+
+msgid "about.contact.supportContact"
+msgstr "D…ôst…ôk …ôlav…ô"
+
+msgid "about.other"
+msgstr "Dig…ôr"
+
+msgid "about.people"
+msgstr "Ňě…ôxsl…ôr"
+
+msgid "about.policies"
+msgstr "Politikalar"
+
+msgid "about.siteMap"
+msgstr "Sayt x…ôrit…ôsi"
+
+msgid "announcement.announcements"
+msgstr "Elanlar"
+
+msgid "announcement.announcementsHome"
+msgstr "Elanlar"
+
+msgid "announcement.posted"
+msgstr "BuraxńĪlńĪŇü tarixi"
+
+msgid "announcement.postedOn"
+msgstr "{$postDate} tarixind…ô yayńĪmlandńĪ"
+
+msgid "announcement.view"
+msgstr "Elana baxńĪn"
+
+msgid "common.allDownloads"
+msgstr "B√ľt√ľn endirm…ôl…ôr"
+
+msgid "common.navigation.sidebar"
+msgstr "Yan t…ôr…ôf"
+
+msgid "common.navigation.site"
+msgstr "Sayt menyusu"
+
+msgid "common.navigation.siteContext"
+msgstr "SaytńĪn m…ôzmunu menyusu"
+
+msgid "common.navigation.user"
+msgstr "ńįstifad…ô√ßi menyusu"
+
+msgid "common.tasks"
+msgstr "V…ôzif…ôl…ôr"
+
+msgid "common.list"
+msgstr "SiyahńĪ"
+
+msgid "common.grid"
+msgstr "Sistem"
+
+msgid "common.abstract"
+msgstr "X√ľlas…ô"
+
+msgid "common.accepted"
+msgstr "Q…ôbul edildi"
+
+msgid "common.acknowledged"
+msgstr "T…ôsdiql…ôndi"
+
+msgid "common.action"
+msgstr "Proses"
+
+msgid "common.activate"
+msgstr "Aktivl…ôŇüdirin"
+
+msgid "common.active"
+msgstr "Aktiv"
+
+msgid "common.inactive"
+msgstr "Passiv"
+
+msgid "common.add"
+msgstr "∆Źlav…ô edin"
+
+msgid "common.addCCBCC"
+msgstr "CC / BCC …ôlav…ô edin"
+
+msgid "common.addFiles"
+msgstr "FaylńĪ …ôlav…ô edin"
+
+msgid "common.addSelf"
+msgstr "Qeydiyyatdan ke√ßin"
+
+msgid "common.attachedFiles"
+msgstr "∆Źlav…ô edilmiŇü fayllar"
+
+msgid "common.attachFiles"
+msgstr "FaylńĪ …ôlav…ô edin"
+
+msgid "common.attachSelected"
+msgstr "Se√ßil…ôni …ôlav…ô edin"
+
+msgid "common.name"
+msgstr "Ad"
+
+msgid "common.all"
+msgstr "HamńĪsńĪ"
+
+msgid "common.alphaList"
+msgstr "A B C √á D E F G ńě H I ńį J K L M N O √Ė P Q R S Ňě T U √ú V W X Y Z"
+
+msgid "common.titleSmallWords"
+msgstr "il…ô v…ô kimi bańülayńĪcńĪlar"
+
+msgid "common.alreadyAssigned"
+msgstr "T…ôyin olunmuŇü"
+
+msgid "common.altText"
+msgstr "Alternativ m…ôtn"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"SaytńĪ sńĪrf m…ôtn oxucuda v…ô ya k√∂m…ôk√ßi al…ôtl…ôrd…ô baxan ziyar…ôt√ßil…"
+"ôr √ľ√ß√ľn bu Ňü…ôkli izah edin. N√ľmun…ô: \"Redaktorumuz PKP konfransńĪnda √"
+"ßńĪxńĪŇü edir.\""
+
+msgid "common.and"
+msgstr "v…ô"
+
+msgid "common.applyAction"
+msgstr "∆Źm…ôliyyatńĪ t…ôtbiq edin"
+
+msgid "common.assign"
+msgstr "T…ôyin edin"
+
+msgid "common.assigned"
+msgstr "T…ôyin olundu"
+
+msgid "common.assigned.date"
+msgstr "T…ôyinat: {$dateAssigned}"
+
+msgid "common.back"
+msgstr "Geri"
+
+msgid "common.between"
+msgstr "arasńĪnda"
+
+msgid "common.cancel"
+msgstr "L…ôńüv etm…ôk"
+
+msgid "common.cancelled"
+msgstr "L…ôńüv olundu"
+
+msgid "common.warning"
+msgstr "X…ôb…ôrdarlńĪq"
+
+msgid "common.error"
+msgstr "X…ôta"
+
+msgid "common.notice"
+msgstr "BildiriŇü"
+
+msgid "common.chooseOne"
+msgstr "Se√ßim edin"
+
+msgid "common.close"
+msgstr "BańülayńĪn"
+
+msgid "common.closePanel"
+msgstr "Paneli bańülayńĪn"
+
+msgid "common.closeWindow"
+msgstr "P…ônc…ôr…ôni bańülayńĪn"
+
+msgid "common.complete"
+msgstr "TamamlayńĪn"
+
+msgid "common.completed"
+msgstr "TamamlandńĪ"
+
+msgid "common.completed.date"
+msgstr "TamamlandńĪ: {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "T…ôsdiq edin"
+
+msgid "common.confirmed.date"
+msgstr "T…ôsdiql…ôndi: {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "M…ôzmun"
+
+msgid "common.contents"
+msgstr "M…ôzmunlar"
+
+msgid "common.continue"
+msgstr "Davam edin"
+
+msgid "common.copy"
+msgstr "KopyalayńĪn"
+
+msgid "common.country"
+msgstr "√Ėlk…ô"
+
+msgid "common.create"
+msgstr "YaradńĪn"
+
+msgid "common.dateCompleted"
+msgstr "Tamamlanma tarixi"
+
+msgid "common.dateDecided"
+msgstr "Q…ôrar tarixi"
+
+msgid "common.date"
+msgstr "Tarix"
+
+msgid "common.dateModified"
+msgstr "D…ôyiŇüdirilm…ô tarixi"
+
+msgid "common.dateRequested"
+msgstr "T…ôl…ôb edilm…ô tarixi"
+
+msgid "common.dateSubmitted"
+msgstr "G√∂nd…ôrilm…ô tarixi"
+
+msgid "common.dateUploaded"
+msgstr "Y√ľkl…ônm…ô tarixi"
+
+msgid "common.dateHijri"
+msgstr "Hicri t…ôqvim"
+
+msgid "common.day"
+msgstr "G√ľn"
+
+msgid "common.deactivate"
+msgstr "Deaktiv et"
+
+msgid "common.default"
+msgstr "Defolt"
+
+msgid "common.declined"
+msgstr "R…ôdd edildi"
+
+msgid "common.delete"
+msgstr "Silin"
+
+msgid "common.deleting"
+msgstr "Silinir"
+
+msgid "common.deleteSelection"
+msgstr "Se√ßil…ôni silin"
+
+msgid "common.deselect"
+msgstr "Se√ßimi t…ôrk edin"
+
+msgid "common.designation"
+msgstr "T…ôyinat"
+
+msgid "common.description"
+msgstr "A√ßńĪqlama/t…ôsvir"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} piksel"
+
+msgid "common.disable"
+msgstr "BańülńĪ"
+
+msgid "common.disabled"
+msgstr "BańülandńĪ"
+
+msgid "common.discipline"
+msgstr "ńįxtisas"
+
+msgid "common.done"
+msgstr "TamamlandńĪ"
+
+msgid "common.download"
+msgstr "Endirin"
+
+msgid "common.downloadPdf"
+msgstr "PDF endirin"
+
+msgid "common.orUploadFile"
+msgstr "#YOX"
+
+msgid "common.edit"
+msgstr "Redakt…ô edin"
+
+msgid "common.editItem"
+msgstr "{$name} redakt…ô edin"
+
+msgid "common.enable"
+msgstr "Aktivl…ôŇüdirin"
+
+msgid "common.enabled"
+msgstr "Aktivl…ôŇüdirildi"
+
+msgid "common.error.databaseError"
+msgstr "Data bazasńĪ x…ôta baŇü verdi: {$error}"
+
+msgid "common.event"
+msgstr "Hadis…ô"
+
+msgid "common.export"
+msgstr "ńįxracat"
+
+msgid "common.finish"
+msgstr "BitiŇü/son"
+
+msgid "common.fullscreen"
+msgstr "Tam ekran"
+
+msgid "common.fullscreenOff"
+msgstr "BańülayńĪn"
+
+msgid "common.file"
+msgstr "Fayl"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.fileName"
+msgstr "Fayl adńĪ"
+
+msgid "common.fileSize"
+msgstr "Fayl √∂l√ß√ľs√ľ"
+
+msgid "common.fileType"
+msgstr "Fayl n√∂v√ľ"
+
+msgid "common.filter"
+msgstr "Filtrl…ôr"
+
+msgid "common.filterAdd"
+msgstr "Filtr …ôlav…ô edin: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Filtri t…ômizl…ôyin: {$filterTitle}"
+
+msgid "common.findTemplate"
+msgstr "#YOX"
+
+msgid "common.go"
+msgstr "Get"
+
+msgid "common.height"
+msgstr "√Ėl√ß√ľ"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Ana s…ôhif…ô"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Ana s…ôhif…ô baŇülńĪq loqosu"
+
+msgid "common.hour"
+msgstr "Saat"
+
+msgid "common.id"
+msgstr "SN"
+
+msgid "common.import"
+msgstr "Data q…ôbul edin"
+
+msgid "common.initiate"
+msgstr "BaŇüladńĪn"
+
+msgid "common.inProgress"
+msgstr "Proses davam edir"
+
+msgid "common.insert"
+msgstr "ńį√ß…ôriy…ô k√∂√ß√ľr√ľn"
+
+msgid "common.insertContent"
+msgstr "#YOX"
+
+msgid "common.insertContentSearch"
+msgstr "#YOX"
+
+msgid "common.itemsPerPage"
+msgstr "H…ôr s…ôhif…ô √ľ√ß√ľn element"
+
+msgid "common.keywords"
+msgstr "A√ßar s√∂zl…ôr"
+
+msgid "common.language"
+msgstr "Dil"
+
+msgid "common.languages"
+msgstr "Dill…ôr"
+
+msgid "common.less"
+msgstr "Ki√ßik"
+
+msgid "common.lessThan"
+msgstr "{$value} v…ô ya daha az"
+
+msgid "common.lessThanOnly"
+msgstr "Daha az"
+
+msgid "common.keepWorking"
+msgstr "#YOX"
+
+msgid "common.manage"
+msgstr "ńįdar…ô edin"
+
+msgid "common.mailingAddress"
+msgstr "Email adresi"
+
+msgid "common.billingAddress"
+msgstr "Faktura √ľnvanńĪ (f…ôrqlidirs…ô)"
+
+msgid "common.minute"
+msgstr "D…ôqiq…ô(l…ôr)"
+
+msgid "common.modify"
+msgstr "D…ôyiŇüdirin"
+
+msgid "common.month"
+msgstr "Ay"
+
+msgid "common.more"
+msgstr "Daha √ßox"
+
+msgid "common.moreThan"
+msgstr "{$value} v…ô ya daha √ßox"
+
+msgid "common.moreThanOnly"
+msgstr "Daha √ßox"
+
+msgid "common.noneAssigned"
+msgstr "T…ôyinat g√∂zl…ôy…ônl…ôr"
+
+msgid "common.none"
+msgstr "He√ß kim"
+
+msgid "common.no"
+msgstr "Yox"
+
+msgid "common.noComments"
+msgstr "Ňě…ôrhsiz"
+
+msgid "common.notApplicable"
+msgstr "T…ôtbiq edil…ô bilm…ôz"
+
+msgid "common.notApplicableShort"
+msgstr "T…ôtbiq edil…ô bilm…ôz"
+
+msgid "common.notAvailable"
+msgstr "ńįstifad…ô edil…ô bilmir"
+
+msgid "common.note"
+msgstr "Qeyd"
+
+msgid "common.notes"
+msgstr "Qeydl…ôr"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"Qeydl…ôr (SarńĪ: yeni qeydl…ôr; Mavi: oxunmuŇü qeydl…ôr; Boz: qeyd yoxdur)"
+
+msgid "common.notified"
+msgstr "B…ôyan edilmiŇü"
+
+msgid "common.notified.date"
+msgstr "BildiriŇü: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "Uyńüun g…ôlm…ôdi"
+
+msgid "common.numberedMore"
+msgstr "#YOX"
+
+msgid "common.off"
+msgstr "BańülńĪ"
+
+msgid "common.on"
+msgstr "A√ßńĪq"
+
+msgid "common.ok"
+msgstr "Tamam"
+
+msgid "common.options"
+msgstr "Se√ßiml…ôr"
+
+msgid "common.order"
+msgstr "SifariŇü"
+
+msgid "common.orderUp"
+msgstr "{$itemTitle} m√∂vqeyini artńĪrńĪn"
+
+msgid "common.orderDown"
+msgstr "{$itemTitle} m√∂vqeyini azaldńĪn"
+
+msgid "common.originalFileName"
+msgstr "Orijinal fayl adńĪ"
+
+msgid "common.or"
+msgstr "v…ô ya"
+
+msgid "common.other"
+msgstr "Dig…ôr"
+
+msgid "common.overdue"
+msgstr "GecikmiŇü"
+
+msgid "common.override"
+msgstr "L…ôńüv et"
+
+msgid "common.queue.long.active"
+msgstr "Aktiv m…ôqal…ôl…ôr"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} : {$total}"
+
+msgid "common.pagination.label"
+msgstr "∆Źlav…ô s…ôhif…ôl…ôri sadalayńĪn"
+
+msgid "common.pagination.goToPage"
+msgstr "{$page-ci s…ôhif…ôy…ô gedin"
+
+msgid "common.pagination.next"
+msgstr "N√∂vb…ôti s…ôhif…ô"
+
+msgid "common.pagination.previous"
+msgstr "∆Źvv…ôlki s…ôhif…ô"
+
+msgid "common.pageNumber"
+msgstr "S…ôhif…ô {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "% {$percentage}"
+
+msgid "common.plugin"
+msgstr "∆Źlav…ôl…ôr"
+
+msgid "common.prefix"
+msgstr "Prefiks"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "N√ľmun…ôl…ôr: A, The"
+
+msgid "common.preview"
+msgstr "√ĖnbaxńĪŇü"
+
+msgid "common.publisher"
+msgstr "NaŇüir"
+
+msgid "common.quality"
+msgstr "Keyfiyy…ôt"
+
+msgid "common.range"
+msgstr "{$ min} - {$max}"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.readMore"
+msgstr "Daha √ßox oxuyun"
+
+msgid "common.readMoreWithTitle"
+msgstr "HaqqńĪnda daha √ßox m…ôlumat …ôld…ô edin {$title}"
+
+msgid "common.record"
+msgstr "Rekord"
+
+msgid "common.refresh"
+msgstr "Yenil…ô"
+
+msgid "common.related"
+msgstr "∆Źlaq…ôli"
+
+msgid "common.reminder"
+msgstr "XatńĪrlatma"
+
+msgid "common.reminded.date"
+msgstr "XatńĪrladńĪldńĪ: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Uzaq"
+
+msgid "common.remoteURL"
+msgstr "Uzaq url"
+
+msgid "common.required"
+msgstr "Z…ôruridir"
+
+msgid "common.reset"
+msgstr "Yenid…ôn t…ônziml…ôm…ôk"
+
+msgid "common.saveAndContinue"
+msgstr "Yadda saxlayńĪn v…ô davam edin"
+
+msgid "common.saveAndEmail"
+msgstr "Yadda saxlayńĪn v…ô email g√∂nd…ôr"
+
+msgid "common.save"
+msgstr "Yadda saxlayńĪn"
+
+msgid "common.saving"
+msgstr "Yadda saxlanńĪlńĪr"
+
+msgid "common.search"
+msgstr "AxtarńĪŇü"
+
+msgid "common.searching"
+msgstr "#YOX"
+
+msgid "common.searchQuery"
+msgstr "AxtarńĪŇü sorńüusu"
+
+msgid "common.clearSearch"
+msgstr "AxtarńĪŇü ifad…ôsini t…ômizl…ôyin"
+
+msgid "common.second"
+msgstr "Saniy…ô(l…ôr)"
+
+msgid "common.selectAll"
+msgstr "HamńĪsńĪnńĪ se√ßin"
+
+msgid "common.selectedPrefix"
+msgstr "Se√ßildi:"
+
+msgid "common.selectNone"
+msgstr "He√ß kimi se√ßm…ôyin"
+
+msgid "common.select"
+msgstr "Se√ßin"
+
+msgid "common.selectWithName"
+msgstr "{$name} se√ßin"
+
+msgid "common.sendEmail"
+msgstr "Email g√∂nd…ôr"
+
+msgid "common.showAllSteps"
+msgstr "#YOX"
+
+msgid "common.size"
+msgstr "√Ėl√ß√ľ"
+
+msgid "common.source"
+msgstr "M…ônb…ô"
+
+msgid "common.status"
+msgstr "V…ôziyy…ôt"
+
+msgid "common.subject"
+msgstr "M√∂vzu."
+
+msgid "common.subjects"
+msgstr "M√∂vzular"
+
+msgid "common.submenu"
+msgstr "Alt menyu"
+
+msgid "common.subtitle"
+msgstr "Alt baŇülńĪq"
+
+msgid "common.suggest"
+msgstr "T…ôklif"
+
+msgid "common.switchTo"
+msgstr "#YOX"
+
+msgid "common.switchToNamedItem"
+msgstr "#YOX"
+
+msgid "common.title"
+msgstr "BaŇülńĪq"
+
+msgid "common.top"
+msgstr "√úst"
+
+msgid "common.type"
+msgstr "N√∂v"
+
+msgid "common.component"
+msgstr "Komponent"
+
+msgid "common.uninitiated"
+msgstr "BaŇüladńĪlmayńĪb"
+
+msgid "common.unread"
+msgstr "OxunmayńĪb"
+
+msgid "common.untitled"
+msgstr "BaŇülńĪqsńĪz"
+
+msgid "common.updated"
+msgstr "Yenil…ôndi"
+
+msgid "common.uploadedDate"
+msgstr "Y√ľkl…ôm…ô tarixi"
+
+msgid "common.upload"
+msgstr "Fayl y√ľkl…ôyin"
+
+msgid "common.up"
+msgstr "YuxarńĪ"
+
+msgid "common.addFile"
+msgstr "FaylńĪ …ôlav…ô edin"
+
+msgid "common.upload.addFile"
+msgstr "FaylńĪ y√ľkl…ôyin"
+
+msgid "common.upload.restore"
+msgstr "OrijinalńĪnńĪ yenid…ôn y√ľkl…ôyin"
+
+msgid "common.upload.changeFile"
+msgstr "FaylńĪ d…ôyiŇüdirin"
+
+msgid "common.upload.dragFile"
+msgstr "Y√ľkl…ôm…ôy…ô baŇülamaq √ľ√ß√ľn bura s√ľr√ľŇüd√ľr√ľb buraxńĪn"
+
+msgid "common.url"
+msgstr "Veb adresi"
+
+msgid "common.user"
+msgstr "ńįstifad…ô√ßi"
+
+msgid "common.user.nonexistent"
+msgstr "[M√∂vcud olmayan istifad…ô√ßi]"
+
+msgid "common.view"
+msgstr "BaxńĪŇü"
+
+msgid "common.viewError"
+msgstr "#YOX"
+
+msgid "common.viewWithName"
+msgstr "{$name} baxńĪŇü"
+
+msgid "common.viewProfile"
+msgstr "Profil…ô baxńĪŇü"
+
+msgid "common.weeks"
+msgstr "h…ôft…ô"
+
+msgid "common.width"
+msgstr "GeniŇülik"
+
+msgid "common.withParenthesis"
+msgstr "#YOX"
+
+msgid "common.year"
+msgstr "ńįl"
+
+msgid "common.yes"
+msgstr "B…ôli"
+
+msgid "common.loading"
+msgstr "Y√ľkl…ônir"
+
+msgid "common.plugins"
+msgstr "∆Źlav…ôl…ôr"
+
+msgid "common.count"
+msgstr "Saymaq"
+
+msgid "common.publicAccess"
+msgstr "√úmumi giriŇü"
+
+msgid "debug.databaseQueries"
+msgstr "Data bazasńĪ sorńüu sayńĪ"
+
+msgid "debug.executionTime"
+msgstr "S…ôhif…ô yaradńĪldńĪ"
+
+msgid "debug.memoryUsage"
+msgstr "YaddaŇüdan istifad…ô etm…ô"
+
+msgid "debug.notes.localeListLoad"
+msgstr "XML-d…ôn y√ľkl…ôn…ôn lokal siyahńĪ: \" {$localeList} \""
+
+msgid "email.addAttachment"
+msgstr "FaylńĪ …ôlav…ô edin"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "#YOX"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "#YOX"
+
+msgid "debug.notes.localeLoad"
+msgstr "XML-d…ôn y√ľkl…ôn…ôn lokal fayl : \" {$localeFile}\""
+
+msgid "debug.notes"
+msgstr "Qeydl…ôr:"
+
+msgid "defaultMetric.title"
+msgstr "Defolt metrik"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "D…ôy…ôrl…ôndirilmiŇü faylńĪ y√ľkl…ôyin"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "FaylńĪ y√ľkl…ôyin"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "#YOX"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "#YOX"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "#YOX"
+
+msgid "email.addBccRecipient"
+msgstr "M…ôlumat √ľ√ß√ľn alńĪcńĪ …ôlav…ô edin (BCC)"
+
+msgid "email.addCcRecipient"
+msgstr "M…ôlumat √ľ√ß√ľn alńĪcńĪ …ôlav…ô edin (CC)"
+
+msgid "email.addToRecipient"
+msgstr "AlńĪcńĪ …ôlav…ô edin"
+
+msgid "email.attachments"
+msgstr "∆Źlav…ôl…ôr"
+
+msgid "email.bcc"
+msgstr "M…ôlumat √ľ√ß√ľn alńĪcńĪ …ôlav…ô edin (BCC)"
+
+msgid "email.bccSender"
+msgstr "Bu mesajńĪn bir sur…ôtini adresim…ô g√∂nd…ôr( {$address}"
+
+msgid "email.cc"
+msgstr "M…ôlumat √ľ√ß√ľn alńĪcńĪ …ôlav…ô edin (CC)"
+
+msgid "email.compose"
+msgstr "Email g√∂nd…ôr"
+
+msgid "email.recipient"
+msgstr "AlńĪcńĪ"
+
+msgid "email.recipients"
+msgstr "AlńĪcńĪlar"
+
+msgid "email.sender"
+msgstr "G√∂nd…ôr…ôn"
+
+msgid "email.senderName"
+msgstr "G√∂nd…ôr…ônin adńĪ"
+
+msgid "email.senderEmail"
+msgstr "G√∂nd…ôr…ônin emaili"
+
+msgid "email.email"
+msgstr "Email"
+
+msgid "email.from"
+msgstr "G√∂nd…ôr…ôn"
+
+msgid "email.send"
+msgstr "G√∂nd…ôr"
+
+msgid "email.skip"
+msgstr "Email g√∂nd…ôrm…ôd…ôn"
+
+msgid "email.subject"
+msgstr "M√∂vzu"
+
+msgid "email.to"
+msgstr "AlńĪcńĪ"
+
+msgid "form.confirmSubmit"
+msgstr "Bu formu g√∂nd…ôrm…ôk ist…ôdiyin…ô …ôminsinizmi?"
+
+msgid "form.confirmSubmit.title"
+msgstr "T…ôsdiql…ôyin"
+
+msgid "form.dataHasChanged"
+msgstr "FormdakńĪ datalar d…ôyiŇüdi. Davam edilsinmi?"
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Y√ľkl…ôm…ôk √ľ√ß√ľn fayllarńĪ buraya buraxńĪn"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Y√ľkl…ôm…ôni l…ôńüv edin"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Y√ľkl…ôm…ô l…ôńüv edildi"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Bu y√ľkl…ôm…ôni l…ôńüv etm…ôk ist…ôdiyinizd…ôn …ôminsinizmi?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "FaylńĪ sil"
+
+msgid "form.errorA11y"
+msgstr "{$fieldLabel}: {$errorMessage} lokasiyasńĪna gedin"
+
+msgid "form.errorGoTo"
+msgstr "N√∂vb…ôti x…ôtaya ke√ßin"
+
+msgid "form.errorsOccurred"
+msgstr "Form iŇül…ôn…ôrk…ôn x…ôta baŇü verdi"
+
+msgid "form.formLanguage"
+msgstr "Form dili"
+
+msgid "form.contains"
+msgstr "ehtiva edir"
+
+msgid "form.is"
+msgstr "b…ôrab…ôrdir"
+
+msgid "form.startsWith"
+msgstr "il…ô baŇülayńĪr"
+
+msgid "form.required"
+msgstr "(* Z…ôruridir)"
+
+msgid "form.resubmit"
+msgstr "Yenid…ôn g√∂nd…ôr"
+
+msgid "form.saved"
+msgstr "Yadda saxlandńĪ"
+
+msgid "form.send"
+msgstr "G√∂nd…ôr"
+
+msgid "form.submit"
+msgstr "G√∂nd…ôr"
+
+msgid "form.multilingualLabel"
+msgstr "{$localeName} i√ßind…ô {$label}"
+
+msgid "help.next"
+msgstr "SonrakńĪ"
+
+msgid "help.upALevel"
+msgstr "Bir s…ôviyy…ôd…ôn yuxarńĪ"
+
+msgid "icon.checked.alt"
+msgstr "Se√ßilmiŇü"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} dill…ôri tamamlandńĪ"
+
+msgid "help.help"
+msgstr "K√∂m…ôk etm…ôk"
+
+msgid "help.toc"
+msgstr "M√ľnd…ôricat"
+
+msgid "help.previous"
+msgstr "∆Źvv…ôlki"
+
+msgid "icon.comment.alt"
+msgstr "Ňě…ôrh"
+
+msgid "icon.delete.alt"
+msgstr "Silm…ôk"
+
+msgid "icon.edit.alt"
+msgstr "Redakt…ô etm…ôk."
+
+msgid "icon.folder.alt"
+msgstr "ńįndeks"
+
+msgid "icon.font_large.alt"
+msgstr "B√∂y√ľk"
+
+msgid "icon.font_medium.alt"
+msgstr "Orta"
+
+msgid "icon.font_small.alt"
+msgstr "Ki√ßik"
+
+msgid "icon.info.alt"
+msgstr "M…ôlumat"
+
+msgid "icon.letter.alt"
+msgstr "M…ôktub"
+
+msgid "icon.mail.alt"
+msgstr "Mail"
+
+msgid "icon.unchecked.alt"
+msgstr "Se√ßilm…ôyib"
+
+msgid "icon.view.alt"
+msgstr "G√∂st…ôrin"
+
+msgid "informationCenter.informationCenter"
+msgstr "M…ôlumat m…ôrk…ôzi"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Redaksiya ke√ßmiŇüi"
+
+msgid "informationCenter.addNote"
+msgstr "Qeyd …ôlav…ô edin"
+
+msgid "informationCenter.pastNotes"
+msgstr "∆Źvv…ôlki d√ľz…ôliŇü qeydl…ôri"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Bu qeydi silm…ôk ist…ôdiyinizd…ôn …ôminsinizmi?"
+
+msgid "informationCenter.currentHistory"
+msgstr "Son d√ľz…ôliŇü"
+
+msgid "informationCenter.pastHistory"
+msgstr "K√∂hn…ô d√ľz…ôliŇül…ôr"
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "M√ľzakir…ô baŇüladńĪn"
+
+msgid "stageParticipants.notify.message"
+msgstr "Mesaj"
+
+msgid "stageParticipants.options"
+msgstr "T…ôyinat imtiyazlarńĪ"
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "ńįcaz…ôl…ôr"
+
+msgid "stageParticipants.selectedUser"
+msgstr "ńįŇütirak√ßńĪ"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Bu iŇütirak√ßńĪda he√ß bir d…ôyiŇüiklik edil…ô bilm…ôz"
+
+msgid "navigation.admin"
+msgstr "R…ôhb…ôrlik"
+
+msgid "navigation.archives"
+msgstr "Arxiv"
+
+msgid "locale.primary"
+msgstr "Prioritet dil"
+
+msgid "locale.supported"
+msgstr "D…ôst…ôkli dill…ôr"
+
+msgid "navigation.access"
+msgstr "ńįstifad…ô√ßil…ôr v…ô Roller"
+
+msgid "navigation.about"
+msgstr "HaqqńĪnda"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "BurdasńĪnńĪz:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Al…ôtl…ôr"
+
+msgid "navigation.tools.importExport"
+msgstr "ńįdxal/ixrac"
+
+msgid "navigation.tools.statistics"
+msgstr "Statistikalar"
+
+msgid "navigation.browse"
+msgstr "SiyahńĪya alńĪn"
+
+msgid "navigation.browseByAuthor"
+msgstr "M√ľ…ôllif…ô g√∂r…ô"
+
+msgid "navigation.browseByTitle"
+msgstr "BaŇülńĪńüa g√∂r…ô"
+
+msgid "navigation.dashboard"
+msgstr "ńįdar…ô paneli"
+
+msgid "navigation.data"
+msgstr "Data"
+
+msgid "navigation.home"
+msgstr "Ana s…ôhif…ô"
+
+msgid "navigation.infoForReaders"
+msgstr "Oxucular √ľ√ß√ľn"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Oxucular √ľ√ß√ľn m…ôlumat"
+
+msgid "navigation.items"
+msgstr "√úmumi {$total} elementd…ôn {$from} - {$to} arasńĪ"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$total} elementd…ôn {$shown} g√∂st…ôrilir"
+
+msgid "navigation.login"
+msgstr "Daxil ol"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "N√∂vb…ôti addńĪm"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "∆Źvv…ôlki addńĪm"
+
+msgid "navigation.publicMenu"
+msgstr "√úmumi menyu"
+
+msgid "navigation.register"
+msgstr "Qeydiyyat"
+
+msgid "navigation.search"
+msgstr "AxtarńĪŇü"
+
+msgid "navigation.settings"
+msgstr "T…ônziml…ôr"
+
+msgid "navigation.setup"
+msgstr "T…ônziml…ôm…ô"
+
+msgid "navigation.sitemap"
+msgstr "Sayt x…ôrit…ôsi"
+
+msgid "navigation.skip.description"
+msgstr "M…ôzmun bańülantńĪlarńĪna ke√ßin"
+
+msgid "navigation.skip.main"
+msgstr "∆Źsas m…ôzmunu ke√ßin"
+
+msgid "navigation.skip.announcements"
+msgstr "Elanlara ke√ßin"
+
+msgid "navigation.skip.nav"
+msgstr "∆Źsas y√∂nl…ôndirm…ô menyusunu ke√ßin"
+
+msgid "navigation.skip.footer"
+msgstr "SaytńĪn alt hiss…ôsini ke√ßin"
+
+msgid "navigation.stepNumber"
+msgstr "AddńĪm {$step}"
+
+msgid "navigation.submissions"
+msgstr "M…ôqal…ôl…ôr/t…ôqdimatlar"
+
+msgid "navigation.system"
+msgstr "sistem"
+
+msgid "navigation.userHome"
+msgstr "ńįstifad…ô√ßi S…ôhif…ôsi"
+
+msgid "navigation.user"
+msgstr "ńįstifad…ô√ßi"
+
+msgid "navigation.userManagement"
+msgstr "√úzv idar…ô√ßiliyi"
+
+msgid "navigation.viewFrontend"
+msgstr "Sayta baxńĪŇü"
+
+msgid "institution.institutions"
+msgstr "#YOX"
+
+msgid "notification.addedQuery"
+msgstr "M√ľzakir…ô …ôlav…ô edildi"
+
+msgid "notification.notification"
+msgstr "X…ôb…ôrdarlńĪq"
+
+msgid "notification.notifications"
+msgstr "BildiriŇül…ôr"
+
+msgid "search.indexTerms"
+msgstr "ńįndeks terminl…ôri"
+
+msgid "notification.settings"
+msgstr "BildiriŇü t…ônziml…ôri"
+
+msgid "search.advancedSearchMore"
+msgstr "Daha √ßox axtarńĪŇü se√ßiml…ôri"
+
+msgid "search.advancedSearchLess"
+msgstr "Daha √ßox axtarńĪŇü se√ßiml…ôrini gizl…ôdin"
+
+msgid "search.searchAgain"
+msgstr "T…ôkrar z…ông edin"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "ńįndeks t…ômizl…ônir"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "Tamam"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "x…ôta"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} indeksli m…ôqal…ô"
+
+msgid "search.coverage"
+msgstr "∆Źhat…ô"
+
+msgid "search.date"
+msgstr "Tarix"
+
+msgid "search.dateFrom"
+msgstr "d…ôn"
+
+msgid "search.dateTo"
+msgstr "q…ôd…ôr"
+
+msgid "search.deleteFilter"
+msgstr "Silin"
+
+msgid "search.discipline"
+msgstr "Elm sah…ôl…ôri"
+
+msgid "search.fullText"
+msgstr "Tam m…ôtn"
+
+msgid "search.indexTermsLong"
+msgstr "B√ľt√ľn indeks termin sah…ôl…ôri"
+
+msgid "search.matchAll"
+msgstr "B√ľt√ľn kateqoriyalarńĪ uyńüunlaŇüdńĪrńĪn"
+
+msgid "search.noResults"
+msgstr "N…ôtic…ô tapńĪlmadńĪ"
+
+msgid "search.operator.and"
+msgstr "v…ô"
+
+msgid "search.operator.not"
+msgstr "deyil"
+
+msgid "search.operator.or"
+msgstr "v…ô ya"
+
+msgid "search.SearchFor"
+msgstr "√ľ√ß√ľn axtarńĪn"
+
+msgid "search.searchResults"
+msgstr "AxtarńĪŇü n…ôtic…ôl…ôri"
+
+msgid "search.subject"
+msgstr "A√ßar s√∂z(l…ôr)"
+
+msgid "search.titleIndex"
+msgstr "BaŇülńĪq indeksinin siyahńĪsńĪnńĪ √ßńĪxart"
+
+msgid "search.title"
+msgstr "BaŇülńĪq"
+
+msgid "search.typeMethodApproach"
+msgstr "N√∂v (metod / yanaŇüma)"
+
+msgid "grid.action.downloadFile"
+msgstr "Bu faylńĪ endirin"
+
+msgid "context.path"
+msgstr "Yol"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "B√ľt√ľn fayllarńĪn anonim/nam…ôlum olduńüuna nec…ô …ômin olmaq olar"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Cari inc…ôl…ôm…ô politikasńĪnńĪ oxuyun"
+
+msgid "grid.action.deleteNotification"
+msgstr "TapŇüńĪrńĪńüńĪ silin"
+
+msgid "grid.action.markNew"
+msgstr "yeni"
+
+msgid "grid.action.markRead"
+msgstr "Oxunub"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "D…ôy…ôrl…ôndirm…ô t…ôqvimi"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Redaktorun t…ôl…ôbi"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Son tarix"
+
+msgid "notification.addedNavigationMenu"
+msgstr "y√∂nl…ôndirm…ô menyusu uńüurla …ôlav…ô edildi"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "D…ôy…ôrl…ôndirm…ô tarixi"
+
+msgid "notification.removedNavigationMenu"
+msgstr "y√∂nl…ôndirm…ô menyusu uńüurla √ßńĪxarńĪldńĪ"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Abun…ôliyiniz l…ôńüv edildi"
+
+msgid "submission.task.responseDueDate"
+msgstr "Son tarix"
+
+msgid "navigation.goBack"
+msgstr "Geri qayńĪdńĪn"
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Abun…ôliyinizi l…ôńüv ed…ô bilm…ôdik"
+
+msgid "notification.type.auditorRequest"
+msgstr "\"{$file}\" √ľ√ß√ľn n…ôzar…ôt t…ôl…ôbi"
+
+msgid "timeZone"
+msgstr "Saat b√∂lg…ôsi"
+
+msgid "user.email"
+msgstr "Email"
+
+msgid "notification.type.roundStatusTitle"
+msgstr "{$round} tur v…ôziyy…ôti"
+
+msgid "notification.type.editorialReminder"
+msgstr "#YOX"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "y√∂nl…ôndirm…ô menyusu elementi uńüurla yenil…ôndi"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "y√∂nl…ôndirm…ô menyusu elementi uńüurla √ßńĪxarńĪldńĪ"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "y√∂nl…ôndirm…ô menyusu elementi uńüurla …ôlav…ô edildi"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Abun…ôliyi l…ôńüv edin"
+
+msgid "list.viewMore"
+msgstr "{$name} haqqńĪnda geniŇül…ôndirilmiŇü detallarńĪ g√∂st…ôrin"
+
+msgid "list.viewLess"
+msgstr "{$name} haqqńĪnda geniŇül…ôndirilmiŇü detallarńĪ gizl…ôdin"
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"({$displayName}) filtiri {$inputTypeName} v…ô {$typeofInput} giriŇül…ôrini "
+"d…ôst…ôkl…ôyir"
+
+msgid "list.expandAll"
+msgstr "HamńĪsńĪnńĪ geniŇül…ôndirin"
+
+msgid "list.collapseAll"
+msgstr "HamńĪsńĪnńĪ daraldńĪn"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "#YOX"
+
+#, fuzzy
+msgid "common.discardChanges"
+msgstr "Xeyr, saxlanńĪlmamńĪŇü d…ôyiŇüiklikl…ôri atńĪn"
+
+#, fuzzy
+msgid "common.downloadReport"
+msgstr "HesabatńĪ y√ľkl…ôyin"
+
+msgid "email.bodyRequired"
+msgstr "Z…ôhm…ôt olmasa bir email m…ôtni daxil edin"
+
+msgid "form.url.invalid"
+msgstr ""
+"G√∂st…ôril…ôn URL etibarsńĪzdńĪr. Z…ôhm…ôt olmasa yoxlayńĪb yenid…ôn c…ôhd "
+"edin."
+
+msgid "form.disallowedLocales"
+msgstr "Sad…ôc…ô bu dill…ôr…ô icaz…ô verilir: {$languages}"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"Brauzeriniz s√ľr√ľŇüd√ľr v…ô burax fayl y√ľkl…ôm…ôl…ôrini d…ôst…ôkl…ômir."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"FayllarńĪnńĪzńĪ y√ľkl…ôm…ôk √ľ√ß√ľn z…ôhm…ôt olmasa aŇüańüńĪdakńĪ ehtiyat "
+"formu istifad…ô edin"
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Bu c√ľr fayllar y√ľkl…ôn…ô bilm…ôz"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Brauzer{{statusCode}} kodu il…ô cavab verdi. Bu probleminiz davam ed…ôrs…ô "
+"z…ôhm…ôt olmasa sistem idar…ô√ßisin…ô m√ľraci…ôt edin."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "ńįnc…ôl…ôm…ôy…ô g√∂nd…ôril…ôn email √ľ√ß√ľn t…ôŇü…ôkk√ľr edirik"
+
+msgid "notification.allow"
+msgstr "Bu n√∂v bildiriŇül…ôri g√∂st…ôrm…ôy…ô icaz…ô verin."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Elan n√∂v√ľ …ôlav…ô edildi."
+
+msgid "notification.editedAnnouncementType"
+msgstr "ElanńĪn n√∂v√ľ d√ľz…ôldildi."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Elan n√∂v√ľ √ßńĪxarńĪldńĪ."
+
+msgid "notification.removedAnnouncement"
+msgstr "Elan silindi."
+
+msgid "notification.confirmError"
+msgstr "Abun…ôliyinizin t…ôsdiql…ônm…ôsind…ô bir x…ôta var."
+
+msgid "notification.confirmSuccess"
+msgstr "Uńüurla √ľzv oldunuz."
+
+msgid "notification.email"
+msgstr "Bu n√∂v bildiriŇül…ôr √ľ√ß√ľn m…ôn…ô email g√∂nd…ôrm…ôyin"
+
+msgid "notification.noneExist"
+msgstr "BildiriŇü yoxdur."
+
+msgid "notification.addedNote"
+msgstr "Qeyd g√∂nd…ôrildi."
+
+msgid "notification.removedNote"
+msgstr "Qeyd silindi."
+
+msgid "notification.removedFile"
+msgstr "SilinmiŇü fayl"
+
+msgid "notification.removedSubmission"
+msgstr "M…ôqal…ô silindi."
+
+msgid "notification.sentNotification"
+msgstr "BildiriŇü g√∂nd…ôrildi."
+
+msgid "notification.settingsDescription"
+msgstr ""
+"M√ľ…ôyy…ôn edilmiŇü sistem hallarńĪnda ist…ôdiyinizi se√ßin. G√∂st…ôril…ôn "
+"bildiriŇül…ôrinizd…ôn …ông…ôll…ôm…ôk ist…ôdikl…ôrinizin √ßek iŇüar…ôsini "
+"qaldńĪrńĪn."
+
+msgid "notification.reminderError"
+msgstr ""
+"Ňěifr…ônizi g√∂nd…ôr…ôrk…ôn bir x…ôta baŇü verdi. Z…ôhm…ôt olmasa daxil "
+"etdiyiniz email adresinizin dońüru olduńüundan …ômin olun."
+
+msgid "notification.removedReviewer"
+msgstr "R…ôy√ßi l…ôńüv edildi."
+
+msgid "notification.cancelledReviewer"
+msgstr "R…ôy√ßi l…ôńüv edildi."
+
+msgid "notification.reinstatedReviewer"
+msgstr "R…ôy√ßi yenid…ôn t…ôyin edildi."
+
+#, fuzzy
+msgid "notification.reviewerResendRequest"
+msgstr "ńįcmal tapŇüńĪrńĪńüńĪnńĪn yenid…ôn n…ôz…ôrd…ôn ke√ßirilm…ôsini ist…ôdi."
+
+msgid "notification.addedStageParticipant"
+msgstr "ńįstifad…ô√ßi s…ôviyy…ô iŇütirak√ßńĪsńĪ kimi …ôlav…ô edildi"
+
+msgid "notification.editStageParticipant"
+msgstr "S…ôviyy…ô t…ôyinatńĪ d…ôyiŇüdirildi"
+
+msgid "notification.type.newAnnouncement"
+msgstr "Yeni elan yaradńĪldńĪ."
+
+msgid "notification.type.reviewAssignment"
+msgstr "G√∂zl…ôy…ôn d…ôy…ôrl…ôndirm…ô"
+
+msgid "notification.type.allReviewsIn"
+msgstr ""
+"B√ľt√ľn Ňü…ôrhl…ôr m√∂vcuddur v…ô {$stage} qismind…ô bir q…ôrar t…ôl…ôb "
+"olunur."
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"T…ônziml…ônmiŇü bir fayl, {$stage} qismind…ô n…ôŇür etm…ôyiniz √ľ√ß√ľn "
+"y√ľkl…ôndi"
+
+msgid "notification.type.pendingRevisions"
+msgstr "{$stage}-ci addńĪmda d…ôy…ôrl…ôndiril…ôc…ôk d√ľz…ôliŇül…ôr"
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "D√ľz…ôliŇül…ôr {$stage}-ci addńĪma g√∂nd…ôrildi"
+
+msgid "notification.signedFile"
+msgstr "Fayl n…ôz…ôr…ô alńĪndńĪ."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "EtibarsńĪz d…ôy…ôrl…ôndirm…ô turu"
+
+msgid "user.authorization.invalidQuery"
+msgstr "EtibarsńĪz m√ľzakir…ô"
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Bu m√ľzakir…ô mesajńĪna giriŇü s…ôlahiyy…ôtiniz yoxdur"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "r…ôy√ßi t…ôyin etm…ô s…ôlahiyy…ôtiniz yoxdur"
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"HazńĪrda t…ôqdimata baxmaq √ľ√ß√ľn kifay…ôt q…ôd…ôr s…ôlahiyy…ôtli "
+"deyilsiniz. Z…ôhm…ôt olmasa profilinizi t…ônziml…ôy…ôr…ôk \"Register as/"
+"FormasńĪnda qeydiyyat\" altńĪnda uyńüun rollarńĪn verildiyind…ôn …ômin olun."
+
+msgid "notification.type.queryActivity"
+msgstr "M√ľzakir…ô f…ôaliyy…ôti"
+
+msgid "notification.type.queryAdded"
+msgstr "M√ľzakir…ô …ôlav…ô edildi."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"ńįŇütirak√ßńĪ siyahńĪsńĪndakńĪ \"T…ôyinat\" linkini istifad…ô ed…ôr…ôk bir "
+"redaktor t…ôyin edir."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Bu, redaksiya hesabatńĪ vasit…ôsil…ô JurnalńĪnńĪzńĪn s…ôhihliyin…ô n…ôzar…ôt "
+"etm…ôyiniz √ľ√ß√ľn yaxŇüńĪ bir xatńĪrlatmadńĪr."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"<a href=\"{$profileNotificationUrl}\">ńįstifad…ô√ßi profilinizd…ôn</a> ist…"
+"ôdiyiniz zaman email bildiriŇül…ôrin…ô t…ôkrar abun…ô ola bil…ôrsiniz."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"{$email} email adresi uńüurla abun…ôlikd…ôn √ßńĪxarńĪldńĪ. ArtńĪq siz…ô bu "
+"emaill…ôri g√∂nd…ôrm…ôy…ôc…ôyik. <a href=\"{$profileNotificationUrl}\""
+">ńįstifad…ô√ßi profilinizd…ôn</a> ist…ôdiyiniz zaman email bildiriŇül…ôrin…ô "
+"t…ôkrar abun…ô ola bil…ôrsiniz."
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"G√∂zl…ônilm…ôz bir x…ôta baŇü verdi v…ô {$email} email adresinin abun…"
+"ôliyini l…ôńüv ed…ô bilm…ôdik. <a href=\"{$profileNotificationUrl}\""
+">ńįstifad…ô√ßi profilinizd…ôki</a> b√ľt√ľn email bildiriŇül…ôrini l…ôńüv ed…"
+"ô bil…ôr v…ô ya yardńĪm √ľ√ß√ľn birbaŇüa biziml…ô …ôlaq…ô qura bil…ôrsiniz."
+
+msgid "validator.accepted"
+msgstr "XahiŇü olunur bu elementi q…ôbul edin.."
+
+msgid "validator.active_url"
+msgstr "Bu etibarlńĪ URL deyil."
+
+msgid "validator.after"
+msgstr "Bu tarix {$date} tarixind…ôn sonra olmalńĪdńĪr."
+
+msgid "validator.alpha"
+msgstr "Bu sad…ôc…ô h…ôrf ola bil…ôr"
+
+msgid "validator.alpha_dash"
+msgstr "Bu sad…ôc…ô h…ôrf, r…ôq…ôm, tire v…ô alt x…ôtt ehtiva ed…ô bil…ôr"
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+"Bu sad…ôc…ô h…ôrf, r…ôq…ôm, tire, alt x…ôtt v…ô n√∂qt…ô ehtiva ed…ô bil…ôr"
+
+msgid "validator.alpha_num"
+msgstr "Bu sad…ôc…ô h…ôrf v…ô r…ôq…ôm ehtiva ed…ô bil…ôr"
+
+msgid "validator.array"
+msgstr "Bu etibarlńĪ bir seriya deyil."
+
+msgid "validator.before"
+msgstr "Bu tarix {$date} tarixd…ôn …ôvv…ôl olmalńĪdńĪr."
+
+msgid "validator.between.numeric"
+msgstr "Bu, {$min} il…ô {$max} arasńĪnda olmalńĪdńĪr."
+
+msgid "validator.between.file"
+msgstr "Bu, {$min} v…ô {$max} arasńĪnda kb olmalńĪdńĪr."
+
+msgid "validator.between.string"
+msgstr "Bu, {$min} il…ô {$max} arasńĪnda xarakter olmalńĪdńĪr."
+
+msgid "validator.between.array"
+msgstr ""
+"Bunun {$min} il…ô {$max} arasńĪnda element ehtiva etm…ôsi t…ôl…ôb olunur"
+
+msgid "validator.boolean"
+msgstr "Bu sah…ô dońüru v…ô ya x…ôtalńĪ olmalńĪdńĪr."
+
+msgid "validator.confirmed"
+msgstr "Bu sah…ônin t…ôsdiqi uyńüun g…ôlmir."
+
+msgid "validator.country"
+msgstr "Bu dońüru √∂lk…ô deyil."
+
+#, fuzzy
+msgid "validator.country.regex"
+msgstr ""
+"Bu etibarlńĪ √∂lk…ô deyil. √Ėlk…ô 2 h…ôrfd…ôn ibar…ôt beyn…ôlxalq kodlardan "
+"biri olmalńĪdńĪr. B√ľt√ľn kodlara baxńĪn https://en.wikipedia.org/wiki/"
+"iso_3166-1_alpha-2 #ashighted_code_code_elementl…ôr."
+
+msgid "validator.currency"
+msgstr "Bu dońüru bir pul vahidi deyil."
+
+msgid "validator.date"
+msgstr "Bu dońüru bir tarix deyil."
+
+msgid "validator.date_format"
+msgstr "Bu, {$format} fortmatńĪ il…ô uyńüun g…ôlmir."
+
+msgid "validator.different"
+msgstr "{$attribute} v…ô {$other} f…ôrqli olmalńĪdńĪr."
+
+msgid "validator.digits"
+msgstr "Bu, {$digits} pill…ô uzunluńüunda olmalńĪdńĪr."
+
+msgid "validator.digits_between"
+msgstr "Bu, {$min} il…ô {$max} pill…ô arasńĪnda olmalńĪdńĪr."
+
+msgid "validator.email"
+msgstr "Bu dońüru bir email adresi deyil"
+
+msgid "validator.exists"
+msgstr "Se√ßil…ôn {$attribute} etibarsńĪzdńĪr"
+
+msgid "validator.filled"
+msgstr "Bu sah…ô doldurulmalńĪdńĪr."
+
+msgid "validator.image"
+msgstr "Bu bir Ňü…ôkil olmalńĪdńĪr."
+
+msgid "validator.in"
+msgstr "Se√ßil…ôn {$attribute} etibarsńĪzdńĪr"
+
+msgid "validator.integer"
+msgstr "Bu dońüru bir tam say deyil."
+
+msgid "validator.ip"
+msgstr "Bu dońüru bir IP adresi deyil."
+
+msgid "validator.issn"
+msgstr "Bu dońüru bir ISSN deyil."
+
+msgid "validator.json"
+msgstr "Bu dońüru JSON s…ôtri deyil"
+
+msgid "validator.locale"
+msgstr "Bu dil q…ôbul edilmir."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Bu sah…ô √ßoxdillidir. D…ôst…ôkl…ôn…ôn h…ôr dil √ľ√ß√ľn ayrńĪ d…ôy…ôrl…ôr t…"
+"ômin edilm…ôlidir"
+
+msgid "validator.localeKey"
+msgstr ""
+"Dill…ôr yerli t…ônzim kodu istifad…ô edil…ôr…ôk g√∂st…ôrilm…ôlidir. "
+"N√ľmun…ôl…ôr: en_US, fr_CA, sr_RS@cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "Bu, {$max} d…ôy…ôrind…ôn b√∂y√ľk ola bilm…ôz."
+
+msgid "validator.max.file"
+msgstr "Bu, {$max} kb-dan √ßox ola bilm…ôz."
+
+msgid "validator.max.string"
+msgstr "Bu, {$max} xarakterd…ôn √ßox ola bilm…ôz"
+
+msgid "validator.max.array"
+msgstr "Bu elementd…ô {$max} elementd…ôn √ßox element olmaya bil…ôr."
+
+msgid "validator.mimes"
+msgstr "Bu, {$values} n√∂v√ľnd…ô bir fayl olmalńĪdńĪr."
+
+msgid "validator.min.numeric"
+msgstr "Bu …ôn az {$min} olmalńĪdńĪr."
+
+msgid "validator.min.file"
+msgstr "Bu …ôn az {$min} kb olmalńĪdńĪr."
+
+msgid "validator.min.string"
+msgstr "Bu …ôn az {$min} xarakter olmalńĪdńĪr."
+
+msgid "validator.min.array"
+msgstr "Bu …ôn az {$min} element ehtiva etm…ôlidir"
+
+msgid "validator.not_in"
+msgstr "Se√ßilmiŇü {$attribute} etibarsńĪzdńĪr."
+
+msgid "validator.numeric"
+msgstr "Bu etibarlńĪ bir say deyil."
+
+msgid "validator.orcid"
+msgstr "Bu etibarlńĪ bir orcid deyil."
+
+msgid "validator.present"
+msgstr "{$attribute} sah…ôsi yoxdur"
+
+msgid "validator.regex"
+msgstr "Bu d√ľzg√ľn formatlandńĪrńĪlmayńĪb"
+
+msgid "validator.required"
+msgstr "Bu sah…ô t…ôl…ôb olunur."
+
+msgid "validator.required_if"
+msgstr "Bu sah…ô, {$other} {$value} olduńüu zaman t…ôl…ôb olunur"
+
+msgid "validator.required_unless"
+msgstr "{$other}, {$values} i√ßind deyils…ô bu sah…ô t…ôl…ôb olunur"
+
+msgid "validator.required_with"
+msgstr "Bu sah…ô, {$values} m√∂vcud olduńüu zaman t…ôl…ôb olunur"
+
+msgid "validator.required_with_all"
+msgstr "Bu sah…ô, {$values} m√∂vcud olduńüu zaman t…ôl…ôb olunur"
+
+msgid "validator.required_without"
+msgstr "Bu sah…ô, {$values} yoxdursa t…ôl…ôb olunur"
+
+msgid "validator.required_without_all"
+msgstr "Bu sah…ô, {$values}-nin he√ß biri yoxdursa t…ôl…ôb olunur."
+
+msgid "validator.same"
+msgstr "{$attribute} v…ô {$other} uyńüun olmalńĪdńĪr."
+
+msgid "validator.size.numeric"
+msgstr "Bu {$size} olmalńĪdńĪr."
+
+msgid "validator.size.file"
+msgstr "Bu, {$size} kb olmalńĪdńĪr."
+
+msgid "validator.size.string"
+msgstr "Bu {$size} xarakter olmalńĪdńĪr."
+
+msgid "validator.size.array"
+msgstr "Bu {$size} element ehtiva etm…ôlidir"
+
+msgid "validator.string"
+msgstr "Bu etibarlńĪ bir s…ôtir deyil."
+
+msgid "validator.timezone"
+msgstr "Bu etibarlńĪ zaman b√∂lg…ôsi deyil"
+
+msgid "validator.unique"
+msgstr "{$attribute} zat…ôn alńĪndńĪ"
+
+msgid "validator.url"
+msgstr "Bu etibarlńĪ URL deyil."
+
+#, fuzzy
+msgid "validator.no_new_line"
+msgstr "Yeni x…ôtt icaz…ô verilmir."
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"QuraŇüdńĪrma m√ľhitinizd…ô d…ôst…ôkl…ônm…ôy…ôn bir √ßevrilm…ôni iŇül…ôtm…ôy…"
+"ô c…ôhd edirsiniz."
+
+msgid "notification.editedAuthor"
+msgstr "M√ľ…ôllif redakt…ô edildi"
+
+#, fuzzy
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target= \"_blank\" rel= \"Lisenziya\" href=\"https://creativecommons."
+"org/licenses/by/3.0 /\" >\n"
+"\t\t\t<img alt= \"Creative Commons lisenziyası\" style= \"sərhəd genişliyi: "
+"0\" src= \"//i.creativecommons.org/l/by/3.0/80x15.png \" />\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tBu İş <a rel=\"Lisenziya\" target=\"_blank\" href=\"uyğun olaraq "
+"lisenziyalıdır https://creativecommons.org/licenses/by/3.0 /\">Creative "
+"Commons Attribution 3.0 lisenziyası< / a>.\n"
+"\t"
+
+#, fuzzy
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t< < div sinfi=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel = \"Lisenziya\" href=\"https://creativecommons.org/licenses/by/"
+"3.0 / \"target=\" _blank \"> < img alt= \"Creative Commons lisenziyası\" "
+"style= \"sərhəd genişliyi: 0\" src= \"//i.creativecommons.org/l/by/3.0/"
+"80x15.png \" / > < / a>\n"
+"\t\t<br />\n"
+"\t\tBu iş əsasında lisenziyalıdır <a rel= \"Lisenziya\" href=\"https"
+"://creativecommons.org/licenses/by/3.0 / \"target=\"_blank\" >Creative "
+"Commons Attribution 3.0 lisenziyası< / a>.\n"
+"\tbölmə\n"
+"\t"

@@ -1,8 +1,81 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-06-02 19:20+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
+"Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reader/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "comments.titleRequired"
+msgstr "Şərh başlığı tələb olunur."
+
+msgid "comments.noComments"
+msgstr "Hələ heç bir oxucu şərhi yoxdur."
+
+msgid "comments.anonymous"
+msgstr "Anonim istifadəçi"
+
+msgid "comments.anonymousNamed"
+msgstr "\" {$userName}"
+
+msgid "comments.body"
+msgstr "Şərh"
+
+msgid "comments.confirmDeleteChildren"
+msgstr ""
+"Bu şərh silindiyi zaman, varsa şərhə verilən cavab da silinəcək. Bunu etmək "
+"istədiyinizə əmisinizmi?"
+
+msgid "comments.delete"
+msgstr "Bu şərhi silin"
+
+msgid "comments.email"
+msgstr "Göndərən email"
+
+msgid "comments.emailReply"
+msgstr "Cavab email"
+
+msgid "comments.enterComment"
+msgstr "Şərh əlavə edin"
+
+msgid "comments.inResponseTo"
+msgstr "Buna cavab olaraq: <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Göndərənin adı"
+
+msgid "comments.nReplies"
+msgstr "( {$num} cavab"
+
+msgid "comments.oneReply"
+msgstr "(1 cavab)"
+
+msgid "comments.postAnonymously"
+msgstr "Bu şərhi anonim olaraq göndər"
+
+msgid "comments.postReply"
+msgstr "Cavabı Göndər"
+
+msgid "comments.readerComments"
+msgstr "Oxucu şərhləri"
+
+msgid "comments.readMore"
+msgstr "Davamını oxuyun"
+
+msgid "comments.replies"
+msgstr "Cavablar"
+
+msgid "comments.title"
+msgstr "Başlıq"
+
+msgid "comments.viewAllComments"
+msgstr "Bütün şərhləri göstərin"
+
+msgid "reader.fullText"
+msgstr "Tam mətn:"

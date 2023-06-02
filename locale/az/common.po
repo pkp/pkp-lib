@@ -1,7 +1,7 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 20:57+0000\n"
+"PO-Revision-Date: 2023-06-02 22:43+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/az/>\n"
@@ -762,8 +762,9 @@ msgstr "Endirin"
 msgid "common.downloadPdf"
 msgstr "PDF endirin"
 
+#, fuzzy
 msgid "common.orUploadFile"
-msgstr "#YOX"
+msgstr "Və ya faylı yükləyin"
 
 msgid "common.edit"
 msgstr "Redakt…ô edin"
@@ -822,8 +823,9 @@ msgstr "Filtr …ôlav…ô edin: {$filterTitle}"
 msgid "common.filterRemove"
 msgstr "Filtri t…ômizl…ôyin: {$filterTitle}"
 
+#, fuzzy
 msgid "common.findTemplate"
-msgstr "#YOX"
+msgstr "Şablon tapın"
 
 msgid "common.go"
 msgstr "Get"
@@ -855,11 +857,13 @@ msgstr "Proses davam edir"
 msgid "common.insert"
 msgstr "ńį√ß…ôriy…ô k√∂√ß√ľr√ľn"
 
+#, fuzzy
 msgid "common.insertContent"
-msgstr "#YOX"
+msgstr "Məzmunu daxil edin"
 
+#, fuzzy
 msgid "common.insertContentSearch"
-msgstr "#YOX"
+msgstr "Daxil ediləcək məzmunu tapın"
 
 msgid "common.itemsPerPage"
 msgstr "H…ôr s…ôhif…ô √ľ√ß√ľn element"
@@ -882,8 +886,9 @@ msgstr "{$value} v…ô ya daha az"
 msgid "common.lessThanOnly"
 msgstr "Daha az"
 
+#, fuzzy
 msgid "common.keepWorking"
-msgstr "#YOX"
+msgstr "İşləməyə davam edin"
 
 msgid "common.manage"
 msgstr "ńįdar…ô edin"
@@ -952,8 +957,9 @@ msgstr "BildiriŇü: {$dateNotified}"
 msgid "common.noMatches"
 msgstr "Uyńüun g…ôlm…ôdi"
 
+#, fuzzy
 msgid "common.numberedMore"
-msgstr "#YOX"
+msgstr "{$number} daha ətraflı"
 
 msgid "common.off"
 msgstr "BańülńĪ"
@@ -1087,8 +1093,9 @@ msgstr "Yadda saxlanńĪlńĪr"
 msgid "common.search"
 msgstr "AxtarńĪŇü"
 
+#, fuzzy
 msgid "common.searching"
-msgstr "#YOX"
+msgstr "Axtarış"
 
 msgid "common.searchQuery"
 msgstr "AxtarńĪŇü sorńüusu"
@@ -1117,8 +1124,9 @@ msgstr "{$name} se√ßin"
 msgid "common.sendEmail"
 msgstr "Email g√∂nd…ôr"
 
+#, fuzzy
 msgid "common.showAllSteps"
-msgstr "#YOX"
+msgstr "Bütün addımları göstərin"
 
 msgid "common.size"
 msgstr "√Ėl√ß√ľ"
@@ -1144,11 +1152,13 @@ msgstr "Alt baŇülńĪq"
 msgid "common.suggest"
 msgstr "T…ôklif"
 
+#, fuzzy
 msgid "common.switchTo"
-msgstr "#YOX"
+msgstr "Keçid"
 
+#, fuzzy
 msgid "common.switchToNamedItem"
-msgstr "#YOX"
+msgstr "{$Name} - ə keçin"
 
 msgid "common.title"
 msgstr "BaŇülńĪq"
@@ -1210,8 +1220,9 @@ msgstr "[M√∂vcud olmayan istifad…ô√ßi]"
 msgid "common.view"
 msgstr "BaxńĪŇü"
 
+#, fuzzy
 msgid "common.viewError"
-msgstr "#YOX"
+msgstr "Baxış xətası"
 
 msgid "common.viewWithName"
 msgstr "{$name} baxńĪŇü"
@@ -1225,8 +1236,9 @@ msgstr "h…ôft…ô"
 msgid "common.width"
 msgstr "GeniŇülik"
 
+#, fuzzy
 msgid "common.withParenthesis"
-msgstr "#YOX"
+msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.year"
 msgstr "ńįl"
@@ -1798,8 +1810,9 @@ msgstr "Email"
 msgid "notification.type.roundStatusTitle"
 msgstr "{$round} tur v…ôziyy…ôti"
 
+#, fuzzy
 msgid "notification.type.editorialReminder"
-msgstr "#YOX"
+msgstr "Görülməmiş işlər haqqında həftəlik məlumat e-poçtu"
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "y√∂nl…ôndirm…ô menyusu elementi uńüurla yenil…ôndi"
@@ -1830,8 +1843,9 @@ msgstr "HamńĪsńĪnńĪ geniŇül…ôndirin"
 msgid "list.collapseAll"
 msgstr "HamńĪsńĪnńĪ daraldńĪn"
 
+#, fuzzy
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr "#YOX"
+msgstr "Naməlum komanda {$command}"
 
 #, fuzzy
 msgid "common.discardChanges"

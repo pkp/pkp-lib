@@ -1,8 +1,192 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-06-02 19:20+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
+"Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"user/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "user.preferredPublicName"
+msgstr "Tərcih edilən ümumi ad"
+
+msgid "user.accountInformation"
+msgstr "Hesab məlumatları"
+
+msgid "user.affiliation.description"
+msgstr "(Müəssisəniz: \"Universitet, fakültə, kafedra\" şəklində qeyd edin.)"
+
+msgid "user.affiliations"
+msgstr "Qurumlar"
+
+msgid "user.biography"
+msgstr "Tərcümeyi-hal"
+
+msgid "user.changeMyPassword"
+msgstr "Şifrəmi dəyişdirin"
+
+msgid "user.changePassword"
+msgstr "Şifrə dəyişdirmə"
+
+msgid "user.dateLastLogin"
+msgstr "Son giriş"
+
+msgid "user.dateRegistered"
+msgstr "Qeydiyyat tarixi"
+
+msgid "user.editMyProfile"
+msgstr "Profilimi düzəldin"
+
+msgid "user.email"
+msgstr "Email"
+
+msgid "user.givenName"
+msgstr "Ad"
+
+msgid "user.interests"
+msgstr "İxtisas"
+
+msgid "user.gossip"
+msgstr "Xüsusi qeydlər"
+
+msgid "user.group"
+msgstr "Üzv qrupu"
+
+msgid "user.familyName"
+msgstr "Soyadı"
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Hesabınız aşağıdakı səbəbə görə passivdir: {$reason}"
+
+msgid "user.login.activate"
+msgstr "Hesabın aktivləşdirilməsi"
+
+msgid "user.login.forgotPassword"
+msgstr "Şifrənizi unutmusunuz?"
+
+msgid "user.login"
+msgstr "Daxil ol"
+
+msgid "user.login.registeredEmail"
+msgstr "Qeydiyyatlı istifadəçinin email ünvanı"
+
+msgid "user.login.registrationComplete"
+msgstr "Qeydiyyat tamamlandı"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr ""
+"Qeydiyyatdan keçdiyiniz üçün təşəkkürlər! Bundan sonra nə etmək istəyirsiniz?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Məqalələri göstər"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Yeni bir göndərmə hazırla"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Sıralamağa davam edin"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Təsdiqlənmə gözləyən qeydiyyat"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Məni xətdə saxlayın"
+
+msgid "user.login.resetPassword"
+msgstr "Şifrəni sıfırlayın"
+
+msgid "user.logOut"
+msgstr "Çıxış"
+
+msgid "user.logOutAs"
+msgstr "{$username} adına çıxış"
+
+msgid "user.mailingAddress"
+msgstr "Email ünvanı"
+
+msgid "user.myAccount"
+msgstr "Mənim hesabım"
+
+msgid "user.name"
+msgstr "Ad"
+
+msgid "user.password"
+msgstr "Şifrə"
+
+msgid "user.repeatPassword"
+msgstr "Şifrə təkrarlanması"
+
+msgid "user.phone"
+msgstr "Telefon"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Müəllifin yayınlanmış əsərdə qeyd olunması lazım olduğundan zəhmət olmazsa "
+"tam adı qeyd edin.Nümunə: Dr. Alan P. Mwandenga"
+
+msgid "user.profile.editProfile"
+msgstr "Profilə düzəliş et"
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Açıq giriş email bildirişləri"
+
+msgid "user.profile.form.profileImage"
+msgstr "Profil şəkli"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Nəşr olunmuş yeni nömrə üçün xəbərdarlıq emaili"
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"Göstərilən URL etibarlı deyil. Zəhmət olmasa URL ünvanını yoxlamaqla yenidən "
+"cəhd edin. (İpucu: URL başına http:// əlavə edin.)"
+
+msgid "user.profile.newPassword"
+msgstr "Yeni şifrə"
+
+msgid "user.profile.oldPassword"
+msgstr "Hazırkı şifrə"
+
+msgid "user.profile"
+msgstr "Profil"
+
+msgid "user.profile.publicProfile"
+msgstr "İstifadəçi profili"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Yeni şifrəni təkrarlayın"
+
+msgid "user.login.registerNewAccount"
+msgstr "Qeydiyyat"
+
+msgid "user.register"
+msgstr "Qeydiyyat"
+
+msgid "user.role.assistant"
+msgstr "Köməkçi"
+
+msgid "user.role.author"
+msgstr "Müəllif"
+
+msgid "user.role.author_s"
+msgstr "Müəllif(lər)"
+
+msgid "user.role.authors"
+msgstr "Müəlliflər"
+
+msgid "user.role.editor"
+msgstr "Redaktor"
+
+msgid "user.role.editors"
+msgstr "Redaktorlar"
+
+msgid "user.role.reader"
+msgstr "Oxucu"
+
+msgid "user.role.readers"
+msgstr "Oxucular"

@@ -152,7 +152,7 @@ class PKPNavigationMenuService
         $templateMgr = TemplateManager::getManager($request);
 
         $isUserLoggedIn = Validation::isLoggedIn();
-        $isUserLoggedInAs = Validation::isLoggedInAs();
+        $isUserLoggedInAs = Validation::loggedInAs();
         $context = $request->getContext();
         $currentUser = $request->getUser();
 

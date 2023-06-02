@@ -18,7 +18,6 @@ use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
-use APP\log\SubmissionEventLogEntry;
 use APP\publication\DAO;
 use APP\publication\Publication;
 use APP\submission\Submission;
@@ -26,13 +25,14 @@ use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\core\Core;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileManager;
-use PKP\log\PKPSubmissionEventLogEntry;
-use PKP\log\SubmissionLog;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\observers\events\PublicationPublished;
 use PKP\observers\events\PublicationUnpublished;
 use PKP\plugins\Hook;
+use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\submission\Genre;
 use PKP\submission\PKPSubmission;
@@ -316,7 +316,8 @@ abstract class Repository
         $newPublication->setData('version', $publication->getData('version') + 1);
         $newPublication->stampModified();
 
-        $context = Application::get()->getRequest()->getContext();
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
 
         if ($context->getData(Context::SETTING_DOI_VERSIONING)) {
             $newPublication->setData('doiId', null);
@@ -348,7 +349,17 @@ abstract class Repository
         Hook::call('Publication::version', [&$newPublication, $publication]);
 
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
-        SubmissionLog::logEvent($this->request, $submission, PKPSubmissionEventLogEntry::SUBMISSION_LOG_CREATE_VERSION, 'publication.event.versionCreated');
+
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_CREATE_VERSION,
+            'userId' => Validation::loggedInAs() ?? $request->getUser()?->getId(),
+            'message' => 'publication.event.versionCreated',
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate(),
+        ]);
+        Repo::eventLog()->add($eventLog);
 
         return $newPublication->getId();
     }
@@ -357,11 +368,10 @@ abstract class Repository
     public function edit(Publication $publication, array $params): Publication
     {
         $submission = Repo::submission()->get($publication->getData('submissionId'));
+        $userId = $this->request->getUser()?->getId();
 
         // Move uploaded files into place and update the params
         if (array_key_exists('coverImage', $params)) {
-            $userId = $this->request->getUser() ? $this->request->getUser()->getId() : null;
-
             $submissionContext = $this->request->getContext();
             if ($submissionContext->getId() !== $submission->getData('contextId')) {
                 $submissionContext = Services::get('context')->get($submission->getData('contextId'));
@@ -388,7 +398,16 @@ abstract class Repository
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
         // Log an event when publication data is updated
-        SubmissionLog::logEvent($this->request, $submission, PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UPDATE, 'submission.event.general.metadataUpdated');
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UPDATE,
+            'userId' => Validation::loggedInAs() ?? $userId,
+            'message' => 'submission.event.general.metadataUpdated',
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate(),
+        ]);
+        Repo::eventLog()->add($eventLog);
 
         return $newPublication;
     }
@@ -469,12 +488,16 @@ abstract class Repository
             $msg = ($newPublication->getData('status') === Submission::STATUS_SCHEDULED) ? 'publication.event.versionScheduled' : 'publication.event.versionPublished';
         }
 
-        SubmissionLog::logEvent(
-            $this->request,
-            $submission,
-            SubmissionEventLogEntry::SUBMISSION_LOG_METADATA_PUBLISH,
-            $msg
-        );
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_PUBLISH,
+            'userId' => Validation::loggedInAs() ?? $this->request->getUser()?->getId(),
+            'message' => $msg,
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate()
+        ]);
+        Repo::eventLog()->add($eventLog);
 
         // Mark DOIs stale (if applicable).
         if ($newPublication->getData('status') === Submission::STATUS_PUBLISHED) {
@@ -556,12 +579,16 @@ abstract class Repository
             Repo::doi()->markStale($staleDoiIds);
         }
 
-        SubmissionLog::logEvent(
-            $this->request,
-            $submission,
-            PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UNPUBLISH,
-            $msg
-        );
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UNPUBLISH,
+            'userId' => Validation::loggedInAs() ?? $this->request->getUser()?->getId(),
+            'message' => $msg,
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate()
+        ]);
+        Repo::eventLog()->add($eventLog);
 
         Hook::call(
             'Publication::unpublish',

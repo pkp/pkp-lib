@@ -26,12 +26,14 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use PKP\context\Context;
 use PKP\core\Core;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
-use PKP\log\PKPSubmissionEventLogEntry;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionLog;
 use PKP\observers\events\DecisionAdded;
 use PKP\plugins\Hook;
 use PKP\security\Role;
+use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
 use PKP\stageAssignment\StageAssignmentDAO;
@@ -228,20 +230,18 @@ abstract class Repository
         }
 
         // Log the decision
-        SubmissionLog::logEvent(
-            $this->request,
-            $submission,
-            $this->isRecommendation($decisionType->getDecision())
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'eventType' => $this->isRecommendation($decisionType->getDecision())
                 ? PKPSubmissionEventLogEntry::SUBMISSION_LOG_EDITOR_RECOMMENDATION
                 : PKPSubmissionEventLogEntry::SUBMISSION_LOG_EDITOR_DECISION,
-            $decisionType->getLog(),
-            [
-                'editorId' => $editor->getId(),
-                'editorName' => $editor->getFullName(),
-                'submissionId' => $decision->getData('submissionId'),
-                'decision' => $decisionType->getDecision(),
-            ]
-        );
+            'userId' => Validation::loggedInAs() ?? $this->request->getUser()?->getId(),
+            'message' => $decisionType->getLog(),
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate()
+        ]);
+        Repo::eventLog()->add($eventLog);
 
         // Allow the decision type to perform additional actions
         $decisionType->runAdditionalActions($decision, $submission, $editor, $context, $actions);

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/log/PKPSubmissionEventLogEntry.php
+ * @file classes/log/event/PKPSubmissionEventLogEntry.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -11,12 +11,10 @@
  *
  * @ingroup log
  *
- * @see SubmissionEventLogDAO
- *
  * @brief Describes an entry in the submission history log.
  */
 
-namespace PKP\log;
+namespace PKP\log\event;
 
 use APP\core\Application;
 
@@ -36,7 +34,7 @@ class PKPSubmissionEventLogEntry extends EventLogEntry
 
     public const SUBMISSION_LOG_EDITOR_DECISION = 0x30000003;
     public const SUBMISSION_LOG_EDITOR_RECOMMENDATION = 0x30000004;
-    public const SUBMISSION_LOG_DECISION_EMAIL_SENT = 0x40000020;
+    public const SUBMISSION_LOG_DECISION_EMAIL_SENT = 0x30000007;
 
     public const SUBMISSION_LOG_REVIEW_ASSIGN = 0x40000001;
     public const SUBMISSION_LOG_REVIEW_REINSTATED = 0x40000005;
@@ -48,7 +46,7 @@ class PKPSubmissionEventLogEntry extends EventLogEntry
     public const SUBMISSION_LOG_REVIEW_READY = 0x40000018;
     public const SUBMISSION_LOG_REVIEW_CONFIRMED = 0x40000019;
     public const SUBMISSION_LOG_REVIEW_REMIND = 0x40000020;
-    public const SUBMISSION_LOG_REVIEW_REMIND_AUTO = 0x40000020;
+    public const SUBMISSION_LOG_REVIEW_REMIND_AUTO = 0x40000021;
 
 
     //
@@ -86,7 +84,7 @@ class PKPSubmissionEventLogEntry extends EventLogEntry
 }
 
 if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\log\PKPSubmissionEventLogEntry', '\PKPSubmissionEventLogEntry');
+    class_alias('\PKP\log\event\PKPSubmissionEventLogEntry', '\PKPSubmissionEventLogEntry');
     foreach ([
         'SUBMISSION_LOG_SUBMISSION_SUBMIT',
         'SUBMISSION_LOG_METADATA_UPDATE',

@@ -17,9 +17,9 @@
 namespace PKP\controllers\grid\eventLog;
 
 use APP\core\Application;
+use APP\facades\Repo;
+use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
-use PKP\log\SubmissionFileEventLogDAO;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
 use PKP\submissionFile\SubmissionFile;
@@ -114,14 +114,10 @@ class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler
      */
     protected function loadData($request, $filter = null)
     {
-        $submissionFile = $this->getSubmissionFile();
-        $submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /** @var SubmissionFileEventLogDAO $submissionFileEventLogDao */
-        $eventLogEntries = $submissionFileEventLogDao->getBySubmissionFileId(
-            $submissionFile->getId()
-        );
-        $eventLogEntries = $eventLogEntries->toArray();
-
-        return $eventLogEntries;
+        return Repo::eventLog()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, [$this->getSubmissionFile()->getId()])
+            ->getMany()
+            ->toArray();
     }
 
     /**

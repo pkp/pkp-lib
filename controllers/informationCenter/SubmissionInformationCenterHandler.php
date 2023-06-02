@@ -21,7 +21,8 @@ use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\controllers\informationCenter\form\NewSubmissionNoteForm;
 use PKP\core\JSONMessage;
-use PKP\log\EventLogEntry;
+use PKP\core\PKPApplication;
+use PKP\log\event\EventLogEntry;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
 
@@ -113,7 +114,7 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler
             $notesForm->execute();
 
             // Save to event log
-            $this->_logEvent($request, $this->_submission, EventLogEntry::SUBMISSION_LOG_NOTE_POSTED, 'PKP\log\SubmissionLog');
+            $this->_logEvent($request, $this->_submission, EventLogEntry::SUBMISSION_LOG_NOTE_POSTED, PKPApplication::ASSOC_TYPE_SUBMISSION);
 
             $user = $request->getUser();
             $notificationManager = new NotificationManager();

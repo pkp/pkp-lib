@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/log/EventLogEntry.php
+ * @file classes/log/event/EventLogEntry.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -11,12 +11,10 @@
  *
  * @ingroup log
  *
- * @see EventLogDAO
- *
  * @brief Describes an entry in the event log.
  */
 
-namespace PKP\log;
+namespace PKP\log\event;
 
 use APP\core\Application;
 use APP\facades\Repo;
@@ -292,7 +290,7 @@ class EventLogEntry extends \PKP\core\DataObject
 }
 
 if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\log\EventLogEntry', '\EventLogEntry');
+    class_alias('\PKP\log\event\EventLogEntry', '\EventLogEntry');
     define('SUBMISSION_LOG_NOTE_POSTED', EventLogEntry::SUBMISSION_LOG_NOTE_POSTED);
     define('SUBMISSION_LOG_MESSAGE_SENT', EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT);
 }

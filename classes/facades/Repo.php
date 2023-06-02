@@ -34,6 +34,7 @@ use PKP\job\repositories\FailedJob as FailedJobRepository;
 use PKP\job\repositories\Job as JobRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
+use PKP\log\event\Repository as EventLogRepository;
 
 class Repo
 {
@@ -86,4 +87,9 @@ class Repo
     {
         return app(UserGroupRepository::class);
     }
+
+	public static function eventLog(): EventLogRepository
+	{
+		return app(EventLogRepository::class);
+	}
 }

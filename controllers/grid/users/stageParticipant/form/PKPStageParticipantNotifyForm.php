@@ -30,15 +30,15 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
-use PKP\log\EventLogEntry;
+use PKP\log\event\EventLogEntry;
 use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
-use PKP\log\SubmissionLog;
 use PKP\note\NoteDAO;
 use PKP\notification\NotificationDAO;
 use PKP\notification\PKPNotification;
 use PKP\query\QueryDAO;
 use PKP\security\Role;
+use PKP\security\Validation;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class PKPStageParticipantNotifyForm extends Form
@@ -380,10 +380,19 @@ class PKPStageParticipantNotifyForm extends Form
      */
     public function _logEventAndCreateNotification($request, $submission)
     {
-        SubmissionLog::logEvent($request, $submission, EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT, 'informationCenter.history.messageSent');
+        $currentUser = $request->getUser();
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'eventType' => EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT,
+            'userId' => Validation::loggedInAs() ?? $currentUser->getId(),
+            'message' => 'informationCenter.history.messageSent',
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate()
+        ]);
+        Repo::eventLog()->add($eventLog);
 
         // Create trivial notification.
-        $currentUser = $request->getUser();
         $notificationMgr = new NotificationManager();
         $notificationMgr->createTrivialNotification($currentUser->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('stageParticipants.history.messageSent')]);
     }

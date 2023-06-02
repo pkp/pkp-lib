@@ -28,8 +28,7 @@ use PKP\core\PKPRequest;
 use PKP\core\PKPServices;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
-use PKP\log\PKPSubmissionEventLogEntry;
-use PKP\log\SubmissionLog;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\ReviewRequest;
 use PKP\mail\mailables\ReviewRequestSubsequent;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
@@ -37,6 +36,7 @@ use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
 use PKP\plugins\Hook;
 use PKP\security\AccessKeyManager;
+use PKP\security\Validation;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
@@ -110,12 +110,26 @@ class EditorAction
             );
 
             // Add log
-            SubmissionLog::logEvent($request, $submission, PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ASSIGN, 'log.review.reviewerAssigned', ['reviewAssignmentId' => $reviewAssignment->getId(), 'reviewerName' => $reviewer->getFullName(), 'submissionId' => $submission->getId(), 'stageId' => $stageId, 'round' => $round]);
+            $user = $request->getUser();
+            $eventLog = Repo::eventLog()->newDataObject([
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+                'assocId' => $submission->getId(),
+                'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ASSIGN,
+                'userId' => Validation::loggedInAs() ?? $user->getId(),
+                'message' => 'log.review.reviewerAssigned',
+                'isTranslated' => false,
+                'dateLogged' => Core::getCurrentDate(),
+                'reviewAssignment' => $reviewAssignment->getId(),
+                'reviewerName' => $reviewer->getFullName(),
+                'submissionId' => $submission->getId(),
+                'stageId' => $stageId,
+                'round' => $round
+            ]);
+            Repo::eventLog()->add($eventLog);
 
             // Send mail
             if (!$request->getUserVar('skipEmail')) {
                 $context = PKPServices::get('context')->get($submission->getData('contextId'));
-                $user = $request->getUser();
                 $emailTemplate = Repo::emailTemplate()->getByKey($submission->getData('contextId'), $request->getUserVar('template'));
                 $emailBody = $request->getUserVar('personalMessage');
                 $emailSubject = $emailTemplate->getLocalizedData('subject');
@@ -126,7 +140,7 @@ class EditorAction
                 } catch (TransportException $e) {
                     $notificationMgr = new PKPNotificationManager();
                     $notificationMgr->createTrivialNotification(
-                        $request->getUser()->getId(),
+                        $user->getId(),
                         PKPNotification::NOTIFICATION_TYPE_ERROR,
                         ['contents' => __('email.compose.error')]
                     );
@@ -172,23 +186,25 @@ class EditorAction
             // N.B. Only logging Date Due
             if ($logEntry) {
                 // Add log
-                SubmissionLog::logEvent(
-                    $request,
-                    $submission,
-                    PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_SET_DUE_DATE,
-                    'log.review.reviewDueDateSet',
-                    [
-                        'reviewAssignmentId' => $reviewAssignment->getId(),
-                        'reviewerName' => $reviewer->getFullName(),
-                        'dueDate' => date(
-                            PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort()),
-                            strtotime($reviewAssignment->getDateDue())
-                        ),
-                        'submissionId' => $submission->getId(),
-                        'stageId' => $reviewAssignment->getStageId(),
-                        'round' => $reviewAssignment->getRound()
-                    ]
-                );
+                $eventLog = Repo::eventLog()->newDataObject([
+                    'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+                    'assocId' => $submission->getId(),
+                    'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_SET_DUE_DATE,
+                    'userId' => Validation::loggedInAs() ?? $request->getUser()->getId(),
+                    'message' => 'log.review.reviewDueDateSet',
+                    'isTranslated' => false,
+                    'dateLogged' => Core::getCurrentDate(),
+                    'reviewAssignmentId' => $reviewAssignment->getId(),
+                    'reviewerName' => $reviewer->getFullName(),
+                    'reviewDueDate' => date(
+                        PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort()),
+                        strtotime($reviewAssignment->getDateDue())
+                    ),
+                    'submissionId' => $submission->getId(),
+                    'stageId' => $reviewAssignment->getStageId(),
+                    'round' => $reviewAssignment->getRound()
+                ]);
+                Repo::eventLog()->add($eventLog);
             }
         }
     }

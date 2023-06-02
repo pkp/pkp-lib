@@ -405,19 +405,30 @@ class Validation
     }
 
     /**
-     * Check if the user is logged in as a different user.
-     *
-     * @return bool
+     * Check if the user is logged in as a different user. Returns the original user ID or null
      */
-    public static function isLoggedInAs()
+    public static function loggedInAs(): ?int
     {
         if (!SessionManager::hasSession()) {
             return false;
         }
         $sessionManager = SessionManager::getManager();
         $session = $sessionManager->getUserSession();
-        $signedInAs = $session->getSessionVar('signedInAs');
-        return !!$signedInAs;
+        $userId = $session->getSessionVar('signedInAs');
+
+        return $userId ? (int) $userId : null;
+    }
+
+    /**
+     * Check if the user is logged in as a different user.
+     *
+     * @return bool
+     *
+     * @deprecated 3.4
+     */
+    public static function isLoggedInAs(): bool
+    {
+        return (bool) static::loggedInAs();
     }
 
     /**

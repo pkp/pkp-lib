@@ -108,9 +108,9 @@ class Repository
     }
 
     /**
-     * Validate properties for an announcement
+     * Validate properties for a category
      *
-     * Perform validation checks on data used to add or edit an announcement.
+     * Perform validation checks on data used to add or edit a category.
      *
      * @param array $props A key/value array with the new data to validate
      * @param array $allowedLocales The context's supported locales
@@ -126,7 +126,7 @@ class Repository
             []
         );
 
-        // Check required fields if we're adding a context
+        // Check required fields
         ValidatorFactory::required(
             $validator,
             $object,

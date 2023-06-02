@@ -99,7 +99,7 @@ class Repository
             ]
         );
 
-        // Check required fields if we're adding a context
+        // Check required fields
         ValidatorFactory::required(
             $validator,
             $object,

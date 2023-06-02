@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\eventLog;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\controllers\grid\DateGridCellProvider;
 use PKP\controllers\grid\GridColumn;
@@ -27,9 +28,8 @@ use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\log\EmailLogEntry;
-use PKP\log\EventLogEntry;
 use PKP\log\SubmissionEmailLogDAO;
-use PKP\log\SubmissionEventLogDAO;
+use PKP\log\event\EventLogEntry;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
@@ -201,12 +201,13 @@ class SubmissionEventLogGridHandler extends GridHandler
      */
     protected function loadData($request, $filter = null)
     {
-        $submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO'); /** @var SubmissionEventLogDAO $submissionEventLogDao */
         $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
 
         $submission = $this->getSubmission();
 
-        $eventLogEntries = $submissionEventLogDao->getBySubmissionId($submission->getId());
+        $eventLogEntries = Repo::eventLog()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION, [$submission->getId()])
+            ->getMany();
         $emailLogEntries = $submissionEmailLogDao->getBySubmissionId($submission->getId());
 
         $entries = array_merge($eventLogEntries->toArray(), $emailLogEntries->toArray());

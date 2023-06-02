@@ -31,14 +31,14 @@ class LogMigration extends \PKP\migration\Migration
             $table->bigInteger('assoc_type');
             $table->bigInteger('assoc_id');
 
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->nullable()->comment('NULL if it\'s system or automated event');
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'event_log_user_id');
 
             $table->datetime('date_logged');
             $table->bigInteger('event_type')->nullable();
             $table->text('message')->nullable();
-            $table->smallInteger('is_translated')->nullable();
+            $table->boolean('is_translated')->nullable();
             $table->index(['assoc_type', 'assoc_id'], 'event_log_assoc');
         });
 
@@ -49,10 +49,10 @@ class LogMigration extends \PKP\migration\Migration
             $table->foreign('log_id', 'event_log_settings_log_id')->references('log_id')->on('event_log')->onDelete('cascade');
             $table->index(['log_id'], 'event_log_settings_log_id');
 
+            $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
-            $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
-            $table->unique(['log_id', 'setting_name'], 'event_log_settings_unique');
+            $table->unique(['log_id', 'setting_name', 'locale'], 'event_log_settings_unique');
         });
 
         // Add partial index (DBMS-specific)

@@ -19,7 +19,6 @@ namespace PKP\controllers\grid\users\stageParticipant;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
-use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
@@ -28,6 +27,7 @@ use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\controllers\grid\users\stageParticipant\form\AddParticipantForm;
 use PKP\controllers\grid\users\stageParticipant\form\PKPStageParticipantNotifyForm;
+use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
@@ -35,8 +35,8 @@ use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectAction;
-use PKP\log\SubmissionLog;
 use PKP\notification\NotificationDAO;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
@@ -141,7 +141,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         ));
         $submission = $this->getSubmission();
         $submissionId = $submission->getId();
-        if (Validation::isLoggedInAs()) {
+        if (Validation::loggedInAs()) {
             $router = $request->getRouter();
             $dispatcher = $router->getDispatcher();
             $user = $request->getUser();
@@ -380,7 +380,19 @@ class StageParticipantGridHandler extends CategoryGridHandler
 
             // Log addition.
             $assignedUser = Repo::user()->get($userId, true);
-            SubmissionLog::logEvent($request, $submission, SubmissionEventLogEntry::SUBMISSION_LOG_ADD_PARTICIPANT, 'submission.event.participantAdded', ['name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()]);
+            $eventLog = Repo::eventLog()->newDataObject([
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+                'assocId' => $submission->getId(),
+                'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_ADD_PARTICIPANT,
+                'userId' => Validation::loggedInAs() ?? $user->getId(),
+                'message' => 'submission.event.participantAdded',
+                'isTranslated' => false,
+                'dateLogged' => Core::getCurrentDate(),
+                'userFullName' => $assignedUser->getFullName(),
+                'username' => $assignedUser->getUsername(),
+                'userGroupName' => $userGroup->getData('name')
+            ]);
+            Repo::eventLog()->add($eventLog);
 
             return \PKP\db\DAO::getDataChangedEvent($userGroupId);
         } else {
@@ -442,7 +454,20 @@ class StageParticipantGridHandler extends CategoryGridHandler
         // Log removal.
         $assignedUser = Repo::user()->get($stageAssignment->getUserId(), true);
         $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
-        SubmissionLog::logEvent($request, $submission, SubmissionEventLogEntry::SUBMISSION_LOG_REMOVE_PARTICIPANT, 'submission.event.participantRemoved', ['name' => $assignedUser->getFullName(), 'username' => $assignedUser->getUsername(), 'userGroupName' => $userGroup->getLocalizedName()]);
+
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REMOVE_PARTICIPANT,
+            'userId' => Validation::loggedInAs() ?? $request->getUser()->getId(),
+            'message' => 'submission.event.participantRemoved',
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate(),
+            'userFullName' => $assignedUser->getFullName(),
+            'username' => $assignedUser->getUsername(),
+            'userGroupName' => $userGroup->getData('name')
+        ]);
+        Repo::eventLog()->add($eventLog);
 
         // Redraw the category
         return \PKP\db\DAO::getDataChangedEvent($stageAssignment->getUserGroupId());

@@ -28,9 +28,7 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
-use PKP\log\SubmissionFileEventLogEntry;
-use PKP\log\SubmissionFileLog;
-use PKP\log\SubmissionLog;
+use PKP\log\event\SubmissionFileEventLogEntry;
 use PKP\mail\mailables\RevisedVersionNotify;
 use PKP\note\NoteDAO;
 use PKP\notification\PKPNotification;
@@ -38,6 +36,7 @@ use PKP\plugins\Hook;
 use PKP\query\QueryDAO;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
+use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -123,7 +122,7 @@ abstract class Repository
             []
         );
 
-        // Check required fields if we're adding a context
+        // Check required fields
         ValidatorFactory::required(
             $validator,
             $object,
@@ -267,39 +266,35 @@ abstract class Repository
 
         Hook::call('SubmissionFile::add', [$submissionFile]);
 
-        $user = $this->request->getUser();
-        SubmissionFileLog::logEvent(
-            $this->request,
-            $submissionFile,
-            SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD,
-            'submission.event.fileUploaded',
+        $logData = $this->getSubmissionFileLogData($submissionFile);
+
+        $logEntry = Repo::eventLog()->newDataObject(array_merge(
+            $logData,
             [
-                'fileStage' => $submissionFile->getData('fileStage'),
-                'sourceSubmissionFileId' => $submissionFile->getData('sourceSubmissionFileId'),
-                'submissionFileId' => $submissionFile->getId(),
-                'fileId' => $submissionFile->getData('fileId'),
-                'submissionId' => $submissionFile->getData('submissionId'),
-                'originalFileName' => $submissionFile->getLocalizedData('name'),
-                'username' => $user ? $user->getUsername() : null,
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION_FILE,
+                'assocId' => $submissionFile->getId(),
+                'eventType' => SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD,
+                'dateLogged' => Core::getCurrentDate(),
+                'message' => 'submission.event.fileUploaded',
+                'isTranslated' => false,
             ]
-        );
+        ));
+        Repo::eventLog()->add($logEntry);
 
         $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
 
-        SubmissionLog::logEvent(
-            $this->request,
-            $submission,
-            SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD,
-            'submission.event.fileRevised',
+        $logEntry = Repo::eventLog()->newDataObject(array_merge(
+            $logData,
             [
-                'fileStage' => $submissionFile->getData('fileStage'),
-                'submissionFileId' => $submissionFile->getId(),
-                'fileId' => $submissionFile->getData('fileId'),
-                'submissionId' => $submissionFile->getData('submissionId'),
-                'username' => $user ? $user->getUsername() : null,
-                'name' => $submissionFile->getLocalizedData('name'),
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+                'assocId' => $submission->getId(),
+                'eventType' => SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD,
+                'dateLogged' => Core::getCurrentDate(),
+                'message' => 'submission.event.fileRevised',
+                'isTranslated' => false,
             ]
-        );
+        ));
+        Repo::eventLog()->add($logEntry);
 
         // Update status and notifications when revisions have been uploaded
         if ($submissionFile->getData('fileStage') === SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION ||
@@ -366,40 +361,33 @@ abstract class Repository
 
         $newFileUploaded = !empty($params['fileId']) && $params['fileId'] !== $submissionFile->getData('fileId');
 
-        $user = $this->request->getUser();
-        SubmissionFileLog::logEvent(
-            $this->request,
-            $submissionFile,
-            $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
-            $newFileUploaded ? 'submission.event.revisionUploaded' : 'submission.event.fileEdited',
+        $logData = $this->getSubmissionFileLogData($submissionFile);
+        $logEntry = Repo::eventLog()->newDataObject(array_merge(
+            $logData,
             [
-                'fileStage' => $submissionFile->getData('fileStage'),
-                'sourceSubmissionFileId' => $submissionFile->getData('sourceSubmissionFileId'),
-                'submissionFileId' => $submissionFile->getId(),
-                'fileId' => $submissionFile->getData('fileId'),
-                'submissionId' => $submissionFile->getData('submissionId'),
-                'originalFileName' => $submissionFile->getLocalizedData('name'),
-                'username' => $user ? $user->getUsername() : null,
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION_FILE,
+                'assocId' => $submissionFile->getId(),
+                'eventType' => $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
+                'message' => $newFileUploaded ? 'submission.event.revisionUploaded' : 'submission.event.fileEdited',
+                'isTranslated' => false,
+                'dateLogged' => Core::getCurrentDate(),
             ]
-        );
+        ));
+        Repo::eventLog()->add($logEntry);
 
         $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
-        SubmissionLog::logEvent(
-            $this->request,
-            $submission,
-            $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
-            $newFileUploaded ? 'submission.event.revisionUploaded' : 'submission.event.fileEdited',
+
+        Repo::eventLog()->newDataObject(array_merge(
+            $logData,
             [
-                'fileStage' => $submissionFile->getData('fileStage'),
-                'sourceSubmissionFileId' => $submissionFile->getData('sourceSubmissionFileId'),
-                'submissionFileId' => $submissionFile->getId(),
-                'fileId' => $submissionFile->getData('fileId'),
-                'submissionId' => $submissionFile->getData('submissionId'),
-                'username' => $user ? $user->getUsername() : null,
-                'originalFileName' => $submissionFile->getLocalizedData('name'),
-                'name' => $submissionFile->getLocalizedData('name'),
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+                'assocId' => $submission->getId(),
+                'eventType' => $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
+                'message' => $newFileUploaded ? 'submission.event.revisionUploaded' : 'submission.event.fileEdited',
+                'isTranslate' => 0,
+                'dateLogged' => Core::getCurrentDate(),
             ]
-        );
+        ));
     }
 
     /**
@@ -509,20 +497,18 @@ abstract class Repository
         }
 
         // Log the deletion
-        $user = Application::get()->getRequest()->getUser();
-        SubmissionFileLog::logEvent(
-            Application::get()->getRequest(),
-            $submissionFile,
-            SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_DELETE,
-            'submission.event.fileDeleted',
+        $logEntry = Repo::eventLog()->newDataObject(array_merge(
+            $this->getSubmissionFileLogData($submissionFile),
             [
-                'fileStage' => $submissionFile->getData('fileStage'),
-                'sourceSubmissionFileId' => $submissionFile->getData('sourceSubmissionFileId'),
-                'submissionFileId' => $submissionFile->getId(),
-                'submissionId' => $submissionFile->getData('submissionId'),
-                'username' => $user ? $user->getUsername() : null,
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION_FILE,
+                'assocId' => $submissionFile->getId(),
+                'eventType' => SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_DELETE,
+                'message' => 'submission.event.fileDeleted',
+                'isTranslated' => false,
+                'dateLogged' => Core::getCurrentDate(),
             ]
-        );
+        ));
+        Repo::eventLog()->add($logEntry);
 
         Hook::call('SubmissionFile::delete', [$submissionFile]);
     }
@@ -839,4 +825,23 @@ abstract class Repository
             $user
         );
     }
+
+	/**
+	 * Derive data from the submission file to record in the event log
+	 */
+	protected function getSubmissionFileLogData(SubmissionFile $submissionFile): array
+	{
+		$user = $this->request->getUser();
+
+		return [
+			'userId' => Validation::loggedInAs() ?? $user?->getId(),
+			'fileStage' => $submissionFile->getData('fileStage'),
+			'submissionFileId' => $submissionFile->getId(),
+			'sourceSubmissionFileId' => $submissionFile->getData('sourceSubmissionFileId'),
+			'fileId' => $submissionFile->getData('fileId'),
+			'submissionId' => $submissionFile->getData('submissionId'),
+			'filename' => $submissionFile->getData('name'),
+			'username' => $user?->getUsername(),
+		];
+	}
 }

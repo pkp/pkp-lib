@@ -17,20 +17,21 @@
 namespace PKP\controllers\informationCenter;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
-use PKP\log\EventLogEntry;
-use PKP\log\SubmissionFileLog;
-use PKP\log\SubmissionLog;
+use PKP\log\event\EventLogEntry;
 use PKP\note\NoteDAO;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
+use PKP\security\Validation;
 use PKP\submissionFile\SubmissionFile;
 
 abstract class InformationCenterHandler extends Handler
@@ -190,13 +191,13 @@ abstract class InformationCenterHandler extends Handler
 
     /**
      * Log an event for this file or submission
-     *
-     * @param PKPRequest $request
-     * @param Submission|SubmissionFile $object
-     * @param int $eventType SUBMISSION_LOG_...
-     * @param SubmissionLog|SubmissionFileLog $logClass
      */
-    public function _logEvent($request, $object, $eventType, $logClass)
+    public function _logEvent(
+        PKPRequest $request,
+        Submission|SubmissionFile $object,
+        int $eventType, //SUBMISSION_LOG_... const
+        int $assocType // PKPApplication::ASSOC_TYPE_SUBMISSION_FILE || PKPApplication::ASSOC_TYPE_SUBMISSION
+    )
     {
         // Get the log event message
         switch ($eventType) {
@@ -210,7 +211,16 @@ abstract class InformationCenterHandler extends Handler
                 assert(false);
         }
 
-        $logClass::logEvent($request, $object, $eventType, $logMessage);
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => $assocType,
+            'assocId' => $object->getId(),
+            'eventType' => $eventType,
+            'userId' => Validation::loggedInAs() ?? $request->getUser()->getId(),
+            'message' => $logMessage,
+            'isTranslated' => false,
+            'dateLogged' => Core::getCurrentDate()
+        ]);
+        Repo::eventLog()->add($eventLog);
     }
 
     public function setupTemplate($request)

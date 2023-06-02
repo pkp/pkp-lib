@@ -25,7 +25,7 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
-use PKP\log\EventLogEntry;
+use PKP\log\event\EventLogEntry;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
@@ -172,7 +172,7 @@ class FileInformationCenterHandler extends InformationCenterHandler
             $notesForm->execute();
 
             // Save to event log
-            $this->_logEvent($request, $this->submissionFile, EventLogEntry::SUBMISSION_LOG_NOTE_POSTED, 'PKP\log\SubmissionFileLog');
+            $this->_logEvent($request, $this->submissionFile, EventLogEntry::SUBMISSION_LOG_NOTE_POSTED, PKPApplication::ASSOC_TYPE_SUBMISSION_FILE);
 
             $user = $request->getUser();
             $notificationManager = new NotificationManager();
@@ -256,11 +256,12 @@ class FileInformationCenterHandler extends InformationCenterHandler
     {
         $templateMgr = TemplateManager::getManager($request);
 
-        // Get the latest history item to display in the header
-        $submissionFileEventLogDao = DAORegistry::getDAO('SubmissionFileEventLogDAO'); /** @var SubmissionFileEventLogDAO $submissionFileEventLogDao */
-        $fileEvents = $submissionFileEventLogDao->getBySubmissionFileId($this->submissionFile->getId());
-        $lastEvent = $fileEvents->next();
-        if (isset($lastEvent)) {
+        $lastEvent = Repo::eventLog()->getCollector()
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, [$this->submissionFile->getId()])
+            ->getMany()
+            ->first();
+
+        if (!is_null($lastEvent)) {
             $templateMgr->assign('lastEvent', $lastEvent);
 
             // Get the user who created the last event.

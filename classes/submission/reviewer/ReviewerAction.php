@@ -18,22 +18,23 @@ namespace PKP\submission\reviewer;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\log\SubmissionEventLogEntry;
+use APP\log\event\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\core\Core;
+use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
-use PKP\log\SubmissionLog;
 use PKP\mail\mailables\ReviewConfirm;
 use PKP\mail\mailables\ReviewDecline;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\security\Role;
+use PKP\security\Validation;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -96,18 +97,20 @@ class ReviewerAction
             $reviewAssignmentDao->updateObject($reviewAssignment);
 
             // Add log
-            SubmissionLog::logEvent(
-                $request,
-                $submission,
-                $decline ? SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_DECLINE : SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ACCEPT,
-                $decline ? 'log.review.reviewDeclined' : 'log.review.reviewAccepted',
-                [
-                    'reviewAssignmentId' => $reviewAssignment->getId(),
-                    'reviewerName' => $reviewer->getFullName(),
-                    'submissionId' => $reviewAssignment->getSubmissionId(),
-                    'round' => $reviewAssignment->getRound()
-                ]
-            );
+            $eventLog = Repo::eventLog()->newDataObject([
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+                'assocId' => $submission->getId(),
+                'eventType' => $decline ? SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_DECLINE : SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ACCEPT,
+                'userId' => Validation::loggedInAs() ?? $request->getUser()->getId(),
+                'message' => $decline ? 'log.review.reviewDeclined' : 'log.review.reviewAccepted',
+                'isTranslate' => 0,
+                'dateLogged' => Core::getCurrentDate(),
+                'reviewAssignmentId' => $reviewAssignment->getId(),
+                'reviewerName' => $reviewer->getFullName(),
+                'submissionId' => $reviewAssignment->getSubmissionId(),
+                'round' => $reviewAssignment->getRound()
+            ]);
+            Repo::eventLog()->add($eventLog);
         }
     }
 

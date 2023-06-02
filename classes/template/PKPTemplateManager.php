@@ -383,7 +383,7 @@ class PKPTemplateManager extends Smarty
         if (!SessionManager::isDisabled()) {
             $this->assign([
                 'isUserLoggedIn' => Validation::isLoggedIn(),
-                'isUserLoggedInAs' => Validation::isLoggedInAs(),
+                'isUserLoggedInAs' => (bool) Validation::loggedInAs(),
                 'itemsPerPage' => Config::getVar('interface', 'items_per_page'),
                 'numPageLinks' => Config::getVar('interface', 'page_links'),
                 'siteTitle' => $request->getSite()->getLocalizedData('title'),

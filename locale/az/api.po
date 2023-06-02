@@ -2,8 +2,8 @@
 # Gadirova <leylakb@yahoo.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-17 11:10+0000\n"
-"Last-Translator: Gadirova <leylakb@yahoo.com>\n"
+"PO-Revision-Date: 2023-06-02 22:43+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "az/>\n"
 "Language: az\n"
@@ -14,104 +14,106 @@ msgstr ""
 "X-Generator: Weblate 4.13.1\n"
 
 msgid "api.dois.400.xmlExportFailed"
-msgstr "XML doğrulama xətası baş verdi və XML ixrac edilə bilmədi."
+msgstr "XML doğrulama x…ôtası baş verdi v…ô XML ixrac edil…ô bilm…ôdi."
 
 msgid "api.files.400.config"
 msgstr ""
-"Server konfiqurasiya xətası səbəbindən faylı yükləmək mümkün olmadı. Zəhmət "
-"olmasa sistem administratoru ilə əlaqə saxlayın."
+"Server konfiqurasiya x…ôtası s…ôb…ôbind…ôn faylı yükl…ôm…ôk mümkün olmadı. "
+"Z…ôhm…ôt olmasa sistem administratoru il…ô …ôlaq…ô saxlayın."
 
 msgid "api.publication.403.cantDeletePublished"
-msgstr "Bu nəşri silməkdən əvvəl onu dərcdən çıxarmalısınız."
+msgstr "Bu n…ôşri silm…ôkd…ôn …ôvv…ôl onu d…ôrcd…ôn çıxarmalısınız."
 
 msgid "api.400.requireEmailSubjectBody"
-msgstr "E-poçt üçün mövzu və mətni təqdim etməlisiniz."
+msgstr "E-poçt üçün mövzu v…ô m…ôtni t…ôqdim etm…ôlisiniz."
 
 msgid "api.files.400.notAllowedCreatedAt"
-msgstr "Yaradılma vaxtını dəyişmək mümkün deyil."
+msgstr "Yaradılma vaxtını d…ôyişm…ôk mümkün deyil."
 
 msgid "api.dois.403.prefixRequired"
-msgstr "DOI-ləri yaratmaq üçün DOI prefiksi tələb olunur."
+msgstr "DOI-l…ôri yaratmaq üçün DOI prefiksi t…ôl…ôb olunur."
 
 msgid "api.400.paramNotSupported"
-msgstr "{$param} parametri dəstəklənmir."
+msgstr "{$param} parametri d…ôst…ôkl…ônmir."
 
 msgid "api.400.propReadOnly"
-msgstr "{$prop} xüsusiyyətinə dəyişiklik etmək mümkün deyil."
+msgstr "{$prop} xüsusiyy…ôtin…ô d…ôyişiklik etm…ôk mümkün deyil."
 
 msgid "api.400.invalidApiToken"
 msgstr ""
-"API işarəsini doğrulamaq mümkün olmadı. Bu, API işarəsindəki xətanı və ya "
-"API işarəsinin artıq etibarlı olmadığını göstərə bilər."
+"API işar…ôsini doğrulamaq mümkün olmadı. Bu, API işar…ôsind…ôki x…ôtanı v…ô "
+"ya API işar…ôsinin artıq etibarlı olmadığını göst…ôr…ô bil…ôr."
 
 msgid "api.400.tokenCouldNotBeDecoded"
-msgstr "Aşağıdakı xətaya görə apiToken şifrəsini açmaq mümkün olmadı: {$error}"
+msgstr ""
+"Aşağıdakı x…ôtaya gör…ô apiToken şifr…ôsini açmaq mümkün olmadı: {$error}"
 
 msgid "api.403.unauthorized"
-msgstr "Tələb olunan resursa daxil olmaq səlahiyyətiniz yoxdur."
+msgstr "T…ôl…ôb olunan resursa daxil olmaq s…ôlahiyy…ôtiniz yoxdur."
 
 msgid "api.404.resourceNotFound"
-msgstr "Tələb olunan resurs tapılmadı."
+msgstr "T…ôl…ôb olunan resurs tapılmadı."
 
 msgid "api.404.endpointNotFound"
-msgstr "Sorğu edilən URL tanınmadı."
+msgstr "Sorğu edil…ôn URL tanınmadı."
 
 msgid "api.500.apiSecretKeyMissing"
 msgstr ""
-"API nişanı bu sayta daxil olmaq üçün istifadə edilə bilməz, çünki sayt "
-"administratoru gizli açarı konfiqurasiya etməyib."
+"API nişanı bu sayta daxil olmaq üçün istifad…ô edil…ô bilm…ôz, çünki sayt "
+"administratoru gizli açarı konfiqurasiya etm…ôyib."
 
 msgid "api.announcements.404.announcementNotFound"
-msgstr "İstədiyiniz elan tapılmadı."
+msgstr "İst…ôdiyiniz elan tapılmadı."
 
 msgid "api.institutions.404.institutionNotFound"
-msgstr "İstədiyiniz təşkilat tapılmadı."
+msgstr "İst…ôdiyiniz t…ôşkilat tapılmadı."
 
 msgid "api.contexts.400.localesNotSupported"
-msgstr "Aşağıdakı dillər dəstəklənmir: {$locales}."
+msgstr "Aşağıdakı dill…ôr d…ôst…ôkl…ônmir: {$locales}."
 
 msgid "api.dois.403.editItemOutOfContext"
-msgstr "Bu kontekstdə olmayan DOI-nin elementini redaktə edə bilməzsiniz."
+msgstr "Bu kontekstd…ô olmayan DOI-nin elementini redakt…ô ed…ô bilm…ôzsiniz."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr "Nəşr növü tanınmadı."
+msgstr "N…ôşr növü tanınmadı."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
-"Bu son nöqtə bütün sayt ad məkanında mövcud deyil və verilmiş kontekst üçün "
-"tələb olunmalıdır."
+"Bu son nöqt…ô bütün sayt ad m…ôkanında mövcud deyil v…ô verilmiş kontekst "
+"üçün t…ôl…ôb olunmalıdır."
 
 msgid "api.dois.404.doiNotFound"
-msgstr "Tələb etdiyiniz DOI tapılmadı."
+msgstr "T…ôl…ôb etdiyiniz DOI tapılmadı."
 
 msgid "api.dois.404.pubObjectNotFound"
-msgstr "İstədiyiniz nəşr obyekti tapılmadı."
+msgstr "İst…ôdiyiniz n…ôşr obyekti tapılmadı."
 
 msgid "api.dois.404.submissionNotFound"
-msgstr "İstədiyiniz məqalə tapılmadı."
+msgstr "İst…ôdiyiniz m…ôqal…ô tapılmadı."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
-"Dərc olunmamış elementləri ixrac etmək/depozit etmək olmaz. Lütfən, dərc "
-"olunmamış elementlərin seçimini ləğv edin və yenidən cəhd edin."
+"D…ôrc olunmamış elementl…ôri ixrac etm…ôk/depozit etm…ôk olmaz. Lütf…ôn, d…"
+"ôrc olunmamış elementl…ôrin seçimini l…ôğv edin v…ô yenid…ôn c…ôhd edin."
 
 msgid "api.dois.400.creationFailed"
-msgstr "Xəta baş verdi və DOI obyektini yaratmaq mümkün olmadı."
+msgstr "X…ôta baş verdi v…ô DOI obyektini yaratmaq mümkün olmadı."
 
 msgid "api.dois.400.depositFailed"
 msgstr ""
-"Bəzi elementlər uğurla depozitə qoyulmadı. Xüsusi xəta mesajları üçün fərdi "
-"elementləri yoxlayın."
+"B…ôzi elementl…ôr uğurla depozit…ô qoyulmadı. Xüsusi x…ôta mesajları üçün f…"
+"ôrdi elementl…ôri yoxlayın."
 
 msgid "api.dois.400.markRegisteredFailed"
 msgstr ""
-"Xəta baş verdi və təqdim edilən elementlərin bəziləri qeydiyyatdan keçməyib."
+"X…ôta baş verdi v…ô t…ôqdim edil…ôn elementl…ôrin b…ôzil…ôri qeydiyyatdan "
+"keçm…ôyib."
 
 msgid "api.dois.404.noPubObjectIncluded"
-msgstr "Sorğuya heç bir etibarlı nəşr obyekti daxil edilməyib."
+msgstr "Sorğuya heç bir etibarlı n…ôşr obyekti daxil edilm…ôyib."
 
 msgid "api.dois.400.invalidPubObjectIncluded"
-msgstr "Bir və ya bir neçə etibarsız nəşr obyekti sorğuya daxil edilib."
+msgstr "Bir v…ô ya bir neç…ô etibarsız n…ôşr obyekti sorğuya daxil edilib."
 
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
@@ -120,222 +122,234 @@ msgstr ""
 
 msgid "api.decisions.403.alreadyPublished"
 msgstr ""
-"Bu nəşr üçün qərarı qeyd edə və ya qərar tövsiyə edə bilməzsiniz, çünki o, "
-"artıq dərc olunub."
+"Bu n…ôşr üçün q…ôrarı qeyd ed…ô v…ô ya q…ôrar tövsiy…ô ed…ô bilm…ôzsiniz, "
+"çünki o, artıq d…ôrc olunub."
 
 msgid "api.emails.400.missingBody"
-msgstr "Siz göndəriləcək e-poçtu daxil etməlisiniz."
+msgstr "Siz gönd…ôril…ôc…ôk e-poçtu daxil etm…ôlisiniz."
 
 msgid "api.emails.400.missingSubject"
-msgstr "E-poçtun mövzusunu qeyd etməlisiniz."
+msgstr "E-poçtun mövzusunu qeyd etm…ôlisiniz."
 
 msgid "api.emails.400.missingUserGroups"
-msgstr "Siz bu e-poçtu alacaq istifadəçilərin rollarını göstərməlisiniz."
+msgstr "Siz bu e-poçtu alacaq istifad…ôçil…ôrin rollarını göst…ôrm…ôlisiniz."
 
 msgid "api.emails.403.notAllowedUserGroup"
 msgstr ""
-"Seçilmiş rollardan birində və ya bir neçəsində istifadəçilərə e-poçt "
-"göndərmək icazəniz yoxdur."
+"Seçilmiş rollardan birind…ô v…ô ya bir neç…ôsind…ô istifad…ôçil…ôr…ô e-poçt "
+"gönd…ôrm…ôk icaz…ôniz yoxdur."
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
-msgstr "Bu, məlum e-poçt üçün standart e-poçt şablonu deyil."
+msgstr "Bu, m…ôlum e-poçt üçün standart e-poçt şablonu deyil."
 
 msgid "api.emailTemplates.400.invalidContext"
 msgstr "Bu etibarlı kontekst deyil."
 
 msgid "api.emailTemplates.404.templateNotFound"
-msgstr "İstədiyiniz e-poçt şablonu tapılmadı."
+msgstr "İst…ôdiyiniz e-poçt şablonu tapılmadı."
 
 msgid "api.files.400.noUpload"
-msgstr "Sorğu ilə yükləmək üçün fayl tapılmadı."
+msgstr "Sorğu il…ô yükl…ôm…ôk üçün fayl tapılmadı."
 
 msgid "api.files.400.uploadFailed"
-msgstr "Bir və ya bir neçə faylı yükləmək mümkün olmadı."
+msgstr "Bir v…ô ya bir neç…ô faylı yükl…ôm…ôk mümkün olmadı."
 
 msgid "api.files.400.fileSize"
-msgstr "{$maxSize} ölçüsündən böyük fayllar yüklənə bilməz."
+msgstr "{$maxSize} ölçüsünd…ôn böyük fayllar yükl…ôn…ô bilm…ôz."
 
 msgid "api.publication.403.alreadyPublished"
-msgstr "Dərc etmək istədiyiniz nəşr artıq dərc olunub."
+msgstr "D…ôrc etm…ôk ist…ôdiyiniz n…ôşr artıq d…ôrc olunub."
 
 msgid "api.publication.403.alreadyUnpublished"
-msgstr "Ləğv etmək istədiyiniz nəşr dərc olunmayıb."
+msgstr "L…ôğv etm…ôk ist…ôdiyiniz n…ôşr d…ôrc olunmayıb."
 
 msgid "api.publication.403.cantEditPublished"
-msgstr "Siz bu nəşri redaktə edə bilməzsiniz, çünki o, artıq dərc olunub."
+msgstr "Siz bu n…ôşri redakt…ô ed…ô bilm…ôzsiniz, çünki o, artıq d…ôrc olunub."
 
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
-"Siz statusu birbaşa API vasitəsilə dəyişdirə bilməzsiniz. Bunun əvəzinə, /"
-"dərc et və /dərc etmə son nöqtələrindən istifadə edin."
+"Siz statusu birbaşa API vasit…ôsil…ô d…ôyişdir…ô bilm…ôzsiniz. Bunun "
+"…ôv…ôzin…ô, /d…ôrc et v…ô /d…ôrc etm…ô son nöqt…ôl…ôrind…ôn istifad…ô edin."
 
 msgid "api.publicFiles.400.extensionNotSupported"
-msgstr "Siz yalnız aşağıdakı fayl növlərini yükləyə bilərsiniz: {$fileTypes}."
+msgstr ""
+"Siz yalnız aşağıdakı fayl növl…ôrini yükl…ôy…ô bil…ôrsiniz: {$fileTypes}."
 
 msgid "api.publicFiles.400.invalidImage"
-msgstr "Yüklədiyiniz şəkil düzgün deyil."
+msgstr "Yükl…ôdiyiniz ş…ôkil düzgün deyil."
 
 msgid "api.publicFiles.400.mimeTypeNotMatched"
 msgstr ""
-"Yüklədiyiniz fayl fayl uzantısı ilə uyğun gəlmir. Bu, faylın adı uyğun "
-"olmayan tipə dəyişdirildikdə baş verə bilər, məsələn, photo.png-nin photo."
-"jpg-yə dəyişdirilməsi."
+"Yükl…ôdiyiniz fayl fayl uzantısı il…ô uyğun g…ôlmir. Bu, faylın adı uyğun "
+"olmayan tip…ô d…ôyişdirildikd…ô baş ver…ô bil…ôr, m…ôs…ôl…ôn, photo.png-nin "
+"photo.jpg-y…ô d…ôyişdirilm…ôsi."
 
 msgid "api.publicFiles.403.unauthorized"
-msgstr "Faylları yükləmək icazəniz yoxdur."
+msgstr "Faylları yükl…ôm…ôk icaz…ôniz yoxdur."
 
 msgid "api.publicFiles.413.noDirSpace"
 msgstr ""
-"İstifadəçi kataloqunuzda kifayət qədər yer yoxdur. Yüklənən fayl "
-"{$fileUploadSize} KB-dır və sizdə {$dirSizeLeft} KB qalıb."
+"İstifad…ôçi kataloqunuzda kifay…ôt q…ôd…ôr yer yoxdur. Yükl…ôn…ôn fayl "
+"{$fileUploadSize} KB-dır v…ô sizd…ô {$dirSizeLeft} KB qalıb."
 
 msgid "api.publicFiles.500.badFilesDir"
 msgstr ""
-"Ümumi fayllar kataloqu tapılmadı və ya fayllar orada saxlanıla bilmədi. Bu "
-"problemi həll etmək üçün administratorunuzla əlaqə saxlayın."
+"Ümumi fayllar kataloqu tapılmadı v…ô ya fayllar orada saxlanıla bilm…ôdi. Bu "
+"problemi h…ôll etm…ôk üçün administratorunuzla …ôlaq…ô saxlayın."
 
 msgid "api.stats.400.wrongDateFormat"
 msgstr "Tarix İİİİ-AA-GG (il-ay-gün) formatında olmalıdır."
 
 msgid "api.stats.400.wrongDateRange"
-msgstr "Başlama tarixi bitmə tarixindən gec ola bilməz."
+msgstr "Başlama tarixi bitm…ô tarixind…ôn gec ola bilm…ôz."
 
 msgid "api.stats.400.earlyDateRange"
-msgstr "Başlama tarixi 2001-01-01 tarixindən tez ola bilməz."
+msgstr "Başlama tarixi 2001-01-01 tarixind…ôn tez ola bilm…ôz."
 
 msgid "api.stats.400.lateDateRange"
-msgstr "Bitmə tarixi dünəndən gec ola bilməz."
+msgstr "Bitm…ô tarixi dün…ônd…ôn gec ola bilm…ôz."
 
 msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
-"Sorğunuz etibarlı deyildi. Zaman qrafiki Interval 'gün' və ya 'ay' olmalıdır."
+"Sorğunuz etibarlı deyildi. Zaman qrafiki Interval 'gün' v…ô ya 'ay' "
+"olmalıdır."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
-"AssocType və assocId-ı təyin etmədən fayl assosiasiyasını dəyişə bilməzsiniz."
+"AssocType v…ô assocId-ı t…ôyin etm…ôd…ôn fayl assosiasiyasını d…ôyiş…ô "
+"bilm…ôzsiniz."
 
 msgid "api.stats.400.invalidOrderDirection"
 msgstr ""
-"Sorğunuz düzgün deyil. OrderDirection (Çeşidləmə sırası) `desc` və ya `asc` ("
-"artan və ya azalan) olmalıdır."
+"Sorğunuz düzgün deyil. OrderDirection (Çeşidl…ôm…ô sırası) `desc` v…ô ya "
+"`asc` (artan v…ô ya azalan) olmalıdır."
 
 msgid "api.stats.400.wrongTimelineInterval"
 msgstr ""
 "Sorğunuz etibarlı deyildi. TimelineInterval (Zaman qrafiki intervalı) `day` "
-"və ya `month`(\"gün\" və ya \"ay\") olmalıdır."
+"v…ô ya `month`(\"gün\" v…ô ya \"ay\") olmalıdır."
 
 msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
 msgstr ""
-"Bu mərhələdə faylı həmyaşıd baxışı mərhələsi ilə əlaqələndirə bilməzsiniz."
+"Bu m…ôrh…ôl…ôd…ô faylı h…ômyaşıd baxışı m…ôrh…ôl…ôsi il…ô …ôlaq…ôl…ôndir…ô "
+"bilm…ôzsiniz."
 
 msgid "api.submissionFiles.400.badNoteAssocType"
-msgstr "Bu mərhələdən faylı müzakirə qeydinə bağlaya bilməzsiniz."
+msgstr "Bu m…ôrh…ôl…ôd…ôn faylı müzakir…ô qeydin…ô bağlaya bilm…ôzsiniz."
 
 msgid "api.submissionFiles.400.badDependentFileAssocType"
-msgstr "Bu mərhələdən faylı başqa yükləmə faylı ilə əlaqələndirə bilməzsiniz."
+msgstr ""
+"Bu m…ôrh…ôl…ôd…ôn faylı başqa yükl…ôm…ô faylı il…ô …ôlaq…ôl…ôndir…ô "
+"bilm…ôzsiniz."
 
 msgid "api.submissionFiles.400.invalidFileStage"
-msgstr "Qeyd etdiyiniz fayl mərhələsi düzgün deyil."
+msgstr "Qeyd etdiyiniz fayl m…ôrh…ôl…ôsi düzgün deyil."
 
 msgid "api.submissionsFiles.400.noParams"
 msgstr ""
-"Bu faylı redaktə etmək üçün sorğuda ediləcək heç bir dəyişiklik tapılmadı."
+"Bu faylı redakt…ô etm…ôk üçün sorğuda edil…ôc…ôk heç bir d…ôyişiklik "
+"tapılmadı."
 
 msgid "api.submissionFiles.400.badReviewRoundAssocType"
 msgstr ""
-"Siz bu mərhələdən faylı həmyaşıd baxışı raundu ilə əlaqələndirə bilməzsiniz."
+"Siz bu m…ôrh…ôl…ôd…ôn faylı h…ômyaşıd baxışı raundu il…ô …ôlaq…ôl…ôndir…ô "
+"bilm…ôzsiniz."
 
 msgid "api.submissionFiles.400.missingReviewRoundAssocType"
 msgstr ""
-"Rəyə göndərmək üçün faylları tələb edərkən həmyaşıd baxışı raundunu təyin "
-"etməlisiniz."
+"R…ôy…ô gönd…ôrm…ôk üçün faylları t…ôl…ôb ed…ôrk…ôn h…ômyaşıd baxışı raundunu "
+"t…ôyin etm…ôlisiniz."
 
 msgid "api.submissionFiles.400.noFileStageId"
-msgstr "Faylın hansı mərhələdə olduğunu göstərməlisiniz."
+msgstr "Faylın hansı m…ôrh…ôl…ôd…ô olduğunu göst…ôrm…ôlisiniz."
 
 msgid "api.submissionFiles.400.reviewRoundIdRequired"
 msgstr ""
-"Faylı bu fayl mərhələsinə köçürərkən siz həmyaşıd baxışı raundunun "
-"identifikatorunu (ID'si) təqdim etməlisiniz."
+"Faylı bu fayl m…ôrh…ôl…ôsin…ô köçür…ôrk…ôn siz h…ômyaşıd baxışı raundunun "
+"identifikatorunu (ID'si) t…ôqdim etm…ôlisiniz."
 
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr ""
-"Bu həmyaşıd baxışı mərhələsi bu məqalə göndər mərhələsinin bir hissəsi deyil."
+"Bu h…ômyaşıd baxışı m…ôrh…ôl…ôsi bu m…ôqal…ô gönd…ôr m…ôrh…ôl…ôsinin bir "
+"hiss…ôsi deyil."
 
 msgid "api.submissionFiles.403.unauthorizedFileStageId"
-msgstr "Bu fayllara giriş icazəniz yoxdur."
+msgstr "Bu fayllara giriş icaz…ôniz yoxdur."
 
 msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
-msgstr "Bu faylları əlavə etmək və redaktə etmək icazəniz yoxdur."
+msgstr "Bu faylları …ôlav…ô etm…ôk v…ô redakt…ô etm…ôk icaz…ôniz yoxdur."
 
 msgid "api.submissionFiles.403.unauthorizedReviewRound"
-msgstr "Bu həmyaşıd baxışı mərhələsində fayllara daxil olmaq icazəniz yoxdur."
+msgstr ""
+"Bu h…ômyaşıd baxışı m…ôrh…ôl…ôsind…ô fayllara daxil olmaq icaz…ôniz yoxdur."
 
 msgid "api.submissions.400.missingRequired"
-msgstr "Tələb olunan məlumat çatmadığı üçün sorğunuz yerinə yetirilə bilmədi."
+msgstr ""
+"T…ôl…ôb olunan m…ôlumat çatmadığı üçün sorğunuz yerin…ô yetiril…ô bilm…ôdi."
 
 msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "Tələb olunan həcm, nömrə və ya il düzgün deyil."
+msgstr "T…ôl…ôb olunan h…ôcm, nömr…ô v…ô ya il düzgün deyil."
 
 msgid "api.submissions.400.invalidSubmitAs"
-msgstr "Bu istifadəçi rolunda məqalə göndərməyə icazəniz yoxdur."
+msgstr "Bu istifad…ôçi rolunda m…ôqal…ô gönd…ôrm…ôy…ô icaz…ôniz yoxdur."
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
-"Sorğunuz rədd edildi. Bu, girişinizin müddəti bitdiyinə görə ola bilər. "
-"Səhifəni yenidən yükləyin və yenidən cəhd edin."
+"Sorğunuz r…ôdd edildi. Bu, girişinizin müdd…ôti bitdiyin…ô gör…ô ola bil…ôr. "
+"S…ôhif…ôni yenid…ôn yükl…ôyin v…ô yenid…ôn c…ôhd edin."
 
 msgid "api.submissions.403.deleteSubmissionOutOfContext"
-msgstr "Bu kontekstə təyin edilməmiş materialı silə bilməzsiniz."
+msgstr "Bu kontekst…ô t…ôyin edilm…ômiş materialı sil…ô bilm…ôzsiniz."
 
 msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
 msgstr ""
-"Siz yalnız sizə təyin edilmiş dərc edilməmiş məqalələrə baxa bilərsiniz."
+"Siz yalnız siz…ô t…ôyin edilmiş d…ôrc edilm…ômiş m…ôqal…ôl…ôr…ô baxa "
+"bil…ôrsiniz."
 
 msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "Bu materialı silmək üçün icazəniz yoxdur."
+msgstr "Bu materialı silm…ôk üçün icaz…ôniz yoxdur."
 
 msgid "api.submissions.403.userCantEdit"
-msgstr "Bu materialı redaktə etmək icazəniz yoxdur."
+msgstr "Bu materialı redakt…ô etm…ôk icaz…ôniz yoxdur."
 
 msgid "api.submissions.404.siteWideEndpoint"
 msgstr ""
-"Bu son nöqtə kontekstdə mövcud deyil. Ona saytın ad sahəsindən daxil olmaq "
-"lazımdır."
+"Bu son nöqt…ô kontekstd…ô mövcud deyil. Ona saytın ad sah…ôsind…ôn daxil "
+"olmaq lazımdır."
 
 msgid "api.themes.404.themeUnavailable"
 msgstr ""
-"'{$themePluginPath}' aktiv mövzusu aktiv deyil və serverdə quraşdırılmaya "
-"bilər."
+"'{$themePluginPath}' aktiv mövzusu aktiv deyil v…ô serverd…ô quraşdırılmaya "
+"bil…ôr."
 
 msgid "api.vocabs.400.localeNotSupported"
-msgstr "{$locale} dili dəstəklənmir."
+msgstr "{$locale} dili d…ôst…ôkl…ônmir."
 
 msgid "api.mailables.404.mailableNotFound"
-msgstr "İstədiyiniz e-poçt tapılmadı."
+msgstr "İst…ôdiyiniz e-poçt tapılmadı."
 
 msgid "api.jobs.404.failedJobNotFound"
-msgstr "Uğursuz iş xətaların siyahısında tapılmadı."
+msgstr "Uğursuz iş x…ôtaların siyahısında tapılmadı."
 
 msgid "api.jobs.406.failedJobPayloadMissing"
-msgstr "Uğursuz işin yenidən göndəriləcək yükü yoxdur."
+msgstr "Uğursuz işin yenid…ôn gönd…ôril…ôc…ôk yükü yoxdur."
 
 msgid "api.jobs.406.failedJobEmpty"
 msgstr "Siyahıda heç bir uğursuz iş tapılmayıb."
 
 msgid "api.jobs.400.failedJobRedispatchedFailed"
-msgstr "Uğursuz işi yenidən göndərmək mümkün deyil."
+msgstr "Uğursuz işi yenid…ôn gönd…ôrm…ôk mümkün deyil."
 
 msgid "api.jobs.200.failedJobRedispatchedSucceed"
-msgstr "Uğursuz iş uğurla yenidən göndərildi."
+msgstr "Uğursuz iş uğurla yenid…ôn gönd…ôrildi."
 
 msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
-"Etibarlı yükü olan bütün yenidən təqdim edilmiş uğursuz işlər uğurla növbəyə "
-"qoyuldu."
+"Etibarlı yükü olan bütün yenid…ôn t…ôqdim edilmiş uğursuz işl…ôr uğurla "
+"növb…ôy…ô qoyuldu."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
-msgstr "Uğursuz iş xətaların siyahısından uğurla silindi."
+msgstr "Uğursuz iş x…ôtaların siyahısından uğurla silindi."
 
 msgid "api.jobs.400.failedJobDeleteFailed"
-msgstr "Uğursuz işi xətaların siyahısından silmək mümkün deyil."
+msgstr "Uğursuz işi x…ôtaların siyahısından silm…ôk mümkün deyil."

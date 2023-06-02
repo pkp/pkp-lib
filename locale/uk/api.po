@@ -1,7 +1,7 @@
 # Petro Bilous <petrobilous@ukr.net>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-27 07:49+0000\n"
+"PO-Revision-Date: 2023-06-02 19:20+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "uk/>\n"
@@ -231,8 +231,8 @@ msgstr ""
 
 msgid "api.dois.400.depositFailed"
 msgstr ""
-"Деякі елементи не було депоновано успішно. Будь ласка, перевірте окремі "
-"елементи на наявність повідомлень про конкретні помилки."
+"Деякі елементи не вдалося депонувати. Будь ласка, перевірте окремі елементи "
+"на наявність повідомлень про конкретні помилки."
 
 msgid "api.emails.400.missingSubject"
 msgstr "Ви повинні вказати тему електронного листа."

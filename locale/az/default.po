@@ -1,8 +1,145 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-06-02 19:20+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
+"Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"default/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br/><hr /><br/><p><a href=\"{$contextUrl}\""
+">{$contextName}</a></p><p>{$mailingAddress}</p><p>{$contactName}, <a href="
+"\"mailto: {$contactEmail}\">{$contactEmail}</a></p>"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Sayt idarəçisi"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Sayt idarəçiləri"
+
+msgid "default.groups.name.productionEditor"
+msgstr "İstehsal redaktoru"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Daxili rəyçi"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "İstehsal redaktorları"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ÜrE"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Redaktor"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Redaktorlar"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "Rd"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Daxili rəyçilər"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "Dh"
+
+msgid "default.groups.name.proofreader"
+msgstr "Korrektor"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Korrektorlar"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "Düz"
+
+msgid "default.groups.name.designer"
+msgstr "Dizayner"
+
+msgid "default.groups.plural.designer"
+msgstr "Dizaynerlər"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Dizayn"
+
+msgid "default.groups.name.marketing"
+msgstr "Marketinq və satış koordinatoru"
+
+msgid "default.groups.plural.marketing"
+msgstr "Marketinq və satış koordinatorları"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "Pk"
+
+msgid "default.groups.name.funding"
+msgstr "Fond koordinatoru"
+
+msgid "default.groups.plural.funding"
+msgstr "Fond koordinatorları"
+
+msgid "default.groups.abbrev.funding"
+msgstr "Fk"
+
+msgid "default.groups.name.indexer"
+msgstr "İndeksləyici"
+
+msgid "default.groups.plural.indexer"
+msgstr "İndeksləyicilər"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "İND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Dizayn redaktoru"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Dizayn redaktorları"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "DR"
+
+msgid "default.groups.name.author"
+msgstr "Müəllif"
+
+msgid "default.groups.plural.author"
+msgstr "Müəlliflər"
+
+msgid "default.groups.abbrev.author"
+msgstr "MU"
+
+msgid "default.groups.name.translator"
+msgstr "Tərcüməçi."
+
+msgid "default.groups.plural.translator"
+msgstr "Tərcüməçilər"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Tərcümə"
+
+msgid "default.groups.name.reader"
+msgstr "Oxucu"
+
+msgid "default.groups.plural.reader"
+msgstr "Oxucular"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Oxuyun"
+
+msgid "default.genres.other"
+msgstr "Digər"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedia"
+
+msgid "default.genres.image"
+msgstr "Şəkil"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML formatı"

@@ -1,8 +1,9 @@
 # Gadirova <leylakb@yahoo.com>, 2023.
+# Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-17 11:10+0000\n"
-"Last-Translator: Gadirova <leylakb@yahoo.com>\n"
+"PO-Revision-Date: 2023-06-02 18:10+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/az/>\n"
 "Language: az\n"
@@ -195,3 +196,577 @@ msgstr "Nəşr üçün nəzərdə tutulmuş materialları dərc edin"
 
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr "Çox köhnə uğursuz işləri xətalar siyahısından çıxarın."
+
+msgid "admin.settings.about"
+msgstr "Sayt haqqında"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Kollektiv email"
+
+msgid "admin.settings.contactEmail"
+msgstr "Əsas əlaqə email adresi"
+
+msgid "admin.settings.contactName"
+msgstr "Əlaqə üçün əsas şəxsin adı"
+
+msgid "admin.settings.introduction"
+msgstr "Giriş"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Kollektiv emailləri məhdudlaşdırın"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Rolları deaktiv edin"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Sayt dili"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Sayt sitil faylı"
+
+msgid "admin.settings.siteLogo"
+msgstr "Sayt loqotipi"
+
+msgid "admin.settings.siteTitle"
+msgstr "Sayt başlığı/saytın adı"
+
+msgid "admin.settings.siteTheme"
+msgstr "Sayt teması"
+
+msgid "admin.siteAdmin"
+msgstr "Saytın idarə edilməsi"
+
+msgid "admin.siteManagement"
+msgstr "Saytın idarə edilməsi"
+
+msgid "admin.siteSettings"
+msgstr "Sayt tənzimləri"
+
+msgid "admin.siteSetup"
+msgstr "Saytın quraşdırılması"
+
+msgid "admin.systemInformation"
+msgstr "Sistem haqqında məlumat"
+
+msgid "admin.systemInformation.view"
+msgstr "Sistem məlumatlarına baxın"
+
+msgid "admin.versionBuild"
+msgstr "Tərtibetmə"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Yeniləmələri yoxlayın"
+
+msgid "admin.version.downloadPackage"
+msgstr "Endirin"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Səhifələmə"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Son nömrə"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Əvvəlki səhifə"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Sonrakı"
+
+#, fuzzy
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr "Nümayəndəlik nömrəsi tam deyil."
+
+#, fuzzy
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "Dosy tipi dəstəklənmir."
+
+#, fuzzy
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "Fayl növü dəstəklənmir."
+
+#, fuzzy
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr "Ölkə iki əlifba simvolu simli deyil."
+
+#, fuzzy
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr "Bölgə üç alfasayısal simvol uzun bir simli deyil."
+
+#, fuzzy
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr "Təşkilat şəxsiyyət vəsiqələri bir sıra deyil."
+
+#, fuzzy
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+"Giriş faylını {$file} emal edəcək və statistik məlumatlarını saxlayacaq fon "
+"işi göndərildi."
+
+#, fuzzy
+msgid "admin.error.gzCompressFile.fopen"
+msgstr "Fayl sıxılmırdı. Mənbə faylı {$filePath} fopen ilə açıla bilmədi."
+
+#, fuzzy
+msgid "admin.error.gzCompressFile.fread"
+msgstr "Fayl sıxılmırdı. Mənbə faylı {$filePath} skad ilə oxunmadı."
+
+#, fuzzy
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"Fayl sıxılmırdı. Açılan mənbə faylı {$filePath} fcose ilə bağlana bilməzdi."
+
+#, fuzzy
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+"Fayl sıxılmırdı. Sıxılmış mənbə faylı {$filePath}, rəysiz olaraq çıxarıla "
+"bilməz."
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "İş əmrinin istifadəsini göstərin"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "İşdən istifadə parametrlərini göstərin"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Seçim boş ola bilməz! İstifadə üsulunu yoxlayın."
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Növbəli işlər"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Mövcuddur"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Yaradılmışdır"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Bu əmrdən istifadə etmək üçün ən azı bir iş idini, '--.ll' və ya '--queue =' "
+"keçməlisiniz"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Yanlış iş id"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+"Növbədə olan işlərin ümumi sayını göstərin. Bayrağı ötürün-uğursuz "
+"tapşırıqların ümumi sayını görə bilmədi."
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "İş silindi!"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Bütün işləri silmək mümkün deyildi."
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Bütün işləri silindi!"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Aşağıdakılardan birini nəzərdə tutmusunuz?"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Bizdə {$total} növbəli işlər var"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "Seçim {$option} mövcud deyil."
+
+#, fuzzy
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Qapılı işlərə baxın"
+
+#, fuzzy
+msgid "navigation.tools.jobs"
+msgstr "İş"
+
+#, fuzzy
+msgid "navigation.tools.jobs.description"
+msgstr "Sistemdəki növbədə olan bütün işlərə baxın və uğursuz cəhdləri izləyin."
+
+#, fuzzy
+msgid "navigation.tools.jobs.view"
+msgstr "İş görmək"
+
+#, fuzzy
+msgid "admin.jobs.list.id"
+msgstr "İd"
+
+#, fuzzy
+msgid "admin.jobs.list.displayName"
+msgstr "İş"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+"Əlavə edin test test növbəsinə. isteğe bağlı seçimlərdən istifadə edin-"
+"yalnız = və uğursuz və ya uğurlu bir tapşırıq göndərmək üçün 'uğursuz' və ya "
+"'uğursuz' keçin."
+
+msgid "admin.jobs.totalCount"
+msgstr "Növbədə cəmi <strong> {$total} </ strong> iş (lər) var"
+
+#, fuzzy
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+"Giriş faylını {$file} -də {$linenumber} -də emal edərkən səhv baş verdi: "
+"{$msg}"
+
+#, fuzzy
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"Fayl sıxılmırdı. Destinatin GZ-Fayl {$filePath} GZWrite ilə yazıla bilmədi."
+
+#, fuzzy
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"Fayl sıxılmırdı. Açılan təyinat GZ-Fayl {$filePath} GZClose ilə bağlana "
+"bilmədi."
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "İstifadə Statistikası Fayl Yükləyicisi vəzifəsi"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"DB-IP City Lite verilənlər bazası faylının adını {$ tencorfilename} saytı {$ "
+"sourcyfilename} nömrəsi uğursuz oldu."
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"{$directory} qovluğu boş deyil. Bu, əvvəllər uğursuz bir prosesi və ya eyni "
+"vaxtda çalışan bir prosesi göstərə bilər. Bu fayl avtomatik olaraq yenidən "
+"işlənəcəkdir."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"Fayl {$file}, işlənə bilməyən və beləliklə səhnə qovluğuna köçürülə bilən "
+"köhnə giriş faylı formatında."
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "{$file} faylı açılmadı və rədd edildi."
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache versiyası"
+
+msgid "admin.server.dbDriver"
+msgstr "Data baza sürücüsü"
+
+msgid "admin.server.dbVersion"
+msgstr "Data bazası server versiyası"
+
+msgid "admin.serverInformation"
+msgstr "Server məlumatı"
+
+msgid "admin.server.phpVersion"
+msgstr "Php versiyası"
+
+msgid "admin.server.platform"
+msgstr "Əməliyyat sistemi platforması"
+
+msgid "admin.settings"
+msgstr "Tənzimlər"
+
+#, fuzzy
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"Giriş faylı {$file}, çünki həmin ayın statistikası artıq hesablanıb. Bir "
+"əvvəlki ay üçün statistikanı yenidən hesablamaq üçün, həmin ayın giriş "
+"sənədlərini bərpa etməlisiniz və CLI alətindən təkrarlama statistikasını "
+"istifadə etməlisiniz."
+
+#, fuzzy
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "Vaxt etibarlı bir tarix deyil."
+
+#, fuzzy
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "Kontekst id tam deyil."
+
+#, fuzzy
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr "Göndərmə id tam deyil."
+
+#, fuzzy
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+"Giriş sənədində {$lineNumber} xəttində etibarsız giriş girişləri {$file}: "
+"{$error}"
+
+#, fuzzy
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+"Giriş sənədində {$lineNumber} xətti {$file} səhv formatdadır və beləliklə "
+"atlanacaqdır."
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Şifrə üçün minimum simvol sayı"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"<tt>config.inc.php</tt> adlı konfiqurası faylı tapılmır, oxuna bilən deyil "
+"və ya etibarsız."
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Sistemin və işlədiyi serverin versiyası və konfiqurasiya tənzimləri "
+"haqqındakı məlumatlara baxın."
+
+#, fuzzy
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Bu tənzimi sadəcə idarəçinin dəyişdirməsinə icazə verin."
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr ""
+"Etibarsız sayt stil fayl formatı. .css formatında olan stil faylı qəbul "
+"edilir."
+
+msgid "admin.version.downloadPatch"
+msgstr "Yamaq endirin"
+
+msgid "admin.versionHistory"
+msgstr "Versiya tarixi"
+
+msgid "admin.version.latest"
+msgstr "Ən son versiya"
+
+msgid "admin.versionMajor"
+msgstr "Böyük"
+
+msgid "admin.versionMinor"
+msgstr "Kiçik"
+
+msgid "admin.version.moreInfo"
+msgstr "Ətraflı məlumat"
+
+msgid "admin.versionRevision"
+msgstr "Düzəltmə"
+
+msgid "admin.version.updateAvailable"
+msgstr "Yenilənmiş bir versiya mövcuddur"
+
+msgid "admin.version.upToDate"
+msgstr "Sisteminiz yenilənib"
+
+msgid "admin.version"
+msgstr "Versiya"
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"{$filename} faylı {$currentFilePath} lokasiyasından {$destinationPath} "
+"lokasiyasına köçürülə bilmədi"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Fayl yükləyicisi"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "{$path} əsas yolu müştərək fayllar indeksi içində olmalıdır."
+
+#, fuzzy
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "{$path} bir qovluq deyil və ya oxuna bilən deyil."
+
+#, fuzzy
+msgid "admin.fileLoader.fileProcessed"
+msgstr "{$filename} faylı prosesdən keçirildi və arxivləşdirildi."
+
+#, fuzzy
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"Fayl dekompressiya edilə bilməzdi. Mənbə GZ-File {$Filepath} gzopen ilə "
+"açıla bilmədi."
+
+#, fuzzy
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+"Fayl dekompressiya edilə bilməzdi. Təyinat faylı {$filePath} fopen aça "
+"bilmədi."
+
+#, fuzzy
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"Fayl dekompressiya edilə bilməzdi. Mənbə GZ-Fayl {$file} GZRead ilə oxunmadı."
+
+msgid "admin.cli.tool.usage.title"
+msgstr "İstifadə:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "Əmr [arqumentlər]"
+
+msgid "admin.cli.tool.available.commands"
+msgstr "{$namespace} sahəsi üçün mövcud əmrlər:"
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Növbəyə alınmış bütün prosesləri siyahıya alın. Nəticələri səhifələrə bölmək "
+"istəyirsinizsə ---page=and --perPage= tənzimlərini istifadə edə bilərsiniz."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Endiriləcək bir dil yoxdur."
+
+#, fuzzy
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"Fayl dekompressiya edilə bilməzdi. Təyinat faylı {$filePath} fwrite ilə "
+"yazıla bilmədi."
+
+#, fuzzy
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"Fayl dekompressiya edilə bilməzdi. Açılan təyinat faylı {$filePath}, Fclose "
+"ilə bağlana bilməzdi."
+
+#, fuzzy
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"Fayl dekompressiya edilə bilməzdi. Açılan mənbə GZ-Fayl {$filePath} GZCLOSE "
+"ilə bağlana bilməz."
+
+#, fuzzy
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"Fayl dekompressiya edilə bilməzdi. Decompressiya edilmiş mənbə GZ-Fayl "
+"{$filePath}, sınırla çıxarıla bilməz."
+
+#, fuzzy
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr "Fayl sıxılmırdı. Gzopen ilə birlikdə GZ-File {filePath} açıla bilmədi."
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+"Tətbiq baxım rejimi aktiv olduğundan növbə işlərini başlamaq mümkün deyil."
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Şəxsiyyət vəsiqəsinə əsasən müəyyən bir növbəni təmizləyin. Hamısını "
+"təmizləmək istəyirsinizsə, parametrdən keçin. Hamısını müəyyən bir növbədən "
+"təmizləmək istəsəniz, parametrdən keçin --Queue ="
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"Tapşırıqları emal etməyə davam edəcək sonsuz bir daemon iş axınına başlayın. "
+"Bu əmrlə əlaqəli mövcud seçimlərə Baxmaq üçün --help bayrağından istifadə "
+"edin."
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+"Bütün uğursuz tapşırıqları sadalayın. Siyahını süzmək üçün --"
+"queue=QUEUE_NAME və --connection=CONNECTİON_NAME seçimlərini təyin edin. "
+"Yenidən növbəyə göndərmək və ya bütün/xüsusi uğursuz tapşırıqları təmizləmək "
+"üçün --redispatch və --clear seçimini/bayrağını da ötürün."
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"Mövcud tapşırıqları növbəyə göndərin. tapşırığı müəyyən bir növbəyə "
+"göndərmək istəyirsinizsə, --queue=QUEUE_NAME parametrini keçin. Bir test "
+"tapşırığını yerinə yetirmək üçün --testi və bir anda bir işi yerinə yetirmək "
+"üçün --bir dəfə ötürmək də mümkündür"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "{$Jobcount} tapşırıqları {$queueName} adı ilə növbəyə tamamlandı."
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "{$QueueName} adlı növbəyə başlamaq üçün heç bir iş yoxdur."
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr "Uğursuz növbə tapşırıqları"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Növbə"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "İş ekran adı"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Cəhdlər"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Bütöv"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr "Əlaqə"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr "Uğursuz oldu"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr "İstisna mesajı"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+"{$queueName} adı ilə növbədə uğursuzluqla nəticələnəcəyinə əmin olan "
+"göndərilən test"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+"{$queueName} adı ilə növbədə uğurla başa çatacağına əmin olan göndərilən test"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"Test tapşırığının qəbuledilməz parametri. 'Yalnız=' parametri üçün yalnız "
+"'uğursuz' və ya 'uğursuz'qəbul edə bilər."
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "Silmək üçün heç bir iş tapılmadı."
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr "{$jobsCount} uğursuz işlər uğursuz siyahıdan uğurla silindi."
+
+#, fuzzy
+msgid "admin.jobs.list.attempts"
+msgstr "Cəhdlər"
+
+#, fuzzy
+msgid "admin.jobs.list.createdAt"
+msgstr "Yaradılmışdır"
+
+#, fuzzy
+msgid "admin.jobs.createdAt"
+msgstr "{$createdAt} -də yaradılmışdır"
+
+#, fuzzy
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"İstifadə qaydaları məlumatlarını {$file} faylından yükləyən iş uğursuz oldu "
+"və fayl {$archivedFilePath} {$stagingPath} -ə köçürülə bilməz."
+
+#, fuzzy
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"İstifadə qaydaları məlumatlarını {$file} faylından yükləyən iş uğursuz oldu. "
+"Fayl səhnə qovluğuna köçürüldü."

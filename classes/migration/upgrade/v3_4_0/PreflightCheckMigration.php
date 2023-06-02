@@ -72,7 +72,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
                 if (!$conflictingEmailKeys->isEmpty()) {
                     foreach ($conflictingEmailKeys as $conflictingEmailKey) {
-                        $exceptionMessage .= 'A row with email_key="' . $conflictingEmailKey->email_key . '" found in table email_templates_default_data which will conflict with other rows specific to the locale key "' . $localeCode . '" after the migration. Please review this row before upgrading. Consider keeping only the ' . $defaultLocale . ' locale in the installation' . PHP_EOL;
+                        $exceptionMessage .= 'A row with email_key="' . $conflictingEmailKey->email_key . '" found in table email_templates_default_data which will conflict with other rows specific to the locale key "' . $localeTarget . '" after the migration. Please review this row before upgrading. Consider keeping only the ' . $localeSource . ' locale in the installation' . PHP_EOL;
                     }
                 }
             }
@@ -106,7 +106,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
                     if (!$conflictingSettings->isEmpty()) {
                         foreach ($conflictingSettings as $conflictingSetting) {
-                            $settingsExceptionMessage .= 'A row with "' . $entityIdColumnName . '"="' . $conflictingSetting->{$entityIdColumnName} . '" and "setting_name"="' . $conflictingSetting->setting_name . '" found in table "' . $tableName . '" which will conflict with other rows specific to the locale key "' . $localeCode . '" after the migration. Please review this row before upgrading.' . PHP_EOL;
+                            $settingsExceptionMessage .= 'A row with "' . $entityIdColumnName . '"="' . $conflictingSetting->{$entityIdColumnName} . '" and "setting_name"="' . $conflictingSetting->setting_name . '" found in table "' . $tableName . '" which will conflict with other rows specific to the locale key "' . $localeTarget . '" after the migration. Please review this row before upgrading.' . PHP_EOL;
                         }
                     }
                 }

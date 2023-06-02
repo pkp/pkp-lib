@@ -16,6 +16,7 @@ namespace PKP\migration\upgrade\v3_4_0;
 
 use Exception;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 abstract class I3573_AddPrimaryKeys extends \PKP\migration\Migration
@@ -32,15 +33,13 @@ abstract class I3573_AddPrimaryKeys extends \PKP\migration\Migration
                 continue;
             }
 
-            // Depending on whether the schema was created with ADODB or Laravel schema management, user_settings_pkey
-            // will either be a constraint or an index. See https://github.com/pkp/pkp-lib/issues/7670.
-            try {
-                Schema::table($tableName, fn (Blueprint $table) => $table->dropUnique($oldIndexName));
-            } catch (Exception $e) {
+            if (DB::getDoctrineSchemaManager()->introspectTable($tableName)->hasIndex($oldIndexName)) {
+                // Depending on whether the schema was created with ADODB or Laravel schema management, user_settings_pkey
+                // will either be a constraint or an index. See https://github.com/pkp/pkp-lib/issues/7670.
                 try {
-                    Schema::table($tableName, fn (Blueprint $table) => $table->dropIndex($oldIndexName));
+                    Schema::table($tableName, fn (Blueprint $table) => $table->dropUnique($oldIndexName));
                 } catch (Exception $e) {
-                    $this->_installer->log("Failed to remove the index {$oldIndexName}, we'll assume it doesn't exist and proceed");
+                    Schema::table($tableName, fn (Blueprint $table) => $table->dropIndex($oldIndexName));
                 }
             }
 

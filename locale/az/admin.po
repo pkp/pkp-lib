@@ -2,7 +2,7 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 18:10+0000\n"
+"PO-Revision-Date: 2023-06-02 19:20+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/az/>\n"
@@ -770,3 +770,256 @@ msgid "admin.job.compileMetrics.error"
 msgstr ""
 "İstifadə qaydaları məlumatlarını {$file} faylından yükləyən iş uğursuz oldu. "
 "Fayl səhnə qovluğuna köçürüldü."
+
+#, fuzzy
+msgid "admin.job.failed.list.attribute.value"
+msgstr "Atribut dəyəri"
+
+#, fuzzy
+msgid "admin.jobs.list.queue"
+msgstr "Növbə"
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Aylıq və ya gündəlik statistika"
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"Gündəlik və ya aylıq istifadə statistikasını izləməməsi və ya etməməsi. "
+"Gündəlik statistikanı izləmək verilənlər bazası ölçüsünüzü xeyli artıra "
+"bilər."
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Gündəlik və aylıq statistikanı izləyin"
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Yalnız aylıq statistikanı izləyin"
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "Girişləri sıxışdırın"
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"Statistikalar, işlənmiş bir dəfə <kod> {$path} </ kod> köçürülən giriş giriş "
+"sənədlərindən yaradılır. Giriş sənədləri işlənmiş bir dəfə <kod> .gz </ kod> "
+"fayllarına sıxılırsa? Giriş sənədlərini sıxışdırmaq serverdə disk boşluğunu "
+"saxlaya bilər."
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Giriş sənədlərini yerində buraxın"
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Giriş sənədlərini sıxışdırın"
+
+#, fuzzy
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"Menecerlər və idarəçilərə Counter Sushi Statistika API-nin sayğacına girişi "
+"məhdudlaşdırın"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Platforma"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Sayğac suşi protokoluna görə, hər statistika hesabatı statistikanı təmin "
+"edən \"platformanı\" müəyyənləşdirməlidir. Varsayılan olaraq, jurnal bütün "
+"statistika üçün platforma olaraq təyin ediləcəkdir. Bununla birlikdə, bu "
+"saytdakı jurnalların hamısı eyni provayder tərəfindən nəşr olundu və ya "
+"idarə olunarsa, saytın platforması kimi təyin etmək istəyə bilərsiniz."
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+"Sayt Sushi platforması olaraq təyin olunduqda bir platforma nömrəsi tələb "
+"olunmalıdır."
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "İstifadəsi: [--OPTions1 --OPTions2 = ...]"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "İş əmri üçün mövcud seçimlər"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "İşləmək üçün növbə bağlantısının adı [default: '{$default}']"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "İşləmək üçün növbənin adı [default: '{$default}']"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "İşçinin adı [default: '{$default}']"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"Uncaught bir istisna ilə qarşılaşan bir işə yenidən başlamazdan əvvəl "
+"gözləmək üçün saniyələrin sayı [default: '{$default}']"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "Megabytlərdə yaddaş həddi [default: '{$default}']"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr "Bir saniyə saniyənin sayı (defolt: '{$default}') işləyə bilər ']"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+"Heç bir iş olmadıqda yatmaq üçün saniyələrin sayı [default: '{$default}']"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+"Giriş etmədən əvvəl işə cəhd etmək üçün dəfə sayı [defolt: '{$default}']"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr "İşçisini də texniki rejimində işləməyə məcbur edin [Defolt: {$default}]"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "Növbə boş olduqda dayandırın [default: {$default}]"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr "Durmadan əvvəl işləmə işlərinin sayı [defolt: '{$default}']"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr "İşçinin işlədiyi saniyələrin maksimum sayı [default: '{$default}']"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr "{$jobsCount} tapşırıqlar uğurla növbəyə geri göndərildi."
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr "Bizdə {$total} yerinə yetirilməmiş tapşırıqlar var"
+
+#, fuzzy
+msgid "admin.jobs.failed.totalCount"
+msgstr "Cəmi <strong> {$total} </ strong> uğursuz iş (lər) var."
+
+#, fuzzy
+msgid "navigation.tools.jobs.failed"
+msgstr "Uğursuz işlər"
+
+#, fuzzy
+msgid "navigation.tools.jobs.failed.details"
+msgstr "Uğursuz iş təfərrüatları"
+
+#, fuzzy
+msgid "navigation.tools.jobs.failed.view"
+msgstr "Uğursuz işlərə baxın"
+
+#, fuzzy
+msgid "navigation.tools.job.failed.details.view"
+msgstr "Uğursuz işə baxın: {$id} Ətraflı"
+
+#, fuzzy
+msgid "admin.job.failed.list.attribute"
+msgstr "Atribut"
+
+#, fuzzy
+msgid "admin.jobs.list.connection"
+msgstr "Qoşulma"
+
+#, fuzzy
+msgid "admin.jobs.list.failedAt"
+msgstr "Uğursuz"
+
+#, fuzzy
+msgid "admin.jobs.list.payload"
+msgstr "Yükləmək"
+
+#, fuzzy
+msgid "admin.jobs.list.exception"
+msgstr "İstisna"
+
+#, fuzzy
+msgid "admin.jobs.list.actions"
+msgstr "Tədbirlər"
+
+#, fuzzy
+msgid "admin.jobs.failedAt"
+msgstr "{$failedAt} -də yaradılmışdır"
+
+#, fuzzy
+msgid "admin.jobs.failed.action.redispatch"
+msgstr "Yenidən cəhd elə"
+
+#, fuzzy
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr "Bütün uğursuz işləri tələb edin"
+
+#, fuzzy
+msgid "admin.settings.statistics.collection"
+msgstr "Məlumatların toplanması"
+
+#, fuzzy
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+"Hansı istifadə statistikasının toplanmasının vacibliyini konfiqurasiya edin."
+
+#, fuzzy
+msgid "admin.settings.statistics.storage"
+msgstr "Məlumat saxlama"
+
+#, fuzzy
+msgid "admin.settings.statistics.storage.description"
+msgstr "Serverdə hansı istifadə statistikasının saxlanılmasını tənzimləyin."
+
+#, fuzzy
+msgid "admin.settings.statistics.sushi"
+msgstr "Suşi protokolu"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushi.description"
+msgstr "Konfiqurasiya edin"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Saytı bütün jurnallar üçün platforma kimi istifadə edin."
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Platforma şəxsiyyəti"
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"Suşi hesabatlarında bu platformanı necə müəyyənləşdirmək olar. Platforma "
+"nömrəsi 17 simvoldan və ya daha az olmalıdır və hərfləri (A-Z, A-Z), "
+"rəqəmləri (0-9), vurğulayıcılar (_), nöqtələr (.) Və irəli slashhes (/) "
+"ehtiva edir. Platforma ID bir neçə sütunda istifadə olunur və tanınan "
+"qaldıqda mümkün qədər qısa olmalıdır. Platforma identifikatoru ümumiyyətlə "
+"bir naşir və ya platformanın, bir domen adı və ya tanınmış, bənzərsiz bir "
+"ixtisarın adına əsaslanır."
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "İş əmrləri seçimləri"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+"İşlər arasında istirahət etmək üçün saniyələrin sayı [default: '{$default}']"
+
+#, fuzzy
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "Test növbəsi üçün işçi Deamon'u işə salın"

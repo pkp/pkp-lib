@@ -1,8 +1,111 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-06-02 19:20+0000\n"
+"Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
+"Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "installer.localeSettings"
+msgstr "Yerli t…ônziml…ôr"
+
+msgid "installer.releaseNotes"
+msgstr "Versiya qeydl…ôri"
+
+msgid "installer.configureXSLMessage"
+msgstr ""
+"<p>PHP quraŇüdńĪrmanńĪzda XSL modulu affektiv deyil. Bunu aktivl…ôŇüdirin v…"
+"ô ya config.inc.php dosyanńĪzda xslt_command t…ônzimini konfiqurasiya edin. "
+"</p>"
+
+msgid "installer.beacon"
+msgstr "G√∂st…ôrici"
+
+msgid "installer.additionalLocales"
+msgstr "∆Źlav…ô dill…ôr"
+
+msgid "installer.administratorAccount"
+msgstr "ńįdar…ô√ßi hesabńĪ"
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">HAYIR</span>"
+
+msgid "installer.checkYes"
+msgstr "B…ôli"
+
+msgid "installer.connectionCharset"
+msgstr "BańülantńĪ xarakteri d…ôst"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Konfiqurasiya faylńĪnńĪn m…ôzmunu"
+
+msgid "installer.databaseDriver"
+msgstr "Data baza s√ľr√ľc√ľs√ľ"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong>Sistem hazńĪrda MySQL v…ô PostgreSQL-i d…ôst…ôkl…ôyir, aŇüańüńĪdakńĪ "
+"se√ßiml…ôrd…ôn birini se√ßm…ôdiyiniz halda, serverinizin lazńĪmi PHP "
+"uzantńĪlarńĪna sahib olduńüuna …ômin olduńüundan …ômin olmaq √ľ√ß√ľn sistem "
+"idar…ô√ßinizl…ô …ôlaq…ô saxlayńĪn.</strong>"
+
+msgid "installer.databaseHost"
+msgstr "Ana komp√ľter"
+
+msgid "installer.databaseName"
+msgstr "Data baza adńĪ"
+
+msgid "installer.databasePassword"
+msgstr "Ňěifr…ô"
+
+msgid "installer.databaseSettings"
+msgstr "Data baza t…ônziml…ôri"
+
+msgid "installer.databaseUsername"
+msgstr "ńįstifad…ô√ßi adńĪ"
+
+msgid "installer.filesDir"
+msgstr "Y√ľkl…ôm…ôl…ôr √ľ√ß√ľn indeks"
+
+msgid "installer.fileSettings"
+msgstr "Fayl t…ônziml…ôri"
+
+msgid "installer.form.separateMultiple"
+msgstr "√áoxlu d…ôy…ôrl…ôri verg√ľll…ô ayńĪrńĪn"
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+"<br/><strong>X∆ŹB∆ŹRDARLIQ: istifad…ô etdiyiniz PHP versiyasńĪ qurulumu √ľ√ß√"
+"ľn minimum t…ôl…ôbl…ôri qarŇüńĪlamńĪr. Daha g√ľnc…ôl bir PHP versiyasńĪ "
+"y√ľkl…ôm…ôyiniz t√∂vsiy…ô olunur.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Y√ľkl…ôm…ô zamanńĪ x…ôta baŇü verdi"
+
+msgid "installer.installerSQLStatements"
+msgstr "QuraŇüdńĪrma √ľ√ß√ľn SQL a√ßńĪqlamalarńĪ"
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Bu sistemd…ô d…ôst…ôkl…ôn…ôc…ôk dig…ôr dill…ôri se√ßin. ńįdar…ô ara √ľz√ľnd…"
+"ôn h…ôr hansńĪ bir zamanda …ôlav…ô dill…ôr d…ô y√ľkl…ôn…ô bil…ôr. <br>* = "
+"B√ľt√∂v olaraq t…ôrc√ľm…ô edilm…ômiŇü dill…ôr g√∂st…ôrir (terminl…ôrin > "
+"%90'ńĪ t…ôrc√ľm…ô edilmiŇüdir)"
+
+msgid "installer.locale"
+msgstr "QuraŇüdńĪrma dili yeri"
+
+msgid "installer.oaiSettings"
+msgstr "OAI t…ônziml…ôri"
+
+msgid "installer.oaiRepositoryId"
+msgstr "Korporativ Arxiv m√ľ…ôyy…ônl…ôŇüdirici"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "√Ėn y√ľkl…ôm…ô addńĪmlarńĪ"

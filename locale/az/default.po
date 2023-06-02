@@ -1,7 +1,7 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 19:20+0000\n"
+"PO-Revision-Date: 2023-06-02 20:57+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/az/>\n"
@@ -143,3 +143,59 @@ msgstr "Şəkil"
 
 msgid "default.genres.styleSheet"
 msgstr "HTML formatı"
+
+#, fuzzy
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+"<p>{$contextName} - ə göndərdiyiniz üçün təşəkkür edirik. Sizdən faylları "
+"yükləməyiniz, əməkdaşlarınızı təyin etməyiniz və başlıq və annotasiya kimi "
+"məlumatlar verməyiniz xahiş olunacaq.<p><p>zəhmət olmasa<a href=\""
+"{$submissionGuidelinesUrl}\" target=\"_blank\"> müraciət qaydaları </a>, "
+"əgər siz artıq bunu etməmisinizsə. Formaları doldurarkən redaktorlarımızın "
+"işinizi qiymətləndirməsinə kömək etmək üçün mümkün qədər çox məlumat verin.</"
+"p> < p> başladıqdan sonra ərizənizi saxlaya və sonra geri qayıda bilərsiniz. "
+"Göndərmədən əvvəl hər hansı bir məlumatı nəzərdən keçirə və düzəldə "
+"biləcəksiniz.</p>"
+
+#, fuzzy
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+"<p>İşinizi qiymətləndirmək üçün redaksiya heyətimizə lazım ola biləcək "
+"sənədləri təqdim edin. Əsas işə əlavə olaraq, redaktorlarımız üçün faydalı "
+"olarsa, məlumat dəstləri, maraqlar toqquşması iddiaları və ya digər əlavə "
+"sənədlər göndərə bilərsiniz.</p>"
+
+#, fuzzy
+msgid "default.submission.step.details"
+msgstr ""
+"<p> zəhmət olmasa sistemimizdə göndərməyinizi idarə etməyimizə kömək etmək "
+"üçün aşağıdakı məlumatları təqdim edin.</p>"
+
+#, fuzzy
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+"<p>zəhmət olmasa redaksiyamıza müraciətinizi emal etməyə kömək etmək üçün "
+"aşağıdakı məlumatları verin.</p> <p>metadata daxil edərkən, göndərməyinizi "
+"idarə edən şəxsə ən faydalı olacağını düşündüyünüz qeydləri göstərin. Bu "
+"məlumat dərc edilməzdən əvvəl dəyişdirilə bilər.</p>"
+
+#, fuzzy
+msgid "default.submission.step.contributors"
+msgstr ""
+"<p>Bu nəşrin bütün müəllifləri haqqında ətraflı məlumat əlavə edin. Buraya "
+"əlavə olunan müəlliflərə e-poçt göndərilməsinin təsdiqlənməsi, habelə bu "
+"göndərişlə bağlı qeydə alınan bütün redaksiya qərarlarının surətləri "
+"göndəriləcəkdir.</p> <p> üzvün anonim qalması və ya e-poçt hesabı olmadığı "
+"üçün e-poçtla əlaqə qurmaq mümkün deyilsə, saxta e-poçt ünvanı daxil "
+"etməyin. Göndərmə prosesinin sonrakı mərhələsində bu müəllif haqqında "
+"məlumatı redaktora mesaja əlavə edə bilərsiniz.</p>"
+
+#, fuzzy
+msgid "default.submission.step.review"
+msgstr ""
+"<p>Göndərməni tamamlamadan əvvəl daxil etdiyiniz məlumatları nəzərdən "
+"keçirin. Düyməni basaraq burada göstərilən detallardan birini dəyişə "
+"bilərsiniz dəyişdirin hər bölmənin yuxarı hissəsində.</p> <p> ərizənizi "
+"doldurduqdan sonra redaksiya heyətimizin üzvünə onu nəzərdən keçirmək "
+"tapşırılacaq. Xahiş edirəm buraya daxil etdiyiniz məlumatların mümkün qədər "
+"dəqiq olduğundan əmin olun.</p>"

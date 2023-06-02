@@ -1,7 +1,7 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 19:20+0000\n"
+"PO-Revision-Date: 2023-06-02 20:57+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/az/>\n"
@@ -382,3 +382,303 @@ msgstr "#YOX"
 
 msgid "editor.decision.completeSteps"
 msgstr "#YOX"
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "m…ôqal…ô r…ôdd edildi."
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "M…ôqal…ô q…ôbul edildi."
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "M…ôqal…ô yayńĪmlandńĪ"
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Yeni bir d…ôy…ôrl…ôndirm…ô turu √ľ√ß√ľn g√∂nd…ôrildi"
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "√áapa g√∂nd…ôrildi"
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"Bu q…ôrar tapńĪlmadńĪ. Z…ôhm…ôt olmasa tanńĪnan bir q…ôrar n√∂v√ľ verin."
+
+#, fuzzy
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr ""
+"ńįstifad…ô√ßiy…ô t…ôyin etm…ôk √ľ√ß√ľn …ôn azńĪ bir fayl se√ßm…ôk lazńĪmdńĪr."
+
+#, fuzzy
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Ňě…ôxsi mesaj …ôlav…ô etm…ôlisiniz."
+
+#, fuzzy
+msgid "editor.submission.fileList.includeAllStages"
+msgstr ""
+"B√ľt√ľn …ôl√ßatan iŇü axńĪŇüńĪ m…ôrh…ôl…ôl…ôrind…ôn fayllarńĪ g√∂st…ôrin"
+
+#, fuzzy
+msgid "editor.review.resendRequestReviewer"
+msgstr "R…ôy√ßi d…ôy…ôrl…ôndirm…ô ist…ôyini yenid…ôn g√∂nd…ôrin"
+
+#, fuzzy
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr ""
+"D√ľz…ôliŇül…ôr yeni bir r…ôy√ßi d…ôy…ôrl…ôndirm…ôsin…ô g√∂nd…ôrilm…ôy…ôc…ôk."
+
+#, fuzzy
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr ""
+"D√ľz…ôliŇül…ôr yeni bir r…ôy√ßi d…ôy…ôrl…ôndirm…ôsin…ô g√∂nd…ôril…ôc…ôk."
+
+#, fuzzy
+msgid "editor.review.reviewsAdded"
+msgstr "D…ôy…ôrl…ôndirm…ôl…ôr mesajńĪn m…ôzmununa …ôlav…ô edildi.J4881"
+
+#, fuzzy
+msgid "editor.review.skipEmail"
+msgstr "R…ôy√ßiy…ô email g√∂nd…ôrm…ôyin"
+
+#, fuzzy
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "R…ôy√ßi bu d…ôy…ôrl…ôndirm…ô t…ôl…ôbini r…ôdd etdi"
+
+#, fuzzy
+msgid "editor.review.ReviewerResendRequest"
+msgstr "R…ôdd Etm…ô T…ôl…ôbi"
+
+#, fuzzy
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"D…ôy…ôrl…ôndirm…ônin keyfiyy…ôtini inc…ôl…ôyin. Bu d…ôy…ôrl…ôndirm…ô r…ôy√ßi "
+"il…ô b√∂l√ľŇü√ľlm√ľr."
+
+#, fuzzy
+msgid "editor.review.errorAddingReviewer"
+msgstr "Rəyçi əlavə edərkən səhv oldu.  Xahiş edirəm yenidən cəhd edin."
+
+#, fuzzy
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Rəyçinin silinməsində bir səhv oldu.  Xahiş edirəm yenidən cəhd edin."
+
+#, fuzzy
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+"Rəyçinin işini bərpa edərkən bir səhv oldu.  Xahiş edirəm yenidən cəhd edin."
+
+#, fuzzy
+msgid "editor.review.readConfirmation"
+msgstr ""
+"Bu d…ôy…ôrl…ôndirm…ôni oxuduqdan sonra, d…ôy…ôrl…ôndirm…ô prosesin…ô davam "
+"ed…ô bilm…ôk √ľ√ß√ľn \"T…ôsdiq\"…ô basńĪn. D…ôy…ôrl…ôndirm…ô ed…ôn, baŇüqa "
+"bir yerd…ô inc…ôl…ôm…ôsini edibs…ô, aŇüańüńĪda fayl y√ľkl…ôy…ô bil…ôr v…ô "
+"davam etm…ôk √ľ√ß√ľn \"T…ôsdiq\"…ô basa bil…ôr."
+
+#, fuzzy
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"D…ôy…ôrl…ôndirm…ô prosesinin anonim r…ôy√ßilik prosesin…ô t…ôsir ed…ôc…ôyi "
+"√ľ√ß√ľn se√ßil…ôn Ňü…ôxsl…ôrl…ô m√ľzakir…ô yaradńĪla bilm…ôz."
+
+#, fuzzy
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Se√ßil…ôn Ňü…ôxs bu m…ôrh…ôl…ôy…ô t…ôyin edilm…ôz."
+
+#, fuzzy
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"H…ôr hansńĪ bir M…ôqal…ô m…ôrh…ôl…ôsin…ô …ôvv…ôlc…ôd…ôn y√ľkl…ônmiŇü b√ľt√ľn "
+"fayllar aŇüańüńĪdakńĪ M…ôzmunu ∆Źlav…ô et qutusunu iŇüar…ôl…ôy…ôr…ôk v…ô "
+"AxtarńĪŇüńĪ klikl…ôyib D…ôy…ôrl…ôndirm…ô FayllarńĪ siyahńĪsńĪna …ôlav…ô edil…"
+"ô bil…ôr: B√ľt√ľn m√∂vcud fayllar sadalanar v…ô …ôlav…ô edil…ôc…ôk formada "
+"se√ßil…ô bil…ôr. Bir fayla zat…ôn y√ľkl…ônm…ômiŇü …ôlav…ô fayllar, Fayl "
+"Y√ľkl…ô linkini kilikl…ôy…ôr…ôk siyahńĪya …ôlav…ô edil…ô bil…ôr."
+
+#, fuzzy
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "He√ß bir d…ôy…ôrl…ôndirm…ô faylńĪ y√ľkl…ônm…ôdi"
+
+#, fuzzy
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+"Rəyçinin nəzərdən keçirmə dəvətini yenidən nəzərdən keçirməsini tələb edən "
+"bir səhv oldu.  Xahiş edirəm yenidən cəhd edin."
+
+#, fuzzy
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+"Bu rəyi nəzərdən keçirilməmiş kimi qeyd etmək istəyirsiniz?  Rəylərin tarixi "
+"qeyd olunacaq."
+
+#, fuzzy
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Redaktorlara email g√∂nd…ôrm…ôyin"
+
+#, fuzzy
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Bu t…ôklif haqqńĪnda bir d…ôy…ôrl…ôndirm…ô m√ľzakir…ôsi yaradńĪn"
+
+#, fuzzy
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "D…ôy…ôrl…ôndirm…ô m√ľbahis…ôsi yaratmayńĪn"
+
+#, fuzzy
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "D…ôy…ôrl…ôndiril…ôc…ôk M…ôqal…ô √ľ√ß√ľn he√ß bir fayl se√ßm…ôdiniz"
+
+#, fuzzy
+msgid "submission.queries.subjectRequired"
+msgstr "M√ľzakir…ô m√∂vzusu t…ôl…ôb olunur."
+
+#, fuzzy
+msgid "submission.queries.messageRequired"
+msgstr "M√ľzakir…ô mesajńĪ t…ôl…ôb olunur."
+
+#, fuzzy
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr ""
+"AŇüańüńĪdakńĪ siyahńĪdan bu m√ľzakir…ôy…ô …ôlav…ô etm…ôk √ľ√ß√ľn fayllar "
+"…ôlav…ô edil…ô bil…ôr."
+
+#, fuzzy
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"D√ľz…ôliŇü prosesinin baŇüa √ßatdńĪńüńĪ v…ô faylńĪn n…ôŇür…ô hazńĪr "
+"olduńüunu g√∂st…ôrm…ôk √ľ√ß√ľn d√ľz…ôliŇüi t…ôsdiql…ôyin."
+
+#, fuzzy
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Bu müraciət üçün yeni bir yoxlama turu yaradacaqsınız.  Aşağıda digər "
+"yoxlama turlarında istifadə olunmayan sənədlər verilmişdir."
+
+#, fuzzy
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "{$publicIdentifier} √ľmumi m√ľ…ôyy…ônl…ôŇüdirici bir say olmamalńĪdńĪr."
+
+#, fuzzy
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "M√ľŇüt…ôr…ôk t…ôrifedici √ľ√ß√ľn {$pattern} modelin…ô icaz…ô verilm…ôz."
+
+#, fuzzy
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Bu r…ôy√ßi son turda bir araŇüdńĪrma tamamladńĪ."
+
+#, fuzzy
+msgid "editor.decision.emailSkipped"
+msgstr "Bu addńĪm atlandńĪ v…ô he√ß bir e-po√ßt g√∂nd…ôrilm…ôy…ôc…ôk."
+
+#, fuzzy
+msgid "editor.decision.stepError"
+msgstr "{$stepName} addńĪmńĪnda problem var idi."
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "M…ôqal…ô d…ôy…ôrl…ôndirm…ô √ľ√ß√ľn q…ôbul edildi"
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "Bu t…ôqdimat bar…ôd…ô bu q…ôrarńĪ qeyd etm…ôk icaz…ôniz yoxdur."
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Redaktor tanńĪnmadńĪ v…ô bu t…ôqdimat haqqńĪnda bir q…ôrar yazmańüa icaz…ôsi "
+"olmaya bil…ôr."
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr ""
+"AŇüańüńĪdakńĪ alńĪcńĪlara bir e-po√ßt g√∂nd…ôr…ô bilm…ôzsiniz: {$ adlar}."
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Bu baxńĪŇü turu tapńĪlmadńĪ."
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"Bir baxńĪŇü m…ôrh…ôl…ôsi t…ômin edildi, ancaq bu q…ôrar bir araŇüdńĪrma "
+"m…ôrh…ôl…ôsi zamanńĪ alńĪnmńĪr."
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Bu baxńĪŇü turu bu t…ôqdimatńĪn bir hiss…ôsi deyil."
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"T…ôqdimat bu q…ôrarńĪ g√∂t√ľrm…ôk √ľ√ß√ľn iŇü axńĪnńĪnńĪn m√ľvafiq "
+"m…ôrh…ôl…ôsind…ô deyil."
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Redaksiya q…ôrarńĪnńĪ qeyd etm…ôk √ľ√ß√ľn bu t…ôqdimata t…ôyin "
+"olunmalńĪsńĪnńĪz."
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+"Bu q…ôrarńĪ g√∂t√ľrm…ôk √ľ√ß√ľn bir baxńĪŇü d…ôyirmi Ňü…ôxsiyy…ôti n…ôz…ôrd…"
+"ô tutulmuŇü olmalńĪdńĪr."
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Son q…ôrar q…ôbul ed…ô bil…ôn bu m…ôrh…ôl…ôy…ô bir redaktor t…ôyin "
+"olunmadńĪńüńĪ t…ôqdird…ô t√∂vsiy…ô edil…ô bilm…ôz."
+
+#, fuzzy
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Bu t…ôqdimata q…ôrar q…ôbul edil…ô bilm…ôdi. G√∂nd…ôrm…ô ID yoxdur v…ô ya "
+"t…ôl…ôb olunan t…ôqdimata uyńüun g…ôlmir."
+
+#, fuzzy
+msgid "editor.review.notInitiated"
+msgstr "D…ôy…ôrl…ôndirm…ô prosesi h…ôl…ô baŇülamamńĪŇüdńĪr."
+
+#, fuzzy
+msgid "editor.submission.externalReviewDescription"
+msgstr ""
+"D…ôy…ôrl…ôndirm…ô m…ôrh…ôl…ôsin…ô g√∂nd…ôrm…ôk √ľ√ß√ľn aŇüańüńĪdakńĪ "
+"fayllarńĪ se√ßin"
+
+#, fuzzy
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "T…ôyin etm…ôk √ľ√ß√ľn bir istifad…ô√ßi se√ßm…ôlisiniz."
+
+#, fuzzy
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"OxucularńĪ m…ôqal…ôl…ôri d…ôy…ôrl…ôndirm…ôy…ô d…ôv…ôt etm…ôk "
+"√ľ√ß√ľn<em>+r…ôy√ßi ∆Źlav…ô et</em>'i istifad…ô edin. Noutbuk simvolu, bir "
+"d…ôy…ôrl…ôndirm…ônin g√∂nd…ôrildiyini v…ô sonrasńĪnda da "
+"<em>T…ôsdiql…ôndiyini</em>g√∂st…ôrir. D…ôy…ôrl…ôndirm…ôl…ôr ge√ßikdiyi "
+"zaman, r…ôy√ßil…ôr…ô xatńĪrlatmaq √ľ√ß√ľn qńĪrmńĪzńĪ bir z…ôrf simvolu "
+"g√∂st…ôrilir."
+
+#, fuzzy
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr ""
+"D√ľz…ôliŇül…ôr yeni bir r…ôyl…ôrin yeni bir d√∂vr√ľn…ô m…ôruz qalmamalńĪdńĪr."
+
+#, fuzzy
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "D√ľz…ôliŇül…ôr yeni bir r…ôyl…ôr…ô m…ôruz qalmalńĪdńĪr."
+
+#, fuzzy
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Redaktor bu d…ôy…ôrl…ôndirm…ô t…ôl…ôbini l…ôńüv etdi"
+
+#, fuzzy
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"D√ľz…ôliŇü prosesinin baŇüa √ßatmadńĪńüńĪnńĪ v…ô faylńĪn n…ôŇür…ô hazńĪr "
+"olmadńĪńüńĪnńĪ g√∂st…ôrm…ôk √ľ√ß√ľn bu d√ľz…ôliŇü t…ôsdiqini l…ôńüv edin."

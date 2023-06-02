@@ -60,21 +60,17 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
         });
 
         // Does have the foreign key reference but not the CASCADE
-        try {
+        if (DB::getDoctrineSchemaManager()->introspectTable('submission_files')->hasForeignKey('submission_files_file_id_foreign')) {
             Schema::table('submission_files', fn (Blueprint $table) => $table->dropForeign('submission_files_file_id_foreign'));
-        } catch (Exception) {
-            error_log('Failed to delete foreign key submission_files.submission_files_file_id_foreign, perhaps your installation didn\'t have this constraint');
         }
         Schema::table('submission_files', function (Blueprint $table) {
             $table->foreign('file_id')->references('file_id')->on('files')->onDelete('cascade');
         });
 
         // Does have the foreign key reference but not the CASCADE
-        foreach (['submission_file_revisions_submission_file_id_foreign', 'submission_file_revisions_file_id_foreign'] as $keyName) {
-            try {
-                Schema::table('submission_file_revisions', fn (Blueprint $table) => $table->dropForeign($keyName));
-            } catch (Exception) {
-                error_log("Failed to delete foreign key submission_file_revisions.{$keyName}, perhaps your installation didn\'t have this constraint");
+        foreach (['submission_file_revisions_submission_file_id_foreign', 'submission_file_revisions_file_id_foreign'] as $foreignKeyName) {
+            if (DB::getDoctrineSchemaManager()->introspectTable('submission_file_revisions')->hasForeignKey($foreignKeyName)) {
+                Schema::table('submission_file_revisions', fn (Blueprint $table) => $table->dropForeign($foreignKeyName));
             }
         }
         Schema::table('submission_file_revisions', function (Blueprint $table) {

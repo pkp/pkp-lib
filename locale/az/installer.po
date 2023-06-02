@@ -1,7 +1,7 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 19:20+0000\n"
+"PO-Revision-Date: 2023-06-02 20:57+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/az/>\n"
@@ -109,3 +109,138 @@ msgstr "Korporativ Arxiv m√ľ…ôyy…ônl…ôŇüdirici"
 
 msgid "installer.preInstallationInstructionsTitle"
 msgstr "√Ėn y√ľkl…ôm…ô addńĪmlarńĪ"
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+"Bu istifad…ô√ßi hesabńĪ sayt idar…ô√ßisi olacaq v…ô sistem…ô tam giriŇü "
+"s…ôlahiyy…ôti olacaqdńĪr. ∆Źlav…ô istifad…ô√ßi hesablarńĪ qurulumdan sonra "
+"formalaŇüdńĪrńĪla bil…ôr."
+
+msgid "installer.configFileError"
+msgstr ""
+"<tt config.inc.php</tt> adlńĪ konfiqurasiya faylńĪ yoxdur v…ô ya oxuna bil…"
+"ôn deyil"
+
+msgid "installer.databaseHostInstructions"
+msgstr ""
+"Sah…ô (domain) soketleri yerin…ô TCP/IP √ľz…ôrind…ôn qoŇüulmaq √ľ√ß√ľn "
+"\"hostname\"i boŇü buraxńĪn. \"localhost\" m…ôlumatńĪ daxil edildis…ô "
+"soketler avtomatik olaraq istifad…ô edil…ôc…ôkdir. Bu MySQL √ľ√ß√ľn lazńĪmi "
+"deyil, ancaq PstgreSQL kimi b…ôzi data baza serverl…ôri √ľ√ß√ľn lazńĪmdńĪr."
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Bir istifad…ô√ßi xarakter d…ôsti se√ßilm…ôlidir."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Bir data baza s√ľr√ľc√ľs√ľ se√ßilm…ôlidir."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Data baza adńĪ t…ôl…ôb olunur"
+
+msgid "installer.form.emailRequired"
+msgstr "ńįdar…ô√ßi hesabńĪ √ľ√ß√ľn etibarlńĪ bir email adresi t…ôl…ôb olunur"
+
+msgid "installer.form.usernameRequired"
+msgstr "ńįdar…ô√ßi hesabńĪ √ľ√ß√ľn bir istifad…ô√ßi adńĪ t…ôl…ôb olunur."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "Bir saat b√∂lg…ôsi se√ßilm…ôlidir."
+
+msgid "installer.installMigrationError"
+msgstr "<tt>{$class}</tt>'ńĪ danńĪŇüma sinif x…ôtasńĪ"
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Filtir konfiqurasiya faylńĪ <tt>{$file}</tt> f…ôrql…ôndirm…ô x…ôtasńĪ"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "ńįŇüar…ôl…ônmiŇü diller tamamlanmamńĪŇü ola bil…ôr"
+
+msgid "installer.publicFilesDirError"
+msgstr "√úmumi fayl indeksi m√∂vcud deyil v…ô ya yazńĪla bil…ôn deyil."
+
+msgid "installer.beacon.enable"
+msgstr ""
+"Sad…ôc…ô statistik v…ô t…ôhl√ľk…ôsizlik x…ôb…ôrdarlńĪńüńĪ √ľ√ß√ľn PKP-y…ô t…"
+"ôk say kimliyi v…ô OAI …ôsas URL-si yaradńĪn."
+
+msgid "installer.form.filesDirRequired"
+msgstr ""
+"Y√ľkl…ôn…ôn fayllarńĪ saxlamaq √ľ√ß√ľn istifad…ô edil…ôc…ôk indeks t…ôl…ôb "
+"olunur"
+
+msgid "installer.form.localeRequired"
+msgstr "Bir yer se√ßilm…ôlidir."
+
+msgid "installer.form.passwordRequired"
+msgstr "ńįdar…ô√ßi hesabńĪ √ľ√ß√ľn bir Ňüifr…ô t…ôl…ôb olunur"
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "ńįdar…ô√ßi Ňüifr…ôsi uyńüun g…ôlm…ôdi."
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+"ńįdar…ô√ßinin istifad…ô√ßi adńĪ sad…ôc…ô alfanumerik xarakterl…ôri, "
+"altdanx…ôtl…ôri v…ô tire simvollarńĪnńĪ ehtiva ed…ô bil…ôr v…ô m√ľtl…ôq bir "
+"alfanumerik xarakter il…ô baŇülayńĪb bitm…ôlidir."
+
+msgid "installer.installFileError"
+msgstr ""
+"<tt>dbscripts/xml/install.xml</tt> adlńĪ qurulma faylńĪ m√∂vcud deyil ya da "
+"oxuna bil…ôn deyil."
+
+msgid "installer.installFilesDirError"
+msgstr ""
+"Y√ľkl…ônmiŇü s…ôn…ôdrl…ôr…ô xas indeks m√∂vcud v…ô ya yazńĪla bil…ôn deyil."
+
+msgid "installer.installParseDBFileError"
+msgstr ""
+"<tt>{$file}</tt> adlńĪ data baza qurulma faylńĪnda f…ôrql…ôndirm…ô x…ôtasńĪ "
+"baŇü verdi."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr ""
+"<tt>{$file}</tt> adlńĪ email Ňüablon faylńĪnda f…ôrql…ôndirm…ô x…ôtasńĪ baŇü "
+"verdi"
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+"T…ôkmill…ôŇüdirm…ô d…ôst…ôkl…ônmir. ∆ŹtraflńĪ m…ôlumat √ľ√ß√ľn docs/UPGRADE-"
+"UNSUPPORTED s…ôn…ôdin…ô baxńĪn"
+
+msgid "installer.timezoneInstructions"
+msgstr "Bu sistem √ľ√ß√ľn istifad…ô edil…ôc…ôk saat b√∂lg…ôsi"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+"Bu saytda <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open "
+"Archives Initiative</a> √ľst data uyńüunlaŇüdńĪrma protokoluna uyńüun olaraq "
+"meta datalarńĪnńĪ t…ôrif etm…ôk √ľ√ß√ľn t…ôk bir t…ôrifetm…ô istifad…ô "
+"edilir."
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"Serverinizin PHP versiyasńĪ bu proqramńĪ d…ôst…ôkl…ômir. docs/README "
+"faylńĪndan quraŇüdńĪrma t…ôl…ôbl…ôrini yenid…ôn yoxlayńĪn."
+
+#, fuzzy
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. Aşağıdakı faylları və qovluqları (və onların məzmunu) yazmaq üçün "
+"mövcud olmalıdır:</p>\n"
+"\t\t<st>\n"
+"\t\t\t<li><tt>config.inc.php </tt> yazmaq üçün mövcuddur (isteğe bağlı): "
+"{$writable_config}</li>\n"
+"\t\t\t<li><tt>public/ </tt> yazmaq üçün mövcuddur: {$writable_public}</li>\n"
+"\t\t\t<li> <tt>cache/</ tt> yazmaq üçün mövcuddur: {$writable_cache}</li>\n"
+"\t\t\t<li> <tt>cache/t_cache/</tt> yazmaq üçün mövcuddur: "
+"{$writable_templates_cache}</li>\n"
+"\t\t\t<li> <tt>cache/t_compile/</tt> yazmaq üçün mövcuddur: "
+"{$writable_templates_compile}</li>\n"
+"\t\t\t<li> <tt>cache/_db</tt> yazmaq üçün mövcuddur: "
+"{$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. Yüklənmiş faylları saxlamaq və yazmaq üçün bir qovluq yaratmaq "
+"lazımdır (aşağıda \"fayl parametrləri\" nə baxın).</p>\n"
+"\t"

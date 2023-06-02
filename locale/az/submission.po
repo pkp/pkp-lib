@@ -2,7 +2,7 @@
 # Gadirova <leylakb@yahoo.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 20:57+0000\n"
+"PO-Revision-Date: 2023-06-02 22:43+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/az/>\n"
@@ -1333,7 +1333,7 @@ msgid "submission.list.confirmDelete"
 msgstr "Məqalə silinsinmi?"
 
 msgid "submission.list.viewAllSubmissions"
-msgstr "#YOX"
+msgstr "Bütün məqalələrə baxın"
 
 msgid "submission.list.viewSubmission"
 msgstr "Məqaləyə bax"

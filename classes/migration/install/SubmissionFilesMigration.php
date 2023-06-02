@@ -75,7 +75,6 @@ class SubmissionFilesMigration extends \PKP\migration\Migration
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
-            $table->string('setting_type', 6)->default('string')->comment('(bool|int|float|string|object|date)');
 
             $table->unique(['submission_file_id', 'locale', 'setting_name'], 'submission_file_settings_unique');
         });

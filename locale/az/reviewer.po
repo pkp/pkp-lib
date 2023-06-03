@@ -1,7 +1,7 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 19:20+0000\n"
+"PO-Revision-Date: 2023-06-03 08:38+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/az/>\n"
@@ -30,7 +30,7 @@ msgstr ""
 "dəqiqənizi sərf edin."
 
 msgid "reviewer.submission.competingInterests"
-msgstr "MaraqlarńĪn toqquŇümasńĪ"
+msgstr "Maraqların toqquşması"
 
 msgid "reviewer.submission.noGuidelines"
 msgstr "Bu naşir rəyçi bələdçiləri üçün heç bir tənzimləmə etmədi."
@@ -51,7 +51,7 @@ msgstr ""
 "yükləyin."
 
 msgid "reviewer.aboutDueDates"
-msgstr "Son tarixl…ôr haqqńĪnda"
+msgstr "Son tarixlər haqqında"
 
 msgid "reviewer.aboutDueDates.text"
 msgstr ""
@@ -60,7 +60,7 @@ msgstr ""
 "bitirməyinizi gözləyir."
 
 msgid "submission.comments.sendToReviewers"
-msgstr "R…ôy√ßil…ôr…ô G√∂nd…ôr"
+msgstr "Rəyçilərə Göndər"
 
 msgid "submission.comments.sendCopyToReviewers"
 msgstr ""
@@ -70,66 +70,64 @@ msgid "user.authorization.submissionReviewer"
 msgstr "Mövcud istifadəçi tələb olunan sənəd üçün rəyçi kimi təyin edilmədi."
 
 msgid "reviewer.reviewSteps.request"
-msgstr "1. T…ôl…ôb"
+msgstr "1. Tələb"
 
 msgid "reviewer.reviewSteps.guidelines"
-msgstr "2. b…ôl…ôd√ßil…ôr"
+msgstr "2. bələdçilər"
 
 msgid "reviewer.reviewSteps.download"
-msgstr "3. Endirm…ô v…ô BaxńĪŇülar"
+msgstr "3. Endirmə və Baxışlar"
 
 msgid "reviewer.reviewSteps.completion"
 msgstr "4. Tamamlama"
 
 msgid "reviewer.step1.request"
-msgstr "D…ôy…ôrl…ôndirm…ô t…ôl…ôbi"
+msgstr "Dəyərləndirmə tələbi"
 
 msgid "reviewer.step1.viewAllDetails"
-msgstr "B√ľt√ľn namiz…ôd m…ôqal…ôl…ôrin t…ôf…ôrr√ľatlarńĪna baxńĪn"
+msgstr "Bütün namizəd məqalələrin təfərrüatlarına baxın"
 
 msgid "reviewer.submission.reviewerFiles"
-msgstr "D…ôy…ôrl…ôndirm…ô fayllarńĪ"
+msgstr "Dəyərləndirmə faylları"
 
 msgid "reviewer.submission.declineReview"
-msgstr "D…ôy…ôrl…ôndirm…ô t…ôl…ôbini r…ôdd edin"
+msgstr "Dəyərləndirmə tələbini rədd edin"
 
 msgid "reviewer.submission.acceptReview"
-msgstr "AddńĪm # 2-y…ô ke√ß…ô bilm…ôk √ľ√ß√ľn d…ôy…ôrl…ôndirm…ôni q…ôbul et"
+msgstr "Addım # 2-yə keçə bilmək üçün dəyərləndirməni qəbul et"
 
 msgid "reviewer.submission.continueToStepThree"
-msgstr "AddńĪm #3 √ľ√ß√ľn davam edin"
+msgstr "Addım #3 üçün davam edin"
 
 msgid "reviewer.submission.submitReview"
-msgstr "D…ôy…ôrl…ôndirm…ôni g√∂nd…ôr"
+msgstr "Dəyərləndirməni göndər"
 
 msgid "reviewer.submission.saveReviewForLater"
-msgstr "Sonra √ľ√ß√ľn saxlayńĪn"
+msgstr "Sonra üçün saxlayın"
 
 msgid "reviewer.submission.reviewerGuidelines"
-msgstr "r…ôy√ßi b…ôl…ôd√ßil…ôri"
+msgstr "rəyçi bələdçiləri"
 
 msgid "reviewer.submission.noCompetingInterests"
-msgstr "h…ôr hansńĪ bir m…ônf…ô…ôt m√ľnaqiŇü…ôm yoxdur"
+msgstr "hər hansı bir mənfəət münaqişəm yoxdur"
 
 msgid "reviewer.submission.hasCompetingInterests"
-msgstr ""
-"R…ôqab…ôt ed…ô bil…ôn m…ônf…ô…ôt m√ľnaqiŇü…ôl…ôrim ola bil…ôr (AŇüańüńĪda "
-"qeyd edin)"
+msgstr "Rəqabət edə bilən mənfəət münaqişələrim ola bilər (Aşağıda qeyd edin)"
 
 msgid "reviewer.submission.guidelines"
-msgstr "R…ôy√ßi b…ôl…ôd√ßil…ôri"
+msgstr "Rəyçi bələdçiləri"
 
 msgid "reviewer.complete"
-msgstr "D…ôy…ôrl…ôndirm…ô g√∂nd…ôrildi"
+msgstr "Dəyərləndirmə göndərildi"
 
 msgid "reviewer.confirmSubmit"
-msgstr "Bu d…ôy…ôrl…ôndirm…ôni g√∂nd…ôrm…ôk ist…ôdiyinizd…ôn …ôminsinizmi?"
+msgstr "Bu dəyərləndirməni göndərmək istədiyinizdən əminsinizmi?"
 
 msgid "submission.comments.canShareWithAuthor"
-msgstr "Redaktor v…ô M√ľ…ôllif √ľ√ß√ľn"
+msgstr "Redaktor və Müəllif üçün"
 
 msgid "submission.comments.cannotShareWithAuthor"
-msgstr "Sad…ôc…ô redaktor √ľ√ß√ľn"
+msgstr "Sadəcə redaktor üçün"
 
 msgid "reviewer.complete.whatNext"
 msgstr ""

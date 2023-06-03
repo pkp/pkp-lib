@@ -1,7 +1,7 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-03 08:38+0000\n"
+"PO-Revision-Date: 2023-06-03 13:08+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/az/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.website.appearance"
-msgstr "Görünüş {$Display} nəfərdir)"
+msgstr "Görünüş"
 
 msgid "manager.people.enrollment"
 msgstr "Qeydiyyat"

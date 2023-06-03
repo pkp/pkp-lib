@@ -1,7 +1,7 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 20:57+0000\n"
+"PO-Revision-Date: 2023-06-03 08:38+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/az/>\n"
@@ -13,214 +13,206 @@ msgstr ""
 "X-Generator: Weblate 4.13.1\n"
 
 msgid "installer.localeSettings"
-msgstr "Yerli t…ônziml…ôr"
+msgstr "Yerli tənzimlər"
 
 msgid "installer.releaseNotes"
-msgstr "Versiya qeydl…ôri"
+msgstr "Versiya qeydləri"
 
 msgid "installer.configureXSLMessage"
 msgstr ""
-"<p>PHP quraŇüdńĪrmanńĪzda XSL modulu affektiv deyil. Bunu aktivl…ôŇüdirin v…"
-"ô ya config.inc.php dosyanńĪzda xslt_command t…ônzimini konfiqurasiya edin. "
-"</p>"
+"<p>PHP quraşdırmanızda XSL modulu affektiv deyil. Bunu aktivləşdirin və ya "
+"config.inc.php dosyanızda xslt_command tənzimini konfiqurasiya edin. </p>"
 
 msgid "installer.beacon"
-msgstr "G√∂st…ôrici"
+msgstr "Göstərici"
 
 msgid "installer.additionalLocales"
-msgstr "∆Źlav…ô dill…ôr"
+msgstr "Əlavə dillər"
 
 msgid "installer.administratorAccount"
-msgstr "ńįdar…ô√ßi hesabńĪ"
+msgstr "İdarəçi hesabı"
 
 msgid "installer.checkNo"
 msgstr "<span class=\"pkp_form_error formError\">HAYIR</span>"
 
 msgid "installer.checkYes"
-msgstr "B…ôli"
+msgstr "Bəli"
 
 msgid "installer.connectionCharset"
-msgstr "BańülantńĪ xarakteri d…ôst"
+msgstr "Bağlantı xarakteri dəst"
 
 msgid "installer.contentsOfConfigFile"
-msgstr "Konfiqurasiya faylńĪnńĪn m…ôzmunu"
+msgstr "Konfiqurasiya faylının məzmunu"
 
 msgid "installer.databaseDriver"
-msgstr "Data baza s√ľr√ľc√ľs√ľ"
+msgstr "Data baza sürücüsü"
 
 msgid "installer.databaseDriverInstructions"
 msgstr ""
-"<strong>Sistem hazńĪrda MySQL v…ô PostgreSQL-i d…ôst…ôkl…ôyir, aŇüańüńĪdakńĪ "
-"se√ßiml…ôrd…ôn birini se√ßm…ôdiyiniz halda, serverinizin lazńĪmi PHP "
-"uzantńĪlarńĪna sahib olduńüuna …ômin olduńüundan …ômin olmaq √ľ√ß√ľn sistem "
-"idar…ô√ßinizl…ô …ôlaq…ô saxlayńĪn.</strong>"
+"<strong>Sistem hazırda MySQL və PostgreSQL-i dəstəkləyir, aşağıdakı "
+"seçimlərdən birini seçmədiyiniz halda, serverinizin lazımi PHP uzantılarına "
+"sahib olduğuna əmin olduğundan əmin olmaq üçün sistem idarəçinizlə əlaqə "
+"saxlayın.</strong>"
 
 msgid "installer.databaseHost"
-msgstr "Ana komp√ľter"
+msgstr "Ana kompüter"
 
 msgid "installer.databaseName"
-msgstr "Data baza adńĪ"
+msgstr "Data baza adı"
 
 msgid "installer.databasePassword"
-msgstr "Ňěifr…ô"
+msgstr "Şifrə"
 
 msgid "installer.databaseSettings"
-msgstr "Data baza t…ônziml…ôri"
+msgstr "Data baza tənzimləri"
 
 msgid "installer.databaseUsername"
-msgstr "ńįstifad…ô√ßi adńĪ"
+msgstr "İstifadəçi adı"
 
 msgid "installer.filesDir"
-msgstr "Y√ľkl…ôm…ôl…ôr √ľ√ß√ľn indeks"
+msgstr "Yükləmələr üçün indeks"
 
 msgid "installer.fileSettings"
-msgstr "Fayl t…ônziml…ôri"
+msgstr "Fayl tənzimləri"
 
 msgid "installer.form.separateMultiple"
-msgstr "√áoxlu d…ôy…ôrl…ôri verg√ľll…ô ayńĪrńĪn"
+msgstr "Çoxlu dəyərləri vergüllə ayırın"
 
 msgid "installer.installationWrongPhp"
 msgstr ""
-"<br/><strong>X∆ŹB∆ŹRDARLIQ: istifad…ô etdiyiniz PHP versiyasńĪ qurulumu √ľ√ß√"
-"ľn minimum t…ôl…ôbl…ôri qarŇüńĪlamńĪr. Daha g√ľnc…ôl bir PHP versiyasńĪ "
-"y√ľkl…ôm…ôyiniz t√∂vsiy…ô olunur.</strong>"
+"<br/><strong>XƏBƏRDARLIQ: istifadə etdiyiniz PHP versiyası qurulumu üçün "
+"minimum tələbləri qarşılamır. Daha güncəl bir PHP versiyası yükləməyiniz "
+"tövsiyə olunur.</strong>"
 
 msgid "installer.installErrorsOccurred"
-msgstr "Y√ľkl…ôm…ô zamanńĪ x…ôta baŇü verdi"
+msgstr "Yükləmə zamanı xəta baş verdi"
 
 msgid "installer.installerSQLStatements"
-msgstr "QuraŇüdńĪrma √ľ√ß√ľn SQL a√ßńĪqlamalarńĪ"
+msgstr "Quraşdırma üçün SQL açıqlamaları"
 
 msgid "installer.additionalLocalesInstructions"
 msgstr ""
-"Bu sistemd…ô d…ôst…ôkl…ôn…ôc…ôk dig…ôr dill…ôri se√ßin. ńįdar…ô ara √ľz√ľnd…"
-"ôn h…ôr hansńĪ bir zamanda …ôlav…ô dill…ôr d…ô y√ľkl…ôn…ô bil…ôr. <br>* = "
-"B√ľt√∂v olaraq t…ôrc√ľm…ô edilm…ômiŇü dill…ôr g√∂st…ôrir (terminl…ôrin > "
-"%90'ńĪ t…ôrc√ľm…ô edilmiŇüdir)"
+"Bu sistemdə dəstəklənəcək digər dilləri seçin. İdarə ara üzündən hər hansı "
+"bir zamanda əlavə dillər də yüklənə bilər. <br>* = Bütöv olaraq tərcümə "
+"edilməmiş dillər göstərir (terminlərin > %90'ı tərcümə edilmişdir)"
 
 msgid "installer.locale"
-msgstr "QuraŇüdńĪrma dili yeri"
+msgstr "Quraşdırma dili yeri"
 
 msgid "installer.oaiSettings"
-msgstr "OAI t…ônziml…ôri"
+msgstr "OAI tənzimləri"
 
 msgid "installer.oaiRepositoryId"
-msgstr "Korporativ Arxiv m√ľ…ôyy…ônl…ôŇüdirici"
+msgstr "Korporativ Arxiv müəyyənləşdirici"
 
 msgid "installer.preInstallationInstructionsTitle"
-msgstr "√Ėn y√ľkl…ôm…ô addńĪmlarńĪ"
+msgstr "Ön yükləmə addımları"
 
 msgid "installer.administratorAccountInstructions"
 msgstr ""
-"Bu istifad…ô√ßi hesabńĪ sayt idar…ô√ßisi olacaq v…ô sistem…ô tam giriŇü "
-"s…ôlahiyy…ôti olacaqdńĪr. ∆Źlav…ô istifad…ô√ßi hesablarńĪ qurulumdan sonra "
-"formalaŇüdńĪrńĪla bil…ôr."
+"Bu istifadəçi hesabı sayt idarəçisi olacaq və sistemə tam giriş səlahiyyəti "
+"olacaqdır. Əlavə istifadəçi hesabları qurulumdan sonra formalaşdırıla bilər."
 
 msgid "installer.configFileError"
 msgstr ""
-"<tt config.inc.php</tt> adlńĪ konfiqurasiya faylńĪ yoxdur v…ô ya oxuna bil…"
-"ôn deyil"
+"<tt config.inc.php</tt> adlı konfiqurasiya faylı yoxdur və ya oxuna bilən "
+"deyil"
 
 msgid "installer.databaseHostInstructions"
 msgstr ""
-"Sah…ô (domain) soketleri yerin…ô TCP/IP √ľz…ôrind…ôn qoŇüulmaq √ľ√ß√ľn "
-"\"hostname\"i boŇü buraxńĪn. \"localhost\" m…ôlumatńĪ daxil edildis…ô "
-"soketler avtomatik olaraq istifad…ô edil…ôc…ôkdir. Bu MySQL √ľ√ß√ľn lazńĪmi "
-"deyil, ancaq PstgreSQL kimi b…ôzi data baza serverl…ôri √ľ√ß√ľn lazńĪmdńĪr."
+"Sahə (domain) soketleri yerinə TCP/IP üzərindən qoşulmaq üçün \"hostname\"i "
+"boş buraxın. \"localhost\" məlumatı daxil edildisə soketler avtomatik olaraq "
+"istifadə ediləcəkdir. Bu MySQL üçün lazımi deyil, ancaq PstgreSQL kimi bəzi "
+"data baza serverləri üçün lazımdır."
 
 msgid "installer.form.clientCharsetRequired"
-msgstr "Bir istifad…ô√ßi xarakter d…ôsti se√ßilm…ôlidir."
+msgstr "Bir istifadəçi xarakter dəsti seçilməlidir."
 
 msgid "installer.form.databaseDriverRequired"
-msgstr "Bir data baza s√ľr√ľc√ľs√ľ se√ßilm…ôlidir."
+msgstr "Bir data baza sürücüsü seçilməlidir."
 
 msgid "installer.form.databaseNameRequired"
-msgstr "Data baza adńĪ t…ôl…ôb olunur"
+msgstr "Data baza adı tələb olunur"
 
 msgid "installer.form.emailRequired"
-msgstr "ńįdar…ô√ßi hesabńĪ √ľ√ß√ľn etibarlńĪ bir email adresi t…ôl…ôb olunur"
+msgstr "İdarəçi hesabı üçün etibarlı bir email adresi tələb olunur"
 
 msgid "installer.form.usernameRequired"
-msgstr "ńįdar…ô√ßi hesabńĪ √ľ√ß√ľn bir istifad…ô√ßi adńĪ t…ôl…ôb olunur."
+msgstr "İdarəçi hesabı üçün bir istifadəçi adı tələb olunur."
 
 msgid "installer.form.timeZoneRequired"
-msgstr "Bir saat b√∂lg…ôsi se√ßilm…ôlidir."
+msgstr "Bir saat bölgəsi seçilməlidir."
 
 msgid "installer.installMigrationError"
-msgstr "<tt>{$class}</tt>'ńĪ danńĪŇüma sinif x…ôtasńĪ"
+msgstr "<tt>{$class}</tt>'ı danışma sinif xətası"
 
 msgid "installer.installParseFilterConfigFileError"
-msgstr "Filtir konfiqurasiya faylńĪ <tt>{$file}</tt> f…ôrql…ôndirm…ô x…ôtasńĪ"
+msgstr "Filtir konfiqurasiya faylı <tt>{$file}</tt> fərqləndirmə xətası"
 
 msgid "installer.locale.maybeIncomplete"
-msgstr "ńįŇüar…ôl…ônmiŇü diller tamamlanmamńĪŇü ola bil…ôr"
+msgstr "İşarələnmiş diller tamamlanmamış ola bilər"
 
 msgid "installer.publicFilesDirError"
-msgstr "√úmumi fayl indeksi m√∂vcud deyil v…ô ya yazńĪla bil…ôn deyil."
+msgstr "Ümumi fayl indeksi mövcud deyil və ya yazıla bilən deyil."
 
 msgid "installer.beacon.enable"
 msgstr ""
-"Sad…ôc…ô statistik v…ô t…ôhl√ľk…ôsizlik x…ôb…ôrdarlńĪńüńĪ √ľ√ß√ľn PKP-y…ô t…"
-"ôk say kimliyi v…ô OAI …ôsas URL-si yaradńĪn."
+"Sadəcə statistik və təhlükəsizlik xəbərdarlığı üçün PKP-yə tək say kimliyi "
+"və OAI əsas URL-si yaradın."
 
 msgid "installer.form.filesDirRequired"
-msgstr ""
-"Y√ľkl…ôn…ôn fayllarńĪ saxlamaq √ľ√ß√ľn istifad…ô edil…ôc…ôk indeks t…ôl…ôb "
-"olunur"
+msgstr "Yüklənən faylları saxlamaq üçün istifadə ediləcək indeks tələb olunur"
 
 msgid "installer.form.localeRequired"
-msgstr "Bir yer se√ßilm…ôlidir."
+msgstr "Bir yer seçilməlidir."
 
 msgid "installer.form.passwordRequired"
-msgstr "ńįdar…ô√ßi hesabńĪ √ľ√ß√ľn bir Ňüifr…ô t…ôl…ôb olunur"
+msgstr "İdarəçi hesabı üçün bir şifrə tələb olunur"
 
 msgid "installer.form.passwordsDoNotMatch"
-msgstr "ńįdar…ô√ßi Ňüifr…ôsi uyńüun g…ôlm…ôdi."
+msgstr "İdarəçi şifrəsi uyğun gəlmədi."
 
 msgid "installer.form.usernameAlphaNumeric"
 msgstr ""
-"ńįdar…ô√ßinin istifad…ô√ßi adńĪ sad…ôc…ô alfanumerik xarakterl…ôri, "
-"altdanx…ôtl…ôri v…ô tire simvollarńĪnńĪ ehtiva ed…ô bil…ôr v…ô m√ľtl…ôq bir "
-"alfanumerik xarakter il…ô baŇülayńĪb bitm…ôlidir."
+"İdarəçinin istifadəçi adı sadəcə alfanumerik xarakterləri, altdanxətləri və "
+"tire simvollarını ehtiva edə bilər və mütləq bir alfanumerik xarakter ilə "
+"başlayıb bitməlidir."
 
 msgid "installer.installFileError"
 msgstr ""
-"<tt>dbscripts/xml/install.xml</tt> adlńĪ qurulma faylńĪ m√∂vcud deyil ya da "
-"oxuna bil…ôn deyil."
+"<tt>dbscripts/xml/install.xml</tt> adlı qurulma faylı mövcud deyil ya da "
+"oxuna bilən deyil."
 
 msgid "installer.installFilesDirError"
-msgstr ""
-"Y√ľkl…ônmiŇü s…ôn…ôdrl…ôr…ô xas indeks m√∂vcud v…ô ya yazńĪla bil…ôn deyil."
+msgstr "Yüklənmiş sənədrlərə xas indeks mövcud və ya yazıla bilən deyil."
 
 msgid "installer.installParseDBFileError"
 msgstr ""
-"<tt>{$file}</tt> adlńĪ data baza qurulma faylńĪnda f…ôrql…ôndirm…ô x…ôtasńĪ "
-"baŇü verdi."
+"<tt>{$file}</tt> adlı data baza qurulma faylında fərqləndirmə xətası baş "
+"verdi."
 
 msgid "installer.installParseEmailTemplatesFileError"
 msgstr ""
-"<tt>{$file}</tt> adlńĪ email Ňüablon faylńĪnda f…ôrql…ôndirm…ô x…ôtasńĪ baŇü "
-"verdi"
+"<tt>{$file}</tt> adlı email şablon faylında fərqləndirmə xətası baş verdi"
 
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
-"T…ôkmill…ôŇüdirm…ô d…ôst…ôkl…ônmir. ∆ŹtraflńĪ m…ôlumat √ľ√ß√ľn docs/UPGRADE-"
-"UNSUPPORTED s…ôn…ôdin…ô baxńĪn"
+"Təkmilləşdirmə dəstəklənmir. Ətraflı məlumat üçün docs/UPGRADE-UNSUPPORTED "
+"sənədinə baxın"
 
 msgid "installer.timezoneInstructions"
-msgstr "Bu sistem √ľ√ß√ľn istifad…ô edil…ôc…ôk saat b√∂lg…ôsi"
+msgstr "Bu sistem üçün istifadə ediləcək saat bölgəsi"
 
 msgid "installer.oaiRepositoryIdInstructions"
 msgstr ""
 "Bu saytda <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open "
-"Archives Initiative</a> √ľst data uyńüunlaŇüdńĪrma protokoluna uyńüun olaraq "
-"meta datalarńĪnńĪ t…ôrif etm…ôk √ľ√ß√ľn t…ôk bir t…ôrifetm…ô istifad…ô "
-"edilir."
+"Archives Initiative</a> üst data uyğunlaşdırma protokoluna uyğun olaraq meta "
+"datalarını tərif etmək üçün tək bir tərifetmə istifadə edilir."
 
 msgid "installer.unsupportedPhpError"
 msgstr ""
-"Serverinizin PHP versiyasńĪ bu proqramńĪ d…ôst…ôkl…ômir. docs/README "
-"faylńĪndan quraŇüdńĪrma t…ôl…ôbl…ôrini yenid…ôn yoxlayńĪn."
+"Serverinizin PHP versiyası bu proqramı dəstəkləmir. docs/README faylından "
+"quraşdırma tələblərini yenidən yoxlayın."
 
 #, fuzzy
 msgid "installer.preInstallationInstructions"

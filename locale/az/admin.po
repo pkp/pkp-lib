@@ -2,7 +2,7 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 22:43+0000\n"
+"PO-Revision-Date: 2023-06-03 08:38+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/az/>\n"
@@ -14,45 +14,44 @@ msgstr ""
 "X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.systemInfo.settingName"
-msgstr "Adı t…ôyin edin"
+msgstr "Adı təyin edin"
 
 msgid "admin.systemInfo.settingValue"
-msgstr "D…ôy…ôri t…ôyin edin"
+msgstr "Dəyəri təyin edin"
 
 msgid "admin.adminFunctions"
 msgstr "İnzibati funksiyalar"
 
 msgid "admin.deleteCache"
-msgstr "Keşl…ôri silin"
+msgstr "Keşləri silin"
 
 msgid "admin.deleteCache.description"
 msgstr ""
-"Keş fayllarını sistemd…ôn silir. Bu, yalnız inkişaf üçün ustifad…ô edil…ôn "
-"serverl…ôrind…ô edilm…ôlidir."
+"Keş fayllarını sistemdən silir. Bu, yalnız inkişaf üçün ustifadə edilən "
+"serverlərində edilməlidir."
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr ""
-"Konfiqurasiya faylınız uğurla yenil…ôndi. N…ôz…ôr…ô alın ki, saytınız düzgün "
-"işl…ôm…ôyi dayandırarsa, birbaşa <tt>config.inc.php</tt> redakt…ô ed…ôr…ôk "
-"konfiqurasiyanızı …ôl il…ô düz…ôltm…ôli ola bil…ôrsiniz."
+"Konfiqurasiya faylınız uğurla yeniləndi. Nəzərə alın ki, saytınız düzgün "
+"işləməyi dayandırarsa, birbaşa <tt>config.inc.php</tt> redaktə edərək "
+"konfiqurasiyanızı əl ilə düzəltməli ola bilərsiniz."
 
 msgid "admin.confirmClearTemplateCache"
-msgstr ""
-"T…ôrtib edilmiş şablonların keşini t…ômizl…ôm…ôk ist…ôdiyiniz…ô …ôminsiniz?"
+msgstr "Tərtib edilmiş şablonların keşini təmizləmək istədiyinizə əminsiniz?"
 
 msgid "admin.confirmExpireSessions"
 msgstr ""
-"Bütün istifad…ôçil…ôrin sessiyalarının müdd…ôtini başa vurmaq ist…ôdiyiniz…ô "
-"…ôminsiniz? Hazırda sistem…ô daxil olan bütün istifad…ôçil…ôr yenid…ôn daxil "
-"olmağa m…ôcbur olacaqlar (siz d…ô daxil olmaqla)."
+"Bütün istifadəçilərin sessiyalarının müddətini başa vurmaq istədiyinizə "
+"əminsiniz? Hazırda sistemə daxil olan bütün istifadəçilər yenidən daxil "
+"olmağa məcbur olacaqlar (siz də daxil olmaqla)."
 
 msgid "admin.contentsOfConfigFile"
-msgstr "Konfiqurasiya faylının m…ôzmunu"
+msgstr "Konfiqurasiya faylının məzmunu"
 
 msgid "admin.contexts.confirmDelete"
 msgstr ""
-"{$contextName} v…ô onun bütün m…ôzmununu bird…ôf…ôlik silm…ôk ist…ôdiyiniz…ô "
-"…ôminsiniz?"
+"{$contextName} və onun bütün məzmununu birdəfəlik silmək istədiyinizə "
+"əminsiniz?"
 
 msgid "admin.currentVersion"
 msgstr "Cari versiya"
@@ -62,33 +61,33 @@ msgstr "Quraşdırılma tarixi"
 
 msgid "admin.displayConfigFileInstructions"
 msgstr ""
-"Yenil…ônmiş konfiqurasiyanın m…ôzmunu aşağıda göst…ôrilmişdir. "
-"Konfiqurasiyaya d…ôyişiklikl…ôri t…ôtbiq etm…ôk üçün siz uyğun m…ôtn "
-"redaktorunda <tt>config.inc.php</tt> açmalı v…ô onun m…ôzmununu aşağıdakı m…"
-"ôtn sah…ôsinin m…ôzmunu il…ô …ôv…ôz etm…ôlisiniz."
+"Yenilənmiş konfiqurasiyanın məzmunu aşağıda göstərilmişdir. Konfiqurasiyaya "
+"dəyişiklikləri tətbiq etmək üçün siz uyğun mətn redaktorunda <tt>config.inc."
+"php</tt> açmalı və onun məzmununu aşağıdakı mətn sahəsinin məzmunu ilə əvəz "
+"etməlisiniz."
 
 msgid "admin.displayNewSystemConfig"
-msgstr "Yeni Konfiqurasiyanı göst…ôrin"
+msgstr "Yeni Konfiqurasiyanı göstərin"
 
 msgid "admin.expireSessions"
-msgstr "İstifad…ôçi sessiyalarını dayandırın"
+msgstr "İstifadəçi sessiyalarını dayandırın"
 
 msgid "admin.expireSessions.description"
 msgstr ""
-"Siz d…ô daxil olmaqla, bütün istifad…ôçil…ôr proqramdan d…ôrhal çıxacaqlar v…"
-"ô yenid…ôn daxil olmaq m…ôcburiyy…ôtind…ô qalacaqsınız."
+"Siz də daxil olmaqla, bütün istifadəçilər proqramdan dərhal çıxacaqlar və "
+"yenidən daxil olmaq məcburiyyətində qalacaqsınız."
 
 msgid "admin.languages.confirmReload"
 msgstr ""
-"Bu dili yenid…ôn endirm…ôk ist…ôdiyiniz…ô …ôminsiniz? Bu, e-poçt "
-"şablonlarına edil…ôn d…ôyişiklikl…ôr kimi h…ômin dill…ô …ôlaq…ôli bütün "
-"istifad…ôçi m…ôlumatlarını sil…ôc…ôk."
+"Bu dili yenidən endirmək istədiyinizə əminsiniz? Bu, e-poçt şablonlarına "
+"edilən dəyişikliklər kimi həmin dillə əlaqəli bütün istifadəçi məlumatlarını "
+"siləcək."
 
 msgid "admin.languages.installedLocales"
-msgstr "Quraşdırılmış Dill…ôr"
+msgstr "Quraşdırılmış Dillər"
 
 msgid "admin.languages.installLanguages"
-msgstr "Dill…ôri idar…ô edin"
+msgstr "Dilləri idarə edin"
 
 msgid "admin.languages.installLocale"
 msgstr "Dili quraşdırın"
@@ -97,22 +96,22 @@ msgid "admin.languages.installLocales"
 msgstr "Quraşdırın"
 
 msgid "admin.languages.installNewLocales"
-msgstr "Yeni Dill…ôri quraşdırın"
+msgstr "Yeni Dilləri quraşdırın"
 
 msgid "admin.languages.languageSettings"
-msgstr "Dil Parametrl…ôri"
+msgstr "Dil Parametrləri"
 
 msgid "admin.languages.noLocalesAvailable"
-msgstr "Quraşdırma üçün …ôlav…ô dil mövcud deyil."
+msgstr "Quraşdırma üçün əlavə dil mövcud deyil."
 
 msgid "admin.languages.reload"
-msgstr "Dili yenid…ôn yükl…ôyin"
+msgstr "Dili yenidən yükləyin"
 
 msgid "admin.languages.uninstall"
 msgstr "Dili silin"
 
 msgid "admin.phpInfo"
-msgstr "Genişl…ôndirilmiş PHP M…ôlumatı"
+msgstr "Genişləndirilmiş PHP Məlumatı"
 
 msgid "admin.scheduledTask"
 msgstr "Planlaşdırılmış tapşırıq"
@@ -124,81 +123,79 @@ msgid "admin.scheduledTask.stopTime"
 msgstr "Tapşırıq prosesi dayandırıldı."
 
 msgid "admin.scheduledTask.noLog"
-msgstr "Tapşırıq hadis…ô jurnalı üçün qeydl…ôr yaratmadı."
+msgstr "Tapşırıq hadisə jurnalı üçün qeydlər yaratmadı."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr "DOI-ni konfiqurasiya edilmiş qeydiyyat agentliyin…ô depozit edin"
+msgstr "DOI-ni konfiqurasiya edilmiş qeydiyyat agentliyinə depozit edin"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
-"{$softwareName} quraşdırmanız bu tapşırığı avtomatik yerin…ô yetirdi v…ô "
-"tamamladı v…ô hadis…ô jurnalının (log) faylını buradan endir…ô bil…ôrsiniz: "
+"{$softwareName} quraşdırmanız bu tapşırığı avtomatik yerinə yetirdi və "
+"tamamladı və hadisə jurnalının (log) faylını buradan endirə bilərsiniz: "
 "{$url}"
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
-"Redaktorlara onların gözl…ônil…ôn tapşırıqlarını xatırladan e-poçt gönd…ôrin"
+"Redaktorlara onların gözlənilən tapşırıqlarını xatırladan e-poçt göndərin"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
 msgstr ""
-"{$contextId} kontekstind…ô xatırlatmaq üçün redaktorların mü…ôyy…ôn edilm…ôsi"
+"{$contextId} kontekstində xatırlatmaq üçün redaktorların müəyyən edilməsi"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
-"{$contextId} kontekstind…ô {$userIds} istifad…ôçil…ôrin…ô redaksiya işi "
-"haqqında xatırlatma il…ô {$count} e-m…ôktub gönd…ôrildi"
+"{$contextId} kontekstində {$userIds} istifadəçilərinə redaksiya işi haqqında "
+"xatırlatma ilə {$count} e-məktub göndərildi"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
-"Planlaşdırılmış tapşırıqların icrası haqqında m…ôlumatı ehtiva ed…ôn bütün "
-"hadis…ô qeydl…ôrini silm…ôk ist…ôdiyiniz…ô …ôminsiniz?"
+"Planlaşdırılmış tapşırıqların icrası haqqında məlumatı ehtiva edən bütün "
+"hadisə qeydlərini silmək istədiyinizə əminsiniz?"
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr "Tapşırıq Qeydl…ôrini silin"
+msgstr "Tapşırıq Qeydlərini silin"
 
 msgid "admin.scheduledTask.reviewReminder"
-msgstr "R…ôyçiy…ô Xatırlatma"
+msgstr "Rəyçiyə Xatırlatma"
 
 msgid "admin.scheduledTask.statisticsReport"
 msgstr "Redaksiya Hesabatına dair Bildiriş"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "Abun…ôlik müdd…ôtinin bitm…ôsi bar…ôd…ô xatırlatma"
+msgstr "Abunəlik müddətinin bitməsi barədə xatırlatma"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
 msgstr ""
-"Mü…ôyy…ôn bir müdd…ôt …ôrzind…ô autentifikasiya olunmamış istifad…ôçil…ôri "
-"silin"
+"Müəyyən bir müddət ərzində autentifikasiya olunmamış istifadəçiləri silin"
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr "Növb…ôd…ô gözl…ôy…ôn işl…ôrin emalı"
+msgstr "Növbədə gözləyən işlərin emalı"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr "DB-IP city lite m…ôlumat bazasını yenil…ôm…ôsi"
+msgstr "DB-IP city lite məlumat bazasını yeniləməsi"
 
 msgid "admin.languages.cantDisable"
 msgstr ""
-"Bu dil saytın …ôsas dilidir. Başqa …ôsas dil seç…ôn…ô q…ôd…ôr onu söndür…ô "
-"bilm…ôzsiniz."
+"Bu dil saytın əsas dilidir. Başqa əsas dil seçənə qədər onu söndürə "
+"bilməzsiniz."
 
 msgid "admin.languages.availableLocales"
-msgstr "Mövcud Dill…ôr"
+msgstr "Mövcud Dillər"
 
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""
-"Saytın …ôsas dilini d…ôyişm…ôk ist…ôdiyiniz…ô …ôminsiniz? Saytın …ôsas "
-"dilind…ô qeyd edilm…ôli olan istifad…ôçi adları, bu cür adlar saytın yeni …"
-"ôsas dilind…ô mövcud olmadıqda, cari …ôsas dild…ôn yenisin…ô kopyalanacaq."
+"Saytın əsas dilini dəyişmək istədiyinizə əminsiniz? Saytın əsas dilində qeyd "
+"edilməli olan istifadəçi adları, bu cür adlar saytın yeni əsas dilində "
+"mövcud olmadıqda, cari əsas dildən yenisinə kopyalanacaq."
 
 msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
-"Bütün işl…ôy…ôn planlaşdırılan tapşırıq prosesl…ôrinin qeydl…ôrini silin."
+msgstr "Bütün işləyən planlaşdırılan tapşırıq proseslərinin qeydlərini silin."
 
 msgid "admin.scheduledTask.publishSubmissions"
-msgstr "N…ôşr üçün n…ôz…ôrd…ô tutulmuş materialları d…ôrc edin"
+msgstr "Nəşr üçün nəzərdə tutulmuş materialları dərc edin"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr "Çox köhn…ô uğursuz işl…ôri x…ôtalar siyahısından çıxarın."
+msgstr "Çox köhnə uğursuz işləri xətalar siyahısından çıxarın."
 
 msgid "admin.settings.about"
 msgstr "Sayt haqqında"
@@ -207,16 +204,16 @@ msgid "admin.settings.enableBulkEmails.label"
 msgstr "Kollektiv email"
 
 msgid "admin.settings.contactEmail"
-msgstr "Əsas …ôlaq…ô email adresi"
+msgstr "Əsas əlaqə email adresi"
 
 msgid "admin.settings.contactName"
-msgstr "Əlaq…ô üçün …ôsas ş…ôxsin adı"
+msgstr "Əlaqə üçün əsas şəxsin adı"
 
 msgid "admin.settings.introduction"
 msgstr "Giriş"
 
 msgid "admin.settings.restrictBulkEmails"
-msgstr "Kollektiv emaill…ôri m…ôhdudlaşdırın"
+msgstr "Kollektiv emailləri məhdudlaşdırın"
 
 msgid "admin.settings.disableBulkEmailRoles.label"
 msgstr "Rolları deaktiv edin"
@@ -237,28 +234,28 @@ msgid "admin.settings.siteTheme"
 msgstr "Sayt teması"
 
 msgid "admin.siteAdmin"
-msgstr "Saytın idar…ô edilm…ôsi"
+msgstr "Saytın idarə edilməsi"
 
 msgid "admin.siteManagement"
-msgstr "Saytın idar…ô edilm…ôsi"
+msgstr "Saytın idarə edilməsi"
 
 msgid "admin.siteSettings"
-msgstr "Sayt t…ônziml…ôri"
+msgstr "Sayt tənzimləri"
 
 msgid "admin.siteSetup"
 msgstr "Saytın quraşdırılması"
 
 msgid "admin.systemInformation"
-msgstr "Sistem haqqında m…ôlumat"
+msgstr "Sistem haqqında məlumat"
 
 msgid "admin.systemInformation.view"
-msgstr "Sistem m…ôlumatlarına baxın"
+msgstr "Sistem məlumatlarına baxın"
 
 msgid "admin.versionBuild"
-msgstr "T…ôrtibetm…ô"
+msgstr "Tərtibetmə"
 
 msgid "admin.version.checkForUpdates"
-msgstr "Yenil…ôm…ôl…ôri yoxlayın"
+msgstr "Yeniləmələri yoxlayın"
 
 msgid "admin.version.downloadPackage"
 msgstr "Endirin"
@@ -267,82 +264,81 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
 msgstr "ID"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr "S…ôhif…ôl…ôm…ô"
+msgstr "Səhifələmə"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr "Son nömr…ô"
+msgstr "Son nömrə"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr "Əvv…ôlki s…ôhif…ô"
+msgstr "Əvvəlki səhifə"
 
 msgid "admin.cli.tool.jobs.pagination.next"
 msgstr "Sonrakı"
 
 #, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
-msgstr "Nümay…ônd…ôlik nömr…ôsi tam deyil."
+msgstr "Nümayəndəlik nömrəsi tam deyil."
 
 #, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
-msgstr "Dosy tipi d…ôst…ôkl…ônmir."
+msgstr "Dosy tipi dəstəklənmir."
 
 #, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
-msgstr "Fayl növü d…ôst…ôkl…ônmir."
+msgstr "Fayl növü dəstəklənmir."
 
 #, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
-msgstr "Ölk…ô iki …ôlifba simvolu simli deyil."
+msgstr "Ölkə iki əlifba simvolu simli deyil."
 
 #, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
-msgstr "Bölg…ô üç alfasayısal simvol uzun bir simli deyil."
+msgstr "Bölgə üç alfasayısal simvol uzun bir simli deyil."
 
 #, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
-msgstr "T…ôşkilat ş…ôxsiyy…ôt v…ôsiq…ôl…ôri bir sıra deyil."
+msgstr "Təşkilat şəxsiyyət vəsiqələri bir sıra deyil."
 
 #, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
-"Giriş faylını {$file} emal ed…ôc…ôk v…ô statistik m…ôlumatlarını saxlayacaq "
-"fon işi gönd…ôrildi."
+"Giriş faylını {$file} emal edəcək və statistik məlumatlarını saxlayacaq fon "
+"işi göndərildi."
 
 #, fuzzy
 msgid "admin.error.gzCompressFile.fopen"
-msgstr "Fayl sıxılmırdı. M…ônb…ô faylı {$filePath} fopen il…ô açıla bilm…ôdi."
+msgstr "Fayl sıxılmırdı. Mənbə faylı {$filePath} fopen ilə açıla bilmədi."
 
 #, fuzzy
 msgid "admin.error.gzCompressFile.fread"
-msgstr "Fayl sıxılmırdı. M…ônb…ô faylı {$filePath} skad il…ô oxunmadı."
+msgstr "Fayl sıxılmırdı. Mənbə faylı {$filePath} skad ilə oxunmadı."
 
 #, fuzzy
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
-"Fayl sıxılmırdı. Açılan m…ônb…ô faylı {$filePath} fcose il…ô bağlana "
-"bilm…ôzdi."
+"Fayl sıxılmırdı. Açılan mənbə faylı {$filePath} fcose ilə bağlana bilməzdi."
 
 #, fuzzy
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
-"Fayl sıxılmırdı. Sıxılmış m…ônb…ô faylı {$filePath}, r…ôysiz olaraq çıxarıla "
-"bilm…ôz."
+"Fayl sıxılmırdı. Sıxılmış mənbə faylı {$filePath}, rəysiz olaraq çıxarıla "
+"bilməz."
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr "İş …ômrinin istifad…ôsini göst…ôrin"
+msgstr "İş əmrinin istifadəsini göstərin"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr "İşd…ôn istifad…ô parametrl…ôrini göst…ôrin"
+msgstr "İşdən istifadə parametrlərini göstərin"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr "Seçim boş ola bilm…ôz! İstifad…ô üsulunu yoxlayın."
+msgstr "Seçim boş ola bilməz! İstifadə üsulunu yoxlayın."
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr "Növb…ôli işl…ôr"
+msgstr "Növbəli işlər"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
@@ -355,8 +351,8 @@ msgstr "Yaradılmışdır"
 #, fuzzy
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
-"Bu …ômrd…ôn istifad…ô etm…ôk üçün …ôn azı bir iş idini, '--.ll' v…ô ya '--"
-"queue =' keçm…ôlisiniz"
+"Bu əmrdən istifadə etmək üçün ən azı bir iş idini, '--.ll' və ya '--queue =' "
+"keçməlisiniz"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.purge.invalid.id"
@@ -365,8 +361,8 @@ msgstr "Yanlış iş id"
 #, fuzzy
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
-"Növb…ôd…ô olan işl…ôrin ümumi sayını göst…ôrin. Bayrağı ötürün-uğursuz "
-"tapşırıqların ümumi sayını gör…ô bilm…ôdi."
+"Növbədə olan işlərin ümumi sayını göstərin. Bayrağı ötürün-uğursuz "
+"tapşırıqların ümumi sayını görə bilmədi."
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.purge.successful"
@@ -374,19 +370,19 @@ msgstr "İş silindi!"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr "Bütün işl…ôri silm…ôk mümkün deyildi."
+msgstr "Bütün işləri silmək mümkün deyildi."
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr "Bütün işl…ôri silindi!"
+msgstr "Bütün işləri silindi!"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr "Aşağıdakılardan birini n…ôz…ôrd…ô tutmusunuz?"
+msgstr "Aşağıdakılardan birini nəzərdə tutmusunuz?"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr "Bizd…ô {$total} növb…ôli işl…ôr var"
+msgstr "Bizdə {$total} növbəli işlər var"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
@@ -394,7 +390,7 @@ msgstr "Seçim {$option} mövcud deyil."
 
 #, fuzzy
 msgid "admin.jobs.viewQueuedJobs"
-msgstr "Qapılı işl…ôr…ô baxın"
+msgstr "Qapılı işlərə baxın"
 
 #, fuzzy
 msgid "navigation.tools.jobs"
@@ -402,13 +398,11 @@ msgstr "İş"
 
 #, fuzzy
 msgid "navigation.tools.jobs.description"
-msgstr ""
-"Sistemd…ôki növb…ôd…ô olan bütün işl…ôr…ô baxın v…ô uğursuz c…ôhdl…ôri "
-"izl…ôyin."
+msgstr "Sistemdəki növbədə olan bütün işlərə baxın və uğursuz cəhdləri izləyin."
 
 #, fuzzy
 msgid "navigation.tools.jobs.view"
-msgstr "İş görm…ôk"
+msgstr "İş görmək"
 
 #, fuzzy
 msgid "admin.jobs.list.id"
@@ -421,51 +415,51 @@ msgstr "İş"
 #, fuzzy
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
-"Əlav…ô edin test test növb…ôsin…ô. isteğe bağlı seçiml…ôrd…ôn istifad…ô edin-"
-"yalnız = v…ô uğursuz v…ô ya uğurlu bir tapşırıq gönd…ôrm…ôk üçün 'uğursuz' v…"
-"ô ya 'uğursuz' keçin."
+"Əlavə edin test test növbəsinə. isteğe bağlı seçimlərdən istifadə edin-"
+"yalnız = və uğursuz və ya uğurlu bir tapşırıq göndərmək üçün 'uğursuz' və ya "
+"'uğursuz' keçin."
 
 msgid "admin.jobs.totalCount"
-msgstr "Növb…ôd…ô c…ômi <strong> {$total} </ strong> iş (l…ôr) var"
+msgstr "Növbədə cəmi <strong> {$total} </ strong> iş (lər) var"
 
 #, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.insertError"
 msgstr ""
-"Giriş faylını {$file} -d…ô {$linenumber} -d…ô emal ed…ôrk…ôn s…ôhv baş verdi:"
-" {$msg}"
+"Giriş faylını {$file} -də {$linenumber} -də emal edərkən səhv baş verdi: "
+"{$msg}"
 
 #, fuzzy
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
-"Fayl sıxılmırdı. Destinatin GZ-Fayl {$filePath} GZWrite il…ô yazıla bilm…ôdi."
+"Fayl sıxılmırdı. Destinatin GZ-Fayl {$filePath} GZWrite ilə yazıla bilmədi."
 
 #, fuzzy
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
-"Fayl sıxılmırdı. Açılan t…ôyinat GZ-Fayl {$filePath} GZClose il…ô bağlana "
-"bilm…ôdi."
+"Fayl sıxılmırdı. Açılan təyinat GZ-Fayl {$filePath} GZClose ilə bağlana "
+"bilmədi."
 
 msgid "admin.scheduledTask.usageStatsLoader"
-msgstr "İstifad…ô Statistikası Fayl Yükl…ôyicisi v…ôzif…ôsi"
+msgstr "İstifadə Statistikası Fayl Yükləyicisi vəzifəsi"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
-"DB-IP City Lite veril…ônl…ôr bazası faylının adını {$ tencorfilename} saytı "
-"{$ sourcyfilename} nömr…ôsi uğursuz oldu."
+"DB-IP City Lite verilənlər bazası faylının adını {$ tencorfilename} saytı {$ "
+"sourcyfilename} nömrəsi uğursuz oldu."
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
-"{$directory} qovluğu boş deyil. Bu, …ôvv…ôll…ôr uğursuz bir prosesi v…ô ya "
-"eyni vaxtda çalışan bir prosesi göst…ôr…ô bil…ôr. Bu fayl avtomatik olaraq "
-"yenid…ôn işl…ôn…ôc…ôkdir."
+"{$directory} qovluğu boş deyil. Bu, əvvəllər uğursuz bir prosesi və ya eyni "
+"vaxtda çalışan bir prosesi göstərə bilər. Bu fayl avtomatik olaraq yenidən "
+"işlənəcəkdir."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
-"Fayl {$file}, işl…ôn…ô bilm…ôy…ôn v…ô bel…ôlikl…ô s…ôhn…ô qovluğuna köçürül…"
-"ô bil…ôn köhn…ô giriş faylı formatında."
+"Fayl {$file}, işlənə bilməyən və beləliklə səhnə qovluğuna köçürülə bilən "
+"köhnə giriş faylı formatında."
 
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
-msgstr "{$file} faylı açılmadı v…ô r…ôdd edildi."
+msgstr "{$file} faylı açılmadı və rədd edildi."
 
 msgid "admin.server.apacheVersion"
 msgstr "Apache versiyası"
@@ -477,24 +471,24 @@ msgid "admin.server.dbVersion"
 msgstr "Data bazası server versiyası"
 
 msgid "admin.serverInformation"
-msgstr "Server m…ôlumatı"
+msgstr "Server məlumatı"
 
 msgid "admin.server.phpVersion"
 msgstr "Php versiyası"
 
 msgid "admin.server.platform"
-msgstr "Əm…ôliyyat sistemi platforması"
+msgstr "Əməliyyat sistemi platforması"
 
 msgid "admin.settings"
-msgstr "T…ônziml…ôr"
+msgstr "Tənzimlər"
 
 #, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
-"Giriş faylı {$file}, çünki h…ômin ayın statistikası artıq hesablanıb. Bir "
-"…ôvv…ôlki ay üçün statistikanı yenid…ôn hesablamaq üçün, h…ômin ayın giriş "
-"s…ôn…ôdl…ôrini b…ôrpa etm…ôlisiniz v…ô CLI al…ôtind…ôn t…ôkrarlama "
-"statistikasını istifad…ô etm…ôlisiniz."
+"Giriş faylı {$file}, çünki həmin ayın statistikası artıq hesablanıb. Bir "
+"əvvəlki ay üçün statistikanı yenidən hesablamaq üçün, həmin ayın giriş "
+"sənədlərini bərpa etməlisiniz və CLI alətindən təkrarlama statistikasını "
+"istifadə etməlisiniz."
 
 #, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
@@ -506,40 +500,40 @@ msgstr "Kontekst id tam deyil."
 
 #, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
-msgstr "Gönd…ôrm…ô id tam deyil."
+msgstr "Göndərmə id tam deyil."
 
 #, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
-"Giriş s…ôn…ôdind…ô {$lineNumber} x…ôttind…ô etibarsız giriş girişl…ôri "
-"{$file}: {$error}"
+"Giriş sənədində {$lineNumber} xəttində etibarsız giriş girişləri {$file}: "
+"{$error}"
 
 #, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
 msgstr ""
-"Giriş s…ôn…ôdind…ô {$lineNumber} x…ôtti {$file} s…ôhv formatdadır v…ô "
-"bel…ôlikl…ô atlanacaqdır."
+"Giriş sənədində {$lineNumber} xətti {$file} səhv formatdadır və beləliklə "
+"atlanacaqdır."
 
 msgid "admin.settings.minPasswordLength"
-msgstr "Şifr…ô üçün minimum simvol sayı"
+msgstr "Şifrə üçün minimum simvol sayı"
 
 msgid "admin.systemConfigFileReadError"
 msgstr ""
-"<tt>config.inc.php</tt> adlı konfiqurası faylı tapılmır, oxuna bil…ôn deyil "
-"v…ô ya etibarsız."
+"<tt>config.inc.php</tt> adlı konfiqurası faylı tapılmır, oxuna bilən deyil "
+"və ya etibarsız."
 
 msgid "admin.systemInformation.description"
 msgstr ""
-"Sistemin v…ô işl…ôdiyi serverin versiyası v…ô konfiqurasiya t…ônziml…ôri "
-"haqqındakı m…ôlumatlara baxın."
+"Sistemin və işlədiyi serverin versiyası və konfiqurasiya tənzimləri "
+"haqqındakı məlumatlara baxın."
 
 #, fuzzy
 msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr "Bu t…ônzimi sad…ôc…ô idar…ôçinin d…ôyişdirm…ôsin…ô icaz…ô verin."
+msgstr "Bu tənzimi sadəcə idarəçinin dəyişdirməsinə icazə verin."
 
 msgid "admin.settings.siteStyleSheetInvalid"
 msgstr ""
-"Etibarsız sayt stil fayl formatı. .css formatında olan stil faylı q…ôbul "
+"Etibarsız sayt stil fayl formatı. .css formatında olan stil faylı qəbul "
 "edilir."
 
 msgid "admin.version.downloadPatch"
@@ -558,16 +552,16 @@ msgid "admin.versionMinor"
 msgstr "Kiçik"
 
 msgid "admin.version.moreInfo"
-msgstr "Ətraflı m…ôlumat"
+msgstr "Ətraflı məlumat"
 
 msgid "admin.versionRevision"
-msgstr "Düz…ôltm…ô"
+msgstr "Düzəltmə"
 
 msgid "admin.version.updateAvailable"
-msgstr "Yenil…ônmiş bir versiya mövcuddur"
+msgstr "Yenilənmiş bir versiya mövcuddur"
 
 msgid "admin.version.upToDate"
-msgstr "Sisteminiz yenil…ônib"
+msgstr "Sisteminiz yenilənib"
 
 msgid "admin.version"
 msgstr "Versiya"
@@ -575,137 +569,134 @@ msgstr "Versiya"
 msgid "admin.fileLoader.moveFileFailed"
 msgstr ""
 "{$filename} faylı {$currentFilePath} lokasiyasından {$destinationPath} "
-"lokasiyasına köçürül…ô bilm…ôdi"
+"lokasiyasına köçürülə bilmədi"
 
 msgid "admin.fileLoader.emailSubject"
-msgstr "Fayl yükl…ôyicisi"
+msgstr "Fayl yükləyicisi"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "{$path} …ôsas yolu müşt…ôr…ôk fayllar indeksi içind…ô olmalıdır."
+msgstr "{$path} əsas yolu müştərək fayllar indeksi içində olmalıdır."
 
 #, fuzzy
 msgid "admin.fileLoader.pathNotAccessible"
-msgstr "{$path} bir qovluq deyil v…ô ya oxuna bil…ôn deyil."
+msgstr "{$path} bir qovluq deyil və ya oxuna bilən deyil."
 
 #, fuzzy
 msgid "admin.fileLoader.fileProcessed"
-msgstr "{$filename} faylı prosesd…ôn keçirildi v…ô arxivl…ôşdirildi."
+msgstr "{$filename} faylı prosesdən keçirildi və arxivləşdirildi."
 
 #, fuzzy
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
-"Fayl dekompressiya edil…ô bilm…ôzdi. M…ônb…ô GZ-File {$Filepath} gzopen il…ô "
-"açıla bilm…ôdi."
+"Fayl dekompressiya edilə bilməzdi. Mənbə GZ-File {$Filepath} gzopen ilə "
+"açıla bilmədi."
 
 #, fuzzy
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
-"Fayl dekompressiya edil…ô bilm…ôzdi. T…ôyinat faylı {$filePath} fopen aça "
-"bilm…ôdi."
+"Fayl dekompressiya edilə bilməzdi. Təyinat faylı {$filePath} fopen aça "
+"bilmədi."
 
 #, fuzzy
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
-"Fayl dekompressiya edil…ô bilm…ôzdi. M…ônb…ô GZ-Fayl {$file} GZRead il…ô "
-"oxunmadı."
+"Fayl dekompressiya edilə bilməzdi. Mənbə GZ-Fayl {$file} GZRead ilə oxunmadı."
 
 msgid "admin.cli.tool.usage.title"
-msgstr "İstifad…ô:"
+msgstr "İstifadə:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr "Əmr [arqumentl…ôr]"
+msgstr "Əmr [arqumentlər]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr "{$namespace} sah…ôsi üçün mövcud …ômrl…ôr:"
+msgstr "{$namespace} sahəsi üçün mövcud əmrlər:"
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
-"Növb…ôy…ô alınmış bütün prosesl…ôri siyahıya alın. N…ôtic…ôl…ôri "
-"s…ôhif…ôl…ôr…ô bölm…ôk ist…ôyirsinizs…ô ---page=and --perPage= t…ônziml…"
-"ôrini istifad…ô ed…ô bil…ôrsiniz."
+"Növbəyə alınmış bütün prosesləri siyahıya alın. Nəticələri səhifələrə bölmək "
+"istəyirsinizsə ---page=and --perPage= tənzimlərini istifadə edə bilərsiniz."
 
 msgid "admin.languages.noLocalesToDownload"
-msgstr "Endiril…ôc…ôk bir dil yoxdur."
+msgstr "Endiriləcək bir dil yoxdur."
 
 #, fuzzy
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
-"Fayl dekompressiya edil…ô bilm…ôzdi. T…ôyinat faylı {$filePath} fwrite il…ô "
-"yazıla bilm…ôdi."
+"Fayl dekompressiya edilə bilməzdi. Təyinat faylı {$filePath} fwrite ilə "
+"yazıla bilmədi."
 
 #, fuzzy
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
-"Fayl dekompressiya edil…ô bilm…ôzdi. Açılan t…ôyinat faylı {$filePath}, "
-"Fclose il…ô bağlana bilm…ôzdi."
+"Fayl dekompressiya edilə bilməzdi. Açılan təyinat faylı {$filePath}, Fclose "
+"ilə bağlana bilməzdi."
 
 #, fuzzy
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
-"Fayl dekompressiya edil…ô bilm…ôzdi. Açılan m…ônb…ô GZ-Fayl {$filePath} "
-"GZCLOSE il…ô bağlana bilm…ôz."
+"Fayl dekompressiya edilə bilməzdi. Açılan mənbə GZ-Fayl {$filePath} GZCLOSE "
+"ilə bağlana bilməz."
 
 #, fuzzy
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
-"Fayl dekompressiya edil…ô bilm…ôzdi. Decompressiya edilmiş m…ônb…ô GZ-Fayl "
-"{$filePath}, sınırla çıxarıla bilm…ôz."
+"Fayl dekompressiya edilə bilməzdi. Decompressiya edilmiş mənbə GZ-Fayl "
+"{$filePath}, sınırla çıxarıla bilməz."
 
 #, fuzzy
 msgid "admin.error.gzCompressFile.gzopen"
-msgstr ""
-"Fayl sıxılmırdı. Gzopen il…ô birlikd…ô GZ-File {filePath} açıla bilm…ôdi."
+msgstr "Fayl sıxılmırdı. Gzopen ilə birlikdə GZ-File {filePath} açıla bilmədi."
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
-"T…ôtbiq baxım rejimi aktiv olduğundan növb…ô işl…ôrini başlamaq mümkün deyil."
+"Tətbiq baxım rejimi aktiv olduğundan növbə işlərini başlamaq mümkün deyil."
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
-"Ş…ôxsiyy…ôt v…ôsiq…ôsin…ô …ôsas…ôn mü…ôyy…ôn bir növb…ôni t…ômizl…ôyin. "
-"Hamısını t…ômizl…ôm…ôk ist…ôyirsinizs…ô, parametrd…ôn keçin. Hamısını mü…ôyy…"
-"ôn bir növb…ôd…ôn t…ômizl…ôm…ôk ist…ôs…ôniz, parametrd…ôn keçin --Queue ="
+"Şəxsiyyət vəsiqəsinə əsasən müəyyən bir növbəni təmizləyin. Hamısını "
+"təmizləmək istəyirsinizsə, parametrdən keçin. Hamısını müəyyən bir növbədən "
+"təmizləmək istəsəniz, parametrdən keçin --Queue ="
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
-"Tapşırıqları emal etm…ôy…ô davam ed…ôc…ôk sonsuz bir daemon iş axınına "
-"başlayın. Bu …ômrl…ô …ôlaq…ôli mövcud seçiml…ôr…ô Baxmaq üçün --help "
-"bayrağından istifad…ô edin."
+"Tapşırıqları emal etməyə davam edəcək sonsuz bir daemon iş axınına başlayın. "
+"Bu əmrlə əlaqəli mövcud seçimlərə Baxmaq üçün --help bayrağından istifadə "
+"edin."
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
-"Bütün uğursuz tapşırıqları sadalayın. Siyahını süzm…ôk üçün --"
-"queue=QUEUE_NAME v…ô --connection=CONNECTİON_NAME seçiml…ôrini t…ôyin edin. "
-"Yenid…ôn növb…ôy…ô gönd…ôrm…ôk v…ô ya bütün/xüsusi uğursuz tapşırıqları "
-"t…ômizl…ôm…ôk üçün --redispatch v…ô --clear seçimini/bayrağını da ötürün."
+"Bütün uğursuz tapşırıqları sadalayın. Siyahını süzmək üçün --"
+"queue=QUEUE_NAME və --connection=CONNECTİON_NAME seçimlərini təyin edin. "
+"Yenidən növbəyə göndərmək və ya bütün/xüsusi uğursuz tapşırıqları təmizləmək "
+"üçün --redispatch və --clear seçimini/bayrağını da ötürün."
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
-"Mövcud tapşırıqları növb…ôy…ô gönd…ôrin. tapşırığı mü…ôyy…ôn bir növb…ôy…ô "
-"gönd…ôrm…ôk ist…ôyirsinizs…ô, --queue=QUEUE_NAME parametrini keçin. Bir test "
-"tapşırığını yerin…ô yetirm…ôk üçün --testi v…ô bir anda bir işi yerin…ô "
-"yetirm…ôk üçün --bir d…ôf…ô ötürm…ôk d…ô mümkündür"
+"Mövcud tapşırıqları növbəyə göndərin. tapşırığı müəyyən bir növbəyə "
+"göndərmək istəyirsinizsə, --queue=QUEUE_NAME parametrini keçin. Bir test "
+"tapşırığını yerinə yetirmək üçün --testi və bir anda bir işi yerinə yetirmək "
+"üçün --bir dəfə ötürmək də mümkündür"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr "{$Jobcount} tapşırıqları {$queueName} adı il…ô növb…ôy…ô tamamlandı."
+msgstr "{$Jobcount} tapşırıqları {$queueName} adı ilə növbəyə tamamlandı."
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr "{$QueueName} adlı növb…ôy…ô başlamaq üçün heç bir iş yoxdur."
+msgstr "{$QueueName} adlı növbəyə başlamaq üçün heç bir iş yoxdur."
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr "Uğursuz növb…ô tapşırıqları"
+msgstr "Uğursuz növbə tapşırıqları"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr "Növb…ô"
+msgstr "Növbə"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
@@ -713,7 +704,7 @@ msgstr "İş ekran adı"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr "C…ôhdl…ôr"
+msgstr "Cəhdlər"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
@@ -721,7 +712,7 @@ msgstr "Bütöv"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr "Əlaq…ô"
+msgstr "Əlaqə"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
@@ -734,32 +725,31 @@ msgstr "İstisna mesajı"
 #, fuzzy
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
-"{$queueName} adı il…ô növb…ôd…ô uğursuzluqla n…ôtic…ôl…ôn…ôc…ôyin…ô …ômin "
-"olan gönd…ôril…ôn test"
+"{$queueName} adı ilə növbədə uğursuzluqla nəticələnəcəyinə əmin olan "
+"göndərilən test"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
-"{$queueName} adı il…ô növb…ôd…ô uğurla başa çatacağına …ômin olan gönd…ôril…"
-"ôn test"
+"{$queueName} adı ilə növbədə uğurla başa çatacağına əmin olan göndərilən test"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
-"Test tapşırığının q…ôbuledilm…ôz parametri. 'Yalnız=' parametri üçün yalnız "
-"'uğursuz' v…ô ya 'uğursuz'q…ôbul ed…ô bil…ôr."
+"Test tapşırığının qəbuledilməz parametri. 'Yalnız=' parametri üçün yalnız "
+"'uğursuz' və ya 'uğursuz'qəbul edə bilər."
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr "Silm…ôk üçün heç bir iş tapılmadı."
+msgstr "Silmək üçün heç bir iş tapılmadı."
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.failed.clear.successful"
-msgstr "{$jobsCount} uğursuz işl…ôr uğursuz siyahıdan uğurla silindi."
+msgstr "{$jobsCount} uğursuz işlər uğursuz siyahıdan uğurla silindi."
 
 #, fuzzy
 msgid "admin.jobs.list.attempts"
-msgstr "C…ôhdl…ôr"
+msgstr "Cəhdlər"
 
 #, fuzzy
 msgid "admin.jobs.list.createdAt"
@@ -767,42 +757,42 @@ msgstr "Yaradılmışdır"
 
 #, fuzzy
 msgid "admin.jobs.createdAt"
-msgstr "{$createdAt} -d…ô yaradılmışdır"
+msgstr "{$createdAt} -də yaradılmışdır"
 
 #, fuzzy
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
-"İstifad…ô qaydaları m…ôlumatlarını {$file} faylından yükl…ôy…ôn iş uğursuz "
-"oldu v…ô fayl {$archivedFilePath} {$stagingPath} -…ô köçürül…ô bilm…ôz."
+"İstifadə qaydaları məlumatlarını {$file} faylından yükləyən iş uğursuz oldu "
+"və fayl {$archivedFilePath} {$stagingPath} -ə köçürülə bilməz."
 
 #, fuzzy
 msgid "admin.job.compileMetrics.error"
 msgstr ""
-"İstifad…ô qaydaları m…ôlumatlarını {$file} faylından yükl…ôy…ôn iş uğursuz "
-"oldu. Fayl s…ôhn…ô qovluğuna köçürüldü."
+"İstifadə qaydaları məlumatlarını {$file} faylından yükləyən iş uğursuz oldu. "
+"Fayl səhnə qovluğuna köçürüldü."
 
 #, fuzzy
 msgid "admin.job.failed.list.attribute.value"
-msgstr "Atribut d…ôy…ôri"
+msgstr "Atribut dəyəri"
 
 #, fuzzy
 msgid "admin.jobs.list.queue"
-msgstr "Növb…ô"
+msgstr "Növbə"
 
 #, fuzzy
 msgid "admin.settings.statistics.keepDaily"
-msgstr "Aylıq v…ô ya günd…ôlik statistika"
+msgstr "Aylıq və ya gündəlik statistika"
 
 #, fuzzy
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
-"Günd…ôlik v…ô ya aylıq istifad…ô statistikasını izl…ôm…ôm…ôsi v…ô ya etm…ôm…"
-"ôsi. Günd…ôlik statistikanı izl…ôm…ôk veril…ônl…ôr bazası ölçüsünüzü xeyli "
-"artıra bil…ôr."
+"Gündəlik və ya aylıq istifadə statistikasını izləməməsi və ya etməməsi. "
+"Gündəlik statistikanı izləmək verilənlər bazası ölçüsünüzü xeyli artıra "
+"bilər."
 
 #, fuzzy
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr "Günd…ôlik v…ô aylıq statistikanı izl…ôyin"
+msgstr "Gündəlik və aylıq statistikanı izləyin"
 
 #, fuzzy
 msgid "admin.settings.statistics.keepDaily.discard"
@@ -915,31 +905,31 @@ msgstr "İşçinin işlədiyi saniyələrin maksimum sayı [default: '{$default}
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr "{$jobsCount} tapşırıqlar uğurla növb…ôy…ô geri gönd…ôrildi."
+msgstr "{$jobsCount} tapşırıqlar uğurla növbəyə geri göndərildi."
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr "Bizd…ô {$total} yerin…ô yetirilm…ômiş tapşırıqlar var"
+msgstr "Bizdə {$total} yerinə yetirilməmiş tapşırıqlar var"
 
 #, fuzzy
 msgid "admin.jobs.failed.totalCount"
-msgstr "C…ômi <strong> {$total} </ strong> uğursuz iş (l…ôr) var."
+msgstr "Cəmi <strong> {$total} </ strong> uğursuz iş (lər) var."
 
 #, fuzzy
 msgid "navigation.tools.jobs.failed"
-msgstr "Uğursuz işl…ôr"
+msgstr "Uğursuz işlər"
 
 #, fuzzy
 msgid "navigation.tools.jobs.failed.details"
-msgstr "Uğursuz iş t…ôf…ôrrüatları"
+msgstr "Uğursuz iş təfərrüatları"
 
 #, fuzzy
 msgid "navigation.tools.jobs.failed.view"
-msgstr "Uğursuz işl…ôr…ô baxın"
+msgstr "Uğursuz işlərə baxın"
 
 #, fuzzy
 msgid "navigation.tools.job.failed.details.view"
-msgstr "Uğursuz iş…ô baxın: {$id} Ətraflı"
+msgstr "Uğursuz işə baxın: {$id} Ətraflı"
 
 #, fuzzy
 msgid "admin.job.failed.list.attribute"
@@ -955,7 +945,7 @@ msgstr "Uğursuz"
 
 #, fuzzy
 msgid "admin.jobs.list.payload"
-msgstr "Yükl…ôm…ôk"
+msgstr "Yükləmək"
 
 #, fuzzy
 msgid "admin.jobs.list.exception"
@@ -963,36 +953,36 @@ msgstr "İstisna"
 
 #, fuzzy
 msgid "admin.jobs.list.actions"
-msgstr "T…ôdbirl…ôr"
+msgstr "Tədbirlər"
 
 #, fuzzy
 msgid "admin.jobs.failedAt"
-msgstr "{$failedAt} -d…ô yaradılmışdır"
+msgstr "{$failedAt} -də yaradılmışdır"
 
 #, fuzzy
 msgid "admin.jobs.failed.action.redispatch"
-msgstr "Yenid…ôn c…ôhd el…ô"
+msgstr "Yenidən cəhd elə"
 
 #, fuzzy
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr "Bütün uğursuz işl…ôri t…ôl…ôb edin"
+msgstr "Bütün uğursuz işləri tələb edin"
 
 #, fuzzy
 msgid "admin.settings.statistics.collection"
-msgstr "M…ôlumatların toplanması"
+msgstr "Məlumatların toplanması"
 
 #, fuzzy
 msgid "admin.settings.statistics.collection.description"
 msgstr ""
-"Hansı istifad…ô statistikasının toplanmasının vacibliyini konfiqurasiya edin."
+"Hansı istifadə statistikasının toplanmasının vacibliyini konfiqurasiya edin."
 
 #, fuzzy
 msgid "admin.settings.statistics.storage"
-msgstr "M…ôlumat saxlama"
+msgstr "Məlumat saxlama"
 
 #, fuzzy
 msgid "admin.settings.statistics.storage.description"
-msgstr "Serverd…ô hansı istifad…ô statistikasının saxlanılmasını t…ônziml…ôyin."
+msgstr "Serverdə hansı istifadə statistikasının saxlanılmasını tənzimləyin."
 
 #, fuzzy
 msgid "admin.settings.statistics.sushi"

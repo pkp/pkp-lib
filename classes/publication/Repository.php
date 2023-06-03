@@ -290,7 +290,7 @@ abstract class Repository
                 $value[$localeKey] = $this->_saveFileParam($publication, $submission, $publication->getData('coverImage', $localeKey), 'coverImage', $userId, $localeKey, true);
             }
 
-            $this->edit($publication, ['coverImage' => $value], $this->request);
+            $this->edit($publication, ['coverImage' => $value]);
         }
 
         Hook::call('Publication::add', [&$publication]);

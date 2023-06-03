@@ -18,7 +18,6 @@ namespace PKP\controllers\grid\files\attachment;
 
 use PKP\controllers\grid\files\fileList\FileListGridHandler;
 use PKP\security\Role;
-use PKP\submissionFile\SubmissionFile;
 
 class AuthorOpenReviewAttachmentsGridHandler extends FileListGridHandler
 {
@@ -30,7 +29,7 @@ class AuthorOpenReviewAttachmentsGridHandler extends FileListGridHandler
         // Pass in null stageId to be set in initialize from request var.
         // Show also files that are not viewable by default
         parent::__construct(
-            new ReviewerReviewAttachmentGridDataProvider(SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT, false),
+            new ReviewerReviewAttachmentGridDataProvider(),
             null
         );
 

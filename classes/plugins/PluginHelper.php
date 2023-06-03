@@ -110,7 +110,7 @@ class PluginHelper
             $pluginVersion = VersionCheck::getValidPluginVersionInfo($versionFile);
             /** @var VersionDAO */
             $versionDao = DAORegistry::getDAO('VersionDAO');
-            $installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct(), true);
+            $installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct());
             $baseDir = Core::getBaseDir() . '/';
             $destinyPath = $baseDir . strtr($pluginVersion->getProductType(), '.', '/') . "/{$pluginVersion->getProduct()}";
 
@@ -192,7 +192,7 @@ class PluginHelper
             }
 
             $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
-            $installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct(), true);
+            $installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct());
             if (!$installedPlugin) {
                 throw new Exception(__('manager.plugins.pleaseInstall'));
             }

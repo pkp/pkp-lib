@@ -97,7 +97,7 @@ class ContributorsListPanel extends ListPanel
         return Application::get()->getRequest()->getDispatcher()->url(
             Application::get()->getRequest(),
             Application::ROUTE_API,
-            $this->context->getPath('urlPath'),
+            $this->context->getPath(),
             'submissions/' . $this->submission->getId() . '/publications/__publicationId__'
         );
     }
@@ -112,7 +112,7 @@ class ContributorsListPanel extends ListPanel
         $apiUrl = Application::get()->getRequest()->getDispatcher()->url(
             Application::get()->getRequest(),
             Application::ROUTE_API,
-            $this->context->getPath('urlPath'),
+            $this->context->getPath(),
             'submissions/' . $this->submission->getId() . '/publications/__publicationId__/contributors'
         );
 

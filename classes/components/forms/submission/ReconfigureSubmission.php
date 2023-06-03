@@ -39,7 +39,7 @@ abstract class ReconfigureSubmission extends FormComponent
 
         $locales = $context->getSupportedSubmissionLocaleNames();
         if (count($locales) > 1) {
-            $this->addLocaleField($locales, $submission);
+            $this->addLocaleField($locales);
         }
     }
 

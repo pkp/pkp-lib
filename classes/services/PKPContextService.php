@@ -24,7 +24,6 @@ use APP\file\PublicFileManager;
 use APP\services\queryBuilders\ContextQueryBuilder;
 use Illuminate\Contracts\Validation\Validator;
 use PKP\announcement\AnnouncementTypeDAO;
-use PKP\config\Config;
 use PKP\context\Context;
 use PKP\context\ContextDAO;
 use PKP\core\Core;
@@ -34,6 +33,7 @@ use PKP\db\DAOResultFactory;
 use PKP\db\DAOResultIterator;
 use PKP\db\DBResultRange;
 use PKP\facades\Locale;
+use PKP\file\ContextFileManager;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFile;
 use PKP\file\TemporaryFileManager;
@@ -629,9 +629,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
         $navigationMenuItemDao->deleteByContextId($context->getId());
 
-        $fileManager = new FileManager($context->getId());
-        $contextPath = Config::getVar('files', 'files_dir') . '/' . $this->contextsFileDirName . '/' . $context->getId();
-        $fileManager->rmtree($contextPath);
+        $contextFileManager = new ContextFileManager($context->getId());
+        $contextFileManager->rmtree($contextFileManager->getBasePath());
 
         $contextDao = Application::getContextDao();
         $contextDao->deleteObject($context);

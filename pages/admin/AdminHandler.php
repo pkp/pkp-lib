@@ -353,7 +353,7 @@ class AdminHandler extends Handler
      */
     public function systemInfo($args, $request)
     {
-        $this->setupTemplate($request, true);
+        $this->setupTemplate($request);
 
         $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
         $currentVersion = $versionDao->getCurrentVersion();
@@ -501,7 +501,7 @@ class AdminHandler extends Handler
      */
     public function jobs($args, $request)
     {
-        $this->setupTemplate($request, true);
+        $this->setupTemplate($request);
 
         $templateMgr = TemplateManager::getManager($request);
 
@@ -569,7 +569,7 @@ class AdminHandler extends Handler
      */
     public function failedJobs($args, $request)
     {
-        $this->setupTemplate($request, true);
+        $this->setupTemplate($request);
 
         $templateMgr = TemplateManager::getManager($request);
 
@@ -643,7 +643,7 @@ class AdminHandler extends Handler
      */
     public function failedJobDetails($args, $request)
     {
-        $this->setupTemplate($request, true);
+        $this->setupTemplate($request);
 
         $templateMgr = TemplateManager::getManager($request);
 

@@ -78,8 +78,8 @@ class PreviewReviewForm extends Form
             $reviewFormElements = $reviewFormElementDao->getByReviewFormId($this->reviewFormId);
 
             // Set data
-            $this->setData('title', $reviewForm->getLocalizedTitle(null));
-            $this->setData('description', $reviewForm->getLocalizedDescription(null));
+            $this->setData('title', $reviewForm->getLocalizedTitle());
+            $this->setData('description', $reviewForm->getLocalizedDescription());
             $this->setData('reviewFormElements', $reviewFormElements);
         }
     }

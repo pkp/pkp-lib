@@ -30,7 +30,7 @@ class EditorReviewAttachmentsGridHandler extends FileListGridHandler
     {
         // Pass in null stageId to be set in initialize from request var.
         parent::__construct(
-            new ReviewerReviewAttachmentGridDataProvider(SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT),
+            new ReviewerReviewAttachmentGridDataProvider(),
             null,
             FilesGridCapabilities::FILE_GRID_DELETE | FilesGridCapabilities::FILE_GRID_ADD | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_EDIT
         );

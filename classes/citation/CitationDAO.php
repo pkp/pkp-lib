@@ -56,7 +56,7 @@ class CitationDAO extends \PKP\db\DAO
             ]
         );
         $citation->setId($this->getInsertId());
-        $this->_updateObjectMetadata($citation, false);
+        $this->_updateObjectMetadata($citation);
         return $citation->getId();
     }
 

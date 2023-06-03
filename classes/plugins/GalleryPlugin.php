@@ -434,7 +434,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     public function getInstalledVersion()
     {
         $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
-        return $versionDao->getCurrentVersion('plugins.' . $this->getCategory(), $this->getProduct(), true);
+        return $versionDao->getCurrentVersion('plugins.' . $this->getCategory(), $this->getProduct());
     }
 
     /**

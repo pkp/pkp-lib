@@ -760,7 +760,7 @@ abstract class Plugin
         $pluginPath = $this->getPluginPath();
         $product = basename($pluginPath);
         $category = basename(dirname($pluginPath));
-        $installedPlugin = $versionDao->getCurrentVersion('plugins.' . $category, $product, true);
+        $installedPlugin = $versionDao->getCurrentVersion('plugins.' . $category, $product);
 
         if ($installedPlugin) {
             return $installedPlugin;

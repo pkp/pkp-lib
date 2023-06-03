@@ -195,7 +195,7 @@ class FilesGridCapabilities
     public function getDownloadAllAction($request, $files, $linkParams)
     {
         if (sizeof($files) > 0) {
-            return new DownloadAllLinkAction($request, $linkParams, $files);
+            return new DownloadAllLinkAction($request, $linkParams);
         } else {
             return null;
         }

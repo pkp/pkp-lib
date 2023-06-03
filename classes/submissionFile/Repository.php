@@ -232,12 +232,7 @@ abstract class Repository
         $errors = [];
 
         if ($validator->fails()) {
-            $errors = $this->schemaService
-                ->formatValidationErrors(
-                    $validator->errors(),
-                    $this->schemaService->get($this->dao->schema),
-                    $allowedLocales
-                );
+            $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }
 
         Hook::call(
@@ -331,7 +326,7 @@ abstract class Repository
                     throw new Exception('Submission file added to submission that does not exist.');
                 }
 
-                $this->notifyEditorsRevisionsUploaded($submissionFile, $reviewRound);
+                $this->notifyEditorsRevisionsUploaded($submissionFile);
             }
         }
 

@@ -598,7 +598,7 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(400)->withJson($errors);
         }
 
-        Repo::submission()->edit($submission, $params, $request);
+        Repo::submission()->edit($submission, $params);
 
         $submission = Repo::submission()->get($submission->getId());
 

@@ -41,7 +41,7 @@ class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy
      */
     public function __construct($request, &$args, $parameterName = 'reviewAssignmentId', $operations = null, $reviewMethods = null)
     {
-        parent::__construct($request, $args, $parameterName, 'user.authorization.invalidReviewAssignment', $operations, $reviewMethods);
+        parent::__construct($request, $args, $parameterName, 'user.authorization.invalidReviewAssignment', $operations);
         $this->_reviewMethods = $reviewMethods;
     }
 

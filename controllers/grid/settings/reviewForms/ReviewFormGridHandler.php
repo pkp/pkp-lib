@@ -510,7 +510,7 @@ class ReviewFormGridHandler extends GridHandler
                 $reviewAssignmentDao->updateObject($reviewAssignment);
             }
 
-            $reviewFormDao->deleteById($reviewFormId, $context->getId());
+            $reviewFormDao->deleteById($reviewFormId);
 
             // Create the notification.
             $notificationMgr = new NotificationManager();

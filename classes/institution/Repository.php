@@ -138,7 +138,7 @@ class Repository
         });
 
         if ($validator->fails()) {
-            $errors = $this->schemaService->formatValidationErrors($validator->errors(), $this->schemaService->get($this->dao->schema), $allowedLocales);
+            $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }
 
         Hook::call('Institution::validate', [&$errors, $object, $props, $allowedLocales, $primaryLocale]);

@@ -45,11 +45,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     public function getNotificationUrl($request, $notification)
     {
         $submission = Repo::submission()->get($notification->getAssocId());
-
-        $stageData = $this->_getStageDataByType();
-        $operation = $stageData['path'];
-
-        return Repo::submission()->getWorkflowUrlByUserRoles($submission, $notification->getUserId(), $stageData['path']);
+        return Repo::submission()->getWorkflowUrlByUserRoles($submission, $notification->getUserId());
     }
 
     /**

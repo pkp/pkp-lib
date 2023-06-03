@@ -311,7 +311,7 @@ class LoginHandler extends Handler
         $passwordResetForm = new ResetPasswordForm($user, $request->getSite(), $confirmHash);
         $passwordResetForm->initData();
 
-        $passwordResetForm->validatePasswordResetHash($request)
+        $passwordResetForm->validatePasswordResetHash()
             ? $passwordResetForm->display($request)
             : $passwordResetForm->displayInvalidHashErrorMessage($request);
     }
@@ -337,7 +337,7 @@ class LoginHandler extends Handler
         $passwordResetForm = new ResetPasswordForm($user, $request->getSite(), $confirmHash);
         $passwordResetForm->readInputData();
 
-        if (!$passwordResetForm->validatePasswordResetHash($request)) {
+        if (!$passwordResetForm->validatePasswordResetHash()) {
             return $passwordResetForm->displayInvalidHashErrorMessage($request);
         }
 

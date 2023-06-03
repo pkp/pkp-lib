@@ -164,15 +164,13 @@ class NavigationMenuItemsGridHandler extends GridHandler
     public function updateNavigationMenuItem($args, $request)
     {
         $navigationMenuItemId = (int)$request->getUserVar('navigationMenuItemId');
-        $navigationMenuId = (int)$request->getUserVar('navigationMenuId');
-        $navigationMenuIdParent = (int)$request->getUserVar('navigationMenuIdParent');
         $context = $request->getContext();
         $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         if ($context) {
             $contextId = $context->getId();
         }
 
-        $navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
+        $navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId);
 
         $navigationMenuItemForm->readInputData();
 
@@ -210,14 +208,13 @@ class NavigationMenuItemsGridHandler extends GridHandler
     public function editNavigationMenuItem($args, $request)
     {
         $navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
-        $navigationMenuIdParent = (int) $request->getUserVar('navigationMenuIdParent');
         $context = $request->getContext();
         $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         if ($context) {
             $contextId = $context->getId();
         }
 
-        $navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
+        $navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId);
         $navigationMenuItemForm->initData();
 
         return new JSONMessage(true, $navigationMenuItemForm->fetch($request));
@@ -234,14 +231,13 @@ class NavigationMenuItemsGridHandler extends GridHandler
     public function addNavigationMenuItem($args, $request)
     {
         $navigationMenuItemId = (int)$request->getUserVar('navigationMenuItemId');
-        $navigationMenuIdParent = (int)$request->getUserVar('navigationMenuIdParent');
         $context = $request->getContext();
         $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         if ($context) {
             $contextId = $context->getId();
         }
 
-        $navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId, $navigationMenuIdParent);
+        $navigationMenuItemForm = new NavigationMenuItemsForm($contextId, $navigationMenuItemId);
         $navigationMenuItemForm->initData();
 
         return new JSONMessage(true, $navigationMenuItemForm->fetch($request));
@@ -258,15 +254,8 @@ class NavigationMenuItemsGridHandler extends GridHandler
     public function deleteNavigationMenuItem($args, $request)
     {
         $navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
-
-        $context = $request->getContext();
-        $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
-        if ($context) {
-            $contextId = $context->getId();
-        }
-
         $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
-        $navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId, $contextId);
+        $navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId);
         if ($navigationMenuItem) {
             $navigationMenuItemDao->deleteObject($navigationMenuItem);
 

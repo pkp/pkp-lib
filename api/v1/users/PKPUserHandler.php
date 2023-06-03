@@ -176,7 +176,7 @@ class PKPUserHandler extends APIHandler
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
-        $data = Repo::user()->getSchemaMap()->map($user, $slimRequest);
+        $data = Repo::user()->getSchemaMap()->map($user);
 
         return $response->withJson($data, 200);
     }
@@ -234,7 +234,7 @@ class PKPUserHandler extends APIHandler
         $items = [];
         $map = Repo::user()->getSchemaMap();
         foreach ($usersCollection as $user) {
-            $items[] = $map->summarizeReviewer($user, $slimRequest);
+            $items[] = $map->summarizeReviewer($user);
         }
 
         return $response->withJson([
@@ -252,7 +252,7 @@ class PKPUserHandler extends APIHandler
      *
      * @return array
      */
-    private function _processAllowedparams($params, $allowedKeys)
+    private function _processAllowedParams($params, $allowedKeys)
     {
         // Merge query params over default params
         $defaultParams = [

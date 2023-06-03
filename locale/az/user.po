@@ -1,7 +1,7 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 20:57+0000\n"
+"PO-Revision-Date: 2023-06-03 08:38+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "user/az/>\n"
@@ -195,347 +195,328 @@ msgid "user.affiliation"
 msgstr "Qurum"
 
 msgid "user.authorization.accessDenied"
-msgstr "GiriŇü r…ôdd edildi."
+msgstr "Giriş rədd edildi."
 
 msgid "user.authorization.loginRequired"
-msgstr "√úzv giriŇüi t…ôl…ôb olunur."
+msgstr "Üzv girişi tələb olunur."
 
 msgid "user.authorization.roleBasedAccessDenied"
-msgstr ""
-"Cari s…ôlahiyy…ôtiniz bu …ôm…ôliyyatńĪ h…ôyata ke√ßirm…ôk √ľ√ß√ľn kifay…ôt "
-"etmir."
+msgstr "Cari səlahiyyətiniz bu əməliyyatı həyata keçirmək üçün kifayət etmir."
 
 msgid "user.authorization.assignedStageRoleBasedAccessDenied"
 msgstr ""
-"Bu m…ôqal…ôy…ô, bu …ôm…ôliyyata giriŇü icaz…ôsi veril…ôn bir rola sahib "
-"deyilsiniz."
+"Bu məqaləyə, bu əməliyyata giriş icazəsi verilən bir rola sahib deyilsiniz."
 
 msgid "user.authorization.userGroupRequired"
 msgstr ""
-"Bu …ôm…ôliyyatńĪ h…ôyata ke√ßirm…ôk √ľ√ß√ľn etibarlńĪ bi istifad…ô√ßi qrupu "
-"m√ľ…ôyy…ônl…ôŇüdirm…ôlisiniz."
+"Bu əməliyyatı həyata keçirmək üçün etibarlı bi istifadəçi qrupu "
+"müəyyənləşdirməlisiniz."
 
 msgid "user.authorization.managerRequired"
 msgstr ""
-"Davam etm…ôzd…ôn …ôvv…ôl aŇüańüńĪda √áap ńįdar…ô√ßisi roluna sahib biri t…"
-"ôyin edilm…ôlidir. (M…ôs…ôl…ôn; √ßap v…ô ya istehsal redaktoru)"
+"Davam etməzdən əvvəl aşağıda Çap İdarəçisi roluna sahib biri təyin "
+"edilməlidir. (Məsələn; çap və ya istehsal redaktoru)"
 
 msgid "user.authorization.accessibleWorkflowStage"
-msgstr "Hal hazńĪrda iŇü axńĪŇüńĪnńĪn bu m…ôrh…ôl…ôsin…ô giriŇüiniz yoxdur."
+msgstr "Hal hazırda iş axışının bu mərhələsinə girişiniz yoxdur."
 
 msgid "user.authorization.workflowStageRequired"
-msgstr "He√ß bir iŇü axńĪŇüńĪ m…ôrh…ôl…ôsi qeyd edilm…ôyib."
+msgstr "Heç bir iş axışı mərhələsi qeyd edilməyib."
 
 msgid "user.login.changePasswordInstructions"
 msgstr ""
-"SaytńĪ daxil etm…ôk √ľ√ß√ľn …ôvv…ôlc…ô yeni bir Ňüifr…ô t…ôyin etm…ôlisiniz. "
-"<br /> <br /> Ňüifr…ônizi d…ôyiŇüdirm…ôk √ľ√ß√ľn istifad…ô√ßi adńĪnńĪzńĪ, "
-"cari Ňüifr…ônizi v…ô yeni Ňüifr…ônizi daxil edin."
+"Saytı daxil etmək üçün əvvəlcə yeni bir şifrə təyin etməlisiniz. <br /> <br /"
+"> şifrənizi dəyişdirmək üçün istifadəçi adınızı, cari şifrənizi və yeni "
+"şifrənizi daxil edin."
 
 msgid "user.hello"
 msgstr "Salam, "
 
 msgid "user.profile.changePasswordInstructions"
 msgstr ""
-"ńįstifad…ô√ßi hesabńĪnńĪzńĪn Ňüifr…ôsini d…ôyiŇüdirm…ôk √ľ√ß√ľn hazńĪrkńĪ v…"
-"ô yeni Ňüifr…ônizi daxil edin."
+"İstifadəçi hesabınızın şifrəsini dəyişdirmək üçün hazırkı və yeni şifrənizi "
+"daxil edin."
 
 msgid "user.profile.form.oldPasswordInvalid"
-msgstr "Daxil etdiyiniz Ňüifr…ô x…ôtalńĪdńĪr."
+msgstr "Daxil etdiyiniz şifrə xətalıdır."
 
 msgid "user.profile.form.passwordRequired"
-msgstr "Ňěifr…ô t…ôl…ôb olunur."
+msgstr "Şifrə tələb olunur."
 
 msgid "user.profile.form.passwordSameAsOld"
-msgstr "Yeni Ňüifr…ôniz …ôvv…ôlki Ňüifr…ônizl…ô eynidir."
+msgstr "Yeni şifrəniz əvvəlki şifrənizlə eynidir."
 
 msgid "user.profile.form.usergroupRequired"
-msgstr "√úzv qrupu t…ôl…ôb olunur."
+msgstr "Üzv qrupu tələb olunur."
 
 msgid "user.profile.form.usernameRequired"
-msgstr "ńįstifad…ô√ßi adńĪ girm…ôlisiniz."
+msgstr "İstifadəçi adı girməlisiniz."
 
 msgid "user.profile.form.privacyConsentRequired"
-msgstr "M…ôxfilik b…ôyannam…ôsinin Ňü…ôrtl…ôrini q…ôbul etm…ôlisiniz."
+msgstr "Məxfilik bəyannaməsinin şərtlərini qəbul etməlisiniz."
 
 msgid "user.profile.leavePasswordBlank"
-msgstr ""
-"Cari Ňüifr…ô il…ô davam etm…ôk √ľ√ß√ľn Ňüifr…ô xanasńĪnńĪ boŇü buraxńĪn."
+msgstr "Cari şifrə ilə davam etmək üçün şifrə xanasını boş buraxın."
 
 msgid "user.register.usernameRestriction"
 msgstr ""
-"ńįstifad…ô√ßi adńĪ sad…ôc…ô ki√ßik h…ôrfl…ôri, saylarńĪ, tire iŇüar…ôsini v…"
-"ô alt x…ôtd…ôn ibar…ôt olmalńĪdńĪr."
+"İstifadəçi adı sadəcə kiçik hərfləri, sayları, tire işarəsini və alt xətdən "
+"ibarət olmalıdır."
 
 msgid "user.register.registrationCompleted"
 msgstr ""
-"Uńüurla qeydiyyatdan ke√ßmisiniz. Profilinizi doldurmaq √ľ√ß√ľn buraya vurun "
-"<a href=\" $frofileurl }\"> </a>."
+"Uğurla qeydiyyatdan keçmisiniz. Profilinizi doldurmaq üçün buraya vurun <a "
+"href=\" $frofileurl }\"> </a>."
 
 msgid "user.role.reviewer"
-msgstr "R…ôy√ßi"
+msgstr "Rəyçi"
 
 msgid "user.role.reviewers"
-msgstr "R…ôy√ßi"
+msgstr "Rəyçi"
 
 msgid "user.profile.identity"
-msgstr "Ňě…ôxsiyy…ôt"
+msgstr "Şəxsiyyət"
 
 msgid "user.authorization.processAuthenticationTokenRequired"
-msgstr "∆Źm…ôliyyat kimlik identifikasiyasńĪ …ôskik v…ô ya etibarsńĪzdńĪr."
+msgstr "Əməliyyat kimlik identifikasiyası əskik və ya etibarsızdır."
 
 msgid "user.authorization.contextRequired"
 msgstr ""
-"Bir m…ônb…ô olmadan bu …ôm…ôliyyat √ľ√ß√ľn √ßańüńĪrńĪŇü ed…ô bilm…ôzsiniz ("
-"Jurnal, konfrans, vs.)"
+"Bir mənbə olmadan bu əməliyyat üçün çağırış edə bilməzsiniz (Jurnal, "
+"konfrans, vs.)"
 
 msgid "user.authorization.privateOperation"
-msgstr "Bu …ôm…ôliyyat x√ľsusidir v…ô ya m√∂vcud deyildir."
+msgstr "Bu əməliyyat xüsusidir və ya mövcud deyildir."
 
 msgid "user.authorization.restrictedSiteAccess"
-msgstr "GiriŇüiniz r…ôdd edildi. Bu s…ôhif…ôy…ô giriŇü m…ôhdudlaŇüdńĪrńĪlńĪb."
+msgstr "Girişiniz rədd edildi. Bu səhifəyə giriş məhdudlaşdırılıb."
 
 msgid "user.authorization.pluginRequired"
-msgstr "Bir qoŇüma qeyd edilm…ôyib; ancaq qoŇüma z…ôruridir."
+msgstr "Bir qoşma qeyd edilməyib; ancaq qoşma zəruridir."
 
 msgid "user.authorization.invalidReviewAssignment"
-msgstr ""
-"Bu yazńĪ √ľ√ß√ľn etibarlńĪ bir r…ôy√ßi olmadńĪńüńĪnńĪz √ľ√ß√ľn giriŇüiniz r…"
-"ôdd edildi"
+msgstr "Bu yazı üçün etibarlı bir rəyçi olmadığınız üçün girişiniz rədd edildi"
 
 msgid "user.authorization.submissionQuery"
-msgstr "Bu m√ľzakir…ôy…ô daxilolma icaz…ôniz yoxdur."
+msgstr "Bu müzakirəyə daxilolma icazəniz yoxdur."
 
 msgid "user.gossip.description"
 msgstr ""
-"Buraya daxil olan qeydl…ôr sad…ôc…ô idar…ô√ßil…ôr, jurnal idar…ô√ßil…ôri "
-"redaktorlar v…ô k√∂m…ôk√ßi redaktorlar t…ôr…ôfind…ôn g√∂r√ľl…ô bil…ôr."
+"Buraya daxil olan qeydlər sadəcə idarəçilər, jurnal idarəçiləri redaktorlar "
+"və köməkçi redaktorlar tərəfindən görülə bilər."
 
 msgid "user.profile.form.profileImageInvalid"
 msgstr ""
-"Ňě…ôkill…ôr .gif, .jpg veya .png formalarńĪndan biri olmalńĪdńĪr ve √∂l√ß√ľl…"
-"ôri …ôn √ßox 150X150 olmalńĪdńĪr."
+"Şəkillər .gif, .jpg veya .png formalarından biri olmalıdır ve ölçüləri ən "
+"çox 150X150 olmalıdır."
 
 msgid "user.login.accountDisabled"
-msgstr ""
-"HesabńĪnńĪz passivdir. Daha √ßox m…ôlumat √ľ√ß√ľn idar…ô√ßi il…ô …ôlaq…ô "
-"saxlayńĪn."
+msgstr "Hesabınız passivdir. Daha çox məlumat üçün idarəçi ilə əlaqə saxlayın."
 
 msgid "user.login.accountNotValidated"
 msgstr ""
-"Siz…ô {$ email} adresind…ôn bir t…ôsdiq emaili g√∂nd…ôrildi. Z…ôhm…ôt "
-"olmasa, yeni hesabńĪnńĪzńĪ aktivl…ôŇüdirm…ôk √ľ√ß√ľn bu emaild…ôki t…"
-"ôlimatlarńĪ izl…ôyin. Bir email almamńĪsńĪnńĪzsa, emailin spam qovluńüuna "
-"d√ľŇü√ľb d√ľŇüm…ôdiyini yoxlayńĪn."
+"Sizə {$ email} adresindən bir təsdiq emaili göndərildi. Zəhmət olmasa, yeni "
+"hesabınızı aktivləşdirmək üçün bu emaildəki təlimatları izləyin. Bir email "
+"almamısınızsa, emailin spam qovluğuna düşüb düşmədiyini yoxlayın."
 
 msgid "user.login.activated"
 msgstr ""
-"HesabńĪnńĪzńĪ aktivl…ôŇüdirdiyiniz √ľ√ß√ľn t…ôŇü…ôkk√ľr edirik. ńįndi "
-"hesabńĪnńĪzńĪ formalaŇüdńĪrark…ôn siz…ô veril…ôn kimlik m…ôlumatlarńĪnńĪ "
-"istifad…ô ed…ôr…ôk daxil ola bil…ôrsiniz."
+"Hesabınızı aktivləşdirdiyiniz üçün təşəkkür edirik. İndi hesabınızı "
+"formalaşdırarkən sizə verilən kimlik məlumatlarını istifadə edərək daxil ola "
+"bilərsiniz."
 
 msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
-"Dońürulama mesajńĪ email √ľnvanńĪnńĪza g√∂nd…ôrildi. Ňěifr…ônizi yenil…ôm…ôk "
-"√ľ√ß√ľn bu emaild…ôki t…ôlimatlarńĪ t…ôtbiq edin."
+"Doğrulama mesajı email ünvanınıza göndərildi. Şifrənizi yeniləmək üçün bu "
+"emaildəki təlimatları tətbiq edin."
 
 msgid "user.login.loginError"
 msgstr ""
-"ńįstifad…ô√ßi adńĪ v…ô ya Ňüifr…ô yanlńĪŇü daxil edildi. B√∂y√ľk-ki√ßik h…"
-"ôrf uyńüunluńüuna diqq…ôt ed…ôr…ôk yenid…ôn c…ôhd edin."
+"İstifadəçi adı və ya şifrə yanlış daxil edildi. Böyük-kiçik hərf uyğunluğuna "
+"diqqət edərək yenidən cəhd edin."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr ""
-"BańüńĪŇülayńĪn, bu …ôlaq…ô etibarlńĪ deyil. Ňěifr…ônizi yenil…ôm…ôk √ľ√ß√ľn "
-"yenid…ôn c…ôhd edin."
+"Bağışlayın, bu əlaqə etibarlı deyil. Şifrənizi yeniləmək üçün yenidən cəhd "
+"edin."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr ""
-"Yeni Ňüifr…ôniz e-po√ßt √ľnvanńĪnńĪza g√∂nd…ôrildi. Yeni Ňüifr…ônizi istifad…"
-"ô ed…ôr…ôk saytńĪmńĪzla …ôlaq…ô qura bil…ôrsiniz."
+"Yeni şifrəniz e-poçt ünvanınıza göndərildi. Yeni şifrənizi istifadə edərək "
+"saytımızla əlaqə qura bilərsiniz."
 
 msgid "user.profile.form.countryRequired"
-msgstr "Bir √∂lk…ô z…ôruridir."
+msgstr "Bir ölkə zəruridir."
 
 msgid "user.profile.form.emailRequired"
-msgstr "EtibarlńĪ bir email √ľnvanńĪ t…ôl…ôb olunur."
+msgstr "Etibarlı bir email ünvanı tələb olunur."
 
 msgid "user.profile.form.givenNameRequired"
-msgstr "M√ľ…ôyy…ôn bir ad t…ôl…ôb olunur."
+msgstr "Müəyyən bir ad tələb olunur."
 
 msgid "user.profile.form.givenNameRequired.locale"
 msgstr ""
-"Qeyd olunan adńĪn …ôskik olduńüu bir dil √ľ√ß√ľn soyad …ôlav…ô etmisiniz. "
-"Z…ôhm…ôt olmazsa bu dil √ľ√ß√ľn verilmiŇü ad …ôlav…ô edin."
+"Qeyd olunan adın əskik olduğu bir dil üçün soyad əlavə etmisiniz. Zəhmət "
+"olmazsa bu dil üçün verilmiş ad əlavə edin."
 
 msgid "user.profile.form.mailingAddressRequired"
-msgstr "Bir email √ľnvanńĪ t…ôl…ôb olunur."
+msgstr "Bir email ünvanı tələb olunur."
 
 msgid "user.profile.form.newPasswordRequired"
-msgstr "Yeni Ňüifr…ônizi daxil etm…ôlisiniz."
+msgstr "Yeni şifrənizi daxil etməlisiniz."
 
 msgid "user.login.resetPasswordInstructions"
 msgstr ""
-"HesabńĪnńĪzńĪn e-po√ßt √ľnvanńĪnńĪ aŇüańüńĪya daxil ets…ôniz parolunuzu nec…"
-"ô sńĪfńĪrlamaq bar…ôd…ô t…ôlimatlar ehtiva ed…ôn e-po√ßt g√∂nd…ôril…ôc…ôk."
+"Hesabınızın e-poçt ünvanını aşağıya daxil etsəniz parolunuzu necə sıfırlamaq "
+"barədə təlimatlar ehtiva edən e-poçt göndəriləcək."
 
 msgid "user.register.form.privacyConsent"
 msgstr ""
-"B…ôli, m…ôlumatlarńĪmńĪn <a href=\"{$privacyUrl}\" target=\"_blank\">m…"
-"ôxfilik b…ôyanatńĪna</a> uyńüun olaraq toplanmasńĪ v…ô saxlanmasńĪnńĪ q…ôbul "
-"edir…ôm. <a href=\"{$privacyUrl}\" target=\"_blank\">privacy statement</a>."
+"Bəli, məlumatlarımın <a href=\"{$privacyUrl}\" target=\"_blank\">məxfilik "
+"bəyanatına</a> uyğun olaraq toplanması və saxlanmasını qəbul edirəm. <a href="
+"\"{$privacyUrl}\" target=\"_blank\">privacy statement</a>."
 
 msgid "user.register.form.emailConsent"
-msgstr "B…ôli, yeni n…ôŇürl…ôr v…ô elanlardan x…ôb…ôrdar olmaq ist…ôyir…ôm."
+msgstr "Bəli, yeni nəşrlər və elanlardan xəbərdar olmaq istəyirəm."
 
 msgid "user.register.form.emailExists"
 msgstr ""
-"Se√ßdiyiniz email √ľnvanńĪ artńĪq baŇüqa bir istifad…ô√ßi t…ôr…ôfind…ôn "
-"istifad…ô olunur."
+"Seçdiyiniz email ünvanı artıq başqa bir istifadəçi tərəfindən istifadə "
+"olunur."
 
 msgid "user.register.form.passwordsDoNotMatch"
-msgstr "Ňěifr…ôl…ôr uyńüun g…ôlmir."
+msgstr "Şifrələr uyğun gəlmir."
 
 msgid "user.register.form.emailsDoNotMatch"
-msgstr "Email √ľnvanńĪ sah…ôl…ôri uyńüun g…ôlmir."
+msgstr "Email ünvanı sahələri uyğun gəlmir."
 
 msgid "user.register.form.usernameAlphaNumeric"
 msgstr ""
-"ńįstifad…ô√ßi adńĪ yalnńĪzca ki√ßik h…ôrfli alfanumerik, alt x…ôtt ve tire "
-"ola bil…ôr."
+"İstifadəçi adı yalnızca kiçik hərfli alfanumerik, alt xətt ve tire ola bilər."
 
 msgid "user.register.form.userGroupRequired"
-msgstr "∆Źn azńĪ bir v…ôzif…ô se√ßm…ôlisiniz"
+msgstr "Ən azı bir vəzifə seçməlisiniz"
 
 msgid "user.register.form.usernameExists"
-msgstr ""
-"Se√ßdiyiniz istifad…ô√ßi adńĪ artńĪq baŇüqasńĪ t…ôr…ôfind…ôn istifad…ô "
-"olunur."
+msgstr "Seçdiyiniz istifadəçi adı artıq başqası tərəfindən istifadə olunur."
 
 msgid "user.register.form.passwordLengthRestriction"
-msgstr "Ňěifr…ô …ôn az {$length} xarakter olmalńĪdńĪr."
+msgstr "Şifrə ən az {$length} xarakter olmalıdır."
 
 msgid "user.register.registerAs"
-msgstr "{$contextName} formasńĪnda qeydiyyatdan ke√ßin..."
+msgstr "{$contextName} formasında qeydiyyatdan keçin..."
 
 msgid "user.role.siteAdmin"
-msgstr "Sayt idar…ô√ßisi"
+msgstr "Sayt idarəçisi"
 
 msgid "user.role.siteAdmins"
-msgstr "Sayt idar…ô√ßil…ôri"
+msgstr "Sayt idarəçiləri"
 
 msgid "user.role.copyeditor"
-msgstr "S…ôhif…ô T…ôrtibatńĪ Redaktoru"
+msgstr "Səhifə Tərtibatı Redaktoru"
 
 msgid "user.role.copyeditors"
-msgstr "S…ôhif…ô t…ôrtibatńĪ redaktorlarńĪ"
+msgstr "Səhifə tərtibatı redaktorları"
 
 msgid "user.role.proofreader"
 msgstr "Test Dizayn Korrektoru"
 
 msgid "user.role.proofreaders"
-msgstr "Test dizayn korrektorlarńĪ"
+msgstr "Test dizayn korrektorları"
 
 msgid "user.role.layoutEditor"
 msgstr "Layout redaktoru"
 
 msgid "user.role.layoutEditors"
-msgstr "Layout redaktorlarńĪ"
+msgstr "Layout redaktorları"
 
 msgid "user.roles"
 msgstr "Rol"
 
 msgid "user.sendPassword"
-msgstr "T…ôsdiql…ôm…ô"
+msgstr "Təsdiqləmə"
 
 msgid "user.sendPassword.description"
-msgstr ""
-"ńįstifad…ô√ßi adńĪ v…ô Ňüifr…ôm daxil olmaqla bir t…ôsdiq e-po√ßtunu m…ôn…ô "
-"G√∂nd…ôr"
+msgstr "İstifadəçi adı və şifrəm daxil olmaqla bir təsdiq e-poçtunu mənə Göndər"
 
 msgid "user.signature"
-msgstr "ńįmza"
+msgstr "İmza"
 
 msgid "user.title"
-msgstr "BaŇülńĪq"
+msgstr "Başlıq"
 
 msgid "user.url"
-msgstr "Ana s…ôhif…ô URL"
+msgstr "Ana səhifə URL"
 
 msgid "user.userHome"
-msgstr "ńįstifad…ô√ßi evi"
+msgstr "İstifadəçi evi"
 
 msgid "user.username"
-msgstr "ńįstifad…ô√ßi adńĪ"
+msgstr "İstifadəçi adı"
 
 msgid "user.usernameOrEmail"
-msgstr "ńįstifad…ô√ßi adńĪ v…ô ya e-po√ßt"
+msgstr "İstifadəçi adı və ya e-poçt"
 
 msgid "user.workingLanguages"
-msgstr "ńįŇüg√ľzar"
+msgstr "İşgüzar"
 
 msgid "user.orcid"
 msgstr "Orcid ID"
 
 msgid "user.orcid.orcidInvalid"
 msgstr ""
-"G√∂st…ôrdiyiniz orcid Ňü…ôxsiyy…ôt etibarsńĪzdńĪr. Z…ôhm…ôt olmasa, tam Uri "
-"(m…ôs…ôl…ôn, https://orcid.org/0000-0002-1825-0097 \")."
+"Göstərdiyiniz orcid şəxsiyyət etibarsızdır. Zəhmət olmasa, tam Uri (məsələn, "
+"https://orcid.org/0000-0002-1825-0097 \")."
 
 msgid "user.profile.contact"
-msgstr "∆Źlaq…ô"
+msgstr "Əlaqə"
 
 msgid "user.profile.public"
-msgstr "ńįctimai"
+msgstr "İctimai"
 
 msgid "user.apiKey"
-msgstr "API a√ßarńĪ"
+msgstr "API açarı"
 
 msgid "user.apiKeyEnabled"
 msgstr ""
-"Bu hesaba daxil olmaq √ľ√ß√ľn API a√ßarńĪ il…ô xarici t…ôtbiql…ôri "
-"aktivl…ôŇüdirin"
+"Bu hesaba daxil olmaq üçün API açarı ilə xarici tətbiqləri aktivləşdirin"
 
 msgid "user.apiKey.generate"
-msgstr "Yeni API a√ßarńĪ yaradńĪn"
+msgstr "Yeni API açarı yaradın"
 
 msgid "user.apiKey.remove"
 msgstr "Silin"
 
 msgid "user.apiKey.generateWarning"
 msgstr ""
-"Yeni API a√ßarńĪ yaratmaq bu istifad…ô√ßi √ľ√ß√ľn m√∂vcud d√ľym…ôni "
-"etibarsńĪz ed…ôc…ôkdir."
+"Yeni API açarı yaratmaq bu istifadəçi üçün mövcud düyməni etibarsız "
+"edəcəkdir."
 
 msgid "user.apiKey.removeWarning"
 msgstr ""
-"A√ßarńĪn silinm…ôsi onu istifad…ô ed…ôn h…ôr hansńĪ proqrama giriŇüi l…ôńüv "
-"ed…ôc…ôk."
+"Açarın silinməsi onu istifadə edən hər hansı proqrama girişi ləğv edəcək."
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr "Bu API a√ßarńĪnńĪ silm…ôk ist…ôdiyiniz…ô …ôminsiniz?"
+msgstr "Bu API açarını silmək istədiyinizə əminsiniz?"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
-"Bir API a√ßarńĪ yaratmadan …ôvv…ôl sayt administratoru konfiqurasiya "
-"faylńĪnda (\"api_key_secret\") sirrini t…ôyin etm…ôlidir."
+"Bir API açarı yaratmadan əvvəl sayt administratoru konfiqurasiya faylında ("
+"\"api_key_secret\") sirrini təyin etməlidir."
 
 msgid "user.privacyLink"
 msgstr ""
-"M…ôlumatlarńĪnńĪz <a href=\"{$privacyurl} - h…ôd…ôf=\"_blank\"> M…ôxfilik B…"
-"ôyanatńĪ </a> -…ô uyńüun olaraq saxlanńĪlńĪr."
+"Məlumatlarınız <a href=\"{$privacyurl} - hədəf=\"_blank\"> Məxfilik Bəyanatı "
+"</a> -ə uyğun olaraq saxlanılır."
 
 msgid "user.login.lostPassword.invalidUser"
-msgstr "G√∂st…ôril…ôn e-po√ßt √ľnvanńĪ olan istifad…ô√ßi yoxdur."
+msgstr "Göstərilən e-poçt ünvanı olan istifadəçi yoxdur."
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
-msgstr ""
-"{$reason} s…ôb…ôbind…ôn parol sńĪfńĪrlama t…ôl…ôbi yerin…ô yetirilm…ôdi."
+msgstr "{$reason} səbəbindən parol sıfırlama tələbi yerinə yetirilmədi."
 
 msgid "user.login.passwordResetProcessInstructions"
-msgstr "GiriŇü Ňüifr…ônizi yenil…ôm…ôk √ľ√ß√ľn yeni bir parol daxil edin."
+msgstr "Giriş şifrənizi yeniləmək üçün yeni bir parol daxil edin."
 
 msgid "user.login.resetPassword.passwordUpdated"
-msgstr ""
-"Ňěifr…ô uńüurla yenil…ôndi. Z…ôhm…ôt olmasa yenil…ônmiŇü parol il…ô daxil "
-"olun."
+msgstr "Şifrə uğurla yeniləndi. Zəhmət olmasa yenilənmiş parol ilə daxil olun."

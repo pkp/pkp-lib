@@ -1,7 +1,7 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 22:43+0000\n"
+"PO-Revision-Date: 2023-06-03 08:38+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/az/>\n"
@@ -390,78 +390,73 @@ msgstr "Bu qərarı vermək üçün bu addımları izləyin"
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "m…ôqal…ô r…ôdd edildi."
+msgstr "məqalə rədd edildi."
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "M…ôqal…ô q…ôbul edildi."
+msgstr "Məqalə qəbul edildi."
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.submission.published"
-msgstr "M…ôqal…ô yayńĪmlandńĪ"
+msgstr "Məqalə yayımlandı"
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Yeni bir d…ôy…ôrl…ôndirm…ô turu √ľ√ß√ľn g√∂nd…ôrildi"
+msgstr "Yeni bir dəyərləndirmə turu üçün göndərildi"
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.submission.production"
-msgstr "√áapa g√∂nd…ôrildi"
+msgstr "Çapa göndərildi"
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.typeInvalid"
-msgstr ""
-"Bu q…ôrar tapńĪlmadńĪ. Z…ôhm…ôt olmasa tanńĪnan bir q…ôrar n√∂v√ľ verin."
+msgstr "Bu qərar tapılmadı. Zəhmət olmasa tanınan bir qərar növü verin."
 
 #, fuzzy
 msgid "editor.submission.fileAuditor.form.fileRequired"
-msgstr ""
-"ńįstifad…ô√ßiy…ô t…ôyin etm…ôk √ľ√ß√ľn …ôn azńĪ bir fayl se√ßm…ôk lazńĪmdńĪr."
+msgstr "İstifadəçiyə təyin etmək üçün ən azı bir fayl seçmək lazımdır."
 
 #, fuzzy
 msgid "editor.submission.fileAuditor.form.messageRequired"
-msgstr "Ňě…ôxsi mesaj …ôlav…ô etm…ôlisiniz."
+msgstr "Şəxsi mesaj əlavə etməlisiniz."
 
 #, fuzzy
 msgid "editor.submission.fileList.includeAllStages"
-msgstr ""
-"B√ľt√ľn …ôl√ßatan iŇü axńĪŇüńĪ m…ôrh…ôl…ôl…ôrind…ôn fayllarńĪ g√∂st…ôrin"
+msgstr "Bütün əlçatan iş axışı mərhələlərindən faylları göstərin"
 
 #, fuzzy
 msgid "editor.review.resendRequestReviewer"
-msgstr "R…ôy√ßi d…ôy…ôrl…ôndirm…ô ist…ôyini yenid…ôn g√∂nd…ôrin"
+msgstr "Rəyçi dəyərləndirmə istəyini yenidən göndərin"
 
 #, fuzzy
 msgid "editor.review.NotifyAuthorRevisions"
-msgstr ""
-"D√ľz…ôliŇül…ôr yeni bir r…ôy√ßi d…ôy…ôrl…ôndirm…ôsin…ô g√∂nd…ôrilm…ôy…ôc…ôk."
+msgstr "Düzəlişlər yeni bir rəyçi dəyərləndirməsinə göndərilməyəcək."
 
 #, fuzzy
 msgid "editor.review.NotifyAuthorResubmit"
-msgstr ""
-"D√ľz…ôliŇül…ôr yeni bir r…ôy√ßi d…ôy…ôrl…ôndirm…ôsin…ô g√∂nd…ôril…ôc…ôk."
+msgstr "Düzəlişlər yeni bir rəyçi dəyərləndirməsinə göndəriləcək."
 
 #, fuzzy
 msgid "editor.review.reviewsAdded"
-msgstr "D…ôy…ôrl…ôndirm…ôl…ôr mesajńĪn m…ôzmununa …ôlav…ô edildi.J4881"
+msgstr "Dəyərləndirmələr mesajın məzmununa əlavə edildi.J4881"
 
 #, fuzzy
 msgid "editor.review.skipEmail"
-msgstr "R…ôy√ßiy…ô email g√∂nd…ôrm…ôyin"
+msgstr "Rəyçiyə email göndərməyin"
 
 #, fuzzy
 msgid "editor.review.requestDeclined.tooltip"
-msgstr "R…ôy√ßi bu d…ôy…ôrl…ôndirm…ô t…ôl…ôbini r…ôdd etdi"
+msgstr "Rəyçi bu dəyərləndirmə tələbini rədd etdi"
 
 #, fuzzy
 msgid "editor.review.ReviewerResendRequest"
-msgstr "R…ôdd Etm…ô T…ôl…ôbi"
+msgstr "Rədd Etmə Tələbi"
 
 #, fuzzy
 msgid "editor.review.rateReviewer.description"
 msgstr ""
-"D…ôy…ôrl…ôndirm…ônin keyfiyy…ôtini inc…ôl…ôyin. Bu d…ôy…ôrl…ôndirm…ô r…ôy√ßi "
-"il…ô b√∂l√ľŇü√ľlm√ľr."
+"Dəyərləndirmənin keyfiyyətini incələyin. Bu dəyərləndirmə rəyçi ilə "
+"bölüşülmür."
 
 #, fuzzy
 msgid "editor.review.errorAddingReviewer"
@@ -479,34 +474,34 @@ msgstr ""
 #, fuzzy
 msgid "editor.review.readConfirmation"
 msgstr ""
-"Bu d…ôy…ôrl…ôndirm…ôni oxuduqdan sonra, d…ôy…ôrl…ôndirm…ô prosesin…ô davam "
-"ed…ô bilm…ôk √ľ√ß√ľn \"T…ôsdiq\"…ô basńĪn. D…ôy…ôrl…ôndirm…ô ed…ôn, baŇüqa "
-"bir yerd…ô inc…ôl…ôm…ôsini edibs…ô, aŇüańüńĪda fayl y√ľkl…ôy…ô bil…ôr v…ô "
-"davam etm…ôk √ľ√ß√ľn \"T…ôsdiq\"…ô basa bil…ôr."
+"Bu dəyərləndirməni oxuduqdan sonra, dəyərləndirmə prosesinə davam edə bilmək "
+"üçün \"Təsdiq\"ə basın. Dəyərləndirmə edən, başqa bir yerdə incələməsini "
+"edibsə, aşağıda fayl yükləyə bilər və davam etmək üçün \"Təsdiq\"ə basa "
+"bilər."
 
 #, fuzzy
 msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
-"D…ôy…ôrl…ôndirm…ô prosesinin anonim r…ôy√ßilik prosesin…ô t…ôsir ed…ôc…ôyi "
-"√ľ√ß√ľn se√ßil…ôn Ňü…ôxsl…ôrl…ô m√ľzakir…ô yaradńĪla bilm…ôz."
+"Dəyərləndirmə prosesinin anonim rəyçilik prosesinə təsir edəcəyi üçün "
+"seçilən şəxslərlə müzakirə yaradıla bilməz."
 
 #, fuzzy
 msgid "editor.discussion.errorNotStageParticipant"
-msgstr "Se√ßil…ôn Ňü…ôxs bu m…ôrh…ôl…ôy…ô t…ôyin edilm…ôz."
+msgstr "Seçilən şəxs bu mərhələyə təyin edilməz."
 
 #, fuzzy
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
 msgstr ""
-"H…ôr hansńĪ bir M…ôqal…ô m…ôrh…ôl…ôsin…ô …ôvv…ôlc…ôd…ôn y√ľkl…ônmiŇü b√ľt√ľn "
-"fayllar aŇüańüńĪdakńĪ M…ôzmunu ∆Źlav…ô et qutusunu iŇüar…ôl…ôy…ôr…ôk v…ô "
-"AxtarńĪŇüńĪ klikl…ôyib D…ôy…ôrl…ôndirm…ô FayllarńĪ siyahńĪsńĪna …ôlav…ô edil…"
-"ô bil…ôr: B√ľt√ľn m√∂vcud fayllar sadalanar v…ô …ôlav…ô edil…ôc…ôk formada "
-"se√ßil…ô bil…ôr. Bir fayla zat…ôn y√ľkl…ônm…ômiŇü …ôlav…ô fayllar, Fayl "
-"Y√ľkl…ô linkini kilikl…ôy…ôr…ôk siyahńĪya …ôlav…ô edil…ô bil…ôr."
+"Hər hansı bir Məqalə mərhələsinə əvvəlcədən yüklənmiş bütün fayllar "
+"aşağıdakı Məzmunu Əlavə et qutusunu işarələyərək və Axtarışı klikləyib "
+"Dəyərləndirmə Faylları siyahısına əlavə edilə bilər: Bütün mövcud fayllar "
+"sadalanar və əlavə ediləcək formada seçilə bilər. Bir fayla zatən "
+"yüklənməmiş əlavə fayllar, Fayl Yüklə linkini kilikləyərək siyahıya əlavə "
+"edilə bilər."
 
 #, fuzzy
 msgid "editor.review.noReviewFilesUploaded.details"
-msgstr "He√ß bir d…ôy…ôrl…ôndirm…ô faylńĪ y√ľkl…ônm…ôdi"
+msgstr "Heç bir dəyərləndirmə faylı yüklənmədi"
 
 #, fuzzy
 msgid "editor.review.errorResendingReviewerRequest"
@@ -522,39 +517,38 @@ msgstr ""
 
 #, fuzzy
 msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr "Redaktorlara email g√∂nd…ôrm…ôyin"
+msgstr "Redaktorlara email göndərməyin"
 
 #, fuzzy
 msgid "editor.submissionReview.recordRecommendation.createDiscussion"
-msgstr "Bu t…ôklif haqqńĪnda bir d…ôy…ôrl…ôndirm…ô m√ľzakir…ôsi yaradńĪn"
+msgstr "Bu təklif haqqında bir dəyərləndirmə müzakirəsi yaradın"
 
 #, fuzzy
 msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
-msgstr "D…ôy…ôrl…ôndirm…ô m√ľbahis…ôsi yaratmayńĪn"
+msgstr "Dəyərləndirmə mübahisəsi yaratmayın"
 
 #, fuzzy
 msgid "editor.submission.noReviewerFilesSelected.details"
-msgstr "D…ôy…ôrl…ôndiril…ôc…ôk M…ôqal…ô √ľ√ß√ľn he√ß bir fayl se√ßm…ôdiniz"
+msgstr "Dəyərləndiriləcək Məqalə üçün heç bir fayl seçmədiniz"
 
 #, fuzzy
 msgid "submission.queries.subjectRequired"
-msgstr "M√ľzakir…ô m√∂vzusu t…ôl…ôb olunur."
+msgstr "Müzakirə mövzusu tələb olunur."
 
 #, fuzzy
 msgid "submission.queries.messageRequired"
-msgstr "M√ľzakir…ô mesajńĪ t…ôl…ôb olunur."
+msgstr "Müzakirə mesajı tələb olunur."
 
 #, fuzzy
 msgid "editor.submission.query.manageQueryNoteFilesDescription"
 msgstr ""
-"AŇüańüńĪdakńĪ siyahńĪdan bu m√ľzakir…ôy…ô …ôlav…ô etm…ôk √ľ√ß√ľn fayllar "
-"…ôlav…ô edil…ô bil…ôr."
+"Aşağıdakı siyahıdan bu müzakirəyə əlavə etmək üçün fayllar əlavə edilə bilər."
 
 #, fuzzy
 msgid "editor.submission.proofreading.confirmCompletion"
 msgstr ""
-"D√ľz…ôliŇü prosesinin baŇüa √ßatdńĪńüńĪ v…ô faylńĪn n…ôŇür…ô hazńĪr "
-"olduńüunu g√∂st…ôrm…ôk √ľ√ß√ľn d√ľz…ôliŇüi t…ôsdiql…ôyin."
+"Düzəliş prosesinin başa çatdığı və faylın nəşrə hazır olduğunu göstərmək "
+"üçün düzəlişi təsdiqləyin."
 
 #, fuzzy
 msgid "editor.submission.newRoundDescription"
@@ -564,126 +558,117 @@ msgstr ""
 
 #, fuzzy
 msgid "editor.publicIdentificationNumericNotAllowed"
-msgstr "{$publicIdentifier} √ľmumi m√ľ…ôyy…ônl…ôŇüdirici bir say olmamalńĪdńĪr."
+msgstr "{$publicIdentifier} ümumi müəyyənləşdirici bir say olmamalıdır."
 
 #, fuzzy
 msgid "editor.publicIdentificationPatternNotAllowed"
-msgstr "M√ľŇüt…ôr…ôk t…ôrifedici √ľ√ß√ľn {$pattern} modelin…ô icaz…ô verilm…ôz."
+msgstr "Müştərək tərifedici üçün {$pattern} modelinə icazə verilməz."
 
 #, fuzzy
 msgid "reviewer.list.assignedToLastRound"
-msgstr "Bu r…ôy√ßi son turda bir araŇüdńĪrma tamamladńĪ."
+msgstr "Bu rəyçi son turda bir araşdırma tamamladı."
 
 #, fuzzy
 msgid "editor.decision.emailSkipped"
-msgstr "Bu addńĪm atlandńĪ v…ô he√ß bir e-po√ßt g√∂nd…ôrilm…ôy…ôc…ôk."
+msgstr "Bu addım atlandı və heç bir e-poçt göndərilməyəcək."
 
 #, fuzzy
 msgid "editor.decision.stepError"
-msgstr "{$stepName} addńĪmńĪnda problem var idi."
+msgstr "{$stepName} addımında problem var idi."
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "M…ôqal…ô d…ôy…ôrl…ôndirm…ô √ľ√ß√ľn q…ôbul edildi"
+msgstr "Məqalə dəyərləndirmə üçün qəbul edildi"
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr "Bu t…ôqdimat bar…ôd…ô bu q…ôrarńĪ qeyd etm…ôk icaz…ôniz yoxdur."
+msgstr "Bu təqdimat barədə bu qərarı qeyd etmək icazəniz yoxdur."
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
-"Redaktor tanńĪnmadńĪ v…ô bu t…ôqdimat haqqńĪnda bir q…ôrar yazmańüa icaz…ôsi "
-"olmaya bil…ôr."
+"Redaktor tanınmadı və bu təqdimat haqqında bir qərar yazmağa icazəsi olmaya "
+"bilər."
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.invalidRecipients"
-msgstr ""
-"AŇüańüńĪdakńĪ alńĪcńĪlara bir e-po√ßt g√∂nd…ôr…ô bilm…ôzsiniz: {$ adlar}."
+msgstr "Aşağıdakı alıcılara bir e-poçt göndərə bilməzsiniz: {$ adlar}."
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr "Bu baxńĪŇü turu tapńĪlmadńĪ."
+msgstr "Bu baxış turu tapılmadı."
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
-"Bir baxńĪŇü m…ôrh…ôl…ôsi t…ômin edildi, ancaq bu q…ôrar bir araŇüdńĪrma "
-"m…ôrh…ôl…ôsi zamanńĪ alńĪnmńĪr."
+"Bir baxış mərhələsi təmin edildi, ancaq bu qərar bir araşdırma mərhələsi "
+"zamanı alınmır."
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr "Bu baxńĪŇü turu bu t…ôqdimatńĪn bir hiss…ôsi deyil."
+msgstr "Bu baxış turu bu təqdimatın bir hissəsi deyil."
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
-"T…ôqdimat bu q…ôrarńĪ g√∂t√ľrm…ôk √ľ√ß√ľn iŇü axńĪnńĪnńĪn m√ľvafiq "
-"m…ôrh…ôl…ôsind…ô deyil."
+"Təqdimat bu qərarı götürmək üçün iş axınının müvafiq mərhələsində deyil."
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
-msgstr ""
-"Redaksiya q…ôrarńĪnńĪ qeyd etm…ôk √ľ√ß√ľn bu t…ôqdimata t…ôyin "
-"olunmalńĪsńĪnńĪz."
+msgstr "Redaksiya qərarını qeyd etmək üçün bu təqdimata təyin olunmalısınız."
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.requiredReviewRound"
 msgstr ""
-"Bu q…ôrarńĪ g√∂t√ľrm…ôk √ľ√ß√ľn bir baxńĪŇü d…ôyirmi Ňü…ôxsiyy…ôti n…ôz…ôrd…"
-"ô tutulmuŇü olmalńĪdńĪr."
+"Bu qərarı götürmək üçün bir baxış dəyirmi şəxsiyyəti nəzərdə tutulmuş "
+"olmalıdır."
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
-"Son q…ôrar q…ôbul ed…ô bil…ôn bu m…ôrh…ôl…ôy…ô bir redaktor t…ôyin "
-"olunmadńĪńüńĪ t…ôqdird…ô t√∂vsiy…ô edil…ô bilm…ôz."
+"Son qərar qəbul edə bilən bu mərhələyə bir redaktor təyin olunmadığı "
+"təqdirdə tövsiyə edilə bilməz."
 
 #, fuzzy
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
-"Bu t…ôqdimata q…ôrar q…ôbul edil…ô bilm…ôdi. G√∂nd…ôrm…ô ID yoxdur v…ô ya "
-"t…ôl…ôb olunan t…ôqdimata uyńüun g…ôlmir."
+"Bu təqdimata qərar qəbul edilə bilmədi. Göndərmə ID yoxdur və ya tələb "
+"olunan təqdimata uyğun gəlmir."
 
 #, fuzzy
 msgid "editor.review.notInitiated"
-msgstr "D…ôy…ôrl…ôndirm…ô prosesi h…ôl…ô baŇülamamńĪŇüdńĪr."
+msgstr "Dəyərləndirmə prosesi hələ başlamamışdır."
 
 #, fuzzy
 msgid "editor.submission.externalReviewDescription"
-msgstr ""
-"D…ôy…ôrl…ôndirm…ô m…ôrh…ôl…ôsin…ô g√∂nd…ôrm…ôk √ľ√ß√ľn aŇüańüńĪdakńĪ "
-"fayllarńĪ se√ßin"
+msgstr "Dəyərləndirmə mərhələsinə göndərmək üçün aşağıdakı faylları seçin"
 
 #, fuzzy
 msgid "editor.submission.fileAuditor.form.userRequired"
-msgstr "T…ôyin etm…ôk √ľ√ß√ľn bir istifad…ô√ßi se√ßm…ôlisiniz."
+msgstr "Təyin etmək üçün bir istifadəçi seçməlisiniz."
 
 #, fuzzy
 msgid "editor.submission.review.reviewersDescription"
 msgstr ""
-"OxucularńĪ m…ôqal…ôl…ôri d…ôy…ôrl…ôndirm…ôy…ô d…ôv…ôt etm…ôk "
-"√ľ√ß√ľn<em>+r…ôy√ßi ∆Źlav…ô et</em>'i istifad…ô edin. Noutbuk simvolu, bir "
-"d…ôy…ôrl…ôndirm…ônin g√∂nd…ôrildiyini v…ô sonrasńĪnda da "
-"<em>T…ôsdiql…ôndiyini</em>g√∂st…ôrir. D…ôy…ôrl…ôndirm…ôl…ôr ge√ßikdiyi "
-"zaman, r…ôy√ßil…ôr…ô xatńĪrlatmaq √ľ√ß√ľn qńĪrmńĪzńĪ bir z…ôrf simvolu "
-"g√∂st…ôrilir."
+"Oxucuları məqalələri dəyərləndirməyə dəvət etmək üçün<em>+rəyçi Əlavə et</"
+"em>'i istifadə edin. Noutbuk simvolu, bir dəyərləndirmənin göndərildiyini və "
+"sonrasında da <em>Təsdiqləndiyini</em>göstərir. Dəyərləndirmələr geçikdiyi "
+"zaman, rəyçilərə xatırlatmaq üçün qırmızı bir zərf simvolu göstərilir."
 
 #, fuzzy
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
-msgstr ""
-"D√ľz…ôliŇül…ôr yeni bir r…ôyl…ôrin yeni bir d√∂vr√ľn…ô m…ôruz qalmamalńĪdńĪr."
+msgstr "Düzəlişlər yeni bir rəylərin yeni bir dövrünə məruz qalmamalıdır."
 
 #, fuzzy
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
-msgstr "D√ľz…ôliŇül…ôr yeni bir r…ôyl…ôr…ô m…ôruz qalmalńĪdńĪr."
+msgstr "Düzəlişlər yeni bir rəylərə məruz qalmalıdır."
 
 #, fuzzy
 msgid "editor.review.requestCancelled.tooltip"
-msgstr "Redaktor bu d…ôy…ôrl…ôndirm…ô t…ôl…ôbini l…ôńüv etdi"
+msgstr "Redaktor bu dəyərləndirmə tələbini ləğv etdi"
 
 #, fuzzy
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
 msgstr ""
-"D√ľz…ôliŇü prosesinin baŇüa √ßatmadńĪńüńĪnńĪ v…ô faylńĪn n…ôŇür…ô hazńĪr "
-"olmadńĪńüńĪnńĪ g√∂st…ôrm…ôk √ľ√ß√ľn bu d√ľz…ôliŇü t…ôsdiqini l…ôńüv edin."
+"Düzəliş prosesinin başa çatmadığını və faylın nəşrə hazır olmadığını "
+"göstərmək üçün bu düzəliş təsdiqini ləğv edin."

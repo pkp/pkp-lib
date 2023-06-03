@@ -1,7 +1,7 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 20:57+0000\n"
+"PO-Revision-Date: 2023-06-03 08:38+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/az/>\n"
@@ -13,34 +13,34 @@ msgstr ""
 "X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.website.appearance"
-msgstr "G√∂r√ľn√ľŇü {$Display} n…ôf…ôrdir)"
+msgstr "Görünüş {$Display} nəfərdir)"
 
 msgid "manager.people.enrollment"
 msgstr "Qeydiyyat"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr "H…ôr k…ôs…ô m…ôlumat verin"
+msgstr "Hər kəsə məlumat verin"
 
 msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr "R…ôy√ßi xatńĪrlatmasńĪ"
+msgstr "Rəyçi xatırlatması"
 
 msgid "manager.setup.theme"
 msgstr "Tema"
 
 msgid "manager.plugins.installedVersionNewest.short"
-msgstr "G√ľnc…ôl"
+msgstr "Güncəl"
 
 msgid "manager.paymentMethod.currency"
 msgstr "Pul vahidi"
 
 msgid "settings.roles.stages"
-msgstr "AddńĪm"
+msgstr "Addım"
 
 msgid "manager.setup.genres.label"
-msgstr "Fayl n√∂v√ľ"
+msgstr "Fayl növü"
 
 msgid "grid.action.createReviewForm"
-msgstr "Yeni d…ôy…ôrl…ôndirm…ô formu yaradńĪn"
+msgstr "Yeni dəyərləndirmə formu yaradın"
 
 msgid "manager.navigationMenus.form.url"
 msgstr "Url"
@@ -49,25 +49,25 @@ msgid "grid.category.name"
 msgstr "Ad"
 
 msgid "stats.dateRange.untilDate"
-msgstr "{$date} tarixin…ô q…ôd…ôr"
+msgstr "{$date} tarixinə qədər"
 
 msgid "plugins.importexport.common.cliError"
-msgstr "X…ôta:"
+msgstr "Xəta:"
 
 msgid "mailable.reviewerReinstate.name"
-msgstr "R…ôy√ßi yenid…ôn t…ôyin edildi"
+msgstr "Rəyçi yenidən təyin edildi"
 
 msgid "manager.website.information"
-msgstr "M…ôlumat"
+msgstr "Məlumat"
 
 msgid "manager.announcements"
 msgstr "Elanlar"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Bu elanńĪ daimi olaraq silm…ôk ist…ôdiyinizd…ôn …ôminsinizmi?"
+msgstr "Bu elanı daimi olaraq silmək istədiyinizdən əminsinizmi?"
 
 msgid "manager.announcements.create"
-msgstr "Yeni bir elan yaradńĪn"
+msgstr "Yeni bir elan yaradın"
 
 msgid "manager.announcements.createTitle"
 msgstr "Yarat"
@@ -76,16 +76,16 @@ msgid "manager.announcements.dateExpire"
 msgstr "Son tarix"
 
 msgid "manager.announcements.datePublish"
-msgstr "N…ôŇür olundu"
+msgstr "Nəşr olundu"
 
 msgid "manager.announcements.deleteAnnouncement"
-msgstr "ElanńĪ silin"
+msgstr "Elanı silin"
 
 msgid "manager.announcements.edit"
-msgstr "ElanńĪ redakt…ô edin"
+msgstr "Elanı redaktə edin"
 
 msgid "manager.announcements.editTitle"
-msgstr "Redakt…ô edin"
+msgstr "Redaktə edin"
 
 msgid "manager.announcements.form.dateExpire"
 msgstr "Son tarix"
@@ -94,118 +94,117 @@ msgid "manager.announcements.form.description"
 msgstr "Elan"
 
 msgid "manager.announcements.form.descriptionShort"
-msgstr "QńĪsa t…ôrif"
+msgstr "Qısa tərif"
 
 msgid "manager.announcements.form.saveAndCreateAnother"
-msgstr "Saxla ve BaŇüqasńĪnńĪ yarat"
+msgstr "Saxla ve Başqasını yarat"
 
 msgid "manager.announcements.form.title"
-msgstr "BaŇülńĪq"
+msgstr "Başlıq"
 
 msgid "manager.announcements.form.typeId"
-msgstr "N√∂v"
+msgstr "Növ"
 
 msgid "manager.announcements.title"
-msgstr "BaŇülńĪq"
+msgstr "Başlıq"
 
 msgid "manager.announcements.type"
-msgstr "N√∂v"
+msgstr "Növ"
 
 msgid "manager.announcementTypes"
-msgstr "Elan n√∂vl…ôri"
+msgstr "Elan növləri"
 
 msgid "manager.announcementTypes.confirmDelete"
 msgstr ""
-"X…ôb…ôrdarlńĪq! Bu elan n√∂v√ľ v…ô bu n√∂v il…ô qeydiyyatlńĪ b√ľt√ľn elanlar "
-"silin…ôc…ôk. Davam etm…ôk v…ô bu elan n√∂vl…ôrini silm…ôk ist…ôdiyinizd…ôn "
-"…ôminsinizmi?"
+"Xəbərdarlıq! Bu elan növü və bu növ ilə qeydiyyatlı bütün elanlar silinəcək. "
+"Davam etmək və bu elan növlərini silmək istədiyinizdən əminsinizmi?"
 
 msgid "manager.announcementTypes.create"
-msgstr "Bir elan n√∂v√ľ yaradńĪn"
+msgstr "Bir elan növü yaradın"
 
 msgid "manager.announcementTypes.createTitle"
-msgstr "YaradńĪn"
+msgstr "Yaradın"
 
 msgid "manager.announcementTypes.edit"
-msgstr "ElanńĪn n√∂v√ľn√ľ redakt…ô edin"
+msgstr "Elanın növünü redaktə edin"
 
 msgid "manager.announcementTypes.editTitle"
-msgstr "Redakt…ô edin"
+msgstr "Redaktə edin"
 
 msgid "manager.announcementTypes.form.saveAndCreateAnother"
-msgstr "Saxla ve BaŇüqasńĪnńĪ yarat"
+msgstr "Saxla ve Başqasını yarat"
 
 msgid "manager.announcementTypes.form.typeName"
 msgstr "Ad"
 
 msgid "manager.announcementTypes.typeName"
-msgstr "Elan n√∂v√ľ"
+msgstr "Elan növü"
 
 msgid "manager.publication.submissionStage"
-msgstr "M…ôqal…ô"
+msgstr "Məqalə"
 
 msgid "manager.publication.reviewStage"
-msgstr "ńįnc…ôl…ôm…ô"
+msgstr "İncələmə"
 
 msgid "manager.publication.editorialStage"
 msgstr "Redaksiya"
 
 msgid "manager.publication.productionStage"
-msgstr "√áap"
+msgstr "Çap"
 
 msgid "manager.publication.emails"
-msgstr "emaill…ôr"
+msgstr "emaillər"
 
 msgid "manager.publication.reviewerGuidance"
-msgstr "R…ôy√ßi b…ôl…ôd√ßisi"
+msgstr "Rəyçi bələdçisi"
 
 msgid "manager.emails.addEmail"
-msgstr "Ňěablon …ôlav…ô edin"
+msgstr "Şablon əlavə edin"
 
 msgid "manager.emails.createEmail"
-msgstr "Email formalaŇüdńĪrńĪn"
+msgstr "Email formalaşdırın"
 
 msgid "manager.emails.data"
-msgstr "Mesaj data Ňüablonu"
+msgstr "Mesaj data şablonu"
 
 msgid "manager.emails.details"
-msgstr "Ňěablon detallarńĪ"
+msgstr "Şablon detalları"
 
 msgid "manager.emails.disable"
-msgstr "BańülayńĪn"
+msgstr "Bağlayın"
 
 msgid "manager.emails.editTestExample"
-msgstr "Email test n√ľmun…ôsini redakt…ô edin"
+msgstr "Email test nümunəsini redaktə edin"
 
 msgid "manager.emails.emailTemplate"
-msgstr "Elektron po√ßt Ňüablonu"
+msgstr "Elektron poçt şablonu"
 
 msgid "manager.emails.emailTemplates"
-msgstr "Elektron po√ßt ŇüablonlarńĪ"
+msgstr "Elektron poçt şablonları"
 
 msgid "manager.emails.otherTemplates"
-msgstr "Dig…ôr Ňüablonlar"
+msgstr "Digər şablonlar"
 
 msgid "manager.emails.enabled"
-msgstr "Bu email Ňüablonunu aktivl…ôŇüdirin"
+msgstr "Bu email şablonunu aktivləşdirin"
 
 msgid "manager.emails.enable"
-msgstr "Aktivl…ôŇüdirin"
+msgstr "Aktivləşdirin"
 
 msgid "manager.emails"
-msgstr "HazńĪrlanmńĪŇü elektron po√ßtlar"
+msgstr "Hazırlanmış elektron poçtlar"
 
 msgid "manager.emails.resetAll"
-msgstr "HamńĪsńĪnńĪ sńĪfńĪrlayńĪn"
+msgstr "Hamısını sıfırlayın"
 
 msgid "manager.emails.resetToDefault"
-msgstr "Defolt formata qayńĪdńĪn"
+msgstr "Defolt formata qayıdın"
 
 msgid "manager.emails.sentFrom"
-msgstr "adresind…ôn g√∂nd…ôrildi"
+msgstr "adresindən göndərildi"
 
 msgid "manager.emails.sentTo"
-msgstr "adres…ô g√∂nd…ôrildi"
+msgstr "adresə göndərildi"
 
 msgid "manager.export.usersToCsv.label"
 msgstr "Excel / CSV kimi ixrac edin"
@@ -214,192 +213,191 @@ msgid "manager.filesBrowser"
 msgstr "Fayl brauzeri"
 
 msgid "manager.files.createDir"
-msgstr "ńįndeks yaradńĪn"
+msgstr "İndeks yaradın"
 
 msgid "manager.files.indexOfDir"
 msgstr "{$dir} indeksi"
 
 msgid "manager.files.parentDir"
-msgstr "√úst indeks"
+msgstr "Üst indeks"
 
 msgid "manager.files.uploadedFiles"
-msgstr "Y√ľkl…ônmiŇü fayllar"
+msgstr "Yüklənmiş fayllar"
 
 msgid "manager.files.uploadFile"
-msgstr "FaylńĪ y√ľkl…ôyin"
+msgstr "Faylı yükləyin"
 
 msgid "manager.groups.confirmDelete"
-msgstr "Bu qrupu silm…ôk ist…ôdiyiniz…ô …ôminsiniz?"
+msgstr "Bu qrupu silmək istədiyinizə əminsiniz?"
 
 msgid "manager.groups.createTitle"
-msgstr "BaŇülńĪq yaradńĪn"
+msgstr "Başlıq yaradın"
 
 msgid "manager.groups.editTitle"
-msgstr "BaŇülńĪńüńĪ redakt…ô edin"
+msgstr "Başlığı redaktə edin"
 
 msgid "manager.groups.membership.addMember"
-msgstr "√úzv …ôlav…ô edin"
+msgstr "Üzv əlavə edin"
 
 msgid "manager.groups.membership.confirmDelete"
-msgstr "Bu qrup √ľzvl√ľy√ľn√ľ silm…ôk ist…ôdiyinizd…ôn …ôminsinizmi?"
+msgstr "Bu qrup üzvlüyünü silmək istədiyinizdən əminsinizmi?"
 
 msgid "manager.groups.membership"
-msgstr "√úzvl√ľk"
+msgstr "Üzvlük"
 
 msgid "manager.groups.title"
-msgstr "BaŇülńĪq"
+msgstr "Başlıq"
 
 msgid "manager.importExport"
-msgstr "Data almaq/verm…ôk"
+msgstr "Data almaq/vermək"
 
 msgid "manager.language.ui"
 msgstr "KA"
 
 msgid "manager.language.submissions"
-msgstr "M…ôqal…ôl…ôr"
+msgstr "Məqalələr"
 
 msgid "manager.language.forms"
 msgstr "Formalar"
 
 msgid "manager.language.reloadLocalizedDefaultSettings"
-msgstr "DefoltlarńĪ geri y√ľkl…ôyin"
+msgstr "Defoltları geri yükləyin"
 
 msgid "manager.payment.timestamp"
-msgstr "Vaxt m√∂h√ľr√ľ"
+msgstr "Vaxt möhürü"
 
 msgid "manager.people.authSource"
-msgstr "S…ôlahiyy…ôtl…ôndirm…ô m…ônb…ôyi"
+msgstr "Səlahiyyətləndirmə mənbəyi"
 
 msgid "manager.people.confirmUnenroll"
-msgstr "Bu √ľzv qeydiyyat xaricind…ô qalsńĪnmńĪ?"
+msgstr "Bu üzv qeydiyyat xaricində qalsınmı?"
 
 msgid "manager.people.createUser"
-msgstr "Yeni bir √ľzv yaradńĪn"
+msgstr "Yeni bir üzv yaradın"
 
 msgid "manager.people.disable"
-msgstr "Passivl…ôŇüdirin"
+msgstr "Passivləşdirin"
 
 msgid "manager.people.doNotEnroll"
-msgstr "S…ôlahiyy…ôtl…ôndirm…ô"
+msgstr "Səlahiyyətləndirmə"
 
 msgid "manager.people.editProfile"
-msgstr "Profili redakt…ô edin"
+msgstr "Profili redaktə edin"
 
 msgid "manager.people.editUser"
-msgstr "√úzv√ľ redakt…ô edin"
+msgstr "Üzvü redaktə edin"
 
 msgid "manager.people.emailUsers.emailSelectedUsers"
-msgstr "Se√ßilmiŇü √ľzvl…ôr…ô email G√∂nd…ôr"
+msgstr "Seçilmiş üzvlərə email Göndər"
 
 msgid "manager.people.emailUsers.emailUsersEnrolledAs"
-msgstr "Bu formada qeydiyyatdan ke√ßmiŇü √ľzvl…ôr…ô email g√∂nd…ôr"
+msgstr "Bu formada qeydiyyatdan keçmiş üzvlərə email göndər"
 
 msgid "manager.people.emailUsers"
-msgstr "√úzvl…ôr…ô email G√∂nd…ôr"
+msgstr "Üzvlərə email Göndər"
 
 msgid "manager.people.emailUsers.selectLocale"
-msgstr "Dil se√ßin"
+msgstr "Dil seçin"
 
 msgid "manager.people.emailUsers.selectUsers"
 msgstr ""
-"Email g√∂nd…ôrm…ôk ist…ôdiyiniz √ľzvl…ôrin adlarńĪnńĪn yanńĪndakńĪ qutularńĪ "
-"iŇüar…ôl…ôyin."
+"Email göndərmək istədiyiniz üzvlərin adlarının yanındakı qutuları işarələyin."
 
 msgid "manager.people.enable"
-msgstr "Aktivl…ôŇüdirin"
+msgstr "Aktivləşdirin"
 
 msgid "manager.people.enroll"
-msgstr "ńįstifad…ô√ßini qeydiyyatdan ke√ßirin"
+msgstr "İstifadəçini qeydiyyatdan keçirin"
 
 msgid "manager.people.enrollSelected"
-msgstr "Se√ßilmiŇü √ľzvl…ôri qeydiyyatdan ke√ßirin"
+msgstr "Seçilmiş üzvləri qeydiyyatdan keçirin"
 
 msgid "manager.people.enrollSyncRole"
-msgstr "Rolu sinxronlaŇüdńĪrńĪn"
+msgstr "Rolu sinxronlaşdırın"
 
 msgid "manager.people.enrollSync"
 msgstr "Eyni vaxtda qeydiyyat"
 
 msgid "manager.people.enrollUserAs"
-msgstr "ńįstifad…ô√ßini bel…ô qeydiyyatdan ke√ßirin"
+msgstr "İstifadəçini belə qeydiyyatdan keçirin"
 
 msgid "manager.people.mergeUser"
-msgstr "ńįstifad…ô√ßini birl…ôŇüdirin"
+msgstr "İstifadəçini birləşdirin"
 
 msgid "manager.people.mergeUsers"
-msgstr "√úzvl…ôri birl…ôŇüdirin"
+msgstr "Üzvləri birləşdirin"
 
 msgid "manager.people"
-msgstr "Ňě…ôxsl…ôr"
+msgstr "Şəxslər"
 
 msgid "manager.people.remove"
 msgstr "Sil"
 
 msgid "manager.people.saveAndCreateAnotherUser"
-msgstr "Saxla ve baŇüqa bir √ľzv yaradńĪn"
+msgstr "Saxla ve başqa bir üzv yaradın"
 
 msgid "manager.people.signedInAs"
-msgstr "HazńĪrda {$username} kimi daxil oldunuz"
+msgstr "Hazırda {$username} kimi daxil oldunuz"
 
 msgid "manager.people.signInAs"
-msgstr "Bu Ňü…ôxs kimi daxil olun"
+msgstr "Bu şəxs kimi daxil olun"
 
 msgid "manager.people.signInAsUser"
-msgstr "√úzv kimi daxil olun"
+msgstr "Üzv kimi daxil olun"
 
 msgid "manager.people.syncUsers"
-msgstr "√úzv qeydiyyatńĪnńĪ eyni vaxtda edin"
+msgstr "Üzv qeydiyyatını eyni vaxtda edin"
 
 msgid "manager.people.unenroll"
-msgstr "Qeydiyyat xaricind…ô buraxńĪn"
+msgstr "Qeydiyyat xaricində buraxın"
 
 msgid "manager.reviewerSearch.change"
-msgstr "D…ôyiŇüdirin"
+msgstr "Dəyişdirin"
 
 msgid "manager.plugins.action"
-msgstr "Edil…ôc…ôk:"
+msgstr "Ediləcək:"
 
 msgid "manager.plugins.disable"
-msgstr "Passivl…ôŇüdirin"
+msgstr "Passivləşdirin"
 
 msgid "manager.plugins.enable"
-msgstr "Aktivl…ôŇüdirin"
+msgstr "Aktivləşdirin"
 
 msgid "manager.plugins.pluginManagement"
-msgstr "∆Źlav…ô idar…ôetm…ôsi"
+msgstr "Əlavə idarəetməsi"
 
 msgid "manager.plugins"
-msgstr "Sistem …ôlav…ôl…ôri"
+msgstr "Sistem əlavələri"
 
 msgid "manager.readingTools"
-msgstr "Oxuma al…ôtl…ôri"
+msgstr "Oxuma alətləri"
 
 msgid "manager.userSearch.searchByName"
-msgstr "Ada g√∂r…ô istifad…ô√ßi axtarńĪn"
+msgstr "Ada görə istifadəçi axtarın"
 
 msgid "manager.reviewerSearch.searchByName"
-msgstr "AdńĪna g√∂r…ô r…ôy√ßi axtarma"
+msgstr "Adına görə rəyçi axtarma"
 
 msgid "manager.reviewerSearch.searchByName.short"
-msgstr "Ada g√∂r…ô axtarńĪn"
+msgstr "Ada görə axtarın"
 
 msgid "manager.reviewerSearch.interests"
-msgstr "Maraq dair…ôsi"
+msgstr "Maraq dairəsi"
 
 msgid "manager.roles"
-msgstr "V…ôzif…ôl…ôr"
+msgstr "Vəzifələr"
 
 msgid "manager.statistics.reports"
-msgstr "Hesabat yaradńĪn"
+msgstr "Hesabat yaradın"
 
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
 msgid "manager.setup.dois"
-msgstr "DOI-l…ôr"
+msgstr "DOI-lər"
 
 msgid "manager.setup.dois.setup"
-msgstr "T…ônzim"
+msgstr "Tənzim"
 
 msgid "manager.setup.dois.registration"
 msgstr "Qeydiyyat"
@@ -408,153 +406,152 @@ msgid "doi.manager.settings.doiPrefix"
 msgstr "Doi prefiksi"
 
 msgid "doi.manager.setup.automaticDeposit"
-msgstr "Avtomatik k√∂√ß√ľr√ľn"
+msgstr "Avtomatik köçürün"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr "Avtomatik transferi aktivl…ôŇüdirin"
+msgstr "Avtomatik transferi aktivləşdirin"
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
-"DOI prefiksi qeydiyyat agentlikl…ôri (M…ôs…ôl…ôn; <a href=\"http://www."
-"crossref.org\" target=\"_new\">Crossref</a>) t…ôr…ôfind…ôn t…ôyin "
-"edilmiŇüdir v…ô formatńĪ 10.xxxx Ňü…ôklind…ôdir (M…ôs…ôl…ôn; 10.1234):"
+"DOI prefiksi qeydiyyat agentlikləri (Məsələn; <a href=\"http://www.crossref."
+"org\" target=\"_new\">Crossref</a>) tərəfindən təyin edilmişdir və formatı "
+"10.xxxx şəklindədir (Məsələn; 10.1234):"
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr "Avtomatik DOI yaradńĪn"
+msgstr "Avtomatik DOI yaradın"
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr "∆Źsla"
+msgstr "Əsla"
 
 msgid "manager.setup.doiPrefix"
 msgstr "Doi prefiksi"
 
 msgid "doi.manager.settings.doiObjects"
-msgstr "Jurnal m…ôzmunu"
+msgstr "Jurnal məzmunu"
 
 msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI son …ôlav…ôsi"
+msgstr "DOI son əlavəsi"
 
 msgid "manager.setup.publishing"
-msgstr "N…ôŇür t…ôf…ôrr√ľatlarńĪ"
+msgstr "Nəşr təfərrüatları"
 
 msgid "manager.setup.copyrightNotice"
-msgstr "M√ľ…ôllif h√ľquqlarńĪ bildiriŇüi"
+msgstr "Müəllif hüquqları bildirişi"
 
 msgid "manager.setup.additionalContent"
-msgstr "∆Źlav…ô m…ôzmun"
+msgstr "Əlavə məzmun"
 
 msgid "manager.setup.advanced"
-msgstr "ńįnkiŇüaf etmiŇü"
+msgstr "İnkişaf etmiş"
 
 msgid "manager.setup.authorGuidelines"
-msgstr "M√ľ…ôllif B…ôl…ôd√ßil…ôri"
+msgstr "Müəllif Bələdçiləri"
 
 msgid "manager.setup.disableSubmissions"
-msgstr "M…ôqal…ô g√∂nd…ôrm…ôyi sńĪradan √ßńĪxarńĪn"
+msgstr "Məqalə göndərməyi sıradan çıxarın"
 
 msgid "manager.setup.checklist"
-msgstr "Yoxlama siyahńĪsńĪ"
+msgstr "Yoxlama siyahısı"
 
 msgid "manager.setup.competingInterests"
-msgstr "MaraqlarńĪn toqquŇümasńĪ"
+msgstr "Maraqların toqquşması"
 
 msgid "manager.setup.favicon"
-msgstr "Sevimli niŇüan"
+msgstr "Sevimli nişan"
 
 msgid "manager.setup.homepageImage"
-msgstr "Ana s…ôhif…ô Ňü…ôkli"
+msgstr "Ana səhifə şəkli"
 
 msgid "manager.setup.information.descriptionTitle"
-msgstr "T…ôsvirl…ôr"
+msgstr "Təsvirlər"
 
 msgid "manager.setup.layout.sidebar"
-msgstr "K…ônar √ßubuńüu"
+msgstr "Kənar çubuğu"
 
 msgid "manager.setup.loggingAndAuditing"
-msgstr "GiriŇü v…ô n…ôzar…ôt"
+msgstr "Giriş və nəzarət"
 
 msgid "manager.setup.logo"
 msgstr "Loqotip"
 
 msgid "manager.setup.notifications"
-msgstr "M√ľ…ôllif t…ôqdimat bildiriŇüi"
+msgstr "Müəllif təqdimat bildirişi"
 
 msgid "manager.setup.notifications.copySpecifiedAddress"
-msgstr "Bu email adresin…ô bir n√ľsx…ô g√∂nd…ôr"
+msgstr "Bu email adresinə bir nüsxə göndər"
 
 msgid "manager.setup.submissionsNotifications"
-msgstr "BildiriŇül…ôr"
+msgstr "Bildirişlər"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr "∆Źsas insanńĪ m…ôlumatlandńĪrńĪn"
+msgstr "Əsas insanı məlumatlandırın"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr "B…ôli kopyasńĪnńĪ {$email}adresin…ô g√∂nd…ôr"
+msgstr "Bəli kopyasını {$email}adresinə göndər"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
 msgstr "Yox"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
-"T…ôqdimat t…ôsdiq emailinin bir sur…ôti, buraya daxil edil…ôn email "
-"adresil…ôrind…ôn h…ôr birin…ô g√∂nd…ôril…ôc…ôkdir. Bird…ôn √ßox email adresi "
-"√ľ√ß√ľn verg√ľll…ô ayńĪrńĪn. N√ľmun…ô: bir@example.com, iki@example.com"
+"Təqdimat təsdiq emailinin bir surəti, buraya daxil edilən email "
+"adresilərindən hər birinə göndəriləcəkdir. Birdən çox email adresi üçün "
+"vergüllə ayırın. Nümunə: bir@example.com, iki@example.com"
 
 msgid "manager.setup.notifications.description"
 msgstr ""
-"m√ľ…ôllifl…ôr…ô avtomatik olaraq t…ôqdimatlarńĪnńĪnńĪn q…ôbul edildiyini "
-"bildir…ôn bir email g√∂nd…ôrilir. Bu emailin sur…ôtl…ôri aŇüańüńĪdakńĪlara "
-"g√∂nd…ôril…ô bil…ôr:"
+"müəlliflərə avtomatik olaraq təqdimatlarınının qəbul edildiyini bildirən bir "
+"email göndərilir. Bu emailin surətləri aşağıdakılara göndərilə bilər:"
 
 msgid "manager.setup.notifyUsers"
-msgstr "M…ôlumat verin"
+msgstr "Məlumat verin"
 
 msgid "manager.setup.notifyUsers.send"
-msgstr "Emaili G√∂nd…ôr"
+msgstr "Emaili Göndər"
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
-"{$total} …ôd…ôd istifad…ô√ßiy…ô email g√∂nd…ôrirsiniz Emaili g√∂nd…ôrm…ôk "
-"ist…ôdiyinizd…ôn …ôminsinizmi?"
+"{$total} ədəd istifadəçiyə email göndərirsiniz Emaili göndərmək "
+"istədiyinizdən əminsinizmi?"
 
 msgid "manager.setup.notifyUsers.sendAnother"
-msgstr "BaŇüqa bir email G√∂nd…ôr"
+msgstr "Başqa bir email Göndər"
 
 msgid "manager.setup.openAccessPolicy"
-msgstr "A√ßńĪq giriŇü politikasńĪ"
+msgstr "Açıq giriş politikası"
 
 msgid "manager.setup.pageFooter"
-msgstr "S…ôhif…ô altńĪ"
+msgstr "Səhifə altı"
 
 msgid "manager.setup.principalContact"
-msgstr "∆Źsas …ôlaq…ô"
+msgstr "Əsas əlaqə"
 
 msgid "manager.setup.privacyStatement"
-msgstr "M…ôxfilik bildiriŇüi"
+msgstr "Məxfilik bildirişi"
 
 msgid "manager.setup.dateTime"
 msgstr "Tarix & saat"
 
 msgid "manager.setup.dateTime.descriptionTitle"
-msgstr "Tarix v…ô saat formatńĪ"
+msgstr "Tarix və saat formatı"
 
 msgid "manager.setup.dateTime.longDate"
 msgstr "Tarix"
 
 msgid "manager.setup.dateTime.shortDate"
-msgstr "Tarix (qńĪsa)"
+msgstr "Tarix (qısa)"
 
 msgid "manager.setup.dateTime.time"
 msgstr "Saat"
 
 msgid "manager.setup.dateTime.longDateTime"
-msgstr "Tarix v…ô saat"
+msgstr "Tarix və saat"
 
 msgid "manager.setup.dateTime.shortDateTime"
-msgstr "Tarix v…ô saat (QńĪsa)"
+msgstr "Tarix və saat (Qısa)"
 
 msgid "manager.setup.dateTime.custom"
-msgstr "X√ľsusi"
+msgstr "Xüsusi"
 
 msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
 msgstr "Defolt cavab son tarixi"
@@ -563,36 +560,36 @@ msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
 msgstr "Defolt Tamamlama tarixi"
 
 msgid "manager.setup.reviewOptions.numWeeksPerReview"
-msgstr "D…ôy…ôrl…ôndirm…ô √ľ√ß√ľn tamamlanan h…ôft…ôl…ôr"
+msgstr "Dəyərləndirmə üçün tamamlanan həftələr"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"
-msgstr "He√ß vaxt xatńĪrlatma"
+msgstr "Heç vaxt xatırlatma"
 
 msgid "manager.setup.reviewOptions.reminders.response"
-msgstr "Cavab XatńĪrlatma"
+msgstr "Cavab Xatırlatma"
 
 msgid "manager.setup.reviewOptions.reviewMode"
-msgstr "Defolt inc…ôl…ôm…ô rejimi"
+msgstr "Defolt incələmə rejimi"
 
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Y√ľkl…ôm…ô …ôsnasńĪnda<button type=\"button\">\"Anonim r…ôy√ßilik T…ôminetm…"
-"ô\"</button> baŇülńĪqlńĪ bir link t…ôqdim edin."
+"Yükləmə əsnasında<button type=\"button\">\"Anonim rəyçilik Təminetmə\"</"
+"button> başlıqlı bir link təqdim edin."
 
 msgid "manager.setup.sponsors.note"
-msgstr "Sponsor m√ľnasib…ôtl…ôri v…ô Politika a√ßńĪqlamasńĪ"
+msgstr "Sponsor münasibətləri və Politika açıqlaması"
 
 msgid "manager.setup.technicalSupportContact"
-msgstr "Texniki d…ôst…ôk …ôlaq…ôsi"
+msgstr "Texniki dəstək əlaqəsi"
 
 msgid "manager.sections.confirmDeactivateSection"
-msgstr "Bu b√∂lm…ôni l…ôńüv etm…ôk ist…ôyirsinizmi?"
+msgstr "Bu bölməni ləğv etmək istəyirsinizmi?"
 
 msgid "manager.sections.confirmActivateSection"
-msgstr "Bu b√∂lm…ôni aktivl…ôŇüdirm…ôk ist…ôdiyinizd…ôn …ôminsinizmi?"
+msgstr "Bu bölməni aktivləşdirmək istədiyinizdən əminsinizmi?"
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
-msgstr "Sayt GiriŇü Se√ßiml…ôri"
+msgstr "Sayt Giriş Seçimləri"
 
 msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} ({$percentage}%)"
@@ -601,106 +598,106 @@ msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$ numertal} (yeni {$numNew}"
 
 msgid "manager.statistics.statistics.registeredUsers"
-msgstr "Qeydiyyatdan ke√ßmiŇü istifad…ô√ßil…ôr"
+msgstr "Qeydiyyatdan keçmiş istifadəçilər"
 
 msgid "manager.users"
-msgstr "√úzvl…ôr"
+msgstr "Üzvlər"
 
 msgid "plugins.categories.metadata"
-msgstr "Metadata …ôlav…ôl…ôri"
+msgstr "Metadata əlavələri"
 
 msgid "plugins.categories.auth"
-msgstr "S…ôlahiyy…ôtl…ôndirm…ô …ôlav…ôl…ôri"
+msgstr "Səlahiyyətləndirmə əlavələri"
 
 msgid "plugins.categories.blocks"
-msgstr "Blok …ôlav…ôl…ôri"
+msgstr "Blok əlavələri"
 
 msgid "plugins.categories.gateways"
-msgstr "Ke√ßid ∆Źlav…ôl…ôri"
+msgstr "Keçid Əlavələri"
 
 msgid "plugins.categories.generic"
-msgstr "√úmumi ∆Źlav…ôl…ôr"
+msgstr "Ümumi Əlavələr"
 
 msgid "plugins.categories.importexport"
-msgstr "Data idxaletm…ô / ixracetm…ô ∆Źlav…ôl…ôri"
+msgstr "Data idxaletmə / ixracetmə Əlavələri"
 
 msgid "plugins.categories.paymethod"
-msgstr "√Ėd…ôniŇü ∆Źlav…ôl…ôri"
+msgstr "Ödəniş Əlavələri"
 
 msgid "plugins.categories.reports"
-msgstr "Hesabat ∆Źlav…ôl…ôri"
+msgstr "Hesabat Əlavələri"
 
 msgid "plugins.categories.themes"
-msgstr "Tema ∆Źlav…ôl…ôri"
+msgstr "Tema Əlavələri"
 
 msgid "plugins.categories.oaiMetadataFormats"
-msgstr "OAI metadata …ôlav…ôl…ôri"
+msgstr "OAI metadata əlavələri"
 
 msgid "plugins.categories.pubIds"
-msgstr "√úmumi m√ľ…ôyy…ônl…ôŇüdirici ∆Źlav…ôl…ôri"
+msgstr "Ümumi müəyyənləşdirici Əlavələri"
 
 msgid "manager.plugins.delete"
-msgstr "∆Źlav…ô silin"
+msgstr "Əlavə silin"
 
 msgid "manager.plugins.installConfirm"
-msgstr "Bu …ôlav…ôni y√ľkl…ôm…ôk ist…ôdiyinizd…ôn …ôminsinizmi?"
+msgstr "Bu əlavəni yükləmək istədiyinizdən əminsinizmi?"
 
 msgid "manager.plugins.upgradeConfirm"
-msgstr "Bu …ôlav…ôni yenil…ôm…ôk ist…ôdiyinizd…ôn …ôminsinizmi?"
+msgstr "Bu əlavəni yeniləmək istədiyinizdən əminsinizmi?"
 
 msgid "grid.action.installPlugin"
-msgstr "Bu …ôlav…ôni y√ľkl…ôyin v…ô ya yenil…ôyin"
+msgstr "Bu əlavəni yükləyin və ya yeniləyin"
 
 msgid "manager.plugins.deleteConfirm"
-msgstr "Bu …ôlav…ôni sistemd…ôn silm…ôk ist…ôdiyinizd…ôn …ôminsinizmi?"
+msgstr "Bu əlavəni sistemdən silmək istədiyinizdən əminsinizmi?"
 
 msgid "manager.plugins.deleteSuccess"
-msgstr "\"{$pluginName}\" …ôlav…ôsi uńüurla silindi"
+msgstr "\"{$pluginName}\" əlavəsi uğurla silindi"
 
 msgid "manager.plugins.doesNotExist"
-msgstr "\"{$pluginName}\" …ôlav…ôsi m√∂vcud deyil"
+msgstr "\"{$pluginName}\" əlavəsi mövcud deyil"
 
 msgid "manager.plugins.fileSelectError"
-msgstr "∆Źvv…ôlc…ô bir fayl se√ßin"
+msgstr "Əvvəlcə bir fayl seçin"
 
 msgid "manager.plugins.upload"
-msgstr "Yeni bir …ôlav…ô y√ľkl…ôyin"
+msgstr "Yeni bir əlavə yükləyin"
 
 msgid "manager.plugins.installed"
-msgstr "QuraŇüdńĪrńĪlmńĪŇü …ôlav…ôl…ôr"
+msgstr "Quraşdırılmış əlavələr"
 
 msgid "manager.plugins.pluginGallery"
-msgstr "∆Źlav…ô qaleriyasńĪ"
+msgstr "Əlavə qaleriyası"
 
 msgid "manager.plugins.pluginGallery.overview"
-msgstr "√úmumi g√∂r√ľn√ľŇü"
+msgstr "Ümumi görünüş"
 
 msgid "manager.plugins.pluginGallery.installation"
-msgstr "QuraŇüdńĪrma"
+msgstr "Quraşdırma"
 
 msgid "manager.plugins.pluginGallery.latestCompatible"
-msgstr "AxńĪrńĪncńĪ uyńüun versiya"
+msgstr "Axırıncı uyğun versiya"
 
 msgid "manager.plugins.pluginGallery.certifications.official"
-msgstr "R…ôsmi"
+msgstr "Rəsmi"
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
-msgstr "D…ôy…ôrl…ôndirdi"
+msgstr "Dəyərləndirdi"
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
-msgstr "T…ôr…ôfdaŇü"
+msgstr "Tərəfdaş"
 
 msgid "manager.plugins.pluginGallery.maintainer"
 msgstr "Davametdirici"
 
 msgid "manager.plugins.pluginGallery.version"
-msgstr "v{$version} {$date} tarixind…ô n…ôŇür edildi"
+msgstr "v{$version} {$date} tarixində nəşr edildi"
 
 msgid "manager.plugins.pluginGallery.homepage"
-msgstr "Ana s…ôhif…ô"
+msgstr "Ana səhifə"
 
 msgid "manager.plugins.pluginGallery.summary"
-msgstr "X√ľlas…ô"
+msgstr "Xülasə"
 
 msgid "manager.plugins.pluginGallery.status"
 msgstr "Statuslar"
@@ -709,629 +706,623 @@ msgid "manager.plugins.installedVersionNewer.short"
 msgstr "Cari versiyadan daha yeni"
 
 msgid "manager.plugins.installedVersionOlder.short"
-msgstr "T…ôkmill…ôŇüdiril…ô bil…ôr"
+msgstr "Təkmilləşdirilə bilər"
 
 msgid "manager.plugins.noCompatibleVersion.short"
-msgstr "M√∂vcud deyil"
+msgstr "Mövcud deyil"
 
 msgid "manager.plugins.installFailed"
-msgstr "QuraŇüdńĪrma uńüursuzdur. {$errorString}"
+msgstr "Quraşdırma uğursuzdur. {$errorString}"
 
 msgid "manager.plugins.installSuccessful"
-msgstr "Uńüurla quraŇüdńĪrńĪlmńĪŇü versiya {$versionNumber}"
+msgstr "Uğurla quraşdırılmış versiya {$versionNumber}"
 
 msgid "manager.plugins.settings"
-msgstr "T…ônziml…ôr"
+msgstr "Tənzimlər"
 
 msgid "manager.plugins.upgrade"
-msgstr "∆Źlav…ôni yenil…ôyin"
+msgstr "Əlavəni yeniləyin"
 
 msgid "manager.plugins.upgradeFailed"
-msgstr "Yenil…ôm…ô uńüursuz oldu. {$errorString} n…ôf…ôrdir)"
+msgstr "Yeniləmə uğursuz oldu. {$errorString} nəfərdir)"
 
 msgid "manager.plugins.upgradeSuccessful"
-msgstr "Uńüurla t…ôkmill…ôŇüdiril…ôn versiya: {$versionString}"
+msgstr "Uğurla təkmilləşdirilən versiya: {$versionString}"
 
 msgid "manager.plugins.uploadError"
-msgstr "Fayl y√ľkl…ôy…ôrk…ôn x…ôta baŇü verdi {"
+msgstr "Fayl yükləyərkən xəta baş verdi {"
 
 msgid "manager.plugins.uploadPluginDir"
-msgstr "∆Źlav…ô faylńĪ se√ßin"
+msgstr "Əlavə faylı seçin"
 
 msgid "manager.plugins.versionFileNotFound"
-msgstr "versiya.xml …ôlav…ô indeksind…ô tapńĪlmadńĪ"
+msgstr "versiya.xml əlavə indeksində tapılmadı"
 
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
-"Dil t…ônzimi yadda saxlanmadńĪ. H…ôr se√ßim √ľ√ß√ľn …ôn azńĪ bir dil "
-"aktivl…ôŇüdirilm…ôlidir."
+"Dil tənzimi yadda saxlanmadı. Hər seçim üçün ən azı bir dil "
+"aktivləşdirilməlidir."
 
 msgid "manager.distribution.license"
 msgstr "Lisenziya"
 
 msgid "manager.distribution.license.other"
-msgstr "Dig…ôr lisenziya URL-si"
+msgstr "Digər lisenziya URL-si"
 
 msgid "manager.distribution.licenseTerms"
-msgstr "Lisenziya Ňü…ôrtl…ôri"
+msgstr "Lisenziya şərtləri"
 
 msgid "manager.distribution.customHeaders"
-msgstr "X√ľsusi etiketl…ôr"
+msgstr "Xüsusi etiketlər"
 
 msgid "manager.paymentMethod"
-msgstr "√Ėd…ôniŇül…ôr"
+msgstr "Ödənişlər"
 
 msgid "manager.paymentMethod.title"
-msgstr "√Ėd…ôm…ô √ľsullarńĪ"
+msgstr "Ödəmə üsulları"
 
 msgid "manager.paymentMethod.none"
-msgstr "√Ėd…ôniŇü metodu se√ßilm…ôdi"
+msgstr "Ödəniş metodu seçilmədi"
 
 msgid "manager.paymentMethod.method"
-msgstr "√Ėd…ôniŇü √ľsulu"
+msgstr "Ödəniş üsulu"
 
 msgid "settings.roles.roleOptions"
-msgstr "Rol se√ßiml…ôri"
+msgstr "Rol seçimləri"
 
 msgid "settings.roles.showTitles"
-msgstr "QatqńĪ ed…ônl…ôrin siyahńĪsńĪnda rol baŇülńĪńüńĪnńĪ g√∂st…ôrin"
+msgstr "Qatqı edənlərin siyahısında rol başlığını göstərin"
 
 msgid "settings.roles.permitSelfRegistration"
-msgstr "ńįstifad…ô√ßil…ôrin √∂z-qeydiyyatńĪna icaz…ô verin"
+msgstr "İstifadəçilərin öz-qeydiyyatına icazə verin"
 
 msgid "settings.roles.roleName"
-msgstr "Rol adńĪ"
+msgstr "Rol adı"
 
 msgid "settings.roles.roleAbbrev"
-msgstr "QńĪsaltma"
+msgstr "Qısaltma"
 
 msgid "settings.roles.assignedStages"
-msgstr "T…ôyin olunmuŇü addńĪmlar"
+msgstr "Təyin olunmuş addımlar"
 
 msgid "settings.roles.roleDetails"
-msgstr "Rol t…ôf…ôrr√ľatlarńĪ"
+msgstr "Rol təfərrüatları"
 
 msgid "settings.roles.from"
-msgstr "ńįcaz…ô s…ôviyy…ôsi"
+msgstr "İcazə səviyyəsi"
 
 msgid "settings.roles.removeText"
 msgstr ""
-"Bu rolu bu kontekst…ôn √ßńĪxarńĪrsńĪnńĪz. Bu …ôm…ôliyyat h…ôm d…ô …ôlaq…ôdar "
-"t…ônziml…ôri v…ô bu rola edil…ôn b√ľt√ľn istifad…ô√ßi t…ôyinatlarńĪnńĪ da "
-"silir. Davam etm…ôk ist…ôyirsinizmi?"
+"Bu rolu bu kontekstən çıxarırsınız. Bu əməliyyat həm də əlaqədar tənzimləri "
+"və bu rola edilən bütün istifadəçi təyinatlarını da silir. Davam etmək "
+"istəyirsinizmi?"
 
 msgid "settings.libraryFiles.category.contracts"
-msgstr "M√ľqavil…ôl…ôr"
+msgstr "Müqavilələr"
 
 msgid "settings.libraryFiles.category.marketing"
 msgstr "Marketinq"
 
 msgid "settings.libraryFiles.category.permissions"
-msgstr "ńįcaz…ôl…ôr"
+msgstr "İcazələr"
 
 msgid "settings.libraryFiles.category.reports"
 msgstr "Hesabatlar"
 
 msgid "settings.libraryFiles.category.other"
-msgstr "Dig…ôr"
+msgstr "Digər"
 
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
-"<p>Bu kitabxana faylńĪ, \"H…ôr k…ôs…ô A√ßńĪq GiriŇü\" se√ßimi il…ô "
-"aŇüańüńĪdakńĪ adresd…ôn giril…ôr…ôk endiril…ô bilir: "
-"<blockquote>{$downloadUrl}</blockquote></p>"
+"<p>Bu kitabxana faylı, \"Hər kəsə Açıq Giriş\" seçimi ilə aşağıdakı adresdən "
+"girilərək endirilə bilir: <blockquote>{$downloadUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "∆Źlav…ô edil…ôc…ôk kitabxana s…ôn…ôdl…ôrini se√ßin"
+msgstr "Əlavə ediləcək kitabxana sənədlərini seçin"
 
 msgid "grid.action.addGenre"
-msgstr "Bir komponent …ôlav…ô edin"
+msgstr "Bir komponent əlavə edin"
 
 msgid "grid.action.editGenre"
-msgstr "Bu komponenti redakt…ô edin"
+msgstr "Bu komponenti redaktə edin"
 
 msgid "grid.action.deleteGenre"
 msgstr "Bu komponenti silin"
 
 msgid "grid.action.restoreGenres"
-msgstr "Komponentl…ôri standart t…ônziml…ôr…ô geri y√ľkl…ôyin"
+msgstr "Komponentləri standart tənzimlərə geri yükləyin"
 
 msgid "manager.setup.genres.key"
-msgstr "A√ßar"
+msgstr "Açar"
 
 msgid "manager.setup.genres.metatadata"
-msgstr "Fayl metadatasńĪ"
+msgstr "Fayl metadatası"
 
 msgid "manager.settings.wizard"
-msgstr "T…ônziml…ôr sehrbazńĪ"
+msgstr "Tənzimlər sehrbazı"
 
 msgid "manager.website"
 msgstr "Veb sayt"
 
 msgid "manager.website.title"
-msgstr "Veb sayt t…ônziml…ôri"
+msgstr "Veb sayt tənzimləri"
 
 msgid "manager.workflow"
-msgstr "ńįŇü axńĪnńĪ"
+msgstr "İş axını"
 
 msgid "manager.workflow.title"
-msgstr "ńįŇü axńĪnńĪ t…ônziml…ôri"
+msgstr "İş axını tənzimləri"
 
 msgid "manager.distribution"
 msgstr "Paylama"
 
 msgid "manager.distribution.title"
-msgstr "Paylama t…ônziml…ôri"
+msgstr "Paylama tənzimləri"
 
 msgid "manager.reviewForms"
-msgstr "D…ôy…ôrl…ôndirm…ô formalarńĪ"
+msgstr "Dəyərləndirmə formaları"
 
 msgid "manager.reviewForms.confirmCopy"
 msgstr ""
-"Bu d…ôy…ôrl…ôndirm…ô formunun bir n√ľsx…ôsini yaratmaq ist…ôdiyinizd…ôn "
-"…ôminsinizmi?"
+"Bu dəyərləndirmə formunun bir nüsxəsini yaratmaq istədiyinizdən əminsinizmi?"
 
 msgid "manager.reviewForms.completed"
-msgstr "TamamlandńĪ"
+msgstr "Tamamlandı"
 
 msgid "manager.reviewForms.confirmDelete"
-msgstr "Bu d…ôy…ôrl…ôndirm…ô formunu silm…ôk ist…ôdiyinizd…ôn …ôminsinizmi?"
+msgstr "Bu dəyərləndirmə formunu silmək istədiyinizdən əminsinizmi?"
 
 msgid "manager.reviewForms.create"
-msgstr "D…ôy…ôrl…ôndirm…ô formu yaradńĪn"
+msgstr "Dəyərləndirmə formu yaradın"
 
 msgid "manager.reviewForms.description"
-msgstr "ńįzahat v…ô t…ôlimatlar"
+msgstr "İzahat və təlimatlar"
 
 msgid "manager.reviewForms.edit"
-msgstr "D…ôy…ôrl…ôndirm…ô formu"
+msgstr "Dəyərləndirmə formu"
 
 msgid "manager.reviewForms.inReview"
-msgstr "D…ôy…ôrl…ôndirm…ôd…ô"
+msgstr "Dəyərləndirmədə"
 
 msgid "manager.reviewForms.noneChosen"
-msgstr "Xeyr / PULSUZ d…ôy…ôrl…ôndirm…ô formu"
+msgstr "Xeyr / PULSUZ dəyərləndirmə formu"
 
 msgid "manager.reviewForms.preview"
-msgstr "Forma √∂nbaxńĪŇüńĪ"
+msgstr "Forma önbaxışı"
 
 msgid "manager.reviewForms.reviewFormData"
-msgstr "D…ôy…ôrl…ôndirm…ô formu datasńĪ"
+msgstr "Dəyərləndirmə formu datası"
 
 msgid "manager.reviewForms.title"
-msgstr "BaŇülńĪq"
+msgstr "Başlıq"
 
 msgid "manager.reviewFormElements"
-msgstr "Form elementl…ôri"
+msgstr "Form elementləri"
 
 msgid "manager.reviewFormElements.addResponseItem"
-msgstr "Se√ßim …ôlav…ô edin"
+msgstr "Seçim əlavə edin"
 
 msgid "manager.reviewFormElements.checkboxes"
-msgstr "T…ôsdiq QutularńĪ (Bir v…ô ya daha √ßox se√ß…ô bil…ôrsiniz)"
+msgstr "Təsdiq Qutuları (Bir və ya daha çox seçə bilərsiniz)"
 
 msgid "manager.reviewFormElements.chooseType"
-msgstr "Element n√∂v√ľn√ľ se√ßin"
+msgstr "Element növünü seçin"
 
 msgid "manager.reviewFormElements.copyTo"
-msgstr "Bura kopyalayńĪn:"
+msgstr "Bura kopyalayın:"
 
 msgid "manager.reviewFormElements.create"
-msgstr "Yeni bir element yaradńĪn"
+msgstr "Yeni bir element yaradın"
 
 msgid "manager.reviewFormElements.dropdownbox"
-msgstr "A√ßńĪq qutu"
+msgstr "Açıq qutu"
 
 msgid "manager.reviewFormElements.edit"
-msgstr "Form elementl…ôrini redakt…ô edin"
+msgstr "Form elementlərini redaktə edin"
 
 msgid "manager.reviewFormElements.elementType"
-msgstr "Element n√∂v√ľ"
+msgstr "Element növü"
 
 msgid "manager.reviewFormElements.possibleResponse"
-msgstr "Se√ßim"
+msgstr "Seçim"
 
 msgid "manager.reviewFormElements.question"
 msgstr "Element"
 
 msgid "manager.reviewFormElements.description"
-msgstr "A√ßńĪqlama/t…ôsvir"
+msgstr "Açıqlama/təsvir"
 
 msgid "manager.reviewFormElements.radiobuttons"
-msgstr "Radio d√ľym…ôl…ôri (yalnńĪz birini se√ßin)"
+msgstr "Radio düymələri (yalnız birini seçin)"
 
 msgid "manager.reviewFormElements.required"
-msgstr "r…ôy√ßil…ôrin madd…ôl…ôri doldurmasńĪ m…ôcburidir"
+msgstr "rəyçilərin maddələri doldurması məcburidir"
 
 msgid "manager.reviewFormElements.included"
-msgstr "M√ľ…ôllif √ľ√ß√ľn mesaj daxil edin"
+msgstr "Müəllif üçün mesaj daxil edin"
 
 msgid "manager.reviewFormElements.smalltextfield"
-msgstr "Bir s√∂zl√ľk m…ôtn qutusu"
+msgstr "Bir sözlük mətn qutusu"
 
 msgid "manager.reviewFormElements.textarea"
-msgstr "GeniŇül…ôndirilmiŇü m…ôtn qutusu"
+msgstr "Genişləndirilmiş mətn qutusu"
 
 msgid "manager.reviewFormElements.textfield"
-msgstr "T…ôk s…ôtirlik m…ôtn qutusu"
+msgstr "Tək sətirlik mətn qutusu"
 
 msgid "manager.reviewFormElements.viewable"
-msgstr "BaxńĪla bil…ôr (M√ľ…ôllifl…ôr √ľ√ß√ľn)"
+msgstr "Baxıla bilər (Müəlliflər üçün)"
 
 msgid "manager.setup.metadata.submission"
-msgstr "M…ôqal…ô formu"
+msgstr "Məqalə formu"
 
 msgid "manager.setup.metadata.coverage"
-msgstr "∆Źhat…ô dair…ôsi"
+msgstr "Əhatə dairəsi"
 
 msgid "manager.setup.metadata.coverage.enable"
-msgstr "∆Źhat…ô metadatalarńĪnńĪ aktivl…ôŇüdirin"
+msgstr "Əhatə metadatalarını aktivləşdirin"
 
 msgid "manager.setup.metadata.keywords.enable"
-msgstr "A√ßar s√∂z metadatalarńĪnńĪ aktivl…ôŇüdirin"
+msgstr "Açar söz metadatalarını aktivləşdirin"
 
 msgid "manager.setup.metadata.languages.enable"
-msgstr "Dil metadatalarńĪnńĪ aktivl…ôŇüdirin"
+msgstr "Dil metadatalarını aktivləşdirin"
 
 msgid "manager.setup.metadata.rights.enable"
-msgstr "H√ľquqlar metadatasńĪnńĪ aktivl…ôŇüdirin"
+msgstr "Hüquqlar metadatasını aktivləşdirin"
 
 msgid "manager.setup.metadata.source.enable"
-msgstr "M…ônb…ô metadatalarńĪnńĪ aktivl…ôŇüdirin"
+msgstr "Mənbə metadatalarını aktivləşdirin"
 
 msgid "manager.setup.metadata.subjects.enable"
-msgstr "M√∂vzu metadatalarńĪnńĪ aktivl…ôŇüdirin"
+msgstr "Mövzu metadatalarını aktivləşdirin"
 
 msgid "manager.setup.metadata.type.enable"
-msgstr "N√∂v metadatalarńĪnńĪ aktivl…ôŇüdirin"
+msgstr "Növ metadatalarını aktivləşdirin"
 
 msgid "manager.setup.metadata.disciplines.enable"
-msgstr "ńįxtisaslarńĪn metadalarńĪnńĪ aktivl…ôŇüdirin"
+msgstr "İxtisasların metadalarını aktivləşdirin"
 
 msgid "manager.setup.metadata.agencies.enable"
-msgstr "Fond t…ômin ed…ôn qurumlarńĪn metadalarńĪnńĪ aktivl…ôŇüdirin"
+msgstr "Fond təmin edən qurumların metadalarını aktivləşdirin"
 
 msgid "manager.setup.metadata.citations.enable"
-msgstr "Referans metadatalarńĪnńĪ aktivl…ôŇüdirin"
+msgstr "Referans metadatalarını aktivləşdirin"
 
 msgid "plugins.importexport.common.validationErrors"
-msgstr "T…ôsdiql…ôm…ô x…ôtalarńĪ:"
+msgstr "Təsdiqləmə xətaları:"
 
 msgid "plugins.importexport.common.warningsEncountered"
-msgstr "Rast g…ôlin…ôn x…ôb…ôrdarlńĪqlar:"
+msgstr "Rast gəlinən xəbərdarlıqlar:"
 
 msgid "plugins.importexport.common.errorsOccured"
-msgstr "X…ôtalar meydana g…ôldi:"
+msgstr "Xətalar meydana gəldi:"
 
 msgid "plugins.importexport.common.id"
 msgstr "ID: {$id}"
 
 msgid "plugins.importexport.common.error.unknownElement"
-msgstr "Nam…ôlum element"
+msgstr "Naməlum element"
 
 msgid "plugins.importexport.common.error.unknownGenre"
-msgstr "Nam…ôlum n√∂vl…ôr"
+msgstr "Naməlum növlər"
 
 msgid "plugins.importexport.common.error.unknownEncoding"
-msgstr "Nam…ôlum kodlaŇüdńĪrma"
+msgstr "Naməlum kodlaşdırma"
 
 msgid "plugins.importexport.common.error.encodingError"
-msgstr "M…ôzmun {$param} kimi kodlaŇüdńĪrńĪlmayńĪb"
+msgstr "Məzmun {$param} kimi kodlaşdırılmayıb"
 
 msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr "{$param} M√ľ…ôllif adńĪ √ľ√ß√ľn istifad…ô√ßi qrupu …ôskikdir."
+msgstr "{$param} Müəllif adı üçün istifadəçi qrupu əskikdir."
 
 msgid "plugins.importexport.common.error.unknownUploader"
-msgstr "Nam…ôlum y√ľkl…ôyici: {$param}"
+msgstr "Naməlum yükləyici: {$param}"
 
 msgid "plugins.importexport.common.error.temporaryFileFailed"
-msgstr "M√ľv…ôqq…ôti fayl {$dest}, {$source} m…ônb…ôyind…ôn yaradńĪla bilm…ôdi."
+msgstr "Müvəqqəti fayl {$dest}, {$source} mənbəyindən yaradıla bilmədi."
 
 msgid "plugins.importexport.common.error.filesizeMismatch"
 msgstr ""
-"T…ômin edil…ôn fayllar \"{$expected}\" v…ô h…ôqiqi fayllardakńĪ \"{$actual}\""
-" \"uyńüun g…ôlmir\""
+"Təmin edilən fayllar \"{$expected}\" və həqiqi fayllardakı \"{$actual}\" "
+"\"uyğun gəlmir\""
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
 msgstr ""
-"Reviziya \"{$revisionId}\", \"{$fileId}\" M…ôqal…ô faylńĪ √ľ√ß√ľn t…"
-"ôkrarlanan bir qeydiyyat yaradńĪr."
+"Reviziya \"{$revisionId}\", \"{$fileId}\" Məqalə faylı üçün təkrarlanan bir "
+"qeydiyyat yaradır."
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
-msgstr "T…ôqdimat faylńĪ idxal edil…ô bilm…ôdi"
+msgstr "Təqdimat faylı idxal edilə bilmədi"
 
 msgid "plugins.importexport.user.importExportErrors"
-msgstr "Data idxaletm…ô /ixracetm…ô x…ôtalarńĪ :"
+msgstr "Data idxaletmə /ixracetmə xətaları :"
 
 msgid "manager.navigationMenus.form.title"
-msgstr "BaŇülńĪq"
+msgstr "Başlıq"
 
 msgid "manager.navigationMenus.form.path"
 msgstr "Yol"
 
 msgid "manager.navigationMenus"
-msgstr "G√∂nd…ôrm…ô menyularńĪ"
+msgstr "Göndərmə menyuları"
 
 msgid "manager.navigationMenus.form.viewInstructions"
 msgstr ""
-"<p>Bu s…ôhif…ôy…ô aŇüańüńĪdakńĪ adresd…ôn giril…ô bil…ôr: "
-"<blockquote>{$pagesPath}</blockquote>...harada %PATH% yuxarńĪda daxil edil…"
-"ôn yoldur. <strong>Not:</strong> ńįki s…ôhif…ô eyni yola sahib ola bilm…ôz. "
-"Sistemd…ô oturuŇümuŇü yollar istifad…ô etm…ôk, √∂n…ômli funksiyalara "
-"giriŇüinizi itirm…ôyiniz…ô s…ôb…ôb ola bil…ôr.</p>"
+"<p>Bu səhifəyə aşağıdakı adresdən girilə bilər: <blockquote>{$pagesPath}</"
+"blockquote>...harada %PATH% yuxarıda daxil edilən yoldur. <strong>Not:</"
+"strong> İki səhifə eyni yola sahib ola bilməz. Sistemdə oturuşmuş yollar "
+"istifadə etmək, önəmli funksiyalara girişinizi itirməyinizə səbəb ola "
+"bilər.</p>"
 
 msgid "manager.navigationMenus.form.content"
-msgstr "M…ôzmun"
+msgstr "Məzmun"
 
 msgid "manager.navigationMenus.form.titleRequired"
-msgstr "BaŇülńĪq t…ôl…ôb olunur"
+msgstr "Başlıq tələb olunur"
 
 msgid "manager.navigationMenuItems"
-msgstr "G√∂nd…ôrm…ô menyusu elementl…ôri"
+msgstr "Göndərmə menyusu elementləri"
 
 msgid "manager.navigationMenus.assignedMenuItems"
-msgstr "T…ôyin olunmuŇü menyu elementl…ôri"
+msgstr "Təyin olunmuş menyu elementləri"
 
 msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr "T…ôyin edilm…ômiŇü menyu elementl…ôri"
+msgstr "Təyin edilməmiş menyu elementləri"
 
 msgid "manager.navigationMenus.form.navigationMenuArea"
-msgstr "Aktiv tema y√∂nl…ôndirm…ô sah…ôl…ôri"
+msgstr "Aktiv tema yönləndirmə sahələri"
 
 msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
-msgstr "G√∂nd…ôrm…ô sah…ôsini se√ßin"
+msgstr "Göndərmə sahəsini seçin"
 
 msgid "manager.navigationMenus.form.customUrlError"
-msgstr "Bir URL t…ômin edilm…ôlidir"
+msgstr "Bir URL təmin edilməlidir"
 
 msgid "manager.navigationMenus.form.navigationMenuItemType"
-msgstr "G√∂nd…ôrm…ô menyusu n√∂v√ľ"
+msgstr "Göndərmə menyusu növü"
 
 msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
-msgstr "G√∂nd…ôrm…ô menyusu n√∂v√ľ se√ßin v…ô ya x√ľsusi menyu yaradńĪn"
+msgstr "Göndərmə menyusu növü seçin və ya xüsusi menyu yaradın"
 
 msgid "manager.navigationMenus.customPage"
-msgstr "X√ľsusi s…ôhif…ô"
+msgstr "Xüsusi səhifə"
 
 msgid "manager.navigationMenus.remoteUrl"
 msgstr "Uzaq url"
 
 msgid "manager.navigationMenus.about.description"
 msgstr ""
-"T…ônziml…ôr > Jurnal qismind…ôki Jurnal m…ôzmunu haqqńĪndanńĪ g√∂st…ôr…ôn "
-"bir s…ôhif…ôy…ô link yaradńĪn."
+"Tənzimlər > Jurnal qismindəki Jurnal məzmunu haqqındanı göstərən bir "
+"səhifəyə link yaradın."
 
 msgid "grid.category.add"
-msgstr "Kateqoriya …ôlav…ô edin"
+msgstr "Kateqoriya əlavə edin"
 
 msgid "grid.category.edit"
-msgstr "Kateqoriya redakt…ô edin"
+msgstr "Kateqoriya redaktə edin"
 
 msgid "grid.category.path"
 msgstr "Yol"
 
 msgid "grid.category.urlWillBe"
-msgstr "KateqoriyanńĪn URL-si: {$sampleUrl}"
+msgstr "Kateqoriyanın URL-si: {$sampleUrl}"
 
 msgid "grid.category.description"
-msgstr "A√ßńĪqlama/t…ôsvir"
+msgstr "Açıqlama/təsvir"
 
 msgid "grid.category.parentCategory"
-msgstr "√úst kateqoriya"
+msgstr "Üst kateqoriya"
 
 msgid "grid.category.removeText"
-msgstr "Bu kateqoriyanńĪ silm…ôk ist…ôdiyiniz…ô …ôminsiniz?"
+msgstr "Bu kateqoriyanı silmək istədiyinizə əminsiniz?"
 
 msgid "grid.category.categoryDetails"
-msgstr "Kateqoriya t…ôf…ôrr√ľatlarńĪ"
+msgstr "Kateqoriya təfərrüatları"
 
 msgid "stats.allUsers"
-msgstr "B√ľt√ľn istifad…ô√ßil…ôr"
+msgstr "Bütün istifadəçilər"
 
 msgid "stats.city"
-msgstr "Ňě…ôh…ôr"
+msgstr "Şəhər"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$ Say unt} ( {$average} } /il)"
 
 msgid "stats.daily"
-msgstr "G√ľnd…ôlik"
+msgstr "Gündəlik"
 
 msgid "stats.dateRange"
-msgstr "Tarix aralńĪńüńĪ J5983"
+msgstr "Tarix aralığı J5983"
 
 msgid "stats.dateRange.allDates"
-msgstr "B√ľt√ľn tarixl…ôr"
+msgstr "Bütün tarixlər"
 
 msgid "stats.dateRange.apply"
-msgstr "T…ôtbiq et"
+msgstr "Tətbiq et"
 
 msgid "stats.dateRange.change"
-msgstr "Tarix aralńĪńüńĪnńĪ d…ôyiŇüdirin"
+msgstr "Tarix aralığını dəyişdirin"
 
 msgid "stats.dateRange.customRange"
-msgstr "X√ľsusi aralńĪq"
+msgstr "Xüsusi aralıq"
 
 msgid "stats.dateRange.from"
-msgstr "Etibar…ôn"
+msgstr "Etibarən"
 
 msgid "stats.dateRange.last12Months"
 msgstr "Son 12 ay"
 
 msgid "stats.dateRange.last30Days"
-msgstr "Son 30 g√ľn"
+msgstr "Son 30 gün"
 
 msgid "stats.dateRange.last90Days"
-msgstr "Son 90 g√ľn"
+msgstr "Son 90 gün"
 
 msgid "stats.dateRange.lastTwoYears"
 msgstr "Son iki il"
 
 msgid "stats.dateRange.lastYear"
-msgstr "Ke√ß…ôn il"
+msgstr "Keçən il"
 
 msgid "stats.dateRange.sinceDate"
-msgstr "{$date} tarixind…ôn b…ôri"
+msgstr "{$date} tarixindən bəri"
 
 msgid "stats.dateRange.thisYear"
-msgstr "ńįlin …ôvv…ôlind…ôn b…ôri"
+msgstr "İlin əvvəlindən bəri"
 
 msgid "stats.dateRange.to"
-msgstr "Kim…ô"
+msgstr "Kimə"
 
 msgid "stats.descriptionForStat"
-msgstr "{$stat} √ľ√ß√ľn a√ßńĪqlama"
+msgstr "{$stat} üçün açıqlama"
 
 msgid "stats.editorialActivity"
-msgstr "Redaksiya f…ôaliyy…ôti"
+msgstr "Redaksiya fəaliyyəti"
 
 msgid "stats.fileViews"
-msgstr "Fayl baxńĪŇülarńĪ"
+msgstr "Fayl baxışları"
 
 msgid "stats.html"
 msgstr "Html"
 
 msgid "stats.monthly"
-msgstr "AylńĪq"
+msgstr "Aylıq"
 
 msgid "stats.pdf"
 msgstr "Pdf"
 
 msgid "stats.region"
-msgstr "B√∂lg…ô"
+msgstr "Bölgə"
 
 msgid "stats.searchSubmissionDescription"
-msgstr "BaŇülńĪq, m√ľ…ôllif v…ô ID-y…ô g√∂r…ô axtarńĪńĪŇü"
+msgstr "Başlıq, müəllif və ID-yə görə axtarıış"
 
 msgid "stats.submissionsActive"
-msgstr "Aktiv M…ôqal…ôl…ôr"
+msgstr "Aktiv Məqalələr"
 
 msgid "stats.total"
-msgstr "√úmumi elementl…ôr {$Generic} n…ôf…ôrdir)"
+msgstr "Ümumi elementlər {$Generic} nəfərdir)"
 
 msgid "stats.totalWithinDateRange"
-msgstr "Tarix aralńĪńüńĪ i√ßind…ôki yekun"
+msgstr "Tarix aralığı içindəki yekun"
 
 msgid "stats.trends"
-msgstr "Trendl…ôr"
+msgstr "Trendlər"
 
 msgid "stats.userStatistics"
-msgstr "ńįstifad…ô√ßi statistikalarńĪ"
+msgstr "İstifadəçi statistikaları"
 
 msgid "stats.name.submissionsReceived"
-msgstr "Q…ôbul edil…ôn M…ôqal…ôl…ôr"
+msgstr "Qəbul edilən Məqalələr"
 
 msgid "stats.name.submissionsAccepted"
-msgstr "Q…ôbul edil…ôn M…ôqal…ôl…ôr"
+msgstr "Qəbul edilən Məqalələr"
 
 msgid "stats.name.submissionsDeclined"
-msgstr "R…ôdd edilmiŇü M…ôqal…ôl…ôr"
+msgstr "Rədd edilmiş Məqalələr"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr "R…ôdd edilmiŇü M…ôqal…ôl…ôr (√∂n inc…ôl…ôm…ô r…ôddi)"
+msgstr "Rədd edilmiş Məqalələr (ön incələmə rəddi)"
 
 msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "R…ôdd edilmiŇü M…ôqal…ôl…ôr (r…ôy√ßi d…ôy…ôrl…ôndirm…ôsind…ôn sonra)"
+msgstr "Rədd edilmiş Məqalələr (rəyçi dəyərləndirməsindən sonra)"
 
 msgid "stats.name.submissionsPublished"
-msgstr "YayńĪmlanan M…ôqal…ôl…ôr"
+msgstr "Yayımlanan Məqalələr"
 
 msgid "stats.name.daysToDecision"
-msgstr "ńįlk redaksiya q…ôrar g√ľnl…ôri"
+msgstr "İlk redaksiya qərar günləri"
 
 msgid "stats.name.daysToAccept"
-msgstr "Q…ôbul edil…ôc…ôk g√ľnl…ôr"
+msgstr "Qəbul ediləcək günlər"
 
 msgid "stats.name.daysToReject"
-msgstr "R…ôdd edilmiŇü g√ľnl…ôr"
+msgstr "Rədd edilmiş günlər"
 
 msgid "stats.name.acceptanceRate"
-msgstr "Q…ôbul d…ôr…ôc…ôsi"
+msgstr "Qəbul dərəcəsi"
 
 msgid "stats.name.declineRate"
-msgstr "R…ôdd edilm…ô d…ôr…ôc…ôsi"
+msgstr "Rədd edilmə dərəcəsi"
 
 msgid "stats.name.declinedDeskRate"
-msgstr "√Ėn inc…ôl…ôm…ô r…ôdd edilm…ô d…ôr…ôc…ôsi"
+msgstr "Ön incələmə rədd edilmə dərəcəsi"
 
 msgid "stats.name.declinedReviewRate"
-msgstr "R…ôy√ßid…ôn sonra r…ôdd d…ôr…ôc…ôsi"
+msgstr "Rəyçidən sonra rədd dərəcəsi"
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr "M…ôqal…ô n…ôtic…ôl…ôrini ixrac edin"
+msgstr "Məqalə nəticələrini ixrac edin"
 
 msgid "plugins.importexport.native.export.download.results"
-msgstr "ńįxrac olunan faylńĪ endirin"
+msgstr "İxrac olunan faylı endirin"
 
 msgid "plugins.importexport.native.common.any"
-msgstr "√úmumi elementl…ôr"
+msgstr "Ümumi elementlər"
 
 msgid "plugins.importexport.submission.cli.display"
 msgstr "\"{$submissionId}\" - \"{$submissionTitle}\"ir)"
 
 msgid "plugins.importexport.author.exportFailed"
-msgstr "M√ľ…ôllifl…ôr t…ôhlil edil…ô bilm…ôdi"
+msgstr "Müəlliflər təhlil edilə bilmədi"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr "N…ôŇürl…ôr t…ôhlil edil…ô bilm…ôdi"
+msgstr "Nəşrlər təhlil edilə bilmədi"
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
-"ńįstifad…ô√ßinin itmiŇü bir Ňüifr…ôni xilas ed…ô bil…ôc…ôyi bir s…ôhif…ônin "
-"URL-si"
+msgstr "İstifadəçinin itmiş bir şifrəni xilas edə biləcəyi bir səhifənin URL-si"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr "AlńĪcńĪnńĪn v…ô ya b√ľt√ľn alńĪcńĪlarńĪn tam adńĪ"
+msgstr "Alıcının və ya bütün alıcıların tam adı"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr "AlńĪcńĪnńĪn v…ô ya b√ľt√ľn alńĪcńĪlarńĪn istifad…ô√ßi adńĪ"
+msgstr "Alıcının və ya bütün alıcıların istifadəçi adı"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
-"R…ôy√ßinin d…ôy…ôrl…ôndirm…ôni q…ôbul v…ô ya r…ôdd etm…ôsi lazńĪm olan tarix"
+msgstr "Rəyçinin dəyərləndirməni qəbul və ya rədd etməsi lazım olan tarix"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "D…ôy…ôrl…ôndirm…ônin tamamlanmasńĪ lazńĪm olan tarix"
+msgstr "Dəyərləndirmənin tamamlanması lazım olan tarix"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr "R…ôy√ßini t…ôyinatńĪnńĪn URL-si"
+msgstr "Rəyçini təyinatının URL-si"
 
 msgid "emailTemplate.variable.sender.senderName"
-msgstr "M…ôqal…ônin tam adńĪ"
+msgstr "Məqalənin tam adı"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr "G√∂nd…ôr…ônin email adresi"
+msgstr "Göndərənin email adresi"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr "G√∂nd…ôr…ônin email imzasńĪ"
+msgstr "Göndərənin email imzası"
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr "∆Źsas …ôlaq…ô qurulacaq Ňü…ôxsin tam adńĪ"
+msgstr "Əsas əlaqə qurulacaq şəxsin tam adı"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr "∆Źsas …ôlaq…ô quralacaq Ňü…ôxsin email adresi"
+msgstr "Əsas əlaqə quralacaq şəxsin email adresi"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr ""
-"Bu namiz…ôd m…ôqal…ôy…ô t…ôyin edil…ôn v…ô q…ôrar ver…ô bil…ôc…ôk redaktorlar"
+msgstr "Bu namizəd məqaləyə təyin edilən və qərar verə biləcək redaktorlar"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr "Namiz…ôd m…ôqal…ônin baŇülńĪńüńĪ"
+msgstr "Namizəd məqalənin başlığı"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr "Namiz…ôd m…ôqal…ônin unikal Ňü…ôxsiyy…ôt n√∂mr…ôsi"
+msgstr "Namizəd məqalənin unikal şəxsiyyət nömrəsi"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr "Namiz…ôd m…ôqal…ônin x√ľlas…ôsi"
+msgstr "Namizəd məqalənin xülasəsi"
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr "M√ľ…ôllifl…ôrin tam adlarńĪ"
+msgstr "Müəlliflərin tam adları"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
 msgstr "#YOK"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr "Redaktor ekranńĪndakńĪ namiz…ôd m…ôqal…ônin URL-si"
+msgstr "Redaktor ekranındakı namizəd məqalənin URL-si"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr "#YOK"
@@ -1340,50 +1331,50 @@ msgid "emailTemplate.variable.passwordResetUrl"
 msgstr "#YOK"
 
 msgid "mailable.reviewerUnassign.name"
-msgstr "R…ôy√ßid…ôn geri alńĪndńĪ"
+msgstr "Rəyçidən geri alındı"
 
 msgid "mailable.validateEmailSite.name"
-msgstr "Emaili t…ôsdiql…ôyin (Site)"
+msgstr "Emaili təsdiqləyin (Site)"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
-"Bu email, D…ôy…ôrl…ôndirm…ô t…ôl…ôbinin q…ôbul edildiyini v…ô qeyd olunan "
-"tarix…ô q…ôd…ôr bit…ôc…ôyini B√∂lm…ô Redaktoruna x…ôb…ôr verm…ôk √ľ√ß√ľn "
-"cavab olaraq r…ôy√ßi t…ôr…ôfind…ôn g√∂nd…ôrilir."
+"Bu email, Dəyərləndirmə tələbinin qəbul edildiyini və qeyd olunan tarixə "
+"qədər bitəcəyini Bölmə Redaktoruna xəbər vermək üçün cavab olaraq rəyçi "
+"tərəfindən göndərilir."
 
 msgid "mailable.reviewDecline.description"
 msgstr ""
-"Bu email g√∂zd…ôn ke√ßirm…ô t…ôl…ôbin…ô cavab olaraq, g√∂zd…ôn ke√ßirm…ônin "
-"r…ôdd edildiyini bildirm…ôk m…ôqs…ôdil…ô B√∂lm…ô Redaktoruna g√∂zd…ôn "
-"ke√ßirm…ôni ed…ôn Ňü…ôxs t…ôr…ôfind…ôn g√∂nd…ôrilir."
+"Bu email gözdən keçirmə tələbinə cavab olaraq, gözdən keçirmənin rədd "
+"edildiyini bildirmək məqsədilə Bölmə Redaktoruna gözdən keçirməni edən şəxs "
+"tərəfindən göndərilir."
 
 msgid "manager.announcements.form.descriptionInstructions"
-msgstr "ElanńĪn tam m…ôtni."
+msgstr "Elanın tam mətni."
 
 msgid "manager.announcements.form.descriptionShortRequired"
-msgstr "Elan √ľ√ß√ľn qńĪsa bir t…ôrif t…ôl…ôb olunur"
+msgstr "Elan üçün qısa bir tərif tələb olunur"
 
 msgid "manager.announcements.form.titleRequired"
-msgstr "Bir elan baŇülńĪńüńĪ t…ôl…ôb olunur."
+msgstr "Bir elan başlığı tələb olunur."
 
 msgid "manager.announcements.form.typeIdValid"
-msgstr "Z…ôhm…ôt olmasa etibarlńĪ bir elan n√∂v√ľ se√ßin"
+msgstr "Zəhmət olmasa etibarlı bir elan növü seçin"
 
 msgid "manager.announcements.noneCreated"
-msgstr "Elan yaradńĪlmadńĪ."
+msgstr "Elan yaradılmadı."
 
 msgid "manager.announcementTypes.form.typeNameExists"
-msgstr "Bu adda elan n√∂v√ľ var artńĪq"
+msgstr "Bu adda elan növü var artıq"
 
 msgid "manager.announcementTypes.form.typeNameRequired"
-msgstr "Elan n√∂v√ľ √ľ√ß√ľn bir ad t…ôl…ôb olunur"
+msgstr "Elan növü üçün bir ad tələb olunur"
 
 msgid "manager.announcementTypes.noneCreated"
-msgstr "Elan n√∂v√ľ yaradńĪlmadńĪ."
+msgstr "Elan növü yaradılmadı."
 
 #, fuzzy
 msgid "manager.dois.actions.deposit.all"
-msgstr "HamńĪsńĪnńĪ …ôman…ôt edin"
+msgstr "Hamısını əmanət edin"
 
 #, fuzzy
 msgid "manager.dois.actions.deposit.label"
@@ -1391,7 +1382,7 @@ msgstr "Depozit Dois"
 
 #, fuzzy
 msgid "manager.dois.actions.markRegistered.label"
-msgstr "Mark Dois qeydiyyata alńĪndńĪ"
+msgstr "Mark Dois qeydiyyata alındı"
 
 #, fuzzy
 msgid "manager.institutions.form.ror"
@@ -1400,28 +1391,28 @@ msgstr "Ror"
 #, fuzzy
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
-"EtibarlńĪ d…ôy…ôrl…ôr…ô bir IP √ľnvanńĪ (m…ôs…ôl…ôn, IP diapazonu (m…ôs…ôl…"
-"ôn, IP diapazonu (m…ôs…ôl…ôn, IP diapazonu), IP diabruku il…ô IP diabruku "
-"olan IP diabrucu '*' (e.g.) v…ô CIDR (E.G.) 142.58.100.0/24)."
+"Etibarlı dəyərlərə bir IP ünvanı (məsələn, IP diapazonu (məsələn, IP "
+"diapazonu (məsələn, IP diapazonu), IP diabruku ilə IP diabruku olan IP "
+"diabrucu '*' (e.g.) və CIDR (E.G.) 142.58.100.0/24)."
 
 #, fuzzy
 msgid "manager.institutions.deleteInstitution"
-msgstr "T…ôŇükilatńĪ silm…ôk"
+msgstr "Təşkilatı silmək"
 
 #, fuzzy
 msgid "manager.institutions.confirmDelete"
-msgstr "Bu qurumu davam etdirm…ôk v…ô silm…ôk ist…ôdiyiniz…ô …ôminsiniz?"
+msgstr "Bu qurumu davam etdirmək və silmək istədiyinizə əminsiniz?"
 
 #, fuzzy
 msgid "manager.institutions.invalidIPRange"
-msgstr "YanlńĪŇü IP diapazonu"
+msgstr "Yanlış IP diapazonu"
 
 msgid "manager.publication.reviewReminders.success"
-msgstr "ńįnc…ôl…ôm…ô xatńĪrladńĪcńĪsńĪ detallarńĪnńĪ yenil…ôyin"
+msgstr "İncələmə xatırladıcısı detallarını yeniləyin"
 
 #, fuzzy
 msgid "manager.dois.title"
-msgstr "Dońüu"
+msgstr "Doğu"
 
 #, fuzzy
 msgid "manager.emails.disable.message"
@@ -1431,14 +1422,13 @@ msgstr ""
 "istəyirsiniz?"
 
 msgid "manager.emails.emailTemplate.contextRequired"
-msgstr ""
-"Bir email Ňüablonu …ôlav…ô ed…ôrk…ôn konteks kimliyi t…ômin etm…ôlisiniz"
+msgstr "Bir email şablonu əlavə edərkən konteks kimliyi təmin etməlisiniz"
 
 msgid "manager.emails.form.emailKeyRequired"
-msgstr "Email √ľ√ß√ľn m√ľst…ôsna bir email a√ßarńĪ t…ôl…ôb olunur."
+msgstr "Email üçün müstəsna bir email açarı tələb olunur."
 
 msgid "manager.export.usersToCsv.description"
-msgstr "Excel CSV olaraq √ß√∂l…ô transfer edil…ôc…ôk istifad…ô√ßil…ôri se√ßin"
+msgstr "Excel CSV olaraq çölə transfer ediləcək istifadəçiləri seçin"
 
 #, fuzzy
 msgid "manager.emails.reset.message"
@@ -1448,62 +1438,54 @@ msgstr ""
 "istəyirsiniz?"
 
 msgid "manager.files.emptyDir"
-msgstr "Bu indeksd…ô fayl tapńĪlmadńĪ"
+msgstr "Bu indeksdə fayl tapılmadı"
 
 msgid "manager.groups.form.groupTitleRequired"
-msgstr "Bir qrup baŇülńĪńüńĪ t…ôl…ôb olunur."
+msgstr "Bir qrup başlığı tələb olunur."
 
 msgid "manager.groups.membership.noneCreated"
-msgstr "Bu qrupda he√ß bir √ľzv qeydiyyatlńĪ deyil"
+msgstr "Bu qrupda heç bir üzv qeydiyyatlı deyil"
 
 msgid "manager.groups.membership.noUsers"
-msgstr "He√ß bir istifad…ô√ßi tapńĪlmadńĪ."
+msgstr "Heç bir istifadəçi tapılmadı."
 
 msgid "manager.people.createUserGeneratePassword"
-msgstr "T…ôsad√ľfi bir Ňüifr…ô yaradńĪn."
+msgstr "Təsadüfi bir şifrə yaradın."
 
 msgid "manager.people.createUserSendNotify"
 msgstr ""
-"√úzv…ô istifad…ô√ßi adńĪnńĪ v…ô Ňüifr…ôsini ehtiva ed…ôn bir xoŇü g…ôldin "
-"emaili g√∂nd…ôr"
+"Üzvə istifadəçi adını və şifrəsini ehtiva edən bir xoş gəldin emaili göndər"
 
 msgid "manager.people.enrollUserAsDescription"
-msgstr ""
-"√úzvl…ôr h…ôr hansńĪ bir rol il…ô t…ôyin edil…ô bil…ôr v…ô ya l…ôńüv edil…ô "
-"bil…ôr."
+msgstr "Üzvlər hər hansı bir rol ilə təyin edilə bilər və ya ləğv edilə bilər."
 
 msgid "manager.people.invalidUser"
-msgstr "BańüńĪŇülayńĪn, bel…ô bir istifad…ô√ßi yoxdur."
+msgstr "Bağışlayın, belə bir istifadəçi yoxdur."
 
 msgid "manager.people.mergeUsers.confirm"
 msgstr ""
-"{$oldAccountCount} adlńĪ √ľzv√ľn hesab m…ôlumatlarńĪnńĪ {$newUsername} adlńĪ "
-"√ľzv√ľn hesabńĪna transfer etm…ôk ist…ôdiyinizd…ôn …ôminsinizmi? "
-"{$oldAccountCount} adlńĪ √ľzv hesabńĪ bańülanacaq v…ô bu …ôm…ôliyyatńĪn l…"
-"ôńüvi m√ľmk√ľn deyildir."
+"{$oldAccountCount} adlı üzvün hesab məlumatlarını {$newUsername} adlı üzvün "
+"hesabına transfer etmək istədiyinizdən əminsinizmi? {$oldAccountCount} adlı "
+"üzv hesabı bağlanacaq və bu əməliyyatın ləğvi mümkün deyildir."
 
 msgid "manager.people.mustChooseRole"
-msgstr ""
-"\"√úzv qeydiyyatńĪnńĪ\" klikl…ôm…ôzd…ôn …ôvv…ôl z…ôhm…ôt olmasa bir rol "
-"se√ßin"
+msgstr "\"Üzv qeydiyyatını\" klikləməzdən əvvəl zəhmət olmasa bir rol seçin"
 
 msgid "manager.people.userCreatedSuccessfully"
-msgstr "√úzv uńüurla yaradńĪldńĪ."
+msgstr "Üzv uğurla yaradıldı."
 
 msgid "manager.people.userMustChangePassword"
-msgstr ""
-"√úzv √ľ√ß√ľn n√∂vb…ôti daxilolmada Ňüifr…ô d…ôyiŇüdirm…ôni m…ôcburi edin"
+msgstr "Üzv üçün növbəti daxilolmada şifrə dəyişdirməni məcburi edin"
 
 msgid "manager.plugins.sitePlugin"
 msgstr ""
-"Bu b√ľt√ľn saytńĪ …ôlaq…ôdar ed…ôn bir …ôlav…ôdir. Sad…ôc…ô sayt idar…ô√ßisi "
-"…ôlav…ôni istifad…ô ed…ô bil…ôr."
+"Bu bütün saytı əlaqədar edən bir əlavədir. Sadəcə sayt idarəçisi əlavəni "
+"istifadə edə bilər."
 
 msgid "manager.representative.inUse"
 msgstr ""
-"Bu yayńĪm √ľ√ß√ľn n√ľmay…ônd…ô bir v…ô ya daha √ßox n…ôŇür formatńĪ √ľ√ß√ľn "
-"bazar metadatalarńĪna t…ôyin edildiyin…ô g√∂r…ô bu n√ľmay…ônd…ôni sil…ô "
-"bilm…ôzsiniz."
+"Bu yayım üçün nümayəndə bir və ya daha çox nəşr formatı üçün bazar "
+"metadatalarına təyin edildiyinə görə bu nümayəndəni silə bilməzsiniz."
 
 #, fuzzy
 msgid "manager.setup.statistics"
@@ -1511,19 +1493,18 @@ msgstr "Statistika"
 
 #, fuzzy
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr "Geo istifad…ô statistikasńĪ"
+msgstr "Geo istifadə statistikası"
 
 #, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
-"Toplamaq ist…ôdiyiniz cońürafi m…ôlumatlarńĪn hansńĪ istifad…ô statistik m…"
-"ôlumatlarńĪnńĪ se√ßin. Bu, …ôld…ô ed…ô bil…ôc…ôyiniz v…ô veril…ônl…ôr "
-"bazasńĪ √∂l√ß√ľs√ľn…ô t…ôsir g√∂st…ôr…ô bil…ôc…ôyiniz m√ľmk√ľn statistik "
-"x…ôb…ôrl…ôr…ô t…ôsir ed…ôc…ôkdir."
+"Toplamaq istədiyiniz coğrafi məlumatların hansı istifadə statistik "
+"məlumatlarını seçin. Bu, əldə edə biləcəyiniz və verilənlər bazası ölçüsünə "
+"təsir göstərə biləcəyiniz mümkün statistik xəbərlərə təsir edəcəkdir."
 
 #, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr "He√ß bir geo m…ôlumat toplamayńĪn"
+msgstr "Heç bir geo məlumat toplamayın"
 
 #, fuzzy
 msgid "manager.reviewerSearch.form.instructions"
@@ -1533,180 +1514,164 @@ msgstr ""
 "əvvəlcədən doldurulur."
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr "Doi prefiksi m…ôcburidir 10.xxxx formatńĪnda olmalńĪdńĪr."
+msgstr "Doi prefiksi məcburidir 10.xxxx formatında olmalıdır."
 
 #, fuzzy
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr "Bir t…ôklifi n…ô vaxt t…ôyin edilm…ôlidir?"
+msgstr "Bir təklifi nə vaxt təyin edilməlidir?"
 
 #, fuzzy
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr "N…ôŇür edildikd…ôn sonra"
+msgstr "Nəşr edildikdən sonra"
 
 #, fuzzy
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr "Doi prefiksi t…ôl…ôb olunur"
+msgstr "Doi prefiksi tələb olunur"
 
 #, fuzzy
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr "Doi Ňü…ôkil√ßi"
+msgstr "Doi şəkilçi"
 
 #, fuzzy
 msgid "doi.manager.versions.view"
-msgstr "HamńĪsńĪna baxńĪn"
+msgstr "Hamısına baxın"
 
 #, fuzzy
 msgid "doi.manager.versions.modalTitle"
-msgstr "B√ľt√ľn versiyalar √ľ√ß√ľn dois"
+msgstr "Bütün versiyalar üçün dois"
 
 #, fuzzy
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr "Doi etibarsńĪz simvol ehtiva edir."
+msgstr "Doi etibarsız simvol ehtiva edir."
 
 msgid "manager.setup.publishingDescription"
 msgstr ""
-"Bu detallar, √ľ√ß√ľnc√ľ t…ôr…ôf arxiv orqanlarńĪna t…ômin edil…ôn "
-"metadatalara daxil edil…ô bil…ôr."
+"Bu detallar, üçüncü tərəf arxiv orqanlarına təmin edilən metadatalara daxil "
+"edilə bilər."
 
 msgid "manager.setup.additionalContent.description"
-msgstr "Bura daxil edil…ôn h…ôr Ňüey ana s…ôhif…ôd…ô g√∂r√ľn…ôc…ôk."
+msgstr "Bura daxil edilən hər şey ana səhifədə görünəcək."
 
 msgid "manager.setup.errorDeletingItem"
-msgstr "Bu element silin…ôrk…ôn bir x…ôta baŇü verdi"
+msgstr "Bu element silinərkən bir xəta baş verdi"
 
 msgid "manager.setup.homepageImage.description"
-msgstr ""
-"∆Źsas s…ôhif…ôd…ô bariz bir Ňü…ôkild…ô g√∂st…ôrm…ôk √ľ√ß√ľn bir Ňü…ôkil "
-"y√ľkl…ôyin"
+msgstr "Əsas səhifədə bariz bir şəkildə göstərmək üçün bir şəkil yükləyin"
 
 msgid "manager.setup.noTemporaryFile"
-msgstr ""
-"Y√ľkl…ôdiyiniz fayl tapńĪlmadńĪ. Z…ôhm…ôt olmasa yenid…ôn y√ľkl…ôm…ôy…ô c…"
-"ôhd edin."
+msgstr "Yüklədiyiniz fayl tapılmadı. Zəhmət olmasa yenidən yükləməyə cəhd edin."
 
 #, fuzzy
 msgid "manager.setup.notifyAllAuthors"
-msgstr "B√ľt√ľn m√ľ…ôllifl…ôri bildirin"
+msgstr "Bütün müəllifləri bildirin"
 
 #, fuzzy
 msgid "manager.setup.notifyAllAuthors.description"
-msgstr ""
-"Bir redaksiya q…ôrarńĪ qeyd…ô alńĪndńĪqda kim bildiriŇü e-po√ßtu almalńĪ?"
+msgstr "Bir redaksiya qərarı qeydə alındıqda kim bildiriş e-poçtu almalı?"
 
 #, fuzzy
 msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr "T…ôqdimatńĪn b√ľt√ľn m√ľ…ôllifl…ôrin…ô bir e-po√ßt bildiriŇüi g√∂nd…ôr."
+msgstr "Təqdimatın bütün müəlliflərinə bir e-poçt bildirişi göndər."
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr "Bu email adresl…ôrind…ôn biri v…ô ya daha √ßoxu etibarlńĪ deyil."
+msgstr "Bu email adreslərindən biri və ya daha çoxu etibarlı deyil."
 
 msgid "manager.setup.notifyUsers.description"
-msgstr "Emailinizi almalńĪ olan istifad…ô√ßil…ôri se√ßin."
+msgstr "Emailinizi almalı olan istifadəçiləri seçin."
 
 msgid "manager.setup.notifyUsers.copyDetails"
-msgstr "Bu emailin bir sur…ôtini {$email} adresin…ô y…ôni m…ôn…ô g√∂nd…ôr"
+msgstr "Bu emailin bir surətini {$email} adresinə yəni mənə göndər"
 
 #, fuzzy
 msgid "manager.setup.notifyUsers.queued"
-msgstr "E-po√ßtlar uńüurla …ôn erk…ôn rahatlńĪqla g√∂nd…ôril…ôc…ôk."
+msgstr "E-poçtlar uğurla ən erkən rahatlıqla göndəriləcək."
 
 msgid "manager.setup.openAccessPolicy.description"
 msgstr ""
-"N…ôŇür edilmiŇü b√ľt√ľn m…ôzmuna d…ôrhal pulsuz giriŇü t…ômin edirsinizs…ô, "
-"A√ßńĪq GiriŇü PolitikanńĪzńĪn a√ßńĪqlamasńĪnńĪ daxil edin."
+"Nəşr edilmiş bütün məzmuna dərhal pulsuz giriş təmin edirsinizsə, Açıq Giriş "
+"Politikanızın açıqlamasını daxil edin."
 
 msgid "manager.setup.pageFooter.description"
 msgstr ""
-"Veb saytńĪnńĪzńĪn altńĪnda g√∂r√ľnm…ôsini ist…ôdiyiniz Ňü…ôkill…ôri, m…ôtnl…"
-"ôri v…ô ya HTML kodlarńĪnńĪ daxil edin."
+"Veb saytınızın altında görünməsini istədiyiniz şəkilləri, mətnləri və ya "
+"HTML kodlarını daxil edin."
 
 msgid "manager.setup.principalContactDescription"
 msgstr ""
-"√úmumiyy…ôtl…ô redaktorluńüunuz , redaktorluńüun r…ôhb…ôrliyi v…ô ya √ľmumu "
-"giriŇü edil…ô bil…ôn veb saytńĪnńĪzda baxńĪla bil…ôc…ôk idar…ô hey…ôti √ľ√ß√"
-"ľn …ôlaq…ô m…ôlumatlarńĪnńĪ daxil edin."
+"Ümumiyyətlə redaktorluğunuz , redaktorluğun rəhbərliyi və ya ümumu giriş "
+"edilə bilən veb saytınızda baxıla biləcək idarə heyəti üçün əlaqə "
+"məlumatlarını daxil edin."
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
 msgstr ""
-"Bir d…ôy…ôrl…ôndirm…ô ist…ôyini q…ôbul etm…ô v…ô ya r…ôdd etm…ô prosesi "
-"h…ôft…ôl…ôri."
+"Bir dəyərləndirmə istəyini qəbul etmə və ya rədd etmə prosesi həftələri."
 
 msgid "manager.setup.reviewOptions.reminders.response.description"
 msgstr ""
-"R…ôy√ßi d…ôy…ôrl…ôndirm…ô ist…ôyin…ô cavab tarixind…ôn sonrakńĪ g√ľnl…ôrd…ô "
-"d…ô r…ôy√ßilik ist…ôyini cavablandńĪrmadńĪsa bir xatńĪrlatma emaili g√∂nd…ôr."
+"Rəyçi dəyərləndirmə istəyinə cavab tarixindən sonrakı günlərdə də rəyçilik "
+"istəyini cavablandırmadısa bir xatırlatma emaili göndər."
 
 msgid "manager.setup.sponsors.description"
 msgstr ""
-"N√ľmun…ôl…ôr: Elmi d…ôrn…ôkl…ôr, universitet b√∂lm…ôl…ôri, korporativl…ôr, "
-"vb. Sponsorlar ictimaiyy…ôt…ô a√ßńĪq olaraq g√∂st…ôrilir."
+"Nümunələr: Elmi dərnəklər, universitet bölmələri, korporativlər, vb. "
+"Sponsorlar ictimaiyyətə açıq olaraq göstərilir."
 
 #, fuzzy
 msgid "manager.setup.institutions"
-msgstr "ńįnstitutlar"
+msgstr "İnstitutlar"
 
 msgid "plugins.categories.metadata.description"
-msgstr "Metadata ∆Źlav…ôl…ôri …ôlav…ô meta data standarlarńĪ t…ôtbiq edir."
+msgstr "Metadata Əlavələri əlavə meta data standarları tətbiq edir."
 
 msgid "plugins.categories.blocks.description"
 msgstr ""
-"Blok ∆Źlav…ôl…ôri, m√ľxt…ôlif k…ônar √ßubuńüu al…ôtl…ôri kimi …ôlav…ô edilib "
-"istifad…ô edil…ô bil…ôn istifad…ô√ßi ara √ľz√ľ konponentl…ôridir."
+"Blok Əlavələri, müxtəlif kənar çubuğu alətləri kimi əlavə edilib istifadə "
+"edilə bilən istifadəçi ara üzü konponentləridir."
 
 msgid "plugins.categories.gateways.description"
-msgstr ""
-"Ke√ßid ∆Źlav…ôl…ôri dig…ôr sisteml…ôr…ô d…ôrhal data t…ôqdim edilm…ôsi "
-"√ľ√ß√ľnd√ľr."
+msgstr "Keçid Əlavələri digər sistemlərə dərhal data təqdim edilməsi üçündür."
 
 msgid "plugins.categories.importexport.description"
 msgstr ""
-"Data idxaletm…ô/ixracetm…ô ∆Źlav…ôl…ôri m…ôzmunun baŇüqa sisteml…ôr…ô "
-"transfer edilm…ôsi √ľ√ß√ľn istifad…ô edilir."
+"Data idxaletmə/ixracetmə Əlavələri məzmunun başqa sistemlərə transfer "
+"edilməsi üçün istifadə edilir."
 
 msgid "plugins.categories.paymethod.description"
 msgstr ""
-"√Ėd…ôniŇü Metodu …ôlav…ôsi onlayn √∂d…ôniŇü prosesini m√ľxt…ôlif yollarla "
-"d…ôst…ôkl…ôm…ôyi t…ômin edir."
+"Ödəniş Metodu əlavəsi onlayn ödəniş prosesini müxtəlif yollarla dəstəkləməyi "
+"təmin edir."
 
 msgid "plugins.categories.reports.description"
 msgstr ""
-"Hesabat …ôlav…ôl…ôri m√ľxt…ôlif n√∂vd…ô data x√ľlas…ôl…ôri v…ô hesabat t…"
-"ômin etm…ôk √ľ√ß√ľn istifad…ô edilir."
+"Hesabat əlavələri müxtəlif növdə data xülasələri və hesabat təmin etmək üçün "
+"istifadə edilir."
 
 msgid "plugins.categories.themes.description"
-msgstr ""
-"Tema …ôlav…ôl…ôri sistemin g√∂r√ľnt√ľs√ľn√ľ d…ôyiŇüdirm…ôk √ľ√ß√ľn istifad…ô "
-"edilir."
+msgstr "Tema əlavələri sistemin görüntüsünü dəyişdirmək üçün istifadə edilir."
 
 msgid "plugins.categories.oaiMetadataFormats.description"
-msgstr ""
-"Bu fortmatdakńĪ …ôlav…ôl…ôri OAI …ôlaq…ôsind…ô s√ľr…ôtli metadata t…ômin "
-"ed…ôr."
+msgstr "Bu fortmatdakı əlavələri OAI əlaqəsində sürətli metadata təmin edər."
 
 msgid "plugins.categories.pubIds.description"
-msgstr ""
-"Bu …ôlav…ôl…ôr, √ľmumi bir m√ľ…ôyy…ônl…ôŇüdirici √ľ√ß√ľn d…ôst…ôk t…ômin "
-"edir."
+msgstr "Bu əlavələr, ümumi bir müəyyənləşdirici üçün dəstək təmin edir."
 
 msgid "manager.plugins.deleteDescription"
-msgstr ""
-"Sil d√ľym…ôsiniz bassanńĪz, …ôlav…ô serverin fayl sistemind…ôn "
-"silin…ôc…ôkdir."
+msgstr "Sil düyməsiniz bassanız, əlavə serverin fayl sistemindən silinəcəkdir."
 
 msgid "manager.plugins.deleteError"
 msgstr ""
-"\"{$pluginName}\" …ôlav…ôsi fayl sistemind…ôn silin…ô bilm…ôdi. Bu bir icaz…"
-"ô problemi ola bil…ôr. Z…ôhm…ôt olmasa veb serverinizin …ôlav…ô indeksin…ô ("
-"alt indeksl…ô daxil) yazma s…ôlahiyy…ôtinin olub olmadńĪńüńĪna …ômin olun; "
-"ancaq daha sonra yazma s…ôlahiyy…ôtini redakt…ô etm…ôyi unutmayńĪn."
+"\"{$pluginName}\" əlavəsi fayl sistemindən silinə bilmədi. Bu bir icazə "
+"problemi ola bilər. Zəhmət olmasa veb serverinizin əlavə indeksinə (alt "
+"indekslə daxil) yazma səlahiyyətinin olub olmadığına əmin olun; ancaq daha "
+"sonra yazma səlahiyyətini redaktə etməyi unutmayın."
 
 msgid "manager.plugins.uploadFailed"
-msgstr "QuraŇüdńĪrma √ľ√ß√ľn bir fayl se√ßdiyiniz…ô …ômin olun"
+msgstr "Quraşdırma üçün bir fayl seçdiyinizə əmin olun"
 
 msgid "manager.plugins.pluginGallery.certifications.official.description"
 msgstr ""
-"Bu …ôlav…ô, Public Knowledge Project komandasńĪ t…ôr…ôfind…ôn inkiŇüaf v…ô "
-"davam etdirilir"
+"Bu əlavə, Public Knowledge Project komandası tərəfindən inkişaf və davam "
+"etdirilir"
 
 #, fuzzy
 msgid "manager.plugins.uploadDescription"
@@ -1715,48 +1680,47 @@ msgstr ""
 "sıxılmış əmin olun .tar.gz faylı."
 
 msgid "manager.plugins.noInstalledVersion"
-msgstr "Bu …ôlav…ô h…ôl…ô quraŇüdńĪrńĪlmayńĪb."
+msgstr "Bu əlavə hələ quraşdırılmayıb."
 
 msgid "manager.plugins.noCompatibleVersion"
-msgstr "Hal hazńĪrda bu …ôlav…ônin uyuŇüan bir versiyasńĪ yoxdur"
+msgstr "Hal hazırda bu əlavənin uyuşan bir versiyası yoxdur"
 
 msgid "manager.plugins.installedVersionNewer"
-msgstr "∆Źlav…ô qurulub v…ô qaleriyada m√∂vcud versiyadan daha yenidir"
+msgstr "Əlavə qurulub və qaleriyada mövcud versiyadan daha yenidir"
 
 msgid "manager.plugins.installedVersionNewest"
-msgstr "∆Źlav…ô qurulub v…ô g√ľnc…ôldir"
+msgstr "Əlavə qurulub və güncəldir"
 
 msgid "manager.plugins.invalidPluginArchive"
 msgstr ""
-"QuraŇüdńĪrńĪlmńĪŇü …ôlav…ô arxivi, …ôlav…ô adńĪna uyńüun g…ôl…ôn bir qovluq "
-"ehtiva etmir"
+"Quraşdırılmış əlavə arxivi, əlavə adına uyğun gələn bir qovluq ehtiva etmir"
 
 msgid "manager.plugins.versionFileInvalid"
-msgstr "∆Źlav…ô indeksind…ô version.xml etibarsńĪz data ehtiva edir."
+msgstr "Əlavə indeksində version.xml etibarsız data ehtiva edir."
 
 msgid "notification.localeEnabled"
-msgstr "Dil aktivl…ôŇüdirildi"
+msgstr "Dil aktivləşdirildi"
 
 msgid "notification.localeDisabled"
-msgstr "Dil passivl…ôŇüdirildi."
+msgstr "Dil passivləşdirildi."
 
 msgid "notification.primaryLocaleDefined"
-msgstr "{$locale} …ôsas dil kimi m√ľ…ôyy…ônl…ôŇüdirildi"
+msgstr "{$locale} əsas dil kimi müəyyənləşdirildi"
 
 msgid "notification.localeInstalled"
-msgstr "Se√ßilmiŇü dil/dill…ôr y√ľkl…ôndi v…ô aktivl…ôŇüdirildi."
+msgstr "Seçilmiş dil/dillər yükləndi və aktivləşdirildi."
 
 msgid "notification.localeUninstalled"
-msgstr "{$locale} dili √ßńĪxarńĪldńĪ"
+msgstr "{$locale} dili çıxarıldı"
 
 msgid "notification.localeReloaded"
-msgstr "{$locale} dili yenid…ôn y√ľkl…ôndi"
+msgstr "{$locale} dili yenidən yükləndi"
 
 msgid "notification.localeSettingsSaved"
-msgstr "Dil t…ônziml…ôri yadda saxlandńĪ"
+msgstr "Dil tənzimləri yadda saxlandı"
 
 msgid "notification.editedUser"
-msgstr "ńįstifad…ô√ßi redakt…ô edildi."
+msgstr "İstifadəçi redaktə edildi."
 
 #, fuzzy
 msgid "manager.plugins.upgradeDescription"
@@ -1766,35 +1730,32 @@ msgstr ""
 
 msgid "manager.reviewForms.confirmActivate"
 msgstr ""
-"Bu d…ôy…ôrl…ôndirm…ô formunu aktivl…ôŇüdirm…ôk ist…ôdiyinizd…ôn …"
-"ôminsinizmi? Bir d…ôy…ôrl…ôndirm…ôy…ô t…ôyin edildiyind…ô, artńĪq bunu "
-"sńĪradan √ßńĪxara bilm…ôy…ôc…ôksiniz."
+"Bu dəyərləndirmə formunu aktivləşdirmək istədiyinizdən əminsinizmi? Bir "
+"dəyərləndirməyə təyin edildiyində, artıq bunu sıradan çıxara bilməyəcəksiniz."
 
 msgid "manager.reviewForms.confirmDeactivate"
 msgstr ""
-"Bu d…ôy…ôrl…ôndirm…ô formunu sńĪradan √ßńĪxarmaq ist…ôdiyinizd…ôn …"
-"ôminsinizmi? Yeni d…ôy…ôrl…ôndirm…ô t…ôl…ôbl…ôri √ľ√ß√ľn artńĪq etibarlńĪ "
-"olmayacaq."
+"Bu dəyərləndirmə formunu sıradan çıxarmaq istədiyinizdən əminsinizmi? Yeni "
+"dəyərləndirmə tələbləri üçün artıq etibarlı olmayacaq."
 
 msgid "manager.reviewForms.form.titleRequired"
-msgstr "D…ôy…ôrl…ôndirm…ô formu √ľ√ß√ľn bir baŇülńĪq t…ôl…ôb olunur"
+msgstr "Dəyərləndirmə formu üçün bir başlıq tələb olunur"
 
 msgid "manager.reviewForms.list.description"
 msgstr ""
-"Burada yaradńĪlan d…ôy…ôrl…ôndirm…ô formlarńĪ hazńĪr d…ôy…ôrl…ôndirm…ô formu "
-"yerin…ô istifad…ô edilir. HazńĪr d…ôy…ôrl…ôndirm…ô formu iki d…ôn…ô m…ôtn "
-"qutusu ehtiva edir v…ô bunlardan birincisi \"redaktor v…ô m√ľ…ôllif\" √ľ√ß√"
-"ľn, ikincisi \"redaktor\" √ľ√ß√ľnd√ľr. D…ôy…ôrl…ôndirm…ô formlarńĪ Jurnal "
-"b√∂lm…ôl…ôrin…ô g√∂r…ô ayrńĪ ayrńĪlńĪqda yaradńĪla bil…ôr. YaradńĪlan "
-"formlar r…ôy√ßi t…ôyinatńĪ …ôsnasńĪnda se√ßil…ô bil…ôr. H…ôr halda, "
-"redaktorlar M√ľ…ôllif il…ô …ôlaq…ôdar d…ôy…ôrl…ôndirm…ô se√ßimin…ô sahib ola "
-"bil…ôc…ôkl…ôr."
+"Burada yaradılan dəyərləndirmə formları hazır dəyərləndirmə formu yerinə "
+"istifadə edilir. Hazır dəyərləndirmə formu iki dənə mətn qutusu ehtiva edir "
+"və bunlardan birincisi \"redaktor və müəllif\" üçün, ikincisi \"redaktor\" "
+"üçündür. Dəyərləndirmə formları Jurnal bölmələrinə görə ayrı ayrılıqda "
+"yaradıla bilər. Yaradılan formlar rəyçi təyinatı əsnasında seçilə bilər. Hər "
+"halda, redaktorlar Müəllif ilə əlaqədar dəyərləndirmə seçiminə sahib ola "
+"biləcəklər."
 
 msgid "manager.reviewForms.noneCreated"
-msgstr "He√ß bir d…ôy…ôrl…ôndirm…ô formu yaradńĪlmadńĪ"
+msgstr "Heç bir dəyərləndirmə formu yaradılmadı"
 
 msgid "manager.reviewForms.noneUsed"
-msgstr "D…ôy…ôrl…ôndirm…ô formalarńĪ istifad…ô olunmadńĪ."
+msgstr "Dəyərləndirmə formaları istifadə olunmadı."
 
 msgid "manager.reviewFormElement.changeType"
 msgstr ""
@@ -1803,193 +1764,179 @@ msgstr ""
 "options."
 
 msgid "manager.reviewFormElements.confirmDelete"
-msgstr "N…ôŇür olunmuŇü bir form elementinin silinm…ôsini t…ôsdiql…ôyin..."
+msgstr "Nəşr olunmuş bir form elementinin silinməsini təsdiqləyin..."
 
 msgid "manager.reviewFormElements.form.elementTypeRequired"
-msgstr "Form elementl…ôri √ľ√ß√ľn element n√∂v√ľ t…ôl…ôb olunur."
+msgstr "Form elementləri üçün element növü tələb olunur."
 
 msgid "manager.reviewFormElements.form.questionRequired"
-msgstr "Form elementl…ôri √ľ√ß√ľn bir sual t…ôl…ôb olunur"
+msgstr "Form elementləri üçün bir sual tələb olunur"
 
 msgid "manager.reviewFormElements.noneCreated"
-msgstr "He√ß bir d…ôy…ôrl…ôndirm…ô formasńĪ formalaŇüdńĪrńĪlmayńĪb"
+msgstr "Heç bir dəyərləndirmə forması formalaşdırılmayıb"
 
 msgid "manager.setup.competingInterests.required"
 msgstr ""
-"Bu m…ôqal…ônin d…ôy…ôrl…ôndirilm…ôsi …ôsnasńĪnda bir M…ônf…ô…ôt M√ľnaqiŇü…"
-"ôsi bildiriŇüi t…ôl…ôb edin."
+"Bu məqalənin dəyərləndirilməsi əsnasında bir Mənfəət Münaqişəsi bildirişi "
+"tələb edin."
 
 msgid "manager.setup.licenseURLDescription"
-msgstr "∆Źg…ôr varsa, lisenziyanńĪ t…ôsvir ed…ôn bir veb s…ôhif…ônin URL-si"
+msgstr "Əgər varsa, lisenziyanı təsvir edən bir veb səhifənin URL-si"
 
 msgid "manager.setup.metadata.source.noRequest"
-msgstr "T…ôqdimat …ôsnasńĪnda M√ľ…ôllifd…ôn m…ônb…ô URL-si ist…ôm…ôyin"
+msgstr "Təqdimat əsnasında Müəllifdən mənbə URL-si istəməyin"
 
 msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr ""
-"M√ľraci…ôt …ôsnasńĪnda m√ľ…ôllifd…ôn ixtisasńĪ haqqńĪnda m…ôlumat t…ôl…ôb "
-"etm…ôyin"
+msgstr "Müraciət əsnasında müəllifdən ixtisası haqqında məlumat tələb etməyin"
 
 msgid "manager.setup.metadata.disciplines.request"
-msgstr ""
-"M√ľ…ôllifd…ôn t…ôqdimat …ôsnasńĪnda ixtisasńĪ haqqńĪnda m…ôlumat ist…ôyin"
+msgstr "Müəllifdən təqdimat əsnasında ixtisası haqqında məlumat istəyin"
 
 msgid "manager.setup.metadata.disciplines.require"
 msgstr ""
-"M√ľ…ôllifin t…ôqdimatńĪnńĪ q…ôbul etm…ôzd…ôn …ôvv…ôl ixtisasńĪnńĪ bildirm…"
-"ôsini ist…ôyin"
+"Müəllifin təqdimatını qəbul etməzdən əvvəl ixtisasını bildirməsini istəyin"
 
 msgid "manager.setup.metadata.agencies.description"
 msgstr ""
-"D…ôst…ôkl…ôy…ôn qurumlar, t…ôqdiqatńĪ asanlaŇüdńĪran araŇüdńĪrma sponsoru "
-"m…ônb…ôyini v…ô ya dig…ôr korporativ d…ôst…ôyi t…ômin ed…ô bilir."
+"Dəstəkləyən qurumlar, təqdiqatı asanlaşdıran araşdırma sponsoru mənbəyini və "
+"ya digər korporativ dəstəyi təmin edə bilir."
 
 msgid "manager.setup.metadata.agencies.noRequest"
 msgstr ""
-"T…ôqdimat …ôsnasńĪnda m√ľ…ôllifd…ôn fond d…ôst…ôyi t…ômin ed…ôn qurum "
-"bilgisi t…ôl…ôb etm…ôyin"
+"Təqdimat əsnasında müəllifdən fond dəstəyi təmin edən qurum bilgisi tələb "
+"etməyin"
 
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
-"{$id} n√∂mr…ôli m…ôqal…ô faylńĪ, bir r…ôy√ßi t…ôyin edildiyin…ô g√∂r…ô v…ô "
-"ya a√ßńĪq bir m√ľzakir…ô olduńüuna g√∂r…ô idxal edil…ô bilm…ôdiyi √ľ√ß√ľn "
-"ke√ßildi."
+"{$id} nömrəli məqalə faylı, bir rəyçi təyin edildiyinə görə və ya açıq bir "
+"müzakirə olduğuna görə idxal edilə bilmədiyi üçün keçildi."
 
 #, fuzzy
 msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
-msgstr ""
-"T…ôqdimetm…ô faylńĪ {$id}, etibarlńĪ bir d√ľz…ôliŇü olmadńĪńüńĪ √ľ√ß√ľn "
-"atlandńĪ."
+msgstr "Təqdimetmə faylı {$id}, etibarlı bir düzəliş olmadığı üçün atlandı."
 
 #, fuzzy
 msgid "plugins.importexport.common.error.publicationCoverImageMissing"
 msgstr ""
-"N…ôŇürin √∂rt√ľk g√∂r√ľnt√ľs√ľn√ľn {$id} ixrac edilm…ôdi, onun faylńĪ \""
-"{$path}\" yolunda tapńĪlmadńĪ."
+"Nəşrin örtük görüntüsünün {$id} ixrac edilmədi, onun faylı \"{$path}\" "
+"yolunda tapılmadı."
 
 msgid "manager.navigationMenus.form.pathRegEx"
 msgstr ""
-"Yol sah…ôsi sad…ôc…ô alfanumerik xarakterl…ôr il…ô birlikd…ô '.', '/', '-' "
-"ve '_' ehtiva etm…ôlidir."
+"Yol sahəsi sadəcə alfanumerik xarakterlər ilə birlikdə '.', '/', '-' ve '_' "
+"ehtiva etməlidir."
 
 msgid "manager.navigationMenus.form.duplicatePath"
-msgstr ""
-"Bu yol baŇüqa bir naviqasiya menyusu elementi √ľ√ß√ľn artńĪq m√∂vcuddur."
+msgstr "Bu yol başqa bir naviqasiya menyusu elementi üçün artıq mövcuddur."
 
 msgid "manager.navigationMenus.form.menuAssigned"
-msgstr "ArtńĪq bu sah…ôy…ô bir y√∂nl…ôndirm…ô menyusu t…ôyin edilib."
+msgstr "Artıq bu sahəyə bir yönləndirmə menyusu təyin edilib."
 
 msgid "manager.navigationMenus.customPage.description"
 msgstr ""
-"SaytńĪnńĪza m…ôxsus bir s…ôhif…ô yaradńĪn v…ô bir g…ôzinti menyusunda link "
-"formalaŇüdńĪrńĪn."
+"Saytınıza məxsus bir səhifə yaradın və bir gəzinti menyusunda link "
+"formalaşdırın."
 
 msgid "manager.navigationMenus.current.description"
-msgstr "M√∂vcud g√ľnc…ôl n√∂mr…ôy…ô link verin"
+msgstr "Mövcud güncəl nömrəyə link verin"
 
 msgid "manager.navigationMenus.loggedOut.conditionalWarning"
-msgstr "Bu link sad…ôc…ô ziyar…ôt√ßi daxil olduńüu zaman baxńĪlacaqdńĪr."
+msgstr "Bu link sadəcə ziyarətçi daxil olduğu zaman baxılacaqdır."
 
 msgid "manager.navigationMenus.form.typeMissing"
-msgstr "Z…ôhm…ôt olmasa bir marŇülutlaŇüdńĪrma menyu n√∂v√ľ se√ßin"
+msgstr "Zəhmət olmasa bir marşlutlaşdırma menyu növü seçin"
 
 msgid "grid.category.pathExists"
-msgstr "Kateqoriya yolu zat…ôn var. Z…ôhm…ôt olmasa unikal bir yol daxil edin"
+msgstr "Kateqoriya yolu zatən var. Zəhmət olmasa unikal bir yol daxil edin"
 
 msgid "grid.category.nameRequired"
-msgstr "Z…ôhm…ôt olmasa bir kateqoriya adńĪ daxil edin"
+msgstr "Zəhmət olmasa bir kateqoriya adı daxil edin"
 
 #, fuzzy
 msgid "stats.views"
-msgstr "M…ônz…ôr…ô"
+msgstr "Mənzərə"
 
 #, fuzzy
 msgid "stats.downloads"
-msgstr "Y√ľkl…ôr"
+msgstr "Yüklər"
 
 #, fuzzy
 msgid "stats.views.timelineInterval"
-msgstr "Tarix…ô g√∂r…ô √ľmumi fikirl…ôr"
+msgstr "Tarixə görə ümumi fikirlər"
 
 #, fuzzy
 msgid "stats.downloads.timelineInterval"
-msgstr "Tarix…ô g√∂r…ô √ľmumi y√ľkl…ôm…ôl…ôr"
+msgstr "Tarixə görə ümumi yükləmələr"
 
 msgid "stats.dateRange.dateDoesNotExist"
-msgstr "Daxil edil…ôn tarixl…ôrd…ôn biri m√∂vcud deyil"
+msgstr "Daxil edilən tarixlərdən biri mövcud deyil"
 
 msgid "stats.dateRange.instructions"
 msgstr ""
-"H…ôr tarixi ńįńįńįńį-AA-GG formatńĪnda daxil edin. M…ôs…ôl…ôn, 15 yanvar "
-"2019 ist…ôyirsinizs…ô 2019=01--15 daxil edin."
+"Hər tarixi İİİİ-AA-GG formatında daxil edin. Məsələn, 15 yanvar 2019 "
+"istəyirsinizsə 2019=01--15 daxil edin."
 
 msgid "stats.dateRange.invalidDate"
 msgstr ""
-"Tarix formatńĪ etibarlńĪ deyil. H…ôr tarixi ńįńįńįńį-AA-GG formatńĪnda daxil "
-"edin."
+"Tarix formatı etibarlı deyil. Hər tarixi İİİİ-AA-GG formatında daxil edin."
 
 msgid "stats.dateRange.invalidDateRange"
-msgstr "BaŇülanńüńĪc tarixi bitiŇü tarixind…ôn …ôvv…ôl olmalńĪdńĪr"
+msgstr "Başlanğıc tarixi bitiş tarixindən əvvəl olmalıdır"
 
 #, fuzzy
 msgid "stats.file.type.primaryFile"
-msgstr "ńįlkin fayl"
+msgstr "İlkin fayl"
 
 #, fuzzy
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
-"H…ôr bir Ňü…ôh…ôr, b√∂lg…ô v…ô ya √∂lk…ô √ľ√ß√ľn fikir v…ô y√ľkl…ôm…ô sayńĪ."
+msgstr "Hər bir şəhər, bölgə və ya ölkə üçün fikir və yükləmə sayı."
 
 #, fuzzy
 msgid "stats.name.submissionsSkipped"
-msgstr "Dig…ôr t…ôqdimatlar"
+msgstr "Digər təqdimatlar"
 
 #, fuzzy
 msgid "stats.name.submissionsInProgress"
-msgstr "T…ôqib√ßil…ôr"
+msgstr "Təqibçilər"
 
 #, fuzzy
 msgid "stats.name.submissionsImported"
-msgstr "ńįdxal olunan t…ôqdimatlar"
+msgstr "İdxal olunan təqdimatlar"
 
 msgid "plugins.importexport.native.processFailed"
 msgstr ""
-"∆Źm…ôliyyat uńüursuz oldu. X…ôtalar v…ô x…ôb…ôrdarlńĪqlar √ľ√ß√ľn "
-"aŇüańüńĪnńĪ kontrol edin"
+"Əməliyyat uğursuz oldu. Xətalar və xəbərdarlıqlar üçün aşağını kontrol edin"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr "ńįxrac uńüurla baŇüa √ßatdńĪ."
+msgstr "İxrac uğurla başa çatdı."
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr "ńįxrac edil…ôn faylńĪ aŇüańüńĪdakńĪ d√ľym…ô vasit…ôsil…ô endirin"
+msgstr "İxrac edilən faylı aşağıdakı düymə vasitəsilə endirin"
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
-"YanlńĪŇü filtir konfiqurasiyasńĪ [{$filterName}]: {$filterCount} olmalarńĪ t…"
-"ôk olmalńĪdńĪr."
+"Yanlış filtir konfiqurasiyası [{$filterName}]: {$filterCount} olmaları tək "
+"olmalıdır."
 
 msgid "plugins.importexport.common.error.unknownContext"
-msgstr "G√∂st…ôril…ôn g√ľnd…ôlik yolu \"{$contextPath}\" m√∂vcud deyil"
+msgstr "Göstərilən gündəlik yolu \"{$contextPath}\" mövcud deyil"
 
 #, fuzzy
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
-"TamamlanmńĪŇü r…ôyl…ôrd…ôn b√ľt√ľn Ňü…ôrhl…ôr. R…ôy√ßi adlarńĪ anonim r…ôyl…"
-"ôr √ľ√ß√ľn gizlidir"
+"Tamamlanmış rəylərdən bütün şərhlər. Rəyçi adları anonim rəylər üçün gizlidir"
 
 #, fuzzy
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr "T…ôqdimat m√ľ…ôllifl…ôrinin adlarńĪ v…ô m…ônsublarńĪ."
+msgstr "Təqdimat müəlliflərinin adları və mənsubları."
 
 #, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr ""
-"URL istifad…ô√ßinin hamńĪsńĪnńĪ t…ôyin edilmiŇü t…ôqdimatlarńĪna baxmaq "
-"√ľ√ß√ľn."
+msgstr "URL istifadəçinin hamısını təyin edilmiş təqdimatlarına baxmaq üçün."
 
 #, fuzzy
 msgid "emailTemplate.variable.decision.name"
-msgstr "AlńĪnan q…ôrarńĪn adńĪ."
+msgstr "Alınan qərarın adı."
 
 #, fuzzy
 msgid "emailTemplate.variable.reviewType.anonymous"
@@ -2000,36 +1947,33 @@ msgstr ""
 
 #, fuzzy
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
-"Veb saytńĪnńĪn avtomatlaŇüdńĪrńĪlmńĪŇü e-po√ßtlar √ľ√ß√ľn e-po√ßt imzasńĪ"
+msgstr "Veb saytının avtomatlaşdırılmış e-poçtlar üçün e-poçt imzası"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr "QńĪsaldńĪlmńĪŇü bir s…ôrit formatńĪnda M√ľ…ôllif adlarńĪ"
+msgstr "Qısaldılmış bir sərit formatında Müəllif adları"
 
 #, fuzzy
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr "YayńĪmlanan t…ôqdimata URL"
+msgstr "Yayımlanan təqdimata URL"
 
 #, fuzzy
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr "T…ôqdimat sehrbazńĪnda t…ôqdim olunan URL"
+msgstr "Təqdimat sehrbazında təqdim olunan URL"
 
 #, fuzzy
 msgid "mailable.reviewerResendRequest.name"
-msgstr "R…ôy√ßi √ľ√ß√ľn n…ôz…ôrd…ôn ke√ßirm…ô t…ôl…ôbini yenid…ôn g√∂nd…ôrin"
+msgstr "Rəyçi üçün nəzərdən keçirmə tələbini yenidən göndərin"
 
 msgid "mailable.reviewerUnassign.description"
-msgstr ""
-"Bu email, redaktor t…ôr…ôfind…ôn r…ôy√ßid…ôn geri alńĪndńĪńüńĪ zaman "
-"g√∂nd…ôrilir"
+msgstr "Bu email, redaktor tərəfindən rəyçidən geri alındığı zaman göndərilir"
 
 #, fuzzy
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr "R…ôdd edilmiŇü t…ôqdimatńĪ b…ôrpa edin"
+msgstr "Rədd edilmiş təqdimatı bərpa edin"
 
 #, fuzzy
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr "T…ôqdimatńĪ b…ôrpa etm…ôd…ôn r…ôdd edildi"
+msgstr "Təqdimatı bərpa etmədən rədd edildi"
 
 #, fuzzy
 msgid "mailable.reviewRequest.description"
@@ -2040,144 +1984,142 @@ msgstr ""
 
 #, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr "T…ôqdimat n…ôz…ôrd…ôn ke√ßirm…ôk √ľ√ß√ľn geri g√∂nd…ôrildi"
+msgstr "Təqdimat nəzərdən keçirmək üçün geri göndərildi"
 
 #, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr "T…ôqdimat geri g√∂nd…ôrildi"
+msgstr "Təqdimat geri göndərildi"
 
 #, fuzzy
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr "Dig…ôr m√ľ…ôllifl…ôr…ô t…ôqdim etm…ôk"
+msgstr "Digər müəlliflərə təqdim etmək"
 
 #, fuzzy
 msgid "mailable.editorAssigned.name"
-msgstr "T…ôyin edilmiŇü redaktor (Auto)"
+msgstr "Təyin edilmiş redaktor (Auto)"
 
 #, fuzzy
 msgid "mailable.editorAssigned.description"
 msgstr ""
-"Bu e-po√ßt avtomatik olaraq t…ôqdimata t…ôyin edildikd…ô bir redaktora "
-"g√∂nd…ôrilir."
+"Bu e-poçt avtomatik olaraq təqdimata təyin edildikdə bir redaktora "
+"göndərilir."
 
 #, fuzzy
 msgid "mailable.editorAssignedManual.name"
-msgstr "Redaktoru t…ôyin etm…ôk"
+msgstr "Redaktoru təyin etmək"
 
 #, fuzzy
 msgid "mailable.submissionNeedsEditor.name"
-msgstr "G√∂nd…ôrm…ô redaktoru lazńĪmdńĪr"
+msgstr "Göndərmə redaktoru lazımdır"
 
 msgid "manager.website.imageFileRequired"
 msgstr ""
-"Bir Ňü…ôkil faylńĪ t…ôl…ôb olunur. Z…ôhm…ôt olmasa bir fayl se√ßdiyinizd…ôn "
-"v…ô y√ľkl…ôdiyinizd…ôn …ômin olun."
+"Bir şəkil faylı tələb olunur. Zəhmət olmasa bir fayl seçdiyinizdən və "
+"yüklədiyinizdən əmin olun."
 
 msgid "manager.announcements.form.dateExpireDayIncompleteDate"
-msgstr ""
-"Z…ôhm…ôt olmasa son tarix √ľ√ß√ľn g√ľnl…ô birlikd…ô ay v…ô il d…ô se√ßin"
+msgstr "Zəhmət olmasa son tarix üçün günlə birlikdə ay və il də seçin"
 
 msgid "manager.announcements.form.dateExpireInstructions"
 msgstr ""
-"Elan, bu tarix…ô q…ôd…ôr oxuculara g√∂st…ôrilir. ElanńĪn davamlńĪ "
-"baxńĪlmasńĪ √ľ√ß√ľn boŇü buraxńĪn."
+"Elan, bu tarixə qədər oxuculara göstərilir. Elanın davamlı baxılması üçün "
+"boş buraxın."
 
 msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
-msgstr ""
-"Z…ôhm…ôt olmasa son tarix √ľ√ß√ľn g√ľnl…ô birlikd…ô ay v…ô il d…ô se√ßin"
+msgstr "Zəhmət olmasa son tarix üçün günlə birlikdə ay və il də seçin"
 
 msgid "manager.announcements.form.dateExpireValid"
-msgstr "Z…ôhm…ôt olmasa dońüru bir son elan tarixi se√ßin."
+msgstr "Zəhmət olmasa doğru bir son elan tarixi seçin."
 
 msgid "manager.announcements.form.dateExpireYearIncompleteDate"
 msgstr ""
-"Z…ôhm…ôt olmasa son tarix √ľ√ß√ľn il bilgisi il…ô birlikd…ô son tarix √ľ√ß√"
-"ľn g√ľn v…ô ay da m√ľ…ôyy…ônl…ôŇüdirin."
+"Zəhmət olmasa son tarix üçün il bilgisi ilə birlikdə son tarix üçün gün və "
+"ay da müəyyənləşdirin."
 
 msgid "manager.announcements.form.descriptionRequired"
-msgstr "ElanńĪn tam m…ôtni t…ôl…ôb olunur"
+msgstr "Elanın tam mətni tələb olunur"
 
 msgid "manager.announcements.form.descriptionShortInstructions"
-msgstr "Elan baŇülńĪńüńĪ il…ô birlikd…ô g√∂st…ôril…ôc…ôk qńĪsa t…ôsvir"
+msgstr "Elan başlığı ilə birlikdə göstəriləcək qısa təsvir"
 
 #, fuzzy
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
-"{$count} madd…ôl…ôri (l…ôr) {$registrationAgency} -…ô q…ôd…ôr olan Doi "
-"metadata qeydl…ôri g√∂nd…ôrm…ôy…ô hazńĪrlaŇüńĪrsńĪnńĪz. Bu qeydl…ôri qoymaq "
-"ist…ôdiyiniz…ô …ôminsiniz?"
+"{$count} maddələri (lər) {$registrationAgency} -ə qədər olan Doi metadata "
+"qeydləri göndərməyə hazırlaşırsınız. Bu qeydləri qoymaq istədiyinizə "
+"əminsiniz?"
 
 #, fuzzy
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""
-"Qeydiyyata alńĪnan kimi {$count} madd…ôl…ôri (l…ôr) √ľ√ß√ľn DOI metadata "
-"qeydl…ôrini qeyd etm…ôk ist…ôyirsiniz. Bu qeydl…ôri qeydiyyatdan ke√ß…ôn "
-"kimi qeyd etm…ôk ist…ôdiyiniz…ô …ôminsiniz?"
+"Qeydiyyata alınan kimi {$count} maddələri (lər) üçün DOI metadata qeydlərini "
+"qeyd etmək istəyirsiniz. Bu qeydləri qeydiyyatdan keçən kimi qeyd etmək "
+"istədiyinizə əminsiniz?"
 
 #, fuzzy
 msgid "manager.dois.actions.markUnregistered.label"
-msgstr "Mark DOI-leri qeydiyyatsńĪz"
+msgstr "Mark DOI-leri qeydiyyatsız"
 
 #, fuzzy
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
-"QeydiyyatsńĪz kimi {$count} madd…ôsi (l…ôr) √ľ√ß√ľn DOI metadata qeydl…ôrini "
-"qeyd etm…ôk ist…ôyirsiniz. Bu qeydl…ôri qeydiyyatsńĪz kimi qeyd etm…ôk "
-"ist…ôdiyiniz…ô …ôminsiniz?"
+"Qeydiyyatsız kimi {$count} maddəsi (lər) üçün DOI metadata qeydlərini qeyd "
+"etmək istəyirsiniz. Bu qeydləri qeydiyyatsız kimi qeyd etmək istədiyinizə "
+"əminsiniz?"
 
 #, fuzzy
 msgid "manager.dois.actions.markStale.label"
-msgstr "Mark doisin sinxronizasiyasńĪ lazńĪmdńĪr"
+msgstr "Mark doisin sinxronizasiyası lazımdır"
 
 #, fuzzy
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
-"Sinxronizasiya edil…ôc…ôk {$count} madd…ôsi (l…ôr) √ľ√ß√ľn DOI metadata "
-"qeydl…ôrini qeyd etm…ôky…ôsiniz. EhtiyaclarńĪn sinxron statusu yalnńĪz "
-"…ôvv…ôlc…ôd…ôn t…ôqdim edilmiŇü k√∂m…ôy…ô t…ôtbiq edil…ô bil…ôr. Bu qeydl…"
-"ôri k√∂hn…ôlmiŇü kimi qeyd etm…ôk ist…ôdiyiniz…ô …ôminsiniz?"
+"Sinxronizasiya ediləcək {$count} maddəsi (lər) üçün DOI metadata qeydlərini "
+"qeyd etməkyəsiniz. Ehtiyacların sinxron statusu yalnız əvvəlcədən təqdim "
+"edilmiş köməyə tətbiq edilə bilər. Bu qeydləri köhnəlmiş kimi qeyd etmək "
+"istədiyinizə əminsiniz?"
 
 #, fuzzy
 msgid "manager.dois.actions.export.label"
-msgstr "ńįxrac edin"
+msgstr "İxrac edin"
 
 #, fuzzy
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
-"ńįnternet saytńĪnńĪzńĪn altńĪnda g√∂r√ľnm…ôsini ist…ôdiyiniz Ňü…ôkill…ôri, "
-"m…ôtnl…ôri v…ô ya HTML kodlarńĪnńĪ daxil edin."
+"İnternet saytınızın altında görünməsini istədiyiniz şəkilləri, mətnləri və "
+"ya HTML kodlarını daxil edin."
 
 #, fuzzy
 msgid "manager.dois.actions.assign.label"
-msgstr "Dois t…ôyin edin"
+msgstr "Dois təyin edin"
 
 #, fuzzy
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
-"Siz h…ôl…ô DOI t…ôyin edilm…ômiŇü h…ôr hansńĪ uyńüun element √ľ√ß√ľn {$count}"
-" elementin…ô yeni DO t…ôyin ed…ôc…ôksiniz. Bu elementl…ôr…ô DOI t…ôyin etm…"
-"ôk ist…ôdiyiniz…ô …ôminsinizmi?"
+"Siz hələ DOI təyin edilməmiş hər hansı uyğun element üçün {$count} "
+"elementinə yeni DO təyin edəcəksiniz. Bu elementlərə DOI təyin etmək "
+"istədiyinizə əminsinizmi?"
 
 #, fuzzy
 msgid "manager.dois.actions.depositAll.label"
-msgstr "B√ľt√ľn dois …ôman…ôt edin"
+msgstr "Bütün dois əmanət edin"
 
 #, fuzzy
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
-"{$registrationAgency} il…ô depozit edil…ôc…ôk b√ľt√ľn g√∂rk…ômli doi "
-"metadata qeydl…ôrini planlaŇüdńĪrmańüa hazńĪrlaŇüńĪrsńĪnńĪz. YalnńĪz bir Doi "
-"il…ô n…ôŇür olunan …ôŇüyalar yatńĪrńĪlacaq. Cavab alńĪndńĪqda h…ôr bir madd…"
-"ônin statusu yenil…ôn…ôc…ôkdir. Bu madd…ôl…ôrin hamńĪsńĪna …ôman…ôtl…ôri t…"
-"ôyin etm…ôk ist…ôdiyiniz…ô …ôminsiniz?"
+"{$registrationAgency} ilə depozit ediləcək bütün görkəmli doi metadata "
+"qeydlərini planlaşdırmağa hazırlaşırsınız. Yalnız bir Doi ilə nəşr olunan "
+"əşyalar yatırılacaq. Cavab alındıqda hər bir maddənin statusu "
+"yenilənəcəkdir. Bu maddələrin hamısına əmanətləri təyin etmək istədiyinizə "
+"əminsiniz?"
 
 #, fuzzy
 msgid "manager.dois.actions.description"
-msgstr "Se√ßilmiŇü element (l…ôr) {$count} √ľz…ôrind…ô h…ôr…ôk…ôt edin."
+msgstr "Seçilmiş element (lər) {$count} üzərində hərəkət edin."
 
 #, fuzzy
 msgid "manager.dois.actions.bulkActions"
-msgstr "Toplu h…ôr…ôk…ôtl…ôr"
+msgstr "Toplu hərəkətlər"
 
 #, fuzzy
 msgid "manager.dois.depositStatus"
@@ -2185,74 +2127,71 @@ msgstr "Depozit statusu"
 
 #, fuzzy
 msgid "manager.dois.publicationStatus"
-msgstr "N…ôŇürin v…ôziyy…ôti"
+msgstr "Nəşrin vəziyyəti"
 
 #, fuzzy
 msgid "manager.dois.registration.submittedDescription"
-msgstr ""
-"Bu madd…ô √ľ√ß√ľn metadata {$registrationAgency} -…ô t…ôqdim edilmiŇüdir."
+msgstr "Bu maddə üçün metadata {$registrationAgency} -ə təqdim edilmişdir."
 
 #, fuzzy
 msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr ""
-"Bu madd…ô bir qeydiyyat agentliyi il…ô …ôl il…ô qeydiyyata alńĪnmńĪŇüdńĪr."
+msgstr "Bu maddə bir qeydiyyat agentliyi ilə əl ilə qeydiyyata alınmışdır."
 
 #, fuzzy
 msgid "manager.dois.registration.notSubmittedDescription"
-msgstr ""
-"Bu madd…ô √ľ√ß√ľn metadata {$registrationAgency} -…ô t…ôqdim edilm…ômiŇüdir."
+msgstr "Bu maddə üçün metadata {$registrationAgency} -ə təqdim edilməmişdir."
 
 #, fuzzy
 msgid "manager.dois.registration.notPublishedDescription"
-msgstr "Bu madd…ô d…ôrc olunana q…ôd…ôr saxlanńĪla bilm…ôz."
+msgstr "Bu maddə dərc olunana qədər saxlanıla bilməz."
 
 #, fuzzy
 msgid "manager.dois.registration.viewError"
-msgstr "S…ôhv…ô baxńĪn"
+msgstr "Səhvə baxın"
 
 #, fuzzy
 msgid "manager.dois.registration.viewError.title"
-msgstr "Qeydiyyat s…ôhv mesajńĪ"
+msgstr "Qeydiyyat səhv mesajı"
 
 #, fuzzy
 msgid "manager.dois.registration.viewRecord"
-msgstr "Rekord g√∂rm…ôk"
+msgstr "Rekord görmək"
 
 #, fuzzy
 msgid "manager.dois.registration.viewRecord.title"
-msgstr "Uńüurlu qeydiyyat mesajńĪ"
+msgstr "Uğurlu qeydiyyat mesajı"
 
 #, fuzzy
 msgid "manger.dois.update.success"
-msgstr "Dois uńüurla yenil…ôndi"
+msgstr "Dois uğurla yeniləndi"
 
 #, fuzzy
 msgid "manager.dois.registration.depositDois"
-msgstr "Depozit DOI (l…ôr)"
+msgstr "Depozit DOI (lər)"
 
 #, fuzzy
 msgid "manager.dois.status.needsDoi"
-msgstr "Doi lazńĪmdńĪr"
+msgstr "Doi lazımdır"
 
 #, fuzzy
 msgid "manager.dois.status.unregistered"
-msgstr "QeydiyyatsńĪz"
+msgstr "Qeydiyyatsız"
 
 #, fuzzy
 msgid "manager.dois.status.submitted"
-msgstr "T…ôqdim"
+msgstr "Təqdim"
 
 #, fuzzy
 msgid "manager.dois.status.registered"
-msgstr "Qeyd…ô alńĪnmńĪŇü"
+msgstr "Qeydə alınmış"
 
 #, fuzzy
 msgid "manager.dois.status.error"
-msgstr "S…ôhv"
+msgstr "Səhv"
 
 #, fuzzy
 msgid "manager.dois.status.error.filterTitle"
-msgstr "S…ôhv var"
+msgstr "Səhv var"
 
 #, fuzzy
 msgid "manager.dois.status.stale"
@@ -2260,971 +2199,921 @@ msgstr "Bayat"
 
 #, fuzzy
 msgid "manager.dois.filters.doiAssigned"
-msgstr "Doi t…ôyin edildi"
+msgstr "Doi təyin edildi"
 
 #, fuzzy
 msgid "manager.dois.status.needsDoi.description"
-msgstr "Doi itkin b√ľt√ľn …ôŇüyalar."
+msgstr "Doi itkin bütün əşyalar."
 
 #, fuzzy
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr "B√ľt√ľn madd…ôl…ôr bir Doi t…ôyin etdi."
+msgstr "Bütün maddələr bir Doi təyin etdi."
 
 #, fuzzy
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
-"YayńĪmlanmńĪŇü, lakin h…ôl…ô bir qeydiyyat agentliyi il…ô depozit qoyulmayan "
-"b√ľt√ľn …ôŇüyalar."
+"Yayımlanmış, lakin hələ bir qeydiyyat agentliyi ilə depozit qoyulmayan bütün "
+"əşyalar."
 
 #, fuzzy
 msgid "manager.dois.status.submitted.description"
-msgstr "Bir qeydiyyat agentliyin…ô t…ôqdim olunan b√ľt√ľn …ôŇüyalar."
+msgstr "Bir qeydiyyat agentliyinə təqdim olunan bütün əşyalar."
 
 #, fuzzy
 msgid "manager.dois.status.registered.description"
 msgstr ""
-"Qeydiyyat agentliyi v…ô ya qeydiyyatdan ke√ßmiŇü kimi …ôl il…ô qeyd olunan "
-"b√ľt√ľn …ôŇüyalar."
+"Qeydiyyat agentliyi və ya qeydiyyatdan keçmiş kimi əl ilə qeyd olunan bütün "
+"əşyalar."
 
 #, fuzzy
 msgid "manager.dois.status.error.description"
-msgstr "Qeydiyyat prosesind…ô bir s…ôhvl…ô qarŇüńĪlaŇüan b√ľt√ľn …ôŇüyalar."
+msgstr "Qeydiyyat prosesində bir səhvlə qarşılaşan bütün əşyalar."
 
 #, fuzzy
 msgid "manager.dois.status.stale.description"
 msgstr ""
-"Sonuncu d…ôf…ô qeydiyyatdan ke√ß…ônl…ôrd…ôn b…ôri yenid…ôn qurulmuŇü b√ľt√ľn "
-"…ôŇüyalar qeydiyyat agentliyi il…ô yatńĪrńĪldńĪ. Metadata qeydl…ôrini "
-"yenil…ôm…ôk √ľ√ß√ľn qeydiyyat agentliyin…ô yenid…ôn g√∂nd…ôrilm…ôlidir."
+"Sonuncu dəfə qeydiyyatdan keçənlərdən bəri yenidən qurulmuş bütün əşyalar "
+"qeydiyyat agentliyi ilə yatırıldı. Metadata qeydlərini yeniləmək üçün "
+"qeydiyyat agentliyinə yenidən göndərilməlidir."
 
 #, fuzzy
 msgid "manager.dois.update.failedCreation"
-msgstr "Doi yenil…ôm…ôl…ôri uńüursuz oldu"
+msgstr "Doi yeniləmələri uğursuz oldu"
 
 #, fuzzy
 msgid "manager.dois.update.partialFailure"
-msgstr "B…ôzi Doi (l…ôr) yenil…ôm…ôy…ô bilm…ôdi."
+msgstr "Bəzi Doi (lər) yeniləməyə bilmədi."
 
 #, fuzzy
 msgid "manager.dois.notification.exportSuccess"
-msgstr "∆ŹŇüyalar uńüurla ixrac edildi"
+msgstr "Əşyalar uğurla ixrac edildi"
 
 #, fuzzy
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr "∆ŹŇüyalar uńüurla qeydiyyatdan ke√ßdi"
+msgstr "Əşyalar uğurla qeydiyyatdan keçdi"
 
 #, fuzzy
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr "∆ŹŇüyalar uńüurla qeydiyyatsńĪz qeyd olundu"
+msgstr "Əşyalar uğurla qeydiyyatsız qeyd olundu"
 
 #, fuzzy
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr "∆ŹŇüyalar uńüurla qeyd olunur"
+msgstr "Əşyalar uğurla qeyd olunur"
 
 #, fuzzy
 msgid "manager.dois.notification.assignDoisSuccess"
-msgstr "∆ŹŇüyalar uńüurla yeni dois t…ôyin edildi"
+msgstr "Əşyalar uğurla yeni dois təyin edildi"
 
 #, fuzzy
 msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr "∆ŹLAV∆Ź OLUNMA √ú√á√úN ∆ŹM∆ŹLńįYYATLAR"
+msgstr "ƏLAVƏ OLUNMA ÜÇÜN ƏMƏLİYYATLAR"
 
 #, fuzzy
 msgid "manager.dois.help.statuses.title"
-msgstr "DOI statuslarńĪ"
+msgstr "DOI statusları"
 
 #, fuzzy
 msgid "manager.dois.settings.relocated"
 msgstr ""
-"DOI r…ôhb…ôrliyi k√∂√ßd√ľ. Z…ôhm…ôt olmasa s…ôhif…ôl…ôr…ô baxńĪn <a href=\""
-"{$doiManagementUrl}\">Doi</A> v…ô <A href=\"{$doiSettingsUrl}\">Parametrl…ôr "
-"do ńį</a>."
+"DOI rəhbərliyi köçdü. Zəhmət olmasa səhifələrə baxın <a href=\""
+"{$doiManagementUrl}\">Doi</A> və <A href=\"{$doiSettingsUrl}\">Parametrlər "
+"do İ</a>."
 
 #, fuzzy
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
-"T…ôyin edilmiŇü Doi Prefiksinizi t…ômin etm…ôyinc…ô Dois t…ôyin edil…ô bilm…"
-"ôz. <a href=\"{$doiSettingsUrl}\"> DOI prefiksi …ôlav…ô edin </a>."
+"Təyin edilmiş Doi Prefiksinizi təmin etməyincə Dois təyin edilə bilməz. <a "
+"href=\"{$doiSettingsUrl}\"> DOI prefiksi əlavə edin </a>."
 
 #, fuzzy
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
-"Doi yaratmańüa √ßalńĪŇüdńĪ, ancaq kontekstd…ô bir yaratmaq √ľ√ß√ľn bir Doi "
-"Prefiks t…ôl…ôb olunur."
+"Doi yaratmağa çalışdı, ancaq kontekstdə bir yaratmaq üçün bir Doi Prefiks "
+"tələb olunur."
 
 #, fuzzy
 msgid "manager.genres.alertDelete"
 msgstr ""
-"Bu komponent silinm…ôzd…ôn …ôvv…ôl b√ľt√ľn …ôlaq…ôli t…ôqdimetm…ô s…ôn…ôdl…"
-"ôrini f…ôrqli bir komponentl…ô …ôlaq…ôl…ôndirm…ôlisiniz."
+"Bu komponent silinməzdən əvvəl bütün əlaqəli təqdimetmə sənədlərini fərqli "
+"bir komponentlə əlaqələndirməlisiniz."
 
 #, fuzzy
 msgid "manager.institutions.edit"
-msgstr "T…ôŇükilatńĪ redakt…ô edin"
+msgstr "Təşkilatı redaktə edin"
 
 #, fuzzy
 msgid "manager.institutions.form.ror.description"
-msgstr "Bu qurum √ľ√ß√ľn T…ôdqiqat T…ôŇükilatńĪ QeydiyyatńĪ ID."
+msgstr "Bu qurum üçün Tədqiqat Təşkilatı Qeydiyyatı ID."
 
 #, fuzzy
 msgid "manager.institutions.form.ipRanges"
-msgstr "IP aralńĪńülarńĪ"
+msgstr "IP aralığları"
 
 #, fuzzy
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
-"AŇüańüńĪdakńĪ s…ôhv {$registrationAgency} il…ô geri qaytarńĪldńĪ v…ô s…ôhvin "
-"s…ôb…ôbi il…ô bańülńĪ t…ôf…ôrr√ľatlarńĪ ehtiva edir:"
+"Aşağıdakı səhv {$registrationAgency} ilə geri qaytarıldı və səhvin səbəbi "
+"ilə bağlı təfərrüatları ehtiva edir:"
 
 #, fuzzy
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
-"AŇüańüńĪdakńĪ mesaj {$registrationAgency} t…ôr…ôfind…ôn qaytarńĪldńĪ v…ô "
-"qeydiyyat haqqńĪnda t…ôf…ôrr√ľatlarńĪ ehtiva edir:"
+"Aşağıdakı mesaj {$registrationAgency} tərəfindən qaytarıldı və qeydiyyat "
+"haqqında təfərrüatları ehtiva edir:"
 
 msgid "manager.emails.form.bodyRequired"
-msgstr "Email √ľ√ß√ľn bir m…ôtnin formalaŇüdńĪrńĪlmasńĪ t…ôl…ôb olunur"
+msgstr "Email üçün bir mətnin formalaşdırılması tələb olunur"
 
 msgid "manager.emails.form.subjectRequired"
-msgstr "Email √ľ√ß√ľn bir m√∂vzunun m√ľ…ôyy…ônl…ôŇüdirilm…ôsi t…ôl…ôb olunur"
+msgstr "Email üçün bir mövzunun müəyyənləşdirilməsi tələb olunur"
 
 msgid "manager.files.confirmDelete"
 msgstr ""
-"Bu faylńĪ v…ô ya indeksi silm…ôk ist…ôyirsinizmi? Bu indeksin silin…ô bilm…"
-"ôsi √ľ√ß√ľn boŇü olmasńĪ lazńĪmdńĪr."
+"Bu faylı və ya indeksi silmək istəyirsinizmi? Bu indeksin silinə bilməsi "
+"üçün boş olması lazımdır."
 
 msgid "manager.languages.alternateLocaleInstructions"
 msgstr ""
-"Bu sistem ist…ôy…ô bańülńĪ olaraq m√ľxt…ôlif dill…ôrd…ô b…ôzi √∂n…ômli m…"
-"ôlumatlarńĪn daxil edilm…ôsin…ô icaz…ô verir. Bu funksiyanńĪ istifad…ô etm…"
-"ôk √ľ√ß√ľn, alternativ dill…ôr se√ßin v…ô aŇüańüńĪdakńĪ se√ßiml…ôrd…ôn "
-"birini istifad…ô edin."
+"Bu sistem istəyə bağlı olaraq müxtəlif dillərdə bəzi önəmli məlumatların "
+"daxil edilməsinə icazə verir. Bu funksiyanı istifadə etmək üçün, alternativ "
+"dillər seçin və aşağıdakı seçimlərdən birini istifadə edin."
 
 msgid "manager.languages.supportedLocalesInstructions"
 msgstr ""
-"B√ľt√ľn s…ôhif…ôl…ôrd…ô dil se√ßimi imkanńĪ il…ô saytńĪ inkiŇüaf etdirm…ôk "
-"√ľ√ß√ľn d…ôst…ôkl…ôm…ôk ist…ôdiyiniz dill…ôri se√ßin. Dil se√ßimi menyusu "
-"sad…ôc…ô bird…ôn √ßox dil d…ôst…ôyi se√ßil…ôrs…ô s…ôhif…ôl…ôrd…ô t…ôqdim "
-"olunacaqdńĪr."
+"Bütün səhifələrdə dil seçimi imkanı ilə saytı inkişaf etdirmək üçün "
+"dəstəkləmək istədiyiniz dilləri seçin. Dil seçimi menyusu sadəcə birdən çox "
+"dil dəstəyi seçilərsə səhifələrdə təqdim olunacaqdır."
 
 msgid "manager.people.existingUserRequired"
-msgstr "M√∂vcud bir istifad…ô√ßi daxil edilm…ôlidir"
+msgstr "Mövcud bir istifadəçi daxil edilməlidir"
 
 msgid "manager.people.mustProvideName"
-msgstr "√úzv √ľ√ß√ľn …ôn azńĪ bir soyad g√∂st…ôrin"
+msgstr "Üzv üçün ən azı bir soyad göstərin"
 
 msgid "manager.people.noMatchingUsers"
-msgstr "Uyńüun g…ôlm…ôy…ôn √ľzvl…ôr."
+msgstr "Uyğun gəlməyən üzvlər."
 
 msgid "manager.people.noneEnrolled"
-msgstr "QeydiyyatsńĪz √ľzv."
+msgstr "Qeydiyyatsız üzv."
 
 #, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr "√Ėlk…ô"
+msgstr "Ölkə"
 
 #, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr "√Ėlk…ô v…ô Rayon"
+msgstr "Ölkə və Rayon"
 
 #, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr "√Ėlk…ô, b√∂lg…ô v…ô Ňü…ôh…ôr"
+msgstr "Ölkə, bölgə və şəhər"
 
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr "T…ôŇükilatdan istifad…ô statistikasńĪ"
+msgstr "Təşkilatdan istifadə statistikası"
 
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
-"QuruluŇülarńĪ idar…ô etm…ôk v…ô istifad…ô statistikasńĪnńĪ toplamaq ist…ôs…"
-"ôniz bu se√ßimi se√ßin. Bu, …ôld…ô ed…ô bil…ôc…ôyiniz v…ô veril…ônl…ôr "
-"bazasńĪ √∂l√ß√ľs√ľn…ô t…ôsir g√∂st…ôr…ô bil…ôc…ôyiniz m√ľmk√ľn statistik "
-"x…ôb…ôrl…ôr…ô t…ôsir ed…ôc…ôkdir."
+"Quruluşları idarə etmək və istifadə statistikasını toplamaq istəsəniz bu "
+"seçimi seçin. Bu, əldə edə biləcəyiniz və verilənlər bazası ölçüsünə təsir "
+"göstərə biləcəyiniz mümkün statistik xəbərlərə təsir edəcəkdir."
 
 #, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr "T…ôŇükilat idar…ôetm…ô v…ô istifad…ô statistikasńĪnńĪ aktivl…ôŇüdirin"
+msgstr "Təşkilat idarəetmə və istifadə statistikasını aktivləşdirin"
 
 #, fuzzy
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr "ńįctimai api"
+msgstr "İctimai api"
 
 #, fuzzy
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
-"Counter Sushi StatistikasńĪ √ľ√ß√ľn API son n√∂qt…ôl…ôrin…ô giriŇüi m…"
-"ôhdudlaŇüdńĪrńĪr v…ô ya m…ôhdudlaŇüdńĪrńĪlmńĪr. A√ßńĪlmadńĪqda, API yalnńĪz "
-"admin v…ô ya menecer rollarńĪ olan istifad…ô√ßil…ôr √ľ√ß√ľn …ôl√ßatan "
-"olacaqdńĪr."
+"Counter Sushi Statistikası üçün API son nöqtələrinə girişi məhdudlaşdırır və "
+"ya məhdudlaşdırılmır. Açılmadıqda, API yalnız admin və ya menecer rolları "
+"olan istifadəçilər üçün əlçatan olacaqdır."
 
 #, fuzzy
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr "Counter Sushi StatistikasńĪnńĪ a√ßńĪq Ňü…ôkild…ô t…ôqdim edin"
+msgstr "Counter Sushi Statistikasını açıq şəkildə təqdim edin"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
-"Sistem, m√ľ…ôyy…ôn bir m√ľdd…ôt …ôrzind…ô sayt istifad…ôsi v…ô m…ôqal…ôl…ôrl…"
-"ô bańülńĪ detallarńĪ t…ôqib ed…ôn hesabatlar ortaya qoyur. Hesabatlar, "
-"baxńĪlacaq bir elektron c…ôdv…ôl t…ôtbiqi t…ôl…ôb ed…ôn CSV formatńĪnda "
-"yaradńĪlńĪr."
+"Sistem, müəyyən bir müddət ərzində sayt istifadəsi və məqalələrlə bağlı "
+"detalları təqib edən hesabatlar ortaya qoyur. Hesabatlar, baxılacaq bir "
+"elektron cədvəl tətbiqi tələb edən CSV formatında yaradılır."
 
 msgid "manager.statistics.reports.month.label"
-msgstr "YYYYAA formatńĪndan istifad…ô edin."
+msgstr "YYYYAA formatından istifadə edin."
 
 msgid "manager.statistics.reports.day.label"
-msgstr "YYYYAAGG formatńĪndan istifad…ô edin."
+msgstr "YYYYAAGG formatından istifadə edin."
 
 #, fuzzy
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
-"Doi qeydiyyatńĪ v…ô metadata, bir element olan bir madd…ô d…ôrc edildikd…ô "
-"avtomatik olaraq se√ßilmiŇü qeydiyyat agentliyi il…ô avtomatik olaraq "
-"yatńĪrńĪla bil…ôr. Avtomatik …ôman…ôt planlaŇüdńĪrńĪlan fasil…ôl…ôrl…ô baŇü "
-"ver…ôc…ôk v…ô h…ôr bir Doi-nin qeydiyyat statusu DOI idar…ôetm…ô "
-"s…ôhif…ôsind…ôn izl…ônil…ô bil…ôr."
+"Doi qeydiyyatı və metadata, bir element olan bir maddə dərc edildikdə "
+"avtomatik olaraq seçilmiş qeydiyyat agentliyi ilə avtomatik olaraq yatırıla "
+"bilər. Avtomatik əmanət planlaşdırılan fasilələrlə baş verəcək və hər bir "
+"Doi-nin qeydiyyat statusu DOI idarəetmə səhifəsindən izlənilə bilər."
 
 #, fuzzy
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr "X√ľsusi Doi Suffix n√ľmun…ôsi"
+msgstr "Xüsusi Doi Suffix nümunəsi"
 
 #, fuzzy
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
-"Konfiqurasiya edilmiŇü DOI qeydiyyatńĪ agentliyi √ľ√ß√ľn bir v…ô ya daha √"
-"ßox se√ßilmiŇü DOI n√∂v√ľn…ô icaz…ô verilmir."
+"Konfiqurasiya edilmiş DOI qeydiyyatı agentliyi üçün bir və ya daha çox "
+"seçilmiş DOI növünə icazə verilmir."
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Defolt n√ľmun…ôd…ôn/Ňüablondan istifad…ô edin"
+msgstr "Defolt nümunədən/şablondan istifadə edin"
 
 #, fuzzy
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
-"He√ß biri - Ňü…ôkil√ßil…ôri <a href=\"{$doimanagementurl}\"> Doi Management "
-"Page </a> v…ô avtomatik olaraq yaradńĪlmayacaq"
+"Heç biri - şəkilçiləri <a href=\"{$doimanagementurl}\"> Doi Management Page "
+"</a> və avtomatik olaraq yaradılmayacaq"
 
 #, fuzzy
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr "X√ľsusi naxńĪŇü (t√∂vsiy…ô edilmir)"
+msgstr "Xüsusi naxış (tövsiyə edilmir)"
 
 msgid "doi.manager.settings.registrationAgency"
 msgstr "Qeydiyyat Agentliyi"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
-"Z…ôhm…ôt DOI-l…ôri t…ôyin ed…ôrk…ôn istifad…ô etm…ôk ist…ôdiyiniz qeydiyyat "
-"platformasńĪnńĪ se√ßin"
+"Zəhmət DOI-ləri təyin edərkən istifadə etmək istədiyiniz qeydiyyat "
+"platformasını seçin"
 
 #, fuzzy
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr "He√ß bir qeydiyyat agentliyi effektiv deyil"
+msgstr "Heç bir qeydiyyat agentliyi effektiv deyil"
 
 #, fuzzy
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
-"Dois avtomatik olaraq nan…ô v…ô qeydiyyat agentliyi il…ô yatńĪrńĪla bil…ôr. "
-"Bu x√ľsusiyy…ôtd…ôn istifad…ô etm…ôk √ľ√ß√ľn m√ľvafiq qeydiyyat agentliyind…"
-"ôn bir plugin tapńĪn v…ô quraŇüdńĪrńĪn."
+"Dois avtomatik olaraq nanə və qeydiyyat agentliyi ilə yatırıla bilər. Bu "
+"xüsusiyyətdən istifadə etmək üçün müvafiq qeydiyyat agentliyindən bir plugin "
+"tapın və quraşdırın."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr "He√ß kim"
+msgstr "Heç kim"
 
 #, fuzzy
 msgid "doi.manager.settings.doiVersioning"
-msgstr "Doi versiyasńĪ"
+msgstr "Doi versiyası"
 
 #, fuzzy
 msgid "doi.authorization.enabledRequired"
-msgstr "Bu …ôm…ôliyyatńĪ dolandńĪrmadan z…ông ed…ô bilm…ôzsiniz."
+msgstr "Bu əməliyyatı dolandırmadan zəng edə bilməzsiniz."
 
 #, fuzzy
 msgid "doi.manager.versions.countStatement"
-msgstr "{$count} versiyalarńĪ var."
+msgstr "{$count} versiyaları var."
 
 msgid "manager.setup.homepageImageInvalid"
 msgstr ""
-"GiriŇü s…ôhif…ôsi Ňü…ôkli √ľ√ß√ľn etibarsńĪz bir fayl formatńĪdńĪr. "
-"D…ôst…ôkl…ôn…ôn fayl formatlarńĪ .gif, .jpg, veya .png formatńĪndadńĪr."
+"Giriş səhifəsi şəkli üçün etibarsız bir fayl formatıdır. Dəstəklənən fayl "
+"formatları .gif, .jpg, veya .png formatındadır."
 
 msgid "manager.setup.homeTitleImageInvalid"
 msgstr ""
-"GiriŇü s…ôhif…ôsi Ňü…ôkli √ľ√ß√ľn etibarsńĪz bir fayl formatńĪdńĪr. "
-"D…ôst…ôkl…ôn…ôn fayl formatlarńĪ .gif, .jpg, veya .png formatńĪndadńĪr."
+"Giriş səhifəsi şəkli üçün etibarsız bir fayl formatıdır. Dəstəklənən fayl "
+"formatları .gif, .jpg, veya .png formatındadır."
 
 msgid "manager.setup.layout.sidebar.invalidBlock"
 msgstr ""
-"{$name} bloqu tapńĪlmadńĪ. Z…ôhm…ôt olmasa …ôlav…ônin quraŇüdńĪrńĪlmńĪŇü v…ô "
-"aktiv olduńüuna …ômin olun"
+"{$name} bloqu tapılmadı. Zəhmət olmasa əlavənin quraşdırılmış və aktiv "
+"olduğuna əmin olun"
 
 #, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
-"YalnńĪz t…ôqdim iŇü axńĪnńĪna t…ôyin edilmiŇü m√ľ…ôllifl…ôr…ô bir e-po√ßt "
-"g√∂nd…ôr. Ad…ôt…ôn bu, m√ľ…ôllifdir."
+"Yalnız təqdim iş axınına təyin edilmiş müəlliflərə bir e-poçt göndər. Adətən "
+"bu, müəllifdir."
 
 msgid "manager.setup.pageHeaderLogoImageInvalid"
 msgstr ""
-"X…ôtalńĪ s…ôhif…ô loqotip Ňü…ôkli v…ô ya x…ôtalńĪ y√ľkl…ôm…ô. Q…ôbul edil…ô "
-"bil…ôn formatlar: .gif, .jpg veya .png."
+"Xətalı səhifə loqotip şəkli və ya xətalı yükləmə. Qəbul edilə bilən "
+"formatlar: .gif, .jpg veya .png."
 
 msgid "manager.setup.peerReview.description"
 msgstr ""
-"r…ôy√ßi d…ôy…ôrl…ôndirm…ô politikasńĪnńĪn prosesl…ôrini oxucular v…ô "
-"M√ľ…ôllifl…ôr √ľ√ß√ľn x√ľlas…ô edin. Bu t…ôrif √ľmumiyy…ôtl…ô bir t…"
-"ôqdimatńĪ d…ôy…ôrl…ôndirm…ôd…ô istifad…ô edil…ôn d…ôy…ôrl…ôndirm…ô sayńĪnńĪ, "
-"r…ôy√ßil…ôrin m√ľraci…ôtl…ôri d…ôy…ôrl…ôndirm…ô meyarlarńĪ, d…ôy…ôrl…ôndirm…"
-"ôni h…ôyata ke√ßirm…ôk √ľ√ß√ľn g√∂zl…ônil…ôn m√ľdd…ôti v…ô d…ôy…ôrl…ôndirm…"
-"ôni se√ßm…ôk √ľ√ß√ľn istifad…ô edil…ôn prinsipl…ôri ehtiva edir."
+"rəyçi dəyərləndirmə politikasının proseslərini oxucular və Müəlliflər üçün "
+"xülasə edin. Bu tərif ümumiyyətlə bir təqdimatı dəyərləndirmədə istifadə "
+"edilən dəyərləndirmə sayını, rəyçilərin müraciətləri dəyərləndirmə "
+"meyarları, dəyərləndirməni həyata keçirmək üçün gözlənilən müddəti və "
+"dəyərləndirməni seçmək üçün istifadə edilən prinsipləri ehtiva edir."
 
 msgid "manager.setup.dateTime.description"
 msgstr ""
-"ńįst…ôdiyiniz tarix v…ô saat formatńĪnńĪ se√ßin. <a href='http://php.net/"
-"manual/en/function.strftime.php#refsect1-function.strftime-parameters'>X√"
-"ľsusi bir tarix v…ô saat formatńĪ</a> √ľ√ß√ľn x√ľsusi bir format daxil ed…ô "
-"bil…ôrsiniz."
+"İstədiyiniz tarix və saat formatını seçin. <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters'>Xüsusi bir "
+"tarix və saat formatı</a> üçün xüsusi bir format daxil edə bilərsiniz."
 
 msgid "manager.setup.privacyStatement.description"
 msgstr ""
-"Bu b…ôyan, M√ľ…ôllif T…ôqdimatńĪ zamanńĪ v…ô h…ôr k…ôs…ô a√ßńĪq olaraq "
-"s…ôhif…ôd…ô ola bil…ôr."
+"Bu bəyan, Müəllif Təqdimatı zamanı və hər kəsə açıq olaraq səhifədə ola "
+"bilər."
 
 msgid "manager.setup.reviewOptions.noteOnModification"
-msgstr ""
-"Defoltlar, redaksiya prosesind…ô h…ôr inc…ôl…ôm…ô √ľ√ß√ľn d…ôyiŇüdiril…ô "
-"bil…ôr"
+msgstr "Defoltlar, redaksiya prosesində hər incələmə üçün dəyişdirilə bilər"
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
-"R…ôy√ßilik ed…ôn bir Ňü…ôxs, r…ôy√ßiliyin bitm…ô tarixind…ôn sonra "
-"d…ôy…ôrl…ôndirm…ôsini g√∂nd…ôrm…ôyibs…ô bir xatńĪrlatma emaili g√∂nd…ôr."
+"Rəyçilik edən bir şəxs, rəyçiliyin bitmə tarixindən sonra dəyərləndirməsini "
+"göndərməyibsə bir xatırlatma emaili göndər."
 
 msgid "manager.setup.styleSheetDescription"
 msgstr ""
-"T…ôcr√ľb…ôli veb inkiŇüaf etdiricil…ôri, veb saytńĪnńĪn g√∂r√ľnt√ľs√ľn√ľ "
-"daha da Ňü…ôxsil…ôŇüdirm…ôk √ľ√ß√ľn bir CSS faylńĪ y√ľkl…ôy…ô bil…ôrl…ôr."
+"Təcrübəli veb inkişaf etdiriciləri, veb saytının görüntüsünü daha da "
+"şəxsiləşdirmək üçün bir CSS faylı yükləyə bilərlər."
 
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr ""
-"Redaktorlara, m√ľ…ôllifl…ôr…ô v…ô r…ôy√ßil…ôr…ô t…ôqdimatlarńĪnńĪ "
-"g√∂nd…ôrm…ôl…ôrini, redakt…ô etm…ôl…ôrini, g√∂zd…ôn ke√ßirm…ôl…ôrini v…ô ya "
-"n…ôŇür etdirdikl…ôri h…ôr hansńĪ bir materialla bańülńĪ problemd…ô k√∂m…ôk "
-"ed…ô bil…ôc…ôk …ôlaq…ô saxlanńĪlasńĪ Ňü…ôxs."
+"Redaktorlara, müəlliflərə və rəyçilərə təqdimatlarını göndərmələrini, "
+"redaktə etmələrini, gözdən keçirmələrini və ya nəşr etdirdikləri hər hansı "
+"bir materialla bağlı problemdə kömək edə biləcək əlaqə saxlanılası şəxs."
 
 msgid "manager.setup.theme.description"
 msgstr ""
-"Yeni temalar bu s…ôhif…ôsinin √ľst qismind…ôki ∆Źlav…ôl…ôr p…ônc…ôr…ôsind…ôn "
-"y√ľkl…ôn…ô bil…ôr."
+"Yeni temalar bu səhifəsinin üst qismindəki Əlavələr pəncərəsindən yüklənə "
+"bilər."
 
 msgid "manager.setup.theme.notFound"
-msgstr "Se√ßdiyiniz tema y√ľkl…ônib ya da aktiv deyil."
+msgstr "Seçdiyiniz tema yüklənib ya da aktiv deyil."
 
 #, fuzzy
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
-"G√∂nd…ôrm…ôy…ô baŇülamazdan …ôvv…ôl aŇüańüńĪdakńĪlar m√ľ…ôllifl…ôr…ô g√∂st…"
-"ôrilmiŇüdir. M√ľ…ôllifin n…ô g√∂zl…ôdiyini bilm…ôsi √ľ√ß√ľn t…ôqdimetm…ô "
-"prosesinin qńĪsa izahńĪnńĪ t…ômin edin."
+"Göndərməyə başlamazdan əvvəl aşağıdakılar müəlliflərə göstərilmişdir. "
+"Müəllifin nə gözlədiyini bilməsi üçün təqdimetmə prosesinin qısa izahını "
+"təmin edin."
 
 #, fuzzy
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
-"Y√ľkl…ôm…ô s…ôn…ôdl…ôri zamanńĪ m√ľ…ôllifl…ôr…ô aŇüańüńĪdakńĪlar g√∂st…"
-"ôrilir. FayllarńĪn m√ľ…ôllifl…ôrinin t…ôqdim edilm…ôsi il…ô b√∂l√ľŇüd√ľy√ľ "
-"bar…ôd…ô qńĪsa bir izahat verin."
+"Yükləmə sənədləri zamanı müəlliflərə aşağıdakılar göstərilir. Faylların "
+"müəlliflərinin təqdim edilməsi ilə bölüşdüyü barədə qısa bir izahat verin."
 
 #, fuzzy
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
-"ńįŇütirak√ßńĪlar d√∂vr√ľnd…ô aŇüańüńĪdakńĪlar m√ľ…ôllifl…ôr…ô g√∂st…"
-"ôrilmiŇüdir. M√ľ…ôllifin √∂zl…ôri, h…ômm√ľ…ôllifl…ôri v…ô h…ôr hansńĪ dig…ôr "
-"t√∂hf…ô ver…ônl…ôrin hansńĪ m…ôlumatńĪ verm…ôli olduńüu bar…ôd…ô qńĪsa bir "
-"izahat verin."
+"İştirakçılar dövründə aşağıdakılar müəlliflərə göstərilmişdir. Müəllifin "
+"özləri, həmmüəllifləri və hər hansı digər töhfə verənlərin hansı məlumatı "
+"verməli olduğu barədə qısa bir izahat verin."
 
 #, fuzzy
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
-"T…ôf…ôrr√ľatlar, m√ľc…ôrr…ôd v…ô t…ôqdim edilm…ôsi bar…ôd…ô dig…ôr …ôsas m…"
-"ôlumatlarńĪ t…ôqdim etm…ôl…ôri ist…ôndikd…ô, t…ôf…ôrr√ľatlar zamanńĪ "
-"m√ľ…ôllifl…ôr…ô aŇüańüńĪdakńĪlar g√∂st…ôrilir."
+"Təfərrüatlar, mücərrəd və təqdim edilməsi barədə digər əsas məlumatları "
+"təqdim etmələri istəndikdə, təfərrüatlar zamanı müəlliflərə aşağıdakılar "
+"göstərilir."
 
 #, fuzzy
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
-"Redaktorlar √ľ√ß√ľn a√ßar s√∂zl…ôr, redaktora Ňü…ôrhl…ôr v…ô redaktorlara "
-"Ňü…ôrhl…ôr, redaktorlara redaktorlara Ňü…ôrhl…ôr v…ô dig…ôr detallar verm…ôk "
-"ist…ôndikd…ô, redaktorlar √ľ√ß√ľn m√ľ…ôllifl…ôr √ľ√ß√ľn m√ľ…ôllifl…ôr √ľ√ß√"
-"ľn aŇüańüńĪdakńĪlar g√∂st…ôrilir."
+"Redaktorlar üçün açar sözlər, redaktora şərhlər və redaktorlara şərhlər, "
+"redaktorlara redaktorlara şərhlər və digər detallar vermək istəndikdə, "
+"redaktorlar üçün müəlliflər üçün müəlliflər üçün aşağıdakılar göstərilir."
 
 #, fuzzy
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
-"ńįŇül…ôrini t…ôqdim etm…ôzd…ôn …ôvv…ôl t…ôqdim etdikl…ôri b√ľt√ľn m…"
-"ôlumatlarńĪ n…ôz…ôrd…ôn ke√ßirm…ôk ist…ôndikd…ô, t…ôqdimetm…ô sehrbazńĪnńĪn "
-"son pill…ôsi zamanńĪ m√ľ…ôllifl…ôr…ô aŇüańüńĪdakńĪlar g√∂st…ôrilmiŇüdir."
+"İşlərini təqdim etməzdən əvvəl təqdim etdikləri bütün məlumatları nəzərdən "
+"keçirmək istəndikdə, təqdimetmə sehrbazının son pilləsi zamanı müəlliflərə "
+"aşağıdakılar göstərilmişdir."
 
 #, fuzzy
 msgid "manager.setup.workflow.guidance"
-msgstr "M√ľ…ôllif r…ôhb…ôrliyi"
+msgstr "Müəllif rəhbərliyi"
 
 msgid "manager.setup.submissionPreparationChecklist"
-msgstr "M…ôqal…ô hazńĪrlńĪq n…ôzar…ôt siyahńĪsńĪ"
+msgstr "Məqalə hazırlıq nəzarət siyahısı"
 
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"jurnala m√ľraci…ôt ed…ôrk…ôn, M√ľ…ôllifl…ôr …ôvv…ôlc…ô M√ľraci…ôt HazńĪrlńĪq "
-"Yoxlama SiyahńĪsńĪnńĪ yoxlamalńĪdńĪrlar. Yoxlama siyahńĪsńĪ \"Jurnal "
-"HaqqńĪnda\" altńĪndakńĪ \"M√ľ…ôllif B…ôl…ôd√ßisi\" b√∂lm…ôsind…ôdir. SiyahńĪ "
-"aŇüańüńĪda redakt…ô edil…ô bil…ôr, amma, siyahńĪdakńĪ b√ľt√ľn elementl…ôrin "
-"n√∂vb…ôti addńĪma ke√ß…ô bilm…ôk √ľ√ß√ľn M√ľ…ôllifl…ôr t…ôrfind…ôn "
-"iŇüar…ôl…ônm…ôsi g…ôr…ôklidir."
+"jurnala müraciət edərkən, Müəlliflər əvvəlcə Müraciət Hazırlıq Yoxlama "
+"Siyahısını yoxlamalıdırlar. Yoxlama siyahısı \"Jurnal Haqqında\" altındakı "
+"\"Müəllif Bələdçisi\" bölməsindədir. Siyahı aşağıda redaktə edilə bilər, "
+"amma, siyahıdakı bütün elementlərin növbəti addıma keçə bilmək üçün "
+"Müəlliflər tərfindən işarələnməsi gərəklidir."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
-"Bu b√∂lm…ôni sńĪradan √ßńĪxarńĪn v…ô buraya yeni m…ôqal…ô g√∂nd…ôrilm…ôsini "
-"l…ôńüv edin."
+"Bu bölməni sıradan çıxarın və buraya yeni məqalə göndərilməsini ləğv edin."
 
 #, fuzzy
 msgid "manager.sections.form.assignEditors"
-msgstr "Redaksiya tapŇüńĪrńĪqlarńĪ"
+msgstr "Redaksiya tapşırıqları"
 
 #, fuzzy
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
-"Bu hiss…ôy…ô b√ľt√ľn yeni t…ôqdimatlara avtomatik t…ôyin edilm…ôli olan "
-"redaksiya istifad…ô√ßil…ôrini se√ßin."
+"Bu hissəyə bütün yeni təqdimatlara avtomatik təyin edilməli olan redaksiya "
+"istifadəçilərini seçin."
 
 #, fuzzy
 msgid "manager.sections.form.assignEditorAs"
-msgstr "{$name} olaraq {$role} t…ôyin edin"
+msgstr "{$name} olaraq {$role} təyin edin"
 
 #, fuzzy
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
-"Bu kateqoriyaya q…ôd…ôr b√ľt√ľn yeni t…ôqdimatlara avtomatik t…ôyin edilm…"
-"ôli olan redaksiya istifad…ô√ßil…ôrini se√ßin."
+"Bu kateqoriyaya qədər bütün yeni təqdimatlara avtomatik təyin edilməli olan "
+"redaksiya istifadəçilərini seçin."
 
 msgid "manager.plugins.copyError"
 msgstr ""
-"∆Źlav…ô kopyalana bilm…ôdi. Bu bir s…ôlahiyy…ôt problemi ola bil…ôr. Z…ôhm…"
-"ôt olmasa veb serverinin …ôlav…ô indeksin…ô (alt indeksl…ôr daxil) yazma "
-"s…ôlahiyy…ôti olub-olmadńĪńüńĪndan …ômin olun; ancaq daha sonra yenid…ôn "
-"s…ôlahiyy…ôtl…ôri redakt…ô etm…ôyi unutmayńĪn."
+"Əlavə kopyalana bilmədi. Bu bir səlahiyyət problemi ola bilər. Zəhmət olmasa "
+"veb serverinin əlavə indeksinə (alt indekslər daxil) yazma səlahiyyəti olub-"
+"olmadığından əmin olun; ancaq daha sonra yenidən səlahiyyətləri redaktə "
+"etməyi unutmayın."
 
 msgid "manager.plugins.description"
 msgstr ""
-"Bu s…ôhif…ô, ńįdar…ô√ßinin hazńĪrda quraŇüdńĪrńĪlmńĪŇü …ôlav…ôl…ôri g√∂zd…ôn "
-"ke√ßirm…ôsini v…ô potansial olaraq konfiqurasiya edilm…ôsini t…ômin edir. "
-"∆Źlav…ôl…ôr, funksiyalarńĪna g√∂r…ô kateqoriyalara ayńĪrlńĪr. Kateqoriyalar "
-"aŇüańüńĪda sadalanńĪb v…ô h…ôr kateqoriya √ľ√ß√ľn …ôlav…ô d…ôsti m√∂vcuddur."
+"Bu səhifə, İdarəçinin hazırda quraşdırılmış əlavələri gözdən keçirməsini və "
+"potansial olaraq konfiqurasiya edilməsini təmin edir. Əlavələr, "
+"funksiyalarına görə kateqoriyalara ayırlır. Kateqoriyalar aşağıda sadalanıb "
+"və hər kateqoriya üçün əlavə dəsti mövcuddur."
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
 msgstr ""
-"Bu …ôlav…ô, Public Knowledge Project komandasńĪ t…ôr…ôfind…ôn g√∂zd…ôn ke√"
-"ßirildi v…ô t…ôsdiql…ôndi"
+"Bu əlavə, Public Knowledge Project komandası tərəfindən gözdən keçirildi və "
+"təsdiqləndi"
 
 msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr ""
-"Bu …ôlav…ô, inkiŇüaf etdirm…ô Ňü…ôrikl…ôrimizd…ôn biri t…ôr…ôfind…ôn t…ômin "
-"edilir"
+msgstr "Bu əlavə, inkişaf etdirmə şəriklərimizdən biri tərəfindən təmin edilir"
 
 msgid "manager.plugins.installedVersionOlder"
-msgstr "∆Źlav…ô qurulub, ancaq daha yeni bir versiyasńĪna yenil…ôyin"
+msgstr "Əlavə qurulub, ancaq daha yeni bir versiyasına yeniləyin"
 
 msgid "manager.plugins.wrongCategory"
 msgstr ""
-"QuraŇüdńĪrńĪlmńĪŇü …ôlav…ô, t…ôkmill…ôŇüdirilmiŇü …ôlav…ônin kateqoriyasńĪna "
-"uyńüun g…ôlmir."
+"Quraşdırılmış əlavə, təkmilləşdirilmiş əlavənin kateqoriyasına uyğun gəlmir."
 
 msgid "manager.plugins.wrongName"
 msgstr ""
-"QuraŇüdńĪrńĪlmńĪŇü …ôlav…ô i√ßind…ôki version.xml, t…ôkmill…ôŇüdirilmiŇü "
-"…ôlav…ônin adńĪna uyńüun g…ôlm…ôy…ôn bir …ôlav…ô adńĪ ehtiva edir."
+"Quraşdırılmış əlavə içindəki version.xml, təkmilləşdirilmiş əlavənin adına "
+"uyğun gəlməyən bir əlavə adı ehtiva edir."
 
 msgid "manager.distribution.licenseTerms.description"
 msgstr ""
-"N…ôŇür olunan √ßalńĪŇümanńĪn yanńĪnda g√∂st…ôrm…ôk ist…ôdiyiniz h…ôr k…ôs…ô "
-"a√ßńĪq lisenziya Ňü…ôrtl…ôrini daxil edin."
+"Nəşr olunan çalışmanın yanında göstərmək istədiyiniz hər kəsə açıq lisenziya "
+"şərtlərini daxil edin."
 
 msgid "manager.distribution.customHeaders.description"
 msgstr ""
-"H…ôr s…ôhif…ônin baŇüńĪna …ôlav…ô edilm…ôsini ist…ôdiyiniz √ľst etiketl…ôr "
-"olaraq da tanńĪnan x√ľsusi HTML etiketl…ôri …ôlav…ô edin. Buraya etiket "
-"…ôlav…ô etm…ôzd…ôn …ôvv…ôl bir texniki m…ôsl…ôh…ôt√ßid…ôn soruŇüun."
+"Hər səhifənin başına əlavə edilməsini istədiyiniz üst etiketlər olaraq da "
+"tanınan xüsusi HTML etiketləri əlavə edin. Buraya etiket əlavə etməzdən "
+"əvvəl bir texniki məsləhətçidən soruşun."
 
 msgid "settings.roles.recommendOnly"
 msgstr ""
-"Bu rolun sad…ôc…ô bir g√∂zd…ôn ke√ßirm…ô q…ôrarńĪnńĪn t…ôklif edilm…ôsin…ô "
-"icaz…ô verilir v…ô son bir q…ôrarńĪ qeyd etm…ôsi √ľ√ß√ľn s…ôlahiyy…ôtli bir "
-"redaktor t…ôl…ôb edir."
+"Bu rolun sadəcə bir gözdən keçirmə qərarının təklif edilməsinə icazə verilir "
+"və son bir qərarı qeyd etməsi üçün səlahiyyətli bir redaktor tələb edir."
 
 msgid "settings.roles.nameRequired"
-msgstr "Bir rol adńĪ m√ľ…ôyy…ônl…ôŇüdirm…ôniz lazńĪmdńĪr."
+msgstr "Bir rol adı müəyyənləşdirməniz lazımdır."
 
 msgid "settings.roles.abbrevRequired"
-msgstr "Bir rol qńĪsaltmasńĪ m√ľ…ôyy…ônl…ôŇüdirm…ôniz lazńĪmdńĪr."
+msgstr "Bir rol qısaltması müəyyənləşdirməniz lazımdır."
 
 msgid "settings.roles.uniqueName"
-msgstr "Unikal bir rol adńĪ m√ľ…ôyy…ônl…ôŇüdirm…ôniz lazńĪmdńĪr."
+msgstr "Unikal bir rol adı müəyyənləşdirməniz lazımdır."
 
 msgid "settings.roles.uniqueAbbrev"
-msgstr "Unikal bir rol qńĪsaltmasńĪ m√ľ…ôyy…ônl…ôŇüdirm…ôniz lazńĪmdńĪr."
+msgstr "Unikal bir rol qısaltması müəyyənləşdirməniz lazımdır."
 
 msgid "settings.roles.roleIdRequired"
-msgstr "Bir rol icaz…ô s…ôviyy…ôsi m√ľ…ôyy…ônl…ôŇüdirm…ôniz lazńĪmdńĪr."
+msgstr "Bir rol icazə səviyyəsi müəyyənləşdirməniz lazımdır."
 
 msgid "settings.roles.stageIdRequired"
-msgstr "T…ôyin etm…ôk √ľ√ß√ľn bir addńĪm m√ľ…ôyy…ônl…ôŇüdirm…ôniz lazńĪmdńĪr."
+msgstr "Təyin etmək üçün bir addım müəyyənləşdirməniz lazımdır."
 
 msgid "settings.roles.permitMetadataEdit"
-msgstr "T…ôqdimat metadatalarńĪnńĪn redakt…ô edilm…ôsin…ô icaz…ô verin"
+msgstr "Təqdimat metadatalarının redaktə edilməsinə icazə verin"
 
 msgid "settings.libraryFiles.fileRequired"
 msgstr ""
-"Bir kitabxana faylńĪ t…ôl…ôb olunur. Z…ôhm…ôtolmasa bir faylńĪ se√ßib "
-"y√ľkl…ôdiyiniz…ô …ômin olun."
+"Bir kitabxana faylı tələb olunur. Zəhmətolmasa bir faylı seçib yüklədiyinizə "
+"əmin olun."
 
 msgid "settings.libraryFiles.nameRequired"
-msgstr "Bu kitabxana faylńĪ √ľ√ß√ľn bir ad t…ôl…ôb olunur."
+msgstr "Bu kitabxana faylı üçün bir ad tələb olunur."
 
 msgid "settings.libraryFiles.typeRequired"
-msgstr "Bu kitabxana faylńĪ √ľ√ß√ľn bir fayl n√∂v√ľ t…ôl…ôb olunur"
+msgstr "Bu kitabxana faylı üçün bir fayl növü tələb olunur"
 
 msgid "manager.setup.genres.dependent"
 msgstr ""
-"Bunlar, bir HTML faylńĪ t…ôr…ôfind…ôn g√∂st…ôril…ôn Ňü…ôkill…ôr kimi asńĪlńĪ "
-"fayllardńĪr v…ô yayńĪmlanan m…ôzmunla birlikt…ô g√∂st…ôrilm…ôy…ôc…ôkdir."
+"Bunlar, bir HTML faylı tərəfindən göstərilən şəkillər kimi asılı fayllardır "
+"və yayımlanan məzmunla birliktə göstərilməyəcəkdir."
 
 msgid "manager.setup.genres.supplementary"
 msgstr ""
-"Bunlar, data d…ôstl…ôri v…ô araŇüdńĪrma materiallarńĪ kimi m√ľ…ôyy…ônl…"
-"ôŇüdirici fayllardńĪr v…ô m…ôqal…ô fayllarńĪndan ayrńĪ olaraq "
-"g√∂st…ôril…ôc…ôkdir."
+"Bunlar, data dəstləri və araşdırma materialları kimi müəyyənləşdirici "
+"fayllardır və məqalə fayllarından ayrı olaraq göstəriləcəkdir."
 
 msgid "manager.setup.genres.key.description"
-msgstr "Bu n√∂v √ľ√ß√ľn ist…ôy…ô bańülńĪ qńĪsa simvolik m√ľ…ôyy…ônl…ôŇüdirici"
+msgstr "Bu növ üçün istəyə bağlı qısa simvolik müəyyənləşdirici"
 
 msgid "manager.setup.genres.key.exists"
-msgstr "A√ßar artńĪq m√∂vcuddur."
+msgstr "Açar artıq mövcuddur."
 
 msgid "manager.setup.genres.key.alphaNumeric"
 msgstr ""
-"A√ßar sad…ôc…ô alfanumerik karakterl…ôr, altd…ôn x…ôtt v…ô tire ehtiva ed…ô "
-"bil…ôr v…ô alfanumerik bir xarakterl…ô baŇülayńĪb bitm…ôlidir."
+"Açar sadəcə alfanumerik karakterlər, altdən xətt və tire ehtiva edə bilər və "
+"alfanumerik bir xarakterlə başlayıb bitməlidir."
 
 msgid "manager.setup.genres.metatadata.description"
 msgstr ""
-"Bu fayllarńĪn q…ôbul ed…ô bil…ôc…ôyi metadata n√∂v√ľn√ľ se√ßin. Endiril…ô "
-"bilir PDF kimi m…ôqal…ô fayllarńĪ √ľ√ß√ľn s…ôn…ôd se√ßilm…ôlidir, bel…ôlikl…"
-"ô fayllar m…ôqal…ônin metadatalarńĪnńĪ t…ôhvil alńĪr. ∆Źks t…ôqdird…ô, "
-"…ôks…ôriyy…ôt fayl n√∂v√ľn√ľ TamamlayńĪcńĪ M…ôzmun kimi m√ľ…ôyy…ônl…"
-"ôŇüdirin. S…ôn…ôt …ôs…ôri, f…ôrqli istinad, alt yazńĪ v…ô "
-"lisenziyalaŇüdńĪrma metadatalarńĪ t…ôl…ôb ed…ôn fayllar √ľ√ß√ľn uyńüundur."
+"Bu faylların qəbul edə biləcəyi metadata növünü seçin. Endirilə bilir PDF "
+"kimi məqalə faylları üçün sənəd seçilməlidir, beləliklə fayllar məqalənin "
+"metadatalarını təhvil alır. Əks təqdirdə, əksəriyyət fayl növünü Tamamlayıcı "
+"Məzmun kimi müəyyənləşdirin. Sənət əsəri, fərqli istinad, alt yazı və "
+"lisenziyalaşdırma metadataları tələb edən fayllar üçün uyğundur."
 
 #, fuzzy
 msgid "manager.setup.genres.submitRequired.label"
-msgstr "T…ôqdim etm…ôkl…ô t…ôl…ôb olunur"
+msgstr "Təqdim etməklə tələb olunur"
 
 #, fuzzy
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
-"Bu fayllardan …ôn azńĪ h…ôr yeni t…ôqdimat il…ô t…ôl…ôb olunmalńĪdńĪr? B…ôli "
-"se√ßs…ôniz, bu tipin …ôn azńĪ bir faylńĪnńĪ y√ľkl…ôy…ôn…ô q…ôd…ôr "
-"m√ľ…ôllifl…ôr…ô t…ôqdim etm…ôy…ô icaz…ô verilmir."
+"Bu fayllardan ən azı hər yeni təqdimat ilə tələb olunmalıdır? Bəli seçsəniz, "
+"bu tipin ən azı bir faylını yükləyənə qədər müəlliflərə təqdim etməyə icazə "
+"verilmir."
 
 #, fuzzy
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
-"B…ôli, bu fayllardan birini v…ô ya bir ne√ß…ôsini y√ľkl…ôm…ôk √ľ√ß√ľn "
-"m√ľ…ôllifl…ôrin t…ôqdim edilm…ôsini t…ôl…ôb edin."
+"Bəli, bu fayllardan birini və ya bir neçəsini yükləmək üçün müəlliflərin "
+"təqdim edilməsini tələb edin."
 
 #, fuzzy
 msgid "manager.setup.genres.submitRequired.no"
-msgstr "Xeyr, bu fayllar olmadan yeni t…ôqdimatlara icaz…ô verin."
+msgstr "Xeyr, bu fayllar olmadan yeni təqdimatlara icazə verin."
 
 msgid "manager.users.roleRequired"
-msgstr ""
-"Bu istifad…ô√ßi il…ô …ôlaq…ôl…ôndiril…ôc…ôk …ôn azńĪ bir rol se√ßm…ôlisiniz."
+msgstr "Bu istifadəçi ilə əlaqələndiriləcək ən azı bir rol seçməlisiniz."
 
 msgid "manager.setup.metadata.coverage.description"
 msgstr ""
-"∆Źhat…ô sah…ôsi √ľmumiyy…ôtl…ô bir √ßalńĪŇümanńĪn m…ôkan yeri/lokasiyasńĪnńĪ "
-"(yer adńĪ v…ô ya cońürafi koordinatlar), m√ľv…ôqq…ôti m√ľdd…ôti (d√∂vr "
-"etiketi, tarix v…ô ya tarix aralńĪńüńĪ) v…ô ya s…ôlahiyy…ôt sah…ôsini ("
-"adlandńĪrńĪlmńĪŇü bir idari varlńĪq kimi) g√∂st…ôrir."
+"Əhatə sahəsi ümumiyyətlə bir çalışmanın məkan yeri/lokasiyasını (yer adı və "
+"ya coğrafi koordinatlar), müvəqqəti müddəti (dövr etiketi, tarix və ya tarix "
+"aralığı) və ya səlahiyyət sahəsini (adlandırılmış bir idari varlıq kimi) "
+"göstərir."
 
 msgid "manager.setup.metadata.coverage.noRequest"
-msgstr ""
-"T…ôqdimat …ôsnasńĪnda M√ľ…ôllifd…ôn …ôhat…ô metadalarńĪnńĪ t…ôl…ôb edin."
+msgstr "Təqdimat əsnasında Müəllifdən əhatə metadalarını tələb edin."
 
 msgid "manager.setup.metadata.coverage.request"
 msgstr ""
-"T…ôqdimat …ôsnasńĪnda M√ľ…ôllifd…ôn …ôhat…ô metadatalarńĪnńĪ t√∂vsiy…ô etm…"
-"ôsini ist…ôyin."
+"Təqdimat əsnasında Müəllifdən əhatə metadatalarını tövsiyə etməsini istəyin."
 
 msgid "manager.setup.metadata.coverage.require"
 msgstr ""
-"M√ľ…ôllifin t…ôqdimatńĪnńĪ q…ôbul etm…ôzd…ôn …ôvv…ôl …ôhat…ô metadalarńĪ "
-"t√∂vsiy…ô etm…ôsini ist…ôyin"
+"Müəllifin təqdimatını qəbul etməzdən əvvəl əhatə metadaları tövsiyə etməsini "
+"istəyin"
 
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
-"A√ßar s√∂zl…ôr √ľmumiyy…ôtl…ô bir t…ôqdimatńĪn …ôsas m√∂vzularńĪnńĪ "
-"g√∂st…ôrm…ôk √ľ√ß√ľn istifad…ô edil…ôn bir il…ô √ľ√ß s√∂zl√ľk ifad…ôl…ôrdir."
+"Açar sözlər ümumiyyətlə bir təqdimatın əsas mövzularını göstərmək üçün "
+"istifadə edilən bir ilə üç sözlük ifadələrdir."
 
 msgid "manager.setup.metadata.keywords.noRequest"
-msgstr "T…ôqdimat …ôsnasńĪnda M√ľ…ôllifd…ôn a√ßar s√∂zl…ôr t…ôl…ôb edin."
+msgstr "Təqdimat əsnasında Müəllifdən açar sözlər tələb edin."
 
 msgid "manager.setup.metadata.keywords.request"
-msgstr ""
-"M√ľ…ôllifd…ôn t…ôqdimat …ôsnasńĪnda a√ßar s√∂zl…ôr t√∂vsiy…ô etm…ôsini "
-"ist…ôyin"
+msgstr "Müəllifdən təqdimat əsnasında açar sözlər tövsiyə etməsini istəyin"
 
 msgid "manager.setup.metadata.keywords.require"
 msgstr ""
-"M√ľ…ôllifin t…ôqdimatńĪnńĪ q…ôbul etm…ôzd…ôn …ôvv…ôl a√ßar s√∂zl…ôr t√∂vsiy…"
-"ô etm…ôsini ist…ôyin"
+"Müəllifin təqdimatını qəbul etməzdən əvvəl açar sözlər tövsiyə etməsini "
+"istəyin"
 
 msgid "manager.setup.metadata.languages.description"
 msgstr ""
-"Dil, √ßalńĪŇümanńĪn …ôsas dilini, ist…ôy…ô bańülńĪ bir √∂lk…ô kodu il…ô ("
-"\"en_US\") bir dil kodu (\"en\") istifad…ô ed…ôr…ôk g√∂st…ôrin."
+"Dil, çalışmanın əsas dilini, istəyə bağlı bir ölkə kodu ilə (\"en_US\") bir "
+"dil kodu (\"en\") istifadə edərək göstərin."
 
 msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"T…ôqdimat …ôsnasńĪnda m√ľ…ôllifd…ôn t…ôqdimatńĪnńĪn dilini t…ôl…ôb etm…ôyin"
+msgstr "Təqdimat əsnasında müəllifdən təqdimatının dilini tələb etməyin"
 
 msgid "manager.setup.metadata.languages.request"
 msgstr ""
-"M√ľ…ôllifd…ôn t…ôqdimat …ôsnasńĪnda namiz…ôd m…ôqal…ônin dilini qeyd etm…"
-"ôsini ist…ôyin"
+"Müəllifdən təqdimat əsnasında namizəd məqalənin dilini qeyd etməsini istəyin"
 
 msgid "manager.setup.metadata.languages.require"
 msgstr ""
-"M√ľ…ôllifin t…ôqdimatńĪnńĪ q…ôbul etm…ôzd…ôn …ôvv…ôl t…ôqdimat dill…ôrini "
-"daxil etm…ôsini ist…ôyin."
+"Müəllifin təqdimatını qəbul etməzdən əvvəl təqdimat dillərini daxil etməsini "
+"istəyin."
 
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
-"T…ôqdimat il…ô …ôlaq…ôdar olaraq D√ľŇü√ľnc…ô M√ľlkiyy…ôti H√ľquqlarńĪ (IPR), "
-"M√ľ…ôllif H√ľququ v…ô m√ľxt…ôlif M√ľlkiyy…ôt H√ľquqlarńĪnńĪ ehtiva ed…ôn "
-"b√ľt√ľn h√ľquqlar."
+"Təqdimat ilə əlaqədar olaraq Düşüncə Mülkiyyəti Hüquqları (IPR), Müəllif "
+"Hüququ və müxtəlif Mülkiyyət Hüquqlarını ehtiva edən bütün hüquqlar."
 
 msgid "manager.setup.metadata.rights.noRequest"
 msgstr ""
-"M√ľraci…ôt …ôsnasńĪnda m√ľ…ôllifd…ôn h√ľquqlarńĪnńĪ a√ßńĪq bir Ňü…ôkild…ô "
-"qeyd etm…ôsini t…ôl…ôb etm…ôyin."
+"Müraciət əsnasında müəllifdən hüquqlarını açıq bir şəkildə qeyd etməsini "
+"tələb etməyin."
 
 msgid "manager.setup.metadata.rights.request"
 msgstr ""
-"M√ľ…ôllifd…ôn m√ľraci…ôt …ôsnasńĪnda …ôvv…ôlc…ôd…ôn giriŇü h√ľquqlarńĪnńĪ a√"
-"ßńĪqlamasńĪnńĪ ist…ôyin"
+"Müəllifdən müraciət əsnasında əvvəlcədən giriş hüquqlarını açıqlamasını "
+"istəyin"
 
 msgid "manager.setup.metadata.rights.require"
 msgstr ""
-"M√ľ…ôllifin t…ôqdimatńĪn…ô qbul etm…ôzd…ôn …ôvv…ôl, …ôvv…ôlc…ôd…ôn giriŇü h√"
-"ľquqlarńĪnńĪ a√ßńĪqlamasńĪnńĪ ist…ôyin"
+"Müəllifin təqdimatınə qbul etməzdən əvvəl, əvvəlcədən giriş hüquqlarını "
+"açıqlamasını istəyin"
 
 msgid "manager.setup.metadata.source.description"
 msgstr ""
-"M…ônb…ô, t…ôqdimatńĪn t√∂r…ôdildiyi baŇüqa bir √ßalńĪŇümanńĪn v…ô ya m…ônb…"
-"ônin DOI kimi bir kimliyi ola bil…ôr."
+"Mənbə, təqdimatın törədildiyi başqa bir çalışmanın və ya mənbənin DOI kimi "
+"bir kimliyi ola bilər."
 
 msgid "manager.setup.metadata.source.request"
-msgstr ""
-"M√ľ…ôllifd…ôn t…ôqdimat …ôsnasńĪnda m…ônb…ô URL-si t…ômin etm…ôsini ist…ôyin"
+msgstr "Müəllifdən təqdimat əsnasında mənbə URL-si təmin etməsini istəyin"
 
 msgid "manager.setup.metadata.source.require"
 msgstr ""
-"M√ľ…ôllifin t…ôqdimatńĪnńĪ q…ôbul etm…ôzd…ôn …ôvv…ôl m…ônb…ô URL-si t…ômin "
-"etm…ôsini ist…ôyin"
+"Müəllifin təqdimatını qəbul etməzdən əvvəl mənbə URL-si təmin etməsini "
+"istəyin"
 
 msgid "manager.setup.metadata.subjects.description"
 msgstr ""
-"M√∂vzular, bir m√∂vzunu t…ôrif ed…ôn a√ßar s√∂zl…ôr, a√ßar s√∂zl…ôr v…ô ya t…"
-"ôsnifatlandńĪrma kodlarńĪ olacaqdńĪr."
+"Mövzular, bir mövzunu tərif edən açar sözlər, açar sözlər və ya "
+"təsnifatlandırma kodları olacaqdır."
 
 msgid "manager.setup.metadata.subjects.noRequest"
-msgstr "T…ôqdimat …ôsnasńĪnda m√ľ…ôllifd…ôn m√∂vzu t…ôl…ôb etm…ôyin"
+msgstr "Təqdimat əsnasında müəllifdən mövzu tələb etməyin"
 
 msgid "manager.setup.metadata.subjects.request"
-msgstr "M√ľ…ôllifd…ôn m√ľraci…ôt …ôsnasńĪnda m√∂vzu qeyd etm…ôsini ist…ôyin"
+msgstr "Müəllifdən müraciət əsnasında mövzu qeyd etməsini istəyin"
 
 msgid "manager.setup.metadata.subjects.require"
-msgstr ""
-"M√ľ…ôllifd…ôn t…ôqdimatńĪnńĪ q…ôbul etm…ôzd…ôn …ôvv…ôl m√∂vzu verm…ôsini "
-"t…ôl…ôb edin."
+msgstr "Müəllifdən təqdimatını qəbul etməzdən əvvəl mövzu verməsini tələb edin."
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
-"T…ôqdimatńĪn …ôsas m…ôzmununun keyfiyy…ôti v…ô ya n√∂v√ľ. N√∂v √ľmumiyy…ôtl…"
-"ô \"M…ôtn\"dir, ancaq \"Data d…ôsti\", \"Ňě…ôkil\" v…ô ya <a target=\"_blank"
-"\" href=\"http://dublincore.org/documents/dcmi-type-vocabulary/#section-7"
-"-dcmi-type-vocabulary\">Dublin Core n√∂vl…ôrind…ôn</a> h…ôr hansńĪ biri d…ô "
-"ola bil…ôr."
+"Təqdimatın əsas məzmununun keyfiyyəti və ya növü. Növ ümumiyyətlə \"Mətn\"dir"
+", ancaq \"Data dəsti\", \"Şəkil\" və ya <a target=\"_blank\" href=\"http"
+"://dublincore.org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-"
+"vocabulary\">Dublin Core növlərindən</a> hər hansı biri də ola bilər."
 
 msgid "manager.setup.metadata.type.noRequest"
-msgstr "T…ôqdimat …ôsnasńĪnda m√ľ…ôllifd…ôn n√∂v m…ôlumatńĪ t…ôl…ôb etm…ôyin"
+msgstr "Təqdimat əsnasında müəllifdən növ məlumatı tələb etməyin"
 
 msgid "manager.setup.metadata.type.request"
-msgstr "M√ľ…ôllifd…ôn t…ôqdimat …ôsnasńĪnda n√∂v qeyd etm…ôsini ist…ôyin"
+msgstr "Müəllifdən təqdimat əsnasında növ qeyd etməsini istəyin"
 
 msgid "manager.setup.metadata.type.require"
 msgstr ""
-"M√ľ…ôllifd…ôn t…ôqdimatńĪ q…ôbul etm…ôzd…ôn …ôvv…ôl n√∂v√ľn√ľ qeyd etm…ôsini "
-"t…ôl…ôb edin."
+"Müəllifdən təqdimatı qəbul etməzdən əvvəl növünü qeyd etməsini tələb edin."
 
 msgid "manager.setup.metadata.disciplines.description"
 msgstr ""
-"ńįxtisaslar, universitet fak√ľlt…ôl…ôri v…ô √∂yr…ônilmiŇü toplumlar "
-"t…ôr…ôfind…ôn t…ôrif edil…ôn √ßalńĪŇüma n√∂vl…ôri v…ô ya bilgi sah…ôl…ôridir."
+"İxtisaslar, universitet fakültələri və öyrənilmiş toplumlar tərəfindən tərif "
+"edilən çalışma növləri və ya bilgi sahələridir."
 
 msgid "manager.setup.metadata.agencies.request"
 msgstr ""
-"M√ľ…ôllifd…ôn m√ľraci…ôt …ôsnasńĪnda h…ôr hansńĪ bir fond d…ôst…ôyi t…ômin "
-"ed…ôn qurum a√ßńĪqlamasńĪnńĪ ist…ôyin"
+"Müəllifdən müraciət əsnasında hər hansı bir fond dəstəyi təmin edən qurum "
+"açıqlamasını istəyin"
 
 msgid "manager.setup.metadata.agencies.require"
 msgstr ""
-"M√ľ…ôllifin t…ôqdimatńĪnńĪ q…ôbul etm…ôzd…ôn …ôvv…ôl fond t…ômin ed…ôn "
-"qurumlardan h…ôr hansńĪ birini a√ßńĪq bir Ňü…ôkild…ô qeyd etm…ôsini t…ôl…ôb "
-"edin."
+"Müəllifin təqdimatını qəbul etməzdən əvvəl fond təmin edən qurumlardan hər "
+"hansı birini açıq bir şəkildə qeyd etməsini tələb edin."
 
 msgid "manager.setup.metadata.citations.description"
 msgstr ""
-"Bir t…ôqdimatńĪn referanslarńĪnńĪ baŇüqa bir sah…ôd…ô toplayńĪn. Bu, "
-"Crossref kimi istinad izl…ôm…ô xidm…ôtl…ôrin…ô riay…ôt etm…ôk √ľ√ß√ľn "
-"lazńĪmi ola bilir."
+"Bir təqdimatın referanslarını başqa bir sahədə toplayın. Bu, Crossref kimi "
+"istinad izləmə xidmətlərinə riayət etmək üçün lazımi ola bilir."
 
 msgid "manager.setup.metadata.citations.noRequest"
-msgstr "T…ôqdimat …ôsnasńĪnda m√ľ…ôllifd…ôn referans t…ôl…ôb etm…ôyin"
+msgstr "Təqdimat əsnasında müəllifdən referans tələb etməyin"
 
 msgid "manager.setup.metadata.citations.request"
-msgstr "M√ľ…ôllifd…ôn m√ľraci…ôt …ôsnasńĪnda referans verm…ôsini ist…ôyin"
+msgstr "Müəllifdən müraciət əsnasında referans verməsini istəyin"
 
 msgid "manager.setup.metadata.citations.require"
-msgstr ""
-"M√ľ…ôllifin t…ôqdimatńĪnńĪ q…ôbul etm…ôzd…ôn …ôvv…ôl referans verm…ôsini "
-"ist…ôyin."
+msgstr "Müəllifin təqdimatını qəbul etməzdən əvvəl referans verməsini istəyin."
 
 #, fuzzy
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
-"M√ľ…ôllif (l…ôr) in t…ôdqiqat m…ôlumatlarńĪnńĪ v…ô ya olmamasńĪnńĪ t…ôsvir "
-"ed…ôn qńĪsa bir b…ôyanat, oxucularńĪn daxil olduńüu t…ôqdird…ô."
+"Müəllif (lər) in tədqiqat məlumatlarını və ya olmamasını təsvir edən qısa "
+"bir bəyanat, oxucuların daxil olduğu təqdirdə."
 
 #, fuzzy
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr "M…ôlumatlarńĪn m√∂vcudluńüu b…ôyanatńĪnńĪ metadata aktivl…ôŇüdirin"
+msgstr "Məlumatların mövcudluğu bəyanatını metadata aktivləşdirin"
 
 #, fuzzy
 msgid "manager.setup.metadata.dataAvailability.noRequest"
-msgstr ""
-"T…ôqdimat zamanńĪ m√ľ…ôllifd…ôn m…ôlumatlarńĪn m√∂vcudluńüunu t…ôl…ôb "
-"etm…ôyin."
+msgstr "Təqdimat zamanı müəllifdən məlumatların mövcudluğunu tələb etməyin."
 
 #, fuzzy
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
-"T…ôqdimat zamanńĪ m√ľ…ôllifd…ôn m…ôlumat m√∂vcudluńüu bar…ôd…ô m…ôlumat verm…"
-"ôsini xahiŇü edin."
+"Təqdimat zamanı müəllifdən məlumat mövcudluğu barədə məlumat verməsini xahiş "
+"edin."
 
 #, fuzzy
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
-"M√ľ…ôllifin t…ôqdimatńĪnńĪ q…ôbul etm…ôzd…ôn …ôvv…ôl m…ôlumatlarńĪn m√∂"
-"vcudluńüu bar…ôd…ô b…ôyanat verm…ôsini t…ôl…ôb edir."
+"Müəllifin təqdimatını qəbul etməzdən əvvəl məlumatların mövcudluğu barədə "
+"bəyanat verməsini tələb edir."
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Nam…ôlum istifad…ô√ßi qrupu: {$param}"
+msgstr "Naməlum istifadəçi qrupu: {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
-"{$authorName} adlńĪ M√ľ…ôllifin t…ôqdimat dilind…ô {$authorName} adlńĪ "
-"m√ľ…ôyy…ôn bir ad yoxdur. Bu m…ôlumat olmandan m√ľraci…ôt q…ôbul edil…ô "
-"bilm…ôz."
+"{$authorName} adlı Müəllifin təqdimat dilində {$authorName} adlı müəyyən bir "
+"ad yoxdur. Bu məlumat olmandan müraciət qəbul edilə bilməz."
 
 #, fuzzy
 msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
 msgstr ""
-"Fayl \"{$path}\"yolu il…ô tapńĪlmadńĪńüńĪ √ľ√ß√ľn {$revision} g√∂nd…ôrm…ô "
-"faylńĪnńĪn{$id} redaksiyasńĪ atlandńĪ."
+"Fayl \"{$path}\"yolu ilə tapılmadığı üçün {$revision} göndərmə faylının{$id} "
+"redaksiyası atlandı."
 
 msgid "plugins.importexport.user.error.userHasNoPassword"
 msgstr ""
-"ńįdxal edil…ôn \"{$username}\" istifad…ô√ßinin Ňüifr…ôsi yoxdur. ńįdxaletm…ô "
-"XML formatńĪnńĪzńĪ yoxlayńĪn. ńįstifad…ô√ßi idxal edil…ô bilm…ôdi."
+"İdxal edilən \"{$username}\" istifadəçinin şifrəsi yoxdur. İdxaletmə XML "
+"formatınızı yoxlayın. İstifadəçi idxal edilə bilmədi."
 
 msgid "plugins.importexport.user.error.passwordHasBeenChanged"
 msgstr ""
-"ńįdxal edil…ôn istifad…ô√ßi \"{$username}\"Ňüifr…ôsi olduńüu kimi idxal "
-"edil…ô/i√ß…ô transfer edil…ô bilm…ôdi. ńįstifad…ô√ßi emailin…ô yeni bir "
-"Ňüifr…ô g√∂nd…ôrildi. ńįstifad…ô√ßi i√ß…ô transfer edildi."
+"İdxal edilən istifadəçi \"{$username}\"şifrəsi olduğu kimi idxal edilə/içə "
+"transfer edilə bilmədi. İstifadəçi emailinə yeni bir şifrə göndərildi. "
+"İstifadəçi içə transfer edildi."
 
 msgid "plugins.importexport.user.error.plainPasswordNotValid"
 msgstr ""
-"ńį√ß…ôriy…ô transfer edil…ôn \"{$username}\" istifad…ô√ßinin etibarsńĪz bir "
-"Ňüifr…ôsi var. ńįstifad…ô√ßi i√ß…ôriy…ô transfer edil…ô bilm…ôdi."
+"İçəriyə transfer edilən \"{$username}\" istifadəçinin etibarsız bir şifrəsi "
+"var. İstifadəçi içəriyə transfer edilə bilmədi."
 
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr ""
-"\"{$username}\" istifad…ô√ßi adńĪ v…ô \"{$email}\" emaili, m√∂vcud istifad…ô√"
-"ßi il…ô eyni deyil."
+"\"{$username}\" istifadəçi adı və \"{$email}\" emaili, mövcud istifadəçi ilə "
+"eyni deyil."
 
 #, fuzzy
 msgid "plugins.importexport.common.settings.form.testMode.label"
 msgstr "Test"
 
 msgid "manager.navigationMenus.form.duplicateTitles"
-msgstr "Bu baŇülńĪq baŇüqa naviqasiya menyusu √ľ√ß√ľn artńĪq m√∂vcuddur."
+msgstr "Bu başlıq başqa naviqasiya menyusu üçün artıq mövcuddur."
 
 msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr ""
-"Bu menyu elementinin n…ô zaman g√∂st…ôril…ôc…ôyi v…ô ya gizl…ôn…ôc…ôyi "
-"haqqńĪnda daha √ßox m…ôlumat …ôld…ô edin."
+"Bu menyu elementinin nə zaman göstəriləcəyi və ya gizlənəcəyi haqqında daha "
+"çox məlumat əldə edin."
 
 msgid "manager.navigationMenus.form.submenuWarning"
 msgstr ""
-"Bir menyu elementi bir alt menyunu a√ßdńĪńüńĪ zaman, link b√ľt√ľn cihazlarda "
-"t…ôqib edil…ô bilm…ôz. M…ôs…ôl…ôn, \"∆Źlaq…ô\" v…ô \"M…ôzmun komandasńĪ\" il…"
-"ô bir alt menyu a√ßan \"HaqqńĪnda\" elementiniz varsa, \"HaqqńĪnda\" linkin…"
-"ô b√ľt√ľn cihazlardan giriŇü edilm…ôy…ô bil…ôr. Defolt menyuda bu, alt "
-"menyuda g√∂r√ľn…ôn \"Jurnal HaqqńĪnda\" adlńĪ ikinci bir menyu elementi "
-"yaradaraq iŇül…ônir."
+"Bir menyu elementi bir alt menyunu açdığı zaman, link bütün cihazlarda təqib "
+"edilə bilməz. Məsələn, \"Əlaqə\" və \"Məzmun komandası\" ilə bir alt menyu "
+"açan \"Haqqında\" elementiniz varsa, \"Haqqında\" linkinə bütün cihazlardan "
+"giriş edilməyə bilər. Defolt menyuda bu, alt menyuda görünən \"Jurnal "
+"Haqqında\" adlı ikinci bir menyu elementi yaradaraq işlənir."
 
 msgid "manager.navigationMenus.remoteUrl.description"
 msgstr ""
-"https://pkp.sfu.ca kimi baŇüqa bir saytdakńĪ h…ôr hansńĪ bir URL-…ô link "
-"verin."
+"https://pkp.sfu.ca kimi başqa bir saytdakı hər hansı bir URL-ə link verin."
 
 msgid "manager.navigationMenus.about.conditionalWarning"
 msgstr ""
-"Bu link sad…ôc…ô \"T…ônziml…ôr>Jurnal\" altńĪndakńĪ Jurnal haqqńĪnda b√∂lm…"
-"ôsini doldurmusunuzsa g√∂st…ôrilir."
+"Bu link sadəcə \"Tənzimlər>Jurnal\" altındakı Jurnal haqqında bölməsini "
+"doldurmusunuzsa göstərilir."
 
 msgid "manager.navigationMenus.editorialTeam.description"
 msgstr ""
-"\"T…ônziml…ôr> Jurnal\" b√∂lm…ôsind…ôki ńįdar…ô√ßi SiyahńĪsńĪ m…ôzmununu "
-"g√∂st…ôr…ôn bir s…ôhif…ôy…ô link verin."
+"\"Tənzimlər> Jurnal\" bölməsindəki İdarəçi Siyahısı məzmununu göstərən bir "
+"səhifəyə link verin."
 
 msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
 msgstr ""
-"Bu link sad…ôc…ô \"T…ônziml…ôr >Jurnal\" altńĪndakńĪ Ňü…ôxsl…ôr v…ô Ňüuralar "
-"b√∂lm…ôsini dpldurmusunuzsa g√∂st…ôrilir."
+"Bu link sadəcə \"Tənzimlər >Jurnal\" altındakı şəxslər və şuralar bölməsini "
+"dpldurmusunuzsa göstərilir."
 
 msgid "manager.navigationMenus.submissions.description"
-msgstr "M…ôqal…ô t…ôlimatlarńĪnńĪ g√∂st…ôr…ôn s…ôhif…ôy…ô link verin"
+msgstr "Məqalə təlimatlarını göstərən səhifəyə link verin"
 
 msgid "manager.navigationMenus.archives.description"
-msgstr "N√∂mr…ô arxiviniz…ô link verin"
+msgstr "Nömrə arxivinizə link verin"
 
 msgid "manager.navigationMenus.announcements.description"
-msgstr "ElanlarńĪnńĪzńĪ g√∂st…ôr…ôn s…ôhif…ôy…ô link verin"
+msgstr "Elanlarınızı göstərən səhifəyə link verin"
 
 msgid "manager.navigationMenus.announcements.conditionalWarning"
 msgstr ""
-"Bu link, sad…ôc…ô \"T…ônziml…ôr >Veb saytńĪ\" altńĪnda elanlarńĪ "
-"aktivl…ôŇüdirdiyinizd…ô g√∂r√ľn√ľr."
+"Bu link, sadəcə \"Tənzimlər >Veb saytı\" altında elanları "
+"aktivləşdirdiyinizdə görünür."
 
 msgid "manager.navigationMenus.login.description"
-msgstr "ńįstifad…ô√ßi giriŇü s…ôhif…ôsin…ô link verin"
+msgstr "İstifadəçi giriş səhifəsinə link verin"
 
 msgid "manager.navigationMenus.register.description"
-msgstr "ńįstifad…ô√ßi qeydiyyat s…ôhif…ôsin…ô link verin"
+msgstr "İstifadəçi qeydiyyat səhifəsinə link verin"
 
 msgid "manager.navigationMenus.dashboard.description"
-msgstr "ńįdar…ô√ßi panelin…ô link verin"
+msgstr "İdarəçi panelinə link verin"
 
 msgid "manager.navigationMenus.profile.description"
-msgstr "ńįstifad…ô√ßi profil s…ôhif…ôsin…ô link verin"
+msgstr "İstifadəçi profil səhifəsinə link verin"
 
 msgid "manager.navigationMenus.administration.description"
-msgstr "Sayt ńįdar…ôetm…ô Vasit…ôl…ôrin…ô link verin"
+msgstr "Sayt İdarəetmə Vasitələrinə link verin"
 
 msgid "manager.navigationMenus.administration.conditionalWarning"
-msgstr ""
-"Bu link…ô sad…ôc…ô idar…ô√ßi s…ôlahiyy…ôtin…ô sahib olanlar baxa bil…ôr."
+msgstr "Bu linkə sadəcə idarəçi səlahiyyətinə sahib olanlar baxa bilər."
 
 msgid "manager.navigationMenus.logOut.description"
-msgstr ""
-"ńįstifad…ô√ßinin √ßńĪxńĪŇüńĪnńĪ qeydiyyatdan ke√ßir…ôc…ôk bir link verin"
+msgstr "İstifadəçinin çıxışını qeydiyyatdan keçirəcək bir link verin"
 
 msgid "manager.navigationMenus.loggedIn.conditionalWarning"
-msgstr "Bu link sad…ôc…ô ziyar…ôt√ßi daxil olmadńĪńüńĪnda baxńĪlacaqdńĪr."
+msgstr "Bu link sadəcə ziyarətçi daxil olmadığında baxılacaqdır."
 
 msgid "manager.navigationMenus.contact.description"
-msgstr ""
-"∆Źlaq…ô m…ôlumatlarńĪnńĪzńĪn baxńĪla bil…ôc…ôyi bir s…ôhif…ôy…ô link verin"
+msgstr "Əlaqə məlumatlarınızın baxıla biləcəyi bir səhifəyə link verin"
 
 msgid "manager.navigationMenus.contact.conditionalWarning"
 msgstr ""
-"Bu link sad…ôc…ô \"T…ônziml…ôr > ∆Źlaq…ô\" altńĪndakńĪ Ňü…ôxs m…"
-"ôlumatlarńĪnńĪ doldurmusunuzsa baxńĪla bil…ôn olur."
+"Bu link sadəcə \"Tənzimlər > Əlaqə\" altındakı şəxs məlumatlarını "
+"doldurmusunuzsa baxıla bilən olur."
 
 msgid "manager.navigationMenus.subscriptions.conditionalWarning"
 msgstr ""
-"Bu √∂d…ôniŇül…ôr linki sad…ôc…ô \"T…ônziml…ôr > PaylanńĪŇü > √Ėd…ôniŇül…ôr\" "
-"altńĪnda aktivl…ôŇüdirildiyi zaman baxńĪla bil…ôn olur."
+"Bu ödənişlər linki sadəcə \"Tənzimlər > Paylanış > Ödənişlər\" altında "
+"aktivləşdirildiyi zaman baxıla bilən olur."
 
 msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
-msgstr "Bu link sad…ôc…ô bir ziyar…ôt√ßi daxil olduńüunda g√∂st…ôril…ôc…ôk"
+msgstr "Bu link sadəcə bir ziyarətçi daxil olduğunda göstəriləcək"
 
 msgid "manager.navigationMenus.search.description"
-msgstr "AxtarńĪŇü s…ôhif…ô linki"
+msgstr "Axtarış səhifə linki"
 
 msgid "manager.navigationMenus.privacyStatement.description"
-msgstr "M…ôxfilik b…ôyanatńĪnńĪ g√∂st…ôr…ôn s…ôhif…ôy…ô link verin"
+msgstr "Məxfilik bəyanatını göstərən səhifəyə link verin"
 
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr ""
-"Bu link sad…ôc…ô T…ônziml…ôr > ńįŇü AxńĪŇüńĪ >T…ôqdimatlar altńĪnda bir m…"
-"ôxfilik bildiriŇüi daxil etmisinizs…ô baxńĪla bil…ôr."
+"Bu link sadəcə Tənzimlər > İş Axışı >Təqdimatlar altında bir məxfilik "
+"bildirişi daxil etmisinizsə baxıla bilər."
 
 msgid "grid.category.pathAlphaNumeric"
-msgstr "Kateqoriya yolu sad…ôc…ô h…ôrf v…ô r…ôq…ôml…ôrd…ôn ibar…ôt olmalńĪdńĪr."
+msgstr "Kateqoriya yolu sadəcə hərf və rəqəmlərdən ibarət olmalıdır."
 
 msgid "stats.dateRange.invalidEndDateMax"
-msgstr "Son tarix {$date} tarixind…ôn sonra ola bilm…ôz"
+msgstr "Son tarix {$date} tarixindən sonra ola bilməz"
 
 msgid "stats.dateRange.invalidStartDateMin"
-msgstr "BaŇülanńüńĪc tarixi {$date} tarixind…ôn …ôvv…ôl ola bilm…ôz"
+msgstr "Başlanğıc tarixi {$date} tarixindən əvvəl ola bilməz"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
-"Se√ßil…ôn tarix aralńĪńüńĪnńĪn faizi, bu tarix aralńĪńüńĪnda g√∂nd…ôril…ôn v…"
-"ô son bir q…ôrar alan m√ľraci…ôtl…ôr √ľ√ß√ľn hesablanńĪr. <br><br>M…ôs…ôl…"
-"ôn, bu tarix aralńĪńüńĪnda on m√ľraci…ôt edildiyini diqq…ôt…ô alńĪn. D√∂rd√ľ "
-"q…ôbul edildi, d√∂rd√ľ r…ôdd edildi v…ô ikisi h…ôl…ô konkret q…ôrar g√∂zl…"
-"ôyir. <br><br> Q…ôbul nisb…ôti %50 (8 m√ľraci…ôtd…ôn 4-√ľ) olacaq √ľ√ß√ľnk√ľ "
-"son q…ôrar verilm…ômiŇü iki m√ľraci…ôt hesablanmńĪr."
+"Seçilən tarix aralığının faizi, bu tarix aralığında göndərilən və son bir "
+"qərar alan müraciətlər üçün hesablanır. <br><br>Məsələn, bu tarix aralığında "
+"on müraciət edildiyini diqqətə alın. Dördü qəbul edildi, dördü rədd edildi "
+"və ikisi hələ konkret qərar gözləyir. <br><br> Qəbul nisbəti %50 (8 "
+"müraciətdən 4-ü) olacaq üçünkü son qərar verilməmiş iki müraciət hesablanmır."
 
 msgid "stats.description.daysToDecision"
 msgstr ""
-"∆Źks…ôr m√ľraci…ôtin, r…ôddi v…ô ya r…ôy√ßiy…ô g√∂nd…ôrm…ô kimi ilk n…ôŇür q…"
-"ôrarńĪnńĪ almasńĪ √ľ√ß√ľn ke√ß…ôn g√ľn sayńĪ. <br><br>Bu r…ôq…ôml…ôr, "
-"m√ľraci…ôtin %80-nin veril…ôn g√ľn sayńĪ i√ßind…ô q…ôrar q…ôbul edildiyiniz "
-"g√∂st…ôrir. <br><br>Bu statistika, JurnalńĪnńĪza g√∂nd…ôril…ôn M√ľ…ôllifl…"
-"ôrin …ôks…ôriyy…ôtinin n…ô zaman bir q…ôrar g√∂zl…ôy…ô bil…ôc…ôyini a√"
-"ßńĪqlamańüa √ßalńĪŇüńĪr."
+"Əksər müraciətin, rəddi və ya rəyçiyə göndərmə kimi ilk nəşr qərarını alması "
+"üçün keçən gün sayı. <br><br>Bu rəqəmlər, müraciətin %80-nin verilən gün "
+"sayı içində qərar qəbul edildiyiniz göstərir. <br><br>Bu statistika, "
+"Jurnalınıza göndərilən Müəlliflərin əksəriyyətinin nə zaman bir qərar "
+"gözləyə biləcəyini açıqlamağa çalışır."
 
 #, fuzzy
 msgid "stats.description.submissionsSkipped"
 msgstr ""
-"Buraya, h…ôl…ô d…ô davam ed…ôn v…ô idxal edil…ônl…ôr kimi dig…ôr c…ômi "
-"sayńĪlmayan t…ôqdimatlar daxildir."
+"Buraya, hələ də davam edən və idxal edilənlər kimi digər cəmi sayılmayan "
+"təqdimatlar daxildir."
 
 #, fuzzy
 msgid "stats.file.type.suppFile"
-msgstr "∆Źlav…ô fayl"
+msgstr "Əlavə fayl"
 
 #, fuzzy
 msgid "stats.geographic.ccAttribution"
-msgstr ""
-"<a href='https://db-ip.com 't…ôr…ôfind…ôn veril…ôn geolokasiya, db-ip </a>"
+msgstr "<a href='https://db-ip.com 'tərəfindən verilən geolokasiya, db-ip </a>"
 
 #, fuzzy
 msgid "stats.geographic.tooltip.label"
-msgstr "Geolokasiya haqqńĪnda"
+msgstr "Geolokasiya haqqında"
 
 #, fuzzy
 msgid "stats.downloadReport.betweenDates"
@@ -3232,19 +3121,19 @@ msgstr "{$startDate} - {$endDate}"
 
 #, fuzzy
 msgid "stats.downloadReport.allFilters"
-msgstr "HamńĪsńĪ {$filter}"
+msgstr "Hamısı {$filter}"
 
 #, fuzzy
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr "FayllarńĪ y√ľkl…ôyin"
+msgstr "Faylları yükləyin"
 
 #, fuzzy
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr "H…ôr bir fayl √ľ√ß√ľn y√ľkl…ôm…ô sayńĪ."
+msgstr "Hər bir fayl üçün yükləmə sayı."
 
 #, fuzzy
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr "Cońürafi y√ľkl…ôyin"
+msgstr "Coğrafi yükləyin"
 
 #, fuzzy
 msgid "stats.timeline"
@@ -3252,7 +3141,7 @@ msgstr "Qrafiki"
 
 #, fuzzy
 msgid "stats.timeline.downloadReport.description"
-msgstr "H…ôr {$interval} √ľ√ß√ľn {$type} sayńĪ."
+msgstr "Hər {$interval} üçün {$type} sayı."
 
 #, fuzzy
 msgid "stats.timeline.downloadReport.downloadTimeline"
@@ -3264,7 +3153,7 @@ msgstr "Qrafiki interval"
 
 #, fuzzy
 msgid "stats.timelineType"
-msgstr "Qrafiki n√∂v√ľ"
+msgstr "Qrafiki növü"
 
 #, fuzzy
 msgid "stats.unique"
@@ -3272,132 +3161,128 @@ msgstr "Unikal"
 
 #, fuzzy
 msgid "stats.unknown"
-msgstr "nam…ôlum"
+msgstr "naməlum"
 
 #, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr ""
-"ńįstifad…ô√ßi √ľ√ß√ľn profilini g√∂rm…ôk v…ô redakt…ô etm…ôk √ľ√ß√ľn URL."
+msgstr "İstifadəçi üçün profilini görmək və redaktə etmək üçün URL."
 
 #, fuzzy
 msgid "emailTemplate.variable.decision.description"
-msgstr "AlńĪnan q…ôrarńĪn t…ôsviri."
+msgstr "Alınan qərarın təsviri."
 
 #, fuzzy
 msgid "emailTemplate.variable.decision.stage"
-msgstr "Redaksiya iŇüinin m…ôrh…ôl…ôsi bu q…ôrar q…ôbul edildi."
+msgstr "Redaksiya işinin mərhələsi bu qərar qəbul edildi."
 
 #, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
-"Bu q…ôrarńĪ n…ôz…ôrd…ôn ke√ßirm…ô m…ôrh…ôl…ôsi, q…ôrarńĪn araŇüdńĪrńĪlmasńĪ "
-"m…ôrh…ôl…ôsi il…ô …ôlaq…ôdar olacańüńĪ t…ôqdird…ô alńĪndńĪ."
+"Bu qərarı nəzərdən keçirmə mərhələsi, qərarın araşdırılması mərhələsi ilə "
+"əlaqədar olacağı təqdirdə alındı."
 
 #, fuzzy
 msgid "emailTemplate.variable.discussion.subject"
-msgstr "M√ľzakir…ônin m√∂vzusu"
+msgstr "Müzakirənin mövzusu"
 
 #, fuzzy
 msgid "emailTemplate.variable.discussion.content"
-msgstr "Yeni m√ľzakir…ônin v…ô ya cavabńĪn m…ôzmunu"
+msgstr "Yeni müzakirənin və ya cavabın məzmunu"
 
 #, fuzzy
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr "G√∂rk…ômli tapŇüńĪrńĪqlar olan t…ôqdimatlarńĪn siyahńĪsńĪ"
+msgstr "Görkəmli tapşırıqlar olan təqdimatların siyahısı"
 
 #, fuzzy
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr "Bu redaktora t…ôyin olunan t…ôqdimatlarńĪn sayńĪ"
+msgstr "Bu redaktora təyin olunan təqdimatların sayı"
 
 #, fuzzy
 msgid "emailTemplate.variable.recommendation"
-msgstr "T…ôqdim olunan q…ôrar, m…ôs…ôl…ôn, t…ôqdim etm…ôk kimi"
+msgstr "Təqdim olunan qərar, məsələn, təqdim etmək kimi"
 
 #, fuzzy
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr "Bu baxńĪŇüńĪn t…ôyin olunduńüu tarix"
+msgstr "Bu baxışın təyin olunduğu tarix"
 
 #, fuzzy
 msgid "emailTemplate.variable.review.method"
-msgstr "Anonim, ikiqat anonim v…ô ya a√ßńĪq kimi baxńĪŇü n√∂v√ľ"
+msgstr "Anonim, ikiqat anonim və ya açıq kimi baxış növü"
 
 #, fuzzy
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
-"R…ôy√ßinin t√∂vsiy…ôsi, m…ôs…ôl…ôn, t…ôqdim v…ô ya eniŇü q…ôbul etm…ôk kimi"
+msgstr "Rəyçinin tövsiyəsi, məsələn, təqdim və ya eniş qəbul etmək kimi"
 
 #, fuzzy
 msgid "emailTemplate.variable.review.round"
-msgstr "1-ci tur v…ô ya d…ôyirmi 2 kimi n…ôz…ôrd…ôn ke√ßirm…ô m…ôrh…ôl…ôsi"
+msgstr "1-ci tur və ya dəyirmi 2 kimi nəzərdən keçirmə mərhələsi"
 
 #, fuzzy
 msgid "emailTemplate.variable.review.files"
-msgstr "R…ôy√ßi t…ôr…ôfind…ôn y√ľkl…ôn…ôn s…ôn…ôdl…ôr"
+msgstr "Rəyçi tərəfindən yüklənən sənədlər"
 
 #, fuzzy
 msgid "emailTemplate.variable.review.name"
-msgstr "R…ôy√ßinin adńĪ"
+msgstr "Rəyçinin adı"
 
 #, fuzzy
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
-"Bu jurnal ikiqat anonim h…ômyaŇüńĪd araŇüdńĪrmasńĪ aparńĪr. R…ôy√ßil…ôr "
-"sizin v…ô ya h…ômm√ľ…ôllifl…ôriniz haqqńĪnda he√ß bir m√ľ…ôyy…ônl…ôŇüdir…ôn "
-"m…ôlumatńĪ g√∂rm…ôy…ôc…ôkl…ôr. Eynil…ô, t…ôqdimatńĪnńĪzńĪ kiminl…ô tanńĪŇü "
-"olmasńĪnńĪ bilm…ôy…ôc…ôksiniz v…ô r…ôy√ßil…ôrd…ôn birbaŇüa "
-"eŇüitm…ôy…ôc…ôksiniz."
+"Bu jurnal ikiqat anonim həmyaşıd araşdırması aparır. Rəyçilər sizin və ya "
+"həmmüəllifləriniz haqqında heç bir müəyyənləşdirən məlumatı görməyəcəklər. "
+"Eynilə, təqdimatınızı kiminlə tanış olmasını bilməyəcəksiniz və rəyçilərdən "
+"birbaşa eşitməyəcəksiniz."
 
 #, fuzzy
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
-"Bu jurnal a√ßńĪq h…ômyaŇüńĪd r…ôyini icra edir. R…ôy√ßil…ôr adńĪnńĪzńĪ v…ô "
-"m…ônsubiyy…ôtinizi, h…ôm d…ô h…ômm√ľ…ôllifl…ôrinizin adlarńĪnńĪ v…ô m…ônfill…"
-"ôrini g√∂r…ôc…ôkl…ôr. Eynil…ô, r…ôy√ßil…ôrin adlarńĪnńĪ v…ô m…ônsubiyy…ôtl…"
-"ôrini g√∂r…ôc…ôksiniz."
+"Bu jurnal açıq həmyaşıd rəyini icra edir. Rəyçilər adınızı və "
+"mənsubiyyətinizi, həm də həmmüəlliflərinizin adlarını və mənfillərini "
+"görəcəklər. Eynilə, rəyçilərin adlarını və mənsubiyyətlərini görəcəksiniz."
 
 #, fuzzy
 msgid "emailTemplate.variable.password"
-msgstr "Yeni t…ôsad√ľfi istifad…ô√ßi Ňüifr…ôsi"
+msgstr "Yeni təsadüfi istifadəçi şifrəsi"
 
 #, fuzzy
 msgid "emailTemplate.variable.submitterName"
-msgstr "Bir t…ôqdimat faylńĪ y√ľkl…ôy…ôn bir istifad…ô√ßinin tam adńĪ"
+msgstr "Bir təqdimat faylı yükləyən bir istifadəçinin tam adı"
 
 #, fuzzy
 msgid "emailTemplate.variable.announcementTitle"
-msgstr "ElanńĪn adńĪ"
+msgstr "Elanın adı"
 
 #, fuzzy
 msgid "emailTemplate.variable.announcementSummary"
-msgstr "ElanńĪn qńĪsa t…ôsviri"
+msgstr "Elanın qısa təsviri"
 
 #, fuzzy
 msgid "emailTemplate.variable.announcementUrl"
-msgstr "ElanńĪn URL"
+msgstr "Elanın URL"
 
 #, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr "Bu ayda alńĪnan t…ôqdimatlarńĪn sayńĪ"
+msgstr "Bu ayda alınan təqdimatların sayı"
 
 #, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr "R…ôdd edilmiŇü t…ôqdimatlarńĪn sayńĪ"
+msgstr "Rədd edilmiş təqdimatların sayı"
 
 #, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr "Q…ôbul edilmiŇü t…ôqdimatlarńĪn sayńĪ"
+msgstr "Qəbul edilmiş təqdimatların sayı"
 
 #, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr "Dig…ôr c…ôml…ôr…ô daxil olmayan t…ôqdimatlarńĪn sayńĪ"
+msgstr "Digər cəmlərə daxil olmayan təqdimatların sayı"
 
 #, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr "AlńĪnan t…ôqdimatlarńĪn √ľmumi sayńĪ"
+msgstr "Alınan təqdimatların ümumi sayı"
 
 #, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr "Hesabat ayńĪ"
+msgstr "Hesabat ayı"
 
 #, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.year"
@@ -3405,12 +3290,11 @@ msgstr "Hesabat ili"
 
 #, fuzzy
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr ""
-"H…ôcmi, sayńĪ, il v…ô baŇülńĪq da daxil olmaqla, m√ľ…ôyy…ônl…ôŇüdirilm…ôsi"
+msgstr "Həcmi, sayı, il və başlıq da daxil olmaqla, müəyyənləşdirilməsi"
 
 #, fuzzy
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr "D…ôrc olunan m…ôs…ôl…ôy…ô URL"
+msgstr "Dərc olunan məsələyə URL"
 
 #, fuzzy
 msgid "mailTemplate.variable.statisticsReportNotify.year"
@@ -3418,419 +3302,410 @@ msgstr "Hesabat ili"
 
 #, fuzzy
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr "Redaksiya f…ôaliyy…ôti s…ôhif…ôsin…ô ke√ßid"
+msgstr "Redaksiya fəaliyyəti səhifəsinə keçid"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
-"Bu email, redaktor t…ôr…ôfind…ôn r…ôy√ßi yenid…ôn t…ôyin edildiyind…ô "
-"g√∂nd…ôrilir"
+"Bu email, redaktor tərəfindən rəyçi yenidən təyin edildiyində göndərilir"
 
 #, fuzzy
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
-"Bu e-po√ßt, redaktor ist…ôyi sńĪfńĪrlamaq ist…ôdikd…ô, r…ôy sorńüusunu r…ôdd "
-"ed…ôn bir r…ôy√ßi t…ôr…ôfind…ôn g√∂nd…ôrilir."
+"Bu e-poçt, redaktor istəyi sıfırlamaq istədikdə, rəy sorğusunu rədd edən bir "
+"rəyçi tərəfindən göndərilir."
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
-"Bu email, saytda qeydiyyatdan ke√ßildiyi zaman email adresinin t…ôsdiql…ônm…"
-"ôsi √ľ√ß√ľn avtomatik olaraq g√∂nd…ôrilir."
+"Bu email, saytda qeydiyyatdan keçildiyi zaman email adresinin təsdiqlənməsi "
+"üçün avtomatik olaraq göndərilir."
 
 #, fuzzy
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr "Dig…ôr m√ľ…ôllifl…ôr…ô m…ôlumat verin"
+msgstr "Digər müəlliflərə məlumat verin"
 
 #, fuzzy
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
-"Bu e-po√ßt, bir q…ôrar q…ôbul edildiyi kimi t…ôyin olunmayan bir t…"
-"ôqdimatńĪn m√ľ…ôllifl…ôrini bildirm…ôy…ô g√∂nd…ôrilir. Ad…ôt…ôn bunlar b√ľt√"
-"ľn dig…ôrl…ôri m√ľ…ôllifd…ôn baŇüqa."
+"Bu e-poçt, bir qərar qəbul edildiyi kimi təyin olunmayan bir təqdimatın "
+"müəlliflərini bildirməyə göndərilir. Adətən bunlar bütün digərləri "
+"müəllifdən başqa."
 
 #, fuzzy
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
-msgstr ""
-"T…ôqdim ed…ôn m√ľ…ôllif…ô g√∂nd…ôril…ôn e-po√ßt mesajńĪnńĪn bir n√ľsx…ôsi"
+msgstr "Təqdim edən müəllifə göndərilən e-poçt mesajının bir nüsxəsi"
 
 #, fuzzy
 msgid "mailable.decision.notifyReviewer.name"
-msgstr "R…ôy√ßi t…ôsdiq"
+msgstr "Rəyçi təsdiq"
 
 #, fuzzy
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
-"Bu e-po√ßt bir redaktor t…ôr…ôfind…ôn bir redaktor t…ôr…ôfind…ôn n…ôz…ôrd…ôn "
-"ke√ßirdiyi bir t…ôqdimatla …ôlaq…ôdar bir q…ôrar verildiyi bar…ôd…ô m…ôlumat "
-"verm…ôk √ľ√ß√ľn g√∂nd…ôrilir."
+"Bu e-poçt bir redaktor tərəfindən bir redaktor tərəfindən nəzərdən keçirdiyi "
+"bir təqdimatla əlaqədar bir qərar verildiyi barədə məlumat vermək üçün "
+"göndərilir."
 
 #, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
-"Bu q…ôrar haqqńĪnda r…ôy√ßil…ôr…ô g√∂nd…ôril…ôn bir e-po√ßt bildiriŇüind…ô "
-"paylaŇüńĪlmasńĪ n…ôz…ôrd…ô tutulan bu q…ôrarńĪn qńĪsa t…ôsviri."
+"Bu qərar haqqında rəyçilərə göndərilən bir e-poçt bildirişində paylaşılması "
+"nəzərdə tutulan bu qərarın qısa təsviri."
 
 #, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr "Bu t…ôqdimatńĪ d√ľz…ôliŇü olmadan q…ôbul etm…ôyi se√ßdik."
+msgstr "Bu təqdimatı düzəliş olmadan qəbul etməyi seçdik."
 
 #, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr "Bu t…ôqdimatńĪ r…ôdd etm…ôyi se√ßdik."
+msgstr "Bu təqdimatı rədd etməyi seçdik."
 
 #, fuzzy
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr "M√ľ…ôllifl…ôri d√ľz…ôliŇül…ôr g√∂nd…ôrm…ôy…ô d…ôv…ôt etdik."
+msgstr "Müəllifləri düzəlişlər göndərməyə dəvət etdik."
 
 #, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
-"M√ľ…ôllifl…ôri daha da n…ôz…ôrd…ôn ke√ßirm…ôk √ľ√ß√ľn yenid…ôn iŇül…ônmiŇü "
-"bir versiyanńĪ t…ôqdim etm…ôy…ô d…ôv…ôt etdik."
+"Müəllifləri daha da nəzərdən keçirmək üçün yenidən işlənmiş bir versiyanı "
+"təqdim etməyə dəvət etdik."
 
 #, fuzzy
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr "T…ôqdimat √ľ√ß√ľn d…ôv…ôt olunan r…ôy√ßi t…ôyin olunmamńĪŇüdńĪr."
+msgstr "Təqdimat üçün dəvət olunan rəyçi təyin olunmamışdır."
 
 #, fuzzy
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr "T…ôqdim edildi"
+msgstr "Təqdim edildi"
 
 #, fuzzy
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
-"Bu e-po√ßt, onlarńĪn t…ôqdimatńĪnńĪn n…ôŇür √ľ√ß√ľn q…ôbul olunduńüunu m√ľ…"
-"ôllifi x…ôb…ôrdar edir."
+"Bu e-poçt, onların təqdimatının nəşr üçün qəbul olunduğunu müəllifi xəbərdar "
+"edir."
 
 #, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr "T…ôqdimat kopyalanmasńĪna geri g√∂nd…ôrildi"
+msgstr "Təqdimat kopyalanmasına geri göndərildi"
 
 #, fuzzy
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
-"Bu e-po√ßt, onlarńĪn t…ôqdimatńĪnńĪn kopyalama m…ôrh…ôl…ôsin…ô g√∂nd…"
-"ôrildiyi m√ľ…ôllifi x…ôb…ôrdar edir."
+"Bu e-poçt, onların təqdimatının kopyalama mərhələsinə göndərildiyi müəllifi "
+"xəbərdar edir."
 
 #, fuzzy
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr "T…ôqdimat kopyalanmadan geri g√∂nd…ôrildi"
+msgstr "Təqdimat kopyalanmadan geri göndərildi"
 
 #, fuzzy
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
-"Bu e-po√ßt, onlarńĪn t…ôqdimatńĪnńĪn kopyalama m…ôrh…ôl…ôsind…ôn geri g√∂nd…"
-"ôrildiyini bildirir."
+"Bu e-poçt, onların təqdimatının kopyalama mərhələsindən geri göndərildiyini "
+"bildirir."
 
 #, fuzzy
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr "ńįcmal d…ôyirmi l…ôńüv edildi"
+msgstr "İcmal dəyirmi ləğv edildi"
 
 #, fuzzy
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
-"Bu e-po√ßt, t…ôqdim edilm…ôsi √ľ√ß√ľn bir baxńĪŇüńĪn l…ôńüv edildiyi m√ľ…"
-"ôllifi x…ôb…ôrdar edir."
+"Bu e-poçt, təqdim edilməsi üçün bir baxışın ləğv edildiyi müəllifi xəbərdar "
+"edir."
 
 #, fuzzy
 msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr "T…ôqdimat r…ôdd edildi"
+msgstr "Təqdimat rədd edildi"
 
 #, fuzzy
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
-"Bu e-po√ßt m√ľ…ôllifin n…ôz…ôrd…ôn ke√ßirilm…ôsind…ôn sonra n…ôz…ôrd…ôn "
-"ke√ßirilm…ôsind…ôn sonra r…ôdd edildiyini bildirir."
+"Bu e-poçt müəllifin nəzərdən keçirilməsindən sonra nəzərdən keçirilməsindən "
+"sonra rədd edildiyini bildirir."
 
 #, fuzzy
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr "T…ôqdimat r…ôdd edildi"
+msgstr "Təqdimat rədd edildi"
 
 #, fuzzy
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr "Yeni baxńĪŇü turu baŇülatdńĪ"
+msgstr "Yeni baxış turu başlatdı"
 
 #, fuzzy
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
-"Bu e-po√ßt, yeni bir r…ôyin t…ôqdim edilm…ôsin…ô baŇüladńĪńüńĪ m√ľ…ôllifi "
-"x…ôb…ôrdar edir."
+"Bu e-poçt, yeni bir rəyin təqdim edilməsinə başladığı müəllifi xəbərdar edir."
 
 #, fuzzy
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr "ńįst…ônil…ôn d√ľz…ôliŇül…ôr"
+msgstr "İstənilən düzəlişlər"
 
 #, fuzzy
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
-"Bu e-po√ßt, h…ômyaŇüńĪd r…ôyl…ôri zamanńĪ d√ľz…ôliŇü t…ôl…ôb etm…ôk q…"
-"ôrarńĪnńĪn m√ľ…ôllifini x…ôb…ôrdar edir."
+"Bu e-poçt, həmyaşıd rəyləri zamanı düzəliş tələb etmək qərarının müəllifini "
+"xəbərdar edir."
 
 #, fuzzy
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr "R…ôy √ľ√ß√ľn yenid…ôn g√∂nd…ôr"
+msgstr "Rəy üçün yenidən göndər"
 
 #, fuzzy
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
-"Bu e-po√ßt onlarńĪn t…ôqdim edilm…ôsi il…ô bańülńĪ bir \"yenid…ôn iŇül…ôm…ô "
-"v…ô resubmit\" q…ôrarńĪnńĪn m√ľ…ôllifini x…ôb…ôrdar edir."
+"Bu e-poçt onların təqdim edilməsi ilə bağlı bir \"yenidən işləmə və "
+"resubmit\" qərarının müəllifini xəbərdar edir."
 
 #, fuzzy
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
-"Bu e-po√ßt, h…ôm√ßinin n…ôz…ôrd…ôn ke√ßirildikd…ôn sonra …ôvv…ôlki q…ôrarńĪ "
-"…ôvv…ôlki q…ôrarńĪn r…ôdd edilm…ôsi bar…ôd…ô r…ôdd edilm…ôsi bar…ôd…ô x…ôb…"
-"ôrdar edir."
+"Bu e-poçt, həmçinin nəzərdən keçirildikdən sonra əvvəlki qərarı əvvəlki "
+"qərarın rədd edilməsi barədə rədd edilməsi barədə xəbərdar edir."
 
 #, fuzzy
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
-"Bu e-po√ßt, …ôvv…ôlki q…ôrarńĪ n…ôz…ôrd…ôn ke√ßirm…ôd…ôn imtina etm…ôk √ľ√ß√"
-"ľn bir …ôvv…ôlki q…ôrarńĪn r…ôdd edilm…ôsi bar…ôd…ô m…ôlumat verilir."
+"Bu e-poçt, əvvəlki qərarı nəzərdən keçirmədən imtina etmək üçün bir əvvəlki "
+"qərarın rədd edilməsi barədə məlumat verilir."
 
 #, fuzzy
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr "N…ôz…ôrd…ôn ke√ßirm…ôk √ľ√ß√ľn g√∂nd…ôrildi"
+msgstr "Nəzərdən keçirmək üçün göndərildi"
 
 #, fuzzy
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
-msgstr ""
-"Bu e-po√ßt m√ľ…ôllifin t…ôqdimat m…ôrh…ôl…ôsin…ô g√∂nd…ôrildiyini bildirir."
+msgstr "Bu e-poçt müəllifin təqdimat mərhələsinə göndərildiyini bildirir."
 
 #, fuzzy
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr "ńįstehsala g√∂nd…ôrildi"
+msgstr "İstehsala göndərildi"
 
 #, fuzzy
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
-"Bu e-po√ßt, t…ôqdimatlarńĪnńĪn istehsal m…ôrh…ôl…ôsin…ô g√∂nd…ôrildiyini m√ľ…"
-"ôllifi x…ôb…ôrdar edir."
+"Bu e-poçt, təqdimatlarının istehsal mərhələsinə göndərildiyini müəllifi "
+"xəbərdar edir."
 
 #, fuzzy
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr "N…ôz…ôrd…ôn ke√ßirildi"
+msgstr "Nəzərdən keçirildi"
 
 #, fuzzy
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
-"Bu e-po√ßt m√ľ…ôllifinin t…ôqdim etdiyi m√ľ…ôllifin birbaŇüa kopyalama "
-"m…ôrh…ôl…ôsin…ô g√∂nd…ôrildiyini v…ô n…ôz…ôrd…ôn ke√ßirilm…ôy…ôc…ôk."
+"Bu e-poçt müəllifinin təqdim etdiyi müəllifin birbaşa kopyalama mərhələsinə "
+"göndərildiyini və nəzərdən keçirilməyəcək."
 
 #, fuzzy
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr "T√∂vsiy…ô edildi"
+msgstr "Tövsiyə edildi"
 
 #, fuzzy
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
-"Bu mesaj, t…ôyin olunmuŇü t…ôqdimatlardan biri il…ô bańülńĪ redaktor t√∂vsiy…"
-"ôsinin edildiyi baŇü redaktoru v…ô ya b√∂lm…ô redaktoruna x…ôb…ôr verir. Bu "
-"mesaj bir redaktorun redaksiya q…ôrarńĪnńĪ t√∂vsiy…ô etm…ôy…ô icaz…ô "
-"verildiyi v…ô redaksiya q…ôrarlarńĪnńĪ qeyd etm…ôk √ľ√ß√ľn s…ôlahiyy…ôtli "
-"bir redaktor t…ôl…ôb etdikd…ô istifad…ô olunur. Bu se√ßim iŇütirak√ßńĪlarńĪ "
-"t…ôqdim etm…ôk √ľ√ß√ľn t…ôyin ed…ôrk…ôn se√ßil…ô bil…ôr."
+"Bu mesaj, təyin olunmuş təqdimatlardan biri ilə bağlı redaktor tövsiyəsinin "
+"edildiyi baş redaktoru və ya bölmə redaktoruna xəbər verir. Bu mesaj bir "
+"redaktorun redaksiya qərarını tövsiyə etməyə icazə verildiyi və redaksiya "
+"qərarlarını qeyd etmək üçün səlahiyyətli bir redaktor tələb etdikdə istifadə "
+"olunur. Bu seçim iştirakçıları təqdim etmək üçün təyin edərkən seçilə bilər."
 
 #, fuzzy
 msgid "mailable.reviewConfirm.name"
-msgstr "T…ôsdiq t…ôsdiql…ôyin"
+msgstr "Təsdiq təsdiqləyin"
 
 #, fuzzy
 msgid "mailable.reviewDecline.name"
-msgstr "R…ôy eniŇü"
+msgstr "Rəy eniş"
 
 #, fuzzy
 msgid "mailable.reviewRemind.name"
-msgstr "XatńĪrlatma"
+msgstr "Xatırlatma"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
-"Bu email r…ôy√ßinin d…ôy…ôrl…ôndirm…ô √ľ√ß√ľn qeyd olunan son tarixin bitm…"
-"ôk √ľzr…ô olduńüunu xatńĪrlatmaq √ľ√ß√ľn B√∂lm…ô Redaktoru t…ôr…ôfind…ôn "
-"r…ôy√ßil…ôr…ô g√∂nd…ôrilir."
+"Bu email rəyçinin dəyərləndirmə üçün qeyd olunan son tarixin bitmək üzrə "
+"olduğunu xatırlatmaq üçün Bölmə Redaktoru tərəfindən rəyçilərə göndərilir."
 
 #, fuzzy
 msgid "mailable.reviewRemindAuto.name"
-msgstr "XatńĪrlatma XatńĪrlatma (Avtomatik)"
+msgstr "Xatırlatma Xatırlatma (Avtomatik)"
 
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"R…ôy √ľ√ß√ľn veril…ôn m√ľdd…ôt ke√ßdiyind…ô bu email avtomatik olaraq g√∂nd…"
-"ôrilir. Avtomatik xatńĪrlatma √ľ√ß√ľn m√ľdd…ôt t…ônziml…ôrin…ô "
-"D…ôy…ôrl…ôndirm…ô T…ônziml…ôri qismind…ôn √ßata bil…ôrsiniz."
+"Rəy üçün verilən müddət keçdiyində bu email avtomatik olaraq göndərilir. "
+"Avtomatik xatırlatma üçün müddət tənzimlərinə Dəyərləndirmə Tənzimləri "
+"qismindən çata bilərsiniz."
 
 #, fuzzy
 msgid "mailable.reviewAcknowledgement.name"
-msgstr "T…ôsdiq t…ôsdiqini n…ôz…ôrd…ôn ke√ßirin"
+msgstr "Təsdiq təsdiqini nəzərdən keçirin"
 
 #, fuzzy
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
-"Bu e-po√ßt, tamamlanmńĪŇü bir r…ôyin alńĪnmasńĪnńĪ t…ôsdiql…ôm…ôk √ľ√ß√ľn "
-"bir b√∂lm…ô redaktoru t…ôr…ôfind…ôn g√∂nd…ôrilir v…ô onlarńĪn t√∂hf…ôl…ôri "
-"√ľ√ß√ľn r…ôy√ßi olun."
+"Bu e-poçt, tamamlanmış bir rəyin alınmasını təsdiqləmək üçün bir bölmə "
+"redaktoru tərəfindən göndərilir və onların töhfələri üçün rəyçi olun."
 
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr "R…ôy cavabńĪ vaxtńĪ ke√ßmiŇü (avtomatlaŇüdńĪrńĪlmńĪŇü)"
+msgstr "Rəy cavabı vaxtı keçmiş (avtomatlaşdırılmış)"
 
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
-"Bu email, bir r…ôy√ßinin t…ôsdiq tarixi ke√ßdiyi zaman avtomatik olaraq "
-"g√∂nd…ôrilir (T…ônziml…ôr>ńįŇü AxńĪŇüńĪ>G√∂zd…ôn ke√ßirm…ô altńĪndakńĪ "
-"ńįnc…ôl…ôm…ô Se√ßiml…ôrin…ô baxńĪn) v…ô t…ôk klikl…ô r…ôy√ßi √ßatma sńĪradan "
-"√ßńĪxarńĪlńĪr. PlanlanmńĪŇü v…ôzif…ôl…ôr aktivl…ôŇüdirilm…ôli v…ô "
-"t…ônziml…ônm…ôlidir (sayt t…ônziml…ônm…ô faylńĪ b√∂lm…ôsin…ô baxńĪn)."
+"Bu email, bir rəyçinin təsdiq tarixi keçdiyi zaman avtomatik olaraq "
+"göndərilir (Tənzimlər>İş Axışı>Gözdən keçirmə altındakı İncələmə Seçimlərinə "
+"baxın) və tək kliklə rəyçi çatma sıradan çıxarılır. Planlanmış vəzifələr "
+"aktivləşdirilməli və tənzimlənməlidir (sayt tənzimlənmə faylı bölməsinə "
+"baxın)."
 
 #, fuzzy
 msgid "mailable.reviewRequest.name"
-msgstr "XahiŇüimi n…ôz…ôrd…ôn ke√ßirin"
+msgstr "Xahişimi nəzərdən keçirin"
 
 #, fuzzy
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr "BaxńĪŇü t…ôl…ôbi sonradan"
+msgstr "Baxış tələbi sonradan"
 
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
-"Redaktordan r…ôy√ßiy…ô g√∂nd…ôril…ôn bu email, r…ôy√ßinin yeni bir inc…ôl…ôm…"
-"ô turu √ľ√ß√ľn r…ôy√ßiliyi q…ôbul etm…ôsini v…ô ya r…ôdd etm…ôsini ist…ôy…"
-"ôr. BaŇülńĪq v…ô x√ľlas…ô, d…ôy…ôrl…ôndirm…ô son tarixi v…ô namiz…ôd "
-"m…ôqal…ôy…ô nec…ô √ßatńĪlacańüńĪ kimi m…ôlumatlar bu email…ô daxildir."
+"Redaktordan rəyçiyə göndərilən bu email, rəyçinin yeni bir incələmə turu "
+"üçün rəyçiliyi qəbul etməsini və ya rədd etməsini istəyər. Başlıq və xülasə, "
+"dəyərləndirmə son tarixi və namizəd məqaləyə necə çatılacağı kimi məlumatlar "
+"bu emailə daxildir."
 
 #, fuzzy
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr "T…ôqdimatńĪn cari n…ôŇüri yoxdur"
+msgstr "Təqdimatın cari nəşri yoxdur"
 
 #, fuzzy
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr "T…ôqdimatńĪn uŇüańüńĪ {$child} iŇül…ônm…ôdi"
+msgstr "Təqdimatın uşağı {$child} işlənmədi"
 
 #, fuzzy
 msgid "mailable.editorialReminder.name"
-msgstr "Redaksiya xatńĪrlatmasńĪ"
+msgstr "Redaksiya xatırlatması"
 
 #, fuzzy
 msgid "mailable.editorialReminder.description"
 msgstr ""
-"G√∂rk…ômli v…ôzif…ôl…ôri olan redaktorlara g√∂nd…ôril…ôn "
-"avtomatlaŇüdńĪrńĪlmńĪŇü bir e-po√ßt"
+"Görkəmli vəzifələri olan redaktorlara göndərilən avtomatlaşdırılmış bir "
+"e-poçt"
 
 #, fuzzy
 msgid "mailable.passwordResetRequested.name"
-msgstr "Parol sńĪfńĪrlama t…ôsdiql…ôyin"
+msgstr "Parol sıfırlama təsdiqləyin"
 
 #, fuzzy
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
-"Ňěifr…ôl…ôrini unutduqlarńĪ v…ô ya daxil ola bilm…ôdikl…ôri zaman bu e-po√ßt "
-"qeydiyyatdan ke√ßmiŇü istifad…ô√ßiy…ô g√∂nd…ôrilir. ParollarńĪnńĪ yenid…ôn "
-"qurmaq √ľ√ß√ľn izl…ôy…ô bil…ôc…ôk bir URL t…ômin edir."
+"Şifrələrini unutduqları və ya daxil ola bilmədikləri zaman bu e-poçt "
+"qeydiyyatdan keçmiş istifadəçiyə göndərilir. Parollarını yenidən qurmaq üçün "
+"izləyə biləcək bir URL təmin edir."
 
 #, fuzzy
 msgid "mailable.userRegister.name"
-msgstr "ńįstifad…ô√ßi yaratdńĪ"
+msgstr "İstifadəçi yaratdı"
 
 #, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Bu e-po√ßt, redaksiya meneceri istifad…ô√ßi parametrl…ôri vasit…ôsil…ô "
-"istifad…ô√ßi yaratdńĪqda yeni yaradńĪlan bir istifad…ô√ßiy…ô g√∂nd…ôrilir. "
-"E-po√ßt onlarńĪ sistem…ô salamlamalńĪ v…ô istifad…ô√ßi adńĪ v…ô Ňüifr…ônizi "
-"qeyd etm…ôlidir."
+"Bu e-poçt, redaksiya meneceri istifadəçi parametrləri vasitəsilə istifadəçi "
+"yaratdıqda yeni yaradılan bir istifadəçiyə göndərilir. E-poçt onları sistemə "
+"salamlamalı və istifadəçi adı və şifrənizi qeyd etməlidir."
 
 #, fuzzy
 msgid "mailable.reviewerRegister.name"
-msgstr "R…ôy√ßi qeydiyyatńĪ"
+msgstr "Rəyçi qeydiyyatı"
 
 #, fuzzy
 msgid "mailable.reviewerRegister.description"
 msgstr ""
-"Bu e-po√ßt onlarńĪ sistem…ô salamlamaq v…ô istifad…ô√ßi adńĪ v…ô Ňüifr…ônizi "
-"qeyd etm…ôk √ľ√ß√ľn yeni qeydiyyatdan ke√ßmiŇü r…ôy√ßi g√∂nd…ôrilir."
+"Bu e-poçt onları sistemə salamlamaq və istifadəçi adı və şifrənizi qeyd "
+"etmək üçün yeni qeydiyyatdan keçmiş rəyçi göndərilir."
 
 #, fuzzy
 msgid "mailable.submissionSavedForLater.name"
-msgstr "Sonradan t…ôqdim edildi"
+msgstr "Sonradan təqdim edildi"
 
 #, fuzzy
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
-"Sonradan baŇüa √ßatdńĪrmaq √ľ√ß√ľn t…ôqdim etdikl…ôri zaman m√ľ…ôllifl…ôr…ô "
-"g√∂nd…ôril…ôn avtomatlaŇüdńĪrńĪlmńĪŇü bir e-po√ßt"
+"Sonradan başa çatdırmaq üçün təqdim etdikləri zaman müəlliflərə göndərilən "
+"avtomatlaşdırılmış bir e-poçt"
 
 #, fuzzy
 msgid "mailable.submissionAck.name"
-msgstr "T…ôqdimat t…ôsdiql…ônm…ôsi"
+msgstr "Təqdimat təsdiqlənməsi"
 
 #, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Bu e-po√ßt avtomatik olaraq t…ôqdimat etdikd…ô bir m√ľ…ôllif…ô g√∂nd…ôrilir. "
-"Bu redaksiya prosesi vasit…ôsil…ô t…ôqdimatńĪ izl…ôm…ôk v…ô t…ôqdim etm…ôk "
-"√ľ√ß√ľn m√ľ…ôllif…ô t…ôŇü…ôkk√ľr etm…ôk bar…ôd…ô m…ôlumat verir."
+"Bu e-poçt avtomatik olaraq təqdimat etdikdə bir müəllifə göndərilir. Bu "
+"redaksiya prosesi vasitəsilə təqdimatı izləmək və təqdim etmək üçün müəllifə "
+"təşəkkür etmək barədə məlumat verir."
 
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr "T…ôqdimat t…ôsdiql…ônm…ôsi (dig…ôr m√ľ…ôllifl…ôr)"
+msgstr "Təqdimat təsdiqlənməsi (digər müəlliflər)"
 
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Bu e-po√ßt avtomatik olaraq m√ľ…ôllif t…ôqdim etm…ôy…ôn bir t…ôqdimatda "
-"adlandńĪrńĪlan m√ľ…ôllifl…ôr…ô g√∂nd…ôrilir."
+"Bu e-poçt avtomatik olaraq müəllif təqdim etməyən bir təqdimatda "
+"adlandırılan müəlliflərə göndərilir."
 
 #, fuzzy
 msgid "mailable.discussionSubmission.name"
-msgstr "M√ľzakir…ô (t…ôqdim etm…ôk)"
+msgstr "Müzakirə (təqdim etmək)"
 
 #, fuzzy
 msgid "mailable.discussionSubmission.description"
 msgstr ""
-"Bu e-po√ßt bir m√ľzakir…ô yaradńĪldńĪqda v…ô ya t…ôqdim m…ôrh…ôl…ôsind…ô "
-"cavab verdikd…ô g√∂nd…ôrilir."
+"Bu e-poçt bir müzakirə yaradıldıqda və ya təqdim mərhələsində cavab verdikdə "
+"göndərilir."
 
 #, fuzzy
 msgid "mailable.discussionReview.name"
-msgstr "M√ľzakir…ô (baxńĪŇü)"
+msgstr "Müzakirə (baxış)"
 
 #, fuzzy
 msgid "mailable.discussionReview.description"
 msgstr ""
-"Bu e-po√ßt bir m√ľzakir…ô yaradńĪldńĪqda v…ô ya baxńĪŇü m…ôrh…ôl…ôsind…ô "
-"cavab verdikd…ô g√∂nd…ôrilir."
+"Bu e-poçt bir müzakirə yaradıldıqda və ya baxış mərhələsində cavab verdikdə "
+"göndərilir."
 
 #, fuzzy
 msgid "mailable.discussionCopyediting.name"
-msgstr "M√ľzakir…ô (Kopyalama)"
+msgstr "Müzakirə (Kopyalama)"
 
 #, fuzzy
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
-"Bu e-po√ßt, bir m√ľzakir…ô yaradńĪldńĪqda v…ô ya kopyalama m…ôrh…ôl…ôsind…ô "
-"cavab verdikd…ô g√∂nd…ôrilir."
+"Bu e-poçt, bir müzakirə yaradıldıqda və ya kopyalama mərhələsində cavab "
+"verdikdə göndərilir."
 
 #, fuzzy
 msgid "mailable.discussionProduction.name"
-msgstr "M√ľzakir…ô (istehsal)"
+msgstr "Müzakirə (istehsal)"
 
 #, fuzzy
 msgid "mailable.discussionProduction.description"
 msgstr ""
-"Bu e-po√ßt bir m√ľzakir…ô yaradńĪldńĪqda v…ô ya istehsal m…ôrh…ôl…ôsind…ô "
-"cavab verdikd…ô g√∂nd…ôrilir."
+"Bu e-poçt bir müzakirə yaradıldıqda və ya istehsal mərhələsində cavab "
+"verdikdə göndərilir."
 
 #, fuzzy
 msgid "mailable.revisedVersionNotify.name"
-msgstr "Yenid…ôn iŇül…ônmiŇü versiya bildiriŇüi"
+msgstr "Yenidən işlənmiş versiya bildirişi"
 
 #, fuzzy
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
-"Bu e-po√ßt, bir m…ôqal…ônin yenid…ôn iŇül…ônmiŇü bir versiyasńĪnńĪ "
-"y√ľkl…ôdikd…ô avtomatik olaraq t…ôyin olunmuŇü redaktora g√∂nd…ôrilir."
+"Bu e-poçt, bir məqalənin yenidən işlənmiş bir versiyasını yüklədikdə "
+"avtomatik olaraq təyin olunmuş redaktora göndərilir."
 
 #, fuzzy
 msgid "mailable.announcementNotify.name"
@@ -3838,188 +3713,183 @@ msgstr "Yeni elan"
 
 #, fuzzy
 msgid "mailable.announcementNotify.description"
-msgstr "Yeni bir elan yarandńĪqda bu e-po√ßt g√∂nd…ôrilir."
+msgstr "Yeni bir elan yarandıqda bu e-poçt göndərilir."
 
 #, fuzzy
 msgid "mailable.statisticsReportNotify.name"
-msgstr "Statistika HesabatńĪ bildiriŇüi"
+msgstr "Statistika Hesabatı bildirişi"
 
 #, fuzzy
 msgid "mailable.editReviewNotify.name"
-msgstr "BaxńĪŇü bildiriŇüini d√ľz…ôldin"
+msgstr "Baxış bildirişini düzəldin"
 
 #, fuzzy
 msgid "mailable.editReviewNotify.description"
 msgstr ""
-"Bu e-po√ßt, r…ôy tapŇüńĪrńĪńüńĪnńĪn t…ôf…ôrr√ľatlarńĪ d…ôyiŇüdirildikd…ô "
-"r…ôy√ßi avtomatik olaraq x…ôb…ôrdar edir."
+"Bu e-poçt, rəy tapşırığının təfərrüatları dəyişdirildikdə rəyçi avtomatik "
+"olaraq xəbərdar edir."
 
 #, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr "R…ôy√ßi redaktorlara bildirin"
+msgstr "Rəyçi redaktorlara bildirin"
 
 #, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
-"Bu e-po√ßt avtomatik olaraq refereya t√∂vsiy…ô ed…ôrk…ôn t…ôyin edilmiŇü "
-"redaktorlara g√∂nd…ôrilir"
+"Bu e-poçt avtomatik olaraq refereya tövsiyə edərkən təyin edilmiş "
+"redaktorlara göndərilir"
 
 #, fuzzy
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
-"Bu e-po√ßt, onlarńĪn t…ôqdimatlarńĪnńĪn n…ôz…ôrd…ôn ke√ßirm…ô m…ôrh…ôl…ôsin…"
-"ô g√∂nd…ôrildiyi m√ľ…ôllifi x…ôb…ôrdar edir."
+"Bu e-poçt, onların təqdimatlarının nəzərdən keçirmə mərhələsinə göndərildiyi "
+"müəllifi xəbərdar edir."
 
 #, fuzzy
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
-"Bu e-po√ßt, onlarńĪn t…ôqdimatńĪnńĪn t…ôqdim m…ôrh…ôl…ôsin…ô g√∂nd…ôrildiyi "
-"m√ľ…ôllifi x…ôb…ôrdar edir."
+"Bu e-poçt, onların təqdimatının təqdim mərhələsinə göndərildiyi müəllifi "
+"xəbərdar edir."
 
 #, fuzzy
 msgid "manager.manageEmails"
-msgstr "E-po√ßtlarńĪ idar…ô edin"
+msgstr "E-poçtları idarə edin"
 
 #, fuzzy
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
-"<p> <a href=\"{$url}\"_ sistem t…ôr…ôfind…ôn g√∂nd…ôril…ôn b√ľt√ľn e-po√"
-"ßtlar √ľ√ß√ľn ŇüablonlarńĪ …ôlav…ô edin v…ô redakt…ô edin. </ p>"
+"<p> <a href=\"{$url}\"_ sistem tərəfindən göndərilən bütün e-poçtlar üçün "
+"şablonları əlavə edin və redaktə edin. </ p>"
 
 #, fuzzy
 msgid "manager.mailables.addTemplates"
 msgstr ""
-"Bu e-po√ßtu g√∂nd…ôrdikd…ô istifad…ô√ßiy…ô t…ôqdim etm…ôk ist…ôdiyiniz "
-"ŇüablonlarńĪ …ôlav…ô edin v…ô redakt…ô edin. Defolt avtomatik y√ľkl…ôn…ôc…ôk "
-"v…ô istifad…ô√ßi burada …ôlav…ô etdiyiniz dig…ôr ŇüablonlarńĪ tez bir "
-"zamanda y√ľkl…ôy…ô bil…ôc…ôk."
+"Bu e-poçtu göndərdikdə istifadəçiyə təqdim etmək istədiyiniz şablonları "
+"əlavə edin və redaktə edin. Defolt avtomatik yüklənəcək və istifadəçi burada "
+"əlavə etdiyiniz digər şablonları tez bir zamanda yükləyə biləcək."
 
 #, fuzzy
 msgid "manager.mailables.templates"
-msgstr "Ňěablon"
+msgstr "Şablon"
 
 #, fuzzy
 msgid "manager.mailables.editTemplate"
-msgstr "Ňěablonu d√ľz…ôldin"
+msgstr "Şablonu düzəldin"
 
 #, fuzzy
 msgid "manager.mailables.removeTemplate"
-msgstr "Ňěablonu √ßńĪxarńĪn"
+msgstr "Şablonu çıxarın"
 
 #, fuzzy
 msgid "manager.mailables.removeTemplate.confirm"
-msgstr ""
-"Ňěablonu <strong> {$template} </ strong> silm…ôk ist…ôdiyiniz…ô …ôminsiniz?"
+msgstr "Şablonu <strong> {$template} </ strong> silmək istədiyinizə əminsiniz?"
 
 #, fuzzy
 msgid "manager.mailables.resetTemplate"
-msgstr "Ňěablonu yenid…ôn qurun"
+msgstr "Şablonu yenidən qurun"
 
 #, fuzzy
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
-"Ňěablon √ľ√ß√ľn <strong> {$template} </ strong> √ľ√ß√ľn standartlarńĪna tabe "
-"olan m√∂vzunu v…ô b…ôd…ôni yenid…ôn qurmaq ist…ôdiyiniz…ô …ôminsiniz?"
+"Şablon üçün <strong> {$template} </ strong> üçün standartlarına tabe olan "
+"mövzunu və bədəni yenidən qurmaq istədiyinizə əminsiniz?"
 
 #, fuzzy
 msgid "manager.mailables.search"
-msgstr "AdńĪ v…ô ya T…ôsviri il…ô axtarńĪn"
+msgstr "Adı və ya Təsviri ilə axtarın"
 
 #, fuzzy
 msgid "manager.emailTemplate.name.description"
-msgstr ""
-"Bu Ňüablonu tapmańüńĪnńĪza k√∂m…ôk etm…ôk √ľ√ß√ľn qńĪsa bir ad daxil edin."
+msgstr "Bu şablonu tapmağınıza kömək etmək üçün qısa bir ad daxil edin."
 
 #, fuzzy
 msgid "manager.newSubmission"
-msgstr "Yeni t…ôqdimat"
+msgstr "Yeni təqdimat"
 
 #, fuzzy
 msgid "manager.newSubmission.description"
 msgstr ""
-"Yeni bir t…ôqdimat edildikd…ô g√∂nd…ôrm…ôk √ľ√ß√ľn e-po√ßt bildiriŇül…ôrini "
+"Yeni bir təqdimat edildikdə göndərmək üçün e-poçt bildirişlərini "
 "konfiqurasiya edin."
 
 #, fuzzy
 msgid "manager.submissionAck.description"
-msgstr "Yeni bir t…ôqdimat baŇüa √ßatdńĪqda kim bir e-po√ßt almalńĪdńĪr."
+msgstr "Yeni bir təqdimat başa çatdıqda kim bir e-poçt almalıdır."
 
 #, fuzzy
 msgid "manager.submissionAck.off"
-msgstr "Bir e-po√ßt g√∂nd…ôrm…ôyin."
+msgstr "Bir e-poçt göndərməyin."
 
 #, fuzzy
 msgid "manager.submissionAck.submittingAuthor"
-msgstr "YalnńĪz t…ôqdim ed…ôn m√ľ…ôllif…ô bir e-po√ßt g√∂nd…ôrin."
+msgstr "Yalnız təqdim edən müəllifə bir e-poçt göndərin."
 
 #, fuzzy
 msgid "manager.submissionAck.allAuthors"
-msgstr "B√ľt√ľn m√ľ…ôllifl…ôr…ô bir e-po√ßt g√∂nd…ôrin."
+msgstr "Bütün müəlliflərə bir e-poçt göndərin."
 
 #, fuzzy
 msgid "manager.editorialDecisions"
-msgstr "Redaksiya q…ôrarlarńĪ"
+msgstr "Redaksiya qərarları"
 
 #, fuzzy
 msgid "manager.editorialDecisions.description"
 msgstr ""
-"Redaksiya q…ôrarńĪ qeyd…ô alńĪndńĪqda m√ľ…ôllifl…ôr…ô g√∂nd…ôrm…ôk √ľ√ß√ľn "
-"e-po√ßt bildiriŇül…ôrini konfiqurasiya edin."
+"Redaksiya qərarı qeydə alındıqda müəlliflərə göndərmək üçün e-poçt "
+"bildirişlərini konfiqurasiya edin."
 
 #, fuzzy
 msgid "manager.forEditors"
-msgstr "Redaktorlar √ľ√ß√ľn"
+msgstr "Redaktorlar üçün"
 
 #, fuzzy
 msgid "manager.forEditors.description"
-msgstr ""
-"Redaktorlara g√∂nd…ôrm…ôk √ľ√ß√ľn e-po√ßt bildiriŇül…ôrini konfiqurasiya "
-"edin."
+msgstr "Redaktorlara göndərmək üçün e-poçt bildirişlərini konfiqurasiya edin."
 
 #, fuzzy
 msgid "manager.editorialStatistics"
-msgstr "Redaksiya statistikasńĪ"
+msgstr "Redaksiya statistikası"
 
 #, fuzzy
 msgid "manager.editorialStatistics.description"
 msgstr ""
-"Q…ôbul v…ô r…ôdd etm…ôk kimi jurnalńĪn redaktor statistikasńĪ il…ô "
-"redaktorlara aylńĪq bir e-po√ßt g√∂nd…ôrm…ôyiniz v…ô ya etm…ôm…ôyiniz. "
-"Redaktorlar istifad…ô√ßi profilind…ôn bu e-po√ßtdan abun…ô ola bil…ôrl…ôr."
+"Qəbul və rədd etmək kimi jurnalın redaktor statistikası ilə redaktorlara "
+"aylıq bir e-poçt göndərməyiniz və ya etməməyiniz. Redaktorlar istifadəçi "
+"profilindən bu e-poçtdan abunə ola bilərlər."
 
 #, fuzzy
 msgid "manager.editorialStatistics.on"
-msgstr "Redaktorlara aylńĪq bir e-po√ßt g√∂nd…ôrin."
+msgstr "Redaktorlara aylıq bir e-poçt göndərin."
 
 #, fuzzy
 msgid "manager.editorialStatistics.off"
-msgstr "E-po√ßtu redaktorlara g√∂nd…ôrm…ôyin."
+msgstr "E-poçtu redaktorlara göndərməyin."
 
 #, fuzzy
 msgid "manager.submitWithCategories.description"
 msgstr ""
-"T…ôqdim olunan m√ľ…ôllifd…ôn yeni bir t…ôqdimat etdikd…ô bir kateqoriya "
-"se√ßm…ôk ist…ôm…ôlidirmi?"
+"Təqdim olunan müəllifdən yeni bir təqdimat etdikdə bir kateqoriya seçmək "
+"istəməlidirmi?"
 
 #, fuzzy
 msgid "manager.submitWithCategories.yes"
-msgstr "B…ôli, t…ôqdim SihirbazńĪna kateqoriyalar sah…ôsi …ôlav…ô edin."
+msgstr "Bəli, təqdim Sihirbazına kateqoriyalar sahəsi əlavə edin."
 
 #, fuzzy
 msgid "manager.submitWithCategories.no"
-msgstr "Xeyr, bu sah…ôni m√ľ…ôllifl…ôri g√∂st…ôrm…ôyin."
+msgstr "Xeyr, bu sahəni müəllifləri göstərməyin."
 
 #, fuzzy
 msgid "mailable.copyeditRequest.name"
-msgstr "Copediit t…ôl…ôbi"
+msgstr "Copediit tələbi"
 
 #, fuzzy
 msgid "mailable.editorAssign.name"
-msgstr "Redaktor t…ôyin edildi"
+msgstr "Redaktor təyin edildi"
 
 #, fuzzy
 msgid "mailable.layoutRequest.name"
-msgstr "ńįstehsal √ľ√ß√ľn hazńĪrdńĪr"
+msgstr "İstehsal üçün hazırdır"
 
 #, fuzzy
 msgid "mailable.system"
@@ -4027,15 +3897,15 @@ msgstr "Sistem"
 
 #, fuzzy
 msgid "mailable.versionCreated.name"
-msgstr "YaradńĪlńĪŇü versiyasńĪ"
+msgstr "Yaradılış versiyası"
 
 #, fuzzy
 msgid "mailable.reviewComplete.name"
-msgstr "BaxńĪŇü tamamlandńĪ"
+msgstr "Baxış tamamlandı"
 
 #, fuzzy
 msgid "mailable.reviewEdit.name"
-msgstr "ńįcmal redakt…ô edildi"
+msgstr "İcmal redaktə edildi"
 
 #, fuzzy
 msgid "manager.emails.enable.message"

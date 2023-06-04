@@ -66,7 +66,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form {
 			if ($reviewAssignment->getDateCompleted()) fatalError('Review already completed!');
 
 			// Get the review round object.
-			$reviewRoundDao = DAORegistry::getDAO('ReviewRound');
+			$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
 			$this->_reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
 		} else if (!$assocType && !$reviewRound) {
 			$reviewRound = null;

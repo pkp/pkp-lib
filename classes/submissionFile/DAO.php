@@ -375,10 +375,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
                     'setting_name' => 'pub-id::' . (string) $pubIdType,
                     'setting_value' => (string) $pubId
                 ],
-                [
-                    'setting_type' => 'string',
-                    'locale' => '',
-                ]
+                ['locale' => '']
             );
     }
 

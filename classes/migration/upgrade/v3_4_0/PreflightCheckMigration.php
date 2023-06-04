@@ -22,6 +22,7 @@ use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\JoinClause;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\db\DAORegistry;
@@ -50,6 +51,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             $this->checkForeignKeySupport();
             $this->checkSubmissionChecklist();
             $this->checkContactSetting();
+            $this->dropForeignKeys();
             $this->clearOrphanedEntities();
             // Extra checks done after the entities are clean to avoid flagging problems over data that's supposed to be gone
             $this->checkSubmissionLocale();
@@ -1219,5 +1221,29 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             -- Ensures a better record was found (if not found, it means the current duplicated record is the best and shouldn't be removed)
             WHERE best.user_id IS NOT NULL"
         );
+    }
+
+    /**
+     * Drops existing foreign keys that might have a "ON DELETE RESTRICT" rule, which would break the cleanup
+     * The removed foreign keys will be re-added later on by the migration I6093_AddForeignKeys
+     */
+    protected function dropForeignKeys(): void
+    {
+        if (DB::getDoctrineSchemaManager()->introspectTable('submission_files')->hasForeignKey('submission_files_file_id_foreign')) {
+            Schema::table('submission_files', fn (Blueprint $table) => $table->dropForeign('submission_files_file_id_foreign'));
+        }
+        Schema::table('submission_file_revisions', function (Blueprint $table) {
+            foreach (['submission_file_revisions_submission_file_id_foreign', 'submission_file_revisions_file_id_foreign'] as $foreignKeyName) {
+                if (DB::getDoctrineSchemaManager()->introspectTable('submission_file_revisions')->hasForeignKey($foreignKeyName)) {
+                    $table->dropForeign($foreignKeyName);
+                }
+            }
+        });
+        if (DB::getDoctrineSchemaManager()->introspectTable('review_files')->hasForeignKey('review_files_submission_file_id_foreign')) {
+            Schema::table('review_files', fn (Blueprint $table) => $table->dropForeign('review_files_submission_file_id_foreign'));
+        }
+        if (DB::getDoctrineSchemaManager()->introspectTable('review_round_files')->hasForeignKey('review_round_files_submission_file_id_foreign')) {
+            Schema::table('review_round_files', fn (Blueprint $table) => $table->dropForeign('review_round_files_submission_file_id_foreign'));
+        }
     }
 }

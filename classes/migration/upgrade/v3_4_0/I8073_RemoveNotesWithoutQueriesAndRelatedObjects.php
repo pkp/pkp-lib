@@ -14,7 +14,6 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
-use Exception;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -85,10 +84,8 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
         });
 
         // Does have the foreign key reference but not the CASCADE
-        try {
+        if (DB::getDoctrineSchemaManager()->introspectTable('review_files')->hasForeignKey('review_files_submission_file_id_foreign')) {
             Schema::table('review_files', fn (Blueprint $table) => $table->dropForeign('review_files_submission_file_id_foreign'));
-        } catch (Exception) {
-            error_log('Failed to delete foreign key review_files.review_files_submission_file_id_foreign, perhaps your installation didn\'t have this constraint');
         }
         Schema::table('review_files', function (Blueprint $table) {
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
@@ -96,10 +93,8 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
         });
 
         // Does have the foreign key reference but not the CASCADE
-        try {
+        if (DB::getDoctrineSchemaManager()->introspectTable('review_round_files')->hasForeignKey('review_round_files_submission_file_id_foreign')) {
             Schema::table('review_round_files', fn (Blueprint $table) => $table->dropForeign('review_round_files_submission_file_id_foreign'));
-        } catch (Exception) {
-            error_log('Failed to delete foreign key review_round_files.review_round_files_submission_file_id_foreign, perhaps your installation didn\'t have this constraint');
         }
         Schema::table('review_round_files', function (Blueprint $table) {
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');

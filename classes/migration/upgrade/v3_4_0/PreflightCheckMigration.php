@@ -595,7 +595,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $tombstoneId) {
                 DB::table('data_object_tombstone_oai_set_objects')->where('tombstone_id', '=', $tombstoneId)->delete();
             }
-            // Clean orphaned category data
+            // Clean orphaned context data
             $orphanedIds = DB::table($this->getContextSettingsTable() . ' AS cs')->leftJoin($this->getContextTable() . ' AS c', 'cs.' . $this->getContextKeyField(), '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('cs.' . $this->getContextKeyField());
             foreach ($orphanedIds as $contextId) {
                 DB::table($this->getContextSettingsTable())->where($this->getContextKeyField(), '=', $contextId)->delete();
@@ -670,7 +670,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // Check if database engine supports foreign key constraints, see pkp/pkp-lib#6732
             if (DB::connection() instanceof MySqlConnection) {
                 $defaultEngine = DB::scalar('SELECT ENGINE FROM INFORMATION_SCHEMA.ENGINES WHERE SUPPORT = "DEFAULT"');
-                if ($defaultEngine !== 'InnoDB') {
+                if (strtolower($defaultEngine) !== 'innodb') {
                     throw new Exception(
                         'A default database engine ' . $defaultEngine . ' isn\'t supported, expecting InnoDB. ' .
                         'Please change the default database engine to InnoDB to run the upgrade.'
@@ -680,7 +680,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 $result = DB::select(
                     'SELECT t.table_name, t.engine AS table_engine
                     FROM information_schema.tables AS t
-                    WHERE t.table_schema = :databaseName AND t.engine <> "InnoDB"',
+                    WHERE t.table_schema = :databaseName AND LOWER(t.engine) <> "innodb"',
                     ['databaseName' => DB::connection()->getDatabaseName()]
                 );
 

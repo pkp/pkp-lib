@@ -16,6 +16,7 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
+use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -50,7 +51,11 @@ abstract class I8933_EventLogLocalized extends Migration
             $table->bigInteger('user_id')->nullable()->change();
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'event_log_user_id');
-            $table->boolean('is_translated')->nullable()->change();
+            if (DB::connection() instanceof PostgresConnection) {
+                DB::unprepared('ALTER TABLE event_log ALTER is_translated TYPE bool USING CASE WHEN COALESCE(is_translated, 0) = 0 THEN FALSE ELSE TRUE END');
+            } else {
+                $table->boolean('is_translated')->nullable()->change();
+            }
         });
 
         $this->fixConflictingSubmissionLogConstants();

@@ -544,10 +544,10 @@ msgid "submission.emailLog"
 msgstr "Email Log"
 
 msgid "submission.event.participantAdded"
-msgstr "{$name} ({$username}) was assigned to this submission as a {$userGroupName}."
+msgstr "{$userFullName} ({$username}) was assigned to this submission as a {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) is removed as a {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) is removed as a {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Back to Event Log"
@@ -568,10 +568,10 @@ msgid "submission.event.submissionSubmitted"
 msgstr "Initial submission completed."
 
 msgid "submission.event.copyrightAgreed"
-msgstr "{$name} ({$username}) agreed to the copyright terms for submission."
+msgstr "{$filename} ({$username}) agreed to the copyright terms for submission."
 
 msgid "submission.event.fileRevised"
-msgstr "Revision \"{$name}\" was uploaded for file {$submissionFileId}."
+msgstr "Revision \"{$filename}\" was uploaded for file {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Submission metadata updated"

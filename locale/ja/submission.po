@@ -567,10 +567,10 @@ msgstr "メールログ"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) がこの投稿に{$userGroupName}として任命されました。"
+"{$userFullName} ({$username}) がこの投稿に{$userGroupName}として任命されました。"
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username})は{$userGroupName}として削除されました。"
+msgstr "\"{$userFullName}\" ({$username})は{$userGroupName}として削除されました。"
 
 msgid "submission.event.backToEventLog"
 msgstr "イベントログに戻る"
@@ -594,7 +594,7 @@ msgid "submission.event.copyrightAgreed"
 msgstr ""
 
 msgid "submission.event.fileRevised"
-msgstr "{$submissionFileId}ファイルの改訂「{$name}」がアップロードされました。"
+msgstr "{$submissionFileId}ファイルの改訂「{$filename}」がアップロードされました。"
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "投稿物メタデータが更新された"

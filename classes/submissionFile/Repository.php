@@ -379,7 +379,7 @@ abstract class Repository
                 'assocId' => $submission->getId(),
                 'eventType' => $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
                 'message' => $newFileUploaded ? 'submission.event.revisionUploaded' : 'submission.event.fileEdited',
-                'isTranslate' => 0,
+                'isTranslate' => false,
                 'dateLogged' => Core::getCurrentDate(),
             ]
         ));

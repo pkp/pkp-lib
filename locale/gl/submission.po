@@ -576,10 +576,10 @@ msgid "submission.emailLog"
 msgstr "Rexistro de correo electrónico"
 
 msgid "submission.event.participantAdded"
-msgstr "{$name} ({$username}) foi asignado a este envío como {$userGroupName}."
+msgstr "{$userFullName} ({$username}) foi asignado a este envío como {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) elimínase como {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) elimínase como {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Volver ao rexistro de eventos"
@@ -603,7 +603,7 @@ msgid "submission.event.copyrightAgreed"
 msgstr ""
 
 msgid "submission.event.fileRevised"
-msgstr "Cargouse a revisión \"{$name}\" para o arquivo {$submissionFileId}."
+msgstr "Cargouse a revisión \"{$filename}\" para o arquivo {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadatos de envío actualizados"

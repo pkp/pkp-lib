@@ -580,10 +580,10 @@ msgstr "Էլ․ փոստի մատյան"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) նշանակվել է այս ներկայացմանը որպես {$userGroupName} :"
+"{$userFullName} ({$username}) նշանակվել է այս ներկայացմանը որպես {$userGroupName} :"
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) հեռացվել է որպես {$userGroupName}:"
+msgstr "\"{$userFullName}\" ({$username}) հեռացվել է որպես {$userGroupName}:"
 
 msgid "submission.event.backToEventLog"
 msgstr "Վերադարձ Իրադարձությունների մատյանին"
@@ -607,11 +607,11 @@ msgstr "Նախնական ներկայացումն ավարտված է:"
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$name} ({$username}) -ը համաձայնել է ներկայացման հեղինակային իրավունքի "
+"{$filename} ({$username}) -ը համաձայնել է ներկայացման հեղինակային իրավունքի "
 "պայմաններին:"
 
 msgid "submission.event.fileRevised"
-msgstr "\"{$name}\" տարբերակը վերբեռնվել է {$submissionFileId} նիշքի համար:"
+msgstr "\"{$filename}\" տարբերակը վերբեռնվել է {$submissionFileId} նիշքի համար:"
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Ներկայացման մետատվյալները թարմացվել են"

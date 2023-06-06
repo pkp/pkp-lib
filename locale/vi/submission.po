@@ -570,11 +570,11 @@ msgstr "Nhật ký email"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) đã được chỉ định cho bài nộp này với tư cách là "
+"{$userFullName} ({$username}) đã được chỉ định cho bài nộp này với tư cách là "
 "{$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) bị xóa tư cách {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) bị xóa tư cách {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Quay lại Nhật ký sự kiện"
@@ -600,7 +600,7 @@ msgstr ""
 #, fuzzy
 msgid "submission.event.fileRevised"
 msgstr ""
-"Bản sửa đổi \"{$name}\" (tệp với ID {$submissionFileId}) đã được tải lên."
+"Bản sửa đổi \"{$filename}\" (tệp với ID {$submissionFileId}) đã được tải lên."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Đã cập nhật siêu dữ liệu bài gửi"

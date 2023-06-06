@@ -577,11 +577,11 @@ msgstr "E-postlogg"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) ble lagt til denne innleveringen som et "
+"{$userFullName} ({$username}) ble lagt til denne innleveringen som et "
 "{$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "{$name} ({$username}) er fjernet som {$userGroupName}."
+msgstr "{$userFullName} ({$username}) er fjernet som {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Tilbake til aktivitetslogg"
@@ -607,7 +607,7 @@ msgstr ""
 
 msgid "submission.event.fileRevised"
 msgstr ""
-"Den reviderte filen \"{$name}\" (file ID {$fileId}-{$fileRevision}) ble "
+"Den reviderte filen \"{$filename}\" (file ID {$fileId}-{$fileRevision}) ble "
 "lastet opp."
 
 msgid "submission.event.general.metadataUpdated"

@@ -578,10 +578,10 @@ msgid "submission.emailLog"
 msgstr "ელფოსტის ჟურნალი"
 
 msgid "submission.event.participantAdded"
-msgstr "{$name} ({$username}) ამ წარდგენას მიენიჭა, როგორც {$userGroupName}."
+msgstr "{$userFullName} ({$username}) ამ წარდგენას მიენიჭა, როგორც {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$\\username}) წაიშალა, როგორც {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$\\username}) წაიშალა, როგორც {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "ღონისძიების ჟურნალში დაბრუნება"
@@ -608,7 +608,7 @@ msgid "submission.event.copyrightAgreed"
 msgstr ""
 
 msgid "submission.event.fileRevised"
-msgstr "რედაქცია \"{$name}\" აიტვირთა ფაილისთვის {$submissionFileId}."
+msgstr "რედაქცია \"{$filename}\" აიტვირთა ფაილისთვის {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "გაგზავნის მეტამონაცემები განახლებულია"

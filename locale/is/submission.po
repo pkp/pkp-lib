@@ -581,10 +581,10 @@ msgstr "Skrá yfir tölvupósta"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) fékk þessari innsendingu úthlutað sem {$userGroupName}."
+"{$userFullName} ({$username}) fékk þessari innsendingu úthlutað sem {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) fjarlægð(ur/-t) sem {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) fjarlægð(ur/-t) sem {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Til baka í atburðaskrá"
@@ -611,7 +611,7 @@ msgid "submission.event.copyrightAgreed"
 msgstr ""
 
 msgid "submission.event.fileRevised"
-msgstr "Endurskoðun \"{$name}\" var hlaðið inn fyrir skrá {$submissionFileId}."
+msgstr "Endurskoðun \"{$filename}\" var hlaðið inn fyrir skrá {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Lýsigögn innsendingar uppfærð"

@@ -590,10 +590,10 @@ msgstr "Журнал электронной почты"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) был назначен в этот материал как {$userGroupName}."
+"{$userFullName} ({$username}) был назначен в этот материал как {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "«{$name}» ({$username}) удален как {$userGroupName}."
+msgstr "«{$userFullName}» ({$username}) удален как {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Назад к журналу событий"
@@ -617,11 +617,11 @@ msgstr "Первоначальная отправка материала зав�
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$name} ({$username}) согласился(ась) с условиями авторского права на "
+"{$filename} ({$username}) согласился(ась) с условиями авторского права на "
 "отправленный материал."
 
 msgid "submission.event.fileRevised"
-msgstr "Версия «{$name}» (ID файла {$submissionFileId}) была загружена."
+msgstr "Версия «{$filename}» (ID файла {$submissionFileId}) была загружена."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Метаданные материала обновлены"

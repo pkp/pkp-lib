@@ -580,7 +580,7 @@ msgstr "Histórico de e-mail"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) foi designado para esta submissão como "
+"{$userFullName} ({$username}) foi designado para esta submissão como "
 "{$userGroupName}."
 
 msgid "submission.event.participantRemoved"
@@ -608,12 +608,12 @@ msgstr "Submissão inicial concluída."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$name} ({$username}) concordou com os termos dos direitos de autor para a "
+"{$filename} ({$username}) concordou com os termos dos direitos de autor para a "
 "submissão."
 
 msgid "submission.event.fileRevised"
 msgstr ""
-"Revisão \"{$name}\" foi carregada para o ficheiro {$submissionFileId})."
+"Revisão \"{$filename}\" foi carregada para o ficheiro {$submissionFileId})."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadados da submissão atualizados"

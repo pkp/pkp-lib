@@ -585,10 +585,10 @@ msgstr "Евиденција за и-меил"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) е назначен/а на овој поднесок како {$userGroupName}."
+"{$userFullName} ({$username}) е назначен/а на овој поднесок како {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) е отстранет/а како {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) е отстранет/а како {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Назад кон евиденција на настан"
@@ -621,7 +621,7 @@ msgstr ""
 
 msgid "submission.event.fileRevised"
 msgstr ""
-"Исправката \"{$name}\" беше прикачена за датотеката {$submissionFileId}."
+"Исправката \"{$filename}\" беше прикачена за датотеката {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Метаподатоците на поднесокот се ажурирани"

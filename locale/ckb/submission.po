@@ -569,10 +569,10 @@ msgstr "تۆماری ئیمەیڵ"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) بۆ ئەم پێشکەشکردنە وەک {$userGroupName} ئەرکدار کراوە."
+"{$userFullName} ({$username}) بۆ ئەم پێشکەشکردنە وەک {$userGroupName} ئەرکدار کراوە."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) وەک {$userGroupName} سڕاوەتەوە."
+msgstr "\"{$userFullName}\" ({$username}) وەک {$userGroupName} سڕاوەتەوە."
 
 msgid "submission.event.backToEventLog"
 msgstr "گەڕانەوە بۆ بۆنەکان"
@@ -597,7 +597,7 @@ msgstr ""
 
 #, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "پێداچونەوەی\"{$name}\" (ناسنامەی فایل {$submissionFileId}) بار کرا."
+msgstr "پێداچونەوەی\"{$filename}\" (ناسنامەی فایل {$submissionFileId}) بار کرا."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "زانیاریی ناسێنەری پێشکەشکراوەکە نوێ کرایەوە"

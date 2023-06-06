@@ -580,10 +580,10 @@ msgstr "Zaporedje e-pošte"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"\"{$name}\" ({$username}) je bil dodeljen prispevku kot {$userGroupName}."
+"\"{$userFullName}\" ({$username}) je bil dodeljen prispevku kot {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) je odstranjen kot {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) je odstranjen kot {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Nazaj na zaporedje dogodkov"
@@ -609,12 +609,12 @@ msgstr "začetna oddaja prispevka je končana."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$name} ({$username}) se strinja s pogoji avtorskih pravic za oddajo "
+"{$filename} ({$username}) se strinja s pogoji avtorskih pravic za oddajo "
 "prispevka."
 
 msgid "submission.event.fileRevised"
 msgstr ""
-"Posodobljena datoteka \"{$name}\" je bila naložena za datoteko "
+"Posodobljena datoteka \"{$filename}\" je bila naložena za datoteko "
 "{$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"

@@ -579,11 +579,11 @@ msgstr "Log E-mel"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) telah ditugaskan kepada penyerahan ini sebagai "
+"{$userFullName} ({$username}) telah ditugaskan kepada penyerahan ini sebagai "
 "{$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) dibuang sebagai {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) dibuang sebagai {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Kembali ke Log Aktiviti"
@@ -607,7 +607,7 @@ msgid "submission.event.copyrightAgreed"
 msgstr ""
 
 msgid "submission.event.fileRevised"
-msgstr "Semakan \"{$name}\" telah dimuat naik untuk fail {$submissionFileId}."
+msgstr "Semakan \"{$filename}\" telah dimuat naik untuk fail {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadata penyerahan dikemas kini"

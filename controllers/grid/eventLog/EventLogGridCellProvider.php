@@ -81,21 +81,22 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                             PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_DECLINE,
                             PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_UNCONSIDERED,
                         ];
-                        $params = $element->getParams();
                         if (in_array($element->getEventType(), $reviewerLogTypes)) {
                             $userName = __('editor.review.anonymousReviewer');
-                            if (isset($params['reviewAssignmentId'])) {
-                                $reviewAssignment = $reviewAssignmentDao->getById($params['reviewAssignmentId']);
+                            if ($reviewAssignmentId = $element->getData('reviewAssignmentId')) {
+                                $reviewAssignment = $reviewAssignmentDao->getById($reviewAssignmentId);
                                 if ($reviewAssignment && $reviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN) {
-                                    $userName = $reviewAssignment->getUserFullName();
+                                    $userName = $element->getUserFullName();
                                 }
                             }
                         }
 
                         // Maybe anonymize files submitted by reviewers
-                        if (isset($params['fileStage']) && $params['fileStage'] === SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
-                            assert(isset($params['fileId']) && isset($params['submissionId']));
-                            $submissionFile = Repo::submissionFile()->get($params['id']);
+                        $fileStage = $element->getData('fileStage');
+                        if ($fileStage && $fileStage === SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
+                            $submissionFileId = $element->getData('submissionFileId');
+                            assert($element->getData('fileId') && $element->getData('submissionId') && $submissionFileId);
+                            $submissionFile = Repo::submissionFile()->get($submissionFileId);
                             if ($submissionFile && $submissionFile->getData('assocType') === Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
                                 $reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
                                 if (!$reviewAssignment || in_array($reviewAssignment->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {

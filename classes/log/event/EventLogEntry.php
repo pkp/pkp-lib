@@ -184,7 +184,7 @@ class EventLogEntry extends \PKP\core\DataObject
     {
         $message = $this->getMessage();
         // If it's already translated, just return the message.
-        if ($this->getIsTranslated()) {
+        if ($this->getData('isTranslated')) {
             return $message;
         }
 
@@ -193,68 +193,57 @@ class EventLogEntry extends \PKP\core\DataObject
             $locale = Locale::getLocale();
         }
 
-        $params = array_merge($this->_data, $this->getParams());
-        unset($params['params']); // Clean up for translate call
+        $eventLog = clone $this;
 
         if ($hideReviewerName) {
             $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var \PKP\submission\reviewAssignment\ReviewAssignmentDAO $reviewAssignmentDao */
             // Reviewer activity log entries (assigning, accepting, declining)
-            if (isset($params['reviewerName'])) {
+            if ($eventLog->getData('reviewerName')) {
                 $anonymousAuthor = true;
-                if (isset($params['reviewAssignmentId'])) {
-                    $reviewAssignment = $reviewAssignmentDao->getById($params['reviewAssignmentId']);
+                if ($reviewAssignmentId = $eventLog->getData('reviewAssignmentId')) {
+                    $reviewAssignment = $reviewAssignmentDao->getById($reviewAssignmentId);
                     if ($reviewAssignment && !in_array($reviewAssignment->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
                         $anonymousAuthor = false;
                     }
                 }
                 if ($anonymousAuthor) {
-                    $params['reviewerName'] = __('editor.review.anonymousReviewer');
+                    $eventLog->setData('reviewerName', __('editor.review.anonymousReviewer'));
                 }
             }
             // Files submitted by reviewers
-            if (isset($params['fileStage']) && $params['fileStage'] === SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
-                assert(isset($params['fileId']) && isset($params['submissionId']));
+            $fileStage = $eventLog->getData('fileStage');
+            if ($fileStage && $fileStage === SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
+                $submissionFileId = $eventLog->getData('submissionFileId');
+                assert($eventLog->getData('fileId') && $eventLog->getData('submissionId') && $submissionFileId);
                 $anonymousAuthor = true;
-                $submissionFile = Repo::submissionFile()->get($params['id']);
+                $submissionFile = Repo::submissionFile()->get($submissionFileId);
                 if ($submissionFile && $submissionFile->getData('assocType') === Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
                     $reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
                     if ($reviewAssignment && !in_array($reviewAssignment->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
                         $anonymousAuthor = false;
                     }
                 }
-                if (isset($params['username']) && $anonymousAuthor) {
-                    if (isset($params['username'])) {
-                        $params['username'] = __('editor.review.anonymousReviewer');
-                    }
-                    if (isset($params['originalFileName'])) {
-                        $params['originalFileName'] = '';
-                    }
+                if ($eventLog->getData('username') && $anonymousAuthor) {
+                    $eventLog->setData('username', __('editor.review.anonymousReviewer'));
+                    $filenames = $eventLog->getData('filename');
+                    $eventLog->setData('filename', array_map(function (string $value) {
+                        return '';
+                    }, $filenames));
                 }
             }
         }
 
+        $params = [];
+        foreach ($eventLog->getAllData() as $key => $data) {
+            if (!is_array($data)) {
+                $params[$key] = $eventLog->getData($key);
+                continue;
+            }
+
+            $params[$key] = $eventLog->getData($key, $locale);
+        }
 
         return __($message, $params, $locale);
-    }
-
-    /**
-     * Get custom log message parameters.
-     *
-     * @return array
-     */
-    public function getParams()
-    {
-        return $this->getData('params');
-    }
-
-    /**
-     * Set custom log message parameters.
-     *
-     * @param array $params
-     */
-    public function setParams($params)
-    {
-        $this->setData('params', $params);
     }
 
     /**

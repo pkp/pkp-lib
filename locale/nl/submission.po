@@ -572,10 +572,10 @@ msgstr "E-mail logboek"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) is toegewezen aan deze inzending als {$userGroupName}."
+"{$userFullName} ({$username}) is toegewezen aan deze inzending als {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) is verwijderd als {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) is verwijderd als {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Terug naar logboek"
@@ -600,7 +600,7 @@ msgstr ""
 
 #, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Revisie \"{$name}\" (bestands-ID {$submissionFileId}) werd opgeladen."
+msgstr "Revisie \"{$filename}\" (bestands-ID {$submissionFileId}) werd opgeladen."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadata van de inzending veranderd"

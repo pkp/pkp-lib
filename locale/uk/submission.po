@@ -592,10 +592,10 @@ msgstr "Журнал електронної пошти"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) було призначено для цього подання як {$userGroupName}."
+"{$userFullName} ({$username}) було призначено для цього подання як {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) видалений як {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) видалений як {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Повернутися до журналу подій"
@@ -619,10 +619,10 @@ msgstr "Початкове надсилання подання завершен�
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$name} ({$username}) погодився з умовами авторського права для подання."
+"{$filename} ({$username}) погодився з умовами авторського права для подання."
 
 msgid "submission.event.fileRevised"
-msgstr "Версія \"{$name}\" була завантажена для файлу {$submissionFileId}."
+msgstr "Версія \"{$filename}\" була завантажена для файлу {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Метадані подання оновлені"

@@ -652,19 +652,24 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 ->where('setting_name', 'submissionChecklist')
                 ->get(['setting_name', 'setting_value', 'locale', $this->getContextKeyField()])
                 ->each(function ($row) {
-                    if (isValidJson($row->setting_value)) {
-                        return;
-                    }
-                    // Attempts to fix the JSON (see https://github.com/pkp/pkp-lib/issues/8929#issuecomment-1519867805) before failing the upgrade
-                    $fixedValue = "[{$row->setting_value}]";
-                    if (!isValidJson($fixedValue)) {
+                    try {
+                        $checklist = json_decode((string) $row->setting_value, null, 512, JSON_THROW_ON_ERROR);
+                        if (is_array($checklist)) {
+                            return;
+                        }
+                        // Attempts to fix the JSON (see https://github.com/pkp/pkp-lib/issues/8929#issuecomment-1519867805) before failing the upgrade
+                        if (is_object($checklist)) {
+                            DB::table($this->getContextSettingsTable())
+                                ->where('setting_name', $row->setting_name)
+                                ->where('locale', $row->locale)
+                                ->where($this->getContextKeyField(), $row->{$this->getContextKeyField()})
+                                ->update(['setting_value' => json_encode(array_values((array) $checklist), JSON_UNESCAPED_UNICODE)]);
+                            return;
+                        }
+                        throw new Exception('Unexpected type');
+                    } catch (Exception) {
                         throw new Exception('A row with setting_name="submissionChecklist" found in table ' . $this->getContextSettingsTable() . " without the expected setting_value. Expected an array encoded in JSON but found:\n\n{$row->setting_value}\n\nFix or remove this row before upgrading.");
                     }
-                    DB::table($this->getContextSettingsTable())
-                        ->where('setting_name', $row->setting_name)
-                        ->where('locale', $row->locale)
-                        ->where($this->getContextKeyField(), $row->{$this->getContextKeyField()})
-                        ->update(['setting_value' => $fixedValue]);
                 });
 
             // Check if database engine supports foreign key constraints, see pkp/pkp-lib#6732

@@ -579,10 +579,10 @@ msgstr "Zapis E-pošte"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) je dodijeljen ovom podnesku kao {$userGroupName}."
+"{$userFullName} ({$username}) je dodijeljen ovom podnesku kao {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) uklonjen je kao {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) uklonjen je kao {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Nazad na zapis događaja"
@@ -609,7 +609,7 @@ msgid "submission.event.copyrightAgreed"
 msgstr ""
 
 msgid "submission.event.fileRevised"
-msgstr "Revizija \"{$name}\" je prenesena za datoteku {$submissionFileId}."
+msgstr "Revizija \"{$filename}\" je prenesena za datoteku {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metapodaci prijave su ažurirani"

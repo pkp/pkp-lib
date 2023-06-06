@@ -68,18 +68,17 @@ class EventLogGridRow extends GridRow
         assert($logEntry != null && ($logEntry instanceof EventLogEntry || $logEntry instanceof EmailLogEntry));
 
         if ($logEntry instanceof EventLogEntry) {
-            $params = $logEntry->getParams();
 
             switch ($logEntry->getEventType()) {
                 case SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD:
                 case SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD:
-                    $submissionFileId = $params['submissionFileId'];
-                    $fileId = $params['fileId'];
-                    $submissionFile = Repo::submissionFile()->get($submissionFileId);
+                    $submissionFileId = $logEntry->getData('submissionFileId');
+                    $fileId = $logEntry->getData('fileId');
+                    $submissionFile = $submissionFileId ? Repo::submissionFile()->get($submissionFileId) : null;
                     if (!$submissionFile) {
                         break;
                     }
-                    $filename = $params['originalFileName'] ?? $submissionFile->getLocalizedData('name');
+                    $filename = $logEntry->getLocalizedData('filename') ?? $submissionFile->getLocalizedData('name');
                     if ($submissionFile) {
                         $anonymousAuthor = false;
                         $maybeAnonymousAuthor = $this->_isCurrentUserAssignedAuthor && $submissionFile->getData('fileStage') === SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT;

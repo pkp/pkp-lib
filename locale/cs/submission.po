@@ -580,11 +580,11 @@ msgstr "Log emailů"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"Uživatel {$name} ({$username}) byl přiřazen k příspěvku jako "
+"Uživatel {$userFullName} ({$username}) byl přiřazen k příspěvku jako "
 "{$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) byl odebrán/a z {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) byl odebrán/a z {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Zpět k protokolu událostí"
@@ -609,10 +609,10 @@ msgstr "Úvodní odeslání zakončeno."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$name} ({$username}) souhlasil/a s podmínkami autorských práv pro příspěvek."
+"{$filename} ({$username}) souhlasil/a s podmínkami autorských práv pro příspěvek."
 
 msgid "submission.event.fileRevised"
-msgstr "Úprava \"{$name}\" pro soubor {$submissionFileId}) byla nahrána."
+msgstr "Úprava \"{$filename}\" pro soubor {$submissionFileId}) byla nahrána."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadata příspěvku aktualizována"

@@ -577,7 +577,7 @@ msgstr "E-postlogg"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) tilldelades det här bidraget som {$userGroupName}."
+"{$userFullName} ({$username}) tilldelades det här bidraget som {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
 msgstr "\"{$name}\" ({$username}) togs bort som {$userGroupName}."
@@ -605,10 +605,10 @@ msgstr "Bidraget har skickats in."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$name} ({$username}) godkände de upphovsrättsliga villkoren för bidraget."
+"{$filename} ({$username}) godkände de upphovsrättsliga villkoren för bidraget."
 
 msgid "submission.event.fileRevised"
-msgstr "Bearbetningen \"{$name}\" för {$submissionFileId}) laddas upp."
+msgstr "Bearbetningen \"{$filename}\" för {$submissionFileId}) laddas upp."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Bidragets metadata uppdaterade"

@@ -586,10 +586,10 @@ msgid "submission.emailLog"
 msgstr "Registre del correu electrònic"
 
 msgid "submission.event.participantAdded"
-msgstr "S'ha afegit«{$name}» ({$username}) com a {$userGroupName}."
+msgstr "S'ha afegit«{$userFullName}» ({$username}) com a {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "Suprimeix «{$name}» ({$username}) com a {$userGroupName}."
+msgstr "Suprimeix «{$userFullName}» ({$username}) com a {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Torna al registre d’esdeveniments"
@@ -617,7 +617,7 @@ msgid "submission.event.copyrightAgreed"
 msgstr ""
 
 msgid "submission.event.fileRevised"
-msgstr "S'ha carregat la revisió \"{$name}\" de l'arxiu {$submissionFileId}."
+msgstr "S'ha carregat la revisió \"{$filename}\" de l'arxiu {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadades de tramesa actualitzades"

@@ -595,10 +595,10 @@ msgid "submission.emailLog"
 msgstr "Registro de correo electrónico"
 
 msgid "submission.event.participantAdded"
-msgstr "Se añadió a \"{$name}\" ({$username}) como {$userGroupName}."
+msgstr "Se añadió a \"{$userFullName}\" ({$username}) como {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) se ha eliminado de {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) se ha eliminado de {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Volver a registro de eventos"
@@ -622,11 +622,11 @@ msgstr "Envío inicial completado."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$name} ({$username}) ha aceptado los términos de derechos de autoría para "
+"{$filename} ({$username}) ha aceptado los términos de derechos de autoría para "
 "el envío."
 
 msgid "submission.event.fileRevised"
-msgstr "Se cargó la revisión \"{$name}\" del archivo {$submissionFileId}."
+msgstr "Se cargó la revisión \"{$filename}\" del archivo {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadatos de envío actualizados"

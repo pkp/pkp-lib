@@ -573,10 +573,10 @@ msgstr "وقائع البريد الالكتروني"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"\"{$name}\" ({$username}) تم تعيينه لطلب النشر هذا بمثابة {$userGroupName}."
+"\"{$userFullName}\" ({$username}) تم تعيينه لطلب النشر هذا بمثابة {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) تمت إزالته بمثابة {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) تمت إزالته بمثابة {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "العودة إلى وقائع الأحداث"
@@ -599,10 +599,10 @@ msgid "submission.event.submissionSubmitted"
 msgstr "طلب النشر الأساسي إكتمل."
 
 msgid "submission.event.copyrightAgreed"
-msgstr "{$name} ({$username}) قد وافق على شروط الحقوق الفكرية لطلب التقديم."
+msgstr "{$filename} ({$username}) قد وافق على شروط الحقوق الفكرية لطلب التقديم."
 
 msgid "submission.event.fileRevised"
-msgstr "التنقيح \"{$name}\" قد رُفع للملف {$submissionFileId}."
+msgstr "التنقيح \"{$filename}\" قد رُفع للملف {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "البيانات الوصفية للمؤلَّف تم تحديثها"

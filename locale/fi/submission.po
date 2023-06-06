@@ -581,11 +581,11 @@ msgstr "Sähköpostiloki"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"\"{$name}\" ({$username}) valittiin tämän käsikirjoituksen {$userGroupName}"
+"\"{$userFullName}\" ({$username}) valittiin tämän käsikirjoituksen {$userGroupName}"
 "ksi."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) poistettiin roolista {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) poistettiin roolista {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Takaisin tapahtumalokiin"
@@ -608,11 +608,11 @@ msgid "submission.event.submissionSubmitted"
 msgstr "Käsikirjoituksen ensimmäinen lähetys suoritettu."
 
 msgid "submission.event.copyrightAgreed"
-msgstr "{$name} ({$username}) on hyväksynyt tekijänoikeutta koskevat ehdot."
+msgstr "{$filename} ({$username}) on hyväksynyt tekijänoikeutta koskevat ehdot."
 
 msgid "submission.event.fileRevised"
 msgstr ""
-"Korjattu tiedostoversio \"{$name}\" ladattiin tiedostolle "
+"Korjattu tiedostoversio \"{$filename}\" ladattiin tiedostolle "
 "{$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"

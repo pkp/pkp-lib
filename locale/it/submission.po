@@ -586,11 +586,11 @@ msgstr "Registro delle email"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) è stato assegnato a questa proposta come "
+"{$userFullName} ({$username}) è stato assegnato a questa proposta come "
 "{$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) è stato rimosso come {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) è stato rimosso come {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Torna al registro degli eventi"
@@ -618,7 +618,7 @@ msgstr ""
 
 msgid "submission.event.fileRevised"
 msgstr ""
-"La revisione \"{$name}\" è stata caricata per il file {$submissionFileId}."
+"La revisione \"{$filename}\" è stata caricata per il file {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Aggiornati i metadati di questa proposta"

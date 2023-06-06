@@ -573,11 +573,11 @@ msgid "submission.emailLog"
 msgstr "E-posta Kayıtları"
 
 msgid "submission.event.participantAdded"
-msgstr "{$name} ({$username}) bu gönderiye {$userGroupName} olarak atandı."
+msgstr "{$userFullName} ({$username}) bu gönderiye {$userGroupName} olarak atandı."
 
 msgid "submission.event.participantRemoved"
 msgstr ""
-"\"{$name}\" ({$username}) bu gönderi için {$userGroupName}'den kaldırıldı."
+"\"{$userFullName}\" ({$username}) bu gönderi için {$userGroupName}'den kaldırıldı."
 
 msgid "submission.event.backToEventLog"
 msgstr "Olay Günlüğüne Geri Dön"
@@ -604,7 +604,7 @@ msgstr ""
 
 msgid "submission.event.fileRevised"
 msgstr ""
-"\"{$name}\" adlı revizyon (Dosya ID {$submissionFileId}) olarak yüklendi."
+"\"{$filename}\" adlı revizyon (Dosya ID {$submissionFileId}) olarak yüklendi."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Gönderi Üst Verisi Güncellendi"

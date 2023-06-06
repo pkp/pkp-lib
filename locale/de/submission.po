@@ -604,12 +604,12 @@ msgstr "E-Mail-Protokoll"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"\"{$name}\" ({$username}) wurde dieser Einreichung als {$userGroupName} "
+"\"{$userFullName}\" ({$username}) wurde dieser Einreichung als {$userGroupName} "
 "hinzugefügt."
 
 msgid "submission.event.participantRemoved"
 msgstr ""
-"\"{$name}\" ({$username}) wurde aus der Gruppe der {$userGroupName} entfernt."
+"\"{$userFullName}\" ({$username}) wurde aus der Gruppe der {$userGroupName} entfernt."
 
 msgid "submission.event.backToEventLog"
 msgstr "Zurück zum Ereignisprotokoll"
@@ -636,12 +636,12 @@ msgstr "Ersteinreichung abgeschlossen."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$name} ({$username}) hat den Copyright-Bedingungen für die Einreichung "
+"{$filename} ({$username}) hat den Copyright-Bedingungen für die Einreichung "
 "zugestimmt."
 
 msgid "submission.event.fileRevised"
 msgstr ""
-"Die Revision \"{$name}\" für Datei {$submissionFileId} wurde hochgeladen."
+"Die Revision \"{$filename}\" für Datei {$submissionFileId} wurde hochgeladen."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadaten des Beitrags aktualisiert"

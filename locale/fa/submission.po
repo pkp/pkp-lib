@@ -569,10 +569,10 @@ msgid "submission.emailLog"
 msgstr "سوابق ایمیل"
 
 msgid "submission.event.participantAdded"
-msgstr "{$name} به این مقاله به عنوان {$userGroupName} انتساب داده شدند  ."
+msgstr "{$userFullName} به این مقاله به عنوان {$userGroupName} انتساب داده شدند  ."
 
 msgid "submission.event.participantRemoved"
-msgstr "«{$name}» ({$username}) به عنوان یک {$userGroupName} حذف شد."
+msgstr "«{$userFullName}» ({$username}) به عنوان یک {$userGroupName} حذف شد."
 
 msgid "submission.event.backToEventLog"
 msgstr "بازگشت به سابقه رویدادها"
@@ -597,7 +597,7 @@ msgstr ""
 
 #, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "اصلاحات \"{$name}\" (با شناسه فایل {$submissionFileId}) آپلود شد."
+msgstr "اصلاحات \"{$filename}\" (با شناسه فایل {$submissionFileId}) آپلود شد."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "فراداده ارسال شده به روز رسانی شد"

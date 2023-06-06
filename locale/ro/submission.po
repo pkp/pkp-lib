@@ -585,10 +585,10 @@ msgstr "Jurnal de e-mail"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) a fost atribuit acestei cereri ca {$userGroupName}."
+"{$userFullName} ({$username}) a fost atribuit acestei cereri ca {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) a fost retras din {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) a fost retras din {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Înapoi la jurnalul de evenimente"
@@ -615,7 +615,7 @@ msgstr ""
 
 #, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Revizia \"{$name}\" (file ID {$submissionFileId}) a fost încărcată."
+msgstr "Revizia \"{$filename}\" (file ID {$submissionFileId}) a fost încărcată."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadatele înregistrării manuscrisului au fost încărcate"

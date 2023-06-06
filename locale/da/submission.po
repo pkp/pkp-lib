@@ -583,11 +583,11 @@ msgstr "E-mail-log"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"\"{$name}\" ({$username}) blev tilknyttet denne indsendelse som "
+"\"{$userFullName}\" ({$username}) blev tilknyttet denne indsendelse som "
 "{$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) blev fjernet som en {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) blev fjernet som en {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Tilbage til hændelseslog"
@@ -613,11 +613,11 @@ msgstr "Første indsendelse afsluttet."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$name} ({$username}) accepterede betingelserne for ophavsret for "
+"{$filename} ({$username}) accepterede betingelserne for ophavsret for "
 "indsendelsen."
 
 msgid "submission.event.fileRevised"
-msgstr "Revision \"{$name}\" blev uploadet til {$submissionFileId}."
+msgstr "Revision \"{$filename}\" blev uploadet til {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Manuskriptmetadataene er opdateret"

@@ -594,11 +594,11 @@ msgid "submission.emailLog"
 msgstr "Registre de courriels"
 
 msgid "submission.event.participantAdded"
-msgstr "\"{$name}\" ({$username}) fait partie du groupe {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) fait partie du groupe {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
 msgstr ""
-"\"{$name}\" ({$username}) ne fait plus partie du groupe {$userGroupName}."
+"\"{$userFullName}\" ({$username}) ne fait plus partie du groupe {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Retour au Registre d'événements"
@@ -627,7 +627,7 @@ msgstr ""
 
 msgid "submission.event.fileRevised"
 msgstr ""
-"La révision « {$name} » a été téléversée pour le fichier {$submissionFileId}."
+"La révision « {$filename} » a été téléversée pour le fichier {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Métadonnées de la soumission mises à jour"

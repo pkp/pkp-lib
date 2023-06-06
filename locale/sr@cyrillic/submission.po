@@ -561,7 +561,7 @@ msgid "submission.emailLog"
 msgstr "Лог имејлова"
 
 msgid "submission.event.participantAdded"
-msgstr "\"{$name}\" ({$username}) је додељен предаји као {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) је додељен предаји као {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
 msgstr ""
@@ -589,7 +589,7 @@ msgstr ""
 
 #, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Ревизија \"{$name}\" (file ID {$fileId}-{$revision}) је достављена."
+msgstr "Ревизија \"{$filename}\" (file ID {$fileId}-{$revision}) је достављена."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Метаподаци предаје су ажурирани"

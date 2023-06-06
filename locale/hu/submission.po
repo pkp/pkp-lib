@@ -587,11 +587,11 @@ msgstr "Email log"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) ehhez a beküldéshez mint {$userGroupName} lett "
+"{$userFullName} ({$username}) ehhez a beküldéshez mint {$userGroupName} lett "
 "hozzárendelve."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) eltávolítva mint {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) eltávolítva mint {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Vissza az esemény naplóhoz"
@@ -618,7 +618,7 @@ msgstr ""
 
 msgid "submission.event.fileRevised"
 msgstr ""
-"Lektori vélemény \"{$name}\" feltöltve ehhez a fájlhoz (file ID "
+"Lektori vélemény \"{$filename}\" feltöltve ehhez a fájlhoz (file ID "
 "{$submissionFileId})."
 
 msgid "submission.event.general.metadataUpdated"

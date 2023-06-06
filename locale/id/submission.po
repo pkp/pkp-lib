@@ -577,10 +577,10 @@ msgstr "Log Email"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) ditugaskan pada naskah ini sebagai {$userGroupName}."
+"{$userFullName} ({$username}) ditugaskan pada naskah ini sebagai {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) dihapus dari {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) dihapus dari {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Kembali ke Log Event"
@@ -604,7 +604,7 @@ msgid "submission.event.copyrightAgreed"
 msgstr ""
 
 msgid "submission.event.fileRevised"
-msgstr "Revisi \"{$name}\" sudah diunggah untuk file {$submissionFileId}."
+msgstr "Revisi \"{$filename}\" sudah diunggah untuk file {$submissionFileId}."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadata naskah telah di-update"

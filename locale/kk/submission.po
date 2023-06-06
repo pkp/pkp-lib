@@ -579,10 +579,10 @@ msgstr "Журналдың электрондық поштасы"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) осы материалға {$userGroupName} ретінде тағайындалған."
+"{$userFullName} ({$username}) осы материалға {$userGroupName} ретінде тағайындалған."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) {$userGroupName} ретінде жойылды."
+msgstr "\"{$userFullName}\" ({$username}) {$userGroupName} ретінде жойылды."
 
 msgid "submission.event.backToEventLog"
 msgstr "Оқиғалар журналына оралу"
@@ -609,7 +609,7 @@ msgstr ""
 
 msgid "submission.event.fileRevised"
 msgstr ""
-"\"{$name}\" нұсқасы (файл идентификаторы {$submissionFileId}) жүктеп салынды."
+"\"{$filename}\" нұсқасы (файл идентификаторы {$submissionFileId}) жүктеп салынды."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Материалдың метадеректері жаңартылды"

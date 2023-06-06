@@ -585,10 +585,10 @@ msgstr "Dziennik e-mail"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) został przypisany do zgłoszenia jako {$userGroupName}."
+"{$userFullName} ({$username}) został przypisany do zgłoszenia jako {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) jest usunięty z {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) jest usunięty z {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Wróć do dziennika zdarzeń"
@@ -615,7 +615,7 @@ msgstr ""
 "Osoba, {$name} ({$username}), zaakceptowała ustalenia prawne dla zgłoszenia."
 
 msgid "submission.event.fileRevised"
-msgstr "Wersja \"{$name}\" {$submissionFileId}) została przesłana."
+msgstr "Wersja \"{$filename}\" {$submissionFileId}) została przesłana."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadane dla przesłanego tekstu zaktualizowane"

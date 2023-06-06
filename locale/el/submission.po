@@ -590,10 +590,10 @@ msgid "submission.emailLog"
 msgstr "Email Log"
 
 msgid "submission.event.participantAdded"
-msgstr "Ο/Η \"{$name}\" ({$username}) έχει προστεθεί ως {$userGroupName}."
+msgstr "Ο/Η \"{$userFullName}\" ({$username}) έχει προστεθεί ως {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "Ο/Η \"{$name}\" ({$username}) έχει αφαιρεθεί από {$userGroupName}."
+msgstr "Ο/Η \"{$userFullName}\" ({$username}) έχει αφαιρεθεί από {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Επιστροφή στο ημερολόγιο συμβάντων "
@@ -623,7 +623,7 @@ msgstr ""
 #, fuzzy
 msgid "submission.event.fileRevised"
 msgstr ""
-"Μεταφορτώθηκε η αναθεώρηση \"{$name}\" (ID αρχείου {$submissionFileId})."
+"Μεταφορτώθηκε η αναθεώρηση \"{$filename}\" (ID αρχείου {$submissionFileId})."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Ενημερώθηκαν τα μεταδεδομένα υποβολής"

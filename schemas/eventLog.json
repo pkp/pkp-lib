@@ -209,6 +209,14 @@
 				"nullable"
 			]
 		},
+		"submissionFileId": {
+			"type": "integer",
+			"description": "The ID of the submission file associates with the logged event.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
 		"submissionId": {
 			"type": "integer",
 			"description": "The ID of the submission associates with the logged event.",

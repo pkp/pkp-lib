@@ -584,7 +584,7 @@ msgid "submission.emailLog"
 msgstr "Log de e-mail"
 
 msgid "submission.event.participantAdded"
-msgstr "\"{$name}\" ({$username}) foi incluído no grupo de {$userGroupName}."
+msgstr "\"{$userFullName}\" ({$username}) foi incluído no grupo de {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
 msgstr "\"{$name}\" ({$username}) foi excluído do grupo de {$userGroupName}."
@@ -611,11 +611,11 @@ msgstr "Submissão inicial concluída."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
-"{$name} ({$username}) concordou com os termos de direitos autorais para "
+"{$filename} ({$username}) concordou com os termos de direitos autorais para "
 "submissão."
 
 msgid "submission.event.fileRevised"
-msgstr "Revisão \"{$name}\" do arquivo {$submissionFileId} foi carregada."
+msgstr "Revisão \"{$filename}\" do arquivo {$submissionFileId} foi carregada."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadados da submissão atualizados"

@@ -325,19 +325,15 @@ abstract class PKPAuthorDashboardHandler extends Handler {
 		];
 
 		// Add the metadata form if one or more metadata fields are enabled
-		$metadataFields = ['coverage', 'disciplines', 'keywords', 'languages', 'rights', 'source', 'subjects', 'agencies', 'type'];
-		$metadataEnabled = false;
-		foreach ($metadataFields as $metadataField) {
-			if ($submissionContext->getData($metadataField)) {
-				$metadataEnabled = true;
-				break;
-			}
-		}
+		$vocabSuggestionUrlBase =$request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
+		$metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
+		$metadataFormConfig = $metadataForm->getConfig();
+
+		$metadataEnabled = !empty($metadataFormConfig['fields']);
+
 		if ($metadataEnabled) {
-			$vocabSuggestionUrlBase =$request->getDispatcher()->url($request, ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
-			$metadataForm = new PKP\components\forms\publication\PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase);
 			$templateMgr->setConstants(['FORM_METADATA']);
-			$state['components'][FORM_METADATA] = $metadataForm->getConfig();
+			$state['components'][FORM_METADATA] = $metadataFormConfig;
 			$state['publicationFormIds'][] = FORM_METADATA;
 		}
 

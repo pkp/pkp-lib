@@ -2389,7 +2389,7 @@ msgstr "Təqdimat təfərrüatları"
 
 msgid "submission.event.participantAdded"
 msgstr ""
-"{$name} ({$username}) bu Məqalə üçün {$userGroupName} olaraq təyin edildi."
+"{$userFullName} ({$username}) bu Məqalə üçün {$userGroupName} olaraq təyin edildi."
 
 msgid "submission.event.participantRemoved"
 msgstr ""

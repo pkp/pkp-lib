@@ -171,13 +171,13 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($affectedLocales as $localeSource => $localeTarget) {
                 $conflictingSettings = DB::table($tableName)
                     ->select('setting_name', DB::raw('COUNT(*)'))
-                    ->when($entityIdColumnName, fn ($query) => $query->addSelect($entityIdColumnName))
+                    ->when($entityIdColumnName, fn (Builder $query) => $query->addSelect($entityIdColumnName))
                     ->where('locale', $localeSource)
                     ->orWhere('locale', $localeTarget)
                     ->when(
                         $entityIdColumnName,
-                        fn ($query) => $query->groupBy($entityIdColumnName, 'setting_name'),
-                        fn ($query) => $query->groupBy('setting_name')
+                        fn (Builder $query) => $query->groupBy($entityIdColumnName, 'setting_name'),
+                        fn (Builder $query) => $query->groupBy('setting_name')
                     )
                     ->havingRaw('COUNT(*) >= 2')
                     ->get();
@@ -493,9 +493,12 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
         $this->addTableProcessor('user_groups', function (): int {
             $affectedRows = 0;
+            $ignoreAdministratorUserGroup = fn (Builder $q) => $q->where(
+                fn (Builder $where) => $where->where('s.context_id', '!=', 0)->orWhere('s.role_id', '!=', 1)
+            );
             // Depends directly on ~1 entities: context_id->context_table.context_id
             // Custom field (not found in at least one of the softwares)
-            $affectedRows += $this->cleanOptionalReference('user_groups', 'context_id', $this->getContextTable(), $this->getContextKeyField(), $this->ignoreZero('context_id'));
+            $affectedRows += $this->deleteRequiredReference('user_groups', 'context_id', $this->getContextTable(), $this->getContextKeyField(), $ignoreAdministratorUserGroup);
             return $affectedRows;
         });
 
@@ -554,9 +557,9 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             $affectedRows = 0;
             // Depends directly on ~3 entities: context_id->context_table.context_id filter_group_id->filter_groups.filter_group_id parent_filter_id->filters.filter_id
             $affectedRows += $this->deleteRequiredReference('filters', 'filter_group_id', 'filter_groups', 'filter_group_id');
-            $affectedRows += $this->deleteOptionalReference('filters', 'parent_filter_id', 'filters', 'filter_id', $this->ignoreZero('parent_filter_id'));
+            $affectedRows += $this->deleteRequiredReference('filters', 'parent_filter_id', 'filters', 'filter_id', $this->ignoreZero('parent_filter_id'));
             // Custom field (not found in at least one of the softwares)
-            $affectedRows += $this->deleteOptionalReference('filters', 'context_id', $this->getContextTable(), $this->getContextKeyField(), $this->ignoreZero('context_id'));
+            $affectedRows += $this->deleteRequiredReference('filters', 'context_id', $this->getContextTable(), $this->getContextKeyField(), $this->ignoreZero('context_id'));
             return $affectedRows;
         });
 
@@ -581,7 +584,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             $affectedRows = 0;
             // Depends directly on ~1 entities: context_id->context_table.context_id
             // Custom field (not found in at least one of the softwares)
-            $affectedRows += $this->deleteOptionalReference('navigation_menu_items', 'context_id', $this->getContextTable(), $this->getContextKeyField(), $this->ignoreZero('context_id'));
+            $affectedRows += $this->deleteRequiredReference('navigation_menu_items', 'context_id', $this->getContextTable(), $this->getContextKeyField(), $this->ignoreZero('context_id'));
             return $affectedRows;
         });
 
@@ -619,7 +622,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         $this->addTableProcessor('email_log', function (): int {
             $affectedRows = 0;
             // Depends directly on ~1 entities: sender_id->users.user_id
-            $affectedRows += $this->deleteOptionalReference('email_log', 'sender_id', 'users', 'user_id', $this->ignoreZero('sender_id'));
+            $affectedRows += $this->deleteRequiredReference('email_log', 'sender_id', 'users', 'user_id', $this->ignoreZero('sender_id'));
             return $affectedRows;
         });
 
@@ -634,7 +637,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         $this->addTableProcessor('event_log', function (): int {
             $affectedRows = 0;
             // Depends directly on ~1 entities: user_id->users.user_id
-            $affectedRows += $this->deleteRequiredReference('event_log', 'user_id', 'users', 'user_id');
+            $affectedRows += $this->deleteOptionalReference('event_log', 'user_id', 'users', 'user_id');
             return $affectedRows;
         });
 
@@ -651,7 +654,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             $affectedRows = 0;
             // Depends directly on ~1 entities: context_id->context_table.context_id
             // Custom field (not found in at least one of the softwares)
-            $affectedRows += $this->deleteOptionalReference('navigation_menus', 'context_id', $this->getContextTable(), $this->getContextKeyField(), $this->ignoreZero('context_id'));
+            $affectedRows += $this->deleteRequiredReference('navigation_menus', 'context_id', $this->getContextTable(), $this->getContextKeyField(), $this->ignoreZero('context_id'));
             return $affectedRows;
         });
 
@@ -835,7 +838,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             $affectedRows = 0;
             // Depends directly on ~1 entities: context_id->context_table.context_id
             // Custom field (not found in at least one of the softwares)
-            $affectedRows += $this->deleteOptionalReference('plugin_settings', 'context_id', $this->getContextTable(), $this->getContextKeyField(), $this->ignoreZero('context_id'));
+            $affectedRows += $this->deleteRequiredReference('plugin_settings', 'context_id', $this->getContextTable(), $this->getContextKeyField(), $this->ignoreZero('context_id'));
             return $affectedRows;
         });
 
@@ -888,7 +891,6 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         $this->addTableProcessor('review_form_settings', function (): int {
             $affectedRows = 0;
             // Depends directly on ~1 entities: review_form_id->review_forms.review_form_id
-
             $affectedRows += $this->deleteRequiredReference('review_form_settings', 'review_form_id', 'review_forms', 'review_form_id');
             return $affectedRows;
         });

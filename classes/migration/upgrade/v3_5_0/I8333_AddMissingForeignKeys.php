@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/upgrade/v3_4_0/I8333_AddMissingForeignKeys.php
+ * @file classes/migration/upgrade/v3_5_0/I8333_AddMissingForeignKeys.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
@@ -12,7 +12,7 @@
  * @brief Upgrade/downgrade operations for introducing foreign key definitions to existing database relationships.
  */
 
-namespace PKP\migration\upgrade\v3_4_0;
+namespace PKP\migration\upgrade\v3_5_0;
 
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Schema\Blueprint;

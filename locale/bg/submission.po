@@ -1921,48 +1921,48 @@ msgstr ""
 
 msgid "submission.event.fileEdited"
 msgstr ""
-"Метаданните за файла \"{$originalFileName}\" бяха редактирани от {$username}."
+"Метаданните за файла \"{$filename}\" бяха редактирани от {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"Файлът \"{$originalFileName}\" за материала {$submissionId} беше качен от "
+"Файлът \"{$filename}\" за материала {$submissionId} беше качен от "
 "{$username}."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"Файлът \"{$originalFileName}\" за материала {$submissionId} беше изтрит от "
+"Файлът \"{$filename}\" за материала {$submissionId} беше изтрит от "
 "{$username}."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"Файлът с ревизия \"{$originalFileName}\" за материала {$submissionId} беше "
+"Файлът с ревизия \"{$filename}\" за материала {$submissionId} беше "
 "качен от {$username}."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"Файлът \"{$originalFileName}\" за материала {$submissionId} беше изтрит от "
+"Файлът \"{$filename}\" за материала {$submissionId} беше изтрит от "
 "{$username}."
 
 msgid "submission.event.lastRevisionDeleted"
 msgstr ""
-"Последната редакция на файла \"{$title}\" беше премахната от {$username}."
+"Последната редакция на файла \"{$filename}\" беше премахната от {$username}."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"\"{$name}\" ({$username}) беше добавен като одитор за файла \"{$file}.\""
+"\"{$userFullName}\" ({$username}) беше добавен като одитор за файла \"{$filename}.\""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$name}\" ({$username}) беше премахнат като одитор за файла \"{$file}.\""
+"\"{$userFullName}\" ({$username}) беше премахнат като одитор за файла \"{$filename}.\""
 
 msgid "submission.event.fileAuditUploaded"
-msgstr "\"{$name}\" ({$username}) завърши одита и качи файла \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) завърши одита и качи файла \"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username}) окончателно одобри файла \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) окончателно одобри файла \"{$filename}.\""
 
 msgid "submission.event.proofsApproved"
-msgstr "\"{$name}\" ({$username}) одобри коректурата за \"{$formatName}.\""
+msgstr "\"{$userFullName}\" ({$username}) одобри коректурата за \"{$publicationFormatName}.\""
 
 msgid "submission.overview"
 msgstr "Преглед на подадените материали"

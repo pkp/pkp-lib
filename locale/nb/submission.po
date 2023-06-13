@@ -1772,48 +1772,48 @@ msgstr ""
 
 msgid "submission.event.fileEdited"
 msgstr ""
-"Metadataene til filen \"{$originalFileName}\" ble redigert av {$username}."
+"Metadataene til filen \"{$filename}\" ble redigert av {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"Filen «{$originalFileName}» ble lastet opp av {$username} for  "
+"Filen «{$filename}» ble lastet opp av {$username} for  "
 "{$submissionId}."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"{$username} slettet filen «{$originalFileName}» fra innleveringen "
+"{$username} slettet filen «{$filename}» fra innleveringen "
 "{$submissionId}."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"{$username} la til en revidert versjon av «{$originalFileName}» til "
+"{$username} la til en revidert versjon av «{$filename}» til "
 "innleveringen {$submissionId}."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"{$username} slettet en revidert versjon av «{$originalFileName}» fra "
+"{$username} slettet en revidert versjon av «{$filename}» fra "
 "innleveringen {$submissionId}."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "{$username} fjernet den siste revideringen av filen «{$title}»."
+msgstr "{$username} fjernet den siste revideringen av filen «{$filename}»."
 
 msgid "submission.event.fileAuditorAdded"
-msgstr "{$name} ({$username}) ble lagt til som sluttkontrollør for «{$file}»."
+msgstr "{$userFullName} ({$username}) ble lagt til som sluttkontrollør for «{$filename}»."
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"{$name} ({$username}) ble fjernet som sluttkontrollør for filen «{$file}»."
+"{$userFullName} ({$username}) ble fjernet som sluttkontrollør for filen «{$filename}»."
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
-"{$name} ({$username}) har fullført en sluttkontroll og lastet opp «{$file}»."
+"{$userFullName} ({$username}) har fullført en sluttkontroll og lastet opp «{$filename}»."
 
 msgid "submission.event.signoffSignoff"
-msgstr "{$name} ({$username}) har kvittert ut «{$file}»."
+msgstr "{$userFullName} ({$username}) har kvittert ut «{$filename}»."
 
 msgid "submission.event.proofsApproved"
 msgstr ""
-"{$name} ({$username}) har godkjent sistekorrekturen av «{$formatName}»."
+"{$userFullName} ({$username}) har godkjent sistekorrekturen av «{$publicationFormatName}»."
 
 msgid "submission.overview"
 msgstr "Gå gjennom innleveringen"

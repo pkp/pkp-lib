@@ -1889,51 +1889,51 @@ msgstr "Աուդիտորին հանձնարարելիս սխալ տեղի ուն
 
 msgid "submission.event.fileEdited"
 msgstr ""
-"\"{$originalFileName}\" նիշքի մետատվյալները խմբագրվել են {$username} -ի "
+"\"{$filename}\" նիշքի մետատվյալները խմբագրվել են {$username} -ի "
 "կողմից:"
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"\"{$originalFileName}\" նիշքը վերբեռնվեց {$username}-ի կողմից "
+"\"{$filename}\" նիշքը վերբեռնվեց {$username}-ի կողմից "
 "{$submissionId} -ի ներկայացման համար:"
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"\"{$originalFileName}\" նիշքը ջնջվել է {$submissionId} -ի ներկայացման համար "
+"\"{$filename}\" նիշքը ջնջվել է {$submissionId} -ի ներկայացման համար "
 "{$username} -ի կողմից:"
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"\"{$originalFileName}\" նիշքի վերանայումը վերբեռնվեց {$submissionId} "
+"\"{$filename}\" նիշքի վերանայումը վերբեռնվեց {$submissionId} "
 "ներկայացման համար {$username} -ի կողմից:"
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"\"{$originalFileName}\" նիշքի վերանայումը ջնջվել է {$submissionId} "
+"\"{$filename}\" նիշքի վերանայումը ջնջվել է {$submissionId} "
 "ներկայացման համար {$username} -ի կողմից:"
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "\"{$title}\" նիշքի վերջին տարբերակը հեռացվել է {$username} -ի կողմից:"
+msgstr "\"{$filename}\" նիշքի վերջին տարբերակը հեռացվել է {$username} -ի կողմից:"
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"\"{$name}\" ({$username}) ավելացվել է որպես աուդիտոր \"{$file}\" նիշքի համար։"
+"\"{$userFullName}\" ({$username}) ավելացվել է որպես աուդիտոր \"{$filename}\" նիշքի համար։"
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$name}\" ({$username}) հեռացվել է որպես հեղինակ \"{$file}\" նիշքի համար."
+"\"{$userFullName}\" ({$username}) հեռացվել է որպես հեղինակ \"{$filename}\" նիշքի համար."
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
-"\"{$name}\" ({$username}) ավարտել է աուդիտը և վերբեռնել է նիշքը՝ \"{$file}.\""
+"\"{$userFullName}\" ({$username}) ավարտել է աուդիտը և վերբեռնել է նիշքը՝ \"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
 msgstr ""
-"\"{$name}\" ({$username}) դուրս է եկել սա գրանցումից հանելուց \"{$file}.\""
+"\"{$userFullName}\" ({$username}) դուրս է եկել սա գրանցումից հանելուց \"{$filename}.\""
 
 msgid "submission.event.proofsApproved"
 msgstr ""
-"\"{$name}\" ({$username}) հաստատել է սրբագրումները սրա համար \"{$formatName}."
+"\"{$userFullName}\" ({$username}) հաստատել է սրբագրումները սրա համար \"{$publicationFormatName}."
 "\""
 
 msgid "submission.overview"

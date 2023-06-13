@@ -1909,49 +1909,49 @@ msgstr ""
 "раз."
 
 msgid "submission.event.fileEdited"
-msgstr "Метадані файлу \"{$originalFileName}\" були відредаговані {$username}."
+msgstr "Метадані файлу \"{$filename}\" були відредаговані {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"Файл \"{$originalFileName}\" був завантажений для подання {$submissionId} "
+"Файл \"{$filename}\" був завантажений для подання {$submissionId} "
 "користувачем {$username}."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"Файл \"{$originalFileName}\" був видалений з подання {$submissionId} "
+"Файл \"{$filename}\" був видалений з подання {$submissionId} "
 "користувачем {$username}."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"Нова версія файлу \"{$originalFileName}\" була завантажена для подання "
+"Нова версія файлу \"{$filename}\" була завантажена для подання "
 "{$submissionId} користувачем {$username}."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"Версія файлу \"{$originalFileName}\" була видалена з подання {$submissionId} "
+"Версія файлу \"{$filename}\" була видалена з подання {$submissionId} "
 "користувачем {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
 msgstr ""
-"У файлу \"{$title}\" остання версія була видалена користувачем {$username}."
+"У файлу \"{$filename}\" остання версія була видалена користувачем {$username}."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"\"{$name}\" ({$username}) був доданий як аудитор для файлу \"{$file}.\""
+"\"{$filename}\" ({$username}) був доданий як аудитор для файлу \"{$filename}.\""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$name}\" ({$username}) був видалений як аудитор для файлу \"{$file}.\""
+"\"{$userFullName}\" ({$username}) був видалений як аудитор для файлу \"{$filename}.\""
 
 msgid "submission.event.fileAuditUploaded"
-msgstr "\"{$name}\" ({$username}) завершив аудит і завантажив \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) завершив аудит і завантажив \"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
 msgstr ""
-"\"{$name}\" ({$username}) остаточно схвалив новий випуск для \"{$file}.\""
+"\"{$userFullName}\" ({$username}) остаточно схвалив новий випуск для \"{$filename}.\""
 
 msgid "submission.event.proofsApproved"
-msgstr "\"{$name}\" ({$username}) схвалив коректури для \"{$formatName}.\""
+msgstr "\"{$userFullName}\" ({$username}) схвалив коректури для \"{$publicationFormatName}.\""
 
 msgid "submission.overview"
 msgstr "Огляд подання"

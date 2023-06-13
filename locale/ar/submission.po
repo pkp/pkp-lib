@@ -1832,48 +1832,48 @@ msgstr "حدث خطأ ما عند محاولة تعيين المتابع. لطف
 
 msgid "submission.event.fileEdited"
 msgstr ""
-"البيانات الوصفية للملف \"{$originalFileName}\" قد تم تعديلها من قبل "
+"البيانات الوصفية للملف \"{$filename}\" قد تم تعديلها من قبل "
 "{$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"تم رفع الملف \"{$originalFileName}\" إلى طلب النشر {$submissionId} من قبل "
+"تم رفع الملف \"{$filename}\" إلى طلب النشر {$submissionId} من قبل "
 "{$username}."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"تم حذف الملف \"{$originalFileName}\" من طلب النشر {$submissionId} من قبل "
+"تم حذف الملف \"{$filename}\" من طلب النشر {$submissionId} من قبل "
 "{$username}."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"تم رفع الملف المنقح \"{$originalFileName}\" إلى طلب النشر {$submissionId} من "
+"تم رفع الملف المنقح \"{$filename}\" إلى طلب النشر {$submissionId} من "
 "قبل {$username}."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"تم حذف الملف المنقح \"{$originalFileName}\" من طلب النشر {$submissionId} من "
+"تم حذف الملف المنقح \"{$filename}\" من طلب النشر {$submissionId} من "
 "قبل {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
 msgstr ""
-"تم حذف آخر ملف منقح لطلب التقديم المعنون \"{$title}\" من قبل {$username}."
+"تم حذف آخر ملف منقح لطلب التقديم المعنون \"{$filename}\" من قبل {$username}."
 
 msgid "submission.event.fileAuditorAdded"
-msgstr "\"{$name}\" ({$username}) قد تمت إضافته كمتابع للملف \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) قد تمت إضافته كمتابع للملف \"{$filename}.\""
 
 msgid "submission.event.fileAuditorCleared"
-msgstr "\"{$name}\" ({$username}) قد تمت إزالته كمتابع للملف \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) قد تمت إزالته كمتابع للملف \"{$filename}.\""
 
 msgid "submission.event.fileAuditUploaded"
-msgstr "\"{$name}\" ({$username}) قد أكمل المتابعة ورفع الملف \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) قد أكمل المتابعة ورفع الملف \"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username}) قد سجل خروجه من الملف \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) قد سجل خروجه من الملف \"{$filename}.\""
 
 msgid "submission.event.proofsApproved"
 msgstr ""
-"\"{$name}\" ({$username}) قد صادق على الصحيحات للمؤلَّف \"{$formatName}.\""
+"\"{$userFullName}\" ({$username}) قد صادق على الصحيحات للمؤلَّف \"{$publicationFormatName}.\""
 
 msgid "submission.overview"
 msgstr "المؤلَّف بنظرة عامة"

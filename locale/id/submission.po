@@ -1761,50 +1761,50 @@ msgid "editor.submission.addAuditorError"
 msgstr "Terjadi kesalahan saat mencoba menugaskan auditor. Silakan diulangi."
 
 msgid "submission.event.fileEdited"
-msgstr "Metadata file \"{$originalFileName}\" telah diubah oleh {$username}."
+msgstr "Metadata file \"{$filename}\" telah diubah oleh {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"File \"{$originalFileName}\" diunggah untuk naskah masuk {$submissionId} "
+"File \"{$filename}\" diunggah untuk naskah masuk {$submissionId} "
 "oleh {$username}."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"File \"{$originalFileName}\" dihapus untuk naskah masuk {$submissionId} oleh "
+"File \"{$filename}\" dihapus untuk naskah masuk {$submissionId} oleh "
 "{$username}."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"Revisi file \"{$originalFileName}\" diunggah untuk naskah {$submissionId} "
+"Revisi file \"{$filename}\" diunggah untuk naskah {$submissionId} "
 "oleh {$username}."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"Revisi file \"{$originalFileName}\" dihapus untuk naskah {$submissionId} "
+"Revisi file \"{$filename}\" dihapus untuk naskah {$submissionId} "
 "oleh {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "File \"{$title}\" dengan revisi terakhir dihapus oleh {$username}."
+msgstr "File \"{$filename}\" dengan revisi terakhir dihapus oleh {$username}."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"\"{$name}\" ({$username}) ditambahkan sebagai penulis untuk file \"{$file}.\""
+"\"{$userFullName}\" ({$username}) ditambahkan sebagai penulis untuk file \"{$filename}.\""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$name}\" ({$username}) dihapus sebagai auditor untuk file \"{$file}.\""
+"\"{$userFullName}\" ({$username}) dihapus sebagai auditor untuk file \"{$filename}.\""
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
-"\"{$name}\" ({$username}) telah menyelesaikan pemeriksaan dan mengunggah "
-"\"{$file}.\""
+"\"{$userFullName}\" ({$username}) telah menyelesaikan pemeriksaan dan mengunggah "
+"\"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username}) telah keluar pada signoff untuk \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) telah keluar pada signoff untuk \"{$filename}.\""
 
 msgid "submission.event.proofsApproved"
 msgstr ""
-"\"{$name}\" ({$username}) telah menyetujui proof untuk \"{$formatName}.\""
+"\"{$userFullName}\" ({$username}) telah menyetujui proof untuk \"{$publicationFormatName}.\""
 
 msgid "submission.overview"
 msgstr "Pratinjau Naskah"

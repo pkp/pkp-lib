@@ -1757,51 +1757,51 @@ msgstr "監査役の任命中にエラーが発生しました。 もう一度�
 
 msgid "submission.event.fileEdited"
 msgstr ""
-"ファイル「{$originalFileName}」のメタデータは{$username}によって編集されまし"
+"ファイル「{$filename}」のメタデータは{$username}によって編集されまし"
 "た。"
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"ファイル「{$originalFileName}」が {$username}によって投稿{$submissionId}に"
+"ファイル「{$filename}」が {$username}によって投稿{$submissionId}に"
 "アップロードされました。"
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"ファイル「{$originalFileName}」が {$username}によって投稿{$submissionId}のた"
+"ファイル「{$filename}」が {$username}によって投稿{$submissionId}のた"
 "めに削除されました。"
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"改訂ファイル「{$originalFileName}」が {$username}によって投稿{$submissionId}"
+"改訂ファイル「{$filename}」が {$username}によって投稿{$submissionId}"
 "にアップロードされました。"
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"改訂ファイル「{$originalFileName}」が {$username}によって投稿{$submissionId}"
+"改訂ファイル「{$filename}」が {$username}によって投稿{$submissionId}"
 "のために削除されました。"
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "ファイル「{$title}」 の最新改訂が {$username}によって削除されました。"
+msgstr "ファイル「{$filename}」 の最新改訂が {$username}によって削除されました。"
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"\"{$name}\" ({$username})がファイル「{$file}」の監査役として追加されました。"
+"\"{$userFullName}\" ({$username})がファイル「{$file}」の監査役として追加されました。"
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$name}\" ({$username})がファイル「{$file}」の監査役として削除されました。"
+"\"{$userFullName}\" ({$username})がファイル「{$filename}」の監査役として削除されました。"
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
-"\"{$name}\" ({$username})が監査を完了し、ファイル「{$file}」をアップロードし"
+"\"{$userFullName}\" ({$username})が監査を完了し、ファイル「{$filename}」をアップロードし"
 "ました。"
 
 msgid "submission.event.signoffSignoff"
 msgstr ""
-"\"{$name}\" ({$username})がファイル「{$file}」のサインオッフを承認しました。"
+"\"{$userFullName}\" ({$username})がファイル「{$filename}」のサインオッフを承認しました。"
 
 msgid "submission.event.proofsApproved"
-msgstr "\"{$name}\" ({$username})が「{$formatName}」の校正を承認しました。"
+msgstr "\"{$userFullName}\" ({$username})が「{$publicationFormatName}」の校正を承認しました。"
 
 msgid "submission.overview"
 msgstr "投稿概要"

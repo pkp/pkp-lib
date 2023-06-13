@@ -1893,49 +1893,49 @@ msgstr ""
 
 msgid "submission.event.fileEdited"
 msgstr ""
-"Os metadados do ficheiro \"{$originalFileName}\" foi editado por {$username}."
+"Os metadados do ficheiro \"{$filename}\" foi editado por {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"Um ficheiro \"{$originalFileName}\" foi submetido {$submissionId} por "
+"Um ficheiro \"{$filename}\" foi submetido {$submissionId} por "
 "{$username}."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"Um ficheiro \"{$originalFileName}\" foi eliminado para a submissão "
+"Um ficheiro \"{$filename}\" foi eliminado para a submissão "
 "{$submissionId} por {$username}."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"Uma revisão do ficheiro \"{$originalFileName}\" foi carregada para a "
+"Uma revisão do ficheiro \"{$filename}\" foi carregada para a "
 "submissão {$submissionId} por {$username}."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"Uma revisão do ficheiro \"{$originalFileName}\" foi eliminada da submissão "
+"Uma revisão do ficheiro \"{$filename}\" foi eliminada da submissão "
 "{$submissionId} por {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
 msgstr ""
-"Um ficheiro \"{$title}\" teve a sua última revisão removida por {$username}."
+"Um ficheiro \"{$filename}\" teve a sua última revisão removida por {$username}."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"{$name}\" ({$username}) foi adicionado como auditor para o ficheiro "
-"\"{$file}.\""
+"{$userFullName}\" ({$username}) foi adicionado como auditor para o ficheiro "
+"\"{$filename}.\""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"{$name}\" ({$username}) foi removido como auditor do ficheiro \"{$file}.\""
+"{$userFullName}\" ({$username}) foi removido como auditor do ficheiro \"{$filename}.\""
 
 msgid "submission.event.fileAuditUploaded"
-msgstr "\"{$name}\" ({$username}) concluiu uma auditoria e enviou \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) concluiu uma auditoria e enviou \"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username}) assinou em \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) assinou em \"{$filename}.\""
 
 msgid "submission.event.proofsApproved"
-msgstr "{$name}\" ({$username}) aprovou as provas para \"{$formatName}.\""
+msgstr "{$userFullName}\" ({$username}) aprovou as provas para \"{$publicationFormatName}.\""
 
 msgid "submission.overview"
 msgstr "Visão Geral da Submissão"

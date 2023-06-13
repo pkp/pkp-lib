@@ -1757,46 +1757,46 @@ msgstr ""
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"فایلی \"{$originalFileName}\" بار کرا بۆ پێشکەشکردنی {$submissionId} لە "
+"فایلی \"{$filename}\" بار کرا بۆ پێشکەشکردنی {$submissionId} لە "
 "لایەن{$username}."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"فایلی \"{$originalFileName}\" سڕایەوە لە پێشکەشکردنی {$submissionId} لە "
+"فایلی \"{$filename}\" سڕایەوە لە پێشکەشکردنی {$submissionId} لە "
 "لایەن {$username}."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"فایلی چاککراوی \"{$originalFileName}\" بار کرا بۆ پێشکەشکردن {$submissionId} "
+"فایلی چاککراوی \"{$filename}\" بار کرا بۆ پێشکەشکردن {$submissionId} "
 "لە لایەن {$username}."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"فایلی چاککراوی \"{$originalFileName}\" سڕایەوە بۆ پێشکەشکردن {$submissionId} "
+"فایلی چاککراوی \"{$filename}\" سڕایەوە بۆ پێشکەشکردن {$submissionId} "
 "لە لایەن {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
 msgstr ""
-"فایلی \"{$title}\" کە دواهەمین چاککراوی هەبو، سڕایەوە لە لایەن {$username}."
+"فایلی \"{$filename}\" کە دواهەمین چاککراوی هەبو، سڕایەوە لە لایەن {$username}."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"\"{$name}\" ({$username}) وەک وردبینی ژمێریاری زیاد کرا بۆ فایلی \"{$file}.\""
+"\"{$userFullName}\" ({$username}) وەک وردبینی ژمێریاری زیاد کرا بۆ فایلی \"{$filename}.\""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$name}\" ({$username}) وەک وردبینی ژمێریاری لا برا بۆ فایلی \"{$file}.\""
+"\"{$userFullName}\" ({$username}) وەک وردبینی ژمێریاری لا برا بۆ فایلی \"{$filename}.\""
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
-"\"{$name}\" ({$username}) وردبینی تەواو کرد و ئەم فایلەی بار کردەوە "
-"\"{$file}.\""
+"\"{$userFullName}\" ({$username}) وردبینی تەواو کرد و ئەم فایلەی بار کردەوە "
+"\"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username}) لە فایلی \"{$file}\" چووە دەرەوە"
+msgstr "\"{$userFullName}\" ({$username}) لە فایلی \"{$filename}\" چووە دەرەوە"
 
 msgid "submission.event.proofsApproved"
-msgstr "\"{$name}\" ({$username}) بەڵگەکانی فایلی \"{$formatName}\" پەسەند کرد"
+msgstr "\"{$userFullName}\" ({$username}) بەڵگەکانی فایلی \"{$publicationFormatName}\" پەسەند کرد"
 
 msgid "submission.overview"
 msgstr "پیشاندانی گشتیی پێشکەشکراوەکە"

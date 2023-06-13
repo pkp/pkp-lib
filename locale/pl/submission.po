@@ -1872,51 +1872,51 @@ msgid "editor.submission.addAuditorError"
 msgstr "Wystąpił błąd podczas przypisywania kontrolera. Spróbuj ponownie."
 
 msgid "submission.event.fileEdited"
-msgstr "Metadane pliku {$originalFileName}\" zmienione przez {$username}."
+msgstr "Metadane pliku {$filename}\" zmienione przez {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"Plik \"{$originalFileName}\" został przesłany do zgłoszenia {$submissionId} "
+"Plik \"{$filename}\" został przesłany do zgłoszenia {$submissionId} "
 "przez {$username}."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"Plik \"{$originalFileName}\" został usunięty ze zgłoszenia {$submissionId} "
+"Plik \"{$fileName}\" został usunięty ze zgłoszenia {$submissionId} "
 "przez {$username}."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"Plik \"{$originalFileName}\" został przesłany do zgłoszenia {$submissionId} "
+"Plik \"{$filename}\" został przesłany do zgłoszenia {$submissionId} "
 "przez {$username}."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"Plik \"{$originalFileName}\" został usunięty ze zgłoszenia {$submissionId} "
+"Plik \"{$filename}\" został usunięty ze zgłoszenia {$submissionId} "
 "przez {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "Ostatnia wersja \"{$title}\" została usunięta przez {$username}."
+msgstr "Ostatnia wersja \"{$filename}\" została usunięta przez {$username}."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"\"{$name}\" ({$username}) został(a) dodany(a) jako kontroler pliku \"{$file}."
+"\"{$userFullName}\" ({$username}) został(a) dodany(a) jako kontroler pliku \"{$filename}."
 "\""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$name}\" ({$username}) został(a) usunięty(a) jako kontroler pliku "
-"\"{$file}.\""
+"\"{$userFullName}\" ({$username}) został(a) usunięty(a) jako kontroler pliku "
+"\"{$filename}.\""
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
-"\"{$name}\" ({$username}) zakończył(a) kontrolę i przesłał \"{$file}.\""
+"\"{$userFullName}\" ({$username}) zakończył(a) kontrolę i przesłał \"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username}) podpisał(a) się pod plikiem \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) podpisał(a) się pod plikiem \"{$filename}.\""
 
 msgid "submission.event.proofsApproved"
 msgstr ""
-"\"{$name}\" ({$username}) zaakceptował(a) wersję po korekcie \"{$formatName}."
+"\"{$userFullName}\" ({$username}) zaakceptował(a) wersję po korekcie \"{$publicationFormatName}."
 "\""
 
 msgid "submission.overview"

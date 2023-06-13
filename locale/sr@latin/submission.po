@@ -1732,44 +1732,44 @@ msgstr ""
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"{$username} je dostavio dokument \"{$originalFileName}\" uz predaju "
+"{$username} je dostavio dokument \"{$filename}\" uz predaju "
 "{$submissionId}."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"{$username} je obrisao fajl {$originalFileName}\" za prijavljen članak "
+"{$username} je obrisao fajl {$filename}\" za prijavljen članak "
 "{$submissionId}."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"{$username} je postavio na server reviziju fajla \"{$originalFileName}\" za "
+"{$username} je postavio na server reviziju fajla \"{$filename}\" za "
 "prijavljen članak  {$submissionId}."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"{$username} je izbrisao reviziju fajla \"{$originalFileName}\" za prijavljen "
+"{$username} je izbrisao reviziju fajla \"{$filename}\" za prijavljen "
 "članak {$submissionId}."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "{$username} je uklonio poslednju reviziju za fajl \"{$title}\"."
+msgstr "{$username} je uklonio poslednju reviziju za fajl \"{$filename}\"."
 
 msgid "submission.event.fileAuditorAdded"
-msgstr "\"{$name}\" ({$username}) je dodat kao revizor za fajl \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) je dodat kao revizor za fajl \"{$filename}.\""
 
 msgid "submission.event.fileAuditorCleared"
-msgstr "\"{$name}\" ({$username}) je uklonjen kao revizor za fajl \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) je uklonjen kao revizor za fajl \"{$filename}.\""
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
-"\"{$name}\" ({$username}) je kompletirao reviziju za postavljen \"{$file}.\""
+"\"{$userFullName}\" ({$username}) je kompletirao reviziju za postavljen \"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
 msgstr ""
-"\"{$name}\" ({$username}) je odjavljen na delu za odjavu za \"{$file}.\""
+"\"{$userFullName}\" ({$username}) je odjavljen na delu za odjavu za \"{$filename}.\""
 
 msgid "submission.event.proofsApproved"
 msgstr ""
-"\"{$name}\" ({$username}) je odobrio probnu kopiju za \"{$formatName}.\""
+"\"{$userFullName}\" ({$username}) je odobrio probnu kopiju za \"{$publicationFormatName}.\""
 
 msgid "submission.overview"
 msgstr "Pregled predaje"

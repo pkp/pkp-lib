@@ -2006,32 +2006,32 @@ msgstr ""
 
 msgid "submission.event.fileEdited"
 msgstr ""
-"\"{$originalFileName}\" faylının üst dataları {$username} tərəfindən "
+"\"{$filename}\" faylının üst dataları {$username} tərəfindən "
 "tənzimləndi"
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"\"{$originalFileName}\" adlı fayl, {$submissionId} nömrəli Məqalə üçün "
+"\"{$filename}\" adlı fayl, {$submissionId} nömrəli Məqalə üçün "
 "{$username} tərəfindən göndərilmək üçün yükləndi."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"\"{$originalFileName}\" adlı fayl, {$submissionId} nömrəli Məqalə üçün "
+"\"{$filename}\" adlı fayl, {$submissionId} nömrəli Məqalə üçün "
 "{$username} tərəfindən silindi."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"\"{$originalFileName}\" adlı fayl, {$submissionId} nömrəli Məqalə üçün "
+"\"{$filename}\" adlı fayl, {$submissionId} nömrəli Məqalə üçün "
 "{$username} reviziya faylı yükləndi."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"\"{$originalFileName}\" adlı fayl, {$submissionId} nömrəli Məqalə üçün "
+"\"{$filename}\" adlı fayl, {$submissionId} nömrəli Məqalə üçün "
 "{$username} reviziya faylı silindi."
 
 msgid "submission.event.lastRevisionDeleted"
 msgstr ""
-"\"{$title}\" adlı faylın son reviziyası {$username} tərəfindən çıxarıldı."
+"\"{$filename}\" adlı faylın son reviziyası {$username} tərəfindən çıxarıldı."
 
 msgid "notification.type.editorAssign"
 msgstr "\"{$title}\" adlı məqaləyə redaktor olaraq təyin edildiniz"

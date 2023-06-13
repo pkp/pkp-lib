@@ -1851,51 +1851,51 @@ msgstr "Аудиторды тағайындау кезінде қате орын
 
 msgid "submission.event.fileEdited"
 msgstr ""
-"\"{$originalFileName}\" файлының метадеректерін {$username} пайдаланушысы "
+"\"{$filename}\" файлының метадеректерін {$username} пайдаланушысы "
 "өңдеді."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"\"{$originalFileName}\" файлын \"{$username}\" пайдаланушысы "
+"\"{$filename}\" файлын \"{$username}\" пайдаланушысы "
 "\"{$submissionId}\" мазмұнына жүктеп салды."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"\"{$originalFileName}\" файлын \"{$username}\" пайдаланушысы "
+"\"{$filename}\" файлын \"{$username}\" пайдаланушысы "
 "\"{$submissionId}\" мазмұнынан жойды."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"\"{$originalFileName}\" файлының жаңа нұсқасын \"{$username}\" пайдаланушысы "
+"\"{$filename}\" файлының жаңа нұсқасын \"{$username}\" пайдаланушысы "
 "\"{$submissionId}\" мазмұнына жүктеп салды."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"\"{$originalFileName}\" файл нұсқасын \"{$username}\" пайдаланушысы "
+"\"{$filename}\" файл нұсқасын \"{$username}\" пайдаланушысы "
 "\"{$submissionId}\" мазмұнынан жойды."
 
 msgid "submission.event.lastRevisionDeleted"
 msgstr ""
-"\"{$title}\" файлының соңғы нұсқасы \"{$username}\" пайдаланушысы арқылы "
+"\"{$filename}\" файлының соңғы нұсқасы \"{$username}\" пайдаланушысы арқылы "
 "жойылды."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"\"{$name}\" ({$username}) \"{$file}\" файлының аудиторы ретінде қосылды"
+"\"{$userFullName}\" ({$username}) \"{$filename}\" файлының аудиторы ретінде қосылды"
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$name}\" ({$username}) \"{$file}\" файлының аудиторы ретінде жойылды"
+"\"{$userFullName}\" ({$username}) \"{$filename}\" файлының аудиторы ретінде жойылды"
 
 msgid "submission.event.fileAuditUploaded"
-msgstr "\"{$name}\" ({$username}) \"{$file}\" файлын тексеріп, жүктеп салды"
+msgstr "\"{$userFullName}\" ({$username}) \"{$filename}\" файлын тексеріп, жүктеп салды"
 
 msgid "submission.event.signoffSignoff"
 msgstr ""
-"\"{$name}\" ({$username}) \"{$file}\" үшін жаңа шығарылымды ақыры мақұлдады"
+"\"{$userFullName}\" ({$username}) \"{$filename}\" үшін жаңа шығарылымды ақыры мақұлдады"
 
 msgid "submission.event.proofsApproved"
-msgstr "\"{$name}\" ({$username}) \"{$formatName}\" үшін түзетуді мақұлдады"
+msgstr "\"{$userFullName}\" ({$username}) \"{$publicationFormatName}\" үшін түзетуді мақұлдады"
 
 msgid "submission.overview"
 msgstr "Жіберу туралы шолу"

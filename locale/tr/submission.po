@@ -1867,53 +1867,53 @@ msgstr "Denetçiyi atamaya çalışırken bir hata oluştu. Lütfen tekrar deney
 
 msgid "submission.event.fileEdited"
 msgstr ""
-"\"{$originalFileName}\" dosyasının üstverileri {$username} tarafından "
+"\"{$filename}\" dosyasının üstverileri {$username} tarafından "
 "düzenlendi."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"\"{$originalFileName}\" adlı dosya, {$submissionId} numaralı gönderi için "
+"\"{$filename}\" adlı dosya, {$submissionId} numaralı gönderi için "
 "{$username} tarafından gönderilmek üzere yüklendi."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"\"{$originalFileName}\" adlı dosya, {$submissionId} numaralı gönderi için "
+"\"{$filename}\" adlı dosya, {$submissionId} numaralı gönderi için "
 "{$username} tarafından silindi."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
 "{$submissionId} numaralı aday makale için {$username} tarafından "
-"\"{$originalFileName}\" isimli revizyon dosyası yüklendi."
+"\"{$filename}\" isimli revizyon dosyası yüklendi."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"{$submissionId} numaralı aday makaleye yüklenmiş \"{$originalFileName}\" "
+"{$submissionId} numaralı aday makaleye yüklenmiş \"{$filename}\" "
 "isimli revizyon dosyası {$username} tarafından silindi."
 
 msgid "submission.event.lastRevisionDeleted"
 msgstr ""
-"\"{$title}\" adlı dosyanın son revizyonu {$username} tarafından kaldırıldı."
+"\"{$filename}\" adlı dosyanın son revizyonu {$username} tarafından kaldırıldı."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"\"{$name}\" ({$username}), \"{$file}\" dosyası için kontrol eden olarak "
+"\"{$userFullName}\" ({$username}), \"{$filename}\" dosyası için kontrol eden olarak "
 "eklendi."
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$name}\" ({$username}), \"{$file}\" dosyasının denetçiliğinden kaldırıldı."
+"\"{$userFullName}\" ({$username}), \"{$filename}\" dosyasının denetçiliğinden kaldırıldı."
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
-"\"{$name}\" ({$username}) bir denetimi tamamladı ve \"{$file}\" adlı dosyayı "
+"\"{$userFullName}\" ({$username}) bir denetimi tamamladı ve \"{$filename}\" adlı dosyayı "
 "yükledi."
 
 msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username}), \"{$file}\" için imzaladı."
+msgstr "\"{$userFullName}\" ({$username}), \"{$filename}\" için imzaladı."
 
 msgid "submission.event.proofsApproved"
 msgstr ""
-"\"{$name}\" ({$username}), \"{$formatName}.\" için düzeltmeleri onayladı."
+"\"{$userFullName}\" ({$username}), \"{$publicationFormatName}.\" için düzeltmeleri onayladı."
 
 msgid "submission.overview"
 msgstr "Gönderiye Genel Bakış"

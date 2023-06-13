@@ -1762,45 +1762,44 @@ msgstr ""
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"Một tệp \"{$originalFileName}\" đã được tải lên cho bài {$ submitId} bởi {$ "
-"username}."
+"Một tệp \"{$filename}\" đã được tải lên cho bài {$submissionId} bởi {$username}."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"Tệp \"{$originalFileName}\" đã bị xóa cho bài {$submitId} bởi {$username}."
+"Tệp \"{$filename}\" đã bị xóa cho bài {$submissionId} bởi {$username}."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"Một bản sửa đổi tệp \"{$originalFileName}\" đã được tải lên cho bài "
-"{$submitId} bởi {$username}."
+"Một bản sửa đổi tệp \"{$filename}\" đã được tải lên cho bài "
+"{$submissionId} bởi {$username}."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"Bản sửa đổi tệp \"{$originalFileName}\" đã bị xóa cho bài {$submitId} bởi "
+"Bản sửa đổi tệp \"{$filename}\" đã bị xóa cho bài {$submissionId} bởi "
 "{$username}."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "Tập tin \"{$title}\" bị xóa bản sửa đổi cuối cùng bởi {$username}."
+msgstr "Tập tin \"{$filename}\" bị xóa bản sửa đổi cuối cùng bởi {$username}."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"\"{$name}\" ({$username}) đã được thêm làm người kiểm tra cho tệp \"{$file}."
+"\"{$userFullName}\" ({$username}) đã được thêm làm người kiểm tra cho tệp \"{$filename}."
 "\""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$name}\" ({$username}) đã bị xóa do người kiểm tra cho tệp \"{$file}.\""
+"\"{$userFullName}\" ({$username}) đã bị xóa do người kiểm tra cho tệp \"{$filename}.\""
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
-"\"{$name}\" ({$username}) đã hoàn thành kiểm tra và tải lên tệp \"{$file}.\""
+"\"{$userFullName}\" ({$username}) đã hoàn thành kiểm tra và tải lên tệp \"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username}) đã đăng xuất khi đăng xuất cho \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) đã đăng xuất khi đăng xuất cho \"{$filename}.\""
 
 msgid "submission.event.proofsApproved"
 msgstr ""
-"\"{$name}\" ({$username}) đã phê duyệt các bản in thử  cho \"{$formatName}.\""
+"\"{$userFullName}\" ({$username}) đã phê duyệt các bản in thử  cho \"{$publicationFormatName}.\""
 
 msgid "submission.overview"
 msgstr "Đánh giá sơ bộ bài gửi"

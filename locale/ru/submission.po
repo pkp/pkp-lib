@@ -1918,48 +1918,48 @@ msgstr ""
 
 msgid "submission.event.fileEdited"
 msgstr ""
-"Метаданные для файла «{$originalFileName}» были отредактированы "
+"Метаданные для файла «{$filename}» были отредактированы "
 "пользователем {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"Файл «{$originalFileName}» был загружен для материала «{$submissionId}» "
+"Файл «{$filename}» был загружен для материала «{$submissionId}» "
 "пользователем «{$username}»."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"Файл «{$originalFileName}» был удален из материала «{$submissionId}» "
+"Файл «{$filename}» был удален из материала «{$submissionId}» "
 "пользователем «{$username}»."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"Новая версия файла «{$originalFileName}» была загружена для материала "
+"Новая версия файла «{$filename}» была загружена для материала "
 "«{$submissionId}» пользователем «{$username}»."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"Версия файла «{$originalFileName}» была удалена из материала "
+"Версия файла «{$filename}» была удалена из материала "
 "«{$submissionId}» пользователем «{$username}»."
 
 msgid "submission.event.lastRevisionDeleted"
 msgstr ""
-"У файла «{$title}» последняя версия была удалена пользователем «{$username}»."
+"У файла «{$filename}» последняя версия была удалена пользователем «{$username}»."
 
 msgid "submission.event.fileAuditorAdded"
-msgstr "«{$name}» ({$username}) был добавлен как аудитор для файла «{$file}»."
+msgstr "«{$userFullName}» ({$username}) был добавлен как аудитор для файла «{$filename}»."
 
 msgid "submission.event.fileAuditorCleared"
-msgstr "«{$name}» ({$username}) был удален как аудитор для файла «{$file}»."
+msgstr "«{$userFullName}» ({$username}) был удален как аудитор для файла «{$filename}»."
 
 msgid "submission.event.fileAuditUploaded"
-msgstr "«{$name}» ({$username}) выполнил аудит и загрузил «{$file}»."
+msgstr "«{$userFullName}» ({$username}) выполнил аудит и загрузил «{$filename}»."
 
 msgid "submission.event.signoffSignoff"
 msgstr ""
-"«{$name}» ({$username}) окончательно одобрил новый выпуск для «{$file}»."
+"«{$userFullName}» ({$username}) окончательно одобрил новый выпуск для «{$filename}»."
 
 msgid "submission.event.proofsApproved"
-msgstr "«{$name}» ({$username}) одобрил корректуры для «{$formatName}»."
+msgstr "«{$userFullName}» ({$username}) одобрил корректуры для «{$publicationFormatName}»."
 
 msgid "submission.overview"
 msgstr "Обзор отправленного материала"

@@ -1871,47 +1871,47 @@ msgstr ""
 "ponovno."
 
 msgid "submission.event.fileEdited"
-msgstr "Metapodatke za datoteku \"{$originalFileName}\" uredio je {$username}."
+msgstr "Metapodatke za datoteku \"{$filename}\" uredio je {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"Datoteku \"{$originalFileName}\" učitao je {$username} za podnošenje "
+"Datoteku \"{$filename}\" učitao je {$username} za podnošenje "
 "{$submissionId}."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"Datoteka \"{$originalFileName}\" je izbrisana za podnošenje {$submissionId} "
+"Datoteka \"{$filename}\" je izbrisana za podnošenje {$submissionId} "
 "od strane {$username}."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"{$username} je učitao reviziju datoteke \"{$originalFileName}\" za "
+"{$username} je učitao reviziju datoteke \"{$filename}\" za "
 "podnošenje {$submissionId}."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"Revizija datoteke \"{$originalFileName}\" je izbrisana za podnošenje "
+"Revizija datoteke \"{$filename}\" je izbrisana za podnošenje "
 "{$submissionId} od strane {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "Zadnju reviziju datoteke \"{$title}\" uklonio je {$username}."
+msgstr "Zadnju reviziju datoteke \"{$filename}\" uklonio je {$username}."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"\"{$name}\" ({$username}) dodan je kao revizor za datoteku \"{$file}.\""
+"\"{$userFullName}\" ({$username}) dodan je kao revizor za datoteku \"{$filename}.\""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$name}\" ({$username}) dodan je kao revizor za datoteku \"{$file}.\""
+"\"{$userFullName}\" ({$username}) dodan je kao revizor za datoteku \"{$filename}.\""
 
 msgid "submission.event.fileAuditUploaded"
-msgstr "\"{$name}\" ({$username}) je završio reviziju i učitao \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) je završio reviziju i učitao \"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username}) se odjavio na odjavi za \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) se odjavio na odjavi za \"{$filename}.\""
 
 msgid "submission.event.proofsApproved"
-msgstr "\"{$name}\" ({$username}) odobrio je dokaze za \"{$formatName}.\""
+msgstr "\"{$userFullName}\" ({$username}) odobrio je dokaze za \"{$publicationFormatName}.\""
 
 msgid "submission.overview"
 msgstr "Pregled slanja"

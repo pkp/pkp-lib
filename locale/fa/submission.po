@@ -1738,42 +1738,42 @@ msgstr ""
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"فایل «{$originalFileName}» توسط {$username} برای مقاله شماره  "
+"فایل «{$filename}» توسط {$username} برای مقاله شماره  "
 "{$submissionId} آپلود شد."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"فایل \"{$originalFileName}\" مربوط به مقاله ارسالی {$submissionId} توسط "
+"فایل \"{$filename}\" مربوط به مقاله ارسالی {$submissionId} توسط "
 "{$username} حذف شد."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"فایل اصلاحی \"{$originalFileName}\" مربوط به مقاله ارسالی {$submissionId} "
+"فایل اصلاحی \"{$filename}\" مربوط به مقاله ارسالی {$submissionId} "
 "توسط {$username} آپلود شد."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"فایل اصلاحی \"{$originalFileName}\" مربوط به مقاله ارسالی {$submissionId} "
+"فایل اصلاحی \"{$filename}\" مربوط به مقاله ارسالی {$submissionId} "
 "توسط {$username} حدف شد."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "آخرین  نسخه اصلاحی فایل \"{$title}\" توسط {$username} حذف شد."
+msgstr "آخرین  نسخه اصلاحی فایل \"{$filename}\" توسط {$username} حذف شد."
 
 msgid "submission.event.fileAuditorAdded"
-msgstr "\"{$name}\" ({$username}) به عنوان حسابرس فایل \"{$file}\" افزوده شد."
+msgstr "\"{$userFullName}\" ({$username}) به عنوان حسابرس فایل \"{$filename}\" افزوده شد."
 
 msgid "submission.event.fileAuditorCleared"
-msgstr "\"{$name}\" ({$username}) از حسابرسی فایل \"{$file}\" حذف شد."
+msgstr "\"{$userFullName}\" ({$username}) از حسابرسی فایل \"{$filename}\" حذف شد."
 
 msgid "submission.event.fileAuditUploaded"
-msgstr "\"{$name}\" ({$username}) آپلود و بررسی فایل \"{$file}\" تکمیل کرد."
+msgstr "\"{$userFullName}\" ({$username}) آپلود و بررسی فایل \"{$filename}\" تکمیل کرد."
 
 msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username}) فایل \"{$file}\"  را امضا کرد."
+msgstr "\"{$userFullName}\" ({$username}) فایل \"{$filename}\"  را امضا کرد."
 
 msgid "submission.event.proofsApproved"
 msgstr ""
-"\"{$name}\" ({$username}) نسخه بازبینی شده نهایی \"{$formatName}\" را تایید "
+"\"{$userFullName}\" ({$username}) نسخه بازبینی شده نهایی \"{$publicationFormatName}\" را تایید "
 "کرد."
 
 msgid "submission.overview"

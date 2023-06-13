@@ -1687,37 +1687,37 @@ msgid "editor.submission.addAuditorError"
 msgstr "There was an error trying to assign the auditor. Please Try again."
 
 msgid "submission.event.fileEdited"
-msgstr "The metadata for file \"{$originalFileName}\" was edited by {$username}."
+msgstr "The metadata for file \"{$filename}\" was edited by {$username}."
 
 msgid "submission.event.fileUploaded"
-msgstr "A file \"{$originalFileName}\" was uploaded for submission {$submissionId} by {$username}."
+msgstr "A file \"{$filename}\" was uploaded for submission {$submissionId} by {$username}."
 
 msgid "submission.event.fileDeleted"
-msgstr "A file \"{$originalFileName}\" was deleted for submission {$submissionId} by {$username}."
+msgstr "A file \"{$filename}\" was deleted for submission {$submissionId} by {$username}."
 
 msgid "submission.event.revisionUploaded"
-msgstr "A file revision \"{$originalFileName}\" was uploaded for submission {$submissionId} by {$username}."
+msgstr "A file revision \"{$filename}\" was uploaded for submission {$submissionId} by {$username}."
 
 msgid "submission.event.revisionDeleted"
-msgstr "A file revision \"{$originalFileName}\" was deleted for submission {$submissionId} by {$username}."
+msgstr "A file revision \"{$filename}\" was deleted for submission {$submissionId} by {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "A file \"{$title}\" had its last revision removed by {$username}."
+msgstr "A file \"{$filename}\" had its last revision removed by {$username}."
 
 msgid "submission.event.fileAuditorAdded"
-msgstr "\"{$name}\" ({$username}) was added as an auditor for the file \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) was added as an auditor for the file \"{$filename}.\""
 
 msgid "submission.event.fileAuditorCleared"
-msgstr "\"{$name}\" ({$username}) was removed as an auditor for the file \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) was removed as an auditor for the file \"{$filename}.\""
 
 msgid "submission.event.fileAuditUploaded"
-msgstr "\"{$name}\" ({$username}) has completed an audit and uploaded \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) has completed an audit and uploaded \"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username}) has signed off on the signoff for \"{$file}.\""
+msgstr "\"{$userFullName}\" ({$username}) has signed off on the signoff for \"{$filename}.\""
 
 msgid "submission.event.proofsApproved"
-msgstr "\"{$name}\" ({$username}) has approved the proofs for \"{$formatName}.\""
+msgstr "\"{$userFullName}\" ({$username}) has approved the proofs for \"{$publicationFormatName}.\""
 
 msgid "submission.overview"
 msgstr "Submission Overview"

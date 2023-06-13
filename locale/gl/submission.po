@@ -1768,49 +1768,49 @@ msgstr ""
 "Houbo un erro ao intentar asignar ao auditor/a. Por favor intentao de novo."
 
 msgid "submission.event.fileEdited"
-msgstr "{$Username} editou os metadatos do arquivo \"{$originalFileName}\"."
+msgstr "{$username} editou os metadatos do arquivo \"{$filename}\"."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"{$username} cargou o arquivo \"{$originalFileName}\" para o envío "
+"{$username} cargou o arquivo \"{$filename}\" para o envío "
 "{$submissionId}."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"{$username} eliminou o arquivo \"{$originalFileName}\" do envío "
+"{$username} eliminou o arquivo \"{$filename}\" do envío "
 "{$submissionId}."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"{$username} cargou o arquivo de revisión \"{$originalFileName}\" do envío "
+"{$username} cargou o arquivo de revisión \"{$filename}\" do envío "
 "{$submissionId}."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"{$username} eliminou o arquivo de revisión \"{$originalFileName}\" do envío "
+"{$username} eliminou o arquivo de revisión \"{$filename}\" do envío "
 "{$submissionId}."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "{$username} eliminou a última revisión do arquivo \"{$title}\"."
+msgstr "{$username} eliminou a última revisión do arquivo \"{$filename}\"."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"\"{$name}\" ({$username}) engadiuse como auditor/a do arquivo \"{$file}.\""
+"\"{$userFullName}\" ({$username}) engadiuse como auditor/a do arquivo \"{$filename}.\""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$name}\" ({$username}) eliminouse como auditor/a do arquivo \"{$file}\"."
+"\"{$userFullName}\" ({$username}) eliminouse como auditor/a do arquivo \"{$filename}\"."
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
-"\"{$name}\" ({$username}) rematou unha auditoría e cargou o arquivo "
-"\"{$file}\"."
+"\"{$userFullName}\" ({$username}) rematou unha auditoría e cargou o arquivo "
+"\"{$filename}\"."
 
 msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username}) pechou a sesión de \"{$file}\"."
+msgstr "\"{$userFullName}\" ({$username}) pechou a sesión de \"{$filename}\"."
 
 msgid "submission.event.proofsApproved"
-msgstr "\"{$name}\" ({$username}) aceptou as probas de \"{$formatName}\"."
+msgstr "\"{$userFullName}\" ({$username}) aceptou as probas de \"{$publicationFormatName}\"."
 
 msgid "submission.overview"
 msgstr "Resumo do envío"

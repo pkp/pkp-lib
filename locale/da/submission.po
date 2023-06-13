@@ -1914,54 +1914,53 @@ msgstr "Der fremkom en fejl under forsøget på at tilføje auditøren. Prøv ig
 
 msgid "submission.event.fileEdited"
 msgstr ""
-"Metadataene til filen \"{$ originalFileName}\" blev redigeret af {$ "
-"username}."
+"Metadataene til filen \"{$filename}\" blev redigeret af {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"En fil \"{$originalFileName}\" blev uploadet til indsendelse {$submissionId} "
+"En fil \"{$filename}\" blev uploadet til indsendelse {$submissionId} "
 "af {$username}."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"En fil \"{$originalFileName}\" blev slettet under indsendelse "
+"En fil \"{$filename}\" blev slettet under indsendelse "
 "{$submissionId} af {$username}."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"En filrevision \"{$originalFileName}\" blev uploadet til indsendelse "
+"En filrevision \"{$filename}\" blev uploadet til indsendelse "
 "{$submissionId} af {$username}."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"En filrevision \"{$originalFileName}\" blev slettet under indsendelse "
+"En filrevision \"{$filename}\" blev slettet under indsendelse "
 "{$submissionId} af {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "En fil \"{$title}\" fik seneste revision fjernet af {$username}."
+msgstr "En fil \"{$filename}\" fik seneste revision fjernet af {$username}."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"\"{$name}\" ({$username}) blev tilføjet som auditør i forbindelse med filen "
-"\"{$file}.\""
+"\"{$userFullName}\" ({$username}) blev tilføjet som auditør i forbindelse med filen "
+"\"{$filename}.\""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$name}\" ({$username}) blev fjernet som auditør i forbindelse med filen "
-"\"{$file}.\""
+"\"{$userFullName}\" ({$username}) blev fjernet som auditør i forbindelse med filen "
+"\"{$filename}.\""
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
-"\"{$name}\" ({$username}) har afsluttet en revision og uploadet \"{$file}.\""
+"\"{$userFullName}\" ({$username}) har afsluttet en revision og uploadet \"{$filename}.\""
 
 msgid "submission.event.signoffSignoff"
 msgstr ""
-"\"{$name}\" ({$username}) underskrevet med godkendelse i forbindelse med "
-"\"{$file}.\""
+"\"{$userFullName}\" ({$username}) underskrevet med godkendelse i forbindelse med "
+"\"{$filename}.\""
 
 msgid "submission.event.proofsApproved"
 msgstr ""
-"\"{$name}\" ({$username}) har godkendt korrekturen til \"{$formatName}.\""
+"\"{$userFullName}\" ({$username}) har godkendt korrekturen til \"{$publicationFormatName}.\""
 
 msgid "submission.overview"
 msgstr "Indsendelsesoversigt"

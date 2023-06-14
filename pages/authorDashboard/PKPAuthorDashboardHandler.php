@@ -325,7 +325,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
         ];
 
         // Add the metadata form if one or more metadata fields are enabled
-        $metadataFields = ['coverage', 'disciplines', 'keywords', 'languages', 'rights', 'source', 'subjects', 'agencies', 'type', 'dataAvailability'];
+        $metadataFields = ['coverage', 'disciplines', 'keywords', 'languages', 'rights', 'source', 'subjects', 'agencies', 'type', 'dataAvailability', 'workNumber'];
         $metadataEnabled = false;
         foreach ($metadataFields as $metadataField) {
             if ($submissionContext->getData($metadataField)) {

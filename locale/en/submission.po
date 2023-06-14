@@ -714,6 +714,12 @@ msgstr "The publisher ID may be used to record the ID from an external database.
 msgid "submission.publisherId.enable"
 msgstr "Enable for {$objects}"
 
+msgid "submission.workNumber"
+msgstr "Work Number"
+
+msgid "submission.workNumber.description"
+msgstr "The work number can be used in citations and other metadata instead of page numbers."
+
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Submission Info"
 

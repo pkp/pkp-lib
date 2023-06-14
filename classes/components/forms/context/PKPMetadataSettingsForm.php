@@ -195,6 +195,14 @@ class PKPMetadataSettingsForm extends FormComponent
                     ['value' => false, 'label' => __('manager.submitWithCategories.no')],
                 ],
                 'value' => (bool) $context->getData('submitWithCategories')
+            ]))
+            ->addField(new FieldOptions('workNumber', [
+                'label' => __('submission.workNumber'),
+                'description' => __('submission.workNumber.description'),
+                'options' => [
+                    ['value' => true, 'label' => __('manager.setup.metadata.workNumber.enable')]
+                ],
+                'value' => (bool) $context->getData('workNumber'),
             ]));
     }
 }

@@ -873,6 +873,11 @@
 				"nullable",
 				"in:0,enable,request,require"
 			]
+		},
+		"workNumber": {
+			"type": "boolean",
+			"description": "Enable or disable work number metadata. `True` will make it available in the workflow.",
+			"default": false
 		}
 	}
 }

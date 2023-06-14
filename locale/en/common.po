@@ -2011,6 +2011,12 @@ msgstr ""
 msgid "notification.unsubscribeNotifications"
 msgstr "Unsubscribe"
 
+msgid "showMore"
+msgstr "Show more"
+
+msgid "showLess"
+msgstr "Show less"
+
 msgid "list.viewMore"
 msgstr "Show more details about {$name}"
 

@@ -26,7 +26,7 @@ class Role extends \PKP\core\DataObject
     public const ROLE_ID_SUB_EDITOR = 17;
     public const ROLE_ID_AUTHOR = 65536;
     public const ROLE_ID_REVIEWER = 4096;
-    public const ROLE_ID_ASSISTANT = 4096;
+    public const ROLE_ID_ASSISTANT = 4097;
     public const ROLE_ID_READER = 1048576;
     public const ROLE_ID_SUBSCRIPTION_MANAGER = 2097152;
 

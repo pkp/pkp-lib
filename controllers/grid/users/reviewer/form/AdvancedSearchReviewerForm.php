@@ -211,6 +211,21 @@ class AdvancedSearchReviewerForm extends ReviewerForm
             ]
         ]);
 
+        // Get the submission's authors
+        $publication = $this->getSubmission()->getCurrentPublication();
+
+        $authors = [];
+        foreach($publication->getData('authors') as $author) {
+            $affiliations = [];
+            foreach($author->getAffiliation(null) as $affiliationName) {
+                $affiliations[] = $affiliationName;
+            }
+
+            $authors[$author->getFullName()] = implode(',', array_filter($affiliations));
+        }
+
+        $templateMgr->assign('authors', $authors);
+
         // Only add actions to forms where user can operate.
         if (array_intersect($this->getUserRoles(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
             $actionArgs['selectionType'] = PKPReviewerGridHandler::REVIEWER_SELECT_CREATE;

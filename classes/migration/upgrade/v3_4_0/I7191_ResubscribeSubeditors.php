@@ -27,8 +27,9 @@
 namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Database\Query\JoinClause;
-use Illuminate\Support\Enumerable;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use PKP\install\DowngradeNotSupportedException;
 
 class I7191_ResubscribeSubeditors extends \PKP\migration\Migration
 {
@@ -42,39 +43,22 @@ class I7191_ResubscribeSubeditors extends \PKP\migration\Migration
      */
     public const SUBEDITOR_ROLE = 0x00000011;
 
-    protected Enumerable $removedRows;
-
     public function up(): void
     {
-        $this->removedRows = DB::table('notification_subscription_settings as nss')
-            ->leftJoin('user_user_groups as uug', 'nss.user_id', '=', 'uug.user_id')
-            ->leftJoin('user_groups as ug', function (JoinClause $join) {
+        DB::table('notification_subscription_settings as nss')
+            ->join('user_user_groups as uug', 'nss.user_id', '=', 'uug.user_id')
+            ->join('user_groups as ug', fn (JoinClause $join) =>
                 $join->on('ug.user_group_id', '=', 'uug.user_group_id')
                     ->on('ug.context_id', '=', 'nss.context')
-                    ->where('ug.role_id', '=', self::SUBEDITOR_ROLE);
-            })
-            ->distinct()
+                    ->where('ug.role_id', '=', self::SUBEDITOR_ROLE)
+            )
             ->where('nss.setting_name', 'blocked_emailed_notification')
             ->where('nss.setting_value', self::NOTIFICATION_TYPE)
-            ->whereNotNull('ug.user_group_id')
-            ->get(['nss.*', 'nss.context']);
-
-        DB::table('notification_subscription_settings')
-            ->whereIn(
-                'setting_id',
-                $this->removedRows->map(fn ($row) => $row->setting_id)
-            )
             ->delete();
     }
 
     public function down(): void
     {
-        DB::table('notification_subscription_settings')
-            ->insert(
-                $this
-                    ->removedRows
-                    ->map(fn ($row) => (array) $row)
-                    ->toArray()
-            );
+        throw new DowngradeNotSupportedException();
     }
 }

@@ -18,6 +18,7 @@ namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -65,14 +66,40 @@ abstract class I8933_EventLogLocalized extends Migration
         $this->renameSettings();
 
         // Localize existing submission file name entries
-        $sitePrimaryLocale = DB::table('site')->value('primary_locale');
+        $sitePrimaryLocale = DB::getPdo()->quote(DB::table('site')->value('primary_locale'));
         $contexts = DB::table($this->getContextTable())->get([$this->getContextIdColumn(), 'primary_locale']);
-        $contextIdPrimaryLocaleMap = [];
-        foreach ($contexts as $context) {
-            $contextIdPrimaryLocaleMap[$context->{$this->getContextIdColumn()}] = $context->primary_locale;
-        }
+        $whenRules = $contexts
+            ->map(fn (object $context) => 'WHEN ' . (int) $context->{$this->getContextIdColumn()} . ' THEN ' . DB::getPdo()
+            ->quote($context->primary_locale ?? $sitePrimaryLocale))->join("\n");
+
+        // Attempts to retrieve a context ID from the event_log.assoc_id
+        $contextIdQuery = DB::table('submissions AS s')
+            ->whereRaw(
+                's.submission_id = CASE e.assoc_type
+                    WHEN ? THEN
+                        (SELECT sf.submission_id
+                        FROM submission_files sf
+                        WHERE sf.submission_file_id = e.assoc_id)
+                    WHEN ? THEN e.assoc_id
+                END',
+                [
+                    0x0000203, // ASSOC_TYPE_SUBMISSION_FILE
+                    0x0100009 // ASSOC_TYPE_SUBMISSION
+                ]
+            )
+            ->select('s.context_id');
+
+        // Updates the locale according to the pre-built map and uses $sitePrimaryLocale if a context ID cannot be found
+        $update = ['es.locale' => DB::raw(
+            "CASE ({$contextIdQuery->toSql()})
+                {$whenRules}
+                ELSE {$sitePrimaryLocale}
+            END"
+        )];
 
         DB::table('event_log_settings AS es')
+            // Merge bindings early, the SET will be on top
+            ->mergeBindings($contextIdQuery)
             ->join('event_log AS e', 'es.log_id', '=', 'e.log_id')
             ->where('es.setting_name', 'filename')
             ->whereIn('e.event_type', [
@@ -80,29 +107,14 @@ abstract class I8933_EventLogLocalized extends Migration
                 0x50000010, // SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
                 0x50000008, // SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD,
             ])
-            ->chunkById(
-                self::CHUNK_SIZE,
-                function (Collection $logChunks) use ($sitePrimaryLocale, $contextIdPrimaryLocaleMap) {
-                    $mapLocaleWithSettingIds = [];
-                    foreach ($logChunks as $row) {
-                        // Get locale based on a submission file ID log entry
-                        $locale = $this->getContextPrimaryLocale($row, $sitePrimaryLocale, $contextIdPrimaryLocaleMap);
-                        if (!$locale) {
-                            continue;
-                        }
-                        $mapLocaleWithSettingIds[$locale] ??= [];
-                        $mapLocaleWithSettingIds[$locale][] = $row->event_log_setting_id;
-                    }
-
-                    // Update by chunks for each locale
-                    foreach ($mapLocaleWithSettingIds as $locale => $settingIds) {
-                        DB::table('event_log_settings')
-                            ->whereIn('event_log_setting_id', $settingIds)
-                            ->update(['locale' => $locale]);
-                    }
-                },
-                'es.event_log_setting_id',
-                'event_log_setting_id'
+            ->whereIn('e.assoc_type', [
+                0x0000203, // ASSOC_TYPE_SUBMISSION_FILE
+                0x0100009 // ASSOC_TYPE_SUBMISSION
+            ])
+            ->when(
+                DB::connection() instanceof PostgresConnection,
+                fn (Builder $q) => $q->updateFrom($update),
+                fn (Builder $q) => $q->update($update)
             );
     }
 
@@ -138,41 +150,6 @@ abstract class I8933_EventLogLocalized extends Migration
             0x40000021, // SUBMISSION_LOG_REVIEW_REMIND_AUTO
             0x40000020, // SUBMISSION_LOG_REVIEW_REMIND
         ]);
-    }
-
-    /**
-     * Retrieve the primary locale of the context associated with a given submission file
-     */
-    protected function getContextPrimaryLocale(object $row, string $sitePrimaryLocale, array $contextIdPrimaryLocaleMap): ?string
-    {
-        // Try to determine submission/submission file ID based on the assoc type
-        if ($row->assoc_type === 0x0000203) { // ASSOC_TYPE_SUBMISSION_FILE
-            $submissionFileId = $row->assoc_id;
-        } elseif ($row->assoc_type === 0x0100009) { // ASSOC_TYPE_SUBMISSION
-            $submissionId = $row->assoc_id;
-        } else {
-            throw new \Exception('Unsupported assoc_type in the event log: ' . $row->assoc_type);
-        }
-
-        // Get submission from the file ID
-        if (!isset($submissionId)) {
-            $submissionId = DB::table('submission_files')
-                ->where('submission_file_id', $submissionFileId)
-                ->value('submission_id');
-        }
-
-        // Assuming submission file was removed
-        if (!$submissionId) {
-            return $sitePrimaryLocale;
-        }
-
-        $contextId = DB::table('submissions')->where('submission_id', $submissionId)->value('context_id');
-
-        if (!$contextId) {
-            return $sitePrimaryLocale;
-        }
-
-        return $contextIdPrimaryLocaleMap[$contextId];
     }
 
     /**

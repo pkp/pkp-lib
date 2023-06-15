@@ -15,29 +15,20 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
-use stdClass;
 
 class I7874_NotificationMetadataModifiedRemove extends Migration
 {
-    protected Collection $subscribedToMetadataChangedNotification;
-
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        $this->subscribedToMetadataChangedNotification = DB::table('notification_subscription_settings')
+        DB::table('notification_subscription_settings')
             ->where('setting_value', '=', 0x1000002) // PKP\notification\PKPNotification::NOTIFICATION_TYPE_METADATA_MODIFIED
-            ->get();
-
-        $this->subscribedToMetadataChangedNotification->each(function (stdClass $row) {
-            DB::table('notification_subscription_settings')
-                ->where('setting_id', '=', $row->{'setting_id'})
-                ->delete();
-        });
+            ->delete();
     }
 
     /**
@@ -45,10 +36,6 @@ class I7874_NotificationMetadataModifiedRemove extends Migration
      */
     public function down(): void
     {
-        $this->subscribedToMetadataChangedNotification->each(function (stdClass $row) {
-            $values = (array) $row;
-            unset($values['setting_id']);
-            DB::table('notification_subscription_settings')->insert([$values]);
-        });
+        throw new DowngradeNotSupportedException();
     }
 }

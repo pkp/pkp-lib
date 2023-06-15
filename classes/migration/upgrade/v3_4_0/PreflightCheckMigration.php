@@ -23,6 +23,7 @@ use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\db\DAORegistry;
@@ -993,28 +994,30 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             return 0;
         }
 
-        $filter ??= fn(Builder $q) => $q;
-        $ids = $filter(
-            DB::table("{$sourceTable} AS s")
-                ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
-                ->whereNull("r.{$referenceColumn}")
-                ->distinct()
-        )
-            ->pluck("s.{$sourceColumn}");
+        /** @var Builder $query */
+        $query = DB::table("{$sourceTable} AS s")
+            ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
+            ->whereNull("r.{$referenceColumn}")
+            ->when($filter, $filter);
 
-        if (!$ids->count()) {
-            return 0;
-        }
+        (clone $query)
+            ->select("s.{$sourceColumn}")
+            ->distinct()
+            ->orderBy("s.{$sourceColumn}")
+            ->chunk(
+                1000,
+                function (Collection $rows, int $page) use ($sourceTable, $sourceColumn, $referenceTable) {
+                    if ($page < 2) {
+                        $this->_installer->log("Removing orphaned entries from \"{$sourceTable}\" with an invalid value for the required column \"{$sourceColumn}\". The following IDs do not exist at the reference table \"{$referenceTable}\"");
+                    }
+                    $this->_installer->log($rows->pluck($sourceColumn)->map(fn ($value) => strlen($value) ? $value : 'NULL')->join(', '));
+                }
+            );
 
-        $removed = 0;
-        $this->_installer->log("Removing orphaned entries from \"{$sourceTable}\" with an invalid value for the required column \"{$sourceColumn}\". The following IDs do not exist at the reference table \"{$referenceTable}\":\n{$ids->join(', ')}");
-        foreach ($ids->chunk(1000) as $chunkedIds) {
-            $removed += DB::table($sourceTable)
-                ->whereIn($sourceColumn, $chunkedIds)
-                ->orWhereNull($sourceColumn)
-                ->delete();
+        $removed = $query->delete();
+        if ($removed) {
+            $this->_installer->log("{$removed} entries removed");
         }
-        $this->_installer->log("{$removed} entries removed");
         return $removed;
     }
 
@@ -1029,28 +1032,31 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             return 0;
         }
 
-        $filter ??= fn(Builder $q) => $q;
-        $ids = $filter(
-            DB::table("{$sourceTable} AS s")
-                ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
-                ->whereNotNull("s.{$sourceColumn}")
-                ->whereNull("r.{$referenceColumn}")
-                ->distinct()
-        )
-            ->pluck("s.{$sourceColumn}");
+        /** @var Builder $query */
+        $query = DB::table("{$sourceTable} AS s")
+            ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
+            ->whereNotNull("s.{$sourceColumn}")
+            ->whereNull("r.{$referenceColumn}")
+            ->when($filter, $filter);
 
-        if (!$ids->count()) {
-            return 0;
-        }
+        (clone $query)
+            ->select("s.{$sourceColumn}")
+            ->distinct()
+            ->orderBy("s.{$sourceColumn}")
+            ->chunk(
+                1000,
+                function (Collection $rows, int $page) use ($sourceTable, $sourceColumn, $referenceTable) {
+                    if ($page < 2) {
+                        $this->_installer->log("Cleaning orphaned entries from \"{$sourceTable}\" with an invalid value for the column \"{$sourceColumn}\". The following IDs do not exist at the reference table \"{$referenceTable}\" and will be reset to NULL");
+                    }
+                    $this->_installer->log($rows->pluck($sourceColumn)->join(', '));
+                }
+            );
 
-        $updated = 0;
-        $this->_installer->log("Cleaning orphaned entries from \"{$sourceTable}\" with an invalid value for the column \"{$sourceColumn}\". The following IDs do not exist at the reference table \"{$referenceTable}\" and will be reset to NULL:\n{$ids->join(', ')}");
-        foreach ($ids->chunk(1000) as $chunkedIds) {
-            $updated += DB::table($sourceTable)
-                ->whereIn($sourceColumn, $chunkedIds)
-                ->update([$sourceColumn => null]);
+        $updated = $query->update(["s.{$sourceColumn}" => null]);
+        if ($updated) {
+            $this->_installer->log("{$updated} entries updated");
         }
-        $this->_installer->log("{$updated} entries updated");
         return $updated;
     }
 
@@ -1065,27 +1071,31 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             return 0;
         }
 
-        $filter ??= fn(Builder $q) => $q;
-        $ids = $filter(
-            DB::table("{$sourceTable} AS s")
-                ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
-                ->whereNotNull("s.{$sourceColumn}")
-                ->whereNull("r.{$referenceColumn}")
-                ->distinct()
-        )
-            ->pluck("s.{$sourceColumn}");
+        /** @var Builder $query */
+        $query = DB::table("{$sourceTable} AS s")
+            ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
+            ->whereNotNull("s.{$sourceColumn}")
+            ->whereNull("r.{$referenceColumn}")
+            ->when($filter, $filter);
 
-        if (!$ids->count()) {
-            return 0;
+        (clone $query)
+            ->select("s.{$sourceColumn}")
+            ->distinct()
+            ->orderBy("s.{$sourceColumn}")
+            ->chunk(
+                1000,
+                function (Collection $rows, int $page) use ($sourceTable, $sourceColumn, $referenceTable) {
+                    if ($page < 2) {
+                        $this->_installer->log("Removing orphaned entries from \"{$sourceTable}\" with an invalid value for the column \"{$sourceColumn}\". The following IDs do not exist at the reference table \"{$referenceTable}\"");
+                    }
+                    $this->_installer->log($rows->pluck($sourceColumn)->join(', '));
+                }
+            );
+
+        $removed = $query->delete();
+        if ($removed) {
+            $this->_installer->log("{$removed} entries removed");
         }
-        $this->_installer->log("Removing orphaned entries from \"{$sourceTable}\" with an invalid value for the column \"{$sourceColumn}\". The following IDs do not exist at the reference table \"{$referenceTable}\":\n{$ids->join(', ')}");
-        $removed = 0;
-        foreach ($ids->chunk(1000) as $chunkedIds) {
-            $removed += DB::table($sourceTable)
-                ->whereIn($sourceColumn, $chunkedIds)
-                ->delete();
-        }
-        $this->_installer->log("{$removed} entries removed");
         return $removed;
     }
 

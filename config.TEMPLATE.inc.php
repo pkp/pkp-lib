@@ -402,7 +402,8 @@ result_cache_hours = 1
 ; Enable OAI front-end to the site
 oai = On
 
-; OAI Repository identifier
+; OAI Repository identifier. This setting forms part of OAI-PMH record IDs.
+; Changing this setting may affect existing clients and is not recommended.
 repository_id = ops.pkp.sfu.ca
 
 ; Maximum number of records per request to serve via OAI

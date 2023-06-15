@@ -112,9 +112,11 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
             ->leftJoin('queries AS q', 'n.assoc_id', '=', 'q.query_id')
             ->where('n.assoc_type', '=', self::ASSOC_TYPE_QUERY)
             ->whereNull('q.query_id')
-            ->pluck('n.note_id', 'n.assoc_id');
+            ->select('n.note_id', 'n.assoc_id')
+            ->lazyById(1000, 'n.note_id', 'note_id');
 
-        foreach ($orphanedIds as $neQueryId => $noteId) {
+        foreach ($orphanedIds as $orphanedId) {
+            ['noteId' => $noteId, 'assoc_id' => $neQueryId] = (array) $orphanedId;
             $notesFileRows = DB::table('submission_files as sf')
                 ->join('files as f', 'sf.file_id', '=', 'f.file_id')
                 ->where('sf.assoc_type', '=', self::ASSOC_TYPE_NOTE)
@@ -135,9 +137,7 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
                     ->where('submission_file_id', '=', $submissionFileId)
                     ->delete();
 
-                if (!array_key_exists($submissionFileFileId, $filesToCheckForDeletion)) {
-                    $filesToCheckForDeletion[$submissionFileFileId] = $submissionFilePath;
-                }
+                $filesToCheckForDeletion[$submissionFileFileId] ??= $submissionFilePath;
             }
 
             foreach ($filesToCheckForDeletion as $submissionFileFileId => $submissionFilePath) {

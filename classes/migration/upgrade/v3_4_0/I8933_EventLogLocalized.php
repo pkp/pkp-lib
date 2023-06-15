@@ -17,6 +17,7 @@
 namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Database\PostgresConnection;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -79,26 +80,30 @@ abstract class I8933_EventLogLocalized extends Migration
                 0x50000010, // SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
                 0x50000008, // SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD,
             ])
-            ->orderBy('event_log_setting_id')
-            ->chunk(self::CHUNK_SIZE, function (Collection $logChunks) use ($sitePrimaryLocale, $contextIdPrimaryLocaleMap) {
-                $mapLocaleWithSettingIds = [];
-                foreach ($logChunks as $row) {
-                    // Get locale based on a submission file ID log entry
-                    $locale = $this->getContextPrimaryLocale($row, $sitePrimaryLocale, $contextIdPrimaryLocaleMap);
-                    if (!$locale) {
-                        continue;
+            ->chunkById(
+                self::CHUNK_SIZE,
+                function (Collection $logChunks) use ($sitePrimaryLocale, $contextIdPrimaryLocaleMap) {
+                    $mapLocaleWithSettingIds = [];
+                    foreach ($logChunks as $row) {
+                        // Get locale based on a submission file ID log entry
+                        $locale = $this->getContextPrimaryLocale($row, $sitePrimaryLocale, $contextIdPrimaryLocaleMap);
+                        if (!$locale) {
+                            continue;
+                        }
+                        $mapLocaleWithSettingIds[$locale] ??= [];
+                        $mapLocaleWithSettingIds[$locale][] = $row->event_log_setting_id;
                     }
-                    $mapLocaleWithSettingIds[$locale] ??= [];
-                    $mapLocaleWithSettingIds[$locale][] = $row->event_log_setting_id;
-                }
 
-                // Update by chunks for each locale
-                foreach ($mapLocaleWithSettingIds as $locale => $settingIds) {
-                    DB::table('event_log_settings')
-                        ->whereIn('event_log_setting_id', $settingIds)
-                        ->update(['locale' => $locale]);
-                }
-            });
+                    // Update by chunks for each locale
+                    foreach ($mapLocaleWithSettingIds as $locale => $settingIds) {
+                        DB::table('event_log_settings')
+                            ->whereIn('event_log_setting_id', $settingIds)
+                            ->update(['locale' => $locale]);
+                    }
+                },
+                'es.event_log_setting_id',
+                'event_log_setting_id'
+            );
     }
 
     /**
@@ -107,27 +112,32 @@ abstract class I8933_EventLogLocalized extends Migration
      */
     protected function fixConflictingSubmissionLogConstants(): void
     {
-        DB::table('event_log')->where('event_type', 0x40000020)->lazyById(1000, 'log_id')->each(function (object $row) {
-            if (
-                DB::table('event_log_settings')
-                    ->where('log_id', $row->log_id)
-                    ->whereIn('setting_name', ['recipientCount', 'subject'])
-                    ->count() === 2
-            ) {
-                DB::table('event_log')
-                    ->where('log_id', $row->log_id)
-                    ->update(['event_type' => 0x30000007]); // SUBMISSION_LOG_DECISION_EMAIL_SENT
-            } elseif (
-                !DB::table('event_log_settings')
-                    ->where('log_id', $row->log_id)
-                    ->whereIn('setting_name', ['senderId', 'senderName'])
-                    ->exists()
-            ) {
-                DB::table('event_log')
-                    ->where('log_id', $row->log_id)
-                    ->update(['event_type' => 0x40000021]); // SUBMISSION_LOG_REVIEW_REMIND_AUTO
-            }
-        });
+        DB::statement(
+            "UPDATE event_log el
+            SET event_type = CASE
+                WHEN (
+                    SELECT COUNT(0)
+                    FROM event_log_settings els
+                    WHERE els.log_id = el.log_id
+                    AND els.setting_name IN ('recipientCount', 'subject')
+                ) = 2
+                    THEN ?
+                WHEN NOT EXISTS (
+                    SELECT COUNT(0)
+                    FROM event_log_settings els
+                    WHERE els.log_id = el.log_id
+                    AND els.setting_name IN ('senderId', 'senderName')
+                )
+                    THEN ?
+                ELSE
+                    el.event_type
+            END
+            WHERE el.event_type = ?
+        ", [
+            0x30000007, // SUBMISSION_LOG_DECISION_EMAIL_SENT
+            0x40000021, // SUBMISSION_LOG_REVIEW_REMIND_AUTO
+            0x40000020, // SUBMISSION_LOG_REVIEW_REMIND
+        ]);
     }
 
     /**
@@ -171,35 +181,27 @@ abstract class I8933_EventLogLocalized extends Migration
     protected function renameSettings()
     {
         // First remove 'originalFileName' setting where 'name' setting exists
-        $idsToDelete = DB::table('event_log_settings AS es')
-            ->join('event_log AS e', 'es.log_id', '=', 'e.log_id')
+        DB::table('event_log AS e')
+            ->join('event_log_settings AS es', 'es.log_id', '=', 'e.log_id')
+            ->where('es.setting_name', 'originalFileName')
             ->whereIn('e.event_type', [
                 0x50000008, // SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD,
                 0x50000010, // SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT
             ])
-            ->where('es.setting_name', 'name')
-            ->pluck('e.log_id');
-
-        foreach ($idsToDelete->chunk(self::CHUNK_SIZE) as $ids) {
-            DB::table('event_log_settings')
-                ->whereIn('log_id', $ids->toArray())
-                ->where('setting_name', 'originalFileName')
-                ->delete();
-        }
+            ->whereExists(fn (Builder $q) => $q->from('event_log_settings AS els')
+                ->where('els.setting_name', 'name')
+                ->whereColumn('els.log_id', '=', 'e.log_id')
+            )
+            ->delete();
 
         // Perform setting renaming
         foreach ($this->mapSettings() as $eventType => $settings) {
-            $idsToUpdate = DB::table('event_log')
-                ->where('event_type', $eventType)
-                ->pluck('log_id');
-
             foreach ($settings as $oldSettingName => $newSettingName) {
-                foreach ($idsToUpdate->chunk(self::CHUNK_SIZE) as $ids) {
-                    DB::table('event_log_settings')
-                        ->whereIn('log_id', $ids->toArray())
-                        ->where('setting_name', $oldSettingName)
-                        ->update(['setting_name' => $newSettingName]);
-                }
+                DB::table('event_log_settings AS els')
+                    ->join('event_log AS el', 'el.log_id', '=', 'els.log_id')
+                    ->where('el.event_type', $eventType)
+                    ->where('els.setting_name', $oldSettingName)
+                    ->update(['els.setting_name' => $newSettingName]);
             }
         }
     }

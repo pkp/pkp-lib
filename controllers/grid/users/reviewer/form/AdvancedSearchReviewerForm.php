@@ -217,7 +217,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $authors = [];
         foreach($publication->getData('authors') as $author) {
             $affiliations = [];
-            foreach($author->getAffiliation(null) as $affiliationName) {
+            foreach($author->getData('affiliation') as $affiliationName) {
                 $affiliations[] = $affiliationName;
             }
 

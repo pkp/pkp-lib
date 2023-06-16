@@ -22,7 +22,10 @@ class I8060_UpdateUserLocalesDefaultToEmptyArrayFromNull extends Migration
 {
     public function up(): void
     {
-        DB::table('users')->whereNull('locales')->update(['locales' => '[]']);
+        DB::table('users')
+            ->where('locales', '')
+            ->orWhereNull('locales')
+            ->update(['locales' => '[]']);
 
         Schema::table('users', function ($table) {
             $table->string('locales', 255)->nullable(false)->default('[]')->change();

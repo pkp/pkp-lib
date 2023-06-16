@@ -18,6 +18,7 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
@@ -29,18 +30,14 @@ class I7245_UpdateUserLocaleStringToParsableJsonString extends Migration
         DB::table('users')
             ->select(['user_id', 'locales'])
             ->where('locales', '<>', '[]')
-            ->cursor()
-            ->each(function ($user) {
+            ->lazyById(1000, 'user_id')
+            ->each(function (object $user) {
                 $parsedLocales = @json_decode($user->locales, true);
-
                 if (!is_array($parsedLocales)) {
                     $locales = explode(':', $user->locales);
-
-                    if (is_array($locales)) {
-                        DB::table('users')
-                            ->where('user_id', $user->user_id)
-                            ->update(['locales' => json_encode($locales)]);
-                    }
+                    DB::table('users')
+                        ->where('user_id', $user->user_id)
+                        ->update(['locales' => json_encode($locales)]);
                 }
             });
     }

@@ -27,6 +27,7 @@ use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\emailTemplate\EmailTemplate;
+use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\mail\mailables\ReviewRequest;
@@ -221,7 +222,8 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                 $affiliations[] = $affiliationName;
             }
 
-            $authors[$author->getFullName()] = implode(',', array_filter($affiliations));
+            $locale = Locale::getLocale();
+            $authors[$author->getFullName(true, false, $locale)] = implode(',', array_filter($affiliations));
         }
 
         $templateMgr->assign('authors', $authors);

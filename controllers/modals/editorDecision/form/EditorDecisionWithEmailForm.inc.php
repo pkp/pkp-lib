@@ -320,7 +320,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 				'submissionUrl' => $dispatcher->url($request, ROUTE_PAGE, null, 'authorDashboard', 'submission', $submission->getId()),
 				'contextName' => htmlspecialchars($context->getLocalizedName()),
 				'authorName' => htmlspecialchars($submission->getAuthorString()),
-				'editorialContactSignature' => $user->getContactSignature(),
+				'editorialContactSignature' => strip_tags($user->getContactSignature(), "<br>"),
 			]);
 			if (!$email->send($request)) {
 				import('classes.notification.NotificationManager');
@@ -357,7 +357,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 	function _getAllowedVariablesType() {
 		return [
 			'contextName' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
-			'editorialContactSignature' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
+			'editorialContactSignature' => INSERT_TAG_VARIABLE_TYPE_SAFE_HTML,
 			'submissionTitle' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
 			'authorName' => INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT,
 		];

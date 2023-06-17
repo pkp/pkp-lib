@@ -88,6 +88,8 @@
 			variableType = variableTypes[variableSymbolic];
 			if (variableType == $.pkp.cons.INSERT_TAG_VARIABLE_TYPE_PLAIN_TEXT) {
 				return $('<div/>').append($('<span/>').text(variableName));
+			} else if (variableType == $.pkp.cons.INSERT_TAG_VARIABLE_TYPE_SAFE_HTML) {
+				return $('<div/>').append($('<span/>').append(variableName));
 			}
 		}
 

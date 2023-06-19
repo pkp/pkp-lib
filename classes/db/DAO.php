@@ -24,6 +24,9 @@
 namespace PKP\db;
 
 use Generator;
+use Illuminate\Database\Query\Grammars\MySqlGrammar;
+use Illuminate\Database\MySqlConnection;
+use Illuminate\Database\Query\Grammars\PostgresGrammar;
 use Illuminate\Support\Facades\DB;
 use PKP\cache\CacheManager;
 use PKP\core\JSONMessage;
@@ -74,7 +77,11 @@ class DAO
             }
         }
 
-        return DB::cursor(DB::raw($sql)->getValue(), $params);
+        $grammar = DB::connection() instanceof MySqlConnection
+            ? new MySqlGrammar
+            : new PostgresGrammar;
+
+        return DB::cursor(DB::raw($sql)->getValue($grammar), $params);
     }
 
     /**

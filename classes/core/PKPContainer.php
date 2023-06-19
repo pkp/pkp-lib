@@ -121,7 +121,8 @@ class PKPContainer extends Container
         $this->register(new LaravelEventServiceProvider($this));
         $this->register(new EventServiceProvider($this));
         $this->register(new LogServiceProvider($this));
-        $this->register(new \Illuminate\Database\DatabaseServiceProvider($this));
+        // $this->register(new \Illuminate\Database\DatabaseServiceProvider($this));
+        $this->register(new \PKP\core\database\PKPDatabaseServiceProvider($this));
         $this->register(new \Illuminate\Bus\BusServiceProvider($this));
         $this->register(new PKPQueueProvider($this));
         $this->register(new MailServiceProvider($this));

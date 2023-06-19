@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2023-05-04 22:49+0000\n"
+"PO-Revision-Date: 2023-06-20 10:49+0000\n"
 "Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/eu/>\n"
@@ -396,7 +396,7 @@ msgid "common.queue.long.submissionsUnassigned"
 msgstr ""
 
 msgid "common.queue.long.myAssigned"
-msgstr ""
+msgstr "Niri esleituak"
 
 msgid "common.queue.long.submissionsArchived"
 msgstr ""
@@ -1571,7 +1571,7 @@ msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 
 msgid "editor.submission.decision.skipReview"
-msgstr ""
+msgstr "Onartu eta ebaluazioa saihestu"
 
 msgid "editor.submission.decision.skipReview.description"
 msgstr ""
@@ -2007,7 +2007,7 @@ msgid "submission.queries.submission"
 msgstr "Ebaluazioaren aurreko eztabaidak"
 
 msgid "submission.queries.review"
-msgstr ""
+msgstr "Ebaluazio-eztabaidak"
 
 msgid "submission.queries.editorial"
 msgstr "Kopien ediziorako eztabaida"
@@ -2055,6 +2055,8 @@ msgstr ""
 
 msgid "submission.query.new.contents"
 msgstr ""
+"\"{$queryTitle}\" izeneko eztabaidan jarduera berri bat dago, \""
+"{$submissionTitle}\" bidalketari buruzkoa."
 
 msgid "submission.query.participantTitle"
 msgstr ""
@@ -2264,7 +2266,7 @@ msgid "publication.urlPath"
 msgstr "URL bidea"
 
 msgid "publication.urlPath.description"
-msgstr ""
+msgstr "Aukerako bidea, URLan erabiltzeko IDaren ordez."
 
 msgid "publication.urlPath.duplicate"
 msgstr ""
@@ -2341,4 +2343,3 @@ msgstr ""
 
 msgid "submission.submissionFile"
 msgstr "Bidalketa-fitxategia"
-

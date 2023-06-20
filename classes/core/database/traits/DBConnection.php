@@ -25,9 +25,10 @@ trait DBConnection
             }
 
             if ($query instanceof Expression) {
-                $grammar = $this instanceof MySqlConnection
-                    ? new MySqlGrammar
-                    : new PostgresGrammar;
+                // $grammar = $this instanceof MySqlConnection
+                //     ? new MySqlGrammar
+                //     : new PostgresGrammar;
+                $grammar = getDatabaseQueryGrammar($this); /** @var \Illuminate\Database\Grammar $grammar */
                 
                 $query = $query->getValue($grammar);
             }

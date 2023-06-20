@@ -29,7 +29,7 @@ class I7366_UpdateUserAPIKeySettings extends \PKP\migration\Migration
                 JOIN user_settings enabled_setting ON (enabled_setting.user_id = u.user_id AND enabled_setting.setting_name = 'apiKeyEnabled')
                 LEFT JOIN user_settings key_setting ON (key_setting.user_id = u.user_id AND key_setting.setting_name = 'apiKey') 
                 WHERE key_setting.user_id IS NULL"
-            )
+            )->getValue(getDatabaseQueryGrammar())
         );
 
         collect($users)

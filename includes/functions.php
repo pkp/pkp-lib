@@ -15,6 +15,12 @@
 
 use PKP\config\Config;
 use PKP\core\Registry;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Connection;
+use Illuminate\Database\MySqlConnection;
+use Illuminate\Database\Query\Grammars\Grammar;
+use Illuminate\Database\Query\Grammars\MySqlGrammar;
+use Illuminate\Database\Query\Grammars\PostgresGrammar;
 
 /*
  * Constants for expressing human-readable data sizes in their respective number of bytes.
@@ -429,5 +435,19 @@ if (!function_exists('isValidJson')) {
             return (json_last_error() === JSON_ERROR_NONE);
         }
         return false;
+    }
+}
+
+/**
+ * Get the appropriate database grammar based on current database connection[mysql, postgresql, ...] 
+ *
+ * @return \Illuminate\Database\Query\Grammars
+ */
+if (!function_exists('getDatabaseQueryGrammar')) {
+    function getDatabaseQueryGrammar(Connection $connection = null): Grammar
+    {
+        return ($connection ?? DB::connection()) instanceof MySqlConnection
+            ? new MySqlGrammar
+            : new PostgresGrammar;
     }
 }

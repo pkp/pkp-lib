@@ -2990,6 +2990,9 @@ msgstr "Issue identification, including volume, number, year, and title"
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
 msgstr "The URL to the published issue"
 
+msgid "emailTemplate.variable.issue.issueTableOfContent"
+msgstr "The issue table of content such as list of all associated submissions."
+
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr "The year of the report"
 

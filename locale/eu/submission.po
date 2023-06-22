@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2023-06-20 10:49+0000\n"
+"PO-Revision-Date: 2023-06-23 08:49+0000\n"
 "Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/eu/>\n"
@@ -31,7 +31,7 @@ msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
 
 msgid "submission.submit.availableUserGroups"
-msgstr ""
+msgstr "Bidali honela"
 
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr ""
@@ -516,13 +516,13 @@ msgid "submission.complete"
 msgstr "Bukatuta"
 
 msgid "submission.contributors"
-msgstr ""
+msgstr "Egileen zerrenda"
 
 msgid "submission.copyedited"
 msgstr "Zuzendua"
 
 msgid "submission.copyediting"
-msgstr ""
+msgstr "Zuzenketa"
 
 msgid "submission.queryNoteFiles"
 msgstr ""
@@ -745,7 +745,7 @@ msgid "submission.informationCenter.submissionInfo"
 msgstr ""
 
 msgid "submission.informationCenter.metadata"
-msgstr ""
+msgstr "Metadatuak"
 
 msgid "submission.informationCenter.notes"
 msgstr ""
@@ -1044,7 +1044,7 @@ msgid "submission.submit.metadataForm"
 msgstr ""
 
 msgid "submission.submit.submissionLocale"
-msgstr ""
+msgstr "Bidalketaren hizkuntza"
 
 msgid "submission.submit.submissionLocaleDescription"
 msgstr ""
@@ -1249,7 +1249,7 @@ msgid "submission.upload.copyeditedVersion"
 msgstr ""
 
 msgid "submission.upload.uploadFiles"
-msgstr ""
+msgstr "Fitxategiak igo"
 
 msgid "submission.upload.response.description"
 msgstr ""
@@ -1315,7 +1315,7 @@ msgid "editor.submission.status.waitingInitialReview"
 msgstr ""
 
 msgid "editor.submission.stageParticipants"
-msgstr ""
+msgstr "Parte-hartzaileak"
 
 msgid "editor.submission.noneAssigned"
 msgstr ""
@@ -1601,7 +1601,7 @@ msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr ""
 
 msgid "editor.submission.decision.revertDecline"
-msgstr ""
+msgstr "Ukoa atzera bota"
 
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
@@ -1929,7 +1929,7 @@ msgid "submission.copyright.agree"
 msgstr ""
 
 msgid "submission.copyrightHolder"
-msgstr ""
+msgstr "Egile-eskubideen jabea"
 
 msgid "submission.copyrightHolder.other"
 msgstr ""
@@ -2022,7 +2022,7 @@ msgid "submission.query.replies"
 msgstr "Erantzunak"
 
 msgid "submission.query.from"
-msgstr "Norengandik"
+msgstr "Nork"
 
 msgid "submission.query.lastReply"
 msgstr "Azken erantzuna"
@@ -2164,7 +2164,7 @@ msgid "submission.wizard.confirm"
 msgstr ""
 
 msgid "submission.wizard.title"
-msgstr ""
+msgstr "Bidalketa egin"
 
 msgid "submission.wizard.titleWithStep"
 msgstr ""

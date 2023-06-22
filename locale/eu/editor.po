@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2023-06-20 10:49+0000\n"
+"PO-Revision-Date: 2023-06-23 08:49+0000\n"
 "Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "eu/>\n"
@@ -19,7 +19,7 @@ msgid "editor.submissionArchive.confirmDelete"
 msgstr "Ziur zaude betiko ezabatu nahi duzula bidalketa hau?"
 
 msgid "editor.activityLog"
-msgstr ""
+msgstr "Jarduera-erregistroa"
 
 msgid "editor.submissionLibrary"
 msgstr ""
@@ -85,10 +85,10 @@ msgid "editor.submission.workflowDecision.typeInvalid"
 msgstr ""
 
 msgid "editor.review.notInitiated"
-msgstr ""
+msgstr "Oraindik ez da hasi berrikuspen-prozesua."
 
 msgid "editor.submission.copyediting.personalMessageToUser"
-msgstr ""
+msgstr "Erabiltzaileari mezua"
 
 msgid "editor.submission.externalReviewDescription"
 msgstr ""
@@ -379,7 +379,7 @@ msgid "editor.review.reviewDetails"
 msgstr ""
 
 msgid "editor.review.noReviewFilesUploaded"
-msgstr ""
+msgstr "Ez da fitxategirik igo"
 
 msgid "editor.review.noReviewFilesUploaded.details"
 msgstr ""
@@ -391,7 +391,7 @@ msgid "editor.submission.production.productionReadyFiles"
 msgstr "Ekoizpenerako prest dauden artxiboak"
 
 msgid "editor.submission.newRound"
-msgstr ""
+msgstr "Ebaluazio-txanda berria"
 
 msgid "editor.submissionReview.recordDecision"
 msgstr ""

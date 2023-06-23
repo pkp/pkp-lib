@@ -1,11 +1,12 @@
 # Paul Heckler <paul.d.heckler@gmail.com>, 2023.
+# Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-02-17 03:48+0000\n"
-"Last-Translator: Paul Heckler <paul.d.heckler@gmail.com>\n"
+"PO-Revision-Date: 2023-06-23 08:49+0000\n"
+"Last-Translator: Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -25,10 +26,12 @@ msgid "admin.adminFunctions"
 msgstr "Fonctions administratives"
 
 msgid "admin.deleteCache"
-msgstr ""
+msgstr "Vider les caches"
 
 msgid "admin.deleteCache.description"
 msgstr ""
+"Vider les fichiers caches du système. Ceci ne devrait être fait qu'en "
+"environnement de développement."
 
 msgid "admin.clearDataCache"
 msgstr "Vider les caches de données"
@@ -82,6 +85,8 @@ msgstr "Fermer les sessions utilisateurs"
 
 msgid "admin.expireSessions.description"
 msgstr ""
+"Tous les utilisateurs, y compris vous, seront immédiatement déconnectés de "
+"l'application et devront se reconnecter."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -147,7 +152,7 @@ msgid "admin.scheduledTask.noLog"
 msgstr "La tâche n'a produit aucun journal d'événement."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "Dépôt des DOI auprès d'une agence d'enregistrement configurée"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
@@ -156,6 +161,8 @@ msgstr ""
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
+"Envoyer un courriel à chaque éditeur pour lui rappeler les tâches qui lui "
+"restent à accomplir"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
 msgstr ""
@@ -173,9 +180,11 @@ msgstr "Supprimer le journal d'exécution des tâches planifiées"
 
 msgid "admin.scheduledTask.clearLogs.description"
 msgstr ""
+"Supprimer tous les logs des processus de tâches planifiées qui ont été "
+"exécutés."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Supprimer les logs des tâches"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Publier les soumissions dont la publication est planifiée"

@@ -1,11 +1,12 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2022.
+# Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2022-07-05 17:30+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2023-06-23 08:49+0000\n"
+"Last-Translator: Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Projet de connaissances publiques (Public Knowledge Project)"
@@ -132,22 +133,22 @@ msgid "common.add"
 msgstr "Ajouter"
 
 msgid "common.addCCBCC"
-msgstr ""
+msgstr "Ajouter CC/CCI"
 
 msgid "common.addFiles"
-msgstr ""
+msgstr "Ajouter des fichiers"
 
 msgid "common.addSelf"
 msgstr "S'ajouter"
 
 msgid "common.attachedFiles"
-msgstr ""
+msgstr "Fichiers joints"
 
 msgid "common.attachFiles"
-msgstr ""
+msgstr "Joindre des fichiers"
 
 msgid "common.attachSelected"
-msgstr ""
+msgstr "Joindre la sélection"
 
 msgid "common.name"
 msgstr "Nom"
@@ -344,7 +345,7 @@ msgid "common.deleteSelection"
 msgstr "Supprimer la sélection"
 
 msgid "common.deselect"
-msgstr ""
+msgstr "Désélectionner"
 
 msgid "common.designation"
 msgstr "Désignation"
@@ -353,7 +354,7 @@ msgid "common.description"
 msgstr "Description"
 
 msgid "common.details"
-msgstr ""
+msgstr "Détails"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}\"&nbsp;x&nbsp;{$height}\" @ {$dpi} DPI/PPI"
@@ -362,10 +363,10 @@ msgid "common.dimensionsPixels"
 msgstr "{$width} x {$height} pixels"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "Non, ignorer les modifications non sauvegardées"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Déconnecté"
 
 msgid "common.disable"
 msgstr "Désactiver"
@@ -386,7 +387,7 @@ msgid "common.downloadPdf"
 msgstr "Télécharger le PDF"
 
 msgid "common.downloadReport"
-msgstr ""
+msgstr "Télécharger le rapport"
 
 msgid "common.dragAndDropHere"
 msgstr ""

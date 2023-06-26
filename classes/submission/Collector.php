@@ -69,6 +69,7 @@ abstract class Collector implements CollectorInterface
 
     /** @var array|int */
     public $assignedTo = null;
+    public array|int|null $isReviewedBy = null;
 
     public function __construct(DAO $dao)
     {
@@ -199,6 +200,17 @@ abstract class Collector implements CollectorInterface
     public function assignedTo($assignedTo): AppCollector
     {
         $this->assignedTo = $assignedTo;
+        return $this;
+    }
+
+    /**
+     * Limit results to submissions currently being reviewed by this users
+     *
+     * @param int|array|null $isReviewedBy An array of user IDs or self::UNASSIGNED to get unassigned submissions
+     */
+    public function isReviewedBy(int|array|null $isReviewedBy): AppCollector
+    {
+        $this->isReviewedBy = $isReviewedBy;
         return $this;
     }
 

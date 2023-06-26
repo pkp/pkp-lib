@@ -23,12 +23,11 @@ use APP\submission\Collector;
 use PKP\core\APIResponse;
 use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
-use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use Slim\Http\Request;
+use Slim\Http\Request as SlimRequest;
 use Slim\Http\Response;
 
 abstract class PKPBackendSubmissionsHandler extends APIHandler
@@ -41,25 +40,35 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
      */
     public function __construct()
     {
-        $rootPattern = '/{contextPath}/api/{version}/_submissions';
-        $this->_endpoints = array_merge_recursive($this->_endpoints, [
+        $this->_handlerPath = '_submissions';
+        $this->_endpoints =  [
             'GET' => [
                 [
-                    'pattern' => "{$rootPattern}",
+                    'pattern' => $this->getEndpointPattern(),
                     'handler' => [$this, 'getMany'],
                     'roles' => [
                         Role::ROLE_ID_SITE_ADMIN,
                         Role::ROLE_ID_MANAGER,
-                        Role::ROLE_ID_SUB_EDITOR,
-                        Role::ROLE_ID_AUTHOR,
-                        Role::ROLE_ID_REVIEWER,
-                        Role::ROLE_ID_ASSISTANT,
                     ],
                 ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/needsEditor',
+                    'handler' => [$this, 'needsEditor'],
+                    'roles' => [Role::ROLE_ID_MANAGER],
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/assigned',
+                    'handler' => [$this, 'assigned'],
+                    'roles' => [
+                        Role::ROLE_ID_MANAGER,
+                        Role::ROLE_ID_SUB_EDITOR,
+                        Role::ROLE_ID_ASSISTANT
+                    ],
+                ]
             ],
             'DELETE' => [
                 [
-                    'pattern' => "{$rootPattern}/{submissionId:\d+}",
+                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}',
                     'handler' => [$this, 'delete'],
                     'roles' => [
                         Role::ROLE_ID_SITE_ADMIN,
@@ -68,7 +77,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
                     ],
                 ],
             ],
-        ]);
+        ];
         parent::__construct();
     }
 
@@ -92,34 +101,38 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
     /**
      * Get a collection of submissions
      *
-     * @param Request $slimRequest Slim request object
+     * @param SLimRequest $slimRequest Slim request object
      * @param APIResponse $response object
      * @param array $args arguments
      *
      * @return Response
      */
-    public function getMany($slimRequest, $response, $args)
+    public function getMany(SlimRequest $slimRequest, APIResponse $response, array $args)
     {
         $request = Application::get()->getRequest();
-        $currentUser = $request->getUser();
         $context = $request->getContext();
 
         if (!$context) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
 
-        $collector = $this->getSubmissionCollector($slimRequest->getQueryParams());
+        $queryParams = $slimRequest->getQueryParams();
+        $collector = $this->getSubmissionCollector($queryParams);
 
-        // Anyone not a manager or site admin can only access their assigned
-        // submissions
-        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
-        Hook::call('API::submissions::params', [$collector, $slimRequest]);
-        if (!$canAccessUnassignedSubmission) {
-            if (!is_array($collector->assignedTo)) {
-                $collector->assignedTo([$currentUser->getId()]);
-            } elseif ($collector->assignedTo != [$currentUser->getId()]) {
-                return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
+        // Additional params available for this endpoint
+        foreach ($queryParams as $param => $val) {
+            switch ($param) {
+                case 'assignedTo':
+                    $val = array_map('intval', $this->paramToArray($val));
+                    if ($val == [\PKP\submission\Collector::UNASSIGNED]) {
+                        $val = array_shift($val);
+                    }
+                    $collector->assignedTo($val);
+                    break;
+
+                case 'isIncomplete':
+                    $collector->filterByIncomplete(true);
+                    break;
             }
         }
 
@@ -137,6 +150,72 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres)->values(),
         ], 200);
+    }
+
+    /**
+     * Get submissions assigned to the current user
+     */
+    public function assigned(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    {
+        $request = Application::get()->getRequest();
+        $user = $request->getUser();
+        $context = $request->getContext();
+        if (!$context) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        $collector = $this->getSubmissionCollector($slimRequest->getQueryParams());
+
+        $submissions = $collector
+            ->filterByContextIds([$context->getId()])
+            ->assignedTo([$user->getId()])
+            ->getMany();
+
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+
+        /** @var \PKP\submission\GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($context->getId())->toArray();
+
+        return $response->withJson([
+            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres)->values(),
+        ], 200);
+    }
+
+    /**
+     * Delete a submission
+     *
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
+     * @param array $args arguments
+     *
+     * @return Response
+     */
+    public function delete(SlimRequest $slimRequest, APIResponse $response, array $args)
+    {
+        $request = $this->getRequest();
+        $context = $request->getContext();
+        $submissionId = (int) $args['submissionId'];
+        $submission = Repo::submission()->get($submissionId);
+
+        if (!$submission) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        if ($context->getId() != $submission->getData('contextId')) {
+            return $response->withStatus(403)->withJsonError('api.submissions.403.deleteSubmissionOutOfContext');
+        }
+
+        if (!Repo::submission()->canCurrentUserDelete($submission)) {
+            return $response->withStatus(403)->withJsonError('api.submissions.403.unauthorizedDeleteSubmission');
+        }
+
+        Repo::submission()->delete($submission);
+
+        return $response->withJson(true);
     }
 
     /**
@@ -183,14 +262,6 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
                     $collector->filterByCategoryIds(array_map('intval', $this->paramToArray($val)));
                     break;
 
-                case 'assignedTo':
-                    $val = array_map('intval', $this->paramToArray($val));
-                    if ($val == [\PKP\submission\Collector::UNASSIGNED]) {
-                        $val = array_shift($val);
-                    }
-                    $collector->assignedTo($val);
-                    break;
-
                 case 'daysInactive':
                     $collector->filterByDaysInactive((int) $val);
                     break;
@@ -207,10 +278,6 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
                     $collector->limit(min(self::MAX_COUNT, (int) $val));
                     break;
 
-                case 'isIncomplete':
-                    $collector->filterByIncomplete(true);
-                    break;
-
                 case 'isOverdue':
                     $collector->filterByOverdue(true);
                     break;
@@ -218,38 +285,5 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
         }
 
         return $collector;
-    }
-
-    /**
-     * Delete a submission
-     *
-     * @param Request $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return Response
-     */
-    public function delete($slimRequest, $response, $args)
-    {
-        $request = $this->getRequest();
-        $context = $request->getContext();
-        $submissionId = (int) $args['submissionId'];
-        $submission = Repo::submission()->get($submissionId);
-
-        if (!$submission) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
-        }
-
-        if ($context->getId() != $submission->getData('contextId')) {
-            return $response->withStatus(403)->withJsonError('api.submissions.403.deleteSubmissionOutOfContext');
-        }
-
-        if (!Repo::submission()->canCurrentUserDelete($submission)) {
-            return $response->withStatus(403)->withJsonError('api.submissions.403.unauthorizedDeleteSubmission');
-        }
-
-        Repo::submission()->delete($submission);
-
-        return $response->withJson(true);
     }
 }

@@ -74,9 +74,7 @@ class DAO
             }
         }
 
-        $grammar = getDatabaseQueryGrammar(); /** @var \Illuminate\Database\Query\Grammars\Grammar $grammar */
-
-        return DB::cursor(DB::raw($sql)->getValue($grammar), $params);
+        return DB::cursor(DB::raw($sql)->getValue(DB::connection()->getQueryGrammar()), $params);
     }
 
     /**

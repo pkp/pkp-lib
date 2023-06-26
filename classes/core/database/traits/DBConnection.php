@@ -25,12 +25,7 @@ trait DBConnection
             }
 
             if ($query instanceof Expression) {
-                // $grammar = $this instanceof MySqlConnection
-                //     ? new MySqlGrammar
-                //     : new PostgresGrammar;
-                $grammar = getDatabaseQueryGrammar($this); /** @var \Illuminate\Database\Grammar $grammar */
-                
-                $query = $query->getValue($grammar);
+                $query = $query->getValue($this->getQueryGrammar());
             }
 
             // First we will create a statement for the query. Then, we will set the fetch

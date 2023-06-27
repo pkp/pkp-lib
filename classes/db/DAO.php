@@ -74,7 +74,7 @@ class DAO
             }
         }
 
-        return DB::cursor(DB::raw($sql)->getValue(), $params);
+        return DB::cursor(DB::raw($sql)->getValue(DB::connection()->getQueryGrammar()), $params);
     }
 
     /**

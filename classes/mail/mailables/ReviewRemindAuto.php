@@ -22,6 +22,7 @@ use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\OneClickReviewerAccess;
 use PKP\mail\traits\Recipient;
+use PKP\mail\variables\ContextEmailVariable;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
@@ -58,5 +59,8 @@ class ReviewRemindAuto extends Mailable
         parent::setData($locale);
 
         $this->setOneClickAccessUrl($this->context, $this->reviewAssignment);
+
+        // See pkp/pkp-lib#9111
+        $this->addData(['lostPasswordUrl' => $this->viewData[ContextEmailVariable::PASSWORD_LOST_URL]]);
     }
 }

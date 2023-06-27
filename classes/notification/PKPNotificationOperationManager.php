@@ -29,7 +29,7 @@ use stdClass;
 use APP\core\Request;
 use APP\notification\Notification;
 use APP\template\TemplateManager;
-use Firebase\JWT\JWT;
+use PKP\core\PKPJwt as JWT;
 use InvalidArgumentException;
 use PKP\config\Config;
 use PKP\core\Core;

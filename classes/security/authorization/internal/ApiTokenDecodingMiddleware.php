@@ -17,7 +17,7 @@
 namespace PKP\security\authorization\internal;
 
 use Exception;
-use Firebase\JWT\JWT;
+use PKP\core\PKPJwt as JWT;
 use Firebase\JWT\Key;
 use Firebase\JWT\SignatureInvalidException;
 use PKP\config\Config;

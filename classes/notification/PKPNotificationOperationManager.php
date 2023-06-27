@@ -22,6 +22,10 @@
 namespace PKP\notification;
 
 use APP\core\Application;
+use Firebase\JWT\Key;
+
+use stdClass;
+
 use APP\core\Request;
 use APP\notification\Notification;
 use APP\template\TemplateManager;
@@ -383,7 +387,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
         $secret = Config::getVar('security', 'api_key_secret', '');
         $jwt = '';
         if ($secret !== '') {
-            $jwt = JWT::encode(json_encode($encodeString), $secret, 'HS256');
+            $jwt = JWT::encode([$encodeString], $secret, 'HS256');
         }
 
         return $jwt;
@@ -404,7 +408,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
         $secret = Config::getVar('security', 'api_key_secret', '');
         $jwt = '';
         if ($secret !== '') {
-            $jwt = json_decode(JWT::decode($token, $secret, ['HS256']));
+            $headers = new stdClass;
+            $jwt = ((Array)JWT::decode($token, new Key($secret, 'HS256'), $headers))[0]; /** @var string $jwt */
         }
 
         if ($jwt == $encodeString) {

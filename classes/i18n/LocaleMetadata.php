@@ -179,7 +179,7 @@ class LocaleMetadata
      */
     public function getCountry(?string $locale = null): ?string
     {
-        return $this->_parse()->country ? Locale::getCountries($locale)->getByAlpha2($this->_parse()->country)->getLocalName() : null;
+        return $this->_parse()->country ? Locale::getCountries($locale)->getByAlpha2($this->_parse()->country)?->getLocalName() : null;
     }
 
     /**

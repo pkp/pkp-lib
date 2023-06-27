@@ -84,7 +84,7 @@ class APIProfileForm extends BaseProfileForm
 
         $templateMgr->assign(
             $user->getData('apiKey') ? [
-                'apiKey' => JWT::encode($user->getData('apiKey'), $secret, 'HS256'),
+                'apiKey' => JWT::encode([$user->getData('apiKey')], $secret, 'HS256'),
                 'apiKeyAction' => self::API_KEY_DELETE,
                 'apiKeyActionTextKey' => 'user.apiKey.remove',
             ] : [

@@ -18,11 +18,13 @@ namespace PKP\security\authorization\internal;
 
 use Exception;
 use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 use Firebase\JWT\SignatureInvalidException;
 use PKP\config\Config;
 use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
 use Slim\Http\Request as SlimRequest;
+use stdClass;
 
 class ApiTokenDecodingMiddleware
 {
@@ -76,7 +78,8 @@ class ApiTokenDecodingMiddleware
         }
 
         try {
-            $apiToken = JWT::decode($jwt, $secret, ['HS256']);
+            $headers = new stdClass;
+            $apiToken = ((Array)JWT::decode($jwt, new Key($secret, 'HS256'), $headers))[0]; /** @var string $apiToken */
             /**
              * Compatibility with old API keys
              *

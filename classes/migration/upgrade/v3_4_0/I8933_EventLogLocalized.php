@@ -136,9 +136,9 @@ abstract class I8933_EventLogLocalized extends Migration
     protected function getContextPrimaryLocale(object $row, string $sitePrimaryLocale, array $contextIdPrimaryLocaleMap): ?string
     {
         // Try to determine submission/submission file ID based on the assoc type
-        if ($row->assoc_type === 0x0000203) { // ASSOC_TYPE_SUBMISSION_FILE
+        if ($row->assoc_type == 0x0000203) { // ASSOC_TYPE_SUBMISSION_FILE
             $submissionFileId = $row->assoc_id;
-        } elseif ($row->assoc_type === 0x0100009) { // ASSOC_TYPE_SUBMISSION
+        } elseif ($row->assoc_type == 0x0100009) { // ASSOC_TYPE_SUBMISSION
             $submissionId = $row->assoc_id;
         } else {
             throw new \Exception('Unsupported assoc_type in the event log: ' . $row->assoc_type);

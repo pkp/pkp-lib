@@ -87,6 +87,7 @@ abstract class PKPI7014_DoiMigration extends Migration
         // Get plugin_based settings
         $q = DB::table('plugin_settings')
             ->where('plugin_name', '=', 'doipubidplugin')
+            ->where('context_id', '<>', 0)
             ->select(['context_id','setting_name', 'setting_value']);
         $results = $q->get();
 

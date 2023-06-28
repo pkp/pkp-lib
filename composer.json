@@ -13,7 +13,7 @@
 		"slim/slim": "3.*",
 		"pimple/pimple": "3.*",
 		"laravel/framework": "^9.0",
-		"firebase/php-jwt": "5.*",
+		"firebase/php-jwt": "6.*",
 		"adodb/adodb-php": "v5.20.18",
 		"gettext/gettext": "5.*",
 		"sokil/php-isocodes": "^4.1",
@@ -44,7 +44,7 @@
 		"component-dir": "lib/components",
 		"vendor-dir": "lib/vendor",
 		"platform": {
-			"php": "8.0.2"
+			"php": "8.1.0"
 		},
 		"allow-plugins": {
 			"cweagans/composer-patches": true,

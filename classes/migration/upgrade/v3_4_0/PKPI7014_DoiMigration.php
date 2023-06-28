@@ -345,7 +345,7 @@ abstract class PKPI7014_DoiMigration extends Migration
                 [
                     'context_id' => $contextId,
                     'doi' => $doi,
-                ]
+                ], 'doi_id'
             );
     }
 

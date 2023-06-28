@@ -17,8 +17,6 @@
 
 namespace PKP\core;
 
-use HTMLPurifier;
-use HTMLPurifier_Config;
 use Illuminate\Support\Str;
 use PKP\config\Config;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
@@ -402,23 +400,25 @@ class PKPString
      * Strip unsafe HTML from the input text. Covers XSS attacks like scripts,
      * onclick(...) attributes, javascript: urls, and special characters.
      *
-     * @param string|null   $input input string
-     * @param string        $key   The config section key['allowed_html', 'allowed_title_html']
+     * @param string|null   $input      input string
+     * @param string        $configKey  The config section key['allowed_html', 'allowed_title_html']
      *
      * @return string
      */
-    public static function stripUnsafeHtml(?string $input, string $key = 'allowed_html'): string
+    public static function stripUnsafeHtml(?string $input, string $configKey = 'allowed_html'): string
     {
-        if (!$input) {
+        if ($input === null) {
             return '';
         }
 
-        static $sanitizer;
-        static $configKey;
-        static $allowedTagToAttributeMap;
+        static $caches;
 
-        if ($configKey !== $key) {
-            $configKey = $key;
+        if (!isset($caches[$configKey])) {
+            
+            $config = (new HtmlSanitizerConfig())
+                ->allowLinkSchemes(['https', 'http', 'mailto'])
+                ->allowMediaSchemes(['https', 'http']);
+
             $allowedTagToAttributeMap = Str::of(Config::getVar('security', $configKey))
                 ->explode(',')
                 ->mapWithKeys(function(string $allowedTagWithAttr) {
@@ -441,27 +441,21 @@ class PKPString
                     }
             
                     return [];
-                });
-        }
-
-        if(!isset($sanitizer)) {
-
-            $config = (new HtmlSanitizerConfig())
-                ->allowLinkSchemes(['https', 'http', 'mailto'])
-                ->allowMediaSchemes(['https', 'http']);
-
-            $allowedTagToAttributeMap
-                ->each(function(array $attributes, string $tag) use (&$config){
+                })
+                ->each(function(array $attributes, string $tag) use (&$config) {
                     $config = $config->allowElement($tag, $attributes);
                 });
-                
-            $sanitizer = new HtmlSanitizer($config);
+
+            $caches[$configKey] = [
+                'allowedTagToAttributeMap'  => $allowedTagToAttributeMap,
+                'sanitizer'                 => new HtmlSanitizer($config),
+            ];
         }
 
         // need to apply html_entity_decode as sanitizer apply htmlentities internally for special chars
         return html_entity_decode(
-            $sanitizer->sanitize(
-                strip_tags($input, $allowedTagToAttributeMap->keys()->toArray())
+            $caches[$configKey]['sanitizer']->sanitize(
+                strip_tags($input, $caches[$configKey]['allowedTagToAttributeMap']->keys()->toArray())
             )
         );
     }

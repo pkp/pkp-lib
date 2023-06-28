@@ -30,9 +30,6 @@ msgstr "New reviews have been submitted and are being considered by the editor."
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr "One or more reviewers missed their deadline. The editorial team has been notified and will take action to ensure reviews are completed. You do not need to take any action at this time. You will be notified when a decision has been made."
 
-msgid "submission.author.list"
-msgstr "Submission Author List"
-
 msgid "submission.submit.availableUserGroups"
 msgstr "Submit As"
 

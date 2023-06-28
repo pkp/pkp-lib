@@ -1,5 +1,21 @@
 <?php
 
+/**
+ * @file classes/core/PKPJwt.php
+ *
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2000-2023 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PKPJwt
+ *
+ * @brief   Override the package \Firebase\JWT\JWT::decode method to handle string payload
+ *          which has been deprecated in 6.0+ and cause breaking/invalidation of previous 
+ *          API Keys.
+ *
+ * @see https://github.com/pkp/pkp-lib/issues/9110
+ */
+
 namespace PKP\core;
 
 use stdClass;
@@ -58,6 +74,8 @@ class PKPJwt extends JWT
         }
 
         if (is_string($payload)) {
+            error_log('Deprecation Warning: String type payload has been deprecated and support for it will be removed in future. Please update the API KEY and use that.');
+            
             return parent::decode(
                 static::encode(
                     [$payload], 

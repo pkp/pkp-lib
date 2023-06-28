@@ -27,7 +27,6 @@ use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\emailTemplate\EmailTemplate;
-use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\mail\mailables\ReviewRequest;
@@ -211,22 +210,6 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                 'selectReviewer' => $selectReviewerListPanel->getConfig(),
             ]
         ]);
-
-        // Get the submission's authors
-        $publication = $this->getSubmission()->getCurrentPublication();
-
-        $authors = [];
-        foreach($publication->getData('authors') as $author) {
-            $affiliations = [];
-            foreach($author->getData('affiliation') as $affiliationName) {
-                $affiliations[] = $affiliationName;
-            }
-
-            $locale = Locale::getLocale();
-            $authors[$author->getFullName(true, false, $locale)] = implode(',', array_filter($affiliations));
-        }
-
-        $templateMgr->assign('authors', $authors);
 
         // Only add actions to forms where user can operate.
         if (array_intersect($this->getUserRoles(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {

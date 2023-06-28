@@ -18,10 +18,37 @@
 					reviewerMessages: {$reviewerMessages|json_encode}
 				{rdelim}
 		);
+
+		$('#showAllReviewers').click(function() {
+			$('.pkp_list_box').toggleClass('expandable');
+			$(this).toggleClass('pkp_helpers_display_none');
+			$("#showLessReviewers").toggleClass('pkp_helpers_display_none');
+		});
+		$('#showLessReviewers').click(function() {
+			$('.pkp_list_box').toggleClass('expandable');
+			$(this).toggleClass('pkp_helpers_display_none');
+			$("#showAllReviewers").toggleClass('pkp_helpers_display_none');
+		})
 	{rdelim});
 </script>
 
 <div id="advancedReviewerSearch" class="pkp_form pkp_form_advancedReviewerSearch">
+	<div class="section">
+		<h3>{translate key="submission.author.list"}</h3>
+		<div class="pkp_list_box expandable pkpFormField__description">
+			{foreach from=$authors item=affiliation key=name}
+				<div>
+					<span>{$name}</span>
+					{if $affiliation !== ''}
+						<span> - </span>
+					{/if}
+					<span>{$affiliation}</span>
+				</div>
+			{/foreach}
+		</div>
+		<button id="showAllReviewers" class="pkpButton pkp_helpers_align_right">{translate key="showMore"}</button>
+		<button id="showLessReviewers" class="pkpButton pkp_helpers_align_right pkp_helpers_display_none">{translate key="showLess"}</button>
+	</div>
 
 	<div id="searchGridAndButton">
 

@@ -74,7 +74,7 @@ class DAO
             }
         }
 
-        return DB::cursor(DB::raw($sql)->getValue(), $params);
+        return DB::cursor(DB::raw($sql)->getValue(DB::connection()->getQueryGrammar()), $params);
     }
 
     /**
@@ -108,7 +108,7 @@ class DAO
             $sql .= ' OFFSET ' . $offset;
         }
 
-        return DB::cursor(DB::raw($sql), $params);
+        return DB::cursor(DB::raw($sql)->getValue(DB::connection()->getQueryGrammar()), $params);
     }
 
     /**

@@ -22,14 +22,12 @@ switch ($op) {
     // Profiles
     //
     case 'profile':
-        define('HANDLER_CLASS', 'PKP\pages\user\ProfileHandler');
-        break;
-    //
+        return new PKP\pages\user\ProfileHandler();
+        //
         // Registration
-    //
+        //
     case 'register':
     case 'registerUser':
     case 'activateUser':
-        define('HANDLER_CLASS', 'PKP\pages\user\RegistrationHandler');
-        break;
+        return new PKP\pages\user\RegistrationHandler();
 }

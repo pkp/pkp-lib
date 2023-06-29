@@ -21,6 +21,5 @@ switch ($op) {
     case 'index':
     case 'view':
     case 'preview':
-        define('HANDLER_CLASS', 'PKP\pages\navigationMenu\NavigationMenuItemHandler');
-        break;
+        return new PKP\pages\navigationMenu\NavigationMenuItemHandler();
 }

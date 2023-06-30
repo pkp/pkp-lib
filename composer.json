@@ -6,7 +6,6 @@
 		"wikimedia/less.php": "3.*",
 		"phpmailer/phpmailer": "6.*",
 		"smarty/smarty": "4.*",
-		"ezyang/htmlpurifier": "4.*",
 		"moxiecode/plupload": "2.*",
 		"tinymce/tinymce": "^5.7",
 		"michelf/php-markdown": "1.*",

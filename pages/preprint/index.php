@@ -20,6 +20,5 @@
 switch ($op) {
     case 'view':
     case 'download':
-        define('HANDLER_CLASS', 'APP\pages\preprint\PreprintHandler');
-        break;
+        return new APP\pages\preprint\PreprintHandler();
 }

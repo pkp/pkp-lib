@@ -19,14 +19,11 @@
 
 switch ($op) {
     case 'index':
-        define('HANDLER_CLASS', 'APP\pages\preprints\PreprintsHandler');
-        break;
+        return new APP\pages\preprints\PreprintsHandler();
     case 'category':
     case 'fullSize':
     case 'thumbnail':
-        define('HANDLER_CLASS', 'PKP\pages\catalog\PKPCatalogHandler');
-        break;
+        return new PKP\pages\catalog\PKPCatalogHandler();
     case 'section':
-        define('HANDLER_CLASS', 'APP\pages\preprints\SectionsHandler');
-        break;
+        return new APP\pages\preprints\SectionsHandler();
 }

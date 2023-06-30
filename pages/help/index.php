@@ -16,5 +16,4 @@
  * @brief Handle requests for help functions.
  *
  */
-$op = 'index';
-define('HANDLER_CLASS', 'PKP\pages\help\HelpHandler');
+return new PKP\pages\help\HelpHandler();

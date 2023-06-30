@@ -22,6 +22,5 @@ switch ($op) {
     case 'install':
     case 'upgrade':
     case 'installUpgrade':
-        define('HANDLER_CLASS', 'PKP\pages\install\InstallHandler');
-        break;
+        return new PKP\pages\install\InstallHandler();
 }

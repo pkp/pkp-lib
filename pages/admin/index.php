@@ -33,6 +33,5 @@ switch ($op) {
     case 'jobs':
     case 'failedJobs':
     case 'failedJobDetails':
-        define('HANDLER_CLASS', 'PKP\pages\admin\AdminHandler');
-        break;
+        return new PKP\pages\admin\AdminHandler();
 }

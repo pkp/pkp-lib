@@ -366,21 +366,16 @@ abstract class PKPWorkflowHandler extends Handler
         ];
 
         // Add the metadata form if one or more metadata fields are enabled
-        $metadataFields = ['coverage', 'disciplines', 'keywords', 'languages', 'rights', 'source', 'subjects', 'agencies', 'type'];
-        $metadataEnabled = false;
-        foreach ($metadataFields as $metadataField) {
-            if ($submissionContext->getData($metadataField)) {
-                $metadataEnabled = true;
-                break;
-            }
-        }
-        if ($metadataEnabled || in_array('publication', (array) $submissionContext->getData('enablePublisherId'))) {
-            $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
-            $metadataForm = new PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase, true);
+        $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
+        $metadataForm = new PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase, true);
+        $metadataFormConfig = $metadataForm->getConfig();
+        $metadataEnabled = count($metadataForm->fields);
+
+        if ($metadataEnabled) {
             $templateMgr->setConstants([
                 'FORM_METADATA' => FORM_METADATA,
             ]);
-            $state['components'][FORM_METADATA] = $metadataForm->getConfig();
+            $state['components'][FORM_METADATA] = $metadataFormConfig;
             $state['publicationFormIds'][] = FORM_METADATA;
         }
 
@@ -570,7 +565,7 @@ abstract class PKPWorkflowHandler extends Handler
         }
 
         // if the user can make recommendations, check whether there are any decisions that can be made given
-        // the stage that we are operating into. 
+        // the stage that we are operating into.
         $isOnlyRecommending = $makeRecommendation && !$makeDecision;
 
         if ($isOnlyRecommending) {
@@ -692,7 +687,7 @@ abstract class PKPWorkflowHandler extends Handler
 
             // At least one deciding editor must be assigned to make a recommendation
             && ($makeDecision || $hasDecidingEditors);
-        
+
         $decisions = $this->getStageDecisionTypes($stageId);
         if ($isOnlyRecommending) {
             $decisions = Repo::decision()

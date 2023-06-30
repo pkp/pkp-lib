@@ -27,7 +27,6 @@ switch ($op) {
     case 'toggleHelp':
     case 'getInterests':
         return new APP\pages\user\UserHandler();
-        break;
     default:
         return require_once('lib/pkp/pages/user/index.php');
 }

@@ -1,10 +1,11 @@
+# Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2021-02-01 13:53+0000\n"
-"Last-Translator: Paul Heckler <paul.d.heckler@gmail.com>\n"
+"PO-Revision-Date: 2023-06-24 09:49+0000\n"
+"Last-Translator: Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -12,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "user.accountInformation"
 msgstr "Renseignements sur le compte"
@@ -159,16 +160,17 @@ msgid "user.login.forgotPassword"
 msgstr "Vous avez oublié votre mot de passe ?"
 
 msgid "user.login.loginError"
-msgstr "Nom d'usager ou mot de passe non valide. Veuillez essayer de nouveau."
+msgstr ""
+"Nom d'utilisateur ou mot de passe invalide. Veuillez essayer de nouveau."
 
 msgid "user.login"
 msgstr "Se connecter"
 
-#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
-"Une confirmation a été envoyée à votre adresse de courriel. Veuillez suivre "
-"les instructions dans le courriel pour réinitialiser votre mot de passe."
+"Une confirmation a été envoyée à votre adresse courriel si un compte lié a "
+"été trouvé. Veuillez suivre les instructions contenues dans le courriel pour "
+"réinitialiser votre mot de passe."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr ""
@@ -495,7 +497,7 @@ msgid "user.apiKey.generate"
 msgstr "Générer une nouvelle API Key"
 
 msgid "user.apiKey.remove"
-msgstr ""
+msgstr "Supprimer"
 
 msgid "user.apiKey.generateWarning"
 msgstr ""
@@ -504,9 +506,10 @@ msgstr ""
 
 msgid "user.apiKey.removeWarning"
 msgstr ""
+"La suppression d'une clé révoquera l'accès à toute application qui l'utilise."
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr ""
+msgstr "Êtes-vous certain de vouloir supprimer cette clé API ?"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -519,13 +522,22 @@ msgstr ""
 "\"{$privacyUrl}\" target=\"_blank\">Déclaration de confidentialité</a>."
 
 msgid "user.login.lostPassword.invalidUser"
-msgstr ""
+msgstr "Aucun utilisateur avec l'adresse courriel spécifiée n'existe."
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
 msgstr ""
+"Impossible de compléter la demande de réinitialisation du mot de passe car : "
+"{$reason}."
 
 msgid "user.login.passwordResetProcessInstructions"
 msgstr ""
+"Entrer un nouveau mot de passe pour mettre à jour le mot de passe de "
+"connexion."
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+"Le mot de passe a bien été mis à jour. Veuillez vous connecter avec le "
+"nouveau mot de passe."
+
+msgid "user.usernameOrEmail"
+msgstr "Nom d'utilisateur ou courriel"

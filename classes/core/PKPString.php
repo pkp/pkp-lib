@@ -17,9 +17,10 @@
 
 namespace PKP\core;
 
-use HTMLPurifier;
-use HTMLPurifier_Config;
+use Illuminate\Support\Str;
 use PKP\config\Config;
+use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
+use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
 use Stringy\Stringy;
 
 class PKPString
@@ -399,23 +400,64 @@ class PKPString
      * Strip unsafe HTML from the input text. Covers XSS attacks like scripts,
      * onclick(...) attributes, javascript: urls, and special characters.
      *
-     * @param string $input input string
-     * @param string $configKey The config section key['allowed_html', 'allowed_title_html']
+     * @param string|null   $input      input string
+     * @param string        $configKey  The config section key['allowed_html', 'allowed_title_html']
      *
      * @return string
      */
-    public static function stripUnsafeHtml($input, $configKey = 'allowed_html')
+    public static function stripUnsafeHtml(?string $input, string $configKey = 'allowed_html'): string
     {
-        static $purifier;
-        if (!isset($purifier)) {
-            $config = HTMLPurifier_Config::createDefault();
-            $config->set('Core.Encoding', 'utf-8');
-            $config->set('HTML.Doctype', 'HTML 4.01 Transitional');
-            $config->set('HTML.Allowed', Config::getVar('security', $configKey));
-            $config->set('Cache.SerializerPath', 'cache');
-            $purifier = new HTMLPurifier($config);
+        if ($input === null) {
+            return '';
         }
-        return $purifier->purify((string) $input);
+
+        static $caches;
+
+        if (!isset($caches[$configKey])) {
+            
+            $config = (new HtmlSanitizerConfig())
+                ->allowLinkSchemes(['https', 'http', 'mailto'])
+                ->allowMediaSchemes(['https', 'http']);
+
+            $allowedTagToAttributeMap = Str::of(Config::getVar('security', $configKey))
+                ->explode(',')
+                ->mapWithKeys(function(string $allowedTagWithAttr) {
+                    
+                    // Extract the tag itself (e.g. div, p, a ...)
+                    preg_match('/\[[^][]+]\K|\w+/', $allowedTagWithAttr, $matches);
+                    $allowedTag = collect($matches)->first();
+
+                    // Extract the attributes associated with tag (e.g. class, href ...)
+                    preg_match("/\[([^\]]*)\]/", $allowedTagWithAttr, $matches);
+                    $allowedAttributes = collect($matches)->last();
+
+                    if($allowedTag) {
+                        return [
+                            $allowedTag => Str::of($allowedAttributes)
+                                ->explode('|')
+                                ->filter()
+                                ->toArray()
+                        ];
+                    }
+            
+                    return [];
+                })
+                ->each(function(array $attributes, string $tag) use (&$config) {
+                    $config = $config->allowElement($tag, $attributes);
+                });
+
+            $caches[$configKey] = [
+                'allowedTagToAttributeMap'  => $allowedTagToAttributeMap,
+                'sanitizer'                 => new HtmlSanitizer($config),
+            ];
+        }
+
+        // need to apply html_entity_decode as sanitizer apply htmlentities internally for special chars
+        return html_entity_decode(
+            $caches[$configKey]['sanitizer']->sanitize(
+                strip_tags($input, $caches[$configKey]['allowedTagToAttributeMap']->keys()->toArray())
+            )
+        );
     }
 
     /**

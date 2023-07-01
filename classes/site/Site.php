@@ -89,30 +89,6 @@ class Site extends \PKP\core\DataObject
     }
 
     /**
-     * Get "localized" site page title (if applicable).
-     *
-     * @return array|string
-     *
-     * @deprecated 3.3.0
-     */
-    public function getLocalizedPageHeaderTitle()
-    {
-        if ($this->getLocalizedData('pageHeaderTitleImage')) {
-            return $this->getLocalizedData('pageHeaderTitleImage');
-        }
-        if ($this->getData('pageHeaderTitleImage', Locale::getPrimaryLocale())) {
-            return $this->getData('pageHeaderTitleImage', Locale::getPrimaryLocale());
-        }
-        if ($this->getLocalizedData('title')) {
-            return $this->getLocalizedData('title');
-        }
-        if ($this->getData('title', Locale::getPrimaryLocale())) {
-            return $this->getData('title', Locale::getPrimaryLocale());
-        }
-        return '';
-    }
-
-    /**
      * Get redirect
      *
      * @return int

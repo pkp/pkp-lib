@@ -16,10 +16,7 @@
 
 namespace PKP\galley;
 
-use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
-use APP\statistics\StatisticsHelper;
 use PKP\facades\Locale;
 use PKP\submission\Representation;
 use PKP\submissionFile\SubmissionFile;
@@ -31,32 +28,6 @@ class Galley extends Representation
     //
     // Get/set methods
     //
-    /**
-     * Get views count.
-     *
-     * @deprecated 3.4
-     *
-     * @return int
-     */
-    public function getViews()
-    {
-        $fileId = $this->getData('submissionFileId');
-        if (!$fileId) {
-            return 0;
-        }
-        $filters = [
-            'dateStart' => StatisticsHelper::STATISTICS_EARLIEST_DATE,
-            'dateEnd' => date('Y-m-d', strtotime('yesterday')),
-            'contextIds' => [Application::get()->getRequest()->getContext()->getId()],
-            'submissionFileIds' => [$fileId],
-        ];
-        $metrics = Services::get('publicationStats')
-            ->getQueryBuilder($filters)
-            ->getSum([])
-            ->value('metric');
-        return $metrics ? $metrics : 0;
-    }
-
     /**
      * Get label/title.
      *

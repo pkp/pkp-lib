@@ -273,16 +273,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     }
 
     /**
-     * @copydoc PKPApplication::get()
-     *
-     * @deprecated Use PKPApplication::get() instead.
-     */
-    public static function getApplication()
-    {
-        return self::get();
-    }
-
-    /**
      * Get the current application object
      *
      * @return Application

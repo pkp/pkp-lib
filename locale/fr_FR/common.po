@@ -1,11 +1,12 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2022.
+# Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2022-07-05 17:30+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2023-06-24 09:49+0000\n"
+"Last-Translator: Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Projet de connaissances publiques (Public Knowledge Project)"
@@ -132,22 +133,22 @@ msgid "common.add"
 msgstr "Ajouter"
 
 msgid "common.addCCBCC"
-msgstr ""
+msgstr "Ajouter CC/CCI"
 
 msgid "common.addFiles"
-msgstr ""
+msgstr "Ajouter des fichiers"
 
 msgid "common.addSelf"
 msgstr "S'ajouter"
 
 msgid "common.attachedFiles"
-msgstr ""
+msgstr "Fichiers joints"
 
 msgid "common.attachFiles"
-msgstr ""
+msgstr "Joindre des fichiers"
 
 msgid "common.attachSelected"
-msgstr ""
+msgstr "Joindre la sélection"
 
 msgid "common.name"
 msgstr "Nom"
@@ -344,7 +345,7 @@ msgid "common.deleteSelection"
 msgstr "Supprimer la sélection"
 
 msgid "common.deselect"
-msgstr ""
+msgstr "Désélectionner"
 
 msgid "common.designation"
 msgstr "Désignation"
@@ -353,7 +354,7 @@ msgid "common.description"
 msgstr "Description"
 
 msgid "common.details"
-msgstr ""
+msgstr "Détails"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}\"&nbsp;x&nbsp;{$height}\" @ {$dpi} DPI/PPI"
@@ -362,10 +363,10 @@ msgid "common.dimensionsPixels"
 msgstr "{$width} x {$height} pixels"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "Non, ignorer les modifications non sauvegardées"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Déconnecté"
 
 msgid "common.disable"
 msgstr "Désactiver"
@@ -386,13 +387,13 @@ msgid "common.downloadPdf"
 msgstr "Télécharger le PDF"
 
 msgid "common.downloadReport"
-msgstr ""
+msgstr "Télécharger le rapport"
 
 msgid "common.dragAndDropHere"
-msgstr ""
+msgstr "Glisser-déposer des fichiers ici."
 
 msgid "common.orUploadFile"
-msgstr ""
+msgstr "Ou téléverser un fichier"
 
 msgid "common.edit"
 msgstr "Modifier"
@@ -401,7 +402,7 @@ msgid "common.editItem"
 msgstr "Modifier {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "Modèles d'e-mail"
 
 msgid "common.enable"
 msgstr "Activer"
@@ -473,13 +474,13 @@ msgid "common.filterRemove"
 msgstr "Supprimer le filtre : {$filterTitle}"
 
 msgid "common.findTemplate"
-msgstr ""
+msgstr "Trouver un modèle d'e-mail"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Mise en forme"
 
 msgid "common.geographic"
-msgstr ""
+msgstr "Géographique"
 
 msgid "common.go"
 msgstr "Continuer"
@@ -590,10 +591,10 @@ msgid "common.none"
 msgstr "Aucun(e)"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Aucune sélection"
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Aucune donnée"
 
 msgid "common.no"
 msgstr "Non"
@@ -639,7 +640,7 @@ msgid "common.noMatches"
 msgstr "Aucunes concordances"
 
 msgid "common.numberedMore"
-msgstr ""
+msgstr "{$number} de plus"
 
 msgid "common.off"
 msgstr "Arrêté"
@@ -786,10 +787,10 @@ msgid "common.reset"
 msgstr "Réinitialiser"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Cycle {$round}"
 
 msgid "common.role"
-msgstr ""
+msgstr "Rôle"
 
 msgid "common.saveAndContinue"
 msgstr "Enregistrer et continuer"
@@ -840,10 +841,10 @@ msgid "common.sendEmail"
 msgstr "Envoyer le courriel"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "Afficher toutes les étapes"
 
 msgid "common.showingSteps"
-msgstr ""
+msgstr "{$current}/{$total} étapes"
 
 msgid "common.size"
 msgstr "Taille"
@@ -870,10 +871,10 @@ msgid "common.suggest"
 msgstr "Suggérer"
 
 msgid "common.switchTo"
-msgstr ""
+msgstr "Passer à"
 
 msgid "common.switchToNamedItem"
-msgstr ""
+msgstr "Passer à {$name}"
 
 msgid "common.title"
 msgstr "Titre"
@@ -891,10 +892,10 @@ msgid "common.type"
 msgstr "Type"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "Téléversé par {$name}"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "Téléversé par {$name} le {$date}"
 
 msgid "common.component"
 msgstr "Composante"
@@ -909,10 +910,15 @@ msgid "common.unread"
 msgstr "Non lu"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "Modifications non sauvegardées"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"Nous avons trouvé des modifications non sauvegardées depuis {$when}. Cela "
+"peut se produire si vous perdez la connexion au serveur pendant que vous "
+"travaillez. La restauration de ces modifications risque d'écraser toutes les "
+"modifications que vous avez apportées depuis. Souhaitez-vous restaurer ces "
+"modifications maintenant ?"
 
 msgid "common.untitled"
 msgstr "Sans titre"
@@ -941,7 +947,7 @@ msgid "common.upload.addFile"
 msgstr "Transférer un fichier"
 
 msgid "common.upload.addFile.description"
-msgstr ""
+msgstr "Téléverser un fichier depuis votre ordinateur."
 
 msgid "common.upload.restore"
 msgstr "Restaurer l'original"
@@ -968,7 +974,7 @@ msgid "common.view"
 msgstr "Afficher"
 
 msgid "common.viewError"
-msgstr ""
+msgstr "Afficher l'erreur"
 
 msgid "common.viewWithName"
 msgstr "Afficher {$name}"
@@ -1037,28 +1043,31 @@ msgid "email.addAttachment"
 msgstr "Ajouter une pièce jointe"
 
 msgid "email.addAttachment.submissionFiles.attach"
-msgstr ""
+msgstr "Joindre les fichiers de soumission"
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
 msgstr ""
+"Joindre les fichiers téléversés par l'auteur lors de la phase de soumission."
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
+"Joindre les fichiers téléversés au cours du processus de soumission tels les "
+"correctifs ou les fichiers à réviser."
 
 msgid "email.addAttachment.libraryFiles"
-msgstr ""
+msgstr "Fichiers de la bibliothèque"
 
 msgid "email.addAttachment.libraryFiles.attach"
-msgstr ""
+msgstr "Joindre les fichiers de la bibliothèque"
 
 msgid "email.addAttachment.libraryFiles.description"
 msgstr ""
 
 msgid "email.addAttachment.reviewFiles.attach"
-msgstr ""
+msgstr "Joindre les fichiers d'évaluation"
 
 msgid "email.addAttachment.reviewFiles.description"
-msgstr ""
+msgstr "Joindre les fichiers téléversés par les évaluateurs"
 
 msgid "email.addBccRecipient"
 msgstr "Ajouter une CCI"
@@ -1073,7 +1082,7 @@ msgid "email.attachments"
 msgstr "Pièces jointes"
 
 msgid "email.attachmentNotFound"
-msgstr ""
+msgstr "Le fichier {$fileName} n'a pas pu être joint."
 
 msgid "email.bcc"
 msgstr "CCI"
@@ -1902,7 +1911,7 @@ msgid "notification.signedFile"
 msgstr "Fichier considéré."
 
 msgid "timeZone"
-msgstr ""
+msgstr "Fuseau horaire"
 
 msgid "user.email"
 msgstr "Adresse de courriel"
@@ -1972,7 +1981,7 @@ msgstr ""
 "votre revue via le rapport éditorial."
 
 msgid "notification.type.editorialReminder"
-msgstr ""
+msgstr "E-mail hebdomadaire des tâches en attente"
 
 msgid "semicolon"
 msgstr "{$label} :"
@@ -2034,10 +2043,10 @@ msgid "list.viewLess"
 msgstr "Cacher les détails de {$name}"
 
 msgid "list.expandAll"
-msgstr ""
+msgstr "Développer tout"
 
 msgid "list.collapseAll"
-msgstr ""
+msgstr "Réduire tout"
 
 msgid "validation.invalidOption"
 msgstr "Ce n'est pas une option valable."
@@ -2096,6 +2105,9 @@ msgstr "Ce n'est pas un pays valide."
 
 msgid "validator.country.regex"
 msgstr ""
+"Ce n'est pas un pays valide. Le pays doit correspondre à l'un des codes "
+"internationaux à 2 lettres. Voir tous les codes sur https://en.wikipedia.org/"
+"wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
 msgstr "Ceci n'est pas une devise valide."
@@ -2246,10 +2258,10 @@ msgid "validator.url"
 msgstr "Ceci n'est pas un URL valide."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Aucune nouvelle ligne autorisée."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Seules les balises html [{$tags}] sont autorisées."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
@@ -2265,7 +2277,7 @@ msgid "filter.import.error.couldNotImportNode"
 msgstr "Le XML n'a pas pu être importé"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Commande inconnue {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"

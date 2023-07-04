@@ -224,7 +224,7 @@ class PKPPageRouter extends PKPRouter
                     $handler = $result;
                 }
             } elseif (empty($page)) {
-                require(ROUTER_DEFAULT_PAGE);
+                $handler = require(ROUTER_DEFAULT_PAGE);
             } else {
                 $dispatcher = $this->getDispatcher();
                 $dispatcher->handle404();

@@ -6,13 +6,12 @@
 		"wikimedia/less.php": "3.*",
 		"phpmailer/phpmailer": "6.*",
 		"smarty/smarty": "4.*",
-		"ezyang/htmlpurifier": "4.*",
 		"moxiecode/plupload": "2.*",
 		"tinymce/tinymce": "^5.7",
 		"michelf/php-markdown": "1.*",
 		"slim/slim": "3.*",
 		"pimple/pimple": "3.*",
-		"laravel/framework": "^9.0",
+		"laravel/framework": "^10.0",
 		"firebase/php-jwt": "6.*",
 		"adodb/adodb-php": "v5.20.18",
 		"gettext/gettext": "5.*",
@@ -30,10 +29,11 @@
 		"dflydev/base32-crockford": "^1.0",
 		"geoip2/geoip2": "~2.0",
 		"voku/stringy": "^6.5",
-		"sokil/php-isocodes-db-i18n": "^4.0"
+		"sokil/php-isocodes-db-i18n": "^4.0",
+		"symfony/html-sanitizer": "^6.2"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "~9",
+        "phpunit/phpunit": "~9",
 		"psy/psysh": "@stable",
 		"friendsofphp/php-cs-fixer": "^3.8",
 		"mockery/mockery": "^1.4",

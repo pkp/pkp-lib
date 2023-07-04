@@ -39,7 +39,7 @@ class PluginGridCellProvider extends GridCellProvider
     {
         $plugin = & $row->getData();
         $columnId = $column->getId();
-        assert(is_a($plugin, 'Plugin') && !empty($columnId));
+        assert($plugin instanceof Plugin && !empty($columnId));
 
         switch ($columnId) {
             case 'name':

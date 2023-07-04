@@ -28,6 +28,6 @@ switch ($op) {
     case 'savePassword':
     case 'signInAsUser':
     case 'signOutAsUser':
-        define('HANDLER_CLASS', 'PKP\pages\login\LoginHandler');
+        return new PKP\pages\login\LoginHandler();
         break;
 }

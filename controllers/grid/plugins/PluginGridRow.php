@@ -55,7 +55,7 @@ class PluginGridRow extends GridRow
 
         // Is this a new row or an existing row?
         $plugin = & $this->getData(); /** @var Plugin $plugin */
-        assert(is_a($plugin, 'Plugin'));
+        assert($plugin instanceof Plugin);
 
         $rowId = $this->getId();
 

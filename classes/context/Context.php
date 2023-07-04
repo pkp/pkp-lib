@@ -19,7 +19,6 @@ namespace PKP\context;
 use APP\core\Application;
 use APP\core\Services;
 use APP\plugins\IDoiRegistrationAgency;
-use APP\statistics\StatisticsHelper;
 use Illuminate\Support\Arr;
 use PKP\config\Config;
 use PKP\facades\Locale;
@@ -483,6 +482,7 @@ abstract class Context extends \PKP\core\DataObject
 
     /**
      * @deprecated Most settings should be available from self::getData(). In other cases, use the context settings DAO directly.
+     *
      * @param null|mixed $locale
      */
     public function getSetting($name, $locale = null)
@@ -492,6 +492,7 @@ abstract class Context extends \PKP\core\DataObject
 
     /**
      * @deprecated Most settings should be available from self::getData(). In other cases, use the context settings DAO directly.
+     *
      * @param null|mixed $locale
      */
     public function getLocalizedSetting($name, $locale = null)
@@ -511,27 +512,6 @@ abstract class Context extends \PKP\core\DataObject
     public function updateSetting($name, $value, $type = null, $isLocalized = false)
     {
         Services::get('context')->edit($this, [$name => $value], Application::get()->getRequest());
-    }
-
-    /**
-     * Get context main page views.
-     *
-     * @deprecated 3.4
-     *
-     * @return int
-     */
-    public function getViews()
-    {
-        $filters = [
-            'dateStart' => StatisticsHelper::STATISTICS_EARLIEST_DATE,
-            'dateEnd' => date('Y-m-d', strtotime('yesterday')),
-            'contextIds' => [$this->getId()],
-        ];
-        $metrics = Services::get('contextStats')
-            ->getQueryBuilder($filters)
-            ->getSum([])
-            ->value('metric');
-        return $metrics ? $metrics : 0;
     }
 
     /**

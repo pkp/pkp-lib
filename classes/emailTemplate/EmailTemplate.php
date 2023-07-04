@@ -49,62 +49,6 @@ class EmailTemplate extends \PKP\core\DataObject
     }
 
     /**
-     * Determine whether or not this is a custom email template
-     * (ie one that was created by the journal/conference/... manager and
-     * is not part of the system upon installation)
-     *
-     * @deprecated 3.2
-     */
-    public function isCustomTemplate()
-    {
-        return false;
-    }
-
-    /**
-     * Get sender role ID.
-     *
-     * @deprecated 3.2
-     */
-    public function getFromRoleId()
-    {
-        return $this->getData('fromRoleId');
-    }
-
-    /**
-     * Set sender role ID.
-     *
-     * @param int $fromRoleId
-     *
-     * @deprecated 3.2
-     */
-    public function setFromRoleId($fromRoleId)
-    {
-        $this->setData('fromRoleId', $fromRoleId);
-    }
-
-    /**
-     * Get recipient role ID.
-     *
-     * @deprecated 3.2
-     */
-    public function getToRoleId()
-    {
-        return $this->getData('toRoleId');
-    }
-
-    /**
-     * Set recipient role ID.
-     *
-     * @deprecated 3.2
-     *
-     * @param int $toRoleId
-     */
-    public function setToRoleId($toRoleId)
-    {
-        $this->setData('toRoleId', $toRoleId);
-    }
-
-    /**
      * Get ID of email template.
      *
      * @deprecated 3.2
@@ -129,30 +73,6 @@ class EmailTemplate extends \PKP\core\DataObject
     }
 
     /**
-     * Get key of email template.
-     *
-     * @deprecated 3.2
-     *
-     * @return string
-     */
-    public function getEmailKey()
-    {
-        return $this->getData('key');
-    }
-
-    /**
-     * Set key of email template.
-     *
-     * @deprecated 3.2
-     *
-     * @param string $key
-     */
-    public function setEmailKey($key)
-    {
-        $this->setData('key', $key);
-    }
-
-    /**
      * Get the enabled setting of email template.
      *
      * @deprecated 3.2
@@ -174,30 +94,6 @@ class EmailTemplate extends \PKP\core\DataObject
     public function setEnabled($enabled)
     {
         $this->setData('enabled', $enabled);
-    }
-
-    /**
-     * Check if email template is allowed to be disabled.
-     *
-     * @deprecated 3.2
-     *
-     * @return bool
-     */
-    public function getCanDisable()
-    {
-        return $this->getData('canDisable');
-    }
-
-    /**
-     * Set whether or not email template is allowed to be disabled.
-     *
-     * @deprecated 3.2
-     *
-     * @param bool $canDisable
-     */
-    public function setCanDisable($canDisable)
-    {
-        $this->setData('canDisable', $canDisable);
     }
 
     /**

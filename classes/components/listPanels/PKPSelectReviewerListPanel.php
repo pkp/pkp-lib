@@ -24,6 +24,9 @@ class PKPSelectReviewerListPanel extends ListPanel
     /** @var string URL to the API endpoint where items can be retrieved */
     public $apiUrl = '';
 
+    /** @var array Affiliatory institutions of the publication authors */
+    public $authorAffiliations = [];
+
     /** @var int Number of items to show at one time */
     public $count = 30;
 
@@ -129,7 +132,7 @@ class PKPSelectReviewerListPanel extends ListPanel
         }
 
         $config['itemsMax'] = $this->itemsMax;
-
+        $config['authorAffiliations'] = $this->authorAffiliations;
         $config['activeReviewsCountLabel'] = __('reviewer.list.activeReviews');
         $config['activeReviewsLabel'] = __('reviewer.list.activeReviewsDescription');
         $config['assignedToLastRoundLabel'] = __('reviewer.list.assignedToLastRound');

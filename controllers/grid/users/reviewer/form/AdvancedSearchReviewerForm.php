@@ -145,6 +145,14 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $warnOnAssignment = array_merge($warnOnAssignment, $userIds);
         $warnOnAssignment = array_values(array_unique(array_map('intval', $warnOnAssignment)));
 
+        $authorAffiliations = [];
+        $authors = $this->getSubmission()->getCurrentPublication()->getData('authors');
+        foreach($authors as $author) {
+            foreach($author->getData('affiliation') as $affiliation) {
+                if($affiliation !== '') $authorAffiliations[] = $affiliation;
+            }
+        }
+
         // Get reviewers list
         $selectReviewerListPanel = new \PKP\components\listPanels\PKPSelectReviewerListPanel(
             'selectReviewer',
@@ -156,6 +164,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                     $submissionContext->getPath(),
                     'users/reviewers'
                 ),
+                'authorAffiliations' => $authorAffiliations,
                 'currentlyAssigned' => $currentlyAssigned,
                 'getParams' => [
                     'contextId' => $submissionContext->getId(),

@@ -151,6 +151,7 @@ class PKPSelectReviewerListPanel extends ListPanel
         $config['reassignLabel'] = __('reviewer.list.reassign');
         $config['reassignWithNameLabel'] = __('reviewer.list.reassign.withName');
         $config['reviewerRatingLabel'] = __('reviewer.list.reviewerRating');
+        $config['reviewerSameInstitutionLabel'] = __('reviewer.list.reviewerSameInstitution');
         $config['reviewInterestsLabel'] = __('reviewer.list.reviewInterests');
         $config['selectReviewerLabel'] = __('editor.submission.selectReviewer');
         $config['warnOnAssignmentLabel'] = __('reviewer.list.warnOnAssign');

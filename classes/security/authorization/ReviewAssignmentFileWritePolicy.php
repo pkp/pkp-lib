@@ -82,7 +82,7 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
         }
 
         // Managers can write review attachments when they are not assigned to a submission
-        if (empty($stageAssignments) && count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
+        if (empty($assignedStages) && count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
             $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }

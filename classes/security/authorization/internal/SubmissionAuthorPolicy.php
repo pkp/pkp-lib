@@ -21,11 +21,10 @@ namespace PKP\security\authorization\internal;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\user\User;
 
 class SubmissionAuthorPolicy extends AuthorizationPolicy
@@ -67,24 +66,24 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy
         $context = $this->_request->getContext();
 
         // Check authorship of the submission. Any ROLE_ID_AUTHOR assignment will do.
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $submitterAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
-        $workflowStages = Application::getApplicationStages();
-        while ($assignment = $submitterAssignments->next()) {
-            $userGroup = Repo::userGroup()->get($assignment->getUserGroupId());
-            if ($userGroup->getRoleId() == Role::ROLE_ID_AUTHOR) {
-                $accessibleWorkflowStages = [];
-                foreach ($workflowStages as $stageId) {
-                    $accessibleStageRoles = Repo::user()->getAccessibleStageRoles($user->getId(), $context->getId(), $submission, $stageId);
-                    if (!empty($accessibleStageRoles)) {
-                        $accessibleWorkflowStages[$stageId] = $accessibleStageRoles;
-                    }
-                }
-                $this->addAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
+        $accessibleWorkflowStages = Repo::user()->getAccessibleWorkflowStages(
+            $user->getId(),
+            $context->getId(),
+            $submission,
+            $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_USER_ROLES)
+        );
 
+        if (empty($accessibleWorkflowStages)) {
+            return AuthorizationPolicy::AUTHORIZATION_DENY;
+        }
+
+        foreach ($accessibleWorkflowStages as $roles) {
+            if (in_array(Role::ROLE_ID_AUTHOR, $roles)) {
+                $this->addAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
         }
+
         return AuthorizationPolicy::AUTHORIZATION_DENY;
     }
 }

@@ -18,6 +18,7 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\AuthorizationPolicy;
 
@@ -59,17 +60,12 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $userId = $user->getId();
-        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-
-        $accessibleWorkflowStages = [];
-        $workflowStages = Application::getApplicationStages();
-        foreach ($workflowStages as $stageId) {
-            $accessibleStageRoles = Repo::user()->getAccessibleStageRoles($userId, $contextId, $submission, $stageId);
-            if (!empty($accessibleStageRoles)) {
-                $accessibleWorkflowStages[$stageId] = $accessibleStageRoles;
-            }
-        }
+        $accessibleWorkflowStages = Repo::user()->getAccessibleWorkflowStages(
+            $user->getId(),
+            $contextId,
+            $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION),
+            $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_USER_ROLES)
+        );
 
         $this->addAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
 

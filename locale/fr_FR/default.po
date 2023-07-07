@@ -1,12 +1,13 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022.
 # Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
+# Stefan Schneider <mail@stefan-schneider.at>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2023-07-04 13:28+0000\n"
-"Last-Translator: Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>\n"
+"PO-Revision-Date: 2023-07-07 19:58+0000\n"
+"Last-Translator: Stefan Schneider <mail@stefan-schneider.at>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -32,10 +33,10 @@ msgid "default.groups.abbrev.productionEditor"
 msgstr "DirProd"
 
 msgid "default.groups.name.copyeditor"
-msgstr "Réviseur"
+msgstr "Éditeur"
 
 msgid "default.groups.plural.copyeditor"
-msgstr "Réviseurs"
+msgstr "Éditeurs"
 
 msgid "default.groups.abbrev.copyeditor"
 msgstr "RÉV"

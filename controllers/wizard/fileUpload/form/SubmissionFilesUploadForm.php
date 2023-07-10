@@ -24,9 +24,11 @@ use APP\submission\Submission;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\form\validation\FormValidator;
+use PKP\submission\Genre;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
+use PKP\user\User;
 
 class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
 {
@@ -146,7 +148,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
                 'submission.upload.noGenre',
                 function ($genreId) use ($context) {
                     $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-                    return is_a($genreDao->getById($genreId, $context->getId()), 'Genre');
+                    return $genreDao->getById($genreId, $context->getId()) instanceof Genre;
                 }
             ));
         }
@@ -180,7 +182,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
         // Identify the uploading user.
         $request = Application::get()->getRequest();
         $user = $request->getUser();
-        assert(is_a($user, 'User'));
+        assert($user instanceof User);
 
         // Upload the file.
         $fileManager = new FileManager();

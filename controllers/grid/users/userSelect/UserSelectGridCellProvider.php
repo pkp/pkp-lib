@@ -18,6 +18,7 @@ namespace PKP\controllers\grid\users\userSelect;
 
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
+use PKP\user\User;
 
 class UserSelectGridCellProvider extends DataObjectGridCellProvider
 {
@@ -49,7 +50,7 @@ class UserSelectGridCellProvider extends DataObjectGridCellProvider
     public function getTemplateVarsFromRowColumn($row, $column)
     {
         $element = $row->getData();
-        assert(is_a($element, 'User'));
+        assert($element instanceof User);
         switch ($column->getId()) {
             case 'select': // Displays the radio option
                 return ['rowId' => $row->getId(), 'userId' => $this->_userId];

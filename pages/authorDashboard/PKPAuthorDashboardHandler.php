@@ -41,6 +41,7 @@ use PKP\security\authorization\AuthorDashboardAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\workflow\WorkflowStageDAO;
@@ -182,7 +183,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
             $fileStage = $this->_fileStageFromWorkflowStage($submission->getData('stageId'));
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
             $lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
-            if ($fileStage && is_a($lastReviewRound, 'ReviewRound')) {
+            if ($fileStage && $lastReviewRound instanceof ReviewRound) {
                 $editorDecisions = Repo::decision()->getCollector()
                     ->filterBySubmissionIds([$submission->getId()])
                     ->filterByStageIds([$submission->getData('stageId')])

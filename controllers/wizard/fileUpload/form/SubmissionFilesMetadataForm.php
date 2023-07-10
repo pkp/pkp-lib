@@ -53,7 +53,7 @@ class SubmissionFilesMetadataForm extends Form
         // Initialize the object.
         $this->_submissionFile = $submissionFile;
         $this->_stageId = $stageId;
-        if (is_a($reviewRound, 'ReviewRound')) {
+        if ($reviewRound instanceof ReviewRound) {
             $this->_reviewRound = $reviewRound;
         }
 

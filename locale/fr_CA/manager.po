@@ -5,9 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-07-10 14:40+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
-"vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2023-07-10 17:52+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -176,24 +175,34 @@ msgstr "Marquer les DOIs enregistrés"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""
+"Vous êtes sur le point de marquer de {$count} item(s) comme \"enregistrés\". "
+"Souhaitez-vous vraiment procéder?"
 
 msgid "manager.dois.actions.markUnregistered.label"
-msgstr ""
+msgstr "Marquer les DOIS comme \"non enregistrés\""
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
+"Vous êtes sur le point de marquer de {$count} item(s) comme \"non "
+"enregistrés\". Souhaitez-vous vraiment procéder?"
 
 msgid "manager.dois.actions.markStale.label"
-msgstr ""
+msgstr "Marquer les DOIS comme \"à synchroniser\""
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
+"Vous êtes sur le point de marquer de {$count} item(s) comme \"à "
+"synchroniser\". Le statut \"à synchroniser\" ne peut -être appliqué qu'à des "
+"DOIs qui ont déjà été soumis. Souhaitez-vous vraiment marquer ces DOIs comme "
+"déjà soumis et à synchroniser?"
 
 msgid "manager.dois.actions.export.label"
 msgstr "Exporter les DOIs"
 
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
+"Vous êtes sur le point d'exporter les DOIs pour {$count} item(s) vers "
+"{$registrationAgency}. Souhaitez-vous vraiment procéder?"
 
 msgid "manager.dois.actions.assign.label"
 msgstr "Assigner des DOIs"
@@ -2907,40 +2916,42 @@ msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Les noms et affiliations des auteur-es de la soumission."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
+msgstr "L'URL de la page pour récupérer un mot de passe perdu"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr ""
+msgstr "L'URL pour afficher toutes les soumissions assignées"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr ""
+msgstr "L'URL pour modifier le profil de l'utilisateur-trice"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Le nom de la décision qui a été prise"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "La description de la décision qui a été prise"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "L'étape du flux des travaux où cette décision a été prise"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Le cycle d'évaluation où cette décision a été prise, si la décision a été "
+"prise lors d'un cycle d'évaluation"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Le sujet de la discussion"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Le contenu de la nouvelle discussion ou de la réponse"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Une liste des soumissions comportant des tâches en attente"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Le nombre de soumissions assignées à cet-te éditeur-trice"
 
 msgid "emailTemplate.variable.recipient.userFullName"
 msgstr ""
@@ -2949,19 +2960,21 @@ msgid "emailTemplate.variable.recipient.username"
 msgstr ""
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Date à laquelle l'évaluation devrait être complétée"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
 msgstr ""
+"Date à laquelle l'assignation devrait être acceptée ou déclinée par l"
+"'évaluateur-trice"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "L'URL de l'assignation d'évaluation"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "La décision recommandée, par exemple \"Accepter la soumission\""
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "La date à laquelle cette évaluation a été assignée"
 
 msgid "emailTemplate.variable.review.method"
 msgstr ""
@@ -2973,10 +2986,10 @@ msgid "emailTemplate.variable.review.round"
 msgstr "Le cycle d'évaluation, tel le Cycle 1 ou Cycle 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Les fichiers téléversés par l'évaluateur-trice"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Le nom de l'évaluateur-trice"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
@@ -2991,118 +3004,129 @@ msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
 
 msgid "emailTemplate.variable.sender.senderName"
-msgstr ""
+msgstr "Le nom complet de l'expéditeur-trice"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr ""
+msgstr "L'adresse courriel de l'expéditeur-trice"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr ""
+msgstr "La signature courriel de l'expéditeur-trice"
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr ""
+msgstr "Le nom complet de la personne-ressource principale du site"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "L'adresse courriel de la personne-ressource principale du site"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "La signature courriel de la personne-ressource principale du site"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr ""
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr ""
+msgstr "Le titre de la soumission"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr ""
+msgstr "Le numéro d'identifiant unique de la soumission"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr ""
+msgstr "Le résumé de la soumission"
 
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr ""
+"Les noms des auteur-trices au format court, par exemple \"Bernes, et al.\""
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr ""
+msgstr "Les noms complets des auteur-es"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "L'URL de la soumission pour les auteur-es"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr ""
+msgstr "L'URL de la soumission dans l'interface administrative"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "L'URL de la soumission publiée"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "L'URL de la soumission dans l'assistant de soumission"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"Les noms des auteur-es qui participent au flux éditorial. Il s'agit "
+"habituellement de l'auteur-e qui a fait la soumission"
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
+"URL haché envoyé à l'utilisateur-trice pour confirmer la réinitialisation du "
+"mot de passe"
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Nouveau mot de passe aléatoire"
 
 msgid "mailable.reviewerReinstate.name"
 msgstr ""
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Envoyer de nouveau la demande d'évaluation à l'évaluateur-trice"
 
 msgid "emailTemplate.variable.submitterName"
 msgstr ""
+"Le nom complet de l'utilisateur-trice qui a téléversé un fichier de "
+"soumission"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "Le titre de l'annonce"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Courte description de l'annonce"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "L'URL de l'annonce"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Le nombre de soumissions reçues ce mois-ci"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Le nombre de soumissions refusées"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Le nombre de soumissions acceptées"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Le nombre de soumission non incluses dans les autres totaux"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Le nombre total de soumissions reçues"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "Le mois du rapport"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "L'année du rapport"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr ""
+"Identification du numéro, incluant le volume, le numéro, l'année et le titre"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "L'URL du numéro publié"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "L'année du rapport"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "Le lien vers la page de l'activité éditoriale"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"Ce courriel est envoyé par un-e éditeur-trice à un-e éditeur-trice qui a "
+"refusé une demande d'évaluation, lorsque l'éditeur-trice souhaite envoyer de "
+"nouveau la demande."
 
 msgid "mailable.reviewerUnassign.name"
 msgstr ""
@@ -3115,51 +3139,66 @@ msgstr ""
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Ce courriel est automatiquement envoyé à un-e utilisateur-trice qui veut "
+"s'inscrire sur le site, lorsque les paramètres exigent une validation de "
+"l'adresse courriel."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Envoyer une notification aux autres auteur-es"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Ce courriel est envoyé aux auteur-es d'une soumission qui ne participent pas "
+"au flux des travaux afin de les notifier qu'une décision a été prise. Il "
+"s'agit habituellement de tous-tes les auteurs-res, à l'exception de l'auteur-"
+"e qui a fait la soumission."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr ""
+"Une copie du courriel qui a été envoyé à l'auteur-e qui a fait la soumission"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Notifier les évaluateurs-trices de la décision"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Ce courriel est envoyé par un-e éditeur-trice à un-e évaluateur-trice afin "
+"d'annoncer qu'une décision a été prise au sujet d'une soumission qu'il ou "
+"elle a révisé."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Une courte description de cette décision destinée à être partagée dans un "
+"courriel de notification envoyé aux évaluateurs-trices"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr ""
+msgstr "Nous avons décidé d'accepter cette soumission sans évaluations."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "Nous avons décidé de refuser cette soumission."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "Nous avons invité les auteurs-trices à soumettre des révisions."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
+"Nous avons invité les auteurs-trices à soumettre une version révisée pour "
+"une plus ample évaluation."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr ""
+msgstr "L'évaluateur-trice invité-e à la soumission a été retiré-e."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr ""
+msgstr "Soumission acceptée"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Soumission renvoyée à la révision"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
@@ -3466,6 +3505,8 @@ msgstr ""
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Ajouter et modifier les gabarits</a> pour tous les "
+"courriels envoyés par le système.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""

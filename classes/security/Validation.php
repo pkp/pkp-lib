@@ -303,7 +303,7 @@ class Validation
 
         $password = '';
         for ($i = 0; $i < $length; $i++) {
-            $password .= mt_rand(1, 4) == 4 ? $numbers[mt_rand(0, strlen($numbers) - 1)] : $letters[mt_rand(0, strlen($letters) - 1)];
+            $password .= random_int(1, 4) == 4 ? $numbers[random_int(0, strlen($numbers) - 1)] : $letters[random_int(0, strlen($letters) - 1)];
         }
         return $password;
     }

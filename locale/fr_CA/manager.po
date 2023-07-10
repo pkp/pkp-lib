@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-07-10 19:15+0000\n"
+"PO-Revision-Date: 2023-07-10 19:37+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
@@ -329,34 +329,41 @@ msgid "manager.dois.update.partialFailure"
 msgstr "Certains DOIs n'ont pas pu être mis à jour"
 
 msgid "manager.dois.notification.exportSuccess"
-msgstr ""
+msgstr "Les items ont été exportés"
 
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr ""
+msgstr "Les items ont été marqués comme \"enregistrés\""
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr ""
+msgstr "Les items ont été marqués comme \"non enregistrés\""
 
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Les items ont été marqués comme \"à synchroniser\""
 
 msgid "manager.dois.notification.assignDoisSuccess"
-msgstr ""
+msgstr "L'assignation de DOIs a réussi"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr ""
+msgstr "Les items ont été soumis pour dépôt"
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "Statuts des DOIs"
 
+#, fuzzy
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"L'administration des DOIs a été déplacée. Veuillez consulter les pages d' <a "
+"href=\"{$doiManagementUrl}\">administration</a> et de  <a href=\""
+"{$doiSettingsUrl}\">paramétrage</a> des DOIs."
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"Pour assigner des DOIs, vous devez au préalable fournir le préfixe DOI qui "
+"vous a été attribué. <a href=\"{$doiSettingsUrl}\">Ajouter le préfixe "
+"DOI</a>."
 
 msgid "doi.exceptions.missingPrefix"
-msgstr ""
+msgstr "Un préfixe DOI est requis afin de créer un DOI."
 
 msgid "manager.genres.alertDelete"
 msgstr ""

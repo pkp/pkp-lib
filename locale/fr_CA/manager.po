@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-07-10 19:37+0000\n"
+"PO-Revision-Date: 2023-07-10 19:52+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
@@ -369,28 +369,32 @@ msgid "manager.genres.alertDelete"
 msgstr ""
 
 msgid "manager.institutions.edit"
-msgstr ""
+msgstr "Modifier l'institution"
 
 msgid "manager.institutions.form.ror"
-msgstr ""
+msgstr "ROR"
 
 msgid "manager.institutions.form.ror.description"
-msgstr ""
+msgstr "Identifiant ROR (Research Organization Registry) de cette institution."
 
 msgid "manager.institutions.form.ipRanges"
-msgstr ""
+msgstr "Plage d'adresses IP"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
+"Les valeurs valides peuvent être une adresse IP (par ex. 142.58.103.1), une "
+"plage d'adresses IP (par ex. 142.58.103.1 - 142.58.103.4), une plage "
+"d'adresses IP avec le caractère de remplacement '*' (par ex. 142.58.*.*) ou "
+"une plage d'adresses IP avec CIDR (par ex. 142.58.100.0/24)."
 
 msgid "manager.institutions.deleteInstitution"
-msgstr ""
+msgstr "Supprimer l'institution"
 
 msgid "manager.institutions.confirmDelete"
-msgstr ""
+msgstr "Souhaitez-vous vraiment supprimer cette institution?"
 
 msgid "manager.institutions.invalidIPRange"
-msgstr ""
+msgstr "Plage d'adresses IP invalide"
 
 msgid "manager.publication.submissionStage"
 msgstr "Soumission"
@@ -414,13 +418,17 @@ msgid "manager.publication.reviewReminders.success"
 msgstr "Les renseignements du rappel d'évaluation ont été mis à jour."
 
 msgid "manager.dois.title"
-msgstr ""
+msgstr "DOIs"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
+"Le message d'erreur suivant a été transmis par {$registrationAgency} et il "
+"contient des détails sur les causes de l'erreur:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
+"Le message suivant a été transmis par {$registrationAgency} et il contient "
+"des détails sur l'enregistrement:"
 
 msgid "manager.emails.addEmail"
 msgstr "Ajouter un modèle de courriel"
@@ -840,9 +848,8 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Rendre publiques les statistique COUNTER SUSHI"
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "Générateur de rapports"
+msgstr "Rapports"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -864,10 +871,10 @@ msgid "manager.setup.dois"
 msgstr "DOIs"
 
 msgid "manager.setup.dois.setup"
-msgstr ""
+msgstr "Configuration"
 
 msgid "manager.setup.dois.registration"
-msgstr ""
+msgstr "Enregistrement"
 
 msgid "doi.manager.settings.doiPrefix"
 msgstr "Préfixe DOI"

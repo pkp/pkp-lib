@@ -298,12 +298,8 @@ class PKPStageParticipantNotifyForm extends Form
 
     /**
      * Get the available email template variable names for the given template name.
-     *
-     * @param string $emailKey Email template key
-     *
-     * @return array
      */
-    public function getEmailVariableNames($emailKey)
+    public function getEmailVariableNames(string $emailKey): array
     {
         switch ($emailKey) {
             case 'COPYEDIT_REQUEST':
@@ -327,6 +323,7 @@ class PKPStageParticipantNotifyForm extends Form
                 'submissionUrl' => __('common.url'),
             ];
         }
+        return [];
     }
 
     /**

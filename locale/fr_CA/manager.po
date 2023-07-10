@@ -1,13 +1,12 @@
-# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-05-11 01:16+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
-"vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2023-07-10 14:40+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -762,43 +761,54 @@ msgid "manager.roles"
 msgstr "Rôles"
 
 msgid "manager.setup.statistics"
-msgstr ""
+msgstr "Statistiques"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Statistiques géographiques"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Sélectionner le type de statistiques d'utilisation géographique qui peuvent "
+"être collectées par les revues sur ce site. Des statistiques géographiques "
+"plus détaillées peuvent considérablement augmenter la taille de votre base "
+"de données et, dans de rares cas, compromettre l'anonymat de vos visiteurs."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "Ne collecter aucune statistique géographique"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Collecter le pays"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Collecter le pays et la région"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr ""
+msgstr "Collecter le pays, la région et la ville"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Statistiques institutionnelles"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Activer les statistiques institutionnelles si vous souhaitez que les revues "
+"sur ce site puissent collecter des statistiques d'utilisation par "
+"institution. Les revues devront ajouter l'institution et ses plages "
+"d'adresses IP pour utiliser cette fonctionnalité."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Activer les statistiques institutionnelles"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr ""
+msgstr "API publique"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"Indiquer si vous souhaitez restreindre l'accès à l'API COUNTER SUSHI. Si "
+"vous désactivez l'API publique, seuls les utilisateurs-trices avec des rôles "
+"administratifs y ont auront accès."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "Rendre publiques les statistique COUNTER SUSHI"
 
 #, fuzzy
 msgid "manager.statistics.reports"
@@ -821,7 +831,7 @@ msgid "manager.affiliationAndSupport"
 msgstr "Organisme subventionnaire"
 
 msgid "manager.setup.dois"
-msgstr ""
+msgstr "DOIs"
 
 msgid "manager.setup.dois.setup"
 msgstr ""
@@ -830,13 +840,13 @@ msgid "manager.setup.dois.registration"
 msgstr ""
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "Préfixe DOI"
 
 msgid "doi.manager.setup.automaticDeposit"
-msgstr ""
+msgstr "Dépôt automatique"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr ""
+msgstr "Activer le dépôt automatique"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
@@ -849,21 +859,22 @@ msgstr ""
 
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr ""
+"Le préfixe DOI est obligatoire et doit respecter le format suivant: 10.xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr ""
+msgstr "Assignation automatique de DOIs"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr ""
+msgstr "À quel moment un DOI devrait-il être assigné à une soumission?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr ""
+msgstr "À la publication"
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr ""
+msgstr "Jamais"
 
 msgid "manager.setup.doiPrefix"
-msgstr ""
+msgstr "Préfixe DOI"
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Contenu de la revue"
@@ -875,13 +886,15 @@ msgid "doi.manager.settings.doiSuffix"
 msgstr "Suffixe DOI"
 
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr ""
+msgstr "Suffixe DOI"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "Format personnalisé de suffixe DOI"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Un ou plusieurs types de DOI sélectionnés ne sont pas autorisés pour "
+"l'agence d'enregistrement choisie."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -893,30 +906,38 @@ msgstr "Utiliser les modèles par défaut."
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Aucun, les suffixes ne seront pas générés automatiquement et il faudra les "
+"saisir manuellement dans la <a href=\"{$doiManagementUrl}\">page "
+"d'administration des DOIs</a>"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Format personnalisé (non recommandé)"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Agence d'enregistrement"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Sélectionner l'agence d'enregistrement auprès de laquelle vous désirez "
+"déposer les DOIs."
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr ""
+msgstr "Aucune agence d'enregistrement n'a été sélectionnée"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"Les DOIs peuvent être automatiquement forgés et déposés auprès d'une agence "
+"d'enregistrement. Pour utiliser cette fonctionnalité, repérer et installer "
+"le plugiciel pour l'agence d'enregistrement souhaitée."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Aucune"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "Versionnage des DOIs"
 
 msgid "doi.authorization.enabledRequired"
-msgstr ""
+msgstr "Il faut activers les DOIs pour effectuer cette opération."
 
 msgid "doi.manager.versions.countStatement"
 msgstr ""
@@ -928,7 +949,7 @@ msgid "doi.manager.versions.modalTitle"
 msgstr ""
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr ""
+msgstr "Le DOI contient des caractères invalides."
 
 msgid "manager.setup.publishing"
 msgstr "Renseignements au sujet de la publication"
@@ -1030,12 +1051,16 @@ msgstr "Aviser tous les auteurs-es"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"Qui devrait recevoir une notification lorsqu'une décision éditoriale a été "
+"prise?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr ""
+msgstr "Envoyer un courriel à tous-tes les auteurs-es."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"Envoyer un courriel uniquement aux auteurs-res qui participent au flux "
+"éditorial. Il s'agit habituellement de l'auteur-e qui a fait la soumission."
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Avis"
@@ -1251,7 +1276,7 @@ msgid "manager.setup.theme"
 msgstr "Thème"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Institutions"
 
 msgid "manager.setup.theme.description"
 msgstr ""
@@ -1280,22 +1305,17 @@ msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Directives aux auteur-es"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Liste de vérification de la soumission"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
 "Lors d'une soumission à la revue, on demande d'abord aux auteurs-es de "
-"s'assurer, avant d'aller plus loin, que toutes les conditions requises pour "
-"soumettre un article sont remplies. La liste de vérification doit aussi "
-"apparaître dans « Directives aux auteurs-es », sous « À propos » de la "
-"revue. Cette liste peut être modifiée ci-dessous, mais tous les éléments de "
-"la liste devront être cochés avant que les auteurs-es puissent poursuivre la "
-"procédure de soumission."
+"s'assurer que toutes les conditions requises pour soumettre un article sont "
+"remplies. Tous les éléments de la liste devront être cochés avant que les "
+"auteurs-es puissent entamer la procédure de soumission."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
@@ -1308,16 +1328,22 @@ msgid "manager.sections.confirmActivateSection"
 msgstr "Êtes-vous certain-e de vouloir activer cette rubrique ?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Assignations éditoriales"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Choisir les utilisateurs-trices avec des rôles éditoriaux qui doivent être "
+"assigné-es automatiquement à toutes les nouvelles soumissions pour cette "
+"section."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Assigner {$name} comme {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Choisir les utilisateurs-trices avec des rôles éditoriaux qui doivent être "
+"assigné-es automatiquement à toutes les nouvelles soumissions pour cette "
+"catégorie."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Options d'accès au site"
@@ -1838,12 +1864,16 @@ msgstr ""
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Toute nouvelle soumission devrait-elle comporter un de ces fichiers? Si vous "
+"sélectionnez oui, les auteur-es n'auront pas l'autorisation de faire une "
+"soumission à moins d'avoir téléversé au moins un fichier de ce type."
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
+"Oui, exiger qu'au moins un de ces fichiers soit téléversé par les auteur-es."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Non, autoriser les nouvelles soumissions sans ces fichiers."
 
 msgid "manager.settings.wizard"
 msgstr "Assistant de paramétrage"
@@ -2586,13 +2616,13 @@ msgid "stats.views"
 msgstr ""
 
 msgid "stats.downloads"
-msgstr ""
+msgstr "Téléchargements"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Total des consultations par date"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Total des téléchargements par date"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/année)"
@@ -2717,13 +2747,13 @@ msgid "stats.pdf"
 msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
-msgstr ""
+msgstr "Géolocalisation assurée par <a href='https://db-ip.com'>DB-IP</a>"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "À propos de la géolocalisation"
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "Du {$startDate} au {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
 msgstr ""
@@ -2732,13 +2762,15 @@ msgid "stats.publications.downloadReport.downloadFiles"
 msgstr ""
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Nombre de téléchargements pour chaque fichier."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
 msgstr ""
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr ""
+"Nombre de consultations et de téléchargements pour chaque ville, région et "
+"pays."
 
 msgid "stats.region"
 msgstr "Région"

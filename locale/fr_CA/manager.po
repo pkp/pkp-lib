@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-07-10 17:52+0000\n"
+"PO-Revision-Date: 2023-07-10 19:15+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
@@ -175,26 +175,25 @@ msgstr "Marquer les DOIs enregistrés"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""
-"Vous êtes sur le point de marquer de {$count} item(s) comme \"enregistrés\". "
+"Vous êtes sur le point de marquer {$count} item(s) comme \"enregistrés\". "
 "Souhaitez-vous vraiment procéder?"
 
 msgid "manager.dois.actions.markUnregistered.label"
-msgstr "Marquer les DOIS comme \"non enregistrés\""
+msgstr "Marquer comme \"non enregistrés\""
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
-"Vous êtes sur le point de marquer de {$count} item(s) comme \"non "
-"enregistrés\". Souhaitez-vous vraiment procéder?"
+"Vous êtes sur le point de marquer {$count} item(s) comme \"non enregistrés\""
+". Souhaitez-vous vraiment procéder?"
 
 msgid "manager.dois.actions.markStale.label"
-msgstr "Marquer les DOIS comme \"à synchroniser\""
+msgstr "Marquer comme \"à synchroniser\""
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
-"Vous êtes sur le point de marquer de {$count} item(s) comme \"à "
-"synchroniser\". Le statut \"à synchroniser\" ne peut -être appliqué qu'à des "
-"DOIs qui ont déjà été soumis. Souhaitez-vous vraiment marquer ces DOIs comme "
-"déjà soumis et à synchroniser?"
+"Vous êtes sur le point de marquer {$count} item(s) comme \"à synchroniser\". "
+"Ce statut ne peut -être appliqué qu'à des DOIs qui ont déjà été soumis. "
+"Souhaitez-vous vraiment marquer ces DOIs comme déjà soumis et à synchroniser?"
 
 msgid "manager.dois.actions.export.label"
 msgstr "Exporter les DOIs"
@@ -209,15 +208,22 @@ msgstr "Assigner des DOIs"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
+"Vous êtes sur le point d'assigner de nouveaux DOIs à {$count} item(s). Cette "
+"action n'affectera que les items éligibles auquel un DOI n'a pas déjà été "
+"assigné. Souhaitez-vous vraiment procéder?"
 
 msgid "manager.dois.actions.depositAll.label"
 msgstr "Déposer tous les DOIs"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"Vous êtes sur le point de programmer le dépôt de tous les DOIs en attente "
+"auprès de {$registrationAgency}. Seuls les items publiés et avec un DOI "
+"seront déposés. Le statut de chaque item sera mis à jour lorsqu'une réponse "
+"sera reçue. Souhaitez-vous vraiment procéder?"
 
 msgid "manager.dois.actions.description"
-msgstr ""
+msgstr "Appliquer l'action aux items sélectionnés ({$count})."
 
 #, fuzzy
 msgid "manager.dois.actions.bulkActions"
@@ -250,13 +256,13 @@ msgid "manager.dois.registration.viewError"
 msgstr "Afficher les erreurs"
 
 msgid "manager.dois.registration.viewError.title"
-msgstr ""
+msgstr "Message d'erreur d'enregistrement"
 
 msgid "manager.dois.registration.viewRecord"
 msgstr "Afficher la notice"
 
 msgid "manager.dois.registration.viewRecord.title"
-msgstr ""
+msgstr "Message d'enregistrement réussi"
 
 msgid "manger.dois.update.success"
 msgstr "DOI(s) actualisé(s) avec succès"
@@ -265,55 +271,62 @@ msgid "manager.dois.registration.depositDois"
 msgstr ""
 
 msgid "manager.dois.status.needsDoi"
-msgstr ""
+msgstr "Sans DOI"
 
 msgid "manager.dois.status.unregistered"
-msgstr ""
+msgstr "Non enregistré"
 
 msgid "manager.dois.status.submitted"
 msgstr "Soumis"
 
 msgid "manager.dois.status.registered"
-msgstr ""
+msgstr "Enregistré"
 
 msgid "manager.dois.status.error"
-msgstr ""
+msgstr "Erreur"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Avec erreur"
 
 msgid "manager.dois.status.stale"
-msgstr ""
+msgstr "À synchroniser"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "Avec DOI"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "Tous les items sans DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Tous les items avec DOI."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Tous les items avec DOI qui ont été publiés, mais qui n'ont pas encore été "
+"déposés auprès d'une agence d'enregistrement."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Tous les items qui ont été soumis à une agence d'enregistrement."
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Tous les items qui ont été enregistrés auprès d'une agence d'enregistrement, "
+"ou marqué manuellement comme \"enregistrés\"."
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Tous les items qui ont produit une erreur lors de l'enregistrement."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Tous les items qui ont été republiés après avoir été déposés auprès d'une "
+"agence d'enregistrement. Ces items doivent être soumis à nouveau auprès de "
+"l'agence d'enregistrement afin d'être mis à jour."
 
 msgid "manager.dois.update.failedCreation"
 msgstr ""
 
 msgid "manager.dois.update.partialFailure"
-msgstr ""
+msgstr "Certains DOIs n'ont pas pu être mis à jour"
 
 msgid "manager.dois.notification.exportSuccess"
 msgstr ""

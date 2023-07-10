@@ -264,7 +264,7 @@ class Session extends \PKP\core\DataObject
             } elseif (function_exists('random_bytes')) {
                 $data = random_bytes(128);
             } else {
-                $data = sha1(mt_rand());
+                $data = sha1(random_int());
             }
 
             // Hash the data

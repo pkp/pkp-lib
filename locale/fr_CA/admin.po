@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:55-07:00\n"
-"PO-Revision-Date: 2023-04-25 14:49+0000\n"
+"PO-Revision-Date: 2023-07-10 14:40+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -168,9 +168,12 @@ msgstr ""
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
 msgstr ""
+"Identification des éditeur.trice.s à rappeler pour la revue {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"{$count} tâches distribuées pour envoyer des avis éditoriaux par courriel "
+"aux utilisateur.trice.s {$userIds} de la revue {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -182,9 +185,11 @@ msgstr "Vider le journal d'événements des tâches planifiées"
 
 msgid "admin.scheduledTask.clearLogs.description"
 msgstr ""
+"Supprimer tous les logs des processus de tâches planifiées qui ont été "
+"exécutés."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Supprimer les logs des tâches"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Publier les soumission dont la publication est planifiée"
@@ -193,7 +198,7 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr "Rappel d'évaluation"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Notification de rapport éditorial"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Rappel d'expiration d'abonnement"
@@ -250,7 +255,7 @@ msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
 msgstr ""
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
-msgstr ""
+msgstr "Le type de fichier n'est pas supporté."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
 msgstr "Le pays n'est pas une chaîne de deux caractères alphabétiques."

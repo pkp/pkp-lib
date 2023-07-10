@@ -69,7 +69,7 @@ class generateTestMetrics extends CommandLineTool {
 					'assoc_id' => $submissionId,
 					'submission_id' => $submissionId,
 					'metric_type' => METRIC_TYPE_COUNTER,
-					'metric' => rand(1, 10),
+					'metric' => random_int(1, 10),
 					'day' => $currentDate->format('Ymd'),
 				]);
 				$count++;

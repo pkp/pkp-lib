@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2023-06-23 08:49+0000\n"
+"PO-Revision-Date: 2023-07-10 14:40+0000\n"
 "Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/eu/>\n"
@@ -1002,7 +1002,7 @@ msgid "submissions.submitted"
 msgstr "Bidalita"
 
 msgid "submission.submission"
-msgstr ""
+msgstr "Bidalketa"
 
 msgid "submission.submissionTitle"
 msgstr ""
@@ -1023,7 +1023,7 @@ msgid "submission.submitter"
 msgstr "Bidaltzailea"
 
 msgid "submission.submit.selectFile"
-msgstr ""
+msgstr "Fitxategia aukeratu"
 
 msgid "submission.submit.fileInformation"
 msgstr ""
@@ -1050,7 +1050,7 @@ msgid "submission.submit.submissionLocaleDescription"
 msgstr ""
 
 msgid "submission.submit.submissionFiles"
-msgstr ""
+msgstr "Bidalketa-fitxategiak"
 
 msgid "submission.submit.dependentFiles"
 msgstr ""
@@ -1189,7 +1189,7 @@ msgid "submission.status.unassigned"
 msgstr ""
 
 msgid "submission.status.declined"
-msgstr ""
+msgstr "Ez da onartu"
 
 msgid "submission.status.published"
 msgstr ""
@@ -1243,7 +1243,7 @@ msgid "submission.upload.libraryCategory"
 msgstr ""
 
 msgid "submission.upload.finalDraft"
-msgstr ""
+msgstr "Fitxategia igo"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr ""

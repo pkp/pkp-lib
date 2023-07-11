@@ -145,13 +145,23 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $warnOnAssignment = array_merge($warnOnAssignment, $userIds);
         $warnOnAssignment = array_values(array_unique(array_map('intval', $warnOnAssignment)));
 
+        $locale = Locale::getLocale();
+        $submissionAuthors = $this->getSubmission()->getCurrentPublication()->getData('authors');
         $authorAffiliations = [];
-        $authors = $this->getSubmission()->getCurrentPublication()->getData('authors');
-        foreach($authors as $author) {
-            foreach($author->getData('affiliation') as $affiliation) {
-                if($affiliation !== '') $authorAffiliations[] = $affiliation;
+        $authors = [];
+        foreach($submissionAuthors as $submissionAuthor) {
+            $affiliations = [];
+            foreach($submissionAuthor->getData('affiliation') as $affiliation) {
+                if(!empty($affiliation)) {
+                    $authorAffiliations[] = $affiliation;
+                    $affiliations[] = $affiliation;
+                }
             }
+            $authors[$submissionAuthor->getFullName(true, false, $locale)] = implode(',', array_filter($affiliations));
         }
+
+        $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign('authors', $authors);
 
         // Get reviewers list
         $selectReviewerListPanel = new \PKP\components\listPanels\PKPSelectReviewerListPanel(
@@ -206,7 +216,6 @@ class AdvancedSearchReviewerForm extends ReviewerForm
             }
         }
 
-        $templateMgr = TemplateManager::getManager($request);
         // Used to determine the right email template
         $templateMgr->assign('lastRoundReviewerIds', $lastRoundReviewerIds);
 
@@ -220,21 +229,6 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                 'selectReviewer' => $selectReviewerListPanel->getConfig(),
             ]
         ]);
-
-        // Get the submission's authors
-        $publication = $this->getSubmission()->getCurrentPublication();
-        $locale = Locale::getLocale();
-        $authors = [];
-        foreach($publication->getData('authors') as $author) {
-            $affiliations = [];
-            foreach($author->getData('affiliation') as $affiliationName) {
-                $affiliations[] = $affiliationName;
-            }
-
-            $authors[$author->getFullName(true, false, $locale)] = implode(',', array_filter($affiliations));
-        }
-
-        $templateMgr->assign('authors', $authors);
 
         // Only add actions to forms where user can operate.
         if (array_intersect($this->getUserRoles(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {

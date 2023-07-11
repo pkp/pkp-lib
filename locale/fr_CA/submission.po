@@ -1,4 +1,4 @@
-# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Maxence Larrieu <maxence.Larrieu@u-paris.fr>, 2022.
 msgid ""
@@ -6,9 +6,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-05-24 19:47+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
-"vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2023-07-11 18:45+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -553,7 +552,7 @@ msgid "submission.coverage"
 msgstr "Renseignements sur la couverture du contenu"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Détails de la soumission"
 
 msgid "submission.done"
 msgstr "Terminé"
@@ -622,6 +621,8 @@ msgstr "Supprimer l'entrée du registre"
 
 msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
+"Un courriel à propos de la décision a été envoyé à {$recipientCount} "
+"évaluateur(s)-trice(s) avec le sujet {$subject}."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Soumission initiale complétée."
@@ -2372,7 +2373,7 @@ msgid "submission.wizard.alreadySubmitted"
 msgstr ""
 
 msgid "submission.wizard.beforeStart"
-msgstr ""
+msgstr "Avant de commencer"
 
 msgid "submission.wizard.categories.description"
 msgstr ""
@@ -2399,7 +2400,7 @@ msgid "submission.wizard.confirm"
 msgstr ""
 
 msgid "submission.wizard.title"
-msgstr ""
+msgstr "Faire une soumission"
 
 msgid "submission.wizard.titleWithStep"
 msgstr ""

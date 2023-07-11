@@ -24,29 +24,20 @@ use Illuminate\Support\Facades\Date;
  */
 trait Attributes
 {
-    /**
-     * Return the job's display name value
-     *
-     */
-    public function getHandlerClassNameAttribute(): ?string
+    public function getExpiryDateAttribute(): ?Carbon
     {
-        if (!$this->payload['className']) {
+        if (!$this->attributes['expiry_date']) {
             return null;
         }
 
-        return $this->payload['className'];
+        //$obj = new Carbon($this->attributes['expiry_date']);
+        $obj = new Carbon($this->attributes['expiry_date']);
+
+        return $obj;
     }
 
-    /**
-     * Return the job's max tries value
-     *
-     */
-    public function getHandlerDataAttribute(): ?array
+    public function getKeyHashAttribute(): string
     {
-        if (!$this->payload['data']) {
-            return null;
-        }
-
-        return $this->payload['data'];
+        return $this->attributes['key_hash'];
     }
 }

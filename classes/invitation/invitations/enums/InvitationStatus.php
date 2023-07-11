@@ -16,11 +16,11 @@
 
 namespace PKP\invitation\invitations\enums;
 
-class InvitationStatus
+enum InvitationStatus: int
 {
-    public const INVITATION_STATUS_PENDING = 0;
-    public const INVITATION_STATUS_ACCEPTED = 1;
-    public const INVITATION_STATUS_DECLINED = 2;
-    public const INVITATION_STATUS_EXPIRED = 3;
-    public const INVITATION_STATUS_CANCELLED = 4;
+    case PENDING = 0;
+    case ACCEPTED = 1;
+    case DECLINED = 2;
+    case EXPIRED = 3;
+    case CANCELLED = 4;
 }

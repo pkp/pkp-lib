@@ -5,8 +5,8 @@ declare(strict_types=1);
 /**
  * @file classes/invitation/invitations/BaseInvitation.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2000-2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class BaseInvitation
@@ -20,13 +20,13 @@ namespace PKP\invitation\invitations;
 use APP\core\Application;
 use Carbon\Carbon;
 use DateTime;
+use Exception;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Mail\Mailable; // should be use PKP\mail\Mailable;
-use phpDocumentor\Reflection\Types\Void_;
+use Illuminate\Mail\Mailable;
+use PKP\config\Config;
 use PKP\facades\Repo;
 use PKP\invitation\invitations\enums\InvitationStatus;
-use PKP\invitation\invitations\enums\InvitationType;
 use PKP\invitation\models\Invitation;
 use PKP\pages\invitation\PKPInvitationHandler;
 use PKP\security\Validation;
@@ -37,93 +37,60 @@ abstract class BaseInvitation
     use SerializesModels;
 
     /**
-     * The name of the connection the job should be sent to.
-     *
-     * @var string|null
+     * The name of the class name of the specific invitation
      */
-    public $className;
-
-    public array $data;
-
-    public string $type;
-
+    public string $className;
     public string $keyHash;
-
-    public int $contextId;
-    public ?int $assocId;
-
     public DateTime $expirationDate;
-
     private Invitation $invitationModel;
-    /**
-     * eMail
-     */
-    protected string $email;
 
-    public function __construct(string $type, string $email, int $contextId, ?int $assocId)
+    public function __construct(public string $email, public int $contextId, public ?int $assocId)
     {
-        $this->type = $type;
-        $this->email = $email;
-        $this->contextId = $contextId;
-        $this->assocId = $assocId;
-
-        // This should be taken in another place or taken in a journal bases?
-        $this->expirationDate = Carbon::now()->addDays(3)->toDateTime();
-
-        $this->populateData();
-    }
-
-    protected function populateData()
-    {
+        $this->expirationDate = Carbon::now()->addDays(Config::getVar('invitations', 'expiration_days', 3))->toDateTime();
         $this->className = get_class($this);
-        $this->data = get_object_vars($this);
     }
 
     public function getPayload()
     {
-        return [
-            "className" => $this->className,
-            "data" => $this->data
-        ];
+        return get_object_vars($this);
     }
 
-    public function invitationMarkStatus(int $status) 
+    public function invitationMarkStatus(InvitationStatus $status) 
     {
         $invitation = Repo::invitation()
             ->getByKeyHash($this->keyHash);
 
         if (is_null($invitation)) {
-            throw new \Exception('This invitation was not found'); // Should create a custom exception and localise the message?
+            throw new Exception('This invitation was not found');
         }
 
         switch ($status) {
-            case InvitationStatus::INVITATION_STATUS_ACCEPTED:
+            case InvitationStatus::ACCEPTED:
                 $invitation->markInvitationAsAccepted();
                 break;
-            case InvitationStatus::INVITATION_STATUS_DECLINED:
+            case InvitationStatus::DECLINED:
                 $invitation->markInvitationAsDeclined();
                 break;
-            case InvitationStatus::INVITATION_STATUS_EXPIRED:
+            case InvitationStatus::EXPIRED:
                 $invitation->markInvitationAsExpired();
                 break;
-            case InvitationStatus::INVITATION_STATUS_CANCELLED:
+            case InvitationStatus::CANCELLED:
                 $invitation->markInvitationAsCanceled();
                 break;
             default:
-                echo "Unknown invitation type.";
-                break;
+                throw new Exception('Invalid Invitation type');
         }
     }
 
     public function invitationAcceptHandle() : bool
     {
-        $this->invitationMarkStatus(InvitationStatus::INVITATION_STATUS_ACCEPTED);
+        $this->invitationMarkStatus(InvitationStatus::ACCEPTED);
 
         return true;
     }
     public function invitationDeclineHandle() : bool
     {
-        $this->invitationMarkStatus(InvitationStatus::INVITATION_STATUS_DECLINED);
+        $this->invitationMarkStatus(InvitationStatus::DECLINED);
 
         return true;
     }
@@ -131,7 +98,7 @@ abstract class BaseInvitation
     abstract public function getInvitationMailable() : Mailable;
     abstract public function preDispatchActions() : bool;
 
-    public function getAcceptInvitationURL() : string
+    public function getAcceptInvitationUrl() : string
     {
         $request = Application::get()->getRequest();
         return $request->getDispatcher()
@@ -139,15 +106,15 @@ abstract class BaseInvitation
                 $request,
                 Application::ROUTE_PAGE,
                 $request->getContext()->getPath(),
-                PKPInvitationHandler::INVITATION_REPLY_BASE,
-                PKPInvitationHandler::INVITATION_REPLY_ACCEPT,
+                PKPInvitationHandler::REPLY_PAGE,
+                PKPInvitationHandler::REPLY_OP_ACCEPT,
                 null,
                 [
                     'key' => $this->keyHash,
                 ]
             );
     }
-    public function getDeclineInvitationURL() : string
+    public function getDeclineInvitationUrl() : string
     {
         $request = Application::get()->getRequest();
         return $request->getDispatcher()
@@ -155,8 +122,8 @@ abstract class BaseInvitation
                 $request,
                 Application::ROUTE_PAGE,
                 $request->getContext()->getPath(),
-                PKPInvitationHandler::INVITATION_REPLY_BASE,
-                PKPInvitationHandler::INVITATION_REPLY_DECLINE,
+                PKPInvitationHandler::REPLY_PAGE,
+                PKPInvitationHandler::REPLY_OP_DECLINE,
                 null,
                 [
                     'key' => $this->keyHash,
@@ -179,7 +146,7 @@ abstract class BaseInvitation
         $this->keyHash = md5($key);
 
         $invitationModelData = [
-            'context' => InvitationType::INVITATION_CONTEXT,
+            'context' => Repo::invitation()::CONTEXT_INVITATION,
             'key_hash' => $this->keyHash,
             'user_id' => $user->getId(),
             'assoc_id' => $this->assocId,
@@ -187,8 +154,8 @@ abstract class BaseInvitation
             'payload' => $this->getPayload(),
             'created_at' => Carbon::now()->timestamp,
             'updated_at' => Carbon::now()->timestamp,
-            'status' => InvitationStatus::INVITATION_STATUS_PENDING,
-            'type' => $this->type,
+            'status' => InvitationStatus::PENDING,
+            'type' => $this->className,
             'invitation_email' => $this->email,
             'context_id' => $this->contextId
         ];
@@ -212,6 +179,6 @@ abstract class BaseInvitation
     public function setInvitationModel(Invitation $invitationModel)
     {
         $this->invitationModel = $invitationModel;
-        $this->keyHash = $invitationModel->key_hash;
+        $this->keyHash = $invitationModel->keyHash;
     }
 }

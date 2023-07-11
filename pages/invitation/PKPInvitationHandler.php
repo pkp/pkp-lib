@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @file pages/submission/PKPSubmissionHandler.php
+ * @file pages/invitation/PKPInvitationHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2003-2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPSubmissionHandler
+ * @class PKPInvitationHandler
  *
- * @ingroup pages_submission
+ * @ingroup pages_invitation
  *
- * @brief Handles page requests to the submission wizard
+ * @brief Handles page requests for invitations op
  */
 
 namespace PKP\pages\invitation;
@@ -27,29 +27,22 @@ use ReflectionClass;
 
 class PKPInvitationHandler extends Handler
 {
-    public const INVITATION_REPLY_BASE = 'invitation';
-    public const INVITATION_REPLY_ACCEPT = 'accept';
-    public const INVITATION_REPLY_DECLINE = 'decline';
+    public const REPLY_PAGE = 'invitation';
+    public const REPLY_OP_ACCEPT = 'accept';
+    public const REPLY_OP_DECLINE = 'decline';
 
     /**
-     * Route the request to the correct page based
-     * on whether they are starting a new submission,
-     * working on a submission in progress, or viewing
-     * a submission that has been submitted.
-     *
-     * @param array $args
-     * @param Request $request
+     * Accept invitation handler
      */
     public function accept($args, $request): void
     {
         $invitation = $this->getInvitationByKey($request);
 
-        // maybe could return possible errors here
         $invitation->invitationAcceptHandle();
     }
 
     /**
-     * Display the screen to start a new submission
+     * Decline invitation handler
      */
     public function decline(array $args, Request $request): void
     {
@@ -86,8 +79,8 @@ class PKPInvitationHandler extends Handler
             return null;
         }
         
-        $className = $invitation->getHandlerClassNameAttribute();
-        $data = $invitation->getHandlerDataAttribute();
+        $className = $invitation->type;
+        $data = $invitation->payload;
 
         if (!class_exists($className)) {
             return null; // Class does not exist

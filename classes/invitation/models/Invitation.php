@@ -3,15 +3,15 @@
 declare(strict_types=1);
 
 /**
- * @file classes/job/models/Job.php
+ * @file classes/invitation/models/Invitation.php
  *
- * Copyright (c) 2014-2022 Simon Fraser University
- * Copyright (c) 2000-2022 John Willinsky
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2000-2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class Job
+ * @class Invitation
  *
- * @brief Laravel Eloquent model for Jobs table
+ * @brief Laravel Eloquent model for Invitation (access_keys table)
  */
 
 namespace PKP\invitation\models;
@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\InteractsWithTime;
 use PKP\invitation\invitations\enums\InvitationStatus;
 use PKP\invitation\traits\Attributes;
+use PKP\job\casts\DatetimeToInt;
 
 class Invitation extends Model
 {
@@ -77,14 +78,6 @@ class Invitation extends Model
     ];
 
     /**
-     * Instantiate the Job model
-     */
-    public function __construct(array $attributes = [])
-    {
-        parent::__construct($attributes);
-    }
-
-    /**
      * Add a local scope to get invitations with certain key_hash
      */
     public function scopeCertainKeyhash(Builder $query, string $keyHash): Builder
@@ -97,7 +90,7 @@ class Invitation extends Model
      */
     public function scopeNotHandled(Builder $query): Builder
     {
-        return $query->where('status', '=', InvitationStatus::INVITATION_STATUS_PENDING);
+        return $query->where('status', '=', InvitationStatus::PENDING);
     }
 
     /**
@@ -139,7 +132,7 @@ class Invitation extends Model
     {
         $this->update([
             'updated_at' => $this->currentTime(),
-            'status' => InvitationStatus::INVITATION_STATUS_ACCEPTED
+            'status' => InvitationStatus::ACCEPTED
         ]);
     }
 
@@ -150,7 +143,7 @@ class Invitation extends Model
     {
         $this->update([
             'updated_at' => $this->currentTime(),
-            'status' => InvitationStatus::INVITATION_STATUS_DECLINED
+            'status' => InvitationStatus::DECLINED
         ]);
     }
 
@@ -161,7 +154,7 @@ class Invitation extends Model
     {
         $this->update([
             'updated_at' => $this->currentTime(),
-            'status' => InvitationStatus::INVITATION_STATUS_EXPIRED
+            'status' => InvitationStatus::EXPIRED
         ]);
     }
 
@@ -172,13 +165,16 @@ class Invitation extends Model
     {
         $this->update([
             'updated_at' => $this->currentTime(),
-            'status' => InvitationStatus::INVITATION_STATUS_CANCELLED
+            'status' => InvitationStatus::CANCELLED
         ]);
     }
 
+    /**
+     * Check if invitation is expired
+     */
     public function isExpired(): bool
     {
-        $expiryDate = $this->expiry_date;
+        $expiryDate = $this->expiryDate;
         $currentDateTime = Carbon::now();
 
         if ($expiryDate > $currentDateTime) {

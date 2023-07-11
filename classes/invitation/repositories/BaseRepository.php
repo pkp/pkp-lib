@@ -3,15 +3,15 @@
 declare(strict_types=1);
 
 /**
- * @file classes/job/repositories/BaseRepository.php
+ * @file classes/invitation/repositories/BaseRepository.php
  *
- * Copyright (c) 2014-2022 Simon Fraser University
- * Copyright (c) 2000-2022 John Willinsky
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2000-2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class BaseRepository
  *
- * @brief Abstract class BaseRepository
+ * @brief Abstract class BaseRepository for invitations
  */
 
 namespace PKP\invitation\repositories;
@@ -23,14 +23,12 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 abstract class BaseRepository
 {
-    
-
     protected Model $model;
     protected int $perPage = 50;
     protected ?string $outputFormat;
 
-    public const OUTPUT_CLI = 'cli';
-    public const OUTPUT_HTTP = 'http';
+    public const CONTEXT_INVITATION = 'invitation';
+    public const CONTEXT_KEY = 'key';
 
     public function newQuery(): Builder
     {
@@ -92,24 +90,4 @@ abstract class BaseRepository
 
         return $this;
     }
-
-    // public function deleteJobs(string $queue = null, array $ids = []): int
-    // {
-    //     $query = $this->model->newQuery();
-
-    //     if ($queue) {
-    //         $query = $query->queuedAt($queue);
-    //     }
-
-    //     if (!empty($ids)) {
-    //         $query = $query->whereIn('id', $ids);
-    //     }
-
-    //     return $query->delete();
-    // }
-
-    // /**
-    //  * Show jobs
-    //  */
-    // abstract public function showJobs(): LengthAwarePaginator;
 }

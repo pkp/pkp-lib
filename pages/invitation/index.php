@@ -1,21 +1,20 @@
 <?php
 
 /**
- * @file pages/submission/index.php
+ * @file pages/invitation/index.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @ingroup pages_submission
+ * @ingroup pages_invitation
  *
- * @brief Handle requests for the submission wizard.
+ * @brief Handle requests for the invitation accept and decline URLs
  *
  */
 
 switch ($op) {
     case 'decline':
     case 'accept':
-        define('HANDLER_CLASS', 'PKP\pages\invitation\PKPInvitationHandler');
-        break;
+        return new PKP\pages\invitation\PKPInvitationHandler();
 }

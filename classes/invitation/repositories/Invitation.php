@@ -3,15 +3,15 @@
 declare(strict_types=1);
 
 /**
- * @file classes/job/repositories/Job.php
+ * @file classes/invitation/repositories/Invitation.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class Job
+ * @class Invitation
  *
- * @brief Job Repository
+ * @brief Invitation Repository
  */
 
 namespace PKP\invitation\repositories;
@@ -29,7 +29,7 @@ class Invitation extends BaseRepository
     public function total(): int
     {
         return $this->model
-            ->NotHandled()
+            ->notHandled()
             ->count();
     }
 
@@ -37,8 +37,8 @@ class Invitation extends BaseRepository
     {
         try {
             return $this->model
-                ->NotHandled()
-                ->CertainKeyhash($keyHash)
+                ->notHandled()
+                ->certainKeyhash($keyHash)
                 ->firstOrFail();
         } catch (ModelNotFoundException $e) {
             return null;
@@ -49,13 +49,13 @@ class Invitation extends BaseRepository
     {
         try {
             $query = $this->model
-                ->NotHandled()
-                ->ByType($type)
-                ->ByEmail($email)
-                ->ByContextId($contextId);
+                ->notHandled()
+                ->byType($type)
+                ->byEmail($email)
+                ->byContextId($contextId);
             
             if (!is_null($assocId)) {
-                $query->ByAssocId($assocId);
+                $query->byAssocId($assocId);
             }
 
             return $query->firstOrFail();
@@ -68,13 +68,13 @@ class Invitation extends BaseRepository
     {
         try {
             $query = $this->model
-                ->NotHandled()
-                ->ByType($type)
-                ->ByEmail($email)
-                ->ByContextId($contextId);
+                ->notHandled()
+                ->byType($type)
+                ->byEmail($email)
+                ->byContextId($contextId);
             
             if (!is_null($assocId)) {
-                $query->ByAssocId($assocId);
+                $query->byAssocId($assocId);
             }
 
             $results = $query->get();

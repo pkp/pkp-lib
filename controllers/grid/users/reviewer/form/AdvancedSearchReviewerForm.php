@@ -223,7 +223,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
 
         // Get the submission's authors
         $publication = $this->getSubmission()->getCurrentPublication();
-
+        $locale = Locale::getLocale();
         $authors = [];
         foreach($publication->getData('authors') as $author) {
             $affiliations = [];
@@ -231,7 +231,6 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                 $affiliations[] = $affiliationName;
             }
 
-            $locale = Locale::getLocale();
             $authors[$author->getFullName(true, false, $locale)] = implode(',', array_filter($affiliations));
         }
 

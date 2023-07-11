@@ -26,7 +26,7 @@
 		<h3>{translate key="submission.author.list"}</h3>
 		<div class="pkp_list_box expandable pkpFormField__description">
 			{foreach from=$authors item=affiliation key=name}
-				<div>
+				<div class="author_row">
 					<span>{$name}</span>
 					{if $affiliation !== ''}
 						<span> - </span>
@@ -35,7 +35,7 @@
 				</div>
 			{/foreach}
 		</div>
-		<button id="showAllReviewers" class="pkpButton pkp_helpers_align_right">{translate key="showMore"}</button>
+		<button id="showAllReviewers" class="pkpButton pkp_helpers_align_right pkp_helpers_display_none">{translate key="showMore"}</button>
 		<button id="showLessReviewers" class="pkpButton pkp_helpers_align_right pkp_helpers_display_none">{translate key="showLess"}</button>
 	{/fbvFormSection}
 

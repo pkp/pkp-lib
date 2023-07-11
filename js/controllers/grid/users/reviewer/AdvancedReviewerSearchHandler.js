@@ -78,6 +78,10 @@
 
 		this.bind('refreshForm', this.handleRefresh_);
 
+		if($('.author_row').length > 4) {
+			$("#showAllReviewers").toggleClass('pkp_helpers_display_none');
+		}
+
 		$('#showAllReviewers').click(function() {
 			$('.pkp_list_box').toggleClass('expandable');
 			$(this).toggleClass('pkp_helpers_display_none');

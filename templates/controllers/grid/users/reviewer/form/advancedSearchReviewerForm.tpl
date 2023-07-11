@@ -28,7 +28,7 @@
 			{foreach from=$authors item=affiliation key=name}
 				<div class="author_row">
 					<span>{$name}</span>
-					{if $affiliation !== ''}
+					{if !empty($affiliation)}
 						<span> - </span>
 					{/if}
 					<span>{$affiliation}</span>

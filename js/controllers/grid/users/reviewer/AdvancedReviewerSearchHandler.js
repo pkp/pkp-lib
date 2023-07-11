@@ -36,6 +36,7 @@
 		$container.find('.button').button();
 
 		pkp.eventBus.$on('selected:reviewer', function(reviewer) {
+			$('#author_container').hide();
 			$('#reviewerId').val(reviewer.id);
 			$('[id^="selectedReviewerName"]').html(reviewer.fullName);
 			$('#searchGridAndButton').hide();

@@ -22,7 +22,7 @@
 </script>
 
 <div id="advancedReviewerSearch" class="pkp_form pkp_form_advancedReviewerSearch">
-	{fbvFormSection}
+	{fbvFormSection id=author_container}
 		<h3>{translate key="submission.author.list"}</h3>
 		<div class="pkp_list_box expandable pkpFormField__description">
 			{foreach from=$authors item=affiliation key=name}

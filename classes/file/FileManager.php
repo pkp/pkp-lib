@@ -822,7 +822,7 @@ class FileManager
         $basePath = rtrim(sys_get_temp_dir(), '\\/') . '/';
         $lastException = null;
         for ($maxRetries = max(0, $maxRetries) + 1; $maxRetries--;) {
-            $path = $basePath . $sanitize($prefix) . substr(md5(random_int()), 0, 10) . $sanitize($suffix);
+            $path = $basePath . $sanitize($prefix) . substr(md5(random_int(0, PHP_INT_MAX)), 0, 10) . $sanitize($suffix);
             try {
                 // If the file already exists, an Exception will be raised due to the "x" mode
                 $file = new SplFileObject($path, 'x+');

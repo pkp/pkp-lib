@@ -163,7 +163,7 @@ abstract class PKPStatisticsHelper
         } elseif (file_exists('/dev/urandom')) {
             $newSalt = bin2hex(file_get_contents('/dev/urandom', false, null, 0, 16));
         } else {
-            $newSalt = random_int();
+            $newSalt = random_int(0, PHP_INT_MAX);
         }
         file_put_contents($saltFileName, $newSalt, LOCK_EX);
         return $newSalt;

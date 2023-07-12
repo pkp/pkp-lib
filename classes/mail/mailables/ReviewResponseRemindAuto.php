@@ -61,6 +61,9 @@ class ReviewResponseRemindAuto extends Mailable
         $this->setOneClickAccessUrl($this->context, $this->reviewAssignment);
 
         // See pkp/pkp-lib#9111
-        $this->addData(['lostPasswordUrl' => $this->viewData[ContextEmailVariable::PASSWORD_LOST_URL]]);
+        $this->addData([
+            'lostPasswordUrl' => $this->viewData[ContextEmailVariable::PASSWORD_LOST_URL],
+            'passwordResetUrl' => $this->viewData[ContextEmailVariable::PASSWORD_LOST_URL],
+        ]);
     }
 }

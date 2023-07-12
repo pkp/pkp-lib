@@ -46,7 +46,7 @@ class PluginHelper {
 		}
 
 		// Create random dirname to avoid symlink attacks.
-		$pluginExtractDir = dirname($filePath) . DIRECTORY_SEPARATOR . $pluginShortName . substr(md5(random_int()), 0, 10);
+		$pluginExtractDir = dirname($filePath) . DIRECTORY_SEPARATOR . $pluginShortName . substr(md5(random_int(0, PHP_INT_MAX)), 0, 10);
 		if (!mkdir($pluginExtractDir)) throw new Exception('Could not create directory ' . $pluginExtractDir);
 
 		// Test whether the tar binary is available for the export to work

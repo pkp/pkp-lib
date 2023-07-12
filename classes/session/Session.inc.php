@@ -216,7 +216,7 @@ class Session extends DataObject {
 			// Generate random data
 			if (function_exists('openssl_random_pseudo_bytes')) $data = openssl_random_pseudo_bytes(128);
 			elseif (function_exists('random_bytes')) $data = random_bytes(128);
-			else $data = sha1(random_int());
+			else $data = sha1(random_int(0, PHP_INT_MAX));
 
 			// Hash the data
 			$token = null;

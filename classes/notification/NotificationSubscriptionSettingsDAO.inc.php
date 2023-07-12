@@ -127,7 +127,7 @@ class NotificationSubscriptionSettingsDAO extends DAO {
 	 * @return int
 	 */
 	function insertNewRSSToken($userId, $contextId) {
-		$token = uniqid(random_int());
+		$token = uniqid(random_int(0, PHP_INT_MAX));
 
 		// Recurse if this token already exists
 		if($this->getUserIdByRSSToken($token, $contextId)) return $this->insertNewRSSToken($userId, $contextId);

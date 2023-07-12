@@ -61,7 +61,7 @@ abstract class PKPOAIDAO extends DAO {
 	function insertToken($token) {
 		do {
 			// Generate unique token ID
-			$token->id = md5(uniqid(random_int(), true));
+			$token->id = md5(uniqid(random_int(0, PHP_INT_MAX), true));
 			$result = $this->retrieve(
 				'SELECT COUNT(*) AS row_count FROM oai_resumption_tokens WHERE token = ?',
 				[$token->id]

@@ -2996,6 +2996,9 @@ msgstr "The year of the report"
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "The link to the editorial activity page"
 
+msgid "emailTemplate.variable.activateUrl"
+msgstr "The link to validate an email account"
+
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
 "This email is sent when a reviewer that was unassigned is reinstated by an "

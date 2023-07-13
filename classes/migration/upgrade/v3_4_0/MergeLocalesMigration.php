@@ -19,6 +19,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use PKP\db\DAORegistry;
 use PKP\install\DowngradeNotSupportedException;
 
 abstract class MergeLocalesMigration extends \PKP\migration\Migration
@@ -133,6 +134,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
 
         // plugin_settings
         // customBlockManager
+        $blockPluginName = 'customblockmanagerplugin';
         $blockLocalizedSettingNames = ['blockTitle', 'blockContent'];
         
         $contextIds = DB::table($this->CONTEXT_TABLE)
@@ -141,7 +143,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         
         foreach ($contextIds as $contextId) {
             $blocks = DB::table('plugin_settings')
-                ->where('plugin_name', '=', 'customblockmanagerplugin')
+                ->where('plugin_name', '=', $blockPluginName)
                 ->where('setting_name', '=', 'blocks')
                 ->where('context_id', '=', $contextId)
                 ->get()
@@ -163,6 +165,11 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                         }
                     }
                 }
+
+                $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
+            
+                $cache = $pluginSettingsDao->_getCache($contextId, $blockPluginName);
+                $cache->flush();
             }
         }
     }

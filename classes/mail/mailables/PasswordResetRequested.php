@@ -51,10 +51,18 @@ class PasswordResetRequested extends Mailable
         parent::__construct(func_get_args());
     }
 
+    public static function getDataDescriptions(): array
+    {
+        return static::addPasswordResetUrlDescription(parent::getDataDescriptions());
+    }
+
     public function recipients(User $recipient, ?string $locale = null): Mailable
     {
         $this->recipientsTrait([$recipient], $locale);
         $this->setPasswordResetUrl($recipient);
+
+        // See pkp/pkp-lib#9111
+        $this->addData(['lostPasswordUrl' => $this->viewData[self::$passwordResetUrl]]);
 
         return $this;
     }

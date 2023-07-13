@@ -25,13 +25,16 @@ use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\ReviewerComments;
 use PKP\mail\traits\Sender;
+use PKP\mail\variables\RecipientEmailVariable;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class RecommendationNotifyEditors extends Mailable
 {
     use Configurable;
-    use Recipient;
+    use Recipient {
+        recipients as traitRecipients;
+    }
     use ReviewerComments;
     use Sender;
 
@@ -71,5 +74,31 @@ class RecommendationNotifyEditors extends Mailable
         $this->addData([
             static::RECOMMENDATION_VARIABLE => $decisionType->getRecommendationLabel(),
         ]);
+    }
+
+    public function recipients(array $recipients): Mailable
+    {
+        $this->traitRecipients($recipients);
+
+        // See pkp/pkp-lib#9111
+        foreach ($this->variables as $key => $variable) {
+            if (get_class($variable) === RecipientEmailVariable::class) {
+
+                // override including new variable
+                $this->variables[$key] = new class($recipients, $this) extends RecipientEmailVariable
+                {
+                    public function values(string $locale): array
+                    {
+                        $values = parent::values($locale);
+                        $values['editors'] = $values[RecipientEmailVariable::RECIPIENT_FULL_NAME];
+                        return $values;
+                    }
+                };
+
+                break;
+            }
+        }
+
+        return $this;
     }
 }

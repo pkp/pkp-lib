@@ -45,4 +45,14 @@ class ValidateEmailSite extends Mailable
     {
         parent::__construct(func_get_args());
     }
+
+    /**
+     * Add description for the validation link variable
+     */
+    public static function getDataDescriptions(): array
+    {
+        return array_merge(parent::getDataDescriptions(), [
+            'activateUrl' => __('emailTemplate.variable.activateUrl'),
+        ]);
+    }
 }

@@ -16,6 +16,7 @@
 
 namespace PKP\mail\mailables;
 
+use APP\mail\variables\ContextEmailVariable;
 use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;
@@ -39,5 +40,16 @@ class SubmissionAcknowledgement extends Mailable
     public function __construct(Context $context, Submission $submission)
     {
         parent::__construct(func_get_args());
+        $this->setupDeprecatedVariables();
+    }
+
+    /**
+     * see pkp/pkp-lib#9111
+     */
+    protected function setupDeprecatedVariables(): void
+    {
+        $this->addData([
+           'editorialContactSignature' => $this->viewData[ContextEmailVariable::CONTEXT_SIGNATURE],
+        ]);
     }
 }

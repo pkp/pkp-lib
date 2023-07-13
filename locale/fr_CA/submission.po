@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-07-11 18:45+0000\n"
+"PO-Revision-Date: 2023-07-13 14:56+0000\n"
 "Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_CA/>\n"
@@ -681,9 +681,13 @@ msgstr "Fichiers d'évaluation de l'évaluateur-trice mis à jour"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} a envoyé un rappel à {$recipientName} au sujet de son "
+"assignation d'évalution"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"Un courriel de rappel automatisé a été envoyé à {$recipientName} au sujet de "
+"son assignation d'évalution"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Un courriel a été envoyé :"
@@ -1208,7 +1212,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Veuillez inscrire les références."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Veuillez remplir la déclaration de disponibilité des données."
 
 msgid "submission.form.name"
 msgstr "Nommer le fichier (par exemple « Tableau 1 ; manuscrit »)"
@@ -1378,7 +1382,7 @@ msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Toutes les recommandations ont été soumises. Une décision est requise."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr ""
+msgstr "Inactif durant plus de {$days} à l'étape {$stage}."
 
 msgid "editor.submission.status.waitingInitialReview"
 msgstr "Une nouvelle soumission doit être envoyée en évaluation ou refusée."
@@ -1460,25 +1464,37 @@ msgstr "Aviser les évaluateur.trice.s"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"Envoie un courriel aux évaluateurs-trices afin de les remercier pour leur "
+"évaluation et les informer qu'une décision a été prise. Des courriels "
+"séparés seront envoyés afin de préserver l'anonymat. On peut employer la "
+"phrase {$recipientName} afin d'inclure dans le message le nom de chaque "
+"personne de manière sécure."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"Envoie un courriel aux évaluateurs-trices assigné-es afin de les informer "
+"que leur assignation d'évaluation a été annulée."
 
 msgid "editor.submission.decision.accept"
 msgstr "Accepter la soumission"
 
 msgid "editor.submission.decision.accept.description"
-msgstr ""
+msgstr "La soumission sera acceptée et envoyée à la révision."
 
 msgid "editor.submission.decision.accept.log"
 msgstr ""
+"{$editorName} a accepté cette soumission a l'a envoyée à l'étape de la "
+"révision."
 
 msgid "editor.submission.decision.accept.completed"
 msgstr "Soumission acceptée"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
+"La soumission {$title} a été acceptée et envoyée à l'étape de la révision. "
+"Toutes les notifications seront envoyées, à l'exception de celles que avez "
+"choisi d'omettre."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
@@ -2377,6 +2393,7 @@ msgstr "Avant de commencer"
 
 msgid "submission.wizard.categories.description"
 msgstr ""
+"Choisissez seulement les catégories qui s'appliquent à votre soumission."
 
 msgid "submission.wizard.changeSubmission"
 msgstr ""
@@ -2454,7 +2471,7 @@ msgid "catalog.sortBy.datePublishedDesc"
 msgstr "Date de publication (du plus récent)"
 
 msgid "category.category"
-msgstr ""
+msgstr "Catégories"
 
 msgid "category.coverImage"
 msgstr "Image de couverture pour la catégorie"
@@ -2596,3 +2613,7 @@ msgstr "Version {$version}"
 
 msgid "submission.submissionFile"
 msgstr "Fichier de soumission"
+
+#, fuzzy
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Renvoyé à l'évaluation."

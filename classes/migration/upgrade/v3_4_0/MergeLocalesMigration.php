@@ -130,6 +130,41 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         foreach ($contextSettingsFormLocales as $contextSettingsFormLocale) {
             $this->updateArrayLocaleSetting($contextSettingsFormLocale->setting_value, $this->CONTEXT_SETTINGS_TABLE, 'supportedSubmissionLocales', $this->CONTEXT_COLUMN, $contextSettingsFormLocale->{$this->CONTEXT_COLUMN});
         }
+
+        // plugin_settings
+        // customBlockManager
+        $blockLocalizedSettingNames = ['blockTitle', 'blockContent'];
+        
+        $contextIds = DB::table($this->CONTEXT_TABLE)
+                ->get()
+                ->pluck($this->CONTEXT_COLUMN);
+        
+        foreach ($contextIds as $contextId) {
+            $blocks = DB::table('plugin_settings')
+                ->where('plugin_name', '=', 'customblockmanagerplugin')
+                ->where('setting_name', '=', 'blocks')
+                ->where('context_id', '=', $contextId)
+                ->get()
+                ->pluck('setting_value');
+            
+            if (!$blocks->isEmpty()) {
+                $blocksArray = json_decode($blocks[0], true);
+
+                foreach ($blocksArray as $block) {
+                    foreach ($blockLocalizedSettingNames as $blockLocalizedSettingName) {
+                        $blockLocalizedContent = DB::table('plugin_settings')
+                            ->where('plugin_name', '=', $block)
+                            ->where('setting_name', '=', $blockLocalizedSettingName)
+                            ->where('context_id', '=', $contextId)
+                            ->first();
+
+                        if (isset($blockLocalizedContent)) {
+                            $this->updateArrayKeysLocaleSetting($blockLocalizedContent->setting_value, 'plugin_settings', 'plugin_setting_id', $blockLocalizedContent->plugin_setting_id);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public function updateArrayLocaleNoId(string $dbLocales, string $table, string $column)
@@ -204,6 +239,32 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                 ->where('setting_name', '=', $settingValue)
                 ->update([
                     'setting_value' => $newLocales
+                ]);
+        }
+    }
+
+    public function updateArrayKeysLocaleSetting(string $dbLocales, string $table, string $tableKeyColumn, int $id)
+    {
+        $siteSupportedLocales = json_decode($dbLocales, true) ?? [];
+
+        if ($siteSupportedLocales !== false) {
+            $newLocales = [];
+            foreach (array_keys($siteSupportedLocales) as $siteSupportedLocaleKey) {
+                $updatedLocale = $this->getUpdatedLocale($siteSupportedLocaleKey);
+
+                if (!is_null($updatedLocale)) {
+                    $newLocales[$updatedLocale] = $siteSupportedLocales[$siteSupportedLocaleKey];
+                } else {
+                    $newLocales[$siteSupportedLocaleKey] = $siteSupportedLocales[$siteSupportedLocaleKey];
+                }
+            }
+
+            $jsonString = json_encode($newLocales);
+
+            DB::table($table)
+                ->where($tableKeyColumn, '=', $id)
+                ->update([
+                    'setting_value' => $jsonString
                 ]);
         }
     }

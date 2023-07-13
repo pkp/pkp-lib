@@ -290,7 +290,7 @@ class FormComponent
             }, $this->groups);
         }
 
-        $fieldsConfig = array_map([$this, 'getFieldConfig'], $this->fields);
+        $fieldsConfig = array_map($this->getFieldConfig(...), $this->fields);
 
         $visibleLocales = [Locale::getLocale()];
         if (Locale::getLocale() !== Locale::getPrimaryLocale()) {

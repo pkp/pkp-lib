@@ -142,7 +142,7 @@ class Dispatcher
                 if ($this->_displayCached($router, $request)) {
                     exit;
                 } // Success
-                ob_start([$this, '_cacheContent']);
+                ob_start($this->_cacheContent(...));
             }
         } else {
             if (isset($_SERVER['HTTP_X_MOZ']) && $_SERVER['HTTP_X_MOZ'] == 'prefetch') {

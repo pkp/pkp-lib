@@ -26,7 +26,7 @@ abstract class PaymethodPlugin extends LazyLoadPlugin
             return false;
         }
 
-        Hook::add('API::payments::settings::edit', [$this, 'saveSettings']);
+        Hook::add('API::payments::settings::edit', $this->saveSettings(...));
 
         return true;
     }

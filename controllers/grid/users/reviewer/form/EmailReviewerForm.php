@@ -99,7 +99,7 @@ class EmailReviewerForm extends Form
         $request = Application::get()->getRequest();
         $fromUser = $request->getUser();
 
-        $mailable = new Mailable([$this->submission]);
+        $mailable = new Mailable([$request->getContext(), $this->submission]);
         $mailable->to($toUser->getEmail(), $toUser->getFullName());
         $mailable->from($fromUser->getEmail(), $fromUser->getFullName());
         $mailable->replyTo($fromUser->getEmail(), $fromUser->getFullName());

@@ -107,7 +107,11 @@ class APIRouter extends PKPRouter
 
         $handler = require('./' . $sourceFile);
         $this->setHandler($handler);
-        $handler->getApp()->run();
+        
+        $handlerApp = $handler->getApp();
+        if ($handlerApp !== null) {
+            $handler->getApp()->run();
+        }
     }
 
     /**

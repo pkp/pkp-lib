@@ -394,7 +394,7 @@ abstract class PKPStatsEditorialQueryBuilder
         // submissions from being counted in editorial stats.
         $q->where(
             fn (Builder $q) => $q->whereNull('pi.date_published')
-                ->orWhere('s.date_submitted', '<=', DB::raw('pi.date_published'))
+                ->orWhere(DB::raw('CAST(s.date_submitted AS DATE)'), '<=', DB::raw('pi.date_published'))
         );
 
         Hook::call('Stats::editorial::queryObject', [&$q, $this]);
@@ -455,7 +455,7 @@ abstract class PKPStatsEditorialQueryBuilder
     public function countImported()
     {
         return $this->_getBaseQuery()
-            ->whereColumn('s.date_submitted', '>', 'pi.date_published')
+            ->where(DB::raw('CAST(s.date_submitted AS DATE)'), '>', 'pi.date_published')
             ->when($this->dateStart, fn (Builder $q) => $q->where('s.date_submitted', '>=', $this->dateStart))
             ->when($this->dateEnd, fn (Builder $q) => $q->where('s.date_submitted', '<=', $this->dateEnd))
             ->count();

@@ -528,37 +528,62 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @param int $userId
 	 * @param int $contextId
 	 * @param Submission $submission
-	 * @param int $stageId
+	 * @param array|null $userRoleIds
 	 * @return array
 	 */
-	public function getAccessibleStageRoles($userId, $contextId, &$submission, $stageId) {
+	public function getAccessibleWorkflowStages($userId, $contextId, &$submission, $userRoleIds = null) {
 
 		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-		$stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId, $stageId);
+		$stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId);
 
-		$accessibleStageRoles = [];
+		if (is_null($userRoleIds)) {
+			$roleDao = DAORegistry::getDAO('RoleDAO'); /** @var $roleDao RoleDAO  */
+			$userRoles = $roleDao->getByUserIdGroupedByContext($userId);
+
+			$userRoleIds = [];
+			if (array_key_exists($contextId, $userRoles)) {
+				$contextRoles = $userRoles[$contextId];
+
+				foreach ($contextRoles as $contextRole) { /** @var $userRole Role */
+					$userRoleIds[] = $contextRole->getRoleId();
+				}
+			}
+
+			// Has admin role?
+			if ($contextId != CONTEXT_ID_NONE &&
+				array_key_exists(CONTEXT_ID_NONE, $userRoles) &&
+				in_array(ROLE_ID_SITE_ADMIN, $userRoles[CONTEXT_ID_NONE])
+			) {
+				$userRoleIds[] = ROLE_ID_SITE_ADMIN;
+			}
+		}
+
+		$accessibleWorkflowStages = [];
 
 		// Assigned users have access based on their assignment
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
 		while ($stageAssignment = $stageAssignmentsResult->next()) {
 			$userGroup = $userGroupDao->getById($stageAssignment->getUserGroupId(), $contextId);
-			$accessibleStageRoles[] = $userGroup->getRoleId();
-		}
-		$accessibleStageRoles = array_unique($accessibleStageRoles);
+			$roleId = $userGroup->getRoleId();
 
-		// If unassigned, only managers and admins have access
-		if (empty($accessibleStageRoles)) {
-			$roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
-			$userRoles = $roleDao->getByUserId($userId, $contextId);
-			foreach ($userRoles as $userRole) {
-				if (in_array($userRole->getId(), [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER])) {
-					$accessibleStageRoles[] = $userRole->getId();
-				}
+			// Check global user roles within the context, e.g., user can be assigned in the role, which was revoked
+			if (!in_array($roleId, $userRoleIds)) {
+				continue;
 			}
-			$accessibleStageRoles = array_unique($accessibleStageRoles);
+
+			$accessibleWorkflowStages[$stageAssignment->getStageId()][] = $roleId;
 		}
 
-		return array_map('intval', $accessibleStageRoles);
+		// Managers and admin have access if not assigned to the submission or are assigned in a revoked role
+		$managerRoles = array_intersect($userRoleIds, [ROLE_ID_SITE_ADMIN, ROLE_ID_MANAGER]);
+		if (empty($accessibleWorkflowStages) && !empty($managerRoles)) {
+			$workflowStages = Application::getApplicationStages();
+			foreach ($workflowStages as $stageId) {
+				$accessibleWorkflowStages[$stageId] = $managerRoles;
+			}
+		}
+
+		return $accessibleWorkflowStages;
 	}
 
 	/**

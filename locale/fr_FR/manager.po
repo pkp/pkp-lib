@@ -1,12 +1,13 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2022.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
+# Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2023-07-07 19:58+0000\n"
-"Last-Translator: Stefan Schneider <mail@stefan-schneider.at>\n"
+"PO-Revision-Date: 2023-07-18 12:58+0000\n"
+"Last-Translator: Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -157,16 +158,18 @@ msgid "manager.announcementTypes.typeName"
 msgstr "Type d'annonce"
 
 msgid "manager.dois.actions.deposit.all"
-msgstr ""
+msgstr "Tout déposer"
 
 msgid "manager.dois.actions.deposit.label"
-msgstr ""
+msgstr "Déposer des DOI"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
+"Vous êtes sur le point d'envoyer des notices de métadonnées DOI pour {$count}"
+" item(s) à {$registrationAgency}. Voulez-vous vraiment déposer ces notices ?"
 
 msgid "manager.dois.actions.markRegistered.label"
-msgstr ""
+msgstr "Marquer les DOI enregistrés"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""

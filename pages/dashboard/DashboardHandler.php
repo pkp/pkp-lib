@@ -236,7 +236,8 @@ class DashboardHandler extends Handler
                 'count' => Repo::submission()->getCollector()
                     ->filterByContextIds([$context->getId()])
                     ->filterByStageIds([WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])
-                    ->
+                    ->isReviewedBy(SubmissionCollector::UNASSIGNED)
+                    ->getCount(),
             ],
             [
                 'id' => 'initial-review',

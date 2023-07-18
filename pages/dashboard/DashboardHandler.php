@@ -19,15 +19,12 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
-use PKP\components\forms\dashboard\SubmissionFilters;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
-use PKP\plugins\Hook;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
-use PKP\submission\Collector as SubmissionCollector;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 
@@ -40,8 +37,6 @@ class DashboardHandler extends Handler
 {
     /** @copydoc PKPHandler::_isBackendPage */
     public $_isBackendPage = true;
-
-    public int $perPage = 30;
 
     /**
      * Constructor
@@ -83,37 +78,38 @@ class DashboardHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $this->setupTemplate($request);
 
+        $currentUser = $request->getUser();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_submissions');
+        $lists = [];
 
-        $sections = Repo::section()
-            ->getCollector()
+        $includeIssuesFilter = array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles);
+        $includeAssignedEditorsFilter = array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles);
+        $includeCategoriesFilter = array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles);
+
+        // Get all available categories
+        $categories = [];
+        $categoryCollection = Repo::category()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->getMany();
 
-        $categories = Repo::category()
-            ->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
-
-        $filtersForm = new SubmissionFilters(
-            $context,
-            $userRoles,
-            $sections,
-            $categories
-        );
-
-        $collector = Repo::submission()
-            ->getCollector()
-            ->filterByContextIds([(int) $request->getContext()->getId()])
-            ->filterByStatus([PKPSubmission::STATUS_QUEUED]);
-
-        if (empty(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
-            $collector->assignedTo([(int) $request->getUser()->getId()]);
+        foreach ($categoryCollection as $category) {
+            $categories[] = [
+                'id' => $category->getId(),
+                'title' => $category->getLocalizedTitle(),
+            ];
         }
 
-        $userGroups = Repo::userGroup()
-            ->getCollector()
+        // My Queue
+        $collector = Repo::submission()->getCollector()
+            ->filterByContextIds([(int) $request->getContext()->getId()])
+            ->filterByStatus([PKPSubmission::STATUS_QUEUED])
+            ->assignedTo([(int) $request->getUser()->getId()]);
+
+        $itemsMax = $collector->getCount();
+        $items = $collector->limit(30)->getMany();
+
+        $userGroups = Repo::userGroup()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->getMany();
 
@@ -121,53 +117,98 @@ class DashboardHandler extends Handler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
-        $templateMgr->setState([
-            'apiUrl' => $apiUrl,
-            'assignParticipantUrl' => $dispatcher->url(
-                $request,
-                Application::ROUTE_COMPONENT,
-                null,
-                'grid.users.stageParticipant.StageParticipantGridHandler',
-                'addParticipant',
-                null,
+        $items = Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($items, $userGroups, $genres);
+
+        $myQueueListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+            SUBMISSIONS_LIST_MY_QUEUE,
+            __('common.queue.long.myAssigned'),
+            [
+                'apiUrl' => $apiUrl,
+                'getParams' => [
+                    'status' => PKPSubmission::STATUS_QUEUED,
+                    'assignedTo' => [(int) $request->getUser()->getId()],
+                ],
+                'includeIssuesFilter' => $includeIssuesFilter,
+                'includeCategoriesFilter' => $includeCategoriesFilter,
+                'includeActiveSectionFiltersOnly' => true,
+                'items' => $items->values(),
+                'itemsMax' => $itemsMax,
+                'categories' => $categories,
+            ]
+        );
+        $lists[$myQueueListPanel->id] = $myQueueListPanel->getConfig();
+
+        if (!empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles))) {
+            // Unassigned
+            $unassignedListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+                SUBMISSIONS_LIST_UNASSIGNED,
+                __('common.queue.long.submissionsUnassigned'),
                 [
-                    'submissionId' => '__id__',
-                    'stageId' => '__stageId__',
+                    'apiUrl' => $apiUrl,
+                    'getParams' => [
+                        'status' => PKPSubmission::STATUS_QUEUED,
+                        'assignedTo' => \PKP\submission\Collector::UNASSIGNED,
+                    ],
+                    'lazyLoad' => true,
+                    'includeIssuesFilter' => $includeIssuesFilter,
+                    'includeCategoriesFilter' => $includeCategoriesFilter,
+                    'includeActiveSectionFiltersOnly' => true,
+                    'categories' => $categories,
                 ]
-            ),
-            'count' => $this->perPage,
-            'currentViewId' => 'active',
-            'filtersForm' => $filtersForm->getConfig(),
-            'i18nReviewRound' => __('common.reviewRoundNumber'),
-            'i18nShowingXofX' => __('common.showingXofX'),
-            'submissions' => Repo::submission()
-                ->getSchemaMap()
-                ->mapManyToSubmissionsList(
-                    $collector->limit($this->perPage)->getMany(),
-                    $userGroups,
-                    $genres
-                )
-                ->values(),
-            'submissionsMax' => $collector->limit(null)->getCount(),
-            'views' => $this->getViews(),
-        ]);
+            );
+            $lists[$unassignedListPanel->id] = $unassignedListPanel->getConfig();
 
+            // Active
+            $activeListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+                SUBMISSIONS_LIST_ACTIVE,
+                __('common.queue.long.active'),
+                [
+                    'apiUrl' => $apiUrl,
+                    'getParams' => [
+                        'status' => PKPSubmission::STATUS_QUEUED,
+                    ],
+                    'lazyLoad' => true,
+                    'includeIssuesFilter' => $includeIssuesFilter,
+                    'includeCategoriesFilter' => $includeCategoriesFilter,
+                    'includeAssignedEditorsFilter' => $includeAssignedEditorsFilter,
+                    'categories' => $categories,
+                ]
+            );
+            $lists[$activeListPanel->id] = $activeListPanel->getConfig();
+        }
+
+        // Archived
+        $params = [
+            'status' => [PKPSubmission::STATUS_DECLINED, PKPSubmission::STATUS_PUBLISHED, PKPSubmission::STATUS_SCHEDULED],
+        ];
+        if (empty(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
+            $params['assignedTo'] = (int) $currentUser->getId();
+        }
+        $archivedListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+            SUBMISSIONS_LIST_ARCHIVE,
+            __('submissions.archived'),
+            [
+                'apiUrl' => $apiUrl,
+                'getParams' => $params,
+                'lazyLoad' => true,
+                'includeIssuesFilter' => $includeIssuesFilter,
+                'includeCategoriesFilter' => $includeCategoriesFilter,
+                'includeAssignedEditorsFilter' => $includeAssignedEditorsFilter,
+                'categories' => $categories,
+            ]
+        );
+        $lists[$archivedListPanel->id] = $archivedListPanel->getConfig();
+
+        $templateMgr->setState(['components' => $lists]);
         $templateMgr->assign([
-            'columns' => $this->getColumns(),
-            'pageComponent' => 'SubmissionsPage',
             'pageTitle' => __('navigation.submissions'),
-            'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
         ]);
 
-        $templateMgr->setConstants([
-            'STAGE_STATUS_SUBMISSION_UNASSIGNED' => Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED,
-        ]);
-
-        $templateMgr->display('dashboard/editors.tpl');
+        return $templateMgr->display('dashboard/index.tpl');
     }
 
     /**
-     * View tasks popup
+     * View tasks tab
      *
      * @param array $args
      * @param PKPRequest $request
@@ -180,179 +221,5 @@ class DashboardHandler extends Handler
         $this->setupTemplate($request);
 
         return $templateMgr->fetchJson('dashboard/tasks.tpl');
-    }
-
-    /**
-     * Get a list of the pre-configured views
-     */
-    protected function getViews(): array
-    {
-        $request = Application::get()->getRequest();
-        $context = $request->getContext();
-        $user = $request->getUser();
-        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-
-        $views = [
-            [
-                'id' => 'assigned-to-me',
-                'name' => 'Assigned to me',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStatus([PKPSubmission::STATUS_QUEUED])
-                    ->assignedTo([$user->getId()])
-                    ->getCount(),
-                'op' => 'assigned',
-                'queryParams' => [
-                    'status' => [PKPSubmission::STATUS_QUEUED],
-                ]
-            ],
-            [
-                'id' => 'active',
-                'name' => 'Active Submissions',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStatus([PKPSubmission::STATUS_QUEUED])
-                    ->getCount(),
-                'queryParams' => [
-                    'status' => [PKPSubmission::STATUS_QUEUED],
-                ]
-            ],
-            [
-                'id' => 'needs-editor',
-                'name' => 'Needs editor',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->assignedTo(SubmissionCollector::UNASSIGNED)
-                    ->filterByStatus([PKPSubmission::STATUS_QUEUED])
-                    ->getCount(),
-                'queryParams' => [
-                    'assignedTo' => SubmissionCollector::UNASSIGNED,
-                    'status' => [PKPSubmission::STATUS_QUEUED],
-                ]
-            ],
-            [
-                'id' => 'needs-reviewers',
-                'name' => 'Needs reviewers',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStageIds([WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])
-                    ->isReviewedBy(SubmissionCollector::UNASSIGNED)
-                    ->getCount(),
-            ],
-            [
-                'id' => 'initial-review',
-                'name' => 'All in desk/initial review',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
-                    ->filterByStatus([PKPSubmission::STATUS_QUEUED])
-                    ->getCount(),
-                'queryParams' => [
-                    'stageIds' => [WORKFLOW_STAGE_ID_SUBMISSION],
-                    'status' => [PKPSubmission::STATUS_QUEUED],
-                ]
-            ],
-            [
-                'id' => 'external-review',
-                'name' => 'All in peer review',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStageIds([WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])
-                    ->filterByStatus([PKPSubmission::STATUS_QUEUED])
-                    ->getCount(),
-                'queryParams' => [
-                    'stageIds' => [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW],
-                    'status' => [PKPSubmission::STATUS_QUEUED],
-                ]
-            ],
-            [
-                'id' => 'copyediting',
-                'name' => 'All in copyediting',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStageIds([WORKFLOW_STAGE_ID_EDITING])
-                    ->filterByStatus([PKPSubmission::STATUS_QUEUED])
-                    ->getCount(),
-                'queryParams' => [
-                    'stageIds' => [WORKFLOW_STAGE_ID_EDITING],
-                    'status' => [PKPSubmission::STATUS_QUEUED],
-                ]
-            ],
-            [
-                'id' => 'production',
-                'name' => 'All in production',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStageIds([WORKFLOW_STAGE_ID_PRODUCTION])
-                    ->filterByStatus([PKPSubmission::STATUS_QUEUED])
-                    ->getCount(),
-                'queryParams' => [
-                    'stageIds' => [WORKFLOW_STAGE_ID_PRODUCTION],
-                    'status' => [PKPSubmission::STATUS_QUEUED],
-                ]
-            ],
-            [
-                'id' => 'scheduled',
-                'name' => 'Scheduled for publication',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStatus([PKPSubmission::STATUS_SCHEDULED])
-                    ->getCount(),
-                'queryParams' => [
-                    'status' => [PKPSubmission::STATUS_SCHEDULED],
-                ]
-            ],
-            [
-                'id' => 'published',
-                'name' => 'Published',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
-                    ->getCount(),
-                'queryParams' => [
-                    'status' => [PKPSubmission::STATUS_PUBLISHED],
-                ]
-            ],
-            [
-                'id' => 'declined',
-                'name' => 'Declined',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStatus([PKPSubmission::STATUS_DECLINED])
-                    ->getCount(),
-                'queryParams' => [
-                    'status' => [PKPSubmission::STATUS_DECLINED],
-                ]
-            ],
-        ];
-
-        Hook::call('Dashboard::views', [&$views, $userRoles]);
-
-        return $views;
-    }
-
-    /**
-     * Define the columns in the submissions table
-     */
-    protected function getColumns(): array
-    {
-        $columns = [
-            new Column('id', __('common.id'), 'dashboard/column-id.tpl', true),
-            new Column('title', __('navigation.submissions'), 'dashboard/column-title.tpl'),
-            new Column('stage', __('workflow.stage'), 'dashboard/column-stage.tpl'),
-            new Column('days', __('editor.submission.days'), 'dashboard/column-days.tpl'),
-            new Column('activity', __('stats.editorialActivity'), 'dashboard/column-activity.tpl'),
-            new Column(
-                'actions',
-                '<span class="-screenReader">' . __('admin.jobs.list.actions') . '</span>',
-                'dashboard/column-actions.tpl'
-            ),
-        ];
-
-        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-
-        Hook::call('Dashboard::columns', [&$columns, $userRoles]);
-
-        return $columns;
     }
 }

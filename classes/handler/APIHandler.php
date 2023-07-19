@@ -85,7 +85,7 @@ class APIHandler extends PKPHandler
                 }
 
                 if(is_object($response) && method_exists($response, 'send')) {
-                    return $response->send();                    
+                    return $response->send(); 
                 }
 
                 return response()->json([

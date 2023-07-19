@@ -4,17 +4,19 @@ namespace PKP\core;
 
 use PKP\core\PKPContainer;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Router;
-use Illuminate\Routing\UrlGenerator;
 use PKP\middlewares\HasUser;
 use PKP\middlewares\HasRoles;
+use Illuminate\Routing\Router;
 use PKP\middlewares\HasContext;
+use Illuminate\Routing\UrlGenerator;
+use PKP\middlewares\AllowCrossOrigin;
+use PKP\middlewares\ValidateCsrfToken;
+use PKP\middlewares\RemoveTrailingSlash;
 use Psr\Http\Message\ServerRequestInterface;
 use Illuminate\Routing\RoutingServiceProvider;
-use PKP\middlewares\ValidateCsrfToken;
-use Illuminate\Foundation\Http\Middleware\TrimStrings;
 use PKP\middlewares\DecodeApiTokenWithValidation;
 use PKP\middlewares\SetupContextBasedOnRequestUrl;
+use Illuminate\Foundation\Http\Middleware\TrimStrings;
 use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
@@ -23,9 +25,11 @@ use Illuminate\Contracts\Routing\UrlGenerator as UrlGeneratorContract;
 class PKPRoutingProvider extends RoutingServiceProvider
 {
     protected static $globalMiddlewares = [
+        AllowCrossOrigin::class,
         SetupContextBasedOnRequestUrl::class,
         DecodeApiTokenWithValidation::class,
         ValidateCsrfToken::class,
+        RemoveTrailingSlash::class,
         ValidatePostSize::class,
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,

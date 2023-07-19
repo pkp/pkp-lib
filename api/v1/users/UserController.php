@@ -19,6 +19,7 @@ namespace PKP\API\v1\users;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use Closure;
 use Illuminate\Support\Str;
 
 use Symfony\Component\HttpFoundation\StreamedResponse;
@@ -47,91 +48,41 @@ use Throwable;
 
 class UserController extends PKPBaseController
 {
-    /**
-     * Convert the query params passed to the end point. Exclude unsupported
-     * params and coerce the type of those passed.
-     *
-     * @param array $params         Key/value of request params
-     * @param array $allowedKeys    The param keys which should be processed and returned
-     *
-     * @return array
-     */
-    private function _processAllowedParams($params, $allowedKeys): array
+    public function getHandlerPath(): string
     {
-        // Merge query params over default params
-        $defaultParams = [
-            'count' => 20,
-            'offset' => 0,
+        return 'users';
+    }
+
+    public function getRouteGroupMiddlewares(): array
+    {
+        $roles = implode('|', [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
+
+        return [
+            "has.user",
+            "has.context",
+            "has.roles:{$roles}",
         ];
+    }
 
-        $requestParams = array_merge($defaultParams, $params);
+    public function getGroupRoutesCallback(): Closure
+    {
+        return function() {
+            app('router')
+                ->name('getReviewers')
+                ->get('reviewers', [static::class, 'getReviewers']);
 
-        // Process query params to format incoming data as needed
-        $returnParams = [];
-        foreach ($requestParams as $param => $val) {
-            if (!in_array($param, $allowedKeys)) {
-                continue;
-            }
-            switch ($param) {
-                case 'orderBy':
-                    if (in_array($val, ['id', 'familyName', 'givenName'])) {
-                        $returnParams[$param] = $val;
-                    }
-                    break;
+            app('router')
+                ->name('getReport')
+                ->get('report', [static::class, 'getReport']);
+            
+            app('router')
+                ->name('getUser')
+                ->get('{userId}', [static::class, 'get']);
 
-                case 'orderDirection':
-                    $returnParams[$param] = $val === 'ASC' ? $val : 'DESC';
-                    break;
-
-                case 'status':
-                    if (in_array($val, ['all', 'active', 'disabled'])) {
-                        $returnParams[$param] = $val;
-                    }
-                    break;
-
-                    // Always convert roleIds to array
-                case 'reviewerIds':
-                case 'roleIds':
-                    if (is_string($val)) {
-                        $val = explode(',', $val);
-                    } elseif (!is_array($val)) {
-                        $val = [$val];
-                    }
-                    $returnParams[$param] = array_map('intval', $val);
-                    break;
-                case 'assignedToCategory':
-                case 'assignedToSection':
-                case 'assignedToSubmissionStage':
-                case 'assignedToSubmission':
-                case 'reviewerRating':
-                case 'reviewStage':
-                case 'offset':
-                case 'searchPhrase':
-                    $returnParams[$param] = trim($val);
-                    break;
-
-                case 'reviewsCompleted':
-                case 'reviewsActive':
-                case 'daysSinceLastAssignment':
-                case 'averageCompletion':
-                    if (is_array($val)) {
-                        $val = array_map('intval', $val);
-                    } elseif (strpos($val, '-') !== false) {
-                        $val = array_map('intval', explode('-', $val));
-                    } else {
-                        $val = [(int) $val];
-                    }
-                    $returnParams[$param] = $val;
-                    break;
-
-                    // Enforce a maximum count per request
-                case 'count':
-                    $returnParams[$param] = min(100, (int) $val);
-                    break;
-            }
-        }
-
-        return $returnParams;
+            app('router')
+                ->name('getManyUsers')
+                ->get('', [static::class, 'getMany']);
+        };
     }
 
     /**
@@ -321,82 +272,104 @@ class UserController extends PKPBaseController
 
         $report = Repo::user()->getReport($params);
 
-        return response()->streamDownload(
+        return response()->stream(
             function () use ($report) {
                 $handle = fopen('php://output', 'w+');
                 $report->serialize($handle);
                 fclose($handle);
             },
-            'user-report-' . date('Y-m-d') . '.csv',
+            Response::HTTP_OK,
             [
-                'content-type: text/comma-separated-values',
-                'content-disposition: attachment; filename="user-report-' . date('Y-m-d') . '.csv"',
+                'content-type' => 'application/force-download',
+                'content-disposition' => 'attachment; filename="user-report-' . date('Y-m-d') . '.csv"',
             ]
         );
-
-        // $response = new StreamedResponse(
-        //     null,
-        //     Response::HTTP_OK,
-        // );
-
-        // $response->setCallback(function () use ($report) {
-        //     $handle = fopen('php://output', 'w+');
-        //     $report->serialize($handle);
-        //     fclose($handle);
-        // });
-
-        // $name = 'user-report-' . date('Y-m-d') . '.csv';
-
-        // $response->headers->set('Content-Type', 'application/force-download');
-        // $response->headers->set(
-        //     'Content-Disposition',
-        //     $response->headers->makeDisposition(
-        //         'attachment',
-        //         $name,
-        //         str_replace('%', '', Str::ascii($name))
-        //     )
-        // );
-
-        // return $response;
     }
-}
 
-class PKPUserHandler extends APIHandler
-{
-    public function __construct()
+    /**
+     * Convert the query params passed to the end point. Exclude unsupported
+     * params and coerce the type of those passed.
+     *
+     * @param array $params         Key/value of request params
+     * @param array $allowedKeys    The param keys which should be processed and returned
+     *
+     * @return array
+     */
+    private function _processAllowedParams($params, $allowedKeys): array
     {
-        $this->_handlerPath = 'users';
+        // Merge query params over default params
+        $defaultParams = [
+            'count' => 20,
+            'offset' => 0,
+        ];
 
-        $roles = implode('|', [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
+        $requestParams = array_merge($defaultParams, $params);
 
-        app('router')->group(
-            [
-                'prefix' => $this->getEndpointPattern(),
-                'middleware' => [
-                    "has.user",
-                    "has.context",
-                    "has.roles:{$roles}",
-                ],
-            ],
-            function () {
-                app('router')
-                    ->name('getReviewers')
-                    ->get('reviewers', [UserController::class, 'getReviewers']);
-
-                app('router')
-                    ->name('getReport')
-                    ->get('report', [UserController::class, 'getReport']);
-                
-                app('router')
-                    ->name('getUser')
-                    ->get('{userId}', [UserController::class, 'get']);
-
-                app('router')
-                    ->name('getManyUsers')
-                    ->get('', [UserController::class, 'getMany']);
+        // Process query params to format incoming data as needed
+        $returnParams = [];
+        foreach ($requestParams as $param => $val) {
+            if (!in_array($param, $allowedKeys)) {
+                continue;
             }
-        );
+            switch ($param) {
+                case 'orderBy':
+                    if (in_array($val, ['id', 'familyName', 'givenName'])) {
+                        $returnParams[$param] = $val;
+                    }
+                    break;
 
-        parent::__construct();
+                case 'orderDirection':
+                    $returnParams[$param] = $val === 'ASC' ? $val : 'DESC';
+                    break;
+
+                case 'status':
+                    if (in_array($val, ['all', 'active', 'disabled'])) {
+                        $returnParams[$param] = $val;
+                    }
+                    break;
+
+                    // Always convert roleIds to array
+                case 'reviewerIds':
+                case 'roleIds':
+                    if (is_string($val)) {
+                        $val = explode(',', $val);
+                    } elseif (!is_array($val)) {
+                        $val = [$val];
+                    }
+                    $returnParams[$param] = array_map('intval', $val);
+                    break;
+                case 'assignedToCategory':
+                case 'assignedToSection':
+                case 'assignedToSubmissionStage':
+                case 'assignedToSubmission':
+                case 'reviewerRating':
+                case 'reviewStage':
+                case 'offset':
+                case 'searchPhrase':
+                    $returnParams[$param] = trim($val);
+                    break;
+
+                case 'reviewsCompleted':
+                case 'reviewsActive':
+                case 'daysSinceLastAssignment':
+                case 'averageCompletion':
+                    if (is_array($val)) {
+                        $val = array_map('intval', $val);
+                    } elseif (strpos($val, '-') !== false) {
+                        $val = array_map('intval', explode('-', $val));
+                    } else {
+                        $val = [(int) $val];
+                    }
+                    $returnParams[$param] = $val;
+                    break;
+
+                    // Enforce a maximum count per request
+                case 'count':
+                    $returnParams[$param] = min(100, (int) $val);
+                    break;
+            }
+        }
+
+        return $returnParams;
     }
 }

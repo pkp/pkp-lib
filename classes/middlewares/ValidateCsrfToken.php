@@ -8,7 +8,6 @@ use APP\core\Application;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use PKP\context\Context;
 
 class ValidateCsrfToken
 {

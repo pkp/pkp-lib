@@ -452,11 +452,17 @@ class PKPString
             ];
         }
 
+        // php strip_tags remove anything starting from < as per specification
+        // And strip_tags need to applied otherwise sanitizer discard anything inbetween invalid tags
+        $input = preg_replace("/<([^>]*(<|$))/", "&lt;$1", $input);
+
         // need to apply html_entity_decode as sanitizer apply htmlentities internally for special chars
         return html_entity_decode(
             $caches[$configKey]['sanitizer']->sanitize(
                 strip_tags($input, $caches[$configKey]['allowedTagToAttributeMap']->keys()->toArray())
-            )
+            ),
+            ENT_NOQUOTES, 
+            "UTF-8"
         );
     }
 

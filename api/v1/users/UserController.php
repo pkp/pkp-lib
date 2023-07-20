@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file api/v1/users/PKPUserHandler.php
+ * @file api/v1/users/UserController.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2000-2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPUserHandler
+ * @class UserController
  *
  * @ingroup api_v1_users
  *
@@ -20,31 +20,16 @@ namespace PKP\API\v1\users;
 use APP\core\Application;
 use APP\facades\Repo;
 use Closure;
-use Illuminate\Support\Str;
-
-use Symfony\Component\HttpFoundation\StreamedResponse;
-
-
-use Illuminate\Http\Response;
-
-use InvalidArgumentException;
-
-use Illuminate\Http\JsonResponse;
-
-use Illuminate\Http\Request;
-
 use Exception;
-use PKP\context\Context;
-use PKP\core\APIResponse;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use PKP\core\PKPBaseController;
 use PKP\facades\Locale;
-use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
-use PKP\security\authorization\ContextAccessPolicy;
-use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use Slim\Http\Request as SlimRequest;
-use Throwable;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class UserController extends PKPBaseController
 {
@@ -55,7 +40,11 @@ class UserController extends PKPBaseController
 
     public function getRouteGroupMiddlewares(): array
     {
-        $roles = implode('|', [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
+        $roles = implode('|', [
+            Role::ROLE_ID_SITE_ADMIN, 
+            Role::ROLE_ID_MANAGER, 
+            Role::ROLE_ID_SUB_EDITOR
+        ]);
 
         return [
             "has.user",
@@ -67,21 +56,18 @@ class UserController extends PKPBaseController
     public function getGroupRoutesCallback(): Closure
     {
         return function() {
-            app('router')
-                ->name('getReviewers')
-                ->get('reviewers', [static::class, 'getReviewers']);
-
-            app('router')
-                ->name('getReport')
-                ->get('report', [static::class, 'getReport']);
             
-            app('router')
-                ->name('getUser')
-                ->get('{userId}', [static::class, 'get']);
+            Route::get('reviewers', [static::class, 'getReviewers'])
+                ->name('getReviewers');
 
-            app('router')
-                ->name('getManyUsers')
-                ->get('', [static::class, 'getMany']);
+            Route::get('report', [static::class, 'getReport'])
+                ->name('getReport');
+
+            Route::get('{userId}', [static::class, 'get'])
+                ->name('getUser');
+
+            Route::get('', [static::class, 'getMany'])
+                ->name('getManyUsers');
         };
     }
 

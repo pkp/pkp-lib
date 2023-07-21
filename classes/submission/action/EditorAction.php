@@ -28,6 +28,7 @@ use PKP\core\PKPRequest;
 use PKP\core\PKPServices;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
+use PKP\invitation\invitations\ReviewerAccessInvite;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\ReviewRequest;
 use PKP\mail\mailables\ReviewRequestSubsequent;
@@ -35,7 +36,6 @@ use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
 use PKP\plugins\Hook;
-use PKP\security\AccessKeyManager;
 use PKP\security\Validation;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -229,24 +229,14 @@ class EditorAction
             new ReviewRequestSubsequent($context, $submission, $reviewAssignment);
 
         if ($context->getData('reviewerAccessKeysEnabled')) {
-            $accessKeyManager = new AccessKeyManager();
-            $expiryDays = ($context->getData('numWeeksPerReview') + 4) * 7;
-            $accessKey = $accessKeyManager->createKey($context->getId(), $reviewer->getId(), $reviewAssignment->getId(), $expiryDays);
-            $mailable->addData([
-                ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL => PKPApplication::get()->getDispatcher()->url(
-                    PKPApplication::get()->getRequest(),
-                    PKPApplication::ROUTE_PAGE,
-                    $context->getData('urlPath'),
-                    'reviewer',
-                    'submission',
-                    null,
-                    [
-                        'submissionId' => $reviewAssignment->getSubmissionId(),
-                        'reviewId' => $reviewAssignment->getId(),
-                        'key' => $accessKey,
-                    ]
-                )
-            ]);
+            $reviewInvitation = new ReviewerAccessInvite(
+                $reviewAssignment->getReviewerId(), 
+                null, 
+                $context->getId(), 
+                $reviewAssignment->getId()
+            );
+            $reviewInvitation->setMailable($mailable);
+            $reviewInvitation->dispatch();
         }
 
         $mailable

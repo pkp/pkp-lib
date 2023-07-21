@@ -26,7 +26,6 @@ use PKP\log\SubmissionEventLogDAO;
 use PKP\note\NoteDAO;
 use PKP\notification\NotificationDAO;
 use PKP\plugins\Hook;
-use PKP\security\AccessKeyDAO;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\session\SessionDAO;
@@ -330,8 +329,7 @@ class Repository
             $submissionCommentDao->updateObject($submissionComment);
         }
 
-        $accessKeyDao = DAORegistry::getDAO('AccessKeyDAO'); /** @var AccessKeyDAO $accessKeyDao */
-        $accessKeyDao->transferAccessKeys($oldUserId, $newUserId);
+        Repo::invitation()->transferAccessKeys($oldUserId, $newUserId);
 
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notificationDao->transferNotifications($oldUserId, $newUserId);

@@ -64,7 +64,7 @@ class Invitation extends BaseRepository
         }
     }
 
-    public function cancelInvitationFamily(string $type, string $email, int $contextId, ?int $assocId): ?bool
+    public function cancelInvitationFamily(string $type, ?string $email, int $contextId, ?int $assocId): ?bool
     {
         try {
             $query = $this->model
@@ -86,6 +86,19 @@ class Invitation extends BaseRepository
             }
 
             return $hadCanceled;
+        } catch (ModelNotFoundException $e) {
+            return null;
+        }
+    }
+
+    public function transferAccessKeys(int $oldUserId, int $newUserId): ?bool
+    {
+        try {
+            
+            $this->model
+                ->where('user_id', $oldUserId)
+                ->update(['user_id' => $newUserId]);
+
         } catch (ModelNotFoundException $e) {
             return null;
         }

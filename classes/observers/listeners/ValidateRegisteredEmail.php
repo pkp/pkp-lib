@@ -21,11 +21,11 @@ use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
 use PKP\core\PKPApplication;
+use PKP\invitation\invitations\RegistrationAccessInvite;
 use PKP\mail\mailables\ValidateEmailContext as ContextMailable;
 use PKP\mail\mailables\ValidateEmailSite as SiteMailable;
 use PKP\observers\events\UserRegisteredContext;
 use PKP\observers\events\UserRegisteredSite;
-use PKP\security\AccessKeyManager;
 
 class ValidateRegisteredEmail
 {
@@ -71,30 +71,28 @@ class ValidateRegisteredEmail
             return;
         }
 
-        $accessKeyManager = new AccessKeyManager();
-        $accessKey = $accessKeyManager->createKey(
-            'RegisterContext',
-            $event->recipient->getId(),
-            null,
-            Config::getVar('email', 'validation_timeout')
-        );
+        $contextId = PKPApplication::CONTEXT_SITE;
 
         // Create and compile email template
         if (get_class($event) === UserRegisteredContext::class) {
             $mailable = new ContextMailable($event->context);
             $mailable->from($event->context->getData('supportEmail'), $event->context->getData('supportName'));
-            $mailable->addData([
-                'activateUrl' => PKPApplication::get()->getRequest()->url($event->context->getData('urlPath'), 'user', 'activateUser', [$event->recipient->getUsername(), $accessKey]),
-            ]);
-            $registerTemplate = Repo::emailTemplate()->getByKey($event->context->getId(), $mailable::getEmailTemplateKey());
+
+            $contextId = $event->context->getId();
         } else {
             $mailable = new SiteMailable($event->site);
             $mailable->from($event->site->getLocalizedContactEmail(), $event->site->getLocalizedContactName());
-            $mailable->addData([
-                'activateUrl' => PKPApplication::get()->getRequest()->url(null, 'user', 'activateUser', [$event->recipient->getUsername(), $accessKey]),
-            ]);
-            $registerTemplate = Repo::emailTemplate()->getByKey(PKPApplication::CONTEXT_SITE, $mailable::getEmailTemplateKey());
         }
+
+        $reviewInvitation = new RegistrationAccessInvite(
+            $event->recipient->getId(), 
+            null, 
+            $contextId
+        );
+        $reviewInvitation->setMailable($mailable);
+        $reviewInvitation->dispatch();
+
+        $registerTemplate = Repo::emailTemplate()->getByKey($contextId, $mailable::getEmailTemplateKey());
 
         // Send mail
         $mailable

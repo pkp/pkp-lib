@@ -67,8 +67,9 @@ class PKPInvitationHandler extends Handler
 
     private function getInvitation(string $key) : ?BaseInvitation
     {
+        $hashKey = md5($key);
         $invitation = Repo::invitation()
-            ->getByKeyHash($key);
+            ->getByKeyHash($hashKey);
 
         if (is_null($invitation)) {
             return null;
@@ -98,8 +99,13 @@ class PKPInvitationHandler extends Handler
             if (array_key_exists($parameterName, $data)) {
                 $arguments[] = $data[$parameterName];
             } else {
-                // Unable to reconstruct object if required parameter value is missing
-                return null;
+                if ($parameter->isDefaultValueAvailable()) {
+                    $arguments[] = $parameter->getDefaultValue();
+                } else {
+                    // Unable to reconstruct object if required parameter value is missing
+                    return null;
+                }
+                
             }
         }
 

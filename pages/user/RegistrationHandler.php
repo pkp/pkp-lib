@@ -27,7 +27,6 @@ use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
 use PKP\observers\events\UserRegisteredContext;
 use PKP\observers\events\UserRegisteredSite;
-use PKP\security\AccessKeyManager;
 use PKP\security\Validation;
 use PKP\user\form\RegistrationForm;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -152,33 +151,24 @@ class RegistrationHandler extends UserHandler
      */
     public function activateUser($args, $request)
     {
-        $username = array_shift($args);
-        $accessKeyCode = array_shift($args);
+        $username = $request->getUserVar('username');
+        $validated = $request->getUserVar('validated');
+
+        if (!$validated) {
+            $request->redirect(null, 'login');
+        }
+
         $user = Repo::user()->getByUsername($username, true);
         if (!$user) {
             $request->redirect(null, 'login');
         }
 
-        // Checks user and token
-        $accessKeyManager = new AccessKeyManager();
-        $accessKeyHash = $accessKeyManager->generateKeyHash($accessKeyCode);
-        $accessKey = $accessKeyManager->validateKey(
-            'RegisterContext',
-            $user->getId(),
-            $accessKeyHash
-        );
-
-        if ($accessKey != null && $user->getDateValidated() === null) {
-            // Activate user
-            $user->setDisabled(false);
-            $user->setDisabledReason('');
-            $user->setDateValidated(Core::getCurrentDate());
-            Repo::user()->edit($user);
-
+        if ($user->getDateValidated() != null) {
             $templateMgr = TemplateManager::getManager($request);
             $templateMgr->assign('message', 'user.login.activated');
             return $templateMgr->display('frontend/pages/message.tpl');
         }
+
         $request->redirect(null, 'login');
     }
 

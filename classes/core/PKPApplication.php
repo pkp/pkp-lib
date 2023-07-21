@@ -450,7 +450,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     public function getDAOMap()
     {
         return [
-            'AccessKeyDAO' => 'PKP\security\AccessKeyDAO',
             'AnnouncementDAO' => 'PKP\announcement\AnnouncementDAO',
             'AnnouncementTypeDAO' => 'PKP\announcement\AnnouncementTypeDAO',
             'CitationDAO' => 'PKP\citation\CitationDAO',

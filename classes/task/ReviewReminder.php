@@ -23,11 +23,11 @@ use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\invitation\invitations\ReviewerAccessInvite;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\ReviewRemindAuto;
 use PKP\mail\mailables\ReviewResponseRemindAuto;
 use PKP\scheduledTask\ScheduledTask;
-use PKP\security\AccessKeyManager;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
@@ -73,15 +73,14 @@ class ReviewReminder extends ScheduledTask
         $dispatcher = $application->getDispatcher();
         $reviewerAccessKeysEnabled = $context->getData('reviewerAccessKeysEnabled');
         if ($reviewerAccessKeysEnabled) { // Give one-click access if enabled
-            $accessKeyManager = new AccessKeyManager();
-
-            // Key lifetime is the typical review period plus four weeks
-            $keyLifetime = ($context->getData('numWeeksPerReview') + 4) * 7;
-            $accessKey = $accessKeyManager->createKey($context->getId(), $reviewer->getId(), $reviewId, $keyLifetime);
-
-            $reviewUrlArgs = ['submissionId' => $reviewAssignment->getSubmissionId(), 'reviewId' => $reviewId, 'key' => $accessKey];
-            $submissionReviewUrl = $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', null, $reviewUrlArgs);
-            $mailable->addData(['submissionReviewUrl' => $submissionReviewUrl]);
+            $reviewInvitation = new ReviewerAccessInvite(
+                $reviewAssignment->getReviewerId(), 
+                null, 
+                $context->getId(), 
+                $reviewAssignment->getId()
+            );
+            $reviewInvitation->setMailable($mailable);
+            $reviewInvitation->dispatch();
         }
 
         // deprecated template variables OJS 2.x

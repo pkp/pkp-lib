@@ -112,9 +112,13 @@ class Invitation extends Model
     /**
      * Add a local scope to get invitations that are of certain email
      */
-    public function scopeByEmail(Builder $query, string $email): Builder
+    public function scopeByEmail(Builder $query, ?string $email): Builder
     {
-        return $query->where('invitation_email', '=', $email);
+        if (is_null($email)) {
+            return $query->whereNull('invitation_email');
+        } else {
+            return $query->where('invitation_email', '=', $email);
+        }
     }
 
     /**

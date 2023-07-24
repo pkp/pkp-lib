@@ -105,11 +105,11 @@ abstract class ThemePlugin extends LazyLoadPlugin
         // Themes must initialize their functionality after all theme plugins
         // have been loaded in order to make use of parent/child theme
         // relationships
-        Hook::add('PluginRegistry::categoryLoaded::themes', [$this, 'themeRegistered']);
-        Hook::add('PluginRegistry::categoryLoaded::themes', [$this, 'initAfter']);
+        Hook::add('PluginRegistry::categoryLoaded::themes', $this->themeRegistered(...));
+        Hook::add('PluginRegistry::categoryLoaded::themes', $this->initAfter(...));
 
         // Allow themes to override plugin template files
-        Hook::add('TemplateResource::getFilename', [$this, '_overridePluginTemplates']);
+        Hook::add('TemplateResource::getFilename', $this->_overridePluginTemplates(...));
 
         return true;
     }
@@ -203,7 +203,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
         if (substr($style, (strlen(LESS_FILENAME_SUFFIX) * -1)) === LESS_FILENAME_SUFFIX) {
             $args['style'] = $this->_getBaseDir($style);
 
-        // Pass a URL for other files
+            // Pass a URL for other files
         } elseif (empty($args['inline'])) {
             if (isset($args['baseUrl'])) {
                 $args['style'] = $args['baseUrl'] . $style;
@@ -211,7 +211,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
                 $args['style'] = $this->_getBaseUrl($style);
             }
 
-        // Leave inlined styles alone
+            // Leave inlined styles alone
         } else {
             $args['style'] = $style;
         }
@@ -967,7 +967,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     protected function getAllDownloadsStats(int $submissionId): array
     {
-        $cache = CacheManager::getManager()->getCache('downloadStats', $submissionId, [$this, 'downloadStatsCacheMiss']);
+        $cache = CacheManager::getManager()->getCache('downloadStats', $submissionId, $this->downloadStatsCacheMiss(...));
         if (time() - $cache->getCacheTime() > 60 * 60 * 24) {
             // Cache is older than one day, erase it.
             $cache->flush();
@@ -997,10 +997,10 @@ abstract class ThemePlugin extends LazyLoadPlugin
         $request = Application::get()->getRequest();
         $submission = Repo::submission()->get($submissionId);
         $params = [
-            'contextIds'        => [$request->getContext()->getId()],
-            'submissionIds'     => [$submissionId],
-            'assocTypes'        => [Application::ASSOC_TYPE_SUBMISSION_FILE],
-            'timelineInterval'  => StatisticsHelper::STATISTICS_DIMENSION_MONTH,
+            'contextIds' => [$request->getContext()->getId()],
+            'submissionIds' => [$submissionId],
+            'assocTypes' => [Application::ASSOC_TYPE_SUBMISSION_FILE],
+            'timelineInterval' => StatisticsHelper::STATISTICS_DIMENSION_MONTH,
         ];
 
         $originalPublication = $submission->getOriginalPublication();

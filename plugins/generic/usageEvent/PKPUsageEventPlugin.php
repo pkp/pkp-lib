@@ -54,7 +54,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
         if ($success) {
             $eventHooks = $this->getEventHooks();
             foreach ($eventHooks as $hook) {
-                Hook::add($hook, [$this, 'getUsageEvent']);
+                Hook::add($hook, $this->getUsageEvent(...));
             }
         }
 

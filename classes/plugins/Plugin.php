@@ -116,23 +116,23 @@ abstract class Plugin
         $this->pluginPath = $path;
         $this->pluginCategory = $category;
         if ($this->getInstallMigration()) {
-            Hook::add('Installer::postInstall', [$this, 'updateSchema']);
+            Hook::add('Installer::postInstall', $this->updateSchema(...));
         }
         if ($this->getInstallSitePluginSettingsFile()) {
-            Hook::add('Installer::postInstall', [$this, 'installSiteSettings']);
+            Hook::add('Installer::postInstall', $this->installSiteSettings(...));
         }
         if ($this->getInstallEmailTemplatesFile()) {
-            Hook::add('Installer::postInstall', [$this, 'installEmailTemplates']);
-            Hook::add('Locale::installLocale', [$this, 'installLocale']);
+            Hook::add('Installer::postInstall', $this->installEmailTemplates(...));
+            Hook::add('Locale::installLocale', $this->installLocale(...));
         }
         if ($this->getInstallEmailTemplateDataFile()) {
-            Hook::add('Installer::postInstall', [$this, 'installEmailTemplateData']);
+            Hook::add('Installer::postInstall', $this->installEmailTemplateData(...));
         }
         if ($this->getContextSpecificPluginSettingsFile()) {
-            Hook::add('Context::add', [$this, 'installContextSpecificSettings']);
+            Hook::add('Context::add', $this->installContextSpecificSettings(...));
         }
 
-        Hook::add('Installer::postInstall', [$this, 'installFilters']);
+        Hook::add('Installer::postInstall', $this->installFilters(...));
 
         $this->_registerTemplateResource();
         return true;
@@ -283,6 +283,7 @@ abstract class Plugin
      * Subclasses using email templates should override this.
      *
      * @deprecated Starting with OJS/OMP 3.2, localized content should be specified via getInstallEmailTemplatesFile(). (pkp/pkp-lib#5461)
+     *
      * @return string
      */
     public function getInstallEmailTemplateDataFile()

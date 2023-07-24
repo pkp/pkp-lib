@@ -231,7 +231,7 @@ class PKPRequest
             // also encodes characters which are valid in a URL (i.e. @, $).
             $parts = explode('/', $path);
             foreach ($parts as $i => $part) {
-                $pieces = array_map([$this, 'encodeBasePathFragment'], str_split($part));
+                $pieces = array_map($this->encodeBasePathFragment(...), str_split($part));
                 $parts[$i] = implode('', $pieces);
             }
             $this->_basePath = implode('/', $parts);

@@ -120,7 +120,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
             ->getMock();
         $permitPolicy->expects($this->any())
             ->method('effect')
-            ->will($this->returnCallback([$this, 'mockEffect']));
+            ->will($this->returnCallback($this->mockEffect(...)));
 
         // deny overrides
         // - permit policy
@@ -177,7 +177,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
             ->getMock();
         $policy->expects($this->once())
             ->method('callOnDeny')
-            ->will($this->returnCallback([$this, 'mockCallOnDeny']));
+            ->will($this->returnCallback($this->mockCallOnDeny(...)));
         $callOnDenyAdvice = [
             $policy,
             'callOnDeny',

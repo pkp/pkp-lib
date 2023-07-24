@@ -34,8 +34,8 @@ class FormValidatorArrayCustomTest extends PKPTestCase
     {
         parent::setUp();
         $this->form = new Form('some template');
-        $this->subfieldValidation = [$this, 'userFunctionForSubfields'];
-        $this->localeFieldValidation = [$this, 'userFunctionForLocaleFields'];
+        $this->subfieldValidation = $this->userFunctionForSubfields(...);
+        $this->localeFieldValidation = $this->userFunctionForLocaleFields(...);
     }
 
     /**

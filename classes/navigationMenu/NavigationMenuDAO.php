@@ -326,7 +326,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
         return $navigationMenuCache[$id] ??= CacheManager::getManager()->getCache(
             'navigationMenu',
             $id,
-            [$this, '_cacheMiss']
+            $this->_cacheMiss(...)
         );
     }
 

@@ -75,7 +75,7 @@ class PKPRequestTest extends PKPTestCase
      */
     public function testRedirectUrl()
     {
-        Hook::add('Request::redirect', [$this, 'redirectUrlHook']);
+        Hook::add('Request::redirect', $this->redirectUrlHook(...));
         $this->request->redirectUrl('http://some.url/');
         self::assertEquals(
             [['Request::redirect', ['http://some.url/']]],

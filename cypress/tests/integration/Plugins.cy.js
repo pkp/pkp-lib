@@ -9,8 +9,7 @@
 
 describe('Plugins tests', function() {
     it('Check if Plugins.xml file was cached', function() {
-        cy.server();
-        cy.route('GET', '**/grid/plugins/plugin-gallery-grid/fetch-grid*').as('getPluginList');
+        cy.intercept('GET', '**/grid/plugins/plugin-gallery-grid/fetch-grid*').as('getPluginList');
         cy.login('dbarnes', null, 'publicknowledge');
 
         cy.get('a:contains("Website")').click();

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-07-18 12:58+0000\n"
+"PO-Revision-Date: 2023-07-25 14:58+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -2792,7 +2792,7 @@ msgid "stats.editorialActivity"
 msgstr "Activité éditoriale"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Fichier principal"
 
 msgid "stats.file.type.suppFile"
 msgstr "Fichier supplémentaire"
@@ -2819,7 +2819,7 @@ msgid "stats.downloadReport.betweenDates"
 msgstr "Du {$startDate} au {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Tout {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
 msgstr "Télécharger les fichiers"
@@ -2828,7 +2828,7 @@ msgid "stats.publications.downloadReport.downloadFiles.description"
 msgstr "Nombre de téléchargements pour chaque fichier."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Télécharger les données géographiques"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr ""
@@ -2845,19 +2845,19 @@ msgid "stats.submissionsActive"
 msgstr "Soumissions actives"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Chronologie"
 
 msgid "stats.timeline.downloadReport.description"
 msgstr ""
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Télécharger la chronologie"
 
 msgid "stats.timelineInterval"
 msgstr ""
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Type de chronologie"
 
 msgid "stats.total"
 msgstr "Total"
@@ -2930,8 +2930,9 @@ msgstr ""
 "Le processus a échoué. Veuillez consulter les erreurs ou avertissements ci-"
 "dessous."
 
+#, fuzzy
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr ""
+msgstr "Exporter les résultats des soumissions"
 
 msgid "plugins.importexport.native.export.download.results"
 msgstr "Télécharger le fichier exporté"
@@ -2960,13 +2961,15 @@ msgid "plugins.importexport.submission.cli.display"
 msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
-msgstr ""
+msgstr "Le processus n'a pas réussi à analyser les auteur.e.s"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr ""
+msgstr "Le processus n'a pas réussi à analyser les publications"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Tous les commentaires issus d'évaluations complétées. Les noms des "
+"évaluateur.trice.s sont cachés pour préserver l'anonymat des évaluations"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
 msgstr "Les noms et affiliations des auteur-es de la soumission."
@@ -3007,10 +3010,10 @@ msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
 msgstr "Le nombre de soumissions assignées à cet-te éditeur-trice"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "Le nom complet du/de la destinataire ou de tous les destinataires"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "Le nom d'utilisateur du/de la destinataire ou de tous les destinataires"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
 msgstr "Date à laquelle l'évaluation devrait être complétée"
@@ -3030,10 +3033,12 @@ msgid "emailTemplate.variable.review.assignedDate"
 msgstr "La date à laquelle cette évaluation a été assignée"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Le type d'évaluation, par exemple anonyme, doublement anonyme ou ouvert"
 
 msgid "emailTemplate.variable.review.recommendation"
 msgstr ""
+"La recommandation de l'évaluateur.trice, telle que Accepter la soumission ou "
+"Refuser"
 
 msgid "emailTemplate.variable.review.round"
 msgstr "Le cycle d'évaluation, tel le Cycle 1 ou Cycle 2"
@@ -3049,6 +3054,11 @@ msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Cette revue effectue une évaluation par les pairs à double anonymat. Les "
+"évaluateur.trice.s ne verront aucune information d'identification vous "
+"concernant, ni concernant vos co-auteur.e.s. De même, vous ne saurez pas qui "
+"a évalué votre soumission et vous n'aurez pas de contact direct avec les "
+"évaluateur.trice.s."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
@@ -3076,6 +3086,8 @@ msgstr "La signature courriel de la personne-ressource principale du site"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr ""
+"Les rédacteur.trice.s affecté.e.s à cette soumission qui peuvent prendre une "
+"décision"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
 msgstr "Le titre de la soumission"
@@ -3119,7 +3131,7 @@ msgid "emailTemplate.variable.password"
 msgstr "Nouveau mot de passe aléatoire"
 
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Évaluateur.trice réintégré.e"
 
 msgid "mailable.reviewerResendRequest.name"
 msgstr "Envoyer de nouveau la demande d'évaluation à l'évaluateur-trice"
@@ -3174,6 +3186,8 @@ msgstr "Le lien vers la page de l'activité éditoriale"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
+"Ce courriel est envoyé lorsqu'un.e évaluateur.trice qui n'était pas "
+"assigné.e est réintégré.e par un rédacteur.trice."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
@@ -3182,13 +3196,15 @@ msgstr ""
 "nouveau la demande."
 
 msgid "mailable.reviewerUnassign.name"
-msgstr ""
+msgstr "Évaluateur.trice non assigné.e"
 
 msgid "mailable.reviewerUnassign.description"
 msgstr ""
+"Ce courriel est envoyé lorsqu'un.e rédacteur.trice retire l'assignation "
+"d'un.e évaluateur.trice."
 
 msgid "mailable.validateEmailSite.name"
-msgstr ""
+msgstr "Valider le courriel (site)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
@@ -3722,3 +3738,6 @@ msgid "manager.setup.notifyUsers.queued"
 msgstr ""
 "Les courriels ont été mis dans la file d'attente et seront envoyés aussitôt "
 "que possible."
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Le lien pour valider un compte de messagerie"

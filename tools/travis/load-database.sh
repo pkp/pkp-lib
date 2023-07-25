@@ -21,13 +21,15 @@ set -e
 # Dump the completed database.
 case "$DBTYPE" in
 	PostgreSQL)
-		psql -c "DROP DATABASE \"${DBNAME}\";" -U postgres
-		psql -c "CREATE DATABASE \"${DBNAME}\";" -U postgres
+		# Database drop and recreate is DISABLED to avoid conflicts with local testing setups.
+		# psql -c "DROP DATABASE \"${DBNAME}\";" -U postgres
+		# psql -c "CREATE DATABASE \"${DBNAME}\";" -U postgres
 		zcat ${DATABASEDUMP} | psql --username=${DBUSERNAME} --host=${DBHOST} ${DBNAME}
 		;;
 	MySQL|MySQLi)
-		sudo mysql -u root -e "DROP DATABASE \`${DBNAME}\`"
-		sudo mysql -u root -e "CREATE DATABASE \`${DBNAME}\` DEFAULT CHARACTER SET utf8"
+		# Database drop and recreate is DISABLED to avoid conflicts with local testing setups.
+		# sudo mysql -u root -e "DROP DATABASE \`${DBNAME}\`"
+		# sudo mysql -u root -e "CREATE DATABASE \`${DBNAME}\` DEFAULT CHARACTER SET utf8"
 		zcat ${DATABASEDUMP} | mysql --user=${DBUSERNAME} --password=${DBPASSWORD} --host=${DBHOST} ${DBNAME}
 		;;
 	*)

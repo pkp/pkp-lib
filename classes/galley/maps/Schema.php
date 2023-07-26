@@ -102,7 +102,7 @@ class Schema extends \PKP\core\maps\Schema
                     break;
                 case 'file':
                     $output[$prop] = null;
-                    if (is_a($galley, 'Galley')) {
+                    if ($galley instanceof Galley) {
                         if (!$galley->getData('submissionFileId')) {
                             break;
                         }

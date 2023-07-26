@@ -69,7 +69,7 @@ class PluginHelper
         $extractPath = null;
         try {
             // Create a random directory to avoid symlink attacks.
-            $extractPath = rtrim(sys_get_temp_dir(), '\\/') . "/{$baseName}" . substr(md5(mt_rand()), 0, 10) . '/';
+            $extractPath = rtrim(sys_get_temp_dir(), '\\/') . "/{$baseName}" . substr(md5(random_int(0, PHP_INT_MAX)), 0, 10) . '/';
             $fileManager->mkdir($extractPath) || throw new Exception("Could not create directory {$extractPath}");
 
             // Extract files

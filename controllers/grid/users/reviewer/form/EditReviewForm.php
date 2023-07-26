@@ -56,7 +56,7 @@ class EditReviewForm extends Form
 
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $this->_reviewRound = $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
-        assert(is_a($this->_reviewRound, 'ReviewRound'));
+        assert($this->_reviewRound instanceof ReviewRound);
 
         parent::__construct('controllers/grid/users/reviewer/form/editReviewForm.tpl');
 

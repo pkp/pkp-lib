@@ -87,7 +87,7 @@ class generateTestGeoMetrics extends \PKP\cliTool\CommandLineTool
                     $randomRegion = $regionIsoCodeArray[1];
                 }
 
-                $randomMetric = rand(1, 10);
+                $randomMetric = random_int(1, 10);
 
                 DB::table('metrics_submission_geo_monthly')->insert([
                     'context_id' => $this->contextId,
@@ -96,7 +96,7 @@ class generateTestGeoMetrics extends \PKP\cliTool\CommandLineTool
                     'region' => $randomRegion,
                     'month' => $currentDate->format('Ym'),
                     'metric' => $randomMetric,
-                    'metric_unique' => rand(1, $randomMetric)
+                    'metric_unique' => random_int(1, $randomMetric)
                 ]);
                 $count++;
             }

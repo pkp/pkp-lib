@@ -101,7 +101,7 @@ abstract class ImportExportPlugin extends Plugin
     public function display($args, $request)
     {
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->registerPlugin('function', 'plugin_url', [$this, 'pluginUrl']);
+        $templateMgr->registerPlugin('function', 'plugin_url', $this->pluginUrl(...));
         $this->_request = $request; // Store this for use by the pluginUrl function
         $templateMgr->assign([
             'breadcrumbs' => [

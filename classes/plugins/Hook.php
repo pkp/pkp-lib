@@ -64,7 +64,7 @@ class Hook
      * Register a hook against the given hook name.
      *
      * @param string $hookName Name of hook to register against
-     * @param object|array $callback Callback pseudo-type
+     * @param callable $callback Callback pseudo-type
      * @param int $hookSequence Optional hook sequence specifier SEQUENCE_...
      */
     public static function add(string $hookName, callable $callback, int $hookSequence = self::SEQUENCE_NORMAL): void

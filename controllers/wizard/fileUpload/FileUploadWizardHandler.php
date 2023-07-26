@@ -38,6 +38,7 @@ use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\submission\GenreDAO;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
 class FileUploadWizardHandler extends Handler
@@ -122,7 +123,7 @@ class FileUploadWizardHandler extends Handler
         if ($submissionFileIdToValidate) {
             $this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY, $submissionFileIdToValidate));
 
-        // Allow uploading to review attachments
+            // Allow uploading to review attachments
         } elseif ($fileStage === SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
             $assocType = (int) $request->getUserVar('assocType');
             $assocId = (int) $request->getUserVar('assocId');
@@ -136,7 +137,7 @@ class FileUploadWizardHandler extends Handler
             $this->addPolicy(new ReviewRoundRequiredPolicy($request, $args));
             $this->addPolicy(new ReviewAssignmentFileWritePolicy($request, $assocId));
 
-        // Allow uploading to a note
+            // Allow uploading to a note
         } elseif ($fileStage === SubmissionFile::SUBMISSION_FILE_QUERY) {
             $assocType = (int) $request->getUserVar('assocType');
             $assocId = (int) $request->getUserVar('assocId');
@@ -148,7 +149,7 @@ class FileUploadWizardHandler extends Handler
             $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, $stageId));
             $this->addPolicy(new NoteAccessPolicy($request, $assocId, NoteAccessPolicy::NOTE_ACCESS_WRITE));
 
-        // Allow uploading a dependent file to another file
+            // Allow uploading a dependent file to another file
         } elseif ($fileStage === SubmissionFile::SUBMISSION_FILE_DEPENDENT) {
             $assocType = (int) $request->getUserVar('assocType');
             $assocId = (int) $request->getUserVar('assocId');
@@ -158,7 +159,7 @@ class FileUploadWizardHandler extends Handler
 
             $this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY, $assocId));
 
-        // Allow uploading to other file stages in the workflow
+            // Allow uploading to other file stages in the workflow
         } else {
             $stageId = (int) $request->getUserVar('stageId');
             $assocType = (int) $request->getUserVar('assocType');
@@ -345,7 +346,7 @@ class FileUploadWizardHandler extends Handler
             'fileStage' => $this->getFileStage(),
             'isReviewer' => $request->getUserVar('isReviewer'),
             'revisionOnly' => $this->getRevisionOnly(),
-            'reviewRoundId' => is_a($reviewRound, 'ReviewRound') ? $reviewRound->getId() : null,
+            'reviewRoundId' => $reviewRound instanceof ReviewRound ? $reviewRound->getId() : null,
             'revisedFileId' => $this->getRevisedFileId(),
             'assocType' => $this->getAssocType(),
             'assocId' => $this->getAssocId(),
@@ -425,7 +426,7 @@ class FileUploadWizardHandler extends Handler
         }
 
         $uploadedFile = $uploadForm->execute(); /** @var SubmissionFile $uploadedFile */
-        if (!is_a($uploadedFile, 'SubmissionFile')) {
+        if (!$uploadedFile instanceof SubmissionFile) {
             return new JSONMessage(false, __('common.uploadFailed'));
         }
 
@@ -554,7 +555,6 @@ class FileUploadWizardHandler extends Handler
      * Create an array that describes an uploaded file which can
      * be used in a JSON response.
      *
-     * @param SubmissionFile $uploadedFile
      *
      * @return array
      */

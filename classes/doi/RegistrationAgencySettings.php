@@ -34,7 +34,7 @@ abstract class RegistrationAgencySettings
     public function __construct(IDoiRegistrationAgency $agencyPlugin)
     {
         $this->agencyPlugin = $agencyPlugin;
-        Hook::add('Schema::get::' . $this::class, [$this, 'addToSchema']);
+        Hook::add('Schema::get::' . $this::class, $this->addToSchema(...));
     }
 
     public function validate(array $props): array

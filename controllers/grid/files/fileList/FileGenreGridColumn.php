@@ -48,7 +48,7 @@ class FileGenreGridColumn extends GridColumn
         $submissionFileData = & $row->getData();
         assert(isset($submissionFileData['submissionFile']));
         $submissionFile = & $submissionFileData['submissionFile']; /** @var SubmissionFile $submissionFile */
-        assert(is_a($submissionFile, 'SubmissionFile'));
+        assert($submissionFile instanceof SubmissionFile);
 
         // Retrieve the genre label for the submission file.
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */

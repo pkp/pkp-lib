@@ -101,7 +101,7 @@ class SubmissionFilesGridRow extends GridRow
         $submissionFileData = & $this->getData();
         assert(isset($submissionFileData['submissionFile']));
         $submissionFile = & $submissionFileData['submissionFile']; /** @var SubmissionFile $submissionFile */
-        assert(is_a($submissionFile, 'SubmissionFile'));
+        assert($submissionFile instanceof SubmissionFile);
 
         // File grid row actions:
         // 1) Information center action.

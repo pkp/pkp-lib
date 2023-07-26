@@ -557,8 +557,7 @@ class PKPString
      */
     public static function generateUUID()
     {
-        mt_srand((float)microtime() * 10000);
-        $charid = strtoupper(md5(uniqid(rand(), true)));
+        $charid = strtoupper(md5(uniqid(random_int(0, PHP_INT_MAX), true)));
         $hyphen = '-';
         $uuid = substr($charid, 0, 8) . $hyphen
                 . substr($charid, 8, 4) . $hyphen

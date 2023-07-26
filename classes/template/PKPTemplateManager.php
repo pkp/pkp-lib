@@ -24,11 +24,10 @@ namespace PKP\template;
 
 use APP\core\Application;
 use APP\core\PageRouter;
-use PKP\site\VersionDAO;
+use APP\core\Request;
 
 require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
 
-use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
@@ -61,6 +60,7 @@ use PKP\plugins\ThemePlugin;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
+use PKP\site\VersionDAO;
 use PKP\submission\GenreDAO;
 use Smarty;
 use Smarty_Internal_Template;
@@ -297,71 +297,71 @@ class PKPTemplateManager extends Smarty
             $nmService = Services::get('navigationMenu');
 
             if (Application::isInstalled()) {
-                Hook::add('LoadHandler', [$nmService, '_callbackHandleCustomNavigationMenuItems']);
+                Hook::add('LoadHandler', $nmService->_callbackHandleCustomNavigationMenuItems(...));
             }
         }
 
         // Register custom functions
-        $this->registerPlugin('modifier', 'intval', 'intval');
-        $this->registerPlugin('modifier', 'json_encode', 'json_encode');
-        $this->registerPlugin('modifier', 'uniqid', 'uniqid');
-        $this->registerPlugin('modifier', 'substr', 'substr');
-        $this->registerPlugin('modifier', 'strstr', 'strstr');
-        $this->registerPlugin('modifier', 'strval', 'strval');
-        $this->registerPlugin('modifier', 'array_key_first', 'array_key_first');
-        $this->registerPlugin('modifier', 'fatalError', 'fatalError');
-        $this->registerPlugin('modifier', 'translate', [$this, 'smartyTranslateModifier']);
-        $this->registerPlugin('modifier', 'strip_unsafe_html', '\PKP\core\PKPString::stripUnsafeHtml');
-        $this->registerPlugin('modifier', 'parse_url', 'parse_url');
-        $this->registerPlugin('modifier', 'parse_str', 'parse_str');
-        $this->registerPlugin('modifier', 'strtok', 'strtok');
-        $this->registerPlugin('modifier', 'array_pop', 'array_pop');
-        $this->registerPlugin('modifier', 'array_keys', 'array_keys');
-        $this->registerPlugin('modifier', 'String_substr', '\PKP\core\PKPString::substr');
-        $this->registerPlugin('modifier', 'dateformatPHP2JQueryDatepicker', '\PKP\core\PKPString::dateformatPHP2JQueryDatepicker');
-        $this->registerPlugin('modifier', 'to_array', [$this, 'smartyToArray']);
-        $this->registerPlugin('modifier', 'compare', [$this, 'smartyCompare']);
-        $this->registerPlugin('modifier', 'concat', [$this, 'smartyConcat']);
-        $this->registerPlugin('modifier', 'strtotime', [$this, 'smartyStrtotime']);
-        $this->registerPlugin('modifier', 'explode', [$this, 'smartyExplode']);
-        $this->registerPlugin('modifier', 'escape', [$this, 'smartyEscape']);
-        $this->registerPlugin('function', 'csrf', [$this, 'smartyCSRF']);
-        $this->registerPlugin('function', 'translate', [$this, 'smartyTranslate']);
-        $this->registerPlugin('function', 'null_link_action', [$this, 'smartyNullLinkAction']);
-        $this->registerPlugin('function', 'help', [$this, 'smartyHelp']);
-        $this->registerPlugin('function', 'flush', [$this, 'smartyFlush']);
-        $this->registerPlugin('function', 'call_hook', [$this, 'smartyCallHook']);
-        $this->registerPlugin('function', 'html_options_translate', [$this, 'smartyHtmlOptionsTranslate']);
-        $this->registerPlugin('block', 'iterate', [$this, 'smartyIterate']);
-        $this->registerPlugin('function', 'page_links', [$this, 'smartyPageLinks']);
-        $this->registerPlugin('function', 'page_info', [$this, 'smartyPageInfo']);
-        $this->registerPlugin('function', 'pluck_files', [$this, 'smartyPluckFiles']);
-        $this->registerPlugin('function', 'locale_direction', [$this, 'smartyLocaleDirection']);
-        $this->registerPlugin('function', 'html_select_date_a11y', [$this, 'smartyHtmlSelectDateA11y']);
+        $this->registerPlugin('modifier', 'intval', intval(...));
+        $this->registerPlugin('modifier', 'json_encode', json_encode(...));
+        $this->registerPlugin('modifier', 'uniqid', uniqid(...));
+        $this->registerPlugin('modifier', 'substr', substr(...));
+        $this->registerPlugin('modifier', 'strstr', strstr(...));
+        $this->registerPlugin('modifier', 'strval', strval(...));
+        $this->registerPlugin('modifier', 'array_key_first', array_key_first(...));
+        $this->registerPlugin('modifier', 'fatalError', fatalError(...));
+        $this->registerPlugin('modifier', 'translate', $this->smartyTranslateModifier(...));
+        $this->registerPlugin('modifier', 'strip_unsafe_html', \PKP\core\PKPString::stripUnsafeHtml(...));
+        $this->registerPlugin('modifier', 'parse_url', parse_url(...));
+        $this->registerPlugin('modifier', 'parse_str', parse_str(...));
+        $this->registerPlugin('modifier', 'strtok', strtok(...));
+        $this->registerPlugin('modifier', 'array_pop', array_pop(...));
+        $this->registerPlugin('modifier', 'array_keys', array_keys(...));
+        $this->registerPlugin('modifier', 'String_substr', \PKP\core\PKPString::substr(...));
+        $this->registerPlugin('modifier', 'dateformatPHP2JQueryDatepicker', \PKP\core\PKPString::dateformatPHP2JQueryDatepicker(...));
+        $this->registerPlugin('modifier', 'to_array', $this->smartyToArray(...));
+        $this->registerPlugin('modifier', 'compare', $this->smartyCompare(...));
+        $this->registerPlugin('modifier', 'concat', $this->smartyConcat(...));
+        $this->registerPlugin('modifier', 'strtotime', $this->smartyStrtotime(...));
+        $this->registerPlugin('modifier', 'explode', $this->smartyExplode(...));
+        $this->registerPlugin('modifier', 'escape', $this->smartyEscape(...));
+        $this->registerPlugin('function', 'csrf', $this->smartyCSRF(...));
+        $this->registerPlugin('function', 'translate', $this->smartyTranslate(...));
+        $this->registerPlugin('function', 'null_link_action', $this->smartyNullLinkAction(...));
+        $this->registerPlugin('function', 'help', $this->smartyHelp(...));
+        $this->registerPlugin('function', 'flush', $this->smartyFlush(...));
+        $this->registerPlugin('function', 'call_hook', $this->smartyCallHook(...));
+        $this->registerPlugin('function', 'html_options_translate', $this->smartyHtmlOptionsTranslate(...));
+        $this->registerPlugin('block', 'iterate', $this->smartyIterate(...));
+        $this->registerPlugin('function', 'page_links', $this->smartyPageLinks(...));
+        $this->registerPlugin('function', 'page_info', $this->smartyPageInfo(...));
+        $this->registerPlugin('function', 'pluck_files', $this->smartyPluckFiles(...));
+        $this->registerPlugin('function', 'locale_direction', $this->smartyLocaleDirection(...));
+        $this->registerPlugin('function', 'html_select_date_a11y', $this->smartyHtmlSelectDateA11y(...));
 
-        $this->registerPlugin('function', 'title', [$this, 'smartyTitle']);
-        $this->registerPlugin('function', 'url', [$this, 'smartyUrl']);
+        $this->registerPlugin('function', 'title', $this->smartyTitle(...));
+        $this->registerPlugin('function', 'url', $this->smartyUrl(...));
 
         // load stylesheets/scripts/headers from a given context
-        $this->registerPlugin('function', 'load_stylesheet', [$this, 'smartyLoadStylesheet']);
-        $this->registerPlugin('function', 'load_script', [$this, 'smartyLoadScript']);
-        $this->registerPlugin('function', 'load_header', [$this, 'smartyLoadHeader']);
+        $this->registerPlugin('function', 'load_stylesheet', $this->smartyLoadStylesheet(...));
+        $this->registerPlugin('function', 'load_script', $this->smartyLoadScript(...));
+        $this->registerPlugin('function', 'load_header', $this->smartyLoadHeader(...));
 
         // load NavigationMenu Areas from context
-        $this->registerPlugin('function', 'load_menu', [$this, 'smartyLoadNavigationMenuArea']);
+        $this->registerPlugin('function', 'load_menu', $this->smartyLoadNavigationMenuArea(...));
 
         // Load form builder vocabulary
         $fbv = $this->getFBV();
-        $this->registerPlugin('block', 'fbvFormSection', [$fbv, 'smartyFBVFormSection']);
-        $this->registerPlugin('block', 'fbvFormArea', [$fbv, 'smartyFBVFormArea']);
-        $this->registerPlugin('function', 'fbvFormButtons', [$fbv, 'smartyFBVFormButtons']);
-        $this->registerPlugin('function', 'fbvElement', [$fbv, 'smartyFBVElement']);
-        $this->registerPlugin('function', 'fieldLabel', [$fbv, 'smartyFieldLabel']);
+        $this->registerPlugin('block', 'fbvFormSection', $fbv->smartyFBVFormSection(...));
+        $this->registerPlugin('block', 'fbvFormArea', $fbv->smartyFBVFormArea(...));
+        $this->registerPlugin('function', 'fbvFormButtons', $fbv->smartyFBVFormButtons(...));
+        $this->registerPlugin('function', 'fbvElement', $fbv->smartyFBVElement(...));
+        $this->registerPlugin('function', 'fieldLabel', $fbv->smartyFieldLabel(...));
         $this->assign('fbvStyles', $fbv->getStyles());
 
         // ajax load into a div or any element
-        $this->registerPlugin('function', 'load_url_in_el', [$this, 'smartyLoadUrlInEl']);
-        $this->registerPlugin('function', 'load_url_in_div', [$this, 'smartyLoadUrlInDiv']);
+        $this->registerPlugin('function', 'load_url_in_el', $this->smartyLoadUrlInEl(...));
+        $this->registerPlugin('function', 'load_url_in_div', $this->smartyLoadUrlInDiv(...));
 
         // Always pass these ListBuilder constants to the browser
         // because a ListBuilder may be loaded in an ajax request
@@ -410,11 +410,11 @@ class PKPTemplateManager extends Smarty
             } else {
                 $this->assign('hasSidebar', !empty($request->getSite()->getData('sidebar')));
             }
-            Hook::add('Templates::Common::Sidebar', [$this, 'displaySidebar']);
+            Hook::add('Templates::Common::Sidebar', $this->displaySidebar(...));
 
             // Clear the cache whenever the active theme is changed
-            Hook::add('Context::edit', [$this, 'clearThemeTemplateCache']);
-            Hook::add('Site::edit', [$this, 'clearThemeTemplateCache']);
+            Hook::add('Context::edit', $this->clearThemeTemplateCache(...));
+            Hook::add('Site::edit', $this->clearThemeTemplateCache(...));
         }
     }
 

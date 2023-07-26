@@ -24,6 +24,7 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectConfirmationModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\security\Validation;
+use PKP\user\User;
 
 class UserGridRow extends GridRow
 {
@@ -56,7 +57,7 @@ class UserGridRow extends GridRow
 
         // Is this a new row or an existing row?
         $element = & $this->getData();
-        assert(is_a($element, 'User'));
+        assert($element instanceof User);
 
         $rowId = $this->getId();
 
@@ -97,7 +98,7 @@ class UserGridRow extends GridRow
                     );
                 }
 
-            // Otherwise display all the default link actions
+                // Otherwise display all the default link actions
             } else {
                 $this->addAction(
                     new LinkAction(

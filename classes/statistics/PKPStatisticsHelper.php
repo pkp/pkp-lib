@@ -163,7 +163,7 @@ abstract class PKPStatisticsHelper
         } elseif (file_exists('/dev/urandom')) {
             $newSalt = bin2hex(file_get_contents('/dev/urandom', false, null, 0, 16));
         } else {
-            $newSalt = mt_rand();
+            $newSalt = random_int(0, PHP_INT_MAX);
         }
         file_put_contents($saltFileName, $newSalt, LOCK_EX);
         return $newSalt;
@@ -211,7 +211,7 @@ abstract class PKPStatisticsHelper
         if (!isset($this->geoDataCache)) {
             $geoCacheManager = CacheManager::getManager();
             /** @var FileCache */
-            $this->geoDataCache = $geoCacheManager->getCache('geoIP', 'all', [&$this, 'geoDataCacheMiss']);
+            $this->geoDataCache = $geoCacheManager->getCache('geoIP', 'all', $this->geoDataCacheMiss(...));
         }
 
         if ($flush) {
@@ -300,7 +300,7 @@ abstract class PKPStatisticsHelper
         if (!isset($this->institutionDataCache)) {
             $institutionCacheManager = CacheManager::getManager();
             /** @var FileCache */
-            $this->institutionDataCache = $institutionCacheManager->getCache('institutionIP', 'all', [&$this, 'institutionDataCacheMiss']);
+            $this->institutionDataCache = $institutionCacheManager->getCache('institutionIP', 'all', $this->institutionDataCacheMiss(...));
         }
 
         if ($flush) {

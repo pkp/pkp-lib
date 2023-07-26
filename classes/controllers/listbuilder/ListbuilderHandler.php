@@ -356,9 +356,9 @@ class ListbuilderHandler extends GridHandler
         self::unpack(
             $request,
             $data,
-            [$this, 'deleteEntry'],
-            [$this, 'insertEntry'],
-            [$this, 'updateEntry']
+            $this->deleteEntry(...),
+            $this->insertEntry(...),
+            $this->updateEntry(...)
         );
     }
 

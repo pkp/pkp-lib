@@ -18,6 +18,7 @@ namespace PKP\controllers\listbuilder\users;
 
 use PKP\controllers\grid\GridCellProvider;
 use PKP\controllers\grid\GridColumn;
+use PKP\identity\Identity;
 
 class UserListbuilderGridCellProvider extends GridCellProvider
 {
@@ -40,7 +41,7 @@ class UserListbuilderGridCellProvider extends GridCellProvider
         $user = & $row->getData();
         $columnId = $column->getId();
         // Allow for either Users or Authors (both have a getFullName method).
-        assert((is_a($user, 'User') || is_a($user, 'Author')) && !empty($columnId));
+        assert($user instanceof Identity && !empty($columnId));
 
         return ['labelKey' => $user->getId(), 'label' => $user->getFullName() . ' <' . $user->getEmail() . '>'];
     }

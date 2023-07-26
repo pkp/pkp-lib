@@ -76,7 +76,7 @@ class generateTestMetrics extends \PKP\cliTool\CommandLineTool
                     'submission_id' => $submissionId,
                     'assoc_type' => Application::ASSOC_TYPE_SUBMISSION,
                     'date' => $currentDate->format('Y-m-d'),
-                    'metric' => rand(1, 10),
+                    'metric' => random_int(1, 10),
                 ]);
                 $count++;
             }

@@ -808,17 +808,10 @@ Cypress.Commands.add('uploadSubmissionFiles', (files, options) => {
 	};
 
 	// Setup upload listeners
-	cy.server();
 
-	cy.route({
-		method: "POST",
-		url: options.uploadUrl,
-	}).as('fileUploaded');
+	cy.intercept('POST',  options.uploadUrl).as('fileUploaded');
 
-	cy.route({
-		method: "POST",
-		url: options.editUrl
-	}).as('genreDefined');
+	cy.intercept('POST', options.editUrl).as('genreDefined');
 
 	files.forEach(file => {
 		cy.fixture(file.file, 'base64').then(fileContent => {
@@ -832,7 +825,7 @@ Cypress.Commands.add('uploadSubmissionFiles', (files, options) => {
 					mimeType: file.mimetype,
 				}
 			);
-			cy.wait('@fileUploaded').its('status').should('eq', 200);
+			cy.wait('@fileUploaded').its('response.statusCode').should('eq', 200);
 
 			// Set the file genre
 			const $row = cy.get('a:contains("' + file.fileName + '")').parents('.listPanel__item');
@@ -847,7 +840,7 @@ Cypress.Commands.add('uploadSubmissionFiles', (files, options) => {
 				cy.get('.pkpFormField--options__optionLabel').contains(file.genre).click();
 				cy.get('.modal button').contains('Save').click();
 			}
-			cy.wait('@genreDefined').its('status').should('eq', 200);
+			cy.wait('@genreDefined').its('response.statusCode').should('eq', 200);
 
 			// Check if the file genre is set
 			//

@@ -27,8 +27,8 @@ class FormValidatorArrayCustomTest extends PKPTestCase
 {
     private array $checkedValues = [];
     private Form $form;
-    private array $subfieldValidation;
-    private array $localeFieldValidation;
+    private $subfieldValidation;
+    private $localeFieldValidation;
 
     protected function setUp(): void
     {

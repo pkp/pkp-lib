@@ -27,6 +27,9 @@ class PKPSelectReviewerListPanel extends ListPanel
     /** @var array Affiliatory institutions of the publication authors */
     public $authorAffiliations = [];
 
+    /** @var array Key-value of publication authors to their affiliatory institutions */
+    public $authors = [];
+
     /** @var int Number of items to show at one time */
     public $count = 30;
 
@@ -133,6 +136,7 @@ class PKPSelectReviewerListPanel extends ListPanel
 
         $config['itemsMax'] = $this->itemsMax;
         $config['authorAffiliations'] = $this->authorAffiliations;
+        $config['authors'] = $this->authors;
         $config['activeReviewsCountLabel'] = __('reviewer.list.activeReviews');
         $config['activeReviewsLabel'] = __('reviewer.list.activeReviewsDescription');
         $config['assignedToLastRoundLabel'] = __('reviewer.list.assignedToLastRound');
@@ -154,6 +158,9 @@ class PKPSelectReviewerListPanel extends ListPanel
         $config['reviewerSameInstitutionLabel'] = __('reviewer.list.reviewerSameInstitution');
         $config['reviewInterestsLabel'] = __('reviewer.list.reviewInterests');
         $config['selectReviewerLabel'] = __('editor.submission.selectReviewer');
+        $config['showMore'] = __('showMore');
+        $config['showLess'] = __('showLess');
+        $config['submissionAuthorList'] = __('submission.author.list');
         $config['warnOnAssignmentLabel'] = __('reviewer.list.warnOnAssign');
         $config['warnOnAssignmentUnlockLabel'] = __('reviewer.list.warnOnAssignUnlock');
 

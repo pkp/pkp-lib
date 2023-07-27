@@ -22,34 +22,12 @@
 </script>
 
 <div id="advancedReviewerSearch" class="pkp_form pkp_form_advancedReviewerSearch">
-	{fbvFormSection id=author_container}
-		<h3>{translate key="submission.author.list"}</h3>
-		<div class="pkp_list_box expandable pkpFormField__description">
-			{foreach from=$authors item=affiliation key=name}
-				<div class="author_row">
-					<span>{$name}</span>
-					{if !empty($affiliation)}
-						<span> - </span>
-					{/if}
-					<span>{$affiliation}</span>
-				</div>
-			{/foreach}
-		</div>
-		<button id="showAllReviewers" class="pkpButton pkp_helpers_align_right pkp_helpers_display_none">{translate key="showMore"}</button>
-		<button id="showLessReviewers" class="pkpButton pkp_helpers_align_right pkp_helpers_display_none">{translate key="showLess"}</button>
-	{/fbvFormSection}
-
 	<div id="searchGridAndButton">
-
 		{assign var="uuid" value=""|uniqid|escape}
 		<div id="select-reviewer-{$uuid}">
-			<select-reviewer-list-panel
-				v-bind="components.selectReviewer"
-				@set="set"
-			/>
 		</div>
 		<script type="text/javascript">
-			pkp.registry.init('select-reviewer-{$uuid}', 'Container', {$selectReviewerListData|@json_encode});
+			pkp.registry.init('select-reviewer-{$uuid}', 'AdvancedSearchReviewerContainer', {$selectReviewerListData|@json_encode});
 		</script>
 
 		{** This button will get the reviewer selected in the grid and insert their ID into the form below **}

@@ -17,7 +17,6 @@
 namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
-use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\submission\Submission;
@@ -160,9 +159,6 @@ class AdvancedSearchReviewerForm extends ReviewerForm
             $authors[$submissionAuthor->getFullName(true, false, $locale)] = implode(',', array_filter($affiliations));
         }
 
-        $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->assign('authors', $authors);
-
         // Get reviewers list
         $selectReviewerListPanel = new \PKP\components\listPanels\PKPSelectReviewerListPanel(
             'selectReviewer',
@@ -175,6 +171,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                     'users/reviewers'
                 ),
                 'authorAffiliations' => $authorAffiliations,
+                'authors' => $authors,
                 'currentlyAssigned' => $currentlyAssigned,
                 'getParams' => [
                     'contextId' => $submissionContext->getId(),
@@ -215,6 +212,8 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                 }
             }
         }
+
+        $templateMgr = TemplateManager::getManager($request);
 
         // Used to determine the right email template
         $templateMgr->assign('lastRoundReviewerIds', $lastRoundReviewerIds);

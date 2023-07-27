@@ -542,6 +542,9 @@ msgstr "Reviewer rating: {$rating}"
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Same institution as author"
 
+msgid "submission.author.list"
+msgstr "Submission Author List"
+
 msgid "reviewer.list.daysSinceLastAssignment"
 msgstr "{$days} days ago"
 

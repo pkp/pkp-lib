@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PKP\middlewares;
 
+use APP\core\Application;
 use Closure;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class HasRoles
         $user = $request->user(); /** @var \PKP\user\User $user */
         $context = $request->attributes->get('context'); /** @var \PKP\context\Context $context */
 
-        $userRoles = collect($user->getRoles($context->getId()))
+        $userRoles = collect($user->getRoles($context?->getId() ?? Application::CONTEXT_SITE))
             ->map(fn ($role) => $role->getId())
             ->sort();
 

@@ -10,6 +10,7 @@ class PKPApiRoutingHandler extends APIHandler
     {
         $this->_pathPattern = $controller->getPathPattern();
         $this->_handlerPath = $controller->getHandlerPath();
+        $this->_apiForAdmin = $controller->nonContextualApi();
 
         app('router')->group([
             'prefix' => $this->getEndpointPattern(),

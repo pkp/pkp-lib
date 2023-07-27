@@ -16,6 +16,7 @@
 
 namespace PKP\plugins\importexport\users\filter;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\Mail;
 use PKP\db\DAORegistry;
@@ -272,10 +273,12 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
             // else, if the user already exists, its metadata will not be change (just groups will be re-assigned below)
             if ($password) {
                 $template = Repo::emailTemplate()->getByKey($context->getId(), UserCreated::getEmailTemplateKey());
+                $sender = Application::get()->getRequest()->getUser();
                 $mailable = new UserCreated($context);
                 $mailable
                     ->recipients($user)
-                    ->from($context->getSetting('contactEmail'), $context->getSetting('contactName'))
+                    ->sender($sender)
+                    ->replyTo($context->getData('contactEmail'), $context->getData('contactName'))
                     ->subject($template->getLocalizedData('subject'))
                     ->body($template->getLocalizedData('body'));
 
@@ -299,7 +302,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
             if ($userGroupNodeList->length > 0) {
                 for ($i = 0 ; $i < $userGroupNodeList->length ; $i++) {
                     $n = $userGroupNodeList->item($i);
-                    
+
                     /** @var \PKP\userGroup\UserGroup $userGroup */
                     foreach ($userGroups as $userGroup) {
                         // if the given user associated group name in within tag 'user_group_ref' is in the list of $userGroup name local list

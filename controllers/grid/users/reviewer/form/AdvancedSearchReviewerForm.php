@@ -214,7 +214,6 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         }
 
         $templateMgr = TemplateManager::getManager($request);
-
         // Used to determine the right email template
         $templateMgr->assign('lastRoundReviewerIds', $lastRoundReviewerIds);
 

@@ -75,7 +75,7 @@ class LoginHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'loginMessage' => $request->getUserVar('loginMessage'),
-            'username' => $session->getSessionVar('username'),
+            'username' => $request->getUserVar('username') ?? $session->getSessionVar('username'),
             'remember' => $request->getUserVar('remember'),
             'source' => $request->getUserVar('source'),
             'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
@@ -261,7 +261,7 @@ class LoginHandler extends Handler
         $templateMgr->assign([
             'pageTitle' => 'user.login.resetPassword',
             'message' => 'user.login.lostPassword.confirmationSent',
-            'backLink' => $request->url(null, $request->getRequestedPage()),
+            'backLink' => $request->url(null, $request->getRequestedPage(), null, null, ['username' => $user->getUsername()]),
             'backLinkLabel' => 'user.login',
         ])->display('frontend/pages/message.tpl');
     }
@@ -346,7 +346,7 @@ class LoginHandler extends Handler
                 $templateMgr->assign([
                     'pageTitle' => 'user.login.resetPassword',
                     'message' => 'user.login.resetPassword.passwordUpdated',
-                    'backLink' => $request->url(null, $request->getRequestedPage()),
+                    'backLink' => $request->url(null, $request->getRequestedPage(), null, null, ['username' => $user->getUsername()]),
                     'backLinkLabel' => 'user.login',
                 ]);
 

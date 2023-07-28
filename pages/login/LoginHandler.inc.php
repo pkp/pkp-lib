@@ -202,7 +202,7 @@ class LoginHandler extends Handler {
 		$mail->assignParams([
 			'url' => $request->url(null, 'login', 'resetPassword', $user->getUsername(), array('confirm' => $hash)),
 			'siteTitle' => htmlspecialchars($site->getLocalizedTitle()),
-			'username' => $user->getUsername(),
+			'recipientUsername' => $user->getUsername(),
 		]);
 		$mail->addRecipient($user->getEmail(), $user->getFullName());
 		$mail->send();

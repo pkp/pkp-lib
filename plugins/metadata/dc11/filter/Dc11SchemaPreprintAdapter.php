@@ -152,9 +152,11 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
                 $dc11Description->addStatement('dc:language', LocaleConversion::getIso3FromLocale($galleyLocale));
             }
         }
-        $submissionLanguage = $submission->getLanguage();
-        if (empty($locales) && !empty($submissionLanguage)) {
-            $dc11Description->addStatement('dc:language', strip_tags($submissionLanguage));
+        $submissionLanguages = $submission->getLanguage();
+        if (empty($locales) && isset($submissionLanguages[$submission->getLocale()])) {
+            foreach ($submissionLanguages[$submission->getLocale()] as $language) {
+                $dc11Description->addStatement('dc:language', $language);
+            }
         }
 
         // Relation

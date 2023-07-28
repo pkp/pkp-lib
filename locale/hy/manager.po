@@ -4,8 +4,8 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2023-07-18 12:58+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy/>\n"
 "Language: hy\n"
@@ -3712,3 +3712,6 @@ msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
 msgstr ""
 "Ներկայացման {$id} նիշքի {$revision} տարբերակը բաց է թողնվել, քանի որ նիշքը "
 "չի գտնվել «{$path}» ուղու վրա:"
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Էլ․ փոստի հաշիվը հաստատելու հղումը"

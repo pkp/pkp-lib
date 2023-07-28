@@ -64,9 +64,6 @@ class PasswordResetRequested extends Mailable
         // See pkp/pkp-lib#9111
         $this->addData(['lostPasswordUrl' => $this->viewData[self::$passwordResetUrl]]);
 
-        // See pkp/pkp-lib#9169
-        $this->addData(['username' => $recipient->getUsername()]);
-
         return $this;
     }
 }

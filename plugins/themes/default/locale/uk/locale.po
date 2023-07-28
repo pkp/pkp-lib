@@ -1,27 +1,32 @@
+# Sasz <skolomon@yahoo.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-08T23:00:18+00:00\n"
-"PO-Revision-Date: 2021-01-08T23:00:18+00:00\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: \n"
+"PO-Revision-Date: 2023-07-19 11:30+0000\n"
+"Last-Translator: Sasz <skolomon@yahoo.com>\n"
+"Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/ops/"
+"themes-default/uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "plugins.themes.default.name"
-msgstr "Усталена тема оформлення"
+msgstr "Стандартна тема оформлення"
 
 msgid "plugins.themes.default.description"
-msgstr "Застосовує усталену тему оформлення."
+msgstr "Застосовує стандартну тему оформлення."
 
 msgid "plugins.themes.default.option.typography.label"
-msgstr "Типографія"
+msgstr "Типографіка"
 
 msgid "plugins.themes.default.option.typography.description"
-msgstr "Виберіть комбінацію шрифтів, що пасує для цього журналу."
+msgstr "Виберіть комбінацію шрифтів, що пасує для цього сервера."
 
 msgid "plugins.themes.default.option.typography.notoSans"
 msgstr ""
@@ -61,34 +66,41 @@ msgid "plugins.themes.default.option.colour.description"
 msgstr "Виберіть колір верхнього колонтитулу."
 
 msgid "plugins.themes.default.option.showDescriptionInServerIndex.option"
-msgstr ""
+msgstr "Показати зведення про сервер на головній сторінці."
 
 msgid "plugins.themes.default.option.useHomepageImageAsHeader.label"
-msgstr ""
+msgstr "Зображення для тла верхнього колонтитула"
 
 msgid "plugins.themes.default.option.useHomepageImageAsHeader.description"
 msgstr ""
+"Коли зображення домашньої сторінки завантажено, відображати його на тлі "
+"верхнього колонтитула замість звичного розміщення на домашній сторінці."
 
 msgid "plugins.themes.default.option.useHomepageImageAsHeader.option"
 msgstr ""
+"Показувати зображення домашньої сторінки в якості тла верхнього колонтитула."
 
 msgid "plugins.themes.default.option.displayStats.label"
-msgstr ""
+msgstr "Параметри відображення статистики використання"
 
 msgid "plugins.themes.default.option.displayStats.none"
-msgstr ""
+msgstr "Не відображати читачеві діаграму статистики використання подання."
 
 msgid "plugins.themes.default.option.displayStats.bar"
 msgstr ""
+"Використовувати стовпчиковий тип діаграми для відображення статистики "
+"використання."
 
 msgid "plugins.themes.default.option.displayStats.line"
 msgstr ""
+"Використовувати лінійний тип діаграми для відображення статистики "
+"використання."
 
 msgid "plugins.themes.default.displayStats.monthInitials"
-msgstr ""
+msgstr "Січ Лют Бер Кві Тра Чер Лип Сер Вер Жов Лис Гру"
 
 msgid "plugins.themes.default.displayStats.downloads"
-msgstr ""
+msgstr "Завантаження"
 
 msgid "plugins.themes.default.displayStats.noStats"
-msgstr ""
+msgstr "Дані щодо завантажень поки недоступні."

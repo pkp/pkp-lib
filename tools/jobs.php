@@ -25,6 +25,7 @@ use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Contracts\Queue\Job;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
 use Illuminate\Queue\Events\JobProcessing;
@@ -281,8 +282,12 @@ class commandJobs extends CommandLineTool
 
         $this->total();
 
-        $rows = array_map(fn (CLIJobResource $row) => $row->toArray(app(Request::class)), $data->all());
-        $this->getCommandInterface()->table($this->getListTableFormat(), $rows);
+        $this->getCommandInterface()->table(
+            $this->getListTableFormat(), 
+            $data
+                ->map(fn(JsonResource $job) => $job->toArray(app('request')))
+                ->toArray()
+        );
 
         $pagination = [
             'pagination' => [

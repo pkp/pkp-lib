@@ -23,6 +23,7 @@ use PKP\core\Core;
 use PKP\filter\Filter;
 use PKP\filter\FilterGroup;
 use PKP\observers\events\BatchMetadataChanged;
+use PKP\plugins\importexport\native\NativeImportExportSubmissionIntroducerEventEntry;
 use PKP\workflow\WorkflowStageDAO;
 
 class NativeXmlSubmissionFilter extends NativeImportFilter
@@ -88,7 +89,8 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
         // Handle any additional attributes etc.
         $submission = $this->populateObject($submission, $node);
 
-        $submissionId = Repo::submission()->dao->insert($submission);
+        $submissionIntroducerLogEntry = new NativeImportExportSubmissionIntroducerEventEntry($deployment->getImportExportPlugin());
+        $submissionId = Repo::submission()->add($submission, null, $submissionIntroducerLogEntry, $context);
         $submission = Repo::submission()->get($submissionId);
         // Non-persisted temporary ID, will be updated once the publication gets parsed
         $submission->setData('currentPublicationId', $node->getAttribute('current_publication_id'));

@@ -22,6 +22,7 @@ use BadMethodCallException;
 use Exception;
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
+use PKP\log\contracts\SubmissionIntroducerEventEntry;
 use PKP\plugins\ImportExportPlugin;
 use PKP\plugins\PluginRegistry;
 

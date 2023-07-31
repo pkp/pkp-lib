@@ -755,7 +755,7 @@ abstract class Plugin
      *
      * @return ?Version
      */
-    public function getCurrentVersion()
+    public function getCurrentVersion() : ?Version
     {
         $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
         $pluginPath = $this->getPluginPath();
@@ -766,7 +766,7 @@ abstract class Plugin
         if ($installedPlugin) {
             return $installedPlugin;
         } else {
-            return false;
+            return null;
         }
     }
 

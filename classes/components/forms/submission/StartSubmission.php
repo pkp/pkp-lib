@@ -83,7 +83,7 @@ class StartSubmission extends FormComponent
         $this->addField(new FieldRichText('title', [
             'label' => __('common.title'),
             'size' => 'oneline',
-            'isRequired' => true,
+            'isRequired' => false,
             'value' => '',
         ]));
     }

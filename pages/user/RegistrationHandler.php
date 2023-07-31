@@ -22,11 +22,13 @@ use APP\pages\user\UserHandler;
 use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\core\Core;
+use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
 use PKP\observers\events\UserRegisteredContext;
 use PKP\observers\events\UserRegisteredSite;
+use PKP\pages\invitation\PKPInvitationHandler;
 use PKP\security\Validation;
 use PKP\user\form\RegistrationForm;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -151,22 +153,37 @@ class RegistrationHandler extends UserHandler
      */
     public function activateUser($args, $request)
     {
-        $username = $request->getUserVar('username');
-        $validated = $request->getUserVar('validated');
+        $username = array_shift($args);
+        $accessKeyCode = array_shift($args);
 
-        if (!$validated) {
+        if (isset($username) && isset($accessKeyCode)) {
+            $url = $request->getDispatcher()->url(
+                $request,
+                PKPApplication::ROUTE_PAGE,
+                $request->getContext()->getPath(),
+                PKPInvitationHandler::REPLY_PAGE,
+                PKPInvitationHandler::REPLY_OP_ACCEPT,
+                null,
+                [
+                    'key' => $accessKeyCode,
+                ]
+            );
+
+            header('HTTP/1.1 301 Moved Permanently');
+            $request->redirectUrl($url);
+        } else if (isset($username)) {
+            $user = Repo::user()->getByUsername($username, true);
+            if (!$user) {
+                $request->redirect(null, 'login');
+            }
+
+            if ($user->getDateValidated() != null) { // The user is activated
+                $templateMgr = TemplateManager::getManager($request);
+                $templateMgr->assign('message', 'user.login.activated');
+                return $templateMgr->display('frontend/pages/message.tpl');
+            }
+            
             $request->redirect(null, 'login');
-        }
-
-        $user = Repo::user()->getByUsername($username, true);
-        if (!$user) {
-            $request->redirect(null, 'login');
-        }
-
-        if ($user->getDateValidated() != null) {
-            $templateMgr = TemplateManager::getManager($request);
-            $templateMgr->assign('message', 'user.login.activated');
-            return $templateMgr->display('frontend/pages/message.tpl');
         }
 
         $request->redirect(null, 'login');

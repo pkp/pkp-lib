@@ -98,10 +98,13 @@ class ReviewerAccessInvite extends BaseInvitation
         );
 
         if ($context->getData('reviewerAccessKeysEnabled')) {
-            $this->_validateAccessKey();
+            $validated = $this->_validateAccessKey();
+            
+            if ($validated) {
+                parent::invitationAcceptHandle();
+            }
+            
         }
-
-        parent::invitationAcceptHandle();
 
         $request->redirectUrl($url);
     }
@@ -114,7 +117,7 @@ class ReviewerAccessInvite extends BaseInvitation
         // Check if the user is already logged in
         $sessionManager = SessionManager::getManager();
         $session = $sessionManager->getUserSession();
-        if ($session->getUserId()) {
+        if ($session->getUserId() != $this->userId) {
             return false;
         }
 

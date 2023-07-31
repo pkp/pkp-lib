@@ -27,9 +27,6 @@ abstract class BaseRepository
     protected int $perPage = 50;
     protected ?string $outputFormat;
 
-    public const CONTEXT_INVITATION = 'invitation';
-    public const CONTEXT_KEY = 'key';
-
     public function newQuery(): Builder
     {
         return $this->model->newQuery();

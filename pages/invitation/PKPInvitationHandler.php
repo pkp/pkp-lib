@@ -105,7 +105,6 @@ class PKPInvitationHandler extends Handler
                     // Unable to reconstruct object if required parameter value is missing
                     return null;
                 }
-                
             }
         }
 

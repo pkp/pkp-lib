@@ -47,7 +47,7 @@ abstract class BaseInvitation
     private string $keyHash;
     public string $key;
     public DateTime $expirationDate;
-    private Invitation $invitationModel;
+    // private Invitation $invitationModel;
 
     protected ?Mailable $mailable = null;
     protected ?Context $context = null;
@@ -68,8 +68,9 @@ abstract class BaseInvitation
     {
         $vars = get_object_vars($this);
 
-        unset($vars['mailable']);
-        unset($vars['expiryDays']);
+        foreach ($this->getExcludedPayloadVariables() as $excludedPayloadVariable) {
+            unset($vars[$excludedPayloadVariable]);
+        }
 
         return $vars;
     }
@@ -156,12 +157,15 @@ abstract class BaseInvitation
             return false;
         }
 
-        $this->key = Validation::generatePassword();
+        if (!isset($this->keyHash)) {
+            if (!isset($this->key)) {
+                $this->key = Validation::generatePassword();
+            }
 
-        $this->keyHash = md5($this->key);
+            $this->keyHash = md5($this->key);
+        }
 
         $invitationModelData = [
-            'context' => Repo::invitation()::CONTEXT_INVITATION,
             'key_hash' => $this->keyHash,
             'user_id' => $this->userId,
             'assoc_id' => $this->assocId,
@@ -176,7 +180,6 @@ abstract class BaseInvitation
         ];
 
         $invitationModel = Invitation::create($invitationModelData);
-        $this->setInvitationModel($invitationModel);
 
         $mailable = $this->getInvitationMailable();
 
@@ -193,15 +196,6 @@ abstract class BaseInvitation
         return true;
     }
 
-    public function setInvitationModel(Invitation $invitationModel)
-    {
-        $this->invitationModel = $invitationModel;
-        $this->keyHash = $invitationModel->keyHash;
-
-        // $this->expirationDate = $invitationModel->payload->expirationDate;
-        $this->key = $invitationModel->payload['key'];
-    }
-
     public function isKeyValid(string $key) : bool
     {
         $keyHash = md5($key);
@@ -213,12 +207,34 @@ abstract class BaseInvitation
     {
         return [
             'mailable',
-            'expiryDays'
+            'expiryDays',
+            'context',
+            'userId',
+            'key',
+            'keyHash',
+            'expirationDate',
+            'className'
         ];
     }
 
     public function setMailable(Mailable $mailable) : void
     {
         $this->mailable = $mailable;
+    }
+
+    public function setKeyHash(string $keyHash) : void
+    {
+        $this->keyHash = $keyHash;
+    }
+
+    public function setExpirationDate(Carbon $expirationDate) : void
+    {
+        $this->expirationDate = $expirationDate;
+    }
+
+    public function setInvitationModel(Invitation $invitationModel)
+    {
+        $this->keyHash = $invitationModel->keyHash;
+        $this->expirationDate = $invitationModel->expiryDate;
     }
 }

@@ -19,18 +19,12 @@ namespace PKP\invitation\invitations;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
-use APP\template\TemplateManager;
 use Illuminate\Mail\Mailable;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\invitation\invitations\BaseInvitation;
-use PKP\mail\variables\ReviewAssignmentEmailVariable;
-use PKP\security\Validation;
-use PKP\session\SessionManager;
 use PKP\user\User;
-use ReviewAssignment;
 
 class RegistrationAccessInvite extends BaseInvitation
 {
@@ -78,6 +72,10 @@ class RegistrationAccessInvite extends BaseInvitation
     {
         $user = Repo::user()->get($this->invitedUserId, true);
 
+        if (!$user) {
+            return;
+        }
+
         $request = Application::get()->getRequest();
         $validated = $this->_validateAccessKey($user, $request);
 
@@ -91,10 +89,8 @@ class RegistrationAccessInvite extends BaseInvitation
             null, 
             'user', 
             'activateUser',
-            null,
             [
-                'username' => $user->getUsername(),
-                'validated' => $validated
+                $user->getUsername(),
             ]
         );
 
@@ -108,10 +104,8 @@ class RegistrationAccessInvite extends BaseInvitation
                 $this->context->getData('urlPath'),
                 'user', 
                 'activateUser',
-                null,
                 [
-                    'username' => $user->getUsername(),
-                    'validated' => $validated
+                    $user->getUsername(),
                 ]
             );
         }

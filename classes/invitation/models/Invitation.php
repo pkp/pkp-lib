@@ -63,7 +63,6 @@ class Invitation extends Model
      * @var string[]
      */
     protected $casts = [
-        'context' => 'string',
         'key_hash' => 'string',
         'payload' => 'array',
         'user_id' => 'int',

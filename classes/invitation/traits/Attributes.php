@@ -30,7 +30,6 @@ trait Attributes
             return null;
         }
 
-        //$obj = new Carbon($this->attributes['expiry_date']);
         $obj = new Carbon($this->attributes['expiry_date']);
 
         return $obj;
@@ -39,5 +38,20 @@ trait Attributes
     public function getKeyHashAttribute(): string
     {
         return $this->attributes['key_hash'];
+    }
+
+    public function getUserIdAttribute(): string
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function getIdAttribute(): string
+    {
+        return $this->attributes['access_key_id'];
+    }
+
+    public function getAssocIdAttribute(): string
+    {
+        return $this->attributes['assoc_id'];
     }
 }

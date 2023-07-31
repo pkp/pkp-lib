@@ -20,9 +20,11 @@ namespace PKP\API\v1\_submissions;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Collector;
+use PKP\config\Config;
 use PKP\core\APIResponse;
 use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
+use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -41,7 +43,8 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
     public function __construct()
     {
         $this->_handlerPath = '_submissions';
-        $this->_endpoints =  [
+
+        $endpoints = [
             'GET' => [
                 [
                     'pattern' => $this->getEndpointPattern(),
@@ -49,22 +52,12 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
                     'roles' => [
                         Role::ROLE_ID_SITE_ADMIN,
                         Role::ROLE_ID_MANAGER,
-                    ],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/needsEditor',
-                    'handler' => [$this, 'needsEditor'],
-                    'roles' => [Role::ROLE_ID_MANAGER],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/assigned',
-                    'handler' => [$this, 'assigned'],
-                    'roles' => [
-                        Role::ROLE_ID_MANAGER,
                         Role::ROLE_ID_SUB_EDITOR,
-                        Role::ROLE_ID_ASSISTANT
+                        Role::ROLE_ID_AUTHOR,
+                        Role::ROLE_ID_REVIEWER,
+                        Role::ROLE_ID_ASSISTANT,
                     ],
-                ]
+                ],
             ],
             'DELETE' => [
                 [
@@ -78,6 +71,36 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
                 ],
             ],
         ];
+
+        // Endpoints for the new submissions list
+        if (Config::getVar('features', 'enable_new_submission_listing')) {
+            $endpoints['GET'][0]['roles'] =  [
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_MANAGER,
+            ];
+
+            $endpoints = array_merge_recursive($endpoints, [
+                'GET' => [
+                    [
+                        'pattern' => $this->getEndpointPattern() . '/needsEditor',
+                        'handler' => [$this, 'needsEditor'],
+                        'roles' => [Role::ROLE_ID_MANAGER],
+                    ],
+                    [
+                        'pattern' => $this->getEndpointPattern() . '/assigned',
+                        'handler' => [$this, 'assigned'],
+                        'roles' => [
+                            Role::ROLE_ID_MANAGER,
+                            Role::ROLE_ID_SUB_EDITOR,
+                            Role::ROLE_ID_ASSISTANT
+                        ],
+                    ]
+                ]
+            ]);
+        }
+
+        $this->_endpoints = $endpoints;
+
         parent::__construct();
     }
 
@@ -100,16 +123,11 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
 
     /**
      * Get a collection of submissions
-     *
-     * @param SLimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return Response
      */
-    public function getMany(SlimRequest $slimRequest, APIResponse $response, array $args)
+    public function getMany(SlimRequest $slimRequest, APIResponse $response, array $args): Response
     {
         $request = Application::get()->getRequest();
+        $currentUser = $request->getUser();
         $context = $request->getContext();
 
         if (!$context) {
@@ -117,9 +135,9 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
         }
 
         $queryParams = $slimRequest->getQueryParams();
+
         $collector = $this->getSubmissionCollector($queryParams);
 
-        // Additional params available for this endpoint
         foreach ($queryParams as $param => $val) {
             switch ($param) {
                 case 'assignedTo':
@@ -133,6 +151,22 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
                 case 'isIncomplete':
                     $collector->filterByIncomplete(true);
                     break;
+            }
+        }
+
+        // In new submission lists this endpoint is dedicated to retrieve all submissions only by admins and managers
+        if (!Config::getVar('features', 'enable_new_submission_listing')) {
+
+            // Anyone not a manager or site admin can only access their assigned submissions
+            $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+            $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
+            Hook::call('API::submissions::params', [$collector, $slimRequest]);
+            if (!$canAccessUnassignedSubmission) {
+                if (!is_array($collector->assignedTo)) {
+                    $collector->assignedTo([$currentUser->getId()]);
+                } elseif ($collector->assignedTo != [$currentUser->getId()]) {
+                    return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
+                }
             }
         }
 

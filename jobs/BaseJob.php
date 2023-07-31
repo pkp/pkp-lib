@@ -19,8 +19,6 @@ declare(strict_types=1);
 namespace PKP\jobs;
 
 use APP\core\Application;
-use DateTime;
-
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -85,20 +83,12 @@ abstract class BaseJob implements ShouldQueue
     public $failOnTimeout = true;
 
     /**
-     * Initiate the job class
+     * Initiate the job
      */
     public function __construct()
     {
         $this->connection = $this->defaultConnection();
         $this->queue = Config::getVar('queues', 'default_queue', 'queue');
-    }
-
-    /**
-     * Determine the amount of time until the job should no longer be attempted after a fail attempt
-     */
-    public function retryUntil(): DateTime
-    {
-        return now()->addSeconds(300);
     }
 
     /**

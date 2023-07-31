@@ -24,14 +24,25 @@ class TestJobSuccess extends BaseJob
 {
     use Batchable;
 
+    /**
+     * The number of times the job may be attempted.
+     *
+     * @var int
+     */
     public $tries = 1;
 
+    /**
+     * Initiate the job
+     */
     public function __construct()
     {
         $this->connection = config('queue.default');
         $this->queue = Job::TESTING_QUEUE;
     }
 
+    /**
+     * handle the queue job execution process
+     */
     public function handle(): void
     {
     }

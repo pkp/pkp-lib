@@ -24,7 +24,9 @@ use Exception;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Mail\Mailable;
+use phpDocumentor\Reflection\Types\Void_;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\facades\Repo;
 use PKP\invitation\invitations\enums\InvitationStatus;
 use PKP\invitation\models\Invitation;
@@ -36,23 +38,40 @@ abstract class BaseInvitation
 {
     use SerializesModels;
 
+    const DEFAULT_EXPIRY_DAYS = 3;
+
     /**
      * The name of the class name of the specific invitation
      */
     public string $className;
-    public string $keyHash;
+    private string $keyHash;
+    public string $key;
     public DateTime $expirationDate;
     private Invitation $invitationModel;
 
-    public function __construct(public string $email, public int $contextId, public ?int $assocId)
+    protected ?Mailable $mailable = null;
+    protected ?Context $context = null;
+
+    public function __construct(
+        public ?int $userId, 
+        public ?string $email, 
+        public int $contextId, 
+        public ?int $assocId, 
+        public ?int $expiryDays = null)
     {
-        $this->expirationDate = Carbon::now()->addDays(Config::getVar('invitations', 'expiration_days', 3))->toDateTime();
+        $usedExpiryDays = ($expiryDays) ? $expiryDays : Config::getVar('invitations', 'expiration_days', self::DEFAULT_EXPIRY_DAYS);
+        $this->expirationDate = Carbon::now()->addDays($usedExpiryDays)->toDateTime();
         $this->className = get_class($this);
     }
 
     public function getPayload()
     {
-        return get_object_vars($this);
+        $vars = get_object_vars($this);
+
+        unset($vars['mailable']);
+        unset($vars['expiryDays']);
+
+        return $vars;
     }
 
     public function invitationMarkStatus(InvitationStatus $status) 
@@ -82,20 +101,16 @@ abstract class BaseInvitation
         }
     }
 
-    public function invitationAcceptHandle() : bool
+    public function invitationAcceptHandle() : void
     {
         $this->invitationMarkStatus(InvitationStatus::ACCEPTED);
-
-        return true;
     }
-    public function invitationDeclineHandle() : bool
+    public function invitationDeclineHandle() : void
     {
         $this->invitationMarkStatus(InvitationStatus::DECLINED);
-
-        return true;
     }
 
-    abstract public function getInvitationMailable() : Mailable;
+    abstract public function getInvitationMailable() : ?Mailable;
     abstract public function preDispatchActions() : bool;
 
     public function getAcceptInvitationUrl() : string
@@ -110,7 +125,7 @@ abstract class BaseInvitation
                 PKPInvitationHandler::REPLY_OP_ACCEPT,
                 null,
                 [
-                    'key' => $this->keyHash,
+                    'key' => $this->key,
                 ]
             );
     }
@@ -126,12 +141,12 @@ abstract class BaseInvitation
                 PKPInvitationHandler::REPLY_OP_DECLINE,
                 null,
                 [
-                    'key' => $this->keyHash,
+                    'key' => $this->key,
                 ]
             );
     }
 
-    public function dispatch() : bool
+    public function dispatch(bool $sendEmail = false) : bool
     {
         $request = Application::get()->getRequest();
         $user = $request->getUser();
@@ -141,14 +156,14 @@ abstract class BaseInvitation
             return false;
         }
 
-        $key = Validation::generatePassword();
+        $this->key = Validation::generatePassword();
 
-        $this->keyHash = md5($key);
+        $this->keyHash = md5($this->key);
 
         $invitationModelData = [
             'context' => Repo::invitation()::CONTEXT_INVITATION,
             'key_hash' => $this->keyHash,
-            'user_id' => $user->getId(),
+            'user_id' => $this->userId,
             'assoc_id' => $this->assocId,
             'expiry_date' => $this->expirationDate->getTimestamp(),
             'payload' => $this->getPayload(),
@@ -162,15 +177,17 @@ abstract class BaseInvitation
 
         $invitationModel = Invitation::create($invitationModelData);
         $this->setInvitationModel($invitationModel);
-        
-        try {
-            $mailable = $this->getInvitationMailable();
-            
-            Mail::to($this->email)
-                ->send($mailable);
 
-        } catch (TransportException $e) {
-            trigger_error('Failed to send email invitation: ' . $e->getMessage(), E_USER_ERROR);
+        $mailable = $this->getInvitationMailable();
+
+        if ($sendEmail && isset($mailable)) {
+            try {
+                Mail::to($this->email)
+                    ->send($mailable);
+
+            } catch (TransportException $e) {
+                trigger_error('Failed to send email invitation: ' . $e->getMessage(), E_USER_ERROR);
+            }
         }
 
         return true;
@@ -180,5 +197,28 @@ abstract class BaseInvitation
     {
         $this->invitationModel = $invitationModel;
         $this->keyHash = $invitationModel->keyHash;
+
+        // $this->expirationDate = $invitationModel->payload->expirationDate;
+        $this->key = $invitationModel->payload['key'];
+    }
+
+    public function isKeyValid(string $key) : bool
+    {
+        $keyHash = md5($key);
+
+        return $keyHash == $this->keyHash;
+    }
+
+    public function getExcludedPayloadVariables() : array
+    {
+        return [
+            'mailable',
+            'expiryDays'
+        ];
+    }
+
+    public function setMailable(Mailable $mailable) : void
+    {
+        $this->mailable = $mailable;
     }
 }

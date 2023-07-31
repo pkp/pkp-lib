@@ -17,10 +17,8 @@
 
 namespace PKP\mail\traits;
 
-use APP\core\Application;
 use PKP\context\Context;
-use PKP\mail\variables\ReviewAssignmentEmailVariable;
-use PKP\security\AccessKeyManager;
+use PKP\invitation\invitations\ReviewerAccessInvite;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 trait OneClickReviewerAccess
@@ -31,31 +29,13 @@ trait OneClickReviewerAccess
             return;
         }
 
-        $application = Application::get();
-        $request = $application->getRequest();
-        $dispatcher = $application->getDispatcher();
-
-        $accessKeyManager = new AccessKeyManager();
-        $expiryDays = ($this->context->getData('numWeeksPerReview') + 4) * 7;
-        $accessKey = $accessKeyManager->createKey(
-            $context->getId(),
-            $reviewAssignment->getReviewerId(),
-            $reviewAssignment->getId(),
-            $expiryDays
+        $reviewInvitation = new ReviewerAccessInvite(
+            $reviewAssignment->getReviewerId(), 
+            null, 
+            $context->getId(), 
+            $reviewAssignment->getId()
         );
-
-        $this->viewData[ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL] = $dispatcher->url(
-            $request,
-            Application::ROUTE_PAGE,
-            $context->getData('urlPath'),
-            'reviewer',
-            'submission',
-            null,
-            [
-                'submissionId' => $reviewAssignment->getSubmissionId(),
-                'reviewId' => $reviewAssignment->getId(),
-                'key' => $accessKey,
-            ]
-        );
+        $reviewInvitation->setMailable($this);
+        $reviewInvitation->dispatch();
     }
 }

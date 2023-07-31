@@ -37,6 +37,7 @@ use PKP\decision\DecisionType;
 use PKP\facades\Locale;
 use PKP\handler\APIHandler;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\log\ApplicationSubmissionIntroducerEventEntry;
 use PKP\mail\mailables\PublicationVersionNotify;
 use PKP\mail\mailables\SubmissionSavedForLater;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
@@ -536,7 +537,9 @@ class PKPSubmissionHandler extends APIHandler
 
         $submission = Repo::submission()->newDataObject($params);
         $publication = Repo::publication()->newDataObject($publicationProps);
-        $submissionId = Repo::submission()->add($submission, $publication, $request->getContext());
+
+        $submissionIntroducerLogEntry = new ApplicationSubmissionIntroducerEventEntry();
+        $submissionId = Repo::submission()->add($submission, $publication, $submissionIntroducerLogEntry, $request->getContext());
 
         $submission = Repo::submission()->get($submissionId);
 

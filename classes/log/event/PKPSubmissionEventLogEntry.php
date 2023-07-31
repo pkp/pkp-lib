@@ -31,6 +31,7 @@ class PKPSubmissionEventLogEntry extends EventLogEntry
     public const SUBMISSION_LOG_CREATE_VERSION = 0x10000008;
 
     public const SUBMISSION_LOG_COPYRIGHT_AGREED = 0x10000009;
+    public const SUBMISSION_LOG_CREATED = 0x10000010;
 
     public const SUBMISSION_LOG_EDITOR_DECISION = 0x30000003;
     public const SUBMISSION_LOG_EDITOR_RECOMMENDATION = 0x30000004;

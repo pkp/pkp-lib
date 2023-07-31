@@ -32,6 +32,7 @@ use PKP\facades\Locale;
 use PKP\security\Role;
 use PKP\session\SessionManager;
 use PKP\site\VersionDAO;
+use PKP\site\Version;
 use PKP\submission\RepresentationDAOInterface;
 
 interface iPKPApplicationInfoProvider
@@ -435,7 +436,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      *
      * @return \PKP\site\Version
      */
-    public function getCurrentVersion()
+    public function &getCurrentVersion() : Version
     {
         $currentVersion = $this->getEnabledProducts('core');
         assert(count($currentVersion)) == 1;

@@ -18,6 +18,7 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\log\SubmissionEventLogEntry;
 use APP\publication\Publication;
 use APP\section\Section;
 use APP\submission\Collector;
@@ -29,6 +30,8 @@ use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\doi\exceptions\DoiException;
+use PKP\log\contracts\SubmissionIntroducerEventEntry;
+use PKP\log\SubmissionLog;
 use PKP\facades\Locale;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\plugins\Hook;
@@ -41,6 +44,7 @@ use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\validation\ValidatorFactory;
+use Exception;
 
 abstract class Repository
 {
@@ -531,7 +535,7 @@ abstract class Repository
     /**
      * Add a new submission
      */
-    public function add(Submission $submission, Publication $publication, Context $context): int
+    public function add(Submission $submission, ?Publication $publication, SubmissionIntroducerEventEntry $submissionIntroducerLog, Context $context = null): int
     {
         $submission->stampLastActivity();
         $submission->stampModified();
@@ -544,18 +548,31 @@ abstract class Repository
         if (!$submission->getData('locale')) {
             $submission->setData('locale', $context->getPrimaryLocale());
         }
+
         $submissionId = $this->dao->insert($submission);
         $submission = Repo::submission()->get($submissionId);
+        
+        if (isset($publication)) {
+            $publication->setData('submissionId', $submission->getId());
+            $publication->setData('version', 1);
+            if (!$publication->getData('status')) {
+                $publication->setData('status', $submission->getData('status'));
+            }
 
-        $publication->setData('submissionId', $submission->getId());
-        $publication->setData('version', 1);
-        if (!$publication->getData('status')) {
-            $publication->setData('status', $submission->getData('status'));
+            $publicationId = Repo::publication()->add($publication);
+
+            $this->edit($submission, ['currentPublicationId' => $publicationId]);
+
+            $submission = $this->get($submission->getId());
         }
 
-        $publicationId = Repo::publication()->add($publication);
-
-        $this->edit($submission, ['currentPublicationId' => $publicationId]);
+        SubmissionLog::logEvent(
+            $this->request,
+            $submission,
+            SubmissionEventLogEntry::SUBMISSION_LOG_CREATED,
+            'log.submission.created',
+            $submissionIntroducerLog->getParams()
+        );
 
         Hook::call('Submission::add', [$submission]);
 

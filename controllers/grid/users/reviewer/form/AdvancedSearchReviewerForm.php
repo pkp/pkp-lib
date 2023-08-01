@@ -170,8 +170,6 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                     $submissionContext->getPath(),
                     'users/reviewers'
                 ),
-                'authorAffiliations' => $authorAffiliations,
-                'authors' => $authors,
                 'currentlyAssigned' => $currentlyAssigned,
                 'getParams' => [
                     'contextId' => $submissionContext->getId(),
@@ -223,6 +221,13 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         ]);
 
         $templateMgr->assign('selectReviewerListData', [
+            'authorAffiliations' => $authorAffiliations,
+            'authors' => $authors,
+            'labels' => [
+                'showAll' => __('showAll'),
+                'showLess' => __('showLess'),
+                'submissionAuthorList' => __('submission.author.list'),
+            ],
             'components' => [
                 'selectReviewer' => $selectReviewerListPanel->getConfig(),
             ]

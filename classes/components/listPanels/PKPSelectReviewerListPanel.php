@@ -24,6 +24,9 @@ class PKPSelectReviewerListPanel extends ListPanel
     /** @var string URL to the API endpoint where items can be retrieved */
     public $apiUrl = '';
 
+    /** @var array Affiliatory institutions of the publication authors */
+    public $authorAffiliations = [];
+
     /** @var int Number of items to show at one time */
     public $count = 30;
 
@@ -62,6 +65,7 @@ class PKPSelectReviewerListPanel extends ListPanel
     {
         $config = parent::getConfig();
         $config['apiUrl'] = $this->apiUrl;
+        $config['authorAffiliations'] = $this->authorAffiliations;
         $config['count'] = $this->count;
         $config['currentlyAssigned'] = $this->currentlyAssigned;
         $config['selectorName'] = $this->selectorName;

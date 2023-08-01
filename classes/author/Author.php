@@ -103,8 +103,16 @@ class Author extends Identity
     public function getFullName($preferred = true, $familyFirst = false, $defaultLocale = null)
     {
         if (!isset($defaultLocale)) {
+            $locale = Locale::getLocale();
+            $fullName = parent::getFullName($preferred, $familyFirst, $locale);
+
+            if (!empty($fullName)) {
+                return $fullName;
+            }
+
             $defaultLocale = $this->getSubmissionLocale();
         }
+
         return parent::getFullName($preferred, $familyFirst, $defaultLocale);
     }
 

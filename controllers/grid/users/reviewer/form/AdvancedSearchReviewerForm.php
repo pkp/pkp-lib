@@ -227,6 +227,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                 'showAll' => __('showAll'),
                 'showLess' => __('showLess'),
                 'submissionAuthorList' => __('submission.author.list'),
+                'authorsLabel' => __('submission.authors.label')
             ],
             'components' => [
                 'selectReviewer' => $selectReviewerListPanel->getConfig(),

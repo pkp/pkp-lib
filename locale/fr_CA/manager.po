@@ -1,13 +1,13 @@
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-07-25 14:58+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
-"vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2023-08-01 12:52+0000\n"
+"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -3191,7 +3191,7 @@ msgstr ""
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
-"Ce courriel est envoyé par un-e éditeur-trice à un-e éditeur-trice qui a "
+"Ce courriel est envoyé par un-e éditeur-trice à un-e évaluateur-trice qui a "
 "refusé une demande d'évaluation, lorsque l'éditeur-trice souhaite envoyer de "
 "nouveau la demande."
 

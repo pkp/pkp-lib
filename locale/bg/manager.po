@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-04 20:27+0000\n"
+"PO-Revision-Date: 2023-08-01 08:25+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg/>\n"
@@ -3796,3 +3796,6 @@ msgid "manager.setup.notifyUsers.queued"
 msgstr ""
 "Имейлите са поставени успешно в опашка, за да бъдат изпратени при първа "
 "възможност."
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Връзката за валидиране на имейл акаунт"

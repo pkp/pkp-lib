@@ -137,6 +137,7 @@ class PKPSelectReviewerListPanel extends ListPanel
         $config['itemsMax'] = $this->itemsMax;
         $config['authorAffiliations'] = $this->authorAffiliations;
         $config['authors'] = $this->authors;
+        $config['authorsLabel'] = __('submission.authors.label');
         $config['activeReviewsCountLabel'] = __('reviewer.list.activeReviews');
         $config['activeReviewsLabel'] = __('reviewer.list.activeReviewsDescription');
         $config['assignedToLastRoundLabel'] = __('reviewer.list.assignedToLastRound');
@@ -158,7 +159,7 @@ class PKPSelectReviewerListPanel extends ListPanel
         $config['reviewerSameInstitutionLabel'] = __('reviewer.list.reviewerSameInstitution');
         $config['reviewInterestsLabel'] = __('reviewer.list.reviewInterests');
         $config['selectReviewerLabel'] = __('editor.submission.selectReviewer');
-        $config['showMore'] = __('showMore');
+        $config['showAll'] = __('showAll');
         $config['showLess'] = __('showLess');
         $config['submissionAuthorList'] = __('submission.author.list');
         $config['warnOnAssignmentLabel'] = __('reviewer.list.warnOnAssign');

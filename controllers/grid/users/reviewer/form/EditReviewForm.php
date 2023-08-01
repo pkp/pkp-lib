@@ -195,8 +195,17 @@ class EditReviewForm extends Form
                 )
             )
             ) {
-                $template = Repo::emailTemplate()->getByKey($context->getId(), EditReviewNotify::getEmailTemplateKey());
                 $mailable = new EditReviewNotify($context, $this->submission, $reviewAssignment);
+                $template = Repo::emailTemplate()->getByKey($context->getId(), EditReviewNotify::getEmailTemplateKey());
+
+                // The template may not exist, see pkp/pkp-lib#9109
+                if (!$template) {
+                    $template = Repo::emailTemplate()->getByKey($context->getId(), 'NOTIFICATION');
+                    $mailable->addData([
+                        'notificationContents' => $notificationManager->getNotificationContents($request, $notification),
+                        'notificationUrl' => $notificationManager->getNotificationUrl($request, $notification),
+                    ]);
+                }
                 $mailable
                     ->sender($request->getUser())
                     ->recipients([$reviewer])

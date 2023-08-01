@@ -81,7 +81,7 @@ class EditorialReminder extends BaseJob
 
         /** @var int $submissionId */
         foreach ($submissionIds as $submissionId) {
-            $submission = Repo::submission()->get($submissionId);
+            $submission = Repo::submission()->get((int)$submissionId);
             $submissions[$submissionId] = $submission;
 
             if ($submission->getData('stageId') === WORKFLOW_STAGE_ID_SUBMISSION) {

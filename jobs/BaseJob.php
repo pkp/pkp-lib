@@ -66,7 +66,7 @@ abstract class BaseJob implements ShouldQueue
      *
      * @var int
      */
-    public $timeout = 180;
+    public $timeout = 120;
 
     /**
      * The maximum number of unhandled exceptions to allow before failing.

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/upgrade/v3_4_0/InvitationsMigration.php
+ * @file classes/migration/install/InvitationsMigration.php
  *
  * Copyright (c) 2014-2023 Simon Fraser University
  * Copyright (c) 2000-2023 John Willinsky
@@ -12,13 +12,10 @@
  * @brief Changes for the access_keys table to support invitations.
  */
 
-namespace PKP\migration\upgrade\v3_4_0;
+namespace PKP\migration\install;
 
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use PKP\install\DowngradeNotSupportedException;
 
 class InvitationsMigration extends \PKP\migration\Migration
 {
@@ -27,13 +24,14 @@ class InvitationsMigration extends \PKP\migration\Migration
      */
     public function up(): void
     {
-        Schema::table('access_keys', function (Blueprint $table) {
+        Schema::create('access_keys', function (Blueprint $table) {
             $table->json('payload')->nullable();
             $table->integer('status')->default(0);
             $table->string('type')->nullable();
             $table->string('invitation_email')->nullable();
             $table->string('context_id')->nullable();
-            $table->string('assoc_id')->nullable()->change();
+            $table->string('assoc_id')->nullable();
+
             $table->timestamps();
         });
     }
@@ -43,14 +41,6 @@ class InvitationsMigration extends \PKP\migration\Migration
      */
     public function down(): void
     {
-        Schema::table('access_keys', function (Blueprint $table) {
-            $table->dropColumn('payload');
-            $table->dropColumn('status');
-            $table->dropColumn('type');
-            $table->dropColumn('invitation_email');
-            $table->dropColumn('context_id');
-            $table->string('assoc_id')->nullable(false)->change();
-            $table->dropTimestamps();
-        });
+        Schema::drop('access_keys');
     }
 }

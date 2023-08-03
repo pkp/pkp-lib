@@ -101,7 +101,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         $publication->setData('abstract', 'preprint-abstract', 'en');
         $publication->setData('sponsor', 'preprint-sponsor', 'en');
         $publication->setData('doiObject', $publicationDoiObject);
-        $publication->setData('languages', 'en');
+        $publication->setData('languages', ['en' => ['en']]);
         $publication->setData('copyrightHolder', 'preprint-copyright');
         $publication->setData('copyrightYear', 'year');
         $publication->setData('datePublished', '2010-11-05');
@@ -115,6 +115,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         $preprint->expects($this->any())
             ->method('getBestId')
             ->will($this->returnValue(9));
+        $preprint->setData('locale', 'en');
         $preprint->setId(9);
         $preprint->setData('contextId', $serverId);
         $author->setSubmissionId($preprint->getId());

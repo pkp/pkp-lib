@@ -16,7 +16,10 @@ declare(strict_types=1);
 
 namespace PKP\invitation\repositories;
 
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Carbon\Carbon;
+use Illuminate\Support\Collection;
+use PKP\invitation\invitations\BaseInvitation;
+use PKP\invitation\invitations\enums\InvitationStatus;
 use PKP\invitation\models\Invitation as PKPInvitationModel;
 
 class Invitation extends BaseRepository
@@ -35,72 +38,100 @@ class Invitation extends BaseRepository
 
     public function getByKeyHash($keyHash): ?PKPInvitationModel
     {
-        try {
-            return $this->model
-                ->notHandled()
-                ->certainKeyhash($keyHash)
-                ->firstOrFail();
-        } catch (ModelNotFoundException $e) {
-            return null;
-        }
+        return $this->model
+            ->notHandled()
+            ->certainKeyhash($keyHash)
+            ->firstOrFail();
     }
 
-    public function getByInvitationFamily(string $type, string $email, int $contextId, ?int $assocId): ?PKPInvitationModel
+    public function getBOByKeyHash($keyHash): ?BaseInvitation
     {
-        try {
-            $query = $this->model
-                ->notHandled()
-                ->byType($type)
-                ->byEmail($email)
-                ->byContextId($contextId);
+        $invitationModel = $this->getByKeyHash($keyHash);
 
-            if (!is_null($assocId)) {
-                $query->byAssocId($assocId);
-            }
-
-            return $query->firstOrFail();
-        } catch (ModelNotFoundException $e) {
+        if (!isset($invitationModel)) {
             return null;
         }
+
+        return $this->constructBOFromModel($invitationModel);
     }
 
-    public function cancelInvitationFamily(string $className, ?string $email, int $contextId, ?int $assocId): ?bool
+    public function getByKey($key): ?BaseInvitation
     {
-        try {
-            $query = $this->model
-                ->notHandled()
-                ->byClassName($className)
-                ->byEmail($email)
-                ->byContextId($contextId);
+        $keyHash = BaseInvitation::makeKeyHash($key);
+        $invitation = $this->getByKeyHash($keyHash);
 
-            if (!is_null($assocId)) {
-                $query->byAssocId($assocId);
-            }
-
-            $results = $query->get();
-
-            $hadCanceled = false;
-            foreach ($results as $result) {
-                $result->markInvitationAsCanceled();
-                $hadCanceled = true;
-            }
-
-            return $hadCanceled;
-        } catch (ModelNotFoundException $e) {
+        if (is_null($invitation)) {
             return null;
         }
+
+        return $this->constructBOFromModel($invitation);
     }
 
-    public function transferAccessKeys(int $oldUserId, int $newUserId): ?bool
+    /**
+     * Get a collection of BaseInvitation objects with specific properties.
+     *
+     * @return Collection<BaseInvitation>
+     */
+    public function getByProperties(string $className, int $contextId, ?string $email = null, ?int $assocId = null, ?int $userId = null): Collection
     {
-        try {
+        $query = $this->model
+            ->notHandled()
+            ->byClassName($className)
+            ->byContextId($contextId);
 
-            $this->model
-                ->where('user_id', $oldUserId)
-                ->update(['user_id' => $newUserId]);
-
-        } catch (ModelNotFoundException $e) {
-            return null;
+        if (!is_null($assocId)) {
+            $query->byAssocId($assocId);
         }
+
+        if (!is_null($userId)) {
+            $query->byUserId($userId);
+        }
+
+        if (!is_null($email)) {
+            $query->byEmail($email);
+        }
+
+        $results = $query->get();
+        
+        $invitations = new Collection();
+        foreach ($results as $result) {
+            $bo = $this->constructBOFromModel($result);
+            $invitations->add($bo);
+        }
+
+        return $invitations;
+    }
+
+    public function constructBOFromModel(PKPInvitationModel $invitationModel): ?BaseInvitation
+    {
+        $className = $invitationModel->className;
+
+        if (!class_exists($className)) {
+            return null; // Class does not exist
+        }
+
+        $retInvitation = new $className(...$invitationModel->payload);
+        $retInvitation->setInvitationModel($invitationModel);
+
+        return $retInvitation;
+    }
+
+    public function addInvitation(BaseInvitation $invitationBO)
+    {
+        $invitationModelData = [
+            'keyHash' => $invitationBO->keyHash,
+            'userId' => $invitationBO->userId,
+            'assocId' => $invitationBO->assocId,
+            'expiryDate' => $invitationBO->expirationDate,
+            'payload' => $invitationBO->getPayload(),
+            'createdAt' => Carbon::now(),
+            'updatedAt' => Carbon::now(),
+            'status' => InvitationStatus::PENDING,
+            'className' => $invitationBO->className,
+            'email' => $invitationBO->email,
+            'contextId' => $invitationBO->contextId
+        ];
+
+        $this->add($invitationModelData);
     }
 }

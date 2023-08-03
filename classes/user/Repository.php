@@ -329,8 +329,6 @@ class Repository
             $submissionCommentDao->updateObject($submissionComment);
         }
 
-        Repo::invitation()->transferAccessKeys($oldUserId, $newUserId);
-
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notificationDao->transferNotifications($oldUserId, $newUserId);
 

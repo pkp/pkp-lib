@@ -22,6 +22,7 @@ use Illuminate\Mail\Mailable;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\invitation\invitations\BaseInvitation;
+use PKP\invitation\invitations\enums\InvitationStatus;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
@@ -52,10 +53,10 @@ class ReviewerAccessInvite extends BaseInvitation
         $this->reviewAssignment = $reviewAssignmentDao->getById($reviewAssignmentId);
     }
 
-    public function getInvitationMailable(): ?Mailable 
+    public function getMailable(): ?Mailable 
     {
         if (isset($this->mailable)) {
-            $url = $this->getAcceptInvitationUrl();
+            $url = $this->getAcceptUrl();
 
             $this->mailable->buildViewDataUsing(function () use ($url) {
                 return [
@@ -72,13 +73,17 @@ class ReviewerAccessInvite extends BaseInvitation
      */
     public function preDispatchActions(): bool 
     {
-        $hadCancels = Repo::invitation()
-            ->cancelInvitationFamily($this->className, $this->email, $this->contextId, $this->reviewAssignmentId);
+        $invitations = Repo::invitation()
+            ->getByProperties($this->className, $this->contextId, null, $this->reviewAssignmentId);
+        
+        foreach ($invitations as $invitation) {
+            $invitation->markStatus(InvitationStatus::CANCELLED);
+        }
 
         return true;
     }
 
-    public function invitationAcceptHandle() : void
+    public function acceptHandle() : void
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
@@ -101,7 +106,7 @@ class ReviewerAccessInvite extends BaseInvitation
             $validated = $this->_validateAccessKey();
             
             if ($validated) {
-                parent::invitationAcceptHandle();
+                parent::acceptHandle();
             }
             
         }

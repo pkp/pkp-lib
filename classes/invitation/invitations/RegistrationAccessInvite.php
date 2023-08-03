@@ -24,6 +24,7 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\invitation\invitations\BaseInvitation;
+use PKP\invitation\invitations\enums\InvitationStatus;
 use PKP\user\User;
 
 class RegistrationAccessInvite extends BaseInvitation
@@ -42,10 +43,10 @@ class RegistrationAccessInvite extends BaseInvitation
         parent::__construct($invitedUserId, $email, $contextId, null, $expiryDays);
     }
 
-    public function getInvitationMailable(): ?Mailable 
+    public function getMailable(): ?Mailable 
     {
         if (isset($this->mailable)) {
-            $url = $this->getAcceptInvitationUrl();
+            $url = $this->getAcceptUrl();
 
             $this->mailable->buildViewDataUsing(function () use ($url) {
                 return [
@@ -62,13 +63,17 @@ class RegistrationAccessInvite extends BaseInvitation
      */
     public function preDispatchActions(): bool 
     {
-        $hadCancels = Repo::invitation()
-            ->cancelInvitationFamily($this->className, $this->email, $this->contextId, null);
+        $invitations = Repo::invitation()
+            ->getByProperties($this->className, $this->contextId);
+        
+        foreach ($invitations as $invitation) {
+            $invitation->markStatus(InvitationStatus::CANCELLED);
+        }
 
         return true;
     }
 
-    public function invitationAcceptHandle() : void
+    public function acceptHandle() : void
     {
         $user = Repo::user()->get($this->invitedUserId, true);
 
@@ -80,7 +85,7 @@ class RegistrationAccessInvite extends BaseInvitation
         $validated = $this->_validateAccessKey($user, $request);
 
         if ($validated) {
-            parent::invitationAcceptHandle();
+            parent::acceptHandle();
         }
 
         $url = PKPApplication::get()->getDispatcher()->url(

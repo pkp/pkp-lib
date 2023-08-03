@@ -20,6 +20,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use PKP\invitation\invitations\BaseInvitation;
+use PKP\invitation\invitations\enums\InvitationStatus;
 
 class PKPInvitationHandler extends Handler
 {
@@ -33,8 +34,7 @@ class PKPInvitationHandler extends Handler
     public function accept($args, $request): void
     {
         $invitation = $this->getInvitationByKey($request);
-
-        $invitation->invitationAcceptHandle();
+        $invitation->acceptHandle();
     }
 
     /**
@@ -43,7 +43,7 @@ class PKPInvitationHandler extends Handler
     public function decline(array $args, Request $request): void
     {
         $invitation = $this->getInvitationByKey($request);
-        $invitation->invitationDeclineHandle();
+        $invitation->declineHandle();
     }
 
     private function getInvitationByKey(Request $request): BaseInvitation
@@ -52,39 +52,17 @@ class PKPInvitationHandler extends Handler
             ? $request->getUserVar('key')
             : null;
 
-        $invitation = $this->getInvitation($key);
+        $invitation = Repo::invitation()->getByKey($key);
 
         if (is_null($invitation)) {
             $request->getDispatcher()->handle404();
         }
 
-        return $invitation;
-    }
-
-    private function getInvitation(string $key): ?BaseInvitation
-    {
-        $hashKey = md5($key);
-        $invitation = Repo::invitation()
-            ->getByKeyHash($hashKey);
-
-        if (is_null($invitation)) {
-            return null;
-        }
-
         if ($invitation->isExpired()) {
-            $invitation->markInvitationAsExpired();
-            return null;
+            $invitation->markStatus(InvitationStatus::EXPIRED);
+            $request->getDispatcher()->handle404();
         }
 
-        $className = $invitation->className;
-
-        if (!class_exists($className)) {
-            return null; // Class does not exist
-        }
-
-        $retInvitation = new $className(...$invitation->payload);
-        $retInvitation->setInvitationModel($invitation);
-
-        return $retInvitation;
+        return $invitation;
     }
 }

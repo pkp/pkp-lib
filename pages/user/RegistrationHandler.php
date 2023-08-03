@@ -156,21 +156,29 @@ class RegistrationHandler extends UserHandler
         $username = array_shift($args);
         $accessKeyCode = array_shift($args);
 
-        if (isset($username) && isset($accessKeyCode)) {
-            $url = $request->getDispatcher()->url(
-                $request,
-                PKPApplication::ROUTE_PAGE,
-                $request->getContext()->getPath(),
-                PKPInvitationHandler::REPLY_PAGE,
-                PKPInvitationHandler::REPLY_OP_ACCEPT,
-                null,
-                [
-                    'key' => $accessKeyCode,
-                ]
-            );
+        if (isset($username) && isset($accessKeyCode)) { // Backward compatibility - use MD5 to create keyHash
+            $keyHash = md5($accessKeyCode);
 
-            header('HTTP/1.1 301 Moved Permanently');
-            $request->redirectUrl($url);
+            $invitation = Repo::invitation()->getBOByKeyHash($keyHash);
+
+            if (isset($invitation)) {
+                $invitation->acceptHandle();
+            }
+
+            // $url = $request->getDispatcher()->url(
+            //     $request,
+            //     PKPApplication::ROUTE_PAGE,
+            //     $request->getContext()->getPath(),
+            //     PKPInvitationHandler::REPLY_PAGE,
+            //     PKPInvitationHandler::REPLY_OP_ACCEPT,
+            //     null,
+            //     [
+            //         'key' => $accessKeyCode,
+            //     ]
+            // );
+
+            // header('HTTP/1.1 301 Moved Permanently');
+            // $request->redirectUrl($url);
         } else if (isset($username)) {
             $user = Repo::user()->getByUsername($username, true);
             if (!$user) {

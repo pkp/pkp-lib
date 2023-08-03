@@ -15,6 +15,7 @@
 namespace PKP\migration\upgrade\v3_5_0;
 
 use PKP\install\DowngradeNotSupportedException;
+use PKP\migration\Migration;
 
 class I9197_MigrateAccessKeys extends Migration
 {

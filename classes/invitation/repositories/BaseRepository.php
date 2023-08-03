@@ -24,7 +24,6 @@ use Illuminate\Pagination\LengthAwarePaginator;
 abstract class BaseRepository
 {
     protected Model $model;
-    protected int $perPage = 50;
     protected ?string $outputFormat;
 
     public function newQuery(): Builder
@@ -45,11 +44,6 @@ abstract class BaseRepository
     public function add(array $attributes = []): ?Model
     {
         return $this->model->create($attributes);
-    }
-
-    public function addInvitation(Model $model): ?Model
-    {
-        return $this->model->create($model->toArray());
     }
 
     public function edit(int $modelId, array $data): bool

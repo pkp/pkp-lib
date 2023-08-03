@@ -201,61 +201,13 @@ class Invitation extends Model
     }
 
     /**
-     * Mark invitation as accepted
+     * Mark invitation as a certain inviation status
      */
-    public function markInvitationAsAccepted(): void
+    public function markAs(InvitationStatus $status): void
     {
         $this->update([
             'updated_at' => $this->currentTime(),
-            'status' => InvitationStatus::ACCEPTED
+            'status' => $status
         ]);
-    }
-
-    /**
-     * Mark invitation as declined
-     */
-    public function markInvitationAsDeclined(): void
-    {
-        $this->update([
-            'updated_at' => $this->currentTime(),
-            'status' => InvitationStatus::DECLINED
-        ]);
-    }
-
-    /**
-     * Mark invitation as expired
-     */
-    public function markInvitationAsExpired(): void
-    {
-        $this->update([
-            'updated_at' => $this->currentTime(),
-            'status' => InvitationStatus::EXPIRED
-        ]);
-    }
-
-    /**
-     * Mark invitation as canceled
-     */
-    public function markInvitationAsCanceled(): void
-    {
-        $this->update([
-            'updated_at' => $this->currentTime(),
-            'status' => InvitationStatus::CANCELLED
-        ]);
-    }
-
-    /**
-     * Check if invitation is expired
-     */
-    public function isExpired(): bool
-    {
-        $expiryDate = $this->expiryDate;
-        $currentDateTime = Carbon::now();
-
-        if ($expiryDate > $currentDateTime) {
-            return false;
-        }
-
-        return false;
     }
 }

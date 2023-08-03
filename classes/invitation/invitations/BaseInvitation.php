@@ -55,10 +55,10 @@ abstract class BaseInvitation
         public ?string $email,
         public int $contextId,
         public ?int $assocId,
-        public ?int $expiryDays = null
+        ?int $expiryDays = null
     ) {
-        $usedExpiryDays = ($expiryDays) ? $expiryDays : Config::getVar('invitations', 'expiration_days', self::DEFAULT_EXPIRY_DAYS);
-        $this->expirationDate = Carbon::now()->addDays($usedExpiryDays)->toDateTime();
+        $expiryDays ??= Config::getVar('invitations', 'expiration_days', self::DEFAULT_EXPIRY_DAYS);
+        $this->expirationDate = Carbon::now()->addDays($expiryDays)->toDateTime();
         $this->className = get_class($this);
     }
 
@@ -205,7 +205,6 @@ abstract class BaseInvitation
     {
         return [
             'mailable',
-            'expiryDays',
             'context',
             'userId',
             'key',

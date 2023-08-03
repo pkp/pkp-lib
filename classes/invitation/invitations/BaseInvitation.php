@@ -11,7 +11,6 @@ declare(strict_types=1);
  *
  * @class BaseInvitation
  *
- *
  * @brief Abstract class for all Invitations
  */
 
@@ -21,10 +20,9 @@ use APP\core\Application;
 use Carbon\Carbon;
 use DateTime;
 use Exception;
+use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Mail\Mailable;
-use phpDocumentor\Reflection\Types\Void_;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\facades\Repo;
@@ -38,7 +36,7 @@ abstract class BaseInvitation
 {
     use SerializesModels;
 
-    const DEFAULT_EXPIRY_DAYS = 3;
+    public const DEFAULT_EXPIRY_DAYS = 3;
 
     /**
      * The name of the class name of the specific invitation
@@ -53,12 +51,12 @@ abstract class BaseInvitation
     protected ?Context $context = null;
 
     public function __construct(
-        public ?int $userId, 
-        public ?string $email, 
-        public int $contextId, 
-        public ?int $assocId, 
-        public ?int $expiryDays = null)
-    {
+        public ?int $userId,
+        public ?string $email,
+        public int $contextId,
+        public ?int $assocId,
+        public ?int $expiryDays = null
+    ) {
         $usedExpiryDays = ($expiryDays) ? $expiryDays : Config::getVar('invitations', 'expiration_days', self::DEFAULT_EXPIRY_DAYS);
         $this->expirationDate = Carbon::now()->addDays($usedExpiryDays)->toDateTime();
         $this->className = get_class($this);
@@ -75,7 +73,7 @@ abstract class BaseInvitation
         return $vars;
     }
 
-    public function invitationMarkStatus(InvitationStatus $status) 
+    public function invitationMarkStatus(InvitationStatus $status)
     {
         $invitation = Repo::invitation()
             ->getByKeyHash($this->keyHash);
@@ -102,19 +100,19 @@ abstract class BaseInvitation
         }
     }
 
-    public function invitationAcceptHandle() : void
+    public function invitationAcceptHandle(): void
     {
         $this->invitationMarkStatus(InvitationStatus::ACCEPTED);
     }
-    public function invitationDeclineHandle() : void
+    public function invitationDeclineHandle(): void
     {
         $this->invitationMarkStatus(InvitationStatus::DECLINED);
     }
 
-    abstract public function getInvitationMailable() : ?Mailable;
-    abstract public function preDispatchActions() : bool;
+    abstract public function getInvitationMailable(): ?Mailable;
+    abstract public function preDispatchActions(): bool;
 
-    public function getAcceptInvitationUrl() : string
+    public function getAcceptInvitationUrl(): string
     {
         $request = Application::get()->getRequest();
         return $request->getDispatcher()
@@ -130,7 +128,7 @@ abstract class BaseInvitation
                 ]
             );
     }
-    public function getDeclineInvitationUrl() : string
+    public function getDeclineInvitationUrl(): string
     {
         $request = Application::get()->getRequest();
         return $request->getDispatcher()
@@ -147,7 +145,7 @@ abstract class BaseInvitation
             );
     }
 
-    public function dispatch(bool $sendEmail = false) : bool
+    public function dispatch(bool $sendEmail = false): bool
     {
         $request = Application::get()->getRequest();
         $user = $request->getUser();
@@ -174,8 +172,8 @@ abstract class BaseInvitation
             'created_at' => Carbon::now()->timestamp,
             'updated_at' => Carbon::now()->timestamp,
             'status' => InvitationStatus::PENDING,
-            'type' => $this->className,
-            'invitation_email' => $this->email,
+            'class_name' => $this->className,
+            'email' => $this->email,
             'context_id' => $this->contextId
         ];
 
@@ -196,14 +194,14 @@ abstract class BaseInvitation
         return true;
     }
 
-    public function isKeyValid(string $key) : bool
+    public function isKeyValid(string $key): bool
     {
         $keyHash = md5($key);
 
         return $keyHash == $this->keyHash;
     }
 
-    public function getExcludedPayloadVariables() : array
+    public function getExcludedPayloadVariables(): array
     {
         return [
             'mailable',
@@ -217,17 +215,17 @@ abstract class BaseInvitation
         ];
     }
 
-    public function setMailable(Mailable $mailable) : void
+    public function setMailable(Mailable $mailable): void
     {
         $this->mailable = $mailable;
     }
 
-    public function setKeyHash(string $keyHash) : void
+    public function setKeyHash(string $keyHash): void
     {
         $this->keyHash = $keyHash;
     }
 
-    public function setExpirationDate(Carbon $expirationDate) : void
+    public function setExpirationDate(Carbon $expirationDate): void
     {
         $this->expirationDate = $expirationDate;
     }

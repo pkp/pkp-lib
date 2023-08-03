@@ -16,12 +16,9 @@
 
 namespace PKP\pages\invitation;
 
-use APP\components\forms\submission\ReconfigureSubmission;
-use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
-use APP\template\TemplateManager;
 use PKP\invitation\invitations\BaseInvitation;
 use ReflectionClass;
 
@@ -50,7 +47,7 @@ class PKPInvitationHandler extends Handler
         $invitation->invitationDeclineHandle();
     }
 
-    private function getInvitationByKey(Request $request) : BaseInvitation
+    private function getInvitationByKey(Request $request): BaseInvitation
     {
         $key = $request->getUserVar('key')
             ? $request->getUserVar('key')
@@ -65,7 +62,7 @@ class PKPInvitationHandler extends Handler
         return $invitation;
     }
 
-    private function getInvitation(string $key) : ?BaseInvitation
+    private function getInvitation(string $key): ?BaseInvitation
     {
         $hashKey = md5($key);
         $invitation = Repo::invitation()
@@ -79,8 +76,8 @@ class PKPInvitationHandler extends Handler
             $invitation->markInvitationAsExpired();
             return null;
         }
-        
-        $className = $invitation->type;
+
+        $className = $invitation->class_name;
         $data = $invitation->payload;
 
         if (!class_exists($className)) {

@@ -22,7 +22,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\InteractsWithTime;
 use PKP\invitation\invitations\enums\InvitationStatus;
 use PKP\invitation\traits\Attributes;
-use PKP\job\casts\DatetimeToInt;
 
 class Invitation extends Model
 {
@@ -34,14 +33,14 @@ class Invitation extends Model
      *
      * @var string
      */
-    protected $table = 'access_keys';
+    protected $table = 'invitations';
 
     /**
      * Model's primary key
      *
      * @var string
      */
-    protected $primaryKey = 'access_key_id';
+    protected $primaryKey = 'invitation_id';
 
     /**
      * Model's timestamp fields
@@ -72,8 +71,8 @@ class Invitation extends Model
         'created_at' => 'datetime',
         'status' => 'int',
         'context_id' => 'int',
-        'type' => 'string',
-        'invitation_email' => 'string',
+        'class_name' => 'string',
+        'email' => 'string',
     ];
 
     /**
@@ -95,9 +94,9 @@ class Invitation extends Model
     /**
      * Add a local scope to get invitations that are of certain invitation type
      */
-    public function scopeByType(Builder $query, string $type): Builder
+    public function scopeByClassName(Builder $query, string $className): Builder
     {
-        return $query->where('type', '=', $type);
+        return $query->where('class_name', '=', $className);
     }
 
     /**
@@ -114,9 +113,9 @@ class Invitation extends Model
     public function scopeByEmail(Builder $query, ?string $email): Builder
     {
         if (is_null($email)) {
-            return $query->whereNull('invitation_email');
+            return $query->whereNull('email');
         } else {
-            return $query->where('invitation_email', '=', $email);
+            return $query->where('email', '=', $email);
         }
     }
 

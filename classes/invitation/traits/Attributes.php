@@ -17,7 +17,6 @@ declare(strict_types=1);
 namespace PKP\invitation\traits;
 
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Date;
 
 /**
  * Those attributes become from payload array
@@ -47,7 +46,7 @@ trait Attributes
 
     public function getIdAttribute(): string
     {
-        return $this->attributes['access_key_id'];
+        return $this->attributes['invitation_id'];
     }
 
     public function getAssocIdAttribute(): string

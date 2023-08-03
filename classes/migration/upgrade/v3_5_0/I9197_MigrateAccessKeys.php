@@ -14,8 +14,6 @@
 
 namespace PKP\migration\upgrade\v3_5_0;
 
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 use PKP\install\DowngradeNotSupportedException;
 
 class I9197_MigrateAccessKeys extends Migration
@@ -25,15 +23,7 @@ class I9197_MigrateAccessKeys extends Migration
      */
     public function up(): void
     {
-        Schema::table('access_keys', function (Blueprint $table) {
-            $table->json('payload')->nullable();
-            $table->integer('status')->default(0);
-            $table->string('type')->nullable();
-            $table->string('invitation_email')->nullable();
-            $table->string('context_id')->nullable();
-            $table->string('assoc_id')->nullable()->change();
-            $table->timestamps();
-        });
+        // FIXME: Needs migration added
     }
 
     /**

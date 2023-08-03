@@ -24,15 +24,30 @@ class InvitationsMigration extends \PKP\migration\Migration
      */
     public function up(): void
     {
-        Schema::create('access_keys', function (Blueprint $table) {
+        Schema::create('invitations', function (Blueprint $table) {
+            $table->comment('Invitations are sent to request a person (by email) to allow them to accept or reject an operation or position, such as a board membership or a submission peer review.');
+            $table->bigInteger('invitation_id')->autoIncrement();
+            $table->string('key_hash', 40);
+
+            $table->bigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'invitations_user_id');
+
+            $table->bigInteger('assoc_id')->nullable();
+            $table->datetime('expiry_date');
             $table->json('payload')->nullable();
-            $table->integer('status')->default(0);
-            $table->string('type')->nullable();
-            $table->string('invitation_email')->nullable();
-            $table->string('context_id')->nullable();
-            $table->string('assoc_id')->nullable();
+
+            $table->integer('status');
+            $table->string('class_name');
+            $table->string('email')->nullable()->comment('When present, the email address of the invitation recipient; when null, user_id must be set and the email can be fetched from the users table.');
+
+            $table->bigInteger('context_id')->nullable();
+            $contextDao = \APP\core\Application::getContextDAO();
+            $table->foreign('context_id', 'invitations_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
 
             $table->timestamps();
+
+            // FIXME: Needs indexes
         });
     }
 

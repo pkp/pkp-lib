@@ -21,7 +21,6 @@ use Carbon\Carbon;
 use DateTime;
 use Exception;
 use Illuminate\Mail\Mailable;
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
 use PKP\context\Context;
@@ -34,8 +33,6 @@ use Symfony\Component\Mailer\Exception\TransportException;
 
 abstract class BaseInvitation
 {
-    use SerializesModels;
-
     public const DEFAULT_EXPIRY_DAYS = 3;
 
     /**
@@ -58,8 +55,8 @@ abstract class BaseInvitation
         ?int $expiryDays = null
     ) {
         $expiryDays ??= Config::getVar('invitations', 'expiration_days', self::DEFAULT_EXPIRY_DAYS);
-        $this->expirationDate = Carbon::now()->addDays($expiryDays)->toDateTime();
-        $this->className = get_class($this);
+        $this->expirationDate = Carbon::now()->addDays($expiryDays);
+        $this->className = $this::class;
     }
 
     public function getPayload()
@@ -164,17 +161,17 @@ abstract class BaseInvitation
         }
 
         $invitationModelData = [
-            'key_hash' => $this->keyHash,
-            'user_id' => $this->userId,
-            'assoc_id' => $this->assocId,
-            'expiry_date' => $this->expirationDate->getTimestamp(),
+            'keyHash' => $this->keyHash,
+            'userId' => $this->userId,
+            'assocId' => $this->assocId,
+            'expiryDate' => $this->expirationDate,
             'payload' => $this->getPayload(),
-            'created_at' => Carbon::now()->timestamp,
-            'updated_at' => Carbon::now()->timestamp,
+            'createdAt' => Carbon::now(),
+            'updatedAt' => Carbon::now(),
             'status' => InvitationStatus::PENDING,
-            'class_name' => $this->className,
+            'className' => $this->className,
             'email' => $this->email,
-            'context_id' => $this->contextId
+            'contextId' => $this->contextId
         ];
 
         $invitationModel = Invitation::create($invitationModelData);
@@ -207,10 +204,13 @@ abstract class BaseInvitation
             'mailable',
             'context',
             'userId',
+            'assocId',
             'key',
             'keyHash',
             'expirationDate',
-            'className'
+            'className',
+            'email',
+            'contextId',
         ];
     }
 

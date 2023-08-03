@@ -20,7 +20,6 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use PKP\invitation\invitations\BaseInvitation;
-use ReflectionClass;
 
 class PKPInvitationHandler extends Handler
 {
@@ -77,36 +76,13 @@ class PKPInvitationHandler extends Handler
             return null;
         }
 
-        $className = $invitation->class_name;
-        $data = $invitation->payload;
+        $className = $invitation->className;
 
         if (!class_exists($className)) {
             return null; // Class does not exist
         }
 
-        $reflectionClass = new ReflectionClass($className);
-
-        // Get the constructor parameters
-        $constructor = $reflectionClass->getConstructor();
-        $constructorParameters = $constructor ? $constructor->getParameters() : [];
-
-        $arguments = [];
-        foreach ($constructorParameters as $parameter) {
-            $parameterName = $parameter->getName();
-            if (array_key_exists($parameterName, $data)) {
-                $arguments[] = $data[$parameterName];
-            } else {
-                if ($parameter->isDefaultValueAvailable()) {
-                    $arguments[] = $parameter->getDefaultValue();
-                } else {
-                    // Unable to reconstruct object if required parameter value is missing
-                    return null;
-                }
-            }
-        }
-
-        $retInvitation = $reflectionClass->newInstanceArgs($arguments);
-
+        $retInvitation = new $className(...$invitation->payload);
         $retInvitation->setInvitationModel($invitation);
 
         return $retInvitation;

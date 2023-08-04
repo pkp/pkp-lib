@@ -47,7 +47,7 @@ class FieldAutosuggestPreset extends FieldBaseAutosuggest
             $selected = [];
             foreach ($this->locales as $locale) {
                 if (array_key_exists($locale['key'], $this->value)) {
-                    $config['selected'][$locale['key']] = array_map([$this, 'mapSelected'], (array) $this->value[$locale['key']]);
+                    $config['selected'][$locale['key']] = array_map($this->mapSelected(...), (array) $this->value[$locale['key']]);
                 } else {
                     $config['selected'][$locale['key']] = [];
                 }
@@ -55,7 +55,7 @@ class FieldAutosuggestPreset extends FieldBaseAutosuggest
             return $selected;
         }
 
-        return array_map([$this, 'mapSelected'], $this->value);
+        return array_map($this->mapSelected(...), $this->value);
     }
 
     /**

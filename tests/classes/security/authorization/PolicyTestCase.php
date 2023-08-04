@@ -86,7 +86,7 @@ abstract class PolicyTestCase extends PKPTestCase
                 ->getMock();
             $policy->expects($this->any())
                 ->method('effect')
-                ->will($this->returnCallback([$this, 'mockEffect']));
+                ->will($this->returnCallback($this->mockEffect(...)));
             $this->authorizationContextManipulationPolicy = $policy;
         }
         return $this->authorizationContextManipulationPolicy;

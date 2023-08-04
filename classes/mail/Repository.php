@@ -19,9 +19,12 @@ use Illuminate\Support\Collection;
 use PKP\context\Context;
 use PKP\core\PKPString;
 use PKP\mail\mailables\DecisionNotifyOtherAuthors;
+use PKP\mail\mailables\EditReviewNotify;
+use PKP\mail\mailables\ReviewCompleteNotifyEditors;
 use PKP\mail\mailables\StatisticsReportNotify;
 use PKP\mail\mailables\SubmissionAcknowledgement;
 use PKP\mail\mailables\SubmissionAcknowledgementNotAuthor;
+use PKP\mail\traits\Configurable;
 use PKP\plugins\Hook;
 
 class Repository
@@ -34,14 +37,23 @@ class Repository
      *
      * @return Collection<int,string> The fully-qualified class name of each mailable
      */
-    public function getMany(Context $context, ?string $searchPhrase = null, ?bool $includeDisabled = false): Collection
+    public function getMany(
+        Context $context,
+        ?string $searchPhrase = null,
+        ?bool $includeDisabled = false,
+        ?bool $includeConfigurableOnly = false
+    ): Collection
     {
         $mailables = $this->map();
         Hook::call('Mailer::Mailables', [$mailables, $context]);
 
-        return $mailables->filter(fn (string $class) => !$searchPhrase || $this->containsSearchPhrase($class, $searchPhrase))
+        return $mailables
+            ->filter(fn (string $class) => !$searchPhrase || $this->containsSearchPhrase($class, $searchPhrase))
             ->filter(function (string $class) use ($context, $includeDisabled) {
                 return $includeDisabled || $this->isMailableEnabled($class, $context);
+            })
+            ->filter(function (string $class) use ($context, $includeConfigurableOnly) {
+                return !$includeConfigurableOnly || $this->isMailableConfigurable($class, $context);
             });
     }
 
@@ -159,6 +171,26 @@ class Repository
         } elseif ($class === DecisionNotifyOtherAuthors::class) {
             return $context->getData('notifyAllAuthors');
         }
+        return true;
+    }
+
+    /**
+     * Check if mailable can be configured
+     */
+    protected function isMailableConfigurable(string $class, Context $context): bool
+    {
+        if (!in_array(Configurable::class, class_uses_recursive($class))) {
+            return false;
+        }
+
+        // Mailables may not have associated email templates due to pkp/pkp-lib#9109, don't allow to configure them
+        if ($class == EditReviewNotify::class || $class == ReviewCompleteNotifyEditors::class) {
+            $template = Repo::emailTemplate()->getByKey($context->getId(), $class::getEmailTemplateKey());
+            if (!$template) {
+                return false;
+            }
+        }
+
         return true;
     }
 

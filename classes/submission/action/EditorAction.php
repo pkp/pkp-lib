@@ -232,21 +232,23 @@ class EditorAction
             $accessKeyManager = new AccessKeyManager();
             $expiryDays = ($context->getData('numWeeksPerReview') + 4) * 7;
             $accessKey = $accessKeyManager->createKey($context->getId(), $reviewer->getId(), $reviewAssignment->getId(), $expiryDays);
-            $mailable->addData([
-                ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL => PKPApplication::get()->getDispatcher()->url(
-                    PKPApplication::get()->getRequest(),
-                    PKPApplication::ROUTE_PAGE,
-                    $context->getData('urlPath'),
-                    'reviewer',
-                    'submission',
-                    null,
-                    [
-                        'submissionId' => $reviewAssignment->getSubmissionId(),
-                        'reviewId' => $reviewAssignment->getId(),
-                        'key' => $accessKey,
-                    ]
-                )
-            ]);
+            $mailable->buildViewDataUsing(function () use ($context, $reviewAssignment, $accessKey) {
+                return [
+                    ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL => PKPApplication::get()->getDispatcher()->url(
+                        PKPApplication::get()->getRequest(),
+                        PKPApplication::ROUTE_PAGE,
+                        $context->getData('urlPath'),
+                        'reviewer',
+                        'submission',
+                        null,
+                        [
+                            'submissionId' => $reviewAssignment->getSubmissionId(),
+                            'reviewId' => $reviewAssignment->getId(),
+                            'key' => $accessKey,
+                        ]
+                    )
+                ];
+            });
         }
 
         $mailable

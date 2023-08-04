@@ -49,16 +49,16 @@ abstract class I7191_SubmissionChecklistMigration extends \PKP\migration\Migrati
                         ->delete();
                     return;
                 }
-                $checklist = json_decode($row->setting_value);
+                $checklist = json_decode($row->setting_value, true);
 
-                usort($checklist, fn ($a, $b) => ($a->order ?? 0) <=> ($b->order ?? 0));
+                usort($checklist, fn ($a, $b) => ($a['order'] ?? 0) <=> ($b['order'] ?? 0));
 
                 $textList = [];
                 foreach ($checklist as $item) {
-                    if (!property_exists($item, 'content')) {
+                    if (!isset($item['content'])) {
                         continue;
                     }
-                    $textList[] = $item->content;
+                    $textList[] = $item['content'];
                 }
 
                 Locale::setLocale($row->locale);

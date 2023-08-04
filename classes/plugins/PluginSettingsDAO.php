@@ -39,7 +39,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
         return $settingCache[(int) $contextId][$pluginName] ??= CacheManager::getManager()->getCache(
             'pluginSettings-' . $contextId,
             $pluginName,
-            [$this, '_cacheMiss']
+            $this->_cacheMiss(...)
         );
     }
 

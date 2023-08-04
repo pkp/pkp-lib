@@ -139,23 +139,23 @@ abstract class PKPStatsPublicationService
         $metricsByType = $metricsQB->get()->toArray();
 
         $abstractViews = $pdfViews = $htmlViews = $otherViews = $suppFileViews = 0;
-        $abstractRecord = array_filter($metricsByType, [$this, 'filterRecordAbstract']);
+        $abstractRecord = array_filter($metricsByType, $this->filterRecordAbstract(...));
         if (!empty($abstractRecord)) {
             $abstractViews = (int) current($abstractRecord)->metric;
         }
-        $pdfRecord = array_filter($metricsByType, [$this, 'filterRecordPdf']);
+        $pdfRecord = array_filter($metricsByType, $this->filterRecordPdf(...));
         if (!empty($pdfRecord)) {
             $pdfViews = (int) current($pdfRecord)->metric;
         }
-        $htmlRecord = array_filter($metricsByType, [$this, 'filterRecordHtml']);
+        $htmlRecord = array_filter($metricsByType, $this->filterRecordHtml(...));
         if (!empty($htmlRecord)) {
             $htmlViews = (int) current($htmlRecord)->metric;
         }
-        $otherRecord = array_filter($metricsByType, [$this, 'filterRecordOther']);
+        $otherRecord = array_filter($metricsByType, $this->filterRecordOther(...));
         if (!empty($otherRecord)) {
             $otherViews = (int) current($otherRecord)->metric;
         }
-        $suppFileRecord = array_filter($metricsByType, [$this, 'filterRecordSuppFile']);
+        $suppFileRecord = array_filter($metricsByType, $this->filterRecordSuppFile(...));
         if (!empty($suppFileRecord)) {
             $suppFileViews = (int) current($suppFileRecord)->metric;
         }

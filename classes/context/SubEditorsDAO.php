@@ -218,7 +218,7 @@ class SubEditorsDAO extends \PKP\db\DAO
         /** @var StageAssignmentDAO $stageAssignmentDao */
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
         foreach ($assignments as $assignment) {
-            $userGroup = $userGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() === $assignment->userGroupId);
+            $userGroup = $userGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() == $assignment->userGroupId);
             $stageAssignmentDao->build($submission->getId(), $assignment->userGroupId, $assignment->userId, $userGroup->getRecommendOnly());
         }
 

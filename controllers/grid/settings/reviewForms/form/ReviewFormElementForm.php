@@ -153,7 +153,7 @@ class ReviewFormElementForm extends Form
 
         if (in_array($this->getData('elementType'), $reviewFormElement->getMultipleResponsesElementTypes())) {
             $this->setData('possibleResponsesProcessed', $reviewFormElement->getPossibleResponses(null));
-            ListbuilderHandler::unpack($request, $this->getData('possibleResponses'), [$this, 'deleteEntry'], [$this, 'insertEntry'], [$this, 'updateEntry']);
+            ListbuilderHandler::unpack($request, $this->getData('possibleResponses'), $this->deleteEntry(...), $this->insertEntry(...), $this->updateEntry(...));
             $reviewFormElement->setPossibleResponses($this->getData('possibleResponsesProcessed'), null);
         } else {
             $reviewFormElement->setPossibleResponses(null, null);

@@ -149,7 +149,7 @@ class FilterTest extends PKPTestCase
         // Set the filter processor.
         $mockFilter->expects($this->any())
             ->method('process')
-            ->will($this->returnCallback([$this, 'processCallback']));
+            ->will($this->returnCallback($this->processCallback(...)));
 
         return $mockFilter;
     }

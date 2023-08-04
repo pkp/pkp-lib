@@ -34,7 +34,7 @@ class FormValidatorCustomTest extends PKPTestCase
     public function testIsValid()
     {
         $form = new Form('some template');
-        $validationFunction = [$this, 'userValidationFunction'];
+        $validationFunction = $this->userValidationFunction(...);
 
         // Tests are completely bypassed when the validation type is
         // "optional" and the test field is empty. We make sure this is the

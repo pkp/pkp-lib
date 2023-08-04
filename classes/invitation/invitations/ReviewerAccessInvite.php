@@ -37,7 +37,6 @@ class ReviewerAccessInvite extends BaseInvitation
      */
     public function __construct(
         public ?int $invitedUserId, 
-        ?string $email, 
         int $contextId, 
         public int $reviewAssignmentId
     )
@@ -47,7 +46,7 @@ class ReviewerAccessInvite extends BaseInvitation
 
         $expiryDays = ($this->context->getData('numWeeksPerReview') + 4) * 7;
 
-        parent::__construct($invitedUserId, $email, $contextId, $reviewAssignmentId, $expiryDays);
+        parent::__construct($invitedUserId, null, $contextId, $reviewAssignmentId, $expiryDays);
 
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $this->reviewAssignment = $reviewAssignmentDao->getById($reviewAssignmentId);
@@ -122,7 +121,7 @@ class ReviewerAccessInvite extends BaseInvitation
         // Check if the user is already logged in
         $sessionManager = SessionManager::getManager();
         $session = $sessionManager->getUserSession();
-        if ($session->getUserId() != $this->userId) {
+        if ($session->getUserId() && $session->getUserId() != $this->userId) {
             return false;
         }
 

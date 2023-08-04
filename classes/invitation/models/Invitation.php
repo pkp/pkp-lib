@@ -72,6 +72,7 @@ class Invitation extends Model
         'contextId' => 'int',
         'className' => 'string',
         'email' => 'string',
+        'id' => 'int',
     ];
 
     protected $hidden = [
@@ -83,6 +84,7 @@ class Invitation extends Model
         'created_at',
         'context_id',
         'class_name',
+        'invitation_id',
     ];
 
     public function keyHash(): Attribute
@@ -147,6 +149,13 @@ class Invitation extends Model
             set: fn ($value) => ['class_name' => $value]
         );
     }
+    public function id(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($user, $attributes) => $attributes['invitation_id'],
+            set: fn ($value) => ['invitation_id' => $value]
+        );
+    }
 
     /**
      * Add a local scope to get invitations with certain key_hash
@@ -206,7 +215,7 @@ class Invitation extends Model
     public function markAs(InvitationStatus $status): void
     {
         $this->update([
-            'updated_at' => $this->currentTime(),
+            'updated_at' => Carbon::now(),
             'status' => $status
         ]);
     }

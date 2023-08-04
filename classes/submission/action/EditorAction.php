@@ -231,7 +231,6 @@ class EditorAction
         if ($context->getData('reviewerAccessKeysEnabled')) {
             $reviewInvitation = new ReviewerAccessInvite(
                 $reviewAssignment->getReviewerId(), 
-                null, 
                 $context->getId(), 
                 $reviewAssignment->getId()
             );

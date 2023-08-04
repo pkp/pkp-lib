@@ -85,8 +85,7 @@ class ValidateRegisteredEmail
         }
 
         $reviewInvitation = new RegistrationAccessInvite(
-            $event->recipient->getId(), 
-            null, 
+            $event->recipient->getId(),
             $contextId
         );
         $reviewInvitation->setMailable($mailable);

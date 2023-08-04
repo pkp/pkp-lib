@@ -27,7 +27,7 @@ class InvitationsMigration extends \PKP\migration\Migration
         Schema::create('invitations', function (Blueprint $table) {
             $table->comment('Invitations are sent to request a person (by email) to allow them to accept or reject an operation or position, such as a board membership or a submission peer review.');
             $table->bigInteger('invitation_id')->autoIncrement();
-            $table->string('key_hash', 40);
+            $table->string('key_hash', 255);
 
             $table->bigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');

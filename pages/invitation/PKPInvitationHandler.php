@@ -51,8 +51,13 @@ class PKPInvitationHandler extends Handler
         $key = $request->getUserVar('key')
             ? $request->getUserVar('key')
             : null;
+        
+        $id = $request->getUserVar('id')
+            ? $request->getUserVar('id')
+            : null;
 
-        $invitation = Repo::invitation()->getByKey($key);
+        $invitation = Repo::invitation()
+            ->getByIdAndKey($id, $key);
 
         if (is_null($invitation)) {
             $request->getDispatcher()->handle404();

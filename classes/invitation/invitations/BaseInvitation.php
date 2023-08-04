@@ -29,6 +29,7 @@ use PKP\invitation\invitations\enums\InvitationStatus;
 use PKP\invitation\models\Invitation;
 use PKP\pages\invitation\PKPInvitationHandler;
 use PKP\security\Validation;
+use ReflectionClass;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 abstract class BaseInvitation
@@ -42,6 +43,8 @@ abstract class BaseInvitation
     private string $keyHash;
     public string $key;
     public DateTime $expirationDate;
+
+    private int $id;
 
     protected ?Mailable $mailable = null;
     protected ?Context $context = null;
@@ -60,13 +63,24 @@ abstract class BaseInvitation
 
     public function getPayload(): array
     {
-        $vars = get_object_vars($this);
+        $values = [];
 
-        foreach ($this->getExcludedPayloadVariables() as $excludedPayloadVariable) {
-            unset($vars[$excludedPayloadVariable]);
+        $reflection = new ReflectionClass($this->className);
+        $constructor = $reflection->getConstructor();
+
+        if ($constructor) {
+            // If the constructor exists, get its parameters
+            $parameters = $constructor->getParameters();
+
+            // Loop through the parameters and get their values from the object
+            foreach ($parameters as $parameter) {
+                $propertyName = $parameter->getName();
+                $propertyValue = $reflection->getProperty($propertyName)->getValue($this);
+                $values[$propertyName] = $propertyValue;
+            }
         }
 
-        return $vars;
+        return $values;
     }
 
     public function markStatus(InvitationStatus $status): void
@@ -105,6 +119,7 @@ abstract class BaseInvitation
                 PKPInvitationHandler::REPLY_OP_ACCEPT,
                 null,
                 [
+                    'id' => $this->getId(),
                     'key' => $this->key,
                 ]
             );
@@ -121,6 +136,7 @@ abstract class BaseInvitation
                 PKPInvitationHandler::REPLY_OP_DECLINE,
                 null,
                 [
+                    'id' => $this->getId(),
                     'key' => $this->key,
                 ]
             );
@@ -141,7 +157,9 @@ abstract class BaseInvitation
             $this->keyHash = self::makeKeyHash($this->key);
         }
 
-        Repo::invitation()->addInvitation($this);
+        $invitationId = Repo::invitation()->addInvitation($this);
+
+        $this->setId($invitationId);
 
         $mailable = $this->getMailable();
 
@@ -191,6 +209,11 @@ abstract class BaseInvitation
         $this->keyHash = $keyHash;
     }
 
+    public function getKeyHash(): string
+    {
+        return $this->keyHash;
+    }
+
     public function setExpirationDate(Carbon $expirationDate): void
     {
         $this->expirationDate = $expirationDate;
@@ -200,6 +223,7 @@ abstract class BaseInvitation
     {
         $this->keyHash = $invitationModel->keyHash;
         $this->expirationDate = $invitationModel->expiryDate;
+        $this->id = $invitationModel->id;
     }
 
     /**
@@ -219,5 +243,15 @@ abstract class BaseInvitation
     static public function makeKeyHash($key): string
     {
         return password_hash($key, PASSWORD_BCRYPT);
+    }
+
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 }

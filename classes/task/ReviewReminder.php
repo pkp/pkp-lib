@@ -75,7 +75,6 @@ class ReviewReminder extends ScheduledTask
         if ($reviewerAccessKeysEnabled) { // Give one-click access if enabled
             $reviewInvitation = new ReviewerAccessInvite(
                 $reviewAssignment->getReviewerId(), 
-                null, 
                 $context->getId(), 
                 $reviewAssignment->getId()
             );

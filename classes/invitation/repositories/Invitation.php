@@ -55,12 +55,15 @@ class Invitation extends BaseRepository
         return $this->constructBOFromModel($invitationModel);
     }
 
-    public function getByKey($key): ?BaseInvitation
+    public function getByIdAndKey(int $id, string $key): ?BaseInvitation
     {
-        $keyHash = BaseInvitation::makeKeyHash($key);
-        $invitation = $this->getByKeyHash($keyHash);
+        $invitation = $this->get($id);
 
         if (is_null($invitation)) {
+            return null;
+        }
+
+        if (!password_verify($key, $invitation->keyHash)) {
             return null;
         }
 
@@ -107,7 +110,7 @@ class Invitation extends BaseRepository
         $className = $invitationModel->className;
 
         if (!class_exists($className)) {
-            return null; // Class does not exist
+            throw new \Exception("The class name does not exist. Invitation can't be created");
         }
 
         $retInvitation = new $className(...$invitationModel->payload);
@@ -116,10 +119,10 @@ class Invitation extends BaseRepository
         return $retInvitation;
     }
 
-    public function addInvitation(BaseInvitation $invitationBO)
+    public function addInvitation(BaseInvitation $invitationBO): int
     {
         $invitationModelData = [
-            'keyHash' => $invitationBO->keyHash,
+            'keyHash' => $invitationBO->getKeyHash(),
             'userId' => $invitationBO->userId,
             'assocId' => $invitationBO->assocId,
             'expiryDate' => $invitationBO->expirationDate,
@@ -132,6 +135,8 @@ class Invitation extends BaseRepository
             'contextId' => $invitationBO->contextId
         ];
 
-        $this->add($invitationModelData);
+        $model = $this->add($invitationModelData);
+
+        return $model->id;
     }
 }

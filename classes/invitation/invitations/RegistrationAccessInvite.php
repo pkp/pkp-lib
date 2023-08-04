@@ -34,13 +34,12 @@ class RegistrationAccessInvite extends BaseInvitation
      */
     public function __construct(
         public ?int $invitedUserId, 
-        ?string $email, 
         int $contextId
     )
     {
         $expiryDays = Config::getVar('email', 'validation_timeout');
 
-        parent::__construct($invitedUserId, $email, $contextId, null, $expiryDays);
+        parent::__construct($invitedUserId, null, $contextId, null, $expiryDays);
     }
 
     public function getMailable(): ?Mailable 

@@ -20,6 +20,7 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\plugins\Hook;
+use APP\core\Application;
 
 /**
  * @template T of Announcement
@@ -133,16 +134,17 @@ class Collector implements CollectorInterface
 
         if (isset($this->contextIds)) {
             $qb->whereIn('a.assoc_id', $this->contextIds);
+            $qb->where('a.assoc_type', Application::get()->getContextAssocType());
         }
 
         if (isset($this->typeIds)) {
             $qb->whereIn('a.type_id', $this->typeIds);
         }
 
-        if (isset($this->isActive)) {
+        $qb->when($this->isActive, fn($qb) => $qb->where(function($qb) {
             $qb->where('date_expire', '<=', $this->isActive)
-                ->orWhereNull('date_expire');
-        }
+                  ->orWhereNull('date_expire');
+        }));
 
         if ($this->searchPhrase !== null) {
             $words = explode(' ', $this->searchPhrase);

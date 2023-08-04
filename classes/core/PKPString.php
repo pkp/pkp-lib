@@ -17,6 +17,7 @@
 
 namespace PKP\core;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use PKP\config\Config;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
@@ -419,29 +420,7 @@ class PKPString
                 ->allowLinkSchemes(['https', 'http', 'mailto'])
                 ->allowMediaSchemes(['https', 'http']);
 
-            $allowedTagToAttributeMap = Str::of(Config::getVar('security', $configKey))
-                ->explode(',')
-                ->mapWithKeys(function(string $allowedTagWithAttr) {
-                    
-                    // Extract the tag itself (e.g. div, p, a ...)
-                    preg_match('/\[[^][]+]\K|\w+/', $allowedTagWithAttr, $matches);
-                    $allowedTag = collect($matches)->first();
-
-                    // Extract the attributes associated with tag (e.g. class, href ...)
-                    preg_match("/\[([^\]]*)\]/", $allowedTagWithAttr, $matches);
-                    $allowedAttributes = collect($matches)->last();
-
-                    if($allowedTag) {
-                        return [
-                            $allowedTag => Str::of($allowedAttributes)
-                                ->explode('|')
-                                ->filter()
-                                ->toArray()
-                        ];
-                    }
-            
-                    return [];
-                })
+            $allowedTagToAttributeMap = static::generateSanitizableAllowedTagToAttributeMap(Config::getVar('security', $configKey))
                 ->each(function(array $attributes, string $tag) use (&$config) {
                     $config = $config->allowElement($tag, $attributes);
                 });
@@ -458,6 +437,68 @@ class PKPString
                 strip_tags($input, $caches[$configKey]['allowedTagToAttributeMap']->keys()->toArray())
             )
         );
+    }
+
+    /**
+     * Sanitize HTML string based on given allowed tags with attributes
+     *
+     * @param string                                                    $input                       input string
+     * @param string                                                    $allowedTagsWithAttributes   Should be in format as 'a[href|target|title],em,strong,cite,...'
+     * @param \Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig|null $config
+     *
+     * @return string
+     */
+    public static function sanitizeHtmlString(string $input, string $allowedTagsWithAttributes, HtmlSanitizerConfig $config = null): string
+    {
+        $config ??= (new HtmlSanitizerConfig())
+            ->allowLinkSchemes(['https', 'http', 'mailto'])
+            ->allowMediaSchemes(['https', 'http']);
+
+        $allowedTagToAttributeMap = static::generateSanitizableAllowedTagToAttributeMap($allowedTagsWithAttributes)
+            ->each(function(array $attributes, string $tag) use (&$config) {
+                $config = $config->allowElement($tag, $attributes);
+            });
+        
+        return (new HtmlSanitizer($config))
+            ->sanitize(
+                strip_tags(
+                    $input, 
+                    $allowedTagToAttributeMap->keys()->toArray()
+                )
+            );
+    }
+
+    /**
+     * Generate the allowed tags to attributes map for sanitization process
+     *
+     * @param   string $allowedTagsWithAttributes   Should be in format as 'a[href|target|title],em,strong,cite,...'
+     * @return \Illuminate\Support\Collection
+     */
+    public static function generateSanitizableAllowedTagToAttributeMap(string $allowedTagsWithAttributes): Collection
+    {
+        return Str::of($allowedTagsWithAttributes)
+            ->explode(',')
+            ->mapWithKeys(function(string $allowedTagWithAttr) {
+                
+                // Extract the tag itself (e.g. div, p, a ...)
+                preg_match('/\[[^][]+]\K|\w+/', $allowedTagWithAttr, $matches);
+                $allowedTag = collect($matches)->first();
+
+                // Extract the attributes associated with tag (e.g. class, href ...)
+                preg_match("/\[([^\]]*)\]/", $allowedTagWithAttr, $matches);
+                $allowedAttributes = collect($matches)->last();
+
+                if($allowedTag) {
+                    return [
+                        $allowedTag => Str::of($allowedAttributes)
+                            ->explode('|')
+                            ->filter()
+                            ->toArray()
+                    ];
+                }
+        
+                return [];
+            });
     }
 
     /**

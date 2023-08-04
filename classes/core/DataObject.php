@@ -49,10 +49,27 @@ class DataObject
     public $_injectionAdaptersLoaded = false;
 
     /**
+     * Cached locale precedence on a single reqyest life cycle
+     * 
+     * @var null|array 
+     */
+    private static $localePrecedence = null;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
+    }
+
+    /**
+     * Reset/Clear the locale precedence during a single request life cycle
+     * 
+     * @return void
+     */
+    public static function resetLocalePrecedence(): void
+    {
+        static::$localePrecedence = null;
     }
 
 
@@ -68,8 +85,7 @@ class DataObject
      */
     public function getLocalizedData($key, $preferredLocale = null)
     {
-        $localePrecedence = $this->_getLocalePrecedence();
-        foreach ($localePrecedence as $locale) {
+        foreach ($this->_getLocalePrecedence() as $locale) {
             $value = & $this->getData($key, $locale);
             if (!empty($value)) {
                 return $value;
@@ -96,22 +112,22 @@ class DataObject
      */
     private function _getLocalePrecedence(): array
     {
-        static $localePrecedence;
-        if (!isset($localePrecedence)) {
+        if (!isset(static::$localePrecedence)) {
             $request = Application::get()->getRequest();
-            $localePrecedence = [Locale::getLocale()];
+            static::$localePrecedence = [Locale::getLocale()];
 
             $context = $request->getContext();
-            if ($context && !in_array($context->getPrimaryLocale(), $localePrecedence)) {
-                $localePrecedence[] = $context->getPrimaryLocale();
+            if ($context && !in_array($context->getPrimaryLocale(), static::$localePrecedence)) {
+                static::$localePrecedence[] = $context->getPrimaryLocale();
             }
 
             $site = $request->getSite();
-            if ($site && !in_array($site->getPrimaryLocale(), $localePrecedence)) {
-                $localePrecedence[] = $site->getPrimaryLocale();
+            if ($site && !in_array($site->getPrimaryLocale(), static::$localePrecedence)) {
+                static::$localePrecedence[] = $site->getPrimaryLocale();
             }
         }
-        return $localePrecedence;
+        
+        return static::$localePrecedence;
     }
 
     /**

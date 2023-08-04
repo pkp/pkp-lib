@@ -29,6 +29,7 @@ use DirectoryIterator;
 use Illuminate\Support\Facades\Cache;
 use InvalidArgumentException;
 use PKP\config\Config;
+use PKP\core\DataObject;
 use PKP\core\PKPRequest;
 use PKP\facades\Repo;
 use PKP\i18n\interfaces\LocaleInterface;
@@ -141,6 +142,9 @@ class Locale implements LocaleInterface
             }
             $locale = $this->getPrimaryLocale();
         }
+
+        // Need to reset the locale static cache of locale precedence
+        DataObject::resetLocalePrecedence();
 
         $this->locale = $locale;
         setlocale(LC_ALL, "{$locale}.utf-8", $locale);

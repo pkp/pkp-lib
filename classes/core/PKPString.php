@@ -442,22 +442,32 @@ class PKPString
     /**
      * Sanitize HTML string based on given allowed tags with attributes
      *
-     * @param string                                                    $input                       input string
-     * @param string                                                    $allowedTagsWithAttributes   Should be in format as 'a[href|target|title],em,strong,cite,...'
-     * @param \Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig|null $config
+     * @param string                                                $input                       input string
+     * @param string                                                $allowedTagsWithAttributes   Should be in format as 'a[href|target|title],em,strong,cite,...'
+     * @param \Symfony\Component\HtmlSanitizer\HtmlSanitizer|null   $sanitizer
      *
      * @return string
      */
-    public static function sanitizeHtmlString(string $input, string $allowedTagsWithAttributes, HtmlSanitizerConfig $config = null): string
+    public static function sanitizeHtmlString(string $input, string $allowedTagsWithAttributes, HtmlSanitizer $sanitizer = null): string
     {
-        $config ??= (new HtmlSanitizerConfig())
+        $allowedTagToAttributeMap = static::generateSanitizableAllowedTagToAttributeMap($allowedTagsWithAttributes);
+
+        if ($sanitizer) {
+            return $sanitizer->sanitize(
+                strip_tags(
+                    $input, 
+                    $allowedTagToAttributeMap->keys()->toArray()
+                )
+            );
+        }
+
+        $config = (new HtmlSanitizerConfig())
             ->allowLinkSchemes(['https', 'http', 'mailto'])
             ->allowMediaSchemes(['https', 'http']);
 
-        $allowedTagToAttributeMap = static::generateSanitizableAllowedTagToAttributeMap($allowedTagsWithAttributes)
-            ->each(function(array $attributes, string $tag) use (&$config) {
-                $config = $config->allowElement($tag, $attributes);
-            });
+        $allowedTagToAttributeMap->each(function(array $attributes, string $tag) use (&$config) {
+            $config = $config->allowElement($tag, $attributes);
+        });
         
         return (new HtmlSanitizer($config))
             ->sanitize(

@@ -68,8 +68,7 @@ class DataObject
      */
     public function getLocalizedData($key, $preferredLocale = null)
     {
-        $localePrecedence = $this->_getLocalePrecedence();
-        foreach ($localePrecedence as $locale) {
+        foreach (Locale::getLocalePrecedence() as $locale) {
             $value = & $this->getData($key, $locale);
             if (!empty($value)) {
                 return $value;
@@ -86,32 +85,6 @@ class DataObject
         }
 
         return null;
-    }
-
-    /**
-     * Get the stack of "important" locales, most important first.
-
-     *
-     * @return string[]
-     */
-    private function _getLocalePrecedence(): array
-    {
-        static $localePrecedence;
-        if (!isset($localePrecedence)) {
-            $request = Application::get()->getRequest();
-            $localePrecedence = [Locale::getLocale()];
-
-            $context = $request->getContext();
-            if ($context && !in_array($context->getPrimaryLocale(), $localePrecedence)) {
-                $localePrecedence[] = $context->getPrimaryLocale();
-            }
-
-            $site = $request->getSite();
-            if ($site && !in_array($site->getPrimaryLocale(), $localePrecedence)) {
-                $localePrecedence[] = $site->getPrimaryLocale();
-            }
-        }
-        return $localePrecedence;
     }
 
     /**

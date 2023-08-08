@@ -47,12 +47,53 @@ abstract class BaseJob implements ShouldQueue
      */
     public $queue;
 
+    /**
+     * The number of times the job may be attempted.
+     *
+     * @var int
+     */
+    public $tries = 3;
+
+    /**
+     * The number of SECONDS to wait before retrying the job.
+     *
+     * @var int
+     */
+    public $backoff = 5;
+
+    /**
+     * The maximum number of SECONDS a job should get processed before consider failed
+     *
+     * @var int
+     */
+    public $timeout = 120;
+
+    /**
+     * The maximum number of unhandled exceptions to allow before failing.
+     *
+     * @var int
+     */
+    public $maxExceptions = 3;
+
+    /**
+     * Indicate if the job should be marked as failed on timeout.
+     *
+     * @var bool
+     */
+    public $failOnTimeout = true;
+
+    /**
+     * Initiate the job
+     */
     public function __construct()
     {
         $this->connection = $this->defaultConnection();
         $this->queue = Config::getVar('queues', 'default_queue', 'queue');
     }
 
+    /**
+     * Get the queue job default connection to execute
+     */
     protected function defaultConnection(): string
     {
         if (Application::isUnderMaintenance()) {
@@ -62,5 +103,8 @@ abstract class BaseJob implements ShouldQueue
         return Config::getVar('queues', 'default_connection', 'database');
     }
 
+    /**
+     * handle the queue job execution process
+     */
     abstract public function handle();
 }

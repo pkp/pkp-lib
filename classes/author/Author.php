@@ -25,50 +25,11 @@ use PKP\identity\Identity;
 class Author extends Identity
 {
     /**
-     * Get a piece of data for this object, localized to the current
-     * locale if possible.
-     *
-     * @param string $key
-     * @param string $preferredLocale
+     * Get the default/fall back locale the values should exist for
      */
-    public function &getLocalizedData($key, $preferredLocale = null)
+    public function getDefaultLocale(): string
     {
-        if (is_null($preferredLocale)) {
-            $preferredLocale = Locale::getLocale();
-        }
-        $localePrecedence = [$preferredLocale];
-        // the submission locale is the default locale
-        if (!in_array($this->getSubmissionLocale(), $localePrecedence)) {
-            $localePrecedence[] = $this->getSubmissionLocale();
-        }
-        // for settings other than givenName, familyName and affiliation (that are required)
-        // consider also the application primary locale
-        if (!in_array(Locale::getPrimaryLocale(), $localePrecedence)) {
-            $localePrecedence[] = Locale::getPrimaryLocale();
-        }
-        foreach ($localePrecedence as $locale) {
-            if (empty($locale)) {
-                continue;
-            }
-            $value = & $this->getData($key, $locale);
-            if (!empty($value)) {
-                return $value;
-            }
-            unset($value);
-        }
-
-        // Fallback: Get the first available piece of data.
-        $data = & $this->getData($key, null);
-        foreach ((array) $data as $dataValue) {
-            if (!empty($dataValue)) {
-                return $dataValue;
-            }
-        }
-
-        // No data available; return null.
-        unset($data);
-        $data = null;
-        return $data;
+        return $this->getSubmissionLocale();
     }
 
     /**
@@ -93,19 +54,6 @@ class Author extends Identity
         }
         // Fall back on the submission locale.
         return $this->getFamilyName($this->getSubmissionLocale());
-    }
-
-    /**
-     * @copydoc Identity::getFullName()
-     *
-     * @param null|mixed $defaultLocale
-     */
-    public function getFullName($preferred = true, $familyFirst = false, $defaultLocale = null)
-    {
-        if (!isset($defaultLocale)) {
-            $defaultLocale = $this->getSubmissionLocale();
-        }
-        return parent::getFullName($preferred, $familyFirst, $defaultLocale);
     }
 
     //

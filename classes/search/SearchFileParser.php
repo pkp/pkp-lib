@@ -72,7 +72,7 @@ class SearchFileParser
     public function open()
     {
         if (!($this->fp = @fopen($this->filePath, 'rb'))) {
-            throw new Exception("Failed to parse the file \"{$this->filePath}\"\nLast error: " . error_get_last());
+            throw new Exception("Failed to parse the file \"{$this->filePath}\". Last error: " . error_get_last());
         }
         return true;
     }

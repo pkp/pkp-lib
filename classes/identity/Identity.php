@@ -30,6 +30,16 @@ class Identity extends \PKP\core\DataObject
     public const IDENTITY_SETTING_FAMILYNAME = 'familyName';
 
     /**
+     * Get the default/fall back locale the values should exist for
+     */
+    public function getDefaultLocale(): string
+    {
+        // The users register for the site, thus
+        // the site primary locale is the default locale
+        return Application::get()->getRequest()->getSite()->getPrimaryLocale();
+    }
+
+    /**
      * Get a piece of data for this object, localized to the current
      * locale if possible.
      *
@@ -42,11 +52,9 @@ class Identity extends \PKP\core\DataObject
             $preferredLocale = Locale::getLocale();
         }
         $localePrecedence = [$preferredLocale];
-        // the users register for the site, thus
-        // the site primary locale is the default locale
-        $site = Application::get()->getRequest()->getSite();
-        if (!in_array($site->getPrimaryLocale(), $localePrecedence)) {
-            $localePrecedence[] = $site->getPrimaryLocale();
+        $defaultLocale = $this->getDefaultLocale();
+        if (!in_array($defaultLocale, $localePrecedence)) {
+            $localePrecedence[] = $defaultLocale;
         }
         // for settings other than givenName, familyName and affiliation (that are required for registration)
         // consider also the context primary locale
@@ -85,13 +93,11 @@ class Identity extends \PKP\core\DataObject
      * @param bool $preferred If the preferred public name should be used, if exist
      * @param bool $familyFirst False / default: Givenname Familyname
      * 	If true: Familyname, Givenname
-     * @param string $defaultLocale
-     *
-     * @return string
+     * @param string $preferredLocale The locale the full name is requested for. If null, the user locale will be used.
      */
-    public function getFullName($preferred = true, $familyFirst = false, $defaultLocale = null)
+    public function getFullName(bool $preferred = true, bool $familyFirst = false, string $preferredLocale = null): string
     {
-        $locale = $defaultLocale ?? Locale::getLocale();
+        $locale = $preferredLocale ?? Locale::getLocale();
         if ($preferred) {
             $preferredPublicName = $this->getPreferredPublicName($locale);
             if (!empty($preferredPublicName)) {
@@ -100,9 +106,7 @@ class Identity extends \PKP\core\DataObject
         }
         $givenName = $this->getGivenName($locale);
         if (empty($givenName)) {
-            // Fallback to the site's primary locale if no given name
-            // exists in the requested locale
-            $locale = Application::get()->getRequest()->getSite()->getPrimaryLocale();
+            $locale = $this->getDefaultLocale();
             $givenName = $this->getGivenName($locale);
         }
         $familyName = $this->getFamilyName($locale);

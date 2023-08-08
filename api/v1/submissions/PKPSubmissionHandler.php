@@ -34,7 +34,6 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
-use PKP\facades\Locale;
 use PKP\handler\APIHandler;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\PublicationVersionNotify;
@@ -730,7 +729,7 @@ class PKPSubmissionHandler extends APIHandler
                 'isTranslated' => false,
                 'dateLogged' => Core::getCurrentDate(),
                 'username' => $user->getUsername(),
-                'userFullName' => $user->getFullName(true, false, Locale::getLocale()),
+                'userFullName' => $user->getFullName(),
                 'copyrightNotice' => $context->getData('copyrightNotice'),
             ]);
 

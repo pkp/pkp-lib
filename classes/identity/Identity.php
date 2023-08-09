@@ -118,6 +118,35 @@ class Identity extends \PKP\core\DataObject
     }
 
     /**
+     * Get the identity's all complete names.
+     * Includes given name and family name.
+     *
+     * @param bool $preferred If the preferred public name should be used, if exist
+     * @param bool $familyFirst False / default: Givenname Familyname
+     * 	If true: Familyname, Givenname
+     */
+    public function getFullNames(bool $preferred = true, bool $familyFirst = false): array
+    {
+        if ($preferred) {
+            $preferredPublicNames = $this->getPreferredPublicName(null);
+            if (!empty($preferredPublicNames)) {
+                return $preferredPublicNames;
+            }
+        }
+        $fullNames = [];
+        $givenNames = $this->getGivenName(null);
+        foreach ($givenNames as $locale => $givenName) {
+            $familyName = $this->getFamilyName($locale);
+            if ($familyFirst) {
+                $fullNames[$locale] = ($familyName != '' ? "{$familyName}, " : '') . $givenName;
+            } else {
+                $fullNames[$locale] = $givenName . ($familyName != '' ? " {$familyName}" : '');
+            }
+        }
+        return $fullNames;
+    }
+
+    /**
      * Get given name.
      *
      * @param string $locale

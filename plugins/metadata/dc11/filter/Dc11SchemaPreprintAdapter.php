@@ -83,7 +83,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
 
         // Creator
         foreach ($publication->getData('authors') as $author) {
-            $dc11Description->addStatement('dc:creator', $author->getFullName(false, true));
+            $this->_addLocalizedElements($dc11Description, 'dc:creator', $author->getFullNames(false, true));
         }
 
         // Subject

@@ -6,7 +6,7 @@
 	http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
 	<dc:title xml:lang="en">preprint-title-en</dc:title>
 	<dc:title xml:lang="de">preprint-title-de</dc:title>
-	<dc:creator>author-lastname, author-firstname</dc:creator>
+	<dc:creator xml:lang="en">author-lastname, author-firstname</dc:creator>
 	<dc:subject xml:lang="en">preprint-keyword</dc:subject>
 	<dc:subject xml:lang="en">preprint-subject</dc:subject>
 	<dc:subject xml:lang="en">preprint-subject-class</dc:subject>

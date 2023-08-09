@@ -45,7 +45,7 @@ class PKPDc11Schema extends MetadataSchema
         );
 
         $this->addProperty('dc:title', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
-        $this->addProperty('dc:creator', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, false, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
+        $this->addProperty('dc:creator', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
         $this->addProperty('dc:subject', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
         $this->addProperty('dc:description', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);
         $this->addProperty('dc:publisher', MetadataProperty::METADATA_PROPERTY_TYPE_STRING, true, MetadataProperty::METADATA_PROPERTY_CARDINALITY_MANY);

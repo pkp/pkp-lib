@@ -68,7 +68,7 @@ class APIHandler extends PKPHandler
                 
                 $response = (new Pipeline(PKPContainer::getInstance()))
                     ->send(app(\Illuminate\Http\Request::class))
-                    ->through(PKPRoutingProvider::getGlobalRouteMiddlewares())
+                    ->through(PKPRoutingProvider::getGlobalRouteMiddleware())
                     ->via('handle')
                     ->then(function ($request) {
                         return app('router')->dispatch($request);
@@ -106,8 +106,6 @@ class APIHandler extends PKPHandler
                         : Response::HTTP_INTERNAL_SERVER_ERROR)
                 )->send();
             }
-
-            return;
         }
 
         $this->_app = new App([

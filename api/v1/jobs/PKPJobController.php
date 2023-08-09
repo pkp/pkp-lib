@@ -15,9 +15,8 @@
  *
  */
 
- namespace PKP\API\v1\jobs;
+namespace PKP\API\v1\jobs;
 
-use Closure;
 use APP\facades\Repo;
 use PKP\security\Role;
 use Illuminate\Http\Request;
@@ -28,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 
 class PKPJobController extends PKPBaseController
 {
-    public function nonContextualApi(): bool
+    public function isSiteWide(): bool
     {
         return true;
     }
@@ -38,7 +37,7 @@ class PKPJobController extends PKPBaseController
         return 'jobs';
     }
 
-    public function getRouteGroupMiddlewares(): array
+    public function getRouteGroupMiddleware(): array
     {
         $roles = implode('|', [Role::ROLE_ID_SITE_ADMIN]);
 
@@ -48,25 +47,22 @@ class PKPJobController extends PKPBaseController
         ];
     }
 
-    public function getGroupRoutesCallback(): Closure
-    {
-        return function() {
-            
-            Route::get('all', [static::class, 'getJobs'])
-                ->name('getJobs');
-            
-            Route::get('failed/all', [static::class, 'getFailedJobs'])
-                ->name('getFailedJobs');
-            
-            Route::post('redispatch/all', [static::class, 'redispatchAllFailedJob'])
-                ->name('redispatchAllFailedJob');
+    public function getGroupRoutes(): Void
+    {       
+        Route::get('all', $this->getJobs(...))
+            ->name('getJobs');
+        
+        Route::get('failed/all', $this->getFailedJobs(...))
+            ->name('getFailedJobs');
+        
+        Route::post('redispatch/all', $this->redispatchAllFailedJob(...))
+            ->name('redispatchAllFailedJob');
 
-            Route::post('redispatch/{jobId}', [static::class, 'redispatchFailedJob'])
-                ->name('redispatchFailedJob');
-            
-            Route::delete('failed/delete/{jobId}', [static::class, 'deleteFailedJob'])
-                ->name('deleteFailedJob');
-        };
+        Route::post('redispatch/{jobId}', $this->redispatchFailedJob(...))
+            ->name('redispatchFailedJob');
+        
+        Route::delete('failed/delete/{jobId}', $this->deleteFailedJob(...))
+            ->name('deleteFailedJob');
     }
 
     /**

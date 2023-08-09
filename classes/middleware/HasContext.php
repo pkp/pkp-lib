@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PKP\middlewares;
+namespace PKP\middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use PKP\user\User;
+use PKP\context\Context;
 
-class HasUser
+class HasContext
 {
     /**
      * 
@@ -21,14 +21,14 @@ class HasUser
      */
     public function handle(Request $request, Closure $next)
     {
-        $user = $request->user();
-
-        if ($user && $user instanceof User ) {
+        $context = $request->attributes->get('context', null);
+        
+        if ($context instanceof Context) {
             return $next($request);
         }
 
         return response()->json([
-            'error' => __('api.403.unauthorized'),
-        ], Response::HTTP_UNAUTHORIZED);
+            'error' => __('api.404.resourceNotFound')
+        ], Response::HTTP_NOT_FOUND);
     }
 }

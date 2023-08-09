@@ -2,34 +2,33 @@
 
 namespace PKP\core;
 
-use PKP\core\PKPContainer;
 use Illuminate\Http\Request;
-use PKP\middlewares\HasUser;
-use PKP\middlewares\HasRoles;
 use Illuminate\Routing\Router;
-use PKP\middlewares\HasContext;
 use Illuminate\Routing\UrlGenerator;
-use PKP\middlewares\AllowCrossOrigin;
-use PKP\middlewares\ValidateCsrfToken;
-use PKP\middlewares\RemoveTrailingSlash;
-use Psr\Http\Message\ServerRequestInterface;
 use Illuminate\Routing\RoutingServiceProvider;
-use PKP\middlewares\DecodeApiTokenWithValidation;
-use PKP\middlewares\SetupContextBasedOnRequestUrl;
 use Illuminate\Foundation\Http\Middleware\TrimStrings;
 use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
 use Illuminate\Contracts\Routing\UrlGenerator as UrlGeneratorContract;
+use PKP\core\PKPContainer;
+use PKP\middleware\HasUser;
+use PKP\middleware\HasRoles;
+use PKP\middleware\HasContext;
+use PKP\middleware\AllowCrossOrigin;
+use PKP\middleware\ValidateCsrfToken;
+use Psr\Http\Message\ServerRequestInterface;
+use PKP\middleware\DecodeApiTokenWithValidation;
+use PKP\middleware\SetupContextBasedOnRequestUrl;
+
 
 class PKPRoutingProvider extends RoutingServiceProvider
 {
-    protected static $globalMiddlewares = [
+    protected static $globalMiddleware = [
         AllowCrossOrigin::class,
         SetupContextBasedOnRequestUrl::class,
         DecodeApiTokenWithValidation::class,
         ValidateCsrfToken::class,
-        RemoveTrailingSlash::class,
         ValidatePostSize::class,
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,
@@ -39,15 +38,15 @@ class PKPRoutingProvider extends RoutingServiceProvider
      * The application's route middleware.
      * These middleware can/should be assigned to specific routes or routes groups individually.
      */
-    protected array $routeMiddlewares = [
+    protected array $routeMiddleware = [
         'has.roles'     => HasRoles::class,
         'has.user'      => HasUser::class,
         'has.context'   => HasContext::class,
     ];
 
-    public static function getGlobalRouteMiddlewares(): array
+    public static function getGlobalRouteMiddleware(): array
     {
-        return self::$globalMiddlewares;
+        return self::$globalMiddleware;
     }
 
     /**
@@ -57,17 +56,11 @@ class PKPRoutingProvider extends RoutingServiceProvider
      */
     public function register()
     {
-        $this->registerRouter();
-        $this->registerRouteMiddlewares();
+        parent::register();
+
+        $this->registerRouteMiddleware();
         $this->registerRoutePatterns();
-        $this->registerUrlGenerator();
-        $this->registerRedirector();
         $this->registerResponseBindings();
-        $this->registerPsrRequest();
-        $this->registerPsrResponse();
-        $this->registerResponseFactory();
-        $this->registerCallableDispatcher();
-        $this->registerControllerDispatcher();
     }
 
     public function registerRouter(): void
@@ -79,11 +72,11 @@ class PKPRoutingProvider extends RoutingServiceProvider
         });
     }
 
-    public function registerRouteMiddlewares(): void
+    public function registerRouteMiddleware(): void
     {
         $router = app('router'); /** @var \Illuminate\Routing\Router $router */
 
-        foreach ($this->routeMiddlewares as $key => $middleware) {
+        foreach ($this->routeMiddleware as $key => $middleware) {
             $router->aliasMiddleware($key, $middleware);
         }
     }

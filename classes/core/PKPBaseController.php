@@ -19,14 +19,14 @@ abstract class PKPBaseController extends Controller
         return null;
     }
 
-    public function nonContextualApi(): bool
+    public function isSiteWide(): bool
     {
         return false;
     }
 
     abstract public function getHandlerPath(): string;
 
-    abstract public function getRouteGroupMiddlewares(): array;
+    abstract public function getRouteGroupMiddleware(): array;
 
-    abstract public function getGroupRoutesCallback(): Closure;
+    abstract public function getGroupRoutes(): void;
 }

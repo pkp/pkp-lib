@@ -10,12 +10,12 @@ class PKPApiRoutingHandler extends APIHandler
     {
         $this->_pathPattern = $controller->getPathPattern();
         $this->_handlerPath = $controller->getHandlerPath();
-        $this->_apiForAdmin = $controller->nonContextualApi();
+        $this->_apiForAdmin = $controller->isSiteWide();
 
         app('router')->group([
             'prefix' => $this->getEndpointPattern(),
-            'middleware' => $controller->getRouteGroupMiddlewares(),
-        ], $controller->getGroupRoutesCallback());
+            'middleware' => $controller->getRouteGroupMiddleware(),
+        ], $controller->getGroupRoutes(...));
 
         parent::__construct();
     }

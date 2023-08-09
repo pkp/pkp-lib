@@ -19,7 +19,6 @@ namespace PKP\API\v1\users;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use Closure;
 use Exception;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use PKP\core\PKPBaseController;
@@ -38,7 +37,7 @@ class UserController extends PKPBaseController
         return 'users';
     }
 
-    public function getRouteGroupMiddlewares(): array
+    public function getRouteGroupMiddleware(): array
     {
         $roles = implode('|', [
             Role::ROLE_ID_SITE_ADMIN, 
@@ -53,22 +52,19 @@ class UserController extends PKPBaseController
         ];
     }
 
-    public function getGroupRoutesCallback(): Closure
-    {
-        return function() {
-            
-            Route::get('reviewers', [static::class, 'getReviewers'])
-                ->name('getReviewers');
+    public function getGroupRoutes(): void
+    {       
+        Route::get('reviewers', $this->getReviewers(...))
+            ->name('getReviewers');
 
-            Route::get('report', [static::class, 'getReport'])
-                ->name('getReport');
+        Route::get('report', $this->getReport(...))
+            ->name('getReport');
 
-            Route::get('{userId}', [static::class, 'get'])
-                ->name('getUser');
+        Route::get('{userId}', $this->get(...))
+            ->name('getUser');
 
-            Route::get('', [static::class, 'getMany'])
-                ->name('getManyUsers');
-        };
+        Route::get('', $this->getMany(...))
+            ->name('getManyUsers');
     }
 
     /**

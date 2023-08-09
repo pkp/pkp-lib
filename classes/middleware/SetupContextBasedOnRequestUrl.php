@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PKP\middlewares;
+namespace PKP\middleware;
 
 use APP\core\Application;
 use Closure;

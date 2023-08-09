@@ -136,10 +136,13 @@ class SearchFileParser
      */
     public static function fromFileType($type, $path)
     {
-        $type = Config::getVar('search', "index[{$type}]")
-            ? 'process'
-            : (Config::hasVar('search', "index[{$type}]") ? 'disabled' : $type);
-        return match ($type) {
+        if (Config::getVar('search', "index[{$type}]")) {
+            $parserType = 'process';
+        } else {
+            // If an indexer definition exists, but its value is falsy, we assume the user wants to disable the default handler
+            $parserType = Config::hasVar('search', "index[{$type}]") ? 'disabled' : $type;
+        }
+        return match ($parserType) {
             // External process
             'process' => new SearchHelperParser($type, $path),
             // Text processor

@@ -455,7 +455,7 @@ abstract class PKPStatsEditorialQueryBuilder
     public function countImported()
     {
         return $this->_getBaseQuery()
-            ->where(DB::raw('CAST(s.date_submitted AS DATE)'), '>', 'pi.date_published')
+            ->where(DB::raw('CAST(s.date_submitted AS DATE)'), '>', DB::raw('pi.date_published'))
             ->when($this->dateStart, fn (Builder $q) => $q->where('s.date_submitted', '>=', $this->dateStart))
             ->when($this->dateEnd, fn (Builder $q) => $q->where('s.date_submitted', '<=', $this->dateEnd))
             ->count();

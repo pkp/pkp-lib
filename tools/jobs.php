@@ -321,18 +321,18 @@ class commandJobs extends CommandLineTool
     /**
      * Get table format for list view
      */
-    protected function getListTableFromat(): array
+    protected function getListTableFormat(): array
     {
-        $listforFailedJobs = in_array('--failed', $this->getparameterList());
+        $listForFailedJobs = in_array('--failed', $this->getParameterList());
 
         return [
             [
                 new TableCell(
-                    $listforFailedJobs
+                    $listForFailedJobs
                         ? __('admin.cli.tool.jobs.queued.jobs.failed.title')
                         : __('admin.cli.tool.jobs.queued.jobs.title'),
                     [
-                        'colspan' => $listforFailedJobs ? 6 : 7,
+                        'colspan' => $listForFailedJobs ? 6 : 7,
                         'style' => new TableCellStyle(['align' => 'center'])
                     ]
                 )
@@ -341,7 +341,7 @@ class commandJobs extends CommandLineTool
                 __('admin.cli.tool.jobs.queued.jobs.fields.id'),
                 __('admin.cli.tool.jobs.queued.jobs.fields.queue'),
                 __('admin.cli.tool.jobs.queued.jobs.fields.job.display.name'),
-            ], $listforFailedJobs ? [
+            ], $listForFailedJobs ? [
                 __('admin.cli.tool.jobs.queued.jobs.fields.connection'),
                 __('admin.cli.tool.jobs.queued.jobs.fields.failed.at'),
                 __('admin.cli.tool.jobs.queued.jobs.fields.exception'),

@@ -154,7 +154,10 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
             }
         }
 
-        // In new submission lists this endpoint is dedicated to retrieve all submissions only by admins and managers
+        /**
+         * FIXME: Clean up before release pkp/pkp-lib#7495.
+         * In new submission lists this endpoint is dedicated to retrieve all submissions only by admins and managers
+         */
         if (!Config::getVar('features', 'enable_new_submission_listing')) {
 
             // Anyone not a manager or site admin can only access their assigned submissions

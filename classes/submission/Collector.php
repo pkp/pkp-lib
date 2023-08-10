@@ -442,7 +442,7 @@ abstract class Collector implements CollectorInterface
         }
 
         if ($this->isReviewedBy !== null) {
-            // TODO consider review round and other criteria
+            // TODO consider review round and other criteria; refactor query builder to use ->when
             $q->when($this->isReviewedBy === self::UNASSIGNED, function (Builder $q) {
                 $q->leftJoin('review_assignments AS ra', 'ra.submission_id', '=', 's.submission_id')
                     ->whereIn('s.stage_id', [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW])

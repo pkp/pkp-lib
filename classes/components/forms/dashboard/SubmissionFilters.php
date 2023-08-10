@@ -53,7 +53,7 @@ class SubmissionFilters extends FormComponent
         ;
     }
 
-    protected function isManager(): bool
+    protected function isManagerOrAdmin(): bool
     {
         return !empty(
             array_intersect(
@@ -89,7 +89,7 @@ class SubmissionFilters extends FormComponent
 
     protected function addAssignedTo(): self
     {
-        if (!$this->isManager()) {
+        if (!$this->isManagerOrAdmin()) {
             return $this;
         }
 

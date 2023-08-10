@@ -17,5 +17,6 @@
 		{{ submission.publications[0].authorsStringShort }}
 	</span>
 	<template v-if="submission.publications[0].authorsStringShort">—</template>
+	{* FIXME replace with the localized value *}
 	{{ submission.publications[0].fullTitle.en }}
 </td>

@@ -337,12 +337,12 @@ class DashboardHandlerNext extends Handler
     protected function getColumns(): array
     {
         $columns = [
-            new Column('id', __('common.id'), 'dashboard/column-id.tpl', true),
-            new Column('title', __('navigation.submissions'), 'dashboard/column-title.tpl'),
-            new Column('stage', __('workflow.stage'), 'dashboard/column-stage.tpl'),
-            new Column('days', __('editor.submission.days'), 'dashboard/column-days.tpl'),
-            new Column('activity', __('stats.editorialActivity'), 'dashboard/column-activity.tpl'),
-            new Column(
+            $this->createColumn('id', __('common.id'), 'dashboard/column-id.tpl', true),
+            $this->createColumn('title', __('navigation.submissions'), 'dashboard/column-title.tpl'),
+            $this->createColumn('stage', __('workflow.stage'), 'dashboard/column-stage.tpl'),
+            $this->createColumn('days', __('editor.submission.days'), 'dashboard/column-days.tpl'),
+            $this->createColumn('activity', __('stats.editorialActivity'), 'dashboard/column-activity.tpl'),
+            $this->createColumn(
                 'actions',
                 '<span class="-screenReader">' . __('admin.jobs.list.actions') . '</span>',
                 'dashboard/column-actions.tpl'
@@ -354,5 +354,21 @@ class DashboardHandlerNext extends Handler
         Hook::call('Dashboard::columns', [&$columns, $userRoles]);
 
         return $columns;
+    }
+
+    /**
+     * Creates a new table column
+     */
+    protected function createColumn(string $id, string $header, string $template, bool $sortable = false): object
+    {
+        return new class($id, $header, $template, $sortable)
+        {
+            public function __construct(
+                public string $id,
+                public string $header,
+                public string $template,
+                public bool $sortable,
+            ) {}
+        };
     }
 }

@@ -17,8 +17,6 @@
 namespace PKP\handler;
 
 use APP\core\Application;
-use Illuminate\Http\JsonResponse;
-
 use APP\core\Request;
 use APP\core\Services;
 use Illuminate\Http\Response;

@@ -7,43 +7,43 @@
  *
  * Dashboard index.
  *}
-{extends file="layouts/backend.tpl"}
+ {extends file="layouts/backend.tpl"}
 
-{block name="page"}
-	<h1 class="app__pageHeading">
-		{translate key="navigation.submissions"}
-	</h1>
-
-	<tabs :track-history="true">
-		<tab id="myQueue" label="{translate key="dashboard.myQueue"}" :badge="components.{$smarty.const.SUBMISSIONS_LIST_MY_QUEUE}.itemsMax">
-			{help file="submissions" class="pkp_help_tab"}
-			<submissions-list-panel
-				v-bind="components.{$smarty.const.SUBMISSIONS_LIST_MY_QUEUE}"
-				@set="set"
-			/>
-		</tab>
-		{if array_intersect(array(\PKP\security\Role::ROLE_ID_SITE_ADMIN, \PKP\security\Role::ROLE_ID_MANAGER), (array)$userRoles)}
-			<tab id="unassigned" label="{translate key="common.queue.long.submissionsUnassigned"}" :badge="components.{$smarty.const.SUBMISSIONS_LIST_UNASSIGNED}.itemsMax">
-				{help file="submissions" section="unassigned" class="pkp_help_tab"}
-				<submissions-list-panel
-					v-bind="components.{$smarty.const.SUBMISSIONS_LIST_UNASSIGNED}"
-					@set="set"
-				/>
-			</tab>
-			<tab id="active" label="{translate key="common.queue.long.active"}" :badge="components.{$smarty.const.SUBMISSIONS_LIST_ACTIVE}.itemsMax">
-				{help file="submissions" section="active" class="pkp_help_tab"}
-				<submissions-list-panel
-					v-bind="components.{$smarty.const.SUBMISSIONS_LIST_ACTIVE}"
-					@set="set"
-				/>
-			</tab>
-		{/if}
-		<tab id="archive" label="{translate key="submissions.archived"}" :badge="components.{$smarty.const.SUBMISSIONS_LIST_ARCHIVE}.itemsMax">
-			{help file="submissions" section="archives" class="pkp_help_tab"}
-			<submissions-list-panel
-				v-bind="components.{$smarty.const.SUBMISSIONS_LIST_ARCHIVE}"
-				@set="set"
-			/>
-		</tab>
-	</tabs>
-{/block}
+ {block name="page"}
+     <h1 class="app__pageHeading">
+         {translate key="navigation.submissions"}
+     </h1>
+ 
+     <tabs :track-history="true">
+         <tab id="myQueue" label="{translate key="dashboard.myQueue"}" :badge="components.{$smarty.const.SUBMISSIONS_LIST_MY_QUEUE}.itemsMax">
+             {help file="submissions" class="pkp_help_tab"}
+             <submissions-list-panel
+                 v-bind="components.{$smarty.const.SUBMISSIONS_LIST_MY_QUEUE}"
+                 @set="set"
+             />
+         </tab>
+         {if array_intersect(array(\PKP\security\Role::ROLE_ID_SITE_ADMIN, \PKP\security\Role::ROLE_ID_MANAGER), (array)$userRoles)}
+             <tab id="unassigned" label="{translate key="common.queue.long.submissionsUnassigned"}" :badge="components.{$smarty.const.SUBMISSIONS_LIST_UNASSIGNED}.itemsMax">
+                 {help file="submissions" section="unassigned" class="pkp_help_tab"}
+                 <submissions-list-panel
+                     v-bind="components.{$smarty.const.SUBMISSIONS_LIST_UNASSIGNED}"
+                     @set="set"
+                 />
+             </tab>
+             <tab id="active" label="{translate key="common.queue.long.active"}" :badge="components.{$smarty.const.SUBMISSIONS_LIST_ACTIVE}.itemsMax">
+                 {help file="submissions" section="active" class="pkp_help_tab"}
+                 <submissions-list-panel
+                     v-bind="components.{$smarty.const.SUBMISSIONS_LIST_ACTIVE}"
+                     @set="set"
+                 />
+             </tab>
+         {/if}
+         <tab id="archive" label="{translate key="submissions.archived"}" :badge="components.{$smarty.const.SUBMISSIONS_LIST_ARCHIVE}.itemsMax">
+             {help file="submissions" section="archives" class="pkp_help_tab"}
+             <submissions-list-panel
+                 v-bind="components.{$smarty.const.SUBMISSIONS_LIST_ARCHIVE}"
+                 @set="set"
+             />
+         </tab>
+     </tabs>
+ {/block}

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @defgroup pages_submissions Submissions editorial page
  */
@@ -19,5 +20,7 @@
 switch ($op) {
     case 'index':
     case 'tasks':
-        return new PKP\pages\dashboard\DashboardHandler();
+        return PKP\config\Config::getVar('features', 'enable_new_submission_listing') ?
+            new PKP\pages\dashboard\DashboardHandlerNext() :
+            new PKP\pages\dashboard\DashboardHandler();
 }

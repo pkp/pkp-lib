@@ -847,8 +847,10 @@ class PKPTemplateManager extends Smarty
             'common.filter',
             'common.filterAdd',
             'common.filterRemove',
+            'common.inParenthesis',
             'common.insertContent',
             'common.loading',
+            'common.loaded',
             'common.no',
             'common.noItemsFound',
             'common.none',
@@ -884,6 +886,7 @@ class PKPTemplateManager extends Smarty
             'form.multilingualLabel',
             'form.multilingualProgress',
             'form.saved',
+            'grid.action.sort',
             'help.help',
             'navigation.backTo',
             'validator.required'

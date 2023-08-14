@@ -290,6 +290,14 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     }
 
     /**
+     * Get the unique site ID
+     */
+    public function getUUID(): string
+    {
+        return $this->getRequest()->getSite()->getUniqueSiteID();
+    }
+
+    /**
      * Return a HTTP client implementation.
      *
      * @return Client

@@ -205,6 +205,9 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"uniqueSiteId": {
+			"type": "string"
 		}
 	}
 }

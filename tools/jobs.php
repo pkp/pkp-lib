@@ -24,12 +24,14 @@ use Carbon\Carbon;
 use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Contracts\Queue\Job;
+use Illuminate\Http\Request;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
 use Illuminate\Queue\Events\JobProcessing;
 use PKP\cliTool\CommandLineTool;
 use PKP\config\Config;
 use PKP\job\models\Job as PKPJobModel;
+use PKP\job\resources\CLIJobResource;
 use PKP\jobs\testJobs\TestJobFailure;
 use PKP\jobs\testJobs\TestJobSuccess;
 use PKP\queue\WorkerConfiguration;
@@ -279,7 +281,8 @@ class commandJobs extends CommandLineTool
 
         $this->total();
 
-        $this->getCommandInterface()->table($this->getListTableFromat(), $data->all());
+        $rows = array_map(fn (CLIJobResource $row) => $row->toArray(app(Request::class)), $data->all());
+        $this->getCommandInterface()->table($this->getListTableFormat(), $rows);
 
         $pagination = [
             'pagination' => [
@@ -318,18 +321,18 @@ class commandJobs extends CommandLineTool
     /**
      * Get table format for list view
      */
-    protected function getListTableFromat(): array
+    protected function getListTableFormat(): array
     {
-        $listforFailedJobs = in_array('--failed', $this->getparameterList());
+        $listForFailedJobs = in_array('--failed', $this->getParameterList());
 
         return [
             [
                 new TableCell(
-                    $listforFailedJobs
+                    $listForFailedJobs
                         ? __('admin.cli.tool.jobs.queued.jobs.failed.title')
                         : __('admin.cli.tool.jobs.queued.jobs.title'),
                     [
-                        'colspan' => $listforFailedJobs ? 6 : 7,
+                        'colspan' => $listForFailedJobs ? 6 : 7,
                         'style' => new TableCellStyle(['align' => 'center'])
                     ]
                 )
@@ -338,7 +341,7 @@ class commandJobs extends CommandLineTool
                 __('admin.cli.tool.jobs.queued.jobs.fields.id'),
                 __('admin.cli.tool.jobs.queued.jobs.fields.queue'),
                 __('admin.cli.tool.jobs.queued.jobs.fields.job.display.name'),
-            ], $listforFailedJobs ? [
+            ], $listForFailedJobs ? [
                 __('admin.cli.tool.jobs.queued.jobs.fields.connection'),
                 __('admin.cli.tool.jobs.queued.jobs.fields.failed.at'),
                 __('admin.cli.tool.jobs.queued.jobs.fields.exception'),

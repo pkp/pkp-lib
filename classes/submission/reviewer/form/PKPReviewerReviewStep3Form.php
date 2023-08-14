@@ -175,10 +175,8 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewAssignmentDao->updateObject($reviewAssignment);
 
-        // Notify editors
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
         $stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId());
-        $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewCompleteNotifyEditors::getEmailTemplateKey());
 
         $receivedList = []; // Avoid sending twice to the same user.
 
@@ -193,6 +191,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
                 continue;
             }
 
+            // Notify editors
             $notification = $notificationMgr->createNotification(
                 Application::get()->getRequest(),
                 $userId,
@@ -215,8 +214,20 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
                 continue;
             }
 
-            $user = Repo::user()->get($userId);
             $mailable = new ReviewCompleteNotifyEditors($context, $submission, $reviewAssignment);
+            $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewCompleteNotifyEditors::getEmailTemplateKey());
+
+            // The template may not exist, see pkp/pkp-lib#9109
+            if (!$template) {
+                $template = Repo::emailTemplate()->getByKey($context->getId(), 'NOTIFICATION');
+                $request = Application::get()->getRequest();
+                $mailable->addData([
+                    'notificationContents' => $notificationMgr->getNotificationContents($request, $notification),
+                    'notificationUrl' => $notificationMgr->getNotificationUrl($request, $notification),
+                ]);
+            }
+
+            $user = Repo::user()->get($userId);
             $mailable
                 ->from($context->getData('contactEmail'), $context->getData('contactName'))
                 ->recipients([$user])

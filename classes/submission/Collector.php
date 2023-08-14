@@ -38,6 +38,7 @@ abstract class Collector implements CollectorInterface
 {
     public const ORDERBY_DATE_PUBLISHED = 'datePublished';
     public const ORDERBY_DATE_SUBMITTED = 'dateSubmitted';
+    public const ORDERBY_ID = 'id';
     public const ORDERBY_LAST_ACTIVITY = 'lastActivity';
     public const ORDERBY_LAST_MODIFIED = 'lastModified';
     public const ORDERBY_SEQUENCE = 'sequence';
@@ -68,6 +69,7 @@ abstract class Collector implements CollectorInterface
 
     /** @var array|int */
     public $assignedTo = null;
+    public array|int|null $isReviewedBy = null;
 
     public function __construct(DAO $dao)
     {
@@ -202,6 +204,17 @@ abstract class Collector implements CollectorInterface
     }
 
     /**
+     * Limit results to submissions currently being reviewed by this users
+     *
+     * @param int|array|null $isReviewedBy An array of user IDs or self::UNASSIGNED to get unassigned submissions
+     */
+    public function isReviewedBy(int|array|null $isReviewedBy): AppCollector
+    {
+        $this->isReviewedBy = $isReviewedBy;
+        return $this;
+    }
+
+    /**
      * Limit results to submissions matching this search query
      */
     public function searchPhrase(?string $phrase): AppCollector
@@ -231,15 +244,6 @@ abstract class Collector implements CollectorInterface
 
     /**
      * Order the results
-     *
-     * The following column values are supported:
-     *
-     * - lastModified
-     * - dateLastActivity
-     * - title
-     * - seq (sequence)
-     * - DAO::ORDERBY_DATE_PUBLISHED
-     *
      * Results are ordered by the date submitted by default.
      *
      * @param string $sorter One of the self::ORDERBY_ constants
@@ -284,6 +288,9 @@ abstract class Collector implements CollectorInterface
             case self::ORDERBY_DATE_PUBLISHED:
                 $q->addSelect(['po.date_published']);
                 $q->orderBy('po.date_published', $this->orderDirection);
+                break;
+            case self::ORDERBY_ID;
+                $q->orderBy('s.submission_id', $this->orderDirection);
                 break;
             case self::ORDERBY_LAST_ACTIVITY:
                 $q->orderBy('s.date_last_activity', $this->orderDirection);
@@ -432,6 +439,15 @@ abstract class Collector implements CollectorInterface
         if (isset($this->categoryIds)) {
             $q->join('publication_categories as pc', 's.current_publication_id', '=', 'pc.publication_id')
                 ->whereIn('pc.category_id', $this->categoryIds);
+        }
+
+        if ($this->isReviewedBy !== null) {
+            // TODO consider review round and other criteria; refactor query builder to use ->when
+            $q->when($this->isReviewedBy === self::UNASSIGNED, function (Builder $q) {
+                $q->leftJoin('review_assignments AS ra', 'ra.submission_id', '=', 's.submission_id')
+                    ->whereIn('s.stage_id', [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW])
+                    ->whereNull('ra.submission_id');
+            });
         }
 
         // By any child pub object's DOI status

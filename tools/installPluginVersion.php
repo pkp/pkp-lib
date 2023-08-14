@@ -74,7 +74,7 @@ class InstallPluginVersionTool extends \PKP\cliTool\CommandLineTool
         $pluginPath = dirname($this->_descriptor);
         if (file_exists($wrapperName = "{$pluginPath}/index.php")) {
             // Old-style (non-FQCN) plugin class name
-            $plugin = include("{$pluginPath}/index.php");
+            $plugin = include($wrapperName);
         } else {
             // Expect a wrapper-less plugin in a namespace.
             $fqcn = '\\APP\\' . strtr($pluginVersion->getProductType(), '.', '\\') . '\\' . $pluginVersion->getProduct() . '\\' . $pluginVersion->getProductClassName();

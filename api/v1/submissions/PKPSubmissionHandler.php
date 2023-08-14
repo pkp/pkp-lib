@@ -21,7 +21,6 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
-use APP\log\event\SubmissionEventLogEntry;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\section\Section;

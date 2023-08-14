@@ -376,7 +376,7 @@ class UserDetailsForm extends UserForm
 
             if ($sendNotify) {
                 // Send welcome email to user
-                $mailable = new UserCreated($context);
+                $mailable = new UserCreated($context, $password);
                 $mailable->recipients($this->user);
                 $mailable->sender($request->getUser());
                 $mailable->replyTo($context->getData('contactEmail'), $context->getData('contactName'));

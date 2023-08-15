@@ -41,7 +41,7 @@ class Invitation extends BaseRepository
         return $this->model
             ->notHandled()
             ->certainKeyhash($keyHash)
-            ->firstOrFail();
+            ->first();
     }
 
     public function getBOByKeyHash($keyHash): ?BaseInvitation

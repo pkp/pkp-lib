@@ -68,7 +68,7 @@ class Invitation extends Model
         'expiryDate' => 'datetime',
         'updatedAt' => 'datetime',
         'createdAt' => 'datetime',
-        'status' => 'int',
+        'status' => 'string',
         'contextId' => 'int',
         'className' => 'string',
         'email' => 'string',
@@ -216,7 +216,7 @@ class Invitation extends Model
     {
         $this->update([
             'updated_at' => Carbon::now(),
-            'status' => $status
+            'status' => $status->value
         ]);
     }
 }

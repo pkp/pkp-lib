@@ -44,15 +44,26 @@ class I9197_MigrateAccessKeys extends Migration
             $table->datetime('expiry_date');
             $table->json('payload')->nullable();
 
-            $table->integer('status');
+            // The values are references to the enum InvitationStatus 
+            // InvitationStatus::PENDING, InvitationStatus::ACCEPTED, InvitationStatus::DECLINED
+            // InvitationStatus::EXPIRED, InvitationStatus::CANCELLED
+            $table->enum('status', 
+                [
+                    'PENDING', 
+                    'ACCEPTED', 
+                    'DECLINED', 
+                    'EXPIRED', 
+                    'CANCELLED'
+                ]
+            );
             $table->string('class_name');
             $table->string('email')->nullable()->comment('When present, the email address of the invitation recipient; when null, user_id must be set and the email can be fetched from the users table.');
 
             $table->bigInteger('context_id')->nullable();
 
             // We also need to consider context_id = 0 for site registration?
-            $contextDao = \APP\core\Application::getContextDAO();
-            $table->foreign('context_id', 'invitations_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            // $contextDao = \APP\core\Application::getContextDAO();
+            // $table->foreign('context_id', 'invitations_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
 
             $table->timestamps();
 

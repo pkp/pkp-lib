@@ -28,10 +28,8 @@ class BulkEmailSender extends BaseJob
 
     /**
      * The maximum number of SECONDS a job should get processed before consider failed
-     *
-     * @var int
      */
-    public $timeout = 270;
+    public int $timeout = 180;
 
     /**
      * The user ids to send email

@@ -28,15 +28,13 @@ class UpdateSubmissionSearchJob extends BaseJob
 {
     /**
      * The maximum number of SECONDS a job should get processed before consider failed
-     *
-     * @var int
      */
-    public $timeout = 270;
+    public int $timeout = 180;
     
     /**
-     * @var int The submission ID
+     * The submission ID
      */
-    protected $submissionId;
+    protected int $submissionId;
 
     /**
      * Create a new job instance.

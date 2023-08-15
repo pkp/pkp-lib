@@ -34,56 +34,32 @@ abstract class BaseJob implements ShouldQueue
     use SerializesModels;
 
     /**
-     * The name of the connection the job should be sent to.
-     *
-     * @var string|null
-     */
-    public $connection;
-
-    /**
-     * The queue's name where the job will be consumed
-     *
-     * @var string
-     */
-    public $queue;
-
-    /**
      * The number of times the job may be attempted.
-     *
-     * @var int
      */
-    public $tries = 3;
+    public int $tries = 3;
 
     /**
      * The number of SECONDS to wait before retrying the job.
-     *
-     * @var int
      */
-    public $backoff = 5;
+    public int $backoff = 5;
 
     /**
      * The maximum number of SECONDS a job should get processed before consider failed
-     *
-     * @var int
      */
-    public $timeout = 120;
+    public int $timeout = 60;
 
     /**
      * The maximum number of unhandled exceptions to allow before failing.
-     *
-     * @var int
      */
-    public $maxExceptions = 3;
+    public int $maxExceptions = 3;
 
     /**
      * Indicate if the job should be marked as failed on timeout.
-     *
-     * @var bool
      */
-    public $failOnTimeout = true;
+    public bool $failOnTimeout = true;
 
     /**
-     * Initiate the job
+     * Initialize the job
      */
     public function __construct()
     {

@@ -84,7 +84,7 @@ class EditorialReminder extends BaseJob
             $submission = Repo::submission()->get((int)$submissionId);
             $submissions[$submissionId] = $submission;
 
-            if ($submission->getData('stageId') === WORKFLOW_STAGE_ID_SUBMISSION) {
+            if ($submission->getData('stageId') == WORKFLOW_STAGE_ID_SUBMISSION) {
                 $outstanding[$submissionId] = __('editor.submission.status.waitingInitialReview');
                 continue;
             }

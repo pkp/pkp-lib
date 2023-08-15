@@ -274,7 +274,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
             if ($password) {
                 $template = Repo::emailTemplate()->getByKey($context->getId(), UserCreated::getEmailTemplateKey());
                 $sender = Application::get()->getRequest()->getUser();
-                $mailable = new UserCreated($context);
+                $mailable = new UserCreated($context, $password);
                 $mailable
                     ->recipients($user)
                     ->sender($sender)

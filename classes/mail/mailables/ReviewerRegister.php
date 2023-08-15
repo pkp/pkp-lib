@@ -45,9 +45,12 @@ class ReviewerRegister extends Mailable
     ];
     protected static ?string $variablePassword = 'password';
 
-    public function __construct(Context $context)
+    protected string $password;
+
+    public function __construct(Context $context, string $password)
     {
-        parent::__construct(func_get_args());
+        parent::__construct([$context]);
+        $this->password = $password;
     }
 
     /**
@@ -75,7 +78,7 @@ class ReviewerRegister extends Mailable
     {
         $this->traitRecipients([$recipient], $locale);
         $this->addData([
-            static::$variablePassword => $recipient->getPassword()
+            static::$variablePassword => htmlspecialchars($this->password)
         ]);
 
         return $this;

@@ -49,9 +49,9 @@ class UserCreated extends Mailable
     ];
     protected static ?string $variablePassword = 'password';
 
-    protected ?string $password;
+    protected string $password;
 
-    public function __construct(Context $context, string $password = null)
+    public function __construct(Context $context, string $password)
     {
         parent::__construct([$context]);
         $this->password = $password;
@@ -82,7 +82,7 @@ class UserCreated extends Mailable
     {
         $this->traitRecipients([$recipient], $locale);
         $this->addData([
-            static::$variablePassword => $this->password ?? $recipient->getPassword()
+            static::$variablePassword => htmlspecialchars($this->password)
         ]);
 
         return $this;

@@ -294,7 +294,16 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public function getUUID(): string
     {
-        return $this->getRequest()->getSite()->getUniqueSiteID();
+        $site = $this->getRequest()->getSite();
+        $uniqueSiteId = $site->getUniqueSiteID();
+        if (!strlen((string) $uniqueSiteId)) {
+            $uniqueSiteId = PKPString::generateUUID();
+            $site->setUniqueSiteID($uniqueSiteId);
+            /** @var SiteDAO */
+            $siteDao = DAORegistry::getDAO('SiteDAO');
+            $siteDao->updateObject($site);
+        }
+        return $uniqueSiteId;
     }
 
     /**

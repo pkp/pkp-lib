@@ -207,7 +207,10 @@
 			]
 		},
 		"uniqueSiteId": {
-			"type": "string"
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
 		}
 	}
 }

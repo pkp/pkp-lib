@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/upgrade/v3_4_0/I9136_MigrateUniqueSiteId.php
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2000-2023 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I9136_MigrateUniqueSiteId
@@ -29,12 +29,11 @@ class I9136_MigrateUniqueSiteId extends \PKP\migration\Migration
             ->where('setting_name', '=', 'uniqueSiteId')
             ->value('setting_value');
         if (is_null($newUniqueSiteId)) {
-            $uniqueSiteId = DB::table('plugin_settings')
+            $oldUniqueSiteId = DB::table('plugin_settings')
                 ->where('plugin_name', '=', 'usageeventplugin')
                 ->where('setting_name', '=', 'uniqueSiteId')
-                ->value('setting_value')
-                ??
-                PKPString::generateUUID();
+                ->value('setting_value');
+            $uniqueSiteId = is_null($oldUniqueSiteId) || strlen($oldUniqueSiteId) == 0 ? PKPString::generateUUID() : $oldUniqueSiteId;
             DB::table('site_settings')->insert([
                 'setting_name' => 'uniqueSiteId',
                 'setting_value' => $uniqueSiteId

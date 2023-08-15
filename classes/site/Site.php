@@ -239,7 +239,7 @@ class Site extends \PKP\core\DataObject
     /**
     * Get the unique site ID.
     */
-    public function getUniqueSiteID(): string
+    public function getUniqueSiteID(): ?string
     {
         return $this->getData('uniqueSiteId');
     }

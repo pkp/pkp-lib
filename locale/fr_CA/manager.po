@@ -1,13 +1,14 @@
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
+# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-08-01 12:52+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2023-08-16 10:37+0000\n"
+"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -269,7 +270,7 @@ msgid "manger.dois.update.success"
 msgstr "DOI(s) actualisé(s) avec succès"
 
 msgid "manager.dois.registration.depositDois"
-msgstr ""
+msgstr "Déposer les DOI(s)"
 
 msgid "manager.dois.status.needsDoi"
 msgstr "Sans DOI"
@@ -365,8 +366,11 @@ msgstr ""
 msgid "doi.exceptions.missingPrefix"
 msgstr "Un préfixe DOI est requis afin de créer un DOI."
 
+#, fuzzy
 msgid "manager.genres.alertDelete"
 msgstr ""
+"Avant que cette élément puisse être supprimé, vous devez associé tous les "
+"fichiers qui lui sont associés à un autre élément."
 
 msgid "manager.institutions.edit"
 msgstr "Modifier l'institution"
@@ -885,8 +889,14 @@ msgstr "Dépôt automatique"
 msgid "doi.manager.setup.automaticDeposit.enable"
 msgstr "Activer le dépôt automatique"
 
+#, fuzzy
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"L'enregistrement du DOI et ses métadonnées peuvent être déposés "
+"automatiquement auprès de l'agence d'enregistrement sélectionnée chaque fois "
+"qu'un élément comportant un DOI est publié. Le dépôt automatique a lieu à "
+"intervalles réguliers et l'état de l'enregistrement de chaque DOI peut être "
+"contrôlé à partir de la page de gestion des DOI."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
@@ -1113,8 +1123,9 @@ msgstr "Oui, envoyer une copie à {$email}"
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
 msgstr "Non"
 
+#, fuzzy
 msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr ""
+msgstr "Avertir tout le monde"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
@@ -1348,8 +1359,13 @@ msgstr ""
 "Le texte suivant est présenté à l'étape des détails, lorsque l'auteur-e doit "
 "fournir le titre, le résumé et les mots-clés de la soumission."
 
+#, fuzzy
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Ce qui suit est montré aux auteurs-trices pendant l'étape \"Pour les "
+"rédacteur\", lorsqu'il leur est demandé de fournir des métadonnées comme les "
+"mots clés, les commentaires aux rédacteurs ou tout autre détail pouvant "
+"aider dans l'évaluation éditoriale."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
@@ -1911,8 +1927,9 @@ msgstr ""
 "illustration » convient aux fichiers qui nécessitent des métadonnées "
 "distinctes d'attribution de crédits, de légende et de licence."
 
+#, fuzzy
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Obligatoire avec les soumissions"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
@@ -2848,13 +2865,13 @@ msgid "stats.timeline"
 msgstr "Chronologie"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "Le nombre de {$type} pour chaque {$interval}."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
 msgstr "Télécharger la chronologie"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Intervalle de temps"
 
 msgid "stats.timelineType"
 msgstr "Type de chronologie"
@@ -2863,7 +2880,7 @@ msgid "stats.total"
 msgstr "Total"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Unique"
 
 msgid "stats.totalWithinDateRange"
 msgstr "Total pour la période"
@@ -3060,11 +3077,19 @@ msgstr ""
 "a évalué votre soumission et vous n'aurez pas de contact direct avec les "
 "évaluateur.trice.s."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Cette revue utilise une évaluation \"évaluateur anonyme\". Votre nom et ceux "
+"de vos coauteurs-trices seront visibles aux évaluateurs-trices. Cependant, "
+"l'identité des évaluateurs-trices restera anonyme."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Cette revue pratique l'évaluation ouverte. Les évaluateurs-trices verront "
+"votre nom et affiliation aussi que ceux de vos coauteurs-trices. Vous serez "
+"en mesure de voir les noms et affiliations des évaluateurs."
 
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Le nom complet de l'expéditeur-trice"
@@ -3277,10 +3302,13 @@ msgstr ""
 "la révision."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Soumission renvoyée de l'étape de révision"
 
+#, fuzzy
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Ce courriel avise les auteurs-trices que leur soumission a été renvoyée de "
+"l'étape de révision vers celle d'évaluation."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
 msgstr "Cycle d'évaluation annulé"
@@ -3368,33 +3396,48 @@ msgstr ""
 msgid "mailable.decision.recommendation.notifyEditors.name"
 msgstr "Recommandation émise"
 
+#, fuzzy
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Ce message avise un-e rédacteur-trice ou un-e rédacteur-trice de rubrique "
+"qu'une recommandation éditoriale a été faite concernant l'une des "
+"soumissions qui leur est assignée. Ce message est utilisé lorsqu'un-e "
+"rédacteur-trice est autorisé à recommander une décision éditoriale et "
+"requiert qu'un-e rédacteur-trice autorisé enregistre une décision "
+"éditoriale. L'option peut être sélectionnée lors de l'assignation d'un-e "
+"rédacteur-trice à une soumission."
 
+#, fuzzy
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Évaluation confirmée"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
 "Ce courriel est envoyé automatiquement lorsque l'évaluateur-trice accepte "
 "une demande d'évaluation"
 
+#, fuzzy
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Évaluation refusée"
 
 msgid "mailable.reviewDecline.description"
 msgstr ""
 "Ce courriel est envoyé automatiquement lorsque l'évaluateur-trice refuse une "
 "demande d'évaluation"
 
+#, fuzzy
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Rappel d'évaluation"
 
+#, fuzzy
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Ce courriel est envoyé par un-e rédacteur-trice afi de rappeler à un-e "
+"évaluatrice que leur recommandation est due."
 
+#, fuzzy
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Rappel automatique d'évaluation"
 
 #, fuzzy
 msgid "mailable.reviewRemindAuto.description"
@@ -3413,8 +3456,9 @@ msgstr ""
 "Ce courriel est envoyé par un-e éditeur-trice afin de confirmer la réception "
 "de l'évaluation et remercier l'évaluateur-trice pour sa contribution."
 
+#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Rappel automatique pour une invitation à évaluer"
 
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
@@ -3440,8 +3484,9 @@ msgstr ""
 "Évaluation. (Autrement voir « Demande d'évaluation d'un article (en pièce "
 "jointe) ».) "
 
+#, fuzzy
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Demande d'évaluation (nouveau cycle)"
 
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
@@ -3455,11 +3500,12 @@ msgstr ""
 "Évaluation (Autrement voir « Demande d'évaluation d'un article (cycle "
 "subséquent) »)."
 
+#, fuzzy
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "La publication actuelle de la soumission est manquante"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "L'enfant de la soumission {$child} n'a pu être traité"
 
 msgid "mailable.editorialReminder.name"
 msgstr "Rappel éditorial"
@@ -3487,7 +3533,7 @@ msgstr ""
 "trice et de son mot de passe."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Inscription d'une évaluateur-trice"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
@@ -3500,6 +3546,8 @@ msgstr "Soumission incomplète sauvegardée"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Un courriel automatique envoyé aux auteurs-trices lorsqu'ils-elles "
+"enregistrent leur soumission pour la finaliser plus tard"
 
 msgid "mailable.submissionAck.name"
 msgstr "Confirmation de soumission"
@@ -3552,8 +3600,9 @@ msgstr ""
 "Ce courriel est envoyé lorsqu'une discussion ou un message sont ajoutés à "
 "l'étape de la production."
 
+#, fuzzy
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Notification de la version révisée"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3566,8 +3615,9 @@ msgstr "Nouvelle annonce"
 msgid "mailable.announcementNotify.description"
 msgstr "Ce courriel est envoyé lorsqu'une nouvelle annonce est créée."
 
+#, fuzzy
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Notification sur les rapports statistiques"
 
 msgid "mailable.editReviewNotify.name"
 msgstr ""
@@ -3580,58 +3630,75 @@ msgstr ""
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr ""
 
+#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Ce courriel est automatiquement envoyé aux rédacteurs-trices lorsqu'un-e "
+"évaluateur-trice a envoyé sa recommandation"
 
+#, fuzzy
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Source de l'authentification"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Soumission renvoyée à l'étape d'évaluation"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Ce courriel avise l'auteur-trice que sa soumission a été renvoyée à l'étape "
+"d'évaluation."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "Soumission renvoyée à l'étape de soumission"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Ce courriel avise l'auteur-trice que sa soumission a été renvoyée à l'étape "
+"de soumission."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Gérer les courriels"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
 "<p><a href=\"{$url}\">Ajouter et modifier les gabarits</a> pour tous les "
 "courriels envoyés par le système.</p>"
 
+#, fuzzy
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Ajouter ou modifier des gabarits que vous voulez rendre disponibles aux "
+"utilisateurs lorsqu'ils-elles envoient ce courriel. Le gabarit par défaut "
+"sera chargé automatiquement et l'utilisateur-trice sera capable de charger "
+"rapidement n'importe quel autre gabarit ayant été ajouté ici."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Gabarits"
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Modifier le gabarit"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Supprimer le gabarit"
 
 msgid "manager.mailables.removeTemplate.confirm"
 msgstr ""
+"Êtes-vous sûr de vouloir supprimer le gabarit <strong>{$template}</strong>?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Réinitialiser le gabarit"
 
+#, fuzzy
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Êtes-vous sûr de vouloir réinitialiser le gabarit "
+"<strong>{$template}</strong>?"
 
 msgid "manager.mailables.search"
 msgstr "Recherche par nom ou description"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Entrer un mot pour vous aidez à trouver un gabarit."
 
 msgid "manager.newSubmission"
 msgstr "Nouvelle soumission"
@@ -3685,21 +3752,26 @@ msgstr "Ne pas envoyer de courriel aux éditeurs-trices."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Faut-il demander à l'auteur-trice de sélectionner une catégorie lorsqu'il-"
+"elle est en train de faire sa soumission?"
 
+#, fuzzy
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Oui, ajouter le champ catégorie lors du processus de soumission."
 
 msgid "manager.submitWithCategories.no"
 msgstr "Non, ne pas afficher ce champ aux auteur.e.s."
 
+#, fuzzy
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Demande de révision"
 
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Rédacteur-trice assigné"
 
+#, fuzzy
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Prêt pour production"
 
 msgid "mailable.system"
 msgstr "Système"
@@ -3713,20 +3785,23 @@ msgstr "Évaluation terminée"
 msgid "mailable.reviewEdit.name"
 msgstr ""
 
+#, fuzzy
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Avis de réception de soumission aux autres auteurs-trices"
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Rédacteur-trice assigné (Automatique)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Ce courriel est envoyé à une rédacteur-trice lorsqu'il ou elle est "
+"automatiquement assigné à une soumission."
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Assigner un-e rédacteur-trice"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Soumission en attente de rédacteur-trice"
 
 #, fuzzy
 #~ msgid "emails.reviewRemind.body"
@@ -3741,3 +3816,21 @@ msgstr ""
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Le lien pour valider un compte de messagerie"
+
+#, fuzzy
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Le fichier de la soumission {$id} a été ignoré car il n'avait pas une "
+"révision valide."
+
+#, fuzzy
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"La révision {$revision} du fichier de la soumission {$id} a été ignoré car "
+"le fichier n'a pu être trouvé à l'adresse: \"{$path}\"."
+
+#, fuzzy
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"L'image de couverture de la publication {$id} n'a pas été exportée, son "
+"fichier n'a pu être trouvé à l'adresse: \"{$path}\"."

@@ -26,7 +26,6 @@ use PKP\config\Config;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
-use PKP\plugins\PluginSettingsDAO;
 use SimpleXMLElement;
 
 class VersionCheck
@@ -49,9 +48,7 @@ class VersionCheck
             Config::getVar('general', 'enable_beacon', true);
 
         if ($includeId) {
-            /** @var PluginSettingsDAO */
-            $pluginSettingsDao = & DAORegistry::getDAO('PluginSettingsDAO');
-            $uniqueSiteId = $pluginSettingsDao->getSetting(\PKP\core\PKPApplication::CONTEXT_SITE, 'UsageEventPlugin', 'uniqueSiteId');
+            $uniqueSiteId = Application::get()->getUUID();
         } else {
             $uniqueSiteId = null;
         }

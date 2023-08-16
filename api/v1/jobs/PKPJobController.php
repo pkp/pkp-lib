@@ -50,26 +50,23 @@ class PKPJobController extends PKPBaseController
     public function getGroupRoutes(): Void
     {       
         Route::get('all', $this->getJobs(...))
-            ->name('getJobs');
+            ->name('job.getJobs');
         
         Route::get('failed/all', $this->getFailedJobs(...))
-            ->name('getFailedJobs');
+            ->name('job.getFailedJobs');
         
         Route::post('redispatch/all', $this->redispatchAllFailedJob(...))
-            ->name('redispatchAllFailedJob');
+            ->name('job.redispatchAllFailedJob');
 
         Route::post('redispatch/{jobId}', $this->redispatchFailedJob(...))
-            ->name('redispatchFailedJob');
+            ->name('job.redispatchFailedJob');
         
         Route::delete('failed/delete/{jobId}', $this->deleteFailedJob(...))
-            ->name('deleteFailedJob');
+            ->name('job.deleteFailedJob');
     }
 
     /**
      * Get all pending jobs in the queue waiting to get executed
-     * 
-     * @param   \Illuminate\Http\Request $request 
-     * @return  \Illuminate\Http\JsonResponse
      */
     public function getJobs(Request $request): JsonResponse
     {
@@ -92,9 +89,6 @@ class PKPJobController extends PKPBaseController
 
     /**
      * Get all failed jobs in the failed list
-     * 
-     * @param   \Illuminate\Http\Request $request 
-     * @return  \Illuminate\Http\JsonResponse
      */
     public function getFailedJobs(Request $request): JsonResponse
     {
@@ -118,9 +112,6 @@ class PKPJobController extends PKPBaseController
     /**
      * Redispatch all failed jobs back to queue
      * It will only redispatch failed jobs that has valid payload attribute
-     * 
-     * @param   \Illuminate\Http\Request $request 
-     * @return  \Illuminate\Http\JsonResponse
      */
     public function redispatchAllFailedJob(Request $request): JsonResponse
     {
@@ -130,18 +121,15 @@ class PKPJobController extends PKPBaseController
             ], Response::HTTP_NOT_ACCEPTABLE);
         }
 
-        $redispatableFailedJobs = Repo::failedJob()->getRedispatchableJobsInQueue(null, ['id']);
+        $redispatchableFailedJobs = Repo::failedJob()->getRedispatchableJobsInQueue(null, ['id']);
 
-        return Repo::failedJob()->redispatchToQueue(null, $redispatableFailedJobs->pluck('id')->toArray())
+        return Repo::failedJob()->redispatchToQueue(null, $redispatchableFailedJobs->pluck('id')->toArray())
             ? response()->json(['message' => __('api.jobs.200.allFailedJobRedispatchedSucceed')], Response::HTTP_OK)
             : response()->json(['errorMessage' => __('api.jobs.400.failedJobRedispatchedFailed')], Response::HTTP_BAD_REQUEST);
     }
 
     /**
      * Redispatch a failed job back to queue
-     * 
-     * @param   \Illuminate\Http\Request $request 
-     * @return  \Illuminate\Http\JsonResponse
      */
     public function redispatchFailedJob(Request $request): JsonResponse
     {
@@ -166,9 +154,6 @@ class PKPJobController extends PKPBaseController
 
     /**
      * Delete a failed job from failed list
-     * 
-     * @param   \Illuminate\Http\Request $request 
-     * @return  \Illuminate\Http\JsonResponse
      */
     public function deleteFailedJob(Request $request): JsonResponse
     {

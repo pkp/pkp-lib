@@ -55,23 +55,20 @@ class UserController extends PKPBaseController
     public function getGroupRoutes(): void
     {       
         Route::get('reviewers', $this->getReviewers(...))
-            ->name('getReviewers');
+            ->name('user.getReviewers');
 
         Route::get('report', $this->getReport(...))
-            ->name('getReport');
+            ->name('user.getReport');
 
         Route::get('{userId}', $this->get(...))
-            ->name('getUser');
+            ->name('user.getUser');
 
         Route::get('', $this->getMany(...))
-            ->name('getManyUsers');
+            ->name('user.getManyUsers');
     }
 
     /**
      * Get a single user
-     *
-     * @param   \Illuminate\Http\Request $request 
-     * @return  \Illuminate\Http\JsonResponse
      */
     public function get(Request $request): JsonResponse
     {
@@ -90,9 +87,6 @@ class UserController extends PKPBaseController
 
     /**
      * Get a collection of users
-     *
-     * @param   \Illuminate\Http\Request $request 
-     * @return  \Illuminate\Http\JsonResponse
      */
     public function getMany(Request $request): JsonResponse
     {
@@ -165,9 +159,6 @@ class UserController extends PKPBaseController
 
     /**
      * Get a collection of reviewers
-     *
-     * @param   \Illuminate\Http\Request $request 
-     * @return  \Illuminate\Http\JsonResponse
      */
     public function getReviewers(Request $request): JsonResponse
     {
@@ -220,9 +211,6 @@ class UserController extends PKPBaseController
 
     /**
      * Retrieve the user report
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Symfony\Component\HttpFoundation\StreamedResponse|\Illuminate\Http\JsonResponse
      */
     public function getReport(Request $request): StreamedResponse|JsonResponse
     {
@@ -277,7 +265,7 @@ class UserController extends PKPBaseController
      *
      * @return array
      */
-    private function _processAllowedParams($params, $allowedKeys): array
+    private function _processAllowedParams(array $params, array $allowedKeys): array
     {
         // Merge query params over default params
         $defaultParams = [

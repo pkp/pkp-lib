@@ -108,6 +108,8 @@ class APIRouter extends PKPRouter
         $handler = require('./' . $sourceFile);
         $this->setHandler($handler);
         
+        // FIXME pkp/pkp-lib#7698
+        // With removal of Slim, no app instance to run
         $handlerApp = $handler->getApp();
         if ($handlerApp !== null) {
             $handler->getApp()->run();

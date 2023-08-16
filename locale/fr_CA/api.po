@@ -1,13 +1,13 @@
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2021.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
+# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-05-11 01:16+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
-"vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2023-08-16 15:57+0000\n"
+"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "api/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -235,6 +235,8 @@ msgstr ""
 
 msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
+"Votre requête n'était pas valide. L'intervalle de temps doit être \"jour\" "
+"ou mois\"."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
@@ -270,16 +272,20 @@ msgstr ""
 msgid "api.submissionFiles.400.noFileStageId"
 msgstr "Vous devez fournir une étape de fichier."
 
+#, fuzzy
 msgid "api.submissionFiles.400.invalidFileStage"
-msgstr ""
+msgstr "L'étape de fichier que vous avez fournie n'est pas valide."
 
 #, fuzzy
 msgid "api.submissionsFiles.400.noParams"
 msgstr ""
 "Aucun changement n'a été trouvé dans la requête d'édition de ce fichier."
 
+#, fuzzy
 msgid "api.submissionFiles.400.reviewRoundIdRequired"
 msgstr ""
+"Vous devez fournir un identifiant de cycle d'évaluation lorsque vous "
+"déplacez un fichier vers cette étape de fichier."
 
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr "Le cycle d'évaluation spécifié ne fait pas partie de cette soumission."
@@ -301,8 +307,9 @@ msgstr "La demande n'a pu être remplie par manque d'information."
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Le volume, numéro ou année requis-e n'est pas valide."
 
+#, fuzzy
 msgid "api.submissions.400.invalidSubmitAs"
-msgstr ""
+msgstr "Vous n'êtes pas autorisé à soumettre avec ce rôle d'utilisateur."
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
@@ -336,32 +343,45 @@ msgstr ""
 msgid "api.vocabs.400.localeNotSupported"
 msgstr "Le paramètre régional {$locale} n'est pas pris en charge."
 
+#, fuzzy
 msgid "api.mailables.404.mailableNotFound"
-msgstr ""
+msgstr "Le courriel que vous demandez est introuvable."
 
+#, fuzzy
 msgid "api.jobs.404.failedJobNotFound"
-msgstr ""
+msgstr "Travail en échec nous trouvé dans la liste des échec."
 
+#, fuzzy
 msgid "api.jobs.406.failedJobPayloadMissing"
 msgstr ""
+"Le travail qui a échoué n'a pas la donnée utile nécessaire pour être "
+"réexpédié."
 
+#, fuzzy
 msgid "api.jobs.406.failedJobEmpty"
-msgstr ""
+msgstr "Aucun travail en échec trouvé dans la liste."
 
+#, fuzzy
 msgid "api.jobs.400.failedJobRedispatchedFailed"
-msgstr ""
+msgstr "Impossible de redistribuer le travail en échec."
 
+#, fuzzy
 msgid "api.jobs.200.failedJobRedispatchedSucceed"
-msgstr ""
+msgstr "Le travail en échec a été redistribué avec succès."
 
+#, fuzzy
 msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
+"Tous les travaux échoués redistribuables avec des données utiles valides ont "
+"été remis en file d'attente avec succès."
 
+#, fuzzy
 msgid "api.jobs.400.failedJobDeleteFailed"
-msgstr ""
+msgstr "Impossible de supprimer le travail en échec de la liste des échecs."
 
+#, fuzzy
 msgid "api.jobs.200.failedJobDeleteSucceed"
-msgstr ""
+msgstr "Le travail en échec a été supprimé avec succès de la liste des échecs."
 
 #~ msgid "api.vocabs.400.vocabNotSupported"
 #~ msgstr "Le vocabulaire {$vocab} n'est pas supporté."

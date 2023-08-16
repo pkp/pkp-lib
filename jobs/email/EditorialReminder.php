@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * @file jobs/email/EditorialReminder.php
  *
@@ -81,7 +79,7 @@ class EditorialReminder extends BaseJob
 
         /** @var int $submissionId */
         foreach ($submissionIds as $submissionId) {
-            $submission = Repo::submission()->get((int)$submissionId);
+            $submission = Repo::submission()->get($submissionId);
             $submissions[$submissionId] = $submission;
 
             if ($submission->getData('stageId') === WORKFLOW_STAGE_ID_SUBMISSION) {

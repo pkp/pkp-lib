@@ -126,7 +126,7 @@ class Hook
      * parameter to Hook::call. These may be named if desired,
      * and may include references.
      */
-    public static function run(string $hookName, $args): bool
+    public static function run(string $hookName, array $args = []): bool
     {
         $hooks = & static::getHooks();
         if (!isset($hooks[$hookName])) {
@@ -136,7 +136,6 @@ class Hook
         ksort($hooks[$hookName], SORT_NUMERIC);
         foreach ($hooks[$hookName] as $priority => $hookList) {
             foreach ($hookList as $callback) {
-                $params = array_merge([$hookName], $args);
                 if (call_user_func_array($callback, array_merge([$hookName], $args)) === self::ABORT) {
                     return self::ABORT;
                 }

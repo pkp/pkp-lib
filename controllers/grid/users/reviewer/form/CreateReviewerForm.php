@@ -154,7 +154,7 @@ class CreateReviewerForm extends ReviewerForm
             // Send welcome email to user
             $request = Application::get()->getRequest();
             $context = $request->getContext();
-            $mailable = new ReviewerRegister($context);
+            $mailable = new ReviewerRegister($context, $password);
             $mailable->recipients($user);
             $mailable->sender($request->getUser());
             $mailable->replyTo($context->getData('contactEmail'), $context->getData('contactName'));

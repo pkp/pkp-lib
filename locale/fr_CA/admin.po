@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:55-07:00\n"
-"PO-Revision-Date: 2023-08-16 15:57+0000\n"
+"PO-Revision-Date: 2023-08-17 09:01+0000\n"
 "Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/fr_CA/>\n"
@@ -688,104 +688,134 @@ msgstr ""
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Identifiant du travail invalide"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "Le travail a été supprimé!"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Aucun travail à supprimer n'a été trouvé."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Impossible de supprimer tous les travaux."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Tous les travaux ont été supprimés!"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} travaux en échec supprimé(s) de la liste des travaux en échec."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} travaux redistribués dans la liste d'attente."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Nous avons {$total} travaux en échec"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Nous avons {$total} travaux dans la liste d'attente"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "L'option {$option} n'existe pas."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Vouliez-vous dire l'un des éléments suivants ?"
 
 msgid "admin.jobs.totalCount"
 msgstr ""
+"Il y a un total de <strong>{$total}</strong> travaux dans la liste d'attente"
 
+#, fuzzy
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Il y a un total de <strong>{$total}</strong> travaux en échec."
 
+#, fuzzy
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Voir les travaux dans la liste d'attente"
 
+#, fuzzy
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Travaux"
 
+#, fuzzy
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Travaux en échec"
 
+#, fuzzy
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Détails des travaux en échec"
 
+#, fuzzy
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Voir tous les travaux dans la liste d'attente du système et suivre toutes "
+"les tentatives en échec."
 
+#, fuzzy
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Voir les travaux"
 
+#, fuzzy
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Voir les travaux en échec"
 
+#, fuzzy
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Voir le travail en échec :{$id} Détails"
 
+#, fuzzy
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Attribut"
 
+#, fuzzy
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Valeur de l'attribut"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "Identifiant"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Travail"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Liste d'attente"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Connexion"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Tentatives"
 
+#, fuzzy
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Crée à"
 
 msgid "admin.jobs.list.failedAt"
 msgstr ""
 
+#, fuzzy
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Données utiles"
 
+#, fuzzy
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Exception"
 
+#, fuzzy
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Actions"
 
 msgid "admin.jobs.failedAt"
 msgstr ""
@@ -793,8 +823,9 @@ msgstr ""
 msgid "admin.jobs.createdAt"
 msgstr ""
 
+#, fuzzy
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Réessayer"
 
 msgid "admin.jobs.failed.action.redispatch.all"
 msgstr ""
@@ -818,13 +849,17 @@ msgid "admin.settings.statistics.storage.description"
 msgstr ""
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Protocole Sushi"
 
+#, fuzzy
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Configurer le <a href=\"https://www.projectcounter.org/counter-sushi/\""
+">COUNTER 5 SUSHI</a> protocole, un format normalisé pour la distribution de "
+"statistique d'utilisation."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Statistiques mensuelles ou quotidiennes"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
@@ -847,20 +882,24 @@ msgstr ""
 msgid "admin.settings.statistics.compressStatsLogs.compress"
 msgstr ""
 
+#, fuzzy
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"Restreindre l'accès à l'API des statistiques COUNTER SUSHI aux gestionnaires "
+"et administrateurs-trices"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Plateforme"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
 
+#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr ""
+msgstr "Utiliser le site comme la plateforme pour toutes les revues."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "Identifiant de la plateforme"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
@@ -872,7 +911,7 @@ msgid "admin.cli.tool.jobs.work.options.title"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "Utilisation : [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
 msgstr ""

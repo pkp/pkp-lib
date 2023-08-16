@@ -235,6 +235,22 @@ class Site extends \PKP\core\DataObject
     {
         $this->setData('supportedLocales', $supportedLocales);
     }
+
+    /**
+    * Get the unique site ID.
+    */
+    public function getUniqueSiteID(): ?string
+    {
+        return $this->getData('uniqueSiteId');
+    }
+
+    /**
+     * Set the unique site ID.
+     */
+    public function setUniqueSiteID(string $uniqueSiteId): void
+    {
+        $this->setData('uniqueSiteId', $uniqueSiteId);
+    }
 }
 
 if (!PKP_STRICT_MODE) {

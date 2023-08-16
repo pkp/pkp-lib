@@ -34,6 +34,7 @@ use APP\facades\Repo;
 use Illuminate\Support\Facades\Config as FacadesConfig;
 use PKP\config\Config;
 use PKP\core\Core;
+use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\file\FileManager;
@@ -253,6 +254,7 @@ class PKPInstall extends Installer
         $site->setPrimaryLocale($siteLocale);
         $site->setInstalledLocales($this->installedLocales);
         $site->setSupportedLocales($this->installedLocales);
+        $site->setUniqueSiteID(PKPString::generateUUID());
         $siteDao->insertSite($site);
 
         Repo::emailTemplate()->dao->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), $this->installedLocales);

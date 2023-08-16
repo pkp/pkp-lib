@@ -138,7 +138,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
      */
     public function getUniqueSiteId()
     {
-        return $this->getSetting(\PKP\core\PKPApplication::CONTEXT_SITE, 'uniqueSiteId');
+        return Application::get()->getUUID();
     }
 
 
@@ -276,14 +276,6 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
         //    statistics to a specific publication object.
         array_unshift($idParams, 'c' . $context->getId());
         $siteId = $this->getUniqueSiteId();
-        if (empty($siteId)) {
-            // Create a globally unique, persistent site ID
-            // so that we can uniquely identify publication
-            // objects from this site, even if the URL or any
-            // other externally influenced information changes.
-            $siteId = uniqid();
-            $this->updateSetting(0, 'uniqueSiteId', $siteId);
-        }
         array_unshift($idParams, $siteId);
         $applicationName = $application->getName();
         $applicationId = $applicationName . ':' . implode('-', $idParams);

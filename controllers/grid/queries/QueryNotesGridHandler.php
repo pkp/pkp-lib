@@ -39,6 +39,7 @@ use PKP\query\Query;
 use PKP\query\QueryDAO;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\Role;
+use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 
 class QueryNotesGridHandler extends GridHandler
@@ -298,6 +299,18 @@ class QueryNotesGridHandler extends GridHandler
 
         /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+
+        // Find attachments if any
+        $submissionFiles = Repo::submissionFile()
+            ->getCollector()
+            ->filterByAssoc(
+                PKPApplication::ASSOC_TYPE_NOTE,
+                [$note->getId()]
+            )->filterBySubmissionIds([$submission->getId()])
+            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_QUERY])
+            ->filterByUploaderUserIds([$request->getUser()->getId()])
+            ->getMany();
+
         foreach ($queryDao->getParticipantIds($query->getId()) as $userId) {
             // Delete any prior notifications of the same type (e.g. prior "new" comments)
             $notificationDao->deleteByAssoc(
@@ -344,6 +357,11 @@ class QueryNotesGridHandler extends GridHandler
                 ->subject(__('common.re') . ' ' . $title)
                 ->body($note->getContents())
                 ->allowUnsubscribe($notification);
+
+            $submissionFiles->each(fn(SubmissionFile $item) => $mailable->attachSubmissionFile(
+                $item->getId(),
+                $item->getLocalizedData('name')
+            ));
 
             Mail::send($mailable);
         }

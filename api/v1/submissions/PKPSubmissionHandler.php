@@ -21,6 +21,7 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\mail\variables\ContextEmailVariable;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\section\Section;
@@ -640,8 +641,17 @@ class PKPSubmissionHandler extends APIHandler
         $mailable
             ->from($context->getData('contactEmail'), $context->getData('contactName'))
             ->recipients([$request->getUser()])
-            ->subject($emailTemplate->getLocalizedData('subject'))
-            ->body($emailTemplate->getLocalizedData('body'));
+            // The template may not exist, see pkp/pkp-lib#9217
+            ->subject($emailTemplate?->getLocalizedData('subject') ?? __('emails.submissionSavedForLater.subject'))
+            ->body($emailTemplate?->getLocalizedData('body') ?? __('emails.submissionSavedForLater.body'));
+
+        if (!$emailTemplate) {
+            $templateVariables = $mailable->getData();
+            $mailable->addData([
+                'contextName' => $templateVariables[ContextEmailVariable::CONTEXT_NAME],
+                'contextUrl' => $templateVariables[ContextEmailVariable::CONTEXT_URL],
+            ]);
+        }
 
         Mail::send($mailable);
 

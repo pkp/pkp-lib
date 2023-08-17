@@ -52,12 +52,22 @@ class InvitationsMigration extends \PKP\migration\Migration
             $table->string('email')->nullable()->comment('When present, the email address of the invitation recipient; when null, user_id must be set and the email can be fetched from the users table.');
 
             $table->bigInteger('context_id')->nullable();
+
             $contextDao = \APP\core\Application::getContextDAO();
-            $table->foreign('context_id', 'invitations_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            $table->foreign('context_id', 'invitations_context_id')
+                ->references($contextDao->primaryKeyColumn)
+                ->on($contextDao->tableName)
+                ->onDelete('cascade');
 
             $table->timestamps();
 
-            // FIXME: Needs indexes
+            // Add Table Indexes
+            
+            // RegistrationAccessInvite
+            $table->index(['status', 'context_id', 'user_id', 'class_name']);
+
+            // ReviewerAccessInvite
+            $table->index(['status', 'context_id', 'user_id', 'class_name', 'assoc_id']);
         });
     }
 

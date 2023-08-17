@@ -37,7 +37,11 @@ class I9197_MigrateAccessKeys extends Migration
             $table->string('key_hash', 255);
 
             $table->bigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')
+                ->references('user_id')
+                ->on('users')
+                ->onDelete('cascade');
+
             $table->index(['user_id'], 'invitations_user_id');
 
             $table->bigInteger('assoc_id')->nullable();
@@ -61,13 +65,21 @@ class I9197_MigrateAccessKeys extends Migration
 
             $table->bigInteger('context_id')->nullable();
 
-            // We also need to consider context_id = 0 for site registration?
-            // $contextDao = \APP\core\Application::getContextDAO();
-            // $table->foreign('context_id', 'invitations_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            $contextDao = \APP\core\Application::getContextDAO();
+            $table->foreign('context_id', 'invitations_context_id')
+                ->references($contextDao->primaryKeyColumn)
+                ->on($contextDao->tableName)
+                ->onDelete('cascade');
 
             $table->timestamps();
 
-            // FIXME: Needs indexes
+            // Add Table custom invitations Indexes
+
+            // RegistrationAccessInvite
+            $table->index(['status', 'context_id', 'user_id', 'class_name']);
+
+            // ReviewerAccessInvite
+            $table->index(['status', 'context_id', 'user_id', 'class_name', 'assoc_id']);
         });
 
         $accessKeys = DB::table('access_keys')
@@ -77,10 +89,7 @@ class I9197_MigrateAccessKeys extends Migration
             $invitation = null;
             
             if ($accessKey->context == 'RegisterContext') { // Registered User validation Invitation
-                $invitation = new RegistrationAccessInvite(
-                    $accessKey->user_id,
-                    PKPApplication::CONTEXT_SITE
-                );
+                $invitation = new RegistrationAccessInvite($accessKey->user_id);
             } else if (isset($accessKey->context)) { // Reviewer Invitation
                 $invitation = new ReviewerAccessInvite(
                     $accessKey->user_id, 

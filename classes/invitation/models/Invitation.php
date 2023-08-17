@@ -174,6 +174,14 @@ class Invitation extends Model
     }
 
     /**
+     * Add a local scope to get invitations by status
+     */
+    public function scopeByStatus(Builder $query, InvitationStatus $status): Builder
+    {
+        return $query->where('status', '=', $status->value);
+    }
+
+    /**
      * Add a local scope to get invitations that are of certain invitation type
      */
     public function scopeByClassName(Builder $query, string $className): Builder
@@ -184,9 +192,21 @@ class Invitation extends Model
     /**
      * Add a local scope to get invitations that are of certain assoc_id
      */
-    public function scopeByAssocId(Builder $query, string $assoc_id): Builder
+    public function scopeByAssocId(Builder $query, ?int $assocId): Builder
     {
-        return $query->where('assoc_id', '=', $assoc_id);
+        return $query->when($assocId, function ($query, $assocId) {
+            return $query->where('assoc_id', '=', $assocId);
+        })->orWhereNull('assoc_id');
+    }
+
+    /**
+     * Add a local scope to get invitations that are of certain user_id
+     */
+    public function scopeByUserId(Builder $query, ?int $userId): Builder
+    {
+        return $query->when($userId, function ($query, $userId) {
+            return $query->where('user_id', '=', $userId);
+        })->orWhereNull('user_id');
     }
 
     /**
@@ -194,23 +214,23 @@ class Invitation extends Model
      */
     public function scopeByEmail(Builder $query, ?string $email): Builder
     {
-        if (is_null($email)) {
-            return $query->whereNull('email');
-        } else {
+        return $query->when($email, function ($query, $email) {
             return $query->where('email', '=', $email);
-        }
+        })->orWhereNull('email');
     }
 
     /**
      * Add a local scope to get invitations that are of certain email
      */
-    public function scopeByContextId(Builder $query, string $contextId): Builder
+    public function scopeByContextId(Builder $query, ?int $contextId): Builder
     {
-        return $query->where('context_id', '=', $contextId);
+        return $query->when($contextId, function ($query, $contextId) {
+            return $query->where('context_id', '=', $contextId);
+        })->orWhereNull('context_id');
     }
 
     /**
-     * Mark invitation as a certain inviation status
+     * Mark invitation as a certain invitation status
      */
     public function markAs(InvitationStatus $status): void
     {

@@ -52,7 +52,7 @@ abstract class BaseInvitation
     public function __construct(
         public ?int $userId,
         public ?string $email,
-        public int $contextId,
+        public ?int $contextId,
         public ?int $assocId,
         ?int $expiryDays = null
     ) {

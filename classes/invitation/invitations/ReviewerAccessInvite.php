@@ -73,8 +73,13 @@ class ReviewerAccessInvite extends BaseInvitation
     public function preDispatchActions(): bool 
     {
         $invitations = Repo::invitation()
-            ->getByProperties($this->className, $this->contextId, null, $this->reviewAssignmentId);
-        
+            ->filterByStatus(InvitationStatus::PENDING)
+            ->filterByClassName($this->className)
+            ->filterByContextId($this->contextId)
+            ->filterByUserId($this->invitedUserId)
+            ->filterByAssocId($this->reviewAssignmentId)
+            ->getMany();
+
         foreach ($invitations as $invitation) {
             $invitation->markStatus(InvitationStatus::CANCELLED);
         }

@@ -19,12 +19,12 @@ namespace PKP\invitation\repositories;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 abstract class BaseRepository
 {
     protected Model $model;
     protected ?string $outputFormat;
+    protected $query;
 
     public function newQuery(): Builder
     {
@@ -56,28 +56,9 @@ abstract class BaseRepository
         return $this->model->find($modelId)->delete();
     }
 
-    public function total(): int
-    {
-        return $this->model->count();
-    }
-
     public function setOutputFormat(string $format): self
     {
         $this->outputFormat = $format;
-
-        return $this;
-    }
-
-    public function setPage(int $page): self
-    {
-        LengthAwarePaginator::currentPageResolver(fn () => $page);
-
-        return $this;
-    }
-
-    public function perPage(int $perPage): self
-    {
-        $this->perPage = $perPage;
 
         return $this;
     }

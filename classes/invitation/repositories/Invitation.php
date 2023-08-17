@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace PKP\invitation\repositories;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use PKP\invitation\invitations\BaseInvitation;
 use PKP\invitation\invitations\enums\InvitationStatus;
@@ -27,6 +28,7 @@ class Invitation extends BaseRepository
     public function __construct(PKPInvitationModel $model)
     {
         $this->model = $model;
+        $this->query = $this->newQuery();
     }
 
     public function total(): int
@@ -70,31 +72,44 @@ class Invitation extends BaseRepository
         return $this->constructBOFromModel($invitation);
     }
 
+    public function filterByStatus(InvitationStatus $status): Invitation 
+    {
+        $this->query->byStatus($status);
+        return $this;
+    }
+
+    public function filterByContextId(?int $contextId): Invitation 
+    {
+        $this->query->byContextId($contextId);
+        return $this;
+    }
+
+    public function filterByClassName(string $className): Invitation 
+    {
+        $this->query->byClassName($className);
+        return $this;
+    }
+
+    public function filterByUserId(int $userId): Invitation 
+    {
+        $this->query->byUserId($userId);
+        return $this;
+    }
+
+    public function filterByAssocId(int $assocId): Invitation 
+    {
+        $this->query->byAssocId($assocId);
+        return $this;
+    }
+
     /**
-     * Get a collection of BaseInvitation objects with specific properties.
+     * Get a collection of BaseInvitation objects from filtered queries
      *
      * @return Collection<BaseInvitation>
      */
-    public function getByProperties(string $className, int $contextId, ?string $email = null, ?int $assocId = null, ?int $userId = null): Collection
+    public function getMany(): Collection 
     {
-        $query = $this->model
-            ->notHandled()
-            ->byClassName($className)
-            ->byContextId($contextId);
-
-        if (!is_null($assocId)) {
-            $query->byAssocId($assocId);
-        }
-
-        if (!is_null($userId)) {
-            $query->byUserId($userId);
-        }
-
-        if (!is_null($email)) {
-            $query->byEmail($email);
-        }
-
-        $results = $query->get();
+        $results = $this->query->get();
         
         $invitations = new Collection();
         foreach ($results as $result) {
@@ -103,6 +118,22 @@ class Invitation extends BaseRepository
         }
 
         return $invitations;
+    }
+
+    /**
+     * Get a BaseInvitation object from filtered queries
+     *
+     * @return Collection<BaseInvitation>
+     */
+    public function getFirst(): ?BaseInvitation 
+    {
+        $invitation = $this->query->first();
+        
+        if (!isset($invitation)) {
+            return null;
+        }
+
+        return $this->constructBOFromModel($invitation);
     }
 
     public function constructBOFromModel(PKPInvitationModel $invitationModel): ?BaseInvitation

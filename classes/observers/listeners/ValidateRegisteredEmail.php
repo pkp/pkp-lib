@@ -71,7 +71,7 @@ class ValidateRegisteredEmail
             return;
         }
 
-        $contextId = PKPApplication::CONTEXT_SITE;
+        $contextId = null;
 
         // Create and compile email template
         if (get_class($event) === UserRegisteredContext::class) {

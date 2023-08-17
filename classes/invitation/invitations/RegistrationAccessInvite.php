@@ -34,7 +34,7 @@ class RegistrationAccessInvite extends BaseInvitation
      */
     public function __construct(
         public ?int $invitedUserId, 
-        int $contextId
+        ?int $contextId = null
     )
     {
         $expiryDays = Config::getVar('email', 'validation_timeout');
@@ -63,8 +63,12 @@ class RegistrationAccessInvite extends BaseInvitation
     public function preDispatchActions(): bool 
     {
         $invitations = Repo::invitation()
-            ->getByProperties($this->className, $this->contextId);
-        
+            ->filterByStatus(InvitationStatus::PENDING)
+            ->filterByClassName($this->className)
+            ->filterByContextId($this->contextId)
+            ->filterByUserId($this->invitedUserId)
+            ->getMany();
+
         foreach ($invitations as $invitation) {
             $invitation->markStatus(InvitationStatus::CANCELLED);
         }
@@ -98,7 +102,7 @@ class RegistrationAccessInvite extends BaseInvitation
             ]
         );
 
-        if ($this->contextId != PKPApplication::CONTEXT_SITE) {
+        if (isset($this->contextId)) {
             $contextDao = Application::getContextDAO();
             $this->context = $contextDao->getById($this->contextId);
 

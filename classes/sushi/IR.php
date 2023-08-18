@@ -282,7 +282,7 @@ class IR extends CounterR5Report
                     $itemContributors = [];
                     foreach ($authors as $author) {
                         $itemContributor['Type'] = 'Author';
-                        $itemContributor['Name'] = $author->getFullName();
+                        $itemContributor['Name'] = $author->getFullName(true, false, $submissionLocale);
                         $orcid = $author->getOrcid();
                         if (isset($orcid) && !empty($orcid)) {
                             $itemContributor['Identifier'] = $orcid;

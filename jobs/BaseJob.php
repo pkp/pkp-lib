@@ -34,25 +34,42 @@ abstract class BaseJob implements ShouldQueue
     use SerializesModels;
 
     /**
-     * The name of the connection the job should be sent to.
-     *
-     * @var string|null
+     * The number of times the job may be attempted.
      */
-    public $connection;
+    public int $tries = 3;
 
     /**
-     * The queue's name where the job will be consumed
-     *
-     * @var string
+     * The number of SECONDS to wait before retrying the job.
      */
-    public $queue;
+    public int $backoff = 5;
 
+    /**
+     * The maximum number of SECONDS a job should get processed before consider failed
+     */
+    public int $timeout = 60;
+
+    /**
+     * The maximum number of unhandled exceptions to allow before failing.
+     */
+    public int $maxExceptions = 3;
+
+    /**
+     * Indicate if the job should be marked as failed on timeout.
+     */
+    public bool $failOnTimeout = true;
+
+    /**
+     * Initialize the job
+     */
     public function __construct()
     {
         $this->connection = $this->defaultConnection();
         $this->queue = Config::getVar('queues', 'default_queue', 'queue');
     }
 
+    /**
+     * Get the queue job default connection to execute
+     */
     protected function defaultConnection(): string
     {
         if (Application::isUnderMaintenance()) {
@@ -62,5 +79,8 @@ abstract class BaseJob implements ShouldQueue
         return Config::getVar('queues', 'default_connection', 'database');
     }
 
+    /**
+     * handle the queue job execution process
+     */
     abstract public function handle();
 }

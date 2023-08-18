@@ -1,7 +1,7 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-05-23 06:10+0000\n"
+"PO-Revision-Date: 2023-08-01 08:25+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/tr/>"
 "\n"
@@ -327,7 +327,7 @@ msgid "api.jobs.400.failedJobDeleteFailed"
 msgstr ""
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
-msgstr ""
+msgstr "Başarısız iş, başarısız listesinden silindi."
 
 #~ msgid "api.vocabs.400.vocabNotSupported"
 #~ msgstr "{$vocab} kelime bilgisi desteklenmiyor."

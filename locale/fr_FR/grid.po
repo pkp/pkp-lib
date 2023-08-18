@@ -1,11 +1,12 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2023-07-07 19:58+0000\n"
-"Last-Translator: Stefan Schneider <mail@stefan-schneider.at>\n"
+"PO-Revision-Date: 2023-08-01 08:25+0000\n"
+"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -133,7 +134,7 @@ msgid "grid.action.order"
 msgstr "Trier"
 
 msgid "grid.action.saveOrdering"
-msgstr ""
+msgstr "Enregistrer la commande"
 
 msgid "grid.action.cancelOrdering"
 msgstr "Annuler la commande"
@@ -286,7 +287,7 @@ msgid "grid.action.addAnnouncement"
 msgstr "Ajouter une annonce"
 
 msgid "grid.action.addInstitution"
-msgstr ""
+msgstr "Ajouter un établissement"
 
 msgid "grid.action.mergeUser"
 msgstr "Fusionner l'utilisateur"
@@ -369,7 +370,7 @@ msgid "grid.columns.locale"
 msgstr "Paramètre régional"
 
 msgid "grid.columns.locale.code"
-msgstr ""
+msgstr "Code"
 
 msgid "grid.sponsor.title"
 msgstr "Commanditaires"
@@ -412,6 +413,8 @@ msgstr "Supprimer un contributeur"
 
 msgid "grid.action.deleteContributor.confirmationMessage"
 msgstr ""
+"Voulez-vous vraiment supprimer {$name} en tant que contributeur/trice ? "
+"Cette action ne peut pas être annulée."
 
 msgid "grid.action.newVersion"
 msgstr "Créer une nouvelle version"
@@ -453,28 +456,30 @@ msgid "author.users.contributor.principalContact"
 msgstr "Contact principal"
 
 msgid "author.users.contributor.setPrincipalContact"
-msgstr ""
+msgstr "Définir le contact principal"
 
 msgid "contributor.listPanel.preview"
-msgstr ""
+msgstr "Aperçu"
 
 msgid "contributor.listPanel.preview.description"
 msgstr ""
+"Les contributeurs/trices à cette publication seront identifié.es dans les "
+"formats suivants."
 
 msgid "contributor.listPanel.preview.format"
-msgstr ""
+msgstr "Format"
 
 msgid "contributor.listPanel.preview.display"
-msgstr ""
+msgstr "Afficher"
 
 msgid "contributor.listPanel.preview.abbreviated"
-msgstr ""
+msgstr "Abrégé"
 
 msgid "contributor.listPanel.preview.publicationLists"
-msgstr ""
+msgstr "Listes de publications"
 
 msgid "contributor.listPanel.preview.full"
-msgstr ""
+msgstr "Complet"
 
 msgid "grid.roles.currentRoles"
 msgstr "Rôles actuels"
@@ -584,7 +589,7 @@ msgid "grid.user.step1"
 msgstr "Étape #1 : Ajouter les détails de l'utilisateur"
 
 msgid "grid.user.step2"
-msgstr "Étape #2 : Ajouter des rôles à  {$userFullName}"
+msgstr "Étape #2 : Ajouter des rôles à {$userFullName}"
 
 msgid "grid.user.addRoles"
 msgstr "Ajouter les rôles"
@@ -713,7 +718,7 @@ msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Choisir un type…"
 
 msgid "grid.action.view"
-msgstr ""
+msgstr "Afficher"
 
 msgid "author.users.contributor.name"
 msgstr "Nom"

@@ -1,14 +1,14 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2022-11-08 03:46+0000\n"
+"PO-Revision-Date: 2023-08-01 08:25+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
-"tr_TR/>\n"
-"Language: tr_TR\n"
+"tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -271,19 +271,19 @@ msgid "manager.dois.status.error"
 msgstr "Hata"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Hata Var"
 
 msgid "manager.dois.status.stale"
-msgstr ""
+msgstr "Senkronizasyon Gerekiyor"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI Atandı"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "Tüm ögelerde DOI eksik."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "DOI atanan tüm ögeler."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
@@ -325,13 +325,17 @@ msgid "manager.dois.notification.depositQueuedSuccess"
 msgstr "Ögeler gönderildi"
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "DOI Durumları"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"DOI yönetimi taşındı. Lütfen <a href=\"{$doiManagementUrl}\">DOI yönetimi</"
+"a> ve <a href=\"{$doiSettingsUrl}\">DOI ayarları</a> sayfalarına bakın."
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"DOI öneki sağlamadığınız sürece DOI atanamaz. <a href=\"{$doiSettingsUrl}\""
+">DOI öneki ekleyin</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""

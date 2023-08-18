@@ -1,12 +1,12 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2023.
+# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-07-19 09:01+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
-"vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2023-08-16 10:37+0000\n"
+"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "grid/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -462,25 +462,28 @@ msgid "author.users.contributor.setPrincipalContact"
 msgstr "Déterminer la personne-ressource principale"
 
 msgid "contributor.listPanel.preview"
-msgstr ""
+msgstr "Aperçu"
 
 msgid "contributor.listPanel.preview.description"
 msgstr ""
+"Les contributeurs-trices de cette publication seront identifiés dans les "
+"formats suivants."
 
 msgid "contributor.listPanel.preview.format"
-msgstr ""
+msgstr "Format"
 
 msgid "contributor.listPanel.preview.display"
-msgstr ""
+msgstr "Affichage"
 
 msgid "contributor.listPanel.preview.abbreviated"
-msgstr ""
+msgstr "Abrégé"
 
+#, fuzzy
 msgid "contributor.listPanel.preview.publicationLists"
-msgstr ""
+msgstr "Listes de publications"
 
 msgid "contributor.listPanel.preview.full"
-msgstr ""
+msgstr "Complet"
 
 msgid "grid.roles.currentRoles"
 msgstr "Rôles actuels"

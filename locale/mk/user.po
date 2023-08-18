@@ -1,8 +1,9 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-15 15:40+0000\n"
-"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
+"PO-Revision-Date: 2023-08-01 08:25+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "mk/>\n"
 "Language: mk\n"
@@ -522,3 +523,6 @@ msgstr "Внесете нова лозинка за ажурирање на ло
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
 "Лозинката е успешно ажурирана. Ве молиме најавете се со ажурираната лозинка."
+
+msgid "user.usernameOrEmail"
+msgstr "Корисничко име или и-мејл"

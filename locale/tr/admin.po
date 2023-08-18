@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2023-05-23 06:10+0000\n"
+"PO-Revision-Date: 2023-08-01 08:25+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "tr/>\n"
@@ -195,10 +195,10 @@ msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
 msgstr "Doğrulanmamış, süresi dolmuş kullanıcıları silin"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "İş listesinden daha eski başarısız işleri kaldırın."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Sıra bekleyen işleri işleme al"
 
 msgid "admin.scheduledTask.updateGeoDB"
 msgstr "DB-IP city lite veritabanını güncelleyin"
@@ -511,13 +511,13 @@ msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Sıradaki İşler"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
 msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Sıra"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
 msgstr ""
@@ -610,13 +610,13 @@ msgid "admin.jobs.viewQueuedJobs"
 msgstr ""
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "İşler"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Başarısız İşler"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Başarısız İş Detayı"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
@@ -643,7 +643,7 @@ msgid "admin.jobs.list.displayName"
 msgstr ""
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Sıra"
 
 msgid "admin.jobs.list.connection"
 msgstr ""
@@ -680,9 +680,14 @@ msgstr ""
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"Kullanım istatistikleri verilerini {$file} dosyasından yükleyen iş başarısız "
+"oldu ve dosya {$archivedFilePath} konumundan {$stagingPath} konumuna "
+"taşınamadı."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"Kullanım istatistikleri verilerini {$file} dosyasından yükleyen iş başarısız "
+"oldu. Dosya aşama dizinine taşındı."
 
 msgid "admin.settings.statistics.collection"
 msgstr "Veri Toplama"
@@ -703,6 +708,9 @@ msgstr "Sushi Protokol"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Kullanım istatistiklerini dağıtmak için sektörde tanınan bir format olan <a "
+"href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER 5 SUSHI</a> "
+"protokolünü yapılandırın."
 
 msgid "admin.settings.statistics.keepDaily"
 msgstr "Aylık veya Günlük İstatistikler"

@@ -1,12 +1,14 @@
 # Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
+# COUSSY-LACROIX Hélène <helene.coussy-lacroix@u-bordeaux.fr>, 2023.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-07-07 19:58+0000\n"
-"Last-Translator: Stefan Schneider <mail@stefan-schneider.at>\n"
+"PO-Revision-Date: 2023-08-01 08:25+0000\n"
+"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -242,7 +244,7 @@ msgstr "Nom public souhaité"
 
 msgid "user.preferredPublicName.description"
 msgstr ""
-"Comment préférez-vous que l'on s'adresse à vous ? Les titres,  seconds "
+"Comment préférez-vous que l'on s'adresse à vous ? Les titres, seconds "
 "prénoms et suffixes peuvent être ajoutés ici si vous le souhaitez."
 
 msgid "user.profile.changePasswordInstructions"
@@ -357,9 +359,9 @@ msgstr "Les champs du courriel ne correspondent pas."
 
 msgid "user.register.form.usernameAlphaNumeric"
 msgstr ""
-"Le nom d'utilisateur peut contenir uniquement des caractères "
-"alphanumériques, traits de soulignement, et traits d'union, et doit "
-"commencer et se terminer par un caractère alphanumérique."
+"Le nom d'utilisateur·rice ne peut contenir que des caractères "
+"alphanumériques minuscules, traits de soulignement et traits d'union. Il "
+"doit commencer et se terminer par un caractère alphanumérique."
 
 msgid "user.register.form.userGroupRequired"
 msgstr "Au moins un rôle doit être sélectionné."
@@ -515,12 +517,12 @@ msgstr "Êtes-vous certain de vouloir supprimer cette clé API ?"
 msgid "user.apiKey.secretRequired"
 msgstr ""
 "Avant de générer une clé l'API, l'administrateur du site doit définir un "
-"code secret dans le fichier de configuration  (\"api_key_secret\")."
+"code secret dans le fichier de configuration (\"api_key_secret\")."
 
 msgid "user.privacyLink"
 msgstr ""
-"Vos données personnelles sont traitées selon notre  <a href="
-"\"{$privacyUrl}\" target=\"_blank\">Déclaration de confidentialité</a>."
+"Vos données personnelles sont traitées selon notre <a href=\"{$privacyUrl}\" "
+"target=\"_blank\">Déclaration de confidentialité</a>."
 
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Aucun utilisateur avec l'adresse courriel spécifiée n'existe."

@@ -27,9 +27,14 @@ use PKP\submission\PKPSubmission;
 class UpdateSubmissionSearchJob extends BaseJob
 {
     /**
-     * @var int The submission ID
+     * The maximum number of SECONDS a job should get processed before consider failed
      */
-    protected $submissionId;
+    public int $timeout = 180;
+    
+    /**
+     * The submission ID
+     */
+    protected int $submissionId;
 
     /**
      * Create a new job instance.

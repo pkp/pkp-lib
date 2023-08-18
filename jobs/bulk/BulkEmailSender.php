@@ -27,6 +27,11 @@ class BulkEmailSender extends BaseJob
     use Batchable;
 
     /**
+     * The maximum number of SECONDS a job should get processed before consider failed
+     */
+    public int $timeout = 180;
+
+    /**
      * The user ids to send email
      */
     protected array $userIds;

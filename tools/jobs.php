@@ -25,13 +25,13 @@ use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Contracts\Queue\Job;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
 use Illuminate\Queue\Events\JobProcessing;
 use PKP\cliTool\CommandLineTool;
 use PKP\config\Config;
 use PKP\job\models\Job as PKPJobModel;
-use PKP\job\resources\CLIJobResource;
 use PKP\jobs\testJobs\TestJobFailure;
 use PKP\jobs\testJobs\TestJobSuccess;
 use PKP\queue\WorkerConfiguration;
@@ -281,8 +281,12 @@ class commandJobs extends CommandLineTool
 
         $this->total();
 
-        $rows = array_map(fn (CLIJobResource $row) => $row->toArray(app(Request::class)), $data->all());
-        $this->getCommandInterface()->table($this->getListTableFormat(), $rows);
+        $this->getCommandInterface()->table(
+            $this->getListTableFormat(), 
+            $data
+                ->map(fn(JsonResource $job) => $job->toArray(app('request')))
+                ->toArray()
+        );
 
         $pagination = [
             'pagination' => [

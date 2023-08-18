@@ -1,12 +1,12 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
+# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-07-10 14:40+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
-"vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2023-08-16 15:57+0000\n"
+"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -169,14 +169,39 @@ msgstr ""
 "conflit d'intérêt ou tout autre fichier potentiellement utile pour nos "
 "éditeur.trice.s.</p>"
 
+#, fuzzy
 msgid "default.submission.step.contributors"
 msgstr ""
+"<p>Ajouter des détails pour tous les contributeurs-trices à cette "
+"soumission. Les contributeurs-trices ajoutés ici se verront envoyer un "
+"courriel de confirmation de la soumission ainsi qu'une copie de toutes les "
+"décisions éditoriales enregistrées pour cette soumission.</p><p>Si un-e "
+"contributeur-trice ne peut être contacté par courriel parce qu'il-elle doit "
+"demeurer anonymes ou n'a pas de courriel, s'il vous plait, n'entrez pas de "
+"courriel fictif. Vous pouvez ajouter des informations sur ce-cette "
+"contributeur-trice à une étape ultérieure du processus de soumission.</p>"
 
+#, fuzzy
 msgid "default.submission.step.details"
 msgstr ""
+"<p>S'il vous plaît, fournissez les détails suivants afin de nous aider à "
+"gérer votre soumission dans notre système.</p>"
 
+#, fuzzy
 msgid "default.submission.step.forTheEditors"
 msgstr ""
+"<p>S'il vous plaît, fournissez les détails suivants afin d'aider l'équipe "
+"éditoriale à gérer votre soumission.</p><p>Dans vos métadonnées, assurez "
+"vous de fournir des informations que vous pensez pouvoir être utile à la "
+"personne qui gérera votre soumission. Cette information peut être changée "
+"avant publication.</p>"
 
+#, fuzzy
 msgid "default.submission.step.review"
 msgstr ""
+"<p>Révisez l'information que vous avez fourni avant de finaliser votre "
+"soumission. Vous pouvez modifier chaque détails affichés en cliquant sur le "
+"bouton d'édition en haut de chaque section.</p><p>Une fois votre soumission "
+"transmise, un membre de l'équipe éditoriale lui sera assigné afin de "
+"l'évaluer. S'il vous plaît, assurez vous que les détails fournis sont le "
+"plus exactes possibles.</p>"

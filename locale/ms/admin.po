@@ -1,9 +1,10 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
 # Mohamad Shabilullah <shabilhamid91@gmail.com>, 2023.
+# Ahmad Irdha Mokhtar <airdham@icloud.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-25 01:08+0000\n"
-"Last-Translator: Mohamad Shabilullah <shabilhamid91@gmail.com>\n"
+"PO-Revision-Date: 2023-08-03 01:04+0000\n"
+"Last-Translator: Ahmad Irdha Mokhtar <airdham@icloud.com>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ms/>"
 "\n"
 "Language: ms\n"
@@ -156,12 +157,15 @@ msgstr ""
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
+"Hantar e-mel kepada setiap editor untuk memperingatkan tentang tugasan mereka"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "Mengenal pasti editor untuk diingatkan dalam konteks {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"Menghantar {$count} kerja untuk menghantar peringatan e-mel editorial kepada "
+"pengguna {$userIds} dalam konteks {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -171,10 +175,10 @@ msgid "admin.scheduledTask.clearLogs"
 msgstr "Kosongkan Log Pelaksanaan Tugasan Berjadual"
 
 msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
+msgstr "Hapuskan semua log proses tugas berjadual yang telah dijalankan."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Hapus Log Tugas"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Terbitkan penyerahan yang dijadualkan untuk diterbitkan"
@@ -183,79 +187,97 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr "Peringatan ulasan"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Pemberitahuan Laporan Editorial"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Peringatan tamat tempoh langganan"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Menyingkirkan pengguna tamat tempoh yang tidak sah"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "Menyingkir tugasan gagal yang lebih lama dari senarai tugasan gagal."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Proses giliran kerja berbaki"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "Kemas kini pangkalan data DB-IP city lite"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"Gagal menamakan semula fail pangkalan data DB-IP city lite {$sourceFilename} "
+"kepada {$targetFilename}."
 
 msgid "admin.scheduledTask.usageStatsLoader"
-msgstr ""
+msgstr "Tugasan pemuat fail statistik penggunaan"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"Direktori {$directory} tidak kosong. Ini mungkin menunjukkan proses yang "
+"gagal sebelum ini, atau proses yang dijalankan secara serentak. Fail ini "
+"akan diproses semula secara automatik."
 
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
-msgstr ""
+msgstr "Fail {$file} tidak dapat dibuka dan telah ditolak."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"Fail {$file} berada dalam format fail log lama yang tidak boleh diproses dan "
+"dengan itu akan dialihkan kembali ke direktori pentas."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"Melangkau fail log {$file} kerana statistik dari bulan itu telah pun dikira. "
+"Untuk mengira semula statistik untuk bulan sebelumnya, anda mesti memulihkan "
+"semua fail log bulan itu dan menggunakan alat CLI untuk memproses semula "
+"statistik."
 
 msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
 msgstr ""
+"Baris {$line Number} dalam fail log {$file} adalah dalam format yang salah "
+"dan ia akan dilangkau."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
+"Entri log tidak sah pada baris {$lineNumber} dalam fail log {$file}: {$error}"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
-msgstr ""
+msgstr "Masa bukan tarikh yang sah."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
-msgstr ""
+msgstr "ID konteks bukan angka bulat."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "ID serahan bukan angka bulat."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
-msgstr ""
+msgstr "ID perwakilan bukan angka bulat."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
-msgstr ""
+msgstr "Jenis gabungan tidak disokong."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
-msgstr ""
+msgstr "Jenis fail tidak disokong."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
-msgstr ""
+msgstr "Negara bukan rentetan dua aksara abjad."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
-msgstr ""
+msgstr "Kawasan bukan rentetan panjang sehingga tiga aksara abjad angka."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "ID institusi bukan tatasusunan."
 
 msgid "admin.scheduledTask.usageStatsLoader.insertError"
 msgstr ""
+"Ralat berlaku semasa memproses fail log {$file} pada baris {$line Number}: "
+"{$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
+"Kerja latar belakang yang akan memproses fail log {$file} dan menyimpan data "
+"statistik telah dihantar."
 
 msgid "admin.server.apacheVersion"
 msgstr "versi Apache"
@@ -345,9 +367,10 @@ msgstr "Maklumat Sistem"
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Melihat maklumat tentang versi dan tetapan konfigurasi aplikasi dan pelayan."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Melihat Maklumat Sistem"
 
 msgid "admin.versionBuild"
 msgstr "Bina"
@@ -407,78 +430,128 @@ msgstr "Pemuat fail"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"Fail tidak dapat dinyahmampat. Sumber gz-file {$filePath} tidak dapat dibuka "
+"dengan gzopen."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"Fail tidak dapat dinyahmampat. Sumber gz-file {$filePath} tidak dapat dibuka "
+"dengan fopen."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"Fail tidak dapat dinyahmampat. Sumber gz-file {$filePath} tidak dapat dibaca "
+"dengan gzread."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"Fail tidak dapat dinyahmampat. Sumber gz-file {$filePath} tidak dapat "
+"ditulis dengan fwrite."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"Fail tidak dapat dinyahmampat. Sumber gz-file {$filePath} tidak dapat "
+"ditutup dengan fclose."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"Fail tidak dapat dinyahmampat. Sumber gz-file {$filePath} tidak dapat "
+"ditutup dengan gzclose."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"Fail tidak dapat dinyahmampat. Sumber dinyahmampat gz-file {$filePath} tidak "
+"dapat dibuang dengan nyahpaut."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"Fail tidak dapat dimampatkan. Destinasi gz-file {$filePath} tidak dapat "
+"dibuka dengan gzopen."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"Fail tidak dapat dimampatkan. Fail sumber {$filePath} tidak dapat dibuka "
+"dengan fopen."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"Fail tidak dapat dimampatkan. Fail sumber {$filePath} tidak dapat dibaca "
+"dengan fread."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"Fail tidak dapat dimampatkan. Destinasi gz-file {$filePath} tidak dapat "
+"ditulis dengan gzwrite."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"Fail tidak dapat dimampatkan. Fail sumber terbuka {$filePath} tidak dapat "
+"ditutup dengan fclose."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"Fail tidak dapat dimampatkan. Destinasi terbuka gz-file {$filePath} tidak "
+"dapat ditutup dengan gzclose."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"Fail tidak dapat dimampatkan. Fail sumber termampat {$filePath} tidak dapat "
+"dibuang dengan nyahpaut."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Tiada bahasa/locales yang tersedia untuk dimuat turun."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Penggunaan:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "arahan [argument]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Arahan yang tersedia untuk ruang nama `{$namespace}`:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Tidak dapat menjalankan kerja giliran kerana mod penyelenggaraan aplikasi "
+"didayakan."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Senaraikan semua kerja giliran. Jika anda ingin menomborkan hasil, gunakan "
+"parameter --page= dan --perPage= . Bendera lulus --failed menyenaraikan "
+"kerja yang gagal."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Bersihkan kerja giliran tertentu berdasarkan ID nya. Jika anda ingin "
+"membersihkan semua, lulus parameter --all. Jika anda ingin membersihkan "
+"semua dari giliran tertentu, lulus parameter --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Tambahkan kerja ujian ke dalam giliran ujian. Gunakan parameter pilihan --"
+"only= dan lulus 'failed' atau 'succes' untuk menghantar kerja yang gagal "
+"atau berjaya."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Jalankan proses pekerja daemon tanpa had yang akan terus memproses kerja. "
+"Gunakan bendera --help untuk melihat pilihan tersedia yang dikaitkan dengan "
+"arahan ini."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Senaraikan semua kerja yang gagal. Tetapkan parameter --queue=QUEUE_NAME dan "
+"--connection=CONNECTION_NAME untuk menapis senarai. Juga lulus parameter/"
+"bendera --redispatch dan --clear untuk menghantar semula kembali ke giliran "
+"atau mengosongkan semua/kerja tertentu yang gagal."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Hantar kerja yang tersedia ke dalam giliran. Jika anda ingin menghantar "
+"kerja ke dalam giliran tertentu, lulus parameter --queue=QUEUE_NAME. Juga "
+"boleh lulus --test untuk menjalankan tugas ujian dan --once untuk "
+"menjalankan satu kerja pada satu masa"
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""

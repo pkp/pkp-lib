@@ -19,6 +19,7 @@ use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Exception;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Validator;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
@@ -111,7 +112,7 @@ trait IsRecommendation
 
     /**
      * Create a query (discussion) among deciding editors
-     * and add attachments to the head note
+     * add attachments to the head note and send email
      */
     protected function addRecommendationQuery(EmailData $email, Submission $submission, User $editor, Context $context): void
     {
@@ -135,11 +136,13 @@ trait IsRecommendation
             $email->body,
             $editor,
             $queryParticipantIds,
-            $context->getId()
+            $context->getId(),
+            false
         );
 
         $query = $queryDao->getById($queryId);
         $note = $query->getHeadNote();
+        $mailable = new Mailable();
         foreach ($email->attachments as $attachment) {
             if (isset($attachment[Mailable::ATTACHMENT_TEMPORARY_FILE])) {
                 $temporaryFileManager = new TemporaryFileManager();
@@ -155,6 +158,7 @@ trait IsRecommendation
                     $submission,
                     $context
                 );
+                $mailable->attachTemporaryFile($attachment[Mailable::ATTACHMENT_TEMPORARY_FILE], $attachment['name'], $editor->getId());
             } elseif (isset($attachment[Mailable::ATTACHMENT_SUBMISSION_FILE])) {
                 $submissionFile = Repo::submissionFile()->get($attachment[Mailable::ATTACHMENT_SUBMISSION_FILE]);
                 if (!$submissionFile || $submissionFile->getData('submissionId') !== $submission->getId()) {
@@ -166,6 +170,7 @@ trait IsRecommendation
                 $newSubmissionFile->setData('assocType', Application::ASSOC_TYPE_NOTE);
                 $newSubmissionFile->setData('assocId', $note->getId());
                 Repo::submissionFile()->add($newSubmissionFile);
+                $mailable->attachSubmissionFile($newSubmissionFile->getId(), $newSubmissionFile->getLocalizedData('name'));
             } elseif (isset($attachment[Mailable::ATTACHMENT_LIBRARY_FILE])) {
                 /** @var \PKP\context\LibraryFileDAO $libraryFileDao */
                 $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
@@ -182,8 +187,11 @@ trait IsRecommendation
                     $submission,
                     $context
                 );
+                $mailable->attachLibraryFile($attachment[Mailable::ATTACHMENT_LIBRARY_FILE], $attachment['name']);
             }
         }
+
+        $this->sendEditorsEmail($mailable, $email, $editor, $queryParticipantIds);
     }
 
     /**
@@ -210,5 +218,23 @@ trait IsRecommendation
             'assocId' => $note->getId(),
         ]);
         Repo::submissionFile()->add($submissionFile);
+    }
+
+    /**
+     * Sends email to editors with the recommendation
+     */
+    protected function sendEditorsEmail(Mailable $mailable, EmailData $email, User $editor, array $recipientIds)
+    {
+        $recipients = Repo::user()->getCollector()->filterByUserIds($recipientIds)->getMany();
+
+        $mailable
+            ->from($editor->getEmail(), $editor->getFullName())
+            ->to($recipients->map(fn(User $recipient) => ['email' => $recipient->getEmail(), 'name' => $recipient->getFullName()])->toArray())
+            ->cc($email->cc)
+            ->bcc($email->bcc)
+            ->subject($email->subject)
+            ->body($email->body);
+
+        Mail::send($mailable);
     }
 }

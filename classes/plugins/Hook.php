@@ -136,7 +136,6 @@ class Hook
         ksort($hooks[$hookName], SORT_NUMERIC);
         foreach ($hooks[$hookName] as $priority => $hookList) {
             foreach ($hookList as $callback) {
-                $params = array_merge([$hookName], $args);
                 if (call_user_func_array($callback, array_merge([$hookName], $args)) === self::ABORT) {
                     return self::ABORT;
                 }

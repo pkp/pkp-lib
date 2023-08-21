@@ -92,8 +92,8 @@ class DataObject
      * 1. Preferred Locale provided if provided
      * 1. User's current local
      * 2. Object's default locale if set
-     * 3. Site's primary locale
-     * 4. Context's primary locale
+     * 3. Context's primary locale
+     * 4. Site's primary locale
      */
     public function getLocalePrecedence(string $preferredLocale = null): array
     {

@@ -48,7 +48,7 @@ use Sokil\IsoCodes\IsoCodesFactory;
 use SplFileInfo;
 
 class Locale implements LocaleInterface
-{    
+{
     /** Max lifetime for the locale metadata cache, the cache is built by scanning the provided paths */
     protected const MAX_CACHE_LIFETIME = '1 hour';
 

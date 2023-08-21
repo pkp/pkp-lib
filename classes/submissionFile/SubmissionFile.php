@@ -49,43 +49,13 @@ class SubmissionFile extends \PKP\core\DataObject
         SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
         SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
     ];
-
+    
     /**
-     * Get a piece of data for this object, localized to the current
-     * locale if possible.
-     *
-     * @param string $key
-     * @param string $preferredLocale
+     * Get the default/fall back locale the values should exist for
      */
-    public function &getLocalizedData($key, $preferredLocale = null)
+    public function getDefaultLocale(): ?string 
     {
-        if (is_null($preferredLocale)) {
-            $preferredLocale = Locale::getLocale();
-        }
-        $localePrecedence = [$preferredLocale, $this->getData('locale')];
-        foreach ($localePrecedence as $locale) {
-            if (empty($locale)) {
-                continue;
-            }
-            $value = & $this->getData($key, $locale);
-            if (!empty($value)) {
-                return $value;
-            }
-            unset($value);
-        }
-
-        // Fallback: Get the first available piece of data.
-        $data = & $this->getData($key, null);
-        foreach ((array) $data as $dataValue) {
-            if (!empty($dataValue)) {
-                return $dataValue;
-            }
-        }
-
-        // No data available; return null.
-        unset($data);
-        $data = null;
-        return $data;
+        return $this->getData('locale');
     }
 
     /**

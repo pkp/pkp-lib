@@ -19,7 +19,6 @@
 namespace PKP\core;
 
 use APP\core\Application;
-use Exception;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use \PKP\filter\FilterDAO;
@@ -62,13 +61,10 @@ class DataObject
     /**
      * Get a piece of data for this object, localized to the current
      * locale if possible.
-     *
-     * @param string $key
-     * @param string $preferredLocale
      */
-    public function getLocalizedData($key, $preferredLocale = null)
+    public function getLocalizedData(string $key, string $preferredLocale = null): mixed
     {
-        foreach (Locale::getLocalePrecedence() as $locale) {
+        foreach ($this->getLocalePrecedence($preferredLocale) as $locale) {
             $value = & $this->getData($key, $locale);
             if (!empty($value)) {
                 return $value;
@@ -77,13 +73,47 @@ class DataObject
         }
 
         // Fallback: Get the first available piece of data.
-        $data = $this->getData($key, null);
-        if (!empty($data)) {
-            $locales = array_keys($data);
-            $firstLocale = array_shift($locales);
-            return $data[$firstLocale];
+        $data = & $this->getData($key, null);
+        foreach ((array) $data as $dataValue) {
+            if (!empty($dataValue)) {
+                return $dataValue;
+            }
         }
 
+        // No data available; return null.
+        unset($data);
+        $data = null;
+        return $data;
+    }
+
+    /**
+     * Get the locale precedence order for object follow the following order
+     * 
+     * 1. Preferred Locale provided if provided
+     * 1. User's current local
+     * 2. Object's default locale if set
+     * 3. Site's primary locale
+     * 4. Context's primary locale
+     */
+    public function getLocalePrecedence(string $preferredLocale = null): array
+    {
+        $request = Application::get()->getRequest();
+
+        return array_unique(
+            array_filter([
+                $preferredLocale ?? Locale::getLocale(),
+                $this->getDefaultLocale(),
+                $request->getContext()?->getPrimaryLocale(),
+                $request->getSite()?->getPrimaryLocale(),
+            ])
+        );
+    }
+
+    /**
+     * Get the default locale for object
+     */
+    public function getDefaultLocale(): ?string 
+    {
         return null;
     }
 

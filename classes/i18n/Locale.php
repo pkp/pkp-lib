@@ -48,24 +48,7 @@ use Sokil\IsoCodes\IsoCodesFactory;
 use SplFileInfo;
 
 class Locale implements LocaleInterface
-{
-    /**
-     * The following constants define how the locale precedence list will be defined and ordered.
-     *
-     * LOCALE_PRECEDENCE_USER : This is set via Locale::setLocale method or users preferred locale
-     * defined in settings. This will have top most importance.
-     *
-     * LOCALE_PRECEDENCE_CONTEXT : This is the context primary locale set in context settings. It
-     * may be unavailable sometime depending on non-contextual request or process (i.e. CLI commands or
-     * queue jobs). This will have second most importance.
-     *
-     * LOCALE_PRECEDENCE_SITE : This is the site primary locale set in site settings. It will have 
-     * least importance.
-     */
-    public const LOCALE_PRECEDENCE_USER = 1;
-    public const LOCALE_PRECEDENCE_CONTEXT = 2;
-    public const LOCALE_PRECEDENCE_SITE = 3;
-    
+{    
     /** Max lifetime for the locale metadata cache, the cache is built by scanning the provided paths */
     protected const MAX_CACHE_LIFETIME = '1 hour';
 
@@ -110,78 +93,6 @@ class Locale implements LocaleInterface
 
     /** Keeps cached data related only to the current locale */
     protected array $cache = [];
-
-    /**
-     * Cached locale precedence on a single request life cycle
-     *
-     * @var array 
-     */
-    private static $localePrecedence = [];
-
-    /**
-     * Get the locale precedence ordered keys
-     * 
-     * @return int[]
-     */
-    public function getLocalePrecedenceOrder(): array
-    {
-        return [
-            self::LOCALE_PRECEDENCE_USER,
-            self::LOCALE_PRECEDENCE_CONTEXT,
-            self::LOCALE_PRECEDENCE_SITE,
-        ];
-    }
-
-    /**
-     * Get the stack of "important" locales, most important first.
-     * 
-     * @return string[]
-     */
-    public function getLocalePrecedence(): array
-    {
-        if (!empty(static::$localePrecedence)) {
-            return static::$localePrecedence;
-        }
-
-        $request = $this->_getRequest();
-
-        static::$localePrecedence[self::LOCALE_PRECEDENCE_USER] = $this->getLocale();
-
-        $context = $request->getContext();
-        if ($context) {
-            static::$localePrecedence[self::LOCALE_PRECEDENCE_CONTEXT] = $context->getPrimaryLocale();
-        }
-
-        $site = $request->getSite();
-        if ($site) {
-            static::$localePrecedence[self::LOCALE_PRECEDENCE_SITE] = $site->getPrimaryLocale();
-        }
-
-        return static::$localePrecedence;
-    }
-
-    /**
-     * Update the locale precedence list based on given order and corresponding locale
-     */
-    public function updateLocalePrecedence(int $localePrecedenceOrder, string $locale): void
-    {
-        // Locale precedence list has not yet generated, so nothing to update yet
-        if (empty(static::$localePrecedence)) {
-            return;
-        }
-
-        if (!in_array($localePrecedenceOrder, $this->getLocalePrecedenceOrder())) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    'Invalid locale precedence order %s given, must be among [%s]',
-                    $localePrecedenceOrder,
-                    implode(',', $this->getLocalePrecedenceOrder())
-                )
-            );
-        }
-
-        static::$localePrecedence[$localePrecedenceOrder] = $locale;
-    }
 
     /**
      * @copy \Illuminate\Contracts\Translation\Translator::get()
@@ -232,7 +143,6 @@ class Locale implements LocaleInterface
         }
 
         $this->locale = $locale;
-        $this->updateLocalePrecedence(self::LOCALE_PRECEDENCE_USER, $this->locale);
         setlocale(LC_ALL, "{$locale}.utf-8", $locale);
         putenv("LC_ALL={$locale}");
     }

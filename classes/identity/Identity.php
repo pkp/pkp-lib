@@ -32,58 +32,11 @@ class Identity extends \PKP\core\DataObject
     /**
      * Get the default/fall back locale the values should exist for
      */
-    public function getDefaultLocale(): string
+    public function getDefaultLocale(): ?string
     {
         // The users register for the site, thus
         // the site primary locale is the default locale
         return Application::get()->getRequest()->getSite()->getPrimaryLocale();
-    }
-
-    /**
-     * Get a piece of data for this object, localized to the current
-     * locale if possible.
-     *
-     * @param string $key
-     * @param string $preferredLocale
-     */
-    public function &getLocalizedData($key, $preferredLocale = null)
-    {
-        if (is_null($preferredLocale)) {
-            $preferredLocale = Locale::getLocale();
-        }
-        $localePrecedence = [$preferredLocale];
-        $defaultLocale = $this->getDefaultLocale();
-        if (!in_array($defaultLocale, $localePrecedence)) {
-            $localePrecedence[] = $defaultLocale;
-        }
-        // for settings other than givenName, familyName and affiliation (that are required for registration)
-        // consider also the context primary locale
-        if (!in_array(Locale::getPrimaryLocale(), $localePrecedence)) {
-            $localePrecedence[] = Locale::getPrimaryLocale();
-        }
-        foreach ($localePrecedence as $locale) {
-            if (empty($locale)) {
-                continue;
-            }
-            $value = & $this->getData($key, $locale);
-            if (!empty($value)) {
-                return $value;
-            }
-            unset($value);
-        }
-
-        // Fallback: Get the first available piece of data.
-        $data = & $this->getData($key, null);
-        foreach ((array) $data as $dataValue) {
-            if (!empty($dataValue)) {
-                return $dataValue;
-            }
-        }
-
-        // No data available; return null.
-        unset($data);
-        $data = null;
-        return $data;
     }
 
     /**

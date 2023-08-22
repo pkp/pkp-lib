@@ -655,8 +655,6 @@ class QueriesGridHandler extends GridHandler
                     PKPApplication::ASSOC_TYPE_NOTE,
                     [$note->getId()]
                 )->filterBySubmissionIds([$submission->getId()])
-                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_QUERY])
-                ->filterByUploaderUserIds([$request->getUser()->getId()])
                 ->getMany();
 
             foreach ($added as $userId) {

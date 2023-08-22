@@ -62,11 +62,12 @@ class DataObject
      * Get a piece of data for this object, localized to the current
      * locale if possible.
      */
-    public function getLocalizedData(string $key, string $preferredLocale = null): mixed
+    public function getLocalizedData(string $key, string $preferredLocale = null, string &$selectedLocale = null): mixed
     {
         foreach ($this->getLocalePrecedence($preferredLocale) as $locale) {
             $value = & $this->getData($key, $locale);
             if (!empty($value)) {
+                $selectedLocale = $locale;
                 return $value;
             }
             unset($value);
@@ -74,8 +75,9 @@ class DataObject
 
         // Fallback: Get the first available piece of data.
         $data = & $this->getData($key, null);
-        foreach ((array) $data as $dataValue) {
+        foreach ((array) $data as $locale => $dataValue) {
             if (!empty($dataValue)) {
+                $selectedLocale = $locale;
                 return $dataValue;
             }
         }
@@ -87,12 +89,12 @@ class DataObject
     }
 
     /**
-     * Get the locale precedence order for object follow the following order
+     * Get the locale precedence order for object in the following order
      * 
-     * 1. Preferred Locale provided if provided
+     * 1. Preferred Locale if provided
      * 1. User's current local
      * 2. Object's default locale if set
-     * 3. Context's primary locale
+     * 3. Context's primary locale if context available
      * 4. Site's primary locale
      */
     public function getLocalePrecedence(string $preferredLocale = null): array
@@ -104,7 +106,7 @@ class DataObject
                 $preferredLocale ?? Locale::getLocale(),
                 $this->getDefaultLocale(),
                 $request->getContext()?->getPrimaryLocale(),
-                $request->getSite()?->getPrimaryLocale(),
+                $request->getSite()->getPrimaryLocale(),
             ])
         );
     }

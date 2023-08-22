@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-08-16 10:37+0000\n"
+"PO-Revision-Date: 2023-08-23 00:07+0000\n"
 "Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_CA/>\n"
@@ -2235,9 +2235,8 @@ msgstr "Licence"
 msgid "submission.copyright"
 msgstr "Droit d'auteur"
 
-#, fuzzy
 msgid "submission.copyright.agree"
-msgstr "Oui, j'accepte la déclaration de droits d'auteur."
+msgstr "Oui, j'accepte la politique sur le droit d'auteur."
 
 msgid "submission.copyrightHolder"
 msgstr "Titulaire du droit d'auteur"
@@ -2246,13 +2245,13 @@ msgid "submission.copyrightHolder.other"
 msgstr "Déclaration de droits d'auteur personnalisée"
 
 msgid "submission.copyrightOther"
-msgstr "Déclaration de droits d'auteur"
+msgstr "Politique sur le droit d'auteur"
 
 msgid "submission.copyrightYear"
 msgstr "Année du copyright"
 
 msgid "submission.copyrightStatement"
-msgstr "(c) Tous droits réservés {$copyrightHolder} {$copyrightYear}"
+msgstr "© {$copyrightHolder} {$copyrightYear}"
 
 msgid "submission.licenseURLValid"
 msgstr "Veuillez indiquer un URL distant valide (inclure http://)."

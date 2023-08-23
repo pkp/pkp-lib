@@ -49,14 +49,13 @@ class I9197_MigrateAccessKeys extends Migration
             $table->json('payload')->nullable();
 
             // The values are references to the enum InvitationStatus 
-            // InvitationStatus::PENDING, InvitationStatus::ACCEPTED, InvitationStatus::DECLINED
-            // InvitationStatus::EXPIRED, InvitationStatus::CANCELLED
+            // InvitationStatus::PENDING, InvitationStatus::ACCEPTED, 
+            // InvitationStatus::DECLINED, InvitationStatus::CANCELLED
             $table->enum('status', 
                 [
                     'PENDING', 
                     'ACCEPTED', 
                     'DECLINED', 
-                    'EXPIRED', 
                     'CANCELLED'
                 ]
             );
@@ -80,6 +79,9 @@ class I9197_MigrateAccessKeys extends Migration
 
             // ReviewerAccessInvite
             $table->index(['status', 'context_id', 'user_id', 'class_name', 'assoc_id']);
+
+            // Expired
+            $table->index(['expiry_date']);
         });
 
         $accessKeys = DB::table('access_keys')

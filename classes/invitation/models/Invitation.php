@@ -220,13 +220,37 @@ class Invitation extends Model
     }
 
     /**
-     * Add a local scope to get invitations that are of certain email
+     * Add a local scope to get invitations that are of certain context id
      */
     public function scopeByContextId(Builder $query, ?int $contextId): Builder
     {
         return $query->when($contextId, function ($query, $contextId) {
             return $query->where('context_id', '=', $contextId);
         })->orWhereNull('context_id');
+    }
+
+    /**
+     * Add a local scope to get invitations that are expired
+     */
+    public function scopeExpired($query)
+    {
+        return $query->where('expiry_date', '<', Carbon::now());
+    }
+
+    /**
+     * Add a local scope to get invitations that are expired
+     */
+    public function scopeNotExpired($query)
+    {
+        return $query->where('expiry_date', '>=', Carbon::now());
+    }
+
+    /**
+     * Add a local scope to get invitations that are expired
+     */
+    public function scopeById($query)
+    {
+        return $query->where('expiry_date', '>=', Carbon::now());
     }
 
     /**

@@ -20,7 +20,6 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use PKP\invitation\invitations\BaseInvitation;
-use PKP\invitation\invitations\enums\InvitationStatus;
 
 class PKPInvitationHandler extends Handler
 {
@@ -60,11 +59,6 @@ class PKPInvitationHandler extends Handler
             ->getByIdAndKey($id, $key);
 
         if (is_null($invitation)) {
-            $request->getDispatcher()->handle404();
-        }
-
-        if ($invitation->isExpired()) {
-            $invitation->markStatus(InvitationStatus::EXPIRED);
             $request->getDispatcher()->handle404();
         }
 

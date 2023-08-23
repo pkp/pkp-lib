@@ -42,6 +42,7 @@ class Invitation extends BaseRepository
     {
         return $this->model
             ->notHandled()
+            ->notExpired()
             ->certainKeyhash($keyHash)
             ->first();
     }
@@ -59,7 +60,10 @@ class Invitation extends BaseRepository
 
     public function getByIdAndKey(int $id, string $key): ?BaseInvitation
     {
-        $invitation = $this->get($id);
+        $invitation = $this->model
+            ->notHandled()
+            ->notExpired()
+            ->find($id);
 
         if (is_null($invitation)) {
             return null;
@@ -99,6 +103,24 @@ class Invitation extends BaseRepository
     public function filterByAssocId(int $assocId): Invitation 
     {
         $this->query->byAssocId($assocId);
+        return $this;
+    }
+
+    /**
+     * Filter invitations by whether they are expired
+     */
+    public function expired(): Invitation 
+    {
+        $this->query->expired();
+        return $this;
+    }
+
+    /**
+     * Filter invitations by whether they are not expired
+     */
+    public function notExpired(): Invitation 
+    {
+        $this->query->notExpired();
         return $this;
     }
 

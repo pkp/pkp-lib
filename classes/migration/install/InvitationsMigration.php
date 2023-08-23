@@ -43,7 +43,6 @@ class InvitationsMigration extends \PKP\migration\Migration
                     InvitationStatus::PENDING, 
                     InvitationStatus::ACCEPTED, 
                     InvitationStatus::DECLINED, 
-                    InvitationStatus::EXPIRED, 
                     InvitationStatus::CANCELLED,
                 ]
             );

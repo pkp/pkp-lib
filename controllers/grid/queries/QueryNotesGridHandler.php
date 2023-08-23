@@ -307,8 +307,6 @@ class QueryNotesGridHandler extends GridHandler
                 PKPApplication::ASSOC_TYPE_NOTE,
                 [$note->getId()]
             )->filterBySubmissionIds([$submission->getId()])
-            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_QUERY])
-            ->filterByUploaderUserIds([$request->getUser()->getId()])
             ->getMany();
 
         foreach ($queryDao->getParticipantIds($query->getId()) as $userId) {

@@ -44,7 +44,7 @@ class Hook
         }
 
         if (isset($hooks[$hookName])) {
-            return $hooks[$hookName];
+            return $hooks[$hookName]['hooks'];
         }
 
         $returner = null;
@@ -70,7 +70,8 @@ class Hook
     public static function add(string $hookName, callable $callback, int $hookSequence = self::SEQUENCE_NORMAL): void
     {
         $hooks = & static::getHooks();
-        $hooks[$hookName][$hookSequence][] = $callback;
+        $hooks[$hookName]['hooks'][$hookSequence][] = $callback;
+        $hooks[$hookName]['dirty'] = true; // Need to re-sort
     }
 
     /**
@@ -126,18 +127,22 @@ class Hook
      * parameter to Hook::call. These may be named if desired,
      * and may include references.
      */
-    public static function run(string $hookName, $args): bool
+    public static function run(string $hookName, array $args = []): bool
     {
         $hooks = & static::getHooks();
         if (!isset($hooks[$hookName])) {
             return self::CONTINUE;
         }
 
-        ksort($hooks[$hookName], SORT_NUMERIC);
-        foreach ($hooks[$hookName] as $priority => $hookList) {
+        // Sort callbacks if the list is dirty
+        if ($hooks[$hookName]['dirty']) {
+            ksort($hooks[$hookName]['hooks'], SORT_NUMERIC);
+            $hooks[$hookName]['dirty'] = false;
+        }
+
+        foreach ($hooks[$hookName]['hooks'] as $priority => $hookList) {
             foreach ($hookList as $callback) {
-                $params = array_merge([$hookName], $args);
-                if (call_user_func_array($callback, array_merge([$hookName], $args)) === self::ABORT) {
+                if (call_user_func_array($callback, [$hookName, ...$args]) === self::ABORT) {
                     return self::ABORT;
                 }
             }

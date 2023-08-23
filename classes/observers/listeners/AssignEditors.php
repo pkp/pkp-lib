@@ -64,8 +64,14 @@ class AssignEditors
         }
 
         $notificationManager = new NotificationManager();
+        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
+        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+        /** @var SubmissionEmailLogDAO $logDao */
+        $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
         foreach ($managers as $manager) {
-            $notificationManager->createNotification(
+
+            // Send notification
+            $notification = $notificationManager->createNotification(
                 Application::get()->getRequest(),
                 $manager->getId(),
                 Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
@@ -74,18 +80,8 @@ class AssignEditors
                 $event->submission->getId(),
                 Notification::NOTIFICATION_LEVEL_TASK
             );
-        }
 
-        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
-        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-        $emailTemplate = Repo::emailTemplate()->getByKey($event->context->getId(), SubmissionNeedsEditor::getEmailTemplateKey());
-        $mailable = new SubmissionNeedsEditor($event->context, $event->submission);
-        $mailable
-            ->from($event->context->getData('contactEmail'), $event->context->getData('contactName'))
-            ->subject($emailTemplate->getLocalizedData('subject'))
-            ->body($emailTemplate->getLocalizedData('body'));
-
-        foreach ($managers as $manager) {
+            // Check if subscribed to this type of emails
             $unsubscribed = in_array(
                 Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
                 $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
@@ -99,10 +95,29 @@ class AssignEditors
                 continue;
             }
 
-            Mail::send($mailable->recipients([$manager]));
+            // Send email
+            $emailTemplate = Repo::emailTemplate()->getByKey($event->context->getId(), SubmissionNeedsEditor::getEmailTemplateKey());
+            $mailable = new SubmissionNeedsEditor($event->context, $event->submission);
 
-            /** @var SubmissionEmailLogDAO $logDao */
-            $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+            // The template may not exist, see pkp/pkp-lib#9217; FIXME remove after #9202 is resolved
+            if (!$emailTemplate) {
+                $emailTemplate = Repo::emailTemplate()->getByKey($event->context->getId(), 'NOTIFICATION');
+                $request = Application::get()->getRequest();
+                $mailable->addData([
+                    'notificationContents' => $notificationManager->getNotificationContents($request, $notification),
+                    'notificationUrl' => $notificationManager->getNotificationUrl($request, $notification),
+                ]);
+            }
+
+            $mailable
+                ->from($event->context->getData('contactEmail'), $event->context->getData('contactName'))
+                ->subject($emailTemplate->getLocalizedData('subject'))
+                ->body($emailTemplate->getLocalizedData('body'))
+                ->recipients([$manager]);
+
+            Mail::send($mailable);
+
+            // Log email
             $logDao->logMailable(
                 SubmissionEmailLogEntry::SUBMISSION_EMAIL_NEEDS_EDITOR,
                 $mailable,

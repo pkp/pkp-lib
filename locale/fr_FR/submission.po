@@ -1,13 +1,14 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2022.
 # Mathias Vitalis <mathias.vitalis@u-bordeaux.fr>, 2023.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-07-07 19:58+0000\n"
-"Last-Translator: Stefan Schneider <mail@stefan-schneider.at>\n"
+"PO-Revision-Date: 2023-08-01 08:25+0000\n"
+"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -52,18 +53,17 @@ msgstr ""
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"Sélectionnez un rôle éditorial si vous souhaitez éditer et publier vous-même "
+"cette soumission."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Liste de vérifications de la soumisssion"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
-"Vous devez lire et reconnaître que vous avez rempli les conditions ci-"
-"dessous avant de poursuivre."
+msgstr "Toutes les soumissions doivent répondre aux exigences suivantes."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "Oui, ma soumission répond à toutes ces exigences."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Soumission complète"
@@ -363,7 +363,7 @@ msgstr "Type du titre"
 msgid "metadata.property.validationMessage.title-type"
 msgstr ""
 "Assurez-vous d'avoir établi un type de titre valide. Les valeurs acceptées "
-"sont \"abrégé\", \"traduit\", \"alternatif\" et \"uniforme\"."
+"sont « abrégé », « traduit », « alternatif » et « uniforme »."
 
 msgid "metadata.property.displayName.nonSort"
 msgstr "Une portion du titre a été ignorée pendant le tri"
@@ -400,10 +400,11 @@ msgstr "Veuillez saisir un nom valide pour la partie."
 msgid "metadata.property.displayName.name-type"
 msgstr "Type du nom"
 
+#, fuzzy
 msgid "metadata.property.validationMessage.name-type"
 msgstr ""
-"Assurez-vous de choisir un type de nom valide. Les valeurs acceptées sont "
-"\"personnel\", \"corporatif\" et \"conférence\"."
+"Assurez-vous de choisir un type de nom valide. Les valeurs acceptées sont « "
+"personnel » , « corporatif » et « conférence »."
 
 msgid "metadata.property.displayName.abstract"
 msgstr "Résumé"
@@ -551,7 +552,7 @@ msgid "submission.coverage"
 msgstr "Renseignements sur la couverture"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Détails de la soumission"
 
 msgid "submission.done"
 msgstr "Terminer"
@@ -594,11 +595,15 @@ msgid "submission.emailLog"
 msgstr "Registre de courriels"
 
 msgid "submission.event.participantAdded"
-msgstr "\"{$userFullName}\" ({$username}) fait partie du groupe {$userGroupName}."
+msgstr ""
+"{$userFullName} ({$username}) a été ajouté·e à cette soumission en tant que "
+"{$userGroupName}."
 
+#, fuzzy
 msgid "submission.event.participantRemoved"
 msgstr ""
-"\"{$userFullName}\" ({$username}) ne fait plus partie du groupe {$userGroupName}."
+"« {$userFullName} » ({$username}) ne fait plus partie du groupe "
+"{$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Retour au Registre d'événements"
@@ -618,12 +623,16 @@ msgstr "Supprimer l'entrée du registre"
 
 msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
+"Un courriel à propos de la décision a été envoyé à {$recipientCount} "
+"évaluateur·rice·s avec le sujet {$subject}."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Soumission initiale complétée."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$filename} ({$username}) a accepté les conditions de droits d'auteur pour "
+"la soumission."
 
 msgid "submission.event.fileRevised"
 msgstr ""
@@ -676,9 +685,13 @@ msgstr "Fichiers de révision du rapporteur mis à jour"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} a envoyé un rappel à {$recipientName} au sujet de son "
+"assignation d'évalution"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"Un courriel de rappel automatisé a été envoyé à {$recipientName} au sujet de "
+"son assignation d'évalution"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Un courriel a été envoyé :"
@@ -708,10 +721,10 @@ msgstr ""
 "création du fichier et ne pas pas être modifié."
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "Première publication"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "Pour les éditeur·rice·s"
 
 msgid "submission.galley"
 msgstr "Épreuve"
@@ -935,7 +948,7 @@ msgid "submission.notes.removeUploadedFile"
 msgstr "Supprimer le fichier transféré"
 
 msgid "submission.notes"
-msgstr "Notes  de la soumission"
+msgstr "Notes de la soumission"
 
 msgid "submission.notes.updateNote"
 msgstr "Mettre à jour la note"
@@ -989,7 +1002,7 @@ msgid "submission.review"
 msgstr "Évaluation"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Réviser et envoyer"
 
 msgid "submission.reviewed"
 msgstr "Révisé"
@@ -1089,11 +1102,8 @@ msgstr "Autres modifications"
 msgid "submission.submit.submissionLocale"
 msgstr "Langue de la soumission"
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Les soumission dans plusieurs langues sont acceptées. Choisissez la langue "
-"principal de la soumission parmi celle présentes dans le menu déroulant."
+msgstr "Choisissez la langue principale de la soumission."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Fichiers de soumission"
@@ -1149,9 +1159,7 @@ msgid "submission.views"
 msgstr "Vues"
 
 msgid "submission.uploadSuccessful"
-msgstr ""
-"Votre fichier a été transféré. Appuyer sur \"Continuer\" pour modifier les "
-"métadonnées du fichier."
+msgstr "Votre fichier a été téléversé."
 
 msgid "submission.loadMessage"
 msgstr ""
@@ -1206,7 +1214,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Renseigner les références."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Veuillez remplir la déclaration de disponibilité des données."
 
 msgid "submission.form.name"
 msgstr "Nommer le fichier (par exemple : manuscrit ; table1)"
@@ -1271,11 +1279,11 @@ msgstr "Détection d'une possible duplication de révision"
 msgid "submission.upload.possibleRevisionDescription"
 msgstr ""
 "Le nom du fichier que vous venez de téléverser ressemble au nom d'un fichier "
-"préalablement téléversé, soit « {$revisedFileName} ». Ce nouveau fichier "
-"devrait-il remplacer le fichier « {$revisedFileName} » ? Dans l'affirmative, "
+"préalablement téléversé, soit « {$revisedFileName} ». Ce nouveau fichier "
+"devrait-il remplacer le fichier « {$revisedFileName} » ? Dans l'affirmative, "
 "sélectionner le nom du fichier à remplacer dans le menu déroulant ci-"
-"dessous. Autrement, sélectionnez « Ceci ne remplace pas un fichier déjà "
-"existant » avant de poursuivre."
+"dessous. Autrement, sélectionnez « Ceci ne remplace pas un fichier déjà "
+"existant » avant de poursuivre."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
 msgstr "Veuillez sélectionner le fichier que vous souhaitez réviser."
@@ -1329,9 +1337,8 @@ msgstr "Vous n'avez aucun fichier à examiner pour le moment."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Accepté en attente de corrections."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Des révisions ont été déposées."
+msgstr "Des révisions ont été soumises et une décision est nécessaire."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "La soumission doit être resoumise pour être ré évaluer."
@@ -1373,10 +1380,12 @@ msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Une décision éditoriale est attendue."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr ""
+msgstr "Inactif depuis plus de {$days} jours à l'étape {$stage}."
 
 msgid "editor.submission.status.waitingInitialReview"
 msgstr ""
+"Une nouvelle soumission est en attente d'être envoyée pour évaluation ou "
+"refusée."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Participants"
@@ -1444,155 +1453,224 @@ msgid "editor.submission.decision"
 msgstr "Décision"
 
 msgid "editor.submission.decision.notifyAuthors"
-msgstr ""
+msgstr "Informer les auteur·rice·s"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr ""
+msgstr "Informer les évaluateur·rice·s"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"Envoyer un courriel aux évaluateur·rice·s pour les remercier de leur "
+"évaluation et leur faire savoir qu'une décision a été prise. Chaque "
+"évaluateur·rice recevra un courriel distinct afin de protéger son anonymat. "
+"La phrase {$recipientName} peut être utilisée dans le message pour inclure "
+"le nom de chaque évaluateur·rice en toute sécurité."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"Envoyer un courriel aux évaluateur·rice·s assigné·e·s pour les informer que "
+"leur assignation d'évaluation a été annulée."
 
 msgid "editor.submission.decision.accept"
 msgstr "Accepter la soumission"
 
 msgid "editor.submission.decision.accept.description"
 msgstr ""
+"Cette soumission sera acceptée pour publication et envoyée pour édition."
 
 msgid "editor.submission.decision.accept.log"
 msgstr ""
+"{$editorName} a accepté cette soumission et l'a envoyée à l'étape d'édition."
 
 msgid "editor.submission.decision.accept.completed"
-msgstr ""
+msgstr "Soumission acceptée"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
+"La soumission, « {$title} », a été acceptée pour publication et envoyée à "
+"l'étape d'édition. Toutes les notifications ont été envoyées, à l'exception "
+"de celles que vous avez choisi d'ignorer."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
+"Envoyer un courriel aux auteur·rice·s pour les informer que leur soumission "
+"a été acceptée pour publication. Ce courriel ne sera pas envoyé avant que la "
+"décision n'ait été enregistrée."
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Envoyez un courriel aux auteur·rice·s pour les informer que le cycle "
+"d'évaluation est terminé. Ce courriel ne sera pas envoyé avant que la "
+"décision n'ait été enregistrée."
 
 msgid "editor.submission.decision.decline"
 msgstr "Refus de la soumission"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
+"Cette soumission sera refusée pour publication. La phase d'évaluation par "
+"les pairs sera clôturée et la soumission sera archivée."
 
 msgid "editor.submission.decision.decline.log"
-msgstr ""
+msgstr "{$editorName} a refusé cette soumission."
 
 msgid "editor.submission.decision.decline.completed"
-msgstr ""
+msgstr "Soumission refusée"
 
 msgid "editor.submission.decision.decline.completed.description"
 msgstr ""
+"La soumission « {$title} » a été refusée et archivée. Toutes les "
+"notifications ont été envoyées, sauf celles que vous avez choisi d'ignorer."
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
+"Envoyer un courriel aux auteur·rice·s pour les informer que leur soumission "
+"a été refusée. Ce courriel ne sera pas envoyé avant que la décision n'ait "
+"été enregistrée."
 
 msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
+"Cette soumission sera refusée. Aucune autre évaluation ne sera faite et la "
+"soumission sera archivée."
 
 msgid "editor.submission.decision.newReviewRound"
-msgstr ""
+msgstr "Nouveau cycle d'évaluation"
 
 msgid "editor.submission.decision.newReviewRound.description"
-msgstr ""
+msgstr "Ouvrir un nouveau cycle d'évaluation pour cette soumission."
 
 msgid "editor.submission.decision.newReviewRound.log"
 msgstr ""
+"{$editorName} a ouvert un nouveau cycle d'évaluation pour cette soumission."
 
 msgid "editor.submission.decision.newReviewRound.completed"
-msgstr ""
+msgstr "Cycle d'évaluation ouvert"
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
+"Un nouveau cycle d'évaluation a été ouvert pour la soumission « {$title} ». "
+"L'auteur·rice en a été informé·e, à moins que vous n'aillez choisi d'ignorer "
+"ce courriel."
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Envoyer un courriel aux auteur·rice·s pour les informer qu'un nouveau cycle "
+"d'évaluation a été ouvert pour leur soumission. Ce courriel ne sera pas "
+"envoyé avant que la décision n'ait été enregistrée."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
-msgstr ""
+msgstr "Choisir les fichiers qui doivent être envoyés à l'étape d'édition."
 
 msgid "editor.submission.decision.promoteFiles.review"
-msgstr ""
+msgstr "Choisir les fichiers qui seront envoyés à l'évaluation."
 
 msgid "editor.submission.decision.promoteFiles.production"
-msgstr ""
+msgstr "Choisir les fichiers qui seront envoyés à l'étape de production."
 
 msgid "editor.submission.decision.requestRevisions"
 msgstr "Demande de révisions"
 
 msgid "editor.submission.decision.requestRevisions.description"
 msgstr ""
+"L'auteur·rice doit apporter des révisions avant que cette soumission ne soit "
+"acceptée pour publication."
 
 msgid "editor.submission.decision.requestRevisions.log"
-msgstr ""
+msgstr "[$editorName} a demandé des révisions pour cette soumission."
 
 msgid "editor.submission.decision.requestRevisions.completed"
-msgstr ""
+msgstr "Révisions demandées"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
+"Des révisions ont été demandées pour la soumission « {$title} ». Toutes les "
+"notifications ont été envoyées, à l'exception de celles que avez choisi "
+"d'ignorer."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
+"Envoyer un courriel aux auteur·rice·s pour les informer que des révisions "
+"seront nécessaires avant que cette soumission ne soit acceptée pour "
+"publication. Inclure tous les détails dont l'auteur·rice aura besoin pour "
+"réviser sa soumission. Le cas échéant, n'oubliez pas de rendre anonymes les "
+"commentaires des évaluateurs. Ce courriel ne sera pas envoyé avant que la "
+"décision ne soit enregistrée."
 
 msgid "editor.submission.decision.cancelReviewRound"
-msgstr ""
+msgstr "Annuler le cycle d'évaluation"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
+"Annuler le cycle d'évaluation en cours et renvoyer la soumission au cycle "
+"d'évaluation précédent. S'il s'agit du premier cycle d'évaluation, la "
+"soumission sera renvoyée à l'étape de la soumission."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
-msgstr ""
+msgstr "{$editorName} a annulé le cycle d'évaluation."
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr ""
+msgstr "Le dernier cycle d'évaluation a été annulé."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
+"Le cycle d'évaluation de la soumission « {$title} » a été annulé. Toutes les "
+"notifications ont été envoyées, sauf celles que vous avez choisi d'ignorer."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
+"Le cycle d'évaluation ne peut être annulé que si aucune évaluation complétée "
+"ou soumise n'est disponible."
 
 msgid "editor.submission.decision.resubmit"
 msgstr "Resoumettre pour évaluation"
 
 msgid "editor.submission.decision.resubmit.description"
 msgstr ""
+"L'auteur·rice doit effectuer des révisions qui feront l'objet d'un autre "
+"cycle d'évaluation avant que cette soumission ne soit acceptée pour "
+"publication."
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
+"{$editorName} a demandé des révisions pour cette soumission, qui devront "
+"faire l'objet d'un nouveau cycle d'évaluation."
 
 msgid "editor.submission.decision.resubmit.completed"
-msgstr ""
+msgstr "Révisions demandées"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
+"Des révisions ont été demandées pour la soumission « {$title} ». La décision "
+"de soumettre ces révisions à un nouveau cycle d'évaluation a été "
+"enregistrée. Toutes les notifications ont été envoyées, à l'exception de "
+"celles que avez choisi d'ignorer."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
+"Envoyer un courriel aux auteur·rice·s pour les informer que les révisions "
+"devront être complétées et envoyées pour un nouveau cycle d'évaluation. "
+"Veuillez inclure tous les détails dont l'auteur aura besoin pour réviser sa "
+"soumission. Le cas échéant, n'oubliez pas de rendre anonymes les "
+"commentaires des évaluateur·rice·s."
 
 msgid "editor.submission.decision.sendExternalReview"
 msgstr "Envoyer au rapporteur externe"
 
 msgid "editor.submission.decision.sendExternalReview.description"
-msgstr ""
+msgstr "Cette soumission est prête à être envoyée pour évaluation externe."
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr ""
+msgstr "{$editorName} a envoyé cette soumission à l'étape d'évaluation externe."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr ""
+msgstr "Envoyé pour évaluation externe"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
+"La soumission, « {$title} », a été envoyée à l'étape d'évaluation externe. "
+"Une notification a été envoyée à l'auteur·rice, à moins que vous n'ayez "
+"choisi d'ignorer ce courriel."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Nouveau cycle d'évaluation"
@@ -1602,72 +1680,104 @@ msgstr "Envoyer pour publication"
 
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr ""
+"Envoyer cette soumission à l'étape de production afin qu'elle soit préparée "
+"pour la publication."
 
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr ""
+msgstr "{$editorName} a envoyé cette soumission à l'étape de production."
 
 msgid "editor.submission.decision.sendToProduction.completed"
-msgstr ""
+msgstr "Envoyée en production"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
+"La soumission, « {$title} », a été envoyée à l'étape de production. Une "
+"notification a été envoyée à l'auteur·rice, à moins que vous n'ayez choisi "
+"d'ignorer ce courriel."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
+"Envoyer un courriel aux auteur·rice·s pour les informer que cette soumission "
+"a été envoyée à l'étape de production. Ce courriel ne sera pas envoyé avant "
+"que la décision n'ait été enregistrée."
 
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr ""
+msgstr "Annuler l'édition"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr ""
+msgstr "Renvoyer cette soumission depuis l'étape d'édition."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
-msgstr ""
+msgstr "{$editorName} a renvoyé cette soumission depuis l'étape d'édition."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr ""
+msgstr "Renvoyée depuis l'étape d'édition"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
+"La soumission, « {$title} », a été renvoyée depuis l'étape d'édition. Une "
+"notification a été envoyée à l'auteur·rice, à moins que vous n'ayez choisi "
+"d'ignorer ce courriel."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Envoyer un courriel aux auteur·rice·s pour les informer que l'édition est "
+"annulée et que leur soumission fera l'objet d'une nouvelle révision "
+"éditoriale."
 
 msgid "editor.submission.decision.backToCopyediting"
-msgstr ""
+msgstr "Revenir à l'étape d'édition"
 
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr ""
+msgstr "Renvoyer cette soumission à l'étape d'édition."
 
 msgid "editor.submission.decision.backToCopyediting.log"
-msgstr ""
+msgstr "{$editorName} a renvoyé cette soumission à l'étape d'édition."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr ""
+msgstr "Renvoyée à l'étape d'édition"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
+"La soumission, « {$title} », a été renvoyée à l'étape d'édition. Une "
+"notification a été envoyée à l'auteur·rice, à moins que vous n'ayez choisi "
+"d'ignorer ce courriel."
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Envoyer un courriel aux auteur·rice·s pour les informer que cette soumission "
+"a été renvoyée à l'étape d'édition. Expliquez pourquoi cette décision a été "
+"prise et informez l'auteur·rice des corrections supplémentaires à apporter "
+"avant que la soumission ne soit prête pour la production."
 
 msgid "editor.submission.decision.skipReview"
 msgstr "Accepter et ne pas faire l'évaluation"
 
 msgid "editor.submission.decision.skipReview.description"
 msgstr ""
+"Accepter cette soumission pour publication et ignorer l'étape d'évaluation. "
+"Cette décision enverra la soumission à l'étape d'édition."
 
 msgid "editor.submission.decision.skipReview.log"
 msgstr ""
+"{$editorName} a ignoré l'étape d'évaluation et a envoyé cette soumission à "
+"l'étape d'édition."
 
 msgid "editor.submission.decision.skipReview.completed"
-msgstr ""
+msgstr "L'évaluation a été ignorée"
 
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
+"La soumission, « {$title} », a sauté l'étape d'évaluation et a été envoyée à "
+"l'étape d'édition. Une notification a été envoyée à l'auteur·rice, à moins "
+"que vous n'ayez choisi d'ignorer ce courriel."
 
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
+"Envoyer un courriel aux auteur·rice·s pour les informer que cette soumission "
+"a été acceptée pour publication et envoyée à l'étape d'édition sans "
+"évaluation. Ce courriel ne sera pas envoyé avant que la décision n'ait été "
+"enregistrée."
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Envoyer au rapporteur interne"
@@ -1690,70 +1800,98 @@ msgstr "Annuler le refus"
 
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
+"Revenir sur une décision antérieure de refuser cette soumission et la "
+"remettre dans le processus éditorial actif. Une notification a été envoyée à "
+"l'auteur·rice, à moins que vous n'ayez choisi d'ignorer ce courriel."
 
 msgid "editor.submission.decision.revertDecline.log"
-msgstr ""
+msgstr "{$editorName} a annulé la décision de refuser cette soumission."
 
 msgid "editor.submission.decision.revertDecline.completed"
-msgstr ""
+msgstr "Soumission réactivée"
 
 msgid "editor.submission.decision.revertDecline.completed.description"
 msgstr ""
+"La soumission, « {$title} », est maintenant active dans l'étape d'évaluation."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
+"Envoyer un courriel aux auteur·rice·s pour les informer que la décision "
+"antérieure de refuser cette soumission a été annulée. Expliquez pourquoi la "
+"décision a été annulée et faites-leur savoir si la soumission devrait faire "
+"l'objet d'une nouvelle évaluation."
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
+"La soumission, « {$title} », est maintenant active dans l'étape de "
+"soumission. Une notification a été envoyée à l'auteur·rice, à moins que vous "
+"n'ayez choisi d'ignorer ce courriel."
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "Assigner un rédacteur à cette étape pour pouvoir faire des actions."
+msgstr ""
+"Assigner un·e éditeur·rice pour activer les décisions éditoriales à cette "
+"étape."
 
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
+"Envoyer un message aux éditeur·rice·s responsables pour les informer de la "
+"recommandation. Expliquez pourquoi cette recommandation a été faite en "
+"réponse aux recommandations et aux commentaires soumis par les "
+"évaluateur·rice·s."
 
 msgid "editor.submission.recommend.accept"
-msgstr ""
+msgstr "Recommander l'acceptation"
 
 msgid "editor.submission.recommend.accept.description"
 msgstr ""
+"Recommander que cette soumission soit acceptée pour publication et envoyée "
+"pour édition."
 
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
+"{$editorName} a recommandé que cette soumission soit acceptée et envoyée "
+"pour édition."
 
 msgid "editor.submission.recommend.completed"
-msgstr ""
+msgstr "Recommandation transmise"
 
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
+"Votre recommandation a été enregistrée et une notification a été adressée "
+"aux éditeur·rice·s responsables."
 
 msgid "editor.submission.recommend.revisions"
-msgstr ""
+msgstr "Recommander des révisions"
 
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
+"Recommander que des révisions soient demandées à l'auteur·rice avant que "
+"cette soumission ne soit acceptée pour publication."
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "{$editorName} a recommandé de demander des révisions."
 
 msgid "editor.submission.recommend.resubmit"
-msgstr ""
+msgstr "Recommander soumettre à nouveau pour évaluation"
 
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
+"Recommander que l'auteur soit invité à soumettre des révisions pour un autre "
+"cycle d'évaluation."
 
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
+"{$editorName} a recommandé de demander des révisions et d'envoyer ces "
+"révisions pour un nouveau cycle d'évaluation."
 
 msgid "editor.submission.recommend.decline"
-msgstr ""
+msgstr "Recommander le refus"
 
 msgid "editor.submission.recommend.decline.description"
-msgstr ""
+msgstr "Recommander que la soumission soit refusée pour publication."
 
 msgid "editor.submission.recommend.decline.log"
-msgstr ""
+msgstr "{$editorName} a recommandé que cette soumission soit refusée."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Faire une recommandation"
@@ -1769,6 +1907,8 @@ msgstr "Recommandations : {$recommendations}"
 
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
+"Vous ne pouvez pas faire de recommandation tant qu'une éditrice ou un "
+"éditeur autorisé à enregistrer une décision n'a pas été désigné."
 
 msgid "editor.submission.recommendation"
 msgstr "Recommandation"
@@ -1807,27 +1947,27 @@ msgstr ""
 
 msgid "submission.event.fileUploaded"
 msgstr ""
-"Le fichier \"{$filename}\" pour la soumission {$submissionId} par "
-"{$username} a été transféré."
+"Le fichier « {$filename} » pour la soumission {$submissionId} a été "
+"téléversé par {$username}."
 
 msgid "submission.event.fileDeleted"
 msgstr ""
-"Le fichier \"{$filename}\" pour la soumission {$submissionId} par "
-"{$username} a été supprimé."
+"Le fichier « {$filename} » pour la soumission {$submissionId} a été supprimé "
+"par {$username}."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
-"Le fichier d'évaluation \"{$filename}\" pour la soumission "
-"{$submissionId} par {$username} a été transféré."
+"Le fichier révisé « {$filename} » pour la soumission {$submissionId} a été "
+"téléversé par {$username}."
 
 msgid "submission.event.revisionDeleted"
 msgstr ""
-"Le fichier d'évaluation \"{$filename}\" pour la soumission "
-"{$submissionId} par {$username} a été supprimé ."
+"Le fichier révisé « {$filename} » pour la soumission {$submissionId} a été "
+"supprimé par {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
 msgstr ""
-"La dernière évaluation du fichier  \"{$filename}\" a été supprimée par "
+"La dernière révision du fichier « {$filename} » a été supprimée par "
 "{$username}."
 
 msgid "submission.event.fileAuditorAdded"
@@ -1869,14 +2009,14 @@ msgstr ""
 
 msgid "notification.type.copyeditorRequest"
 msgstr ""
-"Vous avez été invité à consulter les révisions pour le titre \"{$title}\"."
+"Vous avez été invité·e à consulter les révisions pour le titre « {$title} »."
 
 msgid "notification.type.layouteditorRequest"
 msgstr ""
-"Vous avez été invité à consulter la mises en page pour le titre \"{$title}\"."
+"Vous avez été invité·e à réviser la mise en page pour le titre « {$title} »."
 
 msgid "notification.type.indexRequest"
-msgstr "On vous a demandé de créer un index pour \"{$title}\"."
+msgstr "Vous avez été invité·e à créer un index pour « {$title} »."
 
 msgid "notification.type.editorDecisionTitle"
 msgstr "Dernière décision du rédacteur en chef."
@@ -1951,6 +2091,8 @@ msgstr ""
 
 msgid "log.review.reviewerResendRequest"
 msgstr ""
+"Envoyer à nouveau la demande d'évaluation dans le cycle {$round} à "
+"{$reviewerName} pour la soumission {$submissionid}."
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
@@ -2052,7 +2194,7 @@ msgid "submission.copyright"
 msgstr "Droit d'auteur (copyright)"
 
 msgid "submission.copyright.agree"
-msgstr ""
+msgstr "Oui, j'accepte la déclaration de droits d'auteur."
 
 msgid "submission.copyrightHolder"
 msgstr "Titulaire du droit d'auteur"
@@ -2123,8 +2265,8 @@ msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
 "deed.fr\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons."
 "org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Ce travail est disponible sous "
-"licence  <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-"
-"nc-sa/4.0/deed.fr\">Creative Commons Attribution - Pas d’Utilisation "
+"licence <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc-sa/4.0/deed.fr\">Creative Commons Attribution - Pas d’Utilisation "
 "Commerciale - Partage dans les Mêmes Conditions 4.0 International</a>.</p>"
 
 msgid "submission.license.cc.by-nd4.footer"
@@ -2138,11 +2280,11 @@ msgstr ""
 
 msgid "submission.license.cc.by4.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/deed.fr"
-"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by/4.0/88x31.png\" /></a><p>Ce travail est disponible sous la licence  <a "
-"rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/deed.fr"
-"\">Creative Commons Attribution 4.0 International </a>.</p>"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/deed."
+"fr\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by/4.0/88x31.png\" /></a><p>Ce travail est disponible sous la licence <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by/4.0/deed.fr\""
+">Creative Commons Attribution 4.0 International </a>.</p>"
 
 msgid "submission.license.cc.by-sa4.footer"
 msgstr ""
@@ -2253,13 +2395,13 @@ msgstr ""
 
 msgid "submission.query.activity.contents"
 msgstr ""
-"Une nouvelle entrée vient d'être ajouté dans la discussion intitulée "
-"\"{$queryTitle}\" pour la soumission \"{$submissionTitle}\"."
+"Une nouvelle entrée vient d'être ajoutée dans la discussion intitulée « "
+"{$queryTitle} » au sujet de la soumission « {$submissionTitle} »."
 
 msgid "submission.query.new.contents"
 msgstr ""
-"Vous avez été ajouté à une discussion intitulée \"{$queryTitle}\" au sujet "
-"de la soumission \"{$submissionTitle}\"."
+"Vous avez été ajouté·e à une discussion intitulée « {$queryTitle} » au sujet "
+"de la soumission « {$submissionTitle} »."
 
 msgid "submission.query.participantTitle"
 msgstr "{$fullName}, {$userGroup}"
@@ -2294,7 +2436,7 @@ msgid "submission.list.confirmDelete"
 msgstr "Supprimer la soumission ?"
 
 msgid "submission.list.viewAllSubmissions"
-msgstr ""
+msgstr "Voir toutes les soumissions"
 
 msgid "submission.list.viewSubmission"
 msgstr "Voir"
@@ -2326,8 +2468,7 @@ msgstr ""
 msgid "submission.list.reviewerWorkflowLink"
 msgstr ""
 "Vous avez été assigné avec un rôle éditorial sur cette soumission. Voulez-"
-"vous accéder au <a href=\"{$urlEditorialWorkflow}\">processus éditorial</"
-"a>  ?"
+"vous accéder au <a href=\"{$urlEditorialWorkflow}\">processus éditorial</a> ?"
 
 msgid "submission.list.incompleteSubmissionNotice"
 msgstr "La soumission doit être complète avant qu'un rédacteur la considère."
@@ -2346,72 +2487,94 @@ msgstr "Assigner un(e) rédacteur(-trice)"
 
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
+"Cette soumission a déjà été soumise. Veuillez consulter votre <a href=\""
+"{$url}\">tableau de bord des soumissions</a> pour la voir."
 
 msgid "submission.wizard.beforeStart"
-msgstr ""
+msgstr "Avant de commencer"
 
 msgid "submission.wizard.categories.description"
 msgstr ""
+"Choisissez seulement les catégories qui s'appliquent à votre soumission."
 
 msgid "submission.wizard.changeSubmission"
-msgstr ""
+msgstr "Modifier les paramètres de la soumission"
 
 msgid "submission.wizard.completeSteps"
-msgstr ""
+msgstr "Complétez les étapes pour effectuer une soumission"
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
+"La soumisssion, <strong>{$title}</strong>, sera envoyée à "
+"<strong>{$context}</strong> pour révision éditoriale. Êtes-vous sûr·e de "
+"vouloir compléter cette soumission ?"
 
 msgid "submission.wizard.errors"
 msgstr ""
+"Un ou plusieurs problèmes doivent être résolus avant que vous puissiez "
+"envoyer votre soumission. Veuillez examiner les informations ci-dessous et "
+"apporter les modifications demandées."
 
 msgid "submission.wizard.validating"
-msgstr ""
+msgstr "Vérification de la soumission"
 
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
+"Ajoutez toute information que vous jugez utile à notre équipe éditoriale "
+"pour évaluer votre soumission."
 
+#, fuzzy
 msgid "submission.wizard.confirm"
-msgstr ""
+msgstr "Veuillez confirmer le contenu suivant avant d'envoyer votre soumission."
 
 msgid "submission.wizard.title"
-msgstr ""
+msgstr "Faire une soumission"
 
 msgid "submission.wizard.titleWithStep"
-msgstr ""
+msgstr "Faire une soumission : {$step}"
 
+#, fuzzy
 msgid "submission.wizard.noContributors"
-msgstr ""
+msgstr "Cette soumission n'inclut aucun contributeur ou contributrice."
 
+#, fuzzy
 msgid "submission.wizard.missingContributorLanguage"
 msgstr ""
+"Le prénom est manquant en {$langue} pour un ou plusieurs des contributeurs "
+"ou contributrices."
 
 msgid "submission.wizard.notAllowed"
-msgstr ""
+msgstr "Non autorisé"
 
+#, fuzzy
 msgid "submission.wizard.privacyConsent"
-msgstr ""
+msgstr "Consentement au traitement des données personnelles"
 
 msgid "submission.wizard.saved"
-msgstr ""
+msgstr "Sauvegardé pour plus tard"
 
 msgid "submission.wizard.saved.description"
 msgstr ""
+"Les détails de votre soumission ont été enregistrés dans notre système, mais "
+"elle n'a pas encore été soumise pour examen. Vous pouvez revenir pour "
+"compléter votre soumission à tout moment en suivant le lien ci-dessous."
 
 msgid "submission.wizard.saved.emailConfirmation"
-msgstr ""
+msgstr "Une copie de ce lien vous a été envoyée par courriel à {$email}."
 
 msgid "submission.wizard.sectionClosed"
-msgstr ""
+msgstr "Section fermée"
 
 msgid "submission.wizard.start"
-msgstr ""
+msgstr "Commencer la soumission"
 
 msgid "submission.wizard.startingStatus"
-msgstr ""
+msgstr "Démarrage d'une nouvelle soumission"
 
 msgid "submission.wizard.unableToSave"
 msgstr ""
+"Une erreur s'est produite et nous n'avons pas pu enregistrer votre demande. "
+"Vous avez peut-être été déconnecté."
 
 msgid "grid.category.categories"
 msgstr "Catégories"
@@ -2502,14 +2665,19 @@ msgstr "Décompte de mots : {$count}/{$limit}"
 
 msgid "doi.incorrectStaleStatus"
 msgstr ""
+"Échec du marquage du DOI à synchroniser pour {$pubObjectTitle}. Le DOI ne "
+"peut pas être marqué comme nécessitant une synchronisation car il n'a pas "
+"encore été enregistré ou soumis."
 
 msgid "doi.submission.notPublished"
 msgstr ""
+"Échec du marquage du DOI enregistré pour {$pubObjectTitle}. La soumission "
+"doit être publiée avant que son état puisse être mis à jour."
 
 #, fuzzy
 msgid "submission.viewingPreview"
 msgstr ""
-"Ceci est un aperçu et n'a pas été publié. <a href=\"{$url}\">Voir la "
+"Ceci est un aperçu et n'a pas encore été publié. <a href=\"{$url}\">Voir la "
 "soumission</a>"
 
 msgid "author.submit.noFiles"
@@ -2519,13 +2687,15 @@ msgid "author.submit.confirmation"
 msgstr "Confirmer la soumission"
 
 msgid "submission.wizard.submittingInLanguage"
-msgstr ""
+msgstr "Soumission en <strong>{$language}</strong>."
 
 msgid "submission.wizard.submittingToSection"
-msgstr ""
+msgstr "Soumission à la section <strong>{$section}</strong>."
 
 msgid "submission.wizard.submittingToSectionInLanguage"
 msgstr ""
+"Soumission à la section <strong>{$section}</strong> en "
+"<strong>{$language}</strong>."
 
 msgid "submission.type.tip"
 msgstr ""
@@ -2549,25 +2719,30 @@ msgstr ""
 msgid "submission.submit.metadataForm.tip"
 msgstr ""
 "Ajouter d'autres renseignements pour votre soumission. Veuillez appuyer sur "
-"la touche \"enter\" après chaque terme."
+"la touche « Entrée » après chaque terme."
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Personne-ressource pour la correspondance éditoriale."
 
+#, fuzzy
 msgid "submission.dataAvailability"
-msgstr ""
+msgstr "Déclaration de disponibilité des données"
 
 msgid "submission.dataAvailability.tip"
 msgstr ""
+"Indiquez si vous avez mis à disposition des données à l'appui de ce travail "
+"et, dans l'affirmative, où et comment elles peuvent être consultées"
 
 msgid "submission.files.required.genre"
-msgstr ""
+msgstr "Vous devez télécharger au moins un fichier {$genre}."
 
 msgid "submission.files.required.genres"
 msgstr ""
+"Vous devez télécharger au moins un fichier de chacun des types suivants : "
+"{$genres}."
 
 msgid "publication.version"
-msgstr ""
+msgstr "Version {$version}"
 
 #~ msgid "submission.upload.signoff"
 #~ msgstr "Transférer une réponse"
@@ -2712,3 +2887,11 @@ msgstr ""
 
 msgid "submission.submissionFile"
 msgstr "Fichier de soumission"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Renvoyé pour évaluation."
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Vous pouvez mettre à jour cette discussion pendant "
+"{$allowedEditTimeNoticeLimit} minutes."

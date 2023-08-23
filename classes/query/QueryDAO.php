@@ -380,7 +380,7 @@ class QueryDAO extends \PKP\db\DAO
      *
      * @return int The new query id
      */
-    public function addQuery(int $submissionId, int $stageId, string $title, string $content, User $fromUser, array $participantUserIds, int $contextId): int
+    public function addQuery(int $submissionId, int $stageId, string $title, string $content, User $fromUser, array $participantUserIds, int $contextId, bool $sendEmail = true): int
     {
         $query = $this->newDataObject();
         $query->setAssocType(Application::ASSOC_TYPE_SUBMISSION);
@@ -421,6 +421,10 @@ class QueryDAO extends \PKP\db\DAO
                 $query->getId(),
                 Notification::NOTIFICATION_LEVEL_TASK
             );
+
+            if (!$sendEmail) {
+                continue;
+            }
 
             // Check if the user is unsubscribed
             $notificationSubscriptionSettings = $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(

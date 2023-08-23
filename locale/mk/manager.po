@@ -2,7 +2,7 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-05-06 11:49+0000\n"
+"PO-Revision-Date: 2023-08-01 08:25+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk/>\n"
@@ -3706,3 +3706,6 @@ msgstr ""
 msgid "manager.setup.notifyUsers.queued"
 msgstr ""
 "Електронските писма се успешно подготвени за испраќање при првата прилика."
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Линк за валидација на и-мејл"

@@ -53,7 +53,7 @@ class ProxyParser
 
     public function parseAuth(array $parsed = []): ?string
     {
-        if (!$parsed['user'] || !$parsed['pass']) {
+        if (!isset($parsed['user']) || !isset($parsed['pass'])) {
             return null;
         }
 
@@ -62,7 +62,7 @@ class ProxyParser
 
     public function parseHost(array $parsed = []): ?string
     {
-        if (!$parsed['host'] || !$parsed['port']) {
+        if (!isset($parsed['host']) || !isset($parsed['port'])) {
             return null;
         }
 

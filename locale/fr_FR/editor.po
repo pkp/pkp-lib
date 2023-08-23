@@ -1,11 +1,12 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2023-07-07 19:58+0000\n"
-"Last-Translator: Stefan Schneider <mail@stefan-schneider.at>\n"
+"PO-Revision-Date: 2023-08-01 08:25+0000\n"
+"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -51,39 +52,58 @@ msgstr "Changer la décision"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
 msgstr ""
+"Vous n’avez pas l’autorisation d’enregistrer cette décision sur cette "
+"soumission."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
+"L'éditeur/trice n'a pas été reconnu.e et n'a peut-être pas l'autorisation "
+"d'enregistrer une décision sur cette soumission."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
 msgstr ""
+"Vous ne pouvez pas envoyer de courriel aux destinataires suivants : {$names}."
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "Ce cycle d'évaluation n'a pas pu être trouvé."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
+"Un cycle d’évaluation a été prévu, mais cette décision n’est pas prise au "
+"cours d’une phase d’évaluation."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr ""
+msgstr "Ce cycle de révision ne fait pas partie de cette soumission."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
+"La soumission n’est pas à l’étape appropriée du flux de travail pour prendre "
+"cette décision."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
+"Vous devez être assigné.e à cette soumission afin d'enregistrer une décision "
+"éditoriale."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
 msgstr ""
+"Un numéro d'identification du cycle d'évaluation doit être fourni afin de "
+"prendre cette décision."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
+"Une recommandation ne peut être faite que si un.e éditeur/trice qui peut "
+"prendre la décision finale est assigné.e à cette phase."
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
+"Aucune décision n’a pu être prise concernant cette soumission. L’identifiant "
+"de la soumission est manquant ou ne correspond pas à la soumission demandée."
 
 msgid "editor.submission.workflowDecision.typeInvalid"
 msgstr ""
+"Cette décision n’a pas été trouvée. Veuillez indiquer un type de décision "
+"reconnu."
 
 msgid "editor.review.notInitiated"
 msgstr "Le processus d'évaluation n'a pas encore débuté."
@@ -162,7 +182,7 @@ msgid "editor.review.reinstateReviewer"
 msgstr "Réintégrer l'évaluateur(-trice)"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "Envoyer à nouveau la demande d’évaluation"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Type d'évaluation"
@@ -222,9 +242,13 @@ msgstr ""
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
 msgstr ""
+"Les évaluations ne devraient pas faire l’objet d’un nouveau cycle d’"
+"évaluation par les pairs."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
 msgstr ""
+"Les évaluations devraient faire l’objet d’un nouveau cycle d’évaluation par "
+"les pairs."
 
 msgid "editor.review.dateAccepted"
 msgstr "Date d'acceptation de l'évaluation"
@@ -302,7 +326,7 @@ msgid "editor.review.reviewerThanked"
 msgstr "Évaluatrice ou évaluateur remercié"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "Demande envoyée à nouveau"
 
 msgid "editor.review.reviewerComments"
 msgstr "Commentaires du rapporteur"
@@ -337,6 +361,8 @@ msgstr ""
 
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
+"Une erreur s’est produite lors de la demande de réexamen de l’invitation par "
+"l’évaluateur/trice.  Veuillez réessayer."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Ajouter l'utilisateur à ce groupe de rapporteurs"
@@ -351,8 +377,10 @@ msgstr "Ne pas considérer cet examen"
 
 msgid "editor.review.readConfirmation"
 msgstr ""
-"Après avoir lu cet examen, choisissez \"Confirmer\" pour indiquer que le "
-"processus d'examen peut se poursuivre."
+"Une fois l'évaluation consultée, cliquer sur « Confirmer » pour indiquer que "
+"le processus d'évaluation peut se poursuivre. Si l'évaluateur-trice a soumis "
+"son évaluation ailleurs, vous pouvez téléverser le fichier ci-dessous puis "
+"cliquer sur « Confirmer » pour poursuivre."
 
 msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
@@ -535,6 +563,7 @@ msgstr "Evaluations actuellement assignées"
 
 msgid "reviewer.list.assignedToLastRound"
 msgstr ""
+"Cet/Cette évaluateur/trice a effectué.e une évaluation lors du dernier cycle."
 
 msgid "reviewer.list.completedReviews"
 msgstr "Evaluations finies"
@@ -592,31 +621,34 @@ msgid "reviewer.list.empty"
 msgstr "Aucun évaluateur ou évaluatrice trouvé"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "Assigné.e à un cycle précédent"
 
+#, fuzzy
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "Annuler la décision"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "Êtes-vous sûr.e de vouloir annuler cette décision ?"
 
 msgid "editor.decision.completeSteps"
-msgstr ""
+msgstr "Compléter les étapes suivantes pour prendre cette décision"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "Ne sautez pas ce courriel"
 
+#, fuzzy
 msgid "editor.decision.emailSkipped"
-msgstr ""
+msgstr "Cette étape a été sautée et aucun courriel ne sera envoyé."
 
+#, fuzzy
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "Enregistrer la décision"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "Sauter ce courriel"
 
 msgid "editor.decision.stepError"
-msgstr ""
+msgstr "L’étape {$stepName} a posé un problème."
 
 #~ msgid "editor.submissionLibrary.description"
 #~ msgstr ""

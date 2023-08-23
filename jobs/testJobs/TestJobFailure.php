@@ -25,15 +25,30 @@ class TestJobFailure extends BaseJob
 {
     use Batchable;
 
-    public $tries = 1;
-    public $maxExceptions = 1;
+    /**
+     * The number of times the job may be attempted.
+     */
+    public int $tries = 1;
 
+    /**
+     * The maximum number of unhandled exceptions to allow before failing.
+     */
+    public int $maxExceptions = 1;
+
+    /**
+     * Initialize the job
+     */
     public function __construct()
     {
         $this->connection = config('queue.default');
         $this->queue = Job::TESTING_QUEUE;
     }
 
+    /**
+     * handle the queue job execution process
+     * 
+     * @throws \Exception
+     */
     public function handle(): void
     {
         throw new Exception('cli.test.job');

@@ -1,13 +1,13 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2023.
+# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:55-07:00\n"
-"PO-Revision-Date: 2023-07-10 14:40+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
-"vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2023-08-17 09:01+0000\n"
+"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -203,56 +203,86 @@ msgstr "Notification de rapport éditorial"
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Rappel d'expiration d'abonnement"
 
+#, fuzzy
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Supprimer les utilisateurs-trices expirés et non validés"
 
+#, fuzzy
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr ""
+"Supprimer les travaux très anciens en échec de la liste des travaux en échec."
 
+#, fuzzy
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Traiter les travaux en attente dans la file d'attente"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "Mettre à jour la base de données DB-IP city lite"
 
+#, fuzzy
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"Le renommage du fichier de base de données DB-IP city lite {$sourceFilename} "
+"par {$targetFilename} a échoué."
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Tâche de versement du fichier de statistiques d'utilisation"
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"Le répertoire {$directory} n'est pas vide. Cela peut être du au fait qu'un "
+"processus précédent a échoué, ou qu'un processus roule en parallèle. Ce "
+"fichier sera automatiquement retraité."
 
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr "Le fichier {$file} n'a pas pu être ouvert et a été rejeté."
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"Le fichier {$file} est un ancien format de fichier de journal qui ne peut "
+"être traité et qui sera donc redéplacé dans le répertoire de représentation."
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"Le fichier journal {$file} a été ignoré car les statistiques pour ce mois "
+"ont déjà été calculées. Pour recalculer les statistiques pour un mois "
+"précédent, vous devez restaurer tous les fichiers de journaux du mois et "
+"utiliser l'outils CLI afin de retraiter les statistiques."
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
 msgstr ""
+"La ligne {$lineNumber} dans le fichier de journal {$file} est dans le "
+"mauvais format et sera donc ignoré."
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
+"Entrée invalide dans le journal à la ligne {$lineNumber} dans le fichier de "
+"journal {$file}: {$error}"
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
-msgstr ""
+msgstr "Date non valide."
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
-msgstr ""
+msgstr "Le Context ID n'est pas un nombre entier."
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "Le Submission ID n'est pas un nombre entier."
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
-msgstr ""
+msgstr "Le Representation ID n'est pas un nombre entier."
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
-msgstr ""
+msgstr "Le Assoc type n'est pas supporté."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
 msgstr "Le type de fichier n'est pas supporté."
@@ -265,14 +295,21 @@ msgstr ""
 "La région n'est pas une chaîne d'un maximum de trois caractères "
 "alphanumériques."
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "L'Institution IDs n'est pas un tableau."
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.insertError"
 msgstr ""
+"Une erreur s'est produite en traitant le fichier de journal {$file} à la "
+"ligne {$lineNumber}: {$msg}"
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
+"Le travail en arrière plan qui traitera le fichier de journal {$file} et "
+"stockera les données statistiques a été lancé."
 
 msgid "admin.server.apacheVersion"
 msgstr "Version Apache"
@@ -437,80 +474,142 @@ msgstr ""
 "Le fichier n'a pas pu être décompressé. Le fichier de destination {$filePath}"
 " n'a pas pu être ouvert avec fopen."
 
+#, fuzzy
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"Le fichier n'a pu être décompressé. La source du fichier gz {$file} n'a pu "
+"être lu avec gzread."
 
+#, fuzzy
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"Le fichier n'a pu être décompressé. Le fichier de destination {$filePath} "
+"n'a pu être créé avec fwrite."
 
+#, fuzzy
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"Le fichier n'a pu être décompressé. Le fichier de destination ouvert "
+"{$filePath} n'a pu être fermé avec fclose."
 
+#, fuzzy
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"Le fichier n'a pu être décompressé. Le fichier source gz ouvert {$filePath} "
+"n'a pu être fermé avec gzclose."
 
+#, fuzzy
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"Le fichier n'a pu être décompressé. Le fichier source gz décompressé "
+"{$filePath} n'a pu être supprimer avec unlink."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"Le fichier n'a pu être compressé. Le fichier gz de destination {$filePath} "
+"n'a pu être ouvert avec gzopen."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"Le fichier n'a pu être compressé. Le fichier source {$filePath} n'a pu être "
+"ouvert avec fopen."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"Le fichier n'a pu être compressé. Le fichier source {$filePath} n'a pu être "
+"lu avec fread."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"Le fichier n'a pu être compressé. Le fichier gz de destination {$filePath} "
+"n'a pu être crée avec gzwrite."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"Le fichier n'a pu être compressé. Le fichier source {$filePath} n'a pu être "
+"fermé avec fclose."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"Le fichier n'a pu être compressé. Le fichier gz de destination {$filePath} "
+"n'a pu être fermé avec gzclose."
 
+#, fuzzy
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"Le fichier n'a pu être compressé. Le fichier source compressé {$filePath} "
+"n'a pu être supprimer avec unlink."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Il n'y a pas de paramètre régional disponible pour l'installation."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Usage :"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "commande [arguments]"
 
+#, fuzzy
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Commandes disponible pour le `{$namespace}` espace de nom:"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Impossible d'exécuter les travaux dans la liste d'attente car le mode "
+"maintenance de l'application est activé."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Liste des travaux en attente. Si vous souhaitez paginer les résultats, "
+"utilisez le paramètre --page= et --perPage= . Passez le repère --failed pour "
+"lister les travaux en échec."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Abandonner un travail spécifique de la liste d'attente en utilisant son "
+"identifiant. Si vous souhaitez tous les abandonner, passer le paramètre --"
+"all. Si vous voulez abandonner tous les travaux d'une liste d'attente "
+"spécifique, passer le paramètre --queue="
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Ajouter un travail test dans la liste d'attente de test. Utilisez le "
+"paramètre optionnel --only= et passer 'failed' ou 'success' pour distribuer "
+"les travaux réussis ou en échec."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Lancer un processus de travail démon infini qui continuera à traiter les "
+"travaux. Utilisez le repère --help pour afficher les options associées à "
+"cette commande."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Lister tous les travaux en échec. Utiliser les paramètres --queue=QUEUE_NAME "
+"et --connection=CONNECTION_NAME pour filtrer la liste. Passer également les "
+"paramètres/repères --redispatch et --clear pour redistribuer dans la liste "
+"d'attente ou vider tous les travaux en échec ou certains d'entre eux."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
+"L'exécution des {$jobCount} travaux dans la liste d'attente appelée "
+"{$queueName} est terminée."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr ""
+"Aucun travail disponible pour exécution dans la liste d'attente appelé "
+"{$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
@@ -524,53 +623,58 @@ msgstr ""
 msgid "admin.cli.tool.jobs.empty.option"
 msgstr ""
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Travaux en liste d'attente en échec"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Travaux en liste d'attente"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "Identifiant"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Liste d'attente"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Connexion"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
 msgstr ""
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Tentatives"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
 msgstr ""
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Disponible à"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Crée à"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Échoué à"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Pagination"
 
 msgid "admin.cli.tool.jobs.pagination.current"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Précédent"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Suivant"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
@@ -584,104 +688,134 @@ msgstr ""
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Identifiant du travail invalide"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "Le travail a été supprimé!"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Aucun travail à supprimer n'a été trouvé."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Impossible de supprimer tous les travaux."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Tous les travaux ont été supprimés!"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} travaux en échec supprimé(s) de la liste des travaux en échec."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} travaux redistribués dans la liste d'attente."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Nous avons {$total} travaux en échec"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Nous avons {$total} travaux dans la liste d'attente"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "L'option {$option} n'existe pas."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Vouliez-vous dire l'un des éléments suivants ?"
 
 msgid "admin.jobs.totalCount"
 msgstr ""
+"Il y a un total de <strong>{$total}</strong> travaux dans la liste d'attente"
 
+#, fuzzy
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Il y a un total de <strong>{$total}</strong> travaux en échec."
 
+#, fuzzy
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Voir les travaux dans la liste d'attente"
 
+#, fuzzy
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Travaux"
 
+#, fuzzy
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Travaux en échec"
 
+#, fuzzy
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Détails des travaux en échec"
 
+#, fuzzy
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Voir tous les travaux dans la liste d'attente du système et suivre toutes "
+"les tentatives en échec."
 
+#, fuzzy
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Voir les travaux"
 
+#, fuzzy
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Voir les travaux en échec"
 
+#, fuzzy
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Voir le travail en échec :{$id} Détails"
 
+#, fuzzy
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Attribut"
 
+#, fuzzy
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Valeur de l'attribut"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "Identifiant"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Travail"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Liste d'attente"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Connexion"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Tentatives"
 
+#, fuzzy
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Crée à"
 
 msgid "admin.jobs.list.failedAt"
 msgstr ""
 
+#, fuzzy
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Données utiles"
 
+#, fuzzy
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Exception"
 
+#, fuzzy
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Actions"
 
 msgid "admin.jobs.failedAt"
 msgstr ""
@@ -689,8 +823,9 @@ msgstr ""
 msgid "admin.jobs.createdAt"
 msgstr ""
 
+#, fuzzy
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Réessayer"
 
 msgid "admin.jobs.failed.action.redispatch.all"
 msgstr ""
@@ -714,13 +849,17 @@ msgid "admin.settings.statistics.storage.description"
 msgstr ""
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Protocole Sushi"
 
+#, fuzzy
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Configurer le <a href=\"https://www.projectcounter.org/counter-sushi/\""
+">COUNTER 5 SUSHI</a> protocole, un format normalisé pour la distribution de "
+"statistique d'utilisation."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Statistiques mensuelles ou quotidiennes"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
@@ -743,20 +882,24 @@ msgstr ""
 msgid "admin.settings.statistics.compressStatsLogs.compress"
 msgstr ""
 
+#, fuzzy
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"Restreindre l'accès à l'API des statistiques COUNTER SUSHI aux gestionnaires "
+"et administrateurs-trices"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Plateforme"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
 
+#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr ""
+msgstr "Utiliser le site comme la plateforme pour toutes les revues."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "Identifiant de la plateforme"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
@@ -768,7 +911,7 @@ msgid "admin.cli.tool.jobs.work.options.title"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "Utilisation : [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
 msgstr ""

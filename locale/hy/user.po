@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-05-23 06:10+0000\n"
+"PO-Revision-Date: 2023-08-04 21:43+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hy/>\n"
@@ -17,7 +17,7 @@ msgid "user.accountInformation"
 msgstr "Հաշվի տեղեկատվություն"
 
 msgid "user.affiliation"
-msgstr "պատկանելություն"
+msgstr "Պատկանելություն"
 
 msgid "user.affiliation.description"
 msgstr "(Ձեր հաստատությունը, օրինակ՝ «Սայմոն Ֆրեյզերի համալսարան»)"

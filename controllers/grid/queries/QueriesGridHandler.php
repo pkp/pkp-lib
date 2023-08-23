@@ -45,6 +45,7 @@ use PKP\query\QueryDAO;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 use PKP\security\Role;
+use PKP\submissionFile\SubmissionFile;
 
 class QueriesGridHandler extends GridHandler
 {
@@ -645,6 +646,17 @@ class QueriesGridHandler extends GridHandler
             /** @var NotificationSubscriptionSettingsDAO */
             $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
             $note = $query->getHeadNote();
+            $submission = $this->getSubmission();
+
+            // Find attachments if any
+            $submissionFiles = Repo::submissionFile()
+                ->getCollector()
+                ->filterByAssoc(
+                    PKPApplication::ASSOC_TYPE_NOTE,
+                    [$note->getId()]
+                )->filterBySubmissionIds([$submission->getId()])
+                ->getMany();
+
             foreach ($added as $userId) {
                 $user = Repo::user()->get((int) $userId);
 
@@ -667,7 +679,6 @@ class QueriesGridHandler extends GridHandler
                 if (in_array(PKPNotification::NOTIFICATION_TYPE_NEW_QUERY, $notificationSubscriptionSettings)) {
                     continue;
                 }
-                $submission = $this->getSubmission();
 
                 $mailable = $this->getStageMailable($request->getContext(), $submission)
                     ->sender($currentUser)
@@ -675,6 +686,11 @@ class QueriesGridHandler extends GridHandler
                     ->subject($note->getData('title'))
                     ->body($note->getData('contents'))
                     ->allowUnsubscribe($notification);
+
+                $submissionFiles->each(fn(SubmissionFile $item) => $mailable->attachSubmissionFile(
+                    $item->getId(),
+                    $item->getLocalizedData('name')
+                ));
 
                 Mail::send($mailable);
                 $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $logDao */

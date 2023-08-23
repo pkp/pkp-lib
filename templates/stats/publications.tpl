@@ -175,7 +175,7 @@
 							</div>
 							<pkp-button
 								ref="downloadReportModalButton"
-								@click="$modal.show('downloadReport')"
+								@click="isModalOpenedDownloadReport = true"
 							>
 								{translate key="common.downloadReport"}
 							</pkp-button>
@@ -183,7 +183,8 @@
 								close-label="{translate key="common.close"}"
 								name="downloadReport"
 								title={translate key="common.download"}
-								@closed="setFocusToRef('downloadReportModalButton')"
+								:open="isModalOpenedDownloadReport"
+								@close="isModalOpenedDownloadReport = false"
 							>
 								<p>{translate key="stats.publications.downloadReport.description"}</p>
 								<table class="pkpTable pkpStats__reportParams">

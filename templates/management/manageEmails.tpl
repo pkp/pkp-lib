@@ -101,7 +101,8 @@
 		:close-label="__('common.close')"
 		name="mailable"
 		:title="currentMailable ? currentMailable.name : ''"
-		@closed="mailableModalClosed"
+		:open="isModalOpenedMailable"
+		@close="closeMailableModal"
 	>
 		<template v-if="currentMailable">
 			<p>{{ currentMailable.description }}</p>
@@ -147,7 +148,8 @@
 		:close-label="__('common.close')"
 		name="template"
 		:title="currentTemplate ? '{translate key="manager.mailables.editTemplate"}' : '{translate key="manager.emails.addEmail"}'"
-		@closed="templateModalClosed"
+		:open="isModalOpenedTemplate"
+		@close="closeTemplateModal"
 	>
 		<pkp-form
 			ref="templateForm"

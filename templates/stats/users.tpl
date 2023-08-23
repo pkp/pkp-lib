@@ -16,7 +16,7 @@
 			<pkp-header>
 				<h1 id="usersTableLabel" class="pkpHeader__title">{translate key="manager.statistics.statistics.registeredUsers"}</h1>
 				<template slot="actions">
-					<pkp-button ref="exportButton" @click="$modal.show('export')">
+					<pkp-button ref="exportButton" @click="isModalOpenedExport = true">
 						{translate key="common.export"}
 					</pkp-button>
 				</template>
@@ -43,7 +43,8 @@
 		close-label="common.close"
 		name="export"
 		title="{translate key="manager.export.usersToCsv.label"}"
-		@closed="setFocusToRef('exportButton')"
+		:open="isModalOpenedExport"
+		@close="isModalOpenedExport = false"
 	>
 		<pkp-form v-bind="components.usersReportForm" @set="set" @success="loadExport" />
 	</modal>

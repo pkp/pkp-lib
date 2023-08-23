@@ -121,7 +121,8 @@
 		close-label="Close"
 		name="summary"
 		type="side"
-		@closed="resetFocusToList"
+		:open="isModalOpenedSummary"
+		@close="isModalOpenedSummary = false"
 	>
 		<template v-if="summarySubmission">
 			{include file="dashboard/summary.tpl"}
@@ -131,7 +132,8 @@
 		close-label="Close"
 		name="filters"
 		type="side"
-		@closed="resetFocusToList"
+		:open="isModalOpenedFilters"
+		@close="isModalOpenedFilters = false"
 	>
 		<template slot="header">
 			<h2>

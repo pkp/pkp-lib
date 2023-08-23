@@ -37,7 +37,7 @@
                 <button
                     class="-linkButton"
                     aria-describedby="submission-configuration"
-                    @click="$modal.show('config')"
+                    @click="isModalOpenedConfig = true"
                 >
                     {translate key="manager.reviewerSearch.change"}
                 </button>
@@ -45,6 +45,8 @@
                     close-label="{translate key="common.close"}"
                     name="config"
                     title="{translate key="submission.wizard.changeSubmission"}"
+                    :open="isModalOpenedConfig"
+                    @close="isModalOpenedConfig = false"
                 >
                     <pkp-form
                         v-bind="components.reconfigureSubmission"

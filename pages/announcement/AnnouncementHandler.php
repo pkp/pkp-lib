@@ -21,6 +21,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\config\Config;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\ContextRequiredPolicy;
 
@@ -100,6 +101,10 @@ class AnnouncementHandler extends Handler
 
     protected function isAnnouncementsEnabled(Request $request): bool
     {
+        if (!Config::getVar('features', 'site_announcements') && !$request->getContext()) {
+            return false;
+        }
+
         $contextOrSite = $request->getContext() ?? $request->getSite();
         return $contextOrSite->getData('enableAnnouncements');
     }

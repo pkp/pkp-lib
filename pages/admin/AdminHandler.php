@@ -275,6 +275,13 @@ class AdminHandler extends Handler
             'announcements',
         ];
 
+        if (!Config::getVar('features', 'site_announcements')) {
+            $tabs = array_filter(
+                $tabs,
+                function($tab) { return $tab !== 'announcements'; }
+            );
+        }
+
         $singleContextSite = (Services::get('context')->getCount() == 1);
 
         $tabsAvailability = [];

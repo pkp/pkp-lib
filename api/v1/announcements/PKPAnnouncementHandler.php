@@ -22,6 +22,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\Bus;
+use PKP\config\Config;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -94,6 +95,10 @@ class PKPAnnouncementHandler extends APIHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
+        if (!Config::getVar('features', 'site_announcements') && !$request->getContext()) {
+            return false;
+        }
+
         if (!$request->getContext()) {
             $roleAssignments = $this->getSiteRoleAssignments($roleAssignments);
         }

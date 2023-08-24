@@ -105,6 +105,37 @@
 			</tabs>
 		</tab>
 		{/if}
+		{if $componentAvailability['announcements']}
+		<tab id="announcements" label="{translate key="announcement.announcements"}">
+			<tabs :is-side-tabs="true" :track-history="true">
+				<tab id="announcement-settings" label="{translate key="admin.settings"}">
+					<pkp-form
+						v-bind="components.{$smarty.const.FORM_ANNOUNCEMENT_SETTINGS}"
+						@set="set"
+					></pkp-form>
+				</tab>
+				<tab id="announcement-items" label="{translate key="announcement.announcements"}">
+					<announcements-list-panel
+						v-if="announcementsEnabled"
+						v-bind="components.announcements"
+						@set="set"
+					></announcements-list-panel>
+					<p v-else>
+						{translate key="manager.announcements.notEnabled"}
+					</p>
+				</tab>
+				<tab id="announcement-types" label="{translate key="manager.announcementTypes"}">
+					<template v-if="announcementsEnabled">
+						{capture assign=announcementTypeGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.announcements.AnnouncementTypeGridHandler" op="fetchGrid" escape=false}{/capture}
+						{load_url_in_div id="announcementTypeGridContainer" url=$announcementTypeGridUrl inVueEl=true}
+					</template>
+					<p v-else>
+						{translate key="manager.announcements.notEnabled"}
+					</p>
+				</tab>
+			</tabs>
+		</tab>
+		{/if}
 		{if $componentAvailability['sitePlugins']}
 		<tab id="plugins" label="{translate key="common.plugins"}">
 			{capture assign=pluginGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.admin.plugins.AdminPluginGridHandler" op="fetchGrid" escape=false}{/capture}

@@ -17,6 +17,7 @@
 namespace PKP\pages\announcement;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
@@ -25,20 +26,6 @@ use PKP\security\authorization\ContextRequiredPolicy;
 
 class AnnouncementHandler extends Handler
 {
-    //
-    // Implement methods from Handler.
-    //
-    /**
-     * @copydoc Handler::authorize()
-     */
-    public function authorize($request, &$args, $roleAssignments)
-    {
-        $this->addPolicy(new ContextRequiredPolicy($request));
-
-        return parent::authorize($request, $args, $roleAssignments);
-    }
-
-
     //
     // Public handler methods.
     //
@@ -50,22 +37,19 @@ class AnnouncementHandler extends Handler
      */
     public function index($args, $request)
     {
-        if (!$request->getContext()->getData('enableAnnouncements')) {
+        if (!$this->isAnnouncementsEnabled($request)) {
             $request->getDispatcher()->handle404();
         }
 
         $this->setupTemplate($request);
 
-        $context = $request->getContext();
-        $announcementsIntro = $context->getLocalizedData('announcementsIntroduction');
-
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->assign('announcementsIntroduction', $announcementsIntro);
+        $templateMgr->assign('announcementsIntroduction', $this->getAnnouncementsIntro($request));
 
         // TODO the announcements list should support pagination
         $announcements = Repo::announcement()
             ->getCollector()
-            ->filterByContextIds([$context->getId()])
+            ->filterByContextIds([$this->getContextId($request)])
             ->filterByActive()
             ->getMany();
 
@@ -81,21 +65,48 @@ class AnnouncementHandler extends Handler
      */
     public function view($args, $request)
     {
-        if (!$request->getContext()->getData('enableAnnouncements')) {
+        if (!$this->isAnnouncementsEnabled($request)) {
             $request->getDispatcher()->handle404();
         }
         $this->validate();
         $this->setupTemplate($request);
 
-        $context = $request->getContext();
+        $contextId = $this->getContextId($request);
         $announcementId = (int) array_shift($args);
         $announcement = Repo::announcement()->get($announcementId);
-        if ($announcement && $announcement->getAssocType() == Application::getContextAssocType() && $announcement->getAssocId() == $context->getId() && ($announcement->getDateExpire() == null || strtotime($announcement->getDateExpire()) > time())) {
+        if (
+            $announcement
+            && $announcement->getAssocType() == Application::getContextAssocType()
+            && $announcement->getAssocId() == $contextId
+            && (
+                $announcement->getDateExpire() == null || strtotime($announcement->getDateExpire()) > time()
+            )
+        ) {
             $templateMgr = TemplateManager::getManager($request);
             $templateMgr->assign('announcement', $announcement);
             $templateMgr->assign('announcementTitle', $announcement->getLocalizedTitleFull());
             return $templateMgr->display('frontend/pages/announcement.tpl');
         }
         $request->redirect(null, 'announcement');
+    }
+
+    protected function getContextId(Request $request): int
+    {
+        $context = $request->getContext();
+        return $context
+            ? $context->getId()
+            : Application::CONTEXT_ID_NONE;
+    }
+
+    protected function isAnnouncementsEnabled(Request $request): bool
+    {
+        $contextOrSite = $request->getContext() ?? $request->getSite();
+        return $contextOrSite->getData('enableAnnouncements');
+    }
+
+    protected function getAnnouncementsIntro(Request $request): string
+    {
+        $contextOrSite = $request->getContext() ?? $request->getSite();
+        return $contextOrSite->getLocalizedData('announcementsIntroduction');
     }
 }

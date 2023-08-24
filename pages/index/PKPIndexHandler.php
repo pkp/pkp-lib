@@ -16,11 +16,13 @@
 
 namespace PKP\pages\index;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use Illuminate\Support\LazyCollection;
 use PKP\config\Config;
 use PKP\context\Context;
+use PKP\site\Site;
 use PKP\template\PKPTemplateManager;
 
 class PKPIndexHandler extends Handler
@@ -33,14 +35,18 @@ class PKPIndexHandler extends Handler
      * @param Context $context
      * @param PKPTemplateManager $templateMgr
      */
-    protected function _setupAnnouncements($context, $templateMgr)
+    protected function _setupAnnouncements(Context|Site $contextOrSite, $templateMgr)
     {
-        $enableAnnouncements = $context->getData('enableAnnouncements');
-        $numAnnouncementsHomepage = $context->getData('numAnnouncementsHomepage');
+        $enableAnnouncements = $contextOrSite->getData('enableAnnouncements');
+        $numAnnouncementsHomepage = $contextOrSite->getData('numAnnouncementsHomepage');
         if ($enableAnnouncements && $numAnnouncementsHomepage) {
             $announcements = Repo::announcement()
                 ->getCollector()
-                ->filterByContextIds([$context->getId()])
+                ->filterByContextIds([
+                    is_a($contextOrSite, Context::class)
+                        ? $contextOrSite->getId()
+                        : Application::CONTEXT_ID_NONE
+                ])
                 ->filterByActive()
                 ->limit((int) $numAnnouncementsHomepage)
                 ->getMany();

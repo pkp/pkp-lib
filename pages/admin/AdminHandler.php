@@ -28,6 +28,9 @@ use PDO;
 use PKP\cache\CacheManager;
 use PKP\components\forms\highlight\HighlightForm;
 use PKP\components\listPanels\HighlightsListPanel;
+use PKP\components\forms\announcement\PKPAnnouncementForm;
+use PKP\components\forms\context\PKPAnnouncementSettingsForm;
+use PKP\components\listPanels\PKPAnnouncementsListPanel;
 use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPContainer;
@@ -184,6 +187,7 @@ class AdminHandler extends Handler
         $apiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'site');
         $themeApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'site/theme');
         $temporaryFileApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'temporaryFiles');
+        $announcementsApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'announcements');
 
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath();
@@ -200,11 +204,20 @@ class AdminHandler extends Handler
         $themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales);
         $siteStatisticsForm = new \PKP\components\forms\site\PKPSiteStatisticsForm($apiUrl, $locales, $site);
         $highlightsListPanel = $this->getHighlightsListPanel();
+        $announcementSettingsForm = new PKPAnnouncementSettingsForm($apiUrl, $locales, $site);
+        $announcementsForm = new PKPAnnouncementForm($announcementsApiUrl, $locales, $site);
+        $announcementsListPanel = $this->getAnnouncementsListPanel($announcementsApiUrl, $announcementsForm);
 
         $templateMgr = TemplateManager::getManager($request);
 
+        $templateMgr->setConstants([
+            'FORM_ANNOUNCEMENT_SETTINGS' => FORM_ANNOUNCEMENT_SETTINGS,
+        ]);
+
         $templateMgr->setState([
+            'announcementsEnabled' => (bool) $site->getData('enableAnnouncements'),
             'components' => [
+                $announcementsListPanel->id => $announcementsListPanel->getConfig(),
                 FORM_SITE_APPEARANCE => $siteAppearanceForm->getConfig(),
                 FORM_SITE_CONFIG => $siteConfigForm->getConfig(),
                 FORM_SITE_INFO => $siteInformationForm->getConfig(),
@@ -212,6 +225,7 @@ class AdminHandler extends Handler
                 FORM_THEME => $themeForm->getConfig(),
                 FORM_SITE_STATISTICS => $siteStatisticsForm->getConfig(),
                 $highlightsListPanel->id => $highlightsListPanel->getConfig(),
+                FORM_ANNOUNCEMENT_SETTINGS => $announcementSettingsForm->getConfig(),
             ],
         ]);
 
@@ -258,6 +272,7 @@ class AdminHandler extends Handler
             'siteTheme',
             'siteAppearanceSetup',
             'statistics',
+            'announcements',
         ];
 
         $singleContextSite = (Services::get('context')->getCount() == 1);
@@ -750,6 +765,36 @@ class AdminHandler extends Handler
                     ->summarizeMany($items)
                     ->values(),
                 'itemsMax' => $items->count(),
+            ]
+        );
+    }
+
+    /*
+     * Get the list panel for site-wide announcements
+     */
+    protected function getAnnouncementsListPanel(string $apiUrl, PKPAnnouncementForm $form): PKPAnnouncementsListPanel
+    {
+        $collector = Repo::announcement()
+            ->getCollector()
+            ->filterByContextIds([Application::CONTEXT_ID_NONE]);
+
+        $itemsMax = $collector->getCount();
+        $items = Repo::announcement()->getSchemaMap()->summarizeMany(
+            $collector->limit(30)->getMany()
+        );
+
+        return new PKPAnnouncementsListPanel(
+            'announcements',
+            __('manager.setup.announcements'),
+            [
+                'apiUrl' => $apiUrl,
+                'form' => $form,
+                'getParams' => [
+                    'contextIds' => [Application::CONTEXT_ID_NONE],
+                    'count' => 30,
+                ],
+                'items' => $items->values(),
+                'itemsMax' => $itemsMax,
             ]
         );
     }

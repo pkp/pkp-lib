@@ -27,6 +27,11 @@ use PKP\plugins\Hook;
  */
 class Collector implements CollectorInterface
 {
+    public const ORDERBY_DATE_POSTED = 'date_posted';
+    public const ORDERBY_DATE_EXPIRE = 'date_expire';
+    public const ORDER_DIR_ASC = 'ASC';
+    public const ORDER_DIR_DESC = 'DESC';
+
     public DAO $dao;
     public ?array $contextIds = null;
     public ?string $isActive = null;
@@ -34,6 +39,8 @@ class Collector implements CollectorInterface
     public ?array $typeIds = null;
     public ?int $count = null;
     public ?int $offset = null;
+    public string $orderBy = self::ORDERBY_DATE_POSTED;
+    public string $orderDirection = self::ORDER_DIR_DESC;
 
     public function __construct(DAO $dao)
     {
@@ -127,6 +134,21 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * Order the results
+     *
+     * Results are ordered by the date posted by default.
+     *
+     * @param string $sorter One of the self::ORDERBY_ constants
+     * @param string $direction One of the self::ORDER_DIR_ constants
+     */
+    public function orderBy(?string $sorter, string $direction = self::ORDER_DIR_DESC): self
+    {
+        $this->orderBy = $sorter;
+        $this->orderDirection = $direction;
+        return $this;
+    }
+
+    /**
      * @copydoc CollectorInterface::getQueryBuilder()
      */
     public function getQueryBuilder(): Builder
@@ -182,6 +204,15 @@ class Collector implements CollectorInterface
 
         if (isset($this->offset)) {
             $qb->offset($this->offset);
+        }
+
+        if (isset($this->orderBy)) {
+            $qb->orderBy('a.' . $this->orderBy, $this->orderDirection);
+            // Add a secondary sort by id to catch cases where two
+            // announcements share the same date
+            if (in_array($this->orderBy, [SELF::ORDERBY_DATE_EXPIRE, SELF::ORDERBY_DATE_POSTED])) {
+                $qb->orderBy('a.announcement_id', $this->orderDirection);
+            }
         }
 
         Hook::call('Announcement::Collector', [&$qb, $this]);

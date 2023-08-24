@@ -16,6 +16,7 @@
 
 namespace PKP\controllers\grid\announcements;
 
+use APP\core\Application;
 use APP\notification\NotificationManager;
 use PKP\announcement\AnnouncementTypeDAO;
 use PKP\controllers\grid\announcements\form\AnnouncementTypeForm;
@@ -28,6 +29,8 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\PKPSiteAccessPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 
 class AnnouncementTypeGridHandler extends GridHandler
@@ -57,15 +60,20 @@ class AnnouncementTypeGridHandler extends GridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-        $context = $request->getContext();
+        $contextId = $this->getContextId();
+
+        if ($contextId === Application::CONTEXT_ID_NONE) {
+            $this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
+        } else {
+            $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        }
 
         $announcementTypeId = $request->getUserVar('announcementTypeId');
         if ($announcementTypeId) {
             // Ensure announcement type is valid and for this context
             $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
             $announcementType = $announcementTypeDao->getById($announcementTypeId);
-            if (!$announcementType || $announcementType->getContextId() != $context->getId()) {
+            if (!$announcementType || $announcementType->getContextId() != $contextId) {
                 return false;
             }
         }
@@ -125,9 +133,8 @@ class AnnouncementTypeGridHandler extends GridHandler
      */
     protected function loadData($request, $filter)
     {
-        $context = $request->getContext();
         $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
-        return $announcementTypeDao->getByContextId($context->getId());
+        return $announcementTypeDao->getByContextId($this->getContextId());
     }
 
     /**
@@ -165,10 +172,7 @@ class AnnouncementTypeGridHandler extends GridHandler
     public function editAnnouncementType($args, $request)
     {
         $announcementTypeId = (int)$request->getUserVar('announcementTypeId');
-        $context = $request->getContext();
-        $contextId = $context->getId();
-
-        $announcementTypeForm = new AnnouncementTypeForm($contextId, $announcementTypeId);
+        $announcementTypeForm = new AnnouncementTypeForm($this->getContextId(), $announcementTypeId);
         $announcementTypeForm->initData();
 
         return new JSONMessage(true, $announcementTypeForm->fetch($request));
@@ -186,11 +190,9 @@ class AnnouncementTypeGridHandler extends GridHandler
     {
         // Identify the announcement type id.
         $announcementTypeId = $request->getUserVar('announcementTypeId');
-        $context = $request->getContext();
-        $contextId = $context->getId();
 
         // Form handling.
-        $announcementTypeForm = new AnnouncementTypeForm($contextId, $announcementTypeId);
+        $announcementTypeForm = new AnnouncementTypeForm($this->getContextId(), $announcementTypeId);
         $announcementTypeForm->readInputData();
 
         if ($announcementTypeForm->validate()) {
@@ -227,10 +229,9 @@ class AnnouncementTypeGridHandler extends GridHandler
     public function deleteAnnouncementType($args, $request)
     {
         $announcementTypeId = (int) $request->getUserVar('announcementTypeId');
-        $context = $request->getContext();
 
         $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
-        $announcementType = $announcementTypeDao->getById($announcementTypeId, $context->getId());
+        $announcementType = $announcementTypeDao->getById($announcementTypeId, $this->getContextId());
         if ($announcementType && $request->checkCSRF()) {
             $announcementTypeDao->deleteObject($announcementType);
 
@@ -243,5 +244,18 @@ class AnnouncementTypeGridHandler extends GridHandler
         }
 
         return new JSONMessage(false);
+    }
+
+    /**
+     * Get the id of the request context
+     *
+     * Returns CONTEXT_ID_NONE for site-level requests
+     */
+    protected function getContextId(): int
+    {
+        $request = Application::get()->getRequest();
+        return $request->getContext()
+            ? $request->getContext()->getId()
+            : Application::CONTEXT_ID_NONE;
     }
 }

@@ -16,6 +16,7 @@
 namespace PKP\components\listPanels;
 
 use APP\core\Application;
+use PKP\context\Context;
 
 class PKPAnnouncementsListPanel extends ListPanel
 {
@@ -49,14 +50,23 @@ class PKPAnnouncementsListPanel extends ListPanel
             'editAnnouncementLabel' => __('manager.announcements.edit'),
             'form' => $this->form->getConfig(),
             'itemsMax' => $this->itemsMax,
-            'urlBase' => $request->getDispatcher()->url(
-                $request,
-                Application::ROUTE_PAGE,
-                $request->getContext()->getPath(),
-                'announcement',
-                'view',
-                '__id__'
-            )
+            'urlBase' => $this->getUrlBase()
         ];
+    }
+
+    protected function getUrlBase(): string
+    {
+        $request = Application::get()->getRequest();
+
+        return $request->getDispatcher()->url(
+            $request,
+            Application::ROUTE_PAGE,
+            is_a($this->form->context, Context::class)
+                ? $request->getContext()->getPath()
+                : 'index',
+            'announcement',
+            'view',
+            '__id__'
+        );
     }
 }

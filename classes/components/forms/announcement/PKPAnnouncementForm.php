@@ -15,12 +15,15 @@
 
 namespace PKP\components\forms\announcement;
 
+use APP\core\Application;
 use PKP\announcement\AnnouncementTypeDAO;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
+use PKP\site\Site;
 
 define('FORM_ANNOUNCEMENT', 'announcement');
 
@@ -32,17 +35,21 @@ class PKPAnnouncementForm extends FormComponent
     /** @copydoc FormComponent::$method */
     public $method = 'POST';
 
+    public Context|Site $context;
+
     /**
      * Constructor
      *
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
-     * @param \PKP\context\Context $announcementContext The context to get supported announcement types
      */
-    public function __construct($action, $locales, $announcementContext)
+    public function __construct($action, $locales, Context|Site $context)
     {
         $this->action = $action;
         $this->locales = $locales;
+        $this->context = $context;
+
+        $announcementTypeOptions = $this->getAnnouncementTypeOptions();
 
         $this->addField(new FieldText('title', [
             'label' => __('common.title'),
@@ -67,22 +74,11 @@ class PKPAnnouncementForm extends FormComponent
                 'description' => __('manager.announcements.form.dateExpireInstructions'),
                 'size' => 'small',
             ]));
-
-        /** @var AnnouncementTypeDAO */
-        $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
-        $announcementTypes = $announcementTypeDao->getByContextId($announcementContext->getId());
-        $announcementOptions = [];
-        foreach ($announcementTypes as $announcementType) {
-            $announcementOptions[] = [
-                'value' => (int) $announcementType->getId(),
-                'label' => htmlspecialchars($announcementType->getLocalizedTypeName()),
-            ];
-        }
-        if (!empty($announcementOptions)) {
+        if (!empty($announcementTypeOptions)) {
             $this->addField(new FieldOptions('typeId', [
                 'label' => __('manager.announcementTypes.typeName'),
                 'type' => 'radio',
-                'options' => $announcementOptions,
+                'options' => $announcementTypeOptions,
             ]));
         }
 
@@ -95,5 +91,27 @@ class PKPAnnouncementForm extends FormComponent
                 ]
             ]
         ]));
+    }
+
+    protected function getAnnouncementTypeOptions(): array
+    {
+        /** @var AnnouncementTypeDAO */
+        $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
+
+        $announcementTypes = $announcementTypeDao->getByContextId(
+            is_a($this->context, Context::class)
+                ? $this->context->getId()
+                : Application::CONTEXT_ID_NONE
+        );
+
+        $announcementTypeOptions = [];
+        foreach ($announcementTypes as $announcementType) {
+            $announcementTypeOptions[] = [
+                'value' => (int) $announcementType->getId(),
+                'label' => $announcementType->getLocalizedTypeName(),
+            ];
+        }
+
+        return $announcementTypeOptions;
     }
 }

@@ -172,7 +172,10 @@ class PKPNavigationMenuService
         // Conditionally hide some items
         switch ($menuItemType) {
             case NavigationMenuItem::NMI_TYPE_ANNOUNCEMENTS:
-                $navigationMenuItem->setIsDisplayed($context && $context->getData('enableAnnouncements'));
+                $navigationMenuItem->setIsDisplayed(
+                    ($context && $context->getData('enableAnnouncements'))
+                    || (!$context && $request->getSite()->getData('enableAnnouncements'))
+                );
                 break;
             case NavigationMenuItem::NMI_TYPE_EDITORIAL_TEAM:
                 $navigationMenuItem->setIsDisplayed($context && $context->getLocalizedData('editorialTeam'));

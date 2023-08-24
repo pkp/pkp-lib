@@ -104,7 +104,7 @@ class AnnouncementHandler extends Handler
         return $contextOrSite->getData('enableAnnouncements');
     }
 
-    protected function getAnnouncementsIntro(Request $request): string
+    protected function getAnnouncementsIntro(Request $request): ?string
     {
         $contextOrSite = $request->getContext() ?? $request->getSite();
         return $contextOrSite->getLocalizedData('announcementsIntroduction');

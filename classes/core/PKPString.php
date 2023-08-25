@@ -17,7 +17,6 @@
 
 namespace PKP\core;
 
-use Illuminate\Support\Str;
 use PKP\config\Config;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
@@ -210,12 +209,7 @@ class PKPString
             ];
         }
 
-        // need to apply html_entity_decode as sanitizer apply htmlentities internally for special chars
-        return html_entity_decode(
-            $caches[$configKey]['sanitizer']->sanitize(
-                strip_tags($input, $caches[$configKey]['allowedTagToAttributeMap']->keys()->toArray())
-            )
-        );
+        return html_entity_decode($caches[$configKey]->sanitize($input));
     }
 
     /**

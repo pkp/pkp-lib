@@ -292,8 +292,10 @@ abstract class Collector implements CollectorInterface
             $q->whereIn('s.context_id', $this->contextIds);
         }
 
-        // Prepare keywords, but allows short words
-        $keywords = collect(Application::getSubmissionSearchIndex()->filterKeywords($this->searchPhrase, false, true))->unique();
+        // Prepare keywords (allows short and numeric words)
+        $keywords = collect(Application::getSubmissionSearchIndex()->filterKeywords($this->searchPhrase, false, true, true))->unique();
+
+        // Setup the order by
         switch ($this->orderBy) {
             case self::ORDERBY_DATE_PUBLISHED:
                 $q->addSelect(['po.date_published']);
@@ -335,13 +337,18 @@ abstract class Collector implements CollectorInterface
                 }
                 // Retrieves the number of matches for all keywords
                 $orderByMatchCount = DB::table('submission_search_objects', 'sso')
-                    ->join("submission_search_object_keywords AS ssok", "ssok.object_id", '=', 'sso.object_id')
-                    ->join("submission_search_keyword_list AS sskl", "sskl.keyword_id", '=', "ssok.keyword_id")
-                    ->whereIn("sskl.keyword_text", $keywords->map(fn () => DB::raw("CONCAT(LOWER(?), '%')")))->addBinding($keywords->toArray())
+                    ->join('submission_search_object_keywords AS ssok', 'ssok.object_id', '=', 'sso.object_id')
+                    ->join('submission_search_keyword_list AS sskl', 'sskl.keyword_id', '=', 'ssok.keyword_id')
+                    ->where(fn (Builder $q) =>
+                        $keywords->map(fn (string $keyword) => $q
+                            ->orWhere('sskl.keyword_text', '=', DB::raw('LOWER(?)'))
+                            ->addBinding($keyword)
+                        )
+                    )
                     ->whereColumn('s.submission_id', '=', 'sso.submission_id')
                     ->selectRaw('COUNT(0)');
                 // Retrieves the number of distinct matched keywords
-                $orderByDistinctKeyword = (clone $orderByMatchCount)->groupBy('sskl.keyword_id');
+                $orderByDistinctKeyword = (clone $orderByMatchCount)->select(DB::raw('COUNT(DISTINCT sskl.keyword_id)'));
                 $q->orderBy($orderByDistinctKeyword, $this->orderDirection)
                     ->orderBy($orderByMatchCount, $this->orderDirection);
                 break;
@@ -425,6 +432,7 @@ abstract class Collector implements CollectorInterface
 
         // Search phrase
         if ($keywords->count()) {
+            $likePattern = DB::raw("CONCAT('%', LOWER(?), '%')");
             if(!empty($this->assignedTo)) {
                 // Holds a single random row to check whether we have any assignment
                 $q->leftJoinSub(fn (Builder $q) => $q
@@ -435,7 +443,6 @@ abstract class Collector implements CollectorInterface
                     'any_assignment', 'any_assignment.value', '=', DB::raw('1')
                 );
             }
-            $likePattern = DB::raw("CONCAT('%', LOWER(?), '%')");
             // Builds the filters
             $q->where(fn (Builder $q) => $keywords
                 ->map(fn (string $keyword) => $q
@@ -443,8 +450,8 @@ abstract class Collector implements CollectorInterface
                     ->orWhereExists(fn (Builder $query) => $query
                         ->from('submission_search_objects', 'sso')
                         ->join('submission_search_object_keywords AS ssok', 'sso.object_id', '=', 'ssok.object_id')
-                        ->join("submission_search_keyword_list AS sskl", "sskl.keyword_id", '=', "ssok.keyword_id")
-                        ->where("sskl.keyword_text", '=', DB::raw("CONCAT(LOWER(?), '%')"))->addBinding($keyword)
+                        ->join('submission_search_keyword_list AS sskl', 'sskl.keyword_id', '=', 'ssok.keyword_id')
+                        ->where('sskl.keyword_text', '=', DB::raw('LOWER(?)'))->addBinding($keyword)
                         ->whereColumn('s.submission_id', '=', 'sso.submission_id')
                         // Don't permit reviewers to search on author names
                         ->when(!empty($this->assignedTo), fn (Builder $q) => $q
@@ -486,13 +493,16 @@ abstract class Collector implements CollectorInterface
                         ->where(DB::raw('LOWER(aus.setting_value)'), 'LIKE', $likePattern)
                             ->addBinding($keyword)
                     )
-                    // Search for exact submission ID
+                    // Search for the exact submission ID
                     ->when(
                         ($numericWords = $keywords->filter(fn (string $keyword) => ctype_digit($keyword)))->count(),
                         fn (Builder $query) => $query->orWhereIn('s.submission_id', $numericWords)
                     )
                 )
             );
+        } elseif (strlen($this->searchPhrase)) {
+            // If there's search text, but no keywords could be extracted from it, force the query to return nothing
+            $q->whereRaw('1 = 0');
         }
 
         if (isset($this->categoryIds)) {

@@ -22,6 +22,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\Bus;
+use PKP\announcement\Collector;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
@@ -133,7 +134,7 @@ class PKPAnnouncementHandler extends APIHandler
         }
 
         // The assocId in announcements should always point to the contextId
-        if ($announcement->getData('assocId') !== $this->getRequest()->getContext()->getId()) {
+        if ($announcement->getData('assocId') !== $this->getRequest()->getContext()?->getId()) {
             return $response->withStatus(404)->withJsonError('api.announcements.400.contextsNotMatched');
         }
 
@@ -174,7 +175,12 @@ class PKPAnnouncementHandler extends APIHandler
             }
         }
 
-        $collector->filterByContextIds([$this->getContextId()]);
+        if ($this->getRequest()->getContext()) {
+            $collector->filterByContextIds([$this->getRequest()->getContext()->getId()]);
+        } else {
+            $collector->withSiteAnnouncements(Collector::SITE_ONLY);
+        }
+
 
         Hook::call('API::submissions::params', [$collector, $slimRequest]);
 
@@ -199,11 +205,10 @@ class PKPAnnouncementHandler extends APIHandler
     {
         $request = $this->getRequest();
         $context = $request->getContext();
-        $contextId = $this->getContextId();
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $slimRequest->getParsedBody());
         $params['assocType'] = Application::get()->getContextAssocType();
-        $params['assocId'] = $contextId;
+        $params['assocId'] = $context?->getId();
 
         $primaryLocale = $context ? $context->getPrimaryLocale() : $request->getSite()->getPrimaryLocale();
         $allowedLocales = $context ? $context->getSupportedFormLocales() : $request->getSite()->getSupportedLocales();
@@ -236,6 +241,7 @@ class PKPAnnouncementHandler extends APIHandler
     public function edit($slimRequest, $response, $args)
     {
         $request = $this->getRequest();
+        $context = $request->getContext();
 
         $announcement = Repo::announcement()->get((int) $args['announcementId']);
 
@@ -248,7 +254,7 @@ class PKPAnnouncementHandler extends APIHandler
         }
 
         // Don't allow to edit an announcement from one context from a different context's endpoint
-        if ($this->getContextId() !== $announcement->getData('assocId')) {
+        if ($context?->getId() !== $announcement->getData('assocId')) {
             return $response->withStatus(403)->withJsonError('api.announcements.400.contextsNotMatched');
         }
 
@@ -256,7 +262,6 @@ class PKPAnnouncementHandler extends APIHandler
         $params['id'] = $announcement->getId();
         $params['typeId'] ??= null;
 
-        $context = $request->getContext();
         $primaryLocale = $context ? $context->getPrimaryLocale() : $request->getSite()->getPrimaryLocale();
         $allowedLocales = $context ? $context->getSupportedFormLocales() : $request->getSite()->getSupportedLocales();
 
@@ -296,7 +301,7 @@ class PKPAnnouncementHandler extends APIHandler
         }
 
         // Don't allow to delete an announcement from one context from a different context's endpoint
-        if ($this->getContextId() !== $announcement->getData('assocId')) {
+        if ($request->getContext()?->getId() !== $announcement->getData('assocId')) {
             return $response->withStatus(403)->withJsonError('api.announcements.400.contextsNotMatched');
         }
 
@@ -305,17 +310,6 @@ class PKPAnnouncementHandler extends APIHandler
         Repo::announcement()->delete($announcement);
 
         return $response->withJson($announcementProps, 200);
-    }
-
-    /**
-     * Get the context id or site-wide context id of the current request
-     */
-    protected function getContextId(): int
-    {
-        $context = $this->getRequest()->getContext();
-        return $context
-            ? $context->getId()
-            : Application::CONTEXT_ID_NONE;
     }
 
     /**

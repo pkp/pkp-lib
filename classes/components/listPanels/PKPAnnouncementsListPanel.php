@@ -61,7 +61,7 @@ class PKPAnnouncementsListPanel extends ListPanel
         return $request->getDispatcher()->url(
             $request,
             Application::ROUTE_PAGE,
-            is_a($this->form->context, Context::class)
+            $this->form->context
                 ? $request->getContext()->getPath()
                 : 'index',
             'announcement',

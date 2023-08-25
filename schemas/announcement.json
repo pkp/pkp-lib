@@ -3,7 +3,6 @@
 	"description": "An announcement or news item.",
 	"required": [
 		"assocType",
-		"assocId",
 		"title"
 	],
 	"properties": {
@@ -16,8 +15,11 @@
 		},
 		"assocId": {
 			"type": "integer",
-			"description": "The journal, press or preprint server ID.",
-			"apiSummary": true
+			"description": "The journal, press or preprint server ID. Null for site-level announcements.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"assocType": {
 			"type": "integer",

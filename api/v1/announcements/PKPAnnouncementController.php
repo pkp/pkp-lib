@@ -18,7 +18,6 @@
 namespace PKP\API\v1\announcements;
 
 use APP\core\Application;
-use APP\core\Request;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -28,6 +27,7 @@ use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\announcement\Collector;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -172,7 +172,12 @@ class PKPAnnouncementController extends PKPBaseController
             }
         }
 
-        $collector->filterByContextIds([$this->getContextId()]);
+        if ($this->getRequest()->getContext()) {
+            $collector->filterByContextIds([$this->getRequest()->getContext()->getId()]);
+        } else {
+            $collector->withSiteAnnouncements(Collector::SITE_ONLY);
+        }
+
 
         Hook::run('API::announcements::params', [$collector, $illuminateRequest]);
 
@@ -191,11 +196,10 @@ class PKPAnnouncementController extends PKPBaseController
     {
         $request = $this->getRequest();
         $context = $request->getContext();
-        $contextId = $this->getContextId();
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $illuminateRequest->input());
         $params['assocType'] = Application::get()->getContextAssocType();
-        $params['assocId'] = $contextId;
+        $params['assocId'] = $context?->getId();
 
         $primaryLocale = $context ? $context->getPrimaryLocale() : $request->getSite()->getPrimaryLocale();
         $allowedLocales = $context ? $context->getSupportedFormLocales() : $request->getSite()->getSupportedLocales();
@@ -222,6 +226,7 @@ class PKPAnnouncementController extends PKPBaseController
     public function edit(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
+        $context = $request->getContext();
 
         $announcement = Repo::announcement()->get((int) $illuminateRequest->route('announcementId'));
 
@@ -246,7 +251,6 @@ class PKPAnnouncementController extends PKPBaseController
         $params['id'] = $announcement->getId();
         $params['typeId'] ??= null;
 
-        $context = $request->getContext();
         $primaryLocale = $context ? $context->getPrimaryLocale() : $request->getSite()->getPrimaryLocale();
         $allowedLocales = $context ? $context->getSupportedFormLocales() : $request->getSite()->getSupportedLocales();
 
@@ -293,17 +297,6 @@ class PKPAnnouncementController extends PKPBaseController
         Repo::announcement()->delete($announcement);
 
         return response()->json($announcementProps, Response::HTTP_OK);
-    }
-
-    /**
-     * Get the context id or site-wide context id of the current request
-     */
-    protected function getContextId(): int
-    {
-        $context = $this->getRequest()->getContext();
-        return $context
-            ? $context->getId()
-            : Application::CONTEXT_ID_NONE;
     }
 
     /**

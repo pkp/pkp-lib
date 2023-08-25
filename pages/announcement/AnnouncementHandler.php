@@ -21,8 +21,8 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\announcement\Collector;
 use PKP\core\PKPRequest;
-use PKP\security\authorization\ContextRequiredPolicy;
 
 class AnnouncementHandler extends Handler
 {
@@ -47,11 +47,17 @@ class AnnouncementHandler extends Handler
         $templateMgr->assign('announcementsIntroduction', $this->getAnnouncementsIntro($request));
 
         // TODO the announcements list should support pagination
-        $announcements = Repo::announcement()
+        $collector = Repo::announcement()
             ->getCollector()
-            ->filterByContextIds([$this->getContextId($request)])
-            ->filterByActive()
-            ->getMany();
+            ->filterByActive();
+
+        if ($request->getContext()) {
+            $collector->filterByContextIds([$request->getContext()->getId()]);
+        } else {
+            $collector->withSiteAnnouncements(Collector::SITE_ONLY);
+        }
+
+        $announcements = $collector->getMany();
 
         $templateMgr->assign('announcements', $announcements->toArray());
         $templateMgr->display('frontend/pages/announcements.tpl');
@@ -71,13 +77,12 @@ class AnnouncementHandler extends Handler
         $this->validate();
         $this->setupTemplate($request);
 
-        $contextId = $this->getContextId($request);
         $announcementId = (int) array_shift($args);
         $announcement = Repo::announcement()->get($announcementId);
         if (
             $announcement
             && $announcement->getAssocType() == Application::getContextAssocType()
-            && $announcement->getAssocId() == $contextId
+            && $announcement->getAssocId() == $request->getContext()?->getId()
             && (
                 $announcement->getDateExpire() == null || strtotime($announcement->getDateExpire()) > time()
             )
@@ -88,14 +93,6 @@ class AnnouncementHandler extends Handler
             return $templateMgr->display('frontend/pages/announcement.tpl');
         }
         $request->redirect(null, 'announcement');
-    }
-
-    protected function getContextId(Request $request): int
-    {
-        $context = $request->getContext();
-        return $context
-            ? $context->getId()
-            : Application::CONTEXT_ID_NONE;
     }
 
     protected function isAnnouncementsEnabled(Request $request): bool

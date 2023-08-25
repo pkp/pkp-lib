@@ -23,7 +23,6 @@ use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
-use PKP\site\Site;
 
 define('FORM_ANNOUNCEMENT', 'announcement');
 
@@ -35,7 +34,7 @@ class PKPAnnouncementForm extends FormComponent
     /** @copydoc FormComponent::$method */
     public $method = 'POST';
 
-    public Context|Site $context;
+    public ?Context $context;
 
     /**
      * Constructor
@@ -43,7 +42,7 @@ class PKPAnnouncementForm extends FormComponent
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
      */
-    public function __construct($action, $locales, Context|Site $context)
+    public function __construct($action, $locales, ?Context $context = null)
     {
         $this->action = $action;
         $this->locales = $locales;
@@ -98,11 +97,7 @@ class PKPAnnouncementForm extends FormComponent
         /** @var AnnouncementTypeDAO */
         $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
 
-        $announcementTypes = $announcementTypeDao->getByContextId(
-            is_a($this->context, Context::class)
-                ? $this->context->getId()
-                : Application::CONTEXT_ID_NONE
-        );
+        $announcementTypes = $announcementTypeDao->getByContextId($this->context?->getId());
 
         $announcementTypeOptions = [];
         foreach ($announcementTypes as $announcementType) {

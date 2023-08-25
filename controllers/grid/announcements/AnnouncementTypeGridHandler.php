@@ -60,12 +60,12 @@ class AnnouncementTypeGridHandler extends GridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-        $contextId = $this->getContextId();
+        $context = $request->getContext();
 
-        if ($contextId === Application::CONTEXT_ID_NONE) {
-            $this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
-        } else {
+        if ($context) {
             $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+        } else {
+            $this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
         }
 
         $announcementTypeId = $request->getUserVar('announcementTypeId');
@@ -73,7 +73,7 @@ class AnnouncementTypeGridHandler extends GridHandler
             // Ensure announcement type is valid and for this context
             $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
             $announcementType = $announcementTypeDao->getById($announcementTypeId);
-            if (!$announcementType || $announcementType->getContextId() != $contextId) {
+            if (!$announcementType || $announcementType->getContextId() != $context?->getId()) {
                 return false;
             }
         }
@@ -94,8 +94,6 @@ class AnnouncementTypeGridHandler extends GridHandler
 
         // Set the no items row text
         $this->setEmptyRowText('manager.announcementTypes.noneCreated');
-
-        $context = $request->getContext();
 
         // Columns
         $announcementTypeCellProvider = new AnnouncementTypeGridCellProvider();
@@ -134,7 +132,7 @@ class AnnouncementTypeGridHandler extends GridHandler
     protected function loadData($request, $filter)
     {
         $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
-        return $announcementTypeDao->getByContextId($this->getContextId());
+        return $announcementTypeDao->getByContextId($request->getContext()?->getId());
     }
 
     /**
@@ -172,7 +170,7 @@ class AnnouncementTypeGridHandler extends GridHandler
     public function editAnnouncementType($args, $request)
     {
         $announcementTypeId = (int)$request->getUserVar('announcementTypeId');
-        $announcementTypeForm = new AnnouncementTypeForm($this->getContextId(), $announcementTypeId);
+        $announcementTypeForm = new AnnouncementTypeForm($request->getContext()?->getId(), $announcementTypeId);
         $announcementTypeForm->initData();
 
         return new JSONMessage(true, $announcementTypeForm->fetch($request));
@@ -192,7 +190,7 @@ class AnnouncementTypeGridHandler extends GridHandler
         $announcementTypeId = $request->getUserVar('announcementTypeId');
 
         // Form handling.
-        $announcementTypeForm = new AnnouncementTypeForm($this->getContextId(), $announcementTypeId);
+        $announcementTypeForm = new AnnouncementTypeForm($request->getContext()?->getId(), $announcementTypeId);
         $announcementTypeForm->readInputData();
 
         if ($announcementTypeForm->validate()) {
@@ -231,7 +229,7 @@ class AnnouncementTypeGridHandler extends GridHandler
         $announcementTypeId = (int) $request->getUserVar('announcementTypeId');
 
         $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
-        $announcementType = $announcementTypeDao->getById($announcementTypeId, $this->getContextId());
+        $announcementType = $announcementTypeDao->getById($announcementTypeId, $request->getContext()?->getId());
         if ($announcementType && $request->checkCSRF()) {
             $announcementTypeDao->deleteObject($announcementType);
 
@@ -244,18 +242,5 @@ class AnnouncementTypeGridHandler extends GridHandler
         }
 
         return new JSONMessage(false);
-    }
-
-    /**
-     * Get the id of the request context
-     *
-     * Returns CONTEXT_ID_NONE for site-level requests
-     */
-    protected function getContextId(): int
-    {
-        $request = Application::get()->getRequest();
-        return $request->getContext()
-            ? $request->getContext()->getId()
-            : Application::CONTEXT_ID_NONE;
     }
 }

@@ -61,6 +61,7 @@ abstract class Collector implements CollectorInterface
     public string $orderBy = self::ORDERBY_DATE_SUBMITTED;
     public string $orderDirection = 'DESC';
     public ?string $searchPhrase = null;
+    public ?int $maxSearchKeywords = null;
     public ?array $statuses = null;
     public ?array $stageIds = null;
     public ?array $doiStatuses = null;
@@ -220,9 +221,10 @@ abstract class Collector implements CollectorInterface
     /**
      * Limit results to submissions matching this search query
      */
-    public function searchPhrase(?string $phrase): AppCollector
+    public function searchPhrase(?string $phrase, ?int $maxSearchKeywords = null): AppCollector
     {
         $this->searchPhrase = $phrase;
+        $this->maxSearchKeywords = $maxSearchKeywords;
         return $this;
     }
 
@@ -297,7 +299,9 @@ abstract class Collector implements CollectorInterface
         }
 
         // Prepare keywords (allows short and numeric words)
-        $keywords = collect(Application::getSubmissionSearchIndex()->filterKeywords($this->searchPhrase, false, true, true))->unique();
+        $keywords = collect(Application::getSubmissionSearchIndex()->filterKeywords($this->searchPhrase, false, true, true))
+            ->unique()
+            ->take($this->maxSearchKeywords ?? PHP_INT_MAX);
 
         // Setup the order by
         switch ($this->orderBy) {

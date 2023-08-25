@@ -510,13 +510,13 @@ abstract class Collector implements CollectorInterface
                 ->whereIn('pc.category_id', $this->categoryIds);
         }
 
-        // By any child pub object's DOI status
+        // Filter by any child pub object's DOI status
         $q->when($this->doiStatuses !== null, fn (Builder $q) => $this->addDoiStatusFilterToQuery($q));
 
-        // By whether any child pub objects have DOIs assigned
+        // Filter by whether any child pub objects have DOIs assigned
         $q->when($this->hasDois !== null, fn (Builder $q) => $this->addHasDoisFilterToQuery($q));
 
-        // By whether any child pub objects have DOIs assigned
+        // Filter out excluded submission IDs
         $q->when($this->excludeIds !== null, fn (Builder $q) => $q->whereNotIn('s.submission_id', $this->excludeIds));
 
         // Limit and offset results for pagination

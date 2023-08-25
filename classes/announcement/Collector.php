@@ -31,12 +31,15 @@ class Collector implements CollectorInterface
     public const ORDERBY_DATE_EXPIRE = 'date_expire';
     public const ORDER_DIR_ASC = 'ASC';
     public const ORDER_DIR_DESC = 'DESC';
+    public const SITE_ONLY = 'site';
+    public const SITE_AND_CONTEXTS = 'all';
 
     public DAO $dao;
     public ?array $contextIds = null;
     public ?string $isActive = null;
     public ?string $searchPhrase = null;
     public ?array $typeIds = null;
+    public ?string $includeSite = null;
     public ?int $count = null;
     public ?int $offset = null;
     public string $orderBy = self::ORDERBY_DATE_POSTED;
@@ -106,6 +109,15 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * Include site-level announcements in the results
+     */
+    public function withSiteAnnouncements(?string $includeMethod = self::SITE_AND_CONTEXTS): self
+    {
+        $this->includeSite = $includeMethod;
+        return $this;
+    }
+
+    /**
      * Filter announcements by those matching a search query
      */
     public function searchPhrase(?string $phrase): self
@@ -156,9 +168,15 @@ class Collector implements CollectorInterface
         $qb = DB::table($this->dao->table . ' as a')
             ->select(['a.*']);
 
-        if (isset($this->contextIds)) {
-            $qb->whereIn('a.assoc_id', $this->contextIds);
+        if (isset($this->contextIds) && $this->includeSite !== self::SITE_ONLY) {
             $qb->where('a.assoc_type', Application::get()->getContextAssocType());
+            $qb->whereIn('a.assoc_id', $this->contextIds);
+            if ($this->includeSite === self::SITE_AND_CONTEXTS) {
+                $qb->orWhereNull('a.assoc_id');
+            }
+        } elseif ($this->includeSite === self::SITE_ONLY) {
+            $qb->where('a.assoc_type', Application::get()->getContextAssocType());
+            $qb->whereNull('a.assoc_id');
         }
 
         if (isset($this->typeIds)) {

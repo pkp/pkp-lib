@@ -12,7 +12,6 @@
 
 namespace PKP\migration\upgrade\v3_5_0;
 
-use APP\core\Application;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
@@ -24,8 +23,11 @@ class I9253_SiteAnnouncements extends Migration
      */
     public function up(): void
     {
+        Schema::table('announcements', function (Blueprint $table) {
+            $table->bigInteger('assoc_id')->nullable()->change();
+        });
         Schema::table('announcement_types', function (Blueprint $table) {
-            $table->dropForeign(['context_id']);
+            $table->bigInteger('context_id')->nullable()->change();
         });
     }
 
@@ -34,23 +36,11 @@ class I9253_SiteAnnouncements extends Migration
      */
     public function down(): void
     {
-        $app = Application::getName();
-
-        $contextIdColumn = 'journal_id';
-        $contextTable = 'journals';
-        if ($app === 'omp') {
-            $contextIdColumn = 'press_id';
-            $contextTable = 'presses';
-        } elseif ($app === 'ops') {
-            $contextIdColumn = 'server_id';
-            $contextTable = 'servers';
-        }
-
-        Schema::table('announcement_types', function (Blueprint $table) use ($contextIdColumn, $contextTable) {
-            $table
-                ->foreign('context_id')
-                ->references($contextIdColumn)
-                ->on($contextTable);
+        Schema::table('announcements', function (Blueprint $table) {
+            $table->bigInteger('assoc_id')->nullable(false)->change();
+        });
+        Schema::table('announcement_types', function (Blueprint $table) {
+            $table->bigInteger('context_id')->nullable(false)->change();
         });
     }
 }

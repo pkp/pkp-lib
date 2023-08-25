@@ -324,13 +324,7 @@ class PKPAnnouncementHandler extends APIHandler
      */
     protected function getSiteRoleAssignments(array $roleAssignments): array
     {
-        $roleIds = array_keys($roleAssignments);
-        foreach ($roleIds as $roleId) {
-            if ($roleId !== Role::ROLE_ID_SITE_ADMIN) {
-                unset($roleAssignments[$roleId]);
-            }
-        }
-        return $roleAssignments;
+        return array_filter($roleAssignments, fn($key) => $key == Role::ROLE_ID_SITE_ADMIN, ARRAY_FILTER_USE_KEY);
     }
 
     /**

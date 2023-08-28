@@ -283,40 +283,11 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     }
 
     /**
-     * Get localized data for this object.
-     *
-     * It selects the locale in the following order:
-     * - $preferredLocale
-     * - the user's current locale
-     * - the submission's primary locale
-     * - the first locale we find data for
-     *
-     * @param string $key
-     * @param string $preferredLocale
+     * Get the default/fall back locale the values should exist for
      */
-    public function getLocalizedData($key, $preferredLocale = null)
+    public function getDefaultLocale(): ?string 
     {
-        // 1. Preferred locale
-        if ($preferredLocale && $this->getData($key, $preferredLocale)) {
-            return $this->getData($key, $preferredLocale);
-        }
-        // 2. User's current locale
-        if (!empty($this->getData($key, Locale::getLocale()))) {
-            return $this->getData($key, Locale::getLocale());
-        }
-        // 3. Submission's primary locale
-        if (!empty($this->getData($key, $this->getData('locale')))) {
-            return $this->getData($key, $this->getData('locale'));
-        }
-        // 4. The first locale we can find data for
-        $data = $this->getData($key, null);
-        foreach ((array) $data as $value) {
-            if (!empty($value)) {
-                return $value;
-            }
-        }
-
-        return null;
+        return $this->getData('locale');
     }
 
     /**

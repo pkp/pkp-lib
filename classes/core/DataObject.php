@@ -19,7 +19,6 @@
 namespace PKP\core;
 
 use APP\core\Application;
-use Exception;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use \PKP\filter\FilterDAO;
@@ -62,16 +61,13 @@ class DataObject
     /**
      * Get a piece of data for this object, localized to the current
      * locale if possible.
-     *
-     * @param string $key
-     * @param string $preferredLocale
      */
-    public function getLocalizedData($key, $preferredLocale = null)
+    public function getLocalizedData(string $key, string $preferredLocale = null, string &$selectedLocale = null): mixed
     {
-        $localePrecedence = $this->_getLocalePrecedence();
-        foreach ($localePrecedence as $locale) {
+        foreach ($this->getLocalePrecedence($preferredLocale) as $locale) {
             $value = & $this->getData($key, $locale);
             if (!empty($value)) {
+                $selectedLocale = $locale;
                 return $value;
             }
             unset($value);
@@ -79,39 +75,45 @@ class DataObject
 
         // Fallback: Get the first available piece of data.
         $data = $this->getData($key, null);
-        if (!empty($data)) {
-            $locales = array_keys($data);
-            $firstLocale = array_shift($locales);
-            return $data[$firstLocale];
+        foreach ((array) $data as $locale => $dataValue) {
+            if (!empty($dataValue)) {
+                $selectedLocale = $locale;
+                return $dataValue;
+            }
         }
 
         return null;
     }
 
     /**
-     * Get the stack of "important" locales, most important first.
-
-     *
-     * @return string[]
+     * Get the locale precedence order for object in the following order
+     * 
+     * 1. Preferred Locale if provided
+     * 2. User's current local
+     * 3. Object's default locale if set
+     * 4. Context's primary locale if context available
+     * 5. Site's primary locale
      */
-    private function _getLocalePrecedence(): array
+    public function getLocalePrecedence(string $preferredLocale = null): array
     {
-        static $localePrecedence;
-        if (!isset($localePrecedence)) {
-            $request = Application::get()->getRequest();
-            $localePrecedence = [Locale::getLocale()];
+        $request = Application::get()->getRequest();
 
-            $context = $request->getContext();
-            if ($context && !in_array($context->getPrimaryLocale(), $localePrecedence)) {
-                $localePrecedence[] = $context->getPrimaryLocale();
-            }
+        return array_unique(
+            array_filter([
+                $preferredLocale ?? Locale::getLocale(),
+                $this->getDefaultLocale(),
+                $request->getContext()?->getPrimaryLocale(),
+                $request->getSite()->getPrimaryLocale(),
+            ])
+        );
+    }
 
-            $site = $request->getSite();
-            if ($site && !in_array($site->getPrimaryLocale(), $localePrecedence)) {
-                $localePrecedence[] = $site->getPrimaryLocale();
-            }
-        }
-        return $localePrecedence;
+    /**
+     * Get the default locale for object
+     */
+    public function getDefaultLocale(): ?string 
+    {
+        return null;
     }
 
     /**

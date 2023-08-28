@@ -27,8 +27,10 @@ class TestJobFailure extends BaseJob
 
     /**
      * The number of times the job may be attempted.
+     * 
+     * @var int
      */
-    public int $tries = 1;
+    public $tries = 1;
 
     /**
      * The maximum number of unhandled exceptions to allow before failing.

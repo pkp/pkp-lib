@@ -26,8 +26,10 @@ class TestJobSuccess extends BaseJob
 
     /**
      * The number of times the job may be attempted.
+     * 
+     * @var int
      */
-    public int $tries = 1;
+    public $tries = 1;
 
     /**
      * Initialize the job

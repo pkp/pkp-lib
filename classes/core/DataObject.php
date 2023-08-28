@@ -74,7 +74,7 @@ class DataObject
         }
 
         // Fallback: Get the first available piece of data.
-        $data = & $this->getData($key, null);
+        $data = $this->getData($key, null);
         foreach ((array) $data as $locale => $dataValue) {
             if (!empty($dataValue)) {
                 $selectedLocale = $locale;
@@ -82,20 +82,17 @@ class DataObject
             }
         }
 
-        // No data available; return null.
-        unset($data);
-        $data = null;
-        return $data;
+        return null;
     }
 
     /**
      * Get the locale precedence order for object in the following order
      * 
      * 1. Preferred Locale if provided
-     * 1. User's current local
-     * 2. Object's default locale if set
-     * 3. Context's primary locale if context available
-     * 4. Site's primary locale
+     * 2. User's current local
+     * 3. Object's default locale if set
+     * 4. Context's primary locale if context available
+     * 5. Site's primary locale
      */
     public function getLocalePrecedence(string $preferredLocale = null): array
     {

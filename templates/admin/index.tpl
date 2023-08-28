@@ -26,7 +26,7 @@
 		<p>
 			{translate key="admin.siteManagement.description"}
 		</p>
-		<template slot="actions">
+		<template #actions>
 			<pkp-button
 				element="a"
 				href="{url op="contexts"}"
@@ -46,7 +46,7 @@
 		<p>
 			{translate key="admin.systemInformation.description"}
 		</p>
-		<template slot="actions">
+		<template #actions>
 			<pkp-button
 				element="a"
 				href="{url op="systemInfo"}"
@@ -60,7 +60,7 @@
 		<p>
 			{translate key="admin.expireSessions.description"}
 		</p>
-		<template slot="actions">
+		<template #actions>
 			<form type="post" action="{url op="expireSessions"}">
 				{csrf}
 				<button class="pkpButton pkpButton--isWarnable" onclick="return confirm({translate|json_encode|escape key="admin.confirmExpireSessions"})">{translate key="admin.expireSessions"}</button>
@@ -72,7 +72,7 @@
 		<p>
 			{translate key="admin.deleteCache.description"}
 		</p>
-		<template slot="actions">
+		<template #actions>
 			<form type="post" action="{url op="clearDataCache"}">
 				{csrf}
 				<button class="pkpButton pkpButton--isWarnable">{translate key="admin.clearDataCache"}</button>
@@ -88,7 +88,7 @@
 		<p>
 			{translate key="admin.scheduledTask.clearLogs.description"}
 		</p>
-		<template slot="actions">
+		<template #actions>
 			<form type="post" action="{url op="clearScheduledTaskLogFiles"}">
 				{csrf}
 				<button class="pkpButton pkpButton--isWarnable" onclick="return confirm({translate|json_encode|escape key="admin.scheduledTask.confirmClearLogs"})">{translate key="admin.scheduledTask.clearLogs.delete"}</button>
@@ -100,7 +100,7 @@
 		<p>
 			{translate key="navigation.tools.jobs.description"}
 		</p>
-		<template slot="actions">
+		<template #actions>
 			<pkp-button
 				element="a"
 				href="{url op="jobs"}"

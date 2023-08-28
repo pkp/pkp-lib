@@ -16,7 +16,7 @@
 		<pkp-header>
 			<h1>{translate key="common.publications"}</h1>
 			<spinner v-if="isLoadingTimeline"></spinner>
-			<template slot="actions">
+			<template #actions>
 				<date-range
 					unique-id="publication-stats-date-range"
 					:date-start="dateStart"
@@ -157,7 +157,7 @@
 							{translate key="stats.publications.details"}
 							<spinner v-if="isLoadingItems"></spinner>
 						</h2>
-						<template slot="actions">
+						<template #actions>
 							<div class="pkpStats__itemsOfTotal">
 								{{
 									replaceLocaleParams(itemsOfTotalLabel, {
@@ -210,7 +210,7 @@
 									<p>
 										{translate key="stats.publications.downloadReport.downloadSubmissions.description"}
 									</p>
-									<template slot="actions">
+									<template #actions>
 										<pkp-button
 											@click="downloadReport"
 										>
@@ -223,7 +223,7 @@
 									<p>
 										{translate key="stats.publications.downloadReport.downloadFiles.description"}
 									</p>
-									<template slot="actions">
+									<template #actions>
 										<pkp-button
 											@click="downloadReport('files')"
 										>
@@ -236,7 +236,7 @@
 									<p>
 										{{ getTimelineDescription() }}
 									</p>
-									<template slot="actions">
+									<template #actions>
 										<pkp-button
 											@click="downloadReport('timeline')"
 										>
@@ -256,7 +256,7 @@
 										<p>
 											{translate key="stats.publications.downloadReport.downloadGeographic.description"}
 										</p>
-										<template slot="actions">
+										<template #actions>
 											<pkp-button
 												@click="downloadReport('{$geoReportType}')"
 											>
@@ -277,14 +277,16 @@
 						:order-direction="orderDirection"
 						@order-by="setOrderBy"
 					>
-						<search
-							slot="thead-title"
-							class="pkpStats__titleSearch"
-							:search-phrase="searchPhrase"
-							search-label="{translate key="stats.searchSubmissionDescription"}"
-							@search-phrase-changed="setSearchPhrase"
-						></search>
-						<template slot-scope="{ row, rowIndex }">
+						<template #thead-title>
+							<search
+								#thead-title
+								class="pkpStats__titleSearch"
+								:search-phrase="searchPhrase"
+								search-label="{translate key="stats.searchSubmissionDescription"}"
+								@search-phrase-changed="setSearchPhrase"
+							></search>
+						</template>
+						<template #default="{ row, rowIndex }">
 							<table-cell
 								v-for="(column, columnIndex) in tableColumns"
 								:key="column.name"

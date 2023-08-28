@@ -53,7 +53,7 @@
 			</h2>
 			<div id="table-controls" class="submissions__list__controls">
 				<button-row>
-					<template slot="end">
+					<template #end>
 						<pkp-button @click="openFilters">
 							{translate key="common.filter"}
 						</pkp-button>
@@ -82,7 +82,7 @@
 				</div>
 			</div>
 			<pkp-table aria-labelledby="table-title" aria-describedby="table-controls">
-				<template slot="head">
+				<template #head>
 					{foreach from=$columns item="column"}
 						<table-header
 						{if $column->sortable}
@@ -105,15 +105,17 @@
 			</pkp-table>
 			<div class="submissions__list__footer">
 				<span class="submission__list__showing" v-html="showingXofX"></span>
-				<pagination
+				<template #footer>
+					<pagination
 					v-if="lastPage > 1"
-					slot="footer"
 					:current-page="currentPage"
 					:is-loading="isLoadingPage"
 					:last-page="lastPage"
 					:show-adjacent-pages="3"
 					@set-page="setPage"
-				></pagination>
+					>
+					</pagination>
+				</template>
 			</div>
 		</div>
 	</div>
@@ -135,7 +137,7 @@
 		:open="isModalOpenedFilters"
 		@close="isModalOpenedFilters = false"
 	>
-		<template slot="header">
+		<template #header>
 			<h2>
 				{translate key="common.filter"}
 			</h2>

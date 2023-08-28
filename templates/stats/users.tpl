@@ -15,7 +15,7 @@
 		<div class="pkpStats__panel">
 			<pkp-header>
 				<h1 id="usersTableLabel" class="pkpHeader__title">{translate key="manager.statistics.statistics.registeredUsers"}</h1>
-				<template slot="actions">
+				<template #actions>
 					<pkp-button ref="exportButton" @click="isModalOpenedExport = true">
 						{translate key="common.export"}
 					</pkp-button>

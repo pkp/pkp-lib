@@ -19,9 +19,9 @@
 		:items="currentMailables"
 		:is-sidebar-visible="true"
 	>
-		<pkp-header slot="header">
+		<pkp-header #header>
 			<h1>{translate key="manager.publication.emails"}</h1>
-			<template slot="actions">
+			<template #actions>
 				<search
 					search-label="{translate key="manager.mailables.search"}"
 					:search-phrase="searchPhrase"
@@ -32,19 +32,19 @@
 				</pkp-button>
 			</template>
 		</pkp-header>
-		<template v-slot:item-title="{ldelim}item{rdelim}">
+		<template #item-title="{ldelim}item{rdelim}">
 			{{ item.name }}
 		</template>
-		<template v-slot:item-subtitle="{ldelim}item{rdelim}">
+		<template #item-subtitle="{ldelim}item{rdelim}">
 			{{ item.description }}
 		</template>
-		<template v-slot:item-actions="{ldelim}item{rdelim}">
+		<template #item-actions="{ldelim}item{rdelim}">
 			<pkp-button @click="openMailable(item)">
 				<span aria-hidden="true">Edit</span>
 				<span class="-screenReader">{{ __('common.editItem', {ldelim}name: item.name{rdelim}) }}</span>
 			</pkp-button>
 		</template>
-		<template slot="sidebar">
+		<template #sidebar>
 			<pkp-header>
 				<h2>
 					<icon icon="filter" :inline="true"></icon>
@@ -110,16 +110,16 @@
 			<list-panel
 				:items="currentMailable.emailTemplates"
 			>
-				<pkp-header slot="header">
+				<pkp-header #header>
 					<h3>{translate key="manager.mailables.templates"}</h3>
-					<template slot="actions">
+					<template #actions>
 						<pkp-button @click="openTemplate()">{translate key="manager.emails.addEmail"}</pkp-button>
 					</template>
 				</pkp-header>
-				<template v-slot:item-subtitle="{ldelim}item{rdelim}">
+				<template #item-subtitle="{ldelim}item{rdelim}">
 					{{ localize(item.name) }}
 				</template>
-				<template v-slot:item-actions="{ldelim}item{rdelim}">
+				<template #item-actions="{ldelim}item{rdelim}">
 					<badge v-if="item.key === currentMailable.emailTemplateKey">
 						{translate key="common.default"}
 					</badge>

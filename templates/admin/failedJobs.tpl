@@ -20,7 +20,7 @@
 			:description="description"
 			:label="label"
 		>
-			<template v-slot:label v-if="total > 0">
+			<template #label v-if="total > 0">
 				<div>
 					<span class="pkp_helpers_half pkp_helpers_align_left">{{ label }}</span>
 					<span class="pkp_helpers_half pkp_helpers_align_right pkp_helpers_text_right">
@@ -32,7 +32,7 @@
 				</div>
 			</template>
 
-			<template slot-scope="{ row, rowIndex }">
+			<template #default="{ row, rowIndex }">
 				<table-cell
 					v-for="(column, columnIndex) in columns"
 					:key="column.name"

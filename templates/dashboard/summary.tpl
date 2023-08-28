@@ -7,7 +7,7 @@
  *
  * The summary panel of a submission.
  *}
-<template slot="header">
+<template #header>
 	<stage-bubble :stage-id="summarySubmission.stageId">
 		{{ summarySubmission.stageName }}
 		<template v-if="

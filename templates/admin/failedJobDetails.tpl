@@ -19,7 +19,7 @@
 			:rows="rows"
 			:label="label"
 		>
-			<template slot-scope="{ row, rowIndex }">
+			<template #default="{ row, rowIndex }">
 				<table-cell
 					v-for="(column, columnIndex) in columns"
 					:key="column.name"

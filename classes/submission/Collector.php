@@ -75,6 +75,8 @@ abstract class Collector implements CollectorInterface
     public $assignedTo = null;
     public array|int|null $isReviewedBy = null;
 
+    public ?array $reviewersNumber = null;
+
     public function __construct(DAO $dao)
     {
         $this->dao = $dao;
@@ -193,6 +195,17 @@ abstract class Collector implements CollectorInterface
     public function filterByDaysInactive(?int $daysInactive): AppCollector
     {
         $this->daysInactive = $daysInactive;
+        return $this;
+    }
+
+    /**
+     * Limit results to the number of the assigned reviewers.
+     * Review assignment is considered active after the request is sent by the reviewer
+     * and it isn't cancelled, declined or overdue
+     */
+    public function filterByReviewersActive(?int $reviewersNumber)
+    {
+        $this->reviewersNumber = $reviewersNumber;
         return $this;
     }
 
@@ -564,12 +577,39 @@ abstract class Collector implements CollectorInterface
         // Filter by is reviewed by
         if ($this->isReviewedBy !== null) {
             // TODO consider review round and other criteria; refactor query builder to use ->when
-            $q->when($this->isReviewedBy === self::UNASSIGNED, function (Builder $q) {
-                $q->leftJoin('review_assignments AS ra', 'ra.submission_id', '=', 's.submission_id')
-                    ->whereIn('s.stage_id', [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW])
-                    ->whereNull('ra.submission_id');
-            });
+            $q->whereIn('s.stage_id', [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW])
+                ->when(
+                $this->isReviewedBy === self::UNASSIGNED,
+                // Submission considered not under the review when ...
+                fn (Builder $q) => $q
+                    // review assignments don't exist for the submission or exist but are declined or cancelled
+                    ->whereNotIn('s.submission_id', fn (Builder $q) => $q
+                        ->select('ra.submission_id')
+                        ->from('review_assignments AS ra')
+                        ->where('declined', 0)
+                        ->where('canceled', 0)
+                        ->distinct()),
+                fn (Builder $q) => $q
+                    ->whereIn('s.submission_id', fn (Builder $q) => $q
+                        ->select('ra.submission_id')
+                        ->from('review_assignments AS ra')
+                        ->whereIn('reviewer_id', (array) $this->isReviewedBy)
+                        ->where('declined', 0)
+                        ->where('canceled', 0)
+                    )
+            );
         }
+
+        $q->when($this->reviewersNumber !== null, fn (Builder $q) => $q
+                ->whereIn('s.submission_id', fn(Builder $q) => $q
+                    ->select('ra.submission_id', DB::raw('count(*) as number'))
+                    ->groupBy('ra.submission_id')
+                    ->from('review_assignments AS ra')
+                    ->where('declined', 0)
+                    ->where('cancel', 0)
+                    ->havingRaw('number IN ?', $this->reviewersNumber)
+            )
+        );
 
         // By any child pub object's DOI status
         // Filter by any child pub object's DOI status

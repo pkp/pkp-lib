@@ -146,7 +146,7 @@ class PKPPublication extends DataObject {
 			if (!empty($str)) {
 				if ($lastUserGroupId != $author->getData('userGroupId')) {
 					foreach ($userGroups as $userGroup) {
-						if ($lastUserGroupId === $userGroup->getId()) {
+						if ($userGroup && $lastUserGroupId === $userGroup->getId()) {
 							if ($userGroup->getData('showTitle')) {
 								$str .= ' (' . $userGroup->getLocalizedData('name') . ')';
 							}
@@ -165,7 +165,7 @@ class PKPPublication extends DataObject {
 		// If there needs to be a trailing user group title, add it
 		if (isset($author)) {
 			foreach($userGroups as $userGroup) {
-				if ($author->getData('userGroupId') === $userGroup->getId()) {
+				if ($userGroup && $author->getData('userGroupId') === $userGroup->getId()) {
 					if ($userGroup->getData('showTitle')) {
 						$str .= ' (' . $userGroup->getLocalizedData('name') . ')';
 					}

@@ -15,9 +15,6 @@
 
 namespace PKP\components\listPanels;
 
-use APP\core\Application;
-use PKP\context\Context;
-
 class PKPAnnouncementsListPanel extends ListPanel
 {
     /** @var string URL to the API endpoint where items can be retrieved */
@@ -40,7 +37,6 @@ class PKPAnnouncementsListPanel extends ListPanel
      */
     public function getConfig()
     {
-        $request = Application::get()->getRequest();
         return parent::getConfig() + [
             'addAnnouncementLabel' => __('grid.action.addAnnouncement'),
             'apiUrl' => $this->apiUrl,
@@ -50,23 +46,6 @@ class PKPAnnouncementsListPanel extends ListPanel
             'editAnnouncementLabel' => __('manager.announcements.edit'),
             'form' => $this->form->getConfig(),
             'itemsMax' => $this->itemsMax,
-            'urlBase' => $this->getUrlBase()
         ];
-    }
-
-    protected function getUrlBase(): string
-    {
-        $request = Application::get()->getRequest();
-
-        return $request->getDispatcher()->url(
-            $request,
-            Application::ROUTE_PAGE,
-            $this->form->context
-                ? $request->getContext()->getPath()
-                : 'index',
-            'announcement',
-            'view',
-            '__id__'
-        );
     }
 }

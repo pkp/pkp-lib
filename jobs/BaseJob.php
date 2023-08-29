@@ -35,8 +35,10 @@ abstract class BaseJob implements ShouldQueue
 
     /**
      * The number of times the job may be attempted.
+     * 
+     * @var int
      */
-    public int $tries = 3;
+    public $tries = 3;
 
     /**
      * The number of SECONDS to wait before retrying the job.

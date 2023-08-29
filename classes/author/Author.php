@@ -27,7 +27,7 @@ class Author extends Identity
     /**
      * Get the default/fall back locale the values should exist for
      */
-    public function getDefaultLocale(): string
+    public function getDefaultLocale(): ?string
     {
         return $this->getSubmissionLocale();
     }

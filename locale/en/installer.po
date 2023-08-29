@@ -228,6 +228,9 @@ msgstr ""
 "Provide a unique site ID and OAI base URL to PKP for statistics and security "
 "alert purposes only."
 
+msgid "installer.miscSettings"
+msgstr "Miscellaneous Settings"
+
 msgid "installer.unsupportedPhpError"
 msgstr ""
 "Your server's PHP version is not supported by this software. Double-check "

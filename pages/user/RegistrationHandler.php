@@ -164,21 +164,6 @@ class RegistrationHandler extends UserHandler
             if (isset($invitation)) {
                 $invitation->acceptHandle();
             }
-
-            // $url = $request->getDispatcher()->url(
-            //     $request,
-            //     PKPApplication::ROUTE_PAGE,
-            //     $request->getContext()->getPath(),
-            //     PKPInvitationHandler::REPLY_PAGE,
-            //     PKPInvitationHandler::REPLY_OP_ACCEPT,
-            //     null,
-            //     [
-            //         'key' => $accessKeyCode,
-            //     ]
-            // );
-
-            // header('HTTP/1.1 301 Moved Permanently');
-            // $request->redirectUrl($url);
         } else if (isset($username)) {
             $user = Repo::user()->getByUsername($username, true);
             if (!$user) {

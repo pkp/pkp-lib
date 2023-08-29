@@ -18,7 +18,6 @@ use Carbon\Carbon;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use PKP\core\PKPApplication;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\invitation\invitations\RegistrationAccessInvite;
 use PKP\invitation\invitations\ReviewerAccessInvite;

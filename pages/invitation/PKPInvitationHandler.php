@@ -3,8 +3,8 @@
 /**
  * @file pages/invitation/PKPInvitationHandler.php
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2003-2023 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPInvitationHandler
@@ -47,13 +47,8 @@ class PKPInvitationHandler extends Handler
 
     private function getInvitationByKey(Request $request): BaseInvitation
     {
-        $key = $request->getUserVar('key')
-            ? $request->getUserVar('key')
-            : null;
-        
-        $id = $request->getUserVar('id')
-            ? $request->getUserVar('id')
-            : null;
+        $key = $request->getUserVar('key') ?: null;
+        $id = $request->getUserVar('id') ?: null;
 
         $invitation = Repo::invitation()
             ->getByIdAndKey($id, $key);

@@ -26,12 +26,6 @@ class Schema extends \PKP\core\maps\Schema
 
     public string $schema = PKPSchemaService::SCHEMA_ANNOUNCEMENT;
 
-    public function __construct(Request $request, PKPSchemaService $schemaService)
-    {
-        $this->request = $request;
-        $this->schemaService = $schemaService;
-    }
-
     /**
      * Map an announcement
      *

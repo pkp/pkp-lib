@@ -61,7 +61,7 @@ while getopts "CPcpdR" opt; do
 			;;
 	esac
 done
-PHPUNIT='php lib/pkp/lib/vendor/phpunit/phpunit/phpunit --configuration lib/pkp/tests/phpunit.xml --testdox --no-interaction'
+PHPUNIT='php lib/pkp/lib/vendor/phpunit/phpunit/phpunit --configuration lib/pkp/tests/phpunit.xml --testdox'
 
 # Where to look for tests
 TEST_SUITES='--testsuite '

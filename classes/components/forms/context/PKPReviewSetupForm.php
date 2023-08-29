@@ -83,6 +83,12 @@ class PKPReviewSetupForm extends FormComponent
                 'description' => __('manager.setup.reviewOptions.numWeeksPerReview'),
                 'value' => $context->getData('numWeeksPerReview'),
                 'size' => 'small',
+            ]))
+            ->addField(new FieldText('numReviewersPerSubmission', [
+                'label' => __('manager.setup.reviewOptions.numReviewersPerSubmission'),
+                'description' => __('manager.setup.reviewOptions.numReviewersPerSubmission.description'),
+                'value' => $context->getData('numReviewersPerSubmission'),
+                'size' => 'small',
             ]));
 
         if (Config::getVar('general', 'scheduled_tasks')) {

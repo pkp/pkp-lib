@@ -1244,6 +1244,12 @@ msgstr ""
 "Present a link to <button type=\"button\">how to ensure all files are "
 "anonymized</button> during upload"
 
+msgid "manager.setup.reviewOptions.numReviewersPerSubmission"
+msgstr "Recommended Reviewers Number"
+
+msgid "manager.setup.reviewOptions.numReviewersPerSubmission.description"
+msgstr "Sufficient number of reviewers needed per submission to make recommendation before making a decision"
+
 msgid "manager.setup.sponsors.note"
 msgstr "Sponsor Relationship and Policy Description"
 

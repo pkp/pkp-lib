@@ -243,6 +243,24 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
     }
 
     /**
+     * Get submissions which need reviewer(s) to be assigned
+     */
+    public function needsReviewers(SlimRequest $slimRequest, APIResponse $response, array $args)
+    {
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        if (!$context) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        $collector = $this->getSubmissionCollector($slimRequest->getQueryParams());
+        $submissions = $collector
+            ->filterByContextIds($context->getId())
+            ->filterByStageIds([WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])
+            ->
+    }
+
+    /**
      * Delete a submission
      */
     public function delete(Request $illuminateRequest): JsonResponse

@@ -101,6 +101,10 @@ class PKPHtmlSanitizer
      */
     protected function getAllNotAllowedHtmlTags(string $html): Collection
     {
+        if (empty($html)) {
+            return collect([]);
+        }
+        
         $dom = new DOMDocument();
 
         $errorState = libxml_use_internal_errors(true); // Don't generate warnings on malformed HTML

@@ -16,6 +16,7 @@
 
 namespace PKP\task;
 
+use PKP\jobs\invitations\RemoveExpiredInvitationsJob;
 use PKP\scheduledTask\ScheduledTask;
 
 class RemoveExpiredInvitations extends ScheduledTask
@@ -33,7 +34,7 @@ class RemoveExpiredInvitations extends ScheduledTask
      */
     protected function executeActions()
     {
-        dispatch(new RemoveExpiredInvitations());
+        dispatch(new RemoveExpiredInvitationsJob());
 
         return true;
     }

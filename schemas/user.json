@@ -232,6 +232,48 @@
 		"userName": {
 			"type": "string",
 			"apiSummary": true
+		},
+		"orcidAccessToken": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"orcidAccessScope": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"orcidRefreshToken": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"orcidAccessExpiresOn": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"orcidAccessDenied": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"orcidReviewPutCode": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		}
 	}
 }

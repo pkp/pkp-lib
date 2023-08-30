@@ -29,6 +29,7 @@ export default {
 	 *  configuration parameters, translatable strings and initial data.
 	 */
 	init: function (id, type, data) {
+		console.log('init registry');
 		if (pkp.controllers[type] === undefined) {
 			return;
 		}
@@ -39,11 +40,13 @@ export default {
 		}
 
 		var args = $.extend(true, {}, pkp.controllers[type], {
-			el: '#' + id,
 			data: $.extend(true, {}, baseData, data, {id: id}),
 		});
 
-		pkp.registry._instances[id] = new pkp.Vue(args);
+		console.log('createApp args:', pkp.controllers[type]);
+		pkp.registry._instances[id] = pkp.pkpCreateVueApp(args);
+
+		pkp.registry._instances[id].mount(`#${id}`);
 
 		pkp.eventBus.$emit('root:mounted', id, pkp.registry._instances[id]);
 
@@ -53,7 +56,7 @@ export default {
 		$parents.each(function (i) {
 			if ($.pkp.classes.Handler.hasHandler($($parents[i]))) {
 				$.pkp.classes.Handler.getHandler($($parents[i])).handlerChildren_.push(
-					pkp.registry._instances[id]
+					pkp.registry._instances[id],
 				);
 				return false; // only attach to the closest parent handler
 			}

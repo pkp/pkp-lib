@@ -19,19 +19,21 @@
 		:items="currentMailables"
 		:is-sidebar-visible="true"
 	>
-		<pkp-header #header>
-			<h1>{translate key="manager.publication.emails"}</h1>
-			<template #actions>
-				<search
-					search-label="{translate key="manager.mailables.search"}"
-					:search-phrase="searchPhrase"
-					@search-phrase-changed="(newSearch) => this.searchPhrase = newSearch"
-				></search>
-				<pkp-button @click="confirmResetAll" :is-warnable="true">
-					{translate key="manager.emails.resetAll"}
-				</pkp-button>
-			</template>
-		</pkp-header>
+		<template #header>
+			<pkp-header>
+				<h1>{translate key="manager.publication.emails"}</h1>
+				<template #actions>
+					<search
+						search-label="{translate key="manager.mailables.search"}"
+						:search-phrase="searchPhrase"
+						@search-phrase-changed="(newSearch) => this.searchPhrase = newSearch"
+					></search>
+					<pkp-button @click="confirmResetAll" :is-warnable="true">
+						{translate key="manager.emails.resetAll"}
+					</pkp-button>
+				</template>
+			</pkp-header>
+		</template>
 		<template #item-title="{ldelim}item{rdelim}">
 			{{ item.name }}
 		</template>
@@ -110,12 +112,14 @@
 			<list-panel
 				:items="currentMailable.emailTemplates"
 			>
-				<pkp-header #header>
-					<h3>{translate key="manager.mailables.templates"}</h3>
-					<template #actions>
-						<pkp-button @click="openTemplate()">{translate key="manager.emails.addEmail"}</pkp-button>
-					</template>
-				</pkp-header>
+				<template #header>
+					<pkp-header>
+						<h3>{translate key="manager.mailables.templates"}</h3>
+						<template #actions>
+							<pkp-button @click="openTemplate()">{translate key="manager.emails.addEmail"}</pkp-button>
+						</template>
+					</pkp-header>
+				</template>
 				<template #item-subtitle="{ldelim}item{rdelim}">
 					{{ localize(item.name) }}
 				</template>

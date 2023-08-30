@@ -40,10 +40,10 @@ class InvitationsMigration extends \PKP\migration\Migration
 
             $table->enum('status', 
                 [
-                    InvitationStatus::PENDING, 
-                    InvitationStatus::ACCEPTED, 
-                    InvitationStatus::DECLINED, 
-                    InvitationStatus::CANCELLED,
+                    'PENDING', 
+                    'ACCEPTED', 
+                    'DECLINED', 
+                    'CANCELLED',
                 ]
             );
             

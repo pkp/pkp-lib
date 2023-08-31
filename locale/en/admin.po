@@ -897,3 +897,6 @@ msgstr "Number of seconds to rest between jobs[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Run the worker deamon for test queue"
+
+msgid "admin.scheduledTask.removeExpiredInvitations"
+msgstr "Dispatch a job to automatically remove expired Invitations"

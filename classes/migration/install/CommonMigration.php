@@ -138,21 +138,6 @@ class CommonMigration extends \PKP\migration\Migration
             $table->unique(['session_id'], 'sessions_pkey');
         });
 
-        Schema::create('access_keys', function (Blueprint $table) {
-            $table->comment('Access keys are used to provide pseudo-login functionality for security-minimal tasks. Passkeys can be emailed directly to users, who can use them for a limited time in lieu of standard username and password.');
-            $table->bigInteger('access_key_id')->autoIncrement();
-            $table->string('context', 40);
-            $table->string('key_hash', 40);
-
-            $table->bigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
-            $table->index(['user_id'], 'access_keys_user_id');
-
-            $table->bigInteger('assoc_id')->nullable();
-            $table->datetime('expiry_date');
-            $table->index(['key_hash', 'user_id', 'context'], 'access_keys_hash');
-        });
-
         Schema::create('notifications', function (Blueprint $table) {
             $table->comment('User notifications created during certain operations.');
             $table->bigInteger('notification_id')->autoIncrement();
@@ -291,7 +276,6 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::drop('notification_subscription_settings');
         Schema::drop('notification_settings');
         Schema::drop('notifications');
-        Schema::drop('access_keys');
         Schema::drop('sessions');
         Schema::drop('user_settings');
         Schema::drop('users');

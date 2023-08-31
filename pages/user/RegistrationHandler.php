@@ -22,12 +22,13 @@ use APP\pages\user\UserHandler;
 use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\core\Core;
+use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
 use PKP\observers\events\UserRegisteredContext;
 use PKP\observers\events\UserRegisteredSite;
-use PKP\security\AccessKeyManager;
+use PKP\pages\invitation\PKPInvitationHandler;
 use PKP\security\Validation;
 use PKP\user\form\RegistrationForm;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -154,31 +155,30 @@ class RegistrationHandler extends UserHandler
     {
         $username = array_shift($args);
         $accessKeyCode = array_shift($args);
-        $user = Repo::user()->getByUsername($username, true);
-        if (!$user) {
+
+        if (isset($username) && isset($accessKeyCode)) { // Backward compatibility - use MD5 to create keyHash
+            $keyHash = md5($accessKeyCode);
+
+            $invitation = Repo::invitation()->getBOByKeyHash($keyHash);
+
+            if (isset($invitation)) {
+                $invitation->acceptHandle();
+            }
+        } else if (isset($username)) {
+            $user = Repo::user()->getByUsername($username, true);
+            if (!$user) {
+                $request->redirect(null, 'login');
+            }
+
+            if ($user->getDateValidated() != null) { // The user is activated
+                $templateMgr = TemplateManager::getManager($request);
+                $templateMgr->assign('message', 'user.login.activated');
+                return $templateMgr->display('frontend/pages/message.tpl');
+            }
+            
             $request->redirect(null, 'login');
         }
 
-        // Checks user and token
-        $accessKeyManager = new AccessKeyManager();
-        $accessKeyHash = $accessKeyManager->generateKeyHash($accessKeyCode);
-        $accessKey = $accessKeyManager->validateKey(
-            'RegisterContext',
-            $user->getId(),
-            $accessKeyHash
-        );
-
-        if ($accessKey != null && $user->getDateValidated() === null) {
-            // Activate user
-            $user->setDisabled(false);
-            $user->setDisabledReason('');
-            $user->setDateValidated(Core::getCurrentDate());
-            Repo::user()->edit($user);
-
-            $templateMgr = TemplateManager::getManager($request);
-            $templateMgr->assign('message', 'user.login.activated');
-            return $templateMgr->display('frontend/pages/message.tpl');
-        }
         $request->redirect(null, 'login');
     }
 

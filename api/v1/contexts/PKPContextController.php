@@ -11,127 +11,107 @@
  * @ingroup api_v1_context
  *
  * @brief Base class to handle API requests for contexts (journals/presses).
- * 
- * FIXME#7698: will be removed once merged pkp/pkp-lib#7698
  */
 
 namespace PKP\API\v1\contexts;
 
-use APP\core\Application;
-use APP\core\Services;
-use APP\plugins\IDoiRegistrationAgency;
-use APP\services\ContextService;
-use APP\template\TemplateManager;
-use PKP\context\Context;
-use PKP\core\APIResponse;
-use PKP\db\DAORegistry;
-use PKP\handler\APIHandler;
-use PKP\plugins\Hook;
+use Illuminate\Http\JsonResponse;
 use PKP\plugins\Plugin;
-use PKP\plugins\PluginRegistry;
-use PKP\plugins\ThemePlugin;
-use PKP\security\authorization\PolicySet;
-use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
-use PKP\security\authorization\UserRolesRequiredPolicy;
-use PKP\security\Role;
-use PKP\security\RoleDAO;
-use PKP\services\interfaces\EntityWriteInterface;
-use PKP\services\PKPSchemaService;
-use Slim\Http\Request as SlimRequest;
-use Slim\Http\Response as SlimResponse;
 
-class PKPContextHandler extends APIHandler
+use APP\plugins\IDoiRegistrationAgency;
+
+use PKP\context\Context;
+
+use APP\template\TemplateManager;
+
+use PKP\services\interfaces\EntityWriteInterface;
+
+use PKP\plugins\PluginRegistry;
+
+use PKP\db\DAORegistry;
+
+use PKP\services\PKPContextService;
+
+use APP\services\ContextService;
+
+use APP\core\Services;
+
+use APP\core\Application;
+
+use PKP\plugins\Hook;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use PKP\core\PKPBaseController;
+use PKP\services\PKPSchemaService;
+
+use Illuminate\Support\Facades\Route;
+
+use PKP\security\Role;
+
+
+class PKPContextController extends PKPBaseController
 {
     /** @var string One of the SCHEMA_... constants */
     public $schemaName = PKPSchemaService::SCHEMA_CONTEXT;
-
-    /**
-     * @copydoc APIHandler::__construct()
-     */
-    public function __construct()
+    
+    public function getHandlerPath(): string
     {
-        $this->_handlerPath = 'contexts';
-        $roles = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER];
-        $this->_endpoints = [
-            'GET' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'getMany'],
-                    'roles' => $roles,
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}',
-                    'handler' => [$this, 'get'],
-                    'roles' => $roles,
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}/theme',
-                    'handler' => [$this, 'getTheme'],
-                    'roles' => $roles,
-                ],
-            ],
-            'POST' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'add'],
-                    'roles' => [Role::ROLE_ID_SITE_ADMIN],
-                ],
-            ],
-            'PUT' => [
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}',
-                    'handler' => [$this, 'edit'],
-                    'roles' => $roles,
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}/theme',
-                    'handler' => [$this, 'editTheme'],
-                    'roles' => $roles,
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}/registrationAgency',
-                    'handler' => [$this, 'editDoiRegistrationAgencyPlugin'],
-                    'roles' => $roles,
-                ]
-            ],
-            'DELETE' => [
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}',
-                    'handler' => [$this, 'delete'],
-                    'roles' => [Role::ROLE_ID_SITE_ADMIN],
-                ],
-            ],
-        ];
-        parent::__construct();
+        return 'users';
     }
 
-    /**
-     * @copydoc PKPHandler::authorize
-     */
-    public function authorize($request, &$args, $roleAssignments)
+    public function getRouteGroupMiddleware(): array
     {
-        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+        $roles = implode('|', [
+            Role::ROLE_ID_SITE_ADMIN, 
+            Role::ROLE_ID_MANAGER, 
+            Role::ROLE_ID_SUB_EDITOR
+        ]);
 
-        $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
+        return [
+            "has.user",
+            "has.context",
+            "has.roles:{$roles}",
+        ];
+    }
 
-        foreach ($roleAssignments as $role => $operations) {
-            $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
-        }
-        $this->addPolicy($rolePolicy);
+    public function getGroupRoutes(): void
+    {       
+        Route::get('', $this->getMany(...))
+            ->name('context.getMany');
 
-        return parent::authorize($request, $args, $roleAssignments);
+        Route::get('{contextId}', $this->get(...))
+            ->name('context.getContext')
+            ->whereNumber('contextId');
+        
+        Route::get('{contextId}/theme', $this->getTheme(...))
+            ->name('context.getContext')
+            ->whereNumber('contextId');
+        
+        Route::post('', $this->add(...))
+            ->name('context.add');
+        
+        Route::put('{contextId}', $this->edit(...))
+            ->name('context.edit')
+            ->whereNumber('contextId');
+        
+        Route::put('{contextId}/theme', $this->editTheme(...))
+            ->name('context.editTheme')
+            ->whereNumber('contextId');
+        
+        Route::put('{contextId}/registrationAgency', $this->editDoiRegistrationAgencyPlugin(...))
+            ->name('context.edit.doiRegistration')
+            ->whereNumber('contextId');
+        
+        Route::delete('{contextId}', $this->delete(...))
+            ->name('context.delete')
+            ->whereNumber('contextId');
     }
 
     /**
      * Get a collection of contexts
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function getMany($slimRequest, $response, $args)
+    public function getMany(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
 
@@ -140,7 +120,7 @@ class PKPContextHandler extends APIHandler
             'offset' => 0,
         ];
 
-        $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
+        $requestParams = array_merge($defaultParams, $illuminateRequest->query());
 
         $allowedParams = [];
 
@@ -165,7 +145,7 @@ class PKPContextHandler extends APIHandler
             }
         }
 
-        Hook::call('API::contexts::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::contexts::params', [&$allowedParams, $illuminateRequest]);
 
         // Anyone not a site admin should not be able to access contexts that are
         // not enabled
@@ -173,52 +153,53 @@ class PKPContextHandler extends APIHandler
             $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
             $canAccessDisabledContexts = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN], $userRoles));
             if (!$canAccessDisabledContexts) {
-                return $response->withStatus(403)->withJsonError('api.contexts.403.requestedDisabledContexts');
+                return response()->json([
+                    'error' => __('api.contexts.403.requestedDisabledContexts'),
+                ], Response::HTTP_FORBIDDEN);
             }
         }
 
+        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
         $items = [];
-        $contextsIterator = Services::get('context')->getMany($allowedParams);
+        $contextsIterator = $contextService->getMany($allowedParams);
         $propertyArgs = [
             'request' => $request,
-            'slimRequest' => $slimRequest,
+            'apiRequest' => $illuminateRequest,
         ];
         foreach ($contextsIterator as $context) {
-            $items[] = Services::get('context')->getSummaryProperties($context, $propertyArgs);
+            $items[] = $contextService->getSummaryProperties($context, $propertyArgs);
         }
 
         $data = [
-            'itemsMax' => Services::get('context')->getMax($allowedParams),
+            'itemsMax' => $contextService->getMax($allowedParams),
             'items' => $items,
         ];
 
-        return $response->withJson($data, 200);
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**
      * Get a single context
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function get($slimRequest, $response, $args)
+    public function get(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $user = $request->getUser();
 
-        $contextService = Services::get('context');
-        $context = $contextService->get((int) $args['contextId']);
+        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
+        $context = $contextService->get((int) $illuminateRequest->route('contextId'));
 
         if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
+            return response()->json([
+                'error' => __('api.contexts.404.contextNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         // Don't allow to get one context from a different context's endpoint
         if ($request->getContext() && $request->getContext()->getId() !== $context->getId()) {
-            return $response->withStatus(403)->withJsonError('api.contexts.403.contextsDidNotMatch');
+            return response()->json([
+                'error' => __('api.contexts.403.contextsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         // A disabled journal can only be access by site admins and users with a
@@ -228,43 +209,43 @@ class PKPContextHandler extends APIHandler
             if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
                 $roleDao = DAORegistry::getDao('RoleDAO'); /** @var RoleDAO $roleDao */
                 if (!$roleDao->userHasRole($context->getId(), $user->getId(), Role::ROLE_ID_MANAGER)) {
-                    return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowed');
+                    return response()->json([
+                        'error' => __('api.contexts.403.notAllowed'),
+                    ], Response::HTTP_FORBIDDEN);
                 }
             }
         }
 
         $data = $contextService->getFullProperties($context, [
             'request' => $request,
-            'slimRequest' => $slimRequest
+            'apiRequest' => $illuminateRequest
         ]);
 
-        return $response->withJson($data, 200);
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**
      * Get the theme and any theme options for a context
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function getTheme($slimRequest, $response, $args)
+    public function getTheme(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $user = $request->getUser();
 
-        $contextService = Services::get('context');
-        $context = $contextService->get((int) $args['contextId']);
+        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
+        $context = $contextService->get((int) $illuminateRequest->route('contextId'));
 
         if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
+            return response()->json([
+                'error' => __('api.contexts.404.contextNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         // Don't allow to get one context from a different context's endpoint
         if ($request->getContext() && $request->getContext()->getId() !== $context->getId()) {
-            return $response->withStatus(403)->withJsonError('api.contexts.403.contextsDidNotMatch');
+            return response()->json([
+                'error' => __('api.contexts.403.contextsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         // A disabled journal can only be access by site admins and users with a
@@ -274,7 +255,9 @@ class PKPContextHandler extends APIHandler
             if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
                 $roleDao = DAORegistry::getDao('RoleDAO'); /** @var RoleDAO $roleDao */
                 if (!$roleDao->userHasRole($context->getId(), $user->getId(), Role::ROLE_ID_MANAGER)) {
-                    return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowed');
+                    return response()->json([
+                        'error' => __('api.contexts.403.notAllowed'),
+                    ], Response::HTTP_FORBIDDEN);
                 }
             }
         }
@@ -289,7 +272,9 @@ class PKPContextHandler extends APIHandler
         }
 
         if (!$activeTheme) {
-            return $response->withStatus(404)->withJsonError('api.themes.404.themeUnavailable');
+            return response()->json([
+                'error' => __('api.themes.404.themeUnavailable'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $data = array_merge(
@@ -299,29 +284,25 @@ class PKPContextHandler extends APIHandler
 
         ksort($data);
 
-        return $response->withJson($data, 200);
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**
      * Add a context
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function add($slimRequest, $response, $args)
+    public function add(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
 
         // This endpoint is only available at the site-wide level
         if ($request->getContext()) {
-            return $response->withStatus(404)->withJsonError('api.submissions.404.siteWideEndpoint');
+            return response()->json([
+                'error' => __('api.submissions.404.siteWideEndpoint'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $site = $request->getSite();
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CONTEXT, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CONTEXT, $illuminateRequest->input());
 
         $primaryLocale = $site->getPrimaryLocale();
         $allowedLocales = $site->getSupportedLocales();
@@ -336,11 +317,11 @@ class PKPContextHandler extends APIHandler
             }
         }
 
-        $contextService = Services::get('context'); /** @var ContextService $contextService */
+        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
         $errors = $contextService->validate(EntityWriteInterface::VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         $context = Application::getContextDAO()->newDataObject();
@@ -348,52 +329,54 @@ class PKPContextHandler extends APIHandler
         $context = $contextService->add($context, $request);
         $contextProps = $contextService->getFullProperties($context, [
             'request' => $request,
-            'slimRequest' => $slimRequest
+            'apiRequest' => $illuminateRequest
         ]);
 
-        return $response->withJson($contextProps, 200);
+        return response()->json($contextProps, Response::HTTP_OK);
     }
 
     /**
      * Edit a context
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function edit($slimRequest, $response, $args)
+    public function edit(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $requestContext = $request->getContext();
 
-        $contextId = (int) $args['contextId'];
+        $contextId = (int) $illuminateRequest->route('contextId');
 
         // Don't allow to get one context from a different context's endpoint
         if ($request->getContext() && $request->getContext()->getId() !== $contextId) {
-            return $response->withStatus(403)->withJsonError('api.contexts.403.contextsDidNotMatch');
+            return response()->json([
+                'error' => __('api.contexts.403.contextsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         // Don't allow to edit the context from the site-wide API, because the
         // context's plugins will not be enabled
         if (!$request->getContext()) {
-            return $response->withStatus(403)->withJsonError('api.contexts.403.requiresContext');
+            return response()->json([
+                'error' => __('api.contexts.403.requiresContext'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        $contextService = Services::get('context');
+        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
         $context = $contextService->get($contextId);
 
         if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
+            return response()->json([
+                'error' => __('api.contexts.404.contextNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (!$requestContext && !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
-            return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowedEdit');
+            return response()->json([
+                'error' => __('api.contexts.403.notAllowedEdit'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CONTEXT, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CONTEXT, $illuminateRequest->input());
         $params['id'] = $contextId;
 
         $site = $request->getSite();
@@ -403,60 +386,62 @@ class PKPContextHandler extends APIHandler
         $errors = $contextService->validate(EntityWriteInterface::VALIDATE_ACTION_EDIT, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
         $context = $contextService->edit($context, $params, $request);
 
         $contextProps = $contextService->getFullProperties($context, [
             'request' => $request,
-            'slimRequest' => $slimRequest
+            'apiRequest' => $illuminateRequest
         ]);
 
-        return $response->withJson($contextProps, 200);
+        return response()->json($contextProps, Response::HTTP_OK);
     }
 
     /**
      * Edit a context's theme and theme options
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function editTheme($slimRequest, $response, $args)
+    public function editTheme(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $requestContext = $request->getContext();
 
-        $contextId = (int) $args['contextId'];
+        $contextId = (int) $illuminateRequest->route('contextId');
 
         // Don't allow to get one context from a different context's endpoint
         if ($request->getContext() && $request->getContext()->getId() !== $contextId) {
-            return $response->withStatus(403)->withJsonError('api.contexts.403.contextsDidNotMatch');
+            return response()->json([
+                'error' => __('api.contexts.403.contextsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         // Don't allow to edit the context from the site-wide API, because the
         // context's plugins will not be enabled
         if (!$requestContext) {
-            return $response->withStatus(403)->withJsonError('api.contexts.403.requiresContext');
+            return response()->json([
+                'error' => __('api.contexts.403.requiresContext'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        $contextService = Services::get('context');
+        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
         $context = $contextService->get($contextId);
 
         if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
+            return response()->json([
+                'error' => __('api.contexts.404.contextNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         $allowedRoles = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER];
 
         if (!array_intersect($allowedRoles, $userRoles)) {
-            return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowedEdit');
+            return response()->json([
+                'error' => __('api.contexts.403.notAllowedEdit'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        $params = $slimRequest->getParsedBody();
+        $params = $illuminateRequest->input();
 
         // Validate the themePluginPath and allow themes to perform their own validation
         $themePluginPath = empty($params['themePluginPath']) ? null : $params['themePluginPath'];
@@ -468,7 +453,7 @@ class PKPContextHandler extends APIHandler
                 $context->getPrimaryLocale()
             );
             if (!empty($errors)) {
-                return $response->withJson($errors, 400);
+                return response()->json($errors, Response::HTTP_BAD_REQUEST);
             }
             $newContext = $contextService->edit($context, ['themePluginPath' => $themePluginPath], $request);
         }
@@ -492,7 +477,7 @@ class PKPContextHandler extends APIHandler
 
         $errors = $selectedTheme->validateOptions($params, $themePluginPath, $context->getId(), $request);
         if (!empty($errors)) {
-            return $response->withJson($errors, 400);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         // Only accept params that are defined in the theme options
@@ -516,45 +501,51 @@ class PKPContextHandler extends APIHandler
 
         ksort($data);
 
-        return $response->withJson($data, 200);
+        return response()->json($data, Response::HTTP_OK);
     }
 
-    /** @param APIResponse $response */
-    public function editDoiRegistrationAgencyPlugin(SlimRequest $slimRequest, SlimResponse $response, array $args): SlimResponse
+    
+    public function editDoiRegistrationAgencyPlugin(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $requestContext = $request->getContext();
 
-        $contextId = (int) $args['contextId'];
+        $contextId = (int) $illuminateRequest->route('contextId');
 
         // Don't allow to get one context from a different context's endpoint
         if ($request->getContext() && $request->getContext()->getId() !== $contextId) {
-            return $response->withStatus(403)->withJsonError('api.contexts.403.contextsDidNotMatch');
+            return response()->json([
+                'error' => __('api.contexts.403.contextsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         // Don't allow to edit the context from the site-wide API, because the
         // context's plugins will not be enabled
         if (!$requestContext) {
-            return $response->withStatus(403)->withJsonError('api.contexts.403.requiresContext');
+            return response()->json([
+                'error' => __('api.contexts.403.requiresContext'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        /** @var ContextService $contextService */
-        $contextService = Services::get('context');
+        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
         $context = $contextService->get($contextId);
 
         if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
+            return response()->json([
+                'error' => __('api.contexts.404.contextNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (!array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles)) {
-            return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowedEdit');
+            return response()->json([
+                'error' => __('api.contexts.403.notAllowedEdit'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        /** @var PKPSchemaService $schemaService */
-        $schemaService = Services::get('schema');
+        $schemaService = Services::get('schema'); /** @var PKPSchemaService $schemaService */
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CONTEXT, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CONTEXT, $illuminateRequest->input());
         $contextFullProps = array_flip($schemaService->getFullProps(PKPSchemaService::SCHEMA_CONTEXT));
         $contextParams = array_intersect_key(
             $params,
@@ -572,7 +563,7 @@ class PKPContextHandler extends APIHandler
             );
 
             if (!empty($errors)) {
-                return $response->withJson($errors, 400);
+                return response()->json($errors, Response::HTTP_BAD_REQUEST);
             }
             $contextService->edit(
                 $context,
@@ -583,7 +574,7 @@ class PKPContextHandler extends APIHandler
 
         // Return if no registration agency enabled;
         if ($contextParams[Context::SETTING_CONFIGURED_REGISTRATION_AGENCY] === null) {
-            return $response->withJson($contextParams, 200);
+            return response()->json($contextParams, Response::HTTP_OK);
         }
 
         // Get the appropriate agency plugin
@@ -600,7 +591,9 @@ class PKPContextHandler extends APIHandler
 
         // Check if it's a registration agency plugin
         if (!$selectedPlugin instanceof IDoiRegistrationAgency) {
-            return $response->withStatus(400)->withJsonError('api.dois.400.invalidPluginType');
+            return response()->json([
+                'error' => __('api.dois.400.invalidPluginType'),
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         // If it's a new/different registration agency plugin, update the enabled DOI types based on
@@ -625,7 +618,7 @@ class PKPContextHandler extends APIHandler
         }
 
         $settingsObject = $selectedPlugin->getSettingsObject();
-        $params = $this->convertStringsToSchema($settingsObject::class, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema($settingsObject::class, $illuminateRequest->input());
         $pluginParams = array_intersect_key(
             $params,
             (array) $settingsObject->getSchema()->properties,
@@ -634,7 +627,7 @@ class PKPContextHandler extends APIHandler
         // Validate plugin settings
         $errors = $settingsObject->validate($pluginParams);
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         $this->updateRegistrationAgencyPluginSettings(
@@ -644,63 +637,61 @@ class PKPContextHandler extends APIHandler
             $pluginParams,
         );
 
-        return $response->withJson(
-            array_merge($contextParams, $pluginParams),
-            200,
-        );
+        return response()->json(array_merge($contextParams, $pluginParams), Response::HTTP_OK);
     }
 
     /**
      * Delete a context
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function delete($slimRequest, $response, $args)
+    public function delete(Request $illuminateRequest): JsonResponse
     {
         // This endpoint is only available at the site-wide level
         if ($this->getRequest()->getContext()) {
-            return $response->withStatus(404)->withJsonError('api.submissions.404.siteWideEndpoint');
+            return response()->json([
+                'error' => __('api.submissions.404.siteWideEndpoint'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
-            $response->withStatus(403)->withJsonError('api.contexts.403.notAllowedDelete');
+            return response()->json([
+                'error' => __('api.contexts.403.notAllowedDelete'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        $contextId = (int) $args['contextId'];
+        $contextId = (int) $illuminateRequest->route('contextId');
 
-        $contextService = Services::get('context');
+        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
         $context = $contextService->get($contextId);
 
         if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
+            return response()->json([
+                'error' => __('api.contexts.404.contextNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $contextProps = $contextService->getSummaryProperties($context, [
             'request' => $this->getRequest(),
-            'slimRequest' => $slimRequest
+            'apiRequest' => $illuminateRequest
         ]);
 
         $contextService->delete($context);
 
-        return $response->withJson($contextProps, 200);
+        return response()->json($contextProps, Response::HTTP_OK);
     }
 
     /**
      * Updates a settings plugin according to a given schema. Used in lieu of a generic plugin settings management workflow.
      *
-     * @param Plugin $plugin Currently configured registration agency plugin. Should also implement IDoiRegistrationAgency
-     * @param string $schemaName Name of RegistrationAgencySettings child class used as schema name
-     * @param array $props Plugin properties to update
+     * @param Plugin $plugin        Currently configured registration agency plugin. Should also implement IDoiRegistrationAgency
+     * @param string $schemaName    Name of RegistrationAgencySettings child class used as schema name
+     * @param array $props          Plugin properties to update
+     * 
+     * @return void
      */
     protected function updateRegistrationAgencyPluginSettings(int $contextId, Plugin $plugin, string $schemaName, array $props): void
     {
-        /** @var PKPSchemaService $schemaService */
-        $schemaService = Services::get('schema');
+        $schemaService = Services::get('schema'); /** @var PKPSchemaService $schemaService */
         $sanitizedProps = $schemaService->sanitize($schemaName, $props);
 
         foreach ($sanitizedProps as $fieldName => $value) {

@@ -192,7 +192,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      */
     public function getProperties($context, $props, $args = null)
     {
-        $slimRequest = $args['slimRequest'];
+        $slimRequest = $args['slimRequest'] ?? ''; // FIXME#7698: need MODIFICATION as per need to facilitate pkp/pkp-lib#7698
+        $apiRequest = $args['apiRequest'] ?? ''; // FIXME#7698: need MODIFICATION as per need to facilitate pkp/pkp-lib#7698
         $request = $args['request'];
         $dispatcher = $request->getDispatcher();
 
@@ -209,8 +210,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
                     break;
                 case '_href':
                     $values[$prop] = null;
-                    if (!empty($slimRequest)) {
-                        $route = $slimRequest->getAttribute('route');
+                    if (!empty($slimRequest) || !empty($apiRequest)) { // FIXME#7698: need MODIFICATION as per need to facilitate pkp/pkp-lib#7698
+                        // $route = $slimRequest->getAttribute('route'); // FIXME#7698: need MODIFICATION as per need to facilitate pkp/pkp-lib#7698
                         $values[$prop] = $dispatcher->url(
                             $args['request'],
                             PKPApplication::ROUTE_API,

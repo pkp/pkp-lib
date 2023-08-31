@@ -61,7 +61,8 @@ class UserController extends PKPBaseController
             ->name('user.getReport');
 
         Route::get('{userId}', $this->get(...))
-            ->name('user.getUser');
+            ->name('user.getUser')
+            ->whereNumber('userId');
 
         Route::get('', $this->getMany(...))
             ->name('user.getManyUsers');

@@ -11,6 +11,7 @@ use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
 use Illuminate\Contracts\Routing\UrlGenerator as UrlGeneratorContract;
+use Illuminate\Support\Facades\Response;
 use PKP\core\PKPContainer;
 use PKP\middleware\HasUser;
 use PKP\middleware\HasRoles;
@@ -61,6 +62,40 @@ class PKPRoutingProvider extends RoutingServiceProvider
         $this->registerRouteMiddleware();
         $this->registerRoutePatterns();
         $this->registerResponseBindings();
+    }
+
+    /**
+     * Boot the service provider.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Response::macro('withCSV', function (array $rows, array $columns, int $maxRows) { 
+            return response()->stream(
+                function () use ($rows, $columns) {
+                    $fp = fopen('php://output', 'wt');
+                    
+                    // Adds BOM (byte order mark) to enforce the UTF-8 format
+                    fwrite($fp, "\xEF\xBB\xBF");
+                    
+                    fputcsv($fp, ['']);
+                    fputcsv($fp, $columns);
+
+                    foreach ($rows as $row) {
+                        fputcsv($fp, $row);
+                    }
+
+                    fclose($fp);
+                },
+                \Illuminate\Http\Response::HTTP_OK,
+                [
+                    'content-type' => 'text/csv',
+                    'X-Total-Count' => $maxRows,
+                    'content-disposition' => 'attachment; filename="user-report-' . date('Y-m-d') . '.csv"',
+                ]
+            );
+        });
     }
 
     public function registerRouter(): void

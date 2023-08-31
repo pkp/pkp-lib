@@ -86,7 +86,7 @@ class APIRouter extends PKPRouter
     public function route($request)
     {
         // Ensure slim library is available
-        require_once('lib/pkp/lib/vendor/autoload.php');
+        require_once('lib/pkp/lib/vendor/autoload.php'); // FIXME#7698: will be removed once merged pkp/pkp-lib#7698
 
         $sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
 
@@ -108,8 +108,7 @@ class APIRouter extends PKPRouter
         $handler = require('./' . $sourceFile);
         $this->setHandler($handler);
         
-        // FIXME pkp/pkp-lib#7698
-        // With removal of Slim, no app instance to run
+        // FIXME#7698: With removal of Slim, no app instance to run
         $handlerApp = $handler->getApp();
         if ($handlerApp !== null) {
             $handler->getApp()->run();
@@ -122,6 +121,8 @@ class APIRouter extends PKPRouter
      * @param PKPRequest $request
      *
      * @return string
+     * 
+     * FIXME#7698: probably will be removed/modified once merged pkp/pkp-lib#7698
      */
     public function getRequestedOp($request)
     {
@@ -143,6 +144,8 @@ class APIRouter extends PKPRouter
 
     /**
      * @copydoc PKPRouter::handleAuthorizationFailure()
+     * 
+     * FIXME#7698: probably will be removed/modified once merged pkp/pkp-lib#7698
      */
     public function handleAuthorizationFailure(
         $request,

@@ -14,6 +14,7 @@
  * @brief Slim middleware which decodes and validates JSON Web Tokens
  */
 
+// FIXME#7698: will be removed once merged pkp/pkp-lib#7698
 namespace PKP\security\authorization\internal;
 
 use Exception;

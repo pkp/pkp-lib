@@ -14,6 +14,7 @@
  * @brief Slim middleware which enforces authorization policies
  */
 
+// FIXME#7698: will be removed/modified to facilitate the merge of pkp/pkp-lib#7698
 namespace PKP\security\authorization\internal;
 
 use PKP\core\APIResponse;

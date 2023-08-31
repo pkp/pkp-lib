@@ -13,6 +13,7 @@
  * @brief Extends the Response class in the Slim microframework.
  */
 
+// FIXME#7698: will be removed once merged pkp/pkp-lib#7698
 namespace PKP\core;
 
 use Slim\Http\Response;

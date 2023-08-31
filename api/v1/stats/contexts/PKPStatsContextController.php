@@ -1,90 +1,79 @@
 <?php
 
 /**
- * @file api/v1/stats/contexts/PKPStatsContextHandler.php
+ * @file api/v1/stats/contexts/PKPStatsContextController.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPStatsContextHandler
+ * @class PKPStatsContextController
  *
  * @ingroup api_v1_stats
  *
  * @brief Handle API requests for context statistics.
  *
- * FIXME#7698: will be removed once merged pkp/pkp-lib#7698
  */
 
 namespace PKP\API\v1\stats\contexts;
 
-use APP\core\Services;
-use PKP\core\APIResponse;
-use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
-use PKP\security\authorization\PolicySet;
-use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
-use PKP\security\authorization\UserRolesRequiredPolicy;
-use PKP\security\Role;
+use PKP\services\PKPStatsContextService;
 use PKP\statistics\PKPStatisticsHelper;
-use Slim\Http\Request as SlimHttpRequest;
+use APP\core\Services;
+use APP\services\ContextService;
+use PKP\security\Role;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use PKP\core\PKPBaseController;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
-class PKPStatsContextHandler extends APIHandler
+class PKPStatsContextController extends PKPBaseController
 {
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function getHandlerPath(): string
     {
-        $this->_handlerPath = 'stats/contexts';
-        $roles = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER];
-        $this->_endpoints = [
-            'GET' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'getMany'],
-                    'roles' => [Role::ROLE_ID_SITE_ADMIN]
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/timeline',
-                    'handler' => [$this, 'getManyTimeline'],
-                    'roles' => [Role::ROLE_ID_SITE_ADMIN]
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}',
-                    'handler' => [$this, 'get'],
-                    'roles' => $roles
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}/timeline',
-                    'handler' => [$this, 'getTimeline'],
-                    'roles' => $roles
-                ],
-            ],
-        ];
-        parent::__construct();
+        return 'stats/contexts';
     }
 
-    /**
-     * @copydoc PKPHandler::authorize()
-     */
-    public function authorize($request, &$args, $roleAssignments)
+    public function getRouteGroupMiddleware(): array
     {
-        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
-        $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
-        foreach ($roleAssignments as $role => $operations) {
-            $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
-        }
-        $this->addPolicy($rolePolicy);
-        return parent::authorize($request, $args, $roleAssignments);
+        $roles = implode('|', [
+            Role::ROLE_ID_SITE_ADMIN, 
+            Role::ROLE_ID_MANAGER, 
+        ]);
+
+        return [
+            "has.user",
+            "has.context",
+            "has.roles:{$roles}",
+        ];
+    }
+
+    public function getGroupRoutes(): void
+    {       
+        Route::get('timeline', $this->getManyTimeline(...))
+            ->name('stats.context.multipleContextTimeline');
+        
+        Route::get('{contextId}/timeline', $this->getTimeline(...))
+            ->name('stats.context.contextTimeline')
+            ->whereNumber('contextId');
+
+        Route::get('{contextId}', $this->get(...))
+            ->name('stats.context.contextStat')
+            ->whereNumber('contextId');
+        
+        Route::get('', $this->getMany(...))
+            ->name('stats.context.multipleContextStat');
     }
 
     /**
      * Get total views of the homepages for a set of contexts
      */
-    public function getMany(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function getMany(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
-        $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
+        $responseCSV = str_contains($illuminateRequest->headers->get('Accept'), 'text/csv') ? true : false;
 
         $defaultParams = [
             'count' => 30,
@@ -92,7 +81,7 @@ class PKPStatsContextHandler extends APIHandler
             'orderDirection' => PKPStatisticsHelper::STATISTICS_ORDER_DESC,
         ];
 
-        $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
+        $requestParams = array_merge($defaultParams, $illuminateRequest->query());
 
         $allowedParams = $this->_processAllowedParams($requestParams, [
             'dateStart',
@@ -104,15 +93,19 @@ class PKPStatsContextHandler extends APIHandler
             'contextIds',
         ]);
 
-        Hook::call('API::stats::contexts::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::contexts::params', [&$allowedParams, $illuminateRequest]);
 
         $result = $this->_validateStatDates($allowedParams);
         if ($result !== true) {
-            return $response->withStatus(400)->withJsonError($result);
+            return response()->json([
+                'error' => $result,
+            ],Response::HTTP_BAD_REQUEST);
         }
 
         if (!in_array($allowedParams['orderDirection'], [PKPStatisticsHelper::STATISTICS_ORDER_ASC, PKPStatisticsHelper::STATISTICS_ORDER_DESC])) {
-            return $response->withStatus(400)->withJsonError('api.stats.400.invalidOrderDirection');
+            return response()->json([
+                'error' => __('api.stats.400.invalidOrderDirection'),
+            ],Response::HTTP_BAD_REQUEST);
         }
 
         // Identify contexts which should be included in the results when a searchPhrase is passed
@@ -123,17 +116,17 @@ class PKPStatsContextHandler extends APIHandler
             if (empty($allowedParams['contextIds'])) {
                 if ($responseCSV) {
                     $csvColumnNames = $this->_getContextReportColumnNames();
-                    return $response->withCSV([], $csvColumnNames, 0);
+                    return response()->withCSV([], $csvColumnNames, 0);
                 }
-                return $response->withJson([
+                return response()->json([
                     'items' => [],
                     'itemsMax' => 0,
-                ], 200);
+                ], Response::HTTP_OK);
             }
         }
 
         // Get a list of contexts with their total views matching the params
-        $statsService = Services::get('contextStats');
+        $statsService = Services::get('contextStats'); /** @var PKPStatsContextService $statsService */
         $totalMetrics = $statsService->getTotals($allowedParams);
 
         // Get the stats for each context
@@ -145,33 +138,33 @@ class PKPStatsContextHandler extends APIHandler
             if ($responseCSV) {
                 $items[] = $this->getItemForCSV($contextId, $contextViews);
             } else {
-                $items[] = $this->getItemForJSON($slimRequest, $contextId, $contextViews);
+                $items[] = $this->getItemForJSON($illuminateRequest, $contextId, $contextViews);
             }
         }
 
         $itemsMax = $statsService->getCount($allowedParams);
         if ($responseCSV) {
             $csvColumnNames = $this->_getContextReportColumnNames();
-            return $response->withCSV($items, $csvColumnNames, $itemsMax);
+            return response()->withCSV($items, $csvColumnNames, $itemsMax);
         }
-        return $response->withJson([
+        return response()->json([
             'items' => $items,
             'itemsMax' => $itemsMax,
-        ], 200);
+        ], Response::HTTP_OK);
     }
 
     /**
      * Get a monthly or daily timeline of total views for a set of contexts
      */
-    public function getManyTimeline(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function getManyTimeline(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
-        $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
+        $responseCSV = str_contains($illuminateRequest->headers->get('Accept'), 'text/csv') ? true : false;
 
         $defaultParams = [
             'timelineInterval' => PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH,
         ];
 
-        $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
+        $requestParams = array_merge($defaultParams, $illuminateRequest->query());
 
         $allowedParams = $this->_processAllowedParams($requestParams, [
             'dateStart',
@@ -181,16 +174,22 @@ class PKPStatsContextHandler extends APIHandler
             'contextIds',
         ]);
 
-        Hook::call('API::stats::contexts::timeline::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::contexts::timeline::params', [&$allowedParams, $illuminateRequest]);
 
         if (!$this->isValidTimelineInterval($allowedParams['timelineInterval'])) {
-            return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimelineInterval');
+            return response()->json([
+                'error' => __('api.stats.400.wrongTimelineInterval'),
+            ],Response::HTTP_BAD_REQUEST);
         }
 
         $result = $this->_validateStatDates($allowedParams);
         if ($result !== true) {
-            return $response->withStatus(400)->withJsonError($result);
+            return response()->json([
+                'error' => $result,
+            ],Response::HTTP_BAD_REQUEST);
         }
+
+        $statsService = Services::get('contextStats'); /** @var PKPStatsContextService $statsService */
 
         // Identify contexts which should be included in the results when a searchPhrase is passed
         if (!empty($allowedParams['searchPhrase'])) {
@@ -200,51 +199,59 @@ class PKPStatsContextHandler extends APIHandler
             if (empty($allowedParams['contextIds'])) {
                 $dateStart = empty($allowedParams['dateStart']) ? PKPStatisticsHelper::STATISTICS_EARLIEST_DATE : $allowedParams['dateStart'];
                 $dateEnd = empty($allowedParams['dateEnd']) ? date('Ymd', strtotime('yesterday')) : $allowedParams['dateEnd'];
-                $emptyTimeline = Services::get('contextStats')->getEmptyTimelineIntervals($dateStart, $dateEnd, $allowedParams['timelineInterval']);
+                $emptyTimeline = $statsService->getEmptyTimelineIntervals($dateStart, $dateEnd, $allowedParams['timelineInterval']);
                 if ($responseCSV) {
-                    $csvColumnNames = Services::get('contextStats')->getTimelineReportColumnNames();
-                    return $response->withCSV($emptyTimeline, $csvColumnNames, 0);
+                    $csvColumnNames = $statsService->getTimelineReportColumnNames();
+                    return response()->withCSV($emptyTimeline, $csvColumnNames, 0);
                 }
-                return $response->withJson($emptyTimeline, 200);
+                return response()->json($emptyTimeline, Response::HTTP_OK);
             }
         }
 
-        $data = Services::get('contextStats')->getTimeline($allowedParams['timelineInterval'], $allowedParams);
+        $data = $statsService->getTimeline($allowedParams['timelineInterval'], $allowedParams);
         if ($responseCSV) {
-            $csvColumnNames = Services::get('contextStats')->getTimelineReportColumnNames();
-            return $response->withCSV($data, $csvColumnNames, count($data));
+            $csvColumnNames = $statsService->getTimelineReportColumnNames();
+            return response()->withCSV($data, $csvColumnNames, count($data));
         }
-        return $response->withJson($data, 200);
+        
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**
      * Get a single context's usage statistics
      */
-    public function get(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function get(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
-        $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
+        $responseCSV = str_contains($illuminateRequest->headers->get('Accept'), 'text/csv') ? true : false;
 
         $request = $this->getRequest();
+        $contextService = Services::get('context'); /** @var ContextService $contextService */
 
-        $context = Services::get('context')->get((int) $args['contextId']);
+        $context = $contextService->get((int) $illuminateRequest->route('contextId', null));
         if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
         }
         // Don't allow to get one context from a different context's endpoint
         if ($request->getContext() && $request->getContext()->getId() !== $context->getId()) {
-            return $response->withStatus(403)->withJsonError('api.contexts.403.contextsDidNotMatch');
+            return response()->json([
+                'error' => __('api.contexts.403.contextsDidNotMatch')
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        $allowedParams = $this->_processAllowedParams($slimRequest->getQueryParams(), [
+        $allowedParams = $this->_processAllowedParams($illuminateRequest->query(), [
             'dateStart',
             'dateEnd',
         ]);
 
-        Hook::call('API::stats::context::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::context::params', [&$allowedParams, $illuminateRequest]);
 
         $result = $this->_validateStatDates($allowedParams);
         if ($result !== true) {
-            return $response->withStatus(400)->withJsonError($result);
+            return response()->json([
+                'error' => $result
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $dateStart = array_key_exists('dateStart', $allowedParams) ? $allowedParams['dateStart'] : null;
@@ -256,43 +263,48 @@ class PKPStatsContextHandler extends APIHandler
         // Get basic context details for display
         $propertyArgs = [
             'request' => $request,
-            'slimRequest' => $slimRequest,
+            'apiRequest' => $illuminateRequest,
         ];
-        $contextProps = Services::get('context')->getSummaryProperties($context, $propertyArgs);
+        $contextProps = $contextService->getSummaryProperties($context, $propertyArgs);
         if ($responseCSV) {
             $csvColumnNames = $this->_getContextReportColumnNames();
             $items = [$this->getItemForCSV($context->getId(), $contextViews)];
-            return $response->withCSV($items, $csvColumnNames, 1);
+            return response()->withCSV($items, $csvColumnNames, 1);
         }
-        return $response->withJson([
+        return response()->json([
             'total' => $contextViews,
             'context' => $contextProps
-        ], 200);
+        ], Response::HTTP_OK);
     }
 
     /**
      * Get a monthly or daily timeline of total views for a context
      */
-    public function getTimeline(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function getTimeline(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
-        $responseCSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_CSV) ? true : false;
+        $responseCSV = str_contains($illuminateRequest->headers->get('Accept'), 'text/csv') ? true : false;
 
         $request = $this->getRequest();
+        $contextService = Services::get('context'); /** @var ContextService $contextService */
 
-        $context = Services::get('context')->get((int) $args['contextId']);
+        $context = $contextService->get((int) $illuminateRequest->route('contextId'));
         if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
         // Don't allow to get one context from a different context's endpoint
         if ($request->getContext() && $request->getContext()->getId() !== $context->getId()) {
-            return $response->withStatus(403)->withJsonError('api.contexts.403.contextsDidNotMatch');
+            return response()->json([
+                'error' => __('api.contexts.403.contextsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         $defaultParams = [
             'timelineInterval' => PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH,
         ];
 
-        $requestParams = array_merge($defaultParams, $slimRequest->getQueryParams());
+        $requestParams = array_merge($defaultParams, $illuminateRequest->query());
 
         $allowedParams = $this->_processAllowedParams($requestParams, [
             'dateStart',
@@ -302,25 +314,29 @@ class PKPStatsContextHandler extends APIHandler
 
         $allowedParams['contextIds'] = [$context->getId()];
 
-        Hook::call('API::stats::context::timeline::params', [&$allowedParams, $slimRequest]);
+        Hook::call('API::stats::context::timeline::params', [&$allowedParams, $illuminateRequest]);
 
         if (!$this->isValidTimelineInterval($allowedParams['timelineInterval'])) {
-            return $response->withStatus(400)->withJsonError('api.stats.400.wrongTimelineInterval');
+            return response()->json([
+                'error' => __('api.stats.400.wrongTimelineInterval'),
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $result = $this->_validateStatDates($allowedParams);
         if ($result !== true) {
-            return $response->withStatus(400)->withJsonError($result);
+            return response()->json([
+                'error' => $result,
+            ], Response::HTTP_BAD_REQUEST);
         }
 
-        $statsService = Services::get('contextStats');
+        $statsService = Services::get('contextStats'); /** @var PKPStatsContextService $statsService */
         $data = $statsService->getTimeline($allowedParams['timelineInterval'], $allowedParams);
 
         if ($responseCSV) {
             $csvColumnNames = Services::get('contextStats')->getTimelineReportColumnNames();
-            return $response->withCSV($data, $csvColumnNames, count($data));
+            return response()->withCSV($data, $csvColumnNames, count($data));
         }
-        return $response->withJson($data, 200);
+        return response()->withJson($data, Response::HTTP_OK);
     }
 
     /**
@@ -416,12 +432,12 @@ class PKPStatsContextHandler extends APIHandler
     /**
      * Get JSON data with context index page metrics
      */
-    protected function getItemForJSON(SlimHttpRequest $slimRequest, int $contextId, int $contextViews): array
+    protected function getItemForJSON(Request $illuminateRequest, int $contextId, int $contextViews): array
     {
         // Get basic context details for display
         $propertyArgs = [
             'request' => $this->getRequest(),
-            'slimRequest' => $slimRequest,
+            'apiRequest' => $illuminateRequest,
         ];
         $context = Services::get('context')->get($contextId);
         $contextProps = Services::get('context')->getSummaryProperties($context, $propertyArgs);

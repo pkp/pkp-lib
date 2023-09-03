@@ -1,14 +1,14 @@
-# Pavel Pisklakov <ppv1979@mail.ru>, 2022.
+# Pavel Pisklakov <ppv1979@mail.ru>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2022-11-04 17:21+0000\n"
+"PO-Revision-Date: 2023-09-04 06:58+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"installer/ru_RU/>\n"
-"Language: ru_RU\n"
+"installer/ru/>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -253,3 +253,6 @@ msgstr ""
 
 #~ msgid "installer.clientCharsetInstructions"
 #~ msgstr "Кодировка, которая используется для обмена данными с браузерами."
+
+msgid "installer.miscSettings"
+msgstr "Различные настройки"

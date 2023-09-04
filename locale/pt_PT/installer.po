@@ -1,11 +1,11 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2022.
-# José Carvalho <jcarvalho@keep.pt>, 2022.
+# José Carvalho <jcarvalho@keep.pt>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2022-10-31 09:07+0000\n"
+"PO-Revision-Date: 2023-09-04 12:58+0000\n"
 "Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/installer/pt_PT/>\n"
@@ -246,5 +246,5 @@ msgstr ""
 #~ msgstr ""
 #~ "A codificação utilizada para dados enviados e recebidos pelos navegadores."
 
-#~ msgid "installer.miscSettings"
-#~ msgstr "Configurações Gerais"
+msgid "installer.miscSettings"
+msgstr "Configurações Diversas"

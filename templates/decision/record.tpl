@@ -164,9 +164,11 @@
 
 		<panel class="decision__footer__panel">
 			<panel-section>
-				<span #header>
-					<!-- empty on purpose -->
-				</span>
+				<template #header>
+					<span>
+						<!-- empty on purpose -->
+					</span>
+				</template>
 				<div class="decision__footer" :class="{ldelim}'decision__footer--noSteps': !steps.length{rdelim}">
 					<button
 						v-if="currentStep.type === 'email' && currentStep.canSkip && !skippedSteps.includes(currentStep.id)"

@@ -35,11 +35,11 @@
 	</script>
 	<div id="app" class="app {if $isLoggedInAs} app--isLoggedInAs{/if}" v-cloak>
 		<vue-announcer class="sr-only"></vue-announcer>
-		<PkpDialog
+		<pkp-dialog
 			:open="pkpIsDialogOpened"
 			@close="pkpIsDialogOpened = false"
 			v-bind="pkpDialogProps"
-		></PkpDialog>
+		></pkp-dialog>
 		<header class="app__header" role="banner">
 			{if $availableContexts}
 				<dropdown class="app__headerAction app__contexts">

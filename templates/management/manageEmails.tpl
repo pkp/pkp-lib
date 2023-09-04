@@ -100,7 +100,7 @@
 		</template>
 	</list-panel>
 	<modal
-		:close-label="__('common.close')"
+		:close-label="t('common.close')"
 		name="mailable"
 		:title="currentMailable ? currentMailable.name : ''"
 		:open="isModalOpenedMailable"
@@ -149,7 +149,7 @@
 		</template>
 	</modal>
 	<modal
-		:close-label="__('common.close')"
+		:close-label="t('common.close')"
 		name="template"
 		:title="currentTemplate ? '{translate key="manager.mailables.editTemplate"}' : '{translate key="manager.emails.addEmail"}'"
 		:open="isModalOpenedTemplate"

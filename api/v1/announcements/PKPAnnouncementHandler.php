@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Bus;
 use PKP\announcement\Collector;
 use PKP\config\Config;
 use PKP\context\Context;
+use PKP\core\exceptions\StoryTemporaryFileException;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\handler\APIHandler;
@@ -220,6 +221,19 @@ class PKPAnnouncementHandler extends APIHandler
 
         $announcement = Repo::announcement()->newDataObject($params);
         $announcementId = Repo::announcement()->add($announcement);
+
+        try {
+            $announcement = Repo::announcement()->add($announcementId);
+        } catch (StoryTemporaryFileException $e) {
+            $announcement = Repo::announcement()->get($announcementId);
+            Repo::announcement()->delete($announcement);
+            return $response->withStatus(400)->withJson([
+                'image' => __('api.400.errorUploadingImage')
+            ]);
+        }
+
+        $announcement = Repo::announcement()->get($announcementId);
+
         $sendEmail = (bool) filter_var($params['sendEmail'], FILTER_VALIDATE_BOOLEAN);
 
         if ($context) {
@@ -270,7 +284,14 @@ class PKPAnnouncementHandler extends APIHandler
             return $response->withStatus(400)->withJson($errors);
         }
 
-        Repo::announcement()->edit($announcement, $params);
+        try {
+            Repo::announcement()->edit($announcement, $params);
+        } catch (StoryTemporaryFileException $e) {
+            Repo::announcement()->delete($announcement);
+            return $response->withStatus(400)->withJson([
+                'image' => __('api.400.errorUploadingImage')
+            ]);
+        }
 
         $announcement = Repo::announcement()->get($announcement->getId());
 

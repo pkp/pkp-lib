@@ -20,6 +20,7 @@ use PKP\announcement\AnnouncementTypeDAO;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
+use PKP\components\forms\FieldUploadImage;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
@@ -42,7 +43,7 @@ class PKPAnnouncementForm extends FormComponent
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
      */
-    public function __construct($action, $locales, ?Context $context = null)
+    public function __construct($action, $locales, string $baseUrl, string $temporaryFileApiUrl, ?Context $context = null)
     {
         $this->action = $action;
         $this->locales = $locales;
@@ -67,6 +68,13 @@ class PKPAnnouncementForm extends FormComponent
                 'size' => 'large',
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
                 'plugins' => 'paste,link,lists',
+            ]))
+            ->addField(new FieldUploadImage('image', [
+                'label' => __('manager.image'),
+                'baseUrl' => $baseUrl,
+                'options' => [
+                    'url' => $temporaryFileApiUrl,
+                ],
             ]))
             ->addField(new FieldText('dateExpire', [
                 'label' => __('manager.announcements.form.dateExpire'),

@@ -23,6 +23,7 @@ use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\components\forms\announcement\PKPAnnouncementForm;
 use PKP\components\forms\context\PKPDoiRegistrationSettingsForm;
 use PKP\components\forms\context\PKPEmailSetupForm;
 use PKP\components\forms\context\PKPInformationForm;
@@ -354,7 +355,13 @@ class ManagementHandler extends Handler
 
         $locales = $this->getSupportedFormLocales($context);
 
-        $announcementForm = new \PKP\components\forms\announcement\PKPAnnouncementForm($apiUrl, $locales, $request->getContext());
+        $announcementForm = new PKPAnnouncementForm(
+            $apiUrl,
+            $locales,
+            Repo::announcement()->getFileUploadBaseUrl($context),
+            $this->getTemporaryFileApiUrl($context),
+            $request->getContext()
+        );
 
         $collector = Repo::announcement()
             ->getCollector()

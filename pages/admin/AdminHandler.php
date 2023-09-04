@@ -206,7 +206,7 @@ class AdminHandler extends Handler
         $siteStatisticsForm = new \PKP\components\forms\site\PKPSiteStatisticsForm($apiUrl, $locales, $site);
         $highlightsListPanel = $this->getHighlightsListPanel();
         $announcementSettingsForm = new PKPAnnouncementSettingsForm($apiUrl, $locales, $site);
-        $announcementsForm = new PKPAnnouncementForm($announcementsApiUrl, $locales);
+        $announcementsForm = new PKPAnnouncementForm($announcementsApiUrl, $locales, Repo::announcement()->getFileUploadBaseUrl(), $temporaryFileApiUrl);
         $announcementsListPanel = $this->getAnnouncementsListPanel($announcementsApiUrl, $announcementsForm);
 
         $templateMgr = TemplateManager::getManager($request);

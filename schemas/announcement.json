@@ -68,6 +68,32 @@
 			"readOnly": true,
 			"apiSummary": true
 		},
+		"image": {
+			"type": "object",
+			"description": "The image to show with this announcement.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			],
+			"properties": {
+				"temporaryFileId": {
+					"type": "integer",
+					"writeOnly": true
+				},
+				"name": {
+					"type": "string"
+				},
+				"uploadName": {
+					"type": "string"
+				},
+				"dateUploaded": {
+					"type": "string"
+				},
+				"altText": {
+					"type": "string"
+				}
+			}
+		},
 		"title": {
 			"type": "string",
 			"multilingual": true,

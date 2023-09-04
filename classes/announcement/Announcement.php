@@ -23,6 +23,9 @@
 
 namespace PKP\announcement;
 
+use APP\core\Application;
+use APP\facades\Repo;
+use APP\file\PublicFileManager;
 use PKP\db\DAORegistry;
 
 class Announcement extends \PKP\core\DataObject
@@ -274,6 +277,67 @@ class Announcement extends \PKP\core\DataObject
     public function setDatetimePosted($datetimePosted)
     {
         $this->setData('datePosted', $datetimePosted);
+    }
+
+    /**
+     * Get the featured image data
+     */
+    public function getImage(): ?array
+    {
+        return $this->getData('image');
+    }
+
+    /**
+     * Set the featured image data
+     */
+    public function setImage(array $image): void
+    {
+        $this->setData('image', $image);
+    }
+
+    /**
+     * Get the full URL to the image
+     *
+     * @param bool $withTimestamp Pass true to include a query argument with a timestamp
+     *     of the date the image was uploaded in order to workaround cache bugs in browsers
+     */
+    public function getImageUrl(bool $withTimestamp = true): string
+    {
+        $image = $this->getImage();
+
+        if (!$image) {
+            return '';
+        }
+
+        $filename = $image['uploadName'];
+        if ($withTimestamp) {
+            $filename .= '?'. strtotime($image['dateUploaded']);
+        }
+
+        $publicFileManager = new PublicFileManager();
+
+        return join('/', [
+            Application::get()->getRequest()->getBaseUrl(),
+            $this->getAssocId()
+                ? $publicFileManager->getContextFilesPath((int) $this->getAssocId())
+                : $publicFileManager->getSiteFilesPath(),
+            Repo::announcement()->getImageSubdirectory(),
+            $filename
+        ]);
+    }
+
+    /**
+     * Get the alt text for the image
+     */
+    public function getImageAltText(): string
+    {
+        $image = $this->getImage();
+
+        if (!$image || !$image['altText']) {
+            return '';
+        }
+
+        return $image['altText'];
     }
 }
 

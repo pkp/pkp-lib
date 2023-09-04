@@ -22,6 +22,7 @@ use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FieldUploadImage;
 use PKP\components\forms\FormComponent;
+use PKP\config\Config;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 
@@ -68,20 +69,21 @@ class PKPAnnouncementForm extends FormComponent
                 'size' => 'large',
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist',
                 'plugins' => 'paste,link,lists',
-            ]))
-            ->addField(new FieldUploadImage('image', [
+            ]));
+        if (Config::getVar('features', 'announcement_images')) {
+            $this->addField(new FieldUploadImage('image', [
                 'label' => __('manager.image'),
                 'baseUrl' => $baseUrl,
                 'options' => [
                     'url' => $temporaryFileApiUrl,
                 ],
-            ]))
-            ->addField(new FieldText('dateExpire', [
-                'label' => __('manager.announcements.form.dateExpire'),
-                'description' => __('manager.announcements.form.dateExpireInstructions'),
-                'size' => 'small',
             ]));
-
+        }
+        $this->addField(new FieldText('dateExpire', [
+            'label' => __('manager.announcements.form.dateExpire'),
+            'description' => __('manager.announcements.form.dateExpireInstructions'),
+            'size' => 'small',
+        ]));
         if (!empty($announcementTypeOptions)) {
             $this->addField(new FieldOptions('typeId', [
                 'label' => __('manager.announcementTypes.typeName'),

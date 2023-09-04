@@ -821,22 +821,22 @@ abstract class Repository
         );
     }
 
-	/**
-	 * Derive data from the submission file to record in the event log
-	 */
-	protected function getSubmissionFileLogData(SubmissionFile $submissionFile): array
-	{
-		$user = $this->request->getUser();
+    /**
+     * Derive data from the submission file to record in the event log
+     */
+    protected function getSubmissionFileLogData(SubmissionFile $submissionFile): array
+    {
+        $user = $this->request->getUser();
 
-		return [
-			'userId' => Validation::loggedInAs() ?? $user?->getId(),
-			'fileStage' => $submissionFile->getData('fileStage'),
-			'submissionFileId' => $submissionFile->getId(),
-			'sourceSubmissionFileId' => $submissionFile->getData('sourceSubmissionFileId'),
-			'fileId' => $submissionFile->getData('fileId'),
-			'submissionId' => $submissionFile->getData('submissionId'),
-			'filename' => $submissionFile->getData('name'),
-			'username' => $user?->getUsername(),
-		];
-	}
+        return [
+            'userId' => Validation::loggedInAs() ?: $user?->getId(),
+            'fileStage' => $submissionFile->getData('fileStage'),
+            'submissionFileId' => $submissionFile->getId(),
+            'sourceSubmissionFileId' => $submissionFile->getData('sourceSubmissionFileId'),
+            'fileId' => $submissionFile->getData('fileId'),
+            'submissionId' => $submissionFile->getData('submissionId'),
+            'filename' => $submissionFile->getData('name'),
+            'username' => $user?->getUsername(),
+        ];
+    }
 }

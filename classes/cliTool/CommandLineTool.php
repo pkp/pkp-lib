@@ -31,6 +31,8 @@ use PKP\core\Registry;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\session\SessionManager;
+use PKP\user\User;
+use PKP\config\Config;
 
 /** Initialization code */
 define('PWD', getcwd());
@@ -50,10 +52,10 @@ class CommandLineTool
     public $argv;
 
     /** @var string the username provided */
-    public $username;
+    public ?string $username = null;
 
     /** @var \PKP\user\User the user provided */
-    public $user;
+    public ?User $user = null;
 
     public function __construct($argv = [])
     {
@@ -77,7 +79,7 @@ class CommandLineTool
 
         $this->scriptName = isset($this->argv[0]) ? array_shift($this->argv) : '';
 
-        $this->checkArgsForUsername();
+        if (Config::getVar('general', 'installed')) $this->checkArgsForUsername();
 
         if (isset($this->argv[0]) && $this->argv[0] == '-h') {
             $this->exitWithUsageMessage();

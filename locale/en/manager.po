@@ -580,6 +580,9 @@ msgstr "No users were found."
 msgid "manager.groups.title"
 msgstr "Title"
 
+msgid "manager.image"
+msgstr "Image"
+
 msgid "manager.importExport"
 msgstr "Import/Export Data"
 

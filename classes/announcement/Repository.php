@@ -146,7 +146,12 @@ class Repository
         return $id;
     }
 
-    /** @copydoc DAO::update() */
+    /**
+     * Update an object in the database
+     *
+     * Deletes the old image if it has been removed, or a new image has
+     * been uploaded.
+     */
     public function edit(Announcement $announcement, array $params)
     {
         $newAnnouncement = clone $announcement;
@@ -156,12 +161,14 @@ class Repository
 
         $this->dao->update($newAnnouncement);
 
-        if ($announcement->getImage()) {
+        $image = $newAnnouncement->getImage();
+        $hasNewImage = $image && $image['temporaryFileId'];
+
+        if ((!$image || $hasNewImage) && $announcement->getImage()) {
             $this->deleteImage($announcement);
         }
 
-        $image = $newAnnouncement->getImage();
-        if ($image && $image['temporaryFileId']) {
+        if ($hasNewImage) {
             $this->handleImageUpload($newAnnouncement);
         }
     }

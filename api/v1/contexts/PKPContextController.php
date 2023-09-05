@@ -15,38 +15,24 @@
 
 namespace PKP\API\v1\contexts;
 
-use Illuminate\Http\JsonResponse;
-use PKP\plugins\Plugin;
-
 use APP\plugins\IDoiRegistrationAgency;
-
-use PKP\context\Context;
-
 use APP\template\TemplateManager;
-
-use PKP\services\interfaces\EntityWriteInterface;
-
-use PKP\plugins\PluginRegistry;
-
-use PKP\db\DAORegistry;
-
-use PKP\services\PKPContextService;
-
 use APP\services\ContextService;
-
 use APP\core\Services;
-
 use APP\core\Application;
-
-use PKP\plugins\Hook;
-
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use PKP\plugins\Plugin;
+use PKP\context\Context;
+use PKP\services\interfaces\EntityWriteInterface;
+use PKP\plugins\PluginRegistry;
+use PKP\db\DAORegistry;
+use PKP\services\PKPContextService;
+use PKP\plugins\Hook;
 use PKP\core\PKPBaseController;
 use PKP\services\PKPSchemaService;
-
-use Illuminate\Support\Facades\Route;
-
 use PKP\security\Role;
 
 

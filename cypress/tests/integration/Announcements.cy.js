@@ -34,7 +34,7 @@ describe('Announcements', function() {
 		cy.get('#announcement-title-control-en').type(title, {delay: 0});
 		cy.setTinyMceContent('announcement-descriptionShort-control-en', desc);
 		cy.setTinyMceContent('announcement-description-control-en', desc.repeat(5));
-		cy.get('#announcements .pkpForm button').contains('Save').click();
+		cy.get('.modal .pkpForm button').contains('Save').click();
 		cy.get('#announcements .listPanel__itemTitle:contains("' + title + '")')
 			.parents('.listPanel__itemSummary').find('a').contains('View').click();
 		cy.get('h1').contains(title);
@@ -55,13 +55,13 @@ describe('Announcements', function() {
 		var title = 'Example announcement';
 		cy.wait(500);
 		cy.get('#announcement-title-control-en').type(title, {delay: 0});
-		cy.get('#announcements .pkpForm button').contains('Save').click();
+		cy.get('.modal .pkpForm button').contains('Save').click();
 
 		// Edit announcement
 		cy.get('#announcements .listPanel__itemTitle:contains("' + title + '")')
 			.parents('.listPanel__itemSummary').find('button').contains('Edit').click();
 		cy.get('#announcement-title-control-en').type('2');
-		cy.get('#announcements .pkpForm button').contains('Save').click();
+		cy.get('.modal .pkpForm button').contains('Save').click();
 		cy.get('#announcements .listPanel__itemTitle:contains("' + title  + '2")');
 
 		// Delete announcement

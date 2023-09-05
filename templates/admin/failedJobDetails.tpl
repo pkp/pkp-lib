@@ -27,9 +27,11 @@
 					:row="row"
 					:tabindex="!rowIndex && !columnIndex ? 0 : -1"
 				>
-					<span v-if="column.name === 'value' && isValidJson(row.value)">
-						<pre>{{ row.value }}</pre>
-					</span>
+					<template #default v-if="column.name === 'value' && isValidJson(row.value)">
+						<span v-if="column.name === 'value' && isValidJson(row.value)">
+							<pre>{{ row.value }}</pre>
+						</span>
+					</template>
 				</table-cell>
 			</template>
 		</pkp-table>

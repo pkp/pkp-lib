@@ -40,7 +40,9 @@ export default {
 		}
 
 		var args = $.extend(true, {}, pkp.controllers[type], {
-			data: $.extend(true, {}, baseData, data, {id: id}),
+			data: function () {
+				return $.extend(true, {}, baseData, data, {id: id});
+			},
 		});
 
 		console.log('createApp args:', pkp.controllers[type]);

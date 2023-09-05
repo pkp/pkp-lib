@@ -431,7 +431,7 @@ Cypress.Commands.add('selectPromotedFiles', (filenames) => {
 
 Cypress.Commands.add('recordDecision', (successMessage) => {
 	cy.get('button:contains("Record Decision")').click();
-	cy.get('#modals-container:contains("' + successMessage + '")').should('exist');
+	cy.get('.modal:contains("' + successMessage + '")').should('exist');
 	cy.get('a.pkpButton').contains('View Submission').click();
 });
 
@@ -709,7 +709,7 @@ Cypress.Commands.add('assignDoisByTitle', (title, itemType = 'submission') => {
 
 	// Confirm assignment
 	cy.get(
-		'div[data-modal="bulkActions"] button:contains("Assign DOIs")'
+		'div[name="bulkActions"] button:contains("Assign DOIs")'
 	).click();
 	cy.get('.app__notifications').contains(
 		'Items successfully assigned new DOIs',
@@ -728,7 +728,7 @@ Cypress.Commands.add('assignDois', (itemId, itemType = 'submission') => {
 
 	// Confirm assignment
 	cy.get(
-		'div[data-modal="bulkActions"] button:contains("Assign DOIs")'
+		'div[name="bulkActions"] button:contains("Assign DOIs")'
 	).click();
 	cy.get('.app__notifications').contains(
 		'Items successfully assigned new DOIs',
@@ -779,18 +779,18 @@ Cypress.Commands.add('checkDoiMarkedStatus', (status, itemId, isValid, expectedS
 	// Select mark [status] from bulk actions
 	cy.get(`#${itemType}-doi-management button:contains("Bulk Actions")`).click({multiple: true});
 	cy.get(`button:contains("Mark DOIs ${status}")`).click();
-	cy.get(`div[data-modal="bulkActions"] button:contains("Mark DOIs ${status}")`).click();
+	cy.get(`div[name="bulkActions"] button:contains("Mark DOIs ${status}")`).click();
 
 	// Check success or failure message
 	if (isValid) {
 		cy.get('.app__notifications').contains(`Items successfully marked ${status}`, {matchCase: false, timeout:20000});
 	} else {
-		cy.get('div[data-modal="failedDoiActionModal"]').contains('Failed to mark the DOI', {timeout:20000});
+		cy.get('div[name="failedDoiActionModal"]').contains('Failed to mark the DOI', {timeout:20000});
 	}
 
 	cy.get(`#list-item-${itemType}-${itemId} .pkpBadge`).contains(expectedStatus);
 	if (!isValid) {
-		cy.get(`#${itemType}-doi-management .modal button:contains('Close')`).click();
+		cy.get(`div[name="failedDoiActionModal"] button:contains('Close')`).click();
 	}
 });
 

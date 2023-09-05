@@ -53,7 +53,7 @@ describe('Data suite tests', function() {
 			cy.get('input[type=file]').attachFile({fileContent, filePath: downloadedSubmissionPath, mimeType: 'text/xml', encoding: 'utf8'});
 		});
 
-		cy.get('input[name="temporaryFileId"][value!=""]', {timeout:20000});
+		cy.get('input[name="temporaryFileId"][value]', {timeout:20000});
 		cy.get('form#importXmlForm button[type="submit"]').click();
 		cy.contains('The import completed successfully.', {timeout:20000});
 	});

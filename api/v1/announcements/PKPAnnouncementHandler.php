@@ -220,10 +220,9 @@ class PKPAnnouncementHandler extends APIHandler
         }
 
         $announcement = Repo::announcement()->newDataObject($params);
-        $announcementId = Repo::announcement()->add($announcement);
 
         try {
-            $announcement = Repo::announcement()->add($announcementId);
+            $announcementId = Repo::announcement()->add($announcement);
         } catch (StoryTemporaryFileException $e) {
             $announcement = Repo::announcement()->get($announcementId);
             Repo::announcement()->delete($announcement);

@@ -29,7 +29,6 @@ export default {
 	 *  configuration parameters, translatable strings and initial data.
 	 */
 	init: function (id, type, data) {
-		console.log('init registry');
 		if (pkp.controllers[type] === undefined) {
 			return;
 		}
@@ -45,7 +44,6 @@ export default {
 			},
 		});
 
-		console.log('createApp args:', pkp.controllers[type]);
 		pkp.registry._instances[id] = pkp.pkpCreateVueApp(args);
 
 		pkp.registry._instances[id].mount(`#${id}`);

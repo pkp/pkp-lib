@@ -99,6 +99,9 @@ import VueRegistry from './classes/VueRegistry.js';
 function pkpCreateVueApp(createAppArgs) {
 	// Initialize Vue
 	const vueApp = createApp(createAppArgs);
+
+	// For compatibility with vue2 to preserve spaces between html tags
+	vueApp.config.compilerOptions.whitespace = 'preserve';
 	vueApp.use(VueScrollTo);
 	vueApp.use(VueAnnouncer);
 	vueApp.use(FloatingVue, {

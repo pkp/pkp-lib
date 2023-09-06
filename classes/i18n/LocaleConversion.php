@@ -23,19 +23,53 @@ declare(strict_types=1);
 
 namespace PKP\i18n;
 
+use DateInterval;
+use Exception;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Cache;
+use PKP\core\Core;
 use PKP\facades\Locale;
 
 class LocaleConversion
 {
+    /** @var string Max lifetime for the ISO639-2b cache. */
+    protected const MAX_ISO6392B_CACHE_LIFETIME = '1 year';
+
+    /**
+     * Get ISO639-2b array
+     *
+     * @throw Exception
+     */
+    protected static function getISO6392b(): array
+    {
+        $iso6392bFile = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/vendor/sokil/php-isocodes-db-i18n/databases/iso_639-2.json';
+        if (!file_exists($iso6392bFile)) {
+            throw new Exception("The ISO639-2b file {$iso6392bFile} does not exist.");
+        }
+        $key = __METHOD__ . 'iso639-2b' . self::MAX_ISO6392B_CACHE_LIFETIME . filemtime($iso6392bFile);
+        $expiration = DateInterval::createFromDateString(static::MAX_ISO6392B_CACHE_LIFETIME);
+        return Cache::remember($key, $expiration, function () use ($iso6392bFile) {
+            return json_decode(file_get_contents($iso6392bFile), true);
+        });
+    }
+
     /**
      * Translate the ISO 2-letter language string (ISO639-1) into a ISO compatible 3-letter string (ISO639-2b).
      */
     public static function get3LetterFrom2LetterIsoLanguage(?string $iso2Letter): ?string
     {
-        assert(strlen($iso2Letter) === 2);
-        $locale = Arr::first(Locale::getLocales(), fn (LocaleMetadata $locale) => $locale->getIsoAlpha2() === $iso2Letter);
-        return $locale ? $locale->getIsoAlpha3() : null;
+        try {
+            $languages = self::getISO6392b();
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return null;
+        }
+        foreach (reset($languages) as $languageRaw) {
+            if (($languageRaw['alpha_2'] ?? null) === $iso2Letter) {
+                return $languageRaw['bibliographic'] ?? $languageRaw['alpha_3'];
+            }
+        }
+        return null;
     }
 
     /**
@@ -43,9 +77,18 @@ class LocaleConversion
      */
     public static function get2LetterFrom3LetterIsoLanguage(?string $iso3Letter): ?string
     {
-        assert(strlen($iso3Letter) === 3);
-        $locale = Arr::first(Locale::getLocales(), fn (LocaleMetadata $locale) => $locale->getIsoAlpha3() === $iso3Letter);
-        return $locale ? $locale->getIsoAlpha2() : null;
+        try {
+            $languages = self::getISO6392b();
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return null;
+        }
+        foreach (reset($languages) as $languageRaw) {
+            if (($languageRaw['bibliographic'] ?? null) === $iso3Letter || $languageRaw['alpha_3'] === $iso3Letter) {
+                return $languageRaw['alpha_2'] ?? null;
+            }
+        }
+        return null;
     }
 
     /**
@@ -64,22 +107,34 @@ class LocaleConversion
      */
     public static function getLocaleFrom3LetterIso(?string $iso3Letter): ?string
     {
-        assert(strlen($iso3Letter) === 3);
         $primaryLocale = Locale::getPrimaryLocale();
 
-        $candidates = [];
+        $alpha2Candidates = $localeCandidates = [];
+        try {
+            $languages = self::getISO6392b();
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+            return null;
+        }
+        foreach (reset($languages) as $languageRaw) {
+            if (($languageRaw['bibliographic'] ?? null) === $iso3Letter || $languageRaw['alpha_3'] === $iso3Letter) {
+                if (array_key_exists('alpha_2', $languageRaw)) {
+                    $alpha2Candidates[] = $languageRaw['alpha_2'];
+                }
+            }
+        }
         foreach (Locale::getLocales() as $identifier => $locale) {
-            if ($locale->getIsoAlpha3() === $iso3Letter) {
+            if (in_array($locale->getIsoAlpha2(), $alpha2Candidates)) {
                 if ($identifier === $primaryLocale) {
                     // In case of ambiguity the primary locale overrides all other options so we're done.
                     return $primaryLocale;
                 }
-                $candidates[$identifier] = true;
+                $localeCandidates[$identifier] = true;
             }
         }
 
         // Attempts to retrieve the first matching locale which is in the supported list, otherwise defaults to the first found candidate
-        return Arr::first(array_keys(Locale::getSupportedLocales()), fn (string $locale) => $candidates[$locale] ?? false, array_key_first($candidates));
+        return Arr::first(array_keys(Locale::getSupportedLocales()), fn (string $locale) => $localeCandidates[$locale] ?? false, array_key_first($localeCandidates));
     }
 
     /**
@@ -87,7 +142,6 @@ class LocaleConversion
      */
     public static function getIso3FromIso1(?string $iso1): ?string
     {
-        assert(strlen($iso1) === 2);
         $locale = Arr::first(Locale::getLocales(), fn (LocaleMetadata $locale) => $locale->getIsoAlpha2() === $iso1);
         return $locale ? $locale->getIsoAlpha3() : null;
     }
@@ -97,7 +151,6 @@ class LocaleConversion
      */
     public static function getIso1FromIso3(?string $iso3): ?string
     {
-        assert(strlen($iso3) === 3);
         $locale = Arr::first(Locale::getLocales(), fn (LocaleMetadata $locale) => $locale->getIsoAlpha3() === $iso3);
         return $locale ? $locale->getIsoAlpha2() : null;
     }

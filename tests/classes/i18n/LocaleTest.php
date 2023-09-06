@@ -101,6 +101,7 @@ class LocaleTest extends PKPTestCase
      */
     public function testGetLocales()
     {
+        $this->_primaryLocale = 'en_US';
         $expectedLocales = [
             'en' => 'English',
             'pt_BR' => 'Portuguese',
@@ -133,6 +134,7 @@ class LocaleTest extends PKPTestCase
     {
         self::assertEquals('eng', LocaleConversion::get3LetterFrom2LetterIsoLanguage('en'));
         self::assertEquals('por', LocaleConversion::get3LetterFrom2LetterIsoLanguage('pt'));
+        self::assertEquals('fre', LocaleConversion::get3LetterFrom2LetterIsoLanguage('fr'));
         self::assertNull(LocaleConversion::get3LetterFrom2LetterIsoLanguage('xx'));
     }
 
@@ -143,6 +145,7 @@ class LocaleTest extends PKPTestCase
     {
         self::assertEquals('en', LocaleConversion::get2LetterFrom3LetterIsoLanguage('eng'));
         self::assertEquals('pt', LocaleConversion::get2LetterFrom3LetterIsoLanguage('por'));
+        self::assertEquals('fr', LocaleConversion::get2LetterFrom3LetterIsoLanguage('fre'));
         self::assertNull(LocaleConversion::get2LetterFrom3LetterIsoLanguage('xxx'));
     }
 

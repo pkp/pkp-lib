@@ -91,13 +91,14 @@
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.finishUrl_ = '';
 
+
 	/**
 	 * The URL to be called when a cancel event occurs.
 	 * @private
 	 * @type {string}
 	 */
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
-		prototype.cancelUrl_ = '';
+			prototype.cancelUrl_ = '';
 
 
 	/**
@@ -108,13 +109,16 @@
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.uploadedFile_ = null;
 
+
 	/**
 	 * Information about the file being revised.
 	 * @private
 	 * @type {{fileId: number, name: string, uploaderUserId: number}}
 	 */
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
-		prototype.originalFile_ = null;
+			prototype.originalFile_ = null;
+
+
 	//
 	// Public methods
 	//
@@ -371,7 +375,7 @@
 			prototype.startWizard = function() {
 
 		// Reset the uploaded and original file.
-		this.uploadedFile_ = this.originalFile_= null;
+		this.uploadedFile_ = this.originalFile_ = null;
 
 		this.parent('startWizard');
 	};

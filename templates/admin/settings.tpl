@@ -54,6 +54,14 @@
 					{load_url_in_div id="navigationMenuItemsGridContainer" url=$navigationMenuItemsGridUrl}
 				</tab>
 				{/if}
+				{if $componentAvailability['highlights']}
+				<tab id="highlights" label="{translate key="common.highlights"}">
+					<highlights-list-panel
+						v-bind="components.highlights"
+						@set="set"
+					/>
+				</tab>
+				{/if}
 				{if $componentAvailability['bulkEmails']}
 				<tab id="bulkEmails" label="{translate key="admin.settings.enableBulkEmails.label"}">
 					<pkp-form

@@ -609,6 +609,11 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
                 ->filterByContextIds([$context->getId()])
         );
 
+        Repo::highlight()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->deleteMany();
+
         Repo::institution()->deleteMany(
             Repo::institution()
                 ->getCollector()

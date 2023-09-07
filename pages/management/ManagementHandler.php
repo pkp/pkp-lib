@@ -217,8 +217,13 @@ class ManagementHandler extends Handler
             FORM_PRIVACY => $privacyForm->getConfig(),
             FORM_THEME => $themeForm->getConfig(),
             FORM_DATE_TIME => $dateTimeForm->getConfig(),
-            $highlightsListPanel->id => $highlightsListPanel->getConfig(),
         ];
+
+        if (Config::getVar('features', 'highlights')) {
+            $highlightsListPanel = $this->getHighlightsListPanel();
+            $components[$highlightsListPanel->id] = $highlightsListPanel->getConfig();
+            $templateMgr->assign('enableHighlights', true);
+        }
 
         if ($informationForm) {
             $components[FORM_INFORMATION] = $informationForm->getConfig();

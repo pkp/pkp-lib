@@ -19,6 +19,7 @@ namespace PKP\pages\index;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use Illuminate\Support\LazyCollection;
+use PKP\config\Config;
 use PKP\context\Context;
 use PKP\template\PKPTemplateManager;
 
@@ -56,6 +57,10 @@ class PKPIndexHandler extends Handler
      */
     protected function getHighlights(?Context $context = null): LazyCollection
     {
+        if (!Config::getVar('features', 'highlights')) {
+            return LazyCollection::make();
+        }
+
         $collector = Repo::highlight()->getCollector();
 
         if ($context) {

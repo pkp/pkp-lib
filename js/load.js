@@ -9,7 +9,7 @@
  */
 
 // Vue lib and custom mixins
-import {createApp, h} from 'vue';
+import {createApp} from 'vue';
 import GlobalMixins from '@/mixins/global.js';
 import VueAnnouncer from '@vue-a11y/announcer';
 import FloatingVue from 'floating-vue';

@@ -1,16 +1,16 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-03-05 13:46+0000\n"
+"PO-Revision-Date: 2023-09-07 19:32+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"installer/bg_BG/>\n"
-"Language: bg_BG\n"
+"installer/bg/>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "installer.additionalLocales"
 msgstr "Допълнителни езици"
@@ -254,3 +254,6 @@ msgstr ""
 
 #~ msgid "installer.clientCharset"
 #~ msgstr "Кодова таблица на клиента"
+
+msgid "installer.miscSettings"
+msgstr "Други настройки"

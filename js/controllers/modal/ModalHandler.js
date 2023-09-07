@@ -44,8 +44,9 @@
 				canClose;
 
 		// Merge user and default options.
-		this.options = /** @type {{ canClose: boolean, textTitle: string, title: string,
-				titleIcon: string, closeCleanVueInstances: Array }} */
+		this.options = /** @type {{ canClose: boolean, textTitle: string,
+				title: string, titleIcon: string,
+				closeCleanVueInstances: Array }} */
 				(this.mergeOptions(internalOptions));
 
 		// Attach content to the modal

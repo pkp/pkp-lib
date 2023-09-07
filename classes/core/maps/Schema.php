@@ -23,7 +23,7 @@ abstract class Schema extends Base
 {
     public PKPRequest $request;
 
-    public Context $context;
+    public ?Context $context;
 
     public PKPSchemaService $schemaService;
 
@@ -39,7 +39,7 @@ abstract class Schema extends Base
     /** The name of the schema for this entity. One of the \PKP\services\PKPSchemaService::SCHEMA_... constants */
     public string $schema;
 
-    public function __construct(PKPRequest $request, Context $context, PKPSchemaService $schemaService)
+    public function __construct(PKPRequest $request, ?Context $context, PKPSchemaService $schemaService)
     {
         $this->request = $request;
         $this->context = $context;

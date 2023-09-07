@@ -1,0 +1,98 @@
+{
+	"title": "Highlight",
+	"description": "A highlight for the journal, press or preprint server, or at the site level. Each highlight is a text, image and URL and may be used by a theme to show a slider or similar highlighted items.",
+	"required": [
+        "sequence",
+		"title",
+		"url"
+	],
+	"properties": {
+		"_href": {
+			"type": "string",
+			"description": "The URL to this highlight in the REST API.",
+			"format": "uri",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"contextId": {
+			"type": "integer",
+			"description": "The journal, press or preprint server ID, or null when the highlight is for the site level.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"description": {
+			"type": "string",
+			"description": "The short text for this highlight.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"id": {
+			"type": "integer",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"image": {
+			"type": "object",
+            "description": "The image to show with this highlight.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			],
+			"properties": {
+				"temporaryFileId": {
+					"type": "integer",
+					"writeOnly": true
+				},
+				"name": {
+					"type": "string"
+				},
+				"uploadName": {
+					"type": "string"
+				},
+				"dateUploaded": {
+					"type": "string"
+				},
+				"altText": {
+					"type": "string"
+				}
+			}
+		},
+		"sequence": {
+			"type": "integer",
+			"description": "The order in which this highlight should be shown. Lower numbers appear first.",
+			"apiSummary": true
+		},
+		"title": {
+			"type": "string",
+			"description": "The title or headline for this highlight.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"url": {
+			"type": "string",
+			"format": "uri",
+			"description": "The URL where this highlight should send the user when they click on it.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"urlText": {
+			"type": "string",
+			"description": "The text to use with the button or link to the URL.",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		}
+	}
+}

@@ -29,7 +29,9 @@ use PKP\components\forms\context\PKPInformationForm;
 use PKP\components\forms\context\PKPNotifyUsersForm;
 use PKP\components\forms\context\PKPReviewSetupForm;
 use PKP\components\forms\emailTemplate\EmailTemplateForm;
+use PKP\components\forms\highlight\HighlightForm;
 use PKP\components\forms\submission\SubmissionGuidanceSettings;
+use PKP\components\listPanels\HighlightsListPanel;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
@@ -184,7 +186,7 @@ class ManagementHandler extends Handler
 
         $contextApiUrl = $this->getContextApiUrl($request);
         $themeApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId() . '/theme');
-        $temporaryFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'temporaryFiles');
+        $temporaryFileApiUrl = $this->getTemporaryFileApiUrl($context);
         $publicFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
         $publicFileManager = new PublicFileManager();
@@ -201,6 +203,8 @@ class ManagementHandler extends Handler
         $themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $context);
         $dateTimeForm = new \PKP\components\forms\context\PKPDateTimeForm($contextApiUrl, $locales, $context);
 
+        $highlightsListPanel = $this->getHighlightsListPanel();
+
         $templateMgr->setConstants([
             'FORM_ANNOUNCEMENT_SETTINGS' => FORM_ANNOUNCEMENT_SETTINGS,
         ]);
@@ -213,6 +217,7 @@ class ManagementHandler extends Handler
             FORM_PRIVACY => $privacyForm->getConfig(),
             FORM_THEME => $themeForm->getConfig(),
             FORM_DATE_TIME => $dateTimeForm->getConfig(),
+            $highlightsListPanel->id => $highlightsListPanel->getConfig(),
         ];
 
         if ($informationForm) {
@@ -625,5 +630,61 @@ class ManagementHandler extends Handler
         $components[$reviewGuidanceForm->id] = $reviewGuidanceForm->getConfig();
         $components[$reviewSetupForm->id] = $reviewSetupForm->getConfig();
         $templateMgr->setState(['components' => $components]);
+    }
+
+    /**
+     * Get the HighlightsListPanel
+     */
+    protected function getHighlightsListPanel(): HighlightsListPanel
+    {
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $apiUrl = $request->getDispatcher()->url(
+            $request,
+            Application::ROUTE_API,
+            $context->getPath(),
+            'highlights'
+        );
+
+        $highlightForm = new HighlightForm(
+            $apiUrl,
+            Repo::highlight()->getFileUploadBaseUrl($context),
+            $this->getTemporaryFileApiUrl($context),
+            $context
+        );
+
+        $items = Repo::highlight()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+
+        return new HighlightsListPanel(
+            'highlights',
+            __('common.highlights'),
+            [
+                'apiUrl' => $apiUrl,
+                'form' => $highlightForm,
+                'items' => Repo::highlight()
+                    ->getSchemaMap()
+                    ->summarizeMany($items)
+                    ->values(),
+                'itemsMax' => $items->count(),
+            ]
+        );
+    }
+
+    /**
+     * Get the API url for uploading temporary files
+     */
+    protected function getTemporaryFileApiUrl(Context $context): string
+    {
+        return Application::get()
+            ->getDispatcher()
+            ->url(
+                Application::get()->getRequest(),
+                Application::ROUTE_API,
+                $context->getPath(),
+                'temporaryFiles'
+            );
     }
 }

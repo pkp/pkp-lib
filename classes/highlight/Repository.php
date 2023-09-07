@@ -182,10 +182,14 @@ class Repository
         $this->dao->update($newHighlight);
 
         $image = $newHighlight->getImage();
-        if ($image && $image['temporaryFileId']) {
-            $this->handleImageUpload($newHighlight);
-        } else if (!$image) {
+        $hasNewImage = $image && $image['temporaryFileId'];
+
+        if ((!$image || $hasNewImage) && $highlight->getImage()) {
             $this->deleteImage($highlight);
+        }
+
+        if ($hasNewImage) {
+            $this->handleImageUpload($newHighlight);
         }
     }
 

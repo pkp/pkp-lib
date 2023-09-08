@@ -33,6 +33,12 @@ msgstr "One or more reviewers missed their deadline. The editorial team has been
 msgid "submission.submit.availableUserGroups"
 msgstr "Submit As"
 
+msgid "submission.authors.label"
+msgstr "Authors"
+
+msgid "submission.author.list"
+msgstr "Submission Author List"
+
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Select the role that best describes your contribution to this submission."
 

@@ -2023,6 +2023,12 @@ msgstr ""
 msgid "notification.unsubscribeNotifications"
 msgstr "Unsubscribe"
 
+msgid "showAll"
+msgstr "Show All"
+
+msgid "showLess"
+msgstr "Show Less"
+
 msgid "list.viewMore"
 msgstr "Show more details about {$name}"
 

@@ -17,7 +17,6 @@
 namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
-use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\submission\Submission;
@@ -27,6 +26,7 @@ use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\emailTemplate\EmailTemplate;
+use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\mail\mailables\ReviewRequest;
@@ -144,6 +144,16 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $warnOnAssignment = array_merge($warnOnAssignment, $userIds);
         $warnOnAssignment = array_values(array_unique(array_map('intval', $warnOnAssignment)));
 
+        $locale = Locale::getLocale();
+        $submissionAuthors = $this->getSubmission()->getCurrentPublication()->getData('authors');
+        $authorAffiliations = [];
+        $authors = [];
+        foreach($submissionAuthors as $submissionAuthor) {
+            $affiliation = $submissionAuthor->getLocalizedData('affiliation');
+            $authorAffiliations[] = $affiliation;
+            $authors[$submissionAuthor->getFullName(true, false, $locale)] = $affiliation;
+        }
+
         // Get reviewers list
         $selectReviewerListPanel = new \PKP\components\listPanels\PKPSelectReviewerListPanel(
             'selectReviewer',
@@ -155,6 +165,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
                     $submissionContext->getPath(),
                     'users/reviewers'
                 ),
+                'authorAffiliations' => $authorAffiliations,
                 'currentlyAssigned' => $currentlyAssigned,
                 'getParams' => [
                     'contextId' => $submissionContext->getId(),
@@ -206,6 +217,13 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         ]);
 
         $templateMgr->assign('selectReviewerListData', [
+            'authors' => $authors,
+            'labels' => [
+                'showAll' => __('showAll'),
+                'showLess' => __('showLess'),
+                'submissionAuthorList' => __('submission.author.list'),
+                'authorsLabel' => __('submission.authors.label')
+            ],
             'components' => [
                 'selectReviewer' => $selectReviewerListPanel->getConfig(),
             ]

@@ -457,7 +457,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
 
         $contextIds->each(function (int $contextId) use ($primaryLocales) {
             $primaryLocale = $primaryLocales
-                ->first(fn ($row) => $row->context_id === $contextId)
+                ->first(fn ($row) => $row->context_id == $contextId)
                 ->primary_locale;
 
             $nameRows = DB::table('email_templates')

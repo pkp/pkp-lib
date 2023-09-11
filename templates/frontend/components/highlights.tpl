@@ -17,15 +17,19 @@
             {foreach from=$highlights item=highlight}
                 <li class="swiper-slide {if $highlight->getImage()}-has-image{/if}">
                     {if $highlight->getImage()}
-                        <img class="swiper-slide-image" src="{$highlight->getImageUrl()}">
+                        <img
+                            class="swiper-slide-image"
+                            src="{$highlight->getImageUrl()}"
+                            alt="{$highlight->getImageAltText()|escape}"
+                        >
                     {/if}
                     <div class="swiper-slide-content">
                         <h3 class="swiper-slide-title">
                             {$highlight->getLocalizedTitle()|strip_unsafe_html}
                         </h3>
-                        <p class="swiper-slide-desc">
+                        <div class="swiper-slide-desc">
                             {$highlight->getLocalizedDescription()|strip_unsafe_html}
-                        </p>
+                        </div>
                         <a class="swiper-slide-button pkp_button" href="{$highlight->getUrl()|escape}">
                             {$highlight->getLocalizedUrlText()|strip_unsafe_html}
                         </a>

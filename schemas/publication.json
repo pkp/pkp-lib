@@ -78,6 +78,14 @@
 				"nullable"
 			]
 		},
+		"contextName": {
+			"type": "string",
+			"multilingual": true,
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"copyrightHolder": {
 			"type": "string",
 			"description": "The copyright statement for this publication.",

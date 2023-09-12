@@ -375,6 +375,14 @@
 			<element name="source" type="string" minOccurs="0"/>
 		</sequence>
 	</complexType>
+	<element name="contextName">
+		<complexType>
+			<sequence>
+				<element name="contextName" type="string" minOccurs="1" maxOccurs="unbounded" />
+			</sequence>
+			<attribute name="locale" type="string" />
+		</complexType>
+	</element>
 	<element name="keywords">
 		<complexType>
 			<sequence>

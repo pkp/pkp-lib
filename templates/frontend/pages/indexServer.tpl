@@ -21,6 +21,10 @@
 
 	{call_hook name="Templates::Index::server"}
 
+	{if $highlights->count()}
+		{include file="frontend/components/highlights.tpl" highlights=$highlights}
+	{/if}
+
 	{if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
 		<img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" alt="{$homepageImageAltText|escape}">
 	{/if}

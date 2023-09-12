@@ -60,6 +60,10 @@ class IndexHandler extends PKPIndexHandler
         $this->setupTemplate($request);
         $router = $request->getRouter();
         $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->assign([
+            'highlights' => $this->getHighlights($server),
+        ]);
+
         if ($server) {
             // OPS: sections
             $sections = Repo::section()->getCollector()->filterByContextIds([$server->getId()])->getMany();

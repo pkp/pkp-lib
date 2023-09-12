@@ -2,13 +2,14 @@
 # Mathias Vitalis <mathias.vitalis@u-bordeaux.fr>, 2023.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-09-06 18:58+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2023-09-13 06:06+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -425,7 +426,7 @@ msgid "submission.authorBiography"
 msgstr "Biographie de l'auteur"
 
 msgid "submission.authorBiographies"
-msgstr "Bibliographies de l'auteur"
+msgstr "Biographies de l'auteur"
 
 msgid "submission.authorWithAffiliation"
 msgstr "{$name}, {$affiliation}"
@@ -718,7 +719,7 @@ msgstr "Télécharger tous les fichiers"
 msgid "submission.file.notAllowedUploaderUserId"
 msgstr ""
 "Un enregistrement de l'expéditeur du fichier est sauvegardé lors de la "
-"création du fichier et ne pas pas être modifié."
+"création du fichier et ne peut pas être modifié."
 
 msgid "submission.firstPublished"
 msgstr "Première publication"

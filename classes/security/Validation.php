@@ -410,7 +410,7 @@ class Validation
     public static function loggedInAs(): ?int
     {
         if (!SessionManager::hasSession()) {
-            return false;
+            return null;
         }
         $sessionManager = SessionManager::getManager();
         $session = $sessionManager->getUserSession();
@@ -422,7 +422,6 @@ class Validation
     /**
      * Check if the user is logged in as a different user.
      *
-     * @return bool
      *
      * @deprecated 3.4
      */

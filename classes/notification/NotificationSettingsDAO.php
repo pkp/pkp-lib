@@ -18,7 +18,6 @@
 
 namespace PKP\notification;
 
-use APP\notification\Notification;
 use Illuminate\Support\Facades\DB;
 
 class NotificationSettingsDAO extends \PKP\db\DAO
@@ -28,7 +27,7 @@ class NotificationSettingsDAO extends \PKP\db\DAO
      *
      * @param int $notificationId
      *
-     * @return $params array
+     * @return array
      */
     public function getNotificationSettings($notificationId)
     {

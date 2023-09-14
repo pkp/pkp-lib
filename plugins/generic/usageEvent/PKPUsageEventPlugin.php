@@ -195,7 +195,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
      * @param string $hookName
      * @param array $args
      *
-     * @return false|?array
+     * @return false|null|array
      */
     protected function buildUsageEvent($hookName, $args)
     {

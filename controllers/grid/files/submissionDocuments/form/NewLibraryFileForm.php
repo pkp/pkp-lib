@@ -68,7 +68,7 @@ class NewLibraryFileForm extends LibraryFileForm
     /**
      * @copydoc Form::execute()
      *
-     * @return $fileId int The new library file id.
+     * @return int The new library file id.
      */
     public function execute(...$functionArgs)
     {

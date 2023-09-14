@@ -367,7 +367,7 @@ class CompositeFilter extends PersistableFilter
      *
      * @param string $settingName
      *
-     * @return $compositeSettingName string
+     * @return string Composite setting name
      */
     public function _getCompositeSettingName($settingName)
     {

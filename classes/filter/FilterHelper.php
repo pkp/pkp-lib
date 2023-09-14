@@ -210,7 +210,7 @@ class FilterHelper
      *
      * @param XMLNode $settingNode
      *
-     * @return $setting array a key-value pair.
+     * @return array A key-value pair.
      */
     public function getFilterSetting($settingNode)
     {

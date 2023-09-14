@@ -480,7 +480,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
     /**
      * Get a map of the alternate templates to be reassigned
      *
-     * @return [email_key => alternate_to]
+     * @return array [email_key => alternate_to]
      */
     protected function mapIncludedAlternateTemplates(): array
     {
@@ -494,7 +494,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
     /**
      * Get a map of the EDITOR_ASSIGN_<stage> templates
      *
-     * @return [email_key => alternate_to]
+     * @return array [email_key => alternate_to]
      */
     protected function mapEditorAssignTemplates(): Collection
     {

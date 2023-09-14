@@ -18,7 +18,7 @@
 namespace PKP\core;
 
 /**
- * @template TKey
+ * @template TKey of array-key
  * @template TValue
  */
 class ItemIterator
@@ -43,7 +43,7 @@ class ItemIterator
     /**
      * Return the next item with key.
      *
-     * @return array<Tkey,TValue>
+     * @return array{?TKey, ?TValue}
      */
     public function nextWithKey()
     {

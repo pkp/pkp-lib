@@ -19,11 +19,10 @@
 namespace PKP\core;
 
 use APP\core\Application;
-use Exception;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
-use \PKP\filter\FilterDAO;
 use PKP\facades\Locale;
+use PKP\filter\FilterDAO;
 
 /**
  * @template T of EntityDAO|DAO
@@ -88,7 +87,7 @@ class DataObject
 
     /**
      * Get the locale precedence order for object in the following order
-     * 
+     *
      * 1. Preferred Locale if provided
      * 2. User's current local
      * 3. Object's default locale if set
@@ -112,7 +111,7 @@ class DataObject
     /**
      * Get the default locale for object
      */
-    public function getDefaultLocale(): ?string 
+    public function getDefaultLocale(): ?string
     {
         return null;
     }
@@ -123,7 +122,6 @@ class DataObject
      * @param string $key
      * @param string $locale (optional)
      *
-     * @return mixed
      */
     public function &getData($key, $locale = null)
     {
@@ -496,7 +494,7 @@ class DataObject
      *
      * @param \PKP\metadata\MetadataSchema $metadataSchema
      *
-     * @return $metadataDescription MetadataDescription
+     * @return MetadataDescription
      */
     public function extractMetadata($metadataSchema)
     {

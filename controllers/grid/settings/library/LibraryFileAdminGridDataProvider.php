@@ -64,7 +64,7 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider
     /**
      * get the current context
      *
-     * @return $context Context
+     * @return Context
      */
     public function &getContext()
     {

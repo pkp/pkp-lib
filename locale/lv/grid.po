@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-14 20:01+0000\n"
+"PO-Revision-Date: 2023-09-15 19:19+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/lv/"
 ">\n"
@@ -23,385 +23,387 @@ msgid "grid.noAuditors"
 msgstr "Nav auditoru"
 
 msgid "grid.remotelyHostedItem"
-msgstr ""
+msgstr "Šī vienība tiek mitināta attālināti."
 
 msgid "grid.action.uninstall"
-msgstr ""
+msgstr "Atinstalēt"
 
 msgid "grid.action.manageAccess"
-msgstr ""
+msgstr "Pārvaldīt piekļuvi"
 
 msgid "grid.action.sort"
-msgstr ""
+msgstr "Atlasīt"
 
 msgid "grid.action.addItem"
-msgstr ""
+msgstr "Pievienot vienību"
 
 msgid "grid.action.addNote"
-msgstr ""
+msgstr "Pievienot piezīmi"
 
 msgid "grid.action.addQuery"
-msgstr ""
+msgstr "Pievienot diskusiju"
 
 msgid "grid.action.readQuery"
-msgstr ""
+msgstr "Lasīt diskusiju"
 
 msgid "grid.action.deleteQuery"
-msgstr ""
+msgstr "Dzēst diskusiju"
 
 msgid "grid.action.updateQuery"
-msgstr ""
+msgstr "Atjaunināt diskusiju"
 
 msgid "grid.action.addUser"
-msgstr ""
+msgstr "Pievienot lietotāju"
 
 msgid "grid.action.unassignReviewer"
-msgstr ""
+msgstr "Atcelt šo recenzentu"
 
 msgid "grid.action.approveCopyedit"
-msgstr ""
+msgstr "Apstiprināt šo rediģēto datni, lai to nosūtītu uz nākamo posmu"
 
 msgid "grid.action.reload"
-msgstr ""
+msgstr "Pārlādēt"
 
 msgid "grid.action.delete"
-msgstr ""
+msgstr "Dzēst"
 
 msgid "grid.action.deleteFile"
-msgstr ""
+msgstr "Dzēst datni"
 
 msgid "grid.action.deleteMedia"
-msgstr ""
+msgstr "Dzēst multivides datnes"
 
 msgid "grid.action.editMedia"
-msgstr ""
+msgstr "Rediģēt multivides datnes"
 
 msgid "grid.action.editSection"
-msgstr ""
+msgstr "Rediģēt sadaļu"
 
 msgid "grid.action.export"
-msgstr ""
+msgstr "Eksportēt"
 
 msgid "grid.action.deleteSection"
-msgstr ""
+msgstr "Dzēst sadaļu"
 
 msgid "grid.action.editorialHistory"
-msgstr ""
+msgstr "Rediģēšanas vēsture"
 
 msgid "grid.action.remove"
-msgstr ""
+msgstr "Noņemt"
 
 msgid "grid.action.edit"
-msgstr ""
+msgstr "Rediģēt"
 
 msgid "grid.action.approve"
-msgstr ""
+msgstr "Apstiprināt"
 
 msgid "grid.action.disapprove"
-msgstr ""
+msgstr "Neapstiprināt"
 
 msgid "grid.action.setApproval"
-msgstr ""
+msgstr "Iestatīt apstiprinājumu"
 
 msgid "grid.action.moreInformation"
-msgstr ""
+msgstr "Papildu informācija"
 
 msgid "grid.action.restoreDefaults"
-msgstr ""
+msgstr "Atjaunot noklusējuma iestatījumus"
 
 msgid "grid.action.restoreDefaults.confirm"
-msgstr ""
+msgstr "Vai esat pārliecināts, ka vēlaties atjaunot noklusējuma iestatījumus?"
 
 msgid "grid.action.addAuthor"
-msgstr ""
+msgstr "Pievienot autoru"
 
 msgid "grid.action.editAuthor"
-msgstr ""
+msgstr "Rediģēt autoru"
 
 msgid "grid.action.deleteAuthor"
-msgstr ""
+msgstr "Dzēst autoru"
 
 msgid "grid.action.addAuditor"
-msgstr ""
+msgstr "Pievienot auditoru"
 
 msgid "grid.action.upgrade"
-msgstr ""
+msgstr "Atjaunināt"
 
 msgid "grid.action.order"
-msgstr ""
+msgstr "Kārtība"
 
 msgid "grid.action.saveOrdering"
-msgstr ""
+msgstr "Saglabāt kārtību"
 
 msgid "grid.action.cancelOrdering"
-msgstr ""
+msgstr "Atcelt kārtošanu"
 
 msgid "grid.action.extendAll"
-msgstr ""
+msgstr "Izvērst visu"
 
 msgid "grid.action.collapse"
-msgstr ""
+msgstr "Sakļaut"
 
 msgid "grid.action.collapseAll"
-msgstr ""
+msgstr "Sakļaut visu"
 
 msgid "grid.action.wizard"
-msgstr ""
+msgstr "Iestatījumu vednis"
 
 msgid "grid.action.moveItem"
-msgstr ""
+msgstr "Pārvietot vienību"
 
 msgid "grid.action.downloadAll"
-msgstr ""
+msgstr "Lejupielādēt visus failus arhīva formātā"
 
 msgid "grid.action.readReview"
-msgstr ""
+msgstr "Lasīt šo recenziju"
 
 msgid "grid.action.email"
-msgstr ""
+msgstr "Sūtīt e-pastu"
 
 msgid "grid.action.addReviewer"
-msgstr ""
+msgstr "Pievienot recenzentu"
 
 msgid "grid.action.addFile"
-msgstr ""
+msgstr "Pievienot failu"
 
 msgid "grid.action.editFile"
-msgstr ""
+msgstr "Rediģēt failu"
 
 msgid "grid.action.selectFiles"
-msgstr ""
+msgstr "Atlasīt pārvaldāmos failus"
 
 msgid "grid.action.requestRevisions"
-msgstr ""
+msgstr "Pieprasīt šī iesniegtā materiāla laboto versiju"
 
 msgid "grid.action.accept"
-msgstr ""
+msgstr "Pieņemt šo materiālu"
 
 msgid "grid.action.decline"
-msgstr ""
+msgstr "Noraidīt šo materiālu"
 
 msgid "grid.action.internalReview"
-msgstr ""
+msgstr "Nosūtīt šo materiālu iekšējai recenzēšanai"
 
 msgid "grid.action.externalReview"
-msgstr ""
+msgstr "Nosūtīt šo materiālu ārējai recenzēšanai"
 
 msgid "grid.action.sendToProduction"
-msgstr ""
+msgstr "Nosūtīt šo materiālu publicēšanai"
 
 msgid "grid.action.settings"
-msgstr ""
+msgstr "Iestatījumi"
 
 msgid "grid.action.importexport"
-msgstr ""
+msgstr "Satura vai vietnes datu importēšana vai eksportēšana"
 
 msgid "grid.action.orderItems"
-msgstr ""
+msgstr "Ieslēgt kārtošanas režīmu"
 
 msgid "grid.action.resetAll"
-msgstr ""
+msgstr "Visu vienību noklusējuma vērtību atiestatīšana"
 
 msgid "grid.action.addPreparedEmail"
-msgstr ""
+msgstr "Pievienot jaunu e-pasta veidni"
 
 msgid "grid.action.editPreparedEmail"
-msgstr ""
+msgstr "Rediģēt šo e-pasta veidni"
 
 msgid "grid.action.disableEmail"
-msgstr ""
+msgstr "Deaktivizēt šo e-pasta veidni"
 
 msgid "grid.action.resetEmail"
-msgstr ""
+msgstr "Atiestatīt šo e-pasta veidni uz noklusējuma iestatījumu"
 
 msgid "grid.action.expandAll"
-msgstr ""
+msgstr "Izvērst visu"
 
 msgid "grid.action.requestAccount"
-msgstr ""
+msgstr "Pievienot dalībnieku"
 
 msgid "grid.action.expand"
-msgstr ""
+msgstr "Izvērst"
 
 msgid "grid.action.notify"
-msgstr ""
+msgstr "Informēt šo lietotāju"
 
 msgid "grid.action.addUserGroup"
-msgstr ""
+msgstr "Pievienot jaunu lietotāju grupu"
 
 msgid "grid.action.editUserGroup"
-msgstr ""
+msgstr "Rediģēt šo lietotāju grupu"
 
 msgid "grid.action.removeUserGroup"
-msgstr ""
+msgstr "Dzēst šo lietotāju grupu"
 
 msgid "grid.action.disable"
-msgstr ""
+msgstr "Deaktivizēt"
 
 msgid "grid.action.details"
-msgstr ""
+msgstr "Skatīt šo vienību"
 
 msgid "grid.action.enrolExisting"
-msgstr ""
+msgstr "Reģistrēt esošo lietotāju kā recenzentu"
 
 msgid "grid.action.selectCreate"
-msgstr ""
+msgstr "Izveidot jaunu recenzentu"
 
 msgid "grid.action.search"
-msgstr ""
+msgstr "Meklēšana"
 
 msgid "grid.action.advancedSearch"
-msgstr ""
+msgstr "Izvērstā meklēšana"
 
 msgid "grid.action.viewLibrary"
-msgstr ""
+msgstr "Skatīt dokumentu bibliotēku"
 
 msgid "grid.action.viewMetadata"
-msgstr ""
+msgstr "Skatīt šī iesniegtā materiāla metadatus"
 
 msgid "grid.action.sendReminder"
-msgstr ""
+msgstr "Nosūtīt šim lietotājam uzdevuma atgādinājumu"
 
 msgid "grid.action.newRound"
-msgstr ""
+msgstr "Izveidot jaunu kārtu"
 
 msgid "grid.action.viewReviewGuidelines"
-msgstr ""
+msgstr "Skatīt recenzēšanas vadlīnijas"
 
 msgid "grid.action.viewCompetingInterestGuidelines"
-msgstr ""
+msgstr "Skatīt interešu konflikta vadlīniju politiku"
 
 msgid "grid.action.thankReviewer"
-msgstr ""
+msgstr "Nosūtīt pateicības ziņojumu šim recenzentam"
 
 msgid "grid.action.uploadFile"
-msgstr ""
+msgstr "Augšupielādēt failu"
 
 msgid "grid.action.addAnnouncementType"
-msgstr ""
+msgstr "Pievienot paziņojuma tipu"
 
 msgid "grid.action.addAnnouncement"
-msgstr ""
+msgstr "Pievienot paziņojumu"
 
 msgid "grid.action.addInstitution"
-msgstr ""
+msgstr "Pievienot iestādi"
 
 msgid "grid.action.mergeUser"
-msgstr ""
+msgstr "Apvienot lietotāju"
 
 msgid "grid.action.unassignUser"
-msgstr ""
+msgstr "Atcelt lietotāju"
 
 msgid "grid.action.history"
-msgstr ""
+msgstr "Skatīt vēsturi"
 
 msgid "grid.action.unconsiderReview"
-msgstr ""
+msgstr "Šī recenzēšana ir pabeigta, bet to var neņemt vērā"
 
 msgid "grid.action.enable"
-msgstr ""
+msgstr "Aktivizēt"
 
 msgid "grid.action.bookInfo"
-msgstr ""
+msgstr "Materiāla iesniegšanas informācija"
 
 msgid "grid.action.logInAs"
-msgstr ""
+msgstr "Pieslēgties kā"
 
 msgid "grid.action.exportAllUsers"
-msgstr ""
+msgstr "Eksportēt visus lietotājus"
 
 msgid "grid.users.confirmExportAllUsers"
-msgstr ""
+msgstr "Vai tiešām vēlaties eksportēt visus lietotājus?"
 
 msgid "grid.action.activate"
-msgstr ""
+msgstr "Aktivizēt"
 
 msgid "grid.action.deactivate"
-msgstr ""
+msgstr "Deaktivizēt"
 
 msgid "grid.action.copy"
-msgstr ""
+msgstr "Kopēt"
 
 msgid "grid.action.preview"
-msgstr ""
+msgstr "Priekšskatīt"
 
 msgid "grid.action.install"
-msgstr ""
+msgstr "Uzstādīt"
 
 msgid "grid.action.moreItems"
-msgstr ""
+msgstr "Ielādēt vairāk"
 
 msgid "grid.action.users"
-msgstr ""
+msgstr "Skatīt/izvēlēties lietotājus"
 
 msgid "grid.task.status.completed"
-msgstr ""
+msgstr "Šis uzdevums ir izpildīts"
 
 msgid "grid.task.status.new"
-msgstr ""
+msgstr "Atzīmēts pēc apsvēršanas"
 
 msgid "grid.task.status.uploaded"
-msgstr ""
+msgstr "Slejas virsraksts norāda, kas augšupielādējis šo failu"
 
 msgid "grid.task.status.unfinished"
-msgstr ""
+msgstr "Uzdevums nav pabeigts"
 
 msgid "grid.task.status.reviewReady"
 msgstr ""
+"Šī recenzija ir gatava. Lai to izlasītu, noklikšķiniet uz piezīmes ikonas "
+"kreisajā pusē."
 
 msgid "grid.columns.actions"
-msgstr ""
+msgstr "Darbības"
 
 msgid "grid.columns.institution"
-msgstr ""
+msgstr "Iestāde"
 
 msgid "grid.columns.url"
-msgstr ""
+msgstr "URL"
 
 msgid "grid.columns.auditor"
-msgstr ""
+msgstr "Auditors"
 
 msgid "grid.columns.locale"
-msgstr ""
+msgstr "Lokalizācija"
 
 msgid "grid.columns.locale.code"
-msgstr ""
+msgstr "Kods"
 
 msgid "grid.sponsor.title"
-msgstr ""
+msgstr "Sponsorējošās organizācijas"
 
 msgid "grid.action.addSponsor"
-msgstr ""
+msgstr "Pievienot sponsoru"
 
 msgid "grid.action.deleteSponsor"
-msgstr ""
+msgstr "Dzēst sponsoru"
 
 msgid "grid.action.editSponsor"
-msgstr ""
+msgstr "Rediģēt sponsoru"
 
 msgid "grid.action.addSeries"
-msgstr ""
+msgstr "Pievienot sēriju"
 
 msgid "grid.action.editSeries"
-msgstr ""
+msgstr "Rediģēt sēriju"
 
 msgid "grid.action.deleteSeries"
-msgstr ""
+msgstr "Dzēst sēriju"
 
 msgid "grid.action.addCategory"
-msgstr ""
+msgstr "Pievienot kategoriju"
 
 msgid "grid.action.editCategory"
-msgstr ""
+msgstr "Rediģēt kategoriju"
 
 msgid "grid.action.deleteCategory"
-msgstr ""
+msgstr "Dzēst kategoriju"
 
 msgid "grid.contributor.title"
-msgstr ""
+msgstr "Atbalsta avoti"
 
 msgid "grid.action.addContributor"
-msgstr ""
+msgstr "Pievienot ieguldītāju"
 
 msgid "grid.action.deleteContributor"
 msgstr ""
@@ -686,19 +688,19 @@ msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr ""
 
 msgid "grid.action.view"
-msgstr ""
+msgstr "Skatīt"
 
 msgid "author.users.contributor.name"
-msgstr ""
+msgstr "Vārds"
 
 msgid "author.users.contributor.email"
-msgstr ""
+msgstr "E-pasts"
 
 msgid "author.users.contributor.role"
-msgstr ""
+msgstr "Loma"
 
 msgid "author.users.contributor.includeInBrowse"
-msgstr ""
+msgstr "Pārlūkošanas sarakstos"
 
 msgid "grid.action.editContributor"
-msgstr ""
+msgstr "Rediģēt autoru"

@@ -170,7 +170,7 @@
 										class="pkpStats__itemLink"
 										target="_blank"
 									>
-										<span class="pkpStats__itemTitle" v-html="localize(row.name)"></span>
+										<span class="pkpStats__itemTitle">{{ localize(row.name) }}</span>
 									</a>
 								</template>
 							</table-cell>

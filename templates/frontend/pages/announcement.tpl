@@ -13,7 +13,7 @@
 
 <div class="page page_announcement">
 
-	{include file="frontend/components/breadcrumbs_announcement.tpl" currentTitle=$announcement->getLocalizedTitle()}
+	{include file="frontend/components/breadcrumbs_announcement.tpl" currentTitle=$announcement->getLocalizedTitle()|escape}
 
 	{* Display book details *}
 	{include file="frontend/objects/announcement_full.tpl"}

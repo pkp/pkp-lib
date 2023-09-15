@@ -67,7 +67,7 @@ class PKPAnnouncementForm extends FormComponent {
 		foreach ($announcementTypes as $announcementType) {
 			$announcementOptions[] = [
 				'value' => (int) $announcementType->getId(),
-				'label' => $announcementType->getLocalizedTypeName(),
+				'label' => htmlspecialchars($announcementType->getLocalizedTypeName()),
 			];
 		}
 		if (!empty($announcementOptions)) $this->addField(new FieldOptions('typeId', [

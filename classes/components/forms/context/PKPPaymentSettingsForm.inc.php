@@ -41,7 +41,7 @@ class PKPPaymentSettingsForm extends FormComponent {
 		foreach ($isoCodes->getCurrencies() as $currency) {
 			$currencies[] = [
 				'value' => $currency->getLetterCode(),
-				'label' => $currency->getLocalName(),
+				'label' => htmlspecialchars($currency->getLocalName()),
 			];
 		}
 
@@ -51,7 +51,7 @@ class PKPPaymentSettingsForm extends FormComponent {
 		foreach ($paymentPlugins as $plugin) {
 			$pluginList[] = [
 				'value' => $plugin->getName(),
-				'label' => $plugin->getDisplayName(),
+				'label' => htmlspecialchars($plugin->getDisplayName()),
 			];
 		}
 

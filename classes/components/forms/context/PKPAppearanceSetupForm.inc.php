@@ -53,7 +53,7 @@ class PKPAppearanceSetupForm extends FormComponent {
 			if (isset($plugins[$plugin])) {
 				$enabledOptions[] = [
 					'value' => $plugin,
-					'label' => $plugins[$plugin]->getDisplayName(),
+					'label' => htmlspecialchars($plugins[$plugin]->getDisplayName()),
 				];
 			}
 		}
@@ -62,7 +62,7 @@ class PKPAppearanceSetupForm extends FormComponent {
 			if (!in_array($pluginName, $currentBlocks)) {
 				$disabledOptions[] = [
 					'value' => $pluginName,
-					'label' => $plugin->getDisplayName(),
+					'label' => htmlspecialchars($plugin->getDisplayName()),
 				];
 			}
 		}

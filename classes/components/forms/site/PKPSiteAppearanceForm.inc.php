@@ -45,7 +45,7 @@ class PKPSiteAppearanceForm extends FormComponent {
 		foreach ($plugins as $pluginName => $plugin) {
 			$sidebarOptions[] = [
 				'value' => $pluginName,
-				'label' => $plugin->getDisplayName(),
+				'label' => htmlspecialchars($plugin->getDisplayName()),
 			];
 		}
 

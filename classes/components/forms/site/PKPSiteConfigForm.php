@@ -55,7 +55,7 @@ class PKPSiteConfigForm extends FormComponent
         foreach ($contextsIterator as $context) {
             $options[] = [
                 'value' => $context->getId(),
-                'label' => $context->getLocalizedData('name'),
+                'label' => htmlspecialchars($context->getLocalizedData('name')),
             ];
         }
         if (count($options) > 1) {

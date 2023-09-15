@@ -41,7 +41,7 @@ class PKPSiteBulkEmailsForm extends FormComponent {
 		foreach ($contexts as $context) {
 			$options[] = [
 				'value' => $context->id,
-				'label' => $context->name,
+				'label' => htmlspecialchars($context->name),
 			];
 		}
 

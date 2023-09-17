@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use APP\server\Server;
 use APP\server\ServerDAO;
 use APP\submission\Submission;
+use Exception;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
@@ -31,6 +32,8 @@ use PKP\submissionFile\SubmissionFile;
 
 class PreprintSearchIndex extends SubmissionSearchIndex
 {
+    private const MINIMUM_DATA_LENGTH = 80 * 1024;
+
     /**
      * @copydoc SubmissionSearchIndex::submissionMetadataChanged()
      * @hook PreprintSearchIndex::preprintMetadataChanged [[$submission]]
@@ -104,26 +107,28 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     public function submissionFileChanged($preprintId, $type, $submissionFile)
     {
         // Check whether a search plug-in jumps in.
-        $hookResult = Hook::call(
-            'PreprintSearchIndex::submissionFileChanged',
-            [$preprintId, $type, $submissionFile->getId()]
-        );
+        if (Hook::ABORT === Hook::call('PreprintSearchIndex::submissionFileChanged', [$preprintId, $type, $submissionFile->getId()])) {
+            return;
+        }
 
-        // If no search plug-in is activated then fall back to the
-        // default database search implementation.
-        if ($hookResult === false || is_null($hookResult)) {
-            $parser = SearchFileParser::fromFile($submissionFile);
+        // If no search plug-in is activated then fall back to the default database search implementation.
+        $parser = SearchFileParser::fromFile($submissionFile);
+        if (!$parser?->open()) {
+            error_log(new Exception("Unable to index the file \"{$parser->filePath}\""));
+            return;
+        }
+        try {
+            $searchDao = DAORegistry::getDAO('PreprintSearchDAO'); /** @var PreprintSearchDAO $searchDao */
+            $objectId = $searchDao->insertObject($preprintId, $type, $submissionFile->getId());
 
-            if (isset($parser) && $parser->open()) {
-                /** @var PreprintSearchDAO */
-                $searchDao = DAORegistry::getDAO('PreprintSearchDAO');
-                $objectId = $searchDao->insertObject($preprintId, $type, $submissionFile->getId());
-
-                while (($text = $parser->read()) !== false) {
-                    $this->_indexObjectKeywords($objectId, $text);
+            do {
+                for ($buffer = ''; ($chunk = $parser->read()) !== false && strlen($buffer .= $chunk) < static::MINIMUM_DATA_LENGTH;);
+                if (strlen($buffer)) {
+                    $this->_indexObjectKeywords($objectId, $buffer);
                 }
-                $parser->close();
-            }
+            } while ($chunk !== false);
+        } finally {
+            $parser->close();
         }
     }
 

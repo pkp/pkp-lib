@@ -29,6 +29,7 @@ use PKP\search\SearchFileParser;
 use PKP\search\SubmissionSearch;
 use PKP\search\SubmissionSearchIndex;
 use PKP\submissionFile\SubmissionFile;
+use Throwable;
 
 class PreprintSearchIndex extends SubmissionSearchIndex
 {
@@ -113,22 +114,26 @@ class PreprintSearchIndex extends SubmissionSearchIndex
 
         // If no search plug-in is activated then fall back to the default database search implementation.
         $parser = SearchFileParser::fromFile($submissionFile);
-        if (!$parser?->open()) {
-            error_log(new Exception("Unable to index the file \"{$parser->filePath}\""));
+        if (!$parser) {
+            error_log("Skipped indexation: No suitable parser for the submission file \"{$submissionFile->getData('path')}\"");
             return;
         }
         try {
-            $searchDao = DAORegistry::getDAO('PreprintSearchDAO'); /** @var PreprintSearchDAO $searchDao */
-            $objectId = $searchDao->insertObject($preprintId, $type, $submissionFile->getId());
-
-            do {
-                for ($buffer = ''; ($chunk = $parser->read()) !== false && strlen($buffer .= $chunk) < static::MINIMUM_DATA_LENGTH;);
-                if (strlen($buffer)) {
-                    $this->_indexObjectKeywords($objectId, $buffer);
-                }
-            } while ($chunk !== false);
-        } finally {
-            $parser->close();
+            $parser->open();
+            try {
+                $searchDao = DAORegistry::getDAO('PreprintSearchDAO'); /** @var PreprintSearchDAO $searchDao */
+                $objectId = $searchDao->insertObject($preprintId, $type, $submissionFile->getId());
+                do {
+                    for ($buffer = ''; ($chunk = $parser->read()) !== false && strlen($buffer .= $chunk) < static::MINIMUM_DATA_LENGTH;);
+                    if (strlen($buffer)) {
+                        $this->_indexObjectKeywords($objectId, $buffer);
+                    }
+                } while ($chunk !== false);
+            } finally {
+                $parser->close();
+            }
+        } catch (Throwable $e) {
+            error_log(new Exception("Indexation failed for the file: \"{$submissionFile->getData('path')}\"", 0, $e));
         }
     }
 

@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-15 19:19+0000\n"
+"PO-Revision-Date: 2023-09-18 17:37+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/lv/>\n"
@@ -42,3 +42,369 @@ msgstr "Iesniegt kā"
 
 msgid "submission.submit.availableUserGroupsDescription"
 msgstr "Izvēlieties lomu, kas vislabāk raksturo jūsu ieguldījumu šajā darbā."
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"Lūdzu, ievadiet derīgu Crossref reģistrēto e-pastu. Savu e-pasta adresi "
+"varat reģistrēt bez maksas Crossref tīmekļa vietnē."
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"Pārliecinieties, ka esat iestatījis derīgu nosaukuma tipu. Atbalstītās "
+"vērtības ir \"personal\", \"corporate\" un \"conference\"."
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Lūdzu, ievadiet derīgu WorldCat API atslēgu, ja jums tāda ir."
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Lūdzu, izvēlieties vienu no dotajiem citēšanas moduļiem."
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Lūdzu, ievadiet derīgu izdevumu."
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Iekšējā kļūda. Iestatījumam \"izvēles filtrs\" ir ievadīta nederīga vērtība. "
+"Lūdzu, ziņojiet par to kā par kļūdu."
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Lūdzu, ievadiet derīgu konferences datumu (formāts: GGGG-MM-DD)."
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Lūdzu, ievadiet derīgu publikācijas nosaukumu."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Konferences norises vieta"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Lūdzu, ievadiet derīgu piekļuves datumu (formāts: GGGG-MM-DD)."
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Lūdzu, ievadiet derīgu konferences norises vietu."
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Lūdzu, ievadiet derīgu pirmo lappusi (tai jābūt skaitliskai vērtībai)."
+
+msgid "metadata.property.validationMessage.size"
+msgstr ""
+"Lūdzu, ievadiet derīgu kopējo lappušu skaitu (jābūt skaitliskai vērtībai)."
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Lūdzu, ievadiet derīgu elektroniska izdevuma ISSN."
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Lūdzu, ievadiet derīgu CODEN."
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Lūdzu, ievadiet derīgu komentāru."
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"Lūdzu, pārliecinieties, ka vienmēr iestatāt publikācijas tipu. Pašlaik "
+"atbalstītās vērtības ir grāmata (grāmatām vai grāmatu nodaļām) un žurnāls ("
+"žurnālu rakstiem). Pretējā gadījumā citātu izvades formatējums nedarbosies "
+"pareizi."
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Lūdzu, ievadiet derīgu daļas nosaukumu."
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
+"Izvēlieties redaktora lomu, ja vēlaties šo iesniegto materiālu rediģēt un "
+"publicēt pats."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Materiāla iesniegšanas prasības"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "Visiem iesniegtajiem materiāliem jāatbilst šādām prasībām."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "Jā, mans iesniegtais materiāls atbilst visām šīm prasībām."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Materiāla iesniegšana pabeigta"
+
+msgid "submission.submit.genre.label"
+msgstr "Kāda veida datne tā ir?"
+
+msgid "submission.submit.genre.description"
+msgstr "Izvēlieties variantu, kas vislabāk raksturo šo datni."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Vai tiešām vēlaties noņemt šo datni?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Tagad varat:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Recenzēt šo iesniegto materiālu"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Izveidot jaunu materiāla iesniegšanu"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Atgriezties uz vadības paneli"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Paplašināti metadati"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "Crossref reģistrētais e-pasts"
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API atslēga"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"Lūdzu, ievadiet savu ISBNdb API atslēgu. Ja jums vēl nav atslēgas, varat to "
+"bez maksas iegūt no ISBNdb projekta."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "PubMed reģistrētais e-pasts"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Lūdzu, ievadiet derīgu PubMed reģistrēto e-pastu, ja jums tāds ir."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API atslēga"
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Citēšanas modulis"
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Nelietot pēc noklusējuma (joprojām būs pieejams redaktoram)"
+
+msgid "metadata.property.displayName.author"
+msgstr "Autori"
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"Lai sasniegtu labākus rezultātus, autori jāievada šādā formātā: Coleman Jr, "
+"D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Redaktori"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"Lai sasniegtu labākus rezultātus, redaktori jāievada šādā formātā: Coleman "
+"Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Raksta/materiāla nosaukums"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Lūdzu, ievadiet derīgu raksta/materiāla nosaukumu."
+
+msgid "metadata.property.displayName.source"
+msgstr "Publikācijas nosaukums"
+
+msgid "metadata.property.displayName.date"
+msgstr "Publicēšanas datums"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Lūdzu, ievadiet derīgu publicēšanas datumu (formāts: GGGG-MM-DD)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Piekļuves datums"
+
+msgid "metadata.property.displayName.volume"
+msgstr "Sējums"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Lūdzu, ievadiet derīgu laidienu."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Laidiens"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Lūdzu, ievadiet derīgu sējumu."
+
+msgid "metadata.property.displayName.season"
+msgstr "Sezona"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Lūdzu, ievadiet derīgu sezonas identifikatoru."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Nodaļas nosaukums"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Lūdzu, ievadiet derīgu nodaļas nosaukumu."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Izdevums"
+
+msgid "metadata.property.displayName.series"
+msgstr "Sērija"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Lūdzu, ievadiet derīgu sēriju."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Papildinājums"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Lūdzu, ievadiet derīgu papildinājumu."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Konferences datums"
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Konferences nosaukums"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Lūdzu, ievadiet derīgu konferences nosaukumu."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Konferences sponsors"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Lūdzu, ievadiet derīgu konferences sponsoru."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Iestāde"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Lūdzu, ievadiet derīgu iestādi."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Pirmā lappuse"
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Pēdējā lappuse"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Lūdzu, ievadiet derīgu pēdējo lappusi (tai jābūt skaitliskai vērtībai)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Lappušu skaits"
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Izdevēja atrašanās vieta"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Lūdzu, ievadiet derīgu izdevēja atrašanās vietu."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Izdevēja nosaukums"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Lūdzu, ievadiet derīgu izdevēja nosaukumu."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Lūdzu, ievadiet derīgu ISBN (9 vai 13 cipari)."
+
+msgid "metadata.property.displayName.issn"
+msgstr "Drukāta izdevuma ISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Lūdzu, ievadiet derīgu drukāta izdevuma ISSN."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "Elektroniska izdevuma ISSN"
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Lūdzu, ievadiet derīgu DOI."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Pielāgotais publikācijas ID"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Lūdzu, ievadiet derīgu pielāgoto publikācijas ID."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Lūdzu, ievadiet derīgu SICI."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+#, fuzzy
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Lūdzu, ievadiet derīgu PMID."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Saite uz publikāciju"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Lūdzu, ievadiet derīgu alternatīvu saiti uz publikāciju."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Komentārs"
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Anotācija"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Lūdzu, ievadiet derīgu anotāciju."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Publikācijas tips"
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Virsraksta tips"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"Pārliecinieties, ka esat iestatījis derīgu nosaukuma tipu. Atbalstītās "
+"vērtības ir \"abbreviated\", \"translated\", \"alternative\" un \"uniform\"."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Virsraksta daļa, kas tiks ignorēta šķirošanas laikā"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"Lūdzu, ievadiet tikai virsraksta sākuma rakstzīmes, kuras jāignorē, šķirojot "
+"virsrakstu."
+
+msgid "metadata.property.displayName.title"
+msgstr "Virsraksts"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Lūdzu, ievadiet derīgu virsrakstu."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Apakšvirsraksts"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Lūdzu, ievadiet derīgu apakšvirsrakstu."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Daļas numurs"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Lūdzu, ievadiet derīgu daļas numuru."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Daļas nosaukums"
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Nosaukuma tips"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Anotācija"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Nepiešķirti"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Man piešķirtie"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Arhivēti iesniegtie materiāli"
+
+msgid "submission.authors"
+msgstr "Autori"

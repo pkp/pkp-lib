@@ -806,7 +806,7 @@ abstract class PKPSubmissionHandler extends Handler
      */
     protected function getConfirmSubmitMessage(Submission $submission, Context $context): string
     {
-        return __('submission.wizard.confirmSubmit', ['context' => $context->getLocalizedName()]);
+        return __('submission.wizard.confirmSubmit', ['context' => htmlspecialchars($context->getLocalizedName())]);
     }
 
     /**

@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-15 19:19+0000\n"
+"PO-Revision-Date: 2023-09-19 19:17+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/lv/"
 ">\n"
@@ -406,82 +406,84 @@ msgid "grid.action.addContributor"
 msgstr "Pievienot ieguldītāju"
 
 msgid "grid.action.deleteContributor"
-msgstr ""
+msgstr "Dzēst ieguldītāju"
 
 msgid "grid.action.deleteContributor.confirmationMessage"
 msgstr ""
+"Vai esat pārliecināts, ka vēlaties noņemt {$name} kā līdzautoru? Šo darbību "
+"nevar atsaukt."
 
 msgid "grid.action.newVersion"
-msgstr ""
+msgstr "Izveidot jaunu versiju"
 
 msgid "grid.reviewForm.title"
-msgstr ""
+msgstr "Recenzēšanas veidlapas"
 
 msgid "grid.reviewFormElement.responseItems"
-msgstr ""
+msgstr "Atbildes iespējas"
 
 msgid "grid.noFiles"
-msgstr ""
+msgstr "Nav datņu"
 
 msgid "grid.libraryFiles.column.files"
-msgstr ""
+msgstr "Datnes"
 
 msgid "grid.libraryFiles.submission.title"
-msgstr ""
+msgstr "Iesniegto materiālu bibliotēka"
 
 msgid "grid.libraryFiles.editorial.title"
-msgstr ""
+msgstr "Redakcijas bibliotēka"
 
 msgid "grid.libraryFiles.review.title"
-msgstr ""
+msgstr "Recenzēšanas bibliotēka"
 
 msgid "grid.libraryFiles.production.title"
-msgstr ""
+msgstr "Izstrādes bibliotēka"
 
 msgid "grid.libraryFiles.productionTemplate.title"
-msgstr ""
+msgstr "Izstrādes veidņu bibliotēka"
 
 msgid "grid.submissionChecklist.title"
-msgstr ""
+msgstr "Materiāla iesniegšanas kontrolsaraksts"
 
 msgid "grid.submissionChecklist.column.checklistItem"
-msgstr ""
+msgstr "Kontrolsaraksta vienība"
 
 msgid "author.users.contributor.principalContact"
-msgstr ""
+msgstr "Galvenā kontaktpersona"
 
 msgid "author.users.contributor.setPrincipalContact"
-msgstr ""
+msgstr "Iestatīt galveno kontaktpersonu"
 
 msgid "contributor.listPanel.preview"
-msgstr ""
+msgstr "Priekšskatījums"
 
 msgid "contributor.listPanel.preview.description"
-msgstr ""
+msgstr "Šīs publikācijas autori tiks norādīti šādos formātos."
 
 msgid "contributor.listPanel.preview.format"
-msgstr ""
+msgstr "Formāts"
 
 msgid "contributor.listPanel.preview.display"
-msgstr ""
+msgstr "Parādīt"
 
 msgid "contributor.listPanel.preview.abbreviated"
-msgstr ""
+msgstr "Saīsināts"
 
 msgid "contributor.listPanel.preview.publicationLists"
-msgstr ""
+msgstr "Publikāciju saraksti"
 
 msgid "contributor.listPanel.preview.full"
-msgstr ""
+msgstr "Pilns"
 
 msgid "grid.roles.currentRoles"
-msgstr ""
+msgstr "Pašreizējās lomas"
 
 msgid "grid.roles.add"
-msgstr ""
+msgstr "Izveidot jaunu lomu"
 
 msgid "grid.roles.stageAssignment"
-msgstr ""
+msgstr "Etapa piešķiršana"
 
 msgid "grid.user.currentUsers"
 msgstr ""

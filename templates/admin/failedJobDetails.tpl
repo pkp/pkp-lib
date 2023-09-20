@@ -28,7 +28,7 @@
 					:tabindex="!rowIndex && !columnIndex ? 0 : -1"
 				>
 					<template #default v-if="column.name === 'value' && isValidJson(row.value)">
-						<span v-if="column.name === 'value' && isValidJson(row.value)">
+						<span>
 							<pre>{{ row.value }}</pre>
 						</span>
 					</template>

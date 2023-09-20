@@ -166,44 +166,45 @@ class PreprintSearchIndex extends SubmissionSearchIndex
             [$preprint]
         );
 
-        // If no search plug-in is activated then fall back to the
-        // default database search implementation.
-        if ($hookResult === false || is_null($hookResult)) {
-            $submissionFiles = Repo::submissionFile()
+        // If a search plug-in is activated then skip the default database search implementation.
+        if ($hookResult !== Hook::CONTINUE && !is_null($hookResult)) {
+            return;
+        }
+
+        $submissionFiles = Repo::submissionFile()
+            ->getCollector()
+            ->filterBySubmissionIds([$preprint->getId()])
+            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_PROOF])
+            ->getMany();
+
+        $exceptions = [];
+        foreach ($submissionFiles as $submissionFile) {
+            try {
+                $this->submissionFileChanged($preprint->getId(), SubmissionSearch::SUBMISSION_SEARCH_GALLEY_FILE, $submissionFile);
+            } catch (Throwable $e) {
+                $exceptions[] = $e;
+            }
+            $dependentFiles = Repo::submissionFile()
                 ->getCollector()
-                ->filterBySubmissionIds([$preprint->getId()])
-                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_PROOF])
+                ->filterByAssoc(
+                    Application::ASSOC_TYPE_SUBMISSION_FILE,
+                    [$submissionFile->getId()]
+                )->filterBySubmissionIds([$preprint->getId()])
+                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
+                ->includeDependentFiles()
                 ->getMany();
 
-            $exceptions = [];
-            foreach ($submissionFiles as $submissionFile) {
+            foreach ($dependentFiles as $dependentFile) {
                 try {
-                    $this->submissionFileChanged($preprint->getId(), SubmissionSearch::SUBMISSION_SEARCH_GALLEY_FILE, $submissionFile);
+                    $this->submissionFileChanged($preprint->getId(), SubmissionSearch::SUBMISSION_SEARCH_SUPPLEMENTARY_FILE, $dependentFile);
                 } catch (Throwable $e) {
                     $exceptions[] = $e;
                 }
-                $dependentFiles = Repo::submissionFile()
-                    ->getCollector()
-                    ->filterByAssoc(
-                        Application::ASSOC_TYPE_SUBMISSION_FILE,
-                        [$submissionFile->getId()]
-                    )->filterBySubmissionIds([$preprint->getId()])
-                    ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
-                    ->includeDependentFiles()
-                    ->getMany();
-
-                foreach ($dependentFiles as $dependentFile) {
-                    try {
-                        $this->submissionFileChanged($preprint->getId(), SubmissionSearch::SUBMISSION_SEARCH_SUPPLEMENTARY_FILE, $dependentFile);
-                    } catch (Throwable $e) {
-                        $exceptions[] = $e;
-                    }
-                }
             }
-            if (count($exceptions)) {
-                $errorMessage = implode("\n\n", $exceptions);
-                throw new Exception("The following errors happened while indexing the submission ID {$preprint->getId()}:\n{$errorMessage}");
-            }
+        }
+        if (count($exceptions)) {
+            $errorMessage = implode("\n\n", $exceptions);
+            throw new Exception("The following errors happened while indexing the submission ID {$preprint->getId()}:\n{$errorMessage}");
         }
     }
 
@@ -226,12 +227,13 @@ class PreprintSearchIndex extends SubmissionSearchIndex
             [$preprintId, $type, $assocId]
         );
 
-        // If no search plug-in is activated then fall back to the
-        // default database search implementation.
-        if ($hookResult === false || is_null($hookResult)) {
-            $searchDao = DAORegistry::getDAO('PreprintSearchDAO'); /** @var PreprintSearchDAO $searchDao */
-            return $searchDao->deleteSubmissionKeywords($preprintId, $type, $assocId);
+        // If a search plug-in is activated then skip the default database search implementation.
+        if ($hookResult !== Hook::CONTINUE && !is_null($hookResult)) {
+            return;
         }
+
+        $searchDao = DAORegistry::getDAO('PreprintSearchDAO'); /** @var PreprintSearchDAO $searchDao */
+        return $searchDao->deleteSubmissionKeywords($preprintId, $type, $assocId);
     }
 
     /**
@@ -305,54 +307,55 @@ class PreprintSearchIndex extends SubmissionSearchIndex
             [$log, $server, $switches]
         );
 
-        // If no search plug-in is activated then fall back to the
-        // default database search implementation.
-        if ($hookResult === false || is_null($hookResult)) {
-            // Check that no server was given as we do
-            // not support server-specific re-indexing.
-            if (is_a($server, 'Server')) {
-                exit(__('search.cli.rebuildIndex.indexingByServerNotSupported') . "\n");
-            }
+        // If a search plug-in is activated then skip the default database search implementation.
+        if ($hookResult !== Hook::CONTINUE && !is_null($hookResult)) {
+            return;
+        }
 
-            // Clear index
+        // Check that no server was given as we do
+        // not support server-specific re-indexing.
+        if (is_a($server, 'Server')) {
+            exit(__('search.cli.rebuildIndex.indexingByServerNotSupported') . "\n");
+        }
+
+        // Clear index
+        if ($log) {
+            echo __('search.cli.rebuildIndex.clearingIndex') . ' ... ';
+        }
+        /** @var PreprintSearchDAO */
+        $searchDao = DAORegistry::getDAO('PreprintSearchDAO');
+        $searchDao->clearIndex();
+        if ($log) {
+            echo __('search.cli.rebuildIndex.done') . "\n";
+        }
+
+        // Build index
+        $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var ServerDAO $serverDao */
+
+        $servers = $serverDao->getAll();
+        while ($server = $servers->next()) {
+            $numIndexed = 0;
+
             if ($log) {
-                echo __('search.cli.rebuildIndex.clearingIndex') . ' ... ';
+                echo __('search.cli.rebuildIndex.indexing', ['serverName' => $server->getLocalizedName()]) . ' ... ';
             }
-            /** @var PreprintSearchDAO */
-            $searchDao = DAORegistry::getDAO('PreprintSearchDAO');
-            $searchDao->clearIndex();
+
+            $submissions = Repo::submission()
+                ->getCollector()
+                ->filterByContextIds([$server->getId()])
+                ->getMany();
+
+            foreach ($submissions as $submission) {
+                if (!$submission->getSubmissionProgress()) { // Not incomplete
+                    $this->submissionMetadataChanged($submission);
+                    $this->submissionFilesChanged($submission);
+                    $numIndexed++;
+                }
+            }
+            $this->submissionChangesFinished();
+
             if ($log) {
-                echo __('search.cli.rebuildIndex.done') . "\n";
-            }
-
-            // Build index
-            $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var ServerDAO $serverDao */
-
-            $servers = $serverDao->getAll();
-            while ($server = $servers->next()) {
-                $numIndexed = 0;
-
-                if ($log) {
-                    echo __('search.cli.rebuildIndex.indexing', ['serverName' => $server->getLocalizedName()]) . ' ... ';
-                }
-
-                $submissions = Repo::submission()
-                    ->getCollector()
-                    ->filterByContextIds([$server->getId()])
-                    ->getMany();
-
-                foreach ($submissions as $submission) {
-                    if (!$submission->getSubmissionProgress()) { // Not incomplete
-                        $this->submissionMetadataChanged($submission);
-                        $this->submissionFilesChanged($submission);
-                        $numIndexed++;
-                    }
-                }
-                $this->submissionChangesFinished();
-
-                if ($log) {
-                    echo __('search.cli.rebuildIndex.result', ['numIndexed' => $numIndexed]) . "\n";
-                }
+                echo __('search.cli.rebuildIndex.result', ['numIndexed' => $numIndexed]) . "\n";
             }
         }
     }

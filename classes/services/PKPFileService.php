@@ -241,8 +241,6 @@ class PKPFileService
             case 'image/x-icon':
             case 'image/x-ico':
             case 'image/ico':
-            case 'image/svg+xml':
-            case 'image/svg':
                 return FileManager::DOCUMENT_TYPE_IMAGE;
             case 'application/x-shockwave-flash':
             case 'video/x-flv':

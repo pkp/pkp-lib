@@ -90,7 +90,7 @@ class PKPUploadPublicFileHandler extends APIHandler {
 		$userDir = $siteDir . '/images/' . $request->getUser()->getUsername();
 		$isUserAllowed = true;
 		$allowedDirSize = Config::getVar('files', 'public_user_dir_size', 5000) * 1024;
-		$allowedFileTypes = ['gif', 'jpg', 'png', 'webp', 'svg'];
+		$allowedFileTypes = ['gif', 'jpg', 'png', 'webp'];
 
 		HookRegistry::call('API::uploadPublicFile::permissions', [
 			&$userDir,
@@ -144,7 +144,7 @@ class PKPUploadPublicFileHandler extends APIHandler {
 		}
 
 		// Perform additional checks on images
-		if (in_array($extension, ['gif', 'jpg', 'jpeg', 'png', 'jpe', 'webp', 'svg'])) {
+		if (in_array($extension, ['gif', 'jpg', 'jpeg', 'png', 'jpe', 'webp'])) {
 			if (getimagesize($_FILES['file']['tmp_name']) === false) {
 				return $response->withStatus(400)->withJsonError('api.publicFiles.400.invalidImage');
 			}

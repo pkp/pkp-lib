@@ -83,7 +83,7 @@ class HandlerOperationPolicy extends AuthorizationPolicy
     public function _checkOperationWhitelist()
     {
         // Only permit if the requested operation has been whitelisted.
-        $router = $this->_request->getRouter();
+        $router = $this->_request->getRouter(); /** @var \PKP\Core\PKPRouter|\PKP\Core\APIRouter $router */
         $requestedOperation = $router->getRequestedOp($this->_request);
         assert(!empty($requestedOperation));
         return in_array($requestedOperation, $this->_operations);

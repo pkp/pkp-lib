@@ -17,6 +17,7 @@
 namespace PKP\security\authorization;
 
 use APP\core\Application;
+use PKP\core\PKPBaseController;
 
 class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
 {
@@ -78,6 +79,13 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
         }
         if (!$this->_checkOperationWhitelist()) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
+        }
+
+        if ($routeController = PKPBaseController::getRouteController()) {
+            
+            $routeController->markRoleAssignmentsChecked();
+
+            return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 
         $handler = $this->getRequest()->getRouter()->getHandler();

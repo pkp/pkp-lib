@@ -549,8 +549,9 @@ class PKPHandler
      */
     public static function hashPageContext($request, $contextData = [])
     {
+        $router = $request->getRouter(); /** @var \PKP\Core\PKPRouter $router */
         return md5(
-            implode(',', $request->getRouter()->getRequestedContextPath($request)) . ',' .
+            implode(',', $router->getRequestedContextPath($request)) . ',' .
             $request->getRequestedPage() . ',' .
             $request->getRequestedOp() . ',' .
             serialize($contextData)

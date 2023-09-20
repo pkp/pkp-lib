@@ -16,6 +16,14 @@
 namespace PKP\API\v1\contexts;
 
 use APP\plugins\IDoiRegistrationAgency;
+use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+
+use PKP\security\authorization\PolicySet;
+
+use PKP\security\authorization\UserRolesRequiredPolicy;
+
+use PKP\core\PKPRequest;
+
 use APP\template\TemplateManager;
 use APP\services\ContextService;
 use APP\core\Services;
@@ -43,55 +51,78 @@ class PKPContextController extends PKPBaseController
     
     public function getHandlerPath(): string
     {
-        return 'users';
+        return 'contexts';
     }
 
     public function getRouteGroupMiddleware(): array
     {
-        $roles = implode('|', [
-            Role::ROLE_ID_SITE_ADMIN, 
-            Role::ROLE_ID_MANAGER, 
-            Role::ROLE_ID_SUB_EDITOR
-        ]);
-
         return [
             "has.user",
             "has.context",
-            "has.roles:{$roles}",
         ];
     }
 
     public function getGroupRoutes(): void
     {       
-        Route::get('', $this->getMany(...))
-            ->name('context.getMany');
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN, 
+                Role::ROLE_ID_MANAGER,
+            ]),
+        ])->group(function(){
+            
+            Route::get('', $this->getMany(...))
+                ->name('context.getMany');
 
-        Route::get('{contextId}', $this->get(...))
-            ->name('context.getContext')
-            ->whereNumber('contextId');
+            Route::get('{contextId}', $this->get(...))
+                ->name('context.getContext')
+                ->whereNumber('contextId');
+            
+            Route::get('{contextId}/theme', $this->getTheme(...))
+                ->name('context.getContext')
+                ->whereNumber('contextId');
+            
+            Route::put('{contextId}', $this->edit(...))
+                ->name('context.edit')
+                ->whereNumber('contextId');
+            
+            Route::put('{contextId}/theme', $this->editTheme(...))
+                ->name('context.editTheme')
+                ->whereNumber('contextId');
+            
+            Route::put('{contextId}/registrationAgency', $this->editDoiRegistrationAgencyPlugin(...))
+                ->name('context.edit.doiRegistration')
+                ->whereNumber('contextId');
+        });
         
-        Route::get('{contextId}/theme', $this->getTheme(...))
-            ->name('context.getContext')
-            ->whereNumber('contextId');
-        
-        Route::post('', $this->add(...))
-            ->name('context.add');
-        
-        Route::put('{contextId}', $this->edit(...))
-            ->name('context.edit')
-            ->whereNumber('contextId');
-        
-        Route::put('{contextId}/theme', $this->editTheme(...))
-            ->name('context.editTheme')
-            ->whereNumber('contextId');
-        
-        Route::put('{contextId}/registrationAgency', $this->editDoiRegistrationAgencyPlugin(...))
-            ->name('context.edit.doiRegistration')
-            ->whereNumber('contextId');
-        
-        Route::delete('{contextId}', $this->delete(...))
-            ->name('context.delete')
-            ->whereNumber('contextId');
+        Route::middleware([
+            self::roleAuthorizer([Role::ROLE_ID_SITE_ADMIN,]),
+        ])->group(function(){
+            
+            Route::post('', $this->add(...))
+                ->name('context.add');
+            
+            Route::delete('{contextId}', $this->delete(...))
+                ->name('context.delete')
+                ->whereNumber('contextId');
+        });
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
+    {
+        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+
+        $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
+
+        foreach ($roleAssignments as $role => $operations) {
+            $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
+        }
+        $this->addPolicy($rolePolicy);
+
+        return parent::authorize($request, $args, $roleAssignments);
     }
 
     /**

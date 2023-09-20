@@ -1,6 +1,19 @@
 <?php
 
-declare(strict_types=1);
+/**
+ * @file classes/middleware/
+ *
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2000-2023 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class 
+ *
+ * @ingroup middleware
+ *
+ * @brief 
+ *
+ */
 
 namespace PKP\middleware;
 
@@ -17,7 +30,6 @@ use Illuminate\Http\Response;
 use UnexpectedValueException;
 use Firebase\JWT\SignatureInvalidException;
 use Illuminate\Auth\Access\AuthorizationException;
-use League\CommonMark\Exception\UnexpectedEncodingException;
 
 class DecodeApiTokenWithValidation
 {
@@ -30,7 +42,7 @@ class DecodeApiTokenWithValidation
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
-    {
+    {   
         $jwtToken = $request->query('apiToken');
         
         /* VALIDATIONS */

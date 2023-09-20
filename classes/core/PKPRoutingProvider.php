@@ -2,26 +2,22 @@
 
 namespace PKP\core;
 
-use Illuminate\Http\Request;
-use Illuminate\Routing\Router;
-use Illuminate\Routing\UrlGenerator;
-use Illuminate\Routing\RoutingServiceProvider;
-use Illuminate\Foundation\Http\Middleware\TrimStrings;
-use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
-use Illuminate\Contracts\Container\BindingResolutionException;
-use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
-use Illuminate\Contracts\Routing\UrlGenerator as UrlGeneratorContract;
-use Illuminate\Support\Facades\Response;
 use PKP\core\PKPContainer;
 use PKP\middleware\HasUser;
+use Illuminate\Http\Request;
 use PKP\middleware\HasRoles;
+use Illuminate\Routing\Router;
 use PKP\middleware\HasContext;
 use PKP\middleware\AllowCrossOrigin;
+use PKP\middleware\PolicyAuthorizer;
 use PKP\middleware\ValidateCsrfToken;
-use Psr\Http\Message\ServerRequestInterface;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Routing\RoutingServiceProvider;
 use PKP\middleware\DecodeApiTokenWithValidation;
 use PKP\middleware\SetupContextBasedOnRequestUrl;
-
+use Illuminate\Foundation\Http\Middleware\TrimStrings;
+use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
+use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
 
 class PKPRoutingProvider extends RoutingServiceProvider
 {
@@ -33,6 +29,7 @@ class PKPRoutingProvider extends RoutingServiceProvider
         ValidatePostSize::class,
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,
+        PolicyAuthorizer::class,
     ];
 
     /**

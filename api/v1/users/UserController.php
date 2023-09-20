@@ -20,18 +20,32 @@ namespace PKP\API\v1\users;
 use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
-use Symfony\Component\HttpFoundation\StreamedResponse;
-use PKP\core\PKPBaseController;
-use PKP\facades\Locale;
-use PKP\plugins\Hook;
-use PKP\security\Role;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
+use PKP\facades\Locale;
+use PKP\plugins\Hook;
+use PKP\security\authorization\ContextAccessPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\security\Role;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class UserController extends PKPBaseController
 {
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
+    {
+        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+
+        return parent::authorize($request, $args, $roleAssignments);
+    }
+
     public function getHandlerPath(): string
     {
         return 'users';
@@ -39,16 +53,14 @@ class UserController extends PKPBaseController
 
     public function getRouteGroupMiddleware(): array
     {
-        $roles = implode('|', [
-            Role::ROLE_ID_SITE_ADMIN, 
-            Role::ROLE_ID_MANAGER, 
-            Role::ROLE_ID_SUB_EDITOR
-        ]);
-
         return [
             "has.user",
             "has.context",
-            "has.roles:{$roles}",
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN, 
+                Role::ROLE_ID_MANAGER, 
+                Role::ROLE_ID_SUB_EDITOR
+            ]),
         ];
     }
 

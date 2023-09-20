@@ -39,11 +39,9 @@ class PKPJobController extends PKPBaseController
 
     public function getRouteGroupMiddleware(): array
     {
-        $roles = implode('|', [Role::ROLE_ID_SITE_ADMIN]);
-
         return [
             "has.user",
-            "has.roles:{$roles}",
+            self::roleAuthorizer([Role::ROLE_ID_SITE_ADMIN]),
         ];
     }
 

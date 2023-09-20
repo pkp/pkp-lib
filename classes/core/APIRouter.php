@@ -126,6 +126,10 @@ class APIRouter extends PKPRouter
      */
     public function getRequestedOp($request)
     {
+        if ($routeActionName = PKPBaseController::getRouteActionName()) {
+            return $routeActionName;
+        }
+
         /** @var APIHandler */
         $handler = $this->getHandler();
         $container = $handler->getApp()->getContainer();

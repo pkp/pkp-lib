@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-19 08:43+0000\n"
+"PO-Revision-Date: 2023-09-20 23:46+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/lv/>\n"
@@ -332,7 +332,6 @@ msgstr "Lūdzu, ievadiet derīgu SICI."
 msgid "metadata.property.displayName.pmid"
 msgstr "PMID"
 
-#, fuzzy
 msgid "metadata.property.validationMessage.pmid"
 msgstr "Lūdzu, ievadiet derīgu PMID."
 
@@ -395,7 +394,7 @@ msgid "metadata.property.displayName.name-type"
 msgstr "Nosaukuma tips"
 
 msgid "metadata.property.displayName.abstract"
-msgstr "Anotācija"
+msgstr "Kopsavilkums"
 
 msgid "common.queue.long.submissionsUnassigned"
 msgstr "Nepiešķirti"
@@ -417,3 +416,216 @@ msgstr ""
 "Nosūtiet e-pasta vēstuli autoriem, lai informētu viņus par to, ka viņu "
 "iesniegtais darbs ir pieņemts publicēšanai. Šī e-pasta vēstule netiks "
 "nosūtīta, kamēr lēmums nebūs reģistrēts."
+
+msgid "publication.titleAbstract"
+msgstr "Nosaukums un kopsavilkums"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Kopsavilkums ir pārāk garš. Tam jābūt ne vairāk kā {$limit} vārdus garam. "
+"Šobrīd tā garums {$count} vārdu."
+
+msgid "submission.event.copyrightAgreed"
+msgstr ""
+"{$filename} ({$username}) piekrita autortiesību noteikumiem materiāla "
+"iesniegšanai."
+
+msgid "submission.authorBiographies"
+msgstr "Autoru biogrāfijas"
+
+msgid "submission.titleAndAbstract"
+msgstr "Nosaukums un kopsavilkums"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} no {$title}"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Atgriezties pie materiāla iesniegšanas rediģēšanas"
+
+msgid "submission.citations.description"
+msgstr ""
+"Katru atsauci ierakstiet jaunā rindā, lai tās varētu izdalīt un reģistrēt "
+"atsevišķi."
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Recenzents {$reviewerLetter}:"
+
+msgid "submission.coverage"
+msgstr "Pārklājuma informācija"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Vai tiešām vēlaties izdzēst notikumu žurnālu attiecībā uz šo materiālu?"
+
+msgid "submission.authorBiography"
+msgstr "Autora biogrāfija"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} u. c."
+
+msgid "submission.mySubmissions"
+msgstr "Mana autorība"
+
+msgid "submission.addFile"
+msgstr "Augšupielādēt datni"
+
+msgid "submission.additionalFiles"
+msgstr "Papildu datnes"
+
+msgid "submission.agencies"
+msgstr "Aģentūras"
+
+msgid "submission.abstractViews"
+msgstr "Kopsavilkumu skatījumi"
+
+msgid "submission.accepted"
+msgstr "Pieņemts"
+
+msgid "submission.acknowledge"
+msgstr "Apstiprināt"
+
+msgid "submission.ask"
+msgstr "Pieprasīt"
+
+msgid "submission.attachedFile"
+msgstr "Pievienotā datne"
+
+msgid "submission.changeComments"
+msgstr "Mainīt uz"
+
+msgid "submission.changeFile"
+msgstr "Mainīt datni"
+
+msgid "submission.citations"
+msgstr "Atsauces"
+
+msgid "submission.parsedCitations"
+msgstr "Iegūtās atsauces"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"Tālāk norādītās atsauces ir atlasītas un tiks piesaistītas iesniegtā "
+"materiāla metadatiem."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Iegūt un saglabāt atsauces"
+
+msgid "submission.comments.addComment"
+msgstr "Pievienot komentāru"
+
+msgid "submission.comments.comments"
+msgstr "Komentāri"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Vai tiešām vēlaties izdzēst šo komentāru?"
+
+msgid "submission.comments.corrections"
+msgstr "Labojumi"
+
+msgid "submission.comments.editComment"
+msgstr "Rediģēt komentāru"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Importēt recenzijas"
+
+msgid "submission.comments.addReviews"
+msgstr "Pievienot recenzijas e-pastam"
+
+msgid "submission.comments.noComments"
+msgstr "Nav komentāru"
+
+msgid "submission.comments.noReviews"
+msgstr "Nav recenziju"
+
+msgid "submission.comments.review"
+msgstr "Recenzija"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Nosūtīt recenzentiem redakcionālo lēmumu"
+
+msgid "submission.comments.subject"
+msgstr "Temats"
+
+msgid "submission.complete"
+msgstr "Pabeigts"
+
+msgid "submission.contributors"
+msgstr "Ieguldītāju saraksts"
+
+msgid "submission.copyedited"
+msgstr "Rediģēts"
+
+msgid "submission.copyediting"
+msgstr "Teksta rediģēšana"
+
+msgid "submission.queryNoteFiles"
+msgstr "Apspriešanas datnes"
+
+msgid "submission.details"
+msgstr "Sīkāka informācija par iesniegto materiālu"
+
+msgid "submission.done"
+msgstr "Paveikts"
+
+msgid "submission.downloads"
+msgstr "Lejupielādes"
+
+msgid "submission.dueDate"
+msgstr "Izpildes datums"
+
+msgid "submission.due"
+msgstr "Izpildāms līdz"
+
+msgid "submission.editing"
+msgstr "Rediģēšana"
+
+msgid "submission.editMetadata"
+msgstr "Rediģēt metadatus"
+
+msgid "submission.editorial"
+msgstr "Teksta rediģēšana"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Atgriezties pie e-pastu žurnāla"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Vai tiešām vēlaties izdzēst e-pastu žurnālu par šo materiālu?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Vai tiešām vēlaties dzēst šo e-pastu žurnāla ierakstu?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Dzēst žurnāla ierakstu"
+
+msgid "submission.emailLog"
+msgstr "E-pastu žurnāls"
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$userFullName} ({$username}) tika piešķirts šim materiālam kā "
+"{$userGroupName}."
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$userFullName}\" ({$username}) tiek noņemts kā {$userGroupName}."
+
+msgid "submission.event.backToEventLog"
+msgstr "Atgriezties pie notikumu žurnāla"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Vai tiešām vēlaties dzēst šo notikumu žurnāla ierakstu?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Dzēst žurnāla ierakstu"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"E-pasts par lēmumu tika nosūtīts {$recipientCount} recenzentam(-iem) ar "
+"tematu {$subject}."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Sākotnējā iesniegšana pabeigta."

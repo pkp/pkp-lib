@@ -46,11 +46,17 @@ class PKPUserController extends PKPBaseController
         return parent::authorize($request, $args, $roleAssignments);
     }
 
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
+     */
     public function getHandlerPath(): string
     {
         return 'users';
     }
 
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
+     */
     public function getRouteGroupMiddleware(): array
     {
         return [
@@ -64,6 +70,9 @@ class PKPUserController extends PKPBaseController
         ];
     }
 
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
     public function getGroupRoutes(): void
     {       
         Route::get('reviewers', $this->getReviewers(...))

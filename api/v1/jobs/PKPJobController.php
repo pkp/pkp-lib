@@ -27,16 +27,25 @@ use Illuminate\Support\Facades\Route;
 
 class PKPJobController extends PKPBaseController
 {
+    /**
+     * @copydoc \PKP\core\PKPBaseController::isSiteWide()
+     */
     public function isSiteWide(): bool
     {
         return true;
     }
 
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
+     */
     public function getHandlerPath(): string
     {
         return 'jobs';
     }
 
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
+     */
     public function getRouteGroupMiddleware(): array
     {
         return [
@@ -45,6 +54,9 @@ class PKPJobController extends PKPBaseController
         ];
     }
 
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
     public function getGroupRoutes(): Void
     {       
         Route::get('all', $this->getJobs(...))

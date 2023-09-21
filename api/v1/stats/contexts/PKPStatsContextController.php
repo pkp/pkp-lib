@@ -32,11 +32,17 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class PKPStatsContextController extends PKPBaseController
 {
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
+     */
     public function getHandlerPath(): string
     {
         return 'stats/contexts';
     }
 
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
+     */
     public function getRouteGroupMiddleware(): array
     {
         $roles = implode('|', [
@@ -51,6 +57,9 @@ class PKPStatsContextController extends PKPBaseController
         ];
     }
 
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
     public function getGroupRoutes(): void
     {       
         Route::get('timeline', $this->getManyTimeline(...))
@@ -147,6 +156,7 @@ class PKPStatsContextController extends PKPBaseController
             $csvColumnNames = $this->_getContextReportColumnNames();
             return response()->withCSV($items, $csvColumnNames, $itemsMax);
         }
+
         return response()->json([
             'items' => $items,
             'itemsMax' => $itemsMax,
@@ -271,6 +281,7 @@ class PKPStatsContextController extends PKPBaseController
             $items = [$this->getItemForCSV($context->getId(), $contextViews)];
             return response()->withCSV($items, $csvColumnNames, 1);
         }
+
         return response()->json([
             'total' => $contextViews,
             'context' => $contextProps
@@ -336,6 +347,7 @@ class PKPStatsContextController extends PKPBaseController
             $csvColumnNames = Services::get('contextStats')->getTimelineReportColumnNames();
             return response()->withCSV($data, $csvColumnNames, count($data));
         }
+        
         return response()->withJson($data, Response::HTTP_OK);
     }
 

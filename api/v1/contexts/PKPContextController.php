@@ -45,11 +45,17 @@ class PKPContextController extends PKPBaseController
     /** @var string One of the SCHEMA_... constants */
     public $schemaName = PKPSchemaService::SCHEMA_CONTEXT;
     
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
+     */
     public function getHandlerPath(): string
     {
         return 'contexts';
     }
 
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
+     */
     public function getRouteGroupMiddleware(): array
     {
         return [
@@ -58,6 +64,9 @@ class PKPContextController extends PKPBaseController
         ];
     }
 
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
     public function getGroupRoutes(): void
     {       
         Route::middleware([

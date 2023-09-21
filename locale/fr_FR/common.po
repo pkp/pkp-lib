@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2023-09-15 19:19+0000\n"
+"PO-Revision-Date: 2023-09-22 13:06+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fr_FR/>\n"
@@ -1892,7 +1892,6 @@ msgstr "Vous avez une évaluation en attente."
 msgid "notification.type.reviewAssignmentUpdated"
 msgstr "Mise à jour de la demande d'évaluation."
 
-#, fuzzy
 msgid "notification.type.auditorRequest"
 msgstr "Demande de vérification du fichier « {$file} »"
 

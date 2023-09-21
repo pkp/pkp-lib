@@ -24,6 +24,7 @@ use APP\submission\Submission;
 use Exception;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
+use PKP\jobs\submissions\UpdateSubmissionSearchJob;
 use PKP\plugins\Hook;
 use PKP\search\SearchFileParser;
 use PKP\search\SubmissionSearch;
@@ -42,12 +43,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
     public function submissionMetadataChanged($submission)
     {
         // Check whether a search plug-in jumps in.
-        $hookResult = Hook::call(
-            'PreprintSearchIndex::preprintMetadataChanged',
-            [$submission]
-        );
-
-        if (!empty($hookResult)) {
+        if (Hook::ABORT === Hook::call('PreprintSearchIndex::preprintMetadataChanged', [$submission])) {
             return;
         }
 
@@ -160,14 +156,8 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      */
     public function submissionFilesChanged($preprint)
     {
-        // Check whether a search plug-in jumps in.
-        $hookResult = Hook::call(
-            'PreprintSearchIndex::submissionFilesChanged',
-            [$preprint]
-        );
-
         // If a search plug-in is activated then skip the default database search implementation.
-        if ($hookResult !== Hook::CONTINUE && !is_null($hookResult)) {
+        if (Hook::ABORT === Hook::call('PreprintSearchIndex::submissionFilesChanged', [$preprint])) {
             return;
         }
 
@@ -221,14 +211,8 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      */
     public function submissionFileDeleted($preprintId, $type = null, $assocId = null)
     {
-        // Check whether a search plug-in jumps in.
-        $hookResult = Hook::call(
-            'PreprintSearchIndex::submissionFileDeleted',
-            [$preprintId, $type, $assocId]
-        );
-
         // If a search plug-in is activated then skip the default database search implementation.
-        if ($hookResult !== Hook::CONTINUE && !is_null($hookResult)) {
+        if (Hook::ABORT === Hook::call('PreprintSearchIndex::submissionFileDeleted', [$preprintId, $type, $assocId])) {
             return;
         }
 
@@ -301,14 +285,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      */
     public function rebuildIndex($log = false, $server = null, $switches = [])
     {
-        // Check whether a search plug-in jumps in.
-        $hookResult = Hook::call(
-            'PreprintSearchIndex::rebuildIndex',
-            [$log, $server, $switches]
-        );
-
-        // If a search plug-in is activated then skip the default database search implementation.
-        if ($hookResult !== Hook::CONTINUE && !is_null($hookResult)) {
+        if (Hook::ABORT === Hook::call('PreprintSearchIndex::rebuildIndex', [$log, $server, $switches])) {
             return;
         }
 
@@ -332,8 +309,8 @@ class PreprintSearchIndex extends SubmissionSearchIndex
         // Build index
         $serverDao = DAORegistry::getDAO('ServerDAO'); /** @var ServerDAO $serverDao */
 
-        $servers = $serverDao->getAll();
-        while ($server = $servers->next()) {
+        $servers = $serverDao->getAll()->toIterator();
+        foreach ($servers as $server) {
             $numIndexed = 0;
 
             if ($log) {
@@ -346,13 +323,9 @@ class PreprintSearchIndex extends SubmissionSearchIndex
                 ->getMany();
 
             foreach ($submissions as $submission) {
-                if (!$submission->getSubmissionProgress()) { // Not incomplete
-                    $this->submissionMetadataChanged($submission);
-                    $this->submissionFilesChanged($submission);
-                    $numIndexed++;
-                }
+                dispatch(new UpdateSubmissionSearchJob($submission->getId()));
+                ++$numIndexed;
             }
-            $this->submissionChangesFinished();
 
             if ($log) {
                 echo __('search.cli.rebuildIndex.result', ['numIndexed' => $numIndexed]) . "\n";

@@ -35,13 +35,13 @@
 			</badge>
 			{include file="workflow/submissionIdentification.tpl"}
 		</h1>
-		<template slot="actions">
+		<template #actions>
 			<pkp-button
 				v-if="submission.status === getConstant('STATUS_PUBLISHED')"
 				element="a"
 				:href="submission.urlPublished"
 			>
-				{{ __('common.view') }}
+				{{ t('common.view') }}
 			</pkp-button>
 			<pkp-button
 				v-else-if="submission.status !== getConstant('STATUS_PUBLISHED') && submission.stageId >= getConstant('WORKFLOW_STAGE_ID_EDITING')"
@@ -130,7 +130,7 @@
 						</span>
 						{/if}
 						{if $canPublish}
-							<template slot="actions">
+							<template #actions>
 								<pkp-button
 									v-if="workingPublication.status === getConstant('STATUS_QUEUED')"
 									ref="publish"

@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-20 23:46+0000\n"
+"PO-Revision-Date: 2023-09-22 13:06+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/lv/"
 ">\n"
@@ -110,7 +110,7 @@ msgid "grid.action.restoreDefaults"
 msgstr "Atjaunot noklusējuma iestatījumus"
 
 msgid "grid.action.restoreDefaults.confirm"
-msgstr "Vai esat pārliecināts, ka vēlaties atjaunot noklusējuma iestatījumus?"
+msgstr "Vai tiešām vēlaties atjaunot noklusējuma iestatījumus?"
 
 msgid "grid.action.addAuthor"
 msgstr "Pievienot autoru"
@@ -173,7 +173,7 @@ msgid "grid.action.selectFiles"
 msgstr "Atlasīt pārvaldāmos failus"
 
 msgid "grid.action.requestRevisions"
-msgstr "Pieprasīt šī iesniegtā materiāla laboto versiju"
+msgstr "Pieprasīt šī iesniegtā materiāla labojumus"
 
 msgid "grid.action.accept"
 msgstr "Pieņemt šo materiālu"
@@ -188,7 +188,7 @@ msgid "grid.action.externalReview"
 msgstr "Nosūtīt šo materiālu ārējai recenzēšanai"
 
 msgid "grid.action.sendToProduction"
-msgstr "Nosūtīt šo materiālu publicēšanai"
+msgstr "Nosūtīt šo materiālu izstrādei"
 
 msgid "grid.action.settings"
 msgstr "Iestatījumi"
@@ -299,7 +299,7 @@ msgid "grid.action.unconsiderReview"
 msgstr "Šī recenzēšana ir pabeigta, bet to var neņemt vērā"
 
 msgid "grid.action.enable"
-msgstr "Aktivizēt"
+msgstr "Iespējot"
 
 msgid "grid.action.bookInfo"
 msgstr "Materiāla iesniegšanas informācija"
@@ -410,8 +410,7 @@ msgstr "Dzēst ieguldītāju"
 
 msgid "grid.action.deleteContributor.confirmationMessage"
 msgstr ""
-"Vai esat pārliecināts, ka vēlaties noņemt {$name} kā līdzautoru? Šo darbību "
-"nevar atsaukt."
+"Vai tiešām vēlaties noņemt {$name} kā ieguldītāju? Šo darbību nevar atsaukt."
 
 msgid "grid.action.newVersion"
 msgstr "Izveidot jaunu versiju"
@@ -459,7 +458,7 @@ msgid "contributor.listPanel.preview"
 msgstr "Priekšskatījums"
 
 msgid "contributor.listPanel.preview.description"
-msgstr "Šīs publikācijas autori tiks norādīti šādos formātos."
+msgstr "Šīs publikācijas ieguldītāji tiks norādīti šādos formātos."
 
 msgid "contributor.listPanel.preview.format"
 msgstr "Formāts"
@@ -483,211 +482,225 @@ msgid "grid.roles.add"
 msgstr "Izveidot jaunu lomu"
 
 msgid "grid.roles.stageAssignment"
-msgstr "Etapa piešķiršana"
+msgstr "Posma piešķiršana"
 
 msgid "grid.user.currentUsers"
-msgstr ""
+msgstr "Pašreizējie lietotāji"
 
 msgid "grid.user.currentEnrollment"
-msgstr ""
+msgstr "Pašreiz reģistrētie"
 
 msgid "grid.user.allRoles"
-msgstr ""
+msgstr "Visas lomas"
 
 msgid "grid.user.allPermissionLevels"
-msgstr ""
+msgstr "Visi pielaides līmeņi"
 
 msgid "grid.user.add"
-msgstr ""
+msgstr "Pievienot lietotāju"
 
 msgid "grid.user.enroll"
-msgstr ""
+msgstr "Reģistrēt lietotāju"
 
 msgid "grid.user.edit"
-msgstr ""
+msgstr "Rediģēt lietotāju"
 
 msgid "grid.user.email"
-msgstr ""
+msgstr "E-pasts"
 
 msgid "grid.user.enable"
-msgstr ""
+msgstr "Iespējot"
 
 msgid "grid.user.disable"
-msgstr ""
+msgstr "Atspējot"
 
 msgid "grid.user.disableReason"
-msgstr ""
+msgstr "Lietotāja atspējošanas iemesls"
 
 msgid "grid.user.enableReason"
-msgstr ""
+msgstr "Lietotāja iespējošanas iemesls"
 
 msgid "grid.user.error"
 msgstr ""
+"Šī lietotāja administrēšanā tika pieļauta kļūda. Lūdzu, mēģiniet vēlreiz."
 
 msgid "grid.user.errorEmail"
 msgstr ""
+"Nosūtot šo e-pastu, tika pieļauta kļūda. Lūdzu, pārliecinieties, ka e-pasta "
+"servera konfigurācija darbojas, un/vai sazinieties ar sistēmas "
+"administratoru."
 
 msgid "grid.user.cannotAdminister"
 msgstr ""
+"Jums nav pietiekamu atļauju, lai administrētu šo lietotāju. Lai administrētu "
+"lietotāju, jums jābūt vai nu vietnes administratoram, vai arī jāadministrē "
+"visi konteksti, kuros šis lietotājs ir reģistrēts."
 
 msgid "grid.user.mustProvideName"
-msgstr ""
+msgstr "Lūdzu, vispirms norādiet kaut vai lietotāja uzvārdu."
 
 msgid "grid.user.generatePassword"
-msgstr ""
+msgstr "Izveidot paroli"
 
 msgid "grid.user.generatePasswordDescription"
-msgstr ""
+msgstr "Izveidot šim lietotājam nejaušas izvēles paroli."
 
 msgid "grid.user.notifyUser"
-msgstr ""
+msgstr "Paziņot lietotājam"
 
 msgid "grid.user.notifyUserDescription"
-msgstr ""
+msgstr "Nosūtīt lietotājam sveiciena e-pastu."
 
 msgid "grid.user.mustChangePassword"
-msgstr ""
+msgstr "Mainīt paroli"
 
 msgid "grid.user.mustChangePasswordDescription"
-msgstr ""
+msgstr "Lietotājam nākamajā pieteikšanās reizē jāmaina parole."
 
 msgid "grid.user.mustChangePasswordDescriptionOld"
-msgstr ""
+msgstr "Pieprasīt, lai lietotājs nākamajā pieteikšanās reizē nomaina paroli."
 
 msgid "grid.user.moreDetails"
-msgstr ""
+msgstr "Lietotāja dati (sīkāk)"
 
 msgid "grid.user.lessDetails"
-msgstr ""
+msgstr "Lietotāja dati (mazāk)"
 
 msgid "grid.user.userDetails"
-msgstr ""
+msgstr "Lietotāja dati"
 
 msgid "grid.user.userRoles"
-msgstr ""
+msgstr "Lietotāja lomas"
 
 msgid "grid.user.userNoRoles"
-msgstr ""
+msgstr "Šim lietotājam nav lomu."
 
 msgid "grid.user.step1"
-msgstr ""
+msgstr "1. solis: Aizpildīt lietotāja datus"
 
 msgid "grid.user.step2"
-msgstr ""
+msgstr "2. solis: Pievienot lietotāja lomas {$userFullName}"
 
 msgid "grid.user.addRoles"
-msgstr ""
+msgstr "Pievienot lomas"
 
 msgid "grid.user.addRole"
-msgstr ""
+msgstr "Pievienot lomu"
 
 msgid "grid.user.selectUser"
-msgstr ""
+msgstr "Atlasīt lietotāju"
 
 msgid "grid.user.pleaseSelectUser"
-msgstr ""
+msgstr "Lūdzu, izvēlieties lietotāju"
 
 msgid "grid.user.confirmLogInAs"
 msgstr ""
+"Pieteikties kā šim lietotājam? Visas jūsu veiktās darbības tiks attiecinātas "
+"uz šo lietotāju."
 
 msgid "grid.user.mergeUsers"
-msgstr ""
+msgstr "Apvienot lietotājus"
 
 msgid "grid.user.mergeUsers.mergeUser"
-msgstr ""
+msgstr "Apvienot lietotāju"
 
 msgid "grid.user.mergeUsers.mergeIntoUser"
-msgstr ""
+msgstr "Apvienot ar šo lietotāju"
 
 msgid "grid.user.mergeUsers.allUsers"
-msgstr ""
+msgstr "Visi reģistrētie lietotāji"
 
 msgid "grid.user.mergeUsers.confirm"
 msgstr ""
+"Vai tiešām vēlaties apvienot kontu ar lietotājvārdu \"{$oldUsername}\" ar "
+"kontu ar lietotājvārdu \"{$newUsername}\"? Konts ar lietotājvārdu \""
+"{$oldUsername}\" pēc tam neeksistēs. Šī darbība nav atgriezeniska."
 
 msgid "grid.preparedEmails.title"
-msgstr ""
+msgstr "Gatavas e-pasta veidnes"
 
 msgid "grid.preparedEmails.currentList"
-msgstr ""
+msgstr "Pašreizējais saraksts"
 
 msgid "grid.plugin.allCategories"
-msgstr ""
+msgstr "Visas kategorijas"
 
 msgid "grid.plugin.disable"
-msgstr ""
+msgstr "Vai tiešām vēlaties atspējot šo spraudni?"
 
 msgid "grid.action.fileUnconsider"
-msgstr ""
+msgstr "Veikti korektūras labojumi. Šo uzdevumu var neņemt vērā"
 
 msgid "grid.artworkFile.caption"
-msgstr ""
+msgstr "Paraksts"
 
 msgid "grid.artworkFile.credit"
-msgstr ""
+msgstr "Avots"
 
 msgid "grid.artworkFile.copyrightOwner"
-msgstr ""
+msgstr "Autortiesību īpašnieks"
 
 msgid "grid.artworkFile.copyrightContact"
-msgstr ""
+msgstr "Kontaktinformācija (ja nav autors/izdevējs)"
 
 msgid "grid.artworkFile.permissionTerms"
-msgstr ""
+msgstr "Atļaujas nosacījumi"
 
 msgid "grid.artworkFile.placement"
-msgstr ""
+msgstr "Ievietošana materiālā"
 
 msgid "grid.userGroup.assignStage"
-msgstr ""
+msgstr "Piešķirt posmu"
 
 msgid "grid.userGroup.unassignStage"
-msgstr ""
+msgstr "Atcelt posmu"
 
 msgid "grid.userGroup.allStages"
-msgstr ""
+msgstr "Visi darbplūsmas posmi"
 
 msgid "grid.userGroup.filter.listRoles"
-msgstr ""
+msgstr "Uzskaitīt lomas, kas piešķirtas"
 
 msgid "grid.userGroup.filter.permissionLevel"
-msgstr ""
+msgstr "Ar atļaujas līmeni, kas iestatīts uz"
 
 msgid "grid.userGroup.cantRemoveDefaultUserGroup"
-msgstr ""
+msgstr "Loma {$userGroupName} ir noklusējuma loma, un to nevar noņemt."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
 msgstr ""
+"Nevar noņemt {$userGroupName} lomu. Pašlaik tai ir piešķirts {$usersCount} "
+"lietotājs(-i)."
 
 msgid "grid.userGroup.removed"
-msgstr ""
+msgstr "{$userGroupName} loma noņemta."
 
 msgid "grid.userGroup.assignedStage"
-msgstr ""
+msgstr "{$userGroupName} loma piešķirta {$stageName} posmam."
 
 msgid "grid.userGroup.unassignedStage"
-msgstr ""
+msgstr "{$userGroupName} loma nav piešķirta no {$stageName} posma."
 
 msgid "grid.submission.itemTitle"
-msgstr ""
+msgstr "Autors; Nosaukums"
 
 msgid "grid.submission.active.selectOrphaned"
-msgstr ""
+msgstr "Iekļaut nepilnīgus materiālus, kurus nav iesniedzis autors."
 
 msgid "grid.action.addNavigationMenu"
-msgstr ""
+msgstr "Pievienot izvēlni"
 
 msgid "grid.action.addNavigationMenuItem"
-msgstr ""
+msgstr "Pievienot vienību"
 
 msgid "grid.navigationMenus.navigationMenuItems.noneExist"
-msgstr ""
+msgstr "Nav navigācijas izvēlnes vienību"
 
 msgid "grid.navigationMenus.navigationMenu.noneExist"
-msgstr ""
+msgstr "Nav navigācijas izvēlnes"
 
 msgid "grid.navigationMenus.navigationMenu.selectType"
-msgstr ""
+msgstr "Izvēlēties tipu..."
 
 msgid "grid.action.view"
 msgstr "Skatīt"
@@ -705,4 +718,4 @@ msgid "author.users.contributor.includeInBrowse"
 msgstr "Pārlūkošanas sarakstos"
 
 msgid "grid.action.editContributor"
-msgstr "Rediģēt autoru"
+msgstr "Rediģēt ieguldītāju"

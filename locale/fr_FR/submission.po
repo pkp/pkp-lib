@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-09-13 06:06+0000\n"
+"PO-Revision-Date: 2023-09-22 13:06+0000\n"
 "Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_FR/>\n"
@@ -401,11 +401,10 @@ msgstr "Veuillez saisir un nom valide pour la partie."
 msgid "metadata.property.displayName.name-type"
 msgstr "Type du nom"
 
-#, fuzzy
 msgid "metadata.property.validationMessage.name-type"
 msgstr ""
 "Assurez-vous de choisir un type de nom valide. Les valeurs acceptées sont « "
-"personnel » , « corporatif » et « conférence »."
+"personne » , « entreprise/institution » et « conférence »."
 
 msgid "metadata.property.displayName.abstract"
 msgstr "Résumé"
@@ -600,7 +599,6 @@ msgstr ""
 "{$userFullName} ({$username}) a été ajouté·e à cette soumission en tant que "
 "{$userGroupName}."
 
-#, fuzzy
 msgid "submission.event.participantRemoved"
 msgstr ""
 "« {$userFullName} » ({$username}) ne fait plus partie du groupe "
@@ -2524,7 +2522,6 @@ msgstr ""
 "Ajoutez toute information que vous jugez utile à notre équipe éditoriale "
 "pour évaluer votre soumission."
 
-#, fuzzy
 msgid "submission.wizard.confirm"
 msgstr "Veuillez confirmer le contenu suivant avant d'envoyer votre soumission."
 
@@ -2534,11 +2531,9 @@ msgstr "Faire une soumission"
 msgid "submission.wizard.titleWithStep"
 msgstr "Faire une soumission : {$step}"
 
-#, fuzzy
 msgid "submission.wizard.noContributors"
 msgstr "Cette soumission n'inclut aucun contributeur ou contributrice."
 
-#, fuzzy
 msgid "submission.wizard.missingContributorLanguage"
 msgstr ""
 "Le prénom est manquant en {$langue} pour un ou plusieurs des contributeurs "
@@ -2547,7 +2542,6 @@ msgstr ""
 msgid "submission.wizard.notAllowed"
 msgstr "Non autorisé"
 
-#, fuzzy
 msgid "submission.wizard.privacyConsent"
 msgstr "Consentement au traitement des données personnelles"
 
@@ -2675,7 +2669,6 @@ msgstr ""
 "Échec du marquage du DOI enregistré pour {$pubObjectTitle}. La soumission "
 "doit être publiée avant que son état puisse être mis à jour."
 
-#, fuzzy
 msgid "submission.viewingPreview"
 msgstr ""
 "Ceci est un aperçu et n'a pas encore été publié. <a href=\"{$url}\">Voir la "
@@ -2725,7 +2718,6 @@ msgstr ""
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Personne-ressource pour la correspondance éditoriale."
 
-#, fuzzy
 msgid "submission.dataAvailability"
 msgstr "Déclaration de disponibilité des données"
 

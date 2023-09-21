@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-20 23:46+0000\n"
+"PO-Revision-Date: 2023-09-22 13:06+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -396,7 +396,7 @@ msgid "manager.publication.editorialStage"
 msgstr "Rediģēšana"
 
 msgid "manager.publication.productionStage"
-msgstr "Publicēšana"
+msgstr "Izstrāde"
 
 msgid "manager.publication.emails"
 msgstr "E-pasti"
@@ -442,373 +442,416 @@ msgstr ""
 "darbību?"
 
 msgid "manager.emails.editTestExample"
-msgstr ""
+msgstr "Rediģēt e-pasta testa piemēru"
 
 msgid "manager.emails.emailTemplate"
-msgstr ""
+msgstr "E-pasta veidne"
 
 msgid "manager.emails.emailTemplates"
-msgstr ""
+msgstr "E-pasta veidnes"
 
 msgid "manager.emails.otherTemplates"
-msgstr ""
+msgstr "Citas veidnes"
 
 msgid "manager.emails.emailTemplate.contextRequired"
-msgstr ""
+msgstr "Pievienojot e-pasta veidni, ir jānorāda konteksta ID."
 
 msgid "manager.emails.enabled"
-msgstr ""
+msgstr "Iespējot šo e-pasta veidni"
 
 msgid "manager.emails.enable"
-msgstr ""
+msgstr "Iespējot"
 
 msgid "manager.emails.enable.message"
 msgstr ""
+"Jūs gatavojaties iespējot šo e-pastu. Vai vēlaties apstiprināt šo darbību?"
 
 msgid "manager.emails.form.emailKeyRequired"
 msgstr ""
+"E-pastam ir nepieciešama unikāla e-pasta atslēga, kurā nav atstarpju vai "
+"īpašu rakstzīmju."
 
 msgid "manager.emails.form.bodyRequired"
-msgstr ""
+msgstr "E-pastam ir jāaizpilda saturs."
 
 msgid "manager.emails.form.subjectRequired"
-msgstr ""
+msgstr "E-pastam ir jānorāda temats."
 
 msgid "manager.emails"
-msgstr ""
+msgstr "Sagatavoti e-pasti"
 
 msgid "manager.emails.resetAll"
-msgstr ""
+msgstr "Atiestatīt visu"
 
 msgid "manager.emails.resetAll.message"
 msgstr ""
+"Ja atiestatīsiet visas veidnes, visas e-pasta veidņu izmaiņas tiks zaudētas. "
+"Vai vēlaties apstiprināt šo darbību?"
 
 msgid "manager.emails.reset.message"
 msgstr ""
+"Ja atiestatāt šo veidni, visi ziņojuma dati tiks atiestatīti uz noklusējuma "
+"vērtību, zaudējot visas izmaiņas. Vai vēlaties apstiprināt šo darbību?"
 
 msgid "manager.emails.resetToDefault"
-msgstr ""
+msgstr "Atiestatīt noklusējuma iestatījumus"
 
 msgid "manager.emails.sentFrom"
-msgstr ""
+msgstr "Sūtīts no"
 
 msgid "manager.emails.sentTo"
-msgstr ""
+msgstr "Nosūtīts uz"
 
 msgid "manager.export.usersToCsv.label"
-msgstr ""
+msgstr "Eksportēt uz Excel/CSV"
 
 msgid "manager.export.usersToCsv.description"
-msgstr ""
+msgstr "Izvēlieties lietotājus, kurus eksportēt uz Excel/CSV datni."
 
 msgid "manager.filesBrowser"
-msgstr ""
+msgstr "Datņu pārlūks"
 
 msgid "manager.files.confirmDelete"
 msgstr ""
+"Dzēst šo datni vai direktoriju? Ņemiet vērā, ka katalogam pirms tā dzēšanas "
+"jābūt tukšam."
 
 msgid "manager.files.createDir"
-msgstr ""
+msgstr "Izveidot direktoriju"
 
 msgid "manager.files.emptyDir"
-msgstr ""
+msgstr "Šajā direktorijā nav datņu."
 
 msgid "manager.files.indexOfDir"
-msgstr ""
+msgstr "{$dir} indekss"
 
 msgid "manager.files.parentDir"
-msgstr ""
+msgstr "Vecākdirektorija"
 
 msgid "manager.files.uploadedFiles"
-msgstr ""
+msgstr "Augšupielādētās datnes"
 
 msgid "manager.files.uploadFile"
-msgstr ""
+msgstr "Augšupielādēt datni"
 
 msgid "manager.groups.confirmDelete"
-msgstr ""
+msgstr "Vai tiešām vēlaties dzēst šo grupu?"
 
 msgid "manager.groups.createTitle"
-msgstr ""
+msgstr "Izveidot nosaukumu"
 
 msgid "manager.groups.editTitle"
-msgstr ""
+msgstr "Labot nosaukumu"
 
 msgid "manager.groups.form.groupTitleRequired"
-msgstr ""
+msgstr "Grupas nosaukums ir nepieciešams."
 
 msgid "manager.groups.membership.addMember"
-msgstr ""
+msgstr "Pievienot dalībnieku"
 
 msgid "manager.groups.membership.confirmDelete"
-msgstr ""
+msgstr "Vai tiešām vēlaties dzēst dalību šajā grupā?"
 
 msgid "manager.groups.membership"
-msgstr ""
+msgstr "Dalība"
 
 msgid "manager.groups.membership.noneCreated"
-msgstr ""
+msgstr "Šajā grupā nav dalībnieku."
 
 msgid "manager.groups.membership.noUsers"
-msgstr ""
+msgstr "Lietotāji netika atrasti."
 
 msgid "manager.groups.title"
-msgstr ""
+msgstr "Nosaukums"
 
 msgid "manager.importExport"
-msgstr ""
+msgstr "Datu imports/eksports"
 
 msgid "manager.language.ui"
-msgstr ""
+msgstr "Lietotāja saskarne"
 
 msgid "manager.language.submissions"
-msgstr ""
+msgstr "Iesniegtie materiāli"
 
 msgid "manager.language.forms"
-msgstr ""
+msgstr "Formas"
 
 msgid "manager.language.reloadLocalizedDefaultSettings"
-msgstr ""
+msgstr "Pārlādēt noklusējuma iestatījumus"
 
 msgid "manager.languages.alternateLocaleInstructions"
 msgstr ""
+"Šī sistēma pēc izvēles ļauj ievadīt noteiktu būtisku informāciju vairākās "
+"papildu valodās. Lai izmantotu šo funkciju, atlasiet alternatīvās vietējās "
+"lokalizācijas un izvēlieties kādu no turpmāk minētajām iespējām."
 
 msgid "manager.languages.supportedLocalesInstructions"
 msgstr ""
+"Izvēlieties visas lokalizācijas, kas tiks atbalstītas vietnē, izmantojot "
+"valodas izvēlni, kas parādīsies katrā lapā. Izvēlne parādīsies tikai tad, ja "
+"būs atlasīta vairāk nekā viena lokālā valoda."
 
 msgid "manager.payment.timestamp"
-msgstr ""
+msgstr "Laika zīmogs"
 
 msgid "manager.people.existingUserRequired"
-msgstr ""
+msgstr "Jāievada esošs lietotājs."
 
 msgid "manager.people.confirmUnenroll"
-msgstr ""
+msgstr "Atslēgt šī lietotāja reģistrāciju?"
 
 msgid "manager.people.createUser"
-msgstr ""
+msgstr "Izveidot jaunu lietotāju"
 
 msgid "manager.people.createUserGeneratePassword"
-msgstr ""
+msgstr "Izveidot nejaušu paroli."
 
 msgid "manager.people.createUserSendNotify"
 msgstr ""
+"Nosūtīt lietotājam apstiprinājuma e-pasta vēstuli ar lietotājvārdu un paroli."
 
 msgid "manager.people.disable"
-msgstr ""
+msgstr "Atspējot"
 
 msgid "manager.people.doNotEnroll"
-msgstr ""
+msgstr "Bez lomas"
 
 msgid "manager.people.editProfile"
-msgstr ""
+msgstr "Labot profilu"
 
 msgid "manager.people.editUser"
-msgstr ""
+msgstr "Labot lietotāju"
 
 msgid "manager.people.emailUsers.emailSelectedUsers"
-msgstr ""
+msgstr "Sūtīt e-pastu atlasītiem lietotājiem"
 
 msgid "manager.people.emailUsers.emailUsersEnrolledAs"
-msgstr ""
+msgstr "Sūtīt e-pastu lietotājiem, kas reģistrēti kā"
 
 msgid "manager.people.emailUsers"
-msgstr ""
+msgstr "Sūtīt e-pastu lietotājiem"
 
 msgid "manager.people.emailUsers.selectLocale"
-msgstr ""
+msgstr "Izvēlēties valodu"
 
 msgid "manager.people.emailUsers.selectUsers"
 msgstr ""
+"Atlasiet, kuriem lietotājiem vēlaties sūtīt e-pastu, atzīmējot lodziņus pie "
+"viņu vārdiem"
 
 msgid "manager.people.enable"
-msgstr ""
+msgstr "Iespējot"
 
 msgid "manager.people.enroll"
-msgstr ""
+msgstr "Reģistrēt lietotāju"
 
 msgid "manager.people.enrollment"
-msgstr ""
+msgstr "Reģistrēšana"
 
 msgid "manager.people.enrollSelected"
-msgstr ""
+msgstr "Reģistrēt atlasītos lietotājus"
 
 msgid "manager.people.enrollSyncRole"
-msgstr ""
+msgstr "Sinhronizēt lomu"
 
 msgid "manager.people.enrollSync"
-msgstr ""
+msgstr "Sinhronizēt reģistrāciju"
 
 msgid "manager.people.enrollUserAsDescription"
-msgstr ""
+msgstr "Lietotājiem jebkurā brīdī var piešķirt kādu lomu vai no tās atbrīvot."
 
 msgid "manager.people.enrollUserAs"
-msgstr ""
+msgstr "Reģistrēt lietotāju kā"
 
 msgid "manager.people.invalidUser"
-msgstr ""
+msgstr "Atvainojiet, pieprasītais lietotājs nepastāv."
 
 msgid "manager.people.mergeUser"
-msgstr ""
+msgstr "Apvienot lietotāju"
 
 msgid "manager.people.mergeUsers.confirm"
 msgstr ""
+"Vai tiešām vēlaties atlasītos {$oldAccountCount} kontus apvienot kontā ar "
+"lietotājvārdu \"{$newUsername}\"? Pēc tam izvēlētie {$oldAccountCount} konti "
+"vairs nepastāvēs. Šī darbība nav atgriezeniska."
 
 msgid "manager.people.mergeUsers"
-msgstr ""
+msgstr "Apvienot lietotājus"
 
 msgid "manager.people.mustChooseRole"
 msgstr ""
+"Lūdzu, izvēlieties lomu lapas augšpusē, pirms noklikšķiniet uz \"Reģistrēt "
+"lietotāju\"."
 
 msgid "manager.people.mustProvideName"
-msgstr ""
+msgstr "Lūdzu, vispirms norādiet vismaz lietotāja uzvārdu."
 
 msgid "manager.people.noMatchingUsers"
-msgstr ""
+msgstr "Nav atbilstošu lietotāju."
 
 msgid "manager.people.noneEnrolled"
-msgstr ""
+msgstr "Nav reģistrētu lietotāju."
 
 msgid "manager.people"
-msgstr ""
+msgstr "Cilvēki"
 
 msgid "manager.people.remove"
-msgstr ""
+msgstr "Noņemt"
 
 msgid "manager.people.saveAndCreateAnotherUser"
-msgstr ""
+msgstr "Saglabāt un izveidot citu"
 
 msgid "manager.people.signedInAs"
-msgstr ""
+msgstr "Pašlaik esat pieteicies kā {$username}"
 
 msgid "manager.people.signInAs"
-msgstr ""
+msgstr "Pieteikties kā"
 
 msgid "manager.people.signInAsUser"
-msgstr ""
+msgstr "Pieteikties kā lietotājam"
 
 msgid "manager.people.syncUsers"
-msgstr ""
+msgstr "Sinhronizēt lietotāju reģistrāciju"
 
 msgid "manager.people.unenroll"
-msgstr ""
+msgstr "Atcelt reģistrāciju"
 
 msgid "manager.people.userCreatedSuccessfully"
-msgstr ""
+msgstr "Lietotājs veiksmīgi izveidots."
 
 msgid "manager.people.userMustChangePassword"
-msgstr ""
+msgstr "Pieprasiet, lai lietotājs nākamajā pieteikšanās reizē nomaina paroli."
 
 msgid "manager.plugins.action"
-msgstr ""
+msgstr "Darbība:"
 
 msgid "manager.plugins.disable"
-msgstr ""
+msgstr "Atspējot"
 
 msgid "manager.plugins.enable"
-msgstr ""
+msgstr "Iespējot"
 
 msgid "manager.plugins.pluginManagement"
-msgstr ""
+msgstr "Spraudņu pārvaldība"
 
 msgid "manager.plugins.sitePlugin"
 msgstr ""
+"Šis ir vietnes mēroga spraudnis. Šo spraudni drīkst pārvaldīt tikai vietnes "
+"administrators."
 
 msgid "manager.plugins"
-msgstr ""
+msgstr "Sistēmas spraudņi"
 
 msgid "manager.readingTools"
-msgstr ""
+msgstr "Lasīšanas rīki"
 
 msgid "manager.userSearch.searchByName"
-msgstr ""
+msgstr "Meklēt lietotāju pēc vārda"
 
 msgid "manager.representative.inUse"
 msgstr ""
+"Šos pārstāvjus nevar dzēst, jo tie ir piesaistīti tirgus metadatiem vienam "
+"vai vairākiem publikāciju formātiem, kas attiecas uz šo materiālu."
 
 msgid "manager.reviewerSearch.change"
-msgstr ""
+msgstr "Mainīt"
 
 msgid "manager.reviewerSearch.searchByName"
-msgstr ""
+msgstr "Meklēt recenzentus pēc vārda"
 
 msgid "manager.reviewerSearch.searchByName.short"
-msgstr ""
+msgstr "Meklēt pēc vārda"
 
 msgid "manager.reviewerSearch.interests"
-msgstr ""
+msgstr "Recenzenta intereses"
 
 msgid "manager.reviewerSearch.form.instructions"
 msgstr ""
+"Izmantojiet tālāk norādīto veidlapu, lai iestatītu maksimālās vērtības "
+"terminiem, kurus vēlaties meklēt.  Veidlapa ir iepriekš aizpildīta ar "
+"aprēķinātajiem šo lauku vidējiem lielumiem."
 
 msgid "manager.roles"
-msgstr ""
+msgstr "Lomas"
 
 msgid "manager.setup.statistics"
-msgstr ""
+msgstr "Satistika"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Ģeogrāfiskā statistika"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Izvēlieties, kāda veida ģeogrāfisko lietojuma statistiku vākt. Detalizētāka "
+"ģeogrāfiskā statistika var ievērojami palielināt datubāzes apjomu un dažos "
+"retos gadījumos var apdraudēt apmeklētāju anonimitāti."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "Neievākt nekādus ģeogrāfiskos datus"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Apkopot apmeklētāja valsti"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Apkopot apmeklētāja valsti un reģionu"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr ""
+msgstr "Apkopot apmeklētāja valsti, reģionu un pilsētu"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Iestāžu statistika"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Iespējot iestāžu statistiku, ja vēlaties apkopot lietošanas statistiku pa "
+"iestādēm. Ja šī opcija ir iespējota, jums būs jākonfigurē IP diapazoni "
+"katrai iestādei, kurai vēlaties sekot."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Iespējot iestāžu statistiku"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr ""
+msgstr "Publiskā API"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"Ierobežot vai neierobežot piekļuvi API galapunktiem COUNTER SUSHI "
+"statistikai. Ja izvēles rūtiņa nav atzīmēta, API būs pieejama tikai "
+"lietotājiem ar admin vai manager lomām."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "Padarīt COUNTER SUSHI statistiku publiski pieejamu"
 
 msgid "manager.statistics.reports"
-msgstr ""
+msgstr "Atskaites"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
+"Sistēma ģenerē atskaites, kurās tiek izsekota informācija, kas saistīta ar "
+"vietnes izmantošanu un materiāla iesniegšanu noteiktā laika periodā. "
+"Atskaites tiek ģenerētas CSV formātā, un to pārskatīšanai nepieciešama "
+"izklājlapu programma."
 
 msgid "manager.statistics.reports.month.label"
-msgstr ""
+msgstr "Izmantot GGGGMM formātu."
 
 msgid "manager.statistics.reports.day.label"
-msgstr ""
+msgstr "Izmantot GGGGMMDD formātu."
 
 msgid "manager.affiliationAndSupport"
-msgstr ""
+msgstr "Sponsors"
 
 msgid "manager.setup.dois"
-msgstr ""
+msgstr "DOI"
 
 msgid "manager.setup.dois.setup"
-msgstr ""
+msgstr "Iestatīšana"
 
 msgid "manager.setup.dois.registration"
-msgstr ""
+msgstr "Reģistrācija"
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "DOI prefikss"
 
 msgid "doi.manager.setup.automaticDeposit"
 msgstr ""
@@ -1066,7 +1109,7 @@ msgid "manager.setup.principalContactDescription"
 msgstr ""
 
 msgid "manager.setup.privacyStatement"
-msgstr ""
+msgstr "Privātuma atruna"
 
 msgid "manager.setup.dateTime"
 msgstr ""
@@ -1097,6 +1140,10 @@ msgstr ""
 
 msgid "manager.setup.privacyStatement.description"
 msgstr ""
+"Šis paziņojums tiks parādīts lietotāja reģistrācijas un autora materiāla "
+"iesniegšanas laikā, kā arī publiski pieejamajā privātuma lapā. Dažās valstīs "
+"likums nosaka, ka privātuma atrunā tiek atklāts, kā jūs rīkojaties ar "
+"lietotāju datiem."
 
 msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
 msgstr ""
@@ -1169,9 +1216,15 @@ msgstr ""
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Šī informācija tiks rādīta autoriem ieguldītāja solī. Sniedziet īsu "
+"aprakstu, kādas ziņas autoriem jāuzrāda par sevi, līdzautoriem un citiem "
+"ieguldītājiem."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Šī informācija tiek rādīta autoriem detalizācijas solī, kad viņiem tiek "
+"lūgts norādīt nosaukumu, kopsavilkumu un citas svarīgas ziņas par iesniegto "
+"darbu."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
@@ -1516,7 +1569,7 @@ msgid "settings.roles.roleOptions"
 msgstr ""
 
 msgid "settings.roles.showTitles"
-msgstr ""
+msgstr "Rādīt lomas nosaukumu ieguldītāju sarakstā"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr ""
@@ -1660,10 +1713,10 @@ msgid "manager.website.title"
 msgstr ""
 
 msgid "manager.workflow"
-msgstr ""
+msgstr "Darbplūsma"
 
 msgid "manager.workflow.title"
-msgstr ""
+msgstr "Darbplūsmas uzstādījumi"
 
 msgid "manager.distribution"
 msgstr ""
@@ -2021,6 +2074,8 @@ msgstr ""
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
 msgstr ""
+"Labojumi \"{$revisionId}\" materiāla datnei \"{$fileId}\" var radīt ieraksta "
+"dublikātu"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr ""
@@ -2140,7 +2195,7 @@ msgid "manager.navigationMenus.current.description"
 msgstr ""
 
 msgid "manager.navigationMenus.archives.description"
-msgstr ""
+msgstr "Saite uz laidienu arhīvu."
 
 msgid "manager.navigationMenus.announcements.description"
 msgstr ""
@@ -2194,10 +2249,12 @@ msgid "manager.navigationMenus.search.description"
 msgstr ""
 
 msgid "manager.navigationMenus.privacyStatement.description"
-msgstr ""
+msgstr "Saite uz lapu, kurā ir jūsu privātuma atruna."
 
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr ""
+"Šī saite tiks parādīta tikai tad, ja sadaļā Iestatījumi > Darbplūsma > "
+"Materiālu iesniegšana būsiet ievadījis privātuma atrunu."
 
 msgid "grid.category.add"
 msgstr ""
@@ -2527,7 +2584,7 @@ msgid "emailTemplate.variable.decision.description"
 msgstr ""
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "Redakcijas darbplūsmas posms, kurā šis lēmums tika pieņemts"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
@@ -2620,7 +2677,7 @@ msgid "emailTemplate.variable.submission.submissionId"
 msgstr ""
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr "Iesniegtā materiāla kopsavilkums"
+msgstr "Materiāla kopsavilkums"
 
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr ""
@@ -2642,6 +2699,8 @@ msgstr ""
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"Materiāla iesniegšanas darbplūsmai piešķirto autoru vārdi. Parasti tas ir "
+"autors, kas iesniedz materiālu"
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
@@ -2689,10 +2748,10 @@ msgid "emailTemplate.variable.statisticsReportNotify.year"
 msgstr ""
 
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr ""
+msgstr "Laidiena identifikācija, ieskaitot sējumu, numuru, gadu un nosaukumu"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "Publicētā laidiena URL"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr ""
@@ -2737,7 +2796,7 @@ msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr ""
+msgstr "Esam izlēmuši pieņemt šo materiālu bez labojumiem."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
 msgstr ""
@@ -2745,7 +2804,7 @@ msgstr ""
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "Esam aicinājuši autorus iesniegt labojumus."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
@@ -2761,16 +2820,20 @@ msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Materiāls nosūtīts atpakaļ uz literāro rediģēšanu"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
+"Šajā e-pastā autors tiek informēts par to, ka viņa materiāls ir nosūtīts "
+"atpakaļ uz literārās rediģēšanas posmu."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Materiāls nosūtīts atpakaļ no literārās rediģēšanas"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Šajā e-pastā autors tiek informēts, ka viņa materiāls ir nosūtīts atpakaļ no "
+"literārās rediģēšanas posma."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
 msgstr ""
@@ -2794,10 +2857,12 @@ msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr ""
+msgstr "Pieprasītie labojumi"
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
+"Ar šo e-pastu autors tiek informēts par lēmumu pieprasīt labojumus "
+"recenzēšanas laikā."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
 msgstr ""
@@ -2824,16 +2889,20 @@ msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "Nosūtīts uz izstrādi"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Šajā e-pastā autors tiek informēts, ka viņa materiāls tiek nosūtīts uz "
+"izstrādes posmu."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
 msgstr ""
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Šajā e-pastā autors tiek informēts, ka viņa materiāls tiek nosūtīts tieši uz "
+"literārās rediģēšanas posmu un netiks recenzēts."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
 msgstr ""
@@ -2954,16 +3023,20 @@ msgid "mailable.discussionReview.description"
 msgstr ""
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Diskusija (literārā rediģēšana)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Šis e-pasts tiek sūtīts, kad literārās rediģēšanas posmā tiek izveidota "
+"diskusija vai uz to tiek atbildēts."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Diskusija (Izstrāde)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Šis e-pasts tiek nosūtīts, kad izstrādes posmā tiek izveidota diskusija vai "
+"uz to tiek atbildēts."
 
 msgid "mailable.revisedVersionNotify.name"
 msgstr ""
@@ -3092,13 +3165,13 @@ msgid "manager.submitWithCategories.no"
 msgstr ""
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Pieprasīt literāro rediģēšanu"
 
 msgid "mailable.editorAssign.name"
 msgstr ""
 
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Gatavs izstrādei"
 
 msgid "mailable.system"
 msgstr ""
@@ -3126,3 +3199,11 @@ msgstr ""
 
 msgid "mailable.submissionNeedsEditor.name"
 msgstr ""
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr "Materiāla datne {$id} tika izlaista, jo tam nav derīgu labojumu."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Materiāla datnes {$id} labojumi {$revision} tika izlaisti, jo datne netika "
+"atrasta ceļā \"{$path}\"."

@@ -1,18 +1,17 @@
 <?php
 
 /**
- * @file classes/middleware/
+ * @file classes/middleware/SetupContextBasedOnRequestUrl.php
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2000-2023 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class 
+ * @class SetupContextBasedOnRequestUrl
  *
  * @ingroup middleware
  *
- * @brief 
- *
+ * @brief Routing middleware to apply correct context
  */
 
 namespace PKP\middleware;
@@ -21,16 +20,12 @@ use APP\core\Application;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use PKP\context\Context;
 use PKP\core\Core;
 
 class SetupContextBasedOnRequestUrl
 {
     /**
-     * 
-     * 
-     * @param \Illuminate\Http\Request  $request
-     * @param Closure                   $next
+     * Determine and apply the correct context based on request url
      * 
      * @return mixed
      */
@@ -58,5 +53,4 @@ class SetupContextBasedOnRequestUrl
 
         return $next($request);
     }
-
 }

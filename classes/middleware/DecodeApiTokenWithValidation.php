@@ -1,18 +1,17 @@
 <?php
 
 /**
- * @file classes/middleware/
+ * @file classes/middleware/DecodeApiTokenWithValidation.php
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2000-2023 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class 
+ * @class DecodeApiTokenWithValidation
  *
  * @ingroup middleware
  *
- * @brief 
- *
+ * @brief Routing middleware to decode and validate API token
  */
 
 namespace PKP\middleware;
@@ -34,10 +33,10 @@ use Illuminate\Auth\Access\AuthorizationException;
 class DecodeApiTokenWithValidation
 {
     /**
+     * Decode and validate the API token with incoming api request.
      * 
-     * 
-     * @param \Illuminate\Http\Request  $request
-     * @param Closure                   $next
+     * On successful validation of API Token, set the PKP User object to
+     * Laravel's user resolver.
      * 
      * @return mixed
      */
@@ -63,7 +62,7 @@ class DecodeApiTokenWithValidation
 
         try {
             $headers = new stdClass;
-            $apiToken = ((Array)JWT::decode($jwtToken, new Key($secret, 'HS256'), $headers))[0]; /** @var string $apiToken */
+            $apiToken = ((array)JWT::decode($jwtToken, new Key($secret, 'HS256'), $headers))[0]; /** @var string $apiToken */
 
             /**
              * Compatibility with old API keys
@@ -86,13 +85,13 @@ class DecodeApiTokenWithValidation
             if($exception instanceof SignatureInvalidException) {
                 return response()->json([
                     'error' => __('api.400.invalidApiToken'),
-                ], Response::HTTP_UNAUTHORIZED);
+                ], Response::HTTP_BAD_REQUEST);
             }
 
             if($exception instanceof DomainException || $exception instanceof UnexpectedValueException) {
                 return response()->json([
                     'error' => __('api.400.tokenCouldNotBeDecoded'),
-                ], Response::HTTP_UNAUTHORIZED);
+                ], Response::HTTP_BAD_REQUEST);
             }
 
             // We don't know response to provide so better to just re-throw the exception

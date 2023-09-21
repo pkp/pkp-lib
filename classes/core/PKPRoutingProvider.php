@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * @file classes/core/PKPRoutingProvider.php
+ *
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PKPRoutingProvider
+ *
+ * @ingroup core
+ *
+ * @brief  The core routing service provider to handle laravel routing
+ */
+
 namespace PKP\core;
 
 use PKP\core\PKPContainer;

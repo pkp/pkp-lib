@@ -81,7 +81,7 @@ class PKPContainer extends Container
                 {
                     $pkpRouter = Application::get()->getRequest()->getRouter();
 
-                    if($pkpRouter && $pkpRouter instanceof APIRouter && app('router')->getRoutes()->count()) {
+                    if($pkpRouter instanceof APIRouter && app('router')->getRoutes()->count()) {
                         return response()->json([
                             'error' => $exception->getMessage()
                         ], in_array($exception->getCode(), array_keys(Response::$statusTexts)) 

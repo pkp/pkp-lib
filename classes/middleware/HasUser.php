@@ -1,18 +1,17 @@
 <?php
 
 /**
- * @file classes/middleware/
+ * @file classes/middleware/HasUser.php
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2000-2023 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class 
+ * @class HasUser
  *
  * @ingroup middleware
  *
- * @brief 
- *
+ * @brief Routing middleware to check user existence
  */
 
 namespace PKP\middleware;
@@ -25,10 +24,7 @@ use PKP\user\User;
 class HasUser
 {
     /**
-     * 
-     * 
-     * @param \Illuminate\Http\Request  $request
-     * @param Closure                   $next
+     * Check the existence of bound user to the request object
      * 
      * @return mixed
      */
@@ -36,7 +32,7 @@ class HasUser
     {
         $user = $request->user();
 
-        if ($user && $user instanceof User ) {
+        if ($user instanceof User ) {
             return $next($request);
         }
 

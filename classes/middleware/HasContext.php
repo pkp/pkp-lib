@@ -1,18 +1,17 @@
 <?php
 
 /**
- * @file classes/middleware/
+ * @file classes/middleware/HasContext.php
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2000-2023 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class 
+ * @class HasContext
  *
  * @ingroup middleware
  *
- * @brief 
- *
+ * @brief Routing middleware to apply context validation
  */
 
 namespace PKP\middleware;
@@ -25,10 +24,7 @@ use PKP\context\Context;
 class HasContext
 {
     /**
-     * 
-     * 
-     * @param \Illuminate\Http\Request  $request
-     * @param Closure                   $next
+     * Check if context has bound to request and exists
      * 
      * @return mixed
      */

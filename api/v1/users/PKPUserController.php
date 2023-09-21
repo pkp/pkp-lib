@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file api/v1/users/UserController.php
+ * @file api/v1/users/PKPUserController.php
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2000-2023 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class UserController
+ * @class PKPUserController
  *
  * @ingroup api_v1_users
  *
@@ -33,7 +33,7 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-class UserController extends PKPBaseController
+class PKPUserController extends PKPBaseController
 {
     /**
      * @copydoc \PKP\core\PKPBaseController::authorize()

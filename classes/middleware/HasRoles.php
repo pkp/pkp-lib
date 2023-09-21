@@ -1,18 +1,17 @@
 <?php
 
 /**
- * @file classes/middleware/
+ * @file classes/middleware/HasRoles.php
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2000-2023 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class 
+ * @class HasRoles
  *
  * @ingroup middleware
  *
- * @brief 
- *
+ * @brief Routing middleware to apply user role validation/authorization
  */
 
 namespace PKP\middleware;
@@ -25,11 +24,19 @@ use Illuminate\Http\Response;
 
 class HasRoles
 {
+    /**
+     * Following constant define how the user role authorization and validation will be determined
+     * 
+     * ROLES_MATCH_STRICT   It define that ALL applied roles to the routes must match be present
+     *                      and associated with the requesting user 
+     * ROLES_MATCH_LOOSE    It define that ANY of the applied role to the routes must be present
+     *                      and associated with the requesting user 
+     */
     public const ROLES_MATCH_STRICT = 1;
     public const ROLES_MATCH_LOOSE = 2;
 
     /**
-     * 
+     * Validate the applied user role to the route with requesting user role
      * 
      * @param \Illuminate\Http\Request  $request
      * @param Closure                   $next

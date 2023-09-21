@@ -18,7 +18,7 @@ msgid "api.400.errorUploadingImage"
 msgstr "There was an error uploading this image."
 
 msgid "api.422.routeRequestUnableToProcess"
-msgstr "Unable to process api request."
+msgstr "Unable to process API request."
 
 msgid "api.417.routeResponseIsNull"
 msgstr "Unable to receive any expected response."

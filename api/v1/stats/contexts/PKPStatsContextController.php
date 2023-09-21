@@ -3,15 +3,15 @@
 /**
  * @file api/v1/stats/contexts/PKPStatsContextController.php
  *
- * Copyright (c) 2022 Simon Fraser University
- * Copyright (c) 2022 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsContextController
  *
  * @ingroup api_v1_stats
  *
- * @brief Handle API requests for context statistics.
+ * @brief Controller class to handle API requests for context statistics.
  *
  */
 

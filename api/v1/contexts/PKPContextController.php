@@ -1,29 +1,21 @@
 <?php
 /**
- * @file api/v1/contexts/PKPContextHandler.php
+ * @file api/v1/contexts/PKPContextController.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPContextHandler
+ * @class PKPContextController
  *
  * @ingroup api_v1_context
  *
- * @brief Base class to handle API requests for contexts (journals/presses).
+ * @brief Controller class to handle API requests for contexts (journals/presses).
  */
 
 namespace PKP\API\v1\contexts;
 
 use APP\plugins\IDoiRegistrationAgency;
-use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
-
-use PKP\security\authorization\PolicySet;
-
-use PKP\security\authorization\UserRolesRequiredPolicy;
-
-use PKP\core\PKPRequest;
-
 use APP\template\TemplateManager;
 use APP\services\ContextService;
 use APP\core\Services;
@@ -42,6 +34,10 @@ use PKP\plugins\Hook;
 use PKP\core\PKPBaseController;
 use PKP\services\PKPSchemaService;
 use PKP\security\Role;
+use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\core\PKPRequest;
 
 
 class PKPContextController extends PKPBaseController

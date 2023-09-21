@@ -1,18 +1,17 @@
 <?php
 
 /**
- * @file classes/middleware/
+ * @file classes/middleware/PolicyAuthorizer.php
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2000-2023 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class 
+ * @class PolicyAuthorizer
  *
  * @ingroup middleware
  *
- * @brief 
- *
+ * @brief Routing middleware to apply policy authorization
  */
 
 namespace PKP\middleware;
@@ -33,10 +32,10 @@ use Illuminate\Routing\RouteCollection;
 class PolicyAuthorizer
 {
     /**
+     * Run the policy authorization process
      * 
-     * 
-     * @param \Illuminate\Http\Request  $request
-     * @param Closure                   $next
+     * It run the route associated controller's "authorize" method that contains the 
+     * policies before running the controller action .
      * 
      * @return mixed
      */
@@ -63,12 +62,19 @@ class PolicyAuthorizer
             $authorizationMessage = $routeController->getLastAuthorizationMessage();
             return response()->json([
                 'error' => empty($authorizationMessage) ? __('api.403.unauthorized') : $authorizationMessage,
-            ], Response::HTTP_FORBIDDEN);
+            ], Response::HTTP_UNAUTHORIZED);
         }
 
         return $next($request);
     }
 
+    /**
+     *  Return the ROLE_ID_* constants to route controller actions maps in the follwoing format
+     *  [
+     *      ROLE_ID_... => [...allowed route controller operations...],
+     *      ...
+     *  ]
+     */
     protected function getRoleAssignmentMap(RouteCollection $routes): Collection
     {
         $operationToRolesMap = collect($routes->getRoutes())
@@ -86,8 +92,6 @@ class PolicyAuthorizer
                         ->unique()
                 ];
             });
-
-        // ray(Application::get()->getRequest()->getRouter());
 
         $roles = collect([]);
 

@@ -211,7 +211,6 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
                 case '_href':
                     $values[$prop] = null;
                     if (!empty($slimRequest) || !empty($apiRequest)) { // FIXME#7698: need MODIFICATION as per need to facilitate pkp/pkp-lib#7698
-                        // $route = $slimRequest->getAttribute('route'); // FIXME#7698: need MODIFICATION as per need to facilitate pkp/pkp-lib#7698
                         $values[$prop] = $dispatcher->url(
                             $args['request'],
                             PKPApplication::ROUTE_API,

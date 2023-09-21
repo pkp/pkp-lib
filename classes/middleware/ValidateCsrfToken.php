@@ -1,18 +1,17 @@
 <?php
 
 /**
- * @file classes/middleware/
+ * @file classes/middleware/ValidateCsrfToken.php
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2000-2023 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class 
+ * @class ValidateCsrfToken
  *
  * @ingroup middleware
  *
- * @brief 
- *
+ * @brief Routing middleware to verify CSRF token
  */
 
 namespace PKP\middleware;
@@ -25,10 +24,7 @@ use Illuminate\Http\Response;
 class ValidateCsrfToken
 {
     /**
-     * 
-     * 
-     * @param \Illuminate\Http\Request  $request
-     * @param Closure                   $next
+     * Determine and validate CSRF token
      * 
      * @return mixed
      */
@@ -51,16 +47,25 @@ class ValidateCsrfToken
         return $next($request);
     }
 
+    /**
+     * Check if this is a API request
+     */
     protected function isApiRequest(Request $request): bool
     {
         return $request->query('apiToken', null) ? true : false;
     }
 
+    /**
+     * Check request require CSRF token
+     */
     protected function isCsrfRequiredForRequest(Request $request): bool
     {
         return in_array($request->server('REQUEST_METHOD'), ['PUT', 'PATCH', 'POST', 'DELETE']);
     }
 
+    /**
+     * Validate the CSRF token
+     */
     protected function isCsrfValid(Request $request): bool
     {
         $requestCsrfToken = $request->server('HTTP_X_CSRF_TOKEN', null);

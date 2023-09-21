@@ -3,15 +3,15 @@
 /**
  * @file classes/core/PKPBaseController.php
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2000-2023 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPBaseController
  *
  * @ingroup core
  *
- * @brief Base abstract controller that all controller must extend
+ * @brief Base abstract controller class that all controller must extend
  *
  */
 
@@ -74,13 +74,28 @@ abstract class PKPBaseController extends Controller
      * The PKP request object 
      */
     protected ?PKPRequest $_request = null;
-
+    
+    /**
+     * The unique endpoint string for the APIs that will be served through controller.
+     * 
+     * This is equivalent to property \PKP\handler\APIHandler::_handlerPath 
+     * which will be passed through \PKP\handler\APIHandler\PKPApiRoutingHandler
+     */
     abstract public function getHandlerPath(): string;
-
+    
+    /**
+     * Return the middlewares that will be applied to all defined routes in controller
+     */
     abstract public function getRouteGroupMiddleware(): array;
 
+    /**
+     * Contains all the routes for this controller
+     */
     abstract public function getGroupRoutes(): void;
 
+    /**
+     * Get the curernt requested route
+     */
     public static function getRequestedRoute(Request $request = null): ?Route
     {
         $router = app('router'); /** @var \Illuminate\Routing\Router $router */
@@ -94,6 +109,9 @@ abstract class PKPBaseController extends Controller
         return $routes->match($request);
     }
 
+    /**
+     * Get the curernt requested route's controller instance
+     */
     public static function getRouteController(Request $request = null): ?static
     {
         if (!$requestedRoute = static::getRequestedRoute($request)) {
@@ -103,6 +121,9 @@ abstract class PKPBaseController extends Controller
         return (new ReflectionFunction($requestedRoute->action['uses']))->getClosureThis();
     }
 
+    /**
+     * Get the curernt requested route's controller action/method name
+     */
     public static function getRouteActionName(Request $request = null): ?string
     {
         if (!$requestedRoute = static::getRequestedRoute($request)) {
@@ -112,6 +133,9 @@ abstract class PKPBaseController extends Controller
         return (new ReflectionFunction($requestedRoute->action['uses']))->getName();
     }
 
+    /**
+     * Return the role authorizer middleware ('has.roles') with proper role params binding
+     */
     public static function roleAuthorizer(array $roles): string 
     {
         if (empty($roles)) {
@@ -123,33 +147,44 @@ abstract class PKPBaseController extends Controller
         return "has.roles:{$roles}";
     }
 
+    /**
+     * The endpoint pattern for the APIs that will be served through controller.
+     * 
+     * This is equivalent to property \PKP\handler\APIHandler::_pathPattern 
+     * which will be passed through \PKP\handler\APIHandler\PKPApiRoutingHandler
+     */
     public function getPathPattern(): ?string
     {
         return null;
     }
 
+    /**
+     * Define if all the path building for admin api use rather than at context level
+     * 
+     * This is equivalent to property \PKP\handler\APIHandler::_apiForAdmin 
+     * which will be passed through \PKP\handler\APIHandler\PKPApiRoutingHandler
+     */
     public function isSiteWide(): bool
     {
         return false;
     }
 
+    /**
+     * Get the PKP core request object
+     */
     public function getRequest(): PKPRequest
     {
-        if (!$this->_request) {
-            $this->_request = Application::get()->getRequest();
-        }
+        $this->_request ??= Application::get()->getRequest();
 
         return $this->_request;
     }
 
     /**
-     * Add an authorization policy for this handler which will
+     * Add an authorization policy for this controller which will
      * be applied in the authorize() method.
      *
-     * Policies must be added in the class constructor or in the
-     * subclasses' authorize() method before the parent::authorize()
-     * call so that PKPHandler::authorize() will be able to enforce
-     * them.
+     * Policies must be added in the authorize() method before the parent::authorize()
+     * call so that PKPBaseController::authorize() will be able to enforce them.
      *
      * @param AuthorizationPolicy|PolicySet $authorizationPolicy
      * @param bool                          $addToTop               Whether to insert the new policy to the top of the list.
@@ -189,8 +224,6 @@ abstract class PKPBaseController extends Controller
      * directly to avoid accidentally overwriting an object
      * in the context. Try to use getAuthorizedContextObject()
      * instead where possible.
-     *
-     * @return array
      */
     public function &getAuthorizedContext(): array
     {
@@ -277,10 +310,9 @@ abstract class PKPBaseController extends Controller
     /**
      * Authorize this request.
      *
-     * Routers will call this method automatically thereby enforcing
-     * authorization. This method will be called before the
-     * validate() method and before passing control on to the
-     * handler operation.
+     * This method will be called via the \PKP\middleware\PolicyAuthorizer middleware
+     * authomatically for the current target route to execute before execuring the 
+     * route itself . 
      *
      * NB: This method will be called once for every request only.
      *

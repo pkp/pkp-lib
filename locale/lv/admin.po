@@ -2,7 +2,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-20 23:46+0000\n"
+"PO-Revision-Date: 2023-09-22 13:06+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "lv/>\n"
@@ -273,7 +273,7 @@ msgid "admin.settings"
 msgstr ""
 
 msgid "admin.settings.about"
-msgstr ""
+msgstr "Par vietni"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr ""
@@ -321,7 +321,7 @@ msgid "admin.siteAdmin"
 msgstr ""
 
 msgid "admin.siteManagement"
-msgstr ""
+msgstr "Vietnes pārvaldība"
 
 msgid "admin.siteSettings"
 msgstr ""
@@ -337,6 +337,8 @@ msgstr ""
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Skatiet informāciju par lietojumprogrammas un servera versiju un "
+"konfigurācijas iestatījumiem."
 
 msgid "admin.systemInformation.view"
 msgstr ""
@@ -369,7 +371,7 @@ msgid "admin.version.moreInfo"
 msgstr ""
 
 msgid "admin.versionRevision"
-msgstr ""
+msgstr "Labojums"
 
 msgid "admin.version.updateAvailable"
 msgstr ""

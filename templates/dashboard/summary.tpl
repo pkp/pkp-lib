@@ -18,7 +18,7 @@
 			&& summarySubmission.reviewRounds.length
 		">
 			{{
-				__('common.inParenthesis', {
+				t('common.inParenthesis', {
 					text: i18nReviewRound.replace(
 						'{ldelim}$round{rdelim}',
 						summarySubmission

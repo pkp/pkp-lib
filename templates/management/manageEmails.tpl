@@ -43,7 +43,7 @@
 		<template #item-actions="{ldelim}item{rdelim}">
 			<pkp-button @click="openMailable(item)">
 				<span aria-hidden="true">Edit</span>
-				<span class="-screenReader">{{ __('common.editItem', {ldelim}name: item.name{rdelim}) }}</span>
+				<span class="-screenReader">{{ t('common.editItem', {ldelim}name: item.name{rdelim}) }}</span>
 			</pkp-button>
 		</template>
 		<template #sidebar>

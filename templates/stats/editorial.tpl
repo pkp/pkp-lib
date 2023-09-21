@@ -118,7 +118,7 @@
 									<template v-if="column.name === 'name'">
 										{{ row.name }}
 										<tooltip v-if="row.description"
-											:label="__('stats.descriptionForStat', {ldelim}stat: row.name{rdelim})"
+											:label="t('stats.descriptionForStat', {ldelim}stat: row.name{rdelim})"
 											:tooltip="row.description"
 										></tooltip>
 									</template>

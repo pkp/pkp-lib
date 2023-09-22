@@ -16,6 +16,7 @@
 
 namespace PKP\middleware;
 
+use APP\core\Application;
 use Closure;
 use stdClass;
 use Throwable;
@@ -24,11 +25,13 @@ use APP\facades\Repo;
 use Firebase\JWT\Key;
 use PKP\config\Config;
 use PKP\core\PKPJwt as JWT;
+use PKP\session\SessionManager;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use UnexpectedValueException;
 use Firebase\JWT\SignatureInvalidException;
 use Illuminate\Auth\Access\AuthorizationException;
+use PKP\user\User;
 
 class DecodeApiTokenWithValidation
 {
@@ -46,8 +49,12 @@ class DecodeApiTokenWithValidation
         
         /* VALIDATIONS */
         
-        if (!$jwtToken) {
-            // As there is not api token, there is nothing to decode or validate,
+        if (!$jwtToken) { 
+            
+            // Set the user resolver
+            $this->setUserResolver($request);
+            
+            // there is nothing to decode or validate,
             // upto the auth layer to determine the how to handle
             return $next($request);
         }
@@ -99,11 +106,27 @@ class DecodeApiTokenWithValidation
         }
 
         /* ACTIONS */
-        
+
+        $this->setUserResolver($request, $user);
+
+        return $next($request);
+    }
+
+    /**
+     * Set the user resolving handler
+     * 
+     * If user not resolved retrived through the API Token or it missing,
+     * that mean the request probably came from within the app itself
+     * and we need to retrive the user from session manager in that case
+     */
+    protected function setUserResolver(Request &$request, User $user = null): void
+    {
+        if (!$user && !SessionManager::isDisabled()) {
+            $user = Application::get()->getRequest()->getUser();
+        }
+
         $request->setUserResolver(function () use ($user) {
             return $user;
         });
-
-        return $next($request);
     }
 }

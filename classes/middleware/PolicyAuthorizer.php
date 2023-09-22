@@ -45,10 +45,13 @@ class PolicyAuthorizer
 
         $routeController = PKPBaseController::getRouteController($request);
 
-        $user = $request->user();
-        Registry::set('user', $user);
-
-        $pkpRequest         = Application::get()->getRequest();
+        $pkpRequest = Application::get()->getRequest();
+        
+        if (!$pkpRequest->getUser()) {
+            $user = $request->user();
+            Registry::set('user', $user);
+        }
+        
         $args               = [$request];
         $roleAssignments    = $this->getRoleAssignmentMap($router->getRoutes());
 
@@ -59,7 +62,9 @@ class PolicyAuthorizer
         );
 
         if (!$hasAuthorized) {
+
             $authorizationMessage = $routeController->getLastAuthorizationMessage();
+            
             return response()->json([
                 'error' => empty($authorizationMessage) ? __('api.403.unauthorized') : $authorizationMessage,
             ], Response::HTTP_UNAUTHORIZED);

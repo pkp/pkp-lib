@@ -224,9 +224,12 @@ class LoginHandler extends Handler
         $user = Repo::user()->getByEmail($email, true); /** @var User $user */
 
         if ($user === null) {
-            $templateMgr
-                ->assign('error', 'user.login.lostPassword.invalidUser')
-                ->display('frontend/pages/userLostPassword.tpl');
+            $templateMgr->assign([
+                'pageTitle' => 'user.login.resetPassword',
+                'message' => 'user.login.lostPassword.confirmationSent',
+                'backLink' => $request->url(null, $request->getRequestedPage(), null, null),
+                'backLinkLabel' => 'user.login',
+            ])->display('frontend/pages/message.tpl');
 
             return;
         }
@@ -261,7 +264,7 @@ class LoginHandler extends Handler
         $templateMgr->assign([
             'pageTitle' => 'user.login.resetPassword',
             'message' => 'user.login.lostPassword.confirmationSent',
-            'backLink' => $request->url(null, $request->getRequestedPage(), null, null, ['username' => $user->getUsername()]),
+            'backLink' => $request->url(null, $request->getRequestedPage(), null, null),
             'backLinkLabel' => 'user.login',
         ])->display('frontend/pages/message.tpl');
     }

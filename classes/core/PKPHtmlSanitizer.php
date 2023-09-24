@@ -17,31 +17,42 @@
 
 namespace PKP\core;
 
-use DOMDocument;
 use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 use PKP\config\Config;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
+use Symfony\Component\HtmlSanitizer\Reference\W3CReference;
 
 class PKPHtmlSanitizer
 {
     /**
-     * Collection of allowed tags to allowed attributes map as key/value[array] structure
+     * Collection of valid element specify by W3C Sanitizer API
+     * 
+     * @see const HEAD_ELEMENTS and BODY_ELEMENTS at \Symfony\Component\HtmlSanitizer\Reference\W3CReference
+     * @see https://wicg.github.io/sanitizer-api/#default-configuration
      */
-    protected Collection $allowedTagToAttributeMap;
+    protected Collection $w3cValidElements;
 
     /**
      * Instance of HtmlSanitizerConfig config
      */
-    protected ?HtmlSanitizerConfig $htmlSanitizerConfig = null;
+    protected HtmlSanitizerConfig $htmlSanitizerConfig;
 
     /**
      * Create a new instance
      */
     public function __construct(string $allowable)
     {
-        $this->allowedTagToAttributeMap = $this->generateAllowedTagToAttributeMap(Config::getVar('security', $allowable, null) ?? $allowable);
+        $this->w3cValidElements = collect(
+            array_merge(W3CReference::HEAD_ELEMENTS, W3CReference::BODY_ELEMENTS)
+        )->keys();
+
+        $this->buildSanitizerConfig(
+            $this->generateAllowedTagToAttributeMap(
+                Config::getVar('security', $allowable, null) ?? $allowable
+            )
+        );
     }
 
     /**
@@ -59,10 +70,6 @@ class PKPHtmlSanitizer
      */
     public function getSanitizerConfig(): HtmlSanitizerConfig
     {
-        if (!$this->htmlSanitizerConfig) {
-            $this->buildSanitizerConfig();
-        }
-
         return $this->htmlSanitizerConfig;
     }
 
@@ -71,49 +78,53 @@ class PKPHtmlSanitizer
      */
     public function sanitize(string $html): string
     {   
-        $config = clone $this->getSanitizerConfig();
-
-        $this
-            ->getAllNotAllowedHtmlTags($html)
-            ->each(function(string $tag) use (&$config) {
-                $config = $config->blockElement($tag);
-            });
-        
-        return (new HtmlSanitizer($config))->sanitize($html);
+        return (new HtmlSanitizer($this->htmlSanitizerConfig))->sanitize(
+            // Here we are removing any html tags that should not be handled by sanitizer
+            strip_tags($html, $this->getSanitizableTags()->toArray())
+        );
     }
 
     /**
-     * Build up the HtmlSanitizerConfig instance if no predefined instance provided
+     * Build up the \Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig instance
      */
-    protected function buildSanitizerConfig(): void
+    protected function buildSanitizerConfig(Collection $allowedTagToAttributeMap): void
     {
         $this->htmlSanitizerConfig = (new HtmlSanitizerConfig())
             ->allowLinkSchemes(['https', 'http', 'mailto'])
             ->allowMediaSchemes(['https', 'http']);
         
-        $this->allowedTagToAttributeMap->each(
-            fn (array $attributes, string $tag) => $this->htmlSanitizerConfig = $this->htmlSanitizerConfig->allowElement($tag, $attributes)
+        if ($allowedTagToAttributeMap->count()) {
+            $allowedTagToAttributeMap->each(
+                fn (array $attributes, string $tag) => $this->htmlSanitizerConfig = $this->htmlSanitizerConfig->allowElement($tag, $attributes)
+            );
+        }
+
+        $this->getNonAllowedHtmlTags()->each(
+            fn (string $tag) => $this->htmlSanitizerConfig = $this->htmlSanitizerConfig->blockElement($tag)
         );
     }
 
     /**
-     * Get the collection of non allowed tags in the given html srting
+     * Get the collection of non allowed tags for the given configuration
      */
-    protected function getAllNotAllowedHtmlTags(string $html): Collection
+    protected function getNonAllowedHtmlTags(): Collection
     {
-        if (empty($html)) {
-            return collect([]);
-        }
-        
-        $dom = new DOMDocument();
+        return $this->w3cValidElements
+            ->diff(collect($this->htmlSanitizerConfig->getAllowedElements())->keys());
+    }
 
-        $errorState = libxml_use_internal_errors(true); // Don't generate warnings on malformed HTML
-        $dom->loadHTML($html);
-        libxml_use_internal_errors($errorState); // Restore the error state to its previous value
-
-        return collect($dom->getElementsByTagName('*'))
-            ->map(fn ($child) => $child->nodeName)
-            ->diff($this->allowedTagToAttributeMap->keys());
+    /**
+     * Get the collection of tags that will not be stripped/removed by php's "strip_tags" function
+     * but rather should be handled by the sanitizer class
+     */
+    protected function getSanitizableTags(): Collection
+    {
+        return $this->w3cValidElements
+            ->merge(collect($this->htmlSanitizerConfig->getAllowedElements())->keys())
+            ->merge(collect([ // list of dangerous tags that should be only handled by sanitization library
+                'script',
+            ]))
+            ->unique();
     }
 
     /**

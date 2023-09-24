@@ -223,43 +223,36 @@ class LoginHandler extends Handler
         $email = $request->getUserVar('email');
         $user = Repo::user()->getByEmail($email, true); /** @var User $user */
 
-        if ($user === null) {
-            $templateMgr->assign([
-                'pageTitle' => 'user.login.resetPassword',
-                'message' => 'user.login.lostPassword.confirmationSent',
-                'backLink' => $request->url(null, $request->getRequestedPage(), null, null),
-                'backLinkLabel' => 'user.login',
-            ])->display('frontend/pages/message.tpl');
+        if ($user !== null) {
+            
+            if ($user->getDisabled()) {
+                $templateMgr
+                    ->assign([
+                        'error' => 'user.login.lostPassword.confirmationSentFailedWithReason',
+                        'reason' => empty($reason = $user->getDisabledReason() ?? '')
+                            ? __('user.login.accountDisabled')
+                            : __('user.login.accountDisabledWithReason', ['reason' => htmlspecialchars($reason)])
+                    ])
+                    ->display('frontend/pages/userLostPassword.tpl');
+    
+                return;
+            }
 
-            return;
+            // Send email confirming password reset
+            $site = $request->getSite(); /** @var Site $site */
+            $context = $request->getContext(); /** @var Context $context */
+            $template = Repo::emailTemplate()->getByKey(
+                $context ? $context->getId() : PKPApplication::CONTEXT_SITE,
+                PasswordResetRequested::getEmailTemplateKey()
+            );
+            $mailable = (new PasswordResetRequested($site))
+                ->recipients($user)
+                ->from($site->getLocalizedContactEmail(), $site->getLocalizedContactName())
+                ->body($template->getLocalizedData('body'))
+                ->subject($template->getLocalizedData('subject'));
+            Mail::send($mailable);
+            
         }
-
-        if ($user->getDisabled()) {
-            $templateMgr
-                ->assign([
-                    'error' => 'user.login.lostPassword.confirmationSentFailedWithReason',
-                    'reason' => empty($reason = $user->getDisabledReason() ?? '')
-                        ? __('user.login.accountDisabled')
-                        : __('user.login.accountDisabledWithReason', ['reason' => htmlspecialchars($reason)])
-                ])
-                ->display('frontend/pages/userLostPassword.tpl');
-
-            return;
-        }
-
-        // Send email confirming password reset
-        $site = $request->getSite(); /** @var Site $site */
-        $context = $request->getContext(); /** @var Context $context */
-        $template = Repo::emailTemplate()->getByKey(
-            $context ? $context->getId() : PKPApplication::CONTEXT_SITE,
-            PasswordResetRequested::getEmailTemplateKey()
-        );
-        $mailable = (new PasswordResetRequested($site))
-            ->recipients($user)
-            ->from($site->getLocalizedContactEmail(), $site->getLocalizedContactName())
-            ->body($template->getLocalizedData('body'))
-            ->subject($template->getLocalizedData('subject'));
-        Mail::send($mailable);
 
         $templateMgr->assign([
             'pageTitle' => 'user.login.resetPassword',
@@ -267,6 +260,8 @@ class LoginHandler extends Handler
             'backLink' => $request->url(null, $request->getRequestedPage(), null, null),
             'backLinkLabel' => 'user.login',
         ])->display('frontend/pages/message.tpl');
+
+        return;
     }
 
     /**

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2023-09-13 06:06+0000\n"
+"PO-Revision-Date: 2023-09-25 15:55+0000\n"
 "Last-Translator: Kamdin Parsakia <kamdinparsakia@iranmehr.ac.ir>\n"
 "Language-Team: Persian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "fa/>\n"
@@ -355,7 +355,7 @@ msgid "admin.systemInformation.description"
 msgstr ""
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "مشاهده اطلاعات سیستم"
 
 msgid "admin.versionBuild"
 msgstr "ساخت"
@@ -414,16 +414,16 @@ msgid "admin.fileLoader.emailSubject"
 msgstr "بارگزار فایل"
 
 msgid "admin.error.gzDecompressFile.gzopen"
-msgstr ""
+msgstr "فایل مورد نظر قابل فشرده سازی نبود."
 
 msgid "admin.error.gzDecompressFile.fopen"
-msgstr ""
+msgstr "فایل مورد نظر قابل فشرده سازی نبود."
 
 msgid "admin.error.gzDecompressFile.gzread"
-msgstr ""
+msgstr "فایل مورد نظر قابل فشرده سازی نبود."
 
 msgid "admin.error.gzDecompressFile.fwrite"
-msgstr ""
+msgstr "فایل مورد نظر قابل فشرده سازی نبود."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""

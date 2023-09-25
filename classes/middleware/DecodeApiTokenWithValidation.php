@@ -45,7 +45,7 @@ class DecodeApiTokenWithValidation
      */
     public function handle(Request $request, Closure $next)
     {   
-        $jwtToken = $request->query('apiToken');
+        $jwtToken = $this->getApiToken($request);
         
         /* VALIDATIONS */
         
@@ -128,5 +128,37 @@ class DecodeApiTokenWithValidation
         $request->setUserResolver(function () use ($user) {
             return $user;
         });
+    }
+
+    /**
+     * Get the API Token
+     * 
+     * API Token may passed as authorization Header such as --> Authorization: Bearer API_TOKEN
+     * or as a query param as --> API_URL/?apiToken=API_TOKEN
+     */
+    protected function getApiToken(Request $request): ?string
+    {
+        $authHeader = $request->header('Authorization');
+        
+        if (!$authHeader) {
+            return $request->query('apiToken');
+        }
+        
+        // Several authorization methods may be supplied with commas between them.
+        // For example: Basic basic_auth_string_here, Bearer api_key_here
+        // JWT uses the Bearer scheme with an API key. Ignore the others.
+        $clauses = explode(',', $authHeader);
+
+        foreach ($clauses as $clause) {
+            
+            // Split the authorization scheme and parameters and look for the Bearer scheme.
+            $parts = explode(' ', trim($clause));
+
+            if (count($parts) == 2 && $parts[0] == 'Bearer') {
+                return $parts[1]; // Found bearer authorization; return the token.
+            }
+        }
+
+        return null;
     }
 }

@@ -203,8 +203,6 @@ class ManagementHandler extends Handler
         $themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $context);
         $dateTimeForm = new \PKP\components\forms\context\PKPDateTimeForm($contextApiUrl, $locales, $context);
 
-        $highlightsListPanel = $this->getHighlightsListPanel();
-
         $templateMgr->setConstants([
             'FORM_ANNOUNCEMENT_SETTINGS' => FORM_ANNOUNCEMENT_SETTINGS,
         ]);

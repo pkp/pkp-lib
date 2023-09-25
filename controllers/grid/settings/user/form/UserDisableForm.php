@@ -19,6 +19,7 @@ namespace PKP\controllers\grid\settings\user\form;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\form\Form;
+use PKP\db\DAORegistry;
 
 class UserDisableForm extends Form
 {
@@ -99,6 +100,10 @@ class UserDisableForm extends Form
             $user->setDisabled($this->_enable ? false : true);
             $user->setDisabledReason($this->getData('disableReason'));
             Repo::user()->edit($user);
+            if ($user->getDisabled()) {
+                $sessionDao = DAORegistry::getDAO('SessionDAO');
+                $sessionDao->deleteByUserId($user->getId());
+            }
         }
         parent::execute(...$functionArgs);
         return $user;

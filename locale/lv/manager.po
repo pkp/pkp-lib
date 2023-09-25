@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-22 13:06+0000\n"
+"PO-Revision-Date: 2023-09-25 15:55+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -854,226 +854,262 @@ msgid "doi.manager.settings.doiPrefix"
 msgstr "DOI prefikss"
 
 msgid "doi.manager.setup.automaticDeposit"
-msgstr ""
+msgstr "Automātiskā deponēšana"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr ""
+msgstr "Iespējot automātisko deponēšanu"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"DOI reģistrāciju un metadatus var automātiski deponēt izvēlētajā "
+"reģistrācijas aģentūrā ikreiz, kad tiek publicēta vienība ar DOI. "
+"Automātiskā deponēšana notiks plānotos intervālos, un katra DOI "
+"reģistrācijas statusu var uzraudzīt DOI pārvaldības lapā."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
+"DOI prefiksu piešķir reģistrācijas aģentūra, piemēram, <a href=\"https://www."
+"crossref.org\" target=\"_new\">Crossref</a> vai <a href=\"https://datacite."
+"org/\" target=\"new\">DataCite</a>. Piemērs: 10.xxxx"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr ""
+msgstr "DOI prefikss ir obligāts, un tam jābūt šādā formātā: 10.xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr ""
+msgstr "Automātiska DOI piešķiršana"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr ""
+msgstr "Kad iesniegtajam materiālam jāpiešķir DOI?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr ""
+msgstr "Publicējot"
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr ""
+msgstr "Nekad"
 
 msgid "manager.setup.doiPrefix"
-msgstr ""
+msgstr "DOI prefikss"
 
 msgid "doi.manager.settings.doiObjects"
-msgstr ""
+msgstr "Vienības ar DOI"
 
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr ""
+msgstr "Nepieciešams DOI prefikss"
 
 msgid "doi.manager.settings.doiSuffix"
-msgstr ""
+msgstr "DOI formāts"
 
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr ""
+msgstr "DOI sufikss"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "Pielāgotais DOI sufiksa modelis"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Konfigurētā DOI reģistrācijas aģentūra neatļauj vienu vai vairākus izvēlētos "
+"DOI tipus."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
 
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr ""
+"Noklusējuma iestatījums – automātiski ģenerē unikālu astoņu zīmju sufiksu"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Nav – sufiksi ir jāievada manuāli <a href=\"{$doiManagementUrl}\">DOI "
+"pārvaldības lapā</a>, tie netiks ģenerēti automātiski"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Pielāgotais modelis – (nav ieteicams)"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Reģistrācijas aģentūra"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Lūdzu, izvēlieties reģistrācijas aģentūru, kuru vēlaties izmantot DOI "
+"deponēšanai."
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr ""
+msgstr "Reģistrācijas aģentūra nav iespējota"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"DOI var automātiski izveidot un deponēt reģistrācijas aģentūrā. Lai "
+"izmantotu šo funkciju, atrodiet un instalējiet attiecīgās reģistrācijas "
+"aģentūras spraudni."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Nav"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "DOI versijpārvaldība"
 
 msgid "doi.authorization.enabledRequired"
-msgstr ""
+msgstr "Šo darbību nevar izsaukt, ja DOI nav iespējoti."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "Pastāv {$count} versijas."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Skatīt visu"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "DOI visām versijām"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr ""
+msgstr "DOI satur nederīgas rakstzīmes."
 
 msgid "manager.setup.publishing"
-msgstr ""
+msgstr "Publicēšanas informācija"
 
 msgid "manager.setup.publishingDescription"
 msgstr ""
+"Šī informācija var tikt iekļauta metadatos, ko sniedz trešo personu arhīvu "
+"struktūrām."
 
 msgid "manager.setup.additionalContent"
-msgstr ""
+msgstr "Papildu saturs"
 
 msgid "manager.setup.additionalContent.description"
-msgstr ""
+msgstr "Šeit ievadītais tiks parādīts jūsu sākumlapā."
 
 msgid "manager.setup.advanced"
-msgstr ""
+msgstr "Paplašināts"
 
 msgid "manager.setup.copyrightNotice"
-msgstr ""
+msgstr "Paziņojums par autortiesībām"
 
 msgid "manager.setup.copyrightNotice.description"
 msgstr ""
 
 msgid "manager.setup.authorGuidelines"
-msgstr ""
+msgstr "Vadlīnijas autoriem"
 
 msgid "manager.setup.authorGuidelines.description"
 msgstr ""
 
 msgid "manager.setup.disableSubmissions"
-msgstr ""
+msgstr "Atspējot materiālu iesniegšanu"
 
 msgid "manager.setup.checklist"
-msgstr ""
+msgstr "Kontrolsaraksts"
 
 msgid "manager.setup.competingInterests"
-msgstr ""
+msgstr "Interešu konflikts"
 
 msgid "manager.setup.errorDeletingItem"
-msgstr ""
+msgstr "Dzēšot šo vienību, radās kļūda."
 
 msgid "manager.setup.favicon"
-msgstr ""
+msgstr "Favikona"
 
 msgid "manager.setup.homepageImage"
-msgstr ""
+msgstr "Sākumlapas attēls"
 
 msgid "manager.setup.homepageImage.description"
-msgstr ""
+msgstr "Augšupielādējiet attēlu, kas tiks parādīts redzamā vietā sākumlapā."
 
 msgid "manager.setup.homepageImageInvalid"
 msgstr ""
+"Nederīgs sākumlapas attēla formāts vai augšupielāde nav notikusi. Atļautie "
+"formāti ir .gif, .jpg vai .png."
 
 msgid "manager.setup.homeTitleImageInvalid"
 msgstr ""
+"Nederīgs sākumlapas virsraksta attēla formāts vai augšupielāde nav notikusi. "
+"Atļautie formāti ir .gif, .jpg vai .png."
 
 msgid "manager.setup.information.descriptionTitle"
-msgstr ""
+msgstr "Apraksti"
 
 msgid "manager.setup.layout.sidebar"
-msgstr ""
+msgstr "Sānu josla"
 
 msgid "manager.setup.layout.sidebar.invalidBlock"
 msgstr ""
+"Bloku {$name} nav iespējams atrast. Lūdzu, pārliecinieties, ka spraudnis ir "
+"instalēts un iespējots."
 
 msgid "manager.setup.loggingAndAuditing"
-msgstr ""
+msgstr "Žurnalēšana un audits"
 
 msgid "manager.setup.logo"
-msgstr ""
+msgstr "Logotips"
 
 msgid "manager.setup.noTemporaryFile"
 msgstr ""
+"Jūsu augšupielādēto failu neizdevās atrast. Lūdzu, mēģiniet to augšupielādēt "
+"vēlreiz."
 
 msgid "manager.setup.notifications"
-msgstr ""
+msgstr "Paziņojums par autora iesniegto materiālu"
 
 msgid "manager.setup.notifications.copySpecifiedAddress"
-msgstr ""
+msgstr "Nosūtīt kopiju uz šo e-pasta adresi"
 
 msgid "manager.setup.notifyAllAuthors"
-msgstr ""
+msgstr "Paziņot visiem autoriem"
 
 msgid "manager.setup.notifyAllAuthors.description"
-msgstr ""
+msgstr "Kam jāsaņem paziņojuma e-pasts par redakcijas lēmuma reģistrēšanu?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr ""
+msgstr "Nosūtīt e-pasta paziņojumu visiem iesniegtā materiāla autoriem."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"Nosūtīt e-pastu tikai tiem autoriem, kuriem ir piešķirta materiāla "
+"iesniegšanas darbplūsma. Parasti tas ir autors, kurš iesniedzis materiālu."
 
 msgid "manager.setup.submissionsNotifications"
-msgstr ""
+msgstr "Paziņojumi"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr ""
+msgstr "Paziņot primārajai kontaktpersonai"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr ""
+msgstr "Jā, nosūtīt kopiju uz {$email}"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr ""
+msgstr "Nē"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr ""
+msgstr "Paziņot ikvienam"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
+"Materiāla iesniegšanas apstiprinājuma e-pasta kopija tiks nosūtīta uz "
+"jebkuru no šeit ievadītajām e-pasta adresēm. Vairākas e-pasta adreses "
+"atdaliet ar komatu. Piemērs: one@example.com,two@example.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr ""
+msgstr "Viena vai vairākas no šīm e-pasta adresēm nav derīgas."
 
 msgid "manager.setup.notifications.description"
 msgstr ""
+"Autoriem automātiski tiek nosūtīts e-pasts ar apstiprinājumu par materiāla "
+"iesniegšanu. Šī e-pasta kopijas var nosūtīt šādiem adresātiem:"
 
 msgid "manager.setup.notifyUsers"
-msgstr ""
+msgstr "Paziņot"
 
 msgid "manager.setup.notifyUsers.description"
-msgstr ""
+msgstr "Izvēlieties lietotājus, kuriem jāsaņem e-pasta paziņojums."
 
 msgid "manager.setup.notifyUsers.copyDetails"
-msgstr ""
+msgstr "Nosūtiet man šī e-pasta kopiju uz {$email}."
 
 msgid "manager.setup.notifyUsers.send"
-msgstr ""
+msgstr "Nosūtīt e-pastu"
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
+"Jūs gatavojaties nosūtīt e-pastu {$total} lietotājiem. Vai tiešām vēlaties "
+"nosūtīt šo e-pastu?"
 
 msgid "manager.setup.notifyUsers.sending"
 msgstr ""
@@ -1082,61 +1118,78 @@ msgid "manager.setup.notifyUsers.sent"
 msgstr ""
 
 msgid "manager.setup.notifyUsers.sendAnother"
-msgstr ""
+msgstr "Nosūtīt vēl vienu e-pastu"
 
 msgid "manager.setup.openAccessPolicy"
-msgstr ""
+msgstr "Atvērtās piekļuves politika"
 
 msgid "manager.setup.openAccessPolicy.description"
 msgstr ""
+"Ja sniedzat tūlītēju bezmaksas piekļuvi visam publicētajam saturam, varat "
+"ievadīt aprakstu par savu atvērtās piekļuves politiku."
 
 msgid "manager.setup.pageHeaderLogoImageInvalid"
 msgstr ""
+"Nepareizs lapas galvenes logotipa attēla formāts vai augšupielāde nav "
+"notikusi. Atļautie formāti ir .gif, .jpg vai .png."
 
 msgid "manager.setup.pageFooter"
-msgstr ""
+msgstr "Lapas apakšējā daļa"
 
 msgid "manager.setup.pageFooter.description"
 msgstr ""
+"Ievadiet jebkurus attēlus, tekstu vai HTML kodu, ko vēlaties parādīt vietnes "
+"apakšējā daļā."
 
 msgid "manager.setup.peerReview.description"
 msgstr ""
+"Aprakstiet recenzēšanas politiku un procesus, kas attiecas uz lasītājiem un "
+"autoriem. Šajā aprakstā bieži vien ir norādīts iesniedzamo darbu recenzentu "
+"skaits, kritēriji, pēc kādiem recenzenti tiek lūgti vērtēt iesniegtos "
+"darbus, paredzamais laiks, kas nepieciešams recenziju veikšanai, un "
+"principi, pēc kādiem tiek atlasīti recenzenti."
 
 msgid "manager.setup.principalContact"
-msgstr ""
+msgstr "Galvenā kontaktpersona"
 
 msgid "manager.setup.principalContactDescription"
 msgstr ""
+"Ievadiet kontaktinformāciju, parasti tā ir galvenā redaktora, atbildīgā "
+"redaktora vai administratīvā darbinieka kontaktinformācija, ko var parādīt "
+"publiski pieejamā tīmekļa vietnē."
 
 msgid "manager.setup.privacyStatement"
 msgstr "Privātuma atruna"
 
 msgid "manager.setup.dateTime"
-msgstr ""
+msgstr "Datums un laiks"
 
 msgid "manager.setup.dateTime.descriptionTitle"
-msgstr ""
+msgstr "Datuma un laika formāts"
 
 msgid "manager.setup.dateTime.description"
 msgstr ""
+"Izvēlieties vēlamo datuma un laika formātu. Pielāgotu formātu var ievadīt, "
+"izmantojot īpašās <a href=\"https://www.php.net/manual/en/function.strftime."
+"php#refsect1-function.strftime-parameters\">formāta rakstzīmes</a>."
 
 msgid "manager.setup.dateTime.longDate"
-msgstr ""
+msgstr "Datums"
 
 msgid "manager.setup.dateTime.shortDate"
-msgstr ""
+msgstr "Datums (saīsināts)"
 
 msgid "manager.setup.dateTime.time"
-msgstr ""
+msgstr "Laiks"
 
 msgid "manager.setup.dateTime.longDateTime"
-msgstr ""
+msgstr "Datums un laiks"
 
 msgid "manager.setup.dateTime.shortDateTime"
-msgstr ""
+msgstr "Datums un laiks (saīsināts)"
 
 msgid "manager.setup.dateTime.custom"
-msgstr ""
+msgstr "Pielāgots"
 
 msgid "manager.setup.privacyStatement.description"
 msgstr ""
@@ -1146,73 +1199,94 @@ msgstr ""
 "lietotāju datiem."
 
 msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
-msgstr ""
+msgstr "Noklusējuma atbildes termiņš"
 
 msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr ""
+msgstr "Noklusējuma izpildes termiņš"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr ""
+msgstr "Nedēļas līdz recenzēšanas pieprasījuma pieņemšanai vai noraidīšanai."
 
 msgid "manager.setup.reviewOptions.numWeeksPerReview"
-msgstr ""
+msgstr "Recenzijas pabeigšanai atvēlētās nedēļas"
 
 msgid "manager.setup.reviewOptions.neverSendReminder"
-msgstr ""
+msgstr "Nekad neatgādināt"
 
 msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr ""
+"Katrai recenzijai var mainīt noklusējuma iestatījumus redakcionālā procesa "
+"laikā."
 
 msgid "manager.setup.reviewOptions.reminders.response"
-msgstr ""
+msgstr "Atgādinājums par atbildi"
 
 msgid "manager.setup.reviewOptions.reminders.response.description"
 msgstr ""
+"Nosūtīt e-pasta atgādinājumu, ja recenzents nav atbildējis uz recenzijas "
+"pieprasījumu tik daudz dienu laikā pēc atbildes sniegšanas termiņa."
 
 msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr ""
+msgstr "Recenzēšanas atgādinājums"
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
+"Nosūtīt e-pasta atgādinājumu, ja recenzents nav iesniedzis rekomendāciju šo "
+"dienu laikā pēc recenzijas termiņa beigām."
 
 msgid "manager.setup.reviewOptions.reviewMode"
-msgstr ""
+msgstr "Noklusējuma recenzēšanas režīms"
 
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
+"Uzrādīt saiti uz <button type=\"button\">kā nodrošināt, lai visas datnes "
+"tiktu anonimizētas</button> augšupielādes laikā"
 
 msgid "manager.setup.sponsors.note"
-msgstr ""
+msgstr "Saistība ar sponsoru un politikas apraksts"
 
 msgid "manager.setup.sponsors.description"
 msgstr ""
+"Piemēri: zinātnieku apvienības, universitāšu struktūrvienības, kooperēšanās "
+"u. c. Sponsori tiek uzrādīti publiski."
 
 msgid "manager.setup.styleSheetDescription"
 msgstr ""
+"Pieredzējuši vietņu izstrādātāji var augšupielādēt CSS failu, lai vēl vairāk "
+"pielāgotu vietnes izskatu."
 
 msgid "manager.setup.technicalSupportContact"
-msgstr ""
+msgstr "Tehniskā atbalsta kontaktpersona"
 
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr ""
+"Kontaktpersona, kas var palīdzēt redaktoriem, autoriem un recenzentiem ar "
+"jebkādām problēmām, kas saistītas ar materiālu iesniegšanu, rediģēšanu, "
+"recenzēšanu vai publicēšanu."
 
 msgid "manager.setup.theme"
-msgstr ""
+msgstr "Tēma"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Iestādes"
 
 msgid "manager.setup.theme.description"
-msgstr ""
+msgstr "Jaunas tēmas var instalēt no cilnes \"Spraudņi\" šīs lapas augšpusē."
 
 msgid "manager.setup.theme.notFound"
-msgstr ""
+msgstr "Izvēlētā tēma nav instalēta vai iespējota."
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Pirms materiāla iesniegšanas uzsākšanas autoriem tiek parādīti šādi "
+"norādījumi. Sniedziet īsu paskaidrojumu par iesniegšanas procesu, lai autors "
+"zinātu, kas viņu sagaida."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Augšupielādējot datnes, autoriem tiek parādīts šāds teksts. Sniedziet īsu "
+"paskaidrojumu par to, kādas datnes autoriem jāiesniedz kopā ar savu "
+"materiālu."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
@@ -1228,87 +1302,106 @@ msgstr ""
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Turpmāk norādītais tiek parādīts autoriem solī \"Redaktoriem\", kurā autori "
+"tiek lūgti sniegt metadatus, piemēram, atslēgvārdus, komentārus redaktoram "
+"un citu informāciju, kas būtu noderīgi recenzēšanas procesā."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Materiāla iesniegšanas vedņa pēdējā solī, kad autori tiek aicināti pirms "
+"darba iesniegšanas pārskatīt visu sniegto informāciju, autoriem tiek "
+"parādīts šāds teksts."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Vadlīnijas autoriem"
 
 msgid "manager.setup.submissionPreparationChecklist"
-msgstr ""
+msgstr "Materiāla iesniegšanas kontrolsaraksts"
 
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
+"Kad autori sāk iesniegt materiālus, viņiem tiek parādīts šāds teksts. Pirms "
+"materiāla iesniegšanas sākuma autori tiek lūgti apstiprināt, ka viņu "
+"materiāls atbilst šeit norādītajām prasībām."
 
 msgid "manager.sections.form.deactivateSection"
-msgstr ""
+msgstr "Deaktivizējiet šo sadaļu un neļaujiet tajā iesniegt jaunus pieteikumus."
 
 msgid "manager.sections.confirmDeactivateSection"
-msgstr ""
+msgstr "Vai tiešām vēlaties deaktivizēt šo sadaļu?"
 
 msgid "manager.sections.confirmActivateSection"
-msgstr ""
+msgstr "Vai tiešām vēlaties aktivizēt šo sadaļu?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Redakcionālie piešķīrumi"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Atlasiet redakcijas lietotājus, kuriem automātiski jāpiešķir visi jaunie "
+"iesniegutie materiāli šajā sadaļā."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Piešķirt {$name} kā {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Atlasiet redakcijas lietotājus, kuriem automātiski jāpiešķir visi jaunie "
+"iesniegtie materiāli šajā kategorijā."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
-msgstr ""
+msgstr "Vietnes piekļuves iespējas"
 
 msgid "manager.statistics.statistics.count.value"
-msgstr ""
+msgstr "{$count} ({$percentage}%)"
 
 msgid "manager.statistics.statistics.totalNewValue"
-msgstr ""
+msgstr "{$numTotal} ({$numNew} jaunu)"
 
 msgid "manager.statistics.statistics.registeredUsers"
-msgstr ""
+msgstr "Reģistrēti lietotāji"
 
 msgid "manager.users"
-msgstr ""
+msgstr "Lietotāji"
 
 msgid "plugins.categories.metadata"
-msgstr ""
+msgstr "Metadatu spraudņi"
 
 msgid "plugins.categories.metadata.description"
-msgstr ""
+msgstr "Metadatu spraudņi ievieš papildu metadatu standartus."
 
 msgid "plugins.categories.auth"
-msgstr ""
+msgstr "Autorizācijas spraudņi"
 
 msgid "plugins.categories.blocks"
-msgstr ""
+msgstr "Bloka spraudņi"
 
 msgid "plugins.categories.blocks.description"
 msgstr ""
+"Bloka spraudņi ir pievienojami UI komponenti, piemēram, dažādi sānjoslas "
+"rīki."
 
 msgid "plugins.categories.gateways.description"
-msgstr ""
+msgstr "Vārtejas spraudņi nodrošina tiešos datus ārējām sistēmām."
 
 msgid "plugins.categories.gateways"
-msgstr ""
+msgstr "Vārtejas spraudņi"
 
 msgid "plugins.categories.generic"
-msgstr ""
+msgstr "Vispārīgie spraudņi"
 
 msgid "plugins.categories.importexport.description"
 msgstr ""
+"Importēšanas/eksportēšanas spraudņus var izmantot, lai pārsūtītu saturu uz "
+"citām sistēmām un no tām."
 
 msgid "plugins.categories.importexport"
-msgstr ""
+msgstr "Importēšanas/eksportēšanas spraudņi"
 
 msgid "plugins.categories.paymethod.description"
 msgstr ""
+"Maksājumu metožu spraudņi nodrošina atbalstu dažādiem tiešsaistes maksājumu "
+"apstrādes veidiem."
 
 msgid "plugins.categories.paymethod"
 msgstr ""
@@ -3207,3 +3300,7 @@ msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
 msgstr ""
 "Materiāla datnes {$id} labojumi {$revision} tika izlaisti, jo datne netika "
 "atrasta ceļā \"{$path}\"."
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"E-pasti tiek veiksmīgi sakārtoti rindā, lai tos nosūtītu pēc iespējas ātrāk."

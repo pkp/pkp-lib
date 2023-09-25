@@ -88,6 +88,10 @@ class UserDisableForm extends Form {
 			$user->setDisabled($this->_enable ? false : true);
 			$user->setDisabledReason($this->getData('disableReason'));
 			$userDao->updateObject($user);
+			if ($user->getDisabled()) {
+				$sessionDao = DAORegistry::getDAO('SessionDAO');
+				$sessionDao->deleteByUserId($user->getId());
+			}
 		}
 		parent::execute(...$functionArgs);
 		return $user;

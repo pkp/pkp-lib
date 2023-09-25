@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-22 13:06+0000\n"
+"PO-Revision-Date: 2023-09-25 15:55+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/lv/>\n"
@@ -1173,3 +1173,197 @@ msgstr "Augšupielādēt literāri rediģētu datni"
 
 msgid "submission.upload.productionReady"
 msgstr "Augšupielādēt izstrādei sagatavotu datni"
+
+msgid "submission.layout.newGalley"
+msgstr "Izveidot jaunu saliktni"
+
+msgid "submission.reviewAndSubmit"
+msgstr "Pārskatīt un iesniegt"
+
+msgid "submission.noReviewAssignments"
+msgstr "Nav piešķirtu recenzentu"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Dzēst visas piezīmes par materiālu?"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Noņemt augšupielādēto failu"
+
+msgid "submission.page.citations"
+msgstr "#{$id} atsauces"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Šī ir novecojusi versija, kas publicēta {$datePublished}. Lasīt <a href=\""
+"{$urlRecentVersion}\">pēdējo versiju</a>."
+
+msgid "submission.identifiers"
+msgstr "Identifikatori"
+
+msgid "submission.publisherId"
+msgstr "Izdevēja ID"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"Izdevēja ID var izmantot, lai ierakstītu ID no ārējās datubāzes. Piemēram, "
+"vienībās, kas eksportētas deponēšanai uz PubMed, var norādīt izdevēja ID. To "
+"nedrīkst izmantot DOI."
+
+msgid "submission.publisherId.enable"
+msgstr "Ieslēgt attiecībā uz {$objects}"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Informācija par iesniegto materiālu"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Metadati"
+
+msgid "submission.informationCenter.notes"
+msgstr "Piezīmes"
+
+msgid "submission.informationCenter.history"
+msgstr "Vēsture"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Rādīt notikumus no iepriekšējām versijām"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Paziņot"
+
+msgid "submission.lastModified"
+msgstr "Pēdējās izmaiņas"
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Nepieciešama saliktņa valoda."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Nepieciešama saliktņa lokalizācija."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Attālinātais URL"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Lūdzu, norādiet derīgu attālināto URL (norādiet http://)."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Nav attēlu"
+
+msgid "submission.layout.galleys"
+msgstr "Saliktņi"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Stila lapas datne"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Stils"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Sākotnējā saliktņa izveide"
+
+msgid "submission.layout.layoutFile"
+msgstr "Maketa datne"
+
+msgid "submission.layout"
+msgstr "Makets"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Maketa versija"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Šim saliktnim nav pievienota stila lapas datne."
+
+msgid "submission.layout.viewingGalley"
+msgstr "Skatīt iesniegtā materiāla saliktni"
+
+msgid "submission.layout.viewProof"
+msgstr "Skatīt paraugu"
+
+msgid "submission.metadata"
+msgstr "Iesniegtā materiāla metadati"
+
+msgid "submission.notes.addNewNote"
+msgstr "Pievienot jaunu piezīmi"
+
+msgid "submission.notes.attachedFile"
+msgstr "Pievienota datne"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Atpakaļ uz piezīmēm par materiālu"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Piezīmes"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Notīrīt visas piezīmes"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Sakļaut piezīmes"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Dzēst šo piezīmi par materiālu?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Izveidot jaunu piezīmi"
+
+msgid "submission.notes.deleteNote"
+msgstr "Izdzēst piezīmi"
+
+msgid "submission.notes.editNote"
+msgstr "Rediģēt piezīmi"
+
+msgid "submission.notes.expandNotes"
+msgstr "Izvērst piezīmes"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Nav piezīmju par materiālu"
+
+msgid "submission.notes"
+msgstr "Piezīmes par materiālu"
+
+msgid "submission.notes.updateNote"
+msgstr "Atjaunot piezīmi"
+
+msgid "submission.notes.viewNotes"
+msgstr "Skatīt piezīmes"
+
+msgid "submission.originalFile"
+msgstr "Sākotnējā datne"
+
+msgid "submission.page.editing"
+msgstr "#{$id} rediģēšana"
+
+msgid "submission.page.history"
+msgstr "#{$id} vēsture"
+
+msgid "submission.page.review"
+msgstr "#{$id} recenzēšana"
+
+msgid "submission.page.summary"
+msgstr "#{$id} kopsavilkums"
+
+msgid "submission.peerReview"
+msgstr "Recenzēšana"
+
+msgid "submission.recommendation"
+msgstr "Rekomendācija: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Noraidīts"
+
+msgid "submission.request"
+msgstr "Pieprasījums"
+
+msgid "submission.response"
+msgstr "Atbilde"
+
+msgid "submission.restrictions"
+msgstr "Ierobežojumi"
+
+msgid "submission.reviewMetadata"
+msgstr "Pārskatīt metadatus"
+
+msgid "submission.review"
+msgstr "Pārskatīšana"
+
+msgid "submission.reviewed"
+msgstr "Pārskatīts"

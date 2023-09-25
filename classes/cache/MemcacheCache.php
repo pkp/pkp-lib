@@ -18,6 +18,8 @@
 
 namespace PKP\cache;
 
+use Memcached;
+
 // WARNING: This cache MUST be loaded in batch, or else many cache
 // misses will result.
 

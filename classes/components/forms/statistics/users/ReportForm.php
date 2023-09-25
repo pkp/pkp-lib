@@ -49,7 +49,7 @@ class ReportForm extends FormComponent
             'options' => $userGroups->values()->map(function (UserGroup $userGroup) {
                 return [
                     'value' => $userGroup->getId(),
-                    'label' => $userGroup->getLocalizedName()
+                    'label' => htmlspecialchars($userGroup->getLocalizedName())
                 ];
             }),
             'default' => $userGroups->keys(),

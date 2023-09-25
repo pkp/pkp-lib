@@ -237,7 +237,7 @@ class LoginHandler extends Handler
                     'error' => 'user.login.lostPassword.confirmationSentFailedWithReason',
                     'reason' => empty($reason = $user->getDisabledReason() ?? '')
                         ? __('user.login.accountDisabled')
-                        : __('user.login.accountDisabledWithReason', ['reason' => $reason])
+                        : __('user.login.accountDisabledWithReason', ['reason' => htmlspecialchars($reason)])
                 ])
                 ->display('frontend/pages/userLostPassword.tpl');
 
@@ -300,7 +300,7 @@ class LoginHandler extends Handler
                     'messageTranslated' => __('user.login.lostPassword.confirmationSentFailedWithReason', [
                         'reason' => empty($reason = $user->getDisabledReason() ?? '')
                             ? __('user.login.accountDisabled')
-                            : __('user.login.accountDisabledWithReason', ['reason' => $reason])
+                            : __('user.login.accountDisabledWithReason', ['reason' => htmlspecialchars($reason)])
                     ]),
                 ])
                 ->display('frontend/pages/message.tpl');

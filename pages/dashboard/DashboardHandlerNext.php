@@ -27,7 +27,9 @@ use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
+use PKP\security\Validation;
 use PKP\submission\Collector as SubmissionCollector;
+use PKP\submission\DashboardView;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 
@@ -194,144 +196,12 @@ class DashboardHandlerNext extends Handler
         $context = $request->getContext();
         $user = $request->getUser();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        $dashboardViews = Repo::submission()->getDashboardViews($context, $user);
+        $viewsData = $dashboardViews->map(fn (DashboardView $dashboardView) => $dashboardView->getData())->values()->toArray();
 
-        $views = [
-            [
-                'id' => 'assigned-to-me',
-                'name' => 'Assigned to me',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStatus([PKPSubmission::STATUS_QUEUED])
-                    ->assignedTo([$user->getId()])
-                    ->getCount(),
-                'op' => 'assigned',
-                'queryParams' => [
-                    'status' => [PKPSubmission::STATUS_QUEUED],
-                ]
-            ],
-            [
-                'id' => 'active',
-                'name' => 'Active Submissions',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStatus([PKPSubmission::STATUS_QUEUED])
-                    ->getCount(),
-                'queryParams' => [
-                    'status' => [PKPSubmission::STATUS_QUEUED],
-                ]
-            ],
-            [
-                'id' => 'needs-editor',
-                'name' => 'Needs editor',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->assignedTo(SubmissionCollector::UNASSIGNED)
-                    ->filterByStatus([PKPSubmission::STATUS_QUEUED])
-                    ->getCount(),
-                'queryParams' => [
-                    'assignedTo' => SubmissionCollector::UNASSIGNED,
-                    'status' => [PKPSubmission::STATUS_QUEUED],
-                ]
-            ],
-            [
-                'id' => 'needs-reviewers',
-                'name' => 'Needs reviewers',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStageIds([WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])
-                    ->isReviewedBy(SubmissionCollector::UNASSIGNED)
-                    ->getCount(),
-            ],
-            [
-                'id' => 'initial-review',
-                'name' => 'All in desk/initial review',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
-                    ->filterByStatus([PKPSubmission::STATUS_QUEUED])
-                    ->getCount(),
-                'queryParams' => [
-                    'stageIds' => [WORKFLOW_STAGE_ID_SUBMISSION],
-                    'status' => [PKPSubmission::STATUS_QUEUED],
-                ]
-            ],
-            [
-                'id' => 'external-review',
-                'name' => 'All in peer review',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStageIds([WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])
-                    ->filterByStatus([PKPSubmission::STATUS_QUEUED])
-                    ->getCount(),
-                'queryParams' => [
-                    'stageIds' => [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW],
-                    'status' => [PKPSubmission::STATUS_QUEUED],
-                ]
-            ],
-            [
-                'id' => 'copyediting',
-                'name' => 'All in copyediting',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStageIds([WORKFLOW_STAGE_ID_EDITING])
-                    ->filterByStatus([PKPSubmission::STATUS_QUEUED])
-                    ->getCount(),
-                'queryParams' => [
-                    'stageIds' => [WORKFLOW_STAGE_ID_EDITING],
-                    'status' => [PKPSubmission::STATUS_QUEUED],
-                ]
-            ],
-            [
-                'id' => 'production',
-                'name' => 'All in production',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStageIds([WORKFLOW_STAGE_ID_PRODUCTION])
-                    ->filterByStatus([PKPSubmission::STATUS_QUEUED])
-                    ->getCount(),
-                'queryParams' => [
-                    'stageIds' => [WORKFLOW_STAGE_ID_PRODUCTION],
-                    'status' => [PKPSubmission::STATUS_QUEUED],
-                ]
-            ],
-            [
-                'id' => 'scheduled',
-                'name' => 'Scheduled for publication',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStatus([PKPSubmission::STATUS_SCHEDULED])
-                    ->getCount(),
-                'queryParams' => [
-                    'status' => [PKPSubmission::STATUS_SCHEDULED],
-                ]
-            ],
-            [
-                'id' => 'published',
-                'name' => 'Published',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
-                    ->getCount(),
-                'queryParams' => [
-                    'status' => [PKPSubmission::STATUS_PUBLISHED],
-                ]
-            ],
-            [
-                'id' => 'declined',
-                'name' => 'Declined',
-                'count' => Repo::submission()->getCollector()
-                    ->filterByContextIds([$context->getId()])
-                    ->filterByStatus([PKPSubmission::STATUS_DECLINED])
-                    ->getCount(),
-                'queryParams' => [
-                    'status' => [PKPSubmission::STATUS_DECLINED],
-                ]
-            ],
-        ];
+        Hook::call('Dashboard::views', [&$viewsData, $userRoles]);
 
-        Hook::call('Dashboard::views', [&$views, $userRoles]);
-
-        return $views;
+        return $viewsData;
     }
 
     /**

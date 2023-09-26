@@ -33,6 +33,8 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\submission\DashboardView;
+use PKP\submission\PKPSubmission;
 
 abstract class PKPBackendSubmissionsController extends PKPBaseController
 {
@@ -111,6 +113,26 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                         Role::ROLE_ID_SUB_EDITOR,
                         Role::ROLE_ID_ASSISTANT,
                     ]),
+                ]);
+
+            Route::get('reviews', $this->assigned(...))
+                ->name('_submission.reviews')
+                ->middleware([
+                    self::roleAuthorizer([
+                        Role::ROLE_ID_MANAGER,
+                        Role::ROLE_ID_SUB_EDITOR,
+                        Role::ROLE_ID_ASSISTANT,
+                    ])
+                ]);
+
+            Route::get('viewsCount', $this->assigned(...))
+                ->name('_submission.viewsCount')
+                ->middleware([
+                    self::roleAuthorizer([
+                        Role::ROLE_ID_MANAGER,
+                        Role::ROLE_ID_SUB_EDITOR,
+                        Role::ROLE_ID_ASSISTANT,
+                    ])
                 ]);
         }
     }
@@ -243,21 +265,79 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
     }
 
     /**
-     * Get submissions which need reviewer(s) to be assigned
+     * Get submission undergoing the review
      */
-    public function needsReviewers(SlimRequest $slimRequest, APIResponse $response, array $args)
+    public function reviews(SlimRequest $slimRequest, APIResponse $response, array $args)
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
         if (!$context) {
             return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
         }
+        $currentUser = $request->getUser();
 
         $collector = $this->getSubmissionCollector($slimRequest->getQueryParams());
-        $submissions = $collector
-            ->filterByContextIds($context->getId())
-            ->filterByStageIds([WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])
-            ->
+        $collector
+            ->filterByContextIds([$context->getId()])
+            ->filterByStatus([PKPSubmission::STATUS_QUEUED])
+            ->filterByStageIds([WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW]);
+
+        // limit results depending on a role
+
+        if (!$this->canAccessAllSubmissions()) {
+            $collector->assignedTo([$currentUser->getId()]);
+        }
+
+        $queryParams = $slimRequest->getQueryParams();
+        foreach ($queryParams as $param => $val) {
+            switch ($param) {
+                case 'needsReviewers':
+                    $numReviewersPerSubmission = $context->getData('numReviewersPerSubmission');
+                    $collector->filterByReviewersActive(range(0, (int) $numReviewersPerSubmission));
+                    break;
+                case 'awaitingReviews':
+                    $collector->filterByAwaitingReviews(true);
+                    break;
+                case 'reviewsSubmitted':
+                    $collector->filterByReviewsSubmitted(true);
+                    break;
+                case 'reviewsOverdue':
+                    $collector->filterByOverdue(true);
+                    break;
+            }
+        }
+
+        $submissions = $collector->getMany();
+
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+
+        /** @var \PKP\submission\GenreDAO $genreDao */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getByContextId($context->getId())->toArray();
+
+        return $response->withJson([
+            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres)->values(),
+        ], 200);
+    }
+
+    /**
+     * Get a number of the submissions for each view
+     */
+    public function viewsCount(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    {
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        if (!$context) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+        $currentUser = $request->getUser();
+
+        $dashboardViews = Repo::submission()->getDashboardViews($context, $currentUser);
+
+        return $response->withJson($dashboardViews->map(fn(DashboardView $view) => $view->getCount()), 200);
     }
 
     /**
@@ -360,5 +440,11 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         }
 
         return $collector;
+    }
+
+    protected function canAccessAllSubmissions(): bool
+    {
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        return !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
     }
 }

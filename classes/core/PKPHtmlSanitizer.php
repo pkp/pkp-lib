@@ -40,7 +40,16 @@ class PKPHtmlSanitizer
     protected HtmlSanitizerConfig $htmlSanitizerConfig;
 
     /**
+     * Instance of HtmlSanitizer
+     */
+    protected HtmlSanitizer $htmlSanitizer;
+
+    /**
      * Create a new instance
+     * 
+     * @param string $allowable Config key such security.[allowed_html/allowed_title_html]
+     *                          or string of allowed tags with attribited generated in same
+     *                          structure as the security.[allowed_html/allowed_title_html]
      */
     public function __construct(string $allowable)
     {
@@ -48,9 +57,11 @@ class PKPHtmlSanitizer
             array_merge(W3CReference::HEAD_ELEMENTS, W3CReference::BODY_ELEMENTS)
         )->keys();
 
-        $this->buildSanitizerConfig(
-            $this->generateAllowedTagToAttributeMap(
-                Config::getVar('security', $allowable, null) ?? $allowable
+        $this->htmlSanitizer = new HtmlSanitizer(
+            $this->buildSanitizerConfig(
+                $this->generateAllowedTagToAttributeMap(
+                    Config::getVar('security', $allowable, null) ?? $allowable
+                )
             )
         );
     }
@@ -61,6 +72,9 @@ class PKPHtmlSanitizer
     public function setSanitizerConfig(HtmlSanitizerConfig $htmlSanitizerConfig): self
     {
         $this->htmlSanitizerConfig = $htmlSanitizerConfig;
+
+        // need to update the htmlSanitizer instance if the htmlSanitizerConfig get updated
+        $this->htmlSanitizer = new HtmlSanitizer($this->htmlSanitizerConfig);
 
         return $this;
     }
@@ -78,7 +92,7 @@ class PKPHtmlSanitizer
      */
     public function sanitize(string $html): string
     {   
-        return (new HtmlSanitizer($this->htmlSanitizerConfig))->sanitize(
+        return $this->htmlSanitizer->sanitize(
             // Here we are removing any html tags that should not be handled by sanitizer
             strip_tags($html, $this->getSanitizableTags()->toArray())
         );
@@ -86,8 +100,11 @@ class PKPHtmlSanitizer
 
     /**
      * Build up the \Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig instance
+     * 
+     * @param Collection $allowedTagToAttributeMap  See the @return docblock for 
+     *                                              PKPHtmlSanitizer::generateAllowedTagToAttributeMap()
      */
-    protected function buildSanitizerConfig(Collection $allowedTagToAttributeMap): void
+    protected function buildSanitizerConfig(Collection $allowedTagToAttributeMap): HtmlSanitizerConfig
     {
         $this->htmlSanitizerConfig = (new HtmlSanitizerConfig())
             ->allowLinkSchemes(['https', 'http', 'mailto'])
@@ -102,6 +119,8 @@ class PKPHtmlSanitizer
         $this->getNonAllowedHtmlTags()->each(
             fn (string $tag) => $this->htmlSanitizerConfig = $this->htmlSanitizerConfig->blockElement($tag)
         );
+
+        return $this->htmlSanitizerConfig;
     }
 
     /**
@@ -129,6 +148,20 @@ class PKPHtmlSanitizer
 
     /**
      * Generate the collection of allowed tags to allowed attributes map as key/value[array] structure
+     * 
+     * @param   string $allowable   Allowded tag to attribute map as the
+     *                              structure define in config keys such as 
+     *                              security.[allowed_html/allowed_title_html]
+     *                              
+     * @return  Collection          Collection of allowed tags to allowed attributes map as key/value.
+     *                              In collection each tag will be mapped to an array that may 
+     *                              contain allowed attributes or it can be empty which define that
+     *                              no attribute is allowed for that tag, structure such as 
+     *                              [
+     *                                  HTML_TAG_1 => [ALLOWED_ATTRIBUTE_FOR_HTML_TAG_1, ...],
+     *                                  HTML_TAG_2 => [],
+     *                                  ...
+     *                              ]
      */
     protected function generateAllowedTagToAttributeMap(string $allowable): Collection
     {

@@ -260,8 +260,6 @@ class LoginHandler extends Handler
             'backLink' => $request->url(null, $request->getRequestedPage(), null, null),
             'backLinkLabel' => 'user.login',
         ])->display('frontend/pages/message.tpl');
-
-        return;
     }
 
     /**

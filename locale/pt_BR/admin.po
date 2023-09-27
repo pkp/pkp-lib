@@ -133,3 +133,7 @@ msgstr ""
 "pública, cada servidor poderá substituir essa configuração para tornar suas "
 "estatísticas privadas. No entanto, se você desabilitar a API pública, os "
 "servidores não poderão tornar sua própria API pública."
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Use o site como plataforma para todos os periódicos."

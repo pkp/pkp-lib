@@ -85,3 +85,7 @@ msgstr ""
 
 msgid "admin.settings.statistics.sushi.public.description"
 msgstr ""
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Bruk nettsiden som plattform for alle tidsskrifter."

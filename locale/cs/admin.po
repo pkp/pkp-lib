@@ -125,3 +125,7 @@ msgstr ""
 "může toto nastavení přepsat, aby byly jeho statistiky soukromé. Pokud však "
 "veřejné rozhraní API zakážete, servery nemohou zveřejnit své vlastní "
 "rozhraní API."
+
+#, fuzzy
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Použijte tento web jako platformu pro všechny časopisy."

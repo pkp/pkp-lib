@@ -833,9 +833,6 @@ msgstr ""
 "dette websted er udgivet, ejet eller drevet af den samme udbyder, kan du "
 "vælge at udpege webstedet som platformen."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Brug hjemmesiden som platform til alle tidsskrifterne."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Platform ID"
 

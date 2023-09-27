@@ -827,9 +827,6 @@ msgstr ""
 "julkaisukanavat ovat saman palveluntarjoajan julkaisemia, omistamia tai "
 "ylläpitämiä, voit halutessasi nimetä sivuston alustaksi."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Käytä sivustoa kaikkien julkaisukanavien alustana."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Alustan ID"
 

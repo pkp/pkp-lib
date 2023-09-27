@@ -861,9 +861,6 @@ msgstr ""
 "herausgegeben, besitzt oder betrieben werden, können Sie die Website als "
 "Plattform angeben."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Website als Plattform für alle Zeitschriften verwenden."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Plattform ID"
 

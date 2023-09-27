@@ -845,9 +845,6 @@ msgstr ""
 "operadas pelo mesmo fornecedor, poder-se-á querer designar o site como a "
 "plataforma."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Use o site como plataforma para todas as revistas."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID da plataforma"
 

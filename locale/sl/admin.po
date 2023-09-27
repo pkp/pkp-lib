@@ -827,9 +827,6 @@ msgstr ""
 "pripadajo enemu ponudniku, boste morda želeli, da bo celoten strežnik "
 "določen kot platforma."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Uporabi strežnik kot platformo za vse revije."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID platforme"
 

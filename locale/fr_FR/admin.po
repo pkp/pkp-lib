@@ -862,9 +862,6 @@ msgstr ""
 "sont publiés, détenus ou gérés par le même fournisseur, vous pouvez désigner "
 "le site comme plateforme."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr ""
-"Utiliser ce site comme plateforme pour toutes les revues, tous les éditeurs "
 "et tous les dépôts."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"

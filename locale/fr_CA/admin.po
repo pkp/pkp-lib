@@ -944,9 +944,6 @@ msgstr ""
 "fournisseur de service, vous pouvez désigner le site comme plateforme."
 
 #, fuzzy
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Utiliser le site comme la plateforme pour toutes les revues."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Identifiant de la plateforme"
 

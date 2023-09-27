@@ -843,9 +843,6 @@ msgstr ""
 "од истиот провајдер, можеби ќе сакате да ја назначите страницата како "
 "платформа."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Користете ја страницата како платформа за сите списанија."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID на платформата"
 

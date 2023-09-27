@@ -845,9 +845,6 @@ msgstr ""
 "publicados, de propriedade ou operados pelo mesmo provedor, você poderá "
 "designar o site como a plataforma."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Use o site como plataforma para todos os periódicos."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID da plataforma"
 

@@ -827,9 +827,6 @@ msgstr ""
 "alle tidsskriftene på dette nettstedet er publisert, eid eller drevet av "
 "samme leverandør, kan det hende du ønsker å angi nettstedet som plattformen."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Bruk nettsiden som plattform for alle tidsskrifter."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Plattform ID"
 

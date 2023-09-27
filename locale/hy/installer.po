@@ -1,17 +1,17 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-07-15 15:49+0000\n"
+"PO-Revision-Date: 2023-09-01 08:58+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"installer/hy_AM/>\n"
-"Language: hy_AM\n"
+"installer/hy/>\n"
+"Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "installer.additionalLocales"
 msgstr "Լրացուցիչ տեղայիններ"
@@ -236,3 +236,6 @@ msgid "installer.unsupportedPhpError"
 msgstr ""
 "Ձեր կայանի PHP տարբերակը չի աջակցվում այս ծրագրաշարի կողմից: Կրկնակի ստուգեք "
 "տեղադրման պահանջները docs/README -ում:"
+
+msgid "installer.miscSettings"
+msgstr "Տարբեր կարգավորումներ"

@@ -2,7 +2,7 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-08-01 08:25+0000\n"
+"PO-Revision-Date: 2023-09-01 08:58+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "mk/>\n"

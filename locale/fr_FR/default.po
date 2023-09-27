@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2023-07-30 11:12+0000\n"
+"PO-Revision-Date: 2023-09-22 20:15+0000\n"
 "Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "fr_FR/>\n"
@@ -19,19 +19,19 @@ msgstr ""
 "X-Generator: Weblate 4.13.1\n"
 
 msgid "default.groups.name.siteAdmin"
-msgstr "Administrateur du site"
+msgstr "Administrateur·rice du site"
 
 msgid "default.groups.plural.siteAdmin"
 msgstr "Administrateurs du site"
 
 msgid "default.groups.name.productionEditor"
-msgstr "Directeur de production"
+msgstr "Responsable de production"
 
 msgid "default.groups.plural.productionEditor"
-msgstr "Directeurs de production"
+msgstr "Responsables de production"
 
 msgid "default.groups.abbrev.productionEditor"
-msgstr "DirProd"
+msgstr "ResProd"
 
 msgid "default.groups.name.copyeditor"
 msgstr "Éditeur"
@@ -40,7 +40,7 @@ msgid "default.groups.plural.copyeditor"
 msgstr "Éditeurs"
 
 msgid "default.groups.abbrev.copyeditor"
-msgstr "RÉV"
+msgstr "Éd"
 
 msgid "default.groups.name.proofreader"
 msgstr "Correcteur d’épreuves"

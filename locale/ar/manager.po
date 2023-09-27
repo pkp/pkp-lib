@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
+"PO-Revision-Date: 2023-09-03 02:58+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar/>\n"
@@ -285,10 +285,7 @@ msgid "manager.dois.filters.doiAssigned"
 msgstr "معرف المكون الرقمي تم تعيينه"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
-"أي عنصر منشور أو غير منشور 1) لديه مكون فرعي بدون معرف مكون رقمي معين له "
-"حيثما 2) تم تمكين نوع معرف المكون الرقمي للمكون الفرعي (مثلاً، اللوح الطباعي "
-"بدون معرف المكون الرقمي لن يظهر هنا إذا لم يتم تمكين نوع المعرف له)"
+msgstr "كل العناصر التي تفتقر إلى معرف المكون الرقمي."
 
 msgid "manager.dois.filters.doiAssigned.description"
 msgstr "كل العناصر حصلت على معرفات المكونات الرقمية."
@@ -2788,24 +2785,24 @@ msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "رابط الصفحة التي يمكن للمستخدم فيها استعادة كلمة المرور المفقودة"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "عنوان الرابط لمعاينة كل طلبات التقديم المعينة إلى المستخدم."
+msgstr "عنوان الرابط لمعاينة كل طلبات تقديم المستخدم المعينة"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr "عنوان الرابط الذي يمكن للمستخدم عبره معاينة ملفه الشخصي وتعديله."
+msgstr "عنوان الرابط الذي يمكن للمستخدم عبره معاينة ملفه الشخصي وتعديله"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr "اسم القرار الذي تم اتخاذه."
+msgstr "اسم القرار الذي تم اتخاذه"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr "وصف القرار الذي تم اتخاذه."
+msgstr "وصف القرار الذي تم اتخاذه"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr "مرحلة سير أعمال التحرير التي تم اتخاذ القرار عندها."
+msgstr "مرحلة سير أعمال التحرير التي تم اتخاذ القرار عندها"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "جولة التحكيم التي تم اتخاذ هذا القرار عندها، إن كان القرار متعلقًا بجولة "
-"تحكيم."
+"تحكيم"
 
 msgid "emailTemplate.variable.discussion.subject"
 msgstr "موضوع المناقشة"
@@ -3335,7 +3332,6 @@ msgid "mailable.editReviewNotify.description"
 msgstr ""
 "رسالة البريد الالكتروني هذه تُبلغ المحكم آليًا بشأن تفاصيل تعديلات التحكيم."
 
-#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "إشعار المحررين بتعليق المحكم"
 
@@ -3557,3 +3553,6 @@ msgid "plugins.importexport.common.error.publicationCoverImageMissing"
 msgstr ""
 "صورة الغلاف للمنشور {$id} لم يتم تصديرها، تعذر العثور على ملفها في المسار \""
 "{$path}\"."
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "رابط التحقق من حساب البريد الالكتروني"

@@ -1,11 +1,11 @@
-# Ieva Tiltina <pastala@gmail.com>, 2022.
+# Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-11-08 03:46+0000\n"
+"PO-Revision-Date: 2023-09-22 13:06+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
-"Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
-"lv_LV/>\n"
-"Language: lv_LV\n"
+"Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/lv/"
+">\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -57,14 +57,14 @@ msgstr "Lai piekļūtu šai darbībai, ir jāiestata derīga lietotāju grupa."
 
 msgid "user.authorization.managerRequired"
 msgstr ""
-"Lai varētu turpināt, šai stadijai jāpiešķir lietotājs ar pārvaldnieka lomu "
-"(t.i., izstrādes redaktors)."
+"Lai varētu turpināt, šim posmam jāpiešķir lietotājs ar pārvaldnieka lomu ("
+"t.i., izstrādes redaktors)."
 
 msgid "user.authorization.accessibleWorkflowStage"
-msgstr "Pašlaik jums nav piekļuves šai darbplūsmas stadijai."
+msgstr "Pašlaik jums nav piekļuves šim darbplūsmas posmam."
 
 msgid "user.authorization.workflowStageRequired"
-msgstr "Darba plūsmas stadija netika norādīta."
+msgstr "Darbplūsmas posms nav norādīts."
 
 msgid "user.authorization.pluginRequired"
 msgstr "Spraudnis nav norādīts, taču tas ir nepieciešams."
@@ -280,7 +280,7 @@ msgid "user.profile.form.profileImage"
 msgstr "Profila attēls"
 
 msgid "user.profile.form.publishedNotifications"
-msgstr "E-pasta paziņojumi par jaunu izdevumu"
+msgstr "E-pasta paziņojumi par jaunu laidienu"
 
 msgid "user.profile.form.urlInvalid"
 msgstr ""
@@ -492,7 +492,7 @@ msgstr ""
 "izmanto."
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr "Vai esat pārliecināts, ka vēlaties dzēst šo API atslēgu?"
+msgstr "Vai tiešām vēlaties dzēst šo API atslēgu?"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -505,13 +505,17 @@ msgstr ""
 "\"_blank\">privātuma atrunu</a>."
 
 msgid "user.login.lostPassword.invalidUser"
-msgstr ""
+msgstr "Nav lietotāja ar norādīto e-pasta adresi."
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
-msgstr ""
+msgstr "Nevar pabeigt paroles atiestatīšanas pieprasījumu, iemesls: {$reason}."
 
 msgid "user.login.passwordResetProcessInstructions"
-msgstr ""
+msgstr "Ievadiet jaunu paroli, lai atjauninātu pieteikšanās paroli."
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+"Parole ir veiksmīgi atjaunināta. Lūdzu, pierakstieties ar atjaunināto paroli."
+
+msgid "user.usernameOrEmail"
+msgstr "Lietotājvārds vai e-pasta adrese"

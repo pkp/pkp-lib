@@ -2,13 +2,14 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2023-08-01 12:52+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2023-09-22 13:06+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -286,7 +287,6 @@ msgstr "Enregistré"
 msgid "manager.dois.status.error"
 msgstr "Erreur"
 
-#, fuzzy
 msgid "manager.dois.status.error.filterTitle"
 msgstr "Avec erreur"
 
@@ -365,7 +365,6 @@ msgstr ""
 "vous a été attribué. <a href=\"{$doiSettingsUrl}\">Ajouter le préfixe "
 "DOI</a>."
 
-#, fuzzy
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
 "Essai de création d'un DOI, mais un préfixe DOI est nécessaire pour que le "
@@ -386,7 +385,6 @@ msgid "manager.institutions.form.ror.description"
 msgstr ""
 "Identifiant ROR (Research Organization Registry) de cette établissement."
 
-#, fuzzy
 msgid "manager.institutions.form.ipRanges"
 msgstr "Plage d'adresses IP"
 
@@ -834,7 +832,6 @@ msgstr "Collecter le pays, la région et la ville du visiteur"
 msgid "manager.settings.statistics.institutionUsageStats"
 msgstr "Statistiques institutionnelles"
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
 "Activez les statistiques institutionnelles si vous souhaitez collecter des "
@@ -842,7 +839,6 @@ msgstr ""
 "vous devrez configurer les plages d'adresses IP pour chaque établissement "
 "que vous souhaitez suivre."
 
-#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr "Activer les statistiques institutionnelles"
 
@@ -859,7 +855,6 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Rendre publiques les statistique COUNTER SUSHI"
 
-#, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Générateur de rapports"
 
@@ -906,9 +901,9 @@ msgstr ""
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
-"Le préfixe DOI est attribué par des agences (par exemple <a href=\"http://"
-"www.crossref.org\" target=\"_new\">Crossref</a>) et se présente sous la "
-"forme 10.xxxx (par exemple 10.1234) :"
+"Le préfixe DOI est attribué par des agences comme <a href=\"http://www."
+"crossref.org\" target=\"_new\">Crossref</a> ou <a href=\"https://datacite."
+"org/\" target=\"new\">DataCite</a> et se présente sous la forme : 10.xxxx"
 
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr ""
@@ -920,7 +915,6 @@ msgstr "Attribution automatique de DOI"
 msgid "doi.manager.settings.doiCreationTime.description"
 msgstr "Quand un DOI doit-il être attribué à une soumission ?"
 
-#, fuzzy
 msgid "doi.manager.settings.doiCreationTime.publication"
 msgstr "Dès la publication"
 
@@ -939,7 +933,6 @@ msgstr "Un préfixe DOI est requis"
 msgid "doi.manager.settings.doiSuffix"
 msgstr "Suffixe DOI"
 
-#, fuzzy
 msgid "doi.manager.settings.doiSuffix.pattern"
 msgstr "Suffixe DOI"
 
@@ -957,7 +950,8 @@ msgstr ""
 "sein de l'ensemble des objets publiés avec le même préfixe :"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Utiliser les modèles par défaut."
+msgstr ""
+"Modèle par défaut - Génère automatiquement un suffixe de huit caractères"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
@@ -976,7 +970,6 @@ msgstr ""
 "Veuillez sélectionner l'agence d'enregistrement que vous souhaitez utiliser "
 "pour le dépôt des DOI."
 
-#, fuzzy
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
 msgstr "Aucune agence d'enregistrement n'est activée"
 
@@ -989,7 +982,6 @@ msgstr ""
 msgid "doi.manager.settings.registrationAgency.none"
 msgstr "Aucune"
 
-#, fuzzy
 msgid "doi.manager.settings.doiVersioning"
 msgstr "Versionnement du DOI"
 
@@ -1353,12 +1345,11 @@ msgstr ""
 "Expliquez brièvement quels sont les fichiers que les auteur·rice·s doivent "
 "joindre à leur soumission."
 
-#, fuzzy
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
-"Le texte suivant est présenté à l'étape des contributeur·rice·s. Il explique "
-"brièvement les informations qui doivent être fournis sur les auteur·rice·s "
-"et tout autre contributeur·rice."
+"Le texte suivant est présenté à l'étape des contributeurs/trices. Il "
+"explique brièvement les informations qui doivent être fournis sur les "
+"auteurs/trices et tout autre contributeur/trice."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
@@ -1924,16 +1915,14 @@ msgstr ""
 "illustration » convient aux fichiers qui nécessitent des métadonnées "
 "distinctes d'attribution de crédits, de légende et de licence."
 
-#, fuzzy
 msgid "manager.setup.genres.submitRequired.label"
 msgstr "Exiger avec les soumissions"
 
-#, fuzzy
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
 "L'un de ces fichiers est-il requis pour chaque nouvelle soumission ? Dans "
-"l'affirmative, les auteurs ne pourront pas effectuer de soumission tant "
-"qu'ils n'auront pas transféré au moins l'un de ces fichiers."
+"l'affirmative, les auteurs/trices ne pourront pas effectuer de soumission "
+"tant qu'ils n'auront pas transféré au moins l'un de ces fichiers."
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
@@ -2406,7 +2395,10 @@ msgid "plugins.importexport.common.error.encodingError"
 msgstr "Le contenu n'est pas encodé comme {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Groupe d'utilisateur inconnu {$param}"
+msgstr ""
+"Le fichier d'importation contient un-e auteur/trice '{$authorName}' du "
+"groupe '{$userGroupName}'. Il n'y a cependant pas de groupe d'utilisateur "
+"défini avec un tel nom."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
 msgstr "Groupe d'utilisateurs-trices manquant pour le nom d'usager {$param}"
@@ -2798,23 +2790,22 @@ msgstr "Jusqu'au {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
-"Le pourcentage pour la période sélectionnée entre deux dates est calculé "
-"pour les soumissions qui ont été soumises pendant cet intervalle de dates et "
-"qui ont reçu une décision finale. <br> <br> Par exemple, considérons le cas "
-"où dix soumissions ont été faites pendant cet intervalle de dates : Quatre "
-"ont été acceptées, quatre ont été rejetées et deux attendent toujours une "
-"décision finale. <br> <br> Le taux d'acceptation sera de 50% (4 des 8 "
-"soumissions) car les deux soumissions qui n'ont pas abouti à une décision "
-"finale ne sont pas comptées."
+"Le pourcentage est calculé pour les soumissions qui ont été faites durant "
+"l'intervalle de dates sélectionnées et qui ont reçu une décision finale. "
+"<br> <br> Par exemple, si dix soumissions ont été reçues pendant ce laps de "
+"temps, que quatre ont été acceptées, quatre rejetées et deux attendent "
+"toujours une décision finale, le taux d'acceptation sera de <strong>50%</"
+"strong> (4 des 8 soumissions). Les deux soumissions qui n'ont pas encore "
+"reçu une décision finale ne sont pas comptées."
 
 msgid "stats.description.daysToDecision"
 msgstr ""
 "Le nombre de jours nécessaires à la plupart des soumissions pour recevoir "
 "une première décision éditoriale, comme le rejet en pré-évaluation ou "
 "l'envoi pour évaluation. <br> <br> Ces chiffres indiquent que 80% des "
-"soumissions parviennent à la décision dans le délai imparti. < br> <br> "
-"Cette statistique tente de chiffrer le délai pour lequel la majorité des "
-"auteurs et autrices soumettant à votre revue peuvent attendre une décision."
+"soumissions parviennent à la décision dans ce délai imparti. < br> <br> "
+"Cette statistique tente de chiffrer le délai dans lequel la majorité des "
+"personnes soumettant à votre revue peuvent recevoir une décision."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
@@ -3143,9 +3134,9 @@ msgstr "Le numéro d'identification unique de la soumission"
 msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "Le résumé de la soumission"
 
-#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr "Noms des auteurs sous la forme d'une chaîne de caractères raccourcie"
+msgstr ""
+"Noms des auteurs/trices sous la forme d'une chaîne de caractères raccourcie"
 
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Les noms complets des auteurs"
@@ -3428,7 +3419,7 @@ msgid "mailable.reviewConfirm.description"
 msgstr ""
 "Ce courriel est envoyé par le rapporteur au rédacteur de rubrique en réponse "
 "à une demande d'évaluation, pour aviser ce dernier que la demande a été "
-"acceptée et que l'évaluation sera complétée au plus tard à la date spécifiée."
+"acceptée et que l'évaluation sera complétée au plus tard à la date spécifiée"
 
 msgid "mailable.reviewDecline.name"
 msgstr "Refus de l'évaluation"
@@ -3436,8 +3427,8 @@ msgstr "Refus de l'évaluation"
 msgid "mailable.reviewDecline.description"
 msgstr ""
 "Ce courriel est envoyé par le rapporteur au rédacteur de rubrique en réponse "
-"à la demande d'évaluation, pour aviser ce dernier qu'il ne peut effectuer "
-"l'évaluation."
+"à la demande d'évaluation, pour aviser ce dernier qu'il ne peut pas "
+"effectuer l'évaluation"
 
 msgid "mailable.reviewRemind.name"
 msgstr "Rappel d'évaluation"
@@ -3450,11 +3441,10 @@ msgstr ""
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Rappel d'évaluation (automatisé)"
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"Ce courriel est envoyé automatiquement quand la date due d'un rapporteur est "
-"dépassée. (Voir Options d'évaluation à l'Étape 2 de la Configuration de la "
+"Ce courriel est envoyé automatiquement quand le délai pour un rapporteur est "
+"dépassé. (Voir Options d'évaluation à l'Étape 2 de la Configuration de la "
 "revue) et que l'accès en « un clic » est désactivé. Les tâches planifiées "
 "doivent être activées et configurées (voir le fichier de Configuration du "
 "site)."
@@ -3481,7 +3471,6 @@ msgstr ""
 msgid "mailable.reviewRequest.name"
 msgstr "Demande d'évaluation"
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
 "Ce courriel du Rédacteur de rubrique à un Rapporteur demande que le "
@@ -3508,9 +3497,8 @@ msgstr ""
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
 msgstr "La publication actuelle de la soumission est manquante"
 
-#, fuzzy
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr "L'enfant de la soumission {$child} n'a pas pu être traité"
+msgstr "Le sous-élément de la soumission {$child} n'a pas pu être traité"
 
 msgid "mailable.editorialReminder.name"
 msgstr "Rappel éditorial"
@@ -3531,7 +3519,6 @@ msgstr ""
 msgid "mailable.userRegister.name"
 msgstr "Création de l'utilisateur·rice"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
 "Ce courriel est envoyé aux utilisateurs nouvellement inscrits pour leur "
@@ -3558,23 +3545,20 @@ msgstr ""
 msgid "mailable.submissionAck.name"
 msgstr "Confirmation de soumission"
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Ce courriel, lorsqu'activé, est envoyé automatiquement à un auteur ou une "
-"auteure quand il ou elle a complété le processus de soumission d'un "
-"manuscrit à la revue. Il fournit les informations relatives au suivi de la "
-"soumission à travers le processus éditorial, et remercie l'auteur ou "
-"l'auteure pour sa soumission."
+"Ce courriel est envoyé automatiquement à la personne qui a complété avec "
+"succès le processus de soumission d'un manuscrit à la revue pour la "
+"remercier. Il fournit par ailleurs des informations sur le suivi de la "
+"soumission à travers le processus éditorial."
 
 msgid "mailable.submissionAckNotAuthor.name"
 msgstr "Confirmation de soumission (autres auteur·rice·s)"
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Ce courriel, lorsque activé, est envoyé automatiquement aux autres auteurs, "
-"i.e. ceux qui ne sont pas l'utilisateur enregistré faisant la soumission."
+"Ce courriel est envoyé automatiquement aux co-auteurs et co-autrices qui "
+"n'ont pas fait la soumission."
 
 msgid "mailable.discussionSubmission.name"
 msgstr "Discussion (soumission)"
@@ -3641,7 +3625,6 @@ msgstr ""
 "Ce courriel est automatiquement envoyé aux éditeur·rice·s désigné·e·s "
 "lorsque l'évaluateur·rice transmet ses recommandations"
 
-#, fuzzy
 msgid "manager.people.authSource"
 msgstr "Source d'authentification"
 

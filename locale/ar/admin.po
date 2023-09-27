@@ -1,7 +1,7 @@
 # M. Ali <vorteem@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-28 14:09+0000\n"
+"PO-Revision-Date: 2023-09-03 02:58+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ar/"
 ">\n"

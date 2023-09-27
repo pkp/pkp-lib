@@ -2,13 +2,14 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-08-16 10:37+0000\n"
-"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
+"PO-Revision-Date: 2023-09-22 13:06+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -227,7 +228,6 @@ msgstr ""
 msgid "manager.dois.actions.description"
 msgstr "Appliquer l'action aux items sélectionnés ({$count})."
 
-#, fuzzy
 msgid "manager.dois.actions.bulkActions"
 msgstr "Actions en lot"
 

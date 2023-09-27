@@ -1,12 +1,13 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2023-08-01 08:25+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2023-09-22 13:06+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -563,7 +564,7 @@ msgstr "Evaluations actuellement assignées"
 
 msgid "reviewer.list.assignedToLastRound"
 msgstr ""
-"Cet/Cette évaluateur/trice a effectué.e une évaluation lors du dernier cycle."
+"Cet·te évaluateur·rice a effectué·e une évaluation lors du dernier cycle."
 
 msgid "reviewer.list.completedReviews"
 msgstr "Evaluations finies"
@@ -601,11 +602,10 @@ msgstr "Réassigner {$name}"
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Ce rapporteur évalue déjà cette soumission."
 
-#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
-"Ce rapporteur est bloqué car il a un rôle lui permettant de voir l'identité "
-"de l'auteur. Une évaluation en double-aveugle n'est donc pas garantie. "
+"Ce rapporteur est bloqué car il a un rôle qui lui permet de voir l'identité "
+"de l'auteur/trice. Une évaluation en double-aveugle n'est donc pas garantie. "
 "Voulez-vous quand même faire la demande d'évaluation ?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
@@ -623,7 +623,6 @@ msgstr "Aucun évaluateur ou évaluatrice trouvé"
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
 msgstr "Assigné.e à un cycle précédent"
 
-#, fuzzy
 msgid "editor.decision.cancelDecision"
 msgstr "Annuler la décision"
 
@@ -636,11 +635,9 @@ msgstr "Compléter les étapes suivantes pour prendre cette décision"
 msgid "editor.decision.dontSkipEmail"
 msgstr "Ne sautez pas ce courriel"
 
-#, fuzzy
 msgid "editor.decision.emailSkipped"
 msgstr "Cette étape a été sautée et aucun courriel ne sera envoyé."
 
-#, fuzzy
 msgid "editor.decision.recordDecision"
 msgstr "Enregistrer la décision"
 

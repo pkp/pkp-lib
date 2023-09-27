@@ -1,12 +1,12 @@
-# Ieva Tiltina <pastala@gmail.com>, 2022.
+# Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 # Gints Buda <gints.buda@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-24 10:37+0000\n"
+"PO-Revision-Date: 2023-09-22 13:06+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
-"lv_LV/>\n"
-"Language: lv_LV\n"
+"lv/>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -39,7 +39,7 @@ msgid "editor.submission.workflowDecision.submission.reviewRound"
 msgstr "Nosūtīts jaunai recenzēšanas kārtai."
 
 msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Nosūtīts ražošanai."
+msgstr "Nosūtīts izstrādei."
 
 msgid "editor.submission.workflowDecision.submission.underReview"
 msgstr "Iesniegtais materiāls pieņemts recenzēšanai."
@@ -71,7 +71,7 @@ msgstr "Šī recenzēšanas kārta nav daļa no materiāla iesniegšanas."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
-"Iesniegtais materiāls nav atbilstošā darba plūsmas posmā, lai pieņemtu šādu "
+"Iesniegtais materiāls nav atbilstošā darbplūsmas posmā, lai pieņemtu šādu "
 "lēmumu."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
@@ -124,7 +124,7 @@ msgid "editor.submission.selectFiles"
 msgstr "Izvēlēties failus"
 
 msgid "editor.submission.revisions"
-msgstr "Versijas"
+msgstr "Labojumi"
 
 msgid "editor.submission.review.reviewersDescription"
 msgstr ""
@@ -144,10 +144,10 @@ msgid "editor.submission.findAndSelectUser"
 msgstr "Izvēlēties lietotāju"
 
 msgid "editor.submission.fileList.includeAllStages"
-msgstr "Parādīt failus no visiem darbplūsmas etapiem."
+msgstr "Parādīt datnes no visiem darbplūsmas posmiem."
 
 msgid "editor.submission.review.currentFiles"
-msgstr "Jaunākie recenzijas faili {$round}. kārtai"
+msgstr "Jaunākās recenzijas datnes {$round}. kārtai"
 
 msgid "editor.submission.backToSearch"
 msgstr "Atgriezties uz meklēšanu"
@@ -210,22 +210,22 @@ msgid "editor.review.importantDates"
 msgstr "Svarīgi dati"
 
 msgid "editor.review.uploadRevision"
-msgstr "Augšupielādēt versiju"
+msgstr "Augšupielādēt labojumus"
 
 msgid "editor.review.newReviewRound"
 msgstr "Pieprasīt jaunu recenzēšanas kārtu"
 
 msgid "editor.review.NotifyAuthorRevisions"
-msgstr "Versijas netiks pakļautas jaunai recenzēšanas kārtai."
+msgstr "Labojumi netiks pakļauti jaunai recenzēšanas kārtai."
 
 msgid "editor.review.NotifyAuthorResubmit"
-msgstr "Versijas tiks pakļautas jaunai recenzēšanas kārtai."
+msgstr "Labojumi tiks pakļauti jaunai recenzēšanas kārtai."
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
-msgstr "Versijām nevajadzētu būt pakļautām jaunai recenzēšanas kārtai."
+msgstr "Labojumus nevajadzētu pakļaut jaunai recenzēšanas kārtai."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
-msgstr "Versijām vajadzētu būt pakļautām jaunai recenzēšanas kārtai."
+msgstr "Labojumus vajadzētu pakļaut jaunai recenzēšanas kārtai."
 
 msgid "editor.review.dateAccepted"
 msgstr "Recenzēšanas pieņemšanas datums"
@@ -359,7 +359,7 @@ msgstr ""
 "recenzēšanas procesa anonimitāti."
 
 msgid "editor.discussion.errorNotStageParticipant"
-msgstr "Izvēlētajam dalībniekam šis etaps netiek piešķirts."
+msgstr "Izvēlētajam dalībniekam šis posms netiek piešķirts."
 
 msgid "editor.submission.schedulePublication"
 msgstr "Ieplānot publicēšanai"
@@ -390,13 +390,13 @@ msgstr "Atgādinājums par korektūru"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
 msgstr ""
-"Rediģētais fails ir jāapstiprina, lai to varētu nosūtīt uz ražošanas posmu. "
-"Vai vēlaties apstiprināt šo failu?"
+"Literāri rediģētā datne ir jāapstiprina, lai to varētu nosūtīt uz izstrādes "
+"posmu. Vai vēlaties apstiprināt šo datni?"
 
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
 msgstr ""
-"Neapstiprinot šo rediģēto failu, to nevarēs nosūtīt uz ražošanas posmu. Vai "
-"vēlaties neapstiprināt šo failu?"
+"Neapstiprinot šo literāri rediģēto datni, to nevarēs nosūtīt uz izstrādes "
+"posmu. Vai vēlaties neapstiprināt šo datni?"
 
 msgid "editor.submission.addAuditor"
 msgstr "Piešķirt auditoru"
@@ -426,7 +426,7 @@ msgid "editor.review.emailReviewer"
 msgstr "Nosūtīt e-pastu recenzentam"
 
 msgid "editor.submission.production.productionReadyFiles"
-msgstr "Publicēšanai gatavi faili"
+msgstr "Izstrādei gatavas datnes"
 
 msgid "editor.submission.newRound"
 msgstr "Jauna recenzēšanas kārta"
@@ -467,8 +467,7 @@ msgstr "Izvēlēties recenzijas veidlapu"
 msgid "editor.article.confirmChangeReviewForm"
 msgstr ""
 "Brīdinājums: Recenzijas veidlapas maiņa ietekmēs visas atbildes, ko "
-"recenzenti ir snieguši, izmantojot šo veidlapu. Vai esat pārliecināts, ka "
-"vēlaties turpināt?"
+"recenzenti ir snieguši, izmantojot šo veidlapu. Vai tiešām vēlaties turpināt?"
 
 msgid "editor.submission.noReviewerFilesSelected"
 msgstr "Nav atlasītu failu"

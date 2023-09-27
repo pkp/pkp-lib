@@ -1,12 +1,12 @@
 # Gints Buda <gints.buda@gmail.com>, 2022.
-# Ieva Tiltina <pastala@gmail.com>, 2022.
+# Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-11-09 17:03+0000\n"
+"PO-Revision-Date: 2023-09-22 13:06+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"lv_LV/>\n"
-"Language: lv_LV\n"
+"lv/>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -126,10 +126,10 @@ msgid "admin.languages.reload"
 msgstr "Atkārtoti ielādēt lokalizāciju"
 
 msgid "admin.languages.uninstall"
-msgstr ""
+msgstr "Lokalizācijas atinstalēšana"
 
 msgid "admin.phpInfo"
-msgstr ""
+msgstr "Paplašināta PHP informācija"
 
 msgid "admin.scheduledTask"
 msgstr ""
@@ -273,7 +273,7 @@ msgid "admin.settings"
 msgstr ""
 
 msgid "admin.settings.about"
-msgstr ""
+msgstr "Par vietni"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr ""
@@ -321,7 +321,7 @@ msgid "admin.siteAdmin"
 msgstr ""
 
 msgid "admin.siteManagement"
-msgstr ""
+msgstr "Vietnes pārvaldība"
 
 msgid "admin.siteSettings"
 msgstr ""
@@ -337,6 +337,8 @@ msgstr ""
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Skatiet informāciju par lietojumprogrammas un servera versiju un "
+"konfigurācijas iestatījumiem."
 
 msgid "admin.systemInformation.view"
 msgstr ""
@@ -369,7 +371,7 @@ msgid "admin.version.moreInfo"
 msgstr ""
 
 msgid "admin.versionRevision"
-msgstr ""
+msgstr "Labojums"
 
 msgid "admin.version.updateAvailable"
 msgstr ""

@@ -820,9 +820,6 @@ msgstr ""
 "gestite dallo stesso produttore, può essere preferibile indicare il sito "
 "come piattaforma."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Indica il sito come piattaforma per tutte le riviste."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID della piattaforma"
 

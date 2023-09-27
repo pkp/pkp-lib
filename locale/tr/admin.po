@@ -745,9 +745,6 @@ msgstr "Platform"
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr ""
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Platform ID"
 

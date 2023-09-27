@@ -821,9 +821,6 @@ msgstr ""
 "the journals on this site are published, owned or operated by the same "
 "provider, you may wish to designate the site as the platform."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Use the site as the platform for all journals."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Platform ID"
 

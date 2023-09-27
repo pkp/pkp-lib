@@ -993,9 +993,6 @@ msgid "admin.settings.statistics.sushi.description"
 msgstr "Konfiqurasiya edin"
 
 #, fuzzy
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Saytı bütün jurnallar üçün platforma kimi istifadə edin."
-
 #, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Platforma şəxsiyyəti"

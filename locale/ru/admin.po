@@ -844,9 +844,6 @@ msgstr ""
 "журналы на этом сайте опубликованы, принадлежат или управляются одним и тем "
 "же провайдером, вы можете указать сайт в качестве платформы."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Использовать сайт как платформу для всех журналов."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID платформы"
 

@@ -841,9 +841,6 @@ msgstr ""
 "wszystkie czasopisma są własnością tego samego dostawcy, są przez niego "
 "publikowane lub obsługiwane, to jako platformę możesz wyznaczyć witrynę."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Użyj witryny jako platformy dla wszystkich czasopism."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Identyfikator platformy"
 

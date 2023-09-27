@@ -735,9 +735,6 @@ msgstr ""
 "OJS-installation tillhör samma utgivare går det även att ange hela siten som "
 "plattform."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Använd siten som plattform för alla tidskrifter."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Plattforms-ID"
 

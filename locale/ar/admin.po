@@ -769,9 +769,6 @@ msgstr ""
 "المهمة التي تقوم بتحميل إحصائيات الاستعمال من الملف {$file} قد فشلت. تم نقل "
 "الملف إلى مجلد الخزن."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "استعمل الموقع بمثابة المنصة لكل المجلات."
-
 msgid "admin.cli.tool.jobs.work.options.title"
 msgstr "خيارات أمر العمل"
 

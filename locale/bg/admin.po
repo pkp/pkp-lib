@@ -847,9 +847,6 @@ msgstr ""
 "управлявани от един и същ доставчик, може да пожелаете да посочите сайта "
 "като платформа."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Използване на сайта като платформа за всички списания."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Идентификатор за платформата (Platform ID)"
 

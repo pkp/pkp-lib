@@ -835,9 +835,6 @@ msgstr ""
 "njima upravlja isti pružatelj usluga, možda ćete htjeti odrediti stranicu "
 "kao platformu."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Koristite stranicu kao platformu za sve časopise."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID platforme"
 

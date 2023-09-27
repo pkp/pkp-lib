@@ -827,9 +827,6 @@ msgstr ""
 "այս կայքի բոլոր ամսագրերը հրատարակված են, պատկանում կամ շահագործվում են "
 "միևնույն մատակարարի կողմից, դուք կարող եք ընտրել կայքը որպես հարթակ:"
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Օգտագործեք կայքը որպես հարթակ բոլոր ամսագրերի համար:"
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Հարթակի ID"
 

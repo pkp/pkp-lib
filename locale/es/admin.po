@@ -850,9 +850,6 @@ msgstr ""
 "proveedor, es posible que desee designar en su lugar el sitio como "
 "plataforma."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr ""
-"Usar este sitio como plataforma para todas las revistas/editoriales/"
 "repositorios."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"

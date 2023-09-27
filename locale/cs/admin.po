@@ -828,9 +828,6 @@ msgstr ""
 "časopisy na této stránce vydávány, vlastněny nebo provozovány stejným "
 "poskytovatelem, můžete jako platformu určit tyto stránky."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Použijte tento web jako platformu pro všechny časopisy."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID platformy"
 

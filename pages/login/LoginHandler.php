@@ -75,7 +75,7 @@ class LoginHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'loginMessage' => $request->getUserVar('loginMessage'),
-            'username' => $request->getUserVar('username') ?? $session->getSessionVar('username'),
+            'username' => $session->getSessionVar('email') ?? $session->getSessionVar('username'),
             'remember' => $request->getUserVar('remember'),
             'source' => $request->getUserVar('source'),
             'showRemember' => Config::getVar('general', 'session_lifetime') > 0,

@@ -15,6 +15,11 @@ $finder = PhpCsFixer\Finder::create()
 
 $rules = include '.php_cs_rules';
 
+require(__DIR__ . '/classes/dev/fixers/bootstrap.php');
+
 $config = new PhpCsFixer\Config();
-return $config->setRules($rules)
+$config->registerCustomFixers(new PKP\dev\fixers\Fixers())
+    ->setRules($rules)
     ->setFinder($finder);
+
+return $config;

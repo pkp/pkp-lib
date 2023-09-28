@@ -23,4 +23,5 @@ return [
     'standardize_increment' => true,
     'standardize_not_equals' => true,
     'ternary_to_null_coalescing' => true,
+    'PKP/hookfixer' => true,
 ];

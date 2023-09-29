@@ -6,6 +6,8 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief The users, roles and site access settings page.
+ *
+ * @hook Template::Settings::access []
  *}
 {extends file="layouts/backend.tpl"}
 

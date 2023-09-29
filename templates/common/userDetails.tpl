@@ -20,6 +20,8 @@
  *
  *   $countryRequired: Whether or not the country select is a required field
  *   $extraContentSectionUnfolded: Whether or not the extra content section is unfolded by default
+ *
+ * @hook Common::UserDetails::AdditionalItems []
  *}
 
 {fbvFormArea id="userDetails"}

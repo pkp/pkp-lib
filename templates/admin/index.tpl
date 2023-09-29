@@ -7,6 +7,7 @@
  *
  * Site administration index.
  *
+ * @hook Templates::Admin::Index::AdminFunctions []
  *}
 {extends file="layouts/backend.tpl"}
 

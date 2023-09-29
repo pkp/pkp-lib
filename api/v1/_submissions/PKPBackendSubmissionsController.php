@@ -177,7 +177,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             // Anyone not a manager or site admin can only access their assigned submissions
             $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
             $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
-            Hook::call('API::submissions::params', [$collector, $illuminateRequest]);
+            Hook::run('API::_submissions::params', [$collector, $illuminateRequest]);
             if (!$canAccessUnassignedSubmission) {
                 if (!is_array($collector->assignedTo)) {
                     $collector->assignedTo([$currentUser->getId()]);

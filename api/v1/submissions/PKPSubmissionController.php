@@ -337,7 +337,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $collector = $this->getSubmissionCollector($illuminateRequest->query());
 
-        Hook::call('API::submissions::params', [$collector, $illuminateRequest]);
+        Hook::run('API::submissions::params', [$collector, $illuminateRequest]);
 
         // Prevent users from viewing submissions they're not assigned to,
         // except for journal managers and admins.

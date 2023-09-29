@@ -6,6 +6,11 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * The website settings page.
+ *
+ * @hook Template::Settings::website::appearance []
+ * @hook Template::Settings::website::setup []
+ * @hook Template::Settings::website::plugins []
+ * @hook Template::Settings::website []
  *}
 {extends file="layouts/backend.tpl"}
 

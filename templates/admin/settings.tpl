@@ -6,6 +6,10 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Administration settings page.
+ *
+ * @hook Template::Settings::admin::setup []
+ * @hook Template::Settings::admin::appearance []
+ * @hook Template::Settings::admin []
  *}
 {extends file="layouts/backend.tpl"}
 

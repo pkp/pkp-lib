@@ -6,6 +6,8 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Add and edit announcements and announcement types
+ *
+ * @hook Template::Announcements []
  *}
 {extends file="layouts/backend.tpl"}
 

@@ -6,6 +6,9 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * The submission wizard screen with all steps to complete for submission.
+ *
+ * @hook Template::SubmissionWizard::Section::Review [[submission, step], $templateMgr, $output]
+ * @hook Template::SubmissionWizard::Section [[submission], $templateMgr, $output]
  *}
 {extends file="layouts/backend.tpl"}
 

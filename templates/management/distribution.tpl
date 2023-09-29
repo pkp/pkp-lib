@@ -6,6 +6,8 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * The distribution settings page.
+ *
+ * @hook Template::Settings::distribution []
  *}
 {extends file="layouts/backend.tpl"}
 

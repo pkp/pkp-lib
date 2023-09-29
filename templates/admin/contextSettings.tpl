@@ -7,6 +7,10 @@
  *
  * @brief Admin page for configuring high-level details about a context.
  *
+ * @hook Template::Settings::admin::contextSettings::setup []
+ * @hook Template::Settings::admin::contextSettings::plugins []
+ * @hook Template::Settings::admin::contextSettings []
+ *
  * @uses $editContext Context The context that is being edited.
  *}
 {extends file="layouts/backend.tpl"}

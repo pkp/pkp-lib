@@ -10,6 +10,9 @@
  * @uses $isFullWidth bool Should this page be displayed without sidebars? This
  *       represents a page-level override, and doesn't indicate whether or not
  *       sidebars have been configured for thesite.
+ *
+ * @hook Templates::Common::Sidebar []
+ * @hook Templates::Common::Footer::PageFooter []
  *}
 
 	</div><!-- pkp_structure_main -->

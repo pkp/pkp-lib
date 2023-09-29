@@ -6,6 +6,8 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Management index.
+ *
+ * @hook Templates::Management::Settings::tools []
  *}
 {extends file="layouts/backend.tpl"}
 

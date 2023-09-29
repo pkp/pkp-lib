@@ -6,6 +6,8 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief Add and edit institutions
+ *
+ * @hook Template::Institutions []
  *}
 {extends file="layouts/backend.tpl"}
 

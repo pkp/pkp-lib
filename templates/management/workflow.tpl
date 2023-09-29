@@ -6,6 +6,11 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief The workflow settings page.
+ *
+ * @hook Template::Settings::workflow::submission []
+ * @hook Template::Settings::workflow::review []
+ * @hook Template::Settings::workflow::emails []
+ * @hook Template::Settings::workflow []
  *}
 {extends file="layouts/backend.tpl"}
 

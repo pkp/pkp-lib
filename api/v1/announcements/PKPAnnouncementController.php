@@ -166,7 +166,7 @@ class PKPAnnouncementController extends PKPBaseController
 
         $collector->filterByContextIds([$this->getRequest()->getContext()->getId()]);
 
-        Hook::call('API::submissions::params', [$collector, $illuminateRequest]);
+        Hook::run('API::announcements::params', [$collector, $illuminateRequest]);
 
         $announcements = $collector->getMany();
 

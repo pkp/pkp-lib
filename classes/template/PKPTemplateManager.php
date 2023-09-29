@@ -328,6 +328,7 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('function', 'help', $this->smartyHelp(...));
         $this->registerPlugin('function', 'flush', $this->smartyFlush(...));
         $this->registerPlugin('function', 'call_hook', $this->smartyCallHook(...));
+        $this->registerPlugin('function', 'run_hook', $this->smartyRunHook(...));
         $this->registerPlugin('function', 'html_options_translate', $this->smartyHtmlOptionsTranslate(...));
         $this->registerPlugin('block', 'iterate', $this->smartyIterate(...));
         $this->registerPlugin('function', 'page_links', $this->smartyPageLinks(...));
@@ -1668,12 +1669,27 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
-     * Call hooks from a template.
+     * Call hooks from a template. (DEPRECATED: For new hooks, {run_hook} is preferred.
      */
     public function smartyCallHook($params, $smarty)
     {
         $output = null;
         Hook::call($params['name'], [&$params, $smarty, &$output]);
+        return $output;
+    }
+
+    /**
+     * Run hooks from a template.
+     */
+    public function smartyRunHook(array $params): ?string
+    {
+        $output = null;
+
+        // Don't pollute the parameter list with a redundant hook name
+        $hookName = $params['name'];
+        unset($params['name']);
+
+        Hook::run($hookName, ['templateMgr' => $this, 'output' => &$output, ...$params]);
         return $output;
     }
 

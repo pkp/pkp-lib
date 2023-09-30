@@ -147,6 +147,8 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
     //
     /**
      * Get usage event and pass it to the registered plugins, if any.
+     *
+     * @hook UsageEventPlugin::getUsageEvent [$hookName, $usageEvent, ...]
      */
     public function getUsageEvent($hookName, $args)
     {

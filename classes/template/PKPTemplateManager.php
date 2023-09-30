@@ -780,6 +780,8 @@ class PKPTemplateManager extends Smarty
 
     /**
      * Set up the template requirements for editorial backend pages
+     *
+     * @hook TemplateManager::setupBackendPage []
      */
     public function setupBackendPage()
     {

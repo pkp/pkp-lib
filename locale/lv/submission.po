@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-25 15:55+0000\n"
+"PO-Revision-Date: 2023-10-03 07:06+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/lv/>\n"
@@ -1367,3 +1367,230 @@ msgstr "Pārskatīšana"
 
 msgid "submission.reviewed"
 msgstr "Pārskatīts"
+
+msgid "submission.saveMetadata"
+msgstr "Saglabāt metadatus"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Šim materiālam nav piešķirts redaktors."
+
+msgid "submission.submit.selectFile"
+msgstr "Atlasīt datni"
+
+msgid "submission.submit.submissionLocale"
+msgstr "Iesniedzamā materiāla valoda"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Augšupielādēt visas datnes, kas būs nepieciešamas redakcijai, lai novērtētu "
+"jūsu iesniegto materiālu."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Lūdzu, norādiet tiesības."
+
+msgid "workflow.review.internalReview"
+msgstr "Iekšējā izvērtēšana"
+
+msgid "submission.reviewVersion"
+msgstr "Recenzijas versija"
+
+msgid "submission.rights"
+msgstr "Tiesības"
+
+msgid "submissions.active"
+msgstr "Aktīvs"
+
+msgid "submissions.archived"
+msgstr "Arhivēts"
+
+msgid "submissions.completed"
+msgstr "Pabeigts"
+
+msgid "submissions.declined"
+msgstr "Noraidīts"
+
+msgid "submissions.incomplete"
+msgstr "Nepilnīgs"
+
+msgid "submissions.noSubmissions"
+msgstr "Nav iesniegto materiālu"
+
+msgid "submissions.queuedEditing"
+msgstr "Rediģēšanā"
+
+msgid "submissions.queued"
+msgstr "Rindā"
+
+msgid "submissions.ruling"
+msgstr "Nolēmums"
+
+msgid "submission.source"
+msgstr "Avots"
+
+msgid "submissions.submit"
+msgstr "Iesniegt"
+
+msgid "submissions.submitted"
+msgstr "Iesniegts"
+
+msgid "submission.submission"
+msgstr "Iesniegtais materiāls"
+
+msgid "submission.submissionTitle"
+msgstr "Iesniegtā materiāla virsraksts:"
+
+msgid "submission.start"
+msgstr "Sākums"
+
+msgid "submission.submissionHistory"
+msgstr "Iesniegtā materiāla vēsture"
+
+msgid "submission.submissionManuscript"
+msgstr "Iesniegtā materiāla manuskripts"
+
+msgid "submission.submissionReview"
+msgstr "Iesniegtā materiāla recenzija"
+
+msgid "submission.submitter"
+msgstr "Iesniedzējs"
+
+msgid "submission.submit.fileInformation"
+msgstr "Datnes informācija"
+
+msgid "submission.submit.fileAdded"
+msgstr "Datne pievienota"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Publikāciju saraksti"
+
+msgid "submission.submit.newFile"
+msgstr "Pievienot citu datni"
+
+msgid "submission.submit.metadataForm"
+msgstr "Papildu precizējumi"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Izvēlieties iesniedzamā materiāla pamatvalodu."
+
+msgid "submission.submit.submissionFiles"
+msgstr "Iesniedzamā materiāla datnes"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Saistītās datnes"
+
+msgid "submission.manageDependentFiles"
+msgstr "Pārvaldīt saistītās datnes"
+
+msgid "submission.upload.percentComplete"
+msgstr "Augšupielāde {$percent}% pabeigta"
+
+msgid "submission.upload.dependent"
+msgstr "Augšupielādēt saistīto datni"
+
+msgid "submission.summary"
+msgstr "Kopsavilkums"
+
+msgid "submission.supportingAgencies"
+msgstr "Atbalsta aģentūras"
+
+msgid "submission.currentAgencies"
+msgstr "Pašreizējās aģentūras"
+
+msgid "submission.indexingInformation"
+msgstr "Informācija par indeksēšanu"
+
+msgid "submission.underway"
+msgstr "Pašlaik"
+
+msgid "submission.uploadFileTo"
+msgstr "Augšupielādēt datni uz"
+
+msgid "submission.createRemote"
+msgstr "Izveidot attālināto"
+
+msgid "submission.viewMetadata"
+msgstr "Skatīt metadatus"
+
+msgid "submission.views"
+msgstr "Skatījumi"
+
+msgid "submission.uploadSuccessful"
+msgstr "Jūsu datne ir augšupielādēta."
+
+msgid "submission.loadMessage"
+msgstr "Lūdzu, pagaidiet, kamēr jūsu datne tiks augšupielādēta serverī."
+
+msgid "submission.artworkFileDetails"
+msgstr "Informācija par grafisko datni"
+
+msgid "submission.fileDetails"
+msgstr "Informācija par datni"
+
+msgid "submission.nameRequired"
+msgstr "Šai vienībai jānorāda nosaukums."
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD"
+
+msgid "submission.date.yyyymmdd"
+msgstr "GGGG-MM-DD"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Lūdzu, norādiet valodu."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Lūdzu, norādiet tematu."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Lūdzu, norādiet nozari."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Lūdzu, norādiet atslēgvārdu."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Lūdzu, norādiet informāciju par aptvērumu."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Lūdzu, norādiet tipu."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Lūdzu, norādiet avotu."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Lūdzu, norādiet atsauces."
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr "Lūdzu, norādiet datu pieejamības paziņojumu."
+
+msgid "submission.form.name"
+msgstr "Nosauciet datni (piemēram, Manuskripts; 1. tabula)"
+
+msgid "submission.form.replaceExisting"
+msgstr "Aizstāt esošo datni?"
+
+msgid "workflow.stage.any"
+msgstr "Jebkurš posms"
+
+msgid "workflow.stage"
+msgstr "Posms"
+
+msgid "submission.status.review"
+msgstr "Recenzēšanā"
+
+msgid "submission.status.submission"
+msgstr "Gaida redaktora lēmumu"
+
+msgid "submission.status.unassigned"
+msgstr "Nepiešķirts"
+
+msgid "submission.status.declined"
+msgstr "Noraidīts"
+
+msgid "submission.status.published"
+msgstr "Publicēts"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Augšupielādēt datni"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Augšupielādēt iesniedzamā materiāla datni"

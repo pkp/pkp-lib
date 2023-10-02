@@ -37,9 +37,8 @@
 					{translate key="stats.trends"}
 					<span v-if="isLoading" class="pkpSpinner" aria-hidden="true"></span>
 				</h1>
-				<template slot="actions">
+				<template #actions>
 					<date-range
-						slot="thead-dateRange"
 						unique-id="editorial-stats-date-range"
 						:date-start="dateStart"
 						:date-start-min="dateStartMin"
@@ -108,7 +107,7 @@
 							:columns="tableColumns"
 							:rows="tableRows"
 						>
-							<template slot-scope="{ldelim}row, rowIndex{rdelim}">
+							<template #default="{ldelim}row, rowIndex{rdelim}">
 								<table-cell
 									v-for="(column, columnIndex) in tableColumns"
 									:key="column.name"
@@ -119,7 +118,7 @@
 									<template v-if="column.name === 'name'">
 										{{ row.name }}
 										<tooltip v-if="row.description"
-											:label="__('stats.descriptionForStat', {ldelim}stat: row.name{rdelim})"
+											:label="t('stats.descriptionForStat', {ldelim}stat: row.name{rdelim})"
 											:tooltip="row.description"
 										></tooltip>
 									</template>

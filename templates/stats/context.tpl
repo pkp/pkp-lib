@@ -16,7 +16,7 @@
 		<pkp-header>
 			<h1>{translate key="context.context"}</h1>
 			<spinner v-if="isLoadingTimeline"></spinner>
-			<template slot="actions">
+			<template #actions>
 				<date-range
 					unique-id="context-stats-date-range"
 					:date-start="dateStart"
@@ -101,10 +101,10 @@
 							></tooltip>
 							<spinner v-if="isLoadingItems"></spinner>
 						</h2>
-						<template slot="actions">
+						<template #actions>
 							<pkp-button
 								ref="downloadReportModalButton"
-								@click="$modal.show('downloadReport')"
+								@click="isModalOpenedDownloadReport = true"
 							>
 								{translate key="common.downloadReport"}
 							</pkp-button>
@@ -112,7 +112,8 @@
 								close-label="{translate key="common.close"}"
 								name="downloadReport"
 								title={translate key="common.download"}
-								@closed="setFocusToRef('downloadReportModalButton')"
+								:open="isModalOpenedDownloadReport"
+								@close="isModalOpenedDownloadReport = false"
 							>
 								<p>{translate key="stats.context.downloadReport.description"}</p>
 								<table class="pkpTable pkpStats__reportParams">
@@ -126,7 +127,7 @@
 									<p>
 										{translate key="stats.context.downloadReport.downloadContext.description"}
 									</p>
-									<template slot="actions">
+									<template #actions>
 										<pkp-button
 											@click="downloadReport"
 										>
@@ -139,7 +140,7 @@
 									<p>
 										{{ getTimelineDescription() }}
 									</p>
-									<template slot="actions">
+									<template #actions>
 										<pkp-button
 											@click="downloadReport('timeline')"
 										>
@@ -156,7 +157,7 @@
 						:columns="tableColumns"
 						:rows="items"
 					>
-						<template slot-scope="{ row, rowIndex }">
+						<template #default="{ row, rowIndex }">
 							<table-cell
 								v-for="(column, columnIndex) in tableColumns"
 								:key="column.name"

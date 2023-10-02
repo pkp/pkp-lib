@@ -9,12 +9,13 @@
  */
 
 // Vue lib and custom mixins
-import Vue from 'vue';
+import {createApp} from 'vue';
 import GlobalMixins from '@/mixins/global.js';
-import VueAnnouncer from 'vue-announcer';
-import VModal from 'vue-js-modal';
-import VTooltip from 'v-tooltip';
+import VueAnnouncer from '@vue-a11y/announcer';
+import FloatingVue from 'floating-vue';
+
 import VueScrollTo from 'vue-scrollto';
+import emitter from 'tiny-emitter/instance';
 
 // Mixins exposed for plugins
 import dialog from '@/mixins/dialog.js';
@@ -95,102 +96,130 @@ import ListPanel from '@/components/ListPanel/ListPanel.vue';
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
 
-Vue.use(VueAnnouncer);
-Vue.use(VModal, {
-	dynamic: true,
-	injectModalsContainer: true,
-});
-Vue.use(VTooltip, {defaultTrigger: 'click'});
-Vue.use(VueScrollTo);
-Vue.mixin(GlobalMixins);
+function pkpCreateVueApp(createAppArgs) {
+	// Initialize Vue
+	const vueApp = createApp(createAppArgs);
 
-// Register global components
-Vue.component('Badge', Badge);
-Vue.component('PkpBadge', Badge);
-Vue.component('Dropdown', Dropdown);
-Vue.component('PkpDropdown', Dropdown);
-Vue.component('Icon', Icon);
-Vue.component('PkpIcon', Icon);
-Vue.component('Notification', Notification);
-Vue.component('PkpNotification', Notification);
-Vue.component('Panel', Panel);
-Vue.component('PkpPanel', Panel);
-Vue.component('PanelSection', PanelSection);
-Vue.component('PkpPanelSection', PanelSection);
-Vue.component('PkpButton', PkpButton);
-Vue.component('PkpHeader', PkpHeader);
-Vue.component('Spinner', Spinner);
-Vue.component('PkpSpinner', Spinner);
-Vue.component('Step', Step);
-Vue.component('PkpStep', Step);
-Vue.component('Steps', Steps);
-Vue.component('PkpSteps', Steps);
-Vue.component('Tab', Tab);
-Vue.component('PkpTab', Tab);
-Vue.component('Tabs', Tabs);
-Vue.component('PkpTabs', Tabs);
+	// For compatibility with vue2 to preserve spaces between html tags
+	vueApp.config.compilerOptions.whitespace = 'preserve';
+	vueApp.use(VueScrollTo);
+	vueApp.use(VueAnnouncer);
+	vueApp.use(FloatingVue, {
+		themes: {
+			'pkp-tooltip': {
+				$extend: 'tooltip',
+				triggers: ['click'],
+				delay: {
+					show: 0,
+					hide: 0,
+				},
+			},
+		},
+	});
 
-// Register other components
-Vue.component('PkpActionPanel', ActionPanel);
-Vue.component('PkpButtonRow', ButtonRow);
-Vue.component('PkpDoughnutChart', DoughnutChart);
-Vue.component('PkpLineChart', LineChart);
-Vue.component('PkpComposer', Composer);
-Vue.component('PkpDateRange', DateRange);
-Vue.component('PkpFile', File);
-Vue.component('PkpFileAttacher', FileAttacher);
-Vue.component('PkpFileUploader', FileUploader);
-Vue.component('PkpFileUploadProgress', FileUploadProgress);
-Vue.component('PkpFilter', PkpFilter);
-Vue.component('PkpFilterAutosuggest', FilterAutosuggest);
-Vue.component('PkpFilterSlider', FilterSlider);
-Vue.component('PkpFilterSliderMultirange', FilterSliderMultirange);
-Vue.component('PkpList', List);
-Vue.component('PkpListItem', ListItem);
-Vue.component('PkpModal', Modal);
-Vue.component('PkpMultilingualProgress', MultilingualProgress);
-Vue.component('PkpOrderer', Orderer);
-Vue.component('PkpPagination', Pagination);
-Vue.component('PkpProgressBar', ProgressBar);
-Vue.component('PkpSearch', Search);
-Vue.component('PkpTable', Table);
-Vue.component('PkpTableCell', TableCell);
-Vue.component('PkpTooltip', Tooltip);
+	vueApp.mixin(GlobalMixins);
 
-// Register Form components
-Vue.component('PkpForm', Form);
-Vue.component('PkpFieldArchivingPn', FieldArchivingPn);
-Vue.component('PkpFieldAutosuggestPreset', FieldAutosuggestPreset);
-Vue.component('PkpFieldBase', FieldBase);
-Vue.component('PkpFieldBaseAutosuggest', FieldBaseAutosuggest);
-Vue.component('PkpFieldColor', FieldColor);
-Vue.component('PkpFieldControlledVocab', FieldControlledVocab);
-Vue.component('PkpFieldHtml', FieldHtml);
-Vue.component('PkpFieldMetadataSetting', FieldMetadataSetting);
-Vue.component('PkpFieldOptions', FieldOptions);
-Vue.component('PkpFieldPreparedContent', FieldPreparedContent);
-Vue.component('PkpFieldPubId', FieldPubId);
-Vue.component('PkpFieldRadioInput', FieldRadioInput);
-Vue.component('PkpFieldRichText', FieldRichText);
-Vue.component('PkpFieldRichTextarea', FieldRichTextarea);
-Vue.component('PkpFieldSelect', FieldSelect);
-Vue.component('PkpFieldSelectIssue', FieldSelectIssue);
-Vue.component('PkpFieldSelectIssues', FieldSelectIssues);
-Vue.component('PkpFieldSelectSubmissions', FieldSelectSubmissions);
-Vue.component('PkpFieldSelectUsers', FieldSelectUsers);
-Vue.component('PkpFieldShowEnsuringLink', FieldShowEnsuringLink);
-Vue.component('PkpFieldText', FieldText);
-Vue.component('PkpFieldTextarea', FieldTextarea);
-Vue.component('PkpFieldUpload', FieldUpload);
-Vue.component('PkpFieldUploadImage', FieldUploadImage);
+	// Register global components
+	vueApp.component('Badge', Badge);
+	vueApp.component('PkpBadge', Badge);
+	vueApp.component('Dropdown', Dropdown);
+	vueApp.component('PkpDropdown', Dropdown);
+	vueApp.component('Icon', Icon);
+	vueApp.component('PkpIcon', Icon);
+	vueApp.component('Notification', Notification);
+	vueApp.component('PkpNotification', Notification);
+	vueApp.component('Panel', Panel);
+	vueApp.component('PkpPanel', Panel);
+	vueApp.component('PanelSection', PanelSection);
+	vueApp.component('PkpPanelSection', PanelSection);
+	vueApp.component('PkpButton', PkpButton);
+	vueApp.component('PkpHeader', PkpHeader);
+	vueApp.component('Spinner', Spinner);
+	vueApp.component('PkpSpinner', Spinner);
+	vueApp.component('Step', Step);
+	vueApp.component('PkpStep', Step);
+	vueApp.component('Steps', Steps);
+	vueApp.component('PkpSteps', Steps);
+	vueApp.component('Tab', Tab);
+	vueApp.component('PkpTab', Tab);
+	vueApp.component('Tabs', Tabs);
+	vueApp.component('PkpTabs', Tabs);
 
-// Register ListPanel
-Vue.component('PkpListPanel', ListPanel);
+	// Register other components
+	vueApp.component('PkpActionPanel', ActionPanel);
+	vueApp.component('PkpButtonRow', ButtonRow);
+	vueApp.component('PkpDoughnutChart', DoughnutChart);
+	vueApp.component('PkpLineChart', LineChart);
+	vueApp.component('PkpComposer', Composer);
+	vueApp.component('PkpDateRange', DateRange);
+	vueApp.component('PkpFile', File);
+	vueApp.component('PkpFileAttacher', FileAttacher);
+	vueApp.component('PkpFileUploader', FileUploader);
+	vueApp.component('PkpFileUploadProgress', FileUploadProgress);
+	vueApp.component('PkpFilter', PkpFilter);
+	vueApp.component('PkpFilterAutosuggest', FilterAutosuggest);
+	vueApp.component('PkpFilterSlider', FilterSlider);
+	vueApp.component('PkpFilterSliderMultirange', FilterSliderMultirange);
+	vueApp.component('PkpList', List);
+	vueApp.component('PkpListItem', ListItem);
+	vueApp.component('PkpModal', Modal);
+	vueApp.component('PkpMultilingualProgress', MultilingualProgress);
+	vueApp.component('PkpOrderer', Orderer);
+	vueApp.component('PkpPagination', Pagination);
+	vueApp.component('PkpProgressBar', ProgressBar);
+	vueApp.component('PkpSearch', Search);
+	vueApp.component('PkpTable', Table);
+	vueApp.component('PkpTableCell', TableCell);
+	vueApp.component('PkpTooltip', Tooltip);
+
+	// Register Form components
+	vueApp.component('PkpForm', Form);
+	vueApp.component('PkpFieldArchivingPn', FieldArchivingPn);
+	vueApp.component('PkpFieldAutosuggestPreset', FieldAutosuggestPreset);
+	vueApp.component('PkpFieldBase', FieldBase);
+	vueApp.component('PkpFieldBaseAutosuggest', FieldBaseAutosuggest);
+	vueApp.component('PkpFieldColor', FieldColor);
+	vueApp.component('PkpFieldControlledVocab', FieldControlledVocab);
+	vueApp.component('PkpFieldHtml', FieldHtml);
+	vueApp.component('PkpFieldMetadataSetting', FieldMetadataSetting);
+	vueApp.component('PkpFieldOptions', FieldOptions);
+	vueApp.component('PkpFieldPreparedContent', FieldPreparedContent);
+	vueApp.component('PkpFieldPubId', FieldPubId);
+	vueApp.component('PkpFieldRadioInput', FieldRadioInput);
+	vueApp.component('PkpFieldRichText', FieldRichText);
+	vueApp.component('PkpFieldRichTextarea', FieldRichTextarea);
+	vueApp.component('PkpFieldSelect', FieldSelect);
+	vueApp.component('PkpFieldSelectIssue', FieldSelectIssue);
+	vueApp.component('PkpFieldSelectIssues', FieldSelectIssues);
+	vueApp.component('PkpFieldSelectSubmissions', FieldSelectSubmissions);
+	vueApp.component('PkpFieldSelectUsers', FieldSelectUsers);
+	vueApp.component('PkpFieldShowEnsuringLink', FieldShowEnsuringLink);
+	vueApp.component('PkpFieldText', FieldText);
+	vueApp.component('PkpFieldTextarea', FieldTextarea);
+	vueApp.component('PkpFieldUpload', FieldUpload);
+	vueApp.component('PkpFieldUploadImage', FieldUploadImage);
+
+	// Required by the URN plugin, to be migrated at some point to pkp prefix
+	vueApp.component('field-text', FieldText);
+	vueApp.component('field-pub-id', FieldPubId);
+
+	// Register ListPanel
+	vueApp.component('PkpListPanel', ListPanel);
+
+	return vueApp;
+}
 
 export default {
-	Vue: Vue,
+	Vue: pkpCreateVueApp({}),
+	pkpCreateVueApp,
+	createApp,
 	registry: VueRegistry,
-	eventBus: new Vue(),
+	eventBus: {
+		$on: (...args) => emitter.on(...args),
+		$once: (...args) => emitter.once(...args),
+		$off: (...args) => emitter.off(...args),
+		$emit: (...args) => emitter.emit(...args),
+	},
 	const: {},
 	localeKeys: {},
 	currentUser: null,

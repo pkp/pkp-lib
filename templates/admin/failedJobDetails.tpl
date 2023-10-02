@@ -19,7 +19,7 @@
 			:rows="rows"
 			:label="label"
 		>
-			<template slot-scope="{ row, rowIndex }">
+			<template #default="{ row, rowIndex }">
 				<table-cell
 					v-for="(column, columnIndex) in columns"
 					:key="column.name"
@@ -27,9 +27,11 @@
 					:row="row"
 					:tabindex="!rowIndex && !columnIndex ? 0 : -1"
 				>
-					<span v-if="column.name === 'value' && isValidJson(row.value)">
-						<pre>{{ row.value }}</pre>
-					</span>
+					<template #default v-if="column.name === 'value' && isValidJson(row.value)">
+						<span>
+							<pre>{{ row.value }}</pre>
+						</span>
+					</template>
 				</table-cell>
 			</template>
 		</pkp-table>

@@ -135,7 +135,7 @@
 								:items="list.files"
 								:title="list.name"
 							>
-								<template v-slot:item="{ldelim}item{rdelim}">
+								<template #item="{ldelim}item{rdelim}">
 									<select-submission-file-list-item
 										:created-at="item.createdAt"
 										:document-type="item.documentType"
@@ -164,9 +164,11 @@
 
 		<panel class="decision__footer__panel">
 			<panel-section>
-				<span slot="header">
-					<!-- empty on purpose -->
-				</span>
+				<template #header>
+					<span>
+						<!-- empty on purpose -->
+					</span>
+				</template>
 				<div class="decision__footer" :class="{ldelim}'decision__footer--noSteps': !steps.length{rdelim}">
 					<button
 						v-if="currentStep.type === 'email' && currentStep.canSkip && !skippedSteps.includes(currentStep.id)"

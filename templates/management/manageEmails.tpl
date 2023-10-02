@@ -19,32 +19,34 @@
 		:items="currentMailables"
 		:is-sidebar-visible="true"
 	>
-		<pkp-header slot="header">
-			<h1>{translate key="manager.publication.emails"}</h1>
-			<template slot="actions">
-				<search
-					search-label="{translate key="manager.mailables.search"}"
-					:search-phrase="searchPhrase"
-					@search-phrase-changed="(newSearch) => this.searchPhrase = newSearch"
-				></search>
-				<pkp-button @click="confirmResetAll" :is-warnable="true">
-					{translate key="manager.emails.resetAll"}
-				</pkp-button>
-			</template>
-		</pkp-header>
-		<template v-slot:item-title="{ldelim}item{rdelim}">
+		<template #header>
+			<pkp-header>
+				<h1>{translate key="manager.publication.emails"}</h1>
+				<template #actions>
+					<search
+						search-label="{translate key="manager.mailables.search"}"
+						:search-phrase="searchPhrase"
+						@search-phrase-changed="(newSearch) => this.searchPhrase = newSearch"
+					></search>
+					<pkp-button @click="confirmResetAll" :is-warnable="true">
+						{translate key="manager.emails.resetAll"}
+					</pkp-button>
+				</template>
+			</pkp-header>
+		</template>
+		<template #item-title="{ldelim}item{rdelim}">
 			{{ item.name }}
 		</template>
-		<template v-slot:item-subtitle="{ldelim}item{rdelim}">
+		<template #item-subtitle="{ldelim}item{rdelim}">
 			{{ item.description }}
 		</template>
-		<template v-slot:item-actions="{ldelim}item{rdelim}">
+		<template #item-actions="{ldelim}item{rdelim}">
 			<pkp-button @click="openMailable(item)">
 				<span aria-hidden="true">Edit</span>
-				<span class="-screenReader">{{ __('common.editItem', {ldelim}name: item.name{rdelim}) }}</span>
+				<span class="-screenReader">{{ t('common.editItem', {ldelim}name: item.name{rdelim}) }}</span>
 			</pkp-button>
 		</template>
-		<template slot="sidebar">
+		<template #sidebar>
 			<pkp-header>
 				<h2>
 					<icon icon="filter" :inline="true"></icon>
@@ -98,10 +100,11 @@
 		</template>
 	</list-panel>
 	<modal
-		:close-label="__('common.close')"
+		:close-label="t('common.close')"
 		name="mailable"
 		:title="currentMailable ? currentMailable.name : ''"
-		@closed="mailableModalClosed"
+		:open="isModalOpenedMailable"
+		@close="closeMailableModal"
 	>
 		<template v-if="currentMailable">
 			<p>{{ currentMailable.description }}</p>
@@ -109,16 +112,18 @@
 			<list-panel
 				:items="currentMailable.emailTemplates"
 			>
-				<pkp-header slot="header">
-					<h3>{translate key="manager.mailables.templates"}</h3>
-					<template slot="actions">
-						<pkp-button @click="openTemplate()">{translate key="manager.emails.addEmail"}</pkp-button>
-					</template>
-				</pkp-header>
-				<template v-slot:item-subtitle="{ldelim}item{rdelim}">
+				<template #header>
+					<pkp-header>
+						<h3>{translate key="manager.mailables.templates"}</h3>
+						<template #actions>
+							<pkp-button @click="openTemplate()">{translate key="manager.emails.addEmail"}</pkp-button>
+						</template>
+					</pkp-header>
+				</template>
+				<template #item-subtitle="{ldelim}item{rdelim}">
 					{{ localize(item.name) }}
 				</template>
-				<template v-slot:item-actions="{ldelim}item{rdelim}">
+				<template #item-actions="{ldelim}item{rdelim}">
 					<badge v-if="item.key === currentMailable.emailTemplateKey">
 						{translate key="common.default"}
 					</badge>
@@ -144,10 +149,11 @@
 		</template>
 	</modal>
 	<modal
-		:close-label="__('common.close')"
+		:close-label="t('common.close')"
 		name="template"
 		:title="currentTemplate ? '{translate key="manager.mailables.editTemplate"}' : '{translate key="manager.emails.addEmail"}'"
-		@closed="templateModalClosed"
+		:open="isModalOpenedTemplate"
+		@close="closeTemplateModal"
 	>
 		<pkp-form
 			ref="templateForm"

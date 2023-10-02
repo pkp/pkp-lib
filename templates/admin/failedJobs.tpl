@@ -20,7 +20,7 @@
 			:description="description"
 			:label="label"
 		>
-			<template v-slot:label v-if="total > 0">
+			<template #label v-if="total > 0">
 				<div>
 					<span class="pkp_helpers_half pkp_helpers_align_left">{{ label }}</span>
 					<span class="pkp_helpers_half pkp_helpers_align_right pkp_helpers_text_right">
@@ -32,7 +32,7 @@
 				</div>
 			</template>
 
-			<template slot-scope="{ row, rowIndex }">
+			<template #default="{ row, rowIndex }">
 				<table-cell
 					v-for="(column, columnIndex) in columns"
 					:key="column.name"
@@ -40,17 +40,19 @@
 					:row="row"
 					:tabindex="!rowIndex && !columnIndex ? 0 : -1"
 				>
-					<button-row v-if="column.name === 'actions'">
-						<pkp-button @click="redispatch(row)">
-							{translate key="admin.jobs.failed.action.redispatch"}
-						</pkp-button>
-						<pkp-button is-warnable @click="remove(row)">
-							{translate key="common.delete"}
-						</pkp-button>
-						<pkp-button element="a" is-link :href="row._hrefs._details">
-							{translate key="common.details"}
-						</pkp-button>
-					</button-row>
+					<template #default v-if="column.name === 'actions'">
+						<button-row >
+							<pkp-button @click="redispatch(row)">
+								{translate key="admin.jobs.failed.action.redispatch"}
+							</pkp-button>
+							<pkp-button is-warnable @click="remove(row)">
+								{translate key="common.delete"}
+							</pkp-button>
+							<pkp-button element="a" is-link :href="row._hrefs._details">
+								{translate key="common.details"}
+							</pkp-button>
+						</button-row>
+					</template>
                 </table-cell>
 			</template>
 		</pkp-table>

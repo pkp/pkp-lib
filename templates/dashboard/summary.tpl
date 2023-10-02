@@ -7,7 +7,7 @@
  *
  * The summary panel of a submission.
  *}
-<template slot="header">
+<template #header>
 	<stage-bubble :stage-id="summarySubmission.stageId">
 		{{ summarySubmission.stageName }}
 		<template v-if="
@@ -18,7 +18,7 @@
 			&& summarySubmission.reviewRounds.length
 		">
 			{{
-				__('common.inParenthesis', {
+				t('common.inParenthesis', {
 					text: i18nReviewRound.replace(
 						'{ldelim}$round{rdelim}',
 						summarySubmission

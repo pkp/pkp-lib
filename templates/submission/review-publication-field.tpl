@@ -46,7 +46,7 @@
                 {{
                     publication.{$localizedProp|escape}
                         .join(
-                            __('common.commaListSeparator')
+                            t('common.commaListSeparator')
                         )
                 }}
             </template>

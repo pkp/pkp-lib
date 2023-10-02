@@ -90,7 +90,7 @@ describe('Data suite: Cmontgomerie', function() {
 
 		// Edit metadata in 1st version
 		cy.get('#metadata-button').click();
-		cy.get('#metadata-keywords-control-en').type('employees{enter}', {delay: 0});
+		cy.get('#metadata-keywords-control-en').type('employees{enter}');
 		cy.wait(500);
 		cy.get('#metadata-keywords-control-en').type('{enter}', {delay: 0});
 		cy.get('#metadata button').contains('Save').click();

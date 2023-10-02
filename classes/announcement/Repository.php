@@ -230,7 +230,7 @@ class Repository
             $temporaryFileManager = new TemporaryFileManager();
             $temporaryFile = $temporaryFileManager->getFile((int) $image['temporaryFileId'], $user?->getId());
             $filePath = $this->getImageSubdirectory() . '/' . $this->getImageFilename($announcement, $temporaryFile);
-            if ($this->storeTemporaryFile($temporaryFile, $filePath, $user?->getId(), $announcement)) {
+            if ($this->storeTemporaryFile($temporaryFile, $filePath, $user->getId(), $announcement)) {
                 $announcement->setImage(
                     $this->getImageData($announcement, $temporaryFile)
                 );
@@ -248,7 +248,7 @@ class Repository
      * @param string $newPath The new filename with the path relative to the public files directoruy
      * @return bool Whether or not the operation was successful
      */
-    protected function storeTemporaryFile(TemporaryFile $temporaryFile, string $newPath, ?int $userId, Announcement $announcement): bool
+    protected function storeTemporaryFile(TemporaryFile $temporaryFile, string $newPath, int $userId, Announcement $announcement): bool
     {
         $publicFileManager = new PublicFileManager();
         $temporaryFileManager = new TemporaryFileManager();

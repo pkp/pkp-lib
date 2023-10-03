@@ -238,6 +238,8 @@ class CategoryCategoryGridHandler extends CategoryGridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteCategory($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
+
 		// Identify the category to be deleted
 		$categoryDao = DAORegistry::getDAO('CategoryDAO'); /* @var $categoryDao CategoryDAO */
 		$context = $request->getContext();

@@ -16,7 +16,6 @@
 
 namespace PKP\controllers\grid\settings\category;
 
-use APP\category\Category;
 use APP\core\Request;
 use APP\facades\Repo;
 use PKP\controllers\grid\CategoryGridHandler;
@@ -273,6 +272,10 @@ class CategoryCategoryGridHandler extends CategoryGridHandler
      */
     public function deleteCategory($args, $request)
     {
+        if (!$request->checkCSRF()) {
+            return new JSONMessage(false);
+        }
+
         $context = $request->getContext();
         $category = Repo::category()->get((int) $request->getUserVar('categoryId'));
         if ($category && $category->getContextId() == $context->getId()) {

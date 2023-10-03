@@ -119,6 +119,9 @@ class LocaleBundle
      */
     public function getTranslator(): Translator
     {
+        if($this->translator) {
+            return $this->translator;
+        }
         // Caches only the supported locales (avoid spending time with one-offs)
         $isSupported = Locale::isSupported($this->locale);
         $loader = function () use ($isSupported): Translator {

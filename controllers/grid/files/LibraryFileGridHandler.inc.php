@@ -265,6 +265,8 @@ class LibraryFileGridHandler extends CategoryGridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteFile($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
+
 		$fileId = isset($args['fileId']) ? $args['fileId'] : null;
 		$router = $request->getRouter();
 		$context = $router->getContext($request);

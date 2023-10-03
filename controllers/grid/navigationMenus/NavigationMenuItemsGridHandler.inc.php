@@ -235,6 +235,8 @@ class NavigationMenuItemsGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function deleteNavigationMenuItem($args, $request) {
+		if (!$request->checkCSRF()) return new JSONMessage(false);
+
 		$navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
 
 		$context = $request->getContext();

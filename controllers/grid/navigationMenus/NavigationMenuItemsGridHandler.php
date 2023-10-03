@@ -253,6 +253,8 @@ class NavigationMenuItemsGridHandler extends GridHandler
      */
     public function deleteNavigationMenuItem($args, $request)
     {
+        if (!$request->checkCSRF()) return new JSONMessage(false);
+
         $navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
         $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
         $navigationMenuItem = $navigationMenuItemDao->getById($navigationMenuItemId);

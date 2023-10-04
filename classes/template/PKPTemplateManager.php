@@ -832,18 +832,65 @@ class PKPTemplateManager extends Smarty
             'STATUS_SCHEDULED' => Submission::STATUS_SCHEDULED,
         ]);
 
-
-
-        $hash = Locale::getUITranslationStringsCacheHash();
-        $this->addJavaScript(
-            'i18n_keys',
-            $request->getDispatcher()->url($request, Application::ROUTE_API, $request->getContext()?->getPath() ?? 'index', '_i18n/ui.js?hash=' . $hash),
-            [
-                'priority' => self::STYLE_SEQUENCE_LAST,
-                'contexts' => 'backend',
-            ]
-        );
-
+        // Common locale keys available in the browser for every page
+        $this->setLocaleKeys([
+            'common.attachFiles',
+            'common.cancel',
+            'common.clearSearch',
+            'common.close',
+            'common.commaListSeparator',
+            'common.confirm',
+            'common.delete',
+            'common.edit',
+            'common.editItem',
+            'common.error',
+            'common.filter',
+            'common.filterAdd',
+            'common.filterRemove',
+            'common.inParenthesis',
+            'common.insertContent',
+            'common.loading',
+            'common.loaded',
+            'common.no',
+            'common.noItemsFound',
+            'common.none',
+            'common.ok',
+            'common.order',
+            'common.orderUp',
+            'common.orderDown',
+            'common.pageNumber',
+            'common.pagination.goToPage',
+            'common.pagination.label',
+            'common.pagination.next',
+            'common.pagination.previous',
+            'common.remove',
+            'common.required',
+            'common.save',
+            'common.saving',
+            'common.search',
+            'common.selectWithName',
+            'common.unknownError',
+            'common.uploadedBy',
+            'common.uploadedByAndWhen',
+            'common.view',
+            'list.viewLess',
+            'list.viewMore',
+            'common.viewWithName',
+            'common.yes',
+            'form.dataHasChanged',
+            'form.errorA11y',
+            'form.errorGoTo',
+            'form.errorMany',
+            'form.errorOne',
+            'form.errors',
+            'form.multilingualLabel',
+            'form.multilingualProgress',
+            'form.saved',
+            'grid.action.sort',
+            'help.help',
+            'navigation.backTo',
+            'validator.required'
+        ]);
 
         // Set up the document type icons
         $documentTypeIcons = [

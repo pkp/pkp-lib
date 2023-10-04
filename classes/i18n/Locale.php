@@ -400,7 +400,7 @@ class Locale implements LocaleInterface
 
         $filePaths = $this->getUITranslationStringsJsonFilePaths();
 
-        $key = __METHOD__ . static::MAX_CACHE_LIFETIME . $this->getLocale() . array_reduce($filePaths, fn (string $hash, string $path): string => sha1($hash . $path . filemtime($path)), '');
+        $key = __METHOD__ . static::MAX_CACHE_LIFETIME .  $this->getLocale() . array_reduce($filePaths, fn (string $hash, string $path): string => sha1($hash . $path . filemtime($path)), '');       
         $expiration = DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME);
         return Cache::remember($key, $expiration, function () use ($filePaths) {
             $translations = [];
@@ -410,7 +410,9 @@ class Locale implements LocaleInterface
                 $keysJsonData = file_get_contents($filePath);
                 $keysArray = json_decode($keysJsonData, true);
                 foreach ($keysArray as $key) {
-                    $translations[$key] ??= $this->translate($key, null, [], null);
+                    if(!$translations[$key]) {
+                        $translations[$key] = $this->translate($key, null, [], null);
+                    }
                 }
             }
 
@@ -429,13 +431,13 @@ class Locale implements LocaleInterface
     {
         $filePaths = $this->getUITranslationStringsJsonFilePaths();
 
-        $key = static::MAX_CACHE_LIFETIME . $this->getLocale() . array_reduce($filePaths, fn (string $hash, string $path): string => sha1($hash . $path . filemtime($path)), '');
+        $key = static::MAX_CACHE_LIFETIME . $this->getLocale() .  array_reduce($filePaths, fn (string $hash, string $path): string => sha1($hash . $path . filemtime($path)), '');       
         return sha1($key);
     }
 
     /**
      * Helper function that provides array of existing file paths to uiTranslationKeysBackend.json.
-     *
+     * 
      *
      * @return  array Values are all paths to existing uiTranslationKeysBackend.json files, including plugins.
      */
@@ -444,9 +446,7 @@ class Locale implements LocaleInterface
         $filePaths = [];
 
         foreach (array_keys($this->paths) as $folder) {
-            $parentDir = dirname($folder);
-            $filePath = $parentDir . '/' . 'registry' . '/uiTranslationKeysBackend.json' ;
-            error_log($filePath);
+            $filePath = join(DIRECTORY_SEPARATOR, array($folder, 'uiTranslationKeysBackend.json'));
             if (file_exists($filePath)) {
                 $filePaths[] = $filePath;
             }

@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @file api/v1/_18n/I18nHandler.php
+ * @file api/v1/-18n/I18nHandler.php
  *
- * Copyright (c) 2023 Simon Fraser University
- * Copyright (c) 2023 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I18nHandler
@@ -17,25 +17,25 @@
 
 namespace PKP\API\v1\_i18n;
 
-use PKP\core\APIResponse;
-use PKP\facades\Locale;
 use PKP\handler\APIHandler;
-use Slim\Http\Request as SlimRequest;
+use PKP\core\APIResponse;
 use Slim\Http\Response;
+use Slim\Http\Request as SlimRequest;
+use PKP\facades\Locale;
+
 
 class I18nHandler extends APIHandler
 {
     /**
      * Constructor
      */
-
     public function __construct()
     {
         $this->_handlerPath = '_i18n';
         $endpoints = [
             'GET' => [
                 [
-                    'pattern' => $this->getEndpointPattern() . '/ui.js',
+                    'pattern' => $this->getEndpointPattern() . "/ui.js",
                     'handler' => [$this, 'getTranslations'],
                 ]
             ]
@@ -58,7 +58,7 @@ class I18nHandler extends APIHandler
 
         $response->getBody()->write($jsContent);
         return $response
-            ->withHeader('Content-Type', 'application/javascript');
+        ->withHeader('Content-Type', 'application/javascript');
 
     }
 }

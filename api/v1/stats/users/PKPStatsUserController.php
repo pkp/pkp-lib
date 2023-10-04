@@ -1,24 +1,29 @@
 <?php
 
 /**
- * @file api/v1/stats/users/PKPStatsUserHandler.php
+ * @file api/v1/stats/users/PKPStatsUserController.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPStatsUserHandler
+ * @class PKPStatsUserController
  *
  * @ingroup api_v1_stats
  *
- * @brief Handle API requests for publication statistics.
+ * @brief Controller class to handle API requests for publication statistics.
  *
  */
 
 namespace PKP\API\v1\stats\users;
 
 use APP\facades\Repo;
-use PKP\handler\APIHandler;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route;
+use PKP\core\PKPRequest;
+use PKP\core\PKPBaseController;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
@@ -26,39 +31,55 @@ use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 
-class PKPStatsUserHandler extends APIHandler
+class PKPStatsUserController extends PKPBaseController
 {
     /**
-     * Constructor
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
-    public function __construct()
+    public function getHandlerPath(): string
     {
-        $this->_handlerPath = 'stats/users';
-        $this->_endpoints = [
-            'GET' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'get'],
-                    'roles' => [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
-                ],
-            ],
-        ];
-        parent::__construct();
+        return 'stats/users';
     }
 
     /**
-     * @copydoc PKPHandler::authorize()
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
      */
-    public function authorize($request, &$args, $roleAssignments)
+    public function getRouteGroupMiddleware(): array
+    {
+        return [
+            "has.user",
+            "has.context",
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+            ]),
+        ];
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
+    public function getGroupRoutes(): void
+    {       
+        Route::get('', $this->get(...))->name('stats.user.getUserStat');
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
+
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
+
         $this->addPolicy($rolePolicy);
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -68,24 +89,20 @@ class PKPStatsUserHandler extends APIHandler
      * Get user stats
      *
      * Returns the count of users broken down by roles
-     *
-     * @param \Slim\Http\Request $slimRequest Slim request object
-     * @param object $response Response
-     * @param array $args
-     *
-     * @return object Response
      */
-    public function get($slimRequest, $response, $args)
+    public function get(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
 
         if (!$request->getContext()) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $collector = Repo::user()->getCollector();
         $dateParams = [];
-        foreach ($slimRequest->getQueryParams() as $param => $value) {
+        foreach ($illuminateRequest->query() as $param => $value) {
             switch ($param) {
                 case 'registeredAfter':
                     $collector->filterRegisteredAfter($value);
@@ -110,21 +127,26 @@ class PKPStatsUserHandler extends APIHandler
             }
         }
 
-        Hook::call('API::stats::users::params', [$collector, $slimRequest]);
+        Hook::call('API::stats::users::params', [$collector, $illuminateRequest]);
 
         $collector->filterByContextIds([$request->getContext()->getId()]);
 
         $result = $this->_validateStatDates($dateParams);
         if ($result !== true) {
-            return $response->withStatus(400)->withJsonError($result);
+            return response()->json([
+                'error' => $result,
+            ], Response::HTTP_BAD_REQUEST);
         }
 
-        return $response->withJson(array_map(
-            function ($item) {
-                $item['name'] = __($item['name']);
-                return $item;
-            },
-            Repo::user()->getRolesOverview($collector)
-        ));
+        return response()->json(
+            array_map(
+                function ($item) {
+                    $item['name'] = __($item['name']);
+                    return $item;
+                }, 
+                Repo::user()->getRolesOverview($collector)
+            ), 
+            Response::HTTP_OK
+        );
     }
 }

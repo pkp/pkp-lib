@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @file api/v1/_library/PKPLibraryHandler.php
+ * @file api/v1/_library/PKPLibraryController.php
  *
- * Copyright (c) 2014-2022 Simon Fraser University
- * Copyright (c) 2003-2022 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPLibraryHandler
+ * @class PKPLibraryController
  *
- * @ingroup api_v1_announcement
+ * @ingroup api_v1__library
  *
- * @brief Handle API requests for announcement operations.
+ * @brief Controller class to handle API requests for library operations.
  *
  */
 
@@ -20,39 +20,58 @@ namespace PKP\API\v1\_library;
 use APP\core\Application;
 use APP\core\Services;
 use APP\file\LibraryFileManager;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Response;
+use PKP\core\PKPRequest;
 use PKP\context\LibraryFile;
 use PKP\context\LibraryFileDAO;
-use PKP\core\APIResponse;
+use PKP\core\PKPBaseController;
 use PKP\db\DAORegistry;
-use PKP\handler\APIHandler;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use Psr\Http\Message\ServerRequestInterface;
 
-class PKPLibraryHandler extends APIHandler
+class PKPLibraryController extends PKPBaseController
 {
-    public function __construct()
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
+     */
+    public function getHandlerPath(): string
     {
-        $this->_handlerPath = '_library';
-        $this->_endpoints = [
-            'GET' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'getLibrary'],
-                    'roles' => [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
-                ],
-            ],
-        ];
-        parent::__construct();
+        return '_library';
     }
 
     /**
-     * @copydoc PKPHandler::authorize
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
      */
-    public function authorize($request, &$args, $roleAssignments)
+    public function getRouteGroupMiddleware(): array
+    {
+        return [
+            "has.user",
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+            ]),
+        ];
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
+    public function getGroupRoutes(): void
+    {       
+        Route::get('', $this->getLibrary(...))->name('_library.getLibrary');
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
@@ -72,12 +91,8 @@ class PKPLibraryHandler extends APIHandler
 
     /**
      * Get a list of all files in the library
-     *
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function getLibrary(ServerRequestInterface $slimRequest, APIResponse $response, array $args)
+    public function getLibrary(Request $illuminateRequest): JsonResponse
     {
         /** @var LibraryFileDAO $libraryFileDao */
         $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO');
@@ -88,7 +103,7 @@ class PKPLibraryHandler extends APIHandler
 
         $files = [];
 
-        $params = $slimRequest->getQueryParams();
+        $params = $illuminateRequest->query();
         if (isset($params['includeSubmissionId'])) {
             $result = $libraryFileDao->getBySubmissionId($submission->getId());
             while ($file = $result->next()) {
@@ -101,10 +116,10 @@ class PKPLibraryHandler extends APIHandler
             $files[] = $this->fileToResponse($file, $libraryFileManager);
         }
 
-        return $response->withJson([
+        return response()->json([
             'items' => $files,
             'itemsMax' => count($files),
-        ], 200);
+        ], Response::HTTP_OK);
     }
 
     /**

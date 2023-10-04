@@ -1,16 +1,16 @@
 <?php
 /**
- * @file api/v1/site/PKPSiteHandler.php
+ * @file api/v1/site/PKPSiteController.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPSiteHandler
+ * @class PKPSiteController
  *
  * @ingroup api_v1_users
  *
- * @brief Base class to handle API requests for the site object.
+ * @brief Controller class to handle API requests for the site object.
  */
 
 namespace PKP\API\v1\site;
@@ -18,7 +18,12 @@ namespace PKP\API\v1\site;
 use APP\core\Application;
 use APP\core\Services;
 use APP\template\TemplateManager;
-use PKP\core\APIResponse;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Response;
+use PKP\core\PKPRequest;
+use PKP\core\PKPBaseController;
 use PKP\handler\APIHandler;
 use PKP\plugins\PluginRegistry;
 use PKP\plugins\ThemePlugin;
@@ -27,53 +32,55 @@ use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use Slim\Http\Request as SlimRequest;
 
-class PKPSiteHandler extends APIHandler
+class PKPSiteController extends PKPBaseController
 {
     /** @var string One of the SCHEMA_... constants */
     public $schemaName = PKPSchemaService::SCHEMA_SITE;
 
     /**
-     * @copydoc APIHandler::__construct()
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
-    public function __construct()
+    public function getHandlerPath(): string
     {
-        $this->_handlerPath = 'site';
-        $roles = [Role::ROLE_ID_SITE_ADMIN];
-        $this->_endpoints = [
-            'GET' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'get'],
-                    'roles' => $roles,
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/theme',
-                    'handler' => [$this, 'getTheme'],
-                    'roles' => $roles,
-                ],
-            ],
-            'PUT' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'edit'],
-                    'roles' => $roles,
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/theme',
-                    'handler' => [$this, 'editTheme'],
-                    'roles' => $roles,
-                ],
-            ],
-        ];
-        parent::__construct();
+        return 'site';
     }
 
     /**
-     * @copydoc PKPHandler::authorize
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
      */
-    public function authorize($request, &$args, $roleAssignments)
+    public function getRouteGroupMiddleware(): array
+    {
+        return [
+            "has.user",
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN,
+            ]),
+        ];
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
+    public function getGroupRoutes(): void
+    {       
+        Route::get('', $this->get(...))
+            ->name('site.getSite');
+            
+        Route::get('theme', $this->getTheme(...))
+            ->name('site.getTheme');
+
+        Route::put('', $this->edit(...))
+            ->name('site.edit');
+            
+        Route::put('theme', $this->editTheme(...))
+            ->name('site.editTheme');
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
@@ -82,6 +89,7 @@ class PKPSiteHandler extends APIHandler
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
+
         $this->addPolicy($rolePolicy);
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -89,14 +97,8 @@ class PKPSiteHandler extends APIHandler
 
     /**
      * Get the site
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function get($slimRequest, $response, $args)
+    public function get(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
 
@@ -105,19 +107,13 @@ class PKPSiteHandler extends APIHandler
                 'request' => $request,
             ]);
 
-        return $response->withJson($siteProps, 200);
+        return response()->json($siteProps, Response::HTTP_OK);
     }
 
     /**
      * Get the active theme on the site
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function getTheme($slimRequest, $response, $args)
+    public function getTheme(Request $illuminateRequest): JsonResponse
     {
         $site = $this->getRequest()->getSite();
         /** @var ThemePlugin[] */
@@ -132,7 +128,9 @@ class PKPSiteHandler extends APIHandler
         }
 
         if (!$activeTheme) {
-            return $response->withStatus(404)->withJsonError('api.themes.404.themeUnavailable');
+            response()->json([
+                'error' => __('api.themes.404.themeUnavailable'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $data = array_merge(
@@ -142,57 +140,45 @@ class PKPSiteHandler extends APIHandler
 
         ksort($data);
 
-        return $response->withJson($data, 200);
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**
      * Edit the site
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function edit($slimRequest, $response, $args)
+    public function edit(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $site = $request->getSite();
         $siteService = Services::get('site');
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SITE, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SITE, $illuminateRequest->input());
 
         $errors = $siteService->validate($params, $site->getSupportedLocales(), $site->getPrimaryLocale());
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, REsponse::HTTP_BAD_REQUEST);
         }
         $site = $siteService->edit($site, $params, $request);
 
         $siteProps = $siteService->getFullProperties($site, [
             'request' => $request,
-            'slimRequest' => $slimRequest
+            'apiRequest' => $illuminateRequest,
         ]);
 
-        return $response->withJson($siteProps, 200);
+        return response()->json($siteProps, Response::HTTP_OK);
     }
 
     /**
      * Edit the active theme and theme options on the site
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function editTheme($slimRequest, $response, $args)
+    public function editTheme(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $site = $request->getSite();
         $siteService = Services::get('site');
 
-        $params = $slimRequest->getParsedBody();
+        $params = $illuminateRequest->input();
 
         // Validate the themePluginPath and allow themes to perform their own validation
         $themePluginPath = empty($params['themePluginPath']) ? null : $params['themePluginPath'];
@@ -202,9 +188,11 @@ class PKPSiteHandler extends APIHandler
                 $site->getSupportedLocales(),
                 $site->getPrimaryLocale()
             );
+
             if (!empty($errors)) {
-                return $response->withJson($errors, 400);
+                return response()->json($errors, Response::HTTP_BAD_REQUEST);
             }
+
             $newSite = $siteService->edit($site, ['themePluginPath' => $themePluginPath], $request);
         }
 
@@ -227,7 +215,7 @@ class PKPSiteHandler extends APIHandler
 
         $errors = $selectedTheme->validateOptions($params, $themePluginPath, \PKP\core\PKPApplication::CONTEXT_ID_NONE, $request);
         if (!empty($errors)) {
-            return $response->withJson($errors, 400);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         // Only accept params that are defined in the theme options
@@ -251,6 +239,6 @@ class PKPSiteHandler extends APIHandler
 
         ksort($data);
 
-        return $response->withJson($data, 200);
+        return response()->json($data, Response::HTTP_OK);
     }
 }

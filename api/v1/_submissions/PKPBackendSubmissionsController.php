@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file api/v1/_submissions/PKPBackendSubmissionsHandler.php
+ * @file api/v1/_submissions/PKPBackendSubmissionsController.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPBackendSubmissionsHandler
+ * @class PKPBackendSubmissionsController
  *
  * @ingroup api_v1_backend
  *
@@ -18,103 +18,115 @@
 namespace PKP\API\v1\_submissions;
 
 use APP\core\Application;
+use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use PKP\core\PKPRequest;
+use PKP\core\PKPBaseController;
 use APP\facades\Repo;
 use APP\submission\Collector;
 use PKP\config\Config;
-use PKP\core\APIResponse;
 use PKP\db\DAORegistry;
-use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use Slim\Http\Request as SlimRequest;
-use Slim\Http\Response;
 
-abstract class PKPBackendSubmissionsHandler extends APIHandler
+abstract class PKPBackendSubmissionsController extends PKPBaseController
 {
     /** @var int Max items that can be requested */
     public const MAX_COUNT = 100;
 
     /**
-     * Constructor
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
-    public function __construct()
+    public function getHandlerPath(): string
     {
-        $this->_handlerPath = '_submissions';
-
-        $endpoints = [
-            'GET' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'getMany'],
-                    'roles' => [
-                        Role::ROLE_ID_SITE_ADMIN,
-                        Role::ROLE_ID_MANAGER,
-                        Role::ROLE_ID_SUB_EDITOR,
-                        Role::ROLE_ID_AUTHOR,
-                        Role::ROLE_ID_REVIEWER,
-                        Role::ROLE_ID_ASSISTANT,
-                    ],
-                ],
-            ],
-            'DELETE' => [
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}',
-                    'handler' => [$this, 'delete'],
-                    'roles' => [
-                        Role::ROLE_ID_SITE_ADMIN,
-                        Role::ROLE_ID_MANAGER,
-                        Role::ROLE_ID_AUTHOR,
-                    ],
-                ],
-            ],
-        ];
-
-        // Endpoints for the new submissions list
-        if (Config::getVar('features', 'enable_new_submission_listing')) {
-            $endpoints['GET'][0]['roles'] =  [
-                Role::ROLE_ID_SITE_ADMIN,
-                Role::ROLE_ID_MANAGER,
-            ];
-
-            $endpoints = array_merge_recursive($endpoints, [
-                'GET' => [
-                    [
-                        'pattern' => $this->getEndpointPattern() . '/needsEditor',
-                        'handler' => [$this, 'needsEditor'],
-                        'roles' => [Role::ROLE_ID_MANAGER],
-                    ],
-                    [
-                        'pattern' => $this->getEndpointPattern() . '/assigned',
-                        'handler' => [$this, 'assigned'],
-                        'roles' => [
-                            Role::ROLE_ID_MANAGER,
-                            Role::ROLE_ID_SUB_EDITOR,
-                            Role::ROLE_ID_ASSISTANT
-                        ],
-                    ]
-                ]
-            ]);
-        }
-
-        $this->_endpoints = $endpoints;
-
-        parent::__construct();
+        return '_submissions';
     }
 
     /**
-     * @copydoc PKPHandler::authorize()
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
      */
-    public function authorize($request, &$args, $roleAssignments)
+    public function getRouteGroupMiddleware(): array
+    {
+        return [
+            "has.user",
+            "has.context",
+        ];
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
+    public function getGroupRoutes(): void
+    {       
+        Route::get('', $this->getMany(...))
+            ->name('_submission.getMany')
+            ->middleware([
+                self::roleAuthorizer(
+                    Config::getVar('features', 'enable_new_submission_listing')
+                        ? [
+                            Role::ROLE_ID_SITE_ADMIN, 
+                            Role::ROLE_ID_MANAGER,
+                        ] : [
+                            Role::ROLE_ID_SITE_ADMIN,
+                            Role::ROLE_ID_MANAGER,
+                            Role::ROLE_ID_SUB_EDITOR,
+                            Role::ROLE_ID_AUTHOR,
+                            Role::ROLE_ID_REVIEWER,
+                            Role::ROLE_ID_ASSISTANT,
+                        ]
+                ),
+            ]);
+
+        Route::delete('{submissionId}', $this->delete(...))
+            ->name('_submission.delete')
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_SITE_ADMIN,
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_AUTHOR,
+                ]),
+            ])
+            ->whereNumber('submissionId');
+        
+        if (Config::getVar('features', 'enable_new_submission_listing')) {
+            
+            Route::get('needsEditor', $this->needsEditor(...))
+                ->name('_submission.needsEditor')
+                ->middleware([
+                    self::roleAuthorizer([
+                        Role::ROLE_ID_MANAGER,
+                    ]),
+                ]);
+            
+            Route::get('assigned', $this->assigned(...))
+                ->name('_submission.assigned')
+                ->middleware([
+                    self::roleAuthorizer([
+                        Role::ROLE_ID_MANAGER,
+                        Role::ROLE_ID_SUB_EDITOR,
+                        Role::ROLE_ID_ASSISTANT,
+                    ]),
+                ]);
+        }
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
-        $routeName = $this->getSlimRequest()->getAttribute('route')->getName();
-        if (in_array($routeName, ['delete'])) {
+        $illuminateRequest = $args[0]; /** @var \Illuminate\Http\Request $illuminateRequest */
+
+        if (in_array(static::getRouteActionName($illuminateRequest), ['delete'])) {
             $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
         }
 
@@ -124,17 +136,19 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
     /**
      * Get a collection of submissions
      */
-    public function getMany(SlimRequest $slimRequest, APIResponse $response, array $args): Response
+    public function getMany(Request $illuminateRequest): JsonResponse
     {
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
         $context = $request->getContext();
 
         if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        $queryParams = $slimRequest->getQueryParams();
+        $queryParams = $illuminateRequest->query();
 
         $collector = $this->getSubmissionCollector($queryParams);
 
@@ -163,12 +177,14 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
             // Anyone not a manager or site admin can only access their assigned submissions
             $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
             $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
-            Hook::call('API::submissions::params', [$collector, $slimRequest]);
+            Hook::call('API::submissions::params', [$collector, $illuminateRequest]);
             if (!$canAccessUnassignedSubmission) {
                 if (!is_array($collector->assignedTo)) {
                     $collector->assignedTo([$currentUser->getId()]);
                 } elseif ($collector->assignedTo != [$currentUser->getId()]) {
-                    return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
+                    return response()->json([
+                        'error' => __('api.submissions.403.requestedOthersUnpublishedSubmissions'),
+                    ], Response::HTTP_FORBIDDEN);
                 }
             }
         }
@@ -183,25 +199,27 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
-        return $response->withJson([
+        return response()->json([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres)->values(),
-        ], 200);
+        ], Response::HTTP_OK);
     }
 
     /**
      * Get submissions assigned to the current user
      */
-    public function assigned(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function assigned(Request $illuminateRequest): JsonResponse
     {
         $request = Application::get()->getRequest();
         $user = $request->getUser();
         $context = $request->getContext();
         if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        $collector = $this->getSubmissionCollector($slimRequest->getQueryParams());
+        $collector = $this->getSubmissionCollector($illuminateRequest->query());
 
         $submissions = $collector
             ->filterByContextIds([$context->getId()])
@@ -216,43 +234,43 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
-        return $response->withJson([
+        return response()->json([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres)->values(),
-        ], 200);
+        ], Response::HTTP_OK);
     }
 
     /**
      * Delete a submission
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return Response
      */
-    public function delete(SlimRequest $slimRequest, APIResponse $response, array $args)
+    public function delete(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $context = $request->getContext();
-        $submissionId = (int) $args['submissionId'];
+        $submissionId = (int) $illuminateRequest->route('submissionId');
         $submission = Repo::submission()->get($submissionId);
 
         if (!$submission) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound')
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($context->getId() != $submission->getData('contextId')) {
-            return $response->withStatus(403)->withJsonError('api.submissions.403.deleteSubmissionOutOfContext');
+            return response()->json([
+                'error' => __('api.submissions.403.deleteSubmissionOutOfContext'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         if (!Repo::submission()->canCurrentUserDelete($submission)) {
-            return $response->withStatus(403)->withJsonError('api.submissions.403.unauthorizedDeleteSubmission');
+            return response()->json([
+                'error' => __('api.submissions.403.unauthorizedDeleteSubmission'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         Repo::submission()->delete($submission);
 
-        return $response->withJson(true);
+        return response()->json([], Response::HTTP_OK);
     }
 
     /**

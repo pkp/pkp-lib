@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file api/v1/submissions/PKPSubmissionHandler.php
+ * @file api/v1/submissions/PKPSubmissionController.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPSubmissionHandler
+ * @class PKPSubmissionController
  *
  * @ingroup api_v1_submission
  *
@@ -18,7 +18,6 @@
 namespace PKP\API\v1\submissions;
 
 use APP\core\Application;
-use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\mail\variables\ContextEmailVariable;
@@ -27,14 +26,18 @@ use APP\notification\NotificationManager;
 use APP\section\Section;
 use APP\submission\Collector;
 use APP\submission\Submission;
+use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
-use PKP\core\APIResponse;
+use PKP\core\PKPRequest;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
+use PKP\core\PKPBaseController;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
-use PKP\handler\APIHandler;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\PublicationVersionNotify;
 use PKP\mail\mailables\SubmissionSavedForLater;
@@ -55,9 +58,8 @@ use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\userGroup\UserGroup;
-use Slim\Http\Request as SlimRequest;
 
-class PKPSubmissionHandler extends APIHandler
+class PKPSubmissionController extends PKPBaseController
 {
     /** @var int The default number of items to return in one request */
     public const DEFAULT_COUNT = 30;
@@ -118,173 +120,211 @@ class PKPSubmissionHandler extends APIHandler
     ];
 
     /**
-     * Constructor
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
-    public function __construct()
+    public function getHandlerPath(): string
     {
-        $this->_handlerPath = 'submissions';
-        $this->_endpoints = [
-            'GET' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'getMany'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}',
-                    'handler' => [$this, 'get'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/decisions',
-                    'handler' => [$this, 'getDecisions'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/participants',
-                    'handler' => [$this, 'getParticipants'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/participants/{stageId:\d+}',
-                    'handler' => [$this, 'getParticipants'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications',
-                    'handler' => [$this, 'getPublications'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}',
-                    'handler' => [$this, 'getPublication'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/contributors',
-                    'handler' => [$this, 'getContributors'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/contributors/{contributorId:\d+}',
-                    'handler' => [$this, 'getContributor'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
-                ],
-            ],
-            'POST' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'add'],
-                    'roles' => Role::getAllRoles(),
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications',
-                    'handler' => [$this, 'addPublication'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/version',
-                    'handler' => [$this, 'versionPublication'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/contributors',
-                    'handler' => [$this, 'addContributor'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/decisions',
-                    'handler' => [$this, 'addDecision'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
-                ],
-            ],
-            'PUT' => [
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}',
-                    'handler' => [$this, 'edit'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/saveForLater',
-                    'handler' => [$this, 'saveForLater'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/submit',
-                    'handler' => [$this, 'submit'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}',
-                    'handler' => [$this, 'editPublication'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/publish',
-                    'handler' => [$this, 'publishPublication'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/unpublish',
-                    'handler' => [$this, 'unpublishPublication'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/contributors/{contributorId:\d+}',
-                    'handler' => [$this, 'editContributor'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/contributors/saveOrder',
-                    'handler' => [$this, 'saveContributorsOrder'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
-                ],
-            ],
-            'DELETE' => [
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}',
-                    'handler' => [$this, 'delete'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}',
-                    'handler' => [$this, 'deletePublication'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/contributors/{contributorId:\d+}',
-                    'handler' => [$this, 'deleteContributor'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
-                ],
-            ],
-        ];
-        parent::__construct();
+        return 'submissions';
     }
 
-    //
-    // Implement methods from PKPHandler
-    //
-    public function authorize($request, &$args, $roleAssignments)
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
+     */
+    public function getRouteGroupMiddleware(): array
     {
-        $routeName = $this->getSlimRequest()->getAttribute('route')->getName();
+        return [
+            "has.user",
+            "has.context",
+        ];
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
+    public function getGroupRoutes(): void
+    {       
+        // group 1
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR, 
+                Role::ROLE_ID_ASSISTANT,
+                Role::ROLE_ID_REVIEWER,
+                Role::ROLE_ID_AUTHOR,
+            ]),
+        ])->group(function(){
+            
+            Route::get('', $this->getMany(...))
+                ->name('submission.getMany');
+            
+            Route::get('{submissionId}', $this->get(...))
+                ->name('submission.getSubmission')
+                ->whereNumber('submissionId');
+
+            Route::get('{submissionId}/publications', $this->getPublications(...))
+                ->name('submission.publications.getMany')
+                ->whereNumber('submissionId');
+            
+            Route::get('{submissionId}/publications/{publicationId}', $this->getPublication(...))
+                ->name('submission.publications.get')
+                ->whereNumber(['submissionId', 'publicationId']);
+            
+            Route::get('{submissionId}/publications/{publicationId}/contributors', $this->getContributors(...))
+                ->name('submission.publication.contributor.getMany')
+                ->whereNumber(['submissionId', 'publicationId']);
+
+            Route::get('{submissionId}/publications/{publicationId}/contributors/{contributorId}', $this->getContributor(...))
+                ->name('submission.publication.contributor.get')
+                ->whereNumber(['submissionId', 'publicationId', 'contributorId']);
+        });
+
+        // group 2
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+            ]),
+        ])->group(function() {
+
+            Route::get('{submissionId}/decisions', $this->getDecisions(...))
+                ->name('submission.decisions.getMany')
+                ->whereNumber('submissionId');
+            
+            Route::get('{submissionId}/participants', $this->getParticipants(...))
+                ->name('submission.participants.getMany')
+                ->whereNumber('submissionId');
+            
+            Route::get('{submissionId}/participants/{stageId}', $this->getParticipants(...))
+                ->name('submission.participants.stage.getMany')
+                ->whereNumber(['submissionId', 'stageId']);
+
+            Route::post('{submissionId}/decisions', $this->addDecision(...))
+                ->name('submission.decision.add')
+                ->whereNumber('submissionId');
+
+            Route::delete('{submissionId}', $this->delete(...))
+                ->name('submission.delete')
+                ->whereNumber('submissionId');
+        });
+
+        // group 3
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+            ]),
+        ])->group(function(){
+            
+            Route::post('{submissionId}/publications', $this->addPublication(...))
+                ->name('submission.publication.add')
+                ->whereNumber('submissionId');
+            
+            Route::post('{submissionId}/publications/{publicationId}/version', $this->versionPublication(...))
+                ->name('submission.publication.version.get')
+                ->whereNumber(['submissionId', 'publicationId']);
+
+            Route::put('{submissionId}/publications/{publicationId}/publish', $this->publishPublication(...))
+                ->name('submission.publication.publish')
+                ->whereNumber(['submissionId', 'publicationId']);
+            
+            Route::put('{submissionId}/publications/{publicationId}/unpublish', $this->unpublishPublication(...))
+                ->name('submission.publication.unpublish')
+                ->whereNumber(['submissionId', 'publicationId']);
+            
+            Route::delete('{submissionId}/publications/{publicationId}', $this->deletePublication(...))
+                ->name('submission.publication.delete')
+                ->whereNumber(['submissionId', 'publicationId']);
+        });
+
+        // group 4
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+                Role::ROLE_ID_AUTHOR,
+            ]),
+        ])->group(function(){
+            
+            Route::post('{submissionId}/publications/{publicationId}/contributors', $this->addContributor(...))
+                ->name('submission.contributor.add')
+                ->whereNumber(['submissionId', 'publicationId']);
+
+            Route::put('{submissionId}/publications/{publicationId}', $this->editPublication(...))
+                ->name('submission.publication.edit')
+                ->whereNumber(['submissionId', 'publicationId']);
+
+            Route::put('{submissionId}/publications/{publicationId}/contributors/{contributorId}', $this->editContributor(...))
+                ->name('submission.publication.contributor.edit')
+                ->whereNumber(['submissionId', 'publicationId', 'contributorId']);
+            
+            Route::put('{submissionId}/publications/{publicationId}/contributors/saveOrder', $this->saveContributorsOrder(...))
+                ->name('submission.publication.contributor.order.save')
+                ->whereNumber(['submissionId', 'publicationId']);
+            
+            Route::delete('{submissionId}/publications/{publicationId}/contributors/{contributorId}', $this->deleteContributor(...))
+                ->name('submission.publication.contributor.delete')
+                ->whereNumber(['submissionId', 'publicationId', 'contributorId']);
+        });
+
+        // group 5
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_AUTHOR,
+            ]),
+        ])->group(function(){
+            
+            Route::put('{submissionId}', $this->edit(...))
+                ->name('submission.edit')
+                ->whereNumber('submissionId');
+            
+            Route::put('{submissionId}/saveForLater', $this->saveForLater(...))
+                ->name('submission.saveForLater')
+                ->whereNumber('submissionId');
+            
+            Route::put('{submissionId}/submit', $this->submit(...))
+                ->name('submission.submit')
+                ->whereNumber('submissionId');
+        });
+
+        Route::post('', $this->add(...))
+            ->name('submission.add')
+            ->middleware([
+                self::roleAuthorizer(Role::getAllRoles()),
+            ]);
+    }
+        
+
+    
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
+    {
+        $illuminateRequest = $args[0]; /** @var \Illuminate\Http\Request $illuminateRequest */
+        $actionName = static::getRouteActionName($illuminateRequest);
 
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
-        if (in_array($routeName, $this->requiresSubmissionAccess)) {
+        if (in_array($actionName, $this->requiresSubmissionAccess)) {
             $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
         }
 
-        if (in_array($routeName, $this->requiresPublicationWriteAccess)) {
+        if (in_array($actionName, $this->requiresPublicationWriteAccess)) {
             $this->addPolicy(new PublicationWritePolicy($request, $args, $roleAssignments));
         }
 
-        if (in_array($routeName, $this->requiresProductionStageAccess)) {
+        if (in_array($actionName, $this->requiresProductionStageAccess)) {
             $this->addPolicy(new StageRolePolicy($this->productionStageAccessRoles, WORKFLOW_STAGE_ID_PRODUCTION, false));
         }
 
-        if ($routeName === 'addDecision') {
+        if ($actionName === 'addDecision') {
             $this->addPolicy(new DecisionWritePolicy($request, $args, (int) $request->getUserVar('decision'), $request->getUser()));
         }
 
@@ -293,22 +333,16 @@ class PKPSubmissionHandler extends APIHandler
 
     /**
      * Get a collection of submissions
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function getMany($slimRequest, $response, $args)
+    public function getMany(Request $illuminateRequest): JsonResponse
     {
-        $request = Application::get()->getRequest();
+        $request = $this->getRequest();
         $currentUser = $request->getUser();
         $context = $request->getContext();
 
-        $collector = $this->getSubmissionCollector($slimRequest->getQueryParams());
+        $collector = $this->getSubmissionCollector($illuminateRequest->query());
 
-        Hook::call('API::submissions::params', [$collector, $slimRequest]);
+        Hook::call('API::submissions::params', [$collector, $illuminateRequest]);
 
         // Prevent users from viewing submissions they're not assigned to,
         // except for journal managers and admins.
@@ -318,7 +352,9 @@ class PKPSubmissionHandler extends APIHandler
             if (!is_array($collector->assignedTo)) {
                 $collector->assignedTo([$currentUser->getId()]);
             } elseif ($collector->assignedTo != [$currentUser->getId()]) {
-                return $response->withStatus(403)->withJsonError('api.submissions.403.requestedOthersUnpublishedSubmissions');
+                return response()->json([
+                    'error' => __('api.submissions.403.requestedOthersUnpublishedSubmissions'),
+                ], Response::HTTP_FORBIDDEN);
             }
         }
 
@@ -332,10 +368,10 @@ class PKPSubmissionHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
-        return $response->withJson([
+        return response()->json([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups, $genres)->values(),
-        ], 200);
+        ], Response::HTTP_OK);
     }
 
     /**
@@ -343,7 +379,7 @@ class PKPSubmissionHandler extends APIHandler
      */
     protected function getSubmissionCollector(array $queryParams): Collector
     {
-        $request = Application::get()->getRequest();
+        $request = $this->getRequest();
         /** @var \PKP\context\Context $context */
         $context = $request->getContext();
 
@@ -427,14 +463,8 @@ class PKPSubmissionHandler extends APIHandler
 
     /**
      * Get a single submission
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function get($slimRequest, $response, $args)
+    public function get(Request $illuminateRequest): JsonResponse
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
@@ -446,28 +476,29 @@ class PKPSubmissionHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), 200);
+        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), Response::HTTP_OK);
     }
 
     /**
      * Add a new submission
-     *
      */
-    public function add(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function add(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $context = $request->getContext();
         $user = $request->getUser();
 
         if ($context->getData('disableSubmissions')) {
-            return $response->withStatus(403)->withJsonError('author.submit.notAccepting');
+            return response()->json([
+                'error' => __('author.submit.notAccepting'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $illuminateRequest->input());
 
         $readOnlyErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_SUBMISSION, $params);
         if (!empty($readOnlyErrors)) {
-            return $response->withStatus(400)->withJson($readOnlyErrors);
+            return response()->json($readOnlyErrors, Response::HTTP_BAD_REQUEST);
         }
 
         $params['contextId'] = $context->getId();
@@ -488,7 +519,7 @@ class PKPSubmissionHandler extends APIHandler
         }
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         $submitterUserGroups = Repo::userGroup()
@@ -504,9 +535,9 @@ class PKPSubmissionHandler extends APIHandler
                     return $userGroup->getId() === $params['userGroupId'];
                 });
             if (!$submitAsUserGroup) {
-                return $response->withStatus(400)->withJson([
-                    'userGroupId' => [__('api.submissions.400.invalidSubmitAs')]
-                ]);
+                return response()->json([
+                    'userGroupId' => [__('api.submissions.400.invalidSubmitAs')],
+                ], Response::HTTP_BAD_REQUEST);
             }
         } elseif ($submitterUserGroups->count()) {
             $submitAsUserGroup = $submitterUserGroups
@@ -517,9 +548,9 @@ class PKPSubmissionHandler extends APIHandler
         } else {
             $submitAsUserGroup = Repo::userGroup()->getFirstSubmitAsAuthorUserGroup($context->getId());
             if (!$submitAsUserGroup) {
-                return $response->withStatus(400)->withJson([
-                    'userGroupId' => [__('submission.wizard.notAllowed.description')]
-                ]);
+                return response()->json([
+                    'userGroupId' => [__('submission.wizard.notAllowed.description')],
+                ], Response::HTTP_BAD_REQUEST);
             }
             Repo::userGroup()->assignUserToGroup(
                 $user->getId(),
@@ -570,22 +601,22 @@ class PKPSubmissionHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), 200);
+        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), Response::HTTP_OK);
     }
 
     /**
      * Edit a submission
      */
-    public function edit(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function edit(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $illuminateRequest->input());
 
         $readOnlyErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_SUBMISSION, $params);
         if (!empty($readOnlyErrors)) {
-            return $response->withStatus(400)->withJson($readOnlyErrors);
+            return response()->json($readOnlyErrors, Response::HTTP_BAD_REQUEST);
         }
 
         $params['id'] = $submission->getId();
@@ -594,7 +625,7 @@ class PKPSubmissionHandler extends APIHandler
         $errors = Repo::submission()->validate($submission, $params, $request->getContext());
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         Repo::submission()->edit($submission, $params);
@@ -609,7 +640,7 @@ class PKPSubmissionHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), 200);
+        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), Response::HTTP_OK);
     }
 
     /**
@@ -618,18 +649,18 @@ class PKPSubmissionHandler extends APIHandler
      * Saves the current step and sends the submitter an
      * email with a link to resume their submission.
      */
-    public function saveForLater(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function saveForLater(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $context = $request->getContext();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        $params = $slimRequest->getParsedBody();
+        $params = $illuminateRequest->input();
         if (!empty($params['step'])) {
             if (!ctype_alnum(str_replace(['-', '_'], '', $params['step']))) {
-                return $response->withStatus(400)->withJson([
+                return response()->json([
                     'step' => [__('validator.alpha_dash')]
-                ]);
+                ], Response::HTTP_BAD_REQUEST);
             }
 
             Repo::submission()->edit($submission, ['submissionProgress' => $params['step']]);
@@ -665,7 +696,7 @@ class PKPSubmissionHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), 200);
+        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), Response::HTTP_OK);
     }
 
     /**
@@ -675,7 +706,7 @@ class PKPSubmissionHandler extends APIHandler
      *
      * Pass the `_validateOnly` property to validate the submission without submitting it.
      */
-    public function submit(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function submit(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $context = $request->getContext();
@@ -707,18 +738,18 @@ class PKPSubmissionHandler extends APIHandler
         }
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        if ($slimRequest->getParsedBodyParam('_validateOnly')) {
-            return $response->withStatus(200);
+        if ($illuminateRequest->input('_validateOnly')) {
+            return response()->json([], Response::HTTP_OK);
         }
 
         Repo::submission()->submit($submission, $context);
 
         $submission = Repo::submission()->get($submission->getId());
 
-        if ($slimRequest->getParsedBodyParam('confirmCopyright')) {
+        if ($illuminateRequest->input('confirmCopyright')) {
             $user = $request->getUser();
             $eventLog = Repo::eventLog()->newDataObject([
                 'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
@@ -745,24 +776,20 @@ class PKPSubmissionHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), 200);
+        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), Response::HTTP_OK);
     }
 
     /**
      * Delete a submission
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function delete($slimRequest, $response, $args)
+    public function delete(Request $illuminateRequest): JsonResponse
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         if (!$submission) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $userGroups = Repo::userGroup()->getCollector()
@@ -777,20 +804,22 @@ class PKPSubmissionHandler extends APIHandler
 
         Repo::submission()->delete($submission);
 
-        return $response->withJson($submissionProps, 200);
+        return response()->json($submissionProps, Response::HTTP_OK);
     }
 
     /**
      * Get the decisions recorded on a submission
      */
-    public function getDecisions(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function getDecisions(Request $illuminateRequest): JsonResponse
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         if (!$submission || $submission->getData('contextId') !== $context->getId()) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $decisionIterator = Repo::decision()->getCollector()
@@ -801,21 +830,13 @@ class PKPSubmissionHandler extends APIHandler
             ->getSchemaMap()
             ->mapMany($decisionIterator->values());
 
-        return $response->withJson($data, 200);
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**
      * Get the participants assigned to a submission
-     *
-     * This does not return reviewers.
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function getParticipants($slimRequest, $response, $args)
+    public function getParticipants(Request $illuminateRequest): JsonResponse
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
@@ -823,7 +844,9 @@ class PKPSubmissionHandler extends APIHandler
         $stageId = $args['stageId'] ?? null;
 
         if (!$submission || $submission->getData('contextId') !== $context->getId()) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $data = [];
@@ -838,27 +861,23 @@ class PKPSubmissionHandler extends APIHandler
             $data[] = $map->summarizeReviewer($user);
         }
 
-        return $response->withJson($data, 200);
+        return response()->json($data, Response::HTTP_OK);
     }
 
 
     /**
      * Get all of this submissions's publications
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function getPublications($slimRequest, $response, $args)
+    public function getPublications(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
 
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         if (!$submission) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $collector = Repo::publication()->getCollector()
@@ -881,33 +900,31 @@ class PKPSubmissionHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson([
+        return response()->json([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->summarizeMany($publications, $anonymize)->values(),
-        ], 200);
+        ], Response::HTTP_OK);
     }
 
     /**
      * Get one of this submission's publications
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function getPublication($slimRequest, $response, $args)
+    public function getPublication(Request $illuminateRequest): JsonResponse
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        $publication = Repo::publication()->get((int) $args['publicationId']);
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
 
         if (!$publication) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($submission->getId() !== $publication->getData('submissionId')) {
-            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         $userGroups = Repo::userGroup()->getCollector()
@@ -918,30 +935,21 @@ class PKPSubmissionHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson(
+        return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
-            200
+            Response::HTTP_OK
         );
     }
 
     /**
      * Add a new publication to this submission
-     *
-     * This will create a new publication from scratch. If you want to create a new
-     * version of a publication, see self::versionPublication().
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function addPublication($slimRequest, $response, $args)
+    public function addPublication(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
         $params['submissionId'] = $submission->getId();
 
         $submissionContext = $request->getContext();
@@ -952,7 +960,7 @@ class PKPSubmissionHandler extends APIHandler
         $errors = Repo::publication()->validate(null, $params, $submission, $submissionContext);
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         $params = (new \PKP\submission\Sanitizer())->sanitize($params, ['title']);
@@ -968,34 +976,32 @@ class PKPSubmissionHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson(
+        return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
-            200
+            Response::HTTP_OK
         );
     }
 
     /**
      * Create a new version of a publication
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function versionPublication($slimRequest, $response, $args)
+    public function versionPublication(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $publication = Repo::publication()->get((int) $args['publicationId']);
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
         $context = $request->getContext();
 
         if (!$publication) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($submission->getId() !== $publication->getData('submissionId')) {
-            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         $newId = Repo::publication()->version($publication);
@@ -1053,54 +1059,58 @@ class PKPSubmissionHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson(
+        return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
-            200
+            Response::HTTP_OK
         );
     }
 
     /**
      * Edit one of this submission's publications
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function editPublication($slimRequest, $response, $args)
+    public function editPublication(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $currentUser = $request->getUser();
-        $publication = Repo::publication()->get((int) $args['publicationId']);
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
 
         if (!$publication) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($submission->getId() !== $publication->getData('submissionId')) {
-            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         // Publications can not be edited when they are published
         if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
-            return $response->withStatus(403)->withJsonError('api.publication.403.cantEditPublished');
+            return response()->json([
+                'error' => __('api.publication.403.cantEditPublished'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         // Prevent users from editing publications if they do not have permission. Except for admins.
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
-            return $response->withStatus(403)->withJsonError('api.submissions.403.userCantEdit');
+            return response()->json([
+                'error' => __('api.submissions.403.userCantEdit'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_PUBLICATION, $illuminateRequest->input());
         $params['id'] = $publication->getId();
 
         // Don't allow the status to be modified through the API. The `/publish` and /unpublish endpoints
         // should be used instead.
         if (array_key_exists('status', $params)) {
-            return $response->withStatus(403)->withJsonError('api.publication.403.cantEditStatus');
+            return response()->json([
+                'error' => __('api.publication.403.cantEditStatus'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         $submissionContext = $request->getContext();
@@ -1111,7 +1121,7 @@ class PKPSubmissionHandler extends APIHandler
         $errors = Repo::publication()->validate($publication, $params, $submission, $submissionContext);
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         $params = (new \PKP\submission\Sanitizer())->sanitize($params, ['title', 'subtitle']);
@@ -1127,9 +1137,9 @@ class PKPSubmissionHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson(
+        return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
-            200
+            Response::HTTP_OK
         );
     }
 
@@ -1139,29 +1149,29 @@ class PKPSubmissionHandler extends APIHandler
      * If this is a GET request, it will run the pre-publish validation
      * checks and return errors but it will not perform the final
      * publication step.
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function publishPublication($slimRequest, $response, $args)
+    public function publishPublication(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $publication = Repo::publication()->get((int) $args['publicationId']);
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
 
         if (!$publication) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($submission->getId() !== $publication->getData('submissionId')) {
-            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
-            return $response->withStatus(403)->withJsonError('api.publication.403.alreadyPublished');
+            return response()->json([
+                'error' => __('api.publication.403.alreadyPublished'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         $submissionContext = $request->getContext();
@@ -1174,7 +1184,7 @@ class PKPSubmissionHandler extends APIHandler
         $errors = Repo::publication()->validatePublish($publication, $submission, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         Repo::publication()->publish($publication);
@@ -1189,36 +1199,36 @@ class PKPSubmissionHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson(
+        return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
-            200
+            Response::HTTP_OK
         );
     }
 
     /**
      * Unpublish one of this submission's publications
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function unpublishPublication($slimRequest, $response, $args)
+    public function unpublishPublication(Request $illuminateRequest): JsonResponse
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $publication = Repo::publication()->get((int) $args['publicationId']);
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
 
         if (!$publication) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($submission->getId() !== $publication->getData('submissionId')) {
-            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         if (!in_array($publication->getData('status'), [PKPSubmission::STATUS_PUBLISHED, PKPSubmission::STATUS_SCHEDULED])) {
-            return $response->withStatus(403)->withJsonError('api.publication.403.alreadyUnpublished');
+            return response()->json([
+                'error' => __('api.publication.403.alreadyUnpublished'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         Repo::publication()->unpublish($publication);
@@ -1233,9 +1243,9 @@ class PKPSubmissionHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson(
+        return response()->json(
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
-            200
+            Response::HTTP_OK
         );
     }
 
@@ -1244,29 +1254,29 @@ class PKPSubmissionHandler extends APIHandler
      *
      * Published publications can not be deleted. First you must unpublish them.
      * See self::unpublishPublication().
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function deletePublication($slimRequest, $response, $args)
+    public function deletePublication(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $publication = Repo::publication()->get((int) $args['publicationId']);
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
 
         if (!$publication) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($submission->getId() !== $publication->getData('submissionId')) {
-            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
-            return $response->withStatus(403)->withJsonError('api.publication.403.cantDeletePublished');
+            return response()->json([
+                'error' => __('api.publication.403.cantDeletePublished'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         $userGroups = Repo::userGroup()->getCollector()
@@ -1281,112 +1291,112 @@ class PKPSubmissionHandler extends APIHandler
 
         Repo::publication()->delete($publication);
 
-        return $response->withJson($output, 200);
+        return response()->json($output, Response::HTTP_OK);
     }
 
     /**
      * Get one of a publication's contributors
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function getContributor($slimRequest, $response, $args)
+    public function getContributor(Request $illuminateRequest): JsonResponse
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        $publication = Repo::publication()->get((int) $args['publicationId']);
-        $author = Repo::author()->get((int) $args['contributorId']);
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+        $author = Repo::author()->get((int) $illuminateRequest->route('contributorId'));
 
         if (!$publication) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if (!$author) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($submission->getId() !== $publication->getData('submissionId')) {
-            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         if ($publication->getId() !== $author->getData('publicationId')) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        return $response->withJson(
+        return response()->json(
             Repo::author()->getSchemaMap()->map($author),
-            200
+            Response::HTTP_OK
         );
     }
 
     /**
      * Get all publication's contributors
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function getContributors($slimRequest, $response, $args)
+    public function getContributors(Request $illuminateRequest): JsonResponse
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $publication = Repo::publication()->get((int) $args['publicationId']);
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
 
         if (!$publication) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($submission->getId() !== $publication->getData('submissionId')) {
-            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         $collector = Repo::author()->getCollector()
             ->filterByPublicationIds([$publication->getId()]);
         $authors = $collector->getMany();
 
-        return $response->withJson([
+        return response()->json([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => Repo::author()->getSchemaMap()->summarizeMany($authors)->values(),
-        ], 200);
+        ], Response::HTTP_OK);
     }
 
     /**
      * Add a new contributor to publication
      *
      * This will create a new contributor from scratch.
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function addContributor($slimRequest, $response, $args)
+    public function addContributor(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $currentUser = $request->getUser();
 
-        $publication = Repo::publication()->get((int) $args['publicationId']);
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
 
         if (!$publication) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($submission->getId() !== $publication->getData('submissionId')) {
-            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         // Publications can not be edited when they are published
         if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
-            return $response->withStatus(403)->withJsonError('api.publication.403.cantEditPublished');
+            return response()->json([
+                'error' => __('api.publication.403.cantEditPublished'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
         $params['publicationId'] = $publication->getId();
 
         $submissionContext = $request->getContext();
@@ -1397,101 +1407,107 @@ class PKPSubmissionHandler extends APIHandler
         $errors = Repo::author()->validate(null, $params, $submission, $submissionContext);
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         $author = Repo::author()->newDataObject($params);
         $newId = Repo::author()->add($author);
         $author = Repo::author()->get($newId);
 
-        return $response->withJson(
+        return response()->json(
             Repo::author()->getSchemaMap()->map($author),
-            200
+            Response::HTTP_OK
         );
     }
 
     /**
      * Delete one of this publication's contributors
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function deleteContributor($slimRequest, $response, $args)
+    public function deleteContributor(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $currentUser = $request->getUser();
 
-        $publication = Repo::publication()->get((int) $args['publicationId']);
-        $author = Repo::author()->get((int) $args['contributorId']);
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+        $author = Repo::author()->get((int) $illuminateRequest->route('contributorId'));
 
         if (!$publication) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         // Publications can not be edited when they are published
         if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
-            return $response->withStatus(403)->withJsonError('api.publication.403.cantEditPublished');
+            return response()->json([
+                'error' => __('api.publication.403.cantEditPublished'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         if ($submission->getId() !== $publication->getData('submissionId')) {
-            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         if (!$author) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($publication->getId() !== $author->getData('publicationId')) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $output = Repo::author()->getSchemaMap()->map($author);
 
         Repo::author()->delete($author);
 
-        return $response->withJson($output, 200);
+        return response()->json($output, Response::HTTP_OK);
     }
 
     /**
      * Edit one of this publication's contributors
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function editContributor($slimRequest, $response, $args)
+    public function editContributor(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $currentUser = $request->getUser();
 
-        $publication = Repo::publication()->get((int) $args['publicationId']);
-        $author = Repo::author()->get((int) $args['contributorId']);
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+        $author = Repo::author()->get((int) $illuminateRequest->route('contributorId'));
 
         if (!$publication) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if (!$author) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($submission->getId() !== $publication->getData('submissionId')) {
-            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         // Publications can not be edited when they are published
         if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
-            return $response->withStatus(403)->withJsonError('api.publication.403.cantEditPublished');
+            return response()->json([
+                'error' => __('api.publication.403.cantEditPublished'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_AUTHOR, $illuminateRequest->input());
         $params['id'] = $author->getId();
 
         $submissionContext = $request->getContext();
@@ -1500,60 +1516,64 @@ class PKPSubmissionHandler extends APIHandler
         }
 
         if ($publication->getId() !== $author->getData('publicationId')) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         // Prevent users from editing publications if they do not have permission. Except for admins.
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $currentUser->getId())) {
-            return $response->withStatus(403)->withJsonError('api.submissions.403.userCantEdit');
+            return response()->json([
+                'error' => __('api.submissions.403.userCantEdit'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         $errors = Repo::author()->validate($author, $params, $submission, $submissionContext);
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         Repo::author()->edit($author, $params);
         $author = Repo::author()->get($author->getId());
 
-        return $response->withJson(
+        return response()->json(
             Repo::author()->getSchemaMap()->map($author),
-            200
+            Response::HTTP_OK
         );
     }
 
     /**
      * Save new order of contributors array
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function saveContributorsOrder($slimRequest, $response, $args)
+    public function saveContributorsOrder(Request $illuminateRequest): JsonResponse
     {
-        $params = $slimRequest->getParsedBody();
+        $params = $illuminateRequest->input();
 
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $currentUser = $request->getUser();
 
-        $publication = Repo::publication()->get((int) $args['publicationId']);
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
 
         if (!$publication) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($submission->getId() !== $publication->getData('submissionId')) {
-            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         // Publications can not be edited when they are published
         if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
-            return $response->withStatus(403)->withJsonError('api.publication.403.cantEditPublished');
+            return response()->json([
+                'error' => __('api.publication.403.cantEditPublished'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         if (!empty($params['sortedAuthors'])) {
@@ -1572,31 +1592,30 @@ class PKPSubmissionHandler extends APIHandler
             ->filterByPublicationIds([$publication->getId()])
             ->getMany();
 
-        return $response->withJson(Repo::author()->getSchemaMap()->summarizeMany($authors));
+        return response()->json(
+            Repo::author()->getSchemaMap()->summarizeMany($authors),
+            Response::HTTP_OK
+        );
     }
 
     /**
      * Record an editorial decision for a submission, such as
      * a decision to accept or reject the submission, request
      * revisions, or send it to another stage.
-     *
-     * @param SlimRequest $slimRequest Slim request object
-     * @param APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function addDecision($slimRequest, $response, $args)
+    public function addDecision(Request $illuminateRequest): JsonResponse
     {
-        $request = $this->getRequest(); /** @var Request $request */
+        $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
         $decisionType = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE); /** @var DecisionType $decisionType */
 
         if ($submission->getData('status') === Submission::STATUS_PUBLISHED) {
-            return $response->withStatus(403)->withJsonError('api.decisions.403.alreadyPublished');
+            return response()->json([
+                'error' => __('api.decisions.403.alreadyPublished'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_DECISION, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_DECISION, $illuminateRequest->input());
         $params['submissionId'] = $submission->getId();
         $params['dateDecided'] = Core::getCurrentDate();
         $params['editorId'] = $request->getUser()->getId();
@@ -1605,7 +1624,7 @@ class PKPSubmissionHandler extends APIHandler
         $errors = Repo::decision()->validate($params, $decisionType, $submission, $request->getContext());
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         $decision = Repo::decision()->newDataObject($params);
@@ -1618,7 +1637,7 @@ class PKPSubmissionHandler extends APIHandler
         // original Decision object rather than fetching it from the data store.
         $decision = Repo::decision()->get($decisionId) ?? $decision;
 
-        return $response->withJson(Repo::decision()->getSchemaMap()->map($decision), 200);
+        return response()->json(Repo::decision()->getSchemaMap()->map($decision), Response::HTTP_OK);
     }
 
     protected function getFirstUserGroupInRole(Enumerable $userGroups, int $role): ?UserGroup

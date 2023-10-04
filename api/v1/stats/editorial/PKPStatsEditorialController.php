@@ -1,74 +1,92 @@
 <?php
 
 /**
- * @file api/v1/stats/editorial/PKPStatsEditorialHandler.php
+ * @file api/v1/stats/editorial/PKPStatsEditorialController.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPStatsEditorialHandler
+ * @class PKPStatsEditorialController
  *
  * @ingroup api_v1_stats
  *
- * @brief Handle API requests for publication statistics.
+ * @brief Controller class to handle API requests for publication statistics.
  *
  */
 
 namespace PKP\API\v1\stats\editorial;
 
 use APP\core\Services;
-use PKP\core\APIResponse;
-use PKP\handler\APIHandler;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route;
+use PKP\core\PKPRequest;
+use PKP\core\PKPBaseController;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use Slim\Http\Request;
 
-abstract class PKPStatsEditorialHandler extends APIHandler
+abstract class PKPStatsEditorialController extends PKPBaseController
 {
     /**
-     * Constructor
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
-    public function __construct()
+    public function getHandlerPath(): string
     {
-        $this->_handlerPath = 'stats/editorial';
-        $this->_endpoints = [
-            'GET' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'get'],
-                    'roles' => [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/averages',
-                    'handler' => [$this, 'getAverages'],
-                    'roles' => [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
-                ],
-            ],
+        return 'stats/editorial';
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
+     */
+    public function getRouteGroupMiddleware(): array
+    {
+        return [
+            "has.user",
+            "has.context",
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+            ]),
         ];
-        parent::__construct();
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
+    public function getGroupRoutes(): void
+    {       
+        Route::get('', $this->getMany(...))
+            ->name('stats.editorial.getEditorialStat');
+
+        Route::get('averages', $this->getAverages(...))
+            ->name('stats.editorial.getAverages');
     }
 
     /** The name of the section ids query param for this application */
     abstract public function getSectionIdsQueryParam();
 
     /**
-     * @copydoc PKPHandler::authorize()
+     * @copydoc \PKP\core\PKPBaseController::authorize()
      */
-    public function authorize($request, &$args, $roleAssignments)
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
+
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
+
         $this->addPolicy($rolePolicy);
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -79,24 +97,20 @@ abstract class PKPStatsEditorialHandler extends APIHandler
      *
      * Returns information on submissions received, accepted, declined,
      * average response times and more.
-     *
-     * @param Request $slimRequest Slim request object
-     * @param APIResponse $response Response
-     * @param array $args
-     *
-     * @return APIResponse Response
      */
-    public function get($slimRequest, $response, $args)
+    public function get(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
 
         if (!$request->getContext()) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $params = [];
         $sectionIdsQueryParam = $this->getSectionIdsQueryParam();
-        foreach ($slimRequest->getQueryParams() as $param => $value) {
+        foreach ($illuminateRequest->query() as $param => $value) {
             switch ($param) {
                 case 'dateStart':
                 case 'dateEnd':
@@ -114,22 +128,25 @@ abstract class PKPStatsEditorialHandler extends APIHandler
             }
         }
 
-        Hook::call('API::stats::editorial::params', [&$params, $slimRequest]);
+        Hook::call('API::stats::editorial::params', [&$params, $illuminateRequest]);
 
         $params['contextIds'] = [$request->getContext()->getId()];
 
         $result = $this->_validateStatDates($params);
         if ($result !== true) {
-            return $response->withStatus(400)->withJsonError($result);
+            return response()->json(['error' => $result], Response::HTTP_BAD_REQUEST);
         }
 
-        return $response->withJson(array_map(
-            function ($item) {
-                $item['name'] = __($item['name']);
-                return $item;
-            },
-            Services::get('editorialStats')->getOverview($params)
-        ));
+        return response()->json(
+            array_map(
+                function ($item) {
+                    $item['name'] = __($item['name']);
+                    return $item;
+                },
+                Services::get('editorialStats')->getOverview($params)
+            ),
+            Response::HTTP_OK
+        );
     }
 
     /**
@@ -137,24 +154,20 @@ abstract class PKPStatsEditorialHandler extends APIHandler
      *
      * Returns information on average submissions received, accepted
      * and declined per year.
-     *
-     * @param Request $slimRequest Slim request object
-     * @param APIResponse $response Response
-     * @param array $args
-     *
-     * @return APIResponse Response
      */
-    public function getAverages($slimRequest, $response, $args)
+    public function getAverages(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
 
         if (!$request->getContext()) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $params = [];
         $sectionIdsQueryParam = $this->getSectionIdsQueryParam();
-        foreach ($slimRequest->getQueryParams() as $param => $value) {
+        foreach ($illuminateRequest->getQueryParams() as $param => $value) {
             switch ($param) {
                 case $sectionIdsQueryParam:
                     if (is_string($value) && str_contains($value, ',')) {
@@ -167,10 +180,12 @@ abstract class PKPStatsEditorialHandler extends APIHandler
             }
         }
 
-        Hook::call('API::stats::editorial::averages::params', [&$params, $slimRequest]);
+        Hook::call('API::stats::editorial::averages::params', [&$params, $illuminateRequest]);
 
         $params['contextIds'] = [$request->getContext()->getId()];
 
-        return $response->withJson(Services::get('editorialStats')->getAverages($params));
+        $statsEditorialService = Services::get('editorialStats'); /** @var \PKP\services\PKPStatsEditorialService $statsEditorialService */
+
+        return response()->json($statsEditorialService->getAverages($params), Response::HTTP_OK);
     }
 }

@@ -1,28 +1,32 @@
 <?php
 
 /**
- * @file api/v1/vocabs/PKPVocabHandler.php
+ * @file api/v1/vocabs/PKPVocabController.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPVocabHandler
+ * @class PKPVocabController
  *
  * @ingroup api_v1_vocab
  *
- * @brief Handle API requests for controlled vocab operations.
+ * @brief Controller class to handle API requests for controlled vocab operations.
  *
  */
 
 namespace PKP\API\v1\vocabs;
 
 use APP\core\Application;
-use PKP\core\APIResponse;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route;
+use PKP\core\PKPRequest;
+use PKP\core\PKPBaseController;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
-use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -32,33 +36,48 @@ use PKP\submission\SubmissionDisciplineDAO;
 use PKP\submission\SubmissionKeywordDAO;
 use PKP\submission\SubmissionLanguageDAO;
 use PKP\submission\SubmissionSubjectDAO;
-use Slim\Http\Request;
 use Stringy\Stringy;
 
-class PKPVocabHandler extends APIHandler
+class PKPVocabController extends PKPBaseController
 {
     /**
-     * Constructor
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
-    public function __construct()
+    public function getHandlerPath(): string
     {
-        $this->_handlerPath = 'vocabs';
-        $this->_endpoints = [
-            'GET' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'getMany'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
-                ],
-            ],
-        ];
-        parent::__construct();
+        return 'vocabs';
     }
 
-    //
-    // Implement methods from PKPHandler
-    //
-    public function authorize($request, &$args, $roleAssignments)
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
+     */
+    public function getRouteGroupMiddleware(): array
+    {
+        return [
+            "has.user",
+            "has.context",
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+                Role::ROLE_ID_AUTHOR,
+            ]),
+        ];
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
+    public function getGroupRoutes(): void
+    {       
+        Route::get('', $this->getMany(...))->name('vocab.getMany');
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
@@ -70,23 +89,27 @@ class PKPVocabHandler extends APIHandler
     /**
      * Get the controlled vocab entries available in this context
      */
-    public function getMany(Request $slimRequest, APIResponse $response, array $args): APIResponse
+    public function getMany(Request $illuminateRequest): JsonResponse
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
 
         if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        $requestParams = $slimRequest->getQueryParams();
+        $requestParams = $illuminateRequest->query();
 
         $vocab = $requestParams['vocab'] ?? '';
         $locale = $requestParams['locale'] ?? Locale::getLocale();
         $term = $requestParams['term'] ?? null;
 
         if (!in_array($locale, $context->getData('supportedSubmissionLocales'))) {
-            return $response->withStatus(400)->withJsonError('api.vocabs.400.localeNotSupported', ['locale' => $locale]);
+            return response()->json([
+                'error' => __('api.vocabs.400.localeNotSupported', ['locale' => $locale]),
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         switch ($vocab) {
@@ -111,14 +134,14 @@ class PKPVocabHandler extends APIHandler
                     }
                 }
                 asort($languageNames);
-                return $response->withJson($languageNames, 200);
+                return response()->json($languageNames, Response::HTTP_OK);
             case SubmissionAgencyDAO::CONTROLLED_VOCAB_SUBMISSION_AGENCY:
                 $submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /** @var \PKP\submission\SubmissionAgencyEntryDAO $submissionAgencyEntryDao */
                 $entries = $submissionAgencyEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
                 break;
             default:
                 $entries = [];
-                Hook::call('API::vocabs::getMany', [$vocab, &$entries, $slimRequest, $response, $request]);
+                Hook::call('API::vocabs::getMany', [$vocab, &$entries, $illuminateRequest, response(), $request]);
         }
 
         $data = [];
@@ -128,6 +151,6 @@ class PKPVocabHandler extends APIHandler
 
         $data = array_values(array_unique($data));
 
-        return $response->withJson($data, 200);
+        return response()->json($data, Response::HTTP_OK);
     }
 }

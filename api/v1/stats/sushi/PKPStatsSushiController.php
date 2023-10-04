@@ -1,28 +1,31 @@
 <?php
 
 /**
- * @file api/v1/stats/sushi/PKPStatsSushiHandler.php
+ * @file api/v1/stats/sushi/PKPStatsSushiController.php
  *
- * Copyright (c) 2022 Simon Fraser University
- * Copyright (c) 2022 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPStatsSushiHandler
+ * @class PKPStatsSushiController
  *
  * @ingroup api_v1_stats
  *
- * @brief Handle API requests for COUNTER R5 SUSHI statistics.
+ * @brief Controller class to handle API requests for COUNTER R5 SUSHI statistics.
  *
  */
 
 namespace PKP\API\v1\stats\sushi;
 
-use APP\core\Application;
 use APP\facades\Repo;
 use APP\sushi\PR;
 use APP\sushi\PR_P1;
-use PKP\core\APIResponse;
-use PKP\handler\APIHandler;
+use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use PKP\core\PKPRequest;
+use PKP\core\PKPBaseController;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -30,121 +33,139 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\sushi\CounterR5Report;
 use PKP\sushi\SushiException;
-use Slim\Http\Request as SlimHttpRequest;
 
-class PKPStatsSushiHandler extends APIHandler
+class PKPStatsSushiController extends PKPBaseController
 {
-    /** @var bool Whether the API is public */
-    public $isPublic = true;
-
     /**
-     * Constructor
+     * Determine whether the API is public
      */
-    public function __construct()
+    public function isPublic(): bool
     {
-        $site = Application::get()->getRequest()->getSite();
-        $context = Application::get()->getRequest()->getContext();
+        $request = $this->getRequest();
+        $site = $request->getSite();
+        $context = $request->getContext();
+
         if (($site->getData('isSushiApiPublic') !== null && !$site->getData('isSushiApiPublic')) ||
             ($context->getData('isSushiApiPublic') !== null && !$context->getData('isSushiApiPublic'))) {
-            $this->isPublic = false;
+            return false;
         }
 
-        $this->_handlerPath = 'stats/sushi';
-        $roles = $this->isPublic ? null : [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER];
-        $this->_endpoints = [
-            'GET' => $this->getGETDefinitions($roles)
-        ];
-        parent::__construct();
+        return true;
     }
 
     /**
-     * Get this API's endpoints definitions
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
-    protected function getGETDefinitions(array $roles = null): array
+    public function getHandlerPath(): string
     {
+        return 'stats/sushi';
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
+     */
+    public function getRouteGroupMiddleware(): array
+    {
+        if ($this->isPublic())  {
+            return ["has.context"];
+        }
+
         return [
-            [
-                'pattern' => $this->getEndpointPattern() . '/status',
-                'handler' => [$this, 'getStatus'],
-                'roles' => $roles
-            ],
-            [
-                'pattern' => $this->getEndpointPattern() . '/members',
-                'handler' => [$this, 'getMembers'],
-                'roles' => $roles
-            ],
-            [
-                'pattern' => $this->getEndpointPattern() . '/reports',
-                'handler' => [$this, 'getReports'],
-                'roles' => $roles
-            ],
-            [
-                'pattern' => $this->getEndpointPattern() . '/reports/pr',
-                'handler' => [$this, 'getReportsPR'],
-                'roles' => $roles
-            ],
-            [
-                'pattern' => $this->getEndpointPattern() . '/reports/pr_p1',
-                'handler' => [$this, 'getReportsPR1'],
-                'roles' => $roles
-            ],
+            "has.context",
+            "has.user",
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_MANAGER,
+            ]),
         ];
     }
 
     /**
-     * @copydoc PKPHandler::authorize()
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
-    public function authorize($request, &$args, $roleAssignments)
+    public function getGroupRoutes(): void
+    {       
+        Route::get('status', $this->getStatus(...))
+            ->name('stats.sushi.getStatus');
+        
+        Route::get('members', $this->getMembers(...))
+            ->name('stats.sushi.getMembers');
+
+        Route::get('reports', $this->getReports(...))
+            ->name('stats.sushi.getReports');
+
+        Route::get('reports/pr', $this->getReportsPR(...))
+            ->name('stats.sushi.getReportsPR');
+
+        Route::get('reports/pr_p1', $this->getReportsPR1(...))
+            ->name('stats.sushi.getReportsPR1');
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $this->addPolicy(new ContextRequiredPolicy($request));
-        if (!$this->isPublic) {
+
+        if (!$this->isPublic()) {
+            
             $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+
             $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
+
             foreach ($roleAssignments as $role => $operations) {
                 $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
             }
+
             $this->addPolicy($rolePolicy);
         }
+
         return parent::authorize($request, $args, $roleAssignments);
     }
 
     /**
      * Get the current status of the reporting service
      */
-    public function getStatus(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function getStatus(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $context = $request->getContext();
+        
         // use only the name in the context primary locale to be consistent
         $contextName = $context->getName($context->getPrimaryLocale());
-        return $response->withJson([
+
+        return response()->json([
             'Description' => __('sushi.status.description', ['contextName' => $contextName]),
             'Service_Active' => true,
-        ], 200);
+        ], Response::HTTP_OK);
     }
 
     /**
      * Get the list of consortium members related to a Customer_ID
      */
-    public function getMembers(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function getMembers(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $context = $request->getContext();
         $site = $request->getSite();
-        $params = $slimRequest->getQueryParams();
+        $params = $illuminateRequest->query();
+
         if (!isset($params['customer_id'])) {
             // error: missing required customer_id
-            return $response->withJson([
+            return response()->json([
                 'Code' => 1030,
                 'Severity' => 'Fatal',
                 'Message' => 'Insufficient Information to Process Request',
                 'Data' => __('sushi.exception.1030.missing', ['params' => 'customer_id'])
-            ], 400);
+            ], Response::HTTP_BAD_REQUEST);
         }
+
         $platformId = $context->getPath();
         if ($site->getData('isSiteSushiPlatform')) {
             $platformId = $site->getData('sushiPlatformID');
         }
+
         $institutionName = $institutionId = null;
         $customerId = $params['customer_id'];
         if (is_numeric($customerId)) {
@@ -163,32 +184,36 @@ class PKPStatsSushiHandler extends APIHandler
                 }
             }
         }
+
         if (!isset($institutionName)) {
             // error: invalid customer_id
-            return $response->withJson([
+            return response()->json([
                 'Code' => 1030,
                 'Severity' => 'Fatal',
                 'Message' => 'Insufficient Information to Process Request',
                 'Data' => __('sushi.exception.1030.invalid', ['params' => 'customer_id'])
-            ], 400);
+            ], Response::HTTP_BAD_REQUEST);
         }
+
         $item = [
             'Customer_ID' => $customerId,
             'Name' => $institutionName,
         ];
+
         if (isset($institutionId)) {
             $item['Institution_ID'] = $institutionId;
         }
-        return $response->withJson([$item], 200);
+
+        return response()->json([$item], Response::HTTP_OK);
     }
 
     /**
      * Get list of reports supported by the API
      */
-    public function getReports(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function getReports(Request $illuminateRequest): JsonResponse
     {
         $items = $this->getReportList();
-        return $response->withJson($items, 200);
+        return response()->json($items, Response::HTTP_OK);
     }
 
     /**
@@ -218,39 +243,39 @@ class PKPStatsSushiHandler extends APIHandler
      * COUNTER 'Platform Usage' [PR_P1].
      * A customizable report summarizing activity across the Platform (journal, press, or server).
      */
-    public function getReportsPR(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function getReportsPR(Request $illuminateRequest): JsonResponse
     {
-        return $this->getReportResponse(new PR(), $slimRequest, $response, $args);
+        return $this->getReportResponse(new PR(), $illuminateRequest);
     }
 
     /**
      * COUNTER 'Platform Master Report' [PR].
      * This is a Standard View of the Platform Master Report that presents usage for the overall Platform broken down by Metric_Type
      */
-    public function getReportsPR1(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function getReportsPR1(Request $illuminateRequest): JsonResponse
     {
-        return $this->getReportResponse(new PR_P1(), $slimRequest, $response, $args);
+        return $this->getReportResponse(new PR_P1(), $illuminateRequest);
     }
 
     /**
      * Get the requested report
      */
-    protected function getReportResponse(CounterR5Report $report, SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    protected function getReportResponse(CounterR5Report $report, Request $illuminateRequest): JsonResponse
     {
-        $params = $slimRequest->getQueryParams();
+        $params = $illuminateRequest->query();
 
         try {
             $report->processReportParams($this->getRequest(), $params);
         } catch (SushiException $e) {
-            return $response->withJson($e->getResponseData(), $e->getHttpStatusCode());
+            return response()->json($e->getResponseData(), $e->getHttpStatusCode());
         }
 
         $reportHeader = $report->getReportHeader();
         $reportItems = $report->getReportItems();
 
-        return $response->withJson([
+        return response()->json([
             'Report_Header' => $reportHeader,
             'Report_Items' => $reportItems,
-        ], 200);
+        ], Response::HTTP_OK);
     }
 }

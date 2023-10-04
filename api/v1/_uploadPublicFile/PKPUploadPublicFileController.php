@@ -1,27 +1,33 @@
 <?php
 /**
- * @file api/v1/uploadPublicFile/PKPUploadPublicFileHandler.php
+ * @file api/v1/uploadPublicFile/PKPUploadPublicFileController.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPUploadPublicFileHandler
+ * @class PKPUploadPublicFileController
  *
- * @ingroup api_v1_uploadPublicFile
+ * @ingroup api_v1__uploadPublicFile
  *
- * @brief Handle API requests to upload a file to a user's public directory.
+ * @brief Controller class to handle API requests to upload a file to a user's public directory.
  */
 
 namespace PKP\API\v1\_uploadPublicFile;
 
 use APP\core\Application;
 use FilesystemIterator;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route;
+use PKP\core\PKPRequest;
+use PKP\middleware\AttachFileUploadHeader;
 use PKP\config\Config;
 use PKP\core\Core;
+use PKP\core\PKPBaseController;
 use PKP\core\PKPString;
 use PKP\file\FileManager;
-use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -30,39 +36,52 @@ use PKP\security\Role;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
-class PKPUploadPublicFileHandler extends APIHandler
+class PKPUploadPublicFileController extends PKPBaseController
 {
     /**
-     * @copydoc APIHandler::__construct()
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
-    public function __construct()
+    public function getHandlerPath(): string
     {
-        $this->_handlerPath = '_uploadPublicFile';
-        $roles = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_READER];
-        $this->_endpoints = [
-            'OPTIONS' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'getOptions'],
-                    'roles' => $roles,
-                ],
-            ],
-            'POST' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'uploadFile'],
-                    'roles' => $roles,
-                ],
-            ],
-        ];
-
-        parent::__construct();
+        return '_uploadPublicFile';
     }
 
     /**
-     * @copydoc PKPHandler::authorize
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
      */
-    public function authorize($request, &$args, $roleAssignments)
+    public function getRouteGroupMiddleware(): array
+    {
+        return [
+            "has.user",
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_REVIEWER,
+                Role::ROLE_ID_AUTHOR,
+                Role::ROLE_ID_ASSISTANT,
+                Role::ROLE_ID_READER
+            ]),
+            AttachFileUploadHeader::class,
+        ];
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
+    public function getGroupRoutes(): void
+    {       
+        Route::option('', $this->getOptions(...))
+            ->name('_uploadPublicFile.getOptions');
+
+        Route::post('', $this->uploadFile(...))
+            ->name('_uploadPublicFile.uploadFile');
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
@@ -71,46 +90,33 @@ class PKPUploadPublicFileHandler extends APIHandler
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
+
         $this->addPolicy($rolePolicy);
 
         return parent::authorize($request, $args, $roleAssignments);
     }
 
     /**
-     * A helper method which adds the necessary response headers to allow
-     * file uploads
-     *
-     * @param \PKP\core\APIResponse $response object
-     *
-     * @return \PKP\core\APIResponse
-     */
-    private function getResponse($response)
-    {
-        return $response->withHeader('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With, X-PINGOTHER, X-File-Name, Cache-Control');
-    }
-
-    /**
      * Upload a requested file
-     *
-     * @param \Slim\Http\Request $slimRequest Slim request object
-     * @param \PKP\core\APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return \PKP\core\APIResponse
      */
-    public function uploadFile($slimRequest, $response, $args)
+    public function uploadFile(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
 
         if (empty($_FILES) || empty($_FILES['file'])) {
-            return $response->withStatus(400)->withJsonError('api.files.400.noUpload');
+            return response()->json([
+                'error' => __('api.files.400.noUpload'),
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $siteDir = Core::getBaseDir() . '/' . Config::getVar('files', 'public_files_dir') . '/site';
 
         if (!file_exists($siteDir) || !is_writeable($siteDir)) {
-            return $response->withStatus(500)->withJsonError('api.publicFiles.500.badFilesDir');
+            return response()->json([
+                'error' => __('api.publicFiles.500.badFilesDir'),
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
+
         $userDir = $siteDir . '/images/' . $request->getUser()->getUsername();
         $isUserAllowed = true;
         $allowedDirSize = Config::getVar('files', 'public_user_dir_size', 5000) * 1024;
@@ -127,7 +133,9 @@ class PKPUploadPublicFileHandler extends APIHandler
 
         // Allow plugins to control who can upload files
         if (!$isUserAllowed) {
-            return $response->withStatus(403)->withJsonError('api.publicFiles.403.unauthorized');
+            return response()->json([
+                'error' => __('api.publicFiles.403.unauthorized'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         // Don't allow user to exceed the alotted space in their public directory
@@ -138,10 +146,12 @@ class PKPUploadPublicFileHandler extends APIHandler
             }
         }
         if (($currentSize + $_FILES['file']['size']) > $allowedDirSize) {
-            return $response->withStatus(413)->withJsonError('api.publicFiles.413.noDirSpace', [
-                'fileUploadSize' => ceil($_FILES['file']['size'] / 1024),
-                'dirSizeLeft' => ceil(($allowedDirSize - $currentSize) / 1024),
-            ]);
+            return response()->json([
+                'error' => __('api.publicFiles.413.noDirSpace', [
+                    'fileUploadSize' => ceil($_FILES['file']['size'] / 1024),
+                    'dirSizeLeft' => ceil(($allowedDirSize - $currentSize) / 1024),    
+                ]),
+            ], Response::HTTP_REQUEST_ENTITY_TOO_LARGE);
         }
 
         $fileManager = new FileManager();
@@ -161,19 +171,25 @@ class PKPUploadPublicFileHandler extends APIHandler
 
         // Only allow permitted file types
         if (!in_array($extension, $allowedFileTypes)) {
-            return $response->withStatus(400)->withJsonError('api.publicFiles.400.extensionNotSupported', [
-                'fileTypes' => join(__('common.commaListSeparator'), $allowedFileTypes)
-            ]);
+            return response()->json([
+                'error' => __('api.publicFiles.400.extensionNotSupported', [
+                    'fileTypes' => join(__('common.commaListSeparator'), $allowedFileTypes),
+                ]),
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         // Perform additional checks on images
         if (in_array($extension, ['gif', 'jpg', 'jpeg', 'png', 'jpe'])) {
             if (getimagesize($_FILES['file']['tmp_name']) === false) {
-                return $response->withStatus(400)->withJsonError('api.publicFiles.400.invalidImage');
+                return response()->json([
+                    'error' => __('api.publicFiles.400.invalidImage'),
+                ], Response::HTTP_BAD_REQUEST);
             }
             $extensionFromMimeType = $fileManager->getImageExtension(PKPString::mime_content_type($_FILES['file']['tmp_name']));
             if ($extensionFromMimeType !== '.' . $extension) {
-                return $response->withStatus(400)->withJsonError('api.publicFiles.400.mimeTypeNotMatched');
+                return response()->json([
+                    'error' => __('api.publicFiles.400.mimeTypeNotMatched'),
+                ], Response::HTTP_BAD_REQUEST);
             }
         }
 
@@ -186,62 +202,70 @@ class PKPUploadPublicFileHandler extends APIHandler
                 switch ($fileManager->getUploadErrorCode($filename)) {
                     case UPLOAD_ERR_INI_SIZE:
                     case UPLOAD_ERR_FORM_SIZE:
-                        return $response->withStatus(400)->withJsonError('api.files.400.fileSize', ['maxSize' => Application::getReadableMaxFileSize()]);
+                        return response()->json([
+                            'error' => __('api.files.400.fileSize', ['maxSize' => Application::getReadableMaxFileSize()]),
+                        ], Response::HTTP_BAD_REQUEST);
                     case UPLOAD_ERR_PARTIAL:
-                        return $response->withStatus(400)->withJsonError('api.files.400.uploadFailed');
+                        return response()->json([
+                            'error' => __('api.files.400.uploadFailed'),
+                        ], Response::HTTP_BAD_REQUEST);
                     case UPLOAD_ERR_NO_FILE:
-                        return $response->withStatus(400)->withJsonError('api.files.400.noUpload');
+                        return response()->json([
+                            'error' => __('api.files.400.noUpload'),
+                        ], Response::HTTP_BAD_REQUEST);
                     case UPLOAD_ERR_NO_TMP_DIR:
                     case UPLOAD_ERR_CANT_WRITE:
                     case UPLOAD_ERR_EXTENSION:
-                        return $response->withStatus(400)->withJsonError('api.files.400.config');
+                        return response()->json([
+                            'error' => __('api.files.400.config'),
+                        ], Response::HTTP_BAD_REQUEST);
                 }
             }
-            return $response->withStatus(400)->withJsonError('api.files.400.uploadFailed');
+
+            return response()->json([
+                'error' => __('api.files.400.uploadFailed'),
+            ], Response::HTTP_BAD_REQUEST);
         }
 
-        return $this->getResponse($response->withJson([
+        return response()->json([
             'url' => $request->getBaseUrl() . '/' .
                     Config::getVar('files', 'public_files_dir') . '/site/images/' .
                     $request->getUser()->getUsername() . '/' .
                     pathinfo($destinationPath, PATHINFO_BASENAME),
-        ]));
+        ], Response::HTTP_OK);
     }
 
     /**
      * Respond affirmatively to a HTTP OPTIONS request with headers which allow
      * file uploads
-     *
-     * @param \Slim\Http\Request $slimRequest Slim request object
-     * @param \PKP\core\APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return \PKP\core\APIResponse
      */
-    public function getOptions($slimRequest, $response, $args)
+    public function getOptions(Request $illuminateRequest): JsonResponse
     {
-        return $this->getResponse($response);
+        return response()->json([], Response::HTTP_OK);
     }
 
     /**
      * A recursive function to get a filename that will not overwrite an
      * existing file
      *
-     * @param string $path Preferred filename
-     * @param FileManager $fileManager
+     * @param string        $path           Preferred filename
+     * @param FileManager   $fileManager
      *
      * @return string
      */
-    private function _getFilename($path, $fileManager)
+    private function _getFilename(string $path, FileManager $fileManager): string
     {
         if ($fileManager->fileExists($path)) {
             $pathParts = pathinfo($path);
             $filename = $pathParts['filename'] . '-' . md5(microtime()) . '.' . $pathParts['extension'];
+
             if (strlen($filename > 255)) {
                 $filename = substr($filename, -255, 255);
             }
+            
             return $this->_getFilename($pathParts['dirname'] . '/' . $filename, $fileManager);
         }
+
         return $path;
     }
 }

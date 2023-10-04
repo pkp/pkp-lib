@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @file api/v1/announcements/PKPAnnouncementHandler.php
+ * @file api/v1/announcements/PKPAnnouncementController.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPAnnouncementHandler
+ * @class PKPAnnouncementController
  *
  * @ingroup api_v1_announcement
  *
- * @brief Handle API requests for announcement operations.
+ * @brief Controller class to handle API requests for announcement operations.
  *
  */
 
@@ -20,10 +20,15 @@ namespace PKP\API\v1\announcements;
 use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Bus;
+use PKP\core\PKPRequest;
+use PKP\core\PKPBaseController;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
-use PKP\handler\APIHandler;
 use PKP\jobs\notifications\NewAnnouncementNotifyUsers;
 use PKP\mail\Mailer;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
@@ -35,7 +40,7 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 
-class PKPAnnouncementHandler extends APIHandler
+class PKPAnnouncementController extends PKPBaseController
 {
     /** @var int The default number of announcements to return in one request */
     public const DEFAULT_COUNT = 30;
@@ -44,53 +49,55 @@ class PKPAnnouncementHandler extends APIHandler
     public const MAX_COUNT = 100;
 
     /**
-     * Constructor
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
-    public function __construct()
+    public function getHandlerPath(): string
     {
-        $this->_handlerPath = 'announcements';
-        $this->_endpoints = [
-            'GET' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'getMany'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{announcementId:\d+}',
-                    'handler' => [$this, 'get'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
-                ],
-            ],
-            'POST' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'add'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
-                ],
-            ],
-            'PUT' => [
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{announcementId:\d+}',
-                    'handler' => [$this, 'edit'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
-                ],
-            ],
-            'DELETE' => [
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{announcementId:\d+}',
-                    'handler' => [$this, 'delete'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
-                ],
-            ],
-        ];
-        parent::__construct();
+        return 'announcements';
     }
 
     /**
-     * @copydoc PKPHandler::authorize
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
      */
-    public function authorize($request, &$args, $roleAssignments)
+    public function getRouteGroupMiddleware(): array
+    {
+        return [
+            "has.user",
+            "has.context",
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN, 
+                Role::ROLE_ID_MANAGER,
+            ]),
+        ];
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
+    public function getGroupRoutes(): void
+    {         
+        Route::get('', $this->getMany(...))
+            ->name('announcement.getMany');
+
+        Route::get('{announcementId}', $this->get(...))
+            ->name('announcement.getAnnouncement')
+            ->whereNumber('announcementId');
+        
+        Route::post('', $this->add(...))
+            ->name('announcement.add');
+        
+        Route::put('{announcementId}', $this->edit(...))
+            ->name('announcement.edit')
+            ->whereNumber('announcementId');
+        
+        Route::delete('{announcementId}', $this->delete(...))
+            ->name('announcement.delete');
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
@@ -99,6 +106,7 @@ class PKPAnnouncementHandler extends APIHandler
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
+
         $this->addPolicy($rolePolicy);
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -106,45 +114,37 @@ class PKPAnnouncementHandler extends APIHandler
 
     /**
      * Get a single submission
-     *
-     * @param \Slim\Http\Request $slimRequest Slim request object
-     * @param \PKP\core\APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return \PKP\core\APIResponse
      */
-    public function get($slimRequest, $response, $args)
+    public function get(Request $illuminateRequest): JsonResponse
     {
-        $announcement = Repo::announcement()->get((int) $args['announcementId']);
+        $announcement = Repo::announcement()->get((int) $illuminateRequest->route('announcementId'));
 
         if (!$announcement) {
-            return $response->withStatus(404)->withJsonError('api.announcements.404.announcementNotFound');
+            return response()->json([
+                'error' => __('api.announcements.404.announcementNotFound')
+            ], Response::HTTP_NOT_FOUND);
         }
 
         // The assocId in announcements should always point to the contextId
         if ($announcement->getData('assocId') !== $this->getRequest()->getContext()->getId()) {
-            return $response->withStatus(404)->withJsonError('api.announcements.400.contextsNotMatched');
+            return response()->json([
+                'error' => __('api.announcements.400.contextsNotMatched')
+            ], Response::HTTP_BAD_REQUEST);
         }
 
-        return $response->withJson(Repo::announcement()->getSchemaMap()->map($announcement), 200);
+        return response()->json(Repo::announcement()->getSchemaMap()->map($announcement), Response::HTTP_OK);
     }
 
     /**
      * Get a collection of announcements
-     *
-     * @param \Slim\Http\Request $slimRequest Slim request object
-     * @param \PKP\core\APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return \PKP\core\APIResponse
      */
-    public function getMany($slimRequest, $response, $args)
+    public function getMany(Request $illuminateRequest): JsonResponse
     {
         $collector = Repo::announcement()->getCollector()
             ->limit(self::DEFAULT_COUNT)
             ->offset(0);
 
-        foreach ($slimRequest->getQueryParams() as $param => $val) {
+        foreach ($illuminateRequest->query() as $param => $val) {
             switch ($param) {
                 case 'typeIds':
                     $collector->filterByTypeIds(
@@ -165,26 +165,20 @@ class PKPAnnouncementHandler extends APIHandler
 
         $collector->filterByContextIds([$this->getRequest()->getContext()->getId()]);
 
-        Hook::call('API::submissions::params', [$collector, $slimRequest]);
+        Hook::call('API::submissions::params', [$collector, $illuminateRequest]);
 
         $announcements = $collector->getMany();
 
-        return $response->withJson([
+        return response()->json([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => Repo::announcement()->getSchemaMap()->summarizeMany($announcements)->values(),
-        ], 200);
+        ], Response::HTTP_OK);
     }
 
     /**
      * Add an announcement
-     *
-     * @param \Slim\Http\Request $slimRequest Slim request object
-     * @param \PKP\core\APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return \PKP\core\APIResponse
      */
-    public function add($slimRequest, $response, $args)
+    public function add(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $context = $request->getContext();
@@ -193,7 +187,7 @@ class PKPAnnouncementHandler extends APIHandler
             throw new Exception('You can not add an announcement without sending a request to the API endpoint of a particular context.');
         }
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $illuminateRequest->input());
         $params['assocType'] = Application::get()->getContextAssocType();
         $params['assocId'] = $request->getContext()->getId();
 
@@ -202,7 +196,7 @@ class PKPAnnouncementHandler extends APIHandler
         $errors = Repo::announcement()->validate(null, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         $announcement = Repo::announcement()->newDataObject($params);
@@ -256,26 +250,22 @@ class PKPAnnouncementHandler extends APIHandler
 
         Bus::batch($jobs)->dispatch();
 
-        return $response->withJson(Repo::announcement()->getSchemaMap()->map($announcement), 200);
+        return response()->json(Repo::announcement()->getSchemaMap()->map($announcement), Response::HTTP_OK);
     }
 
     /**
      * Edit an announcement
-     *
-     * @param \Slim\Http\Request $slimRequest Slim request object
-     * @param \PKP\core\APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return \PKP\core\APIResponse
      */
-    public function edit($slimRequest, $response, $args)
+    public function edit(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
 
-        $announcement = Repo::announcement()->get((int) $args['announcementId']);
+        $announcement = Repo::announcement()->get((int) $illuminateRequest->route('announcementId'));
 
         if (!$announcement) {
-            return $response->withStatus(404)->withJsonError('api.announcements.404.announcementNotFound');
+            return response()->json([
+                'error' => __('api.announcements.404.announcementNotFound')
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($announcement->getData('assocType') !== Application::get()->getContextAssocType()) {
@@ -284,10 +274,12 @@ class PKPAnnouncementHandler extends APIHandler
 
         // Don't allow to edit an announcement from one context from a different context's endpoint
         if ($request->getContext()->getId() !== $announcement->getData('assocId')) {
-            return $response->withStatus(403)->withJsonError('api.announcements.400.contextsNotMatched');
+            return response()->json([
+                'error' => __('api.announcements.400.contextsNotMatched')
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $illuminateRequest->input());
         $params['id'] = $announcement->getId();
         $params['typeId'] ??= null;
 
@@ -297,33 +289,29 @@ class PKPAnnouncementHandler extends APIHandler
 
         $errors = Repo::announcement()->validate($announcement, $params, $allowedLocales, $primaryLocale);
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         Repo::announcement()->edit($announcement, $params);
 
         $announcement = Repo::announcement()->get($announcement->getId());
 
-        return $response->withJson(Repo::announcement()->getSchemaMap()->map($announcement), 200);
+        return response()->json(Repo::announcement()->getSchemaMap()->map($announcement), Response::HTTP_OK);
     }
 
     /**
      * Delete an announcement
-     *
-     * @param \Slim\Http\Request $slimRequest Slim request object
-     * @param \PKP\core\APIResponse $response object
-     * @param array $args arguments
-     *
-     * @return \PKP\core\APIResponse
      */
-    public function delete($slimRequest, $response, $args)
+    public function delete(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
 
-        $announcement = Repo::announcement()->get((int) $args['announcementId']);
+        $announcement = Repo::announcement()->get((int) $illuminateRequest->route('announcementId'));
 
         if (!$announcement) {
-            return $response->withStatus(404)->withJsonError('api.announcements.404.announcementNotFound');
+            return response()->json([
+                'error' => __('api.announcements.404.announcementNotFound')
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($announcement->getData('assocType') !== Application::get()->getContextAssocType()) {
@@ -332,13 +320,15 @@ class PKPAnnouncementHandler extends APIHandler
 
         // Don't allow to delete an announcement from one context from a different context's endpoint
         if ($request->getContext()->getId() !== $announcement->getData('assocId')) {
-            return $response->withStatus(403)->withJsonError('api.announcements.400.contextsNotMatched');
+            return response()->json([
+                'error' => __('api.announcements.400.contextsNotMatched')
+            ], Response::HTTP_FORBIDDEN);
         }
 
         $announcementProps = Repo::announcement()->getSchemaMap()->map($announcement);
 
         Repo::announcement()->delete($announcement);
 
-        return $response->withJson($announcementProps, 200);
+        return response()->json($announcementProps, Response::HTTP_OK);
     }
 }

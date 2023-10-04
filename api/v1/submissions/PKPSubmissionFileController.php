@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file api/v1/submissions/PKPSubmissionFileHandler.php
+ * @file api/v1/submissions/PKPSubmissionFileController.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPSubmissionFileHandler
+ * @class PKPSubmissionFileController
  *
  * @ingroup api_v1_submission
  *
@@ -20,10 +20,14 @@ namespace PKP\API\v1\submissions;
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
-use PKP\core\APIResponse;
+use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use PKP\core\PKPRequest;
+use PKP\core\PKPBaseController;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
-use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
@@ -35,63 +39,81 @@ use PKP\submission\GenreDAO;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 
-class PKPSubmissionFileHandler extends APIHandler
+class PKPSubmissionFileController extends PKPBaseController
 {
     /**
-     * Constructor
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
-    public function __construct()
+    public function getHandlerPath(): string
     {
-        $this->_handlerPath = 'submissions/{submissionId:\d+}/files';
-        $this->_endpoints = [
-            'GET' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'getMany'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionFileId:\d+}',
-                    'handler' => [$this, 'get'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
-                ],
-            ],
-            'POST' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'add'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
-                ],
-            ],
-            'PUT' => [
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionFileId:\d+}',
-                    'handler' => [$this, 'edit'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionFileId:\d+}/copy',
-                    'handler' => [$this, 'copy'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR],
-                ],
-            ],
-            'DELETE' => [
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{submissionFileId:\d+}',
-                    'handler' => [$this, 'delete'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
-                ],
-            ],
-        ];
-        parent::__construct();
+        return 'submissions/{submissionId}/files';
     }
 
-    //
-    // Implement methods from PKPHandler
-    //
-    public function authorize($request, &$args, $roleAssignments)
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
+     */
+    public function getRouteGroupMiddleware(): array
     {
-        $route = $this->getSlimRequest()->getAttribute('route');
+        return [
+            "has.user",
+            "has.context",
+        ];
+    }
+
+    public function getGroupRoutes(): void
+    {       
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_SUB_EDITOR,
+                Role::ROLE_ID_ASSISTANT,
+                Role::ROLE_ID_AUTHOR,
+            ]),
+        ])->group(function(){
+            
+            Route::get('', $this->getMany(...))
+                ->name('submission.files.getMany');
+
+            Route::get('{submissionFileId}', $this->get(...))
+                ->name('submission.files.getFile')
+                ->whereNumber('submissionFileId');
+            
+            Route::post('', $this->add(...))
+                ->name('submission.files.add');
+            
+            Route::put('{submissionFileId}', $this->edit(...))
+                ->name('submission.files.edit')
+                ->whereNumber('submissionFileId');
+            
+            Route::put('{submissionFileId}', $this->delete(...))
+                ->name('submission.files.delete')
+                ->whereNumber('submissionFileId');
+            
+        })->whereNumber('submissionId');
+        
+        Route::middleware([
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SITE_ADMIN, 
+                Role::ROLE_ID_SUB_EDITOR,
+            ]),
+        ])->group(function(){
+            
+            Route::put('{submissionFileId}/copy', $this->copy(...))
+                ->name('submission.files.copy')
+                ->whereNumber('submissionFileId');
+
+        })->whereNumber('submissionId');
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
+    {
+        $illuminateRequest = $args[0]; /** @var \Illuminate\Http\Request $illuminateRequest */
+        $actionName = static::getRouteActionName($illuminateRequest);
 
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
@@ -99,11 +121,17 @@ class PKPSubmissionFileHandler extends APIHandler
 
         $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments));
 
-        if ($route->getName() === 'add') {
-            $params = $this->getSlimRequest()->getParsedBody();
+        if ($actionName === 'add') {
+            $params = $illuminateRequest->input();
             $fileStage = isset($params['fileStage']) ? (int) $params['fileStage'] : 0;
-            $this->addPolicy(new SubmissionFileStageAccessPolicy($fileStage, SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY, 'api.submissionFiles.403.unauthorizedFileStageIdWrite'));
-        } elseif ($route->getName() === 'getMany') {
+            $this->addPolicy(
+                new SubmissionFileStageAccessPolicy(
+                    $fileStage, 
+                    SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY, 
+                    'api.submissionFiles.403.unauthorizedFileStageIdWrite'
+                )
+            );
+        } elseif ($actionName === 'getMany') {
             // Anyone passing SubmissionAccessPolicy is allowed to access getMany,
             // but the endpoint will return different files depending on the user's
             // stage assignments.
@@ -111,7 +139,15 @@ class PKPSubmissionFileHandler extends APIHandler
             $accessMode = $this->getSlimRequest()->getMethod() === 'GET'
                 ? SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ
                 : SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY;
-            $this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, $accessMode, (int) $route->getArgument('submissionFileId')));
+            $this->addPolicy(
+                new SubmissionFileAccessPolicy(
+                    $request, 
+                    $args, 
+                    $roleAssignments, 
+                    $accessMode, 
+                    (int) $illuminateRequest->route('submissionFileId')
+                )
+            );
         }
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -119,20 +155,14 @@ class PKPSubmissionFileHandler extends APIHandler
 
     /**
      * Get a collection of submission files
-     *
-     * @param \Slim\Http\Request $slimRequest
-     * @param APIResponse $response
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function getMany($slimRequest, $response, $args)
+    public function getMany(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
 
         $params = [];
 
-        foreach ($slimRequest->getQueryParams() as $param => $val) {
+        foreach ($illuminateRequest->query() as $param => $val) {
             switch ($param) {
                 case 'fileStages':
                 case 'reviewRoundIds':
@@ -166,7 +196,9 @@ class PKPSubmissionFileHandler extends APIHandler
 
         // Managers can access files for submissions they are not assigned to
         if (!$stageAssignments && !count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
-            return $response->withStatus(403)->withJsonError('api.403.unauthorized');
+            return response()->json([
+                'error' => __('api.403.unauthorized'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
         // Set the allowed file stages based on stage assignment
@@ -184,7 +216,9 @@ class PKPSubmissionFileHandler extends APIHandler
             : $params['fileStages'];
         foreach ($fileStages as $fileStage) {
             if (!in_array($fileStage, $allowedFileStages)) {
-                return $response->withStatus(403)->withJsonError('api.submissionFiles.403.unauthorizedFileStageId');
+                return response()->json([
+                    'error' => __('api.submissionFiles.403.unauthorizedFileStageId'),
+                ], Response::HTTP_FORBIDDEN);
             }
         }
 
@@ -213,7 +247,9 @@ class PKPSubmissionFileHandler extends APIHandler
 
             foreach ($reviewRoundIds as $reviewRoundId) {
                 if (!in_array($reviewRoundId, $allowedReviewRoundIds)) {
-                    return $response->withStatus(403)->withJsonError('api.submissionFiles.403.unauthorizedReviewRound');
+                    return response()->json([
+                        'error' => __('api.submissionFiles.403.unauthorizedReviewRound'),
+                    ], Response::HTTP_FORBIDDEN);
                 }
             }
 
@@ -231,19 +267,13 @@ class PKPSubmissionFileHandler extends APIHandler
             'items' => $items->values(),
         ];
 
-        return $response->withJson($data, 200);
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**
      * Get a single submission file
-     *
-     * @param \Slim\Http\Request $slimRequest
-     * @param APIResponse $response
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function get($slimRequest, $response, $args)
+    public function get(Request $illuminateRequest): JsonResponse
     {
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
 
@@ -251,29 +281,25 @@ class PKPSubmissionFileHandler extends APIHandler
             ->getSchemaMap()
             ->map($submissionFile, $this->getFileGenres());
 
-        return $response->withJson($data, 200);
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**
      * Add a new submission file
-     *
-     * @param \Slim\Http\Request $slimRequest
-     * @param APIResponse $response
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function add($slimRequest, $response, $args)
+    public function add(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         if (empty($_FILES)) {
-            return $response->withStatus(400)->withJsonError('api.files.400.noUpload');
+            return response()->json([
+                'error' => __('api.files.400.noUpload'),
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         if ($_FILES['file']['error'] !== UPLOAD_ERR_OK) {
-            return $this->getUploadErrorResponse($response, $_FILES['file']['error']);
+            return $this->getUploadErrorResponse($_FILES['file']['error']);
         }
 
         $fileManager = new FileManager();
@@ -289,7 +315,7 @@ class PKPSubmissionFileHandler extends APIHandler
             $submissionDir . '/' . uniqid() . '.' . $extension
         );
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION_FILE, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION_FILE, $illuminateRequest->input());
         $params['fileId'] = $fileId;
         $params['submissionId'] = $submission->getId();
         $params['uploaderUserId'] = (int) $request->getUser()->getId();
@@ -323,7 +349,7 @@ class PKPSubmissionFileHandler extends APIHandler
 
         if (!empty($errors)) {
             Services::get('file')->delete($fileId);
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         // Review attachments and discussion files can not be uploaded through this API endpoint
@@ -334,7 +360,9 @@ class PKPSubmissionFileHandler extends APIHandler
         ];
         if (in_array($params['fileStage'], $notAllowedFileStages)) {
             Services::get('file')->delete($fileId);
-            return $response->withStatus(400)->withJsonError('api.submissionFiles.403.unauthorizedFileStageIdWrite');
+            return response()->json([
+                'error' => __('api.submissionFiles.403.unauthorizedFileStageIdWrite'),
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         // A valid review round is required when uploading to a review file stage
@@ -347,7 +375,9 @@ class PKPSubmissionFileHandler extends APIHandler
         if (in_array($params['fileStage'], $reviewFileStages)) {
             if (empty($params['assocType']) || $params['assocType'] !== Application::ASSOC_TYPE_REVIEW_ROUND || empty($params['assocId'])) {
                 Services::get('file')->delete($fileId);
-                return $response->withStatus(400)->withJsonError('api.submissionFiles.400.missingReviewRoundAssocType');
+                return response()->json([
+                    'error' => __('api.submissionFiles.400.missingReviewRoundAssocType'),
+                ], Response::HTTP_BAD_REQUEST);
             }
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
             $reviewRound = $reviewRoundDao->getById($params['assocId']);
@@ -358,7 +388,9 @@ class PKPSubmissionFileHandler extends APIHandler
                     || $reviewRound->getData('submissionId') != $params['submissionId']
                     || $reviewRound->getData('stageId') != $stageId) {
                 Services::get('file')->delete($fileId);
-                return $response->withStatus(400)->withJsonError('api.submissionFiles.400.reviewRoundSubmissionNotMatch');
+                return response()->json([
+                    'error' => __('api.submissionFiles.400.reviewRoundSubmissionNotMatch'),
+                ], Response::HTTP_BAD_REQUEST);
             }
         }
 
@@ -375,31 +407,27 @@ class PKPSubmissionFileHandler extends APIHandler
             ->getSchemaMap()
             ->map($submissionFile, $this->getFileGenres());
 
-        return $response->withJson($data, 200);
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**
      * Edit a submission file
-     *
-     * @param \Slim\Http\Request $slimRequest
-     * @param APIResponse $response
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function edit($slimRequest, $response, $args)
+    public function edit(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION_FILE, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION_FILE, $illuminateRequest->input());
 
         // Don't allow these properties to be modified
         unset($params['submissionId'], $params['fileId'], $params['uploaderUserId']);
 
         if (empty($params) && empty($_FILES['file'])) {
-            return $response->withStatus(400)->withJsonError('api.submissionsFiles.400.noParams');
+            return response()->json([
+                'error' => __('api.submissionsFiles.400.noParams'),
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $primaryLocale = $request->getContext()->getPrimaryLocale();
@@ -414,13 +442,13 @@ class PKPSubmissionFileHandler extends APIHandler
             );
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         // Upload a new file
         if (!empty($_FILES['file'])) {
             if ($_FILES['file']['error'] !== UPLOAD_ERR_OK) {
-                return $this->getUploadErrorResponse($response, $_FILES['file']['error']);
+                return $this->getUploadErrorResponse($_FILES['file']['error']);
             }
 
             $fileManager = new FileManager();
@@ -455,32 +483,30 @@ class PKPSubmissionFileHandler extends APIHandler
             ->getSchemaMap()
             ->map($submissionFile, $this->getFileGenres());
 
-        return $response->withJson($data, 200);
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**
      * Copy a submission file to another file stage
-     *
-     * @param \Slim\Http\Request $slimRequest
-     * @param APIResponse $response
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function copy($slimRequest, $response, $args)
+    public function copy(Request $illuminateRequest): JsonResponse
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
 
-        $params = $slimRequest->getParsedBody();
+        $params = $illuminateRequest->input();
         if (empty($params['toFileStage'])) {
-            return $response->withStatus(400)->withJsonError('api.submissionFiles.400.noFileStageId');
+            return response()->json([
+                'error' => __('api.submissionFiles.400.noFileStageId'),
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $toFileStage = (int) $params['toFileStage'];
 
         if (!in_array($toFileStage, Repo::submissionFile()->getFileStages())) {
-            return $response->withStatus(400)->withJsonError('api.submissionFiles.400.invalidFileStage');
+            return response()->json([
+                'error' => __('api.submissionFiles.400.invalidFileStage'),
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         // Expect a review round id when copying to a review stage, or use the latest
@@ -493,7 +519,9 @@ class PKPSubmissionFileHandler extends APIHandler
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
                 $reviewRound = $reviewRoundDao->getById($reviewRoundId);
                 if (!$reviewRound || $reviewRound->getSubmissionId() != $submission->getId()) {
-                    return $response->withStatus(400)->withJsonError('api.submissionFiles.400.reviewRoundSubmissionNotMatch');
+                    return response()->json([
+                        'error' => __('api.submissionFiles.400.reviewRoundSubmissionNotMatch'),
+                    ], Response::HTTP_BAD_REQUEST);
                 }
             } else {
                 // Use the latest review round of the appropriate stage
@@ -508,7 +536,9 @@ class PKPSubmissionFileHandler extends APIHandler
                 }
             }
             if ($reviewRoundId === null) {
-                return $response->withStatus(400)->withJsonError('api.submissionFiles.400.reviewRoundIdRequired');
+                return response()->json([
+                    'error' => __('api.submissionFiles.400.reviewRoundIdRequired'),
+                ], Response::HTTP_BAD_REQUEST);
             }
         }
 
@@ -524,19 +554,13 @@ class PKPSubmissionFileHandler extends APIHandler
             ->getSchemaMap()
             ->map($newSubmissionFile, $this->getFileGenres());
 
-        return $response->withJson($data, 200);
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**
      * Delete a submission file
-     *
-     * @param \Slim\Http\Request $slimRequest
-     * @param APIResponse $response
-     * @param array $args arguments
-     *
-     * @return APIResponse
      */
-    public function delete($slimRequest, $response, $args)
+    public function delete(Request $illuminateRequest): JsonResponse
     {
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
 
@@ -546,7 +570,7 @@ class PKPSubmissionFileHandler extends APIHandler
 
         Repo::submissionFile()->delete($submissionFile);
 
-        return $response->withJson($data, 200);
+        return response()->json($data, Response::HTTP_OK);
     }
 
     /**
@@ -565,26 +589,34 @@ class PKPSubmissionFileHandler extends APIHandler
      * Helper method to get the appropriate response when an error
      * has occurred during a file upload
      *
-     * @param APIResponse $response
      * @param int $error One of the UPLOAD_ERR_ constants
-     *
-     * @return APIResponse
      */
-    private function getUploadErrorResponse($response, $error)
+    private function getUploadErrorResponse(int $error): JsonResponse
     {
         switch ($error) {
             case UPLOAD_ERR_INI_SIZE:
             case UPLOAD_ERR_FORM_SIZE:
-                return $response->withStatus(400)->withJsonError('api.files.400.fileSize', ['maxSize' => Application::getReadableMaxFileSize()]);
+                return response()->json([
+                    'error' => __('api.files.400.fileSize', ['maxSize' => Application::getReadableMaxFileSize()]),
+                ], Response::HTTP_BAD_REQUEST);
             case UPLOAD_ERR_PARTIAL:
-                return $response->withStatus(400)->withJsonError('api.files.400.uploadFailed');
+                return response()->json([
+                    'error' => __('api.files.400.uploadFailed'),
+                ], Response::HTTP_BAD_REQUEST);
             case UPLOAD_ERR_NO_FILE:
-                return $response->withStatus(400)->withJsonError('api.files.400.noUpload');
+                return response()->json([
+                    'error' => __('api.files.400.noUpload'),
+                ], Response::HTTP_BAD_REQUEST);
             case UPLOAD_ERR_NO_TMP_DIR:
             case UPLOAD_ERR_CANT_WRITE:
             case UPLOAD_ERR_EXTENSION:
-                return $response->withStatus(400)->withJsonError('api.files.400.config');
+                return response()->json([
+                    'error' => __('api.files.400.config'),
+                ], Response::HTTP_BAD_REQUEST);
         }
-        return $response->withStatus(400)->withJsonError('api.files.400.uploadFailed');
+
+        return response()->json([
+            'error' => __('api.files.400.uploadFailed'),
+        ], Response::HTTP_BAD_REQUEST);
     }
 }

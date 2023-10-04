@@ -1,60 +1,73 @@
 <?php
 
 /**
- * @file api/v1/_email/PKPEmailHandler.php
+ * @file api/v1/_email/PKPEmailController.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPEmailHandler
+ * @class PKPEmailController
  *
- * @ingroup api_v1_announcement
+ * @ingroup api_v1__email
  *
- * @brief Handle API request to send bulk email
- *
+ * @brief Controller class to handle API request to send bulk email
  */
 
 namespace PKP\API\v1\_email;
 
 use APP\facades\Repo;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Bus;
-use PKP\core\APIResponse;
-use PKP\handler\APIHandler;
+use PKP\core\PKPRequest;
+use PKP\core\PKPBaseController;
 use PKP\jobs\bulk\BulkEmailSender;
 use PKP\mail\Mailer;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use Psr\Http\Message\ServerRequestInterface;
 
-class PKPEmailHandler extends APIHandler
+class PKPEmailController extends PKPBaseController
 {
     /**
-     * Constructor
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
-    public function __construct()
+    public function getHandlerPath(): string
     {
-        $this->_handlerPath = '_email';
-
-        $this->_endpoints = [
-            'POST' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'create'],
-                    'roles' => [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER],
-                ],
-            ],
-        ];
-
-        parent::__construct();
+        return '_email';
     }
 
     /**
-     * @copydoc PKPHandler::authorize
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
      */
-    public function authorize($request, &$args, $roleAssignments)
+    public function getRouteGroupMiddleware(): array
+    {
+        return [
+            "has.user",
+            "has.context",
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_MANAGER,
+            ]),
+        ];
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
+    public function getGroupRoutes(): void
+    {       
+        Route::post('', $this->create(...))->name('_email.create');
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
@@ -69,23 +82,20 @@ class PKPEmailHandler extends APIHandler
     }
 
     /**
-     * Create a jobs queue to send a bulk email to users in one or
-     * more user groups
-     *
-     * @param array $args arguments
-     *
-     * @return APIResponse
+     * Create a jobs queue to send a bulk email to users in one or more user groups
      */
-    public function create(ServerRequestInterface $slimRequest, APIResponse $response, array $args)
+    public function create(Request $illuminateRequest): JsonResponse
     {
         $context = $this->getRequest()->getContext();
         $contextId = $context->getId();
 
         if (!in_array($contextId, (array) $this->getRequest()->getSite()->getData('enableBulkEmails'))) {
-            return $response->withStatus(403)->withJsonError('api.emails.403.disabled');
+            return response()->json([
+                'error' => __('api.emails.403.disabled'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        $requestParams = $slimRequest->getParsedBody();
+        $requestParams = $illuminateRequest->input();
 
         $params = [];
         foreach ($requestParams as $param => $val) {
@@ -122,15 +132,15 @@ class PKPEmailHandler extends APIHandler
         }
 
         if ($errors) {
-            return $response->withJson($errors, 400);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         foreach ($params['userGroupIds'] as $userGroupId) {
             if (!Repo::userGroup()->contextHasGroup($contextId, $userGroupId)
                     || in_array($userGroupId, (array) $context->getData('disableBulkEmailUserGroups'))) {
-                return $response->withJson([
+                return response()->json([
                     'userGroupIds' => [__('api.emails.403.notAllowedUserGroup')],
-                ], 400);
+                ], Response::HTTP_BAD_REQUEST);
             }
         }
 
@@ -163,8 +173,8 @@ class PKPEmailHandler extends APIHandler
 
         Bus::batch($jobs)->dispatch();
 
-        return $response->withJson([
+        return response()->json([
             'totalBulkJobs' => count($batches),
-        ], 200);
+        ], Response::HTTP_OK);
     }
 }

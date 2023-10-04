@@ -1,16 +1,16 @@
 <?php
 /**
- * @file api/v1/_payments/PKPBackendPaymentsSettingsHandler.php
+ * @file api/v1/_payments/PKPBackendPaymentsSettingsController.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPBackendPaymentsSettingsHandler
+ * @class PKPBackendPaymentsSettingsController
  *
- * @ingroup api_v1_backend
+ * @ingroup api_v1__payments
  *
- * @brief A private API endpoint handler for payment settings. It may be
+ * @brief A private API endpoint controller for payment settings. It may be
  *  possible to deprecate this when we have a working endpoint for plugin
  *  settings.
  */
@@ -18,8 +18,13 @@
 namespace PKP\API\v1\_payments;
 
 use APP\core\Services;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Collection;
-use PKP\handler\APIHandler;
+use PKP\core\PKPRequest;
+use PKP\core\PKPBaseController;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PolicySet;
@@ -28,33 +33,42 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\interfaces\EntityWriteInterface;
 
-class PKPBackendPaymentsSettingsHandler extends APIHandler
+class PKPBackendPaymentsSettingsController extends PKPBaseController
 {
     /**
-     * Constructor
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
-    public function __construct()
+    public function getHandlerPath(): string
     {
-        $rootPattern = '/{contextPath}/api/{version}/_payments';
-        $this->_endpoints = array_merge_recursive($this->_endpoints, [
-            'PUT' => [
-                [
-                    'pattern' => $rootPattern,
-                    'handler' => [$this, 'edit'],
-                    'roles' => [
-                        Role::ROLE_ID_SITE_ADMIN,
-                        Role::ROLE_ID_MANAGER,
-                    ],
-                ],
-            ],
-        ]);
-        parent::__construct();
+        return '_payments';
     }
 
     /**
-     * @copydoc PKPHandler::authorize
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
      */
-    public function authorize($request, &$args, $roleAssignments)
+    public function getRouteGroupMiddleware(): array
+    {
+        return [
+            "has.user",
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_MANAGER,
+            ]),
+        ];
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
+    public function getGroupRoutes(): void
+    {       
+        Route::get('', $this->edit(...))->name('_payment.backend.edit');
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
@@ -63,6 +77,7 @@ class PKPBackendPaymentsSettingsHandler extends APIHandler
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
+
         $this->addPolicy($rolePolicy);
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -70,21 +85,16 @@ class PKPBackendPaymentsSettingsHandler extends APIHandler
 
     /**
      * Receive requests to edit the payments form
-     *
-     * @param \Slim\Http\Request $slimRequest Slim request object
-     * @param \PKP\core\APIResponse $response object
-     *
-     * @return \PKP\core\APIResponse
      */
-    public function edit($slimRequest, $response, $args)
+    public function edit(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $context = $request->getContext();
-        $params = $slimRequest->getParsedBody();
+        $params = $illuminateRequest->input();
         $contextService = Services::get('context');
 
         // Process query params to format incoming data as needed
-        foreach ($slimRequest->getParsedBody() as $param => $val) {
+        foreach ($illuminateRequest->input() as $param => $val) {
             switch ($param) {
                 case 'paymentsEnabled':
                     $params[$param] = $val === 'true';
@@ -102,8 +112,9 @@ class PKPBackendPaymentsSettingsHandler extends APIHandler
                 $context->getSupportedFormLocales(),
                 $context->getPrimaryLocale()
             );
+
             if (!empty($errors)) {
-                return $response->withStatus(400)->withJson($errors);
+                return response()->json($errors, Response::HTTP_BAD_REQUEST);
             }
         }
 
@@ -111,7 +122,7 @@ class PKPBackendPaymentsSettingsHandler extends APIHandler
         Hook::call(
             'API::payments::settings::edit',
             [
-                $slimRequest,
+                $illuminateRequest,
                 $request,
                 $params,
                 $updatedSettings = new Collection(),
@@ -120,12 +131,12 @@ class PKPBackendPaymentsSettingsHandler extends APIHandler
         );
 
         if ($errors->isNotEmpty()) {
-            return $response->withStatus(400)->withJson($errors->toArray());
+            return response()->json($errors->toArray(), Response::HTTP_BAD_REQUEST);
         }
 
         $context = $contextService->get($context->getId());
         $contextService->edit($context, $params, $request);
 
-        return $response->withJson(array_merge($params, $updatedSettings->toArray()));
+        return response()->json(array_merge($params, $updatedSettings->toArray()), Response::HTTP_OK);
     }
 }

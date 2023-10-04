@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-10-03 07:06+0000\n"
+"PO-Revision-Date: 2023-10-04 15:08+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/lv/>\n"
@@ -413,9 +413,9 @@ msgstr "Paziņot autoriem"
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
-"Nosūtiet e-pasta vēstuli autoriem, lai informētu viņus par to, ka viņu "
-"iesniegtais darbs ir pieņemts publicēšanai. Šī e-pasta vēstule netiks "
-"nosūtīta, kamēr lēmums nebūs reģistrēts."
+"Nosūtīt autoriem e-pastu, lai informētu, ka viņu iesniegtais darbs ir "
+"pieņemts publicēšanai. Šī e-pasta vēstule netiks nosūtīta, kamēr lēmums "
+"nebūs reģistrēts."
 
 msgid "publication.titleAbstract"
 msgstr "Nosaukums un kopsavilkums"
@@ -1594,3 +1594,259 @@ msgstr "1. Augšupielādēt datni"
 
 msgid "submission.submit.uploadSubmissionFile"
 msgstr "Augšupielādēt iesniedzamā materiāla datni"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Atgriezts atpakaļ uz recenzēšanu."
+
+msgid "editor.submission.stageParticipants"
+msgstr "Dalībnieki"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Neviens nav piešķirts"
+
+msgid "editor.submission.participant"
+msgstr "Dalībnieks"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Piešķirt dalībnieku"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Rediģēt piešķīrumu"
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Noņemt dalībnieku"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+"Jūs gatavojaties noņemt šo dalībnieku no <strong>visiem</strong> posmiem."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Jāizvēlas lietotāju grupa."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Jāizvēlas norādītās lietotāju grupas lietotājs."
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Aizliegt metadatu rediģēšanu"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Atļaut metadatu rediģēšanu"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Vai tiešām šajā posmā aizliegt šī materiāla autoriem rediģēt materiāla "
+"metadatus?"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Vai tiešām šajā posmā atļaut šī materiāla autoriem rediģēt materiāla "
+"metadatus?"
+
+msgid "editor.submission.decision"
+msgstr "Lēmums"
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Paziņot recenzentiem"
+
+msgid "editor.submission.decision.accept"
+msgstr "Pieņemt materiālu"
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Materiāls pieņemts"
+
+msgid "editor.submission.decision.decline"
+msgstr "Noraidīt materiālu"
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} noraidīja šo materiālu."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Materiāls noraidīts"
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"Nosūtīt autoriem e-pastu, lai informētu par to, ka viņu materiāls ir "
+"noraidīts. Šī e-pasta vēstule netiks nosūtīta, kamēr lēmums nebūs reģistrēts."
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Šī materiāla publicēšana tiks noraidīta. Turpmāka recenzēšana netiks veikta, "
+"un materiāls tiks arhivēts."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Jauna recenzēšanas kārta"
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Uzsākt vēl vienu šī materiāla recenzēšanas kārtu."
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} izveidoja jaunu recenzēšanas kārtu šim materiālam."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Izveidota recenzēšanas kārta"
+
+msgid "publication.urlPath.duplicate"
+msgstr "URL ceļš jau ir izmantots, un to nevar izmantot atkārtoti."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "URL ceļš nedrīkst būt skaitlis."
+
+msgid "publication.version.all"
+msgstr "Visas versijas"
+
+msgid "publication.version.confirm"
+msgstr "Vai tiešām vēlaties izveidot jaunu versiju?"
+
+msgid "publication.wordCount"
+msgstr "Vārdu skaits: {$count}/{$limit}"
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+"Neizdevās atzīmēt DOI nepieciešamību sinhronizēt materiālam {$pubObjectTitle}"
+". DOI nevar atzīmēt kā tādu, kam nepieciešama sinhronizācija, jo tas vēl nav "
+"reģistrēts vai iesniegts."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Šis ir priekšskatījums un materiāls nav publicēts. <a href=\"{$url}\">Skatīt "
+"materiālu</a>"
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr "Jauns materiāls gaida nosūtīšanu recenzēšanai vai noraidīšanu."
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Lietotāji tiek piešķirti darbplūsmas posmiem pēc lietotāju grupas. Jebkurš "
+"lietotājs, kas piešķirts šim posmam, automātiski tiks piešķirts arī citiem "
+"posmiem, kuriem ir piešķirta viņa lietotāju grupa. Tas parasti ir paredzēts "
+"redaktoriem, autoriem un tulkotājiem."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"Jūsu izvēlētajam dalībniekam ir piešķirts uzdevums veikt anonīmu "
+"recenzēšanu. Ja piešķirsiet viņu kā dalībnieku, viņam būs piekļuve autora "
+"identitātei. Ieteicams nepiešķirt šo dalībnieku, kamēr nav iespējams "
+"patstāvīgi nodrošināt recenzēšanas procesa integritāti."
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Nosūtīt e-pastu recenzentiem, lai pateiktos viņiem par recenziju un "
+"paziņotu, ka ir pieņemts lēmums. Katram recenzentam tiks nosūtīts atsevišķs "
+"e-pasts, lai aizsargātu viņu anonimitāti. Lai droši iekļautu katra "
+"recenzenta vārdu, ziņojumā var izmantot frāzi {$recipientName}."
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Nosūtīt autoriem e-pastu, lai informētu viņus par to, ka recenzēšanas kārta "
+"ir noslēgusies. Šis e-pasts netiks nosūtīts, kamēr lēmums nebūs reģistrēts."
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+"Materiālam {$title} ir izveidota jauna recenzēšanas kārta. Autors ir "
+"informēts, ja vien neesat izvēlējies šo e-pastu izlaist."
+
+msgid "doi.submission.notPublished"
+msgstr ""
+"Neizdevās atzīmēt DOI, kas reģistrēts materiālam {$pubObjectTitle}. "
+"Materiālam jābūt publicētam pirms statusa atjaunināšanas ."
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Šī materiāla publicēšana tiks noraidīta. Recenzēšanas posms tiks slēgts, un "
+"materiāls tiks arhivēts."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr ""
+"Materiāls {$title} ir noraidīts un nosūtīts arhivēšanai. Visi paziņojumi ir "
+"nosūtīti, izņemot tos, kurus izvēlējāties izlaist."
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Pārskatīt informāciju"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Apstiprināt"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Jums ir jāievada šīs datnes nosaukums"
+
+msgid "submission.upload.noGenre"
+msgstr "Trūkst vai nederīgs komponents!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Trūkst vai nederīga lietotāju grupa!"
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Lūdzu, izvēlieties datni, kuru vēlaties mainīt."
+
+msgid "submission.upload.userGroup"
+msgstr "Augšupielādēt šo datni ar manu lomu kā..."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Augšupielādēt bibliotēkas datni"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Iesniedzamā dokumenta kategorija"
+
+msgid "submission.upload.finalDraft"
+msgstr "Augšupielādēt datni"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Augšupielādēt datnes"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"Kad piešķirtā datne ir recenzēta, zemāk ierakstiet piezīmes par datni un/vai "
+"augšupielādējiet datnes (vai citas datnes) kopiju ar piezīmēm."
+
+msgid "submission.upload.proof"
+msgstr "Augšupielādēt publicēšanai gatavu datni"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Šobrīd nav datņu, kuras vajadzētu pārskatīt."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Materiāls ir atkārtoti iesniegts vēl vienai recenzēšanas kārtai."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Materiāls atkārtoti jāiesniedz vēl vienai recenzēšanas kārtai."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Nosūtīts ārējai recenzēšanai."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Materiāls pieņemts."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Materiāls noraidīts."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Tiek gaidīta recenzentu piešķiršana."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Tiek gaidītas atbildes no recenzentiem."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Ir iesniegtas jaunas recenzijas."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Visi recenzenti ir snieguši atbildes, un ir jāpieņem lēmums."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Recenzēšanas termiņš ir nokavēts."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Tiek gaidīti ieteikumi no redaktoriem."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Ir iesniegti jauni redakcijas ieteikumi."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Visi ieteikumi ir saņemti, un ir jāpieņem lēmums."
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "Neaktīvs vairāk nekā {$days} dienas {$stage} posmā."
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Nosūtīt e-pastu piešķirtajiem recenzentiem, lai informētu viņus par to, ka "
+"viņu recenzēšanas uzdevums ir atcelts."

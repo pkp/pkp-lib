@@ -26,7 +26,7 @@ interface EntityPropertyInterface
      * @param array $props The properties to include in the result
      * @param array $args Additional variable which may be required
      *		$args['request'] PKPRequest Required
-     *		$args['slimRequest'] SlimRequest
+     *		$args['apiRequest'] \Illuminate\Http\Request
      *
      * @return array
      */
@@ -38,7 +38,7 @@ interface EntityPropertyInterface
      * @param object $entity The object to convert
      * @param array $args Additional variables which may be required
      *		$args['request'] PKPRequest Required
-     *		$args['slimRequest'] SlimRequest
+     *		$args['apiRequest'] \Illuminate\Http\Request
      *
      * @return array
      */
@@ -50,7 +50,7 @@ interface EntityPropertyInterface
      * @param object $entity The object to convert
      * @param array $args Additional variable which may be required
      *		$args['request'] PKPRequest Required
-     *		$args['slimRequest'] SlimRequest
+     *		$args['apiRequest'] \Illuminate\Http\Request
      *
      * @return array
      */

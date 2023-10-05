@@ -22,6 +22,7 @@ namespace PKP\core;
 
 use APP\core\Application;
 use Exception;
+use Illuminate\Http\Response;
 use PKP\handler\APIHandler;
 use PKP\session\SessionManager;
 
@@ -85,18 +86,13 @@ class APIRouter extends PKPRouter
      */
     public function route($request)
     {
-        // Ensure slim library is available
-        require_once('lib/pkp/lib/vendor/autoload.php'); // FIXME#7698: will be removed once merged pkp/pkp-lib#7698
-
         $sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
 
         if (!file_exists($sourceFile)) {
-            http_response_code('404');
-            header('Content-Type: application/json');
-            echo json_encode([
-                'error' => 'api.404.endpointNotFound',
-                'errorMessage' => __('api.404.endpointNotFound'),
-            ]);
+            response()->json([
+                'error'         => 'api.404.endpointNotFound',
+                'errorMessage'  => __('api.404.endpointNotFound'),
+            ], Response::HTTP_NOT_FOUND)->send();
             exit;
         }
 
@@ -107,12 +103,6 @@ class APIRouter extends PKPRouter
 
         $handler = require('./' . $sourceFile);
         $this->setHandler($handler);
-        
-        // FIXME#7698: With removal of Slim, no app instance to run
-        $handlerApp = $handler->getApp();
-        if ($handlerApp !== null) {
-            $handler->getApp()->run();
-        }
     }
 
     /**
@@ -121,8 +111,6 @@ class APIRouter extends PKPRouter
      * @param PKPRequest $request
      *
      * @return string
-     * 
-     * FIXME#7698: probably will be removed/modified once merged pkp/pkp-lib#7698
      */
     public function getRequestedOp($request)
     {
@@ -130,38 +118,21 @@ class APIRouter extends PKPRouter
             return $routeActionName;
         }
 
-        /** @var APIHandler */
-        $handler = $this->getHandler();
-        $container = $handler->getApp()->getContainer();
-        $router = $container->get('router');
-        $slimRequest = $handler->getSlimRequest();
-        $routeInfo = $router->dispatch($slimRequest);
-        if (isset($routeInfo[1])) {
-            $route = $router->lookupRoute($routeInfo[1]);
-            $callable = $route->getCallable();
-            if (is_array($callable) && count($callable) == 2) {
-                return $callable[1];
-            }
-        }
         return '';
     }
 
     /**
      * @copydoc PKPRouter::handleAuthorizationFailure()
-     * 
-     * FIXME#7698: probably will be removed/modified once merged pkp/pkp-lib#7698
      */
     public function handleAuthorizationFailure(
         $request,
         $authorizationMessage,
         array $messageParams = []
     ) {
-        http_response_code('403');
-        header('Content-Type: application/json');
-        echo json_encode([
-            'error' => $authorizationMessage,
-            'errorMessage' => __($authorizationMessage, $messageParams),
-        ]);
+        response()->json([
+            'error'         => $authorizationMessage,
+            'errorMessage'  => __($authorizationMessage, $messageParams),
+        ], Response::HTTP_FORBIDDEN)->send();
         exit;
     }
 

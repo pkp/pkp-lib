@@ -374,6 +374,30 @@ abstract class PKPBaseController extends Controller
     }
 
     /**
+     * Fetches parameter value
+     */
+    public function getParameter(string $parameterName, mixed $default = null): mixed
+    {
+        $illuminateRequest = app('request'); /** @var \Illuminate\Http\Request $illuminateRequest */
+        $route = static::getRequestedRoute();
+
+        // we probably have an invalid url if route is null
+        if (!is_null($route)) {
+            $arguments = $route->parameters();
+            if (isset($arguments[$parameterName])) {
+                return $arguments[$parameterName];
+            }
+
+            $queryParams = $illuminateRequest->query();
+            if (isset($queryParams[$parameterName])) {
+                return $queryParams[$parameterName];
+            }
+        }
+
+        return $default;
+    }
+
+    /**
      * Convert string values in boolean, integer and number parameters to their
      * appropriate type when the string is in a recognizable format.
      *
@@ -387,8 +411,6 @@ abstract class PKPBaseController extends Controller
      * @param array $params Key/value parameters to be validated
      *
      * @return array Converted parameters
-     * 
-     * FIXME#7698: may need MODIFICATION as per need to facilitate pkp/pkp-lib#7698
      */
     public function convertStringsToSchema(string $schema, array $params): array
     {
@@ -427,8 +449,6 @@ abstract class PKPBaseController extends Controller
      * @see self::convertStringsToTypes
      *
      * @param string $type One of boolean, integer or number
-     * 
-     * FIXME#7698: May need MODIFICATION as per need to facilitate pkp/pkp-lib#7698
      */
     private function _convertStringsToSchema(mixed $value, mixed $type, object $schema): mixed
     {
@@ -513,8 +533,6 @@ abstract class PKPBaseController extends Controller
      *
      * @return bool|string  True if they validate, or a string which
      *                      contains the locale key of an error message.
-     * 
-     * FIXME#7698: May need MODIFICATION as per need to facilitate pkp/pkp-lib#7698
      */
     protected function _validateStatDates(array $params, string $dateStartParam = 'dateStart', string $dateEndParam = 'dateEnd'): bool|string
     {

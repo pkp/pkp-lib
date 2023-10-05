@@ -3,8 +3,8 @@
 /**
  * @file lib/pkp/classes/handler/APIHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class APIHandler
@@ -41,12 +41,12 @@ class APIHandler extends PKPHandler
     protected $_app; // FIXME#7698: will be removed once merged pkp/pkp-lib#7698
 
     /** @var Request */
-    protected $_request; // FIXME#7698: will be removed once merged pkp/pkp-lib#7698
+    protected $_request; // FIXME#7698: will be REMOVED once merged pkp/pkp-lib#7698
 
     protected $_endpoints = [];
 
     /** @var SlimRequest */
-    protected $_slimRequest = null; // FIXME#7698: will be removed once merged pkp/pkp-lib#7698
+    protected $_slimRequest = null; // FIXME#7698: will be REMOVED once merged pkp/pkp-lib#7698
 
     /** @var string The endpoint pattern for this handler */
     protected $_pathPattern;
@@ -109,7 +109,7 @@ class APIHandler extends PKPHandler
             }
         }
 
-        // FIXME#7698: the rest of the code will be removed once merged pkp/pkp-lib#7698
+        // FIXME#7698: the rest of the code will be REMOVED once merged pkp/pkp-lib#7698
         $this->_app = new App([
             // Load custom response handler
             'response' => function ($c) {
@@ -169,7 +169,7 @@ class APIHandler extends PKPHandler
      *
      * @return Request
      * 
-     * FIXME#7698: will be removed once merged pkp/pkp-lib#7698
+     * FIXME#7698: will be REMOVED once merged pkp/pkp-lib#7698
      */
     public function getRequest()
     {
@@ -181,7 +181,7 @@ class APIHandler extends PKPHandler
      *
      * @return SlimRequest|null
      * 
-     * FIXME#7698: will be removed once merged pkp/pkp-lib#7698
+     * FIXME#7698: will be REMOVED once merged pkp/pkp-lib#7698
      */
     public function getSlimRequest()
     {
@@ -191,7 +191,7 @@ class APIHandler extends PKPHandler
     /**
      * Set Slim request object
      *
-     * FIXME#7698: will be removed once merged pkp/pkp-lib#7698
+     * FIXME#7698: will be REMOVED once merged pkp/pkp-lib#7698
      */
     public function setSlimRequest($slimRequest)
     {
@@ -203,7 +203,7 @@ class APIHandler extends PKPHandler
      *
      * @return App
      * 
-     * FIXME#7698: will be removed once merged pkp/pkp-lib#7698
+     * FIXME#7698: will be REMOVED once merged pkp/pkp-lib#7698
      */
     public function getApp()
     {
@@ -238,6 +238,8 @@ class APIHandler extends PKPHandler
      * (Parameter names are generally defined in authorization policies
      *
      * @return int|string|null
+     * 
+     * FIXME#7698: will be REMOVED once merged pkp/pkp-lib#7698
      */
     public function getEntityId($parameterName)
     {
@@ -248,7 +250,7 @@ class APIHandler extends PKPHandler
     /**
      * setup endpoints
      * 
-     * FIXME#7698: will be removed once merged pkp/pkp-lib#7698
+     * FIXME#7698: will be REMOVED once merged pkp/pkp-lib#7698
      */
     public function setupEndpoints()
     {
@@ -273,6 +275,8 @@ class APIHandler extends PKPHandler
      * Returns the list of endpoints
      *
      * @return array
+     * 
+     * FIXME#7698: will be REMOVED to facilitate the pkp/pkp-lib#7698
      */
     public function getEndpoints()
     {
@@ -285,7 +289,7 @@ class APIHandler extends PKPHandler
      * @param string $parameterName
      * @param null|mixed $default
      *
-     * FIXME#7698: will need MODIFICATION to facilitate the pkp/pkp-lib#7698
+     * FIXME#7698: will be REMOVED to facilitate the pkp/pkp-lib#7698
      */
     public function getParameter($parameterName, $default = null)
     {
@@ -318,7 +322,7 @@ class APIHandler extends PKPHandler
      * This method will convert a query parameter to an array, and
      * supports a comma-separated list of values
      * 
-     * FIXME#7698: will be removed once merged pkp/pkp-lib#7698
+     * FIXME#7698: will be REMOVED once merged pkp/pkp-lib#7698
      */
     protected function paramToArray($value): array
     {
@@ -345,7 +349,7 @@ class APIHandler extends PKPHandler
      *
      * @return array Converted parameters
      * 
-     * FIXME#7698: will be Moved to PKPBaseController merged pkp/pkp-lib#7698
+     * FIXME#7698: will be REMOVED merged pkp/pkp-lib#7698
      */
     public function convertStringsToSchema($schema, $params)
     {
@@ -385,7 +389,7 @@ class APIHandler extends PKPHandler
      *
      * @param string $type One of boolean, integer or number
      * 
-     * FIXME#7698: will be moved to PKPBaseController once merged pkp/pkp-lib#7698
+     * FIXME#7698: will be REMOVED once merged pkp/pkp-lib#7698
      */
     private function _convertStringsToSchema($value, $type, $schema)
     {
@@ -472,7 +476,7 @@ class APIHandler extends PKPHandler
      * @return bool|string True if they validate, or a string which
      *   contains the locale key of an error message.
      * 
-     * FIXME#7698: will be moved to PKPBaseController once merged pkp/pkp-lib#7698
+     * FIXME#7698: will be REMOVED once merged pkp/pkp-lib#7698
      */
     protected function _validateStatDates($params, $dateStartParam = 'dateStart', $dateEndParam = 'dateEnd')
     {

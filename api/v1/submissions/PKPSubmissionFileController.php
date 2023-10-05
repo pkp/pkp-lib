@@ -136,7 +136,7 @@ class PKPSubmissionFileController extends PKPBaseController
             // but the endpoint will return different files depending on the user's
             // stage assignments.
         } else {
-            $accessMode = $this->getSlimRequest()->getMethod() === 'GET'
+            $accessMode = $illuminateRequest->method() === 'GET'
                 ? SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_READ
                 : SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY;
             $this->addPolicy(

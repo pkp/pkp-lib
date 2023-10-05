@@ -16,6 +16,7 @@
 namespace PKP\security\authorization;
 
 use Exception;
+use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 
 class DataObjectRequiredPolicy extends AuthorizationPolicy
@@ -136,8 +137,8 @@ class DataObjectRequiredPolicy extends AuthorizationPolicy
 
             case $router instanceof \PKP\core\APIRouter:
                 if ($this->_parameterName !== null) {
-                    $handler = $router->getHandler();
-                    return $handler->getParameter($this->_parameterName);
+                    $routeController = PKPBaseController::getRouteController();
+                    return $routeController->getParameter($this->_parameterName);
                 }
                 break;
 

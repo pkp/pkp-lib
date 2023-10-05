@@ -36,6 +36,8 @@ class LocaleBundle
     /** Keeps the translations, lazy initialized when a translation is requested */
     protected ?Translator $translator = null;
 
+    protected ?string $lastCacheKey = null;
+
     /**
      * Constructor.
      *
@@ -115,6 +117,17 @@ class LocaleBundle
     }
 
     /**
+     * Returns last cache key, which is useful for LocaleUITranslations cache key to ensure invalidating cache when po files changes
+     *
+     */
+    public function getLastCacheKey(): string
+    {
+        return $this->lastCacheKey ?? $this->_getCacheKey();
+    }
+
+
+
+    /**
      * Lazily build and retrieves the Translator instance
      */
     public function getTranslator(): Translator
@@ -135,9 +148,16 @@ class LocaleBundle
             }
             return $translator;
         };
-        $key = __METHOD__ . static::MAX_CACHE_LIFETIME . array_reduce(array_keys($this->paths), fn (string $hash, string $path): string => sha1($hash . $path . filemtime($path)), '');
+        $key = $this->_getCacheKey();
         $expiration = DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME);
         return $this->translator ??= $isSupported ? Cache::remember($key, $expiration, $loader) : $loader();
+    }
+
+    private function _getCacheKey()
+    {
+        $key = __METHOD__ . static::MAX_CACHE_LIFETIME . array_reduce(array_keys($this->paths), fn (string $hash, string $path): string => sha1($hash . $path . filemtime($path)), '');
+        $this->lastCacheKey = $key;
+        return $key;
     }
 
     /**

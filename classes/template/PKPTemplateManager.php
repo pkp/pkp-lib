@@ -834,7 +834,7 @@ class PKPTemplateManager extends Smarty
 
 
 
-        $hash = Locale::getUITranslationStringsCacheHash();
+        $hash = Locale::getUITranslator()->getCacheHash();
         $this->addJavaScript(
             'i18n_keys',
             $request->getDispatcher()->url($request, Application::ROUTE_API, $request->getContext()?->getPath() ?? 'index', '_i18n/ui.js?hash=' . $hash),

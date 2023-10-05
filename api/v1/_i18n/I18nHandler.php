@@ -52,13 +52,16 @@ class I18nHandler extends APIHandler
     public function getTranslations(SlimRequest $slimRequest, APIResponse $response, array $args): Response
     {
 
-        $translations = Locale::getUITranslationStrings();
+        $translations = Locale::getUiTranslator()->getTranslationStrings();
 
         $jsContent = 'pkp.localeKeys = ' . json_encode($translations) . ';';
 
         $response->getBody()->write($jsContent);
+
         return $response
-            ->withHeader('Content-Type', 'application/javascript');
+            ->withHeader('Content-Type', 'application/javascript')
+            // cache for one year, hash is provided as query param, which ensures fetching updated version when needed
+            ->withHeader('Cache-Control', 'public, max-age=31536000');
 
     }
 }

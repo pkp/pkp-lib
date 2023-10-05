@@ -33,6 +33,7 @@ use PKP\core\PKPRequest;
 use PKP\facades\Repo;
 use PKP\i18n\interfaces\LocaleInterface;
 use PKP\i18n\translation\LocaleBundle;
+use PKP\i18n\ui\UITranslator;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\session\SessionManager;
@@ -389,70 +390,11 @@ class Locale implements LocaleInterface
             ->toArray();
     }
 
-    /**
-     * Getting all translation strings needed in Vue.js UI
-     *
-     *
-     * @return  array Key are translation keys and values are translation strings
-     */
-    public function getUITranslationStrings(): array
+    public function getUiTranslator(): UITranslator
     {
-
-        $filePaths = $this->getUITranslationStringsJsonFilePaths();
-
-        $key = __METHOD__ . static::MAX_CACHE_LIFETIME . $this->getLocale() . array_reduce($filePaths, fn (string $hash, string $path): string => sha1($hash . $path . filemtime($path)), '');
-        $expiration = DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME);
-        return Cache::remember($key, $expiration, function () use ($filePaths) {
-            $translations = [];
-
-            // iterate over paths looking for json
-            foreach ($filePaths as $filePath) {
-                $keysJsonData = file_get_contents($filePath);
-                $keysArray = json_decode($keysJsonData, true);
-                foreach ($keysArray as $key) {
-                    $translations[$key] ??= $this->translate($key, null, [], null);
-                }
-            }
-
-            return $translations;
-        });
-    }
-
-    /**
-     * This is used by TemplateManager to ensure its fetching up to date
-     * translations.
-     *
-     * @return  array Key are translation keys and values are translation strings
-     */
-
-    public function getUITranslationStringsCacheHash(): string
-    {
-        $filePaths = $this->getUITranslationStringsJsonFilePaths();
-
-        $key = static::MAX_CACHE_LIFETIME . $this->getLocale() . array_reduce($filePaths, fn (string $hash, string $path): string => sha1($hash . $path . filemtime($path)), '');
-        return sha1($key);
-    }
-
-    /**
-     * Helper function that provides array of existing file paths to uiTranslationKeysBackend.json.
-     *
-     *
-     * @return  array Values are all paths to existing uiTranslationKeysBackend.json files, including plugins.
-     */
-    private function getUITranslationStringsJsonFilePaths(): array
-    {
-        $filePaths = [];
-
-        foreach (array_keys($this->paths) as $folder) {
-            $parentDir = dirname($folder);
-            $filePath = $parentDir . '/' . 'registry' . '/uiTranslationKeysBackend.json' ;
-            error_log($filePath);
-            if (file_exists($filePath)) {
-                $filePaths[] = $filePath;
-            }
-        }
-
-        return $filePaths;
+        $locale = $this->getLocale();
+        $localeBundleCacheKey = $this->getBundle($locale)->getLastCacheKey();
+        return new UITranslator($locale, $this->paths, $localeBundleCacheKey);
     }
 
     /**

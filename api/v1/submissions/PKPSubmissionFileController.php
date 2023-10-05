@@ -86,7 +86,7 @@ class PKPSubmissionFileController extends PKPBaseController
                 ->name('submission.files.edit')
                 ->whereNumber('submissionFileId');
             
-            Route::put('{submissionFileId}', $this->delete(...))
+            Route::delete('{submissionFileId}', $this->delete(...))
                 ->name('submission.files.delete')
                 ->whereNumber('submissionFileId');
             
@@ -145,7 +145,7 @@ class PKPSubmissionFileController extends PKPBaseController
                     $args, 
                     $roleAssignments, 
                     $accessMode, 
-                    (int) $illuminateRequest->route('submissionFileId')
+                    (int) static::getRequestedRoute()->parameter('submissionFileId')
                 )
             );
         }

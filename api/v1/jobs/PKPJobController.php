@@ -50,7 +50,9 @@ class PKPJobController extends PKPBaseController
     {
         return [
             "has.user",
-            self::roleAuthorizer([Role::ROLE_ID_SITE_ADMIN]),
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN
+            ]),
         ];
     }
 
@@ -60,19 +62,19 @@ class PKPJobController extends PKPBaseController
     public function getGroupRoutes(): Void
     {       
         Route::get('all', $this->getJobs(...))
-            ->name('job.getJobs');
+            ->name('job.getMany');
         
         Route::get('failed/all', $this->getFailedJobs(...))
-            ->name('job.getFailedJobs');
+            ->name('job.failed.getMany');
         
         Route::post('redispatch/all', $this->redispatchAllFailedJob(...))
-            ->name('job.redispatchAllFailedJob');
+            ->name('job.redispatch.all');
 
         Route::post('redispatch/{jobId}', $this->redispatchFailedJob(...))
-            ->name('job.redispatchFailedJob');
+            ->name('job.redispatch');
         
         Route::delete('failed/delete/{jobId}', $this->deleteFailedJob(...))
-            ->name('job.deleteFailedJob');
+            ->name('job.delete.failed');
     }
 
     /**

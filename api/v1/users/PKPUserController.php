@@ -36,17 +36,6 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 class PKPUserController extends PKPBaseController
 {
     /**
-     * @copydoc \PKP\core\PKPBaseController::authorize()
-     */
-    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
-    {
-        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
-        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-
-        return parent::authorize($request, $args, $roleAssignments);
-    }
-
-    /**
      * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
     public function getHandlerPath(): string
@@ -87,6 +76,17 @@ class PKPUserController extends PKPBaseController
 
         Route::get('', $this->getMany(...))
             ->name('user.getManyUsers');
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
+    {
+        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+        $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
+
+        return parent::authorize($request, $args, $roleAssignments);
     }
 
     /**

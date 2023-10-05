@@ -53,8 +53,8 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
         ];
     }
 

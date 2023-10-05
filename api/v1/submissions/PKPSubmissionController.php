@@ -143,7 +143,6 @@ class PKPSubmissionController extends PKPBaseController
      */
     public function getGroupRoutes(): void
     {       
-        // group 1
         Route::middleware([
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
@@ -178,7 +177,6 @@ class PKPSubmissionController extends PKPBaseController
                 ->whereNumber(['submissionId', 'publicationId', 'contributorId']);
         });
 
-        // group 2
         Route::middleware([
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
@@ -207,7 +205,6 @@ class PKPSubmissionController extends PKPBaseController
                 ->whereNumber('submissionId');
         });
 
-        // group 3
         Route::middleware([
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
@@ -237,7 +234,6 @@ class PKPSubmissionController extends PKPBaseController
                 ->whereNumber(['submissionId', 'publicationId']);
         });
 
-        // group 4
         Route::middleware([
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
@@ -268,7 +264,6 @@ class PKPSubmissionController extends PKPBaseController
                 ->whereNumber(['submissionId', 'publicationId', 'contributorId']);
         });
 
-        // group 5
         Route::middleware([
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,

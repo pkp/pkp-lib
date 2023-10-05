@@ -17,17 +17,21 @@
 
 namespace PKP\API\v1\stats\contexts;
 
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Route;
 use PKP\plugins\Hook;
+use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\core\PKPRequest;
 use PKP\services\PKPStatsContextService;
 use PKP\statistics\PKPStatisticsHelper;
 use APP\core\Services;
 use APP\services\ContextService;
 use PKP\security\Role;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use PKP\core\PKPBaseController;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class PKPStatsContextController extends PKPBaseController
@@ -45,15 +49,13 @@ class PKPStatsContextController extends PKPBaseController
      */
     public function getRouteGroupMiddleware(): array
     {
-        $roles = implode('|', [
-            Role::ROLE_ID_SITE_ADMIN, 
-            Role::ROLE_ID_MANAGER, 
-        ]);
-
         return [
             "has.user",
             "has.context",
-            "has.roles:{$roles}",
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN, 
+                Role::ROLE_ID_MANAGER, 
+            ]),
         ];
     }
 
@@ -75,6 +77,24 @@ class PKPStatsContextController extends PKPBaseController
         
         Route::get('', $this->getMany(...))
             ->name('stats.context.multipleContextStat');
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
+    {
+        $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+
+        $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
+
+        foreach ($roleAssignments as $role => $operations) {
+            $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
+        }
+
+        $this->addPolicy($rolePolicy);
+
+        return parent::authorize($request, $args, $roleAssignments);
     }
 
     /**

@@ -140,6 +140,17 @@ class UserGridHandler extends GridHandler
             )
         );
 
+        // Roles.
+        $this->addColumn(
+            new GridColumn(
+                'roles',
+                'user.roles',
+                null,
+                null,
+                $cellProvider
+            )
+        );
+
         // Email.
         $this->addColumn(
             new GridColumn(
@@ -203,7 +214,17 @@ class UserGridHandler extends GridHandler
         $collector->limit($rangeInfo->getCount());
         $collector->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount());
         $iterator = $collector->getMany();
-        return new VirtualArrayIterator(iterator_to_array($iterator, true), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
+        $users = iterator_to_array($iterator, true);
+        foreach ($users as $user) {
+            $roles = array();
+            $userGroupsIterator = Repo::userGroup()->userUserGroups($user->getId(), $context->getId());
+            $userGroups = iterator_to_array($userGroupsIterator);
+            foreach ($userGroups as $userGroup) {
+                $roles[] = $userGroup->getLocalizedName();
+            }
+            $user->setData('roles', join(', ', $roles));
+        }
+        return new VirtualArrayIterator($users, $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
     }
 
     /**

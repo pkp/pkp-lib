@@ -27,5 +27,5 @@
         {assign var=_labelTitle value=$action->getTitle()|strip_unsafe_html}
     {/if}
 
-    {$_labelTitle|strip_unsafe_html|unescape:'html'}
+    {$_labelTitle}
 </a>

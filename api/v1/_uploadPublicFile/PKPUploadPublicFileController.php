@@ -72,7 +72,7 @@ class PKPUploadPublicFileController extends PKPBaseController
      */
     public function getGroupRoutes(): void
     {       
-        Route::option('', $this->getOptions(...))
+        Route::options('', $this->getOptions(...))
             ->name('_uploadPublicFile.getOptions');
 
         Route::post('', $this->uploadFile(...))

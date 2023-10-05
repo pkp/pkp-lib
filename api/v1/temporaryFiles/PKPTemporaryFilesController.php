@@ -64,7 +64,7 @@ class PKPTemporaryFilesController extends PKPBaseController
      */
     public function getGroupRoutes(): void
     {       
-        Route::option('', $this->getOptions(...))
+        Route::options('', $this->getOptions(...))
             ->name('temporaryFile.getOptions');
 
         Route::post('', $this->uploadFile(...))

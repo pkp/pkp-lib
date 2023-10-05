@@ -25,6 +25,18 @@ use PKP\core\Core;
 class SetupContextBasedOnRequestUrl
 {
     /**
+     * List of api path segment for which context is not required
+     * 
+     * @example
+     *      1. admin section (failed job list) : index.php/index/api/v1/jobs/all
+     *      2. admin section (create context) : index.php/_/api/v1/contexts
+     */
+    public const NON_CONTEXTUAL_PATHS = [
+        'index',
+        '_',
+    ];
+
+    /**
      * Determine and apply the correct context based on request url
      * 
      * @return mixed
@@ -33,7 +45,7 @@ class SetupContextBasedOnRequestUrl
     {
         $contextPath = Core::getContextPath($request->getPathInfo());
 
-        if ($contextPath === 'index') {
+        if (in_array($contextPath, self::NON_CONTEXTUAL_PATHS)) {
             $request->attributes->add(['context' => null]);
 
             return $next($request);

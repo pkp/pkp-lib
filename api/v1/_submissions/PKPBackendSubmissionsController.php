@@ -155,7 +155,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         foreach ($queryParams as $param => $val) {
             switch ($param) {
                 case 'assignedTo':
-                    $val = array_map('intval', $this->paramToArray($val));
+                    $val = array_map('intval', paramToArray($val));
                     if ($val == [\PKP\submission\Collector::UNASSIGNED]) {
                         $val = array_shift($val);
                     }
@@ -306,15 +306,15 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                     break;
 
                 case 'status':
-                    $collector->filterByStatus(array_map('intval', $this->paramToArray($val)));
+                    $collector->filterByStatus(array_map('intval', paramToArray($val)));
                     break;
 
                 case 'stageIds':
-                    $collector->filterByStageIds(array_map('intval', $this->paramToArray($val)));
+                    $collector->filterByStageIds(array_map('intval', paramToArray($val)));
                     break;
 
                 case 'categoryIds':
-                    $collector->filterByCategoryIds(array_map('intval', $this->paramToArray($val)));
+                    $collector->filterByCategoryIds(array_map('intval', paramToArray($val)));
                     break;
 
                 case 'daysInactive':

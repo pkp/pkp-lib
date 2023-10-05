@@ -60,7 +60,6 @@ class PKPContextController extends PKPBaseController
     {
         return [
             "has.user",
-            "has.context",
         ];
     }
 

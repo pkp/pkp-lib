@@ -31,6 +31,7 @@ use PKP\file\TemporaryFileManager;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\observers\events\PublicationPublished;
 use PKP\observers\events\PublicationUnpublished;
+use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
@@ -262,6 +263,21 @@ abstract class Repository
         // Don't allow a publication to be published before passing the review stage
         if ($submission->getData('stageId') <= WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
             $errors['reviewStage'] = __('publication.required.reviewStage');
+        }
+
+        // Orcid errors
+        if (OrcidManager::isEnabled()) {
+            $orcidIds = [];
+            foreach ($publication->getData('authors') as $author) {
+                $authorOrcid = $author->getData('orcid');
+                if ($authorOrcid and in_array($authorOrcid, $orcidIds)) {
+                    $errors['hasDuplicateOrcids'] = __('orcid.verify.duplicateOrcidAuthor');
+                } elseif ($authorOrcid && !$author->getData('orcidAccessToken')) {
+                    $errors['hasUnauthenticatedOrcid'] = __('orcid.verify.hasUnauthenticatedOrcid');
+                } else {
+                    $orcidIds[] = $authorOrcid;
+                }
+            }
         }
 
         Hook::call('Publication::validatePublish', [&$errors, $publication, $submission, $allowedLocales, $primaryLocale]);

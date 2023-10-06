@@ -19,6 +19,7 @@ namespace PKP\controllers\grid\users\reviewer\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
+use APP\orcid\actions\SendReviewToOrcid;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -125,6 +126,9 @@ class ThankReviewerForm extends Form
         $mailable->body($this->getData('message'))->subject($template->getLocalizedData('subject'));
 
         Hook::call('ThankReviewerForm::thankReviewer', [$submission, $reviewAssignment, $mailable]);
+
+        (new SendReviewToOrcid($submission, $context, $reviewAssignment))->execute();
+
         if (!$this->getData('skipEmail')) {
             $mailable->setData(Locale::getLocale());
             try {

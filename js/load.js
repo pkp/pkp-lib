@@ -79,6 +79,7 @@ import FieldControlledVocab from '@/components/Form/fields/FieldControlledVocab.
 import FieldHtml from '@/components/Form/fields/FieldHtml.vue';
 import FieldMetadataSetting from '@/components/Form/fields/FieldMetadataSetting.vue';
 import FieldOptions from '@/components/Form/fields/FieldOptions.vue';
+import FieldOrcid from "@/components/Form/fields/FieldOrcid.vue";
 import FieldPreparedContent from '@/components/Form/fields/FieldPreparedContent.vue';
 import FieldPubId from '@/components/Form/fields/FieldPubId.vue';
 import FieldRadioInput from '@/components/Form/fields/FieldRadioInput.vue';
@@ -170,6 +171,7 @@ VueRegistry.registerComponent('PkpFieldBaseAutosuggest', FieldBaseAutosuggest);
 VueRegistry.registerComponent('PkpFieldColor', FieldColor);
 VueRegistry.registerComponent('PkpFieldControlledVocab', FieldControlledVocab);
 VueRegistry.registerComponent('PkpFieldHtml', FieldHtml);
+VueRegistry.registerComponent('PkpFieldOrcid', FieldOrcid);
 VueRegistry.registerComponent('PkpFieldMetadataSetting', FieldMetadataSetting);
 VueRegistry.registerComponent('PkpFieldOptions', FieldOptions);
 VueRegistry.registerComponent('PkpFieldPreparedContent', FieldPreparedContent);

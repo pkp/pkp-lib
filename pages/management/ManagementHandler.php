@@ -470,9 +470,13 @@ class ManagementHandler extends Handler
         $apiUrl = $this->getContextApiUrl($request);
         $notifyUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_email');
 
+        $locales = $this->getSupportedFormLocales($context);
+
         $userAccessForm = new \APP\components\forms\context\UserAccessForm($apiUrl, $context);
         $isBulkEmailsEnabled = in_array($context->getId(), (array) $request->getSite()->getData('enableBulkEmails'));
         $notifyUsersForm = $isBulkEmailsEnabled ? new PKPNotifyUsersForm($notifyUrl, $context) : null;
+        // TODO: See if it needs locales
+        $orcidSettingsForm = new \PKP\components\forms\context\OrcidSettingsForm($apiUrl, $locales, $context);
 
         $templateMgr->assign([
             'pageComponent' => 'AccessPage',
@@ -488,6 +492,7 @@ class ManagementHandler extends Handler
             'components' => [
                 FORM_USER_ACCESS => $userAccessForm->getConfig(),
                 PKPNotifyUsersForm::FORM_NOTIFY_USERS => $notifyUsersForm ? $notifyUsersForm->getConfig() : null,
+                $orcidSettingsForm->id => $orcidSettingsForm->getConfig(),
             ],
         ]);
 

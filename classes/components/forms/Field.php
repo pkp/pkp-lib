@@ -53,6 +53,9 @@ abstract class Field
     /** @var mixed A default for this field when no value is specified. */
     public $default;
 
+    /** @var bool Whether the field should be ignored when a form is submitted */
+    public bool $isInert = false;
+
     /**
      * Only show this field when the field named here is not empty. Match an exact
      * value by passing an array:
@@ -127,6 +130,9 @@ abstract class Field
         }
         if (isset($this->showWhen)) {
             $config['showWhen'] = $this->showWhen;
+        }
+        if (isset($this->isInert)) {
+            $config['isInert'] = $this->isInert;
         }
 
         $config['value'] = $this->value ?? $this->default ?? null;

@@ -519,3 +519,229 @@ msgstr ""
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+
+msgid "orcid.displayName"
+msgstr "Plugin per il profilo ORCID"
+
+msgid "orcid.description"
+msgstr "Consente di importare informazioni del profilo dell'utente da ORCID."
+
+msgid "orcid.instructions"
+msgstr "È possibile pre-compilare questo form con le informazioni del proprio profilo ORCID. Inserici l'indirizzo email o l'ORCID iD associato al profilo ORCID e clicca su \"Invia\"."
+
+msgid "orcid.noData"
+msgstr "Non sono stati trovati dati su ORCID."
+
+msgid "orcid.emailOrOrcid"
+msgstr "Indirizzo email o ORCID iD:"
+
+msgid "orcid.manager.orcidProfileSettings"
+msgstr "Impostazioni del profilo ORCID"
+
+msgid "orcid.manager.settings.description"
+msgstr "Configura la API ORCID per utilizzarla per l'inserimento di informazioni del profilo ORCID nel profilo utente."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Public"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Sandbox pubblica"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Membro"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Membro Sandbox"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "Client ID"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Client segreto"
+
+msgid "orcid.author.submission"
+msgstr "Submission ORCID"
+
+msgid "orcid.author.submission.success"
+msgstr "La tua proposta è stata associata al tuo ORCID iD."
+
+msgid "orcid.author.submission.failure"
+msgstr "Non è stato possibile associare la tua proposta al tuo ORCID iD. Contatta il Direttore della rivista e segnala il tuo nome, ORCID iD e i dettagli della tua proposta."
+
+msgid "orcid.authFailure"
+msgstr "OJS non è riuscita a comunicare con il servizio ORCID. Contatta il Direttore della rivista e segnala il tuo nome, ORCID iD e i dettagli della tua proposta."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.connect"
+msgstr "Crea o connettti il tuo ID ORCID"
+
+msgid "orcid.about.display"
+msgstr ""
+"Per confermare che il tuo ORCID ID è stato confermato ed è stato utilizzato "
+"noi visualizziamo l'icona ORCID <img src=\"https://info.orcid.org/wp-content/"
+"uploads/2020/12/ORCIDiD_icon16x16.png\" alt=\"iD icon\" width=\"16\" height="
+"\"16\" border=\"0\"> vicino al tuo nome nella pagina di dettaglio del "
+"manoscritto e sul tuo profilo pubblico. <br>\n"
+"Per maggiori informazioni visita <a href=\"https://info.orcid.org/"
+"how-should-an-orcid-id-be-displayed/\">Come deve essere visualizzato un iD "
+"ORCID.</a>"
+
+msgid "orcid.about.display.title"
+msgstr "Dove vengono visualizzati gli ORCID ID?"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"Questa rivista raccoglie il tuo iD ORCID in modo che noi e la comunità in "
+"generale possiamo essere sicuri che sia correttamente identificato e "
+"collegato alle tue pubblicazioni. Ciò garantirà che il collegamento con "
+"tutto il tuo lavoro rimanga per tutta la tua carriera. <br>\n"
+"Quando clicchi sul pulsante \"Autorizza\" nel popup ORCID, ti chiederemo di "
+"condividere il tuo iD utilizzando un processo di autenticazione: "
+"registrandoti per un iD ORCID o, se ne hai già uno, accedendo al tuo account "
+"ORCID e concedendoci il permesso di ottenere il tuo iD ORCID. Facciamo ciò "
+"per assicurare che tu sia identificato correttamente e connesso in maniera "
+"sicura al tuo iD ORCID.\n"
+"Per saperne di più visita <a href=\"https://info.orcid.org/"
+"whats-so-special-about-signing-in/\">Cosa c'è di così speciale "
+"nell'accedere.</a><br>\n"
+"Questa rivista raccoglierà e visualizzerà gli iD degli autori e dei coautori "
+"autenticati sul profilo OJS e sulla pagina dell'articolo."
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Come e perché registriamo iD ORCID?"
+
+msgid "orcid.about.orcidExplanation"
+msgstr ""
+"ORCID è un ente indipendente senza scopo di lucro che attribuisce un "
+"identificativo univoco - ORCID ID - ad ogni utente. Offre inoltre la "
+"possibilità di collegare il lavoro di ricerca al proprio ORCID ID. ORCID è "
+"integrato in numerosi sistemi utilizzati da publishers, enti di "
+"finanziamento sto, istituzioni ed altri servizi collegati al mondo della "
+"ricerca scientifica. Per saperne di più visitare il sito <a href=\"https"
+"://orcid.org\">orcid.org</a>."
+
+msgid "orcid.about.title"
+msgstr "Che cos'è ORCID?"
+
+msgid "orcid.authorise"
+msgstr "Autorizza e collega il tuo ID ORCID"
+
+msgid "orcid.failure.contact"
+msgstr ""
+"Contattare il journal manager con il tuo nome, ID ORCID e dettagli del "
+"manoscritto."
+
+msgid "orcid.verify.denied"
+msgstr "Non hai consentito accesso al tuo ID ORCID."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "Un ID ORCID è già stato salvato per questo manoscritto."
+
+msgid "orcid.verify.failure"
+msgstr ""
+"Non è stato possibile verificare il tuo ORCID ID. Il link non è più valido."
+
+msgid "orcid.verify.success"
+msgstr "It tuo record ORCID è stato autenticato e associato al manoscritto."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr ""
+"Questo manoscritto sarà aggiunto al tuo record ORICD in fase di "
+"pubblicazione."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr ""
+"Non è stato possibile aggiungere questo manoscritto al tuo record ORCID."
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Questo manoscritto è stato aggiunto al tuo record ORCID."
+
+msgid "orcid.verify.title"
+msgstr "Autorizzazione ORCID"
+
+msgid "orcid.author.unauthenticated"
+msgstr "ORCID ID non è stato autenticato! Richiedere autenticazione all'autore."
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Vedi sotto per richiedere ORCID iD autenticato"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Cancella ID ORCID e token d'accesso!"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Invia email per richiedere autorizzazione ORCID all'autore"
+
+msgid "orcid.author.accessTokenStored"
+msgstr ""
+"Accesso al record ORCID consentito con finalità {$orcidAccessScope}, fino al"
+
+msgid "orcid.author.accessDenied"
+msgstr "Accesso ad ORCID è stato negato da"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Tutti"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Errori"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Definire la quantità di dati di registrazione scritti dal plugin"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "Registro richiesta ORCID"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Invia una mail agli autori all'accettazione del lavoro per richiedere "
+"l'accesso a ORCID"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Configurazioni e-mail"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Finalità del profilo di accesso"
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr ""
+"l'API ORCID è stata configurata dall'host. Le seguenti credenziali sono "
+"state salvate."
+
+msgid "orcid.manager.settings.hidden"
+msgstr "Non visibile"
+
+msgid "orcid.manager.settings.title"
+msgstr "Configurazione ORCID API"
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"Questa rivista raccoglie il tuo iD ORCID in modo che noi e la comunità in "
+"generale possiamo essere sicuri che sia correttamente identificato e "
+"collegato alle tue pubblicazioni. Ciò garantirà che il collegamento con "
+"tutto il tuo lavoro rimanga per tutta la tua carriera. <br>\n"
+"Quando clicchi sul pulsante \"Autorizza\" nel popup ORCID, ti chiederemo di "
+"condividere il tuo iD utilizzando un processo di autenticazione: "
+"registrandoti per un iD ORCID o, se ne hai già uno, accedendo al tuo account "
+"ORCID e concedendoci il permesso di ottenere il tuo iD ORCID. Facciamo ciò "
+"per assicurare che tu sia identificato correttamente e connesso in maniera "
+"sicura al tuo iD ORCID.\n"
+"Per saperne di più visita <a href=\"https://info.orcid.org/"
+"whats-so-special-about-signing-in/\">Cosa c'è di così speciale "
+"nell'accedere.</a><br>\n"
+"Questa rivista raccoglierà e visualizzerà gli iD degli autori e dei coautori "
+"autenticati sul profilo OJS e sulla pagina dell'articolo. In aggiunta, i "
+"metadati degli articoli saranno automaticamente inviati al vostro record "
+"ORCID, consentendoci di aiutarvi a mantenere il vostro record aggiornato con "
+"informazioni attendibili. Per saperne di più, consultate il sito <a href="
+"\"https://info.orcid.org/six-ways-to-make-your-orcid-id-work-for-you/\">Sei "
+"modi per far lavorare il vostro iD ORCID per voi!</a>\n"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Client segreto non valido"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Client ID non valido"

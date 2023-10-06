@@ -22,6 +22,10 @@
 	</p>
 
 	<form class="cmp_form register" id="register" method="post" action="{url op="register"}" role="form">
+        {if $orcidEnabled}
+           {include file="form/orcidProfile.tpl"}
+        {/if}
+
 		{csrf}
 
 		{if $source}

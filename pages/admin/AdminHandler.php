@@ -30,6 +30,7 @@ use PKP\cache\CacheManager;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
 use PKP\components\forms\context\PKPAnnouncementSettingsForm;
 use PKP\components\forms\highlight\HighlightForm;
+use PKP\components\forms\site\OrcidSiteSettingsForm;
 use PKP\components\listPanels\HighlightsListPanel;
 use PKP\components\listPanels\PKPAnnouncementsListPanel;
 use PKP\config\Config;
@@ -201,6 +202,7 @@ class AdminHandler extends Handler
         $siteConfigForm = new \PKP\components\forms\site\PKPSiteConfigForm($apiUrl, $locales, $site);
         $siteInformationForm = new \PKP\components\forms\site\PKPSiteInformationForm($apiUrl, $locales, $site);
         $siteBulkEmailsForm = new \PKP\components\forms\site\PKPSiteBulkEmailsForm($apiUrl, $site, $contexts);
+        $orcidSettingsForm = new OrcidSiteSettingsForm($apiUrl, $locales, $site);
         $themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales);
         $siteStatisticsForm = new \PKP\components\forms\site\PKPSiteStatisticsForm($apiUrl, $locales, $site);
         $highlightsListPanel = $this->getHighlightsListPanel();
@@ -222,6 +224,7 @@ class AdminHandler extends Handler
                 FORM_SITE_CONFIG => $siteConfigForm->getConfig(),
                 FORM_SITE_INFO => $siteInformationForm->getConfig(),
                 FORM_SITE_BULK_EMAILS => $siteBulkEmailsForm->getConfig(),
+                $orcidSettingsForm->id => $orcidSettingsForm->getConfig(),
                 FORM_THEME => $themeForm->getConfig(),
                 FORM_SITE_STATISTICS => $siteStatisticsForm->getConfig(),
                 $highlightsListPanel->id => $highlightsListPanel->getConfig(),
@@ -265,6 +268,7 @@ class AdminHandler extends Handler
             'siteTheme' => $isMultiContextSite,
             'siteAppearanceSetup' => $isMultiContextSite,
             'announcements' => $isMultiContextSite,
+            'orcidSiteSettings' => $isMultiContextSite,
         ];
     }
 

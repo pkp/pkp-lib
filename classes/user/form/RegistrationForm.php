@@ -28,6 +28,7 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
+use PKP\orcid\OrcidManager;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\site\Site;
@@ -117,6 +118,23 @@ class RegistrationForm extends Form
             'siteWidePrivacyStatement' => $site->getData('privacyStatement'),
         ]);
 
+        // FIXME: ORCID OAuth assumes a context so ORCID profile information cannot be filled from the site index
+        //        registration page.
+        if ($request->getContext() !== null && OrcidManager::isEnabled()) {
+            $targetOp = 'register';
+            $templateMgr->assign([
+                'orcidEnabled' => true,
+                'targetOp' => $targetOp,
+                'orcidUrl' => OrcidManager::getOrcidUrl(),
+                'orcidOAuthUrl' => OrcidManager::buildOAuthUrl('authorizeOrcid', ['targetOp' => $targetOp]),
+                'orcidIcon' => OrcidManager::getIcon(),
+            ]);
+        } else {
+            $templateMgr->assign([
+                'orcidEnabled' => false,
+            ]);
+        }
+
         return parent::fetch($request, $template, $display);
     }
 
@@ -149,6 +167,7 @@ class RegistrationForm extends Form
             'country',
             'interests',
             'emailConsent',
+            'orcid',
             'privacyConsent',
             'readerGroup',
             'reviewerGroup',
@@ -236,6 +255,12 @@ class RegistrationForm extends Form
         $user->setEmail($this->getData('email'));
         $user->setCountry($this->getData('country'));
         $user->setAffiliation($this->getData('affiliation'), $currentLocale);
+
+        // FIXME: ORCID OAuth and assignment to users assumes a context so we currently ignore
+        //        ability to assign ORCIDs at the site-level registration page
+        if ($request->getContext() !== null && OrcidManager::isEnabled()) {
+            $user->setOrcid($this->getData('orcid'));
+        }
 
         if ($sitePrimaryLocale != $currentLocale) {
             $user->setGivenName($this->getData('givenName'), $sitePrimaryLocale);

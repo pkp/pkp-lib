@@ -64,9 +64,10 @@ class PolicyAuthorizer
         if (!$hasAuthorized) {
 
             $authorizationMessage = $routeController->getLastAuthorizationMessage();
-            
+
             return response()->json([
                 'error' => empty($authorizationMessage) ? __('api.403.unauthorized') : $authorizationMessage,
+                'errorMessage' => empty($authorizationMessage) ? '' : __($authorizationMessage),
             ], Response::HTTP_UNAUTHORIZED);
         }
 

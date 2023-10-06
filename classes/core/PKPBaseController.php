@@ -495,6 +495,8 @@ abstract class PKPBaseController extends Controller
                 // See: https://bugs.jquery.com/ticket/6481
                 } elseif (is_string($value) && !strlen($value)) {
                     return [];
+                } elseif (is_null($value)) { // if null, then return empty array
+                    return [];
                 }
                 break;
             case 'object':

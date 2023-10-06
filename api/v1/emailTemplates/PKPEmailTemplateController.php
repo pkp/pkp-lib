@@ -128,7 +128,7 @@ class PKPEmailTemplateController extends PKPBaseController
         $collector = Repo::emailTemplate()->getCollector($request->getContext()->getId());
 
         // Process query params to format incoming data as needed
-        foreach ($illuminateRequest->getQueryParams() as $param => $val) {
+        foreach ($illuminateRequest->query() as $param => $val) {
             switch ($param) {
                 case 'alternateTo':
                     $collector->alternateTo($this->paramToArray($val));

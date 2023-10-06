@@ -167,7 +167,7 @@ abstract class PKPStatsEditorialController extends PKPBaseController
 
         $params = [];
         $sectionIdsQueryParam = $this->getSectionIdsQueryParam();
-        foreach ($illuminateRequest->getQueryParams() as $param => $value) {
+        foreach ($illuminateRequest->query() as $param => $value) {
             switch ($param) {
                 case $sectionIdsQueryParam:
                     if (is_string($value) && str_contains($value, ',')) {

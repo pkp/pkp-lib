@@ -18,8 +18,10 @@ namespace PKP\controllers\grid\settings\user;
 
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
+use PKP\controllers\grid\ColumnBasedGridCellProvider;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\feature\PagingFeature;
+use PKP\controllers\grid\GridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\settings\user\form\UserDetailsForm;
@@ -38,6 +40,8 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\security\Validation;
+use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class UserGridHandler extends GridHandler
 {
@@ -141,14 +145,53 @@ class UserGridHandler extends GridHandler
         );
 
         // Roles.
+        $columnBasedGridCellProvider = new ColumnBasedGridCellProvider();
         $this->addColumn(
-            new GridColumn(
+            new class (
                 'roles',
                 'user.roles',
                 null,
                 null,
-                $cellProvider
-            )
+                $columnBasedGridCellProvider,
+                contextId: $request->getContext()->getId()
+            ) extends GridColumn {
+                /** @var int|null contextId */
+                private ?int $_contextId;
+
+                /**
+                 * Constructor
+                 *
+                 * @param string $id Grid column identifier
+                 * @param string $title Locale key for grid column title
+                 * @param string $titleTranslated Optional translated grid title
+                 * @param string $template Optional template filename for grid column, including path
+                 * @param GridCellProvider $cellProvider Optional grid cell provider for this column
+                 * @param array $flags Optional set of flags for this grid column
+                 * @param int|null $contextId Optional context identifier for this grid column
+                 */
+                public function __construct(
+                    $id = '',
+                    $title = null,
+                    $titleTranslated = null,
+                    $template = null,
+                    $cellProvider = null,
+                    $flags = [],
+                    int $contextId = null
+                ) {
+                    $this->_contextId = $contextId;
+
+                    parent::__construct($id, $title, $titleTranslated, $template, $cellProvider, $flags);
+                }
+
+                public function getTemplateVarsFromRow($row): array
+                {
+                    $user = $row->getData();
+                    assert($user instanceof User);
+                    $userGroupsIterator = Repo::userGroup()->userUserGroups($user->getId(), $this->_contextId);
+                    $roles = $userGroupsIterator->map(fn (UserGroup $userGroup) => $userGroup->getLocalizedName())->join(__('common.commaListSeparator'));
+                    return ['label' => $roles];
+                }
+            }
         );
 
         // Email.
@@ -214,17 +257,7 @@ class UserGridHandler extends GridHandler
         $collector->limit($rangeInfo->getCount());
         $collector->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount());
         $iterator = $collector->getMany();
-        $users = iterator_to_array($iterator, true);
-        foreach ($users as $user) {
-            $roles = array();
-            $userGroupsIterator = Repo::userGroup()->userUserGroups($user->getId(), $context->getId());
-            $userGroups = iterator_to_array($userGroupsIterator);
-            foreach ($userGroups as $userGroup) {
-                $roles[] = $userGroup->getLocalizedName();
-            }
-            $user->setData('roles', join(', ', $roles));
-        }
-        return new VirtualArrayIterator($users, $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
+        return new VirtualArrayIterator(iterator_to_array($iterator, true), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
     }
 
     /**

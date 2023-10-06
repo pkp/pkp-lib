@@ -520,3 +520,212 @@ msgstr ""
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+
+msgid "orcid.about.display"
+msgstr ""
+"Để xác nhận rằng bạn đã sử dụng iD của mình và nó đã được xác thực, chúng "
+"tôi hiển thị biểu tượng ORCID iD <img src=\"https://orcid.org/sites/default/"
+"files/images/orcid_16x16(1).gif\" alt=\"iD icon\" width=\"16\" height=\"16\" "
+"border=\"0\"> cùng với tên của bạn trên trang bài viết của bạn và trên hồ sơ "
+"người dùng công khai của bạn.<br>\n"
+"\t\tTìm hiểu thêm trong <a href=\"https://orcid.org/blog/2013/02/22/how-"
+"should-orcid-id-be-displayed\">Làm thế nào một ORCID iD sẽ được hiển thị.</a>"
+
+msgid "orcid.about.display.title"
+msgstr "Các ORCID iD được hiển thị ở đâu?"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"Tạp chí này đang thu thập iD ORCID của bạn để chúng tôi và cộng đồng rộng "
+"lớn hơn có thể tin tưởng rằng bạn được xác định chính xác và được kết nối "
+"với (các) ấn phẩm của bạn. Điều này sẽ đảm bảo kết nối của bạn với toàn bộ "
+"công việc của bạn luôn ở bên bạn trong suốt sự nghiệp của bạn.<br>\n"
+"\n"
+"\tKhi bạn nhấp vào nút “Authorize” trong ORCID popup, chúng tôi sẽ yêu cầu "
+"bạn chia sẻ iD của bạn sử dụng một quá trình chứng thực: hoặc bằng cách <a "
+"href=\"https://support.orcid.org/hc/en-us/articles/360006897454\">đăng ký "
+"ORCID iD</a> hoặc, nếu bạn đã có một, <a href=\"https://support.orcid.org/hc/"
+"en-us/categories/360000661673\">để đăng nhập vào tài khoản ORCID của bạn</a>"
+", sau đó cấp cho chúng tôi quyền để nhận ORCID iD của bạn. Chúng tôi làm "
+"điều này để đảm bảo rằng bạn được xác định chính xác và kết nối an toàn "
+"ORCID iD của bạn.<br>\n"
+"\n"
+"\tTìm hiểu thêm trong <a href=\"https://orcid.org/blog/2017/02/20/whats-so-"
+"special-about-signing\">Điều gì đặc biệt về việc đăng nhập.</a>"
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Làm thế nào và tại sao chúng tôi thu thập ORCID iDs?"
+
+msgid "orcid.about.orcidExplanation"
+msgstr ""
+"ORCID là một tổ chức phi lợi nhuận độc lập cung cấp số nhận dạng liên tục - "
+"ORCID iD - giúp phân biệt bạn với các nhà nghiên cứu khác và cơ chế liên kết "
+"các kết quả và hoạt động nghiên cứu của bạn với iD. ORCID được tích hợp vào "
+"nhiều hệ thống được sử dụng bởi các nhà xuất bản, nhà tài trợ, tổ chức và "
+"các dịch vụ liên quan đến nghiên cứu khác. Tìm hiểu thêm tại <a href=\""
+"https://orcid.org\">orcid.org</a>."
+
+msgid "orcid.about.title"
+msgstr "ORCID là gì?"
+
+msgid "orcid.authorise"
+msgstr "Cho phép và kết nối ORCID iD của bạn"
+
+msgid "orcid.connect"
+msgstr "Tạo hoặc kết nối ORCID iD của bạn"
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.failure.contact"
+msgstr ""
+"Vui lòng liên hệ với người quản lý tạp chí với tên của bạn, ORCID iD và "
+"thông tin chi tiết về bài đăng của bạn."
+
+msgid "orcid.authFailure"
+msgstr "Liên kết ủy quyền ORCID đã được sử dụng hoặc không hợp lệ."
+
+msgid "orcid.verify.denied"
+msgstr "Bạn đã từ chối quyền truy cập vào hồ sơ ORCID của bạn."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "Một ORCID iD đã được lưu trữ cho bài nộp này."
+
+msgid "orcid.verify.failure"
+msgstr "ORCID iD của bạn không thể được xác minh. Liên kết không còn hiệu lực."
+
+msgid "orcid.verify.success"
+msgstr "ORCID iD của bạn đã được xác minh và liên kết thành công với bài gửi."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "Bài gửi sẽ được thêm vào hồ sơ ORCID của bạn trong khi xuất bản."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "Bài gửi không thể được thêm vào hồ sơ ORCID của bạn."
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Bài gửi đã được thêm vào hồ sơ ORCID của bạn."
+
+msgid "orcid.verify.title"
+msgstr "Ủy quyền ORCID"
+
+msgid "orcid.author.unauthenticated"
+msgstr ""
+"ORCID iD không được xác thực! Vui lòng yêu cầu xác thực từ người đóng góp."
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Xem bên dưới để yêu cầu ORCID iD xác thực"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Xóa ORCID iD và mã thông báo truy cập!"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Gửi e-mail để yêu cầu ủy quyền ORCID từ cộng tác viên"
+
+msgid "orcid.author.accessTokenStored"
+msgstr ""
+"Quyền truy cập bản ghi ORCID được cấp với phạm vi {$orcidAccessScope}, hợp "
+"lệ cho đến khi"
+
+msgid "orcid.author.accessDenied"
+msgstr "Truy cập ORCID đã bị từ chối tại"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Tất cả"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Lỗi"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Chọn số lượng đầu ra đăng nhập được viết bởi plugin"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "Nhật ký yêu cầu ORCID"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Gửi e-mail để yêu cầu ủy quyền ORCID từ các tác giả khi một bài viết được "
+"chấp nhận, tức là gửi để chỉnh sửa sao chép"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Cài đặt thư điện tử"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Phạm vi truy cập hồ sơ"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Bí mật khách hàng"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "ID khách hàng"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Sandbox thành viên"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Thành viên"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Sandbox công khai"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Công khai"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "API ORCID"
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr ""
+"API ORCID được cấu hình trên toàn cầu bởi máy chủ lưu trữ. Các thông tin sau "
+"đây đã được lưu."
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"Vui lòng định cấu hình quyền truy cập API ORCID để sử dụng trong việc kéo "
+"thông tin hồ sơ ORCID vào hồ sơ người dùng và tác giả và cập nhật các bản "
+"ghi ORCID được kết nối với các ấn phẩm mới (chỉ dành cho Thành viên ORCID)."
+
+msgid "orcid.manager.settings.hidden"
+msgstr "ẩn"
+
+msgid "orcid.manager.settings.title"
+msgstr "Cài đặt API ORCID"
+
+msgid "orcid.emailOrOrcid"
+msgstr "Địa chỉ email hoặc ORCID iD:"
+
+msgid "orcid.noData"
+msgstr "Không thể tìm thấy bất kỳ dữ liệu nào từ ORCID."
+
+msgid "orcid.instructions"
+msgstr ""
+"Bạn có thể điền trước biểu mẫu này với thông tin từ hồ sơ ORCID. Nhập địa "
+"chỉ email hoặc ORCID iD được liên kết với hồ sơ ORCID, sau đó nhấp vào \""
+"Gửi\"."
+
+msgid "orcid.description"
+msgstr "Cho phép nhập thông tin hồ sơ người dùng từ ORCID."
+
+msgid "orcid.displayName"
+msgstr "Plugin hồ sơ ORCID"
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"Tạp chí này đang thu thập iD ORCID của bạn để chúng tôi và cộng đồng rộng "
+"lớn hơn có thể tin tưởng rằng bạn được xác định chính xác và được kết nối "
+"với (các) ấn phẩm của bạn. Điều này sẽ đảm bảo kết nối của bạn với toàn bộ "
+"công việc luôn ở bên bạn trong suốt sự nghiệp của bạn. <br>\n"
+"Khi bạn nhấp vào nút “Ủy quyền” trong cửa sổ bật lên ORCID, chúng tôi sẽ yêu "
+"cầu bạn chia sẻ iD của mình bằng quy trình đã xác thực — bằng cách đăng ký "
+"iD ORCID hoặc, nếu bạn đã có, bằng cách đăng nhập vào tài khoản ORCID của "
+"bạn, sau đó cấp cho phép chúng tôi lấy ORCID iD của bạn. Chúng tôi làm điều "
+"này để đảm bảo bạn được xác định chính xác và kết nối an toàn với iD ORCID "
+"của bạn. <br>\n"
+"Tìm hiểu thêm trong <a href=\"https://orcid.org/blog/2017/02/20/whats-so-"
+"special-about-signs\"> Đăng nhập có gì đặc biệt. </a> <br>\n"
+"Tạp chí này sẽ thu thập và hiển thị iD của các tác giả và đồng tác giả đã "
+"được xác thực trên trang tiểu sử và bài báo của OJS. Ngoài ra, siêu dữ liệu "
+"bài viết sẽ tự động được đưa vào bản ghi ORCID của bạn, cho phép chúng tôi "
+"giúp bạn cập nhật hồ sơ của mình với thông tin đáng tin cậy. Tìm hiểu thêm "
+"trong <a href=\"https://orcid.org/blog/2017/08/10/six-ways-make-your-orcid-"
+"id-work-you\"> Sáu cách làm cho ORCID iD của bạn hoạt động bạn! </a>\n"

@@ -152,6 +152,18 @@ msgstr "Highlight order could not be saved because one or more of the highlights
 msgid "api.highlights.404.highlightNotFound"
 msgstr "The highlight you requested was not found."
 
+msgid "api.orcid.403.orcidNotEnabled"
+msgstr "You cannot perform this operation with ORCID functionality disabled."
+
+msgid "api.orcid.404.authorNotFound"
+msgstr "The author requested was not found"
+
+msgid "api.orcid.403.editWithoutPermission"
+msgstr "You cannot make changes to authors on submissions you are not assigned to."
+
+msgid "api.orcid.404.contextRequired"
+msgstr "This endpoint is not available from the site-wide namespace, and must be requested for a given context."
+
 msgid "api.publication.403.alreadyPublished"
 msgstr "The publication you want to publish is already published."
 

@@ -65,7 +65,6 @@ class PKPAuthorForm extends Form
         $this->addCheck(new \PKP\form\validation\FormValidatorEmail($this, 'email', 'required', 'form.emailRequired'));
         $this->addCheck(new \PKP\form\validation\FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'userGroupId', 'required', 'submission.submit.form.contributorRoleRequired'));
-        $this->addCheck(new \PKP\form\validation\FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
@@ -133,7 +132,6 @@ class PKPAuthorForm extends Form
                 'country' => $author->getCountry(),
                 'email' => $author->getEmail(),
                 'userUrl' => $author->getUrl(),
-                'orcid' => $author->getOrcid(),
                 'competingInterests' => $author->getCompetingInterests(null),
                 'userGroupId' => $author->getUserGroupId(),
                 'biography' => $author->getBiography(null),
@@ -191,7 +189,6 @@ class PKPAuthorForm extends Form
             'country',
             'email',
             'userUrl',
-            'orcid',
             'competingInterests',
             'userGroupId',
             'biography',
@@ -233,7 +230,6 @@ class PKPAuthorForm extends Form
         $author->setCountry($this->getData('country'));
         $author->setEmail($this->getData('email'));
         $author->setUrl($this->getData('userUrl'));
-        $author->setOrcid($this->getData('orcid'));
         if ($context->getData('requireAuthorCompetingInterests')) {
             $author->setCompetingInterests($this->getData('competingInterests'), null);
         }

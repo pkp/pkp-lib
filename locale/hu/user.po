@@ -567,3 +567,150 @@ msgstr ""
 
 #~ msgid "user.suffix"
 #~ msgstr "Utótag"
+
+msgid "orcid.connect"
+msgstr "Hozza létre vagy csatolja a saját ORCID ID-t"
+
+msgid "orcid.about.title"
+msgstr "Mi az ORCID?"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Hitelesített ORCID ID lentebb igényelhető"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Küldjön e-mailt a szerzőnek ORCID hitelesítés kérésére. "
+
+msgid "orcid.author.unauthenticated"
+msgstr "Az ORCID iD nincs hitelesítve. A hitelesítést, kérjük, kérje a szerzőtől."
+
+msgid "orcid.author.deleteORCID"
+msgstr "ORCID ID és hozzáférési token törlése!"
+
+msgid "orcid.about.orcidExplanation"
+msgstr "Az ORCID egy non-profit független szervezet, amely egy olyan azonosítót –ORCID iDt – biztosít, mellyel a kutatók egyértelműen megkülönböztetik magukat, továbbá megoldást kínál a kutatási eredmények és tevékenységek egyéni azonosítóhoz történő összerendelésére is. Az ORCID számos rendszerben integrált, melyeket elsősorban kiadók, alapítók, intézmények és egyéb kutatással kapcsolatos szolgáltatások használnak. Az ORCID szolgáltatásról további információk a <a href=\"https://orcid.org\">orcid.org</a> címen érhetők el."
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Hogy és miért kérünk be ORCID azonosítókat?  "
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr "A folyóirat abból a célból kéri be az Ön ORCID azonosítóját, hogy ezáltal [írjuk le az okát, és tegyünk különbséget a Member API és Nyilvános API között]. Amikor az ORCID felugró ablakban rákattint az ’Authorize’ gombra, a hitelesítési folyamatban bekérjük azonosítóját: egyik módja, hogy <a href=\"https://support.orcid.org/hc/en-us/articles/360006897454\">regisztrál egy ORCID azonosítót</a> , vagy amennyiben már rendelkezik vele, az <a href=\"https://support.orcid.org/hc/en-us/categories/360000661673\">ORCID fiókba történő bejelentkezéssel</a> és így hozzáférést biztosítva számunkra az ORCID azonosítójához. Mindezt az egyértelmű azonosítás és ORCID azonosító biztonságos csatolása érdekében tesszük. A bejelentkezésről további részletek az alábbiakban olvashatók: <a href=\"https://orcid.org/blog/2017/02/20/whats-so-special-about-signing\">What’s so special about signing in.</a>"
+
+msgid "orcid.about.display.title"
+msgstr "Hol kerülnek az ORCID azonosítók megjelenítésre? "
+
+msgid "orcid.about.display"
+msgstr ""
+"Megerősítve, hogy a személyi azonosítója hitelesítésre került, az ORCID azonosító ikonját <img src=\"https://orcid.org/sites/default/files/images/orcid_16x16.png\" alt=\"iD icon\" width=\"16\" height=\"16\" border=\"0\"> megjelenítjük neve mellett a beküldött cikk oldalán, valamint a nyilvános felhasználói profilon.   .<br>\r\n"
+"\t\tTovábbi információk az alábbi hivatkozás alatt érhetők el: <a href=\"https://orcid.org/blog/2013/02/22/how-should-orcid-id-be-displayed\">How should an ORCID iD be displayed.</a>\r\n"
+""
+
+msgid "orcid.displayName"
+msgstr "ORCID profil bővítmény"
+
+msgid "orcid.description"
+msgstr "Lehetővé teszi a felhasználói profil információinak importálását ORCID-ból.  "
+
+msgid "orcid.manager.settings.description"
+msgstr "Kérjük, konfigurálja  az ORCID API hozzáférést az ORCID profile-információ felhasználóhoz, szerzőhöz rendelhetőséghez, illetve hogy a kapcsolódó ORCID rekordok aktualizálódhassanak új publikációk esetén (csak ORCID tagoknál)."
+
+msgid "orcid.manager.settings.title"
+msgstr "ORCID API beállítások"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Public"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Public Sandbox"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Member"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Member Sandbox"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "Client ID"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Client Secret"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Profile Access Scope"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "E-Mail beállítások "
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr "Új szám publikálásakor e-mail küldése a szerzőnek ORCID hitelesítési kéréssel. "
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "ORCID kérés eseménytörténet"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "A plugin eseménytörténetébe az alábbi kerüljön rögzítésre"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Hibák"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Minden"
+
+msgid "orcid.instructions"
+msgstr "Előre kitöltheti az űrlapot az ORCID profilból származó információkkal.  Adja meg az email címet vagy az ORCID profilhoz tartozó ORCID ID-t."
+
+msgid "orcid.noData"
+msgstr "Nem talált adatot az ORCID-nál."
+
+msgid "orcid.emailOrOrcid"
+msgstr "Email cím vagy ORCID ID:"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "rejtett"
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr "Az ORCID API központilag lett konfigurálva a szolgáltató által. A következő jellemzők mentésre kerültek. "
+
+msgid "orcid.author.accessDenied"
+msgstr "ORCID hozzáférés megtagadva a következő helyen: "
+
+msgid "orcid.author.accessTokenStored"
+msgstr "Sikeres ORCID record hozzáférés az alábbi jellemzővel: {$orcidAccessScope} és érvényes az alábbi időpontig:  "
+
+msgid "orcid.verify.title"
+msgstr "ORCID hitelesítés"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Az ORCID rekordjához hozzárendelésre került a cikk."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "A cikk nem adható hozzá az ORCID rekordjához."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "A cikket automatikusan az ORCID rekordjához adjuk publikáláskor."
+
+msgid "orcid.verify.success"
+msgstr "Az ORCID ID-ának ellenőrzése megtörtént és sikeresen kapcsoltuk a beküldéshez. "
+
+msgid "orcid.verify.failure"
+msgstr "Az ORCID azonosítóját nem lehet ellenőrizni. A hivatkozás nem érvényes."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "Ehhez a beküldéshez már letárolásra került egy ORCID azonosító. "
+
+msgid "orcid.verify.denied"
+msgstr "Az ORCID rekordjához megtagadta a hozzáférést."
+
+msgid "orcid.authFailure"
+msgstr "Az ORCID hitelesítési hivatkozás már használatban van érvénytelen."
+
+msgid "orcid.failure.contact"
+msgstr "Kérjük, vegye fel a kapocsolatot a folyóirat menedzserrel, megadva nevét, ORCID ID-ját és a beküldése részleteit. "
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.authorise"
+msgstr "Hitelesítse és kösse össze az ORCID ID-ját"

@@ -531,3 +531,249 @@ msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr ""
 "Անավարտ ներկայացման համար աշխատանքային հոսքի հասանելիությունը սահմանափակված "
 "է:"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Հաճախորդի անվավեր գաղտնիք"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Հաճախորդի անվավեր ID"
+
+msgid "orcid.about.display"
+msgstr ""
+"Որպեսզի հաստատենք, որ դուք օգտագործել եք ձեր ID-ն և որ այն վավերացված է, "
+"մենք ցուցադրում ենք ORCID iD պատկերակը <img src=\"https://info.orcid.org/"
+"wp-content/uploads/2020/12/ORCIDiD_icon16x16.png\" alt=\"iD icon\" width=\""
+"16\" height=\"16\" border=\"0\"> ձեր անվան հետ մեկտեղ ձեր ներկայացման "
+"հոդվածի էջում և ձեր հանրային օգտվողի պրոֆիլում:<br>\n"
+"\t\tԱվելին <a href=\"https://info.orcid.org/"
+"how-should-an-orcid-id-be-displayed/\">Ինչպես պետք է ցուցադրվի ORCID "
+"ID-ն:</a>"
+
+msgid "orcid.about.display.title"
+msgstr "Որտե՞ղ են ցուցադրվում ORCID ID-ները:"
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"Այս ամսագիրը հավաքում է ձեր ORCID ID-ն, որպեսզի մենք և ավելի լայն համայնքը "
+"կարողանանք վստահ լինել, որ դուք ճիշտ եք նույնականացվել և կապված եք ձեր "
+"հրապարակում(ներ)ի հետ: Սա կապահովի, որ ձեր կապը ձեր կատարած աշխատանքի հետ "
+"կմնա ձեզ հետ ձեր ողջ կարիերայի ընթացքում:<br>\n"
+"\tԵրբ սեղմեք «Լիազորել» կոճակը ORCID ելնող պատուհանում, մենք կխնդրենք ձեզ "
+"կիսել ձեր ID-ն՝ օգտագործելով վավերացված գործընթաց՝ կա՛մ գրանցվելով ORCID iD-"
+"ի համար, կա՛մ, եթե արդեն ունեք, մուտք գործելով ձեր ORCID հաշիվ, այնուհետև "
+"տրամադրելով մեզ թույլտվություն ստանալու ձեր ORCID ID-ն: Մենք դա անում ենք՝ "
+"համոզվելու համար, որ դուք ճիշտ նույնականացված եք և ապահով կերպով միանում եք "
+"ձեր ORCID ID-ին.<br>\n"
+"\tԱվելին <a href=\"https://info.orcid.org/whats-so-special-about-signing-in/"
+"\">Ինչն է առանձնահատուկ մուտք գործելու մեջ.</a><br>\n"
+"\tԱյս ամսագիրը կհավաքի և կցուցադրի վավերացված հեղինակների և համահեղինակների "
+"ID-ները OJS պրոֆիլում և հոդվածի էջում: Բացի այդ, հոդվածի մետատվյալներն "
+"ինքնաշխատ կերպով կտեղափոխվեն ձեր ORCID գրառումը՝ հնարավորություն տալով մեզ "
+"օգնել ձեզ պահել ձեր գրառումը արդիական վստահելի տեղեկություններով: Ավելին <a "
+"href=\"https://info.orcid.org/six-ways-to-make-your-orcid-id-work-for-you/\">"
+"Ձեր ORCID ID-ն ձեզ համար աշխատեցնելու վեց եղանակ:</a>\n"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"Այս ամսագիրը հավաքում է ձեր ORCID ID-ն, որպեսզի մենք և ավելի լայն համայնքը "
+"կարողանանք վստահ լինել, որ դուք ճիշտ նույնականացված եք և կապված եք ձեր "
+"հրապարակում(ներ)ի հետ: Սա կապահովի, որ ձեր կապը ձեր ամբողջ աշխատանքի հետ "
+"կմնա ձեզ հետ ձեր ողջ կարիերայի ընթացքում: <br>\n"
+"\tԵրբ սեղմեք «Լիազորել» կոճակը ORCID ելնող պատուհանում, մենք կխնդրենք ձեզ "
+"կիսել ձեր ID-ն՝ օգտագործելով վավերացված գործընթաց՝ կա՛մ գրանցվելով ORCID iD-"
+"ի համար, կա՛մ, եթե արդեն այն ունեք, մուտք գործելով ձեր ORCID հաշիվ, "
+"այնուհետև տրամադրելով մեզ թույլտվություն ստանալու ձեր ORCID ID-ն: Մենք դա "
+"անում ենք՝ համոզվելու համար, որ դուք ճիշտ նույնականացված եք և ապահով կերպով "
+"միանում եք ձեր ORCID ID-ին:<br>\n"
+"\tԱվելին in <a href=\"https://info.orcid.org/"
+"whats-so-special-about-signing-in/\">Ինչն է առանձնահատուկ մուտք գործելու "
+"մեջ.</a><br>\n"
+"Այս ամսագիրը կհավաքի և կցուցադրի վավերացված հեղինակների և համահեղինակների ID-"
+"ները OJS պրոֆիլում և հոդվածի էջում:"
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Ինչպե՞ս և ինչու ենք մենք հավաքում ORCID ID-ներ:"
+
+msgid "orcid.about.orcidExplanation"
+msgstr ""
+"ORCID-ը անկախ շահույթ չհետապնդող կազմակերպություն է, որն ապահովում է մշտական "
+"նույնացուցիչ՝ ORCID ID-ն, որը ձեզ տարբերում է այլ հետազոտողներից և ձեր "
+"հետազոտական արդյունքներն ու գործունեությունը ձեր ID-ին կապելու մեխանիզմ է: "
+"ORCID-ը ինտեգրված է բազմաթիվ համակարգերի, որոնք օգտագործվում են "
+"հրատարակիչների, ֆինանսավորողների, հաստատությունների և հետազոտությունների հետ "
+"կապված այլ ծառայությունների կողմից: Իմացեք ավելին <a href=\"https://orcid."
+"org\">orcid.org</a> կայքում:"
+
+msgid "orcid.about.title"
+msgstr "Ի՞նչ է ORCID-ը:"
+
+msgid "orcid.authorise"
+msgstr "Լիազորեք և միացրեք ձեր ORCID ID-ն"
+
+msgid "orcid.connect"
+msgstr "Ստեղծեք կամ միացրեք ձեր ORCID ID-ն"
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.failure.contact"
+msgstr ""
+"Խնդրում ենք կապվել ամսագրի կառավարիչի հետ՝ նշելով ձեր անունը, ORCID ID-ն և "
+"ձեր ներկայացման մանրամասները:"
+
+msgid "orcid.authFailure"
+msgstr "ORCID թույլտվության հղումն արդեն օգտագործվել է կամ անվավեր է:"
+
+msgid "orcid.verify.denied"
+msgstr "Դուք արգելել եք մուտքը ձեր ORCID գրառում:"
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "ORCID ID-ն արդեն պահվել է այս ներկայացման համար:"
+
+msgid "orcid.verify.failure"
+msgstr "Ձեր ORCID ID-ն չհաջողվեց ստուգել: Հղումն այլևս վավեր չէ:"
+
+msgid "orcid.verify.success"
+msgstr "Ձեր ORCID ID-ն ստուգվել է և հաջողությամբ կապված է ներկայացման հետ:"
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "Ներկայացումը կավելացվի ձեր ORCID գրառումին հրապարակման ընթացքում:"
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "Ներկայացումը չհաջողվեց ավելացնել ձեր ORCID գրառումին:"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Ներկայացումը ավելացվել է ձեր ORCID գրառումին:"
+
+msgid "orcid.verify.title"
+msgstr "ORCID թույլտվություն"
+
+msgid "orcid.author.unauthenticated"
+msgstr "ORCID ID-ն վավերացված չէ: Խնդրում ենք նույնականացում պահանջել աջակցից:"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Տե՛ս ստորև՝ վավերացված ORCID ID-ն խնդրելու համար"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Ջնջել ORCID ID-ն և մուտքի թոքենը:"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Ուղարկեք էլ-նամակ՝ աջակցից ORCID-ի թույլտվություն պահանջելու համար"
+
+msgid "orcid.author.accessTokenStored"
+msgstr ""
+"ORCID գրառումների մուտքը տրված է {$orcidAccessScope} շրջանակով, ուժի մեջ է "
+"մինչև"
+
+msgid "orcid.author.accessDenied"
+msgstr "ORCID մուտքն արգելվել է"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Բոլորը"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Սխալներ"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Ընտրեք մուտքագրման ելքի քանակը, որը գրված է հավելվածի կողմից"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "ORCID հարցումների մատյան"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Ուղարկեք էլ-նամակ՝ ORCID-ի թույլտվություն պահանջելու հեղինակներից, երբ "
+"հոդվածն ընդունվում է, այսինքն՝ ուղարկվել է գրական խմբագրման"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Էլ․ փոստի կարգաբերումներ"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Պրոֆիլի մուտքի շրջանակ"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Հաճախորդի գաղտնիք"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "Հաճախորդի ID"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Անդամի ավազարկղ"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Անդամ"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Հանրային ավազարկղ"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Հանրային"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr ""
+"ORCID API-ն գլոբալ կազմաձևվվել է հյուրընկալողի կողմից: Հետևյալ "
+"հավատարմագրերը պահպանվել են:"
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"Խնդրում ենք կարգավորել ORCID API-ի հասանելիությունը՝ օգտագործելու համար "
+"ORCID պրոֆիլի տեղեկությունները օգտատերերի և հեղինակների պրոֆիլներ քաշելու և "
+"կապված ORCID գրառումները նոր հրապարակումներով թարմացնելու համար (միայն ORCID-"
+"ի անդամների համար):"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "թաքնված"
+
+msgid "orcid.manager.settings.title"
+msgstr "ORCID API կարգավորումներ"
+
+msgid "orcid.emailOrOrcid"
+msgstr "Էլ․ փոստի հասցե կամ ORCID ID:"
+
+msgid "orcid.noData"
+msgstr "Չհաջողվեց գտնել որևէ տվյալ ORCID-ից:"
+
+msgid "orcid.instructions"
+msgstr ""
+"Դուք կարող եք նախապես լրացնել այս ձևը ORCID պրոֆիլի տեղեկություններով: "
+"Մուտքագրեք էլ․ փոստի հասցեն կամ ORCID ID-ն, որը կապված է ORCID պրոֆիլի հետ, "
+"այնուհետև սեղմեք «Ներկայացնել»:"
+
+msgid "orcid.description"
+msgstr "Թույլ է տալիս ներմուծել օգտվողի պրոֆիլի տեղեկատվությունը ORCID-ից:"
+
+msgid "orcid.displayName"
+msgstr "ORCID պրոֆիլի հավելված"
+
+msgid "orcid.invalidClient"
+msgstr "Հաճախորդի անվավեր հավատարմագրերը"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "Հաճախորդն անվավեր է, խնդրում ենք ստուգել ձեր մուտքագրումը"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Կարգավորումները պահված են"
+
+msgid "orcid.manager.settings.city"
+msgstr "Քաղաք"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Կազմաձևված է ըստ ամսագրի"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "Հաճախորդի ID-ն վավեր է"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Հաճախորդի գաղտնիքը վավեր է"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Հաճախորդի Գաղտնիքն անվավեր է, խնդրում ենք ստուգել ձեր հավատարմագրերը"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Հայտնաբերվել են կրկնօրինակ ORCID-ներ աջակիցների համար:"
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Հայտնաբերվել են չվավերացված ORCiD-ներ աջակիցների համար:"

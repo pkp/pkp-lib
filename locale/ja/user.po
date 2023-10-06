@@ -522,3 +522,218 @@ msgstr "ユーザー名またはメールアドレス"
 
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "不完全な投稿に対するワークフロー アクセスは制限されます。"
+
+msgid "orcid.about.display"
+msgstr ""
+"あなたがiDを使用し、それが認証されたことを確認するために、ORCID iDアイコンが<img src=\"https://info.orcid.org/"
+"wp-content/uploads/2020/12/ORCIDiD_icon16x16.png\" alt=\"iD icon\" width=\""
+"16\" height=\"16\" border=\"0\""
+">あなたの名前と一緒に、あなたが投稿した記事のページと公開されたユーザープロフィールに表示されます。<br>\n"
+"\t\t詳しくは次をご覧ください<a href=\"https://info.orcid.org/"
+"how-should-an-orcid-id-be-displayed/\">「ORCID iDはどのように表示されますか？」</a>"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "無効なクライアントシークレット"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "無効なクライアントID"
+
+msgid "orcid.about.display.title"
+msgstr "ORCID iDはどこに表示されますか？"
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"本ジャーナルはORCID iDを収集していますので、私たちやより広いコミュニティは、あなたが正しく識別され、あなたの出版物とつながっていることを確信するこ"
+"とができます。これにより、ご自身の全作品とのつながりがキャリアを通じて維持されることになります。<br>\n"
+"\tORCID ポップアップの「認証」ボタンをクリックすると、認証されたプロセスを使用して iD を共有するように求められます。これは ORCID iD "
+"を登録するか、すでに持っている場合は ORCID アカウントにサインインしてから ORCID iD "
+"を取得する許可を当社に与えるかのいずれかです。これは、お客様が正しく認識され、ORCID iDに安全に接続できるようにするためです。<br>\n"
+"\t詳しくは、「<a href=\"https://info.orcid.org/whats-so-special-about-signing-in/\""
+">サインインすると何か特別なことがあるのでしょうか。</a>」<br>をご覧ください。<br>\n"
+"\t本ジャーナルでは、認証された著者や共著者のiDを収集し、OJSのプロフィールや論文ページに表示します。また、論文のメタデータが自動的にORCIDレコー"
+"ドにプッシュされるため、信頼できる情報でレコードを最新に保つお手伝いが可能になります。詳しくは<a href=\"https://info.orcid."
+"org/six-ways-to-make-your-orcid-id-work-for-you/\">ORCID "
+"iDを活用するための6つの方法</a>をご覧ください。\n"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"本ジャーナルでは、ORCID iDを収集しています。これにより、私たちとより広いコミュニティは、あなたが正しく識別され、あなたの出版物と結びついていること"
+"を確信することができます。これにより、ご自身の全作品とのつながりがキャリアを通じて維持されることになります。<br>\n"
+"\tORCID ポップアップの「認証」ボタンをクリックすると、認証されたプロセスを使って iD を共有するように求められます。すなわち、ORCID iD "
+"を登録するか、すでに持っている場合は ORCID アカウントにサインインして、ORCID iD "
+"を取得する許可を当社に与えてください。これは、お客様が正しく認識され、ORCID iDに安全に接続できるようにするためです。<br>\n"
+"\t詳しくは、「<a href=\"https://info.orcid.org/whats-so-special-about-signing-in/\""
+">サインインすると何か特別なことがあるのでしょうか。</a>」<br>をご覧ください。\n"
+"本ジャーナルでは、認証された著者や共著者のiDを収集し、OJSのプロフィールや論文ページに表示します。"
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "ORCID IDを収集する方法と理由は？"
+
+msgid "orcid.about.orcidExplanation"
+msgstr ""
+"ORCIDは独立した非営利団体で、他の研究者と区別するための永続的な識別子（ORCID iD）と、研究成果や活動を自分のiDに結びつけるための仕組みを提供"
+"しています。ORCIDは、出版社、資金提供者、研究機関、その他の研究関連サービスが使用する多くのシステムに組み込まれています。詳細は<a href=\""
+"https://orcid.org\">orcid.org</a>をご覧ください。"
+
+msgid "orcid.about.title"
+msgstr "ORCIDとは？"
+
+msgid "orcid.authorise"
+msgstr "ORCID iDの認証と接続"
+
+msgid "orcid.connect"
+msgstr "ORCID iDの作成または接続"
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.failure.contact"
+msgstr "お名前、ORCID iD、投稿の詳細を雑誌管理者にご連絡ください。"
+
+msgid "orcid.authFailure"
+msgstr "ORCID認証リンクがすでに使用されているか、無効になっています。"
+
+msgid "orcid.verify.denied"
+msgstr "ORCIDレコードへのアクセスを拒否しました。"
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "この投稿にはORCID iDがすでに保存されています。"
+
+msgid "orcid.verify.failure"
+msgstr "あなたのORCID iDが確認できませんでした。このリンクは無効です。"
+
+msgid "orcid.verify.success"
+msgstr "あなたのORCID iDが確認され、投稿との関連付けが完了しました。"
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "投稿は、出版時にあなたのORCIDレコードに追加されます。"
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "投稿をあなたのORCIDレコードに追加できませんでした。"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "投稿内容があなたのORCIDレコードに追加されました。"
+
+msgid "orcid.verify.title"
+msgstr "ORCID 認証"
+
+msgid "orcid.author.unauthenticated"
+msgstr "ORCID iDが認証されていません。投稿者に認証を依頼してください。"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "認証されたORCID iDをご希望の方は以下をご覧ください"
+
+msgid "orcid.author.deleteORCID"
+msgstr "ORCID iDとアクセストークンを削除してください！"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "投稿者にORCID認証を依頼するメールを送る"
+
+msgid "orcid.author.accessTokenStored"
+msgstr "ORCIDレコードへのアクセスは{$orcidAccessScope}スコープで許可されており、次の期間まで有効です:"
+
+msgid "orcid.author.accessDenied"
+msgstr "ORCIDへのアクセスが拒否されたのは"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "全て"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "エラー"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "プラグインが出力するログの量を選択する"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "ORCIDリクエストログ"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr "論文受理時にORCID認証を著者に依頼するためのメールを送信する（コピー編集に回す）"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "電子メール設定"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "プロフィール アクセス スコープ"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "クライアントシークレット"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "クライアントID"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "メンバーサンドボックス"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "メンバー"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "公開サンドボックス"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "公開"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr "ORCID APIはホストによってグローバルに設定されました。以下の認証情報が保存されています。"
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"ORCIDプロフィール情報をユーザーや著者のプロフィールに取り込み、接続されたORCIDレコードを新しい出版物で更新する際に使用するORCID "
+"APIアクセスを設定してください（ORCIDメンバーのみ）。"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "隠し"
+
+msgid "orcid.manager.settings.title"
+msgstr "ORCID API 設定"
+
+msgid "orcid.emailOrOrcid"
+msgstr "電子メールアドレスまたはORCID iD:"
+
+msgid "orcid.noData"
+msgstr "ORCIDからのデータは見つかりませんでした。"
+
+msgid "orcid.instructions"
+msgstr ""
+"このフォームには、ORCIDプロフィールの情報をあらかじめ入力しておくことができます。ORCIDプロフィールに関連するメールアドレスまたはORCID "
+"iDを入力し、「Submit」をクリックしてください。"
+
+msgid "orcid.description"
+msgstr "ORCIDからユーザーのプロフィール情報を取り込めるようになりました。"
+
+msgid "orcid.displayName"
+msgstr "ORCIDプロフィールプラグイン"
+
+msgid "orcid.manager.settings.saved"
+msgstr "設定が保存されました"
+
+msgid "orcid.invalidClient"
+msgstr "無効なクライアント資格情報"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "クライアントシークレットは無効：認証情報を確認してください"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "クライエントIDは有効"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "クライエントシークリットは有効"
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "投稿者の認証されていないORCiDが検出されました。"
+
+msgid "orcid.manager.settings.city"
+msgstr "都市"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "雑誌別に設定されています"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "クライアントIDは無効：入力を確認してください"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "投稿者のORCiDの重複が検出されました。"

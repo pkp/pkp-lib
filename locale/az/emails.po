@@ -1,0 +1,22 @@
+msgid "emails.orcidCollectAuthorId.subject"
+msgstr "ORCID Məqaləsi"
+
+#, fuzzy
+msgid "emails.orcidCollectAuthorId.description"
+msgstr "Bu e-poçt müəlliflərdən ORCID identifikatorunu almaq üçün göndərilir."
+
+msgid "emails.orcidRequestAuthorAuthorization.subject"
+msgstr "Orcid qeydiyyat girişi"
+
+#, fuzzy
+msgid "emails.orcidRequestAuthorAuthorization.description"
+msgstr ""
+"Bu e-poçt müəlliflərdən ORCID girişinə giriş tələb etmək üçün göndərilir."
+
+#, fuzzy
+msgid "emailTemplate.variable.authorOrcidUrl"
+msgstr "ORCİD OAuth avtorizasiya linki"
+
+#, fuzzy
+msgid "emailTemplate.variable.orcidAboutUrl"
+msgstr "ORCID haqqında səhifə URL"

@@ -515,3 +515,6 @@ msgstr ""
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+
+msgid "orcid.displayName"
+msgstr "زیادکردنی پڕۆفایلی ORCID"

@@ -49,6 +49,12 @@
 				@set="set"
 			/>
 		</tab>
+        <tab id="orcidSettings" label="{translate key="orcid.displayName"}">
+            <pkp-form
+                    v-bind="components.orcidSettings"
+                    @set="set"
+            />
+        </tab>
 		{call_hook name="Template::Settings::access"}
 	</tabs>
 {/block}

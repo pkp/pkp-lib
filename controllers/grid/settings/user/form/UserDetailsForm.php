@@ -122,7 +122,6 @@ class UserDetailsForm extends UserForm
             $user = Repo::user()->getByEmail($email, true);
             return !$user || $user->getId() == $currentUserId;
         }, [$this->userId]));
-        $this->addCheck(new \PKP\form\validation\FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
 
@@ -167,7 +166,6 @@ class UserDetailsForm extends UserForm
                 'email' => $user->getEmail(),
                 'userUrl' => $user->getUrl(),
                 'phone' => $user->getPhone(),
-                'orcid' => $user->getOrcid(),
                 'mailingAddress' => $user->getMailingAddress(),
                 'country' => $user->getCountry(),
                 'biography' => $user->getBiography(null), // Localized
@@ -188,7 +186,6 @@ class UserDetailsForm extends UserForm
                 'preferredPublicName' => $author->getPreferredPublicName(null), // Localized
                 'email' => $author->getEmail(),
                 'userUrl' => $author->getUrl(),
-                'orcid' => $author->getOrcid(),
                 'country' => $author->getCountry(),
                 'biography' => $author->getBiography(null), // Localized
             ];
@@ -263,7 +260,6 @@ class UserDetailsForm extends UserForm
             'email',
             'userUrl',
             'phone',
-            'orcid',
             'mailingAddress',
             'country',
             'biography',
@@ -321,7 +317,6 @@ class UserDetailsForm extends UserForm
         $this->user->setEmail($this->getData('email'));
         $this->user->setUrl($this->getData('userUrl'));
         $this->user->setPhone($this->getData('phone'));
-        $this->user->setOrcid($this->getData('orcid'));
         $this->user->setMailingAddress($this->getData('mailingAddress'));
         $this->user->setCountry($this->getData('country'));
         $this->user->setBiography($this->getData('biography'), null); // Localized

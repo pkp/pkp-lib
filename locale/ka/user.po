@@ -517,3 +517,217 @@ msgstr ""
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+
+msgid "orcid.about.orcidExplanation"
+msgstr ""
+"ORCID არის დამოუკიდებელი არაკომერციული ორგანიზაცია, რომელიც უზრუნველყოფს "
+"მუდმივ იდენტიფიკატორს - ORCID iD, რომელიც განასხვავებს თქვენ სხვა "
+"მკვლევარებისაგან და თქვენი კვლევის შედეგებისა და საქმიანობის iD- სთან "
+"დაკავშირების მექანიზმს. ORCID ინტეგრირებულია მრავალ სისტემაში, რომელსაც "
+"იყენებენ გამომცემლები, დამფინანსებლები, ინსტიტუტები და კვლევასთან "
+"დაკავშირებული სხვა სერვისები. შეიტყვეთ მეტი <a href=\"https://orcid.org\"> "
+"orcid.org </a> - ზე."
+
+msgid "orcid.displayName"
+msgstr "ORCID პროფილის პლაგინი"
+
+msgid "orcid.description"
+msgstr "საშუალებას აძლევს მომხმარებლის პროფილის ინფორმაციის იმპორტი ORCID– დან."
+
+msgid "orcid.instructions"
+msgstr ""
+"ამ ფორმის წინასწარ შევსება შეგიძლიათ ORCID პროფილის ინფორმაციით. შეიყვანეთ "
+"ელ.ფოსტის მისამართი ან ORCID iD, რომელიც ასოცირდება ORCID პროფილთან, შემდეგ "
+"დააჭირეთ ღილაკს \"გაგზავნა\"."
+
+msgid "orcid.noData"
+msgstr "ORCID– ის მონაცემები ვერ მოიძებნა."
+
+msgid "orcid.emailOrOrcid"
+msgstr "ელფოსტის მისამართი, ან ORCID iD:"
+
+msgid "orcid.manager.settings.title"
+msgstr "ORCID API პარამეტრები"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "დამალული"
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"გთხოვთ, დააკონფიგურიროთ ORCID API წვდომა, რომ გამოიყენოთ ORCID პროფილის "
+"ინფორმაციის მომხმარებლის და ავტორის პროფილებში მოზიდვისა და დაკავშირებული "
+"ORCID ჩანაწერების განახლებაში ახალი პუბლიკაციებით (მხოლოდ ORCID "
+"წევრებისთვის)."
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr ""
+"ORCID API კონფიგურაცია მიიღო გლობალურად მასპინძელმა. შემდეგი სერთიფიკატები "
+"შენახულია."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "საჯარო"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "საჯარო ქვიშნარი"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "წევრი"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "წევრის ქვიშნარი"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "კლიენტის ID"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "კლიენტის საიდუმლო"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "პროფილის წვდომის სფერო"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "ელფოსტის პარამეტრები"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"გაგზავნეთ ელწერილი, რომ მოითხოვოთ ORCID ავტორიზაცია ავტორებისგან, როდესაც "
+"სტატია მიიღება, მაგ. გაგზავნილია რედაქტირების ასლისთვის"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "ORCID მოთხოვნის ჟურნალი"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "შეარჩიეთ პლაგინის მიერ ჟურნალის გამომავალი ჩანაწერების რაოდენობა"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "შეცდომები"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "ყველა"
+
+msgid "orcid.author.accessDenied"
+msgstr "ORCID– ზე წვდომა აკრძალულია"
+
+msgid "orcid.author.accessTokenStored"
+msgstr "ORCID ჩანაწერზე დაშვებული წვდომა {$orcidAccessScope} - ით, ძალაშია"
+
+msgid "orcid.author.requestAuthorization"
+msgstr ""
+"გაგზავნეთ ელწერილი, რომ მოითხოვოთ ORCID– ის ავტორიზაცია კონტრიბუტორისგან"
+
+msgid "orcid.author.deleteORCID"
+msgstr "წაშალეთ ORCID iD და წვდომის ტოკენი!"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "ავთენტიფიცირებული ORCID iD მოთხოვნისათვის იხილეთ ქვემოთ"
+
+msgid "orcid.author.unauthenticated"
+msgstr "ORCID არ არის დამოწმებული! გთხოვთ, მოითხოვოთ ავტორიზაცია ავტორიდან."
+
+msgid "orcid.verify.title"
+msgstr "ORCID ავტორიზაცია"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "გაგზავნა დაემატა თქვენს ORCID ჩანაწერს."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "წარდგენა ვერ დაემატა თქვენს ORCID ჩანაწერს."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "გამოქვეყნების დროს გაგზავნა დაემატება თქვენს ORCID ჩანაწერს."
+
+msgid "orcid.verify.success"
+msgstr "თქვენი ORCID iD გადამოწმებულია და წარმატებით ასოცირდება წარდგენასთან."
+
+msgid "orcid.verify.failure"
+msgstr "თქვენი ORCID iD ვერ გადამოწმდა. ბმული აღარ მოქმედებს."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "ORCID iD უკვე შენახული იყო ამ წარდგენისთვის."
+
+msgid "orcid.verify.denied"
+msgstr "თქვენ უარი თქვით თქვენს ORCID ჩანაწერზე წვდომაზე."
+
+msgid "orcid.authFailure"
+msgstr "ORCID ავტორიზაციის ბმული უკვე გამოყენებულია ან არასწორია."
+
+msgid "orcid.failure.contact"
+msgstr ""
+"გთხოვთ, დაუკავშირდეთ ჟურნალის მენეჯერს თქვენი სახელით, ORCID iD- ით და "
+"თქვენი გაგზავნის დეტალებით."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.connect"
+msgstr "შექმენით, ან დაუკაშირიდთ თქვენს ORCID iD"
+
+msgid "orcid.authorise"
+msgstr "გაიარეთ ავტორიზაცია და დაუკაშირიდთ თქვენს ORCID iD"
+
+msgid "orcid.about.title"
+msgstr "რა არის ORCID?"
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "როგორ და რატომ ვაგროვებთ ORCID iD- ს?"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"ეს ჟურნალი აგროვებს თქვენს ORCID iD- ს, ასე რომ, ჩვენ და ფართო საზოგადოება "
+"შეიძლება დარწმუნებული ვიყოთ, რომ თქვენ სწორად ხართ იდენტიფიცირებული და "
+"დაკავშირებული ხართ თქვენს პუბლიკაციებთან (გამოცემებთან). ეს უზრუნველყოფს "
+"თქვენს კავშირს თქვენს სამუშაო ნაწილთან მთელი კარიერის განმავლობაში. <br>\n"
+"ORCID ფანჯარაში ღილაკის „ავტორიზაციის“ ღილაკზე დაჭერისას, მოგთხოვთ გაზიაროთ "
+"თქვენი iD ავტორიზებული პროცესის გამოყენებით - ORCID iD– ით დარეგისტრირებით "
+"ან, თუ ეს უკვე გაქვთ, თქვენს ORCID ანგარიშში შესვლით, შემდეგ კი მიანიჭებთ "
+"ჩვენთვის ნებართვა მიიღოთ თქვენი ORCID iD. ჩვენ ამას ვაკეთებთ იმის "
+"უზრუნველსაყოფად, რომ თქვენი სწორად იდენტიფიცირება და საიმედოდ დაკავშირება "
+"თქვენს ORCID iD- სთან\n"
+"შეიტყვეთ მეტი <a href=“https://orcid.org/blog/2017/02/20/whats-so-special-"
+"about-signing”> რა არის განსაკუთრებული შესვლისას. </a> <br>\n"
+"ეს ჟურნალი შეაგროვებს და აჩვენებს ავტორიზებული ავტორებისა და თანაავტორების "
+"iD- ს OJS პროფილისა და სტატიების გვერდზე."
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"ეს ჟურნალი აგროვებს თქვენს ORCID iD- ს, ასე რომ, ჩვენ და ფართო საზოგადოება "
+"შეიძლება დარწმუნებული ვიყოთ, რომ სწორად ხართ იდენტიფიცირებული და "
+"დაკავშირებული ხართ თქვენს პუბლიკაციებთან (გამოცემებთან). ეს უზრუნველყოფს "
+"თქვენს კავშირს თქვენს სამუშაო ნაწილთან მთელი კარიერის განმავლობაში. <br>\n"
+"ORCID ფანჯარაში ღილაკზე “ავტორიზაცია” რომ დააჭიროთ, ჩვენ მოგთხოვთ გაზიაროთ "
+"თქვენი iD ავტორიზებული პროცესის გამოყენებით - ORCID iD– ზე დარეგისტრირებით "
+"ან, თუ ეს უკვე გაქვთ, თქვენს ORCID ანგარიშში შესვლით, შემდეგ კი მიანიჭებთ "
+"ჩვენთვის ნებართვა მიიღოთ თქვენი ORCID iD. ჩვენ ამას ვაკეთებთ იმის "
+"უზრუნველსაყოფად, რომ თქვენ სწორად ამოცნობილი ხართ და საიმედოდ დაუკავშირდებით "
+"თქვენს ORCID iD. <br>- ს\n"
+"შეიტყვეთ მეტი <a href=“https://orcid.org/blog/2017/02/20/whats-so-special-"
+"about-signing”>რა არის განსაკუთრებული შესვლისას. </a> <br>\n"
+"ეს ჟურნალი შეაგროვებს და აჩვენებს ავტორიზებული ავტორებისა და თანაავტორების "
+"iD- ს OJS პროფილისა და სტატიების გვერდზე. გარდა ამისა, სტატიის "
+"მეტამონაცემები ავტომატურად გადაიტანება თქვენს ORCID ჩანაწერში, რაც "
+"საშუალებას მოგვცემს, დაგეხმაროთ თქვენი ჩანაწერის განახლებაში სანდო "
+"ინფორმაციის მიღებაში. შეიტყვეთ მეტი <a href=“https://orcid.org/blog/2017/08/"
+"10/six-ways-make-your-orcid-id-work-you”> ექვსი გზა, რომლითაც თქვენი ORCID "
+"iD მუშაობს. თქვენ! </a>\n"
+
+msgid "orcid.about.display.title"
+msgstr "სად არის ნაჩვენები ORCID iD?"
+
+msgid "orcid.about.display"
+msgstr ""
+"იმის დასადასტურებლად, რომ თქვენ გამოიყენეთ თქვენი iD და რომ იგი "
+"ავტორიზებულია, ჩვენ ვაჩვენებთ ORCID iD ხატულას <img src=\"https://orcid.org/"
+"sites/default/files/images/orcid_16x16(1).gif\" alt=\"iD icon\" width=\"16\" "
+"height=\"16\" border=\"0\"> თქვენს სახელთან ერთად თქვენს წარდგენის სტატიის "
+"გვერდზე და თქვენს საჯარო მომხმარებლის პროფილზე.<br>\n"
+"\t\tშეიტყვეთ მეტი <a href=\"https://orcid.org/blog/2013/02/22/how-should-"
+"orcid-id-be-displayed\">როგორ უნდა გამოჩნდეს ORCID iD.</a>"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "კლიენტის ID არასწორია"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "კლიენტის საიდუმლო არასწორია"

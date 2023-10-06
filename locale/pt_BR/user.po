@@ -533,3 +533,262 @@ msgstr "Nome de usuário ou e-mail"
 
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "O acesso ao fluxo de trabalho para submissão incompleta é restrito."
+
+msgid "orcid.displayName"
+msgstr "Plugin de Perfil ORCID"
+
+msgid "orcid.description"
+msgstr ""
+"Permite a importação de informação do perfil do utilizador a partir do ORCID."
+
+msgid "orcid.instructions"
+msgstr ""
+"Pode pré-preencher este formulário com informação sobre um perfil ORCID. "
+"Introduza o endereço de e-mail ou o ORCID iD associado com o perfil ORCID, e "
+"depois clique no botão \"Enviar\"."
+
+msgid "orcid.noData"
+msgstr "Não foram encontrados dados no ORCID."
+
+msgid "orcid.emailOrOrcid"
+msgstr "Endereço de E-Mail ou ORCID iD:"
+
+msgid "orcid.manager.settings.title"
+msgstr "Configurações da API ORCID"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "escondido"
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"Configure a API ORCID para transferir informação do perfil ORCID para o "
+"perfil de utilizador."
+
+msgid ""
+"orcid.manager.settings.description.globallyconfigured"
+msgstr ""
+"A API ORCID foi configurada de maneira global pelo servidor de hospedagem. "
+"As credenciais a seguir foram salvas."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "API ORCID"
+
+msgid ""
+"orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Público"
+
+msgid ""
+"orcid.manager.settings.orcidProfileAPIPath."
+"publicSandbox"
+msgstr "Sandbox Pública"
+
+msgid ""
+"orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Membro"
+
+msgid ""
+"orcid.manager.settings.orcidProfileAPIPath."
+"memberSandbox"
+msgstr "Sandbox para Membros"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "ID do cliente"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Senha do cliente"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Escopo de Acesso ao Perfil"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Configurações de E-mail"
+
+msgid ""
+"orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Enviar e-mail para solicitar autorização do ORCID dos autores quando um "
+"artigo é aceito, ou seja, enviado para cópia editorial"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "Log de pedidos ORCID"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Selecione a quantidade de saída de log escrita pelo plugin"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Erros"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Tudo"
+
+msgid "orcid.manager.settings.city"
+msgstr "Cidade"
+
+msgid "orcid.author.accessDenied"
+msgstr "Acesso ao ORCID foi negado em"
+
+msgid "orcid.author.accessTokenStored"
+msgstr ""
+"Acesso ao registro ORCID concedido com o escopo {$orcidAccessScope}, válido "
+"até"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Enviar e-mail para solicitar autorização ORCID do contribuidor"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Apagar o ORCID iD e o token de acesso!"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Veja abaixo para solicitar o ORCID iD autenticado"
+
+msgid "orcid.author.unauthenticated"
+msgstr ""
+"ORCID iD não autenticado! Por favor, solicite a autenticação do colaborador."
+
+msgid "orcid.verify.title"
+msgstr "Autorização ORCID"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "A submissão foi adicionada ao seu registro ORCID."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "A submissão não pôde ser adicionada ao seu registro ORCID."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr ""
+"A submissão será adicionada ao seu registro ORCID durante a publicação."
+
+msgid "orcid.verify.success"
+msgstr "Seu ORCID iD foi verificado e associado com sucesso à submissão."
+
+msgid "orcid.verify.failure"
+msgstr "Seu ORCID iD não pôde ser verificado. O link não é mais válido."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "Um ORCID iD já estava armazenado para esta submissão."
+
+msgid "orcid.verify.denied"
+msgstr "Você negou acesso ao seu registro ORCID."
+
+msgid "orcid.authFailure"
+msgstr ""
+"O OJS não foi capaz de comunicar com o serviço do ORCID. Por favor contate o "
+"gestor da revista indicando o seu nome, ORCID iD, e detalhes da sua "
+"submissão."
+
+msgid "orcid.failure.contact"
+msgstr ""
+"Por favor, entre em contato com o gerente da revista com o seu nome, ORCID "
+"iD e detalhes de sua submissão."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.connect"
+msgstr "Criar ou Associar o seu ORCID iD"
+
+msgid "orcid.authorise"
+msgstr "Autorize e conecte seu ORCID iD"
+
+msgid "orcid.about.title"
+msgstr "O que é ORCID?"
+
+msgid "orcid.about.orcidExplanation"
+msgstr ""
+"O ORCID é uma organização independente, sem fins lucrativos, que fornece um "
+"identificador persistente - um ORCID iD - que o distingue de outros "
+"pesquisadores e um mecanismo para vincular seus resultados e atividades de "
+"pesquisa ao seu iD. O ORCID está integrado em muitos sistemas usados por "
+"editores, financiadores, instituições e outros serviços relacionados à "
+"pesquisa. Saiba mais em <a href=\"https://orcid.org\">orcid.org</a>."
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Como e por que coletamos iDs ORCID?"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"Este periódico está coletando seu ORCID iD para que possamos [adicionar "
+"propósito e distinguir entre a API do membro e a API pública]. Quando você "
+"clicar no botão \"Autorizar\" no pop-up ORCID, pediremos que você "
+"compartilhe seu ID usando um processo autenticado: seja por <a href="
+"\"https://support.orcid.org/hc/en-us/articles/360006897454\">registrando um "
+"ORCID iD</a> ou, se você já tiver um, <a href=\"https://support.orcid.org/hc/"
+"en-us/categories/360000661673\">acessando a sua conta ORCID</a>, concedendo-"
+"nos permissão para obter seu ORCID iD. Fazemos isso para garantir que você "
+"esteja corretamente identificado e conectando com segurança seu ORCID iD."
+"<br>\n"
+"\tSaiba mais em <a href=\"https://orcid.org/blog/2017/02/20/whats-so-special-"
+"about-signing\">O que há de tão especial em fazer login?</a>\n"
+"Este periódico coletará e exibirá os IDs dos autores e coautores "
+"autenticados no perfil do OJS e na página do artigo."
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"Este periódico está coletando seu ORCID iD para que nós e a comunidade "
+"possam estar seguros que você está corretamente identificado e conectado com "
+"sua(s) publicação(ões). Isto assegura que sua conexão com todos os seus "
+"trabalhos continue durante sua carreira.<br>\n"
+"\tAo clicar o botão “Autorizar” no popup do ORCID, pediremos para "
+"compartilhar seu iD usando um processo autenticado seja registrando um ORCID "
+"iD oy, caso já tenha um, fazendo login na sua conta ORCID, e então "
+"autorizando nosso acesso ao seu ORCID iD. Fazemos isso para garantir que "
+"você está corretamente identificado e conectando seguramente ao seu ORCID iD."
+"<br>\n"
+"\tSaiba mais em <a href=\"https://info.orcid.org/pt/whats-so-special-about-"
+"signing-in/\">O que há de tão especial no login?</a><br>\n"
+"\tEste periódico irá coletar e exibir iDs de autores e co-autores "
+"autenticados no perfil OJS e e página de artigo. Ainda, metadados do artigo "
+"serão automaticamente enviados ao seu registro ORCID, pertimindo que "
+"ajudemos você a manter seu registro atualizado com informação confiável. "
+"Saiba mais em <a href=\"https://info.orcid.org/pt/six-ways-to-make-your-"
+"orcid-id-work-for-you/\">Seis maneiras de fazer seu ORCID iD Trabalho para "
+"você!</a>\n"
+
+msgid "orcid.about.display.title"
+msgstr "Onde os ORCID iDs são exibidos?"
+
+msgid "orcid.about.display"
+msgstr ""
+"Para reconhecer que você usou seu iD e que ele foi autenticado, exibimos o "
+"ícone do ORCID iD <img src=\"https://orcid.org/sites/default/files/images/"
+"orcid_16x16.png\" alt=\"iD icon\" width=\"16\" height=\"16\" border=\"0\"> "
+"ao lado do seu nome na página do artigo da sua submissão e no seu perfil de "
+"usuário público.<br>\n"
+"\t\tSaiba mais em <a href=\"https://orcid.org/blog/2013/02/22/how-should-"
+"orcid-id-be-displayed\">Como deve ser exibido um ORCID iD?</a>"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "ID do cliente inválido"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Segredo do cliente inválido"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Configurado em todo o periódico"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "ID do cliente é válido"
+
+msgid ""
+"orcid.manager.status.configuration.clientIdInvalid"
+msgstr "ID do cliente inválido, por favor conferir"
+
+msgid ""
+"orcid.manager.status.configuration.clientSecretValid"
+msgstr "Segredo do cliente é válido"
+
+msgid ""
+"orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Segredo do cliente inválido, por favor conferir as credenciais"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Configurações salvas"
+
+msgid "orcid.invalidClient"
+msgstr "Credenciais de cliente inválidas"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "ORCiDs duplicados para colaboradores detectados."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Detectados ORCiDs não autenticados para contribuidores."

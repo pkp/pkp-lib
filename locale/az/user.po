@@ -520,3 +520,213 @@ msgstr "Giriş şifrənizi yeniləmək üçün yeni bir parol daxil edin."
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr "Şifrə uğurla yeniləndi. Zəhmət olmasa yenilənmiş parol ilə daxil olun."
+
+msgid "orcid.displayName"
+msgstr "Orcid Profil əlavəsi"
+
+msgid "orcid.emailOrOrcid"
+msgstr "Email adresi və ya ORCID:"
+
+msgid "orcid.manager.settings.title"
+msgstr "Orcid API tənzimləri"
+
+msgid "orcid.description"
+msgstr ""
+"ORCID-dən istifadəçi məlumatlarının içəriyə transfer edilməsinə icazə verir"
+
+msgid "orcid.instructions"
+msgstr ""
+"ODCID profilinizdəki məlumatları bu forma avtomatik olaraq transfer edə "
+"bilərsiniz. ORCID profili ilə əlaqəli email adresi və ya ORCID ID-ni daxil "
+"edin, sonra isə \"Göndər\" seçimini klikləyin."
+
+msgid "orcid.noData"
+msgstr "ORCID-də heç bir data tapılmadı"
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"Orcid profili məlumatlarının istifadəçi profilinə çəkilməsi üçün ODCID API-"
+"sini konfiqurasiya edin"
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr ""
+"Orcid API ümumi olaraq konfiqurasiya edilir. Aşağıdakı məlumatlar yadda "
+"saxlandı"
+
+#, fuzzy
+msgid "orcid.manager.settings.saved"
+msgstr "Parametrlər qurtarıldı"
+
+#, fuzzy
+msgid "orcid.manager.settings.city"
+msgstr "Şəhər"
+
+#, fuzzy
+msgid "orcid.author.unauthenticated"
+msgstr ""
+"Orcid iD kimliyi təsdiqlənmədi! Zəhmət olmasa iştirakçıdan kimlik "
+"təsdiqləməsi tələb edin."
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Məqalə ORCID qeydiyyatınıza əlavə edildi"
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "Məqalə ORCID qeydiyyatınıza əlavə edilə bilmədi"
+
+msgid "orcid.verify.denied"
+msgstr "Orcid qeydiyyatınıza girişi ləğv etdiniz."
+
+msgid "orcid.authorise"
+msgstr "Orcid ID-nizi səlahiyyətləndirin və qoşun"
+
+#, fuzzy
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Töhfəçilər üçün təsdiqlənməmiş orcidlər aşkarlandı."
+
+msgid "orcid.manager.settings.hidden"
+msgstr "gizli"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "Orcid API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Ümumi"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Ümumi Sandbox"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Üzv"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Üzv Sandbox"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "Müştəri ID"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Müştəri məxfiliyi"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Profil Giriş əhatəsi"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Email tənzimləri"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Bir məqalə qəbul edildiyi zaman ORCID səlahiyyəti istəmək üçün email göndər. "
+"Məs: nüsxə redaktə üçün göndərildi"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "Orcid istək gündəliyi"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Əlavə tərəfindən yazılan gündəlik hasilatın miqdarını seçin"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Xətalar"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Hamısı"
+
+msgid "orcid.author.accessDenied"
+msgstr "Orcid girişi rədd edildi"
+
+msgid "orcid.author.accessTokenStored"
+msgstr ""
+"{$orcidAccessScope} əhatəsilə verilən ORCID qeydiyyat girişi, bu tarixə "
+"qədər etibarlıdır"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "İştirakçıdan ORCID səlahiyyətləndirmə istəmək üçün email göndər"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Orcid iD və giriş açarını silin!"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Kimliyi təsdiqlənmiş ORCID ID istəmək üçün aşağıya baxın"
+
+msgid "orcid.verify.title"
+msgstr "Orcid səlahiyyətləndirməsi"
+
+msgid "orcid.fieldset"
+msgstr "Orcid"
+
+msgid "orcid.connect"
+msgstr "Orc ID-nizi yaradın və ya qoşun"
+
+msgid "orcid.about.title"
+msgstr "Orcid nədir?"
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "ORCID ID-lərinizi necə və niyə toplayırıq?"
+
+msgid "orcid.about.display.title"
+msgstr "Orcid ID-ləri harada göstərilir?"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Etibarsız müştəri şəxsiyyəti"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Etibarsız müştəri sirri"
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "Məqalə nəşr əsnasında ORCID qeydiyyatınıza əlavə ediləcəkdir."
+
+msgid "orcid.verify.success"
+msgstr "Orcid iD-niz təsdiqləndi və Məqalə ilə uğurla əlaqələndirildi"
+
+msgid "orcid.verify.failure"
+msgstr "Orcid iD-niz təsdiqlənə bilmədi. Link etibarlı deyil."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "Bu məqalə üçün bir ORCID iD artıq mövcuddur."
+
+msgid "orcid.authFailure"
+msgstr ""
+"OJS, ORCID xidməti ilə əlaqə saxlaya bilmədi. Zəhmət olmasa jurnaldan məsul "
+"şəxs ilə adınızı, ORCID və tələbinizin təfərrüatları üçün əlaqə saxlayın."
+
+#, fuzzy
+msgid "orcid.invalidClient"
+msgstr "Yanlış müştəri etimadnaməsi"
+
+msgid "orcid.failure.contact"
+msgstr ""
+"Zəhmət olmasa adınız, ODCID ID-niz və məqalə məlumatlarınızla birlikdə "
+"jurnal idarəçisinə müraciət edin."
+
+msgid "orcid.about.orcidExplanation"
+msgstr ""
+"ORCID, sizi digər tədqiqatçılardan fərqləndirən daimi bir təsviredici və "
+"araşdırma buraxılışlarınızı və fəaliyyətlərinizi ID-nizə qoşmaq üçün bir "
+"mexanizm təmin edən, qazanc məqsədi güdməyən müstəqil bir quruluşdur. ORCID, "
+"naşirlər, fond təmin edənlər, qurumlar və araşdırma ilə bağlı digər "
+"xidmətlər tərəfindən istifadə edilən bir neçə sistemə inteqrasiya edilir. "
+"Daha ətraflı məlumat almaq üçün <a href=\"https://orcid.org\">orcid.org</"
+"a>adresini ziyarət edin."
+
+#, fuzzy
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Jurnal-müdrik konfiqurasiya edildi"
+
+#, fuzzy
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "Müştəri ID etibarlıdır"
+
+#, fuzzy
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "Müştəri ID etibarsızdır, lütfən girişinizi yoxlayın"
+
+#, fuzzy
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Müştəri sirri etibarlıdır"
+
+#, fuzzy
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Müştəri sirri etibarsızdır, zəhmət olmasa etimadnamənizi yoxlayın"
+
+#, fuzzy
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Töhfə verənlər üçün dublikat orcids aşkar edildi."

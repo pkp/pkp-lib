@@ -180,6 +180,13 @@
 				"nullable"
 			]
 		},
+		"orcidIsVerified": {
+			"type": "boolean",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"orcidWorkPutCode": {
 			"type": "string",
 			"apiSummary": true,

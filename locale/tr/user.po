@@ -548,3 +548,221 @@ msgstr "Şifre başarıyla güncellendi. Lütfen güncel şifre ile giriş yapı
 
 msgid "user.usernameOrEmail"
 msgstr "Kullanıcı adı veya E-posta"
+
+msgid "orcid.displayName"
+msgstr "ORCID Profil Eklentisi"
+
+msgid "orcid.description"
+msgstr "ORCID'den kullanıcı profili bilgilerinin içe aktarılmasına izin verir."
+
+msgid "orcid.instructions"
+msgstr "ORCID profilinizdeki bilgileri bu forma otomatik aktarabilirsiniz. ORCID profili ile ilişkili e-posta adresini veya ORC ID'yi girin, ardından \"Gönder\" seçeneğini tıklayın."
+
+msgid "orcid.noData"
+msgstr "ORCID'de herhangi bir veri bulunamadı."
+
+msgid "orcid.emailOrOrcid"
+msgstr "E-posta adresi veya ORCID:"
+
+msgid "orcid.manager.orcidProfileSettings"
+msgstr "ORCID Profil Ayarları"
+
+msgid "orcid.manager.settings.description"
+msgstr "ORCID profili bilgilerinin kullanıcı profiline çekilmesi için ORCID API'sini yapılandırın."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Genel"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Genel Sandbox"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Üye"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Üye Sandbox"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "Müşteri ID"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Müşteri Gizliliği"
+
+msgid "orcid.author.submission"
+msgstr "ORC ID'den Bilgi İsteği"
+
+msgid "orcid.author.submission.success"
+msgstr "İsteğiniz, ORC ID'nizle başarıyla ilişkilendirildi."
+
+msgid "orcid.author.submission.failure"
+msgstr "İsteğiniz, ORC ID'nizle başarılı bir şekilde ilişkilendirilemedi. Lütfen dergi sorumlusu ile adınız, ORC ID ve isteğinizin ayrıntıları için iletişime geçin."
+
+msgid "orcid.authFailure"
+msgstr "OJS, ORCID hizmeti ile iletişim kuramadı. Lütfen dergi sorumlusu ile adınızı, ORCID  ve isteğinizin ayrıntıları için iletişime geçiniz."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.connect"
+msgstr "ORC ID'nizi oluşturun veya bağlayın"
+
+msgid "orcid.verify.title"
+msgstr "ORCID Yetkilendirmesi"
+
+msgid "orcid.author.deleteORCID"
+msgstr "ORCID iD ve erişim anahtarını Sil!"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Hatalar"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Tümü"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "E-posta Ayarları"
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr "ORCID API genel olarak yapılandırıldı. Aşağıdaki bilgiler kaydedildi."
+
+msgid "orcid.manager.settings.hidden"
+msgstr "gizli"
+
+msgid "orcid.manager.settings.title"
+msgstr "ORCID API Ayarları"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"Bu dergi ORCID iD'nizi toplar. Böylece [Üye API'sı ve Herkese Açık API "
+"arasında amaç ekleyebilir ve ayırt edebiliriz].\n"
+"ORCID açılır penceresindeki \"Yetkilendir\" düğmesini tıkladığınızda, "
+"kimliği doğrulanmış bir işlem kullanarak iD'nizi paylaşmanızı isteyeceğiz: <"
+"a href=\"https://support.orcid.org/hc/en-us/articles/360006897454\">ORCID "
+"iD'ye kaydolma</a> veya zaten varsa <a href=\"https://support.orcid.org/hc/"
+"en-us/categories/360000661673\">ORCID hesabınızda oturum açmanız</a>, "
+"ardından ORCID iD'nizi almamız için bize izin verin. Bunu, doğru bir şekilde "
+"tanımlandığınızdan ve ORCID iD'nizi güvenli bir şekilde bağladığınızdan emin "
+"olmak için yapıyoruz.\n"
+"\"Oturum açma hakkında <a href=\"https://info.orcid.org/"
+"whats-so-special-about-signing-in/\">bu kadar özel olan konu\"</a> bölümünde "
+"daha fazla bilgi edinebilirsiniz."
+
+msgid "orcid.about.display"
+msgstr ""
+"ID'nizi kullandığınızı ve doğrulandığını kabul etmek için, gönderinizin "
+"makale sayfasında ve genel kullanıcı profilinizde adınızın yanında ORCID iD "
+"simgesini <img src=\"https://info.orcid.org/wp-content/uploads/2020/12/"
+"ORCIDiD_icon16x16.png\" alt=\"iD icon\" width=\"16\" height=\"16\" border=\""
+"0\"> gösteririz. <br />\n"
+"       <a href=\"https://info.orcid.org/how-should-an-orcid-id-be-displayed/"
+"\">Bir ORCID iD nasıl görüntülenmelidir</a> bölümünde daha fazla bilgi "
+"edinebilirsiniz"
+
+msgid "orcid.about.display.title"
+msgstr "ORCID iD'leri nerede görüntülenir?"
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "ORCID iD'lerini nasıl ve neden topluyoruz?"
+
+msgid "orcid.about.orcidExplanation"
+msgstr ""
+"ORCID, sizi diğer araştırmacılardan ayıran kalıcı bir tanımlayıcı ve "
+"araştırma çıktılarınızı ve faaliyetlerinizi iD'nize bağlamak için bir "
+"mekanizma sağlayan, kar amacı gütmeyen bağımsız bir kuruluştur. ORCID, "
+"yayıncılar, fon sağlayıcılar, kurumlar ve araştırmayla ilgili diğer "
+"hizmetler tarafından kullanılan birçok sisteme entegre edilmiştir.  Daha "
+"fazla bilgi için <a href=\"https://orcid.org\">orcid.org</a> adresini "
+"ziyaret edin."
+
+msgid "orcid.about.title"
+msgstr "ORCID nedir?"
+
+msgid "orcid.authorise"
+msgstr "ORCID iD'nizi yetkilendirin ve bağlayın"
+
+msgid "orcid.failure.contact"
+msgstr ""
+"Lütfen adınız, ORCID iD'niz ve gönderi bilgilerinizle birlikte dergi "
+"yöneticisine başvurun."
+
+msgid "orcid.verify.denied"
+msgstr "ORCID kaydınıza erişimi engellediniz."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "Bu gönderi için bir ORCID iD zaten mevcut."
+
+msgid "orcid.verify.failure"
+msgstr "ORCID iD'niz doğrulanamadı. Bağlantı geçerli değil."
+
+msgid "orcid.verify.success"
+msgstr "ORCID iD'niz doğrulandı ve gönderi ile başarıyla ilişkilendirildi."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "Gönderi, yayınlama sırasında ORCID kaydınıza eklenecektir."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "Gönderi, ORCID kaydınıza eklenemedi."
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Gönderi, ORCID kaydınıza eklendi."
+
+msgid "orcid.author.unauthenticated"
+msgstr ""
+"ORCID iD kimliği doğrulanmadı! Lütfen katkıda bulunandan kimlik doğrulaması "
+"isteyin."
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Kimliği doğrulanmış ORCID iD istemek için aşağıya bakın"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Katkıda bulunandan ORCID yetkilendirmesi istemek için e-posta gönderin"
+
+msgid "orcid.author.accessTokenStored"
+msgstr ""
+"{$orcidAccessScope} kapsamıyla verilen ORCID kayıt erişimi, şu tarihe kadar "
+"geçerlidir"
+
+msgid "orcid.author.accessDenied"
+msgstr "ORCID erişimi reddedildi"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Eklenti tarafından yazılan günlük çıktısının miktarını seçin"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "ORCID istek günlüğü"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Bir makale kabul edildiğinde yazarlardan ORCID yetkisi istemek için e-posta "
+"gönderin. Ör: kopya düzenlemeye gönderildi"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Profil Erişim Kapsamı"
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"Bu dergi ORCID iD kimliğinizi topluyor, bu sayede doğru tanımlama ve diğer "
+"yayınlarınızın bağlantılı olmasını sağlıyor. Bu, tüm bilimsel "
+"çalışmalarınızın bağlantılı kalmasını sağlayacaktır.\n"
+"ORCID açılır penceresindeki \"Yetkilendir\" düğmesini tıkladığınızda, "
+"kimliği doğrulanarak dergi sistemine profil bilgilerini aktarmanızı "
+"isteyeceğiz - bir ORCID için kayıt yaptırarak veya zaten varsa, ORCID "
+"hesabınızda oturum açarak yetkilendiriniz. Bunu, doğru şekilde "
+"tanımlanmanızı ve ORCID kimliğinize güvenli bir şekilde bağlanmanızı "
+"sağlamak için yapıyoruz.\n"
+"ORCID ile oturum açmanın önemi hakkında detaylı bilgi için <a href=\""
+"https://info.orcid.org/whats-so-special-about-signing-in/\">tıklayınız.</a>\n"
+"Bu dergi ORCID bilgilerini profil ve makale sayfalarında isteyecek ve "
+"görüntüleyecektir. Ayrıca, yayımlanmış makale üst verileri otomatik olarak "
+"yazar ORCID kayıtlarına aktarılacak ve bu da kaydınızı güvenilir bilgilerle "
+"güncel tutmanıza yardımcı olabilmemizi sağlayacaktır. <a href=\""
+"https://info.orcid.org/six-ways-to-make-your-orcid-id-work-for-you/\">ORCID "
+"iD'nizi sizin için çalıştırmanın altı yolu!</a>\n"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Geçersiz istemci sırrı"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Geçersiz istemci kimliği"

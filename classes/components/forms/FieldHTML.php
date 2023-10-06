@@ -20,4 +20,7 @@ class FieldHTML extends Field
 {
     /** @copydoc Field::$component */
     public $component = 'field-html';
+
+    /** @copydoc Field::$isInert */
+    public bool $isInert = true;
 }

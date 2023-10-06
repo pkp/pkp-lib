@@ -23,9 +23,12 @@ namespace PKP\identity;
 
 use APP\core\Application;
 use PKP\facades\Locale;
+use PKP\orcid\traits\HasOrcid;
 
 class Identity extends \PKP\core\DataObject
 {
+    use HasOrcid;
+
     public const IDENTITY_SETTING_GIVENNAME = 'givenName';
     public const IDENTITY_SETTING_FAMILYNAME = 'familyName';
 

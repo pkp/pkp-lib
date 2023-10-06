@@ -529,3 +529,83 @@ msgstr "Lösenordet är uppdaterat. Logga in med det nya lösenordet."
 
 msgid "user.usernameOrEmail"
 msgstr "Användarnamn eller e-post"
+
+msgid "orcid.displayName"
+msgstr "Plugin för ORCID-profil"
+
+msgid "orcid.description"
+msgstr "Gör det möjligt att importera användarprofilsinformation från ORCID."
+
+msgid "orcid.instructions"
+msgstr "Du kan fylla i det här formuläret genom att hämta information från en ORCID-profil. Ange e-postadress eller ORCID iD som är kopplat till ORCID-profilen och klicka sedan på \"Skicka\"."
+
+msgid "orcid.noData"
+msgstr "Hittade inga data i ORCID."
+
+msgid "orcid.emailOrOrcid"
+msgstr "E-postadress eller ORCID-iD:"
+
+msgid "orcid.manager.orcidProfileSettings"
+msgstr "Inställningar för ORCID-profil"
+
+msgid "orcid.manager.settings.description"
+msgstr "Konfigurera ORCID-API:t för att hämta profilinformation från ORCID till användarprofilen."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Public"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Publik sandbox"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Medlem"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Sandbox för medlemmar"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "Client ID"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Client Secret"
+
+msgid "orcid.author.submission"
+msgstr "ORCID för bidrag"
+
+msgid "orcid.author.submission.success"
+msgstr "Ditt bidrag har kopplats till ditt ORCID-iD."
+
+msgid "orcid.author.submission.failure"
+msgstr "Ditt bidrag kunde inte kopplas till ditt ORCID-iD. Kontakta tidskriftansvarig med ditt namn, ORCID-iD och andra detaljer om ditt bidrag."
+
+msgid "orcid.authFailure"
+msgstr "OJS kunde inte kommunicera med ORCID-tjänsten. Kontakta tidskriftansvarig med ditt namn, ORCID-iD, och andra detaljer om ditt bidrag."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.connect"
+msgstr "Skapa eller koppla ditt ORCID-iD"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Alla"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "E-postinställningar"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Fel"
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr ""
+"ORCID-API:t blev konfigruerat globalt av värden. Följande "
+"inloggningsuppgifter har sparats."
+
+msgid "orcid.manager.settings.hidden"
+msgstr "gömd"
+
+msgid "orcid.manager.settings.title"
+msgstr "ORCID API-Inställningar"

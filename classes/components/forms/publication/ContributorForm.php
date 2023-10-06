@@ -16,6 +16,7 @@
 namespace PKP\components\forms\publication;
 
 use APP\facades\Repo;
+use APP\orcid\OrcidManager;
 use APP\submission\Submission;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRichTextarea;
@@ -94,10 +95,47 @@ class ContributorForm extends FormComponent
             ]))
             ->addField(new FieldText('url', [
                 'label' => __('user.url'),
-            ]))
-            ->addField(new FieldText('orcid', [
-                'label' => __('user.orcid'),
             ]));
+
+        if (OrcidManager::isEnabled()) {
+            $this->addField(new FieldText('orcid', [
+                'label' => __('user.orcid'),
+                'optIntoEdit' => true,
+                'optIntoEditLabel' => __('common.override'),
+                'tooltip' => __('orcidProfile.about.orcidExplanation'),
+
+            ]), [FIELD_POSITION_AFTER, 'url']);
+
+            $this->addField(new FieldOptions('requestOrcidAuthorization', [
+                'label' => __('orcidProfile.verify.title'),
+                'options' => [
+                    [
+                        'label' => __('orcidProfile.author.requestAuthorization'),
+                        'value' > false,
+                    ]
+                ]
+            ]), [FIELD_POSITION_AFTER, 'orcid']);
+
+            $this->addField(
+                new FieldOptions('deleteORCID', [
+                    'label' => __('orcidProfile.displayName'),
+                    'options' => [
+                        [
+                            'label' => __('orcidProfile.author.deleteORCID'),
+                            'value' > false,
+                        ]
+                    ],
+                    'showWhen' => 'orcid',
+                ]),
+                [FIELD_POSITION_AFTER, 'orcid']
+            );
+        } else {
+            $this->addField(new FieldText('orcid', [
+                    'label' => __('user.orcid'),
+                ]));
+        }
+
+
         if ($context->getSetting('requireAuthorCompetingInterests')) {
             $this->addField(new FieldRichTextarea('competingInterests', [
                 'label' => __('author.competingInterests'),
@@ -106,9 +144,9 @@ class ContributorForm extends FormComponent
             ]));
         }
         $this->addField(new FieldRichTextarea('biography', [
-            'label' => __('user.biography'),
-            'isMultilingual' => true,
-        ]))
+                'label' => __('user.biography'),
+                'isMultilingual' => true,
+            ]))
             ->addField(new FieldText('affiliation', [
                 'label' => __('user.affiliation'),
                 'isMultilingual' => true,

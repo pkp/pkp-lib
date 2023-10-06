@@ -18,6 +18,7 @@ use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
+use APP\orcid\OrcidManager;
 use APP\publication\DAO;
 use APP\publication\Publication;
 use APP\submission\Submission;
@@ -262,6 +263,21 @@ abstract class Repository
         // Don't allow a publication to be published before passing the review stage
         if ($submission->getData('stageId') <= WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
             $errors['reviewStage'] = __('publication.required.reviewStage');
+        }
+
+        // Orcid errors
+        if (OrcidManager::isEnabled()) {
+            $orcidIds = [];
+            foreach ($publication->getData('authors') as $author) {
+                $authorOrcid = $author->getData('orcid');
+                if ($authorOrcid and in_array($authorOrcid, $orcidIds)) {
+                    $errors['hasDuplicateOrcids'] = __('orcidProfile.verify.duplicateOrcidAuthor');
+                } elseif ($authorOrcid && !$author->getData('orcidAccessToken')) {
+                    $errors['hasUnauthenticatedOrcid'] = __('orcidProfile.verify.hasUnauthenticatedOrcid');
+                } else {
+                    $orcidIds[] = $authorOrcid;
+                }
+            }
         }
 
         Hook::call('Publication::validatePublish', [&$errors, $publication, $submission, $allowedLocales, $primaryLocale]);

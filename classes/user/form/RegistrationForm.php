@@ -22,6 +22,7 @@ namespace PKP\user\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\form\NotificationSettingsForm;
+use APP\orcid\OrcidManager;
 use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\core\Core;
@@ -118,6 +119,24 @@ class RegistrationForm extends Form
             'siteWidePrivacyStatement' => $site->getData('privacyStatement'),
         ]);
 
+        // TODO: Figure out best way to enable/save ORCID info at site level
+        // TODO: buildOAuthUrl assumes working from context.
+        //       This form can appear at the site-level. Sort out what to do. Will probably throw an exception at site-level
+        if (OrcidManager::isEnabled()) {
+            $targetOp = 'register';
+            $templateMgr->assign([
+                'orcidEnabled' => true,
+                'targetOp' => $targetOp,
+                'orcidUrl' => OrcidManager::getOrcidUrl(),
+                'orcidOAuthUrl' => OrcidManager::buildOAuthUrl('authorizeOrcid', ['targetOp' => $targetOp]), // TODO
+                'orcidIcon' => OrcidManager::getIcon(),
+            ]);
+        } else {
+            $templateMgr->assign([
+                'orcidEnabled' => false,
+            ]);
+        }
+
         return parent::fetch($request, $template, $display);
     }
 
@@ -150,6 +169,7 @@ class RegistrationForm extends Form
             'country',
             'interests',
             'emailConsent',
+            'orcid',
             'privacyConsent',
             'readerGroup',
             'reviewerGroup',
@@ -237,6 +257,11 @@ class RegistrationForm extends Form
         $user->setEmail($this->getData('email'));
         $user->setCountry($this->getData('country'));
         $user->setAffiliation($this->getData('affiliation'), $currentLocale);
+
+        // TODO: See how to handle site wide
+        if (OrcidManager::isEnabled()) {
+            $user->setOrcid($this->getData('orcid'));
+        }
 
         if ($sitePrimaryLocale != $currentLocale) {
             $user->setGivenName($this->getData('givenName'), $sitePrimaryLocale);

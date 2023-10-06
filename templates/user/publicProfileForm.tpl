@@ -75,6 +75,10 @@
 		{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="46"}
 	{/fbvFormSection}
 
+    {if $orcidEnabled}
+        {include file="form/orcidProfile.tpl"}
+    {/if}
+
 	{call_hook name="User::PublicProfile::AdditionalItems"}
 
 	<p>

@@ -16,6 +16,7 @@
 
 namespace PKP\pages\admin;
 
+use APP\components\forms\site\OrcidSiteSettingsForm;
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
@@ -202,6 +203,7 @@ class AdminHandler extends Handler
         $siteConfigForm = new \PKP\components\forms\site\PKPSiteConfigForm($apiUrl, $locales, $site);
         $siteInformationForm = new \PKP\components\forms\site\PKPSiteInformationForm($apiUrl, $locales, $site);
         $siteBulkEmailsForm = new \PKP\components\forms\site\PKPSiteBulkEmailsForm($apiUrl, $site, $contexts);
+        $orcidSettingsForm = new OrcidSiteSettingsForm($apiUrl, $locales, $site);
         $themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales);
         $siteStatisticsForm = new \PKP\components\forms\site\PKPSiteStatisticsForm($apiUrl, $locales, $site);
         $highlightsListPanel = $this->getHighlightsListPanel();
@@ -223,6 +225,7 @@ class AdminHandler extends Handler
                 FORM_SITE_CONFIG => $siteConfigForm->getConfig(),
                 FORM_SITE_INFO => $siteInformationForm->getConfig(),
                 FORM_SITE_BULK_EMAILS => $siteBulkEmailsForm->getConfig(),
+                $orcidSettingsForm->id => $orcidSettingsForm->getConfig(),
                 FORM_THEME => $themeForm->getConfig(),
                 FORM_SITE_STATISTICS => $siteStatisticsForm->getConfig(),
                 $highlightsListPanel->id => $highlightsListPanel->getConfig(),
@@ -258,6 +261,7 @@ class AdminHandler extends Handler
             'languages',
             'bulkEmails',
             'statistics',
+            'orcidSiteSettings',
         ];
 
         $tabs = [
@@ -274,6 +278,7 @@ class AdminHandler extends Handler
             'siteAppearanceSetup',
             'statistics',
             'announcements',
+            'orcidSiteSettings',
         ];
 
         $singleContextSite = (Services::get('context')->getCount() == 1);

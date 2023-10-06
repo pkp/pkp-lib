@@ -49,6 +49,13 @@
 				@set="set"
 			/>
 		</tab>
+        {* TODO: Translate label *}
+        <tab id="orcidSettings" label="Orcid">
+            <orcid-settings-form
+                    v-bind="components.orcidSettings"
+                    @set="set"
+            />
+        </tab>
 		{call_hook name="Template::Settings::access"}
 	</tabs>
 {/block}

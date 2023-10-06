@@ -21,6 +21,8 @@ namespace PKP\controllers\grid\users\author\form;
 use APP\author\Author;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\orcid\actions\SendAuthorMail;
+use APP\orcid\OrcidManager;
 use APP\publication\Publication;
 use APP\template\TemplateManager;
 use Exception;
@@ -172,6 +174,22 @@ class PKPAuthorForm extends Form
             'requireAuthorCompetingInterests' => $context->getData('requireAuthorCompetingInterests'),
         ]);
 
+        if (OrcidManager::isEnabled($context)) {
+            $author = $this->getAuthor();
+            if ($author) {
+                $authenticated = !empty($author->getData('orcidAccessToken'));
+                $templateMgr->assign(
+                    [
+                        'orcidAccessToken' => $author->getData('orcidAccessToken'),
+                        'orcidAccessScope' => $author->getData('orcidAccessScope'),
+                        'orcidAccessExpiresOn' => $author->getData('orcidAccessExpiresOn'),
+                        'orcidAccessDenied' => $author->getData('orcidAccessDenied'),
+                        'orcidAuthenticated' => $authenticated
+                    ]
+                );
+            }
+        }
+
         return parent::fetch($request, $template, $display);
     }
 
@@ -243,6 +261,16 @@ class PKPAuthorForm extends Form
 
         // in order to be able to use the hook
         parent::execute(...$functionParams);
+
+        // ORCID functionality TODO: See if AuthorForm is still used and where
+        if ($this->getData('requestOrcidAuthorization')) {
+            (new SendAuthorMail($author, $context))->execute();
+        }
+
+        if ($this->getData('deleteOrcid')) {
+            $author->setOrcid(null);
+            OrcidManager::removeOrcidAccessToken($author);
+        }
 
         if ($existingAuthor) {
             Repo::author()->edit($author, []);

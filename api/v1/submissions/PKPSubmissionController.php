@@ -402,19 +402,19 @@ class PKPSubmissionController extends PKPBaseController
                     break;
 
                 case 'categoryIds':
-                    $collector->filterByCategoryIds(array_map('intval', $this->paramToArray($val)));
+                    $collector->filterByCategoryIds(array_map('intval', paramToArray($val)));
                     break;
 
                 case 'status':
-                    $collector->filterByStatus(array_map('intval', $this->paramToArray($val)));
+                    $collector->filterByStatus(array_map('intval', paramToArray($val)));
                     break;
 
                 case 'stageIds':
-                    $collector->filterByStageIds(array_map('intval', $this->paramToArray($val)));
+                    $collector->filterByStageIds(array_map('intval', paramToArray($val)));
                     break;
 
                 case 'assignedTo':
-                    $val = array_map('intval', $this->paramToArray($val));
+                    $val = array_map('intval', paramToArray($val));
                     if ($val == [\PKP\submission\Collector::UNASSIGNED]) {
                         $val = array_shift($val);
                     }
@@ -445,7 +445,7 @@ class PKPSubmissionController extends PKPBaseController
                     $collector->filterByOverdue(true);
                     break;
                 case 'doiStatus':
-                    $collector->filterByDoiStatuses(array_map('intval', $this->paramToArray($val)));
+                    $collector->filterByDoiStatuses(array_map('intval', paramToArray($val)));
                     break;
                 case 'hasDois':
                     $collector->filterByHasDois((bool) $val, $context->getEnabledDoiTypes());

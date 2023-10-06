@@ -131,7 +131,7 @@ class PKPEmailTemplateController extends PKPBaseController
         foreach ($illuminateRequest->query() as $param => $val) {
             switch ($param) {
                 case 'alternateTo':
-                    $collector->alternateTo($this->paramToArray($val));
+                    $collector->alternateTo(paramToArray($val));
                     break;
                 case 'isModified':
                     $collector->isModified((bool) $val);

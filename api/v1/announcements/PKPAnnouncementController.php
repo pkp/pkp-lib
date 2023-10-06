@@ -148,7 +148,7 @@ class PKPAnnouncementController extends PKPBaseController
             switch ($param) {
                 case 'typeIds':
                     $collector->filterByTypeIds(
-                        array_map('intval', $this->paramToArray($val))
+                        array_map('intval', paramToArray($val))
                     );
                     break;
                 case 'count':

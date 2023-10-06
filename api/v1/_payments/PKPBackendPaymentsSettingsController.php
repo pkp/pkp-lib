@@ -63,7 +63,7 @@ class PKPBackendPaymentsSettingsController extends PKPBaseController
      */
     public function getGroupRoutes(): void
     {       
-        Route::get('', $this->edit(...))->name('_payment.backend.edit');
+        Route::put('', $this->edit(...))->name('_payment.backend.edit');
     }
 
     /**

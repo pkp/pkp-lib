@@ -11,7 +11,7 @@
  *
  * @ingroup core
  *
- * @brief Map HTTP requests to a REST API using the Slim microframework.
+ * @brief Map HTTP requests to a REST API using the laravel router
  *
  * Requests for [index.php]/api are intercepted for site-level API requests,
  * and requests for [index.php]/{contextPath}/api are intercepted for
@@ -23,7 +23,6 @@ namespace PKP\core;
 use APP\core\Application;
 use Exception;
 use Illuminate\Http\Response;
-use PKP\handler\APIHandler;
 use PKP\session\SessionManager;
 
 class APIRouter extends PKPRouter

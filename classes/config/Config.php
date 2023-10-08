@@ -128,7 +128,7 @@ class Config
     }
 
     /**
-     * Retrieve wether the specified configuration variable is defined, even if it's null.
+     * Retrieve whether the specified configuration variable is defined, even if it's null.
      *
      * @return bool
      */

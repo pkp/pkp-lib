@@ -100,9 +100,6 @@ class PKPTemplateManager extends Smarty
     /** @var array Key/value list of constants to expose in the JS interface */
     private $_constants = [];
 
-    /** @var array Key/value list of locale keys to expose in the JS interface */
-    private $_localeKeys = [];
-
     /** @var array Initial state data to be managed by the page's Vue.js component */
     protected $_state = [];
 
@@ -619,20 +616,6 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
-     * Set locale keys to be exposed in JavaScript at pkp.localeKeys.<key>
-     *
-     * @param array $keys Array of locale keys
-     */
-    public function setLocaleKeys($keys)
-    {
-        foreach ($keys as $key) {
-            if (!array_key_exists($key, $this->_localeKeys)) {
-                $this->_localeKeys[$key] = __($key);
-            }
-        }
-    }
-
-    /**
      * Get a piece of the state data
      *
      */
@@ -839,7 +822,7 @@ class PKPTemplateManager extends Smarty
             'i18n_keys',
             $request->getDispatcher()->url($request, Application::ROUTE_API, $request->getContext()?->getPath() ?? 'index', '_i18n/ui.js?hash=' . $hash),
             [
-                'priority' => self::STYLE_SEQUENCE_LAST,
+                'priority' => self::STYLE_SEQUENCE_CORE,
                 'contexts' => 'backend',
             ]
         );
@@ -1215,9 +1198,6 @@ class PKPTemplateManager extends Smarty
         $output = '';
         if (!empty($this->_constants)) {
             $output .= 'pkp.const = ' . json_encode($this->_constants) . ';';
-        }
-        if (!empty($this->_localeKeys)) {
-            $output .= 'pkp.localeKeys = ' . json_encode($this->_localeKeys) . ';';
         }
 
         // Load current user data

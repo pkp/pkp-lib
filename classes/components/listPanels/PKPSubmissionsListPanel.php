@@ -205,31 +205,6 @@ abstract class PKPSubmissionsListPanel extends ListPanel
             'REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED' => ReviewRound::REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED,
         ]);
 
-        $templateMgr->setLocaleKeys([
-            'common.lastActivity',
-            'editor.submissionArchive.confirmDelete',
-            'submission.list.empty',
-            'submission.submit.newSubmissionSingle',
-            'submission.review',
-            'submissions.incomplete',
-            'submission.list.assignEditor',
-            'submission.list.copyeditsSubmitted',
-            'submission.list.currentStage',
-            'submission.list.discussions',
-            'submission.list.dualWorkflowLinks',
-            'submission.list.galleysCreated',
-            'submission.list.infoCenter',
-            'submission.list.reviewAssignment',
-            'submission.list.responseDue',
-            'submission.list.reviewCancelled',
-            'submission.list.reviewComplete',
-            'submission.list.reviewDue',
-            'submission.list.reviewerWorkflowLink',
-            'submission.list.reviewsCompleted',
-            'submission.list.revisionsSubmitted',
-            'submission.list.viewSubmission',
-        ]);
-
         return $config;
     }
 

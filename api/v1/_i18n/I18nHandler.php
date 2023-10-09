@@ -54,7 +54,7 @@ class I18nHandler extends APIHandler
 
         $translations = Locale::getUiTranslator()->getTranslationStrings();
 
-        $jsContent = 'pkp.localeKeys = ' . json_encode($translations) . ';';
+        $jsContent = 'window.pkp = window.pkp || {}; pkp.localeKeys = ' . json_encode($translations) . ';';
 
         $response->getBody()->write($jsContent);
 

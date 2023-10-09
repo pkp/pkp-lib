@@ -18,6 +18,7 @@ namespace PKP\handler;
 
 use Illuminate\Http\Response;
 use Illuminate\Routing\Pipeline;
+use PKP\core\PKPBaseController;
 use PKP\core\PKPContainer;
 use PKP\core\PKPRoutingProvider;
 use PKP\plugins\Hook;
@@ -38,53 +39,63 @@ class APIHandler extends PKPHandler
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct(PKPBaseController $controller)
     {
         parent::__construct();
 
-        if(app('router')->getRoutes()->count()) {
-            try {
-                
-                $response = (new Pipeline(PKPContainer::getInstance()))
-                    ->send(app(\Illuminate\Http\Request::class))
-                    ->through(PKPRoutingProvider::getGlobalRouteMiddleware())
-                    ->via('handle')
-                    ->then(function ($request) {
-                        return app('router')->dispatch($request);
-                    });
+        $this->_pathPattern = $controller->getPathPattern();
+        $this->_handlerPath = $controller->getHandlerPath();
+        $this->_apiForAdmin = $controller->isSiteWide();
 
-                if($response instanceof Throwable) {
-                    throw $response;
-                }
-                
-                if($response === null) {
-                    return response()->json([
-                        'error' => __('api.417.routeResponseIsNull')
-                    ], Response::HTTP_EXPECTATION_FAILED)->send();
-                }
+        app('router')->group([
+            'prefix' => $this->getEndpointPattern(),
+            'middleware' => $controller->getRouteGroupMiddleware(),
+        ], $controller->getGroupRoutes(...));
 
-                if(is_object($response) && method_exists($response, 'send')) {
-                    return $response->send(); 
-                }
+        if(app('router')->getRoutes()->count() === 0) {
+            return;
+        }
 
-                return response()->json([
-                    'error' => __('api.422.routeRequestUnableToProcess')
-                ], Response::HTTP_UNPROCESSABLE_ENTITY)->send();
+        try {
+            $response = (new Pipeline(PKPContainer::getInstance()))
+                ->send(app(\Illuminate\Http\Request::class))
+                ->through(PKPRoutingProvider::getGlobalRouteMiddleware())
+                ->via('handle')
+                ->then(function ($request) {
+                    return app('router')->dispatch($request);
+                });
 
-
-            } catch (Throwable $exception) {
-
-                return response()->json([
-                    'error' => $exception instanceof NotFoundHttpException 
-                        ? __('api.404.endpointNotFound') 
-                        : $exception->getMessage(),
-                ], $exception instanceof NotFoundHttpException 
-                    ? Response::HTTP_NOT_FOUND 
-                    : (in_array($exception->getCode(), array_keys(Response::$statusTexts)) 
-                        ? $exception->getCode() 
-                        : Response::HTTP_INTERNAL_SERVER_ERROR)
-                )->send();
+            if($response instanceof Throwable) {
+                throw $response;
             }
+            
+            if($response === null) {
+                return response()->json([
+                    'error' => __('api.417.routeResponseIsNull')
+                ], Response::HTTP_EXPECTATION_FAILED)->send();
+            }
+
+            if(is_object($response) && method_exists($response, 'send')) {
+                return $response->send(); 
+            }
+
+            return response()->json([
+                'error' => __('api.422.routeRequestUnableToProcess')
+            ], Response::HTTP_UNPROCESSABLE_ENTITY)->send();
+
+
+        } catch (Throwable $exception) {
+
+            return response()->json([
+                'error' => $exception instanceof NotFoundHttpException 
+                    ? __('api.404.endpointNotFound') 
+                    : $exception->getMessage(),
+            ], $exception instanceof NotFoundHttpException 
+                ? Response::HTTP_NOT_FOUND 
+                : (in_array($exception->getCode(), array_keys(Response::$statusTexts)) 
+                    ? $exception->getCode() 
+                    : Response::HTTP_INTERNAL_SERVER_ERROR)
+            )->send();
         }
     }
 

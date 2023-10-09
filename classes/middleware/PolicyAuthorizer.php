@@ -75,7 +75,8 @@ class PolicyAuthorizer
     }
 
     /**
-     *  Return the ROLE_ID_* constants to route controller actions maps in the follwoing format
+     *  Return the collection of ROLE_ID_* constants to route controller actions 
+     *  maps in the follwoing format
      *  [
      *      ROLE_ID_... => [...allowed route controller operations...],
      *      ...
@@ -88,11 +89,12 @@ class PolicyAuthorizer
                 return [
                     (new ReflectionFunction($route->action['uses']))->getName() => collect($route->action['middleware'])
                         ->filter(function($middleware) {
-                            return strpos($middleware, 'has.roles') === 0;
+                            return strpos($middleware, 'has.roles') === 0 || strpos($middleware, "PKP\middleware\HasRoles") === 0;
                         })
                         ->flatMap(function($middleware){
                             return Str::of($middleware)
                                 ->replace('has.roles:', '')
+                                ->replace("PKP\middleware\HasRoles:", '')
                                 ->explode('|');
                         })
                         ->unique()

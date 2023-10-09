@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-10-04 15:08+0000\n"
+"PO-Revision-Date: 2023-10-10 07:57+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/lv/>\n"
@@ -1850,3 +1850,94 @@ msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description
 msgstr ""
 "Nosūtīt e-pastu piešķirtajiem recenzentiem, lai informētu viņus par to, ka "
 "viņu recenzēšanas uzdevums ir atcelts."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Atlasiet datnes, kas jānosūta recenzēšanai."
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "Atcelt recenzēšanas kārtu"
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"Atcelt pašreizējo recenzēšanas kārtu un nosūtīt iesniegto materiālu atpakaļ "
+"uz pēdējo recenzēšanas kārtu. Ja šī ir pirmā recenzēšanas kārta, materiāls "
+"tiks nosūtīts atpakaļ uz iesniegšanas posmu."
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} atcēla recenzēšanas kārtu."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "Atcelta pēdējā recenzēšanas kārta."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr ""
+"Materiāla \"{$title}\" recenzēšanas kārta ir atcelta. Visi paziņojumi ir "
+"nosūtīti, izņemot tos, kurus esat izvēlējies izlaist."
+
+msgid "author.submit.confirmation"
+msgstr "Apstiprinājums"
+
+msgid "submission.wizard.submittingToSection"
+msgstr "Iesniegšana <strong>{$section}</strong> sadaļā."
+
+msgid "submission.source.tip"
+msgstr ""
+"Vai šis materiāls iegūts no cita resursa? Ja jā, varat ievadīt šī resursa "
+"URL vai aprakstu."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Kontaktpersona sarakstei ar redakciju."
+
+msgid "submission.dataAvailability"
+msgstr "Paziņojums par datu pieejamību"
+
+msgid "submission.files.required.genre"
+msgstr "Nepieciešams augšupielādēt vismaz vienu {$genre} datni."
+
+msgid "submission.files.required.genres"
+msgstr ""
+"Nepieciešams augšupielādēt vismaz vienu no šādiem datņu veidiem: {$genres}."
+
+msgid "publication.version"
+msgstr "Versija {$version}"
+
+msgid "author.submit.noFiles"
+msgstr "Šim materiālam nav augšupielādētas datnes."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Nosūtīt autoriem e-pastu, lai informētu viņus, ka iesniegtais darbs ir "
+"nosūtīts jaunai recenzēšanas kārtai. Šis e-pasts netiks nosūtīts, kamēr "
+"lēmums nebūs reģistrēts."
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "Iesniegšana <strong>{$language}</strong> valodā."
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"Iesniegšana <strong>{$section}</strong> sadaļā <strong>{$language}</strong> "
+"valodā."
+
+msgid "submission.type.tip"
+msgstr ""
+"Materiāla tips parasti ir \"attēls\", \"teksts\" vai citi multivides tipi, "
+"tostarp \"programmatūra\" vai \"interaktīvs\". Lūdzu, izvēlieties to, kas ir "
+"vispiemērotākais jūsu iesniedzamajam materiālam. Piemēri atrodami <a target="
+"\"_blank\" href=\"https://www.dublincore.org/specifications/dublin-core/"
+"usageguide/2001-04-12/generic/\">https://www.dublincore.org/specifications/"
+"dublin-core/usageguide/2001-04-12/generic/</a>"
+
+msgid "submission.rights.tip"
+msgstr ""
+"Ja vēlaties, varat ievadīt īsu paziņojumu par piekļuves tiesībām, kas "
+"attiecas uz šo iesniegto materiālu."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Pievienojiet papildu informāciju par savu iesniegto materiālu. Pēc katra "
+"jēdziena nospiediet ievades taustiņu \"Enter\"."
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+"Norādiet, vai esat nodrošinājis piekļuvi informācijai, kas apstiprina jūsu "
+"pētījuma rezultātus, un, ja jā, kur un kā šī informācija ir pieejama"

@@ -212,10 +212,6 @@ class PKPStatsHandler extends Handler
             ]
         );
 
-        $templateMgr->setLocaleKeys([
-            'stats.descriptionForStat',
-            'stats.countWithYearlyAverage',
-        ]);
         $templateMgr->setState($statsComponent->getConfig());
         $templateMgr->assign([
             'pageComponent' => 'StatsEditorialPage',

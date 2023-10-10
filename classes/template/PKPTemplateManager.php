@@ -100,9 +100,6 @@ class PKPTemplateManager extends Smarty
     /** @var array Key/value list of constants to expose in the JS interface */
     private $_constants = [];
 
-    /** @var array Key/value list of locale keys to expose in the JS interface */
-    private $_localeKeys = [];
-
     /** @var array Initial state data to be managed by the page's Vue.js component */
     protected $_state = [];
 
@@ -619,20 +616,6 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
-     * Set locale keys to be exposed in JavaScript at pkp.localeKeys.<key>
-     *
-     * @param array $keys Array of locale keys
-     */
-    public function setLocaleKeys($keys)
-    {
-        foreach ($keys as $key) {
-            if (!array_key_exists($key, $this->_localeKeys)) {
-                $this->_localeKeys[$key] = __($key);
-            }
-        }
-    }
-
-    /**
      * Get a piece of the state data
      *
      */
@@ -832,65 +815,18 @@ class PKPTemplateManager extends Smarty
             'STATUS_SCHEDULED' => Submission::STATUS_SCHEDULED,
         ]);
 
-        // Common locale keys available in the browser for every page
-        $this->setLocaleKeys([
-            'common.attachFiles',
-            'common.cancel',
-            'common.clearSearch',
-            'common.close',
-            'common.commaListSeparator',
-            'common.confirm',
-            'common.delete',
-            'common.edit',
-            'common.editItem',
-            'common.error',
-            'common.filter',
-            'common.filterAdd',
-            'common.filterRemove',
-            'common.inParenthesis',
-            'common.insertContent',
-            'common.loading',
-            'common.loaded',
-            'common.no',
-            'common.noItemsFound',
-            'common.none',
-            'common.ok',
-            'common.order',
-            'common.orderUp',
-            'common.orderDown',
-            'common.pageNumber',
-            'common.pagination.goToPage',
-            'common.pagination.label',
-            'common.pagination.next',
-            'common.pagination.previous',
-            'common.remove',
-            'common.required',
-            'common.save',
-            'common.saving',
-            'common.search',
-            'common.selectWithName',
-            'common.unknownError',
-            'common.uploadedBy',
-            'common.uploadedByAndWhen',
-            'common.view',
-            'list.viewLess',
-            'list.viewMore',
-            'common.viewWithName',
-            'common.yes',
-            'form.dataHasChanged',
-            'form.errorA11y',
-            'form.errorGoTo',
-            'form.errorMany',
-            'form.errorOne',
-            'form.errors',
-            'form.multilingualLabel',
-            'form.multilingualProgress',
-            'form.saved',
-            'grid.action.sort',
-            'help.help',
-            'navigation.backTo',
-            'validator.required'
-        ]);
+
+
+        $hash = Locale::getUITranslator()->getCacheHash();
+        $this->addJavaScript(
+            'i18n_keys',
+            $request->getDispatcher()->url($request, Application::ROUTE_API, $request->getContext()?->getPath() ?? 'index', '_i18n/ui.js?hash=' . $hash),
+            [
+                'priority' => self::STYLE_SEQUENCE_CORE,
+                'contexts' => 'backend',
+            ]
+        );
+
 
         // Set up the document type icons
         $documentTypeIcons = [
@@ -1262,9 +1198,6 @@ class PKPTemplateManager extends Smarty
         $output = '';
         if (!empty($this->_constants)) {
             $output .= 'pkp.const = ' . json_encode($this->_constants) . ';';
-        }
-        if (!empty($this->_localeKeys)) {
-            $output .= 'pkp.localeKeys = ' . json_encode($this->_localeKeys) . ';';
         }
 
         // Load current user data

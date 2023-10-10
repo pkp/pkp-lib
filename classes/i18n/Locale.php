@@ -33,6 +33,7 @@ use PKP\core\PKPRequest;
 use PKP\facades\Repo;
 use PKP\i18n\interfaces\LocaleInterface;
 use PKP\i18n\translation\LocaleBundle;
+use PKP\i18n\ui\UITranslator;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\session\SessionManager;
@@ -387,6 +388,16 @@ class Locale implements LocaleInterface
                 return $localeDisplay . ($omitLocaleCodeInDisplay ? '' : " ({$localeKey})");
             })
             ->toArray();
+    }
+
+    /**
+     * @copy LocaleInterface::getUiTranslator()
+    */
+    public function getUiTranslator(): UITranslator
+    {
+        $locale = $this->getLocale();
+        $localeBundleCacheKey = $this->getBundle($locale)->getLastCacheKey();
+        return new UITranslator($locale, $this->paths, $localeBundleCacheKey);
     }
 
     /**

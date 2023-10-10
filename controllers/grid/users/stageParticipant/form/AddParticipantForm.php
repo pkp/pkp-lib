@@ -243,7 +243,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
         $userGroupId = (int) $this->getData('userGroupId');
         $userId = (int) $this->getData('userId');
 
-        return Repo::userGroup()->userInGroup($userId, $userGroupId) && Repo::userGroup()->get($userGroupId);
+        return Repo::userGroup()->userInGroup($userId, $userGroupId) && Repo::userGroup()->get($userGroupId) && parent::validate($callHooks);
     }
 
     /**

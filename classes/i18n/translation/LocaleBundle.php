@@ -153,7 +153,13 @@ class LocaleBundle
         return $this->translator ??= $isSupported ? Cache::remember($key, $expiration, $loader) : $loader();
     }
 
-    private function _getCacheKey()
+
+    /**
+     * Generates key for caching the Translator
+     *
+     * @return string cache key
+     */
+    private function _getCacheKey(): string
     {
         $key = __METHOD__ . static::MAX_CACHE_LIFETIME . array_reduce(array_keys($this->paths), fn (string $hash, string $path): string => sha1($hash . $path . filemtime($path)), '');
         $this->lastCacheKey = $key;

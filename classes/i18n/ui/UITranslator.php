@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * @file classes/i18n/translation/ui/UITranslator.php
  *

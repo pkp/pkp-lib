@@ -390,6 +390,9 @@ class Locale implements LocaleInterface
             ->toArray();
     }
 
+    /**
+     * @copy LocaleInterface::getUiTranslator()
+    */
     public function getUiTranslator(): UITranslator
     {
         $locale = $this->getLocale();

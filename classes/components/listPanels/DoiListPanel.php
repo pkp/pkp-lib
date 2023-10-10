@@ -16,8 +16,6 @@
 
 namespace APP\components\listPanels;
 
-use APP\core\Application;
-use APP\template\TemplateManager;
 use PKP\components\listPanels\PKPDoiListPanel;
 use PKP\submission\PKPSubmission;
 
@@ -44,11 +42,5 @@ class DoiListPanel extends PKPDoiListPanel
                 ]
             ]
         ];
-
-        // Provide required locale keys
-        $request = Application::get()->getRequest();
-        $templateMgr = TemplateManager::getManager($request);
-
-        $templateMgr->setLocaleKeys(['submission.publication']);
     }
 }

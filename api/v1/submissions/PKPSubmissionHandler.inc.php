@@ -38,7 +38,6 @@ class PKPSubmissionHandler extends APIHandler {
 
 	/** @var array Handlers that must be authorized to write to a publication */
 	public $requiresPublicationWriteAccess = [
-		'addPublication',
 		'editPublication',
 	];
 

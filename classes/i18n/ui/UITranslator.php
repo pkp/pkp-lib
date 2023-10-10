@@ -105,10 +105,10 @@ class UITranslator
     }
 
     /**
-     * Helper function that provides array of existing file paths to uiTranslationKeysBackend.json.
+     * Helper function that provides array of existing file paths to uiLocaleKeysBackend.json.
      *
      *
-     * @return  array Values are all paths to existing uiTranslationKeysBackend.json files, including plugins.
+     * @return  array Values are all paths to existing uiLocaleKeysBackend.json files, including plugins.
      */
     private function getJsonFilePaths(): array
     {
@@ -116,7 +116,7 @@ class UITranslator
 
         foreach (array_keys($this->localePaths) as $folder) {
             $parentDir = dirname($folder);
-            $filePath = $parentDir . '/' . 'registry' . '/uiTranslationKeysBackend.json' ;
+            $filePath = $parentDir . '/' . 'registry' . '/uiLocaleKeysBackend.json' ;
             if (file_exists($filePath)) {
                 $filePaths[] = $filePath;
             }

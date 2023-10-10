@@ -107,7 +107,7 @@ class SubmissionSearchDAO extends \PKP\db\DAO
                 }
             }
 
-            // Batch insert keywords that don't exist using the "ignore" feature to deal with collation issues (e.g. attempt to insert "a" and "ã" at the same time might fail)
+            // Batch insert keywords that don't exist using the "ignore" feature to deal with collation issues (e.g. attempt to insert "a" and "Ã£" at the same time might fail)
             // This isn't executed first just to avoid "burning" IDs due to existing keywords
             DB::table('submission_search_keyword_list')->insertOrIgnore(
                 $missingKeywords
@@ -148,8 +148,8 @@ class SubmissionSearchDAO extends \PKP\db\DAO
      */
     public function clearIndex()
     {
-        DB::table('submission_search_objects')->truncate();
-        DB::table('submission_search_keyword_list')->truncate();
+        DB::table('submission_search_objects')->delete();
+        DB::table('submission_search_keyword_list')->delete();
     }
 
     /**

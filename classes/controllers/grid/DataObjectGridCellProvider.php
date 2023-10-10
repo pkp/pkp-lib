@@ -75,7 +75,7 @@ class DataObjectGridCellProvider extends GridCellProvider
         $element = $row->getData();
         $columnId = $column->getId();
         assert($element instanceof \PKP\core\DataObject && !empty($columnId));
-
+//        dd($element->getData($columnId));
         $data = $element->getData($columnId);
         // For localized fields, $data will be an array; otherwise,
         // it will be a value suitable for conversion to string.

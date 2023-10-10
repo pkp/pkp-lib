@@ -16,7 +16,8 @@
 
 	<tabs :track-history="true">
 		<tab id="users" label="{translate key="manager.users"}">
-			{include file="management/accessUsers.tpl"}
+			{include file="management/userInvitations.tpl"}
+            {include file="management/accessUsers.tpl"}
 		</tab>
 		<tab id="roles" label="{translate key="manager.roles"}">
 			{help file="users-and-roles" section="roles" class="pkp_help_tab"}

@@ -1,0 +1,11 @@
+msgid "grid.user.currentInvitations"
+msgstr "Invitations"
+
+msgid "invitation.email"
+msgstr "Email"
+
+msgid "invitation.expiryDate"
+msgstr "Expiry Date"
+
+msgid "invitation.status"
+msgstr "Status"

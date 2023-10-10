@@ -306,4 +306,11 @@ class ContextGridHandler extends GridHandler
         parent::setupTemplate($request);
         return $templateMgr->fetchJson('management/accessUsers.tpl');
     }
+
+    public function invitations($args, $request)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        parent::setupTemplate($request);
+        return $templateMgr->fetchJson('management/userInvitations.tpl');
+    }
 }

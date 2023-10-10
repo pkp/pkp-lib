@@ -16,12 +16,12 @@
 
 namespace PKP\controllers\grid\settings\user;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\ColumnBasedGridCellProvider;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\feature\PagingFeature;
-use PKP\controllers\grid\GridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\settings\user\form\UserDetailsForm;
@@ -152,42 +152,14 @@ class UserGridHandler extends GridHandler
                 'user.roles',
                 null,
                 null,
-                $columnBasedGridCellProvider,
-                contextId: $request->getContext()->getId()
+                $columnBasedGridCellProvider
             ) extends GridColumn {
-                /** @var int|null contextId */
-                private ?int $_contextId;
-
-                /**
-                 * Constructor
-                 *
-                 * @param string $id Grid column identifier
-                 * @param string $title Locale key for grid column title
-                 * @param string $titleTranslated Optional translated grid title
-                 * @param string $template Optional template filename for grid column, including path
-                 * @param GridCellProvider $cellProvider Optional grid cell provider for this column
-                 * @param array $flags Optional set of flags for this grid column
-                 * @param int|null $contextId Optional context identifier for this grid column
-                 */
-                public function __construct(
-                    $id = '',
-                    $title = null,
-                    $titleTranslated = null,
-                    $template = null,
-                    $cellProvider = null,
-                    $flags = [],
-                    int $contextId = null
-                ) {
-                    $this->_contextId = $contextId;
-
-                    parent::__construct($id, $title, $titleTranslated, $template, $cellProvider, $flags);
-                }
-
                 public function getTemplateVarsFromRow($row): array
                 {
                     $user = $row->getData();
                     assert($user instanceof User);
-                    $userGroupsIterator = Repo::userGroup()->userUserGroups($user->getId(), $this->_contextId);
+                    $contextId = Application::get()->getRequest()->getContext()->getId();
+                    $userGroupsIterator = Repo::userGroup()->userUserGroups($user->getId(), $contextId);
                     $roles = $userGroupsIterator->map(fn (UserGroup $userGroup) => $userGroup->getLocalizedName())->join(__('common.commaListSeparator'));
                     return ['label' => $roles];
                 }

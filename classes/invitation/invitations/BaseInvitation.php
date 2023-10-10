@@ -38,6 +38,7 @@ abstract class BaseInvitation
      * The name of the class name of the specific invitation
      */
     public string $className;
+    private string $status;
     private string $keyHash;
     public string $key;
     public DateTime $expirationDate;
@@ -89,7 +90,7 @@ abstract class BaseInvitation
         if (is_null($invitation)) {
             throw new Exception('This invitation was not found');
         }
-        
+
         $invitation->markAs($status);
     }
 
@@ -222,6 +223,8 @@ abstract class BaseInvitation
         $this->keyHash = $invitationModel->keyHash;
         $this->expirationDate = $invitationModel->expiryDate;
         $this->id = $invitationModel->id;
+        $this->email = $invitationModel->email;
+        $this->status = $invitationModel->status;
     }
 
     /**
@@ -251,5 +254,9 @@ abstract class BaseInvitation
     public function getId(): int
     {
         return $this->id;
+    }
+    public function getData($key)
+    {
+        return $this->$key;
     }
 }

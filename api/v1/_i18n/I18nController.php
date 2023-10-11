@@ -50,44 +50,15 @@ class I18nController extends PKPBaseController
     }
 
     /**
-     * Constructor
-     */
-    // public function __construct()
-    // {
-    //     $this->_handlerPath = '_i18n';
-    //     $endpoints = [
-    //         'GET' => [
-    //             [
-    //                 'pattern' => $this->getEndpointPattern() . '/ui.js',
-    //                 'handler' => [$this, 'getTranslations'],
-    //             ]
-    //         ]
-    //     ];
-
-    //     $this->_endpoints = $endpoints;
-
-    //     parent::__construct();
-    // }
-
-    /**
      * Provides javascript file which includes all translations used in Vue.js UI.
      */
     public function getTranslations(Request $illuminateRequest): Response
     {
-
         $translations = Locale::getUiTranslator()->getTranslationStrings();
 
         $jsContent = 'window.pkp = window.pkp || {}; pkp.localeKeys = ' . json_encode($translations, JSON_FORCE_OBJECT) . ';';
 
-        // $response->getBody()->write($jsContent);
-
-        // return $response
-        //     ->withHeader('Content-Type', 'application/javascript')
-        //     // cache for one year, hash is provided as query param, which ensures fetching updated version when needed
-        //     ->withHeader('Cache-Control', 'public, max-age=31536000');
-
-        return response()
-            ->setContent($jsContent)
+        return response($jsContent, Response::HTTP_OK)
             ->header('Content-Type', 'application/javascript')
             // // cache for one year, hash is provided as query param, which ensures fetching updated version when needed
             ->header('Cache-Control', 'public, max-age=31536000');

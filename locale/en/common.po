@@ -1695,7 +1695,7 @@ msgid "search.cli.rebuildIndex.error"
 msgstr "error"
 
 msgid "search.cli.rebuildIndex.result"
-msgstr "{$numIndexed} articles indexed"
+msgstr "{$numIndexed} articles scheduled for indexation"
 
 msgid "search.coverage"
 msgstr "Coverage"

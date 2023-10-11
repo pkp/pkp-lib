@@ -18,6 +18,7 @@ namespace PKP\pages\index;
 
 use APP\facades\Repo;
 use APP\handler\Handler;
+use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\template\PKPTemplateManager;
 
@@ -48,5 +49,21 @@ class PKPIndexHandler extends Handler
                 'numAnnouncementsHomepage' => $numAnnouncementsHomepage,
             ]);
         }
+    }
+
+    /**
+     * Get the Highlights for this context
+     */
+    protected function getHighlights(?Context $context = null): LazyCollection
+    {
+        $collector = Repo::highlight()->getCollector();
+
+        if ($context) {
+            $collector->filterByContextIds([$context->getId()]);
+        } else {
+            $collector->withSiteHighlights($collector::SITE_ONLY);
+        }
+
+        return $collector->getMany();
     }
 }

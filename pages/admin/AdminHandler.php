@@ -26,11 +26,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use PDO;
 use PKP\cache\CacheManager;
+use PKP\components\forms\highlight\HighlightForm;
+use PKP\components\listPanels\HighlightsListPanel;
 use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPContainer;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\highlight\Collector as HighlightCollector;
 use PKP\job\resources\HttpFailedJobResource;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\security\authorization\PKPSiteAccessPolicy;
@@ -196,6 +199,7 @@ class AdminHandler extends Handler
         $siteBulkEmailsForm = new \PKP\components\forms\site\PKPSiteBulkEmailsForm($apiUrl, $site, $contexts);
         $themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales);
         $siteStatisticsForm = new \PKP\components\forms\site\PKPSiteStatisticsForm($apiUrl, $locales, $site);
+        $highlightsListPanel = $this->getHighlightsListPanel();
 
         $templateMgr = TemplateManager::getManager($request);
 
@@ -207,6 +211,7 @@ class AdminHandler extends Handler
                 FORM_SITE_BULK_EMAILS => $siteBulkEmailsForm->getConfig(),
                 FORM_THEME => $themeForm->getConfig(),
                 FORM_SITE_STATISTICS => $siteStatisticsForm->getConfig(),
+                $highlightsListPanel->id => $highlightsListPanel->getConfig(),
             ],
         ]);
 
@@ -248,6 +253,7 @@ class AdminHandler extends Handler
             'siteInfo',
             'languages',
             'navigationMenus',
+            'highlights',
             'bulkEmails',
             'siteTheme',
             'siteAppearanceSetup',
@@ -693,5 +699,50 @@ class AdminHandler extends Handler
         ]);
 
         $templateMgr->display('admin/failedJobDetails.tpl');
+    }
+
+    /**
+     * Get the highlights list panel
+     */
+    protected function getHighlightsListPanel(): HighlightsListPanel
+    {
+        $request = Application::get()->getRequest();
+        $dispatcher = $request->getDispatcher();
+        $apiUrl = $dispatcher->url(
+            $request,
+            Application::ROUTE_API,
+            Application::CONTEXT_ID_ALL,
+            'highlights'
+        );
+
+        $highlightForm = new HighlightForm(
+            $apiUrl,
+            Repo::highlight()->getFileUploadBaseUrl(),
+            $dispatcher->url(
+                Application::get()->getRequest(),
+                Application::ROUTE_API,
+                Application::CONTEXT_ID_ALL,
+                'temporaryFiles'
+            )
+        );
+
+        $items = Repo::highlight()
+            ->getCollector()
+            ->withSiteHighlights(HighlightCollector::SITE_ONLY)
+            ->getMany();
+
+        return new HighlightsListPanel(
+            'highlights',
+            __('common.highlights'),
+            [
+                'apiUrl' => $apiUrl,
+                'form' => $highlightForm,
+                'items' => Repo::highlight()
+                    ->getSchemaMap()
+                    ->summarizeMany($items)
+                    ->values(),
+                'itemsMax' => $items->count(),
+            ]
+        );
     }
 }

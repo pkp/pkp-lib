@@ -18,6 +18,7 @@ namespace PKP\core;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\file\PublicFileManager;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
@@ -814,6 +815,21 @@ class PKPRequest
             $anchor,
             $escape
         );
+    }
+
+    /**
+     * Get the URL to the public file uploads directory
+     */
+    public function getPublicFilesUrl(?Context $context = null): string
+    {
+        $publicFileManager = new PublicFileManager();
+
+        return join('/', [
+            $this->getBaseUrl(),
+            $context
+                ? $publicFileManager->getContextFilesPath($context->getId())
+                : $publicFileManager->getSiteFilesPath()
+        ]);
     }
 
     /**

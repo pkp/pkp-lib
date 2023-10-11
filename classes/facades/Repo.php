@@ -36,6 +36,7 @@ use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
 use PKP\log\event\Repository as EventLogRepository;
 use PKP\invitation\repositories\Invitation as InvitationRepository;
+use PKP\highlight\Repository as HighlightRepository;
 
 class Repo
 {
@@ -97,5 +98,10 @@ class Repo
     public static function invitation(): InvitationRepository
     {
         return app(InvitationRepository::class);
+    }
+
+    public static function highlight(): HighlightRepository
+    {
+        return app(HighlightRepository::class);
     }
 }

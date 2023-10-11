@@ -348,6 +348,30 @@ msgstr ""
 "Before this component can be deleted, you must associate all related "
 "submission files with a different component."
 
+msgid "manager.highlights.add"
+msgstr "Add Highlight"
+
+msgid "manager.highlights.confirmDelete"
+msgstr "Are you sure you want to delete {$title}? This action can not be undone."
+
+msgid "manager.highlights.delete"
+msgstr "Delete Highlight"
+
+msgid "manager.highlights.edit"
+msgstr "Edit Highlight"
+
+msgid "manager.highlights.image"
+msgstr "Image"
+
+msgid "manager.highlights.url.description"
+msgstr "The full URL, including https://, for the button in the highlight."
+
+msgid "manager.highlights.urlText"
+msgstr "Button Label"
+
+msgid "manager.highlights.urlText.description"
+msgstr "The label, such as Read More, for the button in the highlight."
+
 msgid "manager.institutions.edit"
 msgstr "Edit Institution"
 

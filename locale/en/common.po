@@ -483,6 +483,12 @@ msgstr "Go"
 msgid "common.height"
 msgstr "Height"
 
+msgid "common.highlight"
+msgstr "Highlight"
+
+msgid "common.highlights"
+msgstr "Highlights"
+
 msgid "common.homepageNavigationLabel"
 msgstr "Home"
 

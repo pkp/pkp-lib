@@ -711,6 +711,10 @@ class PKPReviewerGridHandler extends GridHandler
      */
     public function reviewRead($args, $request)
     {
+        if (!$request->checkCSRF()) {
+            return new JSONMessage(false);
+        }
+
         // Retrieve review assignment.
         $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
 

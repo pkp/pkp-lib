@@ -53,9 +53,11 @@ use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
+use PKP\submission\reviewAssignment\resources\SubmissionReviewAssignmentResource;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\userGroup\UserGroup;
 use Slim\Http\Request as SlimRequest;
+use Illuminate\Http\Request as LaravelRequest;
 
 class PKPSubmissionHandler extends APIHandler
 {
@@ -90,6 +92,7 @@ class PKPSubmissionHandler extends APIHandler
         'editContributor',
         'saveContributorsOrder',
         'addDecision',
+        'getReviewAssignment',
     ];
 
     /** @var array Handlers that must be authorized to write to a publication */
@@ -169,6 +172,11 @@ class PKPSubmissionHandler extends APIHandler
                     'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/contributors/{contributorId:\d+}',
                     'handler' => [$this, 'getContributor'],
                     'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/reviewAssignments/{reviewAssignmentId:\d+}',
+                    'handler' => [$this, 'getReviewAssignment'],
+                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
                 ],
             ],
             'POST' => [
@@ -1672,5 +1680,35 @@ class PKPSubmissionHandler extends APIHandler
         }
 
         return $errors;
+    }
+
+    /**
+     * Get a submissions's review assignment by id
+     *
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
+     * @param array $args arguments
+     *
+     * @return APIResponse
+     */
+    public function getReviewAssignment($slimRequest, $response, $args)
+    {
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var \PKP\submission\reviewAssignment\ReviewAssignmentDAO $reviewAssignmentDao */
+        $reviewAssignment = $reviewAssignmentDao->getById((int) $args['reviewAssignmentId']);
+
+        if (!$reviewAssignment) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+
+        if ($submission->getId() !== $reviewAssignment->getData('submissionId')) {
+            return $response->withStatus(403)->withJsonError('api.publications.403.submissionsDidNotMatch');
+        }
+
+        $data = (new SubmissionReviewAssignmentResource($reviewAssignment))
+            ->toArray(LaravelRequest::capture());
+
+        return $response->withJson($data);
     }
 }

@@ -4,8 +4,8 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2023-10-12 23:26+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy/>\n"
 "Language: hy\n"
@@ -2295,3 +2295,9 @@ msgstr "Հեղինակի հաշիվը խմբագրված է։"
 #~ msgstr ""
 #~ "Չկանխատեսված սխալ է տեղի ունեցել: Գուցե Դուք դուրս եք եկել համակարգից: "
 #~ "Խնդրում ենք թարմացնել էջը և փորձել կրկին:"
+
+msgid "common.highlight"
+msgstr "Գունաընդգծել"
+
+msgid "common.highlights"
+msgstr "Գունաընդգծումներ"

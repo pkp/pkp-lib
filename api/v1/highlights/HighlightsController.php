@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file api/v1/highlights/HighlightsHandler.php
+ * @file api/v1/highlights/HighlightsController.php
  *
- * Copyright (c) 2014-2023 Simon Fraser University
- * Copyright (c) 2003-2023 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class HighlightsHandler
+ * @class HighlightsController
  *
  * @ingroup api_v1_highlights
  *
@@ -18,10 +18,14 @@
 namespace PKP\API\v1\highlights;
 
 use APP\facades\Repo;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Response;
 use Exception;
-use PKP\core\APIResponse;
-use PKP\core\exceptions\StoryTemporaryFileException;
-use PKP\handler\APIHandler;
+use PKP\core\exceptions\StoreTemporaryFileException;
+use PKP\core\PKPRequest;
+use PKP\core\PKPBaseController;
 use PKP\highlight\Collector;
 use PKP\plugins\Hook;
 use PKP\security\authorization\PolicySet;
@@ -29,63 +33,65 @@ use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use Slim\Http\Request as SlimRequest;
 
-class HighlightsHandler extends APIHandler
+class HighlightsController extends PKPBaseController
 {
     /** @var int The maximum number of highlights to return in one request */
     public const MAX_COUNT = 100;
 
-    public function __construct()
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
+     */
+    public function getHandlerPath(): string
     {
-        $this->_handlerPath = 'highlights';
-        $this->_endpoints = [
-            'GET' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'getMany'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{highlightId:\d+}',
-                    'handler' => [$this, 'get'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
-                ],
-            ],
-            'POST' => [
-                [
-                    'pattern' => $this->getEndpointPattern(),
-                    'handler' => [$this, 'add'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
-                ],
-            ],
-            'PUT' => [
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{highlightId:\d+}',
-                    'handler' => [$this, 'edit'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
-                ],
-                [
-                    'pattern' => $this->getEndpointPattern() . '/order',
-                    'handler' => [$this, 'order'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
-                ],
-            ],
-            'DELETE' => [
-                [
-                    'pattern' => $this->getEndpointPattern() . '/{highlightId:\d+}',
-                    'handler' => [$this, 'delete'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
-                ],
-            ],
-        ];
-        parent::__construct();
+        return 'highlights';
     }
 
     /**
-     * @copydoc PKPHandler::authorize
+     * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
      */
-    public function authorize($request, &$args, $roleAssignments)
+    public function getRouteGroupMiddleware(): array
+    {
+        return [
+            "has.user",
+            self::roleAuthorizer([
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SITE_ADMIN,
+            ]),
+        ];
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
+     */
+    public function getGroupRoutes(): void
+    {        
+        Route::get('', $this->getMany(...))
+            ->name('highlight.getMany');
+
+        Route::get('{highlightId}', $this->get(...))
+            ->name('highlight.get')
+            ->whereNumber('highlightId');
+        
+        Route::post('', $this->add(...))
+            ->name('highlight.add');
+        
+        Route::put('{highlightId}', $this->edit(...))
+            ->name('highlight.edit')
+            ->whereNumber('highlightId');
+        
+        Route::put('order', $this->order(...))
+            ->name('highlight.order');
+        
+        Route::delete('{highlightId}', $this->delete(...))
+            ->name('highlight.delete')
+            ->whereNumber('highlightId');
+    }
+
+    /**
+     * @copydoc \PKP\core\PKPBaseController::authorize()
+     */
+    public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
         if (!$request->getContext()) {
             $roleAssignments = $this->getSiteRoleAssignments($roleAssignments);
@@ -106,26 +112,26 @@ class HighlightsHandler extends APIHandler
     /**
      * Get a single highlight
      */
-    public function get(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function get(Request $illuminateRequest): JsonResponse
     {
-        $highlight = Repo::highlight()->get((int) $args['highlightId'], $this->getRequest()->getContext());
+        $highlight = Repo::highlight()->get((int) $illuminateRequest->route('highlightId'), $this->getRequest()->getContext());
 
         if (!$highlight) {
-            return $response->withStatus(404)->withJsonError('api.highlights.404.highlightNotFound');
+            return response()->json([
+                'error' => __('api.highlights.404.highlightNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        return $response->withJson(
-            Repo::highlight()
-                ->getSchemaMap()
-                ->map($highlight)
-            , 200
+        return response()->json(
+            Repo::highlight()->getSchemaMap()->map($highlight),
+            Response::HTTP_OK
         );
     }
 
     /**
      * Get a collection of highlights
      */
-    public function getMany(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function getMany(Request $illuminateRequest): JsonResponse
     {
         $collector = Repo::highlight()->getCollector()
             ->limit(self::MAX_COUNT)
@@ -137,24 +143,24 @@ class HighlightsHandler extends APIHandler
             $collector->withSiteHighlights(Collector::SITE_ONLY);
         }
 
-        Hook::run('API::highlights::params', [$collector, $slimRequest]);
+        Hook::run('API::highlights::params', [$collector, $illuminateRequest]);
 
         $highlights = $collector->getMany();
 
-        return $response->withJson([
+        return response()->json([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => Repo::highlight()->getSchemaMap()->summarizeMany($highlights)->values(),
-        ], 200);
+        ], Response::HTTP_OK);
     }
 
     /**
      * Add a highlight
      */
-    public function add(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function add(Request $illuminateRequest): JsonResponse
     {
         $context = $this->getRequest()->getContext();
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_HIGHLIGHT, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_HIGHLIGHT, $illuminateRequest->input());
         $params['contextId'] = $context?->getId();
         if (!$params['sequence']) {
             $params['sequence'] = Repo::highlight()->getNextSequence($context?->getId());
@@ -163,40 +169,42 @@ class HighlightsHandler extends APIHandler
         $errors = Repo::highlight()->validate(null, $params, $context);
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         $highlight = Repo::highlight()->newDataObject($params);
 
         try {
             $highlightId = Repo::highlight()->add($highlight);
-        } catch (StoryTemporaryFileException $e) {
+        } catch (StoreTemporaryFileException $e) {
             $highlight = Repo::highlight()->get($highlightId, $context?->getId());
             Repo::highlight()->delete($highlight);
-            return $response->withStatus(400)->withJson([
+            return response()->json([
                 'image' => __('api.400.errorUploadingImage')
-            ]);
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $highlight = Repo::highlight()->get($highlightId, $context?->getId());
 
-        return $response->withJson(Repo::highlight()->getSchemaMap()->map($highlight), 200);
+        return response()->json(Repo::highlight()->getSchemaMap()->map($highlight), Response::HTTP_OK);
     }
 
     /**
      * Edit a highlight
      */
-    public function edit(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function edit(Request $illuminateRequest): JsonResponse
     {
         $context = $this->getRequest()->getContext();
 
-        $highlight = Repo::highlight()->get((int) $args['highlightId'], $context?->getId());
+        $highlight = Repo::highlight()->get((int) $illuminateRequest->route('highlightId'), $context?->getId());
 
         if (!$highlight) {
-            return $response->withStatus(404)->withJsonError('api.highlights.404.highlightNotFound');
+            return response()->json([
+                'error' => __('api.highlights.404.highlightNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_HIGHLIGHT, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_HIGHLIGHT, $illuminateRequest->input());
         $params['id'] = $highlight->getId();
 
         // Not allowed to change the context of a highlight through the API
@@ -205,35 +213,37 @@ class HighlightsHandler extends APIHandler
         $errors = Repo::highlight()->validate($highlight, $params, $context);
 
         if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         try {
             Repo::highlight()->edit($highlight, $params);
         } catch (Exception $e) {
             Repo::highlight()->delete($highlight);
-            return $response->withStatus(400)->withJson([
-                'image' => __('api.highlights.400.errorUploadingImage')
-            ]);
+            return response()->json([
+                'image' => __('api.400.errorUploadingImage')
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $highlight = Repo::highlight()->get($highlight->getId(), $context?->getId());
 
-        return $response->withJson(Repo::highlight()->getSchemaMap()->map($highlight), 200);
+        return response()->json(Repo::highlight()->getSchemaMap()->map($highlight), Response::HTTP_OK);
     }
 
     /**
      * Order the highlights
      */
-    public function order(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function order(Request $illuminateRequest): JsonResponse
     {
         $context = $this->getRequest()->getContext();
 
-        $params = $slimRequest->getParsedBody();
+        $params = $illuminateRequest->input();
         $sequence = (array) $params['sequence'];
 
         if (empty($sequence)) {
-            return $response->withStatus(400)->withJson(['sequence' => __('api.highlights.400.noOrderData')]);
+            return response()->json([
+                'sequence' => __('api.highlights.400.noOrderData'),
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $highlights = array_map(
@@ -246,7 +256,9 @@ class HighlightsHandler extends APIHandler
         );
 
         if (in_array(null, $highlights)) {
-            return $response->withStatus(400)->withJson(['sequence' => __('api.highlights.400.orderHighlightNotFound')]);
+            return response()->json([
+                'sequence' => __('api.highlights.400.orderHighlightNotFound'),
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         foreach ($highlights as $index => $highlight) {
@@ -265,30 +277,32 @@ class HighlightsHandler extends APIHandler
 
         $highlights = $collector->getMany();
 
-        return $response->withJson([
+        return response()->json([
             'items' => Repo::highlight()->getSchemaMap()->summarizeMany($highlights)->values(),
             'itemsMax' => $highlights->count(),
-        ], 200);
+        ], Response::HTTP_OK);
     }
 
     /**
      * Delete a highlight
      */
-    public function delete(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function delete(Request $illuminateRequest): JsonResponse
     {
         $context = $this->getRequest()->getContext();
 
-        $highlight = Repo::highlight()->get((int) $args['highlightId'], $context?->getId());
+        $highlight = Repo::highlight()->get((int) $illuminateRequest->route('highlightId'), $context?->getId());
 
         if (!$highlight) {
-            return $response->withStatus(404)->withJsonError('api.highlights.404.highlightNotFound');
+            return response()->json([
+                'error' => __('api.highlights.404.highlightNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $highlightProps = Repo::highlight()->getSchemaMap()->map($highlight);
 
         Repo::highlight()->delete($highlight);
 
-        return $response->withJson($highlightProps, 200);
+        return response()->json($highlightProps, Response::HTTP_OK);
     }
 
     /**

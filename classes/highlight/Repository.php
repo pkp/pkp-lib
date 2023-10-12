@@ -17,9 +17,9 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\file\PublicFileManager;
 use Exception;
+use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\context\Context;
 use PKP\core\Core;
-use PKP\core\exceptions\StoryTemporaryFileException;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFile;
 use PKP\file\TemporaryFileManager;
@@ -252,7 +252,7 @@ class Repository
     /**
      * Handle image uploads
      *
-     * @throws StoryTemporaryFileException
+     * @throws StoreTemporaryFileException
      */
     protected function handleImageUpload(Highlight $highlight): void
     {
@@ -270,7 +270,7 @@ class Repository
                 $this->dao->update($highlight);
             } else {
                 $this->delete($highlight);
-                throw new StoryTemporaryFileException($temporaryFile, $filepath, $user, $highlight);
+                throw new StoreTemporaryFileException($temporaryFile, $filepath, $user, $highlight);
             }
         }
     }

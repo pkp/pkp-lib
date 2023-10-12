@@ -91,7 +91,8 @@ class PKPAnnouncementController extends PKPBaseController
             ->whereNumber('announcementId');
         
         Route::delete('{announcementId}', $this->delete(...))
-            ->name('announcement.delete');
+            ->name('announcement.delete')
+            ->whereNumber('announcementId');
     }
 
     /**

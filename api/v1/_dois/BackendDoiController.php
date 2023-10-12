@@ -1,14 +1,14 @@
 <?php
 /**
- * @file api/v1/_dois/BackendDoiHandler.php
+ * @file api/v1/_dois/BackendDoiController.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2023 Simon Fraser University
+ * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class BackendDoiHandler
+ * @class BackendDoiController
  *
- * @ingroup api_v1_backend
+ * @ingroup api_v1__dois
  *
  * @brief Handle API requests for backend operations.
  *
@@ -18,43 +18,42 @@ namespace APP\API\v1\_dois;
 
 use APP\facades\Repo;
 use Exception;
-use PKP\core\APIResponse;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route;
 use PKP\db\DAORegistry;
-use PKP\security\Role;
 use PKP\submission\GenreDAO;
-use Slim\Http\Request as SlimRequest;
 
-class BackendDoiHandler extends \PKP\API\v1\_dois\PKPBackendDoiHandler
+class BackendDoiController extends \PKP\API\v1\_dois\PKPBackendDoiController
 {
     /**
-     * Constructor
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
-    public function __construct()
+    public function getGroupRoutes(): void
     {
-        $this->_handlerPath = '_dois';
-        $this->_endpoints = array_merge_recursive($this->_endpoints, [
-            'PUT' => [
-                [
-                    'pattern' => $this->getEndpointPattern() . "/galleys/{galleyId:\d+}",
-                    'handler' => [$this, 'editGalley'],
-                    'roles' => [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
-                ]
-            ]
-        ]);
-        parent::__construct();
+        parent::getGroupRoutes();
+
+        Route::put('galleys/{galleyId}', $this->editGalley(...))
+            ->name('_doi.backend.galley.edit')
+            ->whereNumber('galleyId');
     }
 
     /**
+     * Edit galley to add DOI
+     *
      * @throws Exception
      */
-    public function editGalley(SlimRequest $slimRequest, APIResponse $response, array $args): \Slim\Http\Response
+    public function editGalley(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
         $context = $request->getContext();
 
-        $galley = Repo::galley()->get((int)$args['galleyId']);
+        $galley = Repo::galley()->get((int)$illuminateRequest->route('galleyId'));
         if (!$galley) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
         $publicationId = $galley->getData('publicationId');
@@ -63,14 +62,21 @@ class BackendDoiHandler extends \PKP\API\v1\_dois\PKPBackendDoiHandler
         $submission = Repo::submission()->get((int) $submissionId);
 
         if ($submission->getData('contextId') !== $context->getId()) {
-            return $response->withStatus(403)->withJsonError('api.dois.403.editItemOutOfContext');
+            return response()->json([
+                'error' => __('api.dois.403.editItemOutOfContext'),
+            ], Response::HTTP_FORBIDDEN);
         }
 
-        $params = $this->convertStringsToSchema(\PKP\services\PKPSchemaService::SCHEMA_GALLEY, $slimRequest->getParsedBody());
+        $params = $this->convertStringsToSchema(
+            \PKP\services\PKPSchemaService::SCHEMA_GALLEY,
+            $illuminateRequest->input()
+        );
 
         $doi = Repo::doi()->get((int) $params['doiId']);
         if (!$doi) {
-            return $response->withStatus(404)->withJsonError('api.dois.404.doiNotFound');
+            return response()->json([
+                'error' => __('api.dois.404.doiNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
 
 
@@ -86,6 +92,6 @@ class BackendDoiHandler extends \PKP\API\v1\_dois\PKPBackendDoiHandler
 
         $galleyProps = Repo::galley()->getSchemaMap($submission, $publication, $genres)->map($galley);
 
-        return $response->withJson($galleyProps, 200);
+        return response()->json($galleyProps, Response::HTTP_OK);
     }
 }

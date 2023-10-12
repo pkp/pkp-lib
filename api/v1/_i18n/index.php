@@ -16,4 +16,4 @@
  */
 
 
-return new \PKP\API\v1\_i18n\I18nHandler();
+return new \PKP\handler\APIHandler(new \PKP\API\v1\_i18n\I18nController());

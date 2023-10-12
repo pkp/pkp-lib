@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file api/v1/stats/sushi/StatsSushiHandler.php
+ * @file api/v1/stats/sushi/StatsSushiController.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class StatsSushiHandler
+ * @class StatsSushiController
  *
  * @ingroup api_v1_stats
  *
@@ -18,26 +18,21 @@
 namespace APP\API\v1\stats\sushi;
 
 use APP\sushi\IR;
-use PKP\core\APIResponse;
-use Slim\Http\Request as SlimHttpRequest;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
-class StatsSushiHandler extends \PKP\API\v1\stats\sushi\PKPStatsSushiHandler
+class StatsSushiController extends \PKP\API\v1\stats\sushi\PKPStatsSushiController
 {
     /**
-     * Get this API's endpoints definitions
+     * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
-    protected function getGETDefinitions(array $roles = null): array
+    public function getGroupRoutes(): void
     {
-        return array_merge(
-            parent::getGETDefinitions($roles),
-            [
-                [
-                    'pattern' => $this->getEndpointPattern() . '/reports/ir',
-                    'handler' => [$this, 'getReportsIR'],
-                    'roles' => $roles
-                ],
-            ]
-        );
+        parent::getGroupRoutes();
+
+        Route::get('reports/ir', $this->getReportsIR(...))
+            ->name('stats.sushi.getReportsIR');
     }
 
     /**
@@ -45,9 +40,9 @@ class StatsSushiHandler extends \PKP\API\v1\stats\sushi\PKPStatsSushiHandler
      * A customizable report detailing activity at the pre-print level
      * that allows the user to apply filters and select other configuration options for the report.
      */
-    public function getReportsIR(SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function getReportsIR(Request $illuminateRequest): JsonResponse
     {
-        return $this->getReportResponse(new IR(), $slimRequest, $response, $args);
+        return $this->getReportResponse(new IR(), $illuminateRequest);
     }
 
     /**

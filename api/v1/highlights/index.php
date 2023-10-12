@@ -15,4 +15,4 @@
  * @brief Handle API requests for highlights.
  */
 
-return new \PKP\API\v1\highlights\HighlightsHandler();
+return new \PKP\handler\APIHandler(new \PKP\API\v1\highlights\HighlightsController());

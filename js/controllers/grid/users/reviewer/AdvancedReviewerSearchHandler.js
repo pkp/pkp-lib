@@ -37,7 +37,7 @@
 
 		pkp.eventBus.$on('selected:reviewer', function(reviewer) {
 			$('#reviewerId').val(reviewer.id);
-			$('[id^="selectedReviewerName"]').html(reviewer.fullName);
+			$('[id^="selectedReviewerName"]').text(reviewer.fullName);
 			$('#searchGridAndButton').hide();
 			$('#regularReviewerForm').show();
 

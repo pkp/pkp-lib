@@ -23,7 +23,7 @@ describe('API tests', function() {
 			url: 'index.php/publicknowledge/api/v1/users',
 			failOnStatusCode: false
 		}).then(response => {
-			expect(response.status).to.eq(403);
+			expect(response.status).to.eq(401);
 		});
 	});
 

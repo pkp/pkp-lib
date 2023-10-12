@@ -226,7 +226,7 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
             $contextId,
             $locale
         ];
-        $words = array_map(fn (string $word) => '%' . addcslashes($word, '%_') . '%', PKPString::regexp_split('/\s+/', trim($term)));
+        $words = array_map(fn (string $word) => '%' . addcslashes($word, '%_') . '%', PKPString::regexp_split('/\s+/', trim($term ?? '')));
 
         $termFilter = '';
         if (count($words)) {

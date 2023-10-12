@@ -16,6 +16,7 @@
 
 namespace PKP\core;
 
+use APP\core\Application;
 use APP\core\AppServiceProvider;
 use Exception;
 use Illuminate\Config\Repository;
@@ -24,9 +25,11 @@ use Illuminate\Contracts\Console\Kernel as KernelContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Events\EventServiceProvider as LaravelEventServiceProvider;
 use Illuminate\Foundation\Console\Kernel;
+use Illuminate\Http\Response;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
+use PKP\core\APIRouter;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
@@ -64,24 +67,35 @@ class PKPContainer extends Container
         $this->instance('path', $this->basePath);
         $this->singleton(ExceptionHandler::class, function () {
             return new class () implements ExceptionHandler {
-                public function shouldReport(Throwable $e)
+                public function shouldReport(Throwable $exception)
                 {
                     return true;
                 }
 
-                public function report(Throwable $e)
+                public function report(Throwable $exception)
                 {
-                    error_log((string) $e->getTraceAsString());
+                    error_log($exception->__toString());
                 }
 
-                public function render($request, Throwable $e)
+                public function render($request, Throwable $exception)
                 {
+                    $pkpRouter = Application::get()->getRequest()->getRouter();
+
+                    if($pkpRouter instanceof APIRouter && app('router')->getRoutes()->count()) {
+                        return response()->json([
+                            'error' => $exception->getMessage()
+                        ], in_array($exception->getCode(), array_keys(Response::$statusTexts)) 
+                            ? $exception->getCode() 
+                            : Response::HTTP_INTERNAL_SERVER_ERROR
+                        )->send();
+                    }
+
                     return null;
                 }
 
-                public function renderForConsole($output, Throwable $e)
+                public function renderForConsole($output, Throwable $exception)
                 {
-                    echo (string) $e;
+                    echo (string) $exception;
                 }
             };
         });
@@ -127,6 +141,7 @@ class PKPContainer extends Container
         $this->register(new MailServiceProvider($this));
         $this->register(new AppServiceProvider($this));
         $this->register(new LocaleServiceProvider($this));
+        $this->register(new PKPRoutingProvider($this));
     }
 
     /**
@@ -160,7 +175,7 @@ class PKPContainer extends Container
 
         $provider->callBootedCallbacks();
 
-        $this->app->bind('request', fn () => PKPApplication::get()->getRequest());
+        $this->app->bind('request', fn () => \Illuminate\Http\Request::capture());
     }
 
     /**
@@ -169,23 +184,93 @@ class PKPContainer extends Container
     public function registerCoreContainerAliases()
     {
         foreach ([
-            'app' => [self::class, \Illuminate\Contracts\Container\Container::class, \Psr\Container\ContainerInterface::class],
-            'config' => [\Illuminate\Config\Repository::class, \Illuminate\Contracts\Config\Repository::class],
-            'cache' => [\Illuminate\Cache\CacheManager::class, \Illuminate\Contracts\Cache\Factory::class],
-            'cache.store' => [\Illuminate\Cache\Repository::class, \Illuminate\Contracts\Cache\Repository::class, \Psr\SimpleCache\CacheInterface::class],
-            'cache.psr6' => [\Psr\Cache\CacheItemPoolInterface::class],
-            'db' => [\Illuminate\Database\DatabaseManager::class, \Illuminate\Database\ConnectionResolverInterface::class],
-            'db.connection' => [\Illuminate\Database\Connection::class, \Illuminate\Database\ConnectionInterface::class],
-            'files' => [\Illuminate\Filesystem\Filesystem::class],
-            'filesystem' => [\Illuminate\Filesystem\FilesystemManager::class, \Illuminate\Contracts\Filesystem\Factory::class],
-            'filesystem.disk' => [\Illuminate\Contracts\Filesystem\Filesystem::class],
-            'filesystem.cloud' => [\Illuminate\Contracts\Filesystem\Cloud::class],
-            'maps' => [MapContainer::class, MapContainer::class],
-            'events' => [\Illuminate\Events\Dispatcher::class, \Illuminate\Contracts\Events\Dispatcher::class],
-            'queue' => [\Illuminate\Queue\QueueManager::class, \Illuminate\Contracts\Queue\Factory::class, \Illuminate\Contracts\Queue\Monitor::class],
-            'queue.connection' => [\Illuminate\Contracts\Queue\Queue::class],
-            'queue.failer' => [\Illuminate\Queue\Failed\FailedJobProviderInterface::class],
-            'log' => [\Illuminate\Log\LogManager::class, \Psr\Log\LoggerInterface::class],
+            'app' => [
+                self::class, 
+                \Illuminate\Contracts\Container\Container::class, 
+                \Psr\Container\ContainerInterface::class
+            ],
+            'config' => [
+                \Illuminate\Config\Repository::class, 
+                \Illuminate\Contracts\Config\Repository::class
+            ],
+            'cache' => [
+                \Illuminate\Cache\CacheManager::class, 
+                \Illuminate\Contracts\Cache\Factory::class
+            ],
+            'cache.store' => [
+                \Illuminate\Cache\Repository::class, 
+                \Illuminate\Contracts\Cache\Repository::class, 
+                \Psr\SimpleCache\CacheInterface::class
+            ],
+            'cache.psr6' => [
+                \Psr\Cache\CacheItemPoolInterface::class
+            ],
+            'db' => [
+                \Illuminate\Database\DatabaseManager::class, 
+                \Illuminate\Database\ConnectionResolverInterface::class
+            ],
+            'db.connection' => [
+                \Illuminate\Database\Connection::class, 
+                \Illuminate\Database\ConnectionInterface::class
+            ],
+            'files' => [
+                \Illuminate\Filesystem\Filesystem::class
+            ],
+            'filesystem' => [
+                \Illuminate\Filesystem\FilesystemManager::class, 
+                \Illuminate\Contracts\Filesystem\Factory::class
+            ],
+            'filesystem.disk' => [
+                \Illuminate\Contracts\Filesystem\Filesystem::class
+            ],
+            'filesystem.cloud' => [
+                \Illuminate\Contracts\Filesystem\Cloud::class
+            ],
+            'maps' => [
+                MapContainer::class, 
+                MapContainer::class
+            ],
+            'events' => [
+                \Illuminate\Events\Dispatcher::class, 
+                \Illuminate\Contracts\Events\Dispatcher::class
+            ],
+            'queue' => [
+                \Illuminate\Queue\QueueManager::class, 
+                \Illuminate\Contracts\Queue\Factory::class, 
+                \Illuminate\Contracts\Queue\Monitor::class
+            ],
+            'queue.connection' => [
+                \Illuminate\Contracts\Queue\Queue::class
+            ],
+            'queue.failer' => [
+                \Illuminate\Queue\Failed\FailedJobProviderInterface::class
+            ],
+            'log' => [
+                \Illuminate\Log\LogManager::class, 
+                \Psr\Log\LoggerInterface::class
+            ],
+            'router' => [
+                \Illuminate\Routing\Router::class, 
+                \Illuminate\Contracts\Routing\Registrar::class, 
+                \Illuminate\Contracts\Routing\BindingRegistrar::class
+            ],
+            'url' => [
+                \Illuminate\Routing\UrlGenerator::class, 
+                \Illuminate\Contracts\Routing\UrlGenerator::class
+            ],
+            'validator' => [
+                \Illuminate\Validation\Factory::class, 
+                \Illuminate\Contracts\Validation\Factory::class
+            ],
+            'Request' => [
+                \Illuminate\Support\Facades\Request::class
+            ],
+            'Response' => [
+                \Illuminate\Support\Facades\Response::class
+            ],
+            'Route' => [
+                \Illuminate\Support\Facades\Route::class
+            ],
         ] as $key => $aliases) {
             foreach ($aliases as $alias) {
                 $this->alias($key, $alias);

@@ -9,7 +9,6 @@
 		"moxiecode/plupload": "2.*",
 		"tinymce/tinymce": "^5.7",
 		"michelf/php-markdown": "1.*",
-		"slim/slim": "3.*",
 		"pimple/pimple": "3.*",
 		"laravel/framework": "^10.0",
 		"firebase/php-jwt": "6.*",

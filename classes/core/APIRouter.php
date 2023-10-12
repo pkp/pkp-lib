@@ -11,7 +11,7 @@
  *
  * @ingroup core
  *
- * @brief Map HTTP requests to a REST API using the Slim microframework.
+ * @brief Map HTTP requests to a REST API using the laravel router
  *
  * Requests for [index.php]/api are intercepted for site-level API requests,
  * and requests for [index.php]/{contextPath}/api are intercepted for
@@ -22,7 +22,7 @@ namespace PKP\core;
 
 use APP\core\Application;
 use Exception;
-use PKP\handler\APIHandler;
+use Illuminate\Http\Response;
 use PKP\session\SessionManager;
 
 class APIRouter extends PKPRouter
@@ -85,18 +85,13 @@ class APIRouter extends PKPRouter
      */
     public function route($request)
     {
-        // Ensure slim library is available
-        require_once('lib/pkp/lib/vendor/autoload.php');
-
         $sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
 
         if (!file_exists($sourceFile)) {
-            http_response_code('404');
-            header('Content-Type: application/json');
-            echo json_encode([
-                'error' => 'api.404.endpointNotFound',
-                'errorMessage' => __('api.404.endpointNotFound'),
-            ]);
+            response()->json([
+                'error'         => 'api.404.endpointNotFound',
+                'errorMessage'  => __('api.404.endpointNotFound'),
+            ], Response::HTTP_NOT_FOUND)->send();
             exit;
         }
 
@@ -107,7 +102,6 @@ class APIRouter extends PKPRouter
 
         $handler = require('./' . $sourceFile);
         $this->setHandler($handler);
-        $handler->getApp()->run();
     }
 
     /**
@@ -119,19 +113,10 @@ class APIRouter extends PKPRouter
      */
     public function getRequestedOp($request)
     {
-        /** @var APIHandler */
-        $handler = $this->getHandler();
-        $container = $handler->getApp()->getContainer();
-        $router = $container->get('router');
-        $slimRequest = $handler->getSlimRequest();
-        $routeInfo = $router->dispatch($slimRequest);
-        if (isset($routeInfo[1])) {
-            $route = $router->lookupRoute($routeInfo[1]);
-            $callable = $route->getCallable();
-            if (is_array($callable) && count($callable) == 2) {
-                return $callable[1];
-            }
+        if ($routeActionName = PKPBaseController::getRouteActionName()) {
+            return $routeActionName;
         }
+
         return '';
     }
 
@@ -143,12 +128,10 @@ class APIRouter extends PKPRouter
         $authorizationMessage,
         array $messageParams = []
     ) {
-        http_response_code('403');
-        header('Content-Type: application/json');
-        echo json_encode([
-            'error' => $authorizationMessage,
-            'errorMessage' => __($authorizationMessage, $messageParams),
-        ]);
+        response()->json([
+            'error'         => $authorizationMessage,
+            'errorMessage'  => __($authorizationMessage, $messageParams),
+        ], Response::HTTP_FORBIDDEN)->send();
         exit;
     }
 

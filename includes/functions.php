@@ -431,3 +431,27 @@ if (!function_exists('isValidJson')) {
         return false;
     }
 }
+
+/**
+ * Convert a query parameter to an array
+ *
+ * This method will convert a query parameter to an array, and
+ * supports a comma-separated list of values
+ * 
+ * @param mixed $value
+ * @return array
+ */
+if (!function_exists('paramToArray')) {
+    function paramToArray(mixed $value): array
+    {
+        if (is_array($value)) {
+            return $value;
+        } 
+        
+        if (is_string($value)) {
+            return explode(',', $value);
+        }
+
+        return [$value];
+    }
+}

@@ -29,6 +29,8 @@ class HttpFailedJobResource extends JsonResource
      */
     public function toArray($request): array
     {
+        $pkpRequest = Application::get()->getRequest();
+
         return [
             'id' => $this->getResource()->id,
             'displayName' => $this->getJobName(),
@@ -38,9 +40,9 @@ class HttpFailedJobResource extends JsonResource
             'payload' => $this->getResource()->payload,
             'exception' => $this->getResource()->exception,
             '_hrefs' => [
-                '_details' => $request->getDispatcher()->url($request, Application::ROUTE_PAGE, 'index', 'admin', 'failedJobDetails', $this->getResource()->id),
-                '_redispatch' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'index', 'jobs/redispatch/' . $this->getResource()->id),
-                '_delete' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'index', 'jobs/failed/delete/' . $this->getResource()->id),
+                '_details' => $pkpRequest->getDispatcher()->url($pkpRequest, Application::ROUTE_PAGE, 'index', 'admin', 'failedJobDetails', $this->getResource()->id),
+                '_redispatch' => $pkpRequest->getDispatcher()->url($pkpRequest, Application::ROUTE_API, 'index', 'jobs/redispatch/' . $this->getResource()->id),
+                '_delete' => $pkpRequest->getDispatcher()->url($pkpRequest, Application::ROUTE_API, 'index', 'jobs/failed/delete/' . $this->getResource()->id),
             ],
         ];
     }

@@ -192,7 +192,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      */
     public function getProperties($context, $props, $args = null)
     {
-        $slimRequest = $args['slimRequest'];
+        $apiRequest = $args['apiRequest'] ?? '';
         $request = $args['request'];
         $dispatcher = $request->getDispatcher();
 
@@ -209,8 +209,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
                     break;
                 case '_href':
                     $values[$prop] = null;
-                    if (!empty($slimRequest)) {
-                        $route = $slimRequest->getAttribute('route');
+                    if (!empty($apiRequest)) {
                         $values[$prop] = $dispatcher->url(
                             $args['request'],
                             PKPApplication::ROUTE_API,

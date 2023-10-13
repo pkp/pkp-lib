@@ -2132,29 +2132,6 @@ msgstr ""
 "Изискайте от автора да предложи ключови думи, преди да приемете подадените "
 "материали."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Езикът указва основния език на произведението, използвайки езиков код („en“) "
-"с незадължителен код на държавата („en_US“)."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Активиране на езикови метаданни"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"Не изисквайте езиците на материала от автора по време на подаването на "
-"материали."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Изисквайте езиците на материала от автора по време на подаването на "
-"материали."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Изисквайте от автора да въведе езиците на материала, преди да приемете "
-"подаването на материали."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Всички права, притежавани върху подадените материали, което може да включва "

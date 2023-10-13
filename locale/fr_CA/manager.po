@@ -2170,29 +2170,6 @@ msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 "Obliger l'auteur-e à suggérer des mots-clés avant d'accepter sa soumission."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"La langue indique la langue principale de l'œuvre à l'aide d'un code de "
-"langue (« en ») avec, facultativement, un code de pays (« en_US »)."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Activer la métadonnée « Langue »"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"Ne pas demander la,les langue-s du document à l'auteur-e pendant la "
-"soumission."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Demander à l'auteur-e d'indiquer la,les langues du document soumis au moment "
-"de la soumission."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Obliger l'auteur-e à entrer la,les langue-s du document soumis avant "
-"d'accepter sa soumission."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Tous les droits détenus sur la soumission, lesquels peuvent inclure les "

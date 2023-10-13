@@ -2012,24 +2012,6 @@ msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 "Esixir ao autor que suxira palabras clave antes de aceptar a seu envío."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"O idioma indica o idioma principal da obra empregando un código de idioma "
-"(\"en\") cun código de país opcional (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Habilitar os metadatos do idioma"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Non solicite ao autor os idiomas durante o envío."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Pedirlle ao autor que indique os idiomas durante o envío."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Esixirlle ao autor que introduza os idiomas do envío antes de aceptalo."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Calquera dereito sobre o envío, que pode incluír Dereitos de Propiedade "

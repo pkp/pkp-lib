@@ -1793,21 +1793,6 @@ msgstr ""
 msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr ""
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 

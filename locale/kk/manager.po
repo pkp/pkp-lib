@@ -2027,25 +2027,6 @@ msgstr ""
 "Автордан өз материалын қабылдамас бұрын кілт сөздерді міндетті түрде "
 "көрсетуін талап етіңіз."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Тіл тіл кодын («ru»), одан кейін қосымша ел кодын («ru_RU») пайдалана "
-"отырып, негізгі жұмыс тілін көрсетеді."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Метадеректерге тілді қосыңыз"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Өтініш беру кезінде автордан материалдың тілдерін сұрамаңыз."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Автордан материалды жіберу кезінде олардың тілдерін көрсетуін сұраңыз."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Осы материалды қабылдамас бұрын автордан материалдың тілдерін көрсетуін "
-"талап етіңіз."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Сіз жіберген материалға қолданылатын кез келген құқықтар зияткерлік меншік "

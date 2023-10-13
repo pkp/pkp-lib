@@ -1998,29 +1998,6 @@ msgstr ""
 "Solicitați autorului să sugereze cuvintele cheie înainte de a accepta "
 "înregistrarea acestora."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Limba selectată indică limba primară de lucru folosind un cod de limbă "
-"(„en”) cu un cod de țară opțional („en_US”)."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Activați metadatele de limbă"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"Nu solicitați limbile de trimitere de la autor în timpul înregistrării de "
-"manuscris."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Solicitați autorului să indice limbile transmiterii în timpul înregistrării "
-"de manuscris."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Solicitați autorului să introducă limbile manuscrisului înainte de a accepta "
-"transmiterea."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Orice drepturi deținute asupra manuscrisului, care pot include drepturi de "

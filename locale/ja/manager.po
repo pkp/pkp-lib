@@ -1954,23 +1954,6 @@ msgstr "投稿時に著者にキーワードを提案してもらう。"
 msgid "manager.setup.metadata.keywords.require"
 msgstr "投稿を受け付ける前に、著者にキーワードの提案を求める。"
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"言語は、作品の主要言語を言語コード（\"ja\"）と国コード（\"ja_JP\"）で表しま"
-"す。"
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "言語メタデータの有効化"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "投稿中に著者に投稿言語を要求しない。"
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "投稿時に投稿言語を記入してもらう。"
-
-msgid "manager.setup.metadata.languages.require"
-msgstr "投稿を受け付ける前に、著者に投稿言語の入力を求める。"
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "知的財産権（IPR）、著作権、様々な財産権を含む、投稿物に対して保持されているあ"

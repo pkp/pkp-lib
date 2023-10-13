@@ -2073,25 +2073,6 @@ msgstr ""
 "Wymagaj od autora podania danych dot. Słów kluczowych zanim zgłoszenie "
 "zostanie zaakceptowane do wydania."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Język oznacza główny język tekstu oznaczony wg kodu (\"pl\") z opcją w "
-"postaci (\"pl_PL\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Włącz metadane Język"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Nie wymagaj podania danych dot. Języka w trakcie zgłaszania tekstu."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Poproś autora o podanie danych dot. Języka w trakcie składania tekstu."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Wymagaj od autora podania danych dot. Języka zanim zgłoszenie zostanie "
-"zaakceptowane do wydania."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Dowolne prawa które są częścią tego zgłoszenia, które są częścią czyjejś "

@@ -2094,28 +2094,6 @@ msgstr ""
 "Барај авторот да предложи клучни зборови пред да биде прифатен нивниот "
 "поднесок."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Јазикот укажува на примарен јазик за работа со користење на јазичен код (\"en"
-"\") с опција за дополнителен код на земјата (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Овозможи метаподатоци за јазик"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"За време на поднесувањето, не ги барајте јазиците на поднесокот од авторот."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"За време на поднесувањето, прашајте го авторот да ги посочи јазиците на "
-"поднесокот."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Барај авторот да ги внесе јазиците на поднесокот пред да биде прифатен "
-"нивниот поднесок."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Задржани се било какви права над поднесокот, што може да вклучува права на "

@@ -2047,27 +2047,6 @@ msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 "Require the author to suggest keywords before accepting their submission."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Language indicates the work's primary language using a language code (\"en"
-"\") with an optional country code (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Enable language metadata"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"Do not request the submission's languages from the author during submission."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Ask the author to indicate the submission's languages during submission."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Require the author to enter the submission's languages before accepting "
-"their submission."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Any rights held over the submission, which may include Intellectual Property "

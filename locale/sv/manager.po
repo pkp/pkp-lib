@@ -2027,23 +2027,6 @@ msgstr "Be författaren att föreslå nyckelord vid inskickandet av bidrag."
 msgid "manager.setup.metadata.keywords.require"
 msgstr "Kräv att författaren föreslår nyckelord innan bidraget accepteras."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Språk anger arbetets primära språk, genom att använda språkkod (\"en\") med "
-"en frivillig landkod (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Gör det möjligt att lägga in metadata om språk"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Kräv inte att författaren ska ange språk vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Be författaren att ange bidragets språk vid inskickandet."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr "Kräv att författaren anger bidragets språk innan bidraget accepteras."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Immateriella rättigheter till bidraget som t.ex. upphovsrätt, patent, eller "

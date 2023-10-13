@@ -510,8 +510,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'SubmissionDisciplineEntryDAO' => 'PKP\submission\SubmissionDisciplineEntryDAO',
             'SubmissionEmailLogDAO' => 'PKP\log\SubmissionEmailLogDAO',
             'QueryDAO' => 'PKP\query\QueryDAO',
-            'SubmissionLanguageDAO' => 'PKP\submission\SubmissionLanguageDAO',
-            'SubmissionLanguageEntryDAO' => 'PKP\submission\SubmissionLanguageEntryDAO',
             'SubmissionKeywordDAO' => 'PKP\submission\SubmissionKeywordDAO',
             'SubmissionKeywordEntryDAO' => 'PKP\submission\SubmissionKeywordEntryDAO',
             'SubmissionSubjectDAO' => 'PKP\submission\SubmissionSubjectDAO',
@@ -710,7 +708,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     {
         return [
             'coverage',
-            'languages',
             'rights',
             'source',
             'subjects',

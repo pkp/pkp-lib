@@ -2034,28 +2034,6 @@ msgstr ""
 "Sol·licitar als autors/es que proposin paraules clau abans d'acceptar la "
 "seva tramesa."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"L'idioma indica que l'idioma principal de l'obra utilitza un codi d'idioma "
-"(\"en\") amb un codi opcional de país (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Habilitar les metadades d'idioma"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"No sol·licitar els idiomes de la tramesa a l'autor/a durant la tramesa."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Sol·licitar a l'autor/a que indiqui els idiomes de la tramesa durant la "
-"tramesa."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Sol·licitar a l'autor que introdueixi els idiomes de la tramesa abans "
-"d'acceptar la seva tramesa."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Qualsevol dret sobre la tramesa, que pot incloure drets de propietat "

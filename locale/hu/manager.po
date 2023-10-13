@@ -1994,27 +1994,6 @@ msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 "A beküldés elfogadásának feltétele, hogy a szerző kulcsszavakat adjon meg."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"A nyelv az anyag elsődleges nyelvét jelzik egy nyelvi kóddal (\"en\") és az "
-"opcionális országkóddal (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Nyelvi metaadatok engedélyezése"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"A benyújtás során ne kérje a szerzőtől a benyújtás nyelveinek megadását."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Kérje meg a szerzőt, hogy a benyújtás során jelölje meg a beadvány nyelveit."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"A beküldés elfogadásának feltétele, hogy a szerző megadja a beküldési "
-"nyelveket."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "A benyújtás kapcsán fennálló jogok, amelyek magukban foglalhatják a szellemi "

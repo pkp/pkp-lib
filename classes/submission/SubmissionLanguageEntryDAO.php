@@ -12,6 +12,8 @@
  * @ingroup submission
  *
  * @see Submission
+ * 
+ * @deprecated 3.5
  *
  * @brief Operations for retrieving and modifying a submission's languages
  */

@@ -1972,24 +1972,6 @@ msgstr "Yêu cầu tác giả đề xuất từ khóa trong quá trình gửi b�
 msgid "manager.setup.metadata.keywords.require"
 msgstr "Yêu cầu tác giả đề xuất các từ khóa trước khi chấp nhận bài của họ."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Ngôn ngữ chỉ ra ngôn ngữ chính của tác phẩm bằng mã ngôn ngữ, tiếng Anh/"
-"tiếng Việt (\"en\"/\"vi\") với mã quốc gia tùy chọn (\"en_US\"/\"vi_VN\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Bật siêu dữ liệu ngôn ngữ"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Không yêu cầu ngôn ngữ của bài gửi từ tác giả trong quá trình gửi bài."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Yêu cầu tác giả cho biết ngôn ngữ của bài gửi trong quá trình gửi bài."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Yêu cầu tác giả nhập ngôn ngữ của bài nộp trước khi chấp nhận bài gửi của họ."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Bất kỳ quyền nào có được đối với bài gửi, có thể bao gồm Quyền sở hữu trí "

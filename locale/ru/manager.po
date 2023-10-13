@@ -2117,25 +2117,6 @@ msgstr ""
 "Требовать, чтобы автор обязательно указал ключевые слова до приёма его "
 "материала."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Язык указывает основной язык работы с помощью кода языка («ru») с "
-"дополнительным кодом страны («ru_RU»)."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Включить язык в метаданные"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Не запрашивать языки материала у автора во время отправки."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Просить автора указать языки материала во время отправки."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Требовать, чтобы автор обязательно указал языки материала до приёма этого "
-"материала."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Любые права, которые распространяются на отправляемый материал, сюда могут "

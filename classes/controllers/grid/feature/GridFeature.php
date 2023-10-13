@@ -19,6 +19,7 @@
  */
 
 namespace PKP\controllers\grid\feature;
+
 use PKP\controllers\grid\GridHandler;
 use PKP\core\PKPRequest;
 

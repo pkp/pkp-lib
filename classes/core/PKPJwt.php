@@ -10,7 +10,7 @@
  * @class PKPJwt
  *
  * @brief   Override the package \Firebase\JWT\JWT::decode method to handle string payload
- *          which has been deprecated in 6.0+ and cause breaking/invalidation of previous 
+ *          which has been deprecated in 6.0+ and cause breaking/invalidation of previous
  *          API Keys.
  *
  * @see https://github.com/pkp/pkp-lib/issues/9110
@@ -18,9 +18,9 @@
 
 namespace PKP\core;
 
-use stdClass;
 use Firebase\JWT\JWT;
 use PKP\config\Config;
+use stdClass;
 use UnexpectedValueException;
 
 class PKPJwt extends JWT
@@ -40,8 +40,6 @@ class PKPJwt extends JWT
      *                                                                      and 'RS512'.
      * @param stdClass               $headers                               Optional. Populates stdClass with headers.
      *
-     * @return stdClass The JWT's payload as a PHP object
-     *
      * @throws InvalidArgumentException     Provided key/key-array was empty or malformed
      * @throws DomainException              Provided JWT is malformed
      * @throws UnexpectedValueException     Provided JWT was invalid
@@ -50,18 +48,20 @@ class PKPJwt extends JWT
      * @throws BeforeValidException         Provided JWT is trying to be used before it's been created as defined by 'iat'
      * @throws ExpiredException             Provided JWT has since expired, as defined by the 'exp' claim
      *
+     * @return stdClass The JWT's payload as a PHP object
+     *
      * @uses jsonDecode
      * @uses urlsafeB64Decode
      */
     public static function decode(string $jwt, $keyOrKeyArray, stdClass &$headers = null): stdClass
     {
         $tks = explode('.', $jwt);
-        
+
         if (count($tks) !== 3) {
             throw new UnexpectedValueException('Wrong number of segments');
         }
 
-        list($headb64, $bodyb64, $cryptob64) = $tks;
+        [$headb64, $bodyb64, $cryptob64] = $tks;
 
         $payloadRaw = static::urlsafeB64Decode($bodyb64);
 
@@ -75,18 +75,18 @@ class PKPJwt extends JWT
 
         if (is_string($payload)) {
             error_log('Deprecation Warning: String type payload has been deprecated and support for it will be removed in future. Please update the API KEY and use that.');
-            
+
             return parent::decode(
                 static::encode(
-                    [$payload], 
-                    Config::getVar('security', 'api_key_secret', ''), 
+                    [$payload],
+                    Config::getVar('security', 'api_key_secret', ''),
                     'HS256'
-                ), 
-                $keyOrKeyArray, 
+                ),
+                $keyOrKeyArray,
                 $headers
             );
         }
-        
+
         return parent::decode($jwt, $keyOrKeyArray, $headers);
     }
 }

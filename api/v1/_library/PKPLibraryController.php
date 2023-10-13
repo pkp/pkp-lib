@@ -22,12 +22,12 @@ use APP\core\Services;
 use APP\file\LibraryFileManager;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Response;
-use PKP\core\PKPRequest;
+use Illuminate\Support\Facades\Route;
 use PKP\context\LibraryFile;
 use PKP\context\LibraryFileDAO;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -65,7 +65,7 @@ class PKPLibraryController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::get('', $this->getLibrary(...))->name('_library.getLibrary');
     }
 

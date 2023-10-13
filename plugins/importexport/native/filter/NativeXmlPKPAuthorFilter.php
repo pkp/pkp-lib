@@ -20,7 +20,6 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use Exception;
-use PKP\author\Author;
 use PKP\facades\Locale;
 use PKP\filter\FilterGroup;
 

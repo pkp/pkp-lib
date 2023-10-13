@@ -24,7 +24,6 @@ use Carbon\Carbon;
 use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Contracts\Queue\Job;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
@@ -282,9 +281,9 @@ class commandJobs extends CommandLineTool
         $this->total();
 
         $this->getCommandInterface()->table(
-            $this->getListTableFormat(), 
+            $this->getListTableFormat(),
             $data
-                ->map(fn(JsonResource $job) => $job->toArray(app('request')))
+                ->map(fn (JsonResource $job) => $job->toArray(app('request')))
                 ->toArray()
         );
 

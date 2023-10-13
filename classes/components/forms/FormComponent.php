@@ -264,6 +264,9 @@ class FormComponent
      * handler on the frontend
      *
      * @return array Configuration data
+     *
+     * @hook Form::config::before [$this]
+     * @hook Form::config::after [[&$config, $this]]
      */
     public function getConfig()
     {

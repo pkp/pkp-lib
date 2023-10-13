@@ -639,7 +639,7 @@ class UserGridHandler extends GridHandler
             ]);
             return $json;
 
-        // Otherwise present the grid for selecting the user to merge into
+            // Otherwise present the grid for selecting the user to merge into
         } else {
             $userGrid = new UserGridHandler();
             $userGrid->initialize($request);

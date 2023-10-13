@@ -25,6 +25,7 @@ use PKP\security\Role;
 
 /**
  * @template T of Context
+ *
  * @extends SchemaDAO<T>
  */
 abstract class ContextDAO extends SchemaDAO

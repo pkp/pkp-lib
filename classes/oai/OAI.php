@@ -197,6 +197,8 @@ abstract class OAI
      * @param string $tokenId
      *
      * @return OAIResumptionToken|false
+     *
+     * @hook OAI::metadataFormats [[$namesOnly, $identifier, &$formats]]
      */
     abstract public function resumptionToken($tokenId);
 
@@ -207,6 +209,8 @@ abstract class OAI
      * @param array $params request parameters
      *
      * @return OAIResumptionToken the saved token
+     *
+     * @hook OAI::metadataFormats [[$namesOnly, $identifier, &$formats]]
      */
     abstract public function saveResumptionToken($offset, $params);
 
@@ -217,6 +221,8 @@ abstract class OAI
      * @param string $identifier return formats for specific identifier
      *
      * @return array
+     *
+     * @hook OAI::metadataFormats [[$namesOnly, $identifier, &$formats]]
      */
     public function metadataFormats($namesOnly = false, $identifier = null)
     {

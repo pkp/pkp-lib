@@ -23,7 +23,6 @@ use Illuminate\Mail\Mailable;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
-use PKP\invitation\invitations\BaseInvitation;
 use PKP\invitation\invitations\enums\InvitationStatus;
 use PKP\user\User;
 
@@ -33,16 +32,15 @@ class RegistrationAccessInvite extends BaseInvitation
      * Create a new invitation instance.
      */
     public function __construct(
-        public ?int $invitedUserId, 
+        public ?int $invitedUserId,
         ?int $contextId = null
-    )
-    {
+    ) {
         $expiryDays = Config::getVar('email', 'validation_timeout');
 
         parent::__construct($invitedUserId, null, $contextId, null, $expiryDays);
     }
 
-    public function getMailable(): ?Mailable 
+    public function getMailable(): ?Mailable
     {
         if (isset($this->mailable)) {
             $url = $this->getAcceptUrl();
@@ -53,14 +51,13 @@ class RegistrationAccessInvite extends BaseInvitation
                 ];
             });
         }
-        
+
         return $this->mailable;
     }
-    
+
     /**
-     * @return bool
      */
-    public function preDispatchActions(): bool 
+    public function preDispatchActions(): bool
     {
         $invitations = Repo::invitation()
             ->filterByStatus(InvitationStatus::PENDING)
@@ -76,7 +73,7 @@ class RegistrationAccessInvite extends BaseInvitation
         return true;
     }
 
-    public function acceptHandle() : void
+    public function acceptHandle(): void
     {
         $user = Repo::user()->get($this->invitedUserId, true);
 
@@ -94,8 +91,8 @@ class RegistrationAccessInvite extends BaseInvitation
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
-            null, 
-            'user', 
+            null,
+            'user',
             'activateUser',
             [
                 $user->getUsername(),
@@ -110,18 +107,18 @@ class RegistrationAccessInvite extends BaseInvitation
                 PKPApplication::get()->getRequest(),
                 PKPApplication::ROUTE_PAGE,
                 $this->context->getData('urlPath'),
-                'user', 
+                'user',
                 'activateUser',
                 [
                     $user->getUsername(),
                 ]
             );
         }
-        
+
         $request->redirectUrl($url);
     }
 
-    private function _validateAccessKey(User $user, Request $request) : bool
+    private function _validateAccessKey(User $user, Request $request): bool
     {
         if (!$user) {
             return false;

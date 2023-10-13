@@ -48,6 +48,8 @@ class ReviewerAction
     //
     /**
      * Records whether the reviewer accepts the review assignment.
+     *
+     * @hook ReviewerAction::confirmReview [[$request, $submission, $mailable, $decline]]
      */
     public function confirmReview(
         PKPRequest $request,

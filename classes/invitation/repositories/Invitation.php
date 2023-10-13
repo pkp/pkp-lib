@@ -15,7 +15,6 @@
 namespace PKP\invitation\repositories;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use PKP\invitation\invitations\BaseInvitation;
 use PKP\invitation\invitations\enums\InvitationStatus;
@@ -74,31 +73,31 @@ class Invitation extends BaseRepository
         return $this->constructBOFromModel($invitation);
     }
 
-    public function filterByStatus(InvitationStatus $status): Invitation 
+    public function filterByStatus(InvitationStatus $status): Invitation
     {
         $this->query->byStatus($status);
         return $this;
     }
 
-    public function filterByContextId(?int $contextId): Invitation 
+    public function filterByContextId(?int $contextId): Invitation
     {
         $this->query->byContextId($contextId);
         return $this;
     }
 
-    public function filterByClassName(string $className): Invitation 
+    public function filterByClassName(string $className): Invitation
     {
         $this->query->byClassName($className);
         return $this;
     }
 
-    public function filterByUserId(int $userId): Invitation 
+    public function filterByUserId(int $userId): Invitation
     {
         $this->query->byUserId($userId);
         return $this;
     }
 
-    public function filterByAssocId(int $assocId): Invitation 
+    public function filterByAssocId(int $assocId): Invitation
     {
         $this->query->byAssocId($assocId);
         return $this;
@@ -107,7 +106,7 @@ class Invitation extends BaseRepository
     /**
      * Filter invitations by whether they are expired
      */
-    public function expired(): Invitation 
+    public function expired(): Invitation
     {
         $this->query->expired();
         return $this;
@@ -116,7 +115,7 @@ class Invitation extends BaseRepository
     /**
      * Filter invitations by whether they are not expired
      */
-    public function notExpired(): Invitation 
+    public function notExpired(): Invitation
     {
         $this->query->notExpired();
         return $this;
@@ -127,10 +126,10 @@ class Invitation extends BaseRepository
      *
      * @return Collection<BaseInvitation>
      */
-    public function getMany(): Collection 
+    public function getMany(): Collection
     {
         $results = $this->query->get();
-        
+
         $invitations = new Collection();
         foreach ($results as $result) {
             $bo = $this->constructBOFromModel($result);
@@ -145,10 +144,10 @@ class Invitation extends BaseRepository
      *
      * @return Collection<BaseInvitation>
      */
-    public function getFirst(): ?BaseInvitation 
+    public function getFirst(): ?BaseInvitation
     {
         $invitation = $this->query->first();
-        
+
         if (!isset($invitation)) {
             return null;
         }

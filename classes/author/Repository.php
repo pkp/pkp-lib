@@ -93,6 +93,8 @@ class Repository
      * @param array $props A key/value array with the new data to validate
      *
      * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook Author::validate [[$errors, $author, $props, $allowedLocales, $primaryLocale]]
      */
     public function validate($author, $props, Submission $submission, Context $context)
     {
@@ -145,6 +147,8 @@ class Repository
 
     /**
      * @copydoc \PKP\services\entityProperties\EntityWriteInterface::add()
+     *
+     * @hook Author::add [[$author]]
      */
     public function add(Author $author): int
     {
@@ -165,6 +169,8 @@ class Repository
 
     /**
      * @copydoc \PKP\services\entityProperties\EntityWriteInterface::edit()
+     *
+     * @hook Author::edit [[$newAuthor, $author, $params]]
      */
     public function edit(Author $author, array $params)
     {
@@ -179,6 +185,8 @@ class Repository
 
     /**
      * @copydoc \PKP\services\entityProperties\EntityWriteInterface::delete()
+     *
+     * @hook Author::delete::before [[$author]]
      */
     public function delete(Author $author)
     {
@@ -194,6 +202,8 @@ class Repository
      * Create an Author object from a User object
      *
      * This does not save the author in the database.
+     *
+     * @hook Author::newAuthorFromUser [[$author, $user]]
      */
     public function newAuthorFromUser(User $user): Author
     {

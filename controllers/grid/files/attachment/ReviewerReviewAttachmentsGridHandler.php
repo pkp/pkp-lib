@@ -18,7 +18,6 @@ namespace PKP\controllers\grid\files\attachment;
 use PKP\controllers\grid\files\fileList\FileListGridHandler;
 use PKP\controllers\grid\files\FilesGridCapabilities;
 use PKP\security\Role;
-use PKP\submissionFile\SubmissionFile;
 
 class ReviewerReviewAttachmentsGridHandler extends FileListGridHandler
 {

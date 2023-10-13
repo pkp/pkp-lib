@@ -32,7 +32,6 @@ use PKP\invitation\invitations\ReviewerAccessInvite;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\ReviewRequest;
 use PKP\mail\mailables\ReviewRequestSubsequent;
-use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
 use PKP\plugins\Hook;
@@ -68,6 +67,8 @@ class EditorAction
      * @param string $reviewDueDate
      * @param string $responseDueDate
      * @param null|mixed $reviewMethod
+     *
+     * @hook EditorAction::addReviewer [[&$submission, $reviewerId]]
      */
     public function addReviewer($request, $submission, $reviewerId, &$reviewRound, $reviewDueDate, $responseDueDate, $reviewMethod = null)
     {
@@ -159,6 +160,8 @@ class EditorAction
      * @param string $reviewDueDate
      * @param string $responseDueDate
      * @param bool $logEntry
+     *
+     * @hook EditorAction::setDueDates [[&$reviewAssignment, &$reviewer, &$reviewDueDate, &$responseDueDate]]
      */
     public function setDueDates($request, $submission, $reviewAssignment, $reviewDueDate, $responseDueDate, $logEntry = false)
     {
@@ -230,8 +233,8 @@ class EditorAction
 
         if ($context->getData('reviewerAccessKeysEnabled')) {
             $reviewInvitation = new ReviewerAccessInvite(
-                $reviewAssignment->getReviewerId(), 
-                $context->getId(), 
+                $reviewAssignment->getReviewerId(),
+                $context->getId(),
                 $reviewAssignment->getId()
             );
             $reviewInvitation->setMailable($mailable);

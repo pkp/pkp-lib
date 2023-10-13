@@ -20,10 +20,10 @@ use APP\facades\Repo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Bus;
-use PKP\core\PKPRequest;
+use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\jobs\bulk\BulkEmailSender;
 use PKP\mail\Mailer;
 use PKP\security\authorization\PolicySet;
@@ -47,8 +47,8 @@ class PKPEmailController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
@@ -60,7 +60,7 @@ class PKPEmailController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::post('', $this->create(...))->name('_email.create');
     }
 

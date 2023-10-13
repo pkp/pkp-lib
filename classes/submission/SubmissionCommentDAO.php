@@ -147,6 +147,8 @@ class SubmissionCommentDAO extends \PKP\db\DAO
      * @param array $row
      *
      * @return SubmissionComment object
+     *
+     * @hook SubmissionCommentDAO::_fromRow [[&$submissionComment, &$row]]
      */
     public function _fromRow($row)
     {

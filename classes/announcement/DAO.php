@@ -20,6 +20,7 @@ use PKP\core\EntityDAO;
 
 /**
  * @template T of Announcement
+ *
  * @extends EntityDAO<T>
  */
 class DAO extends EntityDAO

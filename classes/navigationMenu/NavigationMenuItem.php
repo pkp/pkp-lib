@@ -144,7 +144,6 @@ class NavigationMenuItem extends \PKP\core\DataObject
      *
      * @param string $locale
      *
-     * @return mixed
      */
     public function getTitle($locale)
     {

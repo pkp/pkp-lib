@@ -118,6 +118,8 @@ class PKPRequest
      * Perform an HTTP redirect to an absolute or relative (to base system URL) URL.
      *
      * @param string $url (exclude protocol for local redirects)
+     *
+     * @hook Request::redirect [[&$url]]
      */
     public function redirectUrl($url)
     {
@@ -192,6 +194,8 @@ class PKPRequest
      * @param bool $allowProtocolRelative True iff protocol-relative URLs are allowed
      *
      * @return string
+     *
+     * @hook Request::getBaseUrl [[&$baseUrl]]
      */
     public function getBaseUrl($allowProtocolRelative = false)
     {
@@ -215,6 +219,8 @@ class PKPRequest
      * Get the base path of the request (excluding trailing slash).
      *
      * @return string
+     *
+     * @hook Request::getBasePath [[&$this->_basePath]]
      */
     public function getBasePath()
     {
@@ -266,6 +272,8 @@ class PKPRequest
      * Deprecated
      *
      * @see PKPPageRouter::getIndexUrl()
+     *
+     * @hook Request::getIndexUrl [[&$indexUrl]]
      */
     public function getIndexUrl()
     {
@@ -285,6 +293,8 @@ class PKPRequest
      * Get the complete URL to this page, including parameters.
      *
      * @return string
+     *
+     * @hook Request::getCompleteUrl [[&$completeUrl]]
      */
     public function getCompleteUrl()
     {
@@ -306,6 +316,8 @@ class PKPRequest
      * Get the complete URL of the request.
      *
      * @return string
+     *
+     * @hook Request::getRequestUrl [[&$requestUrl]]
      */
     public function getRequestUrl()
     {
@@ -323,6 +335,8 @@ class PKPRequest
      * Get the complete set of URL parameters to the current request.
      *
      * @return string
+     *
+     * @hook Request::getQueryString [[&$queryString]]
      */
     public function getQueryString()
     {
@@ -358,6 +372,8 @@ class PKPRequest
      * Get the completed path of the request.
      *
      * @return string
+     *
+     * @hook Request::getRequestPath [[&$this->_requestPath]]
      */
     public function getRequestPath()
     {
@@ -381,6 +397,8 @@ class PKPRequest
      * @param bool $includePort Whether to include non-standard port number; default true
      *
      * @return string
+     *
+     * @hook Request::getServerHost [[&$this->_serverHost, &$default, &$includePort]]
      */
     public function getServerHost($default = null, $includePort = true)
     {
@@ -408,6 +426,8 @@ class PKPRequest
      * Get the protocol used for the request (HTTP or HTTPS).
      *
      * @return string
+     *
+     * @hook Request::getProtocol [[&$this->_protocol]]
      */
     public function getProtocol()
     {
@@ -463,6 +483,8 @@ class PKPRequest
      * Get the remote IP address of the current request.
      *
      * @return string
+     *
+     * @hook Request::getRemoteAddr [[&$ipaddr]]
      */
     public function getRemoteAddr()
     {
@@ -491,6 +513,8 @@ class PKPRequest
      * Get the remote domain of the current request
      *
      * @return string
+     *
+     * @hook Request::getRemoteDomain [[&$remoteDomain]]
      */
     public function getRemoteDomain()
     {
@@ -507,6 +531,8 @@ class PKPRequest
      * Get the user agent of the current request.
      *
      * @return string
+     *
+     * @hook Request::getUserAgent [[&$this->_userAgent]]
      */
     public function getUserAgent()
     {

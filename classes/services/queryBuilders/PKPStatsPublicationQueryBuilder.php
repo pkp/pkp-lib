@@ -134,6 +134,8 @@ abstract class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
 
     /**
      * @copydoc PKPStatsQueryBuilder::_getObject()
+     *
+     * @hook StatsPublication::queryObject [[&$q, $this]]
      */
     protected function _getObject(): Builder
     {

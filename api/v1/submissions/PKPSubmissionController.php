@@ -26,16 +26,16 @@ use APP\notification\NotificationManager;
 use APP\section\Section;
 use APP\submission\Collector;
 use APP\submission\Submission;
-use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Response;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
-use PKP\core\PKPRequest;
+use Illuminate\Support\Facades\Route;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\log\event\PKPSubmissionEventLogEntry;
@@ -133,8 +133,8 @@ class PKPSubmissionController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
         ];
     }
 
@@ -142,20 +142,20 @@ class PKPSubmissionController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::middleware([
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
-                Role::ROLE_ID_SUB_EDITOR, 
+                Role::ROLE_ID_SUB_EDITOR,
                 Role::ROLE_ID_ASSISTANT,
                 Role::ROLE_ID_REVIEWER,
                 Role::ROLE_ID_AUTHOR,
             ]),
-        ])->group(function(){
-            
+        ])->group(function () {
+
             Route::get('', $this->getMany(...))
                 ->name('submission.getMany');
-            
+
             Route::get('{submissionId}', $this->get(...))
                 ->name('submission.getSubmission')
                 ->whereNumber('submissionId');
@@ -163,11 +163,11 @@ class PKPSubmissionController extends PKPBaseController
             Route::get('{submissionId}/publications', $this->getPublications(...))
                 ->name('submission.publications.getMany')
                 ->whereNumber('submissionId');
-            
+
             Route::get('{submissionId}/publications/{publicationId}', $this->getPublication(...))
                 ->name('submission.publications.get')
                 ->whereNumber(['submissionId', 'publicationId']);
-            
+
             Route::get('{submissionId}/publications/{publicationId}/contributors', $this->getContributors(...))
                 ->name('submission.publication.contributor.getMany')
                 ->whereNumber(['submissionId', 'publicationId']);
@@ -182,16 +182,16 @@ class PKPSubmissionController extends PKPBaseController
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SUB_EDITOR,
             ]),
-        ])->group(function() {
+        ])->group(function () {
 
             Route::get('{submissionId}/decisions', $this->getDecisions(...))
                 ->name('submission.decisions.getMany')
                 ->whereNumber('submissionId');
-            
+
             Route::get('{submissionId}/participants', $this->getParticipants(...))
                 ->name('submission.participants.getMany')
                 ->whereNumber('submissionId');
-            
+
             Route::get('{submissionId}/participants/{stageId}', $this->getParticipants(...))
                 ->name('submission.participants.stage.getMany')
                 ->whereNumber(['submissionId', 'stageId']);
@@ -211,12 +211,12 @@ class PKPSubmissionController extends PKPBaseController
                 Role::ROLE_ID_SUB_EDITOR,
                 Role::ROLE_ID_ASSISTANT,
             ]),
-        ])->group(function(){
-            
+        ])->group(function () {
+
             Route::post('{submissionId}/publications', $this->addPublication(...))
                 ->name('submission.publication.add')
                 ->whereNumber('submissionId');
-            
+
             Route::post('{submissionId}/publications/{publicationId}/version', $this->versionPublication(...))
                 ->name('submission.publication.version.get')
                 ->whereNumber(['submissionId', 'publicationId']);
@@ -224,11 +224,11 @@ class PKPSubmissionController extends PKPBaseController
             Route::put('{submissionId}/publications/{publicationId}/publish', $this->publishPublication(...))
                 ->name('submission.publication.publish')
                 ->whereNumber(['submissionId', 'publicationId']);
-            
+
             Route::put('{submissionId}/publications/{publicationId}/unpublish', $this->unpublishPublication(...))
                 ->name('submission.publication.unpublish')
                 ->whereNumber(['submissionId', 'publicationId']);
-            
+
             Route::delete('{submissionId}/publications/{publicationId}', $this->deletePublication(...))
                 ->name('submission.publication.delete')
                 ->whereNumber(['submissionId', 'publicationId']);
@@ -241,8 +241,8 @@ class PKPSubmissionController extends PKPBaseController
                 Role::ROLE_ID_ASSISTANT,
                 Role::ROLE_ID_AUTHOR,
             ]),
-        ])->group(function(){
-            
+        ])->group(function () {
+
             Route::post('{submissionId}/publications/{publicationId}/contributors', $this->addContributor(...))
                 ->name('submission.contributor.add')
                 ->whereNumber(['submissionId', 'publicationId']);
@@ -254,11 +254,11 @@ class PKPSubmissionController extends PKPBaseController
             Route::put('{submissionId}/publications/{publicationId}/contributors/{contributorId}', $this->editContributor(...))
                 ->name('submission.publication.contributor.edit')
                 ->whereNumber(['submissionId', 'publicationId', 'contributorId']);
-            
+
             Route::put('{submissionId}/publications/{publicationId}/contributors/saveOrder', $this->saveContributorsOrder(...))
                 ->name('submission.publication.contributor.order.save')
                 ->whereNumber(['submissionId', 'publicationId']);
-            
+
             Route::delete('{submissionId}/publications/{publicationId}/contributors/{contributorId}', $this->deleteContributor(...))
                 ->name('submission.publication.contributor.delete')
                 ->whereNumber(['submissionId', 'publicationId', 'contributorId']);
@@ -270,16 +270,16 @@ class PKPSubmissionController extends PKPBaseController
                 Role::ROLE_ID_SUB_EDITOR,
                 Role::ROLE_ID_AUTHOR,
             ]),
-        ])->group(function(){
-            
+        ])->group(function () {
+
             Route::put('{submissionId}', $this->edit(...))
                 ->name('submission.edit')
                 ->whereNumber('submissionId');
-            
+
             Route::put('{submissionId}/saveForLater', $this->saveForLater(...))
                 ->name('submission.saveForLater')
                 ->whereNumber('submissionId');
-            
+
             Route::put('{submissionId}/submit', $this->submit(...))
                 ->name('submission.submit')
                 ->whereNumber('submissionId');
@@ -291,9 +291,9 @@ class PKPSubmissionController extends PKPBaseController
                 self::roleAuthorizer(Role::getAllRoles()),
             ]);
     }
-        
 
-    
+
+
 
     /**
      * @copydoc \PKP\core\PKPBaseController::authorize()
@@ -328,6 +328,8 @@ class PKPSubmissionController extends PKPBaseController
 
     /**
      * Get a collection of submissions
+     *
+     * @hook API::submissions::params [$collector, $illuminateRequest]
      */
     public function getMany(Request $illuminateRequest): JsonResponse
     {

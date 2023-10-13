@@ -19,9 +19,9 @@ namespace PKP\core;
 
 use Illuminate\Support\Str;
 use PKP\config\Config;
+use Stringy\Stringy;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
-use Stringy\Stringy;
 
 class PKPString
 {
@@ -403,7 +403,6 @@ class PKPString
      * @param string|null   $input      input string
      * @param string        $configKey  The config section key['allowed_html', 'allowed_title_html']
      *
-     * @return string
      */
     public static function stripUnsafeHtml(?string $input, string $configKey = 'allowed_html'): string
     {
@@ -414,15 +413,15 @@ class PKPString
         static $caches;
 
         if (!isset($caches[$configKey])) {
-            
+
             $config = (new HtmlSanitizerConfig())
                 ->allowLinkSchemes(['https', 'http', 'mailto'])
                 ->allowMediaSchemes(['https', 'http']);
 
             $allowedTagToAttributeMap = Str::of(Config::getVar('security', $configKey))
                 ->explode(',')
-                ->mapWithKeys(function(string $allowedTagWithAttr) {
-                    
+                ->mapWithKeys(function (string $allowedTagWithAttr) {
+
                     // Extract the tag itself (e.g. div, p, a ...)
                     preg_match('/\[[^][]+]\K|\w+/', $allowedTagWithAttr, $matches);
                     $allowedTag = collect($matches)->first();
@@ -439,16 +438,16 @@ class PKPString
                                 ->toArray()
                         ];
                     }
-            
+
                     return [];
                 })
-                ->each(function(array $attributes, string $tag) use (&$config) {
+                ->each(function (array $attributes, string $tag) use (&$config) {
                     $config = $config->allowElement($tag, $attributes);
                 });
 
             $caches[$configKey] = [
-                'allowedTagToAttributeMap'  => $allowedTagToAttributeMap,
-                'sanitizer'                 => new HtmlSanitizer($config),
+                'allowedTagToAttributeMap' => $allowedTagToAttributeMap,
+                'sanitizer' => new HtmlSanitizer($config),
             ];
         }
 

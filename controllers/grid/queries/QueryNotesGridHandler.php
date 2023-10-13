@@ -356,7 +356,7 @@ class QueryNotesGridHandler extends GridHandler
                 ->body($note->getContents())
                 ->allowUnsubscribe($notification);
 
-            $submissionFiles->each(fn(SubmissionFile $item) => $mailable->attachSubmissionFile(
+            $submissionFiles->each(fn (SubmissionFile $item) => $mailable->attachSubmissionFile(
                 $item->getId(),
                 $item->getLocalizedData('name')
             ));

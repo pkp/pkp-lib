@@ -79,6 +79,8 @@ class Repository
      * @param array $props A key/value array with the new data to validate
      *
      * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook EmailTemplate::validate [[&$errors, $object, $props, $allowedLocales, $primaryLocale]]
      */
     public function validate(?EmailTemplate $object, array $props, Context $context): array
     {
@@ -139,6 +141,8 @@ class Repository
 
     /**
      * Add a new email template
+     *
+    * @hook EmailTemplate::add [[$emailTemplate]]
     */
     public function add(EmailTemplate $emailTemplate): string
     {
@@ -187,6 +191,8 @@ class Repository
      * email template settings to their installed defaults.
      *
      * @return array List of keys that were deleted or reset
+     *
+     * @hook EmailTemplate::restoreDefaults [[&$deletedKeys, $contextId]]
      */
     public function restoreDefaults($contextId): array
     {

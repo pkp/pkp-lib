@@ -26,7 +26,7 @@ class SetupContextBasedOnRequestUrl
 {
     /**
      * List of api path segment for which context is not required
-     * 
+     *
      * @example
      *      1. admin section (failed job list) : index.php/index/api/v1/jobs/all
      *      2. admin section (create context) : index.php/_/api/v1/contexts
@@ -38,8 +38,7 @@ class SetupContextBasedOnRequestUrl
 
     /**
      * Determine and apply the correct context based on request url
-     * 
-     * @return mixed
+     *
      */
     public function handle(Request $request, Closure $next)
     {

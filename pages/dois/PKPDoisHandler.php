@@ -72,6 +72,8 @@ abstract class PKPDoisHandler extends Handler
      *
      * @param array $args
      * @param PKPRequest $request
+     *
+     * @hook DoisHandler::setListPanelArgs [[&$commonArgs]]
      */
     public function index($args, $request)
     {

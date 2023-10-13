@@ -21,7 +21,6 @@ use Illuminate\Routing\Pipeline;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPContainer;
 use PKP\core\PKPRoutingProvider;
-use PKP\plugins\Hook;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
@@ -68,7 +67,7 @@ class APIHandler extends PKPHandler
             if($response instanceof Throwable) {
                 throw $response;
             }
-            
+
             if($response === null) {
                 return response()->json([
                     'error' => __('api.417.routeResponseIsNull')
@@ -76,7 +75,7 @@ class APIHandler extends PKPHandler
             }
 
             if(is_object($response) && method_exists($response, 'send')) {
-                return $response->send(); 
+                return $response->send();
             }
 
             return response()->json([
@@ -86,14 +85,16 @@ class APIHandler extends PKPHandler
 
         } catch (Throwable $exception) {
 
-            return response()->json([
-                'error' => $exception instanceof NotFoundHttpException 
-                    ? __('api.404.endpointNotFound') 
-                    : $exception->getMessage(),
-            ], $exception instanceof NotFoundHttpException 
-                ? Response::HTTP_NOT_FOUND 
-                : (in_array($exception->getCode(), array_keys(Response::$statusTexts)) 
-                    ? $exception->getCode() 
+            return response()->json(
+                [
+                    'error' => $exception instanceof NotFoundHttpException
+                        ? __('api.404.endpointNotFound')
+                        : $exception->getMessage(),
+                ],
+                $exception instanceof NotFoundHttpException
+                ? Response::HTTP_NOT_FOUND
+                : (in_array($exception->getCode(), array_keys(Response::$statusTexts))
+                    ? $exception->getCode()
                     : Response::HTTP_INTERNAL_SERVER_ERROR)
             )->send();
         }

@@ -59,6 +59,8 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
      * @copydoc Form::execute()
      *
      * @return bool whether or not the review assignment was deleted successfully
+     *
+     * @hook EditorAction::clearReview [[&$submission, $reviewAssignment]]
      */
     public function execute(...$functionArgs)
     {

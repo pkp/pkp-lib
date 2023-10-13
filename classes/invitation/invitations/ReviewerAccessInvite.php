@@ -21,7 +21,6 @@ use APP\facades\Repo;
 use Illuminate\Mail\Mailable;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
-use PKP\invitation\invitations\BaseInvitation;
 use PKP\invitation\invitations\enums\InvitationStatus;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\security\Validation;
@@ -36,11 +35,10 @@ class ReviewerAccessInvite extends BaseInvitation
      * Create a new invitation instance.
      */
     public function __construct(
-        public ?int $invitedUserId, 
-        int $contextId, 
+        public ?int $invitedUserId,
+        int $contextId,
         public int $reviewAssignmentId
-    )
-    {
+    ) {
         $contextDao = Application::getContextDAO();
         $this->context = $contextDao->getById($contextId);
 
@@ -52,7 +50,7 @@ class ReviewerAccessInvite extends BaseInvitation
         $this->reviewAssignment = $reviewAssignmentDao->getById($reviewAssignmentId);
     }
 
-    public function getMailable(): ?Mailable 
+    public function getMailable(): ?Mailable
     {
         if (isset($this->mailable)) {
             $url = $this->getAcceptUrl();
@@ -63,14 +61,13 @@ class ReviewerAccessInvite extends BaseInvitation
                 ];
             });
         }
-        
+
         return $this->mailable;
     }
-    
+
     /**
-     * @return bool
      */
-    public function preDispatchActions(): bool 
+    public function preDispatchActions(): bool
     {
         $invitations = Repo::invitation()
             ->filterByStatus(InvitationStatus::PENDING)
@@ -87,7 +84,7 @@ class ReviewerAccessInvite extends BaseInvitation
         return true;
     }
 
-    public function acceptHandle() : void
+    public function acceptHandle(): void
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
@@ -108,17 +105,17 @@ class ReviewerAccessInvite extends BaseInvitation
 
         if ($context->getData('reviewerAccessKeysEnabled')) {
             $validated = $this->_validateAccessKey();
-            
+
             if ($validated) {
                 parent::acceptHandle();
             }
-            
+
         }
 
         $request->redirectUrl($url);
     }
 
-    private function _validateAccessKey() : bool
+    private function _validateAccessKey(): bool
     {
         $reviewAssignment = $this->reviewAssignment;
         $reviewId = $reviewAssignment->getId();

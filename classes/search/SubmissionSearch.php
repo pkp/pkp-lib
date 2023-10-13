@@ -251,6 +251,8 @@ abstract class SubmissionSearch
      *
      * @return VirtualArrayIterator An iterator with one entry per retrieved
      *  article containing the article, published submission, issue, context, etc.
+     *
+     * @hook SubmissionSearch::retrieveResults [[&$context, &$keywords, $publishedFrom, $publishedTo, $orderBy, $orderDir, $exclude, $page, $itemsPerPage, &$totalResults, &$error, &$results]]
      */
     public function retrieveResults($request, $context, $keywords, &$error, $publishedFrom = null, $publishedTo = null, $rangeInfo = null, $exclude = [])
     {

@@ -279,7 +279,7 @@ class ReviewRound extends \PKP\core\DataObject
         if ($this->getStatus() == self::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW) {
             return self::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW;
         }
-        
+
         return self::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED;
     }
 

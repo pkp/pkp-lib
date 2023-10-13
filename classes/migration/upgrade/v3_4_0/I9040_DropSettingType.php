@@ -22,6 +22,7 @@ class I9040_DropSettingType extends Migration
 {
     /**
      * Retrieve the affected entities
+     *
      * @return string[]
      */
     protected function getEntities(): array

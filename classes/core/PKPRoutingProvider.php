@@ -16,22 +16,21 @@
 
 namespace PKP\core;
 
-use PKP\core\PKPContainer;
-use PKP\middleware\HasUser;
-use Illuminate\Http\Request;
-use PKP\middleware\HasRoles;
-use Illuminate\Routing\Router;
-use PKP\middleware\HasContext;
-use PKP\middleware\AllowCrossOrigin;
-use PKP\middleware\PolicyAuthorizer;
-use PKP\middleware\ValidateCsrfToken;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Routing\RoutingServiceProvider;
-use PKP\middleware\DecodeApiTokenWithValidation;
-use PKP\middleware\SetupContextBasedOnRequestUrl;
+use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
 use Illuminate\Foundation\Http\Middleware\TrimStrings;
 use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
-use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Router;
+use Illuminate\Routing\RoutingServiceProvider;
+use Illuminate\Support\Facades\Response;
+use PKP\middleware\AllowCrossOrigin;
+use PKP\middleware\DecodeApiTokenWithValidation;
+use PKP\middleware\HasContext;
+use PKP\middleware\HasRoles;
+use PKP\middleware\HasUser;
+use PKP\middleware\PolicyAuthorizer;
+use PKP\middleware\SetupContextBasedOnRequestUrl;
+use PKP\middleware\ValidateCsrfToken;
 
 class PKPRoutingProvider extends RoutingServiceProvider
 {
@@ -51,9 +50,9 @@ class PKPRoutingProvider extends RoutingServiceProvider
      * These middleware can/should be assigned to specific routes or routes groups individually.
      */
     protected array $routeMiddleware = [
-        'has.roles'     => HasRoles::class,
-        'has.user'      => HasUser::class,
-        'has.context'   => HasContext::class,
+        'has.roles' => HasRoles::class,
+        'has.user' => HasUser::class,
+        'has.context' => HasContext::class,
     ];
 
     public static function getGlobalRouteMiddleware(): array
@@ -64,7 +63,6 @@ class PKPRoutingProvider extends RoutingServiceProvider
     /**
      * Register the service provider.
      *
-     * @return void
      */
     public function register()
     {
@@ -78,18 +76,17 @@ class PKPRoutingProvider extends RoutingServiceProvider
     /**
      * Boot the service provider.
      *
-     * @return void
      */
     public function boot()
     {
-        Response::macro('withCSV', function (array $rows, array $columns, int $maxRows) { 
+        Response::macro('withCSV', function (array $rows, array $columns, int $maxRows) {
             return response()->stream(
                 function () use ($rows, $columns) {
                     $fp = fopen('php://output', 'wt');
-                    
+
                     // Adds BOM (byte order mark) to enforce the UTF-8 format
                     fwrite($fp, "\xEF\xBB\xBF");
-                    
+
                     fputcsv($fp, ['']);
                     fputcsv($fp, $columns);
 
@@ -141,7 +138,7 @@ class PKPRoutingProvider extends RoutingServiceProvider
 
         $container->bind(\Illuminate\Routing\RouteCollectionInterface::class, \Illuminate\Routing\RouteCollection::class);
         $container->bind(
-            \Illuminate\View\ViewFinderInterface::class, 
+            \Illuminate\View\ViewFinderInterface::class,
             fn ($app) => new \Illuminate\View\FileViewFinder(app(\Illuminate\Filesystem\Filesystem::class), [])
         );
         $container->bind(\Illuminate\Contracts\View\Factory::class, \Illuminate\View\Factory::class);

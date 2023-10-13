@@ -28,8 +28,8 @@ use PKP\config\Config;
 use PKP\context\Context;
 use PKP\context\LibraryFile;
 use PKP\core\Core;
-use PKP\core\PKPContainer;
 use PKP\core\PKPApplication;
+use PKP\core\PKPContainer;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBDataXMLParser;
@@ -118,6 +118,8 @@ class Installer
      * @param string $descriptor descriptor path
      * @param array $params installer parameters
      * @param bool $isPlugin true iff a plugin is being installed
+     *
+     * @hook Installer::Installer [[$this, &$descriptor, &$params]]
      */
     public function __construct($descriptor, $params = [], $isPlugin = false)
     {
@@ -148,6 +150,8 @@ class Installer
 
     /**
      * Destroy / clean-up after the installer.
+     *
+     * @hook Installer::destroy [[$this]]
      */
     public function destroy()
     {
@@ -158,6 +162,8 @@ class Installer
      * Pre-installation.
      *
      * @return bool
+     *
+     * @hook Installer::preInstall [[$this, &$result]]
      */
     public function preInstall()
     {
@@ -221,6 +227,8 @@ class Installer
      * Post-installation.
      *
      * @return bool
+     *
+     * @hook Installer::postInstall [[$this, &$result]]
      */
     public function postInstall()
     {
@@ -252,6 +260,8 @@ class Installer
      * Parse the installation descriptor XML file.
      *
      * @return bool
+     *
+     * @hook Installer::parseInstaller [[$this, &$result]]
      */
     public function parseInstaller()
     {
@@ -286,6 +296,8 @@ class Installer
      * Execute the installer actions.
      *
      * @return bool
+     *
+     * @hook Installer::executeInstaller [[$this, &$result]]
      */
     public function executeInstaller()
     {
@@ -306,6 +318,8 @@ class Installer
      * Update the version number.
      *
      * @return bool
+     *
+     * @hook Installer::updateVersion [[$this, &$result]]
      */
     public function updateVersion()
     {
@@ -721,7 +735,7 @@ class Installer
         //clear laravel cache
         $cacheManager = PKPContainer::getInstance()['cache'];
         $cacheManager->store()->flush();
-        
+
         return true;
     }
 

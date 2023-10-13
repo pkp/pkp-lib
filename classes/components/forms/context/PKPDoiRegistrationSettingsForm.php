@@ -44,6 +44,7 @@ class PKPDoiRegistrationSettingsForm extends FormComponent
     /**
      * Constructor
      *
+     * @hook DoiSettingsForm::setEnabledRegistrationAgencies [[&$registrationAgencies]]
      */
     public function __construct(string $action, array $locales, Context $context)
     {

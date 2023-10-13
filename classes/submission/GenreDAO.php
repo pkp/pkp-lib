@@ -237,6 +237,8 @@ class GenreDAO extends DAO
      * @param array $row
      *
      * @return Genre
+     *
+     * @hook GenreDAO::_fromRow [[&$genre, &$row]]
      */
     public function _fromRow($row)
     {

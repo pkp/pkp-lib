@@ -19,7 +19,6 @@ declare(strict_types=1);
 namespace PKP\observers\listeners;
 
 use APP\facades\Repo;
-use APP\publication\Publication;
 use Illuminate\Events\Dispatcher;
 use PKP\context\Context;
 use PKP\observers\events\PublicationPublished;

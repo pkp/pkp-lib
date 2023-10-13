@@ -89,7 +89,7 @@ abstract class BaseInvitation
         if (is_null($invitation)) {
             throw new Exception('This invitation was not found');
         }
-        
+
         $invitation->markAs($status);
     }
 
@@ -238,7 +238,7 @@ abstract class BaseInvitation
         return false;
     }
 
-    static public function makeKeyHash($key): string
+    public static function makeKeyHash($key): string
     {
         return password_hash($key, PASSWORD_BCRYPT);
     }

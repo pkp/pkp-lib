@@ -29,7 +29,6 @@ use Illuminate\Http\Response;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
-use PKP\core\APIRouter;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
@@ -82,10 +81,12 @@ class PKPContainer extends Container
                     $pkpRouter = Application::get()->getRequest()->getRouter();
 
                     if($pkpRouter instanceof APIRouter && app('router')->getRoutes()->count()) {
-                        return response()->json([
-                            'error' => $exception->getMessage()
-                        ], in_array($exception->getCode(), array_keys(Response::$statusTexts)) 
-                            ? $exception->getCode() 
+                        return response()->json(
+                            [
+                                'error' => $exception->getMessage()
+                            ],
+                            in_array($exception->getCode(), array_keys(Response::$statusTexts))
+                            ? $exception->getCode()
                             : Response::HTTP_INTERNAL_SERVER_ERROR
                         )->send();
                     }
@@ -185,39 +186,39 @@ class PKPContainer extends Container
     {
         foreach ([
             'app' => [
-                self::class, 
-                \Illuminate\Contracts\Container\Container::class, 
+                self::class,
+                \Illuminate\Contracts\Container\Container::class,
                 \Psr\Container\ContainerInterface::class
             ],
             'config' => [
-                \Illuminate\Config\Repository::class, 
+                \Illuminate\Config\Repository::class,
                 \Illuminate\Contracts\Config\Repository::class
             ],
             'cache' => [
-                \Illuminate\Cache\CacheManager::class, 
+                \Illuminate\Cache\CacheManager::class,
                 \Illuminate\Contracts\Cache\Factory::class
             ],
             'cache.store' => [
-                \Illuminate\Cache\Repository::class, 
-                \Illuminate\Contracts\Cache\Repository::class, 
+                \Illuminate\Cache\Repository::class,
+                \Illuminate\Contracts\Cache\Repository::class,
                 \Psr\SimpleCache\CacheInterface::class
             ],
             'cache.psr6' => [
                 \Psr\Cache\CacheItemPoolInterface::class
             ],
             'db' => [
-                \Illuminate\Database\DatabaseManager::class, 
+                \Illuminate\Database\DatabaseManager::class,
                 \Illuminate\Database\ConnectionResolverInterface::class
             ],
             'db.connection' => [
-                \Illuminate\Database\Connection::class, 
+                \Illuminate\Database\Connection::class,
                 \Illuminate\Database\ConnectionInterface::class
             ],
             'files' => [
                 \Illuminate\Filesystem\Filesystem::class
             ],
             'filesystem' => [
-                \Illuminate\Filesystem\FilesystemManager::class, 
+                \Illuminate\Filesystem\FilesystemManager::class,
                 \Illuminate\Contracts\Filesystem\Factory::class
             ],
             'filesystem.disk' => [
@@ -227,16 +228,16 @@ class PKPContainer extends Container
                 \Illuminate\Contracts\Filesystem\Cloud::class
             ],
             'maps' => [
-                MapContainer::class, 
+                MapContainer::class,
                 MapContainer::class
             ],
             'events' => [
-                \Illuminate\Events\Dispatcher::class, 
+                \Illuminate\Events\Dispatcher::class,
                 \Illuminate\Contracts\Events\Dispatcher::class
             ],
             'queue' => [
-                \Illuminate\Queue\QueueManager::class, 
-                \Illuminate\Contracts\Queue\Factory::class, 
+                \Illuminate\Queue\QueueManager::class,
+                \Illuminate\Contracts\Queue\Factory::class,
                 \Illuminate\Contracts\Queue\Monitor::class
             ],
             'queue.connection' => [
@@ -246,20 +247,20 @@ class PKPContainer extends Container
                 \Illuminate\Queue\Failed\FailedJobProviderInterface::class
             ],
             'log' => [
-                \Illuminate\Log\LogManager::class, 
+                \Illuminate\Log\LogManager::class,
                 \Psr\Log\LoggerInterface::class
             ],
             'router' => [
-                \Illuminate\Routing\Router::class, 
-                \Illuminate\Contracts\Routing\Registrar::class, 
+                \Illuminate\Routing\Router::class,
+                \Illuminate\Contracts\Routing\Registrar::class,
                 \Illuminate\Contracts\Routing\BindingRegistrar::class
             ],
             'url' => [
-                \Illuminate\Routing\UrlGenerator::class, 
+                \Illuminate\Routing\UrlGenerator::class,
                 \Illuminate\Contracts\Routing\UrlGenerator::class
             ],
             'validator' => [
-                \Illuminate\Validation\Factory::class, 
+                \Illuminate\Validation\Factory::class,
                 \Illuminate\Contracts\Validation\Factory::class
             ],
             'Request' => [

@@ -27,6 +27,7 @@ use PKP\core\traits\EntityWithParent;
 
 /**
  * @template T of Section
+ *
  * @extends EntityDAO<T>
  */
 abstract class DAO extends EntityDAO
@@ -72,6 +73,7 @@ abstract class DAO extends EntityDAO
 
     /**
      * Get a collection of sections matching the configured query
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection

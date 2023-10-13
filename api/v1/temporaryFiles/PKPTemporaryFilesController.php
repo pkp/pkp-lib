@@ -17,13 +17,13 @@ namespace PKP\API\v1\temporaryFiles;
 
 use APP\core\Application;
 use APP\core\Services;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route;
+use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\file\TemporaryFileManager;
-use PKP\core\PKPBaseController;
 use PKP\middleware\AttachFileUploadHeader;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -46,13 +46,13 @@ class PKPTemporaryFilesController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
+            'has.user',
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SUB_EDITOR,
                 Role::ROLE_ID_REVIEWER,
-                Role::ROLE_ID_AUTHOR, 
+                Role::ROLE_ID_AUTHOR,
                 Role::ROLE_ID_ASSISTANT,
             ]),
             AttachFileUploadHeader::class,
@@ -63,7 +63,7 @@ class PKPTemporaryFilesController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::options('', $this->getOptions(...))
             ->name('temporaryFile.getOptions');
 

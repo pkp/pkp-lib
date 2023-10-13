@@ -20,11 +20,10 @@ use APP\core\Services;
 use APP\template\TemplateManager;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Response;
-use PKP\core\PKPRequest;
+use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
-use PKP\handler\APIHandler;
+use PKP\core\PKPRequest;
 use PKP\plugins\PluginRegistry;
 use PKP\plugins\ThemePlugin;
 use PKP\security\authorization\PolicySet;
@@ -52,7 +51,7 @@ class PKPSiteController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
+            'has.user',
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN,
             ]),
@@ -63,16 +62,16 @@ class PKPSiteController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::get('', $this->get(...))
             ->name('site.getSite');
-            
+
         Route::get('theme', $this->getTheme(...))
             ->name('site.getTheme');
 
         Route::put('', $this->edit(...))
             ->name('site.edit');
-            
+
         Route::put('theme', $this->editTheme(...))
             ->name('site.editTheme');
     }

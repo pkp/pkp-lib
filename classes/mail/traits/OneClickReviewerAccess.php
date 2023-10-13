@@ -30,8 +30,8 @@ trait OneClickReviewerAccess
         }
 
         $reviewInvitation = new ReviewerAccessInvite(
-            $reviewAssignment->getReviewerId(), 
-            $context->getId(), 
+            $reviewAssignment->getReviewerId(),
+            $context->getId(),
             $reviewAssignment->getId()
         );
         $reviewInvitation->setMailable($this);

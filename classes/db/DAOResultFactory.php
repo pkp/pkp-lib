@@ -25,6 +25,7 @@ use ReflectionClass;
 
 /**
  * @template T of \PKP\core\DataObject
+ *
  * @extends ItemIterator<mixed,T>
  */
 class DAOResultFactory extends ItemIterator

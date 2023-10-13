@@ -21,10 +21,10 @@ use APP\core\Services;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Collection;
-use PKP\core\PKPRequest;
+use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PolicySet;
@@ -62,7 +62,7 @@ class PKPBackendPaymentsSettingsController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::put('', $this->edit(...))->name('_payment.backend.edit');
     }
 
@@ -86,6 +86,8 @@ class PKPBackendPaymentsSettingsController extends PKPBaseController
 
     /**
      * Receive requests to edit the payments form
+     *
+     * @hook API::payments::settings::edit [[ $illuminateRequest, $request, $params, $updatedSettings = new Collection(), $errors = new Collection() ]]
      */
     public function edit(Request $illuminateRequest): JsonResponse
     {

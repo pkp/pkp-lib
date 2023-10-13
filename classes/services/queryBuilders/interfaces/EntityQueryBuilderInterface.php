@@ -17,6 +17,7 @@
  */
 
 namespace PKP\services\queryBuilders\interfaces;
+
 use Illuminate\Database\Query\Builder;
 
 interface EntityQueryBuilderInterface

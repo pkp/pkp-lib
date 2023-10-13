@@ -136,11 +136,11 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         // customBlockManager
         $blockPluginName = 'customblockmanagerplugin';
         $blockLocalizedSettingNames = ['blockTitle', 'blockContent'];
-        
+
         $contextIds = DB::table($this->CONTEXT_TABLE)
-                ->get()
-                ->pluck($this->CONTEXT_COLUMN);
-        
+            ->get()
+            ->pluck($this->CONTEXT_COLUMN);
+
         foreach ($contextIds as $contextId) {
             $blocks = DB::table('plugin_settings')
                 ->where('plugin_name', '=', $blockPluginName)
@@ -148,7 +148,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                 ->where('context_id', '=', $contextId)
                 ->get()
                 ->pluck('setting_value');
-            
+
             if (!$blocks->isEmpty()) {
                 $blocksArray = json_decode($blocks[0], true);
 
@@ -167,7 +167,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                 }
 
                 $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
-            
+
                 $cache = $pluginSettingsDao->_getCache($contextId, $blockPluginName);
                 $cache->flush();
             }

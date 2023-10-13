@@ -381,6 +381,8 @@ abstract class PKPStatsEditorialQueryBuilder
      *
      * The dateStart and dateEnd filters are not handled here because
      * the dates must be applied differently for each set of data.
+     *
+     * @hook Stats::editorial::queryObject [[&$q, $this]]
      */
     protected function _getObject(): Builder
     {

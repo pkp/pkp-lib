@@ -437,8 +437,9 @@ if (!function_exists('isValidJson')) {
  *
  * This method will convert a query parameter to an array, and
  * supports a comma-separated list of values
- * 
+ *
  * @param mixed $value
+ *
  * @return array
  */
 if (!function_exists('paramToArray')) {
@@ -446,8 +447,8 @@ if (!function_exists('paramToArray')) {
     {
         if (is_array($value)) {
             return $value;
-        } 
-        
+        }
+
         if (is_string($value)) {
             return explode(',', $value);
         }

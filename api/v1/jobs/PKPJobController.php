@@ -18,12 +18,12 @@
 namespace PKP\API\v1\jobs;
 
 use APP\facades\Repo;
-use PKP\security\Role;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use PKP\core\PKPBaseController;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Route;
+use PKP\core\PKPBaseController;
+use PKP\security\Role;
 
 class PKPJobController extends PKPBaseController
 {
@@ -49,7 +49,7 @@ class PKPJobController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
+            'has.user',
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN
             ]),
@@ -60,19 +60,19 @@ class PKPJobController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): Void
-    {       
+    {
         Route::get('all', $this->getJobs(...))
             ->name('job.getMany');
-        
+
         Route::get('failed/all', $this->getFailedJobs(...))
             ->name('job.failed.getMany');
-        
+
         Route::post('redispatch/all', $this->redispatchAllFailedJob(...))
             ->name('job.redispatch.all');
 
         Route::post('redispatch/{jobId}', $this->redispatchFailedJob(...))
             ->name('job.redispatch');
-        
+
         Route::delete('failed/delete/{jobId}', $this->deleteFailedJob(...))
             ->name('job.delete.failed');
     }

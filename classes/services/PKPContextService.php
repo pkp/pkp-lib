@@ -22,7 +22,6 @@ use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\services\queryBuilders\ContextQueryBuilder;
-use Illuminate\Contracts\Validation\Validator;
 use PKP\announcement\AnnouncementTypeDAO;
 use PKP\context\Context;
 use PKP\context\ContextDAO;
@@ -163,6 +162,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      * @copydoc \PKP\services\interfaces\EntityReadInterface::getQueryBuilder()
      *
      * @return ContextQueryBuilder
+     *
+     * @hook Context::getMany::queryBuilder [[&$contextListQB, $args]]
      */
     public function getQueryBuilder($args = [])
     {
@@ -189,6 +190,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      * @copydoc \PKP\services\interfaces\EntityPropertyInterface::getProperties()
      *
      * @param null|mixed $args
+     *
+     * @hook Context::getProperties [[&$values, $context, $props, $args]]
      */
     public function getProperties($context, $props, $args = null)
     {
@@ -260,6 +263,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
     /**
      * @copydoc \PKP\services\entityProperties\EntityWriteInterface::validate()
+     *
+     * @hook Context::validate [[&$errors, $action, $props, $allowedLocales, $primaryLocale]]
      */
     public function validate($action, $props, $allowedLocales, $primaryLocale)
     {
@@ -321,7 +326,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
                     if (!in_array($props['primaryLocale'], $newSupportedLocales)) {
                         $validator->errors()->add('primaryLocale', __('admin.contexts.form.primaryLocaleNotSupported'));
                     }
-                // Or check against the $allowedLocales
+                    // Or check against the $allowedLocales
                 } elseif (!in_array($props['primaryLocale'], $allowedLocales)) {
                     $validator->errors()->add('primaryLocale', __('admin.contexts.form.primaryLocaleNotSupported'));
                 }
@@ -445,6 +450,9 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
     /**
      * @copydoc \PKP\services\entityProperties\EntityWriteInterface::add()
+     *
+     * @hook Context::defaults::localeParams [[&$localeParams, $context, $request]]
+     * @hook Context::add [[&$context, $request]]
      */
     public function add($context, $request)
     {
@@ -552,6 +560,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
     /**
      * @copydoc \PKP\services\entityProperties\EntityWriteInterface::edit()
+     *
+     * @hook Context::edit [[&$newContext, $context, $params, $request]]
      */
     public function edit($context, $params, $request)
     {
@@ -589,6 +599,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
     /**
      * @copydoc \PKP\services\entityProperties\EntityWriteInterface::delete()
+     *
+     * @hook Context::delete::before [[&$context]]
      */
     public function delete($context)
     {
@@ -653,6 +665,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      * @param Context $context The context to restore default values for
      * @param Request $request
      * @param string $locale Locale key to restore defaults for. Example: `en`
+     *
+     * @hook Context::restoreLocaleDefaults::localeParams [[&$localeParams, $context, $request, $locale]]
      */
     public function restoreLocaleDefaults($context, $request, $locale)
     {

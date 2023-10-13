@@ -16,28 +16,25 @@
 
 namespace PKP\middleware;
 
-use Closure;
-use Throwable;
-use PKP\core\Registry;
-use ReflectionFunction;
 use APP\core\Application;
-use Illuminate\Support\Str;
+use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use PKP\core\PKPBaseController;
-use Illuminate\Support\Collection;
 use Illuminate\Routing\RouteCollection;
-
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
+use PKP\core\PKPBaseController;
+use PKP\core\Registry;
+use ReflectionFunction;
 
 class PolicyAuthorizer
 {
     /**
      * Run the policy authorization process
-     * 
-     * It run the route associated controller's "authorize" method that contains the 
+     *
+     * It run the route associated controller's "authorize" method that contains the
      * policies before running the controller action .
-     * 
-     * @return mixed
+     *
      */
     public function handle(Request $request, Closure $next)
     {
@@ -46,14 +43,14 @@ class PolicyAuthorizer
         $routeController = PKPBaseController::getRouteController($request);
 
         $pkpRequest = Application::get()->getRequest();
-        
+
         if (!$pkpRequest->getUser()) {
             $user = $request->user();
             Registry::set('user', $user);
         }
-        
-        $args               = [$request];
-        $roleAssignments    = $this->getRoleAssignmentMap($router->getRoutes());
+
+        $args = [$request];
+        $roleAssignments = $this->getRoleAssignmentMap($router->getRoutes());
 
         $hasAuthorized = $routeController->authorize(
             $pkpRequest,
@@ -75,7 +72,7 @@ class PolicyAuthorizer
     }
 
     /**
-     *  Return the collection of ROLE_ID_* constants to route controller actions 
+     *  Return the collection of ROLE_ID_* constants to route controller actions
      *  maps in the follwoing format
      *  [
      *      ROLE_ID_... => [...allowed route controller operations...],
@@ -85,13 +82,13 @@ class PolicyAuthorizer
     protected function getRoleAssignmentMap(RouteCollection $routes): Collection
     {
         $operationToRolesMap = collect($routes->getRoutes())
-            ->flatMap(function($route) { /** @var \Illuminate\Routing\Route $route */
+            ->flatMap(function ($route) { /** @var \Illuminate\Routing\Route $route */
                 return [
                     (new ReflectionFunction($route->action['uses']))->getName() => collect($route->action['middleware'])
-                        ->filter(function($middleware) {
+                        ->filter(function ($middleware) {
                             return strpos($middleware, 'has.roles') === 0 || strpos($middleware, "PKP\middleware\HasRoles") === 0;
                         })
-                        ->flatMap(function($middleware){
+                        ->flatMap(function ($middleware) {
                             return Str::of($middleware)
                                 ->replace('has.roles:', '')
                                 ->replace("PKP\middleware\HasRoles:", '')
@@ -103,14 +100,14 @@ class PolicyAuthorizer
 
         $roles = collect([]);
 
-        $operationToRolesMap->each(function($values) use (&$roles) {
+        $operationToRolesMap->each(function ($values) use (&$roles) {
             $roles = $roles->merge($values);
         });
 
-        $roles = $roles->unique()->flip()->map(fn($role) => collect([]));
+        $roles = $roles->unique()->flip()->map(fn ($role) => collect([]));
 
-        collect($operationToRolesMap)->each(function($roleList, $operation) use (&$roles){
-            collect($roleList)->each(function($role) use (&$roles, $operation){
+        collect($operationToRolesMap)->each(function ($roleList, $operation) use (&$roles) {
+            collect($roleList)->each(function ($role) use (&$roles, $operation) {
                 $roles->get($role)->push($operation);
             });
         });

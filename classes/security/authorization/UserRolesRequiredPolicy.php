@@ -69,6 +69,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
 
     /**
      * Get the current context roles from all user roles.
+     *
      * @param array<int,Role[]> $userRoles List of roles grouped by contextId
      */
     protected function _getContextRoles(int $contextId, array $userRoles): array

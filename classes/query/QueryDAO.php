@@ -147,6 +147,8 @@ class QueryDAO extends \PKP\db\DAO
      * @param array $row
      *
      * @return Query
+     *
+     * @hook QueryDAO::_fromRow [[&$query, &$row]]
      */
     public function _fromRow($row)
     {

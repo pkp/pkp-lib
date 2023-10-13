@@ -437,6 +437,8 @@ class PKPTemplateManager extends Smarty
      *   'addLess': Array of additional LESS files to parse before compiling
      *
      * @return string Compiled CSS styles
+     *
+     * @hook PageHandler::compileLess [[&$less, &$lessFile, &$args, $name, $request]]
      */
     public function compileLess($name, $lessFile, $args = [])
     {
@@ -1117,6 +1119,8 @@ class PKPTemplateManager extends Smarty
      * @param null|mixed $cache_id
      * @param null|mixed $compile_id
      * @param null|mixed $parent
+     *
+     * @hook TemplateManager::fetch [[$this, $template, $cache_id, $compile_id, &$result]]
      */
     public function fetch($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {
@@ -1194,6 +1198,8 @@ class PKPTemplateManager extends Smarty
      * @param null|mixed $cache_id
      * @param null|mixed $compile_id
      * @param null|mixed $parent
+     *
+     * @hook TemplateManager::display [[$this, &$template, &$output]]
      */
     public function display($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {

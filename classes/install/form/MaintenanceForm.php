@@ -28,6 +28,7 @@ class MaintenanceForm extends Form
 
     /**
      * Constructor.
+     *
      * @param ?PKPRequest $request
      */
     public function __construct($request, $template)

@@ -21,14 +21,11 @@ use APP\facades\Repo;
 use APP\pages\user\UserHandler;
 use APP\template\TemplateManager;
 use PKP\config\Config;
-use PKP\core\Core;
-use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
 use PKP\observers\events\UserRegisteredContext;
 use PKP\observers\events\UserRegisteredSite;
-use PKP\pages\invitation\PKPInvitationHandler;
 use PKP\security\Validation;
 use PKP\user\form\RegistrationForm;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -164,7 +161,7 @@ class RegistrationHandler extends UserHandler
             if (isset($invitation)) {
                 $invitation->acceptHandle();
             }
-        } else if (isset($username)) {
+        } elseif (isset($username)) {
             $user = Repo::user()->getByUsername($username, true);
             if (!$user) {
                 $request->redirect(null, 'login');
@@ -175,7 +172,7 @@ class RegistrationHandler extends UserHandler
                 $templateMgr->assign('message', 'user.login.activated');
                 return $templateMgr->display('frontend/pages/message.tpl');
             }
-            
+
             $request->redirect(null, 'login');
         }
 

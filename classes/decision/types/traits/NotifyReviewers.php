@@ -15,7 +15,6 @@ namespace PKP\decision\types\traits;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\log\event\SubmissionEventLogEntry;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Validator;
@@ -23,7 +22,6 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
-use PKP\log\SubmissionLog;
 use PKP\mail\EmailData;
 use PKP\mail\mailables\DecisionNotifyReviewer;
 use PKP\mail\mailables\ReviewerUnassign;

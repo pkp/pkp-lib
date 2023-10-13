@@ -17,7 +17,6 @@
 namespace PKP\submissionFile;
 
 use APP\facades\Repo;
-use PKP\facades\Locale;
 
 /**
  * @extends \PKP\core\DataObject<DAO>

@@ -35,6 +35,7 @@ use PKP\submission\reviewRound\ReviewRoundDAO;
 
 /**
  * @template T of SubmissionFile
+ *
  * @extends EntityDAO<T>
  */
 class DAO extends EntityDAO implements PKPPubIdPluginDAO
@@ -140,6 +141,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
 
     /**
      * Get a collection of announcements matching the configured query
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection

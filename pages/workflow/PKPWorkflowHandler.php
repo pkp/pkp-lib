@@ -195,8 +195,8 @@ abstract class PKPWorkflowHandler extends Handler
             if (empty($result) && is_array($accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION])) {
                 $canPublish = (bool) array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION] ?? []);
 
-            // Otherwise, check stage assignments
-            // "Recommend only" stage assignments can not publish
+                // Otherwise, check stage assignments
+                // "Recommend only" stage assignments can not publish
             } else {
                 foreach ($result as $stageAssignment) {
                     foreach ($workflowUserGroups as $workflowUserGroup) {

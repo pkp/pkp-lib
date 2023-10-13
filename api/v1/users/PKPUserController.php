@@ -20,10 +20,10 @@ namespace PKP\API\v1\users;
 use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\facades\Locale;
@@ -49,11 +49,11 @@ class PKPUserController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
             self::roleAuthorizer([
-                Role::ROLE_ID_SITE_ADMIN, 
-                Role::ROLE_ID_MANAGER, 
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SUB_EDITOR
             ]),
         ];
@@ -63,7 +63,7 @@ class PKPUserController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::get('reviewers', $this->getReviewers(...))
             ->name('user.getReviewers');
 
@@ -109,11 +109,13 @@ class PKPUserController extends PKPBaseController
 
     /**
      * Get a collection of users
+     *
+     * @hook API::users::params [[&$params, $request]]
      */
     public function getMany(Request $request): JsonResponse
     {
         $context = $request->attributes->get('context'); /** @var \PKP\context\Context $context */
-        
+
         $params = $this->_processAllowedParams($request->query(null), [
             'assignedToCategory',
             'assignedToSection',
@@ -145,7 +147,7 @@ class PKPUserController extends PKPBaseController
                 break;
             default: throw new Exception('Unknown orderBy specified');
         }
-        
+
         $orderDirection = null;
         switch ($params['orderDirection'] ?? 'ASC') {
             case 'ASC': $orderDirection = $collector::ORDER_DIR_ASC;
@@ -154,7 +156,7 @@ class PKPUserController extends PKPBaseController
                 break;
             default: throw new Exception('Unknown orderDirection specified');
         }
-        
+
         $collector->assignedTo($params['assignedToSubmission'] ?? null, $params['assignedToSubmissionStage'] ?? null)
             ->assignedToSectionIds(isset($params['assignedToSection']) ? [$params['assignedToSection']] : null)
             ->assignedToCategoryIds(isset($params['assignedToCategory']) ? [$params['assignedToCategory']] : null)
@@ -164,7 +166,7 @@ class PKPUserController extends PKPBaseController
             ->limit($params['count'] ?? null)
             ->offset($params['offset'] ?? null)
             ->filterByStatus($params['status'] ?? $collector::STATUS_ALL);
-        
+
         $users = $collector->getMany();
 
         $map = Repo::user()->getSchemaMap();
@@ -181,6 +183,8 @@ class PKPUserController extends PKPBaseController
 
     /**
      * Get a collection of reviewers
+     *
+     * @hook API::users::reviewers::params [[&$params, $request]]
      */
     public function getReviewers(Request $request): JsonResponse
     {
@@ -233,6 +237,8 @@ class PKPUserController extends PKPBaseController
 
     /**
      * Retrieve the user report
+     *
+     * @hook API::users::user::report::params [[&$params, $request]]
      */
     public function getReport(Request $request): StreamedResponse|JsonResponse
     {
@@ -285,7 +291,6 @@ class PKPUserController extends PKPBaseController
      * @param array $params         Key/value of request params
      * @param array $allowedKeys    The param keys which should be processed and returned
      *
-     * @return array
      */
     private function _processAllowedParams(array $params, array $allowedKeys): array
     {

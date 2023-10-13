@@ -258,6 +258,8 @@ class NotificationDAO extends \PKP\db\DAO
 
     /**
      * Creates and returns an notification object from a row
+     *
+     * @hook NotificationDAO::_fromRow [[&$notification, &$row]]
      */
     public function _fromRow(array $row): Notification
     {

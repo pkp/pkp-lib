@@ -97,6 +97,8 @@ class Schema extends \PKP\core\maps\Schema
 
     /**
      * Map schema properties of a user to an assoc array
+     *
+     * @hook UserSchema::getProperties::values [[$this, &$output, $user, $props]]
      */
     protected function mapByProperties(array $props, User $user): array
     {

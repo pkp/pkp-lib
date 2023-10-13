@@ -16,12 +16,12 @@
 namespace PKP\API\v1\mailables;
 
 use APP\facades\Repo;
-use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\core\PKPRequest;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -44,8 +44,8 @@ class PKPMailableController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
@@ -57,7 +57,7 @@ class PKPMailableController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::get('', $this->getMany(...))
             ->name('mailable.getMany');
 
@@ -95,7 +95,7 @@ class PKPMailableController extends PKPBaseController
         $context = $this->getRequest()->getContext();
 
         $mailables = Repo::mailable()
-            ->getMany($context,$illuminateRequest->query('searchPhrase'))
+            ->getMany($context, $illuminateRequest->query('searchPhrase'))
             ->map(fn (string $class) => Repo::mailable()->summarizeMailable($class))
             ->sortBy('name');
 
@@ -118,7 +118,7 @@ class PKPMailableController extends PKPBaseController
         }
 
         return response()->json(
-            Repo::mailable()->describeMailable($mailable, $context->getId()), 
+            Repo::mailable()->describeMailable($mailable, $context->getId()),
             Response::HTTP_OK
         );
     }

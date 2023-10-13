@@ -14,6 +14,7 @@
  */
 
 namespace PKP\security\authorization;
+
 use PKP\core\PKPRequest;
 use PKP\core\PKPRouter;
 

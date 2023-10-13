@@ -22,8 +22,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\core\PKPRequest;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DoisEnabledPolicy;
@@ -49,8 +49,8 @@ class PKPBackendDoiController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
@@ -62,10 +62,10 @@ class PKPBackendDoiController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::put('publications/{publicationId}', $this->editPublication(...))
             ->name('_doi.backend.publication.edit')
-            ->whereNumber("publicationId");
+            ->whereNumber('publicationId');
     }
 
     /**
@@ -94,7 +94,7 @@ class PKPBackendDoiController extends PKPBaseController
 
     /**
      * Edit publication to add DOI
-     * 
+     *
      * @throws \Exception
      */
     public function editPublication(Request $illuminateRequest): JsonResponse
@@ -136,7 +136,7 @@ class PKPBackendDoiController extends PKPBaseController
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         return response()->json(
-            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication), 
+            Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
             Response::HTTP_OK
         );
     }

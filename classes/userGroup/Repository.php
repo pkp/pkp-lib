@@ -102,6 +102,8 @@ class Repository
      * @param string $primaryLocale The submission's primary locale
      *
      * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook UserGroup::validate [[$errors, $userGroup, $props, $allowedLocales, $primaryLocale]]
      */
     public function validate($userGroup, $props, $allowedLocales, $primaryLocale)
     {
@@ -203,6 +205,7 @@ class Repository
     * Return all user group ids given a certain role id
     *
     * @param ?bool $default Give null for all user groups, else define whether it is default
+    *
     * @return LazyCollection<int,UserGroup>
     */
     public function getByRoleIds(array $roleIds, int $contextId, ?bool $default = null): LazyCollection
@@ -218,6 +221,7 @@ class Repository
 
     /**
     * Return all user groups ids for a user id
+    *
     * @return LazyCollection<int,UserGroup>
     */
     public function userUserGroups(int $userId, ?int $contextId = null): LazyCollection

@@ -137,7 +137,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         // customBlockManager
         $blockPluginName = 'customblockmanagerplugin';
         $blockLocalizedSettingNames = ['blockTitle', 'blockContent'];
-        
+
         $contextIds = DB::table($this->CONTEXT_TABLE)
             ->get()
             ->pluck($this->CONTEXT_COLUMN);
@@ -149,7 +149,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                 ->where('context_id', '=', $contextId)
                 ->get()
                 ->pluck('setting_value');
-            
+
             if (!$blocks->isEmpty()) {
                 $blockNames = $blocks->first();
 

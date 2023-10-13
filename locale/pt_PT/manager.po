@@ -2088,26 +2088,6 @@ msgstr ""
 "Exigir aos autores que sugiram palavras-chave antes de aceitar a sua "
 "submissão."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Idioma indica o idioma principal do trabalho através de códigos ISO (\"en\") "
-"com códigos de país opcionais (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Ativar metadado de idioma"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Não solicitar o idioma da submissão aos autores durante a submissão."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Solicitar aos autores que indiquem o idioma da submissão durante a submissão."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Exigir aos autores que insiram os idiomas da submissão antes de aceitar a "
-"submissão."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Quaisquer direitos sobre a submissão, que podem ser incluídos nos Direitos "

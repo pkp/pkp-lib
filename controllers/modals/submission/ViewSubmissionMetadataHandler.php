@@ -81,9 +81,6 @@ class ViewSubmissionMetadataHandler extends handler
         if ($publication->getLocalizedData('agencies')) {
             $additionalMetadata[] = [__('submission.agencies'), implode(', ', $publication->getLocalizedData('agencies'))];
         }
-        if ($publication->getLocalizedData('languages')) {
-            $additionalMetadata[] = [__('common.languages'), implode(', ', $publication->getLocalizedData('languages'))];
-        }
 
         $templateMgr->assign('additionalMetadata', $additionalMetadata);
 

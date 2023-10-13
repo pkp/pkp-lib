@@ -2061,25 +2061,6 @@ msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 "Zahtevaj od avtorjev, da navedejo ključne besede pred sprejetjem prispevka."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Jezik določi primarni jezik prispevka, za kar se uporablja koda jezika (\"sl"
-"\") z opcijsko kodo države (\"sl_SI\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Omogoči metapodatke za jezik"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"Ne zahtevaj od avtorjev, da navedejo jezik prispevka med oddajo prispevka."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Zahtevaj od avtorja, da navede jezik prispevka med oddajo prispevka."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Zahtevaj od avtorjev, da navedejo jezik prispevka pred sprejetjem prispevka."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Vse pravice, ki se nanašajo na prispevek. Vsebujejo lahko intelektualne "

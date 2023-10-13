@@ -1982,29 +1982,6 @@ msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 "Mewajibkan penulis untuk menyarankan kata kunci sebelum naskahnya diterima."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Bahasa menunjukkan bahasa utama yang digunakan dalam naskah yang berupa kode "
-"bahasa (\"en\") dengan pilihan kode negara (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Aktifkan metadata bahasa"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"Jangan meminta penulis mencantumkan bahasa yang digunakan dalam naskah saat "
-"menyerahkannya."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Minta penulis untuk mencantumkan bahasa yang digunakan naskah saat "
-"mengirimnya ke jurnal."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Minta penulis untuk memasukkan bahasa yang digunakan dalam naskah sebelum "
-"menerima naskahnya."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Semua hak yang menyertai naskah, yang mungkin mencakupi Hak Kekayaan "

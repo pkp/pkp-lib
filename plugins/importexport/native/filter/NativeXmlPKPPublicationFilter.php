@@ -317,7 +317,6 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
         return [
             'keywords' => ['SubmissionKeywordDAO', 'insertKeywords'],
             'agencies' => ['SubmissionAgencyDAO', 'insertAgencies'],
-            'languages' => ['SubmissionLanguageDAO', 'insertLanguages'],
             'disciplines' => ['SubmissionDisciplineDAO', 'insertDisciplines'],
             'subjects' => ['SubmissionSubjectDAO', 'insertSubjects'],
         ];

@@ -2131,26 +2131,6 @@ msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 "Exigir al autor/a que proponga palabras clave antes de aceptar su envío."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"El idioma indica que el idioma principal de la obra utiliza un código de "
-"idioma (\"en\") con un código de país opcional (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Habilitar los metadatos de idioma"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "No solicitar los idiomas del envío al autor/a durante el envío."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Solicitar al autor/a que indique los idiomas de envío durante el envío."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Exigir al autor/a que introduzca los idiomas de envío antes de aceptar su "
-"envío."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Cualquier derecho sobre el envío, que puede incluir derechos de propiedad "

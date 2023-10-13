@@ -1853,21 +1853,6 @@ msgstr ""
 msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr ""
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-
-msgid "manager.setup.metadata.languages.require"
-msgstr "要求作者在接受提交之前输入提交的语言。"
-
 msgid "manager.setup.metadata.rights.description"
 msgstr "提交内容所拥有的任何权利，包括知识产权（IPR），版权和各种产权。"
 

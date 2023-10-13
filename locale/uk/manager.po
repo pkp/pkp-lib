@@ -2092,24 +2092,6 @@ msgstr ""
 "Вимагати у автора пропозиції щодо ключових слів перед прийняттям його "
 "подання."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Мова вказує на основу мову, яка використовувалася у цій роботі, позначається "
-"спеціальним кодом мови (\"en\") та (опціонально) країни (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Включити мову у метадані"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Не вимагати у авторів вказувати мову роботи під час подання."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Прохати авторів вказати мову роботи під час подання."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Вимагати від автора ввести дані про мову твору перед прийняттям його подання."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Будь-які права щодо подання, які можуть включати права інтелектуальної "

@@ -561,7 +561,6 @@ abstract class Context extends \PKP\core\DataObject
             'dataAvailability',
             'disciplines',
             'keywords',
-            'languages',
             'rights',
             'source',
             'subjects',

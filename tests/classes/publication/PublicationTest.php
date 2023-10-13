@@ -23,7 +23,6 @@ use PKP\services\PKPSchemaService;
 use PKP\submission\SubmissionAgencyDAO;
 use PKP\submission\SubmissionDisciplineDAO;
 use PKP\submission\SubmissionKeywordDAO;
-use PKP\submission\SubmissionLanguageDAO;
 use PKP\submission\SubmissionSubjectDAO;
 use PKP\tests\PKPTestCase;
 
@@ -41,7 +40,6 @@ class PublicationTest extends PKPTestCase
             new SubmissionKeywordDAO(),
             new SubmissionSubjectDAO(),
             new SubmissionDisciplineDAO(),
-            new SubmissionLanguageDAO(),
             new SubmissionAgencyDAO(),
             new CitationDAO(),
             new PKPSchemaService()

@@ -2098,24 +2098,6 @@ msgstr ""
 "Հեղինակից պահանջեք բանալի բառեր առաջարկել նախքան դրանց ներկայացումն "
 "ընդունելը:"
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Լեզուն ցույց է տալիս ստեղծագործության հիմնական լեզուն՝ օգտագործելով լեզվի "
-"կոդը («en») և ընտրովի երկրի կոդը («en_US»):"
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Միացնել լեզվի մետատվյալները"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Ներկայացման ընթացքում հեղինակից մի պահանջեք ներկայացման լեզուները:"
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Խնդրեք հեղինակին ներկայացնել ներկայացման լեզուները:"
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Հեղինակից պահանջեք մուտքագրել ներկայացման լեզուները՝ նախքան դրանք ընդունելը:"
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Ներկայացման նկատմամբ պահպանվող ցանկացած իրավունք, որը կարող է ներառել մտավոր "

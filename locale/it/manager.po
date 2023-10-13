@@ -2031,29 +2031,6 @@ msgstr ""
 "Richiedere agli autori di suggerire parole chiave prima di accettare la "
 "sottomissione."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"La lingua indica la lingua principale di un articolo utilizzando un codice "
-"di lingua (\"en\") con un codice di nazionale opzionale (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Abilitare i metadata di lingua"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"Non richiedere le lingue di sottomissione agli autori in fase di "
-"sottomissione."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Chiedere agli autori di indicare la lingua del manoscritto in fase di "
-"sottomissione."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Chiedere agli autori di indicare la lingua del manoscritto prima di "
-"accettare la sottomissione."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Diritti detenuti sul manoscritto: potrebbero essere diritti di proprietà "

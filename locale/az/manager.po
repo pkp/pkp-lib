@@ -965,9 +965,6 @@ msgstr "Əhatə metadatalarını aktivləşdirin"
 msgid "manager.setup.metadata.keywords.enable"
 msgstr "Açar söz metadatalarını aktivləşdirin"
 
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Dil metadatalarını aktivləşdirin"
-
 msgid "manager.setup.metadata.rights.enable"
 msgstr "Hüquqlar metadatasını aktivləşdirin"
 
@@ -2796,23 +2793,6 @@ msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 "Müəllifin təqdimatını qəbul etməzdən əvvəl açar sözlər tövsiyə etməsini "
 "istəyin"
-
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Dil, çalışmanın əsas dilini, istəyə bağlı bir ölkə kodu ilə (\"en_US\") bir "
-"dil kodu (\"en\") istifadə edərək göstərin."
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Təqdimat əsnasında müəllifdən təqdimatının dilini tələb etməyin"
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Müəllifdən təqdimat əsnasında namizəd məqalənin dilini qeyd etməsini istəyin"
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Müəllifin təqdimatını qəbul etməzdən əvvəl təqdimat dillərini daxil etməsini "
-"istəyin."
 
 msgid "manager.setup.metadata.rights.description"
 msgstr ""

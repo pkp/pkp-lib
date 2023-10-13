@@ -2026,25 +2026,6 @@ msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 "Yazarın gönderisini kabul etmeden önce anahtar kelime önermesini isteyin."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Dil, çalışmanın birincil dilini, isteğe bağlı bir ülke koduyla (\"en_US\") "
-"bir dil kodu (\"en\") kullanarak gösterir."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Dil üst verilerini etkinleştir"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Gönderi sırasında yazardan gönderinin dilini talep etmeyin."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Yazardan, gönderi sırasında aday makalenin dilini belirtmesini isteyin."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Yazarın gönderisini kabul etmeden önce gönderi dillerini girmesini isteyin."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Gönderi ile ilgili olarak Fikri Mülkiyet Hakları (IPR), Telif Hakkı ve "

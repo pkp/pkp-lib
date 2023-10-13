@@ -2067,23 +2067,6 @@ msgstr "Požádejte autora, aby při odesílání příspěvku navrhl klíčová
 msgid "manager.setup.metadata.keywords.require"
 msgstr "Před přijetím příspěvku požádejte autora, aby navrhl klíčová slova."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Jazyk označuje primární pracovní jazyk pomocí kódu jazyka (např. „en“) s "
-"volitelným kódem země (např. „en_US“)."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Povolit jazyková metadata"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Během odesílání nevyžadujte od autora jazyky příspěvku."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Požádejte autora, aby během podání uvedl jazyky příspěvku."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr "Před přijetím požádejte autora, aby zadal jazyky příspěvku."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Jakákoli práva k příspěvku, která mohou zahrnovat práva duševního "

@@ -37,9 +37,6 @@
             {if in_array($currentContext->getData('disciplines'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
                 {include file="/submission/review-publication-field.tpl" prop="disciplines" inLocale=$localeKey name="{translate key="search.discipline"}" type="array"}
             {/if}
-            {if in_array($currentContext->getData('languages'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
-                {include file="/submission/review-publication-field.tpl" prop="languages" inLocale=$localeKey name="{translate key="common.languages"}" type="array"}
-            {/if}
             {if in_array($currentContext->getData('agencies'), [$currentContext::METADATA_REQUEST, $currentContext::METADATA_REQUIRE])}
                 {include file="/submission/review-publication-field.tpl" prop="supportingAgencies" inLocale=$localeKey name="{translate key="submission.supportingAgencies"}" type="array"}
             {/if}

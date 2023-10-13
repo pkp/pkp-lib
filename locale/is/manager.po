@@ -1976,26 +1976,6 @@ msgstr ""
 "Krefjast þess að höfundur leggi til lykilorð áður en viðkomandi samþykkir "
 "innsendingu."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Tungumál gefur til kynna aðaltungumál verks með því að nota "
-"tungumálakóða(\"en\"), mögulega með lengri landakóða (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Virkja tungumál lýsigagna"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Ekki biðja höfund um tungumál handrits á meðan á innsendingu stendur."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Biðja höfund um að tilgreina tungumál handrits á meðan á innsendingu stendur."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Krefjast þess að höfundur gefi upp tungumál handrits áður en viðkomandi "
-"samþykkir innsendinguna."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Öll réttindi sem hvíla á handritinu, t.d. hugverkaréttur, höfundaréttur og "

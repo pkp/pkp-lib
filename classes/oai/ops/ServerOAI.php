@@ -182,6 +182,7 @@ class ServerOAI extends OAI
 
     /**
      * @copydoc OAI::records()
+     * @hook ServerOAI::records [[$this, $from, $until, $set, $offset, $limit, &$total, &$records]]
      */
     public function records($metadataPrefix, $from, $until, $set, $offset, $limit, &$total)
     {
@@ -200,6 +201,7 @@ class ServerOAI extends OAI
 
     /**
      * @copydoc OAI::identifiers()
+     * @hook ServerOAI::identifiers [[$this, $from, $until, $set, $offset, $limit, &$total, &$records]]
      */
     public function identifiers($metadataPrefix, $from, $until, $set, $offset, $limit, &$total)
     {
@@ -218,6 +220,7 @@ class ServerOAI extends OAI
 
     /**
      * @copydoc OAI::sets()
+     * @hook ServerOAI::sets [[$this, $offset, $limit, &$total, &$sets]]
      */
     public function sets($offset, $limit, &$total)
     {

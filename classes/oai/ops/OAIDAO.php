@@ -97,6 +97,7 @@ class OAIDAO extends PKPOAIDAO
      * @param int $total
      *
      * @return array OAISet
+     * @hook OAIDAO::getServerSets [[$this, $serverId, $offset, $limit, $total, &$sets]]
      */
     public function &getServerSets($serverId, $offset, $limit, &$total)
     {

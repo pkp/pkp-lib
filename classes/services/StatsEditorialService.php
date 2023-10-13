@@ -25,6 +25,7 @@ class StatsEditorialService extends \PKP\services\PKPStatsEditorialService
      * Get overview of key editorial stats
      *
      * @copydoc PKPStatsEditorialService::getOverview()
+     * @hook EditorialStats::overview [[&$overview, $args]]
      */
     public function getOverview($args = [])
     {

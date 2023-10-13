@@ -33,6 +33,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
 {
     /**
      * @copydoc SubmissionSearchIndex::submissionMetadataChanged()
+     * @hook PreprintSearchIndex::preprintMetadataChanged [[$submission]]
      */
     public function submissionMetadataChanged($submission)
     {
@@ -98,6 +99,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      * @param int $preprintId
      * @param int $type
      * @param SubmissionFile $submissionFile
+     * @hook PreprintSearchIndex::submissionFileChanged [[$preprintId, $type, $submissionFile->getId()]]
      */
     public function submissionFileChanged($preprintId, $type, $submissionFile)
     {
@@ -145,6 +147,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      * comments.
      *
      * @param Submission $preprint
+     * @hook PreprintSearchIndex::submissionFilesChanged [[$preprint]]
      */
     public function submissionFilesChanged($preprint)
     {
@@ -192,6 +195,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      * @param int $preprintId
      * @param int $type optional
      * @param int $assocId optional
+     * @hook PreprintSearchIndex::submissionFileDeleted [[$preprintId, $type, $assocId]]
      */
     public function submissionFileDeleted($preprintId, $type = null, $assocId = null)
     {
@@ -217,6 +221,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      * comments.
      *
      * @param int $preprintId
+     * @hook PreprintSearchIndex::preprintDeleted [[$preprintId]]
      */
     public function preprintDeleted($preprintId)
     {
@@ -233,6 +238,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
 
     /**
      * @copydoc SubmissionSearchIndex::submissionChangesFinished()
+     * @hook PreprintSearchIndex::preprintChangesFinished
      */
     public function submissionChangesFinished()
     {
@@ -268,6 +274,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      *  implementation does not support server-specific re-indexing
      *  as index data is not partitioned by server.
      * @param array $switches Optional index administration switches.
+     * @hook PreprintSearchIndex::rebuildIndex [[$log, $server, $switches]]
      */
     public function rebuildIndex($log = false, $server = null, $switches = [])
     {

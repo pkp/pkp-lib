@@ -66,7 +66,6 @@ class SubmissionController extends \PKP\API\v1\submissions\PKPSubmissionControll
                 Role::ROLE_ID_AUTHOR,
             ]),
         ])->group(function () {
-
             Route::post('{submissionId}/publications', $this->addPublication(...))
                 ->name('submission.publication.add')
                 ->whereNumber('submissionId');

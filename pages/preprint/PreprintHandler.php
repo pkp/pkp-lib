@@ -169,6 +169,8 @@ class PreprintHandler extends Handler
      *
      * @param array $args
      * @param \APP\core\Request $request
+     * @hook PreprintHandler::view [[&$request, &$preprint, $publication]]
+     * @hook PreprintHandler::view::galley [[&$request, &$this->galley, &$preprint, $publication]]
      */
     public function view($args, $request)
     {
@@ -328,6 +330,8 @@ class PreprintHandler extends Handler
      *
      * @param array $args
      * @param Request $request
+     * @hook PreprintHandler::download [[$this->preprint, &$this->galley, &$this->submissionFileId]]
+     * @hook FileManager::downloadFileFinished [[&$returner]]
      */
     public function download($args, $request)
     {

@@ -59,6 +59,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
      * @param Submission $submission
      *
      * @return MetadataDescription
+     * @hook Dc11SchemaPreprintAdapter::extractMetadataFromDataObject [[$this, $submission, $server, &$dc11Description]]
      */
     public function &extractMetadataFromDataObject(&$submission)
     {

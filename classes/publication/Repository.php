@@ -189,6 +189,7 @@ class Repository extends \PKP\publication\Repository
      * Publication::canAuthorPublish.
      *
      * @deprecated 3.4
+     * @hook Publication::canAuthorPublish [[$this]]
      */
     public function canCurrentUserPublish(int $submissionId, ?User $user = null): bool
     {

@@ -31,6 +31,7 @@ class WorkflowTabHandler extends PKPWorkflowTabHandler
 {
     /**
      * @copydoc PKPWorkflowTabHandler::fetchTab
+     * @hook Publication::testAuthorValidatePublish [[&$errors, $assignment->getUserId(), $context->getId(), $submission->getId()]]
      */
     public function fetchTab($args, $request)
     {

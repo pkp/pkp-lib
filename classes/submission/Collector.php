@@ -95,6 +95,7 @@ abstract class Collector implements CollectorInterface
 
     /**
      * @copydoc DAO::getMany()
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(): LazyCollection
@@ -273,16 +274,21 @@ abstract class Collector implements CollectorInterface
     /**
      * Add APP-specific filtering methods for submission sub objects DOI statuses
      *
+     * @hook Submission::Collector [[&$q, $this]]
      */
     abstract protected function addDoiStatusFilterToQuery(Builder $q);
 
     /**
      * Add APP-specific filtering methods for checking if submission sub objects have DOIs assigned
+     *
+     * @hook Submission::Collector [[&$q, $this]]
      */
     abstract protected function addHasDoisFilterToQuery(Builder $q);
 
     /**
      * @copydoc CollectorInterface::getQueryBuilder()
+     *
+     * @hook Submission::Collector [[&$q, $this]]
      */
     public function getQueryBuilder(): Builder
     {
@@ -309,7 +315,7 @@ abstract class Collector implements CollectorInterface
                 $q->addSelect(['po.date_published']);
                 $q->orderBy('po.date_published', $this->orderDirection);
                 break;
-            case self::ORDERBY_ID;
+            case self::ORDERBY_ID:
                 $q->orderBy('s.submission_id', $this->orderDirection);
                 break;
             case self::ORDERBY_LAST_ACTIVITY:
@@ -325,14 +331,18 @@ abstract class Collector implements CollectorInterface
             case self::ORDERBY_TITLE:
                 $locale = Locale::getLocale();
                 $q->leftJoin('publications as publication_tlp', 's.current_publication_id', '=', 'publication_tlp.publication_id')
-                    ->leftJoin('publication_settings as publication_tlps', fn (JoinClause $join) =>
+                    ->leftJoin(
+                        'publication_settings as publication_tlps',
+                        fn (JoinClause $join) =>
                         $join->on('publication_tlp.publication_id', '=', 'publication_tlps.publication_id')
                             ->where('publication_tlps.setting_name', '=', 'title')
                             ->where('publication_tlps.setting_value', '!=', '')
                             ->where('publication_tlps.locale', '=', $locale)
                     );
                 $q->leftJoin('publications as publication_tlpl', 's.current_publication_id', '=', 'publication_tlpl.publication_id')
-                    ->leftJoin('publication_settings as publication_tlpsl', fn (JoinClause $join) =>
+                    ->leftJoin(
+                        'publication_settings as publication_tlpsl',
+                        fn (JoinClause $join) =>
                         $join->on('publication_tlp.publication_id', '=', 'publication_tlpsl.publication_id')
                             ->on('publication_tlpsl.locale', '=', 's.locale')
                             ->where('publication_tlpsl.setting_name', '=', 'title')
@@ -350,10 +360,12 @@ abstract class Collector implements CollectorInterface
                 $orderByMatchCount = DB::table('submission_search_objects', 'sso')
                     ->join('submission_search_object_keywords AS ssok', 'ssok.object_id', '=', 'sso.object_id')
                     ->join('submission_search_keyword_list AS sskl', 'sskl.keyword_id', '=', 'ssok.keyword_id')
-                    ->where(fn (Builder $q) =>
-                        $keywords->map(fn (string $keyword) => $q
-                            ->orWhere('sskl.keyword_text', '=', DB::raw('LOWER(?)'))
-                            ->addBinding($keyword)
+                    ->where(
+                        fn (Builder $q) =>
+                        $keywords->map(
+                            fn (string $keyword) => $q
+                                ->orWhere('sskl.keyword_text', '=', DB::raw('LOWER(?)'))
+                                ->addBinding($keyword)
                         )
                     )
                     ->whereColumn('s.submission_id', '=', 'sso.submission_id')
@@ -387,7 +399,9 @@ abstract class Collector implements CollectorInterface
 
         if ($this->isOverdue) {
             $q->leftJoin('review_assignments as raod', 'raod.submission_id', '=', 's.submission_id')
-                ->leftJoin('review_rounds as rr', fn (Builder $table) =>
+                ->leftJoin(
+                    'review_rounds as rr',
+                    fn (Builder $table) =>
                     $table->on('rr.submission_id', '=', 's.submission_id')
                         ->on('raod.review_round_id', '=', 'rr.review_round_id')
                 );
@@ -398,29 +412,38 @@ abstract class Collector implements CollectorInterface
                 ReviewRound::REVIEW_ROUND_STATUS_ACCEPTED,
                 ReviewRound::REVIEW_ROUND_STATUS_DECLINED,
             ]);
-            $q->where(fn (Builder $q) =>
+            $q->where(
+                fn (Builder $q) =>
                 $q->where('raod.declined', '<>', 1)
                     ->where('raod.cancelled', '<>', 1)
-                    ->where(fn (Builder $q) =>
+                    ->where(
+                        fn (Builder $q) =>
                         $q->where('raod.date_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
                             ->whereNull('raod.date_completed')
                     )
-                    ->orWhere(fn (Builder $q) =>
+                    ->orWhere(
+                        fn (Builder $q) =>
                         $q->where('raod.date_response_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
-                        ->whereNull('raod.date_confirmed')
+                            ->whereNull('raod.date_confirmed')
                     )
             );
         }
 
         if (is_array($this->assignedTo)) {
-            $q->whereIn('s.submission_id', fn (Builder $q) =>
+            $q->whereIn(
+                's.submission_id',
+                fn (Builder $q) =>
                 $q->select('s.submission_id')
                     ->from('submissions AS s')
-                    ->leftJoin('stage_assignments as sa', fn (Builder $q) =>
+                    ->leftJoin(
+                        'stage_assignments as sa',
+                        fn (Builder $q) =>
                         $q->on('s.submission_id', '=', 'sa.submission_id')
                             ->whereIn('sa.user_id', $this->assignedTo)
                     )
-                    ->leftJoin('review_assignments as ra', fn (Builder $table) =>
+                    ->leftJoin(
+                        'review_assignments as ra',
+                        fn (Builder $table) =>
                         $table->on('s.submission_id', '=', 'ra.submission_id')
                             ->where('ra.declined', '=', (int) 0)
                             ->where('ra.cancelled', '=', (int) 0)
@@ -446,70 +469,87 @@ abstract class Collector implements CollectorInterface
             $likePattern = DB::raw("CONCAT('%', LOWER(?), '%')");
             if(!empty($this->assignedTo)) {
                 // Holds a single random row to check whether we have any assignment
-                $q->leftJoinSub(fn (Builder $q) => $q
-                    ->from('review_assignments', 'ra')
-                    ->whereIn('ra.reviewer_id', $this->assignedTo)
-                    ->select(DB::raw('1 AS value'))
-                    ->limit(1),
-                    'any_assignment', 'any_assignment.value', '=', DB::raw('1')
+                $q->leftJoinSub(
+                    fn (Builder $q) => $q
+                        ->from('review_assignments', 'ra')
+                        ->whereIn('ra.reviewer_id', $this->assignedTo)
+                        ->select(DB::raw('1 AS value'))
+                        ->limit(1),
+                    'any_assignment',
+                    'any_assignment.value',
+                    '=',
+                    DB::raw('1')
                 );
             }
             // Builds the filters
-            $q->where(fn (Builder $q) => $keywords
-                ->map(fn (string $keyword) => $q
-                    // Look for matches on the indexed data
-                    ->orWhereExists(fn (Builder $query) => $query
-                        ->from('submission_search_objects', 'sso')
-                        ->join('submission_search_object_keywords AS ssok', 'sso.object_id', '=', 'ssok.object_id')
-                        ->join('submission_search_keyword_list AS sskl', 'sskl.keyword_id', '=', 'ssok.keyword_id')
-                        ->where('sskl.keyword_text', '=', DB::raw('LOWER(?)'))->addBinding($keyword)
-                        ->whereColumn('s.submission_id', '=', 'sso.submission_id')
-                        // Don't permit reviewers to search on author names
-                        ->when(!empty($this->assignedTo), fn (Builder $q) => $q
-                            ->where(fn (Builder $q) => $q
-                                ->whereNull('any_assignment.value')
-                                ->orWhere('sso.type', '!=', SubmissionSearch::SUBMISSION_SEARCH_AUTHOR)
+            $q->where(
+                fn (Builder $q) => $keywords
+                    ->map(
+                        fn (string $keyword) => $q
+                        // Look for matches on the indexed data
+                            ->orWhereExists(
+                                fn (Builder $query) => $query
+                                    ->from('submission_search_objects', 'sso')
+                                    ->join('submission_search_object_keywords AS ssok', 'sso.object_id', '=', 'ssok.object_id')
+                                    ->join('submission_search_keyword_list AS sskl', 'sskl.keyword_id', '=', 'ssok.keyword_id')
+                                    ->where('sskl.keyword_text', '=', DB::raw('LOWER(?)'))->addBinding($keyword)
+                                    ->whereColumn('s.submission_id', '=', 'sso.submission_id')
+                                // Don't permit reviewers to search on author names
+                                    ->when(
+                                        !empty($this->assignedTo),
+                                        fn (Builder $q) => $q
+                                            ->where(
+                                                fn (Builder $q) => $q
+                                                    ->whereNull('any_assignment.value')
+                                                    ->orWhere('sso.type', '!=', SubmissionSearch::SUBMISSION_SEARCH_AUTHOR)
+                                            )
+                                    )
                             )
-                        )
-                    )
-                    // Search on the publication title
-                    ->orWhereIn('s.submission_id', fn (Builder $query) => $query
-                        ->select('p.submission_id')->from('publications AS p')
-                        ->join('publication_settings AS ps', 'p.publication_id', '=', 'ps.publication_id')
-                        ->where('ps.setting_name', '=', 'title')
-                        ->where(DB::raw('LOWER(ps.setting_value)'), 'LIKE', $likePattern)
-                            ->addBinding($keyword)
-                    )
-                    // Search on the author name and ORCID
-                    ->orWhereIn('s.submission_id', fn (Builder $query) => $query
-                        ->select('p.submission_id')
-                        ->from('publications AS p')
-                        ->join('authors AS au', 'au.publication_id', '=', 'p.publication_id')
-                        ->join('author_settings AS aus', 'aus.author_id', '=', 'au.author_id')
-                        ->whereIn('aus.setting_name', [
-                            Identity::IDENTITY_SETTING_GIVENNAME,
-                            Identity::IDENTITY_SETTING_FAMILYNAME,
-                            'orcid'
-                        ])
-                        // Don't permit reviewers to search on author names
-                        ->when(!empty($this->assignedTo), fn (Builder $q) => $q
-                            ->where(fn (Builder $q) => $q
-                                ->whereNull('any_assignment.value')
-                                ->orWhereNotIn('aus.setting_name', [
-                                    Identity::IDENTITY_SETTING_GIVENNAME,
-                                    Identity::IDENTITY_SETTING_FAMILYNAME
-                                ])
+                        // Search on the publication title
+                            ->orWhereIn(
+                                's.submission_id',
+                                fn (Builder $query) => $query
+                                    ->select('p.submission_id')->from('publications AS p')
+                                    ->join('publication_settings AS ps', 'p.publication_id', '=', 'ps.publication_id')
+                                    ->where('ps.setting_name', '=', 'title')
+                                    ->where(DB::raw('LOWER(ps.setting_value)'), 'LIKE', $likePattern)
+                                    ->addBinding($keyword)
                             )
-                        )
-                        ->where(DB::raw('LOWER(aus.setting_value)'), 'LIKE', $likePattern)
-                            ->addBinding($keyword)
+                        // Search on the author name and ORCID
+                            ->orWhereIn(
+                                's.submission_id',
+                                fn (Builder $query) => $query
+                                    ->select('p.submission_id')
+                                    ->from('publications AS p')
+                                    ->join('authors AS au', 'au.publication_id', '=', 'p.publication_id')
+                                    ->join('author_settings AS aus', 'aus.author_id', '=', 'au.author_id')
+                                    ->whereIn('aus.setting_name', [
+                                        Identity::IDENTITY_SETTING_GIVENNAME,
+                                        Identity::IDENTITY_SETTING_FAMILYNAME,
+                                        'orcid'
+                                    ])
+                                // Don't permit reviewers to search on author names
+                                    ->when(
+                                        !empty($this->assignedTo),
+                                        fn (Builder $q) => $q
+                                            ->where(
+                                                fn (Builder $q) => $q
+                                                    ->whereNull('any_assignment.value')
+                                                    ->orWhereNotIn('aus.setting_name', [
+                                                        Identity::IDENTITY_SETTING_GIVENNAME,
+                                                        Identity::IDENTITY_SETTING_FAMILYNAME
+                                                    ])
+                                            )
+                                    )
+                                    ->where(DB::raw('LOWER(aus.setting_value)'), 'LIKE', $likePattern)
+                                    ->addBinding($keyword)
+                            )
+                        // Search for the exact submission ID
+                            ->when(
+                                ($numericWords = $keywords->filter(fn (string $keyword) => ctype_digit($keyword)))->count(),
+                                fn (Builder $query) => $query->orWhereIn('s.submission_id', $numericWords)
+                            )
                     )
-                    // Search for the exact submission ID
-                    ->when(
-                        ($numericWords = $keywords->filter(fn (string $keyword) => ctype_digit($keyword)))->count(),
-                        fn (Builder $query) => $query->orWhereIn('s.submission_id', $numericWords)
-                    )
-                )
             );
         } elseif (strlen($this->searchPhrase ?? '')) {
             // If there's search text, but no keywords could be extracted from it, force the query to return nothing

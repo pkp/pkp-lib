@@ -15,36 +15,35 @@
 
 namespace PKP\API\v1\contexts;
 
-use APP\plugins\IDoiRegistrationAgency;
-use APP\template\TemplateManager;
-use APP\services\ContextService;
-use APP\core\Services;
 use APP\core\Application;
+use APP\core\Services;
+use APP\plugins\IDoiRegistrationAgency;
+use APP\services\ContextService;
+use APP\template\TemplateManager;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use PKP\plugins\Plugin;
+use Illuminate\Support\Facades\Route;
 use PKP\context\Context;
-use PKP\services\interfaces\EntityWriteInterface;
-use PKP\plugins\PluginRegistry;
-use PKP\db\DAORegistry;
-use PKP\services\PKPContextService;
-use PKP\plugins\Hook;
 use PKP\core\PKPBaseController;
-use PKP\services\PKPSchemaService;
-use PKP\security\Role;
-use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
-use PKP\security\authorization\PolicySet;
-use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\core\PKPRequest;
-
+use PKP\db\DAORegistry;
+use PKP\plugins\Hook;
+use PKP\plugins\Plugin;
+use PKP\plugins\PluginRegistry;
+use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\security\Role;
+use PKP\services\interfaces\EntityWriteInterface;
+use PKP\services\PKPContextService;
+use PKP\services\PKPSchemaService;
 
 class PKPContextController extends PKPBaseController
 {
     /** @var string One of the SCHEMA_... constants */
     public $schemaName = PKPSchemaService::SCHEMA_CONTEXT;
-    
+
     /**
      * @copydoc \PKP\core\PKPBaseController::getHandlerPath()
      */
@@ -59,7 +58,7 @@ class PKPContextController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
+            'has.user',
         ];
     }
 
@@ -67,45 +66,45 @@ class PKPContextController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::middleware([
             self::roleAuthorizer([
-                Role::ROLE_ID_SITE_ADMIN, 
+                Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
             ]),
-        ])->group(function(){
-            
+        ])->group(function () {
+
             Route::get('', $this->getMany(...))
                 ->name('context.getMany');
 
             Route::get('{contextId}', $this->get(...))
                 ->name('context.getContext')
                 ->whereNumber('contextId');
-            
+
             Route::get('{contextId}/theme', $this->getTheme(...))
                 ->name('context.getContext')
                 ->whereNumber('contextId');
-            
+
             Route::put('{contextId}', $this->edit(...))
                 ->name('context.edit')
                 ->whereNumber('contextId');
-            
+
             Route::put('{contextId}/theme', $this->editTheme(...))
                 ->name('context.editTheme')
                 ->whereNumber('contextId');
-            
+
             Route::put('{contextId}/registrationAgency', $this->editDoiRegistrationAgencyPlugin(...))
                 ->name('context.edit.doiRegistration')
                 ->whereNumber('contextId');
         });
-        
+
         Route::middleware([
             self::roleAuthorizer([Role::ROLE_ID_SITE_ADMIN,]),
-        ])->group(function(){
-            
+        ])->group(function () {
+
             Route::post('', $this->add(...))
                 ->name('context.add');
-            
+
             Route::delete('{contextId}', $this->delete(...))
                 ->name('context.delete')
                 ->whereNumber('contextId');
@@ -131,6 +130,8 @@ class PKPContextController extends PKPBaseController
 
     /**
      * Get a collection of contexts
+     *
+     * @hook API::contexts::params [[&$allowedParams, $illuminateRequest]]
      */
     public function getMany(Request $illuminateRequest): JsonResponse
     {
@@ -525,7 +526,7 @@ class PKPContextController extends PKPBaseController
         return response()->json($data, Response::HTTP_OK);
     }
 
-    
+
     public function editDoiRegistrationAgencyPlugin(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
@@ -707,8 +708,7 @@ class PKPContextController extends PKPBaseController
      * @param Plugin $plugin        Currently configured registration agency plugin. Should also implement IDoiRegistrationAgency
      * @param string $schemaName    Name of RegistrationAgencySettings child class used as schema name
      * @param array $props          Plugin properties to update
-     * 
-     * @return void
+     *
      */
     protected function updateRegistrationAgencyPluginSettings(int $contextId, Plugin $plugin, string $schemaName, array $props): void
     {

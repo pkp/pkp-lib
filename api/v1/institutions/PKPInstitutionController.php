@@ -22,8 +22,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\core\PKPRequest;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\PolicySet;
@@ -54,8 +54,8 @@ class PKPInstitutionController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
             ]),
@@ -66,21 +66,21 @@ class PKPInstitutionController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::get('', $this->getMany(...))
-                ->name('institution.getMany');
+            ->name('institution.getMany');
 
         Route::get('{institutionId}', $this->get(...))
             ->name('institution.getInstitution')
             ->whereNumber('institutionId');
-        
+
         Route::post('add', $this->add(...))
             ->name('institution.add');
-        
+
         Route::put('{institutionId}', $this->edit(...))
             ->name('institution.edit')
             ->whereNumber('institutionId');
-        
+
         Route::delete('{institutionId}', $this->delete(...))
             ->name('institution.delete')
             ->whereNumber('institutionId');
@@ -100,7 +100,7 @@ class PKPInstitutionController extends PKPBaseController
         foreach ($roleAssignments as $role => $operations) {
             $rolePolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, $role, $operations));
         }
-        
+
         $this->addPolicy($rolePolicy);
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -124,6 +124,8 @@ class PKPInstitutionController extends PKPBaseController
 
     /**
      * Get a collection of institutions
+     *
+     * @hook API::institutions::params [[$collector, $illuminateRequest]]
      */
     public function getMany(Request $illuminateRequest): JsonResponse
     {
@@ -168,7 +170,7 @@ class PKPInstitutionController extends PKPBaseController
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_INSTITUTION, $illuminateRequest->input());
         $params['contextId'] = $request->getContext()->getId();
-        
+
         if (!empty($params['ipRanges'])) { // Convert IP ranges string to array
             $params['ipRanges'] = $this->convertIpToArray($params['ipRanges']);
         }
@@ -207,7 +209,7 @@ class PKPInstitutionController extends PKPBaseController
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_INSTITUTION, $illuminateRequest->input());
         $params['id'] = $institution->getId();
         $params['contextId'] = $context->getId();
-        
+
         if (!empty($params['ipRanges'])) { // Convert IP ranges string to array
             $params['ipRanges'] = $this->convertIpToArray($params['ipRanges']);
         }

@@ -103,6 +103,8 @@ class PluginRegistry
      *  can be given as an explicit ID.
      *
      * @return array Set of plugins, sorted in sequence.
+     *
+     * @hook PluginRegistry::loadCategory [[&$category, &$plugins]]
      */
     public static function loadCategory(string $category, bool $enabledOnly = false, ?int $mainContextId = null): array
     {
@@ -159,6 +161,8 @@ class PluginRegistry
      * have to be registered and/or installed. Plug-ins in categories
      * later in the list may depend on plug-ins in earlier
      * categories.
+     *
+     * @hook PluginRegistry::getCategories [[&$categories]]
      */
     public static function getCategories(): array
     {

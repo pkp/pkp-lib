@@ -16,12 +16,12 @@
 namespace PKP\API\v1\emailTemplates;
 
 use APP\core\Application;
-use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\core\PKPRequest;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\facades\Repo;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextRequiredPolicy;
@@ -49,8 +49,8 @@ class PKPEmailTemplateController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
         ];
     }
 
@@ -58,16 +58,16 @@ class PKPEmailTemplateController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::middleware([
             self::roleAuthorizer([
-                Role::ROLE_ID_SITE_ADMIN, 
+                Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
-                Role::ROLE_ID_SUB_EDITOR, 
+                Role::ROLE_ID_SUB_EDITOR,
                 ROLE::ROLE_ID_ASSISTANT,
             ]),
-        ])->group(function(){
-            
+        ])->group(function () {
+
             Route::get('', $this->getMany(...))
                 ->name('emailTemplate.getMany');
 
@@ -75,14 +75,14 @@ class PKPEmailTemplateController extends PKPBaseController
                 ->name('emailTemplate.getTemplate')
                 ->whereAlphaNumeric('key');
         });
-        
+
         Route::middleware([
             self::roleAuthorizer([
-                Role::ROLE_ID_SITE_ADMIN, 
+                Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
             ]),
-        ])->group(function(){
-            
+        ])->group(function () {
+
             Route::post('', $this->add(...))
                 ->name('emailTemplate.add');
 
@@ -91,7 +91,7 @@ class PKPEmailTemplateController extends PKPBaseController
 
             Route::delete('restoreDefaults', $this->restoreDefaults(...))
                 ->name('emailTemplate.restoreDefaults');
-            
+
             Route::delete('{key}', $this->delete(...))
                 ->name('emailTemplate.delete')
                 ->whereAlphaNumeric('key');
@@ -120,6 +120,8 @@ class PKPEmailTemplateController extends PKPBaseController
 
     /**
      * Get a collection of email templates
+     *
+     * @hook API::emailTemplates::params [[$collector, $illuminateRequest]]
      */
     public function getMany(Request $illuminateRequest): JsonResponse
     {

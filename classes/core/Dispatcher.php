@@ -101,6 +101,8 @@ class Dispatcher
      * handler method.
      *
      * @param PKPRequest $request
+     *
+     * @hook Dispatcher::dispatch [[$request]]
      */
     public function dispatch($request)
     {

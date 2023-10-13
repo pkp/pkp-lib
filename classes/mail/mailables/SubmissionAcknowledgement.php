@@ -49,7 +49,7 @@ class SubmissionAcknowledgement extends Mailable
     protected function setupDeprecatedVariables(): void
     {
         $this->addData([
-           'editorialContactSignature' => $this->viewData[ContextEmailVariable::CONTEXT_SIGNATURE],
+            'editorialContactSignature' => $this->viewData[ContextEmailVariable::CONTEXT_SIGNATURE],
         ]);
     }
 }

@@ -16,7 +16,6 @@ namespace PKP\invitation\repositories;
 
 use APP\core\Application;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use PKP\invitation\invitations\BaseInvitation;
 use PKP\invitation\invitations\enums\InvitationStatus;

@@ -22,7 +22,6 @@ use PKP\context\SubEditorsDAO;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileDAO;
 use PKP\log\SubmissionEmailLogDAO;
-use PKP\log\SubmissionEventLogDAO;
 use PKP\note\NoteDAO;
 use PKP\notification\NotificationDAO;
 use PKP\plugins\Hook;
@@ -239,6 +238,8 @@ class Repository
      * @param array $args
      * - @option int[] contextIds Context IDs (required)
      * - @option int[] userGroupIds List of user groups (all groups by default)
+     *
+     * @hook User::getReport [[$report]]
      */
     public function getReport(array $args): Report
     {
@@ -282,6 +283,8 @@ class Repository
      *
      * @param int $oldUserId The user ID to remove
      * @param int $newUserId The user ID to receive all "assets" (i.e. submissions) from old user
+     *
+     * @hook UserAction::mergeUsers [[&$oldUserId, &$newUserId]]
      */
     public function mergeUsers(int $oldUserId, int $newUserId)
     {

@@ -347,6 +347,9 @@ class FileManager
      * @param string $fileName Optional filename to use on the client side
      *
      * @return ?bool
+     *
+     * @hook FileManager::downloadFile [[&$filePath, &$mediaType, &$inline, &$result, &$fileName]]
+     * @hook FileManager::downloadFileFinished [[&$returner]]
      */
     public function downloadByPath($filePath, $mediaType = null, $inline = false, $fileName = null)
     {
@@ -389,6 +392,8 @@ class FileManager
      * @param string $filePath the location of the file to be deleted
      *
      * @return ?bool returns true if successful
+     *
+     * @hook FileManager::deleteFile [[$filePath, &$result]]
      */
     public function deleteByPath($filePath)
     {

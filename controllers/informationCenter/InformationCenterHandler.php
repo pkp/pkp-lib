@@ -197,8 +197,7 @@ abstract class InformationCenterHandler extends Handler
         Submission|SubmissionFile $object,
         int $eventType, //SUBMISSION_LOG_... const
         int $assocType // PKPApplication::ASSOC_TYPE_SUBMISSION_FILE || PKPApplication::ASSOC_TYPE_SUBMISSION
-    )
-    {
+    ) {
         // Get the log event message
         switch ($eventType) {
             case EventLogEntry::SUBMISSION_LOG_NOTE_POSTED:

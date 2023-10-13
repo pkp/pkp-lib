@@ -20,12 +20,12 @@ namespace PKP\API\v1\stats\sushi;
 use APP\facades\Repo;
 use APP\sushi\PR;
 use APP\sushi\PR_P1;
-use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\core\PKPRequest;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -66,13 +66,13 @@ class PKPStatsSushiController extends PKPBaseController
      */
     public function getRouteGroupMiddleware(): array
     {
-        if ($this->isPublic())  {
-            return ["has.context"];
+        if ($this->isPublic()) {
+            return ['has.context'];
         }
 
         return [
-            "has.context",
-            "has.user",
+            'has.context',
+            'has.user',
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
@@ -84,10 +84,10 @@ class PKPStatsSushiController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::get('status', $this->getStatus(...))
             ->name('stats.sushi.getStatus');
-        
+
         Route::get('members', $this->getMembers(...))
             ->name('stats.sushi.getMembers');
 
@@ -109,7 +109,7 @@ class PKPStatsSushiController extends PKPBaseController
         $this->addPolicy(new ContextRequiredPolicy($request));
 
         if (!$this->isPublic()) {
-            
+
             $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
             $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
@@ -131,7 +131,7 @@ class PKPStatsSushiController extends PKPBaseController
     {
         $request = $this->getRequest();
         $context = $request->getContext();
-        
+
         // use only the name in the context primary locale to be consistent
         $contextName = $context->getName($context->getPrimaryLocale());
 

@@ -22,11 +22,11 @@ use APP\facades\Repo;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Bus;
-use PKP\core\PKPRequest;
+use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\jobs\notifications\NewAnnouncementNotifyUsers;
@@ -62,10 +62,10 @@ class PKPAnnouncementController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
             self::roleAuthorizer([
-                Role::ROLE_ID_SITE_ADMIN, 
+                Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
             ]),
         ];
@@ -75,21 +75,21 @@ class PKPAnnouncementController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {         
+    {
         Route::get('', $this->getMany(...))
             ->name('announcement.getMany');
 
         Route::get('{announcementId}', $this->get(...))
             ->name('announcement.getAnnouncement')
             ->whereNumber('announcementId');
-        
+
         Route::post('', $this->add(...))
             ->name('announcement.add');
-        
+
         Route::put('{announcementId}', $this->edit(...))
             ->name('announcement.edit')
             ->whereNumber('announcementId');
-        
+
         Route::delete('{announcementId}', $this->delete(...))
             ->name('announcement.delete')
             ->whereNumber('announcementId');
@@ -138,6 +138,8 @@ class PKPAnnouncementController extends PKPBaseController
 
     /**
      * Get a collection of announcements
+     *
+     * @hook API::announcements::params [$collector, $illuminateRequest]
      */
     public function getMany(Request $illuminateRequest): JsonResponse
     {

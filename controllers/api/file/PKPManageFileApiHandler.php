@@ -276,8 +276,7 @@ abstract class PKPManageFileApiHandler extends Handler
         int            $originalFileId,
         string         $originalUsername,
         array          $originalFileName
-    ): ?EventLogEntry
-    {
+    ): ?EventLogEntry {
         $logEntries = Repo::eventLog()->getCollector()
             ->filterByAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, [$submissionFile->getId()])
             ->getMany();

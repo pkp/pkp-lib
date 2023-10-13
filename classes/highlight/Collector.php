@@ -48,6 +48,7 @@ class Collector implements CollectorInterface
 
     /**
      * @copydoc DAO::getIds()
+     *
      * @return Collection<int,int>
      */
     public function getIds(): Collection
@@ -57,6 +58,7 @@ class Collector implements CollectorInterface
 
     /**
      * @copydoc DAO::getMany()
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(): LazyCollection
@@ -113,20 +115,20 @@ class Collector implements CollectorInterface
     {
         $qb = DB::table($this->dao->table . ' as h')
             ->select(['h.*'])
-            ->when(isset($this->contextIds) && $this->includeSite !== self::SITE_ONLY, function($qb) {
+            ->when(isset($this->contextIds) && $this->includeSite !== self::SITE_ONLY, function ($qb) {
                 $qb->whereIn('h.' . $this->dao->parentKeyColumn, $this->contextIds);
                 if ($this->includeSite === self::SITE_AND_CONTEXTS) {
                     $qb->orWhereNull('h.' . $this->dao->parentKeyColumn);
                 }
-            }, function($qb) {
-                 if ($this->includeSite === self::SITE_ONLY) {
+            }, function ($qb) {
+                if ($this->includeSite === self::SITE_ONLY) {
                     $qb->whereNull('h.' . $this->dao->parentKeyColumn);
                 }
             })
-            ->when(isset($this->count), function($qb) {
+            ->when(isset($this->count), function ($qb) {
                 $qb->limit($this->count);
             })
-            ->when(isset($this->offset), function($qb) {
+            ->when(isset($this->offset), function ($qb) {
                 $qb->offset($this->offset);
             })
             ->orderBy('h.sequence', 'asc');

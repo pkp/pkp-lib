@@ -23,8 +23,7 @@ class AllowCrossOrigin
 {
     /**
      * Apply cross origin headers to request
-     * 
-     * @return mixed
+     *
      */
     public function handle(Request $request, Closure $next)
     {

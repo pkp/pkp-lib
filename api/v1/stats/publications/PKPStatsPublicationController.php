@@ -22,12 +22,12 @@ use APP\core\Services;
 use APP\facades\Repo;
 use APP\statistics\StatisticsHelper;
 use APP\submission\Submission;
-use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\core\PKPRequest;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
@@ -35,8 +35,8 @@ use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use Symfony\Component\HttpFoundation\StreamedResponse;
 use Sokil\IsoCodes\IsoCodesFactory;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 abstract class PKPStatsPublicationController extends PKPBaseController
 {
@@ -54,8 +54,8 @@ abstract class PKPStatsPublicationController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
@@ -68,24 +68,24 @@ abstract class PKPStatsPublicationController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::get('', $this->getMany(...))
             ->name('stats.publication.getMany');
-        
+
         Route::get('timeline', $this->getManyTimeline(...))
             ->name('stats.publication.getManyTimeline');
 
         Route::get('{submissionId}', $this->get(...))
             ->name('stats.publication.getSubmission')
             ->whereNumber('submissionId');
-        
+
         Route::get('{submissionId}/timeline', $this->getTimeline(...))
             ->name('stats.publication.getTimeline')
             ->whereNumber('submissionId');
-        
+
         Route::get('files', $this->getManyFiles(...))
             ->name('stats.publication.getFiles');
-        
+
         Route::get('countries', $this->getManyCountries(...))
             ->name('stats.publication.getCountries');
 
@@ -173,6 +173,8 @@ abstract class PKPStatsPublicationController extends PKPBaseController
      *
      * Returns total views by abstract, all galleys, pdf galleys,
      * html galleys, and other galleys.
+     *
+     * @hook API::stats::publications::params [[&$allowedParams, $illuminateRequest]]
      */
     public function getMany(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
@@ -245,6 +247,8 @@ abstract class PKPStatsPublicationController extends PKPBaseController
     /**
      * Get the total abstract or files views for a set of submissions
      * in a timeline broken down by month or day
+     *
+     * @hook API::stats::publications::timeline::params [[&$allowedParams, $illuminateRequest]]
      */
     public function getManyTimeline(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
@@ -295,6 +299,8 @@ abstract class PKPStatsPublicationController extends PKPBaseController
 
     /**
      * Get a single submission's usage statistics
+     *
+     * @hook API::stats::publication::params [[&$allowedParams, $illuminateRequest]]
      */
     public function get(Request $illuminateRequest): JsonResponse
     {
@@ -335,6 +341,8 @@ abstract class PKPStatsPublicationController extends PKPBaseController
     /**
      * Get the total abstract of files views for a submission broken down by
      * month or day
+     *
+     * @hook API::stats::publication::timeline::params [[&$allowedParams, $illuminateRequest]]
      */
     public function getTimeline(Request $illuminateRequest): JsonResponse
     {
@@ -383,6 +391,8 @@ abstract class PKPStatsPublicationController extends PKPBaseController
 
     /**
      * Get total usage stats for a set of submission files.
+     *
+     * @hook API::stats::publications::files::params [[&$allowedParams, $illuminateRequest]]
      */
     public function getManyFiles(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
@@ -412,7 +422,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
                     'itemsMax' => 0,
                 ], Response::HTTP_OK);
             }
-            
+
             return response()->json(['error' => $e->getMessage()], $e->getCode());
         }
 
@@ -455,6 +465,8 @@ abstract class PKPStatsPublicationController extends PKPBaseController
      * Get usage stats for a set of countries
      *
      * Returns total count of views, downloads, unique views and unique downloads in a country
+     *
+     * @hook API::stats::publications::countries::params [[&$allowedParams, $illuminateRequest]]
      */
     public function getManyCountries(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
@@ -524,6 +536,8 @@ abstract class PKPStatsPublicationController extends PKPBaseController
      * Get usage stats for set of regions
      *
      * Returns total count of views, downloads, unique views and unique downloads in a region
+     *
+     * @hook API::stats::publications::regions::params [[&$allowedParams, $illuminateRequest]]
      */
     public function getManyRegions(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
@@ -600,6 +614,8 @@ abstract class PKPStatsPublicationController extends PKPBaseController
      * Get usage stats for set of cities
      *
      * Returns total count of views, downloads, unique views and unique downloads in a city
+     *
+     * @hook API::stats::publications::cities::params [[&$allowedParams, $illuminateRequest]]
      */
     public function getManyCities(Request $illuminateRequest): StreamedResponse|JsonResponse
     {

@@ -236,6 +236,8 @@ class Locale implements LocaleInterface
 
     /**
      * @copy LocaleInterface::installLocale()
+     *
+     * @hook Locale::installLocale [[&$locale]]
      */
     public function installLocale(string $locale): void
     {
@@ -419,6 +421,8 @@ class Locale implements LocaleInterface
 
     /**
      * Translates the texts
+     *
+     * @hook Locale::translate [[&$value, $key, $params, $number, $locale, $localeBundle]]
      */
     protected function translate(string $key, ?int $number, array $params, ?string $locale): string
     {

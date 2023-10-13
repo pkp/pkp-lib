@@ -128,6 +128,8 @@ abstract class Repository
      * @param array $props A key/value array with the new data to validate
      *
      * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook Publication::validate [[&$errors, $publication, $props, $allowedLocales, $primaryLocale]]
      */
     public function validate(?Publication $publication, array $props, Submission $submission, Context $context): array
     {
@@ -245,6 +247,8 @@ abstract class Repository
      *
      * @param array $allowedLocales The context's supported submission locales
      * @param string $primaryLocale The submission's primary locale
+     *
+     * @hook Publication::validatePublish [[&$errors, $publication, $submission, $allowedLocales, $primaryLocale]]
      */
     public function validatePublish(Publication $publication, Submission $submission, array $allowedLocales, string $primaryLocale): array
     {
@@ -306,6 +310,8 @@ abstract class Repository
      *
      * Makes a copy of an existing publication, without the datePublished,
      * and makes copies of all associated objects.
+     *
+     * @hook Publication::version [[&$newPublication, $publication]]
      */
     public function version(Publication $publication): int
     {
@@ -421,6 +427,8 @@ abstract class Repository
      * @throws \Exception
      *
      * @see self::setStatusOnPublish()
+     *
+     * @hook Publication::publish::before [[&$newPublication, $publication]]
      */
     public function publish(Publication $publication)
     {
@@ -529,6 +537,8 @@ abstract class Repository
      * publication.
      *
      * This method should be called by self::publish().
+     *
+     * @hook Publication::unpublish::before [[ &$newPublication, $publication ]]
      */
     abstract protected function setStatusOnPublish(Publication $publication);
 
@@ -539,6 +549,8 @@ abstract class Repository
      * as changing the status, logging events, updating the search index, etc.
      *
      * @see self::setStatusOnPublish()
+     *
+     * @hook Publication::unpublish::before [[ &$newPublication, $publication ]]
      */
     public function unpublish(Publication $publication)
     {

@@ -179,6 +179,8 @@ class PKPComponentRouter extends PKPRouter
      *
      * @return callable|array|null an array with the handler instance
      *  and the handler operation to be called by call_user_func().
+     *
+     * @hook LoadComponentHandler [[&$component, &$op, &$componentInstance]]
      */
     public function &getRpcServiceEndpoint($request)
     {

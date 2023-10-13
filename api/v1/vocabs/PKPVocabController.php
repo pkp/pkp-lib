@@ -22,8 +22,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\core\PKPRequest;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -54,8 +54,8 @@ class PKPVocabController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SITE_ADMIN,
@@ -70,7 +70,7 @@ class PKPVocabController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::get('', $this->getMany(...))->name('vocab.getMany');
     }
 
@@ -88,6 +88,8 @@ class PKPVocabController extends PKPBaseController
 
     /**
      * Get the controlled vocab entries available in this context
+     *
+     * @hook API::vocabs::getMany [[$vocab, &$entries, $illuminateRequest, response(), $request]]
      */
     public function getMany(Request $illuminateRequest): JsonResponse
     {

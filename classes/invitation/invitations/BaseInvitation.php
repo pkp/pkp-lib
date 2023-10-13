@@ -241,7 +241,7 @@ abstract class BaseInvitation
         return false;
     }
 
-    static public function makeKeyHash($key): string
+    public static function makeKeyHash($key): string
     {
         return password_hash($key, PASSWORD_BCRYPT);
     }

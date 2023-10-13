@@ -141,6 +141,8 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
 
     /**
      * @copydoc PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface::getQuery()
+     *
+     * @hook Context::getContexts::queryObject [[&$q, $this]]
      */
     public function getQuery()
     {

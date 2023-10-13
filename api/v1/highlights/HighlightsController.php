@@ -18,14 +18,14 @@
 namespace PKP\API\v1\highlights;
 
 use APP\facades\Repo;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Response;
-use Exception;
+use Illuminate\Support\Facades\Route;
 use PKP\core\exceptions\StoreTemporaryFileException;
-use PKP\core\PKPRequest;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\highlight\Collector;
 use PKP\plugins\Hook;
 use PKP\security\authorization\PolicySet;
@@ -53,7 +53,7 @@ class HighlightsController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
+            'has.user',
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SITE_ADMIN,
@@ -65,24 +65,24 @@ class HighlightsController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {        
+    {
         Route::get('', $this->getMany(...))
             ->name('highlight.getMany');
 
         Route::get('{highlightId}', $this->get(...))
             ->name('highlight.get')
             ->whereNumber('highlightId');
-        
+
         Route::post('', $this->add(...))
             ->name('highlight.add');
-        
+
         Route::put('{highlightId}', $this->edit(...))
             ->name('highlight.edit')
             ->whereNumber('highlightId');
-        
+
         Route::put('order', $this->order(...))
             ->name('highlight.order');
-        
+
         Route::delete('{highlightId}', $this->delete(...))
             ->name('highlight.delete')
             ->whereNumber('highlightId');
@@ -130,6 +130,8 @@ class HighlightsController extends PKPBaseController
 
     /**
      * Get a collection of highlights
+     *
+     * @hook API::highlights::params [$collector, $illuminateRequest]
      */
     public function getMany(Request $illuminateRequest): JsonResponse
     {
@@ -247,7 +249,7 @@ class HighlightsController extends PKPBaseController
         }
 
         $highlights = array_map(
-            function($item) use ($context) {
+            function ($item) use ($context) {
                 return isset($item['id']) && isset($item['sequence'])
                     ? Repo::highlight()->get($item['id'], $context?->getId())
                     : null;
@@ -311,6 +313,6 @@ class HighlightsController extends PKPBaseController
      */
     protected function getSiteRoleAssignments(array $roleAssignments): array
     {
-        return array_filter($roleAssignments, fn($key) => $key == Role::ROLE_ID_SITE_ADMIN, ARRAY_FILTER_USE_KEY);
+        return array_filter($roleAssignments, fn ($key) => $key == Role::ROLE_ID_SITE_ADMIN, ARRAY_FILTER_USE_KEY);
     }
 }

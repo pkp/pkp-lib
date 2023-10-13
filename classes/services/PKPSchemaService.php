@@ -64,6 +64,9 @@ class PKPSchemaService
      *  source files, bypassing any cached version.
      *
      * @return object
+     *
+     * @hook Schema::get::
+     * @hook Schema::get::
      */
     public function get($schemaName, $forceReload = false)
     {

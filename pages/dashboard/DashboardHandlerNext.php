@@ -184,6 +184,8 @@ class DashboardHandlerNext extends Handler
 
     /**
      * Get a list of the pre-configured views
+     *
+     * @hook Dashboard::views [[&$views, $userRoles]]
      */
     protected function getViews(): array
     {
@@ -333,6 +335,8 @@ class DashboardHandlerNext extends Handler
 
     /**
      * Define the columns in the submissions table
+     *
+     * @hook Dashboard::columns [[&$columns, $userRoles]]
      */
     protected function getColumns(): array
     {
@@ -361,14 +365,14 @@ class DashboardHandlerNext extends Handler
      */
     protected function createColumn(string $id, string $header, string $template, bool $sortable = false): object
     {
-        return new class($id, $header, $template, $sortable)
-        {
+        return new class ($id, $header, $template, $sortable) {
             public function __construct(
                 public string $id,
                 public string $header,
                 public string $template,
                 public bool $sortable,
-            ) {}
+            ) {
+            }
         };
     }
 }

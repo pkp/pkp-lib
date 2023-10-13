@@ -83,6 +83,8 @@ class Repository
      * @param array $props A key/value array with the new data to validate
      *
      * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook Section::validate [[&$errors, $object, $props, $allowedLocales, $primaryLocale]]
      */
     public function validate(?Section $object, array $props, Context $context): array
     {

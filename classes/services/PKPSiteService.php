@@ -37,6 +37,8 @@ class PKPSiteService implements EntityPropertyInterface
      * @copydoc \PKP\services\interfaces\EntityPropertyInterface::getProperties()
      *
      * @param null|mixed $args
+     *
+     * @hook Site::getProperties [[&$values, $site, $props, $args]]
      */
     public function getProperties($site, $props, $args = null)
     {
@@ -93,6 +95,8 @@ class PKPSiteService implements EntityPropertyInterface
      * @param string $primaryLocale
      *
      * @return array List of error messages. The array keys are property names
+     *
+     * @hook Site::validate [[&$errors, $props, $allowedLocales, $primaryLocale]]
      */
     public function validate($props, $allowedLocales, $primaryLocale)
     {
@@ -194,6 +198,8 @@ class PKPSiteService implements EntityPropertyInterface
      * @param Request $request
      *
      * @return Site
+     *
+     * @hook Site::edit [[&$newSite, $site, $params, $request]]
      */
     public function edit($site, $params, $request)
     {
@@ -228,7 +234,6 @@ class PKPSiteService implements EntityPropertyInterface
     /**
      * Move a temporary file to the site's public directory
      *
-     * @param Site $context
      * @param TemporaryFile $temporaryFile
      * @param string $fileNameBase Unique identifier to use for the filename. The
      *  Extension and locale will be appended.

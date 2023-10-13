@@ -26,9 +26,9 @@ use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\log\event\SubmissionFileEventLogEntry;
 use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
-use PKP\log\event\SubmissionFileEventLogEntry;
 use PKP\mail\mailables\RevisedVersionNotify;
 use PKP\note\NoteDAO;
 use PKP\notification\PKPNotification;
@@ -109,6 +109,8 @@ abstract class Repository
      * @param string $primaryLocale The context's primary locale
      *
      * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook SubmissionFile::validate [[ &$errors, $object, $props, $allowedLocales, $primaryLocale ]]
      */
     public function validate(
         ?SubmissionFile $object,
@@ -715,6 +717,8 @@ abstract class Repository
 
     /**
      * Check if a submission file supports dependent files
+     *
+     * @hook SubmissionFile::supportsDependentFiles [[&$result, $submissionFile]]
      */
     public function supportsDependentFiles(SubmissionFile $submissionFile): bool
     {

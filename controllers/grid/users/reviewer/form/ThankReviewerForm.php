@@ -105,6 +105,8 @@ class ThankReviewerForm extends Form
 
     /**
      * @copydoc Form::execute()
+     *
+     * @hook ThankReviewerForm::thankReviewer [[$submission, $reviewAssignment, $mailable]]
      */
     public function execute(...$functionArgs)
     {

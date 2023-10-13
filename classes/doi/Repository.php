@@ -130,6 +130,9 @@ abstract class Repository
      * @param array $props A key/value array with the new data to validate
      *
      * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook Doi::suffixValidation [[&$validRegexPattern]]
+     * @hook Doi::validate [[&$errors, $object, $props]]
      */
     public function validate(?Doi $object, array $props): array
     {
@@ -250,6 +253,8 @@ abstract class Repository
      * Manually sets DOI status to Doi::STATUS_REGISTERED. This is used in cases where the
      * DOI registration process has been complete elsewhere and needs to be recorded as
      * registered locally.
+     *
+     * @hook Doi::markRegistered [[&$editParams]]
      */
     public function markRegistered(int $doiId)
     {

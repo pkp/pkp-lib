@@ -21,6 +21,7 @@ use PKP\core\traits\EntityWithParent;
 
 /**
  * @template T of Category
+ *
  * @extends EntityDAO<T>
  */
 class DAO extends EntityDAO
@@ -87,6 +88,7 @@ class DAO extends EntityDAO
 
     /**
      * Get a collection of categories matching the configured query
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection

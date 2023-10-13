@@ -85,8 +85,7 @@ class RecommendationNotifyEditors extends Mailable
             if (get_class($variable) === RecipientEmailVariable::class) {
 
                 // override including new variable
-                $this->variables[$key] = new class($recipients, $this) extends RecipientEmailVariable
-                {
+                $this->variables[$key] = new class ($recipients, $this) extends RecipientEmailVariable {
                     public function values(string $locale): array
                     {
                         $values = parent::values($locale);

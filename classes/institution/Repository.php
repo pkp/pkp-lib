@@ -90,6 +90,8 @@ class Repository
      * @param string $primaryLocale The context's primary locale
      *
      * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook Institution::validate [[&$errors, $object, $props, $allowedLocales, $primaryLocale]]
      */
     public function validate(?Institution $object, array $props, array $allowedLocales, string $primaryLocale): array
     {

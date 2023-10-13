@@ -30,6 +30,7 @@ use PKP\submission\RepresentationDAOInterface;
 
 /**
  * @template T of Galley
+ *
  * @extends EntityDAO<T>
  */
 class DAO extends EntityDAO implements RepresentationDAOInterface
@@ -111,6 +112,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
 
     /**
      * Get a collection of galleys matching the configured query
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection

@@ -49,6 +49,7 @@ class Collector implements CollectorInterface
 
     /**
      * @copydoc DAO::getMany()
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(): LazyCollection
@@ -154,6 +155,7 @@ class Collector implements CollectorInterface
      *
      * @see self::getCompiledQuery()
      *
+     * @hook EmailTemplate::Collector::default [[$q, $this]]
      */
     protected function getDefaultQueryBuilder(): Builder
     {
@@ -199,6 +201,7 @@ class Collector implements CollectorInterface
      *
      * @see self::getCompiledQuery()
      *
+     * @hook EmailTemplate::Collector::custom [[$q, $this]]
      */
     protected function getCustomQueryBuilder(): Builder
     {

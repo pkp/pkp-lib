@@ -20,25 +20,23 @@ namespace PKP\core;
 use APP\core\Application;
 use APP\core\Services;
 use Exception;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
 use Illuminate\Routing\Controller;
-use PKP\core\PKPRequest;
-use PKP\validation\ValidatorFactory;
-use PKP\statistics\PKPStatisticsHelper;
-use PKP\session\SessionManager;
-use PKP\security\authorization\UserRolesRequiredPolicy;
+use Illuminate\Routing\Route;
 use PKP\security\authorization\AllowedHostsPolicy;
-use PKP\security\authorization\HttpsPolicy;
-use PKP\security\authorization\RestrictedSiteAccessPolicy;
-use PKP\security\authorization\PolicySet;
-use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\AuthorizationDecisionManager;
+use PKP\security\authorization\AuthorizationPolicy;
+use PKP\security\authorization\HttpsPolicy;
+use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\RestrictedSiteAccessPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\session\SessionManager;
+use PKP\statistics\PKPStatisticsHelper;
+use PKP\validation\ValidatorFactory;
 use ReflectionFunction;
-
 
 abstract class PKPBaseController extends Controller
 {
@@ -55,8 +53,8 @@ abstract class PKPBaseController extends Controller
      */
     protected array $_roleAssignments = [];
 
-    /** 
-     * Whether role assignments have been checked. 
+    /**
+     * Whether role assignments have been checked.
      */
     protected bool $_roleAssignmentsChecked = false;
 
@@ -65,24 +63,24 @@ abstract class PKPBaseController extends Controller
      */
     protected bool $_enforceRestrictedSite = true;
 
-    /** 
+    /**
      * Authorization decision manager
      */
     protected ?AuthorizationDecisionManager $_authorizationDecisionManager = null;
 
     /**
-     * The PKP request object 
+     * The PKP request object
      */
     protected ?PKPRequest $_request = null;
-    
+
     /**
      * The unique endpoint string for the APIs that will be served through controller.
-     * 
-     * This is equivalent to property \PKP\handler\APIHandler::_handlerPath 
+     *
+     * This is equivalent to property \PKP\handler\APIHandler::_handlerPath
      * which will be passed through \PKP\handler\APIHandler\PKPApiRoutingHandler
      */
     abstract public function getHandlerPath(): string;
-    
+
     /**
      * Return the middlewares that will be applied to all defined routes in controller
      */
@@ -136,7 +134,7 @@ abstract class PKPBaseController extends Controller
     /**
      * Return the role authorizer middleware ('has.roles') with proper role params binding
      */
-    public static function roleAuthorizer(array $roles): string 
+    public static function roleAuthorizer(array $roles): string
     {
         if (empty($roles)) {
             throw new Exception('must provide roles as array to authorize');
@@ -149,8 +147,8 @@ abstract class PKPBaseController extends Controller
 
     /**
      * The endpoint pattern for the APIs that will be served through controller.
-     * 
-     * This is equivalent to property \PKP\handler\APIHandler::_pathPattern 
+     *
+     * This is equivalent to property \PKP\handler\APIHandler::_pathPattern
      * which will be passed through \PKP\handler\APIHandler\PKPApiRoutingHandler
      */
     public function getPathPattern(): ?string
@@ -160,8 +158,8 @@ abstract class PKPBaseController extends Controller
 
     /**
      * Define if all the path building for admin api use rather than at context level
-     * 
-     * This is equivalent to property \PKP\handler\APIHandler::_apiForAdmin 
+     *
+     * This is equivalent to property \PKP\handler\APIHandler::_apiForAdmin
      * which will be passed through \PKP\handler\APIHandler\PKPApiRoutingHandler
      */
     public function isSiteWide(): bool
@@ -186,9 +184,8 @@ abstract class PKPBaseController extends Controller
      * Policies must be added in the authorize() method before the parent::authorize()
      * call so that PKPBaseController::authorize() will be able to enforce them.
      *
-     * @param AuthorizationPolicy|PolicySet $authorizationPolicy
      * @param bool                          $addToTop               Whether to insert the new policy to the top of the list.
-     * 
+     *
      */
     public function addPolicy(AuthorizationPolicy|PolicySet $authorizationPolicy, bool $addToTop = false): void
     {
@@ -311,17 +308,15 @@ abstract class PKPBaseController extends Controller
      * Authorize this request.
      *
      * This method will be called via the \PKP\middleware\PolicyAuthorizer middleware
-     * authomatically for the current target route to execute before execuring the 
-     * route itself . 
+     * authomatically for the current target route to execute before execuring the
+     * route itself .
      *
      * NB: This method will be called once for every request only.
      *
-     * @param PKPRequest    $request
      * @param array         $args               request arguments
      * @param array         $roleAssignments    the operation role assignment,
      *                                          see getRoleAssignment() for more details.
      *
-     * @return bool
      */
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
@@ -490,9 +485,9 @@ abstract class PKPBaseController extends Controller
                     }
                     return $newArray;
 
-                // An empty string is accepted as an empty array. This addresses the
-                // issue where browsers strip empty arrays from post data before sending.
-                // See: https://bugs.jquery.com/ticket/6481
+                    // An empty string is accepted as an empty array. This addresses the
+                    // issue where browsers strip empty arrays from post data before sending.
+                    // See: https://bugs.jquery.com/ticket/6481
                 } elseif (is_string($value) && !strlen($value)) {
                     return [];
                 } elseif (is_null($value)) { // if null, then return empty array

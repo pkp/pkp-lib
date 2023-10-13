@@ -134,6 +134,7 @@ abstract class EntityDAO
 
     /**
      * Insert an object into the database
+     *
      * @param T $object
      */
     protected function _insert(DataObject $object): int
@@ -181,6 +182,7 @@ abstract class EntityDAO
 
     /**
      * Update an object in the database
+     *
      * @param T $object
      */
     protected function _update(DataObject $object)
@@ -253,6 +255,7 @@ abstract class EntityDAO
 
     /**
      * Delete an object from the database
+     *
      * @param T $object
      */
     protected function _delete(DataObject $object)
@@ -277,6 +280,7 @@ abstract class EntityDAO
      * array that maps them to the primary table columns.
      *
      * @see $this->primaryTableColumns
+     *
      * @param T $object
      */
     protected function getPrimaryDbProps(DataObject $object): array

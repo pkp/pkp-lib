@@ -89,8 +89,8 @@ class APIRouter extends PKPRouter
 
         if (!file_exists($sourceFile)) {
             response()->json([
-                'error'         => 'api.404.endpointNotFound',
-                'errorMessage'  => __('api.404.endpointNotFound'),
+                'error' => 'api.404.endpointNotFound',
+                'errorMessage' => __('api.404.endpointNotFound'),
             ], Response::HTTP_NOT_FOUND)->send();
             exit;
         }
@@ -129,8 +129,8 @@ class APIRouter extends PKPRouter
         array $messageParams = []
     ) {
         response()->json([
-            'error'         => $authorizationMessage,
-            'errorMessage'  => __($authorizationMessage, $messageParams),
+            'error' => $authorizationMessage,
+            'errorMessage' => __($authorizationMessage, $messageParams),
         ], Response::HTTP_FORBIDDEN)->send();
         exit;
     }

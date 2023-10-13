@@ -29,6 +29,7 @@ use PKP\identity\Identity;
 
 /**
  * @template T of User
+ *
  * @extends EntityDAO<T>
  */
 class DAO extends EntityDAO
@@ -116,6 +117,7 @@ class DAO extends EntityDAO
 
     /**
      * Get a collection of users matching the configured query
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection

@@ -17,21 +17,21 @@
 
 namespace PKP\API\v1\stats\contexts;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Route;
-use PKP\plugins\Hook;
-use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
-use PKP\security\authorization\PolicySet;
-use PKP\security\authorization\UserRolesRequiredPolicy;
-use PKP\core\PKPRequest;
-use PKP\services\PKPStatsContextService;
-use PKP\statistics\PKPStatisticsHelper;
 use APP\core\Services;
 use APP\services\ContextService;
-use PKP\security\Role;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
+use PKP\plugins\Hook;
+use PKP\security\authorization\PolicySet;
+use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\security\Role;
+use PKP\services\PKPStatsContextService;
+use PKP\statistics\PKPStatisticsHelper;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class PKPStatsContextController extends PKPBaseController
@@ -50,11 +50,11 @@ class PKPStatsContextController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
             self::roleAuthorizer([
-                Role::ROLE_ID_SITE_ADMIN, 
-                Role::ROLE_ID_MANAGER, 
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_MANAGER,
             ]),
         ];
     }
@@ -63,10 +63,10 @@ class PKPStatsContextController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::get('timeline', $this->getManyTimeline(...))
             ->name('stats.context.multipleContextTimeline');
-        
+
         Route::get('{contextId}/timeline', $this->getTimeline(...))
             ->name('stats.context.contextTimeline')
             ->whereNumber('contextId');
@@ -74,7 +74,7 @@ class PKPStatsContextController extends PKPBaseController
         Route::get('{contextId}', $this->get(...))
             ->name('stats.context.contextStat')
             ->whereNumber('contextId');
-        
+
         Route::get('', $this->getMany(...))
             ->name('stats.context.multipleContextStat');
     }
@@ -99,6 +99,8 @@ class PKPStatsContextController extends PKPBaseController
 
     /**
      * Get total views of the homepages for a set of contexts
+     *
+     * @hook API::stats::contexts::params [[&$allowedParams, $illuminateRequest]]
      */
     public function getMany(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
@@ -128,13 +130,13 @@ class PKPStatsContextController extends PKPBaseController
         if ($result !== true) {
             return response()->json([
                 'error' => $result,
-            ],Response::HTTP_BAD_REQUEST);
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         if (!in_array($allowedParams['orderDirection'], [PKPStatisticsHelper::STATISTICS_ORDER_ASC, PKPStatisticsHelper::STATISTICS_ORDER_DESC])) {
             return response()->json([
                 'error' => __('api.stats.400.invalidOrderDirection'),
-            ],Response::HTTP_BAD_REQUEST);
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         // Identify contexts which should be included in the results when a searchPhrase is passed
@@ -185,6 +187,8 @@ class PKPStatsContextController extends PKPBaseController
 
     /**
      * Get a monthly or daily timeline of total views for a set of contexts
+     *
+     * @hook API::stats::contexts::timeline::params [[&$allowedParams, $illuminateRequest]]
      */
     public function getManyTimeline(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
@@ -209,14 +213,14 @@ class PKPStatsContextController extends PKPBaseController
         if (!$this->isValidTimelineInterval($allowedParams['timelineInterval'])) {
             return response()->json([
                 'error' => __('api.stats.400.wrongTimelineInterval'),
-            ],Response::HTTP_BAD_REQUEST);
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $result = $this->_validateStatDates($allowedParams);
         if ($result !== true) {
             return response()->json([
                 'error' => $result,
-            ],Response::HTTP_BAD_REQUEST);
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $statsService = Services::get('contextStats'); /** @var PKPStatsContextService $statsService */
@@ -243,12 +247,14 @@ class PKPStatsContextController extends PKPBaseController
             $csvColumnNames = $statsService->getTimelineReportColumnNames();
             return response()->withCSV($data, $csvColumnNames, count($data));
         }
-        
+
         return response()->json($data, Response::HTTP_OK);
     }
 
     /**
      * Get a single context's usage statistics
+     *
+     * @hook API::stats::context::params [[&$allowedParams, $illuminateRequest]]
      */
     public function get(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
@@ -310,6 +316,8 @@ class PKPStatsContextController extends PKPBaseController
 
     /**
      * Get a monthly or daily timeline of total views for a context
+     *
+     * @hook API::stats::context::timeline::params [[&$allowedParams, $illuminateRequest]]
      */
     public function getTimeline(Request $illuminateRequest): StreamedResponse|JsonResponse
     {
@@ -367,7 +375,7 @@ class PKPStatsContextController extends PKPBaseController
             $csvColumnNames = Services::get('contextStats')->getTimelineReportColumnNames();
             return response()->withCSV($data, $csvColumnNames, count($data));
         }
-        
+
         return response()->withJson($data, Response::HTTP_OK);
     }
 

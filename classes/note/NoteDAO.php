@@ -167,6 +167,8 @@ class NoteDAO extends \PKP\db\DAO
      * @param array $row
      *
      * @return Note object
+     *
+     * @hook NoteDAO::_fromRow [[&$note, &$row]]
      */
     public function _fromRow($row)
     {

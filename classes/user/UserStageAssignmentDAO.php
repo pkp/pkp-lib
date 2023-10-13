@@ -43,6 +43,7 @@ class UserStageAssignmentDAO extends DAO
 
     /**
      * Retrieve a set of users of a user group not assigned to a given submission stage and matching the specified settings.
+     *
      * @todo Not working and not being used, probably can be removed
      *
      * @param int $submissionId

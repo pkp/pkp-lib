@@ -57,6 +57,8 @@ class ReviewFormResponseDAO extends \PKP\db\DAO
      * @param array $row
      *
      * @return ReviewFormResponse
+     *
+     * @hook ReviewFormResponseDAO::_returnReviewFormResponseFromRow [[&$reviewFormResponse, &$row]]
      */
     public function &_returnReviewFormResponseFromRow($row)
     {

@@ -49,6 +49,8 @@ class Schema extends \PKP\core\maps\Schema
 
     /**
      * Get extra property names used in the submissions list
+     *
+     * @hook Submission::getSubmissionsListProps [[&$props]]
      */
     protected function getSubmissionsListProps(): array
     {

@@ -20,7 +20,6 @@ use APP\facades\Repo;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
-use PKP\core\PKPApplication;
 use PKP\invitation\invitations\RegistrationAccessInvite;
 use PKP\mail\mailables\ValidateEmailContext as ContextMailable;
 use PKP\mail\mailables\ValidateEmailSite as SiteMailable;

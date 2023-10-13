@@ -17,9 +17,9 @@
 
 namespace PKP\API\v1\_i18n;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\facades\Locale;
 
@@ -45,7 +45,7 @@ class I18nController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::get('ui.js', $this->getTranslations(...))->name('_i18n.getTranslations');
     }
 

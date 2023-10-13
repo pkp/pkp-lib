@@ -124,6 +124,8 @@ abstract class PKPStatsGeoQueryBuilder extends PKPStatsQueryBuilder
 
     /**
      * @copydoc PKPStatsQueryBuilder::_getObject()
+     *
+     * @hook StatsGeo::queryObject [[&$q, $this]]
      */
     protected function _getObject(): Builder
     {

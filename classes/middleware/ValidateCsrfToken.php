@@ -25,8 +25,7 @@ class ValidateCsrfToken
 {
     /**
      * Determine and validate CSRF token
-     * 
-     * @return mixed
+     *
      */
     public function handle(Request $request, Closure $next)
     {

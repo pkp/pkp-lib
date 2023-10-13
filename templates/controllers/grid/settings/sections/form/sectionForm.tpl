@@ -6,6 +6,8 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Section form under server management.
+ *
+ * @hook Templates::Manager::Sections::SectionForm::AdditionalMetadata" [[$sectionId]]
  *}
 
 <script type="text/javascript">

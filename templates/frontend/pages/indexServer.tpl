@@ -14,6 +14,8 @@
  * @uses $announcements array List of announcements
  * @uses $numAnnouncementsHomepage int Number of announcements to display on the
  *       homepage
+ *
+ * @hook Templates::Index::server []
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$currentServer->getLocalizedName()}
 

@@ -15,6 +15,8 @@
  * @uses $server Server The server currently being viewed.
  * @uses $primaryGalleys array List of preprint galleys that are not supplementary or dependent
  * @uses $supplementaryGalleys array List of preprint galleys that are supplementary
+ *
+ * @hook Templates::Preprint::Footer::PageFooter []
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$preprint->getCurrentPublication()->getLocalizedFullTitle(null, 'html')|strip_unsafe_html}
 

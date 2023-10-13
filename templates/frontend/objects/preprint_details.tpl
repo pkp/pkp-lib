@@ -46,8 +46,9 @@
  * Core components are produced manually below, but can also be added via
  * plugins using the hooks provided:
  *
- * Templates::Preprint::Main
- * Templates::Preprint::Details
+ * @hook Templates::Preprint::Main []
+ * @hook Templates::Preprint::Details::Reference [[parsedCitation]]
+ * @hook Templates::Preprint::Details []
  *
  * @uses $preprint Preprint This preprint
  * @uses $publication Publication The publication being displayed

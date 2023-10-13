@@ -76,14 +76,15 @@ class Repository
      * Perform validation checks on data used to add or edit an event log entry.
      *
      * @param array $props A key/value array with the new data to validate
-     * @param array $allowedLocales The context's supported locales
-     * @param string $primaryLocale The context's primary locale
      *
      * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook EventLog::validate [[&$errors, $object, $props, $allowedLocales, $primaryLocale]]
      */
     public function validate(?EventLogEntry $object, array $props, Context $context): array
     {
-        $allowedLocales = $context->getSupportedSubmissionLocales();;
+        $allowedLocales = $context->getSupportedSubmissionLocales();
+        ;
         $primaryLocale = $context->getPrimaryLocale();
 
         $validator = ValidatorFactory::make(

@@ -19,7 +19,6 @@
 
 namespace PKP\payment;
 
-use Exception;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 

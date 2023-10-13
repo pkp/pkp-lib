@@ -18,15 +18,15 @@
 namespace PKP\API\v1\_submissions;
 
 use APP\core\Application;
-use Illuminate\Http\Response;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use PKP\core\PKPRequest;
-use PKP\core\PKPBaseController;
 use APP\facades\Repo;
 use APP\submission\Collector;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route;
 use PKP\config\Config;
+use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -62,14 +62,14 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::get('', $this->getMany(...))
             ->name('_submission.getMany')
             ->middleware([
                 self::roleAuthorizer(
                     Config::getVar('features', 'enable_new_submission_listing')
                         ? [
-                            Role::ROLE_ID_SITE_ADMIN, 
+                            Role::ROLE_ID_SITE_ADMIN,
                             Role::ROLE_ID_MANAGER,
                         ] : [
                             Role::ROLE_ID_SITE_ADMIN,
@@ -92,9 +92,9 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                 ]),
             ])
             ->whereNumber('submissionId');
-        
+
         if (Config::getVar('features', 'enable_new_submission_listing')) {
-            
+
             Route::get('needsEditor', $this->needsEditor(...))
                 ->name('_submission.needsEditor')
                 ->middleware([
@@ -102,7 +102,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                         Role::ROLE_ID_MANAGER,
                     ]),
                 ]);
-            
+
             Route::get('assigned', $this->assigned(...))
                 ->name('_submission.assigned')
                 ->middleware([
@@ -135,6 +135,8 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
     /**
      * Get a collection of submissions
+     *
+     * @hook API::_submissions::params [$collector, $illuminateRequest]
      */
     public function getMany(Request $illuminateRequest): JsonResponse
     {

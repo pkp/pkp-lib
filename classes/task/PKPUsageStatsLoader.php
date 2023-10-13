@@ -270,6 +270,8 @@ abstract class PKPUsageStatsLoader extends FileLoader
      * The file's entries MUST be ordered by date-time to successfully identify double-clicks and unique items.
      *
      * @throws Exception
+     *
+     * @hook Stats::storeUsageEventLogEntry [[$entryData]]
      */
     protected function process(string $filePath, string $loadId): void
     {

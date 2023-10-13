@@ -20,13 +20,13 @@ namespace PKP\API\v1\dois;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
-use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\core\PKPRequest;
 use PKP\context\Context;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\doi\Doi;
 use PKP\doi\exceptions\DoiException;
 use PKP\file\TemporaryFileManager;
@@ -68,8 +68,8 @@ class PKPDoiController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
@@ -81,46 +81,46 @@ class PKPDoiController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::get('', $this->getMany(...))
             ->name('doi.getMany');
-        
+
         Route::get('{doiId}', $this->get(...))
             ->name('doi.getDoi')
             ->whereNumber('doiId');
-        
+
         Route::get('exports/{fileId}', $this->getExportedFile(...))
             ->name('doi.exports.getFile')
             ->whereNumber('fileId');
-        
+
         Route::post('', $this->add(...))
             ->name('doi.add');
-        
+
         Route::post('submissions/assignDois', $this->assignSubmissionDois(...))
             ->name('doi.submissions.assignDois');
-        
+
         Route::put('{doiId}', $this->edit(...))
             ->name('doi.edit')
             ->whereNumber('doiId');
-        
+
         Route::put('submissions/export', $this->exportSubmissions(...))
             ->name('doi.submissions.export');
-        
+
         Route::put('submissions/deposit', $this->depositSubmissions(...))
             ->name('doi.submissions.deposit');
-        
+
         Route::put('submissions/markRegistered', $this->markSubmissionsRegistered(...))
             ->name('doi.submissions.markRegistered');
-        
+
         Route::put('submissions/markUnregistered', $this->markSubmissionsUnregistered(...))
             ->name('doi.submissions.markUnregistered');
-        
+
         Route::put('submissions/markStale', $this->markSubmissionsStale(...))
             ->name('doi.submissions.markStale');
-        
+
         Route::put('depositAll', $this->depositAllDois(...))
             ->name('doi.deposite.all');
-        
+
         Route::delete('{doiId}', $this->delete(...))
             ->name('doi.delete')
             ->whereNumber('doiId');
@@ -174,6 +174,8 @@ class PKPDoiController extends PKPBaseController
 
     /**
      * Get a collection of DOIs
+     *
+     * @hook API::dois::params [[$collector, $illuminateRequest]]
      */
     public function getMany(Request $illuminateRequest): JsonResponse
     {
@@ -516,7 +518,7 @@ class PKPDoiController extends PKPBaseController
                     return $item->getMessage();
                 },
                 $failedDoiActions
-            )],Response::HTTP_BAD_REQUEST);
+            )], Response::HTTP_BAD_REQUEST);
         }
 
         foreach ($requestIds as $id) {
@@ -569,7 +571,7 @@ class PKPDoiController extends PKPBaseController
                     return $item->getMessage();
                 },
                 $failedDoiActions
-            )],Response::HTTP_BAD_REQUEST);
+            )], Response::HTTP_BAD_REQUEST);
         }
 
         foreach ($requestIds as $id) {
@@ -618,7 +620,7 @@ class PKPDoiController extends PKPBaseController
                     return $item->getMessage();
                 },
                 $failedDoiActions
-            )],Response::HTTP_BAD_REQUEST);
+            )], Response::HTTP_BAD_REQUEST);
         }
 
         foreach ($requestIds as $id) {
@@ -678,7 +680,7 @@ class PKPDoiController extends PKPBaseController
                     return $item->getMessage();
                 },
                 $failedDoiActions
-            )],Response::HTTP_BAD_REQUEST);
+            )], Response::HTTP_BAD_REQUEST);
         }
 
         return response()->json(['failedDoiActions' => $failedDoiActions], Response::HTTP_OK);

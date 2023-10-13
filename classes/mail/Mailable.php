@@ -355,9 +355,9 @@ class Mailable extends IlluminateMailable
     {
         $this->subject ??= ''; // Allow email with empty subject if not set
         $withoutTagViewData = collect($this->viewData)
-            ->map(fn(mixed $viewableData) => is_string($viewableData) ? strip_tags($viewableData) : $viewableData)
+            ->map(fn (mixed $viewableData) => is_string($viewableData) ? strip_tags($viewableData) : $viewableData)
             ->toArray();
-            
+
         $subject = app('mailer')->compileParams($this->subject, $withoutTagViewData);
         if (empty($subject)) {
             trigger_error(
@@ -480,6 +480,7 @@ class Mailable extends IlluminateMailable
 
     /**
      * Retrieve the list of type names that might compose a given type
+     *
      * @return string[]
      */
     protected static function getTypeNames(ReflectionType $type): array
@@ -524,6 +525,7 @@ class Mailable extends IlluminateMailable
      * Retrieves arguments of the specified methods
      *
      * @see self::getTemplateVarsDescription
+     *
      * @return ReflectionParameter[]
      */
     protected static function getParamsClass(ReflectionMethod $method): array

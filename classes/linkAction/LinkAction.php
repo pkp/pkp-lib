@@ -52,6 +52,8 @@ class LinkAction
      *  action.
      * @param string $toolTip (optional) A localized tool tip to display when hovering over
      *  the link action.
+     *
+     * @hook LinkAction::construct [[$this]]
      */
     public function __construct($id, $actionRequest, $title = null, $image = null, $toolTip = null)
     {

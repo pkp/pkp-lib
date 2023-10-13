@@ -25,14 +25,13 @@ class HasUser
 {
     /**
      * Check the existence of bound user to the request object
-     * 
-     * @return mixed
+     *
      */
     public function handle(Request $request, Closure $next)
     {
         $user = $request->user();
 
-        if ($user instanceof User ) {
+        if ($user instanceof User) {
             return $next($request);
         }
 

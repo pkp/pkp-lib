@@ -33,6 +33,8 @@ class PKPFileService
 
     /**
      * Initialize and configure flysystem
+     *
+     * @hook File::adapter [[&$adapter, $this]]
      */
     public function __construct()
     {
@@ -141,6 +143,8 @@ class PKPFileService
      * @param int $fileId File ID
      * @param string $filename Filename to give to the downloaded file
      * @param bool $inline Whether to stream the file to the browser
+     *
+     * @hook File::download [[$file, &$filename, $inline]]
      */
     public function download($fileId, $filename, $inline = false)
     {
@@ -181,6 +185,8 @@ class PKPFileService
      * @param string $filename Source filename to sanitize
      *
      * @return string
+     *
+     * @hook File::formatFilename [[&$newFilename, $path, $filename]]
      */
     public function formatFilename($path, $filename)
     {

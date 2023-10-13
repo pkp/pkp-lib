@@ -18,12 +18,12 @@
 namespace PKP\API\v1\stats\users;
 
 use APP\facades\Repo;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\core\PKPRequest;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
@@ -47,8 +47,8 @@ class PKPStatsUserController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
@@ -61,7 +61,7 @@ class PKPStatsUserController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::get('', $this->get(...))->name('stats.user.getUserStat');
     }
 
@@ -89,6 +89,8 @@ class PKPStatsUserController extends PKPBaseController
      * Get user stats
      *
      * Returns the count of users broken down by roles
+     *
+     * @hook API::stats::users::params [[$collector, $illuminateRequest]]
      */
     public function get(Request $illuminateRequest): JsonResponse
     {
@@ -143,9 +145,9 @@ class PKPStatsUserController extends PKPBaseController
                 function ($item) {
                     $item['name'] = __($item['name']);
                     return $item;
-                }, 
+                },
                 Repo::user()->getRolesOverview($collector)
-            ), 
+            ),
             Response::HTTP_OK
         );
     }

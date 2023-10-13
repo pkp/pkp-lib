@@ -139,6 +139,8 @@ class LibraryFileDAO extends \PKP\db\DAO
      * @param array $row
      *
      * @return LibraryFile
+     *
+     * @hook LibraryFileDAO::_fromRow [[&$libraryFile, &$row]]
      */
     public function _fromRow($row)
     {

@@ -17,48 +17,47 @@
 namespace PKP\middleware;
 
 use APP\core\Application;
-use Closure;
-use stdClass;
-use Throwable;
-use DomainException;
 use APP\facades\Repo;
+use Closure;
+use DomainException;
 use Firebase\JWT\Key;
+use Firebase\JWT\SignatureInvalidException;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use PKP\config\Config;
 use PKP\core\PKPJwt as JWT;
 use PKP\session\SessionManager;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use UnexpectedValueException;
-use Firebase\JWT\SignatureInvalidException;
-use Illuminate\Auth\Access\AuthorizationException;
 use PKP\user\User;
+use stdClass;
+use Throwable;
+use UnexpectedValueException;
 
 class DecodeApiTokenWithValidation
 {
     /**
      * Decode and validate the API token with incoming api request.
-     * 
+     *
      * On successful validation of API Token, set the PKP User object to
      * Laravel's user resolver.
-     * 
-     * @return mixed
+     *
      */
     public function handle(Request $request, Closure $next)
-    {   
+    {
         $jwtToken = $this->getApiToken($request);
-        
+
         /* VALIDATIONS */
-        
-        if (!$jwtToken) { 
-            
+
+        if (!$jwtToken) {
+
             // Set the user resolver
             $this->setUserResolver($request);
-            
+
             // there is nothing to decode or validate,
             // upto the auth layer to determine the how to handle
             return $next($request);
         }
-        
+
         $secret = Config::getVar('security', 'api_key_secret', null);
 
         if (!$secret) {
@@ -68,7 +67,7 @@ class DecodeApiTokenWithValidation
         $user = null;
 
         try {
-            $headers = new stdClass;
+            $headers = new stdClass();
             $apiToken = ((array)JWT::decode($jwtToken, new Key($secret, 'HS256'), $headers))[0]; /** @var string $apiToken */
 
             /**
@@ -80,7 +79,7 @@ class DecodeApiTokenWithValidation
                 $apiToken = json_decode($apiToken);
             }
 
-            $user = Repo::user()->getByApiKey($apiToken); 
+            $user = Repo::user()->getByApiKey($apiToken);
 
             if (!$user || !$user->getData('apiKeyEnabled')) {
                 return response()->json([
@@ -88,7 +87,7 @@ class DecodeApiTokenWithValidation
                 ], Response::HTTP_UNAUTHORIZED);
             }
         } catch (Throwable $exception) {
-            
+
             if($exception instanceof SignatureInvalidException) {
                 return response()->json([
                     'error' => __('api.400.invalidApiToken'),
@@ -114,7 +113,7 @@ class DecodeApiTokenWithValidation
 
     /**
      * Set the user resolving handler
-     * 
+     *
      * If user not resolved retrived through the API Token or it missing,
      * that mean the request probably came from within the app itself
      * and we need to retrive the user from session manager in that case
@@ -132,25 +131,25 @@ class DecodeApiTokenWithValidation
 
     /**
      * Get the API Token
-     * 
+     *
      * API Token may passed as authorization Header such as --> Authorization: Bearer API_TOKEN
      * or as a query param as --> API_URL/?apiToken=API_TOKEN
      */
     protected function getApiToken(Request $request): ?string
     {
         $authHeader = $request->header('Authorization');
-        
+
         if (!$authHeader) {
             return $request->query('apiToken');
         }
-        
+
         // Several authorization methods may be supplied with commas between them.
         // For example: Basic basic_auth_string_here, Bearer api_key_here
         // JWT uses the Bearer scheme with an API key. Ignore the others.
         $clauses = explode(',', $authHeader);
 
         foreach ($clauses as $clause) {
-            
+
             // Split the authorization scheme and parameters and look for the Bearer scheme.
             $parts = explode(' ', trim($clause));
 

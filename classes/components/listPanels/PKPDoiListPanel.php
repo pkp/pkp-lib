@@ -61,6 +61,8 @@ abstract class PKPDoiListPanel extends ListPanel
      * and passed to the UI component
      *
      * @return array Configuration data
+     *
+     * @hook DoiListPanel::setConfig [[&$config]]
      */
     public function getConfig()
     {

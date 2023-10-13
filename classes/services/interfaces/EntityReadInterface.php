@@ -15,6 +15,7 @@
  */
 
 namespace PKP\services\interfaces;
+
 use Illuminate\Database\Query\Builder;
 
 interface EntityReadInterface

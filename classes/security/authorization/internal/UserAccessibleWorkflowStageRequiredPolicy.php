@@ -83,7 +83,7 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy
             }
             return AuthorizationPolicy::AUTHORIZATION_DENY;
 
-        // User has at least one role in any stage in any workflow
+            // User has at least one role in any stage in any workflow
         } elseif (!empty($accessibleWorkflowStages)) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }

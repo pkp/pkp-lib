@@ -250,6 +250,8 @@ abstract class Repository
      * @param array $props A key/value array with the new data to validate
      *
      * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook Submission::validate [[&$errors, $submission, $props, $allowedLocales, $primaryLocale]]
      */
     public function validate(?Submission $submission, array $props, Context $context): array
     {
@@ -334,6 +336,8 @@ abstract class Repository
      * Check if a submission meets all requirements to be submitted
      *
      * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook Submission::validateSubmit [[&$errors, $submission, $context]]
      */
     public function validateSubmit(Submission $submission, Context $context): array
     {
@@ -530,6 +534,8 @@ abstract class Repository
 
     /**
      * Add a new submission
+     *
+     * @hook Submission::add [[$submission]]
      */
     public function add(Submission $submission, Publication $publication, Context $context): int
     {
@@ -638,6 +644,8 @@ abstract class Repository
      *
      * @param ?Section $section If this submission is being deleted, its previous section ID should be specified
      *    in order to ensure a correctly created tombstone.
+     *
+     * @hook Submission::updateStatus [[&$newStatus, $status, $submission]]
      */
     public function updateStatus(Submission $submission, ?int $newStatus = null, ?Section $section = null)
     {

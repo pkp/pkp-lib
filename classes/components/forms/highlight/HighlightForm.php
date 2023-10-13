@@ -42,9 +42,9 @@ class HighlightForm extends FormComponent
         $this->locales = $this->getLocales($context);
 
         $this->addField(new FieldRichText('title', [
-                'label' => __('common.title'),
-                'isMultilingual' => true,
-            ]))
+            'label' => __('common.title'),
+            'isMultilingual' => true,
+        ]))
             ->addField(new FieldRichText('description', [
                 'label' => __('common.description'),
                 'isMultilingual' => true,

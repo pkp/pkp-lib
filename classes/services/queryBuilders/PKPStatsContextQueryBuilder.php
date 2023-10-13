@@ -36,6 +36,8 @@ class PKPStatsContextQueryBuilder extends PKPStatsQueryBuilder
 
     /**
      * @copydoc PKPStatsQueryBuilder::_getObject()
+     *
+     * @hook StatsContext::queryObject [[&$q, $this]]
      */
     protected function _getObject(): Builder
     {

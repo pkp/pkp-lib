@@ -59,6 +59,7 @@ class Collector implements CollectorInterface
 
     /**
      * @copydoc DAO::getMany()
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(): LazyCollection
@@ -115,6 +116,8 @@ class Collector implements CollectorInterface
 
     /**
      * @copydoc collectorInterface::getQueryBuilder()
+     *
+     * @hook Doi::Collector [[&$q, $this]]
      */
     public function getQueryBuilder(): Builder
     {

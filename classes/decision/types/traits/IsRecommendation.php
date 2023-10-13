@@ -229,7 +229,7 @@ trait IsRecommendation
 
         $mailable
             ->from($editor->getEmail(), $editor->getFullName())
-            ->to($recipients->map(fn(User $recipient) => ['email' => $recipient->getEmail(), 'name' => $recipient->getFullName()])->toArray())
+            ->to($recipients->map(fn (User $recipient) => ['email' => $recipient->getEmail(), 'name' => $recipient->getFullName()])->toArray())
             ->cc($email->cc)
             ->bcc($email->bcc)
             ->subject($email->subject)

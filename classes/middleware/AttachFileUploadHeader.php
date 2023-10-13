@@ -23,15 +23,14 @@ class AttachFileUploadHeader
 {
     /**
      * Add necessary headers to allow file uploading process
-     * 
-     * @return mixed
+     *
      */
     public function handle(Request $request, Closure $next)
     {
         $response = $next($request);
 
         $response->headers->set(
-            'Access-Control-Allow-Headers', 
+            'Access-Control-Allow-Headers',
             'Content-Type, X-Requested-With, X-PINGOTHER, X-File-Name, Cache-Control'
         );
 

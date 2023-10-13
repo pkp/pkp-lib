@@ -72,6 +72,8 @@ abstract class PKPStatsPublicationService
 
     /**
      * Get a count of all submissions with stats that match the request arguments
+     *
+     * @hook StatsPublication::getCount::queryBuilder [[&$metricsQB, $args]]
      */
     public function getCount(array $args): int
     {
@@ -92,6 +94,8 @@ abstract class PKPStatsPublicationService
 
     /**
      * Get the submissions with total stats that match the request arguments
+     *
+     * @hook StatsPublication::getTotals::queryBuilder [[&$metricsQB, $args]]
      */
     public function getTotals(array $args): array
     {
@@ -117,6 +121,8 @@ abstract class PKPStatsPublicationService
     /**
      * Get metrics by type (abstract, pdf, html, other) for a submission
      * Assumes that the submission ID is provided in parameters
+     *
+     * @hook StatsPublication::getTotalsByType::queryBuilder [[&$metricsQB, $args]]
      */
     public function getTotalsByType(int $submissionId, int $contextId, ?string $dateStart, ?string $dateEnd): array
     {
@@ -171,6 +177,8 @@ abstract class PKPStatsPublicationService
 
     /**
      * Get a count of all submission files with stats that match the request arguments
+     *
+     * @hook StatsPublication::getFilesCount::queryBuilder [[&$metricsQB, $args]]
      */
     public function getFilesCount(array $args): int
     {
@@ -194,6 +202,8 @@ abstract class PKPStatsPublicationService
 
     /**
      * Get the submission files with total stats that match the request arguments
+     *
+     * @hook StatsPublication::getFilesTotals::queryBuilder [[&$metricsQB, $args]]
      */
     public function getFilesTotals(array $args): array
     {
@@ -240,6 +250,8 @@ abstract class PKPStatsPublicationService
 
     /**
      * Get a QueryBuilder object with the passed args
+     *
+     * @hook StatsPublication::queryBuilder [[&$statsQB, $args]]
      */
     public function getQueryBuilder(array $args = []): StatsPublicationQueryBuilder
     {

@@ -25,13 +25,12 @@ class HasContext
 {
     /**
      * Check if context has bound to request and exists
-     * 
-     * @return mixed
+     *
      */
     public function handle(Request $request, Closure $next)
     {
         $context = $request->attributes->get('context', null);
-        
+
         if ($context instanceof Context) {
             return $next($request);
         }

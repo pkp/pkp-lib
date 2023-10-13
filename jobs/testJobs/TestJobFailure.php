@@ -27,7 +27,7 @@ class TestJobFailure extends BaseJob
 
     /**
      * The number of times the job may be attempted.
-     * 
+     *
      * @var int
      */
     public $tries = 1;
@@ -48,7 +48,7 @@ class TestJobFailure extends BaseJob
 
     /**
      * handle the queue job execution process
-     * 
+     *
      * @throws \Exception
      */
     public function handle(): void

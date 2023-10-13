@@ -82,6 +82,8 @@ class CitationDAO extends \PKP\db\DAO
      *
      * @param int $publicationId
      * @param string $rawCitationList
+     *
+     * @hook CitationDAO::afterImportCitations [[$publicationId, $existingCitations, $importedCitations]]
      */
     public function importCitations($publicationId, $rawCitationList)
     {

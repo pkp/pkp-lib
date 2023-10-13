@@ -19,7 +19,6 @@ namespace PKP\observers\listeners;
 use APP\facades\Repo;
 use Illuminate\Events\Dispatcher;
 use PKP\db\DAORegistry;
-use PKP\db\DAOResultFactory;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;

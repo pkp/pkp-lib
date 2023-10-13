@@ -21,6 +21,7 @@ abstract class I8992_FixEmptyUrlPaths extends \PKP\migration\Migration
 {
     /**
      * Retrieve the tables and fields to update
+     *
      * @return string[]
      */
     protected function getFieldset(): array

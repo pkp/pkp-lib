@@ -71,6 +71,8 @@ class ReviewFormDAO extends \PKP\db\DAO
      * @param array $row
      *
      * @return ReviewForm
+     *
+     * @hook ReviewFormDAO::_fromRow [[&$reviewForm, &$row]]
      */
     public function _fromRow($row)
     {

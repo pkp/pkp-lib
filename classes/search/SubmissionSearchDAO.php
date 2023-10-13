@@ -18,7 +18,6 @@
 
 namespace PKP\search;
 
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use PKP\core\PKPString;
 

@@ -30,6 +30,7 @@ use Stringy\Stringy;
 
 /**
  * @template T of EmailTemplate
+ *
  * @extends EntityDAO<T>
  */
 class DAO extends EntityDAO
@@ -111,6 +112,7 @@ class DAO extends EntityDAO
 
     /**
      * Get a collection of Email Templates matching the configured query
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection

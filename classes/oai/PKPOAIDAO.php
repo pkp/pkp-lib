@@ -212,6 +212,8 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
      * @param array $row
      *
      * @return OAIRecord
+     *
+     * @hook OAIDAO::_returnRecordFromRow [[&$record, &$row]]
      */
     public function _returnRecordFromRow($row)
     {
@@ -229,6 +231,8 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
      * @param array $row
      *
      * @return OAIIdentifier
+     *
+     * @hook OAIDAO::_returnIdentifierFromRow [[&$record, &$row]]
      */
     public function _returnIdentifierFromRow($row)
     {

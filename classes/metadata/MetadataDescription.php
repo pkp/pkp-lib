@@ -101,7 +101,6 @@
 
 namespace PKP\metadata;
 
-use APP\core\Application;
 use PKP\facades\Locale;
 
 class MetadataDescription extends \PKP\core\DataObject

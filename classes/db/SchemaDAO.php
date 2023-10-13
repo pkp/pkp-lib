@@ -286,8 +286,8 @@ abstract class SchemaDAO extends DAO
                         && in_array('nullable', $schema->properties->{$propName}->validation)) {
                     $primaryDbProps[$columnName] = null;
 
-                // Convert empty string values for DATETIME columns into null values
-                // because an empty string can not be saved to a DATETIME column
+                    // Convert empty string values for DATETIME columns into null values
+                    // because an empty string can not be saved to a DATETIME column
                 } elseif (array_key_exists($columnName, $sanitizedProps)
                         && $sanitizedProps[$columnName] === ''
                         && isset($schema->properties->{$propName}->validation)

@@ -18,6 +18,7 @@ namespace PKP\db;
 
 /**
  * @template T of \PKP\core\DataObject
+ *
  * @implements \Iterator<int,T>
  */
 class DAOResultIterator implements \Iterator, \Countable
@@ -33,6 +34,7 @@ class DAOResultIterator implements \Iterator, \Countable
 
     /**
      * Create an Iterator for the specified DAOResultFactory.
+     *
      * @param DAOResultFactory<T> $resultFactory
      */
     public function __construct($resultFactory)

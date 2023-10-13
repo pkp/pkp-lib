@@ -29,6 +29,7 @@ use PKP\services\PKPSchemaService;
 
 /**
  * @template T of Author
+ *
  * @extends EntityDAO<T>
  */
 class DAO extends EntityDAO

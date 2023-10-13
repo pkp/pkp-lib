@@ -74,6 +74,8 @@ class PKPTemplateResource extends \Smarty_Resource_Custom
      * Get the complete template path and filename.
      *
      * @return string|null
+     *
+     * @hook TemplateResource::getFilename [[&$filePath, $template]]
      */
     protected function _getFilename($template)
     {

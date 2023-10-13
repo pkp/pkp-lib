@@ -88,6 +88,8 @@ class LogUsageEvent
 
     /**
      * Log the usage event
+     *
+     * @hook Stats::logUsageEvent [[$usageEventLogEntry]]
      */
     protected function logUsageEvent(array $usageEventLogEntry): void
     {

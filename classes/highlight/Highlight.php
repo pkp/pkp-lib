@@ -24,7 +24,6 @@ use PKP\core\DataObject;
 
 class Highlight extends DataObject
 {
-
     public function getContextId(): ?int
     {
         return $this->getData('contextId');
@@ -79,7 +78,7 @@ class Highlight extends DataObject
 
         $filename = $image['uploadName'];
         if ($withTimestamp) {
-            $filename .= '?'. strtotime($image['dateUploaded']);
+            $filename .= '?' . strtotime($image['dateUploaded']);
         }
 
         $publicFileManager = new PublicFileManager();

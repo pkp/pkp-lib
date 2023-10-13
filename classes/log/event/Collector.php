@@ -81,6 +81,8 @@ class Collector implements CollectorInterface
 
     /**
      * @inheritDoc
+     *
+     * @hook EventLog::Collector::getQueryBuilder [[&$q, $this]]
      */
     public function getQueryBuilder(): Builder
     {

@@ -21,13 +21,13 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\core\PKPRequest;
-use PKP\middleware\AttachFileUploadHeader;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\file\FileManager;
+use PKP\middleware\AttachFileUploadHeader;
 use PKP\plugins\Hook;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -71,7 +71,7 @@ class PKPUploadPublicFileController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::options('', $this->getOptions(...))
             ->name('_uploadPublicFile.getOptions');
 
@@ -99,6 +99,8 @@ class PKPUploadPublicFileController extends PKPBaseController
 
     /**
      * Upload a requested file
+     *
+     * @hook API::uploadPublicFile::permissions [[ &$userDir, &$isUserAllowed, &$allowedDirSize, &$allowedFileTypes, $request, $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES), ]]
      */
     public function uploadFile(Request $illuminateRequest): JsonResponse
     {
@@ -150,7 +152,7 @@ class PKPUploadPublicFileController extends PKPBaseController
             return response()->json([
                 'error' => __('api.publicFiles.413.noDirSpace', [
                     'fileUploadSize' => ceil($_FILES['file']['size'] / 1024),
-                    'dirSizeLeft' => ceil(($allowedDirSize - $currentSize) / 1024),    
+                    'dirSizeLeft' => ceil(($allowedDirSize - $currentSize) / 1024),
                 ]),
             ], Response::HTTP_REQUEST_ENTITY_TOO_LARGE);
         }
@@ -250,9 +252,7 @@ class PKPUploadPublicFileController extends PKPBaseController
      * existing file
      *
      * @param string        $path           Preferred filename
-     * @param FileManager   $fileManager
      *
-     * @return string
      */
     private function _getFilename(string $path, FileManager $fileManager): string
     {
@@ -263,7 +263,7 @@ class PKPUploadPublicFileController extends PKPBaseController
             if (strlen($filename > 255)) {
                 $filename = substr($filename, -255, 255);
             }
-            
+
             return $this->_getFilename($pathParts['dirname'] . '/' . $filename, $fileManager);
         }
 

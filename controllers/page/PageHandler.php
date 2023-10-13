@@ -69,6 +69,9 @@ class PageHandler extends Handler
      *
      * @param array $args
      * @param PKPRequest $request
+     *
+     * @hook PageHandler::displayCss [[$request, &$name, &$result, &$lastModified]]
+     * @hook PageHandler::getCompiledLess [[ 'request' => $request, 'name' => &$name, 'styles' => &$styles, ]]
      */
     public function css($args, $request)
     {

@@ -175,6 +175,8 @@ class PKPPageRouter extends PKPRouter
 
     /**
      * @copydoc PKPRouter::route()
+     *
+     * @hook LoadHandler [[&$page, &$op, &$sourceFile, &$handler]]
      */
     public function route($request)
     {

@@ -228,7 +228,6 @@ class Form
      *
      * @param string $key
      *
-     * @return mixed
      */
     public function getData($key)
     {

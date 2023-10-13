@@ -27,12 +27,12 @@ namespace PKP\cliTool;
 use APP\core\Application;
 use APP\core\PageRouter;
 use APP\facades\Repo;
+use PKP\config\Config;
 use PKP\core\Registry;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\session\SessionManager;
 use PKP\user\User;
-use PKP\config\Config;
 
 /** Initialization code */
 define('PWD', getcwd());
@@ -79,7 +79,9 @@ class CommandLineTool
 
         $this->scriptName = isset($this->argv[0]) ? array_shift($this->argv) : '';
 
-        if (Config::getVar('general', 'installed')) $this->checkArgsForUsername();
+        if (Config::getVar('general', 'installed')) {
+            $this->checkArgsForUsername();
+        }
 
         if (isset($this->argv[0]) && $this->argv[0] == '-h') {
             $this->exitWithUsageMessage();

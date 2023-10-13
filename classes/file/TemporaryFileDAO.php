@@ -57,6 +57,8 @@ class TemporaryFileDAO extends \PKP\db\DAO
      * @param array $row
      *
      * @return TemporaryFile
+     *
+     * @hook TemporaryFileDAO::_returnTemporaryFileFromRow [[&$temporaryFile, &$row]]
      */
     public function _returnTemporaryFileFromRow($row)
     {

@@ -108,6 +108,8 @@ class PKPStatsSushiQueryBuilder extends PKPStatsQueryBuilder
 
     /**
      * @copydoc PKPStatsQueryBuilder::_getObject()
+     *
+     * @hook StatsSushi::queryObject [[&$q, $this]]
      */
     protected function _getObject(): Builder
     {

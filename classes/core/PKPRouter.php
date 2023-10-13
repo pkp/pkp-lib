@@ -156,6 +156,8 @@ abstract class PKPRouter
 
     /**
      * A generic method to return a context path (e.g. a Press or a Journal path)
+     *
+     * @hook Router::getRequestedContextPath [[&$this->_contextPath]]
      */
     public function getRequestedContextPath(PKPRequest $request): string
     {
@@ -209,6 +211,8 @@ abstract class PKPRouter
      * @param PKPRequest $request the request to be routed
      *
      * @return string
+     *
+     * @hook Router::getIndexUrl [[&$this->_indexUrl]]
      */
     public function getIndexUrl($request)
     {

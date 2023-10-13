@@ -20,12 +20,12 @@ namespace PKP\API\v1\submissions;
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
-use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\core\PKPRequest;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\security\authorization\ContextAccessPolicy;
@@ -55,13 +55,13 @@ class PKPSubmissionFileController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
         ];
     }
 
     public function getGroupRoutes(): void
-    {       
+    {
         Route::middleware([
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
@@ -70,36 +70,36 @@ class PKPSubmissionFileController extends PKPBaseController
                 Role::ROLE_ID_ASSISTANT,
                 Role::ROLE_ID_AUTHOR,
             ]),
-        ])->group(function(){
-            
+        ])->group(function () {
+
             Route::get('', $this->getMany(...))
                 ->name('submission.files.getMany');
 
             Route::get('{submissionFileId}', $this->get(...))
                 ->name('submission.files.getFile')
                 ->whereNumber('submissionFileId');
-            
+
             Route::post('', $this->add(...))
                 ->name('submission.files.add');
-            
+
             Route::put('{submissionFileId}', $this->edit(...))
                 ->name('submission.files.edit')
                 ->whereNumber('submissionFileId');
-            
+
             Route::delete('{submissionFileId}', $this->delete(...))
                 ->name('submission.files.delete')
                 ->whereNumber('submissionFileId');
-            
+
         })->whereNumber('submissionId');
-        
+
         Route::middleware([
             self::roleAuthorizer([
                 Role::ROLE_ID_MANAGER,
-                Role::ROLE_ID_SITE_ADMIN, 
+                Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_SUB_EDITOR,
             ]),
-        ])->group(function(){
-            
+        ])->group(function () {
+
             Route::put('{submissionFileId}/copy', $this->copy(...))
                 ->name('submission.files.copy')
                 ->whereNumber('submissionFileId');
@@ -126,8 +126,8 @@ class PKPSubmissionFileController extends PKPBaseController
             $fileStage = isset($params['fileStage']) ? (int) $params['fileStage'] : 0;
             $this->addPolicy(
                 new SubmissionFileStageAccessPolicy(
-                    $fileStage, 
-                    SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY, 
+                    $fileStage,
+                    SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY,
                     'api.submissionFiles.403.unauthorizedFileStageIdWrite'
                 )
             );
@@ -141,10 +141,10 @@ class PKPSubmissionFileController extends PKPBaseController
                 : SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY;
             $this->addPolicy(
                 new SubmissionFileAccessPolicy(
-                    $request, 
-                    $args, 
-                    $roleAssignments, 
-                    $accessMode, 
+                    $request,
+                    $args,
+                    $roleAssignments,
+                    $accessMode,
                     (int) static::getRequestedRoute()->parameter('submissionFileId')
                 )
             );

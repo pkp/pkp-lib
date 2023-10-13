@@ -38,14 +38,15 @@ class Repository
      * @param ?bool $includeDisabled Whether or not to include mailables not used in this context, based on the context settings
      *
      * @return Collection<int,string> The fully-qualified class name of each mailable
+     *
+     * @hook Mailer::Mailables [[$mailables, $context]]
      */
     public function getMany(
         Context $context,
         ?string $searchPhrase = null,
         ?bool $includeDisabled = false,
         ?bool $includeConfigurableOnly = false
-    ): Collection
-    {
+    ): Collection {
         $mailables = $this->map();
         Hook::call('Mailer::Mailables', [$mailables, $context]);
 

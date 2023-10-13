@@ -72,6 +72,8 @@ class VersionDAO extends \PKP\db\DAO
 
     /**
      * Internal function to return a Version object from a row.
+     *
+     * @hook VersionDAO::_returnVersionFromRow [[&$version, &$row]]
      */
     public function _returnVersionFromRow($row): Version
     {

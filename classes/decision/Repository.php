@@ -29,7 +29,6 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
-use PKP\log\SubmissionLog;
 use PKP\observers\events\DecisionAdded;
 use PKP\plugins\Hook;
 use PKP\security\Role;
@@ -110,6 +109,8 @@ abstract class Repository
      * @param Submission $submission The submission for this decision
      *
      * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook Decision::validate [[&$errors, $props]]
      */
     public function validate(array $props, DecisionType $decisionType, Submission $submission, Context $context): array
     {
@@ -203,6 +204,8 @@ abstract class Repository
 
     /**
      * Record an editorial decision
+     *
+     * @hook Decision::add [[$decision]]
      */
     public function add(Decision $decision): int
     {
@@ -378,7 +381,7 @@ abstract class Repository
     abstract public function getDeclineDecisionTypes(): array;
 
     /**
-     * Get a list of the decision types that a recommending user is 
+     * Get a list of the decision types that a recommending user is
      * allowed to make given a submission stage id.
      *
      * @return DecisionType[]

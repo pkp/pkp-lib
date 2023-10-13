@@ -118,6 +118,8 @@ class EmailLogDAO extends \PKP\db\DAO
      * @param array $row
      *
      * @return EmailLogEntry
+     *
+     * @hook EmailLogDAO::build [[&$entry, &$row]]
      */
     public function build($row)
     {

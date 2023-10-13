@@ -127,8 +127,8 @@ class DAO extends EntityDAO
         return DB::table($this->table)
             ->when(
                 $contextId,
-                fn($qb) => $qb->where('context_id', $contextId),
-                fn($qb) => $qb->whereNull('context_id')
+                fn ($qb) => $qb->where('context_id', $contextId),
+                fn ($qb) => $qb->whereNull('context_id')
             )
             ->orderBy('sequence', 'desc')
             ->first('sequence')

@@ -39,6 +39,8 @@ class PKPNavigationMenuService
      * Return all default navigationMenuItemTypes.
      *
      * @return array
+     *
+     * @hook NavigationMenus::itemTypes [[&$types]]
      */
     public function getMenuItemTypes()
     {
@@ -125,6 +127,8 @@ class PKPNavigationMenuService
      * Return all custom edit navigationMenuItemTypes Templates.
      *
      * @return array
+     *
+     * @hook NavigationMenus::itemCustomTemplates [[&$templates]]
      */
     public function getMenuItemCustomEditTemplates()
     {
@@ -144,6 +148,8 @@ class PKPNavigationMenuService
 
     /**
      * Callback for display menu item functionality
+     *
+     * @hook NavigationMenus::displaySettings [[$navigationMenuItem, $navigationMenu]]
      */
     public function getDisplayStatus(&$navigationMenuItem, &$navigationMenu)
     {

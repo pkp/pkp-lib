@@ -19,7 +19,6 @@ use APP\components\forms\FieldSelectIssues;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\LazyCollection;
-use PKP\category\Category;
 use PKP\components\forms\FieldAutosuggestPreset;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldSelectUsers;
@@ -43,8 +42,7 @@ class SubmissionFilters extends FormComponent
         public array $userRoles,
         public LazyCollection $sections,
         public LazyCollection $categories
-    )
-    {
+    ) {
         $this
             ->addSectionFields()
             ->addAssignedTo()
@@ -69,7 +67,7 @@ class SubmissionFilters extends FormComponent
     protected function addSectionFields(): self
     {
         if (count($this->sections) === 1) {
-           return $this;
+            return $this;
         }
 
         $options = [];

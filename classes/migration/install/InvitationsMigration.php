@@ -16,7 +16,6 @@ namespace PKP\migration\install;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use PKP\invitation\invitations\enums\InvitationStatus;
 
 class InvitationsMigration extends \PKP\migration\Migration
 {
@@ -38,15 +37,16 @@ class InvitationsMigration extends \PKP\migration\Migration
             $table->datetime('expiry_date');
             $table->json('payload')->nullable();
 
-            $table->enum('status', 
+            $table->enum(
+                'status',
                 [
-                    'PENDING', 
-                    'ACCEPTED', 
-                    'DECLINED', 
+                    'PENDING',
+                    'ACCEPTED',
+                    'DECLINED',
                     'CANCELLED',
                 ]
             );
-            
+
             $table->string('class_name');
             $table->string('email')->nullable()->comment('When present, the email address of the invitation recipient; when null, user_id must be set and the email can be fetched from the users table.');
 
@@ -61,7 +61,7 @@ class InvitationsMigration extends \PKP\migration\Migration
             $table->timestamps();
 
             // Add Table Indexes
-            
+
             // RegistrationAccessInvite
             $table->index(['status', 'context_id', 'user_id', 'class_name']);
 

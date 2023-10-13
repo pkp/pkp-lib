@@ -22,8 +22,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
-use PKP\core\PKPRequest;
 use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
@@ -47,8 +47,8 @@ abstract class PKPStatsEditorialController extends PKPBaseController
     public function getRouteGroupMiddleware(): array
     {
         return [
-            "has.user",
-            "has.context",
+            'has.user',
+            'has.context',
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
@@ -61,7 +61,7 @@ abstract class PKPStatsEditorialController extends PKPBaseController
      * @copydoc \PKP\core\PKPBaseController::getGroupRoutes()
      */
     public function getGroupRoutes(): void
-    {       
+    {
         Route::get('', $this->getMany(...))
             ->name('stats.editorial.getEditorialStat');
 
@@ -97,6 +97,8 @@ abstract class PKPStatsEditorialController extends PKPBaseController
      *
      * Returns information on submissions received, accepted, declined,
      * average response times and more.
+     *
+     * @hook API::stats::editorial::params [[&$params, $illuminateRequest]]
      */
     public function get(Request $illuminateRequest): JsonResponse
     {
@@ -154,6 +156,8 @@ abstract class PKPStatsEditorialController extends PKPBaseController
      *
      * Returns information on average submissions received, accepted
      * and declined per year.
+     *
+     * @hook API::stats::editorial::averages::params [[&$params, $illuminateRequest]]
      */
     public function getAverages(Request $illuminateRequest): JsonResponse
     {

@@ -135,7 +135,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                             $summaryPropSchema->properties = $subPropsSchemaSummary;
                         }
 
-                    // All non-object props
+                        // All non-object props
                     } else {
                         if (!empty($propSchema->multilingual)) {
                             if ($propSchema->type === 'array') {

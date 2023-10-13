@@ -82,7 +82,7 @@ class I5716_EmailTemplateAssignments extends \PKP\migration\upgrade\v3_4_0\I5716
     /**
      * Get a map of the EDITOR_ASSIGN_<stage> templates
      *
-     * @return [email_key => alternate_to]
+     * @return Collection<string, string>
      */
     protected function mapEditorAssignTemplates(): Collection
     {

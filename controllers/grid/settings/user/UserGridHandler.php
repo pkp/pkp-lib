@@ -16,8 +16,10 @@
 
 namespace PKP\controllers\grid\settings\user;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
+use PKP\controllers\grid\ColumnBasedGridCellProvider;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\feature\PagingFeature;
 use PKP\controllers\grid\GridColumn;
@@ -38,6 +40,8 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\security\Validation;
+use PKP\user\User;
+use PKP\userGroup\UserGroup;
 
 class UserGridHandler extends GridHandler
 {
@@ -138,6 +142,28 @@ class UserGridHandler extends GridHandler
                 null,
                 $cellProvider
             )
+        );
+
+        // Roles.
+        $columnBasedGridCellProvider = new ColumnBasedGridCellProvider();
+        $this->addColumn(
+            new class (
+                'roles',
+                'user.roles',
+                null,
+                null,
+                $columnBasedGridCellProvider
+            ) extends GridColumn {
+                public function getTemplateVarsFromRow($row): array
+                {
+                    $user = $row->getData();
+                    assert($user instanceof User);
+                    $contextId = Application::get()->getRequest()->getContext()->getId();
+                    $userGroupsIterator = Repo::userGroup()->userUserGroups($user->getId(), $contextId);
+                    $roles = $userGroupsIterator->map(fn (UserGroup $userGroup) => $userGroup->getLocalizedName())->join(__('common.commaListSeparator'));
+                    return ['label' => $roles];
+                }
+            }
         );
 
         // Email.

@@ -238,7 +238,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
 
     /**
      * @copydoc SubmissionSearchIndex::submissionChangesFinished()
-     * @hook PreprintSearchIndex::preprintChangesFinished
+     * @hook PreprintSearchIndex::preprintChangesFinished []
      */
     public function submissionChangesFinished()
     {

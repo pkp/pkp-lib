@@ -13,7 +13,7 @@ function extractRegexPlugin({extraKeys}) {
 	 *   'key'
 	 * )
 	 */
-	const regex = /\Wt\([\s\S]*?['"`](?<localeKey>[^'"`]+)['"`]/g;
+	const regex = /\Wt\([\s]*['"`](?<localeKey>[^'"`]+)['"`]/g;
 
 	extraKeys ||= [];
 

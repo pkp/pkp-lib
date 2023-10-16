@@ -206,7 +206,7 @@
 										target="_blank"
 									>
 										<span class="pkpStats__itemAuthors">{{ row.publication.authorsStringShort }}</span>
-										<span class="pkpStats__itemTitle">{{ localize(row.publication.fullTitle }}</span>
+										<span class="pkpStats__itemTitle">{{ localize(row.publication.fullTitle) }}</span>
 									</a>
 								</template>
 							</table-cell>

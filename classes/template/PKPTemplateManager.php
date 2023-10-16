@@ -2178,7 +2178,11 @@ class PKPTemplateManager extends Smarty
             ksort($styles);
             foreach ($styles as $priorityGroup) {
                 foreach ($priorityGroup as $htmlStyle) {
-                    $links .= '<link rel="stylesheet" href="' . $htmlStyle['style'] . '" type="text/css">' . "\n";
+                    if (!empty($htmlStyle['inline'])) {
+                        $links .= '<style type="text/css">' . $htmlStyle['style'] . '</style>' . "\n";
+                    } else {
+                        $links .= '<link rel="stylesheet" href="' . $htmlStyle['style'] . '" type="text/css">' . "\n";
+                    }
                 }
             }
         }

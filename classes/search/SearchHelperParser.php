@@ -24,6 +24,8 @@ class SearchHelperParser extends SearchFileParser
     /** @var string Type should match an index[$type] setting in the "search" section of config.inc.php */
     public $type;
 
+    private $command;
+
     public function __construct($type, $filePath)
     {
         parent::__construct($filePath);
@@ -33,11 +35,10 @@ class SearchHelperParser extends SearchFileParser
     public function open()
     {
         $prog = Config::getVar('search', 'index[' . $this->type . ']');
-
         if (isset($prog)) {
-            $exec = sprintf($prog, escapeshellarg($this->getFilePath()));
-            if (!($this->fp = @popen($exec, 'r'))) {
-                throw new Exception("Failed to parse file through the command: {$exec}\nLast error: " . error_get_last());
+            $this->command = sprintf($prog, escapeshellarg($this->getFilePath()));
+            if (!($this->fp = @popen($this->command, 'r'))) {
+                throw new Exception("Failed to parse file {$this->getFilePath()} through the command: {$this->command}\nLast error: " . error_get_last());
             }
             return true;
         }
@@ -47,7 +48,9 @@ class SearchHelperParser extends SearchFileParser
 
     public function close()
     {
-        pclose($this->fp);
+        if ($this->fp && ($exitCode = pclose($this->fp))) {
+            throw new Exception("The indexation process exited with the code \"{$exitCode}\", perhaps the command failed: {$this->command}");
+        }
     }
 }
 

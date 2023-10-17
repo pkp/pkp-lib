@@ -82,7 +82,9 @@ class SearchFileParser
      */
     public function close()
     {
-        fclose($this->fp);
+        if ($this->fp) {
+            fclose($this->fp);
+        }
     }
 
     /**

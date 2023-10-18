@@ -706,6 +706,14 @@ class AdminHandler extends Handler
      */
     protected function getHighlightsListPanel(): HighlightsListPanel
     {
+        if (!Config::getVar('features', 'highlights')) {
+            return new HighlightsListPanel(
+                'highlights',
+                '',
+                []
+            );
+        }
+
         $request = Application::get()->getRequest();
         $dispatcher = $request->getDispatcher();
         $apiUrl = $dispatcher->url(

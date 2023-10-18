@@ -56,6 +56,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // Extra checks done after the entities are clean to avoid flagging problems over data that's supposed to be gone
             $this->checkSubmissionLocale();
             $this->checkAuthorsMissingUserGroup();
+            $this->checkDuplicateDoiRegistrationAgencies();
         } catch (Throwable $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to {$fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');
@@ -93,6 +94,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
     /**
      * Check the contexts' contact details before upgrade
+     *
      * @see https://github.com/pkp/pkp-lib/issues/8183
      *
      * @throws Exception
@@ -127,6 +129,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
     /**
      * Ensures locale conflicts won't happen at a later stage of the migration
+     *
      * @see https://github.com/pkp/pkp-lib/issues/8598
      *
      * @throws Exception
@@ -268,8 +271,10 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
     /**
      * Apply some validations to the submission checklist and attempts to auto-fix a small issue within the JSON data
+     *
      * @see https://github.com/pkp/pkp-lib/issues/7191
      * @see About the fix attempt: https://github.com/pkp/pkp-lib/issues/8929#issuecomment-1519867805
+     *
      * @throws Exception
      */
     protected function checkSubmissionChecklist(): void
@@ -312,6 +317,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
     /**
      * Checks whether the database is ready for the introduction of foreign keys (MySQL only)
+     *
      * @see https://github.com/pkp/pkp-lib/issues/6732
      *
      * @throws Exception
@@ -338,7 +344,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         );
 
         if (count($result) > 0) {
-            error_log(print_r($result,true));
+            error_log(print_r($result, true));
             $tableNames = data_get($result, '*.table_name');
             throw new Exception(
                 'Storage engine that doesn\'t support foreign key constraints detected in one or more tables: ' .
@@ -394,6 +400,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      * - Rows with required, but invalid foreign keys (null/bad values) will be deleted
      * - Rows with nullable/optional foreign keys will be inspected on a case-by-case basis (if possible they will be nulled, otherwise removed)
      * - Consideration is given to bidirectional/direct dependencies and exceptional cases (e.g. submission.current_publication_id, which is nullable, but required)
+     *
      * @see https://github.com/pkp/pkp-lib/issues/6093
      *
      * @throws Exception
@@ -404,7 +411,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         // Sort the tables by the number of dependent entities
         uksort(
             $this->tableProcessors,
-            fn(string $a, string $b) => count($this->getEntityRelationships()[$b] ?? []) <=> count($this->getEntityRelationships()[$a] ?? [])
+            fn (string $a, string $b) => count($this->getEntityRelationships()[$b] ?? []) <=> count($this->getEntityRelationships()[$a] ?? [])
         );
         // Start the processing
         foreach (array_keys($this->tableProcessors) as $table) {
@@ -418,7 +425,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      */
     protected function processTable(string $tableName): void
     {
-        $affectedRows = array_reduce($this->tableProcessors[$tableName] ?? [], fn(int $affectedRows, callable $processor): int => $affectedRows += $processor(), 0);
+        $affectedRows = array_reduce($this->tableProcessors[$tableName] ?? [], fn (int $affectedRows, callable $processor): int => $affectedRows += $processor(), 0);
         if (!$affectedRows) {
             return;
         }
@@ -451,8 +458,8 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 ->leftJoin('publications AS p', 'p.publication_id', '=', 's.current_publication_id')
                 ->join(
                     'publications AS last',
-                    fn(JoinClause $q) => $q->where(
-                        fn(Builder $q) => $q->from('publications AS p2')
+                    fn (JoinClause $q) => $q->where(
+                        fn (Builder $q) => $q->from('publications AS p2')
                             ->whereColumn('p2.submission_id', '=', 's.submission_id')
                             ->orderByDesc('p2.publication_id')
                             ->limit(1)
@@ -974,6 +981,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     /**
      * Delete rows from the source table where the foreign key field contains either invalid values or NULL
      * Used for NOT NULL/required relationships
+     *
      * @param $filter callable(Builder): Builder
      */
     protected function deleteRequiredReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn, ?callable $filter = null): int
@@ -982,7 +990,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             return 0;
         }
 
-        $filter ??= fn(Builder $q) => $q;
+        $filter ??= fn (Builder $q) => $q;
         $ids = $filter(
             DB::table("{$sourceTable} AS s")
                 ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
@@ -1010,6 +1018,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     /**
      * Resets optional/nullable foreign key fields from the source table to NULL when the field contains invalid values
      * Used for NULLABLE relationships
+     *
      * @param $filter callable(Builder): Builder
      */
     protected function cleanOptionalReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn, ?callable $filter = null): int
@@ -1018,7 +1027,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             return 0;
         }
 
-        $filter ??= fn(Builder $q) => $q;
+        $filter ??= fn (Builder $q) => $q;
         $ids = $filter(
             DB::table("{$sourceTable} AS s")
                 ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
@@ -1046,6 +1055,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     /**
      * Deletes rows from the source table where the foreign key field contains invalid values
      * Used for NULLABLE relationships, where the source record lose the meaning without its relationship
+     *
      * @param $filter callable(Builder): Builder
      */
     protected function deleteOptionalReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn, ?callable $filter = null): int
@@ -1054,7 +1064,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             return 0;
         }
 
-        $filter ??= fn(Builder $q) => $q;
+        $filter ??= fn (Builder $q) => $q;
         $ids = $filter(
             DB::table("{$sourceTable} AS s")
                 ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
@@ -1097,7 +1107,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      */
     protected function ignoreZero(string $sourceColumn): callable
     {
-        return fn(Builder $q) => $q->where("s.{$sourceColumn}", '!=', 0);
+        return fn (Builder $q) => $q->where("s.{$sourceColumn}", '!=', 0);
     }
 
     /**
@@ -1120,6 +1130,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      * Clears duplicated user_settings
      * This method used to be a migration, it has been incorporated at the pre-flight to avoid issues with the checks introduced by the MergeLocalesMigration
      * Given that it operates on duplicated entries, it should be ok to run it several times
+     *
      * @see https://github.com/pkp/pkp-lib/issues/7167
      */
     protected function clearDuplicatedUserSettings(): void
@@ -1209,4 +1220,11 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             Schema::table('review_round_files', fn (Blueprint $table) => $table->dropForeign('review_round_files_submission_file_id_foreign'));
         }
     }
+
+    /**
+     * Checks if DOIs have been marked registered with more than one registration agency.
+     *
+     * @throws Exception
+     */
+    abstract protected function checkDuplicateDoiRegistrationAgencies(): void;
 }

@@ -38,7 +38,7 @@ class HighlightsListPanel extends ListPanel
             $config,
             [
                 'apiUrl' => $this->apiUrl,
-                'form' => $this->form->getConfig(),
+                'form' => $this->form?->getConfig(),
                 'getParams' => $this->getParams,
                 'i18nAdd' => __('manager.highlights.add'),
                 'i18nConfirmDelete' => __('manager.highlights.confirmDelete'),

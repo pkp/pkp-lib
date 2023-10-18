@@ -26,6 +26,7 @@ use APP\server\ServerDAO;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\context\Context;
+use PKP\core\EntityDAO;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\db\SchemaDAO;
@@ -95,9 +96,12 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
         Hook::add('AcronPlugin::parseCronTab', [$this, 'callbackParseCronTab']);
         foreach ($this->_getDAOs() as $dao) {
             if ($dao instanceof SchemaDAO) {
-                Hook::add('Schema::get::' . $dao->schemaName, [$this, 'addToSchema']);
+                Hook::add('Schema::get::' . $dao->schemaName, $this->addToSchema(...));
+            } elseif ($dao instanceof EntityDAO) {
+                Hook::add('Schema::get::' . $dao->schema, $this->addToSchema(...));
             } else {
-                Hook::add(strtolower_codesafe(get_class($dao)) . '::getAdditionalFieldNames', [&$this, 'getAdditionalFieldNames']);
+                $classNameParts = explode('\\', get_class($dao)); // Separate namespace info from class name
+                Hook::add(strtolower_codesafe(end($classNameParts)) . '::getAdditionalFieldNames', $this->getAdditionalFieldNames(...));
             }
         }
         return true;

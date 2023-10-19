@@ -229,7 +229,7 @@ class LocaleMetadata
     }
 
     /**
-     * Retrieves the ISO639-2b representation
+     * Retrieves the ISO639-1 representation
      */
     public function getIsoAlpha2(): string
     {

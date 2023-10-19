@@ -30,7 +30,6 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\payment\QueuedPaymentDAO;
 use PKP\query\QueryDAO;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 
 class NotificationsGridCellProvider extends GridCellProvider
@@ -142,8 +141,7 @@ class NotificationsGridCellProvider extends GridCellProvider
                 $fileId = $notification->getAssocId();
                 break;
             case Application::ASSOC_TYPE_REVIEW_ASSIGNMENT:
-                $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-                $reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
+                $reviewAssignment = Repo::reviewAssignment()->get($notification->getAssocId());
                 assert($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment);
                 $submissionId = $reviewAssignment->getSubmissionId();
                 break;

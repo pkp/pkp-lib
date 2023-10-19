@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\settings\reviewForms;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
@@ -35,7 +36,6 @@ use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class ReviewFormGridHandler extends GridHandler
 {
@@ -502,12 +502,10 @@ class ReviewFormGridHandler extends GridHandler
         $reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
 
         if ($request->checkCSRF() && isset($reviewForm) && $reviewForm->getCompleteCount() == 0 && $reviewForm->getIncompleteCount() == 0) {
-            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-            $reviewAssignments = $reviewAssignmentDao->getByReviewFormId($reviewFormId);
+            $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterByReviewFormIds([$reviewFormId])->getMany();
 
             foreach ($reviewAssignments as $reviewAssignment) {
-                $reviewAssignment->setReviewFormId(null);
-                $reviewAssignmentDao->updateObject($reviewAssignment);
+                Repo::reviewAssignment()->edit($reviewAssignment, ['reviewFormId' => null]);
             }
 
             $reviewFormDao->deleteById($reviewFormId);

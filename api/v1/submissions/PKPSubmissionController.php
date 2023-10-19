@@ -886,11 +886,13 @@ class PKPSubmissionController extends PKPBaseController
             ->filterByContextIds([$submission->getData('contextId')])
             ->getMany();
 
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var \PKP\submission\reviewAssignment\ReviewAssignmentDAO $reviewAssignmentDao */
-        $currentUserReviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer(
-            $submission->getId(),
-            $request->getUser()->getId()
-        );
+        $currentUserReviewAssignment = Repo::reviewAssignment()->getCollector()
+            ->filterBySubmissionIds([$submission->getId()])
+            ->filterByReviewerIds([$request->getUser()->getId()])
+            ->filterByLastReviewRound(true)
+            ->getMany()
+            ->first();
+
         $anonymize = $currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;
 
         /** @var GenreDAO $genreDao */

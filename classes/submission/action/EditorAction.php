@@ -38,7 +38,6 @@ use PKP\plugins\Hook;
 use PKP\security\Validation;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
@@ -72,32 +71,40 @@ class EditorAction
      */
     public function addReviewer($request, $submission, $reviewerId, &$reviewRound, $reviewDueDate, $responseDueDate, $reviewMethod = null)
     {
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewer = Repo::user()->get($reviewerId);
 
         // Check to see if the requested reviewer is not already
         // assigned to review this submission.
 
-        $assigned = $reviewAssignmentDao->reviewerExists($reviewRound->getId(), $reviewerId);
+        $assigned = (bool) Repo::reviewAssignment()->getCollector()
+            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->filterByReviewerIds([$reviewerId])
+            ->getMany()
+            ->first();
 
         // Only add the reviewer if he has not already
         // been assigned to review this submission.
         $stageId = $reviewRound->getStageId();
         $round = $reviewRound->getRound();
+        $newData = [
+            'submissionId' => $submission->getId(),
+            'reviewerId' => $reviewerId,
+            'dateAssigned' => Core::getCurrentDate(),
+            'stageId' => $stageId,
+            'round' => $round,
+            'reviewRoundId' => $reviewRound->getId(),
+        ];
+        if (isset($reviewMethod)) {
+            $newData['reviewMethod'] = $reviewMethod;
+        }
+
         if (!$assigned && isset($reviewer) && !Hook::call('EditorAction::addReviewer', [&$submission, $reviewerId])) {
-            $reviewAssignment = $reviewAssignmentDao->newDataObject();
-            $reviewAssignment->setSubmissionId($submission->getId());
-            $reviewAssignment->setReviewerId($reviewerId);
-            $reviewAssignment->setDateAssigned(Core::getCurrentDate());
-            $reviewAssignment->setStageId($stageId);
-            $reviewAssignment->setRound($round);
-            $reviewAssignment->setReviewRoundId($reviewRound->getId());
-            if (isset($reviewMethod)) {
-                $reviewAssignment->setReviewMethod($reviewMethod);
-            }
-            $reviewAssignmentDao->insertObject($reviewAssignment);
+            $reviewAssignment = Repo::reviewAssignment()->newDataObject($newData);
 
             $this->setDueDates($request, $submission, $reviewAssignment, $reviewDueDate, $responseDueDate);
+
+            Repo::reviewAssignment()->add($reviewAssignment);
+
             // Add notification
             $notificationMgr = new NotificationManager();
             $notificationMgr->createNotification(
@@ -173,18 +180,10 @@ class EditorAction
         }
 
         if ($reviewAssignment->getSubmissionId() == $submission->getId() && !Hook::call('EditorAction::setDueDates', [&$reviewAssignment, &$reviewer, &$reviewDueDate, &$responseDueDate])) {
-            // Set the review due date
-            $defaultNumWeeks = $context->getData('numWeeksPerReview');
-            $reviewAssignment->setDateDue($reviewDueDate);
-
-            // Set the response due date
-            $defaultNumWeeks = $context->getData('numWeeksPerResponse');
-            $reviewAssignment->setDateResponseDue($responseDueDate);
-
-            // update the assignment (with both the new dates)
-            $reviewAssignment->stampModified();
-            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-            $reviewAssignmentDao->updateObject($reviewAssignment);
+            Repo::reviewAssignment()->edit($reviewAssignment, [
+                'dateDue' => $reviewDueDate, // Set the review due date
+                'dateResponseDue' => $responseDueDate, // Set the response due date
+            ]);
 
             // N.B. Only logging Date Due
             if ($logEntry) {

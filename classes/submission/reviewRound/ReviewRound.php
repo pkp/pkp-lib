@@ -26,7 +26,6 @@ use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class ReviewRound extends \PKP\core\DataObject
 {
@@ -232,8 +231,10 @@ class ReviewRound extends \PKP\core\DataObject
         $anyOverdueReview = false;
         $anyIncompletedReview = false;
         $anyUnreadReview = false;
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignments = $reviewAssignmentDao->getByReviewRoundId($this->getId());
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()
+            ->filterByReviewerIds([$this->getId()])
+            ->getMany();
+
         foreach ($reviewAssignments as $reviewAssignment) {
             assert($reviewAssignment instanceof ReviewAssignment);
 
@@ -263,7 +264,7 @@ class ReviewRound extends \PKP\core\DataObject
         // Find the correct review round status based on the state of
         // the current review assignments. The check order matters: the
         // first conditions override the others.
-        if (empty($reviewAssignments)) {
+        if ($reviewAssignments->isEmpty()) {
             return self::REVIEW_ROUND_STATUS_PENDING_REVIEWERS;
         } elseif ($anyOverdueReview) {
             return self::REVIEW_ROUND_STATUS_REVIEWS_OVERDUE;

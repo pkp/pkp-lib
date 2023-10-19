@@ -78,6 +78,7 @@ abstract class Collector implements CollectorInterface
     public ?bool $awaitingReviews = null;
     public ?bool $reviewsSubmitted = null;
     public ?bool $revisionsRequested = null;
+    public ?bool $revisionsSubmitted = null;
 
     public function __construct(DAO $dao)
     {
@@ -229,6 +230,24 @@ abstract class Collector implements CollectorInterface
         return $this;
     }
 
+    /**
+     * Filter results by submissions in the review stage where revisions are requested from the author
+     */
+    public function filterByRevisionsRequested(?bool $revisionsRequested): AppCollector
+    {
+        $this->revisionsRequested = $revisionsRequested;
+        return $this;
+    }
+
+    /**
+     * Limit results by submissions in the review stage where revisions are submitted by the author
+     * and editor response is required
+     */
+    public function filterByRevisionsSubmitted(?bool $revisionsSubmitted): AppCollector
+    {
+        $this->revisionsSubmitted = $revisionsSubmitted;
+        return $this;
+    }
 
     /**
      * Limit results to submissions assigned to these users
@@ -643,7 +662,7 @@ abstract class Collector implements CollectorInterface
      */
     protected function buildReviewStageQueries(Builder $q): Builder
     {
-        $reviewFilters = collect([$this->isReviewedBy, $this->reviewersNumber, $this->awaitingReviews, $this->reviewsSubmitted, $this->revisionsRequested])->filter();
+        $reviewFilters = collect([$this->isReviewedBy, $this->reviewersNumber, $this->awaitingReviews, $this->reviewsSubmitted, $this->revisionsRequested, $this->revisionsSubmitted])->filter();
         if ($reviewFilters->isEmpty()) {
             return $q;
         }
@@ -667,9 +686,10 @@ abstract class Collector implements CollectorInterface
                 ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
                     $join->on('ra.submission_id', '=', 'agrr.submission_id')
                 )
-                ->whereIn('reviewer_id', (array) $this->isReviewedBy)
-                ->where('declined', 0)
-                ->where('cancelled', 0)
+                ->whereIn('ra.reviewer_id', (array) $this->isReviewedBy)
+                ->where('ra.declined', 0)
+                ->where('ra.cancelled', 0)
+                ->whereRaw('ra.round = agrr.current_round')
             )
         );
 
@@ -741,7 +761,6 @@ abstract class Collector implements CollectorInterface
                 )
                 ->whereNotNull('ra.date_completed')
                 ->whereRaw('ra.round = agrr.current_round')
-            // TODO include only those, which weren't confirmed by the editor?
             )
         );
 
@@ -752,8 +771,20 @@ abstract class Collector implements CollectorInterface
                 ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
                     $join->on('rr.submission_id', '=', 'agrr.submission_id')
                 )
-                ->whereRaw('rr.round = agrr.curent_round')
+                ->whereRaw('rr.round = agrr.current_round')
                 ->where('rr.status', ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED)
+            )
+        );
+
+        $q->when($this->revisionsSubmitted !== null, fn(Builder $q) => $q
+            ->whereIn('s.submission_id', fn(Builder $q) => $q
+                ->select('rr.submission_id')
+                ->from('review_rounds AS rr')
+                ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
+                    $join->on('rr.submission_id', '=', 'agrr.submission_id')
+                )
+                ->whereRaw('rr.round = agrr.current_round')
+                ->where('rr.status', ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED)
             )
         );
 

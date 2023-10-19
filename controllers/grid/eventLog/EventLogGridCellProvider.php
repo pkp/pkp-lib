@@ -20,11 +20,9 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
-use PKP\db\DAORegistry;
 use PKP\log\event\EventLogEntry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class EventLogGridCellProvider extends DataObjectGridCellProvider
@@ -73,7 +71,6 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
 
                     // Anonymize reviewer details where necessary
                     if ($this->_isCurrentUserAssignedAuthor) {
-                        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
 
                         // Maybe anonymize reviewer log entries
                         $reviewerLogTypes = [
@@ -84,7 +81,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                         if (in_array($element->getEventType(), $reviewerLogTypes)) {
                             $userName = __('editor.review.anonymousReviewer');
                             if ($reviewAssignmentId = $element->getData('reviewAssignmentId')) {
-                                $reviewAssignment = $reviewAssignmentDao->getById($reviewAssignmentId);
+                                $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignmentId);
                                 if ($reviewAssignment && $reviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN) {
                                     $userName = $element->getUserFullName();
                                 }
@@ -98,7 +95,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                             assert($element->getData('fileId') && $element->getData('submissionId') && $submissionFileId);
                             $submissionFile = Repo::submissionFile()->get($submissionFileId);
                             if ($submissionFile && $submissionFile->getData('assocType') === Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
-                                $reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
+                                $reviewAssignment = Repo::reviewAssignment()->get($submissionFile->getData('assocId'));
                                 if (!$reviewAssignment || in_array($reviewAssignment->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
                                     $userName = __('editor.review.anonymousReviewer');
                                 }

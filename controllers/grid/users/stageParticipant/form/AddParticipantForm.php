@@ -24,7 +24,7 @@ use PKP\db\DAORegistry;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\stageAssignment\StageAssignmentDAO;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\UserGroup;
 
@@ -202,11 +202,14 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
                 \PKP\submission\reviewAssignment\ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS,
                 \PKP\submission\reviewAssignment\ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS
             ];
-            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-            $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($this->getSubmission()->getId());
-            $anonymousReviews = array_filter($reviewAssignments, function ($reviewAssignment) use ($anonymousReviewMethods) {
-                return in_array($reviewAssignment->getReviewMethod(), $anonymousReviewMethods) && !$reviewAssignment->getDeclined();
-            });
+
+            $anonymousReviews = Repo::reviewAssignment()->getCollector()
+                ->filterBySubmissionIds([$this->getSubmission()->getId()])
+                ->getMany()
+                ->filter(fn(ReviewAssignment $reviewAssignment) =>
+                    in_array($reviewAssignment->getReviewMethod(), $anonymousReviewMethods) && !$reviewAssignment->getDeclined())
+                ->toArray();
+
             $anonymousReviewerIds = array_map(function ($reviewAssignment) {
                 return $reviewAssignment->getReviewerId();
             }, $anonymousReviews);

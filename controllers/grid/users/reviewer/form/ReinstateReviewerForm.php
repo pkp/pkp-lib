@@ -22,7 +22,6 @@ use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewerReinstate;
@@ -30,7 +29,6 @@ use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
 
 class ReinstateReviewerForm extends ReviewerNotifyActionForm
@@ -71,15 +69,15 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm
         $reviewAssignment = $this->getReviewAssignment();
 
         // Reinstate the review assignment.
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         if (isset($reviewAssignment) && $reviewAssignment->getSubmissionId() == $submission->getId() && !Hook::call('EditorAction::reinstateReview', [&$submission, $reviewAssignment])) {
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
             if (!isset($reviewer)) {
                 return false;
             }
 
-            $reviewAssignment->setCancelled(false);
-            $reviewAssignmentDao->updateObject($reviewAssignment);
+            Repo::reviewAssignment()->edit($reviewAssignment, [
+                'cancelled' => false,
+            ]);
 
             // Stamp the modification date
             $submission->stampModified();

@@ -21,8 +21,7 @@ use PKP\components\fileAttachers\Library;
 use PKP\components\fileAttachers\ReviewFiles;
 use PKP\components\fileAttachers\Upload;
 use PKP\context\Context;
-use PKP\db\DAORegistry;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
@@ -78,9 +77,13 @@ trait InExternalReviewRound
         ];
 
         if ($reviewRound) {
-            /** @var ReviewAssignmentDAO $reviewAssignmentDAO */
-            $reviewAssignmentDAO = DAORegistry::getDAO('ReviewAssignmentDAO');
-            $reviewAssignments = $reviewAssignmentDAO->getByReviewRoundId($reviewRound->getId());
+            $reviewAssignments = Repo::reviewAssignment()->getCollector()
+                ->filterByReviewRoundIds([$reviewRound->getId()])
+                ->getMany()
+                ->keyBy(fn(ReviewAssignment $reviewAssignment, int $key) => $reviewAssignment->getId())
+                ->sortKeys()
+                ->toArray();
+
             $reviewerFiles = [];
             if (!empty($reviewAssignments)) {
                 $reviewerFiles = Repo::submissionFile()

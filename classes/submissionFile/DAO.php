@@ -19,6 +19,7 @@
 namespace PKP\submissionFile;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use Exception;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
@@ -28,7 +29,6 @@ use PKP\core\EntityDAO;
 use PKP\db\DAORegistry;
 use PKP\plugins\PKPPubIdPluginDAO;
 use PKP\services\PKPSchemaService;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\ReviewFilesDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -450,8 +450,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
         }
 
         if ($submissionFile->getData('assocType') === Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
-            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-            $reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
+            $reviewAssignment = Repo::reviewAssignment()->get($submissionFile->getData('assocId'));
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
             return $reviewRoundDao->getById($reviewAssignment->getReviewRoundId());
         }

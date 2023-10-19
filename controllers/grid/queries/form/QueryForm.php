@@ -34,7 +34,6 @@ use PKP\query\QueryDAO;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class QueryForm extends Form
 {
@@ -310,8 +309,7 @@ class QueryForm extends Form
 
         if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
             // Get all review assignments for current submission
-            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-            $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
+            $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany();
 
             // if current user is editor/journal manager/site admin and not have author role , add all reviewers
             if (array_intersect($assignedRoles, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) || (empty($assignedRoles) && ($user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::CONTEXT_SITE)))) {
@@ -431,7 +429,6 @@ class QueryForm extends Form
             $submissionId = $query->getAssocId();
             $stageId = $query->getStageId();
 
-            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
             $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
 
             // get the selected participants
@@ -449,9 +446,14 @@ class QueryForm extends Form
                 if ($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
                     // validate the anonymity
                     // get participant review assignments
-                    $reviewAssignments = $reviewAssignmentDao->getBySubmissionReviewer($submissionId, $participantId, $stageId);
+                    $reviewAssignments = Repo::reviewAssignment()->getCollector()
+                        ->filterBySubmissionIds([$submissionId])
+                        ->filterByReviewerIds([$participantId])
+                        ->filterByStageId($stageId)
+                        ->getMany();
+
                     // if participant has no role in this stage and is not a reviewer
-                    if (empty($assignedRoles) && empty($reviewAssignments)) {
+                    if (empty($assignedRoles) && $reviewAssignments->isEmpty()) {
                         // if participant is current user and the user has admin or manager role, ignore participant
                         if (($participantId == $user->getId()) && ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()))) {
                             continue;

@@ -16,6 +16,7 @@
 namespace PKP\decision\types;
 
 use APP\decision\Decision;
+use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Validation\Validator;
 use PKP\context\Context;
@@ -193,10 +194,11 @@ class CancelReviewRound extends DecisionType implements DecisionRetractable
         }
 
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var \PKP\submission\reviewAssignment\ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewRoundId = $decision->getData('reviewRoundId');
 
-        $reviewAssignmentDao->deleteByReviewRoundId($reviewRoundId);
+        Repo::reviewAssignment()->deleteMany(
+            Repo::reviewAssignment()->getCollector()->filterByReviewRoundIds([$reviewRoundId])
+        );
         $reviewRoundDao->deleteById($reviewRoundId);
     }
 

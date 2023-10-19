@@ -18,7 +18,6 @@ namespace PKP\log\event;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
@@ -196,12 +195,11 @@ class EventLogEntry extends \PKP\core\DataObject
         $eventLog = clone $this;
 
         if ($hideReviewerName) {
-            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var \PKP\submission\reviewAssignment\ReviewAssignmentDAO $reviewAssignmentDao */
             // Reviewer activity log entries (assigning, accepting, declining)
             if ($eventLog->getData('reviewerName')) {
                 $anonymousAuthor = true;
                 if ($reviewAssignmentId = $eventLog->getData('reviewAssignmentId')) {
-                    $reviewAssignment = $reviewAssignmentDao->getById($reviewAssignmentId);
+                    $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignmentId);
                     if ($reviewAssignment && !in_array($reviewAssignment->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
                         $anonymousAuthor = false;
                     }
@@ -218,7 +216,7 @@ class EventLogEntry extends \PKP\core\DataObject
                 $anonymousAuthor = true;
                 $submissionFile = Repo::submissionFile()->get($submissionFileId);
                 if ($submissionFile && $submissionFile->getData('assocType') === Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
-                    $reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
+                    $reviewAssignment = Repo::reviewAssignment()->get($submissionFile->getData('assocId'));
                     if ($reviewAssignment && !in_array($reviewAssignment->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
                         $anonymousAuthor = false;
                     }

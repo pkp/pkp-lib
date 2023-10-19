@@ -19,11 +19,10 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\user\User;
 
 class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
@@ -67,9 +66,11 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        // Check if a review assignment exists between the submission and the user
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer($submission->getId(), $user->getId());
+        $reviewAssignment = Repo::reviewAssignment()->getCollector()
+            ->filterBySubmissionIds([$submission->getId()])
+            ->filterByReviewerIds([$user->getId()])
+            ->getMany()
+            ->first();
 
         // Ensure a valid review assignment was fetched from the database
         if (!($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment)) {

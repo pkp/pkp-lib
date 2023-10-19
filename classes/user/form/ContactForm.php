@@ -114,6 +114,7 @@ class ContactForm extends BaseProfileForm
     public function execute(...$functionArgs)
     {
         $user = $this->getUser();
+        $functionArgs['emailUpdated'] = $user->getEmail() !== $this->getData('email');
 
         $user->setCountry($this->getData('country'));
         $user->setEmail($this->getData('email'));

@@ -19,6 +19,7 @@ namespace PKP\user\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\form\Form;
+use PKP\session\SessionManager;
 use PKP\user\User;
 
 abstract class BaseProfileForm extends Form
@@ -61,6 +62,17 @@ abstract class BaseProfileForm extends Form
         $request = Application::get()->getRequest();
         $user = $request->getUser();
         Repo::user()->edit($user);
+
+        if ($functionArgs['emailUpdated'] ?? false) {
+            $sessionManager = SessionManager::getManager();
+            $session = $sessionManager->getUserSession();
+
+            if ($session->getSessionVar('email')) {
+                $session->setSessionVar('email', $user->getEmail());
+            }
+
+            $sessionManager->invalidateSessions($user->getId(), $sessionManager->getUserSession()->getId());
+        }
     }
 }
 

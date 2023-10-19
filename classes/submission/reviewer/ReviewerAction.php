@@ -38,7 +38,6 @@ use PKP\security\Validation;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class ReviewerAction
@@ -58,7 +57,6 @@ class ReviewerAction
         bool $decline,
         ?string $emailText = null
     ): void {
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
         if (!isset($reviewer)) {
             return;
@@ -91,12 +89,12 @@ class ReviewerAction
                 }
             }
 
-            $reviewAssignment->setDateReminded(null);
-            $reviewAssignment->setReminderWasAutomatic(0);
-            $reviewAssignment->setDeclined($decline);
-            $reviewAssignment->setDateConfirmed(Core::getCurrentDate());
-            $reviewAssignment->stampModified();
-            $reviewAssignmentDao->updateObject($reviewAssignment);
+            Repo::reviewAssignment()->edit($reviewAssignment, [
+                'dateReminded' => null,
+                'reminderWasAutomatic' => 0,
+                'declined' => $decline,
+                'dateConfirmed' => Core::getCurrentDate(),
+            ]);
 
             // Add log
             $eventLog = Repo::eventLog()->newDataObject([

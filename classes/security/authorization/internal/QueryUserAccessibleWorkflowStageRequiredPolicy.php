@@ -17,10 +17,9 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
-use PKP\db\DAORegistry;
+use APP\facades\Repo;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkflowStageRequiredPolicy
 {
@@ -42,8 +41,7 @@ class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkf
         }
 
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany();
         foreach ($reviewAssignments as $reviewAssignment) {
             if ($reviewAssignment->getReviewerId() == $this->_request->getUser()->getId()) {
                 $accessibleWorkflowStages = (array) $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);

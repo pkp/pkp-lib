@@ -31,7 +31,6 @@ use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class UnassignReviewerForm extends ReviewerNotifyActionForm
 {
@@ -71,8 +70,6 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
         $reviewAssignment = $this->getReviewAssignment();
 
         // Delete or cancel the review assignment.
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-
         if (isset($reviewAssignment) && $reviewAssignment->getSubmissionId() == $submission->getId() && !Hook::call('EditorAction::clearReview', [&$submission, $reviewAssignment])) {
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId(), true);
             if (!isset($reviewer)) {
@@ -80,11 +77,10 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
             }
             if ($reviewAssignment->getDateConfirmed()) {
                 // The review has been confirmed but not completed. Flag it as cancelled.
-                $reviewAssignment->setCancelled(true);
-                $reviewAssignmentDao->updateObject($reviewAssignment);
+                Repo::reviewAssignment()->edit($reviewAssignment, ['cancelled' => true]);
             } else {
                 // The review had not been confirmed yet. Delete the assignment.
-                $reviewAssignmentDao->deleteById($reviewAssignment->getId());
+                Repo::reviewAssignment()->delete($reviewAssignment);
             }
 
             // Stamp the modification date

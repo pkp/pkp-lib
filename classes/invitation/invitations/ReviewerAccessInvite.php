@@ -20,7 +20,6 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Mail\Mailable;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\invitation\invitations\enums\InvitationStatus;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\security\Validation;
@@ -46,8 +45,7 @@ class ReviewerAccessInvite extends BaseInvitation
 
         parent::__construct($invitedUserId, null, $contextId, $reviewAssignmentId, $expiryDays);
 
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $this->reviewAssignment = $reviewAssignmentDao->getById($reviewAssignmentId);
+        $this->reviewAssignment = Repo::reviewAssignment()->get($this->reviewAssignmentId);
     }
 
     public function getMailable(): ?Mailable
@@ -127,8 +125,7 @@ class ReviewerAccessInvite extends BaseInvitation
             return false;
         }
 
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignment = $reviewAssignmentDao->getById($reviewId);
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
         if (!$reviewAssignment) {
             return false;
         } // e.g. deleted review assignment

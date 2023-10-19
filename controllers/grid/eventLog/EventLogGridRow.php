@@ -22,12 +22,10 @@ use APP\submission\Submission;
 use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
 use PKP\controllers\grid\eventLog\linkAction\EmailLinkAction;
 use PKP\controllers\grid\GridRow;
-use PKP\db\DAORegistry;
 use PKP\log\EmailLogEntry;
 use PKP\log\event\EventLogEntry;
 use PKP\log\event\SubmissionFileEventLogEntry;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class EventLogGridRow extends GridRow
@@ -83,8 +81,7 @@ class EventLogGridRow extends GridRow
                         $anonymousAuthor = false;
                         $maybeAnonymousAuthor = $this->_isCurrentUserAssignedAuthor && $submissionFile->getData('fileStage') === SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT;
                         if ($maybeAnonymousAuthor && $submissionFile->getData('assocType') === Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
-                            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-                            $reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
+                            $reviewAssignment = Repo::reviewAssignment()->get($submissionFile->getData('assocId'));
                             if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
                                 $anonymousAuthor = true;
                             }

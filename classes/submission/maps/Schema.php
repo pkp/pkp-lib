@@ -27,7 +27,6 @@ use PKP\stageAssignment\StageAssignment;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\userGroup\UserGroup;
@@ -221,11 +220,12 @@ class Schema extends \PKP\core\maps\Schema
         $output = [];
 
         if (in_array('publications', $props)) {
-            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-            $currentUserReviewAssignment = $reviewAssignmentDao->getLastReviewRoundReviewAssignmentByReviewer(
-                $submission->getId(),
-                $this->request->getUser()->getId()
-            );
+            $currentUserReviewAssignment = Repo::reviewAssignment()->getCollector()
+                ->filterBySubmissionIds([$submission->getId()])
+                ->filterByReviewerIds([$this->request->getUser()->getId()])
+                ->filterByLastReviewRound(true)
+                ->getMany()
+                ->first();
             $anonymize = $currentUserReviewAssignment && $currentUserReviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS;
         }
 
@@ -279,8 +279,7 @@ class Schema extends \PKP\core\maps\Schema
      */
     protected function getPropertyReviewAssignments(Submission $submission): array
     {
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany();
 
         $reviews = [];
         foreach ($reviewAssignments as $reviewAssignment) {

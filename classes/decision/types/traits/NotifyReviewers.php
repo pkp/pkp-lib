@@ -20,14 +20,11 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Validator;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\EmailData;
 use PKP\mail\mailables\DecisionNotifyReviewer;
 use PKP\mail\mailables\ReviewerUnassign;
 use PKP\security\Validation;
-use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\user\User;
 
 trait NotifyReviewers
@@ -52,13 +49,15 @@ trait NotifyReviewers
 
             // Update the ReviewAssignment to indicate the reviewer has been acknowledged
             if (is_a($mailable, DecisionNotifyReviewer::class)) {
-                /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-                $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-                $reviewAssignment = $reviewAssignmentDao->getReviewAssignment($mailable->getDecision()->getData('reviewRoundId'), $recipient->getId());
+                $reviewAssignment = Repo::reviewAssignment()->getCollector()
+                    ->filterByReviewRoundIds([$mailable->getDecision()->getData('reviewRoundId')])
+                    ->filterByReviewerIds([$recipient->getId()])
+                    ->getMany()
+                    ->first();
                 if ($reviewAssignment) {
-                    $reviewAssignment->setDateAcknowledged(Core::getCurrentDate());
-                    $reviewAssignment->stampModified();
-                    $reviewAssignmentDao->updateObject($reviewAssignment);
+                    Repo::reviewAssignment()->edit($reviewAssignment, [
+                        'dateAcknowledged' => Core::getCurrentDate(),
+                    ]);
                 }
             }
         }

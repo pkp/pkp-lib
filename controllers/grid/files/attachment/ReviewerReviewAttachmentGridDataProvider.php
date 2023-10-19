@@ -19,10 +19,8 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\api\file\linkAction\AddFileLinkAction;
 use PKP\controllers\grid\files\SubmissionFilesGridDataProvider;
-use PKP\db\DAORegistry;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\ReviewStageAccessPolicy;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataProvider
@@ -111,9 +109,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
     public function getAddFileAction($request)
     {
         $submission = $this->getSubmission();
-
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignment = $reviewAssignmentDao->getById($this->_getReviewId());
+        $reviewAssignment = Repo::reviewAssignment()->get($this->_getReviewId());
 
         return new AddFileLinkAction(
             $request,

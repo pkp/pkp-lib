@@ -1,0 +1,191 @@
+{
+	"title": "Review Assignment",
+	"description": "An assignment to the reviewer to review a submission.",
+	"required": [
+		"submissionId",
+		"reviewerId",
+		"reviewRoundId",
+		"stageId"
+	],
+	"properties": {
+		"_href": {
+			"type": "string",
+			"description": "A URL to this object in the REST API.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"cancelled": {
+			"type": "boolean",
+			"description": "Indicates whether review assignment was cancelled",
+			"apiSummary": true
+		},
+		"comments": {
+			"type": "string",
+			"description": "Comments from a reviewer",
+			"apiSummary": true
+		},
+		"competingInterests": {
+			"type": "string",
+			"description": "Reviewer's competing interests",
+			"apiSummary": true
+		},
+		"considered": {
+			"type": "boolean",
+			"description": "Whether reviewer considers a review assignment request",
+			"apiSummary": true
+		},
+		"dateAcknowledged": {
+			"type": "string",
+			"description": "Date editor was familiarized with the review",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			],
+			"apiSummary": true
+		},
+		"dateAssigned": {
+			"type": "string",
+			"description": "Date the reviewer was assigned to the submission",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			],
+			"apiSummary": true
+		},
+		"dateConfirmed": {
+			"type": "string",
+			"description": "Date the reviewer confirmed the assignment to the submission",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			],
+			"apiSummary": true
+		},
+		"dateCompleted": {
+			"type": "string",
+			"description": "Date the assignment was completed",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			],
+			"apiSummary": true
+		},
+		"dateDue": {
+			"type": "string",
+			"description": "Date the review assignment should be completed",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			],
+			"apiSummary": true
+		},
+		"dateNotified": {
+			"type": "string",
+			"description": "Date the reviewer was notified about the assignment",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			],
+			"apiSummary": true
+		},
+		"dateRated": {
+			"type": "string",
+			"description": "Date the submission was rated by the reviewer",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			],
+			"apiSummary": true
+		},
+		"dateReminded": {
+			"type": "string",
+			"description": "Date the reviewer was reminded about the assignment",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			],
+			"apiSummary": true
+		},
+		"dateResponseDue": {
+			"type": "string",
+			"description": "Date until which the response from reviewer is expected",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			],
+			"apiSummary": true
+		},
+		"declined": {
+			"type": "boolean",
+			"description": "Whether review assignment was declined by tge reviewer",
+			"apiSummary": true
+		},
+		"lastModified": {
+			"type": "string",
+			"description": "Date of the most recent assignment update",
+			"validation": [
+				"date:Y-m-d H:i:s"
+			],
+			"apiSummary": true,
+			"writeDisabledInApi": true
+		},
+		"quality": {
+			"type": "integer",
+			"description": "Assessment of the review quality",
+			"apiSummary": true
+		},
+		"recommendation": {
+			"type": "integer",
+			"description": "Reviewer's recommendation",
+			"apiSummary": true
+		},
+		"requestResent": {
+			"type": "boolean",
+			"description": "Whether the review request was resent to the reviewer",
+			"apiSummary": true
+		},
+		"reminderWasAutomatic": {
+			"type": "boolean",
+			"description": "Whether the reminder for the reviewer about the assignment was send automatically",
+			"apiSummary": true
+		},
+		"reviewerFullName": {
+			"type": "string",
+			"description": "The full name of the reviewer",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"reviewerId": {
+			"type": "integer",
+			"description": "reviewer's unique ID",
+			"apiSummary": true
+		},
+		"reviewFormId": {
+			"type": "integer",
+			"description": "The ID of the custom review form",
+			"apiSummary": true
+		},
+		"reviewMethod": {
+			"type": "integer",
+			"description": "The method used in the review. One of the SUBMISSION_REVIEW_METHOD_ constants",
+			"apiSummary": true
+		},
+		"reviewRoundId": {
+			"type": "integer",
+			"description": "The ID of the review round",
+			"apiSummary": true
+		},
+		"round": {
+			"type": "integer",
+			"description": "The round of the review stage",
+			"apiSummary": true
+		},
+		"stageId": {
+			"type": "integer",
+			"description": "The ID of the review stage: external or internal review",
+			"apiSummary": true
+		},
+		"step": {
+			"type": "integer",
+			"description": "The current step of the reviewer form",
+			"apiSummary": true
+		},
+		"submissionId": {
+			"type": "integer",
+			"description": "The ID of the submission associated with the assignment",
+			"readOnly": true,
+			"apiSummary": true
+		}
+	}
+}

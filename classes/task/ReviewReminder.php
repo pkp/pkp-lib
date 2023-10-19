@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\invitation\invitations\ReviewerAccessInvite;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\ReviewRemindAuto;
@@ -30,7 +29,6 @@ use PKP\mail\mailables\ReviewResponseRemindAuto;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class ReviewReminder extends ScheduledTask
 {
@@ -51,8 +49,6 @@ class ReviewReminder extends ScheduledTask
         Context $context,
         ReviewRemindAuto|ReviewResponseRemindAuto $mailable
     ): void {
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewId = $reviewAssignment->getId();
 
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
         if (!isset($reviewer)) {
@@ -68,9 +64,6 @@ class ReviewReminder extends ScheduledTask
 
         $mailable->setData($primaryLocale);
 
-        $application = Application::get();
-        $request = $application->getRequest();
-        $dispatcher = $application->getDispatcher();
         $reviewerAccessKeysEnabled = $context->getData('reviewerAccessKeysEnabled');
         if ($reviewerAccessKeysEnabled) { // Give one-click access if enabled
             $reviewInvitation = new ReviewerAccessInvite(
@@ -90,9 +83,10 @@ class ReviewReminder extends ScheduledTask
 
         Mail::send($mailable);
 
-        $reviewAssignment->setDateReminded(Core::getCurrentDate());
-        $reviewAssignment->setReminderWasAutomatic(1);
-        $reviewAssignmentDao->updateObject($reviewAssignment);
+        Repo::reviewAssignment()->edit($reviewAssignment, [
+            'dateReminded' => Core::getCurrentDate(),
+            'reminderWasAutomatic' => 1
+        ]);
 
         $eventLog = Repo::eventLog()->newDataObject([
             'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
@@ -116,10 +110,9 @@ class ReviewReminder extends ScheduledTask
         $submission = null;
         $context = null;
 
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $contextDao = Application::getContextDAO();
 
-        $incompleteAssignments = $reviewAssignmentDao->getIncompleteReviewAssignments();
+        $incompleteAssignments = Repo::reviewAssignment()->getCollector()->filterByIsIncomplete(true)->getMany();
         $inviteReminderDays = $submitReminderDays = null;
         foreach ($incompleteAssignments as $reviewAssignment) {
             // Avoid review assignments that a reminder exists for.

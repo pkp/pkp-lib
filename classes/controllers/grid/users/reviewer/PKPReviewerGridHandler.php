@@ -63,7 +63,6 @@ use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionCommentDAO;
@@ -330,8 +329,12 @@ class PKPReviewerGridHandler extends GridHandler
     {
         // Get the existing review assignments for this submission
         $reviewRound = $this->getReviewRound();
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        return $reviewAssignmentDao->getByReviewRoundId($reviewRound->getId());
+        return Repo::reviewAssignment()->getCollector()
+            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->getMany()
+            ->keyBy(fn(ReviewAssignment $reviewAssignment, int $key) => $reviewAssignment->getId())
+            ->sortKeys()
+            ->toArray();
     }
 
 
@@ -676,10 +679,8 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = $this->getSubmission();
         $user = $request->getUser();
         $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
 
-        $reviewAssignment->setConsidered(ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED);
-        $reviewAssignmentDao->updateObject($reviewAssignment);
+        Repo::reviewAssignment()->edit($reviewAssignment, ['considered' => ReviewAssignment::REVIEW_ASSIGNMENT_UNCONSIDERED]);
 
         // log the unconsider.
         $eventLog = Repo::eventLog()->newDataObject([
@@ -718,39 +719,32 @@ class PKPReviewerGridHandler extends GridHandler
 
         // Rate the reviewer's performance on this assignment
         $quality = $request->getUserVar('quality');
+        $newReviewData = [];
         if ($quality) {
-            $reviewAssignment->setQuality((int) $quality);
-            $reviewAssignment->setDateRated(Core::getCurrentDate());
+            $newReviewData['quality'] = (int) $quality;
+            $newReviewData['dateRated'] = Core::getCurrentDate();
         } else {
-            $reviewAssignment->setQuality(null);
-            $reviewAssignment->setDateRated(null);
+            $newReviewData['quality'] = $newReviewData['dateRated'] = null;
         }
 
-        // Mark the latest read date of the review by the editor.
-        $user = $request->getUser();
-
         // if the review assignment had been unconsidered, update the flag.
-        $reviewAssignment->setConsidered(
-            $reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW
-                ? ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED
-                : ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED
-        );
+        $newReviewData['considered'] = $reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW
+            ? ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED
+            : ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED;
 
         if (!$reviewAssignment->getDateCompleted()) {
             // Editor completes the review.
-            $reviewAssignment->setDateConfirmed(Core::getCurrentDate());
-            $reviewAssignment->setDateCompleted(Core::getCurrentDate());
+            $newReviewData['dateConfirmed'] = $newReviewData['dateCompleted'] = Core::getCurrentDate();
         }
 
         // Trigger an update of the review round status
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignmentDao->updateObject($reviewAssignment);
+        Repo::reviewAssignment()->edit($reviewAssignment, $newReviewData);
 
         //if the review was read by an editor, log event
         if ($reviewAssignment->isRead()) {
             $submissionId = $reviewAssignment->getSubmissionId();
             $submission = Repo::submission()->get($submissionId);
-
+            $user = $request->getUser();
             $eventLog = Repo::eventLog()->newDataObject([
                 'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
                 'assocId' => $submission->getId(),

@@ -35,6 +35,12 @@ class DashboardView
     const TYPE_SCHEDULED = 'scheduled';
     const TYPE_PUBLISHED = 'published';
     const TYPE_DECLINED = 'declined';
+    const TYPE_REVISIONS_REQUESTED = 'revisions-requested';
+    const TYPE_REVISIONS_SUBMITTED = 'revisions-submitted';
+    const TYPE_INCOMPLETE_SUBMISSIONS = 'incomplete-submissions';
+    const TYPE_REVIEWER_ASSIGNMENTS_ALL = 'reviewer-assignments-all';
+    const TYPE_REVIEWER_ASSIGNMENTS_PENDING = 'reviewer-assignments-pending';
+    const TYPE_REVIEWER_ASSIGNMENTS_FINISHED = 'reviewer-assignments-finished';
 
     // The number of submissions in the view
     protected int $count;

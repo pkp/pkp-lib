@@ -112,6 +112,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                         Role::ROLE_ID_MANAGER,
                         Role::ROLE_ID_SUB_EDITOR,
                         Role::ROLE_ID_ASSISTANT,
+                        Role::ROLE_ID_AUTHOR,
                     ]),
                 ]);
 
@@ -122,17 +123,24 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                         Role::ROLE_ID_MANAGER,
                         Role::ROLE_ID_SUB_EDITOR,
                         Role::ROLE_ID_ASSISTANT,
+                        Role::ROLE_ID_AUTHOR,
                     ])
                 ]);
 
             Route::get('viewsCount', $this->assigned(...))
-                ->name('_submission.viewsCount')
+                ->name('_submission.getViewsCount')
                 ->middleware([
                     self::roleAuthorizer([
                         Role::ROLE_ID_MANAGER,
                         Role::ROLE_ID_SUB_EDITOR,
                         Role::ROLE_ID_ASSISTANT,
                     ])
+                ]);
+
+            Route::get('reviewAssignments', $this->assigned(...))
+                ->name('_submission.getReviewAssignments')
+                ->middleware([
+                    Role::ROLE_ID_REVIEWER,
                 ]);
         }
     }
@@ -184,10 +192,6 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                         $val = array_shift($val);
                     }
                     $collector->assignedTo($val);
-                    break;
-
-                case 'isIncomplete':
-                    $collector->filterByIncomplete(true);
                     break;
             }
         }
@@ -304,6 +308,12 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                 case 'reviewsOverdue':
                     $collector->filterByOverdue(true);
                     break;
+                case 'revisionsRequested':
+                    $collector->filterByRevisionsRequested(true);
+                    break;
+                case 'revisionsSubmitted':
+                    $collector->filterByRevisionsSubmitted(true);
+                    break;
             }
         }
 
@@ -326,7 +336,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
     /**
      * Get a number of the submissions for each view
      */
-    public function viewsCount(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function getViewsCount(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
@@ -338,6 +348,19 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $dashboardViews = Repo::submission()->getDashboardViews($context, $currentUser);
 
         return $response->withJson($dashboardViews->map(fn(DashboardView $view) => $view->getCount()), 200);
+    }
+
+    /**
+     * Get all reviewer's assignments
+     */
+    public function getReviewAssignments(SlimRequest $slimRequest, APIResponse $response, array $args)
+    {
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        if (!$context) {
+            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+        }
+        $currentUser = $request->getUser();
     }
 
     /**
@@ -435,6 +458,10 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
                 case 'isOverdue':
                     $collector->filterByOverdue(true);
+                    break;
+
+                case 'isIncomplete':
+                    $collector->filterByIncomplete(true);
                     break;
             }
         }

@@ -18,11 +18,10 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
-use PKP\db\DAORegistry;
+use APP\facades\Repo;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy
@@ -50,8 +49,7 @@ class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         foreach ($userRoles as $stageRoles) {
             if (in_array(Role::ROLE_ID_AUTHOR, $stageRoles)) {
-                $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-                $reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getData('assocId'));
+                $reviewAssignment = Repo::reviewAssignment()->get((int) $submissionFile->getData('assocId'));
                 if ($reviewAssignment && $reviewAssignment->getReviewMethod() != ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN) {
                     return AuthorizationPolicy::AUTHORIZATION_DENY;
                 }

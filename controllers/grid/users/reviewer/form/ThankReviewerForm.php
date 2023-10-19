@@ -30,7 +30,6 @@ use PKP\mail\mailables\ReviewAcknowledgement;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class ThankReviewerForm extends Form
@@ -149,17 +148,13 @@ class ThankReviewerForm extends Form
         }
 
         // update the ReviewAssignment with the acknowledged date
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignment->setDateAcknowledged(Core::getCurrentDate());
-        $reviewAssignment->stampModified();
+        $newData = ['dateAcknowledged' => Core::getCurrentDate()];
         if (!in_array($reviewAssignment->getConsidered(), [ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED, ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED])) {
-            $reviewAssignment->setConsidered(
-                $reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW
-                    ? ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED
-                    : ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED
-            );
+            $newData['considered'] = $reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW
+                ? ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED
+                : ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED;
         }
-        $reviewAssignmentDao->updateObject($reviewAssignment);
+        Repo::reviewAssignment()->edit($reviewAssignment, $newData);
 
         parent::execute(...$functionArgs);
     }

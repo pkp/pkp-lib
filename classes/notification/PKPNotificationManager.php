@@ -36,7 +36,6 @@ use PKP\notification\managerDelegate\SubmissionNotificationManager;
 use PKP\payment\QueuedPaymentDAO;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignmentDAO;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\workflow\WorkflowStageDAO;
 
@@ -65,15 +64,13 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
             case PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT:
                 assert($notification->getAssocType() == Application::ASSOC_TYPE_REVIEW_ASSIGNMENT && is_numeric($notification->getAssocId()));
-                $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-                $reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
+                $reviewAssignment = Repo::reviewAssignment()->get($notification->getAssocId());
                 $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var WorkflowStageDAO $workflowStageDao */
                 $operation = $reviewAssignment->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? $workflowStageDao::WORKFLOW_STAGE_PATH_INTERNAL_REVIEW : $workflowStageDao::WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW;
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', $operation, $reviewAssignment->getSubmissionId());
             case PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT:
             case PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED:
-                $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-                $reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
+                $reviewAssignment = Repo::reviewAssignment()->get($notification->getAssocId());
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', $reviewAssignment->getSubmissionId());
             case PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT:
                 assert($notification->getAssocType() == Application::ASSOC_TYPE_ANNOUNCEMENT);
@@ -141,8 +138,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 return $this->_getTranslatedKeyWithParameters('common.pluginDisabled', $notification->getId());
             case PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT:
                 assert($notification->getAssocType() == Application::ASSOC_TYPE_REVIEW_ASSIGNMENT && is_numeric($notification->getAssocId()));
-                $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-                $reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
+                $reviewAssignment = Repo::reviewAssignment()->get($notification->getAssocId());
                 $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
                 return __('notification.type.reviewerComment', ['title' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html')]);
             case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGN:

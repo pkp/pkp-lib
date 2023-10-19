@@ -27,7 +27,6 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\ConfirmationModal;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignmentDAO;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
@@ -88,10 +87,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
             $this->_reviewRound = & $reviewRound;
         } elseif ($assocType == Application::ASSOC_TYPE_REVIEW_ASSIGNMENT && !$reviewRound) {
             // Get the review assignment object.
-            /** @var ReviewAssignmentDAO */
-            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
-            /** @var \PKP\submission\reviewAssignment\ReviewAssignment */
-            $reviewAssignment = $reviewAssignmentDao->getById((int) $assocId);
+            $reviewAssignment = Repo::reviewAssignment()->get((int) $assocId);
             if ($reviewAssignment->getDateCompleted()) {
                 fatalError('Review already completed!');
             }

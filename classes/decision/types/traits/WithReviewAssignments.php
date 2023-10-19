@@ -14,11 +14,10 @@
 
 namespace PKP\decision\types\traits;
 
+use APP\facades\Repo;
 use Exception;
-use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 trait WithReviewAssignments
 {
@@ -36,10 +35,12 @@ trait WithReviewAssignments
      */
     protected function getReviewAssignments(int $submissionId, int $reviewRoundId, int $reviewAssignmentStatus): array
     {
-        /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()
+            ->filterByReviewRoundIds([$reviewRoundId])
+            ->filterBySubmissionIds([$submissionId])
+            ->filterByStageId($this->getStageId())
+            ->getMany();
 
-        $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submissionId, $reviewRoundId, $this->getStageId());
         $assignments = [];
 
         foreach ($reviewAssignments as $reviewAssignment) {

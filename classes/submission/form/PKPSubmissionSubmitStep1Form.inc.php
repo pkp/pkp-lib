@@ -241,6 +241,7 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 	 */
 	function setPublicationData($publication, $submission) {
 		$publication->setData('submissionId', $submission->getId());
+		$publication->setData('categoryIds', (array) $this->getData('categories'));
 	}
 
 	/**

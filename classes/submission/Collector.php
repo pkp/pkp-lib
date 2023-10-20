@@ -504,7 +504,7 @@ abstract class Collector implements CollectorInterface
                     )
                 )
             );
-        } elseif (strlen($this->searchPhrase)) {
+        } elseif (strlen($this->searchPhrase ?? '')) {
             // If there's search text, but no keywords could be extracted from it, force the query to return nothing
             $q->whereRaw('1 = 0');
         }

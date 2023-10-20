@@ -83,7 +83,10 @@ class StatisticsReportNotify extends Mailable
             $trends[$stat['key']] = $stat['value'];
         }
 
-        ['submissionsReceived' => $newSubmissions,
+        // The submissionsAccepted might not exist
+        $trends['submissionsAccepted'] ??= null;
+        [
+            'submissionsReceived' => $newSubmissions,
             'submissionsDeclined' => $declinedSubmissions,
             'submissionsAccepted' => $acceptedSubmissions,
             'submissionsSkipped' => $skippedSubmissions
@@ -92,7 +95,7 @@ class StatisticsReportNotify extends Mailable
         $this->addData([
             'newSubmissions' => $newSubmissions,
             'declinedSubmissions' => $declinedSubmissions,
-            'acceptedSubmissions' => $acceptedSubmissions ?? null,
+            'acceptedSubmissions' => $acceptedSubmissions,
             'skippedSubmissions' => $skippedSubmissions,
             'totalSubmissions' => $totalSubmissions,
             'month' => $month,

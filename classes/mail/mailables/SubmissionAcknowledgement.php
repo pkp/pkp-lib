@@ -40,16 +40,16 @@ class SubmissionAcknowledgement extends Mailable
     public function __construct(Context $context, Submission $submission)
     {
         parent::__construct(func_get_args());
-        $this->setupDeprecatedVariables();
     }
 
     /**
-     * see pkp/pkp-lib#9111
+     * @copydoc Mailable::setData()
      */
-    protected function setupDeprecatedVariables(): void
+    public function setData(?string $locale = null): void
     {
+        parent::setData($locale);
         $this->addData([
-           'editorialContactSignature' => $this->viewData[ContextEmailVariable::CONTEXT_SIGNATURE],
+            'editorialContactSignature' => $this->viewData[ContextEmailVariable::CONTEXT_SIGNATURE],
         ]);
     }
 }

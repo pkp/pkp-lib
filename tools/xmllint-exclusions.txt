@@ -10,3 +10,4 @@
 ./lib/pkp/tests
 ./node_modules
 ./lib/ui-library/node_modules
+./phpdoc.dist.xml

@@ -23,6 +23,12 @@ msgstr "Unable to process API request."
 msgid "api.417.routeResponseIsNull"
 msgstr "Unable to receive any expected response."
 
+msgid "api.400.pluginNotEnabled"
+msgstr "The API request can not be processed as the plugin responsible to handle the API routing is not enable."
+
+msgid "api.400.routeNotDefined"
+msgstr "No API route was provided."
+
 msgid "api.400.paramNotSupported"
 msgstr "The {$param} parameter is not supported."
 

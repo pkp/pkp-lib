@@ -16,24 +16,38 @@
 
 namespace PKP\handler;
 
+use APP\core\Application;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Pipeline;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPContainer;
 use PKP\core\PKPRoutingProvider;
+use PKP\plugins\Hook;
+use PKP\plugins\PluginRegistry;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class APIHandler extends PKPHandler
 {
-    /** @var string The endpoint pattern for this handler */
-    protected $_pathPattern;
+    /**
+     * The endpoint pattern for this handler
+     */
+    protected ?string $_pathPattern = null;
 
-    /** @var string The unique endpoint string for this handler */
-    protected $_handlerPath = null;
+    /**
+     * The unique endpoint string for this handler
+     */
+    protected ?string $_handlerPath = null;
 
-    /** @var bool Define if all the path building for admin api */
-    protected $_apiForAdmin = false;
+    /** 
+     * Define if all the path building for admin api
+     */
+    protected bool $_apiForAdmin = false;
+
+    /** 
+     * The API routing controller class
+     */
+    protected PKPBaseController $apiController;
 
     /**
      * Constructor
@@ -41,6 +55,10 @@ class APIHandler extends PKPHandler
     public function __construct(PKPBaseController $controller)
     {
         parent::__construct();
+
+        Hook::call('APIHandler::endpoints', [&$controller, $this]);
+
+        $this->apiController = $controller;
 
         $this->_pathPattern = $controller->getPathPattern();
         $this->_handlerPath = $controller->getHandlerPath();
@@ -50,9 +68,41 @@ class APIHandler extends PKPHandler
             'prefix' => $this->getEndpointPattern(),
             'middleware' => $controller->getRouteGroupMiddleware(),
         ], $controller->getGroupRoutes(...));
+    }
 
+    /**
+     * Get the API controller for current running route
+     */
+    public function getApiController(): PKPBaseController
+    {
+        return $this->apiController;
+    }
+
+    /** 
+     * Run the API routes
+     */
+    public function runRoutes(): mixed
+    {   
         if(app('router')->getRoutes()->count() === 0) {
-            return;
+            return response()->json([
+                'error' => __('api.400.routeNotDefined')
+            ], Response::HTTP_BAD_REQUEST)->send();
+        }
+
+        $router = $this->apiController->getRequest()->getRouter(); /** @var \PKP\core\APIRouter $router */
+        
+        if ($router->isPluginApi()) {
+            $contextId = $this->apiController->getRequest()->getContext()?->getId() ?? Application::CONTEXT_SITE;
+            
+            // load the plugin only for current running context or site if no context available
+            $plugin = PluginRegistry::loadPlugin($router->getPluginCategory(), $router->getPluginName(), $contextId);
+
+            // Will only allow api call only from enable plugins
+            if (!$plugin->getEnabled($contextId)) {
+                return response()->json([
+                    'error' => __('api.400.pluginNotEnabled')
+                ], Response::HTTP_BAD_REQUEST)->send();
+            }
         }
 
         try {
@@ -105,21 +155,27 @@ class APIHandler extends PKPHandler
      *
      * Compiles the URI path pattern from the context, api version and the
      * unique string for the this handler.
-     *
-     * @return string
      */
-    public function getEndpointPattern()
+    public function getEndpointPattern(): string
     {
         if (isset($this->_pathPattern)) {
             return $this->_pathPattern;
         }
+        
+        $router = $this->apiController->getRequest()->getRouter(); /** @var \PKP\core\APIRouter $router */
 
         if ($this->_apiForAdmin) {
-            $this->_pathPattern = '/index/api/{version}/' . $this->_handlerPath;
+            $this->_pathPattern = $router->isPluginApi()
+                ? "/index/{$router->getPluginApiPathPrefix()}/{$router->getPluginCategory()}/{$router->getPluginName()}/api/{version}/{$this->_handlerPath}"
+                : "/index/api/{version}/{$this->_handlerPath}";
+
             return $this->_pathPattern;
         }
 
-        $this->_pathPattern = '/{contextPath}/api/{version}/' . $this->_handlerPath;
+        $this->_pathPattern = $router->isPluginApi()
+            ? "/{contextPath}/{$router->getPluginApiPathPrefix()}/{$router->getPluginCategory()}/{$router->getPluginName()}/api/{version}/{$this->_handlerPath}"
+            : "/{contextPath}/api/{version}/{$this->_handlerPath}";
+
         return $this->_pathPattern;
     }
 }

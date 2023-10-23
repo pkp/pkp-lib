@@ -97,7 +97,13 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
                 return ['label' => __($element->getReviewMethodKey())];
 
             case 'considered':
-                return ['label' => $this->_getStatusText($this->getCellState($row, $column), $row)];
+                $statusText = $this->_getStatusText($this->getCellState($row, $column), $row);
+                $reviewAssignment = $row->getData();
+                $competingInterests = $reviewAssignment->getCompetingInterests();
+                if ($competingInterests) {
+                    $statusText .= '<span class="details">' . __('reviewer.competingInterests') . '</span>';
+                }
+                return ['label' => $statusText];
 
             case 'actions':
                 // Only attach actions to this column. See self::getCellActions()

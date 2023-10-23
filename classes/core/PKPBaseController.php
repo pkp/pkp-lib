@@ -77,7 +77,6 @@ abstract class PKPBaseController extends Controller
      * The unique endpoint string for the APIs that will be served through controller.
      *
      * This is equivalent to property \PKP\handler\APIHandler::_handlerPath
-     * which will be passed through \PKP\handler\APIHandler\PKPApiRoutingHandler
      */
     abstract public function getHandlerPath(): string;
 
@@ -149,7 +148,6 @@ abstract class PKPBaseController extends Controller
      * The endpoint pattern for the APIs that will be served through controller.
      *
      * This is equivalent to property \PKP\handler\APIHandler::_pathPattern
-     * which will be passed through \PKP\handler\APIHandler\PKPApiRoutingHandler
      */
     public function getPathPattern(): ?string
     {
@@ -160,7 +158,6 @@ abstract class PKPBaseController extends Controller
      * Define if all the path building for admin api use rather than at context level
      *
      * This is equivalent to property \PKP\handler\APIHandler::_apiForAdmin
-     * which will be passed through \PKP\handler\APIHandler\PKPApiRoutingHandler
      */
     public function isSiteWide(): bool
     {

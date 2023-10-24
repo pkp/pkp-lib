@@ -13,6 +13,7 @@
 
 namespace PKP\announcement;
 
+use APP\core\Application;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -20,7 +21,6 @@ use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\plugins\Hook;
-use APP\core\Application;
 
 /**
  * @template T of Announcement
@@ -48,6 +48,7 @@ class Collector implements CollectorInterface
 
     /**
      * @copydoc DAO::getIds()
+     *
      * @return Collection<int,int>
      */
     public function getIds(): Collection
@@ -57,6 +58,7 @@ class Collector implements CollectorInterface
 
     /**
      * @copydoc DAO::getMany()
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(): LazyCollection
@@ -141,9 +143,9 @@ class Collector implements CollectorInterface
             $qb->whereIn('a.type_id', $this->typeIds);
         }
 
-        $qb->when($this->isActive, fn($qb) => $qb->where(function($qb) {
-            $qb->where('date_expire', '<=', $this->isActive)
-                  ->orWhereNull('date_expire');
+        $qb->when($this->isActive, fn ($qb) => $qb->where(function ($qb) {
+            $qb->where('a.date_expire', '>', $this->isActive)
+                ->orWhereNull('a.date_expire');
         }));
 
         if ($this->searchPhrase !== null) {
@@ -171,6 +173,8 @@ class Collector implements CollectorInterface
                 });
             }
         }
+
+        $qb->orderByDesc('a.date_posted');
 
         if (isset($this->count)) {
             $qb->limit($this->count);

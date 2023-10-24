@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-10-10 07:57+0000\n"
+"PO-Revision-Date: 2023-10-24 15:17+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/lv/>\n"
@@ -714,8 +714,8 @@ msgstr "Nosūtīts uz izstrādi"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
-"Materiāls {$title} tika nosūtīts uz izstrādes posmu. Autors ir informēts, ja "
-"vien neesat izvēlējies šo e-pastu izlaist."
+"Materiāls \"{$title}\" tika nosūtīts uz izstrādes posmu. Autors ir "
+"informēts, ja vien neesat izvēlējies šo e-pastu izlaist."
 
 msgid "editor.submission.decision.sendToProduction.log"
 msgstr "{$editorName} nosūtīja šo materiālu izstrādes posmam."
@@ -742,7 +742,7 @@ msgstr "Nosūtīts atpakaļ uz literāro rediģēšanu"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
-"Materiāls {$title} tika nosūtīts atpakaļ no literārās rediģēšanas posma. "
+"Materiāls \"{$title}\" tika nosūtīts atpakaļ no literārās rediģēšanas posma. "
 "Autors ir informēts, ja vien neesat izvēlējies šo e-pastu izlaist."
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
@@ -1941,3 +1941,105 @@ msgid "submission.dataAvailability.tip"
 msgstr ""
 "Norādiet, vai esat nodrošinājis piekļuvi informācijai, kas apstiprina jūsu "
 "pētījuma rezultātus, un, ja jā, kur un kā šī informācija ir pieejama"
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Nosūtīt e-pastu autoriem, lai informētu, ka iepriekšējais lēmums noraidīt šo "
+"materiālu ir atcelts. Paskaidrojiet, kāpēc lēmums tika atcelts, un "
+"informējiet autorus, vai materiāls tiks recenzēts."
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"Recenzēšanas kārtu var atcelt tikai tad, ja nevienam piesaistītajam "
+"recenzentam nav pieejama pabeigta vai iesniegta recenzija."
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Atkārtoti iesniegt recenzēšanai"
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Nosūtīt recenzēšanai"
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Šis iesniegtais darbs ir gatavs nosūtīšanai uz recenzēšanu."
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} nosūtīja šo materiālu uz recenzēšanas posmu."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Nosūtīts recenzēšanai"
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr ""
+"Iesniegtais materiāls \"{$title}\" ir nosūtīts uz recenzēšanas posmu. Autors "
+"ir informēts, ja vien neesat izvēlējies šo e-pastu izlaist."
+
+msgid "editor.submission.decision.newRound"
+msgstr "Jauna recenzēšanas kārta"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Pieņemt materiālu un izlaist recenzēšanu"
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Recenzēšana izlaista"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Nosūtīt iekšējai recenzēšanai"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"Lappuses korektūras datne jāatzīmē kā apstiprināta, lai tā būtu pieejama. "
+"Vai vēlaties to apstiprināt?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Apstiprināt korektūras"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"Šī korektūras datne vairs nebūs publiski pieejama lejupielādei vai iegādei. "
+"Vai vēlaties to noraidīt?"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Atcelt materiāla noraidījumu"
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Atcelt iepriekšējo lēmumu par šī materiāla noraidīšanu un atgriezt to "
+"atpakaļ aktīvajā redakcijas procesā. Autors ir informēts, ja vien neesat "
+"izvēlējies šo e-pastu izlaist."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Iesniegtais materiāls aktivizēts atkārtoti"
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr ""
+"Iesniegtais materiāls \"{$title}\" tagad ir aktīvs materiāls recenzēšanas "
+"posmā."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr ""
+"Materiāls \"{$title}\" tagad ir aktīvs iesniegšanas posmā. Autors ir "
+"informēts, ja vien neesat izvēlējies šo e-pastu izlaist."
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+"Piešķirt redaktoru, lai varētu pieņemt redakcionālus lēmumus šajā posmā."
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Nosūtīt ziņu redaktoriem, kas pieņem lēmumu, lai informētu viņus par "
+"rekomendāciju. Paskaidrojiet, kāpēc šī rekomendācija tika sniegta, reaģējot "
+"uz recenzentu iesniegtajām rekomendācijām un komentāriem."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Rekomendēt akceptēšanu"
+
+msgid "editor.submission.recommend.completed"
+msgstr "Rekomendācija iesniegta"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+"Jūsu rekomendācija ir reģistrēta, un par to ir informēts(-i) redaktors(-i), "
+"kurš(-i) pieņem lēmumu."
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} atcēla lēmumu noraidīt šo iesniegto materiālu."

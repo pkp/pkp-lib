@@ -4,8 +4,11 @@ namespace PKP\controllers\grid\settings\user;
 
 use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
+use PKP\controllers\grid\feature\PagingFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
+use PKP\controllers\grid\settings\user\form\UserDetailsForm;
+use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
 use PKP\core\VirtualArrayIterator;
 use PKP\invitation\repositories\Invitation;
@@ -14,6 +17,7 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\invitation\models\Invitation as PKPInvitationModel;
+use PKP\security\Validation;
 
 class UserInvitationGridHandler extends GridHandler
 {
@@ -26,7 +30,7 @@ class UserInvitationGridHandler extends GridHandler
         $this->addRoleAssignment(
             [
                 Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN],
-            ['fetchGrid']
+            ['fetchGrid','addUser']
         );
     }
 
@@ -37,6 +41,14 @@ class UserInvitationGridHandler extends GridHandler
     {
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
         return parent::authorize($request, $args, $roleAssignments);
+    }
+
+    /**
+     * @copydoc GridHandler::initFeatures()
+     */
+    public function initFeatures($request, $args)
+    {
+        return [new PagingFeature()];
     }
 
     /**
@@ -121,5 +133,25 @@ class UserInvitationGridHandler extends GridHandler
         $collector->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount());
         $iterator = $collector->getMany();
         return new VirtualArrayIterator(iterator_to_array($iterator, true), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
+    }
+
+    /**
+     * Add a new user.
+     *
+     * @param array $args
+     * @param PKPRequest $request
+     */
+    public function addUser($args, $request)
+    {
+        $userForm = new UserDetailsForm($request, null);
+        $administrationLevel = null;
+
+        $administrationLevel === Validation::ADMINISTRATION_PARTIAL
+            ? $userForm->applyUserGroupUpdateOnly()
+            : $userForm->attachValidationChecks($request);
+
+        $userForm->initData();
+
+        return new JSONMessage(true, $userForm->display($request));
     }
 }

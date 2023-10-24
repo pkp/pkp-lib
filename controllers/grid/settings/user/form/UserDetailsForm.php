@@ -27,7 +27,10 @@ use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
+use PKP\invitation\invitations\RegistrationAccessInvite;
 use PKP\mail\mailables\UserCreated;
+use PKP\mail\mailables\UserInvitation;
+use PKP\mail\mailables\ValidateEmailContext as ContextMailable;
 use PKP\notification\PKPNotification;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
@@ -372,7 +375,28 @@ class UserDetailsForm extends UserForm
             $this->user->setPassword(Validation::encryptCredentials($this->getData('username'), $password));
 
             $this->user->setDateRegistered(Core::getCurrentDate());
-            Repo::user()->add($this->user);
+            $userId = Repo::user()->add($this->user);
+            $context = $request->getContext();
+            $reviewInvitation = new RegistrationAccessInvite(
+                $userId,
+                $context->getId()
+            );
+            $reviewInvitation->email = $this->getData('email');
+            $reviewInvitation->dispatch();
+            $mailable = new UserInvitation($context,$reviewInvitation->getAcceptUrl(),$reviewInvitation->getDeclineUrl());
+            $mailable->recipients($this->user);
+            $mailable->sender($request->getUser());
+            $mailable->replyTo($context->getData('contactEmail'), $context->getData('contactName'));
+            $template = Repo::emailTemplate()->getByKey($context->getId(), UserInvitation::getEmailTemplateKey());
+            $mailable->body($template->getLocalizedData('body'));
+            $mailable->subject($template->getLocalizedData('subject'));
+
+            $reviewInvitation->setMailable($mailable);
+            try {
+                Mail::send($mailable);
+            } catch (TransportException $e) {
+                trigger_error('Failed to send email invitation: ' . $e->getMessage(), E_USER_ERROR);
+            }
 
             if ($sendNotify) {
                 // Send welcome email to user

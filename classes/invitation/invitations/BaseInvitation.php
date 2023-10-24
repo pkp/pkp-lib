@@ -218,7 +218,7 @@ abstract class BaseInvitation
         $this->expirationDate = $expirationDate;
     }
 
-    public function setInvitationModel(Invitation $invitationModel)
+    public function  (Invitation $invitationModel)
     {
         $this->keyHash = $invitationModel->keyHash;
         $this->expirationDate = $invitationModel->expiryDate;

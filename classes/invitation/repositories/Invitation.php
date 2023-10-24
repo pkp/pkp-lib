@@ -164,8 +164,7 @@ class Invitation extends BaseRepository
         if (!class_exists($className)) {
             throw new \Exception("The class name does not exist. Invitation can't be created");
         }
-        $context =Application::get()->getRequest()->getContext();
-        $retInvitation = new $className($invitationModel->user_id,$context->getId(),...$invitationModel->payload);
+        $retInvitation = new $className(...$invitationModel->payload);
         $retInvitation->setInvitationModel($invitationModel);
 
         return $retInvitation;

@@ -254,9 +254,9 @@ class Mailable extends IlluminateMailable
      *
      * @param string $view HTML string with template variables
      */
-    public function body(string $view): self
+    public function body(?string $view): self
     {
-        return parent::view($view, []);
+        return parent::view($view ?? '', []);
     }
 
     /**

@@ -254,9 +254,9 @@ class Mailable extends IlluminateMailable
      *
      * @param string $view HTML string with template variables
      */
-    public function body(string $view): self
+    public function body(?string $view): self
     {
-        return parent::view($view, []);
+        return parent::view($view ?? '', []);
     }
 
     /**
@@ -357,7 +357,7 @@ class Mailable extends IlluminateMailable
         $withoutTagViewData = collect($this->viewData)
             ->map(fn(mixed $viewableData) => is_string($viewableData) ? strip_tags($viewableData) : $viewableData)
             ->toArray();
-            
+
         $subject = app('mailer')->compileParams($this->subject, $withoutTagViewData);
         if (empty($subject)) {
             trigger_error(

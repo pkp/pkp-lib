@@ -768,6 +768,11 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 			case SUBMISSION_FILE_INTERNAL_REVIEW_REVISION:
 				$reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /* @var $reviewRoundDao ReviewRoundDAO */
 				$reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getId());
+				// The file should be associated with a review round. If not, fail.
+				// If $reviewRound is null here, it doesn't make sense to return $reviewRound->getStageId(); - it will cause trying to see the activity log for a submission to hang.
+				if(is_null($reviewRound)) {
+					return null;
+				}
 				return $reviewRound->getStageId();
 			case SUBMISSION_FILE_QUERY:
 				$noteDao = DAORegistry::getDAO('NoteDAO'); /* @var $noteDao NoteDAO */

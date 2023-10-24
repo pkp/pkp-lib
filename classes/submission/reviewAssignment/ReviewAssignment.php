@@ -11,8 +11,6 @@
  *
  * @ingroup submission
  *
- * @see ReviewAssignmentDAO
- *
  * @brief Describes review assignment properties.
  */
 

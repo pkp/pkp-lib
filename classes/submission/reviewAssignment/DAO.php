@@ -13,6 +13,7 @@
 
 namespace PKP\submission\reviewAssignment;
 
+use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
@@ -132,6 +133,20 @@ class DAO extends EntityDAO
                 yield $row->review_id => $this->fromRow($row);
             }
         });
+    }
+
+    /**
+     * @copydoc EntityDAO::fromRow()
+     */
+    public function fromRow(object $row): ReviewAssignment
+    {
+        $reviewAssignment = parent::fromRow($row);
+        $reviewAssignment->setData(
+            'reviewerFullName',
+            Repo::user()->get($reviewAssignment->getReviewerId())->getFullName()
+        );
+
+        return $reviewAssignment;
     }
 
     /**

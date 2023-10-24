@@ -22,23 +22,33 @@
 		"comments": {
 			"type": "string",
 			"description": "Comments from a reviewer",
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"competingInterests": {
 			"type": "string",
 			"description": "Reviewer's competing interests",
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"considered": {
 			"type": "boolean",
 			"description": "Whether reviewer considers a review assignment request",
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"dateAcknowledged": {
 			"type": "string",
 			"description": "Date editor was familiarized with the review",
 			"validation": [
-				"date:Y-m-d H:i:s"
+				"date:Y-m-d H:i:s",
+				"nullable"
 			],
 			"apiSummary": true
 		},
@@ -46,7 +56,8 @@
 			"type": "string",
 			"description": "Date the reviewer was assigned to the submission",
 			"validation": [
-				"date:Y-m-d H:i:s"
+				"date:Y-m-d H:i:s",
+				"nullable"
 			],
 			"apiSummary": true
 		},
@@ -54,7 +65,8 @@
 			"type": "string",
 			"description": "Date the reviewer confirmed the assignment to the submission",
 			"validation": [
-				"date:Y-m-d H:i:s"
+				"date:Y-m-d H:i:s",
+				"nullable"
 			],
 			"apiSummary": true
 		},
@@ -62,7 +74,8 @@
 			"type": "string",
 			"description": "Date the assignment was completed",
 			"validation": [
-				"date:Y-m-d H:i:s"
+				"date:Y-m-d H:i:s",
+				"nullable"
 			],
 			"apiSummary": true
 		},
@@ -70,7 +83,8 @@
 			"type": "string",
 			"description": "Date the review assignment should be completed",
 			"validation": [
-				"date:Y-m-d H:i:s"
+				"date:Y-m-d H:i:s",
+				"nullable"
 			],
 			"apiSummary": true
 		},
@@ -78,7 +92,8 @@
 			"type": "string",
 			"description": "Date the reviewer was notified about the assignment",
 			"validation": [
-				"date:Y-m-d H:i:s"
+				"date:Y-m-d H:i:s",
+				"nullable"
 			],
 			"apiSummary": true
 		},
@@ -86,7 +101,8 @@
 			"type": "string",
 			"description": "Date the submission was rated by the reviewer",
 			"validation": [
-				"date:Y-m-d H:i:s"
+				"date:Y-m-d H:i:s",
+				"nullable"
 			],
 			"apiSummary": true
 		},
@@ -94,7 +110,8 @@
 			"type": "string",
 			"description": "Date the reviewer was reminded about the assignment",
 			"validation": [
-				"date:Y-m-d H:i:s"
+				"date:Y-m-d H:i:s",
+				"nullable"
 			],
 			"apiSummary": true
 		},
@@ -102,7 +119,8 @@
 			"type": "string",
 			"description": "Date until which the response from reviewer is expected",
 			"validation": [
-				"date:Y-m-d H:i:s"
+				"date:Y-m-d H:i:s",
+				"nullable"
 			],
 			"apiSummary": true
 		},
@@ -111,11 +129,18 @@
 			"description": "Whether review assignment was declined by tge reviewer",
 			"apiSummary": true
 		},
+		"id": {
+			"type": "integer",
+			"description": "The id of this review assignment",
+			"readOnly": true,
+			"apiSummary": true
+		},
 		"lastModified": {
 			"type": "string",
 			"description": "Date of the most recent assignment update",
 			"validation": [
-				"date:Y-m-d H:i:s"
+				"date:Y-m-d H:i:s",
+				"nullable"
 			],
 			"apiSummary": true,
 			"writeDisabledInApi": true
@@ -123,12 +148,18 @@
 		"quality": {
 			"type": "integer",
 			"description": "Assessment of the review quality",
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"recommendation": {
 			"type": "integer",
 			"description": "Reviewer's recommendation",
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"requestResent": {
 			"type": "boolean",
@@ -154,7 +185,10 @@
 		"reviewFormId": {
 			"type": "integer",
 			"description": "The ID of the custom review form",
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"reviewMethod": {
 			"type": "integer",
@@ -184,7 +218,6 @@
 		"submissionId": {
 			"type": "integer",
 			"description": "The ID of the submission associated with the assignment",
-			"readOnly": true,
 			"apiSummary": true
 		}
 	}

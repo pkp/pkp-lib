@@ -13,6 +13,7 @@
 
 namespace PKP\submission\reviewAssignment\maps;
 
+use APP\facades\Repo;
 use Illuminate\Support\Enumerable;
 use PKP\services\PKPSchemaService;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -26,7 +27,7 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Map an announcement
      *
-     * Includes all properties in the announcement schema.
+     * Includes all properties in the review assignment schema.
      */
     public function map(ReviewAssignment $item): array
     {

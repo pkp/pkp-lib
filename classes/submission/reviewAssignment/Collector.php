@@ -202,7 +202,7 @@ class Collector implements CollectorInterface
 
         $q->when($this->isLastReviewRound || $this->isIncomplete, function(Builder $q) {$q
             ->whereRaw('ra.round = agrr.current_round') // assignments from the last review round only
-            ->whereRaw('ra.stage_id = agrr.stage_id') // assignments for the current review stage only (for OMP)
+            ->whereRaw('ra.stage_id = agrr.current_stage') // assignments for the current review stage only (for OMP)
             ->when($this->isIncomplete, fn(Builder $q) => $q
                 ->where(fn(Builder $q) => $q
                     ->whereNotNull('ra.date_notified')

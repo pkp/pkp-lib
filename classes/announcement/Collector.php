@@ -146,8 +146,8 @@ class Collector implements CollectorInterface
         }
 
         $qb->when($this->isActive, fn ($qb) => $qb->where(function ($qb) {
-            $qb->where('date_expire', '<=', $this->isActive)
-                ->orWhereNull('date_expire');
+            $qb->where('a.date_expire', '>', $this->isActive)
+                ->orWhereNull('a.date_expire');
         }));
 
         if ($this->searchPhrase !== null) {
@@ -175,6 +175,8 @@ class Collector implements CollectorInterface
                 });
             }
         }
+
+        $qb->orderByDesc('a.date_posted');
 
         if (isset($this->count)) {
             $qb->limit($this->count);

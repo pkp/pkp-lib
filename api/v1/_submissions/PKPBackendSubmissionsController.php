@@ -97,14 +97,6 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         if (Config::getVar('features', 'enable_new_submission_listing')) {
 
-            Route::get('needsEditor', $this->needsEditor(...))
-                ->name('_submission.needsEditor')
-                ->middleware([
-                    self::roleAuthorizer([
-                        Role::ROLE_ID_MANAGER,
-                    ]),
-                ]);
-
             Route::get('assigned', $this->assigned(...))
                 ->name('_submission.assigned')
                 ->middleware([
@@ -116,7 +108,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                     ]),
                 ]);
 
-            Route::get('reviews', $this->assigned(...))
+            Route::get('reviews', $this->reviews(...))
                 ->name('_submission.reviews')
                 ->middleware([
                     self::roleAuthorizer([
@@ -127,7 +119,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                     ])
                 ]);
 
-            Route::get('viewsCount', $this->assigned(...))
+            Route::get('viewsCount', $this->getViewsCount(...))
                 ->name('_submission.getViewsCount')
                 ->middleware([
                     self::roleAuthorizer([
@@ -137,7 +129,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                     ])
                 ]);
 
-            Route::get('reviewAssignments', $this->assigned(...))
+            Route::get('reviewerAssignments', $this->getReviewAssignments(...))
                 ->name('_submission.getReviewAssignments')
                 ->middleware([
                     Role::ROLE_ID_REVIEWER,
@@ -271,16 +263,19 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
     /**
      * Get submission undergoing the review
      */
-    public function reviews(SlimRequest $slimRequest, APIResponse $response, array $args)
+    public function reviews(Request $illuminateRequest): JsonResponse
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
         if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
         $currentUser = $request->getUser();
+        $queryParams = $illuminateRequest->query();
 
-        $collector = $this->getSubmissionCollector($slimRequest->getQueryParams());
+        $collector = $this->getSubmissionCollector($queryParams);
         $collector
             ->filterByContextIds([$context->getId()])
             ->filterByStatus([PKPSubmission::STATUS_QUEUED])
@@ -292,7 +287,6 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
             $collector->assignedTo([$currentUser->getId()]);
         }
 
-        $queryParams = $slimRequest->getQueryParams();
         foreach ($queryParams as $param => $val) {
             switch ($param) {
                 case 'needsReviewers':
@@ -327,40 +321,68 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
-        return $response->withJson([
+        return response()->json([
             'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
             'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres)->values(),
-        ], 200);
+        ], Response::HTTP_OK);
     }
 
     /**
      * Get a number of the submissions for each view
      */
-    public function getViewsCount(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
+    public function getViewsCount(Request $illuminateRequest): JsonResponse
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
         if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
         $currentUser = $request->getUser();
 
         $dashboardViews = Repo::submission()->getDashboardViews($context, $currentUser);
 
-        return $response->withJson($dashboardViews->map(fn(DashboardView $view) => $view->getCount()), 200);
+        return response()->json(
+            $dashboardViews->map(fn(DashboardView $view) => $view->getCount()),
+            Response::HTTP_OK
+        );
     }
 
     /**
      * Get all reviewer's assignments
      */
-    public function getReviewAssignments(SlimRequest $slimRequest, APIResponse $response, array $args)
+    public function getReviewAssignments(Request $illuminateRequest): JsonResponse
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
         if (!$context) {
-            return $response->withStatus(404)->withJsonError('api.404.resourceNotFound');
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
         }
         $currentUser = $request->getUser();
+        $collector = Repo::reviewAssignment()->getCollector()
+            ->filterByReviewRoundIds([$currentUser->getId()])
+            ->filterByContextIds([$context->getId()]);
+
+        foreach ($illuminateRequest->query() as $param => $val) {
+            switch ($param) {
+                case 'pending':
+                    $collector->filterByIsIncomplete(true);
+                    break;
+                case 'archived':
+                    $collector->filterByIsArchived(true);
+                    break;
+            }
+        }
+
+        $reviewAssignments = $collector->getMany();
+
+        return response()->json([
+            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'items' => Repo::reviewAssignment()->getSchemaMap()->mapMany($reviewAssignments)->values(),
+        ], Response::HTTP_OK);
     }
 
     /**

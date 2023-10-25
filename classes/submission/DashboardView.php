@@ -19,6 +19,8 @@ namespace PKP\submission;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use PKP\security\Role;
+use PKP\submission\Collector as SubmissionCollector;
+use PKP\submission\reviewAssignment\Collector as ReviewAssignmentCollector;
 
 class DashboardView
 {
@@ -40,7 +42,7 @@ class DashboardView
     const TYPE_INCOMPLETE_SUBMISSIONS = 'incomplete-submissions';
     const TYPE_REVIEWER_ASSIGNMENTS_ALL = 'reviewer-assignments-all';
     const TYPE_REVIEWER_ASSIGNMENTS_PENDING = 'reviewer-assignments-pending';
-    const TYPE_REVIEWER_ASSIGNMENTS_FINISHED = 'reviewer-assignments-finished';
+    const TYPE_REVIEWER_ASSIGNMENTS_ARCHIVED = 'reviewer-assignments-archived';
 
     // The number of submissions in the view
     protected int $count;
@@ -49,7 +51,7 @@ class DashboardView
         protected string $type, // View type, used also as the unique ID of the view's front-end part
         protected string $name, // View name as a localized string
         protected array $roles, // User roles having access to the view
-        protected Collector $submissionCollector, // Collector with correspondent filters applied
+        protected SubmissionCollector|ReviewAssignmentCollector $submissionCollector, // Collector with correspondent filters applied
         protected ?string $op = null, // Dashboard handler operation to retrieve filtered submissions
         protected ?array $queryParams = null // Optional query parameters
     )

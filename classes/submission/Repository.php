@@ -1005,6 +1005,40 @@ abstract class Repository
                         'assigned',
                         ['isIncomplete' => true]
                     );
+                case DashboardView::TYPE_REVIEWER_ASSIGNMENTS_ALL:
+                    return new DashboardView(
+                        $key,
+                        __('submission.dashboard.view.reviewAssignments.all'),
+                        [Role::ROLE_ID_REVIEWER],
+                        Repo::reviewAssignment()->getCollector()
+                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByContextIds([$context->getId()]),
+                        'reviewerAssignments'
+                    );
+                case DashboardView::TYPE_REVIEWER_ASSIGNMENTS_PENDING:
+                    return new DashboardView(
+                        $key,
+                        __('submission.dashboard.view.reviewAssignments.pending'),
+                        [Role::ROLE_ID_REVIEWER],
+                        Repo::reviewAssignment()->getCollector()
+                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByContextIds([$context->getId()])
+                            ->filterByIsIncomplete(true),
+                        'reviewerAssignments',
+                        ['pending' => true]
+                    );
+                case DashboardView::TYPE_REVIEWER_ASSIGNMENTS_ARCHIVED:
+                    return new DashboardView(
+                        $key,
+                        __('submission.dashboard.view.reviewAssignments.archived'),
+                        [Role::ROLE_ID_REVIEWER],
+                        Repo::reviewAssignment()->getCollector()
+                            ->filterByReviewerIds([$user->getId()])
+                            ->filterByContextIds([$context->getId()])
+                            ->filterByIsArchived(true),
+                        'reviewerAssignments',
+                        ['archived' => true]
+                    );
             }
         });
 

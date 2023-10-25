@@ -37,6 +37,8 @@ use PKP\submission\reviewRound\ReviewRound;
  */
 abstract class Collector implements CollectorInterface
 {
+    use ViewsCount;
+
     public const ORDERBY_DATE_PUBLISHED = 'datePublished';
     public const ORDERBY_DATE_SUBMITTED = 'dateSubmitted';
     public const ORDERBY_ID = 'id';
@@ -637,23 +639,6 @@ abstract class Collector implements CollectorInterface
         // Add app-specific query statements
         Hook::call('Submission::Collector', [&$q, $this]);
 
-        return $q;
-    }
-
-    /**
-     * Builds a single query to retrieve submissions count for all dashboard views
-     * @param Collection [
-     *   Dashboard view unique ID => Submission Collector with filters applied
-     * ]
-     */
-    public static function getViewsCountBuilder(Collection $keyCollectorPair): Builder
-    {
-        $q = DB::query();
-        $keyCollectorPair->each(function(AppCollector $collector, string $key) use ($q) {
-            // Get query builder from a collector instance, override a select statement to retrieve submissions count instead of submissions data
-            $subQuery = $collector->getQueryBuilder()->select([])->selectRaw('COUNT(s.submission_id)');
-            $q->selectSub($subQuery, $key);
-        });
         return $q;
     }
 

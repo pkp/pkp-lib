@@ -20,16 +20,20 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
+use PKP\submission\ViewsCount;
 
 /**
  * @template T of ReviewAssignment
  */
 class Collector implements CollectorInterface
 {
+    use ViewsCount;
+
     public DAO $dao;
     public ?array $contextIds = null;
     public ?array $submissionIds = null;
     public bool $isIncomplete = false;
+    public bool $isArchived = false;
     public bool $isOverdue = false;
     public ?array $reviewRoundIds = null;
     public ?array $reviewerIds = null;
@@ -95,6 +99,15 @@ class Collector implements CollectorInterface
     public function filterByIsIncomplete(?bool $isIncomplete): self
     {
         $this->isIncomplete = $isIncomplete;
+        return $this;
+    }
+
+    /**
+     * Filter by completed or declined assignments
+     */
+    public function filterByIsArchived(?bool $isArchived): self
+    {
+        $this->isArchived = $isArchived;
         return $this;
     }
 
@@ -217,6 +230,13 @@ class Collector implements CollectorInterface
                 )
             );
         });
+
+        $q->when($this->isArchived, fn(Builder $q) =>
+            $q->where(fn(Builder $q) => $q
+                ->whereNotNull('ra.date_completed')
+                ->orWhere('declined', 1)
+            )
+        );
 
         $q->when($this->isOverdue, fn(Builder $q) => $q
             ->where(fn(Builder $q) => $q

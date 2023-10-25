@@ -10,7 +10,8 @@
 {extends file="layouts/backend.tpl"}
 
 {block name="page"}
-	<div class="submissions">
+	<submissions-page v-bind="page" />
+	<!--<div class="submissions">
 		<div class="submissions__views">
 			<h1 class="submissions__views__title">
 				{translate key="navigation.submissions"}
@@ -105,7 +106,6 @@
 			</pkp-table>
 			<div class="submissions__list__footer">
 				<span class="submission__list__showing" v-html="showingXofX"></span>
-				<template #footer>
 					<pagination
 					v-if="lastPage > 1"
 					:current-page="currentPage"
@@ -115,25 +115,21 @@
 					@set-page="setPage"
 					>
 					</pagination>
-				</template>
 			</div>
 		</div>
 	</div>
-	<modal
+	<side-modal
+		v-if="summarySubmission"	
 		close-label="Close"
 		name="summary"
 		type="side"
 		:open="isModalOpenedSummary"
 		@close="isModalOpenedSummary = false"
 	>
-		<template v-if="summarySubmission">
 			{include file="dashboard/summary.tpl"}
-		</template>
-	</modal>
-	<modal
+	</side-modal>
+	<side-modal
 		close-label="Close"
-		name="filters"
-		type="side"
 		:open="isModalOpenedFilters"
 		@close="isModalOpenedFilters = false"
 	>
@@ -151,5 +147,5 @@
 				></pkp-form>
 			</panel-section>
 		</panel>
-	</modal>
+	</side-modal>-->
 {/block}

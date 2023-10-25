@@ -122,39 +122,39 @@ class DashboardHandlerNext extends Handler
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
         $templateMgr->setState([
-            'apiUrl' => $apiUrl,
-            'assignParticipantUrl' => $dispatcher->url(
-                $request,
-                Application::ROUTE_COMPONENT,
-                null,
-                'grid.users.stageParticipant.StageParticipantGridHandler',
-                'addParticipant',
-                null,
-                [
-                    'submissionId' => '__id__',
-                    'stageId' => '__stageId__',
-                ]
-            ),
-            'count' => $this->perPage,
-            'currentViewId' => 'active',
-            'filtersForm' => $filtersForm->getConfig(),
-            'i18nReviewRound' => __('common.reviewRoundNumber'),
-            'i18nShowingXofX' => __('common.showingXofX'),
-            'submissions' => Repo::submission()
-                ->getSchemaMap()
-                ->mapManyToSubmissionsList(
-                    $collector->limit($this->perPage)->getMany(),
-                    $userGroups,
-                    $genres
-                )
-                ->values(),
-            'submissionsMax' => $collector->limit(null)->getCount(),
-            'views' => $this->getViews(),
+            'page' => [
+                'apiUrl' => $apiUrl,
+                'assignParticipantUrl' => $dispatcher->url(
+                    $request,
+                    Application::ROUTE_COMPONENT,
+                    null,
+                    'grid.users.stageParticipant.StageParticipantGridHandler',
+                    'addParticipant',
+                    null,
+                    [
+                        'submissionId' => '__id__',
+                        'stageId' => '__stageId__',
+                    ]
+                ),
+                'count' => $this->perPage,
+                'initCurrentViewId' => 'active',
+                'filtersForm' => $filtersForm->getConfig(),
+                'initSubmissions' => Repo::submission()
+                    ->getSchemaMap()
+                    ->mapManyToSubmissionsList(
+                        $collector->limit($this->perPage)->getMany(),
+                        $userGroups,
+                        $genres
+                    )
+                    ->values(),
+                'initCountMax' => $collector->limit(null)->getCount(),
+                'views' => $this->getViews(),
+            ]
         ]);
 
         $templateMgr->assign([
             'columns' => $this->getColumns(),
-            'pageComponent' => 'SubmissionsPage',
+            'pageComponent' => 'PageOJS',
             'pageTitle' => __('navigation.submissions'),
             'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
         ]);

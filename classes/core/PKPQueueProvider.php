@@ -22,6 +22,8 @@ use APP\core\Application;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Queue\Events\JobFailed;
+use Illuminate\Queue\Events\JobProcessed;
+use Illuminate\Queue\Events\JobProcessing;
 use Illuminate\Queue\QueueServiceProvider as IlluminateQueueServiceProvider;
 use Illuminate\Queue\Worker;
 use Illuminate\Queue\WorkerOptions;
@@ -151,6 +153,36 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     'trace' => $event->exception->getTrace(),
                 ])
             );
+        });
+
+        Queue::createPayloadUsing(function(string $connection, string $queue, array $payload) {
+            
+            // If a job dispatch on CLI (e.g. TestJobSuccess/TestJobFailure),
+            // there is simple no way to get the context(journal/press/server) information
+            // and no need to set the context id information in job payload
+            if (runOnCLI()) {
+                return [];
+            }
+
+            return [
+                'context_id' => Application::get()->getRequest()->getContext(),
+            ];
+        });
+
+        Queue::before(function(JobProcessing $event){
+            // Set the context for current CLI session if available right before job start processing
+            // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
+            if (runOnCLI()) {
+                Application::get()->setCliContext($event->job->payload()['context_id'] ?? null);
+            }
+        });
+
+        Queue::after(function(JobProcessed $event){
+            // Clear the context for current CLI session if available when job finish the processing
+            // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
+            if (runOnCLI()) {
+                Application::get()->clearCliContext();
+            }
         });
     }
 

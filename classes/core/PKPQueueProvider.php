@@ -165,7 +165,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
             }
 
             return [
-                'context_id' => Application::get()->getRequest()->getContext(),
+                'context_id' => Application::get()->getRequest()->getContext()->getId(),
             ];
         });
 

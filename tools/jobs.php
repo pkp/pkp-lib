@@ -436,7 +436,7 @@ class commandJobs extends CommandLineTool
             $queue = PKPJobModel::TESTING_QUEUE;
         }
 
-        $jobQueue = app('pkpJobQueue');
+        $jobQueue = app('pkpJobQueue'); /** @var \PKP\core\PKPQueueProvider $jobQueue */
 
         if ($queue && is_string($queue)) {
             $jobQueue = $jobQueue->forQueue($queue);

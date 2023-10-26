@@ -29,6 +29,7 @@ use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
+use PKP\core\PKPQueueProvider;
 use PKP\proxy\ProxyParser;
 use Throwable;
 

@@ -17,8 +17,10 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
+use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\plugins\Hook;
+use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 
 /**
  * @template T of UserGroup
@@ -58,6 +60,9 @@ class Collector implements CollectorInterface
     public ?int $count = null;
 
     public ?int $offset = null;
+
+    public UserUserGroupStatus $userUserGroupStatus = UserUserGroupStatus::STATUS_ACTIVE;
+
 
     public function __construct(DAO $dao)
     {
@@ -187,6 +192,15 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * Filter by user's role status
+     */
+    public function filterByUserUserGroupStatus(UserUserGroupStatus $userUserGroupStatus): self
+    {
+        $this->userUserGroupStatus = $userUserGroupStatus;
+        return $this;
+    }
+
+    /**
      * Include orderBy columns to the collector query
      */
     public function orderBy(?string $orderBy): self
@@ -231,6 +245,22 @@ class Collector implements CollectorInterface
         if (isset($this->userIds)) {
             $q->join('user_user_groups as uug', 'ug.user_group_id', '=', 'uug.user_group_id');
             $q->whereIn('uug.user_id', $this->userIds);
+            $currentDateTime = Core::getCurrentDate();
+            if ($this->userUserGroupStatus === UserUserGroupStatus::STATUS_ENDED) {
+                $q->whereNotNull('uug.date_end')
+                    ->where('uug.date_end', '<=', $currentDateTime);
+            } elseif ($this->userUserGroupStatus === UserUserGroupStatus::STATUS_ACTIVE) {
+                $q->where(
+                    fn (Builder $q) =>
+                    $q->where('uug.date_start', '<=', $currentDateTime)
+                        ->orWhereNull('uug.date_start')
+                )
+                    ->where(
+                        fn (Builder $q) =>
+                        $q->where('uug.date_end', '>', $currentDateTime)
+                            ->orWhereNull('uug.date_end')
+                    );
+            }
         }
 
         if (isset($this->publicationIds)) {

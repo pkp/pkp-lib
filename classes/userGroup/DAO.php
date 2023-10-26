@@ -20,6 +20,7 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
+use PKP\core\Core;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
@@ -152,11 +153,22 @@ class DAO extends EntityDAO
      */
     public function getUserCountByContextId(?int $contextId = null): Collection
     {
+        $currentDateTime = Core::getCurrentDate();
         return DB::table('user_groups', 'ug')
             ->join('user_user_groups AS uug', 'uug.user_group_id', '=', 'ug.user_group_id')
             ->join('users AS u', 'u.user_id', '=', 'uug.user_id')
             ->when($contextId !== null, fn (Builder $query) => $query->where('ug.context_id', '=', $contextId))
             ->where('u.disabled', '=', 0)
+            ->where(
+                fn (Builder $q) =>
+                $q->where('uug.date_start', '<=', $currentDateTime)
+                    ->orWhereNull('uug.date_start')
+            )
+            ->where(
+                fn (Builder $q) =>
+                $q->where('uug.date_end', '>', $currentDateTime)
+                    ->orWhereNull('uug.date_end')
+            )
             ->groupBy('ug.user_group_id')
             ->select('ug.user_group_id')
             ->selectRaw('COUNT(0) AS count')

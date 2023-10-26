@@ -63,7 +63,8 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->foreign('user_id', 'user_user_groups_user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'user_user_groups_user_id');
 
-            $table->unique(['user_group_id', 'user_id'], 'user_user_groups_unique');
+            $table->datetime('date_start')->nullable();
+            $table->datetime('date_end')->nullable();
         });
 
         Schema::create('user_group_stage', function (Blueprint $table) {

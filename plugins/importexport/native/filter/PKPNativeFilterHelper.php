@@ -115,14 +115,35 @@ class PKPNativeFilterHelper
             if ($n instanceof DOMElement) {
                 switch ($n->tagName) {
                     case 'cover_image':
-                        $coverImage['uploadName'] = $n->textContent;
+                        $coverImage['uploadName'] = trim(
+                            preg_replace(
+                                "/[^a-z0-9\.\-]+/",
+                                "",
+                                str_replace(
+                                    [' ', '_', ':'],
+                                    '-',
+                                    strtolower($n->textContent)
+                                )
+                            )
+                        );
                         break;
                     case 'cover_image_alt_text':
                         $coverImage['altText'] = $n->textContent;
                         break;
                     case 'embed':
+                        if (!isset($coverImage['uploadName'])) {
+                            $deployment->addWarning(PKPApplication::ASSOC_TYPE_PUBLICATION, $object->getId(), __('plugins.importexport.common.error.coverImageNameUnspecified'));
+                            break;
+                        }
+
                         $publicFileManager = new PublicFileManager();
                         $filePath = $publicFileManager->getContextFilesPath($context->getId()) . '/' . $coverImage['uploadName'];
+                        $allowedFileTypes = ['gif', 'jpg', 'png', 'webp'];
+                        $extension = pathinfo(strtolower($filePath), PATHINFO_EXTENSION);
+                        if (!in_array($extension, $allowedFileTypes)) {
+                            $deployment->addWarning(PKPApplication::ASSOC_TYPE_PUBLICATION, $object->getId(), __('plugins.importexport.common.error.invalidFileExtension'));
+                            break;
+                        }
                         file_put_contents($filePath, base64_decode($n->textContent));
                         break;
                     default:

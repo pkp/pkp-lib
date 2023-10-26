@@ -824,6 +824,30 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     }
 
     /**
+     * Check if application currently running on CLI
+     */
+    public static function isRunningOnCLI(string $scriptPath = null): bool
+    {
+        if (php_sapi_name() && strtolower(php_sapi_name()) === 'cli') {
+            return true;
+        }
+
+        if ($scriptPath) {
+            $serverVars = $_SERVER;
+
+            if (isset($serverVars['SCRIPT_NAME']) && strpos(strtolower($serverVars['SCRIPT_NAME']), strtolower($scriptPath)) !== false) {
+                return true;
+            }
+
+            if (isset($serverVars['SCRIPT_FILENAME']) && strpos(strtolower($serverVars['SCRIPT_FILENAME']), strtolower($scriptPath)) !== false) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Get the property name for a section id
      *
      * In OMP, the section is referred to as a series and the

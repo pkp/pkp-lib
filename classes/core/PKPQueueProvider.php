@@ -160,7 +160,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
             // If a job dispatch on CLI (e.g. TestJobSuccess/TestJobFailure),
             // there is simple no way to get the context(journal/press/server) information
             // and no need to set the context id information in job payload
-            if (runOnCLI()) {
+            if (Application::isRunningOnCLI()) {
                 return [];
             }
 
@@ -172,7 +172,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         Queue::before(function(JobProcessing $event){
             // Set the context for current CLI session if available right before job start processing
             // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
-            if (runOnCLI()) {
+            if (Application::isRunningOnCLI()) {
                 Application::get()->setCliContext($event->job->payload()['context_id'] ?? null);
             }
         });
@@ -180,7 +180,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         Queue::after(function(JobProcessed $event){
             // Clear the context for current CLI session if available when job finish the processing
             // Not necessary when jobs are running via JobRunner as that runs at the end of request life cycle
-            if (runOnCLI()) {
+            if (Application::isRunningOnCLI()) {
                 Application::get()->clearCliContext();
             }
         });

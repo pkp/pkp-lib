@@ -179,8 +179,8 @@ abstract class PKPRouter
     public function getContext($request, $forceReload = false)
     {
         // If the app currently run on CLI, return the on CLI context if set
-        if (runOnCLI()) {
-            return Application::get()->getCliContext();
+        if (Application::isRunningOnCLI() && ($cliContext = Application::get()->getCliContext())) {
+            return $cliContext;
         }
 
         if ($forceReload || !isset($this->_context)) {

@@ -122,7 +122,7 @@ class DashboardHandlerNext extends Handler
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
         $templateMgr->setState([
-            'page' => [
+            'storeData' => [
                 'apiUrl' => $apiUrl,
                 'assignParticipantUrl' => $dispatcher->url(
                     $request,
@@ -136,10 +136,10 @@ class DashboardHandlerNext extends Handler
                         'stageId' => '__stageId__',
                     ]
                 ),
-                'count' => $this->perPage,
-                'initCurrentViewId' => 'active',
+                'countPerPage' => $this->perPage,
+                'currentViewId' => 'active',
                 'filtersForm' => $filtersForm->getConfig(),
-                'initSubmissions' => Repo::submission()
+                'submissions' => Repo::submission()
                     ->getSchemaMap()
                     ->mapManyToSubmissionsList(
                         $collector->limit($this->perPage)->getMany(),
@@ -147,13 +147,14 @@ class DashboardHandlerNext extends Handler
                         $genres
                     )
                     ->values(),
-                'initCountMax' => $collector->limit(null)->getCount(),
+                'submissionsCount' => $collector->limit(null)->getCount(),
                 'views' => $this->getViews(),
+                'columns' => $this->getColumns(),
+
             ]
         ]);
 
         $templateMgr->assign([
-            'columns' => $this->getColumns(),
             'pageComponent' => 'PageOJS',
             'pageTitle' => __('navigation.submissions'),
             'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
@@ -341,15 +342,15 @@ class DashboardHandlerNext extends Handler
     protected function getColumns(): array
     {
         $columns = [
-            $this->createColumn('id', __('common.id'), 'dashboard/column-id.tpl', true),
-            $this->createColumn('title', __('navigation.submissions'), 'dashboard/column-title.tpl'),
-            $this->createColumn('stage', __('workflow.stage'), 'dashboard/column-stage.tpl'),
-            $this->createColumn('days', __('editor.submission.days'), 'dashboard/column-days.tpl'),
-            $this->createColumn('activity', __('stats.editorialActivity'), 'dashboard/column-activity.tpl'),
+            $this->createColumn('id', __('common.id'), 'columnId', true),
+            $this->createColumn('title', __('navigation.submissions'), 'columnTitle'),
+            $this->createColumn('stage', __('workflow.stage'), 'columnStage'),
+            $this->createColumn('days', __('editor.submission.days'), 'columnDays'),
+            $this->createColumn('activity', __('stats.editorialActivity'), 'columnActivity'),
             $this->createColumn(
                 'actions',
                 '<span class="-screenReader">' . __('admin.jobs.list.actions') . '</span>',
-                'dashboard/column-actions.tpl'
+                'columnActions'
             ),
         ];
 
@@ -363,13 +364,13 @@ class DashboardHandlerNext extends Handler
     /**
      * Creates a new table column
      */
-    protected function createColumn(string $id, string $header, string $template, bool $sortable = false): object
+    protected function createColumn(string $id, string $header, string $componentName, bool $sortable = false): object
     {
-        return new class ($id, $header, $template, $sortable) {
+        return new class ($id, $header, $componentName, $sortable) {
             public function __construct(
                 public string $id,
                 public string $header,
-                public string $template,
+                public string $componentName,
                 public bool $sortable,
             ) {
             }

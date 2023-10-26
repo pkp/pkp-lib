@@ -115,7 +115,7 @@ class UserFormHelper
                     if (!$inGroup && array_key_exists($groupId, $groupFormData)) {
                         Repo::userGroup()->assignUserToGroup($user->getId(), $groupId);
                     } elseif ($inGroup && !array_key_exists($groupId, $groupFormData)) {
-                        Repo::userGroup()->removeUserFromGroup($user->getId(), $groupId, $context->getId());
+                        Repo::userGroup()->endAssignments($context->getId(), $user->getId(), $groupId);
                     }
                 }
             }

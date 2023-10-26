@@ -40,8 +40,9 @@ class StageParticipantGridCellProvider extends DataObjectGridCellProvider
             case 'participants':
                 $stageAssignment = $row->getData();
                 $user = Repo::user()->get($stageAssignment->getUserId(), true);
+                $active = Repo::userGroup()->userInGroup($user->getId(), $stageAssignment->getUserGroupId());
                 assert($user);
-                return ['label' => $user ? $user->getFullName() : ''];
+                return ['label' => $user ? $user->getFullName() . (!$active ? ' (' . __('user.role.ended') . ')' : '') : ''];
             default:
                 assert(false);
         }

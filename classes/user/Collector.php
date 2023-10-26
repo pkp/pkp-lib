@@ -27,6 +27,7 @@ use PKP\core\PKPString;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\plugins\Hook;
+use PKP\userGroup\relationships\UserUserGroup;
 
 /**
  * @template T of User
@@ -73,6 +74,7 @@ class Collector implements CollectorInterface
     public ?array $reviewsActive = null;
     public ?int $count = null;
     public ?int $offset = null;
+    public string $userUserGroupStatus = UserUserGroup::STATUS_ACTIVE;
 
     /**
      * Constructor
@@ -260,6 +262,18 @@ class Collector implements CollectorInterface
     public function filterExcludeRoles(?array $excludedRoles): self
     {
         $this->excludeRoles = $excludedRoles;
+        return $this;
+    }
+
+    /**
+     * Filter by user's role status
+     */
+    public function filterByUserUserGroupStatus(string $userUserGroupStatus): self
+    {
+        if (!in_array($this->userUserGroupStatus, [UserUserGroup::STATUS_ACTIVE, UserUserGroup::STATUS_ENDED, UserUserGroup::STATUS_ALL], true)) {
+            throw new InvalidArgumentException("Invalid status: \"{$this->userUserGroupStatus}\"");
+        }
+        $this->userUserGroupStatus = $userUserGroupStatus;
         return $this;
     }
 
@@ -459,6 +473,8 @@ class Collector implements CollectorInterface
                 ->when($this->excludeRoles !== null, fn ($query) => $query->whereNotIn('ug.role_id', $this->excludeRoles))
                 ->when($this->roleIds !== null, fn ($query) => $query->whereIn('ug.role_id', $this->roleIds))
                 ->when($this->contextIds !== null, fn ($query) => $query->whereIn('ug.context_id', $this->contextIds))
+                ->when($this->userUserGroupStatus === UserUserGroup::STATUS_ACTIVE, fn ($query) => $query->whereNull('uug.date_end'))
+                ->when($this->userUserGroupStatus === UserUserGroup::STATUS_ENDED, fn ($query) => $query->whereNotNull('uug.date_end'))
         );
         return $this;
     }
@@ -500,6 +516,8 @@ class Collector implements CollectorInterface
                 ->where('uug.user_group_id', '=', $this->excludeSubmissionStage['user_group_id'])
                 ->where('ugs.stage_id', '=', $this->excludeSubmissionStage['stage_id'])
                 ->whereNull('sa.user_group_id')
+                ->when($this->userUserGroupStatus === UserUserGroup::STATUS_ACTIVE, fn ($query) => $query->whereNull('uug.date_end'))
+                ->when($this->userUserGroupStatus === UserUserGroup::STATUS_ENDED, fn ($query) => $query->whereNotNull('uug.date_end'))
         );
         return $this;
     }

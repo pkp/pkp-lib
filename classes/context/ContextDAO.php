@@ -147,7 +147,7 @@ abstract class ContextDAO extends SchemaDAO
             'SELECT c.* FROM ' . $this->tableName . ' c
 			WHERE	' .
                 ($userId ?
-                    'c.' . $this->primaryKeyColumn . ' IN (SELECT DISTINCT ug.context_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE uug.user_id = ?)
+                    'c.' . $this->primaryKeyColumn . ' IN (SELECT DISTINCT ug.context_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE uug.user_id = ? AND uug.date_end IS NULL)
 					OR ? IN (SELECT user_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE ug.role_id = ?)'
                 : 'c.enabled = 1') .
             ' ORDER BY seq',

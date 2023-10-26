@@ -157,6 +157,7 @@ class DAO extends EntityDAO
             ->join('users AS u', 'u.user_id', '=', 'uug.user_id')
             ->when($contextId !== null, fn (Builder $query) => $query->where('ug.context_id', '=', $contextId))
             ->where('u.disabled', '=', 0)
+            ->whereNull('uug.date_end')
             ->groupBy('ug.user_group_id')
             ->select('ug.user_group_id')
             ->selectRaw('COUNT(0) AS count')

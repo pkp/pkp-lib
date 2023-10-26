@@ -17,8 +17,10 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
+use InvalidArgumentException;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\plugins\Hook;
+use PKP\userGroup\relationships\UserUserGroup;
 
 /**
  * @template T of UserGroup
@@ -58,6 +60,9 @@ class Collector implements CollectorInterface
     public ?int $count = null;
 
     public ?int $offset = null;
+
+    public string $userUserGroupStatus = UserUserGroup::STATUS_ACTIVE;
+
 
     public function __construct(DAO $dao)
     {
@@ -187,6 +192,18 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * Filter by user's role status
+     */
+    public function filterByUserUserGroupStatus(string $userUserGroupStatus): self
+    {
+        if (!in_array($this->userUserGroupStatus, [UserUserGroup::STATUS_ACTIVE, UserUserGroup::STATUS_ENDED, UserUserGroup::STATUS_ALL], true)) {
+            throw new InvalidArgumentException("Invalid status: \"{$this->userUserGroupStatus}\"");
+        }
+        $this->userUserGroupStatus = $userUserGroupStatus;
+        return $this;
+    }
+
+    /**
      * Include orderBy columns to the collector query
      */
     public function orderBy(?string $orderBy): self
@@ -231,6 +248,11 @@ class Collector implements CollectorInterface
         if (isset($this->userIds)) {
             $q->join('user_user_groups as uug', 'ug.user_group_id', '=', 'uug.user_group_id');
             $q->whereIn('uug.user_id', $this->userIds);
+            if ($this->userUserGroupStatus === UserUserGroup::STATUS_ENDED) {
+                $q->whereNotNull('uug.date_end');
+            } elseif ($this->userUserGroupStatus === UserUserGroup::STATUS_ACTIVE) {
+                $q->whereNull('uug.date_end');
+            }
         }
 
         if (isset($this->publicationIds)) {

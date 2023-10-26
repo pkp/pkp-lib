@@ -167,7 +167,8 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
                     ->whereIn('user_group_id', function ($q) {
                         $q->select('user_group_id')
                             ->from('user_user_groups')
-                            ->where('user_id', '=', $this->userId);
+                            ->where('user_id', '=', $this->userId)
+                            ->whereNull('date_end');
                     });
             });
         });

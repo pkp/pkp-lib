@@ -425,6 +425,9 @@ msgstr "Layout Editor"
 msgid "user.role.layoutEditors"
 msgstr "Layout Editors"
 
+msgid "user.role.ended"
+msgstr "Role ended"
+
 msgid "user.roles"
 msgstr "Roles"
 

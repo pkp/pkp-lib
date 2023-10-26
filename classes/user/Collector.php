@@ -22,12 +22,13 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use InvalidArgumentException;
-use PKP\config\Config;
+use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\plugins\Hook;
+use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 
 /**
  * @template T of User
@@ -74,6 +75,7 @@ class Collector implements CollectorInterface
     public ?array $reviewsActive = null;
     public ?int $count = null;
     public ?int $offset = null;
+    public UserUserGroupStatus $userUserGroupStatus = UserUserGroupStatus::STATUS_ACTIVE;
 
     /**
      * Constructor
@@ -265,6 +267,15 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * Filter by user's role status
+     */
+    public function filterByUserUserGroupStatus(UserUserGroupStatus $userUserGroupStatus): self
+    {
+        $this->userUserGroupStatus = $userUserGroupStatus;
+        return $this;
+    }
+
+    /**
      * Retrieve assigned users by submission and stage IDs.
      * (Replaces UserStageAssignmentDAO::getUsersBySubmissionAndStageId)
      */
@@ -446,6 +457,7 @@ class Collector implements CollectorInterface
         if ($this->userGroupIds === null && $this->roleIds === null && $this->contextIds === null && $this->workflowStageIds === null) {
             return $this;
         }
+        $currentDateTime = Core::getCurrentDate();
         $query->whereExists(
             fn (Builder $query) => $query->from('user_user_groups', 'uug')
                 ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
@@ -460,6 +472,26 @@ class Collector implements CollectorInterface
                 ->when($this->excludeRoles !== null, fn ($query) => $query->whereNotIn('ug.role_id', $this->excludeRoles))
                 ->when($this->roleIds !== null, fn ($query) => $query->whereIn('ug.role_id', $this->roleIds))
                 ->when($this->contextIds !== null, fn ($query) => $query->whereIn('ug.context_id', $this->contextIds))
+                ->when(
+                    $this->userUserGroupStatus === UserUserGroupStatus::STATUS_ACTIVE,
+                    fn (Builder $query) =>
+                    $query->where(
+                        fn (Builder $query) =>
+                        $query->where('uug.date_start', '<=', $currentDateTime)
+                            ->orWhereNull('uug.date_start')
+                    )
+                        ->where(
+                            fn (Builder $query) =>
+                            $query->where('uug.date_end', '>', $currentDateTime)
+                                ->orWhereNull('uug.date_end')
+                        )
+                )
+                ->when(
+                    $this->userUserGroupStatus === UserUserGroupStatus::STATUS_ENDED,
+                    fn (Builder $query) =>
+                    $query->whereNotNull('uug.date_end')
+                        ->where('uug.date_end', '<=', $currentDateTime)
+                )
         );
         return $this;
     }
@@ -488,6 +520,7 @@ class Collector implements CollectorInterface
         if ($this->excludeSubmissionStage === null) {
             return $this;
         }
+        $currentDateTime = Core::getCurrentDate();
         $query->whereExists(
             fn (Builder $query) => $query->from('user_user_groups', 'uug')
                 ->join('user_group_stage AS ugs', 'ugs.user_group_id', '=', 'uug.user_group_id')
@@ -501,6 +534,26 @@ class Collector implements CollectorInterface
                 ->where('uug.user_group_id', '=', $this->excludeSubmissionStage['user_group_id'])
                 ->where('ugs.stage_id', '=', $this->excludeSubmissionStage['stage_id'])
                 ->whereNull('sa.user_group_id')
+                ->when(
+                    $this->userUserGroupStatus === UserUserGroupStatus::STATUS_ACTIVE,
+                    fn (Builder $query) =>
+                    $query->where(
+                        fn (Builder $query) =>
+                        $query->where('uug.date_start', '<=', $currentDateTime)
+                            ->orWhereNull('uug.date_start')
+                    )
+                        ->where(
+                            fn (Builder $query) =>
+                            $query->where('uug.date_end', '>', $currentDateTime)
+                                ->orWhereNull('uug.date_end')
+                        )
+                )
+                ->when(
+                    $this->userUserGroupStatus === UserUserGroupStatus::STATUS_ENDED,
+                    fn (Builder $query) =>
+                    $query->whereNotNull('uug.date_end')
+                        ->where('uug.date_end', '<=', $currentDateTime)
+                )
         );
         return $this;
     }

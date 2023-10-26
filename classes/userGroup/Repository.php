@@ -18,11 +18,13 @@ use APP\core\Services;
 use APP\facades\Repo;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
+use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\site\SiteDAO;
+use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\validation\ValidatorFactory;
@@ -220,15 +222,16 @@ class Repository
     }
 
     /**
-    * Return all user groups ids for a user id
+    * Return all, active or ended user groups ids for a user id
     *
     * @return LazyCollection<int,UserGroup>
     */
-    public function userUserGroups(int $userId, ?int $contextId = null): LazyCollection
+    public function userUserGroups(int $userId, ?int $contextId = null, ?UserUserGroupStatus $userUserGroupStatus = UserUserGroupStatus::STATUS_ACTIVE): LazyCollection
     {
         $collector = Repo::userGroup()
             ->getCollector()
-            ->filterByUserIds([$userId]);
+            ->filterByUserIds([$userId])
+            ->filterByUserUserGroupStatus($userUserGroupStatus);
 
         if ($contextId) {
             $collector->filterByContextIds([$contextId]);
@@ -244,6 +247,7 @@ class Repository
     {
         return UserUserGroup::withUserId($userId)
             ->withUserGroupId($userGroupId)
+            ->withActive()
             ->get()
             ->isNotEmpty();
     }
@@ -262,18 +266,12 @@ class Repository
 
     public function assignUserToGroup(int $userId, int $userGroupId): UserUserGroup
     {
+        $dateStart = Core::getCurrentDate();
         return UserUserGroup::create([
             'userId' => $userId,
-            'userGroupId' => $userGroupId
+            'userGroupId' => $userGroupId,
+            'dateStart' => $dateStart
         ]);
-    }
-
-    public function removeUserFromGroup($userId, $userGroupId, $contextId): bool
-    {
-        return UserUserGroup::withUserId($userId)
-            ->withUserGroupId($userGroupId)
-            ->withContextId($contextId)
-            ->delete();
     }
 
     public function deleteAssignmentsByUserId(int $userId, ?int $userGroupId = null): bool
@@ -287,15 +285,16 @@ class Repository
         return $query->delete();
     }
 
-    public function deleteAssignmentsByContextId(int $contextId, ?int $userId = null): bool
+    public function endAssignments(int $contextId, int $userId, ?int $userGroupId = null): void
     {
-        $userUserGroups = UserUserGroup::withContextId($contextId);
-
-        if ($userId) {
-            $userUserGroups->withUserId($userId);
+        $dateEnd = Core::getCurrentDate();
+        $query = UserUserGroup::withContextId($contextId)
+            ->withUserId($userId)
+            ->withActive();
+        if ($userGroupId) {
+            $query->withUserGroupId($userGroupId);
         }
-
-        return $userUserGroups->delete();
+        $query->update(['date_end' => $dateEnd]);
     }
 
     /**

@@ -19,6 +19,7 @@
 namespace PKP\context;
 
 use Illuminate\Support\Facades\DB;
+use PKP\core\Core;
 use PKP\db\DAOResultFactory;
 use PKP\db\SchemaDAO;
 use PKP\security\Role;
@@ -137,9 +138,10 @@ abstract class ContextDAO extends SchemaDAO
     {
         $params = [];
         if ($userId) {
+            $currentDateTime = Core::getCurrentDate();
             $params = array_merge(
                 $params,
-                [(int) $userId, (int) $userId, (int) Role::ROLE_ID_SITE_ADMIN]
+                [(int) $userId, (int) $userId, (int) Role::ROLE_ID_SITE_ADMIN, $currentDateTime, $currentDateTime]
             );
         }
 
@@ -147,8 +149,8 @@ abstract class ContextDAO extends SchemaDAO
             'SELECT c.* FROM ' . $this->tableName . ' c
 			WHERE	' .
                 ($userId ?
-                    'c.' . $this->primaryKeyColumn . ' IN (SELECT DISTINCT ug.context_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE uug.user_id = ?)
-					OR ? IN (SELECT user_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE ug.role_id = ?)'
+                    'c.' . $this->primaryKeyColumn . ' IN (SELECT DISTINCT ug.context_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE uug.user_id = ? AND (uug.date_start IS NULL OR uug.date_start <= ?) AND (uug.date_end IS NULL OR uug.date_end > ?))
+					OR ? IN (SELECT user_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE ug.role_id = ? AND (uug.date_start IS NULL OR uug.date_start <= ?) AND (uug.date_end IS NULL OR uug.date_end > ?))'
                 : 'c.enabled = 1') .
             ' ORDER BY seq',
             $params,

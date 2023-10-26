@@ -20,12 +20,14 @@ namespace PKP\user;
 
 use APP\facades\Repo;
 use Carbon\Carbon;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\DataObject;
 use PKP\core\EntityDAO;
 use PKP\identity\Identity;
+use PKP\security\Role;
 
 /**
  * @template T of User
@@ -351,5 +353,29 @@ class DAO extends EntityDAO
         $users->each(fn ($user) => $userRepository->delete($userRepository->get($user->user_id, true)));
 
         return $users->count();
+    }
+
+    /** Get admin users */
+    public function getAdminUsers(): LazyCollection
+    {
+        $adminGroups = Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_SITE_ADMIN);
+        $rows = collect();
+        if (count($adminGroups)) {
+            $rows = DB::table('users', 'u')
+                ->select('u.*')
+                ->where('u.disabled', '=', 0)
+                ->whereExists(
+                    fn (Builder $query) => $query->from('user_user_groups', 'uug')
+                        ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
+                        ->whereColumn('uug.user_id', '=', 'u.user_id')
+                        ->whereIn('uug.user_group_id', $adminGroups)
+                )
+                ->get();
+        }
+        return LazyCollection::make(function () use ($rows) {
+            foreach ($rows as $row) {
+                yield $row->user_id => $this->fromRow($row);
+            }
+        });
     }
 }

@@ -23,6 +23,7 @@ namespace PKP\notification;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use PKP\core\Core;
 
 class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
 {
@@ -185,6 +186,7 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
      */
     public function getSubscribedUserIds(array $blockedNotificationKey, array $blockedNotificationType, array $contextIds, ?array $roleIds = null): Collection
     {
+        $currentDateTime = Core::getCurrentDate();
         return DB::table('users as u')->select('u.user_id')
             ->whereNotIn(
                 'u.user_id',
@@ -196,6 +198,14 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
                 fn (Builder $q) => $q->from('user_user_groups', 'uug')
                     ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
                     ->whereColumn('uug.user_id', '=', 'u.user_id')
+                    ->where(
+                        fn (Builder $q) => $q->where('uug.date_start', '<=', $currentDateTime)
+                            ->orWhereNull('uug.date_start')
+                    )
+                    ->where(
+                        fn (Builder $q) => $q->where('uug.date_end', '>', $currentDateTime)
+                            ->orWhereNull('uug.date_end')
+                    )
                     ->whereIn('ug.context_id', $contextIds)
                     ->when(!is_null($roleIds), fn (Builder $q) => $q->whereIn('ug.role_id', $roleIds))
             )->pluck('user_id');

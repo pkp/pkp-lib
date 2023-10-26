@@ -19,6 +19,7 @@
 namespace PKP\security;
 
 use APP\facades\Repo;
+use PKP\core\Core;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 
@@ -45,18 +46,19 @@ class RoleDAO extends DAO
      */
     public function userHasRole($contextId, $userId, $roleId)
     {
+        $currentDateTime = Core::getCurrentDate();
         $roleId = is_array($roleId) ? join(',', array_map('intval', $roleId)) : (int) $roleId;
         $result = $this->retrieve(
             'SELECT count(*) AS row_count FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE ug.context_id = ? AND uug.user_id = ? AND ug.role_id IN (' . $roleId . ')',
-            [(int) $contextId, (int) $userId]
+			WHERE ug.context_id = ? AND uug.user_id = ? AND (uug.date_start IS NULL OR uug.date_start <= ?) AND (uug.date_end IS NULL OR uug.date_end > ?) AND ug.role_id IN (' . $roleId . ')',
+            [(int) $contextId, (int) $userId, $currentDateTime, $currentDateTime]
         );
         $row = (array) $result->current();
         return $row && $row['row_count'];
     }
 
     /**
-     * Return an array of row objects corresponding to the roles a given use has
+     * Return an array of row objects corresponding to the roles a given user has
      *
      * @param int $userId
      * @param int $contextId
@@ -65,7 +67,8 @@ class RoleDAO extends DAO
      */
     public function getByUserId($userId, $contextId = null)
     {
-        $params = [(int) $userId];
+        $currentDateTime = Core::getCurrentDate();
+        $params = [(int) $userId, $currentDateTime, $currentDateTime];
         if ($contextId !== null) {
             $params[] = (int) $contextId;
         }
@@ -73,7 +76,7 @@ class RoleDAO extends DAO
             'SELECT	DISTINCT ug.role_id AS role_id
 			FROM	user_groups ug
 				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE	uug.user_id = ?' . ($contextId !== null ? ' AND ug.context_id = ?' : ''),
+			WHERE	uug.user_id = ? AND (uug.date_start IS NULL OR uug.date_start <= ?) AND (uug.date_end IS NULL OR uug.date_end > ?)' . ($contextId !== null ? ' AND ug.context_id = ?' : ''),
             $params
         );
 

@@ -50,7 +50,7 @@ class ProcessQueueJobs extends ScheduledTask
         }
 
         // Executes all pending jobs when running the runScheduledTasks.php on the CLI
-        if (runOnCLI('runScheduledTasks.php')) {
+        if (Application::isRunningOnCLI('runScheduledTasks.php')) {
             while ($jobBuilder->count()) {
                 $jobQueue->runJobInQueue();
             }

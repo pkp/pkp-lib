@@ -156,16 +156,8 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         });
 
         Queue::createPayloadUsing(function(string $connection, string $queue, array $payload) {
-            
-            // If a job dispatch on CLI (e.g. TestJobSuccess/TestJobFailure),
-            // there is simple no way to get the context(journal/press/server) information
-            // and no need to set the context id information in job payload
-            if (Application::isRunningOnCLI()) {
-                return [];
-            }
-
             return [
-                'context_id' => Application::get()->getRequest()->getContext()->getId(),
+                'context_id' => Application::get()->getRequest()->getContext()?->getId(),
             ];
         });
 

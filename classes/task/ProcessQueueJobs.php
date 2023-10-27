@@ -41,7 +41,7 @@ class ProcessQueueJobs extends ScheduledTask
             return true;
         }
 
-        $jobQueue = app('pkpJobQueue');
+        $jobQueue = app('pkpJobQueue'); /** @var \PKP\core\PKPQueueProvider $jobQueue */
 
         $jobBuilder = $jobQueue->getJobModelBuilder();
 

@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-10-24 15:17+0000\n"
+"PO-Revision-Date: 2023-10-28 15:06+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/lv/>\n"
@@ -2043,3 +2043,186 @@ msgstr ""
 
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} atcēla lēmumu noraidīt šo iesniegto materiālu."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"Datni \"{$filename}\" materiālam \"{$submissionId}\" augšupielādēja "
+"{$username}."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Rekomendēts atkārtoti nosūtīt recenzēšanai"
+
+msgid "editor.submission.recommend.decline"
+msgstr "Rekomendēts noraidīt"
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Rekomendēts noraidīt materiāla publicēšanu."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} rekomendēja šo materiālu noraidīt."
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Sniegt rekomendāciju"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Mainīt rekomendāciju"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Rekomendācija: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Rekomendācijas: {$recommendations}"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Jūs nevarat sniegt rekomendāciju, kamēr redaktoram nav piešķirta atļauja "
+"ierakstīt lēmumu."
+
+msgid "editor.submission.recommendation"
+msgstr "Rekomendācija"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Rekomendēt redakcijas lēmumu šim materiālam."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Reģistrētās rekomendācijas"
+
+msgid "submission.currentStage"
+msgstr "Kārtējais posms"
+
+msgid "submission.noActionRequired"
+msgstr "Nav nepieciešama rīcība"
+
+msgid "submission.actionNeeded"
+msgstr "Nepieciešama rīcība"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Recenzijas datnes"
+
+msgid "submission.submit.currentFile"
+msgstr "Aktuālā datne"
+
+msgid "submission.finalDraft"
+msgstr "Melnraksta datnes"
+
+msgid "editor.submission.addAuditorError"
+msgstr "Pieļauta kļūda, mēģinot piešķirt auditoru. Lūdzu, mēģiniet vēlreiz."
+
+msgid "submission.event.fileEdited"
+msgstr "Datnes \"{$filename}\" metadatus rediģēja {$username}."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$userFullName}\" ({$username}) tika pievienots kā auditors datnei \""
+"{$filename}\"."
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$userFullName}\" ({$username}) tika noņemts kā faila \"{$filename}\" "
+"auditors."
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"\"{$userFullName}\" ({$username}) ir pabeidzis auditu un augšupielādējis \""
+"{$filename}\"."
+
+msgid "submission.event.signoffSignoff"
+msgstr ""
+"\"{$userFullName}\" ({$username}) ir apstiprinājis piekrišanu \"{$filename}\""
+" publicēšanai."
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+"\"{$userFullName}\" ({$username}) ir apstiprinājis \"{$publicationFormatName}"
+"\" korektūras."
+
+msgid "submission.overview"
+msgstr "Iesniegtā materiāla pārskats"
+
+msgid "submission.description"
+msgstr "Apraksts"
+
+msgid "submission.stageNotInitiated"
+msgstr "Posms nav uzsākts."
+
+msgid "submission.documents"
+msgstr "Iesniegtā materiāla dokumenti"
+
+msgid "notification.type.editorAssign"
+msgstr "Jūs esat apstiprināts par materiāla \"{$title}\" redaktoru."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Jums ir lūgts pārskatīt \"{$title}\" maketu."
+
+msgid "notification.type.indexRequest"
+msgstr "Jums ir lūgts izveidot rādītāju \"{$title}\"."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Jaunākais redakcijas lēmums."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Materiāls pieņemts."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Uzsākts ārējās recenzēšanas process."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Atkārtoti iesniegt recenzēšanai."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Tika uzsākta jauna recenzēšanas kārta."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Materiāls noraidīts."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Noraidītais materiāls atjaunots."
+
+msgid "notification.uploadedResponse"
+msgstr "Atbilde augšupielādēta."
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"Pirms recenzēšanas uzsākšanas ir jāapstiprina redaktors. Lūdzu, pievienojiet "
+"redaktoru, izmantojot Dalībnieku sarakstu."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Tika izveidota jauna iesniedzamā materiāla versija"
+
+msgid "notification.type.revertDecline"
+msgstr "Lēmums noraidīt šo materiālu tika atcelts."
+
+msgid "grid.reviewAttachments.title"
+msgstr "Recenzenta pielikumi"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Atlasīt recenzijas datnes, kuras kopīgot ar autoru(-iem)"
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName} ir apstiprināts materiāla \"{$submissionId}\" {$round}. "
+"kārtas recenzēšanai."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"Ir noņemta {$reviewerName} veiktā {$round}. kārtas recenzija materiālam "
+"{$submissionId}."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"Ir atsākta {$round}. kārtas recenzija, ko materiālam {$submissionId} veic "
+"{$reviewerName}."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} ir pabeidzis recenziju par materiālu {$submissionId} {$round}"
+". kārtā."
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+"Atkārtoti nosūtīt {$round}. kārtas recenzēšanas pieprasījumu recenzentam "
+"{$reviewwerName} par materiālu {$submissionid}."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"Datni \"{$filename}\" materiālam \"{$submissionId}\" izdzēsa {$username}."

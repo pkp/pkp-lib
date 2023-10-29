@@ -39,6 +39,7 @@ use PKP\security\RoleDAO;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\Collector as SubmissionCollector;
+use PKP\submission\reviewAssignment\Collector as ReviewCollector;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use PKP\validation\ValidatorFactory;
@@ -789,7 +790,6 @@ abstract class Repository
 
     /**
      * Get all views, views count to be retrieved separately due to performance reasons
-     * TODO return views depending on a user role
      */
     public function getDashboardViews(Context $context, User $user): Collection
     {
@@ -1044,7 +1044,7 @@ abstract class Repository
 
         $filteredViews = $this->filterViewsByUserRoles($views, $roleIds);
 
-        return $this->getViewsCount($filteredViews);
+        return $this->setViewsCount($filteredViews);
     }
 
     protected function filterViewsByUserRoles(Collection $views, array $roleIds): Collection
@@ -1055,19 +1055,31 @@ abstract class Repository
     }
 
     /**
-     * @param Collection [
-     *    Dashboard view unique ID => Submission Collector with filters applied
-     *  ]
+     * @param Collection<DashboardView> $dashboardViews
+     *
+     * Set the submissions/reviews count to the list of dashboard views
      */
-    protected function getViewsCount(Collection $dashboardViews): Collection
+    protected function setViewsCount(Collection $dashboardViews): Collection
     {
-        $collectors = $dashboardViews->map(function (DashboardView $view) {
-            return $view->getCollector();
-        });
+        $submissionCollectors = collect();
+        $reviewCollectors = collect();
+        foreach ($dashboardViews as $id => $dashboardView) {
+            $collector = $dashboardView->getCollector();
+            is_a($collector, SubmissionCollector::class) ?
+                $submissionCollectors->put($id, $collector) :
+                $reviewCollectors->put($id, $collector);
+        }
 
-        $viewCounts = SubmissionCollector::getViewsCountBuilder($collectors)->first();
+        $submissionsCount = $submissionCollectors->isNotEmpty() ?
+            get_object_vars(SubmissionCollector::getViewsCountBuilder($submissionCollectors)?->first() ?? []) :
+            [];
 
-        foreach ($viewCounts as $viewId => $count) {
+        $reviewsCount = $reviewCollectors->isNotEmpty() ?
+            get_object_vars(ReviewCollector::getViewsCountBuilder($reviewCollectors)?->first() ?? []) :
+            [];
+
+
+        foreach (array_merge($submissionsCount, $reviewsCount) as $viewId => $count) {
             $view = $dashboardViews->get($viewId); /** @var $view DashboardView */
             $view->setCount($count);
         }

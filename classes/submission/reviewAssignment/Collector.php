@@ -25,10 +25,8 @@ use PKP\submission\ViewsCount;
 /**
  * @template T of ReviewAssignment
  */
-class Collector implements CollectorInterface
+class Collector implements CollectorInterface, ViewsCount
 {
-    use ViewsCount;
-
     public DAO $dao;
     public ?array $contextIds = null;
     public ?array $submissionIds = null;
@@ -225,7 +223,7 @@ class Collector implements CollectorInterface
                     ->whereIn('ra.submission_id', fn(Builder $q) => $q
                         ->select('s.submission_id')
                         ->from('submissions AS s')
-                        ->where('s.stage_id', 'ra.stage_id')
+                        ->whereRaw('s.stage_id = ra.stage_id')
                     )
                 )
             );
@@ -282,6 +280,19 @@ class Collector implements CollectorInterface
             $q->offset($this->offset)
         );
 
+        return $q;
+    }
+
+    public static function getViewsCountBuilder(Collection $keyCollectorPair): Builder
+    {
+        $q = DB::query();
+        $keyCollectorPair->each(function(Collector $collector, string $key) use ($q) {
+            // Get query builder from a collector instance, override a select statement to retrieve submissions count instead of submissions data
+            $subQuery = $collector->getQueryBuilder()->select([])->selectRaw(
+                'COUNT(ra.review_id)'
+            );
+            $q->selectSub($subQuery, $key);
+        });
         return $q;
     }
 }

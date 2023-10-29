@@ -80,7 +80,7 @@ class DashboardView
     /**
      * Get the collector with filters applied to retrieve submissions for the view
      */
-    public function getCollector(): Collector
+    public function getCollector(): SubmissionCollector|ReviewAssignmentCollector
     {
         return $this->submissionCollector;
     }

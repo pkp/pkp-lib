@@ -35,10 +35,8 @@ use PKP\submission\reviewRound\ReviewRound;
 /**
  * @template T of Submission
  */
-abstract class Collector implements CollectorInterface
+abstract class Collector implements CollectorInterface, ViewsCount
 {
-    use ViewsCount;
-
     public const ORDERBY_DATE_PUBLISHED = 'datePublished';
     public const ORDERBY_DATE_SUBMITTED = 'dateSubmitted';
     public const ORDERBY_ID = 'id';
@@ -773,6 +771,19 @@ abstract class Collector implements CollectorInterface
             )
         );
 
+        return $q;
+    }
+
+    public static function getViewsCountBuilder(Collection $keyCollectorPair): Builder
+    {
+        $q = DB::query();
+        $keyCollectorPair->each(function(AppCollector $collector, string $key) use ($q) {
+            // Get query builder from a collector instance, override a select statement to retrieve submissions count instead of submissions data
+            $subQuery = $collector->getQueryBuilder()->select([])->selectRaw(
+                'COUNT(s.submission_id)'
+            );
+            $q->selectSub($subQuery, $key);
+        });
         return $q;
     }
 

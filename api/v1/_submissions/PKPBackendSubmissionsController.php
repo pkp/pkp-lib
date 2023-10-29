@@ -126,13 +126,17 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                         Role::ROLE_ID_MANAGER,
                         Role::ROLE_ID_SUB_EDITOR,
                         Role::ROLE_ID_ASSISTANT,
+                        Role::ROLE_ID_AUTHOR,
+                        Role::ROLE_ID_REVIEWER,
                     ])
                 ]);
 
             Route::get('reviewerAssignments', $this->getReviewAssignments(...))
                 ->name('_submission.getReviewAssignments')
                 ->middleware([
-                    Role::ROLE_ID_REVIEWER,
+                    self::roleAuthorizer([
+                        Role::ROLE_ID_REVIEWER,
+                    ])
                 ]);
         }
     }
@@ -328,7 +332,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
     }
 
     /**
-     * Get a number of the submissions for each view
+     * Get a number of the submissions/review assignments for each view depending on a user role
      */
     public function getViewsCount(Request $illuminateRequest): JsonResponse
     {
@@ -363,7 +367,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         }
         $currentUser = $request->getUser();
         $collector = Repo::reviewAssignment()->getCollector()
-            ->filterByReviewRoundIds([$currentUser->getId()])
+            ->filterByReviewerIds([$currentUser->getId()])
             ->filterByContextIds([$context->getId()]);
 
         foreach ($illuminateRequest->query() as $param => $val) {

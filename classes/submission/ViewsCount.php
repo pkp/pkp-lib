@@ -8,34 +8,22 @@
  *
  * @class ViewsCount
  *
- * @brief trait to use with a collector to build a query for counting submissions/reviewAssignments in a view
+ * @brief interface to use with a collector to build a query for counting submissions/reviewAssignments in a view
  */
 
 namespace PKP\submission;
 
-use APP\submission\Collector as AppCollector;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
+use PKP\core\interfaces\CollectorInterface;
 
-trait ViewsCount
+interface ViewsCount
 {
     /**
      * Builds a single query to retrieve submissions count for all dashboard views
-     * @param Collection [
+     * @param Collection<string, CollectorInterface> $keyCollectorPair [
      *   Dashboard view unique ID => Submission Collector with filters applied
      * ]
      */
-    public static function getViewsCountBuilder(Collection $keyCollectorPair): Builder
-    {
-        $q = DB::query();
-        $keyCollectorPair->each(function(AppCollector $collector, string $key) use ($q) {
-            // Get query builder from a collector instance, override a select statement to retrieve submissions count instead of submissions data
-            $subQuery = $collector->getQueryBuilder()->select([])->selectRaw(
-                'COUNT('. $this->dao->table . '.' . $this->dao->primaryKeyColumn . ')'
-            );
-            $q->selectSub($subQuery, $key);
-        });
-        return $q;
-    }
+    public static function getViewsCountBuilder(Collection $keyCollectorPair): Builder;
 }

@@ -77,6 +77,10 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$deployment = $this->getDeployment();
 		$context = $deployment->getContext();
 		$stageToName = array_flip($deployment->getStageNameStageIdMapping());
+		// Maps the retired/removed SUBMISSION_FILE_FAIR_COPY to SUBMISSION_FILE_FINAL (see: https://github.com/pkp/pkp-lib/issues/7470)
+		$stageToName[7] = $stageToName[SUBMISSION_FILE_FINAL];
+		// Maps the retired/removed SUBMISSION_FILE_FAIR_COPY to SUBMISSION_FILE_COPYEDIT (see: https://github.com/pkp/pkp-lib/issues/7470)
+		$stageToName[8] = $stageToName[SUBMISSION_FILE_COPYEDIT];
 		$genreDao = DAORegistry::getDAO('GenreDAO'); /* @var $genreDao GenreDAO */
 		$genre = $genreDao->getById($submissionFile->getData('genreId'));
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */

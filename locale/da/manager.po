@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2023-09-22 13:06+0000\n"
+"PO-Revision-Date: 2023-10-19 22:35+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da/>\n"
@@ -3729,3 +3729,29 @@ msgstr ""
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Link til at validere en e-mail-konto"
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Er du sikker på, at du vil slette {$title}? Denne handling kan ikke "
+"fortrydes."
+
+msgid "manager.highlights.add"
+msgstr "Tilføj højdepunkt"
+
+msgid "manager.highlights.delete"
+msgstr "Slet højdepunkt"
+
+msgid "manager.highlights.edit"
+msgstr "Redigér højdepunkt"
+
+msgid "manager.highlights.image"
+msgstr "Billede"
+
+msgid "manager.highlights.url.description"
+msgstr "Den fulde URL, inklusiv https://, til knappen i højdepunktet."
+
+msgid "manager.highlights.urlText"
+msgstr "Knap etiket"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Etiket, fx \"Læs mere\", til knappen i højdepunktet."

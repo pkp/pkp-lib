@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-07-18 12:58+0000\n"
+"PO-Revision-Date: 2023-10-12 23:26+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy/>\n"
@@ -3715,3 +3715,29 @@ msgstr ""
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Էլ․ փոստի հաշիվը հաստատելու հղումը"
+
+msgid "manager.highlights.edit"
+msgstr "Խմբագրել գունաընդգծումը"
+
+msgid "manager.highlights.url.description"
+msgstr "Ամբողջական URL-ը, ներառյալ https://, ընդգծված կոճակի համար:"
+
+msgid "manager.highlights.add"
+msgstr "Ավելացնել գունաընդգծում"
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Իսկապե՞ս ուզում եք ջնջել {$title} -ը: Այս գործողությունը հնարավոր չէ "
+"հետարկել:"
+
+msgid "manager.highlights.delete"
+msgstr "Ջնջեք գունաընդգծումը"
+
+msgid "manager.highlights.image"
+msgstr "Պատկեր"
+
+msgid "manager.highlights.urlText"
+msgstr "Կոճակի պիտակ"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Պիտակը, ինչպիսին է \"Կարդալ ավելին\", ընդգծված կոճակի համար:"

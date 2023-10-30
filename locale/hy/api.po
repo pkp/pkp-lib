@@ -3,7 +3,7 @@
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-05 12:16+0000\n"
+"PO-Revision-Date: 2023-10-12 23:26+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/hy/"
 ">\n"
@@ -352,3 +352,19 @@ msgstr "Չհաջողված աշխատանքը հաջողությամբ ջնջվ�
 #~ msgid "api.submissions.unknownError"
 #~ msgstr ""
 #~ "Չսպասված սխալ է տեղի ունեցել: Խնդրում ենք, թարմացրեք էջ և կրկին փորձեք:"
+
+msgid "api.400.errorUploadingImage"
+msgstr "Այս պատկերը վերբեռնելիս սխալ տեղի ունեցավ:"
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"Նշված կարգը չհաջողվեց պահել, քանի որ պատվերի մասին տեղեկություններ չեն "
+"գտնվել:"
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Ընդգծման կարգը չհաջողվեց պահել, քանի որ չհաջողվեց գտնել կարևոր կետերից մեկը "
+"կամ մի քանիսը:"
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "Ձեր հայցած կարևոր կետը չի գտնվել:"

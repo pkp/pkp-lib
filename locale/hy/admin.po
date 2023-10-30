@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-28 14:09+0000\n"
+"PO-Revision-Date: 2023-10-03 07:06+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy/>\n"
@@ -540,8 +540,8 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
-"Ուղարկեք հասանելի աշխատանքները հերթում: եթե ցանկանում եք աշխատանք ուղարկել "
-"որոշակի հերթում, փոխանցեք պարամետրը --queue=QUEUE_NAME: Նաև կարող է պարզապես "
+"Առաքեք հասանելի աշխատանքները հերթ: եթե ցանկանում եք աշխատանք ուղարկել "
+"որոշակի հերթում, փոխանցեք պարամետրը --queue=QUEUE_NAME. Նաև կարող է պարզապես "
 "անցնել --test ՝ թեստային աշխատանքը գործարկելու համար և --once ՝ միաժամանակ "
 "մեկ աշխատանք կատարելու համար"
 
@@ -931,3 +931,6 @@ msgstr "Գործարկեք աշխատողի deamon -ը փորձարկման հե
 
 #~ msgid "admin.auth.confirmDelete"
 #~ msgstr "Համեզվա՞ծ եք, որ ուզում եք ջնջել ասյ իդենտիֆիկացիոն աղբյուրը?"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Օգտագործեք կայքը որպես հարթակ բոլոր ամսագրերի համար:"

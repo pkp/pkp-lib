@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-02-27 11:59+0000\n"
+"PO-Revision-Date: 2023-10-08 10:06+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/ops/admin/bg/>"
 "\n"
@@ -133,6 +133,5 @@ msgstr ""
 "регион или само държава. Сървърът няма да може да проследява държава, регион "
 "и град."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Използване на сайта като платформа за всички списания."
+msgstr "Използване на сайта като платформа за всички сървъри."

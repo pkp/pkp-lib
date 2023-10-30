@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-22 01:59+0000\n"
+"PO-Revision-Date: 2023-09-28 21:06+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ops/admin/cs/>\n"
 "Language: cs\n"
@@ -126,6 +126,5 @@ msgstr ""
 "veřejné rozhraní API zakážete, servery nemohou zveřejnit své vlastní "
 "rozhraní API."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Použijte tento web jako platformu pro všechny časopisy."
+msgstr "Použijte tento web jako platformu pro všechny servery."

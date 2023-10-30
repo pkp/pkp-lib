@@ -269,7 +269,7 @@
 					if (typeof pkp.registry._instances[id] !== 'undefined') {
 						instance = /** @type {{ $destroy: Function }} */
 								(pkp.registry._instances[id]);
-						instance.$destroy();
+						instance.unmount();
 					}
 				}
 			}

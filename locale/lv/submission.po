@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-10-28 15:06+0000\n"
+"PO-Revision-Date: 2023-10-31 11:06+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/lv/>\n"
@@ -451,7 +451,7 @@ msgid "submission.comments.importPeerReviews.reviewerLetter"
 msgstr "Recenzents {$reviewerLetter}:"
 
 msgid "submission.coverage"
-msgstr "Pārklājuma informācija"
+msgstr "Aptvēruma informācija"
 
 msgid "submission.event.confirmClearLog"
 msgstr "Vai tiešām vēlaties izdzēst notikumu žurnālu attiecībā uz šo materiālu?"
@@ -659,11 +659,11 @@ msgstr ""
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
-"Nosūtiet e-pastu autoriem, lai informētu viņus par to, ka būs nepieciešami "
-"labojumi, pirms šis darbs tiks pieņemts publicēšanai. Norādiet visu "
-"informāciju, kas autoram būs nepieciešama, lai izlabotu materiālu. "
-"Vajadzības gadījumā neaizmirstiet anonimizēt visus recenzentu komentārus. "
-"Šis e-pasts netiks nosūtīts, kamēr lēmums nebūs reģistrēts."
+"Nosūtīt autoriem e-pastu, lai informētu, ka būs nepieciešami labojumi, pirms "
+"šis darbs tiks pieņemts publicēšanai. Norādiet visu informāciju, kas autoram "
+"būs nepieciešama, lai izlabotu materiālu. Vajadzības gadījumā neaizmirstiet "
+"anonimizēt visus recenzentu komentārus. Šis e-pasts netiks nosūtīts, kamēr "
+"lēmums nebūs reģistrēts."
 
 msgid "editor.submission.decision.promoteFiles.production"
 msgstr "Atlasiet datnes, kuras jānosūta uz izstrādes posmu."
@@ -689,11 +689,10 @@ msgstr ""
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
-"Nosūtiet e-pasta vēstuli autoriem, lai informētu viņus par to, ka būs "
-"jāpabeidz labojumi un tie jānosūta atkārtotai recenzēšanas kārtai. "
-"Iekļaujiet visu informāciju, kas autoram būs nepieciešama, lai uzlabotu "
-"iesniegto darbu. Vajadzības gadījumā neaizmirstiet anonimizēt visus "
-"recenzentu komentārus."
+"Nosūtīt autoriem e-pastu, lai informētu, ka jāpabeidz labojumi, un pēc tam "
+"tie jānosūta atkārtotai recenzēšanas kārtai. Iekļaujiet visu informāciju, "
+"kas autoram būs nepieciešama, lai uzlabotu iesniegto darbu. Vajadzības "
+"gadījumā neaizmirstiet anonimizēt visus recenzentu komentārus."
 
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Atcelt literāro rediģēšanu"
@@ -703,7 +702,7 @@ msgstr "Nosūtīt uz izstrādi"
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
-"Nosūtīt e-pastu autoriem, lai informētu, ka šis materiāls ir nosūtīts uz "
+"Nosūtīt autoriem e-pastu, lai informētu, ka šis materiāls ir nosūtīts uz "
 "izstrādes posmu. Šis e-pasts netiks nosūtīts, kamēr lēmums nebūs reģistrēts."
 
 msgid "editor.submission.decision.sendToProduction.description"
@@ -725,7 +724,7 @@ msgstr "Atgriezties pie literārās rediģēšanas"
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
-"Nosūtīt e-pastu autoriem, lai informētu, ka literārā rediģēšana ir atcelta "
+"Nosūtīt autoriem e-pastu, lai informētu, ka literārā rediģēšana ir atcelta "
 "un viņu materiāls tiks pakļauts turpmākai redakcijas izskatīšanai."
 
 msgid "editor.submission.decision.backFromCopyediting.description"
@@ -766,7 +765,7 @@ msgstr ""
 
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
-"Nosūtīt e-pastu autoriem, lai informētu, ka šis materiāls pieņemts "
+"Nosūtīt autoriem e-pastu, lai informētu, ka šis materiāls pieņemts "
 "publicēšanai un nosūtīts uz literārās rediģēšanas posmu bez recenzēšanas. "
 "Šis e-pasts netiks nosūtīts, kamēr lēmums nebūs reģistrēts."
 
@@ -965,7 +964,7 @@ msgstr ""
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
-"Nosūtīt e-pastu autoriem, lai informētu, ka šis materiāls vēlreiz nosūtīts "
+"Nosūtīt autoriem e-pastu, lai informētu, ka šis materiāls vēlreiz nosūtīts "
 "uz literārās rediģēšanas posmu. Paskaidrojiet, kāpēc tika pieņemts šāds "
 "lēmums, un informējiet autorus, kāda rediģēšana būs nepieciešama, lai šo "
 "materiālu sagatavotu izstrādei."
@@ -1665,8 +1664,8 @@ msgstr "Materiāls noraidīts"
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
-"Nosūtīt autoriem e-pastu, lai informētu par to, ka viņu materiāls ir "
-"noraidīts. Šī e-pasta vēstule netiks nosūtīta, kamēr lēmums nebūs reģistrēts."
+"Nosūtīt autoriem e-pastu, lai informētu, ka viņu materiāls ir noraidīts. Šī "
+"e-pasta vēstule netiks nosūtīta, kamēr lēmums nebūs reģistrēts."
 
 msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
@@ -1737,8 +1736,8 @@ msgstr ""
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
-"Nosūtīt autoriem e-pastu, lai informētu viņus par to, ka recenzēšanas kārta "
-"ir noslēgusies. Šis e-pasts netiks nosūtīts, kamēr lēmums nebūs reģistrēts."
+"Nosūtīt autoriem e-pastu, lai informētu, ka recenzēšanas kārta ir "
+"noslēgusies. Šis e-pasts netiks nosūtīts, kamēr lēmums nebūs reģistrēts."
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
@@ -1906,9 +1905,9 @@ msgstr "Šim materiālam nav augšupielādētas datnes."
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
-"Nosūtīt autoriem e-pastu, lai informētu viņus, ka iesniegtais darbs ir "
-"nosūtīts jaunai recenzēšanas kārtai. Šis e-pasts netiks nosūtīts, kamēr "
-"lēmums nebūs reģistrēts."
+"Nosūtīt autoriem e-pastu, lai informētu, ka iesniegtais darbs ir nosūtīts "
+"jaunai recenzēšanas kārtai. Šis e-pasts netiks nosūtīts, kamēr lēmums nebūs "
+"reģistrēts."
 
 msgid "submission.wizard.submittingInLanguage"
 msgstr "Iesniegšana <strong>{$language}</strong> valodā."
@@ -1944,7 +1943,7 @@ msgstr ""
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
-"Nosūtīt e-pastu autoriem, lai informētu, ka iepriekšējais lēmums noraidīt šo "
+"Nosūtīt autoriem e-pastu, lai informētu, ka iepriekšējais lēmums noraidīt šo "
 "materiālu ir atcelts. Paskaidrojiet, kāpēc lēmums tika atcelts, un "
 "informējiet autorus, vai materiāls tiks recenzēts."
 
@@ -2226,3 +2225,441 @@ msgstr ""
 msgid "submission.event.fileDeleted"
 msgstr ""
 "Datni \"{$filename}\" materiālam \"{$submissionId}\" izdzēsa {$username}."
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative "
+"Commons Attribution-NonCommercial-NoDerivatives 4.0 International "
+"licenci</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative "
+"Commons Attribution-NonCommercial-ShareAlike 4.0 International "
+"licenci</a>.</p>"
+
+msgid "publication.urlPath.description"
+msgstr "Izvēles ceļš, ko izmantot URL adresē ID vietā."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} ir atzīmējis iesniegtā materiāla \"{$submissionId}\" {$round}. "
+"kārtas recenziju kā neizskatītu."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Redaktors {$userName} ir apstiprinājis iesniegtā materiāla \"{$submissionId}"
+"\" recenziju {$round}. kārtai."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Tiek gaidīta atbilde no recenzenta."
+
+msgid "submission.review.status.declined"
+msgstr "Recenzents noraidīja šo recenzēšanas pieprasījumu."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Recenzents ir nokavējis atbildes sniegšanas termiņu."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Recenzents ir nokavējis recenzēšanas termiņu."
+
+msgid "submission.review.status.accepted"
+msgstr "Šī recenzija ir pieņemta."
+
+msgid "submission.review.status.received"
+msgstr "Recenzents ir iesniedzis recenziju."
+
+msgid "submission.review.status.complete"
+msgstr "Recenzēšana pabeigta."
+
+msgid "submission.art"
+msgstr "Attēls"
+
+msgid "submission.supplementary"
+msgstr "Papildu saturs"
+
+msgid "submission.supplementary.creator"
+msgstr "Datnes autors (vai īpašnieks)"
+
+msgid "submission.supplementary.subject"
+msgstr "Temats"
+
+msgid "submission.supplementary.publisher"
+msgstr "Izdevējs"
+
+msgid "submission.reviewForm"
+msgstr "Recenzēšanas veidlapa"
+
+msgid "submission.reviewFormResponse"
+msgstr "Pārskatīt recenzēšanas veidlapu"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Izveidot jaunu recenzēšanas veidlapas elementu"
+
+msgid "grid.action.editMetadata"
+msgstr "Rediģēt metadatus"
+
+msgid "submission.permissions"
+msgstr "Atļaujas"
+
+msgid "submission.attachPermissions"
+msgstr "Materiālam pievienojiet šādas atļaujas:"
+
+msgid "submission.license"
+msgstr "Licence"
+
+msgid "submission.copyright"
+msgstr "Autortiesības"
+
+msgid "submission.copyright.agree"
+msgstr "Jā, es piekrītu autortiesību paziņojumam."
+
+msgid "submission.copyrightHolder"
+msgstr "Autortiesību turētājs"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Pielāgots autortiesību paziņojums"
+
+msgid "submission.copyrightOther"
+msgstr "Autortiesību paziņojums"
+
+msgid "submission.copyrightYear"
+msgstr "Autortiesību gads"
+
+msgid "submission.copyrightStatement"
+msgstr "Autortiesības (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "Lūdzu, norādiet derīgu attālināto URL (iekļaujot http://)."
+
+msgid "submission.licenseURL"
+msgstr "Licences URL"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr ""
+"CC Attribution-NonCommercial-NoDerivatives 4.0 (Attiecinājums-Nekomerciāls-"
+"Bez atvasinājumiem)"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0 (Attiecinājums-Nekomerciāls)"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr ""
+"CC Attribution-NonCommercial-ShareAlike 4.0 (Attiecinājums-Nekomerciāls-"
+"Līdzīga kopīgošana)"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0 (Attiecinājums-Bez atvasinājumiem)"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0 (Attiecinājums)"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0 (Attiecinājums-Līdzīga kopīgošana)"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"4.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons "
+"Attribution-NonCommercial 4.0 International licenci</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"4.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons "
+"Attribution-NoDerivatives 4.0 International licenci</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4."
+"0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons "
+"Attribution 4.0 International licenci</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"4.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons "
+"Attribution-ShareAlike 4.0 International licenci</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative "
+"Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported licenci</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"3.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Attribution-NonCommercial 3.0 Unported licenci</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative "
+"Commons Attribution-NonCommercial-ShareAlike 3.0 Unported licenci</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"3.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
+"Attribution-NoDerivatives 3.0 Unported licenci</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3."
+"0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0 Unported licenci</a>.</p>"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"3.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"Attribution-ShareAlike 3.0 Unported licenci</a>.</p>"
+
+msgid "submission.query.subject"
+msgstr "Temats"
+
+msgid "submission.query.replies"
+msgstr "Atbildes"
+
+msgid "submission.query.from"
+msgstr "No"
+
+msgid "submission.query.lastReply"
+msgstr "Pēdējā atbilde"
+
+msgid "submission.query.closed"
+msgstr "Slēgts"
+
+msgid "submission.query.addNote"
+msgstr "Pievienot ziņu"
+
+msgid "submission.query.messages"
+msgstr "Ziņas"
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} atbildēja uz {$noteTitle}: {$noteContents}"
+
+msgid "submission.list.infoCenter"
+msgstr "Darbību žurnāls un piezīmes"
+
+msgid "submission.list.empty"
+msgstr "Nav iesniegtu materiālu."
+
+msgid "submission.list.responseDue"
+msgstr "Atbildes termiņš: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Recenzēšanas uzdevums"
+
+msgid "submission.list.reviewDue"
+msgstr "Recenzijas termiņš: {$date}"
+
+msgid "submission.list.reviewComplete"
+msgstr "Recenzija iesniegta"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Recenzija atcelta"
+
+msgid "submission.list.confirmDelete"
+msgstr "Dzēst iesniegto materiālu?"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "Skatīt visus iesniegtos materiālus"
+
+msgid "submission.list.viewSubmission"
+msgstr "Skatīt iesniegto materiālu"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Piešķirtās recenzijas pabeigtas"
+
+msgid "submission.list.filesPrepared"
+msgstr "Datnes sagatavotas"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Šī materiāla iesniegšana jāpabeidz, pirms redaktors to izskatīs."
+
+msgid "submission.list.currentStage"
+msgstr "Šobrīd {$stage}. posmā."
+
+msgid "submission.list.activity"
+msgstr "Darbība"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Dienas kopš pēdējās darbības"
+
+msgid "submission.list.assignEditor"
+msgstr "Piešķirt redaktoru"
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"Šis materiāls jau ir iesniegts. Lūdzu, apmeklējiet savu <a href=\"{$url}\""
+">iesniegto materiālu vadības paneli</a>, lai to apskatītu."
+
+msgid "submission.wizard.beforeStart"
+msgstr "Pirms darba uzsākšanas"
+
+msgid "submission.wizard.categories.description"
+msgstr "Izvēlieties tikai tās kategorijas, kas ir piemērotas jūsu materiālam."
+
+msgid "submission.wizard.changeSubmission"
+msgstr "Mainīt materiāla iesniegšanas iestatījumus"
+
+msgid "submission.wizard.completeSteps"
+msgstr "Izpildiet šos soļus, lai iesniegtu materiālu"
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"Iesniegtais materiāls <strong>\"{$title}\"</strong> tiks nosūtīts žurnāla "
+"<strong>\"{$context}\"</strong> redakcijas darbam. Vai tiešām vēlaties "
+"pabeigt šo materiāla iesniegšanu?"
+
+msgid "submission.wizard.errors"
+msgstr ""
+"Ir viena vai vairākas problēmas, kas ir jānovērš, pirms varat iesniegt "
+"materiālu. Lūdzu, pārskatiet tālāk sniegto informāciju un veiciet "
+"pieprasītās izmaiņas."
+
+msgid "submission.wizard.validating"
+msgstr "Jūsu iesniegtā materiāla pārbaude"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Pievienojiet jebkādu informāciju, kas, jūsuprāt, mūsu redakcijai būtu "
+"jāzina, vērtējot jūsu materiālu."
+
+msgid "submission.wizard.confirm"
+msgstr "Lūdzu, pirms iesniegšanas apstipriniet šādu informāciju."
+
+msgid "submission.wizard.title"
+msgstr "Iesniegt materiālu"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "Iesniegt materiālu: {$step}"
+
+msgid "submission.wizard.notAllowed"
+msgstr "Nav atļauts"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "Piekrišana privātuma aizsardzībai"
+
+msgid "submission.wizard.saved"
+msgstr "Saglabāt vēlākam laikam"
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"Jūsu iesniegtā materiāla informācija ir saglabāta mūsu sistēmā, taču tas vēl "
+"nav iesniegts izskatīšanai. Jebkurā laikā varat atgriezties, lai pabeigtu "
+"sava materiāla iesniegšanu, izmantojot tālāk norādīto saiti."
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr "Mēs esam nosūtījuši šīs saites kopiju uz jūsu e-pastu {$email}."
+
+msgid "submission.wizard.sectionClosed"
+msgstr "Sadaļa slēgta"
+
+msgid "submission.wizard.start"
+msgstr "Sākt materiāla iesniegšanu"
+
+msgid "submission.wizard.startingStatus"
+msgstr "Sākt jaunu materiāla iesniegšanu"
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+"Tika pieļauta kļūda, un mēs nevarējām saglabāt jūsu iesniegumu. Iespējams, "
+"jūsu ierīce bija atvienota no tīkla."
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Virsraksts (A-Z)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Virsraksts (Z-A)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Publicēšanas datums (vecākais pirmais)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Publicēšanas datums (jaunākais pirmais)"
+
+msgid "category.category"
+msgstr "Kategorijas"
+
+msgid "category.coverImage"
+msgstr "Vāka attēls"
+
+msgid "submission.submit.placement.categories"
+msgstr "Kategorijas"
+
+msgid "submission.currentCoverImage"
+msgstr "Pašreizējais attēls"
+
+msgid "catalog.category.noItems"
+msgstr "Šajā kategorijā vēl nekas nav publicēts."
+
+msgid "catalog.category.subcategories"
+msgstr "Apakškategorijas"
+
+msgid "publication.createVersion"
+msgstr "Izveidot jaunu versiju"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Datumam jābūt formātā GGGG-MM-DD, piemēram, 2019-01-01."
+
+msgid "publication.event.versionCreated"
+msgstr "Tika izveidota jauna versija."
+
+msgid "publication.publicationLicense"
+msgstr "Atļaujas un informācijas izpaušana"
+
+msgid "publication.status.scheduled"
+msgstr "Ieplānots"
+
+msgid "publication.status.unpublished"
+msgstr "Nepublicēts"
+
+msgid "publication.unschedule"
+msgstr "Atcelt ieplānoto"
+
+msgid "publication.urlPath"
+msgstr "URL ceļš"
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"Šī recenzija ir pabeigta, un recenzentam ir izteikta pateicība par "
+"ieguldījumu."
+
+msgid "submission.document"
+msgstr "Dokuments"
+
+msgid "grid.category.categories"
+msgstr "Kategorijas"

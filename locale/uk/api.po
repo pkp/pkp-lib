@@ -1,7 +1,7 @@
 # Petro Bilous <petrobilous@ukr.net>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 19:20+0000\n"
+"PO-Revision-Date: 2023-10-22 15:06+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "uk/>\n"
@@ -346,3 +346,19 @@ msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
 "Усі перевідправлені провалені завдання з дійсним корисним навантаженням "
 "успішно повернуто в чергу."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"Порядок виділення не вдалося зберегти, оскільки не знайдено інформації про "
+"порядок."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Трапилася помилка вивантаження цього зображення."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Порядок виділення не вдалося зберегти, оскільки не вдалося знайти одне або "
+"кілька виділень."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "Виділення, яке ви запитували, не знайдено."

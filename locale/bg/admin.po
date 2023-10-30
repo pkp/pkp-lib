@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-28 14:09+0000\n"
+"PO-Revision-Date: 2023-10-03 22:45+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "bg/>\n"
@@ -559,7 +559,7 @@ msgstr ""
 "Изпращане на налични задания в опашката. Ако искате да изпратите задача в "
 "конкретна опашка, подайте параметъра --queue=QUEUE_NAME. Също така може "
 "просто да премине --test за изпълнение на тестовата задача и --once за "
-"изпълнение на една задача наведнъж"
+"изпълнение на една задача наведнъж."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
@@ -927,3 +927,6 @@ msgstr "Брой секунди за пауза между заданията [d
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Стартирайте работния процес за тестване на опашка"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Използване на сайта като платформа за всички списания."

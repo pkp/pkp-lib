@@ -20,7 +20,8 @@ function extractRegexPlugin({extraKeys}) {
 	return {
 		name: 'extract-keys',
 		transform(code, id) {
-			if (id.endsWith('.vue')) {
+			if (!id.includes('node_modules') && (id.endsWith('.vue') || id.endsWith('.js'))) {
+
 				const matches = [...code.matchAll(regex)];
 				for (const match of matches) {
 					uniqueKeys.add(match[1]);

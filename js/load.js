@@ -10,6 +10,8 @@
 
 // Vue lib and custom mixins
 import {createApp} from 'vue';
+import {createPinia} from 'pinia'
+
 import GlobalMixins from '@/mixins/global.js';
 import VueAnnouncer from '@vue-a11y/announcer';
 import FloatingVue from 'floating-vue';
@@ -95,10 +97,19 @@ import ListPanel from '@/components/ListPanel/ListPanel.vue';
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
+import i18nPlugin from '@/piniaPlugins/i18n.plugin.js';
 
 function pkpCreateVueApp(createAppArgs) {
 	// Initialize Vue
 	const vueApp = createApp(createAppArgs);
+	const pinia = createPinia(i18nPlugin);
+	pinia.use(i18nPlugin)
+	vueApp.use(pinia);
+
+	// https://github.com/vuejs/pinia/discussions/1197
+	// to be able globally share stores
+	vueApp.config.globalProperties.$store = {};
+
 
 	// For compatibility with vue2 to preserve spaces between html tags
 	vueApp.config.compilerOptions.whitespace = 'preserve';

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2023-02-26 13:48+0000\n"
+"PO-Revision-Date: 2023-10-16 11:06+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sl/>\n"
@@ -2253,3 +2253,9 @@ msgstr "Avtor je bil urejen."
 
 #~ msgid "common.listSeparator"
 #~ msgstr ", "
+
+msgid "common.highlight"
+msgstr "Poudarek"
+
+msgid "common.highlights"
+msgstr "Poudarki"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2023-06-01 13:49+0000\n"
+"PO-Revision-Date: 2023-10-22 15:06+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/uk/>\n"
@@ -2303,3 +2303,9 @@ msgstr "Автор відредагований."
 
 #~ msgid "common.homepageImage.altText"
 #~ msgstr "Зображення домашньої сторінки"
+
+msgid "common.highlight"
+msgstr "Виділення (одне)"
+
+msgid "common.highlights"
+msgstr "Виділення (кілька)"

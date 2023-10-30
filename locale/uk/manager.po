@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2023-07-18 12:58+0000\n"
+"PO-Revision-Date: 2023-10-22 15:06+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/uk/>\n"
@@ -537,7 +537,7 @@ msgid "manager.files.parentDir"
 msgstr "Батьківська тека"
 
 msgid "manager.files.uploadedFiles"
-msgstr "Завантажені файли"
+msgstr "Вивантажені файли"
 
 msgid "manager.files.uploadFile"
 msgstr "Завантажити файл"
@@ -3748,3 +3748,27 @@ msgstr ""
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Покликання для підтвердження облікового запису за електронною поштою"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Ярлик, як-от «Читати далі», для виділеної кнопки."
+
+msgid "manager.highlights.add"
+msgstr "Додати виділення"
+
+msgid "manager.highlights.confirmDelete"
+msgstr "Ви впевнені, що хочете видалити {$title}? Цю дію не можна скасувати."
+
+msgid "manager.highlights.delete"
+msgstr "Видалити виділення"
+
+msgid "manager.highlights.edit"
+msgstr "Редагувати виділення"
+
+msgid "manager.highlights.image"
+msgstr "Зображення"
+
+msgid "manager.highlights.url.description"
+msgstr "Повна URL-адреса, включно з https://, для виділеної кнопки."
+
+msgid "manager.highlights.urlText"
+msgstr "Ярлик кнопки"

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2023-07-18 12:58+0000\n"
+"PO-Revision-Date: 2023-10-12 23:26+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs/>\n"
@@ -3686,3 +3686,27 @@ msgstr "Statistiky & Zprávy"
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Odkaz k ověření emailového účtu"
+
+msgid "manager.highlights.confirmDelete"
+msgstr "Opravdu chcete odstranit {$title}? Tuto akci nelze vrátit zpět."
+
+msgid "manager.highlights.url.description"
+msgstr "Úplná adresa URL včetně adresy https:// pro tlačítko ve zvýraznění."
+
+msgid "manager.highlights.add"
+msgstr "Přidat zvýraznění"
+
+msgid "manager.highlights.delete"
+msgstr "Smazat zvýraznění"
+
+msgid "manager.highlights.edit"
+msgstr "Editovat zvýraznění"
+
+msgid "manager.highlights.image"
+msgstr "Obrázek"
+
+msgid "manager.highlights.urlText"
+msgstr "Štítek tlačítka"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Označení tlačítka ve zvýraznění, například Číst více."

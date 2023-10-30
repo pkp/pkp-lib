@@ -545,9 +545,9 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
-"Dispatch available jobs into the queue. if you would like to dispatch a job "
-"into a specific queue, pass the parameter --queue=QUEUE_NAME. Also can just "
-"pass --test to run the test job and --once to run one job at a time"
+"Dispatch available jobs into the queue. To dispatch a job into a specific "
+"queue, pass the parameter --queue=QUEUE_NAME. Use --test to run a test job "
+"and --once to stop after a single job."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr "Completed running {$jobCount} jobs in the queue named {$queueName}."
@@ -894,3 +894,6 @@ msgstr "Number of seconds to rest between jobs[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Run the worker deamon for test queue"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Use the site as the platform for all journals."

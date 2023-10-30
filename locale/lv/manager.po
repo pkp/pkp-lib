@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-25 15:55+0000\n"
+"PO-Revision-Date: 2023-10-31 11:06+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -775,7 +775,7 @@ msgid "manager.roles"
 msgstr "Lomas"
 
 msgid "manager.setup.statistics"
-msgstr "Satistika"
+msgstr "Statistika"
 
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Ģeogrāfiskā statistika"
@@ -1339,7 +1339,7 @@ msgstr "Redakcionālie piešķīrumi"
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
 "Atlasiet redakcijas lietotājus, kuriem automātiski jāpiešķir visi jaunie "
-"iesniegutie materiāli šajā sadaļā."
+"iesniegtie materiāli šajā sadaļā."
 
 msgid "manager.sections.form.assignEditorAs"
 msgstr "Piešķirt {$name} kā {$role}"
@@ -1956,22 +1956,29 @@ msgid "manager.setup.metadata.submission"
 msgstr ""
 
 msgid "manager.setup.metadata.coverage"
-msgstr ""
+msgstr "Aptvērums"
 
 msgid "manager.setup.metadata.coverage.description"
 msgstr ""
+"Aptvērums parasti norāda darba telpisko atrašanās vietu (vietas nosaukums "
+"vai ģeogrāfiskās koordinātas), laika periodu (perioda apzīmējums, datums vai "
+"datumu diapazons) vai jurisdikciju (piemēram, administratīvās vienības "
+"nosaukums)."
 
 msgid "manager.setup.metadata.coverage.enable"
-msgstr ""
+msgstr "Iespējot aptvēruma metadatus"
 
 msgid "manager.setup.metadata.coverage.noRequest"
 msgstr ""
+"Neprasīt autoram sniegt aptvēruma metadatus materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.coverage.request"
-msgstr ""
+msgstr "Lūgt autoru sniegt aptvēruma metadatus materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.coverage.require"
 msgstr ""
+"Pieprasīt autoram sniegt aptvēruma metadatu ieteikumus materiāla "
+"iesniegšanas laikā."
 
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
@@ -3162,10 +3169,12 @@ msgid "manager.people.authSource"
 msgstr ""
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Materiāls nosūtīts atpakaļ recenzēšanai"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Šajā e-pastā autors tiek informēts par to, ka viņa materiāls ir nosūtīts "
+"atpakaļ uz recenzēšanas posmu."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr ""
@@ -3229,6 +3238,8 @@ msgstr ""
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Konfigurēt e-pasta paziņojumus, kas tiks nosūtīti autoriem pēc redakcionāla "
+"lēmuma reģistrēšanas."
 
 msgid "manager.forEditors"
 msgstr ""

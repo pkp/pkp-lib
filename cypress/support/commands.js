@@ -284,7 +284,7 @@ Cypress.Commands.add('addSubmissionAuthorsWithApi', (api, data, csrfToken) => {
 });
 
 Cypress.Commands.add('submitSubmissionWithApi', (id, csrfToken) => {
-	const api = new Api(Cypress.env('baseUrl') + '/index.php/publicknowledge/api/v1');
+	const api = new Api(Cypress.config('baseUrl') + '/index.php/publicknowledge/api/v1');
 	return cy.get('@submissionId').then((submissionId) => {
 		cy.request({
 			url: api.submit(submissionId),

@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-10-31 11:06+0000\n"
+"PO-Revision-Date: 2023-11-01 14:38+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "lv/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
 "19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -718,7 +718,6 @@ msgstr "Pārslēgties uz {$name}"
 msgid "common.title"
 msgstr "Virsraksts"
 
-#, fuzzy
 msgid "common.titleSeparator"
 msgstr " | "
 
@@ -1145,14 +1144,13 @@ msgid "email.to"
 msgstr "Kam"
 
 msgid "form.confirmSubmit"
-msgstr "Vai tiešām vēlaties iesniegt šo veidlapu?"
+msgstr "Vai tiešām vēlaties iesniegt šo formu?"
 
 msgid "form.confirmSubmit.title"
 msgstr "Apstiprināt"
 
 msgid "form.dataHasChanged"
-msgstr ""
-"Dati šajā veidlapā ir mainījušies. Vai vēlaties turpināt bez saglabāšanas?"
+msgstr "Dati šajā formā ir mainījušies. Vai vēlaties turpināt bez saglabāšanas?"
 
 msgid "form.disallowedProp"
 msgstr "Šī īpašība nav atļauta."
@@ -1200,7 +1198,7 @@ msgid "form.errorMany"
 msgstr "Lūdzu, izlabojiet {$count} kļūdas."
 
 msgid "form.errorsOccurred"
-msgstr "Kļūdas, kas radušās, apstrādājot šo veidlapu"
+msgstr "Kļūdas, kas radušās, apstrādājot šo formu"
 
 msgid "form.formLanguage.description"
 msgstr ""
@@ -1208,7 +1206,7 @@ msgstr ""
 "valodu."
 
 msgid "form.formLanguage"
-msgstr "Veidlapas valoda"
+msgstr "Formas valoda"
 
 msgid "form.contains"
 msgstr "satur"
@@ -1220,7 +1218,7 @@ msgid "form.startsWith"
 msgstr "sākas ar"
 
 msgid "form.postRequired"
-msgstr "Veidlapa netika iesniegta pareizi."
+msgstr "Forma netika iesniegta pareizi."
 
 msgid "form.fileRequired"
 msgstr "Nepieciešama faila augšupielāde."
@@ -1301,7 +1299,7 @@ msgid "informationCenter.informationCenter"
 msgstr "Informācijas centrs"
 
 msgid "informationCenter.editorialHistory"
-msgstr "Rediģēšanas vēsture"
+msgstr "Redakcionālā vēsture"
 
 msgid "informationCenter.noNotes"
 msgstr "Nav rādāmu piezīmju."
@@ -1333,7 +1331,7 @@ msgstr "Uzsākt diskusiju"
 msgid "stageParticipants.notify.chooseMessage"
 msgstr ""
 "Izvēlieties jau sagatavotu ziņu, ko vēlaties izmantot, vai aizpildiet tālāk "
-"norādīto veidlapu."
+"norādīto formu."
 
 msgid "stageParticipants.notify.message"
 msgstr "Ziņa"
@@ -1343,8 +1341,8 @@ msgstr "Piešķiršanas tiesības"
 
 msgid "stageParticipants.recommendOnly"
 msgstr ""
-"Šim dalībniekam ir atļauts tikai ieteikt redakcionālu lēmumu, un būs "
-"nepieciešams pilnvarots redaktors, lai reģistrētu redakcionālus lēmumus."
+"Šim dalībniekam ir atļauts tikai ieteikt redakcionālu lēmumu, un to "
+"reģistrēt varēs tikai pilnvarots redaktors."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Atļaujas"
@@ -1685,8 +1683,7 @@ msgstr "Ir atļautas tikai šādas valodas: {$languages}."
 
 msgid "form.dropzone.dictFallbackText"
 msgstr ""
-"Lai augšupielādētu datnes, lūdzu, izmantojiet zemāk redzamo pakārtoto "
-"veidlapu."
+"Lai augšupielādētu datnes, lūdzu, izmantojiet zemāk redzamo pakārtoto formu."
 
 msgid "form.invalidImage"
 msgstr ""
@@ -1703,7 +1700,7 @@ msgstr "{$count}/{$total} pabeigto valodu skaits"
 
 msgid "form.errors"
 msgstr ""
-"Veidlapa netika saglabāta, jo tika konstatētas {$count} kļūdas. Lūdzu, "
+"Forma netika saglabāta, jo tika konstatētas {$count} kļūdas. Lūdzu, "
 "izlabojiet šīs kļūdas un mēģiniet vēlreiz."
 
 msgid "icon.comment.alt"
@@ -1711,8 +1708,8 @@ msgstr "Komentārs"
 
 msgid "form.csrfInvalid"
 msgstr ""
-"Veidlapu nevarēja iesniegt. Iespējams, jūs esat atteicies no sistēmas. "
-"Lūdzu, ielādējiet lapu no jauna un mēģiniet vēlreiz."
+"Formu nevarēja iesniegt. Iespējams, jūs esat atteicies no sistēmas. Lūdzu, "
+"ielādējiet lapu no jauna un mēģiniet vēlreiz."
 
 msgid "icon.view.alt"
 msgstr "Skatīt"
@@ -1797,3 +1794,487 @@ msgid "notification.type.assignCopyeditors"
 msgstr ""
 "Piešķirt literāro redaktoru, izmantojot saiti \"Piešķirt\" dalībnieku "
 "sarakstā."
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Recenzēšanas plāns"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Redaktora pieprasījums"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Atbildes sniegšanas termiņš"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Recenzijas termiņš"
+
+msgid "navigation.goBack"
+msgstr "Atgriezties atpakaļ"
+
+msgid "notification.removedReviewer"
+msgstr "Recenzents noņemts."
+
+msgid "notification.cancelledReviewer"
+msgstr "Recenzents atcelts."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Recenzents atjaunots."
+
+msgid "notification.reviewerResendRequest"
+msgstr "Tika nosūtīts pieprasījums pārskatīt recenzēšanas uzdevumu."
+
+msgid "notification.addedStageParticipant"
+msgstr "Lietotājs pievienots kā posma dalībnieks."
+
+msgid "notification.editStageParticipant"
+msgstr "Ir mainīts posma piešķīrums."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Jauns paziņojums."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Tiek gaidīta recenzija."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Atjaunots recenzēšanas piešķīrums."
+
+msgid "notification.type.auditorRequest"
+msgstr "Audita pieprasījums datnei \"{$file}\""
+
+msgid "notification.type.allReviewsIn"
+msgstr "Visi recenzenti ir atbildējuši, un {$stage}. posmā ir jāpieņem lēmums."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Labojumi, kas iesniegti {$stage}. posmā."
+
+msgid "notification.type.reviewerComment"
+msgstr "Recenzents ir komentējis \"{$title}\"."
+
+msgid "notification.signedFile"
+msgstr "Datne izskatīta."
+
+msgid "timeZone"
+msgstr "Laika josla"
+
+msgid "user.email"
+msgstr "E-pasta adrese"
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"Šim lietotājam nav pilnvaru piekļūt attiecīgajai iesniegtā materiāla datnei."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Nederīga publikācija."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Nederīgs iesniegtais materiāls."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Nederīgs attēlojums."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Nederīga diskusija."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Jums nav piekļuves šai diskusiju ziņai."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Jums nav piekļuves šim recenzēšanas piešķīrumam."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Pašreizējais lietotājs nav pieprasītā iesniegtā materiāla autors. Lūdzu, "
+"pārbaudiet, vai esat pieteicies ar pareizo lietotāja kontu."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Konfidencialitātes iestatījumi"
+
+msgid "notification.type.queryActivity"
+msgstr "Diskusiju aktivitāte."
+
+msgid "notification.type.queryAdded"
+msgstr "Diskusija pievienota."
+
+msgid "notification.type.editorialReminder"
+msgstr "Iknedēļas e-pasts par neizpildītajiem uzdevumiem"
+
+msgid "notification.type.roundStatusTitle"
+msgstr "{$round}. kārtas statuss"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Veiksmīgi atjaunināta navigācijas izvēlnes vienība"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Navigācijas izvēlnes vienība tika veiksmīgi noņemta"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Veiksmīgi tika pievienota navigācijas izvēlnes vienība"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Veiksmīgi tika pievienota navigācijas izvēlne"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Navigācijas izvēlne tika veiksmīgi noņemta"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Jums ir anulēta abonēšana"
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Jūs jebkurā laikā varat atjaunot e-pasta paziņojumu abonēšanu savā <a href=\""
+"{$profileNotificationUrl}\">lietotāja profilā</a>."
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Radās neparedzēta kļūda, un mēs nevarējām atrakstīt e-pasta adresi {$email}. "
+"Jūs varat atteikties no visiem e-pasta paziņojumiem savā <a href=\""
+"{$profileNotificationUrl}\">lietotāja profilā</a> vai sazināties ar mums "
+"tieši, lai saņemtu palīdzību."
+
+msgid "list.viewLess"
+msgstr "Slēpt paplašinātu informāciju par {$name}"
+
+msgid "list.expandAll"
+msgstr "Izvērst visu"
+
+msgid "validation.invalidOption"
+msgstr "Šī nav derīga iespēja."
+
+msgid "validator.after"
+msgstr "Šim datumam jābūt pēc {$date}."
+
+msgid "validator.alpha_num"
+msgstr "Tajā var būt tikai burti un cipari."
+
+msgid "validator.array"
+msgstr "Šis masīvs nav derīgs."
+
+msgid "validator.before"
+msgstr "Šim datumam jābūt pirms {$date}."
+
+msgid "validator.between.file"
+msgstr "Tam jābūt starp {$min} un {$max} kilobaitiem."
+
+msgid "validator.between.string"
+msgstr "Tam jābūt starp {$min} un {$max} rakstzīmēm."
+
+msgid "validator.between.array"
+msgstr "Tam jābūt starp {$min} un {$max} vienībām."
+
+msgid "validator.confirmed"
+msgstr "Šī lauka apstiprinājums nesakrīt."
+
+msgid "validator.country"
+msgstr "Šī nav derīga valsts."
+
+msgid "validator.currency"
+msgstr "Šī nav derīga valūta."
+
+msgid "validator.date"
+msgstr "Šis nav derīgs datums."
+
+msgid "validator.date_format"
+msgstr "Tas neatbilst formātam {$format}."
+
+msgid "validator.different"
+msgstr "{$attribute} un {$other} jābūt atšķirīgiem."
+
+msgid "validator.filled"
+msgstr "Šis lauks ir obligāts."
+
+msgid "validator.image"
+msgstr "Tam jābūt attēlam."
+
+msgid "validator.in"
+msgstr "Izvēlētais {$attribute} ir nederīgs."
+
+msgid "validator.integer"
+msgstr "Tas nav vesels skaitlis."
+
+msgid "validator.issn"
+msgstr "Tas nav derīgs ISSN."
+
+msgid "validator.json"
+msgstr "Šī nav derīga JSON virkne."
+
+msgid "validator.locale"
+msgstr "Šī valoda netiek pieņemta."
+
+msgid "validator.localeKey"
+msgstr ""
+"Valodas jānorāda, izmantojot lokalizācijas kodu. Piemēri: en_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "Šī vērtība nedrīkst būt lielāka par {$max}."
+
+msgid "validator.max.file"
+msgstr "Tas nedrīkst būt lielāks par {$max} kilobaitiem."
+
+msgid "validator.max.array"
+msgstr "Tajā nedrīkst būt vairāk par {$max} vienībām."
+
+msgid "validator.mimes"
+msgstr "Tai jābūt {$values} tipa datnei."
+
+msgid "validator.digits"
+msgstr "Tam jāsatur {$digits} cipari."
+
+msgid "validator.exists"
+msgstr "Izvēlētais {$attribute} ir nederīgs."
+
+msgid "validator.min.file"
+msgstr "Tam jābūt vismaz {$min} kilobaitiem."
+
+msgid "validator.min.array"
+msgstr "Tajā jābūt vismaz {$min} vienībām."
+
+msgid "validator.not_in"
+msgstr "Izvēlētais {$attribute} ir nederīgs."
+
+msgid "validator.orcid"
+msgstr "Šis nav derīgs ORCID."
+
+msgid "validator.present"
+msgstr "Jābūt laukam {$attribute}."
+
+msgid "validator.regex"
+msgstr "Tas nav pareizi formatēts."
+
+msgid "validator.required"
+msgstr "Šis lauks ir obligāts."
+
+msgid "validator.required_unless"
+msgstr "Šis lauks ir obligāts, ja vien laukā {$values} nav norādīts {$other}."
+
+msgid "validator.required_with"
+msgstr "Šis lauks ir obligāts, ja ir norādīts {$values}."
+
+msgid "validator.required_without"
+msgstr "Šis lauks ir obligāts, ja nav norādīts {$values}."
+
+msgid "validator.size.numeric"
+msgstr "Tam jābūt {$size}."
+
+msgid "validator.size.string"
+msgstr "Tam jābūt {$size} rakstzīmēm."
+
+msgid "validator.size.array"
+msgstr "Tam jāsatur {$size} vienības."
+
+msgid "validator.string"
+msgstr "Šī nav derīga virkne."
+
+msgid "validator.timezone"
+msgstr "Šī nav derīga laika josla."
+
+msgid "validator.url"
+msgstr "Šis nav derīgs URL."
+
+msgid "validator.no_new_line"
+msgstr "Jauna līnija nav atļauta."
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Mēģinājums uzsākt transformāciju, kas nav atbalstīta jūsu instalēšanas vidē."
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "Nezināma komanda {$command}"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.editedAuthor"
+msgstr "Rediģēts autors."
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>Lai nodrošinātu anonīmās recenzēšanas integritāti, jāpieliek visas pūles, "
+"lai novērstu autoru un recenzentu savstarpēju identitātes noskaidrošanu. Tas "
+"nozīmē, ka autori, redaktori un recenzenti (kas augšupielādē dokumentus kā "
+"daļu no recenzēšanas) pārbauda, vai ir veikti šādi pasākumi attiecībā uz "
+"tekstu un datnes īpašībām:</p>\n"
+"<ul><li>Dokumenta autori ir svītrojuši savus vārdus no teksta; atsaucēs un "
+"zemsvītras piezīmēs autoru vārda, raksta nosaukuma u. c. vietā ir izmantots "
+"\"Autors\" un gads.</li>\n"
+"<li>Dokumenta autori ir izņēmuši personisko informāciju no datnes "
+"parametriem, veicot šādus pasākumus:\n"
+"<ul><li>Microsoft Word operētājsistēmai Windows:\n"
+"<ul><li>doties uz \"Fails\" (File),</li>\n"
+"<li>atlasīt \"Informācija\" (Info);</li>\n"
+"<li>noklikšķināt uz \"Pārbaudīt, vai nav problēmu\" (Check for Issues);</li>"
+"\n"
+"<li>izvēlnē noklikšķināt uz \"Pārbaudīt dokumentu\" (Inspect Document);</li>"
+"\n"
+"<li>\"Dokumentu kontrolieris\" dialoga logā atlasīt izvēles rūtiņas, lai "
+"norādītu slēptā satura veidu, kuru vēlaties pārbaudīt;</li>\n"
+"<li>noklikšķināt \"Noņemt visu\" (Remove All);</li>\n"
+"<li>noklikšķināt \"Aizvērt\" (Close);</li>\n"
+"<li>saglabāt dokumentu.</li></ul>\n"
+"<li>Microsoft Word operētājsistēmai MacOS:\n"
+"<ul><li>doties uz Tools;</li>\n"
+"<li>noklikšķināt Protect Document;</li>\n"
+"<li>atlasīt Remove personal information for this file on save;</li>\n"
+"<li>noklikšķināt OK un saglabāt datni.</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>doties uz File,</li>\n"
+"<li>atlasīt Properties;</li>\n"
+"<li>dzēst jebkuru vārdu autora laukā;</li>\n"
+"<li>noklikšķināt OK;</li>\n"
+"<li>saglabāt dokumentu.</li></ul></li></ul>\n"
+
+msgid "notification.addedReviewer"
+msgstr ""
+"Šim iesniegtajam materiālam piešķirts recenzents {$reviewerName}, nosūtīts e-"
+"pasta paziņojums."
+
+msgid "submission.task.responseDueDate"
+msgstr "Atbildes sniegšanas termiņš"
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"Šim iesniegtajam materiālam piešķirts recenzents {$reviewerName}, e-pasta "
+"paziņojums netika nosūtīts."
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"Izlabotā datne {$stage}. posmā ir augšupielādēta redakcionālai izskatīšanai."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Labojumi, kas jāapsver {$stage}. posmā."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Nederīga recenzēšanas kārta."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Pašlaik jums nav pietiekamu tiesību, lai skatītu iesniegto materiālu. Lūdzu, "
+"labojiet savu profilu, lai pārliecinātos, ka jums ir piešķirtas atbilstošas "
+"lomas sadaļā \"Reģistrēties kā\"."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Šis ir atgādinājums pārbaudīt žurnāla stāvokli, izmantojot redakcionālo "
+"pārskatu."
+
+msgid "notification.editedNavigationMenu"
+msgstr "Navigācijas izvēlne ir veiksmīgi atjaunināta"
+
+msgid "notification.type.editorialReport"
+msgstr "Statistikas pārskata kopsavilkums."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Mēs nevarējām atcelt jūsu abonementu"
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Atlasiet e-pastus, kurus vairs nevēlaties saņemt uz {$email} no "
+"{$contextName}."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"E-pasta adrese {$email} ir veiksmīgi atrakstīta. Mēs vairs nesūtīsim jums "
+"šos e-pastus. Jūs jebkurā laikā varat atjaunot e-pasta paziņojumu abonēšanu "
+"savā <a href=\"{$profileNotificationUrl}\">lietotāja profilā</a>."
+
+msgid "validator.same"
+msgstr "{$attribute} un {$other} ir jāsakrīt."
+
+msgid "validator.size.file"
+msgstr "Tam jābūt {$size} kilobaitiem."
+
+msgid "validator.unique"
+msgstr "{$attribute} jau ir izmantots."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Nevar importēt XML mezglu"
+
+msgid "notification.addedAuthor"
+msgstr "Pievienots autors."
+
+msgid "validator.between.numeric"
+msgstr "Tam jābūt starp {$min} un {$max}."
+
+msgid "validator.boolean"
+msgstr "Šim laukam jābūt true vai false."
+
+msgid "validator.allowable_title_html_tags"
+msgstr "Ir atļautas tikai [{$tags}] html birkas."
+
+msgid "validator.email"
+msgstr "Šī nav derīga e-pasta adrese."
+
+msgid "validator.ip"
+msgstr "Šī nav derīga IP adrese."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Atcelt abonementu"
+
+msgid "list.viewMore"
+msgstr "Parādīt sīkāku informāciju par {$name}"
+
+msgid "list.collapseAll"
+msgstr "Sakļaut visu"
+
+msgid "validator.accepted"
+msgstr "Lūdzu, pieņemiet šo vienību."
+
+msgid "validator.active_url"
+msgstr "Šis nav derīgs URL."
+
+msgid "validator.max.string"
+msgstr "Tas nedrīkst būt lielāks par {$max} rakstzīmēm."
+
+msgid "validator.min.numeric"
+msgstr "Tam jābūt vismaz {$min}."
+
+msgid "validator.required_with_all"
+msgstr "Šis lauks ir obligāts, ja ir norādīts {$values}."
+
+msgid "validator.min.string"
+msgstr "Tam jābūt vismaz {$min} rakstzīmēm."
+
+msgid "validator.numeric"
+msgstr "Tas nav derīgs skaitlis."
+
+msgid "validator.required_if"
+msgstr "Šis lauks ir obligāts, ja {$other} ir {$value}."
+
+msgid "validator.alpha_dash"
+msgstr ""
+"Tajā drīkst būt tikai burti, cipari, defises un pasvītrojuma rakstzīmes."
+
+msgid "validator.alpha"
+msgstr "Tajā var būt tikai burti."
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+"Tajā drīkst būt tikai burti, cipari, defises, pasvītrojuma rakstzīmes un "
+"punkti."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Šis lauks ir daudzvalodu. Katrai atbalstītajai valodai jānorāda atsevišķas "
+"vērtības."
+
+msgid "validator.required_without_all"
+msgstr "Šis lauks ir obligāts, ja {$values} nav norādīts."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Filtrs ({$displayName}) atbalsta ievades {$inputTypeName} – {$typeofInput} "
+"doto"
+
+msgid "validator.country.regex"
+msgstr ""
+"Šī nav derīga valsts. Valstij jābūt vienam no starptautiskajiem divburtu "
+"kodiem. Skatīt visus kodus vietnē https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+
+msgid "validator.digits_between"
+msgstr "Tam jābūt starp {$min} un {$max} cipariem."

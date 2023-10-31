@@ -1,12 +1,14 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
+# "Marie-Hélène Vézina [UdeMontréal]" <marie-helene.vezina@umontreal.ca>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-08-16 15:57+0000\n"
-"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
+"PO-Revision-Date: 2023-11-01 14:38+0000\n"
+"Last-Translator: \"Marie-Hélène Vézina [UdeMontréal]\" <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "default/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -14,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 # localization file for fr_CA. Last revision 2019-10-22T04:44:15 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "default.groups.name.siteAdmin"
@@ -169,23 +171,22 @@ msgstr ""
 "conflit d'intérêt ou tout autre fichier potentiellement utile pour nos "
 "éditeur.trice.s.</p>"
 
-#, fuzzy
 msgid "default.submission.step.contributors"
 msgstr ""
-"<p>Ajouter des détails pour tous les contributeurs-trices à cette "
-"soumission. Les contributeurs-trices ajoutés ici se verront envoyer un "
-"courriel de confirmation de la soumission ainsi qu'une copie de toutes les "
-"décisions éditoriales enregistrées pour cette soumission.</p><p>Si un-e "
-"contributeur-trice ne peut être contacté par courriel parce qu'il-elle doit "
-"demeurer anonymes ou n'a pas de courriel, s'il vous plait, n'entrez pas de "
-"courriel fictif. Vous pouvez ajouter des informations sur ce-cette "
-"contributeur-trice à une étape ultérieure du processus de soumission.</p>"
+"<p>Ajouter des informations relatives à tous les contributeurs.trices à "
+"cette soumission. Les contributeurs.trices ajouté.e.s ici se verront envoyer "
+"un courriel de confirmation de la soumission ainsi qu'une copie de toutes "
+"les décisions éditoriales enregistrées pour cette soumission.</p><p>Si un.e "
+"contributeur.trice ne peut être contacté.e par courriel parce qu'il ou elle "
+"doit demeurer anonyme ou n'a pas de compte de messagerie, veuillez ne pas "
+"entrer de courriel fictif. Vous pouvez ajouter des informations sur ce ou "
+"cette contributeur.trice à une étape ultérieure du processus de "
+"soumission.</p>"
 
-#, fuzzy
 msgid "default.submission.step.details"
 msgstr ""
-"<p>S'il vous plaît, fournissez les détails suivants afin de nous aider à "
-"gérer votre soumission dans notre système.</p>"
+"<p>Veuillez fournir les informations suivantes afin de nous aider à gérer "
+"votre soumission dans notre système.</p>"
 
 #, fuzzy
 msgid "default.submission.step.forTheEditors"

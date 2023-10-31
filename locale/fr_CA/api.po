@@ -1,13 +1,15 @@
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2021.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
+# "Marie-Hélène Vézina [UdeMontréal]" <marie-helene.vezina@umontreal.ca>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-08-16 15:57+0000\n"
-"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
+"PO-Revision-Date: 2023-11-01 14:38+0000\n"
+"Last-Translator: \"Marie-Hélène Vézina [UdeMontréal]\" <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "api/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -15,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 # localization file for fr_CA. Last revision 2019-10-22T03:04:11 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "api.400.paramNotSupported"
@@ -385,3 +387,6 @@ msgstr "Le travail en échec a été supprimé avec succès de la liste des éch
 
 #~ msgid "api.vocabs.400.vocabNotSupported"
 #~ msgstr "Le vocabulaire {$vocab} n'est pas supporté."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Une erreur est survenue lors du téléversement de cette image."

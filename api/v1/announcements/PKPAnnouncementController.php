@@ -217,9 +217,9 @@ class PKPAnnouncementController extends PKPBaseController
         } catch (StoreTemporaryFileException $e) {
             $announcement = Repo::announcement()->get($announcementId);
             Repo::announcement()->delete($announcement);
-            return $response->withStatus(400)->withJson([
+            return response()->json([
                 'image' => __('api.400.errorUploadingImage')
-            ]);
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $announcement = Repo::announcement()->get($announcementId);
@@ -276,9 +276,9 @@ class PKPAnnouncementController extends PKPBaseController
             Repo::announcement()->edit($announcement, $params);
         } catch (StoreTemporaryFileException $e) {
             Repo::announcement()->delete($announcement);
-            return $response->withStatus(400)->withJson([
+            return response()->json([
                 'image' => __('api.400.errorUploadingImage')
-            ]);
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $announcement = Repo::announcement()->get($announcement->getId());
@@ -336,7 +336,7 @@ class PKPAnnouncementController extends PKPBaseController
      *
      * @param bool $sendEmail Whether or not the editor chose to notify users by email
      */
-    protected function notifyUsers(Request $request, Context $context, int $announcementId, bool $sendEmail): void
+    protected function notifyUsers(PKPRequest $request, Context $context, int $announcementId, bool $sendEmail): void
     {
         /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');

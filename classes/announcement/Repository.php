@@ -18,7 +18,7 @@ use APP\core\Request;
 use APP\file\PublicFileManager;
 use PKP\context\Context;
 use PKP\core\Core;
-use PKP\core\exceptions\StoryTemporaryFileException;
+use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFile;
 use PKP\file\TemporaryFileManager;
@@ -237,7 +237,7 @@ class Repository
                 $this->dao->update($announcement);
             } else {
                 $this->delete($announcement);
-                throw new StoryTemporaryFileException($temporaryFile, $filePath, $user, $announcement);
+                throw new StoreTemporaryFileException($temporaryFile, $filePath, $user, $announcement);
             }
         }
     }

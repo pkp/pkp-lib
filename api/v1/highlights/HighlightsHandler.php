@@ -20,7 +20,7 @@ namespace PKP\API\v1\highlights;
 use APP\facades\Repo;
 use Exception;
 use PKP\core\APIResponse;
-use PKP\core\exceptions\StoryTemporaryFileException;
+use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\handler\APIHandler;
 use PKP\highlight\Collector;
 use PKP\plugins\Hook;
@@ -170,7 +170,7 @@ class HighlightsHandler extends APIHandler
 
         try {
             $highlightId = Repo::highlight()->add($highlight);
-        } catch (StoryTemporaryFileException $e) {
+        } catch (StoreTemporaryFileException $e) {
             $highlight = Repo::highlight()->get($highlightId, $context?->getId());
             Repo::highlight()->delete($highlight);
             return $response->withStatus(400)->withJson([

@@ -98,7 +98,6 @@ import ListPanel from '@/components/ListPanel/ListPanel.vue';
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
-import i18nPlugin from '@/piniaPlugins/i18n.plugin.js';
 
 // Register global components
 VueRegistry.registerComponent('Badge', Badge);
@@ -202,8 +201,7 @@ VueRegistry.registerComponent('PkpListPanel', ListPanel);
 function pkpCreateVueApp(createAppArgs) {
 	// Initialize Vue
 	const vueApp = createApp(createAppArgs);
-	const pinia = createPinia(i18nPlugin);
-	pinia.use(i18nPlugin);
+	const pinia = createPinia();
 	vueApp.use(pinia);
 
 	// https://github.com/vuejs/pinia/discussions/1197

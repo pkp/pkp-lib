@@ -44,6 +44,8 @@ class SubmissionFilters extends FormComponent
         public LazyCollection $categories
     ) {
         $this
+            ->addPage(['id' => 'default', 'submitButton' => null])
+            ->addGroup(['id' => 'default', 'pageId' => 'default'])
             ->addSectionFields()
             ->addAssignedTo()
             ->addIssues()
@@ -79,6 +81,7 @@ class SubmissionFilters extends FormComponent
         }
 
         return $this->addField(new FieldOptions('sectionIds', [
+            'groupId' => 'default',
             'label' => __('section.section'),
             'options' => $options,
             'value' => [],
@@ -94,6 +97,7 @@ class SubmissionFilters extends FormComponent
         $request = Application::get()->getRequest();
 
         return $this->addField(new FieldSelectUsers('assignedTo', [
+            'groupId' => 'default',
             'label' => __('editor.submissions.assignedTo'),
             'value' => [],
             'apiUrl' => $request->getDispatcher()->url(
@@ -118,6 +122,7 @@ class SubmissionFilters extends FormComponent
         $request = Application::get()->getRequest();
 
         return $this->addField(new FieldSelectIssues('issueIds', [
+            'groupId' => 'default',
             'label' => __('issue.issues'),
             'value' => [],
             'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, $request->getContext()->getPath(), 'issues'),
@@ -140,6 +145,7 @@ class SubmissionFilters extends FormComponent
             ->all();
 
         $props = [
+            'groupId' => 'default',
             'label' => __('category.category'),
             'options' => $options,
             'value' => [],

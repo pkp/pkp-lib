@@ -29,7 +29,7 @@ use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\announcement\Collector;
 use PKP\context\Context;
-use PKP\core\exceptions\StoryTemporaryFileException;
+use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\jobs\notifications\NewAnnouncementNotifyUsers;
@@ -214,7 +214,7 @@ class PKPAnnouncementController extends PKPBaseController
 
         try {
             $announcementId = Repo::announcement()->add($announcement);
-        } catch (StoryTemporaryFileException $e) {
+        } catch (StoreTemporaryFileException $e) {
             $announcement = Repo::announcement()->get($announcementId);
             Repo::announcement()->delete($announcement);
             return $response->withStatus(400)->withJson([
@@ -274,7 +274,7 @@ class PKPAnnouncementController extends PKPBaseController
 
         try {
             Repo::announcement()->edit($announcement, $params);
-        } catch (StoryTemporaryFileException $e) {
+        } catch (StoreTemporaryFileException $e) {
             Repo::announcement()->delete($announcement);
             return $response->withStatus(400)->withJson([
                 'image' => __('api.400.errorUploadingImage')

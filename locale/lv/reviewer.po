@@ -1,3 +1,135 @@
 # Ieva Tiltina <pastala@gmail.com>, 2023.
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2023-11-01 14:38+0000\n"
+"Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
+"Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reviewer/lv/>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
+"19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Lejupielāde un recenzēšana"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Pabeigšana"
+
+msgid "reviewer.step1.request"
+msgstr "Recenzijas pieprasījums"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Pieprasījums"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Vadlīnijas"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr ""
+"Jūs esat izvēlēts kā potenciālais recenzents šim materiālam. Zemāk ir "
+"sniegts materiāla pārskats, kā arī šīs recenzijas grafiks. Mēs ceram, ka jūs "
+"varēsiet piedalīties recenzēšanā."
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Skatīt visu informāciju par iesniegto materiālu"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Recenzenta datnes"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Noraidīt recenzijas pieprasījumu"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr ""
+"Zemāk esošajā laukā varat norādīt redaktoram iemeslus, kādēļ atsakāties no "
+"šīs recenzijas."
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Piekrist recenzēšanai, turpināt ar 2. soli"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Turpināt ar 3. soli"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Iesniegt recenziju"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Saglabāt uz vēlāku laiku"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"Šis izdevējs ir noteicis, ka recenzentiem jāatklāj informācija par iespējamo "
+"interešu konfliktu. Lūdzu, veltiet brīdi, lai iepazītos ar šiem noteikumiem."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Man nav interešu konfliktu"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Man ir iespējams interešu konflikts (aprakstīt zemāk)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Interešu konflikts"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Šis izdevējs nav noteicis nekādas vadlīnijas recenzentiem."
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Vadlīnijas recenzentiem"
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"Lai lejupielādētu ar šo materiālu saistītās datnes, noklikšķiniet uz tālāk "
+"norādītajiem datņu nosaukumiem."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr ""
+"Ievadiet (vai ielīmējiet) savu atsauksmi par šo materiālu zemāk redzamajā "
+"formā."
+
+msgid "reviewer.complete"
+msgstr "Recenzija iesniegta"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Vai tiešām vēlaties iesniegt šo recenziju?"
+
+msgid "reviewer.aboutDueDates"
+msgstr "Par termiņiem"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"Redaktors lūdz pieņemt vai noraidīt recenziju pirms atbildes iesniegšanas "
+"termiņa un pabeigt recenziju līdz pārskata iesniegšanas termiņam."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Autoram un redaktoram"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Tikai redaktoram"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr "Nosūtīt šī e-pasta slēpto (BCC) kopiju šādiem recenzentiem."
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Nosūtīt recenzentiem"
+
+msgid "user.authorization.submissionReviewer"
+msgstr ""
+"Pašreizējais lietotājs nav piešķirts kā pieprasītā dokumenta recenzents."
+
+msgid "reviewer.submission.guidelines"
+msgstr "Vadlīnijas recenzēšanai"
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"Augšupielādējiet datnes, tostarp sākotnējās recenzēšanas datņu labotās "
+"versijas, kuras vajadzētu caurskatīt redaktoram un/vai autoram."
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"Paldies par šī materiāla recenzēšanu. Jūsu recenzija ir veiksmīgi iesniegta. "
+"Mēs novērtējam jūsu ieguldījumu mūsu publikāciju kvalitātē. Ja būs "
+"nepieciešams, redaktors ar jums sazināsies, lai iegūtu papildu informāciju."

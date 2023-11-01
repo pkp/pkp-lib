@@ -19,11 +19,13 @@ use APP\file\PublicFileManager;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\exceptions\StoreTemporaryFileException;
+use PKP\core\PKPString;
 use PKP\file\FileManager;
 use PKP\file\TemporaryFile;
 use PKP\file\TemporaryFileManager;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
+use PKP\user\User;
 use PKP\validation\ValidatorFactory;
 
 class Repository
@@ -230,6 +232,9 @@ class Repository
             $temporaryFileManager = new TemporaryFileManager();
             $temporaryFile = $temporaryFileManager->getFile((int) $image['temporaryFileId'], $user?->getId());
             $filePath = $this->getImageSubdirectory() . '/' . $this->getImageFilename($announcement, $temporaryFile);
+            if (!$this->isValidImage($temporaryFile, $filePath, $user, $announcement)) {
+                throw new StoreTemporaryFileException($temporaryFile, $filePath, $user, $announcement);
+            }
             if ($this->storeTemporaryFile($temporaryFile, $filePath, $user->getId(), $announcement)) {
                 $announcement->setImage(
                     $this->getImageData($announcement, $temporaryFile)
@@ -323,5 +328,25 @@ class Repository
                 ])
             );
         }
+    }
+
+    /**
+     * Check that temporary file is an image
+     */
+    protected function isValidImage(TemporaryFile $temporaryFile): bool
+    {
+        if (getimagesize($temporaryFile->getFilePath()) === false) {
+            return false;
+        }
+        $extension = pathinfo($temporaryFile->getOriginalFileName(), PATHINFO_EXTENSION);
+        $fileManager = new FileManager();
+        $extensionFromMimeType = $fileManager->getImageExtension(
+            PKPString::mime_content_type($temporaryFile->getFilePath())
+        );
+        if ($extensionFromMimeType !== '.' . $extension) {
+            return false;
+        }
+
+        return true;
     }
 }

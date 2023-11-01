@@ -224,10 +224,13 @@ class PKPAnnouncementHandler extends APIHandler
         try {
             $announcementId = Repo::announcement()->add($announcement);
         } catch (StoreTemporaryFileException $e) {
-            $announcement = Repo::announcement()->get($announcementId);
-            Repo::announcement()->delete($announcement);
+            $announcementId = $e->dataObject->getId();
+            if ($announcementId) {
+                $announcement = Repo::announcement()->get($announcementId);
+                Repo::announcement()->delete($announcement);
+            }
             return $response->withStatus(400)->withJson([
-                'image' => __('api.400.errorUploadingImage')
+                'image' => [__('api.400.errorUploadingImage')]
             ]);
         }
 

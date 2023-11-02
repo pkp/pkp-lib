@@ -16,6 +16,8 @@
 
 namespace PKP\controllers\grid\settings\library\form;
 
+use APP\core\Application;
+use APP\file\LibraryFileManager;
 use PKP\context\LibraryFile;
 use PKP\context\LibraryFileDAO;
 use PKP\controllers\grid\files\form\LibraryFileForm;

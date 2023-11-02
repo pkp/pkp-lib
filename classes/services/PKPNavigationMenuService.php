@@ -188,9 +188,6 @@ class PKPNavigationMenuService
             case NavigationMenuItem::NMI_TYPE_ADMINISTRATION:
                 $navigationMenuItem->setIsDisplayed($isUserLoggedIn && $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::CONTEXT_SITE));
                 break;
-            case NavigationMenuItem::NMI_TYPE_SEARCH:
-                $navigationMenuItem->setIsDisplayed($context);
-                break;
             case NavigationMenuItem::NMI_TYPE_PRIVACY:
                 $navigationMenuItem->setIsDisplayed($context && $context->getLocalizedData('privacyStatement'));
                 break;

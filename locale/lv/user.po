@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-01 14:38+0000\n"
+"PO-Revision-Date: 2023-11-03 11:03+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/lv/"
 ">\n"
@@ -280,7 +280,7 @@ msgid "user.profile.form.profileImage"
 msgstr "Profila attēls"
 
 msgid "user.profile.form.publishedNotifications"
-msgstr "E-pasta paziņojumi par jaunu laidienu"
+msgstr "E-pasta paziņojumi par jaunu žurnāla numuru"
 
 msgid "user.profile.form.urlInvalid"
 msgstr ""

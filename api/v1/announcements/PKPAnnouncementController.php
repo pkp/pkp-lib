@@ -66,7 +66,6 @@ class PKPAnnouncementController extends PKPBaseController
     {
         return [
             'has.user',
-            'has.context',
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
@@ -134,7 +133,7 @@ class PKPAnnouncementController extends PKPBaseController
         }
 
         // The assocId in announcements should always point to the contextId
-        if ($announcement->getData('assocId') !== $this->getRequest()->getContext()->getId()) {
+        if ($announcement->getData('assocId') !== $this->getRequest()->getContext()?->getId()) {
             return response()->json([
                 'error' => __('api.announcements.400.contextsNotMatched')
             ], Response::HTTP_BAD_REQUEST);
@@ -215,10 +214,13 @@ class PKPAnnouncementController extends PKPBaseController
         try {
             $announcementId = Repo::announcement()->add($announcement);
         } catch (StoreTemporaryFileException $e) {
-            $announcement = Repo::announcement()->get($announcementId);
-            Repo::announcement()->delete($announcement);
+            $announcementId = $e->dataObject->getId();
+            if ($announcementId) {
+                $announcement = Repo::announcement()->get($announcementId);
+                Repo::announcement()->delete($announcement);
+            }
             return response()->json([
-                'image' => __('api.400.errorUploadingImage')
+                'image' => [__('api.400.errorUploadingImage')]
             ], Response::HTTP_BAD_REQUEST);
         }
 
@@ -254,7 +256,7 @@ class PKPAnnouncementController extends PKPBaseController
         }
 
         // Don't allow to edit an announcement from one context from a different context's endpoint
-        if ($request->getContext()->getId() !== $announcement->getData('assocId')) {
+        if ($request->getContext()?->getId() !== $announcement->getData('assocId')) {
             return response()->json([
                 'error' => __('api.announcements.400.contextsNotMatched')
             ], Response::HTTP_FORBIDDEN);
@@ -277,7 +279,7 @@ class PKPAnnouncementController extends PKPBaseController
         } catch (StoreTemporaryFileException $e) {
             Repo::announcement()->delete($announcement);
             return response()->json([
-                'image' => __('api.400.errorUploadingImage')
+                'image' => [__('api.400.errorUploadingImage')]
             ], Response::HTTP_BAD_REQUEST);
         }
 
@@ -306,7 +308,7 @@ class PKPAnnouncementController extends PKPBaseController
         }
 
         // Don't allow to delete an announcement from one context from a different context's endpoint
-        if ($request->getContext()->getId() !== $announcement->getData('assocId')) {
+        if ($request->getContext()?->getId() !== $announcement->getData('assocId')) {
             return response()->json([
                 'error' => __('api.announcements.400.contextsNotMatched')
             ], Response::HTTP_FORBIDDEN);

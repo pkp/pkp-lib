@@ -22,6 +22,8 @@
 		</div>
 	{/if}
 
+	{include file="frontend/objects/announcements_list.tpl" numAnnouncements=$numAnnouncementsHomepage}
+
 	<div class="servers">
 		<h2>
 			{translate key="context.contexts"}

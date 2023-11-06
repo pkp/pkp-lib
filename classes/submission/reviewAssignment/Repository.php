@@ -58,15 +58,15 @@ class Repository
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id): ?ReviewAssignment
+    public function get(int $id, ?int $submissionId = null): ?ReviewAssignment
     {
-        return $this->dao->get($id);
+        return $this->dao->get($id, $submissionId);
     }
 
     /** @copydoc DAO::exists() */
-    public function exists(int $id): bool
+    public function exists(int $id, ?int $submissionId = null): bool
     {
-        return $this->dao->exists($id);
+        return $this->dao->exists($id, $submissionId);
     }
 
     /** @copydoc DAO::getCollector() */

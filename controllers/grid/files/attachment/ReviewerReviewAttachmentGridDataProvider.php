@@ -109,7 +109,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
     public function getAddFileAction($request)
     {
         $submission = $this->getSubmission();
-        $reviewAssignment = Repo::reviewAssignment()->get($this->_getReviewId());
+        $reviewAssignment = Repo::reviewAssignment()->get($this->_getReviewId(), $submission->getId());
 
         return new AddFileLinkAction(
             $request,

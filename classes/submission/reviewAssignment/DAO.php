@@ -14,6 +14,7 @@
 namespace PKP\submission\reviewAssignment;
 
 use APP\facades\Repo;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
@@ -76,21 +77,24 @@ class DAO extends EntityDAO
     /**
      * Check if a review assignment exists
      */
-    public function exists(int $id): bool
+    public function exists(int $id, ?int $submissionId): bool
     {
         return DB::table($this->table)
-            ->where($this->primaryKeyColumn, '=', $id)
+            ->where($this->primaryKeyColumn, $id)
+            ->when($submissionId !== null, fn(Builder $query) => $query->where('submission_id', $submissionId))
             ->exists();
     }
 
     /**
      * Get a review assignment
      */
-    public function get(int $id): ?ReviewAssignment
+    public function get(int $id, ?int $submissionId = null): ?ReviewAssignment
     {
         $row = DB::table($this->table)
             ->where($this->primaryKeyColumn, $id)
+            ->when($submissionId !== null, fn(Builder $query) => $query->where('submission_id', $submissionId))
             ->first();
+
         return $row ? $this->fromRow($row) : null;
     }
 

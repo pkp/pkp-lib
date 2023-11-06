@@ -66,7 +66,7 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $reviewAssignment = Repo::reviewAssignment()->get($this->_reviewAssignmentId);
+        $reviewAssignment = Repo::reviewAssignment()->get($this->_reviewAssignmentId, $submission->getId());
 
         if (!($reviewAssignment instanceof ReviewAssignment)) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;

@@ -90,10 +90,10 @@ class Repository
      * Perform validation checks on data used to add or edit a review assignment.
      *
      * @param array $props A key/value array with the new data to validate
-     * @param array $allowedLocales The context's supported locales
-     * @param string $primaryLocale The context's primary locale
      *
      * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook ReviewAssignment::validate [&$errors, $object, $props, $allowedLocales, $primaryLocale]
      */
     public function validate(?ReviewAssignment $object, array $props, Context $context): array
     {
@@ -118,7 +118,7 @@ class Repository
 
         // Check if submission exists
         if (isset($props['submissionId'])) {
-            $validator->after(function($validator) use ($props) {
+            $validator->after(function ($validator) use ($props) {
                 if (!$validator->errors()->get('submissionId')) {
                     $submission = Repo::submission()->get($props['submissionId']);
                     if (!$submission) {
@@ -130,7 +130,7 @@ class Repository
 
         // Check if reviewer exists
         if (isset($props['reviewerId'])) {
-            $validator->after(function($validator) use ($props, $context) {
+            $validator->after(function ($validator) use ($props, $context) {
                 if (!$validator->errors()->get('reviewerId')) {
                     $reviewer = Repo::user()->get($props['reviewerId']);
                     if (!$reviewer) {
@@ -154,13 +154,15 @@ class Repository
             $errors = $this->schemaService->formatValidationErrors($validator->errors());
         }
 
-        Hook::call('Category::validate', [&$errors, $object, $props, $allowedLocales, $primaryLocale]);
+        Hook::run('ReviewAssignment::validate', [&$errors, $object, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }
 
     /**
      * Add a new review assignment
+     *
+     * @hook ReviewAssignment::add [[$reviewAssignment]]
      */
     public function add(ReviewAssignment $reviewAssignment): int
     {
@@ -174,6 +176,8 @@ class Repository
 
     /**
      * Edit a review assignment
+     *
+     * @hook ReviewAssignment::edit [[$newReviewAssignment, $reviewAssignment, $params]]
      */
     public function edit(ReviewAssignment $reviewAssignment, array $params)
     {
@@ -189,6 +193,8 @@ class Repository
 
     /**
      * Delete a review assignment
+     *
+     * @hook ReviewAssignment::delete::before [[$reviewAssignment]]
      */
     public function delete(ReviewAssignment $reviewAssignment)
     {

@@ -107,6 +107,9 @@ msgstr "Type"
 msgid "manager.announcements.form.typeIdValid"
 msgstr "Please select a valid announcement type."
 
+msgid "manager.announcements.notEnabled"
+msgstr "You must <a href=\"#announcements/announcement-settings\">enable announcements</a>."
+
 msgid "manager.announcements.noneCreated"
 msgstr "No announcements have been created."
 
@@ -576,6 +579,9 @@ msgstr "No users were found."
 
 msgid "manager.groups.title"
 msgstr "Title"
+
+msgid "manager.image"
+msgstr "Image"
 
 msgid "manager.importExport"
 msgstr "Import/Export Data"

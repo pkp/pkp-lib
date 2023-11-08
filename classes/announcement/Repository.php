@@ -13,8 +13,16 @@
 
 namespace PKP\announcement;
 
+use APP\core\Application;
 use APP\core\Request;
+use APP\file\PublicFileManager;
+use PKP\context\Context;
 use PKP\core\Core;
+use PKP\core\exceptions\StoreTemporaryFileException;
+use PKP\core\PKPString;
+use PKP\file\FileManager;
+use PKP\file\TemporaryFile;
+use PKP\file\TemporaryFileManager;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -130,12 +138,23 @@ class Repository
     {
         $announcement->setData('datePosted', Core::getCurrentDate());
         $id = $this->dao->insert($announcement);
+        $announcement = $this->get($id);
+
+        if ($announcement->getImage()) {
+            $this->handleImageUpload($announcement);
+        }
+
         Hook::call('Announcement::add', [$announcement]);
 
         return $id;
     }
 
-    /** @copydoc DAO::update() */
+    /**
+     * Update an object in the database
+     *
+     * Deletes the old image if it has been removed, or a new image has
+     * been uploaded.
+     */
     public function edit(Announcement $announcement, array $params)
     {
         $newAnnouncement = clone $announcement;
@@ -144,13 +163,30 @@ class Repository
         Hook::call('Announcement::edit', [$newAnnouncement, $announcement, $params]);
 
         $this->dao->update($newAnnouncement);
+
+        $image = $newAnnouncement->getImage();
+        $hasNewImage = $image && $image['temporaryFileId'];
+
+        if ((!$image || $hasNewImage) && $announcement->getImage()) {
+            $this->deleteImage($announcement);
+        }
+
+        if ($hasNewImage) {
+            $this->handleImageUpload($newAnnouncement);
+        }
     }
 
     /** @copydoc DAO::delete() */
     public function delete(Announcement $announcement)
     {
         Hook::call('Announcement::delete::before', [$announcement]);
+
+        if ($announcement->getImage()) {
+            $this->deleteImage($announcement);
+        }
+
         $this->dao->delete($announcement);
+
         Hook::call('Announcement::delete', [$announcement]);
     }
 
@@ -162,5 +198,156 @@ class Repository
         foreach ($collector->getMany() as $announcement) {
             $this->delete($announcement);
         }
+    }
+
+    /**
+     * The subdirectory where announcement images are stored
+     */
+    public function getImageSubdirectory(): string
+    {
+        return 'announcements';
+    }
+
+    /**
+     * Get the base URL for announcement file uploads
+     */
+    public function getFileUploadBaseUrl(?Context $context = null): string
+    {
+        return join('/', [
+            Application::get()->getRequest()->getPublicFilesUrl($context),
+            $this->getImageSubdirectory(),
+        ]);
+    }
+
+    /**
+     * Handle image uploads
+     *
+     * @throws StoreTemporaryFileException Unable to store temporary file upload
+     */
+    protected function handleImageUpload(Announcement $announcement): void
+    {
+        $image = $announcement->getImage();
+        if ($image && $image['temporaryFileId']) {
+            $user = Application::get()->getRequest()->getUser();
+            $image = $announcement->getImage();
+            $temporaryFileManager = new TemporaryFileManager();
+            $temporaryFile = $temporaryFileManager->getFile((int) $image['temporaryFileId'], $user?->getId());
+            $filePath = $this->getImageSubdirectory() . '/' . $this->getImageFilename($announcement, $temporaryFile);
+            if (!$this->isValidImage($temporaryFile, $filePath, $user, $announcement)) {
+                throw new StoreTemporaryFileException($temporaryFile, $filePath, $user, $announcement);
+            }
+            if ($this->storeTemporaryFile($temporaryFile, $filePath, $user->getId(), $announcement)) {
+                $announcement->setImage(
+                    $this->getImageData($announcement, $temporaryFile)
+                );
+                $this->dao->update($announcement);
+            } else {
+                $this->delete($announcement);
+                throw new StoreTemporaryFileException($temporaryFile, $filePath, $user, $announcement);
+            }
+        }
+    }
+
+    /**
+     * Store a temporary file upload in the public files directory
+     *
+     * @param string $newPath The new filename with the path relative to the public files directoruy
+     * @return bool Whether or not the operation was successful
+     */
+    protected function storeTemporaryFile(TemporaryFile $temporaryFile, string $newPath, int $userId, Announcement $announcement): bool
+    {
+        $publicFileManager = new PublicFileManager();
+        $temporaryFileManager = new TemporaryFileManager();
+
+        if ($announcement->getAssocId()) {
+            $result = $publicFileManager->copyContextFile(
+                $announcement->getAssocId(),
+                $temporaryFile->getFilePath(),
+                $newPath
+            );
+        } else {
+            $result = $publicFileManager->copySiteFile(
+                $temporaryFile->getFilePath(),
+                $newPath
+            );
+        }
+
+        if (!$result) {
+            return false;
+        }
+
+        $temporaryFileManager->deleteById($temporaryFile->getId(), $userId);
+
+        return $result;
+    }
+
+    /**
+     * Get the data array for a temporary file that has just been stored
+     *
+     * @return array Data about the image, like the upload name, alt text, and date uploaded
+     */
+    protected function getImageData(Announcement $announcement, TemporaryFile $temporaryFile): array
+    {
+        $image = $announcement->getImage();
+
+        return [
+            'name' => $temporaryFile->getOriginalFileName(),
+            'uploadName' => $this->getImageFilename($announcement, $temporaryFile),
+            'dateUploaded' => Core::getCurrentDate(),
+            'altText' => !empty($image['altText']) ? $image['altText'] : '',
+        ];
+    }
+
+    /**
+     * Get the filename of the image upload
+     */
+    protected function getImageFilename(Announcement $announcement, TemporaryFile $temporaryFile): string
+    {
+        $fileManager = new FileManager();
+
+        return $announcement->getId()
+            . $fileManager->getImageExtension($temporaryFile->getFileType());
+    }
+
+    /**
+     * Delete the image related to announcement
+     */
+    protected function deleteImage(Announcement $announcement): void
+    {
+        $image = $announcement->getImage();
+        if ($image && $image['uploadName']) {
+            $publicFileManager = new PublicFileManager();
+            $filesPath = $announcement->getAssocId()
+                ? $publicFileManager->getContextFilesPath($announcement->getAssocId())
+                : $publicFileManager->getSiteFilesPath();
+
+            $publicFileManager->deleteByPath(
+                join('/', [
+                    $filesPath,
+                    $this->getImageSubdirectory(),
+                    $image['uploadName'],
+                ])
+            );
+        }
+    }
+
+    /**
+     * Check that temporary file is an image
+     */
+    protected function isValidImage(TemporaryFile $temporaryFile): bool
+    {
+        if (getimagesize($temporaryFile->getFilePath()) === false) {
+            return false;
+        }
+        $extension = pathinfo($temporaryFile->getOriginalFileName(), PATHINFO_EXTENSION);
+        $fileManager = new FileManager();
+        $extensionFromMimeType = $fileManager->getImageExtension(
+            PKPString::mime_content_type($temporaryFile->getFilePath())
+        );
+        if ($extensionFromMimeType !== '.' . $extension) {
+            return false;
+        }
+
+        return true;
     }
 }

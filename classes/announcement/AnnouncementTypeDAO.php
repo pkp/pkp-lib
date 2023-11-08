@@ -35,8 +35,8 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     /**
      * Retrieve an announcement type by announcement type ID.
      *
-     * @param int $typeId Announcement type ID
-     * @param int $contextId Optional context ID
+     * @param ?int $typeId Announcement type ID
+     * @param ?int $contextId Optional context ID
      *
      * @return AnnouncementType
      */
@@ -110,7 +110,11 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
 				(context_id)
 				VALUES
 				(?)'),
-            [(int) $announcementType->getContextId()]
+            [
+                $announcementType->getContextId()
+                    ? (int) $announcementType->getContextId()
+                    : null
+            ]
         );
         $announcementType->setId($this->getInsertId());
         $this->updateLocaleFields($announcementType);
@@ -131,7 +135,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
                         SET	context_id = ?
 			WHERE	type_id = ?',
             [
-                (int) $announcementType->getContextId(),
+                $announcementType->getContextId(),
                 (int) $announcementType->getId()
             ]
         );
@@ -181,16 +185,20 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     /**
      * Retrieve an array of announcement types matching a particular context ID.
      *
-     * @param int $contextId
-     *
      * @return \Generator<int,AnnouncementType> Matching AnnouncementTypes
      */
-    public function getByContextId($contextId)
+    public function getByContextId(?int $contextId)
     {
-        $result = $this->retrieve(
-            'SELECT * FROM announcement_types WHERE context_id = ? ORDER BY type_id',
-            [(int) $contextId]
-        );
+        if ($contextId) {
+            $result = $this->retrieve(
+                'SELECT * FROM announcement_types WHERE context_id = ? ORDER BY type_id',
+                [$contextId]
+            );
+        } else {
+            $result = $this->retrieve(
+                'SELECT * FROM announcement_types WHERE context_id IS NULL ORDER BY type_id'
+            );
+        }
         foreach ($result as $row) {
             yield $row->type_id => $this->_fromRow((array) $row);
         }

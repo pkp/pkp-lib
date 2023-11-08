@@ -27,6 +27,9 @@ use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\announcement\Collector;
+use PKP\context\Context;
+use PKP\core\exceptions\StoreTemporaryFileException;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\jobs\notifications\NewAnnouncementNotifyUsers;
@@ -63,7 +66,6 @@ class PKPAnnouncementController extends PKPBaseController
     {
         return [
             'has.user',
-            'has.context',
             self::roleAuthorizer([
                 Role::ROLE_ID_SITE_ADMIN,
                 Role::ROLE_ID_MANAGER,
@@ -100,6 +102,10 @@ class PKPAnnouncementController extends PKPBaseController
      */
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
+        if (!$request->getContext()) {
+            $roleAssignments = $this->getSiteRoleAssignments($roleAssignments);
+        }
+
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
 
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
@@ -127,7 +133,7 @@ class PKPAnnouncementController extends PKPBaseController
         }
 
         // The assocId in announcements should always point to the contextId
-        if ($announcement->getData('assocId') !== $this->getRequest()->getContext()->getId()) {
+        if ($announcement->getData('assocId') !== $this->getRequest()->getContext()?->getId()) {
             return response()->json([
                 'error' => __('api.announcements.400.contextsNotMatched')
             ], Response::HTTP_BAD_REQUEST);
@@ -166,7 +172,12 @@ class PKPAnnouncementController extends PKPBaseController
             }
         }
 
-        $collector->filterByContextIds([$this->getRequest()->getContext()->getId()]);
+        if ($this->getRequest()->getContext()) {
+            $collector->filterByContextIds([$this->getRequest()->getContext()->getId()]);
+        } else {
+            $collector->withSiteAnnouncements(Collector::SITE_ONLY);
+        }
+
 
         Hook::run('API::announcements::params', [$collector, $illuminateRequest]);
 
@@ -186,16 +197,12 @@ class PKPAnnouncementController extends PKPBaseController
         $request = $this->getRequest();
         $context = $request->getContext();
 
-        if (!$context) {
-            throw new Exception('You can not add an announcement without sending a request to the API endpoint of a particular context.');
-        }
-
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_ANNOUNCEMENT, $illuminateRequest->input());
         $params['assocType'] = Application::get()->getContextAssocType();
-        $params['assocId'] = $request->getContext()->getId();
+        $params['assocId'] = $context?->getId();
 
-        $primaryLocale = $context->getPrimaryLocale();
-        $allowedLocales = $context->getSupportedFormLocales();
+        $primaryLocale = $context ? $context->getPrimaryLocale() : $request->getSite()->getPrimaryLocale();
+        $allowedLocales = $context ? $context->getSupportedFormLocales() : $request->getSite()->getSupportedLocales();
         $errors = Repo::announcement()->validate(null, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
@@ -203,55 +210,27 @@ class PKPAnnouncementController extends PKPBaseController
         }
 
         $announcement = Repo::announcement()->newDataObject($params);
-        $announcementId = Repo::announcement()->add($announcement);
-        $sendEmail = (bool) filter_var($params['sendEmail'], FILTER_VALIDATE_BOOLEAN);
-        $contextId = $context->getId();
 
-        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
-        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-
-        // Notify users
-        $userIdsToNotify = $notificationSubscriptionSettingsDao->getSubscribedUserIds(
-            [NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY],
-            [PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT],
-            [$contextId]
-        );
-
-        if ($sendEmail) {
-            $userIdsToMail = $notificationSubscriptionSettingsDao->getSubscribedUserIds(
-                [NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY, NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY],
-                [PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT],
-                [$contextId]
-            );
-
-            $userIdsToNotifyAndMail = $userIdsToNotify->intersect($userIdsToMail);
-            $userIdsToNotify = $userIdsToNotify->diff($userIdsToMail);
-        }
-
-        $sender = $request->getUser();
-        $jobs = [];
-        foreach ($userIdsToNotify->chunk(PKPNotification::NOTIFICATION_CHUNK_SIZE_LIMIT) as $notifyUserIds) {
-            $jobs[] = new NewAnnouncementNotifyUsers(
-                $notifyUserIds,
-                $contextId,
-                $announcementId,
-                Locale::getPrimaryLocale()
-            );
-        }
-
-        if (isset($userIdsToNotifyAndMail)) {
-            foreach ($userIdsToNotifyAndMail->chunk(Mailer::BULK_EMAIL_SIZE_LIMIT) as $notifyAndMailUserIds) {
-                $jobs[] = new NewAnnouncementNotifyUsers(
-                    $notifyAndMailUserIds,
-                    $contextId,
-                    $announcementId,
-                    Locale::getPrimaryLocale(),
-                    $sender
-                );
+        try {
+            $announcementId = Repo::announcement()->add($announcement);
+        } catch (StoreTemporaryFileException $e) {
+            $announcementId = $e->dataObject->getId();
+            if ($announcementId) {
+                $announcement = Repo::announcement()->get($announcementId);
+                Repo::announcement()->delete($announcement);
             }
+            return response()->json([
+                'image' => [__('api.400.errorUploadingImage')]
+            ], Response::HTTP_BAD_REQUEST);
         }
 
-        Bus::batch($jobs)->dispatch();
+        $announcement = Repo::announcement()->get($announcementId);
+
+        $sendEmail = (bool) filter_var($params['sendEmail'], FILTER_VALIDATE_BOOLEAN);
+
+        if ($context) {
+            $this->notifyUsers($request, $context, $announcementId, $sendEmail);
+        }
 
         return response()->json(Repo::announcement()->getSchemaMap()->map($announcement), Response::HTTP_OK);
     }
@@ -262,6 +241,7 @@ class PKPAnnouncementController extends PKPBaseController
     public function edit(Request $illuminateRequest): JsonResponse
     {
         $request = $this->getRequest();
+        $context = $request->getContext();
 
         $announcement = Repo::announcement()->get((int) $illuminateRequest->route('announcementId'));
 
@@ -276,7 +256,7 @@ class PKPAnnouncementController extends PKPBaseController
         }
 
         // Don't allow to edit an announcement from one context from a different context's endpoint
-        if ($request->getContext()->getId() !== $announcement->getData('assocId')) {
+        if ($request->getContext()?->getId() !== $announcement->getData('assocId')) {
             return response()->json([
                 'error' => __('api.announcements.400.contextsNotMatched')
             ], Response::HTTP_FORBIDDEN);
@@ -286,16 +266,22 @@ class PKPAnnouncementController extends PKPBaseController
         $params['id'] = $announcement->getId();
         $params['typeId'] ??= null;
 
-        $context = $request->getContext();
-        $primaryLocale = $context->getPrimaryLocale();
-        $allowedLocales = $context->getSupportedFormLocales();
+        $primaryLocale = $context ? $context->getPrimaryLocale() : $request->getSite()->getPrimaryLocale();
+        $allowedLocales = $context ? $context->getSupportedFormLocales() : $request->getSite()->getSupportedLocales();
 
         $errors = Repo::announcement()->validate($announcement, $params, $allowedLocales, $primaryLocale);
         if (!empty($errors)) {
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        Repo::announcement()->edit($announcement, $params);
+        try {
+            Repo::announcement()->edit($announcement, $params);
+        } catch (StoreTemporaryFileException $e) {
+            Repo::announcement()->delete($announcement);
+            return response()->json([
+                'image' => [__('api.400.errorUploadingImage')]
+            ], Response::HTTP_BAD_REQUEST);
+        }
 
         $announcement = Repo::announcement()->get($announcement->getId());
 
@@ -322,7 +308,7 @@ class PKPAnnouncementController extends PKPBaseController
         }
 
         // Don't allow to delete an announcement from one context from a different context's endpoint
-        if ($request->getContext()->getId() !== $announcement->getData('assocId')) {
+        if ($request->getContext()?->getId() !== $announcement->getData('assocId')) {
             return response()->json([
                 'error' => __('api.announcements.400.contextsNotMatched')
             ], Response::HTTP_FORBIDDEN);
@@ -333,5 +319,71 @@ class PKPAnnouncementController extends PKPBaseController
         Repo::announcement()->delete($announcement);
 
         return response()->json($announcementProps, Response::HTTP_OK);
+    }
+
+    /**
+     * Modify the role assignments so that only
+     * site admins have access
+     */
+    protected function getSiteRoleAssignments(array $roleAssignments): array
+    {
+        return array_filter($roleAssignments, fn($key) => $key == Role::ROLE_ID_SITE_ADMIN, ARRAY_FILTER_USE_KEY);
+    }
+
+    /**
+     * Notify subscribed users
+     *
+     * This only works for context-level announcements. There is no way to
+     * determine users who have subscribed to site-level announcements.
+     *
+     * @param bool $sendEmail Whether or not the editor chose to notify users by email
+     */
+    protected function notifyUsers(PKPRequest $request, Context $context, int $announcementId, bool $sendEmail): void
+    {
+        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
+        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
+
+        // Notify users
+        $userIdsToNotify = $notificationSubscriptionSettingsDao->getSubscribedUserIds(
+            [NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY],
+            [PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT],
+            [$context->getId()]
+        );
+
+        if ($sendEmail) {
+            $userIdsToMail = $notificationSubscriptionSettingsDao->getSubscribedUserIds(
+                [NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY, NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY],
+                [PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT],
+                [$context->getId()]
+            );
+
+            $userIdsToNotifyAndMail = $userIdsToNotify->intersect($userIdsToMail);
+            $userIdsToNotify = $userIdsToNotify->diff($userIdsToMail);
+        }
+
+        $sender = $request->getUser();
+        $jobs = [];
+        foreach ($userIdsToNotify->chunk(PKPNotification::NOTIFICATION_CHUNK_SIZE_LIMIT) as $notifyUserIds) {
+            $jobs[] = new NewAnnouncementNotifyUsers(
+                $notifyUserIds,
+                $context->getId(),
+                $announcementId,
+                Locale::getPrimaryLocale()
+            );
+        }
+
+        if (isset($userIdsToNotifyAndMail)) {
+            foreach ($userIdsToNotifyAndMail->chunk(Mailer::BULK_EMAIL_SIZE_LIMIT) as $notifyAndMailUserIds) {
+                $jobs[] = new NewAnnouncementNotifyUsers(
+                    $notifyAndMailUserIds,
+                    $context->getId(),
+                    $announcementId,
+                    Locale::getPrimaryLocale(),
+                    $sender
+                );
+            }
+        }
+
+        Bus::batch($jobs)->dispatch();
     }
 }

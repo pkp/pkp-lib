@@ -14,24 +14,33 @@
 	{assign var="heading" value="h2"}
 {/if}
 
-<article class="obj_announcement_summary">
-	<{$heading}>
-		<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
-			{$announcement->getLocalizedTitle()|escape}
-		</a>
-	</{$heading}>
-	<div class="date">
-		{$announcement->getDatePosted()|date_format:$dateFormatShort}
-	</div>
-	<div class="summary">
-		{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
-		<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}" class="read_more">
-			<span aria-hidden="true" role="presentation">
-				{translate key="common.readMore"}
-			</span>
-			<span class="pkp_screen_reader">
-				{translate key="common.readMoreWithTitle" title=$announcement->getLocalizedTitle()|escape}
-			</span>
-		</a>
+<article class="obj_announcement_summary{if $announcement->getImage()} obj_announcement_summary_has_image{/if}">
+	{if $announcement->getImage()}
+		<img
+			class="obj_announcement_summary_image"
+			src="{$announcement->getImageUrl()}"
+			alt="{$announcement->getImageAltText()}"
+		/>
+	{/if}
+	<div class="obj_announcement_summary_details">
+		<{$heading}>
+			<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
+				{$announcement->getLocalizedTitle()|escape}
+			</a>
+		</{$heading}>
+		<div class="date">
+			{$announcement->getDatePosted()|date_format:$dateFormatShort}
+		</div>
+		<div class="summary">
+			{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
+			<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}" class="read_more">
+				<span aria-hidden="true" role="presentation">
+					{translate key="common.readMore"}
+				</span>
+				<span class="pkp_screen_reader">
+					{translate key="common.readMoreWithTitle" title=$announcement->getLocalizedTitle()|escape}
+				</span>
+			</a>
+		</div>
 	</div>
 </article><!-- .obj_announcement_summary -->

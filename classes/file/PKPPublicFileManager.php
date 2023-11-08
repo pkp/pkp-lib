@@ -81,7 +81,7 @@ abstract class PKPPublicFileManager extends FileManager
     }
 
     /**
-     * Copy a file to a context's public directory.
+     * Copy a file to the site's public directory.
      *
      * @param string $sourceFile the source of the file to copy
      * @param string $destFileName the destination file name

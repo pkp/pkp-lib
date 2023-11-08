@@ -29,7 +29,7 @@ class AnnouncementsMigration extends \PKP\migration\Migration
             $table->comment('Announcement types allow for announcements to optionally be categorized.');
             $table->bigInteger('type_id')->autoIncrement();
 
-            $table->bigInteger('context_id');
+            $table->bigInteger('context_id')->nullable();
             $contextDao = \APP\core\Application::getContextDAO();
             $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
             $table->index(['context_id'], 'announcement_types_context_id');
@@ -57,7 +57,7 @@ class AnnouncementsMigration extends \PKP\migration\Migration
             $table->bigInteger('announcement_id')->autoIncrement();
             //  NOT NULL not included for upgrade purposes
             $table->smallInteger('assoc_type')->nullable();
-            $table->bigInteger('assoc_id');
+            $table->bigInteger('assoc_id')->nullable();
 
             $table->bigInteger('type_id')->nullable();
             $table->foreign('type_id')->references('type_id')->on('announcement_types')->onDelete('set null');

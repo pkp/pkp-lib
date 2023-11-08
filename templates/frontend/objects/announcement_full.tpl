@@ -18,6 +18,13 @@
 	<div class="date">
 		{$announcement->getDatePosted()|date_format:$dateFormatShort}
 	</div>
+	{if $announcement->getImage()}
+		<img
+			class="obj_announcement_full_image"
+			src="{$announcement->getImageUrl()}"
+			alt="{$announcement->getImageAltText()}"
+		/>
+	{/if}
 	<div class="description">
 		{if $announcement->getLocalizedDescription()}
 			{$announcement->getLocalizedDescription()|strip_unsafe_html}

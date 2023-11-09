@@ -36,6 +36,18 @@ class TemporaryFileDAO extends DAO {
 	}
 
 	/**
+	 * Retrieve temporary files by user Id
+	 * @param $userId int
+	 * @return Generator
+	 */
+	public function getTemporaryFilesByUserId($userId) {
+		return $this->retrieve(
+			'SELECT * FROM temporary_files WHERE user_id = ? ORDER BY date_uploaded DESC LIMIT 1',
+			[(int) $userId]
+		);
+	}
+
+	/**
 	 * Instantiate and return a new data object.
 	 * @return TemporaryFile
 	 */

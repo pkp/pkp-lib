@@ -55,6 +55,7 @@ class Collector implements CollectorInterface, ViewsCount
 
     /**
      * @copydoc DAO::getIds()
+     *
      * @return Collection<int,int>
      */
     public function getIds(): Collection
@@ -64,6 +65,7 @@ class Collector implements CollectorInterface, ViewsCount
 
     /**
      * @copydoc DAO::getMany()
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(): LazyCollection
@@ -74,7 +76,7 @@ class Collector implements CollectorInterface, ViewsCount
     /**
      * Filter review assignments by one or more contexts
      */
-    public function filterByContextIds(?array $contextIds): self
+    public function filterByContextIds(?array $contextIds): static
     {
         $this->contextIds = $contextIds;
         return $this;
@@ -83,7 +85,7 @@ class Collector implements CollectorInterface, ViewsCount
     /**
      * Filter review assignments by associated submissions
      */
-    public function filterBySubmissionIds(?array $submissionIds): self
+    public function filterBySubmissionIds(?array $submissionIds): static
     {
         $this->submissionIds = $submissionIds;
         return $this;
@@ -94,7 +96,7 @@ class Collector implements CollectorInterface, ViewsCount
      * is not completed or declines or cancelled and associated submission is in the review stage
      *
      */
-    public function filterByIsIncomplete(?bool $isIncomplete): self
+    public function filterByIsIncomplete(?bool $isIncomplete): static
     {
         $this->isIncomplete = $isIncomplete;
         return $this;
@@ -103,7 +105,7 @@ class Collector implements CollectorInterface, ViewsCount
     /**
      * Filter by completed or declined assignments
      */
-    public function filterByIsArchived(?bool $isArchived): self
+    public function filterByIsArchived(?bool $isArchived): static
     {
         $this->isArchived = $isArchived;
         return $this;
@@ -112,7 +114,7 @@ class Collector implements CollectorInterface, ViewsCount
     /**
      * Filter by overdue assignments
      */
-    public function filterByIsOverdue(?bool $isOverdue): self
+    public function filterByIsOverdue(?bool $isOverdue): static
     {
         $this->isOverdue = $isOverdue;
         return $this;
@@ -121,19 +123,19 @@ class Collector implements CollectorInterface, ViewsCount
     /**
      * Filter by review round ids
      */
-    public function filterByReviewRoundIds(?array $reviewRoundIds): self
+    public function filterByReviewRoundIds(?array $reviewRoundIds): static
     {
         $this->reviewRoundIds = $reviewRoundIds;
         return $this;
     }
 
-    public function filterByReviewerIds(?array $reviewerIds): self
+    public function filterByReviewerIds(?array $reviewerIds): static
     {
         $this->reviewerIds = $reviewerIds;
         return $this;
     }
 
-    public function filterByLastReviewRound(bool $isLastReviewRound): self
+    public function filterByLastReviewRound(bool $isLastReviewRound): static
     {
         $this->isLastReviewRound = $isLastReviewRound;
         return $this;
@@ -142,7 +144,7 @@ class Collector implements CollectorInterface, ViewsCount
     /**
      * Filter by review method, one or more of the ReviewAssignment::SUBMISSION_REVIEW_METHOD_ constants
      */
-    public function filterByReviewMethods(?array $reviewMethods): self
+    public function filterByReviewMethods(?array $reviewMethods): static
     {
         $this->reviewMethods = $reviewMethods;
         return $this;
@@ -151,13 +153,13 @@ class Collector implements CollectorInterface, ViewsCount
     /**
      * Filter by WORKFLOW_STAGE_ID_EXTERNAL_REVIEW or WORKFLOW_STAGE_ID_INTERNAL_REVIEW
      */
-    public function filterByStageId(?int $stageId): self
+    public function filterByStageId(?int $stageId): static
     {
         $this->stageId = $stageId;
         return $this;
     }
 
-    public function filterByReviewFormIds(?array $reviewFormIds): self
+    public function filterByReviewFormIds(?array $reviewFormIds): static
     {
         $this->reviewFormIds = $reviewFormIds;
         return $this;
@@ -166,7 +168,7 @@ class Collector implements CollectorInterface, ViewsCount
     /**
      * Limit the number of objects retrieved
      */
-    public function limit(?int $count): self
+    public function limit(?int $count): static
     {
         $this->count = $count;
         return $this;
@@ -176,7 +178,7 @@ class Collector implements CollectorInterface, ViewsCount
      * Offset the number of objects retrieved, for example to
      * retrieve the second page of contents
      */
-    public function offset(?int $offset): self
+    public function offset(?int $offset): static
     {
         $this->offset = $offset;
         return $this;
@@ -191,92 +193,127 @@ class Collector implements CollectorInterface, ViewsCount
             // Aggregate the latest review round number for the given assignment
             ->leftJoinSub(
                 DB::table('review_rounds', 'rr')
-                ->select('rr.submission_id')
-                ->selectRaw('MAX(rr.round) as current_round')
-                ->selectRaw('MAX(rr.stage_id) as current_stage')
-                ->groupBy('rr.submission_id'),
+                    ->select('rr.submission_id')
+                    ->selectRaw('MAX(rr.round) as current_round')
+                    ->selectRaw('MAX(rr.stage_id) as current_stage')
+                    ->groupBy('rr.submission_id'),
                 'agrr',
-                fn(JoinClause $join) => $join->on('ra.submission_id', '=', 'agrr.submission_id'))
+                fn (JoinClause $join) => $join->on('ra.submission_id', '=', 'agrr.submission_id')
+            )
             ->select(['ra.*']);
 
-        $q->when($this->contextIds !== null, fn(Builder $q) =>
-            $q->whereIn('ra.submission_id', fn (Builder $q) => $q
-                ->select('s.submission_id')
-                ->from('submissions as s')
-                ->whereIn('s.context_id', $this->contextIds)
+        $q->when(
+            $this->contextIds !== null,
+            fn (Builder $q) =>
+            $q->whereIn(
+                'ra.submission_id',
+                fn (Builder $q) => $q
+                    ->select('s.submission_id')
+                    ->from('submissions as s')
+                    ->whereIn('s.context_id', $this->contextIds)
             )
         );
 
-        $q->when($this->submissionIds !== null, fn(Builder $q) =>
+        $q->when(
+            $this->submissionIds !== null,
+            fn (Builder $q) =>
             $q->whereIn('ra.submission_id', $this->submissionIds)
         );
 
-        $q->when($this->isLastReviewRound || $this->isIncomplete, function(Builder $q) {$q
-            ->whereRaw('ra.round = agrr.current_round') // assignments from the last review round only
-            ->whereRaw('ra.stage_id = agrr.current_stage') // assignments for the current review stage only (for OMP)
-            ->when($this->isIncomplete, fn(Builder $q) => $q
-                ->where(fn(Builder $q) => $q
-                    ->whereNotNull('ra.date_notified')
-                    ->whereNull('ra.date_completed')
-                    ->where('ra.declined', '<>', 1)
-                    ->where('ra.cancelled', '<>', 1)
-                    ->whereIn('ra.submission_id', fn(Builder $q) => $q
-                        ->select('s.submission_id')
-                        ->from('submissions AS s')
-                        ->whereRaw('s.stage_id = ra.stage_id')
-                    )
-                )
-            );
+        $q->when($this->isLastReviewRound || $this->isIncomplete, function (Builder $q) {
+            $q
+                ->whereRaw('ra.round = agrr.current_round') // assignments from the last review round only
+                ->whereRaw('ra.stage_id = agrr.current_stage') // assignments for the current review stage only (for OMP)
+                ->when(
+                    $this->isIncomplete,
+                    fn (Builder $q) => $q
+                        ->where(
+                            fn (Builder $q) => $q
+                                ->whereNotNull('ra.date_notified')
+                                ->whereNull('ra.date_completed')
+                                ->where('ra.declined', '<>', 1)
+                                ->where('ra.cancelled', '<>', 1)
+                                ->whereIn(
+                                    'ra.submission_id',
+                                    fn (Builder $q) => $q
+                                        ->select('s.submission_id')
+                                        ->from('submissions AS s')
+                                        ->whereRaw('s.stage_id = ra.stage_id')
+                                )
+                        )
+                );
         });
 
-        $q->when($this->isArchived, fn(Builder $q) =>
-            $q->where(fn(Builder $q) => $q
-                ->whereNotNull('ra.date_completed')
-                ->orWhere('declined', 1)
+        $q->when(
+            $this->isArchived,
+            fn (Builder $q) =>
+            $q->where(
+                fn (Builder $q) => $q
+                    ->whereNotNull('ra.date_completed')
+                    ->orWhere('declined', 1)
             )
         );
 
-        $q->when($this->isOverdue, fn(Builder $q) => $q
-            ->where(fn(Builder $q) => $q
-                ->whereNull('ra.date_completed')
-                ->where('raod.declined', '<>', 1)
-                ->where('raod.cancelled', '<>', 1)
-                ->where(fn (Builder $q) =>
-                $q->where('raod.date_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
-                    ->whereNull('raod.date_completed')
+        $q->when(
+            $this->isOverdue,
+            fn (Builder $q) => $q
+                ->where(
+                    fn (Builder $q) => $q
+                        ->whereNull('ra.date_completed')
+                        ->where('raod.declined', '<>', 1)
+                        ->where('raod.cancelled', '<>', 1)
+                        ->where(
+                            fn (Builder $q) =>
+                        $q->where('raod.date_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
+                            ->whereNull('raod.date_completed')
+                        )
+                        ->orWhere(
+                            fn (Builder $q) =>
+                        $q->where('raod.date_response_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
+                            ->whereNull('raod.date_confirmed')
+                        )
                 )
-                ->orWhere(fn (Builder $q) =>
-                $q->where('raod.date_response_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
-                    ->whereNull('raod.date_confirmed')
-                )
-            )
         );
 
-        $q->when($this->reviewRoundIds !== null, fn(Builder $q) =>
+        $q->when(
+            $this->reviewRoundIds !== null,
+            fn (Builder $q) =>
             $q->whereIn('ra.review_round_id', $this->reviewRoundIds)
         );
 
-        $q->when($this->reviewerIds !== null, fn(Builder $q) =>
+        $q->when(
+            $this->reviewerIds !== null,
+            fn (Builder $q) =>
             $q->whereIn('ra.reviewer_id', $this->reviewerIds)
         );
 
-        $q->when($this->reviewMethods !== null, fn(Builder $q) =>
+        $q->when(
+            $this->reviewMethods !== null,
+            fn (Builder $q) =>
             $q->whereIn('ra.review_method', $this->reviewMethods)
         );
 
-        $q->when($this->stageId !== null, fn(Builder $q) =>
+        $q->when(
+            $this->stageId !== null,
+            fn (Builder $q) =>
             $q->where('ra.stage_id', $this->stageId)
         );
 
-        $q->when($this->reviewFormIds !== null, fn(Builder $q) =>
+        $q->when(
+            $this->reviewFormIds !== null,
+            fn (Builder $q) =>
             $q->whereIn('ra.review_form_id', $this->reviewFormIds)
         );
 
-        $q->when($this->count !== null, fn() =>
+        $q->when(
+            $this->count !== null,
+            fn () =>
             $q->limit($this->count)
         );
 
-        $q->when($this->offset !== null, fn() =>
+        $q->when(
+            $this->offset !== null,
+            fn () =>
             $q->offset($this->offset)
         );
 
@@ -286,7 +323,7 @@ class Collector implements CollectorInterface, ViewsCount
     public static function getViewsCountBuilder(Collection $keyCollectorPair): Builder
     {
         $q = DB::query();
-        $keyCollectorPair->each(function(Collector $collector, string $key) use ($q) {
+        $keyCollectorPair->each(function (Collector $collector, string $key) use ($q) {
             // Get query builder from a collector instance, override a select statement to retrieve submissions count instead of submissions data
             $subQuery = $collector->getQueryBuilder()->select([])->selectRaw(
                 'COUNT(ra.review_id)'

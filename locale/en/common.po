@@ -2029,6 +2029,12 @@ msgstr "Expand all"
 msgid "list.collapseAll"
 msgstr "Collapse all"
 
+msgid "showAll"
+msgstr "Show All"
+
+msgid "showLess"
+msgstr "Show Less"
+
 msgid "validation.invalidOption"
 msgstr "This is not a valid option."
 

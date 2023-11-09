@@ -554,6 +554,9 @@ msgstr "Average days to complete review"
 msgid "reviewer.list.neverAssigned"
 msgstr "Never assigned"
 
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "Same institution as author"
+
 msgid "reviewer.list.reassign"
 msgstr "Reassign"
 

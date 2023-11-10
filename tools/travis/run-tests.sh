@@ -21,23 +21,31 @@ tar czf ${FILESDUMP} ${FILESDIR}
 
 # If desired, store the built dataset in https://github.com/pkp/datasets
 if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$SAVE_BUILD" == "true" ]]; then
-      git clone --depth 1 https://pkp-machine-user:${GITHUB_ACCESS_KEY}@github.com/pkp/datasets
-      rm -rf datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}
-      mkdir -p datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}
-      zcat ${DATABASEDUMP} > datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/database.sql
+	git clone --depth 1 https://pkp-machine-user:${GITHUB_ACCESS_KEY}@github.com/pkp/datasets
+	rm -rf datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}
+	mkdir -p datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}
+	zcat ${DATABASEDUMP} > datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/database.sql
 
-      tar -C datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST} -x -z -f ${FILESDUMP}
-      # The geolocation DB is too big for github; do not include it
-      rm -f datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/files/usageStats/IPGeoDB.mmdb
+	tar -C datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST} -x -z -f ${FILESDUMP}
+	# The geolocation DB is too big for github; do not include it
+	rm -f datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/files/usageStats/IPGeoDB.mmdb
 
-      cp config.inc.php datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/config.inc.php
-      cp -r public datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}
-      rm -f datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/public/.gitignore
-      cd datasets
-      git add --all
-      git commit -m "Update datasets (${TRAVIS_BRANCH})"
-      git push
-      cd ..
+	cp config.inc.php datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/config.inc.php
+	cp -r public datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}
+	rm -f datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/public/.gitignore
+
+	# Add sample export data to the datasets, as appropriate for the app
+	case "$APPLICATION" in
+		ojs) php tools/importExport.php NativeImportExportPlugin export datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/native-export-sample.xml publicknowledge issue 1 ;;
+		omp) php tools/importExport.php NativeImportExportPlugin export datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/native-export-sample.xml publicknowledge monograph 1 ;;
+		ops) php tools/importExport.php NativeImportExportPlugin export datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/native-export-sample.xml publicknowledge preprint 1 ;;
+	esac
+
+	cd datasets
+	git add --all
+	git commit -m "Update datasets (${TRAVIS_BRANCH})"
+	git push
+	cd ..
 fi
 
 # Run the pkp-lib integration tests.

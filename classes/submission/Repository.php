@@ -802,7 +802,18 @@ abstract class Repository
         }
         $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $roleIds));
 
-        $views = $types->map(function (int $item, string $key) use ($context, $user, $canAccessUnassignedSubmission) {
+        $views = $this->mapDashboardViews($types, $context, $user, $canAccessUnassignedSubmission);
+        $filteredViews = $this->filterViewsByUserRoles($views, $roleIds);
+
+        return $this->setViewsCount($filteredViews);
+    }
+
+    /**
+     * Returns a Collection of mapped dashboard views
+     */
+    protected function mapDashboardViews(Collection $types, Context $context, User $user, bool $canAccessUnassignedSubmission): Collection
+    {
+        return $types->map(function (int $item, string $key) use ($context, $user, $canAccessUnassignedSubmission) {
             switch ($key) {
                 case DashboardView::TYPE_ASSIGNED:
                     return new DashboardView(
@@ -1041,10 +1052,6 @@ abstract class Repository
                     );
             }
         });
-
-        $filteredViews = $this->filterViewsByUserRoles($views, $roleIds);
-
-        return $this->setViewsCount($filteredViews);
     }
 
     protected function filterViewsByUserRoles(Collection $views, array $roleIds): Collection

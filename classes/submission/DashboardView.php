@@ -29,6 +29,7 @@ class DashboardView
     const TYPE_NEEDS_EDITOR = 'needs-editor';
     const TYPE_SUBMISSION = 'initial-review';
     const TYPE_REVIEW_EXTERNAL = 'external-review';
+    const TYPE_REVIEW_INTERNAL = 'internal-review';
     const TYPE_NEEDS_REVIEWERS = 'needs-reviewers';
     const TYPE_AWAITING_REVIEWS = 'awaiting-reviews';
     const TYPE_REVIEWS_SUBMITTED = 'reviews-submitted';

@@ -15,13 +15,12 @@
 
 namespace PKP\submission\reviewer\form;
 
+use APP\facades\Repo;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class ReviewerReviewForm extends Form
 {
@@ -118,9 +117,7 @@ class ReviewerReviewForm extends Form
         }
 
         // Save the reviewer submission.
-        /** @var ReviewAssignmentDAO */
-        $reviewAssignmentDAO = DAORegistry::getDAO('ReviewAssignmentDAO');
-        $reviewAssignmentDAO->updateObject($reviewAssignment);
+        Repo::reviewAssignment()->edit($reviewAssignment, $reviewAssignment->getAllData());
     }
 }
 

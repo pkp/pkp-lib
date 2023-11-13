@@ -29,7 +29,6 @@ use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\session\SessionDAO;
 use PKP\stageAssignment\StageAssignmentDAO;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\SubmissionCommentDAO;
 
 class Repository
@@ -314,10 +313,9 @@ class Repository
 
         Repo::decision()->dao->reassignDecisions($oldUserId, $newUserId);
 
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        foreach ($reviewAssignmentDao->getByUserId($oldUserId) as $reviewAssignment) {
-            $reviewAssignment->setReviewerId($newUserId);
-            $reviewAssignmentDao->updateObject($reviewAssignment);
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterByReviewerIds([$oldUserId])->getMany();
+        foreach ($reviewAssignments as $reviewAssignment) {
+            Repo::reviewAssignment()->edit($reviewAssignment, ['reviewerId' => $newUserId]);
         }
 
         $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */

@@ -11,8 +11,6 @@
  *
  * @ingroup submission
  *
- * @see ReviewAssignmentDAO
- *
  * @brief Describes review assignment properties.
  */
 
@@ -526,7 +524,7 @@ class ReviewAssignment extends \PKP\core\DataObject
      */
     public function getRequestResent()
     {
-        return $this->getData('request_resent');
+        return $this->getData('requestResent');
     }
 
     /**
@@ -536,7 +534,7 @@ class ReviewAssignment extends \PKP\core\DataObject
      */
     public function setRequestResent($resent)
     {
-        $this->setData('request_resent', $resent);
+        $this->setData('requestResent', $resent);
     }
 
     /**

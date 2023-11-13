@@ -41,7 +41,6 @@ use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\SubmissionComment;
 use PKP\submission\SubmissionCommentDAO;
 
@@ -164,16 +163,11 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         // Set review to next step.
         $this->updateReviewStepAndSaveSubmission($this->getReviewAssignment());
 
-        // Mark the review assignment as completed.
-        $reviewAssignment->setDateCompleted(Core::getCurrentDate());
-        $reviewAssignment->stampModified();
-
-        // assign the recommendation to the review assignment, if there was one.
-        $reviewAssignment->setRecommendation((int) $this->getData('recommendation'));
-
         // Persist the updated review assignment.
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignmentDao->updateObject($reviewAssignment);
+        Repo::reviewAssignment()->edit($reviewAssignment, [
+            'dateCompleted' => Core::getCurrentDate(), // Mark the review assignment as completed.
+            'recommendation' => (int) $this->getData('recommendation'), // assign the recommendation to the review assignment, if there was one.
+        ]);
 
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
         $stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId());
@@ -275,20 +269,14 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
     public function saveForLater()
     {
         $reviewAssignment = $this->getReviewAssignment();
-        $notificationMgr = new NotificationManager();
 
         // Save the answers to the review form
         $this->saveReviewForm($reviewAssignment);
 
-        // Mark the review assignment as modified.
-        $reviewAssignment->stampModified();
-
-        // save the recommendation to the review assignment
-        $reviewAssignment->setRecommendation((int) $this->getData('recommendation'));
-
         // Persist the updated review assignment.
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignmentDao->updateObject($reviewAssignment);
+        Repo::reviewAssignment()->edit($reviewAssignment, [
+            'recommendation' => (int) $this->getData('recommendation'), // save the recommendation to the review assignment
+        ]);
 
         return true;
     }

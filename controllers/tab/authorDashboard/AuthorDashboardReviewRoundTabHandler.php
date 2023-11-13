@@ -18,6 +18,7 @@ namespace PKP\controllers\tab\authorDashboard;
 
 use APP\core\Application;
 use APP\core\Request;
+use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\pages\authorDashboard\AuthorDashboardHandler;
 use APP\template\TemplateManager;
@@ -29,7 +30,7 @@ use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
 use PKP\security\Role;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
 {
@@ -101,8 +102,12 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
         ]);
 
         // If open reviews exist, show the reviewers grid
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        if ($reviewAssignmentDao->getOpenReviewsByReviewRoundId($reviewRound->getId())) {
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()
+            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->filterByReviewMethods([ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN])
+            ->getMany();
+
+        if ($reviewAssignments->isNotEmpty()) {
             $templateMgr->assign('showReviewerGrid', true);
         }
 

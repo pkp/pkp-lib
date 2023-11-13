@@ -307,3 +307,9 @@ msgstr "Unable to delete failed job from failed list."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
 msgstr "Failed job deleted successfully from failed list."
+
+msgid "api.reviews.assignments.invalidSubmission"
+msgstr "The submission for this review assignment could not be found."
+
+msgid "api.reviews.assignments.invalidReviewer"
+msgstr "The reviewer for the assignment could not be found"

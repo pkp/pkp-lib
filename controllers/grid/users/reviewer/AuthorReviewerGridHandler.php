@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\users\reviewer;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -31,7 +32,6 @@ use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\SubmissionCommentDAO;
 
 class AuthorReviewerGridHandler extends PKPReviewerGridHandler
@@ -158,8 +158,13 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler
         // Get the existing review assignments for this submission
         // Only show open requests that have been accepted
         $reviewRound = $this->getReviewRound();
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        return $reviewAssignmentDao->getOpenReviewsByReviewRoundId($reviewRound->getId());
+        return Repo::reviewAssignment()->getCollector()
+            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->filterByReviewMethods([ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN])
+            ->getMany()
+            ->keyBy(fn(ReviewAssignment $reviewAssignment, int $key) => $reviewAssignment->getId())
+            ->sortKeys()
+            ->toArray();
     }
 
     /**

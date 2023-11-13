@@ -23,7 +23,6 @@ use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\log\event\PKPSubmissionEventLogEntry;
@@ -32,7 +31,6 @@ use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class ReviewReminderForm extends Form
@@ -169,10 +167,9 @@ class ReviewReminderForm extends Form
             ]);
             Repo::eventLog()->add($eventLog);
 
-            $reviewAssignment->setDateReminded(Core::getCurrentDate());
-            $reviewAssignment->stampModified();
-            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-            $reviewAssignmentDao->updateObject($reviewAssignment);
+            Repo::reviewAssignment()->edit($reviewAssignment, [
+                'dateReminded' => Core::getCurrentDate(),
+            ]);
         } catch (TransportException $e) {
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification(

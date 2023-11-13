@@ -33,7 +33,6 @@ use PKP\mail\mailables\ReviewRequest;
 use PKP\mail\mailables\ReviewRequestSubsequent;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 
@@ -112,12 +111,14 @@ class AdvancedSearchReviewerForm extends ReviewerForm
 
         $this->setReviewerFormAction($advancedSearchAction);
 
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-
         // get reviewer IDs already assign to this submission and this round
-        $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($this->getSubmissionId(), $this->getReviewRound()->getId());
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()
+            ->filterBySubmissionIds([$this->getSubmissionId()])
+            ->filterByReviewRoundIds([$this->getReviewRound()->getId()])
+            ->getMany();
+
         $currentlyAssigned = [];
-        if (!empty($reviewAssignments)) {
+        if ($reviewAssignments->isNotEmpty()) {
             foreach ($reviewAssignments as $reviewAssignment) {
                 $currentlyAssigned[] = (int) $reviewAssignment->getReviewerId();
             }
@@ -185,7 +186,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
             $lastReviewRound = $reviewRoundDao->getReviewRound($this->getSubmissionId(), $this->getReviewRound()->getStageId(), $previousRound);
 
             if ($lastReviewRound) {
-                $lastReviewAssignments = $reviewAssignmentDao->getByReviewRoundId($lastReviewRound->getId());
+                $lastReviewAssignments = Repo::reviewAssignment()->getCollector()->filterByReviewerIds([$lastReviewRound->getId()])->getMany();
                 foreach ($lastReviewAssignments as $reviewAssignment) {
                     if (in_array($reviewAssignment->getStatus(), [ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED, ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE])) {
                         $lastRoundReviewerIds[] = (int) $reviewAssignment->getReviewerId();

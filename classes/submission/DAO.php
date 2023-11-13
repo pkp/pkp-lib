@@ -31,7 +31,6 @@ use PKP\notification\NotificationDAO;
 use PKP\query\QueryDAO;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignmentDAO;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 
 /**
@@ -272,8 +271,9 @@ class DAO extends EntityDAO
 
         Repo::decision()->deleteBySubmissionId($id);
 
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignmentDao->deleteBySubmissionId($id);
+        Repo::reviewAssignment()->deleteMany(
+            Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$id])
+        );
 
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao->deleteBySubmissionId($id);

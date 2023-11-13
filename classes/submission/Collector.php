@@ -35,7 +35,7 @@ use PKP\submission\reviewRound\ReviewRound;
 /**
  * @template T of Submission
  */
-abstract class Collector implements CollectorInterface
+abstract class Collector implements CollectorInterface, ViewsCount
 {
     public const ORDERBY_DATE_PUBLISHED = 'datePublished';
     public const ORDERBY_DATE_SUBMITTED = 'dateSubmitted';
@@ -74,6 +74,11 @@ abstract class Collector implements CollectorInterface
     /** @var array|int */
     public $assignedTo = null;
     public array|int|null $isReviewedBy = null;
+    public ?array $reviewersNumber = null;
+    public ?bool $awaitingReviews = null;
+    public ?bool $reviewsSubmitted = null;
+    public ?bool $revisionsRequested = null;
+    public ?bool $revisionsSubmitted = null;
 
     public function __construct(DAO $dao)
     {
@@ -193,6 +198,54 @@ abstract class Collector implements CollectorInterface
     public function filterByDaysInactive(?int $daysInactive): AppCollector
     {
         $this->daysInactive = $daysInactive;
+        return $this;
+    }
+
+    /**
+     * Limit results to the number of the assigned reviewers.
+     * Review assignment is considered active after the request is sent by the reviewer
+     * and it isn't cancelled, declined or overdue
+     */
+    public function filterByReviewersActive(?array $reviewersNumber): AppCollector
+    {
+        $this->reviewersNumber = $reviewersNumber;
+        return $this;
+    }
+
+    /**
+     * Limit results by submission in the review stage having completed review assignments
+     */
+    public function filterByReviewsSubmitted(?bool $hasSubmittedReviews): AppCollector
+    {
+        $this->reviewsSubmitted = $hasSubmittedReviews;
+        return $this;
+    }
+
+    /**
+     * Limit results by submissions in the review stage with review requests which hasn't been yet considered and pending review assignments
+     */
+    public function filterByAwaitingReviews(?bool $hasAwaitingReviews): AppCollector
+    {
+        $this->awaitingReviews = $hasAwaitingReviews;
+        return $this;
+    }
+
+    /**
+     * Filter results by submissions in the review stage where revisions are requested from the author
+     */
+    public function filterByRevisionsRequested(?bool $revisionsRequested): AppCollector
+    {
+        $this->revisionsRequested = $revisionsRequested;
+        return $this;
+    }
+
+    /**
+     * Limit results by submissions in the review stage where revisions are submitted by the author
+     * and editor response is required
+     */
+    public function filterByRevisionsSubmitted(?bool $revisionsSubmitted): AppCollector
+    {
+        $this->revisionsSubmitted = $revisionsSubmitted;
         return $this;
     }
 
@@ -561,15 +614,7 @@ abstract class Collector implements CollectorInterface
                 ->whereIn('pc.category_id', $this->categoryIds);
         }
 
-        // Filter by is reviewed by
-        if ($this->isReviewedBy !== null) {
-            // TODO consider review round and other criteria; refactor query builder to use ->when
-            $q->when($this->isReviewedBy === self::UNASSIGNED, function (Builder $q) {
-                $q->leftJoin('review_assignments AS ra', 'ra.submission_id', '=', 's.submission_id')
-                    ->whereIn('s.stage_id', [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW, WORKFLOW_STAGE_ID_INTERNAL_REVIEW])
-                    ->whereNull('ra.submission_id');
-            });
-        }
+        $q = $this->buildReviewStageQueries($q);
 
         // By any child pub object's DOI status
         // Filter by any child pub object's DOI status
@@ -593,5 +638,157 @@ abstract class Collector implements CollectorInterface
         Hook::call('Submission::Collector', [&$q, $this]);
 
         return $q;
+    }
+
+    /**
+     * Build queries to retrieve review stage related
+     */
+    protected function buildReviewStageQueries(Builder $q): Builder
+    {
+        $reviewFilters = collect([$this->isReviewedBy, $this->reviewersNumber, $this->awaitingReviews, $this->reviewsSubmitted, $this->revisionsRequested, $this->revisionsSubmitted])->filter();
+        if ($reviewFilters->isEmpty()) {
+            return $q;
+        }
+
+        $reviewStageFilters = array_intersect($this->getReviewStages(), $this->stageIds ?? []);
+        $stagesToFilter = array_diff($this->getReviewStages(), $reviewStageFilters);
+        if (!empty($stagesToFilter)) {
+            $q->whereIn('s.stage_id', $stagesToFilter);
+        }
+
+        // Aggregate current review round number, don't include review assignments in non-relevant rounds
+        $currentReviewRound = DB::table('review_rounds', 'rr')
+            ->select('rr.submission_id')
+            ->selectRaw('MAX(rr.round) as current_round')
+            ->groupBy('rr.submission_id');
+
+        $q->when($this->isReviewedBy !== null, fn (Builder $q) =>
+            $q->whereIn('s.submission_id', fn (Builder $q) => $q
+                ->select('ra.submission_id')
+                ->from('review_assignments AS ra')
+                ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
+                    $join->on('ra.submission_id', '=', 'agrr.submission_id')
+                )
+                ->whereIn('ra.reviewer_id', (array) $this->isReviewedBy)
+                ->where('ra.declined', 0)
+                ->where('ra.cancelled', 0)
+                ->whereRaw('ra.round = agrr.current_round')
+            )
+        );
+
+        $q->when($this->reviewersNumber !== null, function (Builder $q) use ($currentReviewRound) {
+            $reviewersNumber = $this->reviewersNumber;
+            $includeUnassigned = false;
+            if (in_array(0, $reviewersNumber)) {
+                $reviewersNumber = array_diff($reviewersNumber, [0]);
+                $includeUnassigned = true;
+            }
+
+            $q
+                ->when($includeUnassigned, fn (Builder $q) => $q
+                    ->whereNotIn('s.submission_id', fn (Builder $q) => $q
+                        ->select('ra.submission_id')
+                        ->from('review_assignments AS ra')
+                        ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
+                            $join->on('ra.submission_id', '=', 'agrr.submission_id')
+                        )
+                        ->where('ra.declined', 0)
+                        ->where('ra.cancelled', 0)
+                        ->whereRaw('ra.round = agrr.current_round')
+                        ->distinct()
+                    )
+                )
+                ->when(!empty($reviewersNumber), function (Builder $q) use ($reviewersNumber, $currentReviewRound) {
+                    $placeholders = array_fill(0, count($reviewersNumber), '?');
+
+                    // Aggregate review assignments count per submission
+                    $assignmentsPerSubmission = DB::table('review_assignments', 'ra')
+                        ->select('ra.submission_id')
+                        ->selectRaw('COUNT(ra.submission_id) as number')
+                        ->where('ra.declined', 0)
+                        ->where('ra.cancelled', 0)
+                        ->groupBy('ra.submission_id')
+                        // Can't replace a single placeholder with array bindings, issue looks similar to laravel/framework#39554
+                        ->havingRaw('number IN (' . implode(',', $placeholders) . ')', $reviewersNumber);
+                    $q->whereIn('s.submission_id', fn(Builder $q) => $q
+                        // review assignments exist, counting the number of active assignments
+                        ->select('agra.submission_id')
+                        ->fromSub($assignmentsPerSubmission, 'agra')
+                        ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
+                            $join->on('agra.submission_id', '=', 'agrr.submission_id')
+                        )
+                    );
+                });
+        });
+
+        $q->when($this->awaitingReviews !== null, fn(Builder $q) => $q
+            ->whereIn('s.submission_id', fn(Builder $q) => $q
+                ->select('ra.submission_id')
+                ->from('review_assignments AS ra')
+                ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
+                    $join->on('ra.submission_id', '=', 'agrr.submission_id')
+                )
+                ->whereNull('ra.date_completed')
+                ->where('ra.cancelled', 0)
+                ->where('ra.declined', 0)
+                ->whereRaw('ra.round = agrr.current_round')
+            )
+        );
+
+        $q->when($this->reviewsSubmitted !== null, fn(Builder $q) => $q
+            ->whereIn('s.submission_id', fn(Builder $q) => $q
+                ->select('agrr.submission_id')
+                ->from('review_assignments AS ra')
+                ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
+                    $join->on('ra.submission_id', '=', 'agrr.submission_id')
+                )
+                ->whereNotNull('ra.date_completed')
+                ->whereRaw('ra.round = agrr.current_round')
+            )
+        );
+
+        $q->when($this->revisionsRequested !== null, fn(Builder $q) => $q
+            ->whereIn('s.submission_id', fn(Builder $q) => $q
+                ->select('rr.submission_id')
+                ->from('review_rounds AS rr')
+                ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
+                    $join->on('rr.submission_id', '=', 'agrr.submission_id')
+                )
+                ->whereRaw('rr.round = agrr.current_round')
+                ->where('rr.status', ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED)
+            )
+        );
+
+        $q->when($this->revisionsSubmitted !== null, fn(Builder $q) => $q
+            ->whereIn('s.submission_id', fn(Builder $q) => $q
+                ->select('rr.submission_id')
+                ->from('review_rounds AS rr')
+                ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
+                    $join->on('rr.submission_id', '=', 'agrr.submission_id')
+                )
+                ->whereRaw('rr.round = agrr.current_round')
+                ->where('rr.status', ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED)
+            )
+        );
+
+        return $q;
+    }
+
+    public static function getViewsCountBuilder(Collection $keyCollectorPair): Builder
+    {
+        $q = DB::query();
+        $keyCollectorPair->each(function(AppCollector $collector, string $key) use ($q) {
+            // Get query builder from a collector instance, override a select statement to retrieve submissions count instead of submissions data
+            $subQuery = $collector->getQueryBuilder()->select([])->selectRaw(
+                'COUNT(s.submission_id)'
+            );
+            $q->selectSub($subQuery, $key);
+        });
+        return $q;
+    }
+
+    protected function getReviewStages(): array
+    {
+        return [WORKFLOW_STAGE_ID_EXTERNAL_REVIEW];
     }
 }

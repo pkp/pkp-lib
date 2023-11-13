@@ -551,6 +551,14 @@
 				"min:0"
 			]
 		},
+		"numReviewersPerSubmission": {
+			"type": "integer",
+			"default": 0,
+			"validation": [
+				"nullable",
+				"min:0"
+			]
+		},
 		"openAccessPolicy": {
 			"type": "string",
 			"multilingual": true,

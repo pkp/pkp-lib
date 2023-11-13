@@ -17,11 +17,10 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy
 {
@@ -73,8 +72,7 @@ class SubmissionFileStageRequiredPolicy extends SubmissionFileBaseAccessPolicy
             // Make sure the file is visible. Unless file is included in an open review.
             if (!$submissionFile->getViewable()) {
                 if ($submissionFile->getData('assocType') === Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
-                    $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-                    $reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getData('assocId'));
+                    $reviewAssignment = Repo::reviewAssignment()->get((int) $submissionFile->getData('assocId'));
                     if ($reviewAssignment->getReviewMethod() != ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN) {
                         return AuthorizationPolicy::AUTHORIZATION_DENY;
                     }

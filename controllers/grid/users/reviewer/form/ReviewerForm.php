@@ -39,7 +39,6 @@ use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\submission\action\EditorAction;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\ReviewFilesDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
@@ -238,8 +237,7 @@ class ReviewerForm extends Form
         $context = $request->getContext();
 
         // Get the review method options.
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewMethods = $reviewAssignmentDao->getReviewMethodsTranslationKeys();
+        $reviewMethods = Repo::reviewAssignment()->getReviewMethodsTranslationKeys();
 
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('reviewMethods', $reviewMethods);
@@ -339,18 +337,21 @@ class ReviewerForm extends Form
         $editorAction->addReviewer($request, $submission, $reviewerId, $currentReviewRound, $reviewDueDate, $responseDueDate, $reviewMethod);
 
         // Get the reviewAssignment object now that it has been added.
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignment = $reviewAssignmentDao->getReviewAssignment($currentReviewRound->getId(), $reviewerId);
-        $reviewAssignment->setDateNotified(Core::getCurrentDate());
-        $reviewAssignment->stampModified();
+        $reviewAssignment = Repo::reviewAssignment()->getCollector()
+            ->filterByReviewRoundIds([$currentReviewRound->getId()])
+            ->filterByReviewerIds([$reviewerId])
+            ->getMany()
+            ->first();
 
         // Ensure that the review form ID is valid, if specified
         $reviewFormId = (int) $this->getData('reviewFormId');
         $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /** @var ReviewFormDAO $reviewFormDao */
         $reviewForm = $reviewFormDao->getById($reviewFormId, Application::getContextAssocType(), $context->getId());
-        $reviewAssignment->setReviewFormId($reviewForm ? $reviewFormId : null);
 
-        $reviewAssignmentDao->updateObject($reviewAssignment);
+        Repo::reviewAssignment()->edit($reviewAssignment, [
+            'dateNotified' => Core::getCurrentDate(),
+            'reviewFormId' => $reviewForm ? $reviewFormId : null
+        ]);
 
         $fileStages = [$stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE];
         // Grant access for this review to all selected files.
@@ -429,8 +430,11 @@ class ReviewerForm extends Form
     public function _isValidReviewer($context, $submission, $reviewRound, $reviewerId)
     {
         // Ensure the user isn't already assigned to the current submission
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId(), $reviewRound->getId());
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()
+            ->filterBySubmissionIds([$submission->getId()])
+            ->filterByReviewRoundIds([$reviewRound->getId()])
+            ->getMany();
+
         foreach ($reviewAssignments as $reviewAssignment) {
             if ($reviewerId == $reviewAssignment->getReviewerId()) {
                 return false;
@@ -447,12 +451,15 @@ class ReviewerForm extends Form
      */
     protected function getMailable(): ReviewRequest
     {
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignment = $reviewAssignmentDao->newDataObject(); /** @var ReviewAssignment $reviewAssignment */
-        $reviewAssignment->setSubmissionId($this->getSubmissionId());
         $submission = $this->getSubmission();
         $request = Application::get()->getRequest();
-        $mailable = new ReviewRequest($request->getContext(), $submission, $reviewAssignment);
+        $mailable = new ReviewRequest(
+            $request->getContext(),
+            $submission,
+            Repo::reviewAssignment()->newDataObject([
+                'submissionId' => $this->getSubmissionId(),
+            ])
+        );
         $mailable->sender($request->getUser());
         $mailable->addData([
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),

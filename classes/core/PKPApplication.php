@@ -492,7 +492,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'PluginSettingsDAO' => 'PKP\plugins\PluginSettingsDAO',
             'PublicationDAO' => 'APP\publication\PublicationDAO',
             'QueuedPaymentDAO' => 'PKP\payment\QueuedPaymentDAO',
-            'ReviewAssignmentDAO' => 'PKP\submission\reviewAssignment\ReviewAssignmentDAO',
             'ReviewFilesDAO' => 'PKP\submission\ReviewFilesDAO',
             'ReviewFormDAO' => 'PKP\reviewForm\ReviewFormDAO',
             'ReviewFormElementDAO' => 'PKP\reviewForm\ReviewFormElementDAO',

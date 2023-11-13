@@ -23,14 +23,12 @@ use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewerResendRequest;
 use PKP\notification\PKPNotification;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
 
 class ResendRequestReviewerForm extends ReviewerNotifyActionForm
@@ -74,7 +72,6 @@ class ResendRequestReviewerForm extends ReviewerNotifyActionForm
         $request = Application::get()->getRequest(); /** @var Request $request */
         $submission = $this->getSubmission(); /** @var Submission $submission */
         $reviewAssignment = $this->getReviewAssignment(); /** @var ReviewAssignment $reviewAssignment */
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
 
         if (isset($reviewAssignment) && $reviewAssignment->getSubmissionId() == $submission->getId()) {
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
@@ -83,10 +80,11 @@ class ResendRequestReviewerForm extends ReviewerNotifyActionForm
             }
 
             // $reviewAssignment->setCancelled(false);
-            $reviewAssignment->setDeclined(false);
-            $reviewAssignment->setRequestResent(true);
-            $reviewAssignment->setDateConfirmed(null);
-            $reviewAssignmentDao->updateObject($reviewAssignment);
+            Repo::reviewAssignment()->edit($reviewAssignment, [
+                'declined' => false,
+                'requestResent' => true,
+                'dateConfirmed' => null,
+            ]);
 
             // Stamp the modification date
             $submission->stampLastActivity();

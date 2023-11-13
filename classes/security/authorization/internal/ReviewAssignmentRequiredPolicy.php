@@ -16,12 +16,11 @@
 namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\DataObjectRequiredPolicy;
-use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy
 {
@@ -58,8 +57,7 @@ class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignment = $reviewAssignmentDao->getById($reviewId);
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
         if (!($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment)) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }

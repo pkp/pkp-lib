@@ -17,6 +17,10 @@
 		{translate key="user.register"}
 	</h1>
 
+	<p>
+		{translate key="common.requiredField"}
+	</p>
+
 	<form class="cmp_form register" id="register" method="post" action="{url op="register"}">
 		{csrf}
 

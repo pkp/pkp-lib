@@ -17,6 +17,11 @@ export default {
 	_instances: {},
 
 	/**
+	 * Registry of all global components
+	 */
+	_globalComponents: {},
+
+	/**
 	 * Initialize a Vue controller
 	 *
 	 * This method is often called directly from a <script> tag in a template
@@ -61,5 +66,39 @@ export default {
 				return false; // only attach to the closest parent handler
 			}
 		});
+	},
+
+	/**
+	 * Keeps track of all globally registered vue components
+	 *
+	 * This is important especially for plugins with custom vue components
+	 * All global components gets automatically registered for each vue instance thats created
+	 * It has same signature as vueInstance.component()
+	 * @param string componentName
+	 * @param object component
+	 */
+	registerComponent(componentName, component) {
+		this._globalComponents[componentName] = component;
+	},
+
+	/**
+	 * Allow possibility to allow retrive component object
+	 *
+	 * Should be needed very rarely. This is important for some plugins which currently extends existing component, like FieldPubIdUrn
+	 * @param string Able to retrieve component object
+	 */
+	getComponent(componentName) {
+		return this._globalComponents[componentName];
+	},
+
+	/**
+	 * Provides all globaly registered components
+	 *
+	 * Main reason is to be able get all components to be registered in lib/pkp/load.js
+	 * for every vue instance which is created
+	 * @returns object Object of all components, where key is component name and value component object
+	 */
+	getAllComponents() {
+		return this._globalComponents;
 	},
 };

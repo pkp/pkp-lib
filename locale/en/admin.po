@@ -318,6 +318,19 @@ msgstr "Introduction"
 msgid "admin.settings.minPasswordLength"
 msgstr "Minimum password length (characters)"
 
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Reviewer statistics"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr "On a multi-journals OJS instance, the reviewer statistics displayed "
+"in the review request window (number of reviews submitted, one active or "
+"not, etc.) can be either for all journals hosted on the OJS instance or "
+"specific to the journal only. By default, reviewer statistics counts are for "
+"all journals hosted."
+
+msgid "admin.settings.sharedReviewerStatistics.enable"
+msgstr "Display reviewer statistics counts of all journals hosted"
+
 msgid "admin.settings.restrictBulkEmails"
 msgstr "Restrict Bulk Emails"
 

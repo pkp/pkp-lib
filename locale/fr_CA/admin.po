@@ -347,6 +347,21 @@ msgstr "Introduction"
 msgid "admin.settings.minPasswordLength"
 msgstr "Longueur minimum du mot de passe (nombre de caractères)"
 
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Statistiques des évaluateurs"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr "Dans une installation d’OJS hébergeant plus d’une revue, les "
+"statistiques des évaluateurs affichées dans la fenêtre d’invitation à "
+"évaluer (nombre d’évaluations complétées, évaluation en cours ou non etc.) "
+"peuvent soit comptabiliser les données pour l’ensemble des revues hébergées, "
+"soit se limiter aux données de la revue. Par défaut, ce sont les "
+"statistiques de l’ensemble des revues hébergées qui sont affichées."
+
+msgid "admin.settings.sharedReviewerStatistics.enable"
+msgstr "Afficher les statistiques évaluateurs de l’ensemble des revues "
+"hébergées"
+
 msgid "admin.settings.restrictBulkEmails"
 msgstr "Restriction des courriels en lot"
 

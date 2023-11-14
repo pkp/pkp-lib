@@ -112,6 +112,11 @@
 				"min:4"
 			]
 		},
+		"enableSharedReviewerStatistics": {
+			"type": "boolean",
+			"description": "Whether to share the reviewers statistics between all journals or keep them contextual to each individual journal.",
+			"default": true
+		},
 		"numAnnouncementsHomepage": {
 			"type": "integer",
 			"validation": [

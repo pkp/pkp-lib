@@ -662,17 +662,24 @@ abstract class Collector implements CollectorInterface, ViewsCount
             ->selectRaw('MAX(rr.round) as current_round')
             ->groupBy('rr.submission_id');
 
-        $q->when($this->isReviewedBy !== null, fn (Builder $q) =>
-            $q->whereIn('s.submission_id', fn (Builder $q) => $q
-                ->select('ra.submission_id')
-                ->from('review_assignments AS ra')
-                ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
-                    $join->on('ra.submission_id', '=', 'agrr.submission_id')
-                )
-                ->whereIn('ra.reviewer_id', (array) $this->isReviewedBy)
-                ->where('ra.declined', 0)
-                ->where('ra.cancelled', 0)
-                ->whereRaw('ra.round = agrr.current_round')
+        $q->when(
+            $this->isReviewedBy !== null,
+            fn (Builder $q) =>
+            $q->whereIn(
+                's.submission_id',
+                fn (Builder $q) => $q
+                    ->select('ra.submission_id')
+                    ->from('review_assignments AS ra')
+                    ->joinSub(
+                        $currentReviewRound,
+                        'agrr',
+                        fn (JoinClause $join) =>
+                        $join->on('ra.submission_id', '=', 'agrr.submission_id')
+                    )
+                    ->whereIn('ra.reviewer_id', (array) $this->isReviewedBy)
+                    ->where('ra.declined', 0)
+                    ->where('ra.cancelled', 0)
+                    ->whereRaw('ra.round = agrr.current_round')
             )
         );
 
@@ -685,18 +692,25 @@ abstract class Collector implements CollectorInterface, ViewsCount
             }
 
             $q
-                ->when($includeUnassigned, fn (Builder $q) => $q
-                    ->whereNotIn('s.submission_id', fn (Builder $q) => $q
-                        ->select('ra.submission_id')
-                        ->from('review_assignments AS ra')
-                        ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
-                            $join->on('ra.submission_id', '=', 'agrr.submission_id')
+                ->when(
+                    $includeUnassigned,
+                    fn (Builder $q) => $q
+                        ->whereNotIn(
+                            's.submission_id',
+                            fn (Builder $q) => $q
+                                ->select('ra.submission_id')
+                                ->from('review_assignments AS ra')
+                                ->joinSub(
+                                    $currentReviewRound,
+                                    'agrr',
+                                    fn (JoinClause $join) =>
+                                    $join->on('ra.submission_id', '=', 'agrr.submission_id')
+                                )
+                                ->where('ra.declined', 0)
+                                ->where('ra.cancelled', 0)
+                                ->whereRaw('ra.round = agrr.current_round')
+                                ->distinct()
                         )
-                        ->where('ra.declined', 0)
-                        ->where('ra.cancelled', 0)
-                        ->whereRaw('ra.round = agrr.current_round')
-                        ->distinct()
-                    )
                 )
                 ->when(!empty($reviewersNumber), function (Builder $q) use ($reviewersNumber, $currentReviewRound) {
                     $placeholders = array_fill(0, count($reviewersNumber), '?');
@@ -710,65 +724,98 @@ abstract class Collector implements CollectorInterface, ViewsCount
                         ->groupBy('ra.submission_id')
                         // Can't replace a single placeholder with array bindings, issue looks similar to laravel/framework#39554
                         ->havingRaw('number IN (' . implode(',', $placeholders) . ')', $reviewersNumber);
-                    $q->whereIn('s.submission_id', fn(Builder $q) => $q
+                    $q->whereIn(
+                        's.submission_id',
+                        fn (Builder $q) => $q
                         // review assignments exist, counting the number of active assignments
-                        ->select('agra.submission_id')
-                        ->fromSub($assignmentsPerSubmission, 'agra')
-                        ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
-                            $join->on('agra.submission_id', '=', 'agrr.submission_id')
-                        )
+                            ->select('agra.submission_id')
+                            ->fromSub($assignmentsPerSubmission, 'agra')
+                            ->joinSub(
+                                $currentReviewRound,
+                                'agrr',
+                                fn (JoinClause $join) =>
+                                $join->on('agra.submission_id', '=', 'agrr.submission_id')
+                            )
                     );
                 });
         });
 
-        $q->when($this->awaitingReviews !== null, fn(Builder $q) => $q
-            ->whereIn('s.submission_id', fn(Builder $q) => $q
-                ->select('ra.submission_id')
-                ->from('review_assignments AS ra')
-                ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
-                    $join->on('ra.submission_id', '=', 'agrr.submission_id')
+        $q->when(
+            $this->awaitingReviews !== null,
+            fn (Builder $q) => $q
+                ->whereIn(
+                    's.submission_id',
+                    fn (Builder $q) => $q
+                        ->select('ra.submission_id')
+                        ->from('review_assignments AS ra')
+                        ->joinSub(
+                            $currentReviewRound,
+                            'agrr',
+                            fn (JoinClause $join) =>
+                            $join->on('ra.submission_id', '=', 'agrr.submission_id')
+                        )
+                        ->whereNull('ra.date_completed')
+                        ->where('ra.cancelled', 0)
+                        ->where('ra.declined', 0)
+                        ->whereRaw('ra.round = agrr.current_round')
                 )
-                ->whereNull('ra.date_completed')
-                ->where('ra.cancelled', 0)
-                ->where('ra.declined', 0)
-                ->whereRaw('ra.round = agrr.current_round')
-            )
         );
 
-        $q->when($this->reviewsSubmitted !== null, fn(Builder $q) => $q
-            ->whereIn('s.submission_id', fn(Builder $q) => $q
-                ->select('agrr.submission_id')
-                ->from('review_assignments AS ra')
-                ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
-                    $join->on('ra.submission_id', '=', 'agrr.submission_id')
+        $q->when(
+            $this->reviewsSubmitted !== null,
+            fn (Builder $q) => $q
+                ->whereIn(
+                    's.submission_id',
+                    fn (Builder $q) => $q
+                        ->select('agrr.submission_id')
+                        ->from('review_assignments AS ra')
+                        ->joinSub(
+                            $currentReviewRound,
+                            'agrr',
+                            fn (JoinClause $join) =>
+                            $join->on('ra.submission_id', '=', 'agrr.submission_id')
+                        )
+                        ->whereNotNull('ra.date_completed')
+                        ->whereRaw('ra.round = agrr.current_round')
                 )
-                ->whereNotNull('ra.date_completed')
-                ->whereRaw('ra.round = agrr.current_round')
-            )
         );
 
-        $q->when($this->revisionsRequested !== null, fn(Builder $q) => $q
-            ->whereIn('s.submission_id', fn(Builder $q) => $q
-                ->select('rr.submission_id')
-                ->from('review_rounds AS rr')
-                ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
-                    $join->on('rr.submission_id', '=', 'agrr.submission_id')
+        $q->when(
+            $this->revisionsRequested !== null,
+            fn (Builder $q) => $q
+                ->whereIn(
+                    's.submission_id',
+                    fn (Builder $q) => $q
+                        ->select('rr.submission_id')
+                        ->from('review_rounds AS rr')
+                        ->joinSub(
+                            $currentReviewRound,
+                            'agrr',
+                            fn (JoinClause $join) =>
+                            $join->on('rr.submission_id', '=', 'agrr.submission_id')
+                        )
+                        ->whereRaw('rr.round = agrr.current_round')
+                        ->where('rr.status', ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED)
                 )
-                ->whereRaw('rr.round = agrr.current_round')
-                ->where('rr.status', ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED)
-            )
         );
 
-        $q->when($this->revisionsSubmitted !== null, fn(Builder $q) => $q
-            ->whereIn('s.submission_id', fn(Builder $q) => $q
-                ->select('rr.submission_id')
-                ->from('review_rounds AS rr')
-                ->joinSub($currentReviewRound, 'agrr', fn(JoinClause $join) =>
-                    $join->on('rr.submission_id', '=', 'agrr.submission_id')
+        $q->when(
+            $this->revisionsSubmitted !== null,
+            fn (Builder $q) => $q
+                ->whereIn(
+                    's.submission_id',
+                    fn (Builder $q) => $q
+                        ->select('rr.submission_id')
+                        ->from('review_rounds AS rr')
+                        ->joinSub(
+                            $currentReviewRound,
+                            'agrr',
+                            fn (JoinClause $join) =>
+                            $join->on('rr.submission_id', '=', 'agrr.submission_id')
+                        )
+                        ->whereRaw('rr.round = agrr.current_round')
+                        ->where('rr.status', ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED)
                 )
-                ->whereRaw('rr.round = agrr.current_round')
-                ->where('rr.status', ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED)
-            )
         );
 
         return $q;
@@ -777,11 +824,11 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public static function getViewsCountBuilder(Collection $keyCollectorPair): Builder
     {
         $q = DB::query();
-        $keyCollectorPair->each(function(AppCollector $collector, string $key) use ($q) {
+        $keyCollectorPair->each(function (AppCollector $collector, string $key) use ($q) {
             // Get query builder from a collector instance, override a select statement to retrieve submissions count instead of submissions data
             $subQuery = $collector->getQueryBuilder()->select([])->selectRaw(
                 'COUNT(s.submission_id)'
-            );
+            )->reorder();
             $q->selectSub($subQuery, $key);
         });
         return $q;

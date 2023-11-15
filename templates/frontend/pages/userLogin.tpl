@@ -16,6 +16,9 @@
 		{translate key="user.login"}
 	</h1>
 
+	<p>
+		{translate key="common.requiredField"}
+	</p>
 	{* A login message may be displayed if the user was redireceted to the
 	   login page from another request. Examples include if login is required
 	   before dowloading a file. *}

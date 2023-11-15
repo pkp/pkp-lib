@@ -1056,8 +1056,10 @@ abstract class Repository
 
     protected function filterViewsByUserRoles(Collection $views, array $roleIds): Collection
     {
-        return $views->filter(function (DashboardView $view) use ($roleIds) {
-            return array_intersect($roleIds, $view->getRoles());
+        return $views->filter(function (?DashboardView $view) use ($roleIds) {
+            if (!is_null($view)) { // null check to filter out views not used by the application
+                return array_intersect($roleIds, $view->getRoles());
+            }
         });
     }
 
@@ -1087,7 +1089,7 @@ abstract class Repository
 
 
         foreach (array_merge($submissionsCount, $reviewsCount) as $viewId => $count) {
-            $view = $dashboardViews->get($viewId); /** @var $view DashboardView */
+            $view = $dashboardViews->get($viewId); /** @var DashboardView $view */
             $view->setCount($count);
         }
 

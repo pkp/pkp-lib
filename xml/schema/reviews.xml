@@ -53,7 +53,16 @@
 		</field>
 		<field name="reviewer_file_id" type="I8"/>
 		<field name="date_rated" type="T"/>
-		<field name="date_reminded" type="T"/>
+        <field name="date_invite_reminded" type="T"/>
+        <field name="count_invite_reminder" type="I8">
+            <NOTNULL/>
+            <DEFAULT VALUE="0"/>
+        </field>
+        <field name="date_submit_reminded" type="T"/>
+        <field name="count_submit_reminder" type="I8">
+            <NOTNULL/>
+            <DEFAULT VALUE="0"/>
+        </field>
 		<field name="quality" type="I1"/>
 		<field name="review_round_id" type="I8">
 			<!-- NOTNULL constraint not included b/c of bug #8247 -->

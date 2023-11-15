@@ -751,11 +751,17 @@ msgstr "Refresh"
 msgid "common.related"
 msgstr "Related"
 
-msgid "common.reminder"
-msgstr "Reminder"
+msgid "common.submit.reminder"
+msgstr "Review Reminder"
 
-msgid "common.reminded.date"
-msgstr "Reminded: {$dateReminded}"
+msgid "common.invite.reminder"
+msgstr "Invite Reminder"
+
+msgid "common.invite.reminded.date"
+msgstr "Invite Reminded: {$dateReminded}"
+
+msgid "common.submit.reminded.date"
+msgstr "Submit Reminded: {$dateReminded}"
 
 msgid "common.remote"
 msgstr "Remote"

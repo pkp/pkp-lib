@@ -745,10 +745,10 @@ msgstr "Թարմացնել"
 msgid "common.related"
 msgstr "Կապ ունեցող"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Հիշեցնող"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Հիշեցում: {$dateReminded}"
 
 msgid "common.remote"

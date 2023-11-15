@@ -752,10 +752,10 @@ msgstr "Rafraîchir"
 msgid "common.related"
 msgstr "Connexe"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Rappel"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Rappelé : {$dateReminded}"
 
 msgid "common.remote"

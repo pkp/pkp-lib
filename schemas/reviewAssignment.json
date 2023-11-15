@@ -106,13 +106,34 @@
 			],
 			"apiSummary": true
 		},
-		"dateReminded": {
+		"dateInviteReminded": {
 			"type": "string",
-			"description": "Date the reviewer was reminded about the assignment",
+			"description": "Date the reviewer was reminded about the response",
 			"validation": [
 				"date:Y-m-d H:i:s",
 				"nullable"
 			],
+			"apiSummary": true
+		},
+		"countInviteReminder": {
+			"type": "integer",
+			"default": 0,
+			"description": "Number of times the reviewer was reminded for the response",
+			"apiSummary": true
+		},
+		"dateSubmitReminded": {
+			"type": "string",
+			"description": "Date the reviewer was reminded about the review",
+			"validation": [
+				"date:Y-m-d H:i:s",
+				"nullable"
+			],
+			"apiSummary": true
+		},
+		"countSubmitReminder": {
+			"type": "integer",
+			"default": 0,
+			"description": "Number of times the reviewer was reminded for the review",
 			"apiSummary": true
 		},
 		"dateResponseDue": {

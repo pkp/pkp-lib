@@ -738,10 +738,10 @@ msgstr "再読込"
 msgid "common.related"
 msgstr "関連"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "リマインド"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "リマインド日: {$dateReminded}"
 
 msgid "common.remote"

@@ -732,10 +732,10 @@ msgstr "Освежи"
 msgid "common.related"
 msgstr "Повезано"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Подсетник"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Подсећен: {$dateReminded}"
 
 msgid "common.remote"

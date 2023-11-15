@@ -742,10 +742,10 @@ msgstr "განახლება"
 msgid "common.related"
 msgstr "მსგავსი"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "შემხსენებელი"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "შეხსენებული: {$dateReminded}"
 
 msgid "common.remote"

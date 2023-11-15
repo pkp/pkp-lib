@@ -745,10 +745,10 @@ msgstr "Verversen"
 msgid "common.related"
 msgstr "Verwant"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Herinnering"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Datum van herinnering: {$dateReminded}"
 
 msgid "common.remote"

@@ -66,8 +66,10 @@
 					<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.completed.date" dateCompleted=$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}</span>
 				{elseif $reviewAssignment->getDateConfirmed()}
 					<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.confirmed.date" dateConfirmed=$reviewAssignment->getDateConfirmed()|date_format:$datetimeFormatShort}</span>
-				{elseif $reviewAssignment->getDateReminded()}
-					<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.reminded.date" dateReminded=$reviewAssignment->getDateReminded()|date_format:$datetimeFormatShort}</span>
+                {elseif $reviewAssignment->getDateInviteReminded()}
+                    <span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.invite.reminded.date" dateReminded=$reviewAssignment->getDateInviteReminded()|date_format:$datetimeFormatShort}</span>
+				{elseif $reviewAssignment->getDateSubmitReminded()}
+					<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.submit.reminded.date" dateReminded=$reviewAssignment->getDateSubmitReminded()|date_format:$datetimeFormatShort}</span>
 				{elseif $reviewAssignment->getDateNotified()}
 					<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.notified.date" dateNotified=$reviewAssignment->getDateNotified()|date_format:$datetimeFormatShort}</span>
 				{elseif $reviewAssignment->getDateAssigned()}

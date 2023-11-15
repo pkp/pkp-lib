@@ -1047,10 +1047,10 @@ msgstr "Yenilə"
 msgid "common.related"
 msgstr "Əlaqəli"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Xatırlatma"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Xatırladıldı: {$dateReminded}"
 
 msgid "common.remote"

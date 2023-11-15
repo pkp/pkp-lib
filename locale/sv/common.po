@@ -744,10 +744,10 @@ msgstr "Uppdatera"
 msgid "common.related"
 msgstr "Relaterad"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Påminnelse"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Påmind: {$dateReminded}"
 
 msgid "common.remote"

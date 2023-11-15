@@ -90,7 +90,7 @@ class ReviewerAction
             }
 
             Repo::reviewAssignment()->edit($reviewAssignment, [
-                'dateReminded' => null,
+                'dateSubmitReminded' => null,
                 'reminderWasAutomatic' => 0,
                 'declined' => $decline,
                 'dateConfirmed' => Core::getCurrentDate(),

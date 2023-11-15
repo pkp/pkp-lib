@@ -748,10 +748,10 @@ msgstr "Recargar"
 msgid "common.related"
 msgstr "Relacionado"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Recordatorio"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Recordado: {$dateReminded}"
 
 msgid "common.remote"

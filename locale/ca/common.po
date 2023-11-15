@@ -743,10 +743,10 @@ msgstr "Actualitza"
 msgid "common.related"
 msgstr "Relacionat"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Recordatori"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Recordatori: {$dateReminded}"
 
 msgid "common.remote"

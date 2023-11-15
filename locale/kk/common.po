@@ -741,10 +741,10 @@ msgstr "Жаңарту"
 msgid "common.related"
 msgstr "Байланысты"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Еске салу"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Ескертілді: {$dateReminded}"
 
 msgid "common.remote"

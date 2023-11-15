@@ -741,10 +741,10 @@ msgstr "Endurnýja"
 msgid "common.related"
 msgstr "Tengt"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Áminning"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Minnt á: {$dateReminded}"
 
 msgid "common.remote"

@@ -734,10 +734,10 @@ msgstr "刷新"
 msgid "common.related"
 msgstr "相关"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "提醒"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "已提醒：{$dateReminded}"
 
 msgid "common.remote"

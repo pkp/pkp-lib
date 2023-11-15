@@ -744,10 +744,10 @@ msgstr "تحديث"
 msgid "common.related"
 msgstr "ذو صلة"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "تذكير"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "مذكَّر بتاريخ: {$dateReminded}"
 
 msgid "common.remote"

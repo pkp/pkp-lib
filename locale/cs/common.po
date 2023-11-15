@@ -747,10 +747,10 @@ msgstr "Obnovit"
 msgid "common.related"
 msgstr "Související"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Připomenutí"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Připomenuto: {$dateReminded}"
 
 msgid "common.remote"

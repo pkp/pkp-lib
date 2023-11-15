@@ -706,10 +706,10 @@ msgstr ""
 msgid "common.related"
 msgstr ""
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr ""
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr ""
 
 msgid "common.remote"

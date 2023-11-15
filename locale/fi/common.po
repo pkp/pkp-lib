@@ -743,10 +743,10 @@ msgstr "Päivitä"
 msgid "common.related"
 msgstr "Liittyvä"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Muistutus"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Muistutettu: {$dateReminded}"
 
 msgid "common.remote"

@@ -50,6 +50,7 @@ use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewerReinstate;
 use PKP\mail\mailables\ReviewerResendRequest;
 use PKP\mail\mailables\ReviewerUnassign;
+use PKP\mail\mailables\ReviewRemindAuto;
 use PKP\mail\traits\Sender;
 use PKP\notification\NotificationDAO;
 use PKP\notification\PKPNotification;
@@ -979,7 +980,8 @@ class PKPReviewerGridHandler extends GridHandler
         $dates = [
             'common.assigned' => $reviewAssignment->getDateAssigned(),
             'common.notified' => $reviewAssignment->getDateNotified(),
-            'common.reminder' => $reviewAssignment->getDateReminded(),
+            'common.invite.reminder' => $reviewAssignment->getDateInviteReminded(),
+            'common.submit.reminder' => $reviewAssignment->getDateSubmitReminded(),
             'common.confirm' => $reviewAssignment->getDateConfirmed(),
             'common.completed' => $reviewAssignment->getDateCompleted(),
             'common.acknowledged' => $reviewAssignment->getDateAcknowledged(),
@@ -1045,11 +1047,20 @@ class PKPReviewerGridHandler extends GridHandler
             return null;
         }
 
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        if ($mailable instanceof ReviewRemindAuto) {
+            $occurrence = $reviewAssignment->getCountSubmitReminder();
+        }
+        else {
+            $occurrence = $reviewAssignment->getCountInviteReminder();
+        }
+
         $user = $request->getUser();
         $mailable->sender($user);
         $mailable->addData([
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
             'abstractTermIfEnabled' => ($this->getSubmission()->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
+            'occurrence' => $occurrence,
         ]);
 
         $body = Mail::compileParams($template->getLocalizedData('body'), $mailable->getData(Locale::getLocale()));

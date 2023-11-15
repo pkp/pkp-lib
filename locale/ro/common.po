@@ -743,10 +743,10 @@ msgstr "Reîmprospătare"
 msgid "common.related"
 msgstr "Legat de"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Reamintire"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Reamintire: {$dateReminded}"
 
 msgid "common.remote"

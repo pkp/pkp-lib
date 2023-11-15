@@ -744,10 +744,10 @@ msgstr "Оновити"
 msgid "common.related"
 msgstr "Пов'язані"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Нагадування"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Нагадування: {$dateReminded}"
 
 msgid "common.remote"

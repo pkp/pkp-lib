@@ -168,7 +168,7 @@ class ReviewReminderForm extends Form
             Repo::eventLog()->add($eventLog);
 
             Repo::reviewAssignment()->edit($reviewAssignment, [
-                'dateReminded' => Core::getCurrentDate(),
+                'dateSubmitReminded' => Core::getCurrentDate(),
             ]);
         } catch (TransportException $e) {
             $notificationMgr = new NotificationManager();

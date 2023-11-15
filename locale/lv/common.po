@@ -610,10 +610,10 @@ msgstr "Atsvaidzināt"
 msgid "common.related"
 msgstr "Saistītais"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Atgādinājums"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Atgādināts: {$dateReminded}"
 
 msgid "common.remote"

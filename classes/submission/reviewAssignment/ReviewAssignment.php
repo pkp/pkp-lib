@@ -418,23 +418,83 @@ class ReviewAssignment extends \PKP\core\DataObject
     }
 
     /**
-     * Get the reviewer's last reminder date.
+     * Get the reviewer's last invite reminder date.
      *
      * @return string
      */
-    public function getDateReminded()
+    public function getDateInviteReminded()
     {
-        return $this->getData('dateReminded');
+        return $this->getData('dateInviteReminded');
     }
 
     /**
-     * Set the reviewer's last reminder date.
+     * Set the reviewer's last invite reminder date.
      *
-     * @param string $dateReminded
+     * @param string $dateInviteReminded
      */
-    public function setDateReminded($dateReminded)
+    public function setDateInviteReminded($dateInviteReminded)
     {
-        $this->setData('dateReminded', $dateReminded);
+        $this->setData('dateInviteReminded', $dateInviteReminded);
+    }
+
+    /**
+     * Get the reviewer's invite reminder count.
+     *
+     * @return int
+     */
+    function getCountInviteReminder()
+    {
+        return $this->getData('countInviteReminder');
+    }
+
+    /**
+     * Set the reviewer's invite reminder count.
+     *
+     * @param $countInviteReminder int
+     */
+    function setCountInviteReminder($countInviteReminder)
+    {
+        $this->setData('countInviteReminder', $countInviteReminder);
+    }
+
+    /**
+     * Get the reviewer's last submit reminder date.
+     *
+     * @return string
+     */
+    function getDateSubmitReminded()
+    {
+        return $this->getData('dateSubmitReminded');
+    }
+
+    /**
+     * Set the reviewer's last submit reminder date.
+     *
+     * @param $dateSubmitReminded string
+     */
+    function setDateSubmitReminded($dateSubmitReminded)
+    {
+        $this->setData('dateSubmitReminded', $dateSubmitReminded);
+    }
+
+    /**
+     * Get the reviewer's submit reminder count.
+     *
+     * @return int
+     */
+    function getCountSubmitReminder()
+    {
+        return $this->getData('countSubmitReminder');
+    }
+
+    /**
+     * Set the reviewer's submit reminder count.
+     *
+     * @param $countSubmitReminder int
+     */
+    function setCountSubmitReminder($countSubmitReminder)
+    {
+        $this->setData('countSubmitReminder', $countSubmitReminder);
     }
 
     /**

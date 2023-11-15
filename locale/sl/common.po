@@ -743,10 +743,10 @@ msgstr "Osveži"
 msgid "common.related"
 msgstr "Soroden"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Opomnik"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Opomnik: {$dateReminded}"
 
 msgid "common.remote"

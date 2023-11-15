@@ -747,10 +747,10 @@ msgstr "Aggiorna"
 msgid "common.related"
 msgstr "Collegato"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Promemoria"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Data invio promemoria: {$dateReminded}"
 
 msgid "common.remote"

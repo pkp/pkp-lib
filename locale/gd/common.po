@@ -715,10 +715,10 @@ msgstr "Ath-nuadhaich"
 msgid "common.related"
 msgstr "Co-cheangailte"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Cuimhneachan"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Cuimhneachan: {$dateReminded}"
 
 msgid "common.remote"

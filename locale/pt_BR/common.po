@@ -745,10 +745,10 @@ msgstr "Atualizar"
 msgid "common.related"
 msgstr "Relacionado"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Lembrete"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Lembrado: {$dateReminded}"
 
 msgid "common.remote"

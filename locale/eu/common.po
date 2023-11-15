@@ -727,10 +727,10 @@ msgstr "Freskatu"
 msgid "common.related"
 msgstr "Erlazionatua"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Gogorarazlea"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr ""
 
 msgid "common.remote"

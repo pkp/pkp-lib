@@ -98,10 +98,22 @@ class PKPReviewSetupForm extends FormComponent
                 'value' => $context->getData('numDaysBeforeInviteReminder'),
                 'size' => 'small',
             ]))
+                ->addField(new FieldText('numOccurrencesForInviteReminder', [
+                    'label' => __('manager.setup.reviewOptions.occurrencesForInvite'),
+                    'description' => __('manager.setup.reviewOptions.occurrencesForInvite.description'),
+                    'value' => $context->getData('numOccurrencesForInviteReminder'),
+                    'size' => 'small',
+                ]))
                 ->addField(new FieldText('numDaysBeforeSubmitReminder', [
                     'label' => __('manager.setup.reviewOptions.reminders.submit'),
                     'description' => __('manager.setup.reviewOptions.reminders.submit.description'),
                     'value' => $context->getData('numDaysBeforeSubmitReminder'),
+                    'size' => 'small',
+                ]))
+                ->addField(new FieldText('numOccurrencesForSubmitReminder', [
+                    'label' => __('manager.setup.reviewOptions.occurrencesForSubmit'),
+                    'description' => __('manager.setup.reviewOptions.occurrencesForSubmit.description'),
+                    'value' => $context->getData('numOccurrencesForSubmitReminder'),
                     'size' => 'small',
                 ]));
         } else {

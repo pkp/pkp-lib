@@ -75,16 +75,33 @@ class ReviewReminder extends ScheduledTask
             $reviewInvitation->dispatch();
         }
 
+        if ($mailable instanceof ReviewRemindAuto) {
+            $occurrence = $reviewAssignment->getCountSubmitReminder() + 1;
+        }
+        else {
+            $occurrence = $reviewAssignment->getCountInviteReminder() + 1;
+        }
+
         // deprecated template variables OJS 2.x
         $mailable->addData([
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
             'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')),
+            'occurrence' => $occurrence,
         ]);
 
         Mail::send($mailable);
 
+        if ($mailable instanceof ReviewRemindAuto) {
+            $dateFieldToUpdate = 'dateSubmitReminded';
+            $countFieldToUpdate = 'countSubmitReminder';
+        }
+        else {
+            $dateFieldToUpdate = 'dateInviteReminded';
+            $countFieldToUpdate = 'countInviteReminder';
+        }
         Repo::reviewAssignment()->edit($reviewAssignment, [
-            'dateReminded' => Core::getCurrentDate(),
+            $dateFieldToUpdate => Core::getCurrentDate(),
+            $countFieldToUpdate => $occurrence,
             'reminderWasAutomatic' => 1
         ]);
 
@@ -114,12 +131,8 @@ class ReviewReminder extends ScheduledTask
 
         $incompleteAssignments = Repo::reviewAssignment()->getCollector()->filterByIsIncomplete(true)->getMany();
         $inviteReminderDays = $submitReminderDays = null;
+        $occurrencesInviteReminder = $occurrencesSubmitReminder = null;
         foreach ($incompleteAssignments as $reviewAssignment) {
-            // Avoid review assignments that a reminder exists for.
-            if ($reviewAssignment->getDateReminded() !== null) {
-                continue;
-            }
-
             // Fetch the submission
             if ($submission == null || $submission->getId() != $reviewAssignment->getSubmissionId()) {
                 unset($submission);
@@ -141,19 +154,36 @@ class ReviewReminder extends ScheduledTask
 
                 $inviteReminderDays = $context->getData('numDaysBeforeInviteReminder');
                 $submitReminderDays = $context->getData('numDaysBeforeSubmitReminder');
+                $occurrencesInviteReminder = $context->getData('numOccurrencesForInviteReminder');
+                $occurrencesSubmitReminder = $context->getData('numOccurrencesForSubmitReminder');
             }
 
             $mailable = null;
-            if ($submitReminderDays >= 1 && $reviewAssignment->getDateDue() != null) {
-                $checkDate = strtotime($reviewAssignment->getDateDue());
-                if (time() - $checkDate > 60 * 60 * 24 * $submitReminderDays) {
-                    $mailable = new ReviewRemindAuto($context, $submission, $reviewAssignment);
+
+            $countSubmitReminder = $reviewAssignment->getCountSubmitReminder();
+            if ($countSubmitReminder == 0 || !$occurrencesSubmitReminder || $countSubmitReminder < $occurrencesSubmitReminder) {
+                $dateDue = $reviewAssignment->getDateDue();
+                if ($submitReminderDays >= 1 && $dateDue) {
+                    $dateSubmitReminded = $reviewAssignment->getDateSubmitReminded();
+                    $time = $dateSubmitReminded ? strtotime($dateSubmitReminded) : strtotime($dateDue);
+                    $checkDate = $time + (60 * 60 * 24 * $submitReminderDays);
+                    if (time() > $checkDate) {
+                        $mailable = new ReviewRemindAuto($context, $submission, $reviewAssignment);
+                    }
                 }
             }
-            if ($inviteReminderDays >= 1 && $reviewAssignment->getDateConfirmed() == null) {
-                $checkDate = strtotime($reviewAssignment->getDateResponseDue());
-                if (time() - $checkDate > 60 * 60 * 24 * $inviteReminderDays) {
-                    $mailable = new ReviewResponseRemindAuto($context, $submission, $reviewAssignment);
+
+            $countInviteReminder = $reviewAssignment->getCountInviteReminder();
+            if ($countInviteReminder == 0 || !$occurrencesInviteReminder || $countInviteReminder < $occurrencesInviteReminder) {
+                $dateConfirmed = $reviewAssignment->getDateConfirmed();
+                if ($inviteReminderDays >= 1 && !$dateConfirmed) {
+                    $dateResponseDue = $reviewAssignment->getDateResponseDue();
+                    $dateInviteReminded = $reviewAssignment->getDateInviteReminded();
+                    $time = $dateInviteReminded ? strtotime($dateInviteReminded) : strtotime($dateResponseDue);
+                    $checkDate = $time + (60 * 60 * 24 * $inviteReminderDays);
+                    if (time() > $checkDate) {
+                        $mailable = new ReviewResponseRemindAuto($context, $submission, $reviewAssignment);
+                    }
                 }
             }
 

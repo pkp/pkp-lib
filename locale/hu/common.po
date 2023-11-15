@@ -747,10 +747,10 @@ msgstr "Frissítés"
 msgid "common.related"
 msgstr "Összefüggő"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Emlékeztető"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Emlékeztető: {$dateReminded}"
 
 msgid "common.remote"

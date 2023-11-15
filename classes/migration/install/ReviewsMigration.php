@@ -71,7 +71,10 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->smallInteger('declined')->default(0);
             $table->smallInteger('cancelled')->default(0);
             $table->datetime('date_rated')->nullable();
-            $table->datetime('date_reminded')->nullable();
+            $table->datetime('date_invite_reminded')->nullable();
+            $table->smallInteger('count_invite_reminder')->default(0);
+            $table->datetime('date_submit_reminded')->nullable();
+            $table->smallInteger('count_submit_reminder')->default(0);
             $table->smallInteger('quality')->nullable();
 
             $table->bigInteger('review_round_id');

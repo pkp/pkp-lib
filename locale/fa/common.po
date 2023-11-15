@@ -728,10 +728,10 @@ msgstr "بارگذاری مجدد صفحه"
 msgid "common.related"
 msgstr "موارد مربوطه"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "یادآوری"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "یادآوری شده در تاریخ: {$dateReminded}"
 
 msgid "common.remote"

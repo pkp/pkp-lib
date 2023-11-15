@@ -745,10 +745,10 @@ msgstr "Ažurirati"
 msgid "common.related"
 msgstr "Povezano"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Podsjetnik"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Podsjetnik: {$dateReminded}"
 
 msgid "common.remote"

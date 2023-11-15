@@ -741,10 +741,10 @@ msgstr "Segarkan semula"
 msgid "common.related"
 msgstr "Berkaitan"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Peringatan"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Diingatkan: {$dateReminded}"
 
 msgid "common.remote"

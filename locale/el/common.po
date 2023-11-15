@@ -753,10 +753,10 @@ msgstr "Ανανέωση"
 msgid "common.related"
 msgstr "Σχετικό"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Υπενθύμιση"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Έγινε υπενθύμιση στις: {$dateReminded}"
 
 msgid "common.remote"

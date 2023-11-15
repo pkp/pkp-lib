@@ -742,10 +742,10 @@ msgstr "Làm tươi"
 msgid "common.related"
 msgstr "Liên quan với"
 
-msgid "common.reminder"
+msgid "common.submit.reminder"
 msgstr "Nhắc nhở"
 
-msgid "common.reminded.date"
+msgid "common.submit.reminded.date"
 msgstr "Ngày nhắc nhở: {$dateReminded}"
 
 msgid "common.remote"

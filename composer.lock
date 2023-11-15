@@ -7922,16 +7922,16 @@
         },
         {
             "name": "tinymce/tinymce",
-            "version": "5.10.8",
+            "version": "5.10.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tinymce/tinymce-dist.git",
-                "reference": "b9c50833d455adcf5ae89a6da7648ae5d65468df"
+                "reference": "e5650a256f8941a0593ec0b9d3c435f20f1d4245"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/b9c50833d455adcf5ae89a6da7648ae5d65468df",
-                "reference": "b9c50833d455adcf5ae89a6da7648ae5d65468df",
+                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/e5650a256f8941a0593ec0b9d3c435f20f1d4245",
+                "reference": "e5650a256f8941a0593ec0b9d3c435f20f1d4245",
                 "shasum": ""
             },
             "type": "component",
@@ -7973,9 +7973,9 @@
                 "wysiwyg"
             ],
             "support": {
-                "source": "https://github.com/tinymce/tinymce-dist/tree/5.10.8"
+                "source": "https://github.com/tinymce/tinymce-dist/tree/5.10.9"
             },
-            "time": "2023-10-19T03:02:47+00:00"
+            "time": "2023-11-15T00:42:08+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -11614,5 +11614,5 @@
     "platform-overrides": {
         "php": "8.1.0"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

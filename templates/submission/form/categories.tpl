@@ -7,7 +7,7 @@
  *
  * Include categories for submissions.
  *}
-{if count($categories)}
+{if $categories && is_array($categories) && count($categories)}
 	{if $readOnly}
 		{fbvFormSection title="grid.category.categories" list=true}
 			{foreach from=$categories item="category" key="id"}

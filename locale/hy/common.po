@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-10 23:16+0000\n"
+"PO-Revision-Date: 2023-11-17 15:38+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy/>\n"
@@ -773,7 +773,9 @@ msgid "common.replaceFile"
 msgstr "Տեղափոխել ֆայլը"
 
 msgid "common.requiredField"
-msgstr "* Պահանջվող դաշտ"
+msgstr ""
+"Պահանջվող դաշտերը նշված են աստղանիշով՝ <abbr class=\"required\" title="
+"\"required\">*</abbr>"
 
 msgid "common.required"
 msgstr "Պահանջված"

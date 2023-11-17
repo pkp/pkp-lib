@@ -18,55 +18,13 @@
 
 namespace PKP\search;
 
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use PKP\core\PKPString;
 
 class SubmissionSearchDAO extends \PKP\db\DAO
 {
-    public const MAX_KEYWORD_LENGTH = 60;
-
-    /**
-     * Add a word to the keyword list (if it doesn't already exist).
-     *
-     * @param string $keyword
-     *
-     * @return ?int the keyword ID
-     */
-    public function insertKeyword($keyword)
-    {
-        if (PKPString::strlen($keyword) > self::MAX_KEYWORD_LENGTH) {
-            return null;
-        }
-
-        static $submissionSearchKeywordIds = [];
-        if (isset($submissionSearchKeywordIds[$keyword])) {
-            return $submissionSearchKeywordIds[$keyword];
-        }
-        $result = $this->retrieve(
-            'SELECT keyword_id FROM submission_search_keyword_list WHERE keyword_text = ?',
-            [$keyword]
-        );
-        if ($row = $result->current()) {
-            $keywordId = $row->keyword_id;
-        } else {
-            if ($this->update(
-                'INSERT INTO submission_search_keyword_list (keyword_text) VALUES (?)',
-                [$keyword],
-                true,
-                false
-            )) {
-                $keywordId = $this->_getInsertId();
-            } else {
-                $keywordId = null; // Bug #2324
-            }
-        }
-
-        $submissionSearchKeywordIds[$keyword] = $keywordId;
-
-        return $keywordId;
-    }
-
     /**
      * Delete all keywords for a submission.
      *
@@ -76,24 +34,11 @@ class SubmissionSearchDAO extends \PKP\db\DAO
      */
     public function deleteSubmissionKeywords($submissionId, $type = null, $assocId = null)
     {
-        $sql = 'SELECT object_id FROM submission_search_objects WHERE submission_id = ?';
-        $params = [(int) $submissionId];
-
-        if (isset($type)) {
-            $sql .= ' AND type = ?';
-            $params[] = (int) $type;
-        }
-
-        if (isset($assocId)) {
-            $sql .= ' AND assoc_id = ?';
-            $params[] = (int) $assocId;
-        }
-
-        $result = $this->retrieve($sql, $params);
-        foreach ($result as $row) {
-            $this->update('DELETE FROM submission_search_object_keywords WHERE object_id = ?', [$row->object_id]);
-            $this->update('DELETE FROM submission_search_objects WHERE object_id = ?', [$row->object_id]);
-        }
+        DB::table('submission_search_objects')
+            ->where('submission_id', '=', $submissionId)
+            ->when(isset($type), fn (Builder $query) => $query->where('type', '=', $type))
+            ->when(isset($assocId), fn (Builder $query) => $query->where('assoc_id', '=', $assocId))
+            ->delete();
     }
 
     /**
@@ -101,29 +46,31 @@ class SubmissionSearchDAO extends \PKP\db\DAO
      *
      * @param int $submissionId
      * @param int $type
-     * @param int $assocId
+     * @param ?int $assocId
      *
      * @return int the object ID
      */
-    public function insertObject($submissionId, $type, $assocId, $keepExisting = false)
+    public function insertObject($submissionId, $type, $assocId)
     {
-        $result = $this->retrieve(
-            'SELECT object_id FROM submission_search_objects WHERE submission_id = ? AND type = ? AND assoc_id = ?',
-            [(int) $submissionId, (int) $type, (int) $assocId]
-        );
-        if ($row = $result->current()) {
-            $this->update(
-                'DELETE FROM submission_search_object_keywords WHERE object_id = ?',
-                [(int) $row->object_id]
-            );
-            return $row->object_id;
-        } else {
-            $this->update(
-                'INSERT INTO submission_search_objects (submission_id, type, assoc_id) VALUES (?, ?, ?)',
-                [(int) $submissionId, (int) $type, (int) $assocId]
-            );
-            return $this->_getInsertId();
+        $objectId = DB::table('submission_search_objects')
+            ->where('submission_id', '=', $submissionId)
+            ->where('type', '=', $type)
+            ->when($assocId !== null, fn (Builder $query) => $query->where('assoc_id', '=', $assocId))
+            ->value('object_id');
+
+        if ($objectId) {
+            // Clear the old keywords
+            DB::table('submission_search_object_keywords')
+                ->where('object_id', '=', $objectId)
+                ->delete();
+            return $objectId;
         }
+
+        return DB::table('submission_search_objects')->insertGetId([
+            'submission_id' => $submissionId,
+            'type' => $type,
+            'assoc_id' => $assocId
+        ], 'object_id');
     }
 
     /**
@@ -131,33 +78,69 @@ class SubmissionSearchDAO extends \PKP\db\DAO
      */
     public function insertObjectKeywords(int $objectId, array $keywords): void
     {
-        // Get the latest position if exists
-        $position = DB::table('submission_search_object_keywords')->where('object_id', $objectId)->max('pos');
-        if ($position === null) {
-            $position = -1;
-        }
+        /** @var array<string,?int> */
+        static $keywordMap = [];
 
-        $collection = collect();
-        foreach ($keywords as $keyword) {
-            $keywordId = $this->insertKeyword($keyword);
-            if ($keywordId === null) {
-                continue;
-            } // Bug #2324
+        // Discard long keywords
+        $keywords = collect($keywords)
+            ->filter(fn (string $keyword) => PKPString::strlen($keyword) <= SubmissionSearchIndex::SEARCH_KEYWORD_MAX_LENGTH);
 
-            $collection->push([
-                'object_id' => $objectId,
-                'keyword_id' => $keywordId,
-                'pos' => ++$position,
-            ]);
-        }
-        if ($collection->isEmpty()) {
+        // Quit if there's no keywords
+        if (!$keywords->count()) {
             return;
         }
 
-        $chunks = $collection->chunk(1000);
-        foreach ($chunks as $chunk) {
-            DB::table('submission_search_object_keywords')->insert($chunk->toArray());
-        }
+        $chunkedUnmappedKeywords = $keywords
+            // Skip mapped keywords
+            ->diff(array_keys($keywordMap))
+            // Chunk by 1000
+            ->chunk(1000);
+
+        $chunkedUnmappedKeywords->map(function (Collection $keywords) use (&$keywordMap) {
+            $missingKeywords = collect();
+            // Update the map with the existing IDs. Due to the database collation, very similar keywords might end up with the same ID
+            foreach ($this->getKeywordIdMap($keywords) as $keyword => $id) {
+                if ($id) {
+                    $keywordMap[$keyword] = $id;
+                } else {
+                    $missingKeywords->push($keyword);
+                }
+            }
+
+            // Batch insert keywords that don't exist using the "ignore" feature to deal with collation issues (e.g. attempt to insert "a" and "ã" at the same time might fail)
+            // This isn't executed first just to avoid "burning" IDs due to existing keywords
+            DB::table('submission_search_keyword_list')->insertOrIgnore(
+                $missingKeywords
+                    ->map(fn (string $keyword) => ['keyword_text' => $keyword])
+                    ->toArray()
+            );
+
+            // Grab the the map with the new IDs
+            foreach ($this->getKeywordIdMap($missingKeywords) as $keyword => $id) {
+                $keywordMap[$keyword] = $id;
+            }
+        });
+
+        // Get the current position
+        $position = DB::table('submission_search_object_keywords')
+            ->where('object_id', $objectId)
+            ->max('pos') ?? -1;
+
+        $keywords
+            // Skip missed keywords (probably not needed, present for correctness)
+            ->filter(fn (string $keyword) => isset($keywordMap[$keyword]))
+            // Convert to batch insert format
+            ->map(function (string $keyword) use (&$position, $objectId, $keywordMap) {
+                return [
+                    'object_id' => $objectId,
+                    'keyword_id' => $keywordMap[$keyword],
+                    'pos' => ++$position
+                ];
+            })
+            // Chunk by 1000
+            ->chunk(1000)
+            // Batch insert
+            ->map(fn (Collection $data) => DB::table('submission_search_object_keywords')->insert($data->toArray()));
     }
 
     /**
@@ -165,9 +148,29 @@ class SubmissionSearchDAO extends \PKP\db\DAO
      */
     public function clearIndex()
     {
-        $this->update('DELETE FROM submission_search_object_keywords');
-        $this->update('DELETE FROM submission_search_objects');
-        $this->update('DELETE FROM submission_search_keyword_list');
+        DB::table('submission_search_objects')->delete();
+        DB::table('submission_search_keyword_list')->delete();
+    }
+
+    /**
+     * Retrieves a keyword => ID map for the given keywords
+     *
+     * @param Collection<int,string>
+     * @return Collection<string,int>
+     */
+    private function getKeywordIdMap(Collection $keywords): Collection
+    {
+        if (!$keywords->count()) {
+            return collect();
+        }
+
+        // Generates a temporary keyword table (sequence of "SELECT ? AS keyword UNION ALL SELECT ?...")
+        return DB::table(
+            DB::raw('(SELECT ? AS keyword' . str_repeat(' UNION ALL SELECT ?', $keywords->count() - 1) . ') AS tmp')
+        )
+            ->setBindings($keywords->toArray(), 'from')
+            ->leftJoin('submission_search_keyword_list AS sskl', 'sskl.keyword_text', '=', 'tmp.keyword')
+            ->pluck('sskl.keyword_id', 'tmp.keyword');
     }
 }
 

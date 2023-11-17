@@ -3,13 +3,15 @@
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
+# "Marie-Hélène Vézina [UdeMontréal]" <marie-helene.vezina@umontreal.ca>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-09-22 13:06+0000\n"
-"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
+"PO-Revision-Date: 2023-11-01 14:38+0000\n"
+"Last-Translator: \"Marie-Hélène Vézina [UdeMontréal]\" <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -17,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 # localization file for fr_CA. Last revision 2019-10-23T01:54:57 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "manager.website.information"
@@ -3834,3 +3836,11 @@ msgid "plugins.importexport.common.error.publicationCoverImageMissing"
 msgstr ""
 "L'image de couverture de la publication {$id} n'a pas été exportée, son "
 "fichier n'a pu être trouvé à l'adresse: \"{$path}\"."
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Êtes-vous certain.e de vouloir supprimer {$title}? Cette action est "
+"irréversible."
+
+msgid "manager.highlights.image"
+msgstr "Image"

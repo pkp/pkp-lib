@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-25 15:55+0000\n"
+"PO-Revision-Date: 2023-11-03 11:03+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
 "19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Informācija"
@@ -202,7 +202,7 @@ msgstr "Piešķirt DOI"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
-"Jūs gatavojaties piešķirt jaunus DOI {$$count} vienībām jebkurai atbilstošai "
+"Jūs gatavojaties piešķirt jaunus DOI {$count} vienībām jebkurai atbilstošai "
 "vienībai, kurai vēl nav piešķirts DOI. Vai tiešām vēlaties piešķirt DOI šīm "
 "vienībām?"
 
@@ -767,15 +767,15 @@ msgstr "Recenzenta intereses"
 
 msgid "manager.reviewerSearch.form.instructions"
 msgstr ""
-"Izmantojiet tālāk norādīto veidlapu, lai iestatītu maksimālās vērtības "
-"terminiem, kurus vēlaties meklēt.  Veidlapa ir iepriekš aizpildīta ar "
+"Izmantojiet tālāk norādīto formu, lai iestatītu maksimālās vērtības "
+"terminiem, kurus vēlaties meklēt.  Forma ir iepriekš aizpildīta ar "
 "aprēķinātajiem šo lauku vidējiem lielumiem."
 
 msgid "manager.roles"
 msgstr "Lomas"
 
 msgid "manager.setup.statistics"
-msgstr "Satistika"
+msgstr "Statistika"
 
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr "Ģeogrāfiskā statistika"
@@ -1055,7 +1055,7 @@ msgid "manager.setup.notifyAllAuthors"
 msgstr "Paziņot visiem autoriem"
 
 msgid "manager.setup.notifyAllAuthors.description"
-msgstr "Kam jāsaņem paziņojuma e-pasts par redakcijas lēmuma reģistrēšanu?"
+msgstr "Kam jāsaņem paziņojuma e-pasts par redakcionālā lēmuma reģistrēšanu?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
 msgstr "Nosūtīt e-pasta paziņojumu visiem iesniegtā materiāla autoriem."
@@ -1339,7 +1339,7 @@ msgstr "Redakcionālie piešķīrumi"
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
 "Atlasiet redakcijas lietotājus, kuriem automātiski jāpiešķir visi jaunie "
-"iesniegutie materiāli šajā sadaļā."
+"iesniegtie materiāli šajā sadaļā."
 
 msgid "manager.sections.form.assignEditorAs"
 msgstr "Piešķirt {$name} kā {$role}"
@@ -1404,58 +1404,67 @@ msgstr ""
 "apstrādes veidiem."
 
 msgid "plugins.categories.paymethod"
-msgstr ""
+msgstr "Maksājumu spraudņi"
 
 msgid "plugins.categories.reports.description"
 msgstr ""
+"Pārskatu spraudņi tiek izmantoti, lai īstenotu dažāda veida pārskatus un "
+"datu izvilkumus."
 
 msgid "plugins.categories.reports"
-msgstr ""
+msgstr "Ziņojumu spraudņi"
 
 msgid "plugins.categories.themes.description"
-msgstr ""
+msgstr "Lai mainītu sistēmas izskatu, var izmantot tēmas spraudņus."
 
 msgid "plugins.categories.themes"
-msgstr ""
+msgstr "Tēmas spraudņi"
 
 msgid "plugins.categories.oaiMetadataFormats"
-msgstr ""
+msgstr "OAI metadatu formāta spraudņi"
 
 msgid "plugins.categories.oaiMetadataFormats.description"
-msgstr ""
+msgstr "Šie formāta spraudņi izsaka metadatus OAI saziņā."
 
 msgid "plugins.categories.pubIds"
-msgstr ""
+msgstr "Publisko identifikatoru spraudņi"
 
 msgid "plugins.categories.pubIds.description"
-msgstr ""
+msgstr "Šie spraudņi nodrošina publiskā identifikatora atbalstu."
 
 msgid "manager.plugins.copyError"
 msgstr ""
+"Spraudnis netika veiksmīgi nokopēts. Iespējams, tā ir atļauju problēma. "
+"Pārliecinieties, ka tīmekļa serveris var rakstīt uz spraudņu direktoriju ("
+"ieskaitot apakšdirektorijas), bet neaizmirstiet to vēlāk atkal nodrošināt."
 
 msgid "manager.plugins.delete"
-msgstr ""
+msgstr "Dzēst spraudni"
 
 msgid "manager.plugins.installConfirm"
-msgstr ""
+msgstr "Vai tiešām vēlaties instalēt šo spraudni?"
 
 msgid "manager.plugins.upgradeConfirm"
-msgstr ""
+msgstr "Vai tiešām vēlaties atjaunināt šo spraudni?"
 
 msgid "grid.action.installPlugin"
-msgstr ""
+msgstr "Instalēt vai atjaunināt šo spraudni"
 
 msgid "manager.plugins.deleteConfirm"
-msgstr ""
+msgstr "Vai tiešām vēlaties izdzēst šo spraudni no sistēmas?"
 
 msgid "manager.plugins.deleteDescription"
-msgstr ""
+msgstr "Noklikšķinot uz dzēst, tiks dzēsts spraudnis no servera failu sistēmas."
 
 msgid "manager.plugins.deleteError"
 msgstr ""
+"Spraudni \"{$pluginName}\" nav iespējams izdzēst no failu sistēmas. "
+"Iespējams, tā ir atļauju problēma. Pārliecinieties, ka tīmekļa serveris var "
+"rakstīt uz spraudņu direktoriju (ieskaitot apakšdirektorijas), bet "
+"neaizmirstiet to vēlāk atkal nodrošināt."
 
 msgid "manager.plugins.deleteSuccess"
-msgstr ""
+msgstr "Spraudnis \"{$pluginName}\" veiksmīgi dzēsts"
 
 msgid "manager.plugins.description"
 msgstr ""
@@ -1536,61 +1545,68 @@ msgid "manager.plugins.installedVersionOlder"
 msgstr ""
 
 msgid "manager.plugins.installedVersionNewest"
-msgstr ""
+msgstr "Spraudnis jau ir instalēts un atjaunināts."
 
 msgid "manager.plugins.installedVersionNewer.short"
-msgstr ""
+msgstr "Jaunāka nekā pieejamā versija"
 
 msgid "manager.plugins.installedVersionOlder.short"
-msgstr ""
+msgstr "Iespējams atjaunināt"
 
 msgid "manager.plugins.installedVersionNewest.short"
-msgstr ""
+msgstr "Atjaunināts"
 
 msgid "manager.plugins.noCompatibleVersion.short"
-msgstr ""
+msgstr "Nav pieejams"
 
 msgid "manager.plugins.installFailed"
-msgstr ""
+msgstr "Instalēšana neizdevās. {$errorString}"
 
 msgid "manager.plugins.installSuccessful"
-msgstr ""
+msgstr "Veiksmīgi instalēta versija {$versionNumber}"
 
 msgid "manager.plugins.invalidPluginArchive"
 msgstr ""
+"Augšupielādētajā spraudņa arhīvā nav mapes, kas atbilst spraudņa nosaukumam."
 
 msgid "manager.plugins.wrongCategory"
-msgstr ""
+msgstr "Augšupielādētais spraudnis neatbilst atjauninātā spraudņa kategorijai."
 
 msgid "manager.plugins.wrongName"
 msgstr ""
+"Augšupielādētā spraudņa version.xml satur spraudņa nosaukumu, kas neatbilst "
+"atjauninātā spraudņa nosaukumam."
 
 msgid "manager.plugins.pleaseInstall"
-msgstr ""
+msgstr "Spraudnis neeksistē. Lūdzu, tā vietā lietot Uzstādīt"
 
 msgid "manager.plugins.pleaseUpgrade"
 msgstr ""
+"Spraudnis jau pastāv, bet ir jaunāks par instalēto versiju. Lūdzu, tā vietā "
+"izmantot Atjaunināt"
 
 msgid "manager.plugins.settings"
-msgstr ""
+msgstr "Iestatījumi"
 
 msgid "manager.plugins.upgrade"
-msgstr ""
+msgstr "Atjaunināt spraudni"
 
 msgid "manager.plugins.upgradeDescription"
 msgstr ""
+"Šī forma ļauj atjaunināt spraudni. Lūdzu, pārliecinieties, ka spraudnis ir "
+"saspiests kā .tar.gz fails."
 
 msgid "manager.plugins.upgradeFailed"
-msgstr ""
+msgstr "Atjaunināšana neizdevās. {$errorString}"
 
 msgid "manager.plugins.upgradeSuccessful"
-msgstr ""
+msgstr "Veiksmīgi atjaunināts uz versiju {$versionString}"
 
 msgid "manager.plugins.uploadError"
-msgstr ""
+msgstr "Kļūda augšupielādējot datni"
 
 msgid "manager.plugins.uploadPluginDir"
-msgstr ""
+msgstr "Atlasīt spraudņa datni"
 
 msgid "manager.plugins.versionFileInvalid"
 msgstr ""
@@ -1935,7 +1951,7 @@ msgid "manager.reviewFormElements.smalltextfield"
 msgstr ""
 
 msgid "manager.reviewFormElements.textarea"
-msgstr ""
+msgstr "Paplašinātais teksta lauks"
 
 msgid "manager.reviewFormElements.textfield"
 msgstr ""
@@ -1956,22 +1972,29 @@ msgid "manager.setup.metadata.submission"
 msgstr ""
 
 msgid "manager.setup.metadata.coverage"
-msgstr ""
+msgstr "Aptvērums"
 
 msgid "manager.setup.metadata.coverage.description"
 msgstr ""
+"Aptvērums parasti norāda darba telpisko atrašanās vietu (vietas nosaukums "
+"vai ģeogrāfiskās koordinātas), laika periodu (perioda apzīmējums, datums vai "
+"datumu diapazons) vai jurisdikciju (piemēram, administratīvās vienības "
+"nosaukums)."
 
 msgid "manager.setup.metadata.coverage.enable"
-msgstr ""
+msgstr "Iespējot aptvēruma metadatus"
 
 msgid "manager.setup.metadata.coverage.noRequest"
 msgstr ""
+"Neprasīt autoram sniegt aptvēruma metadatus materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.coverage.request"
-msgstr ""
+msgstr "Lūgt autoru sniegt aptvēruma metadatus materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.coverage.require"
 msgstr ""
+"Pieprasīt autoram sniegt aptvēruma metadatu ieteikumus materiāla "
+"iesniegšanas laikā."
 
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
@@ -2288,7 +2311,7 @@ msgid "manager.navigationMenus.current.description"
 msgstr ""
 
 msgid "manager.navigationMenus.archives.description"
-msgstr "Saite uz laidienu arhīvu."
+msgstr "Saite uz žurnāla numuru arhīvu."
 
 msgid "manager.navigationMenus.announcements.description"
 msgstr ""
@@ -2477,6 +2500,12 @@ msgstr ""
 
 msgid "stats.description.daysToDecision"
 msgstr ""
+"Dienu skaits, kas nepieciešams, lai lielākā daļa iesniegto darbu saņemtu "
+"pirmo redakcionālo lēmumu, piemēram, noraidījumu vai nosūtīšanu "
+"recenzēšanai.<br><br>Šie skaitļi liecina, ka 80 % iesniegto materiālu tiek "
+"izskatīti noteiktajā dienu skaitā.<br><br>Šī statistika apraksta, cik ilgā "
+"laikā lielākā daļa autoru, kas iesniedz darbus jūsu žurnālam, var sagaidīt "
+"lēmumu."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
@@ -2599,7 +2628,7 @@ msgid "stats.name.submissionsPublished"
 msgstr ""
 
 msgid "stats.name.daysToDecision"
-msgstr ""
+msgstr "Dienas līdz pirmajam redakcionālajam lēmumam"
 
 msgid "stats.name.daysToAccept"
 msgstr ""
@@ -2647,7 +2676,7 @@ msgid "plugins.importexport.common.error.unknownContext"
 msgstr ""
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr ""
+msgstr "\"{$submissionId}\" – \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
 msgstr ""
@@ -2841,10 +2870,11 @@ msgid "emailTemplate.variable.statisticsReportNotify.year"
 msgstr ""
 
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr "Laidiena identifikācija, ieskaitot sējumu, numuru, gadu un nosaukumu"
+msgstr ""
+"Žurnāla numura identifikācija, ieskaitot sējumu, numuru, gadu un nosaukumu"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr "Publicētā laidiena URL"
+msgstr "Publicētā žurnāla numura URL"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr ""
@@ -2901,6 +2931,7 @@ msgstr "Esam aicinājuši autorus iesniegt labojumus."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
+"Mēs esam aicinājuši autorus iesniegt labotu versiju tālākai recenzēšanai."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
@@ -3002,6 +3033,11 @@ msgstr ""
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Šis ziņojums informē vecāko redaktoru vai sadaļas redaktoru par to, ka ir "
+"saņemts redakcionāls ieteikums par kādu no viņiem piešķirtajiem materiāliem. "
+"Šo ziņojumu izmanto gadījumos, kad redaktoram ir atļauts tikai ieteikt "
+"redakcionālu lēmumu, kuru var reģistrēt tikai pilnvarotais redaktors. Šo "
+"iespēju var izvēlēties, piešķirot dalībniekus kādam materiālam."
 
 msgid "mailable.reviewConfirm.name"
 msgstr ""
@@ -3132,10 +3168,12 @@ msgstr ""
 "uz to tiek atbildēts."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Paziņojums par labotu versiju"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
+"Šis e-pasts tiek automātiski nosūtīts piešķirtajam redaktoram, kad autors "
+"augšupielādē labotu raksta versiju."
 
 msgid "mailable.announcementNotify.name"
 msgstr ""
@@ -3162,10 +3200,12 @@ msgid "manager.people.authSource"
 msgstr ""
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Materiāls nosūtīts atpakaļ recenzēšanai"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Šajā e-pastā autors tiek informēts par to, ka viņa materiāls ir nosūtīts "
+"atpakaļ uz recenzēšanas posmu."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr ""
@@ -3225,10 +3265,12 @@ msgid "manager.submissionAck.allAuthors"
 msgstr ""
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Redakcionālie lēmumi"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Konfigurēt e-pasta paziņojumus, kas tiks nosūtīti autoriem pēc redakcionālā "
+"lēmuma reģistrēšanas."
 
 msgid "manager.forEditors"
 msgstr ""
@@ -3237,16 +3279,19 @@ msgid "manager.forEditors.description"
 msgstr ""
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Redakcionālā statistika"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Sūtīt vai nesūtīt ikmēneša e-pastu redaktoriem ar žurnāla redakcionālo "
+"statistiku, piemēram, pieņemto un noraidīto darbu skaitu. Redaktori var "
+"atteikties no šī e-pasta saņemšanas savā lietotāja profilā."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Nosūtīt ikmēneša e-pastu redaktoriem."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Nesūtīt e-pastu redaktoriem."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
@@ -3294,7 +3339,7 @@ msgid "mailable.submissionNeedsEditor.name"
 msgstr ""
 
 msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
-msgstr "Materiāla datne {$id} tika izlaista, jo tam nav derīgu labojumu."
+msgstr "Materiāla datne {$id} tika izlaista, jo tai nav derīgu labojumu."
 
 msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
 msgstr ""
@@ -3304,3 +3349,27 @@ msgstr ""
 msgid "manager.setup.notifyUsers.queued"
 msgstr ""
 "E-pasti tiek veiksmīgi sakārtoti rindā, lai tos nosūtītu pēc iespējas ātrāk."
+
+msgid "manager.highlights.delete"
+msgstr "Dzēst izcēlumu"
+
+msgid "manager.highlights.edit"
+msgstr "Rediģēt izcēlumu"
+
+msgid "manager.highlights.image"
+msgstr "Attēls"
+
+msgid "manager.highlights.urlText"
+msgstr "Pogas marķējums"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Izceltās pogas iezīme, piemēram, \"Lasīt vairāk\"."
+
+msgid "manager.highlights.add"
+msgstr "Pievienot izcēlumu"
+
+msgid "manager.highlights.confirmDelete"
+msgstr "Vai tiešām vēlaties dzēst {$title}? Šo darbību nevar atsaukt."
+
+msgid "manager.highlights.url.description"
+msgstr "Pilns izceltās pogas URL, tostarp https://."

@@ -172,9 +172,6 @@ msgstr ""
 "Sorry, the link you clicked on has expired or is not valid. Please try "
 "resetting your password again."
 
-msgid "user.login.lostPassword.invalidUser"
-msgstr "No user exists with the specified email address."
-
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
 "Password has been updated successfully. Please login with updated password."

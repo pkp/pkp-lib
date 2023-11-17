@@ -1,12 +1,14 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2023.
 # Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
+# "Marie-Hélène Vézina [UdeMontréal]" <marie-helene.vezina@umontreal.ca>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-08-16 15:57+0000\n"
-"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
+"PO-Revision-Date: 2023-11-01 14:38+0000\n"
+"Last-Translator: \"Marie-Hélène Vézina [UdeMontréal]\" <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "user/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -14,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 # localization file for fr_CA. Last revision 2019-10-23T01:54:34 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "user.accountInformation"
@@ -175,11 +177,11 @@ msgstr ""
 msgid "user.login"
 msgstr "Se connecter"
 
-#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
-"Une confirmation a été envoyée à votre adresse de courriel. Veuillez suivre "
-"les instructions dans le courriel pour réinitialiser votre mot de passe."
+"Une confirmation a été envoyée à votre adresse de courriel si un compte lié "
+"a été trouvé. Veuillez suivre les instructions dans le courriel pour "
+"réinitialiser votre mot de passe."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr ""

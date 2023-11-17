@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-22 13:06+0000\n"
+"PO-Revision-Date: 2023-11-01 14:38+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/lv/"
 ">\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
 "19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Nav vienību"
@@ -59,7 +59,7 @@ msgid "grid.action.unassignReviewer"
 msgstr "Atcelt šo recenzentu"
 
 msgid "grid.action.approveCopyedit"
-msgstr "Apstiprināt šo rediģēto datni, lai to nosūtītu uz nākamo posmu"
+msgstr "Apstiprināt šo literāri rediģēto datni, lai to nosūtītu uz nākamo posmu"
 
 msgid "grid.action.reload"
 msgstr "Pārlādēt"
@@ -86,7 +86,7 @@ msgid "grid.action.deleteSection"
 msgstr "Dzēst sadaļu"
 
 msgid "grid.action.editorialHistory"
-msgstr "Rediģēšanas vēsture"
+msgstr "Redakcionālā vēsture"
 
 msgid "grid.action.remove"
 msgstr "Noņemt"
@@ -137,7 +137,7 @@ msgid "grid.action.cancelOrdering"
 msgstr "Atcelt kārtošanu"
 
 msgid "grid.action.extendAll"
-msgstr "Izvērst visu"
+msgstr "Paplašināt visu"
 
 msgid "grid.action.collapse"
 msgstr "Sakļaut"
@@ -266,7 +266,7 @@ msgid "grid.action.newRound"
 msgstr "Izveidot jaunu kārtu"
 
 msgid "grid.action.viewReviewGuidelines"
-msgstr "Skatīt recenzēšanas vadlīnijas"
+msgstr "Skatīt Vadlīnijas recenzentiem"
 
 msgid "grid.action.viewCompetingInterestGuidelines"
 msgstr "Skatīt interešu konflikta vadlīniju politiku"
@@ -416,7 +416,7 @@ msgid "grid.action.newVersion"
 msgstr "Izveidot jaunu versiju"
 
 msgid "grid.reviewForm.title"
-msgstr "Recenzēšanas veidlapas"
+msgstr "Recenzenta forma"
 
 msgid "grid.reviewFormElement.responseItems"
 msgstr "Atbildes iespējas"
@@ -431,7 +431,7 @@ msgid "grid.libraryFiles.submission.title"
 msgstr "Iesniegto materiālu bibliotēka"
 
 msgid "grid.libraryFiles.editorial.title"
-msgstr "Redakcijas bibliotēka"
+msgstr "Redakcionālā bibliotēka"
 
 msgid "grid.libraryFiles.review.title"
 msgstr "Recenzēšanas bibliotēka"

@@ -173,47 +173,42 @@ class LoginHandler extends Handler {
 		$userDao = DAORegistry::getDAO('UserDAO'); /** @var UserDAO $userDao */
 		$user = $userDao->getUserByEmail($email);
 
-		if ($user == null || ($hash = Validation::generatePasswordResetHash($user->getId())) == false) {
-			$templateMgr
-				->assign('error', 'user.login.lostPassword.invalidUser')
-				->display('frontend/pages/userLostPassword.tpl');
-
-			return;
-		}
-
-		if ($user->getDisabled()) {
-			$templateMgr
-				->assign([
-					'error' => 'user.login.lostPassword.confirmationSentFailedWithReason',
-					'reason' => empty($reason = $user->getDisabledReason() ?? '')
-						? __('user.login.accountDisabled')
-						: __('user.login.accountDisabledWithReason', ['reason' => $reason])
-				])
-				->display('frontend/pages/userLostPassword.tpl');
+		if ($user !== null && ($hash = Validation::generatePasswordResetHash($user->getId())) !== false) {
 			
-			return;
-		}
+			if ($user->getDisabled()) {
+				$templateMgr
+					->assign([
+						'error' => 'user.login.lostPassword.confirmationSentFailedWithReason',
+						'reason' => empty($reason = $user->getDisabledReason() ?? '')
+							? __('user.login.accountDisabled')
+							: __('user.login.accountDisabledWithReason', ['reason' => $reason])
+					])
+					->display('frontend/pages/userLostPassword.tpl');
+				
+				return;
+			}
 
-		// Send email confirming password reset as all check has passed
-		import('lib.pkp.classes.mail.MailTemplate');
-		$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
-		$site = $request->getSite();
-		$this->_setMailFrom($request, $mail, $site);
-		$mail->assignParams([
-			'url' => $request->url(null, 'login', 'resetPassword', $user->getUsername(), array('confirm' => $hash)),
-			'siteTitle' => htmlspecialchars($site->getLocalizedTitle()),
-			'recipientUsername' => $user->getUsername(),
-		]);
-		$mail->addRecipient($user->getEmail(), $user->getFullName());
-		$mail->send();
+			// Send email confirming password reset as all check has passed
+			import('lib.pkp.classes.mail.MailTemplate');
+			$mail = new MailTemplate('PASSWORD_RESET_CONFIRM');
+			$site = $request->getSite();
+			$this->_setMailFrom($request, $mail, $site);
+			$mail->assignParams([
+				'url' => $request->url(null, 'login', 'resetPassword', $user->getUsername(), array('confirm' => $hash)),
+				'siteTitle' => htmlspecialchars($site->getLocalizedTitle()),
+				'recipientUsername' => $user->getUsername(),
+			]);
+			$mail->addRecipient($user->getEmail(), $user->getFullName());
+			$mail->send();
+		}
 
 		$templateMgr->assign([
 			'pageTitle' => 'user.login.resetPassword',
 			'message' => 'user.login.lostPassword.confirmationSent',
-			'backLink' => $request->url(null, $request->getRequestedPage(), null, null, ['username' => $user->getUsername()]),
+			'backLink' => $request->url(null, $request->getRequestedPage(), null, null, $user ? ['username' => $user->getUsername()] : []),
 			'backLinkLabel' => 'user.login',
-		]);
-		$templateMgr->display('frontend/pages/message.tpl');
+		])->display('frontend/pages/message.tpl');
+		
 	}
 
 	/**

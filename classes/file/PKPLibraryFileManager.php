@@ -122,12 +122,10 @@ class PKPLibraryFileManager extends PrivateFileManager
 
     /**
      * Routine to replace a library file from a temporary file.
-     * @param $temporaryFile object
      * @param $libraryFileType int LIBRARY_FILE_TYPE_...
-     * @param $libraryFile LibraryFile 
      * @return LibraryFile|false the updated LibraryFile, or false on error
      */
-    function &replaceFromTemporaryFile(&$temporaryFile, $libraryFileType, $libraryFile) {
+    function replaceFromTemporaryFile(object &$temporaryFile, int $libraryFileType, LibraryFile $libraryFile) {
         $originalServerFilename = $libraryFile->getServerFileName();
 
         $libraryFile = $this->assignFromTemporaryFile($temporaryFile, $libraryFileType, $libraryFile);

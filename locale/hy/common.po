@@ -4,7 +4,7 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-17 15:38+0000\n"
+"PO-Revision-Date: 2023-11-19 14:38+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy/>\n"
@@ -1683,7 +1683,7 @@ msgid "search.cli.rebuildIndex.error"
 msgstr "սխալ"
 
 msgid "search.cli.rebuildIndex.result"
-msgstr "{$numIndexed} ինդեքսավորված հոդված"
+msgstr "{$numIndexed} հոդվածներ, որոնք նախատեսված են ինդեքսավորման համար"
 
 msgid "search.coverage"
 msgstr "Արդյունք"

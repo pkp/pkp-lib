@@ -1,8 +1,9 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-15 15:39+0000\n"
-"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
+"PO-Revision-Date: 2023-11-21 21:11+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/mk/>\n"
 "Language: mk\n"
@@ -10,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Дали сте сигурни дека сакате трајно да го избришете овој поднесок?"
@@ -621,3 +622,6 @@ msgstr "Имаше проблем со чекорот {$stepName}."
 
 #~ msgid "reviewer.list.count"
 #~ msgstr "{$count} рецензенти"
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "Иста институција како автор"

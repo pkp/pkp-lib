@@ -47,13 +47,18 @@ class DataObject
     /** @var bool whether injection adapters have already been loaded from the database */
     public $_injectionAdaptersLoaded = false;
 
+    protected $lazyLoadables = [];
+
+    public function addLazyLoadable(string $name, callable $loadFunction) {
+        $this->lazyLoadables[$name] = $loadFunction;
+    } 
+
     /**
      * Constructor
      */
     public function __construct()
     {
     }
-
 
     //
     // Getters and Setters
@@ -125,6 +130,15 @@ class DataObject
      */
     public function &getData($key, $locale = null)
     {
+        if (array_key_exists($key, $this->lazyLoadables)) {
+            if (array_key_exists($key, $this->_data)) {
+                return $this->_data[$key];
+            } else {
+                $this->_data[$key] = $this->lazyLoadables[$key]();
+                return $this->_data[$key];
+            }
+        }
+
         if (is_null($locale)) {
             if (array_key_exists($key, $this->_data)) {
                 return $this->_data[$key];

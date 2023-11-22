@@ -15,9 +15,17 @@
  */
 
 namespace PKP\userGroup;
+use PKP\db\DAORegistry;
 
 class UserGroup extends \PKP\core\DataObject
 {
+    function __construct() {
+        $this->addLazyLoadable('context', function() {
+            $contextDao = DAORegistry::getDAO('JournalDAO');
+            return $contextDao->getById($this->getData('contextId'));
+        });
+    }
+    
     /**
      * Get the role ID
      *

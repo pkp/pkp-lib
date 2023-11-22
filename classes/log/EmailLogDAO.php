@@ -158,7 +158,7 @@ class EmailLogDAO extends \PKP\db\DAO
                 $this->datetimeToDB($entry->getDateSent())
             ),
             [
-                $entry->getSenderId(),
+                $entry->getSenderId() ?: null,
                 $entry->getEventType(),
                 $entry->getAssocType(),
                 $entry->getAssocId(),

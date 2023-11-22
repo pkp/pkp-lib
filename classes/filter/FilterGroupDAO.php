@@ -70,8 +70,8 @@ class FilterGroupDAO extends \PKP\db\DAO
     {
         $result = $this->retrieve(
             'SELECT * FROM filter_groups' .
-                ' WHERE filter_group_id = ?',
-            [$filterGroupId]
+                ' WHERE COALESCE(filter_group_id, 0) = ?',
+            [(int) $filterGroupId]
         );
         $row = (array) $result->current();
         return $row ? $this->_fromRow($row) : null;

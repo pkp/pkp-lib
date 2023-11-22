@@ -435,6 +435,7 @@ class User extends Identity
      */
     public function getRoles($contextId, $noCache = false)
     {
+        $contextId = (int) $contextId;
         if ($noCache || empty($this->_roles[$contextId])) {
             $userRolesDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $userRolesDao */
             $this->setRoles($userRolesDao->getByUserId($this->getId(), $contextId), $contextId);
@@ -451,6 +452,7 @@ class User extends Identity
      */
     public function setRoles($roles, $contextId)
     {
+        $contextId = (int) $contextId;
         $this->_roles[$contextId] = $roles;
     }
 }

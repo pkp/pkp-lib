@@ -196,7 +196,7 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
                 fn (Builder $q) => $q->from('user_user_groups', 'uug')
                     ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
                     ->whereColumn('uug.user_id', '=', 'u.user_id')
-                    ->whereIn('ug.context_id', $contextIds)
+                    ->whereIn(DB::raw('COALESCE(ug.context_id, 0)'), $contextIds)
                     ->when(!is_null($roleIds), fn (Builder $q) => $q->whereIn('ug.role_id', $roleIds))
             )->pluck('user_id');
     }

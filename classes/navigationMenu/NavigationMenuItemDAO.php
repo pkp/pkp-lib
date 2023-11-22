@@ -56,7 +56,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     public function getByPath($contextId, $path)
     {
         $result = $this->retrieve(
-            'SELECT	* FROM navigation_menu_items WHERE path = ? and context_id = ? and type= ?',
+            'SELECT * FROM navigation_menu_items WHERE path = ? AND COALESCE(context_id, 0) = ? AND type = ?',
             [$path, (int) $contextId, 'NMI_TYPE_CUSTOM']
         );
 
@@ -74,7 +74,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     public function getByContextId($contextId)
     {
         $result = $this->retrieve(
-            'SELECT * FROM navigation_menu_items WHERE context_id = ?',
+            'SELECT * FROM navigation_menu_items WHERE COALESCE(context_id, 0) = ?',
             [(int) $contextId]
         );
 
@@ -114,11 +114,11 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     {
         $result = $this->retrieve(
             'SELECT *
-				FROM navigation_menu_items
-				LEFT JOIN navigation_menu_item_settings ON (navigation_menu_items.navigation_menu_item_id = navigation_menu_item_settings.navigation_menu_item_id)
-				WHERE navigation_menu_items.type = ?
-				AND (navigation_menu_item_settings.setting_name = \'titleLocaleKey\' and navigation_menu_item_settings.setting_value = ?)
-				AND navigation_menu_items.context_id = ?',
+            FROM navigation_menu_items
+            LEFT JOIN navigation_menu_item_settings ON (navigation_menu_items.navigation_menu_item_id = navigation_menu_item_settings.navigation_menu_item_id)
+            WHERE navigation_menu_items.type = ?
+            AND (navigation_menu_item_settings.setting_name = \'titleLocaleKey\' and navigation_menu_item_settings.setting_value = ?)
+            AND COALESCE(navigation_menu_items.context_id, 0) = ?',
             [$menuItemType, $menuItemTitleLocaleKey, (int) $contextId]
         );
         $row = (array) $result->current();
@@ -141,7 +141,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
         }
         $result = $this->retrieve(
             'SELECT	* FROM navigation_menu_items WHERE type = ?' .
-            ($contextId !== null ? ' AND context_id = ?' : ''),
+            ($contextId !== null ? ' AND COALESCE(context_id, 0) = ?' : ''),
             $params
         );
         return new DAOResultFactory($result, $this, '_fromRow');
@@ -223,7 +223,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
 				(?, ?, ?)',
             [
                 $navigationMenuItem->getPath(),
-                (int) $navigationMenuItem->getContextId(),
+                (int) $navigationMenuItem->getContextId() ?: null,
                 $navigationMenuItem->getType(),
             ]
         );
@@ -253,7 +253,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
 				WHERE navigation_menu_item_id = ?',
             [
                 $navigationMenuItem->getPath(),
-                (int) $navigationMenuItem->getContextId(),
+                (int) $navigationMenuItem->getContextId() ?: null,
                 $navigationMenuItem->getType(),
                 (int) $navigationMenuItem->getId(),
             ]

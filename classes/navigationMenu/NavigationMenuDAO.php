@@ -54,7 +54,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
         }
         $result = $this->retrieve(
             'SELECT * FROM navigation_menus WHERE navigation_menu_id = ?' .
-            ($contextId !== null ? ' AND context_id = ?' : ''),
+            ($contextId !== null ? ' AND COALESCE(context_id, 0) = ?' : ''),
             $params
         );
 
@@ -71,7 +71,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
      */
     public function getByContextId($contextId)
     {
-        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE context_id = ?', [(int) $contextId]);
+        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE COALESCE(context_id, 0) = ?', [(int) $contextId]);
         return new DAOResultFactory($result, $this, '_fromRow');
     }
 
@@ -85,7 +85,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
      */
     public function getByArea($contextId, $areaName)
     {
-        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE area_name = ? and context_id = ?', [$areaName, (int) $contextId]);
+        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE area_name = ? AND COALESCE(context_id, 0) = ?', [$areaName, (int) $contextId]);
         return new DAOResultFactory($result, $this, '_fromRow');
     }
 
@@ -99,7 +99,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
      */
     public function getByTitle($contextId, $title)
     {
-        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE context_id = ? and title = ?', [(int) $contextId, $title]);
+        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE COALESCE(context_id, 0) = ? AND title = ?', [(int) $contextId, $title]);
         $row = (array) $result->current();
         return $row ? $this->_fromRow($row) : null;
     }
@@ -114,7 +114,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
      */
     public function navigationMenuExistsByTitle($contextId, $title)
     {
-        $result = $this->retrieve('SELECT COUNT(*) AS row_count FROM navigation_menus WHERE title = ? AND context_id = ?', [$title, (int) $contextId]);
+        $result = $this->retrieve('SELECT COUNT(*) AS row_count FROM navigation_menus WHERE title = ? AND COALESCE(context_id, 0) = ?', [$title, (int) $contextId]);
         $row = (array) $result->current();
         return $row && $row['row_count'] != 0;
     }
@@ -158,7 +158,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
     {
         $this->update(
             'INSERT INTO navigation_menus (title, area_name, context_id) VALUES (?, ?, ?)',
-            [$navigationMenu->getTitle(), $navigationMenu->getAreaName(), (int) $navigationMenu->getContextId()]
+            [$navigationMenu->getTitle(), $navigationMenu->getAreaName(), (int) $navigationMenu->getContextId() ?: null]
         );
         $navigationMenu->setId($this->getInsertId());
         return $navigationMenu->getId();
@@ -182,7 +182,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
             [
                 $navigationMenu->getTitle(),
                 $navigationMenu->getAreaName(),
-                (int) $navigationMenu->getContextId(),
+                (int) $navigationMenu->getContextId() ?: null,
                 (int) $navigationMenu->getId(),
             ]
         );

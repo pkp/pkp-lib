@@ -197,7 +197,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
         $result = $this->retrieve(
             'SELECT * FROM stage_assignments sa'
             . ' JOIN submissions s ON s.submission_id = sa.submission_id'
-            . ' WHERE sa.user_group_id = ? AND s.context_id = ?',
+            . ' WHERE sa.user_group_id = ? AND COALESCE(s.context_id, 0) = ?',
             [(int) $userGroupId, (int) $contextId]
         );
 

@@ -17,6 +17,7 @@ namespace PKP\userGroup\relationships;
 use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Support\Facades\DB;
 
 class UserUserGroup extends \Illuminate\Database\Eloquent\Model
 {
@@ -71,6 +72,6 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
     {
         return $query
             ->join('user_groups as ug', 'user_user_groups.user_group_id', '=', 'ug.user_group_id')
-            ->where('ug.context_id', $contextId);
+            ->where(DB::raw('COALESCE(ug.context_id, 0)'), $contextId);
     }
 }

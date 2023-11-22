@@ -73,7 +73,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
     {
         $pluginName = strtolower_codesafe($pluginName);
         $result = $this->retrieve(
-            'SELECT COUNT(*) AS row_count FROM plugin_settings WHERE plugin_name = ? AND context_id = ? AND setting_name = ?',
+            'SELECT COUNT(*) AS row_count FROM plugin_settings WHERE plugin_name = ? AND COALESCE(context_id, 0) = ? AND setting_name = ?',
             [$pluginName, (int) $contextId, $name]
         );
         $row = $result->current();
@@ -113,7 +113,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
         $pluginName = strtolower_codesafe($pluginName);
 
         $result = $this->retrieve(
-            'SELECT setting_name, setting_value, setting_type FROM plugin_settings WHERE plugin_name = ? AND context_id = ?',
+            'SELECT setting_name, setting_value, setting_type FROM plugin_settings WHERE plugin_name = ? AND COALESCE(context_id, 0) = ?',
             [$pluginName, (int) $contextId]
         );
 
@@ -148,7 +148,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
         $value = $this->convertToDB($value, $type);
 
         DB::table('plugin_settings')->updateOrInsert(
-            ['context_id' => (int) $contextId, 'plugin_name' => $pluginName, 'setting_name' => $name],
+            ['context_id' => (int) $contextId ?: null, 'plugin_name' => $pluginName, 'setting_name' => $name],
             ['setting_value' => $value, 'setting_type' => $type]
         );
     }
@@ -169,7 +169,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
         $cache->setCache($name, null);
 
         return $this->update(
-            'DELETE FROM plugin_settings WHERE plugin_name = ? AND setting_name = ? AND context_id = ?',
+            'DELETE FROM plugin_settings WHERE plugin_name = ? AND setting_name = ? AND COALESCE(context_id, 0) = ?',
             [$pluginName, $name, (int) $contextId]
         );
     }
@@ -189,7 +189,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
         $cache->flush();
 
         return $this->update(
-            'DELETE FROM plugin_settings WHERE context_id = ? AND plugin_name = ?',
+            'DELETE FROM plugin_settings WHERE COALESCE(context_id, 0) = ? AND plugin_name = ?',
             [(int) $contextId, $pluginName]
         );
     }
@@ -202,7 +202,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
     public function deleteByContextId($contextId)
     {
         return $this->update(
-            'DELETE FROM plugin_settings WHERE context_id = ?',
+            'DELETE FROM plugin_settings WHERE COALESCE(context_id, 0) = ?',
             [(int) $contextId]
         );
     }

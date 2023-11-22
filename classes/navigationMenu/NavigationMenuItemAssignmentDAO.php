@@ -130,9 +130,9 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     {
         $result = $this->retrieve(
             'SELECT nmh.*
-				FROM navigation_menu_item_assignments as nmh
-				WHERE nmh.navigation_menu_id = ?
-				AND nmh.parent_id = ?',
+            FROM navigation_menu_item_assignments as nmh
+            WHERE nmh.navigation_menu_id = ?
+            AND COALESCE(nmh.parent_id, 0) = ?',
             [(int) $menuId, (int) $parentId]
         );
         return new DAOResultFactory($result, $this, '_fromRow');
@@ -180,7 +180,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
             [
                 (int) $navigationMenuItemAssignment->getMenuId(),
                 (int) $navigationMenuItemAssignment->getMenuItemId(),
-                (int) $navigationMenuItemAssignment->getParentId(),
+                (int) $navigationMenuItemAssignment->getParentId() ?: null,
                 (int) $navigationMenuItemAssignment->getSequence(),
                 (int) $navigationMenuItemAssignment->getId(),
             ]
@@ -207,7 +207,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
             [
                 (int) $assignment->getMenuId(),
                 (int) $assignment->getMenuItemId(),
-                (int) $assignment->getParentId(),
+                (int) $assignment->getParentId() ?: null,
                 (int) $assignment->getSequence(),
             ]
         );

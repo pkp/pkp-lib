@@ -48,7 +48,7 @@ class RoleDAO extends DAO
         $roleId = is_array($roleId) ? join(',', array_map('intval', $roleId)) : (int) $roleId;
         $result = $this->retrieve(
             'SELECT count(*) AS row_count FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE ug.context_id = ? AND uug.user_id = ? AND ug.role_id IN (' . $roleId . ')',
+            WHERE COALESCE(ug.context_id, 0) = ? AND uug.user_id = ? AND ug.role_id IN (' . $roleId . ')',
             [(int) $contextId, (int) $userId]
         );
         $row = (array) $result->current();
@@ -70,10 +70,10 @@ class RoleDAO extends DAO
             $params[] = (int) $contextId;
         }
         $result = $this->retrieve(
-            'SELECT	DISTINCT ug.role_id AS role_id
-			FROM	user_groups ug
-				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE	uug.user_id = ?' . ($contextId !== null ? ' AND ug.context_id = ?' : ''),
+            'SELECT DISTINCT ug.role_id AS role_id
+            FROM user_groups ug
+                JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
+            WHERE uug.user_id = ?' . ($contextId !== null ? ' AND COALESCE(ug.context_id, 0) = ?' : ''),
             $params
         );
 
@@ -102,7 +102,7 @@ class RoleDAO extends DAO
         foreach ($userGroups as $userGroup) {
             $role = $roleDao->newDataObject();
             $role->setRoleId($userGroup->getRoleId());
-            $roles[$userGroup->getContextId()][$userGroup->getRoleId()] = $role;
+            $roles[(int) $userGroup->getContextId()][$userGroup->getRoleId()] = $role;
         }
 
         return $roles;

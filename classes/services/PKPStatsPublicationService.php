@@ -89,7 +89,7 @@ abstract class PKPStatsPublicationService
 
         Hook::call('StatsPublication::getCount::queryBuilder', [&$metricsQB, $args]);
 
-        return $metricsQB->getSubmissionIds()->get()->count();
+        return $metricsQB->getSubmissionIds()->safeCount();
     }
 
     /**
@@ -197,7 +197,7 @@ abstract class PKPStatsPublicationService
         $groupBy = [PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID, PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_FILE_ID];
         $metricsQB = $metricsQB->getSum($groupBy);
 
-        return $metricsQB->get()->count();
+        return $metricsQB->safeCount();
     }
 
     /**

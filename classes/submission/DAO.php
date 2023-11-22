@@ -91,7 +91,7 @@ class DAO extends EntityDAO
     {
         return $query
             ->getQueryBuilder()
-            ->count();
+            ->safeCount();
     }
 
     /**

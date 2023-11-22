@@ -31,7 +31,7 @@ class PKPStatsContextQueryBuilder extends PKPStatsQueryBuilder
     {
         return $this->_getObject()
             ->select([PKPStatisticsHelper::STATISTICS_DIMENSION_CONTEXT_ID])
-            ->distinct();
+            ->groupBy(PKPStatisticsHelper::STATISTICS_DIMENSION_CONTEXT_ID);
     }
 
     /**

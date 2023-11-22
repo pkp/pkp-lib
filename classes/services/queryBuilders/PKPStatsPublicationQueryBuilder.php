@@ -111,7 +111,7 @@ abstract class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
     {
         return $this->_getObject()
             ->select(['metrics_submission.' . PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID])
-            ->distinct();
+            ->groupBy(PKPStatisticsHelper::STATISTICS_DIMENSION_SUBMISSION_ID);
     }
 
     /**

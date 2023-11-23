@@ -377,7 +377,18 @@ class DAO extends EntityDAO
                 ->exists();
 
             if (!$exists) {
-                throw new Exception('Tried to install email template as an alternate to `' . $alternateTo . '`, but no default template exists with this key.');
+                trigger_error(
+                    'Tried to install email template as an alternate to `' . $alternateTo . '`, but no default template exists with this key. Installing ' . $alternateTo . ' email template first',
+                    E_USER_WARNING
+                );
+                try {
+                    $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
+                    $site = $siteDao->getSite(); /** @var Site $site */
+                    $locales = $site->getInstalledLocales();
+                    $this->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), $locales, $alternateTo);
+                } catch (Exception $e) {
+                    error_log($e->getMessage());
+                }
             }
 
             DB::table($this->table)->insert([

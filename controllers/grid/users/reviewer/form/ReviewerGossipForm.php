@@ -19,12 +19,16 @@ namespace PKP\controllers\grid\users\reviewer\form;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\form\Form;
+use PKP\user\PrivateNote;
 use PKP\user\User;
 
 class ReviewerGossipForm extends Form
 {
     /** @var User The user to gossip about */
     public $_user;
+
+    /** @var PrivateNote The user's private note */
+    public $_privateNote;
 
     /** @var array Arguments used to route the form op */
     public $_requestArgs;
@@ -33,13 +37,15 @@ class ReviewerGossipForm extends Form
      * Constructor.
      *
      * @param User $user The user to gossip about
+     * @param PrivateNote $privateNote The user's private note
      * @param array $requestArgs Arguments used to route the form op to the
      *  correct submission, stage and review round
      */
-    public function __construct($user, $requestArgs)
+    public function __construct($user, $privateNote, $requestArgs)
     {
         parent::__construct('controllers/grid/users/reviewer/form/reviewerGossipForm.tpl');
         $this->_user = $user;
+        $this->_privateNote = $privateNote;
         $this->_requestArgs = $requestArgs;
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
@@ -52,6 +58,7 @@ class ReviewerGossipForm extends Form
     {
         $this->readUserVars([
             'gossip',
+            'privateNote',
         ]);
     }
 
@@ -66,6 +73,7 @@ class ReviewerGossipForm extends Form
         $templateMgr->assign([
             'requestArgs' => $this->_requestArgs,
             'gossip' => $this->_user->getGossip(),
+            'privateNote' => $this->_privateNote->getNote(),
         ]);
 
         return parent::fetch($request, $template, $display);
@@ -78,6 +86,12 @@ class ReviewerGossipForm extends Form
     {
         $this->_user->setGossip($this->getData('gossip'));
         Repo::user()->edit($this->_user);
+        $privateNotesDAO = DAORegistry::getDAO('PrivateNotesDAO');
+        $privateNotesDAO->setPrivateNote(
+            $this->_privateNote->getContextId(),
+            $this->_privateNote->getUserId(),
+            $this->getData('privateNote')
+        );
         parent::execute(...$functionArgs);
     }
 }

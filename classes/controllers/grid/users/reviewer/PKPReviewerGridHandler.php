@@ -1011,8 +1011,17 @@ class PKPReviewerGridHandler extends GridHandler
             return new JSONMessage(false, __('user.authorization.roleBasedAccessDenied'));
         }
 
+        $privateNotesDAO = DAORegistry::getDAO('PrivateNotesDAO');
+        $privateNote = $privateNotesDAO->getPrivateNote($request->getContext()->getId(), $user->getId());
+        if (!$privateNote) {
+            $privateNote = $privateNotesDAO->newDataObject();
+            $privateNote->setContextId($request->getContext()->getId());
+            $privateNote->setUserId($user->getId());
+            $privateNote->setNote('');
+        }
+
         $requestArgs = array_merge($this->getRequestArgs(), ['reviewAssignmentId' => $reviewAssignment->getId()]);
-        $reviewerGossipForm = new ReviewerGossipForm($user, $requestArgs);
+        $reviewerGossipForm = new ReviewerGossipForm($user, $privateNote, $requestArgs);
 
         // View form
         if (!$request->isPost()) {

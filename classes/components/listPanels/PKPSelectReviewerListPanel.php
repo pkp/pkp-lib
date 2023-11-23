@@ -121,11 +121,18 @@ class PKPSelectReviewerListPanel extends ListPanel
         ];
 
         if (!empty($this->lastRoundReviewers)) {
-            $config['lastRoundReviewers'] = Repo::user()
+            $reviewers = Repo::user()
                 ->getSchemaMap()
                 ->summarizeManyReviewers($this->lastRoundReviewers)
                 ->values()
                 ->toArray();
+            $contextId = $this->getParams['contextId'];
+            $privateNotesDAO = DAORegistry::getDAO('PrivateNotesDAO');
+            foreach ($reviewers as $key => $reviewer) {
+                $privateNote = $privateNotesDAO->getPrivateNote($contextId, $reviewer['id']);
+                $reviewers[$key]['privateNotes'] = $privateNote ? $privateNote->getNote() : null;
+            }
+            $config['lastRoundReviewers'] = $reviewers;
         }
 
         if (!empty($this->getParams)) {
@@ -147,6 +154,7 @@ class PKPSelectReviewerListPanel extends ListPanel
         $config['declinedReviewsLabel'] = __('reviewer.list.declinedReviews');
         $config['emptyLabel'] = __('reviewer.list.empty');
         $config['gossipLabel'] = __('user.gossip');
+        $config['privateNotesLabel'] = __('user.private.notes');
         $config['neverAssignedLabel'] = __('reviewer.list.neverAssigned');
         $config['reassignLabel'] = __('reviewer.list.reassign');
         $config['reassignWithNameLabel'] = __('reviewer.list.reassign.withName');
@@ -172,8 +180,13 @@ class PKPSelectReviewerListPanel extends ListPanel
         $reviewers = $this->_getCollector()->getMany();
         $items = [];
         $map = Repo::user()->getSchemaMap();
+        $contextId = $request->getContext()->getId();
+        $privateNotesDAO = DAORegistry::getDAO('PrivateNotesDAO');
         foreach ($reviewers as $reviewer) {
-            $items[] = $map->summarizeReviewer($reviewer);
+            $item = $map->summarizeReviewer($reviewer);
+            $privateNote = $privateNotesDAO->getPrivateNote($contextId, $reviewer->getId());
+            $item['privateNotes'] = $privateNote ? $privateNote->getNote() : null;
+            $items[] = $item;
         }
 
         return $items;

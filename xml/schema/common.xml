@@ -231,6 +231,34 @@
 		</index>
 	</table>
 
+    <!--
+      *
+      * TABLE user_private_notes
+      *
+      -->
+    <table name="user_private_notes">
+        <field name="private_note_id" type="I8">
+            <KEY />
+            <AUTOINCREMENT />
+        </field>
+        <field name="context_id" type="I8">
+            <NOTNULL/>
+        </field>
+        <field name="user_id" type="I8">
+            <NOTNULL/>
+        </field>
+        <field name="note" type="X">
+            <NOTNULL/>
+            <DEFAULT VALUE=""/>
+        </field>
+        <descr>User private notes are an addition to the gossip, but this one is private to each context.</descr>
+        <index name="user_private_notes_context_id_user_id">
+            <col>context_id</col>
+            <col>user_id</col>
+            <UNIQUE />
+        </index>
+    </table>
+
 	<!--
 	  *
 	  * TABLE sessions

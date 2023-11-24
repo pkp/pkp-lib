@@ -127,10 +127,9 @@ class PKPSelectReviewerListPanel extends ListPanel
                 ->values()
                 ->toArray();
             $contextId = $this->getParams['contextId'];
-            $privateNotesDAO = DAORegistry::getDAO('PrivateNotesDAO');
             foreach ($reviewers as $key => $reviewer) {
-                $privateNote = $privateNotesDAO->getPrivateNote($contextId, $reviewer['id']);
-                $reviewers[$key]['privateNotes'] = $privateNote ? $privateNote->getNote() : null;
+                $userPrivateNote = Repo::userPrivateNote()->getFirstUserPrivateNote($reviewer->getId(), $contextId);
+                $reviewers[$key]['userPrivateNote'] = $userPrivateNote?->getNote();
             }
             $config['lastRoundReviewers'] = $reviewers;
         }
@@ -154,7 +153,7 @@ class PKPSelectReviewerListPanel extends ListPanel
         $config['declinedReviewsLabel'] = __('reviewer.list.declinedReviews');
         $config['emptyLabel'] = __('reviewer.list.empty');
         $config['gossipLabel'] = __('user.gossip');
-        $config['privateNotesLabel'] = __('user.private.notes');
+        $config['userPrivateNotesLabel'] = __('user.private.notes');
         $config['neverAssignedLabel'] = __('reviewer.list.neverAssigned');
         $config['reassignLabel'] = __('reviewer.list.reassign');
         $config['reassignWithNameLabel'] = __('reviewer.list.reassign.withName');
@@ -181,11 +180,10 @@ class PKPSelectReviewerListPanel extends ListPanel
         $items = [];
         $map = Repo::user()->getSchemaMap();
         $contextId = $request->getContext()->getId();
-        $privateNotesDAO = DAORegistry::getDAO('PrivateNotesDAO');
         foreach ($reviewers as $reviewer) {
             $item = $map->summarizeReviewer($reviewer);
-            $privateNote = $privateNotesDAO->getPrivateNote($contextId, $reviewer->getId());
-            $item['privateNotes'] = $privateNote ? $privateNote->getNote() : null;
+            $userPrivateNote = Repo::userPrivateNote()->getFirstUserPrivateNote($reviewer->getId(), $contextId);
+            $item['userPrivateNote'] = $userPrivateNote?->getNote();
             $items[] = $item;
         }
 

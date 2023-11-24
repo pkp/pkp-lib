@@ -177,9 +177,9 @@ class UserDetailsForm extends UserForm
             $data['canCurrentUserGossip'] = Repo::user()->canCurrentUserGossip($user->getId());
             if ($data['canCurrentUserGossip']) {
                 $data['gossip'] = $user->getGossip();
-                $privateNotesDAO = DAORegistry::getDAO('PrivateNotesDAO');
-                $privateNote = $privateNotesDAO->getPrivateNote($request->getContext()->getId(), $user->getId());
-                $data['privateNote'] = $privateNote ? $privateNote->getNote() : '';
+                $userPrivateNote = Repo::userPrivateNote()
+                    ->getFirstUserPrivateNote($user->getId(), $request->getContext()->getId());
+                $data['userPrivateNote'] = $userPrivateNote ? $userPrivateNote->getNote() : '';
             }
         } elseif (isset($this->author)) {
             $author = $this->author;
@@ -271,7 +271,7 @@ class UserDetailsForm extends UserForm
             'country',
             'biography',
             'gossip',
-            'privateNote',
+            'userPrivateNote',
             'interests',
             'locales',
             'generatePassword',
@@ -405,8 +405,8 @@ class UserDetailsForm extends UserForm
 
         // Users can never view/edit their own private notes fields
         if (Repo::user()->canCurrentUserGossip($userId)) {
-            $privateNotesDAO = DAORegistry::getDAO('PrivateNotesDAO');
-            $privateNotesDAO->setPrivateNote($context->getId(), $userId, $this->getData('privateNote'));
+            $userPrivateNote = Repo::userPrivateNote()->getFirstUserPrivateNote($userId, $context->getId());
+            Repo::userPrivateNote()->edit($userPrivateNote, ['note', $this->getData('userPrivateNote')]);
         }
 
         $interestManager = new InterestManager();

@@ -2,7 +2,7 @@
 	"title": "User Private Note",
 	"description": "A private note associated to the user.",
 	"properties": {
-		"privateNoteId": {
+		"userPrivateNoteId": {
 			"type": "integer",
 			"readOnly": true
 		},

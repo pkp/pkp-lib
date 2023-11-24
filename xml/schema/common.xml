@@ -237,7 +237,7 @@
       *
       -->
     <table name="user_private_notes">
-        <field name="private_note_id" type="I8">
+        <field name="user_private_note_id" type="I8">
             <KEY />
             <AUTOINCREMENT />
         </field>

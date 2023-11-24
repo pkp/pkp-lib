@@ -1,26 +1,26 @@
 <?php
 
 /**
- * @file classes/user/PrivateNote.php
+ * @file classes/user/UserPrivateNote.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PrivateNote
+ * @class UserPrivateNote
  *
  * @ingroup user
  *
- * @see PrivateNotesDAO
+ * @see DAO
  *
  * @brief Basic class describing user private note existing in the system.
  */
 
-namespace PKP\user;
+namespace PKP\userPrivateNote;
 
 use PKP\core\DataObject;
 
-class PrivateNote extends DataObject
+class UserPrivateNote extends DataObject
 {
 	/**
 	 * Get private note ID.
@@ -105,5 +105,5 @@ class PrivateNote extends DataObject
 }
 
 if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\user\PrivateNote', '\PrivateNote');
+    class_alias('\PKP\userPrivateNote\UserPrivateNote', '\UserPrivateNote');
 }

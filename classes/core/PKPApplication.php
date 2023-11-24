@@ -490,7 +490,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'NotificationSubscriptionSettingsDAO' => 'PKP\notification\NotificationSubscriptionSettingsDAO',
             'PluginGalleryDAO' => 'PKP\plugins\PluginGalleryDAO',
             'PluginSettingsDAO' => 'PKP\plugins\PluginSettingsDAO',
-            'PrivateNotesDAO' => 'PKP\user\PrivateNotesDAO',
             'PublicationDAO' => 'APP\publication\PublicationDAO',
             'QueuedPaymentDAO' => 'PKP\payment\QueuedPaymentDAO',
             'ReviewFilesDAO' => 'PKP\submission\ReviewFilesDAO',

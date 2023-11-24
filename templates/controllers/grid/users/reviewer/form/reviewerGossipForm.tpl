@@ -23,7 +23,7 @@
 
     <h3>{translate key="user.private.notes"}</h3>
     {fbvFormSection}
-        {fbvElement type="textarea" name="privateNote" id="privateNote" label="user.private.notes.description" rich=true value=$privateNote}
+        {fbvElement type="textarea" name="userPrivateNote" id="userPrivateNote" label="user.private.notes.description" rich=true value=$userPrivateNote}
     {/fbvFormSection}
 
 	{fbvFormButtons}

@@ -1,8 +1,8 @@
 {
-	"title": "User Private Note",
+	"title": "UserPrivateNote",
 	"description": "A private note associated to the user.",
 	"properties": {
-		"userPrivateNoteId": {
+		"id": {
 			"type": "integer",
 			"readOnly": true
 		},

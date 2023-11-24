@@ -23,26 +23,6 @@ use PKP\core\DataObject;
 class UserPrivateNote extends DataObject
 {
 	/**
-	 * Get private note ID.
-     *
-	 * @return int
-	 */
-    public function getId(): int
-    {
-		return $this->getData('id');
-	}
-
-	/**
-	 * Set private note ID.
-     *
-	 * @param $id int
-	 */
-    public function setId($id): void
-    {
-		$this->setData('id', $id);
-	}
-
-	/**
 	 * Get private note context ID.
      *
 	 * @return int

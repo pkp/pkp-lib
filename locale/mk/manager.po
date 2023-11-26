@@ -2,7 +2,7 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-21 21:11+0000\n"
+"PO-Revision-Date: 2023-11-27 16:39+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk/>\n"
@@ -1573,8 +1573,7 @@ msgstr ""
 "Плагинот е веќе инсталиран и е понова од верзијата достапна во галеријата."
 
 msgid "manager.plugins.installedVersionOlder"
-msgstr ""
-"Плагинот е веќе инсталиран и е понова од верзијата достапна во галеријата."
+msgstr "Плагинот е веќе инсталиран, но може да се обнови со понова верзија."
 
 msgid "manager.plugins.installedVersionNewest"
 msgstr "Плагинот веќе инсталиран и ажуриран."

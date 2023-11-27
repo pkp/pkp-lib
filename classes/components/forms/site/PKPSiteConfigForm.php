@@ -75,13 +75,13 @@ class PKPSiteConfigForm extends FormComponent
             'value' => $site->getData('minPasswordLength'),
         ]));
 
-        $this->addField(new FieldOptions('enableSharedReviewerStatistics', [
+        $this->addField(new FieldOptions('disableSharedReviewerStatistics', [
             'label' => __('admin.settings.sharedReviewerStatistics'),
             'description' => __('admin.settings.sharedReviewerStatistics.description'),
             'options' => [
-                ['value' => true, 'label' => __('admin.settings.sharedReviewerStatistics.enable')]
+                ['value' => true, 'label' => __('admin.settings.sharedReviewerStatistics.disable')]
             ],
-            'value' => $site->getData('enableSharedReviewerStatistics') ?? true,
+            'value' => (bool) $site->getData('disableSharedReviewerStatistics'),
         ]));
     }
 }

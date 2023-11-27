@@ -534,7 +534,7 @@ class Collector implements CollectorInterface
             return $this;
         }
 
-        $sharedReviewerStatistics = Application::get()->getRequest()->getSite()->getData('enableSharedReviewerStatistics') ?? true;
+        $disableSharedReviewerStatistics = (bool) Application::get()->getRequest()->getSite()->getData('disableSharedReviewerStatistics');
         $dateDiff = fn (string $dateA, string $dateB): string => DB::connection() instanceof MySqlConnection
             ? "DATEDIFF({$dateA}, {$dateB})"
             : "DATE_PART('day', {$dateA} - {$dateB})";
@@ -550,8 +550,8 @@ class Collector implements CollectorInterface
                 ->selectRaw('SUM(ra.cancelled) AS cancelled_count')
                 ->selectRaw('AVG(' . $dateDiff('ra.date_completed', 'ra.date_notified') . ') AS average_time')
                 ->selectRaw('AVG(ra.quality) AS reviewer_rating')
-                ->when(!$sharedReviewerStatistics, fn ($query) => $query->join('submissions AS s', 'ra.submission_id', '=', 's.submission_id')
-                    ->when($this->contextIds !== null, fn ($query) => $query->whereIn('s.context_id', $this->contextIds))),
+                ->when($disableSharedReviewerStatistics, fn (Builder $query) => $query->join('submissions AS s', 'ra.submission_id', '=', 's.submission_id')
+                    ->when($this->contextIds !== null, fn (Builder $query) => $query->whereIn('s.context_id', $this->contextIds))),
             'ra_stats',
             'u.user_id',
             '=',

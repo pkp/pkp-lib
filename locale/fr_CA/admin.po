@@ -356,8 +356,8 @@ msgstr "Dans une installation à contexte multiples, les statistiques des "
 "être affichées individuellement pour chaque contexte ou agrégées pour tous "
 "les contextes."
 
-msgid "admin.settings.sharedReviewerStatistics.enable"
-msgstr "Afficher les statistiques agrégées des évaluateurs"
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Désactiver les statistiques agrégées des évaluateurs"
 
 msgid "admin.settings.restrictBulkEmails"
 msgstr "Restriction des courriels en lot"

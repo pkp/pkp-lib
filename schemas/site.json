@@ -114,7 +114,7 @@
 		},
 		"enableSharedReviewerStatistics": {
 			"type": "boolean",
-			"description": "Whether to share the reviewers statistics between all journals or keep them contextual to each individual journal.",
+			"description": "Specify whether reviewer statistics can be shared with other contexts of the installation.",
 			"default": true
 		},
 		"numAnnouncementsHomepage": {

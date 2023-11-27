@@ -53,13 +53,11 @@ class PKPSiteConfigForm extends FormComponent
         ]));
 
         $options = [['value' => '', 'label' => '']];
-        $numberOfJournals = 0;
         foreach ($contextsIterator as $context) {
             $options[] = [
                 'value' => $context->getId(),
                 'label' => htmlspecialchars($context->getLocalizedData('name')),
             ];
-            $numberOfJournals++;
         }
         if (count($options) > 1) {
             $this->addField(new FieldSelect('redirect', [
@@ -77,16 +75,13 @@ class PKPSiteConfigForm extends FormComponent
             'value' => $site->getData('minPasswordLength'),
         ]));
 
-        // This parameter is only valuable in a multi-instances installation.
-        if ($numberOfJournals > 1) {
-            $this->addField(new FieldOptions('enableSharedReviewerStatistics', [
-                'label' => __('admin.settings.sharedReviewerStatistics'),
-                'description' => __('admin.settings.sharedReviewerStatistics.description'),
-                'options' => [
-                    ['value' => true, 'label' => __('admin.settings.sharedReviewerStatistics.enable')]
-                ],
-                'value' => $site->getData('enableSharedReviewerStatistics') ? $site->getData('enableSharedReviewerStatistics') : true,
-            ]));
-        }
+        $this->addField(new FieldOptions('enableSharedReviewerStatistics', [
+            'label' => __('admin.settings.sharedReviewerStatistics'),
+            'description' => __('admin.settings.sharedReviewerStatistics.description'),
+            'options' => [
+                ['value' => true, 'label' => __('admin.settings.sharedReviewerStatistics.enable')]
+            ],
+            'value' => $site->getData('enableSharedReviewerStatistics') ?? true,
+        ]));
     }
 }

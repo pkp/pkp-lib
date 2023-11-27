@@ -120,7 +120,7 @@ msgid "reviewer.submission.comments.authorAndEditor"
 msgstr "Pour l'auteur et la rédaction"
 
 msgid "reviewer.submission.comments.editorOnly"
-msgstr "Editor only"
+msgstr "Pour la rédaction seulement"
 
 msgid "reviewer.submission.comments.review"
 msgstr "Évaluation"

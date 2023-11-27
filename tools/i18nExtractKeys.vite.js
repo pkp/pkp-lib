@@ -20,19 +20,24 @@ function extractRegexPlugin({extraKeys}) {
 	return {
 		name: 'extract-keys',
 		transform(code, id) {
-			if (!id.includes('node_modules') && (id.endsWith('.vue') || id.endsWith('.js'))) {
-
+			if (
+				!id.includes('node_modules') &&
+				(id.endsWith('.vue') || id.endsWith('.js'))
+			) {
 				const matches = [...code.matchAll(regex)];
 				for (const match of matches) {
 					uniqueKeys.add(match[1]);
 				}
 			}
-			return code;
+			return null;
 		},
 		buildEnd() {
 			for (const key of extraKeys) {
 				uniqueKeys.add(key);
 			}
+
+			// remove dummy key used in the comment examples
+			uniqueKeys.delete('key');
 
 			if (uniqueKeys.size) {
 				const dir = path.dirname(fileOutput);

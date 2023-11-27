@@ -27,8 +27,6 @@ use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
-use PKP\security\Validation;
-use PKP\submission\Collector as SubmissionCollector;
 use PKP\submission\DashboardView;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
@@ -217,11 +215,7 @@ class DashboardHandlerNext extends Handler
             $this->createColumn('stage', __('workflow.stage'), 'columnStage'),
             $this->createColumn('days', __('editor.submission.days'), 'columnDays'),
             $this->createColumn('activity', __('stats.editorialActivity'), 'columnActivity'),
-            $this->createColumn(
-                'actions',
-                '<span class="-screenReader">' . __('admin.jobs.list.actions') . '</span>',
-                'columnActions'
-            ),
+            $this->createColumn('actions', __('admin.jobs.list.actions'), 'columnActions')
         ];
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);

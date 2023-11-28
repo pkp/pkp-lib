@@ -259,6 +259,7 @@ class PKPTemplateManager extends Smarty {
 		$this->registerPlugin('modifier', 'substr', 'substr');
 		$this->registerPlugin('modifier', 'strstr', 'strstr');
 		$this->registerPlugin('modifier', 'array_key_first', 'array_key_first');
+		$this->registerPlugin('modifier', 'array_values', 'array_values');
 		$this->registerPlugin('modifier', 'fatalError', 'fatalError');
 		$this->registerPlugin('modifier', 'translate', 'AppLocale::translate');
 		$this->registerPlugin('modifier', 'parse_url', 'parse_url');

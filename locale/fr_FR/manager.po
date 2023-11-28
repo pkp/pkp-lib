@@ -2160,29 +2160,6 @@ msgstr ""
 "Exiger de l'auteure ou de l'auteur qu'il suggère des mots-clés avant "
 "d'accepter la soumission."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"La langue indique la langue principale du travail à l'aide d'un code de "
-"langue (« fr ») avec un code de pays facultatif (« fr_FR »)."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Activer la métadonnée de langue"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"Ne pas demander les langues de soumission à l'auteur ou l'auteure lors de la "
-"soumission."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Demander à l'auteure ou l'auteur qu'il indique les langues du document lors "
-"de la soumission."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Exiger de l'auteure ou de l'auteur qu'il entre les langues du document avant "
-"d'accepter la soumission."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Tous les droits détenus sur la soumission, qui peuvent inclure les droits de "

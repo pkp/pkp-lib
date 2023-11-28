@@ -2033,24 +2033,6 @@ msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 "ავტორს მოსთხოვეთ შესთავაზოს საკვანძო სიტყვები, სანამ მიიღებს წარდგენას."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"ენა მიუთითებს ნაწარმოების ძირითად ენაზე ენის კოდის (\"en\") გამოყენებით, "
-"ქვეყნის არასავალდებულო კოდით (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "ენების მეტამონაცემების ჩართვა"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "არ მოითხოვოთ წარდგენის ენები ავტორისგან წარდგენის დროს."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "სთხოვეთ ავტორს წარდგენის დროს მიუთითოს წარდგენის ენები."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"მოითხოვეთ ავტორი შეიტანოს წარდგენის ენები, სანამ მიიღებს მათ წარდგენას."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "წარდგენისას დაცულია ნებისმიერი უფლებები, რომელიც შეიძლება მოიცავდეს "

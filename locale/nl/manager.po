@@ -1981,29 +1981,6 @@ msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 "Verplicht auteurs om trefwoorden toe te voegen tijdens het inzendingsproces."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Taal duidt de hoofdtaal aan van een werk, met een taalcode (\"en\") en een "
-"optionele landcode (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Schakel metadata over talen in"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"Vraag auteurs niet om talen van een inzending aan te duiden tijdens het "
-"inzendingsproces."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Vraag auteurs om talen van een inzending aan te duiden tijdens het "
-"inzendingsproces."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Verplicht auteurs om talen van een inzending aan te duiden tijdens het "
-"inzendingsproces."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Rechten op de inzending, zoals intellectuele eigendomsrechten (IPR), "

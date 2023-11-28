@@ -1109,7 +1109,6 @@ class Installer
 
         $metadataSettings = [
             'coverage',
-            'languages',
             'rights',
             'source',
             'subjects',

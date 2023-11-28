@@ -2005,24 +2005,6 @@ msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 "Be forfatteren foreslå nøkkelord, før vedkommende godkjenner innleveringen."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Språk angir verkets primære språk ved hjelp av en spåkkode (\"en\") med en "
-"valgfri landekode (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Aktiver språkmetadata"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Ikke krev at forfatteren angir språk på innleveringen."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Be forfatteren om å angi språk på innleveringen."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Krev at forfatteren angir innleveringens språk før innleveringen godkjennes."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Eventuelle rettigheter over innleveringen som kan omfatte intellektuell "

@@ -2067,23 +2067,6 @@ msgstr ""
 "Zatražite od autora da predloži ključne riječi prije nego što prihvati "
 "njihovo podnošenje."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Jezik označava primarni jezik djela upotrebom jezičnog koda (\"hr\") s "
-"neobaveznim kodom zemlje (\"he_HR\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Omogući jezične metapodatke"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Prilikom podnošenja ne tražite jezik autora."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Zatražite od autora informacije o jeziku prilikom podnošenja."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr "Zamolite autora da tijekom slanja navede jezike podneska."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Sva prava nad podneskom, koja mogu uključivati prava intelektualnog "

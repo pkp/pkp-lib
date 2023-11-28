@@ -24,7 +24,6 @@ use PKP\context\Context;
 use PKP\submission\SubmissionAgencyDAO;
 use PKP\submission\SubmissionDisciplineDAO;
 use PKP\submission\SubmissionKeywordDAO;
-use PKP\submission\SubmissionLanguageDAO;
 use PKP\submission\SubmissionSubjectDAO;
 
 define('FORM_METADATA', 'metadata');
@@ -82,17 +81,6 @@ class PKPMetadataForm extends FormComponent
                 'apiUrl' => str_replace('__vocab__', SubmissionDisciplineDAO::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $suggestionUrlBase),
                 'locales' => $this->locales,
                 'value' => (array) $publication->getData('disciplines'),
-            ]));
-        }
-
-        if ($this->enabled('languages')) {
-            $this->addField(new FieldControlledVocab('languages', [
-                'label' => __('common.languages'),
-                'tooltip' => __('manager.setup.metadata.languages.description'),
-                'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', SubmissionLanguageDAO::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE, $suggestionUrlBase),
-                'locales' => $this->locales,
-                'value' => (array) $publication->getData('languages'),
             ]));
         }
 

@@ -306,7 +306,6 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
         return [
             'keywords' => ['SubmissionKeywordDAO', 'getKeywords', 'keyword'],
             'agencies' => ['SubmissionAgencyDAO', 'getAgencies', 'agency'],
-            'languages' => ['SubmissionLanguageDAO', 'getLanguages', 'language'],
             'disciplines' => ['SubmissionDisciplineDAO', 'getDisciplines', 'discipline'],
             'subjects' => ['SubmissionSubjectDAO', 'getSubjects', 'subject'],
         ];

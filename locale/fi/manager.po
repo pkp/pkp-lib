@@ -2098,23 +2098,6 @@ msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 "Vaadi kirjoittajalta avainsanoja käsikirjoituksen lähetyksen yhteydessä."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Kieli ilmaisee työn pääasiallisen kielen. Käytä muotoa \"fi, en\" tai "
-"\"fi_FI, en_US\"."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Ota kieltä koskeva kuvailutieto käyttöön"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Älä kysy kirjoittajalta lähetettävän käsikirjoituksen kieltä."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Kysy kirjoittajalta lähetettävän käsikirjoituksen kieli."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr "Vaadi kirjoittajalta lähetettävän käsikirjoituksen kieli."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Kaikki käsikirjoitukseen liittyvät immateriaalioikeudet, tekijänoikeudet ja "

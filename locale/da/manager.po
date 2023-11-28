@@ -2099,25 +2099,6 @@ msgstr ""
 "Kræv at forfatteren foreslår nøgleord, før vedkommende kan acceptere "
 "indsendelsen."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Sprog angiver værkets primære sprog ved hjælp af en sprogkode (\"en\") med "
-"en valgfri landekode (\"en_US\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Aktivér sprogmetadata"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Anmod ikke om indsendelsens sprog fra forfatteren under indsendelse."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Bed forfatteren om at angive indsendelsens sprog under indsendelse."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Kræv at forfatteren indtaster indsendelsens sprog, før vedkommende kan "
-"acceptere indsendelsen."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Eventuelle rettigheder over indsendelsen, som kan omfatte intellektuel "

@@ -1994,25 +1994,6 @@ msgstr ""
 "Memerlukan pengarang untuk mencadangkan kata kunci sebelum menerima "
 "penyerahannya."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Bahasa menunjukkan bahasa utama kerja menggunakan kod bahasa (\"ms\") dengan "
-"kod negara pilihan (\"ms_MS\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Dayakan metadata bahasa"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Jangan minta bahasa penyerahan daripada pengarang semasa penyerahan."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Minta pengarang menyatakan bahasa penyerahan semasa penyerahan."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Memerlukan pengarang untuk memasukkan bahasa penyerahan sebelum menerima "
-"penyerahan mereka."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Sebarang hak yang dipegang atas penyerahan, yang mungkin termasuk Hak Harta "

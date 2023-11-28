@@ -26,7 +26,6 @@ use PKP\services\PKPSchemaService;
 use PKP\submission\SubmissionAgencyDAO;
 use PKP\submission\SubmissionDisciplineDAO;
 use PKP\submission\SubmissionKeywordDAO;
-use PKP\submission\SubmissionLanguageDAO;
 use PKP\submission\SubmissionSubjectDAO;
 
 /**
@@ -59,9 +58,6 @@ class DAO extends EntityDAO
     /** @var SubmissionDisciplineDAO */
     public $submissionDisciplineDao;
 
-    /** @var SubmissionLanguageDAO */
-    public $submissionLanguageDao;
-
     /** @var SubmissionAgencyDAO */
     public $submissionAgencyDao;
 
@@ -75,7 +71,6 @@ class DAO extends EntityDAO
         SubmissionKeywordDAO $submissionKeywordDao,
         SubmissionSubjectDAO $submissionSubjectDao,
         SubmissionDisciplineDAO $submissionDisciplineDao,
-        SubmissionLanguageDAO $submissionLanguageDao,
         SubmissionAgencyDAO $submissionAgencyDao,
         CitationDAO $citationDao,
         PKPSchemaService $schemaService
@@ -85,7 +80,6 @@ class DAO extends EntityDAO
         $this->submissionKeywordDao = $submissionKeywordDao;
         $this->submissionSubjectDao = $submissionSubjectDao;
         $this->submissionDisciplineDao = $submissionDisciplineDao;
-        $this->submissionLanguageDao = $submissionLanguageDao;
         $this->submissionAgencyDao = $submissionAgencyDao;
         $this->citationDao = $citationDao;
     }
@@ -415,7 +409,6 @@ class DAO extends EntityDAO
         $publication->setData('keywords', $this->submissionKeywordDao->getKeywords($publication->getId()));
         $publication->setData('subjects', $this->submissionSubjectDao->getSubjects($publication->getId()));
         $publication->setData('disciplines', $this->submissionDisciplineDao->getDisciplines($publication->getId()));
-        $publication->setData('languages', $this->submissionLanguageDao->getLanguages($publication->getId()));
         $publication->setData('supportingAgencies', $this->submissionAgencyDao->getAgencies($publication->getId()));
     }
 
@@ -434,7 +427,6 @@ class DAO extends EntityDAO
         $controlledVocabKeyedArray = array_flip([
             'disciplines',
             'keywords',
-            'languages',
             'subjects',
             'supportingAgencies',
         ]);
@@ -464,9 +456,6 @@ class DAO extends EntityDAO
                 case 'disciplines':
                     $this->submissionDisciplineDao->insertDisciplines($value, $publicationId);
                     break;
-                case 'languages':
-                    $this->submissionLanguageDao->insertLanguages($value, $publicationId);
-                    break;
                 case 'supportingAgencies':
                     $this->submissionAgencyDao->insertAgencies($value, $publicationId);
                     break;
@@ -482,7 +471,6 @@ class DAO extends EntityDAO
         $this->submissionKeywordDao->insertKeywords([], $publicationId);
         $this->submissionSubjectDao->insertSubjects([], $publicationId);
         $this->submissionDisciplineDao->insertDisciplines([], $publicationId);
-        $this->submissionLanguageDao->insertLanguages([], $publicationId);
         $this->submissionAgencyDao->insertAgencies([], $publicationId);
     }
 

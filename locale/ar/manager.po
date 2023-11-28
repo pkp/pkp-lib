@@ -2026,23 +2026,6 @@ msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 "ينبغي على المؤلف اقتراح الكلمات المفتاحية قبل حصوله على موافقة طلب التقديم."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"اللغة تعني اللغة الأساسية التي كُتب بها العمل وهي تكون بصيغة رمز اللغة (\"ar"
-"\") مع ترميز اختياري يمثل الدولة (\"ar_IQ\")."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "تمكين البيانات الوصفية للغة"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "لا تطالب المؤلف بلغة العمل خلال مرحلة التقديم."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "أطلب من المؤلف تحديد لغة العمل خلال مرحلة التقديم."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr "ينبغي على المؤلف تحديد لغة العمل قبل حصوله على موافقة طلب التقديم."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "أية حقوق محفوظة يتضمنها طلب التقديم، والتي قد تشمل حقوق الملكية الفكرية، "

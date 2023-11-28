@@ -2154,24 +2154,6 @@ msgid "manager.setup.metadata.keywords.require"
 msgstr ""
 "Vor Annahme der Einreichung Angaben zu Schlagworten von Autor/in verlangen."
 
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Sprache weist die Hauptsprache der Arbeit aus, indem ein Sprachcode (\"de\") "
-"mit einem optionalen Ländercode (\"de_DE\") verwendet wird."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Metadaten für Sprache aktivieren"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Bei der Einreichung keine Angabe zur Sprache von Autor/in erfragen."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Autor/in bei der Einreichung um Angaben zur Sprache bitten."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Vor Annahme der Einreichung Angaben zur Sprache von Autor/in verlangen."
-
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
 "Alle Rechte an diesem Beitrag einschließlich Schutz- und Urheberrechten "

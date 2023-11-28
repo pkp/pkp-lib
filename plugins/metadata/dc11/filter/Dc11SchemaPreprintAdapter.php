@@ -28,7 +28,6 @@ use APP\plugins\PubIdPlugin;
 use APP\submission\Submission;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
-use PKP\i18n\LocaleConversion;
 use PKP\metadata\MetadataDataObjectAdapter;
 use PKP\metadata\MetadataDescription;
 use PKP\plugins\Hook;
@@ -59,6 +58,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
      * @param Submission $submission
      *
      * @return MetadataDescription
+     *
      * @hook Dc11SchemaPreprintAdapter::extractMetadataFromDataObject [[$this, $submission, $server, &$dc11Description]]
      */
     public function &extractMetadataFromDataObject(&$submission)
@@ -145,20 +145,12 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         $dc11Description->addStatement('dc:identifier', $request->url($server->getPath(), 'preprint', 'view', [$submission->getBestId()]));
 
         // Language
-        $locales = [];
-        foreach ($galleys as $galley) {
-            $galleyLocale = $galley->getLocale();
-            if (!is_null($galleyLocale) && !in_array($galleyLocale, $locales)) {
-                $locales[] = $galleyLocale;
-                $dc11Description->addStatement('dc:language', LocaleConversion::getIso3FromLocale($galleyLocale));
-            }
-        }
-        $submissionLanguages = $submission->getLanguage();
-        if (empty($locales) && isset($submissionLanguages[$submission->getLocale()])) {
-            foreach ($submissionLanguages[$submission->getLocale()] as $language) {
-                $dc11Description->addStatement('dc:language', $language);
-            }
-        }
+        collect($galleys)
+            ->map(fn ($g) => $g->getData('locale'))
+            ->push($publication->getData('locale'))
+            ->filter()
+            ->unique()
+            ->each(fn ($l) => $dc11Description->addStatement('dc:language', $l));
 
         // Relation
         // full text URLs

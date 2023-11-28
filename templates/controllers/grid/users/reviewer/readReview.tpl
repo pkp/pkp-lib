@@ -25,14 +25,14 @@
 				{translate key="editor.review.readConfirmation"}
 			{/fbvFormSection}
 
-            {if $reviewAssignment->getCompetingInterests()}
-                <h3>{translate key="reviewer.submission.competingInterests"}</h3>
-                <div class="review_competing_interests">
-                    {$reviewAssignment->getCompetingInterests()|nl2br|strip_unsafe_html}
-                </div>
-            {/if}
-
 			{if $reviewAssignment->getDateCompleted()}
+				{if $reviewAssignment->getCompetingInterests()}
+					<h3>{translate key="reviewer.submission.competingInterests"}</h3>
+					<div class="review_competing_interests">
+						{$reviewAssignment->getCompetingInterests()|nl2br|strip_unsafe_html}
+					</div>
+				{/if}
+
 				{fbvFormSection}
 					<div class="pkp_controllers_informationCenter_itemLastEvent">
 						{translate key="common.completed.date" dateCompleted=$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}

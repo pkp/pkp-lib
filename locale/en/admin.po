@@ -318,6 +318,17 @@ msgstr "Introduction"
 msgid "admin.settings.minPasswordLength"
 msgstr "Minimum password length (characters)"
 
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Reviewer statistics"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr "In a multi-context installation, reviewer statistics, such as the "
+"count of submitted reviews, can be displayed either individually for each "
+"context or aggregated collectively."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Disable aggregated reviewer statistics"
+
 msgid "admin.settings.restrictBulkEmails"
 msgstr "Restrict Bulk Emails"
 

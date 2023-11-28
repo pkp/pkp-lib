@@ -22,6 +22,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use InvalidArgumentException;
+use PKP\config\Config;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
@@ -533,6 +534,7 @@ class Collector implements CollectorInterface
             return $this;
         }
 
+        $disableSharedReviewerStatistics = (bool) Application::get()->getRequest()->getSite()->getData('disableSharedReviewerStatistics');
         $dateDiff = fn (string $dateA, string $dateB): string => DB::connection() instanceof MySqlConnection
             ? "DATEDIFF({$dateA}, {$dateB})"
             : "DATE_PART('day', {$dateA} - {$dateB})";
@@ -547,7 +549,9 @@ class Collector implements CollectorInterface
                 ->selectRaw('SUM(ra.declined) AS declined_count')
                 ->selectRaw('SUM(ra.cancelled) AS cancelled_count')
                 ->selectRaw('AVG(' . $dateDiff('ra.date_completed', 'ra.date_notified') . ') AS average_time')
-                ->selectRaw('AVG(ra.quality) AS reviewer_rating'),
+                ->selectRaw('AVG(ra.quality) AS reviewer_rating')
+                ->when($disableSharedReviewerStatistics, fn (Builder $query) => $query->join('submissions AS s', 'ra.submission_id', '=', 's.submission_id')
+                    ->when($this->contextIds !== null, fn (Builder $query) => $query->whereIn('s.context_id', $this->contextIds))),
             'ra_stats',
             'u.user_id',
             '=',

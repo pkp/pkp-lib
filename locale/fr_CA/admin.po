@@ -347,6 +347,18 @@ msgstr "Introduction"
 msgid "admin.settings.minPasswordLength"
 msgstr "Longueur minimum du mot de passe (nombre de caractères)"
 
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Statistiques des évaluateurs"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr "Dans une installation à contexte multiples, les statistiques des "
+"évaluateurs, comme le nombre de rapports d'évaluation complétés, peuvent "
+"être affichées individuellement pour chaque contexte ou agrégées pour tous "
+"les contextes."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Désactiver les statistiques agrégées des évaluateurs"
+
 msgid "admin.settings.restrictBulkEmails"
 msgstr "Restriction des courriels en lot"
 

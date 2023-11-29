@@ -226,7 +226,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter {
 		assert(count($importFilters)==1); // Assert only a single unserialization filter
 		$importFilter = array_shift($importFilters);
 		$importFilter->setDeployment($this->getDeployment());
-		$authorDoc = new DOMDocument();
+		$authorDoc = new DOMDocument('1.0', 'utf-8');
 		$authorDoc->appendChild($authorDoc->importNode($n, true));
 		return $importFilter->execute($authorDoc);
 	}

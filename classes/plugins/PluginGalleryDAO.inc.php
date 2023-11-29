@@ -51,7 +51,7 @@ class PluginGalleryDAO extends DAO {
 	 * @return DOMDocument
 	 */
 	private function _getDocument() {
-		$doc = new DOMDocument('1.0');
+		$doc = new DOMDocument('1.0', 'utf-8');
 		$application = Application::get();
 		$client = $application->getHttpClient();
 		$versionDao = DAORegistry::getDAO('VersionDAO');

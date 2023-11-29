@@ -107,7 +107,7 @@ class PluginTestCase extends DatabaseTestCase {
 	protected function validateXmlConfig($configFiles) {
 		foreach($configFiles as $configFile) {
 			if(file_exists($configFile)) {
-				$xmlDom = new DOMDocument();
+				$xmlDom = new DOMDocument('1.0', 'utf-8');
 				$xmlDom->load($configFile);
 				self::assertTrue($xmlDom->validate());
 				unset($xmlDom);

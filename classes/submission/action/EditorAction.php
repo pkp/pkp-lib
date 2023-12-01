@@ -101,9 +101,10 @@ class EditorAction
         if (!$assigned && isset($reviewer) && !Hook::call('EditorAction::addReviewer', [&$submission, $reviewerId])) {
             $reviewAssignment = Repo::reviewAssignment()->newDataObject($newData);
 
-            $this->setDueDates($request, $submission, $reviewAssignment, $reviewDueDate, $responseDueDate);
+            $reviewAssignmentId = Repo::reviewAssignment()->add($reviewAssignment);
+            $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignmentId);
 
-            Repo::reviewAssignment()->add($reviewAssignment);
+            $this->setDueDates($request, $submission, $reviewAssignment, $reviewDueDate, $responseDueDate);
 
             // Add notification
             $notificationMgr = new NotificationManager();

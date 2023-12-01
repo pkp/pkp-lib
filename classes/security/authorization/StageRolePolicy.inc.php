@@ -79,12 +79,11 @@ class StageRolePolicy extends AuthorizationPolicy {
 		}
 
 		// A manager is granted access when they are not assigned in any other role
-		if (empty($userAccessibleStages) && in_array(ROLE_ID_MANAGER, $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES))) {
+		if (in_array(ROLE_ID_MANAGER, $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES))) {
 			if ($this->_allowRecommendOnly) {
 				return AUTHORIZATION_PERMIT;
 			}
-			// Managers may have a stage assignment but no $userAccessibleStages, so they will
-			// not be caught by the earlier code that checks stage assignments.
+			// Check stage assignments of a user with a managerial role
 			$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
 			$result = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId(
 				$this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION)->getId(),

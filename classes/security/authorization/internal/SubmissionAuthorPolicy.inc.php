@@ -49,26 +49,24 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy {
 		$context = $this->_request->getContext();
 
 		// Check authorship of the submission. Any ROLE_ID_AUTHOR assignment will do.
-		$stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$submitterAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
-		$workflowStages = Application::getApplicationStages();
-		while ($assignment = $submitterAssignments->next()) {
-			$userGroup = $userGroupDao->getById($assignment->getUserGroupId());
-			if ($userGroup->getRoleId() == ROLE_ID_AUTHOR) {
+		$accessibleWorkflowStages = Services::get('user')->getAccessibleWorkflowStages(
+			$user->getId(),
+			$context->getId(),
+			$submission,
+			$this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES)
+		);
 
-				$accessibleWorkflowStages = array();
-				foreach ($workflowStages as $stageId) {
-					$accessibleStageRoles = Services::get('user')->getAccessibleStageRoles($user->getId(), $context->getId(), $submission, $stageId);
-					if (!empty($accessibleStageRoles)) {
-						$accessibleWorkflowStages[$stageId] = $accessibleStageRoles;
-					}
-				}
+		if (empty($accessibleWorkflowStages)) {
+			return AUTHORIZATION_DENY;
+		}
+
+		foreach ($accessibleWorkflowStages as $roles) {
+			if (in_array(ROLE_ID_AUTHOR, $roles)) {
 				$this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
-
 				return AUTHORIZATION_PERMIT;
 			}
 		}
+
 		return AUTHORIZATION_DENY;
 	}
 }

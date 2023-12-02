@@ -2,7 +2,7 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-10-03 07:06+0000\n"
+"PO-Revision-Date: 2023-12-03 14:39+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Անվան կարգավորում"
@@ -934,3 +934,15 @@ msgstr "Գործարկեք աշխատողի deamon -ը փորձարկման հե
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr "Օգտագործեք կայքը որպես հարթակ բոլոր ամսագրերի համար:"
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Անջատել գրախոսի ընդհանուր վիճակագրությունը"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Գրախոսի վիճակագրություն"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"Բազմահամատեքստային տեղադրման ժամանակ գրախոսի վիճակագրությունը, ինչպիսին է "
+"ներկայացված գրախոսությունների քանակը, կարող է ցուցադրվել կա՛մ առանձին-"
+"առանձին յուրաքանչյուր համատեքստի համար, կա՛մ խմբավորված:"

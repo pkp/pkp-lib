@@ -270,6 +270,7 @@ abstract class Repository
             [
                 'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION_FILE,
                 'assocId' => $submissionFile->getId(),
+                'userId' => $submissionFile->getUploaderUserId(),
                 'eventType' => SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_UPLOAD,
                 'dateLogged' => Core::getCurrentDate(),
                 'message' => 'submission.event.fileUploaded',
@@ -285,6 +286,7 @@ abstract class Repository
             [
                 'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
                 'assocId' => $submission->getId(),
+                'userId' => $submissionFile->getUploaderUserId(),
                 'eventType' => SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD,
                 'dateLogged' => Core::getCurrentDate(),
                 'message' => 'submission.event.fileRevised',
@@ -364,6 +366,7 @@ abstract class Repository
             [
                 'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION_FILE,
                 'assocId' => $submissionFile->getId(),
+                'userId' => $submissionFile->getUploaderUserId(),
                 'eventType' => $newFileUploaded ? SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_REVISION_UPLOAD : SubmissionFileEventLogEntry::SUBMISSION_LOG_FILE_EDIT,
                 'message' => $newFileUploaded ? 'submission.event.revisionUploaded' : 'submission.event.fileEdited',
                 'isTranslated' => false,

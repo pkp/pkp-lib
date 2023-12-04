@@ -2292,3 +2292,6 @@ msgstr "Author added."
 
 msgid "notification.editedAuthor"
 msgstr "Author edited."
+
+msgid "navigation.invitation"
+msgstr "Invite User to take a role"

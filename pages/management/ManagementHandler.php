@@ -22,7 +22,10 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
+use APP\publication\Publication;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Illuminate\Support\LazyCollection;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
 use PKP\components\forms\context\PKPDoiRegistrationSettingsForm;
 use PKP\components\forms\context\PKPEmailSetupForm;
@@ -31,13 +34,18 @@ use PKP\components\forms\context\PKPNotifyUsersForm;
 use PKP\components\forms\context\PKPReviewSetupForm;
 use PKP\components\forms\emailTemplate\EmailTemplateForm;
 use PKP\components\forms\highlight\HighlightForm;
+use PKP\components\forms\invitations\SearchUserForm;
+use PKP\components\forms\invitations\UserDetailsForm;
+use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\submission\SubmissionGuidanceSettings;
 use PKP\components\listPanels\HighlightsListPanel;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\decision\steps\Email;
 use PKP\mail\Mailable;
+use PKP\mail\mailables\UserCreated;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\site\VersionCheck;
@@ -103,6 +111,9 @@ class ManagementHandler extends Handler
                 break;
             case 'access':
                 $this->access($args, $request);
+                break;
+            case 'invitations':
+                $this->invitations($args, $request);
                 break;
             case 'announcements':
                 $this->announcements($args, $request);
@@ -693,5 +704,165 @@ class ManagementHandler extends Handler
                 $context->getPath(),
                 'temporaryFiles'
             );
+    }
+
+    /**
+     * user invitations
+     */
+    public function invitations($args, $request)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $this->setupTemplate($request);
+        $context = $request->getContext();
+        $steps = $this->getSteps($request,$context);
+        $templateMgr->setState([
+            'steps' => $steps,
+            'emailTemplatesApiUrl' => $request
+                ->getDispatcher()
+                ->url(
+                    $request,
+                    Application::ROUTE_API,
+                    $context->getData('urlPath'),
+                    'emailTemplates'
+                )
+        ]);
+        $templateMgr->assign([
+            'pageComponent' => 'SubmissionWizardPage',
+            'pageTitle' => __('submission.wizard.title'),
+        ]);
+        $templateMgr->display('management/invitations/invitation.tpl');
+
+    }
+
+    /**
+     * get user invitation steps
+     */
+    protected function getSteps(Request $request,$context): array
+    {
+        $apiUrl = $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                PKPApplication::ROUTE_API,
+                $context->getPath(),
+                'contexts/' . $context->getId()
+            );
+
+        $steps = [];
+        $steps[] = $this->getSearchUserForm($request,$apiUrl);
+        $steps[] = $this->getUserDetailsForm($request,$apiUrl);
+        $steps[] = $this->getUserInvitedEmail($request,$apiUrl);
+
+        return $steps;
+    }
+
+    /**
+     * Get the state for the user invitation search user step
+     */
+    protected function getSearchUserForm(Request $request,string $apiUrl): array
+    {
+        $localeNames = $request->getContext()->getSupportedFormLocaleNames();
+        $locales = [];
+        foreach ($localeNames as $key => $name) {
+            $locales[] = [
+                'key' => $key,
+                'label' => $name,
+            ];
+        }
+        $contactForm = new SearchUserForm($apiUrl, $locales, $request->getContext());
+
+        $sections = [
+            [
+                'id' => 'searchUserForm',
+                'name' => __('submission.details'),
+                'type'=>'form',
+                'description' => $request->getContext()->getLocalizedData('detailsHelp'),
+                'form' => $contactForm->getConfig(),
+            ],
+        ];
+
+        return [
+            'id' => 'searchUser',
+            'name' => __('common.details'),
+            'reviewName' => __('common.details'),
+            'type' => 'form',
+            'description' => 'Please provide the following details to help us manage your submission in our system.',
+            'sections' => $sections,
+            'reviewTemplate' => '/management/invitation/userSearch.tpl',
+        ];
+    }
+
+    /**
+     * Get the state for the user invitation search user details step
+     */
+    protected function getUserDetailsForm(Request $request,string $apiUrl): array
+    {
+        $localeNames = $request->getContext()->getSupportedFormLocaleNames();
+        $locales = [];
+        foreach ($localeNames as $key => $name) {
+            $locales[] = [
+                'key' => $key,
+                'label' => $name,
+            ];
+        }
+        $contactForm = new UserDetailsForm($apiUrl, $locales, $request->getContext());
+
+        $sections = [
+            [
+                'id' => 'userDetailsForm',
+                'name' => __('submission.details'),
+                'type'=>'form',
+                'description' => $request->getContext()->getLocalizedData('detailsHelp'),
+                'form' => $contactForm->getConfig(),
+            ],
+        ];
+
+        return [
+            'id' => 'userDetails',
+            'name' => __('submission.upload.uploadFiles'),
+            'reviewName' => __('submission.files'),
+            'type' => 'form',
+            'description' => 'Please provide the following details to help us manage your submission in our system.',
+            'sections' => $sections,
+            'reviewTemplate' => '/management/invitation/userDetails.tpl',
+        ];
+    }
+
+    /**
+     * Get the state for the user invitation search user invited email compose step
+     */
+    protected function getUserInvitedEmail(Request $request,string $apiUrl): array
+    {
+        $mailable = new UserCreated($request->getContext(), '1212');
+        $email = new Email(
+            'userInvited',
+            __('editor.submission.decision.notifyAuthors'),
+            __('editor.submission.decision.sendExternalReview.notifyAuthorsDescription'),
+            [],
+            $mailable
+                ->sender($request->getUser())
+                ->recipients($request->getUser()),
+            $request->getContext()->getSupportedFormLocales(),
+        );
+
+        $sections = [
+            [
+                'id' => 'userInvited',
+                'name' => __('submission.details'),
+                'type'=>'email',
+                'description' => $request->getContext()->getLocalizedData('detailsHelp'),
+                'email' => $email->getState(),
+            ],
+        ];
+
+        return [
+            'id' => 'userInvitedEmail',
+            'name' => __('submission.upload.uploadFiles'),
+            'reviewName' => __('submission.files'),
+            'type' => 'email',
+            'description' => 'Please provide the following details to help us manage your submission in our system.',
+            'sections' => $sections,
+            'reviewTemplate' => '/management/invitation/userInvitation.tpl',
+        ];
     }
 }

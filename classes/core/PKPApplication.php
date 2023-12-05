@@ -25,12 +25,12 @@ use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Database\MySqlConnection;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\security\Role;
-use PKP\session\SessionManager;
 use PKP\site\VersionDAO;
 use PKP\submission\RepresentationDAOInterface;
 
@@ -232,6 +232,10 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         if (Config::getVar('database', 'debug')) {
             DB::listen(fn (QueryExecuted $query) => error_log("Database query\n{$query->sql}\n" . json_encode($query->bindings)));
         }
+
+        Auth::provider('pkp_user_provider', function ($app, array $config) {
+            return new PKPUserProvider();
+        });
     }
 
     /**
@@ -333,7 +337,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public function getRequest()
     {
-        $request = & Registry::get('request', true, null); // Ref req'd
+        $request = &Registry::get('request', true, null); // Ref req'd
 
         if (is_null($request)) {
             // Implicitly set request by ref in the registry
@@ -350,7 +354,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public function getDispatcher()
     {
-        $dispatcher = & Registry::get('dispatcher', true, null); // Ref req'd
+        $dispatcher = &Registry::get('dispatcher', true, null); // Ref req'd
         if (is_null($dispatcher)) {
             // Implicitly set dispatcher by ref in the registry
             $dispatcher = new Dispatcher();
@@ -499,7 +503,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'ReviewRoundDAO' => 'PKP\submission\reviewRound\ReviewRoundDAO',
             'RoleDAO' => 'PKP\security\RoleDAO',
             'ScheduledTaskDAO' => 'PKP\scheduledTask\ScheduledTaskDAO',
-            'SessionDAO' => 'PKP\session\SessionDAO',
             'SiteDAO' => 'PKP\site\SiteDAO',
             'StageAssignmentDAO' => 'PKP\stageAssignment\StageAssignmentDAO',
             'SubEditorsDAO' => 'PKP\context\SubEditorsDAO',
@@ -533,7 +536,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public function getQualifiedDAOName($name)
     {
-        $map = & Registry::get('daoMap', true, $this->getDAOMap()); // Ref req'd
+        $map = &Registry::get('daoMap', true, $this->getDAOMap()); // Ref req'd
         if (isset($map[$name])) {
             return $map[$name];
         }

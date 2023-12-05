@@ -31,7 +31,6 @@ use PKP\config\Config;
 use PKP\core\Registry;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
-use PKP\session\SessionManager;
 use PKP\user\User;
 
 /** Initialization code */
@@ -41,7 +40,7 @@ if (!defined('STDIN')) {
     define('STDIN', fopen('php://stdin', 'r'));
 }
 require_once './lib/pkp/includes/bootstrap.php';
-SessionManager::disable();
+define('SESSION_DISABLE_INIT', true);
 
 class CommandLineTool
 {

@@ -32,7 +32,6 @@ use PKP\mail\mailables\PasswordResetRequested;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
-use PKP\session\SessionManager;
 use PKP\site\Site;
 use PKP\user\form\LoginChangePasswordForm;
 use PKP\user\form\ResetPasswordForm;
@@ -69,13 +68,10 @@ class LoginHandler extends Handler
             $request->redirectSSL();
         }
 
-        $sessionManager = SessionManager::getManager();
-        $session = $sessionManager->getUserSession();
-
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'loginMessage' => $request->getUserVar('loginMessage'),
-            'username' => $session->getSessionVar('email') ?? $session->getSessionVar('username'),
+            'username' => session('email') ?? session('username'),
             'remember' => $request->getUserVar('remember'),
             'source' => $request->getUserVar('source'),
             'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
@@ -224,7 +220,7 @@ class LoginHandler extends Handler
         $user = Repo::user()->getByEmail($email, true); /** @var User $user */
 
         if ($user !== null) {
-            
+
             if ($user->getDisabled()) {
                 $templateMgr
                     ->assign([
@@ -234,7 +230,7 @@ class LoginHandler extends Handler
                             : __('user.login.accountDisabledWithReason', ['reason' => htmlspecialchars($reason)])
                     ])
                     ->display('frontend/pages/userLostPassword.tpl');
-    
+
                 return;
             }
 
@@ -391,8 +387,8 @@ class LoginHandler extends Handler
             if ($passwordForm->execute()) {
                 $user = Validation::login($passwordForm->getData('username'), $passwordForm->getData('password'), $reason);
 
-                $sessionManager = SessionManager::getManager();
-                $sessionManager->invalidateSessions($user->getId(), $sessionManager->getUserSession()->getId());
+                error_log('NOT SURE ABOUT SESSION ID; GET DB QUERY OUT OF HERE');
+                DB::table('sessions')->where('user_id', Auth::user()->userId)->where('id', '<>', session('id'))->delete();
             }
             $this->sendHome($request);
         } else {

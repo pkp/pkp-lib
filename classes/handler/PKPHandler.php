@@ -33,7 +33,6 @@ use PKP\security\authorization\HttpsPolicy;
 use PKP\security\authorization\RestrictedSiteAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Validation;
-use PKP\session\SessionManager;
 
 class PKPHandler
 {
@@ -329,7 +328,7 @@ class PKPHandler
 
         // Ensure the allowed hosts setting, when provided, is respected.
         $this->addPolicy(new AllowedHostsPolicy($request), true);
-        if (!SessionManager::isDisabled()) {
+        if (!defined('SESSION_DISABLE_INIT')) {
             // Add user roles in authorized context.
             $user = $request->getUser();
             if ($user instanceof \PKP\user\User) {
@@ -382,7 +381,7 @@ class PKPHandler
     {
         // FIXME: for backwards compatibility only - remove when request/router refactoring complete
         if (!isset($request)) {
-            $request = & Registry::get('request');
+            $request = &Registry::get('request');
             if (Config::getVar('debug', 'deprecation_warnings')) {
                 trigger_error('Deprecated call without request object.');
             }
@@ -515,7 +514,7 @@ class PKPHandler
     {
         // FIXME: for backwards compatibility only - remove
         if (!isset($request)) {
-            $request = & Registry::get('request');
+            $request = &Registry::get('request');
             if (Config::getVar('debug', 'deprecation_warnings')) {
                 trigger_error('Deprecated call without request object.');
             }

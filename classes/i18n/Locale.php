@@ -37,7 +37,6 @@ use PKP\i18n\translation\LocaleBundle;
 use PKP\i18n\ui\UITranslator;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
-use PKP\session\SessionManager;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RecursiveRegexIterator;
@@ -133,7 +132,7 @@ class Locale implements LocaleInterface
         }
         $request = $this->_getRequest();
         $locale = $request->getUserVar('setLocale')
-            ?: (SessionManager::hasSession() ? SessionManager::getManager()->getUserSession()->getSessionVar('currentLocale') : null)
+            ?: session('currentLocale')
             ?: $request->getCookieVar('currentLocale');
         $this->setLocale($locale);
         return $this->locale;
@@ -165,7 +164,7 @@ class Locale implements LocaleInterface
             return $this->primaryLocale;
         }
         $request = $this->_getRequest();
-        $locale = SessionManager::isDisabled() ? null : $request->getContext()?->getPrimaryLocale() ?? $request->getSite()?->getPrimaryLocale();
+        $locale = defined('SESSION_DISABLE_INIT') ? null : $request->getContext()?->getPrimaryLocale() ?? $request->getSite()?->getPrimaryLocale();
         return $this->primaryLocale = $this->isLocaleValid($locale) ? $locale : $this->getDefaultLocale();
     }
 
@@ -285,7 +284,7 @@ class Locale implements LocaleInterface
      */
     public function getSupportedFormLocales(): array
     {
-        return $this->supportedFormLocaleNames ??= (SessionManager::isDisabled() ? null : $this->_getRequest()->getContext()?->getSupportedFormLocaleNames())
+        return $this->supportedFormLocaleNames ??= (defined('SESSION_DISABLE_INIT') ? null : $this->_getRequest()->getContext()?->getSupportedFormLocaleNames())
             ?? $this->getSupportedLocales();
     }
 
@@ -553,7 +552,7 @@ class Locale implements LocaleInterface
         if (isset($this->supportedLocales)) {
             return $this->supportedLocales;
         }
-        $locales = (SessionManager::isDisabled() ? null : $this->_getRequest()->getContext()?->getSupportedLocales() ?? $this->_getRequest()->getSite()?->getSupportedLocales())
+        $locales = (defined('SESSION_DISABLE_INIT') ? null : $this->_getRequest()->getContext()?->getSupportedLocales() ?? $this->_getRequest()->getSite()?->getSupportedLocales())
             ?? array_map(fn (LocaleMetadata $locale) => $locale->locale, $this->getLocales());
         return $this->supportedLocales = array_combine($locales, $locales);
     }

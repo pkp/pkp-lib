@@ -57,7 +57,6 @@ use PKP\plugins\PluginRegistry;
 use PKP\plugins\ThemePlugin;
 use PKP\security\Role;
 use PKP\security\Validation;
-use PKP\session\SessionManager;
 use PKP\site\VersionDAO;
 use PKP\submission\GenreDAO;
 use Smarty;
@@ -379,7 +378,7 @@ class PKPTemplateManager extends Smarty
          * Kludge to make sure no code that tries to connect to the
          * database is executed (e.g., when loading installer pages).
          */
-        if (!SessionManager::isDisabled()) {
+        if (!defined('SESSION_DISABLE_INIT')) {
             $this->assign([
                 'isUserLoggedIn' => Validation::isLoggedIn(),
                 'isUserLoggedInAs' => (bool) Validation::loggedInAs(),
@@ -746,7 +745,7 @@ class PKPTemplateManager extends Smarty
         ];
 
         // Add an array of rtl languages (right-to-left)
-        if (Application::isInstalled() && !SessionManager::isDisabled()) {
+        if (Application::isInstalled() && !defined('SESSION_DISABLE_INIT')) {
             $allLocales = [];
             if ($context) {
                 $allLocales = array_merge(
@@ -924,7 +923,7 @@ class PKPTemplateManager extends Smarty
          * Kludge to make sure no code that tries to connect to the
          * database is executed (e.g., when loading installer pages).
          */
-        if (Application::isInstalled() && !SessionManager::isDisabled()) {
+        if (Application::isInstalled() && !defined('SESSION_DISABLE_INIT')) {
             if ($request->getUser()) {
                 // Get a count of unread tasks
                 $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
@@ -1260,7 +1259,7 @@ class PKPTemplateManager extends Smarty
                     $userRoles[] = (int) $userGroup->getRoleId();
                 }
                 $currentUser = [
-                    'csrfToken' => $this->_request->getSession()->getCSRFToken(),
+                    'csrfToken' => $this->_request->getSession()->token(),
                     'id' => (int) $user->getId(),
                     'roles' => array_values(array_unique($userRoles)),
                 ];
@@ -2090,7 +2089,7 @@ class PKPTemplateManager extends Smarty
      */
     public function smartyCSRF($params, $smarty)
     {
-        $csrfToken = $this->_request->getSession()->getCSRFToken();
+        $csrfToken = $this->_request->getSession()->token();
         switch ($params['type'] ?? null) {
             case 'raw': return $csrfToken;
             case 'json': return json_encode($csrfToken);
@@ -2116,7 +2115,7 @@ class PKPTemplateManager extends Smarty
             $params['context'] = 'frontend';
         }
 
-        if (!SessionManager::isDisabled()) {
+        if (!defined('SESSION_DISABLE_INIT')) {
             $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
             $appVersion = $versionDao->getCurrentVersion()->getVersionString();
         } else {
@@ -2206,9 +2205,9 @@ class PKPTemplateManager extends Smarty
             $params['context'] = 'frontend';
         }
 
-        if (!SessionManager::isDisabled()) {
+        if (!defined('SESSION_DISABLE_INIT')) {
             $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
-            $appVersion = SessionManager::isDisabled() ? null : $versionDao->getCurrentVersion()->getVersionString();
+            $appVersion = $versionDao->getCurrentVersion()->getVersionString();
         } else {
             $appVersion = null;
         }

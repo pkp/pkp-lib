@@ -28,6 +28,7 @@ use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Http\Response;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
@@ -130,6 +131,9 @@ class PKPContainer extends Container
     {
         // Load main settings, this should be done before registering services, e.g., it's used by Database Service
         $this->loadConfiguration();
+        $this->register(new \Illuminate\Cookie\CookieServiceProvider($this));
+        $this->register(new \Illuminate\Auth\AuthServiceProvider($this));
+        $this->register(new \Illuminate\Session\SessionServiceProvider($this));
         $this->register(new \Illuminate\Cache\CacheServiceProvider($this));
         $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
         $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));
@@ -185,6 +189,12 @@ class PKPContainer extends Container
     public function registerCoreContainerAliases()
     {
         foreach ([
+            'auth' => [
+                \Illuminate\Auth\AuthManager::class,
+            ],
+            'cookie' => [
+                \Illuminate\Cookie\CookieManager::class,
+            ],
             'app' => [
                 self::class,
                 \Illuminate\Contracts\Container\Container::class,
@@ -306,6 +316,37 @@ class PKPContainer extends Container
             'charset' => Config::getVar('i18n', 'connection_charset', 'utf8'),
             'collation' => Config::getVar('database', 'collation', 'utf8_general_ci'),
         ];
+
+        // Auth
+        $items['auth'] = [
+            'defaults' => [
+                'guard' => 'web',
+            ],
+            'guards' => [
+                'web' => [
+                    'driver' => 'session',
+                    'provider' => 'users',
+                ],
+            ],
+            'providers' => [
+                'users' => [
+                    'driver' => 'pkp_user_provider',
+                ],
+            ],
+        ];
+
+        // Session manager
+        $request = Application::get()->getRequest();
+        $items['session'] = [
+            'driver' => 'database',
+            'table' => 'sessions',
+            'cookie' => Config::getVar('general', 'session_cookie_name'),
+            'path' => Config::getVar('general', 'session_cookie_path', $request->getBasePath() . '/'),
+            'domain' => $request->getServerHost(includePort: false),
+            'secure' => Config::getVar('security', 'force_ssl'),
+            'lifetime' => Config::getVar('general', 'lifetime', 30) * 24 * 60 * 60,
+        ];
+
 
         // Queue connection
         $items['queue']['default'] = 'database';

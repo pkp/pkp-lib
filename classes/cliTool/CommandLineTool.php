@@ -31,6 +31,7 @@ use PKP\config\Config;
 use PKP\core\Registry;
 use PKP\plugins\PluginRegistry;
 use PKP\session\SessionManager;
+use PKP\security\Role;
 use PKP\user\User;
 
 /** Initialization code */
@@ -39,8 +40,8 @@ chdir(dirname(INDEX_FILE_LOCATION)); /* Change to base directory */
 if (!defined('STDIN')) {
     define('STDIN', fopen('php://stdin', 'r'));
 }
+define('SESSION_DISABLE_INIT', true);
 require_once './lib/pkp/includes/bootstrap.php';
-SessionManager::disable();
 
 class CommandLineTool
 {

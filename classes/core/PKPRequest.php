@@ -19,14 +19,13 @@ namespace PKP\core;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
+use Illuminate\Session\SessionManager;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
 use PKP\security\Validation;
-use PKP\session\Session;
-use PKP\session\SessionManager;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\user\User;
@@ -104,7 +103,7 @@ class PKPRequest
      */
     public function &getDispatcher()
     {
-        if (! $this->_dispatcher) {
+        if (!$this->_dispatcher) {
             $application = Application::get();
 
             $this->setDispatcher($application->getDispatcher());
@@ -476,7 +475,7 @@ class PKPRequest
     public function checkCSRF()
     {
         $session = $this->getSession();
-        return $this->getUserVar('csrfToken') == $session->getCSRFToken();
+        return $this->getUserVar('csrfToken') == $session->token();
     }
 
     /**
@@ -488,7 +487,7 @@ class PKPRequest
      */
     public function getRemoteAddr()
     {
-        $ipaddr = & Registry::get('remoteIpAddr'); // Reference required.
+        $ipaddr = &Registry::get('remoteIpAddr'); // Reference required.
         if (is_null($ipaddr)) {
             if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) &&
                 Config::getVar('general', 'trust_x_forwarded_for', true) &&
@@ -590,7 +589,7 @@ class PKPRequest
      */
     public function getSite(): ?Site
     {
-        $site = & Registry::get('site', true, null);
+        $site = &Registry::get('site', true, null);
         /** @var SiteDAO */
         $siteDao = DAORegistry::getDAO('SiteDAO');
         return $site ??= $siteDao->getSite();
@@ -599,10 +598,9 @@ class PKPRequest
     /**
      * Get the user session associated with the current request.
      */
-    public function getSession(): Session
+    public function getSession(): SessionManager
     {
-        $session = & Registry::get('session', true, null);
-        return $session ??= SessionManager::getManager()->getUserSession();
+        return session();
     }
 
     /**
@@ -610,7 +608,7 @@ class PKPRequest
      */
     public function getUser(): ?User
     {
-        $user = & Registry::get('user', true, null);
+        $user = &Registry::get('user', true, null);
         if ($user) {
             return $user;
         }
@@ -624,6 +622,7 @@ class PKPRequest
             return $user = $apiUser;
         }
 
+        error_log('GETTING A SESSION USER ID: ' . session('user_id'));
         // Attempts to retrieve a logged user
         if (Validation::isLoggedIn()) {
             $user = SessionManager::getManager()->getUserSession()->getUser();
@@ -898,7 +897,7 @@ class PKPRequest
         // as all router methods required the request
         // as their first parameter.
         $parameters = func_get_args();
-        $parameters[0] = & $this;
+        $parameters[0] = &$this;
 
         $returner = call_user_func_array($callable, $parameters);
         return $returner;

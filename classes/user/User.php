@@ -20,11 +20,12 @@
 
 namespace PKP\user;
 
+use Illuminate\Contracts\Auth\Authenticatable;
 use PKP\db\DAORegistry;
 use PKP\identity\Identity;
 use PKP\security\RoleDAO;
 
-class User extends Identity
+class User extends Identity implements Authenticatable
 {
     /** @var array Roles assigned to this user grouped by context */
     protected $_roles = [];
@@ -452,6 +453,36 @@ class User extends Identity
     public function setRoles($roles, $contextId)
     {
         $this->_roles[$contextId] = $roles;
+    }
+
+    public function getAuthIdentifierName()
+    {
+        return 'user_id';
+    }
+
+    public function getAuthIdentifier()
+    {
+        return $this->getId();
+    }
+
+    public function getAuthPassword()
+    {
+        throw new Exception('Unimplemented');
+    }
+
+    public function getRememberToken()
+    {
+        throw new Exception('Unimplemented');
+    }
+
+    public function setRememberToken($value)
+    {
+        throw new Exception('Unimplemented');
+    }
+
+    public function getRememberTokenName()
+    {
+        throw new Exception('Unimplemented');
     }
 }
 

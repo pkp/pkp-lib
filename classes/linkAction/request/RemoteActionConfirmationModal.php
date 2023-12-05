@@ -46,7 +46,7 @@ class RemoteActionConfirmationModal extends ConfirmationModal
         parent::__construct($dialogText, $title, $titleIcon, $okButton, $cancelButton, $canClose);
 
         $this->_remoteAction = $remoteAction;
-        $this->_csrfToken = $session->getCSRFToken();
+        $this->_csrfToken = $session->token();
     }
 
 

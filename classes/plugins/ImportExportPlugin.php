@@ -423,7 +423,7 @@ abstract class ImportExportPlugin extends Plugin
                 null,
                 null,
                 ['plugin', $this->getName(), $bounceUrl],
-                array_merge($bounceParameterArray, ['csrfToken' => $request->getSession()->getCSRFToken()])
+                array_merge($bounceParameterArray, ['csrfToken' => $request->getSession()->token()])
             ),
         ]);
         header('Content-Type: application/json');

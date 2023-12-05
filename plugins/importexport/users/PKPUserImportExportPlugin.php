@@ -126,7 +126,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
                 $json = new JSONMessage(true);
                 $json->setEvent('addTab', [
                     'title' => __('plugins.importexport.users.results'),
-                    'url' => $request->url(null, null, null, ['plugin', $this->getName(), 'import'], ['temporaryFileId' => $request->getUserVar('temporaryFileId'), 'csrfToken' => $request->getSession()->getCSRFToken()]),
+                    'url' => $request->url(null, null, null, ['plugin', $this->getName(), 'import'], ['temporaryFileId' => $request->getUserVar('temporaryFileId'), 'csrfToken' => $request->getSession()->token()]),
                 ]);
                 header('Content-Type: application/json');
                 return $json->getString();

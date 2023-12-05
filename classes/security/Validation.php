@@ -19,11 +19,11 @@ namespace PKP\security;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\session\SessionDAO;
-use PKP\session\SessionManager;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\user\User;
@@ -134,28 +134,29 @@ class Validation
         }
 
         // The user is valid, mark user as logged in in current session
-        $sessionManager = SessionManager::getManager();
+        $session = session();
+        $session->start();
 
         // Regenerate session ID first
-        $sessionManager->regenerateSessionId();
+        $session->regenerate();
 
-        $session = $sessionManager->getUserSession();
-        $session->setSessionVar('userId', $user->getId());
-        $session->setUserId($user->getId());
-        $session->setSessionVar('username', $user->getUsername());
+        $session->put('user_id', $user->getId());
+        $session->put('username', $user->getUsername());
         if ($authKey === static::AUTH_KEY_EMAIL) {
-            $session->setSessionVar('email', $user->getEmail());
+            $session->put('email', $user->getEmail());
         }
-        $session->getCSRFToken(); // Force generation (see issue #2417)
-        $session->setRemember($remember);
+        error_log('FORGOT REMEMBER');
+        // $session->setRemember($remember);
 
         if ($remember && Config::getVar('general', 'session_lifetime') > 0) {
             // Update session expiration time
-            $sessionManager->updateSessionLifetime(time() + Config::getVar('general', 'session_lifetime') * 86400);
+            error_log('FORGOT SESSION LIFETIME');
+            //$sessionManager->updateSessionLifetime(time() + Config::getVar('general', 'session_lifetime') * 86400);
         }
 
         $user->setDateLastLogin(Core::getCurrentDate());
         Repo::user()->edit($user);
+        $session->save();
 
         return $user;
     }
@@ -257,9 +258,7 @@ class Validation
             $contextId = $context == null ? 0 : $context->getId();
         }
 
-        $sessionManager = SessionManager::getManager();
-        $session = $sessionManager->getUserSession();
-        $user = $session->getUser();
+        $user = Auth::user();
 
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
         return $roleDao->userHasRole($contextId, $user->getId(), $roleId);
@@ -408,18 +407,11 @@ class Validation
 
     /**
      * Check if the user is logged in.
-     *
-     * @return bool
      */
-    public static function isLoggedIn()
+    public static function isLoggedIn(): bool
     {
-        if (!SessionManager::hasSession()) {
-            return false;
-        }
-
-        $sessionManager = SessionManager::getManager();
-        $session = $sessionManager->getUserSession();
-        return !!$session->getUserId();
+        error_log('NOT SURE ABOUT USER ID GETTER; ' . print_r(session()->all(), true));
+        return (bool) session('user_id');
     }
 
     /**
@@ -427,14 +419,7 @@ class Validation
      */
     public static function loggedInAs(): ?int
     {
-        if (!SessionManager::hasSession()) {
-            return null;
-        }
-        $sessionManager = SessionManager::getManager();
-        $session = $sessionManager->getUserSession();
-        $userId = $session->getSessionVar('signedInAs');
-
-        return $userId ? (int) $userId : null;
+        return session('signedInAs') ?: null;
     }
 
     /**

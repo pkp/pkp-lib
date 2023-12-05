@@ -18,11 +18,11 @@ namespace PKP\core;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use Illuminate\Support\Facades\Auth;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\Validation;
-use PKP\session\SessionManager;
 
 define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
 define('ROUTER_DEFAULT_OP', 'index');
@@ -75,7 +75,7 @@ class PKPPageRouter extends PKPRouter
      */
     public function isCacheable($request, $testOnly = false): bool
     {
-        if (SessionManager::isDisabled() && !$testOnly) {
+        if (defined('SESSION_DISABLE_INIT') && !$testOnly) {
             return false;
         }
         if (Application::isUnderMaintenance()) {
@@ -197,7 +197,7 @@ class PKPPageRouter extends PKPRouter
 
         // Redirect requests from logged-out users to a context which is not
         // publicly enabled
-        if (!SessionManager::isDisabled()) {
+        if (!defined('SESSION_DISABLE_INIT')) {
             $user = $request->getUser();
             $currentContext = $request->getContext();
             if ($currentContext && !$currentContext->getEnabled() && !$user instanceof \PKP\user\User) {
@@ -233,10 +233,7 @@ class PKPPageRouter extends PKPRouter
             }
         }
 
-        if (!SessionManager::isDisabled()) {
-            // Initialize session
-            SessionManager::getManager();
-        }
+        session()->start();
 
         // Call the selected handler's index operation if
         // no operation was defined in the request.
@@ -440,7 +437,7 @@ class PKPPageRouter extends PKPRouter
      */
     public function getHomeUrl($request)
     {
-        $user = $request->getUser();
+        $user = Auth::user();
         $userId = $user->getId();
 
         if ($context = $this->getContext($request)) {

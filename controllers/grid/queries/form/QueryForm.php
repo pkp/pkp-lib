@@ -251,7 +251,7 @@ class QueryForm extends Form
             'isNew' => $this->_isNew,
             'noteId' => $headNote->getId(),
             'actionArgs' => $actionArgs,
-            'csrfToken' => $request->getSession()->getCSRFToken(),
+            'csrfToken' => $request->getSession()->token(),
             'stageId' => $this->getStageId(),
             'assocId' => $query->getAssocId(),
             'assocType' => $query->getAssocType(),

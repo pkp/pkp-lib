@@ -119,25 +119,6 @@ class CommonMigration extends \PKP\migration\Migration
             $table->index(['setting_name', 'locale'], 'user_settings_locale_setting_name_index');
         });
 
-        Schema::create('sessions', function (Blueprint $table) {
-            $table->comment('Session data for logged-in users.');
-            $table->string('session_id', 128);
-
-            $table->bigInteger('user_id')->nullable();
-            $table->foreign('user_id', 'sessions_user_id')->references('user_id')->on('users')->onDelete('cascade');
-            $table->index(['user_id'], 'sessions_user_id');
-
-            $table->string('ip_address', 39);
-            $table->string('user_agent', 255)->nullable();
-            $table->bigInteger('created')->default(0);
-            $table->bigInteger('last_used')->default(0);
-            $table->smallInteger('remember')->default(0);
-            $table->text('data');
-            $table->string('domain', 255)->nullable();
-
-            $table->unique(['session_id'], 'sessions_pkey');
-        });
-
         Schema::create('notifications', function (Blueprint $table) {
             $table->comment('User notifications created during certain operations.');
             $table->bigInteger('notification_id')->autoIncrement();

@@ -292,9 +292,6 @@ class PKPSubmissionController extends PKPBaseController
             ]);
     }
 
-
-
-
     /**
      * @copydoc \PKP\core\PKPBaseController::authorize()
      */
@@ -838,6 +835,7 @@ class PKPSubmissionController extends PKPBaseController
         $request = Application::get()->getRequest();
         $context = $request->getContext();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $args = $illuminateRequest->input();
         $stageId = $args['stageId'] ?? null;
 
         if (!$submission || $submission->getData('contextId') !== $context->getId()) {
@@ -1591,8 +1589,11 @@ class PKPSubmissionController extends PKPBaseController
             ->filterByPublicationIds([$publication->getId()])
             ->getMany();
 
+        $authorsArray = Repo::author()->getSchemaMap()->summarizeMany($authors)->toArray();
+        $indexedArray = array_values($authorsArray);
+
         return response()->json(
-            Repo::author()->getSchemaMap()->summarizeMany($authors),
+            $indexedArray,
             Response::HTTP_OK
         );
     }

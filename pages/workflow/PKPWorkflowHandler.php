@@ -32,6 +32,7 @@ use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationLicenseForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\listPanels\ContributorsListPanel;
+use PKP\components\listPanels\JatsListPanel;
 use PKP\context\Context;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -323,12 +324,20 @@ abstract class PKPWorkflowHandler extends Handler
             ? $workingPublicationProps
             : $mapper->map($submission->getCurrentPublication());
 
+        $jatsPanel = $this->getJatsPanel(
+            $submission,
+            $submissionContext,
+            $canEditPublication,
+            $latestPublication
+        );
+
         $state = [
             'activityLogLabel' => __('submission.list.infoCenter'),
             'canAccessPublication' => $canAccessPublication,
             'canEditPublication' => $canEditPublication,
             'components' => [
                 $contributorsListPanel->id => $contributorsListPanel->getConfig(),
+                $jatsPanel->id => $jatsPanel->getConfig(),
                 $citationsForm->id => $citationsForm->getConfig(),
                 $publicationLicenseForm->id => $publicationLicenseForm->getConfig(),
                 $titleAbstractForm->id => $titleAbstractForm->getConfig(),
@@ -850,6 +859,20 @@ abstract class PKPWorkflowHandler extends Handler
         );
     }
 
+    /**
+     * Get the contributor list panel
+     */
+    protected function getJatsPanel(Submission $submission, Context $context, bool $canEditPublication, Publication $publication): JatsListPanel
+    {
+        return new JatsListPanel(
+            'jats',
+            __('publication.jats'),
+            $submission,
+            $context,
+            $canEditPublication,
+            $publication
+        );
+    }
 
     //
     // Abstract protected methods.

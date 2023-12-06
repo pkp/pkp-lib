@@ -2395,3 +2395,21 @@ msgstr "Pending"
 
 msgid "submission.dashboard.view.reviewAssignments.archived"
 msgstr "Completed / Declined"
+
+msgid "publication.jats"
+msgstr "JATS XML"
+
+msgid "publication.jats.confirmDeleteFileTitle"
+msgstr "Confirm deleting JATS XML"
+
+msgid "publication.jats.confirmDeleteFileMessage"
+msgstr "You are about to remove the existing JATS XML File from this publication. Are you sure?"
+
+msgid "publication.jats.confirmDeleteFileButton"
+msgstr "Delete JATS File"
+
+msgid "publication.jats.autoCreatedMessage"
+msgstr "This JATS file is generated automatically by the submission metadata"
+
+msgid "publication.jats.lastModified"
+msgstr "Last Modification at {$modificationDate} by {$username}"

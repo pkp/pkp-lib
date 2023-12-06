@@ -92,6 +92,8 @@ import FieldText from '@/components/Form/fields/FieldText.vue';
 import FieldTextarea from '@/components/Form/fields/FieldTextarea.vue';
 import FieldUpload from '@/components/Form/fields/FieldUpload.vue';
 import FieldUploadImage from '@/components/Form/fields/FieldUploadImage.vue';
+import VueHighlightJS from 'vue3-highlightjs';
+import 'highlight.js/styles/default.css';
 
 // Panel components from UI Library
 import ListPanel from '@/components/ListPanel/ListPanel.vue';
@@ -232,6 +234,8 @@ function pkpCreateVueApp(createAppArgs) {
 	Object.keys(allGlobalComponents).forEach((componentName) => {
 		vueApp.component(componentName, allGlobalComponents[componentName]);
 	});
+
+	vueApp.use(VueHighlightJS);
 
 	return vueApp;
 }

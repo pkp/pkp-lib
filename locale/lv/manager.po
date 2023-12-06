@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-03 11:03+0000\n"
+"PO-Revision-Date: 2023-12-06 23:57+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -1353,7 +1353,7 @@ msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Vietnes piekļuves iespējas"
 
 msgid "manager.statistics.statistics.count.value"
-msgstr "{$count} ({$percentage}%)"
+msgstr "{$count} ({$percentage} %)"
 
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} jaunu)"
@@ -1468,63 +1468,71 @@ msgstr "Spraudnis \"{$pluginName}\" veiksmīgi dzēsts"
 
 msgid "manager.plugins.description"
 msgstr ""
+"Šajā lapā pārvaldnieks var pārskatīt un, iespējams, konfigurēt pašlaik "
+"instalētos spraudņus. Spraudņi ir sadalīti kategorijās atbilstoši to "
+"funkcijām. Kategorijas uzskaitītas tālāk, un katrā kategorijā ir norādīts "
+"tās pašreizējais spraudņu komplekts."
 
 msgid "manager.plugins.doesNotExist"
-msgstr ""
+msgstr "Spraudnis \"{$pluginName}\" nepastāv"
 
 msgid "manager.plugins.fileSelectError"
-msgstr ""
+msgstr "Lūdzu, vispirms izvēlieties datni"
 
 msgid "manager.plugins.upload"
-msgstr ""
+msgstr "Augšupielādēt jaunu spraudni"
 
 msgid "manager.plugins.uploadDescription"
 msgstr ""
+"Šī veidlapa ļauj augšupielādēt un instalēt jaunu spraudni. Lūdzu, "
+"pārliecinieties, ka spraudnis ir saspiests kā .tar.gz fails."
 
 msgid "manager.plugins.uploadFailed"
-msgstr ""
+msgstr "Lūdzu, pārliecinieties, ka fails augšupielādei ir atlasīts ."
 
 msgid "manager.plugins.installed"
-msgstr ""
+msgstr "Uzstādītie spraudņi"
 
 msgid "manager.plugins.pluginGallery"
-msgstr ""
+msgstr "Spraudņu galerija"
 
 msgid "manager.plugins.pluginGallery.overview"
-msgstr ""
+msgstr "Pārskats"
 
 msgid "manager.plugins.pluginGallery.installation"
-msgstr ""
+msgstr "Uzstādīšana"
 
 msgid "manager.plugins.pluginGallery.latestCompatible"
-msgstr ""
+msgstr "Jaunākais saderīgais laidiens"
 
 msgid "manager.plugins.pluginGallery.certifications.official"
-msgstr ""
+msgstr "Oficiāls"
 
 msgid "manager.plugins.pluginGallery.certifications.official.description"
-msgstr ""
+msgstr "Šo spraudni izstrādā un uztur Public Knowledge Project komanda."
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
-msgstr ""
+msgstr "Recenzēts"
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
 msgstr ""
+"Šo spraudni ir pārskatījusi un apstiprinājusi Public Knowledge Project "
+"komanda."
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
-msgstr ""
+msgstr "Sadarbības partneri"
 
 msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr ""
+msgstr "Šo spraudni nodrošina viens no mūsu izstrādes partneriem."
 
 msgid "manager.plugins.pluginGallery.maintainer"
-msgstr ""
+msgstr "Uzturētājs"
 
 msgid "manager.plugins.pluginGallery.version"
-msgstr ""
+msgstr "Versija v{$version} izlaista {$date}"
 
 msgid "manager.plugins.pluginGallery.homepage"
-msgstr ""
+msgstr "Mājas lapa"
 
 msgid "manager.plugins.pluginGallery.summary"
 msgstr ""
@@ -1828,10 +1836,10 @@ msgid "manager.workflow.title"
 msgstr "Darbplūsmas uzstādījumi"
 
 msgid "manager.distribution"
-msgstr ""
+msgstr "Izplatīšana"
 
 msgid "manager.distribution.title"
-msgstr ""
+msgstr "Izplatīšanas uzstādījumi"
 
 msgid "manager.reviewForms"
 msgstr ""
@@ -2357,9 +2365,14 @@ msgstr ""
 
 msgid "manager.navigationMenus.subscriptions.conditionalWarning"
 msgstr ""
+"Šī saite tiks rādīta tikai tad, ja sadaļā Iestatījumi > Izplatīšana > "
+"Maksājumi ir iespējoti maksājumi."
 
 msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
 msgstr ""
+"Šī saite tiks parādīta tikai tad, ja apmeklētājs ir pieteicies, ja sadaļā "
+"Iestatījumi > Izplatīšana > Maksājumi ir iespējoti maksājumi un ja sadaļā "
+"Iestatījumi > Izplatīšana > Piekļuve ir nepieciešami abonementi."
 
 msgid "manager.navigationMenus.search.description"
 msgstr ""
@@ -3373,3 +3386,11 @@ msgstr "Vai tiešām vēlaties dzēst {$title}? Šo darbību nevar atsaukt."
 
 msgid "manager.highlights.url.description"
 msgstr "Pilns izceltās pogas URL, tostarp https://."
+
+msgid "manager.image"
+msgstr "Attēls"
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Jums ir <a href=\"#announcements/announcement-settings\">jāiespējo "
+"paziņojumi</a>."

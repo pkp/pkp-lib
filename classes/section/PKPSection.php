@@ -63,7 +63,7 @@ class PKPSection extends \PKP\core\DataObject
         return $this->getLocalizedData('title');
     }
 
-    public function getTitle(?string $locale): string|array
+    public function getTitle(?string $locale): string|array|null
     {
         return $this->getData('title', $locale);
     }

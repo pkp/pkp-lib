@@ -34,7 +34,7 @@ class JatsFile
     {
         if ($submissionFile) {
             $this->jatsContent = Repo::submissionFile()
-                ->getSubmissionFileContent($submissionFile, $genres);
+                ->getSubmissionFileContent($submissionFile);
             
             $this->isDefaultContent = false;
         } else {

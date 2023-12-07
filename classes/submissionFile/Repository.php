@@ -896,9 +896,7 @@ abstract class Repository
      */
     public function getSubmissionFileContent(SubmissionFile $submissionFile): string
     {
-        $jatsFileName = Config::getVar('files', 'files_dir') . '/' . $submissionFile->getData('path') .'';
-        $fileContentString = file_get_contents($jatsFileName);
-
-        return $fileContentString;
+        $fileName = Config::getVar('files', 'files_dir') . '/' . $submissionFile->getData('path') .'';
+        return file_get_contents($fileName);
     }
 }

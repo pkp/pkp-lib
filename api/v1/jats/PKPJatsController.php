@@ -28,7 +28,6 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
-use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -97,7 +96,7 @@ class PKPJatsController extends PKPBaseController
 
         if ($actionName === 'add') {
             $params = $illuminateRequest->input();
-            $fileStage = isset($params['fileStage']) ? (int) $params['fileStage'] : 21;
+            $fileStage = isset($params['fileStage']) ? (int) $params['fileStage'] : SubmissionFile::SUBMISSION_FILE_JATS;
             $this->addPolicy(
                 new SubmissionFileStageAccessPolicy(
                     $fileStage,

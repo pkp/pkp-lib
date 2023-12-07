@@ -324,20 +324,12 @@ abstract class PKPWorkflowHandler extends Handler
             ? $workingPublicationProps
             : $mapper->map($submission->getCurrentPublication());
 
-        $jatsPanel = $this->getJatsPanel(
-            $submission,
-            $submissionContext,
-            $canEditPublication,
-            $latestPublication
-        );
-
         $state = [
             'activityLogLabel' => __('submission.list.infoCenter'),
             'canAccessPublication' => $canAccessPublication,
             'canEditPublication' => $canEditPublication,
             'components' => [
                 $contributorsListPanel->id => $contributorsListPanel->getConfig(),
-                $jatsPanel->id => $jatsPanel->getConfig(),
                 $citationsForm->id => $citationsForm->getConfig(),
                 $publicationLicenseForm->id => $publicationLicenseForm->getConfig(),
                 $titleAbstractForm->id => $titleAbstractForm->getConfig(),

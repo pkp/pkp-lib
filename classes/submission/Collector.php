@@ -525,7 +525,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                 $q->leftJoinSub(
                     fn (Builder $q) => $q
                         ->from('review_assignments', 'ra')
-                        ->whereIn('ra.reviewer_id', $this->assignedTo)
+                        ->whereIn('ra.reviewer_id', $this->assignedTo == self::UNASSIGNED ? [] : (array) $this->assignedTo)
                         ->select(DB::raw('1 AS value'))
                         ->limit(1),
                     'any_assignment',

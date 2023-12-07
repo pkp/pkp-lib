@@ -2413,3 +2413,9 @@ msgstr "This JATS file is generated automatically by the submission metadata"
 
 msgid "publication.jats.lastModified"
 msgstr "Last Modification at {$modificationDate} by {$username}"
+
+msgid "publication.jats.defaultContentCreationError"
+msgstr "An error occured when trying to create the default JATS content. Please make sure that the JatsTemplate plugin is installed."
+
+msgid "submission.files.content.error"
+msgstr "The content of the submission file '{$fileName}' could not be retrieved."

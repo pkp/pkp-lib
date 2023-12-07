@@ -17,11 +17,14 @@
 namespace PKP\jats;
 
 use APP\facades\Repo;
+use PKP\jats\exceptions\UnableToCreateJATSContentException;
+use PKP\submissionFile\exceptions\UnableToCreateFileContentException;
 use PKP\submissionFile\SubmissionFile;
 
 class JatsFile
 {
-    public string $jatsContent;
+    public ?string $loadingContentError = null;
+    public ?string $jatsContent = null;
     public bool $isDefaultContent = true;
     public array $props = [];
 
@@ -32,14 +35,19 @@ class JatsFile
         public array $genres = []
     ) 
     {
-        if ($submissionFile) {
-            $this->jatsContent = Repo::submissionFile()
-                ->getSubmissionFileContent($submissionFile);
-            
-            $this->isDefaultContent = false;
-        } else {
-            $this->jatsContent = Repo::jats()
-                ->createDefaultJatsContent($publicationId, $submissionId);
+        try {
+            if ($submissionFile) {
+                $this->isDefaultContent = false;
+
+                $this->jatsContent = Repo::submissionFile()
+                    ->getSubmissionFileContent($submissionFile);
+            } else {
+                $this->jatsContent = Repo::jats()
+                    ->createDefaultJatsContent($publicationId, $submissionId);
+            }
+        } catch (UnableToCreateFileContentException | UnableToCreateJATSContentException $e) {
+            $this->loadingContentError = $e->getMessage();
         }
+        
     }
 }

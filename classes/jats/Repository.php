@@ -20,7 +20,9 @@ use APP\plugins\generic\jatsTemplate\classes\Article;
 use Exception;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
+use PKP\jats\exceptions\UnableToCreateJATSContentException;
 use PKP\submissionFile\SubmissionFile;
+use Throwable;
 
 
 class Repository
@@ -42,6 +44,10 @@ class Repository
         }
 
         $fileProps['isDefaultContent'] = $jatsFile->isDefaultContent;
+
+        if ($jatsFile->loadingContentError) {
+            $fileProps['loadingContentError'] = $jatsFile->loadingContentError;
+        }
 
         return $fileProps;
     }
@@ -82,6 +88,8 @@ class Repository
 
     /**
      * Creates the default JATS XML Content from the given submission/publication metadata
+     *
+     * @throws \PKP\jats\exceptions\UnableToCreateJATSContentException If the default JATS creation fails
      */
     public function createDefaultJatsContent(int $publicationId, ?int $submissionId = null): string
     {
@@ -96,7 +104,11 @@ class Repository
             $issue = Repo::issue()->get($publication->getData('issueId'));
         }
 
-        $exportXml = $this->convertSubmissionToJatsXml($submission, $context, $section, $issue, $publication, Application::get()->getRequest());
+        try {
+            $exportXml = $this->convertSubmissionToJatsXml($submission, $context, $section, $issue, $publication, Application::get()->getRequest());
+        } catch (Throwable $e) {
+            throw new UnableToCreateJATSContentException($e);
+        }
 
         return $exportXml;
     }
@@ -196,6 +208,10 @@ class Repository
      */
     protected function convertSubmissionToJatsXml($submission, $journal, $section, $issue, $publication, $request): string
     {
+        if (!class_exists(\APP\plugins\generic\jatsTemplate\classes\Article::class)) {
+            throw new UnableToCreateJATSContentException();
+        }
+
         $articleJats = new Article();
 
         $articleJats->preserveWhiteSpace = false;

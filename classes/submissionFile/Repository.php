@@ -43,6 +43,7 @@ use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submissionFile\exceptions\UnableToCreateFileContentException;
 use PKP\submissionFile\maps\Schema;
 use PKP\validation\ValidatorFactory;
 
@@ -892,11 +893,19 @@ abstract class Repository
     }
 
     /**
-     * returns jatsContent for Submission files that correspond to the content of the file
+     * Returns jatsContent for Submission files that correspond to the content of the file
+     *
+     * @throws \PKP\submissionFile\exceptions\UnableToCreateFileContentException If the default JATS creation fails
      */
-    public function getSubmissionFileContent(SubmissionFile $submissionFile): string
+    public function getSubmissionFileContent(SubmissionFile $submissionFile): string | false
     {
         $fileName = Config::getVar('files', 'files_dir') . '/' . $submissionFile->getData('path') .'';
-        return file_get_contents($fileName);
+        $retValue = file_get_contents($fileName);
+
+        if ($retValue === false) {
+            throw new UnableToCreateFileContentException($fileName);
+        }
+
+        return $retValue;
     }
 }

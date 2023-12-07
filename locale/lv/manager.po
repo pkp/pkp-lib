@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-06 23:57+0000\n"
+"PO-Revision-Date: 2023-12-07 13:38+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -1666,54 +1666,62 @@ msgstr ""
 
 msgid "manager.distribution.customHeaders.description"
 msgstr ""
+"Pievienojiet pielāgotus HTML tagus, dēvējamus arī par meta tagiem, kurus "
+"vēlaties ievietot katras lapas galvenē. Pirms pievienojiet tagus, "
+"konsultējieties ar tehnisko konsultantu."
 
 msgid "manager.paymentMethod"
-msgstr ""
+msgstr "Maksājumi"
 
 msgid "manager.paymentMethod.title"
-msgstr ""
+msgstr "Maksājumu metodes"
 
 msgid "manager.paymentMethod.none"
-msgstr ""
+msgstr "Nav izvēlēta maksājuma metode"
 
 msgid "manager.paymentMethod.method"
-msgstr ""
+msgstr "Maksājuma metode"
 
 msgid "manager.paymentMethod.currency"
-msgstr ""
+msgstr "Valūta"
 
 msgid "settings.roles.roleOptions"
-msgstr ""
+msgstr "Lomas iestatījumi"
 
 msgid "settings.roles.showTitles"
 msgstr "Rādīt lomas nosaukumu ieguldītāju sarakstā"
 
 msgid "settings.roles.permitSelfRegistration"
-msgstr ""
+msgstr "Atļaut lietotāja pašreģistrāciju"
 
 msgid "settings.roles.recommendOnly"
 msgstr ""
+"Šai lomai atļauts tikai ieteikt recenzenta lēmumu, un galīgo lēmumu varēs "
+"reģistrēt tikai pilnvarots redaktors."
 
 msgid "settings.roles.roleName"
-msgstr ""
+msgstr "Lomas nosaukums"
 
 msgid "settings.roles.roleAbbrev"
-msgstr ""
+msgstr "Abreviatūra"
 
 msgid "settings.roles.assignedStages"
-msgstr ""
+msgstr "Piešķirtie posmi"
 
 msgid "settings.roles.stages"
-msgstr ""
+msgstr "Posmi"
 
 msgid "settings.roles.roleDetails"
-msgstr ""
+msgstr "Sīkāka informācija par lomu"
 
 msgid "settings.roles.from"
-msgstr ""
+msgstr "Atļauju līmenis"
 
 msgid "settings.roles.removeText"
 msgstr ""
+"Jūs gatavojaties noņemt šo lomu no šī konteksta. Šī darbība dzēsīs arī "
+"saistītos iestatījumus un visus šai lomai piešķirtos lietotājus. Vai "
+"vēlaties turpināt?"
 
 msgid "settings.roles.nameRequired"
 msgstr ""

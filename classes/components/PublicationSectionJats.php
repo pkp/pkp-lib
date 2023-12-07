@@ -1,19 +1,19 @@
 <?php
 /**
- * @file classes/components/listPanels/JatsListPanel.php
+ * @file classes/components/PublicationSectionJats.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class JatsListPanel
+ * @class PublicationSectionJats
  *
- * @ingroup classes_components_list
+ * @ingroup classes_components
  *
  * @brief A Panel component for viewing and managing publication's JATS Files
  */
 
-namespace PKP\components\listPanels;
+namespace PKP\components;
 
 use APP\core\Application;
 use APP\facades\Repo;
@@ -22,28 +22,16 @@ use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\submissionFile\SubmissionFile;
 
-class JatsListPanel extends ListPanel
+class PublicationSectionJats
 {
-    public Submission $submission;
-    public Publication $publication;
-    public Context $context;
-
-    /** Whether the user can edit the current publication */
-    public bool $canEditPublication;
-
     public function __construct(
-        string $id,
-        string $title,
-        Submission $submission,
-        Context $context,
-        bool $canEditPublication = false,
-        Publication $publication
+        public string $id,
+        public string $title,
+        public Submission $submission,
+        public Context $context,
+        public bool $canEditPublication = false,
+        public Publication $publication
     ) {
-        parent::__construct($id, $title);
-        $this->submission = $submission;
-        $this->context = $context;
-        $this->canEditPublication = $canEditPublication;
-        $this->publication = $publication;
     }
 
     /**
@@ -51,16 +39,13 @@ class JatsListPanel extends ListPanel
      */
     public function getConfig()
     {
-        $config = parent::getConfig();
-
-        // Remove some props not used in this list panel
-        unset($config['description']);
-        unset($config['expanded']);
-        unset($config['headingLevel']);
+        $config = [];
 
         $config = array_merge(
             $config,
             [
+                'title' => $this->title,
+                'id' => $this->id,
                 'canEditPublication' => $this->canEditPublication,
                 'publicationApiUrlFormat' => $this->getPublicationUrlFormat(),
                 'fileStage' => SubmissionFile::SUBMISSION_FILE_JATS,

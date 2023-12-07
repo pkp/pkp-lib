@@ -94,6 +94,7 @@ import FieldUpload from '@/components/Form/fields/FieldUpload.vue';
 import FieldUploadImage from '@/components/Form/fields/FieldUploadImage.vue';
 import VueHighlightJS from 'vue3-highlightjs';
 import 'highlight.js/styles/default.css';
+import PublicationSectionJats from '@/pages/workflow/PublicationSectionJats.vue';
 
 // Panel components from UI Library
 import ListPanel from '@/components/ListPanel/ListPanel.vue';
@@ -199,6 +200,9 @@ VueRegistry.registerComponent('field-pub-id', FieldPubId);
 
 // Register ListPanel
 VueRegistry.registerComponent('PkpListPanel', ListPanel);
+
+// Register PublicationSectionJats
+VueRegistry.registerComponent('PkpPublicationJats', PublicationSectionJats);
 
 function pkpCreateVueApp(createAppArgs) {
 	// Initialize Vue

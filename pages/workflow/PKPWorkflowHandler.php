@@ -32,7 +32,7 @@ use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationLicenseForm;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\components\listPanels\ContributorsListPanel;
-use PKP\components\listPanels\JatsListPanel;
+use PKP\components\PublicationSectionJats;
 use PKP\context\Context;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -862,9 +862,9 @@ abstract class PKPWorkflowHandler extends Handler
     /**
      * Get the contributor list panel
      */
-    protected function getJatsPanel(Submission $submission, Context $context, bool $canEditPublication, Publication $publication): JatsListPanel
+    protected function getJatsPanel(Submission $submission, Context $context, bool $canEditPublication, Publication $publication): PublicationSectionJats
     {
-        return new JatsListPanel(
+        return new PublicationSectionJats(
             'jats',
             __('publication.jats'),
             $submission,

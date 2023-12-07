@@ -113,9 +113,9 @@ class Repository
     /**
      * Get the user private note for the specified context.
      *
-     * This returns the first user private note, as the "user ID/context ID" key should be unique.
+     * This returns the user private note, as the "user ID/context ID" key should be unique.
      */
-    public function getFirstUserPrivateNote(int $userId, int $contextId): ?UserPrivateNote
+    public function getUserPrivateNote(int $userId, int $contextId): ?UserPrivateNote
     {
         return Repo::userPrivateNote()
             ->getCollector()

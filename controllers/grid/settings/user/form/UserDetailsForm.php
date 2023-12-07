@@ -174,11 +174,12 @@ class UserDetailsForm extends UserForm
                 'interests' => $interestManager->getInterestsForUser($user),
                 'locales' => $user->getLocales(),
             ];
-            $data['canCurrentUserGossip'] = Repo::user()->canCurrentUserGossip($user->getId());
+            $userId = $user->getId();
+            $data['canCurrentUserGossip'] = Repo::user()->canCurrentUserGossip($userId);
             if ($data['canCurrentUserGossip']) {
                 $data['gossip'] = $user->getGossip();
-                $userPrivateNote = Repo::userPrivateNote()
-                    ->getFirstUserPrivateNote($user->getId(), $request->getContext()->getId());
+                $contextId = $request->getContext()->getId();
+                $userPrivateNote = Repo::userPrivateNote()->getUserPrivateNote($userId, $contextId);
                 $data['userPrivateNote'] = $userPrivateNote ? $userPrivateNote->getNote() : '';
             }
         } elseif (isset($this->author)) {
@@ -405,7 +406,7 @@ class UserDetailsForm extends UserForm
 
         // Users can never view/edit their own private notes fields
         if (Repo::user()->canCurrentUserGossip($userId)) {
-            $userPrivateNote = Repo::userPrivateNote()->getFirstUserPrivateNote($userId, $context->getId());
+            $userPrivateNote = Repo::userPrivateNote()->getUserPrivateNote($userId, $context->getId());
             Repo::userPrivateNote()->edit($userPrivateNote, ['note', $this->getData('userPrivateNote')]);
         }
 

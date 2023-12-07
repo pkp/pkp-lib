@@ -22,68 +22,64 @@ use PKP\core\DataObject;
 
 class UserPrivateNote extends DataObject
 {
-	/**
-	 * Get private note context ID.
+    /**
+     * Get private note context ID.
      *
-	 * @return int
-	 */
+     * @return int
+     */
     public function getContextId(): int
     {
-		return $this->getData('contextId');
-	}
+        return $this->getData('contextId');
+    }
 
-	/**
-	 * Set private note context ID.
+    /**
+     * Set private note context ID.
      *
-	 * @param $contextId int
-	 */
+     * @param $contextId int
+     */
     public function setContextId(int $contextId): void
     {
-		$this->setData('contextId', $contextId);
-	}
+        $this->setData('contextId', $contextId);
+    }
 
-	/**
-	 * Get private note user ID.
+    /**
+     * Get private note user ID.
      *
-	 * @return int
-	 */
+     * @return int
+     */
     public function getUserId(): int
     {
-		return $this->getData('userId');
-	}
+        return $this->getData('userId');
+    }
 
-	/**
-	 * Set private note user ID.
+    /**
+     * Set private note user ID.
      *
-	 * @param $userId int
-	 */
+     * @param $userId int
+     */
     public function setUserId(int $userId): void
     {
-		$this->setData('userId', $userId);
-	}
+        $this->setData('userId', $userId);
+    }
 
 
-	/**
-	 * Get private note value.
+    /**
+     * Get private note value.
      *
-	 * @return string
-	 */
+     * @return string
+     */
     public function getNote(): string
     {
-		return $this->getData('note');
-	}
+        return $this->getData('note');
+    }
 
-	/**
-	 * Set private note value.
+    /**
+     * Set private note value.
      *
-	 * @param $note string
-	 */
+     * @param $note string
+     */
     public function setNote(string $note): void
     {
-		$this->setData('note', $note);
-	}
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\userPrivateNote\UserPrivateNote', '\UserPrivateNote');
+        $this->setData('note', $note);
+    }
 }

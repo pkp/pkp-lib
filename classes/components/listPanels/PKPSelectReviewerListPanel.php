@@ -128,7 +128,7 @@ class PKPSelectReviewerListPanel extends ListPanel
                 ->toArray();
             $contextId = $this->getParams['contextId'];
             foreach ($reviewers as $key => $reviewer) {
-                $userPrivateNote = Repo::userPrivateNote()->getFirstUserPrivateNote($reviewer->getId(), $contextId);
+                $userPrivateNote = Repo::userPrivateNote()->getUserPrivateNote($reviewer->getId(), $contextId);
                 $reviewers[$key]['userPrivateNote'] = $userPrivateNote?->getNote();
             }
             $config['lastRoundReviewers'] = $reviewers;
@@ -182,7 +182,7 @@ class PKPSelectReviewerListPanel extends ListPanel
         $contextId = $request->getContext()->getId();
         foreach ($reviewers as $reviewer) {
             $item = $map->summarizeReviewer($reviewer);
-            $userPrivateNote = Repo::userPrivateNote()->getFirstUserPrivateNote($reviewer->getId(), $contextId);
+            $userPrivateNote = Repo::userPrivateNote()->getUserPrivateNote($reviewer->getId(), $contextId);
             $item['userPrivateNote'] = $userPrivateNote?->getNote();
             $items[] = $item;
         }

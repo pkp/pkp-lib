@@ -1011,7 +1011,7 @@ class PKPReviewerGridHandler extends GridHandler
             return new JSONMessage(false, __('user.authorization.roleBasedAccessDenied'));
         }
 
-        $userPrivateNote = Repo::userPrivateNote()->getFirstUserPrivateNote($user->getId(), $request->getContext()->getId());
+        $userPrivateNote = Repo::userPrivateNote()->getUserPrivateNote($user->getId(), $request->getContext()->getId());
         if (!$userPrivateNote) {
             $userPrivateNote = Repo::userPrivateNote()->newDataObject([
                 'userId' => $user->getId(),

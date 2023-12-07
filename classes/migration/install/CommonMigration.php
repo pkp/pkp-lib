@@ -15,7 +15,6 @@
 namespace PKP\migration\install;
 
 use APP\core\Application;
-use APP\facades\Repo;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;

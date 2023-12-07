@@ -205,6 +205,8 @@ class Repository
     /**
      * Given a submission and a publication this function returns the JATS XML contents provided by the 
      * submission/publication metadata
+     *
+     * @throws \PKP\jats\exceptions\UnableToCreateJATSContentException If the default JATS creation fails
      */
     protected function convertSubmissionToJatsXml($submission, $journal, $section, $issue, $publication, $request): string
     {

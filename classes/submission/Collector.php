@@ -441,7 +441,7 @@ abstract class Collector implements CollectorInterface
                 // Holds a single random row to check whether we have any assignment
                 $q->leftJoinSub(fn (Builder $q) => $q
                     ->from('review_assignments', 'ra')
-                    ->whereIn('ra.reviewer_id', (array) $this->assignedTo)
+                    ->whereIn('ra.reviewer_id', $this->assignedTo)
                     ->select(DB::raw('1 AS value'))
                     ->limit(1),
                     'any_assignment', 'any_assignment.value', '=', DB::raw('1')

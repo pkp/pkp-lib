@@ -63,12 +63,7 @@ class JatsListPanel extends ListPanel
             [
                 'canEditPublication' => $this->canEditPublication,
                 'publicationApiUrlFormat' => $this->getPublicationUrlFormat(),
-                'uploadProgressLabel' => __('submission.upload.percentComplete'),
                 'fileStage' => SubmissionFile::SUBMISSION_FILE_JATS,
-                'i18nConfirmDeleteFileTitle' => __('publication.jats.confirmDeleteFileTitle'),
-                'i18nDeleteFileMessage' => __('publication.jats.confirmDeleteFileMessage'),
-                'i18nConfirmDeleteFileButton' => __('publication.jats.confirmDeleteFileButton'),
-                'i18nLastModifiedAt' => __('publication.jats.lastModified'),
                 'downloadDefaultJatsFileName' => Repo::jats()->getDefaultJatsFileName($this->publication->getId()),
             ]
         );

@@ -62,6 +62,8 @@ class Collector implements CollectorInterface
     public ?int $offset = null;
 
     public UserUserGroupStatus $userUserGroupStatus = UserUserGroupStatus::STATUS_ACTIVE;
+    
+    public ?bool $masthead = null;
 
 
     public function __construct(DAO $dao)
@@ -170,6 +172,15 @@ class Collector implements CollectorInterface
     public function filterByPermitMetadataEdit(?bool $permitMetadataEdit): self
     {
         $this->permitMetadataEdit = $permitMetadataEdit;
+        return $this;
+    }
+
+    /**
+     * Filter by masthead
+     */
+    public function filterByMasthead(?bool $masthead): self
+    {
+        $this->masthead = $masthead;
         return $this;
     }
 
@@ -302,6 +313,10 @@ class Collector implements CollectorInterface
 
         $q->when($this->permitMetadataEdit !== null, function (Builder $q) {
             $q->where('ug.permit_metadata_edit', $this->permitMetadataEdit ? 1 : 0);
+        });
+
+        $q->when($this->masthead !== null, function (Builder $q) {
+            $q->where('ug.masthead', $this->masthead ? 1 : 0);
         });
 
         $q->when($this->showTitle !== null, function (Builder $q) {

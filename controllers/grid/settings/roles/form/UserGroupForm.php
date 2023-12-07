@@ -124,6 +124,7 @@ class UserGroupForm extends Form
                 'permitSelfRegistration' => $userGroup->getPermitSelfRegistration(),
                 'permitMetadataEdit' => $userGroup->getPermitMetadataEdit(),
                 'recommendOnly' => $userGroup->getRecommendOnly(),
+                'masthead' => $userGroup->getMasthead(),
             ];
 
             foreach ($data as $field => $value) {
@@ -137,7 +138,7 @@ class UserGroupForm extends Form
      */
     public function readInputData()
     {
-        $this->readUserVars(['roleId', 'name', 'abbrev', 'assignedStages', 'showTitle', 'permitSelfRegistration', 'recommendOnly', 'permitMetadataEdit']);
+        $this->readUserVars(['roleId', 'name', 'abbrev', 'assignedStages', 'showTitle', 'permitSelfRegistration', 'recommendOnly', 'permitMetadataEdit', 'masthead']);
     }
 
     /**
@@ -210,7 +211,7 @@ class UserGroupForm extends Form
 
             $userGroup->setRecommendOnly($this->getData('recommendOnly') && in_array($userGroup->getRoleId(), $this->getRecommendOnlyRoles()));
             $userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
-
+            $userGroup->setMasthead($this->getData('masthead') ?? false);
             $userGroupId = Repo::userGroup()->add($userGroup);
         } else {
             $userGroup = Repo::userGroup()->get($userGroupId);
@@ -233,7 +234,7 @@ class UserGroupForm extends Form
             }
 
             $userGroup->setRecommendOnly($this->getData('recommendOnly') && in_array($userGroup->getRoleId(), $this->getRecommendOnlyRoles()));
-
+            $userGroup->setMasthead($this->getData('masthead') ?? false);
             Repo::userGroup()->edit($userGroup, []);
         }
 

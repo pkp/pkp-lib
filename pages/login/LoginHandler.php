@@ -142,8 +142,11 @@ class LoginHandler extends Handler
             }
         }
 
+        $username = $request->getUserVar('username');
         $reason = null;
-        $user = $error ? false : Validation::login($request->getUserVar('username'), $request->getUserVar('password'), $reason, !!$request->getUserVar('remember'));
+        $user = $error || !strlen($username ?? '')
+            ? null
+            : Validation::login($username, $request->getUserVar('password'), $reason, !!$request->getUserVar('remember'));
         if ($user) {
             if ($user->getMustChangePassword()) {
                 // User must change their password in order to log in
@@ -170,7 +173,7 @@ class LoginHandler extends Handler
 
 
         $templateMgr->assign([
-            'username' => $request->getUserVar('username'),
+            'username' => $username,
             'remember' => $request->getUserVar('remember'),
             'source' => $request->getUserVar('source'),
             'showRemember' => Config::getVar('general', 'session_lifetime') > 0,
@@ -224,7 +227,7 @@ class LoginHandler extends Handler
         $user = Repo::user()->getByEmail($email, true); /** @var User $user */
 
         if ($user !== null) {
-            
+
             if ($user->getDisabled()) {
                 $templateMgr
                     ->assign([
@@ -234,7 +237,7 @@ class LoginHandler extends Handler
                             : __('user.login.accountDisabledWithReason', ['reason' => htmlspecialchars($reason)])
                     ])
                     ->display('frontend/pages/userLostPassword.tpl');
-    
+
                 return;
             }
 

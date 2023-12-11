@@ -108,14 +108,12 @@
                             >
                                 {translate key="submission.wizard.errors"}
                             </notification>
-                            <template>
-                                {foreach from=$reviewSteps item=$step}
-                                    {if $step.reviewTemplate}
-                                        {include file=$step.reviewTemplate}
-                                    {/if}
-                                    {call_hook name="Template::SubmissionWizard::Section::Review" submission=$submission step=$step.id}
-                                {/foreach}
-                            </template>
+                            {foreach from=$reviewSteps item=$step}
+                                {if $step.reviewTemplate}
+                                    {include file=$step.reviewTemplate}
+                                {/if}
+                                {call_hook name="Template::SubmissionWizard::Section::Review" submission=$submission step=$step.id}
+                            {/foreach}
                             <transition name="submissionWizard__reviewLoading">
                                 <span
                                     v-if="isAutosaving || isValidating"

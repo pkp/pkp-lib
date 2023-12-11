@@ -94,6 +94,7 @@
                     </div>
                 </div>
             {/if}
+            {call_hook name="Template::SubmissionWizard::Section::Review::Editors" submission=$submission step=$step.id}
         </div>
     </div>
 {/foreach}

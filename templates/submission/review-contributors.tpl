@@ -66,6 +66,7 @@
                     <badge>{{ localize(author.userGroupName) }}</badge>
                 </span>
             </li>
+            {call_hook name="Template::SubmissionWizard::Section::Review::Contributors" submission=$submission step=$step.id}
         </ul>
     </div>
 </div>

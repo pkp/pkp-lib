@@ -55,6 +55,7 @@
                     </badge>
                 </span>
             </li>
+            {call_hook name="Template::SubmissionWizard::Section::Review::Files" submission=$submission step=$step.id}
         </ul>
     </div>
 </div>

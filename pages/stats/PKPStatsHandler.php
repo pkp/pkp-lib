@@ -42,7 +42,7 @@ class PKPStatsHandler extends Handler
         parent::__construct();
         $this->addRoleAssignment(
             [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
-            ['editorial', 'publications', 'context', 'users', 'reports']
+            ['editorial', 'publications', 'context', 'users', 'reports', 'counterR5']
         );
     }
 
@@ -431,6 +431,42 @@ class PKPStatsHandler extends Handler
         ]);
 
         $templateMgr->display('stats/context.tpl');
+    }
+
+    /**
+     * Display list of available COUNTER R5 reports
+     */
+    public function counterR5(array $args, Request $request): void
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $this->setupTemplate($request);
+
+        $apiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $request->getContext()->getPath(), 'stats/sushi');
+
+        $context = $request->getContext();
+        $locales = $context->getSupportedFormLocaleNames();
+        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
+
+        $counterReportForm = new \APP\components\forms\counter\CounterReportForm($apiUrl, $locales);
+
+        $counterReportsListPanel = new \PKP\components\listPanels\PKPCounterReportsListPanel(
+            'counterReportsListPanel',
+            __('manager.statistics.counterR5Reports'),
+            [
+                'apiUrl' => $apiUrl,
+                'form' => $counterReportForm,
+            ]
+        );
+
+        $templateMgr->setState([
+            'components' => [
+                $counterReportsListPanel->id => $counterReportsListPanel->getConfig(),
+            ],
+        ]);
+        $templateMgr->assign([
+            'pageComponent' => 'CounterReportsPage',
+        ]);
+        $templateMgr->display('stats/counterReports.tpl');
     }
 
     /**

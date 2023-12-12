@@ -30,6 +30,7 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\sushi\CounterR5Report;
 use PKP\sushi\SushiException;
+use PKP\validation\ValidatorFactory;
 use Slim\Http\Request as SlimHttpRequest;
 
 class PKPStatsSushiHandler extends APIHandler
@@ -232,12 +233,93 @@ class PKPStatsSushiHandler extends APIHandler
         return $this->getReportResponse(new PR_P1(), $slimRequest, $response, $args);
     }
 
+    /** Validate user input for TSV reports */
+    protected function _validateUserInput(CounterR5Report $report, array $params): array
+    {
+        $request = $this->getRequest();
+        $context = $request->getContext();
+        $earliestDate = CounterR5Report::getEarliestDate();
+        $lastDate = CounterR5Report::getLastDate();
+        $submissionIds = Repo::submission()->getCollector()->filterByContextIds([$context->getId()])->getIds()->implode(',');
+
+        $rules = [
+            'begin_date' => [
+                'regex:/^\d{4}-\d{2}(-\d{2})?$/',
+                'after_or_equal:' . $earliestDate,
+                'before_or_equal:end_date',
+            ],
+            'end_date' => [
+                'regex:/^\d{4}-\d{2}(-\d{2})?$/',
+                'before_or_equal:' . $lastDate,
+                'after_or_equal:begin_date',
+            ],
+            'item_id' => [
+                // TO-ASK: shell this rather be just validation for positive integer?
+                'in:' . $submissionIds,
+            ],
+            'yop' => [
+                'regex:/^\d{4}((\||-)\d{4})*$/',
+            ],
+        ];
+        $reportId = $report->getID();
+        if (in_array($reportId, ['PR', 'TR', 'IR'])) {
+            $rules['metric_type'] = ['required'];
+        }
+
+        $errors = [];
+        $validator = ValidatorFactory::make(
+            $params,
+            $rules,
+            [
+                'begin_date.regex' => __(
+                    'manager.statistics.counterR5Report.settings.wrongDateFormat'
+                ),
+                'end_date.regex' => __(
+                    'manager.statistics.counterR5Report.settings.wrongDateFormat'
+                ),
+                'begin_date.after_or_equal' => __(
+                    'stats.dateRange.invalidStartDateMin'
+                ),
+                'end_date.before_or_equal' => __(
+                    'stats.dateRange.invalidEndDateMax'
+                ),
+                'begin_date.before_or_equal' => __(
+                    'stats.dateRange.invalidDateRange'
+                ),
+                'end_date.after_or_equal' => __(
+                    'stats.dateRange.invalidDateRange'
+                ),
+                'item_id.*' => __(
+                    'manager.statistics.counterR5Report.settings.wrongItemId'
+                ),
+                'yop.regex' => __(
+                    'manager.statistics.counterR5Report.settings.wrongYOPFormat'
+                ),
+            ]
+        );
+
+        if ($validator->fails()) {
+            $errors = $validator->errors()->getMessages();
+        }
+
+        return $errors;
+    }
+
     /**
      * Get the requested report
      */
     protected function getReportResponse(CounterR5Report $report, SlimHttpRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
+        $responseTSV = str_contains($slimRequest->getHeaderLine('Accept'), APIResponse::RESPONSE_TSV) ? true : false;
+
         $params = $slimRequest->getQueryParams();
+
+        if ($responseTSV) {
+            $errors = $this->_validateUserInput($report, $params);
+            if (!empty($errors)) {
+                return $response->withJson($errors, 400);
+            }
+        }
 
         try {
             $report->processReportParams($this->getRequest(), $params);
@@ -245,9 +327,29 @@ class PKPStatsSushiHandler extends APIHandler
             return $response->withJson($e->getResponseData(), $e->getHttpStatusCode());
         }
 
+        if ($responseTSV) {
+            $reportHeader = $report->getTSVReportHeader();
+            $reportColumnNames = $report->getTSVColumnNames();
+            $reportItems = $report->getTSVReportItems();
+            // consider 3030 error (no usage available)
+            $key = array_search('3030', array_column($report->warnings, 'Code'));
+            if ($key !== false) {
+                $error = $report->warnings[$key]['Code'] . ':' . $report->warnings[$key]['Message'] . '(' . $report->warnings[$key]['Data'] . ')';
+                foreach ($reportHeader as &$headerRow) {
+                    if (in_array('Exceptions', $headerRow)) {
+                        $headerRow[1] =
+                            $headerRow[1] == '' ?
+                            $error :
+                            $headerRow[1] . ';' . $error;
+                    }
+                }
+            }
+            $report = array_merge($reportHeader, [['']], $reportColumnNames, $reportItems);
+            return $response->withCSV($report, [], count($reportItems), APIResponse::RESPONSE_TSV);
+        }
+
         $reportHeader = $report->getReportHeader();
         $reportItems = $report->getReportItems();
-
         return $response->withJson([
             'Report_Header' => $reportHeader,
             'Report_Items' => $reportItems,

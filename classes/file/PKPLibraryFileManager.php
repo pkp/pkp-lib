@@ -18,6 +18,7 @@ namespace PKP\file;
 
 use PKP\context\LibraryFile;
 use PKP\context\LibraryFileDAO;
+use PKP\file\TemporaryFile;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 
@@ -112,16 +113,47 @@ class PKPLibraryFileManager extends PrivateFileManager
         $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */
         $libraryFile = $libraryFileDao->newDataObject();
 
+        $libraryFile = $this->assignFromTemporaryFile($temporaryFile, $libraryFileType, $libraryFile);
+        if (!$this->copyFile($temporaryFile->getFilePath(), $this->getBasePath() . $libraryFile->getServerFileName())) {
+            return false;
+        }
+
+        return $libraryFile;
+    }
+
+    /**
+     * Routine to replace a library file from a temporary file.
+     * @param $libraryFileType int LIBRARY_FILE_TYPE_...
+     * @return LibraryFile|false the updated LibraryFile, or false on error
+     */
+    function replaceFromTemporaryFile(TemporaryFile $temporaryFile, int $libraryFileType, LibraryFile $libraryFile) {
+        $originalServerFilename = $libraryFile->getServerFileName();
+
+        $libraryFile = $this->assignFromTemporaryFile($temporaryFile, $libraryFileType, $libraryFile);
+        if (!$this->copyFile($temporaryFile->getFilePath(), $this->getBasePath() . $libraryFile->getServerFileName())) {
+                return false;
+        }
+
+        if ($originalServerFilename !== $libraryFile->getServerFileName()) {
+                unlink($this->getBasePath() . $originalServerFilename);
+        }
+        return $libraryFile;
+    }
+
+    /**
+     * Routine to assign metadata to a library file from a temporary file
+     * @param $temporaryFile TemporaryFile
+     * @param $libraryFileType int LIBRARY_FILE_TYPE_...
+     * @param $libraryFile LibraryFile 
+     * @return LibraryFile the updated LibraryFile
+     */
+    function &assignFromTemporaryFile($temporaryFile, $libraryFileType, $libraryFile) {
         $libraryFile->setDateUploaded($temporaryFile->getDateUploaded());
         $libraryFile->setDateModified($temporaryFile->getDateUploaded());
         $libraryFile->setFileType($temporaryFile->getFileType());
         $libraryFile->setFileSize($temporaryFile->getFileSize());
         $libraryFile->setServerFileName($this->generateFileName($libraryFileType, $temporaryFile->getOriginalFileName()));
         $libraryFile->setOriginalFileName($temporaryFile->getOriginalFileName());
-        if (!$this->copyFile($temporaryFile->getFilePath(), $this->getBasePath() . $libraryFile->getServerFileName())) {
-            return false;
-        }
-
         return $libraryFile;
     }
 

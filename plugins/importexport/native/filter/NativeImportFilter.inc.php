@@ -37,7 +37,7 @@ class NativeImportFilter extends NativeImportExportFilter {
 		// If necessary, convert $document to a DOMDocument.
 		if (is_string($document)) {
 			$xmlString = $document;
-			$document = new DOMDocument();
+			$document = new DOMDocument('1.0', 'utf-8');
 			$document->loadXml($xmlString);
 		}
 		assert(is_a($document, 'DOMDocument'));

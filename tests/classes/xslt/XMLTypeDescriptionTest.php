@@ -37,7 +37,7 @@ class XMLTypeDescriptionTest extends PKPTestCase {
 
 		// Test with dtd validation
 		$typeDescription = new XMLTypeDescription('dtd');
-		$testXmlDom = new DOMDocument();
+		$testXmlDom = new DOMDocument('1.0', 'utf-8');
 		$testXmlDom->load(dirname(__FILE__).'/dtdsample-valid.xml');
 		self::assertTrue($typeDescription->isCompatible($testXmlDom));
 		$testXmlDom->load(dirname(__FILE__).'/dtdsample-invalid.xml');
@@ -45,7 +45,7 @@ class XMLTypeDescriptionTest extends PKPTestCase {
 
 		// Test with xsd validation
 		$typeDescription = new XMLTypeDescription('schema('.dirname(__FILE__).'/xsdsample.xsd)');
-		$testXmlDom = new DOMDocument();
+		$testXmlDom = new DOMDocument('1.0', 'utf-8');
 		$testXmlDom->load(dirname(__FILE__).'/xsdsample-valid.xml');
 		self::assertTrue($typeDescription->isCompatible($testXmlDom));
 		$testXmlDom->load(dirname(__FILE__).'/xsdsample-invalid.xml');
@@ -53,7 +53,7 @@ class XMLTypeDescriptionTest extends PKPTestCase {
 
 		// Test with rng validation
 		$typeDescription = new XMLTypeDescription('relax-ng('.dirname(__FILE__).'/rngsample.rng)');
-		$testXmlDom = new DOMDocument();
+		$testXmlDom = new DOMDocument('1.0', 'utf-8');
 		$testXmlDom->load(dirname(__FILE__).'/rngsample-valid.xml');
 		self::assertTrue($typeDescription->isCompatible($testXmlDom));
 		$testXmlDom->load(dirname(__FILE__).'/rngsample-invalid.xml');
@@ -76,7 +76,7 @@ class XMLTypeDescriptionTest extends PKPTestCase {
 
 		// Test without schema validation
 		$typeDescription = new XMLTypeDescription('*');
-		$testXmlDom = new DOMDocument();
+		$testXmlDom = new DOMDocument('1.0', 'utf-8');
 		$testXmlDom->load(dirname(__FILE__).'/rngsample-valid.xml');
 		self::assertTrue($typeDescription->isCompatible($testXmlDom));
 		$testXmlDom->load(dirname(__FILE__).'/rngsample-invalid.xml');

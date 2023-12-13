@@ -116,7 +116,7 @@ class XMLTypeDescription extends TypeDescription {
 
 		// Validation - requires DOMDocument
 		if (is_string($object)) {
-			$xmlDom = new DOMDocument();
+			$xmlDom = new DOMDocument('1.0', 'utf-8');
 			$xmlDom->loadXML($object);
 		} else {
 			$xmlDom =& $object;
@@ -135,7 +135,7 @@ class XMLTypeDescription extends TypeDescription {
 					$errors = libxml_get_errors();
 					return false;
 				}
-				
+
 				break;
 
 			case XML_TYPE_DESCRIPTION_VALIDATE_RELAX_NG:

@@ -55,7 +55,7 @@ class xmlSchemaToMigration extends CommandLineTool {
 	 * Convert XML locale content to PO format.
 	 */
 	function execute() {
-		$doc = new DOMDocument();
+		$doc = new DOMDocument('1.0', 'utf-8');
 		$doc->preserveWhiteSpace = false;
 		$doc->loadXML(file_get_contents($this->source));
 		if ($doc->documentElement->nodeName != 'schema') throw new Exception('Invalid document element ' . $this->documentElement->nodeName);

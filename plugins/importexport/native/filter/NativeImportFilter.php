@@ -36,7 +36,7 @@ class NativeImportFilter extends PKPImportExportFilter
         // If necessary, convert $document to a DOMDocument.
         if (is_string($document)) {
             $xmlString = $document;
-            $document = new \DOMDocument();
+            $document = new \DOMDocument('1.0', 'utf-8');
             $document->loadXml($xmlString);
         }
         assert($document instanceof \DOMDocument);
@@ -118,7 +118,7 @@ class NativeImportFilter extends PKPImportExportFilter
      */
     public function importWithXMLNode($n, $filter = null)
     {
-        $doc = new \DOMDocument();
+        $doc = new \DOMDocument('1.0', 'utf-8');
         $doc->appendChild($doc->importNode($n, true));
         $importFilter = null;
         if ($filter) {

@@ -69,7 +69,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
         assert(count($importFilters) == 1); // Assert only a single unserialization filter
         $importFilter = array_shift($importFilters);
         $importFilter->setDeployment($this->getDeployment());
-        $userGroupDoc = new \DOMDocument();
+        $userGroupDoc = new \DOMDocument('1.0', 'utf-8');
         $userGroupDoc->appendChild($userGroupDoc->importNode($node, true));
         return $importFilter->execute($userGroupDoc);
     }

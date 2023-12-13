@@ -120,7 +120,7 @@ class XMLTypeDescription extends TypeDescription
 
         // Validation - requires DOMDocument
         if (is_string($object)) {
-            $xmlDom = new DOMDocument();
+            $xmlDom = new DOMDocument('1.0', 'utf-8');
             $xmlDom->loadXML($object);
         } else {
             $xmlDom = & $object;

@@ -50,7 +50,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
     public function &process(&$users)
     {
         // Create the XML document
-        $doc = new DOMDocument('1.0');
+        $doc = new DOMDocument('1.0', 'utf-8');
         $deployment = $this->getDeployment();
 
         $rootNode = $doc->createElementNS($deployment->getNamespace(), 'PKPUsers');

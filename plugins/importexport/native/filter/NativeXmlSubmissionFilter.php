@@ -212,7 +212,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
         $importFilter = $this->getImportFilter($n->tagName);
         assert(isset($importFilter)); // There should be a filter
 
-        $submissionChildDoc = new \DOMDocument();
+        $submissionChildDoc = new \DOMDocument('1.0', 'utf-8');
         $submissionChildDoc->appendChild($submissionChildDoc->importNode($n, true));
         $ret = $importFilter->execute($submissionChildDoc);
 

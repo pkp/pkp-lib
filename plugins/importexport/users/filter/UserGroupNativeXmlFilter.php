@@ -47,7 +47,7 @@ class UserGroupNativeXmlFilter extends \PKP\plugins\importexport\native\filter\N
     public function &process(&$userGroups)
     {
         // Create the XML document
-        $doc = new DOMDocument('1.0');
+        $doc = new DOMDocument('1.0', 'utf-8');
         $deployment = $this->getDeployment();
 
         // Multiple authors; wrap in a <authors> element

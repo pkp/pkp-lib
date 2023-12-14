@@ -122,7 +122,7 @@ class DashboardHandlerNext extends Handler
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
         $templateMgr->setState([
-            'storeData' => [
+            'pageInitConfig' => [
                 'apiUrl' => $apiUrl,
                 'assignParticipantUrl' => $dispatcher->url(
                     $request,

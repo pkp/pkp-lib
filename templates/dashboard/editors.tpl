@@ -10,5 +10,5 @@
 {extends file="layouts/backend.tpl"}
 
 {block name="page"}
-	<submissions-page :store-data="storeData" />
+	<submissions-page v-bind="pageInitConfig" />
 {/block}

@@ -222,6 +222,31 @@ class PKPAuthor extends Identity {
 		$userGroup = $this->getUserGroup();
 		return $userGroup->getLocalizedName();
 	}
+
+	/**
+	 * Get competing interests.
+	 * @param $locale string
+	 * @return string
+	 */
+	function getCompetingInterests($locale) {
+		return $this->getData('competingInterests', $locale);
+	}
+
+	/**
+	 * Set competing interests.
+	 * @param $competingInterests string
+	 * @param $locale string
+	 */
+	function setCompetingInterests($competingInterests, $locale) {
+		$this->setData('competingInterests', $competingInterests, $locale);
+	}
+
+	/**
+	 * Get a localized version competing interest statement
+	 * @return string
+	 */
+	function getLocalizedCompetingInterests() {
+		return $this->getLocalizedData('competingInterests');
+	}
+
 }
-
-

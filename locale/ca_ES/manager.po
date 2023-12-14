@@ -2583,3 +2583,8 @@ msgstr "Taxa de rebuig després de revisió"
 
 #~ msgid "manager.publication.emailSetup.success"
 #~ msgstr "S'ha actualitzat la configuració de correu electrònic."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Demana als autors/ores que presentin una declaració de conflictes "
+"d’interessos (CI) juntament amb la tramesa."

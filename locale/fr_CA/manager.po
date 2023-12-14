@@ -2439,3 +2439,8 @@ msgstr "Taux de refus en préévaluation"
 
 msgid "stats.name.declinedReviewRate"
 msgstr "Taux de refus suite à l'évaluation"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Les auteurs-es soumissionnaires doivent déposer une déclaration de conflits "
+"d'intérêts avec leur soumission."

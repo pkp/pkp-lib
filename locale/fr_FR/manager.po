@@ -2503,3 +2503,8 @@ msgstr "Taux de refus après évaluation"
 
 #~ msgid "manager.publication.emailSetup.success"
 #~ msgstr "Les paramètres de courriels ont été mis à jour."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Les auteurs soumissionnaires doivent déposer une déclaration de conflits "
+"d'intérêts (CI) avec leur soumission."

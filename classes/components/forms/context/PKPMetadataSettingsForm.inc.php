@@ -15,6 +15,7 @@
 namespace PKP\components\forms\context;
 use \PKP\components\forms\FormComponent;
 use \PKP\components\forms\FieldMetadataSetting;
+use \PKP\components\forms\FieldOptions;
 
 define('FORM_METADATA_SETTINGS', 'metadataSettings');
 
@@ -150,6 +151,16 @@ class PKPMetadataSettingsForm extends FormComponent {
 					['value' => METADATA_REQUIRE, 'label' => __('manager.setup.metadata.agencies.require')],
 				],
 				'value' => $context->getData('agencies') ? $context->getData('agencies') : METADATA_DISABLE,
+			]))
+			->addField(new FieldOptions('requireAuthorCompetingInterests', [
+				'label' => __('manager.setup.competingInterests'),
+				'options' => [
+					[
+						'value' => 'true',
+						'label' => __('manager.setup.competingInterests.requireAuthors'),
+					],
+				],
+				'value' => (bool) $context->getData('requireAuthorCompetingInterests'),
 			]))
 			->addField(new FieldMetadataSetting('citations', [
 				'label' => __('submission.citations'),

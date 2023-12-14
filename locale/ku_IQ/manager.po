@@ -2071,3 +2071,8 @@ msgstr ""
 
 #~ msgid "manager.publication.emailSetup.success"
 #~ msgstr "ڕێکخستنی ئیمەیڵ نوێ کرایەوە."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"داوا لە توێژەرە پێشکەشکراوەکان بکە بۆ ئەوەی (CI) لەگەڵ پێشکەشکردنەکانیان "
+"داخل بکەن."

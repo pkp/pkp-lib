@@ -2370,3 +2370,8 @@ msgstr "Stopnja zavrnitve s strani recenzentov"
 
 #~ msgid "manager.publication.emailSetup.success"
 #~ msgstr "Email nastavitve so bile posodobljene."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Zahtevaj od avtorjev izjavo o konfliktu interesov med procesom oddaje "
+"prispevka."

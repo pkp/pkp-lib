@@ -2390,3 +2390,8 @@ msgstr "Avvisningsprosent etter vurdering / gjennomgang"
 
 #~ msgid "manager.publication.emailSetup.success"
 #~ msgstr "E-postinstillningene har blitt oppdatert."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Krev at forfattere som sender inn manuskript samtidig sender inn en "
+"<I>«Erklæring om interessekonflikter»</I>."

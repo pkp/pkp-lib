@@ -2447,3 +2447,8 @@ msgstr "Quote der Ablehnungen nach Peer Review"
 
 #~ msgid "manager.setup.reviewOptions.reviewTime"
 #~ msgstr "Standard-Fristen für Begutachtung"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Verlangen Sie von Autor/innen, die einen Beitrag einreichen wollen, "
+"zusätzlich eine Erklärung zu möglicherweise bestehenden Interessenkonflikten."

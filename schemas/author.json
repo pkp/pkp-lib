@@ -19,6 +19,11 @@
 			"description": "An optional bio statement about this contributor.",
 			"multilingual": "true"
 		},
+		"competingInterests": {
+			"type": "string",
+			"description": "A declaration of potential competing interests.",
+			"multilingual": "true"
+		},
 		"country": {
 			"type": "string"
 		},

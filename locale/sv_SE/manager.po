@@ -2320,3 +2320,8 @@ msgstr "Avslagsprocent efter granskning"
 
 #~ msgid "manager.setup.reviewOptions.reviewTime"
 #~ msgstr "Default-deadlines för granskning"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Författare måste skicka in en intressekonfliktsförklaring i samband med att "
+"bidraget skickas in."

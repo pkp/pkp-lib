@@ -2328,3 +2328,8 @@ msgstr ""
 
 #~ msgid "manager.setup.genres.sortable"
 #~ msgstr "اجازه به فایل‌های این نوع برای دسته‌بندی برحسب فصل"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"لازم است که نویسنده ارسال کننده مقاله بیانیه تضاد منافع در رابطه با مقاله "
+"خود را اعلام کند."

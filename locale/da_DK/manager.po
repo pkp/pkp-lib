@@ -2368,3 +2368,8 @@ msgstr "Afvisningsprocent efter bedømmelse/review"
 #~ msgstr ""
 #~ "Indtast hver dato i formatet ÅÅÅÅ-MM-DD. Hvis du f.eks. ønsker at angive "
 #~ "datoen 15. januar 2019, skal du indtaste 2019-01-15."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Kræv, at forfattere, der fremsender et manuskript, skal indsende en "
+"erklæring om konkurrerende interesser sammen med deres manuskript."

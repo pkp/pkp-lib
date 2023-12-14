@@ -2354,3 +2354,7 @@ msgstr "Tỷ lệ Từ chối sau khi Phản biện"
 #~ msgstr ""
 #~ "Chủ đề đã được cập nhật. <a href=\"{$url}\" target=\"_blank\"> Xem ngay "
 #~ "bây giờ </a>"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Yêu cầu tác giả gửi một tuyên bố xung đột lợi ích (CI) với bài gửi của họ."

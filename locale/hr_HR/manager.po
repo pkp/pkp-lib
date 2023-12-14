@@ -2074,3 +2074,8 @@ msgstr ""
 
 #~ msgid "manager.setup.selectOne"
 #~ msgstr "Izaberite"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Zahtijevaj od autora da prilikom prijave svog rukopisa ispune izjavu o "
+"sukobu interesa."

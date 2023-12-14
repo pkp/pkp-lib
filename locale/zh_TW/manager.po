@@ -2021,3 +2021,7 @@ msgstr ""
 
 msgid "stats.name.declinedReviewRate"
 msgstr ""
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"要求提交作者投稿時，同時提供一個利益衝突（Competing Interest, 簡稱CI）聲明。"

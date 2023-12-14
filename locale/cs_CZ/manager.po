@@ -2343,3 +2343,8 @@ msgstr "Míra odmítnutí po recenzi"
 
 #~ msgid "manager.publication.emailSetup.success"
 #~ msgstr "Nastavení e-mailu bylo aktualizováno."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Požadovat od autorů, aby spolu s příspěvkem zaslali soubor s prohlášením o "
+"střetu zájmů."

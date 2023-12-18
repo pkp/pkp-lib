@@ -19,13 +19,16 @@ use APP\core\Services;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use APP\publication\Publication;
 use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\file\FileManager;
 use PKP\log\event\SubmissionFileEventLogEntry;
 use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
@@ -40,6 +43,7 @@ use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRoundDAO;
+use PKP\submissionFile\exceptions\UnableToCreateFileContentException;
 use PKP\submissionFile\maps\Schema;
 use PKP\validation\ValidatorFactory;
 
@@ -662,7 +666,8 @@ abstract class Repository
 
         if (
             $fileStage === SubmissionFile::SUBMISSION_FILE_PROOF ||
-            $fileStage === SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY
+            $fileStage === SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY ||
+            $fileStage === SubmissionFile::SUBMISSION_FILE_JATS
         ) {
             return WORKFLOW_STAGE_ID_PRODUCTION;
         }
@@ -842,5 +847,65 @@ abstract class Repository
             'filename' => $submissionFile->getData('name'),
             'username' => $user?->getUsername(),
         ];
+    }
+
+    /**
+     * Can be used to copy a SubmissionFile to another SubmissionFile along with the corresponding file
+     */
+    public function versionSubmissionFile(
+        SubmissionFile $submissionFile,
+        Publication $newPublication
+    ): SubmissionFile
+    {
+        $newSubmissionFile = clone $submissionFile;
+
+        $oldFileId = $submissionFile->getData('fileId');
+
+        $oldFile = Services::get('file')->get($oldFileId);
+
+        $submission = Repo::submission()->get($newPublication->getData('submissionId'));
+
+        $fileManager = new FileManager();
+        $extension = $fileManager->parseFileExtension($oldFile->path);
+
+        $submissionDir = Repo::submissionFile()
+            ->getSubmissionDir(
+                $submission->getData('contextId'),
+                $newPublication->getData('submissionId')
+            );
+
+        $newFileId = Services::get('file')->add(
+            Config::getVar('files', 'files_dir') . '/' . $oldFile->path,
+            $submissionDir . '/' . uniqid() . '.' . $extension
+        );
+
+        $newSubmissionFile->setData('id', null);
+        $newSubmissionFile->setData('assocId', $newPublication->getId());
+        $newSubmissionFile->setData('fileId', $newFileId);
+
+        $submissionFileId = Repo::submissionFile()
+            ->add($newSubmissionFile);
+
+        $submissionFile = Repo::submissionFile()
+            ->get($submissionFileId);
+
+        return $submissionFile;
+    }
+
+    /**
+     * Returns jatsContent for Submission files that correspond to the content of the file
+     *
+     * @throws \PKP\submissionFile\exceptions\UnableToCreateFileContentException If the default JATS creation fails
+     */
+    public function getSubmissionFileContent(SubmissionFile $submissionFile): string | false
+    {
+        $fileName = Config::getVar('files', 'files_dir') . '/' . $submissionFile->getData('path') .'';
+        $retValue = file_get_contents($fileName);
+
+        if ($retValue === false) {
+            throw new UnableToCreateFileContentException($fileName);
+        }
+
+        return $retValue;
     }
 }

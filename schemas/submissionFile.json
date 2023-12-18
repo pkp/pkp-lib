@@ -27,7 +27,7 @@
 			"apiSummary": true,
 			"description": "Used with `assocId` to associate this file with an object such as a galley. One of the following constants: `ASSOC_TYPE_SUBMISSION_FILE` (dependent files), `ASSOC_TYPE_REVIEW_ASSIGNMENT` (files uploaded by a reviewer), `ASSOC_TYPE_NOTE` (files uploaded with a discussion), `ASSOC_TYPE_REPRESENTATION` (files uploaded to a galley or publication format), `ASSOC_TYPE_REVIEW_ROUND` (review files and revisions for a particular review round).",
 			"validation": [
-				"in:515,517,520,521,523"
+				"in:515,517,520,521,523,1048588"
 			]
 		},
 		"caption": {
@@ -118,7 +118,7 @@
 			"type": "integer",
 			"apiSummary": true,
 			"validation": [
-				"in:2,3,4,5,6,7,8,9,10,11,13,15,17,18"
+				"in:2,3,4,5,6,7,8,9,10,11,13,15,17,18,19,20,21"
 			]
 		},
 		"genreId": {

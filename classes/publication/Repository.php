@@ -350,6 +350,17 @@ abstract class Repository
             $citationDao->importCitations($newPublication->getId(), $newPublication->getData('citationsRaw'));
         }
 
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genres = $genreDao->getEnabledByContextId($context->getId());
+
+        $jatsFile = Repo::jats()
+            ->getJatsFile($publication->getId(), null, $genres->toArray());
+
+        if (!$jatsFile->isDefaultContent) {
+            Repo::submissionFile()
+                ->versionSubmissionFile($jatsFile->submissionFile, $newPublication);
+        }
+
         $newPublication = Repo::publication()->get($newPublication->getId());
 
         Hook::call('Publication::version', [&$newPublication, $publication]);

@@ -28,6 +28,7 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\SubmissionFileStageAccessPolicy;
+use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -92,7 +93,11 @@ class PKPJatsController extends PKPBaseController
 
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
-        $this->addPolicy(new PublicationWritePolicy($request, $args, $roleAssignments));
+        if ($actionName === 'get') {
+            $this->addPolicy(new PublicationAccessPolicy($request, $args, $roleAssignments));
+        } else {
+            $this->addPolicy(new PublicationWritePolicy($request, $args, $roleAssignments));
+        }
 
         if ($actionName === 'add') {
             $params = $illuminateRequest->input();

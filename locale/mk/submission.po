@@ -3,7 +3,7 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-05-06 04:32+0000\n"
+"PO-Revision-Date: 2023-11-26 20:32+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/"
 "submissions/mk/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "submission.submit.userGroup"
 msgstr "Поднесете во моја улога како..."
@@ -155,7 +155,7 @@ msgstr ""
 "датумот на објавување."
 
 msgid "publication.datePublished"
-msgstr "Датум на објавување"
+msgstr "Датум на поднесување"
 
 msgid "publication.editDisabled"
 msgstr "Оваа верзија е објавена и не може да се уредува."
@@ -182,7 +182,7 @@ msgid "publication.invalidSubmission"
 msgstr "Поднесокот за овој предпечат не може да се најде."
 
 msgid "publication.publish"
-msgstr "Објави"
+msgstr "Објава"
 
 msgid "publication.publish.requirements"
 msgstr "Следниве барања мора да бидат исполнети пред ова да биде објавено."

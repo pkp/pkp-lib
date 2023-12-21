@@ -1,8 +1,9 @@
 # katerina spiroska <kspiroska07@gmail.com>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-15 15:21+0000\n"
-"Last-Translator: katerina spiroska <kspiroska07@gmail.com>\n"
+"PO-Revision-Date: 2023-11-22 08:38+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/admin/mk/"
 ">\n"
 "Language: mk\n"
@@ -10,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.hostedContexts"
 msgstr "Хостирани сервери"
@@ -128,6 +129,5 @@ msgstr ""
 "статистики приватни. Меѓутоа, ако ги оневозможите јавни API локациите, "
 "серверите нема да можат да го направат нивниот API јавен."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Користете ја страницата како платформа за сите списанија."
+msgstr "Користете ја страницата како платформа за сите сервери."

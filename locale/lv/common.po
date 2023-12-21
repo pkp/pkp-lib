@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-03 11:03+0000\n"
+"PO-Revision-Date: 2023-12-05 23:17+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "lv/>\n"
@@ -629,7 +629,9 @@ msgid "common.removeSelection"
 msgstr "Noņemt atlasi"
 
 msgid "common.requiredField"
-msgstr "* Apzīmē obligāto lauku"
+msgstr ""
+"Obligātie lauki ir atzīmēti ar zvaigznīti: <abbr class=\"required\" title="
+"\"required\">*</abbr>"
 
 msgid "common.required"
 msgstr "Obligāts"
@@ -1755,7 +1757,7 @@ msgid "search.advancedSearchLess"
 msgstr "Paslēpt papildu meklēšanas iespējas"
 
 msgid "search.cli.rebuildIndex.result"
-msgstr "{$numIndexed} indeksēti raksti"
+msgstr "{$numIndexed} indeksācijai plānotie raksti"
 
 msgid "navigation.infoForReaders"
 msgstr "Lasītājiem"
@@ -2278,3 +2280,9 @@ msgstr ""
 
 msgid "validator.digits_between"
 msgstr "Tam jābūt starp {$min} un {$max} cipariem."
+
+msgid "showLess"
+msgstr "Rādīt mazāk"
+
+msgid "showAll"
+msgstr "Rādīt visu"

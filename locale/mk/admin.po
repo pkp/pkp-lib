@@ -1,8 +1,9 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-17 13:48+0000\n"
-"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
+"PO-Revision-Date: 2023-12-11 11:51+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/mk/>\n"
 "Language: mk\n"
@@ -10,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Име на подесувањето"
@@ -554,7 +555,7 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
-"Испратете достапни работни места во редот. ако сакате да испратите работа во "
+"Испратете достапни работни места во редот. За да испратите работа во "
 "одредена редица, поминете го параметарот --queue=QUEUE_NAME. Исто така, може "
 "само да помине --тест за да се изврши тест-задачата и --еднаш за да се "
 "изврши една работа во исто време"
@@ -937,3 +938,18 @@ msgstr "Стартувај го работникот daemon за тест ред
 
 #~ msgid "admin.languages.download"
 #~ msgstr "Симнете локализација"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Користи ја страницата како платформа за сите списанија."
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Статистика за рецензенти"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"Во мултиконтекстната инсталација, статистиката на рецензентите, како што е "
+"бројот на поднесени критики, може да се прикаже или поединечно за секој "
+"контекст или збирно."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Оневозможи збирна статистика на рецензентите"

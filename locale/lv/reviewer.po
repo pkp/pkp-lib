@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-01 14:38+0000\n"
+"PO-Revision-Date: 2023-12-09 07:39+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/lv/>\n"
@@ -87,8 +87,8 @@ msgstr ""
 
 msgid "reviewer.submission.reviewDescription"
 msgstr ""
-"Ievadiet (vai ielīmējiet) savu atsauksmi par šo materiālu zemāk redzamajā "
-"formā."
+"Ievadiet (vai ielīmējiet) savu recenziju par šo materiālu zemāk redzamajā "
+"veidlapā."
 
 msgid "reviewer.complete"
 msgstr "Recenzija iesniegta"

@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-03 11:03+0000\n"
+"PO-Revision-Date: 2023-12-09 07:39+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -767,9 +767,9 @@ msgstr "Recenzenta intereses"
 
 msgid "manager.reviewerSearch.form.instructions"
 msgstr ""
-"Izmantojiet tālāk norādīto formu, lai iestatītu maksimālās vērtības "
-"terminiem, kurus vēlaties meklēt.  Forma ir iepriekš aizpildīta ar "
-"aprēķinātajiem šo lauku vidējiem lielumiem."
+"Izmantojiet tālāk norādīto veidlapu, lai iestatītu maksimālās vērtības "
+"terminiem, kurus vēlaties meklēt. Veidlapa ir iepriekš aizpildīta ar "
+"aprēķinātiem šo lauku vidējiem lielumiem."
 
 msgid "manager.roles"
 msgstr "Lomas"
@@ -1353,7 +1353,7 @@ msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Vietnes piekļuves iespējas"
 
 msgid "manager.statistics.statistics.count.value"
-msgstr "{$count} ({$percentage}%)"
+msgstr "{$count} ({$percentage} %)"
 
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} jaunu)"
@@ -1468,81 +1468,89 @@ msgstr "Spraudnis \"{$pluginName}\" veiksmīgi dzēsts"
 
 msgid "manager.plugins.description"
 msgstr ""
+"Šajā lapā pārvaldnieks var pārskatīt un, iespējams, konfigurēt pašlaik "
+"instalētos spraudņus. Spraudņi ir sadalīti kategorijās atbilstoši to "
+"funkcijām. Kategorijas uzskaitītas tālāk, un katrā kategorijā ir norādīts "
+"tās pašreizējais spraudņu komplekts."
 
 msgid "manager.plugins.doesNotExist"
-msgstr ""
+msgstr "Spraudnis \"{$pluginName}\" nepastāv"
 
 msgid "manager.plugins.fileSelectError"
-msgstr ""
+msgstr "Lūdzu, vispirms izvēlieties datni"
 
 msgid "manager.plugins.upload"
-msgstr ""
+msgstr "Augšupielādēt jaunu spraudni"
 
 msgid "manager.plugins.uploadDescription"
 msgstr ""
+"Šī veidlapa ļauj augšupielādēt un instalēt jaunu spraudni. Lūdzu, "
+"pārliecinieties, ka spraudnis ir saspiests kā .tar.gz fails."
 
 msgid "manager.plugins.uploadFailed"
-msgstr ""
+msgstr "Lūdzu, pārliecinieties, ka fails augšupielādei ir atlasīts ."
 
 msgid "manager.plugins.installed"
-msgstr ""
+msgstr "Uzstādītie spraudņi"
 
 msgid "manager.plugins.pluginGallery"
-msgstr ""
+msgstr "Spraudņu galerija"
 
 msgid "manager.plugins.pluginGallery.overview"
-msgstr ""
+msgstr "Pārskats"
 
 msgid "manager.plugins.pluginGallery.installation"
-msgstr ""
+msgstr "Uzstādīšana"
 
 msgid "manager.plugins.pluginGallery.latestCompatible"
-msgstr ""
+msgstr "Jaunākais saderīgais laidiens"
 
 msgid "manager.plugins.pluginGallery.certifications.official"
-msgstr ""
+msgstr "Oficiāls"
 
 msgid "manager.plugins.pluginGallery.certifications.official.description"
-msgstr ""
+msgstr "Šo spraudni izstrādā un uztur Public Knowledge Project komanda."
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
-msgstr ""
+msgstr "Recenzēts"
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
 msgstr ""
+"Šo spraudni ir pārskatījusi un apstiprinājusi Public Knowledge Project "
+"komanda."
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
-msgstr ""
+msgstr "Sadarbības partneri"
 
 msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr ""
+msgstr "Šo spraudni nodrošina viens no mūsu izstrādes partneriem."
 
 msgid "manager.plugins.pluginGallery.maintainer"
-msgstr ""
+msgstr "Uzturētājs"
 
 msgid "manager.plugins.pluginGallery.version"
-msgstr ""
+msgstr "Versija v{$version} izlaista {$date}"
 
 msgid "manager.plugins.pluginGallery.homepage"
-msgstr ""
+msgstr "Mājas lapa"
 
 msgid "manager.plugins.pluginGallery.summary"
-msgstr ""
+msgstr "Kopsavilkums"
 
 msgid "manager.plugins.pluginGallery.status"
-msgstr ""
+msgstr "Satuss"
 
 msgid "manager.plugins.noInstalledVersion"
-msgstr ""
+msgstr "Spraudnis vēl nav instalēts."
 
 msgid "manager.plugins.noCompatibleVersion"
-msgstr ""
+msgstr "Pašlaik nav pieejama šī spraudņa saderīga versija."
 
 msgid "manager.plugins.installedVersionNewer"
-msgstr ""
+msgstr "Spraudnis jau ir instalēts un ir jaunāks par galerijā pieejamo versiju."
 
 msgid "manager.plugins.installedVersionOlder"
-msgstr ""
+msgstr "Spraudnis jau ir instalēts, bet to var atjaunināt uz jaunāku versiju."
 
 msgid "manager.plugins.installedVersionNewest"
 msgstr "Spraudnis jau ir instalēts un atjaunināts."
@@ -1609,217 +1617,248 @@ msgid "manager.plugins.uploadPluginDir"
 msgstr "Atlasīt spraudņa datni"
 
 msgid "manager.plugins.versionFileInvalid"
-msgstr ""
+msgstr "version.xml spraudņu direktorijā satur nederīgus datus."
 
 msgid "manager.plugins.versionFileNotFound"
-msgstr ""
+msgstr "version.xml nav atrasts spraudņu direktorijā"
 
 msgid "notification.localeEnabled"
-msgstr ""
+msgstr "Lokalizācija iespējota."
 
 msgid "notification.localeDisabled"
-msgstr ""
+msgstr "Lokalizācija atspējota."
 
 msgid "notification.primaryLocaleDefined"
-msgstr ""
+msgstr "Lokalizācija {$locale} uzstādīta kā primārā valoda."
 
 msgid "notification.localeInstalled"
-msgstr ""
+msgstr "Visas atlasītās lokalizācijas ir uzstādītas un aktivizētas."
 
 msgid "notification.localeUninstalled"
-msgstr ""
+msgstr "Lokalizācija {$locale} atiestatīta."
 
 msgid "notification.localeReloaded"
-msgstr ""
+msgstr "Lokalizācija {$locale} pārielādēta kontekstā {$contextName}."
 
 msgid "notification.localeSettingsSaved"
-msgstr ""
+msgstr "Lokalizācijas iestatījumi saglabāti."
 
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
+"Valodas iestatījumus neizdevās saglabāt. Vismaz vienai valodai jābūt "
+"iespējotai katram parametram"
 
 msgid "notification.editedUser"
-msgstr ""
+msgstr "Lietotājs rediģēts."
 
 msgid "manager.distribution.license"
-msgstr ""
+msgstr "Licence"
 
 msgid "manager.distribution.license.other"
-msgstr ""
+msgstr "Citas licences URL"
 
 msgid "manager.distribution.licenseTerms"
-msgstr ""
+msgstr "Licences nosacījumi"
 
 msgid "manager.distribution.licenseTerms.description"
 msgstr ""
+"Ievadiet publiskās licencēšanas nosacījumus, kurus vēlaties parādīt kopā ar "
+"publicēto darbu."
 
 msgid "manager.distribution.customHeaders"
-msgstr ""
+msgstr "Pielāgotās birkas (tags)"
 
 msgid "manager.distribution.customHeaders.description"
 msgstr ""
+"Pievienojiet pielāgotas HTML birkas (tags), dēvētas arī par meta tagiem, "
+"kuras vēlaties ievietot katras lapas galvenē. Pirms pievienojiet birkas, "
+"konsultējieties ar tehnisko konsultantu."
 
 msgid "manager.paymentMethod"
-msgstr ""
+msgstr "Maksājumi"
 
 msgid "manager.paymentMethod.title"
-msgstr ""
+msgstr "Maksājumu metodes"
 
 msgid "manager.paymentMethod.none"
-msgstr ""
+msgstr "Nav izvēlēta maksājuma metode"
 
 msgid "manager.paymentMethod.method"
-msgstr ""
+msgstr "Maksājuma metode"
 
 msgid "manager.paymentMethod.currency"
-msgstr ""
+msgstr "Valūta"
 
 msgid "settings.roles.roleOptions"
-msgstr ""
+msgstr "Lomas iestatījumi"
 
 msgid "settings.roles.showTitles"
 msgstr "Rādīt lomas nosaukumu ieguldītāju sarakstā"
 
 msgid "settings.roles.permitSelfRegistration"
-msgstr ""
+msgstr "Atļaut lietotāja pašreģistrāciju"
 
 msgid "settings.roles.recommendOnly"
 msgstr ""
+"Šai lomai atļauts tikai ieteikt recenzenta lēmumu, un galīgo lēmumu varēs "
+"reģistrēt tikai pilnvarots redaktors."
 
 msgid "settings.roles.roleName"
-msgstr ""
+msgstr "Lomas nosaukums"
 
 msgid "settings.roles.roleAbbrev"
-msgstr ""
+msgstr "Abreviatūra"
 
 msgid "settings.roles.assignedStages"
-msgstr ""
+msgstr "Piešķirtie posmi"
 
 msgid "settings.roles.stages"
-msgstr ""
+msgstr "Posmi"
 
 msgid "settings.roles.roleDetails"
-msgstr ""
+msgstr "Sīkāka informācija par lomu"
 
 msgid "settings.roles.from"
-msgstr ""
+msgstr "Atļauju līmenis"
 
 msgid "settings.roles.removeText"
 msgstr ""
+"Jūs gatavojaties noņemt šo lomu no šī konteksta. Šī darbība dzēsīs arī "
+"saistītos iestatījumus un visus šai lomai piešķirtos lietotājus. Vai "
+"vēlaties turpināt?"
 
 msgid "settings.roles.nameRequired"
-msgstr ""
+msgstr "Jums jādefinē lomas nosaukums."
 
 msgid "settings.roles.abbrevRequired"
-msgstr ""
+msgstr "Jums jādefinē lomas abreviatūra."
 
 msgid "settings.roles.uniqueName"
-msgstr ""
+msgstr "Jums jādefinē unikāls lomas nosaukums."
 
 msgid "settings.roles.uniqueAbbrev"
-msgstr ""
+msgstr "Jums jādefinē unikāla lomas abreviatūra."
 
 msgid "settings.roles.roleIdRequired"
-msgstr ""
+msgstr "Jums jādefinē lomas atļauju līmenis."
 
 msgid "settings.roles.stageIdRequired"
-msgstr ""
+msgstr "Jums jādefinē posms piešķīrumam."
 
 msgid "settings.roles.permitMetadataEdit"
-msgstr ""
+msgstr "Atļaut iesniegtā materiāla metadatu rediģēšanu."
 
 msgid "settings.libraryFiles.fileRequired"
 msgstr ""
+"Ir nepieciešams bibliotēkas fails. Lūdzu, pārliecinieties, ka esat "
+"izvēlējies un augšupielādējis failu."
 
 msgid "settings.libraryFiles.nameRequired"
-msgstr ""
+msgstr "Šim bibliotēkas failam ir jānorāda nosaukums."
 
 msgid "settings.libraryFiles.typeRequired"
-msgstr ""
+msgstr "Šim bibliotēkas failam ir nepieciešams faila tips."
 
 msgid "settings.libraryFiles.category.contracts"
-msgstr ""
+msgstr "Līgumi"
 
 msgid "settings.libraryFiles.category.marketing"
-msgstr ""
+msgstr "Mārketings"
 
 msgid "settings.libraryFiles.category.permissions"
-msgstr ""
+msgstr "Atļaujas"
 
 msgid "settings.libraryFiles.category.reports"
-msgstr ""
+msgstr "Pārskati"
 
 msgid "settings.libraryFiles.category.other"
-msgstr ""
+msgstr "Citi"
 
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
+"<p>Šo bibliotēkas failu var lejupielādēt, ja ir iespējota \"Publiskā "
+"piekļuve\": <blockquote>{$downloadUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr ""
+msgstr "Atlasiet bibliotēkas failus, ko pievienot"
 
 msgid "grid.action.addGenre"
-msgstr ""
+msgstr "Pievienot komponentu"
 
 msgid "grid.action.editGenre"
-msgstr ""
+msgstr "Rediģēt šo komponentu"
 
 msgid "grid.action.deleteGenre"
-msgstr ""
+msgstr "Dzēst šo komponentu"
 
 msgid "grid.action.restoreGenres"
-msgstr ""
+msgstr "Atjaunot komponentu noklusējuma iestatījumus"
 
 msgid "manager.setup.genres.label"
-msgstr ""
+msgstr "Faila tips"
 
 msgid "manager.setup.genres.dependent"
 msgstr ""
+"Tie ir atkarīgi faili, piemēram, attēli, kas tiek rādīti HTML failā, un tie "
+"netiks parādīti kopā ar publicēto saturu."
 
 msgid "manager.setup.genres.supplementary"
 msgstr ""
+"Tie ir papildu faili, piemēram, datu kopas un pētniecības materiāli, un tie "
+"tiks rādīti atsevišķi no galvenajiem publikācijas failiem."
 
 msgid "manager.setup.genres.key"
-msgstr ""
+msgstr "Atslēga"
 
 msgid "manager.setup.genres.key.description"
-msgstr ""
+msgstr "Neobligāts īss simbolisks šā žanra identifikators."
 
 msgid "manager.setup.genres.key.exists"
-msgstr ""
+msgstr "Atslēga jau pastāv."
 
 msgid "manager.setup.genres.key.alphaNumeric"
 msgstr ""
+"Atslēgā var būt tikai burtciparu rakstzīmes, pasvītrojumzīmes un defises, un "
+"tai jāsākas un jābeidzas ar burta vai cipara rakstzīmi."
 
 msgid "manager.setup.genres.metatadata"
-msgstr ""
+msgstr "Faila metadati"
 
 msgid "manager.setup.genres.metatadata.description"
 msgstr ""
+"Izvēlieties metadatu veidu, ko šīs datnes var saņemt. Galvenajām "
+"publikācijas datnēm, piemēram, lejupielādējamām PDF datnēm, jāizvēlas "
+"\"Dokuments\", lai šīs datnes pārmantotu metadatus no publikācijas. Citos "
+"gadījumos vairumam datņu tipu izvēlieties \"Papildu saturs\". \"Artwork\" ("
+"\"Grafiskā datne\") ir piemērots datnēm, kurām nepieciešami atsevišķi "
+"kredīta, virsraksta un licencēšanas metadati."
 
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Pieprasīt ar iesniegtajiem materiāliem"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Vai katrā jaunā iesniegumā būtu jāpieprasa vismaz viena no šīm datnēm? Ja "
+"izvēlēsieties \"jā\", autoriem nebūs atļauts iesniegt materiālu, kamēr viņi "
+"nebūs augšupielādējuši vismaz vienu šāda tipa datni."
 
 msgid "manager.setup.genres.submitRequired.yes"
-msgstr ""
+msgstr "Jā, pieprasīt, lai autori augšupielādē vienu vai vairākas šādas datnes."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Nē, atļaut iesniegt materiālus bez šādām datnēm."
 
 msgid "manager.settings.wizard"
-msgstr ""
+msgstr "Iestatījumu vednis"
 
 msgid "manager.users.roleRequired"
-msgstr ""
+msgstr "Jums jāizvēlas vismaz viena loma, kas tiks saistīta ar šo lietotāju."
 
 msgid "manager.website"
-msgstr ""
+msgstr "Tīmekļa vietne"
 
 msgid "manager.website.title"
-msgstr ""
+msgstr "Tīmekļa vietnes iestatījumi"
 
 msgid "manager.workflow"
 msgstr "Darbplūsma"
@@ -1828,43 +1867,47 @@ msgid "manager.workflow.title"
 msgstr "Darbplūsmas uzstādījumi"
 
 msgid "manager.distribution"
-msgstr ""
+msgstr "Izplatīšana"
 
 msgid "manager.distribution.title"
-msgstr ""
+msgstr "Izplatīšanas uzstādījumi"
 
 msgid "manager.reviewForms"
-msgstr ""
+msgstr "Recenzijas veidlapas"
 
 msgid "manager.reviewForms.confirmActivate"
 msgstr ""
+"Vai tiešām vēlaties aktivizēt šo recenzijas veidlapu? Tiklīdz tā būs "
+"piešķirta recenzēšanai, to vairs nevarēsiet deaktivizēt."
 
 msgid "manager.reviewForms.confirmDeactivate"
 msgstr ""
+"Vai tiešām vēlaties deaktivizēt šo recenzijas veidlapu? Tā vairs nebūs "
+"pieejama jauniem recenzēšanas uzdevumiem."
 
 msgid "manager.reviewForms.confirmCopy"
-msgstr ""
+msgstr "Vai tiešām vēlaties izveidot šīs recenzijas veidlapas kopiju?"
 
 msgid "manager.reviewForms.completed"
-msgstr ""
+msgstr "Izpildīts"
 
 msgid "manager.reviewForms.confirmDelete"
-msgstr ""
+msgstr "Vai tiešām vēlaties izdzēst šo recenzijas veidlapu?"
 
 msgid "manager.reviewForms.create"
-msgstr ""
+msgstr "Izveidot recenzijas veidlapu"
 
 msgid "manager.reviewForms.description"
-msgstr ""
+msgstr "Apraksts un instrukcijas"
 
 msgid "manager.reviewForms.edit"
-msgstr ""
+msgstr "Recenzijas veidlapa"
 
 msgid "manager.reviewForms.form.titleRequired"
-msgstr ""
+msgstr "Recenzijas veidlapai nepieciešams nosaukums."
 
 msgid "manager.reviewForms.inReview"
-msgstr ""
+msgstr "Recenzēšanā"
 
 msgid "manager.reviewForms.list.description"
 msgstr ""
@@ -1876,100 +1919,102 @@ msgid "manager.reviewForms.noneCreated"
 msgstr ""
 
 msgid "manager.reviewForms.noneUsed"
-msgstr ""
+msgstr "Recenzijas veidlapas nav izmantotas."
 
 msgid "manager.reviewForms.preview"
-msgstr ""
+msgstr "Veidlapas priekšskatījums"
 
 msgid "manager.reviewForms.reviewFormData"
-msgstr ""
+msgstr "Recenzijas veidlapas dati"
 
 msgid "manager.reviewForms.title"
-msgstr ""
+msgstr "Virsraksts"
 
 msgid "manager.reviewFormElement.changeType"
-msgstr ""
+msgstr "Veidlapas elementa tipa maiņa.."
 
 msgid "manager.reviewFormElements"
-msgstr ""
+msgstr "Veidlapas elementi"
 
 msgid "manager.reviewFormElements.addResponseItem"
-msgstr ""
+msgstr "Pievienot atlasi"
 
 msgid "manager.reviewFormElements.checkboxes"
-msgstr ""
+msgstr "Izvēles rūtiņas (varat izvēlēties vienu vai vairākas)"
 
 msgid "manager.reviewFormElements.chooseType"
-msgstr ""
+msgstr "Izvēlēties elementa tipu"
 
 msgid "manager.reviewFormElements.confirmDelete"
-msgstr ""
+msgstr "Apstiprināt publicētās veidlapas elementa dzēšanu..."
 
 msgid "manager.reviewFormElements.copyTo"
-msgstr ""
+msgstr "Kopēt uz:"
 
 msgid "manager.reviewFormElements.create"
-msgstr ""
+msgstr "Izveidot jaunu elementu"
 
 msgid "manager.reviewFormElements.dropdownbox"
-msgstr ""
+msgstr "Nolaižamais izvēles lodziņš"
 
 msgid "manager.reviewFormElements.edit"
-msgstr ""
+msgstr "Rediģēt veidlapas elementu"
 
 msgid "manager.reviewFormElements.elementType"
-msgstr ""
+msgstr "Elementa tips"
 
 msgid "manager.reviewFormElements.form.elementTypeRequired"
-msgstr ""
+msgstr "Veidlapas elementam ir jānorāda elementa tips."
 
 msgid "manager.reviewFormElements.form.questionRequired"
-msgstr ""
+msgstr "Veidlapas elementam ir nepieciešams jautājums."
 
 msgid "manager.reviewFormElements.noneCreated"
-msgstr ""
+msgstr "Nav izveidoti veidlapas elementi."
 
 msgid "manager.reviewFormElements.possibleResponse"
-msgstr ""
+msgstr "Atlase"
 
 msgid "manager.reviewFormElements.question"
-msgstr ""
+msgstr "Elements"
 
 msgid "manager.reviewFormElements.description"
-msgstr ""
+msgstr "Apraksts"
 
 msgid "manager.reviewFormElements.radiobuttons"
-msgstr ""
+msgstr "Radio pogas (var izvēlēties tikai vienu)"
 
 msgid "manager.reviewFormElements.required"
-msgstr ""
+msgstr "Recenzentiem jāaizpilda elements"
 
 msgid "manager.reviewFormElements.included"
-msgstr ""
+msgstr "Iekļauts ziņā autoram"
 
 msgid "manager.reviewFormElements.smalltextfield"
-msgstr ""
+msgstr "Viena vārda teksta lauks"
 
 msgid "manager.reviewFormElements.textarea"
 msgstr "Paplašinātais teksta lauks"
 
 msgid "manager.reviewFormElements.textfield"
-msgstr ""
+msgstr "Vienas rindas teksta lauks"
 
 msgid "manager.reviewFormElements.viewable"
-msgstr ""
+msgstr "Redzams (autoriem)"
 
 msgid "grid.action.createReviewForm"
-msgstr ""
+msgstr "Izveidot jaunu recenzijas veidlapu"
 
 msgid "manager.setup.competingInterests.required"
 msgstr ""
+"Pieprasīt recenzēšanas laikā iesniegt apliecinājumu par interešu konflikta "
+"neesamību."
 
 msgid "manager.setup.licenseURLDescription"
-msgstr ""
+msgstr "URL uz tīmekļa vietni, kurā aprakstīta licence, ja pieejams."
 
 msgid "manager.setup.metadata.submission"
-msgstr ""
+msgstr "Materiāla iesniegšanas veidlapa"
 
 msgid "manager.setup.metadata.coverage"
 msgstr "Aptvērums"
@@ -1989,57 +2034,90 @@ msgstr ""
 "Neprasīt autoram sniegt aptvēruma metadatus materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.coverage.request"
-msgstr "Lūgt autoru sniegt aptvēruma metadatus materiāla iesniegšanas laikā."
+msgstr "Aicināt autoru materiāla iesniegšanas laikā sniegt aptvēruma metadatus."
 
 msgid "manager.setup.metadata.coverage.require"
 msgstr ""
-"Pieprasīt autoram sniegt aptvēruma metadatu ieteikumus materiāla "
-"iesniegšanas laikā."
+"Pieprasīt autoram materiāla iesniegšanas laikā sniegt aptvēruma metadatu "
+"ieteikumus."
 
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
+"Atslēgvārdi – parasti viena līdz trīs vārdu frāzes, ko izmanto, lai norādītu "
+"materiāla galvenās tēmas."
 
 msgid "manager.setup.metadata.keywords.enable"
-msgstr ""
+msgstr "Iespējot atslēgvārdu metadatus"
 
 msgid "manager.setup.metadata.keywords.noRequest"
-msgstr ""
+msgstr "Iesniegšanas laikā autoram nepieprasīt atslēgvārdus."
 
 msgid "manager.setup.metadata.keywords.request"
-msgstr ""
+msgstr "Aicināt autoru materiāla iesniegšanas laikā norādīt atslēgvārdus."
 
 msgid "manager.setup.metadata.keywords.require"
+msgstr "Pieprasīt autoram pirms materiāla pieņemšanas norādīt atslēgvārdus."
+
+msgid "manager.setup.metadata.languages.description"
 msgstr ""
+"Valoda norāda darba galveno valodu, izmantojot valodas kodu (\"lv\") ar "
+"izvēles valsts kodu (\"lv_LV\")."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Iespējot valodas metadatus"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+"Nepieprasīt autoram materiāla iesniegšanas laikā norādīt iesniegtā materiāla "
+"valodas."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"Aicināt autoru materiāla iesniegšanas laikā norādīt iesniegtā materiāla "
+"valodas."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Pieprasīt autoram pirms materiāla pieņemšanas ievadīt iesniegtā materiāla "
+"valodas."
 
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
+"Jebkuras tiesības, kas attiecas uz iesniegto materiālu, tostarp intelektuālā "
+"īpašuma tiesības, autortiesības un dažādas īpašumtiesības."
 
 msgid "manager.setup.metadata.rights.enable"
-msgstr ""
+msgstr "Iespējot tiesību metadatus"
 
 msgid "manager.setup.metadata.rights.noRequest"
-msgstr ""
+msgstr "Nepieprasīt autoram materiāla iesniegšanas laikā atklāt savas tiesības."
 
 msgid "manager.setup.metadata.rights.request"
 msgstr ""
+"Aicināt autoru materiāla iesniegšanas laikā atklāt jau pastāvošas piekļuves "
+"tiesības."
 
 msgid "manager.setup.metadata.rights.require"
 msgstr ""
+"Pieprasīt autoram pirms iesniegtā materiāla pieņemšanas atklāt visas "
+"pastāvošās piekļuves tiesības."
 
 msgid "manager.setup.metadata.source.description"
 msgstr ""
+"Avots var būt cita darba vai resursa ID, piemēram, DOI, no kura iesniegtais "
+"materiāls ir atvasināts."
 
 msgid "manager.setup.metadata.source.enable"
-msgstr ""
+msgstr "Iespējot avota metadatus"
 
 msgid "manager.setup.metadata.source.noRequest"
-msgstr ""
+msgstr "Nepieprasīt autoram avota URL adresi materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.source.request"
-msgstr ""
+msgstr "Aicināt autoru materiāla iesniegšanas laikā norādīt avota URL adresi."
 
 msgid "manager.setup.metadata.source.require"
-msgstr ""
+msgstr "Pieprasīt autoram pirms materiāla pieņemšanas norādīt avota URL adresi."
 
 msgid "manager.setup.metadata.subjects.description"
 msgstr ""
@@ -2051,7 +2129,7 @@ msgid "manager.setup.metadata.subjects.noRequest"
 msgstr ""
 
 msgid "manager.setup.metadata.subjects.request"
-msgstr ""
+msgstr "Aicināt autoru materiāla iesniegšanas laikā norādīt tematu."
 
 msgid "manager.setup.metadata.subjects.require"
 msgstr ""
@@ -2066,7 +2144,7 @@ msgid "manager.setup.metadata.type.noRequest"
 msgstr ""
 
 msgid "manager.setup.metadata.type.request"
-msgstr ""
+msgstr "Aicināt autoru materiāla iesniegšanas laikā norādīt tipu."
 
 msgid "manager.setup.metadata.type.require"
 msgstr ""
@@ -2081,7 +2159,7 @@ msgid "manager.setup.metadata.disciplines.noRequest"
 msgstr ""
 
 msgid "manager.setup.metadata.disciplines.request"
-msgstr ""
+msgstr "Aicināt autoru materiāla iesniegšanas laikā norādīt nozari."
 
 msgid "manager.setup.metadata.disciplines.require"
 msgstr ""
@@ -2097,6 +2175,8 @@ msgstr ""
 
 msgid "manager.setup.metadata.agencies.request"
 msgstr ""
+"Aicināt autoru materiāla iesniegšanas laikā norādīt informāciju par atbalsta "
+"aģentūrām."
 
 msgid "manager.setup.metadata.agencies.require"
 msgstr ""
@@ -2112,6 +2192,7 @@ msgstr ""
 
 msgid "manager.setup.metadata.citations.request"
 msgstr ""
+"Aicināt autoru materiāla iesniegšanas laikā norādīt bibliogrāfiskās atsauces."
 
 msgid "manager.setup.metadata.citations.require"
 msgstr ""
@@ -2127,6 +2208,8 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Aicināt autoru materiāla iesniegšanas laikā norādīt datu pieejamības "
+"paziņojumu."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
@@ -2342,9 +2425,14 @@ msgstr ""
 
 msgid "manager.navigationMenus.subscriptions.conditionalWarning"
 msgstr ""
+"Šī saite tiks rādīta tikai tad, ja sadaļā Iestatījumi > Izplatīšana > "
+"Maksājumi ir iespējoti maksājumi."
 
 msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
 msgstr ""
+"Šī saite tiks parādīta tikai tad, ja apmeklētājs ir pieteicies, ja sadaļā "
+"Iestatījumi > Izplatīšana > Maksājumi ir iespējoti maksājumi un ja sadaļā "
+"Iestatījumi > Izplatīšana > Piekļuve ir nepieciešami abonementi."
 
 msgid "manager.navigationMenus.search.description"
 msgstr ""
@@ -3358,3 +3446,11 @@ msgstr "Vai tiešām vēlaties dzēst {$title}? Šo darbību nevar atsaukt."
 
 msgid "manager.highlights.url.description"
 msgstr "Pilns izceltās pogas URL, tostarp https://."
+
+msgid "manager.image"
+msgstr "Attēls"
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Jums ir <a href=\"#announcements/announcement-settings\">jāiespējo "
+"paziņojumi</a>."

@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-06 23:07+0000\n"
+"PO-Revision-Date: 2023-11-19 14:38+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/bg/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr ""
@@ -621,3 +621,6 @@ msgstr "Пропускане на този имейл"
 
 msgid "editor.decision.stepError"
 msgstr "Имаше проблем със стъпка {$stepName}."
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "Същата институция като автора"

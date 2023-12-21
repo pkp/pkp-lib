@@ -333,7 +333,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public function getRequest()
     {
-        $request = & Registry::get('request', true, null); // Ref req'd
+        $request = &Registry::get('request', true, null); // Ref req'd
 
         if (is_null($request)) {
             // Implicitly set request by ref in the registry
@@ -350,7 +350,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public function getDispatcher()
     {
-        $dispatcher = & Registry::get('dispatcher', true, null); // Ref req'd
+        $dispatcher = &Registry::get('dispatcher', true, null); // Ref req'd
         if (is_null($dispatcher)) {
             // Implicitly set dispatcher by ref in the registry
             $dispatcher = new Dispatcher();
@@ -468,7 +468,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     public function getDAOMap()
     {
         return [
-            'AnnouncementDAO' => 'PKP\announcement\AnnouncementDAO',
             'AnnouncementTypeDAO' => 'PKP\announcement\AnnouncementTypeDAO',
             'CitationDAO' => 'PKP\citation\CitationDAO',
             'ControlledVocabDAO' => 'PKP\controlledVocab\ControlledVocabDAO',
@@ -490,7 +489,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'NotificationSubscriptionSettingsDAO' => 'PKP\notification\NotificationSubscriptionSettingsDAO',
             'PluginGalleryDAO' => 'PKP\plugins\PluginGalleryDAO',
             'PluginSettingsDAO' => 'PKP\plugins\PluginSettingsDAO',
-            'PublicationDAO' => 'APP\publication\PublicationDAO',
             'QueuedPaymentDAO' => 'PKP\payment\QueuedPaymentDAO',
             'ReviewFilesDAO' => 'PKP\submission\ReviewFilesDAO',
             'ReviewFormDAO' => 'PKP\reviewForm\ReviewFormDAO',
@@ -533,7 +531,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public function getQualifiedDAOName($name)
     {
-        $map = & Registry::get('daoMap', true, $this->getDAOMap()); // Ref req'd
+        $map = &Registry::get('daoMap', true, $this->getDAOMap()); // Ref req'd
         if (isset($map[$name])) {
             return $map[$name];
         }

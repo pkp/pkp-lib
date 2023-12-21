@@ -2,7 +2,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-03 11:03+0000\n"
+"PO-Revision-Date: 2023-12-09 07:38+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "lv/>\n"
@@ -28,7 +28,7 @@ msgstr "Dzēst kešatmiņas"
 
 msgid "admin.deleteCache.description"
 msgstr ""
-"Izdzēsiet kešatmiņas failus no sistēmas. Tas jādara tikai izstrādes vidēs."
+"Izdzēsiet kešatmiņas datnes no sistēmas. Tas jādara tikai izstrādes vidēs."
 
 msgid "admin.clearDataCache"
 msgstr "Notīrīt Datu Kešatmiņu"
@@ -38,7 +38,7 @@ msgstr "Notīrīt Veidņu Kešatmiņu"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr ""
-"Jūsu konfigurācijas fails ir veiksmīgi atjaunināts. Lūdzu, ņemiet vērā, ja "
+"Jūsu konfigurācijas datne ir veiksmīgi atjaunināta. Lūdzu, ņemiet vērā, ja "
 "jūsu vietne vairs nedarbojas pareizi, iespējams, būs manuāli jālabo "
 "konfigurācija, rediģējot <tt>config.inc.php</tt>."
 
@@ -52,7 +52,7 @@ msgstr ""
 "atkārtoti (ieskaitot jūs)."
 
 msgid "admin.contentsOfConfigFile"
-msgstr "Konfigurācijas faila saturs"
+msgstr "Konfigurācijas datnes saturs"
 
 msgid "admin.contexts.confirmDelete"
 msgstr ""
@@ -83,8 +83,8 @@ msgstr ""
 
 msgid "admin.languages.cantDisable"
 msgstr ""
-"Šī ir vietnes primārā lokalizācija. Jūs nevarat to atspējot, kamēr nav "
-"izvēlēta cita primārā lokalizācija."
+"Šī lokalizācija ir vietnes primārā valoda. Jūs nevarat to atspējot, kamēr "
+"nav izvēlēta cita primārā lokalizācija."
 
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""
@@ -157,6 +157,8 @@ msgstr ""
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"Dispečēti {$count} darbuzdevumi, lai nosūtītu redakcionālos e-pasta "
+"atgādinājumus lietotājiem {$userIds} kontekstā {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -187,6 +189,7 @@ msgstr ""
 
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr ""
+"Noņemt vecākos nesekmīgos darbuzdevumus no nesekmīgo darbuzdevumu saraksta."
 
 msgid "admin.scheduledTask.processQueueJobs"
 msgstr ""

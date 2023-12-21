@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-03 11:03+0000\n"
+"PO-Revision-Date: 2023-12-09 07:39+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/lv/>\n"
@@ -2277,7 +2277,7 @@ msgid "submission.review.status.complete"
 msgstr "Recenzēšana pabeigta."
 
 msgid "submission.art"
-msgstr "Attēls"
+msgstr "Grafiskā datne"
 
 msgid "submission.supplementary"
 msgstr "Papildu saturs"
@@ -2292,13 +2292,13 @@ msgid "submission.supplementary.publisher"
 msgstr "Izdevējs"
 
 msgid "submission.reviewForm"
-msgstr "Recenzenta forma"
+msgstr "Recenzijas veidlapa"
 
 msgid "submission.reviewFormResponse"
-msgstr "Recenzenta formas atbilde"
+msgstr "Recenzijas veidlapas atbilde"
 
 msgid "grid.action.createReviewFormElement"
-msgstr "Izveidot jaunu recenzenta formas elementu"
+msgstr "Izveidot jaunu recenzijas veidlapas elementu"
 
 msgid "grid.action.editMetadata"
 msgstr "Rediģēt metadatus"
@@ -2661,3 +2661,9 @@ msgstr "Dokuments"
 
 msgid "grid.category.categories"
 msgstr "Kategorijas"
+
+msgid "submission.authors.label"
+msgstr "Autori"
+
+msgid "submission.author.list"
+msgstr "Iesniegto materiālu autoru saraksts"

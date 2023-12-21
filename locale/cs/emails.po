@@ -4,18 +4,17 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2021-12-26 09:24+0000\n"
+"PO-Revision-Date: 2023-12-24 10:39+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
-"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ojs/emails/cs_CZ/"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/cs/"
 ">\n"
-"Language: cs_CZ\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
-#, fuzzy
 msgid "emails.submissionAck.subject"
 msgstr "Děkujeme za váš příspěvek pro {$contextName}"
 
@@ -35,11 +34,10 @@ msgstr ""
 "p>{$contextSignature}"
 
 msgid "emails.submissionAck.description"
-msgstr ""
+msgstr "Tento e-mail je automaticky zaslán autorovi při odeslání příspěvku."
 
-#, fuzzy
 msgid "emails.reviewAck.subject"
-msgstr "Poděkování za zpracování recenze článku"
+msgstr "Děkujeme vám za vaši recenzi"
 
 #, fuzzy
 msgid "emails.reviewAck.body"
@@ -51,7 +49,7 @@ msgstr ""
 "publikujeme."
 
 msgid "emails.decision.notifyReviewers.subject"
-msgstr ""
+msgstr "Děkujeme vám za vaši recenzi"
 
 msgid "emails.decision.notifyReviewers.body"
 msgstr ""
@@ -78,22 +76,19 @@ msgstr ""
 "<br />\n"
 "Webová adresa příspěvku: {$submissionUrl}"
 
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Další kroky pro zveřejnění vašeho příspěvku"
 
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "<p>Vážený/á {$recipientName},</p><p>Píši vám z redakce periodika "
 "{$contextName} abychom vám dali vědět, že editace vašeho příspěvku "
 "{$submissionTitle} je hotová. Váš příspěvek nyní postoupí do produkční fáze, "
 "ve které budou připraveny finální sazebnice pro vydání. V případě potřeby "
-"další pomoci vás budeme kontaktovat..</p><p>Pokud máte jakékoliv dotazy, "
-"neváhejte nás kontaktovat pomocí redakčního systému  <a href="
-"\"{$submissionUrl}\">našeho periodika</a>.</p><p>S pozdravy,</p>{$signature}"
+"další pomoci vás budeme kontaktovat.</p><p>Pokud máte jakékoliv dotazy, "
+"neváhejte nás kontaktovat pomocí redakčního systému  <a href=\""
+"{$submissionUrl}\">našeho periodika</a>.</p><p>S pozdravy,</p>{$signature}"
 
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr ""
 "Vaše příspěvek byl podroben recenznímu řízení a nyní vás vyzýváme k "
@@ -109,7 +104,6 @@ msgstr ""
 "<br />\n"
 "Naše rozhodnutí je: požadujeme přepracování"
 
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr ""
 "Váš příspěvek byl podroben recenznímu řízení – upravte ho, prosím, podle "
@@ -125,7 +119,6 @@ msgstr ""
 "<br />\n"
 "Naše rozhodnutí je: znovu odeslat k recenzi"
 
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Váš příspěvek byl odmítnut"
 

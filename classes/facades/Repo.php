@@ -37,6 +37,7 @@ use PKP\job\repositories\Job as JobRepository;
 use PKP\log\event\Repository as EventLogRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
+use PKP\jats\Repository as JatsRepository;
 
 class Repo
 {
@@ -103,5 +104,10 @@ class Repo
     public static function highlight(): HighlightRepository
     {
         return app(HighlightRepository::class);
+    }
+
+    public static function jats(): JatsRepository
+    {
+        return app(JatsRepository::class);
     }
 }

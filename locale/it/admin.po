@@ -1,12 +1,12 @@
-# Fulvio Delle Donne <fulviodelledonne@libero.it>, 2022.
+# Fulvio Delle Donne <fulviodelledonne@libero.it>, 2022, 2023.
 # Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2023-04-14 15:45+0000\n"
-"Last-Translator: Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>\n"
+"PO-Revision-Date: 2023-12-24 10:39+0000\n"
+"Last-Translator: Fulvio Delle Donne <fulviodelledonne@libero.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "it/>\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Nome"
@@ -543,12 +543,21 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Elenca tutti i lavori falliti. Impostare i parametri --queue=QUEUE_NAME e --"
+"connection=CONNECTION_NAME per filtrare l'elenco. Passare anche i parametri/"
+"flag --redispatch e --clear per ridiffondere in coda o cancellare tutti gli "
+"specifici lavori falliti."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Distribuisci i lavori disponibili nella coda. Per distribuire un lavoro in "
+"una coda specifica, inserite il parametro --queue=QUEUE_NAME. Usare -- test "
+"per eseguire un lavoro di prova e -- poi fermarsi dopo un singolo lavoro."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
+"Completata l'esecuzione di {$jobCount} lavori nella coda denominata "
+"{$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr ""
@@ -888,3 +897,15 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr ""
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Disabilita le statistiche aggregate dei recensori"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Statistiche dei revisori"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"In un'installazione multi contesto, le statistiche dei recensori, come il "
+"numero di recensioni inviate, possono essere visualizzate singolarmente per "
+"ogni contesto o aggregate collettivamente."

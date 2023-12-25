@@ -16,6 +16,7 @@ namespace PKP\submission\maps;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
 use PKP\db\DAORegistry;
@@ -45,6 +46,9 @@ class Schema extends \PKP\core\maps\Schema
 
     /** @var Genre[] The file genres in this context. */
     public array $genres;
+
+    /** @var Enumerable The review assignments' data associated with the submission . */
+    public Enumerable $reviewAssignments;
 
     /**
      * Get extra property names used in the submissions list
@@ -91,10 +95,11 @@ class Schema extends \PKP\core\maps\Schema
      * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      */
-    public function map(Submission $item, LazyCollection $userGroups, array $genres): array
+    public function map(Submission $item, LazyCollection $userGroups, array $genres, ?Enumerable $reviewAssignments = null): array
     {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
+        $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany();
         return $this->mapByProperties($this->getProps(), $item);
     }
 
@@ -106,10 +111,11 @@ class Schema extends \PKP\core\maps\Schema
      * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
      */
-    public function summarize(Submission $item, LazyCollection $userGroups, array $genres): array
+    public function summarize(Submission $item, LazyCollection $userGroups, array $genres, ?Enumerable $reviewAssignments = null): array
     {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
+        $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany();
         return $this->mapByProperties($this->getSummaryProps(), $item);
     }
 
@@ -126,8 +132,12 @@ class Schema extends \PKP\core\maps\Schema
         $this->collection = $collection;
         $this->userGroups = $userGroups;
         $this->genres = $genres;
-        return $collection->map(function ($item) {
-            return $this->map($item, $this->userGroups, $this->genres);
+        $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($collection->keys()->toArray())->getMany()->remember();
+        $associatedReviewAssignments = $this->reviewAssignments->groupBy(function (ReviewAssignment $reviewAssignment, int $key) {
+            return $reviewAssignment->getData('submissionId');
+        });
+        return $collection->map(function ($item) use ($associatedReviewAssignments) {
+            return $this->map($item, $this->userGroups, $this->genres, $associatedReviewAssignments->get($item->getId()));
         });
     }
 
@@ -144,8 +154,12 @@ class Schema extends \PKP\core\maps\Schema
         $this->collection = $collection;
         $this->userGroups = $userGroups;
         $this->genres = $genres;
-        return $collection->map(function ($item) {
-            return $this->summarize($item, $this->userGroups, $this->genres);
+        $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($collection->keys()->toArray())->getMany()->remember();
+        $associatedReviewAssignments = $this->reviewAssignments->groupBy(function (ReviewAssignment $reviewAssignment, int $key) {
+            return $reviewAssignment->getData('submissionId');
+        });
+        return $collection->map(function ($item) use ($associatedReviewAssignments) {
+            return $this->summarize($item, $this->userGroups, $this->genres, $associatedReviewAssignments->get($item->getId()));
         });
     }
 
@@ -154,11 +168,13 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
+     * @param Collection $reviewAssignments review assignments associated with a submission
      */
-    public function mapToSubmissionsList(Submission $item, LazyCollection $userGroups, array $genres): array
+    public function mapToSubmissionsList(Submission $item, LazyCollection $userGroups, array $genres, ?Enumerable $reviewAssignments = null): array
     {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
+        $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany();
         return $this->mapByProperties($this->getSubmissionsListProps(), $item);
     }
 
@@ -175,8 +191,12 @@ class Schema extends \PKP\core\maps\Schema
         $this->collection = $collection;
         $this->userGroups = $userGroups;
         $this->genres = $genres;
-        return $collection->map(function ($item) {
-            return $this->mapToSubmissionsList($item, $this->userGroups, $this->genres);
+        $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($collection->keys()->toArray())->getMany()->remember();
+        $associatedReviewAssignments = $this->reviewAssignments->groupBy(function (ReviewAssignment $reviewAssignment, int $key) {
+            return $reviewAssignment->getData('submissionId');
+        });
+        return $collection->map(function ($item) use ($associatedReviewAssignments) {
+            return $this->mapToSubmissionsList($item, $this->userGroups, $this->genres, $associatedReviewAssignments->get($item->getId()));
         });
     }
 
@@ -209,6 +229,7 @@ class Schema extends \PKP\core\maps\Schema
         $props = array_filter($this->getSummaryProps(), function ($prop) {
             return $prop !== 'publications';
         });
+        $this->reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany();
         return $this->mapByProperties($props, $item);
     }
 
@@ -239,7 +260,7 @@ class Schema extends \PKP\core\maps\Schema
                         ->summarizeMany($submission->getData('publications'), $anonymize)->values();
                     break;
                 case 'reviewAssignments':
-                    $output[$prop] = $this->getPropertyReviewAssignments($submission);
+                    $output[$prop] = $this->getPropertyReviewAssignments($this->reviewAssignments);
                     break;
                 case 'reviewRounds':
                     $output[$prop] = $this->getPropertyReviewRounds($submission);
@@ -277,10 +298,8 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Get details about the review assignments for a submission
      */
-    protected function getPropertyReviewAssignments(Submission $submission): array
+    protected function getPropertyReviewAssignments(Enumerable $reviewAssignments): array
     {
-        $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany();
-
         $reviews = [];
         foreach ($reviewAssignments as $reviewAssignment) {
             // @todo for now, only show reviews that haven't been

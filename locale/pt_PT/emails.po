@@ -4,20 +4,19 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
-"PO-Revision-Date: 2022-01-07 11:25+0000\n"
-"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
+"PO-Revision-Date: 2023-12-28 09:39+0000\n"
+"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
-"ojs/emails/pt_PT/>\n"
+"pkp-lib/emails/pt_PT/>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
-#, fuzzy
 msgid "emails.submissionAck.subject"
-msgstr "Obrigado pela sua submissão a {$contextName}"
+msgstr "Obrigado pela submissão a {$contextName}"
 
 #, fuzzy
 msgid "emails.submissionAck.body"
@@ -41,9 +40,8 @@ msgstr ""
 msgid "emails.submissionAck.description"
 msgstr ""
 
-#, fuzzy
 msgid "emails.reviewAck.subject"
-msgstr "Agradecimento pela revisão"
+msgstr "Obrigado pela revisão"
 
 #, fuzzy
 msgid "emails.reviewAck.body"
@@ -55,7 +53,7 @@ msgstr ""
 "qualidade dos trabalhos publicados."
 
 msgid "emails.decision.notifyReviewers.subject"
-msgstr ""
+msgstr "Obrigado pela sua revisão"
 
 msgid "emails.decision.notifyReviewers.body"
 msgstr ""

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2023-12-24 10:39+0000\n"
+"PO-Revision-Date: 2023-12-28 09:39+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/cs/"
 ">\n"
@@ -18,7 +18,6 @@ msgstr ""
 msgid "emails.submissionAck.subject"
 msgstr "Děkujeme za váš příspěvek pro {$contextName}"
 
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "<p>Vážený/á {$recipientName},</p><p>Díky za váš příspěvek do periodika "
@@ -30,8 +29,8 @@ msgstr ""
 "p><p>Pokud jste byli odhlášeni, můžete se znovu přihlásit pod uživatelským "
 "jménem {$recipientUsername}</p><p>Pokud máte jakékoli dotazy, kontaktujte mě "
 "prosím ze <a href=\"{$submissionUrl}\">stránky příspěvku</a>.</"
-"p><p>Děkujeme, že jste si naše periodikum vybrali pro váš příspěvek.</"
-"p>{$contextSignature}"
+"p><p>Děkujeme, že jste si naše periodikum vybrali pro váš "
+"příspěvek.</p>{$contextSignature}"
 
 msgid "emails.submissionAck.description"
 msgstr "Tento e-mail je automaticky zaslán autorovi při odeslání příspěvku."
@@ -39,14 +38,17 @@ msgstr "Tento e-mail je automaticky zaslán autorovi při odeslání příspěvk
 msgid "emails.reviewAck.subject"
 msgstr "Děkujeme vám za vaši recenzi"
 
-#, fuzzy
 msgid "emails.reviewAck.body"
 msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"Děkujeme za dokončení recenze příspěvku &quot;{$submissionTitle}&quot; pro "
-"{$contextName}. Vážíme si Vaší práce vedoucí ke zkvalitnění článků, které "
-"publikujeme."
+"<p>Vážený/á {$recipientName},</p>\n"
+"<p>děkujeme vám za dokončení recenze příspěvku {$submissionTitle}, pro "
+"{$contextName}. Vážíme si vašeho času a odborných znalostí, kterými "
+"přispíváte ke kvalitě námi publikovaných prací.</p>\n"
+"<p>Bylo nám potěšením s vámi spolupracovat jako s recenzentem pro "
+"{$contextName} a doufáme, že budeme mít příležitost s vámi spolupracovat i v "
+"budoucnu.</p>\n"
+"<p>S pozdravem,</p>\n"
+"<p>{$signature}</p>"
 
 msgid "emails.decision.notifyReviewers.subject"
 msgstr "Děkujeme vám za vaši recenzi"
@@ -55,14 +57,13 @@ msgid "emails.decision.notifyReviewers.body"
 msgstr ""
 
 msgid "emails.decision.notifyOtherAuthors.subject"
-msgstr ""
+msgstr "Aktualizace týkající se vašeho příspěvku"
 
 msgid "emails.decision.notifyOtherAuthors.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
-msgstr "Rozhodnutí editora"
+msgstr "Váš příspěvek byl odeslán k recenzi"
 
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
@@ -132,7 +133,6 @@ msgstr ""
 "<br />\n"
 "Naše rozhodnutí je: odmítnout příspěvek"
 
-#, fuzzy
 msgid "emails.editorRecommendation.subject"
 msgstr "Doporučení redaktora"
 
@@ -146,7 +146,6 @@ msgstr ""
 "pokračujte dle vydaného doporučení.</p><p>V případě jakýchkoli dotazů nás "
 "neváhejte kontaktovat.</p><p>S pozdravy,</p><p>{$senderName}</p>"
 
-#, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr ""
 "Příspěvek {$submissionId} je připraven k závěrečné editaci pro periodikum "
@@ -172,13 +171,13 @@ msgstr ""
 "Uživatelské jméno: {$recipientUsername}"
 
 msgid "emails.editorDecisionNewReviewRound.subject"
-msgstr ""
+msgstr "Váš příspěvek byl odeslán k dalšímu kolu recenze"
 
 msgid "emails.editorDecisionNewReviewRound.body"
 msgstr ""
 
 msgid "emails.editorDecisionRevertDecline.subject"
-msgstr ""
+msgstr "Změnili jsme rozhodnutí o zamítnutí vašeho příspěvku"
 
 msgid "emails.editorDecisionRevertDecline.body"
 msgstr ""

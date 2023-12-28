@@ -53,6 +53,7 @@ class PKPCatalogHandler extends Handler {
 
 		$this->setupTemplate($request);
 		import('lib.pkp.classes.submission.PKPSubmission'); // STATUS_ constants
+		import('classes.submission.SubmissionDAO'); // ORDERBY_ constants
 
 		$orderOption = $category->getSortOption() ? $category->getSortOption() : ORDERBY_DATE_PUBLISHED . '-' . SORT_DIRECTION_DESC;
 		list($orderBy, $orderDir) = explode('-', $orderOption);

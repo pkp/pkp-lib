@@ -1,20 +1,19 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-09-26 15:18+0000\n"
+"PO-Revision-Date: 2023-12-29 10:39+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
-"Language-Team: bg (generated) <http://translate.pkp.sfu.ca/projects/ojs/"
+"Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "emails/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
-#, fuzzy
 msgid "emails.submissionAck.subject"
-msgstr "Потвърждение за подаване"
+msgstr "Благодарим ви за подаването на материали към {$contextName}"
 
 msgid "emails.submissionAck.body"
 msgstr ""
@@ -33,29 +32,27 @@ msgstr ""
 "<br />\n"
 "{$contextSignature}"
 
-#, fuzzy
 msgid "emails.submissionAck.description"
 msgstr ""
-"Този имейл, когато е активиран, автоматично се изпраща на автор, когато "
-"приключи процеса на изпращане на ръкопис към списанието. Той предоставя "
-"информация за проследяване на подаването на ръкописа и благодари на автора "
-"за изпращането."
+"Този имейл се изпраща автоматично до автора, когато той изпрати своя "
+"материал."
 
-#, fuzzy
 msgid "emails.reviewAck.subject"
-msgstr "Признание за рецензия на статия"
+msgstr "Благодарим ви за вашата рецензия"
 
-#, fuzzy
 msgid "emails.reviewAck.body"
 msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"Благодарим Ви, че резензирахте изпратените материали, &quot;"
-"{$submissionTitle},&quot; за {$contextName}. Оценяваме приноса ви към "
-"качеството на работата, която публикуваме."
+"<p> Уважаема/и {$recipientName}:</p>\n"
+"<p>Благодарим Ви, че резензирахте изпратените материали, "
+"&quot;{$submissionTitle},&quot; за {$contextName}. Оценяваме приноса ви към "
+"качеството на работата, която публикуваме.</p>\n"
+"<p>За нас беше удоволствие да работим с вас като рецензент за {$contextName} "
+"и се надяваме да имаме възможност да работим отново в бъдеще.</p>\n"
+"<p>Сърдечни поздрави,</p>\n"
+"<p>{$signature}</p>"
 
 msgid "emails.decision.notifyReviewers.subject"
-msgstr ""
+msgstr "Благодарим ви за вашата рецензия"
 
 msgid "emails.decision.notifyReviewers.body"
 msgstr ""

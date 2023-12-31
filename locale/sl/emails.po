@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
-"PO-Revision-Date: 2023-12-24 10:39+0000\n"
+"PO-Revision-Date: 2024-01-01 14:39+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "emails/sl/>\n"
@@ -39,7 +39,6 @@ msgstr ""
 msgid "emails.submissionAck.description"
 msgstr ""
 
-#, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Zahvala za recenzijo prispevka"
 

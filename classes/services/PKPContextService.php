@@ -28,6 +28,7 @@ use PKP\context\Context;
 use PKP\context\ContextDAO;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
+use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DAOResultIterator;
@@ -609,10 +610,12 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
                 ->filterByContextIds([$context->getId()])
         );
 
-        Repo::highlight()
-            ->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->deleteMany();
+        if (Config::getVar('features', 'highlights')) {
+            Repo::highlight()
+                ->getCollector()
+                ->filterByContextIds([$context->getId()])
+                ->deleteMany();
+        }
 
         Repo::institution()->deleteMany(
             Repo::institution()

@@ -144,7 +144,10 @@ class Locale implements LocaleInterface
         }
 
         $this->locale = $locale;
-        setlocale(LC_ALL, "{$locale}.utf-8", $locale);
+        $dashedLocale = str_replace('_', '-', $locale);
+        if (!setlocale(LC_ALL, "{$locale}.utf8", $locale, "{$dashedLocale}.utf8", $dashedLocale)) {
+            error_log("Failed to set locale \"{$locale}.utf8\", ensure that all locales enabled in the application are available in your operational system");
+        }
         putenv("LC_ALL={$locale}");
     }
 

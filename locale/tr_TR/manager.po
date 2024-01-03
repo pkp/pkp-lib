@@ -2414,3 +2414,8 @@ msgstr "Hakemlik Sonrası Reddetme Oranı"
 
 #~ msgid "manager.publication.reviewSetup.success"
 #~ msgstr "İnceleme ayarları güncellendi."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Yazarların gönderileriyle birlikte bir Çıkar Çatışması bildirimi dosyası "
+"göndermeleri gereklidir."

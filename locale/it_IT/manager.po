@@ -2390,3 +2390,8 @@ msgstr "Percentuale di rifiuto dopo peer review"
 
 #~ msgid "manager.publication.emailSetup.success"
 #~ msgstr "Le configurazione della mail sono state aggiornate."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Richiedi agli autori di inviare una dichiarazione di assenza di conflitto di "
+"interessi durante l'invio della proposta."

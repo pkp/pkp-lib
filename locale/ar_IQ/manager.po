@@ -2259,3 +2259,7 @@ msgstr "معدل الرفض المباشر"
 
 msgid "stats.name.declinedReviewRate"
 msgstr "معدل الرفض بعد التحكيم"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"يتطلب تقديم المؤلفين لبيان المصالح المتضاربة (CI) مع طلبات النشر الخاصة بهم."

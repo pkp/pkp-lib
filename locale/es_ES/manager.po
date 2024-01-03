@@ -2468,3 +2468,8 @@ msgstr "Tasa de rechazo después de revisión"
 #~ msgstr ""
 #~ "Ingrese una fecha en formato YYYY-MM-DD . Por ejemplo, si quiere ingresar "
 #~ "la fecha para el 15 de enero de 2019, ingrese 2019-01-15."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Pedir a los autores/as que adjunten una declaración de conflicto de "
+"intereses a su envío."

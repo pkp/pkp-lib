@@ -2437,3 +2437,8 @@ msgstr "Ποσοστό απόρριψης"
 
 msgid "stats.name.declinedReviewRate"
 msgstr "Ποσοστό Απόρριψης μετά την αξιολόγηση"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Απαιτείται από τους Συγγραφείς να καταθέτουν Δήλωση Αντικρουόμενων "
+"Συμφερόντων μαζί με την υποβολή."

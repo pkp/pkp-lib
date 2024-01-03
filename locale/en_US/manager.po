@@ -2039,3 +2039,6 @@ msgstr "Desk Reject Rate"
 
 msgid "stats.name.declinedReviewRate"
 msgstr "After Review Reject Rate"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr "Require submitting Authors to file a Competing Interest (CI) statement with their submission."

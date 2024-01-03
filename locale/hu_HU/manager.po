@@ -2748,3 +2748,8 @@ msgstr "Lektorálás során történő elutasítási arány"
 
 #~ msgid "manager.statistics.editorial.externalReview"
 #~ msgstr "Külső lektorálás"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"A cikket beadó szerzők felszólítása az összeférhetetlenségi nyilatkozat "
+"benyújtására."

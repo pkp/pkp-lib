@@ -2383,3 +2383,6 @@ msgstr "Доля отклоненных сразу"
 
 msgid "stats.name.declinedReviewRate"
 msgstr "Доля отклоненных после рецензии"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr "Требовать от авторов представлять Декларацию о конфликте интересов вместе с отправляемым материалом."

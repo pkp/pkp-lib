@@ -2427,3 +2427,6 @@ msgstr "Współczynnik odrzuceń po recenzji"
 #~ msgstr ""
 #~ "Wpisz każdą datę w formacie YYYY-MM-DD. Na przykład, jeżeli chce podać "
 #~ "datę 15 stycznia 2019 r., wpisz 2019-01-15."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr "Wymagaj od autorów oświadczenia o zbieżności zainteresowań."

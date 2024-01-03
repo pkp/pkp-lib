@@ -2348,3 +2348,8 @@ msgstr "Tingkat Penolakan Setelah Review"
 
 #~ msgid "manager.setup.selectOne"
 #~ msgstr "Pilih satu"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Mengharuskan Penulis untuk memberikan pernyataan Konflik Kepentingan dalam "
+"naskah mereka."

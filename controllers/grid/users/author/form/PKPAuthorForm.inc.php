@@ -134,6 +134,7 @@ class PKPAuthorForm extends Form {
 				'email' => $author->getEmail(),
 				'userUrl' => $author->getUrl(),
 				'orcid' => $author->getOrcid(),
+				'competingInterests' => $author->getCompetingInterests(null),
 				'userGroupId' => $author->getUserGroupId(),
 				'biography' => $author->getBiography(null),
 				'primaryContact' => $this->getPublication()->getData('primaryContactId') === $author->getId(),
@@ -151,8 +152,10 @@ class PKPAuthorForm extends Form {
 	 * @copydoc Form::fetch()
 	 */
 	function fetch($request, $template = null, $display = false) {
+		AppLocale::requireComponents([LOCALE_COMPONENT_PKP_REVIEWER]);
+		$context = $request->getContext();
 		$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-		$authorUserGroups = $userGroupDao->getByRoleId($request->getContext()->getId(), ROLE_ID_AUTHOR);
+		$authorUserGroups = $userGroupDao->getByRoleId($context->getId(), ROLE_ID_AUTHOR);
 		$publication = $this->getPublication();
 		$isoCodes = new \Sokil\IsoCodes\IsoCodesFactory();
 		$countries = array();
@@ -166,6 +169,7 @@ class PKPAuthorForm extends Form {
 			'publicationId' => $publication->getId(),
 			'countries' => $countries,
 			'authorUserGroups' => $authorUserGroups,
+			'requireAuthorCompetingInterests' => $context->getData('requireAuthorCompetingInterests'),
 		));
 
 		return parent::fetch($request, $template, $display);
@@ -186,6 +190,7 @@ class PKPAuthorForm extends Form {
 			'email',
 			'userUrl',
 			'orcid',
+			'competingInterests',
 			'userGroupId',
 			'biography',
 			'primaryContact',
@@ -198,6 +203,8 @@ class PKPAuthorForm extends Form {
 	 * @see Form::execute()
 	 */
 	function execute(...$functionParams) {
+		$context = $this->getContext();
+
 		$authorDao = DAORegistry::getDAO('AuthorDAO'); /* @var $authorDao AuthorDAO */
 		$publication = $this->getPublication();
 
@@ -222,6 +229,7 @@ class PKPAuthorForm extends Form {
 		$author->setEmail($this->getData('email'));
 		$author->setUrl($this->getData('userUrl'));
 		$author->setOrcid($this->getData('orcid'));
+		if ($context->getData('requireAuthorCompetingInterests')) $author->setCompetingInterests($this->getData('competingInterests'), null);
 		$author->setUserGroupId($this->getData('userGroupId'));
 		$author->setBiography($this->getData('biography'), null); // localized
 		$author->setIncludeInBrowse(($this->getData('includeInBrowse') ? true : false));
@@ -237,7 +245,6 @@ class PKPAuthorForm extends Form {
 		}
 
 		if ($this->getData('primaryContact')) {
-			$context = $this->getContext();
 			$params = ['primaryContactId' => $authorId];
 			$errors = Services::get('publication')->validate(
 				VALIDATE_ACTION_EDIT,

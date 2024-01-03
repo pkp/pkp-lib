@@ -2354,3 +2354,8 @@ msgstr "Taxa de Rejeição após Revisão"
 
 #~ msgid "manager.setup.reviewOptions.reviewTime"
 #~ msgstr "Prazos de Revisão Padrão"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Exigir dos Autores o registo de Conflito de Interesses (CI) junto com a "
+"submissão."

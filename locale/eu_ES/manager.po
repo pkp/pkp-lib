@@ -2087,3 +2087,8 @@ msgstr ""
 
 #~ msgid "manager.setup.selectOne"
 #~ msgstr "Hautatu bat"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Eskatu lana bidaltzen duten egileei Interes-gatazkari buruzko deklarazio bat "
+"erants dezatela bidalketan."

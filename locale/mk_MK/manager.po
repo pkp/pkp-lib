@@ -2398,3 +2398,8 @@ msgstr "Процент на одбиени по рецензирањето"
 
 #~ msgid "manager.distribution.license.success"
 #~ msgstr "Деталите за лиценцата се ажурирани. "
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Потребно е да ги доставите авторите да поднесат изјава за натпреварувачки "
+"интерес (КИ) со нивно поднесување."

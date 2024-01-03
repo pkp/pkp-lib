@@ -2416,3 +2416,8 @@ msgstr "Rata de respingere după revizuire"
 #~ msgid "manager.setup.metadata.success"
 #~ msgstr ""
 #~ "Metadatele înregistrării manuscrisului au fost actualizate cu succes."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Solicitați autorilor care înregistrează manuscrise să depună o declarație de "
+"interes (CI) odată cu transmiterea lor."

@@ -2117,3 +2117,9 @@ msgstr "View Galley"
 
 msgid "galley.cantEditPublished"
 msgstr "This galley can not be edited because it has already been published."
+
+msgid "author.competingInterests"
+msgstr "Competing Interests"
+
+msgid "author.competingInterests.description"
+msgstr "Please disclose any competing interests this author may have with the research subject."

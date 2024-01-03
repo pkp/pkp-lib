@@ -2376,3 +2376,8 @@ msgstr "Arvioinnin jälkeinen hylkäysaste"
 
 #~ msgid "manager.setup.metadata.success"
 #~ msgstr "Käsikirjoituksen kuvailutiedot päivitetty."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Vaadi käsikirjoituksen lähettäviä kirjoittajia jättämään Sidonnaisuudet-"
+"lausunto lähetyksen yhteydessä."

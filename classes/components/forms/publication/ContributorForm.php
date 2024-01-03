@@ -97,11 +97,18 @@ class ContributorForm extends FormComponent
             ]))
             ->addField(new FieldText('orcid', [
                 'label' => __('user.orcid'),
-            ]))
-            ->addField(new FieldRichTextarea('biography', [
-                'label' => __('user.biography'),
+            ]));
+        if ($context->getSetting('requireAuthorCompetingInterests')) {
+            $this->addField(new FieldRichTextarea('competingInterests', [
+                'label' => __('author.competingInterests'),
+                'description' => __('author.competingInterests.description'),
                 'isMultilingual' => true,
-            ]))
+            ]));
+        }
+        $this->addField(new FieldRichTextarea('biography', [
+            'label' => __('user.biography'),
+            'isMultilingual' => true,
+        ]))
             ->addField(new FieldText('affiliation', [
                 'label' => __('user.affiliation'),
                 'isMultilingual' => true,

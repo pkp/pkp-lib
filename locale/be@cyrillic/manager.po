@@ -3053,3 +3053,8 @@ msgstr ""
 
 msgid "mailable.submissionNeedsEditor.name"
 msgstr ""
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Патрабаваць ад аўтараў падаваць Дэкларацыю аб канфлікце інтарэсаў разам з "
+"адпраўляемым матэрыялам."

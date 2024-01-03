@@ -3422,3 +3422,8 @@ msgstr ""
 #~ msgstr ""
 #~ "E-mel ini dihantar oleh Editor Bahagian untuk mengingatkan pengulas "
 #~ "bahawa ulasan tamat."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Wajib mengemukakan Pengarang untuk mengemukakan pernyataan Konflik "
+"Kepentingan dengan penyerahannya."

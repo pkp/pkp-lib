@@ -3071,3 +3071,6 @@ msgstr ""
 
 #~ msgid "doi.displayName"
 #~ msgstr "DOI"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""

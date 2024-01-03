@@ -3713,3 +3713,8 @@ msgstr ""
 
 msgid "manager.image"
 msgstr "Slika"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Zahtevaj od avtorjev izjavo o konfliktu interesov med procesom oddaje "
+"prispevka."

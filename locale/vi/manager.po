@@ -3417,3 +3417,7 @@ msgstr ""
 #~ "Email này được gửi bởi một Biên tập viên để nhắc nhở người review rằng "
 #~ "review của họ đến hạn nộp. Email này được sử dụng khi Biên tập viên gửi "
 #~ "nhắc nhở đến người review một cách thủ công"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Yêu cầu tác giả gửi một tuyên bố xung đột lợi ích (CI) với bài gửi của họ."

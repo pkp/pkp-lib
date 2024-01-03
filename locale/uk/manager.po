@@ -3762,3 +3762,8 @@ msgid "manager.announcements.notEnabled"
 msgstr ""
 "Ви повинні <a href=\"#announcements/announcement-settings\">активувати "
 "оголошення</a>."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Вимагати від авторів декларувати відсутність конфлікту інтересів щодо "
+"поданих матеріалів."

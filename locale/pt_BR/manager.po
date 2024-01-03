@@ -3712,3 +3712,8 @@ msgstr ""
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "O link para validar uma conta de e-mail"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Exigir dos autores o registro de conflito de interesses (CI) junto com a "
+"submissão."

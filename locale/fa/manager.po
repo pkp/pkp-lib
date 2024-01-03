@@ -3385,3 +3385,8 @@ msgstr ""
 #, fuzzy
 #~ msgid "emails.reviewRemind.body"
 #~ msgstr "ایمیلی از طرف دبیر یا دبیر بخش به داور برای یادآوری انجام داوری"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"لازم است که نویسنده ارسال کننده مقاله بیانیه تعارض منافع در رابطه با مقاله "
+"خود را ارسال کند."

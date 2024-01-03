@@ -76,7 +76,6 @@ class PKPAuthorForm extends Form
     /**
      * Get the author
      *
-     * @return Author
      */
     public function getAuthor(): ?Author
     {
@@ -135,6 +134,7 @@ class PKPAuthorForm extends Form
                 'email' => $author->getEmail(),
                 'userUrl' => $author->getUrl(),
                 'orcid' => $author->getOrcid(),
+                'competingInterests' => $author->getCompetingInterests(null),
                 'userGroupId' => $author->getUserGroupId(),
                 'biography' => $author->getBiography(null),
                 'primaryContact' => $this->getPublication()->getData('primaryContactId') === $author->getId(),
@@ -155,7 +155,8 @@ class PKPAuthorForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        $authorUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $request->getContext()->getId());
+        $context = $request->getContext();
+        $authorUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $context->getId());
         $publication = $this->getPublication();
         $countries = [];
         foreach (Locale::getCountries() as $country) {
@@ -168,6 +169,7 @@ class PKPAuthorForm extends Form
             'publicationId' => $publication->getId(),
             'countries' => $countries,
             'authorUserGroups' => $authorUserGroups,
+            'requireAuthorCompetingInterests' => $context->getData('requireAuthorCompetingInterests'),
         ]);
 
         return parent::fetch($request, $template, $display);
@@ -190,6 +192,7 @@ class PKPAuthorForm extends Form
             'email',
             'userUrl',
             'orcid',
+            'competingInterests',
             'userGroupId',
             'biography',
             'primaryContact',
@@ -205,6 +208,8 @@ class PKPAuthorForm extends Form
     public function execute(...$functionParams)
     {
         $publication = $this->getPublication(); /** @var Publication $publication */
+        $submission = Repo::submission()->get($publication->getData('submissionId'));
+        $context = Services::get('context')->get($submission->getData('contextId'));
 
         $author = $this->getAuthor();
         if (!$author) {
@@ -229,6 +234,9 @@ class PKPAuthorForm extends Form
         $author->setEmail($this->getData('email'));
         $author->setUrl($this->getData('userUrl'));
         $author->setOrcid($this->getData('orcid'));
+        if ($context->getData('requireAuthorCompetingInterests')) {
+            $author->setCompetingInterests($this->getData('competingInterests'), null);
+        }
         $author->setUserGroupId($this->getData('userGroupId'));
         $author->setBiography($this->getData('biography'), null); // localized
         $author->setIncludeInBrowse(($this->getData('includeInBrowse') ? true : false));
@@ -244,8 +252,6 @@ class PKPAuthorForm extends Form
         }
 
         if ($this->getData('primaryContact')) {
-            $submission = Repo::submission()->get($publication->getData('submissionId'));
-            $context = Services::get('context')->get($submission->getData('contextId'));
             $params = ['primaryContactId' => $authorId];
             $errors = Repo::publication()->validate(
                 $publication,

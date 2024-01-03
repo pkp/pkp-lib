@@ -3205,3 +3205,8 @@ msgstr ""
 
 #~ msgid "manager.plugins.pluginGallery.date"
 #~ msgstr "Datum objavljivanja: {$date}"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Zahtevajte od autora da u toku prijave članka potvrde izjavu o Konfliktu "
+"interesa."

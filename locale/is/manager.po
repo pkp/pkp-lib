@@ -3376,3 +3376,8 @@ msgstr ""
 
 #~ msgid "emailTemplate.variable.recipient.submissionReviewUrl"
 #~ msgstr "Vefslóð á ritrýniverkefnið"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Biðja höfunda sem senda inn efni að skrá um leið yfirlýsingu vegna "
+"hagsmunaárekstra."

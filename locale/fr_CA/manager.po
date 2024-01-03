@@ -3821,3 +3821,8 @@ msgstr ""
 
 msgid "manager.highlights.image"
 msgstr "Image"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Les auteurs-es soumissionnaires doivent déposer une déclaration de conflits "
+"d'intérêts avec leur soumission."

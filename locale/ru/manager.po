@@ -3729,3 +3729,8 @@ msgstr "Изображение"
 
 msgid "manager.highlights.urlText"
 msgstr "Надпись кнопки"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Требовать от авторов представлять Декларацию о конфликте интересов вместе с "
+"отправляемым материалом."

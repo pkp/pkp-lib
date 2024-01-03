@@ -228,4 +228,32 @@ class Author extends Identity
         $userGroup = $this->getUserGroup();
         return $userGroup->getLocalizedName();
     }
+
+    /**
+     * Get competing interests.
+     *
+     * @return string|array|null
+     */
+    public function getCompetingInterests(?string $locale)
+    {
+        return $this->getData('competingInterests', $locale);
+    }
+
+    /**
+     * Set competing interests.
+     *
+     * @param $competingInterests string|array|null
+     */
+    public function setCompetingInterests($competingInterests, ?string $locale)
+    {
+        $this->setData('competingInterests', $competingInterests, $locale);
+    }
+
+    /**
+     * Get a localized version competing interest statement
+     */
+    public function getLocalizedCompetingInterests(): ?string
+    {
+        return $this->getLocalizedData('competingInterests');
+    }
 }

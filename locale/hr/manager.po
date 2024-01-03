@@ -3593,3 +3593,8 @@ msgstr "Potreban je urednik podneska"
 #~ msgstr ""
 #~ "Stavka koja 1) ima DOI dodijeljene za sve omogućene vrste DOI i 2) nije "
 #~ "objavljena"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Zahtijevaj od autora da prilikom prijave svog rukopisa ispune izjavu o "
+"sukobu interesa."

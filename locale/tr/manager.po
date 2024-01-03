@@ -3562,3 +3562,8 @@ msgstr ""
 
 #~ msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
 #~ msgstr "Yayımlanan makale istatistikleri sayfasına bağlantı"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Yazarların gönderileriyle birlikte bir Çıkar Çatışması bildirimi dosyası "
+"göndermeleri gereklidir."

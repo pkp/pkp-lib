@@ -3720,3 +3720,8 @@ msgstr "Ознака на Копче"
 
 msgid "manager.highlights.urlText.description"
 msgstr "Ознака, како Прочитај Повеќе, за копчето во потенцирање."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Потребно е да ги доставите авторите да поднесат изјава за натпреварувачки "
+"интерес (КИ) со нивно поднесување."

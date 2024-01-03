@@ -3700,3 +3700,8 @@ msgstr ""
 
 msgid "manager.image"
 msgstr "Obrázek"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Požadovat od autorů, aby spolu s příspěvkem zaslali soubor s prohlášením o "
+"střetu zájmů."

@@ -3884,3 +3884,8 @@ msgstr ""
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Le lien pour valider un compte de messagerie"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Les auteurs soumissionnaires doivent déposer une déclaration de conflits "
+"d'intérêts (CI) avec leur soumission."

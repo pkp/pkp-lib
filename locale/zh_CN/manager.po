@@ -3211,3 +3211,6 @@ msgstr ""
 #~ msgid "emails.reviewRemind.body"
 #~ msgstr ""
 #~ "这封电子邮件是由区段编辑发出，提醒一位审查人他们的审查工作已经到期。"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr "要求投稿作者提供一个利益冲突（CI）的文字声明。"

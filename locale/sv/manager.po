@@ -3572,3 +3572,8 @@ msgstr ""
 #~ msgstr ""
 #~ "Det här e-postmeddelandet meddelar automatiskt anknutna redaktörer om en "
 #~ "ny version av publikationen"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Författare måste skicka in en intressekonfliktsförklaring i samband med att "
+"bidraget skickas in."

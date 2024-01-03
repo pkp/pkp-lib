@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
-"PO-Revision-Date: 2024-01-02 23:15+0000\n"
+"PO-Revision-Date: 2024-01-04 15:39+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "emails/sl/>\n"
@@ -152,7 +152,6 @@ msgstr ""
 "<br />\n"
 "Naša odločitev je: Prispevek se zavrne"
 
-#, fuzzy
 msgid "emails.editorRecommendation.subject"
 msgstr "Uredniško priporočilo"
 
@@ -246,9 +245,8 @@ msgstr ""
 "<p>S spoštovanjem,</p>\n"
 "<p>{$signature}</p>\n"
 
-#, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
-msgstr "Uredniška odločitev"
+msgstr "Vaš prispevek je bil zavrnjen"
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
@@ -262,22 +260,40 @@ msgstr ""
 "Naša odločitev je: Prispevek se zavrne"
 
 msgid "emails.editorialReminder.subject"
-msgstr ""
+msgstr "Čakajoče uredniške zadolžitve pri reviji {$contextName}"
 
 msgid "emails.editorialReminder.body"
 msgstr ""
+"<p>Spoštovani {$recipientName},</p><p>Trenutno imate dodeljenih "
+"{$numberOfSubmissions} prispevkov za <a href=\"{$contextUrl}\""
+">{$contextName}</a>. Naslednji prispevki <b>čakajo na vaš "
+"odziv</b>.</p>{$outstandingTasks}<p>Preglejte vaše zadolžitve v vaši <a href="
+"\"{$submissionsUrl}\">nadzorni plošči prispevkov</a>.</p><p>Če imate kakšna "
+"vprašanje glede vaših zadolžitev, prosimo kontaktirajte {$contactName} preko "
+"{$contactEmail}.</p>"
 
 msgid "discussion.notification.description"
 msgstr ""
+"Ta email se pošlje, ko uporabnik ustvari novo diskusijo ali odgovori na "
+"obstoječo"
 
 msgid "emails.editorDecisionBackFromProduction.subject"
-msgstr ""
+msgstr "Vaš prispevek je bil poslan nazaj v lektoriranje"
 
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
+"<p>Spoštovani {$recipientName},</p><p>Vaš prispevek, {$submissionTitle}, je "
+"bil poslan nazaj v fazo lektoriranja, kjer bo lektoriran in oblikovan v "
+"format primeren za objavo.</p><p>Občasno je prispevek poslan v fazo "
+"produkcije preden je pripravljen za izdelavo končnega preloma za objavo. Vaš "
+"prispevek še ni nared za objavo. Opravičujemo se za morebitne "
+"neprijetnosti.</p><p>Če imate kakršnokoli vprašanje, se lahko obrnete name "
+"preko vaše <a href=\"{$authorSubmissionUrl}\">nadzorne plošče "
+"prispevkov</a>.</p><p>Če bomo potrebovali vašo pomoč, vas bomo "
+"kontaktirali.</p><p>S spoštovanjem, </p><p>{$signature}</p>"
 
 msgid "emails.editorDecisionBackFromCopyediting.subject"
-msgstr ""
+msgstr "Vaš prispevek je bil poslan nazaj v fazo recenzije"
 
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""

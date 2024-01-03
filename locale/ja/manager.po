@@ -3363,3 +3363,7 @@ msgstr ""
 #~ msgstr ""
 #~ "このメールは、セクション編集者から査読者に査読期限日が過ぎたことを督促する"
 #~ "ものです。"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"投稿する著者に、投稿時に競合する利益（CI）に関する声明を提出するよう求める。"

@@ -39,6 +39,11 @@
 	}
 
 	{fbvFormArea id="submissionSpecific"}
+		{if $requireAuthorCompetingInterests}
+			{fbvFormSection title="author.competingInterests"}
+				{fbvElement id="competingInterests" type="textarea" multilingual=true rich=true label="author.competingInterests.description" value=$competingInterests}
+			{/fbvFormSection}
+		{/if}
 		{fbvFormSection id="userGroupId" title="submission.submit.contributorRole" list=true required=true}
 			{foreach from=$authorUserGroups item=$userGroup}
 				{if $userGroupId == $userGroup->getId()}{assign var="checked" value=true}{else}{assign var="checked" value=false}{/if}

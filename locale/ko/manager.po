@@ -3052,3 +3052,6 @@ msgstr ""
 
 msgid "mailable.submissionNeedsEditor.name"
 msgstr ""
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""

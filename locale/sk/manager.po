@@ -3118,3 +3118,8 @@ msgstr ""
 #~ msgstr ""
 #~ "Tento email posiela editor sekcie recenzentovi, aby mu pripomenul, že "
 #~ "vypršal termín pre spracovanie recenzie."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Požadovať od autorov, aby spolu s príspevkom zaslali súbor s vyhlásením o "
+"konflikte záujmov."

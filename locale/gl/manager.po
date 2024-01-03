@@ -3432,3 +3432,8 @@ msgstr ""
 #~ msgstr ""
 #~ "Este correo electrónico é enviado polo Editor/a de Sección a un revisor/a "
 #~ "para lembrarlle que superou a data de entrega da revisión."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Pedir aos autores/as que presenten unha declaración de conflitos de "
+"intereses (CI) xuntamente co seu envío."

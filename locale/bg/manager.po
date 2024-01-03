@@ -3812,3 +3812,8 @@ msgstr ""
 
 msgid "manager.image"
 msgstr "Изображение"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Изисквайте подаването на авторите да подадат декларация за конкурентни "
+"интереси (CI) с тяхното подаване на материали."

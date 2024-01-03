@@ -3412,3 +3412,8 @@ msgstr ""
 #~ "Email ini dikirim oleh Editor untuk mengingatkan reviewer bahwa batas "
 #~ "reviewnya telah habis. Email ini digunakan ketika editor secara manual "
 #~ "mengirimkan pengingat kepada reviewer"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Mengharuskan Penulis untuk memberikan pernyataan Konflik Kepentingan dalam "
+"naskah mereka."

@@ -2419,3 +2419,9 @@ msgstr "An error occured when trying to create the default JATS content. Please 
 
 msgid "submission.files.content.error"
 msgstr "The content of the submission file '{$fileName}' could not be retrieved."
+
+msgid "author.competingInterests"
+msgstr "Competing Interests"
+
+msgid "author.competingInterests.description"
+msgstr "Please disclose any competing interests this author may have with the research subject."

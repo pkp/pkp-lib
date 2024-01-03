@@ -3731,3 +3731,8 @@ msgid "manager.announcements.notEnabled"
 msgstr ""
 "Դուք պետք է թույլատրեք <a href=\"#announcements/announcement-settings\""
 ">հայտարարությունները</a>:"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Ներկայացնող Հեղինակներից պահանջեք տրամադրել Շահերի բախման (CI) "
+"հայտարարությունը իրենց առաքած նյութերի հետ միասին:"

@@ -3561,3 +3561,8 @@ msgstr ""
 
 #~ msgid "manager.setup.enableDois.enable"
 #~ msgstr "DOI-ების ჩართვა"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"ავტორებისაგან ინტერესთა კონფლიქტის დეკლარაციის წარმოდგენა, გამოგზავნილ "
+"მასალასთან ერთად."

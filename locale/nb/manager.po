@@ -3474,3 +3474,8 @@ msgstr ""
 #~ msgstr ""
 #~ "Denne e-posten sendes av en redaktør til en fagfelle for å minne om at "
 #~ "fagfellevurderingen ventes ferdigstilt innen fristen."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Krev at forfattere som sender inn manuskript samtidig sender inn en "
+"<I>«Erklæring om interessekonflikter»</I>."

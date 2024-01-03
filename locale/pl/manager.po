@@ -3743,3 +3743,6 @@ msgid "plugins.importexport.common.error.publicationCoverImageMissing"
 msgstr ""
 "Obraz okładki publikacji {$id} nie został wyeksportowany, ponieważ "
 "zawierający go plik nie został znaleziony w ścieżce \"{$path}\"."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr "Wymagaj od autorów oświadczenia o zbieżności zainteresowań."

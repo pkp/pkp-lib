@@ -3783,3 +3783,8 @@ msgstr ""
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Enlace para validar una cuenta de correo electrónico"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Pedir a los autores/as que adjunten una declaración de conflicto de "
+"intereses a su envío."

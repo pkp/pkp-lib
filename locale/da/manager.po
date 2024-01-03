@@ -3744,3 +3744,8 @@ msgid "manager.announcements.notEnabled"
 msgstr ""
 "Du skal <a href=\"#announcements/announcement-settings\">aktivere "
 "meddelelser</a>."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Kræv, at forfattere, der fremsender et manuskript, skal indsende en "
+"erklæring om konkurrerende interesser sammen med deres manuskript."

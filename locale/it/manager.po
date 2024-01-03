@@ -3510,3 +3510,8 @@ msgstr ""
 #~ msgstr ""
 #~ "Questa email viene mandata da un editor per ricordare al revisore che è "
 #~ "attesa la revisione."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Richiedi agli autori di inviare una dichiarazione di assenza di conflitto di "
+"interessi durante l'invio della proposta."

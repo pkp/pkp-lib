@@ -3479,3 +3479,8 @@ msgstr ""
 #~ "Acest email este trimis de un editor pentru a reaminti evaluatorului că "
 #~ "evaluarea sa trebuia trimisă. Acest email este utilizat atunci când un "
 #~ "editor trimite manual un memento evaluatorului"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Solicitați autorilor care înregistrează manuscrise să depună o declarație de "
+"interes (CI) odată cu transmiterea lor."

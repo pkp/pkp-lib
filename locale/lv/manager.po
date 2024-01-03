@@ -3454,3 +3454,8 @@ msgid "manager.announcements.notEnabled"
 msgstr ""
 "Jums ir <a href=\"#announcements/announcement-settings\">jāiespējo "
 "paziņojumi</a>."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Prasība autoriem kopā ar manuskriptu iesniegt apliecinājumu par interešu "
+"konflikta neesamību."

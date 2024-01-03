@@ -3856,3 +3856,8 @@ msgstr ""
 #~ msgstr ""
 #~ "Ezt az emailt a Rovatszerkesztő küldi a Szakmai Lektornak, hogy "
 #~ "emlékeztesse a lektorálási határidőre."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"A cikket beadó szerzők felszólítása az összeférhetetlenségi nyilatkozat "
+"benyújtására."

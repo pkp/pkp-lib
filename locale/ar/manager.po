@@ -3539,3 +3539,7 @@ msgstr ""
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "رابط التحقق من حساب البريد الالكتروني"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"يتطلب تقديم المؤلفين لبيان المصالح المتضاربة (CI) مع طلبات النشر الخاصة بهم."

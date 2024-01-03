@@ -160,6 +160,16 @@ class PKPMetadataSettingsForm extends FormComponent
                 ],
                 'value' => $context->getData('type') ? $context->getData('type') : Context::METADATA_DISABLE,
             ]))
+            ->addField(new FieldOptions('requireAuthorCompetingInterests', [
+		'label' => __('manager.setup.competingInterests'),
+		'options' => [
+			[
+			    'value' => 'true',
+		        'label' => __('manager.setup.competingInterests.requireAuthors'),
+		    ],
+	        ],
+                'value' => (bool) $context->getData('requireAuthorCompetingInterests'),
+            ]))
             ->addField(new FieldMetadataSetting('citations', [
                 'label' => __('submission.citations'),
                 'description' => __('manager.setup.metadata.citations.description'),

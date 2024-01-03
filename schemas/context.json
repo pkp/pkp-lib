@@ -261,6 +261,12 @@
 				"in:0,enable,request,require"
 			]
 		},
+		"requireAuthorCompetingInterests": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
 		"editorialTeam": {
 			"type": "string",
 			"multilingual": true,

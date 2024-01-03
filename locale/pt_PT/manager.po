@@ -3741,3 +3741,8 @@ msgstr ""
 
 msgid "manager.image"
 msgstr "Imagem"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Exigir aos Autores o registo de Conflito de Interesses (CI) juntamente com a "
+"submissão."

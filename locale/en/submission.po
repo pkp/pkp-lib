@@ -2324,3 +2324,8 @@ msgstr "Version {$version}"
 msgid "submission.submissionFile"
 msgstr "Submission File"
 
+msgid "author.competingInterests"
+msgstr "Competing Interests"
+
+msgid "author.competingInterests.description"
+msgstr "Please disclose any competing interests this author may have with the research subject."

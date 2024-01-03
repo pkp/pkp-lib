@@ -3751,3 +3751,8 @@ msgstr "Painikkeen selite"
 
 msgid "manager.highlights.urlText.description"
 msgstr "Painikkeeseen tuleva selite, esimerkiksi Lue lisää."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Vaadi käsikirjoituksen lähettäviä kirjoittajia jättämään Sidonnaisuudet-"
+"lausunto lähetyksen yhteydessä."

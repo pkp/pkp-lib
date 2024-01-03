@@ -207,10 +207,10 @@ class ReviewerGridRow extends GridRow
                         'gossip',
                         new AjaxModal(
                             $router->url($request, null, null, 'gossip', null, $actionArgs),
-                            __('user.gossip'),
+                            __('user.notes'),
                             'modal_information'
                         ),
-                        __('user.gossip'),
+                        __('user.notes'),
                         'more_info'
                     )
                 );

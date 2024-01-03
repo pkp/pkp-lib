@@ -20,11 +20,15 @@ use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\user\User;
+use PKP\userPrivateNote\UserPrivateNote;
 
 class ReviewerGossipForm extends Form
 {
     /** @var User The user to gossip about */
     public $_user;
+
+    /** @var UserPrivateNote The user's private note */
+    public UserPrivateNote $_userPrivateNote;
 
     /** @var array Arguments used to route the form op */
     public $_requestArgs;
@@ -33,13 +37,15 @@ class ReviewerGossipForm extends Form
      * Constructor.
      *
      * @param User $user The user to gossip about
+     * @param UserPrivateNote $userPrivateNote The user's private note
      * @param array $requestArgs Arguments used to route the form op to the
      *  correct submission, stage and review round
      */
-    public function __construct($user, $requestArgs)
+    public function __construct($user, $userPrivateNote, $requestArgs)
     {
         parent::__construct('controllers/grid/users/reviewer/form/reviewerGossipForm.tpl');
         $this->_user = $user;
+        $this->_userPrivateNote = $userPrivateNote;
         $this->_requestArgs = $requestArgs;
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
@@ -52,6 +58,7 @@ class ReviewerGossipForm extends Form
     {
         $this->readUserVars([
             'gossip',
+            'userPrivateNote',
         ]);
     }
 
@@ -66,6 +73,7 @@ class ReviewerGossipForm extends Form
         $templateMgr->assign([
             'requestArgs' => $this->_requestArgs,
             'gossip' => $this->_user->getGossip(),
+            'userPrivateNote' => $this->_userPrivateNote->getNote(),
         ]);
 
         return parent::fetch($request, $template, $display);
@@ -78,6 +86,7 @@ class ReviewerGossipForm extends Form
     {
         $this->_user->setGossip($this->getData('gossip'));
         Repo::user()->edit($this->_user);
+        Repo::userPrivateNote()->edit($this->_userPrivateNote, ['note' => $this->getData('userPrivateNote')]);
         parent::execute(...$functionArgs);
     }
 }

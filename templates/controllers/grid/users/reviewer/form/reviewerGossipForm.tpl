@@ -16,9 +16,15 @@
 <form class="pkp_form" id="reviewerGossipForm" method="post" action="{url op="gossip" params=$requestArgs}" >
 	{csrf}
 
+    <h3>{translate key="user.gossip"}</h3>
 	{fbvFormSection}
 		{fbvElement type="textarea" name="gossip" id="gossip" label="user.gossip.description" rich=true value=$gossip}
 	{/fbvFormSection}
+
+    <h3>{translate key="user.private.notes"}</h3>
+    {fbvFormSection}
+        {fbvElement type="textarea" name="userPrivateNote" id="userPrivateNote" label="user.private.notes.description" rich=true value=$userPrivateNote}
+    {/fbvFormSection}
 
 	{fbvFormButtons}
 </form>

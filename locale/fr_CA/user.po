@@ -113,15 +113,28 @@ msgstr "Prénom"
 msgid "user.interests"
 msgstr "Champs d'intérêts pour les évaluations"
 
-msgid "user.gossip"
+msgid "user.notes"
+msgstr "Notes"
+
+msgid "user.private.notes"
 msgstr "Notes privées"
+
+msgid "user.private.notes.description"
+msgstr ""
+"Enregistrer des renseignements relatifs privés à cet ou cette "
+"évaluateur-trice que vous souhaitez partager aux autres "
+"administrateurs-trices, directeurs-trices et rédacteurs-trices. "
+"Ces informations seront visibles lors de futures évaluations."
+
+msgid "user.gossip"
+msgstr "Notes publiques"
 
 msgid "user.gossip.description"
 msgstr ""
-"Enregistrer des renseignements relatifs à cet ou cette évaluateur-trice que "
-"vous souhaitez partager aux autres administrateurs-trices, directeurs-trices "
-"et rédacteurs-trices. Ces informations seront visibles lors de futures "
-"évaluations."
+"Enregistrer des renseignements relatifs publiques à cet ou cette "
+"évaluateur-trice que vous souhaitez partager aux autres "
+"administrateurs-trices, directeurs-trices et rédacteurs-trices. "
+"Ces informations seront visibles lors de futures évaluations."
 
 msgid "user.group"
 msgstr "Groupe d'utilisateurs-trices"

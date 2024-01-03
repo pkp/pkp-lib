@@ -102,13 +102,25 @@ msgstr "Given Name"
 msgid "user.interests"
 msgstr "Reviewing interests"
 
-msgid "user.gossip"
+msgid "user.notes"
 msgstr "Editorial Notes"
+
+msgid "user.private.notes"
+msgstr "Private Editorial Notes"
+
+msgid "user.private.notes.description"
+msgstr ""
+"Private record notes about this reviewer that you would like to make visible "
+"to other administrators, managers and all editors. Notes will be visible for "
+"future review assignments."
+
+msgid "user.gossip"
+msgstr "Public Editorial Notes"
 
 msgid "user.gossip.description"
 msgstr ""
-"Record notes about this reviewer that you would like to make visible to "
-"other administrators, managers and all editors. Notes will be visible for "
+"Public record notes about this reviewer that you would like to make visible "
+"to other administrators, managers and all editors. Notes will be visible for "
 "future review assignments."
 
 msgid "user.group"

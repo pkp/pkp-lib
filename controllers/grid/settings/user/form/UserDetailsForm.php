@@ -174,9 +174,13 @@ class UserDetailsForm extends UserForm
                 'interests' => $interestManager->getInterestsForUser($user),
                 'locales' => $user->getLocales(),
             ];
-            $data['canCurrentUserGossip'] = Repo::user()->canCurrentUserGossip($user->getId());
+            $userId = $user->getId();
+            $data['canCurrentUserGossip'] = Repo::user()->canCurrentUserGossip($userId);
             if ($data['canCurrentUserGossip']) {
                 $data['gossip'] = $user->getGossip();
+                $contextId = $request->getContext()->getId();
+                $userPrivateNote = Repo::userPrivateNote()->getUserPrivateNote($userId, $contextId);
+                $data['userPrivateNote'] = $userPrivateNote ? $userPrivateNote->getNote() : '';
             }
         } elseif (isset($this->author)) {
             $author = $this->author;
@@ -268,6 +272,7 @@ class UserDetailsForm extends UserForm
             'country',
             'biography',
             'gossip',
+            'userPrivateNote',
             'interests',
             'locales',
             'generatePassword',
@@ -359,6 +364,7 @@ class UserDetailsForm extends UserForm
             }
 
             Repo::user()->edit($this->user);
+            $userId = $this->user->getId();
         } else {
             $this->user->setUsername($this->getData('username'));
             if ($this->getData('generatePassword')) {
@@ -372,7 +378,7 @@ class UserDetailsForm extends UserForm
             $this->user->setPassword(Validation::encryptCredentials($this->getData('username'), $password));
 
             $this->user->setDateRegistered(Core::getCurrentDate());
-            Repo::user()->add($this->user);
+            $userId = Repo::user()->add($this->user);
 
             if ($sendNotify) {
                 // Send welcome email to user
@@ -396,6 +402,12 @@ class UserDetailsForm extends UserForm
                     error_log($e->getMessage());
                 }
             }
+        }
+
+        // Users can never view/edit their own private notes fields
+        if (Repo::user()->canCurrentUserGossip($userId)) {
+            $userPrivateNote = Repo::userPrivateNote()->getUserPrivateNote($userId, $context->getId());
+            Repo::userPrivateNote()->edit($userPrivateNote, ['note', $this->getData('userPrivateNote')]);
         }
 
         $interestManager = new InterestManager();

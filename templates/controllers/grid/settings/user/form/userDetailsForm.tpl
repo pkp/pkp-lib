@@ -56,6 +56,9 @@
 				{fbvFormSection label="user.gossip" description="user.gossip.description"}
 					{fbvElement type="textarea" name="gossip" id="gossip" rich=true value=$gossip}
 				{/fbvFormSection}
+                {fbvFormSection label="user.private.notes" description="user.private.notes.description"}
+                    {fbvElement type="textarea" name="userPrivateNote" id="userPrivateNote" rich=true value=$userPrivateNote}
+                {/fbvFormSection}
 			{/if}
 		{/if}
 

@@ -1,0 +1,19 @@
+{
+	"title": "UserPrivateNote",
+	"description": "A private note associated to the user.",
+	"properties": {
+		"id": {
+			"type": "integer",
+			"readOnly": true
+		},
+		"contextId": {
+			"type": "integer"
+		},
+		"userId": {
+			"type": "integer"
+		},
+		"note": {
+			"type": "string"
+		}
+	}
+}

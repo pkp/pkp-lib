@@ -37,6 +37,7 @@ use PKP\job\repositories\Job as JobRepository;
 use PKP\log\event\Repository as EventLogRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
+use PKP\userPrivateNote\Repository as UserPrivateNoteRepository;
 
 class Repo
 {
@@ -88,6 +89,11 @@ class Repo
     public static function userGroup(): UserGroupRepository
     {
         return app(UserGroupRepository::class);
+    }
+
+    public static function userPrivateNote(): UserPrivateNoteRepository
+    {
+        return app(UserPrivateNoteRepository::class);
     }
 
     public static function eventLog(): EventLogRepository

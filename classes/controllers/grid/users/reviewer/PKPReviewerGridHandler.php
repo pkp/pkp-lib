@@ -1011,8 +1011,17 @@ class PKPReviewerGridHandler extends GridHandler
             return new JSONMessage(false, __('user.authorization.roleBasedAccessDenied'));
         }
 
+        $userPrivateNote = Repo::userPrivateNote()->getUserPrivateNote($user->getId(), $request->getContext()->getId());
+        if (!$userPrivateNote) {
+            $userPrivateNote = Repo::userPrivateNote()->newDataObject([
+                'userId' => $user->getId(),
+                'contextId' => $request->getContext()->getId(),
+                'note' => ''
+            ]);
+        }
+
         $requestArgs = array_merge($this->getRequestArgs(), ['reviewAssignmentId' => $reviewAssignment->getId()]);
-        $reviewerGossipForm = new ReviewerGossipForm($user, $requestArgs);
+        $reviewerGossipForm = new ReviewerGossipForm($user, $userPrivateNote, $requestArgs);
 
         // View form
         if (!$request->isPost()) {

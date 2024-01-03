@@ -121,11 +121,17 @@ class PKPSelectReviewerListPanel extends ListPanel
         ];
 
         if (!empty($this->lastRoundReviewers)) {
-            $config['lastRoundReviewers'] = Repo::user()
+            $reviewers = Repo::user()
                 ->getSchemaMap()
                 ->summarizeManyReviewers($this->lastRoundReviewers)
                 ->values()
                 ->toArray();
+            $contextId = $this->getParams['contextId'];
+            foreach ($reviewers as $key => $reviewer) {
+                $userPrivateNote = Repo::userPrivateNote()->getUserPrivateNote($reviewer->getId(), $contextId);
+                $reviewers[$key]['userPrivateNote'] = $userPrivateNote?->getNote();
+            }
+            $config['lastRoundReviewers'] = $reviewers;
         }
 
         if (!empty($this->getParams)) {
@@ -147,6 +153,7 @@ class PKPSelectReviewerListPanel extends ListPanel
         $config['declinedReviewsLabel'] = __('reviewer.list.declinedReviews');
         $config['emptyLabel'] = __('reviewer.list.empty');
         $config['gossipLabel'] = __('user.gossip');
+        $config['userPrivateNotesLabel'] = __('user.private.notes');
         $config['neverAssignedLabel'] = __('reviewer.list.neverAssigned');
         $config['reassignLabel'] = __('reviewer.list.reassign');
         $config['reassignWithNameLabel'] = __('reviewer.list.reassign.withName');
@@ -172,8 +179,12 @@ class PKPSelectReviewerListPanel extends ListPanel
         $reviewers = $this->_getCollector()->getMany();
         $items = [];
         $map = Repo::user()->getSchemaMap();
+        $contextId = $request->getContext()->getId();
         foreach ($reviewers as $reviewer) {
-            $items[] = $map->summarizeReviewer($reviewer);
+            $item = $map->summarizeReviewer($reviewer);
+            $userPrivateNote = Repo::userPrivateNote()->getUserPrivateNote($reviewer->getId(), $contextId);
+            $item['userPrivateNote'] = $userPrivateNote?->getNote();
+            $items[] = $item;
         }
 
         return $items;

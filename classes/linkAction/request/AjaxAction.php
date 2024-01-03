@@ -44,7 +44,7 @@ class AjaxAction extends LinkActionRequest
         $this->_remoteAction = $remoteAction;
         $this->_requestType = $requestType;
         $this->_requestData = array_merge($requestData, [
-            'csrfToken' => Application::get()->getRequest()->getSession()->getCSRFToken(),
+            'csrfToken' => Application::get()->getRequest()->getSession()->token(),
         ]);
     }
 

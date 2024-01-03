@@ -75,6 +75,6 @@ class ValidateCsrfToken
 
         $pkpSession = Application::get()->getRequest()->getSession();
 
-        return $pkpSession->getCSRFToken() === $requestCsrfToken;
+        return $pkpSession->token() === $requestCsrfToken;
     }
 }

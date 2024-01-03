@@ -30,7 +30,6 @@ use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
-use PKP\session\SessionManager;
 
 define('LESS_FILENAME_SUFFIX', '.less');
 define('THEME_OPTION_PREFIX', 'themeOption_');
@@ -123,7 +122,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     {
         // Don't fully initialize the theme until the application is installed, so that
         // there are no requests to the database before it exists
-        if (SessionManager::isDisabled()) {
+        if (defined('SESSION_DISABLE_INIT')) {
             return;
         }
 
@@ -162,7 +161,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function isActive()
     {
-        if (SessionManager::isDisabled()) {
+        if (defined('SESSION_DISABLE_INIT')) {
             return false;
         }
         $request = Application::get()->getRequest();
@@ -203,7 +202,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
         if (substr($style, (strlen(LESS_FILENAME_SUFFIX) * -1)) === LESS_FILENAME_SUFFIX) {
             $args['style'] = $this->_getBaseDir($style);
 
-            // Pass a URL for other files
+        // Pass a URL for other files
         } elseif (empty($args['inline'])) {
             if (isset($args['baseUrl'])) {
                 $args['style'] = $args['baseUrl'] . $style;
@@ -211,7 +210,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
                 $args['style'] = $this->_getBaseUrl($style);
             }
 
-            // Leave inlined styles alone
+        // Leave inlined styles alone
         } else {
             $args['style'] = $style;
         }

@@ -19,6 +19,7 @@ namespace PKP\core;
 
 use APP\core\Application;
 use APP\core\Request;
+use Carbon\Carbon;
 use DateTime;
 use DateTimeZone;
 use Exception;
@@ -233,9 +234,39 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             DB::listen(fn (QueryExecuted $query) => error_log("Database query\n{$query->sql}\n" . json_encode($query->bindings)));
         }
 
-        Auth::provider('pkp_user_provider', function ($app, array $config) {
-            return new PKPUserProvider();
-        });
+        $illuminateRequest = app(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
+        
+        $illuminateRequest->setUserResolver(fn () => $this->getRequest()->getUser());
+        
+        $currentSetCookies = (array)$illuminateRequest->cookie();
+
+        (new \Illuminate\Pipeline\Pipeline(PKPContainer::getInstance()))
+            ->send($illuminateRequest)
+            ->through([
+                \Illuminate\Session\Middleware\StartSession::class,
+                \Illuminate\Session\Middleware\AuthenticateSession::class,
+            ])
+            ->via('handle')
+            ->then(function (\Illuminate\Http\Request $request) {
+                return app(\Illuminate\Http\Response::class);
+            });
+        
+        // resolve a fresh instance of \Illuminate\Http\Request to get latest bindings
+        $illuminateRequest = app(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
+        
+        if ($illuminateRequest->hasSession()) {
+            
+            $sessionId = $illuminateRequest->getSession()->getId();
+            $sessionName = app()->get('session')->getName();
+
+            if ((($currentSetCookies[$sessionName] ?? null) !== $sessionId)) {
+                setcookie(
+                    $sessionName, 
+                    $sessionId, 
+                    Carbon::now()->addMinutes(app()->get('config')['session']['lifetime'])->timestamp
+                );
+            }
+        }
     }
 
     /**

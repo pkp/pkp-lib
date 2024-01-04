@@ -120,7 +120,7 @@ class DecodeApiTokenWithValidation
      */
     protected function setUserResolver(Request &$request, User $user = null): void
     {
-        if (!$user && !SessionManager::isDisabled()) {
+        if (!$user && !defined('SESSION_DISABLE_INIT')) {
             $user = Application::get()->getRequest()->getUser();
         }
 

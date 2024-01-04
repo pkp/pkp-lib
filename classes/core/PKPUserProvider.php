@@ -2,12 +2,14 @@
 
 namespace PKP\core;
 
-use APP\facades\Repo;
 use Closure;
-use Illuminate\Contracts\Auth\Authenticatable as UserContract;
+use APP\facades\Repo;
+use Illuminate\Contracts\Auth\Guard;
+use PKP\validation\ValidatorFactory;
 use Illuminate\Contracts\Auth\UserProvider;
-use Illuminate\Contracts\Hashing\Hasher as HasherContract;
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Hashing\Hasher as HasherContract;
+use Illuminate\Contracts\Auth\Authenticatable as UserContract;
 
 class PKPUserProvider implements UserProvider
 {
@@ -97,8 +99,7 @@ class PKPUserProvider implements UserProvider
      */
     public function retrieveByCredentials(array $credentials)
     {
-        error_log('Unimplemented!');
-        /*$credentials = array_filter(
+        $credentials = array_filter(
             $credentials,
             fn ($key) => ! str_contains($key, 'password'),
             ARRAY_FILTER_USE_KEY
@@ -108,22 +109,13 @@ class PKPUserProvider implements UserProvider
             return;
         }
 
-        // First we will add each credential element to the query as a where clause.
-        // Then we can execute the query and, if we found a user, return it in a
-        // Eloquent User "model" that will be utilized by the Guard instances.
-        $query = $this->newModelQuery();
+        $user = ValidatorFactory::make(['email' => $credentials['username']], ['email' => 'email'])->passes()
+            ? Repo::user()->getByEmail($credentials['username'], true)
+            : Repo::user()->getByUsername($credentials['username'], true);
+        
+        app()->make(Guard::class)->setUser($user);
 
-        foreach ($credentials as $key => $value) {
-            if (is_array($value) || $value instanceof Arrayable) {
-                $query->whereIn($key, $value);
-            } elseif ($value instanceof Closure) {
-                $value($query);
-            } else {
-                $query->where($key, $value);
-            }
-        }
-
-        return $query->first();*/
+        return $user;
     }
 
     /**

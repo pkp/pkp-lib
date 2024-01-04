@@ -19,7 +19,6 @@ namespace PKP\core;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
-use Illuminate\Session\SessionManager;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
@@ -29,6 +28,8 @@ use PKP\security\Validation;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\user\User;
+use Illuminate\Session\SessionManager;
+use Illuminate\Contracts\Session\Session;
 
 class PKPRequest
 {
@@ -598,9 +599,16 @@ class PKPRequest
     /**
      * Get the user session associated with the current request.
      */
-    public function getSession(): SessionManager
+    public function getSession(): SessionManager|Session|null
     {
-        return session();
+        $session = null;
+        $illuminateRequest = app(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
+
+        if ($illuminateRequest->hasSession()) {
+            $session = $illuminateRequest->session(); /** @var \Illuminate\Contracts\Session\Session $sessionManager */
+        }
+
+        return $session;
     }
 
     /**
@@ -614,7 +622,7 @@ class PKPRequest
         }
 
         // Attempt to load user from API token
-        if (($handler = $this->getRouter()->getHandler())
+        if (($handler = $this->getRouter()?->getHandler())
             && ($token = $handler->getApiToken())
             && ($apiUser = Repo::user()->getByApiKey($token))
             && $apiUser->getData('apiKeyEnabled')
@@ -622,10 +630,10 @@ class PKPRequest
             return $user = $apiUser;
         }
 
-        error_log('GETTING A SESSION USER ID: ' . session('user_id'));
+        error_log('GETTING A SESSION USER ID: ' . $this->getSession()->get('user_id'));
         // Attempts to retrieve a logged user
         if (Validation::isLoggedIn()) {
-            $user = SessionManager::getManager()->getUserSession()->getUser();
+            $user = Repo::user()->get($this->getSession()->get('user_id'));
         }
 
         return $user;

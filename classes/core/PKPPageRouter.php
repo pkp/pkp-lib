@@ -233,8 +233,6 @@ class PKPPageRouter extends PKPRouter
             }
         }
 
-        session()->start();
-
         // Call the selected handler's index operation if
         // no operation was defined in the request.
         if (empty($op)) {
@@ -437,8 +435,9 @@ class PKPPageRouter extends PKPRouter
      */
     public function getHomeUrl($request)
     {
-        $user = Auth::user();
+        $user = Auth::user(); /** @var \PKP\user\User $user */
         $userId = $user->getId();
+        \PKP\core\Registry::set('user', $user);
 
         if ($context = $this->getContext($request)) {
             // If the user has no roles, or only one role and this is reader, go to "Index" page.
@@ -456,7 +455,6 @@ class PKPPageRouter extends PKPRouter
             // The user is at the site context, check to see if they are
             // only registered in one place w/ one role
             $userGroups = Repo::userGroup()->userUserGroups($userId, \PKP\core\PKPApplication::CONTEXT_ID_NONE);
-
             if ($userGroups->count() == 1) {
                 $firstUserGroup = $userGroups->first();
                 $contextDao = Application::getContextDAO();

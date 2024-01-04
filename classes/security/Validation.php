@@ -19,11 +19,12 @@ namespace PKP\security;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Auth;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
-use PKP\session\SessionDAO;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\user\User;
@@ -66,17 +67,19 @@ class Validation
         }
 
         // Validate against user database
-        $rehash = null;
-        if (!self::verifyPassword($username, $password, $user->getPassword(), $rehash)) {
-            return false;
-        }
+        // $rehash = null;
+        // if (!self::verifyPassword($username, $password, $user->getPassword(), $rehash)) {
+        //     return false;
+        // }
 
-        if (!empty($rehash)) {
-            // update to new hashing algorithm
-            $user->setPassword($rehash);
-        }
-
-        return self::registerUserSession($user, $reason, $remember, $authKey);
+        // if (!empty($rehash)) {
+        //     // update to new hashing algorithm
+        //     $user->setPassword($rehash);
+        // }
+        
+        return Auth::attempt(['username' => $username, 'password' => $password])
+            ? self::registerUserSession($user, $reason, $remember, $authKey)
+            : false;
     }
 
     /**
@@ -134,17 +137,26 @@ class Validation
         }
 
         // The user is valid, mark user as logged in in current session
-        $session = session();
-        $session->start();
+        $session = Application::get()->getRequest()->getSession();
+        
 
         // Regenerate session ID first
-        $session->regenerate();
+        // $session->regenerate(true);
 
         $session->put('user_id', $user->getId());
         $session->put('username', $user->getUsername());
+        $session->put(
+            'login_'. (string)app('config')['auth']['defaults']['guard'] . '_' . get_class(app()->get(Guard::class)), 
+            $user->getId()
+        );
+
         if ($authKey === static::AUTH_KEY_EMAIL) {
             $session->put('email', $user->getEmail());
         }
+        
+        $session->save();
+        $session->start();
+
         error_log('FORGOT REMEMBER');
         // $session->setRemember($remember);
 
@@ -156,7 +168,12 @@ class Validation
 
         $user->setDateLastLogin(Core::getCurrentDate());
         Repo::user()->edit($user);
-        $session->save();
+        
+        setcookie(
+            $session->getName(),
+            $session->getId(), 
+            Carbon::now()->addMinutes(app()->get('config')['session']['lifetime'])->timestamp
+        );
 
         return $user;
     }
@@ -168,19 +185,22 @@ class Validation
      */
     public static function logout()
     {
-        $sessionManager = SessionManager::getManager();
-        $session = $sessionManager->getUserSession();
-        $session->unsetSessionVar('userId');
-        $session->unsetSessionVar('signedInAs');
-        $session->setUserId(null);
+        // $sessionManager = SessionManager::getManager();
+        // $session = $sessionManager->getUserSession();
+        // $session->unsetSessionVar('userId');
+        // $session->unsetSessionVar('signedInAs');
+        // $session->setUserId(null);
 
-        if ($session->getRemember()) {
-            $session->setRemember(0);
-            $sessionManager->updateSessionLifetime(0);
-        }
+        // if ($session->getRemember()) {
+        //     $session->setRemember(0);
+        //     $sessionManager->updateSessionLifetime(0);
+        // }
 
-        $sessionDao = DAORegistry::getDAO('SessionDAO'); /** @var SessionDAO $sessionDao */
-        $sessionDao->updateObject($session);
+        // $sessionDao = DAORegistry::getDAO('SessionDAO'); /** @var SessionDAO $sessionDao */
+        // $sessionDao->updateObject($session);
+
+        $session = Application::get()->getRequest()->getSession();
+        $session->invalidate();
 
         return true;
     }
@@ -258,7 +278,7 @@ class Validation
             $contextId = $context == null ? 0 : $context->getId();
         }
 
-        $user = Auth::user();
+        $user = Auth::user(); /** @var \PKP\user\User $user */
 
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
         return $roleDao->userHasRole($contextId, $user->getId(), $roleId);
@@ -410,8 +430,7 @@ class Validation
      */
     public static function isLoggedIn(): bool
     {
-        error_log('NOT SURE ABOUT USER ID GETTER; ' . print_r(session()->all(), true));
-        return (bool) session('user_id');
+        return (bool) Application::get()->getRequest()->getSession()->get('user_id');
     }
 
     /**

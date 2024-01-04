@@ -95,10 +95,10 @@ class APIRouter extends PKPRouter
             exit;
         }
 
-        if (!SessionManager::isDisabled()) {
-            // Initialize session
-            SessionManager::getManager();
-        }
+        // if (!SessionManager::isDisabled()) {
+        //     // Initialize session
+        //     SessionManager::getManager();
+        // }
 
         $handler = require('./' . $sourceFile);
         $this->setHandler($handler);

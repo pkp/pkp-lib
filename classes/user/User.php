@@ -20,6 +20,7 @@
 
 namespace PKP\user;
 
+use Exception;
 use Illuminate\Contracts\Auth\Authenticatable;
 use PKP\db\DAORegistry;
 use PKP\identity\Identity;
@@ -467,7 +468,7 @@ class User extends Identity implements Authenticatable
 
     public function getAuthPassword()
     {
-        throw new Exception('Unimplemented');
+        return $this->getData('password');
     }
 
     public function getRememberToken()

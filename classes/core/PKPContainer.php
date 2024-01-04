@@ -19,6 +19,7 @@ namespace PKP\core;
 use APP\core\Application;
 use APP\core\AppServiceProvider;
 use Exception;
+use Illuminate\Session\SessionManager;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Console\Kernel as KernelContract;
@@ -28,7 +29,6 @@ use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Http\Response;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
@@ -131,9 +131,11 @@ class PKPContainer extends Container
     {
         // Load main settings, this should be done before registering services, e.g., it's used by Database Service
         $this->loadConfiguration();
+
         $this->register(new \Illuminate\Cookie\CookieServiceProvider($this));
-        $this->register(new \Illuminate\Auth\AuthServiceProvider($this));
         $this->register(new \Illuminate\Session\SessionServiceProvider($this));
+        $this->register(new \PKP\core\PKPAuthServiceProvider($this));
+        $this->register(new \Illuminate\Pipeline\PipelineServiceProvider($this));
         $this->register(new \Illuminate\Cache\CacheServiceProvider($this));
         $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
         $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));
@@ -150,14 +152,14 @@ class PKPContainer extends Container
     }
 
     /**
-     * @param \Illuminate\Support\ServiceProvider $provider
-     *
      * @brief Simplified service registration
      */
-    public function register($provider)
+    public function register(\Illuminate\Support\ServiceProvider $provider)
     {
         $provider->register();
+
         $provider->callBootingCallbacks();
+        
         if (method_exists($provider, 'boot')) {
             $this->call([$provider, 'boot']);
         }
@@ -180,7 +182,7 @@ class PKPContainer extends Container
 
         $provider->callBootedCallbacks();
 
-        $this->app->bind('request', fn () => \Illuminate\Http\Request::capture());
+        $this->app->bind('request', fn ($app) => \Illuminate\Http\Request::capture());
     }
 
     /**
@@ -190,10 +192,14 @@ class PKPContainer extends Container
     {
         foreach ([
             'auth' => [
-                \Illuminate\Auth\AuthManager::class,
+                \Illuminate\Auth\AuthManager::class, 
+                \Illuminate\Contracts\Auth\Factory::class
+            ],
+            'auth.driver' => [
+                \Illuminate\Contracts\Auth\Guard::class
             ],
             'cookie' => [
-                \Illuminate\Cookie\CookieManager::class,
+                \Illuminate\Cookie\CookieJar::class,
             ],
             'app' => [
                 self::class,
@@ -223,6 +229,9 @@ class PKPContainer extends Container
             'db.connection' => [
                 \Illuminate\Database\Connection::class,
                 \Illuminate\Database\ConnectionInterface::class
+            ],
+            'db.factory' => [
+                \Illuminate\Database\Connectors\ConnectionFactory::class,
             ],
             'files' => [
                 \Illuminate\Filesystem\Filesystem::class
@@ -336,15 +345,19 @@ class PKPContainer extends Container
         ];
 
         // Session manager
-        $request = Application::get()->getRequest();
         $items['session'] = [
             'driver' => 'database',
             'table' => 'sessions',
             'cookie' => Config::getVar('general', 'session_cookie_name'),
-            'path' => Config::getVar('general', 'session_cookie_path', $request->getBasePath() . '/'),
-            'domain' => $request->getServerHost(includePort: false),
+            'path' => Config::getVar('general', 'session_cookie_path', '/'),
+            'domain' => null,
             'secure' => Config::getVar('security', 'force_ssl'),
-            'lifetime' => Config::getVar('general', 'lifetime', 30) * 24 * 60 * 60,
+            'lifetime' => Config::getVar('general', 'lifetime', 30) * 24 * 60,
+            'lottery' => [2, 100],
+            'expire_on_close' => false,
+            'same_site' => 'lax',
+            'partitioned' => false,
+            'encrypt' => false,
         ];
 
 

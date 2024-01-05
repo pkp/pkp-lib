@@ -15,7 +15,9 @@
 
 namespace PKP\services\queryBuilders;
 
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
+use PKP\core\Core;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\queryBuilders\interfaces\EntityQueryBuilderInterface;
@@ -146,6 +148,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
      */
     public function getQuery()
     {
+        $currentDateTime = Core::getCurrentDate();
         $this->columns[] = 'c.*';
         $q = DB::table($this->db . ' as c');
 
@@ -156,21 +159,38 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
         }
 
         // Filter for user id if present
-        $q->when(!empty($this->userId), function ($q) {
-            $q->whereIn('c.' . $this->dbIdColumn, function ($q) {
+        $q->when(
+            !empty($this->userId),
+            fn (Builder $q) =>
+            $q->whereIn(
+                'c.' . $this->dbIdColumn,
+                fn (Builder $q) =>
                 $q->select('context_id')
                     ->from('user_groups')
-                    ->where(function ($q) {
+                    ->where(
+                        fn (Builder $q) =>
                         $q->where('role_id', '=', Role::ROLE_ID_MANAGER)
-                            ->orWhere('c.enabled', '=', 1);
-                    })
-                    ->whereIn('user_group_id', function ($q) {
+                            ->orWhere('c.enabled', '=', 1)
+                    )
+                    ->whereIn(
+                        'user_group_id',
+                        fn (Builder $q) =>
                         $q->select('user_group_id')
                             ->from('user_user_groups')
-                            ->where('user_id', '=', $this->userId);
-                    });
-            });
-        });
+                            ->where('user_id', '=', $this->userId)
+                            ->where(
+                                fn (Builder $q) =>
+                                $q->where('date_start', '<=', $currentDateTime)
+                                    ->orWhereNull('date_start')
+                            )
+                            ->where(
+                                fn (Builder $q) =>
+                                $q->where('date_end', '>', $currentDateTime)
+                                    ->orWhereNull('date_end')
+                            )
+                    )
+            )
+        );
 
         // search phrase
         $q->when($this->searchPhrase !== null, function ($query) {

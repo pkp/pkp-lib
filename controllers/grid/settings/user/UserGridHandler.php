@@ -551,16 +551,16 @@ class UserGridHandler extends GridHandler
             return new JSONMessage(false, __('grid.user.cannotAdminister'));
         }
 
-        // Remove user from all user group assignments for this context.
-        // Check if this user has any user group assignments for this context.
-        $userGroupCount = Repo::userGroup()
+        // End all active user group assignments for this context.
+        // Check if this user has any active user group assignments for this context.
+        $activeUserGroupCount = Repo::userGroup()
             ->userUserGroups($userId, $context->getId())
             ->count();
 
-        if (!$userGroupCount) {
+        if (!$activeUserGroupCount) {
             return new JSONMessage(false, __('grid.user.userNoRoles'));
         } else {
-            Repo::userGroup()->deleteAssignmentsByContextId($context->getId(), $userId);
+            Repo::userGroup()->endAssignments($context->getId(), $userId);
 
             return \PKP\db\DAO::getDataChangedEvent($userId);
         }

@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023.
+# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2023-12-10 11:39+0000\n"
+"PO-Revision-Date: 2024-01-05 22:40+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sl/>\n"
@@ -2688,3 +2688,11 @@ msgstr "Avtorji"
 
 msgid "submission.author.list"
 msgstr "Seznam avtorjev"
+
+msgid "author.competingInterests"
+msgstr "Navzkrižje interesov"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Prosimo opišite vsa morebitna navzkrižja interesov avtorja/ev v zvezi s "
+"predmetom raziskave."

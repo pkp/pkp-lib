@@ -138,7 +138,7 @@ class XMLTypeDescription extends TypeDescription
             case self::XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA:
                 libxml_use_internal_errors(true);
                 if (!$xmlDom->schemaValidate($this->_validationSource)) {
-                    $errors = libxml_get_errors();
+                    error_log("XML validation failed with:\n" . print_r(libxml_get_errors(), true));
                     return false;
                 }
 

@@ -200,10 +200,11 @@ VueRegistry.registerComponent('field-pub-id', FieldPubId);
 // Register ListPanel
 VueRegistry.registerComponent('PkpListPanel', ListPanel);
 
+const pinia = createPinia();
+
 function pkpCreateVueApp(createAppArgs) {
 	// Initialize Vue
 	const vueApp = createApp(createAppArgs);
-	const pinia = createPinia();
 	vueApp.use(pinia);
 
 	// https://github.com/vuejs/pinia/discussions/1197

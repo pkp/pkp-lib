@@ -581,23 +581,28 @@ class PKPSubmissionHandler extends APIHandler
         $request = $this->getRequest();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $slimRequest->getParsedBody());
+        $parsedBody = $slimRequest->getParsedBody();
 
-        $readOnlyErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_SUBMISSION, $params);
-        if (!empty($readOnlyErrors)) {
-            return $response->withStatus(400)->withJson($readOnlyErrors);
+        if (isset($parsedBody)){
+            $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $parsedBody);
+    
+            $readOnlyErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_SUBMISSION, $params);
+            if (!empty($readOnlyErrors)) {
+                return $response->withStatus(400)->withJson($readOnlyErrors);
+            }
+    
+            $params['id'] = $submission->getId();
+            $params['contextId'] = $request->getContext()->getId();
+    
+            $errors = Repo::submission()->validate($submission, $params, $request->getContext());
+    
+            if (!empty($errors)) {
+                return $response->withStatus(400)->withJson($errors);
+            }
+    
+            Repo::submission()->edit($submission, $params);
         }
 
-        $params['id'] = $submission->getId();
-        $params['contextId'] = $request->getContext()->getId();
-
-        $errors = Repo::submission()->validate($submission, $params, $request->getContext());
-
-        if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
-        }
-
-        Repo::submission()->edit($submission, $params);
 
         $submission = Repo::submission()->get($submission->getId());
 

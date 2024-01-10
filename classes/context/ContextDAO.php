@@ -141,7 +141,7 @@ abstract class ContextDAO extends SchemaDAO
             $currentDateTime = Core::getCurrentDate();
             $params = array_merge(
                 $params,
-                [(int) $userId, (int) $userId, (int) Role::ROLE_ID_SITE_ADMIN, $currentDateTime, $currentDateTime]
+                [(int) $userId, $currentDateTime, $currentDateTime, (int) $userId, (int) Role::ROLE_ID_SITE_ADMIN, $currentDateTime, $currentDateTime]
             );
         }
 

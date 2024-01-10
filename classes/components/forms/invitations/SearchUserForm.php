@@ -34,8 +34,8 @@ class SearchUserForm extends FormComponent
                 'label' => __('user.username'),
                 'isRequired' => true,
             ]))
-            ->addField(new FieldText('orcid_id', [
-                'label' => __('user.orcid_id'),
+            ->addField(new FieldText('orcid', [
+                'label' => __('user.orcid'),
                 'isRequired' => true,
             ]));
     }

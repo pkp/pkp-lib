@@ -714,21 +714,24 @@ class ManagementHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $this->setupTemplate($request);
         $context = $request->getContext();
-        $steps = $this->getSteps($request,$context);
+        $steps = $this->getSteps($request);
         $templateMgr->setState([
-            'steps' => $steps,
-            'emailTemplatesApiUrl' => $request
-                ->getDispatcher()
-                ->url(
-                    $request,
-                    Application::ROUTE_API,
-                    $context->getData('urlPath'),
-                    'emailTemplates'
-                )
+                'steps' => $steps,
+                'emailTemplatesApiUrl' => $request
+                    ->getDispatcher()
+                    ->url(
+                        $request,
+                        Application::ROUTE_API,
+                        $context->getData('urlPath'),
+                        'emailTemplates'
+                    ),
+                'searchUserApiUrl'=>$this->getSearchUserApiUrl($request),
+                'primaryLocale'=> $context->getData('primaryLocale'),
+                'pageTitle' => __('invitation.wizard.pageTitle'),
+                'pageTitleDescription' => __('invitation.wizard.pageTitleDescription'),
         ]);
         $templateMgr->assign([
-            'pageComponent' => 'SubmissionWizardPage',
-            'pageTitle' => __('submission.wizard.title'),
+            'pageComponent' => 'PageOJS',
         ]);
         $templateMgr->display('management/invitations/invitation.tpl');
 
@@ -737,16 +740,9 @@ class ManagementHandler extends Handler
     /**
      * get user invitation steps
      */
-    protected function getSteps(Request $request,$context): array
+    protected function getSteps(Request $request): array
     {
-        $apiUrl = $request
-            ->getDispatcher()
-            ->url(
-                $request,
-                PKPApplication::ROUTE_API,
-                $context->getPath(),
-                'contexts/' . $context->getId()
-            );
+        $apiUrl = $this->getSearchUserApiUrl($request);
 
         $steps = [];
         $steps[] = $this->getSearchUserForm($request,$apiUrl);
@@ -774,7 +770,6 @@ class ManagementHandler extends Handler
         $sections = [
             [
                 'id' => 'searchUserForm',
-                'name' => __('submission.details'),
                 'type'=>'form',
                 'description' => $request->getContext()->getLocalizedData('detailsHelp'),
                 'form' => $contactForm->getConfig(),
@@ -783,11 +778,11 @@ class ManagementHandler extends Handler
 
         return [
             'id' => 'searchUser',
-            'name' => __('common.details'),
-            'reviewName' => __('common.details'),
+            'name' => __('invitation.searchUserLabel'),
+            'reviewName' => __('invitation.searchUserStep'),
             'type' => 'form',
-            'description' => 'Please provide the following details to help us manage your submission in our system.',
-            'sections' => $sections,
+            'description' => __('invitation.searchUserDescription'),
+            'sections' => [],
             'reviewTemplate' => '/management/invitation/userSearch.tpl',
         ];
     }
@@ -810,7 +805,6 @@ class ManagementHandler extends Handler
         $sections = [
             [
                 'id' => 'userDetailsForm',
-                'name' => __('submission.details'),
                 'type'=>'form',
                 'description' => $request->getContext()->getLocalizedData('detailsHelp'),
                 'form' => $contactForm->getConfig(),
@@ -819,10 +813,10 @@ class ManagementHandler extends Handler
 
         return [
             'id' => 'userDetails',
-            'name' => __('submission.upload.uploadFiles'),
-            'reviewName' => __('submission.files'),
+            'name' => __('invitation.enterDetailsLabel'),
+            'reviewName' => __('invitation.enterDetailStep'),
             'type' => 'form',
-            'description' => 'Please provide the following details to help us manage your submission in our system.',
+            'description' => __('invitation.enterDetailsDescription'),
             'sections' => $sections,
             'reviewTemplate' => '/management/invitation/userDetails.tpl',
         ];
@@ -848,7 +842,6 @@ class ManagementHandler extends Handler
         $sections = [
             [
                 'id' => 'userInvited',
-                'name' => __('submission.details'),
                 'type'=>'email',
                 'description' => $request->getContext()->getLocalizedData('detailsHelp'),
                 'email' => $email->getState(),
@@ -857,12 +850,27 @@ class ManagementHandler extends Handler
 
         return [
             'id' => 'userInvitedEmail',
-            'name' => __('submission.upload.uploadFiles'),
-            'reviewName' => __('submission.files'),
+            'name' => __('invitation.reviewAndInviteLabel'),
+            'reviewName' => __('invitation.reviewAndInviteStep'),
             'type' => 'email',
-            'description' => 'Please provide the following details to help us manage your submission in our system.',
+            'description' => __('invitation.reviewAndInviteDescription'),
             'sections' => $sections,
             'reviewTemplate' => '/management/invitation/userInvitation.tpl',
         ];
+    }
+
+    /**
+     * Get the url to the search user API endpoint
+     */
+    protected function getSearchUserApiUrl(Request $request): string
+    {
+        return $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                PKPApplication::ROUTE_API,
+                $request->getContext()->getPath(),
+                'users'
+            );
     }
 }

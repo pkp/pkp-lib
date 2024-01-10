@@ -9,3 +9,44 @@ msgstr "Status"
 
 msgid "invitation.expiryDate"
 msgstr "Expiry Date"
+
+msgid "invitation.noUserFound"
+msgstr "The user does not have a role in this journal"
+
+msgid "invitation.searchUserLabel"
+msgstr "Search User"
+
+msgid "invitation.searchUserStep"
+msgstr "{$step} - Search User"
+
+msgid "invitation.searchUserDescription"
+msgstr "Search for the user using their email address, username or ORCID ID. Enter at least one details to get started. If user does not exist, ypu can invite them to take up roles and be a part of your journal. If the user already exist in the system, you can view user information and invite to take a additional roles."
+
+msgid "invitation.enterDetailsLabel"
+msgstr "Enter details"
+
+msgid "invitation.enterDetailStep"
+msgstr "{$step} - Enter details and invite for roles"
+
+msgid "invitation.enterDetailsDescription"
+msgstr "You can invite them to take up a role in OJS"
+
+msgid "invitation.reviewAndInviteLabel"
+msgstr "Review & invite for roles"
+
+msgid "invitation.reviewAndInviteStep"
+msgstr "{$step} - Modify email shared with the user"
+
+msgid "invitation.reviewAndInviteDescription"
+msgstr "Send the user an email to let them know about the invitation, next steps, journal GDPR polices and ORCiD verification"
+
+msgid "invitation.wizard.completeSteps"
+msgstr "Complete the steps to make a Invitation"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Invite user to take a role"
+
+msgid "invitation.wizard.pageTitleDescription"
+msgstr "You are inviting a user to take a role in OJS along with appearing in the journal masthead"
+
+

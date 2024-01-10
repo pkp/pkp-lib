@@ -30,7 +30,7 @@ class Collector implements CollectorInterface
     public const ORDERBY_ROLE_ID = 'roleId';
     public const ORDERBY_ID = 'id';
 
-    public ?string $orderBy = null;
+    public ?string $orderBy = self::ORDERBY_ID;
 
     /** @var DAO */
     public $dao;
@@ -62,7 +62,7 @@ class Collector implements CollectorInterface
     public ?int $offset = null;
 
     public UserUserGroupStatus $userUserGroupStatus = UserUserGroupStatus::STATUS_ACTIVE;
-    
+
     public ?bool $masthead = null;
 
 

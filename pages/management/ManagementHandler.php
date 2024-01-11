@@ -732,7 +732,6 @@ class ManagementHandler extends Handler
         $templateMgr->assign([
             'pageComponent' => 'PageOJS',
         ]);
-        dd($templateMgr);
         $templateMgr->display('management/invitations/invitation.tpl');
 
     }

@@ -146,7 +146,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->foreign('editor_id', 'edit_decisions_editor_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['editor_id'], 'edit_decisions_editor_id');
 
-            $table->smallInteger('decision');
+            $table->smallInteger('decision')->comment('A numeric constant indicating the decision that was taken. Possible values are listed in the Decision class.');
             $table->datetime('date_decided');
         });
 

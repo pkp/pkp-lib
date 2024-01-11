@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-11 11:57+0000\n"
+"PO-Revision-Date: 2024-01-11 14:57+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -2225,12 +2225,15 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Īss paziņojums, kurā aprakstīts, vai autors(-i) ir vai nav padarījis(-uši) "
+"savus pētījuma datus pieejamus un, ja ir, kur lasītāji var tiem piekļūt."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Iespējot datu pieejamības paziņojuma metadatus"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Nepieprasīt autoram datu pieejamības paziņojumu materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
@@ -2239,30 +2242,32 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Pieprasīt autoram iesniegt datu pieejamības paziņojumu pirms iesniegtā "
+"materiāla pieņemšanas."
 
 msgid "plugins.importexport.common.validationErrors"
-msgstr ""
+msgstr "Validācijas kļūdas:"
 
 msgid "plugins.importexport.common.warningsEncountered"
-msgstr ""
+msgstr "Sastopamie brīdinājumi:"
 
 msgid "plugins.importexport.common.errorsOccured"
-msgstr ""
+msgstr "Radušās kļūdas:"
 
 msgid "plugins.importexport.common.id"
-msgstr ""
+msgstr "Id: {$id}"
 
 msgid "plugins.importexport.common.error.unknownElement"
-msgstr ""
+msgstr "Nezināms elements {$param}"
 
 msgid "plugins.importexport.common.error.unknownGenre"
-msgstr ""
+msgstr "Nezināms žanrs {$param}"
 
 msgid "plugins.importexport.common.error.unknownEncoding"
-msgstr ""
+msgstr "Nezināms kodējums {$param}"
 
 msgid "plugins.importexport.common.error.encodingError"
-msgstr ""
+msgstr "Saturs nav kodēts kā {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr ""

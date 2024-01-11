@@ -16,6 +16,7 @@ namespace PKP\migration\upgrade;
 
 use APP\core\Services;
 use APP\facades\Repo;
+use Exception;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Database\Schema\Blueprint;
@@ -768,9 +769,13 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
                     $this->_toJSON($row, $tableName, ['plugin_name', 'context_id', 'setting_name'], 'setting_value');
                 });
             } elseif (Schema::hasColumn($tableName, 'setting_type')) {
-                DB::table($tableName)->where('setting_type', 'object')->get()->each(function ($row) use ($tableName) {
-                    $this->_toJSON($row, $tableName, ['setting_name', 'locale'], 'setting_value');
-                });
+                try {
+                    $settings = DB::table($tableName, 's')->where('setting_type', 'object')->get(['setting_name', 'setting_value', 's.*']);
+                } catch (Exception $e) {
+                    error_log("Failed to migrate the settings entity \"{$tableName}\"\n" . $e);
+                    continue;
+                }
+                $settings->each(fn ($row) => $this->_toJSON($row, $tableName, ['setting_name', 'locale'], 'setting_value'));
             }
         }
 

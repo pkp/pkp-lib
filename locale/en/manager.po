@@ -1244,7 +1244,13 @@ msgstr "Response Reminder"
 msgid "manager.setup.reviewOptions.reminders.response.description"
 msgstr ""
 "Send an email reminder if a reviewer has not responded to a review request "
-"this many days after the response due date."
+"within this many days (left empty if no remainder):"
+
+msgid "manager.setup.reviewOptions.reminders.response.description.before"
+msgstr "- before the response due date:"
+
+msgid "manager.setup.reviewOptions.reminders.response.description.after"
+msgstr "- after the response due date:"
 
 msgid "manager.setup.reviewOptions.reminders.submit"
 msgstr "Review Reminder"
@@ -1252,7 +1258,13 @@ msgstr "Review Reminder"
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Send an email reminder if a reviewer has not submitted a recommendation "
-"within this many days after the review's due date."
+"within this many days (left empty if no remainder)"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description.before"
+msgstr "- before the review due date:"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description.after"
+msgstr "- after the review due date:"
 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Default Review Mode"

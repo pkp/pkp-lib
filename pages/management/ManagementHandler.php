@@ -46,6 +46,7 @@ use PKP\core\PKPRequest;
 use PKP\decision\steps\Email;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\UserCreated;
+use PKP\mail\mailables\UserInvitation;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\site\VersionCheck;
@@ -733,6 +734,7 @@ class ManagementHandler extends Handler
         $templateMgr->assign([
             'pageComponent' => 'PageOJS',
         ]);
+        dd($templateMgr);
         $templateMgr->display('management/invitations/invitation.tpl');
 
     }
@@ -827,7 +829,7 @@ class ManagementHandler extends Handler
      */
     protected function getUserInvitedEmail(Request $request,string $apiUrl): array
     {
-        $mailable = new UserCreated($request->getContext(), '1212');
+        $mailable = new UserInvitation($request->getContext(), '','');
         $email = new Email(
             'userInvited',
             __('editor.submission.decision.notifyAuthors'),

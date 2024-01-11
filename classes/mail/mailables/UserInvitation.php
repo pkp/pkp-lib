@@ -38,7 +38,7 @@ class UserInvitation extends Mailable
 
     protected string $acceptUrl;
     protected string $declineUrl;
-    public function __construct(Context $context, string $acceptUrl, string $declineUrl)
+    public function __construct(Context $context, string $acceptUrl = null, string $declineUrl = null)
     {
         parent::__construct([$context]);
         $this->acceptUrl = $acceptUrl;
@@ -50,13 +50,13 @@ class UserInvitation extends Mailable
     public static function getDataDescriptions(): array
     {
         $variables = parent::getDataDescriptions();
-        return static::addPasswordVariable($variables);
+        return static::addUrlVariable($variables);
     }
 
     /**
-     * Add a description to a new password variable
+     * Add a description to a new url variable
      */
-    protected static function addPasswordVariable(array $variables): array
+    protected static function addUrlVariable(array $variables): array
     {
         $variables[static::$variableAcceptUrl] = __('emailTemplate.variable.acceptUrl');
         $variables[static::$variableDeclineUrl] = __('emailTemplate.variable.declineUrl');

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
-"PO-Revision-Date: 2024-01-09 07:07+0000\n"
+"PO-Revision-Date: 2024-01-11 14:57+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
 "da/>\n"
@@ -56,7 +56,6 @@ msgstr ""
 msgid "emails.decision.notifyReviewers.subject"
 msgstr "Tak for din bedømmelse"
 
-#, fuzzy
 msgid "emails.decision.notifyReviewers.body"
 msgstr ""
 "<p>Kære {$recipientName},</p>\n"
@@ -73,16 +72,15 @@ msgstr ""
 "fra den anbefaling, som en eller flere bedømmere kommer med. Redaktøren "
 "afvejer mange faktorer, og tager ikke let på disse beslutninger. Vi vægter "
 "vores bedømmeres ekspertise og anbefalinger højt.</p>\n"
-"<p>It has been a pleasure to work with you as a reviewer for {$contextName}, "
-"and we hope to have the opportunity to work with you again in the future.</p>"
-"\n"
-"<p>Kind regards,</p>\n"
+"<p>Det har været en fornøjelse at samarbejde med dig som bedømmer for "
+"{$contextName}, og vi håber at få muligheden for at samarbejde med dig igen "
+"i fremtiden.</p>\n"
+"<p>Mvh.</p>\n"
 "<p>{$signature}</p>"
 
 msgid "emails.decision.notifyOtherAuthors.subject"
 msgstr "En opdatering ang. din indsendelse"
 
-#, fuzzy
 msgid "emails.decision.notifyOtherAuthors.body"
 msgstr ""
 "<p>Den følgende e-mail blev sendt til {$submittingAuthorName} fra "
@@ -113,27 +111,24 @@ msgstr ""
 "velkommen til at kontakte mig ved at oprette et indlæg under Drøftelser, når "
 "du går ind på indsendelsen.</p><p>Mvh. {$signature}</p>"
 
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Næste trin for publicering af din indsendelse"
 
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
-"<p>Kære {$recipientName}.</p><p>Jeg skriver til dig fra {$contextName} for "
-"at fortælle dig, at redigeringen af dit manuskript: {$submissionTitle}, er "
+"<p>Kære {$recipientName}</p><p>Jeg skriver til dig fra {$contextName} for at "
+"fortælle dig, at redigeringen af dit manuskript: {$submissionTitle}, er "
 "færdig. Dit manuskript vil nu gå videre til produktionsfasen, hvor det "
 "endelige dokument vil blive forberedt til publicering. Vi kontakter dig, "
 "hvis vi har brug for yderligere assistance fra dig.</p><p>Hvis du har nogle "
-"spørgsmål, er du velkommen til at kontakte mig via dit <a href="
-"\"{$submissionUrl}\">submission dashboard</a>.</p><p>Med venlig hilsen</"
-"p>{$signature}"
+"spørgsmål, er du velkommen til at kontakte mig ved at oprette et indlæg "
+"under Drøftelser via <a href=\"{$submissionUrl}\">indsendelsens "
+"dashboard</a>.</p><p>Med venlig hilsen</p>{$signature}"
 
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr ""
-"Din indsendelse er blevet bedømt, og vi opfordrer dig til at indsende dine "
-"ændringer"
+"Din indsendelse er blevet bedømt, og vi vil bede dig om at indsende en "
+"ændret version"
 
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
@@ -162,7 +157,6 @@ msgstr ""
 "hilsen</p>{$signature}<hr><p>De følgende kommentarer er modtaget fra "
 "bedømmerne.</p>{$allReviewerComments}"
 
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr ""
 "Din indsendelse er blevet bedømt - vær venlig at revidere og indsende igen"
@@ -198,7 +192,6 @@ msgstr ""
 "<hr><p>De følgende kommentarer er modtaget fra bedømmerne.</"
 "p>{$allReviewerComments}"
 
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Din indsendelse er blevet afvist"
 

@@ -1,7 +1,7 @@
-# Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
+# Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-09 07:39+0000\n"
+"PO-Revision-Date: 2024-01-11 11:57+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/lv/"
 ">\n"
@@ -558,7 +558,7 @@ msgid "grid.user.mustChangePasswordDescription"
 msgstr "Lietotājam nākamajā pieteikšanās reizē jāmaina parole."
 
 msgid "grid.user.mustChangePasswordDescriptionOld"
-msgstr "Pieprasīt, lai lietotājs nākamajā pieteikšanās reizē nomaina paroli."
+msgstr "Pieprasīt lietotājam nomainīt paroli nākamajā pieteikšanās reizē."
 
 msgid "grid.user.moreDetails"
 msgstr "Lietotāja dati (sīkāk)"

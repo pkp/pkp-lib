@@ -770,7 +770,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
                 });
             } elseif (Schema::hasColumn($tableName, 'setting_type')) {
                 try {
-                    $settings = DB::table($tableName)->where('setting_type', 'object')->get();
+                    $settings = DB::table($tableName, 's')->where('setting_type', 'object')->get(['setting_name', 'setting_value', 's.*']);
                 } catch (Exception $e) {
                     error_log("Failed to migrate the settings entity \"{$tableName}\"\n" . $e);
                     continue;

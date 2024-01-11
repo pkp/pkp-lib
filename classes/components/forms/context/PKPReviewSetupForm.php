@@ -92,16 +92,46 @@ class PKPReviewSetupForm extends FormComponent
             ]));
 
         if (Config::getVar('general', 'scheduled_tasks')) {
-            $this->addField(new FieldText('numDaysBeforeInviteReminder', [
-                'label' => __('manager.setup.reviewOptions.reminders.response'),
-                'description' => __('manager.setup.reviewOptions.reminders.response.description'),
-                'value' => $context->getData('numDaysBeforeInviteReminder'),
-                'size' => 'small',
-            ]))
-                ->addField(new FieldText('numDaysBeforeSubmitReminder', [
+            // $this->addField(new FieldText('numDaysBeforeInviteReminder', [
+            //     'label' => __('manager.setup.reviewOptions.reminders.response'),
+            //     'description' => __('manager.setup.reviewOptions.reminders.response.description'),
+            //     'value' => $context->getData('numDaysBeforeInviteReminder'),
+            //     'size' => 'small',
+            // ]))
+            //     ->addField(new FieldText('numDaysBeforeSubmitReminder', [
+            //         'label' => __('manager.setup.reviewOptions.reminders.submit'),
+            //         'description' => __('manager.setup.reviewOptions.reminders.submit.description'),
+            //         'value' => $context->getData('numDaysBeforeSubmitReminder'),
+            //         'size' => 'small',
+            //     ]));
+            
+            $this
+                ->addField(new FieldHTML('reviewRequestResponseRemainder', [
+                    'label' => __('manager.setup.reviewOptions.reminders.response'),
+                    'description' => __('manager.setup.reviewOptions.reminders.response.description'),
+                ]))
+                ->addField(new FieldText('numDaysBeforeReviewResponseReminderDue', [
+                    'description' => __('manager.setup.reviewOptions.reminders.response.description.before'),
+                    'value' => $context->getData('numDaysBeforeReviewResponseReminderDue'),
+                    'size' => 'small',
+                ]))
+                ->addField(new FieldText('numDaysAfterReviewResponseReminderDue', [
+                    'description' => __('manager.setup.reviewOptions.reminders.response.description.after'),
+                    'value' => $context->getData('numDaysAfterReviewResponseReminderDue'),
+                    'size' => 'small',
+                ]))
+                ->addField(new FieldHTML('submissionReviewResponseRemainder', [
                     'label' => __('manager.setup.reviewOptions.reminders.submit'),
                     'description' => __('manager.setup.reviewOptions.reminders.submit.description'),
-                    'value' => $context->getData('numDaysBeforeSubmitReminder'),
+                ]))
+                ->addField(new FieldText('numDaysBeforeReviewSubmitReminderDue', [
+                    'description' => __('manager.setup.reviewOptions.reminders.submit.description.before'),
+                    'value' => $context->getData('numDaysBeforeReviewSubmitReminderDue'),
+                    'size' => 'small',
+                ]))
+                ->addField(new FieldText('numDaysAfterReviewSubmitReminderDue', [
+                    'description' => __('manager.setup.reviewOptions.reminders.submit.description.after'),
+                    'value' => $context->getData('numDaysAfterReviewSubmitReminderDue'),
                     'size' => 'small',
                 ]));
         } else {

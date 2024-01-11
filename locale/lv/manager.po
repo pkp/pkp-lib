@@ -1,7 +1,7 @@
-# Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
+# Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-09 07:39+0000\n"
+"PO-Revision-Date: 2024-01-11 11:57+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -1911,12 +1911,19 @@ msgstr "Recenzēšanā"
 
 msgid "manager.reviewForms.list.description"
 msgstr ""
+"Šeit izveidotās recenzijas veidlapas tiks piedāvātas recenzentiem "
+"aizpildīšanai noklusējuma veidlapu vietā. Noklusējuma veidlapas sastāv no "
+"diviem teksta laukiem, no kuriem pirmais ir \"Autoram un redaktoram\", bet "
+"otrais - \"Redaktoram\". Recenzijas veidlapas var norādīt konkrētai izdevuma "
+"sadaļai, un redaktoriem būs iespēja izvēlēties, kuru veidlapu izmantot, "
+"piešķirot recenziju. Visos gadījumos redaktoriem būs iespēja iekļaut "
+"recenzijas sarakstē ar autoru."
 
 msgid "manager.reviewForms.noneChosen"
-msgstr ""
+msgstr "Nav / Brīvas formas recenzija"
 
 msgid "manager.reviewForms.noneCreated"
-msgstr ""
+msgstr "Recenzijas veidlapas nav izveidotas."
 
 msgid "manager.reviewForms.noneUsed"
 msgstr "Recenzijas veidlapas nav izmantotas."
@@ -2121,57 +2128,70 @@ msgstr "Pieprasīt autoram pirms materiāla pieņemšanas norādīt avota URL ad
 
 msgid "manager.setup.metadata.subjects.description"
 msgstr ""
+"Temati būs atslēgvārdi, atslēgfrāzes vai klasifikācijas kodi, kas raksturo "
+"iesniegtā materiāla tēmu."
 
 msgid "manager.setup.metadata.subjects.enable"
-msgstr ""
+msgstr "Iespējot temata metadatus"
 
 msgid "manager.setup.metadata.subjects.noRequest"
-msgstr ""
+msgstr "Nepieprasīt autoram tematus materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.subjects.request"
 msgstr "Aicināt autoru materiāla iesniegšanas laikā norādīt tematu."
 
 msgid "manager.setup.metadata.subjects.require"
 msgstr ""
+"Pieprasīt autoram norādīt tematus pirms iesniegtā materiāla pieņemšanas."
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
+"Iesniegtā materiāla pamatsatura veids vai žanrs. Tips parasti ir \"Text\" "
+"(teksts), bet var būt arī \"Dataset\" (datu kopa), \"Image\" (attēls) vai "
+"kāds no <a target=\"_blank\" href=\"https://www.dublincore.org/"
+"specifications/dublin-core/dcmi-terms/\">Dublin Core tipiem</a>."
 
 msgid "manager.setup.metadata.type.enable"
-msgstr ""
+msgstr "Iespējot tipa metadatus"
 
 msgid "manager.setup.metadata.type.noRequest"
-msgstr ""
+msgstr "Materiāla iesniegšanas laikā nepieprasīt autoram norādīt tipu."
 
 msgid "manager.setup.metadata.type.request"
 msgstr "Aicināt autoru materiāla iesniegšanas laikā norādīt tipu."
 
 msgid "manager.setup.metadata.type.require"
-msgstr ""
+msgstr "Pieprasīt autoram norādīt tipu pirms iesniegtā materiāla pieņemšanas."
 
 msgid "manager.setup.metadata.disciplines.description"
 msgstr ""
+"Zinātnes nozares ir studiju virzieni vai zināšanu jomas, kuras apraksta "
+"universitāšu fakultātes un zinātnieku biedrības."
 
 msgid "manager.setup.metadata.disciplines.enable"
-msgstr ""
+msgstr "Iespējot zinātnes nozaru metadatus"
 
 msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr ""
+msgstr "Nepieprasīt autoram zinātnes nozari materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.disciplines.request"
 msgstr "Aicināt autoru materiāla iesniegšanas laikā norādīt nozari."
 
 msgid "manager.setup.metadata.disciplines.require"
 msgstr ""
+"Pieprasīt autoram norādīt zinātnes nozari pirms iesniegtā materiāla "
+"pieņemšanas."
 
 msgid "manager.setup.metadata.agencies.description"
 msgstr ""
+"Atbalsta aģentūras var norādīt pētniecības finansējuma avotu vai citu "
+"institucionālo atbalstu, kas veicinājis pētījumu."
 
 msgid "manager.setup.metadata.agencies.enable"
-msgstr ""
+msgstr "Iespējot atbalsta aģentūru metadatus"
 
 msgid "manager.setup.metadata.agencies.noRequest"
-msgstr ""
+msgstr "Nepieprasīt autoram atbalsta aģentūras materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.agencies.request"
 msgstr ""
@@ -2180,15 +2200,20 @@ msgstr ""
 
 msgid "manager.setup.metadata.agencies.require"
 msgstr ""
+"Pieprasīt autoram norādīt atbalsta aģentūras pirms iesniegtā materiāla "
+"pieņemšanas."
 
 msgid "manager.setup.metadata.citations.description"
 msgstr ""
+"Atsevišķā laukā apkopot iesniegtā materiāla atsauces. Tas var būt "
+"nepieciešams, lai nodrošinātu atbilstību citēšanas izsekošanas "
+"pakalpojumiem, piemēram, Crossref."
 
 msgid "manager.setup.metadata.citations.enable"
-msgstr ""
+msgstr "Iespējot atsauču metadatus"
 
 msgid "manager.setup.metadata.citations.noRequest"
-msgstr ""
+msgstr "Nepieprasīt autoram atsauces materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.citations.request"
 msgstr ""
@@ -2196,6 +2221,7 @@ msgstr ""
 
 msgid "manager.setup.metadata.citations.require"
 msgstr ""
+"Pieprasīt autoram norādīt atsauces pirms iesniegtā materiāla pieņemšanas."
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""

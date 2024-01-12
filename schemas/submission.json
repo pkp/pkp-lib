@@ -48,6 +48,12 @@
 				"date:Y-m-d H:i:s"
 			]
 		},
+		"editorAssigned": {
+			"type": "boolean",
+			"description": "Whether deciding editor has been assigned to the submission.",
+			"readOnly": true,
+			"apiSummary": true
+		},
 		"id": {
 			"type": "integer",
 			"description": "The id of this submission.",
@@ -80,6 +86,15 @@
 				"$ref": "#/definitions/Publication"
 			}
 		},
+		"recommendationsIn": {
+			"type": "boolean",
+			"description": "Whether all recommending editors have submitted a recommendation.",
+			"apiSummary": true,
+			"readOnly": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"reviewRounds": {
 			"type": "array",
 			"description": "A list of review rounds that have been opened for this submission.",
@@ -101,6 +116,12 @@
 					"isCurrentUserAssigned": {
 						"type": "integer",
 						"readOnly": true
+					},
+					"dateAssigned": {
+						"type": "integer",
+						"validation": [
+							"date|Y-m-d H:i:s"
+						]
 					},
 					"status": {
 						"type": "integer",
@@ -130,6 +151,24 @@
 					}
 				}
 			}
+		},
+		"reviewersNotAssigned": {
+			"type": "boolean",
+			"description": "Whether all needed reviewers are assigned to the submission. Related to the `numReviewersPerSubmission` context setting.",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"revisionsRequested": {
+			"type": "boolean",
+			"description": "There is a revisions requested decision in the current review round and no revisions have been uploaded to that round.",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"revisionsSubmitted": {
+			"type": "boolean",
+			"description": "There is a revisions requested decision in the current review round and 1 or more revision files have been uploaded to that round.",
+			"apiSummary": true,
+			"readOnly": true
 		},
 		"stageId": {
 			"type": "integer",

@@ -19,6 +19,9 @@
 namespace PKP\stageAssignment;
 
 use APP\facades\Repo;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAOResultFactory;
 use PKP\security\Role;
@@ -435,6 +438,58 @@ class StageAssignmentDAO extends \PKP\db\DAO
     {
         return 'SELECT ugs.stage_id AS stage_id, sa.* FROM stage_assignments sa
 			JOIN user_group_stage ugs ON sa.user_group_id = ugs.user_group_id ';
+    }
+
+    /**
+     * Get active stage assignments by submission IDs
+     */
+    public function getCurrentBySubmissionIds(array $submissionIds, array $roleIds = []): LazyCollection
+    {
+        $select = $this->getSelect()
+            ->join('submissions AS s', 'sa.submission_id', '=', 's.submission_id')
+            ->when(!empty($roleIds), fn (Builder $q) => $q
+                ->leftJoin('user_groups AS ug', 'sa.user_group_id', '=', 'ug.user_group_id')
+                ->whereIn('ug.role_id', $roleIds))
+            ->whereIn('sa.submission_id', $submissionIds)
+            ->whereColumn('ugs.stage_id', 's.stage_id');
+
+        $rows = $select->get();
+
+        return LazyCollection::make(function () use ($rows) {
+            foreach ($rows as $row) {
+                yield $row->stage_assignment_id => $this->fromBuilderRow($row);
+            }
+        });
+    }
+
+    /**
+     * Basic select statement for stage assignments
+     */
+    protected function getSelect(): Builder
+    {
+        return DB::table('stage_assignments AS sa')
+            ->select('sa.*')
+            ->selectRaw('ugs.stage_id as stage_id')
+            ->join('user_group_stage AS ugs', 'sa.user_group_id', '=', 'ugs.user_group_id');
+    }
+
+    /**
+     * Get a stage assignment from the results of the QueryBuilder query
+     */
+    protected function fromBuilderRow(\stdClass $row): StageAssignment
+    {
+        $stageAssignment = $this->newDataObject();
+
+        $stageAssignment->setId((int) $row->stage_assignment_id);
+        $stageAssignment->setSubmissionId((int) $row->submission_id);
+        $stageAssignment->setUserId((int) $row->user_id);
+        $stageAssignment->setUserGroupId((int) $row->user_group_id);
+        $stageAssignment->setDateAssigned($row->date_assigned);
+        $stageAssignment->setStageId((int) $row->stage_id);
+        $stageAssignment->setRecommendOnly((bool) $row->recommend_only);
+        $stageAssignment->setCanChangeMetadata((bool) $row->can_change_metadata);
+
+        return $stageAssignment;
     }
 }
 

@@ -709,7 +709,7 @@ Cypress.Commands.add('assignDoisByTitle', (title, itemType = 'submission') => {
 
 	// Confirm assignment
 	cy.get(
-		'div[name="bulkActions"] button:contains("Assign DOIs")'
+		'div[role="dialog"] button:contains("Assign DOIs")'
 	).click();
 	cy.get('.app__notifications').contains(
 		'Items successfully assigned new DOIs',
@@ -728,7 +728,7 @@ Cypress.Commands.add('assignDois', (itemId, itemType = 'submission') => {
 
 	// Confirm assignment
 	cy.get(
-		'div[name="bulkActions"] button:contains("Assign DOIs")'
+		'div[role="dialog"] button:contains("Assign DOIs")'
 	).click();
 	cy.get('.app__notifications').contains(
 		'Items successfully assigned new DOIs',
@@ -779,7 +779,7 @@ Cypress.Commands.add('checkDoiMarkedStatus', (status, itemId, isValid, expectedS
 	// Select mark [status] from bulk actions
 	cy.get(`#${itemType}-doi-management button:contains("Bulk Actions")`).click({multiple: true});
 	cy.get(`button:contains("Mark DOIs ${status}")`).click();
-	cy.get(`div[name="bulkActions"] button:contains("Mark DOIs ${status}")`).click();
+	cy.get(`div[role="dialog"] button:contains("Mark DOIs ${status}")`).click();
 
 	// Check success or failure message
 	if (isValid) {

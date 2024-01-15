@@ -190,7 +190,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
         ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
         if (!static::isInstalled()) {
-            SessionManager::disable();
+            define('SESSION_DISABLE_INIT', true);
         }
 
         Registry::set('application', $this);
@@ -199,6 +199,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         Registry::set('system.debug.startTime', $microTime);
 
         $this->initializeLaravelContainer();
+        $this->setUserResolver();
+        $this->initSession();
         PKPString::initialize();
 
         // Load default locale files
@@ -234,9 +236,16 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             DB::listen(fn (QueryExecuted $query) => error_log("Database query\n{$query->sql}\n" . json_encode($query->bindings)));
         }
 
-        $illuminateRequest = app(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
         
-        $illuminateRequest->setUserResolver(fn () => $this->getRequest()->getUser());
+    }
+
+    public function initSession(): void
+    {
+        if (defined('SESSION_DISABLE_INIT')) {
+            return;
+        }
+
+        $illuminateRequest = app(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
         
         $currentSetCookies = (array)$illuminateRequest->cookie();
 
@@ -267,6 +276,13 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
                 );
             }
         }
+    }
+
+    public function setUserResolver(): void
+    {
+        $illuminateRequest = app(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
+        
+        $illuminateRequest->setUserResolver(fn () => $this->getRequest()->getUser());
     }
 
     /**

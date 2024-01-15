@@ -1,7 +1,7 @@
-# Ieva Tiltina <pastala@gmail.com>, 2023.
+# Ieva Tiltina <pastala@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-05 23:17+0000\n"
+"PO-Revision-Date: 2024-01-15 19:17+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "lv/>\n"
@@ -750,7 +750,7 @@ msgid "common.unsavedChanges"
 msgstr "Nesaglabātas izmaiņas"
 
 msgid "common.untitled"
-msgstr "Bez nosaukuma"
+msgstr "Bez virsraksta"
 
 msgid "common.updated"
 msgstr "Atjaunināts"
@@ -1395,7 +1395,7 @@ msgid "navigation.browseByAuthor"
 msgstr "Pēc autora"
 
 msgid "navigation.browseByTitle"
-msgstr "Pēc nosaukuma"
+msgstr "Pēc virsraksta"
 
 msgid "navigation.data"
 msgstr "Dati"
@@ -1735,7 +1735,7 @@ msgstr ""
 
 msgid "stageParticipants.canChangeMetadata"
 msgstr ""
-"Atļaut šai personai veikt izmaiņas publikācijā, piemēram, nosaukumā, "
+"Atļaut šai personai veikt izmaiņas publikācijā, piemēram, virsrakstā, "
 "kopsavilkumā, metadatos un citos publikācijas datos. Šo privilēģiju var "
 "atcelt, ja materiālam veikti galīgie labojumi un tas ir gatavs publicēšanai."
 
@@ -2102,7 +2102,7 @@ msgstr ""
 "daļu no recenzēšanas) pārbauda, vai ir veikti šādi pasākumi attiecībā uz "
 "tekstu un datnes īpašībām:</p>\n"
 "<ul><li>Dokumenta autori ir svītrojuši savus vārdus no teksta; atsaucēs un "
-"zemsvītras piezīmēs autoru vārda, raksta nosaukuma u. c. vietā ir izmantots "
+"zemsvītras piezīmēs autoru vārda, raksta virsraksta u. c. vietā ir izmantots "
 "\"Autors\" un gads.</li>\n"
 "<li>Dokumenta autori ir izņēmuši personisko informāciju no datnes "
 "parametriem, veicot šādus pasākumus:\n"

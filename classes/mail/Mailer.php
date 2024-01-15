@@ -117,6 +117,12 @@ class Mailer extends IlluminateMailer
             /** @var Mailable $view */
             $view->setData();
         }
+
+        // Mailling functionality is set to sandbox mode and will not sent any emails
+        if (!Config::getVar('sandbox', 'email', true)) {
+            return null;
+        }
+
         parent::send($view, $data, $callback);
     }
 

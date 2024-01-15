@@ -1,7 +1,7 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-23 18:49+0000\n"
+"PO-Revision-Date: 2024-01-16 10:39+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ops/locale/cs/>\n"
 "Language: cs\n"
@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "context.current"
 msgstr "Současný server:"
@@ -409,7 +409,7 @@ msgid "preprint.subject"
 msgstr "Klíčová slova"
 
 msgid "submissionGroup.assignedSubEditors"
-msgstr "Přiděleno moderátorovi"
+msgstr "Přidělení moderátoři"
 
 msgid "user.authorization.representationNotFound"
 msgstr "Nelze nalézt požadovanou sazebnici."

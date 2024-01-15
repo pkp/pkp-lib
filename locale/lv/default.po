@@ -1,7 +1,7 @@
-# Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
+# Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-09 07:38+0000\n"
+"PO-Revision-Date: 2024-01-15 19:17+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "lv/>\n"
@@ -147,7 +147,7 @@ msgstr ""
 msgid "default.submission.step.beforeYouBegin"
 msgstr ""
 "<p>Paldies par {$contextName} iesniegšanu. Jums tiks lūgts augšupielādēt "
-"datnes, norādīt līdzautorus un sniegt informāciju, piemēram, nosaukumu un "
+"datnes, norādīt līdzautorus un sniegt informāciju, piemēram, virsrakstu un "
 "kopsavilkumu.<p><p>Lūdzu, izlasiet mūsu <a href=\"{$submissionGuidelinesUrl}"
 "\" target=\"_blank\">Iesniegšanas vadlīnijas</a>, ja vēl neesat to "
 "izdarījis. Aizpildot pieteikuma formu, sniedziet pēc iespējas vairāk "

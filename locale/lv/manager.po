@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-15 10:39+0000\n"
+"PO-Revision-Date: 2024-01-15 19:17+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -93,7 +93,7 @@ msgid "manager.announcements.form.saveAndCreateAnother"
 msgstr "Saglabāt un izveidot citu"
 
 msgid "manager.announcements.form.titleRequired"
-msgstr "Nepieciešams paziņojuma nosaukums."
+msgstr "Nepieciešams paziņojuma virsraksts."
 
 msgid "manager.announcements.form.title"
 msgstr "Virsraksts"
@@ -538,13 +538,13 @@ msgid "manager.groups.confirmDelete"
 msgstr "Vai tiešām vēlaties dzēst šo grupu?"
 
 msgid "manager.groups.createTitle"
-msgstr "Izveidot nosaukumu"
+msgstr "Izveidot virsrakstu"
 
 msgid "manager.groups.editTitle"
-msgstr "Labot nosaukumu"
+msgstr "Labot virsrakstu"
 
 msgid "manager.groups.form.groupTitleRequired"
-msgstr "Grupas nosaukums ir nepieciešams."
+msgstr "Grupas virsraksts ir nepieciešams."
 
 msgid "manager.groups.membership.addMember"
 msgstr "Pievienot dalībnieku"
@@ -562,7 +562,7 @@ msgid "manager.groups.membership.noUsers"
 msgstr "Lietotāji netika atrasti."
 
 msgid "manager.groups.title"
-msgstr "Nosaukums"
+msgstr "Virsraksts"
 
 msgid "manager.importExport"
 msgstr "Datu imports/eksports"
@@ -1297,7 +1297,7 @@ msgstr ""
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
 "Šī informācija tiek rādīta autoriem detalizācijas solī, kad viņiem tiek "
-"lūgts norādīt nosaukumu, kopsavilkumu un citas svarīgas ziņas par iesniegto "
+"lūgts norādīt virsrakstu, kopsavilkumu un citas svarīgas ziņas par iesniegto "
 "darbu."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
@@ -1904,7 +1904,7 @@ msgid "manager.reviewForms.edit"
 msgstr "Recenzijas veidlapa"
 
 msgid "manager.reviewForms.form.titleRequired"
-msgstr "Recenzijas veidlapai nepieciešams nosaukums."
+msgstr "Recenzijas veidlapai nepieciešams virsraksts."
 
 msgid "manager.reviewForms.inReview"
 msgstr "Recenzēšanā"
@@ -2276,19 +2276,23 @@ msgstr ""
 "šādu nosaukumu."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr ""
+msgstr "UserGroup Trūkst autora vārda {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
+"Nav norādīts autora vārds {$authorName} iesniegtā materiāla valodā "
+"({$localeName}). Materiālu nevar importēt bez šīs informācijas."
 
 msgid "plugins.importexport.common.error.unknownUploader"
-msgstr ""
+msgstr "Nezināms augšupielādētājs {$param}"
 
 msgid "plugins.importexport.common.error.temporaryFileFailed"
-msgstr ""
+msgstr "Pagaidu failu {$dest} nevar izveidot no {$source}"
 
 msgid "plugins.importexport.common.error.filesizeMismatch"
 msgstr ""
+"Sniegtais faila izmērs \"{$expected}\" un faktiskais faila izmērs \"{$actual}"
+"\" nesakrīt"
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
 msgstr ""
@@ -2296,10 +2300,13 @@ msgstr ""
 "dublikātu"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
-msgstr ""
+msgstr "Iesniegtā materiāla datni nav iespējams importēt"
 
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
+"Iesniegtā materiāla datne {$id} tika ignorēta, jo tā ir pievienota "
+"ierakstam, kas netiks importēts, piemēram, recenzijas uzdevumam vai "
+"diskusijai."
 
 msgid "plugins.importexport.user.importExportErrors"
 msgstr ""
@@ -2323,64 +2330,78 @@ msgid "manager.navigationMenus.form.title"
 msgstr ""
 
 msgid "manager.navigationMenus.form.path"
-msgstr ""
+msgstr "Ceļš"
 
 msgid "manager.navigationMenus"
-msgstr ""
+msgstr "Navigācija"
 
 msgid "manager.navigationMenus.form.viewInstructions"
 msgstr ""
+"<p>Šī lapa būs pieejama vietnē: <blockquote>{$pagesPath}</blockquote>...kur "
+"%PATH% ir iepriekš ievadītais ceļš. <strong>Piezīme:</strong> divām lapām "
+"nevar būt vienāds ceļš. Izmantojot sistēmā iebūvētos ceļus, varat zaudēt "
+"piekļuvi svarīgām funkcijām.</p>"
 
 msgid "manager.navigationMenus.form.content"
-msgstr ""
+msgstr "Saturs"
 
 msgid "manager.navigationMenus.form.pathRegEx"
 msgstr ""
+"Ceļa lauks drīkst saturēt tikai burtu un ciparu rakstzīmes, kā arī \".\", \"/"
+"\", \"-\" un \"_\"."
 
 msgid "manager.navigationMenus.form.duplicatePath"
-msgstr ""
+msgstr "Šis ceļš jau pastāv citam navigācijas izvēlnes elementam."
 
 msgid "manager.navigationMenus.form.duplicateTitles"
-msgstr ""
+msgstr "Šis nosaukums jau pastāv citai navigācijas izvēlnei."
 
 msgid "manager.navigationMenus.form.titleRequired"
-msgstr ""
+msgstr "Virsraksts ir obligāts"
 
 msgid "manager.navigationMenuItems"
-msgstr ""
+msgstr "Navigācijas izvēlnes elementi"
 
 msgid "manager.navigationMenus.assignedMenuItems"
-msgstr ""
+msgstr "Piešķirtie izvēlnes elementi"
 
 msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr ""
+msgstr "Nepiešķirtie izvēlnes elementi"
 
 msgid "manager.navigationMenus.form.navigationMenuArea"
-msgstr ""
+msgstr "Aktīvās tēmas navigācijas apgabali"
 
 msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
-msgstr ""
+msgstr "Izvēlieties navigācijas apgabalu"
 
 msgid "manager.navigationMenus.form.menuAssigned"
-msgstr ""
+msgstr "Šim apgabalam jau ir piešķirta navigācijas izvēlne."
 
 msgid "manager.navigationMenus.form.url"
-msgstr ""
+msgstr "URL"
 
 msgid "manager.navigationMenus.form.customUrlError"
-msgstr ""
+msgstr "Jānorāda URL adrese"
 
 msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr ""
+"Uzziniet vairāk par to, kad šis izvēlnes elements tiks parādīts vai paslēpts."
 
 msgid "manager.navigationMenus.form.submenuWarning"
 msgstr ""
+"Ja izvēlnes elements atver apakšizvēlni, tā saitei nevar sekot visās "
+"ierīcēs. Piemēram, ja jums ir punkts \"Par\", kas atver apakšizvēlni ar "
+"\"Kontakti\" un \"Redakcija\", saite \"Par\" var nebūt sasniedzama visās "
+"ierīcēs. Noklusējuma izvēlnē tas tiek risināts, izveidojot otru izvēlnes "
+"elementu \"Par žurnālu\", kas parādās apakšizvēlnē."
 
 msgid "manager.navigationMenus.form.navigationMenuItemType"
-msgstr ""
+msgstr "Navigācijas izvēlnes tips"
 
 msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
 msgstr ""
+"Izvēlieties \"Navigācijas izvēlnes tipu\" vai izvēlieties \"Pielāgot "
+"izvēlni\", lai izveidotu savu izvēlnes tipu"
 
 msgid "manager.navigationMenus.customPage"
 msgstr ""
@@ -2446,16 +2467,18 @@ msgid "manager.navigationMenus.loggedOut.conditionalWarning"
 msgstr ""
 
 msgid "manager.navigationMenus.loggedIn.conditionalWarning"
-msgstr ""
+msgstr "Šī saite tiks rādīta tikai tad, ja apmeklētājs nav pieteicies."
 
 msgid "manager.navigationMenus.contact.description"
-msgstr ""
+msgstr "Saite uz lapu, kurā norādīta jūsu kontaktinformācija."
 
 msgid "manager.navigationMenus.contact.conditionalWarning"
 msgstr ""
+"Šī saite tiks parādīta tikai tad, ja būsiet aizpildījis kontaktinformāciju "
+"sadaļā Iestatījumi > Kontaktinformācija."
 
 msgid "manager.navigationMenus.form.typeMissing"
-msgstr ""
+msgstr "Lūdzu, izvēlieties navigācijas izvēlnes veidu."
 
 msgid "manager.navigationMenus.subscriptions.conditionalWarning"
 msgstr ""
@@ -2469,7 +2492,7 @@ msgstr ""
 "Iestatījumi > Izplatīšana > Piekļuve ir nepieciešami abonementi."
 
 msgid "manager.navigationMenus.search.description"
-msgstr ""
+msgstr "Saite uz meklēšanas lapu."
 
 msgid "manager.navigationMenus.privacyStatement.description"
 msgstr "Saite uz lapu, kurā ir jūsu privātuma atruna."
@@ -2480,46 +2503,46 @@ msgstr ""
 "Materiālu iesniegšana būsiet ievadījis privātuma atrunu."
 
 msgid "grid.category.add"
-msgstr ""
+msgstr "Pievienot kategoriju"
 
 msgid "grid.category.edit"
-msgstr ""
+msgstr "Rediģēt kategoriju"
 
 msgid "grid.category.name"
-msgstr ""
+msgstr "Nosaukums"
 
 msgid "grid.category.path"
-msgstr ""
+msgstr "Ceļš"
 
 msgid "grid.category.urlWillBe"
-msgstr ""
+msgstr "Kategorijas URL būs šāds: {$sampleUrl}"
 
 msgid "grid.category.pathAlphaNumeric"
-msgstr ""
+msgstr "Kategorijas ceļam jāsastāv tikai no burtiem un cipariem."
 
 msgid "grid.category.pathExists"
-msgstr ""
+msgstr "Šāds kategorijas ceļš jau pastāv. Lūdzu, ievadiet unikālu ceļu."
 
 msgid "grid.category.description"
-msgstr ""
+msgstr "Apraksts"
 
 msgid "grid.category.parentCategory"
-msgstr ""
+msgstr "Vecākelementa kategorija"
 
 msgid "grid.category.removeText"
-msgstr ""
+msgstr "Vai tiešām vēlaties dzēst šo kategoriju?"
 
 msgid "grid.category.nameRequired"
-msgstr ""
+msgstr "Lūdzu, ievadiet kategorijas nosaukumu."
 
 msgid "grid.category.categoryDetails"
-msgstr ""
+msgstr "Detalizēta informācija par kategoriju"
 
 msgid "stats.allUsers"
-msgstr ""
+msgstr "Visi lietotāji"
 
 msgid "stats.city"
-msgstr ""
+msgstr "Pilsēta"
 
 msgid "stats.views"
 msgstr "Izdevuma TOC skati"
@@ -2528,82 +2551,91 @@ msgid "stats.downloads"
 msgstr "Izdevuma saliktņa skati"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Kopējais skatījumu skaits pēc datuma"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Kopējais lejupielādēto failu skaits pēc datuma"
 
 msgid "stats.countWithYearlyAverage"
-msgstr ""
+msgstr "{$count} ({$average}/gadā)"
 
 msgid "stats.daily"
-msgstr ""
+msgstr "Katru dienu"
 
 msgid "stats.dateRange"
-msgstr ""
+msgstr "Datumu diapazons"
 
 msgid "stats.dateRange.allDates"
-msgstr ""
+msgstr "Visi datumi"
 
 msgid "stats.dateRange.apply"
-msgstr ""
+msgstr "Piemērot"
 
 msgid "stats.dateRange.change"
-msgstr ""
+msgstr "Mainīt datumu diapazonu"
 
 msgid "stats.dateRange.customRange"
-msgstr ""
+msgstr "Pielāgotais diapazons"
 
 msgid "stats.dateRange.dateDoesNotExist"
-msgstr ""
+msgstr "Viens no ievadītajiem datumiem neeksistē."
 
 msgid "stats.dateRange.from"
-msgstr ""
+msgstr "No"
 
 msgid "stats.dateRange.instructions"
 msgstr ""
+"Ievadiet katru datumu formātā GGGG-MM-DD. Piemēram, ja vēlaties 2019. gada "
+"15. janvāra datumu, ievadiet 2019-01-15."
 
 msgid "stats.dateRange.invalidDate"
-msgstr ""
+msgstr "Datuma formāts nav derīgs. Ievadiet katru datumu formātā GGGG-MM-DD."
 
 msgid "stats.dateRange.invalidDateRange"
-msgstr ""
+msgstr "Sākuma datumam jābūt pirms beigu datuma."
 
 msgid "stats.dateRange.invalidEndDateMax"
-msgstr ""
+msgstr "Beigu datums nedrīkst būt vēlāks par {$date}."
 
 msgid "stats.dateRange.invalidStartDateMin"
-msgstr ""
+msgstr "Sākuma datums nedrīkst būt agrāks par {$date}."
 
 msgid "stats.dateRange.last12Months"
-msgstr ""
+msgstr "Pēdējie 12 mēneši"
 
 msgid "stats.dateRange.last30Days"
-msgstr ""
+msgstr "Pēdējās 30 dienas"
 
 msgid "stats.dateRange.last90Days"
-msgstr ""
+msgstr "Pēdējās 90 dienas"
 
 msgid "stats.dateRange.lastTwoYears"
-msgstr ""
+msgstr "Pēdējie divi gadi"
 
 msgid "stats.dateRange.lastYear"
-msgstr ""
+msgstr "Iepriekšējais gads"
 
 msgid "stats.dateRange.sinceDate"
-msgstr ""
+msgstr "Kopš {$date}"
 
 msgid "stats.dateRange.thisYear"
-msgstr ""
+msgstr "Gads līdz datumam"
 
 msgid "stats.dateRange.to"
-msgstr ""
+msgstr "Līdz"
 
 msgid "stats.dateRange.untilDate"
-msgstr ""
+msgstr "Līdz {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
+"Izvēlētā datumu intervāla procentuālā daļa tiek aprēķināta par materiāliem, "
+"kas iesniegti šajā datumu intervālā un par kuriem ir pieņemts galīgais "
+"lēmums.<br><br>Piemēram, aplūkojiet gadījumu, kad šajā datumu intervālā tika "
+"iesniegti desmit darbi. Četri tika pieņemti, četri noraidīti un divi vēl "
+"gaida galīgo lēmumu.<br><br>Pieņemto darbu īpatsvars būs 50 % (4 no 8 "
+"iesniegtajiem darbiem), jo divi darbi, par kuriem nav pieņemts galīgais "
+"lēmums, netiek ieskaitīti."
 
 msgid "stats.description.daysToDecision"
 msgstr ""
@@ -2616,132 +2648,134 @@ msgstr ""
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Tas ietver materiālus, kas netiek ieskaitīti citās kopsummās, piemēram, tos, "
+"kas vēl nav pabeigti, un tos, kas, iespējams, ir importēti."
 
 msgid "stats.descriptionForStat"
-msgstr ""
+msgstr "{$stat} apraksts"
 
 msgid "stats.editorialActivity"
-msgstr ""
+msgstr "Redakcionālā aktivitāte"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Primārā datne"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Papildu datne"
 
 msgid "stats.fileViews"
-msgstr ""
+msgstr "Datņu skatījumi"
 
 msgid "stats.html"
-msgstr ""
+msgstr "HTML"
 
 msgid "stats.monthly"
-msgstr ""
+msgstr "Ikmēneša"
 
 msgid "stats.pdf"
-msgstr ""
+msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
-msgstr ""
+msgstr "Ģeolokāciju nodrošina <a href='https://db-ip.com'>DB-IP</a>"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "Par ģeolokāciju"
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "No {$startDate} līdz {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Viss {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr ""
+msgstr "Lejupielādēt datnes"
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Katras datnes lejupielāžu skaits."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Lejupielādēt ģeogrāfisko atskaiti"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
+msgstr "Skatījumu un lejupielāžu skaits katrā pilsētā, reģionā vai valstī."
 
 msgid "stats.region"
-msgstr ""
+msgstr "Reģions"
 
 msgid "stats.searchSubmissionDescription"
-msgstr ""
+msgstr "Meklēt pēc virsraksta, autora un ID"
 
 msgid "stats.submissionsActive"
-msgstr ""
+msgstr "Aktīvie materiāli"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Laika grafiks"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "{$type} skaits katram {$interval}."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Lejupielādēt laika grafiku"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Laika grafika intervāls"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Laika grafika tips"
 
 msgid "stats.total"
-msgstr ""
+msgstr "Kopā"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Unikāli"
 
 msgid "stats.totalWithinDateRange"
-msgstr ""
+msgstr "Kopā datumu diapazonā"
 
 msgid "stats.trends"
-msgstr ""
+msgstr "Tendences"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "nav zināms"
 
 msgid "stats.userStatistics"
-msgstr ""
+msgstr "Lietotāju statistika"
 
 msgid "stats.name.submissionsReceived"
-msgstr ""
+msgstr "Saņemtie materiāli"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Citi materiāli"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Materiāli darba procesā"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Importētie materiāli"
 
 msgid "stats.name.submissionsAccepted"
-msgstr ""
+msgstr "Pieņemtie materiāli"
 
 msgid "stats.name.submissionsDeclined"
-msgstr ""
+msgstr "Noraidītie materiāli"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr ""
+msgstr "Noraidītie materiāli (uzreiz)"
 
 msgid "stats.name.submissionsDeclinedPostReview"
-msgstr ""
+msgstr "Noraidītie materiāli (pēc recenzijas)"
 
 msgid "stats.name.submissionsPublished"
-msgstr ""
+msgstr "Publicētie materiāli"
 
 msgid "stats.name.daysToDecision"
 msgstr "Dienas līdz pirmajam redakcionālajam lēmumam"
 
 msgid "stats.name.daysToAccept"
-msgstr ""
+msgstr "Dienas līdz pieņemšanai"
 
 msgid "stats.name.daysToReject"
-msgstr ""
+msgstr "Dienas līdz noraidīšanai"
 
 msgid "stats.name.acceptanceRate"
 msgstr ""
@@ -3195,7 +3229,7 @@ msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
 "Šajā e-pastā redaktors lūdz recenzentu pieņemt vai atteikties no materiāla "
 "izskatīšanas papildu recenzēšanas kārtā. Tajā ir sniegta informācija par "
-"materiālu, piemēram, nosaukums un kopsavilkums, recenzijas termiņš un "
+"materiālu, piemēram, virsraksts un kopsavilkums, recenzijas termiņš un "
 "piekļuve materiālam."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"

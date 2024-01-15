@@ -86,7 +86,7 @@ describe('Data suite: Cmontgomerie', function() {
 		cy.get('#publication-button').click();
 		cy.get('div.pkpPublication button:contains("Unpost"):visible').click();
 		cy.get('div:contains("Are you sure you don\'t want this to be posted?")');
-		cy.get('.modal__footer button').contains('Unpost').click();
+		cy.get('[role=dialog] button').contains('Unpost').click();
 
 		// Edit metadata in 1st version
 		cy.get('#metadata-button').click();
@@ -106,7 +106,7 @@ describe('Data suite: Cmontgomerie', function() {
 		// Create 2nd version and change copyright holder
 		cy.get('div.pkpPublication button:contains("Create New Version"):visible').click();
 		cy.get('div:contains("Are you sure you want to create a new version?")');
-		cy.get('.modal__footer button').contains('Yes').click();
+		cy.get('[role=dialog] button').contains('Yes').click();
 		cy.get('#license-button').click();
 		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').clear()
 		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').type('Craig Montgomerie', {delay: 0});

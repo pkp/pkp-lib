@@ -22,6 +22,7 @@ use APP\facades\Repo;
 use Carbon\Carbon;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\DataObject;
@@ -354,6 +355,20 @@ class DAO extends EntityDAO
         $users->each(fn ($user) => $userRepository->delete($userRepository->get($user->user_id, true)));
 
         return $users->count();
+    }
+
+    /**
+     * Get publication ids that have a matching setting
+     */
+    public function getIdsBySetting(string $settingName, $settingValue): Enumerable
+    {
+        $q = DB::table($this->table . ' as u')
+            ->join($this->settingsTable . ' as us', 'u.user_id', '=', 'us.user_id')
+            ->where('us.setting_name', '=', $settingName)
+            ->where('us.setting_value', '=', $settingValue);
+
+        return $q->select('u.user_id')
+            ->pluck('u.user_id');
     }
 
     /** Get admin users */

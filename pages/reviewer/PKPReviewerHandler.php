@@ -23,6 +23,7 @@ use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
 use Illuminate\Support\Facades\Mail;
+use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
@@ -63,6 +64,26 @@ class PKPReviewerHandler extends Handler
             'reviewStep' => $reviewStep,
             'selected' => $step - 1,
             'submission' => $reviewSubmission,
+        ]);
+
+        $templateMgr->setState([
+            'isReviewRoundHistoryEnabled' => Config::getVar('features', 'enable_review_round_history'),
+            'pageInitConfig' => [
+                'reviewRoundHistories' => [
+                    [
+                        'submissionId' => $reviewSubmission->getId(),
+                        // Just as example, not real data
+                        'reviewRoundId' => 0,
+                        'reviewRoundNumber' => 1
+                    ],
+                    [
+                        'submissionId' => $reviewSubmission->getId(),
+                        // Just as example, not real data
+                        'reviewRoundId' => 1,
+                        'reviewRoundNumber' => 2
+                    ]
+                ]
+            ]
         ]);
 
         $templateMgr->display('reviewer/review/reviewStepHeader.tpl');

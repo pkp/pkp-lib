@@ -17,6 +17,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Carbon\Carbon;
+use Illuminate\Support\Enumerable;
 use PKP\context\Context;
 use PKP\context\SubEditorsDAO;
 use PKP\core\PKPApplication;
@@ -421,5 +422,11 @@ class Repository
     public function deleteUnvalidatedExpiredUsers(Carbon $dateTillValid, array $excludableUsersId = [])
     {
         return $this->dao->deleteUnvalidatedExpiredUsers($dateTillValid, $excludableUsersId);
+    }
+
+    /** @copydoc DAO:: getIdsBySetting()*/
+    public function getIdsBySetting(string $settingName, $settingValue): Enumerable
+    {
+        return $this->dao->getIdsBySetting($settingName, $settingValue);
     }
 }

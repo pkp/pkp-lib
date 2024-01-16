@@ -1210,6 +1210,18 @@ class PKPTemplateManager extends Smarty
             $output .= 'pkp.const = ' . json_encode($this->_constants) . ';';
         }
 
+        // add apiBaselUrl for useApiUrl composable
+        $dispatcher = Application::get()->getDispatcher();
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+
+        $pageContext = [
+            'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath())
+        ];
+        $output .= 'pkp.context = ' . json_encode($pageContext) . ';';
+
+
+
         // Load current user data
         if (Application::isInstalled()) {
             $user = $this->_request->getUser();

@@ -72,7 +72,7 @@ class SubmissionsListPanel extends PKPSubmissionsListPanel
             return [];
         }
 
-        $sections = Repo::section()->getSectionList($context->getId(), $excludeInactive);
+        $sections = array_values(Repo::section()->getSectionList($context->getId(), $excludeInactive));
 
         return array_map(function ($section) {
             return [

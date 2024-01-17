@@ -107,6 +107,24 @@ msgstr ""
 "consulter, y compris les versions révisées des fichiers d'évaluation "
 "originaux."
 
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Consulter mes évaluations précédentes : "
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Évaluation cycle {$reviewRoundNumber} : {$submissionTitle}"
+
+msgid "reviewer.submission.reviewRound.info.history"
+msgstr "Historique d'évaluation"
+
+msgid "reviewer.submission.comments.authorAndEditor"
+msgstr "Pour l'auteur et la rédaction"
+
+msgid "reviewer.submission.comments.editorOnly"
+msgstr "Editor only"
+
+msgid "reviewer.submission.comments.review"
+msgstr "Évaluation"
+
 msgid "reviewer.complete"
 msgstr "Évaluation envoyée"
 

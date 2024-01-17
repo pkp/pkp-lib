@@ -244,6 +244,22 @@ class UserGroup extends \PKP\core\DataObject
     {
         $this->setData('permitMetadataEdit', $permitMetadataEdit);
     }
+
+    /**
+     * Get the masthead flag
+     */
+    public function getMasthead(): bool
+    {
+        return $this->getData('masthead');
+    }
+
+    /**
+     * Set the masthead flag
+     */
+    public function setMasthead(bool $masthead)
+    {
+        $this->setData('masthead', $masthead);
+    }
 }
 
 if (!PKP_STRICT_MODE) {

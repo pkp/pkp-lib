@@ -400,6 +400,7 @@ class Repository
             $abbrevKey = $setting->getAttribute('abbrev');
             $permitSelfRegistration = $setting->getAttribute('permitSelfRegistration');
             $permitMetadataEdit = $setting->getAttribute('permitMetadataEdit');
+            $masthead = $setting->getAttribute('masthead');
 
             // If has manager role then permitMetadataEdit can't be overridden
             if (in_array($roleId, [Role::ROLE_ID_MANAGER])) {
@@ -416,6 +417,7 @@ class Repository
             $userGroup->setPermitMetadataEdit($permitMetadataEdit ?? false);
             $userGroup->setDefault(true);
             $userGroup->setShowTitle(true);
+            $userGroup->setMasthead($masthead ?? false);
 
             // insert the group into the DB
             $userGroupId = $this->add($userGroup);

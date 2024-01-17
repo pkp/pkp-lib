@@ -1678,6 +1678,9 @@ msgstr "Payment Method"
 msgid "manager.paymentMethod.currency"
 msgstr "Currency"
 
+msgid "settings.roles.masthead"
+msgstr "Consider role in masthead list"
+
 msgid "settings.roles.roleOptions"
 msgstr "Role Options"
 

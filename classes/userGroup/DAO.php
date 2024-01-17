@@ -55,6 +55,7 @@ class DAO extends EntityDAO
         'showTitle' => 'show_title',
         'permitSelfRegistration' => 'permit_self_registration',
         'permitMetadataEdit' => 'permit_metadata_edit',
+        'masthead' => 'masthead',
     ];
 
     /**

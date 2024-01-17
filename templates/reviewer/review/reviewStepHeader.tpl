@@ -30,8 +30,6 @@
 		{rdelim});
 	</script>
 
-	{include file="reviewer/review/reviewRoundTab.tpl"}
-
 	<div id="reviewTabs" class="pkp_controllers_tab">
 		<ul>
 			<li><a href="{url op="step" path=$submission->getId() step=1}">{translate key="reviewer.reviewSteps.request"}</a></li>

@@ -24,14 +24,12 @@ use APP\template\TemplateManager;
 use Exception;
 use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
-use PKP\controllers\review\linkAction\ReviewRoundModalLinkAction;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\notification\PKPNotification;
-use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\form\PKPReviewerReviewStep3Form;
 use PKP\submission\reviewer\form\ReviewerReviewForm;
@@ -50,9 +48,7 @@ class PKPReviewerHandler extends Handler
     {
         $reviewAssignment = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
         $reviewSubmission = Repo::submission()->get($reviewAssignment->getSubmissionId());
-        $reviewSubmissionId = $reviewSubmission->getId();
 
-        $this->insertNewStageAssignmentIfEmpty($request, $reviewSubmissionId);
         $this->setupTemplate($request);
 
         $templateMgr = TemplateManager::getManager($request);
@@ -67,28 +63,23 @@ class PKPReviewerHandler extends Handler
         }
 
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
-        $reviewRounds = $reviewRoundDao->getBySubmissionId($reviewSubmissionId)->toArray();
-        $reviewerId = $reviewAssignment->getReviewerId();
-        $reviewRoundsWhereReviewerAssigned = [];
-        foreach ($reviewRounds as $reviewRound) {
-            $reviewAssignment = Repo::reviewAssignment()->getCollector()
-                ->filterByReviewRoundIds([$reviewRound->getId()])
-                ->filterByReviewerIds([$reviewerId])
-                ->filterByContextIds([$request->getContext()->getId()])
-                ->getMany()
-                ->first();
-            if (!is_null($reviewAssignment)) {
-                $reviewRoundsWhereReviewerAssigned[$reviewRound->getRound()] = $reviewRound;
-            }
-        }
-
-        $lastReviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($reviewSubmissionId);
-        $lastReviewRoundNumber = $lastReviewRound->getRound();
+        $submissionId = $reviewSubmission->getId();
+        $lastRoundId = $reviewRoundDao->getLastReviewRoundBySubmissionId($submissionId)->getId();
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()
+            ->filterByContextIds([$request->getContext()->getId()])
+            ->filterBySubmissionIds([$submissionId])
+            ->filterByReviewerIds([$reviewAssignment->getReviewerId()])
+            ->getMany()
+            ->toArray();
         $reviewRoundHistories = [];
-        foreach ($reviewRoundsWhereReviewerAssigned as $reviewRound) {
-            $round = $reviewRound->getRound();
-            if ($round != $lastReviewRoundNumber) {
-                $reviewRoundHistories[$round - 1] = new ReviewRoundModalLinkAction($request, $reviewSubmissionId, $reviewRound->getId(), $round);
+        foreach ($reviewAssignments as $reviewAssignment) {
+            $reviewRoundId = $reviewAssignment->getReviewRoundId();
+            if ($reviewRoundId != $lastRoundId) {
+                $reviewRoundHistories[] = [
+                    'submissionId' => $submissionId,
+                    'reviewRoundId' => $reviewRoundId,
+                    'reviewRoundNumber' => $reviewAssignment->getRound()
+                ];
             }
         }
 
@@ -97,26 +88,12 @@ class PKPReviewerHandler extends Handler
             'reviewStep' => $reviewStep,
             'selected' => $step - 1,
             'submission' => $reviewSubmission,
-            'reviewRoundHistories' => $reviewRoundHistories,
         ]);
 
         $templateMgr->setState([
             'isReviewRoundHistoryEnabled' => Config::getVar('features', 'enable_review_round_history'),
             'pageInitConfig' => [
-                'reviewRoundHistories' => [
-                    [
-                        'submissionId' => $reviewSubmission->getId(),
-                        // Just as example, not real data
-                        'reviewRoundId' => 0,
-                        'reviewRoundNumber' => 1
-                    ],
-                    [
-                        'submissionId' => $reviewSubmission->getId(),
-                        // Just as example, not real data
-                        'reviewRoundId' => 1,
-                        'reviewRoundNumber' => 2
-                    ]
-                ]
+                'reviewRoundHistories' => $reviewRoundHistories
             ]
         ]);
 
@@ -134,9 +111,7 @@ class PKPReviewerHandler extends Handler
         assert(!empty($reviewId));
 
         $reviewSubmission = Repo::submission()->get($reviewAssignment->getSubmissionId());
-        $reviewSubmissionId = $reviewSubmission->getId();
 
-        $this->insertNewStageAssignmentIfEmpty($request, $reviewSubmissionId);
         $this->setupTemplate($request);
 
         $reviewStep = max($reviewAssignment->getStep(), 1); // Get the current saved step from the DB
@@ -282,31 +257,5 @@ class PKPReviewerHandler extends Handler
         $reviewId = (int) $reviewAssignment->getId();
         assert(!empty($reviewId));
         return $reviewId;
-    }
-
-    /**
-     * Insert a new stage assignment object if it doesn't already exist.
-     *
-     * @param PKPRequest $request
-     * @param int $reviewSubmissionId
-     *
-     * @throws Exception
-     */
-    private function insertNewStageAssignmentIfEmpty(PKPRequest $request, int $reviewSubmissionId): void
-    {
-        $reviewerUserGroups = Repo::userGroup()
-            ->getByRoleIds([Role::ROLE_ID_REVIEWER], $request->getContext()->getId(), true)
-            ->first();
-        $reviewerUserGroupsId = $reviewerUserGroups->getId();
-        $userId = $request->getUser()->getId();
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-        $result = $stageAssignmentDao->getBySubmissionAndStageId($reviewSubmissionId, null, $reviewerUserGroupsId, $userId);
-        if (count($result->toArray()) === 0) {
-            $stageAssignment = $stageAssignmentDao->newDataObject();
-            $stageAssignment->setSubmissionId($reviewSubmissionId);
-            $stageAssignment->setUserId($userId);
-            $stageAssignment->setUserGroupId($reviewerUserGroupsId);
-            $stageAssignmentDao->insertObject($stageAssignment);
-        }
     }
 }

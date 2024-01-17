@@ -1216,7 +1216,7 @@ class PKPTemplateManager extends Smarty
         $context = $request->getContext();
 
         $pageContext = [
-            'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath())
+            'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: 'index')
         ];
         $output .= 'pkp.context = ' . json_encode($pageContext) . ';';
 

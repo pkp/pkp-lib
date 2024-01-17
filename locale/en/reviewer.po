@@ -94,6 +94,24 @@ msgstr ""
 "Upload files you would like the editor and/or author to consult, including "
 "revised versions of the original review file(s)."
 
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Read my former reviews: "
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Evaluation cycle {$reviewRoundNumber} : {$submissionTitle}"
+
+msgid "reviewer.submission.reviewRound.info.history"
+msgstr "Review history"
+
+msgid "reviewer.submission.comments.authorAndEditor"
+msgstr "Author and editor"
+
+msgid "reviewer.submission.comments.editorOnly"
+msgstr "Pour la rédaction seulement"
+
+msgid "reviewer.submission.comments.review"
+msgstr "Review"
+
 msgid "reviewer.complete"
 msgstr "Review Submitted"
 

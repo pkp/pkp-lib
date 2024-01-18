@@ -1,15 +1,15 @@
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Maxence Larrieu <maxence.Larrieu@u-paris.fr>, 2022.
-# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
+# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2024.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-09-13 06:06+0000\n"
-"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
+"PO-Revision-Date: 2024-01-20 02:39+0000\n"
+"Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
@@ -1102,11 +1102,9 @@ msgstr "Métadonnées additionnelles"
 msgid "submission.submit.submissionLocale"
 msgstr "Langue de la soumission"
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
 msgstr ""
-"Les soumissions dans plusieurs langues sont acceptées. Choisir la langue "
-"principale de la soumission parmi celles présentes dans le menu déroulant."
+"Choisir la langue principale de la soumission parmi les choix ci-dessous."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Fichiers de la soumission"
@@ -1965,7 +1963,7 @@ msgid "submission.actionNeeded"
 msgstr "Action requise"
 
 msgid "reviewer.submission.reviewFiles"
-msgstr "Fichiers à évaluer"
+msgstr "Fichiers d'évaluation"
 
 msgid "submission.submit.currentFile"
 msgstr "Fichier en cours"
@@ -2682,7 +2680,7 @@ msgid "publication.status.scheduled"
 msgstr "Planifié-e"
 
 msgid "publication.status.unpublished"
-msgstr "Dépublié-e"
+msgstr "Non publié-e"
 
 msgid "publication.titleAbstract"
 msgstr "Titre et résumé"
@@ -2750,7 +2748,7 @@ msgstr "Soumission dans la rubrique <strong>{$section}</strong>."
 
 msgid "submission.wizard.submittingToSectionInLanguage"
 msgstr ""
-"Soumission dans la <strong>{$section}</strong> rubrique en "
+"Soumission dans la rubrique <strong>{$section}</strong>en "
 "<strong>{$language}</strong>."
 
 msgid "submission.type.tip"
@@ -2789,9 +2787,10 @@ msgstr ""
 "Indiquez si vous avez mis à disposition des preuves à l'appui de ce travail "
 "et, dans l'affirmative, où et comment elles peuvent être consultées"
 
-#, fuzzy
 msgid "submission.files.required.genre"
-msgstr "Vous devez soumettre au minimum un {$genre} fichier."
+msgstr ""
+"Vous devez soumettre au minimum un fichier et lui attribuer le type {$genre} "
+"."
 
 #, fuzzy
 msgid "submission.files.required.genres"

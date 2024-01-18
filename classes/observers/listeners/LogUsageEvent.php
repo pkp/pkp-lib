@@ -130,9 +130,6 @@ class LogUsageEvent
         // Hash the IP
         $ip = $request->getRemoteAddr();
         $hashedIp = StatisticsHelper::hashIp($ip, $salt);
-        if ($hashedIp === null) {
-            error_log('UsageEventLog: the IP cound not be hashed.');
-        }
 
         $site = $request->getSite();
         $context = $usageEvent->context;

@@ -102,9 +102,7 @@ class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface {
 	public function getCount() {
 		return $this
 			->getQuery()
-			->select('a.author_id')
-			->get()
-			->count();
+			->safeCount();
 	}
 
 	/**

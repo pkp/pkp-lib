@@ -424,12 +424,9 @@ class PKPUserQueryBuilder implements EntityQueryBuilderInterface {
 	 * @copydoc PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface::getCount()
 	 */
 	public function getCount() {
-		$q = $this->getQuery();
-		// Reset the orderBy
-		$q->orders = [];
-		return $q->select('u.user_id')
-			->get()
-			->count();
+		return $this
+			->getQuery()
+			->safeCount();
 	}
 
 	/**

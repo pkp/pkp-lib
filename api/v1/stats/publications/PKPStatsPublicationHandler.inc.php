@@ -246,7 +246,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler {
 		$metricsDao = \DAORegistry::getDAO('MetricsDAO'); /** @var MetricsDAO */
 		return $response->withJson([
 			'items' => $items,
-			'itemsMax' => $metricsDao->countRecords($statsQO->toSql(), $statsQO->getBindings()),
+			'itemsMax' => $metricsDao->countRecords($statsQO),
 		], 200);
 	}
 

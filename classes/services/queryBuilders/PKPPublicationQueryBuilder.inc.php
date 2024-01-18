@@ -85,9 +85,7 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface {
 	public function getCount() {
 		return $this
 			->getQuery()
-			->select('p.publication_id')
-			->get()
-			->count();
+			->safeCount();
 	}
 
 	/**
@@ -188,6 +186,6 @@ class PKPPublicationQueryBuilder implements EntityQueryBuilderInterface {
 			->where('url_path', '=' , $urlPath)
 			->where('p.submission_id', '!=', $submissionId)
 			->where('s.context_id', '=', $contextId)
-			->count();
+			->safeCount();
 	}
 }

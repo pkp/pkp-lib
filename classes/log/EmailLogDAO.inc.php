@@ -59,19 +59,22 @@ class EmailLogDAO extends DAO {
 		];
 		if ($userId) $params[] = $userId;
 
-		$result = $this->retrieveRange(
-			$sql = 'SELECT	e.*
-			FROM	email_log e' .
-			($userId ? ' LEFT JOIN email_log_users u ON e.log_id = u.email_log_id' : '') .
-			' WHERE	e.assoc_type = ? AND
+		$baseSql = '
+			FROM email_log e' .
+			($userId ? ' LEFT JOIN email_log_users u ON e.log_id = u.email_log_id' : '') . '
+			WHERE e.assoc_type = ? AND
 				e.assoc_id = ? AND
 				e.event_type = ?' .
-				($userId ? ' AND u.user_id = ?' : ''),
+				($userId ? ' AND u.user_id = ?' : '') . '
+		';
+
+		$result = $this->retrieveRange(
+			"SELECT e.* {$baseSql}",
 			$params,
 			$rangeInfo
 		);
 
-		return new DAOResultFactory($result, $this, 'build', [], $sql, $params, $rangeInfo); // Counted in submissionEmails.tpl
+		return new DAOResultFactory($result, $this, 'build', [], "SELECT 0 {$baseSql}", $params, $rangeInfo); // Counted in submissionEmails.tpl
 	}
 
 	/**

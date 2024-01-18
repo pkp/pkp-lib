@@ -46,7 +46,7 @@ class I18nController extends PKPBaseController
      */
     public function getGroupRoutes(): void
     {
-        Route::get('ui.js', $this->getTranslations(...))->name('_i18n.getTranslations');
+        Route::get('ui', $this->getTranslations(...))->name('_i18n.getTranslations');
     }
 
     /**

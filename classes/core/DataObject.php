@@ -520,7 +520,7 @@ class DataObject
      */
     public function getDAO()
     {
-        assert(false);
+        throw new Exception('Not implemented');
     }
 }
 

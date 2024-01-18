@@ -197,7 +197,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
      */
     public function deleteObject($navigationMenu)
     {
-        return $this->deleteById($navigationMenu->getId());
+        $this->deleteById($navigationMenu->getId());
     }
 
     /**

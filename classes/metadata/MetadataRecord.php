@@ -58,6 +58,7 @@ class MetadataRecord
 
         // Add the description
         $this->_descriptions[$applicationEntityId] = & $metadataDescription;
+        return true;
     }
 
     /**

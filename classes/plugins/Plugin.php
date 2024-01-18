@@ -766,7 +766,7 @@ abstract class Plugin
         if ($installedPlugin) {
             return $installedPlugin;
         } else {
-            return false;
+            return null;
         }
     }
 

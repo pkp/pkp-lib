@@ -330,10 +330,10 @@ class DAO
                 return (float) $value;
             case 'object':
             case 'array':
-                $decodedValue = json_decode($value, true);
+                $decodedValue = json_decode($value ?? ($type === 'array' ? '[]' : '{}'), true);
                 // FIXME: pkp/pkp-lib#6250 Remove after 3.3.x upgrade code is removed (see also pkp/pkp-lib#5772)
                 if (!is_null($decodedValue)) {
-                    return $decodedValue;
+                    return $type === 'array' ? array_values((array) $decodedValue) : (object) $decodedValue;
                 } else {
                     return unserialize($value);
                 }
@@ -399,6 +399,9 @@ class DAO
         switch ($type) {
             case 'object':
             case 'array':
+                if ($value !== null) {
+                    $value = $type === 'array' ? array_values((array) $value) : (object) $value;
+                }
                 $value = json_encode($value, JSON_UNESCAPED_UNICODE);
                 break;
             case 'bool':

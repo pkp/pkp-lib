@@ -267,7 +267,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
      */
     public function deleteObject($navigationMenuItemAssignment)
     {
-        return $this->deleteById($navigationMenuItemAssignment->getId());
+        $this->deleteById($navigationMenuItemAssignment->getId());
     }
 
     /**

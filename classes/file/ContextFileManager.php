@@ -41,7 +41,7 @@ class ContextFileManager extends PrivateFileManager
     public function getBasePath()
     {
         $dirNames = Application::getFileDirectories();
-        return parent::getBasePath() . $dirNames['context'] . $this->contextId . '/';
+        return rtrim(parent::getBasePath(), '/\\') . $dirNames['context'] . $this->contextId . '/';
     }
 }
 

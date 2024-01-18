@@ -62,13 +62,13 @@ class Validation
 
         if (!isset($user)) {
             // User does not exist
-            return false;
+            return null;
         }
 
         // Validate against user database
         $rehash = null;
         if (!self::verifyPassword($username, $password, $user->getPassword(), $rehash)) {
-            return false;
+            return null;
         }
 
         if (!empty($rehash)) {

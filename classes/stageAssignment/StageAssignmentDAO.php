@@ -414,13 +414,13 @@ class StageAssignmentDAO extends \PKP\db\DAO
         if ($single) {
             // all four parameters must be specified for a single record to be returned
             if (!$submissionId && !$stageId && !$userGroupId && !$userId) {
-                return false;
+                return null;
             }
             // no matches were found.
             if ($row = $result->current()) {
                 return $this->_fromRow((array) $row);
             }
-            return false;
+            return null;
         }
         // In any other case, return a list of all assignments
         return new DAOResultFactory($result, $this, '_fromRow');

@@ -116,14 +116,23 @@ msgstr "Évaluation cycle {$reviewRoundNumber} : {$submissionTitle}"
 msgid "reviewer.submission.reviewRound.info.history"
 msgstr "Historique d'évaluation"
 
-msgid "reviewer.submission.comments.authorAndEditor"
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
 msgstr "Pour l'auteur et la rédaction"
 
-msgid "reviewer.submission.comments.editorOnly"
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
 msgstr "Pour la rédaction seulement"
 
-msgid "reviewer.submission.comments.review"
+msgid "reviewer.submission.reviewRound.comments.review"
 msgstr "Évaluation"
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Raison du refus envoyée par courriel"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "Aucune raison fournie pour le refus de l'invitation à évaluer."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Date du refus"
 
 msgid "reviewer.complete"
 msgstr "Évaluation envoyée"

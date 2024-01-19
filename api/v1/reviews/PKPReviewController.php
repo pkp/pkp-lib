@@ -120,16 +120,20 @@ class PKPReviewController extends PKPBaseController
         $publicationTitle = $submission->getCurrentPublication()->getLocalizedTitle();
 
         $declineEmail = null;
-        if (!$reviewAssignment->getDeclined()) {
+        if ($reviewAssignment->getDeclined()) {
             $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
             $emailLogs = $submissionEmailLogDao->getBySenderId($submissionId, SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_DECLINE, $reviewerId)->toArray();
-            // TODO: look for the right email log with the right round number.
-            if ($emailLogs) {
-                $emailLog = $emailLogs[0];
-                $declineEmail = [
-                    'subject' => $emailLog->getData('subject'),
-                    'body' => $emailLog->getData('body'),
-                ];
+            foreach ($emailLogs as $emailLog) {
+                $dateSent = substr($emailLog->getData('dateSent'), 0, 10);
+                $dateConfirmed = substr($reviewAssignment->getData('dateConfirmed'), 0, 10);
+                // Compare the dates to get the decline email associated to the current round.
+                if ($dateSent === $dateConfirmed) {
+                    $declineEmail = [
+                        'subject' => $emailLog->getData('subject'),
+                        'body' => $emailLog->getData('body'),
+                    ];
+                    break;
+                }
             }
         }
 
@@ -138,10 +142,17 @@ class PKPReviewController extends PKPBaseController
 
         $reviewAssignmentId = $reviewAssignment->getId();
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
-        $comments = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewerId, $reviewAssignmentId, true)->toArray();
-        $privateComments = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewerId, $reviewAssignmentId, false)->toArray();
-
-        // TODO: get the comments data...
+        $allSubmissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, $reviewerId, $reviewAssignmentId)->toArray();
+        $viewableComments = [];
+        $privateComments = [];
+        foreach ($allSubmissionComments as $submissionComment) {
+            $comments = $submissionComment->getData('comments');
+            if ($submissionComment->getData('viewable')) {
+                $viewableComments[] = $comments;
+            } else {
+                $privateComments[] = $comments;
+            }
+        }
 
         $lastReviewAssignment = Repo::reviewAssignment()->getCollector()
             ->filterByContextIds([$contextId])
@@ -157,7 +168,7 @@ class PKPReviewController extends PKPBaseController
             'declineEmail' => $declineEmail,
             'reviewAssignment' => $reviewAssignmentProps,
             'recommendation' => $recommendation,
-            'comments' => $comments,
+            'comments' => $viewableComments,
             'privateComments' => $privateComments,
             'displayFiles' => $displayFiles,
         ];

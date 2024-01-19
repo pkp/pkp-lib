@@ -134,6 +134,7 @@ class PKPReviewController extends PKPBaseController
         }
 
         $reviewAssignmentProps = Repo::reviewAssignment()->getSchemaMap()->map($reviewAssignment);
+        $recommendation = $reviewAssignment->getLocalizedRecommendation();
 
         $reviewAssignmentId = $reviewAssignment->getId();
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO');
@@ -155,6 +156,7 @@ class PKPReviewController extends PKPBaseController
             'publicationTitle' => $publicationTitle,
             'declineEmail' => $declineEmail,
             'reviewAssignment' => $reviewAssignmentProps,
+            'recommendation' => $recommendation,
             'comments' => $comments,
             'privateComments' => $privateComments,
             'displayFiles' => $displayFiles,

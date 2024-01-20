@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2023-04-21 23:28+0000\n"
+"PO-Revision-Date: 2024-01-21 10:39+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/cs/>"
 "\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Žádné položky"
@@ -406,7 +406,7 @@ msgid "grid.contributor.title"
 msgstr "Spolupracovník"
 
 msgid "grid.action.addContributor"
-msgstr "Přidat autora"
+msgstr "Přidat přispěvatele"
 
 msgid "grid.action.deleteContributor"
 msgstr "Smazat autora"

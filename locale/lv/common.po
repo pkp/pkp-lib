@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-15 19:17+0000\n"
+"PO-Revision-Date: 2024-01-22 17:20+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "lv/>\n"
@@ -1413,7 +1413,7 @@ msgid "navigation.items.shownTotal"
 msgstr "{$shown} no {$total} vienībā"
 
 msgid "navigation.login"
-msgstr "Pieteikties"
+msgstr "Pieteikties sistēmā"
 
 msgid "navigation.nextPage"
 msgstr "&gt;&gt;"
@@ -1885,7 +1885,7 @@ msgstr "Jums nav piekļuves šim recenzēšanas piešķīrumam."
 msgid "user.authorization.submissionAuthor"
 msgstr ""
 "Pašreizējais lietotājs nav pieprasītā iesniegtā materiāla autors. Lūdzu, "
-"pārbaudiet, vai esat pieteicies ar pareizo lietotāja kontu."
+"pārbaudiet, vai esat pieteicies sistēmā ar pareizo lietotāja kontu."
 
 msgid "user.register.form.privacyConsentLabel"
 msgstr "Konfidencialitātes iestatījumi"

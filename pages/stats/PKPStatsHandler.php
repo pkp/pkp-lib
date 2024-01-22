@@ -28,6 +28,7 @@ use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\statistics\PKPStatisticsHelper;
+use PKP\sushi\CounterR5Report;
 
 class PKPStatsHandler extends Handler
 {
@@ -458,6 +459,9 @@ class PKPStatsHandler extends Handler
             ]
         );
 
+        $earliestDate = CounterR5Report::getEarliestDate();
+        $lastDate = CounterR5Report::getLastDate();
+
         $templateMgr->setState([
             'components' => [
                 $counterReportsListPanel->id => $counterReportsListPanel->getConfig(),
@@ -465,6 +469,7 @@ class PKPStatsHandler extends Handler
         ]);
         $templateMgr->assign([
             'pageComponent' => 'CounterReportsPage',
+            'usagePossible' => $lastDate > $earliestDate,
         ]);
         $templateMgr->display('stats/counterReports.tpl');
     }

@@ -16,7 +16,6 @@
 namespace PKP\components\forms\counter;
 
 use PKP\components\forms\FormComponent;
-use PKP\sushi\CounterR5Report;
 
 define('FORM_COUNTER', 'counter');
 
@@ -54,12 +53,6 @@ abstract class PKPCounterReportForm extends FormComponent
     public function getConfig()
     {
         $config = parent::getConfig();
-
-        $earliestDate = CounterR5Report::getEarliestDate();
-        $lastDate = CounterR5Report::getLastDate();
-
-        $config['earliestDate'] = $earliestDate;
-        $config['lastDate'] = $lastDate;
         $config['reportFields'] = array_map(function ($reportFields) {
             return array_map(function ($reportField) {
                 $field = $this->getFieldConfig($reportField);

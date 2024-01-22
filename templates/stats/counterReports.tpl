@@ -14,6 +14,9 @@
 		{translate key="manager.statistics.counterR5Reports"}
 	</h1>
 	<p>{translate key="manager.statistics.counterR5Reports.description"}</p>
+	{if !$usagePossible}
+		<notification class="pkpNotification--backendPage__header" type="warning">{translate key="manager.statistics.counterR5Reports.usageNotPossible"}</notification>
+	{/if}
 	<panel>
 		<panel-section>
 			<counter-reports-list-panel

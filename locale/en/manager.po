@@ -840,6 +840,9 @@ msgstr "Counter R5 Reports"
 msgid "manager.statistics.counterR5Reports.description"
 msgstr "See <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index.html\" target=\"_new\">COUNTER 5.0.3 documentation</a> for more information about each report."
 
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "There are no COUNTER R5 usage statistics available yet."
+
 msgid "manager.statistics.counterR5Report.settings"
 msgstr "Report Settings"
 

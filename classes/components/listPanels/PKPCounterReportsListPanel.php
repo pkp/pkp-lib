@@ -16,6 +16,7 @@
 namespace PKP\components\listPanels;
 
 use APP\components\forms\counter\CounterReportForm;
+use PKP\sushi\CounterR5Report;
 
 class PKPCounterReportsListPanel extends ListPanel
 {
@@ -34,12 +35,17 @@ class PKPCounterReportsListPanel extends ListPanel
     public function getConfig(): array
     {
         $config = parent::getConfig();
+
+        $earliestDate = CounterR5Report::getEarliestDate();
+        $lastDate = CounterR5Report::getLastDate();
+
         $config = array_merge(
             $config,
             [
                 'apiUrl' => $this->apiUrl,
                 'editCounterReportLabel' => __('manager.statistics.counterR5Report.settings'),
                 'form' => $this->form->getConfig(),
+                'usagePossible' => $lastDate > $earliestDate,
             ]
         );
         return $config;

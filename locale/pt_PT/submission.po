@@ -1,11 +1,11 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022, 2023.
-# José Carvalho <jcarvalho@keep.pt>, 2022, 2023.
+# José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2023-11-27 16:38+0000\n"
+"PO-Revision-Date: 2024-01-22 17:20+0000\n"
 "Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_PT/>\n"
@@ -2711,3 +2711,11 @@ msgstr "Autores"
 
 msgid "submission.author.list"
 msgstr "Lista de Autores"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Indique qualquer conflito de interesse que possa ter no contexto deste "
+"trabalho."
+
+msgid "author.competingInterests"
+msgstr "Conflito de Interesses"

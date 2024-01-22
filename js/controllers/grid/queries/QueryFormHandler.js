@@ -80,7 +80,6 @@
 					function(sourceElement, event) {
 		var $form = this.getHtmlElement(),
 				template = $form.find('[name="template"]');
-		$form.find('[name="subject"]').val(template.find('option:selected').text());
 		$.post(this.templateUrl_, template.serialize(),
 				this.callbackWrapper(this.updateTemplate), 'json');
 	};
@@ -113,6 +112,7 @@
 			$textarea.attr('data-variables', JSON.stringify(jsonDataContent.variables));
 		}
 		editor.setContent(jsonDataContent.body);
+		$form.find('[name="subject"]').val(jsonDataContent.subject);
 
 		return processedJsonData.status;
 	};

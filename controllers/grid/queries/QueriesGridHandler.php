@@ -781,7 +781,10 @@ class QueriesGridHandler extends GridHandler
 
             return new JSONMessage(
                 true,
-                ['body' => Mail::compileParams($template->getLocalizedData('body'), $data)]
+                [
+                    'body' => Mail::compileParams($template->getLocalizedData('body'), $data),
+                    'subject' => Mail::compileParams($template->getLocalizedData('subject'), $data),
+                ]
             );
         }
     }

@@ -66,6 +66,7 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
 
             $table->datetime('date_start')->nullable();
             $table->datetime('date_end')->nullable();
+            $table->smallInteger('masthead')->nullable();
         });
 
         Schema::create('user_group_stage', function (Blueprint $table) {

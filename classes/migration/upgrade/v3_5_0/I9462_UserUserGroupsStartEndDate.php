@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/migration/upgrade/v3_5_0/I9462_UserUserGroups.php
+ * @file classes/migration/upgrade/v3_5_0/I9462_UserUserGroupsStartEndDate.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class I9462_UserUserGroups
+ * @class I9462_UserUserGroupsStartEndDate
  *
  * @brief Add start and end date to the user_user_groups table.
  */
@@ -18,7 +18,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
 
-class I9462_UserUserGroups extends Migration
+class I9462_UserUserGroupsStartEndDate extends Migration
 {
     /**
      * Run the migrations.

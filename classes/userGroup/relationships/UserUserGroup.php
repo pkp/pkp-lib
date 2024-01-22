@@ -24,7 +24,7 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
     public $timestamps = false;
     public $incrementing = false;
     protected $primaryKey = null;
-    protected $fillable = ['userGroupId', 'userId', 'dateStart', 'dateEnd'];
+    protected $fillable = ['userGroupId', 'userId', 'dateStart', 'dateEnd', 'masthead'];
 
     public function user(): Attribute
     {
@@ -74,6 +74,14 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
         );
     }
 
+    public function masthead(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($userGroup, $attributes) => $attributes['masthead'],
+            set: fn ($value) => ['masthead' => $value]
+        );
+    }
+
     public function scopeWithUserId(Builder $query, int $userId): Builder
     {
         return $query->where('user_user_groups.user_id', $userId);
@@ -111,5 +119,10 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
         return $query
             ->join('user_groups as ug', 'user_user_groups.user_group_id', '=', 'ug.user_group_id')
             ->where('ug.context_id', $contextId);
+    }
+
+    public function scopeWithMasthead(Builder $query): Builder
+    {
+        return $query->where('user_user_groups.masthead', 1);
     }
 }

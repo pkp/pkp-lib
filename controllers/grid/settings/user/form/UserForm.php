@@ -47,18 +47,19 @@ class UserForm extends Form
      */
     public function initData()
     {
-        $userGroupIds = [];
+        $userGroupIds = $masthead = [];
 
         if (!is_null($this->userId)) {
             $userGroups = Repo::userGroup()->userUserGroups($this->userId);
 
             foreach ($userGroups as $userGroup) {
                 $userGroupIds[] = $userGroup->getId();
+                $masthead[$userGroup->getId()] = Repo::userGroup()->userOnMasthead($this->userId, $userGroup->getId());
             }
         }
 
         $this->setData('userGroupIds', $userGroupIds);
-
+        $this->setData('masthead', $masthead);
 
         parent::initData();
     }

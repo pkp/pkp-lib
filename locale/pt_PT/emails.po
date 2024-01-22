@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
-"PO-Revision-Date: 2023-12-28 09:39+0000\n"
+"PO-Revision-Date: 2024-01-22 17:20+0000\n"
 "Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/emails/pt_PT/>\n"
@@ -38,7 +38,7 @@ msgstr ""
 "{$contextSignature}"
 
 msgid "emails.submissionAck.description"
-msgstr ""
+msgstr "Este e-mail é enviado automaticamente ao autor quando envia o trabalho."
 
 msgid "emails.reviewAck.subject"
 msgstr "Obrigado pela revisão"
@@ -179,19 +179,19 @@ msgstr ""
 "Nome de utilizador: {$recipientUsername}"
 
 msgid "emails.editorDecisionNewReviewRound.subject"
-msgstr ""
+msgstr "Sua submissão foi enviada para outra ronda de revisão"
 
 msgid "emails.editorDecisionNewReviewRound.body"
 msgstr ""
 
 msgid "emails.editorDecisionRevertDecline.subject"
-msgstr ""
+msgstr "Revertemos a decisão de rejeitar a submissão"
 
 msgid "emails.editorDecisionRevertDecline.body"
 msgstr ""
 
 msgid "emails.editorDecisionRevertInitialDecline.subject"
-msgstr ""
+msgstr "Revertemos a decisão de rejeitar a submissão"
 
 msgid "emails.editorDecisionRevertInitialDecline.body"
 msgstr ""
@@ -212,49 +212,60 @@ msgstr ""
 "A decisão é: Rejeitar a Submissão"
 
 msgid "emails.editorialReminder.subject"
-msgstr ""
+msgstr "Tarefas editoriais excepcionais para {$contextName}"
 
 msgid "emails.editorialReminder.body"
 msgstr ""
 
 msgid "discussion.notification.description"
 msgstr ""
+"Este e-mail é enviado quando um utilizador cria uma nova discussão ou "
+"responde a uma discussão existente"
 
 msgid "emails.editorDecisionBackFromProduction.subject"
-msgstr ""
+msgstr "A submissão foi enviada de volta para edição de texto"
 
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 
 msgid "emails.editorDecisionBackFromCopyediting.subject"
-msgstr ""
+msgstr "A submissão foi enviada novamente para avaliação"
 
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 
 msgid "emails.editorDecisionCancelReviewRound.subject"
-msgstr ""
+msgstr "Uma ronda de avaliação da sua submissão foi cancelada"
 
 msgid "emails.editorDecisionCancelReviewRound.body"
 msgstr ""
 
 msgid "emails.reviewResendRequest.subject"
-msgstr ""
+msgstr "A solicitar novamente a sua avaliação para {$contextName}"
 
 msgid "emails.reviewResendRequest.body"
 msgstr ""
 
 msgid "emails.footer.unsubscribe"
 msgstr ""
+"<br><br>—<br><a href=\"{$unsubscribeUrl}\">Cancelar subscrição</a> de e-"
+"mails enviados por <a href=\"{$contextUrl}\">{$contextName}</a>."
 
 msgid "emails.footer.unsubscribe.discussion"
 msgstr ""
+"<br><br>—<br>Responda a este comentário em <a href=\"{$submissionUrl}\""
+">#{$submissionId} {$authorsShort}</a> ou <a href=\"{$unsubscribeUrl}\" "
+">cancelar subscrição</a> de e-mails enviados por <a href=\"{$contextUrl}\""
+">{$contextName}</a>."
 
 msgid "emails.footer.unsubscribe.automated"
 msgstr ""
+"<br><br>—<br>Esta é uma mensagem automática de <a href=\"{$contextUrl}\""
+">{$contextName}</a>. Pode <a href=\"{$unsubscribeUrl}\">cancelar a "
+"subscrição</a> deste e-mail a qualquer momento."
 
 msgid "emailTemplate.variable.unsubscribe"
-msgstr ""
+msgstr "O link para cancelar a subscrição deste e-mail."
 
 #, fuzzy
 msgid "emails.discussion.subject"
@@ -264,19 +275,21 @@ msgid "emails.discussion.body"
 msgstr "Escreva a sua mensagem."
 
 msgid "emails.versionCreated.subject"
-msgstr ""
+msgstr "Foi criada uma nova versão para {$submissionTitle}"
 
 msgid "emails.versionCreated.body"
 msgstr ""
 
 msgid "emails.reviewComplete.subject"
 msgstr ""
+"Avaliação concluída: {$reviewerName} recomenda {$reviewRecommendation} para "
+"#{$submissionId} {$authorsShort} — {$submissionTitle}"
 
 msgid "emails.reviewComplete.body"
 msgstr ""
 
 msgid "emails.reviewEdit.subject"
-msgstr ""
+msgstr "A tarefa de avaliação foi alterada em {$contextName}"
 
 msgid "emails.reviewEdit.body"
 msgstr ""
@@ -297,13 +310,15 @@ msgstr ""
 "{$senderName}"
 
 msgid "emails.submissionSavedForLater.subject"
-msgstr ""
+msgstr "Retome a sua submissão em {$contextName}"
 
 msgid "emails.submissionSavedForLater.body"
 msgstr ""
 
 msgid "emails.submissionNeedsEditor.subject"
 msgstr ""
+"Esta nova submissão precisa que lhe seja designado um editor: "
+"{$submissionTitle}"
 
 msgid "emails.submissionNeedsEditor.body"
 msgstr ""

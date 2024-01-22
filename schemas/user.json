@@ -274,6 +274,13 @@
 			"validation": [
 				"nullable"
 			]
+		},
+		"rememberToken": {
+			"type": "string",
+			"writeOnly": true,
+			"validation": [
+				"nullable"
+			]
 		}
 	}
 }

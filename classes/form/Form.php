@@ -31,7 +31,6 @@ use PKP\facades\Locale;
 use PKP\form\validation\FormValidator;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
-use PKP\session\SessionManager;
 
 class Form
 {
@@ -313,7 +312,7 @@ class Form
             }
         }
 
-        if (!SessionManager::isDisabled()) {
+        if (!defined('SESSION_DISABLE_INIT')) {
             $request = Application::get()->getRequest();
             $user = $request->getUser();
 

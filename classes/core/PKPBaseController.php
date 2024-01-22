@@ -33,7 +33,6 @@ use PKP\security\authorization\HttpsPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RestrictedSiteAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
-use PKP\session\SessionManager;
 use PKP\statistics\PKPStatisticsHelper;
 use PKP\validation\ValidatorFactory;
 use ReflectionFunction;

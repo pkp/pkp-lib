@@ -602,7 +602,7 @@ class PKPRequest
     public function getSession(): SessionManager|Session|null
     {
         $session = null;
-        $illuminateRequest = app(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
+        $illuminateRequest = app()->get(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
 
         if ($illuminateRequest->hasSession()) {
             $session = $illuminateRequest->session(); /** @var \Illuminate\Contracts\Session\Session $sessionManager */
@@ -630,7 +630,6 @@ class PKPRequest
             return $user = $apiUser;
         }
 
-        error_log('GETTING A SESSION USER ID: ' . $this->getSession()->get('user_id'));
         // Attempts to retrieve a logged user
         if (Validation::isLoggedIn()) {
             $user = Repo::user()->get($this->getSession()->get('user_id'));

@@ -2,16 +2,34 @@
 
 namespace PKP\core;
 
+use APP\core\Application;
+use APP\facades\Repo;
+use Throwable;
+use PKP\security\Validation;
+use InvalidArgumentException;
 use Illuminate\Auth\SessionGuard;
 use Illuminate\Support\Facades\DB;
-use Throwable;
 
 class PKPSessionGuard extends SessionGuard
 {
     /**
+     * The currently authenticated user.
+     *
+     * @var \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User|null
+     */
+    protected $user;
+
+    public function updateUser(\Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
      * Get the currently authenticated user.
      *
-     * @return \Illuminate\Contracts\Auth\Authenticatable|null
+     * @return \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User|null
      */
     public function user()
     {
@@ -51,5 +69,37 @@ class PKPSessionGuard extends SessionGuard
         // }
         
         return $this->user;
+    }
+
+    /**
+     * Rehash the current user's password.
+     *
+     * @param  string  $password
+     * @param  string  $attribute
+     * @return \Illuminate\Contracts\Auth\Authenticatable|null
+     *
+     * @throws \InvalidArgumentException
+     */
+    protected function rehashUserPassword($password, $attribute)
+    {
+        $rehash = null;
+
+        if (! Validation::verifyPassword($this->user->getUsername(), $password, $this->user->getPassword(), $rehash)) {
+            throw new InvalidArgumentException('The given password does not match the current password.');
+        }
+
+        return tap($this->user, function(&$user) use ($password) {
+            $rehash ??= Validation::encryptCredentials($user->getUsername(), $password);
+            $user->setPassword($rehash);
+            
+            $session = Application::get()->getRequest()->getSession();
+            $session->put([
+                'password_hash_' . app()->get('auth')->getDefaultDriver() => $rehash,
+            ]);
+            $session->save();
+            $session->start();
+
+            Repo::user()->edit($user);
+        });
     }
 }

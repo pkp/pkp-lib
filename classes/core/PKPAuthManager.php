@@ -5,7 +5,9 @@ namespace PKP\core;
 use APP\facades\Repo;
 use APP\core\Application;
 use InvalidArgumentException;
+use PKP\core\PKPSessionGuard;
 use PKP\core\PKPUserProvider;
+use Illuminate\Contracts\Auth\Factory as AuthFactory;
 
 class PKPAuthManager extends \Illuminate\Auth\AuthManager
 {
@@ -20,7 +22,8 @@ class PKPAuthManager extends \Illuminate\Auth\AuthManager
         $this->app = $app;
 
         $this->userResolver = function ($guard = null) {
-            $session = session();
+
+            $session = \App\core\Application::get()->getRequest()->getSession();
 
             if ($session && ($userId = $session->get('user_id'))) {
                 return Repo::user()->get($userId);
@@ -68,6 +71,45 @@ class PKPAuthManager extends \Illuminate\Auth\AuthManager
      */
     public function createPKPUserProvider(array $config = [])
     {
-        return new PKPUserProvider();
+        return app()->get(PKPUserProvider::class);
+    }
+
+    /**
+     * Create a session based authentication guard.
+     *
+     * @param  string  $name
+     * @param  array  $config
+     * @return \Illuminate\Auth\SessionGuard
+     */
+    public function createSessionDriver($name, $config)
+    {
+        $provider = $this->createUserProvider($config['provider'] ?? null);
+
+        $guard = new PKPSessionGuard(
+            $name,
+            $provider,
+            $this->app['session.store'],
+        );
+
+        // When using the remember me functionality of the authentication services we
+        // will need to be set the encryption instance of the guard, which allows
+        // secure, encrypted cookie values to get generated for those cookies.
+        if (method_exists($guard, 'setCookieJar')) {
+            $guard->setCookieJar($this->app['cookie']);
+        }
+
+        if (method_exists($guard, 'setDispatcher')) {
+            $guard->setDispatcher($this->app['events']);
+        }
+
+        if (method_exists($guard, 'setRequest')) {
+            $guard->setRequest($this->app->refresh('request', $guard, 'setRequest'));
+        }
+
+        if (isset($config['remember'])) {
+            $guard->setRememberDuration($config['remember']);
+        }
+
+        return $guard;
     }
 }

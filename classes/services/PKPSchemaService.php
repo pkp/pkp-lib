@@ -49,6 +49,8 @@ class PKPSchemaService
     public const SCHEMA_USER_GROUP = 'userGroup';
     public const SCHEMA_EVENT_LOG = 'eventLog';
 
+    public const SCHEMA_USER_INVITATION = 'userInvitation';
+
     /** @var array cache of schemas that have been loaded */
     private $_schemas = [];
 

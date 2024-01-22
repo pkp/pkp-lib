@@ -29,14 +29,22 @@ class UserDetailsForm extends FormComponent
         $this->addField(new FieldText('email', [
             'label' => __('user.email'),
             'isRequired' => true,
+            'size' => 'large',
         ]))
+            ->addField(new FieldText('orcid', [
+                'label' => __('user.orcid'),
+                'isRequired' => false,
+                'size' => 'large',
+            ]))
             ->addField(new FieldText('givenName', [
                 'label' => __('user.givenName'),
-                'isRequired' => true,
+                'isRequired' => false,
+                'size' => 'large',
             ]))
             ->addField(new FieldText('familyName', [
                 'label' => __('user.familyName'),
-                'isRequired' => true,
+                'isRequired' => false,
+                'size' => 'large',
             ]));
     }
 }

@@ -38,7 +38,7 @@ class PKPRoutingProvider extends RoutingServiceProvider
         AllowCrossOrigin::class,
         SetupContextBasedOnRequestUrl::class,
         DecodeApiTokenWithValidation::class,
-        ValidateCsrfToken::class,
+//        ValidateCsrfToken::class,
         ValidatePostSize::class,
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,

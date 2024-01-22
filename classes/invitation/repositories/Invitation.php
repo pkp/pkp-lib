@@ -14,12 +14,17 @@
 
 namespace PKP\invitation\repositories;
 
-use APP\core\Application;
+use APP\core\Services;
+use APP\submission\Submission;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+use PKP\context\Context;
+use PKP\decision\DecisionType;
 use PKP\invitation\invitations\BaseInvitation;
 use PKP\invitation\invitations\enums\InvitationStatus;
 use PKP\invitation\models\Invitation as PKPInvitationModel;
+use PKP\services\PKPSchemaService;
+use PKP\validation\ValidatorFactory;
 
 class Invitation extends BaseRepository
 {
@@ -92,7 +97,7 @@ class Invitation extends BaseRepository
         return $this;
     }
 
-    public function filterByUserId(int $userId): Invitation
+    public function filterByUserId(?int $userId): Invitation
     {
         $this->query->byUserId($userId);
         return $this;
@@ -199,5 +204,50 @@ class Invitation extends BaseRepository
     {
         $this->query->offset($count);
         return $this;
+    }
+
+    /**
+     * Validate properties for a decision
+     *
+     * Perform validation checks on data used to add a decision. It is not
+     * possible to edit a decision.
+     *
+     * @param array $props A key/value array with the new data to validate
+     * @param Submission $submission The submission for this decision
+     *
+     * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook Decision::validate [[&$errors, $props]]
+     */
+    public function validate(array $props): array
+    {
+        $schemaService = Services::get('schema');
+        // Return early if no valid decision type exists
+        if (isset($props['userId']) && !$props['user']) {
+            return ['userId' => [__('invitation.userId.invalid')]];
+        }
+        if(isset($props['userId']) && ($props['user']['email'] != $props['email'])){
+            return ['email' => [__('invitation.email.invalid')]];
+        }
+
+        $validator = ValidatorFactory::make(
+            $props,
+            $schemaService->getValidationRules(PKPSchemaService::SCHEMA_USER_INVITATION, []),
+        );
+
+        // Check required
+        ValidatorFactory::required(
+            $validator,
+            null,
+            $schemaService->getRequiredProps(PKPSchemaService::SCHEMA_USER_INVITATION),
+            $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_USER_INVITATION),
+            [],
+            ''
+        );
+        $errors = [];
+        if ($validator->fails()) {
+            $errors = $schemaService->formatValidationErrors($validator->errors());
+        }
+        return $errors;
     }
 }

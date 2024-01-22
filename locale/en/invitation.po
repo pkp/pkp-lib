@@ -49,4 +49,10 @@ msgstr "Invite user to take a role"
 msgid "invitation.wizard.pageTitleDescription"
 msgstr "You are inviting a user to take a role in OJS along with appearing in the journal masthead"
 
+msgid "invitation.userId.invalid"
+msgstr "invalid user id"
+
+msgid "invitation.email.invalid"
+msgstr "email and user id dose not matched"
+
 

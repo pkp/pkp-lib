@@ -1,0 +1,44 @@
+{
+	"title": "User Invitation",
+	"description": "Send invitation to a user to a role.",
+	"required": [
+		"actions",
+		"email"
+	],
+	"properties": {
+		"actions": {
+			"type": "object",
+			"description": "Optional. A list of actions to be taken with this invitation, such as sending an email.",
+			"writeOnly": true,
+			"items": {
+				"type": "object"
+			}
+		},
+		"familyName": {
+			"type": "string",
+			"description": "The user family name",
+			"apiSummary": true
+		},
+		"givenName": {
+			"type": "string",
+			"description": "The user given name.",
+			"apiSummary": true
+		},
+		"email": {
+			"type": "string",
+			"description": "The user email address.",
+			"writeDisabledInApi": true,
+			"apiSummary": true
+		},
+		"userId": {
+			"type": "integer",
+			"apiSummary": true,
+			"readOnly": true
+		},
+		"orcid": {
+			"type": "string",
+			"description": "A user orcid id",
+			"apiSummary": true
+		}
+	}
+}

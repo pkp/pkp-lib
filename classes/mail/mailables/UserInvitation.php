@@ -7,6 +7,7 @@ use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
+use PKP\mail\variables\RecipientEmailVariable;
 use PKP\security\Role;
 use PKP\user\User;
 
@@ -66,9 +67,20 @@ class UserInvitation extends Mailable
     /**
      * Override trait's method to include user invitation url variable
      */
-    public function recipients(User $recipient, ?string $locale = null): Mailable
+    public function recipients($recipients, ?string $locale = null): Mailable
     {
-        $this->traitRecipients([$recipient], $locale);
+        $to[] = [
+            'email' => $recipients['email'],
+            'name' => $recipients['name'],
+        ];
+
+        // Override the existing recipient data
+        $this->to = [];
+        $this->variables = array_filter($this->variables, function ($variable) {
+            return !is_a($variable, RecipientEmailVariable::class);
+        });
+
+        $this->setAddress($to);
         $this->addData([
             static::$variableAcceptUrl => htmlspecialchars($this->acceptUrl),
             static::$variableDeclineUrl => htmlspecialchars($this->declineUrl)

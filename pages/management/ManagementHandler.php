@@ -725,6 +725,7 @@ class ManagementHandler extends Handler
                         'emailTemplates'
                     ),
                 'searchUserApiUrl'=>$this->getSearchUserApiUrl($request),
+                'inviteUserApiUrl'=>$this->inviteUserApiUrl($request),
                 'primaryLocale'=> $context->getData('primaryLocale'),
                 'pageTitle' => __('invitation.wizard.pageTitle'),
                 'pageTitleDescription' => __('invitation.wizard.pageTitleDescription'),
@@ -834,7 +835,8 @@ class ManagementHandler extends Handler
             [],
             $mailable
                 ->sender($request->getUser())
-                ->recipients($request->getUser()),
+                ->cc('')
+                ->bcc(''),
             $request->getContext()->getSupportedFormLocales(),
         );
 
@@ -870,6 +872,20 @@ class ManagementHandler extends Handler
                 PKPApplication::ROUTE_API,
                 $request->getContext()->getPath(),
                 'users'
+            );
+    }
+    /**
+     * Get the url to the send invitation to user API endpoint
+     */
+    protected function inviteUserApiUrl(Request $request): string
+    {
+        return $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                PKPApplication::ROUTE_API,
+                $request->getContext()->getPath(),
+                'users/invite'
             );
     }
 }

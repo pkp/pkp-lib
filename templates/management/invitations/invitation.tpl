@@ -17,6 +17,7 @@
             :email-templates-api-url="emailTemplatesApiUrl"
             :page-title="pageTitle"
             :page-title-description="pageTitleDescription"
+            :invite-user-api-url="inviteUserApiUrl"
             :steps="steps"
     />
 {/block}

@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-15 19:17+0000\n"
+"PO-Revision-Date: 2024-01-22 17:20+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/lv/"
 ">\n"
@@ -595,8 +595,8 @@ msgstr "Lūdzu, izvēlieties lietotāju"
 
 msgid "grid.user.confirmLogInAs"
 msgstr ""
-"Pieteikties kā šim lietotājam? Visas jūsu veiktās darbības tiks attiecinātas "
-"uz šo lietotāju."
+"Pieteikties sistēmā kā šim lietotājam? Visas jūsu veiktās darbības tiks "
+"attiecinātas uz šo lietotāju."
 
 msgid "grid.user.mergeUsers"
 msgstr "Apvienot lietotājus"

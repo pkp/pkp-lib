@@ -114,6 +114,9 @@ class PKPTemplateManager extends Smarty
     /** @var string[] */
     private array $headers = [];
 
+    /** @var string[]|array[] */
+    private array $cookies = [];
+
     /**
      * Constructor.
      * Initialize template engine and assign basic template variables.
@@ -1299,6 +1302,7 @@ class PKPTemplateManager extends Smarty
         foreach ($this->headers as $header) {
             header($header);
         }
+        $this->sendCookies();
 
         // If no compile ID was assigned, get one.
         if (!$compile_id) {
@@ -2567,6 +2571,76 @@ class PKPTemplateManager extends Smarty
     public function getHeaders(): array
     {
         return $this->headers;
+    }
+
+    /**
+     * Clear all or specific cookie by name
+     */
+    public function clearCookie(string|int $name = null): static
+    {
+        if ($name && isset($this->cookies[$name])) {
+            unset($this->cookies[$name]);
+            return $this;
+        }
+
+        $this->cookies = [];
+        return $this;
+    }
+
+    /**
+     * Set new cookies
+     */
+    public function setCookies(array $cookies): static
+    {
+        $this->clearCookie();
+
+        foreach($cookies as $key => $cookie) {
+            if (is_array($cookie)) {
+                $this->addCookie(
+                    $key,
+                    $cookie['value'], 
+                    $cookie['replace'] ?? true, 
+                    $cookie['statusCode'] ?? 0
+                );
+                continue;    
+            }
+
+            $this->addCookie($key, $cookie);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get the currently set cookies
+     */
+    public function getCookies(): array
+    {
+        return $this->cookies;
+    }
+
+    /**
+     * Add/replace a new/existing cookie
+     */
+    public function addCookie(string|int $name, string $value, bool $replace = true, int $statusCode = 0): static
+    {
+        $this->cookies[$name] = [
+            'value'         => trim(str_ireplace('Set-Cookie:', '', $value)),
+            'replace'       => $replace,
+            'statusCode'    => $statusCode,
+        ];
+
+        return $this;
+    }
+
+    /**
+     * Send the cookies to browser as header
+     */
+    protected function sendCookies(): void
+    {
+        foreach($this->cookies as $name => $cookie) {
+            header('Set-Cookie: '.$cookie['value'], $cookie['replace'], $cookie['statusCode']);
+        }
     }
 }
 

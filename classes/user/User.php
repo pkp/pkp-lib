@@ -473,17 +473,22 @@ class User extends Identity implements Authenticatable
 
     public function getRememberToken()
     {
-        throw new Exception('Unimplemented');
+        return $this->getData('rememberToken');
     }
 
     public function setRememberToken($value)
     {
-        throw new Exception('Unimplemented');
+        return $this->setData('rememberToken', $value);
     }
 
+    /**
+     * Get the column name for the "remember me" token.
+     *
+     * @return string
+     */
     public function getRememberTokenName()
     {
-        throw new Exception('Unimplemented');
+        return 'remember_token';
     }
 }
 

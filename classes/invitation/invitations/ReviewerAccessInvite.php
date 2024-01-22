@@ -23,7 +23,6 @@ use PKP\core\PKPApplication;
 use PKP\invitation\invitations\enums\InvitationStatus;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\security\Validation;
-use PKP\session\SessionManager;
 use ReviewAssignment;
 
 class ReviewerAccessInvite extends BaseInvitation
@@ -119,9 +118,8 @@ class ReviewerAccessInvite extends BaseInvitation
         $reviewId = $reviewAssignment->getId();
 
         // Check if the user is already logged in
-        $sessionManager = SessionManager::getManager();
-        $session = $sessionManager->getUserSession();
-        if ($session->getUserId() && $session->getUserId() != $this->userId) {
+        $session = Application::get()->getRequest()->getSession();
+        if ($session->has('user_id') && $session->get('user_id') != $this->userId) {
             return false;
         }
 

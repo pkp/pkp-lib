@@ -88,6 +88,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->smallInteger('disabled')->default(0);
             $table->text('disabled_reason')->nullable();
             $table->smallInteger('inline_help')->nullable();
+            $table->rememberToken();
         });
 
         switch (DB::getDriverName()) {

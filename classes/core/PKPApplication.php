@@ -19,14 +19,12 @@ namespace PKP\core;
 
 use APP\core\Application;
 use APP\core\Request;
-use Carbon\Carbon;
 use DateTime;
 use DateTimeZone;
 use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Database\MySqlConnection;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
@@ -199,8 +197,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         Registry::set('system.debug.startTime', $microTime);
 
         $this->initializeLaravelContainer();
-        $this->setUserResolver();
-        $this->initSession();
         PKPString::initialize();
 
         // Load default locale files
@@ -235,54 +231,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         if (Config::getVar('database', 'debug')) {
             DB::listen(fn (QueryExecuted $query) => error_log("Database query\n{$query->sql}\n" . json_encode($query->bindings)));
         }
-
-        
-    }
-
-    public function initSession(): void
-    {
-        if (defined('SESSION_DISABLE_INIT')) {
-            return;
-        }
-
-        $illuminateRequest = app(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
-        
-        $currentSetCookies = (array)$illuminateRequest->cookie();
-
-        (new \Illuminate\Pipeline\Pipeline(PKPContainer::getInstance()))
-            ->send($illuminateRequest)
-            ->through([
-                \Illuminate\Session\Middleware\StartSession::class,
-                \Illuminate\Session\Middleware\AuthenticateSession::class,
-            ])
-            ->via('handle')
-            ->then(function (\Illuminate\Http\Request $request) {
-                return app(\Illuminate\Http\Response::class);
-            });
-        
-        // resolve a fresh instance of \Illuminate\Http\Request to get latest bindings
-        $illuminateRequest = app(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
-        
-        if ($illuminateRequest->hasSession()) {
-            
-            $sessionId = $illuminateRequest->getSession()->getId();
-            $sessionName = app()->get('session')->getName();
-
-            if ((($currentSetCookies[$sessionName] ?? null) !== $sessionId)) {
-                setcookie(
-                    $sessionName, 
-                    $sessionId, 
-                    Carbon::now()->addMinutes(app()->get('config')['session']['lifetime'])->timestamp
-                );
-            }
-        }
-    }
-
-    public function setUserResolver(): void
-    {
-        $illuminateRequest = app(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
-        
-        $illuminateRequest->setUserResolver(fn () => $this->getRequest()->getUser());
     }
 
     /**

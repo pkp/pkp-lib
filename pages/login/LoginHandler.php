@@ -388,9 +388,6 @@ class LoginHandler extends Handler
         if ($passwordForm->validate()) {
             if ($passwordForm->execute()) {
                 $user = Validation::login($passwordForm->getData('username'), $passwordForm->getData('password'), $reason);
-
-                error_log('NOT SURE ABOUT SESSION ID; GET DB QUERY OUT OF HERE');
-                DB::table('sessions')->where('user_id', Auth::user()->userId)->where('id', '<>', session('id'))->delete();
             }
             $this->sendHome($request);
         } else {

@@ -27,7 +27,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use PKP\config\Config;
 use PKP\core\PKPJwt as JWT;
-use PKP\session\SessionManager;
 use PKP\user\User;
 use stdClass;
 use Throwable;

@@ -19,7 +19,6 @@ namespace PKP\core;
 use APP\core\Application;
 use APP\core\AppServiceProvider;
 use Exception;
-use Illuminate\Session\SessionManager;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Console\Kernel as KernelContract;
@@ -87,8 +86,8 @@ class PKPContainer extends Container
                                 'error' => $exception->getMessage()
                             ],
                             in_array($exception->getCode(), array_keys(Response::$statusTexts))
-                            ? $exception->getCode()
-                            : Response::HTTP_INTERNAL_SERVER_ERROR
+                                ? $exception->getCode()
+                                : Response::HTTP_INTERNAL_SERVER_ERROR
                         )->send();
                     }
 
@@ -101,6 +100,7 @@ class PKPContainer extends Container
                 }
             };
         });
+        
         $this->singleton(
             KernelContract::class,
             Kernel::class
@@ -121,6 +121,14 @@ class PKPContainer extends Container
             }
         );
 
+        $this->app->bind('request', function ($app) {
+            return \Illuminate\Http\Request::createFromGlobals();
+        });
+
+        $this->app->bind(\Illuminate\Http\Request::class, function ($app) {
+            return $app->get('request');
+        });
+
         Facade::setFacadeApplication($this);
     }
 
@@ -133,7 +141,7 @@ class PKPContainer extends Container
         $this->loadConfiguration();
 
         $this->register(new \Illuminate\Cookie\CookieServiceProvider($this));
-        $this->register(new \Illuminate\Session\SessionServiceProvider($this));
+        $this->register(new \PKP\core\PKPSessionServiceProvider($this));
         $this->register(new \PKP\core\PKPAuthServiceProvider($this));
         $this->register(new \Illuminate\Pipeline\PipelineServiceProvider($this));
         $this->register(new \Illuminate\Cache\CacheServiceProvider($this));
@@ -181,8 +189,6 @@ class PKPContainer extends Container
         }
 
         $provider->callBootedCallbacks();
-
-        $this->app->bind('request', fn ($app) => \Illuminate\Http\Request::capture());
     }
 
     /**
@@ -199,7 +205,9 @@ class PKPContainer extends Container
                 \Illuminate\Contracts\Auth\Guard::class
             ],
             'cookie' => [
-                \Illuminate\Cookie\CookieJar::class,
+                \Illuminate\Cookie\CookieJar::class, 
+                \Illuminate\Contracts\Cookie\Factory::class, 
+                \Illuminate\Contracts\Cookie\QueueingFactory::class
             ],
             'app' => [
                 self::class,
@@ -351,7 +359,7 @@ class PKPContainer extends Container
             'cookie' => Config::getVar('general', 'session_cookie_name'),
             'path' => Config::getVar('general', 'session_cookie_path', '/'),
             'domain' => null,
-            'secure' => Config::getVar('security', 'force_ssl'),
+            'secure' => Config::getVar('security', 'force_ssl', false),
             'lifetime' => Config::getVar('general', 'lifetime', 30) * 24 * 60,
             'lottery' => [2, 100],
             'expire_on_close' => false,

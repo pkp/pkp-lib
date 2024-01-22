@@ -17,6 +17,8 @@
 namespace PKP\user\form;
 
 use APP\facades\Repo;
+use Illuminate\Support\Facades\Auth;
+
 use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
@@ -118,7 +120,10 @@ class ResetPasswordForm extends Form
         $user->setPassword(Validation::encryptCredentials($user->getUsername(), $this->getData('password')));
         $user->setMustChangePassword(0);
 
-        SessionManager::getManager()->invalidateSessions($user->getId());
+        app()->get('auth.driver')->updateUser($user);
+        
+        $user = Auth::logoutOtherDevices($this->getData('password'));
+
         Repo::user()->edit($user);
 
         parent::execute(...$functionArgs);

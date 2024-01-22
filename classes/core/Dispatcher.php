@@ -122,7 +122,10 @@ class Dispatcher
                 // Inject router and dispatcher into request
                 $request->setRouter($routerCandidate);
                 $request->setDispatcher($this);
-
+                
+                $this->setUserResolver();
+                $this->initSession();
+                
                 // We've found our router and can go on
                 // to handle the request.
                 $router = & $routerCandidate;
@@ -165,6 +168,34 @@ class Dispatcher
         $request->getRouter()->getContext($request, true);
 
         $router->route($request);
+    }
+
+    public function initSession(): void
+    {
+        if (defined('SESSION_DISABLE_INIT')) {
+            return;
+        }
+
+        $illuminateRequest = app(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
+
+        (new \Illuminate\Pipeline\Pipeline(PKPContainer::getInstance()))
+            ->send($illuminateRequest)
+            ->through([
+                \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+                \Illuminate\Session\Middleware\StartSession::class,
+                \Illuminate\Session\Middleware\AuthenticateSession::class,
+            ])
+            ->via('handle')
+            ->then(function (\Illuminate\Http\Request $request) {
+                return app(\Illuminate\Http\Response::class);
+            });
+    }
+
+    public function setUserResolver(): void
+    {
+        $illuminateRequest = app(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
+        
+        $illuminateRequest->setUserResolver(fn () => \APP\core\Application::get()->getRequest()->getUser());
     }
 
     /**

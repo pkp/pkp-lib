@@ -2,17 +2,25 @@
 
 namespace PKP\core;
 
-use Closure;
+use PKP\user\User;
 use APP\facades\Repo;
+use PKP\security\Validation;
 use Illuminate\Contracts\Auth\Guard;
 use PKP\validation\ValidatorFactory;
 use Illuminate\Contracts\Auth\UserProvider;
-use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Database\ConnectionInterface;
 use Illuminate\Contracts\Hashing\Hasher as HasherContract;
 use Illuminate\Contracts\Auth\Authenticatable as UserContract;
 
 class PKPUserProvider implements UserProvider
 {
+    /**
+     * The active database connection.
+     *
+     * @var \Illuminate\Database\ConnectionInterface
+     */
+    protected $connection;
+
     /**
      * The hasher implementation.
      *
@@ -21,80 +29,85 @@ class PKPUserProvider implements UserProvider
     protected $hasher;
 
     /**
-     * The callback that may modify the user retrieval queries.
+     * The table containing the users.
      *
-     * @var (\Closure(\Illuminate\Database\Eloquent\Builder):mixed)|null
+     * @var string
      */
-    protected $queryCallback;
+    protected $table;
 
     /**
      * Create a new database user provider.
      *
+     * @param  \Illuminate\Database\ConnectionInterface  $connection
+     * @param  \Illuminate\Contracts\Hashing\Hasher  $hasher
+     * @param  string  $table
+     * @return void
      */
-    public function __construct()
+    public function __construct(ConnectionInterface $connection, HasherContract $hasher, string $table)
     {
-        $this->hasher = new \Illuminate\Hashing\BcryptHasher();
+        $this->connection = $connection;
+        $this->table = $table;
+        $this->hasher = $hasher;
     }
 
     /**
      * Retrieve a user by their unique identifier.
      *
+     * @param  mixed  $id
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
     public function retrieveById($id)
     {
-        error_log('RETRIEVE BY ID: ' . $id);
         return Repo::user()->get($id);
     }
 
     /**
      * Retrieve a user by their unique identifier and "remember me" token.
      *
-     * @param  string  $token
-     *
+     * @param  mixed    $identifier
+     * @param  string   $token
+     * 
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
-    public function retrieveByToken($identifier, $token)
+    public function retrieveByToken($id, $token)
     {
-        error_log('RETRIEVE BY TOKEN');
-        return null;
-        /*$model = $this->createModel();
+        $authIdentifierName = $this->createUserInstance()->getAuthIdentifierName();
 
-        $retrievedModel = $this->newModelQuery($model)->where(
-            $model->getAuthIdentifierName(), $identifier
-        )->first();
+        $user = Repo::user()->get(
+            $this
+                ->connection
+                ->table($this->table)
+                ->where($authIdentifierName, $id)
+                ->first()
+                ?->{$authIdentifierName} ?? 0
+        );
 
-        if (! $retrievedModel) {
-            return;
-        }
-
-        $rememberToken = $retrievedModel->getRememberToken();
-
-        return $rememberToken && hash_equals($rememberToken, $token) ? $retrievedModel : null;*/
+        return $user && $user->getRememberToken() && hash_equals($user->getRememberToken(), $token)
+            ? $user 
+            : null;
     }
 
     /**
      * Update the "remember me" token for the given user in storage.
      *
+     * @param  \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User  $user
      * @param  string  $token
+     * 
+     * @return void
      */
     public function updateRememberToken(UserContract $user, $token)
     {
-        error_log('Unimplemented');
-        /*$user->setRememberToken($token);
+        if ($user->getRememberToken() !== $token) {
+            $user->setRememberToken($token);
+        }
 
-        $timestamps = $user->timestamps;
-
-        $user->timestamps = false;
-
-        $user->save();
-
-        $user->timestamps = $timestamps;*/
+        Repo::user()->edit($user);
     }
 
     /**
      * Retrieve a user by the given credentials.
      *
+     * @param  array  $credentials
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
     public function retrieveByCredentials(array $credentials)
@@ -109,11 +122,12 @@ class PKPUserProvider implements UserProvider
             return;
         }
 
-        $user = ValidatorFactory::make(['email' => $credentials['username']], ['email' => 'email'])->passes()
-            ? Repo::user()->getByEmail($credentials['username'], true)
-            : Repo::user()->getByUsername($credentials['username'], true);
-        
-        app()->make(Guard::class)->setUser($user);
+        if (ValidatorFactory::make(['email' => $credentials['username']], ['email' => 'email'])->passes()) {
+            $user = Repo::user()->getByEmail($credentials['username'], true);
+            Validation::setAuthKey(Validation::AUTH_KEY_EMAIL);
+        } else {
+            $user = Repo::user()->getByUsername($credentials['username'], true);
+        }
 
         return $user;
     }
@@ -121,11 +135,12 @@ class PKPUserProvider implements UserProvider
     /**
      * Validate a user against the given credentials.
      *
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
+     * @param  array  $credentials
      * @return bool
      */
     public function validateCredentials(UserContract $user, array $credentials)
     {
-        error_log('VALIDATE CREDENTIALS');
         if (is_null($plain = $credentials['password'])) {
             return false;
         }
@@ -134,31 +149,13 @@ class PKPUserProvider implements UserProvider
     }
 
     /**
-     * Get a new query builder for the model instance.
-     *
-     * @param  \Illuminate\Database\Eloquent\Model|null  $model
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * Create a new instance of the \PKP\user\User
+     * 
+     * @return \PKP\user\User
      */
-    protected function newModelQuery($model = null)
+    public function createUserInstance(): User
     {
-        error_log('NEW MODEL QUERY');
-        $query = is_null($model)
-                ? $this->createModel()->newQuery()
-                : $model->newQuery();
-
-        with($query, $this->queryCallback);
-
-        return $query;
-    }
-
-    /**
-     * Create a new instance of the model.
-     */
-    public function createModel()
-    {
-        error_log('CREATE MODEL');
-        return new User();
+        return new User;
     }
 
     /**
@@ -166,9 +163,8 @@ class PKPUserProvider implements UserProvider
      *
      * @return \Illuminate\Contracts\Hashing\Hasher
      */
-    public function getHasher()
+    public function getHasher(): HasherContract
     {
-        error_log('GET HASHER');
         return $this->hasher;
     }
 
@@ -179,60 +175,7 @@ class PKPUserProvider implements UserProvider
      */
     public function setHasher(HasherContract $hasher)
     {
-        error_log('SET HASHER');
         $this->hasher = $hasher;
-
-        return $this;
-    }
-
-    /**
-     * Gets the name of the Eloquent user model.
-     *
-     * @return string
-     */
-    public function getModel()
-    {
-        error_log('GET MODEL');
-        return $this->model;
-    }
-
-    /**
-     * Sets the name of the Eloquent user model.
-     *
-     * @param  string  $model
-     *
-     * @return $this
-     */
-    public function setModel($model)
-    {
-        error_log('SET MODEL');
-        $this->model = $model;
-
-        return $this;
-    }
-
-    /**
-     * Get the callback that modifies the query before retrieving users.
-     *
-     * @return \Closure|null
-     */
-    public function getQueryCallback()
-    {
-        error_log('GET QUERY CALLBACK');
-        return $this->queryCallback;
-    }
-
-    /**
-     * Sets the callback to modify the query before retrieving users.
-     *
-     * @param  (\Closure(\Illuminate\Database\Eloquent\Builder):mixed)|null  $queryCallback
-     *
-     * @return $this
-     */
-    public function withQuery($queryCallback = null)
-    {
-        error_log('WITH QUERY');
-        $this->queryCallback = $queryCallback;
 
         return $this;
     }

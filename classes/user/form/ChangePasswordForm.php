@@ -17,6 +17,8 @@
 namespace PKP\user\form;
 
 use APP\facades\Repo;
+use Illuminate\Support\Facades\Auth;
+
 use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\security\Validation;
@@ -108,8 +110,15 @@ class ChangePasswordForm extends Form
     {
         $user = $this->getUser();
         $user->setPassword(Validation::encryptCredentials($user->getUsername(), $this->getData('password')));
-        parent::execute(...$functionArgs);
+
+        app()->get('auth.driver')->updateUser($user);
+        
+        $user = Auth::logoutOtherDevices($this->getData('password'));
+
         Repo::user()->edit($user);
+
+        parent::execute(...$functionArgs);
+        
     }
 }
 

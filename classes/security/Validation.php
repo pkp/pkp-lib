@@ -20,6 +20,8 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Exception;
+use Illuminate\Auth\SessionGuard;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Auth;
 use PKP\config\Config;
@@ -39,6 +41,33 @@ class Validation
     public const AUTH_KEY_USERNAME = 1;
     public const AUTH_KEY_EMAIL = 2;
 
+    protected static $authKey = self::AUTH_KEY_USERNAME;
+
+    /**
+     * Get the user currently set auth key
+     * 
+     * @return int const value of AUTH_KEY_* define auth key(email/username)
+     */
+    public static function getAuthKey(): int
+    {
+        return static::$authKey;
+    }
+
+    /**
+     * Set the user current auth key
+     * 
+     * @param int $value const value of AUTH_KEY_* define auth key(email/username)
+     * @return void
+     */
+    public static function setAuthKey(int $value): void
+    {
+        if (!in_array($value, [static::AUTH_KEY_USERNAME, static::AUTH_KEY_EMAIL])) {
+            throw new Exception('Invalid auth key provided');
+        }
+
+        static::$authKey = $value;
+    }
+
     /**
      * Authenticate user credentials and mark the user as logged in in the current session.
      *
@@ -52,33 +81,9 @@ class Validation
     public static function login($username, $password, &$reason, $remember = false)
     {
         $reason = null;
-        $authKey = static::AUTH_KEY_USERNAME;
-
-        if (ValidatorFactory::make(['email' => $username], ['email' => 'email'])->passes()) {
-            $user = Repo::user()->getByEmail($username, true);
-            $authKey = static::AUTH_KEY_EMAIL;
-        } else {
-            $user = Repo::user()->getByUsername($username, true);
-        }
-
-        if (!isset($user)) {
-            // User does not exist
-            return false;
-        }
-
-        // Validate against user database
-        // $rehash = null;
-        // if (!self::verifyPassword($username, $password, $user->getPassword(), $rehash)) {
-        //     return false;
-        // }
-
-        // if (!empty($rehash)) {
-        //     // update to new hashing algorithm
-        //     $user->setPassword($rehash);
-        // }
         
-        return Auth::attempt(['username' => $username, 'password' => $password])
-            ? self::registerUserSession($user, $reason, $remember, $authKey)
+        return Auth::attempt(['username' => $username, 'password' => $password], $remember)
+            ? static::registerUserSession(Auth::user(), $reason, $remember) 
             : false;
     }
 
@@ -116,12 +121,11 @@ class Validation
      * @param string    $reason     reference to string to receive the reason an account
      *                              was disabled; null otherwise
      * @param bool      $remember   remember a user's session past the current browser session
-     * @param int       $authKey    const value of AUTH_KEY_* define auth key(email/username)
      *
      * @return mixed                User or boolean the User associated with the login credentials,
      *                              or false if the credentials are invalid
      */
-    public static function registerUserSession($user, &$reason, $remember = false, $authKey = self::AUTH_KEY_USERNAME)
+    public static function registerUserSession($user, &$reason, $remember = false)
     {
         if (!$user instanceof User) {
             return false;
@@ -136,11 +140,10 @@ class Validation
             return false;
         }
 
-        // The user is valid, mark user as logged in in current session
+        // // The user is valid, mark user as logged in in current session
         $session = Application::get()->getRequest()->getSession();
         
-
-        // Regenerate session ID first
+        // // Regenerate session ID first
         // $session->regenerate(true);
 
         $session->put('user_id', $user->getId());
@@ -150,12 +153,9 @@ class Validation
             $user->getId()
         );
 
-        if ($authKey === static::AUTH_KEY_EMAIL) {
+        if (static::getAuthKey() === static::AUTH_KEY_EMAIL) {
             $session->put('email', $user->getEmail());
         }
-        
-        $session->save();
-        $session->start();
 
         error_log('FORGOT REMEMBER');
         // $session->setRemember($remember);
@@ -168,12 +168,10 @@ class Validation
 
         $user->setDateLastLogin(Core::getCurrentDate());
         Repo::user()->edit($user);
-        
-        setcookie(
-            $session->getName(),
-            $session->getId(), 
-            Carbon::now()->addMinutes(app()->get('config')['session']['lifetime'])->timestamp
-        );
+
+        /** @var \PKP\middleware\PKPStartSession $pkpStartSession */
+        $pkpStartSession = app(\Illuminate\Session\Middleware\StartSession::class);
+        $pkpStartSession->updateCookieToResponse($session);
 
         return $user;
     }
@@ -185,22 +183,15 @@ class Validation
      */
     public static function logout()
     {
-        // $sessionManager = SessionManager::getManager();
-        // $session = $sessionManager->getUserSession();
-        // $session->unsetSessionVar('userId');
-        // $session->unsetSessionVar('signedInAs');
-        // $session->setUserId(null);
-
-        // if ($session->getRemember()) {
-        //     $session->setRemember(0);
-        //     $sessionManager->updateSessionLifetime(0);
-        // }
-
-        // $sessionDao = DAORegistry::getDAO('SessionDAO'); /** @var SessionDAO $sessionDao */
-        // $sessionDao->updateObject($session);
-
         $session = Application::get()->getRequest()->getSession();
+        // $resessionableData = collect(array_intersect_key($session->all(), array_flip(["email", "username"])));
+
+        Auth::logout();
         $session->invalidate();
+        $session->regenerateToken();
+        
+        // $resessionableData->each(fn($value, $key) => $session->put($key, $value));
+        // $session->save();
 
         return true;
     }

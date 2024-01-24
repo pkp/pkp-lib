@@ -87,18 +87,42 @@ abstract class PKPTemporaryTotalsDAO
      *
      * See https://www.projectcounter.org/code-of-practice-five-sections/7-processing-rules-underlying-counter-reporting-data/#doubleclick
      */
-    public function removeDoubleClicks(int $counterDoubleClickTimeFilter): void
+    public function removeDoubleClicks(string $loadId, int $counterDoubleClickTimeFilter): void
     {
         if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
-            DB::statement("DELETE FROM {$this->table} ust WHERE EXISTS (SELECT * FROM (SELECT 1 FROM {$this->table} ustt WHERE ustt.load_id = ust.load_id AND ustt.ip = ust.ip AND ustt.user_agent = ust.user_agent AND ustt.canonical_url = ust.canonical_url AND EXTRACT(EPOCH FROM (ustt.date - ust.date)) < ? AND EXTRACT(EPOCH FROM (ustt.date - ust.date)) > 0 AND ust.line_number < ustt.line_number) AS tmp)", [$counterDoubleClickTimeFilter]);
+            DB::statement(
+                "
+                DELETE FROM {$this->table} ust
+                WHERE EXISTS (
+                    SELECT * FROM (
+                        SELECT 1 FROM {$this->table} ustt
+                        WHERE ust.load_id = ? AND ustt.load_id = ust.load_id AND
+                        ustt.context_id = ust.context_id AND
+                        ustt.ip = ust.ip AND ustt.user_agent = ust.user_agent AND ustt.canonical_url = ust.canonical_url AND
+                        EXTRACT(EPOCH FROM (ustt.date - ust.date)) < ? AND
+                        EXTRACT(EPOCH FROM (ustt.date - ust.date)) > 0 AND
+                        ust.line_number < ustt.line_number) AS tmp
+                )
+                ",
+                [$loadId, $counterDoubleClickTimeFilter]
+            );
         } else {
             DB::statement(
                 "
                 DELETE FROM ust USING {$this->table} ust
-                INNER JOIN {$this->table} ustt ON (ustt.load_id = ust.load_id AND ustt.ip = ust.ip AND ustt.user_agent = ust.user_agent AND ustt.canonical_url = ust.canonical_url)
-                WHERE TIMESTAMPDIFF(SECOND, ust.date, ustt.date) < ? AND TIMESTAMPDIFF(SECOND, ust.date, ustt.date) > 0 AND ust.line_number < ustt.line_number
+                INNER JOIN {$this->table} ustt ON (
+                    ustt.load_id = ust.load_id AND
+                    ustt.context_id = ust.context_id AND
+                    ustt.ip = ust.ip AND
+                    ustt.user_agent = ust.user_agent AND
+                    ustt.canonical_url = ust.canonical_url
+                )
+                WHERE ust.load_id = ? AND
+                    TIMESTAMPDIFF(SECOND, ust.date, ustt.date) < ? AND
+                    TIMESTAMPDIFF(SECOND, ust.date, ustt.date) > 0 AND
+                    ust.line_number < ustt.line_number
                 ",
-                [$counterDoubleClickTimeFilter]
+                [$loadId, $counterDoubleClickTimeFilter]
             );
         }
     }

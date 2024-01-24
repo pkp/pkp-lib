@@ -34,11 +34,22 @@ class PKPTemporaryItemInvestigationsDAO
      */
     public function insert(object $entryData, int $lineNumber, string $loadId): void
     {
-        DB::table($this->table)->insert([
+        $insertData = $this->getInsertData($entryData);
+        $insertData['line_number'] = $lineNumber;
+        $insertData['load_id'] = $loadId;
+
+        DB::table($this->table)->insert($insertData);
+    }
+
+    /**
+     * Get Laravel optimized array of data to insert into the table based on the log entry
+     */
+    protected function getInsertData(object $entryData): array
+    {
+        return [
             'date' => $entryData->time,
             'ip' => $entryData->ip,
             'user_agent' => substr($entryData->userAgent, 0, 255),
-            'line_number' => $lineNumber,
             'context_id' => $entryData->contextId,
             'submission_id' => $entryData->submissionId,
             'representation_id' => $entryData->representationId,
@@ -48,8 +59,7 @@ class PKPTemporaryItemInvestigationsDAO
             'country' => !empty($entryData->country) ? $entryData->country : '',
             'region' => !empty($entryData->region) ? $entryData->region : '',
             'city' => !empty($entryData->city) ? $entryData->city : '',
-            'load_id' => $loadId,
-        ]);
+        ];
     }
 
     /**
@@ -70,16 +80,44 @@ class PKPTemporaryItemInvestigationsDAO
      *
      * See https://www.projectcounter.org/code-of-practice-five-sections/7-processing-rules-underlying-counter-reporting-data/#counting
      */
-    public function compileUniqueClicks(): void
+    public function compileUniqueClicks(string $loadId): void
     {
         if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
-            DB::statement("DELETE FROM {$this->table} usui WHERE EXISTS (SELECT * FROM (SELECT 1 FROM {$this->table} usuit WHERE usuit.load_id = usui.load_id AND usuit.ip = usui.ip AND usuit.user_agent = usui.user_agent AND usuit.context_id = usui.context_id AND usuit.submission_id = usui.submission_id AND EXTRACT(HOUR FROM usuit.date) = EXTRACT(HOUR FROM usui.date) AND usui.line_number < usuit.line_number) AS tmp)");
+            DB::statement(
+                "
+                DELETE FROM {$this->table} usui
+                WHERE EXISTS (
+                    SELECT * FROM (
+                        SELECT 1 FROM {$this->table} usuit
+                        WHERE usui.load_id = ? AND usuit.load_id = usui.load_id AND
+                        usuit.context_id = usui.context_id AND
+                        usuit.ip = usui.ip AND
+                        usuit.user_agent = usui.user_agent AND
+                        usuit.submission_id = usui.submission_id AND
+                        EXTRACT(HOUR FROM usuit.date) = EXTRACT(HOUR FROM usui.date) AND
+                        usui.line_number < usuit.line_number
+                    ) AS tmp
+                )
+                ",
+                [$loadId]
+            );
         } else {
-            DB::statement("
+            DB::statement(
+                "
                 DELETE FROM usui USING {$this->table} usui
-                INNER JOIN {$this->table} usuit ON (usuit.load_id = usui.load_id AND usuit.ip = usui.ip AND usuit.user_agent = usui.user_agent AND usuit.context_id = usui.context_id AND usuit.submission_id = usui.submission_id)
-                WHERE TIMESTAMPDIFF(HOUR, usui.date, usuit.date) = 0 AND usui.line_number < usuit.line_number
-            ");
+                INNER JOIN {$this->table} usuit ON (
+                    usuit.load_id = usui.load_id AND
+                    usuit.context_id = usui.context_id AND
+                    usuit.ip = usui.ip AND
+                    usuit.user_agent = usui.user_agent AND
+                    usuit.submission_id = usui.submission_id
+                )
+                WHERE usui.load_id = ? AND
+                    TIMESTAMPDIFF(HOUR, usui.date, usuit.date) = 0 AND
+                    usui.line_number < usuit.line_number
+                ",
+                [$loadId]
+            );
         }
     }
 

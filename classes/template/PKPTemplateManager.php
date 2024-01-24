@@ -24,11 +24,10 @@ namespace PKP\template;
 
 use APP\core\Application;
 use APP\core\PageRouter;
-use PKP\site\VersionDAO;
+use APP\core\Request;
 
 require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
 
-use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
@@ -61,6 +60,7 @@ use PKP\plugins\ThemePlugin;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
+use PKP\site\VersionDAO;
 use PKP\submission\GenreDAO;
 use Smarty;
 use Smarty_Internal_Template;
@@ -1122,6 +1122,11 @@ class PKPTemplateManager extends Smarty
                                     'name' => __('manager.users'),
                                     'url' => $router->url($request, null, 'stats', 'users', 'users'),
                                     'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'users',
+                                ],
+                                'counterR5' => [
+                                    'name' => __('manager.statistics.counterR5'),
+                                    'url' => $router->url($request, null, 'stats', 'counterR5', 'counterR5'),
+                                    'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'counterR5',
                                 ]
                             ]
                         ];

@@ -76,7 +76,10 @@ class PKPStatsSushiQueryBuilder extends PKPStatsQueryBuilder
                 $q->leftJoin('publications as p', function ($q) {
                     $q->on('p.submission_id', '=', 'm.submission_id')
                         ->whereIn('p.publication_id', function ($q) {
-                            $q->selectRaw('MIN(p2.publication_id)')->from('publications as p2')->where('p2.status', Submission::STATUS_PUBLISHED);
+                            $q->selectRaw('MIN(p2.publication_id)')
+                                ->from('publications as p2')
+                                ->where('p2.status', Submission::STATUS_PUBLISHED)
+                                ->where('p2.submission_id', '=', DB::raw('m.submission_id'));
                         });
                 });
             }
@@ -121,7 +124,10 @@ class PKPStatsSushiQueryBuilder extends PKPStatsQueryBuilder
             $q->leftJoin('publications as p', function ($q) {
                 $q->on('p.submission_id', '=', 'm.submission_id')
                     ->whereIn('p.publication_id', function ($q) {
-                        $q->selectRaw('MIN(p2.publication_id)')->from('publications as p2')->where('p2.status', Submission::STATUS_PUBLISHED);
+                        $q->selectRaw('MIN(p2.publication_id)')
+                            ->from('publications as p2')
+                            ->where('p2.status', Submission::STATUS_PUBLISHED)
+                            ->where('p2.submission_id', '=', DB::raw('m.submission_id'));
                     });
             });
             foreach ($this->yearsOfPublication as $yop) {

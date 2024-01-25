@@ -222,6 +222,8 @@ abstract class BaseInvitation
         $this->keyHash = $invitationModel->keyHash;
         $this->expirationDate = $invitationModel->expiryDate;
         $this->id = $invitationModel->id;
+        $this->email = $invitationModel->email;
+        $this->status = $invitationModel->status;
     }
 
     /**
@@ -252,7 +254,7 @@ abstract class BaseInvitation
     {
         return $this->id;
     }
-
+    
     public function getData($key)
     {
         return $this->$key;

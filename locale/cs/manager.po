@@ -1,11 +1,11 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2023-11-27 16:38+0000\n"
+"PO-Revision-Date: 2024-01-25 16:55+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs/>\n"
@@ -3722,3 +3722,24 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Požadovat od autorů, aby spolu s příspěvkem zaslali soubor s prohlášením o "
 "střetu zájmů."
+
+msgid "manager.statistics.counterR5"
+msgstr "Počítadlo R5"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Více informací o jednotlivých sestavách najdete v <a href=\"https://cop5."
+"projectcounter.org/en/5.0.3/04-reports/index.html\" target=\"_new\""
+">dokumentaci k programu COUNTER 5.0.3</a>."
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Zprávy počítadla R5"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Zatím nejsou k dispozici žádné statistiky používání COUNTER R5."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Nastavení sestavy"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Začáteční datum"

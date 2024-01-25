@@ -137,18 +137,9 @@ abstract class PKPStatisticsHelper
     * We just do not implement the PHP4 part as OJS dropped PHP4 support.
     *
     */
-    public static function hashIp(string $ip, string $salt): ?string
+    public static function hashIp(string $ip, string $salt): string
     {
-        $hashedIp = null;
-        if (function_exists('mhash')) {
-            $hashedIp = bin2hex(mhash(MHASH_SHA256, $ip . $salt));
-        } else {
-            assert(function_exists('hash'));
-            if (function_exists('hash')) {
-                $hashedIp = hash('sha256', $ip . $salt);
-            }
-        }
-        return $hashedIp;
+        return hash('sha256', $ip . $salt);
     }
 
     /**

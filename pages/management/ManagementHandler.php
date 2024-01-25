@@ -724,6 +724,7 @@ class ManagementHandler extends Handler
                         $context->getData('urlPath'),
                         'emailTemplates'
                     ),
+                'userInvitationSavedUrl'=>$this->getUserInvitationSavedUrl($request),
                 'searchUserApiUrl'=>$this->getSearchUserApiUrl($request),
                 'inviteUserApiUrl'=>$this->inviteUserApiUrl($request),
                 'primaryLocale'=> $context->getData('primaryLocale'),
@@ -886,6 +887,23 @@ class ManagementHandler extends Handler
                 PKPApplication::ROUTE_API,
                 $request->getContext()->getPath(),
                 'users/invite'
+            );
+    }
+    /**
+     * Get the URL to the page that shows the user invitations
+     * has been saved
+     */
+    protected function getUserInvitationSavedUrl(Request $request): string
+    {
+        return $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                Application::ROUTE_PAGE,
+                $request->getContext()->getPath(),
+                'management',
+                'settings',
+                'access',
             );
     }
 }

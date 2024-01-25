@@ -18,6 +18,7 @@
             :page-title="pageTitle"
             :page-title-description="pageTitleDescription"
             :invite-user-api-url="inviteUserApiUrl"
+            :user-invitation-saved-url="userInvitationSavedUrl"
             :steps="steps"
     />
 {/block}

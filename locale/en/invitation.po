@@ -53,6 +53,22 @@ msgid "invitation.userId.invalid"
 msgstr "invalid user id"
 
 msgid "invitation.email.invalid"
-msgstr "email and user id dose not matched"
+msgstr "invalid user email"
 
+msgid "invitation.email.required"
+msgstr "This field is required"
 
+msgid "invitation.wizard.errors"
+msgstr "There are one or more problems that need to be fixed before you can send invitation. Please check previous step and make the requested changes"
+
+msgid "invitation.wizard.success"
+msgstr "{$email} has been invited to a new role in OJS. You can be updated about the user's decision on the User & Role page, your OJS notification and/or your email"
+
+msgid "invitation.notification.closeBtn"
+msgstr "View all users"
+
+msgid "invitation.notification.title"
+msgstr "Invitation sent"
+
+msgid "invitation.emptySearchFields"
+msgstr "Provide least one search field to search user"

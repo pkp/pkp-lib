@@ -109,6 +109,12 @@ class Invitation extends BaseRepository
         return $this;
     }
 
+    public function filterByEmail(string $email): Invitation
+    {
+        $this->query->byEmail($email);
+        return $this;
+    }
+
     /**
      * Filter invitations by whether they are expired
      */
@@ -225,6 +231,9 @@ class Invitation extends BaseRepository
         // Return early if no valid decision type exists
         if (isset($props['userId']) && !$props['user']) {
             return ['userId' => [__('invitation.userId.invalid')]];
+        }
+        if(!$props['email']){
+            return ['email' => [__('invitation.email.required')]];
         }
         if(isset($props['userId']) && ($props['user']['email'] != $props['email'])){
             return ['email' => [__('invitation.email.invalid')]];

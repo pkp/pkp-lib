@@ -23,15 +23,20 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\facades\Locale;
+use PKP\invitation\invitations\RegistrationAccessInvite;
+use PKP\mail\mailables\UserInvitation;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\services\PKPSchemaService;
 use Symfony\Component\HttpFoundation\StreamedResponse;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class PKPUserController extends PKPBaseController
 {
@@ -76,6 +81,9 @@ class PKPUserController extends PKPBaseController
 
         Route::get('', $this->getMany(...))
             ->name('user.getManyUsers');
+
+        Route::post('invite', $this->addInvitation(...))
+            ->name('user.addInvitation');
     }
 
     /**
@@ -369,4 +377,46 @@ class PKPUserController extends PKPBaseController
 
         return $returnParams;
     }
+
+    /**
+     * Add user invitation for role
+     *
+     * @hook API::users::user::report::params [[&$params, $request]]
+     */
+    public function addInvitation(Request $request): JsonResponse
+    {
+        $userId = null;
+        $currentUser = $request->user(); /** @var \PKP\user\User $user */
+        $context = $request->attributes->get('context'); /** @var \PKP\context\Context $context */
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_DECISION, $request->all());
+        if (isset($request->userId)){
+            $params['user'] = Repo::user()->getSchemaMap()->map(Repo::user()->get($request->userId));
+            $userId = $request->userId;
+        }
+        $errors = Repo::invitation()->validate($params);
+        if (!empty($errors)) {
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
+        $reviewInvitation = new RegistrationAccessInvite(
+            $userId,
+            $context->getId()
+        );
+        $reviewInvitation->email = $params['email'];
+        $reviewInvitation->dispatch();
+        $mailable = new UserInvitation($context,$reviewInvitation->getAcceptUrl(),$reviewInvitation->getDeclineUrl());
+        $mailable->recipients(['email'=>$params['email'],'name'=>'fsd']);
+        $mailable->sender($currentUser);
+        $mailable->replyTo($context->getData('contactEmail'), $context->getData('contactName'));
+        $mailable->body($params['actions']['body']);
+        $mailable->subject($params['actions']['subject']);
+
+        $reviewInvitation->setMailable($mailable);
+        try {
+            Mail::send($mailable);
+        } catch (TransportException $e) {
+            trigger_error('Failed to send email invitation: ' . $e->getMessage(), E_USER_ERROR);
+        }
+        return response()->json('invitation send successfully', Response::HTTP_OK);
+    }
+
 }

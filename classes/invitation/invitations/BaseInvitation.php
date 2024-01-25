@@ -252,4 +252,9 @@ abstract class BaseInvitation
     {
         return $this->id;
     }
+
+    public function getData($key)
+    {
+        return $this->$key;
+    }
 }

@@ -31,13 +31,16 @@ use PKP\components\forms\context\PKPNotifyUsersForm;
 use PKP\components\forms\context\PKPReviewSetupForm;
 use PKP\components\forms\emailTemplate\EmailTemplateForm;
 use PKP\components\forms\highlight\HighlightForm;
+use PKP\components\forms\invitations\UserDetailsForm;
 use PKP\components\forms\submission\SubmissionGuidanceSettings;
 use PKP\components\listPanels\HighlightsListPanel;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\decision\steps\Email;
 use PKP\mail\Mailable;
+use PKP\mail\mailables\UserInvitation;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\site\VersionCheck;
@@ -103,6 +106,9 @@ class ManagementHandler extends Handler
                 break;
             case 'access':
                 $this->access($args, $request);
+                break;
+            case 'invitations':
+                $this->invitations($args, $request);
                 break;
             case 'announcements':
                 $this->announcements($args, $request);
@@ -692,6 +698,189 @@ class ManagementHandler extends Handler
                 Application::ROUTE_API,
                 $context->getPath(),
                 'temporaryFiles'
+            );
+    }
+
+    /**
+     * user invitations
+     */
+    public function invitations($args, $request)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+        $this->setupTemplate($request);
+        $context = $request->getContext();
+        $steps = $this->getSteps($request);
+        $templateMgr->setState([
+            'steps' => $steps,
+            'emailTemplatesApiUrl' => $request
+                ->getDispatcher()
+                ->url(
+                    $request,
+                    Application::ROUTE_API,
+                    $context->getData('urlPath'),
+                    'emailTemplates'
+                ),
+            'userInvitationSavedUrl'=>$this->getUserInvitationSavedUrl($request),
+            'searchUserApiUrl'=>$this->getSearchUserApiUrl($request),
+            'inviteUserApiUrl'=>$this->inviteUserApiUrl($request),
+            'primaryLocale'=> $context->getData('primaryLocale'),
+            'pageTitle' => __('invitation.wizard.pageTitle'),
+            'pageTitleDescription' => __('invitation.wizard.pageTitleDescription'),
+        ]);
+        $templateMgr->assign([
+            'pageComponent' => 'PageOJS',
+        ]);
+        $templateMgr->display('management/invitation.tpl');
+
+    }
+
+    /**
+     * get user invitation steps
+     */
+    protected function getSteps(Request $request): array
+    {
+        $apiUrl = $this->getSearchUserApiUrl($request);
+
+        $steps = [];
+        $steps[] = $this->getSearchUserForm();
+        $steps[] = $this->getUserDetailsForm($request,$apiUrl);
+        $steps[] = $this->getUserInvitedEmail($request,$apiUrl);
+
+        return $steps;
+    }
+
+    /**
+     * Get the state for the user invitation search user step
+     */
+    protected function getSearchUserForm(): array
+    {
+        return [
+            'id' => 'searchUser',
+            'name' => __('invitation.searchUserLabel'),
+            'reviewName' => __('invitation.searchUserStep'),
+            'type' => 'form',
+            'description' => __('invitation.searchUserDescription'),
+            'sections' => [],
+            'reviewTemplate' => '/management/invitation/userSearch.tpl',
+        ];
+    }
+
+    /**
+     * Get the state for the user invitation search user details step
+     */
+    protected function getUserDetailsForm(Request $request,string $apiUrl): array
+    {
+        $localeNames = $request->getContext()->getSupportedFormLocaleNames();
+        $locales = [];
+        foreach ($localeNames as $key => $name) {
+            $locales[] = [
+                'key' => $key,
+                'label' => $name,
+            ];
+        }
+        $contactForm = new UserDetailsForm($apiUrl, $locales, $request->getContext());
+
+        $sections = [
+            [
+                'id' => 'userDetailsForm',
+                'type'=>'form',
+                'description' => $request->getContext()->getLocalizedData('detailsHelp'),
+                'form' => $contactForm->getConfig(),
+            ],
+        ];
+
+        return [
+            'id' => 'userDetails',
+            'name' => __('invitation.enterDetailsLabel'),
+            'reviewName' => __('invitation.enterDetailStep'),
+            'type' => 'form',
+            'description' => __('invitation.enterDetailsDescription'),
+            'sections' => $sections,
+            'reviewTemplate' => '/management/invitation/userDetails.tpl',
+        ];
+    }
+
+    /**
+     * Get the state for the user invitation search user invited email compose step
+     */
+    protected function getUserInvitedEmail(Request $request): array
+    {
+        $mailable = new UserInvitation($request->getContext(), '','');
+        $email = new Email(
+            'userInvited',
+            __('editor.submission.decision.notifyAuthors'),
+            __('editor.submission.decision.sendExternalReview.notifyAuthorsDescription'),
+            [],
+            $mailable
+                ->sender($request->getUser())
+                ->cc('')
+                ->bcc(''),
+            $request->getContext()->getSupportedFormLocales(),
+        );
+
+        $sections = [
+            [
+                'id' => 'userInvited',
+                'type'=>'email',
+                'description' => $request->getContext()->getLocalizedData('detailsHelp'),
+                'email' => $email->getState(),
+            ],
+        ];
+
+        return [
+            'id' => 'userInvitedEmail',
+            'name' => __('invitation.reviewAndInviteLabel'),
+            'reviewName' => __('invitation.reviewAndInviteStep'),
+            'type' => 'email',
+            'description' => __('invitation.reviewAndInviteDescription'),
+            'sections' => $sections,
+            'reviewTemplate' => '/management/invitation/userInvitation.tpl',
+        ];
+    }
+
+    /**
+     * Get the url to the search user API endpoint
+     */
+    protected function getSearchUserApiUrl(Request $request): string
+    {
+        return $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                PKPApplication::ROUTE_API,
+                $request->getContext()->getPath(),
+                'users'
+            );
+    }
+    /**
+     * Get the url to the send invitation to user API endpoint
+     */
+    protected function inviteUserApiUrl(Request $request): string
+    {
+        return $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                PKPApplication::ROUTE_API,
+                $request->getContext()->getPath(),
+                'users/invite'
+            );
+    }
+    /**
+     * Get the URL to the page that shows the user invitations
+     * has been saved
+     */
+    protected function getUserInvitationSavedUrl(Request $request): string
+    {
+        return $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                Application::ROUTE_PAGE,
+                $request->getContext()->getPath(),
+                'management',
+                'settings',
+                'access',
             );
     }
 }

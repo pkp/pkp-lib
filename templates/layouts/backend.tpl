@@ -50,7 +50,7 @@
 						{foreach from=$availableContexts item=$availableContext}
 							{if !$currentContext || $availableContext->name !== $currentContext->getLocalizedData('name')}
 								<li>
-									<a href="{$availableContext->url|escape}" class="pkpDropdown__action">
+									<a href="{$availableContext->url|escape}" class="pkpDropdown__action" v-pre>
 										{$availableContext->name|escape}
 									</a>
 								</li>
@@ -60,11 +60,11 @@
 				</dropdown>
 			{/if}
 			{if $currentContext}
-				<a class="app__contextTitle" href="{url page="index"}">
+				<a class="app__contextTitle" href="{url page="index"}" v-pre>
 					{$currentContext->getLocalizedData('name')|escape}
 				</a>
 			{elseif $siteTitle}
-				<a class="app__contextTitle" href="{$baseUrl}">
+				<a class="app__contextTitle" href="{$baseUrl}" v-pre>
 					{$siteTitle|escape}
 				</a>
 			{else}

@@ -154,14 +154,18 @@ class Validation
     public static function logout()
     {
         $session = Application::get()->getRequest()->getSession();
-        // $resessionableData = collect(array_intersect_key($session->all(), array_flip(["email", "username"])));
+        $user = Auth::user(); /** @var \PKP\user\User $user */
 
         Auth::logout();
         $session->invalidate();
         $session->regenerateToken();
         
-        // $resessionableData->each(fn($value, $key) => $session->put($key, $value));
-        // $session->save();
+        $session->put('username', $user->getUsername());
+        $session->put('email', $user->getEmail());
+        
+        $sessionGuard = app()->get('auth.driver'); /** @var \PKP\core\PKPSessionGuard $sessionGuard */
+        $sessionGuard->updateSession(null);
+        $sessionGuard->updateSessionCookieToResponse();
 
         return true;
     }

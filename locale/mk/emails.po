@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-15 10:39+0000\n"
+"PO-Revision-Date: 2024-01-28 17:39+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "emails/mk/>\n"
@@ -156,9 +156,10 @@ msgstr ""
 "Препораката во врска со поднесувањето до {$textName}, &quot;{$missionTitle}"
 "&quot; е: {$recommendation}"
 
-#, fuzzy
 msgid "emails.copyeditRequest.subject"
-msgstr "Барање за уредување"
+msgstr ""
+"Поденесокот {$submissionId} е спремен за техничко уредување за "
+"{$contextAcronym}"
 
 #, fuzzy
 msgid "emails.copyeditRequest.body"

@@ -127,7 +127,11 @@ class PKPRequest
             return;
         }
 
+        $sessionGuard = app()->get('auth.driver'); /** @var \PKP\core\PKPSessionGuard $sessionGuard */
+        $sessionGuard->sendCookies();
+
         header("Location: {$url}");
+        
         exit;
     }
 

@@ -31,7 +31,6 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RedirectAction;
 use PKP\plugins\importexport\native\PKPNativeImportExportDeployment;
 use PKP\plugins\importexport\PKPImportExportDeployment;
-use PKP\session\SessionManager;
 
 abstract class ImportExportPlugin extends Plugin
 {
@@ -225,7 +224,7 @@ abstract class ImportExportPlugin extends Plugin
      */
     public function displayXMLValidationErrors($errors, $xml)
     {
-        if (SessionManager::isDisabled()) {
+        if (defined('SESSION_DISABLE_INIT')) {
             echo __('plugins.importexport.common.validationErrors') . "\n";
             foreach ($errors as $error) {
                 echo trim($error->message) . "\n";

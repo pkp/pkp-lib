@@ -30,7 +30,6 @@ use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\security\Role;
 use PKP\security\Validation;
-use PKP\session\SessionManager;
 use PKP\site\Site;
 use PKP\user\InterestManager;
 use PKP\user\User;
@@ -263,10 +262,10 @@ class RegistrationForm extends Form
             return false;
         }
 
-        // Associate the new user with the existing session
-        $sessionManager = SessionManager::getManager();
-        $session = $sessionManager->getUserSession();
-        $session->setSessionVar('username', $user->getUsername());
+        $request->getSession()->put('username', $user->getUsername());
+        $sessionGuard = app()->get('auth.driver'); /** @var \PKP\core\PKPSessionGuard $sessionGuard */
+        $sessionGuard->updateSession($user->getId());
+        $sessionGuard->updateSessionCookieToResponse();
 
         // Save the selected roles or assign the Reader role if none selected
         if ($request->getContext() && !$this->getData('reviewerGroup')) {

@@ -18,7 +18,6 @@ namespace PKP\user\form;
 
 use APP\facades\Repo;
 use Illuminate\Support\Facades\Auth;
-
 use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
@@ -27,7 +26,6 @@ use PKP\form\validation\FormValidatorCustom;
 use PKP\form\validation\FormValidatorLength;
 use PKP\form\validation\FormValidatorPost;
 use PKP\security\Validation;
-use PKP\session\SessionManager;
 
 class ResetPasswordForm extends Form
 {

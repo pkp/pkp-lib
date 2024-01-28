@@ -16,68 +16,26 @@
 
 namespace PKP\middleware;
 
-use APP\template\TemplateManager;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\Session\Session;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Cookie;
 
 class PKPStartSession extends \Illuminate\Session\Middleware\StartSession
 {
     /**
-     * Add the session cookie to the application response.
+     * Start the session for the given request.
      *
-     * @param  \Symfony\Component\HttpFoundation\Response   $response
-     * @param  \Illuminate\Contracts\Session\Session        $session
-     * 
-     * @return void
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Contracts\Session\Session  $session
+     * @return \Illuminate\Contracts\Session\Session
      */
-    protected function addCookieToResponse(Response $response, Session $session)
+    protected function startSession(Request $request, $session)
     {
-        if ($this->sessionIsPersistent($config = $this->manager->getSessionConfig())) {
-            $cookie = new Cookie(
-                $session->getName(), 
-                $session->getId(), 
-                $this->getCookieExpirationDate(),
-                $config['path'], 
-                $config['domain'], 
-                $config['secure'] ?? false,
-                $config['http_only'] ?? true, 
-                false, 
-                $config['same_site'] ?? null
-            );
-
-            $response->headers->setCookie($cookie);
+        return tap($session, function ($session) use ($request) {
+            $session->setRequestOnHandler($request);
             
-            $templateManager = TemplateManager::getManager();
-            $templateManager->addCookie($session->getName(), $cookie->__toString(), false, $response->getStatusCode());
-        }
-    }
-
-    /**
-     * Update the session cookie to the application response.
-     * 
-     * @param  \Illuminate\Contracts\Session\Session|null   $session
-     * @param  \Symfony\Component\HttpFoundation\Response   $response
-     * 
-     * @return void
-     */
-    public function updateCookieToResponse(Session $session, Response $response = null): void
-    {
-        $response ??= app()->get(\Illuminate\Http\Response::class); /** @var \Illuminate\Http\Response $response */
-        $request = app()->get('request'); /** @var \Illuminate\Http\Request $request */
-
-        $session->save();
-        $request->setLaravelSession(
-            $this->startSession($request, $session)
-        );
-
-        $templateManager = TemplateManager::getManager();
-        $templateManager->clearCookie($session->getName());
-        $response->headers->removeCookie($session->getName());
-        // $request->cookies->set($session->getName(), $session->getId());
-        // $request->server->set('HTTP_COOKIE', $session->getName().'='.$session->getId());
-        // $request->headers->set('cookie', [0 => $session->getName().'='.$session->getId()]);
-
-        $this->addCookieToResponse($response, $session);
+            $session->start();
+            
+            app()->get('auth.driver')->setSession($session);
+        });
     }
 }

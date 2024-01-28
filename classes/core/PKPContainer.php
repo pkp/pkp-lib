@@ -121,12 +121,20 @@ class PKPContainer extends Container
             }
         );
 
-        $this->app->bind('request', function ($app) {
+        $this->app->singleton('request', function ($app) {
             return \Illuminate\Http\Request::createFromGlobals();
         });
 
-        $this->app->bind(\Illuminate\Http\Request::class, function ($app) {
+        $this->app->singleton(\Illuminate\Http\Request::class, function ($app) {
             return $app->get('request');
+        });
+
+        $this->app->singleton('respone', function ($app) {
+            return new \Illuminate\Http\Response(headers: $app->get('request')->headers->all());
+        });
+
+        $this->app->singleton(\Illuminate\Http\Response::class, function ($app) {
+            return $app->get('respone');
         });
 
         Facade::setFacadeApplication($this);
@@ -140,9 +148,9 @@ class PKPContainer extends Container
         // Load main settings, this should be done before registering services, e.g., it's used by Database Service
         $this->loadConfiguration();
 
+        $this->register(new \PKP\core\PKPAuthServiceProvider($this));
         $this->register(new \Illuminate\Cookie\CookieServiceProvider($this));
         $this->register(new \PKP\core\PKPSessionServiceProvider($this));
-        $this->register(new \PKP\core\PKPAuthServiceProvider($this));
         $this->register(new \Illuminate\Pipeline\PipelineServiceProvider($this));
         $this->register(new \Illuminate\Cache\CacheServiceProvider($this));
         $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
@@ -360,7 +368,7 @@ class PKPContainer extends Container
             'path' => Config::getVar('general', 'session_cookie_path', '/'),
             'domain' => null,
             'secure' => Config::getVar('security', 'force_ssl', false),
-            'lifetime' => Config::getVar('general', 'lifetime', 30) * 24 * 60,
+            'lifetime' => Config::getVar('general', 'lifetime', 30) * 24 * 60, // lifetime need to set in minuted
             'lottery' => [2, 100],
             'expire_on_close' => false,
             'same_site' => 'lax',

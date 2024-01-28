@@ -170,6 +170,9 @@ class Dispatcher
         $router->route($request);
     }
 
+    /**
+     * Init the session by running through session related middleware
+     */
     public function initSession(): void
     {
         if (defined('SESSION_DISABLE_INIT')) {
@@ -181,19 +184,22 @@ class Dispatcher
         (new \Illuminate\Pipeline\Pipeline(PKPContainer::getInstance()))
             ->send($illuminateRequest)
             ->through([
-                \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+                // \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
                 \Illuminate\Session\Middleware\StartSession::class,
                 \Illuminate\Session\Middleware\AuthenticateSession::class,
             ])
             ->via('handle')
             ->then(function (\Illuminate\Http\Request $request) {
-                return app(\Illuminate\Http\Response::class);
+                return app()->get(\Illuminate\Http\Response::class);
             });
     }
-
+    
+    /**
+     * Set the user resolving logic for laravel inner use prupose
+     */
     public function setUserResolver(): void
     {
-        $illuminateRequest = app(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
+        $illuminateRequest = app()->get(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
         
         $illuminateRequest->setUserResolver(fn () => \APP\core\Application::get()->getRequest()->getUser());
     }

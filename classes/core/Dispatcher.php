@@ -186,7 +186,7 @@ class Dispatcher
             ->through([
                 // \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
                 \Illuminate\Session\Middleware\StartSession::class,
-                \Illuminate\Session\Middleware\AuthenticateSession::class,
+                \PKP\middleware\PKPAuthenticateSession::class,
             ])
             ->via('handle')
             ->then(function (\Illuminate\Http\Request $request) {

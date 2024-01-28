@@ -115,6 +115,7 @@ class PKPSessionGuard extends SessionGuard
     public function updateSessionCookieToResponse(Session $session = null): void
     {   
         $session ??= $this->getSession();
+        $headerCookies = [];
 
         $config = app()->get("config")["session"];
 
@@ -135,14 +136,18 @@ class PKPSessionGuard extends SessionGuard
             $config['same_site'] ?? null
         );
 
-        $response->headers->set('cookie', [0 => $session->getName().'='.$session->getId()]);
+        $headerCookies[] = $session->getName().'='.$session->getId();
         $response->headers->setCookie($cookie);
-
+        
         // Set remember me cookie
-        // $response->headers->removeCookie($this->getRecallerName());
-        // if ($rememberCookie = $this->getCookieJar()->queued($this->getRecallerName())) {
-        //     $response->headers->setCookie($rememberCookie);
-        // }
+        $response->headers->removeCookie($this->getRecallerName());
+        if ( ($rememberCookie = $this->getCookieJar()->queued($this->getRecallerName())) ) {
+            $response->headers->setCookie($rememberCookie);
+            $headerCookies[] = $rememberCookie->getName() . '=' . $rememberCookie->getValue();
+        }
+        
+        // update response header cookie values in formar [name=value]
+        $response->headers->set('cookie', $headerCookies);
     }
 
     /**

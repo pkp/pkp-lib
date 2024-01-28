@@ -2,13 +2,19 @@
 
 namespace PKP\core;
 
-use APP\core\Application;
+use Carbon\Carbon;
+use PKP\user\User;
 use APP\facades\Repo;
-use Throwable;
+use PKP\core\Registry;
+use APP\core\Application;
 use PKP\security\Validation;
 use InvalidArgumentException;
 use Illuminate\Auth\SessionGuard;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Date;
+use Illuminate\Contracts\Session\Session;
+use Symfony\Component\HttpFoundation\Cookie;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
 class PKPSessionGuard extends SessionGuard
 {
@@ -19,6 +25,19 @@ class PKPSessionGuard extends SessionGuard
      */
     protected $user;
 
+    /**
+     * The user provider implementation.
+     *
+     * @var \Illuminate\Contracts\Auth\UserProvider|\PKP\core\PKPUserProvider
+     */
+    protected $provider;
+
+    /**
+     * update the current user without firing any events or changes
+     *
+     * @param  \Illuminate\Contracts\Auth\Authenticatable|User  $user
+     * @return $this
+     */
     public function updateUser(\Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User $user)
     {
         $this->user = $user;
@@ -27,48 +46,133 @@ class PKPSessionGuard extends SessionGuard
     }
 
     /**
-     * Get the currently authenticated user.
+     * Set the current user.
      *
-     * @return \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User|null
+     * @param  \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User  $user
+     * @return $this
      */
-    public function user()
+    public function setUser(AuthenticatableContract|\PKP\user\User $user)
     {
-        $this->user = parent::user();
+        Registry::set('user', $user);
 
-        if ($this->user) {
-            return $this->user;
-        }
+        return parent::setUser($user);
+    }
 
-        $illuminateRequest = app(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
-        
-        $sessionRow = DB::table('sessions')
-            ->where('id', $illuminateRequest->getSession()->getId())
-            ->first();
-            
-        if (!$sessionRow) {
-            return $this->user;
-        }
+    /**
+     * Set the user data to session
+     *
+     * @param  \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User $user
+     * @return $this
+     */
+    public function setUserDataToSession(AuthenticatableContract|\PKP\user\User $user)
+    {
+        $this->session->put('user_id',  $user->getId());
+        $this->session->put('username', $user->getUsername());
+        $this->session->put('email',    $user->getEmail());
 
-        $sessionPayload = $sessionRow->payload;
+        return $this;
+    }
 
-        if (!$sessionPayload) {
-            return $this->user;
-        }
+    /**
+     * Update the session with the given ID.
+     *
+     * @param  string  $id
+     * @return void
+     */
+    public function updateSession($id)
+    {
+        $this->session->put($this->getName(), $id);
 
-        $data = base64_decode($sessionPayload);
-        $data = isValidJson($data) ? json_decode($data, true) : unserialize($data);
+        $this->session->migrate(true);
 
-        if (is_array($data) && isset($data['user_id'])) {
-            $this->user = $this->provider->retrieveById($data['user_id']);
-        }
+        $this->session->save();
 
-        // if ($this->user) {
-        //     $this->updateSession($this->user->getAuthIdentifier());
+        $this->session->start();
 
-        //     $this->fireLoginEvent($this->user, true);
+        $request = app()->get('request'); /** @var \Illuminate\Http\Request $request */
+        $request->setLaravelSession($this->session);
+    }
+
+    /**
+     * Get the session store used by the guard.
+     *
+     * @param \Illuminate\Contracts\Session\Session $session
+     * @return $this
+     */
+    public function setSession(\Illuminate\Contracts\Session\Session $session)
+    {
+        $this->session = $session;
+
+        return $this;
+    }
+
+    /**
+     * Update session cookie based in the response
+     *
+     * @param \Illuminate\Contracts\Auth\Authenticatable|null
+     * @return void
+     */
+    public function updateSessionCookieToResponse(Session $session = null): void
+    {   
+        $session ??= $this->getSession();
+
+        $config = app()->get("config")["session"];
+
+        /** @var \Illuminate\Http\Response $response */
+        $response = app()->get(\Illuminate\Http\Response::class);
+
+        $response->headers->removeCookie($session->getName());
+
+        $cookie = new Cookie(
+            $session->getName(), 
+            $session->getId(), 
+            $this->getCookieExpirationDate($config),
+            $config['path'], 
+            $config['domain'], 
+            $config['secure'] ?? false,
+            $config['http_only'] ?? true, 
+            false, 
+            $config['same_site'] ?? null
+        );
+
+        $response->headers->set('cookie', [0 => $session->getName().'='.$session->getId()]);
+        $response->headers->setCookie($cookie);
+
+        // Set remember me cookie
+        // $response->headers->removeCookie($this->getRecallerName());
+        // if ($rememberCookie = $this->getCookieJar()->queued($this->getRecallerName())) {
+        //     $response->headers->setCookie($rememberCookie);
         // }
-        
-        return $this->user;
+    }
+
+    /**
+     * Send the cookie headers
+     *
+     * @return void
+     */
+    public function sendCookies()
+    {
+        $response = app()->get(\Illuminate\Http\Response::class); /** @var \Illuminate\Http\Response $response */
+
+        foreach ($response->headers->getCookies() as $cookie) {
+            header('Set-Cookie: '.$cookie, false, $response->getStatusCode() ?? 0);
+        }
+    }
+
+    /**
+     * Invalidate/Remove/Delete other user session by user auth identifier name (e.g. user_id)
+     *
+     * @param int       $userId                 The user id for which session data need to be removed
+     * @param string    $excludableSessionId    The session id which should be kept
+     * 
+     * @return void
+     */
+    public function invalidateOtherSessions($userId, $excludableSessionId = null)
+    {
+        DB::table('sessions')
+            ->where($this->provider->createUserInstance()->getAuthIdentifierName(), $userId)
+            ->when($excludableSessionId, fn ($query) => $query->where('id', '<>', $excludableSessionId))
+            ->delete();
     }
 
     /**
@@ -101,5 +205,17 @@ class PKPSessionGuard extends SessionGuard
 
             Repo::user()->edit($user);
         });
+    }
+
+    /**
+     * Get the cookie lifetime in seconds.
+     *
+     * @return \DateTimeInterface|int
+     */
+    protected function getCookieExpirationDate(array $config)
+    {
+        return $config['expire_on_close'] ? 0 : Date::instance(
+            Carbon::now()->addRealMinutes($config['lifetime'])
+        );
     }
 }

@@ -5,7 +5,6 @@ namespace PKP\core;
 use PKP\user\User;
 use APP\facades\Repo;
 use PKP\security\Validation;
-use Illuminate\Contracts\Auth\Guard;
 use PKP\validation\ValidatorFactory;
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Database\ConnectionInterface;

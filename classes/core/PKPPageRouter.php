@@ -437,7 +437,6 @@ class PKPPageRouter extends PKPRouter
     {
         $user = Auth::user(); /** @var \PKP\user\User $user */
         $userId = $user->getId();
-        \PKP\core\Registry::set('user', $user);
 
         if ($context = $this->getContext($request)) {
             // If the user has no roles, or only one role and this is reader, go to "Index" page.

@@ -187,7 +187,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         }
 
         ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
-        if (!static::isInstalled()) {
+        
+        if (!static::isInstalled() && !defined('SESSION_DISABLE_INIT')) {
             define('SESSION_DISABLE_INIT', true);
         }
 

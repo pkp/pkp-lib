@@ -21,8 +21,6 @@ use APP\facades\Repo;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Exception;
-use Illuminate\Auth\SessionGuard;
-use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Auth;
 use PKP\config\Config;
 use PKP\core\Core;
@@ -30,7 +28,6 @@ use PKP\db\DAORegistry;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\user\User;
-use PKP\validation\ValidatorFactory;
 
 class Validation
 {
@@ -131,8 +128,7 @@ class Validation
             return false;
         }
 
-        if ($user->getDisabled()) {
-            // The user has been disabled.
+        if ($user->getDisabled()) { // The user has been disabled.
             $reason = $user->getDisabledReason();
             if ($reason === null) {
                 $reason = '';
@@ -140,38 +136,12 @@ class Validation
             return false;
         }
 
-        // // The user is valid, mark user as logged in in current session
-        $session = Application::get()->getRequest()->getSession();
-        
-        // // Regenerate session ID first
-        // $session->regenerate(true);
-
-        $session->put('user_id', $user->getId());
-        $session->put('username', $user->getUsername());
-        $session->put(
-            'login_'. (string)app('config')['auth']['defaults']['guard'] . '_' . get_class(app()->get(Guard::class)), 
-            $user->getId()
-        );
-
-        if (static::getAuthKey() === static::AUTH_KEY_EMAIL) {
-            $session->put('email', $user->getEmail());
-        }
-
-        error_log('FORGOT REMEMBER');
-        // $session->setRemember($remember);
-
-        if ($remember && Config::getVar('general', 'session_lifetime') > 0) {
-            // Update session expiration time
-            error_log('FORGOT SESSION LIFETIME');
-            //$sessionManager->updateSessionLifetime(time() + Config::getVar('general', 'session_lifetime') * 86400);
-        }
+        $sessionGuard = app()->get('auth.driver'); /** @var \PKP\core\PKPSessionGuard $sessionGuard */
+        $sessionGuard->setUserDataToSession($user)->updateSession($user->getId());
+        $sessionGuard->updateSessionCookieToResponse();
 
         $user->setDateLastLogin(Core::getCurrentDate());
         Repo::user()->edit($user);
-
-        /** @var \PKP\middleware\PKPStartSession $pkpStartSession */
-        $pkpStartSession = app(\Illuminate\Session\Middleware\StartSession::class);
-        $pkpStartSession->updateCookieToResponse($session);
 
         return $user;
     }

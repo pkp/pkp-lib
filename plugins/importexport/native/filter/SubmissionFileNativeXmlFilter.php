@@ -81,10 +81,13 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         $deployment = $this->getDeployment();
         $context = $deployment->getContext();
         $stageToName = array_flip($deployment->getStageNameStageIdMapping());
-        // Maps the retired/removed SUBMISSION_FILE_FAIR_COPY to SUBMISSION_FILE_FINAL (see: https://github.com/pkp/pkp-lib/issues/7470)
-        $stageToName[7] = $stageToName[SubmissionFile::SUBMISSION_FILE_FINAL];
-        // Maps the retired/removed SUBMISSION_FILE_FAIR_COPY to SUBMISSION_FILE_COPYEDIT (see: https://github.com/pkp/pkp-lib/issues/7470)
-        $stageToName[8] = $stageToName[SubmissionFile::SUBMISSION_FILE_COPYEDIT];
+
+        // Quit if the submission file has an invalid file stage
+        if (!isset($stageToName[$submissionFile->getFileStage()])) {
+            $deployment->addWarning(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileInvalidFileStage', ['id' => $submissionFile->getId()]));
+            return null;
+        }
+
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genre = $genreDao->getById($submissionFile->getData('genreId'));
         $uploaderUser = Repo::user()->get($submissionFile->getData('uploaderUserId'), true);

@@ -88,21 +88,8 @@ class PKPReviewSetupForm extends FormComponent
             ]));
 
         if (Config::getVar('general', 'scheduled_tasks')) {
-            // $this->addField(new FieldText('numDaysBeforeInviteReminder', [
-            //     'label' => __('manager.setup.reviewOptions.reminders.response'),
-            //     'description' => __('manager.setup.reviewOptions.reminders.response.description'),
-            //     'value' => $context->getData('numDaysBeforeInviteReminder'),
-            //     'size' => 'small',
-            // ]))
-            //     ->addField(new FieldText('numDaysBeforeSubmitReminder', [
-            //         'label' => __('manager.setup.reviewOptions.reminders.submit'),
-            //         'description' => __('manager.setup.reviewOptions.reminders.submit.description'),
-            //         'value' => $context->getData('numDaysBeforeSubmitReminder'),
-            //         'size' => 'small',
-            //     ]));
-            
             $this
-                ->addField(new FieldHTML('reviewRequestResponseRemainder', [
+                ->addField(new FieldHTML('reviewRequestResponseReminder', [
                     'label' => __('manager.setup.reviewOptions.reminders.response'),
                     'description' => __('manager.setup.reviewOptions.reminders.response.description'),
                 ]))
@@ -116,7 +103,7 @@ class PKPReviewSetupForm extends FormComponent
                     'value' => $context->getData('numDaysAfterReviewResponseReminderDue'),
                     'size' => 'small',
                 ]))
-                ->addField(new FieldHTML('submissionReviewResponseRemainder', [
+                ->addField(new FieldHTML('submissionReviewResponseReminder', [
                     'label' => __('manager.setup.reviewOptions.reminders.submit'),
                     'description' => __('manager.setup.reviewOptions.reminders.submit.description'),
                 ]))

@@ -23,7 +23,7 @@ use PKP\mail\mailables\ReviewRemindAuto;
 use PKP\mail\mailables\ReviewResponseRemindAuto;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\submission\PKPSubmission;
-use PKP\jobs\email\ReviewRemainder as ReviewRemainderJob;
+use PKP\jobs\email\ReviewReminder as ReviewReminderJob;
 
 class ReviewReminder extends ScheduledTask
 {
@@ -84,19 +84,20 @@ class ReviewReminder extends ScheduledTask
             $dateDue = Carbon::parse($reviewAssignment->getDateDue())->startOfDay();
 
             if ($reviewAssignment->getDateReminded() !== null) {
-                // we have a remainder sent previously
+                // we have a reminder sent previously
 
                 $dateReminded = Carbon::parse($reviewAssignment->getDateReminded())->startOfDay();
 
                 if ($reviewAssignment->getDateConfirmed() === null) {
                     // review request has not been responded
-                    // previous remainder was a BEFORE REVIEW REQUEST RESPONSE remainder
+                    // previous reminder was a BEFORE REVIEW REQUEST RESPONSE reminder
 
-                    if ($dateReminded->lt($dateResponseDue) &&
+                    if ($numDaysAfterReviewResponseReminderDue &&
+                        $dateReminded->lt($dateResponseDue) &&
                         $currentDate->gte($dateResponseDue) && 
                         $currentDate->diffInDays($dateResponseDue) >= $numDaysAfterReviewResponseReminderDue) {
 
-                        // ACTION:-> we need to sent a AFTER REVIEW REQUEST RESPONSE remainder
+                        // ACTION:-> we need to sent a AFTER REVIEW REQUEST RESPONSE reminder
                         $mailable = ReviewResponseRemindAuto::class;
                     }
                 } else {
@@ -106,9 +107,9 @@ class ReviewReminder extends ScheduledTask
                         $currentDate->lt($dateDue) && 
                         $dateDue->diffInDays($currentDate) <= $numDaysBeforeReviewSubmitReminderDue) {
                         
-                        // no review submit remainder has been sent
+                        // no review submit reminder has been sent
 
-                        // ACTION:-> we need to sent a BEFORE REVIEW SUBMIT remainder
+                        // ACTION:-> we need to sent a BEFORE REVIEW SUBMIT reminder
                         $mailable = ReviewRemindAuto::class;
 
                     } else if ( $numDaysAfterReviewSubmitReminderDue &&
@@ -116,25 +117,25 @@ class ReviewReminder extends ScheduledTask
                                 $currentDate->gt($dateDue) && 
                                 $currentDate->diffInDays($dateDue) >= $numDaysAfterReviewSubmitReminderDue) {
 
-                        // ACTION:-> we need to sent a AFTER REVIEW SUBMIT remainder
+                        // ACTION:-> we need to sent a AFTER REVIEW SUBMIT reminder
                         $mailable = ReviewRemindAuto::class;
                     }
                 }
             } else if ($reviewAssignment->getDateConfirmed() != null) {
                 // the review request has been responded
-                // as long review request has respnded, only need to concern with BEFORE/AFTER REVIEW SUBMIT remainder
+                // as long review request has respnded, only need to concern with BEFORE/AFTER REVIEW SUBMIT reminder
                 if ($numDaysAfterReviewSubmitReminderDue && 
                     $currentDate->gt($dateDue) && 
                     $currentDate->diffInDays($dateDue) >= $numDaysAfterReviewSubmitReminderDue) {
                     
-                    // ACTION:-> we need to send AFTER REVIEW SUBMIT remainder
+                    // ACTION:-> we need to send AFTER REVIEW SUBMIT reminder
                     $mailable = ReviewRemindAuto::class;
 
                 } else if ( $numDaysBeforeReviewSubmitReminderDue && 
                             $dateDue->gt($currentDate) && 
                             $dateDue->diffInDays($currentDate) <= $numDaysBeforeReviewSubmitReminderDue) {
                     
-                    // ACTION:-> we need to send BEFORE REVIEW SUBMIT remainder
+                    // ACTION:-> we need to send BEFORE REVIEW SUBMIT reminder
                     $mailable = ReviewRemindAuto::class;
                 }
             } else {
@@ -143,20 +144,25 @@ class ReviewReminder extends ScheduledTask
                     $currentDate->gt($dateResponseDue) && 
                     $currentDate->diffInDays($dateResponseDue) >= $numDaysAfterReviewResponseReminderDue) {
                     
-                    // ACTION:-> we need to send AFTER REVIEW REQUEST RESPONSE remainder
+                    // ACTION:-> we need to send AFTER REVIEW REQUEST RESPONSE reminder
                     $mailable = ReviewResponseRemindAuto::class;
 
                 } else if ( $numDaysBeforeReviewResponseReminderDue &&
                             $dateResponseDue->gt($currentDate) && 
                             $dateResponseDue->diffInDays($currentDate) <= $numDaysBeforeReviewResponseReminderDue) {
                     
-                    // ACTION:-> we need to send BEFORE REVIEW REQUEST RESPONSE remainder
+                    // ACTION:-> we need to send BEFORE REVIEW REQUEST RESPONSE reminder
                     $mailable = ReviewResponseRemindAuto::class;
                 }
             }
 
             if ($mailable) {
-                ReviewRemainderJob::dispatch($reviewAssignment->getId(), $submission->getId(), $context->getId(), $mailable);
+                ReviewReminderJob::dispatch(
+                    $reviewAssignment->getId(),
+                    $submission->getId(),
+                    $context->getId(),
+                    $mailable
+                );
             }
         }
 

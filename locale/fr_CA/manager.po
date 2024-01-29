@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2024-01-20 02:39+0000\n"
+"PO-Revision-Date: 2024-01-30 11:07+0000\n"
 "Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
@@ -3619,16 +3619,18 @@ msgstr "Ce courriel est envoyé lorsqu'une nouvelle annonce est créée."
 msgid "mailable.statisticsReportNotify.name"
 msgstr "Notification sur les rapports statistiques"
 
+#, fuzzy
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Avis de modification d'une évaluation"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
 "Ce courriel notifie automatiquement l'évaluateur-trice lorsque les détails "
 "de son assignation ont été modifiés."
 
+#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Évaluation complétée"
 
 #, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.description"

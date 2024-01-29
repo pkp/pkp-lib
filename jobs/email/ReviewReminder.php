@@ -1,17 +1,17 @@
 <?php
 
 /**
- * @file jobs/email/ReviewRemainder.php
+ * @file jobs/email/ReviewReminder.php
  *
  * Copyright (c) 2014-2024 Simon Fraser University
  * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ReviewRemainder
+ * @class ReviewReminder
  *
  * @ingroup jobs
  *
- * @brief Class to handle a job to send an review remainder
+ * @brief Class to handle a job to send an review reminder
  */
 
 namespace PKP\jobs\email;
@@ -28,7 +28,7 @@ use PKP\mail\mailables\ReviewRemindAuto;
 use PKP\jobs\BaseJob;
 
 
-class ReviewRemainder extends BaseJob
+class ReviewReminder extends BaseJob
 {
     protected int $reviewAssignmentId;
     protected int $submissionId;
@@ -59,7 +59,7 @@ class ReviewRemainder extends BaseJob
 
         $submission = Repo::submission()->get($this->submissionId);
         
-        $contextService = Services::get("context");
+        $contextService = Services::get('context');
         $context = $contextService->get($this->contextId);
 
         /** @var ReviewRemindAuto|ReviewResponseRemindAuto $mailable */

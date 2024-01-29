@@ -2274,3 +2274,6 @@ msgstr "Author added."
 
 msgid "notification.editedAuthor"
 msgstr "Author edited."
+
+msgid "common.sandbox"
+msgstr "Application running in sandbox mode."

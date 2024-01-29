@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2024-01-25 16:55+0000\n"
+"PO-Revision-Date: 2024-01-29 09:14+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs/>\n"
@@ -3743,3 +3743,52 @@ msgstr "Nastavení sestavy"
 
 msgid "manager.statistics.counterR5Report.settings.startDate"
 msgstr "Začáteční datum"
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Koncové datum"
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Formát data není platný."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ID zákazníka"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Typ metriky"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Atributy k zobrazení"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Rok vydání"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Seznam nebo rozsah let vydání, který se má vrátit v odpovědi ve formátu "
+"rrrr|rrrr|rrrr-rrrr."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Formát roku vydání není platný."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "ID příspěvku"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "ID příspěvku neexistuje."
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Vyloučit měsíční údaje"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Datum by mělo být ve formátu RRRR-MM-DD nebo RRRR-MM. První možné datum je "
+"{$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Datum by mělo být ve formátu RRRR-MM-DD nebo RRRR-MM. Poslední možné datum "
+"je {$lastDate}."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Soubor příspěvku {$id} byl přeskočen, protože nemá platnou fázi souboru."

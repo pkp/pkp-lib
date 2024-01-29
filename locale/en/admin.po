@@ -274,10 +274,11 @@ msgstr ""
 "Error occured when processing the log file {$file} at the line "
 "{$lineNumber}: {$msg}"
 
+#,fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
-"The background job that will process the log file {$file} and store the "
-"statistics data has been dispatched."
+"The background jobs that will process the log files and store the "
+"statistics data have been dispatched."
 
 msgid "admin.server.apacheVersion"
 msgstr "Apache version"
@@ -436,6 +437,9 @@ msgstr ""
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "File {$filename} was processed and archived."
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "File {$filename} was moved to dispatch folder."
 
 msgid "admin.fileLoader.emailSubject"
 msgstr "File loader"
@@ -760,6 +764,14 @@ msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
 "Job that loads the usage stats data from the file {$file} failed, and the "
 "file could not be moved from {$archivedFilePath} to {$stagingPath}."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"The file {$file} could not be moved from {$dispatchFilePath} to {$archivedFilePath}."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr ""
+"The file {$file} does not exist."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/validation/ValidatorDateConparison.php
+ * @file classes/validation/ValidatorDateComparison.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ValidatorDateConparison
+ * @class ValidatorDateComparison
  *
  * @ingroup validation
  *
@@ -23,7 +23,7 @@ use DateTimeInterface;
 use Exception;
 use PKP\validation\ValidatorFactory;
 
-class ValidatorDateConparison extends Validator
+class ValidatorDateComparison extends Validator
 {
     public const DATE_COMPARE_RULE_EQUAL = 'equal';
     public const DATE_COMPARE_RULE_GREATER = 'greater';
@@ -93,5 +93,5 @@ class ValidatorDateConparison extends Validator
 }
 
 if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\validation\ValidatorDateConparison', '\ValidatorDateConparison');
+    class_alias('\PKP\validation\ValidatorDateComparison', '\ValidatorDateComparison');
 }

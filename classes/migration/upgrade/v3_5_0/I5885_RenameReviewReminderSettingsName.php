@@ -1,25 +1,23 @@
 <?php
 
 /**
- * @file classes/migration/upgrade/v3_5_0/I5885_RenameReviewRemainderSettingsName.php
+ * @file classes/migration/upgrade/v3_5_0/I5885_RenameReviewReminderSettingsName.php
  *
  * Copyright (c) 2014-2024 Simon Fraser University
  * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class I5885_RenameReviewRemainderColumns
+ * @class I5885_RenameReviewReminderSettingsName
  *
- * @brief Rename the review remainder settings name
+ * @brief Rename the review reminder settings name
  */
 
 namespace PKP\migration\upgrade\v3_5_0;
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
 
-abstract class I5885_RenameReviewRemainderSettingsName extends Migration
+abstract class I5885_RenameReviewReminderSettingsName extends Migration
 {
     abstract protected function getContextSettingsTable(): string;
 

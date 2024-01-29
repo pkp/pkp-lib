@@ -35,13 +35,17 @@ class Repository
      *
      * @return StageAssignmentModel
      */
-    public function build(int $submissionId, int $userGroupId, int $userId, bool $recommendOnly = false, bool $canChangeMetadata = null): StageAssignmentModel
+    public function build(int $submissionId, int $userGroupId, int $userId, ?bool $recommendOnly = null, ?bool $canChangeMetadata = null): StageAssignmentModel
     {
         if (!isset($canChangeMetadata)) {
             /** @var UserGroup $userGroup */
             $userGroup = Repo::userGroup()->get($userGroupId);
 
             $canChangeMetadata = $userGroup->getPermitMetadataEdit();
+        }
+
+        if (!isset($recommendOnly)) {
+            $recommendOnly = false;
         }
 
         // If one exists, fetch and return.

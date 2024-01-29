@@ -39,7 +39,7 @@ use PKP\db\DAORegistry;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignmentModel;
 use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
@@ -764,13 +764,16 @@ abstract class PKPSubmissionHandler extends Handler
      */
     protected function getWorkflowUrl(Submission $submission, User $user): string
     {
-        /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-        $results = $stageAssignmentDao->getBySubmissionAndRoleIds($submission->getId(), [Role::ROLE_ID_AUTHOR], WORKFLOW_STAGE_ID_SUBMISSION, $user->getId());
-
         $request = Application::get()->getRequest();
+        
+        // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
+        $hasStageAssignments = StageAssignmentModel::withSubmissionId($submission->getId())
+            ->withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->withStageId(WORKFLOW_STAGE_ID_SUBMISSION)
+            ->withUserId($user->getId())
+            ->exists();
 
-        if (count($results->toArray())) {
+        if ($hasStageAssignments) {
             return Repo::submission()->getUrlAuthorWorkflow($request->getContext(), $submission->getId());
         }
 

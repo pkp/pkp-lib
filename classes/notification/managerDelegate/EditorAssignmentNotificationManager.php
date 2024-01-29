@@ -21,6 +21,8 @@ use APP\notification\Notification;
 use PKP\db\DAORegistry;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
+use PKP\security\Role;
+use PKP\stageAssignment\StageAssignmentModel;
 
 class EditorAssignmentNotificationManager extends NotificationManagerDelegate
 {
@@ -83,8 +85,11 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate
         );
 
         // Check for editor stage assignment.
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $editorAssigned = $stageAssignmentDao->editorAssignedToStage($submissionId, $this->_getStageIdByNotificationType());
+        // Replaces StageAssignmentDAO::editorAssignedToStage
+        $editorAssigned = StageAssignmentModel::withSubmissionId($submissionId)
+            ->withStageId($this->_getStageIdByNotificationType())
+            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+            ->exists();
 
         // Decide if we have to create or delete a notification.
         $notification = $notificationFactory->next();

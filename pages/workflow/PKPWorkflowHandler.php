@@ -45,7 +45,7 @@ use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignmentModel;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -183,26 +183,25 @@ abstract class PKPWorkflowHandler extends Handler
             $canAccessProduction = (bool) array_intersect($editorialWorkflowRoles, $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION] ?? []);
             $canAccessPublication = true;
 
-            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-            $result = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId(
-                $submission->getId(),
-                $request->getUser()->getId(),
-                WORKFLOW_STAGE_ID_PRODUCTION
-            )->toArray();
+            // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
+            $stageAssignments = StageAssignmentModel::withSubmissionId($submission->getId())
+                ->withUserId($request->getUser()->getId())
+                ->withStageId(WORKFLOW_STAGE_ID_PRODUCTION)
+                ->get();
 
             // If they have no stage assignments, check the role they have been granted
             // for the production workflow stage. An unassigned admin or manager may
             // have been granted access and should be allowed to publish.
-            if (empty($result) && is_array($accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION])) {
+            if ($stageAssignments->isEmpty() && is_array($accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION])) {
                 $canPublish = (bool) array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION] ?? []);
 
                 // Otherwise, check stage assignments
                 // "Recommend only" stage assignments can not publish
             } else {
-                foreach ($result as $stageAssignment) {
+                foreach ($stageAssignments as $stageAssignment) {
                     foreach ($workflowUserGroups as $workflowUserGroup) {
-                        if ($stageAssignment->getUserGroupId() == $workflowUserGroup->getId() &&
-                                !$stageAssignment->getRecommendOnly()) {
+                        if ($stageAssignment->userGroupId == $workflowUserGroup->getId() &&
+                                !$stageAssignment->recommendOnly) {
                             $canPublish = true;
                             break;
                         }
@@ -532,16 +531,20 @@ abstract class PKPWorkflowHandler extends Handler
         }
 
         // If there is an editor assigned, retrieve stage decisions.
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $stageId);
+        // Replaces StageAssignmentDAO::getEditorsAssignedToStage
+        $editorsStageAssignments = StageAssignmentModel::withSubmissionId($submission->getId())
+            ->withStageId($stageId)
+            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+            ->get();
+
         $user = $request->getUser();
 
         $makeRecommendation = $makeDecision = false;
         // if the user is assigned several times in an editorial role, check his/her assignments permissions i.e.
         // if the user is assigned with both possibilities: to only recommend as well as make decision
         foreach ($editorsStageAssignments as $editorsStageAssignment) {
-            if ($editorsStageAssignment->getUserId() == $user->getId()) {
-                if (!$editorsStageAssignment->getRecommendOnly()) {
+            if ($editorsStageAssignment->userId == $user->getId()) {
+                if (!$editorsStageAssignment->recommendOnly) {
                     $makeDecision = true;
                 } else {
                     $makeRecommendation = true;
@@ -582,7 +585,7 @@ abstract class PKPWorkflowHandler extends Handler
         $lastRecommendation = null;
         $allRecommendations = null;
         $hasDecidingEditors = false;
-        if (!empty($editorsStageAssignments) && (!$reviewRoundId || ($lastReviewRound && $reviewRoundId == $lastReviewRound->getId()))) {
+        if ($editorsStageAssignments->isNotEmpty() && (!$reviewRoundId || ($lastReviewRound && $reviewRoundId == $lastReviewRound->getId()))) {
             // If this is a review stage and the user has "recommend only role"
             if (($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW)) {
                 if ($makeRecommendation) {
@@ -611,10 +614,13 @@ abstract class PKPWorkflowHandler extends Handler
                     }
 
                     // At least one deciding editor must be assigned before a recommendation can be made
-                    /** @var StageAssignmentDAO $stageAssignmentDao */
-                    $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-                    $decidingEditorIds = $stageAssignmentDao->getDecidingEditorIds($submission->getId(), $stageId);
-                    $hasDecidingEditors = count($decidingEditorIds) > 0;
+                    // Replaces StageAssignmentDAO::getDecidingEditorIds
+                    $hasDecidingEditors = StageAssignmentModel::withSubmissionId($submission->getId())
+                        ->withStageId($stageId)
+                        ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+                        ->withRecommendOnly(false)
+                        ->exists();
+                        
                 } elseif ($makeDecision) {
                     // Get the made editorial decisions from all users
                     $editorDecisions = Repo::decision()
@@ -703,7 +709,7 @@ abstract class PKPWorkflowHandler extends Handler
             'recommendations' => $this->getStageRecommendationTypes($stageId),
             'primaryDecisions' => $this->getPrimaryDecisionTypes(),
             'warnableDecisions' => $this->getWarnableDecisionTypes(),
-            'editorsAssigned' => count($editorsStageAssignments) > 0,
+            'editorsAssigned' => $editorsStageAssignments->isNotEmpty(),
             'stageId' => $stageId,
             'reviewRoundId' => $reviewRound
                 ? $reviewRound->getId()

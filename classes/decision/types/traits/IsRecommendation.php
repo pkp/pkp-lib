@@ -33,6 +33,8 @@ use PKP\mail\Mailable;
 use PKP\mail\mailables\RecommendationNotifyEditors;
 use PKP\note\Note;
 use PKP\query\QueryDAO;
+use PKP\security\Role;
+use PKP\stageAssignment\StageAssignmentModel;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
@@ -116,13 +118,17 @@ trait IsRecommendation
      */
     protected function addRecommendationQuery(EmailData $email, Submission $submission, User $editor, Context $context): void
     {
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var \StageAssignmentDAO $stageAssignmentDao */
         $queryParticipantIds = [];
-        $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $this->getStageId());
+        // Replaces StageAssignmentDAO::getEditorsAssignedToStage
+        $editorsStageAssignments = StageAssignmentModel::withSubmissionId($submission->getId())
+            ->withStageId($this->getStageId())
+            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+            ->get();
+
         foreach ($editorsStageAssignments as $editorsStageAssignment) {
-            if (!$editorsStageAssignment->getRecommendOnly()) {
-                if (!in_array($editorsStageAssignment->getUserId(), $queryParticipantIds)) {
-                    $queryParticipantIds[] = $editorsStageAssignment->getUserId();
+            if (!$editorsStageAssignment->recommendOnly) {
+                if (!in_array($editorsStageAssignment->userId, $queryParticipantIds)) {
+                    $queryParticipantIds[] = $editorsStageAssignment->userId;
                 }
             }
         }

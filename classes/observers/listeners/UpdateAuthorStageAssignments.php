@@ -19,11 +19,9 @@ namespace PKP\observers\listeners;
 
 use APP\facades\Repo;
 use Illuminate\Events\Dispatcher;
-use PKP\db\DAORegistry;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignment;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignmentModel;
 
 class UpdateAuthorStageAssignments
 {
@@ -37,13 +35,11 @@ class UpdateAuthorStageAssignments
 
     public function handle(SubmissionSubmitted $event)
     {
-        /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-        $stageAssigments = $stageAssignmentDao->getBySubmissionAndRoleIds(
-            $event->submission->getId(),
-            [Role::ROLE_ID_AUTHOR],
-            $event->submission->getData('stageId')
-        );
+        // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
+        $stageAssigments = StageAssignmentModel::withSubmissionId($event->submission->getId())
+            ->withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->withStageId($event->submission->getData('stageId'))
+            ->get();
 
         $userGroups = Repo::userGroup()
             ->getCollector()
@@ -51,14 +47,13 @@ class UpdateAuthorStageAssignments
             ->filterByRoleIds([Role::ROLE_ID_AUTHOR])
             ->getMany();
 
-        /** @var StageAssignment $stageAssignment */
-        while ($stageAssignment = $stageAssigments->next()) {
-            $userGroup = $userGroups->get($stageAssignment->getUserGroupId());
-            if (!$userGroup || $stageAssignment->getCanChangeMetadata() === $userGroup->getPermitMetadataEdit()) {
+        foreach ($stageAssigments as $stageAssignment) {
+            $userGroup = $userGroups->get($stageAssignment->userGroupId);
+            if (!$userGroup || $stageAssignment->canChangeMetadata === $userGroup->getPermitMetadataEdit()) {
                 continue;
             }
-            $stageAssignment->setCanChangeMetadata($userGroup->getPermitMetadataEdit());
-            $stageAssignmentDao->updateObject($stageAssignment);
+            $stageAssignment->canChangeMetadata = $userGroup->getPermitMetadataEdit();
+            $stageAssignment->save();
         }
     }
 }

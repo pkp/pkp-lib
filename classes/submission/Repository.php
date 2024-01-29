@@ -37,7 +37,7 @@ use PKP\query\QueryDAO;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\services\PKPSchemaService;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignmentModel;
 use PKP\submission\Collector as SubmissionCollector;
 use PKP\submission\reviewAssignment\Collector as ReviewCollector;
 use PKP\submissionFile\SubmissionFile;
@@ -177,13 +177,16 @@ abstract class Repository
         $dispatcher = $request->getDispatcher();
 
         // Check if the user is an author of this submission
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
         $authorUserGroupIds = Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_AUTHOR);
-        $stageAssignmentsFactory = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), null, null, $user->getId());
+
+        // Replaces StageAssignmentDAO::getBySubmissionAndStageId
+        $stageAssignments = StageAssignmentModel::withSubmissionId($submission->getId())
+            ->withUserId($user->getId())
+            ->get();
 
         $authorDashboard = false;
-        while ($stageAssignment = $stageAssignmentsFactory->next()) {
-            if (in_array($stageAssignment->getUserGroupId(), $authorUserGroupIds)) {
+        foreach ($stageAssignments as $stageAssignment) {
+            if (in_array($stageAssignment->userGroupId, $authorUserGroupIds)) {
                 $authorDashboard = true;
             }
         }
@@ -478,10 +481,14 @@ abstract class Repository
             $canDelete = true;
         } else {
             if ($submission->getData('submissionProgress')) {
-                $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-                $assignments = $stageAssignmentDao->getBySubmissionAndRoleIds($submission->getId(), [Role::ROLE_ID_AUTHOR], WORKFLOW_STAGE_ID_SUBMISSION, $currentUser->getId());
-                $assignment = $assignments->next();
-                if ($assignment) {
+                // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
+                $assignments = StageAssignmentModel::withSubmissionId($submission->getId())
+                    ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                    ->withStageId(WORKFLOW_STAGE_ID_SUBMISSION)
+                    ->withUserId($currentUser->getId())
+                    ->get();
+
+                if ($assignments->isNotEmpty()) {
                     $canDelete = true;
                 }
             }
@@ -495,17 +502,18 @@ abstract class Repository
      */
     public function canEditPublication(int $submissionId, int $userId): bool
     {
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submissionId, $userId, null)->toArray();
+        // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
+        $stageAssignments = StageAssignmentModel::withSubmissionId($submissionId)
+            ->withUserId($userId)
+            ->get();
+
         // Check for permission from stage assignments
-        foreach ($stageAssignments as $stageAssignment) {
-            if ($stageAssignment->getCanChangeMetadata()) {
-                return true;
-            }
+        if ($stageAssignments->contains(fn($stageAssignment) => $stageAssignment->canChangeMetadata)) {
+            return true;
         }
         // If user has no stage assigments, check if user can edit anyway ie. is manager
         $context = Application::get()->getRequest()->getContext();
-        if (count($stageAssignments) == 0 && $this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)) {
+        if ($stageAssignments->isEmpty() && $this->_canUserAccessUnassignedSubmissions($context->getId(), $userId)) {
             return true;
         }
         // Else deny access
@@ -528,11 +536,13 @@ abstract class Repository
         }
 
         if ($user) {
-            /** @var StageAssignmentDAO */
-            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-            $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), Role::ROLE_ID_AUTHOR, null, $user->getId());
-            $stageAssignment = $stageAssignments->next();
-            if ($stageAssignment) {
+            // Replaces StageAssignmentDAO::getBySubmissionAndRoleId
+            $stageAssignments = StageAssignmentModel::withSubmissionId($submission->getId())
+                ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                ->withUserId($user->getId())
+                ->get();
+                
+            if ($stageAssignments->isNotEmpty()) {
                 return true;
             }
         }

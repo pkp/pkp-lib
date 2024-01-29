@@ -499,7 +499,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'ScheduledTaskDAO' => 'PKP\scheduledTask\ScheduledTaskDAO',
             'SessionDAO' => 'PKP\session\SessionDAO',
             'SiteDAO' => 'PKP\site\SiteDAO',
-            'StageAssignmentDAO' => 'PKP\stageAssignment\StageAssignmentDAO',
             'SubEditorsDAO' => 'PKP\context\SubEditorsDAO',
             'SubmissionAgencyDAO' => 'PKP\submission\SubmissionAgencyDAO',
             'SubmissionAgencyEntryDAO' => 'PKP\submission\SubmissionAgencyEntryDAO',

@@ -32,7 +32,7 @@ use PKP\notification\NotificationDAO;
 use PKP\query\Query;
 use PKP\query\QueryDAO;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignmentModel;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class QueryForm extends Form
@@ -284,8 +284,6 @@ class QueryForm extends Form
 
         $templateMgr->assign('templates', $templateKeySubjectPairs);
 
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-
         // Get currently selected participants in the query
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $assignedParticipants = $query->getId() ? $queryDao->getParticipantIds($query->getId()) : [];
@@ -297,11 +295,16 @@ class QueryForm extends Form
         // When in review stage, include/exclude users depending on the current users role
         $reviewAssignments = [];
         // Get current users roles
-        $assignedRoles = (function () use ($stageAssignmentDao, $query, $user) {
+        $assignedRoles = (function () use ($query, $user) {
             $assignedRoles = [];
-            $usersAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId());
-            while ($usersAssignment = $usersAssignments->next()) {
-                $userGroup = Repo::userGroup()->get($usersAssignment->getUserGroupId());
+            // Replaces StageAssignmentDAO::getBySubmissionAndStageId
+            $usersAssignments = StageAssignmentModel::withSubmissionId($query->getAssocId())
+                ->withStageId($query->getStageId())
+                ->withUserId($user->getId())
+                ->get();
+
+            foreach ($usersAssignments as $usersAssignment) {
+                $userGroup = Repo::userGroup()->get($usersAssignment->userGroupId);
                 $assignedRoles[] = $userGroup->getRoleId();
             }
             return $assignedRoles;
@@ -322,10 +325,13 @@ class QueryForm extends Form
             foreach ($reviewAssignments as $reviewAssignment) {
                 if ($reviewAssignment->getReviewerId() == $user->getId()) {
                     if ($reviewAssignment->getReviewMethod() != ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN) {
-                        $authorAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($query->getAssocId(), Role::ROLE_ID_AUTHOR);
-                        while ($assignment = $authorAssignments->next()) {
-                            $excludeUsers[] = $assignment->getUserId();
-                        }
+                        // Replaces StageAssignmentDAO::getBySubmissionAndRoleId
+                        $excludeUsers = StageAssignmentModel::withSubmissionId($query->getAssocId())
+                            ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                            ->withUserId($user->getId())
+                            ->get()
+                            ->pluck('userId')
+                            ->all();
                     }
                 }
             }
@@ -356,10 +362,15 @@ class QueryForm extends Form
             $allUserGroups = Repo::userGroup()->userUserGroups($user->getId(), $context->getId());
 
             $userRoles = [];
-            $userAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId())->toArray();
+            // Replaces StageAssignmentDAO::getBySubmissionAndStageId
+            $userAssignments = StageAssignmentModel::withSubmissionId($query->getAssocId())
+                ->withStageId($query->getStageId())
+                ->withUserId($user->getId())
+                ->get();
+
             foreach ($userAssignments as $userAssignment) {
                 foreach ($allUserGroups as $userGroup) {
-                    if ($userGroup->getId() == $userAssignment->getUserGroupId()) {
+                    if ($userGroup->getId() == $userAssignment->userGroupId) {
                         $userRoles[] = $userGroup->getLocalizedName();
                     }
                 }
@@ -429,17 +440,20 @@ class QueryForm extends Form
             $submissionId = $query->getAssocId();
             $stageId = $query->getStageId();
 
-            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-
             // get the selected participants
             $newParticipantIds = (array) $this->getData('users');
             $participantsToConsider = $blindReviewerCount = 0;
             foreach ($newParticipantIds as $participantId) {
                 // get participant roles in this workflow stage
                 $assignedRoles = [];
-                $usersAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submissionId, $stageId, null, $participantId);
-                while ($usersAssignment = $usersAssignments->next()) {
-                    $userGroup = Repo::userGroup()->get($usersAssignment->getUserGroupId());
+                // Replaces StageAssignmentDAO::getBySubmissionAndStageId
+                $usersAssignments = StageAssignmentModel::withSubmissionId($submissionId)
+                    ->withStageId($stageId)
+                    ->withUserId($participantId)
+                    ->get();
+
+                foreach ($usersAssignments as $usersAssignment) {
+                    $userGroup = Repo::userGroup()->get($usersAssignment->userGroupId);
                     $assignedRoles[] = $userGroup->getRoleId();
                 }
 

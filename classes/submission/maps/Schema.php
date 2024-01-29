@@ -22,9 +22,9 @@ use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\query\QueryDAO;
+use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use PKP\stageAssignment\StageAssignment;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignmentModel;
 use PKP\submission\Genre;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -362,10 +362,11 @@ class Schema extends \PKP\core\maps\Schema
         $stageIds = Application::get()->getApplicationStages();
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
-        $context = $request->getContext();
 
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $currentUser->getId() ?? 0)->toArray();
+        // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
+        $stageAssignments = StageAssignmentModel::withSubmissionId($submission->getId())
+            ->withUserId($currentUser->getId() ?? 0)
+            ->get();
 
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $openPerStage = $queryDao->countOpenPerStage($submission->getId(), [$request->getUser()->getId()]);
@@ -382,17 +383,21 @@ class Schema extends \PKP\core\maps\Schema
 
             $currentUserAssignedRoles = [];
             if ($currentUser) {
-                /** @var StageAssignment $stageAssignment */
                 foreach ($stageAssignments as $stageAssignment) {
-                    $userGroup = $this->getUserGroup($stageAssignment->getUserGroupId());
+                    $userGroup = $this->getUserGroup($stageAssignment->userGroupId);
                     if ($userGroup) {
                         $currentUserAssignedRoles[] = $userGroup->getRoleId();
                     }
                 }
-                $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-                $stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $currentUser->getId(), $stageId);
-                while ($stageAssignment = $stageAssignmentsResult->next()) {
-                    $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
+
+                // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
+                $stageAssignments = StageAssignmentModel::withSubmissionId($submission->getId())
+                    ->withUserId($currentUser->getId())
+                    ->withStageId($stageId)
+                    ->get();
+
+                foreach ($stageAssignments as $stageAssignment) {
+                    $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
                     $currentUserAssignedRoles[] = (int) $userGroup->getRoleId();
                 }
             }
@@ -401,8 +406,12 @@ class Schema extends \PKP\core\maps\Schema
             // Stage-specific statuses
             switch ($stageId) {
                 case WORKFLOW_STAGE_ID_SUBMISSION:
-                    $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-                    $assignedEditors = $stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId);
+                    // Replaces StageAssignmentDAO::editorAssignedToStage
+                    $assignedEditors = StageAssignmentModel::withSubmissionId($submission->getId())
+                        ->withStageId($stageId)
+                        ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+                        ->exists();
+
                     if (!$assignedEditors) {
                         $stage['statusId'] = Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED;
                         $stage['status'] = __('submissions.queuedUnassigned');
@@ -432,14 +441,19 @@ class Schema extends \PKP\core\maps\Schema
                         ];
 
                         // See if the  current user can only recommend:
-                        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
                         $user = $request->getUser();
-                        $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $stageId);
+
+                        // Replaces StageAssignmentDAO::getEditorsAssignedToStage
+                        $editorsStageAssignments = StageAssignmentModel::withSubmissionId($submission->getId())
+                            ->withStageId($stageId)
+                            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+                            ->get();
+
                         // if the user is assigned several times in the editorial role, and
                         // one of the assignments have recommendOnly option set, consider it here
                         $stage['currentUserCanRecommendOnly'] = false;
                         foreach ($editorsStageAssignments as $editorsStageAssignment) {
-                            if ($editorsStageAssignment->getUserId() == $user->getId() && $editorsStageAssignment->getRecommendOnly()) {
+                            if ($editorsStageAssignment->userId == $user->getId() && $editorsStageAssignment->recommendOnly) {
                                 $stage['currentUserCanRecommendOnly'] = true;
                                 break;
                             }

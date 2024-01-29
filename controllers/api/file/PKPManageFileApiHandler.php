@@ -33,7 +33,7 @@ use PKP\notification\PKPNotification;
 use PKP\observers\events\MetadataChanged;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignmentModel;
 use PKP\submissionFile\SubmissionFile;
 
 abstract class PKPManageFileApiHandler extends Handler
@@ -220,12 +220,14 @@ abstract class PKPManageFileApiHandler extends Handler
             $submissionFile = $form->getSubmissionFile();
 
             // Get a list of author user IDs
-            $authorUserIds = [];
-            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-            $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds($submission->getId(), [Role::ROLE_ID_AUTHOR]);
-            while ($assignment = $submitterAssignments->next()) {
-                $authorUserIds[] = $assignment->getUserId();
-            }
+            // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
+            $submitterAssignments = StageAssignmentModel::withSubmissionId($submission->getId())
+                ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                ->get();
+
+            $authorUserIds = $submitterAssignments
+                ->pluck('userId')
+                ->all();
 
             // Update the notifications
             $notificationMgr = new NotificationManager(); /** @var NotificationManager $notificationMgr */
@@ -241,10 +243,15 @@ abstract class PKPManageFileApiHandler extends Handler
                 // Delete any 'revision requested' notifications since revisions are now in.
                 $context = $request->getContext();
                 $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-                $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-                $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds($submission->getId(), [Role::ROLE_ID_AUTHOR]);
-                while ($assignment = $submitterAssignments->next()) {
-                    $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submission->getId(), $assignment->getUserId(), PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
+
+                foreach ($submitterAssignments as $submitterAssignment) {
+                    $notificationDao->deleteByAssoc(
+                        Application::ASSOC_TYPE_SUBMISSION, 
+                        $submission->getId(), 
+                        $submitterAssignment->userId, 
+                        PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, 
+                        $context->getId()
+                    );
                 }
             }
 

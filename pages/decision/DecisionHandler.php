@@ -33,7 +33,7 @@ use PKP\security\authorization\DecisionWritePolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignmentModel;
 use PKP\submission\Genre;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewRound\ReviewRound;
@@ -117,9 +117,15 @@ class DecisionHandler extends Handler
 
         // Don't allow a recommendation unless at least one deciding editor exists
         if (Repo::decision()->isRecommendation($this->decisionType->getDecision())) {
-            /** @var StageAssignmentDAO $stageAssignmentDao  */
-            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-            $assignedEditorIds = $stageAssignmentDao->getDecidingEditorIds($this->submission->getId(), $this->decisionType->getStageId());
+            // Replaces StageAssignmentDAO::getDecidingEditorIds
+            $assignedEditorIds = StageAssignmentModel::withSubmissionId($this->submission->getId())
+                ->withStageId($this->decisionType->getStageId())
+                ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+                ->withRecommendOnly(false)
+                ->get()
+                ->pluck('userId')
+                ->all();
+
             if (!$assignedEditorIds) {
                 $request->getDispatcher()->handle404();
             }

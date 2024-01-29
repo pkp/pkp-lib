@@ -32,6 +32,7 @@ use PKP\linkAction\request\AjaxAction;
 use PKP\mail\mailables\ReviewRequest;
 use PKP\mail\mailables\ReviewRequestSubsequent;
 use PKP\security\Role;
+use PKP\stageAssignment\StageAssignmentModel;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -127,12 +128,11 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         // Get user IDs already assigned to this submission, and admins and
         // managers who may have access to author identities and can not guarantee
         // anonymous reviews
-        $warnOnAssignment = [];
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignmentResults = $stageAssignmentDao->getBySubmissionAndStageId($this->getSubmissionId());
-        while ($stageAssignment = $stageAssignmentResults->next()) {
-            $warnOnAssignment[] = $stageAssignment->getUserId();
-        }
+        // Replaces StageAssignmentDAO::getBySubmissionAndStageId
+        $warnOnAssignment = StageAssignmentModel::withSubmissionId($this->getSubmissionId())
+            ->get()
+            ->pluck('userId')
+            ->all();
 
         // Get a list of users in the managerial and admin user groups
         // Managers are assigned only to contexts; site admins are assigned only to site.

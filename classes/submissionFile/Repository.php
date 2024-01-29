@@ -41,7 +41,7 @@ use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignmentModel;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\exceptions\UnableToCreateFileContentException;
 use PKP\submissionFile\maps\Schema;
@@ -309,14 +309,14 @@ abstract class Repository
             $reviewRoundDao->updateStatus($reviewRound);
 
             // Update author notifications
-            $authorUserIds = [];
-            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-            $authorAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds($submissionFile->getData('submissionId'), [Role::ROLE_ID_AUTHOR]);
-            while ($assignment = $authorAssignments->next()) {
-                if ($assignment->getStageId() == $reviewRound->getStageId()) {
-                    $authorUserIds[] = (int) $assignment->getUserId();
-                }
-            }
+            // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
+            $authorUserIds = StageAssignmentModel::withSubmissionId($submissionFile->getData('submissionId'))
+                ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                ->withStageId($reviewRound->getStageId())
+                ->get()
+                ->pluck('userId')
+                ->all();
+
             $notificationMgr = new NotificationManager();
             $notificationMgr->updateNotification(
                 $this->request,
@@ -436,12 +436,13 @@ abstract class Repository
         $notificationMgr = new NotificationManager();
         switch ($submissionFile->getData('fileStage')) {
             case SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION:
-                $authorUserIds = [];
-                $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-                $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds($submissionFile->getData('submissionId'), [Role::ROLE_ID_AUTHOR]);
-                while ($assignment = $submitterAssignments->next()) {
-                    $authorUserIds[] = $assignment->getUserId();
-                }
+                // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
+                $authorUserIds = StageAssignmentModel::withSubmissionId($submissionFile->getData('submissionId'))
+                    ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                    ->get()
+                    ->pluck('userId')
+                    ->all();
+
                 $notificationMgr->updateNotification(
                     Application::get()->getRequest(),
                     [
@@ -790,15 +791,17 @@ abstract class Repository
 
         // Get editors assigned to the submission, consider also the recommendOnly editors
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao*/
         $reviewRound = $reviewRoundDao->getById($submissionFile->getData('assocId'));
-        $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage(
-            $submission->getId(),
-            $reviewRound->getStageId()
-        );
+
+        // Replaces StageAssignmentDAO::getEditorsAssignedToStage
+        $editorsStageAssignments = StageAssignmentModel::withSubmissionId($submission->getId())
+            ->withStageId($reviewRound->getStageId())
+            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+            ->get();
+
         $recipients = [];
         foreach ($editorsStageAssignments as $editorsStageAssignment) {
-            $editor = Repo::user()->get($editorsStageAssignment->getUserId());
+            $editor = Repo::user()->get($editorsStageAssignment->userId);
             // IF no prior notification exists
             // OR if editor has logged in after the last revision upload
             // OR the last upload and notification was sent more than a day ago,

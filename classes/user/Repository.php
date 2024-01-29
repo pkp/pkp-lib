@@ -30,7 +30,7 @@ use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
 use PKP\session\SessionDAO;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignmentModel;
 use PKP\submission\SubmissionCommentDAO;
 
 class Repository
@@ -204,9 +204,6 @@ class Repository
      */
     public function getAccessibleWorkflowStages(int $userId, int $contextId, Submission $submission, ?array $userRoleIds = null): array
     {
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId);
-
         if (is_null($userRoleIds)) {
             $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
             $userRoles = $roleDao->getByUserIdGroupedByContext($userId);
@@ -230,10 +227,14 @@ class Repository
         }
 
         $accessibleWorkflowStages = [];
+        // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
+        $stageAssignments = StageAssignmentModel::withSubmissionId($submission->getId())
+            ->withUserId($userId)
+            ->get();
 
         // Assigned users have access based on their assignment
-        while ($stageAssignment = $stageAssignmentsResult->next()) {
-            $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
+        foreach ($stageAssignments as $stageAssignment) {
+            $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
             $roleId = $userGroup->getRoleId();
 
             // Check global user roles within the context, e.g., user can be assigned in the role, which was revoked
@@ -241,7 +242,7 @@ class Repository
                 continue;
             }
 
-            $accessibleWorkflowStages[$stageAssignment->getStageId()][] = $roleId;
+            $accessibleWorkflowStages[$stageAssignment->stageId][] = $roleId;
         }
 
         // Managers and admin have access if not assigned to the submission or are assigned in a revoked role
@@ -377,17 +378,21 @@ class Repository
         Repo::userGroup()->deleteAssignmentsByUserId($oldUserId);
 
         // Transfer stage assignments.
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignments = $stageAssignmentDao->getByUserId($oldUserId);
-        while ($stageAssignment = $stageAssignments->next()) {
-            $duplicateAssignments = $stageAssignmentDao->getBySubmissionAndStageId($stageAssignment->getSubmissionId(), null, $stageAssignment->getUserGroupId(), $newUserId);
-            if (!$duplicateAssignments->next()) {
+        $stageAssignments = StageAssignmentModel::withUserId($oldUserId)->get();
+        foreach ($stageAssignments as $stageAssignment) {
+            // Replaces StageAssignmentDAO::getBySubmissionAndStageId
+            $duplicateAssignments = StageAssignmentModel::withSubmissionId($stageAssignment->submissionId)
+                ->withUserGroupId($stageAssignment->userGroupId)
+                ->withUserId($newUserId)
+                ->get();
+
+            if ($duplicateAssignments->isEmpty()) {
                 // If no similar assignments already exist, transfer this one.
-                $stageAssignment->setUserId($newUserId);
-                $stageAssignmentDao->updateObject($stageAssignment);
+                $stageAssignment->userId = $newUserId;
+                $stageAssignment->save();
             } else {
                 // There's already a stage assignment for the new user; delete.
-                $stageAssignmentDao->deleteObject($stageAssignment);
+                $stageAssignment->delete();
             }
         }
 

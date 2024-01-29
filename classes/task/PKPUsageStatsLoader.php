@@ -18,20 +18,13 @@ namespace PKP\task;
 
 use APP\core\Application;
 use APP\core\Services;
-use APP\jobs\statistics\CompileUsageStatsFromTemporaryRecords;
 use APP\statistics\StatisticsHelper;
-use APP\statistics\TemporaryItemInvestigationsDAO;
-use APP\statistics\TemporaryItemRequestsDAO;
-use APP\statistics\TemporaryTotalsDAO;
-use DateTime;
-use Exception;
-use PKP\core\Core;
-use PKP\db\DAORegistry;
+use Illuminate\Support\Facades\Bus;
 use PKP\file\FileManager;
 use PKP\jobs\statistics\CompileMonthlyMetrics;
-use PKP\plugins\Hook;
 use PKP\scheduledTask\ScheduledTaskHelper;
-use PKP\statistics\TemporaryInstitutionsDAO;
+use PKP\site\Site;
+use Throwable;
 
 abstract class PKPUsageStatsLoader extends FileLoader
 {
@@ -45,11 +38,8 @@ abstract class PKPUsageStatsLoader extends FileLoader
     /** List of months the processed daily log files are from, to consider for monthly aggregation */
     private array $months = [];
 
-    /** DAOs for temporary usage stats tables where the log entries are inserted for further processing */
-    protected TemporaryInstitutionsDAO $temporaryInstitutionsDao;
-    protected TemporaryTotalsDAO $temporaryTotalsDao;
-    protected TemporaryItemInvestigationsDAO $temporaryItemInvestigationsDao;
-    protected TemporaryItemRequestsDAO $temporaryItemRequestsDao;
+    /** List of log files that needs to be processed within this scheduled task, and the jobs needs to be chained for. */
+    private array $logFiles = [];
 
     /**
      * Constructor.
@@ -79,11 +69,6 @@ abstract class PKPUsageStatsLoader extends FileLoader
         parent::__construct($args);
 
         $this->checkFolderStructure(true);
-
-        $this->temporaryInstitutionsDao = DAORegistry::getDAO('TemporaryInstitutionsDAO');
-        $this->temporaryTotalsDao = DAORegistry::getDAO('TemporaryTotalsDAO');
-        $this->temporaryItemInvestigationsDao = DAORegistry::getDAO('TemporaryItemInvestigationsDAO');
-        $this->temporaryItemRequestsDao = DAORegistry::getDAO('TemporaryItemRequestsDAO');
     }
 
     /**
@@ -93,6 +78,12 @@ abstract class PKPUsageStatsLoader extends FileLoader
     {
         return __('admin.scheduledTask.usageStatsLoader');
     }
+
+    /**
+     * Get the jobs needed to process a usage stats log file and compile the stats.
+     * The jobs have to be in the right execution order.
+     */
+    abstract protected function getFileJobs(string $filePath, Site $site): array;
 
     /**
      * @copydoc FileLoader::executeActions()
@@ -114,88 +105,31 @@ abstract class PKPUsageStatsLoader extends FileLoader
             $this->autoStage();
         }
         $processFilesResult = parent::executeActions();
-        foreach ($this->months as $month) {
-            dispatch(new CompileMonthlyMetrics($month, Application::get()->getRequest()->getSite()));
+
+        if ($processFilesResult) {
+            $site = Application::get()->getRequest()->getSite();
+            $jobs = [];
+            foreach ($this->logFiles as $filePath) {
+                $jobsPerFile = $this->getFileJobs($filePath, $site);
+                $jobs = array_merge($jobs, $jobsPerFile);
+            }
+            foreach ($this->months as $month) {
+                $compileMonthlyMetricsJob = new CompileMonthlyMetrics($month, $site);
+                $jobs = array_merge($jobs, [$compileMonthlyMetricsJob]);
+            }
+            // Bus::chain() cannot accept an empty array
+            if (!empty($jobs)) {
+                Bus::chain($jobs)
+                    ->catch(function (Throwable $e) {
+                    })
+                    ->dispatch();
+
+                $this->addExecutionLogEntry(__(
+                    'admin.scheduledTask.usageStatsLoader.jobDispatched'
+                ), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
+            }
         }
         return ($processFilesResult && !$processingDirError);
-    }
-
-    /**
-     * Delete entries in usage stats temporary tables by loadId
-     */
-    protected function deleteByLoadId(string $loadId): void
-    {
-        $this->temporaryInstitutionsDao->deleteByLoadId($loadId);
-        $this->temporaryTotalsDao->deleteByLoadId($loadId);
-        $this->temporaryItemInvestigationsDao->deleteByLoadId($loadId);
-        $this->temporaryItemRequestsDao->deleteByLoadId($loadId);
-    }
-
-    /**
-     * Insert usage stats log entry into temporary tables
-     */
-    protected function insertTemporaryUsageStatsData(object $entry, int $lineNumber, string $loadId): void
-    {
-        try {
-            $this->temporaryTotalsDao->insert($entry, $lineNumber, $loadId);
-            $this->temporaryInstitutionsDao->insert($entry->institutionIds, $lineNumber, $loadId);
-            if (!empty($entry->submissionId)) {
-                $this->temporaryItemInvestigationsDao->insert($entry, $lineNumber, $loadId);
-                if ($entry->assocType == Application::ASSOC_TYPE_SUBMISSION_FILE) {
-                    $this->temporaryItemRequestsDao->insert($entry, $lineNumber, $loadId);
-                }
-            }
-        } catch (\Illuminate\Database\QueryException $e) {
-            $this->addExecutionLogEntry(__('admin.scheduledTask.usageStatsLoader.insertError', ['file' => $loadId, 'lineNumber' => $lineNumber, 'msg' => $e->getMessage()]), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
-        }
-    }
-
-    /**
-     * Get valid assoc types that an usage event can contain
-     */
-    abstract protected function getValidAssocTypes(): array;
-
-    /**
-     * Validate the usage stats log entry
-     *
-     * @throws Exception.
-     */
-    protected function isLogEntryValid(object $entry): void
-    {
-        if (!$this->validateDate($entry->time)) {
-            throw new Exception(__('admin.scheduledTask.usageStatsLoader.invalidLogEntry.time'));
-        }
-        // check hashed IP ?
-        // check canonicalUrl ?
-        if (!is_int($entry->contextId)) {
-            throw new Exception(__('admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId'));
-        }
-        if (!empty($entry->submissionId) && !is_int($entry->submissionId)) {
-            throw new Exception(__('admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId'));
-        }
-
-        $validAssocTypes = $this->getValidAssocTypes();
-        if (!in_array($entry->assocType, $validAssocTypes)) {
-            throw new Exception(__('admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType'));
-        }
-        $validFileTypes = [
-            StatisticsHelper::STATISTICS_FILE_TYPE_PDF,
-            StatisticsHelper::STATISTICS_FILE_TYPE_DOC,
-            StatisticsHelper::STATISTICS_FILE_TYPE_HTML,
-            StatisticsHelper::STATISTICS_FILE_TYPE_OTHER,
-        ];
-        if (!empty($entry->fileType) && !in_array($entry->fileType, $validFileTypes)) {
-            throw new Exception(__('admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType'));
-        }
-        if (!empty($entry->country) && (!ctype_alpha($entry->country) || !(strlen($entry->country) == 2))) {
-            throw new Exception(__('admin.scheduledTask.usageStatsLoader.invalidLogEntry.country'));
-        }
-        if (!empty($entry->region) && (!ctype_alnum($entry->region) || !(strlen($entry->region) <= 3))) {
-            throw new Exception(__('admin.scheduledTask.usageStatsLoader.invalidLogEntry.region'));
-        }
-        if (!is_array($entry->institutionIds)) {
-            throw new Exception(__('admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds'));
-        }
     }
 
     /**
@@ -266,58 +200,6 @@ abstract class PKPUsageStatsLoader extends FileLoader
     }
 
     /**
-     * Process the log file:
-     * Read the log file line by line, validate, and insert into the temporary stats tables.
-     * The file's entries MUST be ordered by date-time to successfully identify double-clicks and unique items.
-     *
-     * @throws Exception
-     *
-     * @hook Stats::storeUsageEventLogEntry [[$entryData]]
-     */
-    protected function process(string $filePath, string $loadId): void
-    {
-        $fhandle = fopen($filePath, 'r');
-        if (!$fhandle) {
-            throw new Exception(__('admin.scheduledTask.usageStatsLoader.openFileFailed', ['file' => $filePath]));
-        }
-        // Make sure we don't have any temporary records associated
-        // with the current load ID in database.
-        $this->deleteByLoadId($loadId);
-
-        $lineNumber = 0;
-        while (!feof($fhandle)) {
-            $lineNumber++;
-            $line = trim(fgets($fhandle));
-            if (empty($line) || substr($line, 0, 1) === '#') {
-                continue;
-            } // Spacing or comment lines. This actually should not occur in the new format.
-
-            $entryData = json_decode($line);
-            if ($entryData === null) {
-                // This line is not in the right format.
-                $this->addExecutionLogEntry(__('admin.scheduledTask.usageStatsLoader.wrongLoglineFormat', ['file' => $loadId, 'lineNumber' => $lineNumber]), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
-                continue;
-            }
-
-            try {
-                $this->isLogEntryValid($entryData);
-            } catch (Exception $e) {
-                $this->addExecutionLogEntry(__('admin.scheduledTask.usageStatsLoader.invalidLogEntry', ['file' => $loadId, 'lineNumber' => $lineNumber, 'error' => $e->getMessage()]), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
-                continue;
-            }
-
-            // Avoid bots.
-            if (Core::isUserAgentBot($entryData->userAgent)) {
-                continue;
-            }
-
-            Hook::call('Stats::storeUsageEventLogEntry', [$entryData]);
-            $this->insertTemporaryUsageStatsData($entryData, $lineNumber, $loadId);
-        }
-        fclose($fhandle);
-    }
-
-    /**
      * @copydoc FileLoader::processFile()
      * The file name MUST be of form usage_events_YYYYMMDD.log
      * If the function successfully finishes, the file will be archived.
@@ -333,25 +215,11 @@ abstract class PKPUsageStatsLoader extends FileLoader
                 return self::FILE_LOADER_RETURN_TO_STAGING;
             }
         }
-
+        // Add this log file to the list, so that all jobs, for all files can be chained.
+        $this->logFiles[] = $loadId;
         // Add this log file's month to the list of months the stats need to be aggregated for.
         $this->considerMonthForStatsAggregation($month);
-
-        try {
-            $this->process($filePath, $loadId);
-        } catch (Exception $e) {
-            throw $e;
-        }
-
-        // Despatch the job that will process the usage stats data in
-        // the temporary stats tables and store them in the actual ones
-        dispatch(new CompileUsageStatsFromTemporaryRecords($loadId));
-        $this->addExecutionLogEntry(__(
-            'admin.scheduledTask.usageStatsLoader.jobDispatched',
-            ['file' => $filePath]
-        ), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
-
-        return true;
+        return self::FILE_LOADER_RETURN_TO_DISPATCH;
     }
 
     /**
@@ -417,14 +285,5 @@ abstract class PKPUsageStatsLoader extends FileLoader
     protected function getUsageEventCurrentDayLogName(): string
     {
         return 'usage_events_' . date('Ymd') . '.log';
-    }
-
-    /**
-     * Validate date, check if the date is a valid date and in requested format
-     */
-    protected function validateDate(string $datetime, string $format = 'Y-m-d H:i:s'): bool
-    {
-        $d = DateTime::createFromFormat($format, $datetime);
-        return $d && $d->format($format) === $datetime;
     }
 }

@@ -18,7 +18,7 @@
 
 namespace PKP\form\validation;
 
-use PKP\validation\ValidatorDateConparison;
+use PKP\validation\ValidatorDateComparison;
 use Carbon\Carbon;
 use DateTimeInterface;
 
@@ -34,9 +34,9 @@ class FormValidatorDateCompare extends FormValidator
      * @param string                    $type           the type of check, either "required" or "optional"
      * @param string                    $message        the error message for validation failures (i18n key)
      */
-    public function __construct(&$form, $field, $comparingDate, $comparingRule,  $type = 'optional', $message = 'email.invalid')
+    public function __construct(&$form, $field, $comparingDate, $comparingRule,  $type = 'optional', $message = 'validator.date.comparison')
     {
-        $validator = new ValidatorDateConparison($comparingDate, $comparingRule);
+        $validator = new ValidatorDateComparison($comparingDate, $comparingRule);
         parent::__construct($form, $field, $type, $message, $validator);
     }
 }

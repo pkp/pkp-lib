@@ -222,7 +222,7 @@ msgstr ""
 "неуспешен процес или едновременно работещ процес. Този файл ще бъде "
 "обработен автоматично отново."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Файл {$file} не можа да се отвори и беше отхвърлен."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -237,45 +237,45 @@ msgstr ""
 "месец, трябва да възстановите всички регистрационни файлове за този месец и "
 "да използвате CLI инструмента за повторна обработка на статистиката."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Редът {$lineNumber} в регистрационния файл {$file} е в грешен формат и "
 "следователно ще бъде пропуснат."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Невалиден запис в регистрационния файл на ред {$lineNumber} в "
 "регистрационния файл {$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Часът не е валиднен формат."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "Идентификаторът на контекста (Context ID) не е цяло число."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr ""
 "Идентификаторът на подадените материали (Submission ID) не е цяло число."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "Идентификаторът на представянето (Representation ID) не е цяло число."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Асоциираният тип не се поддържа."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Типът файл не се поддържа."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Държавата не е низ от два азбучни знака."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Регионът не е низ с дължина до три буквено-цифрови знака."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Идентификаторите на институциите (Institution ID) не са масив."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Възникна грешка при обработката на регистрационния файл {$file} на ред "
 "{$lineNumber}: {$msg}"

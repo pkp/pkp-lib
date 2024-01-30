@@ -228,7 +228,7 @@ class Repository
 
         $accessibleWorkflowStages = [];
         // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-        $stageAssignments = StageAssignmentModel::with('userGroupStages')
+        $stageAssignments = StageAssignmentModel::with(['userGroupStages'])
             ->withSubmissionId($submission->getId())
             ->withUserId($userId)
             ->get();
@@ -243,7 +243,9 @@ class Repository
                 continue;
             }
 
-            $accessibleWorkflowStages[$stageAssignment->stageId][] = $roleId;
+            $stageAssignment->userGroupStages->each(function ($userGroupStage) use (&$accessibleWorkflowStages, $roleId) {
+                $accessibleWorkflowStages[$userGroupStage->stageId][] = $roleId;
+            });
         }
 
         // Managers and admin have access if not assigned to the submission or are assigned in a revoked role

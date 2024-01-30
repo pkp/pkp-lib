@@ -101,16 +101,9 @@ class StageAssignmentModel extends Model
     }
 
     // Relationships
-    public function userGroupStage()
+    public function userGroupStages(): HasMany
     {
-        return $this->belongsTo(UserGroupStage::class, 'user_group_id', 'user_group_id');
-    }
-
-    protected function stageId(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value) => $this->userGroupStage?->stageId,
-        );
+        return $this->hasMany(UserGroupStage::class, 'user_group_id', 'user_group_id');
     }
 
     // Scopes
@@ -119,8 +112,8 @@ class StageAssignmentModel extends Model
      */
     public function scopeWithStageId(Builder $query, int $stageId): Builder
     {
-        return $query->whereHas('userGroupStage', function ($query) use ($stageId) {
-            $query->where('stage_id', $stageId);
+        return $query->whereHas('userGroupStages', function ($subQuery) use ($stageId) {
+            $subQuery->where('stage_id', $stageId);
         });
     }
 
@@ -163,13 +156,9 @@ class StageAssignmentModel extends Model
     public function scopeWithRoleIds(Builder $query, array $roleIds): Builder
     {
         return $query->leftJoin('user_groups as ug', 'stage_assignments.user_group_id', '=', 'ug.user_group_id')
-            ->when(!empty($roleIds), function ($query) use ($roleIds) {
+            ->when($roleIds, function ($query) use ($roleIds) {
                 $query->whereIn('ug.role_id', $roleIds);
             });
-        // return $query->leftJoin('user_groups as ug', 'stage_assignments.user_group_id', '=', 'ug.user_group_id')
-        //     ->when($roleIds, function ($query) use ($roleIds) {
-        //         $query->whereIn('ug.role_id', $roleIds);
-        //     });
     }
 
     /**
@@ -180,8 +169,24 @@ class StageAssignmentModel extends Model
         return $query->whereIn('submission_id', $submissionIds);
     }
 
-    public function userGroupStages(): HasMany
+    /**
+     * Get a flattened collection of StageAssignmentModels with stageId from UserGroupStages.
+     * 
+     * @return \Illuminate\Support\Collection
+     */
+    public static function getFlattenedWithStageIds()
     {
-        return $this->hasMany(UserGroupStage::class, 'user_group_id', 'user_group_id');
+        $stageAssignments = self::with('userGroupStages')->get();
+
+        return $stageAssignments->flatMap(function ($stageAssignment) {
+            return $stageAssignment->userGroupStages->map(function ($userGroupStage) use ($stageAssignment) {
+                // Clone the stage assignment to create a new instance for each user group stage
+                $newStageAssignment = clone $stageAssignment;
+                // Add the stageId property from UserGroupStage to the new StageAssignmentModel instance
+                $newStageAssignment->stageId = $userGroupStage->stageId;
+                // Return the modified StageAssignmentModel instance
+                return $newStageAssignment;
+            });
+        });
     }
 }

@@ -41,6 +41,24 @@ class StageAssignmentModel extends Model
         'dateAssigned', 'recommendOnly', 'canChangeMetadata'
     ];
 
+    // Relationships
+
+    /**
+     * One to many relationship with user_group_stage table => UserGroupStage Eloquent Model
+     *
+     * To eagerly fill the userGroupStages Collection, the calling code should add 
+     * StageAssignmentModel::with(['userGroupStages'])
+     */
+    public function userGroupStages(): HasMany
+    {
+        return $this->hasMany(UserGroupStage::class, 'user_group_id', 'user_group_id');
+    }
+
+    // Accessors and Mutators
+
+    /**
+     * Accessor and Mutator for primary key => id
+     */
     protected function id(): Attribute
     {
         return Attribute::make(
@@ -49,6 +67,9 @@ class StageAssignmentModel extends Model
         );
     }
 
+    /**
+     * Accessor and Mutator for submission_id => submissionId
+     */
     protected function submissionId(): Attribute
     {
         return Attribute::make(
@@ -57,6 +78,9 @@ class StageAssignmentModel extends Model
         );
     }
 
+    /**
+     * Accessor and Mutator for user_group_id => userGroupId
+     */
     protected function userGroupId(): Attribute
     {
         return Attribute::make(
@@ -66,7 +90,7 @@ class StageAssignmentModel extends Model
     }
 
     /**
-     * Accessor and Mutator for User ID.
+     * Accessor and Mutator for user_id => userId
      */
     protected function userId(): Attribute
     {
@@ -76,6 +100,9 @@ class StageAssignmentModel extends Model
         );
     }
 
+    /**
+     * Accessor and Mutator for date_assigned => dateAssigned
+     */
     protected function dateAssigned(): Attribute
     {
         return Attribute::make(
@@ -84,6 +111,9 @@ class StageAssignmentModel extends Model
         );
     }
 
+    /**
+     * Accessor and Mutator for recommend_only => recommendOnly
+     */
     protected function recommendOnly(): Attribute
     {
         return Attribute::make(
@@ -92,6 +122,9 @@ class StageAssignmentModel extends Model
         );
     }
 
+    /**
+     * Accessor and Mutator for can_change_metadata => canChangeMetadata
+     */
     protected function canChangeMetadata(): Attribute
     {
         return Attribute::make(
@@ -100,93 +133,79 @@ class StageAssignmentModel extends Model
         );
     }
 
-    // Relationships
-    public function userGroupStages(): HasMany
-    {
-        return $this->hasMany(UserGroupStage::class, 'user_group_id', 'user_group_id');
-    }
-
     // Scopes
+    
     /**
-     * Scope a query to only include stage assignments with a specific stage ID.
+     * Scope a query to only include stage assignments that are related 
+     * to userGroupStages having a specific stageId
      */
-    public function scopeWithStageId(Builder $query, int $stageId): Builder
+    public function scopeWithStageId(Builder $query, ?int $stageId): Builder
     {
-        return $query->whereHas('userGroupStages', function ($subQuery) use ($stageId) {
-            $subQuery->where('stage_id', $stageId);
+        return $query->when($stageId !== null, function ($query) use ($stageId) {
+            return $query->whereHas('userGroupStages', function ($subQuery) use ($stageId) {
+                $subQuery->where('stage_id', $stageId);
+            });
         });
     }
 
     /**
-     * Scope a query to only include stage assignments with a specific submissionId.
-     */
-    public function scopeWithSubmissionId(Builder $query, int $submissionId): Builder
+    * Scope a query to only include stage assignments with a specific submissionId.
+    */
+    public function scopeWithSubmissionId(Builder $query, ?int $submissionId): Builder
     {
-        return $query->where('submission_id', $submissionId);
-    }
-
-    /**
-     * Scope a query to only include stage assignments with a specific userGroupId.
-     */
-    public function scopeWithUserGroupId(Builder $query, int $userGroupId): Builder
-    {
-        return $query->where('user_group_id', $userGroupId);
-    }
-
-    /**
-     * Scope a query to only include stage assignments with a specific userId.
-     */
-    public function scopeWithUserId(Builder $query, int $userId): Builder
-    {
-        return $query->where('user_id', $userId);
-    }
-
-    /**
-     * Scope a query to only include stage assignments with a specific userId.
-     */
-    public function scopeWithRecommendOnly(Builder $query, bool $recommendOnly): Builder
-    {
-        return $query->where('recommend_only', $recommendOnly);
-    }
-
-    /**
-     * Scope a query to include stage assignments based on role IDs.
-     * TODO: treat empty array and null $roleIds differently here - check filtering functions of EntityDAO
-     */
-    public function scopeWithRoleIds(Builder $query, array $roleIds): Builder
-    {
-        return $query->leftJoin('user_groups as ug', 'stage_assignments.user_group_id', '=', 'ug.user_group_id')
-            ->when($roleIds, function ($query) use ($roleIds) {
-                $query->whereIn('ug.role_id', $roleIds);
-            });
+        return $query->when($submissionId !== null, function ($query) use ($submissionId) {
+            return $query->where('submission_id', $submissionId);
+        });
     }
 
     /**
     * Scope a query to only include stage assignments with specific submissionIds.
     */
-    public function scopeWithSubmissionIds(Builder $query, array $submissionIds): Builder
+    public function scopeWithSubmissionIds(Builder $query, ?array $submissionIds): Builder
     {
-        return $query->whereIn('submission_id', $submissionIds);
+        return $query->when($submissionIds !== null && !empty($submissionIds), function ($query) use ($submissionIds) {
+            return $query->whereIn('submission_id', $submissionIds);
+        });
     }
 
     /**
-     * Get a flattened collection of StageAssignmentModels with stageId from UserGroupStages.
-     * 
-     * @return \Illuminate\Support\Collection
-     */
-    public static function getFlattenedWithStageIds()
+    * Scope a query to only include stage assignments with a specific userGroupId.
+    */
+    public function scopeWithUserGroupId(Builder $query, ?int $userGroupId): Builder
     {
-        $stageAssignments = self::with('userGroupStages')->get();
+        return $query->when($userGroupId !== null, function ($query) use ($userGroupId) {
+            return $query->where('user_group_id', $userGroupId);
+        });
+    }
 
-        return $stageAssignments->flatMap(function ($stageAssignment) {
-            return $stageAssignment->userGroupStages->map(function ($userGroupStage) use ($stageAssignment) {
-                // Clone the stage assignment to create a new instance for each user group stage
-                $newStageAssignment = clone $stageAssignment;
-                // Add the stageId property from UserGroupStage to the new StageAssignmentModel instance
-                $newStageAssignment->stageId = $userGroupStage->stageId;
-                // Return the modified StageAssignmentModel instance
-                return $newStageAssignment;
-            });
+    /**
+    * Scope a query to only include stage assignments with a specific userId.
+    */
+    public function scopeWithUserId(Builder $query, ?int $userId): Builder
+    {
+        return $query->when($userId !== null, function ($query) use ($userId) {
+            return $query->where('user_id', $userId);
+        });
+    }
+
+    /**
+    * Scope a query to only include stage assignments with a specific userId.
+    */
+    public function scopeWithRecommendOnly(Builder $query, ?bool $recommendOnly): Builder
+    {
+        return $query->when($recommendOnly !== null, function ($query) use ($recommendOnly) {
+            return $query->where('recommend_only', $recommendOnly);
+        });
+    }
+
+    /**
+    * Scope a query to include stage assignments based on role IDs.
+    */
+    public function scopeWithRoleIds(Builder $query, ?array $roleIds): Builder
+    {
+        return $query->when($roleIds !== null && !empty($roleIds), function ($query) use ($roleIds) {
+            $query->leftJoin('user_groups as ug', 'stage_assignments.user_group_id', '=', 'ug.user_group_id')
+                ->whereIn('ug.role_id', $roleIds);
         });
     }
 }

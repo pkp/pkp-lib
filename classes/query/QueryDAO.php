@@ -488,7 +488,7 @@ class QueryDAO extends \PKP\db\DAO
             __('submission.submit.coverNote'),
             $submission->getData('commentsForTheEditors'),
             $fromUser,
-            $participantUserIds->toArray(),
+            $participantUserIds,
             $submission->getData('contextId')
         );
     }

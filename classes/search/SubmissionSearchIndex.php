@@ -45,8 +45,11 @@ abstract class SubmissionSearchIndex
             $text = join("\n", $text);
         }
 
-        // Make sure all text is UTF-8
-        $text = mb_convert_encoding($text, 'UTF-8');
+        // Attempts to fix bad UTF-8 characters
+        $previous = mb_substitute_character();
+        mb_substitute_character('none');
+        $text = mb_convert_encoding($text, 'UTF-8', 'UTF-8');
+        mb_substitute_character($previous);
 
         // Removes all control (C) characters, marks (M), punctuations (P), symbols (S) and separators (Z) except "*" (which is addressed below)
         $text = PKPString::regexp_replace('/(?!\*)[\\p{C}\\p{M}\\p{P}\\p{S}\\p{Z}]+/', ' ', $text);

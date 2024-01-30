@@ -222,7 +222,7 @@ msgstr ""
 "falha anterior ou um processo em execução simultaneamente. Este arquivo será "
 "reprocessado automaticamente."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "O arquivo {$file} não pôde ser aberto e foi rejeitado."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -237,44 +237,44 @@ msgstr ""
 "restaurar todos os arquivos de log desse mês e usar a ferramenta CLI para "
 "reprocessar as estatísticas."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "A linha {$lineNumber} no arquivo de log {$file} está no formato errado e, "
 "portanto, será ignorada."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Entrada de log inválida na linha {$lineNumber} no arquivo de log {$file}: "
 "{$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Hora não é uma data válida."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "O ID de contexto não é um número inteiro."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "O ID de submissão não é um número inteiro."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "O ID de representação não é um número inteiro."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "O tipo Assoc não é suportado."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "O tipo de arquivo não é suportado."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "País não é uma sequência de dois caracteres alfabéticos."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "A região não tem até três caracteres alfanuméricos."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "IDs de instituição não é um array."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Ocorreu um erro ao processar o arquivo de log {$file} na linha "
 "{$lineNumber}: {$msg}"

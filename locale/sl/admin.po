@@ -217,7 +217,7 @@ msgstr ""
 "neuspešen ali hkrtno izvajanje procesa. Ta datoteka bo avtomatično ponovno "
 "obdelana."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Zavrnjeno, datoteke {$file} ni bilo možno odpreti."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -232,44 +232,44 @@ msgstr ""
 "pretekli mesec, morate obnoviti vse datoteke z dnevniškimi zapisi za tisti "
 "mesec in uporabiti CLI orodje za ponoven izračun statistik."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Vrstica {$lineNumber} v datoteki z dnevniškimi zapisi {$file} je v napačni "
 "obliki in bo izpuščena."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Napačen zapis v vrstici {$lineNumber} v datoteki z dnevniškimi zapisi "
 "{$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Čas ni veljaven datum."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "ID konteksta ni integer."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "ID prispevka ni integer."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "ID reprezentacije ni integer."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Assoc tip ni podprt."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Tip datoteke ni podprt."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Država ni dvomesten alfanumeričen string."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Regija ni string dolg do največ treh alfanumeričnih znakov."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "ID-ji institucije niso niz."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Prišlo je do napake pri obdelavi datoteke z dnevniškimi zapisi {$file} v "
 "vrstici {$lineNumber}: {$msg}"

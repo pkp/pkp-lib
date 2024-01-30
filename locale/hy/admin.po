@@ -211,7 +211,7 @@ msgstr ""
 "գործընթաց կամ միաժամանակ գործող գործընթաց: Այս ֆայլը ավտոմատ կերպով "
 "կվերամշակվի:"
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "{$file} ֆայլը չհաջողվեց բացել և այն մերժվեց:"
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -226,42 +226,42 @@ msgstr ""
 "է վերականգնեք այդ ամսվա բոլոր մատյան նիշքերը և օգտագործեք CLI գործիքը՝ "
 "վիճակագրությունը վերամշակելու համար:"
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "{$lineNumber} տողը մատյան նիշքում սխալ ձևաչափով է և, հետևաբար, բաց կթողնվի:"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Մատյանի անվավեր գրառում {$lineNumber} տողում {$file} մատյան նիշքում՝ {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Ժամը վավեր ամսաթիվ չէ:"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "Համատեքստի ID-ն ամբողջ թիվ չէ:"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "Ներկայացման ID-ն ամբողջ թիվ չէ:"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "Ներկայացուցչական ID-ն ամբողջ թիվ չէ:"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Assoc տեսակը չի աջակցվում:"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Նիշքի տեսակը չի աջակցվում:"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Երկիրը երկու այբբենական նիշով տող չէ:"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Տարածաշրջանը մինչև երեք այբբենական նիշ երկարությամբ տող չէ:"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Հաստատությունների ID-ները զանգված չեն:"
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Սխալ է տեղի ունեցել {$file} մատյան նիշքը {$line Number} տողում մշակելիս՝ "
 "{$msg}"

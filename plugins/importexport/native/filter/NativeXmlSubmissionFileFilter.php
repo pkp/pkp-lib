@@ -332,6 +332,8 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                 $submissionDir . '/' . uniqid() . '.' . $node->getAttribute('extension')
             );
             $deployment->setFileDBId($node->getAttribute('id'), $newFileId);
+            $fileManager = new FileManager();
+            $fileManager->deleteByPath($temporaryFilename);
         }
 
         return $newFileId;

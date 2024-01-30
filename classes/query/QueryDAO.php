@@ -470,7 +470,7 @@ class QueryDAO extends \PKP\db\DAO
             ->withStageId($submission->getData('stageId'))
             ->get()
             ->pluck('userId')
-            ->get();
+            ->all();
 
         // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
         $authorAssignments = StageAssignmentModel::withSubmissionId($submission->getId())

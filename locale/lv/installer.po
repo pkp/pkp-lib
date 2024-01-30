@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-30 14:20+0000\n"
+"PO-Revision-Date: 2024-01-30 18:25+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/lv/>\n"
@@ -81,3 +81,27 @@ msgstr ""
 "Administratora lietotājvārds var saturēt tikai burtu un ciparu rakstzīmes, "
 "pasvītrojumus un defisi, un tam jāsākas un jābeidzas ar burtu un ciparu "
 "rakstzīmēm."
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+"<br/><strong>BRĪDINĀJUMS: Jūsu pašreizējā PHP versija neatbilst minimālajām "
+"instalēšanas prasībām. Ieteicams atjaunināt PHP versiju uz jaunāku.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Instalēšanas laikā radās kļūdas"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL paziņojumi uzstādīšanai"
+
+msgid "installer.installFileError"
+msgstr ""
+"Instalācijas fails <tt>dbscripts/xml/install.xml</tt> nepastāv vai nav "
+"nolasāms."
+
+msgid "installer.installFilesDirError"
+msgstr ""
+"Katalogs, kas norādīts augšupielādētajiem failiem, neeksistē vai nav "
+"rakstāms."
+
+msgid "installer.installParseDBFileError"
+msgstr "Kļūda datubāzes instalācijas faila <tt>{$file}</tt> analizēšanā."

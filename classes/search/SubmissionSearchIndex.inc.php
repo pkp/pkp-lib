@@ -36,8 +36,11 @@ abstract class SubmissionSearchIndex {
 		// Join multiple lines into a single string
 		if (is_array($text)) $text = join("\n", $text);
 
-		// Make sure all text is UTF-8
-		$text = mb_convert_encoding($text, 'UTF-8');
+		// Attempts to fix bad UTF-8 characters
+		$previous = mb_substitute_character();
+		mb_substitute_character('none');
+		$text = mb_convert_encoding($text, 'UTF-8', 'UTF-8');
+		mb_substitute_character($previous);
 
 		// Remove punctuation
 		$text = PKPString::regexp_replace('/[!"\#\$%\'\(\)\.\?@\[\]\^`\{\}~]/', '', $text);

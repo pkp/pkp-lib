@@ -218,7 +218,7 @@ msgstr ""
 "aynı anda çalışan bir işlemi gösterebilir. Bu dosya otomatik olarak yeniden "
 "işlenecektir."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "{$file} dosyası açılamadı ve reddedildi."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -233,44 +233,44 @@ msgstr ""
 "tüm günlük dosyalarını geri yüklemeli ve istatistikleri yeniden işlemek için "
 "CLI aracını kullanmalısınız."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "{$file} günlük dosyasındaki {$line Number} satırı yanlış formatta ve bu "
 "atlanacak."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "{$file} günlük dosyasındaki {$lineNumber} satırında geçersiz günlük girişi: "
 "{$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Zaman geçersiz bir formatta."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "Context ID bir tam sayı değil."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "Aday makale ID bir tam sayı değil."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "Representation ID bir tam sayı değil."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Bağlantı türü desteklenmiyor."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Dosya türü desteklenmiyor."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Ülke, iki alfabetik karakterden oluşan bir dize değildir."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Bölge, en fazla üç alfanumerik karakter uzunluğunda olmalıdır."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Kurum kimlikleri bir dizi değildir."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "{$file} günlük dosyası {$lineNumber} satırında işlenirken hata oluştu: {$msg}"
 

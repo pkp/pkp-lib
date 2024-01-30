@@ -223,7 +223,7 @@ msgstr ""
 "forfejlet proces eller en igangværende proces. Denne fil vil automatisk "
 "blive genbehandlet."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Filen {$file} kunne ikke åbnes og blev afvist."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -238,42 +238,42 @@ msgstr ""
 "skal du gendanne alle den pågældende måneds logfiler og bruge CLI værktøjet "
 "til at genbehandle statistik."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Linjen {$lineNumber} i logfilen {$file} er i et forkert format og vil derfor "
 "blive sprunget over."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr "Ugyldig log-indgang i linje {$lineNumber} i logfilen {$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Tidsangivelsen er ikke en gyldig dato."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "Contekst ID er ikke et heltal."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "Indsendelses-ID er ikke et heltal."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "Repræsentations-ID er ikke et heltal."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Assoc type understøttes ikke."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Filtypen understøttes ikke."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Land er ikke en streng med to bogstavkarakterer."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Region er ikke en op til tre alfa-nummeriske karakterer lang streng."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Institutions-ID er ikke et array."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Der skete en fejl under behandlingen af logfilen {$file} i linje "
 "{$lineNumber}: {$msg}"

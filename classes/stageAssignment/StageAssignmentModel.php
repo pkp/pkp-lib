@@ -26,6 +26,7 @@ namespace PKP\stageAssignment;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 use PKP\userGroup\relationships\UserGroupStage;
 
@@ -162,9 +163,13 @@ class StageAssignmentModel extends Model
     public function scopeWithRoleIds(Builder $query, array $roleIds): Builder
     {
         return $query->leftJoin('user_groups as ug', 'stage_assignments.user_group_id', '=', 'ug.user_group_id')
-            ->when($roleIds, function ($query) use ($roleIds) {
+            ->when(!empty($roleIds), function ($query) use ($roleIds) {
                 $query->whereIn('ug.role_id', $roleIds);
             });
+        // return $query->leftJoin('user_groups as ug', 'stage_assignments.user_group_id', '=', 'ug.user_group_id')
+        //     ->when($roleIds, function ($query) use ($roleIds) {
+        //         $query->whereIn('ug.role_id', $roleIds);
+        //     });
     }
 
     /**
@@ -173,5 +178,10 @@ class StageAssignmentModel extends Model
     public function scopeWithSubmissionIds(Builder $query, array $submissionIds): Builder
     {
         return $query->whereIn('submission_id', $submissionIds);
+    }
+
+    public function userGroupStages(): HasMany
+    {
+        return $this->hasMany(UserGroupStage::class, 'user_group_id', 'user_group_id');
     }
 }

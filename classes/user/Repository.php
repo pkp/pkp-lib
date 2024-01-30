@@ -228,7 +228,8 @@ class Repository
 
         $accessibleWorkflowStages = [];
         // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-        $stageAssignments = StageAssignmentModel::withSubmissionId($submission->getId())
+        $stageAssignments = StageAssignmentModel::with('userGroupStages')
+            ->withSubmissionId($submission->getId())
             ->withUserId($userId)
             ->get();
 

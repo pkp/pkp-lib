@@ -43,8 +43,7 @@ abstract class SubmissionSearchIndex {
 		mb_substitute_character($previous);
 
 		// Remove punctuation
-		$text = PKPString::regexp_replace('/[!"\#\$%\'\(\)\.\?@\[\]\^`\{\}~]/', '', $text);
-		$text = PKPString::regexp_replace('/[\+,:;&\/<=>\|\\\]/', ' ', $text);
+		$text = PKPString::regexp_replace('/(?!\*)[\\p{C}\\p{M}\\p{P}\\p{S}\\p{Z}]+/', ' ', $text);
 		$text = PKPString::regexp_replace('/[\*]/', $allowWildcards ? '%' : ' ', $text);
 		$text = PKPString::strtolower($text);
 

@@ -26,6 +26,7 @@ namespace PKP\stageAssignment;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use PKP\userGroup\relationships\UserGroupStage;
 
 class StageAssignmentModel extends Model
@@ -164,5 +165,13 @@ class StageAssignmentModel extends Model
             ->when($roleIds, function ($query) use ($roleIds) {
                 $query->whereIn('ug.role_id', $roleIds);
             });
+    }
+
+    /**
+    * Scope a query to only include stage assignments with specific submissionIds.
+    */
+    public function scopeWithSubmissionIds(Builder $query, array $submissionIds): Builder
+    {
+        return $query->whereIn('submission_id', $submissionIds);
     }
 }

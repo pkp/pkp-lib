@@ -48,26 +48,18 @@ class Repository
             $recommendOnly = false;
         }
 
-        // If one exists, fetch and return.
-        $stageAssignments = StageAssignmentModel::withSubmissionId($submissionId)
-            ->withUserGroupId($userGroupId)
+        return StageAssignmentModel::withSubmissionId($submissionId)
             ->withUserId($userId)
-            ->get();
-
-        if ($stageAssignments->count() === 1) {
-            return $stageAssignments->first();
-        }
-
-        // Otherwise, build one.
-        $stageAssignment = StageAssignmentModel::create([
-            'submissionId' => $submissionId,
-            'userGroupId' => $userGroupId,
-            'userId' => $userId,
-            'recommendOnly' => $recommendOnly,
-            'canChangeMetadata' => $canChangeMetadata,
-            'dateAssigned' => Core::getCurrentDate(),
-        ]);
-
-        return $stageAssignment;
+            ->withUserGroupId($userGroupId)
+            ->firstOr(function() use ($submissionId, $userGroupId, $userId, $recommendOnly, $canChangeMetadata) {
+                return StageAssignmentModel::create([
+                    'submissionId' => $submissionId,
+                    'userGroupId' => $userGroupId,
+                    'userId' => $userId,
+                    'recommendOnly' => $recommendOnly,
+                    'canChangeMetadata' => $canChangeMetadata,
+                    'dateAssigned' => Core::getCurrentDate(),
+                ]);
+            });
     }
 }

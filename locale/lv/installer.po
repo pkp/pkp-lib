@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-30 11:07+0000\n"
+"PO-Revision-Date: 2024-01-30 14:20+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/lv/>\n"
@@ -41,3 +41,43 @@ msgstr "Datubāzes draiveris"
 
 msgid "installer.configFileError"
 msgstr "Konfigurācijas fails <tt>config.inc.php</tt> nepastāv vai nav nolasāms."
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Jāizvēlas klienta rakstzīmju kopa."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Jāizvēlas datubāzes draiveris."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Nepieciešams datubāzes nosaukums."
+
+msgid "installer.form.emailRequired"
+msgstr "Administratora kontam ir nepieciešama derīga e-pasta adrese."
+
+msgid "installer.form.filesDirRequired"
+msgstr ""
+"Nepieciešama direktorija, kas tiks izmantota augšupielādēto failu glabāšanai."
+
+msgid "installer.form.localeRequired"
+msgstr "Jāizvēlas lokālā valoda."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Administratora paroles nesakrīt."
+
+msgid "installer.form.separateMultiple"
+msgstr "Vairākas vērtības atdaliet ar komatiem"
+
+msgid "installer.form.usernameRequired"
+msgstr "Ir nepieciešams administratora konta lietotājvārds."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "Jāizvēlas laika josla."
+
+msgid "installer.form.passwordRequired"
+msgstr "Ir nepieciešama administratora konta parole."
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+"Administratora lietotājvārds var saturēt tikai burtu un ciparu rakstzīmes, "
+"pasvītrojumus un defisi, un tam jāsākas un jābeidzas ar burtu un ciparu "
+"rakstzīmēm."

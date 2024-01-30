@@ -1,3 +1,43 @@
 # Ieva Tiltina <pastala@gmail.com>, 2024.
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"PO-Revision-Date: 2024-01-30 11:07+0000\n"
+"Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
+"Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"installer/lv/>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
+"19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "installer.additionalLocales"
+msgstr "Papildu valodas"
+
+msgid "installer.administratorAccount"
+msgstr "Administratora konts"
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+"Šis lietotājkonts kļūs par vietnes administratoru, un tam būs pilnīga "
+"piekļuve sistēmai. Pēc instalēšanas var izveidot papildu lietotāju kontus."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NĒ</span>"
+
+msgid "installer.checkYes"
+msgstr "Jā"
+
+msgid "installer.connectionCharset"
+msgstr "Pieslēguma rakstzīmju kopa"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Konfigurācijas faila saturs"
+
+msgid "installer.databaseDriver"
+msgstr "Datubāzes draiveris"
+
+msgid "installer.configFileError"
+msgstr "Konfigurācijas fails <tt>config.inc.php</tt> nepastāv vai nav nolasāms."

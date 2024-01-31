@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-22 17:20+0000\n"
+"PO-Revision-Date: 2024-01-31 12:37+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -3654,3 +3654,75 @@ msgstr ""
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Saite e-pasta konta apstiprināšanai"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Datumam jābūt formātā GGGG-MM-DD vai GGGG-MM. Agrākais iespējamais datums ir "
+"{$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Beigu datums"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Sākuma datums"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Publicēšanas gadu saraksts vai diapazons, kas atgriežams atbildē formātā "
+"yyyy|yyyy|yyyy-yyyy."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr "Materiāla datne {$id} tika izlaista, jo tai nav derīga datnes posma."
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Datumam jābūt formātā GGGG-MM-DD vai GGGG-MM. Pēdējais iespējamais datums ir "
+"{$earliestDate}."
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Skatīt<a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
+"html\" target=\"_new\">COUNTER 5.0.3 dokumentāciju</a>, lai iegūtu vairāk "
+"informācijas par katru atskaiti."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Pagaidām nav pieejama COUNTER R5 lietošanas statistika."
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "COUNTER R5 atskaites"
+
+msgid "manager.statistics.counterR5"
+msgstr "COUNTER R5"
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Atskaites iestatījumi"
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Datuma formāts nav derīgs."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Klienta ID"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Metrikas tips"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Rādāmie atribūti"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Publicēšanas gads"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP formāts nav derīgs."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Iesniegtā materiāla ID"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Materiāla iesniegšanas ID nepastāv."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Iekļaut vecākelementa informāciju"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Neietvert ikmēneša sīkāku informāciju"

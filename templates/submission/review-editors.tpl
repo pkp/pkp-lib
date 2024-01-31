@@ -87,7 +87,7 @@
                     <div
                         v-if="submission.commentsForTheEditors"
                         class="submissionWizard__reviewPanel__item__value"
-                        v-html="submission.commentsForTheEditors"
+                        v-pkp-allowed-html="submission.commentsForTheEditors"
                     ></div>
                     <div v-else class="submissionWizard__reviewPanel__item__value">
                         {translate key="common.none"}

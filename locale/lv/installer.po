@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-30 18:25+0000\n"
+"PO-Revision-Date: 2024-01-31 12:37+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/lv/>\n"
@@ -105,3 +105,22 @@ msgstr ""
 
 msgid "installer.installParseDBFileError"
 msgstr "Kļūda datubāzes instalācijas faila <tt>{$file}</tt> analizēšanā."
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong>Pašlaik sistēma atbalsta MySQL un PostgreSQL; ja nevarat izvēlēties "
+"kādu no šīm iespējām, sazinieties ar sistēmas administratoru, lai "
+"pārliecinātos, ka jūsu serverī ir nepieciešamie PHP paplašinājumi.</strong>"
+
+msgid "installer.beacon.enable"
+msgstr ""
+"Sniedziet PKP unikālu vietnes ID un OAI bāzes URL, kas tiks izmantots tikai "
+"statistikas un drošības brīdinājumu vajadzībām."
+
+msgid "installer.miscSettings"
+msgstr "Dažādi iestatījumi"
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"Šī programmatūra neatbalsta jūsu servera PHP versiju. Divkārt pārbaudiet "
+"instalēšanas prasības docs/README."

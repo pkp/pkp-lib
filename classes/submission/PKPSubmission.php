@@ -516,7 +516,10 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      */
     public function setTitle($title, $locale)
     {
-        $this->setData('title', $title, $locale);
+        $publication = $this->getCurrentPublication();
+        if ($publication) {
+            $this->setData('title', $title, $locale);
+        }
     }
 
     /**

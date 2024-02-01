@@ -108,22 +108,28 @@ msgstr ""
 "originaux."
 
 msgid "reviewer.submission.reviewRound.info"
-msgstr "Consulter mes évaluations précédentes : "
+msgstr "Évaluations précédentes"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Cycle d'évaluation {$round} Évaluation soumise le {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Lire l'évaluation du cycle {$round}"
 
 msgid "reviewer.submission.reviewRound.info.modal.title"
-msgstr "Évaluation cycle {$reviewRoundNumber} : {$submissionTitle}"
+msgstr "Cycle d'évaluation {$round} que vous avez soumis pour"
 
-msgid "reviewer.submission.reviewRound.info.history"
-msgstr "Historique d'évaluation"
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Commentaires de l'évaluateur"
 
 msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
-msgstr "Pour l'auteur et la rédaction"
+msgstr "Pour la rédaction et les auteurs"
 
 msgid "reviewer.submission.reviewRound.comments.editorOnly"
 msgstr "Pour la rédaction seulement"
 
-msgid "reviewer.submission.reviewRound.comments.review"
-msgstr "Évaluation"
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Commentaire {$index}: "
 
 msgid "reviewer.submission.reviewRound.emailLog"
 msgstr "Raison du refus envoyée par courriel"
@@ -133,6 +139,33 @@ msgstr "Aucune raison fournie pour le refus de l'invitation à évaluer."
 
 msgid "reviewer.submission.reviewRound.reviewDeclineDate"
 msgstr "Date du refus"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Métadonnées de l'article"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Type"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Résumé"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Mots clés"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "Information générale"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Pièces jointes"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "Il s'agit des fichiers que vous avez joints à votre évaluation"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Fichiers pour l'évaluation"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "Il s'agit des fichiers qui vous ont été envoyés pour l'évaluation"
 
 msgid "reviewer.complete"
 msgstr "Évaluation envoyée"

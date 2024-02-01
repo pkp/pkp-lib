@@ -220,7 +220,7 @@ class Dispatcher {
 		$time = substr($data, 0, $i);
 		$contents = substr($data, $i+1);
 
-		if (mktime() > $time + Config::getVar('cache', 'web_cache_hours') * 60 * 60) return false;
+		if (time() > $time + Config::getVar('cache', 'web_cache_hours') * 60 * 60) return false;
 
 		header('Content-Type: text/html; charset=' . Config::getVar('i18n', 'client_charset'));
 
@@ -239,7 +239,7 @@ class Dispatcher {
 		$filename = $this->_router->getCacheFilename($this->_requestCallbackHack);
 		$fp = fopen($filename, 'w');
 		if ($fp) {
-			fwrite($fp, mktime() . ':' . $contents);
+			fwrite($fp, time() . ':' . $contents);
 			fclose($fp);
 		}
 		return $contents;

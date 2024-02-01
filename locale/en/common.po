@@ -1839,6 +1839,12 @@ msgstr "Response Due Date"
 msgid "reviewer.submission.reviewDueDate"
 msgstr "Review Due Date"
 
+msgid "reviewer.submission.acceptedOn"
+msgstr "Review Accepted On"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Review Submitted On"
+
 msgid "submission.task.responseDueDate"
 msgstr "Response Due Date"
 

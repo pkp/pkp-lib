@@ -78,7 +78,8 @@ class PKPReviewerHandler extends Handler
                 $reviewRoundHistories[] = [
                     'submissionId' => $submissionId,
                     'reviewRoundId' => $reviewRoundId,
-                    'reviewRoundNumber' => $reviewAssignment->getRound()
+                    'reviewRoundNumber' => $reviewAssignment->getRound(),
+                    'submittedOn' => $reviewAssignment->getDateCompleted()
                 ];
             }
         }

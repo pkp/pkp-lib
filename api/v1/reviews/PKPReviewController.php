@@ -22,6 +22,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
@@ -30,6 +31,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\submissionFile\SubmissionFile;
 
 class PKPReviewController extends PKPBaseController
 {
@@ -96,9 +98,7 @@ class PKPReviewController extends PKPBaseController
         $context = $request->getContext();
         $contextId = $context->getId();
 
-        // TODO: get the reviewer ID from the request or from the route?
         $reviewerId = $request->getUser()->getId();
-        //$reviewerId = $illuminateRequest->route('reviewerId');
         $submissionId = $illuminateRequest->route('submissionId');
         $reviewRoundId = $illuminateRequest->route('reviewRoundId');
 
@@ -117,7 +117,13 @@ class PKPReviewController extends PKPBaseController
         }
 
         $submission = Repo::submission()->get($submissionId, $contextId);
-        $publicationTitle = $submission->getCurrentPublication()->getLocalizedTitle();
+        $publication = $submission->getCurrentPublication();
+        $publicationTitle = $publication->getLocalizedTitle();
+
+        $section = Repo::section()->get($submission->getSectionId());
+        $publicationType = $section->getLocalizedData('title');
+        $publicationAbstract = $publication->getLocalizedData('abstract');
+        $publicationKeywords = implode(', ', $publication->getLocalizedData('keywords'));
 
         $declineEmail = null;
         if ($reviewAssignment->getDeclined()) {
@@ -154,6 +160,21 @@ class PKPReviewController extends PKPBaseController
             }
         }
 
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $fileGenres = $genreDao->getByContextId($contextId)->toArray();
+
+        $attachments = Repo::submissionFile()->getCollector()
+            ->filterBySubmissionIds([$submissionId])
+            ->filterByReviewRoundIds([$reviewRoundId])
+            ->filterByUploaderUserIds([$reviewerId])
+            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT])
+            ->filterByAssoc(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT, [$reviewAssignmentId])
+            ->getMany();
+        $attachmentsProps = Repo::submissionFile()
+            ->getSchemaMap()
+            ->mapMany($attachments, $fileGenres)
+            ->toArray();
+
         $lastReviewAssignment = Repo::reviewAssignment()->getCollector()
             ->filterByContextIds([$contextId])
             ->filterBySubmissionIds([$submissionId])
@@ -161,18 +182,35 @@ class PKPReviewController extends PKPBaseController
             ->filterByLastReviewRound(true)
             ->getMany()
             ->first();
-        $displayFiles = $lastReviewAssignment->getDeclined() != 1;
 
-        $reviewRoundHistoryProps = [
+        $filesProps = [];
+        if ($lastReviewAssignment->getDeclined() != 1) {
+            $files = Repo::submissionFile()->getCollector()
+                ->filterBySubmissionIds([$submissionId])
+                ->filterByReviewRoundIds([$reviewRoundId])
+                ->filterByAssoc(PKPApplication::ASSOC_TYPE_REVIEW_ROUND, [$reviewAssignmentId])
+                ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_FILE])
+                ->getMany();
+            $filesProps = Repo::submissionFile()
+                ->getSchemaMap()
+                ->mapMany($files, $fileGenres)
+                ->toArray();
+        }
+
+        $reviewRoundHistory = [
             'publicationTitle' => $publicationTitle,
+            'publicationType' => $publicationType,
+            'publicationAbstract' => $publicationAbstract,
+            'publicationKeywords' => $publicationKeywords,
             'declineEmail' => $declineEmail,
             'reviewAssignment' => $reviewAssignmentProps,
             'recommendation' => $recommendation,
             'comments' => $viewableComments,
             'privateComments' => $privateComments,
-            'displayFiles' => $displayFiles,
+            'attachments' => array_values($attachmentsProps),
+            'files' => array_values($filesProps),
         ];
 
-        return response()->json($reviewRoundHistoryProps, Response::HTTP_OK);
+        return response()->json($reviewRoundHistory, Response::HTTP_OK);
     }
 }

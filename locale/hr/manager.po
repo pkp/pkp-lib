@@ -256,7 +256,7 @@ msgstr "Pogledajte zapis"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Poruka o uspješnoj registraciji"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI je uspješno ažuriran"
 
 msgid "manager.dois.registration.depositDois"

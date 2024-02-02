@@ -259,7 +259,7 @@ msgstr "Переглянути запис"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Повідомлення про успішну реєстрацію"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI успішно оновлено"
 
 msgid "manager.dois.registration.depositDois"

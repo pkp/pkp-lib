@@ -252,7 +252,7 @@ msgstr "Skatīt ierakstu"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Ziņojums par veiksmīgu reģistrāciju"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI veiksmīgi atjaunināti"
 
 msgid "manager.dois.registration.depositDois"

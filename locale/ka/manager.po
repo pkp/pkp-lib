@@ -249,7 +249,7 @@ msgstr "ჩანაწერის ნახვა"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "წარმატებული რეგისტრაციის შეტყობინება"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI წარმატებით განახლდა"
 
 msgid "manager.dois.registration.depositDois"

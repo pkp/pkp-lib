@@ -249,7 +249,7 @@ msgstr "Kayıtları Gör"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Başarılı Kayıt Mesajı"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI'ler başarıyla güncellendi"
 
 msgid "manager.dois.registration.depositDois"

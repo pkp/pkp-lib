@@ -263,7 +263,7 @@ msgstr "Показать запись"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Сообщение об успешной регистрации"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI успешно обновлены"
 
 msgid "manager.dois.registration.depositDois"

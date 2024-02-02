@@ -24,7 +24,6 @@ use Carbon\Carbon;
 use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Contracts\Queue\Job;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
@@ -282,9 +281,9 @@ class commandJobs extends CommandLineTool
         $this->total();
 
         $this->getCommandInterface()->table(
-            $this->getListTableFormat(), 
+            $this->getListTableFormat(),
             $data
-                ->map(fn(JsonResource $job) => $job->toArray(app('request')))
+                ->map(fn (JsonResource $job) => $job->toArray(app('request')))
                 ->toArray()
         );
 
@@ -519,7 +518,9 @@ class commandJobs extends CommandLineTool
             'maxTries' => $this->getParameterValue('--tries', $workerConfig->getMaxTries()),
             'force' => $this->getParameterValue('--force', in_array('--force', $parameters) ? true : $workerConfig->getForce()),
             'stopWhenEmpty' => $this->getParameterValue('--stop-when-empty', in_array('--stop-when-empty', $parameters) ? true : $workerConfig->getStopWhenEmpty()),
-            'maxJobs' => $this->getParameterValue('--max-jobs', $workerConfig->getMaxJobs()),
+            // Due to the issue https://github.com/pkp/pkp-lib/issues/9591, the max jobs must be kept at 1, until the issue  gets sorted out
+            //'maxJobs' => $this->getParameterValue('--max-jobs', $workerConfig->getMaxJobs()),
+            'maxJobs' => 1,
             'maxTime' => $this->getParameterValue('--max-time', $workerConfig->getMaxTime()),
             'rest' => $this->getParameterValue('--rest', $workerConfig->getRest()),
         ];
@@ -600,7 +601,8 @@ class commandJobs extends CommandLineTool
             '--tries[=TRIES]' => __('admin.cli.tool.jobs.work.option.tries.description', ['default' => $workerConfig->getMaxTries()]),
             '--force' => __('admin.cli.tool.jobs.work.option.force.description', ['default' => $workerConfig->getForce() ? 'true' : 'false']),
             '--stop-when-empty' => __('admin.cli.tool.jobs.work.option.stopWhenEmpty.description', ['default' => $workerConfig->getStopWhenEmpty() ? 'true' : 'false']),
-            '--max-jobs[=MAX-JOBS]' => __('admin.cli.tool.jobs.work.option.maxJobs.description', ['default' => $workerConfig->getMaxJobs()]),
+            // Due to the issue https://github.com/pkp/pkp-lib/issues/9591, the max jobs must be kept at 1, until the issue  gets sorted out
+            //'--max-jobs[=MAX-JOBS]' => __('admin.cli.tool.jobs.work.option.maxJobs.description', ['default' => $workerConfig->getMaxJobs()]),
             '--max-time[=MAX-TIME]' => __('admin.cli.tool.jobs.work.option.maxTime.description', ['default' => $workerConfig->getMaxTime()]),
             '--rest[=REST]' => __('admin.cli.tool.jobs.work.option.rest.description', ['default' => $workerConfig->getRest()]),
             '--test' => __('admin.cli.tool.jobs.work.option.test.description'),

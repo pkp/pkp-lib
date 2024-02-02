@@ -261,7 +261,7 @@ msgstr "Se fortegnelse"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Vellykket registreringsmeddelelse"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "Opdatering af DOI'er var vellykket"
 
 msgid "manager.dois.registration.depositDois"

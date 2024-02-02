@@ -256,7 +256,7 @@ msgstr "Näytä tietue"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Rekisteröinnin onnistumisilmoitus"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI(t) päivitetty onnistuneesti"
 
 msgid "manager.dois.registration.depositDois"

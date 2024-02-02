@@ -263,7 +263,7 @@ msgstr "Դիտել գրառումը"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Հաջող գրանցման հաղորդագրություն"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI-ն հաջողությամբ թարմացվել է"
 
 msgid "manager.dois.registration.depositDois"

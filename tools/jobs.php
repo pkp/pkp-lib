@@ -510,17 +510,17 @@ class commandJobs extends CommandLineTool
         $workerConfig = new WorkerConfiguration();
 
         return [
-            'name' => $this->getParameterValue('--name', $workerConfig->getName()),
-            'backoff' => $this->getParameterValue('--backoff', $workerConfig->getBackoff()),
-            'memory' => $this->getParameterValue('--memory', $workerConfig->getMemory()),
-            'timeout' => $this->getParameterValue('--timeout', $workerConfig->getTimeout()),
-            'sleep' => $this->getParameterValue('--sleep', $workerConfig->getSleep()),
-            'maxTries' => $this->getParameterValue('--tries', $workerConfig->getMaxTries()),
-            'force' => $this->getParameterValue('--force', in_array('--force', $parameters) ? true : $workerConfig->getForce()),
-            'stopWhenEmpty' => $this->getParameterValue('--stop-when-empty', in_array('--stop-when-empty', $parameters) ? true : $workerConfig->getStopWhenEmpty()),
-            'maxJobs' => $this->getParameterValue('--max-jobs', $workerConfig->getMaxJobs()),
-            'maxTime' => $this->getParameterValue('--max-time', $workerConfig->getMaxTime()),
-            'rest' => $this->getParameterValue('--rest', $workerConfig->getRest()),
+            'name' => $this->getParameterValue('name', $workerConfig->getName()),
+            'backoff' => $this->getParameterValue('backoff', $workerConfig->getBackoff()),
+            'memory' => $this->getParameterValue('memory', $workerConfig->getMemory()),
+            'timeout' => $this->getParameterValue('timeout', $workerConfig->getTimeout()),
+            'sleep' => $this->getParameterValue('sleep', $workerConfig->getSleep()),
+            'maxTries' => $this->getParameterValue('tries', $workerConfig->getMaxTries()),
+            'force' => $this->getParameterValue('force', in_array('force', $parameters) ? true : $workerConfig->getForce()),
+            'stopWhenEmpty' => $this->getParameterValue('stop-when-empty', in_array('stop-when-empty', $parameters) ? true : $workerConfig->getStopWhenEmpty()),
+            'maxJobs' => $this->getParameterValue('max-jobs', $workerConfig->getMaxJobs()),
+            'maxTime' => $this->getParameterValue('max-time', $workerConfig->getMaxTime()),
+            'rest' => $this->getParameterValue('rest', $workerConfig->getRest()),
         ];
     }
 

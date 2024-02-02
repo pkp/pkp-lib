@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-21 21:11+0000\n"
+"PO-Revision-Date: 2024-01-08 00:21+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk/>\n"
@@ -2690,3 +2690,11 @@ msgstr "Автори"
 
 msgid "submission.author.list"
 msgstr "Поднеси Листа на автори"
+
+msgid "author.competingInterests"
+msgstr "Компетирачки интереси"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Молам оградете се од било кои компетирачки интереси од овој автор кој би "
+"можеел да биде поврзан со истражуваниот предмет."

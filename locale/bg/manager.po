@@ -1,8 +1,8 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2022, 2023.
+# Cyril Kamburov <cc@intermedia.bg>, 2022, 2023, 2024.
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-19 14:38+0000\n"
+"PO-Revision-Date: 2024-01-29 08:29+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/bg/>\n"
@@ -3840,3 +3840,72 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Изисквайте подаването на авторите да подадат декларация за конкурентни "
 "интереси (CI) с тяхното подаване на материали."
+
+msgid "manager.statistics.counterR5"
+msgstr "Брояч (Counter) R5"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Вижте <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
+"html\" target=\"_new\">документация за COUNTER 5.0.3</a> за повече "
+"информация относно всеки отчет."
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Начална дата"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Датата трябва да е във формат ГГГГ-ММ-ДД или ГГГГ-ММ. Най-ранната възможна "
+"дата е {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Крайна дата"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Датата трябва да е във формат ГГГГ-ММ-ДД или ГГГГ-ММ. Последната възможна "
+"дата е {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Година на издаване"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Списък или диапазон от години на публикуване, които да се върнат в отговор "
+"във формат yyyy|yyyy|yyyy-yyyy."
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "ID на подаването на материал не съществува."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Включете подробности от йерархията"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Брояч (Counter) R5 отчети"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Все още няма налични статистики за използване на COUNTER R5."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Настройки на отчета"
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Форматът на датата не е валиден."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Брояч (Counter) ID"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Тип показател"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Атрибути за показване"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP форматът не е валиден."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "ID на изпратен материал"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Изключване на месечни подробности"

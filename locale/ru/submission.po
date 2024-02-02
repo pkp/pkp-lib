@@ -1,10 +1,10 @@
-# Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2023.
+# Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2023-11-19 14:38+0000\n"
+"PO-Revision-Date: 2024-01-04 15:39+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ru/>\n"
@@ -2729,3 +2729,11 @@ msgstr "Авторы"
 
 msgid "submission.author.list"
 msgstr "Список авторов публикации"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Пожалуйста, сообщите о любом конфликте интересов, которые автор может иметь "
+"с объектом исследования."
+
+msgid "author.competingInterests"
+msgstr "Конфликт интересов"

@@ -1,7 +1,7 @@
-# Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
+# Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-09 07:39+0000\n"
+"PO-Revision-Date: 2024-01-15 19:17+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/lv/>\n"
@@ -71,7 +71,7 @@ msgid "metadata.property.validationMessage.conf-date"
 msgstr "Lūdzu, ievadiet derīgu konferences datumu (formāts: GGGG-MM-DD)."
 
 msgid "metadata.property.validationMessage.source"
-msgstr "Lūdzu, ievadiet derīgu publikācijas nosaukumu."
+msgstr "Lūdzu, ievadiet derīgu publikācijas virsrakstu."
 
 msgid "metadata.property.displayName.conf-loc"
 msgstr "Konferences norises vieta"
@@ -192,13 +192,13 @@ msgstr ""
 "Jr, D. (Ralf) Dr."
 
 msgid "metadata.property.displayName.article-title"
-msgstr "Raksta/materiāla nosaukums"
+msgstr "Raksta/materiāla virsraksts"
 
 msgid "metadata.property.validationMessage.article-title"
-msgstr "Lūdzu, ievadiet derīgu raksta/materiāla nosaukumu."
+msgstr "Lūdzu, ievadiet derīgu raksta/materiāla virsrakstu."
 
 msgid "metadata.property.displayName.source"
-msgstr "Publikācijas nosaukums"
+msgstr "Publikācijas virsraksts"
 
 msgid "metadata.property.displayName.date"
 msgstr "Publicēšanas datums"
@@ -228,10 +228,10 @@ msgid "metadata.property.validationMessage.season"
 msgstr "Lūdzu, ievadiet derīgu sezonas identifikatoru."
 
 msgid "metadata.property.displayName.chapter-title"
-msgstr "Nodaļas nosaukums"
+msgstr "Nodaļas virsraksts"
 
 msgid "metadata.property.validationMessage.chapter-title"
-msgstr "Lūdzu, ievadiet derīgu nodaļas nosaukumu."
+msgstr "Lūdzu, ievadiet derīgu nodaļas virsrakstu."
 
 msgid "metadata.property.displayName.edition"
 msgstr "Izdevums"
@@ -358,7 +358,7 @@ msgstr "Virsraksta tips"
 
 msgid "metadata.property.validationMessage.title-type"
 msgstr ""
-"Pārliecinieties, ka esat iestatījis derīgu nosaukuma tipu. Atbalstītās "
+"Pārliecinieties, ka esat iestatījis derīgu virsraksta tipu. Atbalstītās "
 "vērtības ir \"abbreviated\", \"translated\", \"alternative\" un \"uniform\"."
 
 msgid "metadata.property.displayName.nonSort"
@@ -418,7 +418,7 @@ msgstr ""
 "nebūs reģistrēts."
 
 msgid "publication.titleAbstract"
-msgstr "Nosaukums un kopsavilkums"
+msgstr "Virsraksts un kopsavilkums"
 
 msgid "publication.wordCountLong"
 msgstr ""
@@ -434,7 +434,7 @@ msgid "submission.authorBiographies"
 msgstr "Autoru biogrāfijas"
 
 msgid "submission.titleAndAbstract"
-msgstr "Nosaukums un kopsavilkums"
+msgstr "Virsraksts un kopsavilkums"
 
 msgid "submission.representationOfTitle"
 msgstr "{$representation} no {$title}"
@@ -2030,7 +2030,7 @@ msgstr ""
 "uz recenzentu iesniegtajām rekomendācijām un komentāriem."
 
 msgid "editor.submission.recommend.accept"
-msgstr "Rekomendēt akceptēšanu"
+msgstr "Rekomendēt pieņemšanu"
 
 msgid "editor.submission.recommend.completed"
 msgstr "Rekomendācija iesniegta"
@@ -2667,3 +2667,11 @@ msgstr "Autori"
 
 msgid "submission.author.list"
 msgstr "Iesniegto materiālu autoru saraksts"
+
+msgid "author.competingInterests"
+msgstr "Interešu konflikts"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Lūdzu, informējiet par jebkādu interešu konfliktu, kas varētu pastāvēt starp "
+"autoru un pētījuma subjektu."

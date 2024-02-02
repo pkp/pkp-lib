@@ -1,12 +1,13 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023.
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2022.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2023-02-23 08:16+0000\n"
-"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"PO-Revision-Date: 2024-01-04 15:39+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "tr/>\n"
 "Language: tr\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Kamu Bilgi Projesi (PKP)"
@@ -2292,3 +2293,15 @@ msgstr "Yazar düzeltildi."
 #~ msgstr ""
 #~ "Beklenmedik bir sorun oluştu. Çıkış yapmış olabilirsiniz. Lütfen sayfayı "
 #~ "yeniden yükleyin ve tekrar deneyin."
+
+msgid "showAll"
+msgstr "Tümünü göster"
+
+msgid "showLess"
+msgstr "Az göster"
+
+msgid "common.highlight"
+msgstr "Vurgu"
+
+msgid "common.highlights"
+msgstr "Vurgular"

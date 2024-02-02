@@ -1,7 +1,7 @@
-# Ieva Tiltina <pastala@gmail.com>, 2023.
+# Ieva Tiltina <pastala@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-09 07:39+0000\n"
+"PO-Revision-Date: 2024-01-15 19:17+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/lv/>\n"
@@ -31,8 +31,8 @@ msgstr "2. Vadlīnijas"
 msgid "reviewer.step1.requestBoilerplate"
 msgstr ""
 "Jūs esat izvēlēts kā potenciālais recenzents šim materiālam. Zemāk ir "
-"sniegts materiāla pārskats, kā arī šīs recenzijas grafiks. Mēs ceram, ka jūs "
-"varēsiet piedalīties recenzēšanā."
+"sniegts materiāla pārskats, kā arī šīs recenzijas laika grafiks. Mēs ceram, "
+"ka jūs varēsiet piedalīties recenzēšanā."
 
 msgid "reviewer.step1.viewAllDetails"
 msgstr "Skatīt visu informāciju par iesniegto materiālu"

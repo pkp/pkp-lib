@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2023-11-27 16:38+0000\n"
+"PO-Revision-Date: 2024-01-04 15:39+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -2724,3 +2724,10 @@ msgstr "Autoři"
 
 msgid "submission.author.list"
 msgstr "Seznam autorů příspěvku"
+
+msgid "author.competingInterests"
+msgstr "Střet zájmů"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Uveďte prosím veškeré střety zájmu, které může mít autor s předmětem výzkumu."

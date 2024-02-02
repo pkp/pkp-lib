@@ -1,8 +1,9 @@
 # M. Ali <vorteem@gmail.com>, 2023.
+# "M. Ali" <vorteem@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-03 02:58+0000\n"
-"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"PO-Revision-Date: 2024-01-20 02:39+0000\n"
+"Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ar/"
 ">\n"
 "Language: ar\n"
@@ -11,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingValue"
 msgstr "قيمة الإعداد"
@@ -852,3 +853,17 @@ msgstr ""
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
 "أقصى عدد من الثواني التي على العامل التنفيذ خلالها[الافتراضي : '{$default}']"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "إحصائيات المحكمين"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"في بيئة التنصيب المتعدد، يمكن عرض إحصائيات التحكيم، مثل عدد التحكيمات "
+"المسلمة إما فرديًا لكل مجلة على حدة أو مجمعة."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "تعطيل إحصائيات التحكيم المجمعة"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "استعمال الموقع بمثابة المنصة لكل المجلات."

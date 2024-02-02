@@ -1,4 +1,4 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024.
 # Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2023-11-23 15:46+0000\n"
+"PO-Revision-Date: 2024-01-31 12:37+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/pt_BR/>\n"
@@ -1682,7 +1682,7 @@ msgid "search.cli.rebuildIndex.error"
 msgstr "erro"
 
 msgid "search.cli.rebuildIndex.result"
-msgstr "{$numIndexed} artigos indexados"
+msgstr "{$numIndexed} artigos agendados para indexação"
 
 msgid "search.coverage"
 msgstr "Cobertura"
@@ -2332,3 +2332,15 @@ msgstr "Autor editado."
 
 #~ msgid "common.captcha.error.invalid-input-response"
 #~ msgstr "Informe o código como aparece na imagem."
+
+msgid "showAll"
+msgstr "Mostre tudo"
+
+msgid "showLess"
+msgstr "Mostre menos"
+
+msgid "common.highlight"
+msgstr "Destaque"
+
+msgid "common.highlights"
+msgstr "Destaques"

@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-10-03 22:45+0000\n"
+"PO-Revision-Date: 2023-12-29 10:39+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "bg/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Име на настройката"
@@ -930,3 +930,15 @@ msgstr "Стартирайте работния процес за тестван
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr "Използване на сайта като платформа за всички списания."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Деактивиране на обобщената статистика на рецензента"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Рецензентска статистика"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"При многоконтекстна инсталация статистическите данни на рецензентите, като "
+"например броя на изпратените рецензии, могат да бъдат показани или "
+"индивидуално за всеки контекст, или обобщени колективно."

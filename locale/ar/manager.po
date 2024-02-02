@@ -1,12 +1,13 @@
 # M. Ali <vorteem@gmail.com>, 2021, 2022, 2023.
 # Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2022.
+# "M. Ali" <vorteem@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2023-09-03 02:58+0000\n"
-"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"PO-Revision-Date: 2024-01-20 02:39+0000\n"
+"Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar/>\n"
 "Language: ar\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "المعلومات"
@@ -3543,3 +3544,35 @@ msgstr "رابط التحقق من حساب البريد الالكتروني"
 msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "يتطلب تقديم المؤلفين لبيان المصالح المتضاربة (CI) مع طلبات النشر الخاصة بهم."
+
+msgid "manager.highlights.add"
+msgstr "إضافة التمييز"
+
+msgid "manager.highlights.confirmDelete"
+msgstr "هل أنت متأكد من رغبتك في حذف {$title}؟ لا يمكن التراجع عن هذا الإجراء."
+
+msgid "manager.highlights.delete"
+msgstr "حذف التمييز"
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"ينبغي عليك <a href=\"#announcements/announcement-settings\">تمكين "
+"الإعلانات</a>."
+
+msgid "manager.highlights.edit"
+msgstr "تحرير التمييز"
+
+msgid "manager.highlights.url.description"
+msgstr "عنوان الرابط الكامل، متضمنًا https:// بالنسبة للزر في التمييز."
+
+msgid "manager.image"
+msgstr "صورة"
+
+msgid "manager.highlights.image"
+msgstr "صورة"
+
+msgid "manager.highlights.urlText"
+msgstr "تسمية الزر"
+
+msgid "manager.highlights.urlText.description"
+msgstr "التسمية، مثلاً قراءة المزيد، بالنسبة للزر في التمييز."

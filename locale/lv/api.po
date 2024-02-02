@@ -1,7 +1,7 @@
-# Ieva Tiltina <pastala@gmail.com>, 2023.
+# Ieva Tiltina <pastala@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-09 07:39+0000\n"
+"PO-Revision-Date: 2024-01-15 19:17+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/lv/>"
 "\n"
@@ -129,7 +129,8 @@ msgid "api.stats.400.wrongDateRange"
 msgstr "Sākuma datums nedrīkst būt vēlāks par beigu datumu."
 
 msgid "api.stats.400.wrongTimelineInterval"
-msgstr "Pieprasījums nebija derīgs. Laika intervālam jābūt `day` vai `month`."
+msgstr ""
+"Pieprasījums nebija derīgs. Laika grafika intervālam jābūt `day` vai `month`."
 
 msgid "api.stats.400.invalidOrderDirection"
 msgstr ""
@@ -211,7 +212,8 @@ msgid "api.stats.400.lateDateRange"
 msgstr "Beigu datums nedrīkst būt vēlāks par vakardienu."
 
 msgid "api.stats.400.invalidTimelineInterval"
-msgstr "Pieprasījums nebija derīgs. Laika intervālam jābūt `day` vai `month`."
+msgstr ""
+"Pieprasījums nebija derīgs. Laika grafika intervālam jābūt `day` vai `month`."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""

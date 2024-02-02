@@ -266,7 +266,7 @@ msgstr "Afficher l'enregistrement"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Message d'enregistrement réussi"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI mis à jour avec succès"
 
 msgid "manager.dois.registration.depositDois"

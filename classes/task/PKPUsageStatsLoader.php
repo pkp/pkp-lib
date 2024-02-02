@@ -234,10 +234,11 @@ abstract class PKPUsageStatsLoader extends FileLoader
     protected function isMonthValid(string $loadId, string $month): bool
     {
         $currentMonth = date('Ym');
+        $lastMonth = date('Ym', strtotime('last month'));
         $site = Application::get()->getRequest()->getSite();
         // If the daily metrics are not kept, and this is not the current month (which is kept in the DB)
         // the CLI script to reprocess the whole month should be called.
-        if (!$site->getData('keepDailyUsageStats') && $month != $currentMonth) {
+        if (!$site->getData('keepDailyUsageStats') && $month != $currentMonth && $month != $lastMonth) {
             $statsService = Services::get('sushiStats');
             $counterMonthExists = $statsService->monthExists($month);
             $geoService = Services::get('geoStats');

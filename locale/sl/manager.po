@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023.
+# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2023-11-24 19:27+0000\n"
+"PO-Revision-Date: 2024-01-30 13:22+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl/>\n"
@@ -3718,3 +3718,76 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Zahtevaj od avtorjev izjavo o konfliktu interesov med procesom oddaje "
 "prispevka."
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Seznam ali obseg letnic objave, ki se bodo uporabili v odgovoru v obliki "
+"yyyy|yyyy|yyyy-yyyy."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Datoteka prispevka {$id} je bila izpuščena, ker nima veljavne faze datoteke."
+
+msgid "manager.statistics.counterR5"
+msgstr "Števec R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Poročilo za števec R5"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Poglejte <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
+"html\" target=\"_new\">COUNTER 5.0.3 dokumentacijo</a> za več informacij o "
+"posameznem poročilu."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Na voljo ni še nobenih COUNTER R5 statistik uporabe."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Nastavitve za poročila"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Začetni datum"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Datum mora biti oblike YYYY-MM-DD ali YYYY-MM. Prvi možni datum je "
+"{$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Končni datum"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Datum mora biti oblike YYYY-MM-DD ali YYYY-MM. Zadnji možni datum je "
+"{$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Napačna oblika datuma."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ID stranke"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Tip metrike"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Prikaži atribute"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Leto objave"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Napačna oblika letnic."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "ID prispevka"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Ta ID prispevka ne obstaja."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Vključi podrobnosti staršev"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Ne prikaži mesečnih podrobnosti"

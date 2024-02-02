@@ -1,7 +1,7 @@
-# Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
+# Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-09 07:39+0000\n"
+"PO-Revision-Date: 2024-01-22 17:20+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/lv/"
 ">\n"
@@ -558,7 +558,7 @@ msgid "grid.user.mustChangePasswordDescription"
 msgstr "Lietotājam nākamajā pieteikšanās reizē jāmaina parole."
 
 msgid "grid.user.mustChangePasswordDescriptionOld"
-msgstr "Pieprasīt, lai lietotājs nākamajā pieteikšanās reizē nomaina paroli."
+msgstr "Pieprasīt lietotājam nomainīt paroli nākamajā pieteikšanās reizē."
 
 msgid "grid.user.moreDetails"
 msgstr "Lietotāja dati (sīkāk)"
@@ -595,8 +595,8 @@ msgstr "Lūdzu, izvēlieties lietotāju"
 
 msgid "grid.user.confirmLogInAs"
 msgstr ""
-"Pieteikties kā šim lietotājam? Visas jūsu veiktās darbības tiks attiecinātas "
-"uz šo lietotāju."
+"Pieteikties sistēmā kā šim lietotājam? Visas jūsu veiktās darbības tiks "
+"attiecinātas uz šo lietotāju."
 
 msgid "grid.user.mergeUsers"
 msgstr "Apvienot lietotājus"
@@ -682,7 +682,7 @@ msgid "grid.userGroup.unassignedStage"
 msgstr "{$userGroupName} loma nav piešķirta no {$stageName} posma."
 
 msgid "grid.submission.itemTitle"
-msgstr "Autors; Nosaukums"
+msgstr "Autors; Virsraksts"
 
 msgid "grid.submission.active.selectOrphaned"
 msgstr "Iekļaut nepilnīgus materiālus, kurus nav iesniedzis autors."

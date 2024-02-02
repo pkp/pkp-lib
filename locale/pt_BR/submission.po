@@ -1,4 +1,4 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024.
 # Diego Abadan <diego@lepidus.com.br>, 2022.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2023.
@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2023-06-06 18:07+0000\n"
+"PO-Revision-Date: 2024-01-31 12:37+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
@@ -3112,3 +3112,17 @@ msgstr "Arquivo submetido"
 
 msgid "editor.submission.roundStatus.returnedToReview"
 msgstr "Voltou para avaliação."
+
+msgid "submission.authors.label"
+msgstr "Autores"
+
+msgid "submission.author.list"
+msgstr "Lista de Autores de Submissão"
+
+msgid "author.competingInterests"
+msgstr "Interesses conflitantes"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Por favor, divulgue quaisquer interesses conflitantes que este autor possa "
+"ter com o assunto da pesquisa."

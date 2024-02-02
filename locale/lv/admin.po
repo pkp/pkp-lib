@@ -1,8 +1,8 @@
 # Gints Buda <gints.buda@gmail.com>, 2022.
-# Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
+# Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-09 07:38+0000\n"
+"PO-Revision-Date: 2024-01-30 11:07+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "lv/>\n"
@@ -132,28 +132,32 @@ msgid "admin.phpInfo"
 msgstr "Paplašināta PHP informācija"
 
 msgid "admin.scheduledTask"
-msgstr ""
+msgstr "Ieplānotais uzdevums"
 
 msgid "admin.scheduledTask.startTime"
-msgstr ""
+msgstr "Uzdevuma izpildes process ir sākts."
 
 msgid "admin.scheduledTask.stopTime"
-msgstr ""
+msgstr "Uzdevuma izpildes process ir apturēts."
 
 msgid "admin.scheduledTask.noLog"
-msgstr ""
+msgstr "Uzdevums neradīja notikumu žurnālu."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "Deponēt DOI konfigurētajā reģistrācijas aģentūrā"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
+"Jūsu {$softwareName} instalācija automātiski izpildīja un pabeidza šo "
+"uzdevumu, un notikumu žurnāla failu varat lejupielādēt šeit: {$url}"
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
+"Nosūtīt e-pastu katram redaktoram ar atgādinājumu par neizpildītajiem "
+"uzdevumiem"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "Redaktoru identificēšana, lai atgādinātu {$contextId} kontekstā"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
@@ -161,13 +165,14 @@ msgstr ""
 "atgādinājumus lietotājiem {$userIds} kontekstā {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
-msgstr ""
+msgstr "Vai tiešām vēlaties izdzēst visus plānotā uzdevuma izpildes žurnālus?"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr ""
 
 msgid "admin.scheduledTask.clearLogs.description"
 msgstr ""
+"Dzēst visus uzdevumu žurnālus par plānotajiem uzdevumiem, kas ir palaisti."
 
 msgid "admin.scheduledTask.clearLogs.delete"
 msgstr ""

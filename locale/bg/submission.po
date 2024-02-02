@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2022, 2023.
+# Cyril Kamburov <cc@intermedia.bg>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-19 14:38+0000\n"
+"PO-Revision-Date: 2024-01-29 08:29+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg/>\n"
@@ -2745,3 +2745,11 @@ msgstr "Автори"
 
 msgid "submission.author.list"
 msgstr "Списък на изпращащи автори"
+
+msgid "author.competingInterests"
+msgstr "Конкуриращи се интереси"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Моля, разкрийте всякакви конкуриращи се интереси, които този автор може да "
+"има с предмета на изследването."

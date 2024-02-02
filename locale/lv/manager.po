@@ -1,7 +1,7 @@
-# Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
+# Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-09 07:39+0000\n"
+"PO-Revision-Date: 2024-01-31 12:37+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -93,7 +93,7 @@ msgid "manager.announcements.form.saveAndCreateAnother"
 msgstr "Saglabāt un izveidot citu"
 
 msgid "manager.announcements.form.titleRequired"
-msgstr "Nepieciešams paziņojuma nosaukums."
+msgstr "Nepieciešams paziņojuma virsraksts."
 
 msgid "manager.announcements.form.title"
 msgstr "Virsraksts"
@@ -538,13 +538,13 @@ msgid "manager.groups.confirmDelete"
 msgstr "Vai tiešām vēlaties dzēst šo grupu?"
 
 msgid "manager.groups.createTitle"
-msgstr "Izveidot nosaukumu"
+msgstr "Izveidot virsrakstu"
 
 msgid "manager.groups.editTitle"
-msgstr "Labot nosaukumu"
+msgstr "Labot virsrakstu"
 
 msgid "manager.groups.form.groupTitleRequired"
-msgstr "Grupas nosaukums ir nepieciešams."
+msgstr "Grupas virsraksts ir nepieciešams."
 
 msgid "manager.groups.membership.addMember"
 msgstr "Pievienot dalībnieku"
@@ -562,7 +562,7 @@ msgid "manager.groups.membership.noUsers"
 msgstr "Lietotāji netika atrasti."
 
 msgid "manager.groups.title"
-msgstr "Nosaukums"
+msgstr "Virsraksts"
 
 msgid "manager.importExport"
 msgstr "Datu imports/eksports"
@@ -702,13 +702,13 @@ msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Saglabāt un izveidot citu"
 
 msgid "manager.people.signedInAs"
-msgstr "Pašlaik esat pieteicies kā {$username}"
+msgstr "Pašlaik esat pieteicies sistēmā kā {$username}"
 
 msgid "manager.people.signInAs"
-msgstr "Pieteikties kā"
+msgstr "Pieteikties sistēmā kā"
 
 msgid "manager.people.signInAsUser"
-msgstr "Pieteikties kā lietotājam"
+msgstr "Pieteikties sistēmā kā lietotājam"
 
 msgid "manager.people.syncUsers"
 msgstr "Sinhronizēt lietotāju reģistrāciju"
@@ -1297,7 +1297,7 @@ msgstr ""
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
 "Šī informācija tiek rādīta autoriem detalizācijas solī, kad viņiem tiek "
-"lūgts norādīt nosaukumu, kopsavilkumu un citas svarīgas ziņas par iesniegto "
+"lūgts norādīt virsrakstu, kopsavilkumu un citas svarīgas ziņas par iesniegto "
 "darbu."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
@@ -1904,19 +1904,26 @@ msgid "manager.reviewForms.edit"
 msgstr "Recenzijas veidlapa"
 
 msgid "manager.reviewForms.form.titleRequired"
-msgstr "Recenzijas veidlapai nepieciešams nosaukums."
+msgstr "Recenzijas veidlapai nepieciešams virsraksts."
 
 msgid "manager.reviewForms.inReview"
 msgstr "Recenzēšanā"
 
 msgid "manager.reviewForms.list.description"
 msgstr ""
+"Šeit izveidotās recenzijas veidlapas tiks piedāvātas recenzentiem "
+"aizpildīšanai noklusējuma veidlapu vietā. Noklusējuma veidlapas sastāv no "
+"diviem teksta laukiem, no kuriem pirmais ir \"Autoram un redaktoram\", bet "
+"otrais - \"Redaktoram\". Recenzijas veidlapas var norādīt konkrētai izdevuma "
+"sadaļai, un redaktoriem būs iespēja izvēlēties, kuru veidlapu izmantot, "
+"piešķirot recenziju. Visos gadījumos redaktoriem būs iespēja iekļaut "
+"recenzijas sarakstē ar autoru."
 
 msgid "manager.reviewForms.noneChosen"
-msgstr ""
+msgstr "Nav / Brīvas formas recenzija"
 
 msgid "manager.reviewForms.noneCreated"
-msgstr ""
+msgstr "Recenzijas veidlapas nav izveidotas."
 
 msgid "manager.reviewForms.noneUsed"
 msgstr "Recenzijas veidlapas nav izmantotas."
@@ -2121,57 +2128,70 @@ msgstr "Pieprasīt autoram pirms materiāla pieņemšanas norādīt avota URL ad
 
 msgid "manager.setup.metadata.subjects.description"
 msgstr ""
+"Temati būs atslēgvārdi, atslēgfrāzes vai klasifikācijas kodi, kas raksturo "
+"iesniegtā materiāla tēmu."
 
 msgid "manager.setup.metadata.subjects.enable"
-msgstr ""
+msgstr "Iespējot temata metadatus"
 
 msgid "manager.setup.metadata.subjects.noRequest"
-msgstr ""
+msgstr "Nepieprasīt autoram tematus materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.subjects.request"
 msgstr "Aicināt autoru materiāla iesniegšanas laikā norādīt tematu."
 
 msgid "manager.setup.metadata.subjects.require"
 msgstr ""
+"Pieprasīt autoram norādīt tematus pirms iesniegtā materiāla pieņemšanas."
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
+"Iesniegtā materiāla pamatsatura veids vai žanrs. Tips parasti ir \"Text\" "
+"(teksts), bet var būt arī \"Dataset\" (datu kopa), \"Image\" (attēls) vai "
+"kāds no <a target=\"_blank\" href=\"https://www.dublincore.org/"
+"specifications/dublin-core/dcmi-terms/\">Dublin Core tipiem</a>."
 
 msgid "manager.setup.metadata.type.enable"
-msgstr ""
+msgstr "Iespējot tipa metadatus"
 
 msgid "manager.setup.metadata.type.noRequest"
-msgstr ""
+msgstr "Materiāla iesniegšanas laikā nepieprasīt autoram norādīt tipu."
 
 msgid "manager.setup.metadata.type.request"
 msgstr "Aicināt autoru materiāla iesniegšanas laikā norādīt tipu."
 
 msgid "manager.setup.metadata.type.require"
-msgstr ""
+msgstr "Pieprasīt autoram norādīt tipu pirms iesniegtā materiāla pieņemšanas."
 
 msgid "manager.setup.metadata.disciplines.description"
 msgstr ""
+"Zinātnes nozares ir studiju virzieni vai zināšanu jomas, kuras apraksta "
+"universitāšu fakultātes un zinātnieku biedrības."
 
 msgid "manager.setup.metadata.disciplines.enable"
-msgstr ""
+msgstr "Iespējot zinātnes nozaru metadatus"
 
 msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr ""
+msgstr "Nepieprasīt autoram zinātnes nozari materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.disciplines.request"
 msgstr "Aicināt autoru materiāla iesniegšanas laikā norādīt nozari."
 
 msgid "manager.setup.metadata.disciplines.require"
 msgstr ""
+"Pieprasīt autoram norādīt zinātnes nozari pirms iesniegtā materiāla "
+"pieņemšanas."
 
 msgid "manager.setup.metadata.agencies.description"
 msgstr ""
+"Atbalsta aģentūras var norādīt pētniecības finansējuma avotu vai citu "
+"institucionālo atbalstu, kas veicinājis pētījumu."
 
 msgid "manager.setup.metadata.agencies.enable"
-msgstr ""
+msgstr "Iespējot atbalsta aģentūru metadatus"
 
 msgid "manager.setup.metadata.agencies.noRequest"
-msgstr ""
+msgstr "Nepieprasīt autoram atbalsta aģentūras materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.agencies.request"
 msgstr ""
@@ -2180,15 +2200,20 @@ msgstr ""
 
 msgid "manager.setup.metadata.agencies.require"
 msgstr ""
+"Pieprasīt autoram norādīt atbalsta aģentūras pirms iesniegtā materiāla "
+"pieņemšanas."
 
 msgid "manager.setup.metadata.citations.description"
 msgstr ""
+"Atsevišķā laukā apkopot iesniegtā materiāla atsauces. Tas var būt "
+"nepieciešams, lai nodrošinātu atbilstību citēšanas izsekošanas "
+"pakalpojumiem, piemēram, Crossref."
 
 msgid "manager.setup.metadata.citations.enable"
-msgstr ""
+msgstr "Iespējot atsauču metadatus"
 
 msgid "manager.setup.metadata.citations.noRequest"
-msgstr ""
+msgstr "Nepieprasīt autoram atsauces materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.citations.request"
 msgstr ""
@@ -2196,15 +2221,19 @@ msgstr ""
 
 msgid "manager.setup.metadata.citations.require"
 msgstr ""
+"Pieprasīt autoram norādīt atsauces pirms iesniegtā materiāla pieņemšanas."
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Īss paziņojums, kurā aprakstīts, vai autors(-i) ir vai nav padarījis(-uši) "
+"savus pētījuma datus pieejamus un, ja ir, kur lasītāji var tiem piekļūt."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Iespējot datu pieejamības paziņojuma metadatus"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Nepieprasīt autoram datu pieejamības paziņojumu materiāla iesniegšanas laikā."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
@@ -2213,48 +2242,57 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Pieprasīt autoram iesniegt datu pieejamības paziņojumu pirms iesniegtā "
+"materiāla pieņemšanas."
 
 msgid "plugins.importexport.common.validationErrors"
-msgstr ""
+msgstr "Validācijas kļūdas:"
 
 msgid "plugins.importexport.common.warningsEncountered"
-msgstr ""
+msgstr "Sastopamie brīdinājumi:"
 
 msgid "plugins.importexport.common.errorsOccured"
-msgstr ""
+msgstr "Radušās kļūdas:"
 
 msgid "plugins.importexport.common.id"
-msgstr ""
+msgstr "Id: {$id}"
 
 msgid "plugins.importexport.common.error.unknownElement"
-msgstr ""
+msgstr "Nezināms elements {$param}"
 
 msgid "plugins.importexport.common.error.unknownGenre"
-msgstr ""
+msgstr "Nezināms žanrs {$param}"
 
 msgid "plugins.importexport.common.error.unknownEncoding"
-msgstr ""
+msgstr "Nezināms kodējums {$param}"
 
 msgid "plugins.importexport.common.error.encodingError"
-msgstr ""
+msgstr "Saturs nav kodēts kā {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr ""
+"Importa failā ir iekļauts autors '{$authorName}' ar lietotāju grupu "
+"'{$userGroupName}'. Galamērķa instalācijā nav definēta lietotāju grupa ar "
+"šādu nosaukumu."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr ""
+msgstr "UserGroup Trūkst autora vārda {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
+"Nav norādīts autora vārds {$authorName} iesniegtā materiāla valodā "
+"({$localeName}). Materiālu nevar importēt bez šīs informācijas."
 
 msgid "plugins.importexport.common.error.unknownUploader"
-msgstr ""
+msgstr "Nezināms augšupielādētājs {$param}"
 
 msgid "plugins.importexport.common.error.temporaryFileFailed"
-msgstr ""
+msgstr "Pagaidu failu {$dest} nevar izveidot no {$source}"
 
 msgid "plugins.importexport.common.error.filesizeMismatch"
 msgstr ""
+"Sniegtais faila izmērs \"{$expected}\" un faktiskais faila izmērs \"{$actual}"
+"\" nesakrīt"
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
 msgstr ""
@@ -2262,166 +2300,205 @@ msgstr ""
 "dublikātu"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
-msgstr ""
+msgstr "Iesniegtā materiāla datni nav iespējams importēt"
 
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
+"Iesniegtā materiāla datne {$id} tika ignorēta, jo tā ir pievienota "
+"ierakstam, kas netiks importēts, piemēram, recenzijas uzdevumam vai "
+"diskusijai."
 
 msgid "plugins.importexport.user.importExportErrors"
-msgstr ""
+msgstr "Importēšanas/eksportēšanas kļūdas:"
 
 msgid "plugins.importexport.user.error.userHasNoPassword"
 msgstr ""
+"Importētajam lietotājam \"{$username}\" nav paroles. Pārbaudiet savu importa "
+"XML formātu. Lietotājs nav importēts."
 
 msgid "plugins.importexport.user.error.passwordHasBeenChanged"
 msgstr ""
+"Importētā lietotāja \"{$username}\" paroli nevarēja importēt tādu, kāda tā "
+"ir. Uz lietotāja e-pastu ir nosūtīta jauna parole. Lietotājs ir importēts."
 
 msgid "plugins.importexport.user.error.plainPasswordNotValid"
 msgstr ""
+"Importētajam lietotājam \"{$username}\" ir nederīga parole. Lietotājs nav "
+"importēts."
 
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr ""
+"Lietotājvārds \"{$username}\" un e-pasts \"{$email}\" neatbilst vienam un "
+"tam pašam esošajam lietotājam."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Testēšana"
 
 msgid "manager.navigationMenus.form.title"
-msgstr ""
+msgstr "Virsraksts"
 
 msgid "manager.navigationMenus.form.path"
-msgstr ""
+msgstr "Ceļš"
 
 msgid "manager.navigationMenus"
-msgstr ""
+msgstr "Navigācija"
 
 msgid "manager.navigationMenus.form.viewInstructions"
 msgstr ""
+"<p>Šī lapa būs pieejama vietnē: <blockquote>{$pagesPath}</blockquote>...kur "
+"%PATH% ir iepriekš ievadītais ceļš. <strong>Piezīme:</strong> divām lapām "
+"nevar būt vienāds ceļš. Izmantojot sistēmā iebūvētos ceļus, varat zaudēt "
+"piekļuvi svarīgām funkcijām.</p>"
 
 msgid "manager.navigationMenus.form.content"
-msgstr ""
+msgstr "Saturs"
 
 msgid "manager.navigationMenus.form.pathRegEx"
 msgstr ""
+"Ceļa lauks drīkst saturēt tikai burtu un ciparu rakstzīmes, kā arī \".\", \"/"
+"\", \"-\" un \"_\"."
 
 msgid "manager.navigationMenus.form.duplicatePath"
-msgstr ""
+msgstr "Šis ceļš jau pastāv citam navigācijas izvēlnes elementam."
 
 msgid "manager.navigationMenus.form.duplicateTitles"
-msgstr ""
+msgstr "Šis nosaukums jau pastāv citai navigācijas izvēlnei."
 
 msgid "manager.navigationMenus.form.titleRequired"
-msgstr ""
+msgstr "Virsraksts ir obligāts"
 
 msgid "manager.navigationMenuItems"
-msgstr ""
+msgstr "Navigācijas izvēlnes elementi"
 
 msgid "manager.navigationMenus.assignedMenuItems"
-msgstr ""
+msgstr "Piešķirtie izvēlnes elementi"
 
 msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr ""
+msgstr "Nepiešķirtie izvēlnes elementi"
 
 msgid "manager.navigationMenus.form.navigationMenuArea"
-msgstr ""
+msgstr "Aktīvās tēmas navigācijas apgabali"
 
 msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
-msgstr ""
+msgstr "Izvēlieties navigācijas apgabalu"
 
 msgid "manager.navigationMenus.form.menuAssigned"
-msgstr ""
+msgstr "Šim apgabalam jau ir piešķirta navigācijas izvēlne."
 
 msgid "manager.navigationMenus.form.url"
-msgstr ""
+msgstr "URL"
 
 msgid "manager.navigationMenus.form.customUrlError"
-msgstr ""
+msgstr "Jānorāda URL adrese"
 
 msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr ""
+"Uzziniet vairāk par to, kad šis izvēlnes elements tiks parādīts vai paslēpts."
 
 msgid "manager.navigationMenus.form.submenuWarning"
 msgstr ""
+"Ja izvēlnes elements atver apakšizvēlni, tā saitei nevar sekot visās "
+"ierīcēs. Piemēram, ja jums ir punkts \"Par\", kas atver apakšizvēlni ar "
+"\"Kontakti\" un \"Redakcija\", saite \"Par\" var nebūt sasniedzama visās "
+"ierīcēs. Noklusējuma izvēlnē tas tiek risināts, izveidojot otru izvēlnes "
+"elementu \"Par žurnālu\", kas parādās apakšizvēlnē."
 
 msgid "manager.navigationMenus.form.navigationMenuItemType"
-msgstr ""
+msgstr "Navigācijas izvēlnes tips"
 
 msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
 msgstr ""
+"Izvēlieties \"Navigācijas izvēlnes tipu\" vai izvēlieties \"Pielāgot "
+"izvēlni\", lai izveidotu savu izvēlnes tipu"
 
 msgid "manager.navigationMenus.customPage"
-msgstr ""
+msgstr "Pielāgotā lapa"
 
 msgid "manager.navigationMenus.customPage.description"
 msgstr ""
+"Izveidot pielāgotu vietnes lapu un izveidot saiti uz to no navigācijas "
+"izvēlnes."
 
 msgid "manager.navigationMenus.remoteUrl"
-msgstr ""
+msgstr "Attālinātais URL"
 
 msgid "manager.navigationMenus.remoteUrl.description"
-msgstr ""
+msgstr "Saite uz jebkuru URL citā vietnē, piemēram, https://pkp.sfu.ca."
 
 msgid "manager.navigationMenus.about.description"
 msgstr ""
+"Saite uz lapu, kurā parādīts sadaļas \"Par žurnālu\" saturs sadaļā "
+"Iestatījumi > Žurnāls"
 
 msgid "manager.navigationMenus.about.conditionalWarning"
 msgstr ""
+"Šī saite tiks parādīta tikai tad, ja būsiet aizpildījis lauku \"Par žurnālu\""
+" sadaļā Iestatījumi > Žurnāls."
 
 msgid "manager.navigationMenus.editorialTeam.description"
 msgstr ""
+"Saite uz lapu, kurā parādīts lauka \"Galvenā lapa\" saturs sadaļā "
+"Iestatījumi > Žurnāls."
 
 msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
 msgstr ""
+"Šī saite tiks parādīta tikai tad, ja būsiet aizpildījis lauku \"Redkolēģija\""
+" sadaļā Iestatījumi > Žurnāls."
 
 msgid "manager.navigationMenus.submissions.description"
-msgstr ""
+msgstr "Saite uz lapu, kurā sniegti materiāla iesniegšanas norādījumi."
 
 msgid "manager.navigationMenus.current.description"
-msgstr ""
+msgstr "Saite uz kārtējo numuru."
 
 msgid "manager.navigationMenus.archives.description"
 msgstr "Saite uz žurnāla numuru arhīvu."
 
 msgid "manager.navigationMenus.announcements.description"
-msgstr ""
+msgstr "Saite uz lapu, kurā tiek rādīti jūsu paziņojumi."
 
 msgid "manager.navigationMenus.announcements.conditionalWarning"
 msgstr ""
+"Šī saite tiks rādīta tikai tad, ja sadaļā Iestatījumi > Tīmekļa vietne "
+"būsiet iespējojis paziņojumus."
 
 msgid "manager.navigationMenus.login.description"
-msgstr ""
+msgstr "Saite uz lietotāja pieteikšanās lapu."
 
 msgid "manager.navigationMenus.register.description"
-msgstr ""
+msgstr "Saite uz lietotāja reģistrācijas lapu."
 
 msgid "manager.navigationMenus.dashboard.description"
-msgstr ""
+msgstr "Saite uz redakcijas vadības paneli."
 
 msgid "manager.navigationMenus.profile.description"
-msgstr ""
+msgstr "Saite uz lietotāja profila lapu."
 
 msgid "manager.navigationMenus.administration.description"
-msgstr ""
+msgstr "Saite uz vietnes administrēšanas rīkiem."
 
 msgid "manager.navigationMenus.administration.conditionalWarning"
-msgstr ""
+msgstr "Šī saite tiks rādīta tikai lietotājiem ar administratora tiesībām."
 
 msgid "manager.navigationMenus.logOut.description"
-msgstr ""
+msgstr "Saite, kas lietotājam ļauj iziet no sistēmas."
 
 msgid "manager.navigationMenus.loggedOut.conditionalWarning"
-msgstr ""
+msgstr "Šī saite tiks rādīta tikai tad, ja apmeklētājs ir pieteicies sistēmā."
 
 msgid "manager.navigationMenus.loggedIn.conditionalWarning"
-msgstr ""
+msgstr "Šī saite tiks rādīta tikai tad, ja apmeklētājs nav pieteicies sistēmā."
 
 msgid "manager.navigationMenus.contact.description"
-msgstr ""
+msgstr "Saite uz lapu, kurā norādīta jūsu kontaktinformācija."
 
 msgid "manager.navigationMenus.contact.conditionalWarning"
 msgstr ""
+"Šī saite tiks parādīta tikai tad, ja būsiet aizpildījis kontaktinformāciju "
+"sadaļā Iestatījumi > Kontaktinformācija."
 
 msgid "manager.navigationMenus.form.typeMissing"
-msgstr ""
+msgstr "Lūdzu, izvēlieties navigācijas izvēlnes veidu."
 
 msgid "manager.navigationMenus.subscriptions.conditionalWarning"
 msgstr ""
@@ -2430,12 +2507,12 @@ msgstr ""
 
 msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
 msgstr ""
-"Šī saite tiks parādīta tikai tad, ja apmeklētājs ir pieteicies, ja sadaļā "
-"Iestatījumi > Izplatīšana > Maksājumi ir iespējoti maksājumi un ja sadaļā "
-"Iestatījumi > Izplatīšana > Piekļuve ir nepieciešami abonementi."
+"Šī saite tiks parādīta tikai tad, ja apmeklētājs ir pieteicies sistēmā, ja "
+"sadaļā Iestatījumi > Izplatīšana > Maksājumi ir iespējoti maksājumi un ja "
+"sadaļā Iestatījumi > Izplatīšana > Piekļuve ir nepieciešami abonementi."
 
 msgid "manager.navigationMenus.search.description"
-msgstr ""
+msgstr "Saite uz meklēšanas lapu."
 
 msgid "manager.navigationMenus.privacyStatement.description"
 msgstr "Saite uz lapu, kurā ir jūsu privātuma atruna."
@@ -2446,46 +2523,46 @@ msgstr ""
 "Materiālu iesniegšana būsiet ievadījis privātuma atrunu."
 
 msgid "grid.category.add"
-msgstr ""
+msgstr "Pievienot kategoriju"
 
 msgid "grid.category.edit"
-msgstr ""
+msgstr "Rediģēt kategoriju"
 
 msgid "grid.category.name"
-msgstr ""
+msgstr "Nosaukums"
 
 msgid "grid.category.path"
-msgstr ""
+msgstr "Ceļš"
 
 msgid "grid.category.urlWillBe"
-msgstr ""
+msgstr "Kategorijas URL būs šāds: {$sampleUrl}"
 
 msgid "grid.category.pathAlphaNumeric"
-msgstr ""
+msgstr "Kategorijas ceļam jāsastāv tikai no burtiem un cipariem."
 
 msgid "grid.category.pathExists"
-msgstr ""
+msgstr "Šāds kategorijas ceļš jau pastāv. Lūdzu, ievadiet unikālu ceļu."
 
 msgid "grid.category.description"
-msgstr ""
+msgstr "Apraksts"
 
 msgid "grid.category.parentCategory"
-msgstr ""
+msgstr "Vecākelementa kategorija"
 
 msgid "grid.category.removeText"
-msgstr ""
+msgstr "Vai tiešām vēlaties dzēst šo kategoriju?"
 
 msgid "grid.category.nameRequired"
-msgstr ""
+msgstr "Lūdzu, ievadiet kategorijas nosaukumu."
 
 msgid "grid.category.categoryDetails"
-msgstr ""
+msgstr "Detalizēta informācija par kategoriju"
 
 msgid "stats.allUsers"
-msgstr ""
+msgstr "Visi lietotāji"
 
 msgid "stats.city"
-msgstr ""
+msgstr "Pilsēta"
 
 msgid "stats.views"
 msgstr "Izdevuma TOC skati"
@@ -2494,82 +2571,91 @@ msgid "stats.downloads"
 msgstr "Izdevuma saliktņa skati"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Kopējais skatījumu skaits pēc datuma"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Kopējais lejupielādēto failu skaits pēc datuma"
 
 msgid "stats.countWithYearlyAverage"
-msgstr ""
+msgstr "{$count} ({$average}/gadā)"
 
 msgid "stats.daily"
-msgstr ""
+msgstr "Katru dienu"
 
 msgid "stats.dateRange"
-msgstr ""
+msgstr "Datumu diapazons"
 
 msgid "stats.dateRange.allDates"
-msgstr ""
+msgstr "Visi datumi"
 
 msgid "stats.dateRange.apply"
-msgstr ""
+msgstr "Piemērot"
 
 msgid "stats.dateRange.change"
-msgstr ""
+msgstr "Mainīt datumu diapazonu"
 
 msgid "stats.dateRange.customRange"
-msgstr ""
+msgstr "Pielāgotais diapazons"
 
 msgid "stats.dateRange.dateDoesNotExist"
-msgstr ""
+msgstr "Viens no ievadītajiem datumiem neeksistē."
 
 msgid "stats.dateRange.from"
-msgstr ""
+msgstr "No"
 
 msgid "stats.dateRange.instructions"
 msgstr ""
+"Ievadiet katru datumu formātā GGGG-MM-DD. Piemēram, ja vēlaties 2019. gada "
+"15. janvāra datumu, ievadiet 2019-01-15."
 
 msgid "stats.dateRange.invalidDate"
-msgstr ""
+msgstr "Datuma formāts nav derīgs. Ievadiet katru datumu formātā GGGG-MM-DD."
 
 msgid "stats.dateRange.invalidDateRange"
-msgstr ""
+msgstr "Sākuma datumam jābūt pirms beigu datuma."
 
 msgid "stats.dateRange.invalidEndDateMax"
-msgstr ""
+msgstr "Beigu datums nedrīkst būt vēlāks par {$date}."
 
 msgid "stats.dateRange.invalidStartDateMin"
-msgstr ""
+msgstr "Sākuma datums nedrīkst būt agrāks par {$date}."
 
 msgid "stats.dateRange.last12Months"
-msgstr ""
+msgstr "Pēdējie 12 mēneši"
 
 msgid "stats.dateRange.last30Days"
-msgstr ""
+msgstr "Pēdējās 30 dienas"
 
 msgid "stats.dateRange.last90Days"
-msgstr ""
+msgstr "Pēdējās 90 dienas"
 
 msgid "stats.dateRange.lastTwoYears"
-msgstr ""
+msgstr "Pēdējie divi gadi"
 
 msgid "stats.dateRange.lastYear"
-msgstr ""
+msgstr "Iepriekšējais gads"
 
 msgid "stats.dateRange.sinceDate"
-msgstr ""
+msgstr "Kopš {$date}"
 
 msgid "stats.dateRange.thisYear"
-msgstr ""
+msgstr "Gads līdz datumam"
 
 msgid "stats.dateRange.to"
-msgstr ""
+msgstr "Līdz"
 
 msgid "stats.dateRange.untilDate"
-msgstr ""
+msgstr "Līdz {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
+"Izvēlētā datumu intervāla procentuālā daļa tiek aprēķināta par materiāliem, "
+"kas iesniegti šajā datumu intervālā un par kuriem ir pieņemts galīgais "
+"lēmums.<br><br>Piemēram, aplūkojiet gadījumu, kad šajā datumu intervālā tika "
+"iesniegti desmit darbi. Četri tika pieņemti, četri noraidīti un divi vēl "
+"gaida galīgo lēmumu.<br><br>Pieņemto darbu īpatsvars būs 50 % (4 no 8 "
+"iesniegtajiem darbiem), jo divi darbi, par kuriem nav pieņemts galīgais "
+"lēmums, netiek ieskaitīti."
 
 msgid "stats.description.daysToDecision"
 msgstr ""
@@ -2582,315 +2668,334 @@ msgstr ""
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Tas ietver materiālus, kas netiek ieskaitīti citās kopsummās, piemēram, tos, "
+"kas vēl nav pabeigti, un tos, kas, iespējams, ir importēti."
 
 msgid "stats.descriptionForStat"
-msgstr ""
+msgstr "{$stat} apraksts"
 
 msgid "stats.editorialActivity"
-msgstr ""
+msgstr "Redakcionālā aktivitāte"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Primārā datne"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Papildu datne"
 
 msgid "stats.fileViews"
-msgstr ""
+msgstr "Datņu skatījumi"
 
 msgid "stats.html"
-msgstr ""
+msgstr "HTML"
 
 msgid "stats.monthly"
-msgstr ""
+msgstr "Ikmēneša"
 
 msgid "stats.pdf"
-msgstr ""
+msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
-msgstr ""
+msgstr "Ģeolokāciju nodrošina <a href='https://db-ip.com'>DB-IP</a>"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "Par ģeolokāciju"
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "No {$startDate} līdz {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Viss {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr ""
+msgstr "Lejupielādēt datnes"
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Katras datnes lejupielāžu skaits."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Lejupielādēt ģeogrāfisko atskaiti"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
+msgstr "Skatījumu un lejupielāžu skaits katrā pilsētā, reģionā vai valstī."
 
 msgid "stats.region"
-msgstr ""
+msgstr "Reģions"
 
 msgid "stats.searchSubmissionDescription"
-msgstr ""
+msgstr "Meklēt pēc virsraksta, autora un ID"
 
 msgid "stats.submissionsActive"
-msgstr ""
+msgstr "Aktīvie materiāli"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Laika grafiks"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "{$type} skaits katram {$interval}."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Lejupielādēt laika grafiku"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Laika grafika intervāls"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Laika grafika tips"
 
 msgid "stats.total"
-msgstr ""
+msgstr "Kopā"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Unikāli"
 
 msgid "stats.totalWithinDateRange"
-msgstr ""
+msgstr "Kopā datumu diapazonā"
 
 msgid "stats.trends"
-msgstr ""
+msgstr "Tendences"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "nav zināms"
 
 msgid "stats.userStatistics"
-msgstr ""
+msgstr "Lietotāju statistika"
 
 msgid "stats.name.submissionsReceived"
-msgstr ""
+msgstr "Saņemtie materiāli"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Citi materiāli"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Materiāli darba procesā"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Importētie materiāli"
 
 msgid "stats.name.submissionsAccepted"
-msgstr ""
+msgstr "Pieņemtie materiāli"
 
 msgid "stats.name.submissionsDeclined"
-msgstr ""
+msgstr "Noraidītie materiāli"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr ""
+msgstr "Noraidītie materiāli (uzreiz)"
 
 msgid "stats.name.submissionsDeclinedPostReview"
-msgstr ""
+msgstr "Noraidītie materiāli (pēc recenzijas)"
 
 msgid "stats.name.submissionsPublished"
-msgstr ""
+msgstr "Publicētie materiāli"
 
 msgid "stats.name.daysToDecision"
 msgstr "Dienas līdz pirmajam redakcionālajam lēmumam"
 
 msgid "stats.name.daysToAccept"
-msgstr ""
+msgstr "Dienas līdz pieņemšanai"
 
 msgid "stats.name.daysToReject"
-msgstr ""
+msgstr "Dienas līdz noraidīšanai"
 
 msgid "stats.name.acceptanceRate"
-msgstr ""
+msgstr "Pieņemto darbu koeficients"
 
 msgid "stats.name.declineRate"
-msgstr ""
+msgstr "Noraidīto darbu koeficients"
 
 msgid "stats.name.declinedDeskRate"
-msgstr ""
+msgstr "Uzreiz noraidīto darbu koeficients"
 
 msgid "stats.name.declinedReviewRate"
-msgstr ""
+msgstr "Pēc recenzēšanas noraidīto darbu koeficients"
 
 msgid "plugins.importexport.native.processFailed"
-msgstr ""
+msgstr "Process neizdevās. Pārbaudiet tālāk norādītās kļūdas/ brīdinājumus."
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr ""
+msgstr "Iesniegto materiālu eksporta rezultāti"
 
 msgid "plugins.importexport.native.export.download.results"
-msgstr ""
+msgstr "Eksportētā faila lejupielāde"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr ""
+msgstr "Eksportēšana ir veiksmīgi pabeigta."
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr ""
+msgstr "Lejupielādēt eksportēto datni, izmantojot zemāk redzamo pogu."
 
 msgid "plugins.importexport.native.common.any"
-msgstr ""
+msgstr "Vispārīgie elementi"
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Nepareiza filtra konfigurācija [{$filterName}]: {$filterCount} gadījumu "
+"skaits. Vajadzētu būt tikai vienam."
 
 msgid "plugins.importexport.common.cliError"
-msgstr ""
+msgstr "KĻŪDA:"
 
 msgid "plugins.importexport.common.error.unknownContext"
-msgstr ""
+msgstr "Norādītais žurnāla ceļš \"{$contextPath}\" nepastāv."
 
 msgid "plugins.importexport.submission.cli.display"
 msgstr "\"{$submissionId}\" – \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
-msgstr ""
+msgstr "Neizdevās analizēt autorus"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr ""
+msgstr "Neizdevās analizēt publikācijas"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Visi komentāri no pabeigtām recenzijām. Anonīmām recenzijām recenzentu vārdi "
+"ir paslēpti"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Iesniegtā materiāla autoru vārdi, uzvārdi un institucionālā piederība."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
+msgstr "URL uz lapu, kurā lietotājs var atgūt pazaudēto paroli"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr ""
+msgstr "URL, lai skatītu visus lietotājam piešķirtos iesniegtos materiālus"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr ""
+msgstr "URL lietotāja profila apskatei un rediģēšanai"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Pieņemtā lēmuma nosaukums"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "Pieņemtā lēmuma apraksts"
 
 msgid "emailTemplate.variable.decision.stage"
 msgstr "Redakcijas darbplūsmas posms, kurā šis lēmums tika pieņemts"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Recenzēšanas kārta, kurā šis lēmums tika pieņemts, ja šis lēmums ir saistīts "
+"ar recenzēšanas posmu"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Diskusijas temats"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Jaunas diskusijas vai atbildes saturs"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Iesniegto materiālu saraksts ar neizpildītiem uzdevumiem"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Šim redaktoram piešķirto iesniegto darbu skaits"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "Saņēmēja vai visu saņēmēju pilns vārds un uzvārds"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "Saņēmēja vai visu saņēmēju lietotājvārds"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Datums, līdz kuram pabeidzama recenzēšana"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
+msgstr "Datums, līdz kuram recenzentam jāpieņem vai jānoraida uzdevums"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "Recenzēšanas uzdevuma URL"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Ieteiktais lēmums, piemēram, Pieņemt materiālu"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Datums, kad tika piešķirta šī recenzija"
 
 msgid "emailTemplate.variable.review.method"
 msgstr ""
+"Recenzēšanas veids, piemēram, anonīma, dubulta anonīma vai atklāta recenzija"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Recenzenta ieteikums, piemēram, Pieņemt materiālu vai Noraidīt"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Recenzēšanas kārta, piemēram, 1. kārta vai 2. kārta"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Recenzenta augšupielādētās datnes"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Recenzenta vārds"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Šajā žurnālā tiek veikta dubulta anonīma recenzēšana. Recenzentiem nav "
+"pieejama informācija, kas ļautu identificēt jūs vai jūsu līdzautorus. Tāpat "
+"arī jūs nezināsiet, kas ir recenzējis jūsu iesniegto materiālu, un jūs "
+"nesaņemsiet tiešas atsauksmes no recenzentiem."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Šajā žurnālā tiek veikta \"anonīma recenzenta\" recenzēšana. Jūsu un jūsu "
+"līdzautoru vārdi būs redzami recenzentiem, taču recenzentu identitāte paliks "
+"anonīma."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Šis žurnāls veic atklātu recenzēšanu. Recenzenti redzēs jūsu vārdu, uzvārdu "
+"un piederību, kā arī jūsu līdzautoru vārdus un piederību. Tāpat arī jūs "
+"redzēsiet recenzentu vārdus un uzvārdus un piederību."
 
 msgid "emailTemplate.variable.sender.senderName"
-msgstr ""
+msgstr "Sūtītāja pilns vārds"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr ""
+msgstr "Sūtītāja e-pasta adrese"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr ""
+msgstr "Sūtītāja e-pasta paraksts"
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr ""
+msgstr "Tīmekļa vietnes galvenās kontaktpersonas pilns vārds"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "Tīmekļa vietnes galvenās kontaktpersonas e-pasta adrese"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "Tīmekļa vietnes e-pasta paraksts automātiskajiem e-pasta ziņojumiem"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr ""
+msgstr "Redaktori, kas ir piešķirti šim materiālam un var pieņemt lēmumu"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr ""
+msgstr "Iesniegtā materiāla virsraksts"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr ""
+msgstr "Iesniegtā materiāla unikālais identifikācijas numurs"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "Materiāla kopsavilkums"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr ""
+msgstr "Autoru vārdi īsā virknē, piemēram, \"Bērziņš u.c.\""
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr ""
+msgstr "Autoru vārdi un uzvārdi"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "Autora URL uz iesniegto materiālu"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr ""
+msgstr "Iesniegtā materiāl URL redakcijas aizmugursistēmā"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "URL uz publicēto materiālu"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "URL uz iesniegto materiālu iesniegšanas vednī"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
@@ -2899,48 +3004,50 @@ msgstr ""
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
+"Sašifrēts URL, kas tiek nosūtīts lietotājam, lai apstiprinātu paroles "
+"atiestatīšanu"
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Jauna nejauši izvēlēta parole lietotājam"
 
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Recenzenta atjaunošana"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Atkārtoti nosūtīt recenzentam recenzijas pieprasījumu"
 
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "Lietotāja, kas augšupielādējis materiāla datni, pilns vārds"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "Paziņojuma virsraksts"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Īss paziņojuma apraksts"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "Paziņojuma URL adrese"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Šomēnes saņemto materiālu skaits"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Noraidīto materiālu skaits"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Pieņemto materiālu skaits"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Materiālu skaits, kas nav iekļauts citās pozīcijās"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Kopējais saņemto materiālu skaits"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "Pārskata mēnesis"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Pārskata gads"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr ""
@@ -2950,52 +3057,65 @@ msgid "emailTemplate.variable.issue.issuePublishedUrl"
 msgstr "Publicētā žurnāla numura URL"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Pārskata gads"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "Saite uz redakcionālās aktivitātes lapu"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
+"Šis e-pasts tiek nosūtīts, kad redaktors atjauno nepiešķirtā recenzenta "
+"darbību."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"Šo e-pastu redaktors, ja vēlas atkārtoti nosūtīt pieprasījumu, nosūta "
+"recenzentam, kurš ir noraidījis recenzēšanas pieprasījumu."
 
 msgid "mailable.reviewerUnassign.name"
-msgstr ""
+msgstr "Atcelt recenzenta piešķīrumu"
 
 msgid "mailable.reviewerUnassign.description"
-msgstr ""
+msgstr "Šis e-pasts tiek nosūtīts, kad redaktors atceļ recenzenta piešķīrumu."
 
 msgid "mailable.validateEmailSite.name"
-msgstr ""
+msgstr "E-pasta apstiprināšana (vietne)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Šis e-pasts tiek automātiski nosūtīts jaunam lietotājam, kad viņš "
+"reģistrējas vietnē, ja iestatījumos ir prasīts apstiprināt e-pasta adresi."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Paziņot citiem autoriem"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Šis e-pasts tiek nosūtīts, lai paziņotu materiāla autoriem, kuri nav iecelti "
+"par darba procesa dalībniekiem, ka ir pieņemts lēmums. Parasti tie ir visi "
+"autori, izņemot materiāla iesniedzēju."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
-msgstr ""
+msgstr "Iesniedzējam autoram nosūtītā epasta ziņojuma kopija"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Paziņot recenzentiem par lēmumu"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Šo e-pastu redaktors nosūta recenzentam, lai paziņotu, ka ir pieņemts lēmums "
+"par viņa recenzēto materiālu."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Īss lēmuma apraksts, ko paredzēts izplatīt e-pasta paziņojumā, kas nosūtīts "
+"recenzentiem par šo lēmumu"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Esam izlēmuši pieņemt šo materiālu bez labojumiem."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "Mēs esam nolēmuši šo materiālu noraidīt."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
@@ -3008,13 +3128,15 @@ msgstr ""
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr ""
+msgstr "Uzaicinātais recenzents iesniegtajam materiālam ir atcelts."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr ""
+msgstr "Iesniegtais materiāls pieņemts"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
+"Šajā e-pastā autors tiek informēts, ka viņa iesniegtais materiāls ir "
+"pieņemts publicēšanai."
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
 msgstr "Materiāls nosūtīts atpakaļ uz literāro rediģēšanu"
@@ -3033,25 +3155,31 @@ msgstr ""
 "literārās rediģēšanas posma."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Recenzēšanas kārta atcelta"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
+"Šajā e-pastā autors tiek informēts, ka viņa iesniegtā materiāla recenzēšanas "
+"kārta ir atcelta."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr ""
+msgstr "Iesniegtais materiāls noraidīts"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
+"Šajā e-pastā autors tiek informēts, ka viņa iesniegtais materiāls ir "
+"noraidīts pēc recenzēšanas."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Iesniegtais materiāls noraidīts (pirms recenzēšanas)"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Uzsākta jauna recenzēšanas kārta"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
+"Šajā e-pastā autors tiek informēts par to, ka sākta jauna iesniegtā "
+"materiāla recenzēšanas kārta."
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
 msgstr "Pieprasītie labojumi"
@@ -3062,28 +3190,36 @@ msgstr ""
 "recenzēšanas laikā."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Atkārtoti iesniegt recenzēšanai"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Šajā e-pastā autors tiek informēts par lēmumu \"Pārskatīt un iesniegt "
+"atkārtoti\" attiecībā uz viņa iesniegto materiālu."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Atjaunot noraidīto materiālu"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Šajā e-pastā autors tiek informēts, ka iepriekšējais lēmums par materiāla "
+"noraidīšanu pēc recenzēšanas tiek atcelts."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Atjaunot iesniegto materiālu, kas noraidīts bez recenzēšanas"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Šajā e-pastā autors tiek informēts, ka iepriekšējais lēmums par materiāla "
+"noraidīšanu bez recenzēšanas tiek atcelts."
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr ""
+msgstr "Nosūtīts uz recenziju"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
+"Šajā e-pastā autors tiek informēts, ka viņa materiāls tiek nosūtīts uz "
+"recenzēšanas posmu."
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
 msgstr "Nosūtīts uz izstrādi"
@@ -3094,7 +3230,7 @@ msgstr ""
 "izstrādes posmu."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Iesniegtais materiāls pieņemts (bez recenzēšanas)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
@@ -3102,7 +3238,7 @@ msgstr ""
 "literārās rediģēšanas posmu un netiks recenzēts."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Sniegts ieteikums"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
@@ -3113,116 +3249,148 @@ msgstr ""
 "iespēju var izvēlēties, piešķirot dalībniekus kādam materiālam."
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Recenzijas apstiprināšana"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
+"Šis e-pasts tiek automātiski nosūtīts, kad recenzents pieņem recenzēšanas "
+"pieprasījumu"
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Noraidīt recenzēšanu"
 
 msgid "mailable.reviewDecline.description"
-msgstr ""
+msgstr "Šo e-pastu nosūta recenzents, kad noraida recenzēšanas pieprasījumu"
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Recenzēšanas atgādinājums"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Šo e-pastu sūta redaktors, lai atgādinātu recenzentam par to, ka viņam ir "
+"jāiesniedz recenzija."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Recenzēšanas atgādinājums (automatizēts)"
 
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
+"Šis e-pasts tiek automātiski nosūtīts, ja recenzents nav pabeidzis "
+"recenzēšanu līdz noteiktajam termiņam."
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr ""
+msgstr "Pateicība par recenzēšanu"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Šo e-pastu redaktors nosūta recenzentam, lai apstiprinātu, ka viņa recenzija "
+"ir saņemta, un lai pateiktos recenzentam par viņa ieguldījumu."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Recenzijas atbildes termiņš ir nokavēts (automātiski)"
 
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
+"Šis e-pasts tiek automātiski nosūtīts, kad beidzas termiņš, līdz kuram "
+"recenzentam ir jāatbild uz recenzijas pieprasījumu."
 
 msgid "mailable.reviewRequest.name"
-msgstr ""
+msgstr "Recenzijas pieprasījums"
 
 msgid "mailable.reviewRequest.description"
 msgstr ""
+"Šajā e-pastā sadaļas redaktors lūdz recenzentu pieņemt vai noraidīt "
+"materiāla recenzēšanas uzdevumu. "
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Nākamais recenzijas pieprasījums"
 
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
 "Šajā e-pastā redaktors lūdz recenzentu pieņemt vai atteikties no materiāla "
 "izskatīšanas papildu recenzēšanas kārtā. Tajā ir sniegta informācija par "
-"materiālu, piemēram, nosaukums un kopsavilkums, recenzijas termiņš un "
+"materiālu, piemēram, virsraksts un kopsavilkums, recenzijas termiņš un "
 "piekļuve materiālam."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Trūkst iesniegtā materiāla kārtējās publikācijas"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "Iesnieguma bērnprocess {$child} nav apstrādāts"
 
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Redakcionāls atgādinājums"
 
 msgid "mailable.editorialReminder.description"
-msgstr ""
+msgstr "Redaktoriem nosūtāms automatizēts e-pasts ar neizpildītiem uzdevumiem"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Paroles atiestatīšanas apstiprinājums"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
+"Šis e-pasts tiek nosūtīts reģistrētam lietotājam, kad viņš norāda, ka ir "
+"aizmirsis paroli vai nevar pieteikties. Tajā ir norādīts URL, kuru lietotājs "
+"var izmantot, lai atiestatītu paroli."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Izveidots lietotājs"
 
 msgid "mailable.userRegister.description"
 msgstr ""
+"Šis e-pasts tiek nosūtīts jaunizveidotam lietotājam, kad redakcijas "
+"administrators ir izveidojis lietotāju, izmantojot lietotāja iestatījumus. "
+"Šajā e-pastā lietotājs tiek sveikts sistēmā un viņam tiek piešķirts "
+"lietotājvārds un parole."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Recenzenta reģistrācija"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
+"Šis e-pasts tiek nosūtīts jaunreģistrētajam recenzentam, lai sveiktu viņu "
+"sistēmā un piešķirtu viņam lietotājvārdu un paroli."
 
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Iesniegtais materiāls saglabāts vēlākam laikam"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Automatizēts e-pasts, kas tiek nosūtīts autoriem, kad viņi saglabā savu "
+"iesniegto materiālu, lai to pabeigtu vēlāk"
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Iesniegšanas apstiprinājums"
 
 msgid "mailable.submissionAck.description"
 msgstr ""
+"Šis e-pasts tiek automātiski nosūtīts autoram, kad viņš veic materiāla "
+"iesniegšanu. Tajā tiek sniegta informācija par materiāla izsekošanu "
+"redakcijas procesā un izteikta pateicība autoram par iesniegto materiālu."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Iesniegšanas apstiprinājums (citi autori)"
 
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
+"Šis e-pasts tiek automātiski nosūtīts autoriem, kuri ir norādīti iesniegtajā "
+"materiālā un kuri nav iesniedzējs."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Diskusija (Materiāla iesniegšana)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Šis e-pasts tiek nosūtīts, kad tiek izveidota diskusija vai atbildēts uz to "
+"materiāla iesniegšanas posmā."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Diskusija (Recenzēšana)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Šis e-pasts tiek nosūtīts, kad recenzēšanas posmā tiek izveidota diskusija "
+"vai uz to tiek atbildēts."
 
 msgid "mailable.discussionCopyediting.name"
 msgstr "Diskusija (literārā rediģēšana)"
@@ -3249,28 +3417,32 @@ msgstr ""
 "augšupielādē labotu raksta versiju."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Jauns paziņojums"
 
 msgid "mailable.announcementNotify.description"
-msgstr ""
+msgstr "Šis e-pasts tiek nosūtīts, kad tiek izveidots jauns paziņojums."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Paziņojums par statistikas pārskatu"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Recenzijas labojumu paziņojums"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Šis e-pasta vēstule automātiski informē recenzentu, ja ir mainīta viņa "
+"recenzēšanas uzdevuma informācija."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Paziņojums redaktoriem par recenzenta komentāriem"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Šis e-pasta vēstule tiek automātiski nosūtīta piešķirtajiem redaktoriem, kad "
+"recenzents sniedz recenzijas rekomendāciju"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Autentifikācijas avots"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
 msgstr "Materiāls nosūtīts atpakaļ recenzēšanai"
@@ -3281,61 +3453,72 @@ msgstr ""
 "atpakaļ uz recenzēšanas posmu."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "Materiāls nosūtīts atpakaļ uz materiāla iesniegšanu"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Šajā e-pastā autors tiek informēts par to, ka viņa materiāls ir nosūtīts "
+"atpakaļ uz iesniegšanas posmu."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "E-pasta vēstuļu pārvaldība"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Pievienot un rediģēt veidnes</a> visiem sistēmas "
+"sūtītajiem e-pasta ziņojumiem.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Pievienot un rediģēt veidnes, kuras vēlaties padarīt pieejamas lietotājam, "
+"kad viņš sūta šo e-pastu. Noklusējuma veidne tiks ielādēta automātiski, un "
+"lietotājs varēs ātri ielādēt jebkuras citas šeit pievienotās veidnes."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Veidnes"
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Rediģēt veidni"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Noņemt veidni"
 
 msgid "manager.mailables.removeTemplate.confirm"
-msgstr ""
+msgstr "Vai tiešām vēlaties dzēst veidni <strong>{$template}</strong>?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Atiestatīt veidni"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Vai tiešām vēlaties atiestatīt temata un vēstules teksta iestatījumus "
+"veidnei <strong>{$template}</strong>?"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Meklēt pēc nosaukuma vai apraksta"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Ievadiet īsu nosaukumu, kas palīdzēs atrast šo veidni."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Jauna materiāla iesniegšana"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Konfigurēt e-pasta paziņojumus, kas tiks nosūtīti, kad tiks iesniegts jauns "
+"materiāls."
 
 msgid "manager.submissionAck.description"
-msgstr ""
+msgstr "Kam jāsaņem e-pasts, kad ir pabeigta jauna materiāla iesniegšana."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Nesūtīt e-pastu."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Nosūtīt e-pastu tikai autoram, kurš iesniedzis materiālu."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Nosūtīt e-pastu visiem autoriem."
 
 msgid "manager.editorialDecisions"
 msgstr "Redakcionālie lēmumi"
@@ -3346,10 +3529,10 @@ msgstr ""
 "lēmuma reģistrēšanas."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Redaktoriem"
 
 msgid "manager.forEditors.description"
-msgstr ""
+msgstr "Konfigurēt e-pasta paziņojumus nosūtīšanai redaktoriem."
 
 msgid "manager.editorialStatistics"
 msgstr "Redakcionālā statistika"
@@ -3368,48 +3551,52 @@ msgstr "Nesūtīt e-pastu redaktoriem."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Vai jauna materiāla iesniegšanas laikā pieprasīt, lai autors, kurš iesniedz "
+"materiālu, izvēlas kategoriju?"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Jā, pievienot kategoriju lauku iesniegšanas vednim."
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Nē, nerādīt autoriem šo lauku."
 
 msgid "mailable.copyeditRequest.name"
 msgstr "Pieprasīt literāro rediģēšanu"
 
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Piešķirts redaktors"
 
 msgid "mailable.layoutRequest.name"
 msgstr "Gatavs izstrādei"
 
 msgid "mailable.system"
-msgstr ""
+msgstr "Sistēma"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Izveidota versija"
 
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Recenzija pabeigta"
 
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Recenzija rediģēta"
 
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Pateicība par materiāla iesniegšanu citiem autoriem"
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Piešķirts redaktors (automātiski)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Šis e-pasts tiek nosūtīts redaktoram, kad viņam tiek automātiski piešķirts "
+"iesniegtais materiāls."
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Piešķirt redaktoru"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Iesniegtajam materiālam nepieciešams redaktors"
 
 msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
 msgstr "Materiāla datne {$id} tika izlaista, jo tai nav derīgu labojumu."
@@ -3459,3 +3646,83 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Prasība autoriem kopā ar manuskriptu iesniegt apliecinājumu par interešu "
 "konflikta neesamību."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Publikācijas {$id} vāka attēls netika eksportēts, tā fails netika atrasts "
+"ceļā \"{$path}\"."
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Saite e-pasta konta apstiprināšanai"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Datumam jābūt formātā GGGG-MM-DD vai GGGG-MM. Agrākais iespējamais datums ir "
+"{$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Beigu datums"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Sākuma datums"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Publicēšanas gadu saraksts vai diapazons, kas atgriežams atbildē formātā "
+"yyyy|yyyy|yyyy-yyyy."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr "Materiāla datne {$id} tika izlaista, jo tai nav derīga datnes posma."
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Datumam jābūt formātā GGGG-MM-DD vai GGGG-MM. Pēdējais iespējamais datums ir "
+"{$earliestDate}."
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Skatīt<a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
+"html\" target=\"_new\">COUNTER 5.0.3 dokumentāciju</a>, lai iegūtu vairāk "
+"informācijas par katru atskaiti."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Pagaidām nav pieejama COUNTER R5 lietošanas statistika."
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "COUNTER R5 atskaites"
+
+msgid "manager.statistics.counterR5"
+msgstr "COUNTER R5"
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Atskaites iestatījumi"
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Datuma formāts nav derīgs."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Klienta ID"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Metrikas tips"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Rādāmie atribūti"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Publicēšanas gads"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP formāts nav derīgs."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Iesniegtā materiāla ID"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Materiāla iesniegšanas ID nepastāv."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Iekļaut vecākelementa informāciju"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Neietvert ikmēneša sīkāku informāciju"

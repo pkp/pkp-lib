@@ -1,71 +1,85 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-26 16:40+0000\n"
-"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
-"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ojs/emails/"
-"mk_MK/>\n"
-"Language: mk_MK\n"
+"PO-Revision-Date: 2024-01-28 17:39+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"emails/mk/>\n"
+"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
-#, fuzzy
 msgid "emails.submissionAck.subject"
-msgstr "Признание на поднесок"
+msgstr "Благодариме за вашиот поднесок во {$contextName}"
 
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"Ви благодариме за поднесувањето на вашиот ракопис, &quot;{$submissionTitle}"
-"&quot; до {$contextName}. Со помош на системот за онлајн раководење на "
-"списанитео кој што го користиме, ќе можете да го следите неговото "
-"напредување низ процесот на уредување со тоа што ќе се пријавите на веб-"
-"страницата:<br />\n"
-"<br />\n"
-"URL-адреса на поднесокот: {$submissionUrl}<br />\n"
-"Корисничко име: {$recipientUsername}<br />\n"
-"<br />\n"
-"Доколку имате било какви прашања, ве молам да ме контактирате. Ви "
-"благодариме што го земавте во предвид ова списание како место за вашата "
-"работа.<br />\n"
-"<br />\n"
-"{$contextSignature}"
+"<p>Драг {$recipientName},</p><p>Благодариме за вашиот поднесок во "
+"{$contextName}. Ние го примивме вашиот поднесок, {$submissionTitle}, и член "
+"од нашиот уреднички тим набрзо ќе го разгледа. Ќе испратиме и-мејл кога ќе "
+"биде аправена почетната одлука, и можеме да ве контактираме за дополнителни "
+"информации.</p><p>Можете да го гледате вашиот поднесок и да го следите "
+"неговото напредување низ уредничкиот процес на следната локација:</"
+"p><p>Поденесок URL: {$authorSubmissionUrl}</p><p>Ако сте одлогиран, повторно "
+"можете да се логирате со корисничко име {$recipientUsername}.</p><p>Ако "
+"имате било какво прашање, молам контактирајте ме од вашата <a href=\""
+"{$authorSubmissionUrl}\">табла за поднесување</a>.</p><p>Благодариме што сте "
+"одлучиле {$contextName} да биде место за вашата "
+"работа.</p>{$contextSignature}"
 
 msgid "emails.submissionAck.description"
-msgstr ""
+msgstr "Овој и-мејл автоматски се испраќа до авторот кога поднесува поднесок."
 
-#, fuzzy
 msgid "emails.reviewAck.subject"
-msgstr "Потврда за рецензија на наслов"
+msgstr "Ви благодарам за вашата рецензија"
 
-#, fuzzy
 msgid "emails.reviewAck.body"
 msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"Ви благодариме што ја завршивте рецензијата на поднесокот, &quot;"
-"{$submissionTitle},&quot; за {$contextName}. Го цениме вашиот придонес кон "
-"квалитетот на трудовите кои ги објавуваме."
+"<p>Драг {$recipientName},</p>\n"
+"<p>Благодариме за комплетирање на вашата рецензија за поднесокот, "
+"{$submissionTitle}, за {$contextName}. Го цениме вашето време и експертиза "
+"во подобрување квалитетот на трудот што го публикуваме.</p>\n"
+"<p>Ни беше задоволство да соработуваме со вас како рецензент {$contextName}, "
+"и ние се надеваме дека ќе имаме можност во иднина да соработуваме со вас.</p>"
+"\n"
+"<p>Срдечни поздрави,</p>\n"
+"<p>{$signature}</p>"
 
 msgid "emails.decision.notifyReviewers.subject"
-msgstr ""
+msgstr "Ви благодарам за вашата рецензија"
 
 msgid "emails.decision.notifyReviewers.body"
 msgstr ""
+"<p>Драг {$recipientName},</p>\n"
+"<p>Thank you for completing your review of the submission, {$submissionTitle}"
+", for {$contextName}. We appreciate your time and expertise in contributing "
+"to the quality of the work that we publish. We have shared your comments "
+"with the authors, along with our other reviewers' comments and the editor's "
+"decision.</p>\n"
+"<p>Based on the feedback we received, we have notified the authors of the "
+"following:</p>\n"
+"<p>{$decisionDescription}</p>\n"
+"<p>Your recommendation was considered alongside the recommendations of other "
+"reviewers before coming to a decision. Occasionally the editor's decision "
+"may differ from the recommendation made by one or more reviewers. The editor "
+"considers many factors, and does not take these decisions lightly. We are "
+"grateful for our reviewers' expertise and suggestions.</p>\n"
+"<p>It has been a pleasure to work with you as a reviewer for {$contextName}, "
+"and we hope to have the opportunity to work with you again in the future.</p>"
+"\n"
+"<p>Kind regards,</p>\n"
+"<p>{$signature}</p>"
 
 msgid "emails.decision.notifyOtherAuthors.subject"
-msgstr ""
+msgstr "Обновување на вашиот поднесок"
 
 msgid "emails.decision.notifyOtherAuthors.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
-msgstr "Одлука на уредникот"
+msgstr "Вашиот поднесок е испратен за рецензија"
 
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
@@ -79,9 +93,8 @@ msgstr ""
 "<br />\n"
 "URL-адреса на поднесокот: {$submissionUrl}"
 
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
-msgstr "Одлука на уредникот"
+msgstr "Следни стапки за објавување на вашиот поднесок"
 
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
@@ -93,9 +106,8 @@ msgstr ""
 "<br />\n"
 "URL-адреса на поднесокот: {$submissionUrl}"
 
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
-msgstr "Одлука на уредникот"
+msgstr "Вашиот поднесок беше рецензиран и ве охрабруваме да поднесете ревизија"
 
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
@@ -107,9 +119,8 @@ msgstr ""
 "<br />\n"
 "Нашата одлука е: Потребни се ревизии"
 
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
-msgstr "Одлука на уредникот"
+msgstr "Вашиот поднесок е рецензиран - молам ревидирајте го и преподнесете го"
 
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"
@@ -121,9 +132,8 @@ msgstr ""
 "<br />\n"
 "Нашата одлука е: Поднеси повторно за рецензија"
 
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
-msgstr "Одлука на уредникот"
+msgstr "Вашиот поднесок е одбиен"
 
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
@@ -135,7 +145,6 @@ msgstr ""
 "<br />\n"
 "Нашата одлука е: Одбиен поднесок"
 
-#, fuzzy
 msgid "emails.editorRecommendation.subject"
 msgstr "Препорака на уредникот"
 
@@ -147,9 +156,10 @@ msgstr ""
 "Препораката во врска со поднесувањето до {$textName}, &quot;{$missionTitle}"
 "&quot; е: {$recommendation}"
 
-#, fuzzy
 msgid "emails.copyeditRequest.subject"
-msgstr "Барање за уредување"
+msgstr ""
+"Поденесокот {$submissionId} е спремен за техничко уредување за "
+"{$contextAcronym}"
 
 #, fuzzy
 msgid "emails.copyeditRequest.body"
@@ -213,27 +223,29 @@ msgstr ""
 
 msgid "discussion.notification.description"
 msgstr ""
+"Овој и-мејл се праќа кога корисникот создава нова дискусија или одговара на "
+"постоечка дискусија"
 
 msgid "emails.editorDecisionBackFromProduction.subject"
-msgstr ""
+msgstr "Вашиот поднесок е испратен до копиедиторот"
 
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 
 msgid "emails.editorDecisionBackFromCopyediting.subject"
-msgstr ""
+msgstr "Вашиот поднесок е испратен до рецензентот"
 
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 
 msgid "emails.editorDecisionCancelReviewRound.subject"
-msgstr ""
+msgstr "Реецензентската постапка за вашиот поднесок е откажана"
 
 msgid "emails.editorDecisionCancelReviewRound.body"
 msgstr ""
 
 msgid "emails.reviewResendRequest.subject"
-msgstr ""
+msgstr "Барање за повторна рецензија за {$contextName}"
 
 msgid "emails.reviewResendRequest.body"
 msgstr ""
@@ -248,16 +260,16 @@ msgid "emails.footer.unsubscribe.automated"
 msgstr ""
 
 msgid "emailTemplate.variable.unsubscribe"
-msgstr ""
+msgstr "Линк за одрегистрација од овој и-мејл."
 
 msgid "emails.discussion.subject"
 msgstr "Порака во врска со {$contextName}"
 
 msgid "emails.discussion.body"
-msgstr "Ве молиме да ја внесете вашата порака."
+msgstr "Ве молиме внесете ја вашата порака."
 
 msgid "emails.versionCreated.subject"
-msgstr ""
+msgstr "Креирана е нова верзија за {$submissionTitle}"
 
 msgid "emails.versionCreated.body"
 msgstr ""
@@ -269,7 +281,7 @@ msgid "emails.reviewComplete.body"
 msgstr ""
 
 msgid "emails.reviewEdit.subject"
-msgstr ""
+msgstr "Вашето назначување за рецензент е променето за {$contextName}"
 
 msgid "emails.reviewEdit.body"
 msgstr ""
@@ -291,19 +303,21 @@ msgstr ""
 "{$senderName}"
 
 msgid "emails.submissionSavedForLater.subject"
-msgstr ""
+msgstr "Продолжи со поднесување на {$contextName}"
 
 msgid "emails.submissionSavedForLater.body"
 msgstr ""
 
 msgid "emails.submissionNeedsEditor.subject"
-msgstr ""
+msgstr "Треба да се назначи уредник за новиот поднесок: {$submissionTitle}"
 
 msgid "emails.submissionNeedsEditor.body"
 msgstr ""
 
 msgid "emails.submissionAckNotUser.description"
 msgstr ""
+"Овој и-мејл автоматски се испраќа до авторите споменати во новиот поднесок "
+"кои не се поднесувачки автори."
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Потврда за поднесување"

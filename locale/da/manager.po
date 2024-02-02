@@ -1,5 +1,5 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2023-11-09 22:56+0000\n"
+"PO-Revision-Date: 2024-01-30 11:07+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da/>\n"
@@ -3749,3 +3749,77 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Kræv, at forfattere, der fremsender et manuskript, skal indsende en "
 "erklæring om konkurrerende interesser sammen med deres manuskript."
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"En liste eller et interval af publiceringsår, der skal returneres som svar "
+"på formatet yyyy|yyyy|yyyy-yyyy."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Indsendelses-ID"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Ekskludér månedlige detaljer"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Se <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index.html\""
+" target=\"_new\">COUNTER 5.0.3 dokumentation</a> for mere information om "
+"hver rapport."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Der er ikke nogle tilgængelige brugsstatistikker om COUNTER R5 endnu."
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Datoen skal være på formatet YYYY-MM-DD eller YYYY-MM. Den tidligst mulige "
+"dato er {$earliestDate}."
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Counter R5 Rapporter"
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Rapport indstillinger"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Startdato"
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Slutdato"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Datoen skal være på formatet YYYY-MM-DD eller YYYY-MM. Den senest mulige "
+"dato er {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Datoformatet er ikke gyldigt."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Bruger ID"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Metriktype"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Egenskaber, der skal vises"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Publiceringsår"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP (publiceringsår) formatet er ikke gyldigt."
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Indsendelses-ID'et eksisterer ikke."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Inkludér \"Parent\" detaljer"
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Indsendelsesfilen {$id} blev sprunget over, fordi den ikke har et gyldigt "
+"filtrin."

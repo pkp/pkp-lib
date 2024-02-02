@@ -1,11 +1,11 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2023-11-30 07:38+0000\n"
+"PO-Revision-Date: 2024-01-05 22:40+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/da/"
 ">\n"
@@ -932,3 +932,9 @@ msgstr "Deaktiver samlet bedømmerstatistik"
 
 msgid "admin.settings.sharedReviewerStatistics"
 msgstr "Bedømmerstatistik"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"I en installation med flere tidsskrifter/udgivere kan bedømmerstatistik (fx "
+"antallet af indsendte bedømmelser) enten vises individuelt for hver enkelt "
+"tidsskrift/udgiver eller samlet for alle."

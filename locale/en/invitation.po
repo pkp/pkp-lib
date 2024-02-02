@@ -72,3 +72,40 @@ msgstr "Invitation sent"
 
 msgid "invitation.emptySearchFields"
 msgstr "Provide least one search field to search user"
+
+msgid "invitation.verifyOrcid"
+msgstr "Verify ORCID iD"
+
+msgid "invitation.verifyOrcidStep"
+msgstr "{$step} - Verify ORCID iD"
+
+msgid "invitation.verifyOrcidDescription"
+msgstr "Please verify orcid iD"
+
+msgid "invitation.userCreate"
+msgstr "Create OJS account"
+
+msgid "invitation.userCreateStep"
+msgstr "{$step} - Create OJS account"
+
+msgid "invitation.userCreateDescription"
+msgstr "To get started with OJS and accept the new role, you will need to create an account with us. For this purpose please enter a username and password."
+
+msgid "invitation.userCreateDetails"
+msgstr "Enter details"
+
+msgid "invitation.userCreateDetailStep"
+msgstr "{$step} - Enter details"
+
+msgid "invitation.userCreateDetailsDescription"
+msgstr "Enter your details like email ID, affiliation ect. As per the GDPR compliance, this information can only modified by you. You can also choose if you want this information to be visible on your profile to the editor. "
+
+msgid "invitation.userCreateReview"
+msgstr "Review & create account"
+
+msgid "invitation.userCreateReviewStep"
+msgstr "{$step} - Review & create account"
+
+msgid "invitation.userCreateReviewDescription"
+msgstr "Review details to start your new roles in OJS"
+

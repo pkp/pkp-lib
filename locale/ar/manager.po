@@ -254,7 +254,7 @@ msgstr "معاينة السجل"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "رسالة التسجيل الموفق"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "تم تحديث معرفات المكونات الرقمية بنجاح"
 
 msgid "manager.dois.registration.depositDois"

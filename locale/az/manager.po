@@ -2159,7 +2159,7 @@ msgid "manager.dois.registration.viewRecord.title"
 msgstr "Uğurlu qeydiyyat mesajı"
 
 #, fuzzy
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "Dois uğurla yeniləndi"
 
 #, fuzzy

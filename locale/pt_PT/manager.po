@@ -257,7 +257,7 @@ msgstr "Ver Registo"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Mensagem de registo com sucesso"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOIs atualizados com sucesso"
 
 msgid "manager.dois.registration.depositDois"

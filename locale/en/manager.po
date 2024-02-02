@@ -259,7 +259,7 @@ msgstr "View Record"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Successful Registration Message"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI(s) successfully updated"
 
 msgid "manager.dois.registration.depositDois"

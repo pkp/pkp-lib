@@ -24,7 +24,6 @@ use Carbon\Carbon;
 use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Contracts\Queue\Job;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
@@ -234,7 +233,7 @@ class commandJobs extends CommandLineTool
 
         if (in_array('--redispatch', $parameterList) || ($jobIds = $this->getParameterValue('redispatch'))) {
             $jobsCount = Repo::failedJob()->redispatchToQueue(
-                $this->getParameterValue('--queue'),
+                $this->getParameterValue('queue'),
                 collect(explode(',', $jobIds ?? ''))
                     ->filter()
                     ->map(fn ($item) => (int)$item)
@@ -246,7 +245,7 @@ class commandJobs extends CommandLineTool
 
         if (in_array('--clear', $parameterList) || ($jobIds = $this->getParameterValue('clear'))) {
             $jobsCount = Repo::failedJob()->deleteJobs(
-                $this->getParameterValue('--queue'),
+                $this->getParameterValue('queue'),
                 collect(explode(',', $jobIds ?? ''))
                     ->filter()
                     ->map(fn ($item) => (int)$item)

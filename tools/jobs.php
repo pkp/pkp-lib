@@ -24,7 +24,6 @@ use Carbon\Carbon;
 use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Contracts\Queue\Job;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
@@ -234,7 +233,7 @@ class commandJobs extends CommandLineTool
 
         if (in_array('--redispatch', $parameterList) || ($jobIds = $this->getParameterValue('redispatch'))) {
             $jobsCount = Repo::failedJob()->redispatchToQueue(
-                $this->getParameterValue('--queue'),
+                $this->getParameterValue('queue'),
                 collect(explode(',', $jobIds ?? ''))
                     ->filter()
                     ->map(fn ($item) => (int)$item)
@@ -246,7 +245,7 @@ class commandJobs extends CommandLineTool
 
         if (in_array('--clear', $parameterList) || ($jobIds = $this->getParameterValue('clear'))) {
             $jobsCount = Repo::failedJob()->deleteJobs(
-                $this->getParameterValue('--queue'),
+                $this->getParameterValue('queue'),
                 collect(explode(',', $jobIds ?? ''))
                     ->filter()
                     ->map(fn ($item) => (int)$item)
@@ -282,7 +281,7 @@ class commandJobs extends CommandLineTool
         $this->total();
 
         $this->getCommandInterface()->table(
-            $this->getListTableFormat(), 
+            $this->getListTableFormat(),
             $data
                 ->map(fn(JsonResource $job) => $job->toArray(app('request')))
                 ->toArray()
@@ -511,17 +510,17 @@ class commandJobs extends CommandLineTool
         $workerConfig = new WorkerConfiguration();
 
         return [
-            'name' => $this->getParameterValue('--name', $workerConfig->getName()),
-            'backoff' => $this->getParameterValue('--backoff', $workerConfig->getBackoff()),
-            'memory' => $this->getParameterValue('--memory', $workerConfig->getMemory()),
-            'timeout' => $this->getParameterValue('--timeout', $workerConfig->getTimeout()),
-            'sleep' => $this->getParameterValue('--sleep', $workerConfig->getSleep()),
-            'maxTries' => $this->getParameterValue('--tries', $workerConfig->getMaxTries()),
-            'force' => $this->getParameterValue('--force', in_array('--force', $parameters) ? true : $workerConfig->getForce()),
-            'stopWhenEmpty' => $this->getParameterValue('--stop-when-empty', in_array('--stop-when-empty', $parameters) ? true : $workerConfig->getStopWhenEmpty()),
-            'maxJobs' => $this->getParameterValue('--max-jobs', $workerConfig->getMaxJobs()),
-            'maxTime' => $this->getParameterValue('--max-time', $workerConfig->getMaxTime()),
-            'rest' => $this->getParameterValue('--rest', $workerConfig->getRest()),
+            'name' => $this->getParameterValue('name', $workerConfig->getName()),
+            'backoff' => $this->getParameterValue('backoff', $workerConfig->getBackoff()),
+            'memory' => $this->getParameterValue('memory', $workerConfig->getMemory()),
+            'timeout' => $this->getParameterValue('timeout', $workerConfig->getTimeout()),
+            'sleep' => $this->getParameterValue('sleep', $workerConfig->getSleep()),
+            'maxTries' => $this->getParameterValue('tries', $workerConfig->getMaxTries()),
+            'force' => $this->getParameterValue('force', in_array('force', $parameters) ? true : $workerConfig->getForce()),
+            'stopWhenEmpty' => $this->getParameterValue('stop-when-empty', in_array('stop-when-empty', $parameters) ? true : $workerConfig->getStopWhenEmpty()),
+            'maxJobs' => $this->getParameterValue('max-jobs', $workerConfig->getMaxJobs()),
+            'maxTime' => $this->getParameterValue('max-time', $workerConfig->getMaxTime()),
+            'rest' => $this->getParameterValue('rest', $workerConfig->getRest()),
         ];
     }
 

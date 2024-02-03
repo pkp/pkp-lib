@@ -59,6 +59,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
     {
         $submissionId = $assocId;
         $submission = Repo::submission()->get($submissionId);
+        $publication = $submission->getCurrentPublication();
 
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
 
@@ -68,7 +69,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
             PKPNotification::NOTIFICATION_TYPE_VISIT_CATALOG => true,
         ];
 
-        $isPublished = (bool) $submission->getDatePublished();
+        $isPublished = (bool) $publication->getData('datePublished');
 
         foreach ($notificationTypes as $type => $forPublicationState) {
             $notificationFactory = $notificationDao->getByAssoc(

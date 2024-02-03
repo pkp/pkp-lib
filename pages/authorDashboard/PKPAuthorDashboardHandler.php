@@ -162,8 +162,8 @@ abstract class PKPAuthorDashboardHandler extends Handler
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
         $user = $request->getUser();
         $submissionContext = $request->getContext();
-        if ($submission->getContextId() !== $submissionContext->getId()) {
-            $submissionContext = Services::get('context')->get($submission->getContextId());
+        if ($submission->getData('contextId') !== $submissionContext->getId()) {
+            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
         }
 
         $contextUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $submission->getData('contextId'));

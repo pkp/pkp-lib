@@ -85,8 +85,8 @@ class ManageCopyeditFilesGridHandler extends SelectableSubmissionFileListCategor
                 $this->getGridCategoryDataElements($request, $this->getStageId())
             );
 
-            if ($submission->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
-                $submission->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
+            if ($submission->getData('stageId') == WORKFLOW_STAGE_ID_EDITING ||
+                $submission->getData('stageId') == WORKFLOW_STAGE_ID_PRODUCTION) {
                 $notificationMgr = new NotificationManager();
                 $notificationMgr->updateNotification(
                     $request,

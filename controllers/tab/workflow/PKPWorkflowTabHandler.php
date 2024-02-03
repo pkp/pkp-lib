@@ -107,7 +107,7 @@ abstract class PKPWorkflowTabHandler extends Handler
                 $templateMgr->assign('reviewRounds', $reviewRoundsArray);
                 $templateMgr->assign('reviewRoundOp', $this->_identifyReviewRoundOp($stageId));
 
-                if ($submission->getStageId() == $selectedStageId && count($reviewRoundsArray) > 0) {
+                if ($submission->getData('stageId') == $selectedStageId && count($reviewRoundsArray) > 0) {
                     $newReviewRoundType = $this->getNewReviewRoundDecisionType($stageId);
                     $templateMgr->assign(
                         'newRoundUrl',
@@ -156,7 +156,7 @@ abstract class PKPWorkflowTabHandler extends Handler
 
         // Assign workflow stages related data.
         $templateMgr->assign('stageId', $stageId);
-        $templateMgr->assign('submissionStageId', $submission->getStageId());
+        $templateMgr->assign('submissionStageId', $submission->getData('stageId'));
 
         // Get the right notifications type based on current stage id.
         $notificationMgr = new NotificationManager();

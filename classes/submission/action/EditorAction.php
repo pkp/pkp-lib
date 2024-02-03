@@ -112,7 +112,7 @@ class EditorAction
                 $request,
                 $reviewerId,
                 PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT,
-                $submission->getContextId(),
+                $submission->getData('contextId'),
                 PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 $reviewAssignment->getId(),
                 Notification::NOTIFICATION_LEVEL_TASK

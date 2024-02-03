@@ -190,7 +190,7 @@ class Representation extends \PKP\core\DataObject
     {
         $publication = Repo::publication()->get($this->getData('publicationId'));
         $submission = Repo::submission()->get($publication->getData('submissionId'));
-        return $submission->getContextId();
+        return $submission->getData('contextId');
     }
 
     /**

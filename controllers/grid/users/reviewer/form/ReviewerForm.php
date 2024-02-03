@@ -463,7 +463,7 @@ class ReviewerForm extends Form
         $mailable->sender($request->getUser());
         $mailable->addData([
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
-            'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
+            'abstractTermIfEnabled' => ($submission->getCurrentPublication()->getLocalizedData('abstract') == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
         ]);
 
         // Remove template variables that haven't been set yet during form initialization

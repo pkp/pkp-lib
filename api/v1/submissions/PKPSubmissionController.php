@@ -1006,7 +1006,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $notificationManager = new NotificationManager();
         $usersIterator = Repo::user()->getCollector()
-            ->filterByContextIds([$submission->getContextId()])
+            ->filterByContextIds([$submission->getData('contextId')])
             ->assignedTo($submission->getId())
             ->getMany();
 
@@ -1017,7 +1017,7 @@ class PKPSubmissionController extends PKPBaseController
                 $request,
                 $user->getId(),
                 PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION,
-                $submission->getContextId(),
+                $submission->getData('contextId'),
                 Application::ASSOC_TYPE_SUBMISSION,
                 $submission->getId(),
                 Notification::NOTIFICATION_LEVEL_TASK,

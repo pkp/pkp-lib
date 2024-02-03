@@ -78,7 +78,7 @@ class ReviewReminder extends ScheduledTask
         // deprecated template variables OJS 2.x
         $mailable->addData([
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
-            'abstractTermIfEnabled' => ($submission->getLocalizedAbstract() == '' ? '' : __('common.abstract')),
+            'abstractTermIfEnabled' => ($submission->getCurrentPublication()->getLocalizedData('abstract') == '' ? '' : __('common.abstract')),
         ]);
 
         Mail::send($mailable);
@@ -130,14 +130,14 @@ class ReviewReminder extends ScheduledTask
                 }
             }
 
-            if ($submission->getStatus() != PKPSubmission::STATUS_QUEUED) {
+            if ($submission->getData('status') != PKPSubmission::STATUS_QUEUED) {
                 continue;
             }
 
             // Fetch the context
-            if ($context == null || $context->getId() != $submission->getContextId()) {
+            if ($context == null || $context->getId() != $submission->getData('contextId')) {
                 unset($context);
-                $context = $contextDao->getById($submission->getContextId());
+                $context = $contextDao->getById($submission->getData('contextId'));
 
                 $inviteReminderDays = $context->getData('numDaysBeforeInviteReminder');
                 $submitReminderDays = $context->getData('numDaysBeforeSubmitReminder');

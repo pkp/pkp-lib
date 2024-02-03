@@ -233,7 +233,7 @@ class commandJobs extends CommandLineTool
 
         if (in_array('--redispatch', $parameterList) || ($jobIds = $this->getParameterValue('redispatch'))) {
             $jobsCount = Repo::failedJob()->redispatchToQueue(
-                $this->getParameterValue('--queue'),
+                $this->getParameterValue('queue'),
                 collect(explode(',', $jobIds ?? ''))
                     ->filter()
                     ->map(fn ($item) => (int)$item)
@@ -245,7 +245,7 @@ class commandJobs extends CommandLineTool
 
         if (in_array('--clear', $parameterList) || ($jobIds = $this->getParameterValue('clear'))) {
             $jobsCount = Repo::failedJob()->deleteJobs(
-                $this->getParameterValue('--queue'),
+                $this->getParameterValue('queue'),
                 collect(explode(',', $jobIds ?? ''))
                     ->filter()
                     ->map(fn ($item) => (int)$item)

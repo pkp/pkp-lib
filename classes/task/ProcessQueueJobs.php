@@ -37,7 +37,7 @@ class ProcessQueueJobs extends ScheduledTask
      */
     public function executeActions()
     {
-        if (Application::isUnderMaintenance()) {
+        if (Application::isUnderMaintenance() || !Config::getVar('queues', 'job_runner', true)) {
             return true;
         }
 
@@ -49,7 +49,7 @@ class ProcessQueueJobs extends ScheduledTask
             return true;
         }
 
-        // Run queue jobs on CLI
+        // Executes all pending jobs when running the runScheduledTasks.php on the CLI
         if (runOnCLI('runScheduledTasks.php')) {
             while ($jobBuilder->count()) {
                 $jobQueue->runJobInQueue();
@@ -58,15 +58,13 @@ class ProcessQueueJobs extends ScheduledTask
             return true;
         }
 
-        // Run queue jobs off CLI
-        if (Config::getVar('queues', 'job_runner', false)) {
-            (new JobRunner($jobQueue))
-                ->withMaxExecutionTimeConstrain()
-                ->withMaxJobsConstrain()
-                ->withMaxMemoryConstrain()
-                ->withEstimatedTimeToProcessNextJobConstrain()
-                ->processJobs($jobBuilder);
-        }
+        // Executes a limited number of jobs when processing a request
+        (new JobRunner($jobQueue))
+            ->withMaxExecutionTimeConstrain()
+            ->withMaxJobsConstrain()
+            ->withMaxMemoryConstrain()
+            ->withEstimatedTimeToProcessNextJobConstrain()
+            ->processJobs($jobBuilder);
 
         return true;
     }

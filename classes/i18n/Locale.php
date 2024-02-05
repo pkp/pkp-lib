@@ -126,7 +126,8 @@ class Locale implements LocaleInterface
         $request = $this->_getRequest();
         $locale = $request->getUserVar('setLocale')
             ?: (SessionManager::hasSession() ? SessionManager::getManager()->getUserSession()->getSessionVar('currentLocale') : null)
-            ?: $request->getCookieVar('currentLocale');
+            ?: $request->getCookieVar('currentLocale')
+            ?: $this->_getPreferredLocale();
         $this->setLocale($locale);
         return $this->locale;
     }
@@ -512,5 +513,20 @@ class Locale implements LocaleInterface
         $locales = (SessionManager::isDisabled() ? null : $this->_getRequest()->getContext()?->getSupportedLocales() ?? $this->_getRequest()->getSite()?->getSupportedLocales())
             ?? array_map(fn (LocaleMetadata $locale) => $locale->locale, $this->getLocales());
         return $this->supportedLocales = array_combine($locales, $locales);
+    }
+
+    /**
+     * Retrieve the preferred user locale from our supported locales using the Accept-Language header
+     * If there's no match, it falls back to the server's primary locale
+     */
+    private function _getPreferredLocale(): ?string
+    {
+        $serverPreference = $this->getPrimaryLocale() ?: LocaleInterface::DEFAULT_LOCALE;
+        $supportedLocales = array_values($this->_getSupportedLocales());
+        // Move the server preference to the top, in case the user preference doesn't match with the supported locales, the server one will be picked
+        if (is_int($index = array_search($serverPreference, $supportedLocales))) {
+            array_splice($supportedLocales, $index, 1);
+        }
+        return $this->_getRequest()->getPreferredLanguage([$serverPreference, ...$supportedLocales]);
     }
 }

@@ -66,7 +66,6 @@ class PKPRequest
     /** @var string user agent */
     public $_userAgent;
 
-
     /**
      * get the router instance
      *
@@ -902,6 +901,16 @@ class PKPRequest
 
         $returner = call_user_func_array($callable, $parameters);
         return $returner;
+    }
+
+    /**
+     * Returns the preferred language.
+     *
+     * @param string[] $locales An array of ordered available locales
+     */
+    public function getPreferredLanguage(array $locales): ?string
+    {
+        return (new \Illuminate\Http\Request(server: $_SERVER))->getPreferredLanguage($locales);
     }
 }
 

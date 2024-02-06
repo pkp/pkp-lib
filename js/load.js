@@ -15,6 +15,9 @@ import VModal from 'vue-js-modal';
 import VTooltip from 'v-tooltip';
 import VueScrollTo from 'vue-scrollto';
 
+// Directives
+import {stripUnsafeHtml} from '@/directives/stripUnsafeHtml.js';
+
 // Global components of UI Library
 import Badge from '@/components/Badge/Badge.vue';
 import Icon from '@/components/Icon/Icon.vue';
@@ -33,6 +36,7 @@ Vue.use(VModal, {
 Vue.use(VTooltip, {defaultTrigger: 'click'});
 Vue.use(VueScrollTo);
 Vue.mixin(GlobalMixins);
+Vue.directive("strip-unsafe-html", stripUnsafeHtml);
 
 // Register global components
 Vue.component('Badge', Badge);

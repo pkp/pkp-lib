@@ -289,9 +289,7 @@ class PKPLocale {
 		// Use defaults if locale info unspecified.
 		$locale = AppLocale::getLocale();
 		$dashedLocale = str_replace('_', '-', $locale);
-		if (!setlocale(LC_ALL, $locale . '.' . LOCALE_ENCODING, $locale, $dashedLocale . '.' . LOCALE_ENCODING, $dashedLocale)) {
-			error_log('Failed to set locale "' . $locale . '.' . LOCALE_ENCODING . '", ensure that all locales enabled in the application are available in your operational system');
-		}
+		setlocale(LC_ALL, $locale . '.' . LOCALE_ENCODING, $locale, $dashedLocale . '.' . LOCALE_ENCODING, $dashedLocale);
 		putenv("LC_ALL=$locale");
 
 		AppLocale::registerLocaleFile($locale, "lib/pkp/locale/$locale/common.po");

@@ -73,7 +73,7 @@ class ArchiveUsageStatsLogFile extends BaseJob
                 $fileMgr = new FileManager();
                 $fileMgr->gzCompressFile($archiveFilePath);
             } catch (Exception $e) {
-                error_log($e->getMessage());
+                error_log($e);
             }
         }
     }

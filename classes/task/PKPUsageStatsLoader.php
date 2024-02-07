@@ -82,6 +82,8 @@ abstract class PKPUsageStatsLoader extends FileLoader
     /**
      * Get the jobs needed to process a usage stats log file and compile the stats.
      * The jobs have to be in the right execution order.
+     *
+     * @return BaseJob[]
      */
     abstract protected function getFileJobs(string $filePath, Site $site): array;
 
@@ -105,31 +107,33 @@ abstract class PKPUsageStatsLoader extends FileLoader
             $this->autoStage();
         }
         $processFilesResult = parent::executeActions();
-
-        if ($processFilesResult) {
-            $site = Application::get()->getRequest()->getSite();
-            $jobs = [];
-            foreach ($this->logFiles as $filePath) {
-                $jobsPerFile = $this->getFileJobs($filePath, $site);
-                $jobs = array_merge($jobs, $jobsPerFile);
-            }
-            foreach ($this->months as $month) {
-                $compileMonthlyMetricsJob = new CompileMonthlyMetrics($month, $site);
-                $jobs = array_merge($jobs, [$compileMonthlyMetricsJob]);
-            }
-            // Bus::chain() cannot accept an empty array
-            if (!empty($jobs)) {
-                Bus::chain($jobs)
-                    ->catch(function (Throwable $e) {
-                    })
-                    ->dispatch();
-
-                $this->addExecutionLogEntry(__(
-                    'admin.scheduledTask.usageStatsLoader.jobDispatched'
-                ), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
-            }
+        if (!$processFilesResult) {
+            return false;
         }
-        return ($processFilesResult && !$processingDirError);
+
+        $site = Application::get()->getRequest()->getSite();
+        $jobs = [];
+        foreach ($this->logFiles as $filePath) {
+            $jobsPerFile = $this->getFileJobs($filePath, $site);
+            $jobs = array_merge($jobs, $jobsPerFile);
+        }
+        foreach ($this->months as $month) {
+            $compileMonthlyMetricsJob = new CompileMonthlyMetrics($month, $site);
+            $jobs = array_merge($jobs, [$compileMonthlyMetricsJob]);
+        }
+        // Bus::chain() cannot accept an empty array
+        if (!empty($jobs)) {
+            Bus::chain($jobs)
+                ->catch(function (Throwable $e) {
+                })
+                ->dispatch();
+
+            $this->addExecutionLogEntry(__(
+                'admin.scheduledTask.usageStatsLoader.jobDispatched'
+            ), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
+        }
+
+        return (!$processingDirError);
     }
 
     /**

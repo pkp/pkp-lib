@@ -229,7 +229,7 @@ msgstr ""
 "qui a échoué précédemment ou un processus en cours d'exécution. Ce fichier "
 "sera automatiquement retraité."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Le fichier {$file} n'a pas pu être ouvert et a été rejeté."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -244,46 +244,46 @@ msgstr ""
 "vous devez restaurer tous les fichiers journaux de ce mois et utiliser "
 "l'outil CLI pour retraiter les statistiques."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "La ligne {$lineNumber} dans le fichier journal {$file} n'a pas le bon format "
 "et sera donc ignorée."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Entrée de journal invalide à la ligne {$lineNumber} dans le fichier journal "
 "{$file} : {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "L'heure (Time) n'a pas un format de date valide."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "L'ID du contexte n'est pas un nombre entier."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "L'ID de la soumission n'est pas un nombre entier."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "L'ID de la représentation n'est pas un nombre entier."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Le type associé n'est pas supporté."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Le type de fichier n'est pas supporté."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Le pays n'est pas une chaîne de deux caractères alphabétiques."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr ""
 "La région n'est pas une chaîne d'un maximum de trois caractères "
 "alphanumériques."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Les identifiants des institutions ne sont dans un tableau."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Une erreur s'est produite lors du traitement du fichier journal {$file} à la "
 "ligne {$lineNumber} : {$msg}"

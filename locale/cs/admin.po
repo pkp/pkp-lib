@@ -216,7 +216,7 @@ msgstr ""
 "proces nebo souběžně běžící proces. Tento soubor bude automaticky znovu "
 "zpracován."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Soubor {$file} nelze načíst a byl odmítnut."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -231,44 +231,44 @@ msgstr ""
 "obnovit všechny soubory protokolu z tohoto měsíce a použít nástroj CLI k "
 "opětovnému zpracování statistik."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Řádek {$lineNumber} v souboru protokolu {$file} je ve špatném formátu, a "
 "proto bude přeskočen."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Neplatný záznam protokolu na řádku {$lineNumber} v souboru protokolu "
 "{$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Čas není platným datem."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "ID kontextu není celé číslo."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "ID příspěvku není celé číslo."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "ID reprezentace není celé číslo."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Typ Assoc není podporován."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Typ souboru není podporován."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Zkratka státu není řetězec dvou abecedních znaků."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Zkratka regionu není až tři alfanumerické znaky dlouhý řetězec."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "ID institucí není pole."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Při zpracování souboru protokolu {$file} došlo k chybě na řádku "
 "{$lineNumber}: {$msg}"

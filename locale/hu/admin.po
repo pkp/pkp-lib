@@ -225,7 +225,7 @@ msgstr ""
 "egy jelenleg is futó folyamatot. Ez a fájl automatikusan újrafeldolgozásra "
 "kerül."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "A {$file} fájlt nem lehetett megnyitni és elvetésre került."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -240,44 +240,44 @@ msgstr ""
 "hónapnak összes naplófájlját és használja a CLI eszközt a statisztika "
 "újrafeldolgozáshoz."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "A {$lineNumber} sor a {$file} naplófájlban rossz formátumú, ezért kihagyásra "
 "került."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Érvénytelen naplófájl bejegyzés a {$lineNumber}. sorban a "
 "{$file}naplófájlban: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Az idő nem érvényes dátumú."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "A Context ID nem egész szám."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "A Submission ID nem egész szám."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "A Representation ID nem egész szám."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "A fájltípus nem támogatott."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Az ország nem egy két betűből álló karakterlánc."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "A régió nem egy három betűből álló karakterlánc."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Institution ID nem egy tömb."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Hiba történt ennek a naplófájlnak {$file} {$lineNumber}. sorának "
 "feldolgozásakor: {$msg}"

@@ -29,7 +29,6 @@
 		"symfony/html-sanitizer": "^6.2",
 		"symfony/mailer": "^6.0",
 		"tinymce/tinymce": "^5.7",
-		"voku/stringy": "^6.5",
 		"wikimedia/less.php": "3.*"
 	},
 	"require-dev": {

@@ -24,7 +24,6 @@ use Illuminate\Support\LazyCollection;
 use InvalidArgumentException;
 use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
-use PKP\core\PKPString;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\plugins\Hook;
@@ -649,7 +648,7 @@ class Collector implements CollectorInterface
         // Settings where the search will be performed
         $settings = [Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME, 'preferredPublicName', 'affiliation', 'biography', 'orcid'];
         // Break words by whitespace, trims and escapes "%" and "_"
-        $words = array_map(fn (string $word) => '%' . addcslashes($word, '%_') . '%', PKPString::regexp_split('/\s+/', $searchPhrase));
+        $words = array_map(fn (string $word) => '%' . addcslashes($word, '%_') . '%', preg_split('/\s+/u', $searchPhrase));
         foreach ($words as $word) {
             $query->where(
                 fn ($query) => $query->whereRaw('LOWER(u.username) LIKE LOWER(?)', [$word])

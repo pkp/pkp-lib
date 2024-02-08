@@ -21,9 +21,9 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use Illuminate\Support\Str;
 use PKP\config\Config;
 use PKP\core\Dispatcher;
-use PKP\core\PKPString;
 use PKP\core\Registry;
 use PKP\db\DBResultRange;
 use PKP\security\authorization\AllowedHostsPolicy;
@@ -382,7 +382,7 @@ class PKPHandler
     {
         // FIXME: for backwards compatibility only - remove when request/router refactoring complete
         if (!isset($request)) {
-            $request = & Registry::get('request');
+            $request = &Registry::get('request');
             if (Config::getVar('debug', 'deprecation_warnings')) {
                 trigger_error('Deprecated call without request object.');
             }
@@ -429,7 +429,7 @@ class PKPHandler
             // and human readable component id.
             // Example: "grid.citation.CitationGridHandler"
             // becomes "grid-citation-citationgrid"
-            $componentId = str_replace('.', '-', PKPString::strtolower(PKPString::substr($componentId, 0, -7)));
+            $componentId = (string) Str::of($componentId)->substr(0, -7)->lower()->replace('.', '-');
             $this->setId($componentId);
         } elseif ($router instanceof \PKP\core\APIRouter) {
             $this->setId($router->getEntity());
@@ -515,7 +515,7 @@ class PKPHandler
     {
         // FIXME: for backwards compatibility only - remove
         if (!isset($request)) {
-            $request = & Registry::get('request');
+            $request = &Registry::get('request');
             if (Config::getVar('debug', 'deprecation_warnings')) {
                 trigger_error('Deprecated call without request object.');
             }

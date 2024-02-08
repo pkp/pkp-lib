@@ -35,6 +35,7 @@ use APP\notification\Notification;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
+use Illuminate\Support\Str;
 use Less_Parser;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
@@ -315,7 +316,7 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('modifier', 'strtok', strtok(...));
         $this->registerPlugin('modifier', 'array_pop', array_pop(...));
         $this->registerPlugin('modifier', 'array_keys', array_keys(...));
-        $this->registerPlugin('modifier', 'String_substr', \PKP\core\PKPString::substr(...));
+        $this->registerPlugin('modifier', 'String_substr', Str::substr(...));
         $this->registerPlugin('modifier', 'dateformatPHP2JQueryDatepicker', \PKP\core\PKPString::dateformatPHP2JQueryDatepicker(...));
         $this->registerPlugin('modifier', 'to_array', $this->smartyToArray(...));
         $this->registerPlugin('modifier', 'compare', $this->smartyCompare(...));

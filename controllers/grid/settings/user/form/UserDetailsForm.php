@@ -22,9 +22,9 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use PKP\core\Core;
 use PKP\core\PKPRequest;
-use PKP\core\PKPString;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\mail\mailables\UserCreated;
@@ -58,7 +58,7 @@ class UserDetailsForm extends UserForm
         parent::__construct('controllers/grid/settings/user/form/userDetailsForm.tpl', $userId);
 
         if (isset($author)) {
-            $this->author = & $author;
+            $this->author = &$author;
         } else {
             $this->author = null;
         }
@@ -92,14 +92,14 @@ class UserDetailsForm extends UserForm
             $this->addCheck(new \PKP\form\validation\FormValidatorUsername($this, 'username', 'required', 'user.register.form.usernameAlphaNumeric'));
             $this->addCheck(new \PKP\form\validation\FormValidator($this, 'password', 'required', 'user.profile.form.passwordRequired'));
             $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordLengthRestriction', function ($password) use ($form, $site) {
-                return $form->getData('generatePassword') || PKPString::strlen($password) >= $site->getMinPasswordLength();
+                return $form->getData('generatePassword') || Str::length($password) >= $site->getMinPasswordLength();
             }, [], false, ['length' => $site->getMinPasswordLength()]));
             $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'required', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
                 return $password == $form->getData('password2');
             }));
         } else {
             $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordLengthRestriction', function ($password) use ($form, $site) {
-                return $form->getData('generatePassword') || PKPString::strlen($password) >= $site->getMinPasswordLength();
+                return $form->getData('generatePassword') || Str::length($password) >= $site->getMinPasswordLength();
             }, [], false, ['length' => $site->getMinPasswordLength()]));
             $this->addCheck(new \PKP\form\validation\FormValidatorCustom($this, 'password', 'optional', 'user.register.form.passwordsDoNotMatch', function ($password) use ($form) {
                 return $password == $form->getData('password2');

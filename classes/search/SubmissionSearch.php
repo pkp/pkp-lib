@@ -22,9 +22,9 @@ namespace PKP\search;
 
 use APP\core\Application;
 use APP\core\Request;
+use Illuminate\Support\Str;
 use PKP\config\Config;
 use PKP\context\Context;
-use PKP\core\PKPString;
 use PKP\core\VirtualArrayIterator;
 use PKP\db\DAO;
 use PKP\plugins\Hook;
@@ -64,7 +64,7 @@ abstract class SubmissionSearch
      */
     public function _parseQuery($query)
     {
-        $count = PKPString::regexp_match_all('/(\+|\-|)("[^"]+"|\(|\)|[^\s\)]+)/', $query, $matches);
+        $count = preg_match_all('/(\+|\-|)("[^"]+"|\(|\)|[^\s\)]+)/', $query, $matches);
         $pos = 0;
         return $this->_parseQueryInternal($matches[1], $matches[2], $pos, $count);
     }
@@ -80,16 +80,16 @@ abstract class SubmissionSearch
 
         $submissionSearchIndex = Application::getSubmissionSearchIndex();
 
-        $notOperator = PKPString::strtolower(__('search.operator.not'));
-        $andOperator = PKPString::strtolower(__('search.operator.and'));
-        $orOperator = PKPString::strtolower(__('search.operator.or'));
+        $notOperator = Str::lower(__('search.operator.not'));
+        $andOperator = Str::lower(__('search.operator.and'));
+        $orOperator = Str::lower(__('search.operator.or'));
         while ($pos < $total) {
             if (!empty($signTokens[$pos])) {
                 $sign = $signTokens[$pos];
             } elseif (empty($sign)) {
                 $sign = '+';
             }
-            $token = PKPString::strtolower($tokens[$pos++]);
+            $token = Str::lower($tokens[$pos++]);
             switch ($token) {
                 case $notOperator:
                     $sign = '-';
@@ -102,7 +102,7 @@ abstract class SubmissionSearch
                 default:
                     $postBool = '';
                     if ($pos < $total) {
-                        $peek = PKPString::strtolower($tokens[$pos]);
+                        $peek = Str::lower($tokens[$pos]);
                         if ($peek == $orOperator) {
                             $postBool = 'or';
                             $pos++;

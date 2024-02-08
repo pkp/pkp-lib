@@ -225,7 +225,7 @@ msgstr ""
 "процесс завершился неудачей, или на то, что процесс запущенпараллельно . "
 "Этот файл будет автоматически обработан заново."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Файл «{$file}» не может быть открыт и был отклонен."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -240,44 +240,44 @@ msgstr ""
 "необходимо восстановить все файлы журнала событий за тот месяц и "
 "использовать инструмент CLI для повторной обработки статистики."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Строка {$lineNumber} в файле журнала событий {$file} имеет неправильный "
 "формат и поэтому будет пропущена."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Неправильная запись журнала событий в строке {$lineNumber} в файле журнала "
 "{$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Время не является правильной датой."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "ID контекста не является целым числом."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "ID материала не является целым числом."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "ID представления не является целым числом."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Тип, связанный со строкой журнала, не поддерживается."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Тип файла не поддерживается."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Страна не является строкой из двух букв."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Регион не является строкой, состоящей из не более чем трех букв и цифр."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Идентификаторы организаций не являются массивом."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Произошла ошибка при обработке файла журнала событий {$file} в строке "
 "{$lineNumber}: {$msg}"

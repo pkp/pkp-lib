@@ -26,7 +26,7 @@ msgstr "mjeno nastajenja"
 msgid "admin.currentVersion"
 msgstr "aktualna wersija"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Datajowy typ so njepodpěruje."
 
 msgid "admin.settings.about"

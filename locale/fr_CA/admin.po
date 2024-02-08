@@ -234,7 +234,7 @@ msgstr ""
 "processus précédent a échoué, ou qu'un processus roule en parallèle. Ce "
 "fichier sera automatiquement retraité."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Le fichier {$file} n'a pas pu être ouvert et a été rejeté."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -250,54 +250,54 @@ msgstr ""
 "précédent, vous devez restaurer tous les fichiers de journaux du mois et "
 "utiliser l'outils CLI afin de retraiter les statistiques."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "La ligne {$lineNumber} dans le fichier de journal {$file} est dans le "
 "mauvais format et sera donc ignorée."
 
 #, fuzzy
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Entrée invalide dans le journal à la ligne {$lineNumber} dans le fichier de "
 "journal {$file}: {$error}"
 
 #, fuzzy
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Date non valide."
 
 #, fuzzy
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "Le Context ID n'est pas un nombre entier."
 
 #, fuzzy
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "Le Submission ID n'est pas un nombre entier."
 
 #, fuzzy
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "Le Representation ID n'est pas un nombre entier."
 
 #, fuzzy
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Le Assoc type n'est pas supporté."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Le type de fichier n'est pas supporté."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Le pays n'est pas une chaîne de deux caractères alphabétiques."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr ""
 "La région n'est pas une chaîne d'un maximum de trois caractères "
 "alphanumériques."
 
 #, fuzzy
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "L'Institution IDs n'est pas un tableau."
 
 #, fuzzy
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Une erreur s'est produite en traitant le fichier de journal {$file} à la "
 "ligne {$lineNumber}: {$msg}"

@@ -223,7 +223,7 @@ msgstr ""
 "невдалий процес або процес, що наразі триває. Цей файл буде автоматично "
 "оброблено."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Не вдалося відкрити файл \"{$file}\", і він був відхилений."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -238,44 +238,44 @@ msgstr ""
 "відновити всі файли журналів за цей місяць і повторно обробити статистику за "
 "допомогою інструмента командного рядка."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Рядок {$lineNumber} у файлі журналу \"{$file}\" має неправильний формат і, "
 "таким чином, буде пропущений."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Неприпустимий запис журналу в рядку {$lineNumber} у файлі журналу \"{$file}\""
 ": {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Час не є припустимою датою."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "ID контексту не є цілим числом."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "ID подання не є цілим числом."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "ID представництва не є цілим числом."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Тип асоціації не підтримується."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Тип файлу не підтримується."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Країна не є рядком із двох буквених символів."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Регіон не є довгим рядком до трьох буквено-цифрових символів."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "ID установ не є масивом."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Сталася помилка при обробці файлу журналу \"{$file}\" у рядку {$lineNumber}: "
 "{$msg}"

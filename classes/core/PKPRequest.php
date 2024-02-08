@@ -611,7 +611,7 @@ class PKPRequest
     /**
      * Get the user session associated with the current request.
      */
-    public function getSession(): Session|null
+    public function getSession(): Session
     {
         return $this->getSessionGuard()->getSession();
     }

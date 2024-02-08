@@ -12,6 +12,8 @@
  * @ingroup jobs
  *
  * @brief Class to handle the usage metrics data loading as a Job
+ *
+ * @deprecated 3.4.0.5
  */
 
 namespace APP\jobs\statistics;

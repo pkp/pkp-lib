@@ -19,6 +19,7 @@ use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
+use Illuminate\Support\Str;
 use PKP\core\EntityDAO;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -26,7 +27,6 @@ use PKP\db\XMLDAO;
 use PKP\facades\Locale;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
-use Stringy\Stringy;
 
 /**
  * @template T of EmailTemplate
@@ -478,11 +478,8 @@ class DAO extends EntityDAO
      */
     protected function getUniqueKey(EmailTemplate $emailTemplate): string
     {
-        $key = Stringy::create($emailTemplate->getLocalizedData('name'))
-            ->slugify()
-            ->regexReplace('[^a-z0-9\-\_.]', '')
-            ->truncate(30)
-            ->toString();
+        $key = (string) Str::of($emailTemplate->getLocalizedData('name'))
+            ->ascii()->kebab()->limit(30, '')->replaceMatches('[^a-z0-9\-\_.]', '');
 
         if (!$key) {
             $key = uniqid();

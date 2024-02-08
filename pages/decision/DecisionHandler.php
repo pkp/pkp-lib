@@ -23,6 +23,7 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Illuminate\Support\Str;
 use PKP\context\Context;
 use PKP\core\Dispatcher;
 use PKP\db\DAORegistry;
@@ -38,7 +39,6 @@ use PKP\submission\Genre;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
-use Stringy\Stringy;
 
 class DecisionHandler extends Handler
 {
@@ -200,7 +200,7 @@ class DecisionHandler extends Handler
     protected function getBreadcrumb(Submission $submission, Context $context, Request $request, Dispatcher $dispatcher)
     {
         $currentPublication = $submission->getCurrentPublication();
-        $submissionTitle = Stringy::create(
+        $submissionTitle = Str::of(
             join(
                 __('common.commaListSeparator'),
                 [
@@ -209,10 +209,7 @@ class DecisionHandler extends Handler
                 ]
             )
         );
-        if ($submissionTitle->length() > 50) {
-            $submissionTitle = $submissionTitle->safeTruncate(50)
-                ->append('...');
-        }
+        $submissionTitle = $submissionTitle->limit(50, '...');
 
         return [
             [
@@ -227,7 +224,7 @@ class DecisionHandler extends Handler
             ],
             [
                 'id' => 'submission',
-                'name' => $submissionTitle,
+                'name' => (string) $submissionTitle,
                 'format' => 'html',
                 'url' => $dispatcher->url(
                     $request,

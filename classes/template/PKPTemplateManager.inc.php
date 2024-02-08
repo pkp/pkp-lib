@@ -77,6 +77,10 @@ class PKPTemplateManager extends Smarty {
 	/** @var string[] */
 	private $_headers = [];
 
+	/** @var bool Track whether its backend page */
+	private bool $isBackendPage = false;
+
+
 	/**
 	 * Constructor.
 	 * Initialize template engine and assign basic template variables.
@@ -743,6 +747,7 @@ class PKPTemplateManager extends Smarty {
 	 * Set up the template requirements for editorial backend pages
 	 */
 	function setupBackendPage() {
+		$this->isBackendPage = true;
 
 		$request = Application::get()->getRequest();
 		$dispatcher = $request->getDispatcher();
@@ -1141,6 +1146,36 @@ class PKPTemplateManager extends Smarty {
 	 * @copydoc Smarty::display()
 	 */
 	function display($template = null, $cache_id = null, $compile_id = null, $parent = null) {
+
+		if($this->isBackendPage) {
+
+			$this->unregisterPlugin('modifier', 'escape');
+
+			/** prevent {{ JS }} injection  */
+			$this->registerPlugin('modifier', 'escape', function ($string, $esc_type = 'html', $char_set = 'ISO-8859-1') {
+				$result = $string;
+				if($esc_type === 'html') {
+					$result = $this->smartyEscape($result, $esc_type, $char_set);
+					$result = str_replace('{{', '<span v-pre>{{</span>', $result);
+					$result = str_replace('}}', '<span v-pre>}}</span>', $result);
+					return $result;
+				}
+
+
+				return $this->smartyEscape($result, $esc_type, $char_set);
+
+			});
+
+			$this->unregisterPlugin('modifier', 'strip_unsafe_html');
+
+			/** prevent {{ JS }} injection  */
+			$this->registerPlugin('modifier', 'strip_unsafe_html', function ($input, $configKey = 'allowed_html') {
+				$result = PKPString::stripUnsafeHtml($input, $configKey);
+				$result = str_replace('{{', '<span v-pre>{{</span>', $result);
+				$result = str_replace('}}', '<span v-pre>}}</span>', $result);
+				return $result;
+			});
+		}
 
 		// Output global constants and locale keys used in new component library
 		$output = '';

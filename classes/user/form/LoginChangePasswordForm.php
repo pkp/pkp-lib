@@ -17,9 +17,9 @@
 namespace PKP\user\form;
 
 use APP\facades\Repo;
-use Illuminate\Support\Facades\Auth;
-
+use APP\core\Application;
 use APP\template\TemplateManager;
+use Illuminate\Support\Facades\Auth;
 use PKP\form\Form;
 use PKP\security\Validation;
 use PKP\site\Site;
@@ -84,7 +84,7 @@ class LoginChangePasswordForm extends Form
             $user->setPassword(Validation::encryptCredentials($user->getUsername(), $this->getData('password')));
             $user->setMustChangePassword(0);
 
-            app()->get('auth.driver')->updateUser($user);
+            Application::get()->getRequest()->getSessionGuard()->updateUser($user);
             $user = Auth::logoutOtherDevices($this->getData('password'));
             Repo::user()->edit($user);
             

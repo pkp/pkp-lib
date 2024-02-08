@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use PKP\config\Config;
 use PKP\context\Context;
+use PKP\core\PKPSessionGuard;
 use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
@@ -28,7 +29,6 @@ use PKP\security\Validation;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\user\User;
-use Illuminate\Session\SessionManager;
 use Illuminate\Contracts\Session\Session;
 
 class PKPRequest
@@ -127,8 +127,7 @@ class PKPRequest
             return;
         }
 
-        $sessionGuard = app()->get('auth.driver'); /** @var \PKP\core\PKPSessionGuard $sessionGuard */
-        $sessionGuard->sendCookies();
+        Application::get()->getRequest()->getSessionGuard()->sendCookies();
 
         header("Location: {$url}");
         
@@ -601,18 +600,20 @@ class PKPRequest
     }
 
     /**
+     * Get the session guard resposible for managing session
+     */
+    public function getSessionGuard(): PKPSessionGuard
+    {
+        $sessionGuard = app()->get('auth.driver'); /** @var \PKP\core\PKPSessionGuard $sessionGuard */
+        return $sessionGuard;
+    }
+
+    /**
      * Get the user session associated with the current request.
      */
-    public function getSession(): SessionManager|Session|null
+    public function getSession(): Session|null
     {
-        $session = null;
-        $illuminateRequest = app()->get(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
-
-        if ($illuminateRequest->hasSession()) {
-            $session = $illuminateRequest->session(); /** @var \Illuminate\Contracts\Session\Session $sessionManager */
-        }
-
-        return $session;
+        return $this->getSessionGuard()->getSession();
     }
 
     /**
@@ -912,6 +913,12 @@ class PKPRequest
 
         $returner = call_user_func_array($callable, $parameters);
         return $returner;
+    }
+
+    public function __destruct()
+    {
+        // need to make sure that all changes to session(via pull/put) are reflected in session storage
+        $this->getSession()?->save();
     }
 }
 

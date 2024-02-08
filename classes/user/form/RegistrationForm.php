@@ -263,9 +263,7 @@ class RegistrationForm extends Form
         }
 
         $request->getSession()->put('username', $user->getUsername());
-        $sessionGuard = app()->get('auth.driver'); /** @var \PKP\core\PKPSessionGuard $sessionGuard */
-        $sessionGuard->updateSession($user->getId());
-        $sessionGuard->updateSessionCookieToResponse();
+        $request->getSessionGuard()->updateSession($user->getId());
 
         // Save the selected roles or assign the Reader role if none selected
         if ($request->getContext() && !$this->getData('reviewerGroup')) {

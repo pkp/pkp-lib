@@ -99,6 +99,7 @@ class LoginHandler extends Handler
     public function _redirectAfterLogin($request)
     {
         $context = $this->getTargetContext($request);
+        
         // If there's a context, send them to the dashboard after login.
         if ($context && $request->getUserVar('source') == '' && array_intersect(
             [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_ASSISTANT],
@@ -107,7 +108,8 @@ class LoginHandler extends Handler
             return $request->redirect($context->getPath(), 'dashboard');
         }
 
-        $request->getRouter()->redirectHome($request);
+        $pkpPageRouter = $request->getRouter(); /** @var \PKP\core\PKPPageRouter $pkpPageRouter */
+        $pkpPageRouter->redirectHome($request);
     }
 
     /**
@@ -406,7 +408,7 @@ class LoginHandler extends Handler
         if (isset($args[0]) && !empty($args[0])) {
             $userId = (int)$args[0];
             $session = $request->getSession();
-            if (Validation::getAdministrationLevel($userId, $session->getUserId()) !== Validation::ADMINISTRATION_FULL) {
+            if (Validation::getAdministrationLevel($userId, $session->get('user_id')) !== Validation::ADMINISTRATION_FULL) {
                 $this->setupTemplate($request);
                 // We don't have administrative rights
                 // over this user. Display an error.
@@ -422,11 +424,8 @@ class LoginHandler extends Handler
 
             $newUser = Repo::user()->get($userId, true);
 
-            if (isset($newUser) && $session->getUserId() != $newUser->getId()) {
-                $session->setSessionVar('signedInAs', $session->getUserId());
-                $session->setSessionVar('userId', $userId);
-                $session->setUserId($userId);
-                $session->setSessionVar('username', $newUser->getUsername());
+            if (isset($newUser) && $session->get('user_id') != $newUser->getId()) {
+                $request->getSessionGuard()->signInAs($newUser);
                 $this->_redirectByURL($request);
             }
         }
@@ -444,19 +443,15 @@ class LoginHandler extends Handler
     public function signOutAsUser($args, $request)
     {
         $session = $request->getSession();
-        $signedInAs = $session->getSessionVar('signedInAs');
+        $signedInAs = $session->get('signedInAs');
 
         if (isset($signedInAs) && !empty($signedInAs)) {
             $signedInAs = (int)$signedInAs;
 
             $oldUser = Repo::user()->get($signedInAs, true);
 
-            $session->unsetSessionVar('signedInAs');
-
             if (isset($oldUser)) {
-                $session->setSessionVar('userId', $signedInAs);
-                $session->setUserId($signedInAs);
-                $session->setSessionVar('username', $oldUser->getUsername());
+                $request->getSessionGuard()->signOutAs($oldUser);
             }
         }
         $this->_redirectByURL($request);

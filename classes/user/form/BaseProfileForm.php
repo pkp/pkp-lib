@@ -63,9 +63,8 @@ abstract class BaseProfileForm extends Form
         Repo::user()->edit($user);
 
         if ($functionArgs['emailUpdated'] ?? false) {
-            $sessionGuard = app()->get('auth.driver'); /** @var \PKP\core\PKPSessionGuard $sessionGuard */
+            $sessionGuard = Application::get()->getRequest()->getSessionGuard();
             $sessionGuard->setUserDataToSession($user)->updateSession($user->getId());
-            $sessionGuard->updateSessionCookieToResponse();
             $sessionGuard->invalidateOtherSessions($user->getId(), $request->getSession()->getId());
         }
     }

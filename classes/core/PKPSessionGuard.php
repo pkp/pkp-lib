@@ -59,6 +59,43 @@ class PKPSessionGuard extends SessionGuard
     }
 
     /**
+     * Sign In as different user
+     *
+     * @param  \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User  $user
+     * @return void
+     */
+    public function signInAs(AuthenticatableContract|\PKP\user\User $user)
+    {
+        $auth = app()->get('auth'); /** @var \PKP\core\PKPAuthManager $auth */
+
+        $this->session->put('signedInAs', $this->session->get('user_id'));
+        $this->session->put('password_hash_'.$auth->getDefaultDriver(), $user->getPassword());
+        $this
+            ->setUserDataToSession($user)
+            ->updateUser($user)
+            ->updateSession($user->getId());
+    }
+
+    /**
+     * Sign Out from previously sign in as different user
+     *
+     * @param  \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User  $user
+     * @return void
+     */
+    public function signOutAs(AuthenticatableContract|\PKP\user\User $user)
+    {
+        $auth = app()->get('auth'); /** @var \PKP\core\PKPAuthManager $auth */
+
+        $this->session->forget('signedInAs');
+
+        $this->session->put('password_hash_'.$auth->getDefaultDriver(), $user->getPassword());
+        $this
+            ->setUserDataToSession($user)
+            ->updateUser($user)
+            ->updateSession($user->getId());
+    }
+
+    /**
      * Set the user data to session
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User $user
@@ -81,16 +118,23 @@ class PKPSessionGuard extends SessionGuard
      */
     public function updateSession($id)
     {
-        $this->session->put($this->getName(), $id);
+        parent::updateSession($id);
 
-        $this->session->migrate(true);
+        $this->updateLaravelSession($this->getSession());
 
-        $this->session->save();
+        $this->updateSessionCookieToResponse($this->getSession());
+    }
 
-        $this->session->start();
-
+    /**
+     * Update the session instance to laravel request singleton object
+     *
+     * @param \Illuminate\Contracts\Session\Session $session
+     * @return void
+     */
+    public function updateLaravelSession($session)
+    {
         $request = app()->get('request'); /** @var \Illuminate\Http\Request $request */
-        $request->setLaravelSession($this->session);
+        $request->setLaravelSession($session);
     }
 
     /**
@@ -141,7 +185,8 @@ class PKPSessionGuard extends SessionGuard
         
         // Set remember me cookie
         $response->headers->removeCookie($this->getRecallerName());
-        if ( ($rememberCookie = $this->getCookieJar()->queued($this->getRecallerName())) ) {
+        $cookieJar = $this->getCookieJar(); /** @var \Illuminate\Cookie\CookieJar $cookieJar */
+        if ( ($rememberCookie = $cookieJar->queued($this->getRecallerName())) ) {
             $response->headers->setCookie($rememberCookie);
             $headerCookies[] = $rememberCookie->getName() . '=' . $rememberCookie->getValue();
         }

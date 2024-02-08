@@ -98,7 +98,7 @@ class SectionsHandler extends Handler
             ->offset($page ? ($page - 1) * $context->getData('itemsPerPage') : 0)
             ->getMany()->toArray();
 
-        if ($page > 1 && !$submissions->count()) {
+        if ($page > 1 && !count($submissions)) {
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
         }
 

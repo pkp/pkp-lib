@@ -74,7 +74,7 @@ class PreprintsHandler extends Handler
             ->filterByStatus([Submission::STATUS_PUBLISHED])
             ->orderBy(Collector::ORDERBY_DATE_PUBLISHED);
         $total = $collector->getCount();
-        $publishedSubmissions = $collector->limit($count)->getMany();
+        $publishedSubmissions = $collector->limit($count)->offset($offset)->getMany();
 
         $showingStart = $offset + 1;
         $showingEnd = min($offset + $count, $offset + count($publishedSubmissions));

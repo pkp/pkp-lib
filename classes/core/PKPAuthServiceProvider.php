@@ -13,13 +13,10 @@ class PKPAuthServiceProvider extends \Illuminate\Auth\AuthServiceProvider
 {
     public function boot()
     {
-        Auth::provider('pkp_user_provider', function ($app, array $config) {
-            return $app->get(PKPUserProvider::class);
-        });
-
-        // app()->get('auth.driver')->setRememberDuration(
-        //     app()->get('config')['session']['lifetime'] * 2
-        // );
+        Auth::provider(
+            'pkp_user_provider',
+            fn ($app, array $config) => $app->get(PKPUserProvider::class)
+        );
     }
 
     /**
@@ -31,25 +28,23 @@ class PKPAuthServiceProvider extends \Illuminate\Auth\AuthServiceProvider
     {
         parent::register();
         
-        $this->app->singleton(AuthFactory::class, function($app) {
-            return $app->get('auth');
-        });
+        $this->app->singleton(AuthFactory::class, fn($app) => $app->get('auth'));
 
-        $this->app->singleton(PKPUserProvider::class, function ($app) {
-            return new PKPUserProvider(
+        $this->app->singleton(
+            PKPUserProvider::class,
+            fn ($app) => new PKPUserProvider(
                 $app->get(ConnectionInterface::class),
                 new \Illuminate\Hashing\BcryptHasher(),
                 'users'
-            );
-        });
+            )
+        );
 
-        $this->app->singleton(Guard::class, function ($app) {
-            return $app->get('auth.driver');
-        });
+        $this->app->singleton(Guard::class, fn ($app) => $app->get('auth.driver'));
 
-        $this->app->bind(\Illuminate\Contracts\Cookie\QueueingFactory::class, function ($app) {
-            return $app->get('cookie');
-        });
+        $this->app->bind(
+            \Illuminate\Contracts\Cookie\QueueingFactory::class,
+            fn ($app) => $app->get('cookie')
+        );
     }
 
     /**
@@ -61,8 +56,6 @@ class PKPAuthServiceProvider extends \Illuminate\Auth\AuthServiceProvider
     {
         $this->app->singleton('auth', fn ($app) => new PKPAuthManager($app));
 
-        $this->app->singleton('auth.driver', function ($app) {
-            return $app['auth']->guard();
-        });
+        $this->app->singleton('auth.driver', fn ($app) => $app['auth']->guard());
     }
 }

@@ -14,8 +14,7 @@ class PKPAuthManager extends \Illuminate\Auth\AuthManager
     /**
      * Create a new Auth manager instance.
      *
-     * @param  \Illuminate\Contracts\Foundation\Application  $app
-     * @return void
+     * @param  \Illuminate\Contracts\Container\Container|\Illuminate\Container\Container  $app
      */
     public function __construct($app)
     {
@@ -23,9 +22,7 @@ class PKPAuthManager extends \Illuminate\Auth\AuthManager
 
         $this->userResolver = function ($guard = null) {
 
-            $session = \App\core\Application::get()->getRequest()->getSession();
-
-            if ($session && ($userId = $session->get('user_id'))) {
+            if ($userId = Application::get()->getRequest()->getSession()->get('user_id')) {
                 return Repo::user()->get($userId);
             }
 
@@ -54,12 +51,12 @@ class PKPAuthManager extends \Illuminate\Auth\AuthManager
         }
 
         return match ($driver) {
-            'database' => $this->createDatabaseProvider($config),
-            'eloquent' => $this->createEloquentProvider($config),
+            'database'          => $this->createDatabaseProvider($config),
+            'eloquent'          => $this->createEloquentProvider($config),
             'pkp_user_provider' => $this->createPKPUserProvider($config),
-            default => throw new InvalidArgumentException(
-                "Authentication user provider [{$driver}] is not defined."
-            ),
+            default             => throw new InvalidArgumentException(
+                                        "Authentication user provider [{$driver}] is not defined."
+                                    ),
         };
     }
 
@@ -79,7 +76,8 @@ class PKPAuthManager extends \Illuminate\Auth\AuthManager
      *
      * @param  string  $name
      * @param  array  $config
-     * @return \Illuminate\Auth\SessionGuard
+     * 
+     * @return \Illuminate\Auth\SessionGuard|\PKP\core\PKPSessionGuard
      */
     public function createSessionDriver($name, $config)
     {

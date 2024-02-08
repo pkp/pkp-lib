@@ -184,7 +184,6 @@ class Dispatcher
         (new \Illuminate\Pipeline\Pipeline(PKPContainer::getInstance()))
             ->send($illuminateRequest)
             ->through([
-                // \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
                 \Illuminate\Session\Middleware\StartSession::class,
                 \PKP\middleware\PKPAuthenticateSession::class,
             ])

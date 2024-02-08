@@ -72,16 +72,20 @@ class PKPUserProvider implements UserProvider
     {
         $authIdentifierName = $this->createUserInstance()->getAuthIdentifierName();
 
-        $user = Repo::user()->get(
-            $this
-                ->connection
-                ->table($this->table)
-                ->where($authIdentifierName, $id)
-                ->first()
-                ?->{$authIdentifierName} ?? 0
-        );
+        $userId = $this
+            ->connection
+            ->table($this->table)
+            ->where($authIdentifierName, $id)
+            ->first()
+            ?->{$authIdentifierName};
+        
+        if (!$userId) {
+            return null;
+        }
 
-        return $user && $user->getRememberToken() && hash_equals($user->getRememberToken(), $token)
+        $user = Repo::user()->get($userId);
+
+        return $user?->getRememberToken() && hash_equals($user?->getRememberToken(), $token)
             ? $user 
             : null;
     }
@@ -96,10 +100,11 @@ class PKPUserProvider implements UserProvider
      */
     public function updateRememberToken(UserContract $user, $token)
     {
-        if ($user->getRememberToken() !== $token) {
-            $user->setRememberToken($token);
+        if ($user->getRememberToken() === $token) {
+            return;
         }
 
+        $user->setRememberToken($token);
         Repo::user()->edit($user);
     }
 

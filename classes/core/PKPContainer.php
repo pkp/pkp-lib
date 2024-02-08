@@ -121,21 +121,16 @@ class PKPContainer extends Container
             }
         );
 
-        $this->app->singleton('request', function ($app) {
-            return \Illuminate\Http\Request::createFromGlobals();
-        });
+        $this->app->singleton('request', fn ($app) => \Illuminate\Http\Request::createFromGlobals());
 
-        $this->app->singleton(\Illuminate\Http\Request::class, function ($app) {
-            return $app->get('request');
-        });
+        $this->app->singleton(\Illuminate\Http\Request::class, fn ($app) => $app->get('request'));
 
-        $this->app->singleton('respone', function ($app) {
-            return new \Illuminate\Http\Response(headers: $app->get('request')->headers->all());
-        });
+        $this->app->singleton(
+            'respone', 
+            fn ($app) => new \Illuminate\Http\Response(headers: $app->get('request')->headers->all())
+        );
 
-        $this->app->singleton(\Illuminate\Http\Response::class, function ($app) {
-            return $app->get('respone');
-        });
+        $this->app->singleton(\Illuminate\Http\Response::class, fn ($app) => $app->get('respone'));
 
         Facade::setFacadeApplication($this);
     }
@@ -368,10 +363,10 @@ class PKPContainer extends Container
             'path' => Config::getVar('general', 'session_cookie_path', '/'),
             'domain' => null,
             'secure' => Config::getVar('security', 'force_ssl', false),
-            'lifetime' => Config::getVar('general', 'lifetime', 30) * 24 * 60, // lifetime need to set in minuted
+            'lifetime' => Config::getVar('general', 'lifetime', 30) * 24 * 60, // lifetime need to set in minutes
             'lottery' => [2, 100],
             'expire_on_close' => false,
-            'same_site' => 'lax',
+            'same_site' => Config::getVar('general', 'session_samesite', 'lax'),
             'partitioned' => false,
             'encrypt' => false,
         ];

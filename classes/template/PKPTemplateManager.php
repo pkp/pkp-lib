@@ -1274,8 +1274,7 @@ class PKPTemplateManager extends Smarty
             header($header);
         }
         
-        $sessionGuard = app()->get('auth.driver'); /** @var \PKP\core\PKPSessionGuard $sessionGuard */
-        $sessionGuard->sendCookies();
+        Application::get()->getRequest()->getSessionGuard()->sendCookies();
 
         // If no compile ID was assigned, get one.
         if (!$compile_id) {

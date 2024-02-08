@@ -351,7 +351,7 @@ class UserDetailsForm extends UserForm
 
                 (int) $this->user->getId() === (int) $request->getUser()->getId()
                     ? Auth::logoutOtherDevices($this->getData('password'))
-                    : app()->get('auth.driver')->invalidateOtherSessions($this->user->getId());
+                    : $request->getSessionGuard()->invalidateOtherSessions($this->user->getId());
             }
 
             Repo::user()->edit($this->user);

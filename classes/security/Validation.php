@@ -136,9 +136,8 @@ class Validation
             return false;
         }
 
-        $sessionGuard = app()->get('auth.driver'); /** @var \PKP\core\PKPSessionGuard $sessionGuard */
+        $sessionGuard = Application::get()->getRequest()->getSessionGuard();
         $sessionGuard->setUserDataToSession($user)->updateSession($user->getId());
-        $sessionGuard->updateSessionCookieToResponse();
 
         $user->setDateLastLogin(Core::getCurrentDate());
         Repo::user()->edit($user);
@@ -153,7 +152,8 @@ class Validation
      */
     public static function logout()
     {
-        $session = Application::get()->getRequest()->getSession();
+        $request = Application::get()->getRequest();
+        $session = $request->getSession();
         $user = Auth::user(); /** @var \PKP\user\User $user */
 
         Auth::logout();
@@ -163,9 +163,7 @@ class Validation
         $session->put('username', $user->getUsername());
         $session->put('email', $user->getEmail());
         
-        $sessionGuard = app()->get('auth.driver'); /** @var \PKP\core\PKPSessionGuard $sessionGuard */
-        $sessionGuard->updateSession(null);
-        $sessionGuard->updateSessionCookieToResponse();
+        $request->getSessionGuard()->updateSession(null);
 
         return true;
     }
@@ -403,7 +401,7 @@ class Validation
      */
     public static function loggedInAs(): ?int
     {
-        return session('signedInAs') ?: null;
+        return Application::get()->getRequest()->getSession()->get('signedInAs') ?: null;
     }
 
     /**

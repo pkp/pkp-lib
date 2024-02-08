@@ -17,8 +17,8 @@
 namespace PKP\security;
 
 use APP\core\Application;
-use PKP\validation\ValidatorFactory;
 use APP\facades\Repo;
+use Illuminate\Support\Str;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPString;
@@ -28,6 +28,7 @@ use PKP\session\SessionManager;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\user\User;
+use PKP\validation\ValidatorFactory;
 
 class Validation
 {
@@ -56,7 +57,7 @@ class Validation
         if (ValidatorFactory::make(['email' => $username], ['email' => 'email'])->passes()) {
             $user = Repo::user()->getByEmail($username, true);
             $authKey = static::AUTH_KEY_EMAIL;
-        } else{
+        } else {
             $user = Repo::user()->getByUsername($username, true);
         }
 
@@ -401,7 +402,7 @@ class Validation
             $name = $initial . $familyName;
         }
 
-        $suggestion = PKPString::regexp_replace('/[^a-zA-Z0-9_-]/', '', \Stringy\Stringy::create($name)->toAscii()->toLowerCase());
+        $suggestion = Str::of($name)->ascii()->lower()->replaceMatches('/[^a-zA-Z0-9_-]/', '');
         for ($i = ''; Repo::user()->getByUsername($suggestion . $i, true); $i++);
         return $suggestion . $i;
     }

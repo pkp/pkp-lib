@@ -51,7 +51,7 @@ class UserDetailsForm extends FormComponent
                 'isRequired' => false,
                 'size' => 'large',
             ]))
-            ->addField(new FieldText('countyOfAffiliation', [
+            ->addField(new FieldText('country', [
                 'label' => __('user.countyOfAffiliation'),
                 'isRequired' => false,
                 'size' => 'large',

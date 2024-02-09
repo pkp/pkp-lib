@@ -85,6 +85,9 @@ msgstr "Please verify orcid iD"
 msgid "invitation.userCreate"
 msgstr "Create OJS account"
 
+msgid "invitation.userCreateReviewName"
+msgstr "Account details"
+
 msgid "invitation.userCreateStep"
 msgstr "{$step} - Create OJS account"
 
@@ -93,6 +96,9 @@ msgstr "To get started with OJS and accept the new role, you will need to create
 
 msgid "invitation.userCreateDetails"
 msgstr "Enter details"
+
+msgid "invitation.userCreateDetailsReviewName"
+msgstr "User Details"
 
 msgid "invitation.userCreateDetailStep"
 msgstr "{$step} - Enter details"

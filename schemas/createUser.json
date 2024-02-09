@@ -1,0 +1,74 @@
+{
+	"title": "Create user via accept invitation",
+	"description": "Create user account accept email invitation .",
+	"required": [
+		"email",
+		"invitationId",
+		"invitationKey",
+		"familyName",
+		"givenName",
+		"username",
+		"password"
+	],
+	"properties": {
+		"email": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"email_or_localhost"
+			]
+		},
+		"invitationId": {
+			"type": "integer",
+			"description": "Invitation id.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"invitationKey": {
+			"type": "string",
+			"description": "Invitation key.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"username": {
+			"type": "string",
+			"apiSummary": true
+		},
+		"password": {
+			"type": "string",
+			"validation": [
+				"password_rule"
+			]
+		},
+		"familyName": {
+			"type": "string",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"givenName": {
+			"type": "string",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"countyOfAffiliation": {
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
+		},
+		"affiliation": {
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
+		},
+		"orcid": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"orcid",
+				"nullable"
+			]
+		}
+	}
+}

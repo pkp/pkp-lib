@@ -18,5 +18,8 @@
             :page-title="pageTitle"
             :page-title-description="pageTitleDescription"
             :steps="steps"
+            :csrf-token="csrfToken"
+            :invitation-id="invitationId"
+            :invitation-key="invitationKey"
     />
 {/block}

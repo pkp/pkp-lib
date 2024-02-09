@@ -62,6 +62,9 @@ class PKPInvitationHandler extends Handler
             'createAccountApiUrl'=>$this->getCreateUserApiUrl($request),
             'primaryLocale'=> $context->getData('primaryLocale'),
             'pageTitle' => __('invitation.wizard.pageTitle'),
+            'csrfToken' => $request->getSession()->getCSRFToken(),
+            'invitationId' => $request->getUserVar('id') ?: null,
+            'invitationKey' => $request->getUserVar('key') ?: null,
             'pageTitleDescription' => __('invitation.wizard.pageTitleDescription'),
         ]);
         $templateMgr->assign([
@@ -119,7 +122,8 @@ class PKPInvitationHandler extends Handler
         return [
             'id' => 'verifyOrcid',
             'name' => __('invitation.verifyOrcid'),
-            'reviewName' => __('invitation.verifyOrcidStep'),
+            'reviewName' => '',
+            'stepName' => __('invitation.verifyOrcidStep'),
             'type' => 'popup',
             'description' => __('invitation.verifyOrcidDescription'),
             'sections' => [],
@@ -134,7 +138,8 @@ class PKPInvitationHandler extends Handler
         return [
             'id' => 'userCreate',
             'name' => __('invitation.userCreate'),
-            'reviewName' => __('invitation.userCreateStep'),
+            'reviewName' => __('invitation.userCreateReviewName'),
+            'stepName' => __('invitation.userCreateStep'),
             'type' => 'form',
             'description' => __('invitation.userCreateDescription'),
             'sections' => [],
@@ -178,7 +183,8 @@ class PKPInvitationHandler extends Handler
         return [
             'id' => 'userDetails',
             'name' => __('invitation.userCreateDetails'),
-            'reviewName' => __('invitation.userCreateDetailStep'),
+            'reviewName' => __('invitation.userCreateDetailsReviewName'),
+            'stepName' => __('invitation.userCreateDetailStep'),
             'type' => 'form',
             'description' => __('invitation.userCreateDetailsDescription'),
             'sections' => $sections,
@@ -193,7 +199,8 @@ class PKPInvitationHandler extends Handler
         return [
             'id' => 'userCreateReview',
             'name' => __('invitation.userCreateReview'),
-            'reviewName' => __('invitation.userCreateReviewStep'),
+            'reviewName' => '',
+            'stepName' => __('invitation.userCreateReviewStep'),
             'type' => 'review',
             'description' => __('invitation.userCreateReviewDescription'),
             'sections' => [],

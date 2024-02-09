@@ -72,8 +72,7 @@ class PKPEmailTemplateController extends PKPBaseController
                 ->name('emailTemplate.getMany');
 
             Route::get('{key}', $this->get(...))
-                ->name('emailTemplate.getTemplate')
-                ->whereAlphaNumeric('key');
+                ->name('emailTemplate.getTemplate');
         });
 
         Route::middleware([

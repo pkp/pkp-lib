@@ -62,8 +62,7 @@ class PKPMailableController extends PKPBaseController
             ->name('mailable.getMany');
 
         Route::get('{id}', $this->get(...))
-            ->name('mailable.getMailable')
-            ->whereNumber('id');
+            ->name('mailable.getMailable');
     }
 
     /**

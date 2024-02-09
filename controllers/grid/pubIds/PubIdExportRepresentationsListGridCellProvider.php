@@ -65,7 +65,7 @@ class PubIdExportRepresentationsListGridCellProvider extends DataObjectGridCellP
         switch ($columnId) {
             case 'title':
                 $this->_titleColumn = $column;
-                $title = $submission->getLocalizedTitle();
+                $title = $publication->getLocalizedFullTitle();
                 if (empty($title)) {
                     $title = __('common.untitled');
                 }

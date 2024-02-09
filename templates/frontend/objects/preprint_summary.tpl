@@ -23,7 +23,7 @@
 	{assign var="heading" value="h2"}
 {/if}
 
-{if (!$section.hideAuthor && $preprint->getHideAuthor() == $smarty.const.AUTHOR_TOC_DEFAULT) || $preprint->getHideAuthor() == $smarty.const.AUTHOR_TOC_SHOW}
+{if (!$section.hideAuthor && $preprint->getData('hideAuthor') == $smarty.const.AUTHOR_TOC_DEFAULT) || $preprint->getData('hideAuthor') == $smarty.const.AUTHOR_TOC_SHOW}
 	{assign var="showAuthor" value=true}
 {/if}
 
@@ -91,9 +91,9 @@
 
 		<div class="details">
 				{translate key="publication.galley.downloads" downloads=$preprint->getTotalGalleyViews($primaryGenreIds)}
-				{if $preprint->getDatePublished()}
+				{if $preprint->getCurrentPublication()->getData('datePublished')}
 					<span class="details_divider">-</span>
-					{translate key="submission.dates" submitted=$preprint->getDateSubmitted()|date_format:$dateFormatShort published=$preprint->getDatePublished()|date_format:$dateFormatShort}
+					{translate key="submission.dates" submitted=$preprint->getData('dateSubmitted')|date_format:$dateFormatShort published=$preprint->getCurrentPublication()->getData('datePublished')|date_format:$dateFormatShort}
 				{/if}
 				{if count($preprint->getPublishedPublications()) > 1}
 					<span class="details_divider">-</span>
@@ -104,7 +104,7 @@
 
 	{if !$hideGalleys}
 		<ul class="galleys_links">
-			{foreach from=$preprint->getGalleys() item=galley}
+			{foreach from=$preprint->getCurrentPublication()->getData('galleys') item=galley}
 				{if $primaryGenreIds}
 					{assign var="file" value=$galley->getFile()}
 					{if !$galley->getRemoteUrl() && !($file && in_array($file->getGenreId(), $primaryGenreIds))}

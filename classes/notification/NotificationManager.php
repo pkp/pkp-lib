@@ -66,7 +66,7 @@ class NotificationManager extends PKPNotificationManager
         if (!$preprint) {
             return null;
         }
-        return $preprint->getLocalizedTitle();
+        return $preprint->getCurrentPublication()->getLocalizedFullTitle();
     }
 
     /**

@@ -80,7 +80,7 @@ class NativeXmlPreprintGalleyFilter extends \PKP\plugins\importexport\native\fil
                         // Labels are not localized in Galleys, but we use the <name locale="....">...</name> structure.
                         $locale = $n->getAttribute('locale');
                         if (empty($locale)) {
-                            $locale = $submission->getLocale();
+                            $locale = $submission->getData('locale');
                         }
                         $representation->setLabel($n->textContent);
                         $representation->setLocale($locale);

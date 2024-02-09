@@ -43,7 +43,7 @@ class Repository extends \PKP\publication\Repository
         $errors = parent::validate($publication, $props, $submission, $context);
 
         $allowedLocales = $context->getSupportedSubmissionLocales();
-        $primaryLocale = $submission->getLocale();
+        $primaryLocale = $submission->getData('locale');
 
         // Ensure that the specified section exists
         $section = null;
@@ -189,6 +189,7 @@ class Repository extends \PKP\publication\Repository
      * Publication::canAuthorPublish.
      *
      * @deprecated 3.4
+     *
      * @hook Publication::canAuthorPublish [[$this]]
      */
     public function canCurrentUserPublish(int $submissionId, ?User $user = null): bool

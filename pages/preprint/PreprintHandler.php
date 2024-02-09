@@ -169,6 +169,7 @@ class PreprintHandler extends Handler
      *
      * @param array $args
      * @param \APP\core\Request $request
+     *
      * @hook PreprintHandler::view [[&$request, &$preprint, $publication]]
      * @hook PreprintHandler::view::galley [[&$request, &$this->galley, &$preprint, $publication]]
      */
@@ -330,6 +331,7 @@ class PreprintHandler extends Handler
      *
      * @param array $args
      * @param Request $request
+     *
      * @hook PreprintHandler::download [[$this->preprint, &$this->galley, &$this->submissionFileId]]
      * @hook FileManager::downloadFileFinished [[&$returner]]
      */
@@ -410,7 +412,7 @@ class PreprintHandler extends Handler
         $user = $request->getUser();
 
         // If the preprint is posted OR author or server manager who can view unposted preprints
-        if (($submission && $submission->getStatus() === PKPSubmission::STATUS_PUBLISHED) || ($submission && $user && Repo::submission()->canPreview($user, $submission))) {
+        if (($submission && $submission->getData('status') === PKPSubmission::STATUS_PUBLISHED) || ($submission && $user && Repo::submission()->canPreview($user, $submission))) {
             return true;
         }
         return false;

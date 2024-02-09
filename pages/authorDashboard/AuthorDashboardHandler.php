@@ -43,8 +43,8 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $submissionContext = $request->getContext();
-        if ($submission->getContextId() !== $submissionContext->getId()) {
-            $submissionContext = Services::get('context')->get($submission->getContextId());
+        if ($submission->getData('contextId') !== $submissionContext->getId()) {
+            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
         }
 
         $locales = $submissionContext->getSupportedFormLocaleNames();

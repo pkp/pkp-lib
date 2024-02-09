@@ -304,6 +304,7 @@ class PreprintSearch extends SubmissionSearch
      *
      * @return null|array An array of string keywords or null
      * if some kind of error occurred.
+     *
      * @hook PreprintSearch::getSimilarityTerms [[$submissionId, &$searchTerms]]
      */
     public function getSimilarityTerms($submissionId)
@@ -321,7 +322,7 @@ class PreprintSearch extends SubmissionSearch
                 // Retrieve keywords (if any).
                 /** @var SubmissionKeywordDAO */
                 $submissionSubjectDao = DAORegistry::getDAO('SubmissionKeywordDAO');
-                $allSearchTerms = array_filter($submissionSubjectDao->getKeywords($preprint->getId(), [Locale::getLocale(), $preprint->getLocale(), Locale::getPrimaryLocale()]));
+                $allSearchTerms = array_filter($submissionSubjectDao->getKeywords($preprint->getId(), [Locale::getLocale(), $preprint->getData('locale'), Locale::getPrimaryLocale()]));
                 foreach ($allSearchTerms as $locale => $localeSearchTerms) {
                     $searchTerms += $localeSearchTerms;
                 }

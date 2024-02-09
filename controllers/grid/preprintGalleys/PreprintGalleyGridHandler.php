@@ -338,8 +338,8 @@ class PreprintGalleyGridHandler extends GridHandler
         $notificationDao = DAORegistry::getDAO('NotificationDAO');
         $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_REPRESENTATION, $galley->getId());
 
-        if ($this->getSubmission()->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
-            $this->getSubmission()->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
+        if ($this->getSubmission()->getData('stageId') == WORKFLOW_STAGE_ID_EDITING ||
+            $this->getSubmission()->getData('stageId') == WORKFLOW_STAGE_ID_PRODUCTION) {
             $notificationMgr = new NotificationManager();
             $notificationMgr->updateNotification(
                 $request,
@@ -429,8 +429,8 @@ class PreprintGalleyGridHandler extends GridHandler
         if ($galleyForm->validate()) {
             $galley = $galleyForm->execute();
 
-            if ($this->getSubmission()->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
-                $this->getSubmission()->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
+            if ($this->getSubmission()->getData('stageId') == WORKFLOW_STAGE_ID_EDITING ||
+                $this->getSubmission()->getData('stageId') == WORKFLOW_STAGE_ID_PRODUCTION) {
                 $notificationMgr = new NotificationManager();
                 $notificationMgr->updateNotification(
                     $request,
@@ -493,7 +493,7 @@ class PreprintGalleyGridHandler extends GridHandler
             return true;
         }
 
-        if ($submission->getDateSubmitted() == null) {
+        if ($submission->getData('dateSubmitted') == null) {
             return true;
         }
 

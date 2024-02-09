@@ -80,7 +80,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         $dc11Description = $this->instantiateMetadataDescription();
 
         // Title
-        $this->_addLocalizedElements($dc11Description, 'dc:title', $submission->getFullTitle(null));
+        $this->_addLocalizedElements($dc11Description, 'dc:title', $publication->getFullTitles());
 
         // Creator
         foreach ($publication->getData('authors') as $author) {
@@ -100,7 +100,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         $this->_addLocalizedElements($dc11Description, 'dc:subject', $subjects);
 
         // Description
-        $this->_addLocalizedElements($dc11Description, 'dc:description', $submission->getAbstract(null));
+        $this->_addLocalizedElements($dc11Description, 'dc:description', $publication->getData('abstract'));
 
         // Publisher
         $publisherInstitution = $server->getData('publisherInstitution');
@@ -112,7 +112,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         $this->_addLocalizedElements($dc11Description, 'dc:publisher', $publishers);
 
         // Contributor
-        $contributors = (array) $submission->getSponsor(null);
+        $contributors = (array) $publication->getData('sponsor');
         foreach ($contributors as $locale => $contributor) {
             $contributors[$locale] = array_map('trim', explode(';', $contributor));
         }
@@ -120,8 +120,8 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
 
 
         // Date
-        if ($submission->getDatePublished()) {
-            $dc11Description->addStatement('dc:date', date('Y-m-d', strtotime($submission->getDatePublished())));
+        if ($datePublished = $submission->getCurrentPublication()->getData('datePublished')) {
+            $dc11Description->addStatement('dc:date', date('Y-m-d', strtotime($datePublished)));
         }
 
         // Type
@@ -178,15 +178,15 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         }
 
         // Coverage
-        $this->_addLocalizedElements($dc11Description, 'dc:coverage', (array) $submission->getCoverage(null));
+        $this->_addLocalizedElements($dc11Description, 'dc:coverage', (array) $publication->getData('coverage'));
 
         // Rights: Add both copyright statement and license
-        $copyrightHolder = $submission->getLocalizedCopyrightHolder();
-        $copyrightYear = $submission->getCopyrightYear();
+        $copyrightHolder = $publication->getLocalizedData('copyrightHolder');
+        $copyrightYear = $publication->getData('copyrightYear');
         if (!empty($copyrightHolder) && !empty($copyrightYear)) {
             $dc11Description->addStatement('dc:rights', __('submission.copyrightStatement', ['copyrightHolder' => $copyrightHolder, 'copyrightYear' => $copyrightYear]));
         }
-        if ($licenseUrl = $submission->getLicenseURL()) {
+        if ($licenseUrl = $publication->getData('licenseUrl')) {
             $dc11Description->addStatement('dc:rights', $licenseUrl);
         }
 

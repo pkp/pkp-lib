@@ -106,41 +106,6 @@ class Submission extends PKPSubmission
     }
 
     /**
-     * @see PKPSubmission::getBestId()
-     * @deprecated 3.2.0.0
-     *
-     * @return string
-     */
-    public function getBestPreprintId()
-    {
-        return parent::getBestId();
-    }
-
-    /**
-     * Get ID of server.
-     *
-     * @deprecated 3.2.0.0
-     *
-     * @return int
-     */
-    public function getServerId()
-    {
-        return $this->getData('contextId');
-    }
-
-    /**
-     * Set ID of server.
-     *
-     * @deprecated 3.2.0.0
-     *
-     * @param int $serverId
-     */
-    public function setServerId($serverId)
-    {
-        return $this->setData('contextId', $serverId);
-    }
-
-    /**
      * Get ID of preprint's section.
      *
      * @return int
@@ -152,66 +117,6 @@ class Submission extends PKPSubmission
             return 0;
         }
         return $publication->getData('sectionId');
-    }
-
-    /**
-     * Set ID of preprint's section.
-     *
-     * @param int $sectionId
-     */
-    public function setSectionId($sectionId)
-    {
-        $publication = $this->getCurrentPublication();
-        if ($publication) {
-            $publication->setData('sectionId', $sectionId);
-        }
-    }
-
-    /**
-     * Get the galleys for an preprint.
-     *
-     * @return array Galley
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getGalleys()
-    {
-        if (!is_null($this->getData('galleys'))) {
-            return $this->getData('galleys');
-        }
-
-        $this->setData(
-            'galleys',
-            Repo::galley()
-                ->getCollector()
-                ->filterByPublicationIds([$this->getCurrentPublication()->getId()])
-                ->getMany()
-                ->toArray()
-        );
-
-        return $this->getData('galleys');
-    }
-
-    /**
-     * Get the localized galleys for an preprint.
-     *
-     * @return array Galley
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getLocalizedGalleys()
-    {
-        $allGalleys = $this->getGalleys();
-        $galleys = [];
-        foreach ([Locale::getLocale(), Locale::getPrimaryLocale()] as $tryLocale) {
-            foreach (array_keys($allGalleys) as $key) {
-                if ($allGalleys[$key]->getLocale() == $tryLocale) {
-                    $galleys[] = $allGalleys[$key];
-                }
-            }
-        }
-
-        return $galleys;
     }
 
     /**
@@ -244,22 +149,6 @@ class Submission extends PKPSubmission
             ->getSum([])
             ->value('metric');
         return $metrics ? $metrics : 0;
-    }
-
-    /**
-     * Return option selection indicating if author should be hidden.
-     *
-     * @return int AUTHOR_TOC_...
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getHideAuthor()
-    {
-        $publication = $this->getCurrentPublication();
-        if (!$publication) {
-            return 0;
-        }
-        return $publication->getData('hideAuthor');
     }
 }
 

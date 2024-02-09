@@ -21,11 +21,11 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\publication\Publication;
 use APP\submission\Submission;
+use Illuminate\Support\Str;
 use PKP\context\Context;
 use PKP\core\DataObject;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
-use PKP\core\PKPString;
 use PKP\plugins\PKPPubIdPlugin;
 use PKP\submission\Representation;
 use PKP\submissionFile\SubmissionFile;
@@ -198,7 +198,7 @@ abstract class PubIdPlugin extends PKPPubIdPlugin
      */
     public static function generateDefaultPattern(Context $context, ?Submission $submission = null, ?Representation $representation = null, ?SubmissionFile $submissionFile = null): string
     {
-        $pubIdSuffix = PKPString::regexp_replace('/[^-._;()\/A-Za-z0-9]/', '', PKPString::strtolower($context->getAcronym($context->getPrimaryLocale())));
+        $pubIdSuffix = preg_replace('/[^-._;()\/A-Za-z0-9]/u', '', Str::lower($context->getAcronym($context->getPrimaryLocale())));
 
         if ($submission) {
             $pubIdSuffix .= '.' . $submission->getId();
@@ -222,31 +222,31 @@ abstract class PubIdPlugin extends PKPPubIdPlugin
     public static function generateCustomPattern(Context $context, string $pubIdSuffix, DataObject $pubObject, ?Submission $submission = null, ?Publication $publication = null, ?Representation $representation = null, ?SubmissionFile $submissionFile = null): string
     {
         // %j - server initials, remove special characters and uncapitalize
-        $pubIdSuffix = PKPString::regexp_replace('/%j/', PKPString::regexp_replace('/[^-._;()\/A-Za-z0-9]/', '', PKPString::strtolower($context->getAcronym($context->getPrimaryLocale()))), $pubIdSuffix);
+        $pubIdSuffix = preg_replace('/%j/', preg_replace('/[^-._;()\/A-Za-z0-9]/u', '', Str::lower($context->getAcronym($context->getPrimaryLocale()))), $pubIdSuffix);
         /** @var Representation $pubObject */
         // %x - custom identifier
         if ($pubObject->getStoredPubId('publisher-id')) {
-            $pubIdSuffix = PKPString::regexp_replace('/%x/', $pubObject->getStoredPubId('publisher-id'), $pubIdSuffix);
+            $pubIdSuffix = preg_replace('/%x/', $pubObject->getStoredPubId('publisher-id'), $pubIdSuffix);
         }
 
         if ($submission) {
             // %a - preprint id
-            $pubIdSuffix = PKPString::regexp_replace('/%a/', $submission->getId(), $pubIdSuffix);
+            $pubIdSuffix = preg_replace('/%a/', $submission->getId(), $pubIdSuffix);
         }
 
         if ($publication) {
             // %b - publication id
-            $pubIdSuffix = PKPString::regexp_replace('/%b/', $publication->getId(), $pubIdSuffix);
+            $pubIdSuffix = preg_replace('/%b/', $publication->getId(), $pubIdSuffix);
         }
 
         if ($representation) {
             // %g - galley id
-            $pubIdSuffix = PKPString::regexp_replace('/%g/', $representation->getId(), $pubIdSuffix);
+            $pubIdSuffix = preg_replace('/%g/', $representation->getId(), $pubIdSuffix);
         }
 
         if ($submissionFile) {
             // %f - file id
-            $pubIdSuffix = PKPString::regexp_replace('/%f/', $submissionFile->getId(), $pubIdSuffix);
+            $pubIdSuffix = preg_replace('/%f/', $submissionFile->getId(), $pubIdSuffix);
         }
 
         return $pubIdSuffix;
@@ -287,21 +287,21 @@ abstract class PubIdPlugin extends PKPPubIdPlugin
         $pubIdSuffix = $this->getSetting($contextId, $suffixPatternsFieldNames[$pubObjectType]);
 
         // %j - server initials
-        $pubIdSuffix = PKPString::regexp_replace('/%j/', PKPString::regexp_replace('/[^-._;()\/A-Za-z0-9]/', '', PKPString::strtolower($context->getAcronym($context->getPrimaryLocale()))), $pubIdSuffix);
+        $pubIdSuffix = preg_replace('/%j/', preg_replace('/[^-._;()\/A-Za-z0-9]/u', '', Str::lower($context->getAcronym($context->getPrimaryLocale()))), $pubIdSuffix);
 
         // %x - custom identifier
         if ($pubObject->getStoredPubId('publisher-id')) {
-            $pubIdSuffix = PKPString::regexp_replace('/%x/', $pubObject->getStoredPubId('publisher-id'), $pubIdSuffix);
+            $pubIdSuffix = preg_replace('/%x/', $pubObject->getStoredPubId('publisher-id'), $pubIdSuffix);
         }
 
         // %a - preprint id
         if ($submission) {
-            $pubIdSuffix = PKPString::regexp_replace('/%a/', $submission->getId(), $pubIdSuffix);
+            $pubIdSuffix = preg_replace('/%a/', $submission->getId(), $pubIdSuffix);
         }
 
         // %b - publication id
         if ($publication) {
-            $pubIdSuffix = PKPString::regexp_replace('/%b/', $publication->getId(), $pubIdSuffix);
+            $pubIdSuffix = preg_replace('/%b/', $publication->getId(), $pubIdSuffix);
         }
 
         if (empty($pubIdSuffix)) {

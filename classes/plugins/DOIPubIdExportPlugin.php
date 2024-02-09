@@ -20,7 +20,6 @@ use APP\facades\Repo;
 use APP\server\Server;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
-use PKP\core\PKPString;
 use PKP\doi\Doi;
 use PKP\galley\Galley;
 use PKP\submission\PKPSubmission;
@@ -103,7 +102,7 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
         $registeredDoi = $object->getStoredPubId('doi');
         assert(!empty($registeredDoi));
         if ($this->isTestMode($context)) {
-            $registeredDoi = PKPString::regexp_replace('#^[^/]+/#', $testPrefix . '/', $registeredDoi);
+            $registeredDoi = preg_replace('#^[^/]+/#', $testPrefix . '/', $registeredDoi);
         }
         $object->setData($this->getPluginSettingsPrefix() . '::' . DOI_EXPORT_REGISTERED_DOI, $registeredDoi);
         $this->updateObject($object);

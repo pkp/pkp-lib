@@ -19,7 +19,7 @@
 namespace APP\author;
 
 use APP\core\Application;
-use PKP\core\PKPString;
+use Illuminate\Support\Str;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
@@ -93,7 +93,7 @@ class DAO extends \PKP\author\DAO
                         $initialSql .= ' AND ';
                     }
                 } else {
-                    $params[] = PKPString::strtolower($initial) . '%';
+                    $params[] = Str::lower($initial) . '%';
                     $initialSql .= "LOWER(asf{$index}.setting_value) LIKE LOWER(?)";
                     if ($index < $supportedLocalesCount - 1) {
                         $initialSql .= ' OR ';

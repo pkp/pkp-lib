@@ -80,7 +80,7 @@ class Validation
         $reason = null;
         
         return Auth::attempt(['username' => $username, 'password' => $password], $remember)
-            ? static::registerUserSession(Auth::user(), $reason, $remember) 
+            ? static::registerUserSession(Auth::user(), $reason) 
             : false;
     }
 
@@ -117,12 +117,11 @@ class Validation
      * @param User      $user       user to register in the session
      * @param string    $reason     reference to string to receive the reason an account
      *                              was disabled; null otherwise
-     * @param bool      $remember   remember a user's session past the current browser session
      *
      * @return mixed                User or boolean the User associated with the login credentials,
      *                              or false if the credentials are invalid
      */
-    public static function registerUserSession($user, &$reason, $remember = false)
+    public static function registerUserSession($user, &$reason)
     {
         if (!$user instanceof User) {
             return false;
@@ -136,8 +135,8 @@ class Validation
             return false;
         }
 
-        $sessionGuard = Application::get()->getRequest()->getSessionGuard();
-        $sessionGuard->setUserDataToSession($user)->updateSession($user->getId());
+        $request = Application::get()->getRequest();
+        $request->getSessionGuard()->setUserDataToSession($user)->updateSession($user->getId());
 
         $user->setDateLastLogin(Core::getCurrentDate());
         Repo::user()->edit($user);

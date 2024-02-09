@@ -21,6 +21,10 @@ class PKPSessionServiceProvider extends \Illuminate\Session\SessionServiceProvid
                 return;
             }
 
+            if (defined('SESSION_DISABLE_INIT')) {
+                return;
+            }
+
             // need to make sure that all changes to session(via pull/put) are reflected in session storage
             Application::get()->getRequest()->getSessionGuard()->getSession()->save();
         });

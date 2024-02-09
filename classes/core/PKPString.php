@@ -52,30 +52,23 @@ class PKPString
      *
      * @return bool Returns true iff the server supports mbstring functions.
      */
-    public static function hasMBString()
+    public static function hasMBString(): bool
     {
         static $hasMBString;
         if (isset($hasMBString)) {
             return $hasMBString;
         }
 
-        // If string overloading is active, it will break many of the
-        // native implementations. mbstring.func_overload must be set
-        // to 0, 1 or 4 in php.ini (string overloading disabled).
-        // Note: Overloading has been deprecated on PHP 7.2
-        if (ini_get('mbstring.func_overload') && defined('MB_OVERLOAD_STRING')) {
-            $hasMBString = false;
-        } else {
-            $hasMBString = extension_loaded('mbstring') &&
-                function_exists('mb_strlen') &&
-                function_exists('mb_strpos') &&
-                function_exists('mb_strrpos') &&
-                function_exists('mb_substr') &&
-                function_exists('mb_strtolower') &&
-                function_exists('mb_strtoupper') &&
-                function_exists('mb_substr_count') &&
-                function_exists('mb_send_mail');
-        }
+        $hasMBString = extension_loaded('mbstring') &&
+            function_exists('mb_strlen') &&
+            function_exists('mb_strpos') &&
+            function_exists('mb_strrpos') &&
+            function_exists('mb_substr') &&
+            function_exists('mb_strtolower') &&
+            function_exists('mb_strtoupper') &&
+            function_exists('mb_substr_count') &&
+            function_exists('mb_send_mail');
+
         return $hasMBString;
     }
 
@@ -325,7 +318,7 @@ class PKPString
         $result = null;
 
         if (function_exists('finfo_open')) {
-            $fi = & Registry::get('fileInfo', true, null);
+            $fi = &Registry::get('fileInfo', true, null);
             if ($fi === null) {
                 $fi = finfo_open(FILEINFO_MIME, Config::getVar('finfo', 'mime_database_path'));
             }

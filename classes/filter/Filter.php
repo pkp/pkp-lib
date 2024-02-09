@@ -76,8 +76,8 @@
 namespace PKP\filter;
 
 use Exception;
+use Illuminate\Support\Str;
 use PKP\core\PKPApplication;
-use PKP\core\PKPString;
 use PKP\core\RuntimeEnvironment;
 use PKP\plugins\Hook;
 
@@ -307,13 +307,13 @@ class Filter extends \PKP\core\DataObject
     public function setRuntimeEnvironment(&$runtimeEnvironment)
     {
         assert($runtimeEnvironment instanceof RuntimeEnvironment);
-        $this->_runtimeEnvironment = & $runtimeEnvironment;
+        $this->_runtimeEnvironment = &$runtimeEnvironment;
 
         // Inject the runtime settings into the data object
         // for persistence.
         $runtimeSettings = $this->supportedRuntimeEnvironmentSettings();
         foreach ($runtimeSettings as $runtimeSetting => $defaultValue) {
-            $methodName = 'get' . PKPString::ucfirst($runtimeSetting);
+            $methodName = 'get' . Str::ucfirst($runtimeSetting);
             $this->setData($runtimeSetting, $runtimeEnvironment->$methodName());
         }
     }
@@ -374,7 +374,7 @@ class Filter extends \PKP\core\DataObject
     public function supports(&$input, &$output)
     {
         // Validate input
-        $inputType = & $this->getInputType();
+        $inputType = &$this->getInputType();
         $validInput = $inputType->isCompatible($input);
 
         // If output is null then we're done
@@ -383,7 +383,7 @@ class Filter extends \PKP\core\DataObject
         }
 
         // Validate output
-        $outputType = & $this->getOutputType();
+        $outputType = &$this->getOutputType();
         $validOutput = $outputType->isCompatible($output);
 
         return $validInput && $validOutput;
@@ -491,11 +491,11 @@ class Filter extends \PKP\core\DataObject
         }
 
         // Save a reference to the last valid input
-        $this->_input = & $input;
+        $this->_input = &$input;
         $this->_output = null;
 
         // Process the filter
-        $preliminaryOutput = & $this->process($input);
+        $preliminaryOutput = &$this->process($input);
 
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
         Hook::call(strtolower_codesafe(end($classNameParts) . '::execute'), [&$preliminaryOutput]);
@@ -503,7 +503,7 @@ class Filter extends \PKP\core\DataObject
         // Validate the filter output
         $isValidOutput = $preliminaryOutput !== null && $this->supports($input, $preliminaryOutput);
         if ($isValidOutput || $returnErrors) {
-            $this->_output = & $preliminaryOutput;
+            $this->_output = &$preliminaryOutput;
         }
         if (!$isValidOutput) {
             error_log('Filter output validation failed, expected "' . $this->getOutputType()->getTypeName() . '", but found "' . gettype($preliminaryOutput) . '"');

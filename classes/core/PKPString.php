@@ -19,7 +19,6 @@ namespace PKP\core;
 
 use Illuminate\Support\Str;
 use PKP\config\Config;
-use Stringy\Stringy;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
 
@@ -70,239 +69,6 @@ class PKPString
             function_exists('mb_send_mail');
 
         return $hasMBString;
-    }
-
-    //
-    // Wrappers for basic string manipulation routines.
-    //
-
-    /**
-     * @see https://www.php.net/strlen
-     *
-     * @param string $string Input string
-     *
-     * @return int String length
-     */
-    public static function strlen($string)
-    {
-        return Stringy::create($string)->length();
-    }
-
-    /**
-     * @see https://www.php.net/strpos
-     *
-     * @param string $haystack Input haystack to search
-     * @param string $needle Input needle to search for
-     * @param int $offset Offset at which to begin searching
-     *
-     * @return int Position of needle within haystack
-     */
-    public static function strpos($haystack, $needle, $offset = 0)
-    {
-        return Stringy::create($haystack)->indexOf($needle, $offset);
-    }
-
-    /**
-     * @see https://www.php.net/strrpos
-     *
-     * @param string $haystack Haystack to search
-     * @param string $needle Needle to search haystack for
-     *
-     * @return int Last index of Needle in Haystack
-     */
-    public static function strrpos($haystack, $needle)
-    {
-        return Stringy::create($haystack)->indexOfLast($needle);
-    }
-
-    /**
-     * @see https://www.php.net/substr
-     *
-     * @param string $string Subject to extract substring from
-     * @param int $start Position to start from
-     * @param int $length Length to extract, or false for entire string from start position
-     *
-     * @return string Substring of $string
-     */
-    public static function substr($string, $start, $length = null)
-    {
-        return (string) Stringy::create($string)->substr($start, $length);
-    }
-
-    /**
-     * @see https://www.php.net/strtolower
-     *
-     * @param string $string Input string
-     *
-     * @return string Lower case version of input string
-     */
-    public static function strtolower($string)
-    {
-        return (string) Stringy::create($string)->toLowerCase();
-    }
-
-    /**
-     * @see https://www.php.net/strtoupper
-     *
-     * @param string $string Input string
-     *
-     * @return string Upper case version of input string
-     */
-    public static function strtoupper($string)
-    {
-        return (string) Stringy::create($string)->toUpperCase();
-    }
-
-    /**
-     * @see https://www.php.net/ucfirst
-     *
-     * @param string $string Input string
-     *
-     * @return string ucfirst version of input string
-     */
-    public static function ucfirst($string)
-    {
-        return (string) Stringy::create($string)->upperCaseFirst();
-    }
-
-    /**
-     * @see https://www.php.net/substr_count
-     *
-     * @param string $haystack Input string to search
-     * @param string $needle String to search within $haystack for
-     *
-     * @return int Count of number of times $needle appeared in $haystack
-     */
-    public static function substr_count($haystack, $needle)
-    {
-        return Stringy::create($haystack)->countSubstr($needle);
-    }
-
-    /**
-     * @see https://www.php.net/encode_mime_header
-     *
-     * @param string $string Input MIME header to encode.
-     *
-     * @return string Encoded MIME header.
-     */
-    public static function encode_mime_header($string)
-    {
-        static::initialize();
-        return static::hasMBString()
-            ? mb_encode_mimeheader($string, mb_internal_encoding(), 'B', Core::isWindows() ? "\r\n" : "\n")
-            : $string;
-    }
-
-    //
-    // Wrappers for PCRE-compatible regular expression routines.
-    // See the php.net documentation for usage.
-    //
-
-    /**
-     * @see https://www.php.net/preg_quote
-     *
-     * @param string $string String to quote
-     * @param string $delimiter Delimiter for regular expression
-     *
-     * @return string Quoted equivalent of $string
-     */
-    public static function regexp_quote($string, $delimiter = '/')
-    {
-        return preg_quote($string, $delimiter);
-    }
-
-    /**
-     * @see https://www.php.net/preg_grep
-     *
-     * @param string $pattern Regular expression
-     * @param array $input Input
-     *
-     * @return array
-     */
-    public static function regexp_grep($pattern, $input)
-    {
-        return preg_grep($pattern . 'u', $input);
-    }
-
-    /**
-     * @see https://www.php.net/preg_match
-     *
-     * @param string $pattern Regular expression
-     * @param string $subject String to apply regular expression to
-     *
-     * @return int
-     */
-    public static function regexp_match($pattern, $subject)
-    {
-        return preg_match($pattern . 'u', $subject);
-    }
-
-    /**
-     * @see https://www.php.net/preg_match_get
-     *
-     * @param string $pattern Regular expression
-     * @param string $subject String to apply regular expression to
-     * @param array $matches Reference to receive matches
-     *
-     * @return int|boolean Returns 1 if the pattern matches given subject, 0 if it does not, or FALSE if an error occurred.
-     */
-    public static function regexp_match_get($pattern, $subject, &$matches)
-    {
-        return preg_match($pattern . 'u', $subject, $matches);
-    }
-
-    /**
-     * @see https://www.php.net/preg_match_all
-     *
-     * @param string $pattern Regular expression
-     * @param string $subject String to apply regular expression to
-     * @param array $matches Reference to receive matches
-     *
-     * @return int|boolean Returns number of full matches of given subject, or FALSE if an error occurred.
-     */
-    public static function regexp_match_all($pattern, $subject, &$matches)
-    {
-        return preg_match_all($pattern . 'u', $subject, $matches);
-    }
-
-    /**
-     * @see https://www.php.net/preg_replace
-     *
-     * @param string $pattern Regular expression
-     * @param string $replacement String to replace matches in $subject with
-     * @param string $subject String to apply regular expression to
-     * @param int $limit Number of replacements to perform, maximum, or -1 for no limit.
-     */
-    public static function regexp_replace($pattern, $replacement, $subject, $limit = -1)
-    {
-        return preg_replace($pattern . 'u', (string) $replacement, (string) $subject, $limit);
-    }
-
-    /**
-     * @see https://www.php.net/preg_replace_callback
-     *
-     * @param string $pattern Regular expression
-     * @param callable $callback PHP callback to generate content to replace matches with
-     * @param string $subject String to apply regular expression to
-     * @param int $limit Number of replacements to perform, maximum, or -1 for no limit.
-     */
-    public static function regexp_replace_callback($pattern, $callback, $subject, $limit = -1)
-    {
-        return preg_replace_callback($pattern . 'u', $callback, $subject, $limit);
-    }
-
-    /**
-     * @see https://www.php.net/preg_split
-     *
-     * @param string $pattern Regular expression
-     * @param string $subject String to apply regular expression to
-     * @param int $limit Number of times to match; -1 for unlimited
-     *
-     * @return array Resulting string segments
-     */
-    public static function regexp_split($pattern, $subject, $limit = -1)
-    {
-        return preg_split($pattern . 'u', $subject, $limit);
     }
 
     /**
@@ -461,10 +227,10 @@ class PKPString
      */
     public static function html2text($html)
     {
-        $html = self::regexp_replace('/<[\/]?p>/', "\n", $html);
-        $html = self::regexp_replace('/<li>/', '&bull; ', $html);
-        $html = self::regexp_replace('/<\/li>/', "\n", $html);
-        $html = self::regexp_replace('/<br[ ]?[\/]?>/', "\n", $html);
+        $html = preg_replace('/<[\/]?p>/u', "\n", $html);
+        $html = preg_replace('/<li>/u', '&bull; ', $html);
+        $html = preg_replace('/<\/li>/u', "\n", $html);
+        $html = preg_replace('/<br[ ]?[\/]?>/u', "\n", $html);
         $html = html_entity_decode(strip_tags($html), ENT_COMPAT, 'UTF-8');
         return $html;
     }
@@ -537,7 +303,7 @@ class PKPString
 
         // Insert hyphens between words and return the string in lowercase
         $words = [];
-        self::regexp_match_all('/[A-Z][a-z0-9]*/', $string, $words);
+        preg_match_all('/[A-Z][a-z0-9]*/u', $string, $words);
         assert(isset($words[0]) && !empty($words[0]) && strlen(implode('', $words[0])) == strlen($string));
         return strtolower_codesafe(implode('-', $words[0]));
     }

@@ -20,8 +20,6 @@
 
 namespace PKP\citation;
 
-use PKP\core\PKPString;
-
 class Citation extends \PKP\core\DataObject
 {
     /**
@@ -118,7 +116,7 @@ class Citation extends \PKP\core\DataObject
         $citationString = trim(stripslashes($citationString));
 
         // 2) Normalize whitespace
-        $citationString = PKPString::regexp_replace('/[\s]+/', ' ', $citationString);
+        $citationString = preg_replace('/[\s]+/u', ' ', $citationString);
 
         return $citationString;
     }

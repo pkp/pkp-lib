@@ -21,7 +21,6 @@ use APP\facades\Repo;
 use Illuminate\Support\Str;
 use PKP\config\Config;
 use PKP\core\Core;
-use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\session\SessionDAO;
 use PKP\session\SessionManager;
@@ -398,7 +397,7 @@ class Validation
     {
         $name = $givenName;
         if (!empty($familyName)) {
-            $initial = PKPString::substr($givenName, 0, 1);
+            $initial = Str::substr($givenName, 0, 1);
             $name = $initial . $familyName;
         }
 

@@ -16,8 +16,8 @@ namespace PKP\mail;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use PKP\context\Context;
-use PKP\core\PKPString;
 use PKP\mail\mailables\DecisionNotifyOtherAuthors;
 use PKP\mail\mailables\EditReviewNotify;
 use PKP\mail\mailables\ReviewCompleteNotifyEditors;
@@ -68,11 +68,11 @@ class Repository
      */
     protected function containsSearchPhrase(string $className, string $searchPhrase): bool
     {
-        $searchPhrase = PKPString::strtolower($searchPhrase);
+        $searchPhrase = Str::lower($searchPhrase);
 
         /** @var Mailable $className */
-        return str_contains(PKPString::strtolower($className::getName()), $searchPhrase) ||
-            str_contains(PKPString::strtolower($className::getDescription()), $searchPhrase);
+        return str_contains(Str::lower($className::getName()), $searchPhrase) ||
+            str_contains(Str::lower($className::getDescription()), $searchPhrase);
     }
 
     /**

@@ -278,7 +278,7 @@ class PKPComponentRouter extends PKPRouter
     public function route($request)
     {
         // Determine the requested service endpoint.
-        $rpcServiceEndpoint = & $this->getRpcServiceEndpoint($request);
+        $rpcServiceEndpoint = &$this->getRpcServiceEndpoint($request);
 
         // Retrieve RPC arguments from the request.
         $args = $request->getUserVars();
@@ -522,7 +522,7 @@ class PKPComponentRouter extends PKPRouter
             $rpcServiceEndpointParts[$key] = strtolower_codesafe($rpcServiceEndpointPart);
 
             // We only allow letters, numbers and the hyphen.
-            if (!PKPString::regexp_match('/^[a-z0-9-]*$/', $rpcServiceEndpointPart)) {
+            if (!preg_match('/^[a-z0-9-]*$/', $rpcServiceEndpointPart)) {
                 return null;
             }
         }

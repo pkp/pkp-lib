@@ -17,7 +17,6 @@ use APP\core\Request;
 use APP\core\Services;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\LazyCollection;
-use PKP\core\PKPString;
 use PKP\plugins\Hook;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
@@ -125,7 +124,7 @@ class Repository
             }
             if (!empty($props['ipRanges']) && !$validator->errors()->get('ipRanges')) {
                 foreach ($props['ipRanges'] as $ipRange) {
-                    if (!PKPString::regexp_match(
+                    if (!preg_match(
                         '/^' .
                         // IP4 address (with or w/o wildcards) or IP4 address range (with or w/o wildcards) or CIDR IP4 address
                         '((([0-9]|[1-9][0-9]|[1][0-9]{2}|[2][0-4][0-9]|[2][5][0-5]|[' . Institution::IP_RANGE_WILDCARD . '])([.]([0-9]|[1-9][0-9]|[1][0-9]{2}|[2][0-4][0-9]|[2][5][0-5]|[' . Institution::IP_RANGE_WILDCARD . '])){3}((\s)*[' . Institution::IP_RANGE_RANGE . '](\s)*([0-9]|[1-9][0-9]|[1][0-9]{2}|[2][0-4][0-9]|[2][5][0-5]|[' . Institution::IP_RANGE_WILDCARD . '])([.]([0-9]|[1-9][0-9]|[1][0-9]{2}|[2][0-4][0-9]|[2][5][0-5]|[' . Institution::IP_RANGE_WILDCARD . '])){3}){0,1})|(([0-9]|[1-9][0-9]|[1][0-9]{2}|[2][0-4][0-9]|[2][5][0-5])([.]([0-9]|[1-9][0-9]|[1][0-9]{2}|[2][0-4][0-9]|[2][5][0-5])){3}([\/](([3][0-2]{0,1})|([1-2]{0,1}[0-9])))))' .

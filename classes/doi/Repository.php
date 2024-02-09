@@ -20,7 +20,6 @@ use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\App;
 use PKP\context\Context;
-use PKP\core\PKPString;
 use PKP\doi\exceptions\DoiException;
 use PKP\jobs\doi\DepositSubmission;
 use PKP\plugins\Hook;
@@ -176,7 +175,7 @@ abstract class Repository
 
                 Hook::call('Doi::suffixValidation', [&$validRegexPattern]);
 
-                $hasInvalidCharacters = PKPString::regexp_match($validRegexPattern, $doi);
+                $hasInvalidCharacters = preg_match($validRegexPattern, $doi);
                 if ($hasInvalidCharacters) {
                     $validator->errors()->add('doi', __('doi.editor.doiSuffixInvalidCharacters'));
                 }

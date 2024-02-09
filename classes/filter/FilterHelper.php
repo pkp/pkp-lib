@@ -15,7 +15,6 @@
 
 namespace PKP\filter;
 
-use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\xml\XMLNode;
 
@@ -87,7 +86,7 @@ class FilterHelper
         // We have to include the filter class before going on
         // so that all required constants are defined before they
         // might be used in settings.
-        if (PKPString::regexp_match('/^[a-zA-Z0-9.]+$/', $filterClassName)) {
+        if (preg_match('/^[a-zA-Z0-9.]+$/', $filterClassName)) {
             import($filterClassName);
         }
 
@@ -107,8 +106,8 @@ class FilterHelper
 
                 case 'filter':
                     // Recursively configure sub-filters.
-                    $subFilter = & $this->configureFilter($subNode, false);
-                    $subFilters[] = & $subFilter;
+                    $subFilter = &$this->configureFilter($subNode, false);
+                    $subFilters[] = &$subFilter;
                     unset($subFilter);
                     break;
             }
@@ -171,7 +170,7 @@ class FilterHelper
             // Compare sub-filters of composite filters.
             foreach ($filterBSubfilters as $filterBSubfilter) { /** @var PersistableFilter $filterBSubfilter */
                 $seq = $filterBSubfilter->getSequence();
-                $filterASubfilter = & $filterA->getFilter($seq);
+                $filterASubfilter = &$filterA->getFilter($seq);
                 if (!$filterASubfilter || !$filterBSubfilter || get_class($filterASubfilter) != get_class($filterBSubfilter)) {
                     return false;
                 }
@@ -186,7 +185,7 @@ class FilterHelper
 
                 // Extract sub-filter sub-filters.
                 if ($filterBSubfilter instanceof \PKP\filter\CompositeFilter) {
-                    $filterBSubfilterSubfilters = & $filterBSubfilter->getFilters();
+                    $filterBSubfilterSubfilters = &$filterBSubfilter->getFilters();
                 } else {
                     $filterBSubfilterSubfilters = [];
                 }
@@ -215,13 +214,13 @@ class FilterHelper
     public function getFilterSetting($settingNode)
     {
         // Retrieve the setting name.
-        $nameNode = & $settingNode->getChildByName('name');
+        $nameNode = &$settingNode->getChildByName('name');
         assert($nameNode instanceof XMLNode);
         $name = $nameNode->getValue();
 
         // Retrieve the setting value.
         $type = $settingNode->getAttribute('type');
-        $valueNode = & $settingNode->getChildByName('value');
+        $valueNode = &$settingNode->getChildByName('value');
         assert($valueNode instanceof XMLNode);
         switch ($type) {
             case 'string':
@@ -244,7 +243,7 @@ class FilterHelper
 
             case 'object':
                 $value = [];
-                $arrayNode = & $valueNode->getChildByName('array');
+                $arrayNode = &$valueNode->getChildByName('array');
                 $value = $this->readArraySetting($arrayNode);
                 break;
 

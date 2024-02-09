@@ -25,8 +25,8 @@ namespace PKP\i18n;
 
 use DomainException;
 use Exception;
+use Illuminate\Support\Str;
 use PKP\core\ExportableTrait;
-use PKP\core\PKPString;
 use PKP\facades\Locale;
 use PKP\i18n\interfaces\LocaleInterface;
 use Sokil\IsoCodes\Database\Languages\Language;
@@ -99,26 +99,19 @@ class LocaleMetadata
             );
         }
 
-        $name = PKPString::regexp_replace(
-            '/\s*\([^)]*\)\s*/',
-            '',
-            PKPString::ucfirst(
-                $this
-                    ->_getLanguage(
-                        $langLocaleStatus === self::LANGUAGE_LOCALE_ONLY ? $this->locale : $locale,
-                        $langLocaleStatus === self::LANGUAGE_LOCALE_WITH
-                    )
-                    ->getLocalName()
-            )
-        );
+        $name = (string) Str::of(
+            $this
+                ->_getLanguage(
+                    $langLocaleStatus === self::LANGUAGE_LOCALE_ONLY ? $this->locale : $locale,
+                    $langLocaleStatus === self::LANGUAGE_LOCALE_WITH
+                )
+                ->getLocalName()
+        )->ucfirst->replaceMatches('/\s*\([^)]*\)\s*/u', '');
 
         if ($langLocaleStatus === self::LANGUAGE_LOCALE_WITH) {
             // Get the translated language name in language's own locale
-            $nameInLangLocale = PKPString::regexp_replace(
-                '/\s*\([^)]*\)\s*/',
-                '',
-                PKPString::ucfirst($this->_getLanguage($this->locale)->getLocalName())
-            );
+            $nameInLangLocale = Str::of($this->_getLanguage($this->locale)->getLocalName())
+                ->ucfirst()->replaceMatches('/\s*\([^)]*\)\s*/', '');
 
             $name = __(
                 'common.withForwardSlash',

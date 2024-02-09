@@ -258,7 +258,6 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::drop('notification_subscription_settings');
         Schema::drop('notification_settings');
         Schema::drop('notifications');
-        Schema::drop('sessions');
         Schema::drop('user_settings');
         Schema::drop('users');
         Schema::drop('site_settings');

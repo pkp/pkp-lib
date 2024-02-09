@@ -78,7 +78,7 @@ class PKPTemplateManager extends Smarty {
 	private $_headers = [];
 
 	/** @var bool Track whether its backend page */
-	private bool $isBackendPage = false;
+	private $isBackendPage = false;
 
 
 	/**

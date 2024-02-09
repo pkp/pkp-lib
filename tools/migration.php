@@ -15,6 +15,8 @@
 
 require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 
+use APP\core\Application;
+
 class migrationTool extends \PKP\cliTool\CommandLineTool
 {
     /** @var string Name (fully qualified) of migration class */
@@ -72,6 +74,9 @@ class migrationTool extends \PKP\cliTool\CommandLineTool
      */
     public function execute()
     {
+        // setting the application as upgrading before running any migrations
+        Application::upgrade();
+
         $upgrade = new \APP\install\Upgrade([]);
         $upgrade->setLogger($this);
         $migration = new $this->class($upgrade, []);

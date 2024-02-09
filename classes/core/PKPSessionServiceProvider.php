@@ -2,13 +2,30 @@
 
 namespace PKP\core;
 
+use APP\core\Application;
+use PKP\middleware\PKPStartSession;
 use Illuminate\Session\SessionManager;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Contracts\Cache\Factory as CacheFactory;
-use PKP\middleware\PKPStartSession;
 
 class PKPSessionServiceProvider extends \Illuminate\Session\SessionServiceProvider
 {
+    /**
+     * Bootstrap any application services.
+     *
+     */
+    public function boot()
+    {
+        register_shutdown_function(function () {
+            if (Application::get()->isUnderMaintenance()) {
+                return;
+            }
+
+            // need to make sure that all changes to session(via pull/put) are reflected in session storage
+            Application::get()->getRequest()->getSessionGuard()->getSession()->save();
+        });
+    }
+
     /**
      * Register the service provider.
      *

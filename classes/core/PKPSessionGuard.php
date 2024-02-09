@@ -68,8 +68,11 @@ class PKPSessionGuard extends SessionGuard
     {
         $auth = app()->get('auth'); /** @var \PKP\core\PKPAuthManager $auth */
 
-        $this->session->put('signedInAs', $this->session->get('user_id'));
-        $this->session->put('password_hash_'.$auth->getDefaultDriver(), $user->getPassword());
+        $this->session->put([
+            'signedInAs' => $this->session->get('user_id'),
+            'password_hash_'.$auth->getDefaultDriver() => $user->getPassword(),
+        ]);
+
         $this
             ->setUserDataToSession($user)
             ->updateUser($user)
@@ -89,6 +92,7 @@ class PKPSessionGuard extends SessionGuard
         $this->session->forget('signedInAs');
 
         $this->session->put('password_hash_'.$auth->getDefaultDriver(), $user->getPassword());
+
         $this
             ->setUserDataToSession($user)
             ->updateUser($user)
@@ -230,6 +234,7 @@ class PKPSessionGuard extends SessionGuard
      *
      * @param  string  $password
      * @param  string  $attribute
+     * 
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      *
      * @throws \InvalidArgumentException
@@ -246,12 +251,9 @@ class PKPSessionGuard extends SessionGuard
             $rehash ??= Validation::encryptCredentials($user->getUsername(), $password);
             $user->setPassword($rehash);
             
-            $session = Application::get()->getRequest()->getSession();
-            $session->put([
+            Application::get()->getRequest()->getSession()->put([
                 'password_hash_' . app()->get('auth')->getDefaultDriver() => $rehash,
             ]);
-            $session->save();
-            $session->start();
 
             Repo::user()->edit($user);
         });

@@ -17,7 +17,6 @@
 namespace PKP\core;
 
 use APP\core\Application;
-use Illuminate\Support\Facades\Schema;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use PKP\config\Config;
@@ -914,14 +913,6 @@ class PKPRequest
 
         $returner = call_user_func_array($callable, $parameters);
         return $returner;
-    }
-
-    public function __destruct()
-    {
-        // need to make sure that all changes to session(via pull/put) are reflected in session storage
-        if (Schema::hasTable(app()?->get('config')?->get('session.table') ?? 'sessions')) {
-            $this->getSession()?->save();
-        }
     }
 }
 

@@ -23,7 +23,6 @@ use DateInterval;
 use Exception;
 use Illuminate\Support\Facades\Cache;
 use PKP\config\Config;
-use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use SimpleXMLElement;
@@ -168,7 +167,7 @@ class VersionCheck
         $pluginVersion = $versionInfo['version'];
         $namesToValidate = [$pluginVersion->getProduct(), $productType[1]];
         foreach ($namesToValidate as $nameToValidate) {
-            if (!PKPString::regexp_match('/[a-z][a-zA-Z0-9]+/', $nameToValidate)) {
+            if (!preg_match('/[a-z][a-zA-Z0-9]+/', $nameToValidate)) {
                 throw new Exception(__('manager.plugins.versionFileInvalid'));
             }
         }

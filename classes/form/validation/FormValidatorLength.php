@@ -16,7 +16,7 @@
 
 namespace PKP\form\validation;
 
-use PKP\core\PKPString;
+use Illuminate\Support\Str;
 
 class FormValidatorLength extends FormValidator
 {
@@ -72,7 +72,7 @@ class FormValidatorLength extends FormValidator
         if ($this->isEmptyAndOptional()) {
             return true;
         } else {
-            $length = PKPString::strlen($this->getFieldValue());
+            $length = Str::length($this->getFieldValue());
             switch ($this->_comparator) {
                 case '==':
                     return $length == $this->_length;

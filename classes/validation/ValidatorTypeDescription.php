@@ -17,7 +17,7 @@
 
 namespace PKP\validation;
 
-use PKP\core\PKPString;
+use Illuminate\Support\Str;
 use PKP\filter\PrimitiveTypeDescription;
 
 class ValidatorTypeDescription extends PrimitiveTypeDescription
@@ -72,12 +72,12 @@ class ValidatorTypeDescription extends PrimitiveTypeDescription
 
         // Validator name must start with a lower case letter
         // and may contain only alphanumeric letters.
-        if (!PKPString::regexp_match('/^[a-z][a-zA-Z0-9]+$/', $typeNameParts[0])) {
+        if (!preg_match('/^[a-z][a-zA-Z0-9]+$/', $typeNameParts[0])) {
             return false;
         }
 
         // Translate the validator name into a validator class name.
-        $this->_validatorClassName = 'Validator' . PKPString::ucfirst($typeNameParts[0]);
+        $this->_validatorClassName = 'Validator' . Str::ucfirst($typeNameParts[0]);
 
         return true;
     }

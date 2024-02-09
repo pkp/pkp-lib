@@ -19,7 +19,6 @@
 namespace PKP\controlledVocab;
 
 use PKP\core\PKPApplication;
-use PKP\core\PKPString;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
 
@@ -226,7 +225,7 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
             $contextId,
             $locale
         ];
-        $words = array_map(fn (string $word) => '%' . addcslashes($word, '%_') . '%', PKPString::regexp_split('/\s+/', trim($term ?? '')));
+        $words = array_map(fn (string $word) => '%' . addcslashes($word, '%_') . '%', preg_split('/\s+/u', trim($term ?? '')));
 
         $termFilter = '';
         if (count($words)) {

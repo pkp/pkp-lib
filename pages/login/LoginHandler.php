@@ -26,7 +26,6 @@ use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\core\PKPString;
 use PKP\form\validation\FormValidatorReCaptcha;
 use PKP\mail\mailables\PasswordResetRequested;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -84,7 +83,7 @@ class LoginHandler extends Handler
         // For force_login_ssl with base_url[...]: make sure SSL used for login form
         $loginUrl = $request->url(null, 'login', 'signIn');
         if (Config::getVar('security', 'force_login_ssl')) {
-            $loginUrl = PKPString::regexp_replace('/^http:/', 'https:', $loginUrl);
+            $loginUrl = preg_replace('/^http:/', 'https:', $loginUrl);
         }
         $templateMgr->assign('loginUrl', $loginUrl);
 

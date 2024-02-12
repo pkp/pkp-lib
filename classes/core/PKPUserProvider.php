@@ -14,6 +14,13 @@ use Illuminate\Contracts\Auth\Authenticatable as UserContract;
 class PKPUserProvider implements UserProvider
 {
     /**
+     * Unique Name of the PKP's own custom auth provider
+     *
+     * @var string
+     */
+    public const AUTH_PROVIDER = 'pkp_user_provider';
+
+    /**
      * The active database connection.
      *
      * @var \Illuminate\Database\ConnectionInterface

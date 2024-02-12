@@ -31,6 +31,7 @@ use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
+use PKP\core\PKPUserProvider;
 use PKP\proxy\ProxyParser;
 use Throwable;
 
@@ -126,11 +127,11 @@ class PKPContainer extends Container
         $this->app->singleton(\Illuminate\Http\Request::class, fn ($app) => $app->get('request'));
 
         $this->app->singleton(
-            'respone', 
+            'response', 
             fn ($app) => new \Illuminate\Http\Response(headers: $app->get('request')->headers->all())
         );
 
-        $this->app->singleton(\Illuminate\Http\Response::class, fn ($app) => $app->get('respone'));
+        $this->app->singleton(\Illuminate\Http\Response::class, fn ($app) => $app->get('response'));
 
         Facade::setFacadeApplication($this);
     }
@@ -350,7 +351,7 @@ class PKPContainer extends Container
             ],
             'providers' => [
                 'users' => [
-                    'driver' => 'pkp_user_provider',
+                    'driver' => PKPUserProvider::AUTH_PROVIDER,
                 ],
             ],
         ];
@@ -361,7 +362,7 @@ class PKPContainer extends Container
             'table' => 'sessions',
             'cookie' => Config::getVar('general', 'session_cookie_name'),
             'path' => Config::getVar('general', 'session_cookie_path', '/'),
-            'domain' => null,
+            'domain' => (new \APP\core\Request)->getServerHost(includePort: false),
             'secure' => Config::getVar('security', 'force_ssl', false),
             'lifetime' => Config::getVar('general', 'lifetime', 30) * 24 * 60, // lifetime need to set in minutes
             'lottery' => [2, 100],

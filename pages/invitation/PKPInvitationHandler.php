@@ -56,7 +56,7 @@ class PKPInvitationHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $this->setupTemplate($request);
         $context = $request->getContext();
-        $steps = $this->getSteps($request);
+        $steps = $this->getSteps($request,$invitation);
         $templateMgr->setState([
             'steps' => $steps,
             'createAccountApiUrl'=>$this->getCreateUserApiUrl($request),
@@ -101,14 +101,16 @@ class PKPInvitationHandler extends Handler
     /**
      * get user account create steps
      */
-    protected function getSteps(Request $request): array
+    protected function getSteps(Request $request,$invitation): array
     {
         $apiUrl = $this->getCreateUserApiUrl($request);
 
         $steps = [];
         $steps[] = $this->verifyOrcid();
-        $steps[] = $this->userCreate();
-        $steps[] = $this->getUserDetailsForm($request,$apiUrl);
+        if(!$invitation->userId){
+            $steps[] = $this->userCreate();
+            $steps[] = $this->getUserDetailsForm($request,$apiUrl,$invitation);
+        }
         $steps[] = $this->userCreateReview();
 
         return $steps;
@@ -143,10 +145,11 @@ class PKPInvitationHandler extends Handler
             'type' => 'form',
             'description' => __('invitation.userCreateDescription'),
             'sections' => [],
+            'reviewData'=>[]
         ];
     }
 
-    protected function getUserDetailsForm(Request $request,string $apiUrl): array
+    protected function getUserDetailsForm(Request $request,string $apiUrl,$invitation): array
     {
         $localeNames = $request->getContext()->getSupportedFormLocaleNames();
         $locales = [];
@@ -156,28 +159,14 @@ class PKPInvitationHandler extends Handler
                 'label' => $name,
             ];
         }
-        $contactForm = new UserDetailsForm($apiUrl, $locales);
-
+        $contactForm = new UserDetailsForm($apiUrl, $locales,$invitation);
         $sections = [
             [
                 'id' => 'userCreateDetailsForm',
-                'type'=>'form',
+                'type'=> 'form',
                 'description' => $request->getContext()->getLocalizedData('detailsHelp'),
                 'form' => $contactForm->getConfig(),
-            ],
-            [
-                'id' => 'userCreateRoles',
-                'type'=>'table',
-                'description' => '',
-                'rows' => [
-                    [
-                        'date_start'=>'2024-03-01',
-                        'date_end'=>'2025-01-01',
-                        'user_group_id'=>3,
-                        'setting_value'=>'test',
-                    ]
-                ]
-            ],
+            ]
         ];
 
         return [
@@ -199,11 +188,25 @@ class PKPInvitationHandler extends Handler
         return [
             'id' => 'userCreateReview',
             'name' => __('invitation.userCreateReview'),
-            'reviewName' => '',
+            'reviewName' => 'Roles',
             'stepName' => __('invitation.userCreateReviewStep'),
             'type' => 'review',
             'description' => __('invitation.userCreateReviewDescription'),
-            'sections' => [],
+            'sections' => [
+                [
+                    'id' => 'userCreateRoles',
+                    'type'=>'table',
+                    'description' => '',
+                    'rows' => [
+                        [
+                            'date_start'=>'2024-03-01',
+                            'date_end'=>'2025-01-01',
+                            'user_group_id'=>3,
+                            'setting_value'=>'test',
+                        ]
+                    ]
+                ]
+            ],
         ];
     }
 

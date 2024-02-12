@@ -8,7 +8,9 @@
 		"familyName",
 		"givenName",
 		"username",
-		"password"
+		"password",
+		"affiliation",
+		"country"
 	],
 	"properties": {
 		"email": {
@@ -50,17 +52,15 @@
 			"readOnly": true,
 			"apiSummary": true
 		},
-		"countyOfAffiliation": {
+		"country": {
 			"type": "string",
-			"validation": [
-				"nullable"
-			]
+			"readOnly": true,
+			"apiSummary": true
 		},
 		"affiliation": {
 			"type": "string",
-			"validation": [
-				"nullable"
-			]
+			"readOnly": true,
+			"apiSummary": true
 		},
 		"orcid": {
 			"type": "string",

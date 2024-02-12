@@ -257,4 +257,30 @@ class Invitation extends BaseRepository
         }
         return $errors;
     }
+
+    public function validateAcceptInvitation(array $props): array
+    {
+        $schemaService = Services::get('schema');
+        // Return early if no valid decision type exists
+
+        $validator = ValidatorFactory::make(
+            $props,
+            $schemaService->getValidationRules(PKPSchemaService::SCHEMA_ACCEPT_INVITATION, []),
+        );
+
+        // Check required
+        ValidatorFactory::required(
+            $validator,
+            null,
+            $schemaService->getRequiredProps(PKPSchemaService::SCHEMA_ACCEPT_INVITATION),
+            $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_ACCEPT_INVITATION),
+            [],
+            ''
+        );
+        $errors = [];
+        if ($validator->fails()) {
+            $errors = $schemaService->formatValidationErrors($validator->errors());
+        }
+        return $errors;
+    }
 }

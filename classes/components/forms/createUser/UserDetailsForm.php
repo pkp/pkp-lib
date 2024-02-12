@@ -21,7 +21,7 @@ class UserDetailsForm extends FormComponent
      * @param array $locales Supported locales
      * @param \PKP\context\Context $context Journal or Press to change settings for
      */
-    public function __construct($action, $locales)
+    public function __construct($action, $locales,$data)
     {
         $this->action = $action;
         $this->locales = $locales;
@@ -30,6 +30,7 @@ class UserDetailsForm extends FormComponent
             'label' => __('user.email'),
             'isRequired' => true,
             'size' => 'large',
+            'value'=>$data->email
         ]))
             ->addField(new FieldText('orcid', [
                 'label' => __('user.orcid'),
@@ -48,12 +49,12 @@ class UserDetailsForm extends FormComponent
             ]))
             ->addField(new FieldText('affiliation', [
                 'label' => __('user.affiliation'),
-                'isRequired' => false,
+                'isRequired' => true,
                 'size' => 'large',
             ]))
             ->addField(new FieldText('country', [
                 'label' => __('user.countyOfAffiliation'),
-                'isRequired' => false,
+                'isRequired' => true,
                 'size' => 'large',
             ]));
 

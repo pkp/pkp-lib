@@ -1,0 +1,22 @@
+{
+	"title": "Create user via accept invitation",
+	"description": "Create user account accept email invitation .",
+	"required": [
+		"invitationId",
+		"invitationKey"
+	],
+	"properties": {
+		"invitationId": {
+			"type": "integer",
+			"description": "Invitation id.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"invitationKey": {
+			"type": "string",
+			"description": "Invitation key.",
+			"readOnly": true,
+			"apiSummary": true
+		}
+	}
+}

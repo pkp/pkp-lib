@@ -65,8 +65,6 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      * use it; otherwise use the internal article Id.
      *
      * @return string
-     *
-     * @deprecated 3.2.0.0
      */
     public function getBestId()
     {

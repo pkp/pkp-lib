@@ -391,56 +391,6 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Install email template localized data from an XML file.
-     *
-     * @deprecated Since OJS/OMP 3.2, this data should be supplied via the non-localized email template list and PO files. (pkp/pkp-lib#5461)
-     *
-     * @param string $templateDataFile Filename to install
-     * @param string $locale Locale of template(s) to install
-     * @param string|null $emailKey If specified, the key of the single template
-     * to install (otherwise all are installed)
-     *
-     * @return array|boolean
-     */
-    public function installEmailTemplateData(
-        string $templateDataFile,
-        string $locale,
-        ?string $emailKey = null
-    ): bool {
-        $xmlDao = new XMLDAO();
-        $data = $xmlDao->parse($templateDataFile);
-        if (!$data) {
-            return false;
-        }
-
-        foreach ($data->getChildren() as $emailNode) {
-            $subject = $emailNode->getChildValue('subject');
-            $body = $emailNode->getChildValue('body');
-
-            // Translate variable contents
-            foreach ([&$subject, &$body] as &$var) {
-                $var = preg_replace_callback('{{translate key="([^"]+)"}}', fn ($matches) => __($matches[1], [], $locale), $var);
-            }
-
-            if ($emailKey && $emailKey != $emailNode->getAttribute('key')) {
-                continue;
-            }
-            DB::table($this->defaultTable)
-                ->where('email_key', $emailNode->getAttribute('key'))
-                ->where('locale', $locale)
-                ->delete();
-
-            DB::table($this->defaultTable)->insert([
-                'email_key' => $emailNode->getAttribute('key'),
-                'locale' => $locale,
-                'subject' => $subject,
-                'body' => $body,
-            ]);
-        }
-        return true;
-    }
-
-    /**
      * @param string $localizedData email template's localized subject or body
      */
     protected function renameApplicationVariables(string $localizedData): string

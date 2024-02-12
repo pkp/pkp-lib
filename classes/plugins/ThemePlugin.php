@@ -203,7 +203,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
         if (substr($style, (strlen(LESS_FILENAME_SUFFIX) * -1)) === LESS_FILENAME_SUFFIX) {
             $args['style'] = $this->_getBaseDir($style);
 
-            // Pass a URL for other files
+        // Pass a URL for other files
         } elseif (empty($args['inline'])) {
             if (isset($args['baseUrl'])) {
                 $args['style'] = $args['baseUrl'] . $style;
@@ -211,7 +211,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
                 $args['style'] = $this->_getBaseUrl($style);
             }
 
-            // Leave inlined styles alone
+        // Leave inlined styles alone
         } else {
             $args['style'] = $style;
         }
@@ -530,26 +530,6 @@ abstract class ThemePlugin extends LazyLoadPlugin
             $this->parent->getOptionsConfig(),
             $this->options
         );
-    }
-
-    /**
-     * Modify option configuration settings
-     *
-     * @deprecated Unnecessary since 3.2 because options are stored as objects,
-     *  so changes can be made directly (via reference) and args don't need to be
-     *  manually merged
-     *
-     * @param string $name The name of the option config to retrieve
-     * @param array $args The new configuration settings for this option
-     */
-    public function modifyOptionsConfig($name, $args = [])
-    {
-        $option = $this->getOption($name);
-        foreach ($args as $key => $value) {
-            if (property_exists($option, $key)) {
-                $option->{$key} = $value;
-            }
-        }
     }
 
     /**

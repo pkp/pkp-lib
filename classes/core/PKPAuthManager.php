@@ -7,14 +7,18 @@ use APP\core\Application;
 use InvalidArgumentException;
 use PKP\core\PKPSessionGuard;
 use PKP\core\PKPUserProvider;
-use Illuminate\Contracts\Auth\Factory as AuthFactory;
 
 class PKPAuthManager extends \Illuminate\Auth\AuthManager
 {
     /**
-     * Create a new Auth manager instance.
+     * @copydoc \Illuminate\Auth\AuthManager::$app
      *
-     * @param  \Illuminate\Contracts\Container\Container|\Illuminate\Container\Container  $app
+     * @var \Illuminate\Contracts\Foundation\Application|\PKP\core\PKPContainer
+     */
+    protected $app;
+
+    /**
+     * @copydoc \Illuminate\Auth\AuthManager::__construct($app)
      */
     public function __construct($app)
     {
@@ -31,12 +35,7 @@ class PKPAuthManager extends \Illuminate\Auth\AuthManager
     }
 
     /**
-     * Create the user provider implementation for the driver.
-     *
-     * @param  string|null  $provider
-     * @return \Illuminate\Contracts\Auth\UserProvider|null
-     *
-     * @throws \InvalidArgumentException
+     * @copydoc \Illuminate\Auth\AuthManager::createUserProvider($provider = null)
      */
     public function createUserProvider($provider = null)
     {
@@ -51,33 +50,27 @@ class PKPAuthManager extends \Illuminate\Auth\AuthManager
         }
 
         return match ($driver) {
-            'database'          => $this->createDatabaseProvider($config),
-            'eloquent'          => $this->createEloquentProvider($config),
-            'pkp_user_provider' => $this->createPKPUserProvider($config),
-            default             => throw new InvalidArgumentException(
-                                        "Authentication user provider [{$driver}] is not defined."
-                                    ),
+            'database'                      => $this->createDatabaseProvider($config),
+            'eloquent'                      => $this->createEloquentProvider($config),
+            PKPUserProvider::AUTH_PROVIDER  => $this->createPKPUserProvider($config),
+            default                         => throw new InvalidArgumentException(
+                                                "Authentication user provider [{$driver}] is not defined."
+                                            ),
         };
     }
 
     /**
      * Create an instance of the PKPUserProvider.
-     *
-     * @param  array  $config
-     * @return \PKP\core\PKPUserProvider
      */
-    public function createPKPUserProvider(array $config = [])
+    public function createPKPUserProvider(array $config = []): PKPUserProvider
     {
         return app()->get(PKPUserProvider::class);
     }
 
     /**
-     * Create a session based authentication guard.
-     *
-     * @param  string  $name
-     * @param  array  $config
+     * @copydoc \Illuminate\Auth\AuthManager::createSessionDriver($name, $config)
      * 
-     * @return \Illuminate\Auth\SessionGuard|\PKP\core\PKPSessionGuard
+     * @return \PKP\core\PKPSessionGuard
      */
     public function createSessionDriver($name, $config)
     {

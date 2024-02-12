@@ -5,6 +5,7 @@ namespace PKP\core;
 use Carbon\Carbon;
 use PKP\user\User;
 use APP\facades\Repo;
+use DateTimeInterface;
 use PKP\core\Registry;
 use APP\core\Application;
 use PKP\security\Validation;
@@ -19,14 +20,14 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 class PKPSessionGuard extends SessionGuard
 {
     /**
-     * The currently authenticated user.
+     * @copydoc \Illuminate\Auth\SessionGuard::$user
      *
      * @var \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User|null
      */
     protected $user;
 
     /**
-     * The user provider implementation.
+     * @copydoc \Illuminate\Auth\SessionGuard::$provider
      *
      * @var \Illuminate\Contracts\Auth\UserProvider|\PKP\core\PKPUserProvider
      */
@@ -34,11 +35,8 @@ class PKPSessionGuard extends SessionGuard
 
     /**
      * update the current user without firing any events or changes
-     *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable|User  $user
-     * @return $this
      */
-    public function updateUser(\Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User $user)
+    public function updateUser(AuthenticatableContract|User $user): self
     {
         $this->user = $user;
 
@@ -46,12 +44,9 @@ class PKPSessionGuard extends SessionGuard
     }
 
     /**
-     * Set the current user.
-     *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User  $user
-     * @return $this
+     * @copydoc \Illuminate\Auth\SessionGuard::setUser(AuthenticatableContract $user)
      */
-    public function setUser(AuthenticatableContract|\PKP\user\User $user)
+    public function setUser(AuthenticatableContract|User $user)
     {
         Registry::set('user', $user);
 
@@ -60,11 +55,8 @@ class PKPSessionGuard extends SessionGuard
 
     /**
      * Sign In as different user
-     *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User  $user
-     * @return void
      */
-    public function signInAs(AuthenticatableContract|\PKP\user\User $user)
+    public function signInAs(AuthenticatableContract|User $user): void
     {
         $auth = app()->get('auth'); /** @var \PKP\core\PKPAuthManager $auth */
 
@@ -81,11 +73,8 @@ class PKPSessionGuard extends SessionGuard
 
     /**
      * Sign Out from previously sign in as different user
-     *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User  $user
-     * @return void
      */
-    public function signOutAs(AuthenticatableContract|\PKP\user\User $user)
+    public function signOutAs(AuthenticatableContract|User $user): void
     {
         $auth = app()->get('auth'); /** @var \PKP\core\PKPAuthManager $auth */
 
@@ -101,11 +90,8 @@ class PKPSessionGuard extends SessionGuard
 
     /**
      * Set the user data to session
-     *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User $user
-     * @return $this
      */
-    public function setUserDataToSession(AuthenticatableContract|\PKP\user\User $user)
+    public function setUserDataToSession(AuthenticatableContract|User $user): self
     {
         $this->session->put('user_id',  $user->getId());
         $this->session->put('username', $user->getUsername());
@@ -115,10 +101,7 @@ class PKPSessionGuard extends SessionGuard
     }
 
     /**
-     * Update the session with the given ID.
-     *
-     * @param  string  $id
-     * @return void
+     * @copydoc \Illuminate\Auth\SessionGuard::updateSession($id)
      */
     public function updateSession($id)
     {
@@ -131,11 +114,8 @@ class PKPSessionGuard extends SessionGuard
 
     /**
      * Update the session instance to laravel request singleton object
-     *
-     * @param \Illuminate\Contracts\Session\Session $session
-     * @return void
      */
-    public function updateLaravelSession($session)
+    public function updateLaravelSession(Session $session): void
     {
         $request = app()->get('request'); /** @var \Illuminate\Http\Request $request */
         $request->setLaravelSession($session);
@@ -143,11 +123,8 @@ class PKPSessionGuard extends SessionGuard
 
     /**
      * Get the session store used by the guard.
-     *
-     * @param \Illuminate\Contracts\Session\Session $session
-     * @return $this
      */
-    public function setSession(\Illuminate\Contracts\Session\Session $session)
+    public function setSession(Session $session): self
     {
         $this->session = $session;
 
@@ -156,9 +133,6 @@ class PKPSessionGuard extends SessionGuard
 
     /**
      * Update session cookie based in the response
-     *
-     * @param \Illuminate\Contracts\Auth\Authenticatable|null
-     * @return void
      */
     public function updateSessionCookieToResponse(Session $session = null): void
     {   
@@ -201,10 +175,8 @@ class PKPSessionGuard extends SessionGuard
 
     /**
      * Send the cookie headers
-     *
-     * @return void
      */
-    public function sendCookies()
+    public function sendCookies(): void
     {
         $response = app()->get(\Illuminate\Http\Response::class); /** @var \Illuminate\Http\Response $response */
 
@@ -221,7 +193,7 @@ class PKPSessionGuard extends SessionGuard
      * 
      * @return void
      */
-    public function invalidateOtherSessions($userId, $excludableSessionId = null)
+    public function invalidateOtherSessions(int $userId, string $excludableSessionId = null): void
     {
         DB::table('sessions')
             ->where($this->provider->createUserInstance()->getAuthIdentifierName(), $userId)
@@ -230,14 +202,7 @@ class PKPSessionGuard extends SessionGuard
     }
 
     /**
-     * Rehash the current user's password.
-     *
-     * @param  string  $password
-     * @param  string  $attribute
-     * 
-     * @return \Illuminate\Contracts\Auth\Authenticatable|null
-     *
-     * @throws \InvalidArgumentException
+     * @copydoc \Illuminate\Auth\SessionGuard::rehashUserPassword($password, $attribute)
      */
     protected function rehashUserPassword($password, $attribute)
     {
@@ -261,10 +226,8 @@ class PKPSessionGuard extends SessionGuard
 
     /**
      * Get the cookie lifetime in seconds.
-     *
-     * @return \DateTimeInterface|int
      */
-    protected function getCookieExpirationDate(array $config)
+    protected function getCookieExpirationDate(array $config): DateTimeInterface|int
     {
         return $config['expire_on_close'] ? 0 : Date::instance(
             Carbon::now()->addRealMinutes($config['lifetime'])

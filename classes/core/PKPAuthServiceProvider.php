@@ -11,18 +11,19 @@ use Illuminate\Contracts\Auth\Factory as AuthFactory;
 
 class PKPAuthServiceProvider extends \Illuminate\Auth\AuthServiceProvider
 {
+    /**
+     * Bootstrap any application services.
+     */
     public function boot()
     {
         Auth::provider(
-            'pkp_user_provider',
+            PKPUserProvider::AUTH_PROVIDER,
             fn ($app, array $config) => $app->get(PKPUserProvider::class)
         );
     }
 
     /**
-     * Register the service provider.
-     *
-     * @return void
+     * @copydoc \Illuminate\Auth\AuthServiceProvider::register()
      */
     public function register()
     {
@@ -48,9 +49,7 @@ class PKPAuthServiceProvider extends \Illuminate\Auth\AuthServiceProvider
     }
 
     /**
-     * Register the authenticator services.
-     *
-     * @return void
+     * @copydoc \Illuminate\Auth\AuthServiceProvider::registerAuthenticator()
      */
     protected function registerAuthenticator()
     {

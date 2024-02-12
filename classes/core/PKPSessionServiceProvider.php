@@ -12,7 +12,6 @@ class PKPSessionServiceProvider extends \Illuminate\Session\SessionServiceProvid
 {
     /**
      * Bootstrap any application services.
-     *
      */
     public function boot()
     {
@@ -31,9 +30,7 @@ class PKPSessionServiceProvider extends \Illuminate\Session\SessionServiceProvid
     }
 
     /**
-     * Register the service provider.
-     *
-     * @return void
+     * @copydoc \Illuminate\Session\SessionServiceProvider::register()
      */
     public function register()
     {

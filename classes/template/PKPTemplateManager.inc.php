@@ -1012,6 +1012,7 @@ class PKPTemplateManager extends Smarty {
 					}
 
 					if (count(array_intersect([ROLE_ID_MANAGER, ROLE_ID_SUB_EDITOR], $userRoles))) {
+						AppLocale::requireComponents([LOCALE_COMPONENT_PKP_MANAGER]); // pkp/pkp-lib#9721
 						$menu['statistics'] = [
 							'name' => __('navigation.tools.statistics'),
 							'submenu' => [

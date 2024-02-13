@@ -149,7 +149,7 @@ class DecisionHandler extends Handler
             'fileGenres' => $this->getFileGenres($context),
             'keepWorkingLabel' => __('common.keepWorking'),
             'reviewRoundId' => $this->reviewRound ? $this->reviewRound->getId() : null,
-            'stageId' => $this->submission->getStageId(),
+            'stageId' => $this->submission->getData('stageId'),
             'stepErrorMessage' => __('editor.decision.stepError'),
             'steps' => $steps->getState(),
             'submissionUrl' => $dispatcher->url(

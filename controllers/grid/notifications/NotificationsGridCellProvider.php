@@ -182,6 +182,6 @@ class NotificationsGridCellProvider extends GridCellProvider
         $submission = Repo::submission()->get($submissionId);
         assert($submission instanceof \APP\submission\Submission);
 
-        return $submission->getLocalizedTitle();
+        return $submission->getCurrentPublication()->getLocalizedTitle();
     }
 }

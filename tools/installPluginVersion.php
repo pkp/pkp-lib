@@ -98,9 +98,6 @@ class InstallPluginVersionTool extends \PKP\cliTool\CommandLineTool
         if ($plugin->getInstallEmailTemplatesFile()) {
             $plugin->installEmailTemplates('Installer::postInstall', $param);
         }
-        if ($plugin->getInstallEmailTemplateDataFile()) {
-            $plugin->installEmailTemplateData('Installer::postInstall', $param);
-        }
         $plugin->installFilters('Installer::postInstall', $param);
         return $result;
     }

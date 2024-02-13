@@ -496,7 +496,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         $roleId = $userGroup->getRoleId();
 
         $sectionId = $submission->getSectionId();
-        $contextId = $submission->getContextId();
+        $contextId = $submission->getData('contextId');
 
         $userList = [];
         foreach ($users as $user) {

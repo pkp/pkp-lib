@@ -201,7 +201,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
                 [
                     'fileId' => $fileId,
                     'name' => [
-                        $this->_submission->getLocale() => $_FILES['uploadedFile']['name'],
+                        $this->_submission->getData('locale') => $_FILES['uploadedFile']['name'],
                     ],
                     'uploaderUserId' => $user->getId(),
                 ]
@@ -212,7 +212,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
             $submissionFile = Repo::submissionFile()->dao->newDataObject();
             $submissionFile->setData('fileId', $fileId);
             $submissionFile->setData('fileStage', $this->getData('fileStage'));
-            $submissionFile->setData('name', $_FILES['uploadedFile']['name'], $this->_submission->getLocale());
+            $submissionFile->setData('name', $_FILES['uploadedFile']['name'], $this->_submission->getData('locale'));
             $submissionFile->setData('submissionId', $this->getData('submissionId'));
             $submissionFile->setData('uploaderUserId', $user->getId());
             $submissionFile->setData('assocType', $this->getData('assocType') ? (int) $this->getData('assocType') : null);

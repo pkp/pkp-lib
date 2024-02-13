@@ -284,7 +284,7 @@ class AuthorGridHandler extends GridHandler
         }
 
         // Incomplete submissions can be edited. (Presumably author.)
-        if ($submission->getDateSubmitted() == null) {
+        if ($submission->getData('dateSubmitted') == null) {
             return true;
         }
 

@@ -95,6 +95,7 @@ class ReviewerReviewForm extends Form
             'reviewAssignment' => $this->getReviewAssignment(),
             'reviewIsClosed' => $this->getReviewAssignment()->getDateCompleted() || $this->getReviewAssignment()->getCancelled(),
             'step' => $this->getStep(),
+            'currentPublication' => $this->getReviewSubmission()->getCurrentPublication(),
         ]);
         return parent::fetch($request, $template, $display);
     }

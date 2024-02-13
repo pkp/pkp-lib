@@ -71,7 +71,7 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler
         $templateMgr = TemplateManager::getManager($request);
         $user = $request->getUser();
         // Do not display the History tab if the user is not a manager or a sub-editor
-        $userHasRole = $user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $this->_submission->getContextId());
+        $userHasRole = $user->hasRole([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $this->_submission->getData('contextId'));
         $templateMgr->assign('removeHistoryTab', !$userHasRole || !$this->_isCurrentUserAssignedEditor);
         return parent::viewInformationCenter($args, $request);
     }

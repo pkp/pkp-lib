@@ -7,7 +7,7 @@
  *
  * Display the editorial stage on the author dashboard.
  *}
-{if $submission->getStageId() >= $smarty.const.WORKFLOW_STAGE_ID_EDITING}
+{if $submission->getData('stageId') >= $smarty.const.WORKFLOW_STAGE_ID_EDITING}
 	<!-- Display editor's message to the author -->
 	{include file="authorDashboard/submissionEmails.tpl" submissionEmails=$copyeditingEmails}
 

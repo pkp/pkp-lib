@@ -278,8 +278,8 @@ class PKPStageParticipantNotifyForm extends Form
                 break;
         }
 
-        if ($submission->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
-            $submission->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
+        if ($submission->getData('stageId') == WORKFLOW_STAGE_ID_EDITING ||
+            $submission->getData('stageId') == WORKFLOW_STAGE_ID_PRODUCTION) {
             $notificationMgr = new NotificationManager();
             $notificationMgr->updateNotification(
                 $request,

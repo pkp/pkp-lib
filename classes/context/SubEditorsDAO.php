@@ -238,7 +238,7 @@ class SubEditorsDAO extends \PKP\db\DAO
                 Application::get()->getRequest(),
                 $assignment->userId,
                 Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
-                $submission->getContextId(),
+                $submission->getData('contextId'),
                 Application::ASSOC_TYPE_SUBMISSION,
                 $submission->getId()
             );

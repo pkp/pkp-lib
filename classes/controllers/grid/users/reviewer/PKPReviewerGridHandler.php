@@ -332,7 +332,7 @@ class PKPReviewerGridHandler extends GridHandler
         return Repo::reviewAssignment()->getCollector()
             ->filterByReviewRoundIds([$reviewRound->getId()])
             ->getMany()
-            ->keyBy(fn(ReviewAssignment $reviewAssignment, int $key) => $reviewAssignment->getId())
+            ->keyBy(fn (ReviewAssignment $reviewAssignment, int $key) => $reviewAssignment->getId())
             ->sortKeys()
             ->toArray();
     }
@@ -1049,7 +1049,7 @@ class PKPReviewerGridHandler extends GridHandler
         $mailable->sender($user);
         $mailable->addData([
             'messageToReviewer' => __('reviewer.step1.requestBoilerplate'),
-            'abstractTermIfEnabled' => ($this->getSubmission()->getLocalizedAbstract() == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
+            'abstractTermIfEnabled' => ($this->getSubmission()->getCurrentPublication()->getLocalizedData('abstract') == '' ? '' : __('common.abstract')), // Deprecated; for OJS 2.x templates
         ]);
 
         $body = Mail::compileParams($template->getLocalizedData('body'), $mailable->getData(Locale::getLocale()));

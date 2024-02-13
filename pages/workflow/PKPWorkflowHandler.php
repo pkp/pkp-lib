@@ -101,7 +101,7 @@ abstract class PKPWorkflowHandler extends Handler
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        $currentStageId = $submission->getStageId();
+        $currentStageId = $submission->getData('stageId');
         $accessibleWorkflowStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         $workflowRoles = Application::getWorkflowTypeRoles();
         $editorialWorkflowRoles = $workflowRoles[PKPApplication::WORKFLOW_TYPE_EDITORIAL];
@@ -145,8 +145,8 @@ abstract class PKPWorkflowHandler extends Handler
         $requestedStageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
 
         $submissionContext = $request->getContext();
-        if ($submission->getContextId() !== $submissionContext->getId()) {
-            $submissionContext = Services::get('context')->get($submission->getContextId());
+        if ($submission->getData('contextId') !== $submissionContext->getId()) {
+            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
         }
 
         $workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
@@ -166,7 +166,7 @@ abstract class PKPWorkflowHandler extends Handler
         // the active stage id or if they are assigned as an editor or if
         // they are not assigned in any role and have a manager role in the
         // context.
-        $currentStageId = $submission->getStageId();
+        $currentStageId = $submission->getData('stageId');
         $accessibleWorkflowStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         $canAccessPublication = false; // View title, metadata, etc.
         $canEditPublication = Repo::submission()->canEditPublication($submission->getId(), $request->getUser()->getId());
@@ -196,8 +196,8 @@ abstract class PKPWorkflowHandler extends Handler
             if (empty($result) && is_array($accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION])) {
                 $canPublish = (bool) array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION] ?? []);
 
-                // Otherwise, check stage assignments
-                // "Recommend only" stage assignments can not publish
+            // Otherwise, check stage assignments
+            // "Recommend only" stage assignments can not publish
             } else {
                 foreach ($result as $stageAssignment) {
                     foreach ($workflowUserGroups as $workflowUserGroup) {
@@ -411,6 +411,7 @@ abstract class PKPWorkflowHandler extends Handler
         }
 
         $templateMgr->setState($state);
+        $publication = $submission->getLatestPublication();
 
         $templateMgr->assign([
             'canAccessEditorialHistory' => $canAccessEditorialHistory,
@@ -422,8 +423,8 @@ abstract class PKPWorkflowHandler extends Handler
             'metadataEnabled' => $metadataEnabled,
             'pageComponent' => 'WorkflowPage',
             'pageTitle' => implode(__('common.titleSeparator'), array_filter([
-                $submission->getLatestPublication()->getShortAuthorString(),
-                $submission->getLocalizedTitle()
+                $publication->getShortAuthorString(),
+                $publication->getLocalizedTitle()
             ])),
             'pageWidth' => TemplateManager::PAGE_WIDTH_WIDE,
             'requestedStageId' => $requestedStageId,
@@ -646,9 +647,9 @@ abstract class PKPWorkflowHandler extends Handler
             }
         }
 
-        $hasSubmissionPassedThisStage = $submission->getStageId() > $stageId;
+        $hasSubmissionPassedThisStage = $submission->getData('stageId') > $stageId;
         $lastDecision = null;
-        switch ($submission->getStatus()) {
+        switch ($submission->getData('status')) {
             case PKPSubmission::STATUS_QUEUED:
                 switch ($stageId) {
                     case WORKFLOW_STAGE_ID_SUBMISSION:

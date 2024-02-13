@@ -86,10 +86,10 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
         assert($assocType == Application::ASSOC_TYPE_SUBMISSION);
         $submissionId = $assocId;
         $submission = Repo::submission()->get($submissionId);
-        $contextId = $submission->getContextId();
+        $contextId = $submission->getData('contextId');
 
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $editorStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submissionId, $submission->getStageId());
+        $editorStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submissionId, $submission->getData('stageId'));
 
         // Get the copyediting and production discussions
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var \PKP\query\QueryDAO $queryDao */
@@ -114,7 +114,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
         $notificationType = $this->getNotificationType();
 
         foreach ($editorStageAssignments as $editorStageAssignment) {
-            switch ($submission->getStageId()) {
+            switch ($submission->getData('stageId')) {
                 case WORKFLOW_STAGE_ID_PRODUCTION:
                     if ($notificationType == PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR || $notificationType == PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS) {
                         // Remove 'assign a copyeditor' and 'awaiting copyedits' notification

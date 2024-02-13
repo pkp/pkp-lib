@@ -138,7 +138,7 @@ class WorkflowStageDAO extends \PKP\db\DAO
      */
     public static function getStageStatusesBySubmission($submission, $stagesWithDecisions, $stageNotifications)
     {
-        $currentStageId = $submission->getStageId();
+        $currentStageId = $submission->getData('stageId');
         $workflowStages = self::getWorkflowStageKeysAndPaths();
 
         foreach ($workflowStages as $stageId => $stageData) {

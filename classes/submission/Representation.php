@@ -158,30 +158,6 @@ class Representation extends \PKP\core\DataObject
     }
 
     /**
-     * Get the remote URL at which this representation is retrievable.
-     *
-     * @return string
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function getRemoteURL()
-    {
-        return $this->getData('urlRemote');
-    }
-
-    /**
-     * Set the remote URL for retrieving this representation.
-     *
-     * @param string $remoteURL
-     *
-     * @deprecated 3.2.0.0
-     */
-    public function setRemoteURL($remoteURL)
-    {
-        return $this->setData('urlRemote', $remoteURL);
-    }
-
-    /**
      * Get the context id from the submission assigned to this representation.
      *
      * @return int
@@ -190,7 +166,7 @@ class Representation extends \PKP\core\DataObject
     {
         $publication = Repo::publication()->get($this->getData('publicationId'));
         $submission = Repo::submission()->get($publication->getData('submissionId'));
-        return $submission->getContextId();
+        return $submission->getData('contextId');
     }
 
     /**

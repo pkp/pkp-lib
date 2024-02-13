@@ -7,7 +7,7 @@
  *
  * Display the external review stage on the author dashboard.
  *}
-{if $submission->getStageId() >= $smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW && count($reviewRounds)}
+{if $submission->getData('stageId') >= $smarty.const.WORKFLOW_STAGE_ID_EXTERNAL_REVIEW && count($reviewRounds)}
 	{include file="authorDashboard/reviewRoundTab.tpl" reviewRounds=$reviewRounds reviewRoundTabsId="externalReviewRoundTabs" lastReviewRoundNumber=$lastReviewRoundNumber}
 
 	<!-- Display queries grid -->

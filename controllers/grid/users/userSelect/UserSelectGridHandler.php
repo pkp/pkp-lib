@@ -133,7 +133,7 @@ class UserSelectGridHandler extends GridHandler
         $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
         $collector = Repo::user()->getCollector()
-            ->filterByContextIds([$submission->getContextId()])
+            ->filterByContextIds([$submission->getData('contextId')])
             ->filterExcludeSubmissionStage($submission->getId(), $stageId, $filterUserGroupId)
             ->searchPhrase($name)
             ->limit($rangeInfo->getCount())

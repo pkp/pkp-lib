@@ -88,7 +88,7 @@ class AuthorDashboardTabHandler extends Handler
         $templateMgr->assign('canAccessCopyeditingStage', $canAccessCopyeditingStage);
 
         // Workflow-stage specific "upload file" action.
-        $currentStage = $submission->getStageId();
+        $currentStage = $submission->getData('stageId');
 
         $templateMgr->assign('lastReviewRoundNumber', $this->_getLastReviewRoundNumber($submission, $currentStage));
 

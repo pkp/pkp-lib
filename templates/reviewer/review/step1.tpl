@@ -35,11 +35,12 @@
 	{fbvFormSection title="reviewer.step1.request"}
 		<p>{$reviewerRequest|nl2br}</p>
 	{/fbvFormSection}
+	{assign var="publication" value=$submission->getCurrentPublication()}
 	{fbvFormSection label="submission.title"}
-		{$submission->getLocalizedTitle()|strip_unsafe_html}
+		{$currentPublication->getLocalizedTitle()|strip_unsafe_html}
 	{/fbvFormSection}
 	{fbvFormSection label=$descriptionFieldKey}
-		{$submission->getLocalizedAbstract()|strip_unsafe_html}
+		{$currentPublication->getLocalizedData('abstract')|strip_unsafe_html}
 	{/fbvFormSection}
 
 	{fbvFormSection label="editor.submissionReview.reviewType"}

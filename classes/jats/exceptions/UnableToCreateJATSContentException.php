@@ -14,11 +14,11 @@
 namespace PKP\jats\exceptions;
 
 use Exception;
+use Throwable;
 
 class UnableToCreateJATSContentException extends Exception
 {
-
-    public function __construct(public ?Exception $innerException = null)
+    public function __construct(public ?Throwable $innerException = null)
     {
         parent::__construct(__('publication.jats.defaultContentCreationError'), null, $innerException);
     }

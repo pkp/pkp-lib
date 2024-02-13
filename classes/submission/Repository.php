@@ -190,7 +190,7 @@ abstract class Repository
 
         // Send authors, journal managers and site admins to the submission
         // wizard for incomplete submissions
-        if ($submission->getSubmissionProgress() &&
+        if ($submission->getData('submissionProgress') &&
             ($authorDashboard ||
                 $user->hasRole([Role::ROLE_ID_MANAGER], $submissionContext->getId()) ||
                 $user->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::CONTEXT_SITE))) {
@@ -262,7 +262,7 @@ abstract class Repository
      */
     public function validate(?Submission $submission, array $props, Context $context): array
     {
-        $primaryLocale = $props['locale'] ?? $submission?->getLocale() ?? $context->getPrimaryLocale();
+        $primaryLocale = $props['locale'] ?? $submission?->getData('locale') ?? $context->getPrimaryLocale();
         $allowedLocales = $context->getSupportedSubmissionLocales();
 
         $errors = [];
@@ -378,7 +378,7 @@ abstract class Repository
         // Author names required in submission locale
         foreach ($publication->getData('authors') as $author) {
             /** @var Author $author */
-            if (!$author->getGivenName($submission->getLocale())) {
+            if (!$author->getGivenName($submission->getData('locale'))) {
                 if (!isset($errors['contributors'])) {
                     $errors['contributors'] = [];
                 }
@@ -1200,7 +1200,6 @@ abstract class Repository
      * Checks if this user is granted access to preview
      * based on their roles in the context (i.e. Manager, Editor, etc).
      *
-     * @param User $user
      *
      */
     protected function _roleCanPreview(?User $user, Submission $submission): bool

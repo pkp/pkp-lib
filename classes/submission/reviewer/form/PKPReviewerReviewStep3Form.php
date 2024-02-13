@@ -170,7 +170,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         ]);
 
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getStageId());
+        $stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getData('stageId'));
 
         $receivedList = []; // Avoid sending twice to the same user.
 
@@ -190,7 +190,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
                 Application::get()->getRequest(),
                 $userId,
                 PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
-                $submission->getContextId(),
+                $submission->getData('contextId'),
                 PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 $reviewAssignment->getId()
             );

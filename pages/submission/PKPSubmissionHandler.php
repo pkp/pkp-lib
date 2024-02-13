@@ -837,8 +837,8 @@ abstract class PKPSubmissionHandler extends Handler
     {
         $config = $form->getConfig();
 
-        $config['primaryLocale'] = $submission->getLocale();
-        $config['visibleLocales'] = [$submission->getLocale()];
+        $config['primaryLocale'] = $submission->getData('locale');
+        $config['visibleLocales'] = [$submission->getData('locale')];
 
         $supportedFormLocales = [];
         foreach ($context->getSupportedSubmissionLocaleNames() as $localeKey => $name) {
@@ -848,7 +848,7 @@ abstract class PKPSubmissionHandler extends Handler
             ];
         }
 
-        usort($supportedFormLocales, fn ($a, $b) => $a['key'] === $submission->getLocale() ? -1 : 1);
+        usort($supportedFormLocales, fn ($a, $b) => $a['key'] === $submission->getData('locale') ? -1 : 1);
 
         $config['supportedFormLocales'] = $supportedFormLocales;
 

@@ -73,7 +73,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
                         $representation->setSequence($n->textContent);
                         break;
                     case 'remote':
-                        $representation->setRemoteURL(($remoteUrl = $n->getAttribute('src')) ? $remoteUrl : null);
+                        $representation->setData('urlRemote', $n->getAttribute('src') ?: null);
                         break;
                 }
             }

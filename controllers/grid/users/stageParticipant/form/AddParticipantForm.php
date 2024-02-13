@@ -58,7 +58,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
         $this->_submission = $submission;
         $this->_stageId = $stageId;
         $this->_assignmentId = $assignmentId;
-        $this->_contextId = $submission->getContextId();
+        $this->_contextId = $submission->getData('contextId');
 
         // add checks in addition to anything that the Notification form may apply.
         // FIXME: should use a custom validator to check that the userId belongs to this group.
@@ -197,7 +197,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
         // If submission is in review, add a list of reviewer Ids that should not be
         // assigned as participants because they have anonymous peer reviews in progress
         $anonymousReviewerIds = [];
-        if (in_array($this->getSubmission()->getStageId(), [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
+        if (in_array($this->getSubmission()->getData('stageId'), [WORKFLOW_STAGE_ID_INTERNAL_REVIEW, WORKFLOW_STAGE_ID_EXTERNAL_REVIEW])) {
             $anonymousReviewMethods = [
                 \PKP\submission\reviewAssignment\ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS,
                 \PKP\submission\reviewAssignment\ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS
@@ -206,7 +206,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
             $anonymousReviews = Repo::reviewAssignment()->getCollector()
                 ->filterBySubmissionIds([$this->getSubmission()->getId()])
                 ->getMany()
-                ->filter(fn(ReviewAssignment $reviewAssignment) =>
+                ->filter(fn (ReviewAssignment $reviewAssignment) =>
                     in_array($reviewAssignment->getReviewMethod(), $anonymousReviewMethods) && !$reviewAssignment->getDeclined())
                 ->toArray();
 

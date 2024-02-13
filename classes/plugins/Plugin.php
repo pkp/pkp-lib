@@ -125,9 +125,6 @@ abstract class Plugin
             Hook::add('Installer::postInstall', $this->installEmailTemplates(...));
             Hook::add('Locale::installLocale', $this->installLocale(...));
         }
-        if ($this->getInstallEmailTemplateDataFile()) {
-            Hook::add('Installer::postInstall', $this->installEmailTemplateData(...));
-        }
         if ($this->getContextSpecificPluginSettingsFile()) {
             Hook::add('Context::add', $this->installContextSpecificSettings(...));
         }
@@ -279,16 +276,11 @@ abstract class Plugin
     }
 
     /**
-     * Get the filename of the email template data for this plugin.
-     * Subclasses using email templates should override this.
-     *
      * @deprecated Starting with OJS/OMP 3.2, localized content should be specified via getInstallEmailTemplatesFile(). (pkp/pkp-lib#5461)
-     *
-     * @return string
      */
-    public function getInstallEmailTemplateDataFile()
+    final public function getInstallEmailTemplateDataFile()
     {
-        return null;
+        throw new Exception('Use getInstallEmailTemplatesFile instead of deprecated getInstallEmailTemplateDataFile. See: https://docs.pkp.sfu.ca/dev/release-notebooks/en/3.2-release-notebook#email-templates-now-use-po-files');
     }
 
     /**
@@ -425,7 +417,7 @@ abstract class Plugin
      */
     public function _overridePluginTemplates($hookName, $args)
     {
-        $filePath = & $args[0];
+        $filePath = &$args[0];
         $template = $args[1];
         $checkFilePath = $filePath;
 
@@ -587,8 +579,8 @@ abstract class Plugin
      */
     public function installEmailTemplates($hookName, $args)
     {
-        $installer = & $args[0]; /** @var Installer $installer */
-        $result = & $args[1];
+        $installer = &$args[0]; /** @var Installer $installer */
+        $result = &$args[1];
 
         // Load email template data as required from the locale files.
         $locales = [];
@@ -610,37 +602,6 @@ abstract class Plugin
     }
 
     /**
-     * Callback used to install email template data.
-     *
-     * @deprecated Email template data should be installed via installEmailTemplates (pkp/pkp-lib#5461)
-     *
-     * @param string $hookName
-     * @param array $args
-     *
-     * @return bool
-     */
-    public function installEmailTemplateData($hookName, $args)
-    {
-        $installer = & $args[0];
-        $result = & $args[1];
-
-        foreach ($installer->installedLocales as $locale) {
-            $filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
-            if (!file_exists($filename)) {
-                continue;
-            }
-            $sql = Repo::emailTemplate()->dao->installEmailTemplateData($filename, $locale, true);
-            if ($sql) {
-                $result = $installer->executeSQL($sql);
-            } else {
-                $installer->setError(Installer::INSTALLER_ERROR_DB, str_replace('{$file}', $filename, __('installer.installParseEmailTemplatesFileError')));
-                $result = false;
-            }
-        }
-        return false;
-    }
-
-    /**
      * Callback used to install email template data on locale install.
      *
      * @param string $hookName
@@ -650,16 +611,7 @@ abstract class Plugin
      */
     public function installLocale($hookName, $args)
     {
-        $locale = & $args[0];
-        $filename = str_replace('{$installedLocale}', $locale, $this->getInstallEmailTemplateDataFile());
-
-        // Since pkp/pkp-lib#5461, there are two ways to specify localized email data in plugins.
-        // Install locale data specified in the old form. (Deprecated!)
-        if ($this->getInstallEmailTemplateDataFile()) {
-            Repo::emailTemplate()->dao->installEmailTemplateData($filename, $locale);
-        }
-
-        // Install locale data specified in the new form.
+        $locale = &$args[0];
         if (file_exists($this->getPluginPath() . "/locale/{$locale}/emails.po")) {
             $this->addLocaleData();
             Repo::emailTemplate()->dao->installEmailTemplateLocaleData($this->getInstallEmailTemplatesFile(), [$locale]);
@@ -675,8 +627,8 @@ abstract class Plugin
      */
     public function installFilters($hookName, $args)
     {
-        $installer = & $args[0]; /** @var Installer $installer */
-        $result = & $args[1]; /** @var bool $result */
+        $installer = &$args[0]; /** @var Installer $installer */
+        $result = &$args[1]; /** @var bool $result */
 
         // Get the filter configuration file name(s).
         $filterConfigFiles = $this->getInstallFilterConfigFiles();
@@ -715,8 +667,8 @@ abstract class Plugin
      */
     public function updateSchema($hookName, $args)
     {
-        $installer = & $args[0];
-        $result = & $args[1];
+        $installer = &$args[0];
+        $result = &$args[1];
 
         if ($migration = $this->getInstallMigration()) {
             try {
@@ -778,7 +730,7 @@ abstract class Plugin
     public function &getRequest()
     {
         if (!$this->request) {
-            $this->request = & Registry::get('request');
+            $this->request = &Registry::get('request');
         }
         return $this->request;
     }

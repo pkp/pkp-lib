@@ -134,7 +134,7 @@ abstract class Repository
     public function validate(?Publication $publication, array $props, Submission $submission, Context $context): array
     {
         $allowedLocales = $context->getSupportedSubmissionLocales();
-        $primaryLocale = $submission->getLocale();
+        $primaryLocale = $submission->getData('locale');
 
         $errors = [];
 

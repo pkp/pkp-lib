@@ -499,15 +499,12 @@ class Collector implements CollectorInterface
                     // This aggregates a column role_count, which holds an information whether user holds specified role
                     fn (Builder $subQuery) => $subQuery->leftJoinSub(
                         $joinSub
-                            ->select('uug.user_id', 'ug.role_id')
-                            ->selectRaw('COUNT(uug.user_id) IS NOT NULL as role_count')
-                            ->havingRaw('COUNT(uug.user_id) >= 1')
-                            ->whereIn('ug.role_id', $this->excludeRoles)
-                            ->groupBy('uug.user_id', 'ug.role_id'),
+                            ->select('uug.user_id')
+                            ->whereIn('ug.role_id', $this->excludeRoles),
                         'agr',
                         'uug.user_id',
                         'agr.user_id'
-                    )->whereNull('agr.role_count')
+                    )->whereNull('agr.user_id')
                 )
             );
 

@@ -243,7 +243,7 @@ class PreprintHandler extends Handler
             }, $supplementaryGenres);
 
             foreach ($galleys as $galley) {
-                $remoteUrl = $galley->getRemoteURL();
+                $remoteUrl = $galley->getData('urlRemote');
                 $file = $galley->getFile();
                 if (!$remoteUrl && !$file) {
                     continue;
@@ -281,8 +281,8 @@ class PreprintHandler extends Handler
         ]);
 
         // Fetch and assign the galley to the template
-        if ($this->galley && $this->galley->getRemoteURL()) {
-            $request->redirectUrl($this->galley->getRemoteURL());
+        if ($this->galley && $remoteUrl = $this->galley->getData('urlRemote')) {
+            $request->redirectUrl($remoteUrl);
         }
 
         if (empty($this->galley)) {
@@ -340,8 +340,8 @@ class PreprintHandler extends Handler
         if (!isset($this->galley)) {
             $request->getDispatcher()->handle404();
         }
-        if ($this->galley->getRemoteURL()) {
-            $request->redirectUrl($this->galley->getRemoteURL());
+        if ($remoteUrl = $this->galley->getData('urlRemote')) {
+            $request->redirectUrl($remoteUrl);
         } elseif ($this->userCanViewGalley($request)) {
             if (!$this->submissionFileId) {
                 $this->submissionFileId = $this->galley->getData('submissionFileId');

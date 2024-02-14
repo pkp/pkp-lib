@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-31 12:37+0000\n"
+"PO-Revision-Date: 2024-02-14 20:14+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/lv/>\n"
@@ -124,3 +124,127 @@ msgid "installer.unsupportedPhpError"
 msgstr ""
 "Šī programmatūra neatbalsta jūsu servera PHP versiju. Divkārt pārbaudiet "
 "instalēšanas prasības docs/README."
+
+#, fuzzy
+msgid "installer.databaseHostInstructions"
+msgstr ""
+"Leave the hostname blank to connect using domain sockets instead of over TCP/"
+"IP. This is not necessary with MySQL, which will automatically use sockets "
+"if \"localhost\" is entered, but is required with some other database "
+"servers such as PostgreSQL."
+
+msgid "installer.databaseHost"
+msgstr "Host"
+
+msgid "installer.databaseName"
+msgstr "Datubāzes nosaukums"
+
+msgid "installer.databasePassword"
+msgstr "Parole"
+
+msgid "installer.databaseSettings"
+msgstr "Datubāzes uzstādījumi"
+
+msgid "installer.databaseUsername"
+msgstr "Lietotājvārds"
+
+msgid "installer.filesDir"
+msgstr "Augšupielādes katalogs"
+
+msgid "installer.fileSettings"
+msgstr "Datnes uzstādījumi"
+
+msgid "installer.installMigrationError"
+msgstr ""
+"An exception was thrown when executing the migration class <tt>{$class}</"
+"tt>. The exception was {$message}."
+
+#, fuzzy
+msgid "installer.unsupportedUpgradeError"
+msgstr "Upgrade unsupported. See docs/UPGRADE-UNSUPPORTED for details."
+
+#, fuzzy
+msgid "installer.timezoneInstructions"
+msgstr "The time zone to use for this system."
+
+#, fuzzy
+msgid "installer.locale"
+msgstr "Locale"
+
+#, fuzzy
+msgid "installer.locale.maybeIncomplete"
+msgstr "Marked locales may be incomplete."
+
+#, fuzzy
+msgid "installer.localeSettings"
+msgstr "Locale Settings"
+
+#, fuzzy
+msgid "installer.oaiSettings"
+msgstr "OAI Settings"
+
+#, fuzzy
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+"A unique identifier used to identify metadata records indexed from this site "
+"using the <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open "
+"Archives Initiative</a> Protocol for Metadata Harvesting."
+
+#, fuzzy
+msgid "installer.oaiRepositoryId"
+msgstr "Repository Identifier"
+
+#, fuzzy
+msgid "installer.publicFilesDirError"
+msgstr "The public files directory does not exist or is not writable."
+
+#, fuzzy
+msgid "installer.releaseNotes"
+msgstr "Release Notes"
+
+#, fuzzy
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Pre-Installation Steps"
+
+#, fuzzy
+msgid "installer.configureXSLMessage"
+msgstr ""
+"<p>Your PHP installation does not have the XSL module enabled. Either enable "
+"it, or configure the xslt_command parameter in your config.inc.php file.</p>"
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Error parsing the email template file <tt>{$file}</tt>."
+
+#, fuzzy
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Select any additional languages to support in this system. Additional "
+"languages can also be installed at any time from the site administration "
+"interface.<br>* = Denominates languages which are not fully translated (> "
+"90% of terms translated)"
+
+#, fuzzy
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. The following files and directories (and their contents) must be "
+"made writable:</p>\n"
+"\t\t<ul>\n"
+"\t\t\t<li><tt>config.inc.php</tt> is writable (optional): "
+"{$writable_config}</li>\n"
+"\t\t\t<li><tt>public/</tt> is writable: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> is writable: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> is writable: "
+"{$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> is writable: "
+"{$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> is writable: {$writable_db_cache}</li>\n"
+"\t\t</ul>\n"
+"\n"
+"\t\t<p>2. A directory to store uploaded files must be created and made "
+"writable (see \"File Settings\" below).</p>\n"
+"\t"
+
+#, fuzzy
+msgid "installer.beacon"
+msgstr "Beacon"

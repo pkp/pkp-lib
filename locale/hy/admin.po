@@ -1,8 +1,8 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-03 14:39+0000\n"
+"PO-Revision-Date: 2024-02-14 20:14+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "hy/>\n"
@@ -946,3 +946,14 @@ msgstr ""
 "Բազմահամատեքստային տեղադրման ժամանակ գրախոսի վիճակագրությունը, ինչպիսին է "
 "ներկայացված գրախոսությունների քանակը, կարող է ցուցադրվել կա՛մ առանձին-"
 "առանձին յուրաքանչյուր համատեքստի համար, կա՛մ խմբավորված:"
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "{$filename} նիշքը տեղափոխվել է առաքման պանակ:"
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"{$file} նիշքը չհաջողվեց տեղափոխել {$dispatchFilePath} -ից դեպի "
+"{$archivedFilePath}:"
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "{$file} նիշքը գոյություն չունի:"

@@ -16,9 +16,6 @@ class PKPSessionServiceProvider extends \Illuminate\Session\SessionServiceProvid
     public function boot()
     {
         register_shutdown_function(function () {
-            if (Application::get()->isUnderMaintenance()) {
-                return;
-            }
 
             if (defined('SESSION_DISABLE_INIT')) {
                 return;

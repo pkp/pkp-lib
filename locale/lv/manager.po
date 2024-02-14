@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-31 12:37+0000\n"
+"PO-Revision-Date: 2024-02-14 20:14+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -3271,7 +3271,7 @@ msgstr ""
 "jāiesniedz recenzija."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr "Recenzēšanas atgādinājums (automatizēts)"
+msgstr "Recenzēšanas atgādinājums (automātisks)"
 
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
@@ -3287,7 +3287,7 @@ msgstr ""
 "ir saņemta, un lai pateiktos recenzentam par viņa ieguldījumu."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr "Recenzijas atbildes termiņš ir nokavēts (automātiski)"
+msgstr "Recenzijas atbildes termiņš ir nokavēts (automātisks)"
 
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
@@ -3322,7 +3322,7 @@ msgid "mailable.editorialReminder.name"
 msgstr "Redakcionāls atgādinājums"
 
 msgid "mailable.editorialReminder.description"
-msgstr "Redaktoriem nosūtāms automatizēts e-pasts ar neizpildītiem uzdevumiem"
+msgstr "Automātisks e-pasts, ko nosūta redaktoriem par neizpildītiem uzdevumiem"
 
 msgid "mailable.passwordResetRequested.name"
 msgstr "Paroles atiestatīšanas apstiprinājums"
@@ -3356,7 +3356,7 @@ msgstr "Iesniegtais materiāls saglabāts vēlākam laikam"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
-"Automatizēts e-pasts, kas tiek nosūtīts autoriem, kad viņi saglabā savu "
+"Automātisks e-pasts, kas tiek nosūtīts autoriem, kad viņi saglabā savu "
 "iesniegto materiālu, lai to pabeigtu vēlāk"
 
 msgid "mailable.submissionAck.name"

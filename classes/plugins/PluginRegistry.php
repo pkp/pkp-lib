@@ -198,7 +198,7 @@ class PluginRegistry
         if (!str_contains($classToCheck, '\\') && $isObject && ($reflection = new ReflectionObject($plugin))->inNamespace()) {
             $classToCheck = "{$reflection->getNamespaceName()}\\{$classToCheck}";
         }
-        if (!($plugin instanceof $classToCheck)) {
+        if ($plugin !== null && !($plugin instanceof $classToCheck)) {
             $type = $isObject ? $plugin::class : gettype($plugin);
             error_log(new Exception("Plugin {$pluginName} expected to inherit from {$classToCheck}, actual type {$type}"));
             return null;

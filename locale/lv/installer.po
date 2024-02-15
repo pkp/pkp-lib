@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-14 20:14+0000\n"
+"PO-Revision-Date: 2024-02-15 18:54+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/lv/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Weblate 4.18.2\n"
 
 msgid "installer.additionalLocales"
-msgstr "Papildu valodas"
+msgstr "Papildu lokalizācijas"
 
 msgid "installer.administratorAccount"
 msgstr "Administratora konts"
@@ -125,13 +125,12 @@ msgstr ""
 "Šī programmatūra neatbalsta jūsu servera PHP versiju. Divkārt pārbaudiet "
 "instalēšanas prasības docs/README."
 
-#, fuzzy
 msgid "installer.databaseHostInstructions"
 msgstr ""
-"Leave the hostname blank to connect using domain sockets instead of over TCP/"
-"IP. This is not necessary with MySQL, which will automatically use sockets "
-"if \"localhost\" is entered, but is required with some other database "
-"servers such as PostgreSQL."
+"Lai izveidotu savienojumu, izmantojot domēna ligzdas, nevis TCP/IP, "
+"atstājiet hostname tukšu. Tas nav nepieciešams MySQL, kas automātiski "
+"izmantos ligzdas, ja būs ievadīts \"localhost\", bet tas ir nepieciešams "
+"dažiem citiem datubāzu serveriem, piemēram, PostgreSQL."
 
 msgid "installer.databaseHost"
 msgstr "Host"
@@ -156,95 +155,83 @@ msgstr "Datnes uzstādījumi"
 
 msgid "installer.installMigrationError"
 msgstr ""
-"An exception was thrown when executing the migration class <tt>{$class}</"
-"tt>. The exception was {$message}."
+"Izpildot migrācijas klasi, tika izmests izņēmums <tt>{$class}</tt>. Izņēmums "
+"bija {$message}."
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
-msgstr "Upgrade unsupported. See docs/UPGRADE-UNSUPPORTED for details."
+msgstr ""
+"Jaunināšana nav atbalstīta. Sīkāku informāciju sk. docs/UPGRADE-UNSUPPORTED."
 
-#, fuzzy
 msgid "installer.timezoneInstructions"
-msgstr "The time zone to use for this system."
+msgstr "Laika josla, kas jāizmanto šajā sistēmā."
 
-#, fuzzy
 msgid "installer.locale"
-msgstr "Locale"
+msgstr "Lokalizācija"
 
-#, fuzzy
 msgid "installer.locale.maybeIncomplete"
-msgstr "Marked locales may be incomplete."
+msgstr "Atzīmētās lokalizācijas var būt nepilnīgas."
 
-#, fuzzy
 msgid "installer.localeSettings"
-msgstr "Locale Settings"
+msgstr "Lokalizācijas iestatījumi"
 
-#, fuzzy
 msgid "installer.oaiSettings"
-msgstr "OAI Settings"
+msgstr "OAI iestatījumi"
 
-#, fuzzy
 msgid "installer.oaiRepositoryIdInstructions"
 msgstr ""
-"A unique identifier used to identify metadata records indexed from this site "
-"using the <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open "
-"Archives Initiative</a> Protocol for Metadata Harvesting."
+"Unikāls identifikators, ko izmanto, lai identificētu metadatu ierakstus, kas "
+"indeksēti no šīs vietnes, izmantojot <a href=\"https://www.openarchives.org/"
+"\" target=\"_blank\">Open Archives Initiative</a> protokolu metadatu "
+"ievākšanai."
 
-#, fuzzy
 msgid "installer.oaiRepositoryId"
-msgstr "Repository Identifier"
+msgstr "Repozitorija identifikators"
 
-#, fuzzy
 msgid "installer.publicFilesDirError"
-msgstr "The public files directory does not exist or is not writable."
+msgstr "Publisko failu direktorija neeksistē vai nav rakstāma."
 
-#, fuzzy
 msgid "installer.releaseNotes"
-msgstr "Release Notes"
+msgstr "Relīzes piezīmes"
 
-#, fuzzy
 msgid "installer.preInstallationInstructionsTitle"
-msgstr "Pre-Installation Steps"
+msgstr "Pirmsinstalācijas soļi"
 
-#, fuzzy
 msgid "installer.configureXSLMessage"
 msgstr ""
-"<p>Your PHP installation does not have the XSL module enabled. Either enable "
-"it, or configure the xslt_command parameter in your config.inc.php file.</p>"
+"<p>Jūsu PHP instalācijā nav iespējots XSL modulis. Vai nu iespējojiet to, "
+"vai konfigurējiet xslt_command parametru savā config.inc.php failā.</p>"
 
 msgid "installer.installParseEmailTemplatesFileError"
-msgstr "Error parsing the email template file <tt>{$file}</tt>."
+msgstr "Kļūda e-pasta veidnes faila parsēšanā <tt>{$file}</tt>."
 
-#, fuzzy
 msgid "installer.additionalLocalesInstructions"
 msgstr ""
-"Select any additional languages to support in this system. Additional "
-"languages can also be installed at any time from the site administration "
-"interface.<br>* = Denominates languages which are not fully translated (> "
-"90% of terms translated)"
+"Izvēlieties papildu valodas, kas jāatbalsta šajā sistēmā. Papildu valodas "
+"var arī instalēt jebkurā laikā no vietnes administrēšanas saskarnes.<br>* = "
+"Valodas, kas nav pilnībā tulkotas (> 90% pārtulkoto terminu)"
 
-#, fuzzy
 msgid "installer.preInstallationInstructions"
 msgstr ""
 "\n"
-"\t\t<p>1. The following files and directories (and their contents) must be "
-"made writable:</p>\n"
+"\t\t<p>1. Šādi faili un katalogi (un to saturs) ir jāpadara rakstāmi:</p>\n"
 "\t\t<ul>\n"
-"\t\t\t<li><tt>config.inc.php</tt> is writable (optional): "
+"\t\t\t<li><tt>config.inc.php</tt> ir rakstāms (nav obligāti): "
 "{$writable_config}</li>\n"
-"\t\t\t<li><tt>public/</tt> is writable: {$writable_public}</li>\n"
-"\t\t\t<li><tt>cache/</tt> is writable: {$writable_cache}</li>\n"
-"\t\t\t<li><tt>cache/t_cache/</tt> is writable: "
+"\t\t\t<li><tt>public/</tt> ir rakstāms: {$writable_public}</li>\n"
+"\t\t\t<li><tt>cache/</tt> ir rakstāms: {$writable_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> ir rakstāms: "
 "{$writable_templates_cache}</li>\n"
-"\t\t\t<li><tt>cache/t_compile/</tt> is writable: "
+"\t\t\t<li><tt>cache/t_compile/</tt> ir rakstāms: "
 "{$writable_templates_compile}</li>\n"
-"\t\t\t<li><tt>cache/_db</tt> is writable: {$writable_db_cache}</li>\n"
+"\t\t\t<li><tt>cache/_db</tt> ir rakstāms: {$writable_db_cache}</li>\n"
 "\t\t</ul>\n"
 "\n"
-"\t\t<p>2. A directory to store uploaded files must be created and made "
-"writable (see \"File Settings\" below).</p>\n"
+"\t\t<p>2. Jāizveido un jāpadara rakstāms katalogs, kurā glabāt "
+"augšupielādētos failus (skatiet sadaļu \"Failu iestatījumi\" tālāk).</p>\n"
 "\t"
 
-#, fuzzy
 msgid "installer.beacon"
-msgstr "Beacon"
+msgstr "Bāka (beacon)"
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Kļūda, parsējot filtra konfigurācijas failu <tt>{$file}</tt>."

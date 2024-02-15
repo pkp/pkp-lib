@@ -456,42 +456,58 @@ class Collector implements CollectorInterface
         if ($this->userGroupIds === null && $this->roleIds === null && $this->contextIds === null && $this->workflowStageIds === null) {
             return $this;
         }
+
         $currentDateTime = Core::getCurrentDate();
-        $query->whereExists(
-            fn (Builder $query) => $query->from('user_user_groups', 'uug')
-                ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
-                ->whereColumn('uug.user_id', '=', 'u.user_id')
-                ->when($this->userGroupIds !== null, fn ($query) => $query->whereIn('uug.user_group_id', $this->userGroupIds))
-                ->when(
-                    $this->workflowStageIds !== null,
-                    fn ($query) => $query
-                        ->join('user_group_stage AS ugs', 'ug.user_group_id', '=', 'ugs.user_group_id')
-                        ->whereIn('ugs.stage_id', $this->workflowStageIds)
+        $subQuery = DB::table('user_user_groups as uug')
+            ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
+            ->whereColumn('uug.user_id', '=', 'u.user_id')
+            ->when($this->userGroupIds !== null, fn ($subQuery) => $subQuery->whereIn('uug.user_group_id', $this->userGroupIds))
+            ->when(
+                $this->workflowStageIds !== null,
+                fn ($subQuery) => $subQuery
+                    ->join('user_group_stage AS ugs', 'ug.user_group_id', '=', 'ugs.user_group_id')
+                    ->whereIn('ugs.stage_id', $this->workflowStageIds)
+            )
+            ->when($this->roleIds !== null, fn ($subQuery) => $subQuery->whereIn('ug.role_id', $this->roleIds))
+            ->when($this->contextIds !== null, fn ($subQuery) => $subQuery->whereIn('ug.context_id', $this->contextIds))
+            ->when(
+                $this->userUserGroupStatus === UserUserGroupStatus::STATUS_ACTIVE,
+                fn (Builder $subQuery) =>
+                $subQuery->where(
+                    fn (Builder $subQuery) =>
+                    $subQuery->where('uug.date_start', '<=', $currentDateTime)
+                        ->orWhereNull('uug.date_start')
                 )
-                ->when($this->excludeRoles !== null, fn ($query) => $query->whereNotIn('ug.role_id', $this->excludeRoles))
-                ->when($this->roleIds !== null, fn ($query) => $query->whereIn('ug.role_id', $this->roleIds))
-                ->when($this->contextIds !== null, fn ($query) => $query->whereIn('ug.context_id', $this->contextIds))
-                ->when(
-                    $this->userUserGroupStatus === UserUserGroupStatus::STATUS_ACTIVE,
-                    fn (Builder $query) =>
-                    $query->where(
-                        fn (Builder $query) =>
-                        $query->where('uug.date_start', '<=', $currentDateTime)
-                            ->orWhereNull('uug.date_start')
+                    ->where(
+                        fn (Builder $subQuery) =>
+                        $subQuery->where('uug.date_end', '>', $currentDateTime)
+                            ->orWhereNull('uug.date_end')
                     )
-                        ->where(
-                            fn (Builder $query) =>
-                            $query->where('uug.date_end', '>', $currentDateTime)
-                                ->orWhereNull('uug.date_end')
-                        )
+            )
+            ->when(
+                $this->userUserGroupStatus === UserUserGroupStatus::STATUS_ENDED,
+                fn (Builder $subQuery) =>
+                $subQuery->whereNotNull('uug.date_end')
+                    ->where('uug.date_end', '<=', $currentDateTime)
+            );
+
+        $joinSub = clone $subQuery;
+        $query
+            ->whereExists(
+                $subQuery->when(
+                    $this->excludeRoles != null,
+                    // This aggregates a column role_count, which holds an information whether user holds specified role
+                    fn (Builder $subQuery) => $subQuery->leftJoinSub(
+                        $joinSub
+                            ->select('uug.user_id')
+                            ->whereIn('ug.role_id', $this->excludeRoles),
+                        'agr',
+                        'uug.user_id',
+                        'agr.user_id'
+                    )->whereNull('agr.user_id')
                 )
-                ->when(
-                    $this->userUserGroupStatus === UserUserGroupStatus::STATUS_ENDED,
-                    fn (Builder $query) =>
-                    $query->whereNotNull('uug.date_end')
-                        ->where('uug.date_end', '<=', $currentDateTime)
-                )
-        );
+            );
+
         return $this;
     }
 

@@ -151,6 +151,7 @@ msgstr "Greška prilikom analiziranja fajla šablona imejla <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Error parsing the filter configuration file <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Nadogradnja nije podržana. Pogledajte dokument docs/UPGRADE-UNSUPPORTED za "

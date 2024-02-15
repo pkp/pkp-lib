@@ -148,6 +148,7 @@ msgstr "メールテンプレートファイル <tt>{$file}</tt> のパースエ
 msgid "installer.installParseFilterConfigFileError"
 msgstr "フィルター設定ファイル <tt>{$file}</tt> のパースエラー。"
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "アップグレードはサポートされていません。詳細については、 docs/UPGRADE-"

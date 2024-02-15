@@ -154,6 +154,7 @@ msgstr "Errore nell'analisi del template email <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Errore nel parsing del file <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Upgrade non supportato. Guarda docs/UPGRADE-UNSUPPORTED  per maggiori "

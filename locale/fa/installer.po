@@ -144,6 +144,7 @@ msgstr "بروز خطا هنگام پردازش فایل الگوی ایمیل: 
 msgid "installer.installParseFilterConfigFileError"
 msgstr "در خواندن فایل <tt>{$file}</tt> خطایی رخ داده است."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "عدم پشتیبانی از به‌روزرسانی. برای اطلاعات بیشتر به مرجع زیر مراجعه کنید: docs/"

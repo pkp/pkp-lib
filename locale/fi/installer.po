@@ -156,6 +156,7 @@ msgstr "Virhe jäsennettäessä sähköpostipohjatiedostoa <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Virhe jäsennettäessä suodattimen määritystiedostoa <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Päivitystä ei tueta. Katso docs/UPGRADE-UNSUPPORTED saadaksesi lisätietoja."

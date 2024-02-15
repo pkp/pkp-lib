@@ -154,6 +154,7 @@ msgstr "Էլ․ փոստի ձևանմուշ նիշքը <tt>{$file}</tt> վերլ
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Զտիչի կազմաձևման <tt>{$file}</tt> նիշքը վերլուծելիս սխալ առաջացավ:"
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Թարմացումը չի աջակցվում: Մանրամասների համար տես docs/UPGRADE-UNSUPPORTED:"

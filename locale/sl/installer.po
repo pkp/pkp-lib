@@ -155,6 +155,7 @@ msgstr "Napaka pri analizi datoteke s predlogo za emaile <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Napaka pri analizi nastavitvene datoteke filtra <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Nadgradnja ni podprta. Za več informacij poglejte v docs/UPGRADE-UNSUPPORTED."

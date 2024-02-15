@@ -154,6 +154,7 @@ msgstr ""
 "Грешка при анализирање на датотеката за конфигурација на филтерот <tt>{$file}"
 "</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Ажурирајте го неподдржано. Погледнете ги документите / UPGRADE-UNSUPPORTED "

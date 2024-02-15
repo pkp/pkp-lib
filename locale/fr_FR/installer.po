@@ -165,6 +165,7 @@ msgid "installer.installParseFilterConfigFileError"
 msgstr ""
 "Erreur de traitement du fichier de configuration du filtre <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Mise à niveau non supportée. Voir docs/UPGRADE-UNSUPPORTED pour les détails."

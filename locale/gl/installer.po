@@ -157,6 +157,7 @@ msgid "installer.installParseFilterConfigFileError"
 msgstr ""
 "Erro ao analizar o arquivo de configuración do filtro <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "A actualización non é compatible. Vexa docs/UPGRADE-UNSOPPORTED para máis "

@@ -151,6 +151,7 @@ msgstr "Lỗi phân tích cú pháp tệp mẫu email <tt> {$file} </tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Lỗi phân tích cú pháp tệp cấu hình bộ lọc <tt> {$file} </tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Nâng cấp không được hỗ trợ. Xem docs/UPGRADE-UNSUPPORTED để biết thêm chi "

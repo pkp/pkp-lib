@@ -152,6 +152,7 @@ msgstr "ელფოსტის შაბლონის ფაილის <tt
 msgid "installer.installParseFilterConfigFileError"
 msgstr "ფილტრის კონფიგურაციის ფაილის <tt>{$file}</tt> ანალიზის შეცდომა."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "განახლება მხარდაუჭერელია. დეტალებისთვის იხილეთ docs/UPGRADE-UNSUPPORTED."

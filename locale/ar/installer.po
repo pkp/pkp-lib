@@ -149,6 +149,7 @@ msgstr "حدث خطأ عند تحليل ملف قوالب الرسائل الا�
 msgid "installer.installParseFilterConfigFileError"
 msgstr "حدث خطأ عند تحليل ملف إعدادات التصفية <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "الترقية غير مدعومة. أنظر الملف: docs/UPGRADE-UNSUPPORTED للمزيد من التفاصيل."

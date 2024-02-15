@@ -163,6 +163,7 @@ msgid "installer.installParseFilterConfigFileError"
 msgstr ""
 "Ошибка синтаксического разбора файла конфигурации фильтров <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Обновление не поддерживается. Смотрите подробнее в docs/UPGRADE-UNSUPPORTED."

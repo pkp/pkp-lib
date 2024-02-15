@@ -159,6 +159,7 @@ msgid "installer.installParseFilterConfigFileError"
 msgstr ""
 "Eroare la analizarea fișierului de configurare a filtrului <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Actualizarea nu este acceptată. Consultați documente/UPGRADE-NESUPORTAT "

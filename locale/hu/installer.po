@@ -156,6 +156,7 @@ msgstr "Hiba történt az e-mail sablonfájl elemzése során <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Hiba történt a szűrők konfigurációs fájljában <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Frissítés nem támogatott. Lásd a docs/UPGRADE-UNSUPPORTED fájlt a "

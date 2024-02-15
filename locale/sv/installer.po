@@ -156,6 +156,7 @@ msgstr "Fel vid inläsning av filen för e-postmallar: <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Fel vid inläsning av konfigurationsfilen för filter: <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr "Uppgradering stöds inte. Se docs/UPGRADE-UNSUPPORTED för mer detaljer."
 

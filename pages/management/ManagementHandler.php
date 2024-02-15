@@ -863,7 +863,7 @@ class ManagementHandler extends Handler
                 $request,
                 PKPApplication::ROUTE_API,
                 $request->getContext()->getPath(),
-                'users/invite'
+                'invitations'
             );
     }
     /**

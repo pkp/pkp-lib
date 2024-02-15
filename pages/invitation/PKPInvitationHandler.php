@@ -40,7 +40,7 @@ class PKPInvitationHandler extends Handler
     /**
      * @see PKPHandler::initialize()
      */
-    public function initialize($request)
+    public function initialize($request): void
     {
         parent::initialize($request);
 
@@ -59,7 +59,7 @@ class PKPInvitationHandler extends Handler
         $steps = $this->getSteps($request,$invitation);
         $templateMgr->setState([
             'steps' => $steps,
-            'createAccountApiUrl'=>$this->getCreateUserApiUrl($request),
+            'acceptInvitationApiUrl'=>$this->getAcceptInvitationApiUrl($request,$invitation),
             'primaryLocale'=> $context->getData('primaryLocale'),
             'pageTitle' => __('invitation.wizard.pageTitle'),
             'csrfToken' => $request->getSession()->getCSRFToken(),
@@ -70,7 +70,7 @@ class PKPInvitationHandler extends Handler
         $templateMgr->assign([
             'pageComponent' => 'PageOJS',
         ]);
-        $templateMgr->display('invitation/createUser.tpl');
+        $templateMgr->display('invitation/acceptInvitation.tpl');
 //        $invitation->acceptHandle();
     }
 
@@ -100,10 +100,13 @@ class PKPInvitationHandler extends Handler
 
     /**
      * get user account create steps
+     * @param Request $request
+     * @param $invitation
+     * @return array
      */
     protected function getSteps(Request $request,$invitation): array
     {
-        $apiUrl = $this->getCreateUserApiUrl($request);
+        $apiUrl = $this->getAcceptInvitationApiUrl($request,$invitation);
 
         $steps = [];
         $steps[] = $this->verifyOrcid();
@@ -212,10 +215,22 @@ class PKPInvitationHandler extends Handler
 
     /**
      * Get the url to the create user API endpoint
+     * or if user already in the system get accept invitation
+     * API endpoint
+     * @param Request $request
+     * @param $invitation
+     * @return string
      */
-    protected function getCreateUserApiUrl(Request $request): string
+    protected function getAcceptInvitationApiUrl(Request $request, $invitation): string
     {
-        return $request
+        return $invitation->userId ? $request
+            ->getDispatcher()
+            ->url(
+                $request,
+                PKPApplication::ROUTE_API,
+                $request->getContext()->getPath(),
+                'invitations/accept'
+            ) : $request
             ->getDispatcher()
             ->url(
                 $request,

@@ -33,9 +33,6 @@ abstract class PKPSubmissionsListPanel extends ListPanel
     /** @var int Number of items to show at one time */
     public $count = 30;
 
-    /** @var array Query parameters to pass if this list executes GET requests  */
-    public $getParams = [];
-
     /** @var bool Should items be loaded after the component is mounted?  */
     public $lazyLoad = false;
 
@@ -260,4 +257,11 @@ abstract class PKPSubmissionsListPanel extends ListPanel
 
         return [];
     }
+
+    /**
+     * Get an array of workflow stages supported by the current app
+     *
+     * @return array
+     */
+    abstract public function getWorkflowStages();
 }

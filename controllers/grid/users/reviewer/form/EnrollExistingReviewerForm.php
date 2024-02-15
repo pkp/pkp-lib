@@ -19,6 +19,9 @@ namespace PKP\controllers\grid\users\reviewer\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\Mail;
+use PKP\db\DAORegistry;
+use PKP\security\Role;
+use PKP\security\RoleDAO;
 
 class EnrollExistingReviewerForm extends ReviewerForm
 {
@@ -81,11 +84,54 @@ class EnrollExistingReviewerForm extends ReviewerForm
         $userId = (int) $this->getData('userId');
 
         $userGroupId = (int) $this->getData('userGroupId');
+
+        if (!$this->isValidUserAndGroup($userId, $userGroupId)) {
+            fatalError('invalid user or userGroup ID');
+        }
+
         Repo::userGroup()->assignUserToGroup($userId, $userGroupId);
 
         // Set the reviewerId in the Form for the parent class to use
         $this->setData('reviewerId', $userId);
 
         return parent::execute(...$functionArgs);
+    }
+
+    /**
+     * Checks if the user group is valid and the user exists and doesn't already have a reviewer role
+     */
+    protected function isValidUserAndGroup(int $userId, int $userGroupId): bool
+    {
+        $context = Application::get()->getRequest()->getContext();
+
+        // User exists
+        $user = Repo::user()->get($userId);
+        if (!$user) {
+            return false;
+        }
+
+        // Ensure user doesn't have a reviewer role
+        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+        if ($roleDao->userHasRole($context->getId(), $user->getId(), Role::ROLE_ID_REVIEWER)) {
+            return false;
+        }
+
+        // User Group exists
+        $userGroup = Repo::userGroup()->get($userGroupId);
+        if (!$userGroup) {
+            return false;
+        }
+
+        // User Group refers to the reviewer role
+        if ($userGroup->getData('roleId') != Role::ROLE_ID_REVIEWER) {
+            return false;
+        }
+
+        // User group refers to the right context
+        if (intval($userGroup->getData('contextId')) != $context->getId()) {
+            return false;
+        }
+
+        return true;
     }
 }

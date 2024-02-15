@@ -150,6 +150,7 @@ msgstr "Chyba při parsování souboru šablony emailu <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Chyba při parsování filtru konfiguračního souboru <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Upgrade není podporován. Přečtěte si, prosím, docs/UPGRADE-UNSUPPORTED pro "

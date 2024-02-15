@@ -156,6 +156,7 @@ msgstr "Fejl ved parsing af e-mail-skabelonfil <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Fejl ved parsing af filter-konfigurationsfil <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Opgradering ikke understøttet. Se detaljer under docs/UPGRADE-UNSUPPORTED."

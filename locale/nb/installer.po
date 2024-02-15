@@ -153,6 +153,7 @@ msgstr "Feil ved parsing av e-postmal <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Feil ved lesing av filterkonfigureringsfil <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Oppgraderingen er ikke støttet. Se detaljer i: docs/UPGRADE-UNSUPPORTED"

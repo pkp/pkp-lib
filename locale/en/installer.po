@@ -152,7 +152,7 @@ msgid "installer.installParseFilterConfigFileError"
 msgstr "Error parsing the filter configuration file <tt>{$file}</tt>."
 
 msgid "installer.unsupportedUpgradeError"
-msgstr "Upgrade unsupported. See docs/UPGRADE-UNSUPPORTED for details."
+msgstr "Upgrade unsupported. See the Upgrade Guide (https://docs.pkp.sfu.ca/dev/upgrade-guide) for details."
 
 msgid "installer.timezoneInstructions"
 msgstr "The time zone to use for this system."

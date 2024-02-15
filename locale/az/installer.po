@@ -195,6 +195,7 @@ msgid "installer.installParseEmailTemplatesFileError"
 msgstr ""
 "<tt>{$file}</tt> adlı email şablon faylında fərqləndirmə xətası baş verdi"
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Təkmilləşdirmə dəstəklənmir. Ətraflı məlumat üçün docs/UPGRADE-UNSUPPORTED "

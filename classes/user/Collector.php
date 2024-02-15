@@ -447,10 +447,10 @@ class Collector implements CollectorInterface
         $subQuery = DB::table('user_user_groups as uug')
             ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
             ->whereColumn('uug.user_id', '=', 'u.user_id')
-            ->when($this->userGroupIds !== null, fn ($subQuery) => $subQuery->whereIn('uug.user_group_id', $this->userGroupIds))
+            ->when($this->userGroupIds !== null, fn (Builder $subQuery) => $subQuery->whereIn('uug.user_group_id', $this->userGroupIds))
             ->when(
                 $this->workflowStageIds !== null,
-                fn ($subQuery) => $subQuery
+                fn (Builder $subQuery) => $subQuery
                     ->join('user_group_stage AS ugs', 'ug.user_group_id', '=', 'ugs.user_group_id')
                     ->whereIn('ugs.stage_id', $this->workflowStageIds)
             )
@@ -459,7 +459,7 @@ class Collector implements CollectorInterface
 
         $joinSub = clone $subQuery;
         $query
-            ->whereExists(
+            ->addWhereExistsQuery(
                 $subQuery->when(
                     $this->excludeRoles != null,
                     // This aggregates a column role_count, which holds an information whether user holds specified role

@@ -27,14 +27,12 @@ abstract class I5885_RenameReviewReminderSettingsName extends Migration
     public function up(): void
     {
         DB::table($this->getContextSettingsTable())
-            ->select(['setting_name'])
             ->where('setting_name', 'numDaysBeforeInviteReminder')
             ->update([
                 'setting_name' => 'numDaysAfterReviewResponseReminderDue'
             ]);
         
         DB::table($this->getContextSettingsTable())
-            ->select(['setting_name'])
             ->where('setting_name', 'numDaysBeforeSubmitReminder')
             ->update([
                 'setting_name' => 'numDaysAfterReviewSubmitReminderDue'

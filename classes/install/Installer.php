@@ -18,30 +18,23 @@ namespace PKP\install;
 
 use adoSchema;
 use APP\core\Application;
-use APP\facades\Repo;
-use APP\file\LibraryFileManager;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
-use PKP\context\Context;
-use PKP\context\LibraryFile;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPContainer;
 use PKP\db\DAORegistry;
-use PKP\db\DAOResultFactory;
 use PKP\db\DBDataXMLParser;
 use PKP\db\XMLDAO;
 use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\filter\FilterHelper;
 use PKP\navigationMenu\NavigationMenuDAO;
-use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
-use PKP\security\Role;
 use PKP\site\SiteDAO;
 use PKP\site\Version;
 use PKP\site\VersionCheck;
@@ -1014,256 +1007,6 @@ class Installer
 
         $this->setError(self::INSTALLER_ERROR_GENERAL, 'installer.unsupportedPhpError');
         return false;
-    }
-
-    /**
-     * Migrate site locale settings to a serialized array in the database
-     */
-    public function migrateSiteLocales()
-    {
-        $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
-
-        $result = $siteDao->retrieve('SELECT installed_locales, supported_locales FROM site');
-
-        $set = $params = [];
-        $row = (array) $result->current();
-        $type = 'array';
-        foreach ($row as $column => $value) {
-            if (!empty($value)) {
-                $set[] = $column . ' = ?';
-                $params[] = $siteDao->convertToDB(explode(':', $value), $type);
-            }
-        }
-        $siteDao->update('UPDATE site SET ' . join(',', $set), $params);
-
-        return true;
-    }
-
-    /**
-     * Migrate active sidebar blocks from plugin_settings to journal_settings
-     *
-     * @return bool
-     */
-    public function migrateSidebarBlocks()
-    {
-        $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
-        $site = $siteDao->getSite();
-
-        $plugins = PluginRegistry::loadCategory('blocks');
-        if (empty($plugins)) {
-            return true;
-        }
-
-        // Sanitize plugin names for use in sql IN().
-        $sanitizedPluginNames = array_map(function ($name) {
-            return "'" . preg_replace('/[^A-Za-z0-9]/', '', $name) . "'";
-        }, array_keys($plugins));
-
-        $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var \PKP\plugins\PluginSettingsDAO $pluginSettingsDao */
-        $result = $pluginSettingsDao->retrieve(
-            'SELECT plugin_name, context_id, setting_value FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames) . ') AND setting_name=\'context\';'
-        );
-
-        $sidebarSettings = [];
-        foreach ($result as $row) {
-            if ($row->setting_value != 1) {
-                continue;
-            } // BLOCK_CONTEXT_SIDEBAR
-
-            $seq = $pluginSettingsDao->getSetting($row->context_id, $row->plugin_name, 'seq');
-            if (!isset($sidebarSettings[$row->context_id])) {
-                $sidebarSettings[$row->context_id] = [];
-            }
-            $sidebarSettings[$row->context_id][(int) $seq] = $row->plugin_name;
-        }
-
-        foreach ($sidebarSettings as $contextId => $contextSetting) {
-            // Order by sequence
-            ksort($contextSetting);
-            $contextSetting = array_values($contextSetting);
-            if ($contextId) {
-                $contextDao = Application::getContextDAO();
-                $context = $contextDao->getById($contextId);
-                $context->setData('sidebar', $contextSetting);
-                $contextDao->updateObject($context);
-            } else {
-                $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
-                $site = $siteDao->getSite();
-                $site->setData('sidebar', $contextSetting);
-                $siteDao->updateObject($site);
-            }
-        }
-
-        $pluginSettingsDao->update('DELETE FROM plugin_settings WHERE plugin_name IN (' . join(',', $sanitizedPluginNames) . ') AND (setting_name=\'context\' OR setting_name=\'seq\');');
-
-        return true;
-    }
-
-    /**
-     * Migrate the metadata settings in the database to use a single row with one
-     * of the new constants
-     */
-    public function migrateMetadataSettings()
-    {
-        $contextDao = Application::getContextDao();
-
-        $metadataSettings = [
-            'coverage',
-            'rights',
-            'source',
-            'subjects',
-            'type',
-            'disciplines',
-            'keywords',
-            'agencies',
-            'citations',
-        ];
-
-        $result = $contextDao->retrieve('SELECT ' . $contextDao->primaryKeyColumn . ' from ' . $contextDao->tableName);
-        $contextIds = [];
-        foreach ($result as $row) {
-            $row = (array) $row;
-            $contextIds[] = $row[$contextDao->primaryKeyColumn];
-        }
-
-        foreach ($metadataSettings as $metadataSetting) {
-            foreach ($contextIds as $contextId) {
-                $result = $contextDao->retrieve(
-                    'SELECT *
-                    FROM ' . $contextDao->settingsTableName . '
-                    WHERE
-                        ' . $contextDao->primaryKeyColumn . ' = ?
-                        AND (
-                            setting_name = ?
-                            OR setting_name = ?
-                            OR setting_name = ?
-                        )
-                    ',
-                    [
-                        $contextId,
-                        $metadataSetting . 'EnabledWorkflow',
-                        $metadataSetting . 'EnabledSubmission',
-                        $metadataSetting . 'Required',
-                    ]
-                );
-                $value = Context::METADATA_DISABLE;
-                foreach ($result as $row) {
-                    if ($row->setting_name === $metadataSetting . 'Required' && $row->setting_value) {
-                        $value = Context::METADATA_REQUIRE;
-                    } elseif ($row->setting_name === $metadataSetting . 'EnabledSubmission' && $row->setting_value && $value !== Context::METADATA_REQUIRE) {
-                        $value = Context::METADATA_REQUEST;
-                    } elseif ($row->setting_name === $metadataSetting . 'EnabledWorkflow' && $row->setting_value && $value !== Context::METADATA_REQUEST && $value !== Context::METADATA_REQUIRE) {
-                        $value = Context::METADATA_ENABLE;
-                    }
-                }
-
-                if ($value !== Context::METADATA_DISABLE) {
-                    $contextDao->update(
-                        'INSERT INTO ' . $contextDao->settingsTableName . ' (
-                            ' . $contextDao->primaryKeyColumn . ',
-                            locale,
-                            setting_name,
-                            setting_value
-                        ) VALUES (?, ?, ?, ?)',
-                        [
-                            $contextId,
-                            '',
-                            $metadataSetting,
-                            $value,
-                        ]
-                    );
-                }
-
-                $contextDao->update(
-                    'DELETE FROM ' . $contextDao->settingsTableName . ' WHERE
-                        ' . $contextDao->primaryKeyColumn . ' = ?
-                        AND (
-                            setting_name = ?
-                            OR setting_name = ?
-                            OR setting_name = ?
-                        )
-                    ',
-                    [
-                        $contextId,
-                        $metadataSetting . 'EnabledWorkflow',
-                        $metadataSetting . 'EnabledSubmission',
-                        $metadataSetting . 'Required',
-                    ]
-                );
-            }
-        }
-
-        return true;
-    }
-
-    /**
-     * Set the notification settings for journal managers and subeditors so
-     * that they are opted out of the monthly stats email.
-     */
-    public function setStatsEmailSettings()
-    {
-        $roleIds = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR];
-
-        $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var \PKP\notification\NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
-        for ($contexts = Application::get()->getContextDAO()->getAll(true); $context = $contexts->next();) {
-            $users = Repo::user()->getCollector()
-                ->filterByContextIds([$context->getId()])
-                ->filterByRoleIds($roleIds)
-                ->getMany();
-
-            foreach ($users as $user) {
-                $notificationSubscriptionSettingsDao->update(
-                    'INSERT INTO notification_subscription_settings
-                        (setting_name, setting_value, user_id, context, setting_type)
-                        VALUES
-                        (?, ?, ?, ?, ?)',
-                    [
-                        'blocked_emailed_notification',
-                        PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT,
-                        $user->getId(),
-                        $context->getId(),
-                        'int'
-                    ]
-                );
-            }
-        }
-
-        return true;
-    }
-
-    /**
-     * Fix library files, which were mistakenly named server-side using source filenames.
-     * See https://github.com/pkp/pkp-lib/issues/5471
-     *
-     * @return bool
-     */
-    public function fixLibraryFiles()
-    {
-        // Fetch all library files (no method currently in LibraryFileDAO for this)
-        $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var \PKP\context\LibraryFileDAO $libraryFileDao */
-        $result = $libraryFileDao->retrieve('SELECT * FROM library_files');
-        /** @var DAOResultFactory<LibraryFile> */
-        $libraryFiles = new DAOResultFactory($result, $libraryFileDao, '_fromRow', ['id']);
-        $wrongFiles = [];
-        while ($libraryFile = $libraryFiles->next()) {
-            $libraryFileManager = new LibraryFileManager($libraryFile->getContextId());
-            $wrongFilePath = $libraryFileManager->getBasePath() . $libraryFile->getOriginalFileName();
-            $rightFilePath = $libraryFile->getFilePath();
-
-            if (isset($wrongFiles[$wrongFilePath])) {
-                error_log('A potential collision was found between library files ' . $libraryFile->getId() . ' and ' . $wrongFiles[$wrongFilePath]->getId() . '. Please review the database entries and ensure that the associated files are correct.');
-            } else {
-                $wrongFiles[$wrongFilePath] = $libraryFile;
-            }
-
-            // For all files for which the "wrong" filename exists and the "right" filename doesn't,
-            // copy the "wrong" file over to the "right" one. This will leave the "wrong" file in
-            // place, and won't disambiguate cases for which files were clobbered.
-            if (file_exists($wrongFilePath) && !file_exists($rightFilePath)) {
-                $libraryFileManager->copyFile($wrongFilePath, $rightFilePath);
-            }
-        }
-        return true;
     }
 }
 

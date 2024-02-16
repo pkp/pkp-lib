@@ -26,6 +26,11 @@ class FieldOptions extends Field
     /** @var bool Should the user be able to re-order the options? */
     public $isOrderable = false;
 
+    /** @var bool Should the user be able to only sort the options?
+     * In this case the input element (checkbox or radio button) is not displayed.
+     */
+    public $allowOnlySorting = false;
+
     /** @var array The options which can be selected */
     public $options = [];
 
@@ -37,6 +42,7 @@ class FieldOptions extends Field
         $config = parent::getConfig();
         $config['type'] = $this->type;
         $config['isOrderable'] = $this->isOrderable;
+        $config['allowOnlySorting'] = $this->allowOnlySorting;
         $config['options'] = $this->options;
 
         return $config;

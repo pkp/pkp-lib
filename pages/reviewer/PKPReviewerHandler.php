@@ -79,7 +79,9 @@ class PKPReviewerHandler extends Handler
                     'submissionId' => $submissionId,
                     'reviewRoundId' => $reviewRoundId,
                     'reviewRoundNumber' => $reviewAssignment->getRound(),
-                    'submittedOn' => $reviewAssignment->getDateCompleted()
+                    'submittedOn' => $reviewAssignment->getDeclined()
+                        ? $reviewAssignment->getDateConfirmed()
+                        : $reviewAssignment->getDateCompleted(),
                 ];
             }
         }
@@ -94,7 +96,7 @@ class PKPReviewerHandler extends Handler
         $templateMgr->setState([
             'isReviewRoundHistoryEnabled' => Config::getVar('features', 'enable_review_round_history'),
             'pageInitConfig' => [
-                'reviewRoundHistories' => $reviewRoundHistories
+                'reviewRoundHistories' => $reviewRoundHistories,
             ]
         ]);
 

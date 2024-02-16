@@ -98,23 +98,17 @@ class SectionsHandler extends Handler
         $submissions = $collector
             ->limit($context->getData('itemsPerPage'))
             ->offset($page ? ($page - 1) * $context->getData('itemsPerPage') : 0)
-            ->getMany();
+            ->getMany()->toArray();
 
         if ($page > 1 && !$submissions->count()) {
             $request->getDispatcher()->handle404();
             exit;
         }
 
-        $submissions = [];
-        foreach ($submissions as $submission) {
-            $submissions[] = $submission;
-        }
-
         $showingStart = $collector->offset + 1;
         $showingEnd = min($collector->offset + $collector->count, $collector->offset + count($submissions));
         $nextPage = $total > $showingEnd ? $page + 1 : null;
         $prevPage = $showingStart > 1 ? $page - 1 : null;
-
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'section' => $section,
@@ -125,6 +119,7 @@ class SectionsHandler extends Handler
             'total' => $total,
             'nextPage' => $nextPage,
             'prevPage' => $prevPage,
+            'authorUserGroups' => Repo::userGroup()->getCollector()->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])->filterByContextIds([$contextId])->getMany()->remember(),
         ]);
 
         $templateMgr->display('frontend/pages/sections.tpl');

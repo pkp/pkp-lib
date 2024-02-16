@@ -2,7 +2,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-30 11:07+0000\n"
+"PO-Revision-Date: 2024-02-16 20:22+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "lv/>\n"
@@ -175,173 +175,191 @@ msgstr ""
 "Dzēst visus uzdevumu žurnālus par plānotajiem uzdevumiem, kas ir palaisti."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Dzēst uzdevumu žurnālus"
 
 msgid "admin.scheduledTask.publishSubmissions"
-msgstr ""
+msgstr "Publicēt materiālus, kas ieplānoti publicēšanai"
 
 msgid "admin.scheduledTask.reviewReminder"
-msgstr ""
+msgstr "Atgādinājums par recenzēšanu"
 
 msgid "admin.scheduledTask.statisticsReport"
 msgstr "Redakcionālās atskaites paziņojums"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr ""
+msgstr "Abonēšanas termiņa beigu atgādinājums"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Noņemt neapstiprinātus lietotājus, kuru darbības termiņš ir beidzies"
 
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr ""
 "Noņemt vecākos nesekmīgos darbuzdevumus no nesekmīgo darbuzdevumu saraksta."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Apstrādāt neizpildītos rindas darbuzdevumus"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "DB-IP city lite datubāzes atjaunināšana"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"DB-IP city lite datubāzes datnes {$sourceFilename} pārdēvēšana uz "
+"{$targetFilename} neizdevās."
 
 msgid "admin.scheduledTask.usageStatsLoader"
-msgstr ""
+msgstr "Lietošanas statistikas datņu ielādes darbuzdevums"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"Katalogs {$directory} nav tukšs. Tas var norādīt uz iepriekš neizdevušos "
+"procesu vai vienlaikus notiekošu procesu. Šis fails tiks automātiski "
+"pārstrādāts."
 
 msgid "admin.job.processLogFile.openFileFailed"
-msgstr ""
+msgstr "Failu {$file} nevarēja atvērt un tas tika noraidīts."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"Failam {$file} ir vecais notikumu žurnāla faila formāts, ko nevar apstrādāt, "
+"tāpēc tas tiks pārvietots atpakaļ uz posma katalogu."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"Izlaista notikumu žurnāla datne {$file}, jo šī mēneša statistika jau ir "
+"aprēķināta. Lai pārrēķinātu statistiku par iepriekšējo mēnesi, jāatjauno "
+"visas attiecīgā mēneša žurnāla datnes un jāizmanto CLI rīks, lai atkārtoti "
+"apstrādātu statistiku."
 
 msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
+"Rindiņa {$lineNumber} notikumu žurnāla datnē {$file} ir nepareizā formātā, "
+"tāpēc tā tiks izlaista."
 
 msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
+"Nederīgs notikumu žurnāla ieraksts {$lineNumber} rindā žurnāla datnē {$file}:"
+" {$error}"
 
 msgid "admin.job.processLogFile.invalidLogEntry.time"
-msgstr ""
+msgstr "Laiks nav derīgs datums."
 
 msgid "admin.job.processLogFile.invalidLogEntry.contextId"
-msgstr ""
+msgstr "Konteksta ID nav vesels skaitlis."
 
 msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "Iesniegtā materiāla ID nav vesels skaitlis."
 
 msgid "admin.job.processLogFile.invalidLogEntry.representationId"
-msgstr ""
+msgstr "Pārstāvības ID nav vesels skaitlis."
 
 msgid "admin.job.processLogFile.invalidLogEntry.assocType"
-msgstr ""
+msgstr "Assoc tips netiek atbalstīts."
 
 msgid "admin.job.processLogFile.invalidLogEntry.fileType"
-msgstr ""
+msgstr "Faila tips netiek atbalstīts."
 
 msgid "admin.job.processLogFile.invalidLogEntry.country"
-msgstr ""
+msgstr "Valsts nav divu burtu rakstzīmju virkne."
 
 msgid "admin.job.processLogFile.invalidLogEntry.region"
-msgstr ""
+msgstr "Reģions nav līdz trīs burtu un ciparu rakstzīmju gara virkne."
 
 msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "Iestādes ID nav masīvs."
 
 msgid "admin.job.processLogFile.insertError"
 msgstr ""
+"Kļūda radās, apstrādājot žurnāla failu {$file} rindā {$lineNumber}: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
 
 msgid "admin.server.apacheVersion"
-msgstr ""
+msgstr "Apache versija"
 
 msgid "admin.server.dbDriver"
-msgstr ""
+msgstr "Datubāzes draiveris"
 
 msgid "admin.server.dbVersion"
-msgstr ""
+msgstr "Datubāzes servera versija"
 
 msgid "admin.serverInformation"
-msgstr ""
+msgstr "Servera informācija"
 
 msgid "admin.server.phpVersion"
-msgstr ""
+msgstr "PHP versija"
 
 msgid "admin.server.platform"
-msgstr ""
+msgstr "OS platforma"
 
 msgid "admin.settings"
-msgstr ""
+msgstr "Iestatījumi"
 
 msgid "admin.settings.about"
 msgstr "Par vietni"
 
 msgid "admin.settings.enableBulkEmails.label"
-msgstr ""
+msgstr "Masveida e-pasti"
 
 msgid "admin.settings.contactEmail"
-msgstr ""
+msgstr "Galvenās kontaktpersonas e-pasts"
 
 msgid "admin.settings.contactName"
-msgstr ""
+msgstr "Galvenās kontaktpersonas vārds un uzvārds"
 
 msgid "admin.settings.introduction"
-msgstr ""
+msgstr "Ievads"
 
 msgid "admin.settings.minPasswordLength"
-msgstr ""
+msgstr "Minimālais paroles garums (rakstzīmes)"
 
 msgid "admin.settings.restrictBulkEmails"
-msgstr ""
+msgstr "Ierobežot e-pastu masveida sūtīšanu"
 
 msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr ""
+msgstr "Atspējot lomas"
 
 msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr ""
+msgstr "Šo iestatījumu drīkst mainīt tikai administrators."
 
 msgid "admin.settings.siteLanguage"
-msgstr ""
+msgstr "Vietnes valoda"
 
 msgid "admin.settings.siteStyleSheetInvalid"
-msgstr ""
+msgstr "Nederīgs vietnes stila lapas formāts. Pieņemtais formāts ir .css."
 
 msgid "admin.settings.siteStyleSheet"
-msgstr ""
+msgstr "Vietnes stila lapa"
 
 msgid "admin.settings.siteLogo"
-msgstr ""
+msgstr "Vietnes logo"
 
 msgid "admin.settings.siteTitle"
-msgstr ""
+msgstr "Vietnes nosaukums"
 
 msgid "admin.settings.siteTheme"
-msgstr ""
+msgstr "Vietnes tēma"
 
 msgid "admin.siteAdmin"
-msgstr ""
+msgstr "Vietnes pārvaldīšana"
 
 msgid "admin.siteManagement"
 msgstr "Vietnes pārvaldība"
 
 msgid "admin.siteSettings"
-msgstr ""
+msgstr "Vietnes uzstādījumi"
 
 msgid "admin.siteSetup"
-msgstr ""
+msgstr "Vietnes iestatīšana"
 
 msgid "admin.systemConfigFileReadError"
 msgstr ""
+"Konfigurācijas datne <tt>config.inc.php</tt> nepastāv, nav nolasāma vai ir "
+"nederīga."
 
 msgid "admin.systemInformation"
-msgstr ""
+msgstr "Sistēmas informācija"
 
 msgid "admin.systemInformation.description"
 msgstr ""
@@ -349,127 +367,165 @@ msgstr ""
 "konfigurācijas iestatījumiem."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Skatīt sistēmas informāciju"
 
 msgid "admin.versionBuild"
-msgstr ""
+msgstr "Veidošana (Build)"
 
 msgid "admin.version.checkForUpdates"
-msgstr ""
+msgstr "Pārbaudīt atjauninājumus"
 
 msgid "admin.version.downloadPackage"
-msgstr ""
+msgstr "Lejupielādēt"
 
 msgid "admin.version.downloadPatch"
-msgstr ""
+msgstr "Lejupielādēt ielāpu"
 
 msgid "admin.versionHistory"
-msgstr ""
+msgstr "Versijas vēsture"
 
 msgid "admin.version.latest"
-msgstr ""
+msgstr "Jaunākā versija"
 
 msgid "admin.versionMajor"
-msgstr ""
+msgstr "Vecākā"
 
 msgid "admin.versionMinor"
-msgstr ""
+msgstr "Jaunākā"
 
 msgid "admin.version.moreInfo"
-msgstr ""
+msgstr "Papildu informācija"
 
 msgid "admin.versionRevision"
 msgstr "Labojums"
 
 msgid "admin.version.updateAvailable"
-msgstr ""
+msgstr "Ir pieejama atjaunināta versija"
 
 msgid "admin.version.upToDate"
-msgstr ""
+msgstr "Jūsu sistēma ir atjaunināta"
 
 msgid "admin.version"
-msgstr ""
+msgstr "Versija"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr ""
+msgstr "Bāzes ceļam {$path} jāatrodas publiskajā datņu katalogā."
 
 msgid "admin.fileLoader.pathNotAccessible"
-msgstr ""
+msgstr "Mape {$path} nav katalogs vai nav nolasāma."
 
 msgid "admin.fileLoader.moveFileFailed"
 msgstr ""
+"Datni {$filename} nav iespējams pārvietot no {$currentFilePath} uz "
+"{$destinationPath}"
 
 msgid "admin.fileLoader.fileProcessed"
-msgstr ""
+msgstr "Datne {$filename} tika apstrādāta un arhivēta."
 
 msgid "admin.fileLoader.emailSubject"
-msgstr ""
+msgstr "Datņu ielādētājs"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"Datni nav iespējams atspiest. Avota datni gz-file {$filePath} nevar atvērt "
+"ar gzopen."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"Datni nav iespējams atspiest. Mērķa datni {$filePath} nevar atvērt ar fopen."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"Datni nav iespējams atspiest. Avota datni gz-file {$file} nevar lasīt ar "
+"gzread."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"Datni nav iespējams atspiest. Mērķa datni {$filePath} nevar rakstīt ar "
+"fwrite."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"Datni nav iespējams atspiest. Atvērto mērķa datni {$filePath} nevar aizvērt "
+"ar fclose."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"Datni nav iespējams atspiest. Atvērto mērķa datni gz-file {$filePath} nevar "
+"aizvērt ar gzclose."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"Datni nav iespējams atspiest. Atspiesto mērķa datni gz-file {$filePath} "
+"nevar noņemt ar unlink."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"Datni nav iespējams saspiest. Mērķa datni gz-file {$filePath} nevar atvērt "
+"ar gzopen."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"Datni nav iespējams saspiest. Avota datni {$filePath} nevar atvērt ar fopen."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"Datni nav iespējams saspiest. Avota datni {$filePath} nevar lasīt ar fread."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"Datni nav iespējams saspiest. Mērķa datni gz-file {$filePath} nevar rakstīt "
+"ar gzwrite."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"Datni nav iespējams saspiest. Atvērto mērķa datni {$filePath} nevar aizvērt "
+"ar fclose."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"Datni nav iespējams satspiest. Atvērto mērķa datni gz-file {$filePath} nevar "
+"aizvērt ar gzclose."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"Datni nav iespējams saspiest. Saspiesto mērķa datni {$filePath} nevar noņemt "
+"ar unlink."
 
 msgid "admin.languages.noLocalesToDownload"
-msgstr ""
+msgstr "Nav pieejamas lokāles lejupielādēšanai."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Lietojums:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "komanda [arguments]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Pieejamās komandas `{$namespace}` nosaukumu telpai:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Nav iespējams palaist rindas darbuzdevumus, jo ir ieslēgts "
+"lietojumprogrammas uzturēšanas režīms."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Visu rindas darbuzdevumu saraksts. Ja vēlaties rezultātus sarindot, "
+"izmantojiet parametrus --page= un --perPage= . Lai uzskaitītu neveiksmīgus "
+"darbuzdevumus, izmantojiet karodziņu --failed."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Konkrēta rindā esoša darbuzdevumaa izdzēšana, pamatojoties uz tā Id. Ja "
+"vēlaties attīrīt visus, ievadiet parametru --all. Ja vēlaties iztīrīt visus "
+"no konkrētas rindas, nododiet parametru --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Pievienojiet testa darbuzdevumu testa rindā. izmantojiet izvēles parametrus "
+"--only= un ievadiet 'failed' vai 'success', lai nosūtītu neveiksmīgu vai "
+"veiksmīgu darbuzdevumu."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
@@ -785,3 +841,17 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr ""
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Recenzenta statistika"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"Vairāku kontekstu instalācijā recenzenta statistiku, piemēram, iesniegto "
+"atsauksmju skaitu, var parādīt katram kontekstam atsevišķi vai apkopotu kopā."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Atslēgt apkopoto recenzenta statistiku"
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Datne {$filename} tika pārvietota uz nosūtīšanas mapi."

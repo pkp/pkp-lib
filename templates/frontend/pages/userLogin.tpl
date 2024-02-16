@@ -50,7 +50,7 @@
 							{translate key="common.required"}
 						</span>
 					</span>
-					<input type="text" name="username" id="username" value="{$username|default:""|escape}" maxlength="32" required aria-required="true" autocomplete="username">
+					<input type="text" name="username" id="username" value="{$username|default:""|escape}" required aria-required="true" autocomplete="username">
 				</label>
 			</div>
 			<div class="password">

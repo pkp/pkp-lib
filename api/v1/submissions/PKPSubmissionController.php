@@ -503,17 +503,18 @@ class PKPSubmissionController extends PKPBaseController
         if (isset($params[$sectionIdPropName])) {
             $sectionId = $params[$sectionIdPropName];
             $section = Repo::section()->get($sectionId, $context->getId());
-            if ($section->getIsInactive()) {
-                $errors[$sectionIdPropName] = [__('api.submission.400.inactiveSection')];
+
+            if (!$section) {
+                $errors[$sectionIdPropName] = [__('api.submission.400.sectionDoesNotExist')];
             } else {
-                if ($section->getEditorRestricted() && !$this->isEditor()) {
-                    $errors[$sectionIdPropName] = [__('submission.sectionRestrictedToEditors')];
+                if ($section->getIsInactive()) {
+                    $errors[$sectionIdPropName] = [__('api.submission.400.inactiveSection')];
+                } else {
+                    if ($section->getEditorRestricted() && !$this->isEditor()) {
+                        $errors[$sectionIdPropName] = [__('submission.sectionRestrictedToEditors')];
+                    }
                 }
             }
-        }
-
-        if (!empty($errors)) {
-            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         $submitterUserGroups = Repo::userGroup()
@@ -523,15 +524,15 @@ class PKPSubmissionController extends PKPBaseController
             ->filterByRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_AUTHOR])
             ->getMany();
 
-        if (isset($params['userGroupId'])) {
+        $userGroupIdPropName = 'userGroupId';
+
+        if (isset($params[$userGroupIdPropName])) {
             $submitAsUserGroup = $submitterUserGroups
-                ->first(function (UserGroup $userGroup) use ($params) {
-                    return $userGroup->getId() === $params['userGroupId'];
+                ->first(function (UserGroup $userGroup) use ($params, $userGroupIdPropName) {
+                    return $userGroup->getId() === $params[$userGroupIdPropName];
                 });
             if (!$submitAsUserGroup) {
-                return response()->json([
-                    'userGroupId' => [__('api.submissions.400.invalidSubmitAs')],
-                ], Response::HTTP_BAD_REQUEST);
+                $errors[$userGroupIdPropName] = [__('api.submissions.400.invalidSubmitAs')];
             }
         } elseif ($submitterUserGroups->count()) {
             $submitAsUserGroup = $submitterUserGroups
@@ -542,14 +543,17 @@ class PKPSubmissionController extends PKPBaseController
         } else {
             $submitAsUserGroup = Repo::userGroup()->getFirstSubmitAsAuthorUserGroup($context->getId());
             if (!$submitAsUserGroup) {
-                return response()->json([
-                    'userGroupId' => [__('submission.wizard.notAllowed.description')],
-                ], Response::HTTP_BAD_REQUEST);
+                $errors[$userGroupIdPropName] = [__('submission.wizard.notAllowed.description')];
+            } else {
+                Repo::userGroup()->assignUserToGroup(
+                    $user->getId(),
+                    $submitAsUserGroup->getId()
+                );
             }
-            Repo::userGroup()->assignUserToGroup(
-                $user->getId(),
-                $submitAsUserGroup->getId()
-            );
+        }
+
+        if (!empty($errors)) {
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
         $publicationProps = [];
@@ -1031,8 +1035,7 @@ class PKPSubmissionController extends PKPBaseController
                     $user->getId(),
                     (int) $context->getId()
                 )
-            )
-            ) {
+            )) {
                 continue;
             }
 

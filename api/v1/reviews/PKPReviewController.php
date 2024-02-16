@@ -118,12 +118,13 @@ class PKPReviewController extends PKPBaseController
 
         $submission = Repo::submission()->get($submissionId, $contextId);
         $publication = $submission->getCurrentPublication();
-        $publicationTitle = $publication->getLocalizedTitle();
+        //$publicationTitlePrefix = $publication->getData('prefix');
+        $publicationTitle = $publication->getData('title');
 
         $section = Repo::section()->get($submission->getSectionId());
-        $publicationType = $section->getLocalizedData('title');
-        $publicationAbstract = $publication->getLocalizedData('abstract');
-        $publicationKeywords = implode(', ', $publication->getLocalizedData('keywords'));
+        $publicationType = $section->getData('title');
+        $publicationAbstract = $publication->getData('abstract');
+        $publicationKeywords = $publication->getData('keywords');
 
         $declineEmail = null;
         if ($reviewAssignment->getDeclined()) {
@@ -144,6 +145,7 @@ class PKPReviewController extends PKPBaseController
         }
 
         $reviewAssignmentProps = Repo::reviewAssignment()->getSchemaMap()->map($reviewAssignment);
+        // It doesn't seem we can translate the recommendation inside the vue page as it's a dynamic label key.
         $recommendation = $reviewAssignment->getLocalizedRecommendation();
 
         $reviewAssignmentId = $reviewAssignment->getId();

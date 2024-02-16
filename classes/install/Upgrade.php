@@ -18,7 +18,6 @@ namespace APP\install;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
-use Illuminate\Support\Facades\DB;
 use PKP\install\Installer;
 
 class Upgrade extends Installer
@@ -76,18 +75,6 @@ class Upgrade extends Installer
         $request = Application::get()->getRequest();
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->clearCssCache();
-        return true;
-    }
-
-    /**
-     * Submissions with stage_id=WORKFLOW_STAGE_ID_SUBMISSION should be changed to stage_id=WORKFLOW_STAGE_ID_PRODUCTION, which is the only stage in OPS
-     *
-     * @return bool
-     */
-    public function changeSubmissionStageToProduction()
-    {
-        DB::statement('UPDATE submissions SET stage_id = ? WHERE stage_id = ?', [WORKFLOW_STAGE_ID_PRODUCTION, WORKFLOW_STAGE_ID_SUBMISSION]);
-
         return true;
     }
 }

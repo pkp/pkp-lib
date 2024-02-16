@@ -14,19 +14,9 @@
 <install version="3.5.0.0">
 	<code function="checkPhpVersion" />
 
-	<upgrade minversion="3.0.0.0" maxversion="3.2.0.9">
-		<data file="dbscripts/xml/upgrade/3.2.1_update.xml" />
-		<code function="installEmailTemplate" key="ANNOUNCEMENT" locales="en_US" />
-		<migration class="PKP\migration\upgrade\PKPv3_2_1SubeditorCategoriesMigration" />
-		<note file="docs/release-notes/README-3.2.1" />
-	</upgrade>
-
-	<upgrade minversion="3.0.0.0" maxversion="3.2.9.9">
-		<!-- Submissions with stage_id=WORKFLOW_STAGE_ID_SUBMISSION should be changed to stage_id=WORKFLOW_STAGE_ID_PRODUCTION, which is the only stage in OPS -->
-		<code function="changeSubmissionStageToProduction" />
-		<code function="installEmailTemplate" key="POSTED_ACK" locales="en_US" />
-		<migration class="APP\migration\upgrade\OPSv3_3_0UpgradeMigration" />
-		<note file="docs/release-notes/README-3.3.0" />
+	<upgrade minversion="0.9.9.0" maxversion="3.2.9.9">
+		<!-- OPS < 3.3.0 upgrade unsupported -->
+		<code function="abort" message="installer.unsupportedUpgradeError" />
 	</upgrade>
 
 	<upgrade minversion="3.1.0.0" maxversion="3.3.9.9">
@@ -92,10 +82,6 @@
 		<migration class="PKP\migration\upgrade\v3_4_0\I9039_DropDeprecatedFields"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I8933_EventLogLocalized"/>
 		<note file="docs/release-notes/README-3.4.0" />
-	</upgrade>
-
-	<upgrade minversion="3.1.0.0" maxversion="3.2.9.9">
-		<migration class="PKP\migration\upgrade\v3_4_0\I7249_UpdateUsersUniqueIndex_v3_1"/>
 	</upgrade>
 
 	<upgrade minversion="3.3.0.0" maxversion="3.3.9.9">

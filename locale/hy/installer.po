@@ -1,8 +1,8 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-01 08:58+0000\n"
+"PO-Revision-Date: 2024-02-16 20:22+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/hy/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "installer.additionalLocales"
 msgstr "Լրացուցիչ տեղայիններ"
@@ -154,10 +154,10 @@ msgstr "Էլ․ փոստի ձևանմուշ նիշքը <tt>{$file}</tt> վերլ
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Զտիչի կազմաձևման <tt>{$file}</tt> նիշքը վերլուծելիս սխալ առաջացավ:"
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
-"Թարմացումը չի աջակցվում: Մանրամասների համար տես docs/UPGRADE-UNSUPPORTED:"
+"Արդիականացնելը չի աջակցվում: Մանրամասների համար տե՛ս Արդիականացման "
+"ուղեցույցը (https://docs.pkp.sfu.ca/dev/upgrade-guide)::"
 
 msgid "installer.timezoneInstructions"
 msgstr "Այս համակարգի համար օգտագործվող ժամային գոտին:"

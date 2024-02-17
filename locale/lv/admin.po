@@ -2,7 +2,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-16 20:22+0000\n"
+"PO-Revision-Date: 2024-02-18 13:39+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "lv/>\n"
@@ -529,243 +529,282 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Palaist bezgalīgu dēmona darba procesu, kas turpinās apstrādāt uzdevumus. "
+"Izmantojiet karodziņu --help, lai redzētu ar šo komandu saistītās pieejamās "
+"opcijas."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Uzskaitiet visus neveiksmīgos darbuzdevumus. Lai filtrētu sarakstu, "
+"iestatiet parametrus --queue=QUEUE_NAME un --connection=CONNECTION_NAME. "
+"Nododiet arī parametrus/flag --redispatch un --clear, lai pārsūtītu atpakaļ "
+"uz rindu vai dzēstu visus/konkrētos neveiksmīgos darbuzdevumus."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Pieejamo darbuzdevumu nosūtīšana rindā. Lai nosūtītu darbuzdevumu konkrētā "
+"rindā, ievadiet parametru --queue=QUEUE_NAME. Izmantojiet --test, lai "
+"palaistu testa darbuzdevumu, un --once, lai apstātos pēc viena darba."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
+"Pabeigta {$jobCount} darbuzdevumu izpilde rindā ar nosaukumu {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr ""
+msgstr "Rindā ar nosaukumu {$queueName} nav pieejamu darbuzdevumu."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Rādīt kopējo rindā esošo darbuzdevumu skaitu. Lai redzētu neveiksmīgo kopējo "
+"neveiksmīgo darbuzdevumu skaitu, pievienojiet karodziņu --failed."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Rādīt komandas Jobs lietojumu"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Parādīt komandas Jobs izmantošanas parametrus"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "Opcija nevar būt tukša! Pārbaudiet lietošanas metodi."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Neizdevušies rindā esošie darbuzdevumi"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Rindā esošie darbuzdevumi"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Rinda"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Savienojums"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Darbuzdevuma parādāmais nosaukums"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Mēģinājumi"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Rezervēts"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "PIeejams"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Izveidots"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Neveiksmīgs"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Izņēmuma ziņa"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Lapdale (pagination)"
 
 msgid "admin.cli.tool.jobs.pagination.current"
 msgstr "Pašreizējais"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Iepriekšējais"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Nākamais"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Lai izmantotu šo komandu, jānorāda vismaz darbuzdevuma ID, '--all' vai '--"
+"queue='"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"Dispečēts testa darbuzdevums rindā ar nosaukumu {$queueName} beidzies "
+"neveiksmīgi"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
+"Dispečēts testa darbuzdevums rindā ar nosaukumu {$queueName} beidzies "
+"veiksmīgi"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Nederīga testa darbuzdevuma opcija. Opcijai '--only=' var būt tikai šādi "
+"parametri – 'failed' vai 'success'."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Nederīgs darbuzdevuma ID"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "Darbuzdevums tika dzēsts!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Nav atrasts neviens dzēšams darbuzdevums."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Nebija iespējams izdzēst visus darbuzdevumus."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Visi darbuzdevumi dzēsti!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} neizdevušies darbuzdevumi veiksmīgi izņemti no neizdevušos "
+"darbuzdevumu saraksta."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} darbuzdevumi veiksmīgi redispečēti atpakaļ uz rindu."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Kopā ir {$total} neveiksmīgu darbuzdevumu"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Kopā rindā ir {$total} darbuzdevumu"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "Opcija {$option} nepastāv."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Vai domājāt kādu no šiem variantiem?"
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Kopā rindā ir <strong>{$total}</strong> darbuzdevumu"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Kopā ir <strong>{$total}</strong> neveiksmīgu darbuzdevumu."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Skatīt rindā esošos darbuzdevumus"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Darbuzdevumi"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Neveiksmīgi darbuzdevumi"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Sīkāka informācija par neveiksmīgiem darbuzdevumiem"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Pārskatīt visus sistēmā rindā esošos darbuzdevumus un izsekot neveiksmīgus "
+"mēģinājumus."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Skatīt darbuzdevumus"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Skatīt neveiksmīgos darbuzdevumus"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Skatīt neveiksmīgu darbuzdevumu: {$id} – sīkāka informācija"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Atribūts"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Atribūta vērtība"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Darbuzdevums"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Rinda"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Savienojums"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Mēģinājumi"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Izveidots"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Neveiksmīgs"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Lietderīgā slodze"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Izņēmums"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Darbības"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Izveidots {$failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Izveidots {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Mēģināt vēlreiz"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "No jauna sarindot visus neizdevušos darbuzdevumus"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"Darbuzdevums, kas ielādē lietošanas statistikas datus no datnes {$file}, "
+"neizdevās, un datni nevarēja pārvietot no {$archivedFilePath} uz "
+"{$stagingPath}."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"Darbuzdevums, kas ielādē lietošanas statistikas datus no faila {$file}, "
+"neizdevās. Datne ir pārvietota uz posma katalogu."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Datu vākšana"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Konfigurēt, kāda veida lietošanas statistika ir jāvāc."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Datu glabāšana"
 
 msgid "admin.settings.statistics.storage.description"
-msgstr ""
+msgstr "Konfigurēt, kāda lietošanas statistika jāuzglabā serverī."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Sushi protokols"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Konfigurēt <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER "
+"5 SUSHI</a> protokolu, kas ir nozarē atzīts formāts lietošanas statistikas "
+"izplatīšanai."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Ikmēneša vai ikdienas statistika"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Izsekot ikdienas vai ikmēneša lietošanas statistiku. Ikdienas statistikas "
+"izsekošana var ievērojami palielināt datubāzes lielumu."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Izsekot ikdienas un ikmēneša statistiku"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Izsekot tikai ikmēneša statistiku"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Saspiest uzdevumu žurnālus"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Statistika tiek ģenerēta no piekļuves notikumu žurnāla datnēm, kas pēc "
+"apstrādes tiek pārvietotas uz <code>{$path}</code>. Vai pēc apstrādes "
+"notikumu žurnāla datnes ir jāsaspiež kā <code>.gz</code> datnes? Notikumu "
+"žurnālu datņu saspiešana var ietaupīt vietu uz servera diska."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
 msgstr ""
@@ -855,3 +894,11 @@ msgstr "Atslēgt apkopoto recenzenta statistiku"
 
 msgid "admin.fileLoader.fileDispatched"
 msgstr "Datne {$filename} tika pārvietota uz nosūtīšanas mapi."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Datni {$file} nevarēja pārvietot no {$dispatchFilePath} uz "
+"{$archivedFilePath}."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Datne {$file} neeksistē."

@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-15 19:17+0000\n"
+"PO-Revision-Date: 2024-02-18 13:39+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/lv/>\n"
@@ -66,7 +66,7 @@ msgstr ""
 "interešu konfliktu. Lūdzu, veltiet brīdi, lai iepazītos ar šiem noteikumiem."
 
 msgid "reviewer.submission.noCompetingInterests"
-msgstr "Man nav interešu konfliktu"
+msgstr "Man nav interešu konflikta"
 
 msgid "reviewer.submission.hasCompetingInterests"
 msgstr "Man ir iespējams interešu konflikts (aprakstīt zemāk)"

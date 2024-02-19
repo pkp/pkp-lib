@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-16 20:22+0000\n"
+"PO-Revision-Date: 2024-02-20 12:39+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -354,8 +354,8 @@ msgstr ""
 
 msgid "manager.genres.alertDelete"
 msgstr ""
-"Pirms šo komponentu dzēst, visi saistītie iesniegšanas faili ir jāsaista ar "
-"citu komponentu."
+"Pirms šo sastāvdaļu dzēst, visas saistītās iesniegtā materiāla datnes "
+"jāsaista ar citu sastāvdaļu."
 
 msgid "manager.institutions.edit"
 msgstr "Rediģēt iestādi"
@@ -1783,16 +1783,16 @@ msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Atlasiet bibliotēkas failus, ko pievienot"
 
 msgid "grid.action.addGenre"
-msgstr "Pievienot komponentu"
+msgstr "Pievienot sastāvdaļu"
 
 msgid "grid.action.editGenre"
-msgstr "Rediģēt šo komponentu"
+msgstr "Rediģēt šo sastāvdaļu"
 
 msgid "grid.action.deleteGenre"
-msgstr "Dzēst šo komponentu"
+msgstr "Dzēst šo sastāvdaļu"
 
 msgid "grid.action.restoreGenres"
-msgstr "Atjaunot komponentu noklusējuma iestatījumus"
+msgstr "Atjaunot sastāvdaļu noklusējuma iestatījumus"
 
 msgid "manager.setup.genres.label"
 msgstr "Faila tips"
@@ -2580,7 +2580,7 @@ msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/gadā)"
 
 msgid "stats.daily"
-msgstr "Katru dienu"
+msgstr "Ikdienas"
 
 msgid "stats.dateRange"
 msgstr "Datumu diapazons"
@@ -2675,7 +2675,7 @@ msgid "stats.descriptionForStat"
 msgstr "{$stat} apraksts"
 
 msgid "stats.editorialActivity"
-msgstr "Redakcionālā aktivitāte"
+msgstr "Redakcijas darbība"
 
 msgid "stats.file.type.primaryFile"
 msgstr "Primārā datne"
@@ -3060,7 +3060,7 @@ msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr "Pārskata gads"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr "Saite uz redakcionālās aktivitātes lapu"
+msgstr "Saite uz redakcijas darbības lapu"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""

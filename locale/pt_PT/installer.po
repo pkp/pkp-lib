@@ -1,11 +1,11 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2022.
-# José Carvalho <jcarvalho@keep.pt>, 2022, 2023.
+# José Carvalho <jcarvalho@keep.pt>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2023-09-04 12:58+0000\n"
+"PO-Revision-Date: 2024-02-19 11:08+0000\n"
 "Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/installer/pt_PT/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "installer.additionalLocales"
 msgstr "Idiomas Adicionais"
@@ -154,11 +154,10 @@ msgid "installer.installParseFilterConfigFileError"
 msgstr ""
 "Erro ao analisar o ficheiro de configuração do filtro <tt>{$file}</tt>."
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
-"Atualizaçã sem suporte. Veja documentos/UPGRADE-UNSUPPORTED para obter "
-"detalhes."
+"Atualização sem suporte. Consulte o guia de atualização (https://docs.pkp.sfu"
+".ca/dev/upgrade-guide) para obter mais detalhes."
 
 msgid "installer.timezoneInstructions"
 msgstr "O fuso horário a ser usado para este sistema."

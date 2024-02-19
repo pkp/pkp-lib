@@ -261,6 +261,9 @@ class commandJobs extends CommandLineTool
         $this->list();
     }
 
+    /**
+     * Signal the queue worker to quit gracefully
+     */
     protected function restart(): void
     {
         $cache = app()->get("cache.store"); /** @var \Illuminate\Contracts\Cache\Repository $cache */

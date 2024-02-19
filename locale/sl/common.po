@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023.
+# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2023-11-24 19:27+0000\n"
+"PO-Revision-Date: 2024-02-19 11:08+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sl/>\n"
@@ -2267,3 +2267,6 @@ msgstr "Prikaži manj"
 
 msgid "showAll"
 msgstr "Prikaži vse"
+
+msgid "common.sandbox"
+msgstr "Aplikacija teče v načinu peskovnika."

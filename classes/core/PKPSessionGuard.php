@@ -171,6 +171,11 @@ class PKPSessionGuard extends SessionGuard
         
         // update response header cookie values in formar [name=value]
         $response->headers->set('cookie', $headerCookies);
+
+        if (app()->has('encrypter')) {
+            $pkpEncryptCookies = app()->make(\PKP\middleware\PKPEncryptCookies::class); /** @var \PKP\middleware\PKPEncryptCookies $pkpEncryptCookies */
+            $pkpEncryptCookies->encrypt($response);
+        }
     }
 
     /**

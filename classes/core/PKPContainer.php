@@ -303,6 +303,11 @@ class PKPContainer extends Container
             'Route' => [
                 \Illuminate\Support\Facades\Route::class
             ],
+            'encrypter' => [
+                \Illuminate\Encryption\Encrypter::class,
+                \Illuminate\Contracts\Encryption\Encrypter::class,
+                \Illuminate\Contracts\Encryption\StringEncrypter::class,
+            ],
         ] as $key => $aliases) {
             foreach ($aliases as $alias) {
                 $this->alias($key, $alias);
@@ -364,12 +369,13 @@ class PKPContainer extends Container
             'path' => Config::getVar('general', 'session_cookie_path', '/'),
             'domain' => (new \APP\core\Request)->getServerHost(includePort: false),
             'secure' => Config::getVar('security', 'force_ssl', false),
-            'lifetime' => Config::getVar('general', 'lifetime', 30) * 24 * 60, // lifetime need to set in minutes
+            'lifetime' => Config::getVar('general', 'session_lifetime', 30) * 24 * 60, // lifetime need to set in minutes
             'lottery' => [2, 100],
             'expire_on_close' => false,
             'same_site' => Config::getVar('general', 'session_samesite', 'lax'),
             'partitioned' => false,
             'encrypt' => false,
+            'cookie_encryption_key' => Config::getVar('general', 'session_cookie_enctyption_key', ''),
         ];
 
 

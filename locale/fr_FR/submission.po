@@ -1802,7 +1802,7 @@ msgid "submission.copyrightYear"
 msgstr "Année du copyright"
 
 msgid "submission.copyrightStatement"
-msgstr "(c) Tous droits réservés {$copyrightHolder} {$copyrightYear}"
+msgstr "© {$copyrightHolder} {$copyrightYear}"
 
 msgid "submission.licenseURLValid"
 msgstr "Veuillez indiquer une URL à distance valide (incluez http://)."

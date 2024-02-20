@@ -309,7 +309,9 @@ class PKPContainer extends Container
      */
     protected static function getDefaultMailer(): string
     {
-        $default = Config::getVar('email', 'default');
+        $default = Config::getVar('general', 'sandbox', false) 
+            ? 'log'
+            : Config::getVar('email', 'default');
 
         if (!$default) {
             throw new Exception('Mailer driver isn\'t specified in the application\'s config');

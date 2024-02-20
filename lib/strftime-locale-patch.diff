@@ -1,5 +1,5 @@
-diff -u -r src/php-8.1-strftime.php src/php-8.1-strftime.php
---- php-8.1-strftime.php	2022-10-27 21:37:02.000000000 +0300
-+++ php-8.1-strftime.php	2024-01-25 21:34:27.000000000 +0300
+diff -u src/php-8.1-strftime.php src/php-8.1-strftime.php
+--- src/php-8.1-strftime.php	2022-10-27 21:37:02.000000000 +0300
++++ src/php-8.1-strftime.php	2024-01-25 21:34:27.000000000 +0300
 @@ -30,0 +31 @@
 +    $locale = $locale ?? \AppLocale::getLocale();

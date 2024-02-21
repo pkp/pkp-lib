@@ -107,7 +107,7 @@ class UserStageAssignmentDAO extends UserDAO {
 			$params = array_merge($params, array_fill(0, 6, (string) $name));
 		}
 		$result = $this->retrieveRange(
-			$sql = 'SELECT	u.*
+			$sql = 'SELECT	DISTINCT u.*, COALESCE(usfs_l.setting_value, usfs_pl.setting_value) AS ordered_setting_value
 			FROM	users u
 				LEFT JOIN user_user_groups uug ON (u.user_id = uug.user_id)
 				LEFT JOIN stage_assignments s ON (s.user_id = uug.user_id AND s.user_group_id = uug.user_group_id AND s.submission_id = ?)
@@ -127,7 +127,7 @@ class UserStageAssignmentDAO extends UserDAO {
 						OR LOWER(u.username) LIKE CONCAT('%', LOWER(?), '%') 
 						OR LOWER(u.email) LIKE CONCAT('%', LOWER(?), '%'))" 
 					: "")
-			. " ORDER BY COALESCE(usfs_l.setting_value, usfs_pl.setting_value)",
+			. " ORDER BY ordered_setting_value",
 				$params,
 				$rangeInfo);
 		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData', [], $sql, $params, $rangeInfo);

@@ -21,6 +21,7 @@ use APP\mail\variables\ContextEmailVariable;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use Exception;
+use Illuminate\Mail\Mailables\Headers;
 use PKP\mail\Mailable;
 use PKP\mail\variables\ContextEmailVariable as PKPContextEmailVariable;
 
@@ -80,6 +81,22 @@ trait Unsubscribe
                 $context
             ),
         ]);
+    }
+
+    /**
+     * Adds unsubscribe headers, see pkp/pkp-lib#6627
+     */
+    public function headers(): Headers
+    {
+        $unsubscribeUrl = $this->viewData[self::$unsubscribeUrl] ?? null;
+        return new Headers(
+            null,
+            [],
+            $unsubscribeUrl ? [
+                'List-Unsubscribe-Post' => 'List-Unsubscribe=One-Click',
+                'List-Unsubscribe' => '<' . $unsubscribeUrl . '>',
+            ] : []
+        );
     }
 
     /**

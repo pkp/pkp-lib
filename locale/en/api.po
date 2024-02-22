@@ -313,3 +313,6 @@ msgstr "The submission for this review assignment could not be found."
 
 msgid "api.reviews.assignments.invalidReviewer"
 msgstr "The reviewer for the assignment could not be found"
+
+msgid "api.submission.400.sectionDoesNotExist"
+msgstr "The provided section does not exist."

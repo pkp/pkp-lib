@@ -1,10 +1,10 @@
-# Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2022, 2023.
+# Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2023-11-19 14:38+0000\n"
+"PO-Revision-Date: 2024-02-16 20:22+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ru/>\n"
@@ -3734,3 +3734,77 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Требовать от авторов представлять Декларацию о конфликте интересов вместе с "
 "отправляемым материалом."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Файл материала {$id} был пропущен, потому что у него не правильно указана "
+"стадия файла."
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Отчёты Counter R5"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Статистика использования COUNTER R5 пока отсутствует."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Настройки отчёта"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Дата начала"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Дата должна быть в формате ГГГГ-ММ-ДД или ГГГГ-ММ. Самая ранняя возможная "
+"дата — {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Дата окончания"
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Неправильный формат даты."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ID клиента"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Тип метрики"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Атрибуты для показа"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Год публикации"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Список или диапазон лет публикации, который нужно вернуть в ответ в формате "
+"гггг|гггг|гггг-гггг."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Неправильный формат года публикации."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "ID материала"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "ID материала не существует."
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Убрать детализацию по месяцам"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Дополнительную информацию о каждом отчете см. в <a href=\"https://cop5."
+"projectcounter.org/en/5.0.3/04-reports/index.html\" target=\"_new\""
+">документации COUNTER 5.0.3</a>."
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Дата должна быть в формате ГГГГ-ММ-ДД или ГГГГ-ММ. Самая поздняя возможная "
+"дата — {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Включить сведения о родительском элементе"

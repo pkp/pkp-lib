@@ -1,10 +1,10 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2023-11-09 22:56+0000\n"
+"PO-Revision-Date: 2024-02-16 20:22+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/uk/>\n"
@@ -1919,7 +1919,7 @@ msgid "manager.reviewForms.confirmCopy"
 msgstr "Ви впевнені, що бажаєте створити копію цієї форми рецензії?"
 
 msgid "manager.reviewForms.completed"
-msgstr "Завершено"
+msgstr "Виконано"
 
 msgid "manager.reviewForms.confirmDelete"
 msgstr "Ви впевнені, що бажаєте видалити цю форму рецензії?"
@@ -3767,3 +3767,76 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Вимагати від авторів декларувати відсутність конфлікту інтересів щодо "
 "поданих матеріалів."
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "ID подання не існує."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Додати відомості про батьківський елемент"
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Файл подання {$id} було пропущено, оскільки він не має дійсної стадії файлу."
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Звіти Counter R5"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Перегляньте <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/"
+"index.html\" target=\"_new\">документацію COUNTER 5.0.3</a>, щоб отримати "
+"додаткові відомості про кожен звіт."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Статистики використання COUNTER R5 ще немає."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Параметри звіту"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Дата початку"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Дата має бути у форматі РРРР-ММ-ДД або РРРР-ММ. Найраніша можлива дата – "
+"{$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Дата закінчення"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Дата має бути у форматі РРРР-ММ-ДД або РРРР-ММ. Остання можлива дата – "
+"{$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Неправильний формат дати."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ID клієнта"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Тип метрики"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Атрибути для показу"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Рік видання"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Список або діапазон років видання для повернення у відповідь у форматі "
+"рррр|рррр|рррр-рррр."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Неправильний формат року видання."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "ID подання"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Виключити деталі за місяцями"

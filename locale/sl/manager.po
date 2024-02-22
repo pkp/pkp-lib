@@ -1,11 +1,12 @@
 # Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023, 2024.
+# Matevž Rudolf <matevz.rudolf@uni-lj.si>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2024-01-30 13:22+0000\n"
-"Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
+"PO-Revision-Date: 2024-02-14 20:14+0000\n"
+"Last-Translator: Matevž Rudolf <matevz.rudolf@uni-lj.si>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl/>\n"
 "Language: sl\n"
@@ -1466,7 +1467,7 @@ msgstr "Vtičnik \"{$pluginName}\" je bil uspešno odstranjen"
 
 msgid "manager.plugins.description"
 msgstr ""
-"Ta stran omogoča administratorju, da pregelda in konfigurira vtičnike, ki so "
+"Ta stran omogoča administratorju, da pregleda in konfigurira vtičnike, ki so "
 "trenutno nameščeni. Vtičniki so razdeljeni v kategorije, odvisno od njihove "
 "funkcionalnosti. Kategorije so naštete spodaj, skupaj s pripadajočimi "
 "vtičniki."

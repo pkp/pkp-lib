@@ -1,7 +1,7 @@
 # Milutin Markovic <admin@fcjk.me>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-28 17:39+0000\n"
+"PO-Revision-Date: 2024-02-14 20:14+0000\n"
 "Last-Translator: Milutin Markovic <admin@fcjk.me>\n"
 "Language-Team: Montenegrin <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/cnr/>\n"
@@ -541,7 +541,7 @@ msgid "common.highlights"
 msgstr "Istaktnuto"
 
 msgid "common.homepageNavigationLabel"
-msgstr "Kuća"
+msgstr "Početna"
 
 msgid "common.hour"
 msgstr "Sat"
@@ -2021,7 +2021,7 @@ msgid "notification.addedNavigationMenu"
 msgstr "Navigacijski izbornik je uspješno dodan"
 
 msgid "semicolon"
-msgstr "{$etiketa}:"
+msgstr "{$label}:"
 
 msgid "notification.editedNavigationMenu"
 msgstr "Navigacijski izbornik je uspješno ažuriran"

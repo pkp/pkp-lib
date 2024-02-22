@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-22 17:20+0000\n"
+"PO-Revision-Date: 2024-02-22 17:43+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "lv/>\n"
@@ -301,7 +301,7 @@ msgid "common.downloadPdf"
 msgstr "Lejupielādēt PDF"
 
 msgid "common.downloadReport"
-msgstr "Lejupielādēt ziņojumu"
+msgstr "Lejupielādēt pārskatu"
 
 msgid "common.dragAndDropHere"
 msgstr "Velciet un nometiet datnes šeit."
@@ -1301,7 +1301,7 @@ msgid "informationCenter.informationCenter"
 msgstr "Informācijas centrs"
 
 msgid "informationCenter.editorialHistory"
-msgstr "Redakcionālā vēsture"
+msgstr "Redakcijas vēsture"
 
 msgid "informationCenter.noNotes"
 msgstr "Nav rādāmu piezīmju."
@@ -1343,8 +1343,8 @@ msgstr "Piešķiršanas tiesības"
 
 msgid "stageParticipants.recommendOnly"
 msgstr ""
-"Šim dalībniekam ir atļauts tikai ieteikt redakcionālu lēmumu, un to "
-"reģistrēt varēs tikai pilnvarots redaktors."
+"Šim dalībniekam ir atļauts tikai ieteikt redakcijas lēmumu, un to reģistrēt "
+"varēs tikai pilnvarots redaktors."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Atļaujas"
@@ -2145,7 +2145,7 @@ msgstr ""
 
 msgid "notification.type.allRevisionsIn"
 msgstr ""
-"Izlabotā datne {$stage}. posmā ir augšupielādēta redakcionālai izskatīšanai."
+"Izlabotā datne {$stage}. posmā ir augšupielādēta redakcijas izskatīšanai."
 
 msgid "notification.type.pendingRevisions"
 msgstr "Labojumi, kas jāapsver {$stage}. posmā."
@@ -2161,7 +2161,7 @@ msgstr ""
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
-"Šis ir atgādinājums pārbaudīt žurnāla stāvokli, izmantojot redakcionālo "
+"Šis ir atgādinājums pārbaudīt žurnāla stāvokli, izmantojot redakcijas "
 "pārskatu."
 
 msgid "notification.editedNavigationMenu"
@@ -2286,3 +2286,6 @@ msgstr "Rādīt mazāk"
 
 msgid "showAll"
 msgstr "Rādīt visu"
+
+msgid "common.sandbox"
+msgstr "Lietojumprogramma darbojas smilšu kastes režīmā."

@@ -1,10 +1,10 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2023-11-10 23:16+0000\n"
+"PO-Revision-Date: 2024-02-16 20:22+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/uk/>\n"
@@ -143,7 +143,7 @@ msgid "editor.submission.findAndSelectReviewer"
 msgstr "Обрати рецензента"
 
 msgid "editor.submission.findAndSelectUser"
-msgstr "Обрати користувача"
+msgstr "Знайти користувача"
 
 msgid "editor.submission.fileList.includeAllStages"
 msgstr "Показати файли з усіх доступних стадій робочого процесу."

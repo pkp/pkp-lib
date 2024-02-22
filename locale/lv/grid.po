@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-22 17:20+0000\n"
+"PO-Revision-Date: 2024-02-22 17:43+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/lv/"
 ">\n"
@@ -86,7 +86,7 @@ msgid "grid.action.deleteSection"
 msgstr "Dzēst sadaļu"
 
 msgid "grid.action.editorialHistory"
-msgstr "Redakcionālā vēsture"
+msgstr "Redakcijas vēsture"
 
 msgid "grid.action.remove"
 msgstr "Noņemt"
@@ -403,14 +403,14 @@ msgid "grid.contributor.title"
 msgstr "Atbalsta avoti"
 
 msgid "grid.action.addContributor"
-msgstr "Pievienot ieguldītāju"
+msgstr "Pievienot līdzautoru"
 
 msgid "grid.action.deleteContributor"
-msgstr "Dzēst ieguldītāju"
+msgstr "Dzēst līdzautoru"
 
 msgid "grid.action.deleteContributor.confirmationMessage"
 msgstr ""
-"Vai tiešām vēlaties noņemt {$name} kā ieguldītāju? Šo darbību nevar atsaukt."
+"Vai tiešām vēlaties noņemt {$name} kā līdzautoru? Šo darbību nevar atsaukt."
 
 msgid "grid.action.newVersion"
 msgstr "Izveidot jaunu versiju"
@@ -431,7 +431,7 @@ msgid "grid.libraryFiles.submission.title"
 msgstr "Iesniegto materiālu bibliotēka"
 
 msgid "grid.libraryFiles.editorial.title"
-msgstr "Redakcionālā bibliotēka"
+msgstr "Redakcijas bibliotēka"
 
 msgid "grid.libraryFiles.review.title"
 msgstr "Recenzēšanas bibliotēka"
@@ -458,7 +458,7 @@ msgid "contributor.listPanel.preview"
 msgstr "Priekšskatījums"
 
 msgid "contributor.listPanel.preview.description"
-msgstr "Šīs publikācijas ieguldītāji tiks norādīti šādos formātos."
+msgstr "Šīs publikācijas līdzautori tiks norādīti šādos formātos."
 
 msgid "contributor.listPanel.preview.format"
 msgstr "Formāts"
@@ -718,4 +718,4 @@ msgid "author.users.contributor.includeInBrowse"
 msgstr "Pārlūkošanas sarakstos"
 
 msgid "grid.action.editContributor"
-msgstr "Rediģēt ieguldītāju"
+msgstr "Rediģēt līdzautoru"

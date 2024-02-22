@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-18 13:39+0000\n"
+"PO-Revision-Date: 2024-02-22 17:43+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/lv/>\n"
@@ -117,8 +117,7 @@ msgid "submission.comments.sendToReviewers"
 msgstr "Nosūtīt recenzentiem"
 
 msgid "user.authorization.submissionReviewer"
-msgstr ""
-"Pašreizējais lietotājs nav piešķirts kā pieprasītā dokumenta recenzents."
+msgstr "Pašreizējais lietotājs nav iecelts par pieprasītā dokumenta recenzentu."
 
 msgid "reviewer.submission.guidelines"
 msgstr "Vadlīnijas recenzēšanai"

@@ -2,7 +2,7 @@
 # Gints Buda <gints.buda@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-22 17:43+0000\n"
+"PO-Revision-Date: 2024-02-23 01:11+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "lv/>\n"
@@ -64,7 +64,7 @@ msgstr "Šī recenzēšanas kārta nav atrasta."
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
 "Tika nodrošināta recenzēšanas kārta, bet šis lēmums netiek pieņemts "
-"recenzēšanas fāzē."
+"recenzēšanas posmā."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
 msgstr "Šī recenzēšanas kārta nav daļa no materiāla iesniegšanas."

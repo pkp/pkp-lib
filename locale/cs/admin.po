@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2023-12-03 14:39+0000\n"
+"PO-Revision-Date: 2024-02-22 11:01+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/cs/>"
 "\n"
@@ -930,3 +930,27 @@ msgid "admin.settings.sharedReviewerStatistics.description"
 msgstr ""
 "V instalaci s více kontexty lze statistiky recenzentů, například počet "
 "odeslaných recenzí, zobrazit buď jednotlivě pro každý kontext, nebo souhrnně."
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Soubor {$filename} byl přesunut do složky odeslání."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Nelze spustit úlohy fronty, protože je povolen režim aplikačního sandboxu "
+"(pískoviště)."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Pracovní procesy po dokončení provádění aktuální úlohy elegantně ukončí "
+"práci."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Soubor {$file} neexistuje."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Restartuje pracovní démony fronty po ukončení jejich aktuální úlohy."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Soubor {$file} se nepodařilo přesunout z {$dispatchFilePath} do "
+"{$archivedFilePath}."

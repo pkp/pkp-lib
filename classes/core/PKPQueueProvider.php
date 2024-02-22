@@ -76,13 +76,15 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
      */
     public function runJobsViaDaemon(string $connection, string $queue, array $workerOptions = []): void
     {
-        $laravelContainer = PKPContainer::getInstance();
+        $worker = PKPContainer::getInstance()['queue.worker']; /** @var \Illuminate\Queue\Worker $worker */
 
-        $laravelContainer['queue.worker']->daemon(
-            $connection,
-            $queue,
-            $this->getWorkerOptions($workerOptions)
-        );
+        $worker
+            ->setCache(app()->get('cache.store'))
+            ->daemon(
+                $connection,
+                $queue,
+                $this->getWorkerOptions($workerOptions)
+            );
     }
 
     /**

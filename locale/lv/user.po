@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-18 13:39+0000\n"
+"PO-Revision-Date: 2024-02-22 17:43+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/lv/"
 ">\n"
@@ -50,7 +50,8 @@ msgstr "Pašreizējai lomai nav piekļuves šai darbībai."
 
 msgid "user.authorization.assignedStageRoleBasedAccessDenied"
 msgstr ""
-"Šim materiālam jums nav piešķirta loma, kurai būtu piekļuve šādai darbībai."
+"Šim materiālam jums nav piešķirta loma, kurai ir atļauts piekļūt šai "
+"operācijai."
 
 msgid "user.authorization.userGroupRequired"
 msgstr "Lai piekļūtu šai darbībai, ir jāiestata derīga lietotāju grupa."
@@ -103,7 +104,7 @@ msgid "user.interests"
 msgstr "Recenzenta interešu joma"
 
 msgid "user.gossip"
-msgstr "Redakcionālās piezīmes"
+msgstr "Redakcijas piezīmes"
 
 msgid "user.gossip.description"
 msgstr ""

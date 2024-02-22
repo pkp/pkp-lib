@@ -1,10 +1,10 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2023-11-19 14:38+0000\n"
+"PO-Revision-Date: 2024-02-16 20:22+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/uk/>\n"
@@ -266,7 +266,7 @@ msgid "common.complete"
 msgstr "Завершити"
 
 msgid "common.completed"
-msgstr "Завершено"
+msgstr "Виконано"
 
 msgid "common.completed.date"
 msgstr "Завершено: {$dateCompleted}"
@@ -424,7 +424,7 @@ msgid "common.export"
 msgstr "Експорт"
 
 msgid "common.finish"
-msgstr "Завершено"
+msgstr "Завершити"
 
 msgid "common.fullscreen"
 msgstr "Повноекранний режим"
@@ -540,7 +540,7 @@ msgid "common.lessThan"
 msgstr "{$value} або менше"
 
 msgid "common.lessThanOnly"
-msgstr "Менше"
+msgstr "Менше ніж"
 
 msgid "common.keepWorking"
 msgstr "Продовжуйте працювати"
@@ -1280,7 +1280,7 @@ msgid "form.send"
 msgstr "Надіслати"
 
 msgid "form.submit"
-msgstr "Відправити"
+msgstr "Подати"
 
 msgid "form.invalidImage"
 msgstr "Неправильне зображення. Допустимими форматами є: .png, .gif, або .jpg."
@@ -2317,3 +2317,6 @@ msgstr "Показати всі"
 
 msgid "showLess"
 msgstr "Показати менше"
+
+msgid "common.sandbox"
+msgstr "Програма працює в режимі пісочниці."

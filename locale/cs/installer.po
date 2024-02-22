@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2023-09-01 08:58+0000\n"
+"PO-Revision-Date: 2024-02-22 11:01+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/installer/"
 "cs/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "installer.additionalLocales"
 msgstr "Doplňkové lokalizace"
@@ -150,11 +150,10 @@ msgstr "Chyba při parsování souboru šablony emailu <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Chyba při parsování filtru konfiguračního souboru <tt>{$file}</tt>."
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
-"Upgrade není podporován. Přečtěte si, prosím, docs/UPGRADE-UNSUPPORTED pro "
-"další informace."
+"Aktualizace není podporována. Podrobnosti naleznete v Příručce pro "
+"aktualizace (https://docs.pkp.sfu.ca/dev/upgrade-guide)."
 
 msgid "installer.timezoneInstructions"
 msgstr "Časové pásmo, které se má použít pro tento systém."

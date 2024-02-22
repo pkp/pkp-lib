@@ -1,10 +1,10 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2023-09-01 08:58+0000\n"
+"PO-Revision-Date: 2024-02-19 11:08+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/da/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "installer.additionalLocales"
 msgstr "Flere sprog"
@@ -156,10 +156,10 @@ msgstr "Fejl ved parsing af e-mail-skabelonfil <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Fejl ved parsing af filter-konfigurationsfil <tt>{$file}</tt>."
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
-"Opgradering ikke understøttet. Se detaljer under docs/UPGRADE-UNSUPPORTED."
+"Opgradering ikke understøttet. Se detaljer i Opgraderingsguiden "
+"((https://docs.pkp.sfu.ca/dev/upgrade-guide)."
 
 msgid "installer.timezoneInstructions"
 msgstr "Tidszonen, der skal bruges til dette system."

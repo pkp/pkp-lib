@@ -63,7 +63,7 @@ class PKPInvitationHandler extends Handler
             'primaryLocale'=> $context->getData('primaryLocale'),
             'pageTitle' => __('invitation.wizard.pageTitle'),
             'csrfToken' => $request->getSession()->getCSRFToken(),
-            'invitationId' => $request->getUserVar('id') ?: null,
+            'invitationId' => (int)$request->getUserVar('id') ?: null,
             'invitationKey' => $request->getUserVar('key') ?: null,
             'pageTitleDescription' => __('invitation.wizard.pageTitleDescription'),
         ]);
@@ -124,6 +124,12 @@ class PKPInvitationHandler extends Handler
      */
     protected function verifyOrcid(): array
     {
+        $sections = [
+            [
+                'id' => 'userVerifyOrcid',
+                'sectionComponent'=>'AcceptInvitationVerifyOrcid'
+            ]
+        ];
         return [
             'id' => 'verifyOrcid',
             'name' => __('invitation.verifyOrcid'),
@@ -131,7 +137,7 @@ class PKPInvitationHandler extends Handler
             'stepName' => __('invitation.verifyOrcidStep'),
             'type' => 'popup',
             'description' => __('invitation.verifyOrcidDescription'),
-            'sections' => [],
+            'sections' => $sections,
         ];
     }
 
@@ -140,6 +146,12 @@ class PKPInvitationHandler extends Handler
      */
     protected function userCreate(): array
     {
+        $sections = [
+            [
+                'id' => 'userCreateForm',
+                'sectionComponent'=>'AcceptInvitationCreateUserAccount'
+            ]
+        ];
         return [
             'id' => 'userCreate',
             'name' => __('invitation.userCreate'),
@@ -147,7 +159,7 @@ class PKPInvitationHandler extends Handler
             'stepName' => __('invitation.userCreateStep'),
             'type' => 'form',
             'description' => __('invitation.userCreateDescription'),
-            'sections' => [],
+            'sections' => $sections,
             'reviewData'=>[]
         ];
     }
@@ -169,6 +181,7 @@ class PKPInvitationHandler extends Handler
                 'type'=> 'form',
                 'description' => $request->getContext()->getLocalizedData('detailsHelp'),
                 'form' => $contactForm->getConfig(),
+                'sectionComponent' => 'AcceptInvitationCreateUserForms'
             ]
         ];
 
@@ -188,6 +201,22 @@ class PKPInvitationHandler extends Handler
      */
     protected function userCreateReview(): array
     {
+        $sections = [
+            [
+                'id' => 'userCreateRoles',
+                'sectionComponent'=>'AcceptInvitationReview',
+                'type'=>'table',
+                'description' => '',
+                'rows' => [
+                    [
+                        'date_start'=>'2024-03-01',
+                        'date_end'=>'2025-01-01',
+                        'user_group_id'=>3,
+                        'setting_value'=>'test',
+                    ]
+                ]
+            ]
+        ];
         return [
             'id' => 'userCreateReview',
             'name' => __('invitation.userCreateReview'),
@@ -195,21 +224,7 @@ class PKPInvitationHandler extends Handler
             'stepName' => __('invitation.userCreateReviewStep'),
             'type' => 'review',
             'description' => __('invitation.userCreateReviewDescription'),
-            'sections' => [
-                [
-                    'id' => 'userCreateRoles',
-                    'type'=>'table',
-                    'description' => '',
-                    'rows' => [
-                        [
-                            'date_start'=>'2024-03-01',
-                            'date_end'=>'2025-01-01',
-                            'user_group_id'=>3,
-                            'setting_value'=>'test',
-                        ]
-                    ]
-                ]
-            ],
+            'sections' => $sections,
         ];
     }
 

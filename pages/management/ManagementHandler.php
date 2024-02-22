@@ -704,7 +704,7 @@ class ManagementHandler extends Handler
     /**
      * user invitations
      */
-    public function invitations($args, $request)
+    public function invitations($args, $request): void
     {
         $templateMgr = TemplateManager::getManager($request);
         $this->setupTemplate($request);
@@ -754,13 +754,19 @@ class ManagementHandler extends Handler
      */
     protected function getSearchUserForm(): array
     {
+        $sections = [
+            [
+                'id' => 'searchUserForm',
+                'sectionComponent'=>'UserInvitationSearchFormStep'
+            ]
+        ];
         return [
             'id' => 'searchUser',
             'name' => __('invitation.searchUserLabel'),
             'reviewName' => __('invitation.searchUserStep'),
             'type' => 'form',
             'description' => __('invitation.searchUserDescription'),
-            'sections' => [],
+            'sections' => $sections,
             'reviewTemplate' => '/management/invitation/userSearch.tpl',
         ];
     }
@@ -786,6 +792,7 @@ class ManagementHandler extends Handler
                 'type'=>'form',
                 'description' => $request->getContext()->getLocalizedData('detailsHelp'),
                 'form' => $contactForm->getConfig(),
+                'sectionComponent'=>'UserInvitationDetailsFormStep'
             ],
         ];
 
@@ -824,6 +831,7 @@ class ManagementHandler extends Handler
                 'type'=>'email',
                 'description' => $request->getContext()->getLocalizedData('detailsHelp'),
                 'email' => $email->getState(),
+                'sectionComponent'=>'UserInvitationEmailComposerStep'
             ],
         ];
 

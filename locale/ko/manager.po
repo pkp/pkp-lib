@@ -224,7 +224,7 @@ msgstr ""
 msgid "manager.dois.registration.viewRecord.title"
 msgstr ""
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr ""
 
 msgid "manager.dois.registration.depositDois"
@@ -3066,4 +3066,7 @@ msgid "mailable.editorAssignedManual.name"
 msgstr ""
 
 msgid "mailable.submissionNeedsEditor.name"
+msgstr ""
+
+msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""

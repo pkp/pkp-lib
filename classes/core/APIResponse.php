@@ -20,28 +20,35 @@ use Slim\Http\Response;
 class APIResponse extends Response
 {
     public const RESPONSE_CSV = 'text/csv';
+    public const RESPONSE_TSV = 'text/tab-separated-values';
 
     /**
      * CSV Response
      *
      * @param integer $maxRows The total amount of rows, that is provided within the onw X-Total-Count header field
      */
-    public function withCSV(array $rows, array $columns, int $maxRows): self
+    public function withCSV(array $rows, array $columns, int $maxRows, string $mimeType = self::RESPONSE_CSV): self
     {
+        $separator = ',' ;
+        if ($mimeType == self::RESPONSE_TSV) {
+            $separator = "\t";
+        }
         $fp = fopen('php://output', 'wt');
         //Add BOM (byte order mark) to fix UTF-8 in Excel
         fprintf($fp, chr(0xEF) . chr(0xBB) . chr(0xBF));
-        fputcsv($fp, ['']);
-        fputcsv($fp, $columns);
+        if (!empty($columns)) {
+            fputcsv($fp, [''], $separator);
+            fputcsv($fp, $columns, $separator);
+        }
         foreach ($rows as $row) {
-            fputcsv($fp, $row);
+            fputcsv($fp, $row, $separator);
         }
         $csvData = stream_get_contents($fp);
         fclose($fp);
         $this->getBody()->rewind();
         $this->getBody()->write($csvData);
         $this->withStatus(200);
-        return $this->withHeader('X-Total-Count', $maxRows)->withHeader('Content-Type', self::RESPONSE_CSV);
+        return $this->withHeader('X-Total-Count', $maxRows)->withHeader('Content-Type', $mimeType);
     }
 
     /**

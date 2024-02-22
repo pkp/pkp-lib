@@ -23,6 +23,7 @@
 namespace PKP\statistics;
 
 use APP\core\Application;
+use DateTimeImmutable;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
@@ -86,18 +87,42 @@ abstract class PKPTemporaryTotalsDAO
      *
      * See https://www.projectcounter.org/code-of-practice-five-sections/7-processing-rules-underlying-counter-reporting-data/#doubleclick
      */
-    public function removeDoubleClicks(int $counterDoubleClickTimeFilter): void
+    public function removeDoubleClicks(string $loadId, int $counterDoubleClickTimeFilter): void
     {
         if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
-            DB::statement("DELETE FROM {$this->table} ust WHERE EXISTS (SELECT * FROM (SELECT 1 FROM {$this->table} ustt WHERE ustt.load_id = ust.load_id AND ustt.ip = ust.ip AND ustt.user_agent = ust.user_agent AND ustt.canonical_url = ust.canonical_url AND EXTRACT(EPOCH FROM (ustt.date - ust.date)) < ? AND EXTRACT(EPOCH FROM (ustt.date - ust.date)) > 0 AND ust.line_number < ustt.line_number) AS tmp)", [$counterDoubleClickTimeFilter]);
+            DB::statement(
+                "
+                DELETE FROM {$this->table} ust
+                WHERE EXISTS (
+                    SELECT * FROM (
+                        SELECT 1 FROM {$this->table} ustt
+                        WHERE ust.load_id = ? AND ustt.load_id = ust.load_id AND
+                        ustt.context_id = ust.context_id AND
+                        ustt.ip = ust.ip AND ustt.user_agent = ust.user_agent AND ustt.canonical_url = ust.canonical_url AND
+                        EXTRACT(EPOCH FROM (ustt.date - ust.date)) < ? AND
+                        EXTRACT(EPOCH FROM (ustt.date - ust.date)) > 0 AND
+                        ust.line_number < ustt.line_number) AS tmp
+                )
+                ",
+                [$loadId, $counterDoubleClickTimeFilter]
+            );
         } else {
             DB::statement(
                 "
                 DELETE FROM ust USING {$this->table} ust
-                INNER JOIN {$this->table} ustt ON (ustt.load_id = ust.load_id AND ustt.ip = ust.ip AND ustt.user_agent = ust.user_agent AND ustt.canonical_url = ust.canonical_url)
-                WHERE TIMESTAMPDIFF(SECOND, ust.date, ustt.date) < ? AND TIMESTAMPDIFF(SECOND, ust.date, ustt.date) > 0 AND ust.line_number < ustt.line_number
+                INNER JOIN {$this->table} ustt ON (
+                    ustt.load_id = ust.load_id AND
+                    ustt.context_id = ust.context_id AND
+                    ustt.ip = ust.ip AND
+                    ustt.user_agent = ust.user_agent AND
+                    ustt.canonical_url = ust.canonical_url
+                )
+                WHERE ust.load_id = ? AND
+                    TIMESTAMPDIFF(SECOND, ust.date, ustt.date) < ? AND
+                    TIMESTAMPDIFF(SECOND, ust.date, ustt.date) > 0 AND
+                    ust.line_number < ustt.line_number
                 ",
-                [$counterDoubleClickTimeFilter]
+                [$loadId, $counterDoubleClickTimeFilter]
             );
         }
     }
@@ -107,8 +132,8 @@ abstract class PKPTemporaryTotalsDAO
      */
     public function compileContextMetrics(string $loadId): void
     {
-        $date = substr($loadId, -12, 8);
-        DB::table('metrics_context')->where('load_id', '=', $loadId)->orWhere('date', '=', DB::raw("DATE({$date})"))->delete();
+        $date = DateTimeImmutable::createFromFormat('Ymd', substr($loadId, -12, 8));
+        DB::table('metrics_context')->where('load_id', '=', $loadId)->orWhereDate('date', '=', $date)->delete();
         $selectContextMetrics = DB::table($this->table)
             ->select(DB::raw('load_id, context_id, DATE(date) as date, count(*) as metric'))
             ->where('load_id', '=', $loadId)
@@ -122,8 +147,8 @@ abstract class PKPTemporaryTotalsDAO
      */
     public function compileSubmissionMetrics(string $loadId): void
     {
-        $date = substr($loadId, -12, 8);
-        DB::table('metrics_submission')->where('load_id', '=', $loadId)->orWhere('date', '=', DB::raw("DATE({$date})"))->delete();
+        $date = DateTimeImmutable::createFromFormat('Ymd', substr($loadId, -12, 8));
+        DB::table('metrics_submission')->where('load_id', '=', $loadId)->orWhereDate('date', '=', $date)->delete();
         $selectSubmissionMetrics = DB::table($this->table)
             ->select(DB::raw('load_id, context_id, submission_id, assoc_type, DATE(date) as date, count(*) as metric'))
             ->where('load_id', '=', $loadId)
@@ -151,18 +176,18 @@ abstract class PKPTemporaryTotalsDAO
     // The total metrics will be loaded here (s. load... functions below), unique metrics are loaded in UnsageStatsUnique... classes
     public function deleteSubmissionGeoDailyByLoadId(string $loadId): void
     {
-        $date = substr($loadId, -12, 8);
-        DB::table('metrics_submission_geo_daily')->where('load_id', '=', $loadId)->orWhere('date', '=', DB::raw("DATE({$date})"))->delete();
+        $date = DateTimeImmutable::createFromFormat('Ymd', substr($loadId, -12, 8));
+        DB::table('metrics_submission_geo_daily')->where('load_id', '=', $loadId)->orWhereDate('date', '=', $date)->delete();
     }
     public function deleteCounterSubmissionDailyByLoadId(string $loadId): void
     {
-        $date = substr($loadId, -12, 8);
-        DB::table('metrics_counter_submission_daily')->where('load_id', '=', $loadId)->orWhere('date', '=', DB::raw("DATE({$date})"))->delete();
+        $date = DateTimeImmutable::createFromFormat('Ymd', substr($loadId, -12, 8));
+        DB::table('metrics_counter_submission_daily')->where('load_id', '=', $loadId)->orWhereDate('date', '=', $date)->delete();
     }
     public function deleteCounterSubmissionInstitutionDailyByLoadId(string $loadId): void
     {
-        $date = substr($loadId, -12, 8);
-        DB::table('metrics_counter_submission_institution_daily')->where('load_id', '=', $loadId)->orWhere('date', '=', DB::raw("DATE({$date})"))->delete();
+        $date = DateTimeImmutable::createFromFormat('Ymd', substr($loadId, -12, 8));
+        DB::table('metrics_counter_submission_institution_daily')->where('load_id', '=', $loadId)->orWhereDate('date', '=', $date)->delete();
     }
 
     /**

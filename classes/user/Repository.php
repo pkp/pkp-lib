@@ -19,6 +19,7 @@ use APP\submission\Submission;
 use Carbon\Carbon;
 use PKP\context\Context;
 use PKP\context\SubEditorsDAO;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileDAO;
 use PKP\log\SubmissionEmailLogDAO;
@@ -197,41 +198,64 @@ class Repository
     }
 
     /**
-     * Check for roles that give access to the passed workflow stage.
+     * Retrieve user roles which give access to (certain) submission workflow stages
+     * returns [
+     *   stage ID => [role IDs]
+     * ]
      *
-     * @param int $userId
-     * @param int $contextId
-     * @param Submission $submission
-     * @param int $stageId
-     *
-     * @return array
      */
-    public function getAccessibleStageRoles($userId, $contextId, &$submission, $stageId)
+    public function getAccessibleWorkflowStages(int $userId, int $contextId, Submission $submission, ?array $userRoleIds = null): array
     {
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId, $stageId);
+        $stageAssignmentsResult = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $userId);
 
-        $accessibleStageRoles = [];
+        if (is_null($userRoleIds)) {
+            $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+            $userRoles = $roleDao->getByUserIdGroupedByContext($userId);
+
+            $userRoleIds = [];
+            if (array_key_exists($contextId, $userRoles)) {
+                $contextRoles = $userRoles[$contextId];
+
+                foreach ($contextRoles as $contextRole) { /** @var Role $userRole */
+                    $userRoleIds[] = $contextRole->getRoleId();
+                }
+            }
+
+            // Has admin role?
+            if ($contextId != PKPApplication::CONTEXT_ID_NONE &&
+                array_key_exists(PKPApplication::CONTEXT_ID_NONE, $userRoles) &&
+                in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles[PKPApplication::CONTEXT_ID_NONE])
+            ) {
+                $userRoleIds[] = Role::ROLE_ID_SITE_ADMIN;
+            }
+        }
+
+        $accessibleWorkflowStages = [];
 
         // Assigned users have access based on their assignment
         while ($stageAssignment = $stageAssignmentsResult->next()) {
             $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
-            $accessibleStageRoles[] = $userGroup->getRoleId();
-        }
-        $accessibleStageRoles = array_unique($accessibleStageRoles);
+            $roleId = $userGroup->getRoleId();
 
-        // If unassigned, only managers and admins have access
-        if (empty($accessibleStageRoles)) {
-            $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-            if ($roleDao->userHasRole($contextId, $userId, Role::ROLE_ID_MANAGER)) {
-                $accessibleStageRoles[] = Role::ROLE_ID_MANAGER;
+            // Check global user roles within the context, e.g., user can be assigned in the role, which was revoked
+            if (!in_array($roleId, $userRoleIds)) {
+                continue;
             }
-            if ($roleDao->userHasRole(Application::CONTEXT_SITE, $userId, Role::ROLE_ID_SITE_ADMIN)) {
-                $accessibleStageRoles[] = Role::ROLE_ID_SITE_ADMIN;
-            }
+
+            $accessibleWorkflowStages[$stageAssignment->getStageId()][] = $roleId;
         }
 
-        return array_map('intval', $accessibleStageRoles);
+        // Managers and admin have access if not assigned to the submission or are assigned in a revoked role
+        $managerRoles = array_intersect($userRoleIds, [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER]);
+        if (empty($accessibleWorkflowStages) && !empty($managerRoles)) {
+            $workflowStages = Application::getApplicationStages();
+            foreach ($workflowStages as $stageId) {
+                $accessibleWorkflowStages[$stageId] = $managerRoles;
+            }
+        }
+
+        return $accessibleWorkflowStages;
     }
 
     /**

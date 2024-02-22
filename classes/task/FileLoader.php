@@ -27,7 +27,8 @@ use PKP\site\SiteDAO;
 
 abstract class FileLoader extends ScheduledTask
 {
-    public const FILE_LOADER_RETURN_TO_STAGING = 0x01;
+    public const FILE_LOADER_RETURN_TO_STAGING = 1;
+    public const FILE_LOADER_RETURN_TO_DISPATCH = 2;
     public const FILE_LOADER_ERROR_MESSAGE_TYPE = 'common.error';
     public const FILE_LOADER_WARNING_MESSAGE_TYPE = 'common.warning';
 
@@ -35,6 +36,7 @@ abstract class FileLoader extends ScheduledTask
     public const FILE_LOADER_PATH_PROCESSING = 'processing';
     public const FILE_LOADER_PATH_REJECT = 'reject';
     public const FILE_LOADER_PATH_ARCHIVE = 'archive';
+    public const FILE_LOADER_PATH_DISPATCH = 'dispatch';
 
     /** The current claimed filename that the script is working on. */
     private string $_claimedFilename;
@@ -50,6 +52,9 @@ abstract class FileLoader extends ScheduledTask
 
     /** Archive directory path. */
     private string $_archivePath;
+
+    /** Dispatch directory path. */
+    private string $_dispatchPath;
 
     /** Reject directory path. */
     private string $_rejectPath;
@@ -97,6 +102,7 @@ abstract class FileLoader extends ScheduledTask
             $this->_archivePath = "{$basePath}/" . self::FILE_LOADER_PATH_ARCHIVE;
             $this->_rejectPath = "{$basePath}/" . self::FILE_LOADER_PATH_REJECT;
             $this->_processingPath = "{$basePath}/" . self::FILE_LOADER_PATH_PROCESSING;
+            $this->_dispatchPath = "{$basePath}/" . self::FILE_LOADER_PATH_DISPATCH;
         }
 
         // Set admin email and name.
@@ -140,6 +146,14 @@ abstract class FileLoader extends ScheduledTask
     public function getArchivePath(): string
     {
         return $this->_archivePath;
+    }
+
+    /**
+     * Return the dispatch path.
+     */
+    public function getDispatchPath(): string
+    {
+        return $this->_dispatchPath;
     }
 
     /**
@@ -206,7 +220,8 @@ abstract class FileLoader extends ScheduledTask
             $this->_stagePath,
             $this->_archivePath,
             $this->_rejectPath,
-            $this->_processingPath
+            $this->_processingPath,
+            $this->_dispatchPath
         ];
         $fileManager = null;
         foreach ($pathsToCheck as $path) {
@@ -247,7 +262,7 @@ abstract class FileLoader extends ScheduledTask
         }
 
         $foundErrors = false;
-        while (!is_null($filePath = $this->_claimNextFile())) {
+        while (!is_null($filePath = $this->claimNextFile())) {
             if ($filePath === false) {
                 // Problem claiming the file.
                 $foundErrors = true;
@@ -257,7 +272,7 @@ abstract class FileLoader extends ScheduledTask
                 $result = $this->processFile($filePath);
             } catch (Exception $e) {
                 $foundErrors = true;
-                $this->_rejectFile();
+                $this->rejectFile();
                 $this->addExecutionLogEntry($e->getMessage(), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
                 continue;
             }
@@ -265,12 +280,19 @@ abstract class FileLoader extends ScheduledTask
             if ($result === self::FILE_LOADER_RETURN_TO_STAGING) {
                 // Send the file back to staging
                 $foundErrors = true;
-                $this->_stageFile();
+                $this->stageFile();
                 // Let the script know what files were sent back to staging,
                 // so it doesn't claim them again thereby entering an infinite loop.
                 $this->_stagedBackFiles[] = $this->_claimedFilename;
+            } elseif ($result === self::FILE_LOADER_RETURN_TO_DISPATCH) {
+                // Move the file to dispatch folder, where a dispatched job will find it
+                $this->dispatchFile();
+                $this->addExecutionLogEntry(__(
+                    'admin.fileLoader.fileDispatched',
+                    ['filename' => $filePath]
+                ), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
             } else {
-                $this->_archiveFile();
+                $this->archiveFile();
             }
 
             if ($result === true) {
@@ -327,7 +349,7 @@ abstract class FileLoader extends ScheduledTask
      * @return mixed The claimed file path or false if
      * the claim was not successful.
      */
-    private function _claimNextFile(): string|false|null
+    private function claimNextFile(): string|false|null
     {
         $stageDir = opendir($this->_stagePath);
         $processingFilePath = false;
@@ -366,15 +388,23 @@ abstract class FileLoader extends ScheduledTask
     /**
      * Reject the current claimed file.
      */
-    private function _rejectFile(): void
+    private function rejectFile(): void
     {
         $this->moveFile($this->_processingPath, $this->_rejectPath, $this->_claimedFilename);
     }
 
     /**
+     * Move the current claimed file into the dispatch folder.
+     */
+    protected function dispatchFile(): void
+    {
+        $this->moveFile($this->_processingPath, $this->_dispatchPath, $this->_claimedFilename);
+    }
+
+    /**
      * Archive the current claimed file.
      */
-    private function _archiveFile(): void
+    private function archiveFile(): void
     {
         $this->moveFile($this->_processingPath, $this->_archivePath, $this->_claimedFilename);
         if ($this->getCompressArchives()) {
@@ -391,7 +421,7 @@ abstract class FileLoader extends ScheduledTask
     /**
      * Stage the current claimed file.
      */
-    private function _stageFile(): void
+    private function stageFile(): void
     {
         $this->moveFile($this->_processingPath, $this->_stagePath, $this->_claimedFilename);
     }

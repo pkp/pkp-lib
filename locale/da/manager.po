@@ -1,5 +1,5 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2023-08-19 12:58+0000\n"
+"PO-Revision-Date: 2024-01-30 11:07+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Information"
@@ -261,7 +261,7 @@ msgstr "Se fortegnelse"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Vellykket registreringsmeddelelse"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "Opdatering af DOI'er var vellykket"
 
 msgid "manager.dois.registration.depositDois"
@@ -2069,18 +2069,16 @@ msgstr "Aktivér metadata i tilknytning til dækningsområde"
 
 msgid "manager.setup.metadata.coverage.noRequest"
 msgstr ""
-"Anmod ikke om metadata i tilknytning til dækningsområde fra forfatteren "
-"under indsendelse."
+"Anmod ikke om metadata om dækningsområde fra forfatteren under indsendelse."
 
 msgid "manager.setup.metadata.coverage.request"
 msgstr ""
-"Bed forfatteren om at foreslå metadata i forbindelse med dækningsområde "
-"under indsendelse."
+"Bed forfatteren om at foreslå metadata om dækningsområde under indsendelse."
 
 msgid "manager.setup.metadata.coverage.require"
 msgstr ""
-"Anmod forfatteren om at foreslå metadata i forbindelse med dækningsområde, "
-"før vedkommende accepterer indsendelsen."
+"Kræv at forfatteren foreslår metadata om dækningsområde, før vedkommende kan "
+"acceptere indsendelsen."
 
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
@@ -2091,15 +2089,15 @@ msgid "manager.setup.metadata.keywords.enable"
 msgstr "Aktivér metadata i forbindelse med nøgleord"
 
 msgid "manager.setup.metadata.keywords.noRequest"
-msgstr "Anmod ikke om nøgleord fra forfatteren i forbindelse med indsendelse."
+msgstr "Anmod ikke om nøgleord fra forfatteren under indsendelse."
 
 msgid "manager.setup.metadata.keywords.request"
-msgstr "Bed forfatteren om at foreslå nøgleord i forbindelse med indsendelse."
+msgstr "Bed forfatteren om at foreslå nøgleord under indsendelse."
 
 msgid "manager.setup.metadata.keywords.require"
 msgstr ""
-"Anmod forfatteren om at foreslå nøgleord, før vedkommende accepterer "
-"indsendelse."
+"Kræv at forfatteren foreslår nøgleord, før vedkommende kan acceptere "
+"indsendelsen."
 
 msgid "manager.setup.metadata.languages.description"
 msgstr ""
@@ -2117,8 +2115,8 @@ msgstr "Bed forfatteren om at angive indsendelsens sprog under indsendelse."
 
 msgid "manager.setup.metadata.languages.require"
 msgstr ""
-"Anmod forfatteren om at indtaste indsendelsens sprog, før vedkommende "
-"accepterer indsendelse."
+"Kræv at forfatteren indtaster indsendelsens sprog, før vedkommende kan "
+"acceptere indsendelsen."
 
 msgid "manager.setup.metadata.rights.description"
 msgstr ""
@@ -2134,13 +2132,13 @@ msgstr "Anmod ikke om rettighedsoplysninger fra forfatteren under indsendelse."
 
 msgid "manager.setup.metadata.rights.request"
 msgstr ""
-"Bed forfatteren om at offentliggøre forudgående adgangsrettigheder under "
+"Bed forfatteren om at angive forudgående adgangsrettigheder under "
 "indsendelse."
 
 msgid "manager.setup.metadata.rights.require"
 msgstr ""
-"Anmod forfatteren om at offentliggøre forudgående adgangsrettigheder, før "
-"vedkommende accepterer indsendelse."
+"Kræv at forfatteren angiver forudgående adgangsrettigheder, før vedkommende "
+"kan acceptere indsendelsen."
 
 msgid "manager.setup.metadata.source.description"
 msgstr ""
@@ -2151,15 +2149,17 @@ msgid "manager.setup.metadata.source.enable"
 msgstr "Aktivér metadata i forbindelse med kilde"
 
 msgid "manager.setup.metadata.source.noRequest"
-msgstr "Anmod ikke om en kilde-URL fra forfatteren under indsendelse."
+msgstr ""
+"Anmod ikke om en URL til kildemateriale fra forfatteren under indsendelse."
 
 msgid "manager.setup.metadata.source.request"
-msgstr "Bed forfatteren om at angive en kilde-URL under indsendelse."
+msgstr ""
+"Bed forfatteren om at angive en URL til kildemateriale under indsendelse."
 
 msgid "manager.setup.metadata.source.require"
 msgstr ""
-"Anmod forfatteren om at angive en kilde-URL, før vedkommende accepterer "
-"indsendelse."
+"Kræv at forfatteren angiver en URL til kildemateriale, før vedkommende kan "
+"acceptere indsendelsen."
 
 msgid "manager.setup.metadata.subjects.description"
 msgstr ""
@@ -2177,8 +2177,8 @@ msgstr "Bed forfatteren om at angive emner under indsendelse."
 
 msgid "manager.setup.metadata.subjects.require"
 msgstr ""
-"Anmod forfatteren om at angive emner, inden vedkommende accepterer "
-"indsendelse."
+"Kræv at forfatteren angiver emner, før vedkommende kan acceptere "
+"indsendelsen."
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
@@ -2199,8 +2199,8 @@ msgstr "Bed forfatteren om at angive typen under indsendelse."
 
 msgid "manager.setup.metadata.type.require"
 msgstr ""
-"Anmod forfatteren om at angive typen, inden vedkommende accepterer "
-"indsendelse."
+"Kræv at forfatteren angiver typen, før vedkommende kan acceptere "
+"indsendelsen."
 
 msgid "manager.setup.metadata.disciplines.description"
 msgstr ""
@@ -2211,15 +2211,15 @@ msgid "manager.setup.metadata.disciplines.enable"
 msgstr "Aktivér metadata i forbindelse med discipliner"
 
 msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr "Anmod ikke om discipliner fra forfatteren under indsendelse."
+msgstr "Anmod ikke om disciplin(er) fra forfatteren under indsendelse."
 
 msgid "manager.setup.metadata.disciplines.request"
-msgstr "Bed forfatteren om at angive discipliner under indsendelsen."
+msgstr "Bed forfatteren om at angive disciplin(er) under indsendelse."
 
 msgid "manager.setup.metadata.disciplines.require"
 msgstr ""
-"Anmod forfatteren om at angive discipliner, inden vedkommende accepterer "
-"indsendelse."
+"Kræv at forfatteren angiver disciplin(er), før vedkommende kan acceptere "
+"indsendelsen."
 
 msgid "manager.setup.metadata.agencies.description"
 msgstr ""
@@ -2241,8 +2241,8 @@ msgstr ""
 
 msgid "manager.setup.metadata.agencies.require"
 msgstr ""
-"Anmod forfatteren om at angive eventuelle støtteorganisationer, før "
-"vedkommende accepterer indsendelse."
+"Kræv at forfatteren angiver eventuelle støtteorganisationer, før vedkommende "
+"kan acceptere indsendelsen."
 
 msgid "manager.setup.metadata.citations.description"
 msgstr ""
@@ -2260,8 +2260,8 @@ msgstr "Bed forfatteren om at angive referencer under indsendelse."
 
 msgid "manager.setup.metadata.citations.require"
 msgstr ""
-"Anmod forfatteren om at angive referencer, før vedkommende accepterer "
-"indsendelse."
+"Kræv at forfatteren angiver referencer, før vedkommende kan acceptere "
+"indsendelsen."
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
@@ -2279,13 +2279,13 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
-"Bed forfatteren om at give en erklæring om datatilgængelighed under "
-"indsendelsen."
+"Bed forfatteren om at afgive en erklæring om datatilgængelighed under "
+"indsendelse."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
-"Kræv, at forfatteren giver en erklæring om datatilgængelighed, før vedkomne "
-"accepterer deres indsendelse."
+"Kræv at forfatteren afgiver en erklæring om datatilgængelighed, før "
+"vedkommende kan acceptere indsendelsen."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Godkendelsesfejl:"
@@ -3729,3 +3729,116 @@ msgstr ""
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Link til at validere en e-mail-konto"
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Er du sikker på, at du vil slette {$title}? Denne handling kan ikke "
+"fortrydes."
+
+msgid "manager.highlights.add"
+msgstr "Tilføj højdepunkt"
+
+msgid "manager.highlights.delete"
+msgstr "Slet højdepunkt"
+
+msgid "manager.highlights.edit"
+msgstr "Redigér højdepunkt"
+
+msgid "manager.highlights.image"
+msgstr "Billede"
+
+msgid "manager.highlights.url.description"
+msgstr "Den fulde URL, inklusiv https://, til knappen i højdepunktet."
+
+msgid "manager.highlights.urlText"
+msgstr "Knap etiket"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Etiket, fx \"Læs mere\", til knappen i højdepunktet."
+
+msgid "manager.image"
+msgstr "Billede"
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Du skal <a href=\"#announcements/announcement-settings\">aktivere "
+"meddelelser</a>."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Kræv, at forfattere, der fremsender et manuskript, skal indsende en "
+"erklæring om konkurrerende interesser sammen med deres manuskript."
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"En liste eller et interval af publiceringsår, der skal returneres som svar "
+"på formatet yyyy|yyyy|yyyy-yyyy."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Indsendelses-ID"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Ekskludér månedlige detaljer"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Se <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index.html\""
+" target=\"_new\">COUNTER 5.0.3 dokumentation</a> for mere information om "
+"hver rapport."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Der er ikke nogle tilgængelige brugsstatistikker om COUNTER R5 endnu."
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Datoen skal være på formatet YYYY-MM-DD eller YYYY-MM. Den tidligst mulige "
+"dato er {$earliestDate}."
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Counter R5 Rapporter"
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Rapport indstillinger"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Startdato"
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Slutdato"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Datoen skal være på formatet YYYY-MM-DD eller YYYY-MM. Den senest mulige "
+"dato er {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Datoformatet er ikke gyldigt."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Bruger ID"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Metriktype"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Egenskaber, der skal vises"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Publiceringsår"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP (publiceringsår) formatet er ikke gyldigt."
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Indsendelses-ID'et eksisterer ikke."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Inkludér \"Parent\" detaljer"
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Indsendelsesfilen {$id} blev sprunget over, fordi den ikke har et gyldigt "
+"filtrin."

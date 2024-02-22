@@ -107,7 +107,7 @@ class Category extends \PKP\core\DataObject
     /**
      * Get localized description of the category.
      */
-    public function getLocalizedDescription(): string
+    public function getLocalizedDescription(): ?string
     {
         return $this->getLocalizedData('description');
     }

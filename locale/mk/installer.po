@@ -1,8 +1,9 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-15 15:39+0000\n"
-"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
+"PO-Revision-Date: 2023-09-01 08:58+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/mk/>\n"
 "Language: mk\n"
@@ -153,6 +154,7 @@ msgstr ""
 "Грешка при анализирање на датотеката за конфигурација на филтерот <tt>{$file}"
 "</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Ажурирајте го неподдржано. Погледнете ги документите / UPGRADE-UNSUPPORTED "
@@ -244,3 +246,6 @@ msgstr ""
 
 #~ msgid "installer.clientCharset"
 #~ msgstr "Азбука на клиентот"
+
+msgid "installer.miscSettings"
+msgstr "Мешани подесувања"

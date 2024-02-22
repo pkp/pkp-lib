@@ -19,6 +19,8 @@ use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
+use PKP\context\Context;
+use PKP\site\Site;
 
 define('FORM_ANNOUNCEMENT_SETTINGS', 'announcementSettings');
 
@@ -35,9 +37,8 @@ class PKPAnnouncementSettingsForm extends FormComponent
      *
      * @param string $action URL to submit the form to
      * @param array $locales Supported locales
-     * @param \PKP\context\Context $context Journal or Press to change settings for
      */
-    public function __construct($action, $locales, $context)
+    public function __construct($action, $locales, Context|Site $context)
     {
         $this->action = $action;
         $this->locales = $locales;

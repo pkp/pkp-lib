@@ -4,8 +4,8 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2023-11-19 14:38+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hy/>\n"
 "Language: hy\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Հանրային գիտելիքների նախագիծ"
@@ -773,7 +773,9 @@ msgid "common.replaceFile"
 msgstr "Տեղափոխել ֆայլը"
 
 msgid "common.requiredField"
-msgstr "* Պահանջվող դաշտ"
+msgstr ""
+"Պահանջվող դաշտերը նշված են աստղանիշով՝ <abbr class=\"required\" title="
+"\"required\">*</abbr>"
 
 msgid "common.required"
 msgstr "Պահանջված"
@@ -1681,7 +1683,7 @@ msgid "search.cli.rebuildIndex.error"
 msgstr "սխալ"
 
 msgid "search.cli.rebuildIndex.result"
-msgstr "{$numIndexed} ինդեքսավորված հոդված"
+msgstr "{$numIndexed} հոդվածներ, որոնք նախատեսված են ինդեքսավորման համար"
 
 msgid "search.coverage"
 msgstr "Արդյունք"
@@ -2295,3 +2297,15 @@ msgstr "Հեղինակի հաշիվը խմբագրված է։"
 #~ msgstr ""
 #~ "Չկանխատեսված սխալ է տեղի ունեցել: Գուցե Դուք դուրս եք եկել համակարգից: "
 #~ "Խնդրում ենք թարմացնել էջը և փորձել կրկին:"
+
+msgid "common.highlight"
+msgstr "Գունաընդգծել"
+
+msgid "common.highlights"
+msgstr "Գունաընդգծումներ"
+
+msgid "showAll"
+msgstr "Ցույց տալ բոլորը"
+
+msgid "showLess"
+msgstr "Ցույց տալ ավելի քիչ"

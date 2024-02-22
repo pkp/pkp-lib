@@ -1,11 +1,12 @@
 # Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2023-08-01 08:25+0000\n"
-"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"PO-Revision-Date: 2024-01-04 15:39+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "tr/>\n"
 "Language: tr\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Ayar Adı"
@@ -205,60 +206,78 @@ msgstr "DB-IP city lite veritabanını güncelleyin"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"DB-IP city lite veritabanı dosyasının {$sourceFilename} olarak "
+"{$targetFilename} olarak yeniden adlandırılması başarısız oldu."
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Kullanım istatistikleri dosya yükleyici görevi"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"{$directory} dizini boş değil. Bu, daha önce başarısız olan bir işlemi veya "
+"aynı anda çalışan bir işlemi gösterebilir. Bu dosya otomatik olarak yeniden "
+"işlenecektir."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "{$file} dosyası açılamadı ve reddedildi."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"{$file} dosyası, işlenemeyen eski günlük dosyası biçiminde olduğundan sahne "
+"dizinine geri taşınacak."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"{$file} günlük dosyası atlandı çünkü o aya ait istatistikler zaten "
+"hesaplandı. Önceki aya ait istatistikleri yeniden hesaplamak için o aya ait "
+"tüm günlük dosyalarını geri yüklemeli ve istatistikleri yeniden işlemek için "
+"CLI aracını kullanmalısınız."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
+"{$file} günlük dosyasındaki {$line Number} satırı yanlış formatta ve bu "
+"atlanacak."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
+"{$file} günlük dosyasındaki {$lineNumber} satırında geçersiz günlük girişi: "
+"{$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Zaman geçersiz bir formatta."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "Context ID bir tam sayı değil."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "Aday makale ID bir tam sayı değil."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "Representation ID bir tam sayı değil."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Bağlantı türü desteklenmiyor."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Dosya türü desteklenmiyor."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Ülke, iki alfabetik karakterden oluşan bir dize değildir."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Bölge, en fazla üç alfanumerik karakter uzunluğunda olmalıdır."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Kurum kimlikleri bir dizi değildir."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
+"{$file} günlük dosyası {$lineNumber} satırında işlenirken hata oluştu: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
+"{$file} günlük dosyasını işleyecek ve istatistik verilerini depolayacak arka "
+"plan işi gönderildi."
 
 msgid "admin.server.apacheVersion"
 msgstr "Apache sürümü"
@@ -414,42 +433,62 @@ msgstr "Dosya yükleyici"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"Dosyanın sıkıştırması açılamadı. Kaynak gz dosyası {$filePath} gzopen ile "
+"açılamadı."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"Dosyanın sıkıştırması açılamadı. {$filePath} hedef dosyası açık olarak "
+"açılamadı."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"Dosyanın sıkıştırması açılamadı. Kaynak gz dosyası {$file} gzread ile "
+"okunamadı."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"Dosyanın sıkıştırması açılamadı. {$filePath} hedef dosyası fwrite ile "
+"yazılamadı."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"Dosyanın sıkıştırması açılamadı. Açılan hedef dosya {$filePath} fclose ile "
+"kapatılamadı."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"Dosyanın sıkıştırması açılamadı. Açılan kaynak gz dosyası {$filePath} "
+"gzclose ile kapatılamadı."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"Dosyanın sıkıştırması açılamadı. Sıkıştırılmış kaynak gz dosyası {$filePath}"
+", bağlantının kaldırılmasıyla kaldırılamadı."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"Dosya sıkıştırılamadı. Hedef gz dosyası {$filePath} gzopen ile açılamadı."
 
 msgid "admin.error.gzCompressFile.fopen"
-msgstr ""
+msgstr "Dosya sıkıştırılamadı. {$filePath} kaynak dosyası fopen ile açılamadı."
 
 msgid "admin.error.gzCompressFile.fread"
-msgstr ""
+msgstr "Dosya sıkıştırılamadı. {$filePath} kaynak dosyası fread ile okunamadı."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"Dosya sıkıştırılamadı. Hedef gz dosyası {$filePath} gzwrite ile yazılamadı."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"Dosya sıkıştırılamadı. Açılan kaynak dosya {$filePath} fclose ile "
+"kapatılamadı."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"Dosya sıkıştırılamadı. Açılan hedef gz dosyası {$filePath} gzclose ile "
+"kapatılamadı."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
@@ -622,10 +661,10 @@ msgid "navigation.tools.jobs.description"
 msgstr ""
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "İşleri Görüntüle"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Başarısız İşleri Görüntüle"
 
 msgid "navigation.tools.job.failed.details.view"
 msgstr ""
@@ -745,9 +784,6 @@ msgstr "Platform"
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr ""
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Platform ID"
 
@@ -807,3 +843,14 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr ""
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Toplu incelemeci istatistiklerini devre dışı bırak"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "İnceleyen istatistikleri"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"Çok bağlamlı bir kurulumda, gönderilen incelemelerin sayısı gibi inceleyen "
+"istatistikleri, her bağlam için ayrı ayrı veya toplu olarak görüntülenebilir."

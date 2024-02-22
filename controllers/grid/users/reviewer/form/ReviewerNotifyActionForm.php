@@ -49,6 +49,9 @@ abstract class ReviewerNotifyActionForm extends Form
         $this->setReviewAssignment($reviewAssignment);
         $this->setReviewRound($reviewRound);
         $this->setSubmission($submission);
+
+        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
+
         parent::__construct($template);
     }
 

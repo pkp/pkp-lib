@@ -25,12 +25,19 @@ use APP\template\TemplateManager;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use PDO;
+use PKP\announcement\Collector;
 use PKP\cache\CacheManager;
+use PKP\components\forms\highlight\HighlightForm;
+use PKP\components\listPanels\HighlightsListPanel;
+use PKP\components\forms\announcement\PKPAnnouncementForm;
+use PKP\components\forms\context\PKPAnnouncementSettingsForm;
+use PKP\components\listPanels\PKPAnnouncementsListPanel;
 use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPContainer;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\highlight\Collector as HighlightCollector;
 use PKP\job\resources\HttpFailedJobResource;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\security\authorization\PKPSiteAccessPolicy;
@@ -181,6 +188,7 @@ class AdminHandler extends Handler
         $apiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'site');
         $themeApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'site/theme');
         $temporaryFileApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'temporaryFiles');
+        $announcementsApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'announcements');
 
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath();
@@ -196,17 +204,29 @@ class AdminHandler extends Handler
         $siteBulkEmailsForm = new \PKP\components\forms\site\PKPSiteBulkEmailsForm($apiUrl, $site, $contexts);
         $themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales);
         $siteStatisticsForm = new \PKP\components\forms\site\PKPSiteStatisticsForm($apiUrl, $locales, $site);
+        $highlightsListPanel = $this->getHighlightsListPanel();
+        $announcementSettingsForm = new PKPAnnouncementSettingsForm($apiUrl, $locales, $site);
+        $announcementsForm = new PKPAnnouncementForm($announcementsApiUrl, $locales, Repo::announcement()->getFileUploadBaseUrl(), $temporaryFileApiUrl);
+        $announcementsListPanel = $this->getAnnouncementsListPanel($announcementsApiUrl, $announcementsForm);
 
         $templateMgr = TemplateManager::getManager($request);
 
+        $templateMgr->setConstants([
+            'FORM_ANNOUNCEMENT_SETTINGS' => FORM_ANNOUNCEMENT_SETTINGS,
+        ]);
+
         $templateMgr->setState([
+            'announcementsEnabled' => (bool) $site->getData('enableAnnouncements'),
             'components' => [
+                $announcementsListPanel->id => $announcementsListPanel->getConfig(),
                 FORM_SITE_APPEARANCE => $siteAppearanceForm->getConfig(),
                 FORM_SITE_CONFIG => $siteConfigForm->getConfig(),
                 FORM_SITE_INFO => $siteInformationForm->getConfig(),
                 FORM_SITE_BULK_EMAILS => $siteBulkEmailsForm->getConfig(),
                 FORM_THEME => $themeForm->getConfig(),
                 FORM_SITE_STATISTICS => $siteStatisticsForm->getConfig(),
+                $highlightsListPanel->id => $highlightsListPanel->getConfig(),
+                FORM_ANNOUNCEMENT_SETTINGS => $announcementSettingsForm->getConfig(),
             ],
         ]);
 
@@ -248,11 +268,20 @@ class AdminHandler extends Handler
             'siteInfo',
             'languages',
             'navigationMenus',
+            'highlights',
             'bulkEmails',
             'siteTheme',
             'siteAppearanceSetup',
             'statistics',
+            'announcements',
         ];
+
+        if (!Config::getVar('features', 'site_announcements')) {
+            $tabs = array_filter(
+                $tabs,
+                function($tab) { return $tab !== 'announcements'; }
+            );
+        }
 
         $singleContextSite = (Services::get('context')->getCount() == 1);
 
@@ -693,5 +722,88 @@ class AdminHandler extends Handler
         ]);
 
         $templateMgr->display('admin/failedJobDetails.tpl');
+    }
+
+    /**
+     * Get the highlights list panel
+     */
+    protected function getHighlightsListPanel(): HighlightsListPanel
+    {
+        if (!Config::getVar('features', 'highlights')) {
+            return new HighlightsListPanel(
+                'highlights',
+                '',
+                []
+            );
+        }
+
+        $request = Application::get()->getRequest();
+        $dispatcher = $request->getDispatcher();
+        $apiUrl = $dispatcher->url(
+            $request,
+            Application::ROUTE_API,
+            Application::CONTEXT_ID_ALL,
+            'highlights'
+        );
+
+        $highlightForm = new HighlightForm(
+            $apiUrl,
+            Repo::highlight()->getFileUploadBaseUrl(),
+            $dispatcher->url(
+                Application::get()->getRequest(),
+                Application::ROUTE_API,
+                Application::CONTEXT_ID_ALL,
+                'temporaryFiles'
+            )
+        );
+
+        $items = Repo::highlight()
+            ->getCollector()
+            ->withSiteHighlights(HighlightCollector::SITE_ONLY)
+            ->getMany();
+
+        return new HighlightsListPanel(
+            'highlights',
+            __('common.highlights'),
+            [
+                'apiUrl' => $apiUrl,
+                'form' => $highlightForm,
+                'items' => Repo::highlight()
+                    ->getSchemaMap()
+                    ->summarizeMany($items)
+                    ->values(),
+                'itemsMax' => $items->count(),
+            ]
+        );
+    }
+
+    /*
+     * Get the list panel for site-wide announcements
+     */
+    protected function getAnnouncementsListPanel(string $apiUrl, PKPAnnouncementForm $form): PKPAnnouncementsListPanel
+    {
+        $collector = Repo::announcement()
+            ->getCollector()
+            ->withSiteAnnouncements(Collector::SITE_ONLY);
+
+        $itemsMax = $collector->getCount();
+        $items = Repo::announcement()->getSchemaMap()->summarizeMany(
+            $collector->limit(30)->getMany()
+        );
+
+        return new PKPAnnouncementsListPanel(
+            'announcements',
+            __('manager.setup.announcements'),
+            [
+                'apiUrl' => $apiUrl,
+                'form' => $form,
+                'getParams' => [
+                    'contextIds' => [Application::CONTEXT_ID_NONE],
+                    'count' => 30,
+                ],
+                'items' => $items->values(),
+                'itemsMax' => $itemsMax,
+            ]
+        );
     }
 }

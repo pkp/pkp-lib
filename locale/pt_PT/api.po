@@ -1,12 +1,13 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2023.
 # Carlos Costa <carlos.costa@uc.pt>, 2023.
+# José Carvalho <jcarvalho@keep.pt>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-18 13:49+0000\n"
-"Last-Translator: Carlos Costa <carlos.costa@uc.pt>\n"
-"Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
-"pt/>\n"
-"Language: pt\n"
+"PO-Revision-Date: 2023-10-31 11:06+0000\n"
+"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
+"Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/api/pt_PT/>\n"
+"Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -340,3 +341,19 @@ msgstr "Tarefa falhada eliminada com sucesso da lista de falhas."
 
 msgid "api.submissionFiles.403.unauthorizedReviewRound"
 msgstr "Não tem permissão para aceder aos ficheiros nesta ronda de revisão."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Houve um erro ao carregar a imagem."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"O pedido em destaque não foi salvo porque foi encontrada nenhuma informação "
+"do pedido ."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"A ordem dos destaques não pode ser guardada porque um ou vários destaques "
+"não foram encontrados."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "O destaque que solicitou não foi encontrado."

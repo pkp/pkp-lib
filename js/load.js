@@ -19,6 +19,9 @@ import VueScrollTo from 'vue-scrollto';
 import dialog from '@/mixins/dialog.js';
 import localizeMoment from '@/mixins/localizeMoment.js';
 
+// Directives
+import {stripUnsafeHtml} from '@/directives/stripUnsafeHtml';
+
 // Global components of UI Library
 import Badge from '@/components/Badge/Badge.vue';
 import Dropdown from '@/components/Dropdown/Dropdown.vue';
@@ -101,7 +104,7 @@ Vue.use(VModal, {
 Vue.use(VTooltip, {defaultTrigger: 'click'});
 Vue.use(VueScrollTo);
 Vue.mixin(GlobalMixins);
-
+Vue.directive('strip-unsafe-html', stripUnsafeHtml);
 // Register global components
 Vue.component('Badge', Badge);
 Vue.component('PkpBadge', Badge);

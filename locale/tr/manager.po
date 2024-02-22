@@ -249,7 +249,7 @@ msgstr "Kayıtları Gör"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Başarılı Kayıt Mesajı"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI'ler başarıyla güncellendi"
 
 msgid "manager.dois.registration.depositDois"
@@ -3581,3 +3581,8 @@ msgstr ""
 
 #~ msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
 #~ msgstr "Yayımlanan makale istatistikleri sayfasına bağlantı"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Yazarların gönderileriyle birlikte bir Çıkar Çatışması bildirimi dosyası "
+"göndermeleri gereklidir."

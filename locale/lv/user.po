@@ -1,17 +1,17 @@
-# Ieva Tiltina <pastala@gmail.com>, 2022.
+# Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-11-08 03:46+0000\n"
+"PO-Revision-Date: 2024-01-22 17:20+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
-"Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
-"lv_LV/>\n"
-"Language: lv_LV\n"
+"Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/lv/"
+">\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
 "19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
 msgstr "Konta informācija"
@@ -37,7 +37,7 @@ msgstr ""
 "Šo darbību nevar izsaukt bez konteksta (prese, žurnāls, konference utt.)."
 
 msgid "user.authorization.loginRequired"
-msgstr "Nepieciešams pieteikties."
+msgstr "Nepieciešams pieteikties sistēmā."
 
 msgid "user.authorization.privateOperation"
 msgstr "Darbība, kuru mēģinājāt veikt, ir vai nu nepieejama, vai neeksistē."
@@ -57,14 +57,14 @@ msgstr "Lai piekļūtu šai darbībai, ir jāiestata derīga lietotāju grupa."
 
 msgid "user.authorization.managerRequired"
 msgstr ""
-"Lai varētu turpināt, šai stadijai jāpiešķir lietotājs ar pārvaldnieka lomu "
-"(t.i., izstrādes redaktors)."
+"Lai varētu turpināt, šim posmam jāpiešķir lietotājs ar pārvaldnieka lomu ("
+"t.i., izstrādes redaktors)."
 
 msgid "user.authorization.accessibleWorkflowStage"
-msgstr "Pašlaik jums nav piekļuves šai darbplūsmas stadijai."
+msgstr "Pašlaik jums nav piekļuves šim darbplūsmas posmam."
 
 msgid "user.authorization.workflowStageRequired"
-msgstr "Darba plūsmas stadija netika norādīta."
+msgstr "Darbplūsmas posms nav norādīts."
 
 msgid "user.authorization.pluginRequired"
 msgstr "Spraudnis nav norādīts, taču tas ir nepieciešams."
@@ -103,7 +103,7 @@ msgid "user.interests"
 msgstr "Recenzenta intereses"
 
 msgid "user.gossip"
-msgstr "Redakcijas piezīmes"
+msgstr "Redakcionālās piezīmes"
 
 msgid "user.gossip.description"
 msgstr ""
@@ -133,18 +133,18 @@ msgstr ""
 
 msgid "user.login.accountNotValidated"
 msgstr ""
-"Mēs esam nosūtījuši apstiprinājuma e-pasta vēstuli uz jūsu adresi {$email}. "
-"Lūdzu, izpildiet šajā e-pastā sniegtos norādījumus, lai aktivizētu savu "
-"jauno kontu. Ja e-pasta vēstuli neredzat, lūdzu, pārbaudiet, vai tā nav "
-"ievietota surogātpasta mapē."
+"Mēs esam nosūtījuši apstiprinājuma e-pastu uz jūsu adresi {$email}. Lūdzu, "
+"izpildiet šajā e-pastā sniegtos norādījumus, lai aktivizētu savu jauno "
+"kontu. Ja e-pasta vēstuli neredzat, lūdzu, pārbaudiet, vai tā nav ievietota "
+"surogātpasta mapē."
 
 msgid "user.login.activate"
 msgstr "Aktivizēt kontu"
 
 msgid "user.login.activated"
 msgstr ""
-"Paldies par konta aktivizēšanu. Tagad varat pieteikties, izmantojot savus "
-"autorizācijas datus, kurus norādījāt, izveidojot kontu."
+"Paldies par konta aktivizēšanu. Tagad varat pieteikties sistēmā, izmantojot "
+"savus autorizācijas datus, kurus norādījāt, izveidojot kontu."
 
 msgid "user.login.changePasswordInstructions"
 msgstr ""
@@ -164,7 +164,7 @@ msgstr "Pieslēgties"
 msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
 "Uz jūsu e-pasta adresi nosūtīts apstiprinājums, ja ir atrasts atbilstošs "
-"konts. Lūdzu, izpildiet e-pastā sniegtos norādījumus, lai atjaunotu paroli."
+"konts. Lūdzu, izpildiet e-pastā sniegtos norādījumus, lai atiestatītu paroli."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr ""
@@ -280,7 +280,7 @@ msgid "user.profile.form.profileImage"
 msgstr "Profila attēls"
 
 msgid "user.profile.form.publishedNotifications"
-msgstr "E-pasta paziņojumi par jaunu izdevumu"
+msgstr "E-pasta paziņojumi par jaunu žurnāla numuru"
 
 msgid "user.profile.form.urlInvalid"
 msgstr ""
@@ -445,7 +445,7 @@ msgid "user.url"
 msgstr "Mājaslapas URL"
 
 msgid "user.userHome"
-msgstr "Lietotāja mājas lapa"
+msgstr "Lietotāja sākumlapa"
 
 msgid "user.username"
 msgstr "Lietotājvārds"
@@ -492,7 +492,7 @@ msgstr ""
 "izmanto."
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr "Vai esat pārliecināts, ka vēlaties dzēst šo API atslēgu?"
+msgstr "Vai tiešām vēlaties dzēst šo API atslēgu?"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -505,13 +505,17 @@ msgstr ""
 "\"_blank\">privātuma atrunu</a>."
 
 msgid "user.login.lostPassword.invalidUser"
-msgstr ""
+msgstr "Nav lietotāja ar norādīto e-pasta adresi."
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
-msgstr ""
+msgstr "Nevar pabeigt paroles atiestatīšanas pieprasījumu, iemesls: {$reason}."
 
 msgid "user.login.passwordResetProcessInstructions"
-msgstr ""
+msgstr "Ievadiet jaunu paroli, lai atjauninātu pieteikšanās paroli."
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+"Parole ir veiksmīgi atjaunināta. Lūdzu, pierakstieties ar atjaunināto paroli."
+
+msgid "user.usernameOrEmail"
+msgstr "Lietotājvārds vai e-pasta adrese"

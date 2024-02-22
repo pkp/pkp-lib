@@ -228,7 +228,7 @@ msgstr ""
 msgid "manager.dois.registration.viewRecord.title"
 msgstr ""
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr ""
 
 msgid "manager.dois.registration.depositDois"
@@ -3176,3 +3176,8 @@ msgstr ""
 #~ msgstr ""
 #~ "Ovim obrascem e-pošte urednik rubrike podsjeća recenzenta da rok za "
 #~ "izradu recenzije istekao."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Zahtijevaj od autora da prilikom prijave svog rukopisa ispune izjavu o "
+"sukobu interesa."

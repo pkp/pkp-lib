@@ -153,6 +153,7 @@ msgstr "Kesalahan penguraian file template email<tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Salah mengurai file konfigurasi filter <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Pembaruan tidak didukung. Lihat dokumen/UPGRADE-UNSUPPORTED untuk rincian "

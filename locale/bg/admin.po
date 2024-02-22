@@ -2,7 +2,7 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-28 14:09+0000\n"
+"PO-Revision-Date: 2023-12-29 10:39+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "bg/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Име на настройката"
@@ -222,7 +222,7 @@ msgstr ""
 "неуспешен процес или едновременно работещ процес. Този файл ще бъде "
 "обработен автоматично отново."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Файл {$file} не можа да се отвори и беше отхвърлен."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -237,45 +237,45 @@ msgstr ""
 "месец, трябва да възстановите всички регистрационни файлове за този месец и "
 "да използвате CLI инструмента за повторна обработка на статистиката."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Редът {$lineNumber} в регистрационния файл {$file} е в грешен формат и "
 "следователно ще бъде пропуснат."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Невалиден запис в регистрационния файл на ред {$lineNumber} в "
 "регистрационния файл {$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Часът не е валиднен формат."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "Идентификаторът на контекста (Context ID) не е цяло число."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr ""
 "Идентификаторът на подадените материали (Submission ID) не е цяло число."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "Идентификаторът на представянето (Representation ID) не е цяло число."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Асоциираният тип не се поддържа."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Типът файл не се поддържа."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Държавата не е низ от два азбучни знака."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Регионът не е низ с дължина до три буквено-цифрови знака."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Идентификаторите на институциите (Institution ID) не са масив."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Възникна грешка при обработката на регистрационния файл {$file} на ред "
 "{$lineNumber}: {$msg}"
@@ -559,7 +559,7 @@ msgstr ""
 "Изпращане на налични задания в опашката. Ако искате да изпратите задача в "
 "конкретна опашка, подайте параметъра --queue=QUEUE_NAME. Също така може "
 "просто да премине --test за изпълнение на тестовата задача и --once за "
-"изпълнение на една задача наведнъж"
+"изпълнение на една задача наведнъж."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
@@ -847,9 +847,6 @@ msgstr ""
 "управлявани от един и същ доставчик, може да пожелаете да посочите сайта "
 "като платформа."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Използване на сайта като платформа за всички списания."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Идентификатор за платформата (Platform ID)"
 
@@ -930,3 +927,18 @@ msgstr "Брой секунди за пауза между заданията [d
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Стартирайте работния процес за тестване на опашка"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Използване на сайта като платформа за всички списания."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Деактивиране на обобщената статистика на рецензента"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Рецензентска статистика"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"При многоконтекстна инсталация статистическите данни на рецензентите, като "
+"например броя на изпратените рецензии, могат да бъдат показани или "
+"индивидуално за всеки контекст, или обобщени колективно."

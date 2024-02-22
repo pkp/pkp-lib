@@ -1,13 +1,14 @@
 # Paul Heckler <paul.d.heckler@gmail.com>, 2023.
 # Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-08-01 08:25+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2023-09-22 13:06+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -228,7 +229,7 @@ msgstr ""
 "qui a échoué précédemment ou un processus en cours d'exécution. Ce fichier "
 "sera automatiquement retraité."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Le fichier {$file} n'a pas pu être ouvert et a été rejeté."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -243,47 +244,46 @@ msgstr ""
 "vous devez restaurer tous les fichiers journaux de ce mois et utiliser "
 "l'outil CLI pour retraiter les statistiques."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "La ligne {$lineNumber} dans le fichier journal {$file} n'a pas le bon format "
 "et sera donc ignorée."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Entrée de journal invalide à la ligne {$lineNumber} dans le fichier journal "
 "{$file} : {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "L'heure (Time) n'a pas un format de date valide."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "L'ID du contexte n'est pas un nombre entier."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "L'ID de la soumission n'est pas un nombre entier."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "L'ID de la représentation n'est pas un nombre entier."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Le type associé n'est pas supporté."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Le type de fichier n'est pas supporté."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Le pays n'est pas une chaîne de deux caractères alphabétiques."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr ""
 "La région n'est pas une chaîne d'un maximum de trois caractères "
 "alphanumériques."
 
-#, fuzzy
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
-msgstr "Les identifiants des établissements ne sont pas un tableau."
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
+msgstr "Les identifiants des institutions ne sont dans un tableau."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Une erreur s'est produite lors du traitement du fichier journal {$file} à la "
 "ligne {$lineNumber} : {$msg}"
@@ -548,11 +548,10 @@ msgstr ""
 "--all. Si vous souhaitez supprimer tous les travaux d'une file d'attente "
 "spécifique, passez le paramètre --queue="
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
 "Ajouter un travail à la file d'attente de test. Utilisez le paramètre "
-"optionnel --only= et indiquez « failed » ou « success » pour soumettre un "
+"optionnel --only= et indiquez \"failed\" ou \"success\" pour soumettre un "
 "travail qui a échoué ou réussi."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
@@ -568,68 +567,57 @@ msgstr ""
 "les drapeaux --redispatch et --clear pour remettre en file d'attente ou "
 "effacer tous les travaux en échec ou certains d'entre eux."
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
-"Distribuer les travaux disponibles dans la file d'attente. Si vous souhaitez "
+"Distribuer les tâches disponibles dans la file d'attente. Si vous souhaitez "
 "envoyer un travail à une file d'attente spécifique, passez le paramètre --"
 "queue=NOM_DE_LA_QUEUE. Vous pouvez également passer le paramètre --test pour "
-"exécuter le travail de test et le paramètre --once pour exécuter un travail "
-"à la fois."
+"exécuter la tâche de test et le paramètre --once pour exécuter un travail à "
+"la fois"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
-"L'exécution de {$jobCount} travaux dans la file d'attente {$queueName} est "
-"terminée."
+"L'exécution de(s) {$jobCount} tâche(s) dans la file d'attente {$queueName} "
+"est terminée."
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr "Aucun travail n'est disponible dans la file d'attente {$queueName}."
+msgstr "Aucune tâche n'est disponible dans la file d'attente {$queueName}."
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
-"Afficher le nombre total de travaux en file d'attente. Passez le drapeau --"
-"failed pour afficher le total des travaux en échec."
+"Afficher le nombre total de tâches en file d'attente. Ajoutez l'indicateur --"
+"failed pour afficher le total des tâches en échec."
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr "Afficher l'utilisation de la commande Jobs"
+msgstr "Afficher les paramètres d'utilisation de la commande Jobs"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.usage.description"
 msgstr "Afficher les paramètres d'utilisation de la commande Jobs"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.empty.option"
 msgstr "L'option ne peut pas être vide ! Vérifier la méthode d'utilisation."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
 msgstr "Travaux en echec de la queue"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr "Travaux en attente"
+msgstr "Tâches en attente"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
 msgstr "ID"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
 msgstr "File d'attente"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
 msgstr "Connexion"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr "Nom du travail"
+msgstr "Nom de la tâche"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
 msgstr "Essais"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
 msgstr "Réservé sur"
 
@@ -657,11 +645,10 @@ msgstr "Précédent"
 msgid "admin.cli.tool.jobs.pagination.next"
 msgstr "Suivant"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
-"Pour utiliser cette commande, vous devez indiquer au moins un Job ID, '--"
-"all' ou '--queue='."
+"Pour utiliser cette commande, vous devez indiquer au moins un ID de tâche, '"
+"--all' ou '--queue='"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
@@ -673,10 +660,9 @@ msgstr ""
 "Le travail de test exécuté avec succès est lié à la file d'attente "
 "{$queueName}"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
-"Option non valide pour un travail de test. L'option '--only=' ne permet que "
+"Option non valide pour une tâche de test. L'option '--only=' n'accepte que "
 "les valeurs 'failed' ou 'success'."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
@@ -705,9 +691,8 @@ msgstr "$jobsCount} travaux réintégrés avec succès à la file d'attente."
 msgid "admin.cli.tool.jobs.total.failed.jobs"
 msgstr "Il y a {$total} travaux en échec"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr "Il y a {$total} travaux en file d'attente"
+msgstr "Il y a {$total} tâches en file d'attente"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
 msgstr "L'option {$option} n'existe pas."
@@ -715,10 +700,9 @@ msgstr "L'option {$option} n'existe pas."
 msgid "admin.cli.tool.jobs.mean.those"
 msgstr "Vouliez-vous dire l'un des éléments suivants ?"
 
-#, fuzzy
 msgid "admin.jobs.totalCount"
 msgstr ""
-"Il y a un total de <strong>{$total}</strong> travaux dans la file d'attente"
+"Il y a un total de <strong>{$total}</strong> tâches dans la file d'attente"
 
 msgid "admin.jobs.failed.totalCount"
 msgstr "Il y a un total de <strong>{$total}</strong> travaux en échec."
@@ -729,25 +713,22 @@ msgstr "Voir les travaux en file d'attente"
 msgid "navigation.tools.jobs"
 msgstr "Travaux"
 
-#, fuzzy
 msgid "navigation.tools.jobs.failed"
-msgstr "Travaux échoués"
+msgstr "Tâches échouées"
 
 msgid "navigation.tools.jobs.failed.details"
 msgstr "Détails des travaux échoués"
 
-#, fuzzy
 msgid "navigation.tools.jobs.description"
 msgstr ""
-"Visualiser tous les travaux en file d'attente dans le système et suivre les "
+"Visualiser toutes les tâches en file d'attente dans le système et suivre les "
 "essais ayant échoué."
 
 msgid "navigation.tools.jobs.view"
 msgstr "Afficher les travaux"
 
-#, fuzzy
 msgid "navigation.tools.jobs.failed.view"
-msgstr "Afficher les travaux échoués"
+msgstr "Afficher les tâches échouées"
 
 msgid "navigation.tools.job.failed.details.view"
 msgstr "Voir les détails de l'échec du travail : {$id}"
@@ -788,7 +769,6 @@ msgstr "Exception"
 msgid "admin.jobs.list.actions"
 msgstr "Actions"
 
-#, fuzzy
 msgid "admin.jobs.failedAt"
 msgstr "Créé à {$failedAt}"
 
@@ -859,19 +839,16 @@ msgstr ""
 "La compression des fichiers journaux peut permettre d'économiser de l'espace "
 "disque sur le serveur."
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.default"
 msgstr "Laisser les fichiers journaux en place"
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.compress"
 msgstr "Comprimer les fichiers journaux"
 
-#, fuzzy
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
 "Restreindre l'accès à l'API de statistiques COUNTER SUSHI aux gestionnaires "
-"et aux administrateurs."
+"et aux administrateurs"
 
 msgid "admin.settings.statistics.sushiPlatform"
 msgstr "Plateforme"
@@ -885,15 +862,11 @@ msgstr ""
 "sont publiés, détenus ou gérés par le même fournisseur, vous pouvez désigner "
 "le site comme plateforme."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr ""
-"Utiliser ce site comme plateforme pour toutes les revues, tous les éditeurs "
 "et tous les dépôts."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID de la plateforme"
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
 "Indiquer comment cette plateforme doit être identifiée dans les rapports "
@@ -910,14 +883,12 @@ msgstr ""
 "Un identifiant de plateforme est nécessaire pour identifier le site en tant "
 "que plateforme SUSHI."
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.work.options.title"
 msgstr "options de la commande de travail"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
 msgstr "utilisation : [--options1 --options2= ...]"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.work.options.description"
 msgstr "Options disponibles pour la commande de travail"
 
@@ -928,7 +899,6 @@ msgstr ""
 msgid "admin.cli.tool.jobs.work.option.queue.description"
 msgstr "Nom de la file d'attente à utiliser [default : '{$default}']"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.work.option.name.description"
 msgstr "Nom du « worker » [default : '{$default}']"
 
@@ -940,7 +910,6 @@ msgstr ""
 msgid "admin.cli.tool.jobs.work.option.memory.description"
 msgstr "Limite de mémoire en mégaoctets [défaut : '{$default}']"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
 msgstr ""
 "Nombre de secondes qu'un processus enfant peut durer [default : '{$default}']"
@@ -965,7 +934,6 @@ msgstr "Arrêter si la file d'attente est vide [défaut : {$default}]"
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
 msgstr "Nombre de travaux à traiter avant de s'arrêter [default : '{$default}']"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
 "Le nombre maximum de secondes pendant lesquelles le « worker » doit "

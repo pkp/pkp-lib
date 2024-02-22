@@ -169,6 +169,7 @@ msgstr ""
 "Parsing-Fehler bei der Verarbeitung der Filterkonfigurationsdatei <tt>{$file}"
 "</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr "Upgrade nicht unterstützt. Siehe docs/UPGRADE-UNSUPPORTED für Details."
 

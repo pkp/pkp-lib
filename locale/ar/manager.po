@@ -1,12 +1,13 @@
 # M. Ali <vorteem@gmail.com>, 2021, 2022, 2023.
 # Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2022.
+# "M. Ali" <vorteem@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"PO-Revision-Date: 2024-01-20 02:39+0000\n"
+"Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ar/>\n"
 "Language: ar\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "المعلومات"
@@ -254,7 +255,7 @@ msgstr "معاينة السجل"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "رسالة التسجيل الموفق"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "تم تحديث معرفات المكونات الرقمية بنجاح"
 
 msgid "manager.dois.registration.depositDois"
@@ -285,10 +286,7 @@ msgid "manager.dois.filters.doiAssigned"
 msgstr "معرف المكون الرقمي تم تعيينه"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
-"أي عنصر منشور أو غير منشور 1) لديه مكون فرعي بدون معرف مكون رقمي معين له "
-"حيثما 2) تم تمكين نوع معرف المكون الرقمي للمكون الفرعي (مثلاً، اللوح الطباعي "
-"بدون معرف المكون الرقمي لن يظهر هنا إذا لم يتم تمكين نوع المعرف له)"
+msgstr "كل العناصر التي تفتقر إلى معرف المكون الرقمي."
 
 msgid "manager.dois.filters.doiAssigned.description"
 msgstr "كل العناصر حصلت على معرفات المكونات الرقمية."
@@ -2788,24 +2786,24 @@ msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "رابط الصفحة التي يمكن للمستخدم فيها استعادة كلمة المرور المفقودة"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "عنوان الرابط لمعاينة كل طلبات التقديم المعينة إلى المستخدم."
+msgstr "عنوان الرابط لمعاينة كل طلبات تقديم المستخدم المعينة"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr "عنوان الرابط الذي يمكن للمستخدم عبره معاينة ملفه الشخصي وتعديله."
+msgstr "عنوان الرابط الذي يمكن للمستخدم عبره معاينة ملفه الشخصي وتعديله"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr "اسم القرار الذي تم اتخاذه."
+msgstr "اسم القرار الذي تم اتخاذه"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr "وصف القرار الذي تم اتخاذه."
+msgstr "وصف القرار الذي تم اتخاذه"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr "مرحلة سير أعمال التحرير التي تم اتخاذ القرار عندها."
+msgstr "مرحلة سير أعمال التحرير التي تم اتخاذ القرار عندها"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "جولة التحكيم التي تم اتخاذ هذا القرار عندها، إن كان القرار متعلقًا بجولة "
-"تحكيم."
+"تحكيم"
 
 msgid "emailTemplate.variable.discussion.subject"
 msgstr "موضوع المناقشة"
@@ -3335,7 +3333,6 @@ msgid "mailable.editReviewNotify.description"
 msgstr ""
 "رسالة البريد الالكتروني هذه تُبلغ المحكم آليًا بشأن تفاصيل تعديلات التحكيم."
 
-#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "إشعار المحررين بتعليق المحكم"
 
@@ -3557,3 +3554,42 @@ msgid "plugins.importexport.common.error.publicationCoverImageMissing"
 msgstr ""
 "صورة الغلاف للمنشور {$id} لم يتم تصديرها، تعذر العثور على ملفها في المسار \""
 "{$path}\"."
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "رابط التحقق من حساب البريد الالكتروني"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"يتطلب تقديم المؤلفين لبيان المصالح المتضاربة (CI) مع طلبات النشر الخاصة بهم."
+
+msgid "manager.highlights.add"
+msgstr "إضافة التمييز"
+
+msgid "manager.highlights.confirmDelete"
+msgstr "هل أنت متأكد من رغبتك في حذف {$title}؟ لا يمكن التراجع عن هذا الإجراء."
+
+msgid "manager.highlights.delete"
+msgstr "حذف التمييز"
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"ينبغي عليك <a href=\"#announcements/announcement-settings\">تمكين "
+"الإعلانات</a>."
+
+msgid "manager.highlights.edit"
+msgstr "تحرير التمييز"
+
+msgid "manager.highlights.url.description"
+msgstr "عنوان الرابط الكامل، متضمنًا https:// بالنسبة للزر في التمييز."
+
+msgid "manager.image"
+msgstr "صورة"
+
+msgid "manager.highlights.image"
+msgstr "صورة"
+
+msgid "manager.highlights.urlText"
+msgstr "تسمية الزر"
+
+msgid "manager.highlights.urlText.description"
+msgstr "التسمية، مثلاً قراءة المزيد، بالنسبة للزر في التمييز."

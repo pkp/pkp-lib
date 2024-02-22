@@ -1,18 +1,2677 @@
-# Ieva Tiltina <pastala@gmail.com>, 2022.
+# Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-18 14:01+0000\n"
+"PO-Revision-Date: 2024-01-15 19:17+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
-"Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/ojs/author/"
-"lv_LV/>\n"
-"Language: lv_LV\n"
+"Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/lv/>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
 "19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "submission.submissionFile"
 msgstr "Iesniedzamā materiāla datne"
 
+msgid "author.submit.submissionCitations"
+msgstr ""
+"Iesniegt formatētu atsauču sarakstu darbiem, kas citēti šajā materiālā. "
+"Atsevišķas atsauces atdalīt ar tukšu rindu."
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Viens vai vairāki recenzenti nokavēja termiņu. Redakcijas kolēģija ir "
+"informēta un veiks pasākumus, lai nodrošinātu, ka recenzijas tiek pabeigtas. "
+"Šobrīd jums nav jāveic nekādas darbības. Jums tiks paziņots, kad būs "
+"pieņemts lēmums."
+
+msgid "author.editPublishedDisabled"
+msgstr "Šīs publikācijas autorus nevar rediģēt, jo tā ir jau publicēta."
+
+msgid "author.publicationNotFound"
+msgstr "Šī autora publikācija nav atrodama."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Ir iesniegtas jaunas recenzijas, un redaktors tās izskata."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Iesniegt kā"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "Izvēlieties lomu, kas vislabāk raksturo jūsu ieguldījumu šajā darbā."
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"Lūdzu, ievadiet derīgu Crossref reģistrēto e-pastu. Savu e-pasta adresi "
+"varat reģistrēt bez maksas Crossref tīmekļa vietnē."
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"Pārliecinieties, ka esat iestatījis derīgu nosaukuma tipu. Atbalstītās "
+"vērtības ir \"personal\", \"corporate\" un \"conference\"."
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Lūdzu, ievadiet derīgu WorldCat API atslēgu, ja jums tāda ir."
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Lūdzu, izvēlieties vienu no dotajiem citēšanas moduļiem."
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Lūdzu, ievadiet derīgu izdevumu."
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Iekšējā kļūda. Iestatījumam \"izvēles filtrs\" ir ievadīta nederīga vērtība. "
+"Lūdzu, ziņojiet par to kā par kļūdu."
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Lūdzu, ievadiet derīgu konferences datumu (formāts: GGGG-MM-DD)."
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Lūdzu, ievadiet derīgu publikācijas virsrakstu."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Konferences norises vieta"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Lūdzu, ievadiet derīgu piekļuves datumu (formāts: GGGG-MM-DD)."
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Lūdzu, ievadiet derīgu konferences norises vietu."
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Lūdzu, ievadiet derīgu pirmo lappusi (tai jābūt skaitliskai vērtībai)."
+
+msgid "metadata.property.validationMessage.size"
+msgstr ""
+"Lūdzu, ievadiet derīgu kopējo lappušu skaitu (jābūt skaitliskai vērtībai)."
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Lūdzu, ievadiet derīgu elektroniska izdevuma ISSN."
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Lūdzu, ievadiet derīgu CODEN."
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Lūdzu, ievadiet derīgu komentāru."
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"Lūdzu, pārliecinieties, ka vienmēr iestatāt publikācijas tipu. Pašlaik "
+"atbalstītās vērtības ir grāmata (grāmatām vai grāmatu nodaļām) un žurnāls ("
+"žurnālu rakstiem). Pretējā gadījumā citātu izvades formatējums nedarbosies "
+"pareizi."
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Lūdzu, ievadiet derīgu daļas nosaukumu."
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
+"Izvēlieties redaktora lomu, ja vēlaties šo iesniegto materiālu rediģēt un "
+"publicēt pats."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Materiāla iesniegšanas prasības"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "Visiem iesniegtajiem materiāliem jāatbilst šādām prasībām."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "Jā, mans iesniegtais materiāls atbilst visām šīm prasībām."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Materiāla iesniegšana pabeigta"
+
+msgid "submission.submit.genre.label"
+msgstr "Kāda veida datne tā ir?"
+
+msgid "submission.submit.genre.description"
+msgstr "Izvēlieties variantu, kas vislabāk raksturo šo datni."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Vai tiešām vēlaties noņemt šo datni?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Tagad varat:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Recenzēt šo iesniegto materiālu"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Izveidot jaunu materiāla iesniegšanu"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Atgriezties uz vadības paneli"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Paplašināti metadati"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "Crossref reģistrētais e-pasts"
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API atslēga"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"Lūdzu, ievadiet savu ISBNdb API atslēgu. Ja jums vēl nav atslēgas, varat to "
+"bez maksas iegūt no ISBNdb projekta."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "PubMed reģistrētais e-pasts"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Lūdzu, ievadiet derīgu PubMed reģistrēto e-pastu, ja jums tāds ir."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API atslēga"
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Citēšanas modulis"
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Nelietot pēc noklusējuma (joprojām būs pieejams redaktoram)"
+
+msgid "metadata.property.displayName.author"
+msgstr "Autori"
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"Lai sasniegtu labākus rezultātus, autori jāievada šādā formātā: Coleman Jr, "
+"D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Redaktori"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"Lai sasniegtu labākus rezultātus, redaktori jāievada šādā formātā: Coleman "
+"Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Raksta/materiāla virsraksts"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Lūdzu, ievadiet derīgu raksta/materiāla virsrakstu."
+
+msgid "metadata.property.displayName.source"
+msgstr "Publikācijas virsraksts"
+
+msgid "metadata.property.displayName.date"
+msgstr "Publicēšanas datums"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Lūdzu, ievadiet derīgu publicēšanas datumu (formāts: GGGG-MM-DD)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Piekļuves datums"
+
+msgid "metadata.property.displayName.volume"
+msgstr "Sējums"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Lūdzu, ievadiet derīgu žurnāla numuru."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Žurnāla numurs"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Lūdzu, ievadiet derīgu sējumu."
+
+msgid "metadata.property.displayName.season"
+msgstr "Sezona"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Lūdzu, ievadiet derīgu sezonas identifikatoru."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Nodaļas virsraksts"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Lūdzu, ievadiet derīgu nodaļas virsrakstu."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Izdevums"
+
+msgid "metadata.property.displayName.series"
+msgstr "Sērija"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Lūdzu, ievadiet derīgu sēriju."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Papildinājums"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Lūdzu, ievadiet derīgu papildinājumu."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Konferences datums"
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Konferences nosaukums"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Lūdzu, ievadiet derīgu konferences nosaukumu."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Konferences sponsors"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Lūdzu, ievadiet derīgu konferences sponsoru."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Iestāde"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Lūdzu, ievadiet derīgu iestādi."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Pirmā lappuse"
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Pēdējā lappuse"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Lūdzu, ievadiet derīgu pēdējo lappusi (tai jābūt skaitliskai vērtībai)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Lappušu skaits"
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Izdevēja atrašanās vieta"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Lūdzu, ievadiet derīgu izdevēja atrašanās vietu."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Izdevēja nosaukums"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Lūdzu, ievadiet derīgu izdevēja nosaukumu."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Lūdzu, ievadiet derīgu ISBN (9 vai 13 cipari)."
+
+msgid "metadata.property.displayName.issn"
+msgstr "Drukāta izdevuma ISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Lūdzu, ievadiet derīgu drukāta izdevuma ISSN."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "Elektroniska izdevuma ISSN"
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Lūdzu, ievadiet derīgu DOI."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Pielāgotais publikācijas ID"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Lūdzu, ievadiet derīgu pielāgoto publikācijas ID."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Lūdzu, ievadiet derīgu SICI."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Lūdzu, ievadiet derīgu PMID."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Saite uz publikāciju"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Lūdzu, ievadiet derīgu alternatīvu saiti uz publikāciju."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Komentārs"
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Anotācija"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Lūdzu, ievadiet derīgu anotāciju."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Publikācijas tips"
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Virsraksta tips"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"Pārliecinieties, ka esat iestatījis derīgu virsraksta tipu. Atbalstītās "
+"vērtības ir \"abbreviated\", \"translated\", \"alternative\" un \"uniform\"."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Virsraksta daļa, kas tiks ignorēta šķirošanas laikā"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"Lūdzu, ievadiet tikai virsraksta sākuma rakstzīmes, kuras jāignorē, šķirojot "
+"virsrakstu."
+
+msgid "metadata.property.displayName.title"
+msgstr "Virsraksts"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Lūdzu, ievadiet derīgu virsrakstu."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Apakšvirsraksts"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Lūdzu, ievadiet derīgu apakšvirsrakstu."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Daļas numurs"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Lūdzu, ievadiet derīgu daļas numuru."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Daļas nosaukums"
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Nosaukuma tips"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Kopsavilkums"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Nepiešķirti"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Man piešķirtie"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Arhivēti iesniegtie materiāli"
+
+msgid "submission.authors"
+msgstr "Autori"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Paziņot autoriem"
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"Nosūtīt autoriem e-pastu, lai informētu, ka viņu iesniegtais darbs ir "
+"pieņemts publicēšanai. Šī e-pasta vēstule netiks nosūtīta, kamēr lēmums "
+"nebūs reģistrēts."
+
+msgid "publication.titleAbstract"
+msgstr "Virsraksts un kopsavilkums"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Kopsavilkums ir pārāk garš. Tam jābūt ne vairāk kā {$limit} vārdus garam. "
+"Šobrīd tā garums {$count} vārdu."
+
+msgid "submission.event.copyrightAgreed"
+msgstr ""
+"{$filename} ({$username}) piekrita autortiesību noteikumiem materiāla "
+"iesniegšanai."
+
+msgid "submission.authorBiographies"
+msgstr "Autoru biogrāfijas"
+
+msgid "submission.titleAndAbstract"
+msgstr "Virsraksts un kopsavilkums"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} no {$title}"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Atgriezties pie materiāla iesniegšanas rediģēšanas"
+
+msgid "submission.citations.description"
+msgstr ""
+"Katru atsauci ierakstiet jaunā rindā, lai tās varētu izdalīt un reģistrēt "
+"atsevišķi."
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Recenzents {$reviewerLetter}:"
+
+msgid "submission.coverage"
+msgstr "Aptvēruma informācija"
+
+msgid "submission.event.confirmClearLog"
+msgstr "Vai tiešām vēlaties izdzēst notikumu žurnālu attiecībā uz šo materiālu?"
+
+msgid "submission.authorBiography"
+msgstr "Autora biogrāfija"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} u. c."
+
+msgid "submission.mySubmissions"
+msgstr "Mana autorība"
+
+msgid "submission.addFile"
+msgstr "Augšupielādēt datni"
+
+msgid "submission.additionalFiles"
+msgstr "Papildu datnes"
+
+msgid "submission.agencies"
+msgstr "Aģentūras"
+
+msgid "submission.abstractViews"
+msgstr "Kopsavilkumu skatījumi"
+
+msgid "submission.accepted"
+msgstr "Pieņemts"
+
+msgid "submission.acknowledge"
+msgstr "Apstiprināt"
+
+msgid "submission.ask"
+msgstr "Pieprasīt"
+
+msgid "submission.attachedFile"
+msgstr "Pievienotā datne"
+
+msgid "submission.changeComments"
+msgstr "Mainīt uz"
+
+msgid "submission.changeFile"
+msgstr "Mainīt datni"
+
+msgid "submission.citations"
+msgstr "Atsauces"
+
+msgid "submission.parsedCitations"
+msgstr "Iegūtās atsauces"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"Tālāk norādītās atsauces ir atlasītas un tiks piesaistītas iesniegtā "
+"materiāla metadatiem."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Iegūt un saglabāt atsauces"
+
+msgid "submission.comments.addComment"
+msgstr "Pievienot komentāru"
+
+msgid "submission.comments.comments"
+msgstr "Komentāri"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Vai tiešām vēlaties izdzēst šo komentāru?"
+
+msgid "submission.comments.corrections"
+msgstr "Labojumi"
+
+msgid "submission.comments.editComment"
+msgstr "Rediģēt komentāru"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Importēt recenzijas"
+
+msgid "submission.comments.addReviews"
+msgstr "Pievienot recenzijas e-pastam"
+
+msgid "submission.comments.noComments"
+msgstr "Nav komentāru"
+
+msgid "submission.comments.noReviews"
+msgstr "Nav recenziju"
+
+msgid "submission.comments.review"
+msgstr "Recenzija"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Nosūtīt recenzentiem redakcionālo lēmumu"
+
+msgid "submission.comments.subject"
+msgstr "Temats"
+
+msgid "submission.complete"
+msgstr "Pabeigts"
+
+msgid "submission.contributors"
+msgstr "Ieguldītāju saraksts"
+
+msgid "submission.copyedited"
+msgstr "Literāri rediģēts"
+
+msgid "submission.copyediting"
+msgstr "Literārā rediģēšana"
+
+msgid "submission.queryNoteFiles"
+msgstr "Diskusijas datnes"
+
+msgid "submission.details"
+msgstr "Sīkāka informācija par iesniegto materiālu"
+
+msgid "submission.done"
+msgstr "Paveikts"
+
+msgid "submission.downloads"
+msgstr "Lejupielādes"
+
+msgid "submission.dueDate"
+msgstr "Izpildes datums"
+
+msgid "submission.due"
+msgstr "Izpildāms līdz"
+
+msgid "submission.editing"
+msgstr "Rediģēšana"
+
+msgid "submission.editMetadata"
+msgstr "Rediģēt metadatus"
+
+msgid "submission.editorial"
+msgstr "Literārā rediģēšana"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Atgriezties pie e-pastu žurnāla"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Vai tiešām vēlaties izdzēst e-pastu žurnālu par šo materiālu?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Vai tiešām vēlaties dzēst šo e-pastu žurnāla ierakstu?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Dzēst žurnāla ierakstu"
+
+msgid "submission.emailLog"
+msgstr "E-pastu žurnāls"
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$userFullName} ({$username}) tika piešķirts šim materiālam kā "
+"{$userGroupName}."
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$userFullName}\" ({$username}) tiek noņemts kā {$userGroupName}."
+
+msgid "submission.event.backToEventLog"
+msgstr "Atgriezties pie notikumu žurnāla"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Vai tiešām vēlaties dzēst šo notikumu žurnāla ierakstu?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Dzēst žurnāla ierakstu"
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"E-pasts par lēmumu tika nosūtīts {$recipientCount} recenzentam(-iem) ar "
+"tematu {$subject}."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Sākotnējā iesniegšana pabeigta."
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+"Šis materiāls tiks pieņemts publicēšanai un nosūtīts literārai rediģēšanai."
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} pieņēma šo materiālu un nosūtīja to literārās rediģēšanas "
+"posmam."
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Pieprasīt labojumus"
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+"Autoram ir jāiesniedz labojumi, pirms šis darbs tiks pieņemts publicēšanai."
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} pieprasīja veikt šī materiāla labojumus."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Pieprasītie labojumi"
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr ""
+"Ir pieprasīti labojumi materiālam {$title}. Visi paziņojumi ir nosūtīti, "
+"izņemot tos, kurus izvēlējāties izlaist."
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"Nosūtīt autoriem e-pastu, lai informētu, ka būs nepieciešami labojumi, pirms "
+"šis darbs tiks pieņemts publicēšanai. Norādiet visu informāciju, kas autoram "
+"būs nepieciešama, lai izlabotu materiālu. Vajadzības gadījumā neaizmirstiet "
+"anonimizēt visus recenzentu komentārus. Šis e-pasts netiks nosūtīts, kamēr "
+"lēmums nebūs reģistrēts."
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr "Atlasiet datnes, kuras jānosūta uz izstrādes posmu."
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"Autoram ir jāiesniedz labojumi, kas tiks nosūtīti atkārtotai recenzēšanas "
+"kārtai, pirms šis darbs tiks pieņemts publicēšanai."
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName} pieprasīja labojumus šim darbam, kas būtu jānosūta citai "
+"recenzēšanas kārtai."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Pieprasītie labojumi"
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"Materiālam {$title} ir pieprasīti labojumi. Tika reģistrēts lēmums nosūtīt "
+"labojumus vēl vienai recenzēšanas kārtai. Visi paziņojumi ir nosūtīti, "
+"izņemot tos, kurus izvēlējāties izlaist."
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"Nosūtīt autoriem e-pastu, lai informētu, ka jāpabeidz labojumi, un pēc tam "
+"tie jānosūta atkārtotai recenzēšanas kārtai. Iekļaujiet visu informāciju, "
+"kas autoram būs nepieciešama, lai uzlabotu iesniegto darbu. Vajadzības "
+"gadījumā neaizmirstiet anonimizēt visus recenzentu komentārus."
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr "Atcelt literāro rediģēšanu"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Nosūtīt uz izstrādi"
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"Nosūtīt autoriem e-pastu, lai informētu, ka šis materiāls ir nosūtīts uz "
+"izstrādes posmu. Šis e-pasts netiks nosūtīts, kamēr lēmums nebūs reģistrēts."
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr "Nosūtīt šo materiālu izstrādes posmam, lai to sagatavotu publicēšanai."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "Nosūtīts uz izstrādi"
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr ""
+"Materiāls \"{$title}\" tika nosūtīts uz izstrādes posmu. Autors ir "
+"informēts, ja vien neesat izvēlējies šo e-pastu izlaist."
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} nosūtīja šo materiālu izstrādes posmam."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Atgriezties pie literārās rediģēšanas"
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Nosūtīt autoriem e-pastu, lai informētu, ka literārā rediģēšana ir atcelta "
+"un viņu materiāls tiks pakļauts turpmākai redakcionālai izskatīšanai."
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr "Nosūtīt šo materiālu atpakaļ no literārās rediģēšanas posma."
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Nosūtīt šo materiālu atpakaļ uz literārās rediģēšanas posmu."
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr "Nosūtīts atpakaļ no literārās rediģēšanas"
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Nosūtīts atpakaļ uz literāro rediģēšanu"
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr ""
+"Materiāls \"{$title}\" tika nosūtīts atpakaļ no literārās rediģēšanas posma. "
+"Autors ir informēts, ja vien neesat izvēlējies šo e-pastu izlaist."
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr ""
+"Materiāls {$title} tika nosūtīts atpakaļ uz literārās rediģēšanas posmu. "
+"Autors ir informēts, ja vien neesat izvēlējies šo e-pastu izlaist."
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr ""
+"{$editorName} ir nosūtījis šo materiālu atpakaļ no literārās rediģēšanas "
+"posma."
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr ""
+"{$editorName} nosūtīja šo materiālu atpakaļ uz literārās rediģēšanas posmu."
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} izlaida recenzēšanas posmu un nosūtīja šo materiālu uz "
+"literārās rediģēšanas posmu."
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Nosūtīt autoriem e-pastu, lai informētu, ka šis materiāls pieņemts "
+"publicēšanai un nosūtīts uz literārās rediģēšanas posmu bez recenzēšanas. "
+"Šis e-pasts netiks nosūtīts, kamēr lēmums nebūs reģistrēts."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Ieteikt labojumus"
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Ieteikt pieprasīt autoram veikt labojumus, pirms šis darbs tiek pieņemts "
+"publicēšanai."
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+"Ieteikt pieņemt šo materiālu publicēšanai un nosūtīt to literārai "
+"rediģēšanai."
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} ieteica šo materiālu pieņemt un nosūtīt literārai rediģēšanai."
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} ieteica pieprasīt labojumus."
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} ieteica pieprasīt labojumus un nosūtīt tos atkārtotai "
+"recenzēšanas kārtai."
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"Ieteikums autoru aicināt iesniegt labojumus atkārtotai recenzēšanas kārtai."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"Lietotājs {$username} izdzēsa datnes labojumus \"{$filename}\" materiālam "
+"{$submissionId}."
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "Lietotājs {$username} izdzēsa datnes \"{$filename}\" pēdējos labojumus."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Jums ir lūgts pārskatīt \"{$title}\" literāri rediģēto datni."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Nepieciešami labojumi."
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Augšupielādēt laboto datni"
+
+msgid "submission.productionReady"
+msgstr "Grāmata pieejama"
+
+msgid "grid.action.itemWorkflow"
+msgstr "Doties uz materiāla iesniegšanas darbplūsmu"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Ieguldītājs vai sponsora aģentūra"
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"Pirms redakcionālā procesa uzsākšanas ir jāpiešķir izstrādes redaktors. "
+"Lūdzu, pievienojiet izstrādes redaktoru, izmantojot Dalībnieku sarakstu."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"Pirms izstrādes procesa uzsākšanas ir jāpiešķir izstrādes redaktors. Lūdzu, "
+"pievienojiet izstrādes redaktoru, izmantojot Dalībnieku sarakstu."
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Izstrādes process uzsākts."
+
+msgid "submission.queries.submission"
+msgstr "Pirmsrecenzēšanas diskusijas"
+
+msgid "submission.queries.review"
+msgstr "Recenzēšanas diskusijas"
+
+msgid "submission.queries.editorial"
+msgstr "Literārās rediģēšanas diskusijas"
+
+msgid "submission.query.leaveQuery"
+msgstr "Pamest diskusiju"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Ja pametīsiet šo diskusiju, vairs netiksiet informēts par jauniem "
+"ziņojumiem. Vai vēlaties pamest šo diskusiju?"
+
+msgid "grid.action.openNoteForm"
+msgstr "Pievienot jaunu atbildi diskusijai"
+
+msgid "submission.query.new"
+msgstr "{$creatorName} uzsāka diskusiju: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"Diskusijā ar nosaukumu \"{$queryTitle}\" ir veikta jauna darbība saistībā ar "
+"materiālu\"{$submissionTitle}\"."
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Jūs esat pievienots diskusijai ar nosaukumu \"{$queryTitle}\" par materiālu "
+"\"{$submissionTitle}\"."
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"Pirms diskusijas uzsākšanas šim materiālam jāpiešķir vismaz viens dalībnieks."
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Jūs varat atjaunināt šo diskusiju {$allowedEditTimeNoticeLimit} minūtēs."
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Iesniegtie labojumi"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Jums ir piešķirta redaktora loma šim materiālam. Vai vēlaties piekļūt "
+"sadaļai <a href=\"{$urlEditorialWorkflow}\">Redaktora darbplūsma</a>?"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Iesniegtas literāri rediģētas datnes"
+
+msgid "submission.list.discussions"
+msgstr "Atvērtas diskusijas"
+
+msgid "submission.list.galleysCreated"
+msgstr "Izstrādes saliktņi izveidoti"
+
+msgid "submission.wizard.noContributors"
+msgstr "Šim materiālam nav pievienoti ieguldītāji."
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr "{$language} trūkst vārda nosaukuma vienam vai vairākiem ieguldītājiem."
+
+msgid "publication.contributors"
+msgstr "Ieguldītāji"
+
+msgid "submission.event.fileRevised"
+msgstr ""
+"Tika augšupielādēti datnes {$submissionFileId} labojumi \"{$filename}\"."
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Materiālam atcelts recenzents"
+
+msgid "submission.upload.possibleRevision"
+msgstr "Atklāta iespējama dublēšanās vai labojumi"
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"Lietotājs {$username} augšupielādēja datnes labojumus \"{$filename}\" "
+"materiālam {$submissionId}."
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Atjaunināta datne ar recenzenta labojumiem"
+
+msgid "submission.event.reviewer.reviewerReminded"
+msgstr ""
+"{$senderName} nosūtīja atgādinājumu {$recipientName} par recenzēšanas "
+"piešķīrumu"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} - Atjaunināts {$dateUpdated}"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"Augšupielādētās datnes nosaukums līdzinās iepriekš augšupielādētās datnes "
+"nosaukumam \"{$revisedFileName}\". Vai ar šo datni paredzēts aizstāt \""
+"{$revisedFileName}\"? Ja jā, izvēlieties tālāk norādīto datni. Pretējā "
+"gadījumā pirms turpināšanas izvēlieties \"Tas nav esošās datnes labojums\"."
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Faila augšupielādētāja ieraksts tiek saglabāts, kad fails tiek izveidots, un "
+"to nevar mainīt."
+
+msgid "submission.layout.addGalley"
+msgstr "Pievienot maketa saliktni"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Vai tiešām vēlaties izņemt šo attēlu no saliktņa?"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Jums ir piešķirtas vairākas lomas šim materiālam. Vai vēlaties piekļūt "
+"sadaļām <a href=\"{$urlAuthorWorkflow}\">Autora darbplūsma</a> vai <a href=\""
+"{$urlEditorialWorkflow}\">Redaktora darbplūsma</a>?"
+
+msgid "submission.production"
+msgstr "Izstrāde"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr ""
+"Parasti tiek izmantots, lai identificētu datnes formātu (piemēram, PDF, HTML "
+"u. c.)."
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Nosūtīt autoriem e-pastu, lai informētu, ka šis materiāls vēlreiz nosūtīts "
+"uz literārās rediģēšanas posmu. Paskaidrojiet, kāpēc tika pieņemts šāds "
+"lēmums, un informējiet autorus, kāda rediģēšana būs nepieciešama, lai šo "
+"materiālu sagatavotu izstrādei."
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Pieņemt šo materiālu publicēšanai un izlaist recenzēšanas posmu. Ar šo "
+"lēmumu materiāls tiks nosūtīts uz literārās rediģēšanas posmu."
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr "Atlasīt datnes, kas jānosūta uz literārās rediģēšanas posmu."
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"Materiāls {$title} ir pieņemts publicēšanai un nosūtīts uz literārās "
+"rediģēšanas posmu. Visi paziņojumi ir nosūtīti, izņemot tos, kurus esat "
+"izvēlējies izlaist."
+
+msgid "submission.submit.includeInBrowse"
+msgstr "Norādot autorus publikāciju sarakstos, iekļaujiet šoieguldītāju."
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"Materiālam {$title} ir izlaists recenzēšanas posms, un tas ir nosūtīts uz "
+"literārās rediģēšanas posmu. Autors ir informēts, ja vien neesat izvēlējies "
+"šo e-pastu izlaist."
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Materiāla datne atjaunota"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Materiāla metadati atjaunoti"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Recenzēšanas piešķīrums, ko pieņēmis starpnieks"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Recenzēšanas piešķīrums pieņemts"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Recenzēšanas piešķīrums noraidīts"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Recenzēšanas termiņš mainīts"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Materiālam piešķirts recenzents"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Iesniegts recenzenta novērtējums"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Recenzēšana uzsākta"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Recenzijas datne atjaunināta"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Recenzenta rekomendācijas datne"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Recenzēšanas piešķīrums atsākts"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Recenzija iesniegta atkārtoti"
+
+msgid "submission.event.reviewer.reviewerRemindedAuto"
+msgstr ""
+"{$recipientName} tika nosūtīts automātisks atgādinājuma e-pasts par "
+"recenzēšanas piešķīrumu"
+
+msgid "submission.event.subjectPrefix"
+msgstr "E-pasts tika nosūtīts:"
+
+msgid "submission.event.viewEmail"
+msgstr "Skatīt e-pastu"
+
+msgid "submission.files"
+msgstr "Datnes"
+
+msgid "submission.files.downloadAll"
+msgstr "Lejupielādēt visas datnes"
+
+msgid "submission.firstPublished"
+msgstr "Pirmo reizi publicēts"
+
+msgid "submission.forTheEditors"
+msgstr "Redaktoriem"
+
+msgid "submission.galley"
+msgstr "Saliktnis"
+
+msgid "submission.history.clearLog"
+msgstr "Notīrīt žurnālu"
+
+msgid "submission.history"
+msgstr "Vēsture"
+
+msgid "submission.history.noLogEntries"
+msgstr "Nav žurnāla ierakstu."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Jaunākie ieraksti"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "E-pastu žurnāls"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Notikumu žurnāls"
+
+msgid "submission.history.submissionNotes"
+msgstr "Piezīmes par iesniegto materiālu"
+
+msgid "submission.history.viewLog"
+msgstr "Skatīt žurnālu"
+
+msgid "submission.howToCite"
+msgstr "Kā citēt"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Lejupielādēt atsauci"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Citi atsauču formāti"
+
+msgid "submission.initiated"
+msgstr "Uzsākts"
+
+msgid "submission.versions"
+msgstr "Versijas"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Tagad autoriem ir atļauts rediģēt metadatus, kad iesniegšana notiek {stage} "
+"posmā."
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Tagad autoriem nav atļauts rediģēt metadatus, kad iesniegšana notiek {stage} "
+"posmā."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Vai tiešām vēlaties neatgriezeniski dzēst šo saliktni?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Dzēst šo stilu lapu."
+
+msgid "submission.layout.editGalley"
+msgstr "Rediģēt maketa saliktni"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Saliktņa formāts"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML saliktņa datnes"
+
+msgid "submission.layout.galleyImages"
+msgstr "Attēli"
+
+msgid "submission.layout.galleyLabel"
+msgstr "Saliktņa iezīme"
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Nepieciešama saliktņa iezīme."
+
+msgid "submission.upload.query"
+msgstr "Augšupielādēt diskusijas datni"
+
+msgid "submission.status.production"
+msgstr "Korektūrā"
+
+msgid "submission.submit.contributorRole"
+msgstr "Ieguldītāja loma"
+
+msgid "submission.submit.addAuthor"
+msgstr "Pievienot ieguldītāju"
+
+msgid "submission.status.editorial"
+msgstr "Tiek literāri rediģēts"
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr ""
+"Ja augšupielādējat jau esošas datnes labojumus, lūdzu, norādiet, kuru datni "
+"vēlaties augšupielādēt."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Šis nav esošas datnes labojums"
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Ir pieprasīti labojumi."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Ir iesniegti labojumi, un ir jāpieņem lēmums."
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"Ja iesniedzat rediģētu sējumu, jums visas sējuma nodaļas jāaugšupielādē "
+"atsevišķi, norādot, ka esat sējuma redaktors."
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Augšupielādēt literāri rediģētu datni"
+
+msgid "submission.upload.productionReady"
+msgstr "Augšupielādēt izstrādei sagatavotu datni"
+
+msgid "submission.layout.newGalley"
+msgstr "Izveidot jaunu saliktni"
+
+msgid "submission.reviewAndSubmit"
+msgstr "Pārskatīt un iesniegt"
+
+msgid "submission.noReviewAssignments"
+msgstr "Nav piešķirtu recenzentu"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Dzēst visas piezīmes par materiālu?"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Noņemt augšupielādēto failu"
+
+msgid "submission.page.citations"
+msgstr "#{$id} atsauces"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Šī ir novecojusi versija, kas publicēta {$datePublished}. Lasīt <a href=\""
+"{$urlRecentVersion}\">pēdējo versiju</a>."
+
+msgid "submission.identifiers"
+msgstr "Identifikatori"
+
+msgid "submission.publisherId"
+msgstr "Izdevēja ID"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"Izdevēja ID var izmantot, lai ierakstītu ID no ārējās datubāzes. Piemēram, "
+"vienībās, kas eksportētas deponēšanai uz PubMed, var norādīt izdevēja ID. To "
+"nedrīkst izmantot DOI."
+
+msgid "submission.publisherId.enable"
+msgstr "Ieslēgt attiecībā uz {$objects}"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Informācija par iesniegto materiālu"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Metadati"
+
+msgid "submission.informationCenter.notes"
+msgstr "Piezīmes"
+
+msgid "submission.informationCenter.history"
+msgstr "Vēsture"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Rādīt notikumus no iepriekšējām versijām"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Paziņot"
+
+msgid "submission.lastModified"
+msgstr "Pēdējās izmaiņas"
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Nepieciešama saliktņa valoda."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Nepieciešama saliktņa lokalizācija."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Attālinātais URL"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Lūdzu, norādiet derīgu attālināto URL (norādiet http://)."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Nav attēlu"
+
+msgid "submission.layout.galleys"
+msgstr "Saliktņi"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Stila lapas datne"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Stils"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Sākotnējā saliktņa izveide"
+
+msgid "submission.layout.layoutFile"
+msgstr "Maketa datne"
+
+msgid "submission.layout"
+msgstr "Makets"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Maketa versija"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Šim saliktnim nav pievienota stila lapas datne."
+
+msgid "submission.layout.viewingGalley"
+msgstr "Skatīt iesniegtā materiāla saliktni"
+
+msgid "submission.layout.viewProof"
+msgstr "Skatīt paraugu"
+
+msgid "submission.metadata"
+msgstr "Iesniegtā materiāla metadati"
+
+msgid "submission.notes.addNewNote"
+msgstr "Pievienot jaunu piezīmi"
+
+msgid "submission.notes.attachedFile"
+msgstr "Pievienota datne"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Atpakaļ uz piezīmēm par materiālu"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Piezīmes"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Notīrīt visas piezīmes"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Sakļaut piezīmes"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Dzēst šo piezīmi par materiālu?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Izveidot jaunu piezīmi"
+
+msgid "submission.notes.deleteNote"
+msgstr "Izdzēst piezīmi"
+
+msgid "submission.notes.editNote"
+msgstr "Rediģēt piezīmi"
+
+msgid "submission.notes.expandNotes"
+msgstr "Izvērst piezīmes"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Nav piezīmju par materiālu"
+
+msgid "submission.notes"
+msgstr "Piezīmes par materiālu"
+
+msgid "submission.notes.updateNote"
+msgstr "Atjaunot piezīmi"
+
+msgid "submission.notes.viewNotes"
+msgstr "Skatīt piezīmes"
+
+msgid "submission.originalFile"
+msgstr "Sākotnējā datne"
+
+msgid "submission.page.editing"
+msgstr "#{$id} rediģēšana"
+
+msgid "submission.page.history"
+msgstr "#{$id} vēsture"
+
+msgid "submission.page.review"
+msgstr "#{$id} recenzēšana"
+
+msgid "submission.page.summary"
+msgstr "#{$id} kopsavilkums"
+
+msgid "submission.peerReview"
+msgstr "Recenzēšana"
+
+msgid "submission.recommendation"
+msgstr "Rekomendācija: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Noraidīts"
+
+msgid "submission.request"
+msgstr "Pieprasījums"
+
+msgid "submission.response"
+msgstr "Atbilde"
+
+msgid "submission.restrictions"
+msgstr "Ierobežojumi"
+
+msgid "submission.reviewMetadata"
+msgstr "Pārskatīt metadatus"
+
+msgid "submission.review"
+msgstr "Recenzēšana"
+
+msgid "submission.reviewed"
+msgstr "Pārskatīts"
+
+msgid "submission.saveMetadata"
+msgstr "Saglabāt metadatus"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Šim materiālam nav piešķirts redaktors."
+
+msgid "submission.submit.selectFile"
+msgstr "Atlasīt datni"
+
+msgid "submission.submit.submissionLocale"
+msgstr "Iesniedzamā materiāla valoda"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Augšupielādēt visas datnes, kas būs nepieciešamas redakcijai, lai novērtētu "
+"jūsu iesniegto materiālu."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Lūdzu, norādiet tiesības."
+
+msgid "workflow.review.internalReview"
+msgstr "Iekšējā izvērtēšana"
+
+msgid "submission.reviewVersion"
+msgstr "Recenzijas versija"
+
+msgid "submission.rights"
+msgstr "Tiesības"
+
+msgid "submissions.active"
+msgstr "Aktīvs"
+
+msgid "submissions.archived"
+msgstr "Arhivēts"
+
+msgid "submissions.completed"
+msgstr "Pabeigts"
+
+msgid "submissions.declined"
+msgstr "Noraidīts"
+
+msgid "submissions.incomplete"
+msgstr "Nepilnīgs"
+
+msgid "submissions.noSubmissions"
+msgstr "Nav iesniegto materiālu"
+
+msgid "submissions.queuedEditing"
+msgstr "Rediģēšanā"
+
+msgid "submissions.queued"
+msgstr "Rindā"
+
+msgid "submissions.ruling"
+msgstr "Nolēmums"
+
+msgid "submission.source"
+msgstr "Avots"
+
+msgid "submissions.submit"
+msgstr "Iesniegt"
+
+msgid "submissions.submitted"
+msgstr "Iesniegts"
+
+msgid "submission.submission"
+msgstr "Iesniegtais materiāls"
+
+msgid "submission.submissionTitle"
+msgstr "Iesniegtā materiāla virsraksts:"
+
+msgid "submission.start"
+msgstr "Sākums"
+
+msgid "submission.submissionHistory"
+msgstr "Iesniegtā materiāla vēsture"
+
+msgid "submission.submissionManuscript"
+msgstr "Iesniegtā materiāla manuskripts"
+
+msgid "submission.submissionReview"
+msgstr "Iesniegtā materiāla recenzija"
+
+msgid "submission.submitter"
+msgstr "Iesniedzējs"
+
+msgid "submission.submit.fileInformation"
+msgstr "Datnes informācija"
+
+msgid "submission.submit.fileAdded"
+msgstr "Datne pievienota"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Publikāciju saraksti"
+
+msgid "submission.submit.newFile"
+msgstr "Pievienot citu datni"
+
+msgid "submission.submit.metadataForm"
+msgstr "Papildu precizējumi"
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Izvēlieties iesniedzamā materiāla pamatvalodu."
+
+msgid "submission.submit.submissionFiles"
+msgstr "Iesniedzamā materiāla datnes"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Saistītās datnes"
+
+msgid "submission.manageDependentFiles"
+msgstr "Pārvaldīt saistītās datnes"
+
+msgid "submission.upload.percentComplete"
+msgstr "Augšupielāde {$percent}% pabeigta"
+
+msgid "submission.upload.dependent"
+msgstr "Augšupielādēt saistīto datni"
+
+msgid "submission.summary"
+msgstr "Kopsavilkums"
+
+msgid "submission.supportingAgencies"
+msgstr "Atbalsta aģentūras"
+
+msgid "submission.currentAgencies"
+msgstr "Pašreizējās aģentūras"
+
+msgid "submission.indexingInformation"
+msgstr "Informācija par indeksēšanu"
+
+msgid "submission.underway"
+msgstr "Pašlaik"
+
+msgid "submission.uploadFileTo"
+msgstr "Augšupielādēt datni uz"
+
+msgid "submission.createRemote"
+msgstr "Izveidot attālināto"
+
+msgid "submission.viewMetadata"
+msgstr "Skatīt metadatus"
+
+msgid "submission.views"
+msgstr "Skatījumi"
+
+msgid "submission.uploadSuccessful"
+msgstr "Jūsu datne ir augšupielādēta."
+
+msgid "submission.loadMessage"
+msgstr "Lūdzu, pagaidiet, kamēr jūsu datne tiks augšupielādēta serverī."
+
+msgid "submission.artworkFileDetails"
+msgstr "Informācija par grafisko datni"
+
+msgid "submission.fileDetails"
+msgstr "Informācija par datni"
+
+msgid "submission.nameRequired"
+msgstr "Šai vienībai jānorāda nosaukums."
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD"
+
+msgid "submission.date.yyyymmdd"
+msgstr "GGGG-MM-DD"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Lūdzu, norādiet valodu."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Lūdzu, norādiet tematu."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Lūdzu, norādiet nozari."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Lūdzu, norādiet atslēgvārdu."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Lūdzu, norādiet informāciju par aptvērumu."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Lūdzu, norādiet tipu."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Lūdzu, norādiet avotu."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Lūdzu, norādiet atsauces."
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr "Lūdzu, norādiet datu pieejamības paziņojumu."
+
+msgid "submission.form.name"
+msgstr "Nosauciet datni (piemēram, Manuskripts; 1. tabula)"
+
+msgid "submission.form.replaceExisting"
+msgstr "Aizstāt esošo datni?"
+
+msgid "workflow.stage.any"
+msgstr "Jebkurš posms"
+
+msgid "workflow.stage"
+msgstr "Posms"
+
+msgid "submission.status.review"
+msgstr "Recenzēšanā"
+
+msgid "submission.status.submission"
+msgstr "Gaida redaktora lēmumu"
+
+msgid "submission.status.unassigned"
+msgstr "Nepiešķirts"
+
+msgid "submission.status.declined"
+msgstr "Noraidīts"
+
+msgid "submission.status.published"
+msgstr "Publicēts"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Augšupielādēt datni"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Augšupielādēt iesniedzamā materiāla datni"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Nodots atpakaļ recenzēšanai."
+
+msgid "editor.submission.stageParticipants"
+msgstr "Dalībnieki"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Neviens nav piešķirts"
+
+msgid "editor.submission.participant"
+msgstr "Dalībnieks"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Piešķirt dalībnieku"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Rediģēt piešķīrumu"
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Noņemt dalībnieku"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+"Jūs gatavojaties noņemt šo dalībnieku no <strong>visiem</strong> posmiem."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Jāizvēlas lietotāju grupa."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Jāizvēlas norādītās lietotāju grupas lietotājs."
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Aizliegt metadatu rediģēšanu"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Atļaut metadatu rediģēšanu"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Vai tiešām šajā posmā aizliegt šī materiāla autoriem rediģēt materiāla "
+"metadatus?"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Vai tiešām šajā posmā atļaut šī materiāla autoriem rediģēt materiāla "
+"metadatus?"
+
+msgid "editor.submission.decision"
+msgstr "Lēmums"
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Paziņot recenzentiem"
+
+msgid "editor.submission.decision.accept"
+msgstr "Pieņemt materiālu"
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Materiāls pieņemts"
+
+msgid "editor.submission.decision.decline"
+msgstr "Noraidīt materiālu"
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} noraidīja šo materiālu."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Materiāls noraidīts"
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"Nosūtīt autoriem e-pastu, lai informētu, ka viņu materiāls ir noraidīts. Šī "
+"e-pasta vēstule netiks nosūtīta, kamēr lēmums nebūs reģistrēts."
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Šī materiāla publicēšana tiks noraidīta. Turpmāka recenzēšana netiks veikta, "
+"un materiāls tiks arhivēts."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Jauna recenzēšanas kārta"
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr "Uzsākt vēl vienu šī materiāla recenzēšanas kārtu."
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr "{$editorName} izveidoja jaunu recenzēšanas kārtu šim materiālam."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Izveidota recenzēšanas kārta"
+
+msgid "publication.urlPath.duplicate"
+msgstr "URL ceļš jau ir izmantots, un to nevar izmantot atkārtoti."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "URL ceļš nedrīkst būt skaitlis."
+
+msgid "publication.version.all"
+msgstr "Visas versijas"
+
+msgid "publication.version.confirm"
+msgstr "Vai tiešām vēlaties izveidot jaunu versiju?"
+
+msgid "publication.wordCount"
+msgstr "Vārdu skaits: {$count}/{$limit}"
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+"Neizdevās atzīmēt DOI nepieciešamību sinhronizēt materiālam {$pubObjectTitle}"
+". DOI nevar atzīmēt kā tādu, kam nepieciešama sinhronizācija, jo tas vēl nav "
+"reģistrēts vai iesniegts."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Šis ir priekšskatījums un materiāls nav publicēts. <a href=\"{$url}\">Skatīt "
+"materiālu</a>"
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr "Jauns materiāls gaida nosūtīšanu recenzēšanai vai noraidīšanu."
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Lietotāji tiek piešķirti darbplūsmas posmiem pēc lietotāju grupas. Jebkurš "
+"lietotājs, kas piešķirts šim posmam, automātiski tiks piešķirts arī citiem "
+"posmiem, kuriem ir piešķirta viņa lietotāju grupa. Tas parasti ir paredzēts "
+"redaktoriem, autoriem un tulkotājiem."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"Jūsu izvēlētajam dalībniekam ir piešķirts uzdevums veikt anonīmu "
+"recenzēšanu. Ja piešķirsiet viņu kā dalībnieku, viņam būs piekļuve autora "
+"identitātei. Ieteicams nepiešķirt šo dalībnieku, kamēr nav iespējams "
+"patstāvīgi nodrošināt recenzēšanas procesa integritāti."
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Nosūtīt e-pastu recenzentiem, lai pateiktos viņiem par recenziju un "
+"paziņotu, ka ir pieņemts lēmums. Katram recenzentam tiks nosūtīts atsevišķs "
+"e-pasts, lai aizsargātu viņu anonimitāti. Lai droši iekļautu katra "
+"recenzenta vārdu, ziņojumā var izmantot frāzi {$recipientName}."
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Nosūtīt autoriem e-pastu, lai informētu, ka recenzēšanas kārta ir "
+"noslēgusies. Šis e-pasts netiks nosūtīts, kamēr lēmums nebūs reģistrēts."
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+"Materiālam {$title} ir izveidota jauna recenzēšanas kārta. Autors ir "
+"informēts, ja vien neesat izvēlējies šo e-pastu izlaist."
+
+msgid "doi.submission.notPublished"
+msgstr ""
+"Neizdevās atzīmēt DOI, kas reģistrēts materiālam {$pubObjectTitle}. "
+"Materiālam jābūt publicētam pirms statusa atjaunināšanas ."
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Šī materiāla publicēšana tiks noraidīta. Recenzēšanas posms tiks slēgts, un "
+"materiāls tiks arhivēts."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr ""
+"Materiāls {$title} ir noraidīts un nosūtīts arhivēšanai. Visi paziņojumi ir "
+"nosūtīti, izņemot tos, kurus izvēlējāties izlaist."
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Pārskatīt informāciju"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Apstiprināt"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Jums ir jāievada šīs datnes nosaukums"
+
+msgid "submission.upload.noGenre"
+msgstr "Trūkst vai nederīgs komponents!"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Trūkst vai nederīga lietotāju grupa!"
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Lūdzu, izvēlieties datni, kuru vēlaties mainīt."
+
+msgid "submission.upload.userGroup"
+msgstr "Augšupielādēt šo datni ar manu lomu kā..."
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Augšupielādēt bibliotēkas datni"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Iesniedzamā dokumenta kategorija"
+
+msgid "submission.upload.finalDraft"
+msgstr "Augšupielādēt datni"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Augšupielādēt datnes"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"Kad piešķirtā datne ir recenzēta, zemāk ierakstiet piezīmes par datni un/vai "
+"augšupielādējiet datnes (vai citas datnes) kopiju ar piezīmēm."
+
+msgid "submission.upload.proof"
+msgstr "Augšupielādēt publicēšanai gatavu datni"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Šobrīd nav datņu, kuras vajadzētu pārskatīt."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Materiāls ir atkārtoti iesniegts vēl vienai recenzēšanas kārtai."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Materiāls atkārtoti jāiesniedz vēl vienai recenzēšanas kārtai."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Nosūtīts ārējai recenzēšanai."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Materiāls pieņemts."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Materiāls noraidīts."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Tiek gaidīta recenzentu piešķiršana."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Tiek gaidītas atbildes no recenzentiem."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Ir iesniegtas jaunas recenzijas."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Visi recenzenti ir snieguši atbildes, un ir jāpieņem lēmums."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Recenzēšanas termiņš ir nokavēts."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Tiek gaidīti ieteikumi no redaktoriem."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Ir iesniegti jauni redakcionāli ieteikumi."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Visi ieteikumi ir saņemti, un ir jāpieņem lēmums."
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "Neaktīvs vairāk nekā {$days} dienas {$stage} posmā."
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Nosūtīt e-pastu piešķirtajiem recenzentiem, lai informētu viņus par to, ka "
+"viņu recenzēšanas uzdevums ir atcelts."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Atlasiet datnes, kas jānosūta recenzēšanai."
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "Atcelt recenzēšanas kārtu"
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"Atcelt pašreizējo recenzēšanas kārtu un nosūtīt iesniegto materiālu atpakaļ "
+"uz pēdējo recenzēšanas kārtu. Ja šī ir pirmā recenzēšanas kārta, materiāls "
+"tiks nosūtīts atpakaļ uz iesniegšanas posmu."
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} atcēla recenzēšanas kārtu."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "Atcelta pēdējā recenzēšanas kārta."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr ""
+"Materiāla \"{$title}\" recenzēšanas kārta ir atcelta. Visi paziņojumi ir "
+"nosūtīti, izņemot tos, kurus esat izvēlējies izlaist."
+
+msgid "author.submit.confirmation"
+msgstr "Apstiprinājums"
+
+msgid "submission.wizard.submittingToSection"
+msgstr "Iesniegšana <strong>{$section}</strong> sadaļā."
+
+msgid "submission.source.tip"
+msgstr ""
+"Vai šis materiāls iegūts no cita resursa? Ja jā, varat ievadīt šī resursa "
+"URL vai aprakstu."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Kontaktpersona sarakstei ar redakciju."
+
+msgid "submission.dataAvailability"
+msgstr "Paziņojums par datu pieejamību"
+
+msgid "submission.files.required.genre"
+msgstr "Nepieciešams augšupielādēt vismaz vienu {$genre} datni."
+
+msgid "submission.files.required.genres"
+msgstr ""
+"Nepieciešams augšupielādēt vismaz vienu no šādiem datņu veidiem: {$genres}."
+
+msgid "publication.version"
+msgstr "Versija {$version}"
+
+msgid "author.submit.noFiles"
+msgstr "Šim materiālam nav augšupielādētas datnes."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Nosūtīt autoriem e-pastu, lai informētu, ka iesniegtais darbs ir nosūtīts "
+"jaunai recenzēšanas kārtai. Šis e-pasts netiks nosūtīts, kamēr lēmums nebūs "
+"reģistrēts."
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "Iesniegšana <strong>{$language}</strong> valodā."
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"Iesniegšana <strong>{$section}</strong> sadaļā <strong>{$language}</strong> "
+"valodā."
+
+msgid "submission.type.tip"
+msgstr ""
+"Materiāla tips parasti ir \"attēls\", \"teksts\" vai citi multivides tipi, "
+"tostarp \"programmatūra\" vai \"interaktīvs\". Lūdzu, izvēlieties to, kas ir "
+"vispiemērotākais jūsu iesniedzamajam materiālam. Piemēri atrodami <a target="
+"\"_blank\" href=\"https://www.dublincore.org/specifications/dublin-core/"
+"usageguide/2001-04-12/generic/\">https://www.dublincore.org/specifications/"
+"dublin-core/usageguide/2001-04-12/generic/</a>"
+
+msgid "submission.rights.tip"
+msgstr ""
+"Ja vēlaties, varat ievadīt īsu paziņojumu par piekļuves tiesībām, kas "
+"attiecas uz šo iesniegto materiālu."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Pievienojiet papildu informāciju par savu iesniegto materiālu. Pēc katra "
+"jēdziena nospiediet ievades taustiņu \"Enter\"."
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+"Norādiet, vai esat nodrošinājis piekļuvi informācijai, kas apstiprina jūsu "
+"pētījuma rezultātus, un, ja jā, kur un kā šī informācija ir pieejama"
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Nosūtīt autoriem e-pastu, lai informētu, ka iepriekšējais lēmums noraidīt šo "
+"materiālu ir atcelts. Paskaidrojiet, kāpēc lēmums tika atcelts, un "
+"informējiet autorus, vai materiāls tiks recenzēts."
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"Recenzēšanas kārtu var atcelt tikai tad, ja nevienam piesaistītajam "
+"recenzentam nav pieejama pabeigta vai iesniegta recenzija."
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Atkārtoti iesniegt recenzēšanai"
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Nosūtīt recenzēšanai"
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Šis iesniegtais darbs ir gatavs nosūtīšanai uz recenzēšanu."
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} nosūtīja šo materiālu uz recenzēšanas posmu."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Nosūtīts recenzēšanai"
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr ""
+"Iesniegtais materiāls \"{$title}\" ir nosūtīts uz recenzēšanas posmu. Autors "
+"ir informēts, ja vien neesat izvēlējies šo e-pastu izlaist."
+
+msgid "editor.submission.decision.newRound"
+msgstr "Jauna recenzēšanas kārta"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Pieņemt materiālu un izlaist recenzēšanu"
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Recenzēšana izlaista"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Nosūtīt iekšējai recenzēšanai"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"Lappuses korektūras datne jāatzīmē kā apstiprināta, lai tā būtu pieejama. "
+"Vai vēlaties to apstiprināt?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Apstiprināt korektūras"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"Šī korektūras datne vairs nebūs publiski pieejama lejupielādei vai iegādei. "
+"Vai vēlaties to noraidīt?"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Atcelt materiāla noraidījumu"
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Atcelt iepriekšējo lēmumu par šī materiāla noraidīšanu un atjaunot to aktīvā "
+"redakcionālajā procesā. Autors ir informēts, ja vien neesat izvēlējies šo e-"
+"pastu izlaist."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Iesniegtais materiāls aktivizēts atkārtoti"
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr ""
+"Iesniegtais materiāls \"{$title}\" tagad ir aktīvs materiāls recenzēšanas "
+"posmā."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr ""
+"Materiāls \"{$title}\" tagad ir aktīvs iesniegšanas posmā. Autors ir "
+"informēts, ja vien neesat izvēlējies šo e-pastu izlaist."
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+"Piešķirt redaktoru, lai varētu pieņemt redakcionālus lēmumus šajā posmā."
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Nosūtīt ziņu redaktoriem, kas pieņem lēmumu, lai informētu viņus par "
+"rekomendāciju. Paskaidrojiet, kāpēc šī rekomendācija tika sniegta, reaģējot "
+"uz recenzentu iesniegtajām rekomendācijām un komentāriem."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Rekomendēt pieņemšanu"
+
+msgid "editor.submission.recommend.completed"
+msgstr "Rekomendācija iesniegta"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+"Jūsu rekomendācija ir reģistrēta, un par to ir informēts(-i) redaktors(-i), "
+"kurš(-i) pieņem lēmumu."
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} atcēla lēmumu noraidīt šo iesniegto materiālu."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"Datni \"{$filename}\" materiālam {$submissionId} augšupielādēja {$username}."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Rekomendēts atkārtoti nosūtīt recenzēšanai"
+
+msgid "editor.submission.recommend.decline"
+msgstr "Rekomendēts noraidīt"
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Rekomendēts noraidīt materiāla publicēšanu."
+
+msgid "editor.submission.recommend.decline.log"
+msgstr "{$editorName} rekomendēja šo materiālu noraidīt."
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Sniegt rekomendāciju"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Mainīt rekomendāciju"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Rekomendācija: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Rekomendācijas: {$recommendations}"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Jūs nevarat sniegt rekomendāciju, kamēr redaktoram nav piešķirta atļauja "
+"ierakstīt lēmumu."
+
+msgid "editor.submission.recommendation"
+msgstr "Rekomendācija"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Rekomendēt redakcionālu lēmumu šim materiālam."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Reģistrētās rekomendācijas"
+
+msgid "submission.currentStage"
+msgstr "Kārtējais posms"
+
+msgid "submission.noActionRequired"
+msgstr "Nav nepieciešama rīcība"
+
+msgid "submission.actionNeeded"
+msgstr "Nepieciešama rīcība"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Recenzijas datnes"
+
+msgid "submission.submit.currentFile"
+msgstr "Aktuālā datne"
+
+msgid "submission.finalDraft"
+msgstr "Melnraksta datnes"
+
+msgid "editor.submission.addAuditorError"
+msgstr "Pieļauta kļūda, mēģinot piešķirt auditoru. Lūdzu, mēģiniet vēlreiz."
+
+msgid "submission.event.fileEdited"
+msgstr "Datnes \"{$filename}\" metadatus rediģēja {$username}."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$userFullName}\" ({$username}) tika pievienots kā auditors datnei \""
+"{$filename}\"."
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$userFullName}\" ({$username}) tika noņemts kā faila \"{$filename}\" "
+"auditors."
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"\"{$userFullName}\" ({$username}) ir pabeidzis auditu un augšupielādējis \""
+"{$filename}\"."
+
+msgid "submission.event.signoffSignoff"
+msgstr ""
+"\"{$userFullName}\" ({$username}) ir apstiprinājis piekrišanu \"{$filename}\""
+" publicēšanai."
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+"\"{$userFullName}\" ({$username}) ir apstiprinājis \"{$publicationFormatName}"
+"\" korektūras."
+
+msgid "submission.overview"
+msgstr "Iesniegtā materiāla pārskats"
+
+msgid "submission.description"
+msgstr "Apraksts"
+
+msgid "submission.stageNotInitiated"
+msgstr "Posms nav uzsākts."
+
+msgid "submission.documents"
+msgstr "Iesniegtā materiāla dokumenti"
+
+msgid "notification.type.editorAssign"
+msgstr "Jūs esat apstiprināts par materiāla \"{$title}\" redaktoru."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Jums ir lūgts pārskatīt \"{$title}\" maketu."
+
+msgid "notification.type.indexRequest"
+msgstr "Jums ir lūgts izveidot rādītāju \"{$title}\"."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Jaunākais redakcijas lēmums."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Materiāls pieņemts."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Uzsākts ārējās recenzēšanas process."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Atkārtoti iesniegt recenzēšanai."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Tika uzsākta jauna recenzēšanas kārta."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Materiāls noraidīts."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Noraidītais materiāls atjaunots."
+
+msgid "notification.uploadedResponse"
+msgstr "Atbilde augšupielādēta."
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"Pirms recenzēšanas uzsākšanas ir jāapstiprina redaktors. Lūdzu, pievienojiet "
+"redaktoru, izmantojot Dalībnieku sarakstu."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Tika izveidota jauna iesniedzamā materiāla versija"
+
+msgid "notification.type.revertDecline"
+msgstr "Lēmums noraidīt šo materiālu tika atcelts."
+
+msgid "grid.reviewAttachments.title"
+msgstr "Recenzenta pielikumi"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Atlasīt recenzijas datnes, kuras kopīgot ar autoru(-iem)"
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName} ir apstiprināts materiāla {$submissionId} {$round}. kārtas "
+"recenzēšanai."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"Ir noņemta {$reviewerName} veiktā {$round}. kārtas recenzija materiālam "
+"{$submissionId}."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"Ir atsākta {$round}. kārtas recenzija, ko materiālam {$submissionId} veic "
+"{$reviewerName}."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} ir pabeidzis recenziju par materiālu {$submissionId} {$round}"
+". kārtā."
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+"Atkārtoti nosūtīt {$round}. kārtas recenzēšanas pieprasījumu recenzentam "
+"{$reviewwerName} par materiālu {$submissionid}."
+
+msgid "submission.event.fileDeleted"
+msgstr "Datni \"{$filename}\" materiālam {$submissionId} izdzēsa {$username}."
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative "
+"Commons Attribution-NonCommercial-NoDerivatives 4.0 International "
+"licenci</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative "
+"Commons Attribution-NonCommercial-ShareAlike 4.0 International "
+"licenci</a>.</p>"
+
+msgid "publication.urlPath.description"
+msgstr "Izvēles ceļš, ko izmantot URL adresē ID vietā."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} ir atzīmējis iesniegtā materiāla {$submissionId} {$round}. "
+"kārtas recenziju kā neizskatītu."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Redaktors {$userName} ir apstiprinājis iesniegtā materiāla {$submissionId} "
+"recenziju {$round}. kārtai."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Tiek gaidīta atbilde no recenzenta."
+
+msgid "submission.review.status.declined"
+msgstr "Recenzents noraidīja šo recenzēšanas pieprasījumu."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Recenzents ir nokavējis atbildes sniegšanas termiņu."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Recenzents ir nokavējis recenzēšanas termiņu."
+
+msgid "submission.review.status.accepted"
+msgstr "Šī recenzija ir pieņemta."
+
+msgid "submission.review.status.received"
+msgstr "Recenzents ir iesniedzis recenziju."
+
+msgid "submission.review.status.complete"
+msgstr "Recenzēšana pabeigta."
+
+msgid "submission.art"
+msgstr "Grafiskā datne"
+
+msgid "submission.supplementary"
+msgstr "Papildu saturs"
+
+msgid "submission.supplementary.creator"
+msgstr "Datnes autors (vai īpašnieks)"
+
+msgid "submission.supplementary.subject"
+msgstr "Temats"
+
+msgid "submission.supplementary.publisher"
+msgstr "Izdevējs"
+
+msgid "submission.reviewForm"
+msgstr "Recenzijas veidlapa"
+
+msgid "submission.reviewFormResponse"
+msgstr "Recenzijas veidlapas atbilde"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Izveidot jaunu recenzijas veidlapas elementu"
+
+msgid "grid.action.editMetadata"
+msgstr "Rediģēt metadatus"
+
+msgid "submission.permissions"
+msgstr "Atļaujas"
+
+msgid "submission.attachPermissions"
+msgstr "Materiālam pievienojiet šādas atļaujas:"
+
+msgid "submission.license"
+msgstr "Licence"
+
+msgid "submission.copyright"
+msgstr "Autortiesības"
+
+msgid "submission.copyright.agree"
+msgstr "Jā, es piekrītu autortiesību paziņojumam."
+
+msgid "submission.copyrightHolder"
+msgstr "Autortiesību turētājs"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Pielāgots autortiesību paziņojums"
+
+msgid "submission.copyrightOther"
+msgstr "Autortiesību paziņojums"
+
+msgid "submission.copyrightYear"
+msgstr "Autortiesību gads"
+
+msgid "submission.copyrightStatement"
+msgstr "Autortiesības (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "Lūdzu, norādiet derīgu attālināto URL (iekļaujot http://)."
+
+msgid "submission.licenseURL"
+msgstr "Licences URL"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr ""
+"CC Attribution-NonCommercial-NoDerivatives 4.0 (Attiecinājums-Nekomerciāls-"
+"Bez atvasinājumiem)"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0 (Attiecinājums-Nekomerciāls)"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr ""
+"CC Attribution-NonCommercial-ShareAlike 4.0 (Attiecinājums-Nekomerciāls-"
+"Līdzīga kopīgošana)"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0 (Attiecinājums-Bez atvasinājumiem)"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0 (Attiecinājums)"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0 (Attiecinājums-Līdzīga kopīgošana)"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"4.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons "
+"Attribution-NonCommercial 4.0 International licenci</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"4.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons "
+"Attribution-NoDerivatives 4.0 International licenci</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4."
+"0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons "
+"Attribution 4.0 International licenci</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"4.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons "
+"Attribution-ShareAlike 4.0 International licenci</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative "
+"Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported licenci</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/"
+"3.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Attribution-NonCommercial 3.0 Unported licenci</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative "
+"Commons Attribution-NonCommercial-ShareAlike 3.0 Unported licenci</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
+"3.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
+"Attribution-NoDerivatives 3.0 Unported licenci</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3."
+"0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0 Unported licenci</a>.</p>"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"3.0/88x31.png\" /></a><p>Šis darbs ir licencēts ar <a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"Attribution-ShareAlike 3.0 Unported licenci</a>.</p>"
+
+msgid "submission.query.subject"
+msgstr "Temats"
+
+msgid "submission.query.replies"
+msgstr "Atbildes"
+
+msgid "submission.query.from"
+msgstr "No"
+
+msgid "submission.query.lastReply"
+msgstr "Pēdējā atbilde"
+
+msgid "submission.query.closed"
+msgstr "Slēgts"
+
+msgid "submission.query.addNote"
+msgstr "Pievienot ziņu"
+
+msgid "submission.query.messages"
+msgstr "Ziņas"
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} atbildēja uz {$noteTitle}: {$noteContents}"
+
+msgid "submission.list.infoCenter"
+msgstr "Darbību žurnāls un piezīmes"
+
+msgid "submission.list.empty"
+msgstr "Nav iesniegtu materiālu."
+
+msgid "submission.list.responseDue"
+msgstr "Atbildes termiņš: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Recenzēšanas uzdevums"
+
+msgid "submission.list.reviewDue"
+msgstr "Recenzijas termiņš: {$date}"
+
+msgid "submission.list.reviewComplete"
+msgstr "Recenzija iesniegta"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Recenzija atcelta"
+
+msgid "submission.list.confirmDelete"
+msgstr "Dzēst iesniegto materiālu?"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "Skatīt visus iesniegtos materiālus"
+
+msgid "submission.list.viewSubmission"
+msgstr "Skatīt iesniegto materiālu"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Piešķirtās recenzijas pabeigtas"
+
+msgid "submission.list.filesPrepared"
+msgstr "Datnes sagatavotas"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Šī materiāla iesniegšana jāpabeidz, pirms redaktors to izskatīs."
+
+msgid "submission.list.currentStage"
+msgstr "Šobrīd {$stage}. posmā."
+
+msgid "submission.list.activity"
+msgstr "Darbība"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Dienas kopš pēdējās darbības"
+
+msgid "submission.list.assignEditor"
+msgstr "Piešķirt redaktoru"
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"Šis materiāls jau ir iesniegts. Lūdzu, apmeklējiet savu <a href=\"{$url}\""
+">iesniegto materiālu vadības paneli</a>, lai to apskatītu."
+
+msgid "submission.wizard.beforeStart"
+msgstr "Pirms darba uzsākšanas"
+
+msgid "submission.wizard.categories.description"
+msgstr "Izvēlieties tikai tās kategorijas, kas ir piemērotas jūsu materiālam."
+
+msgid "submission.wizard.changeSubmission"
+msgstr "Mainīt materiāla iesniegšanas iestatījumus"
+
+msgid "submission.wizard.completeSteps"
+msgstr "Izpildiet šos soļus, lai iesniegtu materiālu"
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"Iesniegtais materiāls <strong>\"{$title}\"</strong> tiks nosūtīts žurnāla "
+"<strong>\"{$context}\"</strong> redakcijas darbam. Vai tiešām vēlaties "
+"pabeigt šo materiāla iesniegšanu?"
+
+msgid "submission.wizard.errors"
+msgstr ""
+"Ir viena vai vairākas problēmas, kas ir jānovērš, pirms varat iesniegt "
+"materiālu. Lūdzu, pārskatiet tālāk sniegto informāciju un veiciet "
+"pieprasītās izmaiņas."
+
+msgid "submission.wizard.validating"
+msgstr "Jūsu iesniegtā materiāla pārbaude"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Pievienojiet jebkādu informāciju, kas, jūsuprāt, mūsu redakcijai būtu "
+"jāzina, vērtējot jūsu materiālu."
+
+msgid "submission.wizard.confirm"
+msgstr "Lūdzu, pirms iesniegšanas apstipriniet šādu informāciju."
+
+msgid "submission.wizard.title"
+msgstr "Iesniegt materiālu"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "Iesniegt materiālu: {$step}"
+
+msgid "submission.wizard.notAllowed"
+msgstr "Nav atļauts"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "Piekrišana privātuma aizsardzībai"
+
+msgid "submission.wizard.saved"
+msgstr "Saglabāts uz vēlāku laiku"
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"Jūsu iesniegtā materiāla informācija ir saglabāta mūsu sistēmā, taču tas vēl "
+"nav iesniegts izskatīšanai. Jebkurā laikā varat atgriezties, lai pabeigtu "
+"sava materiāla iesniegšanu, izmantojot tālāk norādīto saiti."
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr "Mēs esam nosūtījuši šīs saites kopiju uz jūsu e-pastu {$email}."
+
+msgid "submission.wizard.sectionClosed"
+msgstr "Sadaļa slēgta"
+
+msgid "submission.wizard.start"
+msgstr "Sākt materiāla iesniegšanu"
+
+msgid "submission.wizard.startingStatus"
+msgstr "Sākt jaunu materiāla iesniegšanu"
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+"Tika pieļauta kļūda, un mēs nevarējām saglabāt jūsu iesniegumu. Iespējams, "
+"jūsu ierīce bija atvienota no tīkla."
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Virsraksts (A-Z)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Virsraksts (Z-A)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Publicēšanas datums (vecākais pirmais)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Publicēšanas datums (jaunākais pirmais)"
+
+msgid "category.category"
+msgstr "Kategorijas"
+
+msgid "category.coverImage"
+msgstr "Vāka attēls"
+
+msgid "submission.submit.placement.categories"
+msgstr "Kategorijas"
+
+msgid "submission.currentCoverImage"
+msgstr "Pašreizējais attēls"
+
+msgid "catalog.category.noItems"
+msgstr "Šajā kategorijā vēl nekas nav publicēts."
+
+msgid "catalog.category.subcategories"
+msgstr "Apakškategorijas"
+
+msgid "publication.createVersion"
+msgstr "Izveidot jaunu versiju"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Datumam jābūt formātā GGGG-MM-DD, piemēram, 2019-01-01."
+
+msgid "publication.event.versionCreated"
+msgstr "Tika izveidota jauna versija."
+
+msgid "publication.publicationLicense"
+msgstr "Atļaujas un informācijas izpaušana"
+
+msgid "publication.status.scheduled"
+msgstr "Ieplānots"
+
+msgid "publication.status.unpublished"
+msgstr "Nepublicēts"
+
+msgid "publication.unschedule"
+msgstr "Atcelt ieplānoto"
+
+msgid "publication.urlPath"
+msgstr "URL ceļš"
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"Šī recenzija ir pabeigta, un recenzentam ir izteikta pateicība par "
+"ieguldījumu."
+
+msgid "submission.document"
+msgstr "Dokuments"
+
+msgid "grid.category.categories"
+msgstr "Kategorijas"
+
+msgid "submission.authors.label"
+msgstr "Autori"
+
+msgid "submission.author.list"
+msgstr "Iesniegto materiālu autoru saraksts"
+
+msgid "author.competingInterests"
+msgstr "Interešu konflikts"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Lūdzu, informējiet par jebkādu interešu konfliktu, kas varētu pastāvēt starp "
+"autoru un pētījuma subjektu."

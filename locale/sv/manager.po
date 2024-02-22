@@ -251,7 +251,7 @@ msgstr "Visa post"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Meddelande om avklarad registrering"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI:er har uppdaterats"
 
 msgid "manager.dois.registration.depositDois"
@@ -3589,3 +3589,8 @@ msgstr ""
 #~ msgstr ""
 #~ "Det här e-postmeddelandet meddelar automatiskt anknutna redaktörer om en "
 #~ "ny version av publikationen"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Författare måste skicka in en intressekonfliktsförklaring i samband med att "
+"bidraget skickas in."

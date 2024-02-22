@@ -2,7 +2,7 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-05-06 11:49+0000\n"
+"PO-Revision-Date: 2023-11-21 21:11+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "mk/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "Параметарот {$param} не е поддржан."
@@ -371,3 +371,17 @@ msgstr "Неуспешната работа е успешно избришана
 #~ msgstr ""
 #~ "Се случи неочекувана грешка. Вчитајте ја страницата повторно и обидете се "
 #~ "повторно."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Има грешка при внесување на оваа слика."
+
+msgid "api.highlights.400.noOrderData"
+msgstr "Потенцираниот ред не може да се сними затоа што не е најден редослед."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Потенцираниот ред не може да се сними затоа што едно или повеќе потенцирања "
+"не се најдени."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "Потенцирањето што го барате не е најдено."

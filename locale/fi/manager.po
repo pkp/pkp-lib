@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-06-01 13:49+0000\n"
+"PO-Revision-Date: 2023-12-03 14:39+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fi/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Tietoja"
@@ -256,7 +256,7 @@ msgstr "Näytä tietue"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Rekisteröinnin onnistumisilmoitus"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI(t) päivitetty onnistuneesti"
 
 msgid "manager.dois.registration.depositDois"
@@ -3714,3 +3714,45 @@ msgstr ""
 #~ msgstr ""
 #~ "This email is sent by a Section Editor to remind a reviewer that their "
 #~ "review is due."
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"<a href=\"#announcements/announcement-settings\">Ota ilmoitukset "
+"käyttöön</a>."
+
+msgid "manager.image"
+msgstr "Kuva"
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "Linkki sähköpostitilin vahvistukseen"
+
+msgid "manager.highlights.add"
+msgstr "Lisää nosto"
+
+msgid "manager.highlights.confirmDelete"
+msgstr "Haluatko varmasti poistaa {$title}? Tätä toimintoa ei voi perua."
+
+msgid "manager.highlights.delete"
+msgstr "Poista nosto"
+
+msgid "manager.highlights.edit"
+msgstr "Muokkaa nostoa"
+
+msgid "manager.highlights.image"
+msgstr "Kuva"
+
+msgid "manager.highlights.url.description"
+msgstr ""
+"Täydellinen URL-osoite nostoon tulevalle painikkeelle, mukaan lukien "
+"https://."
+
+msgid "manager.highlights.urlText"
+msgstr "Painikkeen selite"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Painikkeeseen tuleva selite, esimerkiksi Lue lisää."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Vaadi käsikirjoituksen lähettäviä kirjoittajia jättämään Sidonnaisuudet-"
+"lausunto lähetyksen yhteydessä."

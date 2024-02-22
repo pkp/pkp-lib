@@ -259,7 +259,7 @@ msgstr "Podgląd rekordu"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Zapisy poprawnej rejestracji"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI zarejestrowane pomyślnie"
 
 msgid "manager.dois.registration.depositDois"
@@ -3762,3 +3762,6 @@ msgid "plugins.importexport.common.error.publicationCoverImageMissing"
 msgstr ""
 "Obraz okładki publikacji {$id} nie został wyeksportowany, ponieważ "
 "zawierający go plik nie został znaleziony w ścieżce \"{$path}\"."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr "Wymagaj od autorów oświadczenia o zbieżności zainteresowań."

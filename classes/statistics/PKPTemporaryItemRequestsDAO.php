@@ -34,11 +34,22 @@ class PKPTemporaryItemRequestsDAO
      */
     public function insert(object $entryData, int $lineNumber, string $loadId): void
     {
-        DB::table($this->table)->insert([
+        $insertData = $this->getInsertData($entryData);
+        $insertData['line_number'] = $lineNumber;
+        $insertData['load_id'] = $loadId;
+
+        DB::table($this->table)->insert($insertData);
+    }
+
+    /**
+     * Get Laravel optimized array of data to insert into the table based on the log entry
+     */
+    protected function getInsertData(object $entryData): array
+    {
+        return [
             'date' => $entryData->time,
             'ip' => $entryData->ip,
             'user_agent' => substr($entryData->userAgent, 0, 255),
-            'line_number' => $lineNumber,
             'context_id' => $entryData->contextId,
             'submission_id' => $entryData->submissionId,
             'representation_id' => $entryData->representationId,
@@ -48,8 +59,7 @@ class PKPTemporaryItemRequestsDAO
             'country' => !empty($entryData->country) ? $entryData->country : '',
             'region' => !empty($entryData->region) ? $entryData->region : '',
             'city' => !empty($entryData->city) ? $entryData->city : '',
-            'load_id' => $loadId,
-        ]);
+        ];
     }
 
     /**
@@ -70,16 +80,42 @@ class PKPTemporaryItemRequestsDAO
      *
      * See https://www.projectcounter.org/code-of-practice-five-sections/7-processing-rules-underlying-counter-reporting-data/#counting
      */
-    public function compileUniqueClicks(): void
+    public function compileUniqueClicks(string $loadId): void
     {
         if (substr(Config::getVar('database', 'driver'), 0, strlen('postgres')) === 'postgres') {
-            DB::statement("DELETE FROM {$this->table} usur WHERE EXISTS (SELECT * FROM (SELECT 1 FROM {$this->table} usurt WHERE usurt.load_id = usur.load_id AND usurt.ip = usur.ip AND usurt.user_agent = usur.user_agent AND usurt.context_id = usur.context_id AND usurt.submission_id = usur.submission_id AND EXTRACT(HOUR FROM usurt.date) = EXTRACT(HOUR FROM usur.date) AND usur.line_number < usurt.line_number) AS tmp)");
+            DB::statement(
+                "
+                DELETE FROM {$this->table} usur
+                WHERE EXISTS (
+                    SELECT * FROM (
+                        SELECT 1 FROM {$this->table} usurt
+                        WHERE usur.load_id = ? AND usurt.load_id = usur.load_id AND
+                        usurt.context_id = usur.context_id AND
+                        usurt.ip = usur.ip AND
+                        usurt.user_agent = usur.user_agent AND
+                        usurt.submission_id = usur.submission_id AND
+                        EXTRACT(HOUR FROM usurt.date) = EXTRACT(HOUR FROM usur.date) AND
+                        usur.line_number < usurt.line_number
+                    ) AS tmp
+                )
+                ",
+                [$loadId]
+            );
         } else {
-            DB::statement("
+            DB::statement(
+                "
                 DELETE FROM usur USING {$this->table} usur
-                INNER JOIN {$this->table} usurt ON (usurt.load_id = usur.load_id AND usurt.ip = usur.ip AND usurt.user_agent = usur.user_agent AND usurt.context_id = usur.context_id AND usurt.submission_id = usur.submission_id)
-                WHERE TIMESTAMPDIFF(HOUR, usur.date, usurt.date) = 0 AND usur.line_number < usurt.line_number
-            ");
+                INNER JOIN {$this->table} usurt ON (
+                    usurt.load_id = usur.load_id AND
+                    usurt.context_id = usur.context_id AND
+                    usurt.ip = usur.ip AND
+                    usurt.user_agent = usur.user_agent AND
+                    usurt.submission_id = usur.submission_id
+                )
+                WHERE usur.load_id = ? AND TIMESTAMPDIFF(HOUR, usur.date, usurt.date) = 0 AND usur.line_number < usurt.line_number
+                ",
+                [$loadId]
+            );
         }
     }
 

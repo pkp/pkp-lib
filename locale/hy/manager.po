@@ -1,10 +1,10 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024.
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-07-18 12:58+0000\n"
+"PO-Revision-Date: 2024-01-30 11:07+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hy/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Տեղեկատվություն"
@@ -263,7 +263,7 @@ msgstr "Դիտել գրառումը"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Հաջող գրանցման հաղորդագրություն"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI-ն հաջողությամբ թարմացվել է"
 
 msgid "manager.dois.registration.depositDois"
@@ -3715,3 +3715,115 @@ msgstr ""
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Էլ․ փոստի հաշիվը հաստատելու հղումը"
+
+msgid "manager.highlights.edit"
+msgstr "Խմբագրել գունաընդգծումը"
+
+msgid "manager.highlights.url.description"
+msgstr "Ամբողջական URL-ը, ներառյալ https://, ընդգծված կոճակի համար:"
+
+msgid "manager.highlights.add"
+msgstr "Ավելացնել գունաընդգծում"
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Իսկապե՞ս ուզում եք ջնջել {$title} -ը: Այս գործողությունը հնարավոր չէ "
+"հետարկել:"
+
+msgid "manager.highlights.delete"
+msgstr "Ջնջեք գունաընդգծումը"
+
+msgid "manager.highlights.image"
+msgstr "Պատկեր"
+
+msgid "manager.highlights.urlText"
+msgstr "Կոճակի պիտակ"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Պիտակը, ինչպիսին է \"Կարդալ ավելին\", ընդգծված կոճակի համար:"
+
+msgid "manager.image"
+msgstr "Պատկեր"
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Դուք պետք է թույլատրեք <a href=\"#announcements/announcement-settings\""
+">հայտարարությունները</a>:"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Ներկայացնող Հեղինակներից պահանջեք տրամադրել Շահերի բախման (CI) "
+"հայտարարությունը իրենց առաքած նյութերի հետ միասին:"
+
+msgid "manager.statistics.counterR5"
+msgstr "Հաշվիչ R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Հաշվիչ R5 հաշվետվություններ"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Տես <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
+"html\" target=\"_new\">COUNTER 5.0.3 փաստաթղթեր</a> յուրաքանչյուր զեկույցի "
+"մասին լրացուցիչ տեղեկությունների համար:"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "COUNTER R5-ի օգտագործման վիճակագրություն դեռ չկա:"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Ամսաթիվը պետք է լինի ՏՏՏՏ-ԱԱ-ՕՕ կամ ՏՏՏՏ-ԱԱ ձևաչափով: Ամենավաղ հնարավոր "
+"ամսաթիվն է {$earliest Date}."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Հաճախորդի ID"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Հրատարակման տարի"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Հրապարակման տարիների ցանկ կամ շրջանակ, որը պետք է վերադարձվի ի պատասխան՝ "
+"yyyy|yyyy|yyyy-yyyy ձևաչափով:"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP ձևաչափը վավեր չէ:"
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Ներկայացման ID"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Ներկայացման ID-ն գոյություն չունի:"
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Ներառեք ծնողի տվյալները"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Բացառել ամսական մանրամասները"
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Հաշվետվության կարգաբերումներ"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Մեկնարկի ամսաթիվ"
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Ավարտի ամսաթիվ"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Ամսաթիվը պետք է լինի ՏՏՏՏ-ԱԱ-ՕՕ կամ ՏՏՏՏ-ԱԱ ձևաչափով: Վերջին հնարավոր "
+"ամսաթիվն է՝ {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Ամսաթվի ձևաչափը վավեր չէ:"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Մետրիկայի տեսակ"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Հատկանիշներ ցուցադրելու համար"
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Ներկայացման {$id} նիշքը բաց է թողնվել, քանի որ այն չունի վավեր նիշքի փուլ:"

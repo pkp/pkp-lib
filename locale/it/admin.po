@@ -1,12 +1,12 @@
-# Fulvio Delle Donne <fulviodelledonne@libero.it>, 2022.
+# Fulvio Delle Donne <fulviodelledonne@libero.it>, 2022, 2023.
 # Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2023-04-14 15:45+0000\n"
-"Last-Translator: Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>\n"
+"PO-Revision-Date: 2023-12-24 10:39+0000\n"
+"Last-Translator: Fulvio Delle Donne <fulviodelledonne@libero.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "it/>\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Nome"
@@ -221,7 +221,7 @@ msgstr ""
 "precedentemente fallito o un processo in esecuzione simultanea. Questo file "
 "verrà automaticamente rielaborato."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Il file {$file} non può essere aperto ed è stato scartato."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -236,44 +236,44 @@ msgstr ""
 "precedente è necessario ripristinare tutti i file di registro di quel mese e "
 "utilizzare lo strumento CLI per rielaborare le statistiche."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "La riga {$lineNumber} nel file di log {$file} è in formato sbagliato e verrà "
 "quindi saltata."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Voce di registro non valida alla riga {$lineNumber} nel file di registro "
 "{$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "L'ora non è valida."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "L'ID della testata non è un numero intero."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "L'ID della proposta non è un numero intero."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "L'ID della rappresentazione non è un numero intero."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Il tipo Assoc non è supportato."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Il tipo di file non è supportato."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Il paese non è una stringa di due caratteri alfabetici."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "La regione non è una stringa lunga fino a tre caratteri alfanumerici."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "L'ID istituzione non è un array."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Si è verificato un errore durante l'elaborazione del file di log {$file} "
 "alla riga {$lineNumber}: {$msg}"
@@ -543,12 +543,21 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Elenca tutti i lavori falliti. Impostare i parametri --queue=QUEUE_NAME e --"
+"connection=CONNECTION_NAME per filtrare l'elenco. Passare anche i parametri/"
+"flag --redispatch e --clear per ridiffondere in coda o cancellare tutti gli "
+"specifici lavori falliti."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Distribuisci i lavori disponibili nella coda. Per distribuire un lavoro in "
+"una coda specifica, inserite il parametro --queue=QUEUE_NAME. Usare -- test "
+"per eseguire un lavoro di prova e -- poi fermarsi dopo un singolo lavoro."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
+"Completata l'esecuzione di {$jobCount} lavori nella coda denominata "
+"{$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr ""
@@ -820,9 +829,6 @@ msgstr ""
 "gestite dallo stesso produttore, può essere preferibile indicare il sito "
 "come piattaforma."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Indica il sito come piattaforma per tutte le riviste."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID della piattaforma"
 
@@ -891,3 +897,15 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr ""
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Disabilita le statistiche aggregate dei recensori"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Statistiche dei revisori"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"In un'installazione multi contesto, le statistiche dei recensori, come il "
+"numero di recensioni inviate, possono essere visualizzate singolarmente per "
+"ogni contesto o aggregate collettivamente."

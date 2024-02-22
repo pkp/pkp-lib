@@ -285,7 +285,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get the default/fall back locale the values should exist for
      */
-    public function getDefaultLocale(): ?string 
+    public function getDefaultLocale(): ?string
     {
         return $this->getData('locale');
     }
@@ -519,7 +519,10 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      */
     public function setTitle($title, $locale)
     {
-        $this->setData('title', $title, $locale);
+        $publication = $this->getCurrentPublication();
+        if ($publication) {
+            $publication->setData('title', $title, $locale);
+        }
     }
 
     /**

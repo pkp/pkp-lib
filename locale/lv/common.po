@@ -1,0 +1,2288 @@
+# Ieva Tiltina <pastala@gmail.com>, 2023, 2024.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-01-22 17:20+0000\n"
+"Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
+"Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"lv/>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
+"19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
+
+msgid "common.currentStyleSheet"
+msgstr "Jaunākā stila lapa"
+
+msgid "about.description"
+msgstr "Apraksts"
+
+msgid "about.guidelines"
+msgstr "Ceļvedis"
+
+msgid "about.aboutSite"
+msgstr "Par vietni"
+
+msgid "about.contact"
+msgstr "Kontaktinformācija"
+
+msgid "about.contact.email"
+msgstr "E-pasts"
+
+msgid "about.contact.phone"
+msgstr "Tālrunis"
+
+msgid "about.contact.supportContact"
+msgstr "Tehniskā atbalsta kontaktinformācija"
+
+msgid "about.other"
+msgstr "Cits"
+
+msgid "about.people"
+msgstr "Cilvēki"
+
+msgid "about.policies"
+msgstr "Pamatnostādnes"
+
+msgid "about.siteMap"
+msgstr "Vietnes karte"
+
+msgid "announcement.announcements"
+msgstr "Paziņojumi"
+
+msgid "announcement.announcementsHome"
+msgstr "Paziņojumi"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Citi paziņojumi..."
+
+msgid "announcement.posted"
+msgstr "Publicēts"
+
+msgid "announcement.postedOn"
+msgstr "Publicēts {$postDate}"
+
+msgid "announcement.view"
+msgstr "Skatīt paziņojumu"
+
+msgid "common.allDownloads"
+msgstr "Visas lejupielādes"
+
+msgid "common.navigation.sidebar"
+msgstr "Sānjosla"
+
+msgid "common.navigation.site"
+msgstr "Vietnes navigācija"
+
+msgid "common.navigation.siteContext"
+msgstr "Vietnes konteksta navigācija"
+
+msgid "common.navigation.user"
+msgstr "Lietotāja navigācija"
+
+msgid "common.tasks"
+msgstr "Uzdevumi"
+
+msgid "common.list"
+msgstr "Saraksts"
+
+msgid "common.grid"
+msgstr "Režģis"
+
+msgid "common.abstract"
+msgstr "Kopsavilkums"
+
+msgid "common.accepted"
+msgstr "Pieņemts"
+
+msgid "common.action"
+msgstr "Darbība"
+
+msgid "common.activate"
+msgstr "Aktivizēt"
+
+msgid "common.active"
+msgstr "Aktīvs"
+
+msgid "common.inactive"
+msgstr "Neaktīvs"
+
+msgid "common.add"
+msgstr "Pievienot"
+
+msgid "common.addCCBCC"
+msgstr "Pievienot CC/BCC"
+
+msgid "common.addFiles"
+msgstr "Pievienot datnes"
+
+msgid "common.addSelf"
+msgstr "Pievienot sevi"
+
+msgid "common.attachFiles"
+msgstr "Pievienot datnes"
+
+msgid "common.attachSelected"
+msgstr "Pievienot atlasīto"
+
+msgid "common.name"
+msgstr "Vārds"
+
+msgid "common.all"
+msgstr "Viss"
+
+msgid "common.titleSmallWords"
+msgstr ""
+"of a the and an or nor but is if then else when at from by on off for in out "
+"over to into with"
+
+msgid "common.alreadyAssigned"
+msgstr "Piešķirts"
+
+msgid "common.altText"
+msgstr "Teksts aizstāšanai"
+
+msgid "common.and"
+msgstr "un"
+
+msgid "common.applyAction"
+msgstr "Piemērot darbību"
+
+msgid "common.assign"
+msgstr "Piešķirt"
+
+msgid "common.assigned"
+msgstr "Piešķirts"
+
+msgid "common.assigned.date"
+msgstr "Piešķirts: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "Pieejams"
+
+msgid "common.back"
+msgstr "Atpakaļ"
+
+msgid "common.between"
+msgstr "starp"
+
+msgid "common.cancel"
+msgstr "Atcelt"
+
+msgid "common.cancelled"
+msgstr "Atcelts"
+
+msgid "common.warning"
+msgstr "Brīdinājums"
+
+msgid "common.error"
+msgstr "Kļūda"
+
+msgid "common.notice"
+msgstr "Paziņojums"
+
+msgid "common.changesSaved"
+msgstr "Jūsu izmaiņas ir saglabātas."
+
+msgid "common.chooseOne"
+msgstr "Izvēlēties vienu"
+
+msgid "common.closePanel"
+msgstr "Aizvērt paneli"
+
+msgid "common.closeWindow"
+msgstr "Aizvērt logu"
+
+msgid "common.complete"
+msgstr "Pabeigt"
+
+msgid "common.completed"
+msgstr "Pabeigts"
+
+msgid "common.completed.date"
+msgstr "Pabeigts: {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "Apstiprināt"
+
+msgid "common.content"
+msgstr "Saturs"
+
+msgid "common.contents"
+msgstr "Satura rādītājs"
+
+msgid "common.continue"
+msgstr "Turpināt"
+
+msgid "common.copy"
+msgstr "Kopēt"
+
+msgid "common.country"
+msgstr "Valsts"
+
+msgid "common.create"
+msgstr "Izveidot"
+
+msgid "common.dateCompleted"
+msgstr "Pabeigšanas datums"
+
+msgid "common.dateDecided"
+msgstr "Lēmuma pieņemšanas datums"
+
+msgid "common.date"
+msgstr "Datums"
+
+msgid "common.dateModified"
+msgstr "Izmaiņu datums"
+
+msgid "common.dateRequested"
+msgstr "Pieprasījuma datums"
+
+msgid "common.dateUploaded"
+msgstr "Augšupielādes datums"
+
+msgid "common.dateHijri"
+msgstr "Hidžras kalendārs"
+
+msgid "common.day"
+msgstr "Diena"
+
+msgid "common.deactivate"
+msgstr "Deaktivizēt"
+
+msgid "common.default"
+msgstr "Noklusējuma"
+
+msgid "common.declined"
+msgstr "Noraidīts"
+
+msgid "common.delete"
+msgstr "Dzēst"
+
+msgid "common.deleting"
+msgstr "Notiek dzēšana"
+
+msgid "common.deselect"
+msgstr "Atcelt atlasīto"
+
+msgid "common.designation"
+msgstr "Apzīmējums"
+
+msgid "common.description"
+msgstr "Apraksts"
+
+msgid "common.details"
+msgstr "Sīkāka informācija"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} pikseļu"
+
+msgid "common.disconnected"
+msgstr "Atvienots"
+
+msgid "common.disable"
+msgstr "Atspējot"
+
+msgid "common.disabled"
+msgstr "Atspējots"
+
+msgid "common.discipline"
+msgstr "Nozare"
+
+msgid "common.done"
+msgstr "Paveikts"
+
+msgid "common.downloadPdf"
+msgstr "Lejupielādēt PDF"
+
+msgid "common.downloadReport"
+msgstr "Lejupielādēt ziņojumu"
+
+msgid "common.dragAndDropHere"
+msgstr "Velciet un nometiet datnes šeit."
+
+msgid "common.orUploadFile"
+msgstr "Vai augšupielādēt datni"
+
+msgid "common.edit"
+msgstr "Rediģēt"
+
+msgid "common.editItem"
+msgstr "Rediģēt {$name}"
+
+msgid "common.enable"
+msgstr "Iespējot"
+
+msgid "common.enabled"
+msgstr "Iespējots"
+
+msgid "common.error.databaseError"
+msgstr "Ir notikusi datubāzes kļūda: {$error}"
+
+msgid "common.error.framesRequired"
+msgstr ""
+"Šai lapai nepieciešami ietvari. <a href=\"{$url}\">Klikšķiniet šeit</a> , "
+"lai skatītu lapu bez ietvariem."
+
+msgid "common.event"
+msgstr "Notikums"
+
+msgid "common.finish"
+msgstr "Pabeigt"
+
+msgid "common.export"
+msgstr "Eksportēt"
+
+msgid "common.fullscreen"
+msgstr "Pilnekrāna režīms"
+
+msgid "common.false"
+msgstr "Nepatiess"
+
+msgid "common.file"
+msgstr "Datne"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.fileName"
+msgstr "Datnes nosaukums"
+
+msgid "common.fileSize"
+msgstr "Datnes izmērs"
+
+msgid "common.fileType"
+msgstr "Datnes tips"
+
+msgid "common.filter"
+msgstr "Filtri"
+
+msgid "common.filterAdd"
+msgstr "Pievienot filtru: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Notīrīt filtru: {$filterTitle}"
+
+msgid "common.findTemplate"
+msgstr "Atrast veidni"
+
+msgid "common.formatting"
+msgstr "Formatēšana"
+
+msgid "common.geographic"
+msgstr "Ģeogrāfisks"
+
+msgid "common.go"
+msgstr "Iet"
+
+msgid "common.height"
+msgstr "Augstums"
+
+msgid "common.highlight"
+msgstr "Izcēlums"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Sākumlapa"
+
+msgid "common.hour"
+msgstr "Stunda"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "Importēšana"
+
+msgid "common.initiate"
+msgstr "Uzsākt"
+
+msgid "common.inProgress"
+msgstr "Izstrādes procesā"
+
+msgid "common.insert"
+msgstr "Ievietot"
+
+msgid "common.insertContent"
+msgstr "Ievietot saturu"
+
+msgid "common.insertContentSearch"
+msgstr "Atrast saturu ievietošanai"
+
+msgid "common.itemsPerPage"
+msgstr "Vienības lapā"
+
+msgid "common.keywords"
+msgstr "Atslēgvārdi"
+
+msgid "common.language"
+msgstr "Valoda"
+
+msgid "common.languages"
+msgstr "Valodas"
+
+msgid "common.lastSaved"
+msgstr "Pēdējo reizi saglabāts {$when}"
+
+msgid "common.less"
+msgstr "Mazāk"
+
+msgid "common.lessThan"
+msgstr "{$value} vai mazāk"
+
+msgid "common.lessThanOnly"
+msgstr "Mazāk nekā"
+
+msgid "common.keepWorking"
+msgstr "Turpināt darbu"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "Pārvaldīt"
+
+msgid "common.mailingAddress"
+msgstr "Pasta adrese"
+
+msgid "common.billingAddress"
+msgstr "Rēķina adrese (ja atšķiras)"
+
+msgid "common.minute"
+msgstr "Minūtes"
+
+msgid "common.modify"
+msgstr "Pārveidot"
+
+msgid "common.month"
+msgstr "Mēnesis"
+
+msgid "common.more"
+msgstr "Vairāk"
+
+msgid "common.moreThanOnly"
+msgstr "Vairāk nekā"
+
+msgid "common.noneAssigned"
+msgstr "Neviens nav piešķirts"
+
+msgid "common.none"
+msgstr "Neviens"
+
+msgid "common.noneSelected"
+msgstr "Neviens nav atlasīts"
+
+msgid "common.noneProvided"
+msgstr "Neviens nav norādīts"
+
+msgid "common.no"
+msgstr "Nē"
+
+msgid "common.noComments"
+msgstr "Nav komentāru"
+
+msgid "common.notApplicableShort"
+msgstr "Nav piemērojams"
+
+msgid "common.notAvailable"
+msgstr "Nav pieejams"
+
+msgid "common.note"
+msgstr "Piezīme"
+
+msgid "common.notes"
+msgstr "Piezīmes"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"Piezīmes (dzeltena: ir jaunas piezīmes; zila: ir skatītas piezīmes; pelēka: "
+"nav piezīmju)"
+
+msgid "common.notified"
+msgstr "Paziņots"
+
+msgid "common.notified.date"
+msgstr "Paziņots: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "Nav atbilstības"
+
+msgid "common.numberedMore"
+msgstr "vēl {$number}"
+
+msgid "common.off"
+msgstr "Izslēgts"
+
+msgid "common.on"
+msgstr "Ieslēgts"
+
+msgid "common.ok"
+msgstr "OK"
+
+msgid "common.options"
+msgstr "Iespējas"
+
+msgid "common.order"
+msgstr "Kārtība"
+
+msgid "common.orderUp"
+msgstr "Palielināt {$itemTitle} pozīciju"
+
+msgid "common.orderDown"
+msgstr "Samazināt {$itemTitle} pozīciju"
+
+msgid "common.originalFileName"
+msgstr "Sākotnējais datnes nosaukums"
+
+msgid "common.or"
+msgstr "vai"
+
+msgid "common.other"
+msgstr "Citi"
+
+msgid "common.override"
+msgstr "Aizvietot"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} no{$total}"
+
+msgid "common.pagination.label"
+msgstr "Skatīt papildu lapas"
+
+msgid "common.pagination.goToPage"
+msgstr "Doties uz {$page} lapu"
+
+msgid "common.pagination.next"
+msgstr "Nākamā lapa"
+
+msgid "common.pageNumber"
+msgstr "Lapa {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage} %"
+
+msgid "common.pluginDisabled"
+msgstr "Spraudnis \"{$pluginName}\" ir atspējots."
+
+msgid "common.prefix"
+msgstr "Prefikss"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Piemēri: A, The"
+
+msgid "common.preview"
+msgstr "Priekšskatījums"
+
+msgid "common.publisher"
+msgstr "Izdevējs"
+
+msgid "common.quality"
+msgstr "Kvalitāte"
+
+msgid "common.queue.long.active"
+msgstr "Visi aktīvie"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "Atb.:"
+
+msgid "common.readMoreWithTitle"
+msgstr "Lasīt vairāk par {$title}"
+
+msgid "common.readMore"
+msgstr "Lasīt vairāk"
+
+msgid "common.record"
+msgstr "Ieraksts"
+
+msgid "common.refresh"
+msgstr "Atsvaidzināt"
+
+msgid "common.related"
+msgstr "Saistītais"
+
+msgid "common.reminder"
+msgstr "Atgādinājums"
+
+msgid "common.reminded.date"
+msgstr "Atgādināts: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Attālināts"
+
+msgid "common.remoteURL"
+msgstr "Attālināts URL"
+
+msgid "common.remove"
+msgstr "Noņemt"
+
+msgid "common.removeSelection"
+msgstr "Noņemt atlasi"
+
+msgid "common.requiredField"
+msgstr ""
+"Obligātie lauki ir atzīmēti ar zvaigznīti: <abbr class=\"required\" title="
+"\"required\">*</abbr>"
+
+msgid "common.required"
+msgstr "Obligāts"
+
+msgid "common.reset"
+msgstr "Atiestatīt"
+
+msgid "common.reviewRoundNumber"
+msgstr "{$round}. kārta"
+
+msgid "common.role"
+msgstr "Loma"
+
+msgid "common.saveAndContinue"
+msgstr "Saglabāt un turpināt"
+
+msgid "common.saveAndEmail"
+msgstr "Saglabāt un nosūtīt"
+
+msgid "common.save"
+msgstr "Saglabāt"
+
+msgid "common.saving"
+msgstr "Saglabāšana"
+
+msgid "common.searching"
+msgstr "Meklēšana"
+
+msgid "common.search"
+msgstr "Meklēt"
+
+msgid "common.searchQuery"
+msgstr "Meklēšanas pieprasījums"
+
+msgid "common.clearSearch"
+msgstr "Notīrīt meklēšanas frāzi"
+
+msgid "common.second"
+msgstr "Sekundes"
+
+msgid "common.selectAll"
+msgstr "Atlasīt visu"
+
+msgid "common.selectedPrefix"
+msgstr "Atlasīts:"
+
+msgid "common.selectNone"
+msgstr "Atcelt atlasīšanu"
+
+msgid "common.select"
+msgstr "Atlasīt"
+
+msgid "common.selectWithName"
+msgstr "Atlasīt {$name}"
+
+msgid "common.showAllSteps"
+msgstr "Rādīt visus soļus"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} soļi"
+
+msgid "common.size"
+msgstr "Izmērs"
+
+msgid "common.source"
+msgstr "Avots"
+
+msgid "common.status"
+msgstr "Statuss"
+
+msgid "common.subject"
+msgstr "Temats"
+
+msgid "common.submenu"
+msgstr "Apakšizvēlne"
+
+msgid "common.subtitle"
+msgstr "Apakšvirsraksts"
+
+msgid "common.suggest"
+msgstr "Ieteikt"
+
+msgid "common.switchToNamedItem"
+msgstr "Pārslēgties uz {$name}"
+
+msgid "common.title"
+msgstr "Virsraksts"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.top"
+msgstr "Augša"
+
+msgid "common.true"
+msgstr "Patiess"
+
+msgid "common.type"
+msgstr "Tips"
+
+msgid "common.component"
+msgstr "Komponents"
+
+msgid "common.uninitiated"
+msgstr "Neierosināts"
+
+msgid "common.unknownError"
+msgstr ""
+"Ir notikusi neparedzēta kļūda. Lūdzu, ielādējiet lapu no jauna un mēģiniet "
+"vēlreiz."
+
+msgid "common.unread"
+msgstr "Nelasīts"
+
+msgid "common.unsavedChanges"
+msgstr "Nesaglabātas izmaiņas"
+
+msgid "common.untitled"
+msgstr "Bez virsraksta"
+
+msgid "common.updated"
+msgstr "Atjaunināts"
+
+msgid "common.uploadedDate"
+msgstr "Augšupielādes datums"
+
+msgid "common.upload"
+msgstr "Augšupielādēt"
+
+msgid "common.uploadFailed"
+msgstr "Datni nevarēja augšupielādēt vai labot."
+
+msgid "common.up"
+msgstr "Augšup"
+
+msgid "common.addFile"
+msgstr "Pievienot datni"
+
+msgid "common.upload.addFile"
+msgstr "Augšupielādēt datni"
+
+msgid "common.upload.addFile.description"
+msgstr "Augšupielādēt datni no jūsu datora."
+
+msgid "common.upload.restore"
+msgstr "Atjaunot sākotnējo"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Pašlaik atlasītā attēla priekšskatījums."
+
+msgid "common.upload.changeFile"
+msgstr "Mainīt datni"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "Lietotājs"
+
+msgid "common.user.nonexistent"
+msgstr "[Neeksistējošs lietotājs]"
+
+msgid "common.view"
+msgstr "Skatīt"
+
+msgid "common.viewError"
+msgstr "Skatīt kļūdu"
+
+msgid "common.viewWithName"
+msgstr "Skatīt {$name}"
+
+msgid "common.viewProfile"
+msgstr "Skatīt profilu"
+
+msgid "common.weeks"
+msgstr "nedēļas"
+
+msgid "common.width"
+msgstr "Platums"
+
+msgid "common.year"
+msgstr "Gads"
+
+msgid "common.yes"
+msgstr "Jā"
+
+msgid "common.loading"
+msgstr "Ielāde"
+
+msgid "common.plugins"
+msgstr "Spraudņi"
+
+msgid "common.count"
+msgstr "Skaitītājs"
+
+msgid "common.publicAccess"
+msgstr "Publiskā piekļuve"
+
+msgid "debug.executionTime"
+msgstr "Lapa izveidota"
+
+msgid "debug.memoryUsage"
+msgstr "Atmiņas izmantojums"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Ielādēts vietņu saraksts \"{$localeList}\" no XML"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Trūkst lokalizācijas atslēgas \"{$key}\"."
+
+msgid "debug.notes"
+msgstr "Piezīmes:"
+
+msgid "defaultMetric.title"
+msgstr "Noklusējuma metrika"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Augšupielādēt recenzijas datni"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Augšupielādēt datni"
+
+msgid "email.addAttachment"
+msgstr "Pievienot pielikumu"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Pievienot iesniegtā materiāla datnes"
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Bibliotēkas datnes"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Pievienot bibliotēkas datnes"
+
+msgid "about.contact.principalContact"
+msgstr "Redakcijas pārstāvis"
+
+msgid "announcement.noneExist"
+msgstr "Nav publicētu paziņojumu."
+
+msgid "common.confirmDelete"
+msgstr "Vai tiešām vēlaties dzēst šo vienību? Šo darbību nevar atcelt."
+
+msgid "common.acknowledged"
+msgstr "Apstiprināts"
+
+msgid "common.attachedFiles"
+msgstr "Pievienotās datnes"
+
+msgid "common.alphaList"
+msgstr "A Ā B C Č D E Ē F G Ģ H I Ī J K Ķ L Ļ M N Ņ O P R S Š T U Ū V Z Ž"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Aprakstiet šo attēlu apmeklētājiem, kuri skatās vietni tikai teksta "
+"pārlūkprogrammā vai ar palīgierīcēm. Piemērs: \"Mūsu redaktors uzstājas PKP "
+"konferencē.\""
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+"Jums ir jāpabeidz validācijas pārbaude, ko izmanto, lai novērstu "
+"surogātmateriāla iesniegšanu."
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tŠis darbs licencēts saskaņā ar <a rel=\"license\" target=\"_blank\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0 licenci</a>.\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tŠis darbs licencēts saskaņā ar <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons "
+"Attribution 3.0 licenci</a>.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.close"
+msgstr "Aizvērt"
+
+msgid "common.confirmed.date"
+msgstr "Apstiprināts: {$dateConfirmed}"
+
+msgid "common.dateSubmitted"
+msgstr "Iesniegšanas datums"
+
+msgid "common.deleteSelection"
+msgstr "Dzēst sadaļu"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; pie {$dpi} DPI/PPI"
+
+msgid "common.discardChanges"
+msgstr "Nē"
+
+msgid "common.download"
+msgstr "Lejupielādēt"
+
+msgid "common.emailTemplates"
+msgstr "E-pasta veidnes"
+
+msgid "debug.notes.localeLoad"
+msgstr "Ielādēta lokalizācijas datne \"{$localeFile}\" no XML"
+
+msgid "common.label"
+msgstr "Iezīme"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Pievienot datnes, kuras autors augšupielādējis iesniegšanas posmā."
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Ir notikusi nezināma datubāzes savienojuma kļūda."
+
+msgid "common.lastActivity"
+msgstr "Pēdējo reizi aktivitāte reģistrēta {$date}."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Pievienot iesniegšanas darbplūsmas laikā augšupielādētas datnes, piemēram, "
+"labojumus vai datnes recenzēšanai."
+
+msgid "common.moreThan"
+msgstr "{$value} vai vairāk"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Pievienot datnes no materiāla iesniegšanas un izdevēja bibliotēkām."
+
+msgid "common.fullscreenOff"
+msgstr "Izslēgt pilnekrāna režīmu"
+
+msgid "common.noItemsFound"
+msgstr "Nekas nav atrasts."
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.notApplicable"
+msgstr "Nav piemērojams"
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"Jūsu augšupielādēto datni neizdevās atrast. Lūdzu, mēģiniet to augšupielādēt "
+"vēlreiz."
+
+msgid "common.overdue"
+msgstr "Nokavēts"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"Tiek ielādēts sistēmas datņu augšupielādes rīks. Ja tas netiek parādīts, "
+"iespējams, ka šis pārlūks neatbalsta nevienu no tā izpildlaikiem. Lūdzu, "
+"sazinieties ar administrāciju, lai saņemtu atbalstu."
+
+msgid "common.pagination.previous"
+msgstr "Iepriekšējā lapa"
+
+msgid "common.highlights"
+msgstr "Izcēlumi"
+
+msgid "common.plugin"
+msgstr "Spraudnis"
+
+msgid "common.pluginEnabled"
+msgstr "Spraudnis \"{$pluginName}\" ir iespējots."
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Sākumlapas galvenes logotips"
+
+msgid "common.reconnecting"
+msgstr "Savienojuma atjaunošana"
+
+msgid "common.removeItem"
+msgstr "Noņemt {$item}"
+
+msgid "common.replaced"
+msgstr "Aizstāts"
+
+msgid "common.replaceFile"
+msgstr "Aizstāt datni"
+
+msgid "common.searchPhrase"
+msgstr "Meklēt frāzi"
+
+msgid "common.sendEmail"
+msgstr "Nosūtīt e-pastu"
+
+msgid "common.subjects"
+msgstr "Temati"
+
+msgid "common.switchTo"
+msgstr "Pārslēgties uz"
+
+msgid "common.uploadedBy"
+msgstr "Augšupielādēja {$name}"
+
+msgid "common.uploadedByAndWhen"
+msgstr "Augšupielādēja {$name}, {$date}"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"Mēs atradām nesaglabātas izmaiņas no {$when}. Tas var notikt, ja darba laikā "
+"tiek zaudēts savienojums ar serveri. Šo izmaiņu atjaunošana var pārrakstīt "
+"visas izmaiņas, ko esat veicis kopš tā laika. Vai vēlaties atjaunot šīs "
+"izmaiņas tagad?"
+
+msgid "common.upload.dragFile"
+msgstr "Velciet un nometiet datni šeit, lai sāktu augšupielādi"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "debug.databaseQueries"
+msgstr "Datubāzes vaicājumu skaits"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Pievienot recenzijas datnes"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Pievienot recenzenta augšupielādētās datnes"
+
+msgid "email.addBccRecipient"
+msgstr "Pievienot BCC adresātu"
+
+msgid "email.addCcRecipient"
+msgstr "Pievienot CC adresātu"
+
+msgid "email.addToRecipient"
+msgstr "Pievienot saņēmēju"
+
+msgid "email.attachments"
+msgstr "Pielikumi"
+
+msgid "email.attachmentNotFound"
+msgstr "Datne {$fileName} netika pievienota."
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.bccSender"
+msgstr "Nosūtīt šī paziņojuma kopiju uz manu adresi ({$address})"
+
+msgid "email.body"
+msgstr "E-pasta saturs"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.compose"
+msgstr "Nosūtīt e-pastu"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Ziņai, kuru mēģināt nosūtīt, ir pārāk daudz adresātu."
+
+msgid "email.compose.error"
+msgstr ""
+"Radās problēma ar e-pasta nosūtīšanu. Lūdzu, mēģiniet vēlāk vai sazinieties "
+"ar sistēmas administratoru."
+
+msgid "email.email"
+msgstr "E-pasts"
+
+msgid "email.from"
+msgstr "No"
+
+msgid "email.invalid"
+msgstr "E-pasta adrese {$email} ir nederīga."
+
+msgid "email.recipient"
+msgstr "Saņēmējs"
+
+msgid "email.recipients"
+msgstr "Saņēmēji"
+
+msgid "email.sender"
+msgstr "Sūtītājs"
+
+msgid "email.senderEmail"
+msgstr "Sūtītāja e-pasts"
+
+msgid "email.send"
+msgstr "Sūtīt"
+
+msgid "email.skip"
+msgstr "Izlaist e-pastu"
+
+msgid "email.subject"
+msgstr "Temats"
+
+msgid "email.subjectRequired"
+msgstr "Lūdzu, norādiet e-pasta tematu."
+
+msgid "email.bodyRequired"
+msgstr "Lūdzu, ievadiet e-pasta tekstu."
+
+msgid "email.to"
+msgstr "Kam"
+
+msgid "form.confirmSubmit"
+msgstr "Vai tiešām vēlaties iesniegt šo formu?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Apstiprināt"
+
+msgid "form.dataHasChanged"
+msgstr "Dati šajā formā ir mainījušies. Vai vēlaties turpināt bez saglabāšanas?"
+
+msgid "form.disallowedProp"
+msgstr "Šī īpašība nav atļauta."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Nometiet datnes šeit, lai tās augšupielādētu"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"Jūsu pārlūkprogramma neatbalsta datņu augšupielādi ar vilkšanu un nomešanu."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Datne ir pārāk liela ({{filesize}}mb). Datnes, kas lielākas par "
+"{{{maxFilesize}}mb, nevar augšupielādēt."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Šāda tipa datnes nevar augšupielādēt."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Atcelt augšupielādi"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Augšupielāde atcelta"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Vai tiešām vēlaties atcelt šo augšupielādi?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Noņemt datni"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Vairāk datņu augšupielādēt vairs nevar."
+
+msgid "form.errorA11y"
+msgstr "Doties uz {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Pāriet uz nākamo kļūdu"
+
+msgid "form.errorOne"
+msgstr "Lūdzu, izlabojiet vienu kļūdu."
+
+msgid "form.errorMany"
+msgstr "Lūdzu, izlabojiet {$count} kļūdas."
+
+msgid "form.errorsOccurred"
+msgstr "Kļūdas, kas radušās, apstrādājot šo formu"
+
+msgid "form.formLanguage.description"
+msgstr ""
+"Lai ievadītu tālāk sniegto informāciju papildu valodās, vispirms izvēlieties "
+"valodu."
+
+msgid "form.formLanguage"
+msgstr "Formas valoda"
+
+msgid "form.contains"
+msgstr "satur"
+
+msgid "form.is"
+msgstr "ir"
+
+msgid "form.startsWith"
+msgstr "sākas ar"
+
+msgid "form.postRequired"
+msgstr "Forma netika iesniegta pareizi."
+
+msgid "form.fileRequired"
+msgstr "Nepieciešama faila augšupielāde."
+
+msgid "form.required"
+msgstr "(* Obligāti)"
+
+msgid "form.requireId"
+msgstr "Jums jāievada derīgs ID."
+
+msgid "form.resubmit"
+msgstr "Iesniegt atkārtoti"
+
+msgid "form.saved"
+msgstr "Saglabāts"
+
+msgid "form.saveToUpload"
+msgstr "Lietojiet Saglabāt, lai augšupielādētu datni."
+
+msgid "form.send"
+msgstr "Nosūtīt"
+
+msgid "form.submit"
+msgstr "Iesniegt"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} {$localeName} valodā"
+
+msgid "help.help"
+msgstr "Palīdzība"
+
+msgid "help.toc"
+msgstr "Satura rādītājs"
+
+msgid "help.previous"
+msgstr "Iepriekšējais"
+
+msgid "help.next"
+msgstr "Nākamais"
+
+msgid "help.upALevel"
+msgstr "Līmeni augstāk"
+
+msgid "icon.checked.alt"
+msgstr "Atzīmēts"
+
+msgid "icon.delete.alt"
+msgstr "Dzēst"
+
+msgid "icon.edit.alt"
+msgstr "Rediģēt"
+
+msgid "icon.folder.alt"
+msgstr "Mape"
+
+msgid "icon.font_large.alt"
+msgstr "Liela izmēra"
+
+msgid "icon.font_medium.alt"
+msgstr "Vidēja izmēra"
+
+msgid "icon.font_small.alt"
+msgstr "Maza izmēra"
+
+msgid "icon.info.alt"
+msgstr "Informācija"
+
+msgid "icon.letter.alt"
+msgstr "Vēstule"
+
+msgid "icon.mail.alt"
+msgstr "Pasts"
+
+msgid "icon.unchecked.alt"
+msgstr "Nav atzīmēts"
+
+msgid "informationCenter.informationCenter"
+msgstr "Informācijas centrs"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Redakcionālā vēsture"
+
+msgid "informationCenter.noNotes"
+msgstr "Nav rādāmu piezīmju."
+
+msgid "informationCenter.pastNotes"
+msgstr "Agrāk veiktās labojumu piezīmes"
+
+msgid "informationCenter.currentHistory"
+msgstr "Pašreizējie labojumi"
+
+msgid "informationCenter.pastHistory"
+msgstr "Agrākie labojumi"
+
+msgid "informationCenter.history.noItems"
+msgstr "Nav reģistrētu notikumu."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Ievietota jauna piezīme."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Lietotājiem nosūtīts paziņojums."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Lietotājiem nosūtīts paziņojums."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Uzsākt diskusiju"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+"Izvēlieties jau sagatavotu ziņu, ko vēlaties izmantot, vai aizpildiet tālāk "
+"norādīto formu."
+
+msgid "stageParticipants.notify.message"
+msgstr "Ziņa"
+
+msgid "stageParticipants.options"
+msgstr "Piešķiršanas tiesības"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Šim dalībniekam ir atļauts tikai ieteikt redakcionālu lēmumu, un to "
+"reģistrēt varēs tikai pilnvarots redaktors."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Atļaujas"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Dalībnieks"
+
+msgid "locale.primary"
+msgstr "Galvenā lokalizācija"
+
+msgid "locale.supported"
+msgstr "Atbalstītās lokalizācijas"
+
+msgid "navigation.access"
+msgstr "Lietotāji un lomas"
+
+msgid "navigation.about"
+msgstr "Par mums"
+
+msgid "navigation.archives"
+msgstr "Arhīvi"
+
+msgid "navigation.admin"
+msgstr "Pārvaldība"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Jūs atrodaties šeit:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Rīki"
+
+msgid "navigation.tools.statistics"
+msgstr "Statistika"
+
+msgid "navigation.dashboard"
+msgstr "Vadības panelis"
+
+msgid "navigation.browse"
+msgstr "Pārlūkot"
+
+msgid "navigation.backTo"
+msgstr "⟵ Atgriezties uz {$page}"
+
+msgid "navigation.browseByAuthor"
+msgstr "Pēc autora"
+
+msgid "navigation.browseByTitle"
+msgstr "Pēc virsraksta"
+
+msgid "navigation.data"
+msgstr "Dati"
+
+msgid "navigation.home"
+msgstr "Sākums"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Informācija lasītājiem"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} no {$total} vienībām"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} no {$total} vienībā"
+
+msgid "navigation.login"
+msgstr "Pieteikties sistēmā"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Nākamais solis"
+
+msgid "navigation.previousStep"
+msgstr "Iepriekšējais solis"
+
+msgid "navigation.publicMenu"
+msgstr "Publiskā izvēlne"
+
+msgid "navigation.register"
+msgstr "Reģistrēties"
+
+msgid "navigation.search"
+msgstr "Meklēt"
+
+msgid "navigation.settings"
+msgstr "Uzstādījumi"
+
+msgid "navigation.setup"
+msgstr "Iestatīšana"
+
+msgid "navigation.sitemap"
+msgstr "Vietnes karte"
+
+msgid "navigation.skip.announcements"
+msgstr "Pāriet uz paziņojumiem"
+
+msgid "navigation.skip.main"
+msgstr "Pāriet uz galveno saturu"
+
+msgid "navigation.skip.nav"
+msgstr "Pāriet uz galveno navigācijas izvēlni"
+
+msgid "navigation.skip.footer"
+msgstr "Pāriet uz vietnes kājeni"
+
+msgid "navigation.stepNumber"
+msgstr "{$step}. solis"
+
+msgid "navigation.system"
+msgstr "Sistēma"
+
+msgid "navigation.userHome"
+msgstr "Lietotāja sākumlapa"
+
+msgid "navigation.user"
+msgstr "Lietotājs"
+
+msgid "navigation.userManagement"
+msgstr "Lietotāju pārvaldība"
+
+msgid "navigation.viewFrontend"
+msgstr "Skatīt vietni"
+
+msgid "institution.institutions"
+msgstr "Iestādes"
+
+msgid "notification.addedAuditor"
+msgstr "Auditors pievienots."
+
+msgid "notification.removedAuditor"
+msgstr "Auditors noņemts."
+
+msgid "notification.reviewAcknowledged"
+msgstr "Recenzija atzīmēta kā apstiprināta. E-pasts nav nosūtīts."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Recenzentam nosūtīts pateicības e-pasts."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Atjauninātas recenzijas datnes."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Pievienots paziņojuma tips."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Rediģēts paziņojuma tips."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Paziņojuma tips noņemts."
+
+msgid "notification.removedAnnouncement"
+msgstr "Paziņojums noņemts."
+
+msgid "notification.confirmSuccess"
+msgstr "Abonēšana ir veiksmīgi notikusi."
+
+msgid "notification.noneExist"
+msgstr "Šobrīd jums nav paziņojumu."
+
+msgid "notification.addedNote"
+msgstr "Piezīme nosūtīta."
+
+msgid "notification.removedFile"
+msgstr "Datne noņemta."
+
+msgid "notification.removedSubmission"
+msgstr "Noņemts iesniegtais materiāls."
+
+msgid "notification.notification"
+msgstr "Paziņojums"
+
+msgid "notification.notifications"
+msgstr "Paziņojumi"
+
+msgid "notification.sentNotification"
+msgstr "Paziņojums nosūtīts."
+
+msgid "notification.settings"
+msgstr "Paziņojumu iestatījumi"
+
+msgid "notification.reminderError"
+msgstr ""
+"Kļūda nosūtot paroli, lūdzu, pārliecinieties, vai esat pareizi ievadījis "
+"savu e-pasta adresi."
+
+msgid "notification.reminderSent"
+msgstr "Jūsu jaunā parole ir nosūtīta uz norādīto e-pasta adresi."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Iesniegtā materiāla metadati saglabāti."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Nosūtīt e-pastu par to visiem reģistrētajiem lietotājiem."
+
+msgid "search.author"
+msgstr "Pēc autora"
+
+msgid "search.abstract"
+msgstr "Kopsavilkums"
+
+msgid "search.advancedFilters"
+msgstr "Izvērstie filtri"
+
+msgid "search.advancedSearchMore"
+msgstr "Papildu meklēšanas iespējas"
+
+msgid "search.searchAgain"
+msgstr "Meklēt vēlreiz"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Notīrīt rādītāju"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "paveikts"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "kļūda"
+
+msgid "search.coverage"
+msgstr "Aptvērums"
+
+msgid "search.date"
+msgstr "Publicēšanas datums"
+
+msgid "search.dateTo"
+msgstr "Publicēts pirms"
+
+msgid "search.deleteFilter"
+msgstr "Dzēst"
+
+msgid "search.discipline"
+msgstr "Nozares"
+
+msgid "search.fullText"
+msgstr "Pilns teksts"
+
+msgid "search.indexTerms"
+msgstr "Rādītāja termini"
+
+msgid "search.matchAll"
+msgstr "Atbilst visām kategorijām"
+
+msgid "search.noResults"
+msgstr "Nav rezultātu"
+
+msgid "search.operator.and"
+msgstr "and"
+
+msgid "search.operator.not"
+msgstr "not"
+
+msgid "search.operator.or"
+msgstr "or"
+
+msgid "search.SearchFor"
+msgstr "Meklēt"
+
+msgid "search.searchResults"
+msgstr "Meklēšanas rezultāti"
+
+msgid "search.searchResults.foundSingle"
+msgstr "Atrasta viena vienība."
+
+msgid "search.searchResults.foundPlural"
+msgstr "Atrastas {$count} vienības."
+
+msgid "search.subject"
+msgstr "Atslēgvārdi"
+
+msgid "search.title"
+msgstr "Virsraksts"
+
+msgid "search.titleIndex"
+msgstr "Pārlūkot virsrakstu rādītāju"
+
+msgid "search.typeMethodApproach"
+msgstr "Tips (metode/pieeja)"
+
+msgid "grid.action.downloadFile"
+msgstr "Lejupielādēt šo datni"
+
+msgid "context.path"
+msgstr "Ceļš"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Kā nodrošināt, lai visas datnes būtu anonimizētas"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Lasīt aktuālo recenzēšanas politiku"
+
+msgid "grid.action.deleteNotification"
+msgstr "Dzēst uzdevumu"
+
+msgid "grid.action.markNew"
+msgstr "Atzīmēt kā jaunu"
+
+msgid "grid.action.markRead"
+msgstr "Atzīmēt kā lasītu"
+
+msgid "dashboard.tasks"
+msgstr "Uzdevumi"
+
+msgid "dashboard.myQueue"
+msgstr "Mana rinda"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Kā nodrošināt, lai visas datnes būtu anonimizētas"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Gaida literāro rediģēšanu."
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Vai tiešām vēlaties mainīt lokalizāciju uz {$localeName}, lai izveidotu šo e-"
+"pastu? Jebkuras izmaiņas, ko esat veicis e-pasta tēmā un tekstā, tiks "
+"zaudētas."
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"Jūs mēģināt nosūtīt ziņojumu pārāk drīz pēc pēdējā ziņojuma nosūtīšanas. "
+"Lūdzu, pagaidiet, pirms sūtīt citu ziņu."
+
+msgid "email.multipart"
+msgstr "Šis ir MIME formāta ziņojums, kas sastāv no vairākām daļām."
+
+msgid "email.senderName"
+msgstr "Sūtītāja vārds"
+
+msgid "form.url.invalid"
+msgstr "Norādītais URL ir nederīgs. Lūdzu, pārbaudiet to un mēģiniet vēlreiz."
+
+msgid "form.disallowedLocales"
+msgstr "Ir atļautas tikai šādas valodas: {$languages}."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"Lai augšupielādētu datnes, lūdzu, izmantojiet zemāk redzamo pakārtoto formu."
+
+msgid "form.invalidImage"
+msgstr ""
+"Tika augšupielādēts nederīgs attēls. Pieņemtie formāti ir .png, .gif vai ."
+"jpg."
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Serveris atbildēja ar {{statusCode}} kodu. Lūdzu, sazinieties ar sistēmas "
+"administratoru, ja šī problēma saglabājas."
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} pabeigto valodu skaits"
+
+msgid "form.errors"
+msgstr ""
+"Forma netika saglabāta, jo tika konstatētas {$count} kļūdas. Lūdzu, "
+"izlabojiet šīs kļūdas un mēģiniet vēlreiz."
+
+msgid "icon.comment.alt"
+msgstr "Komentārs"
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Formu nevarēja iesniegt. Iespējams, jūs esat atteicies no sistēmas. Lūdzu, "
+"ielādējiet lapu no jauna un mēģiniet vēlreiz."
+
+msgid "icon.view.alt"
+msgstr "Skatīt"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Vai tiešām vēlaties dzēst šo piezīmi?"
+
+msgid "form.requirePrimaryLocale"
+msgstr "Šis lauks jāaizpilda {$language} valodā."
+
+msgid "informationCenter.addNote"
+msgstr "Pievienot piezīmi"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Uzsākt diskusiju ar lietotāju {$userFullName}."
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Lūdzu, pārliecinieties, ka esat aizpildījis ziņojuma lauku un diskusijā esat "
+"iekļāvis kādu citu personu, nevis sevi."
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Atļaut šai personai veikt izmaiņas publikācijā, piemēram, virsrakstā, "
+"kopsavilkumā, metadatos un citos publikācijas datos. Šo privilēģiju var "
+"atcelt, ja materiālam veikti galīgie labojumi un tas ir gatavs publicēšanai."
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Šim dalībniekam nevar veikt nekādas izmaiņas"
+
+msgid "navigation.tools.importExport"
+msgstr "Importēšana/eksportēšana"
+
+msgid "notification.settingsDescription"
+msgstr ""
+"Atlasiet sistēmas norises, par kurām vēlaties saņemt paziņojumus. Ja "
+"noņemsiet atzīmi no kādas vienības, paziņojumi par šo norisi netiks parādīti "
+"sistēmā un netiks nosūtīti jums pa e-pastu. Atzīmētās norises parādīsies "
+"sistēmā, un jums ir papildu iespēja saņemt vai nesaņemt šo pašu paziņojumu "
+"e-pastā."
+
+msgid "search.advancedSearchLess"
+msgstr "Paslēpt papildu meklēšanas iespējas"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} indeksācijai plānotie raksti"
+
+msgid "navigation.infoForReaders"
+msgstr "Lasītājiem"
+
+msgid "search.dateFrom"
+msgstr "Publicēts pēc"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "search.indexTermsLong"
+msgstr "Visi rādītāja termina lauki"
+
+msgid "navigation.skip.description"
+msgstr "Pāriet uz satura saitēm"
+
+msgid "navigation.submissions"
+msgstr "Iesniegtie materiāli"
+
+msgid "notification.addedQuery"
+msgstr "Pievienota diskusija"
+
+msgid "notification.allow"
+msgstr "Iespējot šos paziņojumu veidus."
+
+msgid "notification.confirmError"
+msgstr "Kļūda, apstiprinot abonementu."
+
+msgid "notification.email"
+msgstr "Nesūtīt man e-pastu par šāda tipa paziņojumiem."
+
+msgid "notification.removedNote"
+msgstr "Piezīme izdzēsta."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"Piešķirt literāro redaktoru, izmantojot saiti \"Piešķirt\" dalībnieku "
+"sarakstā."
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Recenzēšanas plāns"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Redaktora pieprasījums"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Atbildes sniegšanas termiņš"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Recenzijas termiņš"
+
+msgid "navigation.goBack"
+msgstr "Atgriezties atpakaļ"
+
+msgid "notification.removedReviewer"
+msgstr "Recenzents noņemts."
+
+msgid "notification.cancelledReviewer"
+msgstr "Recenzents atcelts."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Recenzents atjaunots."
+
+msgid "notification.reviewerResendRequest"
+msgstr "Tika nosūtīts pieprasījums pārskatīt recenzēšanas uzdevumu."
+
+msgid "notification.addedStageParticipant"
+msgstr "Lietotājs pievienots kā posma dalībnieks."
+
+msgid "notification.editStageParticipant"
+msgstr "Ir mainīts posma piešķīrums."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Jauns paziņojums."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Tiek gaidīta recenzija."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Atjaunots recenzēšanas piešķīrums."
+
+msgid "notification.type.auditorRequest"
+msgstr "Audita pieprasījums datnei \"{$file}\""
+
+msgid "notification.type.allReviewsIn"
+msgstr "Visi recenzenti ir atbildējuši, un {$stage}. posmā ir jāpieņem lēmums."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Labojumi, kas iesniegti {$stage}. posmā."
+
+msgid "notification.type.reviewerComment"
+msgstr "Recenzents ir komentējis \"{$title}\"."
+
+msgid "notification.signedFile"
+msgstr "Datne izskatīta."
+
+msgid "timeZone"
+msgstr "Laika josla"
+
+msgid "user.email"
+msgstr "E-pasta adrese"
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"Šim lietotājam nav pilnvaru piekļūt attiecīgajai iesniegtā materiāla datnei."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Nederīga publikācija."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Nederīgs iesniegtais materiāls."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Nederīgs attēlojums."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Nederīga diskusija."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Jums nav piekļuves šai diskusiju ziņai."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Jums nav piekļuves šim recenzēšanas piešķīrumam."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Pašreizējais lietotājs nav pieprasītā iesniegtā materiāla autors. Lūdzu, "
+"pārbaudiet, vai esat pieteicies sistēmā ar pareizo lietotāja kontu."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Konfidencialitātes iestatījumi"
+
+msgid "notification.type.queryActivity"
+msgstr "Diskusiju aktivitāte."
+
+msgid "notification.type.queryAdded"
+msgstr "Diskusija pievienota."
+
+msgid "notification.type.editorialReminder"
+msgstr "Iknedēļas e-pasts par neizpildītajiem uzdevumiem"
+
+msgid "notification.type.roundStatusTitle"
+msgstr "{$round}. kārtas statuss"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Veiksmīgi atjaunināta navigācijas izvēlnes vienība"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Navigācijas izvēlnes vienība tika veiksmīgi noņemta"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Veiksmīgi tika pievienota navigācijas izvēlnes vienība"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Veiksmīgi tika pievienota navigācijas izvēlne"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Navigācijas izvēlne tika veiksmīgi noņemta"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Jums ir anulēta abonēšana"
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Jūs jebkurā laikā varat atjaunot e-pasta paziņojumu abonēšanu savā <a href=\""
+"{$profileNotificationUrl}\">lietotāja profilā</a>."
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Radās neparedzēta kļūda, un mēs nevarējām atrakstīt e-pasta adresi {$email}. "
+"Jūs varat atteikties no visiem e-pasta paziņojumiem savā <a href=\""
+"{$profileNotificationUrl}\">lietotāja profilā</a> vai sazināties ar mums "
+"tieši, lai saņemtu palīdzību."
+
+msgid "list.viewLess"
+msgstr "Slēpt paplašinātu informāciju par {$name}"
+
+msgid "list.expandAll"
+msgstr "Izvērst visu"
+
+msgid "validation.invalidOption"
+msgstr "Šī nav derīga iespēja."
+
+msgid "validator.after"
+msgstr "Šim datumam jābūt pēc {$date}."
+
+msgid "validator.alpha_num"
+msgstr "Tajā var būt tikai burti un cipari."
+
+msgid "validator.array"
+msgstr "Šis masīvs nav derīgs."
+
+msgid "validator.before"
+msgstr "Šim datumam jābūt pirms {$date}."
+
+msgid "validator.between.file"
+msgstr "Tam jābūt starp {$min} un {$max} kilobaitiem."
+
+msgid "validator.between.string"
+msgstr "Tam jābūt starp {$min} un {$max} rakstzīmēm."
+
+msgid "validator.between.array"
+msgstr "Tam jābūt starp {$min} un {$max} vienībām."
+
+msgid "validator.confirmed"
+msgstr "Šī lauka apstiprinājums nesakrīt."
+
+msgid "validator.country"
+msgstr "Šī nav derīga valsts."
+
+msgid "validator.currency"
+msgstr "Šī nav derīga valūta."
+
+msgid "validator.date"
+msgstr "Šis nav derīgs datums."
+
+msgid "validator.date_format"
+msgstr "Tas neatbilst formātam {$format}."
+
+msgid "validator.different"
+msgstr "{$attribute} un {$other} jābūt atšķirīgiem."
+
+msgid "validator.filled"
+msgstr "Šis lauks ir obligāts."
+
+msgid "validator.image"
+msgstr "Tam jābūt attēlam."
+
+msgid "validator.in"
+msgstr "Izvēlētais {$attribute} ir nederīgs."
+
+msgid "validator.integer"
+msgstr "Tas nav vesels skaitlis."
+
+msgid "validator.issn"
+msgstr "Tas nav derīgs ISSN."
+
+msgid "validator.json"
+msgstr "Šī nav derīga JSON virkne."
+
+msgid "validator.locale"
+msgstr "Šī valoda netiek pieņemta."
+
+msgid "validator.localeKey"
+msgstr ""
+"Valodas jānorāda, izmantojot lokalizācijas kodu. Piemēri: en_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "Šī vērtība nedrīkst būt lielāka par {$max}."
+
+msgid "validator.max.file"
+msgstr "Tas nedrīkst būt lielāks par {$max} kilobaitiem."
+
+msgid "validator.max.array"
+msgstr "Tajā nedrīkst būt vairāk par {$max} vienībām."
+
+msgid "validator.mimes"
+msgstr "Tai jābūt {$values} tipa datnei."
+
+msgid "validator.digits"
+msgstr "Tam jāsatur {$digits} cipari."
+
+msgid "validator.exists"
+msgstr "Izvēlētais {$attribute} ir nederīgs."
+
+msgid "validator.min.file"
+msgstr "Tam jābūt vismaz {$min} kilobaitiem."
+
+msgid "validator.min.array"
+msgstr "Tajā jābūt vismaz {$min} vienībām."
+
+msgid "validator.not_in"
+msgstr "Izvēlētais {$attribute} ir nederīgs."
+
+msgid "validator.orcid"
+msgstr "Šis nav derīgs ORCID."
+
+msgid "validator.present"
+msgstr "Jābūt laukam {$attribute}."
+
+msgid "validator.regex"
+msgstr "Tas nav pareizi formatēts."
+
+msgid "validator.required"
+msgstr "Šis lauks ir obligāts."
+
+msgid "validator.required_unless"
+msgstr "Šis lauks ir obligāts, ja vien laukā {$values} nav norādīts {$other}."
+
+msgid "validator.required_with"
+msgstr "Šis lauks ir obligāts, ja ir norādīts {$values}."
+
+msgid "validator.required_without"
+msgstr "Šis lauks ir obligāts, ja nav norādīts {$values}."
+
+msgid "validator.size.numeric"
+msgstr "Tam jābūt {$size}."
+
+msgid "validator.size.string"
+msgstr "Tam jābūt {$size} rakstzīmēm."
+
+msgid "validator.size.array"
+msgstr "Tam jāsatur {$size} vienības."
+
+msgid "validator.string"
+msgstr "Šī nav derīga virkne."
+
+msgid "validator.timezone"
+msgstr "Šī nav derīga laika josla."
+
+msgid "validator.url"
+msgstr "Šis nav derīgs URL."
+
+msgid "validator.no_new_line"
+msgstr "Jauna līnija nav atļauta."
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Mēģinājums uzsākt transformāciju, kas nav atbalstīta jūsu instalēšanas vidē."
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "Nezināma komanda {$command}"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.editedAuthor"
+msgstr "Rediģēts autors."
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>Lai nodrošinātu anonīmās recenzēšanas integritāti, jāpieliek visas pūles, "
+"lai novērstu autoru un recenzentu savstarpēju identitātes noskaidrošanu. Tas "
+"nozīmē, ka autori, redaktori un recenzenti (kas augšupielādē dokumentus kā "
+"daļu no recenzēšanas) pārbauda, vai ir veikti šādi pasākumi attiecībā uz "
+"tekstu un datnes īpašībām:</p>\n"
+"<ul><li>Dokumenta autori ir svītrojuši savus vārdus no teksta; atsaucēs un "
+"zemsvītras piezīmēs autoru vārda, raksta virsraksta u. c. vietā ir izmantots "
+"\"Autors\" un gads.</li>\n"
+"<li>Dokumenta autori ir izņēmuši personisko informāciju no datnes "
+"parametriem, veicot šādus pasākumus:\n"
+"<ul><li>Microsoft Word operētājsistēmai Windows:\n"
+"<ul><li>doties uz \"Fails\" (File),</li>\n"
+"<li>atlasīt \"Informācija\" (Info);</li>\n"
+"<li>noklikšķināt uz \"Pārbaudīt, vai nav problēmu\" (Check for Issues);</li>"
+"\n"
+"<li>izvēlnē noklikšķināt uz \"Pārbaudīt dokumentu\" (Inspect Document);</li>"
+"\n"
+"<li>\"Dokumentu kontrolieris\" dialoga logā atlasīt izvēles rūtiņas, lai "
+"norādītu slēptā satura veidu, kuru vēlaties pārbaudīt;</li>\n"
+"<li>noklikšķināt \"Noņemt visu\" (Remove All);</li>\n"
+"<li>noklikšķināt \"Aizvērt\" (Close);</li>\n"
+"<li>saglabāt dokumentu.</li></ul>\n"
+"<li>Microsoft Word operētājsistēmai MacOS:\n"
+"<ul><li>doties uz Tools;</li>\n"
+"<li>noklikšķināt Protect Document;</li>\n"
+"<li>atlasīt Remove personal information for this file on save;</li>\n"
+"<li>noklikšķināt OK un saglabāt datni.</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>doties uz File,</li>\n"
+"<li>atlasīt Properties;</li>\n"
+"<li>dzēst jebkuru vārdu autora laukā;</li>\n"
+"<li>noklikšķināt OK;</li>\n"
+"<li>saglabāt dokumentu.</li></ul></li></ul>\n"
+
+msgid "notification.addedReviewer"
+msgstr ""
+"Šim iesniegtajam materiālam piešķirts recenzents {$reviewerName}, nosūtīts e-"
+"pasta paziņojums."
+
+msgid "submission.task.responseDueDate"
+msgstr "Atbildes sniegšanas termiņš"
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"Šim iesniegtajam materiālam piešķirts recenzents {$reviewerName}, e-pasta "
+"paziņojums netika nosūtīts."
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"Izlabotā datne {$stage}. posmā ir augšupielādēta redakcionālai izskatīšanai."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Labojumi, kas jāapsver {$stage}. posmā."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Nederīga recenzēšanas kārta."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Pašlaik jums nav pietiekamu tiesību, lai skatītu iesniegto materiālu. Lūdzu, "
+"labojiet savu profilu, lai pārliecinātos, ka jums ir piešķirtas atbilstošas "
+"lomas sadaļā \"Reģistrēties kā\"."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Šis ir atgādinājums pārbaudīt žurnāla stāvokli, izmantojot redakcionālo "
+"pārskatu."
+
+msgid "notification.editedNavigationMenu"
+msgstr "Navigācijas izvēlne ir veiksmīgi atjaunināta"
+
+msgid "notification.type.editorialReport"
+msgstr "Statistikas pārskata kopsavilkums."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Mēs nevarējām atcelt jūsu abonementu"
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Atlasiet e-pastus, kurus vairs nevēlaties saņemt uz {$email} no "
+"{$contextName}."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"E-pasta adrese {$email} ir veiksmīgi atrakstīta. Mēs vairs nesūtīsim jums "
+"šos e-pastus. Jūs jebkurā laikā varat atjaunot e-pasta paziņojumu abonēšanu "
+"savā <a href=\"{$profileNotificationUrl}\">lietotāja profilā</a>."
+
+msgid "validator.same"
+msgstr "{$attribute} un {$other} ir jāsakrīt."
+
+msgid "validator.size.file"
+msgstr "Tam jābūt {$size} kilobaitiem."
+
+msgid "validator.unique"
+msgstr "{$attribute} jau ir izmantots."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Nevar importēt XML mezglu"
+
+msgid "notification.addedAuthor"
+msgstr "Pievienots autors."
+
+msgid "validator.between.numeric"
+msgstr "Tam jābūt starp {$min} un {$max}."
+
+msgid "validator.boolean"
+msgstr "Šim laukam jābūt true vai false."
+
+msgid "validator.allowable_title_html_tags"
+msgstr "Ir atļautas tikai [{$tags}] html birkas."
+
+msgid "validator.email"
+msgstr "Šī nav derīga e-pasta adrese."
+
+msgid "validator.ip"
+msgstr "Šī nav derīga IP adrese."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Atcelt abonementu"
+
+msgid "list.viewMore"
+msgstr "Parādīt sīkāku informāciju par {$name}"
+
+msgid "list.collapseAll"
+msgstr "Sakļaut visu"
+
+msgid "validator.accepted"
+msgstr "Lūdzu, pieņemiet šo vienību."
+
+msgid "validator.active_url"
+msgstr "Šis nav derīgs URL."
+
+msgid "validator.max.string"
+msgstr "Tas nedrīkst būt lielāks par {$max} rakstzīmēm."
+
+msgid "validator.min.numeric"
+msgstr "Tam jābūt vismaz {$min}."
+
+msgid "validator.required_with_all"
+msgstr "Šis lauks ir obligāts, ja ir norādīts {$values}."
+
+msgid "validator.min.string"
+msgstr "Tam jābūt vismaz {$min} rakstzīmēm."
+
+msgid "validator.numeric"
+msgstr "Tas nav derīgs skaitlis."
+
+msgid "validator.required_if"
+msgstr "Šis lauks ir obligāts, ja {$other} ir {$value}."
+
+msgid "validator.alpha_dash"
+msgstr ""
+"Tajā drīkst būt tikai burti, cipari, defises un pasvītrojuma rakstzīmes."
+
+msgid "validator.alpha"
+msgstr "Tajā var būt tikai burti."
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+"Tajā drīkst būt tikai burti, cipari, defises, pasvītrojuma rakstzīmes un "
+"punkti."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Šis lauks ir daudzvalodu. Katrai atbalstītajai valodai jānorāda atsevišķas "
+"vērtības."
+
+msgid "validator.required_without_all"
+msgstr "Šis lauks ir obligāts, ja {$values} nav norādīts."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Filtrs ({$displayName}) atbalsta ievades {$inputTypeName} – {$typeofInput} "
+"doto"
+
+msgid "validator.country.regex"
+msgstr ""
+"Šī nav derīga valsts. Valstij jābūt vienam no starptautiskajiem divburtu "
+"kodiem. Skatīt visus kodus vietnē https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+
+msgid "validator.digits_between"
+msgstr "Tam jābūt starp {$min} un {$max} cipariem."
+
+msgid "showLess"
+msgstr "Rādīt mazāk"
+
+msgid "showAll"
+msgstr "Rādīt visu"

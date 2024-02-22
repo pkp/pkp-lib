@@ -1,11 +1,11 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2023-07-18 12:58+0000\n"
+"PO-Revision-Date: 2024-01-29 09:14+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Informace"
@@ -255,7 +255,7 @@ msgstr "Zobrazit záznam"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Zpráva o úspěšné registraci"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "Úspěšně aktualizované/á DOI"
 
 msgid "manager.dois.registration.depositDois"
@@ -3686,3 +3686,109 @@ msgstr "Statistiky & Zprávy"
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Odkaz k ověření emailového účtu"
+
+msgid "manager.highlights.confirmDelete"
+msgstr "Opravdu chcete odstranit {$title}? Tuto akci nelze vrátit zpět."
+
+msgid "manager.highlights.url.description"
+msgstr "Úplná adresa URL včetně adresy https:// pro tlačítko ve zvýraznění."
+
+msgid "manager.highlights.add"
+msgstr "Přidat zvýraznění"
+
+msgid "manager.highlights.delete"
+msgstr "Smazat zvýraznění"
+
+msgid "manager.highlights.edit"
+msgstr "Editovat zvýraznění"
+
+msgid "manager.highlights.image"
+msgstr "Obrázek"
+
+msgid "manager.highlights.urlText"
+msgstr "Štítek tlačítka"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Označení tlačítka ve zvýraznění, například Číst více."
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Musíte <a href=\"#announcements/announcement-settings\">povolit oznámení</a>."
+
+msgid "manager.image"
+msgstr "Obrázek"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Požadovat od autorů, aby spolu s příspěvkem zaslali soubor s prohlášením o "
+"střetu zájmů."
+
+msgid "manager.statistics.counterR5"
+msgstr "Počítadlo R5"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Více informací o jednotlivých sestavách najdete v <a href=\"https://cop5."
+"projectcounter.org/en/5.0.3/04-reports/index.html\" target=\"_new\""
+">dokumentaci k programu COUNTER 5.0.3</a>."
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Zprávy počítadla R5"
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Zatím nejsou k dispozici žádné statistiky používání COUNTER R5."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Nastavení sestavy"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Začáteční datum"
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Koncové datum"
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Formát data není platný."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ID zákazníka"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Typ metriky"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Atributy k zobrazení"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Rok vydání"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Seznam nebo rozsah let vydání, který se má vrátit v odpovědi ve formátu "
+"rrrr|rrrr|rrrr-rrrr."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Formát roku vydání není platný."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "ID příspěvku"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "ID příspěvku neexistuje."
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Vyloučit měsíční údaje"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Datum by mělo být ve formátu RRRR-MM-DD nebo RRRR-MM. První možné datum je "
+"{$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Datum by mělo být ve formátu RRRR-MM-DD nebo RRRR-MM. Poslední možné datum "
+"je {$lastDate}."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Soubor příspěvku {$id} byl přeskočen, protože nemá platnou fázi souboru."

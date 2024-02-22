@@ -155,6 +155,7 @@ msgstr "Ralat menghuraikan fail templat e-mel <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Ralat menghuraikan fail konfigurasi penapis <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Naik taraf tidak disokong. Lihat dokumen/NAIK TARAF-TIDAK DISOKONG untuk "

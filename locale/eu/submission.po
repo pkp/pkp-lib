@@ -1,10 +1,10 @@
-# Josu Acosta <josuacostacalvo@gmail.com>, 2023.
+# Josu Acosta <josuacostacalvo@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2023-07-12 21:40+0000\n"
+"PO-Revision-Date: 2024-01-26 15:34+0000\n"
 "Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/eu/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
@@ -43,7 +43,7 @@ msgid "submission.submit.submissionChecklist"
 msgstr ""
 
 msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
+msgstr "Bidalketa guztiek baldintza hauek bete behar dituzte."
 
 msgid "submission.submit.submissionChecklistConfirm"
 msgstr ""
@@ -58,7 +58,7 @@ msgid "submission.submit.genre.description"
 msgstr ""
 
 msgid "submission.submit.removeConfirm"
-msgstr ""
+msgstr "Ziur zaude fitxategi hau ezabatu nahi duzula?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr ""
@@ -948,7 +948,7 @@ msgid "submission.review"
 msgstr "Ebaluazioa"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Ebaluatu eta bidali"
 
 msgid "submission.reviewed"
 msgstr "Berrikusia"
@@ -1914,7 +1914,7 @@ msgid "grid.action.editMetadata"
 msgstr ""
 
 msgid "submission.permissions"
-msgstr ""
+msgstr "Baimenak"
 
 msgid "submission.attachPermissions"
 msgstr ""
@@ -2110,7 +2110,7 @@ msgid "submission.list.filesPrepared"
 msgstr ""
 
 msgid "submission.list.discussions"
-msgstr ""
+msgstr "Eztabaida irekiak"
 
 msgid "submission.list.dualWorkflowLinks"
 msgstr ""

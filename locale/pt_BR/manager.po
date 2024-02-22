@@ -1,5 +1,5 @@
 # Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023, 2024.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022, 2023.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 # Danilo Silva <profdanilocsilva@outlook.com>, 2023.
@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2024-01-31 12:37+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Informação"
@@ -260,7 +260,7 @@ msgstr "Visualizar registro"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Mensagem de registro bem-sucedido"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOIs atualizados com sucesso"
 
 msgid "manager.dois.registration.depositDois"
@@ -3729,3 +3729,119 @@ msgid "manager.setup.notifyUsers.queued"
 msgstr ""
 "Os e-mails foram colocados em fila de espera com sucesso para serem enviados "
 "o mais rápido possível."
+
+msgid "emailTemplate.variable.activateUrl"
+msgstr "O link para validar uma conta de e-mail"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Exigir dos autores o registro de conflito de interesses (CI) junto com a "
+"submissão."
+
+msgid "manager.highlights.add"
+msgstr "Adicionar Destaque"
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Tem certeza de que deseja excluir {$title}? Essa ação não pode ser desfeita."
+
+msgid "manager.highlights.delete"
+msgstr "Excluir Destaque"
+
+msgid "manager.highlights.url.description"
+msgstr "A URL completa, incluindo https://, para o botão em destaque."
+
+msgid "manager.image"
+msgstr "Imagem"
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ID do Cliente"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Tipo de Métrica"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Atributos a serem exibidos"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Uma lista ou intervalo de anos de publicação a ser retornado em resposta no "
+"formato aaaa|aaaa|aaaa-aaaa."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"O arquivo de submissão {$id} foi ignorado porque não possui um arquivo "
+"válido."
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Você deve <a href=\"#announcements/announcement-settings\">ativar "
+"anúncios</a>."
+
+msgid "manager.highlights.edit"
+msgstr "Editar Destaque"
+
+msgid "manager.highlights.image"
+msgstr "Imagem"
+
+msgid "manager.highlights.urlText"
+msgstr "Rótulo de Botão"
+
+msgid "manager.highlights.urlText.description"
+msgstr "O rótulo, como Leia mais, do botão em destaque."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "O formato de data não é válido."
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Relatórios do Counter R5"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Consulte a <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/"
+"index.html\" target=\"_new\">documentação do COUNTER 5.0.3</a> para obter "
+"mais informações sobre cada relatório."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Ainda não há estatísticas de uso do COUNTER R5 disponíveis."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Configurações do Relatório"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Data Inicial"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"A data deve estar no formato AAAA-MM-DD ou AAAA-MM. A data mais antiga "
+"possível é {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Data Final"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"A data deve estar no formato AAAA-MM-DD ou AAAA-MM. A última data possível é "
+"{$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Ano de Publicação"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "O formato YOP não é válido."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "ID de Submissão"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "O ID de submissão não existe."
+
+#, fuzzy
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Incluir detalhes dos Parent"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Excluir detalhes mensais"

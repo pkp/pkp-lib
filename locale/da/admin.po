@@ -1,11 +1,11 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2023-04-12 16:29+0000\n"
+"PO-Revision-Date: 2024-01-05 22:40+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/da/"
 ">\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Navn på indstilling"
@@ -223,7 +223,7 @@ msgstr ""
 "forfejlet proces eller en igangværende proces. Denne fil vil automatisk "
 "blive genbehandlet."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Filen {$file} kunne ikke åbnes og blev afvist."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -238,42 +238,42 @@ msgstr ""
 "skal du gendanne alle den pågældende måneds logfiler og bruge CLI værktøjet "
 "til at genbehandle statistik."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Linjen {$lineNumber} i logfilen {$file} er i et forkert format og vil derfor "
 "blive sprunget over."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr "Ugyldig log-indgang i linje {$lineNumber} i logfilen {$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Tidsangivelsen er ikke en gyldig dato."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "Contekst ID er ikke et heltal."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "Indsendelses-ID er ikke et heltal."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "Repræsentations-ID er ikke et heltal."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Assoc type understøttes ikke."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Filtypen understøttes ikke."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Land er ikke en streng med to bogstavkarakterer."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Region er ikke en op til tre alfa-nummeriske karakterer lang streng."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Institutions-ID er ikke et array."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Der skete en fejl under behandlingen af logfilen {$file} i linje "
 "{$lineNumber}: {$msg}"
@@ -557,7 +557,7 @@ msgstr ""
 "Afsend tilgængelige opgaver til køen. Hvis du ønsker at afsende en opgave "
 "til en specifik kø, skal du angive parameteren --queue=QUEUE_NAME. Du kan "
 "også blot angive --test for at køre en testopgave, eller --once for at køre "
-"én opgave ad gangen"
+"én opgave ad gangen."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr "Færdiggjorte {$jobCount} opgaver i køen kaldet {$queueName}."
@@ -833,9 +833,6 @@ msgstr ""
 "dette websted er udgivet, ejet eller drevet af den samme udbyder, kan du "
 "vælge at udpege webstedet som platformen."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Brug hjemmesiden som platform til alle tidsskrifterne."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Platform ID"
 
@@ -926,3 +923,18 @@ msgstr "Kør \"worker deamon\" i testkø"
 
 #~ msgid "admin.authSources"
 #~ msgstr "Godkendelseskilder"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Brug hjemmesiden som platform for alle tidsskrifter."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Deaktiver samlet bedømmerstatistik"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Bedømmerstatistik"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"I en installation med flere tidsskrifter/udgivere kan bedømmerstatistik (fx "
+"antallet af indsendte bedømmelser) enten vises individuelt for hver enkelt "
+"tidsskrift/udgiver eller samlet for alle."

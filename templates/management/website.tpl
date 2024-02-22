@@ -72,6 +72,14 @@
 						@set="set"
 					/>
 				</tab>
+				{if $enableHighlights}
+				<tab id="highlights" label="{translate key="common.highlights"}">
+					<highlights-list-panel
+						v-bind="components.highlights"
+						@set="set"
+					></highlights-list-panel>
+				</tab>
+				{/if}
 				<tab id="lists" label="{translate key="manager.setup.lists"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_LISTS}"

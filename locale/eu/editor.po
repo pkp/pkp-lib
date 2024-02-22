@@ -1,10 +1,10 @@
-# Josu Acosta <josuacostacalvo@gmail.com>, 2023.
+# Josu Acosta <josuacostacalvo@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2023-06-23 08:49+0000\n"
+"PO-Revision-Date: 2024-01-26 15:34+0000\n"
 "Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "eu/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Ziur zaude betiko ezabatu nahi duzula bidalketa hau?"
@@ -109,7 +109,7 @@ msgid "editor.submission.uploadSelectFiles"
 msgstr "Igo/aukeratu fitxategiak"
 
 msgid "editor.submission.selectFiles"
-msgstr ""
+msgstr "Hautatu fitxategiak"
 
 msgid "editor.submission.revisions"
 msgstr ""
@@ -271,7 +271,7 @@ msgid "editor.review.reviewDue"
 msgstr ""
 
 msgid "editor.review.reviewDueDate"
-msgstr ""
+msgstr "Ebaluazioaren Epemuga"
 
 msgid "editor.review.reviewCompleted"
 msgstr ""

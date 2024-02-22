@@ -2,13 +2,14 @@
 # Mathias Vitalis <mathias.vitalis@u-bordeaux.fr>, 2023.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-08-01 08:25+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2023-11-24 19:27+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
@@ -137,7 +138,7 @@ msgstr ""
 "filter'. Veuillez le signaler comme un bogue."
 
 msgid "metadata.property.displayName.author"
-msgstr "Auteurs"
+msgstr "Auteur·e·s"
 
 msgid "metadata.property.validationMessage.author"
 msgstr ""
@@ -400,11 +401,10 @@ msgstr "Veuillez saisir un nom valide pour la partie."
 msgid "metadata.property.displayName.name-type"
 msgstr "Type du nom"
 
-#, fuzzy
 msgid "metadata.property.validationMessage.name-type"
 msgstr ""
 "Assurez-vous de choisir un type de nom valide. Les valeurs acceptées sont « "
-"personnel » , « corporatif » et « conférence »."
+"personne » , « entreprise/institution » et « conférence »."
 
 msgid "metadata.property.displayName.abstract"
 msgstr "Résumé"
@@ -416,7 +416,7 @@ msgid "common.queue.long.myAssigned"
 msgstr "Soumissions en cours"
 
 msgid "common.queue.long.submissionsArchived"
-msgstr "Sousmissions archivées"
+msgstr "Soumissions archivées"
 
 msgid "submission.authors"
 msgstr "Auteurs"
@@ -425,7 +425,7 @@ msgid "submission.authorBiography"
 msgstr "Biographie de l'auteur"
 
 msgid "submission.authorBiographies"
-msgstr "Bibliographies de l'auteur"
+msgstr "Biographies de l'auteur"
 
 msgid "submission.authorWithAffiliation"
 msgstr "{$name}, {$affiliation}"
@@ -599,7 +599,6 @@ msgstr ""
 "{$userFullName} ({$username}) a été ajouté·e à cette soumission en tant que "
 "{$userGroupName}."
 
-#, fuzzy
 msgid "submission.event.participantRemoved"
 msgstr ""
 "« {$userFullName} » ({$username}) ne fait plus partie du groupe "
@@ -718,7 +717,7 @@ msgstr "Télécharger tous les fichiers"
 msgid "submission.file.notAllowedUploaderUserId"
 msgstr ""
 "Un enregistrement de l'expéditeur du fichier est sauvegardé lors de la "
-"création du fichier et ne pas pas être modifié."
+"création du fichier et ne peut pas être modifié."
 
 msgid "submission.firstPublished"
 msgstr "Première publication"
@@ -1972,8 +1971,8 @@ msgstr ""
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
-"« {$userFullName} » ({$username}) a été ajouté à titre de vérificateur du fichier "
-"« {$filename} »."
+"« {$userFullName} » ({$username}) a été ajouté à titre de vérificateur du "
+"fichier « {$filename}. »"
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
@@ -1985,11 +1984,13 @@ msgstr ""
 "« {$filename} »."
 
 msgid "submission.event.signoffSignoff"
-msgstr "« {$userFullName} » ({$username}) a fermé la session pour « {$filename} »."
+msgstr ""
+"« {$userFullName} » ({$username}) a fermé la session pour « {$filename}. »"
 
 msgid "submission.event.proofsApproved"
 msgstr ""
-"« {$userFullName} » ({$username}) a approuvé les épreuves pour « {$publicationFormatName} »."
+"« {$userFullName} » ({$username}) a approuvé les épreuves pour « "
+"{$publicationFormatName}. »"
 
 msgid "submission.overview"
 msgstr "Aperçu de la soumission"
@@ -2523,7 +2524,6 @@ msgstr ""
 "Ajoutez toute information que vous jugez utile à notre équipe éditoriale "
 "pour évaluer votre soumission."
 
-#, fuzzy
 msgid "submission.wizard.confirm"
 msgstr "Veuillez confirmer le contenu suivant avant d'envoyer votre soumission."
 
@@ -2533,11 +2533,9 @@ msgstr "Faire une soumission"
 msgid "submission.wizard.titleWithStep"
 msgstr "Faire une soumission : {$step}"
 
-#, fuzzy
 msgid "submission.wizard.noContributors"
 msgstr "Cette soumission n'inclut aucun contributeur ou contributrice."
 
-#, fuzzy
 msgid "submission.wizard.missingContributorLanguage"
 msgstr ""
 "Le prénom est manquant en {$langue} pour un ou plusieurs des contributeurs "
@@ -2546,7 +2544,6 @@ msgstr ""
 msgid "submission.wizard.notAllowed"
 msgstr "Non autorisé"
 
-#, fuzzy
 msgid "submission.wizard.privacyConsent"
 msgstr "Consentement au traitement des données personnelles"
 
@@ -2674,7 +2671,6 @@ msgstr ""
 "Échec du marquage du DOI enregistré pour {$pubObjectTitle}. La soumission "
 "doit être publiée avant que son état puisse être mis à jour."
 
-#, fuzzy
 msgid "submission.viewingPreview"
 msgstr ""
 "Ceci est un aperçu et n'a pas encore été publié. <a href=\"{$url}\">Voir la "
@@ -2724,7 +2720,6 @@ msgstr ""
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Personne-ressource pour la correspondance éditoriale."
 
-#, fuzzy
 msgid "submission.dataAvailability"
 msgstr "Déclaration de disponibilité des données"
 
@@ -2895,3 +2890,9 @@ msgid "submission.query.allowedEditTime"
 msgstr ""
 "Vous pouvez mettre à jour cette discussion pendant "
 "{$allowedEditTimeNoticeLimit} minutes."
+
+msgid "submission.authors.label"
+msgstr "Auteurs/trices"
+
+msgid "submission.author.list"
+msgstr "Liste des soumissionnaires"

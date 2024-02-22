@@ -161,6 +161,7 @@ msgstr "Pogreška pri analizi datoteke predloška e-pošte <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Pogreška pri analizi konfiguracijske datoteke filtra <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Nadogradnja nije podržana. Pogledajte docs/UPGRADE-UNSUPPORTED za detalje."

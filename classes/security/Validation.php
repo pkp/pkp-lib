@@ -27,12 +27,16 @@ use PKP\session\SessionManager;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\user\User;
+use PKP\validation\ValidatorFactory;
 
 class Validation
 {
     public const ADMINISTRATION_PROHIBITED = 0;
     public const ADMINISTRATION_PARTIAL = 1;
     public const ADMINISTRATION_FULL = 2;
+
+    public const AUTH_KEY_USERNAME = 1;
+    public const AUTH_KEY_EMAIL = 2;
 
     /**
      * Authenticate user credentials and mark the user as logged in in the current session.
@@ -47,7 +51,15 @@ class Validation
     public static function login($username, $password, &$reason, $remember = false)
     {
         $reason = null;
-        $user = Repo::user()->getByUsername($username, true);
+        $authKey = static::AUTH_KEY_USERNAME;
+
+        if (ValidatorFactory::make(['email' => $username], ['email' => 'email'])->passes()) {
+            $user = Repo::user()->getByEmail($username, true);
+            $authKey = static::AUTH_KEY_EMAIL;
+        } else{
+            $user = Repo::user()->getByUsername($username, true);
+        }
+        
         if (!isset($user)) {
             // User does not exist
             return false;
@@ -64,7 +76,7 @@ class Validation
             $user->setPassword($rehash);
         }
 
-        return self::registerUserSession($user, $reason, $remember);
+        return self::registerUserSession($user, $reason, $remember, $authKey);
     }
 
     /**
@@ -97,13 +109,16 @@ class Validation
     /**
      * Mark the user as logged in in the current session.
      *
-     * @param User $user user to register in the session
-     * @param string $reason reference to string to receive the reason an account was disabled; null otherwise
-     * @param bool $remember remember a user's session past the current browser session
+     * @param User      $user       user to register in the session
+     * @param string    $reason     reference to string to receive the reason an account
+     *                              was disabled; null otherwise
+     * @param bool      $remember   remember a user's session past the current browser session
+     * @param int       $authKey    const value of AUTH_KEY_* define auth key(email/username)
      *
-     * @return mixed User or boolean the User associated with the login credentials, or false if the credentials are invalid
+     * @return mixed                User or boolean the User associated with the login credentials,
+     *                              or false if the credentials are invalid
      */
-    public static function registerUserSession($user, &$reason, $remember = false)
+    public static function registerUserSession($user, &$reason, $remember = false, $authKey = self::AUTH_KEY_USERNAME)
     {
         if (!$user instanceof User) {
             return false;
@@ -128,6 +143,9 @@ class Validation
         $session->setSessionVar('userId', $user->getId());
         $session->setUserId($user->getId());
         $session->setSessionVar('username', $user->getUsername());
+        if ($authKey === static::AUTH_KEY_EMAIL) {
+            $session->setSessionVar('email', $user->getEmail());
+        }
         $session->getCSRFToken(); // Force generation (see issue #2417)
         $session->setRemember($remember);
 
@@ -410,7 +428,7 @@ class Validation
     public static function loggedInAs(): ?int
     {
         if (!SessionManager::hasSession()) {
-            return false;
+            return null;
         }
         $sessionManager = SessionManager::getManager();
         $session = $sessionManager->getUserSession();
@@ -422,7 +440,6 @@ class Validation
     /**
      * Check if the user is logged in as a different user.
      *
-     * @return bool
      *
      * @deprecated 3.4
      */

@@ -483,6 +483,12 @@ msgstr "Go"
 msgid "common.height"
 msgstr "Height"
 
+msgid "common.highlight"
+msgstr "Highlight"
+
+msgid "common.highlights"
+msgstr "Highlights"
+
 msgid "common.homepageNavigationLabel"
 msgstr "Home"
 
@@ -770,7 +776,7 @@ msgid "common.replaceFile"
 msgstr "Replace file"
 
 msgid "common.requiredField"
-msgstr "* Denotes required field"
+msgstr "Required fields are marked with an asterisk: <abbr class="required" title="required">*</abbr>"
 
 msgid "common.required"
 msgstr "Required"
@@ -1677,7 +1683,7 @@ msgid "search.cli.rebuildIndex.error"
 msgstr "error"
 
 msgid "search.cli.rebuildIndex.result"
-msgstr "{$numIndexed} articles indexed"
+msgstr "{$numIndexed} articles scheduled for indexation"
 
 msgid "search.coverage"
 msgstr "Coverage"
@@ -2268,3 +2274,6 @@ msgstr "Author added."
 
 msgid "notification.editedAuthor"
 msgstr "Author edited."
+
+msgid "common.sandbox"
+msgstr "Application running in sandbox mode."

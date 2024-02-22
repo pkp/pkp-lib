@@ -25,6 +25,7 @@
 namespace PKP\xslt;
 
 use DOMDocument;
+use Exception;
 use PKP\filter\TypeDescription;
 
 class XMLTypeDescription extends TypeDescription
@@ -120,7 +121,7 @@ class XMLTypeDescription extends TypeDescription
 
         // Validation - requires DOMDocument
         if (is_string($object)) {
-            $xmlDom = new DOMDocument();
+            $xmlDom = new DOMDocument('1.0', 'utf-8');
             $xmlDom->loadXML($object);
         } else {
             $xmlDom = & $object;
@@ -138,7 +139,7 @@ class XMLTypeDescription extends TypeDescription
             case self::XML_TYPE_DESCRIPTION_VALIDATE_SCHEMA:
                 libxml_use_internal_errors(true);
                 if (!$xmlDom->schemaValidate($this->_validationSource)) {
-                    $errors = libxml_get_errors();
+                    error_log(new Exception("XML validation failed with:\n" . print_r(libxml_get_errors(), true)));
                     return false;
                 }
 

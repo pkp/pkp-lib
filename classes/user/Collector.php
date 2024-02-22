@@ -89,6 +89,7 @@ class Collector implements CollectorInterface
 
     /**
      * @copydoc DAO::getMany()
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(): LazyCollection
@@ -442,21 +443,37 @@ class Collector implements CollectorInterface
         if ($this->userGroupIds === null && $this->roleIds === null && $this->contextIds === null && $this->workflowStageIds === null) {
             return $this;
         }
-        $query->whereExists(
-            fn (Builder $query) => $query->from('user_user_groups', 'uug')
-                ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
-                ->whereColumn('uug.user_id', '=', 'u.user_id')
-                ->when($this->userGroupIds !== null, fn ($query) => $query->whereIn('uug.user_group_id', $this->userGroupIds))
-                ->when(
-                    $this->workflowStageIds !== null,
-                    fn ($query) => $query
-                        ->join('user_group_stage AS ugs', 'ug.user_group_id', '=', 'ugs.user_group_id')
-                        ->whereIn('ugs.stage_id', $this->workflowStageIds)
+
+        $subQuery = DB::table('user_user_groups as uug')
+            ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
+            ->whereColumn('uug.user_id', '=', 'u.user_id')
+            ->when($this->userGroupIds !== null, fn (Builder $subQuery) => $subQuery->whereIn('uug.user_group_id', $this->userGroupIds))
+            ->when(
+                $this->workflowStageIds !== null,
+                fn (Builder $subQuery) => $subQuery
+                    ->join('user_group_stage AS ugs', 'ug.user_group_id', '=', 'ugs.user_group_id')
+                    ->whereIn('ugs.stage_id', $this->workflowStageIds)
+            )
+            ->when($this->roleIds !== null, fn ($subQuery) => $subQuery->whereIn('ug.role_id', $this->roleIds))
+            ->when($this->contextIds !== null, fn ($subQuery) => $subQuery->whereIn('ug.context_id', $this->contextIds));
+
+        $joinSub = clone $subQuery;
+        $query
+            ->addWhereExistsQuery(
+                $subQuery->when(
+                    $this->excludeRoles != null,
+                    // This aggregates a column role_count, which holds an information whether user holds specified role
+                    fn (Builder $subQuery) => $subQuery->leftJoinSub(
+                        $joinSub
+                            ->select('uug.user_id')
+                            ->whereIn('ug.role_id', $this->excludeRoles),
+                        'agr',
+                        'uug.user_id',
+                        'agr.user_id'
+                    )->whereNull('agr.user_id')
                 )
-                ->when($this->excludeRoles !== null, fn ($query) => $query->whereNotIn('ug.role_id', $this->excludeRoles))
-                ->when($this->roleIds !== null, fn ($query) => $query->whereIn('ug.role_id', $this->roleIds))
-                ->when($this->contextIds !== null, fn ($query) => $query->whereIn('ug.context_id', $this->contextIds))
-        );
+            );
+
         return $this;
     }
 
@@ -530,6 +547,7 @@ class Collector implements CollectorInterface
             return $this;
         }
 
+        $disableSharedReviewerStatistics = (bool) Application::get()->getRequest()->getSite()->getData('disableSharedReviewerStatistics');
         $dateDiff = fn (string $dateA, string $dateB): string => DB::connection() instanceof MySqlConnection
             ? "DATEDIFF({$dateA}, {$dateB})"
             : "DATE_PART('day', {$dateA} - {$dateB})";
@@ -544,7 +562,9 @@ class Collector implements CollectorInterface
                 ->selectRaw('SUM(ra.declined) AS declined_count')
                 ->selectRaw('SUM(ra.cancelled) AS cancelled_count')
                 ->selectRaw('AVG(' . $dateDiff('ra.date_completed', 'ra.date_notified') . ') AS average_time')
-                ->selectRaw('AVG(ra.quality) AS reviewer_rating'),
+                ->selectRaw('AVG(ra.quality) AS reviewer_rating')
+                ->when($disableSharedReviewerStatistics, fn (Builder $query) => $query->join('submissions AS s', 'ra.submission_id', '=', 's.submission_id')
+                    ->when($this->contextIds !== null, fn (Builder $query) => $query->whereIn('s.context_id', $this->contextIds))),
             'ra_stats',
             'u.user_id',
             '=',

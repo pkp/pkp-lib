@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023.
+# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2023-08-19 12:58+0000\n"
+"PO-Revision-Date: 2024-01-30 13:22+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/sl/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 4.13.1\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Informacije"
@@ -254,7 +254,7 @@ msgstr "Poglej zapis"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Zapis uspešne registracije"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI-ji uspešno posodobljeni"
 
 msgid "manager.dois.registration.depositDois"
@@ -3226,7 +3226,7 @@ msgstr ""
 "Ta email obvešča avtorje, da je bil njihov prispevek poslan v produkcijo."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr "Recenzija izpuščena"
+msgstr "Prispevek sprejet (brez recenzije)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
@@ -3698,3 +3698,115 @@ msgstr ""
 
 msgid "emailTemplate.variable.activateUrl"
 msgstr "Povezava za potrditev email računa"
+
+msgid "manager.highlights.add"
+msgstr "Dodajte poudarek"
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Ste prepričani, da želite odstraniti {$title}? Te akcije ni mogoče "
+"preklicati."
+
+msgid "manager.highlights.delete"
+msgstr "Odstrani poudarek"
+
+msgid "manager.highlights.edit"
+msgstr "Uredi poudarek"
+
+msgid "manager.highlights.image"
+msgstr "Slika"
+
+msgid "manager.highlights.url.description"
+msgstr "Celoten URL, vključno w https://, za gumb v poudarku."
+
+msgid "manager.highlights.urlText"
+msgstr "Napis na gumbu"
+
+msgid "manager.highlights.urlText.description"
+msgstr "Napis na gumbu v poudarku (npr. Več...)."
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Omogočiti morate <a href=\"#announcements/announcement-settings\""
+">obvestila</a>."
+
+msgid "manager.image"
+msgstr "Slika"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Zahtevaj od avtorjev izjavo o konfliktu interesov med procesom oddaje "
+"prispevka."
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Seznam ali obseg letnic objave, ki se bodo uporabili v odgovoru v obliki "
+"yyyy|yyyy|yyyy-yyyy."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Datoteka prispevka {$id} je bila izpuščena, ker nima veljavne faze datoteke."
+
+msgid "manager.statistics.counterR5"
+msgstr "Števec R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Poročilo za števec R5"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Poglejte <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
+"html\" target=\"_new\">COUNTER 5.0.3 dokumentacijo</a> za več informacij o "
+"posameznem poročilu."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Na voljo ni še nobenih COUNTER R5 statistik uporabe."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Nastavitve za poročila"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Začetni datum"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"Datum mora biti oblike YYYY-MM-DD ali YYYY-MM. Prvi možni datum je "
+"{$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Končni datum"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"Datum mora biti oblike YYYY-MM-DD ali YYYY-MM. Zadnji možni datum je "
+"{$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Napačna oblika datuma."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ID stranke"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Tip metrike"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Prikaži atribute"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Leto objave"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Napačna oblika letnic."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "ID prispevka"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "Ta ID prispevka ne obstaja."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Vključi podrobnosti staršev"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Ne prikaži mesečnih podrobnosti"

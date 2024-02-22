@@ -1,14 +1,14 @@
-# M. Ali <vorteem@gmail.com>, 2022.
+# M. Ali <vorteem@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2022-10-08 04:01+0000\n"
+"PO-Revision-Date: 2023-09-03 02:58+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"installer/ar_IQ/>\n"
-"Language: ar_IQ\n"
+"installer/ar/>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -149,6 +149,7 @@ msgstr "حدث خطأ عند تحليل ملف قوالب الرسائل الا�
 msgid "installer.installParseFilterConfigFileError"
 msgstr "حدث خطأ عند تحليل ملف إعدادات التصفية <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "الترقية غير مدعومة. أنظر الملف: docs/UPGRADE-UNSUPPORTED للمزيد من التفاصيل."
@@ -237,3 +238,6 @@ msgstr ""
 
 #~ msgid "installer.clientCharsetInstructions"
 #~ msgstr "الترميز المستعمل عند إرسال البيانات واستلامها من المستعرض."
+
+msgid "installer.miscSettings"
+msgstr "إعدادات متنوعة"

@@ -1,8 +1,9 @@
 # M. Ali <vorteem@gmail.com>, 2023.
+# "M. Ali" <vorteem@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-28 14:09+0000\n"
-"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"PO-Revision-Date: 2024-01-20 02:39+0000\n"
+"Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ar/"
 ">\n"
 "Language: ar\n"
@@ -11,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingValue"
 msgstr "قيمة الإعداد"
@@ -185,19 +186,19 @@ msgstr ""
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "مهمة تحميل ملف إحصائيات الاستعمال"
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "تعذر فتح الملف {$file} وتم رفضه."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "نوع المساعد غير مدعوم."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "رمز البلد ليس نصًا من حرفين هجائيين."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "مُعرَّف المؤسسة ليس مصفوفة."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr "وقع خطأ عند معالجة ملف الوقوعات {$file} عند السطر {$lineNumber}: {$msg}"
 
 msgid "admin.server.dbDriver"
@@ -331,27 +332,27 @@ msgstr ""
 "الملف {$file} هو بصيغة ملف وقوعات قديم لا تمكن معالجته ولهذا السبب ستجري "
 "إعادته إلى مجلد منصة العمل."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "مُدخل سجل وقوعات خاطئ عند السطر {$lineNumber} في ملف الوقوعات {$file}: "
 "{$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "الوقت ليس بشكل تاريخ صالح."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "مُعرَّف السياق ليس عددًا صحيحًا."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "مُعرَّف طلب التقديم ليس عددًا صحيحًا."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "مُعرَّف العرض التقديمي ليس عددًا صحيحًا."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "نوع الملف غير مدعوم."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "اسم المنطقة ليس نصًا أقصاه ثلاثة حروف هجائية."
 
 msgid "admin.server.apacheVersion"
@@ -443,7 +444,7 @@ msgstr ""
 "احتسابها. لإعادة إحتساب الإحصائيات لشهر سابق، ينبغي عليك استعادة كل ملفات "
 "الوقوعات العائدة له واستعمال أداة واجهة سطر الأوامر لإعادة معالجة الإحصائيات."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "السطر {$lineNumber} في ملف الوقوعات {$file} هو بصيغة خاطئة ولها سيجري تخطيه."
 
@@ -769,9 +770,6 @@ msgstr ""
 "المهمة التي تقوم بتحميل إحصائيات الاستعمال من الملف {$file} قد فشلت. تم نقل "
 "الملف إلى مجلد الخزن."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "استعمل الموقع بمثابة المنصة لكل المجلات."
-
 msgid "admin.cli.tool.jobs.work.options.title"
 msgstr "خيارات أمر العمل"
 
@@ -855,3 +853,17 @@ msgstr ""
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
 "أقصى عدد من الثواني التي على العامل التنفيذ خلالها[الافتراضي : '{$default}']"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "إحصائيات المحكمين"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"في بيئة التنصيب المتعدد، يمكن عرض إحصائيات التحكيم، مثل عدد التحكيمات "
+"المسلمة إما فرديًا لكل مجلة على حدة أو مجمعة."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "تعطيل إحصائيات التحكيم المجمعة"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "استعمال الموقع بمثابة المنصة لكل المجلات."

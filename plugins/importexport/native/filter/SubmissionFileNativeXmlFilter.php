@@ -54,7 +54,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
     public function &process(&$submissionFile)
     {
         // Create the XML document
-        $doc = new DOMDocument('1.0');
+        $doc = new DOMDocument('1.0', 'utf-8');
         $doc->preserveWhiteSpace = false;
         $doc->formatOutput = true;
         $deployment = $this->getDeployment();
@@ -81,6 +81,13 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         $deployment = $this->getDeployment();
         $context = $deployment->getContext();
         $stageToName = array_flip($deployment->getStageNameStageIdMapping());
+
+        // Quit if the submission file has an invalid file stage
+        if (!isset($stageToName[$submissionFile->getFileStage()])) {
+            $deployment->addWarning(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileInvalidFileStage', ['id' => $submissionFile->getId()]));
+            return null;
+        }
+
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genre = $genreDao->getById($submissionFile->getData('genreId'));
         $uploaderUser = Repo::user()->get($submissionFile->getData('uploaderUserId'), true);

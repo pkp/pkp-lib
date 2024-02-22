@@ -154,6 +154,7 @@ msgid "installer.installParseFilterConfigFileError"
 msgstr ""
 "<tt>{$file}</tt> сүзгі конфигурация файлын талдау кезінде қате орын алды."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Жаңартуға қолдау көрсетілмейді. Мәліметтер алу үшін docs/UPGRADE-UNSUPPORTED "

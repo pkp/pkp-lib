@@ -1,10 +1,10 @@
-# Pavel Pisklakov <ppv1979@mail.ru>, 2022, 2023.
+# Pavel Pisklakov <ppv1979@mail.ru>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2023-05-01 13:49+0000\n"
+"PO-Revision-Date: 2024-01-04 15:39+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ru/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Задаем название"
@@ -225,7 +225,7 @@ msgstr ""
 "процесс завершился неудачей, или на то, что процесс запущенпараллельно . "
 "Этот файл будет автоматически обработан заново."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Файл «{$file}» не может быть открыт и был отклонен."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -240,44 +240,44 @@ msgstr ""
 "необходимо восстановить все файлы журнала событий за тот месяц и "
 "использовать инструмент CLI для повторной обработки статистики."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Строка {$lineNumber} в файле журнала событий {$file} имеет неправильный "
 "формат и поэтому будет пропущена."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Неправильная запись журнала событий в строке {$lineNumber} в файле журнала "
 "{$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Время не является правильной датой."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "ID контекста не является целым числом."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "ID материала не является целым числом."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "ID представления не является целым числом."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Тип, связанный со строкой журнала, не поддерживается."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Тип файла не поддерживается."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Страна не является строкой из двух букв."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Регион не является строкой, состоящей из не более чем трех букв и цифр."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Идентификаторы организаций не являются массивом."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Произошла ошибка при обработке файла журнала событий {$file} в строке "
 "{$lineNumber}: {$msg}"
@@ -561,7 +561,7 @@ msgstr ""
 "Добавление доступных задач в очередь. Если вы хотите добавить задачу в "
 "определенную очередь, передайте параметр --queue=QUEUE_NAME. Также можно "
 "просто передать --test для запуска тестовой задачи и --once для запуска "
-"одной задачи за раз"
+"одной задачи за раз."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr "Завершено выполнение {$jobCount} задач в очереди с именем {$queueName}."
@@ -844,9 +844,6 @@ msgstr ""
 "журналы на этом сайте опубликованы, принадлежат или управляются одним и тем "
 "же провайдером, вы можете указать сайт в качестве платформы."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Использовать сайт как платформу для всех журналов."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID платформы"
 
@@ -931,3 +928,19 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Запустить рабочий сервис-демон для тестовой очереди"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Использовать сайт как платформу для всех журналов."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Отключить сводную статистику рецензента по нескольким журналам"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Статистика рецензента"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"При мультиконтекстной установке (с несколькими журналами на одном сервере) "
+"статистика рецензентов, например, количество отправленных рецензий, может "
+"отображаться либо отдельно для каждого контекста, либо в совокупности по "
+"всем контекстам (журналам)."

@@ -229,7 +229,7 @@ msgstr ""
 msgid "manager.dois.registration.viewRecord.title"
 msgstr ""
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr ""
 
 msgid "manager.dois.registration.depositDois"
@@ -3421,3 +3421,8 @@ msgstr ""
 #~ msgstr ""
 #~ "Deze e-mail wordt door de sectieredacteur verstuurd om een reviewer eraan "
 #~ "te herinneren dat de afgesproken reviewperiode verstreken is."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Verplicht auteurs een verklaring omtrent  strijdige belangen in te dienen "
+"met hun inzending."

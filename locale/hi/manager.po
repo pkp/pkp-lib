@@ -227,7 +227,7 @@ msgstr ""
 msgid "manager.dois.registration.viewRecord.title"
 msgstr ""
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr ""
 
 msgid "manager.dois.registration.depositDois"
@@ -3189,3 +3189,8 @@ msgstr ""
 #~ msgstr ""
 #~ "यह ईमेल एक अनुभाग संपादक द्वारा एक समीक्षक को याद दिलाने के लिए भेजा जाता है कि "
 #~ "उनकी समीक्षा होने वाली है."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"अपने जमा करने के साथ एक प्रतियोगी ब्याज (CI) बयान दर्ज करने के लिए लेखकों को प्रस्तुत करने "
+"की आवश्यकता है।"

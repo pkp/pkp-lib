@@ -153,6 +153,7 @@ msgstr "Fout bij het parsen van het e-mail sjabloon <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Fout in het filter configuratiebestand <tt>{$file}</tt>"
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Upgrade wordt niet ondersteund. Zie docs/UPGRADE-UNSUPPORTED voor details."

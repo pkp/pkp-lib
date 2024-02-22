@@ -1,10 +1,11 @@
-# Josu Acosta <josuacostacalvo@gmail.com>, 2023.
+# Josu Acosta <josuacostacalvo@gmail.com>, 2023, 2024.
+# Informatikaria <informatikaria@ueu.eus>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2023-07-11 18:45+0000\n"
+"PO-Revision-Date: 2024-01-26 15:34+0000\n"
 "Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "eu/>\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr ""
@@ -1006,7 +1007,7 @@ msgid "defaultMetric.title"
 msgstr ""
 
 msgid "editor.submissionReview.uploadFile"
-msgstr ""
+msgstr "Igo ebaluazio-fitxategia"
 
 msgid "editor.submissionReview.uploadAttachment"
 msgstr ""
@@ -1370,7 +1371,7 @@ msgid "stageParticipants.recommendOnly"
 msgstr ""
 
 msgid "stageParticipants.submissionEditMetadataOptions"
-msgstr ""
+msgstr "Baimenak"
 
 msgid "stageParticipants.canChangeMetadata"
 msgstr ""
@@ -1741,16 +1742,16 @@ msgid "reviewer.submission.reviewSchedule"
 msgstr ""
 
 msgid "reviewer.submission.reviewRequestDate"
-msgstr ""
+msgstr "Editorearen Eskaera"
 
 msgid "reviewer.submission.responseDueDate"
-msgstr ""
+msgstr "Erantzunaren Epemuga"
 
 msgid "reviewer.submission.reviewDueDate"
 msgstr ""
 
 msgid "submission.task.responseDueDate"
-msgstr ""
+msgstr "Erantzunaren Epemuga"
 
 msgid "navigation.goBack"
 msgstr ""

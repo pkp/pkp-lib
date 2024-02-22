@@ -17,6 +17,10 @@
 		{translate key="user.register"}
 	</h1>
 
+	<p>
+		{translate key="common.requiredField"}
+	</p>
+
 	<form class="cmp_form register" id="register" method="post" action="{url op="register"}" role="form">
 		{csrf}
 
@@ -145,7 +149,7 @@
 				<div class="fields">
 					<div class="recaptcha">
 						<div class="g-recaptcha" data-sitekey="{$recaptchaPublicKey|escape}">
-						</div>
+						</div><label for="g-recaptcha-response" style="display:none;" hidden>Recaptcha response</label>
 					</div>
 				</div>
 			</fieldset>

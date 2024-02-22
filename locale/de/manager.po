@@ -268,7 +268,7 @@ msgstr "Record ansehen"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Erfolgreiche Registrierungsmeldung"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOIs erfolgreich aktualisiert"
 
 msgid "manager.dois.registration.depositDois"
@@ -3799,3 +3799,8 @@ msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
 msgstr ""
 "Die Überarbeitung {$revision} der Einreichungsdatei {$id} wurde "
 "übersprungen, da die Datei nicht unter dem Pfad \"{$path}\" gefunden wurde."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Verlangen Sie von Autor/innen, die einen Beitrag einreichen wollen, "
+"zusätzlich eine Erklärung zu möglicherweise bestehenden Interessenkonflikten."

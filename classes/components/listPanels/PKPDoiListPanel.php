@@ -176,7 +176,7 @@ abstract class PKPDoiListPanel extends ListPanel
             'manager.dois.registration.notPublishedDescription',
             'manager.dois.update.partialFailure',
             'manager.dois.actions.deposit.all',
-            'manger.dois.update.success',
+            'manager.dois.update.success',
             'common.selectAll',
             'common.selectNone',
             'common.edit',

@@ -1,13 +1,15 @@
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022, 2023.
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
-# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023.
+# Pierre Lasou <pierre.lasou@bibl.ulaval.ca>, 2023, 2024.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
+# "Marie-Hélène Vézina [UdeMontréal]" <marie-helene.vezina@umontreal.ca>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-08-16 10:37+0000\n"
+"PO-Revision-Date: 2024-01-30 11:07+0000\n"
 "Last-Translator: Pierre Lasou <pierre.lasou@bibl.ulaval.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/fr_CA/>\n"
@@ -16,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 # localization file for fr_CA. Last revision 2019-10-23T01:54:57 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "manager.website.information"
@@ -227,7 +229,6 @@ msgstr ""
 msgid "manager.dois.actions.description"
 msgstr "Appliquer l'action aux items sélectionnés ({$count})."
 
-#, fuzzy
 msgid "manager.dois.actions.bulkActions"
 msgstr "Actions en lot"
 
@@ -266,7 +267,7 @@ msgstr "Afficher la notice"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Message d'enregistrement réussi"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI(s) actualisé(s) avec succès"
 
 msgid "manager.dois.registration.depositDois"
@@ -1359,13 +1360,12 @@ msgstr ""
 "Le texte suivant est présenté à l'étape des détails, lorsque l'auteur-e doit "
 "fournir le titre, le résumé et les mots-clés de la soumission."
 
-#, fuzzy
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
 "Ce qui suit est montré aux auteurs-trices pendant l'étape \"Pour les "
-"rédacteur\", lorsqu'il leur est demandé de fournir des métadonnées comme les "
-"mots clés, les commentaires aux rédacteurs ou tout autre détail pouvant "
-"aider dans l'évaluation éditoriale."
+"rédacteur\", lorsqu'il leur est demandé de fournir des métadonnées, les "
+"commentaires aux rédacteurs ou tout autre détail pouvant aider dans "
+"l'évaluation éditoriale."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
@@ -1382,8 +1382,8 @@ msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
 "Lors d'une soumission à la revue, on demande d'abord aux auteurs-es de "
 "s'assurer que toutes les conditions requises pour soumettre un article sont "
-"remplies. Tous les éléments de la liste devront être cochés avant que les "
-"auteurs-es puissent entamer la procédure de soumission."
+"remplies. Tous les éléments de la liste devront être approuvés par les "
+"auteurs-es afin de poursuivre la procédure de soumission."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
@@ -3619,16 +3619,18 @@ msgstr "Ce courriel est envoyé lorsqu'une nouvelle annonce est créée."
 msgid "mailable.statisticsReportNotify.name"
 msgstr "Notification sur les rapports statistiques"
 
+#, fuzzy
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Avis de modification d'une évaluation"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
 "Ce courriel notifie automatiquement l'évaluateur-trice lorsque les détails "
 "de son assignation ont été modifiés."
 
+#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Évaluation complétée"
 
 #, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.description"
@@ -3834,3 +3836,16 @@ msgid "plugins.importexport.common.error.publicationCoverImageMissing"
 msgstr ""
 "L'image de couverture de la publication {$id} n'a pas été exportée, son "
 "fichier n'a pu être trouvé à l'adresse: \"{$path}\"."
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Êtes-vous certain.e de vouloir supprimer {$title}? Cette action est "
+"irréversible."
+
+msgid "manager.highlights.image"
+msgstr "Image"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Les auteurs-es soumissionnaires doivent déposer une déclaration de conflits "
+"d'intérêts avec leur soumission."

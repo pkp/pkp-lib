@@ -14,6 +14,13 @@
 				"nullable"
 			]
 		},
+		"announcementsIntroduction": {
+			"type": "string",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
 		"contactEmail": {
 			"type": "string",
 			"multilingual": true,
@@ -32,6 +39,12 @@
 		},
 		"counterR5StartDate": {
 			"type": "string",
+			"validation": [
+				"nullable"
+			]
+		},
+		"enableAnnouncements": {
+			"type": "boolean",
 			"validation": [
 				"nullable"
 			]
@@ -97,6 +110,18 @@
 			"type": "integer",
 			"validation": [
 				"min:4"
+			]
+		},
+		"disableSharedReviewerStatistics": {
+			"type": "boolean",
+			"description": "Specify whether reviewer statistics can be shared with other contexts of the installation.",
+			"default": false
+		},
+		"numAnnouncementsHomepage": {
+			"type": "integer",
+			"validation": [
+				"nullable",
+				"min:0"
 			]
 		},
 		"pageFooter": {

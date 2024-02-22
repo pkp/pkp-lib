@@ -13,6 +13,8 @@
 
 namespace PKP\announcement\maps;
 
+use APP\core\Application;
+use APP\core\Request;
 use Illuminate\Support\Enumerable;
 use PKP\announcement\Announcement;
 use PKP\core\PKPApplication;
@@ -85,7 +87,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $this->request->getDispatcher()->url(
                         $this->request,
                         PKPApplication::ROUTE_PAGE,
-                        $this->context->getData('urlPath'),
+                        $this->getUrlPath(),
                         'announcement',
                         'view',
                         $item->getId()
@@ -97,10 +99,26 @@ class Schema extends \PKP\core\maps\Schema
             }
         }
 
-        $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $this->context->getSupportedFormLocales());
+        $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $this->getSupportedLocales());
 
         ksort($output);
 
         return $this->withExtensions($output, $item);
+    }
+
+    protected function getUrlPath(): string
+    {
+        if (isset($this->context)) {
+            return $this->context->getData('urlPath');
+        }
+        return 'index';
+    }
+
+    protected function getSupportedLocales(): array
+    {
+        if (isset($this->context)) {
+            return $this->context->getSupportedFormLocales();
+        }
+        return Application::get()->getRequest()->getSite()->getSupportedLocales();
     }
 }

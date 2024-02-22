@@ -226,7 +226,7 @@ msgstr ""
 "fehlgeschlagenen Prozess oder auf einen gleichzeitig laufenden Prozess "
 "hinweisen. Diese Datei wird automatisch erneut verarbeitet."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr ""
 "Die Datei {$file} konnte nicht geöffnet werden und wurde zurückgewiesen."
 
@@ -243,46 +243,46 @@ msgstr ""
 "wiederherstellen und das CLI-Tool verwenden, um die Statistiken neu zu "
 "verarbeiten."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Die Zeile {$lineNumber} in der Protokolldatei {$file} hat das falsche Format "
 "und wird daher übersprungen."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Ungültiger Protokolleintrag in Zeile {$lineNumber} in der Protokolldatei "
 "{$file}: {$Fehler}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Die Zeit ist kein gültiges Datum."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "Kontext ID ist keine ganze Zahl."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "Einreichungs-ID ist keine ganze Zahl."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "Repräsentations-ID ist keine ganze Zahl."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Assoc type wird nicht unterstützt."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Dateityp wird nicht unterstützt."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Land ist keine aus zwei Buchstaben bestehende Zeichenfolge."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr ""
 "Region ist keine aus bis zu drei alphanumerischen Zeichen bestehende "
 "Zeichenfolge."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Institutions-ID ist kein Array."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Bei der Verarbeitung der Protokolldatei {$file} ist in der Zeile "
 "{$lineNumber} ein Fehler aufgetreten: {$msg}"
@@ -860,9 +860,6 @@ msgstr ""
 "jedoch alle Zeitschriften auf dieser Website von ein und demselben Anbieter "
 "herausgegeben, besitzt oder betrieben werden, können Sie die Website als "
 "Plattform angeben."
-
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Website als Plattform für alle Zeitschriften verwenden."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Plattform ID"

@@ -107,6 +107,9 @@ msgstr "Type"
 msgid "manager.announcements.form.typeIdValid"
 msgstr "Please select a valid announcement type."
 
+msgid "manager.announcements.notEnabled"
+msgstr "You must <a href=\"#announcements/announcement-settings\">enable announcements</a>."
+
 msgid "manager.announcements.noneCreated"
 msgstr "No announcements have been created."
 
@@ -256,7 +259,7 @@ msgstr "View Record"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Successful Registration Message"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI(s) successfully updated"
 
 msgid "manager.dois.registration.depositDois"
@@ -347,6 +350,30 @@ msgid "manager.genres.alertDelete"
 msgstr ""
 "Before this component can be deleted, you must associate all related "
 "submission files with a different component."
+
+msgid "manager.highlights.add"
+msgstr "Add Highlight"
+
+msgid "manager.highlights.confirmDelete"
+msgstr "Are you sure you want to delete {$title}? This action can not be undone."
+
+msgid "manager.highlights.delete"
+msgstr "Delete Highlight"
+
+msgid "manager.highlights.edit"
+msgstr "Edit Highlight"
+
+msgid "manager.highlights.image"
+msgstr "Image"
+
+msgid "manager.highlights.url.description"
+msgstr "The full URL, including https://, for the button in the highlight."
+
+msgid "manager.highlights.urlText"
+msgstr "Button Label"
+
+msgid "manager.highlights.urlText.description"
+msgstr "The label, such as Read More, for the button in the highlight."
 
 msgid "manager.institutions.edit"
 msgstr "Edit Institution"
@@ -552,6 +579,9 @@ msgstr "No users were found."
 
 msgid "manager.groups.title"
 msgstr "Title"
+
+msgid "manager.image"
+msgstr "Image"
 
 msgid "manager.importExport"
 msgstr "Import/Export Data"
@@ -800,6 +830,66 @@ msgstr "Whether or not to restrict access to the API endpoints for COUNTER SUSHI
 
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Make the COUNTER SUSHI statistics publicly available"
+
+msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Counter R5 Reports"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr "See <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index.html\" target=\"_new\">COUNTER 5.0.3 documentation</a> for more information about each report."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "There are no COUNTER R5 usage statistics available yet."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Report Settings"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Start Date"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr "Date should be in format YYYY-MM-DD or YYYY-MM. Earliest possible date is {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "End Date"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr "Date should be in format YYYY-MM-DD or YYYY-MM. Last possible date is {$lastDate}."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "The date format is not valid."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Customer ID"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Metric Type"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Attributes To Show"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Year Of Publication"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr "A list or range of years of publication to return in response in format of yyyy|yyyy|yyyy-yyyy."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "YOP format is not valid."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Submission ID"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "The submission ID does not exist."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Include Parent Details"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Exclude Monthly Details"
 
 msgid "manager.statistics.reports"
 msgstr "Reports"
@@ -2245,6 +2335,9 @@ msgstr ""
 msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
 msgstr "The submission file {$id} was skipped because it does not have a valid revision."
 
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr "The submission file {$id} was skipped because it does not have a valid file stage."
+
 msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
 msgstr "The revision {$revision} of the submission file {$id} was skipped because the file was not found at the path \"{$path}\"."
 
@@ -3504,3 +3597,6 @@ msgstr "Assign Editor"
 
 msgid "mailable.submissionNeedsEditor.name"
 msgstr "Submission Needs Editor"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr "Require submitting Authors to file a Competing Interest (CI) statement with their submission."

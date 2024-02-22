@@ -166,7 +166,10 @@ class PKPNavigationMenuService
         // Conditionally hide some items
         switch ($menuItemType) {
             case NavigationMenuItem::NMI_TYPE_ANNOUNCEMENTS:
-                $navigationMenuItem->setIsDisplayed($context && $context->getData('enableAnnouncements'));
+                $navigationMenuItem->setIsDisplayed(
+                    ($context && $context->getData('enableAnnouncements'))
+                    || (!$context && $request->getSite()->getData('enableAnnouncements'))
+                );
                 break;
             case NavigationMenuItem::NMI_TYPE_EDITORIAL_TEAM:
                 $navigationMenuItem->setIsDisplayed($context && $context->getLocalizedData('editorialTeam'));
@@ -187,9 +190,6 @@ class PKPNavigationMenuService
                 break;
             case NavigationMenuItem::NMI_TYPE_ADMINISTRATION:
                 $navigationMenuItem->setIsDisplayed($isUserLoggedIn && $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::CONTEXT_SITE));
-                break;
-            case NavigationMenuItem::NMI_TYPE_SEARCH:
-                $navigationMenuItem->setIsDisplayed($context);
                 break;
             case NavigationMenuItem::NMI_TYPE_PRIVACY:
                 $navigationMenuItem->setIsDisplayed($context && $context->getLocalizedData('privacyStatement'));

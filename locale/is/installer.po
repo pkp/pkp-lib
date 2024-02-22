@@ -146,6 +146,7 @@ msgstr "Villa við þáttun skráar fyrir tölvupóstssniðmát <tt>{$file}</tt>
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Villa við þáttun skráar fyrir uppsetningu á síum <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr "Ekki stutt við uppfærslu. Sjá  nánar docs/UPGRADE-UNSUPPORTED."
 

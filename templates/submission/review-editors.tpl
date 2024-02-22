@@ -90,13 +90,14 @@
                     <div
                         v-if="submission.commentsForTheEditors"
                         class="submissionWizard__reviewPanel__item__value"
-                        v-html="submission.commentsForTheEditors"
+                        v-strip-unsafe-html="submission.commentsForTheEditors"
                     ></div>
                     <div v-else class="submissionWizard__reviewPanel__item__value">
                         {translate key="common.none"}
                     </div>
                 </div>
             {/if}
+            {call_hook name="Template::SubmissionWizard::Section::Review::Editors" submission=$submission step=$step.id}
         </div>
     </div>
 {/foreach}

@@ -218,7 +218,7 @@ msgstr ""
 "gagal sebelum ini, atau proses yang dijalankan secara serentak. Fail ini "
 "akan diproses semula secara automatik."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Fail {$file} tidak dapat dibuka dan telah ditolak."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -233,43 +233,43 @@ msgstr ""
 "semua fail log bulan itu dan menggunakan alat CLI untuk memproses semula "
 "statistik."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Baris {$line Number} dalam fail log {$file} adalah dalam format yang salah "
 "dan ia akan dilangkau."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Entri log tidak sah pada baris {$lineNumber} dalam fail log {$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Masa bukan tarikh yang sah."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "ID konteks bukan angka bulat."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "ID serahan bukan angka bulat."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "ID perwakilan bukan angka bulat."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Jenis gabungan tidak disokong."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Jenis fail tidak disokong."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Negara bukan rentetan dua aksara abjad."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Kawasan bukan rentetan panjang sehingga tiga aksara abjad angka."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "ID institusi bukan tatasusunan."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Ralat berlaku semasa memproses fail log {$file} pada baris {$line Number}: "
 "{$msg}"
@@ -797,9 +797,6 @@ msgid "admin.settings.statistics.sushiPlatform"
 msgstr ""
 
 msgid "admin.settings.statistics.sushiPlatform.description"
-msgstr ""
-
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr ""
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"

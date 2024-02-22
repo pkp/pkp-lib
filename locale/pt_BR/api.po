@@ -1,12 +1,12 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023, 2024.
 # Danilo Silva <profdanilocsilva@outlook.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2023-04-15 16:23+0000\n"
-"Last-Translator: Danilo Silva <profdanilocsilva@outlook.com>\n"
+"PO-Revision-Date: 2024-01-31 12:37+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "O parâmetro {$param} não é suportado."
@@ -355,3 +355,19 @@ msgstr "Tarefa com falha excluída com sucesso da lista de falhas."
 
 #~ msgid "api.vocabs.400.vocabNotSupported"
 #~ msgstr "O vocabulário {$vocab} não é suportado."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"Não foi possível salvar o pedido em destaque porque nenhuma informação do "
+"pedido foi encontrada."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"A ordem dos destaques não pôde ser salva porque um ou mais destaques não "
+"foram encontrados."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Ocorreu um erro ao carregar esta imagem."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "O destaque solicitado não foi encontrado."

@@ -71,7 +71,7 @@ class PKPPublicationLicenseForm extends FormComponent
 
         $this->addField(new FieldText('copyrightHolder', [
             'label' => __('submission.copyrightHolder'),
-            'description' => __('submission.copyrightHolder.description', ['copyright' => $copyright]),
+            'description' => __('submission.copyrightHolder.description', ['copyright' => htmlspecialchars($copyright)]),
             'isMultilingual' => true,
             'optIntoEdit' => !$publication->getData('copyrightHolder'),
             'optIntoEditLabel' => __('common.override'),

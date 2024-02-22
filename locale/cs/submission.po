@@ -1,10 +1,10 @@
-# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023.
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2023-05-26 22:09+0000\n"
+"PO-Revision-Date: 2024-01-04 15:39+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr "Autory této publikace nelze upravovat, protože již byla publikována."
@@ -1152,7 +1152,7 @@ msgid "submission.submit.contributorRole"
 msgstr "Role přispěvatele"
 
 msgid "submission.submit.addAuthor"
-msgstr "Přidat autora"
+msgstr "Přidat přispěvatele"
 
 msgid "submission.submit.form.languagesRequired"
 msgstr "Vložte, prosím, jazyk."
@@ -2718,3 +2718,16 @@ msgstr "Soubor s příspěvkem"
 
 msgid "editor.submission.roundStatus.returnedToReview"
 msgstr "Vrátit se zpět k recenzi."
+
+msgid "submission.authors.label"
+msgstr "Autoři"
+
+msgid "submission.author.list"
+msgstr "Seznam autorů příspěvku"
+
+msgid "author.competingInterests"
+msgstr "Střet zájmů"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Uveďte prosím veškeré střety zájmu, které může mít autor s předmětem výzkumu."

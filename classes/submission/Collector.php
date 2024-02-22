@@ -441,7 +441,7 @@ abstract class Collector implements CollectorInterface
                 // Holds a single random row to check whether we have any assignment
                 $q->leftJoinSub(fn (Builder $q) => $q
                     ->from('review_assignments', 'ra')
-                    ->whereIn('ra.reviewer_id', $this->assignedTo)
+                    ->whereIn('ra.reviewer_id', $this->assignedTo == self::UNASSIGNED ? [] : (array) $this->assignedTo)
                     ->select(DB::raw('1 AS value'))
                     ->limit(1),
                     'any_assignment', 'any_assignment.value', '=', DB::raw('1')
@@ -504,7 +504,7 @@ abstract class Collector implements CollectorInterface
                     )
                 )
             );
-        } elseif (strlen($this->searchPhrase)) {
+        } elseif (strlen($this->searchPhrase ?? '')) {
             // If there's search text, but no keywords could be extracted from it, force the query to return nothing
             $q->whereRaw('1 = 0');
         }

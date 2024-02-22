@@ -32,7 +32,7 @@ class PKPStatsEditorialService
     public function getOverview($args = [])
     {
         $received = $this->countSubmissionsReceived($args);
-        $accepted = $this->countByDecisions(Decision::ACCEPT, $args);
+        $accepted = $this->countByDecisions($this->getAcceptedDecisions(), $args);
         $submissionsPublished = $this->countSubmissionsPublished($args);
         $submissionsInProgress = $this->countSubmissionsInProgress($args);
         $submissionsImported = $this->countSubmissionsImported($args);

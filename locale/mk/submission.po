@@ -1,8 +1,8 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
-# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-08-01 08:25+0000\n"
+"PO-Revision-Date: 2024-01-08 00:21+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/mk/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr "Не може да се уредува затоа што списанието веќе е објавено."
@@ -2684,3 +2684,17 @@ msgstr "Фајлот на поднесокот"
 
 msgid "editor.submission.roundStatus.returnedToReview"
 msgstr "Врати назад за рецензирање."
+
+msgid "submission.authors.label"
+msgstr "Автори"
+
+msgid "submission.author.list"
+msgstr "Поднеси Листа на автори"
+
+msgid "author.competingInterests"
+msgstr "Компетирачки интереси"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Молам оградете се од било кои компетирачки интереси од овој автор кој би "
+"можеел да биде поврзан со истражуваниот предмет."

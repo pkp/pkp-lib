@@ -1,9 +1,9 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
 # Aram Mirzoyan <mirzoyan.aram@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-05-26 22:09+0000\n"
+"PO-Revision-Date: 2024-01-08 13:56+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/hy/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
@@ -445,7 +445,7 @@ msgid "submission.accepted"
 msgstr "Ընդունված"
 
 msgid "submission.acknowledge"
-msgstr "Հաստատում"
+msgstr "Ընդունել"
 
 msgid "submission.ask"
 msgstr "Հարցնել"
@@ -1000,7 +1000,7 @@ msgid "submissions.completed"
 msgstr "Ավարտված"
 
 msgid "submissions.declined"
-msgstr "Մերժված"
+msgstr "Մերժված է"
 
 msgid "submissions.incomplete"
 msgstr "Անավարտ"
@@ -1219,7 +1219,7 @@ msgid "submission.status.unassigned"
 msgstr "Չի նշանակված"
 
 msgid "submission.status.declined"
-msgstr "Մերժված"
+msgstr "Մերժված է"
 
 msgid "submission.status.published"
 msgstr "Հրապարակվել է"
@@ -2704,3 +2704,17 @@ msgstr "Ներկայացման նիշք"
 
 msgid "editor.submission.roundStatus.returnedToReview"
 msgstr "Վերադարձվել է վերանայման։"
+
+msgid "submission.authors.label"
+msgstr "Հեղինակներ"
+
+msgid "submission.author.list"
+msgstr "Հեղինակների ցուցակի ներկայացում"
+
+msgid "author.competingInterests"
+msgstr "Մրցակցող շահեր"
+
+msgid "author.competingInterests.description"
+msgstr ""
+"Խնդրում ենք բացահայտել ցանկացած մրցակցային հետաքրքրություն, որը կարող է "
+"ունենալ այս հեղինակը հետազոտության առարկայի հետ:"

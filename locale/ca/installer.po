@@ -168,6 +168,7 @@ msgstr ""
 "Hi ha hagut un error durant l'anàlisi del fitxer <tt>{$file}</tt> de "
 "configuració del filtre."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "L'actualització no és compatible. Cosulteu docs/UPGRADE-UNSUPPORTED per "

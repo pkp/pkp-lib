@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-19 22:36+0000\n"
+"PO-Revision-Date: 2023-10-12 23:26+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs/>\n"
 "Language: cs\n"
@@ -358,3 +358,19 @@ msgstr "Neúspěšná úloha byla úspěšně odstraněna ze seznamu neúspěšn
 #~ msgid "api.submissions.unknownError"
 #~ msgstr ""
 #~ "Vznikla neočekávaná chyba. Obnovte, prosím, stránku a zkuste to znovu."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Při nahrávání tohoto obrázku došlo k chybě."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"Zvýrazněnou objednávku nelze uložit, protože nebyly nalezeny žádné informace "
+"o objednávce."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Pořadí zvýraznění nebylo možné uložit, protože jedno nebo více zvýraznění "
+"nebylo nalezeno."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "Požadované zvýraznění nebylo nalezeno."

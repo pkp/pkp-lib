@@ -230,7 +230,7 @@ msgstr ""
 msgid "manager.dois.registration.viewRecord.title"
 msgstr ""
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr ""
 
 msgid "manager.dois.registration.depositDois"
@@ -3086,3 +3086,6 @@ msgstr ""
 
 #~ msgid "doi.displayName"
 #~ msgstr "DOI"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""

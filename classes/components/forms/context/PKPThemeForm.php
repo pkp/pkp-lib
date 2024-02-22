@@ -67,7 +67,7 @@ class PKPThemeForm extends FormComponent
         foreach ($plugins as $plugin) {
             $themes[] = [
                 'value' => $plugin->getDirName(),
-                'label' => $plugin->getDisplayName(),
+                'label' => htmlspecialchars($plugin->getDisplayName()),
             ];
         }
 

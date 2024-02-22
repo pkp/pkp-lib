@@ -218,7 +218,7 @@ msgstr ""
 "failed process, or a concurrently running process. This file will be "
 "automatically reprocessed."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "The file {$file} could not be opened and was rejected."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -233,51 +233,52 @@ msgstr ""
 "restore all of that month's log files and use the CLI tool to reprocess "
 "statistics."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "The line {$lineNumber} in the log file {$file} is in the wrong format and "
 "will thus be skipped."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Invalid log entry at line {$lineNumber} in the log file {$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Time is not a valid date."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "Context ID is not an integer."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "Submission ID is not an integer."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "Representation ID is not an integer."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Assoc type is not supported."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "File type is not supported."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Country is not a two alphabetic characters string."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Region is not up to three alphanumeric characters long string."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Institution IDs is not an array."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Error occured when processing the log file {$file} at the line "
 "{$lineNumber}: {$msg}"
 
+#,fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
-"The background job that will process the log file {$file} and store the "
-"statistics data has been dispatched."
+"The background jobs that will process the log files and store the "
+"statistics data have been dispatched."
 
 msgid "admin.server.apacheVersion"
 msgstr "Apache version"
@@ -317,6 +318,17 @@ msgstr "Introduction"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "Minimum password length (characters)"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Reviewer statistics"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr "In a multi-context installation, reviewer statistics, such as the "
+"count of submitted reviews, can be displayed either individually for each "
+"context or aggregated collectively."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Disable aggregated reviewer statistics"
 
 msgid "admin.settings.restrictBulkEmails"
 msgstr "Restrict Bulk Emails"
@@ -426,6 +438,9 @@ msgstr ""
 msgid "admin.fileLoader.fileProcessed"
 msgstr "File {$filename} was processed and archived."
 
+msgid "admin.fileLoader.fileDispatched"
+msgstr "File {$filename} was moved to dispatch folder."
+
 msgid "admin.fileLoader.emailSubject"
 msgstr "File loader"
 
@@ -515,6 +530,10 @@ msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
 "Can not run queue jobs because the application maintenance mode is enabled."
 
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Can not run queue jobs because the application sandbox mode is enabled."
+
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
 "List all queued jobs. If you want to paginate results, use the parameters --"
@@ -543,11 +562,17 @@ msgstr ""
 "redispatch and --clear to redispatch back to queue or clear all/specific "
 "failed jobs."
 
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Restart queue worker daemons after their current job."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr "Workers will gracefully quit after completing the execution of current job."
+
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
-"Dispatch available jobs into the queue. if you would like to dispatch a job "
-"into a specific queue, pass the parameter --queue=QUEUE_NAME. Also can just "
-"pass --test to run the test job and --once to run one job at a time"
+"Dispatch available jobs into the queue. To dispatch a job into a specific "
+"queue, pass the parameter --queue=QUEUE_NAME. Use --test to run a test job "
+"and --once to stop after a single job."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr "Completed running {$jobCount} jobs in the queue named {$queueName}."
@@ -750,6 +775,14 @@ msgstr ""
 "Job that loads the usage stats data from the file {$file} failed, and the "
 "file could not be moved from {$archivedFilePath} to {$stagingPath}."
 
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"The file {$file} could not be moved from {$dispatchFilePath} to {$archivedFilePath}."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr ""
+"The file {$file} does not exist."
+
 msgid "admin.job.compileMetrics.error"
 msgstr ""
 "Job that loads the usage stats data from the file {$file} failed. The file "
@@ -820,9 +853,6 @@ msgstr ""
 "will be designated as the platform for all statistics. However, if all of "
 "the journals on this site are published, owned or operated by the same "
 "provider, you may wish to designate the site as the platform."
-
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Use the site as the platform for all journals."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Platform ID"
@@ -897,3 +927,6 @@ msgstr "Number of seconds to rest between jobs[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Run the worker deamon for test queue"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Use the site as the platform for all journals."

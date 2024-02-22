@@ -1,12 +1,12 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2023.
+# Nicolas Dickner <dickner.nicolas@uqam.ca>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-04-28 14:09+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
-"vezina@umontreal.ca>\n"
+"PO-Revision-Date: 2023-09-06 18:58+0000\n"
+"Last-Translator: Nicolas Dickner <dickner.nicolas@uqam.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -171,6 +171,7 @@ msgid "installer.installParseFilterConfigFileError"
 msgstr ""
 "Erreur de traitement du fichier de configuration du filtre <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Mise à niveau non supportée. Voir docs/UPGRADE-UNSUPPORTED pour plus de "
@@ -271,3 +272,6 @@ msgstr ""
 #~ msgid "installer.clientCharsetInstructions"
 #~ msgstr ""
 #~ "Encodage à utiliser pour les données envoyées et reçues des navigateurs."
+
+msgid "installer.miscSettings"
+msgstr "Paramètres divers"

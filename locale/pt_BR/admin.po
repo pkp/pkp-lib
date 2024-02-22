@@ -1,4 +1,4 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023, 2024.
 # cicilia conceiçao de maria <ccmaria@uem.br>, 2022, 2023.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2023.
 msgid ""
@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
-"PO-Revision-Date: 2023-02-24 12:05+0000\n"
+"PO-Revision-Date: 2024-01-26 15:34+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/pkp-"
-"lib/admin/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/admin/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Nome da Configuração"
@@ -222,7 +222,7 @@ msgstr ""
 "falha anterior ou um processo em execução simultaneamente. Este arquivo será "
 "reprocessado automaticamente."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "O arquivo {$file} não pôde ser aberto e foi rejeitado."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -237,44 +237,44 @@ msgstr ""
 "restaurar todos os arquivos de log desse mês e usar a ferramenta CLI para "
 "reprocessar as estatísticas."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "A linha {$lineNumber} no arquivo de log {$file} está no formato errado e, "
 "portanto, será ignorada."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Entrada de log inválida na linha {$lineNumber} no arquivo de log {$file}: "
 "{$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Hora não é uma data válida."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "O ID de contexto não é um número inteiro."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "O ID de submissão não é um número inteiro."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "O ID de representação não é um número inteiro."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "O tipo Assoc não é suportado."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "O tipo de arquivo não é suportado."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "País não é uma sequência de dois caracteres alfabéticos."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "A região não tem até três caracteres alfanuméricos."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "IDs de instituição não é um array."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Ocorreu um erro ao processar o arquivo de log {$file} na linha "
 "{$lineNumber}: {$msg}"
@@ -845,9 +845,6 @@ msgstr ""
 "publicados, de propriedade ou operados pelo mesmo provedor, você poderá "
 "designar o site como a plataforma."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Use o site como plataforma para todos os periódicos."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID da plataforma"
 
@@ -945,3 +942,18 @@ msgstr "Execute o daemon do worker para a fila de teste"
 
 #~ msgid "admin.authSources"
 #~ msgstr "Fontes de Autenticação"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Use o site como plataforma para todas as revistas."
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"Em uma instalação multicontexto, as estatísticas dos avaliadores, como a "
+"contagem de avaliações enviadas, podem ser exibidas individualmente para "
+"cada contexto ou agregadas coletivamente."
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Estatísticas do avaliador"
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Desativar estatísticas agregadas do avaliador"

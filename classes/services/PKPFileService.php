@@ -17,6 +17,7 @@ namespace PKP\services;
 
 use APP\core\Application;
 use Exception;
+use finfo;
 use Illuminate\Support\Facades\DB;
 use League\Flysystem\Filesystem;
 use League\Flysystem\Local\LocalFilesystemAdapter;
@@ -28,6 +29,8 @@ use PKP\plugins\Hook;
 
 class PKPFileService
 {
+    private const FALLBACK_MIME_TYPE = 'application/octet-stream';
+
     /** @var Filesystem */
     public $fs;
 
@@ -92,7 +95,12 @@ class PKPFileService
         if (is_resource($stream)) {
             fclose($stream);
         }
-        $mimetype = $this->fs->mimeType($to);
+        try {
+            $mimetype = $this->fs->mimeType($to);
+        } catch (Exception $e) {
+            // When a very good mime-type cannot be guessed, FlySystem emits an Exception
+            $mimetype = (new finfo(FILEINFO_MIME_TYPE))->file($to) ?: static::FALLBACK_MIME_TYPE;
+        }
 
         // Check and override ambiguous mime types based on file extension
         if ($extension = pathinfo($to, PATHINFO_EXTENSION)) {
@@ -241,8 +249,6 @@ class PKPFileService
             case 'image/x-icon':
             case 'image/x-ico':
             case 'image/ico':
-            case 'image/svg+xml':
-            case 'image/svg':
                 return FileManager::DOCUMENT_TYPE_IMAGE;
             case 'application/x-shockwave-flash':
             case 'video/x-flv':

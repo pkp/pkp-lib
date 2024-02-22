@@ -1,8 +1,9 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-17 13:48+0000\n"
-"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
+"PO-Revision-Date: 2023-12-11 11:51+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/mk/>\n"
 "Language: mk\n"
@@ -10,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Име на подесувањето"
@@ -219,7 +220,7 @@ msgstr ""
 "неуспешен процес или процес кој се извршува истовремено. Оваа датотека "
 "автоматски ќе се обработи."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Фајлот {$file} не може да се отвори и беше отфрлен."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -235,44 +236,44 @@ msgstr ""
 "месец и да ја користите алатката CLI за повторно да ја обработувате "
 "статистиката."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Линијата {$lineNumber} во датотеката за евиденција {$file} е во погрешен "
 "формат и затоа ќе биде прескокната."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Неважечки запис во дневникот на линијата {$lineNumber} во датотеката за "
 "евиденција {$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Времето не е валидно."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "Контекст ID не е цел број."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "ID на поднесокот не е цел број."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "ID на претставување не е цел број."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Типот Assoc не е поддржан."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Типот на датотека не е поддржан."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Државата не е кратенка од две букви."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Регионот не е низа од три букви или бројки."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Институционалниот ID не е во низа."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Настана грешка при обработката на датотеката за евиденција {$file} на "
 "линијата {$lineNumber}: {$msg}"
@@ -554,7 +555,7 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
-"Испратете достапни работни места во редот. ако сакате да испратите работа во "
+"Испратете достапни работни места во редот. За да испратите работа во "
 "одредена редица, поминете го параметарот --queue=QUEUE_NAME. Исто така, може "
 "само да помине --тест за да се изврши тест-задачата и --еднаш за да се "
 "изврши една работа во исто време"
@@ -843,9 +844,6 @@ msgstr ""
 "од истиот провајдер, можеби ќе сакате да ја назначите страницата како "
 "платформа."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Користете ја страницата како платформа за сите списанија."
-
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID на платформата"
 
@@ -940,3 +938,18 @@ msgstr "Стартувај го работникот daemon за тест ред
 
 #~ msgid "admin.languages.download"
 #~ msgstr "Симнете локализација"
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Користи ја страницата како платформа за сите списанија."
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Статистика за рецензенти"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"Во мултиконтекстната инсталација, статистиката на рецензентите, како што е "
+"бројот на поднесени критики, може да се прикаже или поединечно за секој "
+"контекст или збирно."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Оневозможи збирна статистика на рецензентите"

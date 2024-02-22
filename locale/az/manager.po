@@ -2162,7 +2162,7 @@ msgid "manager.dois.registration.viewRecord.title"
 msgstr "Uğurlu qeydiyyat mesajı"
 
 #, fuzzy
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "Dois uğurla yeniləndi"
 
 #, fuzzy
@@ -3926,3 +3926,8 @@ msgid "manager.plugins.pleaseUpgrade"
 msgstr ""
 "Plugin artıq mövcuddur, lakin quraşdırılmış versiyadan daha yenidir.  Zəhmət "
 "olmasa bunun əvəzinə yeniləyin"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Müəlliflərin məqalə ilə birlikdə mənfəət münaqişəsi bildirişi faylı "
+"göndərmələri gərəklidir."

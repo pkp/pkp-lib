@@ -16,6 +16,7 @@
 namespace PKP\components\forms\site;
 
 use APP\core\Services;
+use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
@@ -55,7 +56,7 @@ class PKPSiteConfigForm extends FormComponent
         foreach ($contextsIterator as $context) {
             $options[] = [
                 'value' => $context->getId(),
-                'label' => $context->getLocalizedData('name'),
+                'label' => htmlspecialchars($context->getLocalizedData('name')),
             ];
         }
         if (count($options) > 1) {
@@ -72,6 +73,15 @@ class PKPSiteConfigForm extends FormComponent
             'isRequired' => true,
             'size' => 'small',
             'value' => $site->getData('minPasswordLength'),
+        ]));
+
+        $this->addField(new FieldOptions('disableSharedReviewerStatistics', [
+            'label' => __('admin.settings.sharedReviewerStatistics'),
+            'description' => __('admin.settings.sharedReviewerStatistics.description'),
+            'options' => [
+                ['value' => true, 'label' => __('admin.settings.sharedReviewerStatistics.disable')]
+            ],
+            'value' => (bool) $site->getData('disableSharedReviewerStatistics'),
         ]));
     }
 }

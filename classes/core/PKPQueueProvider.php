@@ -76,13 +76,15 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
      */
     public function runJobsViaDaemon(string $connection, string $queue, array $workerOptions = []): void
     {
-        $laravelContainer = PKPContainer::getInstance();
+        $worker = PKPContainer::getInstance()['queue.worker']; /** @var \Illuminate\Queue\Worker $worker */
 
-        $laravelContainer['queue.worker']->daemon(
-            $connection,
-            $queue,
-            $this->getWorkerOptions($workerOptions)
-        );
+        $worker
+            ->setCache(app()->get('cache.store'))
+            ->daemon(
+                $connection,
+                $queue,
+                $this->getWorkerOptions($workerOptions)
+            );
     }
 
     /**
@@ -117,6 +119,11 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                 // at the service provider's registration time at application initial bootstrapping,
                 // need to check the maintenance status within the 'register_shutdown_function'
                 if (Application::get()->isUnderMaintenance()) {
+                    return;
+                }
+
+                if (Config::getVar('general', 'sandbox', false)) {
+                    error_log(__('admin.cli.tool.jobs.sandbox.message'));
                     return;
                 }
 

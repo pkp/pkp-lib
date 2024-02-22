@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2023-03-29 13:19+0000\n"
+"PO-Revision-Date: 2023-10-19 22:34+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/da/>"
 "\n"
@@ -358,3 +358,19 @@ msgstr "Fejlet opgave blev succesfuldt slettet fra fejllisten."
 
 #~ msgid "api.vocabs.400.vocabNotSupported"
 #~ msgstr "Vokabulariet {$vocab} understøttes ikke."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Der opstod en fejl ved upload af dette billede."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"Rækkefølgen af højdepunkter kunne ikke gemmes, da der ikke blev fundet nogen "
+"information om rækkefølgen."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Rækkefølgen af højdepunkter kunne ikke gemmes, da et eller flere af "
+"højdepunkterne ikke blev fundet."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "Højdepunktet, som du anmodede om, blev ikke fundet."

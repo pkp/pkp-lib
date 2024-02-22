@@ -55,7 +55,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     public function &process(&$entity)
     {
         // Create the XML document
-        $doc = new \DOMDocument('1.0');
+        $doc = new \DOMDocument('1.0', 'utf-8');
         $doc->preserveWhiteSpace = false;
         $doc->formatOutput = true;
         $deployment = $this->getDeployment();
@@ -192,9 +192,9 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     public function addMetadata($doc, $entityNode, $entity)
     {
         $deployment = $this->getDeployment();
-        $this->createLocalizedNodes($doc, $entityNode, 'title', $entity->getTitles('html'), 'html');
+        $this->createLocalizedNodes($doc, $entityNode, 'title', $entity->getTitles('html'));
         $this->createLocalizedNodes($doc, $entityNode, 'prefix', $entity->getData('prefix'));
-        $this->createLocalizedNodes($doc, $entityNode, 'subtitle', $entity->getSubTitles('html'), 'html');
+        $this->createLocalizedNodes($doc, $entityNode, 'subtitle', $entity->getSubTitles('html'));
         $this->createLocalizedNodes($doc, $entityNode, 'abstract', $entity->getData('abstract'));
         $this->createLocalizedNodes($doc, $entityNode, 'coverage', $entity->getData('coverage'));
         $this->createLocalizedNodes($doc, $entityNode, 'type', $entity->getData('type'));

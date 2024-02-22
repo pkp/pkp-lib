@@ -1,0 +1,99 @@
+# Russian Agency for Digital Standardization <info@rads-doi.org>, 2023.
+# Mahmut  VURAL <mahmut.vural@outlook.com>, 2024.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-01-20 02:39+0000\n"
+"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
+"Language-Team: Kyrgyz <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
+"ky/>\n"
+"Language: ky\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "editor.activityLog"
+msgstr "Иш-аракеттер журналы"
+
+msgid "editor.submissionLibrary"
+msgstr "китепкана"
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Материал жарыяланды."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Жаңы кароого тапшырылды."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Басууга жиберилди."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Чечимди өзгөртүү"
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "Бул чечимди бул материалга жаздырууга уруксатыңыз жок."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Редактор аныкталган эмес болсо жана бул материал боюнча чечим жазууга "
+"уруксаты жок болушу мүмкүн."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Сиз төмөнкү алуучуларга электрондук кат жөнөтө албайсыз: {$names}."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Аудиторго электрондук кат жөнөтпөңүз"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Сиз дайындоо үчүн колдонуучуну тандап алышыңыз керек."
+
+msgid "editor.submission.selectFiles"
+msgstr "Файлдарды тандаңыз"
+
+msgid "editor.submission.revisions"
+msgstr "Версиялар"
+
+msgid "editor.submission.addReviewer"
+msgstr "Рецензент кошуу"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Рецензент кошуу"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Колдонуучуну тандоо"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Иш процессинин бардык жеткиликтүү этаптарынан файлдарды көрсөтүңүз."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "{$round}. Тур үчүн жарактуу карап чыгуу файлдары"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Бул материалды чын эле биротоло алып салгыңыз келеби?"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Чечим жазылган"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Материал четке кагылды."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Материал кабыл алынды."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Материал карап чыгууга кабыл алынды."
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Файлдарды жүктөө/тандоо"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"Окурмандарды мазмун файлдарын карап чыгууга чакыруу үчүн <em>+Каралоочу "
+"кошуу</em> колдонуңуз. Блокнот сүрөтчөсү карап чыгуу тапшырылганын көрсөтүп "
+"турат, ал каралып чыккандан кийин <em>Кабыл алынган</em> деп белгиленет. "
+"Карап чыгууну тапшыруу мөөнөтү аяктаганда, кызыл конверттин сөлөкөтү "
+"рецензенттерди эскертип турат."
+
+msgid "editor.submission.backToSearch"
+msgstr "Издөө үчүн кайтуу"

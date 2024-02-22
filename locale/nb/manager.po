@@ -1,12 +1,13 @@
 # Tormod Strømme <tormod.stromme@uib.no>, 2022.
 # Eirik Hanssen <eirikhanssen79@gmail.com>, 2023.
+# Johanna Skaug <johanna.skaug@ub.uio.no>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2023-04-24 12:24+0000\n"
-"Last-Translator: Eirik Hanssen <eirikhanssen79@gmail.com>\n"
+"PO-Revision-Date: 2024-01-11 08:39+0000\n"
+"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
 "Language: nb\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Informasjon"
@@ -192,31 +193,31 @@ msgstr ""
 "er. Er du sikker på at du vil markere disse postene som foreldet?"
 
 msgid "manager.dois.actions.export.label"
-msgstr ""
+msgstr "Eksporter DOI-er"
 
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
 
 msgid "manager.dois.actions.assign.label"
-msgstr ""
+msgstr "Tildel DOI-er"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
 
 msgid "manager.dois.actions.depositAll.label"
-msgstr ""
+msgstr "Deponer alle DOI-er"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
 
 msgid "manager.dois.actions.description"
-msgstr ""
+msgstr "Utfør handling for {$count} valgte element(er)."
 
 msgid "manager.dois.actions.bulkActions"
 msgstr ""
 
 msgid "manager.dois.depositStatus"
-msgstr ""
+msgstr "Deponeringsstatus"
 
 msgid "manager.dois.publicationStatus"
 msgstr ""
@@ -234,7 +235,7 @@ msgid "manager.dois.registration.notPublishedDescription"
 msgstr ""
 
 msgid "manager.dois.registration.viewError"
-msgstr ""
+msgstr "Vis feil"
 
 msgid "manager.dois.registration.viewError.title"
 msgstr ""
@@ -245,41 +246,41 @@ msgstr ""
 msgid "manager.dois.registration.viewRecord.title"
 msgstr ""
 
-msgid "manger.dois.update.success"
-msgstr ""
+msgid "manager.dois.update.success"
+msgstr "Oppdatering av DOI-er var vellykket"
 
 msgid "manager.dois.registration.depositDois"
-msgstr ""
+msgstr "Deponer DOI(-er)"
 
 msgid "manager.dois.status.needsDoi"
-msgstr ""
+msgstr "Mangler DOI"
 
 msgid "manager.dois.status.unregistered"
-msgstr ""
+msgstr "Uregistrert"
 
 msgid "manager.dois.status.submitted"
 msgstr ""
 
 msgid "manager.dois.status.registered"
-msgstr ""
+msgstr "Registrert"
 
 msgid "manager.dois.status.error"
-msgstr ""
+msgstr "Feil"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Har feil"
 
 msgid "manager.dois.status.stale"
 msgstr "Må redeponeres"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI tildelt"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "Alle elementer som mangler DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Alle elementer er blitt tildelt DOI"
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
@@ -336,10 +337,10 @@ msgid "manager.genres.alertDelete"
 msgstr ""
 
 msgid "manager.institutions.edit"
-msgstr ""
+msgstr "Rediger institusjon"
 
 msgid "manager.institutions.form.ror"
-msgstr ""
+msgstr "ROR"
 
 msgid "manager.institutions.form.ror.description"
 msgstr ""
@@ -351,7 +352,7 @@ msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
 
 msgid "manager.institutions.deleteInstitution"
-msgstr ""
+msgstr "Slett institusjon"
 
 msgid "manager.institutions.confirmDelete"
 msgstr ""
@@ -381,7 +382,7 @@ msgid "manager.publication.reviewReminders.success"
 msgstr "Detaljene om påminnelse om fagfellevurdering har blitt oppdatert."
 
 msgid "manager.dois.title"
-msgstr ""
+msgstr "DOI-er"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
@@ -420,7 +421,7 @@ msgid "manager.emails.emailTemplates"
 msgstr "E-postmaler"
 
 msgid "manager.emails.otherTemplates"
-msgstr ""
+msgstr "Andre maler"
 
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Du må angi et ID når en e-postmal legges til."
@@ -743,7 +744,7 @@ msgid "manager.roles"
 msgstr "Roller"
 
 msgid "manager.setup.statistics"
-msgstr ""
+msgstr "Statistikk"
 
 msgid "manager.settings.statistics.geoUsageStats"
 msgstr ""
@@ -773,7 +774,7 @@ msgid "manager.settings.statistics.institutionUsageStats.enable"
 msgstr ""
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr ""
+msgstr "Offentlig API"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
@@ -801,7 +802,7 @@ msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
 msgid "manager.setup.dois"
-msgstr ""
+msgstr "DOI-er"
 
 msgid "manager.setup.dois.setup"
 msgstr ""
@@ -810,13 +811,13 @@ msgid "manager.setup.dois.registration"
 msgstr ""
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "DOI-prefiks"
 
 msgid "doi.manager.setup.automaticDeposit"
-msgstr ""
+msgstr "Automatisk deponering"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr ""
+msgstr "Aktiver automatisk deponering"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
@@ -840,10 +841,10 @@ msgid "doi.manager.settings.doiCreationTime.publication"
 msgstr ""
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr ""
+msgstr "Aldri"
 
 msgid "manager.setup.doiPrefix"
-msgstr ""
+msgstr "DOI-prefiks"
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Tidsskriftets innhold"
@@ -855,7 +856,7 @@ msgid "doi.manager.settings.doiSuffix"
 msgstr "DOI-suffiks"
 
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr ""
+msgstr "DOI-suffiks"
 
 msgid "doi.manager.settings.doiSuffix.custom"
 msgstr ""
@@ -890,7 +891,7 @@ msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Ingen"
 
 msgid "doi.manager.settings.doiVersioning"
 msgstr ""
@@ -1013,10 +1014,10 @@ msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
 msgstr ""
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr ""
+msgstr "Ja, send en kopi til {$email}"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr ""
+msgstr "Nei"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress"
 msgstr ""
@@ -1206,7 +1207,7 @@ msgid "manager.setup.theme"
 msgstr "Tema"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Institusjoner"
 
 msgid "manager.setup.theme.description"
 msgstr ""
@@ -1235,7 +1236,7 @@ msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Forfatterveiledning"
 
 #, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
@@ -2180,7 +2181,7 @@ msgid "plugins.importexport.common.errorsOccured"
 msgstr "Feil som oppstod:"
 
 msgid "plugins.importexport.common.id"
-msgstr ""
+msgstr "Id: {$id}"
 
 msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Ukjent element {$param}"
@@ -2852,7 +2853,7 @@ msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
 
 msgid "emailTemplate.variable.sender.senderName"
-msgstr ""
+msgstr "Avsenderens fulle navn"
 
 msgid "emailTemplate.variable.sender.senderEmail"
 msgstr ""
@@ -2885,7 +2886,7 @@ msgid "emailTemplate.variable.submission.authorsShort"
 msgstr ""
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr ""
+msgstr "Forfatternes fulle navn"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
 msgstr ""
@@ -3120,13 +3121,13 @@ msgstr ""
 "avslått."
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Påminnelse om fagfellevurdering"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Påminnelse om fagfellevurdering (automatisk)"
 
 #, fuzzy
 msgid "mailable.reviewRemindAuto.description"
@@ -3153,7 +3154,7 @@ msgstr ""
 "skrudd på og konfigurert (se filen med nettsidekonfigurering)."
 
 msgid "mailable.reviewRequest.name"
-msgstr ""
+msgstr "Forespørsel om fagfellevurdering"
 
 #, fuzzy
 msgid "mailable.reviewRequest.description"
@@ -3492,3 +3493,14 @@ msgstr ""
 #~ msgstr ""
 #~ "Denne e-posten sendes av en redaktør til en fagfelle for å minne om at "
 #~ "fagfellevurderingen ventes ferdigstilt innen fristen."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Krev at forfattere som sender inn manuskript samtidig sender inn en "
+"<I>«Erklæring om interessekonflikter»</I>."
+
+msgid "manager.highlights.image"
+msgstr "Bilde"
+
+msgid "manager.image"
+msgstr "Bilde"

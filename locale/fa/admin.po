@@ -1,19 +1,20 @@
 # Rahman Ramsi <rahmanramsi19@gmail.com>, 2021.
+# Kamdin Parsakia <kamdinparsakia@iranmehr.ac.ir>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2021-08-19 04:05+0000\n"
-"Last-Translator: Rahman Ramsi <rahmanramsi19@gmail.com>\n"
+"PO-Revision-Date: 2023-09-25 15:55+0000\n"
+"Last-Translator: Kamdin Parsakia <kamdinparsakia@iranmehr.ac.ir>\n"
 "Language-Team: Persian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"fa_IR/>\n"
-"Language: fa_IR\n"
+"fa/>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "نام تنظیم"
@@ -25,10 +26,12 @@ msgid "admin.adminFunctions"
 msgstr "عملیات مدیریتی"
 
 msgid "admin.deleteCache"
-msgstr ""
+msgstr "پاک کردن کش"
 
 msgid "admin.deleteCache.description"
 msgstr ""
+"پاک کردن کش فایل‌ها از این سیستم. این کار باید در محیط توسعه برنامه انجام "
+"شود."
 
 msgid "admin.clearDataCache"
 msgstr "پاک کردن نهان گاه داده‌ها"
@@ -79,6 +82,8 @@ msgstr "خارج کردن کاربران از سیستم"
 
 msgid "admin.expireSessions.description"
 msgstr ""
+"همه کاربران فوراً از سامانه لاگ اوت می‌شوند که شما خود شما نیز بوده و باید "
+"دوباره وارد شوید."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -141,7 +146,7 @@ msgid "admin.scheduledTask.noLog"
 msgstr "اجرای وظیفه هیچ log تولید نکرد"
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "سپردن شناسه‌های DOI با نمایندگی ثبت تنظیم شده"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
@@ -149,13 +154,15 @@ msgstr ""
 "log مربوطه را از این آدرس دانلود کنید:  {$url}"
 
 msgid "admin.scheduledTask.editorialReminder"
-msgstr ""
+msgstr "ارسال ایمیل به هر دبیر برای یادآوری وظایف انجام نشده آن‌ها"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "شناسایی دبیران به منظور یادآوری در {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"تعداد {$count} ایمیل یادآوری دبیری به کاربران {$userIds} در بستر {$contextId}"
+" ارسال شده"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -165,10 +172,10 @@ msgid "admin.scheduledTask.clearLogs"
 msgstr "پاک کردن فایل‌های log وظایف زمان‌بندی شده"
 
 msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
+msgstr "پاک کردن تمام لاگ‌های وظایف برنامه‌ریزی شده در حال اجرا."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "پاک کردن لاگ‌های وظایف"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "موارد ارسالی برنامه ریزی شده برای انتشار را منتشر کنید"
@@ -177,75 +184,82 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr "یادآوری داوری"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "اطلاع رسانی گزارش دبیری"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "یادآوری اتمام اشتراک"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "حذف کاربران تأیید نشده منقضی شده"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "پاک کردن کارهای قدیمی از فهرست کارهای انجام نشده."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "پردازش کارهای در صف بررسی"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "به روز رسانی دیتابیس DB-IP"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"تغییر نام فایل دیتابیس DB-IP با نام {$sourceFilename} به {$targetFilename} "
+"با شکست مواجه شد."
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "وظیفه بارگزار فایل آمار کارکرد"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"دایرکتوری {$directory} خالی نیست. این می‌تواند نشان دهنده یک پردازش شکست "
+"خورده یا وجود یک پردازش در حال اجرا به طور همزمان باشد. این فایل به طور "
+"خودکار مجدداً پردازش خواهد شد."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "فایل {$file} نمیتواند باز شود و نادیده گرفته می شود."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"فایل {$file} دارای فرمتی قدیمی است که قابل پردازش نیست. بنابراین فایل مجدداً "
+"به مرحله دایرکتوری منتقل خواهد شد."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
@@ -341,7 +355,7 @@ msgid "admin.systemInformation.description"
 msgstr ""
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "مشاهده اطلاعات سیستم"
 
 msgid "admin.versionBuild"
 msgstr "ساخت"
@@ -400,16 +414,16 @@ msgid "admin.fileLoader.emailSubject"
 msgstr "بارگزار فایل"
 
 msgid "admin.error.gzDecompressFile.gzopen"
-msgstr ""
+msgstr "فایل مورد نظر قابل فشرده سازی نبود."
 
 msgid "admin.error.gzDecompressFile.fopen"
-msgstr ""
+msgstr "فایل مورد نظر قابل فشرده سازی نبود."
 
 msgid "admin.error.gzDecompressFile.gzread"
-msgstr ""
+msgstr "فایل مورد نظر قابل فشرده سازی نبود."
 
 msgid "admin.error.gzDecompressFile.fwrite"
-msgstr ""
+msgstr "فایل مورد نظر قابل فشرده سازی نبود."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
@@ -718,9 +732,6 @@ msgid "admin.settings.statistics.sushiPlatform"
 msgstr ""
 
 msgid "admin.settings.statistics.sushiPlatform.description"
-msgstr ""
-
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr ""
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"

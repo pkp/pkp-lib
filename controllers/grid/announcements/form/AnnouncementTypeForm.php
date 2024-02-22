@@ -25,7 +25,7 @@ use PKP\form\Form;
 
 class AnnouncementTypeForm extends Form
 {
-    /** @var int Context ID */
+    /** @var ?int Context ID or null for site announcement */
     public $contextId;
 
     /** @var int The ID of the announcement type being edited */
@@ -34,7 +34,7 @@ class AnnouncementTypeForm extends Form
     /**
      * Constructor
      *
-     * @param int $contextId Context ID
+     * @param ?int $contextId Context ID or null for site announcement
      * @param int $typeId leave as default for new announcement type
      */
     public function __construct($contextId, $typeId = null)

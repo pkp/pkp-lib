@@ -1,18 +1,18 @@
 # Gints Buda <gints.buda@gmail.com>, 2022.
-# Ieva Tiltina <pastala@gmail.com>, 2022.
+# Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-11-09 17:03+0000\n"
+"PO-Revision-Date: 2024-01-30 11:07+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"lv_LV/>\n"
-"Language: lv_LV\n"
+"lv/>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
 "19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Iestatījumu Nosaukums"
@@ -28,7 +28,7 @@ msgstr "Dzēst kešatmiņas"
 
 msgid "admin.deleteCache.description"
 msgstr ""
-"Izdzēsiet kešatmiņas failus no sistēmas. Tas jādara tikai izstrādes vidēs."
+"Izdzēsiet kešatmiņas datnes no sistēmas. Tas jādara tikai izstrādes vidēs."
 
 msgid "admin.clearDataCache"
 msgstr "Notīrīt Datu Kešatmiņu"
@@ -38,7 +38,7 @@ msgstr "Notīrīt Veidņu Kešatmiņu"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr ""
-"Jūsu konfigurācijas fails ir veiksmīgi atjaunināts. Lūdzu, ņemiet vērā, ja "
+"Jūsu konfigurācijas datne ir veiksmīgi atjaunināta. Lūdzu, ņemiet vērā, ja "
 "jūsu vietne vairs nedarbojas pareizi, iespējams, būs manuāli jālabo "
 "konfigurācija, rediģējot <tt>config.inc.php</tt>."
 
@@ -52,7 +52,7 @@ msgstr ""
 "atkārtoti (ieskaitot jūs)."
 
 msgid "admin.contentsOfConfigFile"
-msgstr "Konfigurācijas faila saturs"
+msgstr "Konfigurācijas datnes saturs"
 
 msgid "admin.contexts.confirmDelete"
 msgstr ""
@@ -83,8 +83,8 @@ msgstr ""
 
 msgid "admin.languages.cantDisable"
 msgstr ""
-"Šī ir vietnes primārā lokalizācija. Jūs nevarat to atspējot, kamēr nav "
-"izvēlēta cita primārā lokalizācija."
+"Šī lokalizācija ir vietnes primārā valoda. Jūs nevarat to atspējot, kamēr "
+"nav izvēlēta cita primārā lokalizācija."
 
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""
@@ -126,46 +126,53 @@ msgid "admin.languages.reload"
 msgstr "Atkārtoti ielādēt lokalizāciju"
 
 msgid "admin.languages.uninstall"
-msgstr ""
+msgstr "Lokalizācijas atinstalēšana"
 
 msgid "admin.phpInfo"
-msgstr ""
+msgstr "Paplašināta PHP informācija"
 
 msgid "admin.scheduledTask"
-msgstr ""
+msgstr "Ieplānotais uzdevums"
 
 msgid "admin.scheduledTask.startTime"
-msgstr ""
+msgstr "Uzdevuma izpildes process ir sākts."
 
 msgid "admin.scheduledTask.stopTime"
-msgstr ""
+msgstr "Uzdevuma izpildes process ir apturēts."
 
 msgid "admin.scheduledTask.noLog"
-msgstr ""
+msgstr "Uzdevums neradīja notikumu žurnālu."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "Deponēt DOI konfigurētajā reģistrācijas aģentūrā"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
+"Jūsu {$softwareName} instalācija automātiski izpildīja un pabeidza šo "
+"uzdevumu, un notikumu žurnāla failu varat lejupielādēt šeit: {$url}"
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
+"Nosūtīt e-pastu katram redaktoram ar atgādinājumu par neizpildītajiem "
+"uzdevumiem"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "Redaktoru identificēšana, lai atgādinātu {$contextId} kontekstā"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"Dispečēti {$count} darbuzdevumi, lai nosūtītu redakcionālos e-pasta "
+"atgādinājumus lietotājiem {$userIds} kontekstā {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
-msgstr ""
+msgstr "Vai tiešām vēlaties izdzēst visus plānotā uzdevuma izpildes žurnālus?"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr ""
 
 msgid "admin.scheduledTask.clearLogs.description"
 msgstr ""
+"Dzēst visus uzdevumu žurnālus par plānotajiem uzdevumiem, kas ir palaisti."
 
 msgid "admin.scheduledTask.clearLogs.delete"
 msgstr ""
@@ -177,7 +184,7 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr ""
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Redakcionālās atskaites paziņojums"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr ""
@@ -187,6 +194,7 @@ msgstr ""
 
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr ""
+"Noņemt vecākos nesekmīgos darbuzdevumus no nesekmīgo darbuzdevumu saraksta."
 
 msgid "admin.scheduledTask.processQueueJobs"
 msgstr ""
@@ -203,7 +211,7 @@ msgstr ""
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr ""
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -212,40 +220,40 @@ msgstr ""
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
@@ -273,7 +281,7 @@ msgid "admin.settings"
 msgstr ""
 
 msgid "admin.settings.about"
-msgstr ""
+msgstr "Par vietni"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr ""
@@ -321,7 +329,7 @@ msgid "admin.siteAdmin"
 msgstr ""
 
 msgid "admin.siteManagement"
-msgstr ""
+msgstr "Vietnes pārvaldība"
 
 msgid "admin.siteSettings"
 msgstr ""
@@ -337,6 +345,8 @@ msgstr ""
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Skatiet informāciju par lietojumprogrammas un servera versiju un "
+"konfigurācijas iestatījumiem."
 
 msgid "admin.systemInformation.view"
 msgstr ""
@@ -369,7 +379,7 @@ msgid "admin.version.moreInfo"
 msgstr ""
 
 msgid "admin.versionRevision"
-msgstr ""
+msgstr "Labojums"
 
 msgid "admin.version.updateAvailable"
 msgstr ""
@@ -528,7 +538,7 @@ msgid "admin.cli.tool.jobs.pagination"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Pašreizējais"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
 msgstr ""
@@ -714,9 +724,6 @@ msgid "admin.settings.statistics.sushiPlatform"
 msgstr ""
 
 msgid "admin.settings.statistics.sushiPlatform.description"
-msgstr ""
-
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr ""
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"

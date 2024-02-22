@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2023-02-27 15:42+0000\n"
+"PO-Revision-Date: 2023-12-21 17:52+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fi/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -103,7 +103,7 @@ msgid "common.grid"
 msgstr "Kehikko"
 
 msgid "common.confirmDelete"
-msgstr "Haluatko varmasti poistaa tämän kohteen? Tätä toimintoa ei voi kumota."
+msgstr "Haluatko varmasti poistaa tämän kohteen? Tätä toimintoa ei voi perua."
 
 msgid "common.abstract"
 msgstr "Abstrakti"
@@ -520,7 +520,7 @@ msgid "common.keywords"
 msgstr "Avainsanat"
 
 msgid "common.label"
-msgstr "Nimike"
+msgstr "Selite"
 
 msgid "common.language"
 msgstr "Kieli"
@@ -771,7 +771,9 @@ msgid "common.replaceFile"
 msgstr "Korvaa tiedosto"
 
 msgid "common.requiredField"
-msgstr "*Pakollinen kenttä"
+msgstr ""
+"Pakolliset kentät on merkitty tähdellä: <abbr class=\"required\" title="
+"\"required\">*</abbr>"
 
 msgid "common.required"
 msgstr "Vaaditaan"
@@ -1674,7 +1676,7 @@ msgid "search.cli.rebuildIndex.error"
 msgstr "virhe"
 
 msgid "search.cli.rebuildIndex.result"
-msgstr "{$numIndexed} artikkelia indeksoitu"
+msgstr "{$numIndexed} artikkelia ajoitettu indeksoitavaksi"
 
 msgid "search.coverage"
 msgstr "Kattavuus"
@@ -2278,3 +2280,15 @@ msgstr "Kirjoittajaa muokattu."
 
 #~ msgid "common.captchaField"
 #~ msgstr "Vahvistus"
+
+msgid "showLess"
+msgstr "Näytä vähemmän"
+
+msgid "common.highlight"
+msgstr "Nosto"
+
+msgid "showAll"
+msgstr "Näytä kaikki"
+
+msgid "common.highlights"
+msgstr "Nostot"

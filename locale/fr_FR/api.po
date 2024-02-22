@@ -1,12 +1,13 @@
 # Deleted User <noreply+532@weblate.org>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2023-08-01 08:25+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2023-09-22 13:06+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -19,7 +20,6 @@ msgstr ""
 msgid "api.400.paramNotSupported"
 msgstr "Le paramètre « {$param} » n'est pas supporté."
 
-#, fuzzy
 msgid "api.400.propReadOnly"
 msgstr "La propriété {$prop} ne peut pas être modifiée."
 
@@ -58,36 +58,29 @@ msgstr ""
 msgid "api.announcements.404.announcementNotFound"
 msgstr "L'annonce que vous avez demandée est introuvable."
 
-#, fuzzy
 msgid "api.institutions.404.institutionNotFound"
 msgstr "L'institution que vous recherchez est introuvable."
 
 msgid "api.contexts.400.localesNotSupported"
 msgstr "Les traductions suivantes ne sont pas supportées : {$locales}."
 
-#, fuzzy
 msgid "api.dois.403.editItemOutOfContext"
-msgstr "Vous ne pouvez pas ajouter un DOI à un élément dans cette situation."
+msgstr "Vous ne pouvez pas éditer un DOI qui est en dehors de cette situation."
 
-#, fuzzy
 msgid "api.dois.403.pubTypeNotRecognized"
 msgstr "Le type de publication n'a pas été reconnu."
 
-#, fuzzy
 msgid "api.dois.404.contextNotFound"
 msgstr ""
 "Ce point d'accès n'est pas disponible dans l'espace de noms à l'échelle du "
 "site et doit être demandé pour un contexte donné."
 
-#, fuzzy
 msgid "api.dois.404.doiNotFound"
 msgstr "Le DOI que vous recherchez est introuvable."
 
-#, fuzzy
 msgid "api.dois.404.pubObjectNotFound"
-msgstr "L'objet de publication demandé n'a pas été trouvé."
+msgstr "L'élément de la publication demandé n'a pas été trouvé."
 
-#, fuzzy
 msgid "api.dois.404.submissionNotFound"
 msgstr "La soumission que vous recherchez est introuvable."
 
@@ -96,7 +89,6 @@ msgstr ""
 "Les éléments non publiés ne peuvent pas être exportés/déposés. Veuillez "
 "désélectionner les éléments non publiés et réessayer."
 
-#, fuzzy
 msgid "api.dois.400.creationFailed"
 msgstr "Une erreur s'est produite et l'objet DOI n'a pas pu être créé."
 
@@ -105,23 +97,19 @@ msgstr ""
 "Une erreur de validation XML s'est produite et le XML n'a pas pu être "
 "exporté."
 
-#, fuzzy
 msgid "api.dois.400.markRegisteredFailed"
 msgstr ""
 "Une erreur s'est produite et certains des éléments soumis n'ont pas été "
 "marqués comme étant enregistrés."
 
-#, fuzzy
 msgid "api.dois.400.depositFailed"
 msgstr ""
 "Certains éléments n'ont pas été déposés avec succès. Veuillez vérifier les "
 "messages d'erreur spécifiques à chaque élément."
 
-#, fuzzy
 msgid "api.dois.404.noPubObjectIncluded"
 msgstr "Aucun objet de publication valide n'a été inclus dans la demande."
 
-#, fuzzy
 msgid "api.dois.400.invalidPubObjectIncluded"
 msgstr ""
 "Un ou plusieurs objets de publication non valides ont été inclus dans la "
@@ -132,7 +120,6 @@ msgstr ""
 "Le plugin actuellement configuré doit être un plugin d'une agence "
 "d'enregistrement."
 
-#, fuzzy
 msgid "api.decisions.403.alreadyPublished"
 msgstr ""
 "Vous ne pouvez pas enregistrer une décision ou recommander une décision pour "
@@ -154,7 +141,6 @@ msgstr ""
 "Vous n'avez pas l'autorisation d'envoyer ce courriel aux utilisateurs et "
 "utilisatrices d'un ou plusieurs des rôles sélectionnés."
 
-#, fuzzy
 msgid "api.emailTemplates.400.invalidAlternateTo"
 msgstr "Ceci n'est pas un modèle de courriel par défaut pour un courriel connu."
 
@@ -249,11 +235,10 @@ msgstr ""
 "Votre demande était invalide. Le « orderDirection » doit être « desc » ou « "
 "asc »."
 
-#, fuzzy
 msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
-"Votre demande était invalide. Le « timelineInterval » doit être « day » ou « "
-"month »."
+"Votre demande est invalide. L'intervalle de dates doit être en jour ou en "
+"mois."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
@@ -321,7 +306,6 @@ msgstr "La requête n'a pas pu être terminée par manque d'information."
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Le volume requis n'est pas valide."
 
-#, fuzzy
 msgid "api.submissions.400.invalidSubmitAs"
 msgstr ""
 "Vous n'êtes pas autorisé à soumettre un document avec le rôle que vous "
@@ -362,39 +346,32 @@ msgstr "La langue {$locale} n'est pas prise en charge."
 msgid "api.mailables.404.mailableNotFound"
 msgstr "Le courriel que vous avez demandé est introuvable."
 
-#, fuzzy
 msgid "api.jobs.404.failedJobNotFound"
-msgstr "Le travail en échec n'a pas été trouvé dans la liste des échecs."
+msgstr "La tâche en échec n'a pas été trouvée dans la liste des échecs."
 
-#, fuzzy
 msgid "api.jobs.406.failedJobPayloadMissing"
 msgstr ""
-"Le travail en échec n'a pas la charge utile nécessaire pour être soumis à "
-"nouveau."
+"La tâche en échec n'a pas la priorité nécessaire pour être soumise à nouveau."
 
-#, fuzzy
 msgid "api.jobs.406.failedJobEmpty"
-msgstr "Aucun travail en échec n'a été trouvé dans la liste."
+msgstr "Aucune tâche en échec n'a été trouvée dans la liste."
 
 msgid "api.jobs.400.failedJobRedispatchedFailed"
 msgstr "Impossible de redistribuer le travail en échec."
 
-#, fuzzy
 msgid "api.jobs.200.failedJobRedispatchedSucceed"
-msgstr "Le travail en échec a été redistribué avec succès."
+msgstr "La tâche en échec a été envoyée à nouveau avec succès."
 
-#, fuzzy
 msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
-"Tous les travaux en échec pouvant être redistribués et dont la charge utile "
-"est valide ont été remis en file d'attente avec succès."
+"Toutes les tâches en échec pouvant être redistribuées et dont la priorité "
+"est valide ont été remises en file d'attente avec succès."
 
 msgid "api.jobs.400.failedJobDeleteFailed"
 msgstr "Impossible de supprimer le travail en échec de la liste d'échecs."
 
-#, fuzzy
 msgid "api.jobs.200.failedJobDeleteSucceed"
-msgstr "Le travail en échec a été supprimé avec succès de la liste d'échecs."
+msgstr "La tâche en échec a été supprimée avec succès de la liste d'échecs."
 
 #~ msgid "api.submissions.400.stageNotValid"
 #~ msgstr ""

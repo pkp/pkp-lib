@@ -150,7 +150,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
      */
     private function _getDocument()
     {
-        $doc = new DOMDocument('1.0');
+        $doc = new DOMDocument('1.0', 'utf-8');
         $doc->loadXML($this->getCachedDocument());
 
         return $doc;

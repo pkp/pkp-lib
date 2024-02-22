@@ -1,12 +1,13 @@
 # M. Ali <vorteem@gmail.com>, 2021, 2022, 2023.
 # Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2023.
+# "M. Ali" <vorteem@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"PO-Revision-Date: 2024-01-20 02:39+0000\n"
+"Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ar/>\n"
 "Language: ar\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "مشروع المعرفة العامة"
@@ -252,7 +253,7 @@ msgid "common.changesSaved"
 msgstr "تم حفظ تعديلاتك."
 
 msgid "common.chooseOne"
-msgstr "إختر واحداً..."
+msgstr "إختر واحداً"
 
 msgid "common.close"
 msgstr "إغلاق"
@@ -988,7 +989,7 @@ msgid "common.yes"
 msgstr "نعم"
 
 msgid "common.loading"
-msgstr "تحميل..."
+msgstr "تحميل"
 
 msgid "common.plugins"
 msgstr "الإضافات"
@@ -1667,7 +1668,7 @@ msgid "search.cli.rebuildIndex.error"
 msgstr "خطأ"
 
 msgid "search.cli.rebuildIndex.result"
-msgstr "{$numIndexed} مؤلَّف تمت فهرسته"
+msgstr "{$numIndexed} مؤلَّف مجدول لفهرسته"
 
 msgid "search.coverage"
 msgstr "التغطية"
@@ -2255,3 +2256,15 @@ msgstr "المؤلف عُدِّل."
 
 #~ msgid "common.captchaField"
 #~ msgstr "التحقق"
+
+msgid "showAll"
+msgstr "إظهار الكل"
+
+msgid "showLess"
+msgstr "إظهار الأقل"
+
+msgid "common.highlight"
+msgstr "التمييز"
+
+msgid "common.highlights"
+msgstr "التمييزات"

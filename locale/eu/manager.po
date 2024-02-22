@@ -1,12 +1,13 @@
 # Aitor Renobales <aitor.renobales@ehu.eus>, 2022.
 # Josu Acosta <josuacostacalvo@gmail.com>, 2023.
+# Informatikaria <informatikaria@ueu.eus>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2023-07-10 17:52+0000\n"
-"Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
+"PO-Revision-Date: 2023-12-12 14:59+0000\n"
+"Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "eu/>\n"
 "Language: eu\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr ""
@@ -233,7 +234,7 @@ msgstr ""
 msgid "manager.dois.registration.viewRecord.title"
 msgstr ""
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr ""
 
 msgid "manager.dois.registration.depositDois"
@@ -534,7 +535,7 @@ msgid "manager.language.forms"
 msgstr ""
 
 msgid "manager.language.reloadLocalizedDefaultSettings"
-msgstr ""
+msgstr "Berreskuratu balio lehenetsiak"
 
 msgid "manager.languages.alternateLocaleInstructions"
 msgstr ""
@@ -768,7 +769,7 @@ msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr ""
 
 msgid "manager.statistics.reports"
-msgstr ""
+msgstr "Txostenak"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -1593,10 +1594,10 @@ msgid "settings.libraryFiles.category.marketing"
 msgstr ""
 
 msgid "settings.libraryFiles.category.permissions"
-msgstr ""
+msgstr "Baimenak"
 
 msgid "settings.libraryFiles.category.reports"
-msgstr ""
+msgstr "Txostenak"
 
 msgid "settings.libraryFiles.category.other"
 msgstr ""
@@ -3207,3 +3208,8 @@ msgstr ""
 #~ msgstr ""
 #~ "Mezu hau Ataleko editoreak Ebaluatzaileari bidaltzen dio, ebaluazioa "
 #~ "egiteko epea pasatu dela gogorarazteko."
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Eskatu lana bidaltzen duten egileei Interes-gatazkari buruzko deklarazio bat "
+"erants dezatela bidalketan."

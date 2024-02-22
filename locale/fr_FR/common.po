@@ -2,13 +2,14 @@
 # Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2023-08-01 08:25+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2023-11-24 19:27+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -16,10 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
-msgstr "Projet de connaissances publiques (Public Knowledge Project)"
+msgstr "Public Knowledge Project"
 
 msgid "common.currentStyleSheet"
 msgstr "Feuille de style actuelle"
@@ -67,7 +68,7 @@ msgid "announcement.announcementsHome"
 msgstr "Annonces"
 
 msgid "announcement.moreAnnouncements"
-msgstr "Encore plus d'annonces..."
+msgstr "Plus d'annonces..."
 
 msgid "announcement.noneExist"
 msgstr "Aucune annonce n'a été publiée."
@@ -174,9 +175,9 @@ msgstr "Texte alternatif"
 
 msgid "common.altTextInstructions"
 msgstr ""
-"Décrivez cette image pour les utilisateurs et utilisatrices visitant ce site "
-"dans un navigateur textuel où à l'aide d'un dispositif d'assistance. Par "
-"exemple : « Notre rédacteur intervient lors de la conférence PKP »."
+"Décrivez cette image pour les utilisateurs et utilisatrices qui visitent ce "
+"site avec un navigateur textuel ou à l'aide d'un dispositif d'assistance. "
+"Par exemple : « Notre rédacteur intervient lors de la conférence PKP. »"
 
 msgid "common.and"
 msgstr "et"
@@ -725,7 +726,7 @@ msgid "common.quality"
 msgstr "Qualité"
 
 msgid "common.queue.long.active"
-msgstr "Tous actifs"
+msgstr "Toutes actives"
 
 msgid "common.range"
 msgstr "{$min}-{$max}"
@@ -779,7 +780,9 @@ msgid "common.replaceFile"
 msgstr "Remplacer le fichier"
 
 msgid "common.requiredField"
-msgstr "* Indique un champ obligatoire"
+msgstr ""
+"<abbr class=\"required\" title=\"required\">*</abbr> Indique un champ "
+"obligatoire"
 
 msgid "common.required"
 msgstr "Obligatoire"
@@ -1449,7 +1452,7 @@ msgid "locale.supported"
 msgstr "Langues prises en charge"
 
 msgid "navigation.access"
-msgstr "Utilisateurs/Utilisatrices & Rôles"
+msgstr "Utilisateurs/trices & Rôles"
 
 msgid "navigation.about"
 msgstr "À propos"
@@ -1701,7 +1704,7 @@ msgid "search.cli.rebuildIndex.error"
 msgstr "Erreur"
 
 msgid "search.cli.rebuildIndex.result"
-msgstr "{$numIndexed} articles indexés"
+msgstr "{$numIndexed} articles prévus pour l'indexation"
 
 msgid "search.coverage"
 msgstr "Couverture"
@@ -1891,7 +1894,6 @@ msgstr "Vous avez une évaluation en attente."
 msgid "notification.type.reviewAssignmentUpdated"
 msgstr "Mise à jour de la demande d'évaluation."
 
-#, fuzzy
 msgid "notification.type.auditorRequest"
 msgstr "Demande de vérification du fichier « {$file} »"
 
@@ -1921,7 +1923,7 @@ msgid "timeZone"
 msgstr "Fuseau horaire"
 
 msgid "user.email"
-msgstr "Adresse de courriel"
+msgstr "Courriel"
 
 msgid "user.authorization.submissionFile"
 msgstr "L'utilisateur actuel n'a pas accès au fichier de soumission spécifié."
@@ -2404,3 +2406,15 @@ msgstr "Auteur modifié."
 #~ msgstr ""
 #~ "Une erreur inattendue est survenue. Vous avez peut-être été déconnecté ou "
 #~ "déconnectée. Veuillez recharger la page et essayer de nouveau."
+
+msgid "showLess"
+msgstr "Montrer moins"
+
+msgid "common.highlight"
+msgstr "Mise en évidence"
+
+msgid "showAll"
+msgstr "Montrer tous"
+
+msgid "common.highlights"
+msgstr "Mises en évidence"

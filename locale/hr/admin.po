@@ -225,7 +225,7 @@ msgstr ""
 "neuspjeli proces ili na proces koji se istovremeno izvodi. Ova će datoteka "
 "biti automatski ponovno obrađena."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Datoteka {$file} nije se mogla otvoriti i odbijena je."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -240,43 +240,43 @@ msgstr ""
 "morate vratiti sve datoteke dnevnika tog mjeseca i koristiti CLI alat za "
 "ponovnu obradu statistike."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Redak {$lineNumber} u datoteci zapisa {$file} je u pogrešnom formatu i stoga "
 "će biti preskočen."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Nevažeći zapis u retku {$lineNumber} u datoteci zapisa {$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Vrijeme nije važeći datum."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "ID konteksta nije cijeli broj."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "ID prijave nije cijeli broj."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "ID prikaza nije cijeli broj."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Tip Assoc nije podržan."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Vrsta datoteke nije podržana."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Država nije niz od dva abecedna znaka."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Regija nije niz dug do tri alfanumerička znaka."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "ID-ovi institucija nisu niz."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Došlo je do pogreške prilikom obrade datoteke zapisa {$file} u retku "
 "{$lineNumber}: {$msg}"
@@ -834,9 +834,6 @@ msgstr ""
 "Međutim, ako su svi časopisi na ovoj stranici objavljeni, u vlasništvu ili "
 "njima upravlja isti pružatelj usluga, možda ćete htjeti odrediti stranicu "
 "kao platformu."
-
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Koristite stranicu kao platformu za sve časopise."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID platforme"

@@ -225,7 +225,7 @@ msgstr ""
 "previo fallido, o un proceso en ejecución concurrente. Este archivo se "
 "reprocesará automáticamente."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "El archivo {$file} no pudo abrirse y fue rechazado."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -240,45 +240,45 @@ msgstr ""
 "debe restaurar todos los archivos de registro del mes y usar la herramienta "
 "de línea de comandos para volver a procesar las estadísticas."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Se omitirá la línea {$lineNumber} en el archivo de registro {$file} porque "
 "tiene un formato incorrecto."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Entrada de registro inválida en la línea {$lineNumber} del archivo de "
 "registro {$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "La hora (Time) no tiene un formato de fecha válido."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "El ID de contexto (Context ID) no es un número entero."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "El ID de envío (Sumbission ID) no es un número entero."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "El ID de representación (Representation ID) no es un número entero."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "El tipo asociado (Assoc type) no es compatible."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "El tipo de archivo (File type) no es compatible."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "El país (Country) debe ser una cadena alfabética de dos caracteres."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr ""
 "La región (Region) debe ser una cadena alfanumérica de hasta tres caracteres."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Los ID de instituciones (Institution IDs) deben ser una array."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Error al procesar el archivo de registro {$file} en la línea {$lineNumber}: "
 "{$msg}"
@@ -850,9 +850,6 @@ msgstr ""
 "proveedor, es posible que desee designar en su lugar el sitio como "
 "plataforma."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr ""
-"Usar este sitio como plataforma para todas las revistas/editoriales/"
 "repositorios."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"

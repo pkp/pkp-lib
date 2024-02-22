@@ -150,6 +150,7 @@ msgstr "Błąd parsowania pliku szablonów e-mail - <tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Błąd parsowania konfiguracji filtrów w pliku <tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Aktualizacja nie jest wspierana. Zobacz docs/UPGRADE-UNSUPPORTED w celu "

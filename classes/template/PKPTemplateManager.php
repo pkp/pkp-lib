@@ -24,11 +24,10 @@ namespace PKP\template;
 
 use APP\core\Application;
 use APP\core\PageRouter;
-use PKP\site\VersionDAO;
+use APP\core\Request;
 
 require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
 
-use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
@@ -61,6 +60,7 @@ use PKP\plugins\ThemePlugin;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
+use PKP\site\VersionDAO;
 use PKP\submission\GenreDAO;
 use Smarty;
 use Smarty_Internal_Template;
@@ -117,6 +117,11 @@ class PKPTemplateManager extends Smarty
 
     /** @var string[] */
     private array $headers = [];
+
+
+    /** @var bool Track whether its backend page */
+    private bool $isBackendPage = false;
+
 
     /**
      * Constructor.
@@ -309,6 +314,7 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('modifier', 'strstr', 'strstr');
         $this->registerPlugin('modifier', 'strval', 'strval');
         $this->registerPlugin('modifier', 'array_key_first', 'array_key_first');
+        $this->registerPlugin('modifier', 'array_values', 'array_values');
         $this->registerPlugin('modifier', 'fatalError', 'fatalError');
         $this->registerPlugin('modifier', 'translate', [$this, 'smartyTranslateModifier']);
         $this->registerPlugin('modifier', 'strip_unsafe_html', '\PKP\core\PKPString::stripUnsafeHtml');
@@ -799,6 +805,7 @@ class PKPTemplateManager extends Smarty
      */
     public function setupBackendPage()
     {
+        $this->isBackendPage = true;
         $request = Application::get()->getRequest();
         $dispatcher = $request->getDispatcher();
         /** @var PageRouter */
@@ -1121,6 +1128,11 @@ class PKPTemplateManager extends Smarty
                                     'name' => __('manager.users'),
                                     'url' => $router->url($request, null, 'stats', 'users', 'users'),
                                     'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'users',
+                                ],
+                                'counterR5' => [
+                                    'name' => __('manager.statistics.counterR5'),
+                                    'url' => $router->url($request, null, 'stats', 'counterR5', 'counterR5'),
+                                    'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'counterR5',
                                 ]
                             ]
                         ];
@@ -1255,6 +1267,37 @@ class PKPTemplateManager extends Smarty
      */
     public function display($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {
+
+        if($this->isBackendPage) {
+            $this->unregisterPlugin('modifier', 'escape');
+
+            /** prevent {{ JS }} injection  */
+            $this->registerPlugin('modifier', 'escape', function ($string, $esc_type = 'html', $char_set = 'ISO-8859-1') {
+                $result = $string;
+                if($esc_type === 'html') {
+                    $result = $this->smartyEscape($result, $esc_type, $char_set);
+                    $result = str_replace('{{', '<span v-pre>{{</span>', $result);
+                    $result = str_replace('}}', '<span v-pre>}}</span>', $result);
+                    return $result;
+                }
+
+
+                return $this->smartyEscape($result, $esc_type, $char_set);
+                
+            });
+
+            $this->unregisterPlugin('modifier', 'strip_unsafe_html');
+
+            /** prevent {{ JS }} injection  */
+            $this->registerPlugin('modifier', 'strip_unsafe_html', function ($input, $configKey = 'allowed_html') {
+                $result = \PKP\core\PKPString::stripUnsafeHtml($input, $configKey);
+                $result = str_replace('{{', '<span v-pre>{{</span>', $result);
+                $result = str_replace('}}', '<span v-pre>}}</span>', $result);
+                return $result;                
+            });
+
+
+        }
         // Output global constants and locale keys used in new component library
         $output = '';
         if (!empty($this->_constants)) {
@@ -2178,7 +2221,11 @@ class PKPTemplateManager extends Smarty
             ksort($styles);
             foreach ($styles as $priorityGroup) {
                 foreach ($priorityGroup as $htmlStyle) {
-                    $links .= '<link rel="stylesheet" href="' . $htmlStyle['style'] . '" type="text/css">' . "\n";
+                    if (!empty($htmlStyle['inline'])) {
+                        $links .= '<style type="text/css">' . $htmlStyle['style'] . '</style>' . "\n";
+                    } else {
+                        $links .= '<link rel="stylesheet" href="' . $htmlStyle['style'] . '" type="text/css">' . "\n";
+                    }
                 }
             }
         }

@@ -16,6 +16,9 @@
 		{translate key="user.login"}
 	</h1>
 
+	<p>
+		{translate key="common.requiredField"}
+	</p>
 	{* A login message may be displayed if the user was redireceted to the
 	   login page from another request. Examples include if login is required
 	   before dowloading a file. *}
@@ -41,13 +44,13 @@
 			<div class="username">
 				<label>
 					<span class="label">
-						{translate key="user.username"}
+						{translate key="user.usernameOrEmail"}
 						<span class="required" aria-hidden="true">*</span>
 						<span class="pkp_screen_reader">
 							{translate key="common.required"}
 						</span>
 					</span>
-					<input type="text" name="username" id="username" value="{$username|default:""|escape}" maxlength="32" required aria-required="true" autocomplete="username">
+					<input type="text" name="username" id="username" value="{$username|default:""|escape}" required aria-required="true" autocomplete="username">
 				</label>
 			</div>
 			<div class="password">
@@ -80,7 +83,7 @@
 					<div class="fields">
 						<div class="recaptcha">
 							<div class="g-recaptcha" data-sitekey="{$recaptchaPublicKey|escape}">
-							</div>
+							</div><label for="g-recaptcha-response" style="display:none;" hidden>Recaptcha response</label>
 						</div>
 					</div>
 				</fieldset>

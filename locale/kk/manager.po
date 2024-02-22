@@ -248,7 +248,7 @@ msgstr "Жазбаны көрсету"
 msgid "manager.dois.registration.viewRecord.title"
 msgstr "Сәтті тіркеу туралы хабарлама"
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr "DOI сәтті жаңартылды"
 
 msgid "manager.dois.registration.depositDois"
@@ -3561,3 +3561,8 @@ msgstr ""
 #~ msgstr ""
 #~ "Бұл электрондық хатты Редактор рецензентке материалдардың қарастырылуы "
 #~ "тиіс екенін еске салу үшін жібереді"
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"Требовать от авторов представлять Декларацию о конфликте интересов вместе с "
+"отправляемым материалом."

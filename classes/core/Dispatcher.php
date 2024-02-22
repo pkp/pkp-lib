@@ -246,10 +246,7 @@ class Dispatcher
             exit;
         }
 
-        $fp = fopen($filename, 'r');
-        $data = fread($fp, filesize($filename));
-        fclose($fp);
-
+        $data = file_get_contents($filename);
         $i = strpos($data, ':');
         $time = substr($data, 0, $i);
         $contents = substr($data, $i + 1);

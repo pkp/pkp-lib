@@ -219,7 +219,7 @@ msgstr ""
 "zakończony niepowodzeniem proces lub współbieżnie działający proces. Ten "
 "plik zostanie automatycznie ponownie przetworzony."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Nie można było otworzyć pliku {$file}, więc został odrzucony."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -234,46 +234,46 @@ msgstr ""
 "miesiąca, musisz przywrócić wszystkie pliki dziennika z tego miesiąca i użyć "
 "narzędzia linii poleceń do ponownego przetworzenia statystyk."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Wiersz {$lineNumber} w pliku dziennika {$file} ma niewłaściwy format i "
 "dlatego zostanie pominięty."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Nieprawidłowy wpis dziennika dla wiersza {$lineNumber} w pliku dziennika "
 "{$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Czas nie jest prawidłową datą."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "Identyfikator kontekstu nie jest liczbą całkowitą."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "Identyfikator zgłoszenia nie jest liczbą całkowitą."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "Identyfikator reprezentacji nie jest liczbą całkowitą."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Nie obsługiwany typ przypisania."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Nie obsługiwany typ pliku."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Kraj nie jest ciągiem składającym się z dwóch znaków alfabetu."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr ""
 "Region nie jest łańcuchem składającym się z maksymalnie trzech znaków "
 "alfanumerycznych."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Identyfikatory instytucji to nie tablica."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Podczas przetwarzania pliku dziennika {$file} wystąpił błąd w wierszu "
 "{$lineNumber}: {$msg}"
@@ -840,9 +840,6 @@ msgstr ""
 "wszystkich statystyk będzie to czasopismo. Jeśli jednak w tej witrynie "
 "wszystkie czasopisma są własnością tego samego dostawcy, są przez niego "
 "publikowane lub obsługiwane, to jako platformę możesz wyznaczyć witrynę."
-
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Użyj witryny jako platformy dla wszystkich czasopism."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Identyfikator platformy"

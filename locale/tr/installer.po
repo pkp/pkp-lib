@@ -157,6 +157,7 @@ msgstr ""
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Filitre konfigürasyon dosyası <tt>{$file}</tt> ayrıştırma hatası."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
 "Yükseltme desteklenmiyor. Ayrıntılar için docs/UPGRADE-UNSUPPORTED "

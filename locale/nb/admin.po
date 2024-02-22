@@ -219,7 +219,7 @@ msgstr ""
 "prosess, eller en prosess som kjører samtidig. Denne filen blir automatisk "
 "behandlet på nytt."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "Filen {$file} kunne ikke åpnes, og ble avvist."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
@@ -234,43 +234,43 @@ msgstr ""
 "gjenopprette alle månedens loggfiler og bruke CLI-verktøyet til å behandle "
 "statistikk på nytt."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
 "Linjen {$lineNumber} i loggfilen {$file} er i feil format og vil dermed bli "
 "hoppet over."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
 "Ugyldig loggoppføring på linje {$lineNumber} i loggfilen {$file}: {$error}"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgid "admin.job.processLogFile.invalidLogEntry.time"
 msgstr "Tidsangivelsen er ikke en gyldig dato."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
 msgstr "Context-ID er ikke et heltall."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
 msgstr "Submission ID er ikke et heltall."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
 msgstr "Representation ID er ikke et heltall."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr "Assoc type støttes ikke."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
 msgstr "Filtypen støttes ikke."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgid "admin.job.processLogFile.invalidLogEntry.country"
 msgstr "Country er ikke en streng med to alfabetiske tegn."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgid "admin.job.processLogFile.invalidLogEntry.region"
 msgstr "Region er ikke en streng på opptil tre alfanumeriske tegn."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
 msgstr "Institution ID-er er ikke en array."
 
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
 "Det oppstod en feil under behandling av loggfilen {$file} på linjen "
 "{$lineNumber}: {$msg}"
@@ -826,9 +826,6 @@ msgstr ""
 "tidsskriftet bli angitt som plattformen for all statistikk. Like fullt, hvis "
 "alle tidsskriftene på dette nettstedet er publisert, eid eller drevet av "
 "samme leverandør, kan det hende du ønsker å angi nettstedet som plattformen."
-
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Bruk nettsiden som plattform for alle tidsskrifter."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "Plattform ID"

@@ -114,7 +114,7 @@ class PKPUploadPublicFileHandler extends APIHandler
         $userDir = $siteDir . '/images/' . $request->getUser()->getUsername();
         $isUserAllowed = true;
         $allowedDirSize = Config::getVar('files', 'public_user_dir_size', 5000) * 1024;
-        $allowedFileTypes = ['gif', 'jpg', 'png', 'webp', 'svg'];
+        $allowedFileTypes = ['gif', 'jpg', 'png', 'webp'];
 
         Hook::call('API::uploadPublicFile::permissions', [
             &$userDir,

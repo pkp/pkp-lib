@@ -16,7 +16,9 @@ namespace PKP\migration\upgrade;
 
 use APP\core\Services;
 use APP\facades\Repo;
+use Exception;
 use Illuminate\Database\PostgresConnection;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -388,23 +390,52 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
 
         // Create entry in files and revisions tables for every submission_file
         $fileManager = new FileManager();
-        $rows = DB::table('submission_files')
-            ->join('submissions', 'submission_files.submission_id', '=', 'submissions.submission_id')
-            ->orderBy('file_id')
-            ->orderBy('revision')
+        $rows = DB::table('submission_files', 'sf')
+            ->join('submissions AS s', 'sf.submission_id', '=', 's.submission_id')
+            ->leftJoin('review_round_files AS rrf', function (JoinClause $j) {
+                $j->on('rrf.submission_id', '=', 'sf.submission_id')
+                    ->on('rrf.file_id', '=', 'sf.file_id')
+                    ->on('rrf.revision', '=', 'sf.revision');
+            })
+            ->orderBy('sf.file_id')
+            ->orderBy('rrf.review_round_id')
+            ->orderBy('sf.revision')
             ->get([
-                'context_id',
-                'file_id',
-                'revision',
-                'submission_files.submission_id',
-                'genre_id',
-                'file_type',
-                'file_stage',
-                'date_uploaded',
-                'original_file_name'
+                's.context_id',
+                'sf.file_id',
+                'sf.revision',
+                'sf.submission_id',
+                'sf.genre_id',
+                'sf.file_type',
+                'sf.file_stage',
+                'sf.date_uploaded',
+                'sf.original_file_name',
+                'rrf.review_round_id'
             ]);
         $fileService = Services::get('file');
+        $lastFileId = null;
+        $lastReviewRoundId = null;
+        $lastInsertedFileId = DB::table('submission_files')->max('file_id');
+        $fileIdMap = [];
         foreach ($rows as $row) {
+            // Due to the new database structure, a file_id that spans across N+1 review rounds needs to be forked to a new file_id, to avoid being consolidated later on the upgrade process, which would cause data loss
+            // Statistics, logs, etc. will keep being referenced by the "main" file_id, which is not ideal, but also not possible to address.
+            // This branch will be accessed once the review_round_id gets changed within a group of the same file_ids
+            if ($lastFileId === $row->file_id && $lastReviewRoundId !== $row->review_round_id) {
+                $fileIdMap = [
+                    $row->file_id => ++$lastInsertedFileId,
+                    'sourceFileId' => $fileIdMap[$row->file_id] ?? $row->file_id
+                ];
+                DB::table('submission_file_settings')->insertUsing(
+                    ['file_id', 'locale', 'setting_name', 'setting_value', 'setting_type'],
+                    function (Builder $q) use ($row, $lastInsertedFileId) {
+                        $q->from('submission_file_settings')
+                            ->where('file_id', '=', $row->file_id)
+                            ->select(DB::raw($lastInsertedFileId), 'locale', 'setting_name', 'setting_value', 'setting_type');
+                    }
+                );
+            }
+
             // Reproduces the removed method SubmissionFile::_generateFileName()
             // genre is %s because it can be blank with review attachments
             $filename = sprintf(
@@ -430,12 +461,23 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
                 'path' => $path,
                 'mimetype' => $row->file_type,
             ], 'file_id');
+            $fileId = $fileIdMap[$row->file_id] ?? $row->file_id;
+            $updateData = ['new_file_id' => $newFileId];
+            // If the file_id was forked into a new one, we've got to update the references at the review_round_files and the submission_file itself
+            if ($fileId !== $row->file_id) {
+                $updateData['file_id'] = $fileId;
+                $updateData['source_file_id'] = $fileIdMap['sourceFileId'];
+                DB::table('review_round_files')
+                    ->where('file_id', '=', $row->file_id)
+                    ->where('revision', '=', $row->revision)
+                    ->update(['file_id' => $fileId]);
+            }
             DB::table('submission_files')
                 ->where('file_id', $row->file_id)
                 ->where('revision', $row->revision)
-                ->update(['new_file_id' => $newFileId]);
+                ->update($updateData);
             DB::table('submission_file_revisions')->insert([
-                'submission_file_id' => $row->file_id,
+                'submission_file_id' => $fileId,
                 'file_id' => $newFileId,
             ]);
 
@@ -451,6 +493,9 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
                 ->where('els.setting_name', 'fileRevision')
                 ->where('els.setting_value', '=', $row->revision)
                 ->update(['els.setting_value' => $newFileId]);
+
+            $lastFileId = $row->file_id;
+            $lastReviewRoundId = $row->review_round_id;
         }
 
         // Collect rows that will be deleted because they are old revisions
@@ -768,9 +813,13 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
                     $this->_toJSON($row, $tableName, ['plugin_name', 'context_id', 'setting_name'], 'setting_value');
                 });
             } elseif (Schema::hasColumn($tableName, 'setting_type')) {
-                DB::table($tableName)->where('setting_type', 'object')->get()->each(function ($row) use ($tableName) {
-                    $this->_toJSON($row, $tableName, ['setting_name', 'locale'], 'setting_value');
-                });
+                try {
+                    $settings = DB::table($tableName, 's')->where('setting_type', 'object')->get(['setting_name', 'setting_value', 's.*']);
+                } catch (Exception $e) {
+                    error_log("Failed to migrate the settings entity \"{$tableName}\"\n" . $e);
+                    continue;
+                }
+                $settings->each(fn ($row) => $this->_toJSON($row, $tableName, ['setting_name', 'locale'], 'setting_value'));
             }
         }
 

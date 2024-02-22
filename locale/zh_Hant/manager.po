@@ -226,7 +226,7 @@ msgstr ""
 msgid "manager.dois.registration.viewRecord.title"
 msgstr ""
 
-msgid "manger.dois.update.success"
+msgid "manager.dois.update.success"
 msgstr ""
 
 msgid "manager.dois.registration.depositDois"
@@ -3069,3 +3069,7 @@ msgstr ""
 
 msgid "mailable.submissionNeedsEditor.name"
 msgstr ""
+
+msgid "manager.setup.competingInterests.requireAuthors"
+msgstr ""
+"要求提交作者投稿時，同時提供一個利益衝突（Competing Interest, 簡稱CI）聲明。"

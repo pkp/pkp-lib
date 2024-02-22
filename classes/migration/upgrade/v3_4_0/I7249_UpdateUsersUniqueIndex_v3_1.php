@@ -23,8 +23,8 @@ class I7249_UpdateUsersUniqueIndex_v3_1 extends Migration
     {
         switch (DB::getDriverName()) {
             case 'pgsql':
-                DB::unprepared('DROP INDEX users_username;');
-                DB::unprepared('DROP INDEX users_email;');
+                DB::unprepared('DROP INDEX IF EXISTS users_username;');
+                DB::unprepared('DROP INDEX IF EXISTS users_email;');
 
                 DB::unprepared('CREATE UNIQUE INDEX users_username on users (LOWER(username));');
                 DB::unprepared('CREATE UNIQUE INDEX users_email on users (LOWER(email));');
@@ -36,8 +36,8 @@ class I7249_UpdateUsersUniqueIndex_v3_1 extends Migration
     {
         switch (DB::getDriverName()) {
             case 'pgsql':
-                DB::unprepared('DROP INDEX users_username;');
-                DB::unprepared('DROP INDEX users_email;');
+                DB::unprepared('DROP INDEX IF EXISTS users_username;');
+                DB::unprepared('DROP INDEX IF EXISTS users_email;');
 
                 DB::unprepared('CREATE UNIQUE INDEX users_username on users (username);');
                 DB::unprepared('CREATE UNIQUE INDEX users_email on users (email);');

@@ -1,10 +1,10 @@
-# Mirko Spiroski <mspiroski@id-press.eu>, 2021.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2021, 2023.
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 # Teodora Fildishevska <t.fildishevska@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-31 08:40+0000\n"
-"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
+"PO-Revision-Date: 2023-11-27 16:38+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk/>\n"
 "Language: mk\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Проект за општо знаење"
@@ -774,7 +774,9 @@ msgid "common.replaceFile"
 msgstr "Замени фајл"
 
 msgid "common.requiredField"
-msgstr "* означува задолжително поле"
+msgstr ""
+"Потребните полиња се означени со ѕвездичка: <abbr class=\"required\" title="
+"\"required\">*</abbr>"
 
 msgid "common.required"
 msgstr "Задолжително"
@@ -1687,7 +1689,7 @@ msgid "search.cli.rebuildIndex.error"
 msgstr "грешка"
 
 msgid "search.cli.rebuildIndex.result"
-msgstr "{$numIndexed} статии индексирани"
+msgstr "{$numIndexed} статии планирани за индексирање"
 
 msgid "search.coverage"
 msgstr "Покритие"
@@ -2349,3 +2351,15 @@ msgstr "Авторот е уреден."
 
 #~ msgid "search.noKeywordError"
 #~ msgstr "Мора да внесете барем еден клучен збор за пребарување."
+
+msgid "showAll"
+msgstr "Прикажи ги сите"
+
+msgid "showLess"
+msgstr "Прикажи помалку"
+
+msgid "common.highlight"
+msgstr "Потенцирање"
+
+msgid "common.highlights"
+msgstr "Потенцирања"

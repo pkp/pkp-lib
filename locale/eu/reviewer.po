@@ -1,11 +1,16 @@
-# Josu Acosta <josuacostacalvo@gmail.com>, 2023.
+# Josu Acosta <josuacostacalvo@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2024-01-26 15:34+0000\n"
+"Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
+"Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/reviewer/"
+"eu/>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "reviewer.reviewSteps.request"
 msgstr ""
@@ -93,6 +98,9 @@ msgstr ""
 
 msgid "reviewer.aboutDueDates.text"
 msgstr ""
+"Editoreak eskatzen dizu ebaluazioa onartzeko edo ukatzeko Erantzuaren "
+"Epemuga baino lehen eta ebaluazioa bukatzeko Ebaluazioaren Epemuga baino "
+"lehen."
 
 msgid "submission.comments.canShareWithAuthor"
 msgstr ""

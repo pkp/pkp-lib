@@ -1,19 +1,19 @@
-# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021, 2022.
+# Molnár Tamás <molnart@bibl.u-szeged.hu>, 2021, 2022, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-13T21:06:38+00:00\n"
-"PO-Revision-Date: 2022-03-29 20:57+0000\n"
+"PO-Revision-Date: 2024-02-01 09:12+0000\n"
 "Last-Translator: Molnár Tamás <molnart@bibl.u-szeged.hu>\n"
 "Language-Team: Hungarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"hu_HU/>\n"
-"Language: hu_HU\n"
+"hu/>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Beállítás neve"
@@ -25,10 +25,11 @@ msgid "admin.adminFunctions"
 msgstr "Adminisztratív funkciók"
 
 msgid "admin.deleteCache"
-msgstr ""
+msgstr "Cache-ek törlése"
 
 msgid "admin.deleteCache.description"
 msgstr ""
+"Rendszercache törlése. Ezt csak fejlesztői környezetben szabad megtenni."
 
 msgid "admin.clearDataCache"
 msgstr "Adat Cache törlése"
@@ -81,6 +82,8 @@ msgstr "A lejárt felhasználói munkamenetek"
 
 msgid "admin.expireSessions.description"
 msgstr ""
+"Minden felhasználó ki lesz jelentkeztetve az alkalmazásból, beleértve Önt "
+"is, úgyhogy ezután majd újra be kell jelentkeznie."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -154,12 +157,18 @@ msgstr ""
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
+"Küldjön egy e-mailt minden szerkesztőnek, amelyben emlékezteti őket a fontos "
+"feladataikra"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
 msgstr ""
+"Az emlékeztetendő szerkesztők azonosítása ezzel kapcsolatban {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"Kiküldött {$count} munka, hogy a szerkesztőség e-mailes emlékeztetőket "
+"küldhessen ezeknek a {$userIds} felhasználóknak ezzel {$contextId} "
+"kapcsolatban"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -170,9 +179,11 @@ msgstr "Az elvégzett ütemezett feladatok log fájljainak törlése"
 
 msgid "admin.scheduledTask.clearLogs.description"
 msgstr ""
+"Törölje a már lefuttatott, ütemezett feladatok folyamatainak összes "
+"naplózását."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Feladat naplófájlok törlése"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Megjelentetésre ütemezve"
@@ -187,70 +198,89 @@ msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Emlékeztető az előfizetés lejáratáról"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Visszaigazolatlan, lejárt felhasználók törlése"
 
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr ""
+"A legrégebbi sikertelen feladatok eltávolítása a sikertelen feladatok "
+"listájáról."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Függőben lévő, várólistás feladatok feldolgozása"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "DB-IP city lite adatbázis frissítése"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"A DB-IP city lite adatbázis fájljának átnevezése erről {$sourceFilename} "
+"erre {$targetFilename} nem sikerült."
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Használati statisztika file töltési feladata"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"Az alkönyvtár {$directory} nem üres. Ez jelezhet egy előző sikertelen, vagy "
+"egy jelenleg is futó folyamatot. Ez a fájl automatikusan újrafeldolgozásra "
+"kerül."
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgid "admin.job.processLogFile.openFileFailed"
 msgstr "A {$file} fájlt nem lehetett megnyitni és elvetésre került."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"Ez a fájl {$file} egy olyan régi naplófájl-formátumban van, hogy nem lehet "
+"feldolgozni, ezért visszakerül az állapot (stage) alkönyvtárba."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"Naplófájl kihagyása {$file}, mert a statisztika abból a hónapból már ki lett "
+"számolva. Előző havi statisztika újraszámolásához, állítsa vissza annak a "
+"hónapnak összes naplófájlját és használja a CLI eszközt a statisztika "
+"újrafeldolgozáshoz."
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.job.processLogFile.wrongLoglineFormat"
+msgstr ""
+"A {$lineNumber} sor a {$file} naplófájlban rossz formátumú, ezért kihagyásra "
+"került."
+
+msgid "admin.job.processLogFile.invalidLogEntry"
+msgstr ""
+"Érvénytelen naplófájl bejegyzés a {$lineNumber}. sorban a "
+"{$file}naplófájlban: {$error}"
+
+msgid "admin.job.processLogFile.invalidLogEntry.time"
+msgstr "Az idő nem érvényes dátumú."
+
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
+msgstr "A Context ID nem egész szám."
+
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
+msgstr "A Submission ID nem egész szám."
+
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
+msgstr "A Representation ID nem egész szám."
+
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
-msgstr ""
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
+msgstr "A fájltípus nem támogatott."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
-msgstr ""
+msgid "admin.job.processLogFile.invalidLogEntry.country"
+msgstr "Az ország nem egy két betűből álló karakterlánc."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
-msgstr ""
+msgid "admin.job.processLogFile.invalidLogEntry.region"
+msgstr "A régió nem egy három betűből álló karakterlánc."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
-msgstr ""
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
+msgstr "Institution ID nem egy tömb."
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgid "admin.job.processLogFile.insertError"
 msgstr ""
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
-msgstr ""
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
-msgstr ""
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
-msgstr ""
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
-msgstr ""
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
-msgstr ""
-
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
-msgstr ""
+"Hiba történt ennek a naplófájlnak {$file} {$lineNumber}. sorának "
+"feldolgozásakor: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
@@ -731,9 +761,6 @@ msgid "admin.settings.statistics.sushiPlatform"
 msgstr ""
 
 msgid "admin.settings.statistics.sushiPlatform.description"
-msgstr ""
-
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr ""
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"

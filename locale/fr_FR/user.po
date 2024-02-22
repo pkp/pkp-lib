@@ -2,13 +2,14 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # COUSSY-LACROIX Hélène <helene.coussy-lacroix@u-bordeaux.fr>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
+# Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-08-01 08:25+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2023-09-22 13:06+0000\n"
+"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -390,7 +391,7 @@ msgstr ""
 "</a> pour compléter votre profil utilisateur."
 
 msgid "user.role.assistant"
-msgstr "Assistant"
+msgstr "Assistant-e"
 
 msgid "user.role.author"
 msgstr "Auteur"

@@ -143,6 +143,7 @@ msgstr "错误解析电子邮件模板文件<tt>{$file}</tt>."
 msgid "installer.installParseFilterConfigFileError"
 msgstr "错误解析过滤配置文件<tt>{$file}</tt>."
 
+#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr "不支持升级。 有关详细信息，请参阅 docs/UPGRADE-UNSUPPORTED。"
 

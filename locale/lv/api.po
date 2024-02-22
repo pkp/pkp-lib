@@ -1,0 +1,355 @@
+# Ieva Tiltina <pastala@gmail.com>, 2023, 2024.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-01-15 19:17+0000\n"
+"Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
+"Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/lv/>"
+"\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
+"19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "api.400.paramNotSupported"
+msgstr "Parametrs {$param} nav atbalstīts."
+
+msgid "api.400.propReadOnly"
+msgstr "Īpašību {$prop} nevar mainīt."
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Jums jānorāda e-pasta temats un saturs."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Nav iespējams mainīt tā izveidošanas laiku."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Kļūda, augšupielādējot šo attēlu."
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API marķieri (token) nevarēja apstiprināt. Tas var liecināt par kļūdu API "
+"marķierī vai par to, ka API marķieris vairs nav derīgs."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Marķieri ApiToken nevarēja atšifrēt šādas kļūdas dēļ: {$error}"
+
+msgid "api.dois.403.prefixRequired"
+msgstr "DOI prefikss ir nepieciešams, lai ģenerētu DOI."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Jūsu pieprasītais DOI nav atrasts."
+
+msgid "api.dois.404.submissionNotFound"
+msgstr "Jūsu pieprasītais iesniegtais materiāls netika atrasts."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Radās kļūda, un DOI objektu neizdevās izveidot."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "Radās XML validācijas kļūda, un XML nevarēja eksportēt."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "Pieprasījumam nebija pievienoti derīgi publicēšanas objekti."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"Pieprasījumam tika pievienots viens vai vairāki nederīgi publicēšanas "
+"objekti."
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+"Pašlaik konfigurētajam spraudnim jābūt reģistrācijas aģentūras spraudnim."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Jūs nevarat reģistrēt lēmumu vai ieteikt lēmumu par šo materiālu, jo tas jau "
+"ir publicēts."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Jums ir jānorāda e-pasta temats."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Jums jānorāda lietotāju lomas, kam jāsaņem šis e-pasts."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Jums nav atļauts sūtīt e-pastu lietotājiem, kuriem ir viena vai vairākas "
+"atlasītās lomas."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "Tas nav derīgs konteksts."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Jūsu pieprasītā e-pasta veidne netika atrasta."
+
+msgid "api.files.400.noUpload"
+msgstr "Pieprasījumam nav atrasta neviena augšupielādējama datne."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Nebija iespējams augšupielādēt vienu vai vairākas datnes."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"Iezīmēto kārtību nevar saglabāt, jo nav atrasta informācija par kārtošanu."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"Iezīmēto kārtību nevar saglabāt, jo nebija iespējams atrast vienu vai "
+"vairākus iezīmētos elementus."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "Jūsu pieprasīto iezīmēto elementu nebija iespējams atrast."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Publikācija, kuras publicēšanu vēlaties atcelt, nav publicēta."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Statusu nevar mainīt tieši, izmantojot API. Tā vietā izmantojiet /publish un "
+"/unpublish galapunktus."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Lai šo publikāciju varētu dzēst, tās publicēšana ir jāatceļ."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Jums nav atļauts augšupielādēt failus."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Lietotāja direktorijā nav pietiekami daudz vietas. Jūsu augšupielādētās "
+"datnes izmērs ir {$fileUploadSize}kb, un jums ir palicis {$dirSizeLeft}kb."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Datumam jābūt formātā GGGG-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Sākuma datums nedrīkst būt vēlāks par beigu datumu."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Pieprasījums nebija derīgs. Laika grafika intervālam jābūt `day` vai `month`."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Pieprasījums nebija derīgs. Parametram OrderDirection jābūt `desc` vai `asc`."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "Pieprasot datnes recenzēšanas posmā, ir jānorāda recenzēšanas kārta."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Jānorāda posms, kurā šobrīd ir datne."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "Publikācijas veids netika atpazīts."
+
+msgid "api.files.400.fileSize"
+msgstr "Datnes, kas lielākas par {$maxSize}, nevar augšupielādēt."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Šis galapunkts nav pieejams no vietnes mēroga nosaukumu telpas, un tas "
+"jāpieprasa konkrētam kontekstam."
+
+msgid "api.files.400.config"
+msgstr ""
+"Datni nav iespējams augšupielādēt servera konfigurācijas kļūdas dēļ. Lūdzu, "
+"sazinieties ar sistēmas administratoru."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "Netika atrasts pieprasītais publikācijas objekts."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Nepublicētus vienumus nevar eksportēt/deponēt. Lūdzu, noņemiet nepublicēto "
+"vienumu atlasi un mēģiniet vēlreiz."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Publikācija, kuru vēlaties publicēt, jau ir publicēta."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Notika kļūda, un daži no iesniegtajiem vienumiem netika atzīmēti kā "
+"reģistrēti."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Šo publikāciju nevar rediģēt, jo tā jau ir publicēta."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Dažus vienumus neizdevās veiksmīgi deponēt. Lūdzu, pārbaudiet atsevišķus "
+"vienumus, lai uzzinātu, kādi ir to īpašie kļūdu paziņojumi."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Var augšupielādēt tikai šādus datņu tipus: {$fileTypes}."
+
+msgid "api.emails.400.missingBody"
+msgstr "Jums jāpievieno e-pasta saturs."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Augšupielādētais attēls nav derīgs."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "Šī nav noklusējuma e-pasta veidne zināmam e-pastam."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Jūsu augšupielādētā datne neatbilst datnes paplašinājumam. Tā var notikt, ja "
+"datnes nosaukums ir mainīts uz nesaderīgu tipu, piemēram, mainot foto.png uz "
+"foto.jpg."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Publisko datņu direktorija nav atrasta vai tajā nav iespējams saglabāt "
+"datnes. Lūdzu, sazinieties ar administratoru, lai atrisinātu šo problēmu."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Sākuma datums nevar būt agrāks par 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Beigu datums nedrīkst būt vēlāks par vakardienu."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+"Pieprasījums nebija derīgs. Laika grafika intervālam jābūt `day` vai `month`."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Nevar mainīt datnes sasaisti, nenorādot parametrus assocType un assocId."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "Datni no šī posma nevar sasaistīt ar citu iesniegtā materiāla datni."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Datni no šī posma nevar sasaistīt ar diskusiju piezīmi."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Datni no šī posma nevar saistīt ar recenzēšanas piešķīrumu."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Datni no šī posma nevar saistīt ar recenzēšanas kārtu."
+
+msgid "api.403.unauthorized"
+msgstr "Jums nav tiesību piekļūt pieprasītajam resursam."
+
+msgid "api.404.resourceNotFound"
+msgstr "Pieprasītais resurss nav atrasts."
+
+msgid "api.404.endpointNotFound"
+msgstr "Pieprasītais URL netika atpazīts."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Jūsu pieprasītais paziņojums nav atrasts."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "Jūsu pieprasītā iestāde nav atrasta."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Nav atbalstītas šādas vietējās valodas: {$locales}."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Nevar rediģēt elementa DOI, kas nav šajā kontekstā."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Jūsu norādītais faila posms nav derīgs."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "Pieprasījumā rediģēt šo failu netika atrastas nekādas izmaiņas."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"Pārvietojot failu uz šo posmu, ir jānorāda recenzēšanas kārtas "
+"identifikators."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Jūsu norādītā recenzēšanas kārta nav daļa no šī iesniegtā materiāla."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Jums nav atļauts piekļūt šiem failiem."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Jums nav atļauts piekļūt failiem šajā recenzēšanas kārtā."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Jūsu pieprasījumu nevar izpildīt, jo tajā trūkst nepieciešamās informācijas."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Pieprasītais sējums, numurs vai gads nav derīgs."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"Jūs nevarat dzēst iesniegto materiālu, kas nav piešķirts šim kontekstam."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Jūs varat apskatīt tikai tos nepublicētos materiālus, kas jums ir piešķirti."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Jums nav tiesību dzēst šo iesniegto materiālu."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Jums nav atļauts rediģēt šo publikāciju."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Aktīvā tēma {$themePluginPath} nav iespējota un, iespējams, nav instalēta."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Lokāle {$locale} nav atbalstīta."
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr "Nesekmīgais darbuzdevums nav atrodams neveiksmīgo darbu sarakstā."
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr "Sarakstā nav atrasts neviens nesekmīgs darbuzdevums."
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr "Nav iespējams pārdispečēt nesekmīgo darbuzdevumu."
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+"Visi redispečējamie nesekmīgie darbuzdevumi ar derīgu vērtumu (payload) ir "
+"veiksmīgi atkārtoti iekļauti rindā."
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr ""
+"Nav iespējams izdzēst nesekmīgo darbuzdevumu no nesekmīgo darbu saraksta."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Jums nav atļauts pievienot un rediģēt šos failus."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"API marķieri (token) nevar izmantot, lai piekļūtu šai vietnei, jo vietnes "
+"administrators nav konfigurējis slepeno atslēgu."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "Šajā lietotāja lomā jums nav atļauts iesniegt materiālus."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Jūsu pieprasījums tika noraidīts. Iespējams, tas ir tāpēc, ka jūsu "
+"pieteikšanās ir beigusies. Pārlādējiet lapu un mēģiniet vēlreiz."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Šis galapunkts (endpoint) nav pieejams no konteksta. Tam var piekļūt no "
+"vietnes mēroga nosaukumu telpas (site-wide namespace)."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "Jūsu pieprasītais e-pasts netika atrasts."
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr ""
+"Nesekmīgajam darbuzdevumamam trūkst vērtuma (payload), lai to varētu "
+"pārdispečēt."
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr "Neveiksmīgais darbuzdevums veiksmīgi pārdispečēts."
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr ""
+"Nesekmīgais darbuzdevums veiksmīgi dzēsts no nesekmīgo darbuzdevumu saraksta."

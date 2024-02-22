@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
-"PO-Revision-Date: 2024-01-22 17:20+0000\n"
+"PO-Revision-Date: 2024-02-19 11:08+0000\n"
 "Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/emails/pt_PT/>\n"
@@ -59,14 +59,13 @@ msgid "emails.decision.notifyReviewers.body"
 msgstr ""
 
 msgid "emails.decision.notifyOtherAuthors.subject"
-msgstr ""
+msgstr "Uma atualização sobre sua submissão"
 
 msgid "emails.decision.notifyOtherAuthors.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
-msgstr "Decisão editorial"
+msgstr "A sua submissão foi enviada para revisão"
 
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
@@ -80,7 +79,6 @@ msgstr ""
 "<br />\n"
 "URL da submissão: {$submissionUrl}"
 
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Próximos passos para publicar a sua submissão"
 
@@ -94,9 +92,8 @@ msgstr ""
 "<br />\n"
 "URL da submissão : {$submissionUrl}"
 
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
-msgstr "A sua submissão foi revista e encorajamo-lo a inserir revisões"
+msgstr "A sua submissão foi revista e encorajamo-lo(a) a inserir revisões"
 
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
@@ -108,7 +105,6 @@ msgstr ""
 "<br />\n"
 "A decisão é: Revisões Requeridas"
 
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "A sua submissão foi revista - por favor reveja e volte a submeter"
 
@@ -122,7 +118,6 @@ msgstr ""
 "<br />\n"
 "A decisão é: Submeter Novamente Para Revisão"
 
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "A sua submissão foi recusada"
 
@@ -136,7 +131,6 @@ msgstr ""
 "<br />\n"
 "A decisão é: Rejeitar"
 
-#, fuzzy
 msgid "emails.editorRecommendation.subject"
 msgstr "Recomendação Editorial"
 
@@ -152,7 +146,6 @@ msgstr ""
 "p><p>Encontro-me ao dispor para responder a qualquer pergunta.</"
 "p><p>Cumprimentos,</p><p>{$senderName}</p>"
 
-#, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr ""
 "A submissão {$submissionId} está pronta para edição de texto para "
@@ -196,7 +189,6 @@ msgstr "Revertemos a decisão de rejeitar a submissão"
 msgid "emails.editorDecisionRevertInitialDecline.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "A sua submissão foi recusada"
 
@@ -267,9 +259,8 @@ msgstr ""
 msgid "emailTemplate.variable.unsubscribe"
 msgstr "O link para cancelar a subscrição deste e-mail."
 
-#, fuzzy
 msgid "emails.discussion.subject"
-msgstr "Uma mensagem relativa {$contextName}"
+msgstr "Uma mensagem de {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Escreva a sua mensagem."
@@ -294,9 +285,10 @@ msgstr "A tarefa de avaliação foi alterada em {$contextName}"
 msgid "emails.reviewEdit.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.reviewConfirm.subject"
-msgstr "Disponível para realizar a revisão"
+msgstr ""
+"Revisão aceite: {$reviewerName} aceitou rever a submissão #{$submissionId} "
+"{$authorsShort} — {$submissionTitle}"
 
 #, fuzzy
 msgid "emails.reviewConfirm.body"
@@ -325,6 +317,8 @@ msgstr ""
 
 msgid "emails.submissionAckNotUser.description"
 msgstr ""
+"Este e-mail é enviado automaticamente para os autores nomeados numa nova "
+"submissão que não sejam o autor da submissão."
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Confirmação da submissão"

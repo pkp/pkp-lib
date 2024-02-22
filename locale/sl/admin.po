@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023.
+# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2023-12-10 11:39+0000\n"
+"PO-Revision-Date: 2024-02-19 11:08+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "sl/>\n"
@@ -930,3 +930,14 @@ msgstr ""
 
 msgid "admin.settings.sharedReviewerStatistics.disable"
 msgstr "Onemogoči agregirane recenzentske statistike"
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Datoteka {$filename} je bila prestavljena v mapo za pošiljanje."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Datoteka {$file} ne obstaja."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Datoteke {$file} ni bilo mogoče premakniti iz {$dispatchFilePath} v "
+"{$archivedFilePath}."

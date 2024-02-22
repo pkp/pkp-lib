@@ -1,4 +1,4 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024.
 # Juan Francisco Vinueza Cobos <tallergrafico@ucuenca.edu.ec>, 2022.
 # Marc Bria <marc.bria@gmail.com>, 2023.
 msgid ""
@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2023-04-28 14:09+0000\n"
+"PO-Revision-Date: 2024-02-15 18:54+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "es/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Nombre de configuración"
@@ -849,7 +849,6 @@ msgstr ""
 "este sitio son publicadas, son propiedad o están operadas por el mismo "
 "proveedor, es posible que desee designar en su lugar el sitio como "
 "plataforma."
-
 "repositorios."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
@@ -937,3 +936,20 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Ejecutar el demonio (daemon) de trabajos para la cola de pruebas"
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Estadísticas del revisor/a"
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Deshabilitar las estadísticas agregadas del revisor/a"
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"El archivo {$file} no se pudo mover de {$dispatchFilePath} a "
+"{$archivedFilePath}."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "El archivo {$file} no existe."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Utilizar el sitio como plataforma para todas las revistas."

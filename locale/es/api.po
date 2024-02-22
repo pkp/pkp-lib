@@ -1,7 +1,7 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-21 23:28+0000\n"
+"PO-Revision-Date: 2024-02-15 18:54+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/es/>"
 "\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "El parámetro {$param} no está soportado."
@@ -357,3 +357,19 @@ msgstr "El trabajo fallido se ha eliminado con éxito del listado de fallos."
 #~ msgstr ""
 #~ "Ha sucedido un error inesperado. Vuelva a cargar la página e inténtelo de "
 #~ "nuevo."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"No se ha podido guardar el pedido destacado porque no se encontraron uno o "
+"mas de los resaltes."
+
+msgid "api.400.errorUploadingImage"
+msgstr "Se produjo un error al cargar la imagen."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"No se ha podido guardar el pedido destacado porque no se encontró "
+"información relacionada con él."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "No se encontró el destacado solicitado."

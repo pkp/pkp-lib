@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-31 12:37+0000\n"
+"PO-Revision-Date: 2024-02-22 17:43+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -354,8 +354,8 @@ msgstr ""
 
 msgid "manager.genres.alertDelete"
 msgstr ""
-"Pirms šo komponentu dzēst, visi saistītie iesniegšanas faili ir jāsaista ar "
-"citu komponentu."
+"Pirms šo sastāvdaļu dzēst, visas saistītās iesniegtā materiāla datnes "
+"jāsaista ar citu sastāvdaļu."
 
 msgid "manager.institutions.edit"
 msgstr "Rediģēt iestādi"
@@ -823,13 +823,13 @@ msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Padarīt COUNTER SUSHI statistiku publiski pieejamu"
 
 msgid "manager.statistics.reports"
-msgstr "Atskaites"
+msgstr "Pārskati"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
-"Sistēma ģenerē atskaites, kurās tiek izsekota informācija, kas saistīta ar "
+"Sistēma ģenerē pārskatus, kuros tiek izsekota informācija, kas saistīta ar "
 "vietnes izmantošanu un materiāla iesniegšanu noteiktā laika periodā. "
-"Atskaites tiek ģenerētas CSV formātā, un to pārskatīšanai nepieciešama "
+"Pārskati tiek ģenerēti CSV formātā, un to pārskatīšanai nepieciešama "
 "izklājlapu programma."
 
 msgid "manager.statistics.reports.month.label"
@@ -1055,7 +1055,7 @@ msgid "manager.setup.notifyAllAuthors"
 msgstr "Paziņot visiem autoriem"
 
 msgid "manager.setup.notifyAllAuthors.description"
-msgstr "Kam jāsaņem paziņojuma e-pasts par redakcionālā lēmuma reģistrēšanu?"
+msgstr "Kam jāsaņem paziņojuma e-pasts par redakcijas lēmuma reģistrēšanu?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
 msgstr "Nosūtīt e-pasta paziņojumu visiem iesniegtā materiāla autoriem."
@@ -1215,7 +1215,7 @@ msgstr "Nekad neatgādināt"
 
 msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr ""
-"Katrai recenzijai var mainīt noklusējuma iestatījumus redakcionālā procesa "
+"Katrai recenzijai var mainīt noklusējuma iestatījumus redakcijas procesa "
 "laikā."
 
 msgid "manager.setup.reviewOptions.reminders.response"
@@ -1290,9 +1290,8 @@ msgstr ""
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
-"Šī informācija tiks rādīta autoriem ieguldītāja solī. Sniedziet īsu "
-"aprakstu, kādas ziņas autoriem jāuzrāda par sevi, līdzautoriem un citiem "
-"ieguldītājiem."
+"Šī informācija tiks rādīta autoriem līdzautoru solī. Sniedziet īsu aprakstu, "
+"kādas ziņas autoriem jāuzrāda par sevi, līdzautoriem un citiem."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
@@ -1334,7 +1333,7 @@ msgid "manager.sections.confirmActivateSection"
 msgstr "Vai tiešām vēlaties aktivizēt šo sadaļu?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr "Redakcionālie piešķīrumi"
+msgstr "Redakcijas piešķīrumi"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
@@ -1412,7 +1411,7 @@ msgstr ""
 "datu izvilkumus."
 
 msgid "plugins.categories.reports"
-msgstr "Ziņojumu spraudņi"
+msgstr "Pārskatu spraudņi"
 
 msgid "plugins.categories.themes.description"
 msgstr "Lai mainītu sistēmas izskatu, var izmantot tēmas spraudņus."
@@ -1638,7 +1637,7 @@ msgid "notification.localeUninstalled"
 msgstr "Lokalizācija {$locale} atiestatīta."
 
 msgid "notification.localeReloaded"
-msgstr "Lokalizācija {$locale} pārielādēta kontekstā {$contextName}."
+msgstr "Lokalizācija {$locale} pārielādēta žurnālam {$contextName}."
 
 msgid "notification.localeSettingsSaved"
 msgstr "Lokalizācijas iestatījumi saglabāti."
@@ -1693,7 +1692,7 @@ msgid "settings.roles.roleOptions"
 msgstr "Lomas iestatījumi"
 
 msgid "settings.roles.showTitles"
-msgstr "Rādīt lomas nosaukumu ieguldītāju sarakstā"
+msgstr "Rādīt lomas nosaukumu līdzautoru sarakstā"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Atļaut lietotāja pašreģistrāciju"
@@ -1783,16 +1782,16 @@ msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Atlasiet bibliotēkas failus, ko pievienot"
 
 msgid "grid.action.addGenre"
-msgstr "Pievienot komponentu"
+msgstr "Pievienot sastāvdaļu"
 
 msgid "grid.action.editGenre"
-msgstr "Rediģēt šo komponentu"
+msgstr "Rediģēt šo sastāvdaļu"
 
 msgid "grid.action.deleteGenre"
-msgstr "Dzēst šo komponentu"
+msgstr "Dzēst šo sastāvdaļu"
 
 msgid "grid.action.restoreGenres"
-msgstr "Atjaunot komponentu noklusējuma iestatījumus"
+msgstr "Atjaunot sastāvdaļu noklusējuma iestatījumus"
 
 msgid "manager.setup.genres.label"
 msgstr "Faila tips"
@@ -2475,7 +2474,7 @@ msgid "manager.navigationMenus.profile.description"
 msgstr "Saite uz lietotāja profila lapu."
 
 msgid "manager.navigationMenus.administration.description"
-msgstr "Saite uz vietnes administrēšanas rīkiem."
+msgstr "Saite uz vietnes pārvaldīšanas rīkiem."
 
 msgid "manager.navigationMenus.administration.conditionalWarning"
 msgstr "Šī saite tiks rādīta tikai lietotājiem ar administratora tiesībām."
@@ -2580,7 +2579,7 @@ msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/gadā)"
 
 msgid "stats.daily"
-msgstr "Katru dienu"
+msgstr "Ikdienas"
 
 msgid "stats.dateRange"
 msgstr "Datumu diapazons"
@@ -2660,7 +2659,7 @@ msgstr ""
 msgid "stats.description.daysToDecision"
 msgstr ""
 "Dienu skaits, kas nepieciešams, lai lielākā daļa iesniegto darbu saņemtu "
-"pirmo redakcionālo lēmumu, piemēram, noraidījumu vai nosūtīšanu "
+"pirmo redakcijas lēmumu, piemēram, noraidījumu vai nosūtīšanu "
 "recenzēšanai.<br><br>Šie skaitļi liecina, ka 80 % iesniegto materiālu tiek "
 "izskatīti noteiktajā dienu skaitā.<br><br>Šī statistika apraksta, cik ilgā "
 "laikā lielākā daļa autoru, kas iesniedz darbus jūsu žurnālam, var sagaidīt "
@@ -2675,7 +2674,7 @@ msgid "stats.descriptionForStat"
 msgstr "{$stat} apraksts"
 
 msgid "stats.editorialActivity"
-msgstr "Redakcionālā aktivitāte"
+msgstr "Redakcijas darbība"
 
 msgid "stats.file.type.primaryFile"
 msgstr "Primārā datne"
@@ -2789,7 +2788,7 @@ msgid "stats.name.submissionsPublished"
 msgstr "Publicētie materiāli"
 
 msgid "stats.name.daysToDecision"
-msgstr "Dienas līdz pirmajam redakcionālajam lēmumam"
+msgstr "Dienas līdz pirmajam redakcijas lēmumam"
 
 msgid "stats.name.daysToAccept"
 msgstr "Dienas līdz pieņemšanai"
@@ -3060,7 +3059,7 @@ msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr "Pārskata gads"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr "Saite uz redakcionālās aktivitātes lapu"
+msgstr "Saite uz redakcijas darbības lapu"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
@@ -3243,9 +3242,9 @@ msgstr "Sniegts ieteikums"
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
 "Šis ziņojums informē vecāko redaktoru vai sadaļas redaktoru par to, ka ir "
-"saņemts redakcionāls ieteikums par kādu no viņiem piešķirtajiem materiāliem. "
+"saņemts redakcijas ieteikums par kādu no viņiem piešķirtajiem materiāliem. "
 "Šo ziņojumu izmanto gadījumos, kad redaktoram ir atļauts tikai ieteikt "
-"redakcionālu lēmumu, kuru var reģistrēt tikai pilnvarotais redaktors. Šo "
+"redakcijas lēmumu, kuru var reģistrēt tikai pilnvarotais redaktors. Šo "
 "iespēju var izvēlēties, piešķirot dalībniekus kādam materiālam."
 
 msgid "mailable.reviewConfirm.name"
@@ -3271,7 +3270,7 @@ msgstr ""
 "jāiesniedz recenzija."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr "Recenzēšanas atgādinājums (automatizēts)"
+msgstr "Recenzēšanas atgādinājums (automātisks)"
 
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
@@ -3287,7 +3286,7 @@ msgstr ""
 "ir saņemta, un lai pateiktos recenzentam par viņa ieguldījumu."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr "Recenzijas atbildes termiņš ir nokavēts (automātiski)"
+msgstr "Recenzijas atbildes termiņš ir nokavēts (automātisks)"
 
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
@@ -3319,10 +3318,10 @@ msgid "plugins.importexport.common.error.submissionChildFailed"
 msgstr "Iesnieguma bērnprocess {$child} nav apstrādāts"
 
 msgid "mailable.editorialReminder.name"
-msgstr "Redakcionāls atgādinājums"
+msgstr "Redakcijas atgādinājums"
 
 msgid "mailable.editorialReminder.description"
-msgstr "Redaktoriem nosūtāms automatizēts e-pasts ar neizpildītiem uzdevumiem"
+msgstr "Automātisks e-pasts, ko nosūta redaktoriem par neizpildītiem uzdevumiem"
 
 msgid "mailable.passwordResetRequested.name"
 msgstr "Paroles atiestatīšanas apstiprinājums"
@@ -3356,7 +3355,7 @@ msgstr "Iesniegtais materiāls saglabāts vēlākam laikam"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
-"Automatizēts e-pasts, kas tiek nosūtīts autoriem, kad viņi saglabā savu "
+"Automātisks e-pasts, kas tiek nosūtīts autoriem, kad viņi saglabā savu "
 "iesniegto materiālu, lai to pabeigtu vēlāk"
 
 msgid "mailable.submissionAck.name"
@@ -3521,11 +3520,11 @@ msgid "manager.submissionAck.allAuthors"
 msgstr "Nosūtīt e-pastu visiem autoriem."
 
 msgid "manager.editorialDecisions"
-msgstr "Redakcionālie lēmumi"
+msgstr "Redakcijas lēmumi"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
-"Konfigurēt e-pasta paziņojumus, kas tiks nosūtīti autoriem pēc redakcionālā "
+"Konfigurēt e-pasta paziņojumus, kas tiks nosūtīti autoriem pēc redakcijas "
 "lēmuma reģistrēšanas."
 
 msgid "manager.forEditors"
@@ -3535,11 +3534,11 @@ msgid "manager.forEditors.description"
 msgstr "Konfigurēt e-pasta paziņojumus nosūtīšanai redaktoriem."
 
 msgid "manager.editorialStatistics"
-msgstr "Redakcionālā statistika"
+msgstr "Redakcijas statistika"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
-"Sūtīt vai nesūtīt ikmēneša e-pastu redaktoriem ar žurnāla redakcionālo "
+"Sūtīt vai nesūtīt ikmēneša e-pastu redaktoriem ar žurnāla redakcijas "
 "statistiku, piemēram, pieņemto un noraidīto darbu skaitu. Redaktori var "
 "atteikties no šī e-pasta saņemšanas savā lietotāja profilā."
 
@@ -3683,19 +3682,19 @@ msgid "manager.statistics.counterR5Reports.description"
 msgstr ""
 "Skatīt<a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index."
 "html\" target=\"_new\">COUNTER 5.0.3 dokumentāciju</a>, lai iegūtu vairāk "
-"informācijas par katru atskaiti."
+"informācijas par katru pārskatu."
 
 msgid "manager.statistics.counterR5Reports.usageNotPossible"
 msgstr "Pagaidām nav pieejama COUNTER R5 lietošanas statistika."
 
 msgid "manager.statistics.counterR5Reports"
-msgstr "COUNTER R5 atskaites"
+msgstr "COUNTER R5 pārskati"
 
 msgid "manager.statistics.counterR5"
 msgstr "COUNTER R5"
 
 msgid "manager.statistics.counterR5Report.settings"
-msgstr "Atskaites iestatījumi"
+msgstr "Pārskata iestatījumi"
 
 msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
 msgstr "Datuma formāts nav derīgs."

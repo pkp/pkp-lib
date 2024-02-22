@@ -2,7 +2,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-19 11:08+0000\n"
+"PO-Revision-Date: 2024-02-22 17:43+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "lv/>\n"
@@ -161,7 +161,7 @@ msgstr "Redaktoru identificēšana, lai atgādinātu {$contextId} kontekstā"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
-"Dispečēti {$count} darbuzdevumi, lai nosūtītu redakcionālos e-pasta "
+"Dispečēti {$count} darbuzdevumi, lai nosūtītu redakcijas e-pasta "
 "atgādinājumus lietotājiem {$userIds} kontekstā {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
@@ -184,7 +184,7 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr "Atgādinājums par recenzēšanu"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr "Redakcionālās atskaites paziņojums"
+msgstr "Redakcijas pārskata paziņojums"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Abonēšanas termiņa beigu atgādinājums"
@@ -833,7 +833,7 @@ msgstr "Platformas ID"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
-"Ieteikumi, kā identificēt šo platformu COUNTER SUSHI ziņojumos. Platformas "
+"Ieteikumi, kā identificēt šo platformu COUNTER SUSHI pārskatos. Platformas "
 "identifikatoram jābūt 17 vai mazāk rakstzīmēm, un tajā var būt burti (a-z, "
 "A-Z), cipari (0-9), pasvītrojumi (_), punkti (.) un slīpsvītras (/). "
 "Platformas ID izmanto vairākās slejās, un tam jābūt pēc iespējas īsākam, "
@@ -935,3 +935,15 @@ msgstr "Datne {$file} neeksistē."
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr "Izmantot vietni kā platformu visiem žurnāliem."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Nav iespējams palaist rindas darbuzdevumus, jo ir ieslēgts "
+"lietojumprogrammas smilškastes režīms."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Restartēt rindas darba dēmonus pēc to pašreizējā darbuzdevuma."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Darbņi pēc pašreizējā darba izpildes pabeigšanas pakāpeniski pārtrauks darbu."

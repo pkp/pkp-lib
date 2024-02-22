@@ -16,6 +16,7 @@
 
 namespace PKP\cliTool;
 
+use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\scheduledTask\ScheduledTaskDAO;
 use PKP\scheduledTask\ScheduledTaskHelper;
@@ -71,6 +72,12 @@ class ScheduledTaskTool extends \PKP\cliTool\CommandLineTool
      */
     public function execute()
     {
+        // Application is set to sandbox mode and will not run any scheduled tasks
+        if (Config::getVar('general', 'sandbox', false)) {
+            error_log('Application is set to sandbox mode and will not run any scheduled tasks');
+            return;
+        }
+
         $this->parseTasks($this->file);
     }
 

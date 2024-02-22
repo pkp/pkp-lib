@@ -158,16 +158,14 @@ class Core
      * were built using the system.
      *
      * @param string $urlInfo Full url or just path info.
-     * @param bool $isPathInfo Tell if the
-     * passed url info string is a path info or not.
      * @param array $userVars (optional) Pass GET variables
      * if needed (for testing only).
      *
      * @return string
      */
-    public static function getPage($urlInfo, $isPathInfo, $userVars = [])
+    public static function getPage($urlInfo, $userVars = [])
     {
-        $page = Core::_getUrlComponents($urlInfo, $isPathInfo, 0, 'page', $userVars);
+        $page = Core::_getUrlComponents($urlInfo, 0, 'page', $userVars);
         return Core::cleanFileVar(is_null($page) ? '' : $page);
     }
 
@@ -177,16 +175,14 @@ class Core
      * were built using the system.
      *
      * @param string $urlInfo Full url or just path info.
-     * @param bool $isPathInfo Tell if the
-     * passed url info string is a path info or not.
      * @param array $userVars (optional) Pass GET variables
      * if needed (for testing only).
      *
      * @return string
      */
-    public static function getOp($urlInfo, $isPathInfo, $userVars = [])
+    public static function getOp($urlInfo, $userVars = [])
     {
-        $operation = Core::_getUrlComponents($urlInfo, $isPathInfo, 1, 'op', $userVars);
+        $operation = Core::_getUrlComponents($urlInfo, 1, 'op', $userVars);
         return Core::cleanFileVar(empty($operation) ? 'index' : $operation);
     }
 
@@ -197,16 +193,14 @@ class Core
      * It expects that urls were built using the system.
      *
      * @param string $urlInfo Full url or just path info.
-     * @param bool $isPathInfo Tell if the
-     * passed url info string is a path info or not.
      * @param array $userVars (optional) Pass GET variables
      * if needed (for testing only).
      *
      * @return array
      */
-    public static function getArgs($urlInfo, $isPathInfo, $userVars = [])
+    public static function getArgs($urlInfo, $userVars = [])
     {
-        return Core::_getUrlComponents($urlInfo, $isPathInfo, 2, 'path', $userVars);
+        return Core::_getUrlComponents($urlInfo, 2, 'path', $userVars);
     }
 
     /**
@@ -450,7 +444,6 @@ class Core
      * based on the passed offset.
      *
      * @param string $urlInfo
-     * @param string $isPathInfo
      * @param int $offset
      * @param string $varName
      * @param array $userVars (optional) GET variables
@@ -458,7 +451,7 @@ class Core
      *
      * @return mixed array|string|null
      */
-    private static function _getUrlComponents($urlInfo, $isPathInfo, $offset, $varName = '', $userVars = [])
+    private static function _getUrlComponents($urlInfo, $offset, $varName = '', $userVars = [])
     {
         $component = null;
 

@@ -24,14 +24,6 @@ use PKP\task\FileLoader;
 class ConvertUsageStatsLogFile extends ConvertLogFileTool
 {
     /**
-     * Weather the URL parameters are used instead of CGI PATH_INFO.
-     * This is the former variable 'disable_path_info' in the config.inc.php
-     *
-     * This needs to be set to true if the URLs in the old log file contain the paramteres as URL query string.
-     */
-    public const PATH_INFO_DISABLED = false;
-
-    /**
      * Regular expression that is used for parsing the old log file entries that should be converted to the new format.
      *
      * The default regex can parse the usageStats plugin's log files.
@@ -89,11 +81,6 @@ class ConvertUsageStatsLogFile extends ConvertLogFileTool
     public function getPhpDateTimeFormat(): string
     {
         return self::PHP_DATETIME_FORMAT;
-    }
-
-    public function isPathInfoDisabled(): bool
-    {
-        return self::PATH_INFO_DISABLED;
     }
 
     public function isApacheAccessLogFile(): bool

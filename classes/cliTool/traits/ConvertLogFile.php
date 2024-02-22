@@ -70,12 +70,6 @@ trait ConvertLogFile
     abstract public function getPhpDateTimeFormat(): string;
 
     /**
-     * Weather the URL parameters are used instead of CGI PATH_INFO.
-     * This will determine how URLs are parsed.
-     */
-    abstract public function isPathInfoDisabled(): bool;
-
-    /**
      * Weather this is an apache access log file
      */
     abstract public function isApacheAccessLogFile(): bool;
@@ -319,10 +313,10 @@ trait ConvertLogFile
         // remove it so we can retrieve path, page, operation and args.
         $url = Core::removeBaseUrl($url);
         if ($url) {
-            $contextPaths = $this->getContextPaths($url, !$this->isPathInfoDisabled());
-            $page = Core::getPage($url, !$this->isPathInfoDisabled());
-            $operation = Core::getOp($url, !$this->isPathInfoDisabled());
-            $args = Core::getArgs($url, !$this->isPathInfoDisabled());
+            $contextPaths = $this->getContextPaths($url);
+            $page = Core::getPage($url);
+            $operation = Core::getOp($url);
+            $args = Core::getArgs($url);
         } else {
             // Could not remove the base URL, can't go on.
             fwrite(STDERR, "The line number {$lineNumber} contains an url that the system can't remove the base URL from." . PHP_EOL);
@@ -438,26 +432,17 @@ trait ConvertLogFile
      * Get context paths present into the passed
      * url information.
      */
-    protected static function getContextPaths(string $urlInfo, bool $isPathInfo): array
+    protected static function getContextPaths(string $urlInfo): array
     {
         $contextPaths = [];
         $application = Application::get();
         $contextList = [$application->getContextName()]; // Was $application->getContextList();
         $contextDepth = 1; // Was $application->getContextDepth();
 
-        if ($isPathInfo) {
-            // Split the path info into its constituents. Save all non-context
-            // path info in $contextPaths[$contextDepth]
-            // by limiting the explode statement.
-            $contextPaths = explode('/', trim((string) $urlInfo, '/'), $contextDepth + 1);
-            // Remove the part of the path info that is not relevant for context (if present)
-            unset($contextPaths[$contextDepth]);
-        } else {
-            // Retrieve context from url query string
-            foreach ($contextList as $key => $contextName) {
-                parse_str((string) parse_url($urlInfo, PHP_URL_QUERY), $userVarsFromUrl);
-                $contextPaths[$key] = $userVarsFromUrl[$contextName] ?? null;
-            }
+        // Retrieve context from url query string
+        foreach ($contextList as $key => $contextName) {
+            parse_str((string) parse_url($urlInfo, PHP_URL_QUERY), $userVarsFromUrl);
+            $contextPaths[$key] = $userVarsFromUrl[$contextName] ?? null;
         }
 
         // Canonicalize and clean context paths
@@ -476,9 +461,9 @@ trait ConvertLogFile
      * the passed url information. It expects that urls
      * were built using the system.
      */
-    protected static function getPage(string $urlInfo, bool $isPathInfo): string
+    protected static function getPage(string $urlInfo): string
     {
-        $page = self::getUrlComponents($urlInfo, $isPathInfo, 0, 'page');
+        $page = self::getUrlComponents($urlInfo, 0, 'page');
         return Core::cleanFileVar(is_null($page) ? '' : $page);
     }
 
@@ -487,9 +472,9 @@ trait ConvertLogFile
      * the passed url information. It expects that urls
      * were built using the system.
      */
-    protected static function getOp(string $urlInfo, bool $isPathInfo): string
+    protected static function getOp(string $urlInfo): string
     {
-        $operation = self::getUrlComponents($urlInfo, $isPathInfo, 1, 'op');
+        $operation = self::getUrlComponents($urlInfo, 1, 'op');
         return Core::cleanFileVar(empty($operation) ? 'index' : $operation);
     }
 
@@ -499,16 +484,16 @@ trait ConvertLogFile
      * only arguments appended to the URL separated by "/").
      * It expects that urls were built using the system.
      */
-    protected static function getArgs(string $urlInfo, bool $isPathInfo): array
+    protected static function getArgs(string $urlInfo): array
     {
-        return self::getUrlComponents($urlInfo, $isPathInfo, 2, 'path');
+        return self::getUrlComponents($urlInfo, 2, 'path');
     }
 
     /**
      * Get url components (page, operation and args)
      * based on the passed offset.
      */
-    protected static function getUrlComponents(string $urlInfo, bool $isPathInfo, int $offset, string $varName = ''): mixed
+    protected static function getUrlComponents(string $urlInfo, int $offset, string $varName = ''): mixed
     {
         $component = null;
 
@@ -516,22 +501,8 @@ trait ConvertLogFile
         if ($varName == 'path') {
             $isArrayComponent = true;
         }
-        if ($isPathInfo) {
-            $application = Application::get();
-            $contextDepth = 1; // Was $application->getContextDepth();
-
-            $vars = explode('/', trim($urlInfo, '/'));
-            if (count($vars) > $contextDepth + $offset) {
-                if ($isArrayComponent) {
-                    $component = array_slice($vars, $contextDepth + $offset);
-                } else {
-                    $component = $vars[$contextDepth + $offset];
-                }
-            }
-        } else {
-            parse_str((string) parse_url($urlInfo, PHP_URL_QUERY), $userVarsFromUrl);
-            $component = $userVarsFromUrl[$varName] ?? null;
-        }
+        parse_str((string) parse_url($urlInfo, PHP_URL_QUERY), $userVarsFromUrl);
+        $component = $userVarsFromUrl[$varName] ?? null;
 
         if ($isArrayComponent) {
             if (empty($component)) {

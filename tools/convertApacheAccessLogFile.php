@@ -71,14 +71,6 @@ class ConvertApacheAccessLogFile extends ConvertLogFileTool
     public const EGREP_PATH = '/bin/egrep';
 
     /**
-     * Weather the URL parameters are used instead of CGI PATH_INFO.
-     * This is the former variable 'disable_path_info' in the config.inc.php
-     *
-     * This needs to be set to true if the URLs in the old log file contain the paramteres as URL query string.
-     */
-    public const PATH_INFO_DISABLED = false;
-
-    /**
      * Regular expression that is used for parsing the apache access log file.
      *
      * The default regex can parse apache access log file in combined format
@@ -139,11 +131,6 @@ class ConvertApacheAccessLogFile extends ConvertLogFileTool
     public function getPhpDateTimeFormat(): string
     {
         return self::PHP_DATETIME_FORMAT;
-    }
-
-    public function isPathInfoDisabled(): bool
-    {
-        return self::PATH_INFO_DISABLED;
     }
 
     public function isApacheAccessLogFile(): bool

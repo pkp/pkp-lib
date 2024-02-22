@@ -17,7 +17,6 @@ namespace PKP\migration\upgrade\v3_4_0;
 use APP\statistics\StatisticsHelper;
 use Illuminate\Support\Facades\DB;
 use PKP\cliTool\traits\ConvertLogFile;
-use PKP\config\Config;
 use PKP\file\FileManager;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
@@ -111,11 +110,6 @@ class ConvertCurrentUsageStatsLogFile
     public function getPhpDateTimeFormat(): string
     {
         return 'Y-m-d H:i:s';
-    }
-
-    public function isPathInfoDisabled(): bool
-    {
-        return Config::getVar('general', 'disable_path_info') ? true : false;
     }
 
     public function isApacheAccessLogFile(): bool

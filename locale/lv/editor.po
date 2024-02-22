@@ -1,8 +1,8 @@
-# Ieva Tiltina <pastala@gmail.com>, 2022, 2023.
+# Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 # Gints Buda <gints.buda@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-09 07:38+0000\n"
+"PO-Revision-Date: 2024-02-22 17:43+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "lv/>\n"
@@ -76,7 +76,7 @@ msgstr ""
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
-"Lai reģistrētu redakcionālo lēmumu, jums nepieciešama piesaiste šim "
+"Lai reģistrētu redaktora lēmumu, jums nepieciešama piesaiste šim "
 "iesniegtajam materiālam."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
@@ -84,7 +84,7 @@ msgstr "Lai pieņemtu šo lēmumu, jānorāda recenzēšanas kārtas ID."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
-"Ieteikumu var sniegt tikai tad, ja šajā posmā ir norīkots redaktors, kurš "
+"Rekomendāciju var sniegt tikai tad, ja šajā posmā ir iecelts redaktors, kurš "
 "var pieņemt galīgo lēmumu."
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
@@ -106,7 +106,7 @@ msgstr ""
 "Izvēlieties zemāk norādītos failus, lai tos nosūtītu uz recenzēšanas posmu."
 
 msgid "editor.submission.fileAuditor.form.fileRequired"
-msgstr "Jāizvēlas vismaz viens fails, kuram piešķirt lietotāju."
+msgstr "Jāizvēlas vismaz viena datne, kurai piešķirt lietotāju."
 
 msgid "editor.submission.fileAuditor.form.messageRequired"
 msgstr "Jums jāiekļauj personiska ziņa."
@@ -432,10 +432,10 @@ msgid "editor.submission.newRound"
 msgstr "Jauna recenzēšanas kārta"
 
 msgid "editor.submissionReview.recordDecision"
-msgstr "Ierakstīt redakcionālu lēmumu"
+msgstr "Ierakstīt redakcijas lēmumu"
 
 msgid "editor.submissionReview.recordRecommendation"
-msgstr "Ierakstīt redakcionālu rekomendāciju"
+msgstr "Ierakstīt redakcijas rekomendāciju"
 
 msgid "editor.submissionReview.recordRecommendation.notifyEditors"
 msgstr "Paziņot redaktoriem"

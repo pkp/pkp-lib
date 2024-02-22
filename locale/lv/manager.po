@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-22 17:43+0000\n"
+"PO-Revision-Date: 2024-02-23 01:11+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "lv/>\n"
@@ -2448,7 +2448,7 @@ msgid "manager.navigationMenus.submissions.description"
 msgstr "Saite uz lapu, kurā sniegti materiāla iesniegšanas norādījumi."
 
 msgid "manager.navigationMenus.current.description"
-msgstr "Saite uz kārtējo numuru."
+msgstr "Saite uz jaunāko numuru."
 
 msgid "manager.navigationMenus.archives.description"
 msgstr "Saite uz žurnāla numuru arhīvu."
@@ -3312,7 +3312,7 @@ msgstr ""
 "piekļuve materiālam."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr "Trūkst iesniegtā materiāla kārtējās publikācijas"
+msgstr "Trūkst iesniegtā materiāla pašreizējās publikācijas"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
 msgstr "Iesnieguma bērnprocess {$child} nav apstrādāts"
@@ -3619,7 +3619,7 @@ msgid "manager.highlights.image"
 msgstr "Attēls"
 
 msgid "manager.highlights.urlText"
-msgstr "Pogas marķējums"
+msgstr "Pogas iezīme"
 
 msgid "manager.highlights.urlText.description"
 msgstr "Izceltās pogas iezīme, piemēram, \"Lasīt vairāk\"."

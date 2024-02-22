@@ -75,15 +75,16 @@ class commandInterface
 class commandJobs extends CommandLineTool
 {
     protected const AVAILABLE_OPTIONS = [
-        'list' => 'admin.cli.tool.jobs.available.options.list.description',
-        'purge' => 'admin.cli.tool.jobs.available.options.purge.description',
-        'test' => 'admin.cli.tool.jobs.available.options.test.description',
-        'total' => 'admin.cli.tool.jobs.available.options.total.description',
-        'help' => 'admin.cli.tool.jobs.available.options.help.description',
-        'run' => 'admin.cli.tool.jobs.available.options.run.description',
-        'work' => 'admin.cli.tool.jobs.available.options.work.description',
-        'failed' => 'admin.cli.tool.jobs.available.options.failed.description',
-        'usage' => 'admin.cli.tool.jobs.available.options.usage.description',
+        'list'      => 'admin.cli.tool.jobs.available.options.list.description',
+        'purge'     => 'admin.cli.tool.jobs.available.options.purge.description',
+        'test'      => 'admin.cli.tool.jobs.available.options.test.description',
+        'total'     => 'admin.cli.tool.jobs.available.options.total.description',
+        'help'      => 'admin.cli.tool.jobs.available.options.help.description',
+        'run'       => 'admin.cli.tool.jobs.available.options.run.description',
+        'work'      => 'admin.cli.tool.jobs.available.options.work.description',
+        'failed'    => 'admin.cli.tool.jobs.available.options.failed.description',
+        'restart'   => 'admin.cli.tool.jobs.available.options.restart.description',
+        'usage'     => 'admin.cli.tool.jobs.available.options.usage.description',
     ];
 
     protected const CURRENT_PAGE = 'current';
@@ -257,6 +258,21 @@ class commandJobs extends CommandLineTool
         array_push($this->parameterList, '--failed');
 
         $this->list();
+    }
+
+    /**
+     * Signal the queue worker to quit gracefully
+     */
+    protected function restart(): void
+    {
+        $cache = app()->get("cache.store"); /** @var \Illuminate\Contracts\Cache\Repository $cache */
+
+        $cache->forever('illuminate:queue:restart', Carbon::now()->getTimestamp());
+
+        $this
+            ->getCommandInterface()
+            ->getOutput()
+            ->info(__('admin.cli.tool.jobs.available.options.restart.confirm'));
     }
 
     /**

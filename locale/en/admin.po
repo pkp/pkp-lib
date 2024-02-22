@@ -562,6 +562,12 @@ msgstr ""
 "redispatch and --clear to redispatch back to queue or clear all/specific "
 "failed jobs."
 
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Restart queue worker daemons after their current job."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr "Workers will gracefully quit after completing the execution of current job."
+
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
 "Dispatch available jobs into the queue. To dispatch a job into a specific "

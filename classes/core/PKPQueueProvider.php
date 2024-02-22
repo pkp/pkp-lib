@@ -120,6 +120,11 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     return;
                 }
 
+                if (Config::getVar('general', 'sandbox', false)) {
+                    error_log(__('admin.cli.tool.jobs.sandbox.message'));
+                    return;
+                }
+
                 (new JobRunner($this))
                     ->withMaxExecutionTimeConstrain()
                     ->withMaxJobsConstrain()

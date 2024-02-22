@@ -374,6 +374,12 @@ class commandJobs extends CommandLineTool
             return;
         }
 
+        if (Config::getVar('general', 'sandbox', false)) {
+            $this->getCommandInterface()->getOutput()->error(__('admin.cli.tool.jobs.sandbox.message'));
+            error_log(__('admin.cli.tool.jobs.sandbox.message'));
+            return;
+        }
+
         $connection = $parameterList['connection'] ?? Config::getVar('queues', 'default_connection', 'database');
         $queue = $parameterList['queue'] ?? Config::getVar('queues', 'default_queue', 'queue');
 
@@ -397,6 +403,12 @@ class commandJobs extends CommandLineTool
     {
         if (Application::isUnderMaintenance()) {
             $this->getCommandInterface()->getOutput()->error(__('admin.cli.tool.jobs.maintenance.message'));
+            return;
+        }
+
+        if (Config::getVar('general', 'sandbox', false)) {
+            $this->getCommandInterface()->getOutput()->error(__('admin.cli.tool.jobs.sandbox.message'));
+            error_log(__('admin.cli.tool.jobs.sandbox.message'));
             return;
         }
 

@@ -23,11 +23,6 @@ use PKP\site\Site;
 class CompileMonthlyMetrics extends BaseJob
 {
     /**
-     * The number of times the job may be attempted.
-     */
-    public $tries = 1;
-
-    /**
      * The month the usage metrics should be aggregated by, in format YYYYMM.
      */
     protected string $month;

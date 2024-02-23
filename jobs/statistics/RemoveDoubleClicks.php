@@ -24,11 +24,6 @@ use PKP\jobs\BaseJob;
 class RemoveDoubleClicks extends BaseJob
 {
     /**
-     * The number of times the job may be attempted.
-     */
-    public $tries = 1;
-
-    /**
      * The load ID = usage stats log file name
      */
     protected string $loadId;

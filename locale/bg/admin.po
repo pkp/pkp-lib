@@ -1,8 +1,8 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024.
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-29 10:39+0000\n"
+"PO-Revision-Date: 2024-02-24 03:19+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "bg/>\n"
@@ -942,3 +942,27 @@ msgstr ""
 "При многоконтекстна инсталация статистическите данни на рецензентите, като "
 "например броя на изпратените рецензии, могат да бъдат показани или "
 "индивидуално за всеки контекст, или обобщени колективно."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"Файлът {$file} не можа да бъде преместен от {$dispatchFilePath} в "
+"{$archivedFilePath}."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Не могат да се изпълняват задачи от опашка, тъй като режимът на пясъчна "
+"среда на приложението е активиран."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Изпълнителите на задача ще се откажат коректно след завършване на "
+"изпълнението на текущата работа."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "Файлът {$file} не съществува."
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "Файлът {$filename} беше преместен в папката за изпращане."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Рестартирайте работните процеси на опашка след текущата им работа."

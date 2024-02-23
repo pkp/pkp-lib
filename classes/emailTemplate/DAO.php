@@ -381,14 +381,7 @@ class DAO extends EntityDAO
                     'Tried to install email template as an alternate to `' . $alternateTo . '`, but no default template exists with this key. Installing ' . $alternateTo . ' email template first',
                     E_USER_WARNING
                 );
-                try {
-                    $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
-                    $site = $siteDao->getSite(); /** @var Site $site */
-                    $locales = $site->getInstalledLocales();
-                    $this->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), $locales, $alternateTo);
-                } catch (Exception $e) {
-                    error_log($e->getMessage());
-                }
+                $this->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), [], $alternateTo);
             }
 
             DB::table($this->table)->insert([

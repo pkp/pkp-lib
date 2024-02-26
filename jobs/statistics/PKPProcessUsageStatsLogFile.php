@@ -78,17 +78,16 @@ abstract class PKPProcessUsageStatsLogFile extends BaseJob
      */
     protected function process(string $dispatchFilePath): void
     {
-        $splFileObject = new SplFileObject($dispatchFilePath, 'r');
-        if (!$splFileObject) {
+        try {
+            $splFileObject = new SplFileObject($dispatchFilePath, 'r');
+        } catch (Exception $e) {
             // reject file -- move the file from dispatch to reject folder
             $filename = $this->loadId;
             $rejectFilePath = StatisticsHelper::getUsageStatsDirPath() . '/' . FileLoader::FILE_LOADER_PATH_REJECT . '/' . $filename;
             if (!rename($dispatchFilePath, $rejectFilePath)) {
-                $message = __('admin.job.compileMetrics.returnToStaging.error', ['file' => $filename,
-                    'dispatchFilePath' => $dispatchFilePath, 'rejectFilePath' => $rejectFilePath]);
-                error_log($message);
+                error_log(__('admin.job.compileMetrics.returnToStaging.error', ['file' => $filename, 'dispatchFilePath' => $dispatchFilePath, 'rejectFilePath' => $rejectFilePath]));
             }
-            throw new JobException(__('admin.job.processLogFile.openFileFailed', ['file' => $dispatchFilePath]));
+            throw new JobException(__('admin.job.processLogFile.openFileFailed', ['file' => $dispatchFilePath]), 0, $e);
         }
 
         // Make sure we don't have any temporary records associated

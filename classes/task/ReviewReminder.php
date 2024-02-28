@@ -71,9 +71,13 @@ class ReviewReminder extends ScheduledTask
                 unset($context);
                 $context = $contextDao->getById($submission->getData('contextId'));
 
+                $enableBeforeReviewResponseReminder = $context->getData('enableBeforeReviewResponseReminder');
+                $enableAfterReviewResponseReminder = $context->getData('enableAfterReviewResponseReminder');
+                $enableBeforeReviewSubmitReminder = $context->getData('enableBeforeReviewSubmitReminder');
+                $enableAfterReviewSubmitReminder = $context->getData('enableAfterReviewSubmitReminder');
+
                 $numDaysBeforeReviewResponseReminderDue = $context->getData('numDaysBeforeReviewResponseReminderDue');
                 $numDaysAfterReviewResponseReminderDue = $context->getData('numDaysAfterReviewResponseReminderDue');
-
                 $numDaysBeforeReviewSubmitReminderDue = $context->getData('numDaysBeforeReviewSubmitReminderDue');
                 $numDaysAfterReviewSubmitReminderDue = $context->getData('numDaysAfterReviewSubmitReminderDue');
             }
@@ -94,7 +98,8 @@ class ReviewReminder extends ScheduledTask
                 if ($reviewAssignment->getDateReminded() === null) {
                     // There has not been any reminder sent yet
                     // need to check should we sent a BEFORE REVIEW REQUEST RESPONSE reminder
-                    if ($numDaysBeforeReviewResponseReminderDue &&
+                    if ($enableBeforeReviewResponseReminder &&
+                        $numDaysBeforeReviewResponseReminderDue &&
                         $dateResponseDue->gt($currentDate) &&
                         $dateResponseDue->diffInDays($currentDate) <= $numDaysBeforeReviewResponseReminderDue) {
                     
@@ -107,7 +112,8 @@ class ReviewReminder extends ScheduledTask
 
                     $dateReminded = Carbon::parse($reviewAssignment->getDateReminded());
 
-                    if ($numDaysAfterReviewResponseReminderDue &&
+                    if ($enableAfterReviewResponseReminder &&
+                        $numDaysAfterReviewResponseReminderDue &&
                         $currentDate->gt($dateResponseDue) &&
                         $dateReminded->lt($dateResponseDue) &&
                         $currentDate->diffInDays($dateResponseDue) >= $numDaysAfterReviewResponseReminderDue) {
@@ -123,7 +129,8 @@ class ReviewReminder extends ScheduledTask
                 if ($reviewAssignment->getDateReminded() === null) {
                     // There has not been any reminder sent after responding to REVIEW REQUEST
                     // no REVIEW SUBMIT reminder has been sent
-                    if ($numDaysBeforeReviewSubmitReminderDue &&
+                    if ($enableBeforeReviewSubmitReminder &&
+                        $numDaysBeforeReviewSubmitReminderDue &&
                         $currentDate->lt($dateDue) &&
                         $dateDue->diffInDays($currentDate) <= $numDaysBeforeReviewSubmitReminderDue) {
 
@@ -136,7 +143,8 @@ class ReviewReminder extends ScheduledTask
 
                     $dateReminded = Carbon::parse($reviewAssignment->getDateReminded());
 
-                    if ($numDaysAfterReviewSubmitReminderDue &&
+                    if ($enableAfterReviewSubmitReminder &&
+                        $numDaysAfterReviewSubmitReminderDue &&
                         $currentDate->gt($dateDue) &&
                         $dateReminded->lt($dateDue) &&
                         $currentDate->diffInDays($dateDue) >= $numDaysAfterReviewSubmitReminderDue) {

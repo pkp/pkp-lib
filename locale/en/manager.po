@@ -1238,33 +1238,37 @@ msgstr "Never Remind"
 msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr "Defaults can be modified for each review during the editorial process."
 
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Set Reminders for Review"
+
+msgid "manager.setup.reviewOptions.reminders.description"
+msgstr ""
+"Send an email reminder before or after for review request response(if reviewer has not responded "
+"to review request yet) or review submission (if reviewer has not submitted review yet)"
+
 msgid "manager.setup.reviewOptions.reminders.response"
 msgstr "Response Reminder"
 
-msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr ""
-"Send an email reminder if a reviewer has not responded to a review request "
-"within this many days (left empty if no reminder):"
+msgid "manager.setup.reviewOptions.reminders.description.before"
+msgstr "Before due date"
 
-msgid "manager.setup.reviewOptions.reminders.response.description.before"
-msgstr "- before the response due date:"
+msgid "manager.setup.reviewOptions.reminders.description.before.days"
+msgstr "days before"
 
-msgid "manager.setup.reviewOptions.reminders.response.description.after"
-msgstr "- after the response due date:"
+msgid "manager.setup.reviewOptions.reminders.description.after"
+msgstr "After due date"
+
+msgid "manager.setup.reviewOptions.reminders.description.after.days"
+msgstr "days after"
+
+msgid "manager.setup.reviewOptions.reminders.disable"
+msgstr "Disbale Reminder"
+
+msgid "manager.setup.reviewOptions.reminders.enable"
+msgstr "Enable Reminder"
 
 msgid "manager.setup.reviewOptions.reminders.submit"
 msgstr "Review Reminder"
-
-msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr ""
-"Send an email reminder if a reviewer has not submitted a recommendation "
-"within this many days (left empty if no reminder)"
-
-msgid "manager.setup.reviewOptions.reminders.submit.description.before"
-msgstr "- before the review due date:"
-
-msgid "manager.setup.reviewOptions.reminders.submit.description.after"
-msgstr "- after the review due date:"
 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Default Review Mode"

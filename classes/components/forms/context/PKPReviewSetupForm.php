@@ -22,7 +22,6 @@ use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldSlider;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
-use PKP\config\Config;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class PKPReviewSetupForm extends FormComponent

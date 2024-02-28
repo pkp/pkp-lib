@@ -176,6 +176,8 @@ VueRegistry.registerComponent('PkpFieldHtml', FieldHtml);
 VueRegistry.registerComponent('PkpFieldOrcid', FieldOrcid);
 VueRegistry.registerComponent('PkpFieldMetadataSetting', FieldMetadataSetting);
 VueRegistry.registerComponent('PkpFieldOptions', FieldOptions);
+VueRegistry.registerComponent('PkpFieldCheckbox', FieldCheckbox);
+VueRegistry.registerComponent('PkpFieldRangeSlider', FieldRangeSlider);
 VueRegistry.registerComponent('PkpFieldPreparedContent', FieldPreparedContent);
 VueRegistry.registerComponent('PkpFieldPubId', FieldPubId);
 VueRegistry.registerComponent('PkpFieldRadioInput', FieldRadioInput);

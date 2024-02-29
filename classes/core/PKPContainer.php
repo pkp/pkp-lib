@@ -375,7 +375,7 @@ class PKPContainer extends Container
             'same_site' => Config::getVar('general', 'session_samesite', 'lax'),
             'partitioned' => false,
             'encrypt' => false,
-            'cookie_encryption_key' => Config::getVar('general', 'session_cookie_enctyption_key', ''),
+            'cookie_encryption_key' => Config::getVar('general', 'session_cookie_encryption_key', ''),
         ];
 
 

@@ -36,11 +36,11 @@
 			]
 		},
 		"considered": {
-			"type": "boolean",
+			"type": "integer",
 			"description": "Whether reviewer considers a review assignment request",
 			"apiSummary": true,
 			"validation": [
-				"nullable"
+				"in:0,1,2,3"
 			]
 		},
 		"dateAcknowledged": {

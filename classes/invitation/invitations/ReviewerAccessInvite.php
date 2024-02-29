@@ -118,8 +118,7 @@ class ReviewerAccessInvite extends BaseInvitation
         $reviewId = $reviewAssignment->getId();
 
         // Check if the user is already logged in
-        $session = Application::get()->getRequest()->getSession();
-        if ($session->has('user_id') && $session->get('user_id') != $this->userId) {
+        if (Application::get()->getRequest()->getSessionGuard()->getUserId() != $this->userId) {
             return false;
         }
 

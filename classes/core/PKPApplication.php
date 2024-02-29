@@ -26,6 +26,7 @@ use GuzzleHttp\Client;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Support\Facades\DB;
+use PKP\core\PKPSessionGuard;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -188,8 +189,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
         ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
         
-        if (!static::isInstalled() && !defined('SESSION_DISABLE_INIT')) {
-            define('SESSION_DISABLE_INIT', true);
+        if (!static::isInstalled() && !PKPSessionGuard::isSessionDisable()) {
+            PKPSessionGuard::disableSession();
         }
 
         Registry::set('application', $this);

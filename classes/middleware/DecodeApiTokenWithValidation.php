@@ -27,6 +27,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use PKP\config\Config;
 use PKP\core\PKPJwt as JWT;
+use PKP\core\PKPSessionGuard;
 use PKP\user\User;
 use stdClass;
 use Throwable;
@@ -119,7 +120,7 @@ class DecodeApiTokenWithValidation
      */
     protected function setUserResolver(Request &$request, User $user = null): void
     {
-        if (!$user && !defined('SESSION_DISABLE_INIT')) {
+        if (!$user && !PKPSessionGuard::isSessionDisable()) {
             $user = Application::get()->getRequest()->getUser();
         }
 

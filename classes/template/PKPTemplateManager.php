@@ -40,6 +40,7 @@ use PKP\context\Context;
 use PKP\controllers\listbuilder\ListbuilderHandler;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
+use PKP\core\PKPSessionGuard;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\core\PKPString;
@@ -378,7 +379,7 @@ class PKPTemplateManager extends Smarty
          * Kludge to make sure no code that tries to connect to the
          * database is executed (e.g., when loading installer pages).
          */
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!PKPSessionGuard::isSessionDisable()) {
             $this->assign([
                 'isUserLoggedIn' => Validation::isLoggedIn(),
                 'isUserLoggedInAs' => (bool) Validation::loggedInAs(),
@@ -745,7 +746,7 @@ class PKPTemplateManager extends Smarty
         ];
 
         // Add an array of rtl languages (right-to-left)
-        if (Application::isInstalled() && !defined('SESSION_DISABLE_INIT')) {
+        if (Application::isInstalled() && !PKPSessionGuard::isSessionDisable()) {
             $allLocales = [];
             if ($context) {
                 $allLocales = array_merge(
@@ -923,7 +924,7 @@ class PKPTemplateManager extends Smarty
          * Kludge to make sure no code that tries to connect to the
          * database is executed (e.g., when loading installer pages).
          */
-        if (Application::isInstalled() && !defined('SESSION_DISABLE_INIT')) {
+        if (Application::isInstalled() && !PKPSessionGuard::isSessionDisable()) {
             if ($request->getUser()) {
                 // Get a count of unread tasks
                 $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
@@ -1300,6 +1301,7 @@ class PKPTemplateManager extends Smarty
             header($header);
         }
         
+        // sent out the cookie as header
         Application::get()->getRequest()->getSessionGuard()->sendCookies();
 
         // If no compile ID was assigned, get one.
@@ -2117,7 +2119,7 @@ class PKPTemplateManager extends Smarty
             $params['context'] = 'frontend';
         }
 
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!PKPSessionGuard::isSessionDisable()) {
             $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
             $appVersion = $versionDao->getCurrentVersion()->getVersionString();
         } else {
@@ -2207,7 +2209,7 @@ class PKPTemplateManager extends Smarty
             $params['context'] = 'frontend';
         }
 
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!PKPSessionGuard::isSessionDisable()) {
             $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
             $appVersion = $versionDao->getCurrentVersion()->getVersionString();
         } else {

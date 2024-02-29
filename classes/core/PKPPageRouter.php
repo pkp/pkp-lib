@@ -19,6 +19,7 @@ namespace PKP\core;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\Auth;
+use PKP\core\PKPSessionGuard;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\Role;
@@ -75,7 +76,7 @@ class PKPPageRouter extends PKPRouter
      */
     public function isCacheable($request, $testOnly = false): bool
     {
-        if (defined('SESSION_DISABLE_INIT') && !$testOnly) {
+        if (PKPSessionGuard::isSessionDisable() && !$testOnly) {
             return false;
         }
         if (Application::isUnderMaintenance()) {
@@ -197,7 +198,7 @@ class PKPPageRouter extends PKPRouter
 
         // Redirect requests from logged-out users to a context which is not
         // publicly enabled
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!PKPSessionGuard::isSessionDisable()) {
             $user = $request->getUser();
             $currentContext = $request->getContext();
             if ($currentContext && !$currentContext->getEnabled() && !$user instanceof \PKP\user\User) {

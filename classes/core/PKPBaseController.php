@@ -26,6 +26,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Routing\Route;
+use PKP\core\PKPSessionGuard;
 use PKP\security\authorization\AllowedHostsPolicy;
 use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
@@ -331,7 +332,7 @@ abstract class PKPBaseController extends Controller
 
         // Ensure the allowed hosts setting, when provided, is respected.
         $this->addPolicy(new AllowedHostsPolicy($request), true);
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!PKPSessionGuard::isSessionDisable()) {
             // Add user roles in authorized context.
             $user = $request->getUser();
             if ($user instanceof \PKP\user\User) {

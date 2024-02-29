@@ -26,6 +26,7 @@ namespace PKP\form;
 use APP\core\Application;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\core\PKPSessionGuard;
 use PKP\core\PKPRequest;
 use PKP\facades\Locale;
 use PKP\form\validation\FormValidator;
@@ -312,7 +313,7 @@ class Form
             }
         }
 
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!PKPSessionGuard::isSessionDisable()) {
             $request = Application::get()->getRequest();
             $user = $request->getUser();
 

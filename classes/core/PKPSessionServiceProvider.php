@@ -1,9 +1,21 @@
 <?php
 
+/**
+ * @file classes/core/PKPSessionServiceProvider.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PKPSessionServiceProvider
+ *
+ * @brief Register session driver, manager and related services
+ */
+
 namespace PKP\core;
 
-use PKP\config\Config;
 use APP\core\Application;
+use PKP\core\PKPSessionGuard;
 use PKP\middleware\PKPStartSession;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Contracts\Encryption\Encrypter as EncrypterContract;
@@ -20,7 +32,7 @@ class PKPSessionServiceProvider extends \Illuminate\Session\SessionServiceProvid
     {
         register_shutdown_function(function () {
 
-            if (defined('SESSION_DISABLE_INIT')) {
+            if (PKPSessionGuard::isSessionDisable()) {
                 return;
             }
 
@@ -51,7 +63,7 @@ class PKPSessionServiceProvider extends \Illuminate\Session\SessionServiceProvid
     }
 
     /**
-     * Register the cookie encrypter if cookie encryption key enable and set in config file
+     * Register the cookie encrypter if cookie encryption key enabled and set in config file
      */
     public function registerCookieEncrypter(): void
     {

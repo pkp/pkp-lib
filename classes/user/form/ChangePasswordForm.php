@@ -111,14 +111,13 @@ class ChangePasswordForm extends Form
         $user = $this->getUser();
         $user->setPassword(Validation::encryptCredentials($user->getUsername(), $this->getData('password')));
 
+        parent::execute(...$functionArgs);
+
         Application::get()->getRequest()->getSessionGuard()->updateUser($user);
         
         $user = Auth::logoutOtherDevices($this->getData('password'));
 
         Repo::user()->edit($user);
-
-        parent::execute(...$functionArgs);
-        
     }
 }
 

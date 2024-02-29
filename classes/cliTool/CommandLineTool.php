@@ -28,9 +28,9 @@ use APP\core\Application;
 use APP\core\PageRouter;
 use APP\facades\Repo;
 use PKP\config\Config;
+use PKP\core\PKPSessionGuard;
 use PKP\core\Registry;
 use PKP\plugins\PluginRegistry;
-use PKP\security\Role;
 use PKP\user\User;
 
 /** Initialization code */
@@ -40,7 +40,7 @@ if (!defined('STDIN')) {
     define('STDIN', fopen('php://stdin', 'r'));
 }
 
-define('SESSION_DISABLE_INIT', true);
+PKPSessionGuard::disableSession();
 require_once './lib/pkp/includes/bootstrap.php';
 
 class CommandLineTool

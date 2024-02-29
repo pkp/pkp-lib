@@ -351,6 +351,9 @@ abstract class PKPRouter
             $result = $this->handleAuthorizationFailure($request, $authorizationMessage);
         }
 
+        // sent out the cookie as header
+        Application::get()->getRequest()->getSessionGuard()->sendCookies();
+
         // Return the result of the operation to the client.
         if (is_string($result)) {
             echo $result;

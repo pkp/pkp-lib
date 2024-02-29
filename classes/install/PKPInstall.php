@@ -101,9 +101,9 @@ class PKPInstall extends Installer
         FacadesConfig::set('database', $config);
         
         // Here need to re-register the `DatabaseServiceProvider` as when the `SessionServiceProvider`
-        // register itself in the `\PKP\core\PKPContainer::registerConfiguredProviders`, it 
+        // registers itself in the `\PKP\core\PKPContainer::registerConfiguredProviders`, it 
         // register an instance of `\Illuminate\Database\ConnectionInterface` which contains the 
-        // intial details from the `config.inc.php` rather than what is set through the install form.
+        // initial details from the `config.inc.php` rather than what is set through the install form.
         app()->register(new \Illuminate\Database\DatabaseServiceProvider(app()));
 
         return parent::preInstall();

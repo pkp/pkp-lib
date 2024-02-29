@@ -9,9 +9,7 @@
  *
  * @class PKPStartSession
  *
- * @ingroup middleware
- *
- * @brief 
+ * @brief Handle session and cookie data before user authentication
  */
 
 namespace PKP\middleware;

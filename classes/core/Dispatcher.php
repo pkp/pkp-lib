@@ -17,6 +17,7 @@
 namespace PKP\core;
 
 use APP\core\Services;
+use PKP\core\PKPSessionGuard;
 use PKP\config\Config;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
@@ -175,7 +176,7 @@ class Dispatcher
      */
     public function initSession(): void
     {
-        if (defined('SESSION_DISABLE_INIT')) {
+        if (PKPSessionGuard::isSessionDisable()) {
             return;
         }
 
@@ -201,7 +202,7 @@ class Dispatcher
     }
     
     /**
-     * Set the user resolving logic for laravel inner use prupose
+     * Set the user resolving logic for laravel inner use purpose
      */
     public function setUserResolver(): void
     {

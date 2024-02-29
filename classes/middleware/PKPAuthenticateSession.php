@@ -9,9 +9,7 @@
  *
  * @class PKPAuthenticateSession
  *
- * @ingroup middleware
- *
- * @brief 
+ * @brief Monitor session data to control authentication flow 
  */
 
 namespace PKP\middleware;

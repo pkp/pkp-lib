@@ -29,6 +29,7 @@ use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
+use PKP\core\PKPSessionGuard;
 use PKP\db\DAORegistry;
 
 define('LESS_FILENAME_SUFFIX', '.less');
@@ -122,7 +123,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     {
         // Don't fully initialize the theme until the application is installed, so that
         // there are no requests to the database before it exists
-        if (defined('SESSION_DISABLE_INIT')) {
+        if (PKPSessionGuard::isSessionDisable()) {
             return;
         }
 
@@ -161,7 +162,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function isActive()
     {
-        if (defined('SESSION_DISABLE_INIT')) {
+        if (PKPSessionGuard::isSessionDisable()) {
             return false;
         }
         $request = Application::get()->getRequest();

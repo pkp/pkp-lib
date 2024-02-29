@@ -32,6 +32,7 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPRequest;
 use PKP\facades\Repo;
+use PKP\core\PKPSessionGuard;
 use PKP\i18n\interfaces\LocaleInterface;
 use PKP\i18n\translation\LocaleBundle;
 use PKP\i18n\ui\UITranslator;
@@ -164,7 +165,7 @@ class Locale implements LocaleInterface
             return $this->primaryLocale;
         }
         $request = $this->_getRequest();
-        $locale = defined('SESSION_DISABLE_INIT') ? null : $request->getContext()?->getPrimaryLocale() ?? $request->getSite()?->getPrimaryLocale();
+        $locale = PKPSessionGuard::isSessionDisable() ? null : $request->getContext()?->getPrimaryLocale() ?? $request->getSite()?->getPrimaryLocale();
         return $this->primaryLocale = $this->isLocaleValid($locale) ? $locale : $this->getDefaultLocale();
     }
 
@@ -284,7 +285,7 @@ class Locale implements LocaleInterface
      */
     public function getSupportedFormLocales(): array
     {
-        return $this->supportedFormLocaleNames ??= (defined('SESSION_DISABLE_INIT') ? null : $this->_getRequest()->getContext()?->getSupportedFormLocaleNames())
+        return $this->supportedFormLocaleNames ??= (PKPSessionGuard::isSessionDisable() ? null : $this->_getRequest()->getContext()?->getSupportedFormLocaleNames())
             ?? $this->getSupportedLocales();
     }
 
@@ -552,7 +553,7 @@ class Locale implements LocaleInterface
         if (isset($this->supportedLocales)) {
             return $this->supportedLocales;
         }
-        $locales = (defined('SESSION_DISABLE_INIT') ? null : $this->_getRequest()->getContext()?->getSupportedLocales() ?? $this->_getRequest()->getSite()?->getSupportedLocales())
+        $locales = (PKPSessionGuard::isSessionDisable() ? null : $this->_getRequest()->getContext()?->getSupportedLocales() ?? $this->_getRequest()->getSite()?->getSupportedLocales())
             ?? array_map(fn (LocaleMetadata $locale) => $locale->locale, $this->getLocales());
         return $this->supportedLocales = array_combine($locales, $locales);
     }

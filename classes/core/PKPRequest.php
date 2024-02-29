@@ -127,6 +127,7 @@ class PKPRequest
             return;
         }
 
+        // sent out the cookie as header
         Application::get()->getRequest()->getSessionGuard()->sendCookies();
 
         header("Location: {$url}");
@@ -637,7 +638,7 @@ class PKPRequest
 
         // Attempts to retrieve a logged user
         if (Validation::isLoggedIn()) {
-            $user = Repo::user()->get($this->getSession()->get('user_id'));
+            $user = Repo::user()->get($this->getSessionGuard()->getUserId());
         }
 
         return $user;

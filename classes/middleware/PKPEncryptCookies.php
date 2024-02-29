@@ -9,9 +9,7 @@
  *
  * @class PKPEncryptCookies
  *
- * @ingroup middleware
- *
- * @brief 
+ * @brief Encrypt/Decrypt the cookie if cookie entryption is enabled
  */
 
 namespace PKP\middleware;

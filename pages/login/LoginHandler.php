@@ -407,8 +407,8 @@ class LoginHandler extends Handler
     {
         if (isset($args[0]) && !empty($args[0])) {
             $userId = (int)$args[0];
-            $session = $request->getSession();
-            if (Validation::getAdministrationLevel($userId, $session->get('user_id')) !== Validation::ADMINISTRATION_FULL) {
+            $sessionGuard = $request->getSessionGuard();
+            if (Validation::getAdministrationLevel($userId, $sessionGuard->getUserId()) !== Validation::ADMINISTRATION_FULL) {
                 $this->setupTemplate($request);
                 // We don't have administrative rights
                 // over this user. Display an error.
@@ -424,7 +424,7 @@ class LoginHandler extends Handler
 
             $newUser = Repo::user()->get($userId, true);
 
-            if (isset($newUser) && $session->get('user_id') != $newUser->getId()) {
+            if (isset($newUser) && $sessionGuard->getUserId() != $newUser->getId()) {
                 $request->getSessionGuard()->signInAs($newUser);
                 $this->_redirectByURL($request);
             }

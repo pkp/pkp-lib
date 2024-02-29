@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/core/PKPUserProvider.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PKPUserProvider
+ *
+ * @brief The core user provider to handle user authentication
+ */
+
 namespace PKP\core;
 
 use PKP\user\User;
@@ -21,35 +33,18 @@ class PKPUserProvider implements UserProvider
     public const AUTH_PROVIDER = 'pkp_user_provider';
 
     /**
-     * The active database connection.
-     *
-     * @var \Illuminate\Database\ConnectionInterface
-     */
-    protected $connection;
-
-    /**
-     * The hasher implementation.
-     *
-     * @var \Illuminate\Contracts\Hashing\Hasher
-     */
-    protected $hasher;
-
-    /**
-     * The table containing the users.
-     *
-     * @var string
-     */
-    protected $table;
-
-    /**
      * Create a new database user provider.
      *
-     * @param  \Illuminate\Database\ConnectionInterface  $connection
-     * @param  \Illuminate\Contracts\Hashing\Hasher  $hasher
-     * @param  string  $table
+     * @param  \Illuminate\Database\ConnectionInterface     $connection The active database connection.
+     * @param  \Illuminate\Contracts\Hashing\Hasher         $hasher     The hasher implementation.
+     * @param  string                                       $table      The table containing the users.
      * @return void
      */
-    public function __construct(ConnectionInterface $connection, HasherContract $hasher, string $table)
+    public function __construct(
+        protected ConnectionInterface $connection,
+        protected HasherContract $hasher,
+        protected string $table
+    )
     {
         $this->connection = $connection;
         $this->table = $table;

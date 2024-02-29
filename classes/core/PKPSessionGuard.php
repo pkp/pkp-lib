@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/core/PKPSessionGuard.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PKPSessionGuard
+ *
+ * @brief Core session guard to handle session management actions
+ */
+
 namespace PKP\core;
 
 use Carbon\Carbon;
@@ -34,9 +46,27 @@ class PKPSessionGuard extends SessionGuard
     protected $provider;
 
     /**
+     * Retrieves whether the session is disabled
+     */
+    public static function isSessionDisable(): bool
+    {
+        return defined('SESSION_DISABLE_INIT');
+    }
+
+    /**
+     * Disbale the session
+     */
+    public static function disableSession(): void
+    {
+        if (!defined('SESSION_DISABLE_INIT')) {
+            define('SESSION_DISABLE_INIT', true);
+        }
+    }
+
+    /**
      * update the current user without firing any events or changes
      */
-    public function updateUser(AuthenticatableContract|User $user): self
+    public function updateUser(AuthenticatableContract|User $user): static
     {
         $this->user = $user;
 
@@ -54,6 +84,24 @@ class PKPSessionGuard extends SessionGuard
     }
 
     /**
+     * Set the user id in session
+     */
+    public function setUserId(int $userId): static
+    {
+        $this->session->put('userId', $userId);
+
+        return $this;
+    }
+
+    /**
+     * Retrieve the user id from the current session
+     */
+    public function getUserId(): ?int
+    {
+        return $this->session->get('userId');
+    }
+
+    /**
      * Sign In as different user
      */
     public function signInAs(AuthenticatableContract|User $user): void
@@ -61,7 +109,7 @@ class PKPSessionGuard extends SessionGuard
         $auth = app()->get('auth'); /** @var \PKP\core\PKPAuthManager $auth */
 
         $this->session->put([
-            'signedInAs' => $this->session->get('user_id'),
+            'signedInAs' => $this->getUserId(),
             'password_hash_'.$auth->getDefaultDriver() => $user->getPassword(),
         ]);
 
@@ -93,7 +141,7 @@ class PKPSessionGuard extends SessionGuard
      */
     public function setUserDataToSession(AuthenticatableContract|User $user): self
     {
-        $this->session->put('user_id',  $user->getId());
+        $this->setUserId($user->getId());
         $this->session->put('username', $user->getUsername());
         $this->session->put('email',    $user->getEmail());
 
@@ -183,6 +231,10 @@ class PKPSessionGuard extends SessionGuard
      */
     public function sendCookies(): void
     {
+        if (headers_sent()) {
+            return;
+        }
+
         $response = app()->get(\Illuminate\Http\Response::class); /** @var \Illuminate\Http\Response $response */
 
         foreach ($response->headers->getCookies() as $cookie) {

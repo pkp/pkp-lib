@@ -392,7 +392,7 @@ class Validation
      */
     public static function isLoggedIn(): bool
     {
-        return (bool) Application::get()->getRequest()->getSession()->get('user_id');
+        return (bool) Application::get()->getRequest()->getSessionGuard()->getUserId();
     }
 
     /**

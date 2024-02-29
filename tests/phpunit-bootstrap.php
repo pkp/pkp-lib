@@ -14,6 +14,7 @@
  */
 
 use PKP\cache\CacheManager;
+use PKP\core\PKPSessionGuard;
 
 // This script may not be executed remotely.
 if (isset($_SERVER['SERVER_NAME'])) {
@@ -52,6 +53,4 @@ require_once 'lib/pkp/includes/bootstrap.php';
 $ADODB_CACHE_DIR = CacheManager::getFileCachePath() . '/_db';
 
 // Disable the session initialization
-if (!defined('SESSION_DISABLE_INIT')) {
-    define('SESSION_DISABLE_INIT', true);
-}
+PKPSessionGuard::disableSession();

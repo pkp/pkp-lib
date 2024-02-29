@@ -25,6 +25,7 @@ use PKP\context\Context;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\core\PKPSessionGuard;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\linkAction\LinkAction;
@@ -224,7 +225,7 @@ abstract class ImportExportPlugin extends Plugin
      */
     public function displayXMLValidationErrors($errors, $xml)
     {
-        if (defined('SESSION_DISABLE_INIT')) {
+        if (PKPSessionGuard::isSessionDisable()) {
             echo __('plugins.importexport.common.validationErrors') . "\n";
             foreach ($errors as $error) {
                 echo trim($error->message) . "\n";

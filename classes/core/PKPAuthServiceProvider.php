@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/core/PKPAuthServiceProvider.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PKPAuthServiceProvider
+ *
+ * @brief Register auth driver, manager and related services
+ */
+
 namespace PKP\core;
 
 use PKP\core\PKPAuthManager;

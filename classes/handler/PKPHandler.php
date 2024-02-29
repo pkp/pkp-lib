@@ -26,6 +26,7 @@ use PKP\config\Config;
 use PKP\core\Dispatcher;
 use PKP\core\Registry;
 use PKP\db\DBResultRange;
+use PKP\core\PKPSessionGuard;
 use PKP\security\authorization\AllowedHostsPolicy;
 use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
@@ -328,7 +329,7 @@ class PKPHandler
 
         // Ensure the allowed hosts setting, when provided, is respected.
         $this->addPolicy(new AllowedHostsPolicy($request), true);
-        if (!defined('SESSION_DISABLE_INIT')) {
+        if (!PKPSessionGuard::isSessionDisable()) {
             // Add user roles in authorized context.
             $user = $request->getUser();
             if ($user instanceof \PKP\user\User) {

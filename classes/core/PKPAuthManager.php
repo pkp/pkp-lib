@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/core/PKPAuthManager.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PKPAuthManager
+ *
+ * @brief Register session guard and appropriate user provider to handle authentication
+ */
+
 namespace PKP\core;
 
 use APP\facades\Repo;
@@ -26,7 +38,7 @@ class PKPAuthManager extends \Illuminate\Auth\AuthManager
 
         $this->userResolver = function ($guard = null) {
 
-            if ($userId = Application::get()->getRequest()->getSession()->get('user_id')) {
+            if ($userId = Application::get()->getRequest()->getSessionGuard()->getUserId()) {
                 return Repo::user()->get($userId);
             }
 
@@ -82,8 +94,8 @@ class PKPAuthManager extends \Illuminate\Auth\AuthManager
             $this->app['session.store'],
         );
 
-        // When using the remember me functionality of the authentication services we
-        // will need to be set the encryption instance of the guard, which allows
+        // When using the remember me functionality of the authentication services
+        // we will need to set the encryption instance of the guard, which allows
         // secure, encrypted cookie values to get generated for those cookies.
         if (method_exists($guard, 'setCookieJar')) {
             $guard->setCookieJar($this->app['cookie']);

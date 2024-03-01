@@ -40,8 +40,8 @@ if (!defined('STDIN')) {
     define('STDIN', fopen('php://stdin', 'r'));
 }
 
-PKPSessionGuard::disableSession();
 require_once './lib/pkp/includes/bootstrap.php';
+PKPSessionGuard::disableSession();
 
 class CommandLineTool
 {

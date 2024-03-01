@@ -26,7 +26,7 @@ class RemoteActionConfirmationModal extends ConfirmationModal
     /**
      * Constructor
      *
-     * @param \PKP\session\Session $session The user's session object.
+     * @param \Illuminate\Contracts\Session\Session $session The user's session object.
      * @param string $dialogText The localized text to appear
      *  in the dialog modal.
      * @param string $title (optional) The localized modal title.

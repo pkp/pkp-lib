@@ -247,8 +247,6 @@ class PKPSessionGuard extends SessionGuard
      *
      * @param int       $userId                 The user id for which session data need to be removed
      * @param string    $excludableSessionId    The session id which should be kept
-     * 
-     * @return void
      */
     public function invalidateOtherSessions(int $userId, string $excludableSessionId = null): void
     {
@@ -256,6 +254,15 @@ class PKPSessionGuard extends SessionGuard
             ->where($this->provider->createUserInstance()->getAuthIdentifierName(), $userId)
             ->when($excludableSessionId, fn ($query) => $query->where('id', '<>', $excludableSessionId))
             ->delete();
+    }
+
+    /**
+     * Remove/Delete all sessions
+     * Calling this method result in all users being logged out from the system
+     */
+    public function removeAllSession(): void
+    {
+        DB::table('sessions')->delete();
     }
 
     /**

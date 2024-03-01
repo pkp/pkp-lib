@@ -22,11 +22,11 @@ use APP\core\Application;
 use APP\file\PublicFileManager;
 use APP\notification\Notification;
 use PKP\core\PKPApplication;
+use PKP\core\PKPSessionGuard;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleMetadata;
 use PKP\notification\NotificationDAO;
-use PKP\session\SessionManager;
 use PKP\site\Site;
 use PKP\template\PKPTemplateManager;
 
@@ -41,7 +41,7 @@ class TemplateManager extends PKPTemplateManager
     {
         parent::initialize($request);
 
-        if (!SessionManager::isDisabled()) {
+        if (!PKPSessionGuard::isSessionDisable()) {
             /**
              * Kludge to make sure no code that tries to connect to
              * the database is executed (e.g., when loading

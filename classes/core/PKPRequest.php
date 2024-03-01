@@ -479,8 +479,7 @@ class PKPRequest
      */
     public function checkCSRF()
     {
-        $session = $this->getSession();
-        return $this->getUserVar('csrfToken') == $session->token();
+        return $this->getUserVar('csrfToken') == $this->getSession()->token();
     }
 
     /**

@@ -370,11 +370,6 @@ class Schema extends \PKP\core\maps\Schema
         $request = Application::get()->getRequest();
         $currentUser = $request->getUser();
 
-        // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-        $stageAssignments = StageAssignment::withSubmissionId($submission->getId())
-            ->withUserId($currentUser->getId() ?? 0)
-            ->get();
-
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $openPerStage = $queryDao->countOpenPerStage($submission->getId(), [$request->getUser()->getId()]);
 
@@ -390,6 +385,11 @@ class Schema extends \PKP\core\maps\Schema
 
             $currentUserAssignedRoles = [];
             if ($currentUser) {
+                // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
+                $stageAssignments = StageAssignment::withSubmissionId($submission->getId())
+                    ->withUserId($currentUser->getId() ?? 0)
+                    ->get();
+
                 foreach ($stageAssignments as $stageAssignment) {
                     $userGroup = $this->getUserGroup($stageAssignment->userGroupId);
                     if ($userGroup) {

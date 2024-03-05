@@ -158,15 +158,13 @@ abstract class Repository
             // have at least one assigned editor who can make a decision
             if ($this->isRecommendation($decisionType->getDecision())) {
                 // Replaces StageAssignmentDAO::getDecidingEditorIds
-                $assignedEditorIds = StageAssignment::withSubmissionId($submission->getId())
+                $existingAssignedEditors = StageAssignment::withSubmissionId($submission->getId())
                     ->withStageId($decisionType->getStageId())
                     ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
                     ->withRecommendOnly(false)
-                    ->get()
-                    ->pluck('userId')
-                    ->all();
+                    ->exists();
 
-                if (!$assignedEditorIds) {
+                if (!$existingAssignedEditors) {
                     $validator->errors()->add('decision', __('editor.submission.workflowDecision.requiredDecidingEditor'));
                 }
             }

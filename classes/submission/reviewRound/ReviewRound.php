@@ -23,7 +23,6 @@ namespace PKP\submission\reviewRound;
 
 use APP\decision\Decision;
 use APP\facades\Repo;
-use PKP\db\DAORegistry;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;

@@ -37,7 +37,6 @@ use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
-use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\user\User;
 
 class QueryDAO extends \PKP\db\DAO
@@ -460,30 +459,28 @@ class QueryDAO extends \PKP\db\DAO
      */
     public function addCommentsForEditorsQuery(Submission $submission): int
     {
-        /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-        $assigned = $stageAssignmentDao->getBySubmissionAndRoleIds(
-            $submission->getId(),
-            [
+        // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
+        $participantUserIds = StageAssignment::withSubmissionId($submission->getId())
+            ->withRoleIds([
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SUB_EDITOR,
                 Role::ROLE_ID_ASSISTANT,
                 Role::ROLE_ID_AUTHOR,
-            ],
-            $submission->getData('stageId')
-        );
-        $assigned = collect($assigned->toArray());
+            ])
+            ->withStageId($submission->getData('stageId'))
+            ->get()
+            ->pluck('userId')
+            ->all();
 
-        $participantUserIds = $assigned->map(fn (StageAssignment $stageAssignment) => $stageAssignment->getUserId());
+        // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
+        $authorAssignments = StageAssignment::withSubmissionId($submission->getId())
+            ->withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->withStageId($submission->getData('stageId'))
+            ->get();
 
-        $authorAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds(
-            $submission->getId(),
-            [Role::ROLE_ID_AUTHOR],
-            $submission->getData('stageId')
-        )->toArray();
-        $fromUser = empty($authorAssignments)
+        $fromUser = $authorAssignments->isEmpty()
             ? Application::get()->getRequest()->getUser()
-            : Repo::user()->get($authorAssignments[0]->getUserId());
+            : Repo::user()->get($authorAssignments->first()->userId);
 
         return $this->addQuery(
             $submission->getId(),
@@ -491,7 +488,7 @@ class QueryDAO extends \PKP\db\DAO
             __('submission.submit.coverNote'),
             $submission->getData('commentsForTheEditors'),
             $fromUser,
-            $participantUserIds->toArray(),
+            $participantUserIds,
             $submission->getData('contextId')
         );
     }

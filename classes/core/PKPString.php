@@ -167,48 +167,13 @@ class PKPString
         if ($input === null) {
             return '';
         }
-
+        
         static $caches;
-
+    
         if (!isset($caches[$configKey])) {
-
-            $config = (new HtmlSanitizerConfig())
-                ->allowLinkSchemes(['https', 'http', 'mailto'])
-                ->allowMediaSchemes(['https', 'http']);
-
-            $allowedTagToAttributeMap = Str::of(Config::getVar('security', $configKey))
-                ->explode(',')
-                ->mapWithKeys(function (string $allowedTagWithAttr) {
-
-                    // Extract the tag itself (e.g. div, p, a ...)
-                    preg_match('/\[[^][]+]\K|\w+/', $allowedTagWithAttr, $matches);
-                    $allowedTag = collect($matches)->first();
-
-                    // Extract the attributes associated with tag (e.g. class, href ...)
-                    preg_match("/\[([^\]]*)\]/", $allowedTagWithAttr, $matches);
-                    $allowedAttributes = collect($matches)->last();
-
-                    if($allowedTag) {
-                        return [
-                            $allowedTag => Str::of($allowedAttributes)
-                                ->explode('|')
-                                ->filter()
-                                ->toArray()
-                        ];
-                    }
-
-                    return [];
-                })
-                ->each(function (array $attributes, string $tag) use (&$config) {
-                    $config = $config->allowElement($tag, $attributes);
-                });
-
-            $caches[$configKey] = [
-                'allowedTagToAttributeMap' => $allowedTagToAttributeMap,
-                'sanitizer' => new HtmlSanitizer($config),
-            ];
+            $caches[$configKey] = new \PKP\core\PKPHtmlSanitizer($configKey);
         }
-
+    
         return html_entity_decode($caches[$configKey]->sanitize($input));
     }
 

@@ -280,7 +280,6 @@
 			"apiSummary": true,
 			"validation": [
 				"nullable",
-				"allowable_title_html_tags",
 				"no_new_line"
 			]
 		},
@@ -311,7 +310,6 @@
 			"apiSummary": true,
 			"validation": [
 				"nullable",
-				"allowable_title_html_tags",
 				"no_new_line"
 			]
 		},

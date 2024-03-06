@@ -15,6 +15,8 @@
 
 namespace PKP\components\forms;
 
+use PKP\config\Config;
+
 class FieldRichText extends Field
 {
     /** @copydoc Field::$component */
@@ -32,6 +34,18 @@ class FieldRichText extends Field
     /** @var array Optional. A list of required plugins. */
     public $plugins = 'paste';
 
+    /** @var string Optional. A list of comma separated elements. */
+    public $invalidElements;
+
+    /** @var string Optional. A list of comma separated list of element conversion chunks. */
+    public $validElements = null;
+
+    /** @var bool Optional. Should do a auto invalid elements/tags sanitization at client's end. */
+    public $autoSanitize = true;
+
+    /** @var array Optional. Client side events on which auto sanitization will run. */
+    public $autoSanitizeEvents = ['blur', 'submit', 'focusout'];
+
     /**
      * @copydoc Field::getConfig()
      */
@@ -48,6 +62,15 @@ class FieldRichText extends Field
         if (!empty($this->init)) {
             $config['init'] = $this->init;
         }
+
+        if (isset($this->invalidElements)) {
+            $config['invalidElements'] = $this->invalidElements;
+        }
+
+        $config['validElements'] = $this->validElements ?? Config::getVar('security', 'allowed_title_html', 'b,i,u,sup,sub');
+
+        $config['autoSanitize'] = $this->autoSanitize;
+        $config['autoSanitizeEvents'] = $this->autoSanitizeEvents;
 
         return $config;
     }

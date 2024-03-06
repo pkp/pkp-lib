@@ -86,11 +86,19 @@ class Sanitizer
     {
         if (is_array($param)) {
             foreach ($param as $localeKey => $localizedSubmissionTitle) {
-                // TinyMCE sometimes converts special chars to entity code and some times not
-                // A very weird quirk by tinyMCE
-                // e.g '&' turned into '&amp;'
+                
+                if (!is_string($localizedSubmissionTitle)) {
+                    continue;
+                }
+
                 $param[$localeKey] = self::replaceSpecialCharEntityValueWithCharacter(
-                    PKPString::stripUnsafeHtml($localizedSubmissionTitle, 'allowed_title_html')
+                    PKPString::stripUnsafeHtml(
+                        // TinyMCE sometimes converts special chars to entity code and some times not
+                        // A very weird quirk by tinyMCE
+                        // e.g '&' turned into '&amp;'
+                        self::replaceSpecialCharEntityValueWithCharacter($localizedSubmissionTitle),
+                        'allowed_title_html'
+                    )
                 );
             }
 
@@ -98,7 +106,13 @@ class Sanitizer
         }
 
         return self::replaceSpecialCharEntityValueWithCharacter(
-            PKPString::stripUnsafeHtml($param, 'allowed_title_html')
+            PKPString::stripUnsafeHtml(
+                // TinyMCE sometimes converts special chars to entity code and some times not
+                // A very weird quirk by tinyMCE
+                // e.g '&' turned into '&amp;'
+                self::replaceSpecialCharEntityValueWithCharacter($param),
+                'allowed_title_html'
+            )
         );
     }
 

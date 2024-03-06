@@ -20,6 +20,7 @@ use PKP\components\forms\FieldRichText;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
+use PKP\config\Config;
 
 define('FORM_TITLE_ABSTRACT', 'titleAbstract');
 
@@ -59,12 +60,18 @@ class TitleAbstractForm extends FormComponent
         ]))
             ->addField(new FieldRichText('title', [
                 'label' => __('common.title'),
+                'description' => __('submission.title.htmlRestriction', [
+                    'allowedTags' => Config::getVar('security', 'allowed_title_html')
+                ]),
                 'isMultilingual' => true,
                 'isRequired' => true,
                 'value' => $publication->getData('title'),
             ]))
             ->addField(new FieldRichText('subtitle', [
                 'label' => __('common.subtitle'),
+                'description' => __('submission.title.htmlRestriction', [
+                    'allowedTags' => Config::getVar('security', 'allowed_title_html')
+                ]),
                 'isMultilingual' => true,
                 'value' => $publication->getData('subtitle'),
             ]))

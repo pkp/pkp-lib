@@ -167,14 +167,16 @@ class PKPString
         if ($input === null) {
             return '';
         }
-        
+
         static $caches;
     
         if (!isset($caches[$configKey])) {
-            $caches[$configKey] = new \PKP\core\PKPHtmlSanitizer($configKey);
+            $caches[$configKey] = new \PKP\core\PKPHtmlSanitizer(
+                Config::getVar('security', $configKey)
+            );
         }
     
-        return html_entity_decode($caches[$configKey]->sanitize($input));
+        return $caches[$configKey]->sanitize($input);
     }
 
     /**

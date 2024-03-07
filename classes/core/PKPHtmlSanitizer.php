@@ -47,8 +47,7 @@ class PKPHtmlSanitizer
     /**
      * Create a new instance
      * 
-     * @param string $allowable Config key such security.[allowed_html/allowed_title_html]
-     *                          or string of allowed tags with attribited generated in same
+     * @param string $allowable String of allowed tags with attribites generated in same
      *                          structure as the security.[allowed_html/allowed_title_html]
      */
     public function __construct(string $allowable)
@@ -60,7 +59,7 @@ class PKPHtmlSanitizer
         $this->htmlSanitizer = new HtmlSanitizer(
             $this->buildSanitizerConfig(
                 $this->generateAllowedTagToAttributeMap(
-                    Config::getVar('security', $allowable, null) ?? $allowable
+                    $allowable
                 )
             )
         );
@@ -93,7 +92,11 @@ class PKPHtmlSanitizer
     public function sanitize(string $html): string
     {   
         return $this->htmlSanitizer->sanitize(
-            // Here we are removing any html tags that should not be handled by sanitizer
+            /**
+             * Here we are removing any html tags that should not be handled by sanitizer
+             * as defined in the \Symfony\Component\HtmlSanitizer\Reference\W3CReference::HEAD_ELEMENTS
+             * and \Symfony\Component\HtmlSanitizer\Reference\W3CReference::BODY_ELEMENTS as combined.
+             */
             strip_tags($html, $this->getSanitizableTags()->toArray())
         );
     }

@@ -3,8 +3,8 @@
 /**
  * @file classes/core/PKPHtmlSanitizer.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPHtmlSanitizer
@@ -19,7 +19,6 @@ namespace PKP\core;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
-use PKP\config\Config;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
 use Symfony\Component\HtmlSanitizer\Reference\W3CReference;
@@ -63,27 +62,6 @@ class PKPHtmlSanitizer
                 )
             )
         );
-    }
-
-    /**
-     * Set a pre defined instance of \Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig
-     */
-    public function setSanitizerConfig(HtmlSanitizerConfig $htmlSanitizerConfig): self
-    {
-        $this->htmlSanitizerConfig = $htmlSanitizerConfig;
-
-        // need to update the htmlSanitizer instance if the htmlSanitizerConfig get updated
-        $this->htmlSanitizer = new HtmlSanitizer($this->htmlSanitizerConfig);
-
-        return $this;
-    }
-
-    /**
-     * Get the instance of \Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig
-     */
-    public function getSanitizerConfig(): HtmlSanitizerConfig
-    {
-        return $this->htmlSanitizerConfig;
     }
 
     /**

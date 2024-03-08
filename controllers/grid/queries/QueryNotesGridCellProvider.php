@@ -62,11 +62,11 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider
         assert($element instanceof \PKP\core\DataObject && !empty($columnId));
         /** @var Note $element */
         $user = $element->getUser();
-        $datetimeFormatShort = PKPString::convertStrftimeFormat(Application::get()->getRequest()->getContext()->getLocalizedDateTimeFormatShort());
+        $datetimeFormatShort = Application::get()->getRequest()->getContext()->getLocalizedDateTimeFormatShort();
 
         switch ($columnId) {
             case 'from':
-                return ['label' => ($user ? $user->getUsername() : '&mdash;') . '<br />' . date($datetimeFormatShort, strtotime($element->getDateCreated()))];
+                return ['label' => ($user ? $user->getUsername() : '&mdash;') . '<br />' . PKPString::getLocalizedDate($element->getDateCreated(), $datetimeFormatShort)];
         }
 
         return parent::getTemplateVarsFromRowColumn($row, $column);

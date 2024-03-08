@@ -68,8 +68,10 @@ class FileDateGridColumn extends GridColumn
         $submissionFile = $submissionFileData['submissionFile'];
         assert($submissionFile instanceof \PKP\submissionFile\SubmissionFile);
         $mtimestamp = strtotime($submissionFile->getData('updatedAt'));
-        $dateFormatLong = PKPString::convertStrftimeFormat(Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong());
-        $date = date($dateFormatLong, $mtimestamp);
+
+        $dateFormatLong = Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong();
+        $date = PKPString::getLocalizedDate($submissionFile->getData('updatedAt'), $dateFormatLong);
+
         // File age
         $age = (int)floor((date('U') - $mtimestamp) / 86400);
         switch (true) {

@@ -144,7 +144,7 @@ class Core
      * Get context path present into the passed
      * url information.
      *
-     * @param string $urlInfo Full url or just path info.
+     * @param $urlInfo Full url or just path info.
      */
     public static function getContextPath(string $urlInfo): string
     {
@@ -153,54 +153,40 @@ class Core
     }
 
     /**
-     * Get the page present into
-     * the passed url information. It expects that urls
-     * were built using the system.
+     * Get the page present into the passed url information. It expects that urls were built using the system.
      *
-     * @param string $urlInfo Full url or just path info.
-     * @param array $userVars (optional) Pass GET variables
-     * if needed (for testing only).
-     *
-     * @return string
+     * @param $urlInfo Full url or just path info.
+     * @param $userVars (optional) Pass GET variables if needed (for testing only).
      */
-    public static function getPage($urlInfo, $userVars = [])
+    public static function getPage(string $urlInfo, array $userVars = []): string
     {
-        $page = Core::_getUrlComponents($urlInfo, 0, 'page', $userVars);
-        return Core::cleanFileVar(is_null($page) ? '' : $page);
+        $page = static::_getUrlComponents($urlInfo, 0, 'page', $userVars);
+        return static::cleanFileVar($page ?? '');
     }
 
     /**
-     * Get the operation present into
-     * the passed url information. It expects that urls
-     * were built using the system.
+     * Get the operation present into the passed url information. It expects that urls were built using the system.
      *
-     * @param string $urlInfo Full url or just path info.
-     * @param array $userVars (optional) Pass GET variables
-     * if needed (for testing only).
-     *
-     * @return string
+     * @param $urlInfo Full url or just path info.
+     * @param $userVars (optional) Pass GET variables if needed (for testing only).
      */
-    public static function getOp($urlInfo, $userVars = [])
+    public static function getOp(string $urlInfo, array $userVars = []): string
     {
-        $operation = Core::_getUrlComponents($urlInfo, 1, 'op', $userVars);
-        return Core::cleanFileVar(empty($operation) ? 'index' : $operation);
+        $operation = static::_getUrlComponents($urlInfo, 1, 'op', $userVars);
+        return static::cleanFileVar($operation ?: 'index');
     }
 
     /**
-     * Get the arguments present into
-     * the passed url information (not GET/POST arguments,
+     * Get the arguments present into the passed url information (not GET/POST arguments,
      * only arguments appended to the URL separated by "/").
      * It expects that urls were built using the system.
      *
-     * @param string $urlInfo Full url or just path info.
-     * @param array $userVars (optional) Pass GET variables
-     * if needed (for testing only).
-     *
-     * @return array
+     * @param $urlInfo Full url or just path info.
+     * @param $userVars (optional) Pass GET variables if needed (for testing only).
      */
-    public static function getArgs($urlInfo, $userVars = [])
+    public static function getArgs(string $urlInfo, array $userVars = []): array
     {
-        return Core::_getUrlComponents($urlInfo, 2, 'path', $userVars);
+        return static::_getUrlComponents($urlInfo, 2, 'path', $userVars);
     }
 
     /**
@@ -426,14 +412,8 @@ class Core
 
     /**
      * Get passed variable value inside the passed url.
-     *
-     * @param string $url
-     * @param string $varName
-     * @param array $userVars
-     *
-     * @return string|null
      */
-    private static function _getUserVar($url, $varName, $userVars = [])
+    private static function _getUserVar(string $url, string $varName, array $userVars = []): ?string
     {
         parse_str((string) parse_url($url, PHP_URL_QUERY), $userVarsFromUrl);
         return $userVarsFromUrl[$varName] ?? $userVars[$varName] ?? null;
@@ -442,16 +422,8 @@ class Core
     /**
      * Get url components (page, operation and args)
      * based on the passed offset.
-     *
-     * @param string $urlInfo
-     * @param int $offset
-     * @param string $varName
-     * @param array $userVars (optional) GET variables
-     * (only for testing).
-     *
-     * @return mixed array|string|null
      */
-    private static function _getUrlComponents($urlInfo, $offset, $varName = '', $userVars = [])
+    private static function _getUrlComponents(string $urlInfo, int $offset, string $varName = '', array $userVars = []): array|string|null
     {
         $component = null;
 

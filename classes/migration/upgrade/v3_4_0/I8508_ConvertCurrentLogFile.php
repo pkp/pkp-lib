@@ -112,6 +112,11 @@ class ConvertCurrentUsageStatsLogFile
         return 'Y-m-d H:i:s';
     }
 
+    public function isPathInfoDisabled(): bool
+    {
+        return false;
+    }
+
     public function isApacheAccessLogFile(): bool
     {
         return false;

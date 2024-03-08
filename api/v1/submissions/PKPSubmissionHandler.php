@@ -962,7 +962,6 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(400)->withJson($errors);
         }
 
-        $params = (new \PKP\submission\Sanitizer())->sanitize($params, ['title']);
         $publication = Repo::publication()->newDataObject($params);
         $newId = Repo::publication()->add($publication);
         $publication = Repo::publication()->get($newId);
@@ -1121,7 +1120,6 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(400)->withJson($errors);
         }
 
-        $params = (new \PKP\submission\Sanitizer())->sanitize($params, ['title', 'subtitle']);
         Repo::publication()->edit($publication, $params);
 
         $publication = Repo::publication()->get($publication->getId());

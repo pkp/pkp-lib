@@ -1239,9 +1239,6 @@ msgstr "Upload a File Ready for Publication"
 msgid "submission.upload.noAvailableReviewFiles"
 msgstr "There are no files for you to revise at this time."
 
-msgid "submission.title.htmlRestriction"
-msgstr "Only [{$allowedTags}] html tags are allowed and any other tags will be automatically removed."
-
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Revisions have been requested."
 

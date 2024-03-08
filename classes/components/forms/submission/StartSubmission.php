@@ -82,9 +82,6 @@ class StartSubmission extends FormComponent
     {
         $this->addField(new FieldRichText('title', [
             'label' => __('common.title'),
-            'description' => __('submission.title.htmlRestriction', [
-                'allowedTags' => Config::getVar('security', 'allowed_title_html')
-            ]),
             'size' => 'oneline',
             'isRequired' => true,
             'value' => '',

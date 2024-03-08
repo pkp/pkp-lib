@@ -8,8 +8,6 @@
  * @brief Common configuration for building the Javascript package
  */
 
-import * as _ from 'underscore'
-window._ = _;
 
 // Vue lib and custom mixins
 import Vue from 'vue';

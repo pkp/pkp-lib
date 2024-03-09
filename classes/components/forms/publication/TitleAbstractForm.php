@@ -20,7 +20,6 @@ use PKP\components\forms\FieldRichText;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
-use PKP\config\Config;
 
 define('FORM_TITLE_ABSTRACT', 'titleAbstract');
 

@@ -13,7 +13,7 @@
  *
  * @brief Base tests class for PKPRouter tests.
  */
-
+require './lib/pkp/lib/vendor/autoload.php';
 
 import('lib.pkp.tests.PKPTestCase');
 import('lib.pkp.classes.core.PKPRouter');
@@ -88,7 +88,8 @@ class PKPRouterTestCase extends PKPTestCase {
 	public function testGetRequestedContextPathWithInvalidLevel() {
 		// Context depth = 1 but we try to access context level 2
 		$this->_setUpMockEnvironment(self::PATHINFO_ENABLED, 1, array('oneContext'));
-		if (version_compare(phpversion(), '8.0.0', '<')) $this->expectError();
+		$phpunitVersion = \PHPUnit\Runner\Version::id();
+		if (version_compare($phpunitVersion, '10.0.0', '<')) $this->expectError();
 		else $this->expectException(AssertionError::class);
 		$this->router->getRequestedContextPath($this->request, 2);
 	}

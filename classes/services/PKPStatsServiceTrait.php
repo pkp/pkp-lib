@@ -83,6 +83,8 @@ trait PKPStatsServiceTrait
     public function getEmptyTimelineIntervals(string $startDate, string $endDate, string $timelineInterval): array
     {
         if ($timelineInterval === PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH) {
+            $startDate = date_format(date_create($startDate), 'Y-m-01');
+            $endDate = date_format(date_create($endDate), 'Y-m-01');
             $dateFormat = 'Y-m';
             $labelFormat = 'F Y';
             $interval = 'P1M';

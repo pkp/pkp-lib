@@ -58,7 +58,7 @@ class OPSMigration extends \PKP\migration\Migration
             $table->foreign('section_id')->references('section_id')->on('sections')->onDelete('cascade');
             $table->index(['section_id'], 'section_settings_section_id');
 
-            $table->string('locale', 14)->default('');
+            $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
 
@@ -110,7 +110,7 @@ class OPSMigration extends \PKP\migration\Migration
         Schema::create('publication_galleys', function (Blueprint $table) {
             $table->comment('Publication galleys are representations of publications in a particular format, such as a PDF file.');
             $table->bigInteger('galley_id')->autoIncrement();
-            $table->string('locale', 14)->nullable();
+            $table->string('locale', 28)->nullable();
 
             $table->bigInteger('publication_id');
             $table->foreign('publication_id', 'publication_galleys_publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
@@ -143,7 +143,7 @@ class OPSMigration extends \PKP\migration\Migration
             $table->foreign('galley_id')->references('galley_id')->on('publication_galleys');
             $table->index(['galley_id'], 'publication_galley_settings_galley_id');
 
-            $table->string('locale', 14)->default('');
+            $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
 

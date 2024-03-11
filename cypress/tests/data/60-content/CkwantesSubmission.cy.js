@@ -194,7 +194,7 @@ describe('Data suite: Ckwantes', function() {
 			.find('h4').contains('Keywords').siblings('.submissionWizard__reviewPanel__item__value').contains('employees, survey')
 			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Abstract').siblings('.submissionWizard__reviewPanel__item__value').contains(submission.abstract);
-		cy.get('h3').contains('Details (French)')
+		cy.get('h3').contains('Details (French (Canada))')
 			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Title').siblings('.submissionWizard__reviewPanel__item__value').contains('None provided')
 			.parents('.submissionWizard__reviewPanel')
@@ -202,7 +202,7 @@ describe('Data suite: Ckwantes', function() {
 			.parents('.submissionWizard__reviewPanel')
 			.find('h4').contains('Abstract').siblings('.submissionWizard__reviewPanel__item__value').contains('None provided');
 		cy.get('h3').contains('For Readers (English)')
-		cy.get('h3').contains('For Readers (French)')
+		cy.get('h3').contains('For Readers (French (Canada))')
 
 		// Save for later
 		cy.get('button').contains('Save for Later').click();

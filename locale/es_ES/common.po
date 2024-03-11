@@ -1618,7 +1618,7 @@ msgid "search.SearchFor"
 msgstr "Buscar"
 
 msgid "search.searchResults"
-msgstr "Buscar resultados"
+msgstr "Resultados de la búsqueda"
 
 msgid "search.searchResults.foundSingle"
 msgstr "Un elemento encontrado."

@@ -63,7 +63,7 @@ class RegistrationAccessInvite extends BaseInvitation
             ->filterByStatus(InvitationStatus::PENDING)
             ->filterByClassName($this->className)
             ->filterByContextId($this->contextId)
-            ->filterByUserId($this->invitedUserId)
+            ->filterByEmail($this->email)
             ->getMany();
 
         foreach ($invitations as $invitation) {

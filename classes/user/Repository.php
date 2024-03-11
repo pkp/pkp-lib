@@ -14,6 +14,7 @@
 namespace PKP\user;
 
 use APP\core\Application;
+use APP\core\Services;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Carbon\Carbon;
@@ -29,9 +30,11 @@ use PKP\notification\NotificationDAO;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
+use PKP\services\PKPSchemaService;
 use PKP\session\SessionDAO;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\SubmissionCommentDAO;
+use PKP\validation\ValidatorFactory;
 
 class Repository
 {
@@ -425,5 +428,41 @@ class Repository
     public function getAdminUsers(): LazyCollection
     {
         return $this->dao->getAdminUsers();
+    }
+
+    /**
+     * Validate properties for create user
+     *
+     * Perform validation checks on data used to add a user.
+     *
+     * @param array $props A key/value array with the new data to validate
+     *
+     * @return array A key/value array with validation errors. Empty if no errors
+     *
+     */
+    public function validate(array $props): array
+    {
+        $schemaService = Services::get('schema');
+        // Return early if no valid decision type exists
+
+        $validator = ValidatorFactory::make(
+            $props,
+            $schemaService->getValidationRules(PKPSchemaService::SCHEMA_USER_CREATE, []),
+        );
+
+        // Check required
+        ValidatorFactory::required(
+            $validator,
+            null,
+            $schemaService->getRequiredProps(PKPSchemaService::SCHEMA_USER_CREATE),
+            $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_USER_CREATE),
+            [],
+            ''
+        );
+        $errors = [];
+        if ($validator->fails()) {
+            $errors = $schemaService->formatValidationErrors($validator->errors());
+        }
+        return $errors;
     }
 }

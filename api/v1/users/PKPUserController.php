@@ -23,15 +23,22 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use PKP\core\Core;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\facades\Locale;
+use PKP\invitation\invitations\RegistrationAccessInvite;
+use PKP\mail\mailables\UserInvitation;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\security\Validation;
+use PKP\services\PKPSchemaService;
 use Symfony\Component\HttpFoundation\StreamedResponse;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class PKPUserController extends PKPBaseController
 {
@@ -43,19 +50,33 @@ class PKPUserController extends PKPBaseController
         return 'users';
     }
 
+    public function isPublic(): bool
+    {
+        $request = $this->getRequest();
+        $site = $request->getSite();
+        $context = $request->getContext();
+
+        if (($site->getData('isSushiApiPublic') !== null && !$site->getData('isSushiApiPublic')) ||
+            ($context->getData('isSushiApiPublic') !== null && !$context->getData('isSushiApiPublic'))) {
+            return false;
+        }
+
+        return true;
+    }
+
     /**
      * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
      */
     public function getRouteGroupMiddleware(): array
     {
         return [
-            'has.user',
-            'has.context',
-            self::roleAuthorizer([
-                Role::ROLE_ID_SITE_ADMIN,
-                Role::ROLE_ID_MANAGER,
-                Role::ROLE_ID_SUB_EDITOR
-            ]),
+//            'has.user',
+//            'has.context',
+//            self::roleAuthorizer([
+//                Role::ROLE_ID_SITE_ADMIN,
+//                Role::ROLE_ID_MANAGER,
+//                Role::ROLE_ID_SUB_EDITOR
+//            ]),
         ];
     }
 
@@ -76,6 +97,9 @@ class PKPUserController extends PKPBaseController
 
         Route::get('', $this->getMany(...))
             ->name('user.getManyUsers');
+
+        Route::post('', $this->createUserByInvitation(...))
+            ->name('user.createUser');
     }
 
     /**
@@ -369,4 +393,64 @@ class PKPUserController extends PKPBaseController
 
         return $returnParams;
     }
+
+    /**
+     * Add user invitation for role
+     *
+     * @hook API::users::user::report::params [[&$params, $request]]
+     */
+    public function createUserByInvitation(Request $request): JsonResponse
+    {
+        $context = $request->attributes->get('context'); /** @var \PKP\context\Context $context */
+        $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_USER_CREATE, $request->all());
+        $invitation = Repo::invitation()
+            ->getByIdAndKey($params['invitationId'], $params['invitationKey']);
+        if (is_null($invitation)) {
+            return response()->json('no invitation found', Response::HTTP_NOT_FOUND);
+        }
+        $errors = Repo::user()->validate($params);
+
+        if (!empty($errors)) {
+            return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
+
+        if ($request->input('_validateOnly')) {
+            return response()->json([], Response::HTTP_OK);
+        }
+
+        $user = Repo::user()->newDataObject();
+        $sitePrimaryLocale = $context->getData('primaryLocale');
+        $currentLocale = Locale::getLocale();
+        // Set the base user fields (name, etc.)
+        $user->setGivenName($params['givenName'], $currentLocale);
+        $user->setFamilyName($params['familyName'], $currentLocale);
+        $user->setEmail($params['email']);
+        $user->setCountry($params['country']);
+        $user->setAffiliation($params['affiliation'], $currentLocale);
+
+        if ($sitePrimaryLocale != $currentLocale) {
+            $user->setGivenName($params['givenName'], $sitePrimaryLocale);
+            $user->setFamilyName($params['familyName'], $sitePrimaryLocale);
+            if($params['affiliation']){
+                $user->setAffiliation($params['affiliation'], $sitePrimaryLocale);
+            }
+        }
+
+        $user->setDateRegistered(Core::getCurrentDate());
+        $user->setInlineHelp(1); // default new users to having inline help visible.
+        $user->setDisabled(false);
+        $user->setUsername($params['username']);
+        $user->setOrcid($params['orcid']);
+        $user->setPassword(Validation::encryptCredentials($params['username'], $params['password']));
+        Repo::user()->add($user);
+        $userId = $user->getId();
+        if(!$userId){
+            return response()->json('something went wrong', Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+        Repo::userGroup()->assignUserToGroup($user->getId(), 3);
+//        $invitation->acceptHandle();
+
+        return response()->json('invitation send successfully', Response::HTTP_OK);
+    }
+
 }

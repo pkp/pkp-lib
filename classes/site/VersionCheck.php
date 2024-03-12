@@ -184,7 +184,12 @@ class VersionCheck
      */
     public static function checkIfNewVersionExists()
     {
-        $versionInfo = self::getLatestVersion();
+        try {
+            $versionInfo = self::getLatestVersion();
+        } catch (\GuzzleHttp\Exception\ConnectException $e) {
+            error_log('Failed to retrieve the latest version info: ' . $e->getMessage());
+            return false;
+        }
         $latestVersion = $versionInfo['release'];
 
         $currentVersion = self::getCurrentDBVersion();

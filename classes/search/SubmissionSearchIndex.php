@@ -45,6 +45,10 @@ abstract class SubmissionSearchIndex
             $text = join("\n", $text);
         }
 
+        if (!strlen($text ?? '')) {
+            return [];
+        }
+
         // Attempts to fix bad UTF-8 characters
         $previous = mb_substitute_character();
         mb_substitute_character('none');

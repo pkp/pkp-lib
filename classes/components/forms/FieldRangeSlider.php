@@ -33,6 +33,13 @@ class FieldRangeSlider extends Field
     public $disable = false;
 
     /** 
+     * Should the range slider be disable if input field value set to NULL on render
+     * 
+     * @var bool
+     */
+    public $disableOnNull = true;
+
+    /** 
      * Range min value
      * 
      * @var int|float
@@ -52,6 +59,13 @@ class FieldRangeSlider extends Field
      * @var int|float
      */
     public $step = 1;
+
+    /** 
+     * Range value on reset
+     * 
+     * @var int|float|null
+     */
+    public $onResetValue;
 
     /**
      * Range input size
@@ -82,6 +96,27 @@ class FieldRangeSlider extends Field
     public $valuePositionInUpdateLabel = 'before';
 
     /**
+     * Allow the slider range disbale/enable ability
+     * 
+     * @var bool
+     */
+    public $allowStateToggle = true;
+
+    /** 
+     * Show the label text when range slider is disable
+     * 
+     * @var string
+     */
+    public $controlLabelOnDisable;
+
+    /** 
+     * Show the label text when range slider is disable
+     * 
+     * @var string
+     */
+    public $controlLabelOnEnable;
+
+    /**
      * @copydoc Field::getConfig()
      */
     public function getConfig()
@@ -108,14 +143,31 @@ class FieldRangeSlider extends Field
 
         $config = parent::getConfig();
 
+        if (!isset($this->controlLabelOnDisable)) {
+            $this->controlLabelOnDisable = __('common.enable');
+        }
+
+        if (!isset($this->controlLabelOnEnable)) {
+            $this->controlLabelOnEnable = __('common.disable');
+        }
+
+        if (!isset($this->onResetValue)) {
+            $this->onResetValue = $this->value ?? $this->default ?? null;
+        }
+
         return array_merge($config, [
-            'disable'       => $this->disable,
-            'options'       => $this->options,
-            'max'           => $this->max,
-            'min'           => $this->min,
-            'size'          => $this->size,
-            'step'          => $this->step,
-            'updateLabel'   => $this->updateLabel,
+            'disable'               => $this->disable,
+            'disableOnNull'         => $this->disableOnNull,
+            'options'               => $this->options,
+            'max'                   => $this->max,
+            'min'                   => $this->min,
+            'size'                  => $this->size,
+            'step'                  => $this->step,
+            'onResetValue'          => $this->onResetValue,
+            'updateLabel'           => $this->updateLabel,
+            'allowStateToggle'      => $this->allowStateToggle,
+            'controlLabelOnDisable' => $this->controlLabelOnDisable,
+            'controlLabelOnEnable'  => $this->controlLabelOnEnable,
         ]);
     }
 }

@@ -548,30 +548,6 @@
 				"min:0"
 			]
 		},
-		"enableBeforeReviewResponseReminder": {
-			"type": "boolean",
-			"validation": [
-				"nullable"
-			]
-		},
-		"enableAfterReviewResponseReminder": {
-			"type": "boolean",
-			"validation": [
-				"nullable"
-			]
-		},
-		"enableBeforeReviewSubmitReminder": {
-			"type": "boolean",
-			"validation": [
-				"nullable"
-			]
-		},
-		"enableAfterReviewSubmitReminder": {
-			"type": "boolean",
-			"validation": [
-				"nullable"
-			]
-		},
 		"numPageLinks": {
 			"type": "integer",
 			"default": 10,

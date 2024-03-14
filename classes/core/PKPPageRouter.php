@@ -106,7 +106,7 @@ class PKPPageRouter extends PKPRouter
     public function getRequestedPage($request)
     {
         if (!isset($this->_page)) {
-            $this->_page = $this->_getRequestedUrlParts(['Core', 'getPage'], $request);
+            $this->_page = $this->_getRequestedUrlParts(Core::getPage(...), $request);
         }
         return $this->_page;
     }
@@ -121,7 +121,7 @@ class PKPPageRouter extends PKPRouter
     public function getRequestedOp($request)
     {
         if (!isset($this->_op)) {
-            $this->_op = $this->_getRequestedUrlParts(['Core', 'getOp'], $request);
+            $this->_op = $this->_getRequestedUrlParts(Core::getOp(...), $request);
         }
         return $this->_op;
     }
@@ -135,7 +135,7 @@ class PKPPageRouter extends PKPRouter
      */
     public function getRequestedArgs($request)
     {
-        return $this->_getRequestedUrlParts(['Core', 'getArgs'], $request);
+        return $this->_getRequestedUrlParts(Core::getArgs(...), $request);
     }
 
     /**
@@ -487,9 +487,8 @@ class PKPPageRouter extends PKPRouter
      * page, operation or arguments from url.
      * @param PKPRequest $request
      *
-     * @return array|string|null
      */
-    private function _getRequestedUrlParts($callback, &$request)
+    private function _getRequestedUrlParts($callback, $request): array|string|null
     {
         $url = null;
         assert($request->getRouter() instanceof \PKP\core\PKPPageRouter);
@@ -499,7 +498,7 @@ class PKPPageRouter extends PKPRouter
         }
 
         $userVars = $request->getUserVars();
-        return call_user_func_array($callback, [$url, true, $userVars]);
+        return $callback($url ?? '', $userVars);
     }
 }
 

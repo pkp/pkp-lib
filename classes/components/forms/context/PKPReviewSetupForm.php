@@ -16,7 +16,6 @@
 
 namespace PKP\components\forms\context;
 
-use PKP\components\forms\FieldCheckbox;
 use PKP\components\forms\FieldHTML;
 use PKP\context\Context;
 use PKP\components\forms\FieldOptions;
@@ -41,6 +40,7 @@ class PKPReviewSetupForm extends FormComponent
 
     public const MIN_REMINDER_NOTIFICATION_SEND_IN_DAYS = 1;
     public const MAX_REMINDER_NOTIFICATION_SEND_IN_DAYS = 14;
+    public const DEFAULT_REMINDER_NOTIFICATION_SEND_IN_DAYS = 7;
 
     /**
      * Constructor
@@ -60,6 +60,9 @@ class PKPReviewSetupForm extends FormComponent
             ->addReminderDisbaleNoticeField($context);
     }
 
+    /**
+     * Add the default review control fields
+     */
     protected function addDefaultFields(Context $context): static
     {
         $this
@@ -121,6 +124,9 @@ class PKPReviewSetupForm extends FormComponent
         return $this;
     }
 
+    /**
+     * Add the review reminder control fields
+     */
     protected function addReminderFields(Context $context): static
     {
         if (!Config::getVar('general', 'scheduled_tasks')) {
@@ -145,16 +151,10 @@ class PKPReviewSetupForm extends FormComponent
                 'value' => $context->getData('numDaysBeforeReviewResponseReminderDue'),
                 'min' => static::MIN_REMINDER_NOTIFICATION_SEND_IN_DAYS,
                 'max' => static::MAX_REMINDER_NOTIFICATION_SEND_IN_DAYS,
-                'size' => 'normal',
+                'onResetValue' => $context->getData('numDaysBeforeReviewResponseReminderDue') ?? static::DEFAULT_REMINDER_NOTIFICATION_SEND_IN_DAYS,
                 'updateLabel' => __('manager.setup.reviewOptions.reminders.description.before.days'),
-                'groupId' => self::REVIEW_REMINDER_GROUP,
-            ]))
-            ->addField(new FieldCheckbox('enableBeforeReviewResponseReminder', [
-                'label' => __('manager.setup.reviewOptions.reminders.disable'),
-                'value' => (bool)$context->getData('enableBeforeReviewResponseReminder'),
-                'viewAsButton' => true,
-                'checkedLabel' => __('manager.setup.reviewOptions.reminders.disable'),
-                'uncheckedLabel' => __('manager.setup.reviewOptions.reminders.enable'),
+                'controlLabelOnDisable' => __('manager.setup.reviewOptions.reminders.enable'),
+                'controlLabelOnEnable' => __('manager.setup.reviewOptions.reminders.disable'),
                 'groupId' => self::REVIEW_REMINDER_GROUP,
             ]))
             ->addField(new FieldRangeSlider('numDaysAfterReviewResponseReminderDue', [
@@ -162,16 +162,10 @@ class PKPReviewSetupForm extends FormComponent
                 'value' => $context->getData('numDaysAfterReviewResponseReminderDue'),
                 'min' => static::MIN_REMINDER_NOTIFICATION_SEND_IN_DAYS,
                 'max' => static::MAX_REMINDER_NOTIFICATION_SEND_IN_DAYS,
-                'size' => 'normal',
+                'onResetValue' => $context->getData('numDaysAfterReviewResponseReminderDue') ?? static::DEFAULT_REMINDER_NOTIFICATION_SEND_IN_DAYS,
                 'updateLabel' => __('manager.setup.reviewOptions.reminders.description.after.days'),
-                'groupId' => self::REVIEW_REMINDER_GROUP,
-            ]))
-            ->addField(new FieldCheckbox('enableAfterReviewResponseReminder', [
-                'label' => __('manager.setup.reviewOptions.reminders.disable'),
-                'value' => (bool)$context->getData('enableAfterReviewResponseReminder'),
-                'viewAsButton' => true,
-                'checkedLabel' => __('manager.setup.reviewOptions.reminders.disable'),
-                'uncheckedLabel' => __('manager.setup.reviewOptions.reminders.enable'),
+                'controlLabelOnDisable' => __('manager.setup.reviewOptions.reminders.enable'),
+                'controlLabelOnEnable' => __('manager.setup.reviewOptions.reminders.disable'),
                 'groupId' => self::REVIEW_REMINDER_GROUP,
             ]))
             ->addField(new FieldHTML('submissionReviewResponseReminder', [
@@ -183,16 +177,10 @@ class PKPReviewSetupForm extends FormComponent
                 'value' => $context->getData('numDaysBeforeReviewSubmitReminderDue'),
                 'min' => static::MIN_REMINDER_NOTIFICATION_SEND_IN_DAYS,
                 'max' => static::MAX_REMINDER_NOTIFICATION_SEND_IN_DAYS,
-                'size' => 'normal',
+                'onResetValue' => $context->getData('numDaysBeforeReviewSubmitReminderDue') ?? static::DEFAULT_REMINDER_NOTIFICATION_SEND_IN_DAYS,
                 'updateLabel' => __('manager.setup.reviewOptions.reminders.description.before.days'),
-                'groupId' => self::REVIEW_REMINDER_GROUP,
-            ]))
-            ->addField(new FieldCheckbox('enableBeforeReviewSubmitReminder', [
-                'label' => __('manager.setup.reviewOptions.reminders.disable'),
-                'value' => (bool)$context->getData('enableBeforeReviewSubmitReminder'),
-                'viewAsButton' => true,
-                'checkedLabel' => __('manager.setup.reviewOptions.reminders.disable'),
-                'uncheckedLabel' => __('manager.setup.reviewOptions.reminders.enable'),
+                'controlLabelOnDisable' => __('manager.setup.reviewOptions.reminders.enable'),
+                'controlLabelOnEnable' => __('manager.setup.reviewOptions.reminders.disable'),
                 'groupId' => self::REVIEW_REMINDER_GROUP,
             ]))
             ->addField(new FieldRangeSlider('numDaysAfterReviewSubmitReminderDue', [
@@ -200,22 +188,19 @@ class PKPReviewSetupForm extends FormComponent
                 'value' => $context->getData('numDaysAfterReviewSubmitReminderDue'),
                 'min' => static::MIN_REMINDER_NOTIFICATION_SEND_IN_DAYS,
                 'max' => static::MAX_REMINDER_NOTIFICATION_SEND_IN_DAYS,
-                'size' => 'normal',
+                'onResetValue' => $context->getData('numDaysAfterReviewSubmitReminderDue') ?? static::DEFAULT_REMINDER_NOTIFICATION_SEND_IN_DAYS,
                 'updateLabel' => __('manager.setup.reviewOptions.reminders.description.after.days'),
-                'groupId' => self::REVIEW_REMINDER_GROUP,
-            ]))
-            ->addField(new FieldCheckbox('enableAfterReviewSubmitReminder', [
-                'label' => __('manager.setup.reviewOptions.reminders.disable'),
-                'value' => (bool)$context->getData('enableAfterReviewSubmitReminder'),
-                'viewAsButton' => true,
-                'checkedLabel' => __('manager.setup.reviewOptions.reminders.disable'),
-                'uncheckedLabel' => __('manager.setup.reviewOptions.reminders.enable'),
+                'controlLabelOnDisable' => __('manager.setup.reviewOptions.reminders.enable'),
+                'controlLabelOnEnable' => __('manager.setup.reviewOptions.reminders.disable'),
                 'groupId' => self::REVIEW_REMINDER_GROUP,
             ]));
         
         return $this;
     }
 
+    /**
+     * Add a html note section instructing how to enable review reminder control fields
+     */
     protected function addReminderDisbaleNoticeField(Context $context): static
     {
         if (Config::getVar('general', 'scheduled_tasks')) {

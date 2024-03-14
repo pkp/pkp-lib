@@ -77,7 +77,6 @@ import FieldControlledVocab from '@/components/Form/fields/FieldControlledVocab.
 import FieldHtml from '@/components/Form/fields/FieldHtml.vue';
 import FieldMetadataSetting from '@/components/Form/fields/FieldMetadataSetting.vue';
 import FieldOptions from '@/components/Form/fields/FieldOptions.vue';
-import FieldCheckbox from '@/components/Form/fields/FieldCheckbox.vue';
 import FieldRangeSlider from '@/components/Form/fields/FieldRangeSlider.vue';
 import FieldPreparedContent from '@/components/Form/fields/FieldPreparedContent.vue';
 import FieldPubId from '@/components/Form/fields/FieldPubId.vue';
@@ -173,7 +172,6 @@ VueRegistry.registerComponent('PkpFieldControlledVocab', FieldControlledVocab);
 VueRegistry.registerComponent('PkpFieldHtml', FieldHtml);
 VueRegistry.registerComponent('PkpFieldMetadataSetting', FieldMetadataSetting);
 VueRegistry.registerComponent('PkpFieldOptions', FieldOptions);
-VueRegistry.registerComponent('PkpFieldCheckbox', FieldCheckbox);
 VueRegistry.registerComponent('PkpFieldRangeSlider', FieldRangeSlider);
 VueRegistry.registerComponent('PkpFieldPreparedContent', FieldPreparedContent);
 VueRegistry.registerComponent('PkpFieldPubId', FieldPubId);

@@ -106,6 +106,7 @@
 		"familyName": {
 			"type": "string",
 			"multilingual": true,
+			"apiSummary": true,
 			"validation": [
 				"nullable"
 			]
@@ -117,6 +118,7 @@
 		},
 		"givenName": {
 			"type": "string",
+			"apiSummary": true,
 			"multilingual": true
 		},
 		"gossip": {

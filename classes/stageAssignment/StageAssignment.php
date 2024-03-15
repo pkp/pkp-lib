@@ -17,157 +17,193 @@
  *
  * @ingroup stageAssignment
  *
- * @see StageAssignmentDAO
- *
  * @brief Basic class describing a Stage Assignment.
  */
 
 namespace PKP\stageAssignment;
 
-class StageAssignment extends \PKP\core\DataObject
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use PKP\userGroup\relationships\UserGroupStage;
+
+class StageAssignment extends Model
 {
-    //
-    // Get/set methods
-    //
+    protected $table = 'stage_assignments';
+    protected $primaryKey = 'stage_assignment_id';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'submissionId', 'userGroupId', 'userId', 
+        'dateAssigned', 'recommendOnly', 'canChangeMetadata'
+    ];
+
+    // Relationships
+
     /**
-     * Set the submission ID
+     * One to many relationship with user_group_stage table => UserGroupStage Eloquent Model
      *
-     * @param int $submissionId
+     * To eagerly fill the userGroupStages Collection, the calling code should add 
+     * StageAssignment::with(['userGroupStages'])
      */
-    public function setSubmissionId($submissionId)
+    public function userGroupStages(): HasMany
     {
-        $this->setData('submissionId', $submissionId);
+        return $this->hasMany(UserGroupStage::class, 'user_group_id', 'user_group_id');
+    }
+
+    // Accessors and Mutators
+
+    /**
+     * Accessor and Mutator for primary key => id
+     */
+    protected function id(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value, $attributes) => $attributes[$this->primaryKey] ?? null,
+            set: fn ($value) => [$this->primaryKey => $value],
+        );
     }
 
     /**
-     * Get the submission ID
-     *
-     * @return int
+     * Accessor and Mutator for submission_id => submissionId
      */
-    public function getSubmissionId()
+    protected function submissionId(): Attribute
     {
-        return $this->getData('submissionId');
+        return Attribute::make(
+            get: fn ($value, $attributes) => $attributes['submission_id'],
+            set: fn ($value) => ['submission_id' => $value],
+        );
     }
 
     /**
-     * Set the stage ID
-     *
-     * @param int $stageId
+     * Accessor and Mutator for user_group_id => userGroupId
      */
-    public function setStageId($stageId)
+    protected function userGroupId(): Attribute
     {
-        $this->setData('stageId', $stageId);
+        return Attribute::make(
+            get: fn ($value, $attributes) => $attributes['user_group_id'],
+            set: fn ($value) => ['user_group_id' => $value],
+        );
     }
 
     /**
-     * Get the stage ID
-     *
-     * @return int
+     * Accessor and Mutator for user_id => userId
      */
-    public function getStageId()
+    protected function userId(): Attribute
     {
-        return $this->getData('stageId');
+        return Attribute::make(
+            get: fn ($value, $attributes) => $attributes['user_id'],
+            set: fn ($value) => ['user_id' => $value],
+        );
     }
 
     /**
-     * Set the User Group ID
-     *
-     * @param int $userGroupId
+     * Accessor and Mutator for date_assigned => dateAssigned
      */
-    public function setUserGroupId($userGroupId)
+    protected function dateAssigned(): Attribute
     {
-        $this->setData('userGroupId', $userGroupId);
+        return Attribute::make(
+            get: fn ($value, $attributes) => $attributes['date_assigned'],
+            set: fn ($value) => ['date_assigned' => $value],
+        );
     }
 
     /**
-     * Get the User Group ID
-     *
-     * @return int
+     * Accessor and Mutator for recommend_only => recommendOnly
      */
-    public function getUserGroupId()
+    protected function recommendOnly(): Attribute
     {
-        return $this->getData('userGroupId');
+        return Attribute::make(
+            get: fn ($value, $attributes) => $attributes['recommend_only'],
+            set: fn ($value) => ['recommend_only' => $value],
+        );
     }
 
     /**
-     * Get user ID for this stageAssignment.
-     *
-     * @return int
+     * Accessor and Mutator for can_change_metadata => canChangeMetadata
      */
-    public function getUserId()
+    protected function canChangeMetadata(): Attribute
     {
-        return $this->getData('userId');
+        return Attribute::make(
+            get: fn ($value, $attributes) => $attributes['can_change_metadata'],
+            set: fn ($value) => ['can_change_metadata' => $value],
+        );
+    }
+
+    // Scopes
+
+    /**
+     * Scope a query to only include stage assignments that are related 
+     * to userGroupStages having a specific stageId
+     */
+    public function scopeWithStageId(Builder $query, ?int $stageId): Builder
+    {
+        return $query->when($stageId !== null, function ($query) use ($stageId) {
+            return $query->whereHas('userGroupStages', function ($subQuery) use ($stageId) {
+                $subQuery->where('stage_id', $stageId);
+            });
+        });
     }
 
     /**
-     * Set user ID for this stageAssignment.
-     *
-     * @param int $userId
-     */
-    public function setUserId($userId)
+    * Scope a query to only include stage assignments with a specific submissionId.
+    */
+    public function scopeWithSubmissionId(Builder $query, ?int $submissionId): Builder
     {
-        $this->setData('userId', $userId);
+        return $query->when($submissionId !== null, function ($query) use ($submissionId) {
+            return $query->where('submission_id', $submissionId);
+        });
     }
 
     /**
-     * Set the date assigned
-     *
-     * @param string $dateAssigned (YYYY-MM-DD HH:MM:SS)
-     */
-    public function setDateAssigned($dateAssigned)
+    * Scope a query to only include stage assignments with specific submissionIds.
+    */
+    public function scopeWithSubmissionIds(Builder $query, ?array $submissionIds): Builder
     {
-        $this->setData('dateAssigned', $dateAssigned);
+        return $query->when($submissionIds !== null, function ($query) use ($submissionIds) {
+            return $query->whereIn('submission_id', $submissionIds);
+        });
     }
 
     /**
-     * Get the date assigned
-     *
-     * @return string (YYYY-MM-DD HH:MM:SS)
-     */
-    public function getDateAssigned()
+    * Scope a query to only include stage assignments with a specific userGroupId.
+    */
+    public function scopeWithUserGroupId(Builder $query, ?int $userGroupId): Builder
     {
-        return $this->getData('dateAssigned');
+        return $query->when($userGroupId !== null, function ($query) use ($userGroupId) {
+            return $query->where('user_group_id', $userGroupId);
+        });
     }
 
     /**
-     * Get recommendOnly option.
-     *
-     * @return bool
-     */
-    public function getRecommendOnly()
+    * Scope a query to only include stage assignments with a specific userId.
+    */
+    public function scopeWithUserId(Builder $query, ?int $userId): Builder
     {
-        return $this->getData('recommendOnly');
+        return $query->when($userId !== null, function ($query) use ($userId) {
+            return $query->where('user_id', $userId);
+        });
     }
 
     /**
-     * Set recommendOnly option.
-     *
-     * @param bool $recommendOnly
-     */
-    public function setRecommendOnly($recommendOnly)
+    * Scope a query to only include stage assignments with a specific userId.
+    */
+    public function scopeWithRecommendOnly(Builder $query, ?bool $recommendOnly): Builder
     {
-        $this->setData('recommendOnly', $recommendOnly);
+        return $query->when($recommendOnly !== null, function ($query) use ($recommendOnly) {
+            return $query->where('recommend_only', $recommendOnly);
+        });
     }
 
     /**
-     * Get permit metadata edit option.
-     *
-     * @return bool
-     */
-    public function getCanChangeMetadata()
+    * Scope a query to include stage assignments based on role IDs.
+    */
+    public function scopeWithRoleIds(Builder $query, ?array $roleIds): Builder
     {
-        return $this->getData('canChangeMetadata');
+        return $query->when($roleIds !== null, function ($query) use ($roleIds) {
+            $query->leftJoin('user_groups as ug', 'stage_assignments.user_group_id', '=', 'ug.user_group_id')
+                ->whereIn('ug.role_id', $roleIds);
+        });
     }
-
-    /**
-     * Set permit metadata edit option.
-     */
-    public function setCanChangeMetadata($canChangeMetadata)
-    {
-        $this->setData('canChangeMetadata', $canChangeMetadata);
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\stageAssignment\StageAssignment', '\StageAssignment');
 }

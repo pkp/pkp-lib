@@ -35,7 +35,7 @@ use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\Validation;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignment;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -135,16 +135,19 @@ class ReviewerAction
         $mailable->replyTo($reviewer->getEmail(), $reviewer->getFullName());
 
         // Get editorial contact name
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $reviewAssignment->getStageId());
+        // Replaces StageAssignmentDAO::getBySubmissionAndStageId
+        $stageAssignments = StageAssignment::withSubmissionId($submission->getId())
+            ->withStageId($reviewAssignment->getStageId())
+            ->get();
+
         $recipients = [];
-        while ($stageAssignment = $stageAssignments->next()) {
-            $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
+        foreach ($stageAssignments as $stageAssignment) {
+            $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
             if (!in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
                 continue;
             }
 
-            $recipients[] = Repo::user()->get($stageAssignment->getUserId());
+            $recipients[] = Repo::user()->get($stageAssignment->userId);
         }
 
         // Create dummy user if no one assigned

@@ -103,8 +103,8 @@ class StageParticipantGridRow extends GridRow
             $submission = $this->getSubmission();
             $stageId = $this->getStageId();
             $stageAssignment = $this->getData();
-            $userId = $stageAssignment->getUserId();
-            $userGroupId = $stageAssignment->getUserGroupId();
+            $userId = $stageAssignment->userId;
+            $userGroupId = $stageAssignment->userGroupId;
             $context = $request->getContext();
             $this->addAction(new NotifyLinkAction($request, $submission, $stageId, $userId));
 

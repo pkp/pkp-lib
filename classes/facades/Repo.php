@@ -38,6 +38,7 @@ use PKP\log\event\Repository as EventLogRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
 use PKP\jats\Repository as JatsRepository;
+use PKP\stageAssignment\Repository as StageAssignmentRepository;
 
 class Repo
 {
@@ -109,5 +110,10 @@ class Repo
     public static function jats(): JatsRepository
     {
         return app(JatsRepository::class);
+    }
+
+    public static function stageAssignment(): StageAssignmentRepository
+    {
+        return app(StageAssignmentRepository::class);
     }
 }

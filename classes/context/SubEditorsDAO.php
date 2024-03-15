@@ -33,7 +33,6 @@ use PKP\mail\mailables\EditorAssigned;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
-use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\userGroup\UserGroup;
 
 class SubEditorsDAO extends \PKP\db\DAO
@@ -215,11 +214,15 @@ class SubEditorsDAO extends \PKP\db\DAO
                 && $userGroupIds->contains($assignment->userGroupId);
         });
 
-        /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
         foreach ($assignments as $assignment) {
             $userGroup = $userGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() == $assignment->userGroupId);
-            $stageAssignmentDao->build($submission->getId(), $assignment->userGroupId, $assignment->userId, $userGroup->getRecommendOnly());
+            Repo::stageAssignment()
+                ->build(
+                    $submission->getId(), 
+                    $assignment->userGroupId, 
+                    $assignment->userId, 
+                    $userGroup->getRecommendOnly()
+                );
         }
 
         // Update assignment notifications
@@ -245,14 +248,14 @@ class SubEditorsDAO extends \PKP\db\DAO
         }
 
         // Send an email to assigned editors
-        $editorAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds(
-            $submission->getId(),
-            [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR],
-            WORKFLOW_STAGE_ID_SUBMISSION
-        )->toArray();
+        // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
+        $editorAssignments = StageAssignment::withSubmissionId($submission->getId())
+            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+            ->withStageId(WORKFLOW_STAGE_ID_SUBMISSION)
+            ->get();
 
         $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), EditorAssigned::getEmailTemplateKey());
-        if (count($editorAssignments) && $emailTemplate) {
+        if ($editorAssignments->isNotEmpty() && $emailTemplate) {
             // Never notify the same user twice, even if they are assigned in multiple roles
             $notifiedEditors = [];
 
@@ -264,24 +267,23 @@ class SubEditorsDAO extends \PKP\db\DAO
                 ->subject($emailTemplate->getLocalizedData('subject') ?? '')
                 ->body($emailTemplate->getLocalizedData('body') ?? '');
 
-            /** @var StageAssignment $editorAssignment */
             foreach ($editorAssignments as $editorAssignment) {
                 $unsubscribed = in_array(
                     Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
                     $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
                         NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
-                        $editorAssignment->getUserId(),
+                        $editorAssignment->userId,
                         $context->getId()
                     )
                 );
 
-                if ($unsubscribed || in_array($editorAssignment->getUserId(), $notifiedEditors)) {
+                if ($unsubscribed || in_array($editorAssignment->userId, $notifiedEditors)) {
                     continue;
                 }
 
-                $notifiedEditors[] = $editorAssignment->getUserId();
+                $notifiedEditors[] = $editorAssignment->userId;
 
-                $recipient = Repo::user()->get($editorAssignment->getUserId());
+                $recipient = Repo::user()->get($editorAssignment->userId);
                 $mailable->recipients([$recipient]);
 
                 Mail::send($mailable);

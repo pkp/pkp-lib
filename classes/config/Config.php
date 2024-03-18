@@ -30,6 +30,39 @@ define('CONFIG_FILE', \PKP\core\Core::getBaseDir() . '/config.inc.php');
 class Config
 {
     /**
+     * The sensitive data from the config files in the formate of `section` to `keys` mapping as
+     * [
+     *   'section1' => ['key1', 'key2', ...],
+     *   'section2' => ['key1', 'key2', ...],
+     * ]
+     */
+    public const SENSITIVE_DATA = [
+        'database' => [
+            'password',
+        ],
+        'email' => [
+            'smtp_password',
+        ],
+    ];
+
+    /**
+     * Check and determine if the given section key is sensitive data or not
+     *
+     * @param string $section
+     * @param string $key
+     *
+     * @return bool
+     */
+    public static function isSensitive($section, $key)
+    {
+        if (!isset(static::SENSITIVE_DATA[$section])) {
+            return false;
+        }
+
+        return in_array($key, static::SENSITIVE_DATA[$section]);
+    }
+
+    /**
      * Retrieve a specified configuration variable.
      *
      * @param string $section

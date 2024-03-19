@@ -47,13 +47,8 @@ class Config
 
     /**
      * Check and determine if the given section key is sensitive data or not
-     *
-     * @param string $section
-     * @param string $key
-     *
-     * @return bool
      */
-    public static function isSensitive($section, $key)
+    public static function isSensitive(string $section, string $key): bool
     {
         if (!isset(static::SENSITIVE_DATA[$section])) {
             return false;

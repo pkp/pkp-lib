@@ -27,12 +27,12 @@ import('lib.pkp.classes.config.ConfigParser');
 class Config {
 
 	/**
-     * The sensitive data from the config files in the formate of `section` to `keys` mapping as
-     * [
-     *   'section1' => ['key1', 'key2', ...],
-     *   'section2' => ['key1', 'key2', ...],
-     * ]
-     */
+	 * The sensitive data from the config files in the formate of `section` to `keys` mapping as
+	 * [
+	 *   'section1' => ['key1', 'key2', ...],
+	 *   'section2' => ['key1', 'key2', ...],
+	 * ]
+	 */
 	public const SENSITIVE_DATA = [
 		'database' => [
 			'password',
@@ -42,12 +42,12 @@ class Config {
 		],
 	];
 
-    /**
-     * Check and determine if the given section key is sensitive data or not
+	/**
+	 * Check and determine if the given section key is sensitive data or not
 	 * @param string $section
 	 * @param string $key
 	 * @return bool
-     */
+	 */
 	public static function isSensitive($section, $key) {
 		if (!isset(static::SENSITIVE_DATA[$section])) {
 			return false;

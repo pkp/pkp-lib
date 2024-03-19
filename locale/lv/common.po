@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-22 17:43+0000\n"
+"PO-Revision-Date: 2024-02-23 01:11+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "lv/>\n"
@@ -1310,7 +1310,7 @@ msgid "informationCenter.pastNotes"
 msgstr "Agrāk veiktās labojumu piezīmes"
 
 msgid "informationCenter.currentHistory"
-msgstr "Pašreizējie labojumi"
+msgstr "Jaunākie labojumi"
 
 msgid "informationCenter.pastHistory"
 msgstr "Agrākie labojumi"
@@ -1413,7 +1413,7 @@ msgid "navigation.items.shownTotal"
 msgstr "{$shown} no {$total} vienībā"
 
 msgid "navigation.login"
-msgstr "Pieteikties sistēmā"
+msgstr "Pieteikties"
 
 msgid "navigation.nextPage"
 msgstr "&gt;&gt;"

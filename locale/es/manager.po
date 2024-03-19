@@ -1,12 +1,12 @@
 # Alejandra Casas Niño de Rivera <alejandra.casas.n@gmail.com>, 2021.
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2023-07-25 14:58+0000\n"
+"PO-Revision-Date: 2024-03-02 04:59+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "es/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Información"
@@ -3808,3 +3808,110 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Pedir a los autores/as que adjunten una declaración de conflicto de "
 "intereses a su envío."
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "El formato de fecha no es válido."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "ID de cliente"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Año de publicación"
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "El formato YOP no es válido."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "ID de envío"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "La ID del envío no existe."
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Incluir detalles de matriz"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Excluir los detalles mensuales"
+
+msgid "manager.highlights.confirmDelete"
+msgstr "¿Seguro que desea eliminar {$title}? Esta acción no podrá deshacerse."
+
+msgid "manager.highlights.urlText.description"
+msgstr ""
+"La etiqueta, como por ejemplo \"Saber más\", para el botón en el resaltado."
+
+msgid "manager.image"
+msgstr "Imagen"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Tipo métrico"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Atributos que mostrar"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Una lista o rango de años de publicación para retornar como respuesta en "
+"formato de yyyy|yyyy|yyyy-yyyy."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Se ha omitido el archivo de envío {$id} porque no tiene una etapa de archivo "
+"válida."
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Debe <a href=\"#announcements/announcement-settings\">habilitar los "
+"avisos</a>."
+
+msgid "manager.highlights.add"
+msgstr "Añadir resaltado"
+
+msgid "manager.highlights.delete"
+msgstr "Eliminar resaltado"
+
+msgid "manager.highlights.edit"
+msgstr "Editar resaltado"
+
+msgid "manager.highlights.image"
+msgstr "Imagen"
+
+msgid "manager.highlights.url.description"
+msgstr "URL completa, incluyendo https://, para el botón en el resaltado."
+
+msgid "manager.highlights.urlText"
+msgstr "Etiqueta del botón"
+
+msgid "manager.statistics.counterR5"
+msgstr "Contador R5"
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Informes del contador R5"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Consulte la <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/"
+"index.html\" target=\"_new\">documentación COUNTER 5.0.3</a> para obtener "
+"más información de cada informe."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "No hay estadísticas de uso COUNTER R5 disponibles aún."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Ajustes de informe"
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Fecha de inicio"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"La fecha debe estar en formato AAAA-MM-DD o AAAA-MM. La fecha más antigua "
+"posible es {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Fecha de fin"
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"La fecha debe estar en formato AAAA-MM-DD o AAAA-MM. La fecha más reciente "
+"posible es {$lastDate}."

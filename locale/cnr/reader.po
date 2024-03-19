@@ -1,0 +1,82 @@
+# Milutin Markovic <admin@fcjk.me>, 2024.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-03-13 18:32+0000\n"
+"Last-Translator: Milutin Markovic <admin@fcjk.me>\n"
+"Language-Team: Montenegrin <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reader/cnr/>\n"
+"Language: cnr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Tijelo poruke"
+
+msgid "comments.titleRequired"
+msgstr "Potreban je naslov komentara."
+
+msgid "comments.delete"
+msgstr "Brisanje komentara"
+
+msgid "comments.email"
+msgstr "Imejl pošiljaoca"
+
+msgid "comments.emailReply"
+msgstr "Odgovor putem imejla"
+
+msgid "comments.enterComment"
+msgstr "Upišite komentar"
+
+msgid "comments.inResponseTo"
+msgstr "Kao odgovor na: <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.nReplies"
+msgstr "({$num} odgovora)"
+
+msgid "comments.oneReply"
+msgstr "(1 odgovor)"
+
+msgid "comments.postAnonymously"
+msgstr "Pošaljite komentar anonimno"
+
+msgid "comments.postReply"
+msgstr "Slanje odgovora"
+
+msgid "comments.readerComments"
+msgstr "Komentari čitaoca"
+
+msgid "comments.readMore"
+msgstr "Pročitajte više"
+
+msgid "comments.replies"
+msgstr "Odgovori"
+
+msgid "comments.title"
+msgstr "Naslov"
+
+msgid "comments.viewAllComments"
+msgstr "Pregled svih komentara"
+
+msgid "reader.fullText"
+msgstr "Cijeli tekst:"
+
+msgid "comments.anonymous"
+msgstr "Anonimni korisnik"
+
+msgid "comments.confirmDeleteChildren"
+msgstr ""
+"Brisanjem ovog komentara takođe ćete izbrisati i sve odgovore na njega. Da "
+"li ste sigurni da to želite?"
+
+msgid "comments.name"
+msgstr "Ime pošiljaoca"
+
+msgid "comments.noComments"
+msgstr "Čitaoci nisu slali komentare."

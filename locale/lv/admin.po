@@ -2,7 +2,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-22 17:43+0000\n"
+"PO-Revision-Date: 2024-02-23 01:11+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "lv/>\n"
@@ -78,8 +78,8 @@ msgstr "Izbeigt lietotāju sesijas"
 
 msgid "admin.expireSessions.description"
 msgstr ""
-"Visi lietotāji nekavējoties tiks izrastīti no lietojumprogrammas, ieskaitot "
-"jūs, un viņiem būs nepieciešams pierakstīties atkārtoti."
+"Visi lietotāji, ieskaitot jūs, nekavējoties tiks atteikti no "
+"lietojumprogrammas, un viņiem būs nepieciešams pieteikties atkārtoti."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -607,7 +607,7 @@ msgid "admin.cli.tool.jobs.pagination"
 msgstr "Lapdale (pagination)"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr "Pašreizējais"
+msgstr "Jaunākais"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
 msgstr "Iepriekšējais"

@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-22 17:43+0000\n"
+"PO-Revision-Date: 2024-02-23 01:11+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/lv/>\n"
@@ -636,8 +636,8 @@ msgstr ""
 
 msgid "editor.submission.decision.accept.log"
 msgstr ""
-"{$editorName} pieņēma šo materiālu un nosūtīja to literārās rediģēšanas "
-"posmam."
+"{$editorName} pieņēma šo materiālu un nosūtīja to uz literārās rediģēšanas "
+"posmu."
 
 msgid "editor.submission.decision.requestRevisions"
 msgstr "Pieprasīt labojumus"
@@ -706,7 +706,8 @@ msgstr ""
 "izstrādes posmu. Šis e-pasts netiks nosūtīts, kamēr lēmums nebūs reģistrēts."
 
 msgid "editor.submission.decision.sendToProduction.description"
-msgstr "Nosūtīt šo materiālu izstrādes posmam, lai to sagatavotu publicēšanai."
+msgstr ""
+"Nosūtīt šo materiālu uz izstrādes posmu, lai to sagatavotu publicēšanai."
 
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Nosūtīts uz izstrādi"
@@ -717,7 +718,7 @@ msgstr ""
 "informēts, ja vien neesat izvēlējies šo e-pastu izlaist."
 
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr "{$editorName} nosūtīja šo materiālu izstrādes posmam."
+msgstr "{$editorName} nosūtīja šo materiālu uz izstrādes posmu."
 
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "Atgriezties pie literārās rediģēšanas"
@@ -2085,7 +2086,7 @@ msgid "editor.submission.recordedRecommendations"
 msgstr "Reģistrētās rekomendācijas"
 
 msgid "submission.currentStage"
-msgstr "Kārtējais posms"
+msgstr "Pašreizējais posms"
 
 msgid "submission.noActionRequired"
 msgstr "Nav nepieciešama rīcība"
@@ -2097,7 +2098,7 @@ msgid "reviewer.submission.reviewFiles"
 msgstr "Recenzijas datnes"
 
 msgid "submission.submit.currentFile"
-msgstr "Aktuālā datne"
+msgstr "Pašreizējā datne"
 
 msgid "submission.finalDraft"
 msgstr "Projekta datnes"

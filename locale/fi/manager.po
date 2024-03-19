@@ -118,9 +118,6 @@ msgstr ""
 msgid "manager.setup"
 msgstr "Palvelimen asetukset"
 
-msgid "manager.setup.masthead"
-msgstr "Tunnuslaatikko"
-
 msgid "manager.setup.editorialTeam"
 msgstr ""
 

@@ -25,9 +25,6 @@ namespace PKP\template;
 use APP\core\Application;
 use APP\core\PageRouter;
 use APP\core\Request;
-
-require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
-
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
@@ -64,6 +61,8 @@ use PKP\site\VersionDAO;
 use PKP\submission\GenreDAO;
 use Smarty;
 use Smarty_Internal_Template;
+
+require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
 
 /* This definition is required by Smarty */
 define('SMARTY_DIR', Core::getBaseDir() . '/lib/pkp/lib/vendor/smarty/smarty/libs/');
@@ -509,10 +508,10 @@ class PKPTemplateManager extends Smarty
      */
     public function getCachedLessFilePath($name)
     {
-        $cacheDirectory = CacheManager::getFileCachePath();
-        $context = $this->_request->getContext();
-        $contextId = $context instanceof Context ? $context->getId() : 0;
-        return "{$cacheDirectory}/{$contextId}-{$name}.css";
+        $directory = CacheManager::getFileCachePath();
+        $contextId = $this->_request->getContext()?->getId() ?? 0;
+        $hash = crc32($this->_request->getBaseUrl());
+        return "{$directory}/{$contextId}-{$name}-{$hash}.css";
     }
 
     /**
@@ -1283,7 +1282,7 @@ class PKPTemplateManager extends Smarty
 
 
                 return $this->smartyEscape($result, $esc_type, $char_set);
-                
+
             });
 
             $this->unregisterPlugin('modifier', 'strip_unsafe_html');
@@ -1293,7 +1292,7 @@ class PKPTemplateManager extends Smarty
                 $result = \PKP\core\PKPString::stripUnsafeHtml($input, $configKey);
                 $result = str_replace('{{', '<span v-pre>{{</span>', $result);
                 $result = str_replace('}}', '<span v-pre>}}</span>', $result);
-                return $result;                
+                return $result;
             });
 
 

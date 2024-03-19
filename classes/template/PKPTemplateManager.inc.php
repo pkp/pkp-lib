@@ -453,7 +453,7 @@ class PKPTemplateManager extends Smarty {
 		$cacheDirectory = CacheManager::getFileCachePath();
 		$context = $this->_request->getContext();
 		$contextId = is_a($context, 'Context') ? $context->getId() : 0;
-		return $cacheDirectory . DIRECTORY_SEPARATOR . $contextId . '-' . $name . '.css';
+		return $cacheDirectory . DIRECTORY_SEPARATOR . $contextId . '-' . $name . '-' . crc32(Application::get()->getRequest()->getBaseUrl()) . '.css';
 	}
 
 	/**

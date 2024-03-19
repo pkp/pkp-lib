@@ -1,7 +1,7 @@
 # Ieva Tiltina <pastala@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-15 19:17+0000\n"
+"PO-Revision-Date: 2024-02-23 01:11+0000\n"
 "Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
 "Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/lv/>"
 "\n"
@@ -253,7 +253,7 @@ msgid "api.dois.403.editItemOutOfContext"
 msgstr "Nevar rediģēt elementa DOI, kas nav šajā kontekstā."
 
 msgid "api.submissionFiles.400.invalidFileStage"
-msgstr "Jūsu norādītais faila posms nav derīgs."
+msgstr "Jūsu norādītais datnes posms nav derīgs."
 
 msgid "api.submissionsFiles.400.noParams"
 msgstr "Pieprasījumā rediģēt šo failu netika atrastas nekādas izmaiņas."

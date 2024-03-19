@@ -1,7 +1,7 @@
 # Milutin Markovic <admin@fcjk.me>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-28 17:39+0000\n"
+"PO-Revision-Date: 2024-03-13 18:32+0000\n"
 "Last-Translator: Milutin Markovic <admin@fcjk.me>\n"
 "Language-Team: Montenegrin <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/cnr/>\n"
@@ -917,3 +917,41 @@ msgstr "Pokrenite radni zadatak za testni red"
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr "Koristite stranicu kao platformu za sve časopise."
+
+msgid "admin.job.processLogFile.openFileFailed"
+msgstr "Fajl {$file} se nije mogao otvoriti i odbijen je."
+
+msgid "admin.job.processLogFile.wrongLoglineFormat"
+msgstr ""
+"Redak {$lineNumber} u fajlu zapisa {$file} je u pogrešnom formatu i stoga će "
+"biti preskočen."
+
+msgid "admin.job.processLogFile.invalidLogEntry"
+msgstr "Nevažeći zapis u retku {$lineNumber} u fajlu zapisa {$file}: {$error}"
+
+msgid "admin.job.processLogFile.invalidLogEntry.time"
+msgstr "Vrijeme nije važeći datum."
+
+msgid "admin.job.processLogFile.invalidLogEntry.contextId"
+msgstr "ID konteksta nije cijeli broj."
+
+msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
+msgstr "ID prijave nije cijeli broj."
+
+msgid "admin.job.processLogFile.invalidLogEntry.representationId"
+msgstr "ID prikaza nije cijeli broj."
+
+msgid "admin.job.processLogFile.invalidLogEntry.assocType"
+msgstr "Tip Assoc nije podržan."
+
+msgid "admin.job.processLogFile.invalidLogEntry.fileType"
+msgstr "Vrsta fajla nije podržana."
+
+msgid "admin.job.processLogFile.invalidLogEntry.region"
+msgstr "Regija nije niz dug do tri alfanumerička znaka."
+
+msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
+msgstr "ID-ovi institucija nisu niz."
+
+msgid "admin.job.processLogFile.invalidLogEntry.country"
+msgstr "Država nije niz od dva abecedna znaka."

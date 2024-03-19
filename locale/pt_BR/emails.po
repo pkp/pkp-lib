@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:19-08:00\n"
-"PO-Revision-Date: 2024-01-31 12:37+0000\n"
+"PO-Revision-Date: 2024-03-16 10:39+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/emails/pt_BR/>\n"
@@ -44,14 +44,14 @@ msgstr ""
 msgid "emails.reviewAck.subject"
 msgstr "Agradecimento pela avaliação"
 
-#, fuzzy
 msgid "emails.reviewAck.body"
 msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"Agradeço por enviar o parecer da submissão &quot;{$submissionTitle},&quot; "
-"para o periódico {$contextName}. Nós apreciamos sua contribuição para manter "
-"a qualidade dos trabalhos que publicamos."
+"<p>Prezado(a) {$recipientName}:</p> <br />\n"
+"<p>Agradeço por enviar o parecer da submissão &quot;{$submissionTitle},&quot;"
+" para o periódico {$contextName}. Nós apreciamos sua contribuição para "
+"manter a qualidade dos trabalhos que publicamos.</p> <br />\n"
+"<p>Atenciosamente,</p>\n"
+"<p>{$signature}</p>"
 
 msgid "emails.decision.notifyReviewers.subject"
 msgstr "Obrigado pela sua avaliação"
@@ -91,9 +91,8 @@ msgstr ""
 "\n"
 "{$messageToSubmitatingAutor}"
 
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
-msgstr "Decisão do Editor"
+msgstr "Submissão enviada para avaliação"
 
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
@@ -177,10 +176,9 @@ msgstr ""
 "para entrar em contato comigo em caso de dúvidas. </p> <p> Atenciosamente, </"
 "p> <p> {$senderName} </p>"
 
-#, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr ""
-"A submissão {$submissionId} está pronto para uma tarefa edição ao Editor de "
+"A submissão {$submissionId} está pronta para uma tarefa edição ao Editor de "
 "Texto para {$contextAcronym}"
 
 #, fuzzy
@@ -368,7 +366,6 @@ msgstr ""
 msgid "emailTemplate.variable.unsubscribe"
 msgstr "O link para cancelar a assinatura deste e-mail."
 
-#, fuzzy
 msgid "emails.discussion.subject"
 msgstr "Uma mensagem sobre {$contextName}"
 
@@ -414,9 +411,10 @@ msgstr ""
 "{$reviewDueDate}</p ><p>Você pode fazer login para <a href=\""
 "{$reviewAssignmentUrl}\">concluir esta avaliação</a> a qualquer momento.</p>"
 
-#, fuzzy
 msgid "emails.reviewConfirm.subject"
-msgstr "Disponível para realizar avaliação"
+msgstr ""
+"Avaliação aceita: {$reviewerName} aceitou a tarefa de avaliação para "
+"#{$submissionId} {$authorsShort} — {$submissionTitle}"
 
 #, fuzzy
 msgid "emails.reviewConfirm.body"

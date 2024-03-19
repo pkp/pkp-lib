@@ -3,20 +3,19 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:19-08:00\n"
-"PO-Revision-Date: 2021-04-14 11:04+0000\n"
-"Last-Translator: Viveka Svensson <viveka.svensson@lnu.se>\n"
-"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/ojs/emails/"
-"sv_SE/>\n"
-"Language: sv_SE\n"
+"PO-Revision-Date: 2024-03-05 11:56+0000\n"
+"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
+"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
+"sv/>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
-#, fuzzy
 msgid "emails.submissionAck.subject"
-msgstr "Bekräftelse på mottaget bidrag"
+msgstr "Tack för ditt bidrag till {$contextName}"
 
 #, fuzzy
 msgid "emails.submissionAck.body"
@@ -38,10 +37,11 @@ msgstr ""
 
 msgid "emails.submissionAck.description"
 msgstr ""
+"Detta e-postmeddelande skickas automatiskt ut till författaren när hen "
+"skickar in sitt bidrag."
 
-#, fuzzy
 msgid "emails.reviewAck.subject"
-msgstr "Bekräftelse på granskning av artikel"
+msgstr "Tack för din granskning"
 
 #, fuzzy
 msgid "emails.reviewAck.body"
@@ -53,20 +53,19 @@ msgstr ""
 "bibehålla tidskriftens kvalitet."
 
 msgid "emails.decision.notifyReviewers.subject"
-msgstr ""
+msgstr "Tack för din granskning"
 
 msgid "emails.decision.notifyReviewers.body"
 msgstr ""
 
 msgid "emails.decision.notifyOtherAuthors.subject"
-msgstr ""
+msgstr "Uppdatering gällande ditt bidrag"
 
 msgid "emails.decision.notifyOtherAuthors.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
-msgstr "Redaktörsbeslut"
+msgstr "Ditt bidrag har skickats till granskning"
 
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
@@ -80,9 +79,8 @@ msgstr ""
 "<br />\n"
 "Bidragets URL: {$submissionUrl}"
 
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
-msgstr "Redaktörsbeslut"
+msgstr "Nästa steg i publiceringsprocessen för ditt bidrag"
 
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
@@ -94,9 +92,10 @@ msgstr ""
 "<br />\n"
 "Bidragets URL: {$submissionUrl}"
 
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
-msgstr "Redaktörsbeslut"
+msgstr ""
+"Ditt bidrag har genomgått sakkunniggranskning och vi önskar att du skickar "
+"in en reviderad version"
 
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
@@ -108,9 +107,8 @@ msgstr ""
 "<br />\n"
 "Vårt beslut är att: Bearbetning krävs"
 
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
-msgstr "Redaktörsbeslut"
+msgstr "Ditt bidrag har granskats - revidera och skicka in på nytt"
 
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"
@@ -122,9 +120,8 @@ msgstr ""
 "<br />\n"
 "Vårt beslut är att: Skicka in igen för ny granskning"
 
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
-msgstr "Redaktörsbeslut"
+msgstr "Ditt bidrag har refuserats"
 
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
@@ -136,7 +133,6 @@ msgstr ""
 "<br />\n"
 "Vårt beslut är att: Refusera bidrag"
 
-#, fuzzy
 msgid "emails.editorRecommendation.subject"
 msgstr "Redaktörsrekommendation"
 

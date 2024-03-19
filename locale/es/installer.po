@@ -1,10 +1,10 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2023.
+# Jordi LC <jordi.lacruz@uab.cat>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2023-04-21 23:28+0000\n"
+"PO-Revision-Date: 2024-03-02 04:59+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/es/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "installer.additionalLocales"
 msgstr "Locales adicionales"
@@ -164,11 +164,10 @@ msgid "installer.installParseFilterConfigFileError"
 msgstr ""
 "Error al analizar el archivo de configuración de filtro <tt>{$file}</tt>."
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
-"Actualización no compatible. Ver docs/UPGRADE-UNSUPPORTED para obtener más "
-"detalles."
+"Actualización incompatible. Consulte la guía de actualización (https://docs."
+"pkp.sfu.ca/dev/upgrade-guide) para obtener más detalles."
 
 msgid "installer.timezoneInstructions"
 msgstr "La zona horaria que utiliza este sistema."
@@ -259,5 +258,5 @@ msgstr ""
 #~ "Codificación que usar para la información enviada y recibida de los "
 #~ "navegadores."
 
-#~ msgid "installer.miscSettings"
-#~ msgstr "Configuración adicional"
+msgid "installer.miscSettings"
+msgstr "Ajustes misceláneos"

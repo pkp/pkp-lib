@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
-"PO-Revision-Date: 2024-01-26 15:34+0000\n"
+"PO-Revision-Date: 2024-03-16 10:39+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_BR/>\n"
@@ -957,3 +957,27 @@ msgstr "Estatísticas do avaliador"
 
 msgid "admin.settings.sharedReviewerStatistics.disable"
 msgstr "Desativar estatísticas agregadas do avaliador"
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "O arquivo {$filename} foi movido para a pasta de expedição."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"O arquivo {$file} não pode ser movido de {$dispatchFilePath} para "
+"{$archivedFilePath}."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "O arquivo {$file} não existe."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"Não é possível executar tarefas de fila porque o modo sandbox do aplicativo "
+"está ativado."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"As tarefas sairão normalmente depois de concluir a execução do trabalho "
+"atual."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Reinicie os daemons de trabalho da fila após a tarefa atual."

@@ -1,10 +1,10 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2022, 2023.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2023-05-25 09:42+0000\n"
+"PO-Revision-Date: 2024-03-02 04:59+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ca/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
 msgstr "Informació del compte"
@@ -170,11 +170,11 @@ msgstr ""
 msgid "user.login"
 msgstr "Inici de la sessió"
 
-#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
-"S'ha enviat un missatge de confirmació a la vostra adreça electrònica. "
-"Seguiu les instruccions del correu electrònic per restablir la contrasenya."
+"Si es troba un compte que coincideixi se us enviarà un missatge de "
+"confirmació a la vostra adreça electrònica. Seguiu les instruccions del "
+"correu electrònic per restablir la contrasenya."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr ""
@@ -500,7 +500,7 @@ msgid "user.apiKey.generate"
 msgstr "Generar una clau API nova"
 
 msgid "user.apiKey.remove"
-msgstr ""
+msgstr "Eliminar"
 
 msgid "user.apiKey.generateWarning"
 msgstr ""
@@ -509,9 +509,11 @@ msgstr ""
 
 msgid "user.apiKey.removeWarning"
 msgstr ""
+"Eliminar una clau revocarà l'accés a totes les aplicacions que la facin "
+"servir."
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr ""
+msgstr "Segur que voleu eliminar aquesta clau API?"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -528,15 +530,21 @@ msgstr ""
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
 msgstr ""
+"No s'ha pogut completar el restabliment de la contrasenya perquè {$reason}."
 
 msgid "user.login.passwordResetProcessInstructions"
-msgstr ""
+msgstr "Introduïu la contrasenya nova per actualitzar l'inici de sessió."
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+"La contrasenya s'ha actualitzat correctament. Ja podeu iniciar la sessió amb "
+"la contrasenya nova."
 
 #~ msgid "user.register.passwordLengthRestriction"
 #~ msgstr "La contrasenya ha de tenir {$length} caràcters com a mínim."
 
 #~ msgid "user.register.completeForm"
 #~ msgstr "Empleneu aquest formulari per registrar-vos en aquesta revista."
+
+msgid "user.usernameOrEmail"
+msgstr "Nom d'usuari/ària o adreça electrónica"

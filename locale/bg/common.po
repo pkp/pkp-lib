@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-19 14:38+0000\n"
+"PO-Revision-Date: 2024-02-23 16:53+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/bg/>\n"
@@ -2284,3 +2284,6 @@ msgstr "Показване на всичко"
 
 msgid "showLess"
 msgstr "Показване по-малко"
+
+msgid "common.sandbox"
+msgstr "Приложението работи в защитен режим (пясъчна среда)."

@@ -3823,3 +3823,6 @@ msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
 msgstr ""
 "Indsendelsesfilen {$id} blev sprunget over, fordi den ikke har et gyldigt "
 "filtrin."
+
+msgid "manager.setup.masthead"
+msgstr "Kolofon"

@@ -3566,3 +3566,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "ავტორებისაგან ინტერესთა კონფლიქტის დეკლარაციის წარმოდგენა, გამოგზავნილ "
 "მასალასთან ერთად."
+
+msgid "manager.setup.masthead"
+msgstr "გამომავალი მონაცემები"

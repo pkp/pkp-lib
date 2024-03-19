@@ -3214,3 +3214,6 @@ msgstr ""
 
 msgid "manager.setup.competingInterests.requireAuthors"
 msgstr "要求投稿作者提供一个利益冲突（CI）的文字声明。"
+
+msgid "manager.setup.masthead"
+msgstr "刊头"

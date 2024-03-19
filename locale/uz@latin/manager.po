@@ -3142,3 +3142,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Mualliflardan raqobatbardosh qiziqish (CI) to'g'risidagi bayonotni taqdim "
 "etishni talab qiling."
+
+msgid "manager.setup.masthead"
+msgstr "Sarlavha (Asosiy)"

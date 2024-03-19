@@ -3778,3 +3778,6 @@ msgstr ""
 
 msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
 msgstr "Zahrnout i nadřazené podrobnosti"
+
+msgid "manager.setup.masthead"
+msgstr "Hlavička"

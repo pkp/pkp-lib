@@ -3437,3 +3437,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Pedir aos autores/as que presenten unha declaración de conflitos de "
 "intereses (CI) xuntamente co seu envío."
+
+msgid "manager.setup.masthead"
+msgstr "Cabeceira"

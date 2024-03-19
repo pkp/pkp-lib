@@ -3531,3 +3531,6 @@ msgstr "Submission Needs Editor"
 
 msgid "manager.setup.competingInterests.requireAuthors"
 msgstr "Require submitting Authors to file a Competing Interest (CI) statement with their submission."
+
+msgid "manager.setup.masthead"
+msgstr "Masthead"

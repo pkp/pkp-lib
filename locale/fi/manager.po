@@ -3739,3 +3739,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Vaadi käsikirjoituksen lähettäviä kirjoittajia jättämään Sidonnaisuudet-"
 "lausunto lähetyksen yhteydessä."
+
+msgid "manager.setup.masthead"
+msgstr "Tunnuslaatikko"

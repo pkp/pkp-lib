@@ -3210,3 +3210,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Zahtevajte od autora da u toku prijave članka potvrde izjavu o Konfliktu "
 "interesa."
+
+msgid "manager.setup.masthead"
+msgstr "Uprava"

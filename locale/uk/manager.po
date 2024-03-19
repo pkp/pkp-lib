@@ -3840,3 +3840,6 @@ msgstr "ID подання"
 
 msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
 msgstr "Виключити деталі за місяцями"
+
+msgid "manager.setup.masthead"
+msgstr "Вихідні данні"

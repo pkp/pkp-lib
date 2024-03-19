@@ -3577,3 +3577,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Författare måste skicka in en intressekonfliktsförklaring i samband med att "
 "bidraget skickas in."
+
+msgid "manager.setup.masthead"
+msgstr "Redaktionsruta"

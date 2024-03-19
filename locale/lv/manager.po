@@ -3725,3 +3725,6 @@ msgstr "Iekļaut vecākelementa informāciju"
 
 msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
 msgstr "Neietvert ikmēneša sīkāku informāciju"
+
+msgid "manager.setup.masthead"
+msgstr "Galvenā lapa"

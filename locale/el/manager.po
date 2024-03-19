@@ -3497,3 +3497,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Απαιτείται από τους Συγγραφείς να καταθέτουν Δήλωση Αντικρουόμενων "
 "Συμφερόντων μαζί με την υποβολή."
+
+msgid "manager.setup.masthead"
+msgstr "Κύριος τίτλος"

@@ -3123,3 +3123,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Požadovať od autorov, aby spolu s príspevkom zaslali súbor s vyhlásením o "
 "konflikte záujmov."
+
+msgid "manager.setup.masthead"
+msgstr "Hlavný titulok"

@@ -3895,3 +3895,6 @@ msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
 msgstr ""
 "La fecha debe estar en formato AAAA-MM-DD o AAAA-MM. La fecha más reciente "
 "posible es {$lastDate}."
+
+msgid "manager.setup.masthead"
+msgstr "Cabecera"

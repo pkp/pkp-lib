@@ -3800,3 +3800,6 @@ msgstr "Incluir Detalhes Associados"
 
 msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
 msgstr "Excluir Delhalhes Mensais"
+
+msgid "manager.setup.masthead"
+msgstr "Cabeçalho"

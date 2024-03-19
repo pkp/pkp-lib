@@ -3094,3 +3094,6 @@ msgstr ""
 
 msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
+
+msgid "manager.setup.masthead"
+msgstr ""

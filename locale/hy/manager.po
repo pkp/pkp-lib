@@ -3809,3 +3809,6 @@ msgstr "Հատկանիշներ ցուցադրելու համար"
 msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
 msgstr ""
 "Ներկայացման {$id} նիշքը բաց է թողնվել, քանի որ այն չունի վավեր նիշքի փուլ:"
+
+msgid "manager.setup.masthead"
+msgstr "Մասթհեդ"

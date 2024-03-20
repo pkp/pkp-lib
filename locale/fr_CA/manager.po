@@ -133,9 +133,6 @@ msgstr ""
 msgid "manager.setup"
 msgstr "Paramètres du serveur"
 
-msgid "manager.setup.masthead"
-msgstr "Bloc générique"
-
 #, fuzzy
 msgid "manager.setup.editorialTeam"
 msgstr "Équipe éditoriale"

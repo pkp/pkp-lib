@@ -132,9 +132,6 @@ msgstr ""
 msgid "manager.setup"
 msgstr "Server-Einstellungen"
 
-msgid "manager.setup.masthead"
-msgstr "Impressum"
-
 msgid "manager.setup.editorialTeam"
 msgstr "Preprint-Server-Team"
 

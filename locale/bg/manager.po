@@ -123,9 +123,6 @@ msgstr "Брой думи"
 msgid "manager.setup"
 msgstr "Настройки на сървъра"
 
-msgid "manager.setup.masthead"
-msgstr "Заглавие"
-
 msgid "manager.setup.useStyleSheet"
 msgstr "Лист със стилове за сървъра"
 

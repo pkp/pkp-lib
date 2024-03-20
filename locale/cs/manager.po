@@ -81,9 +81,6 @@ msgstr "Pravidla sekce"
 msgid "manager.sections.submissionIndexing"
 msgstr "Nebudou zahrnuty do indexace serveru"
 
-msgid "manager.setup.masthead"
-msgstr "Hlavička"
-
 msgid "manager.setup.editorialTeam"
 msgstr "Tým preprintového serveru"
 

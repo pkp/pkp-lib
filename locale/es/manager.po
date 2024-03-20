@@ -137,9 +137,6 @@ msgstr ""
 msgid "manager.setup"
 msgstr "Configuración del servidor"
 
-msgid "manager.setup.masthead"
-msgstr "Cabecera"
-
 #, fuzzy
 msgid "manager.setup.editorialTeam"
 msgstr "Equipo editorial"

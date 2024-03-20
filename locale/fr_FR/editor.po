@@ -1,13 +1,13 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
-# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2023-09-22 13:06+0000\n"
-"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
+"PO-Revision-Date: 2024-03-21 05:40+0000\n"
+"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr ""
@@ -379,7 +379,7 @@ msgstr "Ne pas considérer cet examen"
 msgid "editor.review.readConfirmation"
 msgstr ""
 "Une fois l'évaluation consultée, cliquer sur « Confirmer » pour indiquer que "
-"le processus d'évaluation peut se poursuivre. Si l'évaluateur-trice a soumis "
+"le processus d'évaluation peut se poursuivre. Si l'évaluateur·rice a soumis "
 "son évaluation ailleurs, vous pouvez téléverser le fichier ci-dessous puis "
 "cliquer sur « Confirmer » pour poursuivre."
 

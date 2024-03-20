@@ -3829,3 +3829,6 @@ msgstr ""
 
 msgid "manager.statistics.counterR5"
 msgstr "Counter R5"
+
+msgid "manager.setup.masthead"
+msgstr "Bloc générique"

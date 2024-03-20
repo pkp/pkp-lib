@@ -3792,3 +3792,6 @@ msgstr "Vključi podrobnosti staršev"
 
 msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
 msgstr "Ne prikaži mesečnih podrobnosti"
+
+msgid "manager.setup.masthead"
+msgstr "Kolofon"

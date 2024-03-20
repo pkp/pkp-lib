@@ -488,6 +488,15 @@
 				"nullable"
 			]
 		},
+		"mastheadUserGroupIds": {
+			"type": "array",
+			"validation": [
+				"nullable"
+			],
+			"items": {
+				"type": "integer"
+			}
+		},
 		"name": {
 			"type": "string",
 			"multilingual": true,

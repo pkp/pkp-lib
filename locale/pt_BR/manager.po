@@ -3825,3 +3825,6 @@ msgstr "Incluir detalhes dos Parent"
 
 msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
 msgstr "Excluir detalhes mensais"
+
+msgid "manager.setup.masthead"
+msgstr "Expediente"

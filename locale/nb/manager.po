@@ -3486,3 +3486,6 @@ msgstr "Bilde"
 
 msgid "manager.image"
 msgstr "Bilde"
+
+msgid "manager.setup.masthead"
+msgstr "Kolofon"

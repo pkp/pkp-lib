@@ -41,6 +41,12 @@
 						@set="set"
 					/>
 				</tab>
+				<tab id="appearance-masthead" label="{translate key="manager.setup.masthead"}">
+					<pkp-form
+						v-bind="components.{$smarty.const.FORM_APPEARANCE_MASTHEAD}"
+						@set="set"
+					/>
+				</tab>
 				<tab id="advanced" label="{translate key="manager.setup.advanced"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_APPEARANCE_ADVANCED}"

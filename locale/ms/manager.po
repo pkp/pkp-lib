@@ -3427,3 +3427,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Wajib mengemukakan Pengarang untuk mengemukakan pernyataan Konflik "
 "Kepentingan dengan penyerahannya."
+
+msgid "manager.setup.masthead"
+msgstr "Tajuk"

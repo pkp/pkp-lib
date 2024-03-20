@@ -3911,3 +3911,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Müəlliflərin məqalə ilə birlikdə mənfəət münaqişəsi bildirişi faylı "
 "göndərmələri gərəklidir."
+
+msgid "manager.setup.masthead"
+msgstr "İdarəçi siyahısı"

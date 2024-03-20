@@ -3808,3 +3808,6 @@ msgstr ""
 
 msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
 msgstr "Включить сведения о родительском элементе"
+
+msgid "manager.setup.masthead"
+msgstr "Выходные данные"

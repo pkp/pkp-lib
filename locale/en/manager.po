@@ -1836,6 +1836,9 @@ msgstr "Yes, require submitting authors to upload one or more of these files."
 msgid "manager.setup.genres.submitRequired.no"
 msgstr "No, allow new submissions without these files."
 
+msgid "manager.setup.masthead.description"
+msgstr "Define the order of masthead roles for public display."
+
 msgid "manager.settings.wizard"
 msgstr "Settings Wizard"
 
@@ -3528,3 +3531,6 @@ msgstr "Submission Needs Editor"
 
 msgid "manager.setup.competingInterests.requireAuthors"
 msgstr "Require submitting Authors to file a Competing Interest (CI) statement with their submission."
+
+msgid "manager.setup.masthead"
+msgstr "Masthead"

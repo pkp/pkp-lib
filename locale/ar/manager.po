@@ -3648,3 +3648,6 @@ msgid "manager.statistics.counterR5Report.settings.date.yop.description"
 msgstr ""
 "قائمة أو مدى من سنوات النشر لإرجاعها في الاستجابة وبتنسيق yyyy|yyyy|yyyy-"
 "yyyy."
+
+msgid "manager.setup.masthead"
+msgstr "طاقم المجلة"

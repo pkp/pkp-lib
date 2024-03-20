@@ -198,6 +198,7 @@ class ManagementHandler extends Handler
         $announcementSettingsForm = new \PKP\components\forms\context\PKPAnnouncementSettingsForm($contextApiUrl, $locales, $context);
         $appearanceAdvancedForm = new \APP\components\forms\context\AppearanceAdvancedForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl, $publicFileApiUrl);
         $appearanceSetupForm = new \APP\components\forms\context\AppearanceSetupForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl, $publicFileApiUrl);
+        $appearanceMastheadForm = new \PKP\components\forms\context\PKPAppearanceMastheadForm($contextApiUrl, $locales, $context);
         $informationForm = $this->getInformationForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
         $listsForm = new \PKP\components\forms\context\PKPListsForm($contextApiUrl, $locales, $context);
         $privacyForm = new \PKP\components\forms\context\PKPPrivacyForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
@@ -214,6 +215,7 @@ class ManagementHandler extends Handler
             FORM_ANNOUNCEMENT_SETTINGS => $announcementSettingsForm->getConfig(),
             FORM_APPEARANCE_ADVANCED => $appearanceAdvancedForm->getConfig(),
             FORM_APPEARANCE_SETUP => $appearanceSetupForm->getConfig(),
+            FORM_APPEARANCE_MASTHEAD => $appearanceMastheadForm->getConfig(),
             FORM_LISTS => $listsForm->getConfig(),
             FORM_PRIVACY => $privacyForm->getConfig(),
             FORM_THEME => $themeForm->getConfig(),

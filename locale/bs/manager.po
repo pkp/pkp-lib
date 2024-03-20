@@ -3166,3 +3166,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Zahtijevaj od autora da prilikom prijave svog rukopisa ispune izjavu o "
 "sukobu interesa."
+
+msgid "manager.setup.masthead"
+msgstr "Impresum"

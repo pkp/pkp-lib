@@ -3891,3 +3891,6 @@ msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
 msgstr ""
 "Файлът с изпратени материали с идентификатор {$id} беше пропуснат, защото не "
 "е преминал етапите на редакция."
+
+msgid "manager.setup.masthead"
+msgstr "Входни данни"

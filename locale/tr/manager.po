@@ -3567,3 +3567,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Yazarların gönderileriyle birlikte bir Çıkar Çatışması bildirimi dosyası "
 "göndermeleri gereklidir."
+
+msgid "manager.setup.masthead"
+msgstr "Yönetici Listesi"

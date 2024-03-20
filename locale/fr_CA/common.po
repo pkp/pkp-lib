@@ -1861,6 +1861,12 @@ msgstr "Date d'échéance de la réponse"
 msgid "reviewer.submission.reviewDueDate"
 msgstr "Date d'échéance de remise de l'évaluation"
 
+msgid "reviewer.submission.acceptedOn"
+msgstr "Date d'acceptation de l'évaluation"
+
+msgid "reviewer.submission.submittedOn"
+msgstr "Date de la soumission de l'évaluation"
+
 msgid "submission.task.responseDueDate"
 msgstr "Date d'échéance de la réponse"
 

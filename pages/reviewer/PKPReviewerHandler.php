@@ -27,6 +27,7 @@ use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -41,6 +42,7 @@ class PKPReviewerHandler extends Handler
 
     /**
      * Display the submission review page.
+     * @throws Exception
      */
     public function submission(array $args, PKPRequest $request): void
     {
@@ -59,6 +61,31 @@ class PKPReviewerHandler extends Handler
         if ($step < 1 || $step > 4) {
             throw new Exception('Invalid step!');
         }
+
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
+        $submissionId = $reviewSubmission->getId();
+        $lastRoundId = $reviewRoundDao->getLastReviewRoundBySubmissionId($submissionId)->getId();
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()
+            ->filterByContextIds([$request->getContext()->getId()])
+            ->filterBySubmissionIds([$submissionId])
+            ->filterByReviewerIds([$reviewAssignment->getReviewerId()])
+            ->getMany()
+            ->toArray();
+        $reviewRoundHistories = [];
+        foreach ($reviewAssignments as $reviewAssignment) {
+            $reviewRoundId = $reviewAssignment->getReviewRoundId();
+            if ($reviewRoundId != $lastRoundId) {
+                $reviewRoundHistories[] = [
+                    'submissionId' => $submissionId,
+                    'reviewRoundId' => $reviewRoundId,
+                    'reviewRoundNumber' => $reviewAssignment->getRound(),
+                    'submittedOn' => $reviewAssignment->getDeclined()
+                        ? $reviewAssignment->getDateConfirmed()
+                        : $reviewAssignment->getDateCompleted(),
+                ];
+            }
+        }
+
         $templateMgr->assign([
             'pageTitle' => __('semicolon', ['label' => __('submission.review')]) . $reviewSubmission->getCurrentPublication()->getLocalizedTitle(),
             'reviewStep' => $reviewStep,
@@ -69,20 +96,7 @@ class PKPReviewerHandler extends Handler
         $templateMgr->setState([
             'isReviewRoundHistoryEnabled' => Config::getVar('features', 'enable_review_round_history'),
             'pageInitConfig' => [
-                'reviewRoundHistories' => [
-                    [
-                        'submissionId' => $reviewSubmission->getId(),
-                        // Just as example, not real data
-                        'reviewRoundId' => 0,
-                        'reviewRoundNumber' => 1
-                    ],
-                    [
-                        'submissionId' => $reviewSubmission->getId(),
-                        // Just as example, not real data
-                        'reviewRoundId' => 1,
-                        'reviewRoundNumber' => 2
-                    ]
-                ]
+                'reviewRoundHistories' => $reviewRoundHistories,
             ]
         ]);
 
@@ -91,6 +105,7 @@ class PKPReviewerHandler extends Handler
 
     /**
      * Display a step tab contents in the submission review page.
+     * @throws Exception
      */
     public function step(array $args, PKPRequest $request): JSONMessage
     {

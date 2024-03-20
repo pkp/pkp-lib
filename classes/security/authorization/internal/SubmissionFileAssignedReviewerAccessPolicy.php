@@ -50,7 +50,9 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
         }
 
         $context = $request->getContext();
-        $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterByReviewerIds([$user->getId()])->getMany();
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()
+            ->filterByReviewerIds([$user->getId()])
+            ->getMany();
         $reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /** @var ReviewFilesDAO $reviewFilesDao */
         foreach ($reviewAssignments as $reviewAssignment) {
             if ($context->getData('restrictReviewerFileAccess') && !$reviewAssignment->getDateConfirmed()) {

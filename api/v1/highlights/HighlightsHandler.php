@@ -156,7 +156,7 @@ class HighlightsHandler extends APIHandler
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_HIGHLIGHT, $slimRequest->getParsedBody());
         $params['contextId'] = $context?->getId();
-        if (!$params['sequence']) {
+        if (!($params['sequence'] ?? null)) {
             $params['sequence'] = Repo::highlight()->getNextSequence($context?->getId());
         }
 

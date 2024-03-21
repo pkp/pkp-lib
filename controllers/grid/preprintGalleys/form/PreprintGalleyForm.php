@@ -21,7 +21,6 @@ namespace APP\controllers\grid\preprintGalleys\form;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\publication\Publication;
-use APP\server\Server;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\form\Form;
@@ -65,23 +64,14 @@ class PreprintGalleyForm extends Form
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
 
         // Ensure a locale is provided and valid
-        $server = $request->getServer();
+        $locales = $submission->getPublicationLanguages($request->getServer()->getSupportedSubmissionMetadataLocales(), $preprintGalley?->getLanguages());
         $this->addCheck(
-            new \PKP\form\validation\FormValidator(
+            new \PKP\form\validation\FormValidatorCustom(
                 $this,
                 'locale',
                 'required',
                 'validator.required',
-                new class ($server) extends Validator {
-                    public function __construct(private Server $server)
-                    {
-                    }
-
-                    public function isValid($locale): bool
-                    {
-                        return in_array($locale, $this->server->getSupportedSubmissionLocales());
-                    }
-                }
+                fn ($locale) => in_array($locale, $locales)
             )
         );
     }
@@ -104,9 +94,12 @@ class PreprintGalleyForm extends Form
                 'supportsDependentFiles' => $preprintGalleyFile ? Repo::submissionFile()->supportsDependentFiles($preprintGalleyFile) : null,
             ]);
         }
-        $context = $request->getContext();
+
+        $supportedLocales = $request->getContext()->getSupportedSubmissionMetadataLocaleNames() + $this->_submission->getPublicationLanguageNames() + ($this->_preprintGalley?->getLanguageNames() ?? []);
+        ksort($supportedLocales);
+
         $templateMgr->assign([
-            'supportedLocales' => $context->getSupportedSubmissionLocaleNames(),
+            'supportedLocales' => $supportedLocales,
             'submissionId' => $this->_submission->getId(),
             'publicationId' => $this->_publication->getId(),
             'formDisabled' => !$this->_isEditable

@@ -30,7 +30,7 @@ class ServersMigration extends \PKP\migration\Migration
             $table->bigInteger('server_id')->autoIncrement();
             $table->string('path', 32);
             $table->float('seq', 8, 2)->default(0)->comment('Used to order lists of servers');
-            $table->string('primary_locale', 14);
+            $table->string('primary_locale', 28);
             $table->tinyInteger('enabled')->default(1)->comment('Controls whether or not the server is considered "live" and will appear on the website. (Note that disabled servers may still be accessible, but only if the user knows the URL.)');
             $table->unique(['path'], 'servers_path');
         });
@@ -44,7 +44,7 @@ class ServersMigration extends \PKP\migration\Migration
             $table->foreign('server_id', 'server_settings_server_id')->references('server_id')->on('servers')->onDelete('cascade');
             $table->index(['server_id'], 'server_settings_server_id');
 
-            $table->string('locale', 14)->default('');
+            $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
 

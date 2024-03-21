@@ -186,12 +186,16 @@ abstract class PKPSubmissionHandler extends Handler
         }
 
 
-        $supportedSubmissionLocales = $context->getSupportedSubmissionLocaleNames();
-        $formLocales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($supportedSubmissionLocales), $supportedSubmissionLocales);
+        $supportedLocales = $context->getSupportedSubmissionMetadataLocaleNames() + $submission->getPublicationLanguageNames();
+        $formLocales = collect($supportedLocales)
+            ->map(fn (string $name, string $locale) => ['key' => $locale, 'label' => $name])
+            ->sortBy('key')
+            ->values()
+            ->toArray();
 
         // Order locales with submission locale first
-        $orderedLocales = $supportedSubmissionLocales;
-        uksort($orderedLocales, fn ($a, $b) => $a === $submission->getData('locale') ? $a : $b);
+        $orderedLocales = $supportedLocales;
+        uksort($orderedLocales, fn ($a, $b) => $b === $submission->getData('locale') ? 1 : -1);
 
         $userGroups = Repo::userGroup()
             ->getCollector()
@@ -301,7 +305,7 @@ abstract class PKPSubmissionHandler extends Handler
     protected function getSteps(Request $request, Submission $submission, Publication $publication, array $locales, array $sections, LazyCollection $categories): array
     {
         $publicationApiUrl = $this->getPublicationApiUrl($request, $submission->getId(), $publication->getId());
-        $controlledVocabUrl = $this->getControlledVocabBaseUrl($request);
+        $controlledVocabUrl = $this->getControlledVocabBaseUrl($request, $submission->getId());
 
         $steps = [];
         $steps[] = $this->getDetailsStep($request, $submission, $publication, $locales, $publicationApiUrl, $sections, $controlledVocabUrl);
@@ -384,7 +388,7 @@ abstract class PKPSubmissionHandler extends Handler
      *
      * The entry `__vocab__` will be replaced with the user's search phrase.
      */
-    protected function getControlledVocabBaseUrl(Request $request): string
+    protected function getControlledVocabBaseUrl(Request $request, int $submissionId): string
     {
         return $request->getDispatcher()->url(
             $request,
@@ -393,7 +397,7 @@ abstract class PKPSubmissionHandler extends Handler
             'vocabs',
             null,
             null,
-            ['vocab' => '__vocab__']
+            ['vocab' => '__vocab__', 'submissionId' => $submissionId]
         );
     }
 
@@ -456,7 +460,7 @@ abstract class PKPSubmissionHandler extends Handler
                 'dropzoneDictMaxFilesExceeded' => __('form.dropzone.dictMaxFilesExceeded'),
             ],
             'otherLabel' => __('about.other'),
-            'primaryLocale' => $request->getContext()->getPrimaryLocale(),
+            'primaryLocale' => $submission->getData('locale'),
             'removeConfirmLabel' => __('submission.submit.removeConfirm'),
             'stageId' => WORKFLOW_STAGE_ID_SUBMISSION,
             'title' => __('submission.files'),
@@ -569,7 +573,7 @@ abstract class PKPSubmissionHandler extends Handler
                 'name' => __('submission.details'),
                 'type' => self::SECTION_TYPE_FORM,
                 'description' => $request->getContext()->getLocalizedData('detailsHelp'),
-                'form' => $this->getLocalizedForm($titleAbstractForm, $submission, $request->getContext()),
+                'form' => $this->getLocalizedForm($titleAbstractForm, $submission->getData('locale'), $locales),
             ],
         ];
 
@@ -619,7 +623,7 @@ abstract class PKPSubmissionHandler extends Handler
                 'vocabs',
                 null,
                 null,
-                ['vocab' => '__vocab__']
+                ['vocab' => '__vocab__', 'submissionId' => $submission->getId()]
             ),
             $categories
         );
@@ -633,8 +637,8 @@ abstract class PKPSubmissionHandler extends Handler
 
         $hasMetadataForm = count($metadataForm->fields);
 
-        $metadataFormData = $this->getLocalizedForm($metadataForm, $submission, $request->getContext());
-        $commentsFormData = $this->getLocalizedForm($commentsForm, $submission, $request->getContext());
+        $metadataFormData = $this->getLocalizedForm($metadataForm, $submission->getData('locale'), $locales);
+        $commentsFormData = $this->getLocalizedForm($commentsForm, $submission->getData('locale'), $locales);
 
         $sections = [
             [
@@ -828,29 +832,21 @@ abstract class PKPSubmissionHandler extends Handler
      *
      * Uses the submission locale as the primary and
      * visible locale, and puts that locale first in the
-     * list of supported locales.
+     * list of supported and publication's locales.
      *
      * Call this instead of $form->getConfig() to display
      * a form with the correct submission locales
      */
-    protected function getLocalizedForm(FormComponent $form, Submission $submission, Context $context): array
+    protected function getLocalizedForm(FormComponent $form, string $submissionLocale, array $locales): array
     {
         $config = $form->getConfig();
 
-        $config['primaryLocale'] = $submission->getData('locale');
-        $config['visibleLocales'] = [$submission->getData('locale')];
-
-        $supportedFormLocales = [];
-        foreach ($context->getSupportedSubmissionLocaleNames() as $localeKey => $name) {
-            $supportedFormLocales[] = [
-                'key' => $localeKey,
-                'label' => $name,
-            ];
-        }
-
-        usort($supportedFormLocales, fn ($a, $b) => $a['key'] === $submission->getData('locale') ? -1 : 1);
-
-        $config['supportedFormLocales'] = $supportedFormLocales;
+        $config['primaryLocale'] = $submissionLocale;
+        $config['visibleLocales'] = [$submissionLocale];
+        $config['supportedFormLocales'] = collect($locales)
+            ->sortBy([fn (array $a, array $b) => $b['key'] === $submissionLocale ? 1 : -1])
+            ->values()
+            ->toArray();
 
         return $config;
     }

@@ -276,9 +276,11 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             [
                 'urlPath.regex' => __('admin.contexts.form.pathAlphaNumeric'),
                 'primaryLocale.regex' => __('validator.localeKey'),
+                'supportedDefaultSubmissionLocale.regex' => __('validator.localeKey'),
                 'supportedFormLocales.regex' => __('validator.localeKey'),
                 'supportedLocales.regex' => __('validator.localeKey'),
                 'supportedSubmissionLocales.*.regex' => __('validator.localeKey'),
+                'supportedSubmissionMetadataLocales.*.regex' => __('validator.localeKey'),
             ]
         );
 
@@ -501,8 +503,17 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         if (!$context->getData('supportedFormLocales')) {
             $context->setData('supportedFormLocales', [$context->getData('primaryLocale')]);
         }
+        if (!$context->getData('supportedDefaultSubmissionLocale')) {
+            $context->setData('supportedDefaultSubmissionLocale', $context->getData('primaryLocale'));
+        }
+        if (!$context->getData('supportedAddedSubmissionLocales')) {
+            $context->setData('supportedAddedSubmissionLocales', [$context->getData('supportedDefaultSubmissionLocale')]);
+        }
         if (!$context->getData('supportedSubmissionLocales')) {
-            $context->setData('supportedSubmissionLocales', [$context->getData('primaryLocale')]);
+            $context->setData('supportedSubmissionLocales', [$context->getData('supportedDefaultSubmissionLocale')]);
+        }
+        if (!$context->getData('supportedSubmissionMetadataLocales')) {
+            $context->setData('supportedSubmissionMetadataLocales', [$context->getData('supportedDefaultSubmissionLocale')]);
         }
 
         $contextDao->insertObject($context);

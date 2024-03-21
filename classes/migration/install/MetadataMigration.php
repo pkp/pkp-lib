@@ -47,7 +47,7 @@ class MetadataMigration extends \PKP\migration\Migration
             $table->foreign('citation_id', 'citation_settings_citation_id')->references('citation_id')->on('citations')->onDelete('cascade');
             $table->index(['citation_id'], 'citation_settings_citation_id');
 
-            $table->string('locale', 14)->default('');
+            $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
@@ -92,7 +92,7 @@ class MetadataMigration extends \PKP\migration\Migration
             $table->foreign('filter_id')->references('filter_id')->on('filters')->onDelete('cascade');
             $table->index(['filter_id'], 'filter_settings_id');
 
-            $table->string('locale', 14)->default('');
+            $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);

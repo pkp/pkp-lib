@@ -99,8 +99,8 @@ class Repository
     public function validate($author, $props, Submission $submission, Context $context)
     {
         $schemaService = Services::get('schema');
-        $allowedLocales = $context->getSupportedSubmissionLocales();
         $primaryLocale = $submission->getData('locale');
+        $allowedLocales = $submission->getPublicationLanguages($context->getSupportedSubmissionMetadataLocales());
 
         $validator = ValidatorFactory::make(
             $props,

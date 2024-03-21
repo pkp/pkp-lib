@@ -216,10 +216,14 @@ abstract class PKPAuthorDashboardHandler extends Handler
             }
         }
 
-        $locales = $submissionContext->getSupportedSubmissionLocaleNames();
-        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
-
         $latestPublication = $submission->getLatestPublication();
+
+        $submissionLocale = $submission->getData('locale');
+        $locales = collect($submissionContext->getSupportedSubmissionMetadataLocaleNames() + $submission->getPublicationLanguageNames())
+            ->map(fn (string $name, string $locale) => ['key' => $locale, 'label' => $name])
+            ->sortBy('key')
+            ->values()
+            ->toArray();
 
         $submissionApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId());
         $latestPublicationApiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'submissions/' . $submission->getId() . '/publications/' . $latestPublication->getId());
@@ -302,8 +306,8 @@ abstract class PKPAuthorDashboardHandler extends Handler
         $state = [
             'canEditPublication' => $canEditPublication,
             'components' => [
-                FORM_TITLE_ABSTRACT => $titleAbstractForm->getConfig(),
-                FORM_CITATIONS => $citationsForm->getConfig(),
+                FORM_TITLE_ABSTRACT => $this->getLocalizedForm($titleAbstractForm, $submissionLocale, $locales),
+                FORM_CITATIONS => $this->getLocalizedForm($citationsForm, $submissionLocale, $locales),
                 $contributorsListPanel->id => $contributorsListPanel->getConfig(),
             ],
             'currentPublication' => $currentPublicationProps,
@@ -326,16 +330,15 @@ abstract class PKPAuthorDashboardHandler extends Handler
         ];
 
         // Add the metadata form if one or more metadata fields are enabled
-        $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__']);
+        $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__', 'submissionId' => $submission->getId()]);
         $metadataForm = new PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase, true);
-        $metadataFormConfig = $metadataForm->getConfig();
         $metadataEnabled = count($metadataForm->fields);
 
         if ($metadataEnabled) {
             $templateMgr->setConstants([
                 'FORM_METADATA' => FORM_METADATA,
             ]);
-            $state['components'][FORM_METADATA] = $metadataFormConfig;
+            $state['components'][FORM_METADATA] = $this->getLocalizedForm($metadataForm, $submissionLocale, $locales);
             $state['publicationFormIds'][] = FORM_METADATA;
         }
 
@@ -368,6 +371,31 @@ abstract class PKPAuthorDashboardHandler extends Handler
             $authorItems,
             $canEditPublication
         );
+    }
+
+    /**
+     * Get the form configuration data with the correct
+     * locale settings based on the submission's locale
+     *
+     * Uses the submission locale as the primary and
+     * visible locale, and puts that locale first in the
+     * list of supported locales.
+     *
+     * Call this instead of $form->getConfig() to display
+     * a form with the correct submission's publication locales
+     */
+    protected function getLocalizedForm(\PKP\components\forms\FormComponent $form, string $submissionLocale, array $locales): array
+    {
+        $config = $form->getConfig();
+
+        $config['primaryLocale'] = $submissionLocale;
+        $config['visibleLocales'] = [$submissionLocale];
+        $config['supportedFormLocales'] = collect($locales)
+            ->sortBy([fn (array $a, array $b) => $b['key'] === $submissionLocale ? 1 : -1])
+            ->values()
+            ->toArray();
+
+        return $config;
     }
 
     /**

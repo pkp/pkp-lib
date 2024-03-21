@@ -38,6 +38,8 @@
 				<tab id="languages" label="{translate key="common.languages"}">
 					{capture assign=languagesUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT context=$editContext->getPath() component="grid.settings.languages.ManageLanguageGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="languageGridContainer" url=$languagesUrl}
+					{capture assign=submissionLanguagesUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT context=$editContext->getPath() component="grid.settings.languages.SubmissionLanguageGridHandler" op="fetchGrid" escape=false}{/capture}
+					{load_url_in_div id="submissionLanguageGridContainer" url=$submissionLanguagesUrl}
 				</tab>
 				<tab id="indexing" label="{translate key="manager.setup.searchEngineIndexing"}">
 					<pkp-form

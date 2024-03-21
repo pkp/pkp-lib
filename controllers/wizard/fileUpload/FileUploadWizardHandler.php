@@ -454,13 +454,14 @@ class FileUploadWizardHandler extends Handler
             'primaryLocale' => $this->getSubmission()->getData('locale'),
         ]);
 
+        $context = $request->getContext();
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
         $form = new SubmissionFilesMetadataForm($submissionFile, $this->getStageId(), $this->getReviewRound());
         $form->initData();
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $fileGenres = $genreDao->getByContextId($request->getContext()->getId())->toArray();
+        $fileGenres = $genreDao->getByContextId($context->getId())->toArray();
 
         $fileData = Repo::submissionFile()
             ->getSchemaMap()

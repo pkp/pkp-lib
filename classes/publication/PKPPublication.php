@@ -19,9 +19,13 @@
 namespace PKP\publication;
 
 use APP\author\Author;
+use APP\core\Services;
 use APP\facades\Repo;
 use PKP\core\Core;
 use PKP\core\PKPString;
+use PKP\facades\Locale;
+use PKP\i18n\LocaleMetadata;
+use PKP\services\PKPSchemaService;
 use PKP\userGroup\UserGroup;
 
 class PKPPublication extends \PKP\core\DataObject
@@ -430,6 +434,42 @@ class PKPPublication extends \PKP\core\DataObject
         } else {
             $this->setData('pub-id::' . $pubIdType, $pubId);
         }
+    }
+
+    /**
+     * Get metadata language names
+     */
+    public function getLanguageNames(): array
+    {
+        return Locale::getSubmissionLocaleDisplayNames($this->getLanguages());
+    }
+
+    /**
+     * Get languages from locale, metadata, and authors' props.
+     * Include optional additional languages.
+     * 
+     * Publication: locale, multilingual metadata props
+     * Authors: multilingual props
+     */
+    public function getLanguages(?array ...$additionalLocales): array
+    {
+        $getMProps = fn (string $schema): array => Services::get('schema')->getMultilingualProps($schema);
+        $metadataprops = $getMProps(PKPSchemaService::SCHEMA_PUBLICATION);
+        $authorProps = $getMProps(PKPSchemaService::SCHEMA_AUTHOR);
+
+        $getlocales = fn (array $props, object $item): array => array_map(fn (string $prop): array => array_keys($item->getData($prop) ?? []), $props);
+        $metadataLocales = $getlocales($metadataprops, $this);
+        $authorsLocales = $this->getData('authors')?->map(fn (Author $author): array => $getlocales($authorProps, $author)) ?? [];
+
+        return collect([$this->getData('locale')])
+            ->concat($metadataLocales)
+            ->concat($authorsLocales)
+            ->concat($additionalLocales)
+            ->flatten()
+            ->filter()
+            ->unique()
+            ->values()
+            ->toArray();
     }
 }
 if (!PKP_STRICT_MODE) {

@@ -55,7 +55,7 @@ class CategoriesMigration extends \PKP\migration\Migration
             $table->foreign('category_id')->references('category_id')->on('categories')->onDelete('cascade');
             $table->index(['category_id'], 'category_settings_category_id');
 
-            $table->string('locale', 14)->default('');
+            $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 

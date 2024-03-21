@@ -46,7 +46,7 @@ class DoiMigration extends Migration
             $table->comment('More data about DOIs, including the registration agency.');
             $table->bigIncrements('doi_setting_id');
             $table->bigInteger('doi_id');
-            $table->string('locale', 14)->default('');
+            $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 

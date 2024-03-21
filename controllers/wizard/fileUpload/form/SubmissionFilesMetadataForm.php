@@ -16,6 +16,7 @@
 
 namespace PKP\controllers\wizard\fileUpload\form;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
@@ -48,7 +49,14 @@ class SubmissionFilesMetadataForm extends Form
         if ($template === null) {
             $template = 'controllers/wizard/fileUpload/form/submissionFileMetadataForm.tpl';
         }
-        parent::__construct($template);
+
+        $submissionLocale = $submissionFile->getData('locale');
+        $publicationLanguageNames = Repo::submission()->get($submissionFile->getData('submissionId'))->getPublicationLanguageNames();
+
+        $localeNames = Application::get()->getRequest()->getContext()->getSupportedSubmissionMetadataLocaleNames() + $publicationLanguageNames + $submissionFile->getLanguageNames();
+        ksort($localeNames);
+
+        parent::__construct($template, true, $submissionLocale, $localeNames);
 
         // Initialize the object.
         $this->_submissionFile = $submissionFile;
@@ -57,7 +65,6 @@ class SubmissionFilesMetadataForm extends Form
             $this->_reviewRound = $reviewRound;
         }
 
-        $submissionLocale = $submissionFile->getData('locale');
         $this->setDefaultFormLocale($submissionLocale);
 
         // Add validation checks.

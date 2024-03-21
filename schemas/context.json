@@ -778,6 +778,21 @@
 			"default": false,
 			"description": "Whether or not submitting authors should be asked to select categories when they make a new submission."
 		},
+		"supportedAddedSubmissionLocales": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"validation": [
+					"regex:/^([A-Za-z]{2,4})(?<sc>[_-]([A-Za-z]{4,5}|[0-9]{4}))?([_-]([A-Za-z]{2}|[0-9]{3}))?(@[a-z]{2,30}(?&sc)?)?$/"
+				]
+			}
+		},
+		"supportedDefaultSubmissionLocale": {
+			"type": "string",
+			"validation": [
+				"regex:/^([A-Za-z]{2,4})(?<sc>[_-]([A-Za-z]{4,5}|[0-9]{4}))?([_-]([A-Za-z]{2}|[0-9]{3}))?(@[a-z]{2,30}(?&sc)?)?$/"
+			]
+		},
 		"supportedFormLocales": {
 			"type": "array",
 			"items": {
@@ -801,7 +816,16 @@
 			"items": {
 				"type": "string",
 				"validation": [
-					"regex:/^([a-z]{2})((_[A-Z]{2})?)(@[a-z]{0,})?$/"
+					"regex:/^([A-Za-z]{2,4})(?<sc>[_-]([A-Za-z]{4,5}|[0-9]{4}))?([_-]([A-Za-z]{2}|[0-9]{3}))?(@[a-z]{2,30}(?&sc)?)?$/"
+				]
+			}
+		},
+		"supportedSubmissionMetadataLocales": {
+			"type": "array",
+			"items": {
+				"type": "string",
+				"validation": [
+					"regex:/^([A-Za-z]{2,4})(?<sc>[_-]([A-Za-z]{4,5}|[0-9]{4}))?([_-]([A-Za-z]{2}|[0-9]{3}))?(@[a-z]{2,30}(?&sc)?)?$/"
 				]
 			}
 		},

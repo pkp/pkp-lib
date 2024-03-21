@@ -18,6 +18,7 @@
 namespace PKP\API\v1\vocabs;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -104,8 +105,9 @@ class PKPVocabController extends PKPBaseController
         $vocab = $requestParams['vocab'] ?? '';
         $locale = $requestParams['locale'] ?? Locale::getLocale();
         $term = $requestParams['term'] ?? null;
+        $locales = array_merge($context->getSupportedSubmissionMetadataLocales(), isset($requestParams['submissionId']) ? Repo::submission()->get((int) $requestParams['submissionId'])?->getPublicationLanguages() ?? [] : []);
 
-        if (!in_array($locale, $context->getData('supportedSubmissionLocales'))) {
+        if (!in_array($locale, $locales)) {
             return response()->json([
                 'error' => __('api.vocabs.400.localeNotSupported', ['locale' => $locale]),
             ], Response::HTTP_BAD_REQUEST);

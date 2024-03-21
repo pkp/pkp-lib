@@ -262,8 +262,12 @@ abstract class Repository
      */
     public function validate(?Submission $submission, array $props, Context $context): array
     {
-        $primaryLocale = $props['locale'] ?? $submission?->getData('locale') ?? $context->getPrimaryLocale();
+        $primaryLocale = $props['locale'] ?? $submission?->getData('locale') ?? $context->getSupportedDefaultSubmissionLocale();
         $allowedLocales = $context->getSupportedSubmissionLocales();
+        
+        if (!in_array($primaryLocale, $allowedLocales) ) {
+            $allowedLocales[] = $primaryLocale;
+        }
 
         $errors = [];
 
@@ -382,7 +386,7 @@ abstract class Repository
                 if (!isset($errors['contributors'])) {
                     $errors['contributors'] = [];
                 }
-                $errors['contributors'][] = __('submission.wizard.missingContributorLanguage', ['language' => Locale::getMetadata($locale)->getDisplayName()]);
+                $errors['contributors'][] = __('submission.wizard.missingContributorLanguage', ['language' => Locale::getSubmissionLocaleDisplayNames([$locale])[$locale]]);
                 break;
             }
         }
@@ -555,7 +559,7 @@ abstract class Repository
             $submission->setData('status', Submission::STATUS_QUEUED);
         }
         if (!$submission->getData('locale')) {
-            $submission->setData('locale', $context->getPrimaryLocale());
+            $submission->setData('locale', $context->getSupportedDefaultSubmissionLocale());
         }
         $submissionId = $this->dao->insert($submission);
         $submission = Repo::submission()->get($submissionId);

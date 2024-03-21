@@ -133,8 +133,8 @@ abstract class Repository
      */
     public function validate(?Publication $publication, array $props, Submission $submission, Context $context): array
     {
-        $allowedLocales = $context->getSupportedSubmissionLocales();
         $primaryLocale = $submission->getData('locale');
+        $allowedLocales = $submission->getpublicationLanguages($context->getSupportedSubmissionMetadataLocales());
 
         $errors = [];
 
@@ -245,7 +245,7 @@ abstract class Repository
      * wants to enforce particular publishing requirements, such as
      * requiring certain metadata or other information.
      *
-     * @param array $allowedLocales The context's supported submission locales
+     * @param array $allowedLocales The context's supported submission metadata locales
      * @param string $primaryLocale The submission's primary locale
      *
      * @hook Publication::validatePublish [[&$errors, $publication, $submission, $allowedLocales, $primaryLocale]]
@@ -286,7 +286,7 @@ abstract class Repository
                 $submissionContext = Services::get('context')->get($submission->getData('contextId'));
             }
 
-            $supportedLocales = $submissionContext->getSupportedSubmissionLocales();
+            $supportedLocales = $submission->getPublicationLanguages($submissionContext->getSupportedSubmissionMetadataLocales());
             foreach ($supportedLocales as $localeKey) {
                 if (!array_key_exists($localeKey, $publication->getData('coverImage'))) {
                     continue;
@@ -394,7 +394,7 @@ abstract class Repository
                 $submissionContext = Services::get('context')->get($submission->getData('contextId'));
             }
 
-            $supportedLocales = $submissionContext->getSupportedSubmissionLocales();
+            $supportedLocales = $submission->getPublicationLanguages($submissionContext->getSupportedSubmissionMetadataLocales());
             foreach ($supportedLocales as $localeKey) {
                 if (!array_key_exists($localeKey, $params['coverImage'])) {
                     continue;

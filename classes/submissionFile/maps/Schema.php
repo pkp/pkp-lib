@@ -226,10 +226,12 @@ class Schema extends BaseSchema
             $output[$prop] = $submissionFile->getData($prop);
         }
 
+        $locales = Repo::submission()->get($submissionFile->getData('submissionId'))->getPublicationLanguages($this->context->getSupportedSubmissionMetadataLocales(), $submissionFile->getLanguages());
+
         $output = $this->schemaService->addMissingMultilingualValues(
             $this->schema,
             $output,
-            $this->context->getSupportedFormLocales()
+            $locales
         );
 
         ksort($output);

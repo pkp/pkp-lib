@@ -106,7 +106,9 @@ class Schema extends \PKP\core\maps\Schema
             }
         }
 
-        $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $this->context->getSupportedSubmissionLocales());
+        $locales = Repo::submission()->get(Repo::publication()->get($item->getData('publicationId'))->getData('submissionId'))->getPublicationLanguages($this->context->getSupportedSubmissionMetadataLocales());
+
+        $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $locales);
 
         ksort($output);
 

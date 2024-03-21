@@ -55,7 +55,7 @@ class ControlledVocabMigration extends \PKP\migration\Migration
             $table->foreign('controlled_vocab_entry_id', 'c_v_e_s_entry_id')->references('controlled_vocab_entry_id')->on('controlled_vocab_entries')->onDelete('cascade');
             $table->index(['controlled_vocab_entry_id'], 'c_v_e_s_entry_id');
 
-            $table->string('locale', 14)->default('');
+            $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);

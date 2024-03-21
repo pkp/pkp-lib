@@ -109,8 +109,8 @@ abstract class Repository
      * Perform validation checks on data used to add or edit a submission file.
      *
      * @param array $props A key/value array with the new data to validate
-     * @param array $allowedLocales The context's supported locales
-     * @param string $primaryLocale The context's primary locale
+     * @param array $allowedLocales The supported submission metadata locales
+     * @param string $submissionLocale The submission's locale
      *
      * @return array A key/value array with validation errors. Empty if no errors
      *
@@ -120,7 +120,7 @@ abstract class Repository
         ?SubmissionFile $object,
         array $props,
         array $allowedLocales,
-        string $primaryLocale
+        string $submissionLocale
     ): array {
         $validator = ValidatorFactory::make(
             $props,
@@ -135,7 +135,7 @@ abstract class Repository
             $this->schemaService->getRequiredProps($this->dao->schema),
             $this->schemaService->getMultilingualProps($this->dao->schema),
             $allowedLocales,
-            $primaryLocale
+            $submissionLocale
         );
 
         // Check for input from disallowed locales
@@ -248,7 +248,7 @@ abstract class Repository
                 $object,
                 $props,
                 $allowedLocales,
-                $primaryLocale
+                $submissionLocale
             ]
         );
 

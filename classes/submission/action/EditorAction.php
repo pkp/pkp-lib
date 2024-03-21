@@ -199,10 +199,7 @@ class EditorAction
                     'dateLogged' => Core::getCurrentDate(),
                     'reviewAssignmentId' => $reviewAssignment->getId(),
                     'reviewerName' => $reviewer->getFullName(),
-                    'reviewDueDate' => date(
-                        PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort()),
-                        strtotime($reviewAssignment->getDateDue())
-                    ),
+                    'reviewDueDate' => PKPString::getLocalizedDate($reviewAssignment->getDateDue(), $context->getLocalizedDateFormatShort()),
                     'submissionId' => $submission->getId(),
                     'stageId' => $reviewAssignment->getStageId(),
                     'round' => $reviewAssignment->getRound()

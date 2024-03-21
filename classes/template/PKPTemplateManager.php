@@ -170,22 +170,22 @@ class PKPTemplateManager extends Smarty
         // Assign date and time format
         if ($currentContext) {
             $this->assign([
-                'dateFormatShort' => PKPString::convertStrftimeFormat($currentContext->getLocalizedDateFormatShort()),
-                'dateFormatLong' => PKPString::convertStrftimeFormat($currentContext->getLocalizedDateFormatLong()),
-                'datetimeFormatShort' => PKPString::convertStrftimeFormat($currentContext->getLocalizedDateTimeFormatShort()),
-                'datetimeFormatLong' => PKPString::convertStrftimeFormat($currentContext->getLocalizedDateTimeFormatLong()),
-                'timeFormat' => PKPString::convertStrftimeFormat($currentContext->getLocalizedTimeFormat()),
+                'dateFormatShort' => $currentContext->getLocalizedDateFormatShort(),
+                'dateFormatLong' => $currentContext->getLocalizedDateFormatLong(),
+                'datetimeFormatShort' => $currentContext->getLocalizedDateTimeFormatShort(),
+                'datetimeFormatLong' => $currentContext->getLocalizedDateTimeFormatLong(),
+                'timeFormat' => $currentContext->getLocalizedTimeFormat(),
                 'displayPageHeaderTitle' => $currentContext->getLocalizedData('name'),
                 'displayPageHeaderLogo' => $currentContext->getLocalizedData('pageHeaderLogoImage'),
                 'displayPageHeaderLogoAltText' => $currentContext->getLocalizedData('pageHeaderLogoImageAltText'),
             ]);
         } else {
             $this->assign([
-                'dateFormatShort' => PKPString::convertStrftimeFormat(Config::getVar('general', 'date_format_short')),
-                'dateFormatLong' => PKPString::convertStrftimeFormat(Config::getVar('general', 'date_format_long')),
-                'datetimeFormatShort' => PKPString::convertStrftimeFormat(Config::getVar('general', 'datetime_format_short')),
-                'datetimeFormatLong' => PKPString::convertStrftimeFormat(Config::getVar('general', 'datetime_format_long')),
-                'timeFormat' => PKPString::convertStrftimeFormat(Config::getVar('general', 'time_format')),
+                'dateFormatShort' => Config::getVar('general', 'date_format_short'),
+                'dateFormatLong' => Config::getVar('general', 'date_format_long'),
+                'datetimeFormatShort' => Config::getVar('general', 'datetime_format_short'),
+                'datetimeFormatLong' => Config::getVar('general', 'datetime_format_long'),
+                'timeFormat' => Config::getVar('general', 'time_format'),
             ]);
         }
 
@@ -310,20 +310,21 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('modifier', 'array_values', array_values(...));
         $this->registerPlugin('modifier', 'fatalError', fatalError(...));
         $this->registerPlugin('modifier', 'translate', $this->smartyTranslateModifier(...));
-        $this->registerPlugin('modifier', 'strip_unsafe_html', \PKP\core\PKPString::stripUnsafeHtml(...));
+        $this->registerPlugin('modifier', 'strip_unsafe_html', PKPString::stripUnsafeHtml(...));
         $this->registerPlugin('modifier', 'parse_url', parse_url(...));
         $this->registerPlugin('modifier', 'parse_str', parse_str(...));
         $this->registerPlugin('modifier', 'strtok', strtok(...));
         $this->registerPlugin('modifier', 'array_pop', array_pop(...));
         $this->registerPlugin('modifier', 'array_keys', array_keys(...));
         $this->registerPlugin('modifier', 'String_substr', Str::substr(...));
-        $this->registerPlugin('modifier', 'dateformatPHP2JQueryDatepicker', \PKP\core\PKPString::dateformatPHP2JQueryDatepicker(...));
+        $this->registerPlugin('modifier', 'dateformatPHP2JQueryDatepicker', PKPString::dateformatPHP2JQueryDatepicker(...));
         $this->registerPlugin('modifier', 'to_array', $this->smartyToArray(...));
         $this->registerPlugin('modifier', 'compare', $this->smartyCompare(...));
         $this->registerPlugin('modifier', 'concat', $this->smartyConcat(...));
         $this->registerPlugin('modifier', 'strtotime', $this->smartyStrtotime(...));
         $this->registerPlugin('modifier', 'explode', $this->smartyExplode(...));
         $this->registerPlugin('modifier', 'escape', $this->smartyEscape(...));
+        $this->registerPlugin("modifier", "date_format", PKPString::getLocalizedDate(...));
         $this->registerPlugin('function', 'csrf', $this->smartyCSRF(...));
         $this->registerPlugin('function', 'translate', $this->smartyTranslate(...));
         $this->registerPlugin('function', 'null_link_action', $this->smartyNullLinkAction(...));
@@ -1989,6 +1990,15 @@ class PKPTemplateManager extends Smarty
             default:
                 return smarty_modifier_escape($string, $esc_type, $char_set);
         }
+    }
+
+    /**
+     * Override the built-in smarty date_format modifier to
+     * handle localised time formats
+     */
+    function smarty_modifier_custom_date_format($date, $format = null) 
+    {
+        return PKPString::getLocalizedDate($date, $format);
     }
 
     /**

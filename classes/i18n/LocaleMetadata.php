@@ -180,8 +180,8 @@ class LocaleMetadata
      */
     public function getScript(?string $locale = null): ?string
     {
-        $script = ucfirst($this->_parse()->script);
-        return $this->_parse()->script ? Locale::getScripts($locale)->getByAlpha4($script)->getLocalName() : null;
+        $script = ucfirst($this->_parse()->script ?? '');
+        return $script ? Locale::getScripts($locale)->getByAlpha4($script)->getLocalName() : null;
     }
 
     /**

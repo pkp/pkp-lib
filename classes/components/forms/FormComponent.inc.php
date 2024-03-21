@@ -292,6 +292,10 @@ class FormComponent {
 			$config['value'] = $field->isMultilingual ? array() : $field->getEmptyValue();
 		}
 		if ($field->isMultilingual) {
+			if (is_string($config['value'])) {
+				$config['value'] = json_decode($config['value'], true);
+			}
+
 			foreach ($this->locales as $locale) {
 				if (!array_key_exists($locale['key'], $config['value'])) {
 					$config['value'][$locale['key']] = $field->getEmptyValue();

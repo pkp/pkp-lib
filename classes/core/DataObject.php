@@ -47,6 +47,19 @@ class DataObject
     /** @var bool whether injection adapters have already been loaded from the database */
     public $_injectionAdaptersLoaded = false;
 
+    /** @var array conversion table for locales */
+    public $_localesTable = [
+        "be@cyrillic" => "be",
+        "bs" => "bs_Latn",
+        "fr_FR" => "fr",
+        "nb" => "nb_NO",
+        "sr@cyrillic" => "sr_Cyrl",
+        "sr@latin" => "sr_Latn",
+        "uz@cyrillic" => "uz",
+        "uz@latin" => "uz_Latn",
+        "zh_CN" => "zh_Hans",
+    ];
+
     /**
      * Constructor
      */
@@ -101,6 +114,7 @@ class DataObject
         return array_unique(
             array_filter([
                 $preferredLocale ?? Locale::getLocale(),
+                $this->_localesTable[$preferredLocale ?? Locale::getLocale()] ?? null,
                 $this->getDefaultLocale(),
                 $request->getContext()?->getPrimaryLocale(),
                 $request->getSite()->getPrimaryLocale(),

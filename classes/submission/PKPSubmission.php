@@ -32,6 +32,7 @@ use APP\submission\DAO;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\facades\Locale;
+use PKP\i18n\LocaleMetadata;
 
 /**
  * @extends \PKP\core\DataObject<DAO>
@@ -199,6 +200,32 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     public function getDAO(): DAO
     {
         return Repo::submission()->dao;
+    }
+
+    /**
+     * Get metadata language names from publications
+     */
+    public function getPublicationLanguageNames(): array
+    {
+        return (($l = $this->getData('locale')) ? [$l => Locale::getSubmissionLocaleDisplayNames([$l])[$l]] : [])
+            + collect($this->getData('publications'))
+                ->flatMap(fn (Publication $p): array => $p->getLanguageNames())
+                ->toArray();
+    }
+
+    /**
+     * Get metadata languages from publications
+     */
+    public function getPublicationLanguages(?array ...$additionalLanguages): array
+    {
+        return collect([$this->getData('locale')])
+            ->concat($this->getData('publications')->map(fn (Publication $p): array => $p->getLanguages()))
+            ->concat($additionalLanguages)
+            ->flatten()
+            ->filter()
+            ->unique()
+            ->values()
+            ->toArray();
     }
 
     //

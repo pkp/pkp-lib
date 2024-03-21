@@ -16,7 +16,11 @@
 
 namespace PKP\submissionFile;
 
+use APP\core\Services;
 use APP\facades\Repo;
+use PKP\facades\Locale;
+use PKP\i18n\LocaleMetadata;
+use PKP\services\PKPSchemaService;
 
 /**
  * @extends \PKP\core\DataObject<DAO>
@@ -381,6 +385,30 @@ class SubmissionFile extends \PKP\core\DataObject
     public function getDAO(): DAO
     {
         return Repo::submissionFile()->dao;
+    }
+
+    /**
+     * Get metadata language names
+     */
+    public function getLanguageNames(): array
+    {
+        return Locale::getSubmissionLocaleDisplayNames($this->getLanguages());
+    }
+
+    /**
+     * Get metadata languages
+     */
+    public function getLanguages(): array
+    {
+        $props = Services::get('schema')->getMultilingualProps(PKPSchemaService::SCHEMA_SUBMISSION_FILE);
+        $locales = array_map(fn (string $prop): array => array_keys($this->getData($prop) ?? []), $props);
+        return collect([$this->getData('locale')])
+            ->concat($locales)
+            ->flatten()
+            ->filter()
+            ->unique()
+            ->values()
+            ->toArray();
     }
 }
 

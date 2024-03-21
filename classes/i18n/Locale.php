@@ -29,6 +29,7 @@ use DirectoryIterator;
 use Illuminate\Support\Facades\Cache;
 use InvalidArgumentException;
 use PKP\config\Config;
+use PKP\core\Core;
 use PKP\core\PKPRequest;
 use PKP\facades\Repo;
 use PKP\i18n\interfaces\LocaleInterface;
@@ -53,6 +54,9 @@ class Locale implements LocaleInterface
 {
     /** Max lifetime for the locale metadata cache, the cache is built by scanning the provided paths */
     protected const MAX_CACHE_LIFETIME = '1 hour';
+
+    /** @var string Max lifetime for the submission locales cache. */
+    protected const MAX_SUBMISSION_LOCALES_CACHE_LIFETIME = '1 year';
 
     /**
      * @var callable Formatter for missing locale keys
@@ -95,6 +99,9 @@ class Locale implements LocaleInterface
 
     /** Keeps cached data related only to the current locale */
     protected array $cache = [];
+
+    /** @var string[]|null Available submission locales cache, where key = locale and value = name */
+    protected ?array $submissionLocaleNames = null;
 
     /**
      * @copy \Illuminate\Contracts\Translation\Translator::get()
@@ -200,6 +207,14 @@ class Locale implements LocaleInterface
     public function isLocaleValid(?string $locale): bool
     {
         return !empty($locale) && preg_match(LocaleInterface::LOCALE_EXPRESSION, $locale);
+    }
+
+    /**
+     * @copy LocaleInterface::isSubmissionLocaleValid()
+     */
+    public function isSubmissionLocaleValid(?string $locale): bool
+    {
+        return !empty($locale) && preg_match(LocaleInterface::LOCALE_EXPRESSION_SUBMISSION, $locale);
     }
 
     /**
@@ -404,6 +419,37 @@ class Locale implements LocaleInterface
     }
 
     /**
+     * Get appropriately localized display names for submission locales to array
+     * If $filterByLocales empty, return all languages.
+     * Adds '*' (= in English) to display name if no translation available
+     * 
+     * @param array $filterByLocales Optional list of locale codes/code-name-pairs to filter
+     * @param ?string $displayLocale Optional display locale
+     * 
+     * @return array The list of locales with formatted display name
+     */
+    public function getSubmissionLocaleDisplayNames(array $filterByLocales = [], ?string $displayLocale = null): array
+    {
+        $convDispLocale = $this->convertSubmissionLocaleCode($displayLocale ?: $this->getLocale());
+        return collect($this->_getSubmissionLocaleNames())
+            ->when($filterByLocales, fn ($sln) => $sln->intersectByKeys(array_is_list($filterByLocales) ? array_flip(array_filter($filterByLocales)) : $filterByLocales))
+            ->when($convDispLocale !== 'en', fn ($sln) => $sln->map(function ($nameEn, $l) use ($convDispLocale) {
+                $cl = $this->convertSubmissionLocaleCode($l);
+                $dn = locale_get_display_name($cl, $convDispLocale);
+                return ($dn && $dn !== $cl) ? $dn : "*$nameEn";
+            }))
+            ->toArray();
+    }
+
+    /**
+     * Convert submission locale code
+     */
+    public function convertSubmissionLocaleCode(string $locale): string
+    {
+        return str_replace(['@cyrillic', '@latin'], ['_Cyrl', '_Latn'], $locale);
+    }
+
+    /**
      * Get the filtered locales by locale codes
      *
      * @param array $locales List of available all locales
@@ -510,5 +556,30 @@ class Locale implements LocaleInterface
         $locales = (SessionManager::isDisabled() ? null : $this->_getRequest()->getContext()?->getSupportedLocales() ?? $this->_getRequest()->getSite()?->getSupportedLocales())
             ?? array_map(fn (LocaleMetadata $locale) => $locale->locale, $this->getLocales());
         return $this->supportedLocales = array_combine($locales, $locales);
+    }
+
+    /**
+     * Get Weblate submission languages to array
+     * Combine app's language names with weblate's in English.
+     * Weblate's names override app's if same locale key
+     * 
+     * @return string[]
+     */
+    private function _getSubmissionLocaleNames(): array
+    {
+        return $this->submissionLocaleNames ??= (function (): array {
+            $file = Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/weblateLanguages/languages.json';
+            $key = __METHOD__ . self::MAX_SUBMISSION_LOCALES_CACHE_LIFETIME . filemtime($file);
+            $expiration = DateInterval::createFromDateString(self::MAX_SUBMISSION_LOCALES_CACHE_LIFETIME);
+            return Cache::remember($key, $expiration, fn (): array =>  collect($this->getLocales())
+                ->map(function (LocaleMetadata $lm, string $l): string {
+                    $cl = $this->convertSubmissionLocaleCode($l);
+                    $n = locale_get_display_name($cl, 'en');
+                    return ($n && $n !== $cl) ? $n : $lm->getDisplayName('en', true);
+                })
+                ->merge(json_decode(file_get_contents($file) ?: [], true) ?: [])
+                ->sortKeys()
+                ->toArray());
+        })();
     }
 }

@@ -75,7 +75,7 @@ class ManageLanguageGridHandler extends LanguageGridHandler
             $data[$locale]['primary'] = ($locale == $contextPrimaryLocale);
         }
 
-        $data = $this->addManagementData($request, $data);
+        $data = $this->addLocaleSettingData($request, $data);
         return $data;
     }
 
@@ -90,6 +90,9 @@ class ManageLanguageGridHandler extends LanguageGridHandler
     public function initialize($request, $args = null)
     {
         parent::initialize($request, $args);
+
+        $this->setTitle('manager.language.websiteLanguages');
+
         $this->addNameColumn();
         $this->addLocaleCodeColumn();
         $this->addPrimaryColumn('contextPrimary');

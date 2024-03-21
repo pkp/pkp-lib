@@ -43,7 +43,7 @@ class AnnouncementsMigration extends \PKP\migration\Migration
             $table->foreign('type_id')->references('type_id')->on('announcement_types')->onDelete('cascade');
             $table->index(['type_id'], 'announcement_type_settings_type_id');
 
-            $table->string('locale', 14)->default('');
+            $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
@@ -76,7 +76,7 @@ class AnnouncementsMigration extends \PKP\migration\Migration
             $table->foreign('announcement_id')->references('announcement_id')->on('announcements')->onDelete('cascade');
             $table->index(['announcement_id'], 'announcement_settings_announcement_id');
 
-            $table->string('locale', 14)->default('');
+            $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 

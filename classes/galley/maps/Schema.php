@@ -140,7 +140,9 @@ class Schema extends \PKP\core\maps\Schema
             }
         }
 
-        $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $this->context->getSupportedFormLocales());
+        $locales = $this->publication->getLanguages($this->context->getSupportedSubmissionMetadataLocales(), $galley->getLanguages());
+
+        $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $locales);
 
         ksort($output);
 

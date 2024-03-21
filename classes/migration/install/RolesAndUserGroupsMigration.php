@@ -44,7 +44,7 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->comment('More data about user groups, including localized properties such as the name.');
             $table->bigIncrements('user_group_setting_id');
             $table->bigInteger('user_group_id');
-            $table->string('locale', 14)->default('');
+            $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 

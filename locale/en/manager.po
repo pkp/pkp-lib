@@ -586,14 +586,32 @@ msgstr "Image"
 msgid "manager.importExport"
 msgstr "Import/Export Data"
 
+msgid "manager.language.websiteLanguages"
+msgstr "Website Languages"
+
+msgid "manager.language.submissionLanguages"
+msgstr "Submission Languages"
+
 msgid "manager.language.ui"
 msgstr "UI"
 
 msgid "manager.language.submissions"
 msgstr "Submissions"
 
+msgid "manager.language.gridAction.addLangauage"
+msgstr "Add/Remove Languages"
+
 msgid "manager.language.forms"
 msgstr "Forms"
+
+msgid "manager.language.submissionMetadata"
+msgstr "Metadata"
+
+msgid "manager.language.submission.form.description"
+msgstr "Select submission and metadata languages."
+
+msgid "manager.language.submission.from.error"
+msgstr "At least one locale needs to be selected."
 
 msgid "manager.language.reloadLocalizedDefaultSettings"
 msgstr "Reload defaults"
@@ -1636,6 +1654,12 @@ msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
 "The language setting could not be saved. At least one language must be "
 "enabled for each option"
+
+msgid "notification.defaultLocaleSettingsCannotBeSaved"
+msgstr "The language setting could not be saved. All options need to be enabled."
+
+msgid "notification.submissionLocales"
+msgstr "Submission locales updated."
 
 msgid "notification.editedUser"
 msgstr "User edited."

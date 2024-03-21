@@ -320,12 +320,12 @@ class PKPSubmissionFileController extends PKPBaseController
         $params['submissionId'] = $submission->getId();
         $params['uploaderUserId'] = (int) $request->getUser()->getId();
 
-        $primaryLocale = $request->getContext()->getPrimaryLocale();
-        $allowedLocales = $request->getContext()->getData('supportedSubmissionLocales');
+        $submissionLocale = $submission->getData('locale');
+        $allowedLocales = $request->getContext()->getSupportedSubmissionMetadataLocales();
 
         // Set the name if not passed with the request
         if (empty($params['name'])) {
-            $params['name'][$primaryLocale] = $_FILES['file']['name'];
+            $params['name'][$submissionLocale] = $_FILES['file']['name'];
         }
 
         // If no genre has been set and there is only one genre possible, set it automatically
@@ -344,7 +344,7 @@ class PKPSubmissionFileController extends PKPBaseController
                 null,
                 $params,
                 $allowedLocales,
-                $primaryLocale
+                $submissionLocale
             );
 
         if (!empty($errors)) {
@@ -430,15 +430,15 @@ class PKPSubmissionFileController extends PKPBaseController
             ], Response::HTTP_BAD_REQUEST);
         }
 
-        $primaryLocale = $request->getContext()->getPrimaryLocale();
-        $allowedLocales = $request->getContext()->getData('supportedSubmissionLocales');
+        $submissionLocale = $submission->getData('locale');
+        $allowedLocales = $request->getContext()->getSupportedSubmissionMetadataLocales();
 
         $errors = Repo::submissionFile()
             ->validate(
                 $submissionFile,
                 $params,
                 $allowedLocales,
-                $primaryLocale
+                $submissionLocale
             );
 
         if (!empty($errors)) {
@@ -466,7 +466,7 @@ class PKPSubmissionFileController extends PKPBaseController
             $params['fileId'] = $fileId;
             $params['uploaderUserId'] = $request->getUser()->getId();
             if (empty($params['name'])) {
-                $params['name'][$primaryLocale] = $_FILES['file']['name'];
+                $params['name'][$submissionLocale] = $_FILES['file']['name'];
             }
         }
 

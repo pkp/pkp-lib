@@ -107,8 +107,6 @@ class ContributorsListPanel extends ListPanel
      */
     protected function getLocalizedForm(): array
     {
-        uksort($this->locales, fn ($a, $b) => $a === $this->submission->getData('locale') ? -1 : 1);
-
         $apiUrl = Application::get()->getRequest()->getDispatcher()->url(
             Application::get()->getRequest(),
             Application::ROUTE_API,
@@ -116,11 +114,15 @@ class ContributorsListPanel extends ListPanel
             'submissions/' . $this->submission->getId() . '/publications/__publicationId__/contributors'
         );
 
-        $form = $this->getForm($apiUrl);
+        $submissionLocale = $this->submission->getData('locale');
+        $data = $this->getForm($apiUrl)->getConfig();
 
-        $data = $form->getConfig();
-        $data['primaryLocale'] = $this->submission->getData('locale');
-        $data['visibleLocales'] = [$this->submission->getData('locale')];
+        $data['primaryLocale'] = $submissionLocale;
+        $data['visibleLocales'] = [$submissionLocale];
+        $data['supportedFormLocales'] = collect($this->locales)
+            ->sortBy([fn (array $a, array $b) => $b['key'] === $submissionLocale ? 1 : -1])
+            ->values()
+            ->toArray();
 
         return $data;
     }

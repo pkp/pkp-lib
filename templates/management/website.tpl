@@ -70,6 +70,8 @@
 				<tab id="languages" label="{translate key="common.languages"}">
 					{capture assign=languagesUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.languages.ManageLanguageGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="languageGridContainer" url=$languagesUrl}
+					{capture assign=submissionLanguagesUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.languages.SubmissionLanguageGridHandler" op="fetchGrid" escape=false}{/capture}
+					{load_url_in_div id="submissionLanguageGridContainer" url=$submissionLanguagesUrl}
 				</tab>
 				<tab id="navigationMenus" label="{translate key="manager.navigationMenus"}">
 					{capture assign=navigationMenusGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenusGridHandler" op="fetchGrid" escape=false}{/capture}

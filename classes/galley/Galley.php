@@ -16,8 +16,11 @@
 
 namespace PKP\galley;
 
+use APP\core\Services;
 use APP\facades\Repo;
 use PKP\facades\Locale;
+use PKP\i18n\LocaleMetadata;
+use PKP\services\PKPSchemaService;
 use PKP\submission\Representation;
 use PKP\submissionFile\SubmissionFile;
 
@@ -127,8 +130,8 @@ class Galley extends Representation
     public function getGalleyLabel()
     {
         $label = $this->getLabel();
-        if ($this->getLocale() && $this->getLocale() != Locale::getLocale()) {
-            $label .= ' (' . Locale::getMetadata($this->getLocale())->getDisplayName() . ')';
+        if ($this->getLocale() && $this->getLocale() !== Locale::getLocale()) {
+            $label .= ' (' . Locale::getSubmissionLocaleDisplayNames([$this->getLocale()])[$this->getLocale()] . ')';
         }
         return $label;
     }
@@ -182,6 +185,30 @@ class Galley extends Representation
         } else {
             parent::setStoredPubId($pubIdType, $pubId);
         }
+    }
+
+    /**
+     * Get metadata language names
+     */
+    public function getLanguageNames(): array
+    {
+        return Locale::getSubmissionLocaleDisplayNames($this->getLanguages());
+    }
+
+    /**
+     * Get metadata languages
+     */
+    public function getLanguages(): array
+    {
+        $props = Services::get('schema')->getMultilingualProps(PKPSchemaService::SCHEMA_GALLEY);
+        $locales = array_map(fn (string $prop): array => array_keys($this->getData($prop) ?? []), $props);
+        return collect([$this->getData('locale')])
+            ->concat($locales)
+            ->flatten()
+            ->filter()
+            ->unique()
+            ->values()
+            ->toArray();
     }
 }
 

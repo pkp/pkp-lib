@@ -57,7 +57,7 @@ class LibraryFilesMigration extends \PKP\migration\Migration
             $table->foreign('file_id')->references('file_id')->on('library_files')->onDelete('cascade');
             $table->index(['file_id'], 'library_file_settings_file_id');
 
-            $table->string('locale', 14)->default('');
+            $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object|date)');

@@ -166,7 +166,7 @@ class AdminLanguageGridHandler extends LanguageGridHandler
         }
 
         if ($this->_canManage($request)) {
-            $data = $this->addManagementData($request, $data);
+            $data = $this->addLocaleSettingData($request, $data);
         }
 
         return $data;
@@ -430,7 +430,8 @@ class AdminLanguageGridHandler extends LanguageGridHandler
         while ($context = $contexts->next()) {
             $params = [];
             $primaryLocale = $context->getPrimaryLocale();
-            foreach (['supportedLocales', 'supportedFormLocales', 'supportedSubmissionLocales'] as $settingName) {
+            $params['supportedDefaultSubmissionLocale'] = $context->getData('supportedDefaultSubmissionLocale');
+            foreach (['supportedLocales', 'supportedFormLocales', 'supportedSubmissionLocales', 'supportedSubmissionMetadataLocales'] as $settingName) {
                 $localeList = $context->getData($settingName);
 
                 if (is_array($localeList)) {

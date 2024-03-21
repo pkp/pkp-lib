@@ -43,7 +43,7 @@ class HighlightsMigration extends \PKP\migration\Migration
             $table->foreign('highlight_id')->references('highlight_id')->on('highlights')->onDelete('cascade');
             $table->index(['highlight_id'], 'highlight_settings_highlight_id');
 
-            $table->string('locale', 14)->default('');
+            $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 

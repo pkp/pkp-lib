@@ -72,7 +72,7 @@ class SubmissionFilesMigration extends \PKP\migration\Migration
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
             $table->index(['submission_file_id'], 'submission_file_settings_submission_file_id');
 
-            $table->string('locale', 14)->default('');
+            $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 

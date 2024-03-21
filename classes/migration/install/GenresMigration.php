@@ -54,7 +54,7 @@ class GenresMigration extends \PKP\migration\Migration
             $table->foreign('genre_id')->references('genre_id')->on('genres')->onDelete('cascade');
             $table->index(['genre_id'], 'genre_settings_genre_id');
 
-            $table->string('locale', 14)->default('');
+            $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');

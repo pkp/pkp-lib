@@ -98,7 +98,7 @@
 					{foreach from=$settings item="value" key="name"}
 								<tr>
 									<td>{$name|escape}</td>
-									{if $name === "password"}
+									{if \PKP\config\Config::isSensitive($category, $name)}
 										<td>**************</td>
 									{else}
 										<td>{$value|escape}</td>

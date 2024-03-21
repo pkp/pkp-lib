@@ -42,6 +42,10 @@ abstract class SendSubmissionAcknowledgement
 
     public function handle(SubmissionSubmitted $event)
     {
+        if (!$event->context->getData('submissionAcknowledgement')) {
+            return;
+        }
+
         /** @var StageAssignmentDAO $stageAssignmentDao */
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
         $result = $stageAssignmentDao->getBySubmissionAndRoleIds($event->submission->getId(), [Role::ROLE_ID_AUTHOR]);
@@ -77,6 +81,10 @@ abstract class SendSubmissionAcknowledgement
                 $mailable,
                 $event->submission
             );
+        }
+
+        if ($event->context->getData('submissionAcknowledgement') !== 'allAuthors') {
+            return;
         }
 
         $submitterEmails = $submitterUsers->map(fn (User $user) => $user->getEmail());

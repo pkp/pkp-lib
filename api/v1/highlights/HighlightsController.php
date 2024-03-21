@@ -164,7 +164,7 @@ class HighlightsController extends PKPBaseController
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_HIGHLIGHT, $illuminateRequest->input());
         $params['contextId'] = $context?->getId();
-        if (!$params['sequence']) {
+        if (!($params['sequence'] ?? null)) {
             $params['sequence'] = Repo::highlight()->getNextSequence($context?->getId());
         }
 

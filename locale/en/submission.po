@@ -2425,3 +2425,78 @@ msgstr "Competing Interests"
 
 msgid "author.competingInterests.description"
 msgstr "Please disclose any competing interests this author may have with the research subject."
+
+msgid "submission.list.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Awaiting Response from the Reviewer"
+
+msgid "submission.list.reviewAssignment.statusAwaitingResponse.description"
+msgstr "Review request has been shared with Reviewer. Response is awaited in <b>{$days} days on {$date}</b>"
+
+msgid "submission.list.reviewAssignment.statusDeclined.title"
+msgstr "Review Request declined on {$date}"
+
+msgid "submission.list.reviewAssignment.statusDeclined.description"
+msgstr "Reviewer declined the review request on <b>{$date}</b>"
+
+msgid "submission.list.reviewAssignment.statusResponseOverdue.title"
+msgstr "Review Request overdue by {$days} days"
+
+msgid "submission.list.reviewAssignment.statusResponseOverdue.description"
+msgstr "This reviewer has not responded to the review request. A response was due on <b>{$date}</b>"
+
+msgid "submission.list.reviewAssignment.statusAccepted.title"
+msgstr "Ongoing review - request accepted"
+
+msgid "submission.list.reviewAssignment.statusAccepted.description"
+msgstr "This reviewer has accepted the review request. Their review is due in <b>{$days} days on {$date}.</b>"
+
+msgid "submission.list.reviewAssignment.statusReviewOverdue.title"
+msgstr "Review overdue by {$days} days"
+
+msgid "submission.list.reviewAssignment.statusReviewOverdue.description"
+msgstr "This reviewer has not completed their review. A response was due on <b>{$date}.</b>"
+
+msgid "submission.list.reviewAssignment.statusReceived.title"
+msgstr "Review completed on {$date}"
+
+msgid "submission.list.reviewAssignment.statusReceived.description"
+msgstr "The review was completed on {$date} with the following recommendation: <b>{$recommendation}</b>"
+
+msgid "submission.list.reviewAssignment.statusComplete.title"
+msgstr "Review was confirmed by editor"
+
+msgid "submission.list.reviewAssignment.statusComplete.description"
+msgstr "The review was accepted by the editor on {$date}.</b>"
+
+msgid "submission.list.reviewAssignment.statusCancelled.title"
+msgstr "Reviewer cancelled review request"
+
+msgid "submission.list.reviewAssignment.statusCancelled.description"
+msgstr "Reviewer has cancelled the review request on <b>{$date}</b>"
+
+msgid "submission.list.reviewAssignment.statusRequestResend.title"
+msgstr "Awaiting Response from the Reviewer"
+
+msgid "submission.list.reviewAssignment.statusRequestResend.description"
+msgstr "Review request has been reshared with reviewer. Response is awaited in {$days} days on {$date}"
+
+msgid "submission.list.reviewAssignment.action.viewDetails"
+msgstr "View details"
+
+msgid "submission.list.reviewAssignment.action.resendReviewRequest"
+msgstr "Resend Review Request"
+
+msgid "submission.list.reviewAssignment.action.cancelReviewer"
+msgstr "Cancel Reviewer"
+
+msgid "submission.list.reviewAssignment.action.unassignReviewer"
+msgstr "Unassign"
+
+msgid "submission.list.reviewAssignment.action.editDueDate"
+msgstr "Edit Due Date"
+
+msgid "submission.list.reviewAssignment.action.viewRecommendation"
+msgstr "View recommendation"
+
+msgid "submission.list.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "View unread recommendation"

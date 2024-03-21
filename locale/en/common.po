@@ -1558,6 +1558,15 @@ msgstr "Step {$step}"
 msgid "navigation.submissions"
 msgstr "Submissions"
 
+msgid "navigation.dashboards"
+msgstr "Dashboards"
+
+msgid "navigation.reviewAssignments"
+msgstr "Review Assignments"
+
+msgid "navigation.mySubmissions"
+msgstr "My Submissions"
+
 msgid "navigation.system"
 msgstr "System"
 

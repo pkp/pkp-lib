@@ -292,18 +292,25 @@ class Schema extends \PKP\core\maps\Schema
             $request = Application::get()->getRequest();
             $currentUser = $request->getUser();
             $context = $request->getContext();
-            $due = is_null($reviewAssignment->getDateDue()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateDue()));
-            $responseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateResponseDue()));
-
+            $dateDue = is_null($reviewAssignment->getDateDue()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateDue()));
+            $dateResponseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateResponseDue()));
+            $dateConfirmed = is_null($reviewAssignment->getDateConfirmed()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateConfirmed()));
+            $dateCompleted = is_null($reviewAssignment->getDateCompleted()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateCompleted()));
+            $dateAssigned = is_null($reviewAssignment->getDateAssigned()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateAssigned()));
+            
             $reviews[] = [
                 'id' => (int) $reviewAssignment->getId(),
                 'isCurrentUserAssigned' => $currentUser->getId() == (int) $reviewAssignment->getReviewerId(),
                 'statusId' => (int) $reviewAssignment->getStatus(),
                 'status' => __($reviewAssignment->getStatusKey()),
-                'due' => $due,
-                'responseDue' => $responseDue,
+                'dateDue' => $dateDue,
+                'dateResponseDue' => $dateResponseDue,
+                'dateConfirmed' => $dateConfirmed,
+                'dateCompleted' => $dateCompleted,
+                'dateAssigned' => $dateAssigned,
                 'round' => (int) $reviewAssignment->getRound(),
                 'roundId' => (int) $reviewAssignment->getReviewRoundId(),
+                'recommendation' =>  $reviewAssignment->getRecommendation()
             ];
         }
 

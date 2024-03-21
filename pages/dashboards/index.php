@@ -5,7 +5,7 @@
  */
 
 /**
- * @file lib/pkp/pages/submissions/index.php
+ * @file lib/pkp/pages/dashboards/index.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -20,6 +20,5 @@
 
 switch ($op) {
     case 'index':
-    case 'tasks':
-        return new PKP\pages\dashboard\DashboardHandler();
+        return new PKP\pages\dashboard\DashboardHandlerNext(PKP\pages\dashboard\DashboardPage::EDITORIAL_DASHBOARD);
 }

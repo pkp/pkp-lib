@@ -21,20 +21,27 @@ use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\components\forms\dashboard\SubmissionFilters;
 use PKP\core\JSONMessage;
-use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\DashboardView;
-use PKP\submission\GenreDAO;
-use PKP\submission\PKPSubmission;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewRound\ReviewRound;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
 define('SUBMISSIONS_LIST_ARCHIVE', 'archive');
 define('SUBMISSIONS_LIST_MY_QUEUE', 'myQueue');
 define('SUBMISSIONS_LIST_UNASSIGNED', 'unassigned');
+
+enum DashboardPage: string
+{
+    case EDITORIAL_DASHBOARD = 'EDITORIAL_DASHBOARD';
+    case MY_REVIEW_ASSIGNMENTS = 'MY_REVIEW_ASSIGNMENTS';
+    case MY_SUBMISSIONS = 'MY_SUBMISSIONS';
+}
+
 
 class DashboardHandlerNext extends Handler
 {
@@ -43,13 +50,31 @@ class DashboardHandlerNext extends Handler
 
     public int $perPage = 30;
 
+
+    /** Identify in which context is looking at the submissions */
+    public DashboardPage $dashboardPage;
+
+    /** 
+     * editorial, review_assignments
+     */
+    public array $selectedRoleIds = [];
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct(DashboardPage $dashboardPage)
     {
         parent::__construct();
 
+        $this->dashboardPage = $dashboardPage;
+
+        if($this->dashboardPage === DashboardPage::EDITORIAL_DASHBOARD) {
+            $this->selectedRoleIds = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT];
+        } else if($this->dashboardPage === DashboardPage::MY_REVIEW_ASSIGNMENTS)  {
+            $this->selectedRoleIds = [Role::ROLE_ID_REVIEWER];
+        } else {
+             $this->selectedRoleIds = [Role::ROLE_ID_AUTHOR];
+        }
+        
         $this->addRoleAssignment(
             [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_ASSISTANT],
             ['index', 'tasks', 'myQueue', 'unassigned', 'active', 'archives']
@@ -84,7 +109,6 @@ class DashboardHandlerNext extends Handler
         $this->setupTemplate($request);
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_submissions');
 
         $sections = Repo::section()
             ->getCollector()
@@ -103,27 +127,10 @@ class DashboardHandlerNext extends Handler
             $categories
         );
 
-        $collector = Repo::submission()
-            ->getCollector()
-            ->filterByContextIds([(int) $request->getContext()->getId()])
-            ->filterByStatus([PKPSubmission::STATUS_QUEUED]);
-
-        if (empty(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
-            $collector->assignedTo([(int) $request->getUser()->getId()]);
-        }
-
-        $userGroups = Repo::userGroup()
-            ->getCollector()
-            ->filterByContextIds([$context->getId()])
-            ->getMany();
-
-        /** @var GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toArray();
 
         $templateMgr->setState([
             'pageInitConfig' => [
-                'apiUrl' => $apiUrl,
+                'dashboardPage' => $this->dashboardPage,
                 'assignParticipantUrl' => $dispatcher->url(
                     $request,
                     Application::ROUTE_COMPONENT,
@@ -137,17 +144,7 @@ class DashboardHandlerNext extends Handler
                     ]
                 ),
                 'countPerPage' => $this->perPage,
-                'currentViewId' => 'active',
                 'filtersForm' => $filtersForm->getConfig(),
-                'submissions' => Repo::submission()
-                    ->getSchemaMap()
-                    ->mapManyToSubmissionsList(
-                        $collector->limit($this->perPage)->getMany(),
-                        $userGroups,
-                        $genres
-                    )
-                    ->values(),
-                'submissionsCount' => $collector->limit(null)->getCount(),
                 'views' => $this->getViews(),
                 'columns' => $this->getColumns(),
 
@@ -161,7 +158,33 @@ class DashboardHandlerNext extends Handler
         ]);
 
         $templateMgr->setConstants([
-            'STAGE_STATUS_SUBMISSION_UNASSIGNED' => Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED,
+        'STAGE_STATUS_SUBMISSION_UNASSIGNED' => Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED,
+        'REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE,
+		'REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE,
+		'REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE'=> ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE,
+		'REVIEW_ASSIGNMENT_STATUS_ACCEPTED'=> ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_ACCEPTED,
+		'REVIEW_ASSIGNMENT_STATUS_RECEIVED'=> ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RECEIVED,
+		'REVIEW_ASSIGNMENT_STATUS_COMPLETE'=> ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE,
+		'REVIEW_ASSIGNMENT_STATUS_THANKED'=> ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED,
+		'REVIEW_ASSIGNMENT_STATUS_CANCELLED'=> ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_CANCELLED,
+		'REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND'=> ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND,
+		'REVIEW_ROUND_STATUS_PENDING_REVIEWERS'=> ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS,
+		'REVIEW_ROUND_STATUS_REVIEWS_READY'=> ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_READY,
+		'REVIEW_ROUND_STATUS_REVIEWS_COMPLETED'=> ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED,
+		'REVIEW_ROUND_STATUS_REVIEWS_OVERDUE'=> ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_OVERDUE,
+		'REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED'=> ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED,
+		'REVIEW_ROUND_STATUS_REVISIONS_REQUESTED'=>ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED,
+		'SUBMISSION_REVIEW_METHOD_ANONYMOUS'=> ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS,
+		'SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS'=> ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS,
+		'SUBMISSION_REVIEW_METHOD_OPEN'=> ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN,
+
+		'SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT,
+		'SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS,
+		'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE,
+		'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE,
+		'SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE,
+		'SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS,
+
         ]);
 
         $templateMgr->display('dashboard/editors.tpl');
@@ -194,7 +217,7 @@ class DashboardHandlerNext extends Handler
         $context = $request->getContext();
         $user = $request->getUser();
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        $dashboardViews = Repo::submission()->getDashboardViews($context, $user);
+        $dashboardViews = Repo::submission()->getDashboardViews($context, $user, $this->selectedRoleIds);
         $viewsData = $dashboardViews->map(fn (DashboardView $dashboardView) => $dashboardView->getData())->values()->toArray();
 
         Hook::call('Dashboard::views', [&$viewsData, $userRoles]);
@@ -207,16 +230,28 @@ class DashboardHandlerNext extends Handler
      *
      * @hook Dashboard::columns [[&$columns, $userRoles]]
      */
-    protected function getColumns(): array
+    public function getColumns(): array
     {
-        $columns = [
-            $this->createColumn('id', __('common.id'), 'columnId', true),
-            $this->createColumn('title', __('navigation.submissions'), 'columnTitle'),
-            $this->createColumn('stage', __('workflow.stage'), 'columnStage'),
-            $this->createColumn('days', __('editor.submission.days'), 'columnDays'),
-            $this->createColumn('activity', __('stats.editorialActivity'), 'columnActivity'),
-            $this->createColumn('actions', __('admin.jobs.list.actions'), 'columnActions')
-        ];
+        $columns = [];
+
+        if($this->dashboardPage === DashboardPage::MY_REVIEW_ASSIGNMENTS) {
+            $columns = [
+                $this->createColumn('id', __('common.id'), 'ColumnReviewAssignmentId', true),
+                $this->createColumn('title', __('navigation.submissions'), 'ColumnReviewAssignmentTitle'),
+                $this->createColumn('activity', __('stats.editorialActivity'), 'ColumnReviewAssignmentActivity'),
+                $this->createColumn('actions', __('admin.jobs.list.actions'), 'ColumnReviewAssignmentActions')
+            ];
+        }
+        else {
+            $columns = [
+                $this->createColumn('id', __('common.id'), 'ColumnSubmissionId', true),
+                $this->createColumn('title', __('navigation.submissions'), 'ColumnSubmissionTitle'),
+                $this->createColumn('stage', __('workflow.stage'), 'ColumnSubmissionStage'),
+                $this->createColumn('days', __('editor.submission.days'), 'ColumnSubmissionDays'),
+                $this->createColumn('activity', __('stats.editorialActivity'), 'ColumnSubmissionActivity'),
+                $this->createColumn('actions', __('admin.jobs.list.actions'), 'ColumnSubmissionActions')
+            ];
+        }
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 

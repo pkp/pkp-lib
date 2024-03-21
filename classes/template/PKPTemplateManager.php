@@ -975,11 +975,36 @@ class PKPTemplateManager extends Smarty
 
                 if ($request->getContext()) {
                     if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR], $userRoles))) {
-                        $menu['submissions'] = [
+                        if(Config::getVar('features', 'enable_new_submission_listing')) {
+                            if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles))) {
+                                $menu['dashboards'] = [
+                                    'name' => __('navigation.dashboards'),
+                                    'url' => $router->url($request, null, 'dashboards'),
+                                    'isCurrent' => $router->getRequestedPage($request) === 'dashboards',
+                                ];
+                            }
+                            if(count(array_intersect([ Role::ROLE_ID_REVIEWER], $userRoles))) {
+                                $menu['reviewAssignments'] = [
+                                    'name' => __('navigation.reviewAssignments'),
+                                    'url' => $router->url($request, null, 'reviewAssignments'),
+                                    'isCurrent' => $router->getRequestedPage($request) === 'reviewAssignments',
+                                ];
+                            }
+                            if(count(array_intersect([  Role::ROLE_ID_AUTHOR], $userRoles))) {
+                                $menu['mySubmissions'] = [
+                                    'name' => __('navigation.mySubmissions'),
+                                    'url' => $router->url($request, null, 'mySubmissions'),
+                                    'isCurrent' => $router->getRequestedPage($request) === 'mySubmissions',
+                                ];
+                            }
+                        }else {
+                            $menu['submissions'] = [
                             'name' => __('navigation.submissions'),
                             'url' => $router->url($request, null, 'submissions'),
                             'isCurrent' => $router->getRequestedPage($request) === 'submissions',
                         ];
+   
+                        }
                     } elseif (count($userRoles) === 1 && in_array(Role::ROLE_ID_READER, $userRoles)) {
                         $menu['submit'] = [
                             'name' => __('author.submit'),
@@ -1217,7 +1242,8 @@ class PKPTemplateManager extends Smarty
         $context = $request->getContext();
 
         $pageContext = [
-            'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: 'index')
+            'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: 'index'),
+            'pageBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context?->getPath() ?: 'index') . '/'
         ];
         $output .= 'pkp.context = ' . json_encode($pageContext) . ';';
 
@@ -1246,7 +1272,7 @@ class PKPTemplateManager extends Smarty
             'pkpAppData',
             $output,
             [
-                'priority' => self::STYLE_SEQUENCE_LATE,
+                'priority' => self::STYLE_SEQUENCE_NORMAL,
                 'contexts' => ['backend'],
                 'inline' => true,
             ]

@@ -5,10 +5,10 @@
  */
 
 /**
- * @file lib/pkp/pages/submissions/index.php
+ * @file lib/pkp/pages/mySubmissions/index.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_submissions
@@ -17,9 +17,7 @@
  *
  */
 
-
 switch ($op) {
     case 'index':
-    case 'tasks':
-        return new PKP\pages\dashboard\DashboardHandler();
+        return new PKP\pages\dashboard\DashboardHandlerNext(PKP\pages\dashboard\DashboardPage::MY_SUBMISSIONS);
 }

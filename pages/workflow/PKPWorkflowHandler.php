@@ -32,6 +32,7 @@ use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationLicenseForm;
 use PKP\components\forms\publication\TitleAbstractForm;
+use PKP\components\forms\submission\ChangeSubmissionLanguageMetadataForm;
 use PKP\components\listPanels\ContributorsListPanel;
 use PKP\components\PublicationSectionJats;
 use PKP\context\Context;
@@ -39,6 +40,7 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\notification\NotificationDAO;
 use PKP\notification\PKPNotification;
 use PKP\plugins\PluginRegistry;
@@ -292,6 +294,9 @@ abstract class PKPWorkflowHandler extends Handler
             $canEditPublication
         );
 
+        $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__', 'submissionId' => $submission->getId()]);
+        $changeLangMetadataForm = new ChangeSubmissionLanguageMetadataForm($latestPublicationApiUrl, $submission, $latestPublication, $submissionContext, $locales, $vocabSuggestionUrlBase);
+
         // Import constants
         import('classes.components.forms.publication.PublishForm');
 
@@ -300,6 +305,7 @@ abstract class PKPWorkflowHandler extends Handler
             'STATUS_PUBLISHED' => PKPSubmission::STATUS_PUBLISHED,
             'STATUS_DECLINED' => PKPSubmission::STATUS_DECLINED,
             'STATUS_SCHEDULED' => PKPSubmission::STATUS_SCHEDULED,
+            'FORM_CHANGE_SUBMISSION_LANGUAGE_METADATA' => FORM_CHANGE_SUBMISSION_LANGUAGE_METADATA,
             'FORM_CITATIONS' => FORM_CITATIONS,
             'FORM_PUBLICATION_LICENSE' => FORM_PUBLICATION_LICENSE,
             'FORM_PUBLISH' => FORM_PUBLISH,
@@ -329,11 +335,16 @@ abstract class PKPWorkflowHandler extends Handler
             ? $workingPublicationProps
             : $mapper->map($submission->getCurrentPublication());
 
+        $changeLangButtonLabel = Locale::getSubmissionLocaleDisplayNames([$submissionLocale])[$submissionLocale];
+
         $state = [
             'activityLogLabel' => __('submission.list.infoCenter'),
             'canAccessPublication' => $canAccessPublication,
+            'canChangeLang' => $canPublish || $canEditPublication,
             'canEditPublication' => $canEditPublication,
+            'changeLangButtonLabel' => $changeLangButtonLabel,
             'components' => [
+                $changeLangMetadataForm->id => $this->getLocalizedForm($changeLangMetadataForm, $submissionLocale, $locales),
                 $contributorsListPanel->id => $contributorsListPanel->getConfig(),
                 $citationsForm->id => $citationsForm->getConfig(),
                 $publicationLicenseForm->id => $this->getLocalizedForm($publicationLicenseForm, $submissionLocale, $locales),
@@ -343,6 +354,7 @@ abstract class PKPWorkflowHandler extends Handler
             'decisionUrl' => $decisionUrl,
             'editorialHistoryUrl' => $editorialHistoryUrl,
             'publicationFormIds' => [
+                FORM_CHANGE_SUBMISSION_LANGUAGE_METADATA,
                 FORM_CITATIONS,
                 FORM_PUBLICATION_LICENSE,
                 FORM_PUBLISH,
@@ -360,6 +372,7 @@ abstract class PKPWorkflowHandler extends Handler
             'submissionApiUrl' => $submissionApiUrl,
             'submissionLibraryLabel' => __('grid.libraryFiles.submission.title'),
             'submissionLibraryUrl' => $submissionLibraryUrl,
+            'submissionSupportedLocales' => $submissionContext->getSupportedSubmissionLocales(),
             'supportsReferences' => !!$submissionContext->getData('citations'),
             'unpublishConfirmLabel' => __('publication.unpublish.confirm'),
             'unpublishLabel' => __('publication.unpublish'),
@@ -372,7 +385,6 @@ abstract class PKPWorkflowHandler extends Handler
         ];
 
         // Add the metadata form if one or more metadata fields are enabled
-        $vocabSuggestionUrlBase = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $submissionContext->getData('urlPath'), 'vocabs', null, null, ['vocab' => '__vocab__', 'submissionId' => $submission->getId()]);
         $metadataForm = new PKPMetadataForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $vocabSuggestionUrlBase, true);
         $metadataEnabled = count($metadataForm->fields);
 
@@ -423,6 +435,7 @@ abstract class PKPWorkflowHandler extends Handler
             'canEditPublication' => $canEditPublication,
             'canAccessProduction' => $canAccessProduction,
             'canPublish' => $canPublish,
+            'changeLangButtonLabel' => $changeLangButtonLabel,
             'identifiersEnabled' => $identifiersEnabled,
             'metadataEnabled' => $metadataEnabled,
             'pageComponent' => 'WorkflowPage',

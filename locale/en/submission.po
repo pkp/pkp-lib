@@ -2043,6 +2043,18 @@ msgstr "You must assign at least one participant to this submission before initi
 msgid "submission.query.allowedEditTime"
 msgstr "You can update this discussion for {$allowedEditTimeNoticeLimit} minutes."
 
+msgid "submission.list.changeLangTitle"
+msgstr "Change Submission Language and Metadata"
+
+msgid "submission.list.changeLangDescription"
+msgstr "Select the new submission language and then add/edit the required metadata."
+
+msgid "submission.list.changeLangContributorsTitle"
+msgstr "Contributors"
+
+msgid "submission.list.changeLangContributorsDescription"
+msgstr "The names of the contributors are automatically copied to the selected language."
+
 msgid "submission.list.infoCenter"
 msgstr "Activity Log & Notes"
 
@@ -2425,3 +2437,6 @@ msgstr "Competing Interests"
 
 msgid "author.competingInterests.description"
 msgstr "Please disclose any competing interests this author may have with the research subject."
+
+msgid "submission.localeNotSupported"
+msgstr "The language of the submission ({$subLocale}) is not one of the supported submission languages. You can still edit the submission details but are not currently accepting new submissions with this language."

@@ -612,6 +612,11 @@ class PKPSubmissionController extends PKPBaseController
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $illuminateRequest->input());
 
+        // Submission language can not be changed when there are more than one publication or a publication's status is published
+        if (count($submission->getData('publications')) > 1 || $submission->getLatestPublication()->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+            return $response->withStatus(403)->withJsonError('api.submission.403.cantChangeLanguage');
+        }
+
         $readOnlyErrors = $this->getWriteDisabledErrors(PKPSchemaService::SCHEMA_SUBMISSION, $params);
         if (!empty($readOnlyErrors)) {
             return response()->json($readOnlyErrors, Response::HTTP_BAD_REQUEST);

@@ -278,6 +278,13 @@ class PKPTemplateManager extends Smarty
                         $this->addHeader('customHeaders', $customHeaders);
                     }
                 }
+
+                if (count($supportedLocales = Locale::getSupportedlocales()) > 1) {
+                    $page = $router->getIndexUrl($request) . "/" . ($currentContext?->getData('urlPath') ?? 'index');
+                    collect($supportedLocales)
+                        ->each(fn ($_, string $l) => $this->addHeader("language-$l", "<link rel='alternate' hreflang='" . str_replace(['_', '@cyrillic', '@latin'], ['-', '-Cyrl', '-Latn'], $l) . "' href='$page/$l' />"));
+                    $this->addHeader("language-xdefault", "<link rel='alternate' hreflang='x-default' href='$page/' />");
+                }
             }
 
             if ($currentContext && !$currentContext->getEnabled()) {

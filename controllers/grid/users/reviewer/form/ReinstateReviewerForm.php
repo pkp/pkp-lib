@@ -77,6 +77,7 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm
 
             Repo::reviewAssignment()->edit($reviewAssignment, [
                 'cancelled' => false,
+                'dateCancelled' => null,
             ]);
 
             // Stamp the modification date

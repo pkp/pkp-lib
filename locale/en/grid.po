@@ -716,3 +716,6 @@ msgstr "In Browse Lists"
 
 msgid "grid.action.editContributor"
 msgstr "Edit Contributor"
+
+msgid "grid.action.inviteToARole"
+msgstr "Invite to a role"

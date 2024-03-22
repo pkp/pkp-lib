@@ -35,6 +35,7 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;
@@ -305,6 +306,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
 
         $state = [
             'canEditPublication' => $canEditPublication,
+            'changeLangButtonLabel' => Locale::getSubmissionLocaleDisplayNames([$submissionLocale])[$submissionLocale],
             'components' => [
                 FORM_TITLE_ABSTRACT => $this->getLocalizedForm($titleAbstractForm, $submissionLocale, $locales),
                 FORM_CITATIONS => $this->getLocalizedForm($citationsForm, $submissionLocale, $locales),

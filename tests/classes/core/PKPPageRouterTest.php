@@ -199,9 +199,11 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $result = $this->router->url($this->request);
         self::assertEquals('http://mydomain.org/index.php/current-context1/current-page/current-op', $result);
 
+        $this->_setUpMockDAOs('new-context1', true);
         $result = $this->router->url($this->request, 'new-context1');
         self::assertEquals('http://mydomain.org/index.php/new-context1', $result);
 
+        $this->_setUpMockDAOs('new?context1', true);
         $result = $this->router->url($this->request, 'new?context1');
         self::assertEquals('http://mydomain.org/index.php/new%3Fcontext1', $result);
 
@@ -290,5 +292,26 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $this->_setUpMockDAOs('current-context1', true);
         $result = $this->router->url($this->request, 'overridden-context', 'new-page');
         self::assertEquals('http://some-domain/xyz-context/new-page', $result);
+    }
+
+    /**
+     * @covers PKPPageRouter::url
+     */
+    public function testUrlWithLocale()
+    {
+        $mockApplication = $this->_setUpMockEnvironment();
+        $_SERVER = [
+            'SERVER_NAME' => 'mydomain.org',
+            'SCRIPT_NAME' => '/index.php',
+            'PATH_INFO' => '/current-context1/current-page/current-op',
+        ];
+        $this->_setUpMockDAOs(supportedLocales: ['en', 'es']);
+
+        // Add locale to url
+        $result = $this->router->url($this->request);
+        self::assertEquals('http://mydomain.org/index.php/current-context1/en/current-page/current-op', $result);
+        // Override current locale
+        $result = $this->router->url($this->request, urlLocaleForPage: 'es');
+        self::assertEquals('http://mydomain.org/index.php/current-context1/es/current-page/current-op', $result);
     }
 }

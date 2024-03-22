@@ -279,11 +279,8 @@ class PKPRouterTestCase extends PKPTestCase
      * used with the standard environment set up when calling self::_setUpMockEnvironment().
      * Both DAOs will be registered with the DAORegistry and thereby be made available
      * to the router.
-     *
-     * @param string $firstContextPath
-     * @param bool $firstContextIsNull
      */
-    protected function _setUpMockDAOs($firstContextPath = 'current-context1', $firstContextIsNull = false)
+    protected function _setUpMockDAOs(string $firstContextPath = 'current-context1', bool $firstContextIsNull = false, array $supportedLocales = ['en']): void
     {
         $application = Application::get();
         $contextDao = $application->getContextDAO();
@@ -293,7 +290,7 @@ class PKPRouterTestCase extends PKPTestCase
             ->getMock();
         if (!$firstContextIsNull) {
             $firstContextInstance = $this->getMockBuilder($contextClassName)
-                ->onlyMethods(['getPath', 'getSetting'])
+                ->onlyMethods(['getPath', 'getSetting', 'getSupportedLocales'])
                 ->getMock();
             $firstContextInstance->expects($this->any())
                 ->method('getPath')
@@ -301,6 +298,9 @@ class PKPRouterTestCase extends PKPTestCase
             $firstContextInstance->expects($this->any())
                 ->method('getSetting')
                 ->will($this->returnValue(null));
+            $firstContextInstance->expects($this->any())
+                ->method('getSupportedLocales')
+                ->will($this->returnValue($supportedLocales));
 
             $mockFirstContextDao->expects($this->any())
                 ->method('getByPath')

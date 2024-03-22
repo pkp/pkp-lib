@@ -50,6 +50,10 @@ class Validation
      */
     public static function login($username, $password, &$reason, $remember = false)
     {
+        if (!isset($username)) {
+            return false;
+        }
+
         $reason = null;
         $authKey = static::AUTH_KEY_USERNAME;
 

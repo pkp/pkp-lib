@@ -18,6 +18,8 @@ namespace PKP\core;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use PKP\context\Context;
+use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\Role;
@@ -238,6 +240,14 @@ class PKPPageRouter extends PKPRouter
             SessionManager::getManager();
         }
 
+        // Set locale from URL or from 'setLocale'-op/search-params
+        $setLocale = ($op === 'setLocale'
+            ? ($this->getRequestedArgs($request)[0] ?? null)
+            : ($page === 'install'
+                ? ($_GET['setLocale'] ?? null)
+                : null));
+        $this->_setLocale($request, $setLocale);
+
         // Call the selected handler's index operation if
         // no operation was defined in the request.
         if (empty($op)) {
@@ -288,6 +298,7 @@ class PKPPageRouter extends PKPRouter
      * @param null|mixed $path
      * @param null|mixed $params
      * @param null|mixed $anchor
+     * @param null|string $urlLocaleForPage
      */
     public function url(
         PKPRequest $request,
@@ -297,7 +308,8 @@ class PKPPageRouter extends PKPRouter
         $path = null,
         $params = null,
         $anchor = null,
-        $escape = false
+        $escape = false,
+        ?string $urlLocaleForPage = null,
     ) {
         //
         // Base URL and Context
@@ -394,8 +406,14 @@ class PKPPageRouter extends PKPRouter
         //
         // Assemble URL
         //
-        // Context, page, operation and additional path go into the path info.
+        // Context, locale?, page, operation and additional path go into the path info.
         $pathInfoArray = $context;
+        if ($urlLocaleForPage !== '') {
+            [$contextObject, $contextLocales] = $this->_getContextAndLocales($request, $context[0] ?? "");
+            if (count($contextLocales) > 1) {
+                $pathInfoArray[] = $this->_getLocaleForUrl($request, $contextObject, $contextLocales, $urlLocaleForPage);
+            }
+        }
         if (!empty($page)) {
             $pathInfoArray[] = $page;
             if (!empty($op)) {
@@ -499,6 +517,72 @@ class PKPPageRouter extends PKPRouter
 
         $userVars = $request->getUserVars();
         return $callback($url ?? '', $userVars);
+    }
+
+    /**
+     * Get context object and context/site/all locales.
+     */
+    private function _getContextAndLocales(PKPRequest $request, string $contextPath): array
+    {
+        return [
+            $context = $this->getCurrentContext() ?? (($contextPath === 'index' || !$contextPath || $contextPath === Application::CONTEXT_ID_ALL)
+                ? null
+                : DAORegistry::getDAO(ucfirst(Application::get()->getContextName()) . 'DAO')->getByPath($contextPath)),
+            $context?->getSupportedLocales()
+                ?? (($contextPath === 'index')
+                    ? (Application::isInstalled()
+                        ? $request->getSite()->getSupportedLocales()
+                        : array_keys(Locale::getSupportedLocales()))
+                    : [])
+        ];
+    }
+
+    /**
+     * Get locale for URL from session or primary
+     */
+    private function _getLocaleForUrl(PKPRequest $request, ?Context $context, array $locales, ?string $urlLocaleForPage): string
+    {
+        return in_array($locale = $urlLocaleForPage ?: Locale::getLocale(), $locales)
+            ? $locale
+            : (($context ?? $request->getSite())?->getPrimaryLocale() ?? Locale::getPrimaryLocale());
+    }
+
+    /**
+     * Change the locale for the current user.
+     * Redirect to url with(out) locale if locale changed or context set to multi/monolingual.
+     */
+    private function _setLocale(PKPRequest $request, ?string $setLocale): void
+    {
+        $contextPath = $this->_getRequestedUrlParts(['Core', 'getContextPath'], $request);
+        $urlLocale = $this->_getRequestedUrlParts(['Core', 'getLocalization'], $request);
+        $multiLingual = count($this->_getContextAndLocales($request, $contextPath)[1]) > 1;
+
+        if (!$setLocale && (!$multiLingual && !$urlLocale || $multiLingual && $urlLocale === Locale::getLocale())) {
+            return;
+        }
+
+        $sessionLocale = (function (string $l) use ($request): string {
+            $session = $request->getSession();
+            if (Locale::isSupported($l) && $l !== $session->getSessionVar('currentLocale')) {
+                $session->setSessionVar('currentLocale', $l);
+                $request->setCookieVar('currentLocale', $l);
+            }
+            return $session->getSessionVar('currentLocale') ?? Locale::getLocale();
+        })($setLocale ?? $urlLocale);
+
+        if (preg_match('#^/\w#', $source = $request->getUserVar('source') ?? "")) {
+            $request->redirectUrl($source);
+        }
+
+        $uri = Core::removeBaseUrl((isset($_SERVER['HTTP_REFERER']) && $setLocale)
+            ? $_SERVER['HTTP_REFERER']
+            : ($_SERVER['REQUEST_URI'] ?? ""));
+        $newUrlLocale = $multiLingual ? $sessionLocale . "/" : "";
+        $pathInfo = ($uri)
+            ? preg_replace("#^/$contextPath" . ($urlLocale ? "/$urlLocale" : "") . "(/|$)#", "/$contextPath/$newUrlLocale", $uri, 1)
+            : "/index/$newUrlLocale";
+
+        $request->redirectUrl($this->getIndexUrl($request) . $pathInfo);
     }
 }
 

@@ -304,6 +304,7 @@ class Schema extends \PKP\core\maps\Schema
                 'responseDue' => $responseDue,
                 'round' => (int) $reviewAssignment->getRound(),
                 'roundId' => (int) $reviewAssignment->getReviewRoundId(),
+                'dateCancelled' => $reviewAssignment->getData('dateCancelled'),
             ];
         }
 

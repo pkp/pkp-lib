@@ -23,31 +23,35 @@ class I9262_Highlights extends Migration
      */
     public function up(): void
     {
-        Schema::create('highlights', function (Blueprint $table) {
-            $table->comment('Highlights are featured items that can be presented to users, for example on the homepage.');
-            $table->bigInteger('highlight_id')->autoIncrement();
-            $table->bigInteger('context_id')->nullable();
-            $contextDao = \APP\core\Application::getContextDAO();
-            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
-            $table->index(['context_id'], 'highlights_context_id');
+        if (!Schema::hasTable('highlights')) {
+            Schema::create('highlights', function (Blueprint $table) {
+                $table->comment('Highlights are featured items that can be presented to users, for example on the homepage.');
+                $table->bigInteger('highlight_id')->autoIncrement();
+                $table->bigInteger('context_id')->nullable();
+                $contextDao = \APP\core\Application::getContextDAO();
+                $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+                $table->index(['context_id'], 'highlights_context_id');
 
-            $table->bigInteger('sequence');
-            $table->string('url', 2047);
-        });
+                $table->bigInteger('sequence');
+                $table->string('url', 2047);
+            });
+        }
 
-        Schema::create('highlight_settings', function (Blueprint $table) {
-            $table->comment('More data about highlights, including localized properties like title and description.');
-            $table->bigIncrements('highlight_setting_id');
-            $table->bigInteger('highlight_id');
-            $table->foreign('highlight_id')->references('highlight_id')->on('highlights')->onDelete('cascade');
-            $table->index(['highlight_id'], 'highlight_settings_highlight_id');
+        if (!Schema::hasTable('highlight_settings')) {
+            Schema::create('highlight_settings', function (Blueprint $table) {
+                $table->comment('More data about highlights, including localized properties like title and description.');
+                $table->bigIncrements('highlight_setting_id');
+                $table->bigInteger('highlight_id');
+                $table->foreign('highlight_id')->references('highlight_id')->on('highlights')->onDelete('cascade');
+                $table->index(['highlight_id'], 'highlight_settings_highlight_id');
 
-            $table->string('locale', 14)->default('');
-            $table->string('setting_name', 255);
-            $table->mediumText('setting_value')->nullable();
+                $table->string('locale', 14)->default('');
+                $table->string('setting_name', 255);
+                $table->mediumText('setting_value')->nullable();
 
-            $table->unique(['highlight_id', 'locale', 'setting_name'], 'highlight_settings_unique');
-        });
+                $table->unique(['highlight_id', 'locale', 'setting_name'], 'highlight_settings_unique');
+            });
+        }
     }
 
     /**

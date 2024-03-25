@@ -422,10 +422,10 @@ class Locale implements LocaleInterface
      * Get appropriately localized display names for submission locales to array
      * If $filterByLocales empty, return all languages.
      * Adds '*' (= in English) to display name if no translation available
-     * 
+     *
      * @param array $filterByLocales Optional list of locale codes/code-name-pairs to filter
      * @param ?string $displayLocale Optional display locale
-     * 
+     *
      * @return array The list of locales with formatted display name
      */
     public function getSubmissionLocaleDisplayNames(array $filterByLocales = [], ?string $displayLocale = null): array
@@ -562,7 +562,7 @@ class Locale implements LocaleInterface
      * Get Weblate submission languages to array
      * Combine app's language names with weblate's in English.
      * Weblate's names override app's if same locale key
-     * 
+     *
      * @return string[]
      */
     private function _getSubmissionLocaleNames(): array
@@ -577,7 +577,7 @@ class Locale implements LocaleInterface
                     $n = locale_get_display_name($cl, 'en');
                     return ($n && $n !== $cl) ? $n : $lm->getDisplayName('en', true);
                 })
-                ->merge(json_decode(file_get_contents($file) ?: [], true) ?: [])
+                ->merge(json_decode(file_get_contents($file) ?: '', true) ?: [])
                 ->sortKeys()
                 ->toArray());
         })();

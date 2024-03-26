@@ -6,31 +6,34 @@
 
   By Christopher Gutteridge, University of Southampton
 
--->
-
-<!-- 
-  
-Copyright (c) 2000-2004 University of Southampton, UK. SO17 1BJ.
-
-EPrints 2 is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-EPrints 2 is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with EPrints 2; if not, write to the Free Software
-Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+  v1.1
 
 -->
 
-   
 <!--
-  
+
+Copyright 2022 University of Southampton.
+
+This file is part of EPrints 3.4 http://www.eprints.org/
+
+EPrints 3.4 and this file are released under the terms of the
+GNU Lesser General Public License version 3 as published by
+the Free Software Foundation unless otherwise stated.
+
+EPrints 3.4 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with EPrints 3.4.
+If not, see http://www.gnu.org/licenses/
+
+-->
+
+
+<!--
+
   All the elements really needed for EPrints are done but if
   you want to use this XSL for other OAI archive you may want
   to make some minor changes or additions.
@@ -38,7 +41,6 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
   Not Done
     The 'about' section of 'record'
     The 'compession' part of 'identify'
-    The optional attributes of 'resumptionToken'
     The optional 'setDescription' container of 'set'
 
   All the links just link to oai_dc versions of records.
@@ -46,7 +48,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 -->
 <xsl:stylesheet
     version="1.0"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:oai="http://www.openarchives.org/OAI/2.0/"
 >
 
@@ -72,7 +74,7 @@ td.key {
 .dcdata td.key {
 	background-color: #ffffe0;
 }
-body { 
+body {
 	margin: 1em 2em 1em 2em;
 }
 h1, h2, h3 {
@@ -153,27 +155,30 @@ p.intro {
 <xsl:variable name='identifier' select="substring-before(concat(substring-after(/oai:OAI-PMH/oai:request,'identifier='),'&amp;'),'&amp;')" />
 
 <xsl:template match="/">
-<html>
+<html lang="en">
   <head>
     <title>OAI 2.0 Request Results</title>
     <style><xsl:call-template name="style"/></style>
   </head>
   <body>
-    <h1>OAI 2.0 Request Results</h1>
-    <xsl:call-template name="quicklinks"/>
-    <p class="intro">You are viewing an HTML version of the XML OAI response. To see the underlying XML use your web browsers view source option. More information about this XSLT is at the <a href="#moreinfo">bottom of the page</a>.</p>
+    <header>
+      <h1>OAI 2.0 Request Results</h1>
+      <nav><xsl:call-template name="quicklinks"/></nav>
+      <p class="intro">You are viewing an HTML version of the XML OAI response. To see the underlying XML use your web browsers view source option. More information about this XSLT is at the <a href="#moreinfo">bottom of the page</a>.</p>
+    </header>
     <xsl:apply-templates select="/oai:OAI-PMH" />
-    <xsl:call-template name="quicklinks"/>
-    <h2><a name="moreinfo">About the XSLT</a></h2>
-    <p>An XSLT file has converted the <a href="http://www.openarchives.org">OAI-PMH 2.0</a> responses into XHTML which looks nice in a browser which supports XSLT such as Mozilla, Firebird and Internet Explorer. The XSLT file was created by <a href="http://www.ecs.soton.ac.uk/people/cjg">Christopher Gutteridge</a> at the University of Southampton as part of the <a href="http://software.eprints.org">GNU EPrints system</a>, and is freely redistributable under the <a href="http://www.gnu.org">GPL</a>.</p><p>If you want to use the XSL file on your own OAI interface you may but due to the way XSLT works you must install the XSL file on the same server as the OAI script, you can't just link to this copy.</p><p>For more information or to download the XSL file please see the <a href="http://software.eprints.org/xslt.php">OAI to XHTML XSLT homepage</a>.</p>
-
+    <footer>
+      <nav><xsl:call-template name="quicklinks"/></nav>
+      <h2><a name="moreinfo">About the XSLT</a></h2>
+      <p>An XSLT file has converted the <a href="https://www.openarchives.org">OAI-PMH 2.0</a> responses into XHTML which looks nice in a browser which supports XSLT such as Mozilla, Firebird and Internet Explorer. The XSLT file was created by <a href="https://www.ecs.soton.ac.uk/people/cjg">Christopher Gutteridge</a> at the University of Southampton as part of the <a href="https://www.eprints.org/software/">GNU EPrints system</a>, and is freely redistributable under the <a href="https://www.gnu.org">GPL</a>.</p><p>If you want to use the XSL file on your own OAI interface you may but due to the way XSLT works you must install the XSL file on the same server as the OAI script, you can't just link to this copy.</p>
+    </footer>
   </body>
 </html>
 </xsl:template>
 
 <xsl:template name="quicklinks">
     <ul class="quicklinks">
-      <li><a href="?verb=Identify">Identify</a> | </li> 
+      <li><a href="?verb=Identify">Identify</a> | </li>
       <li><a href="?verb=ListRecords&amp;metadataPrefix=oai_dc">ListRecords</a> | </li>
       <li><a href="?verb=ListSets">ListSets</a> | </li>
       <li><a href="?verb=ListMetadataFormats">ListMetadataFormats</a> | </li>
@@ -288,8 +293,10 @@ p.intro {
 
 <xsl:template match="ep:eprints" xmlns:ep="http://www.openarchives.org/OAI/1.1/eprints">
   <h2>EPrints Description</h2>
-  <h3>Content</h3>
-  <xsl:apply-templates select="ep:content"/>
+  <xsl:if test="ep:content">
+    <h3>Content</h3>
+    <xsl:apply-templates select="ep:content"/>
+  </xsl:if>
   <xsl:if test="ep:submissionPolicy">
     <h3>Submission Policy</h3>
     <xsl:apply-templates select="ep:submissionPolicy"/>
@@ -298,10 +305,6 @@ p.intro {
   <xsl:apply-templates select="ep:metadataPolicy"/>
   <h3>Data Policy</h3>
   <xsl:apply-templates select="ep:dataPolicy"/>
-  <xsl:if test="ep:content">
-    <h3>Content</h3>
-    <xsl:apply-templates select="ep:content"/>
-  </xsl:if>
   <xsl:apply-templates select="ep:comment"/>
 </xsl:template>
 
@@ -332,7 +335,7 @@ p.intro {
 </xsl:template>
 
 <xsl:template match="fr:baseURL" xmlns:fr="http://www.openarchives.org/OAI/2.0/friends/">
-  <li><xsl:value-of select="."/> 
+  <li><xsl:value-of select="."/>
 <xsl:text> </xsl:text>
 <a class="link" href="{.}?verb=Identify">Identify</a></li>
 </xsl:template>
@@ -457,7 +460,7 @@ p.intro {
   <h2>Metadata Format</h2>
   <table class="values">
     <tr><td class="key">metadataPrefix</td>
-    <td class="value"><xsl:value-of select="oai:metadataPrefix"/></td></tr>
+    <td class="value"><a class="link" href="?verb=ListRecords&amp;metadataPrefix={oai:metadataPrefix}"><xsl:value-of select="oai:metadataPrefix"/></a></td></tr>
     <tr><td class="key">metadataNamespace</td>
     <td class="value"><xsl:value-of select="oai:metadataNamespace"/></td></tr>
     <tr><td class="key">schema</td>
@@ -481,7 +484,7 @@ p.intro {
 </xsl:template>
 
 <xsl:template match="oai:header">
-  <h3>OAI Record Header</h3>
+  <h2>OAI Record Header</h2>
   <table class="values">
     <tr><td class="key">OAI Identifier</td>
     <td class="value">
@@ -528,13 +531,19 @@ p.intro {
 <!-- oai resumptionToken -->
 
 <xsl:template match="oai:resumptionToken">
-   <p>There are more results.</p>
-   <table class="values">
-     <tr><td class="key">resumptionToken:</td>
-     <td class="value"><xsl:value-of select="."/>
-<xsl:text> </xsl:text>
-<a class="link" href="?verb={/oai:OAI-PMH/oai:request/@verb}&amp;resumptionToken={.}">Resume</a></td></tr>
-   </table>
+  <p>There are more results.</p>
+  <table class="values">
+    <xsl:if test="@expirationDate">
+      <tr><td class="key">expirationDate</td><td class="value"><xsl:value-of select="@expirationDate"/></td></tr>
+    </xsl:if>
+    <xsl:if test="@completeListSize">
+      <tr><td class="key">completeListSize</td><td class="value"><xsl:value-of select="@completeListSize"/></td></tr>
+    </xsl:if>
+    <xsl:if test="@cursor">
+      <tr><td class="key">cursor</td><td class="value"><xsl:value-of select="@cursor"/></td></tr>
+    </xsl:if>
+    <tr><td class="key">resumptionToken:</td><td class="value"><xsl:value-of select="."/><xsl:text> </xsl:text><a class="link" href="?verb={/oai:OAI-PMH/oai:request/@verb}&amp;resumptionToken={.}">Resume</a></td></tr>
+  </table>
 </xsl:template>
 
 <!-- unknown metadata format -->
@@ -656,4 +665,3 @@ p.intro {
 </xsl:template>
 
 </xsl:stylesheet>
-

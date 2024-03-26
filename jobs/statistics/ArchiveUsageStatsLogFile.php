@@ -58,7 +58,7 @@ class ArchiveUsageStatsLogFile extends BaseJob
                 [
                     'file' => $filename,
                     'dispatchFilePath' => $dispatchFilePath,
-                    'archiveFilePath' => $archiveFilePath
+                    'archivedFilePath' => $archiveFilePath
                 ]
             );
             throw new JobException($message);

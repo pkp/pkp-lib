@@ -771,6 +771,24 @@ class PKPTemplateManager extends Smarty
         // Allow plugins to load data within their own namespace
         $output .= '$.pkp.plugins = {};';
 
+
+        /**
+         * Data for vue.js stack goes to window.pkp instead
+         */
+
+        // add apiBaselUrl for useApiUrl composable
+        $dispatcher = Application::get()->getDispatcher();
+        $request = Application::get()->getRequest();
+
+        $serverContext = [
+            'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: 'index'),
+            'configAllowedHtml' => Config::getVar('security', 'allowed_html')
+        ];
+
+        $output .= 'pkp = window.pkp || {};';
+        $output .= 'pkp.serverContext = ' . json_encode($serverContext) . ';';
+
+
         $this->addJavaScript(
             'pkpLibData',
             $output,
@@ -1210,18 +1228,6 @@ class PKPTemplateManager extends Smarty
         if (!empty($this->_constants)) {
             $output .= 'pkp.const = ' . json_encode($this->_constants) . ';';
         }
-
-        // add apiBaselUrl for useApiUrl composable
-        $dispatcher = Application::get()->getDispatcher();
-        $request = Application::get()->getRequest();
-        $context = $request->getContext();
-
-        $pageContext = [
-            'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: 'index')
-        ];
-        $output .= 'pkp.context = ' . json_encode($pageContext) . ';';
-
-
 
         // Load current user data
         if (Application::isInstalled()) {

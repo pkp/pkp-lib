@@ -24,6 +24,9 @@ import emitter from 'tiny-emitter/instance';
 import dialog from '@/mixins/dialog.js';
 import localizeMoment from '@/mixins/localizeMoment.js';
 
+// Directives
+import {allowedHtmlDirective} from '@/directive/allowedHtml.js';
+
 // Global components of UI Library
 import Badge from '@/components/Badge/Badge.vue';
 import Dropdown from '@/components/Dropdown/Dropdown.vue';
@@ -206,6 +209,9 @@ function pkpCreateVueApp(createAppArgs) {
 	// Initialize Vue
 	const vueApp = createApp(createAppArgs);
 	vueApp.use(pinia);
+
+	// directives
+	vueApp.directive('pkp-allowed-html', allowedHtmlDirective);
 
 	// https://github.com/vuejs/pinia/discussions/1197
 	// to be able globally share stores

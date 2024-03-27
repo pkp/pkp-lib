@@ -22,7 +22,7 @@
             </template>
             <template v-if="localize(publication.title)">
                 <span class="app__breadcrumbsSeparator" aria-hidden="true">/</span>
-                <span v-html="localize(publication.title)">
+                <span v-pkp-allowed-html="localize(publication.title)">
             </template>
         </div>
         <h1 class="app__pageHeading" ref="pageTitle">
@@ -79,7 +79,7 @@
                     <panel-section v-for="section in step.sections" :key="section.id">
                         <template #header>
                             <h2>{{ section.name }}</h2>
-                            <div v-html="section.description" />
+                            <div v-pkp-allowed-html="section.description" />
                         </template>
                         <pkp-form
                             v-if="section.type === 'form'"

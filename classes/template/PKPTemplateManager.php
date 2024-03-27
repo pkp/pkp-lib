@@ -979,21 +979,21 @@ class PKPTemplateManager extends Smarty
                             if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles))) {
                                 $menu['dashboards'] = [
                                     'name' => __('navigation.dashboards'),
-                                    'url' => $router->url($request, null, 'dashboards'),
+                                    'url' => $router->url($request, null, 'dashboard', 'editorial'),
                                     'isCurrent' => $router->getRequestedPage($request) === 'dashboards',
                                 ];
                             }
                             if(count(array_intersect([ Role::ROLE_ID_REVIEWER], $userRoles))) {
                                 $menu['reviewAssignments'] = [
                                     'name' => __('navigation.reviewAssignments'),
-                                    'url' => $router->url($request, null, 'reviewAssignments'),
+                                    'url' => $router->url($request, null, 'dashboard', 'reviewAssignments'),
                                     'isCurrent' => $router->getRequestedPage($request) === 'reviewAssignments',
                                 ];
                             }
                             if(count(array_intersect([  Role::ROLE_ID_AUTHOR], $userRoles))) {
                                 $menu['mySubmissions'] = [
                                     'name' => __('navigation.mySubmissions'),
-                                    'url' => $router->url($request, null, 'mySubmissions'),
+                                    'url' => $router->url($request, null, 'dashboard','mySubmissions'),
                                     'isCurrent' => $router->getRequestedPage($request) === 'mySubmissions',
                                 ];
                             }

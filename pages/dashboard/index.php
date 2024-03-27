@@ -5,7 +5,7 @@
  */
 
 /**
- * @file lib/pkp/pages/dashboards/index.php
+ * @file lib/pkp/pages/dashboard/index.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -18,7 +18,12 @@
  */
 
 
-switch ($op) {
+switch ($op) {   
     case 'index':
+    case 'editorial':
         return new PKP\pages\dashboard\DashboardHandlerNext(PKP\pages\dashboard\DashboardPage::EDITORIAL_DASHBOARD);
+    case 'mySubmissions':
+        return new PKP\pages\dashboard\DashboardHandlerNext(PKP\pages\dashboard\DashboardPage::MY_SUBMISSIONS);
+    case 'reviewAssignments':
+        return new PKP\pages\dashboard\DashboardHandlerNext(PKP\pages\dashboard\DashboardPage::MY_REVIEW_ASSIGNMENTS);
 }

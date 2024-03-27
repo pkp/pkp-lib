@@ -291,27 +291,26 @@ class Schema extends \PKP\core\maps\Schema
 
             $request = Application::get()->getRequest();
             $currentUser = $request->getUser();
-            $context = $request->getContext();
-            $dateDue = is_null($reviewAssignment->getDateDue()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateDue()));
-            $dateResponseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateResponseDue()));
-            $dateConfirmed = is_null($reviewAssignment->getDateConfirmed()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateConfirmed()));
-            $dateCompleted = is_null($reviewAssignment->getDateCompleted()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateCompleted()));
-            $dateAssigned = is_null($reviewAssignment->getDateAssigned()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateAssigned()));
-            
+            $dateDue = is_null($reviewAssignment->getData('dateDue')) ? null : date('Y-m-d', strtotime($reviewAssignment->getData('dateDue')));
+            $dateResponseDue = is_null($reviewAssignment->getData('dateResponseDue')) ? null : date('Y-m-d', strtotime($reviewAssignment->getData('dateResponseDue')));
+            $dateConfirmed = is_null($reviewAssignment->getData('dateConfirmed')) ? null : date('Y-m-d', strtotime($reviewAssignment->getData('dateConfirmed')));
+            $dateCompleted = is_null($reviewAssignment->getData('dateCompleted')) ? null : date('Y-m-d', strtotime($reviewAssignment->getData('dateCompleted')));
+            $dateAssigned = is_null($reviewAssignment->getData('dateAssigned')) ? null : date('Y-m-d', strtotime($reviewAssignment->getData('dateAssigned')));
+
             $reviews[] = [
-                'id' => (int) $reviewAssignment->getId(),
-                'isCurrentUserAssigned' => $currentUser->getId() == (int) $reviewAssignment->getReviewerId(),
-                'statusId' => (int) $reviewAssignment->getStatus(),
-                'status' => __($reviewAssignment->getStatusKey()),
+                'id' => (int) $reviewAssignment->getData('id'),
+                'isCurrentUserAssigned' => $currentUser->getId() == (int) $reviewAssignment->getData('reviewerId'),
+                'statusId' => (int) $reviewAssignment->getData('status'),
+                'status' => __($reviewAssignment->getData('statusKey')),
                 'dateDue' => $dateDue,
                 'dateResponseDue' => $dateResponseDue,
                 'dateConfirmed' => $dateConfirmed,
                 'dateCompleted' => $dateCompleted,
                 'dateAssigned' => $dateAssigned,
-                'round' => (int) $reviewAssignment->getRound(),
-                'roundId' => (int) $reviewAssignment->getReviewRoundId(),
-                'recommendation' =>  $reviewAssignment->getRecommendation()
-            ];
+                'round' => (int) $reviewAssignment->getData('round'),
+                'roundId' => (int) $reviewAssignment->getData('reviewRoundId'),
+                'recommendation' =>  $reviewAssignment->getData('recommendation')
+            ];        
         }
 
         return $reviews;

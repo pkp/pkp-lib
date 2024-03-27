@@ -2427,10 +2427,10 @@ msgid "author.competingInterests.description"
 msgstr "Please disclose any competing interests this author may have with the research subject."
 
 msgid "submission.list.reviewAssignment.statusAwaitingResponse.title"
-msgstr "Awaiting Response from the Reviewer"
+msgstr "Awaiting Response from the reviewer"
 
 msgid "submission.list.reviewAssignment.statusAwaitingResponse.description"
-msgstr "Review request has been shared with Reviewer. Response is awaited in <b>{$days} days on {$date}</b>"
+msgstr "Review request has been shared with reviewer. Awaiting response in <b>{$days} days on {$date}</b>"
 
 msgid "submission.list.reviewAssignment.statusDeclined.title"
 msgstr "Review Request declined on {$date}"
@@ -2475,10 +2475,10 @@ msgid "submission.list.reviewAssignment.statusCancelled.description"
 msgstr "Reviewer has cancelled the review request on <b>{$date}</b>"
 
 msgid "submission.list.reviewAssignment.statusRequestResend.title"
-msgstr "Awaiting Response from the Reviewer"
+msgstr "Awaiting Response from the reviewer"
 
 msgid "submission.list.reviewAssignment.statusRequestResend.description"
-msgstr "Review request has been reshared with reviewer. Response is awaited in {$days} days on {$date}"
+msgstr "Review request has been reshared with reviewer. Awaiting response in {$days} days on {$date}"
 
 msgid "submission.list.reviewAssignment.action.viewDetails"
 msgstr "View details"

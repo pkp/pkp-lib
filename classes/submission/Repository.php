@@ -795,7 +795,7 @@ abstract class Repository
     /**
      * Get all views, views count to be retrieved separately due to performance reasons
      */
-    public function getDashboardViews(Context $context, User $user, array $selectedRoleIds): Collection
+    public function getDashboardViews(Context $context, User $user, array $selectedRoleIds = []): Collection
     {
         $types = DashboardView::getTypes()->flip();
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */

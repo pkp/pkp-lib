@@ -28,7 +28,6 @@ use PKP\security\Role;
 use PKP\submission\DashboardView;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
 define('SUBMISSIONS_LIST_ARCHIVE', 'archive');
@@ -76,9 +75,21 @@ class DashboardHandlerNext extends Handler
         }
         
         $this->addRoleAssignment(
-            [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_ASSISTANT],
-            ['index', 'tasks', 'myQueue', 'unassigned', 'active', 'archives']
+            [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
+            ['index', 'editorial']
         );
+
+        $this->addRoleAssignment(
+            Role::ROLE_ID_REVIEWER,
+            ['reviewAssignments']
+        );
+
+        $this->addRoleAssignment(
+            Role::ROLE_ID_AUTHOR,
+            ['mySubmissions']
+        );
+
+
     }
 
     /**
@@ -188,6 +199,37 @@ class DashboardHandlerNext extends Handler
         ]);
 
         $templateMgr->display('dashboard/editors.tpl');
+    }
+
+
+    /**
+     * Display about index page.
+     *
+     * @param PKPRequest $request
+     * @param array $args
+     */
+    public function editorial($args, $request){
+        return $this->index($args, $request);
+    }
+
+    /**
+     * Display Review Assignments page.
+     *
+     * @param PKPRequest $request
+     * @param array $args
+     */
+    public function reviewAssignments($args, $request){
+        return $this->index($args, $request);
+    }
+
+    /**
+     * Display My Submissions page.
+     *
+     * @param PKPRequest $request
+     * @param array $args
+     */
+    public function mySubmissions($args, $request){
+        return $this->index($args, $request);
     }
 
     /**

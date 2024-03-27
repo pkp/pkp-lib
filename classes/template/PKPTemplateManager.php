@@ -1231,7 +1231,7 @@ class PKPTemplateManager extends Smarty
     public function display($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {
         // Output global constants and locale keys used in new component library
-        $output = '';
+        $output = 'window.pkp = window.pkp || {};';
         if (!empty($this->_constants)) {
             $output .= 'pkp.const = ' . json_encode($this->_constants) . ';';
         }

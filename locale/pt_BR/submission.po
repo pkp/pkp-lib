@@ -31,6 +31,10 @@ msgstr ""
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
+"Um ou mais revisores não cumpriram o prazo. A equipe editorial foi "
+"notificada e tomará medidas e tomará medidas para garantir que as revisões "
+"revisões sejam concluídas. Você não precisa tomar nenhuma ação neste momento."
+"Você será notificado quando uma decisão for tomada."
 
 msgid "submission.confirm.message"
 msgstr ""

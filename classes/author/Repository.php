@@ -159,6 +159,8 @@ class Repository
             $author->setData('seq', $nextSeq);
         }
 
+        Hook::call('Author::add::before', [$author]);
+
         $authorId = $this->dao->insert($author);
         $author = Repo::author()->get($authorId);
 

@@ -320,9 +320,9 @@ trait ConvertLogFile
         $url = Core::removeBaseUrl($url);
         if ($url) {
             $contextPaths = $this->getContextPaths($url, !$this->isPathInfoDisabled());
-            $page = Core::getPage($url, !$this->isPathInfoDisabled());
-            $operation = Core::getOp($url, !$this->isPathInfoDisabled());
-            $args = Core::getArgs($url, !$this->isPathInfoDisabled());
+            $page = Core::getPage($url);
+            $operation = Core::getOp($url);
+            $args = Core::getArgs($url);
         } else {
             // Could not remove the base URL, can't go on.
             fwrite(STDERR, "The line number {$lineNumber} contains an url that the system can't remove the base URL from." . PHP_EOL);

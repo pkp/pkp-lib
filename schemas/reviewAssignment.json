@@ -37,7 +37,7 @@
 		},
 		"considered": {
 			"type": "integer",
-			"description": "Whether reviewer considers a review assignment request",
+			"description": "Whether editor considered a review assignment request",
 			"apiSummary": true,
 			"validation": [
 				"in:0,1,2,3"
@@ -55,6 +55,15 @@
 		"dateAssigned": {
 			"type": "string",
 			"description": "Date the reviewer was assigned to the submission",
+			"validation": [
+				"date:Y-m-d H:i:s",
+				"nullable"
+			],
+			"apiSummary": true
+		},
+		"dateCancelled": {
+			"type": "string",
+			"description": "Date the reviewer cancelled the assignment",
 			"validation": [
 				"date:Y-m-d H:i:s",
 				"nullable"

@@ -236,6 +236,8 @@ class Repository
             mailables\EditorAssigned::class,
             mailables\EditReviewNotify::class,
             mailables\EditorialReminder::class,
+            mailables\OrcidRequestAuthorAuthorization::class,
+            mailables\OrcidCollectAuthorId::class,
             mailables\PasswordResetRequested::class,
             mailables\PublicationVersionNotify::class,
             mailables\RecommendationNotifyEditors::class,

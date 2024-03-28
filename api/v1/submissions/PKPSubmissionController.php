@@ -23,6 +23,8 @@ use APP\facades\Repo;
 use APP\mail\variables\ContextEmailVariable;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use APP\orcid\actions\SendAuthorMail;
+use APP\orcid\OrcidManager;
 use APP\section\Section;
 use APP\submission\Collector;
 use APP\submission\Submission;
@@ -1414,6 +1416,20 @@ class PKPSubmissionController extends PKPBaseController
         $newId = Repo::author()->add($author);
         $author = Repo::author()->get($newId);
 
+        // ORCID
+        if ($params['requestOrcidAuthorization']) {
+            (new SendAuthorMail($author, $submissionContext, true))->execute();
+        }
+
+        // TODO: See if removing ORCID is even possible here
+        if ($params['deleteORCID']) {
+            $author->setOrcid(null);
+            if (isset($params['orcid'])) {
+                unset($params['orcid']);
+            }
+            OrcidManager::removeOrcidAccessToken($author, true);
+        }
+
         return response()->json(
             Repo::author()->getSchemaMap()->map($author),
             Response::HTTP_OK
@@ -1533,6 +1549,19 @@ class PKPSubmissionController extends PKPBaseController
 
         if (!empty($errors)) {
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
+        }
+
+        // ORCID
+        if ($params['requestOrcidAuthorization']) {
+            (new SendAuthorMail($author, $submissionContext))->execute();
+        }
+
+        if ($params['deleteORCID']) {
+            $author->setOrcid(null);
+            if (isset($params['orcid'])) {
+                unset($params['orcid']);
+            }
+            OrcidManager::removeOrcidAccessToken($author);
         }
 
         Repo::author()->edit($author, $params);

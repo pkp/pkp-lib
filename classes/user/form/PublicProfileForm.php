@@ -19,6 +19,7 @@ namespace PKP\user\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
+use APP\orcid\OrcidManager;
 use APP\template\TemplateManager;
 use PKP\core\Core;
 use PKP\user\User;
@@ -159,6 +160,25 @@ class PublicProfileForm extends BaseProfileForm
             'profileImageMaxHeight' => self::PROFILE_IMAGE_MAX_HEIGHT,
             'publicSiteFilesPath' => $publicFileManager->getSiteFilesPath(),
         ]);
+
+        // TODO: Check how to handle ORCID at site-level
+        if (OrcidManager::isEnabled()) {
+            $user = $request->getUser();
+            $targetOp = 'profile';
+            $templateMgr->assign([
+                'orcidEnabled' => true,
+                'targetOp' => $targetOp,
+                'orcidUrl' => OrcidManager::getOrcidUrl(),
+                'orcidOAuthUrl' => OrcidManager::buildOAuthUrl('authorizeOrcid', ['targetOp' => $targetOp]), // TODO
+                'orcidClientId' => OrcidManager::getClientId(),
+                'orcidIcon' => OrcidManager::getIcon(),
+                'orcidAuthenticated' => $user !== null && !empty($user->getData('orcidAccessToken')),
+            ]);
+        } else {
+            $templateMgr->assign([
+                'orcidEnabled' => false,
+            ]);
+        }
 
         return parent::fetch($request, $template, $display);
     }

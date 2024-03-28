@@ -82,6 +82,14 @@
 					/>
 				</tab>
 				{/if}
+                {if $componentAvailability['orcidSiteSettings']}
+                    <tab id="orcidSiteSettings" label="{translate key="manager.setup.orcidSiteSettings"}">
+                        <pkp-form
+                                v-bind="components.orcidSiteSettings"
+                                @set="set"
+                        />
+                    </tab>
+                {/if}
 				{call_hook name="Template::Settings::admin::setup"}
 			</tabs>
 		</tab>

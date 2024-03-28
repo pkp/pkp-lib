@@ -124,6 +124,27 @@
 				"min:0"
 			]
 		},
+		"orcidApiType": {
+			"type": "string",
+			"validation": [
+				"nullable",
+				"in:publicProduction,publicSandbox,memberProduction,memberSandbox"
+			]
+		},
+		"orcidClientId": {
+			"type": "string",
+			"default": "",
+			"validation": [
+				"nullable"
+			]
+		},
+		"orcidClientSecret": {
+			"type": "string",
+			"default": "",
+			"validation": [
+				"nullable"
+			]
+		},
 		"pageFooter": {
 			"type": "string",
 			"multilingual": true,

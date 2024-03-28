@@ -520,14 +520,28 @@
 				"min:0"
 			]
 		},
-		"numDaysBeforeInviteReminder": {
+		"numDaysAfterReviewResponseReminderDue": {
 			"type": "integer",
 			"validation": [
 				"nullable",
 				"min:0"
 			]
 		},
-		"numDaysBeforeSubmitReminder": {
+		"numDaysBeforeReviewResponseReminderDue": {
+			"type": "integer",
+			"validation": [
+				"nullable",
+				"min:0"
+			]
+		},
+		"numDaysAfterReviewSubmitReminderDue": {
+			"type": "integer",
+			"validation": [
+				"nullable",
+				"min:0"
+			]
+		},
+		"numDaysBeforeReviewSubmitReminderDue": {
 			"type": "integer",
 			"validation": [
 				"nullable",

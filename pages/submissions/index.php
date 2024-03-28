@@ -17,10 +17,9 @@
  *
  */
 
+
 switch ($op) {
     case 'index':
     case 'tasks':
-        return PKP\config\Config::getVar('features', 'enable_new_submission_listing') ?
-            new PKP\pages\dashboard\DashboardHandlerNext() :
-            new PKP\pages\dashboard\DashboardHandler();
+        return new PKP\pages\dashboard\DashboardHandler();
 }

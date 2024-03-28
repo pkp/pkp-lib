@@ -12,8 +12,11 @@ function extractRegexPlugin({extraKeys}) {
 	 * this.t(
 	 *   'key'
 	 * )
+	 * To identify the translation keys, without triggering translation
+	 * {'viewAction': tk('common.viewAction') }
+
 	 */
-	const regex = /\Wt\([\s]*['"`](?<localeKey>[^'"`]+)['"`]/g;
+	const regex = /(?:^|\W)tk?\([\s]*['"`](?<localeKey>[^'"`]+)['"`]/g;
 
 	extraKeys ||= [];
 

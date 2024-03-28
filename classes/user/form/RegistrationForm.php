@@ -272,7 +272,7 @@ class RegistrationForm extends Form
         if ($request->getContext() && !$this->getData('reviewerGroup')) {
             $defaultReaderGroup = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_READER], $request->getContext()->getId(), true)->first();
             if ($defaultReaderGroup) {
-                Repo::userGroup()->assignUserToGroup($user->getId(), $defaultReaderGroup->getId(), $request->getContext()->getId());
+                Repo::userGroup()->assignUserToGroup($user->getId(), $defaultReaderGroup->getId());
             }
         } else {
             $userFormHelper = new UserFormHelper();

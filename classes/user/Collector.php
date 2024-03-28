@@ -27,6 +27,7 @@ use PKP\core\interfaces\CollectorInterface;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\plugins\Hook;
+use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 
 /**
@@ -75,6 +76,7 @@ class Collector implements CollectorInterface
     public ?int $count = null;
     public ?int $offset = null;
     public UserUserGroupStatus $userUserGroupStatus = UserUserGroupStatus::STATUS_ACTIVE;
+    public UserUserGroupMastheadStatus $userUserGroupMastheadStatus = UserUserGroupMastheadStatus::STATUS_ALL;
 
     /**
      * Constructor
@@ -275,6 +277,15 @@ class Collector implements CollectorInterface
     }
 
     /**
+     * Filter by user's masthead status for the given role
+     */
+    public function filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus $userUserGroupMastheadStatus): self
+    {
+        $this->userUserGroupMastheadStatus = $userUserGroupMastheadStatus;
+        return $this;
+    }
+
+    /**
      * Retrieve assigned users by submission and stage IDs.
      * (Replaces UserStageAssignmentDAO::getUsersBySubmissionAndStageId)
      */
@@ -453,7 +464,12 @@ class Collector implements CollectorInterface
      */
     protected function buildUserGroupFilter(Builder $query): self
     {
-        if ($this->userGroupIds === null && $this->roleIds === null && $this->contextIds === null && $this->workflowStageIds === null) {
+        if ($this->userGroupIds === null &&
+            $this->roleIds === null &&
+            $this->contextIds === null &&
+            $this->workflowStageIds === null &&
+            $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_ALL) {
+
             return $this;
         }
 
@@ -489,6 +505,24 @@ class Collector implements CollectorInterface
                 fn (Builder $subQuery) =>
                 $subQuery->whereNotNull('uug.date_end')
                     ->where('uug.date_end', '<=', $currentDateTime)
+            )
+            ->when(
+                $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_NULL,
+                fn (Builder $subQuery) =>
+                    $subQuery->whereNull('uug.masthead')
+            )
+            ->when(
+                $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_ON,
+                fn (Builder $subQuery) =>
+                    $subQuery->where('ug.masthead', 1)
+                        ->where('uug.masthead', 1)
+            )
+            ->when(
+                $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_OFF,
+                fn (Builder $subQuery) =>
+                    $subQuery->where('ug.masthead', 0)
+                        ->orWhere('uug.masthead', 0)
+                        ->orWhereNull('uug.masthead')
             );
 
         $joinSub = clone $subQuery;
@@ -568,6 +602,21 @@ class Collector implements CollectorInterface
                     fn (Builder $query) =>
                     $query->whereNotNull('uug.date_end')
                         ->where('uug.date_end', '<=', $currentDateTime)
+                )
+                ->when(
+                    $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_NULL,
+                    fn (Builder $query) =>
+                        $query->whereNull('uug.masthead')
+                )
+                ->when(
+                    $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_ON,
+                    fn (Builder $query) =>
+                        $query->where('uug.masthead', 1)
+                )
+                ->when(
+                    $this->userUserGroupMastheadStatus === UserUserGroupMastheadStatus::STATUS_OFF,
+                    fn (Builder $query) =>
+                        $query->where('uug.masthead', 0)
                 )
         );
         return $this;

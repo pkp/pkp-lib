@@ -26,11 +26,11 @@ use GuzzleHttp\Client;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Support\Facades\DB;
+use PKP\core\PKPSessionGuard;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\security\Role;
-use PKP\session\SessionManager;
 use PKP\site\VersionDAO;
 use PKP\submission\RepresentationDAOInterface;
 
@@ -188,8 +188,9 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         }
 
         ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
-        if (!static::isInstalled()) {
-            SessionManager::disable();
+        
+        if (!static::isInstalled() && !PKPSessionGuard::isSessionDisable()) {
+            PKPSessionGuard::disableSession();
         }
 
         Registry::set('application', $this);
@@ -497,7 +498,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'ReviewRoundDAO' => 'PKP\submission\reviewRound\ReviewRoundDAO',
             'RoleDAO' => 'PKP\security\RoleDAO',
             'ScheduledTaskDAO' => 'PKP\scheduledTask\ScheduledTaskDAO',
-            'SessionDAO' => 'PKP\session\SessionDAO',
             'SiteDAO' => 'PKP\site\SiteDAO',
             'StageAssignmentDAO' => 'PKP\stageAssignment\StageAssignmentDAO',
             'SubEditorsDAO' => 'PKP\context\SubEditorsDAO',

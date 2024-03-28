@@ -42,7 +42,6 @@ use PKP\job\resources\HttpFailedJobResource;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
-use PKP\session\SessionDAO;
 use PKP\site\VersionCheck;
 use PKP\site\VersionDAO;
 
@@ -440,8 +439,7 @@ class AdminHandler extends Handler
             return new JSONMessage(false);
         }
 
-        $sessionDao = DAORegistry::getDAO('SessionDAO'); /** @var SessionDAO $sessionDao */
-        $sessionDao->deleteAllSessions();
+        Application::get()->getRequest()->getSessionGuard()->removeAllSession();
         $request->redirect(null, 'login');
     }
 

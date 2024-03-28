@@ -18,11 +18,12 @@ namespace PKP\core;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use Illuminate\Support\Facades\Auth;
+use PKP\core\PKPSessionGuard;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\Validation;
-use PKP\session\SessionManager;
 
 define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
 define('ROUTER_DEFAULT_OP', 'index');
@@ -75,7 +76,7 @@ class PKPPageRouter extends PKPRouter
      */
     public function isCacheable($request, $testOnly = false): bool
     {
-        if (SessionManager::isDisabled() && !$testOnly) {
+        if (PKPSessionGuard::isSessionDisable() && !$testOnly) {
             return false;
         }
         if (Application::isUnderMaintenance()) {
@@ -197,7 +198,7 @@ class PKPPageRouter extends PKPRouter
 
         // Redirect requests from logged-out users to a context which is not
         // publicly enabled
-        if (!SessionManager::isDisabled()) {
+        if (!PKPSessionGuard::isSessionDisable()) {
             $user = $request->getUser();
             $currentContext = $request->getContext();
             if ($currentContext && !$currentContext->getEnabled() && !$user instanceof \PKP\user\User) {
@@ -231,11 +232,6 @@ class PKPPageRouter extends PKPRouter
                 $dispatcher = $this->getDispatcher();
                 $dispatcher->handle404();
             }
-        }
-
-        if (!SessionManager::isDisabled()) {
-            // Initialize session
-            SessionManager::getManager();
         }
 
         // Call the selected handler's index operation if
@@ -440,7 +436,7 @@ class PKPPageRouter extends PKPRouter
      */
     public function getHomeUrl($request)
     {
-        $user = $request->getUser();
+        $user = Auth::user(); /** @var \PKP\user\User $user */
         $userId = $user->getId();
 
         if ($context = $this->getContext($request)) {
@@ -459,7 +455,6 @@ class PKPPageRouter extends PKPRouter
             // The user is at the site context, check to see if they are
             // only registered in one place w/ one role
             $userGroups = Repo::userGroup()->userUserGroups($userId, \PKP\core\PKPApplication::CONTEXT_ID_NONE);
-
             if ($userGroups->count() == 1) {
                 $firstUserGroup = $userGroups->first();
                 $contextDao = Application::getContextDAO();

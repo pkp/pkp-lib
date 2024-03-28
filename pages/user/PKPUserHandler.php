@@ -52,7 +52,7 @@ class PKPUserHandler extends Handler
 
         if (Locale::isLocaleValid($setLocale) && (!isset($contextSupportedLocales) || in_array($setLocale, $contextSupportedLocales)) && in_array($setLocale, $site->getSupportedLocales())) {
             $session = $request->getSession();
-            $session->setSessionVar('currentLocale', $setLocale);
+            $session->put('currentLocale', $setLocale);
         }
 
         $source = $request->getUserVar('source');

@@ -17,7 +17,9 @@
 namespace PKP\user\form;
 
 use APP\facades\Repo;
+use APP\core\Application;
 use APP\template\TemplateManager;
+use Illuminate\Support\Facades\Auth;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\form\validation\FormValidatorCSRF;
@@ -25,7 +27,6 @@ use PKP\form\validation\FormValidatorCustom;
 use PKP\form\validation\FormValidatorLength;
 use PKP\form\validation\FormValidatorPost;
 use PKP\security\Validation;
-use PKP\session\SessionManager;
 
 class ResetPasswordForm extends Form
 {
@@ -118,7 +119,10 @@ class ResetPasswordForm extends Form
         $user->setPassword(Validation::encryptCredentials($user->getUsername(), $this->getData('password')));
         $user->setMustChangePassword(0);
 
-        SessionManager::getManager()->invalidateSessions($user->getId());
+        Application::get()->getRequest()->getSessionGuard()->updateUser($user);
+        
+        $user = Auth::logoutOtherDevices($this->getData('password'));
+
         Repo::user()->edit($user);
 
         parent::execute(...$functionArgs);

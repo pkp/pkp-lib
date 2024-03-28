@@ -70,6 +70,7 @@ class DAO extends EntityDAO
         'disabled' => 'disabled',
         'disabledReason' => 'disabled_reason',
         'inlineHelp' => 'inline_help',
+        'rememberToken' => 'remember_token',
     ];
 
     /* These constants are used user-selectable search fields. */

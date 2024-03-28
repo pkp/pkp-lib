@@ -366,7 +366,7 @@ class PKPContainer extends Container
             'driver' => 'database',
             'table' => 'sessions',
             'cookie' => Config::getVar('general', 'session_cookie_name'),
-            'path' => Config::getVar('general', 'session_cookie_path', '/'),
+            'path' => Config::getVar('general', 'session_cookie_path', $this->basePath),
             'domain' => (new \APP\core\Request)->getServerHost(includePort: false),
             'secure' => Config::getVar('security', 'force_ssl', false),
             'lifetime' => Config::getVar('general', 'session_lifetime', 30) * 24 * 60, // lifetime need to set in minutes

@@ -54,7 +54,7 @@ class PKPSessionGuard extends SessionGuard
     }
 
     /**
-     * Disbale the session
+     * Disable the session
      */
     public static function disableSession(): void
     {
@@ -195,15 +195,15 @@ class PKPSessionGuard extends SessionGuard
         $response->headers->removeCookie($session->getName());
 
         $cookie = new Cookie(
-            $session->getName(), 
-            $session->getId(), 
-            $this->getCookieExpirationDate($config),
-            $config['path'], 
-            $config['domain'], 
-            $config['secure'] ?? false,
-            $config['http_only'] ?? true, 
-            false, 
-            $config['same_site'] ?? null
+            name: $session->getName(), 
+            value: $session->getId(), 
+            expire: $this->getCookieExpirationDate($config),
+            path: $config['path'], 
+            domain: $config['domain'], 
+            secure: $config['secure'] ?? false,
+            httpOnly: $config['http_only'] ?? true, 
+            raw: false, 
+            sameSite: $config['same_site'] ?? null
         );
 
         $headerCookies[] = $session->getName().'='.$session->getId();

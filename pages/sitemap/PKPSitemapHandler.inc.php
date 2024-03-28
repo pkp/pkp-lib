@@ -15,7 +15,7 @@
 
 import('classes.handler.Handler');
 
-define('SITEMAP_XSD_URL', 'https://www.sitemaps.org/schemas/sitemap/0.9');
+define('SITEMAP_XSD_URL', 'http://www.sitemaps.org/schemas/sitemap/0.9');
 
 class PKPSitemapHandler extends Handler {
 	/**

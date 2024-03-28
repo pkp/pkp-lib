@@ -107,9 +107,6 @@ abstract class PKPUsageStatsLoader extends FileLoader
             $this->autoStage();
         }
         $processFilesResult = parent::executeActions();
-        if (!$processFilesResult) {
-            return false;
-        }
 
         $site = Application::get()->getRequest()->getSite();
         $jobs = [];
@@ -133,7 +130,7 @@ abstract class PKPUsageStatsLoader extends FileLoader
             ), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
         }
 
-        return (!$processingDirError);
+        return (!$processingDirError && $processFilesResult);
     }
 
     /**

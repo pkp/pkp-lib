@@ -62,7 +62,7 @@ class PKPStatsEditorialService
             // within the date range that were accepted or declined. This
             // excludes submissions that were made within the date range but
             // have not yet been accepted or declined.
-            $acceptedForSubmissionDate = $this->countByDecisionsForSubmittedDate(Decision::ACCEPT, $args);
+            $acceptedForSubmissionDate = $this->countByDecisionsForSubmittedDate($this->getAcceptedDecisions(), $args);
             $declinedDeskForSubmissionDate = $this->countByDecisionsForSubmittedDate(Decision::INITIAL_DECLINE, $args);
             $declinedReviewForSubmissionDate = $this->countByDecisionsForSubmittedDate(Decision::DECLINE, $args);
             $totalDecidedForSubmissionDate = $acceptedForSubmissionDate + $declinedDeskForSubmissionDate + $declinedReviewForSubmissionDate;
@@ -228,7 +228,7 @@ class PKPStatsEditorialService
 
         // Editorial decisions (accepted and declined)
         $decisionsList = [
-            'submissionsAccepted' => [Decision::ACCEPT],
+            'submissionsAccepted' => $this->getAcceptedDecisions(),
             'submissionsDeclined' => [Decision::INITIAL_DECLINE, Decision::DECLINE],
             'submissionsDeclinedDeskReject' => [Decision::INITIAL_DECLINE],
             'submissionsDeclinedPostReview' => [Decision::DECLINE],

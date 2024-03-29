@@ -24,6 +24,7 @@ use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\site\SiteDAO;
+use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\relationships\UserUserGroup;
@@ -253,6 +254,23 @@ class Repository
     }
 
     /**
+    * return whether an active user in a user group should be displayed on the masthead
+    */
+    public function userOnMasthead(int $userId, int $userGroupId): bool
+    {
+        $userGroup = Repo::userGroup()->get($userGroupId);
+        if (!$userGroup->getMasthead()) {
+            return false;
+        }
+        return UserUserGroup::withUserId($userId)
+            ->withUserGroupId($userGroupId)
+            ->withActive()
+            ->withMasthead()
+            ->get()
+            ->isNotEmpty();
+    }
+
+    /**
     * return whether a context has a specific user group
     */
     public function contextHasGroup(int $contextId, int $userGroupId): bool
@@ -264,13 +282,27 @@ class Repository
             ->getCount() > 0;
     }
 
-    public function assignUserToGroup(int $userId, int $userGroupId): UserUserGroup
+    public function assignUserToGroup(int $userId, int $userGroupId, ?string $startDate = null, ?string $endDate = null, ?UserUserGroupMastheadStatus $mastheadStatus = null): UserUserGroup
     {
-        $dateStart = Core::getCurrentDate();
+        $dateStart = $startDate ?? Core::getCurrentDate();
+        // user_user_group's masthead does not inherit from the user_group's masthead,
+        // it needs to be specified (when accepting an invitations).
+        switch ($mastheadStatus) {
+            case UserUserGroupMastheadStatus::STATUS_ON:
+                $masthead = 1;
+                break;
+            case UserUserGroupMastheadStatus::STATUS_OFF:
+                $masthead = 0;
+                break;
+            default:
+                $masthead = null;
+        }
         return UserUserGroup::create([
             'userId' => $userId,
             'userGroupId' => $userGroupId,
-            'dateStart' => $dateStart
+            'dateStart' => $dateStart,
+            'dateEnd' => $endDate,
+            'masthead' => $masthead,
         ]);
     }
 

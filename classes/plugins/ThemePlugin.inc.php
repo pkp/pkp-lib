@@ -552,7 +552,7 @@ abstract class ThemePlugin extends LazyLoadPlugin {
 		foreach ($this->options as $optionName => $optionConfig) {
 			$value = isset($values[$optionName]) ? $values[$optionName] : null;
 			// Convert values stored in the db to the type of the default value
-			if (!is_null($optionConfig->default)) {
+			if ($value !== null && $optionConfig->default !== null) {
 				switch (gettype($optionConfig->default)) {
 					case 'boolean':
 						$value = !$value || $value === 'false' ? false : true;

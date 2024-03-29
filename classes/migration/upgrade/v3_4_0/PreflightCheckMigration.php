@@ -205,9 +205,12 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         $usageStatsDir = StatisticsHelper::getUsageStatsDirPath();
         // check if there are usage stats log files older than yesterday
         foreach (glob($usageStatsDir . '/usageEventLogs/*') as $usageStatsLogFile) {
-            $lastModified = date('Ymd', filemtime($usageStatsLogFile));
+            if (!preg_match('/(\d{8})\.log$/', $usageStatsLogFile, $logFileDate)) {
+                throw new Exception("The log file \"{$usageStatsLogFile}\" doesn't follow the expected naming pattern \"usage_events_YearMonthDay.log\"");
+            }
+            $logFileDate = $logFileDate[1];
             $yesterday = date('Ymd', strtotime('-1 days'));
-            if ($yesterday > $lastModified) {
+            if ($yesterday > $logFileDate) {
                 throw new Exception("There are unprocessed log files from more than 1 day ago in the directory {$usageStatsDir}/usageEventLogs/. This happens when the scheduled task to process usage stats logs is not being run daily. All logs in this directory older than {$yesterday} must be processed or removed before the upgrade can continue.");
             }
         }

@@ -332,7 +332,7 @@ class FormComponent
             $config['value'] = $field->isMultilingual ? [] : $field->getEmptyValue();
         }
         if ($field->isMultilingual) {
-            if (is_null($config['value'])) {
+            if (!is_array($config['value'])) {
                 $config['value'] = [];
             }
             foreach ($this->locales as $locale) {

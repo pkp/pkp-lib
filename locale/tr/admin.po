@@ -1,12 +1,12 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024.
 # Mahmut  VURAL <mahmut.vural@outlook.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2024-01-04 15:39+0000\n"
-"Last-Translator: Mahmut  VURAL <mahmut.vural@outlook.com>\n"
+"PO-Revision-Date: 2024-03-31 01:24+0000\n"
+"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "tr/>\n"
 "Language: tr\n"
@@ -556,16 +556,16 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
 msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr "Sıra"
+msgstr "İşlem sırası"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Bağlantı"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "İşin Görünen Adı"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Girişimler"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
 msgstr ""
@@ -797,7 +797,7 @@ msgid "admin.cli.tool.jobs.work.options.title"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "kullanım : [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
 msgstr ""
@@ -854,3 +854,6 @@ msgid "admin.settings.sharedReviewerStatistics.description"
 msgstr ""
 "Çok bağlamlı bir kurulumda, gönderilen incelemelerin sayısı gibi inceleyen "
 "istatistikleri, her bağlam için ayrı ayrı veya toplu olarak görüntülenebilir."
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "{$filename} başlıklı dosya gönderim klasörüne taşındı."

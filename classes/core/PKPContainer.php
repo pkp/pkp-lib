@@ -322,6 +322,7 @@ class PKPContainer extends Container
     protected function loadConfiguration()
     {
         $items = [];
+        $_request = new \APP\core\Request;
 
         // Database connection
         $driver = 'mysql';
@@ -366,8 +367,8 @@ class PKPContainer extends Container
             'driver' => 'database',
             'table' => 'sessions',
             'cookie' => Config::getVar('general', 'session_cookie_name'),
-            'path' => Config::getVar('general', 'session_cookie_path', '/'),
-            'domain' => (new \APP\core\Request)->getServerHost(includePort: false),
+            'path' => Config::getVar('general', 'session_cookie_path', $_request->getBasePath() . '/'),
+            'domain' => $_request->getServerHost(includePort: false),
             'secure' => Config::getVar('security', 'force_ssl', false),
             'lifetime' => Config::getVar('general', 'session_lifetime', 30) * 24 * 60, // lifetime need to set in minutes
             'lottery' => [2, 100],

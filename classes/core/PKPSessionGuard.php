@@ -192,7 +192,11 @@ class PKPSessionGuard extends SessionGuard
         /** @var \Illuminate\Http\Response $response */
         $response = app()->get(\Illuminate\Http\Response::class);
 
-        $response->headers->removeCookie($session->getName());
+        // clear out the previous session and remember me cookies
+        foreach ([$session->getName(), $this->getRecallerName()] as $cookieName) {
+            $response->headers->removeCookie($cookieName, $config['path'], $config['domain']);
+            $response->headers->clearCookie($cookieName, $config['path'], $config['domain']);
+        }
 
         $cookie = new Cookie(
             name: $session->getName(), 
@@ -210,7 +214,6 @@ class PKPSessionGuard extends SessionGuard
         $response->headers->setCookie($cookie);
         
         // Set remember me cookie
-        $response->headers->removeCookie($this->getRecallerName());
         $cookieJar = $this->getCookieJar(); /** @var \Illuminate\Cookie\CookieJar $cookieJar */
         if ( ($rememberCookie = $cookieJar->queued($this->getRecallerName())) ) {
             $response->headers->setCookie($rememberCookie);

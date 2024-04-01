@@ -14,8 +14,6 @@
  * @see https://github.com/pkp/pkp-lib/issues/7245
  */
 
-// en:fr_CA:fr_FR
-
 namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Support\Facades\DB;
@@ -32,15 +30,12 @@ class I7245_UpdateUserLocaleStringToParsableJsonString extends Migration
             ->cursor()
             ->each(function ($user) {
                 $parsedLocales = @json_decode($user->locales, true);
-
                 if (!is_array($parsedLocales)) {
-                    $locales = explode(':', $user->locales);
-
-                    if (is_array($locales)) {
-                        DB::table('users')
-                            ->where('user_id', $user->user_id)
-                            ->update(['locales' => json_encode($locales)]);
-                    }
+                    // Expected format: "en:fr_CA:fr_FR"
+                    $locales = array_filter(explode(':', $user->locales ?? ''), fn (string $value) => strlen($value));
+                    DB::table('users')
+                        ->where('user_id', $user->user_id)
+                        ->update(['locales' => json_encode($locales)]);
                 }
             });
     }

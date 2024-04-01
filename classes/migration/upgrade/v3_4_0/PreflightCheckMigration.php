@@ -102,11 +102,11 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     {
         $missingContactContexts = DB::table($this->getContextTable() . ' AS contexts')
             ->select('contexts.path AS path')
-            ->leftJoin($this->getContextSettingsTable() . ' AS email_join', function ($join) {
+            ->leftJoin($this->getContextSettingsTable() . ' AS email_join', function (JoinClause $join) {
                 $join->on("contexts.{$this->getContextKeyField()}", '=', "email_join.{$this->getContextKeyField()}")
                     ->where('email_join.setting_name', '=', 'contactEmail');
             })
-            ->leftJoin($this->getContextSettingsTable() . ' AS name_join', function ($join) {
+            ->leftJoin($this->getContextSettingsTable() . ' AS name_join', function (JoinClause $join) {
                 $join->on("contexts.{$this->getContextKeyField()}", '=', "name_join.{$this->getContextKeyField()}")
                     ->where('name_join.setting_name', '=', 'contactName');
             })
@@ -263,7 +263,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         // Flag users that have same emails if we consider them case insensitively.
         // By default, MySQL/MariaDB use case-insensitive collation, so they are not generally affected.
         $result = DB::table('users AS a')
-            ->join('users AS b', function ($join) {
+            ->join('users AS b', function (JoinClause $join) {
                 $join->on(DB::Raw('LOWER(a.email)'), '=', DB::Raw('LOWER(b.email)'));
                 $join->on('a.user_id', '<>', 'b.user_id');
             })
@@ -279,7 +279,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         // Flag users that have same username if we consider them case insensitively
         // By default, MySQL/MariaDB use case-insensitive collation, so they are not generally affected.
         $result = DB::table('users AS a')
-            ->join('users AS b', function ($join) {
+            ->join('users AS b', function (JoinClause $join) {
                 $join->on(DB::Raw('LOWER(a.username)'), '=', DB::Raw('LOWER(b.username)'));
                 $join->on('a.user_id', '<>', 'b.user_id');
             })

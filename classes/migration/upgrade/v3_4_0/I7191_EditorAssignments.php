@@ -68,17 +68,24 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
      */
     protected function setUserGroup(): void
     {
-        $row = DB::table('user_groups')
-            ->where('role_id', '=', 17) // Role::ROLE_ID_SUB_EDITOR
-            ->orderBy('is_default')
-            ->get(['user_group_id', 'context_id'])
-            ->first();
+        $contextId = "c.{$this->getContextId()}";
+        $bestUserGroupQuery = DB::table('user_groups', 'ug')
+            ->whereColumn('ug.context_id', '=', $contextId)
+            ->where('ug.role_id', '=', 17) // Role::ROLE_ID_SUB_EDITOR
+            ->orderByDesc('ug.is_default')
+            ->orderByDesc('ug.permit_metadata_edit')
+            ->limit(1)
+            ->select('ug.user_group_id');
+        $userGroupsByContext = DB::table($this->getContextTable(), 'c')
+            ->selectRaw("{$contextId} AS context_id")
+            ->selectSub($bestUserGroupQuery, 'user_group_id')
+            ->pluck('user_group_id', 'context_id');
 
-        if ($row) {
+        foreach($userGroupsByContext as $contextId => $userGroupId) {
             DB::table('subeditor_submission_group')
                 ->whereNull('user_group_id')
-                ->where('context_id', '=', $row->context_id)
-                ->update(['user_group_id' => $row->user_group_id]);
+                ->where('context_id', '=', $contextId)
+                ->update(['user_group_id' => $userGroupId]);
         }
     }
 

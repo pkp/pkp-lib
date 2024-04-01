@@ -14,7 +14,6 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
-use Exception;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -25,7 +24,6 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
     protected abstract function getSectionTable(): string;
     protected abstract function getSectionId(): string;
     protected abstract function getContextId(): string;
-    protected abstract function getContextTable(): string;
 
     /**
      * Adds a user_group_id column to the subeditor_submission_group
@@ -68,25 +66,17 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
      */
     protected function setUserGroup(): void
     {
-        $contextId = "c.{$this->getContextId()}";
-        $bestUserGroupQuery = DB::table('user_groups', 'ug')
-            ->whereColumn('ug.context_id', '=', $contextId)
-            ->where('ug.role_id', '=', 17) // Role::ROLE_ID_SUB_EDITOR
+        $bestUserGroupIdQuery = DB::table('user_groups', 'ug')
+            ->whereColumn('ug.context_id', '=', 'ssg.context_id')
+            ->whereRaw('ug.role_id =  17') // Role::ROLE_ID_SUB_EDITOR
             ->orderByDesc('ug.is_default')
             ->orderByDesc('ug.permit_metadata_edit')
             ->limit(1)
             ->select('ug.user_group_id');
-        $userGroupsByContext = DB::table($this->getContextTable(), 'c')
-            ->selectRaw("{$contextId} AS context_id")
-            ->selectSub($bestUserGroupQuery, 'user_group_id')
-            ->pluck('user_group_id', 'context_id');
 
-        foreach($userGroupsByContext as $contextId => $userGroupId) {
-            DB::table('subeditor_submission_group')
-                ->whereNull('user_group_id')
-                ->where('context_id', '=', $contextId)
-                ->update(['user_group_id' => $userGroupId]);
-        }
+        DB::table('subeditor_submission_group', 'ssg')
+            ->whereNull('user_group_id')
+            ->update(['user_group_id' => DB::raw("({$bestUserGroupIdQuery->toSql()})")]);
     }
 
     /**

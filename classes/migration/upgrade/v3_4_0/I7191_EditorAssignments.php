@@ -88,13 +88,10 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
      */
     protected function deleteOrphanedAssignments(): void
     {
-        DB::table('subeditor_submission_group')
-            ->whereNull('user_group_id')
-            ->delete();
-
         DB::table('subeditor_submission_group as ssg')
             ->leftJoin('users as u', 'u.user_id', '=', 'ssg.user_id')
             ->whereNull('u.user_id')
+            ->orWhereNull('ssg.user_group_id')
             ->delete();
     }
 

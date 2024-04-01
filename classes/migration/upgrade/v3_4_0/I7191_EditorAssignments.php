@@ -22,9 +22,10 @@ use PKP\install\DowngradeNotSupportedException;
 
 abstract class I7191_EditorAssignments extends \PKP\migration\Migration
 {
-    protected string $sectionDb;
-    protected string $sectionIdColumn;
-    protected string $contextColumn;
+    protected abstract function getSectionTable(): string;
+    protected abstract function getSectionId(): string;
+    protected abstract function getContextId(): string;
+    protected abstract function getContextTable(): string;
 
     /**
      * Adds a user_group_id column to the subeditor_submission_group
@@ -32,10 +33,6 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
      */
     public function up(): void
     {
-        if (empty($this->sectionDb) || empty($this->sectionIdColumn) || empty($this->contextColumn)) {
-            throw new Exception('Upgrade could not be completed because required properties for the I7191_EditorAssignments migration are undefined.');
-        }
-
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
             $table->bigInteger('user_group_id')->nullable();
         });
@@ -67,8 +64,7 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
     /**
      * Set the user group for all existing assignments
      *
-     * Uses the default user group for Role::ROLE_ID_SUB_EDITOR
-     * if one exists
+     * Uses the default user group for Role::ROLE_ID_SUB_EDITOR if one exists
      */
     protected function setUserGroup(): void
     {
@@ -131,9 +127,9 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
             if ($userIds->count() !== 1) {
                 return;
             }
-            $newRows = DB::table($this->sectionDb)
-                ->where($this->contextColumn, '=', $userGroup->context_id)
-                ->pluck($this->sectionIdColumn)
+            $newRows = DB::table($this->getSectionTable())
+                ->where($this->getContextId(), '=', $userGroup->context_id)
+                ->pluck($this->getSectionId())
                 ->map(function (int $sectionId) use ($userGroup, $userIds) {
                     return [
                         'context_id' => $userGroup->context_id,

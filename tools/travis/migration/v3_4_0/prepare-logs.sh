@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# @file tools/travis/prepare-logs.sh
+# @file tools/travis/migration/v3_4_0/prepare-logs.sh
 #
 # Copyright (c) 2024 Simon Fraser University
 # Copyright (c) 2024 John Willinsky
@@ -14,23 +14,24 @@
 set -e
 
 # Get the list of logs
-logs=("${FILESDIR}/usageStats/usageEventLogs/"*)
-archive="${FILESDIR}/usageStats/archive"
-mkdir -p ${archive}
+eventLogsFolder="${FILESDIR}/usageStats/usageEventLogs"
+logFiles=("${eventLogsFolder}/"*)
+archiveFolder="${FILESDIR}/usageStats/archive"
+mkdir -p ${archiveFolder}
 
 # Get the current and previous date in YMD format
 today=$(date +"%Y%m%d")
 yesterday=$(date -d "1 day ago" +"%Y%m%d")
 
 # Rename the first two logs
-if [ -z "${logs[0]}" ]; then
-	mv "${logs[0]}" "$folder_path/$today.log"
+if [ -e "${logFiles[0]}" ]; then
+	mv "${logFiles[0]}" "${eventLogsFolder}/${today}.log"
 fi
-if [ -z "${logs[1]}" ]; then
-	mv "${logs[1]}" "$folder_path/$yesterday.log"
+if [ -e "${logFiles[1]}" ]; then
+	mv "${logFiles[1]}" "${eventLogsFolder}/${yesterday}.log"
 fi
 
 # Move the remaining logs to the archive folder
 for file in "${logs[@]:2}"; do
-    mv "$file" "$archive/"
+    mv "${file}" "${archiveFolder}/"
 done

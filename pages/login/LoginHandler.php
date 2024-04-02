@@ -223,10 +223,8 @@ class LoginHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
 
         $email = $request->getUserVar('email');
-        $user = Repo::user()->getByEmail($email, true); /** @var User $user */
-
+        $user = $email ? Repo::user()->getByEmail($email, true) : null;
         if ($user !== null) {
-
             if ($user->getDisabled()) {
                 $templateMgr
                     ->assign([
@@ -253,7 +251,6 @@ class LoginHandler extends Handler
                 ->body($template->getLocalizedData('body'))
                 ->subject($template->getLocalizedData('subject'));
             Mail::send($mailable);
-
         }
 
         $templateMgr->assign([

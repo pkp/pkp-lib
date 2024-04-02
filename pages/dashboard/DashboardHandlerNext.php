@@ -36,9 +36,9 @@ define('SUBMISSIONS_LIST_UNASSIGNED', 'unassigned');
 
 enum DashboardPage: string
 {
-    case EDITORIAL_DASHBOARD = 'EDITORIAL_DASHBOARD';
-    case MY_REVIEW_ASSIGNMENTS = 'MY_REVIEW_ASSIGNMENTS';
-    case MY_SUBMISSIONS = 'MY_SUBMISSIONS';
+    case EditorialDashboard = 'editorialDashboard';
+    case MyReviewAssignments = 'myReviewAssignments';
+    case MySubmissions = 'mySubmissions';
 }
 
 
@@ -49,11 +49,10 @@ class DashboardHandlerNext extends Handler
 
     public int $perPage = 30;
 
-
     /** Identify in which context is looking at the submissions */
     public DashboardPage $dashboardPage;
 
-    /** 
+    /**
      * editorial, review_assignments
      */
     public array $selectedRoleIds = [];
@@ -66,14 +65,14 @@ class DashboardHandlerNext extends Handler
 
         $this->dashboardPage = $dashboardPage;
 
-        if($this->dashboardPage === DashboardPage::EDITORIAL_DASHBOARD) {
+        if($this->dashboardPage === DashboardPage::EditorialDashboard) {
             $this->selectedRoleIds = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT];
-        } else if($this->dashboardPage === DashboardPage::MY_REVIEW_ASSIGNMENTS)  {
+        } elseif($this->dashboardPage === DashboardPage::MyReviewAssignments) {
             $this->selectedRoleIds = [Role::ROLE_ID_REVIEWER];
         } else {
-             $this->selectedRoleIds = [Role::ROLE_ID_AUTHOR];
+            $this->selectedRoleIds = [Role::ROLE_ID_AUTHOR];
         }
-        
+
         $this->addRoleAssignment(
             [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT],
             ['index', 'editorial']
@@ -88,8 +87,6 @@ class DashboardHandlerNext extends Handler
             Role::ROLE_ID_AUTHOR,
             ['mySubmissions']
         );
-
-
     }
 
     /**
@@ -169,32 +166,32 @@ class DashboardHandlerNext extends Handler
         ]);
 
         $templateMgr->setConstants([
-        'STAGE_STATUS_SUBMISSION_UNASSIGNED' => Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED,
-        'REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE,
-		'REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE,
-		'REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE'=> ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE,
-		'REVIEW_ASSIGNMENT_STATUS_ACCEPTED'=> ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_ACCEPTED,
-		'REVIEW_ASSIGNMENT_STATUS_RECEIVED'=> ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RECEIVED,
-		'REVIEW_ASSIGNMENT_STATUS_COMPLETE'=> ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE,
-		'REVIEW_ASSIGNMENT_STATUS_THANKED'=> ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED,
-		'REVIEW_ASSIGNMENT_STATUS_CANCELLED'=> ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_CANCELLED,
-		'REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND'=> ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND,
-		'REVIEW_ROUND_STATUS_PENDING_REVIEWERS'=> ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS,
-		'REVIEW_ROUND_STATUS_REVIEWS_READY'=> ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_READY,
-		'REVIEW_ROUND_STATUS_REVIEWS_COMPLETED'=> ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED,
-		'REVIEW_ROUND_STATUS_REVIEWS_OVERDUE'=> ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_OVERDUE,
-		'REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED'=> ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED,
-		'REVIEW_ROUND_STATUS_REVISIONS_REQUESTED'=>ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED,
-		'SUBMISSION_REVIEW_METHOD_ANONYMOUS'=> ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS,
-		'SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS'=> ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS,
-		'SUBMISSION_REVIEW_METHOD_OPEN'=> ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN,
+            'STAGE_STATUS_SUBMISSION_UNASSIGNED' => Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED,
+            'REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE,
+            'REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE,
+            'REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE,
+            'REVIEW_ASSIGNMENT_STATUS_ACCEPTED' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_ACCEPTED,
+            'REVIEW_ASSIGNMENT_STATUS_RECEIVED' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RECEIVED,
+            'REVIEW_ASSIGNMENT_STATUS_COMPLETE' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE,
+            'REVIEW_ASSIGNMENT_STATUS_THANKED' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED,
+            'REVIEW_ASSIGNMENT_STATUS_CANCELLED' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_CANCELLED,
+            'REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND,
+            'REVIEW_ROUND_STATUS_PENDING_REVIEWERS' => ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS,
+            'REVIEW_ROUND_STATUS_REVIEWS_READY' => ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_READY,
+            'REVIEW_ROUND_STATUS_REVIEWS_COMPLETED' => ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED,
+            'REVIEW_ROUND_STATUS_REVIEWS_OVERDUE' => ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_OVERDUE,
+            'REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED' => ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED,
+            'REVIEW_ROUND_STATUS_REVISIONS_REQUESTED' => ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED,
+            'SUBMISSION_REVIEW_METHOD_ANONYMOUS' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS,
+            'SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS,
+            'SUBMISSION_REVIEW_METHOD_OPEN' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN,
 
-		'SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT,
-		'SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS,
-		'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE,
-		'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE,
-		'SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE,
-		'SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS,
+            'SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT,
+            'SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS,
+            'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_HERE,
+            'SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_RESUBMIT_ELSEWHERE,
+            'SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE,
+            'SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS,
 
         ]);
 
@@ -208,7 +205,8 @@ class DashboardHandlerNext extends Handler
      * @param PKPRequest $request
      * @param array $args
      */
-    public function editorial($args, $request){
+    public function editorial($args, $request)
+    {
         return $this->index($args, $request);
     }
 
@@ -218,7 +216,8 @@ class DashboardHandlerNext extends Handler
      * @param PKPRequest $request
      * @param array $args
      */
-    public function reviewAssignments($args, $request){
+    public function reviewAssignments($args, $request)
+    {
         return $this->index($args, $request);
     }
 
@@ -228,7 +227,8 @@ class DashboardHandlerNext extends Handler
      * @param PKPRequest $request
      * @param array $args
      */
-    public function mySubmissions($args, $request){
+    public function mySubmissions($args, $request)
+    {
         return $this->index($args, $request);
     }
 
@@ -276,15 +276,14 @@ class DashboardHandlerNext extends Handler
     {
         $columns = [];
 
-        if($this->dashboardPage === DashboardPage::MY_REVIEW_ASSIGNMENTS) {
+        if($this->dashboardPage === DashboardPage::MyReviewAssignments) {
             $columns = [
                 $this->createColumn('id', __('common.id'), 'ColumnReviewAssignmentId', true),
                 $this->createColumn('title', __('navigation.submissions'), 'ColumnReviewAssignmentTitle'),
                 $this->createColumn('activity', __('stats.editorialActivity'), 'ColumnReviewAssignmentActivity'),
                 $this->createColumn('actions', __('admin.jobs.list.actions'), 'ColumnReviewAssignmentActions')
             ];
-        }
-        else {
+        } else {
             $columns = [
                 $this->createColumn('id', __('common.id'), 'ColumnSubmissionId', true),
                 $this->createColumn('title', __('navigation.submissions'), 'ColumnSubmissionTitle'),

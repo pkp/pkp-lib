@@ -18,12 +18,12 @@
  */
 
 
-switch ($op) {   
+switch ($op) {
     case 'index':
     case 'editorial':
-        return new PKP\pages\dashboard\DashboardHandlerNext(PKP\pages\dashboard\DashboardPage::EDITORIAL_DASHBOARD);
+        return new PKP\pages\dashboard\DashboardHandlerNext(PKP\pages\dashboard\DashboardPage::EditorialDashboard);
     case 'mySubmissions':
-        return new PKP\pages\dashboard\DashboardHandlerNext(PKP\pages\dashboard\DashboardPage::MY_SUBMISSIONS);
+        return new PKP\pages\dashboard\DashboardHandlerNext(PKP\pages\dashboard\DashboardPage::MySubmissions);
     case 'reviewAssignments':
-        return new PKP\pages\dashboard\DashboardHandlerNext(PKP\pages\dashboard\DashboardPage::MY_REVIEW_ASSIGNMENTS);
+        return new PKP\pages\dashboard\DashboardHandlerNext(PKP\pages\dashboard\DashboardPage::MyReviewAssignments);
 }

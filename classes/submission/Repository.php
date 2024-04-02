@@ -795,7 +795,7 @@ abstract class Repository
     /**
      * Get all views, views count to be retrieved separately due to performance reasons
      */
-    public function getDashboardViews(Context $context, User $user): Collection
+    public function getDashboardViews(Context $context, User $user, array $selectedRoleIds = []): Collection
     {
         $types = DashboardView::getTypes()->flip();
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
@@ -804,6 +804,10 @@ abstract class Repository
         foreach ($roles as $role) {
             $roleIds[] = $role->getRoleId();
         }
+        if($selectedRoleIds) {
+            $roleIds = array_values(array_intersect($roleIds, $selectedRoleIds));
+        }
+
         $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $roleIds));
 
         $views = $this->mapDashboardViews($types, $context, $user, $canAccessUnassignedSubmission);

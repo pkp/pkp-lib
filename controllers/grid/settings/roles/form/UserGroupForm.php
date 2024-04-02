@@ -223,7 +223,7 @@ class UserGroupForm extends Form
             } else {
                 $permitMetadataEdit = $userGroup->getPermitMetadataEdit();
                 StageAssignment::withUserGroupId($userGroupId)
-                    ->update(['canChangeMetadata' => $permitMetadataEdit]);
+                    ->updateWithParams(['canChangeMetadata' => $permitMetadataEdit]);
             }
 
             $userGroup->setRecommendOnly($this->getData('recommendOnly') && in_array($userGroup->getRoleId(), $this->getRecommendOnlyRoles()));

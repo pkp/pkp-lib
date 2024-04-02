@@ -249,9 +249,9 @@ class SubEditorsDAO extends \PKP\db\DAO
 
         // Send an email to assigned editors
         // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-        $editorAssignments = StageAssignment::withSubmissionId($submission->getId())
+        $editorAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
-            ->withStageId(WORKFLOW_STAGE_ID_SUBMISSION)
+            ->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
             ->get();
 
         $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), EditorAssigned::getEmailTemplateKey());

@@ -259,9 +259,9 @@ abstract class DecisionType
     protected function getAssignedAuthorIds(Submission $submission): array
     {
         // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-        return StageAssignment::withSubmissionId($submission->getId())
+        return StageAssignment::withSubmissionIds([$submission->getId()])
             ->withRoleIds([Role::ROLE_ID_AUTHOR])
-            ->withStageId($this->getStageId())
+            ->withStageIds([$this->getStageId()])
             ->get()
             ->pluck('userId')
             ->all();

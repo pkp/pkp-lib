@@ -86,8 +86,8 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate
 
         // Check for editor stage assignment.
         // Replaces StageAssignmentDAO::editorAssignedToStage
-        $editorAssigned = StageAssignment::withSubmissionId($submissionId)
-            ->withStageId($this->_getStageIdByNotificationType())
+        $editorAssigned = StageAssignment::withSubmissionIds([$submissionId])
+            ->withStageIds([$this->_getStageIdByNotificationType()])
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
             ->exists();
 

@@ -35,7 +35,7 @@ class RestrictAuthorAssignment
     public function handle(SubmissionSubmitted $event)
     {
         // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-        $stageAssignments = StageAssignment::withSubmissionId($event->submission->getId())
+        $stageAssignments = StageAssignment::withSubmissionIds([$event->submission->getId()])
             ->withRoleIds([Role::ROLE_ID_AUTHOR])
             ->get();
 

@@ -48,7 +48,7 @@ class Repository
             $recommendOnly = false;
         }
 
-        return StageAssignment::withSubmissionId($submissionId)
+        return StageAssignment::withSubmissionIds([$submissionId])
             ->withUserId($userId)
             ->withUserGroupId($userGroupId)
             ->firstOr(function() use ($submissionId, $userGroupId, $userId, $recommendOnly, $canChangeMetadata) {

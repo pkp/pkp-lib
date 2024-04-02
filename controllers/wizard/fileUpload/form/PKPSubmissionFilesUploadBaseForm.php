@@ -256,9 +256,9 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                 continue;
             }
             // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-            $hasAnyAssignments = StageAssignment::withSubmissionId($submissionFile->getData('submissionId'))
+            $hasAnyAssignments = StageAssignment::withSubmissionIds([$submissionFile->getData('submissionId')])
                 ->withRoleIds([Role::ROLE_ID_AUTHOR])
-                ->withStageId($this->getStageId())
+                ->withStageIds([$this->getStageId()])
                 ->withUserId($user->getId())
                 ->exists();
                 

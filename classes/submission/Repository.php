@@ -180,7 +180,7 @@ abstract class Repository
         $authorUserGroupIds = Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_AUTHOR);
 
         // Replaces StageAssignmentDAO::getBySubmissionAndStageId
-        $stageAssignments = StageAssignment::withSubmissionId($submission->getId())
+        $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
             ->withUserId($user->getId())
             ->get();
 
@@ -486,9 +486,9 @@ abstract class Repository
         } else {
             if ($submission->getData('submissionProgress')) {
                 // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-                $assignments = StageAssignment::withSubmissionId($submission->getId())
+                $assignments = StageAssignment::withSubmissionIds([$submission->getId()])
                     ->withRoleIds([Role::ROLE_ID_AUTHOR])
-                    ->withStageId(WORKFLOW_STAGE_ID_SUBMISSION)
+                    ->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
                     ->withUserId($currentUser->getId())
                     ->get();
 
@@ -507,7 +507,7 @@ abstract class Repository
     public function canEditPublication(int $submissionId, int $userId): bool
     {
         // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-        $stageAssignments = StageAssignment::withSubmissionId($submissionId)
+        $stageAssignments = StageAssignment::withSubmissionIds([$submissionId])
             ->withUserId($userId)
             ->get();
 
@@ -541,7 +541,7 @@ abstract class Repository
 
         if ($user) {
             // Replaces StageAssignmentDAO::getBySubmissionAndRoleId
-            $stageAssignments = StageAssignment::withSubmissionId($submission->getId())
+            $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
                 ->withRoleIds([Role::ROLE_ID_AUTHOR])
                 ->withUserId($user->getId())
                 ->get();

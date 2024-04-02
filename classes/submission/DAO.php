@@ -283,7 +283,7 @@ class DAO extends EntityDAO
         $queryDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
 
         // Delete the stage assignments.
-        StageAssignment::withSubmissionId($id)
+        StageAssignment::withSubmissionIds([$id])
             ->delete();
 
         $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */

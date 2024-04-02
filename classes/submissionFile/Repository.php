@@ -310,9 +310,9 @@ abstract class Repository
 
             // Update author notifications
             // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-            $authorUserIds = StageAssignment::withSubmissionId($submissionFile->getData('submissionId'))
+            $authorUserIds = StageAssignment::withSubmissionIds([$submissionFile->getData('submissionId')])
                 ->withRoleIds([Role::ROLE_ID_AUTHOR])
-                ->withStageId($reviewRound->getStageId())
+                ->withStageIds([$reviewRound->getStageId()])
                 ->get()
                 ->pluck('userId')
                 ->all();
@@ -437,7 +437,7 @@ abstract class Repository
         switch ($submissionFile->getData('fileStage')) {
             case SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION:
                 // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-                $authorUserIds = StageAssignment::withSubmissionId($submissionFile->getData('submissionId'))
+                $authorUserIds = StageAssignment::withSubmissionIds([$submissionFile->getData('submissionId')])
                     ->withRoleIds([Role::ROLE_ID_AUTHOR])
                     ->get()
                     ->pluck('userId')
@@ -794,8 +794,8 @@ abstract class Repository
         $reviewRound = $reviewRoundDao->getById($submissionFile->getData('assocId'));
 
         // Replaces StageAssignmentDAO::getEditorsAssignedToStage
-        $editorsStageAssignments = StageAssignment::withSubmissionId($submission->getId())
-            ->withStageId($reviewRound->getStageId())
+        $editorsStageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withStageIds([$reviewRound->getStageId()])
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
             ->get();
 

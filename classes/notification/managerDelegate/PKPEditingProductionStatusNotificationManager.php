@@ -90,8 +90,8 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
         $contextId = $submission->getData('contextId');
 
         // Replaces StageAssignmentDAO::getEditorsAssignedToStage
-        $editorStageAssignments = StageAssignment::withSubmissionId($submissionId)
-            ->withStageId($submission->getData('stageId'))
+        $editorStageAssignments = StageAssignment::withSubmissionIds([$submissionId])
+            ->withStageIds([$submission->getData('stageId')])
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
             ->get();
 

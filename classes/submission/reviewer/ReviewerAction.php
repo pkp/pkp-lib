@@ -136,8 +136,8 @@ class ReviewerAction
 
         // Get editorial contact name
         // Replaces StageAssignmentDAO::getBySubmissionAndStageId
-        $stageAssignments = StageAssignment::withSubmissionId($submission->getId())
-            ->withStageId($reviewAssignment->getStageId())
+        $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withStageIds([$reviewAssignment->getStageId()])
             ->get();
 
         $recipients = [];

@@ -129,7 +129,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         // managers who may have access to author identities and can not guarantee
         // anonymous reviews
         // Replaces StageAssignmentDAO::getBySubmissionAndStageId
-        $warnOnAssignment = StageAssignment::withSubmissionId($this->getSubmissionId())
+        $warnOnAssignment = StageAssignment::withSubmissionIds([$this->getSubmissionId()])
             ->get()
             ->pluck('userId')
             ->all();

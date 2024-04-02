@@ -201,8 +201,8 @@ class ReviewRound extends \PKP\core\DataObject
         $recommendationsReady = false;
         
         // Replaces StageAssignmentDAO::getEditorsAssignedToStage
-        $editorsStageAssignments = StageAssignment::withSubmissionId($this->getSubmissionId())
-            ->withStageId($this->getStageId())
+        $editorsStageAssignments = StageAssignment::withSubmissionIds([$this->getSubmissionId()])
+            ->withStageIds([$this->getStageId()])
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
             ->get();
 

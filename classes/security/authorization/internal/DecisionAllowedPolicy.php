@@ -50,8 +50,8 @@ class DecisionAllowedPolicy extends AuthorizationPolicy
         $decisionType = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE);
 
         // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-        $stageAssignments = StageAssignment::withSubmissionId($submission->getId())
-            ->withStageId($submission->getData('stageId'))
+        $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withStageIds([$submission->getData('stageId')])
             ->withUserId($this->user->getId())
             ->get();
 

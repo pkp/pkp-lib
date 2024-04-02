@@ -165,7 +165,7 @@ class Repository
         $this->dao->update($newAnnouncement);
 
         $image = $newAnnouncement->getImage();
-        $hasNewImage = $image && $image['temporaryFileId'];
+        $hasNewImage = $image['temporaryFileId'] ?? null;
 
         if ((!$image || $hasNewImage) && $announcement->getImage()) {
             $this->deleteImage($announcement);
@@ -227,7 +227,7 @@ class Repository
     protected function handleImageUpload(Announcement $announcement): void
     {
         $image = $announcement->getImage();
-        if ($image && $image['temporaryFileId']) {
+        if ($image['temporaryFileId'] ?? null) {
             $user = Application::get()->getRequest()->getUser();
             $image = $announcement->getImage();
             $temporaryFileManager = new TemporaryFileManager();
@@ -315,7 +315,7 @@ class Repository
     protected function deleteImage(Announcement $announcement): void
     {
         $image = $announcement->getImage();
-        if ($image && $image['uploadName']) {
+        if ($image['uploadName'] ?? null) {
             $publicFileManager = new PublicFileManager();
             $filesPath = $announcement->getAssocId()
                 ? $publicFileManager->getContextFilesPath($announcement->getAssocId())

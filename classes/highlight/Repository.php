@@ -188,7 +188,7 @@ class Repository
         $this->dao->update($newHighlight);
 
         $image = $newHighlight->getImage();
-        $hasNewImage = $image && $image['temporaryFileId'];
+        $hasNewImage = $image['temporaryFileId'] ?? null;
 
         if ((!$image || $hasNewImage) && $highlight->getImage()) {
             $this->deleteImage($highlight);
@@ -263,7 +263,7 @@ class Repository
     protected function handleImageUpload(Highlight $highlight): void
     {
         $image = $highlight->getImage();
-        if ($image && $image['temporaryFileId']) {
+        if ($image['temporaryFileId'] ?? null) {
             $user = Application::get()->getRequest()->getUser();
             $image = $highlight->getImage();
             $temporaryFileManager = new TemporaryFileManager();
@@ -347,7 +347,7 @@ class Repository
     protected function deleteImage(Highlight $highlight): void
     {
         $image = $highlight->getImage();
-        if ($image && $image['uploadName']) {
+        if ($image['uploadName'] ?? null) {
             $publicFileManager = new PublicFileManager();
             $filesPath = $highlight->getContextId()
                 ? $publicFileManager->getContextFilesPath($highlight->getContextId())

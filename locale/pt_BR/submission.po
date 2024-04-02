@@ -2469,7 +2469,7 @@ msgstr ""
 "submeter. Revise as informações abaixo e faça as alterações solicitadas."
 
 msgid "submission.wizard.validating"
-msgstr "Verificando seu submissão"
+msgstr "Verificando sua submissão"
 
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""

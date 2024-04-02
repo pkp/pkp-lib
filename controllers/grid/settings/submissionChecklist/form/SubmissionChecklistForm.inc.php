@@ -94,8 +94,9 @@ class SubmissionChecklistForm extends Form {
 		$context = $router->getContext($request);
 		$submissionChecklistAll = $context->getData('submissionChecklist');
 		$locale = AppLocale::getPrimaryLocale();
-		//FIXME: a bit of kludge to get unique submissionChecklist id's
-		$this->submissionChecklistId = ($this->submissionChecklistId != null ? $this->submissionChecklistId:(max(array_keys($submissionChecklistAll[$locale])) + 1));
+		$this->submissionChecklistId = $this->submissionChecklistId != null
+			? $this->submissionChecklistId
+			: ((int)collect($submissionChecklistAll[$locale])->keys()->sort()->last() + 1);
 
 		$order = 0;
 		foreach ($submissionChecklistAll[$locale] as $checklistItem) {

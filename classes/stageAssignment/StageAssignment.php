@@ -26,6 +26,7 @@ use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 use PKP\userGroup\relationships\UserGroupStage;
 
 class StageAssignment extends Model
@@ -195,5 +196,18 @@ class StageAssignment extends Model
             $query->leftJoin('user_groups as ug', 'stage_assignments.user_group_id', '=', 'ug.user_group_id')
                 ->whereIn('ug.role_id', $roleIds);
         });
+    }
+
+    /**
+    * Update the model using business params.
+    */
+    public function updateWithParams(array $values)
+    {
+        $convertedValues = collect($values)->mapWithKeys(function ($value, $key) {
+            return [Str::snake($key) => $value];
+        })->toArray();
+
+        // Assuming $this is a query builder instance, not a model instance
+        return $this->update($convertedValues);
     }
 }

@@ -23,8 +23,19 @@ use PKP\install\DowngradeNotSupportedException;
 
 abstract class I7191_EditorAssignments extends \PKP\migration\Migration
 {
+    /**
+     * Retrieves the name of the section table
+     */
     protected abstract function getSectionTable(): string;
+
+    /**
+     * Retrieves the name of the section ID field
+     */
     protected abstract function getSectionId(): string;
+
+    /**
+     * Retrieves the name of the context ID field
+     */
     protected abstract function getContextId(): string;
 
     /**

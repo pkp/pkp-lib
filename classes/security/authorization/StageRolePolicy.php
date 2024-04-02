@@ -73,8 +73,8 @@ class StageRolePolicy extends AuthorizationPolicy
             }
 
             // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-            $stageAssignments = StageAssignment::withSubmissionId($this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION)->getId())
-                ->withStageId($this->_stageId)
+            $stageAssignments = StageAssignment::withSubmissionIds([$this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION)->getId()])
+                ->withStageIds([$this->_stageId])
                 ->withUserId(Application::get()->getRequest()->getUser()->getId())
                 ->get();
 
@@ -93,8 +93,8 @@ class StageRolePolicy extends AuthorizationPolicy
             }
             // Check stage assignments of a user with a managerial role
             // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-            $stageAssignments = StageAssignment::withSubmissionId($this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION)->getId())
-                ->withStageId($this->_stageId)
+            $stageAssignments = StageAssignment::withSubmissionIds([$this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION)->getId()])
+                ->withStageIds([$this->_stageId])
                 ->withUserId(Application::get()->getRequest()->getUser()->getId())
                 ->get();
 

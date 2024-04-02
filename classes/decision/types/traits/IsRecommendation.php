@@ -120,8 +120,8 @@ trait IsRecommendation
     {
         $queryParticipantIds = [];
         // Replaces StageAssignmentDAO::getEditorsAssignedToStage
-        $editorsStageAssignments = StageAssignment::withSubmissionId($submission->getId())
-            ->withStageId($this->getStageId())
+        $editorsStageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withStageIds([$this->getStageId()])
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
             ->get();
 

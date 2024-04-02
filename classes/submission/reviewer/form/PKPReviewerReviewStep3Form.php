@@ -170,8 +170,8 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         ]);
 
         // Replaces StageAssignmentDAO::getBySubmissionAndStageId
-        $stageAssignments = StageAssignment::withSubmissionId($submission->getId())
-            ->withStageId($submission->getData('stageId'))
+        $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withStageIds([$submission->getData('stageId')])
             ->get();
 
         $receivedList = []; // Avoid sending twice to the same user.

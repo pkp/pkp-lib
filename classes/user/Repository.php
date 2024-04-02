@@ -228,7 +228,7 @@ class Repository
         $accessibleWorkflowStages = [];
         // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
         $stageAssignments = StageAssignment::with(['userGroupStages'])
-            ->withSubmissionId($submission->getId())
+            ->withSubmissionIds([$submission->getId()])
             ->withUserId($userId)
             ->get();
 
@@ -383,7 +383,7 @@ class Repository
         $stageAssignments = StageAssignment::withUserId($oldUserId)->get();
         foreach ($stageAssignments as $stageAssignment) {
             // Replaces StageAssignmentDAO::getBySubmissionAndStageId
-            $duplicateAssignments = StageAssignment::withSubmissionId($stageAssignment->submissionId)
+            $duplicateAssignments = StageAssignment::withSubmissionIds([$stageAssignment->submissionId])
                 ->withUserGroupId($stageAssignment->userGroupId)
                 ->withUserId($newUserId)
                 ->get();

@@ -221,7 +221,7 @@ abstract class PKPManageFileApiHandler extends Handler
 
             // Get a list of author user IDs
             // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-            $submitterAssignments = StageAssignment::withSubmissionId($submission->getId())
+            $submitterAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
                 ->withRoleIds([Role::ROLE_ID_AUTHOR])
                 ->get();
 

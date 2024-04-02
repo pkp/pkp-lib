@@ -46,7 +46,7 @@ abstract class SendSubmissionAcknowledgement
         }
 
         // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-        $assignedUserIds = StageAssignment::withSubmissionId($event->submission->getId())
+        $assignedUserIds = StageAssignment::withSubmissionIds([$event->submission->getId()])
             ->withRoleIds([Role::ROLE_ID_AUTHOR])
             ->get()
             ->pluck('userId')

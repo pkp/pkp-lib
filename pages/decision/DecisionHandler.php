@@ -118,8 +118,8 @@ class DecisionHandler extends Handler
         // Don't allow a recommendation unless at least one deciding editor exists
         if (Repo::decision()->isRecommendation($this->decisionType->getDecision())) {
             // Replaces StageAssignmentDAO::getDecidingEditorIds
-            $assignedEditorIds = StageAssignment::withSubmissionId($this->submission->getId())
-                ->withStageId($this->decisionType->getStageId())
+            $assignedEditorIds = StageAssignment::withSubmissionIds([$this->submission->getId()])
+                ->withStageIds([$this->decisionType->getStageId()])
                 ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
                 ->withRecommendOnly(false)
                 ->get()

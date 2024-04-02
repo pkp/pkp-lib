@@ -77,9 +77,9 @@ class Steps
     public function getStageParticipants(int $roleId): array
     {
         // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-        $userIds = StageAssignment::withSubmissionId($this->submission->getId())
+        $userIds = StageAssignment::withSubmissionIds([$this->submission->getId()])
             ->withRoleIds([$roleId])
-            ->withStageId($this->decisionType->getStageId())
+            ->withStageIds([$this->decisionType->getStageId()])
             ->get()
             ->pluck('userId')
             ->all();
@@ -114,8 +114,8 @@ class Steps
     public function getDecidingEditors(): array
     {
         // Replaces StageAssignmentDAO::getDecidingEditorIds
-        $userIds = StageAssignment::withSubmissionId($this->submission->getId())
-            ->withStageId($this->decisionType->getStageId())
+        $userIds = StageAssignment::withSubmissionIds([$this->submission->getId()])
+            ->withStageIds([$this->decisionType->getStageId()])
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
             ->withRecommendOnly(false)
             ->get()

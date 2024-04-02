@@ -167,7 +167,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 $reviewRound = $reviewRoundDao->getById($notification->getAssocId());
                 $user = $request->getUser();
                 // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-                $isAuthor = StageAssignment::withSubmissionId($reviewRound->getSubmissionId())
+                $isAuthor = StageAssignment::withSubmissionIds([$reviewRound->getSubmissionId()])
                     ->withRoleIds([Role::ROLE_ID_AUTHOR])
                     ->withUserId($user->getId())
                     ->exists();

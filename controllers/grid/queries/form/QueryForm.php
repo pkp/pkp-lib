@@ -298,8 +298,8 @@ class QueryForm extends Form
         $assignedRoles = (function () use ($query, $user) {
             $assignedRoles = [];
             // Replaces StageAssignmentDAO::getBySubmissionAndStageId
-            $usersAssignments = StageAssignment::withSubmissionId($query->getAssocId())
-                ->withStageId($query->getStageId())
+            $usersAssignments = StageAssignment::withSubmissionIds([$query->getAssocId()])
+                ->withStageIds([$query->getStageId()])
                 ->withUserId($user->getId())
                 ->get();
 
@@ -326,7 +326,7 @@ class QueryForm extends Form
                 if ($reviewAssignment->getReviewerId() == $user->getId()) {
                     if ($reviewAssignment->getReviewMethod() != ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN) {
                         // Replaces StageAssignmentDAO::getBySubmissionAndRoleId
-                        $excludeUsers = StageAssignment::withSubmissionId($query->getAssocId())
+                        $excludeUsers = StageAssignment::withSubmissionIds([$query->getAssocId()])
                             ->withRoleIds([Role::ROLE_ID_AUTHOR])
                             ->withUserId($user->getId())
                             ->get()
@@ -363,8 +363,8 @@ class QueryForm extends Form
 
             $userRoles = [];
             // Replaces StageAssignmentDAO::getBySubmissionAndStageId
-            $userAssignments = StageAssignment::withSubmissionId($query->getAssocId())
-                ->withStageId($query->getStageId())
+            $userAssignments = StageAssignment::withSubmissionIds([$query->getAssocId()])
+                ->withStageIds([$query->getStageId()])
                 ->withUserId($user->getId())
                 ->get();
 
@@ -447,8 +447,8 @@ class QueryForm extends Form
                 // get participant roles in this workflow stage
                 $assignedRoles = [];
                 // Replaces StageAssignmentDAO::getBySubmissionAndStageId
-                $usersAssignments = StageAssignment::withSubmissionId($submissionId)
-                    ->withStageId($stageId)
+                $usersAssignments = StageAssignment::withSubmissionIds([$submissionId])
+                    ->withStageIds([$stageId])
                     ->withUserId($participantId)
                     ->get();
 

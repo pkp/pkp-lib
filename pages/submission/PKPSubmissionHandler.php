@@ -771,9 +771,9 @@ abstract class PKPSubmissionHandler extends Handler
         $request = Application::get()->getRequest();
         
         // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-        $hasStageAssignments = StageAssignment::withSubmissionId($submission->getId())
+        $hasStageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
             ->withRoleIds([Role::ROLE_ID_AUTHOR])
-            ->withStageId(WORKFLOW_STAGE_ID_SUBMISSION)
+            ->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
             ->withUserId($user->getId())
             ->exists();
 

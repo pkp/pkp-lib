@@ -386,7 +386,7 @@ class Schema extends \PKP\core\maps\Schema
             $currentUserAssignedRoles = [];
             if ($currentUser) {
                 // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-                $stageAssignments = StageAssignment::withSubmissionId($submission->getId())
+                $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
                     ->withUserId($currentUser->getId() ?? 0)
                     ->get();
 
@@ -398,9 +398,9 @@ class Schema extends \PKP\core\maps\Schema
                 }
 
                 // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-                $stageAssignments = StageAssignment::withSubmissionId($submission->getId())
+                $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
                     ->withUserId($currentUser->getId())
-                    ->withStageId($stageId)
+                    ->withStageIds([$stageId])
                     ->get();
 
                 foreach ($stageAssignments as $stageAssignment) {
@@ -414,8 +414,8 @@ class Schema extends \PKP\core\maps\Schema
             switch ($stageId) {
                 case WORKFLOW_STAGE_ID_SUBMISSION:
                     // Replaces StageAssignmentDAO::editorAssignedToStage
-                    $assignedEditors = StageAssignment::withSubmissionId($submission->getId())
-                        ->withStageId($stageId)
+                    $assignedEditors = StageAssignment::withSubmissionIds([$submission->getId()])
+                        ->withStageIds([$stageId])
                         ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
                         ->exists();
 
@@ -451,8 +451,8 @@ class Schema extends \PKP\core\maps\Schema
                         $user = $request->getUser();
 
                         // Replaces StageAssignmentDAO::getEditorsAssignedToStage
-                        $editorsStageAssignments = StageAssignment::withSubmissionId($submission->getId())
-                            ->withStageId($stageId)
+                        $editorsStageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+                            ->withStageIds([$stageId])
                             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
                             ->get();
 

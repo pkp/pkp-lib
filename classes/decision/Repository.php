@@ -158,8 +158,8 @@ abstract class Repository
             // have at least one assigned editor who can make a decision
             if ($this->isRecommendation($decisionType->getDecision())) {
                 // Replaces StageAssignmentDAO::getDecidingEditorIds
-                $existingAssignedEditors = StageAssignment::withSubmissionId($submission->getId())
-                    ->withStageId($decisionType->getStageId())
+                $existingAssignedEditors = StageAssignment::withSubmissionIds([$submission->getId()])
+                    ->withStageIds([$decisionType->getStageId()])
                     ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
                     ->withRecommendOnly(false)
                     ->exists();
@@ -425,9 +425,9 @@ abstract class Repository
         }
 
         // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-        $authorIds = StageAssignment::withSubmissionId($submission->getId())
+        $authorIds = StageAssignment::withSubmissionIds([$submission->getId()])
             ->withRoleIds([Role::ROLE_ID_AUTHOR])
-            ->withStageId($decisionType->getStageId())
+            ->withStageIds([$decisionType->getStageId()])
             ->get()
             ->pluck('userId')
             ->all();

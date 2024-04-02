@@ -185,9 +185,9 @@ abstract class PKPWorkflowHandler extends Handler
             $canAccessPublication = true;
 
             // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
-            $stageAssignments = StageAssignment::withSubmissionId($submission->getId())
+            $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
                 ->withUserId($request->getUser()->getId())
-                ->withStageId(WORKFLOW_STAGE_ID_PRODUCTION)
+                ->withStageIds([WORKFLOW_STAGE_ID_PRODUCTION])
                 ->get();
 
             // If they have no stage assignments, check the role they have been granted
@@ -537,8 +537,8 @@ abstract class PKPWorkflowHandler extends Handler
 
         // If there is an editor assigned, retrieve stage decisions.
         // Replaces StageAssignmentDAO::getEditorsAssignedToStage
-        $editorsStageAssignments = StageAssignment::withSubmissionId($submission->getId())
-            ->withStageId($stageId)
+        $editorsStageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withStageIds([$stageId])
             ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
             ->get();
 
@@ -620,8 +620,8 @@ abstract class PKPWorkflowHandler extends Handler
 
                     // At least one deciding editor must be assigned before a recommendation can be made
                     // Replaces StageAssignmentDAO::getDecidingEditorIds
-                    $hasDecidingEditors = StageAssignment::withSubmissionId($submission->getId())
-                        ->withStageId($stageId)
+                    $hasDecidingEditors = StageAssignment::withSubmissionIds([$submission->getId()])
+                        ->withStageIds([$stageId])
                         ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
                         ->withRecommendOnly(false)
                         ->exists();

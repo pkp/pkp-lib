@@ -36,9 +36,9 @@ class UpdateAuthorStageAssignments
     public function handle(SubmissionSubmitted $event)
     {
         // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-        $stageAssigments = StageAssignment::withSubmissionId($event->submission->getId())
+        $stageAssigments = StageAssignment::withSubmissionIds([$event->submission->getId()])
             ->withRoleIds([Role::ROLE_ID_AUTHOR])
-            ->withStageId($event->submission->getData('stageId'))
+            ->withStageIds([$event->submission->getData('stageId')])
             ->get();
 
         $userGroups = Repo::userGroup()

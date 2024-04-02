@@ -203,8 +203,8 @@ class StageParticipantGridHandler extends CategoryGridHandler
         $stageId = $this->getStageId();
 
         // Replaces StageAssignmentDAO::getBySubmissionAndStageId
-        $stageAssignments = StageAssignment::withSubmissionId($submission->getId())
-            ->withStageId($stageId)
+        $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withStageIds([$stageId])
             ->withUserGroupId($userGroup->getId())
             ->get();
 
@@ -268,8 +268,8 @@ class StageParticipantGridHandler extends CategoryGridHandler
     {
         // Make a list of the active (non-reviewer) user groups.
         // Replaces StageAssignmentDAO::getBySubmissionAndStageId
-        $userGroupIds = StageAssignment::withSubmissionId($this->getSubmission()->getId())
-            ->withStageId($this->getStageId())
+        $userGroupIds = StageAssignment::withSubmissionIds([$this->getSubmission()->getId()])
+            ->withStageIds([$this->getStageId()])
             ->get()
             ->pluck('userGroupId')
             ->all();
@@ -358,8 +358,8 @@ class StageParticipantGridHandler extends CategoryGridHandler
             foreach ($stages as $workingStageId) {
                 // remove the 'editor required' task if we now have an editor assigned
                 // Replaces StageAssignmentDAO::editorAssignedToStage
-                $assignedEditors = StageAssignment::withSubmissionId($submission->getId())
-                    ->withStageId($workingStageId)
+                $assignedEditors = StageAssignment::withSubmissionIds([$submission->getId()])
+                    ->withStageIds([$workingStageId])
                     ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
                     ->exists();
 

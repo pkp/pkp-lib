@@ -460,22 +460,22 @@ class QueryDAO extends \PKP\db\DAO
     public function addCommentsForEditorsQuery(Submission $submission): int
     {
         // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-        $participantUserIds = StageAssignment::withSubmissionId($submission->getId())
+        $participantUserIds = StageAssignment::withSubmissionIds([$submission->getId()])
             ->withRoleIds([
                 Role::ROLE_ID_MANAGER,
                 Role::ROLE_ID_SUB_EDITOR,
                 Role::ROLE_ID_ASSISTANT,
                 Role::ROLE_ID_AUTHOR,
             ])
-            ->withStageId($submission->getData('stageId'))
+            ->withStageIds([$submission->getData('stageId')])
             ->get()
             ->pluck('userId')
             ->all();
 
         // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-        $authorAssignments = StageAssignment::withSubmissionId($submission->getId())
+        $authorAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
             ->withRoleIds([Role::ROLE_ID_AUTHOR])
-            ->withStageId($submission->getData('stageId'))
+            ->withStageIds([$submission->getData('stageId')])
             ->get();
 
         $fromUser = $authorAssignments->isEmpty()

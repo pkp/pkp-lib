@@ -135,24 +135,14 @@ class StageAssignment extends Model
 
     /**
      * Scope a query to only include stage assignments that are related 
-     * to userGroupStages having a specific stageId
+     * to userGroupStages having specific stageIds
      */
-    public function scopeWithStageId(Builder $query, ?int $stageId): Builder
+    public function scopeWithStageIds(Builder $query, ?array $stageIds): Builder
     {
-        return $query->when($stageId !== null, function ($query) use ($stageId) {
-            return $query->whereHas('userGroupStages', function ($subQuery) use ($stageId) {
-                $subQuery->where('stage_id', $stageId);
+        return $query->when($stageIds !== null && !empty($stageIds), function ($query) use ($stageIds) {
+            return $query->whereHas('userGroupStages', function ($subQuery) use ($stageIds) {
+                $subQuery->whereIn('stage_id', $stageIds);
             });
-        });
-    }
-
-    /**
-    * Scope a query to only include stage assignments with a specific submissionId.
-    */
-    public function scopeWithSubmissionId(Builder $query, ?int $submissionId): Builder
-    {
-        return $query->when($submissionId !== null, function ($query) use ($submissionId) {
-            return $query->where('submission_id', $submissionId);
         });
     }
 

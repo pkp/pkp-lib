@@ -222,8 +222,15 @@ class UserGroupForm extends Form
                 $userGroup->setPermitMetadataEdit(true);
             } else {
                 $permitMetadataEdit = $userGroup->getPermitMetadataEdit();
-                StageAssignment::withUserGroupId($userGroupId)
-                    ->updateWithParams(['canChangeMetadata' => $permitMetadataEdit]);
+
+                $stageAssignments = StageAssignment::withUserGroupId($userGroupId)
+                    ->get();
+
+                foreach ($stageAssignments as $stageAssignment) {
+                    $stageAssignment->updateWithParams([
+                        'canChangeMetadata' => $permitMetadataEdit,
+                    ]);
+                }
             }
 
             $userGroup->setRecommendOnly($this->getData('recommendOnly') && in_array($userGroup->getRoleId(), $this->getRecommendOnlyRoles()));

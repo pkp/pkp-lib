@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FieldAutosuggestPreset;
 use PKP\components\forms\FieldOptions;
+use PKP\components\forms\FieldSlider;
 use PKP\components\forms\FieldSelectUsers;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
@@ -50,6 +51,7 @@ class SubmissionFilters extends FormComponent
             ->addAssignedTo()
             ->addIssues()
             ->addCategories()
+            ->addDaysSinceLastActivity()
         ;
     }
 
@@ -156,5 +158,20 @@ class SubmissionFilters extends FormComponent
         }
 
         return $this->addField(new FieldOptions('categoryIds', $props));
+    }
+
+    protected function addDaysSinceLastActivity(): self
+    {
+        $props = [
+            'min' => 0,
+            'max' => 180,
+            'label' => __('submission.list.daysSinceLastActivity'),
+            'value' => 0,
+            'groupId' => 'default',
+
+        ];
+
+        return $this->addField(new FieldSlider('daysInactive', $props));
+  
     }
 }

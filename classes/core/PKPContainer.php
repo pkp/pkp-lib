@@ -322,7 +322,7 @@ class PKPContainer extends Container
     protected function loadConfiguration()
     {
         $items = [];
-        $_request = new \APP\core\Request;
+        $_request = PKPApplication::get()->getRequest();
 
         // Database connection
         $driver = 'mysql';

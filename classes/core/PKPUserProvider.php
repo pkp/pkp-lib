@@ -16,7 +16,6 @@ namespace PKP\core;
 
 use PKP\user\User;
 use APP\facades\Repo;
-use PKP\security\Validation;
 use PKP\validation\ValidatorFactory;
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Database\ConnectionInterface;
@@ -128,12 +127,9 @@ class PKPUserProvider implements UserProvider
             return;
         }
 
-        if (ValidatorFactory::make(['email' => $credentials['username']], ['email' => 'email'])->passes()) {
-            $user = Repo::user()->getByEmail($credentials['username'], true);
-            Validation::setAuthKey(Validation::AUTH_KEY_EMAIL);
-        } else {
-            $user = Repo::user()->getByUsername($credentials['username'], true);
-        }
+        $user = ValidatorFactory::make(['email' => $credentials['username']], ['email' => 'email'])->passes()
+            ? Repo::user()->getByEmail($credentials['username'], true)
+            : Repo::user()->getByUsername($credentials['username'], true);
 
         return $user;
     }

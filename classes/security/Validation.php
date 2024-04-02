@@ -19,8 +19,6 @@ namespace PKP\security;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Str;
-use Carbon\Carbon;
-use Exception;
 use Illuminate\Support\Facades\Auth;
 use PKP\config\Config;
 use PKP\core\Core;
@@ -34,36 +32,6 @@ class Validation
     public const ADMINISTRATION_PROHIBITED = 0;
     public const ADMINISTRATION_PARTIAL = 1;
     public const ADMINISTRATION_FULL = 2;
-
-    public const AUTH_KEY_USERNAME = 1;
-    public const AUTH_KEY_EMAIL = 2;
-
-    protected static $authKey = self::AUTH_KEY_USERNAME;
-
-    /**
-     * Get the user currently set auth key
-     * 
-     * @return int const value of AUTH_KEY_* define auth key(email/username)
-     */
-    public static function getAuthKey(): int
-    {
-        return static::$authKey;
-    }
-
-    /**
-     * Set the user current auth key
-     * 
-     * @param int $value const value of AUTH_KEY_* define auth key(email/username)
-     * @return void
-     */
-    public static function setAuthKey(int $value): void
-    {
-        if (!in_array($value, [static::AUTH_KEY_USERNAME, static::AUTH_KEY_EMAIL])) {
-            throw new Exception('Invalid auth key provided');
-        }
-
-        static::$authKey = $value;
-    }
 
     /**
      * Authenticate user credentials and mark the user as logged in in the current session.

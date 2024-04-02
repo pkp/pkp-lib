@@ -44,7 +44,7 @@ class WorkflowTabHandler extends PKPWorkflowTabHandler
                 $errors = [];
                 $context = $request->getContext();
 
-                $submitterAssignments = StageAssignment::withSubmissionId($submission->getId())
+                $submitterAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
                     ->withRoleIds([Role::ROLE_ID_AUTHOR])
                     ->get();
 

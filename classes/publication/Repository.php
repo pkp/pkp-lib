@@ -197,7 +197,7 @@ class Repository extends \PKP\publication\Repository
         // Check if current user is an author
         $isAuthor = false;
 
-        $submitterAssignments = StageAssignment::withSubmissionId($submissionId)
+        $submitterAssignments = StageAssignment::withSubmissionIds([$submissionId])
             ->withRoleIds([Role::ROLE_ID_AUTHOR])
             ->get();
 

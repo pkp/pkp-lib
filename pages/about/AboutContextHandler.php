@@ -20,8 +20,12 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use DateTime;
+use PKP\plugins\Hook;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
+use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
+use PKP\userGroup\relationships\UserUserGroup;
 
 class AboutContextHandler extends Handler
 {
@@ -51,6 +55,83 @@ class AboutContextHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
         $this->setupTemplate($request);
         $templateMgr->display('frontend/pages/about.tpl');
+    }
+
+    /**
+     * Display editorial masthead page.
+     *
+     * @param array $args
+     * @param \PKP\core\PKPRequest $request
+     *
+     * @hook AboutContextHandler::editorialMasthead [[$mastheadRoles, $mastheadUsers, $reviewers, $previousYear]]
+     */
+    public function editorialMasthead($args, $request)
+    {
+        $context = $request->getContext();
+
+        $savedMastheadUserGroupIdsOrder = (array) $context->getData('mastheadUserGroupIds');
+
+        $collector = Repo::userGroup()->getCollector();
+        $allMastheadUserGroups = $collector
+            ->filterByContextIds([$context->getId()])
+            ->filterByMasthead(true)
+            ->orderBy($collector::ORDERBY_ROLE_ID)
+            ->getMany()
+            ->toArray();
+
+        // sort the masthead roles in their saved order for display
+        $mastheadRoles = array_replace(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups);
+
+        $mastheadUsers = [];
+        foreach ($mastheadRoles as $mastheadUserGroup) {
+            // Get all users that are active in the given role
+            // and that have accepted to be displayed on the masthead for that role.
+            // No need to filter by context ID, because the user groups are already filtered so.
+            $users = Repo::user()
+                ->getCollector()
+                ->filterByUserGroupIds([$mastheadUserGroup->getId()])
+                ->filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON)
+                ->getMany();
+            foreach ($users as $user) {
+                $userUserGroup = UserUserGroup::withUserId($user->getId())
+                    ->withUserGroupId($mastheadUserGroup->getId())
+                    ->withActive()
+                    ->withMasthead()
+                    ->first();
+                if ($userUserGroup) {
+                    $startDatetime = new DateTime($userUserGroup->dateStart);
+                    $mastheadUsers[$mastheadUserGroup->getId()][$user->getId()] = [
+                        'user' => $user,
+                        'dateStart' => $startDatetime->format('Y'),
+                    ];
+                }
+            }
+        }
+
+        $previousYear = date('Y') - 1;
+        $reviewerIds = Repo::reviewAssignment()->getReviewerIdsByCompletedYear($context->getId(), $previousYear);
+        $reviewers = Repo::user()
+            ->getCollector()
+            ->filterByUserIds($reviewerIds->toArray())
+            ->getMany()
+            ->all();
+
+        Hook::call('AboutContextHandler::editorialMasthead', [$mastheadRoles, $mastheadUsers, $reviewers, $previousYear]);
+
+        // To come after https://github.com/pkp/pkp-lib/issues/9771
+        // $orcidIcon = OrcidManager::getIcon();
+        $orcidIcon = '';
+
+        $templateMgr = TemplateManager::getManager($request);
+        $this->setupTemplate($request);
+        $templateMgr->assign([
+            'mastheadRoles' => $mastheadRoles,
+            'mastheadUsers' => $mastheadUsers,
+            'reviewers' => $reviewers,
+            'previousYear' => $previousYear,
+            'orcidIcon' => $orcidIcon
+        ]);
+        $templateMgr->display('frontend/pages/editorialMasthead.tpl');
     }
 
     /**

@@ -10,7 +10,7 @@
  *
  * @ingroup classes_controllers_form
  *
- * @brief A form for defining in which order the masthead roles should be displayed.
+ * @brief A form for defining in which order the editorial masthead roles should be displayed.
  */
 
 namespace PKP\components\forms\context;
@@ -63,8 +63,8 @@ class PKPAppearanceMastheadForm extends FormComponent
         }
 
         $this->addField(new FieldOptions('mastheadUserGroupIds', [
-            'label' => __('manager.setup.masthead'),
-            'description' => __('manager.setup.masthead.description'),
+            'label' => __('common.editorialMasthead'),
+            'description' => __('manager.setup.editorialMasthead.description'),
             'isOrderable' => true,
             'value' => array_column($mastheadOptions, 'value'),
             'options' => $mastheadOptions,

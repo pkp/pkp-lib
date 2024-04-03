@@ -1860,8 +1860,8 @@ msgstr "Yes, require submitting authors to upload one or more of these files."
 msgid "manager.setup.genres.submitRequired.no"
 msgstr "No, allow new submissions without these files."
 
-msgid "manager.setup.masthead.description"
-msgstr "Define the order of masthead roles for public display."
+msgid "manager.setup.editorialMasthead.description"
+msgstr "Define the order of editorial masthead roles for public display."
 
 msgid "manager.settings.wizard"
 msgstr "Settings Wizard"
@@ -2428,6 +2428,9 @@ msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
 msgstr ""
 "This link will only be displayed if you have filled out the Editorial Team "
 "section under Settings > Journal."
+
+msgid "manager.navigationMenus.editorialMasthead.description"
+msgstr "Link to a page displaying all active editorial masthead services."
 
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Link to the page displaying submission instructions."

@@ -41,7 +41,7 @@
 						@set="set"
 					/>
 				</tab>
-				<tab id="appearance-masthead" label="{translate key="manager.setup.masthead"}">
+				<tab id="appearance-masthead" label="{translate key="common.editorialMasthead"}">
 					<pkp-form
 						v-bind="components.{$smarty.const.FORM_APPEARANCE_MASTHEAD}"
 						@set="set"

@@ -38,7 +38,7 @@
 	<div id="app" class="app {if $isLoggedInAs} app--isLoggedInAs{/if}" v-cloak>
 		<vue-announcer class="sr-only"></vue-announcer>
 		<pkp-announcer class="sr-only"></pkp-announcer>
-		<pkp-dialog></pkp-dialog>
+		<modal-manager></modal-manager>
 		<header class="app__header" role="banner">
 			{if $availableContexts}
 				<dropdown class="app__headerAction app__contexts">

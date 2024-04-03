@@ -10,9 +10,7 @@
  *
  * @brief A modal that retrieves content from a remote AJAX endpoint.
  */
-(function($) {
-
-
+(function ($) {
 	/**
 	 * @constructor
 	 *
@@ -29,7 +27,10 @@
 	 *  - all options documented for the jQueryUI dialog widget,
 	 *    except for the buttons parameter which is not supported.
 	 */
-	$.pkp.controllers.modal.AjaxModalHandler = function($handledElement, options) {
+	$.pkp.controllers.modal.AjaxModalHandler = function (
+		$handledElement,
+		options,
+	) {
 		this.parent($handledElement, options);
 
 		// We assume that AJAX modals usually contain forms and
@@ -39,16 +40,18 @@
 		this.bind('ajaxHtmlError', this.modalClose);
 		this.bind('modalFinished', this.modalClose);
 	};
-	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.AjaxModalHandler,
-			$.pkp.controllers.modal.ModalHandler);
-
+	$.pkp.classes.Helper.inherits(
+		$.pkp.controllers.modal.AjaxModalHandler,
+		$.pkp.controllers.modal.ModalHandler,
+	);
 
 	//
 	// Protected methods
 	//
 	/** @inheritDoc */
-	$.pkp.controllers.modal.AjaxModalHandler.prototype.checkOptions =
-			function(options) {
+	$.pkp.controllers.modal.AjaxModalHandler.prototype.checkOptions = function (
+		options,
+	) {
 		// Check the mandatory options of the ModalHandler handler.
 		if (!this.parent('checkOptions', options)) {
 			return false;
@@ -58,15 +61,13 @@
 		return typeof options.url === 'string';
 	};
 
-
 	/** @inheritDoc */
-	$.pkp.controllers.modal.AjaxModalHandler.prototype.mergeOptions =
-			function(options) {
-
+	$.pkp.controllers.modal.AjaxModalHandler.prototype.mergeOptions = function (
+		options,
+	) {
 		// Call parent.
 		return /** @type {Object} */ (this.parent('mergeOptions', options));
 	};
-
 
 	/**
 	 * Open the modal and fetch content via ajax
@@ -74,15 +75,21 @@
 	 *  the modal will be attached to.
 	 * @protected
 	 */
-	$.pkp.controllers.modal.AjaxModalHandler.prototype.modalOpen =
-			function($handledElement) {
+	$.pkp.controllers.modal.AjaxModalHandler.prototype.modalOpen = function (
+		$handledElement,
+	) {
 		this.parent('modalOpen', $handledElement);
 
 		// Retrieve remote modal content.
-		$handledElement.find('.content')
-				.pkpAjaxHtml(/** @type {{ url: string }} */ (this.options).url);
-	};
+		pkp.eventBus.$emit('open-modal-vue', {
+			component: 'LegacyAjax',
+			options: {...this.options, modalHandler: this},
+		});
 
+		///$handledElement
+		///	.find('.content')
+		///	.pkpAjaxHtml(/** @type {{ url: string }} */ (this.options).url);
+	};
 
 	/**
 	 * Close the modal when a form submission is complete
@@ -91,11 +98,11 @@
 	 *  a button.
 	 * @protected
 	 */
-	$.pkp.controllers.modal.AjaxModalHandler.prototype.formSubmitted =
-			function(callingContext, event) {
-
+	$.pkp.controllers.modal.AjaxModalHandler.prototype.formSubmitted = function (
+		callingContext,
+		event,
+	) {
 		this.getHtmlElement().parent().trigger('notifyUser');
 		this.modalClose();
 	};
-
-}(jQuery));
+})(jQuery);

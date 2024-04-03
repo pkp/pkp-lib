@@ -16,12 +16,9 @@
  *
  *  A modal that has only one button and expects a simple message string.
  */
-(function($) {
-
+(function ($) {
 	/** @type {Object} */
-	$.pkp.controllers.modal = $.pkp.controllers.modal || { };
-
-
+	$.pkp.controllers.modal = $.pkp.controllers.modal || {};
 
 	/**
 	 * @constructor
@@ -31,7 +28,7 @@
 	 * @param {jQueryObject} $handledElement The modal.
 	 * @param {Object.<string, *>} options The modal options.
 	 */
-	$.pkp.controllers.modal.ModalHandler = function($handledElement, options) {
+	$.pkp.controllers.modal.ModalHandler = function ($handledElement, options) {
 		this.parent($handledElement, options);
 
 		// Check the options.
@@ -41,25 +38,29 @@
 
 		// Clone the options object before we manipulate them.
 		var internalOptions = $.extend(true, {}, options),
-				canClose;
+			canClose;
 
 		// Merge user and default options.
-		this.options = /** @type {{ canClose: boolean, textTitle: string,
+		this.options =
+			/** @type {{ canClose: boolean, textTitle: string,
 				title: string, titleIcon: string,
 				closeCleanVueInstances: Array }} */
-				(this.mergeOptions(internalOptions));
+			(this.mergeOptions(internalOptions));
 
 		// Attach content to the modal
-		$handledElement.html(this.modalBuild()[0].outerHTML);
+		///$handledElement.html(this.modalBuild()[0].outerHTML);
 
 		// Open the modal
 		this.modalOpen($handledElement);
 
 		// Set up close controls
-		$handledElement.find(
-				'.pkpModalCloseButton').click(this.callbackWrapper(this.modalClose));
+		$handledElement
+			.find('.pkpModalCloseButton')
+			.click(this.callbackWrapper(this.modalClose));
 		$handledElement.on(
-				'click keyup', this.callbackWrapper(this.handleWrapperEvents));
+			'click keyup',
+			this.callbackWrapper(this.handleWrapperEvents),
+		);
 
 		// Publish some otherwise private events triggered
 		// by nested widgets so that they can be handled by
@@ -72,9 +73,10 @@
 		this.bind('notifyUser', this.redirectNotifyUserEventHandler_);
 		this.bindGlobal('form-success', this.onFormSuccess_);
 	};
-	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ModalHandler,
-			$.pkp.classes.Handler);
-
+	$.pkp.classes.Helper.inherits(
+		$.pkp.controllers.modal.ModalHandler,
+		$.pkp.classes.Handler,
+	);
 
 	//
 	// Private static properties
@@ -95,9 +97,8 @@
 		canClose: true,
 		closeCallback: false,
 		// Vue components to destroy when when modal is closed
-		closeCleanVueInstances: []
+		closeCleanVueInstances: [],
 	};
-
 
 	//
 	// Public properties
@@ -111,7 +112,6 @@
 	 */
 	$.pkp.controllers.modal.ModalHandler.options = null;
 
-
 	//
 	// Protected methods
 	//
@@ -122,14 +122,15 @@
 	 * @param {Object.<string, *>} options Modal options.
 	 * @return {boolean} True if options are ok.
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.checkOptions =
-			function(options) {
-
+	$.pkp.controllers.modal.ModalHandler.prototype.checkOptions = function (
+		options,
+	) {
 		// Check for basic configuration requirements.
-		return typeof options === 'object' &&
-				(/** @type {{ buttons: Object }} */ (options)).buttons === undefined;
+		return (
+			typeof options === 'object' &&
+			/** @type {{ buttons: Object }} */ (options).buttons === undefined
+		);
 	};
-
 
 	/**
 	 * Determine the options based on
@@ -139,15 +140,18 @@
 	 * @return {Object.<string, *>} The default options merged
 	 *  with the non-default options.
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.mergeOptions =
-			function(options) {
-
+	$.pkp.controllers.modal.ModalHandler.prototype.mergeOptions = function (
+		options,
+	) {
 		// Merge the user options into the default options.
-		var mergedOptions = $.extend(true, { },
-				this.self('DEFAULT_OPTIONS_'), options);
+		var mergedOptions = $.extend(
+			true,
+			{},
+			this.self('DEFAULT_OPTIONS_'),
+			options,
+		);
 		return mergedOptions;
 	};
-
 
 	//
 	// Public methods
@@ -160,16 +164,15 @@
 	 * @protected
 	 * @return {Object} jQuery object representing modal content
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.modalBuild =
-			function() {
-
-		var $titleDiv, $modal = $('<div class="pkp_modal_panel"></div>');
+	$.pkp.controllers.modal.ModalHandler.prototype.modalBuild = function () {
+		var $titleDiv,
+			$modal = $('<div class="pkp_modal_panel"></div>');
 
 		// Title bar
-		if (typeof(this.options.textTitle) !== 'undefined') {
+		if (typeof this.options.textTitle !== 'undefined') {
 			$titleDiv = $('<div class="header"/>').text(this.options.textTitle);
 			$modal.append($titleDiv);
-		} else if (typeof(this.options.title) !== 'undefined') {
+		} else if (typeof this.options.title !== 'undefined') {
 			$modal.append('<div class="header">' + this.options.title + '</div>');
 		} else {
 			$modal.append('<div class="header">' + '</div>');
@@ -178,52 +181,51 @@
 		// Close button
 		if (this.options.canClose) {
 			$modal.append(
-					'<a href="#" class="close pkpModalCloseButton">' +
+				'<a href="#" class="close pkpModalCloseButton">' +
 					'<span :aria-hidden="true">×</span>' +
 					'<span class="pkp_screen_reader">' +
-					(/** @type {{ closeButtonText: string }} */ (this.options))
-					.closeButtonText + '</span></a>');
+					/** @type {{ closeButtonText: string }} */ (this.options)
+						.closeButtonText +
+					'</span></a>',
+			);
 		}
 
 		// Content
 		$modal.append('<div class="content"></div>');
 
 		// Add aria role and label
-		$modal.attr('role', 'dialog')
-				.attr('aria-label', this.options.title);
+		$modal.attr('role', 'dialog').attr('aria-label', this.options.title);
 
 		return $modal;
 	};
-
 
 	/**
 	 * Attach a modal to the dom and make it visible
 	 * @param {jQueryObject} $handledElement The modal.
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.modalOpen =
-			function($handledElement) {
-
+	$.pkp.controllers.modal.ModalHandler.prototype.modalOpen = function (
+		$handledElement,
+	) {
 		// The $handledElement must be attached to the DOM before events will
 		// bubble up to SiteHandler
-		var $body = $('body');
-		$body.append($handledElement);
+		///var $body = $('body');
+		///$body.append($handledElement);
 
 		// Trigger visibility state change on the next tick, so that CSS
 		// transform animations will run
-		setTimeout(function() {
-			$handledElement.addClass('is_visible');
-		},10);
+		///setTimeout(function() {
+		///	$handledElement.addClass('is_visible');
+		//},10);
 
 		// Set focus to the modal. Leave a sizeable delay here so that the
 		// element can be added to the dom first
-		setTimeout(function() {
-			$handledElement.focus();
-		}, 300);
+		///setTimeout(function() {
+		///	$handledElement.focus();
+		///}, 300);
 
 		// Trigger events
 		$handledElement.trigger('pkpModalOpen', [$handledElement]);
 	};
-
 
 	/**
 	 * Close the modal. Typically invoked via an event of some kind, such as
@@ -234,13 +236,16 @@
 	 *  a close button. Not set if called via callback.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.modalClose =
-			function(opt_callingContext, opt_event) {
-
+	$.pkp.controllers.modal.ModalHandler.prototype.modalClose = function (
+		opt_callingContext,
+		opt_event,
+	) {
+		console.log('modal closed triggered');
 		var modalHandler = this,
-				$modalElement = this.getHtmlElement(),
-				$form = $modalElement.find('form').first(),
-				handler, informationObject;
+			$modalElement = this.getHtmlElement(),
+			$form = $modalElement.find('form').first(),
+			handler,
+			informationObject;
 
 		// Unregister a form if attached to this modalElement
 		// modalClose is called on both 'cancel' and 'close' events.  With
@@ -258,17 +263,19 @@
 		// DOM and remove the handler once the CSS animation is complete
 		$modalElement.removeClass('is_visible');
 		this.trigger('pkpModalClose');
-		setTimeout(function() {
+		pkp.eventBus.$emit('close-modal-vue');
+		setTimeout(function () {
 			var vueInstances = modalHandler.options.closeCleanVueInstances,
-					instance,
-					i,
-					id;
+				instance,
+				i,
+				id;
 			if (vueInstances.length) {
 				for (i = 0; i < vueInstances.length; i++) {
 					id = vueInstances[i];
 					if (typeof pkp.registry._instances[id] !== 'undefined') {
-						instance = /** @type {{ $destroy: Function }} */
-								(pkp.registry._instances[id]);
+						instance =
+							/** @type {{ $destroy: Function }} */
+							(pkp.registry._instances[id]);
 						instance.unmount();
 					}
 				}
@@ -282,10 +289,8 @@
 			}
 		}, 300);
 
-
 		return false;
 	};
-
 
 	/**
 	 * Process events that reach the wrapper element.
@@ -297,23 +302,19 @@
 	 *  a close button. Not set if called via callback.
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.handleWrapperEvents =
-			function(opt_callingContext, opt_event) {
+		function (opt_callingContext, opt_event) {
+			// Close click events directly on modal (background screen)
+			if (opt_event.type == 'click' && opt_callingContext == opt_event.target) {
+				$.pkp.classes.Handler.getHandler($(opt_callingContext)).modalClose();
+				return;
+			}
 
-		// Close click events directly on modal (background screen)
-		if (opt_event.type == 'click' && opt_callingContext == opt_event.target) {
-			$.pkp.classes.Handler.getHandler($(opt_callingContext))
-					.modalClose();
-			return;
-		}
-
-		// Close for ESC keypresses (27) that have bubbled up
-		if (opt_event.type == 'keyup' && opt_event.which == 27) {
-			$.pkp.classes.Handler.getHandler($(opt_callingContext))
-					.modalClose();
-			return;
-		}
-	};
-
+			// Close for ESC keypresses (27) that have bubbled up
+			if (opt_event.type == 'keyup' && opt_event.which == 27) {
+				$.pkp.classes.Handler.getHandler($(opt_callingContext)).modalClose();
+				return;
+			}
+		};
 
 	//
 	// Private methods
@@ -329,13 +330,13 @@
 	 * @private
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.redirectNotifyUserEventHandler_ =
-			function(sourceElement, event, triggerElement) {
-
-		// Use the notification helper to redirect the notify user event.
-		$.pkp.classes.notification.NotificationHelper.
-				redirectNotifyUserEvent(this, triggerElement);
-	};
-
+		function (sourceElement, event, triggerElement) {
+			// Use the notification helper to redirect the notify user event.
+			$.pkp.classes.notification.NotificationHelper.redirectNotifyUserEvent(
+				this,
+				triggerElement,
+			);
+		};
 
 	/**
 	 * Handler to listen to global form success events, and close when an event
@@ -345,16 +346,18 @@
 	 * @param {Object} formId The form component's id prop
 	 * @private
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.onFormSuccess_ =
-			function(source, formId) {
-		if (this.options.closeOnFormSuccessId &&
-				this.options.closeOnFormSuccessId === formId) {
+	$.pkp.controllers.modal.ModalHandler.prototype.onFormSuccess_ = function (
+		source,
+		formId,
+	) {
+		if (
+			this.options.closeOnFormSuccessId &&
+			this.options.closeOnFormSuccessId === formId
+		) {
 			var self = this;
-			setTimeout(function() {
+			setTimeout(function () {
 				self.modalClose();
 			}, 1500);
 		}
 	};
-
-
-}(jQuery));
+})(jQuery);

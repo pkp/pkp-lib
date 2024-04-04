@@ -155,13 +155,13 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
             'recommendOnlyUserGroupIds' => Repo::userGroup()->getCollector()
                 ->filterByContextIds([$request->getContext()->getId()])
                 ->filterByIsRecommendOnly()
-                ->getMany()
+                ->getIds()
                 ->toArray(),
             'notPossibleEditSubmissionMetadataPermissionChange' => $this->_managerGroupIds,
             'permitMetadataEditUserGroupIds' => Repo::userGroup()->getCollector()
                 ->filterByContextIds([$request->getContext()->getId()])
                 ->filterByPermitMetadataEdit(true)
-                ->getMany()
+                ->getIds()
                 ->toArray(),
             'submissionId' => $this->getSubmission()->getId(),
             'userGroupId' => '',

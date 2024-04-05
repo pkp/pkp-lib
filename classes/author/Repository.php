@@ -138,7 +138,7 @@ class Repository
             $errors = $schemaService->formatValidationErrors($validator->errors());
         }
 
-        Hook::call('Author::validate', [$errors, $author, $props, $allowedLocales, $primaryLocale]);
+        Hook::call('Author::validate', [&$errors, $author, $props, $allowedLocales, $primaryLocale]);
 
         return $errors;
     }

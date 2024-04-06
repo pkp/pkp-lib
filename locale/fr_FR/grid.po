@@ -1,11 +1,11 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
-# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2023-08-01 08:25+0000\n"
+"PO-Revision-Date: 2024-04-07 17:39+0000\n"
 "Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "fr_FR/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "Aucun élément"
@@ -116,13 +116,13 @@ msgid "grid.action.restoreDefaults.confirm"
 msgstr "Vous voulez vraiment réinstaurer les valeurs par défaut ?"
 
 msgid "grid.action.addAuthor"
-msgstr "Ajouter un auteur"
+msgstr "Ajouter un·e auteur·e"
 
 msgid "grid.action.editAuthor"
-msgstr "Modifier l'auteur"
+msgstr "Modifier l'auteur·e"
 
 msgid "grid.action.deleteAuthor"
-msgstr "Supprimer l'auteur"
+msgstr "Supprimer l'auteur·e"
 
 msgid "grid.action.addAuditor"
 msgstr "Ajouter un vérificateur"
@@ -176,7 +176,7 @@ msgid "grid.action.selectFiles"
 msgstr "Sélectionner les fichiers à gérer"
 
 msgid "grid.action.requestRevisions"
-msgstr "Demande de révisions à l'auteur"
+msgstr "Demander des révisions pour cette soumission"
 
 msgid "grid.action.accept"
 msgstr "Accepter cette soumission"
@@ -696,11 +696,12 @@ msgid "grid.userGroup.unassignedStage"
 msgstr "Le rôle {$userGroupName} est désassigner de l'étape {$stageName}."
 
 msgid "grid.submission.itemTitle"
-msgstr "Auteur-e ; Titre"
+msgstr "Auteur·e ; Titre"
 
 msgid "grid.submission.active.selectOrphaned"
 msgstr ""
-"Inclu les soumissions incomplètes qui n'ont pas été soumises par un auteur."
+"Inclure les soumissions incomplètes qui n'ont pas été soumises par un·e "
+"auteur·e."
 
 msgid "grid.action.addNavigationMenu"
 msgstr "Ajouter un menu"

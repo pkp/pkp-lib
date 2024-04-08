@@ -125,8 +125,8 @@
      *  the modal will be attached to.
      * @protected
      */
-    $.pkp.controllers.modal.ConfirmationModalHandler.prototype.modalOpen =
-        function ($handledElement) {
+	$.pkp.controllers.modal.ModalHandler.prototype.modalOpen =
+			function($handledElement) {
 
 		this.parent('modalOpen', $handledElement);
 		pkp.eventBus.$emit('open-dialog-vue', {

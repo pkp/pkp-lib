@@ -125,7 +125,7 @@
      *  the modal will be attached to.
      * @protected
      */
-	$.pkp.controllers.modal.ModalHandler.prototype.modalOpen =
+	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.modalOpen =
 			function($handledElement) {
 
 		this.parent('modalOpen', $handledElement);

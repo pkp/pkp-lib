@@ -177,18 +177,17 @@
 		} else {
 			pkp.eventBus.$emit('close-modal-vue', {modalId: this.uniqueModalId});
 		}
-		setTimeout(function () {
+		setTimeout(function() {
 			var vueInstances = modalHandler.options.closeCleanVueInstances,
-				instance,
-				i,
-				id;
+					instance,
+					i,
+					id;
 			if (vueInstances.length) {
 				for (i = 0; i < vueInstances.length; i++) {
 					id = vueInstances[i];
 					if (typeof pkp.registry._instances[id] !== 'undefined') {
-						instance =
-							/** @type {{ $destroy: Function }} */
-							(pkp.registry._instances[id]);
+						instance = /** @type {{ $destroy: Function }} */
+								(pkp.registry._instances[id]);
 						instance.unmount();
 					}
 				}

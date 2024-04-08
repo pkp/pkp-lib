@@ -87,6 +87,7 @@
 		});
 	};
 
+
 	/**
 	 * Close the modal when a form submission is complete
 	 * @param {Object} callingContext The calling element or object.
@@ -100,4 +101,5 @@
 		this.getHtmlElement().parent().trigger('notifyUser');
 		this.modalClose();
 	};
+
 }(jQuery));

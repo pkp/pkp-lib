@@ -10,8 +10,7 @@
  *
  * @brief A modal that retrieves content from a remote AJAX endpoint.
  */
-(function ($) {
-
+(function($) {
 
 
 	/**
@@ -30,7 +29,7 @@
 	 *  - all options documented for the jQueryUI dialog widget,
 	 *    except for the buttons parameter which is not supported.
 	 */
-	$.pkp.controllers.modal.AjaxModalHandler = function ($handledElement, options) {
+	$.pkp.controllers.modal.AjaxModalHandler = function($handledElement, options) {
 		this.parent($handledElement, options);
 		// We assume that AJAX modals usually contain forms and
 		// therefore bind to form events by default.
@@ -46,9 +45,8 @@
 	// Protected methods
 	//
 	/** @inheritDoc */
-	$.pkp.controllers.modal.AjaxModalHandler.prototype.checkOptions = function (
-		options,
-	) {
+	$.pkp.controllers.modal.AjaxModalHandler.prototype.checkOptions =
+			function(options) {
 		// Check the mandatory options of the ModalHandler handler.
 		if (!this.parent('checkOptions', options)) {
 			return false;

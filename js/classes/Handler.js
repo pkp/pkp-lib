@@ -467,7 +467,7 @@
 	 *  removed, otherwise false.
 	 */
 	$.pkp.classes.Handler.prototype.unbind = function(eventName, handler) {
-	$.pkp.classes.Handler.checkContext_(this);
+		$.pkp.classes.Handler.checkContext_(this);
 
 		// Remove the event from the internal event cache.
 		if (!this.eventBindings_[eventName]) {

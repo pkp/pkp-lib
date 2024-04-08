@@ -113,8 +113,6 @@
 	$.pkp.classes.linkAction.ModalRequest.prototype.finish =
 			function() {
 
-				console.log('IS FINISH TRIGGERED??')
-
 		// A workaround for a bug in IE9-11 (and maybe others), whereby restoring
 		// the focus to the New Review Round tab causes the modal to be opened
 		// again. This hack effects accessibility and should be removed if/when we

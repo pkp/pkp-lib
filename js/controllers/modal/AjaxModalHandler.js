@@ -27,14 +27,7 @@
 	 *  - all options documented for the jQueryUI dialog widget,
 	 *    except for the buttons parameter which is not supported.
 	 */
-	$.pkp.controllers.modal.AjaxModalHandler = function (
-		$handledElement,
-		options,
-	) {
-		if (!options.modalHandler) {
-			options.modalHandler = '$.pkp.controllers.modal.AjaxModalHandler';
-		}
-
+	$.pkp.controllers.modal.AjaxModalHandler = function ($handledElement, options) {
 		this.parent($handledElement, options);
 		// We assume that AJAX modals usually contain forms and
 		// therefore bind to form events by default.
@@ -43,10 +36,8 @@
 		this.bind('ajaxHtmlError', this.modalClose);
 		this.bind('modalFinished', this.modalClose);
 	};
-	$.pkp.classes.Helper.inherits(
-		$.pkp.controllers.modal.AjaxModalHandler,
-		$.pkp.controllers.modal.ModalHandler,
-	);
+	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.AjaxModalHandler,
+			$.pkp.controllers.modal.ModalHandler);
 
 	//
 	// Protected methods
@@ -65,9 +56,9 @@
 	};
 
 	/** @inheritDoc */
-	$.pkp.controllers.modal.AjaxModalHandler.prototype.mergeOptions = function (
-		options,
-	) {
+	$.pkp.controllers.modal.AjaxModalHandler.prototype.mergeOptions =
+			function(options) {
+
 		// Call parent.
 		return /** @type {Object} */ (this.parent('mergeOptions', options));
 	};
@@ -99,10 +90,9 @@
 	 *  a button.
 	 * @protected
 	 */
-	$.pkp.controllers.modal.AjaxModalHandler.prototype.formSubmitted = function (
-		callingContext,
-		event,
-	) {
+	$.pkp.controllers.modal.AjaxModalHandler.prototype.formSubmitted =
+			function(callingContext, event) {
+
 		this.getHtmlElement().parent().trigger('notifyUser');
 		this.modalClose();
 	};

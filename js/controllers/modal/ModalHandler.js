@@ -86,8 +86,9 @@
 		canClose: true,
 		closeCallback: false,
 		// Vue components to destroy when when modal is closed
-		closeCleanVueInstances: [],
+		closeCleanVueInstances: []
 	};
+
 
 	//
 	// Public properties
@@ -101,6 +102,7 @@
 	 */
 	$.pkp.controllers.modal.ModalHandler.options = null;
 
+
 	//
 	// Protected methods
 	//
@@ -111,14 +113,12 @@
 	 * @param {Object.<string, *>} options Modal options.
 	 * @return {boolean} True if options are ok.
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.checkOptions = function (
-		options,
-	) {
+	$.pkp.controllers.modal.ModalHandler.prototype.checkOptions =
+			function(options) {
+
 		// Check for basic configuration requirements.
-		return (
-			typeof options === 'object' &&
-			/** @type {{ buttons: Object }} */ (options).buttons === undefined
-		);
+		return typeof options === 'object' &&
+				(/** @type {{ buttons: Object }} */ (options)).buttons === undefined;
 	};
 
 	/**
@@ -129,63 +129,13 @@
 	 * @return {Object.<string, *>} The default options merged
 	 *  with the non-default options.
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.mergeOptions = function (
-		options,
-	) {
+	$.pkp.controllers.modal.ModalHandler.prototype.mergeOptions =
+			function(options) {
+
 		// Merge the user options into the default options.
-		var mergedOptions = $.extend(
-			true,
-			{},
-			this.self('DEFAULT_OPTIONS_'),
-			options,
-		);
+		var mergedOptions = $.extend(true, { },
+				this.self('DEFAULT_OPTIONS_'), options);
 		return mergedOptions;
-	};
-
-	//
-	// Public methods
-	//
-	/**
-	 * Build the markup for a modal container, including the header, close
-	 * button and a container for the content to be placed in.
-	 * TODO: This kind of markup probably shouldn't be embedded within the JS...
-	 *
-	 * @protected
-	 * @return {Object} jQuery object representing modal content
-	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.modalBuild = function () {
-		var $titleDiv,
-			$modal = $('<div class="pkp_modal_panel"></div>');
-
-		// Title bar
-		if (typeof this.options.textTitle !== 'undefined') {
-			$titleDiv = $('<div class="header"/>').text(this.options.textTitle);
-			$modal.append($titleDiv);
-		} else if (typeof this.options.title !== 'undefined') {
-			$modal.append('<div class="header">' + this.options.title + '</div>');
-		} else {
-			$modal.append('<div class="header">' + '</div>');
-		}
-
-		// Close button
-		if (this.options.canClose) {
-			$modal.append(
-				'<a href="#" class="close pkpModalCloseButton">' +
-					'<span :aria-hidden="true">×</span>' +
-					'<span class="pkp_screen_reader">' +
-					/** @type {{ closeButtonText: string }} */ (this.options)
-						.closeButtonText +
-					'</span></a>',
-			);
-		}
-
-		// Content
-		$modal.append('<div class="content"></div>');
-
-		// Add aria role and label
-		$modal.attr('role', 'dialog').attr('aria-label', this.options.title);
-
-		return $modal;
 	};
 
 	/**

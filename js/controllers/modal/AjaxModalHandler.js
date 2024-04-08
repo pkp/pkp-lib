@@ -58,6 +58,7 @@
 		return typeof options.url === 'string';
 	};
 
+
 	/** @inheritDoc */
 	$.pkp.controllers.modal.AjaxModalHandler.prototype.mergeOptions =
 			function(options) {
@@ -65,6 +66,7 @@
 		// Call parent.
 		return /** @type {Object} */ (this.parent('mergeOptions', options));
 	};
+
 
 	/**
 	 * Open the modal and fetch content via ajax
@@ -99,4 +101,4 @@
 		this.getHtmlElement().parent().trigger('notifyUser');
 		this.modalClose();
 	};
-})(jQuery);
+}(jQuery));

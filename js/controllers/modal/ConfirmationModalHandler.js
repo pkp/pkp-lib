@@ -39,28 +39,27 @@
 			function($handledElement, options) {
 
 		/** create props for Vue.js dialog component */
-        this.dialogProps = {
-            title: options.title,
-            message: options.dialogText,    
-            actions: [],
-            closeLegacyHandler: this.callbackWrapper(this.modalClose),
-        };
+		this.dialogProps = {
+			title: options.title,
+			message: options.dialogText,    
+			actions: [],
+			closeLegacyHandler: this.callbackWrapper(this.modalClose),
+		};
 
-        if (options.okButton) {
-            this.dialogProps.actions.push({
-                label: options.okButton,
-                callback: this.callbackWrapper(this.modalConfirm),
-            });
-        }
+		if (options.okButton) {
+			this.dialogProps.actions.push({
+				label: options.okButton,
+				callback: this.callbackWrapper(this.modalConfirm),
+			});
+		}
 
-        if (options.cancelButton) {
-            this.dialogProps.actions.push({
-                label: options.cancelButton,
-                isWarnable: true,
-                callback: this.callbackWrapper(this.modalClose),
-            });
-        }
-
+		if (options.cancelButton) {
+			this.dialogProps.actions.push({
+				label: options.cancelButton,
+				isWarnable: true,
+				callback: this.callbackWrapper(this.modalClose),
+			});
+		}
 
 		this.parent($handledElement, options);
 
@@ -130,7 +129,6 @@
         function ($handledElement) {
 
 		this.parent('modalOpen', $handledElement);
-		// Retrieve remote modal content.
 		pkp.eventBus.$emit('open-dialog-vue', {
 			dialogProps: this.dialogProps,
 		});

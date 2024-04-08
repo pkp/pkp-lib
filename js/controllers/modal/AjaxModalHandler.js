@@ -31,6 +31,7 @@
 	 */
 	$.pkp.controllers.modal.AjaxModalHandler = function($handledElement, options) {
 		this.parent($handledElement, options);
+
 		// We assume that AJAX modals usually contain forms and
 		// therefore bind to form events by default.
 		this.bind('formSubmitted', this.formSubmitted);
@@ -40,6 +41,7 @@
 	};
 	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.AjaxModalHandler,
 			$.pkp.controllers.modal.ModalHandler);
+
 
 	//
 	// Protected methods

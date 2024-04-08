@@ -110,7 +110,6 @@
 	 */
 	$.pkp.controllers.modal.RemoteActionConfirmationModalHandler.prototype.
 			modalConfirm = function(dialogElement, event) {
-		event.preventDefault();
 
 		$.post(this.remoteAction_,
 				this.postData_,

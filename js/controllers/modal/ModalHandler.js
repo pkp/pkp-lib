@@ -21,6 +21,8 @@
 	/** @type {Object} */
 	$.pkp.controllers.modal = $.pkp.controllers.modal || { };
 
+
+
 	/**
 	 * @constructor
 	 *
@@ -42,11 +44,10 @@
 				canClose;
 
 		// Merge user and default options.
-		this.options =
-			/** @type {{ canClose: boolean, textTitle: string,
+		this.options = /** @type {{ canClose: boolean, textTitle: string,
 				title: string, titleIcon: string,
 				closeCleanVueInstances: Array }} */
-			(this.mergeOptions(internalOptions));
+				(this.mergeOptions(internalOptions));
 
 		// Open the modal
 		this.modalOpen($handledElement);

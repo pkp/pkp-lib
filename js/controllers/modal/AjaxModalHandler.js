@@ -74,9 +74,8 @@
 	 *  the modal will be attached to.
 	 * @protected
 	 */
-	$.pkp.controllers.modal.AjaxModalHandler.prototype.modalOpen = function (
-		$handledElement,
-	) {
+	$.pkp.controllers.modal.AjaxModalHandler.prototype.modalOpen =
+			function($handledElement) {
 		this.parent('modalOpen', $handledElement);
 
 		// Retrieve remote modal content.

@@ -147,7 +147,6 @@
 	) {
 		this.uniqueModalId = "id" + Math.random().toString(16).slice(2)
 
-		$.pkp.controllers.modal.RedirectConfirmationModalHandler;
 		// Trigger events
 		$handledElement.trigger('pkpModalOpen', [$handledElement]);
 	};
@@ -161,32 +160,17 @@
 	 *  a close button. Not set if called via callback.
 	 * @return {boolean} Should return false to stop event processing.
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.modalClose = function (
-		opt_callingContext,
-		opt_event,
-	) {
-		console.log('modal closed triggered');
-		var modalHandler = this,
-			$modalElement = this.getHtmlElement(),
-			$form = $modalElement.find('form').first(),
-			handler,
-			informationObject;
+	$.pkp.controllers.modal.ModalHandler.prototype.modalClose =
+			function(opt_callingContext, opt_event) {
 
-		// Unregister a form if attached to this modalElement
-		// modalClose is called on both 'cancel' and 'close' events.  With
-		// callbacks both callingContext and event are undefined. So,
-		// unregister this form with SiteHandler.
-		if ($form.length == 1) {
-			informationObject = {closePermitted: true};
-			$form.trigger('containerClose', [informationObject]);
-			if (!informationObject.closePermitted) {
-				return false;
-			}
-		}
+		var modalHandler = this,
+				$modalElement = this.getHtmlElement(),
+				$form = $modalElement.find('form').first(),
+				handler, informationObject;
+
 
 		// Hide the modal, clean up any mounted vue instances, remove it from the
 		// DOM and remove the handler once the CSS animation is complete
-		$modalElement.removeClass('is_visible');
 		this.trigger('pkpModalClose');
 		if (this.dialogProps) {
 			pkp.eventBus.$emit('close-dialog-vue');

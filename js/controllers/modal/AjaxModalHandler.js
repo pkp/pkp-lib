@@ -31,8 +31,11 @@
 		$handledElement,
 		options,
 	) {
-		this.parent($handledElement, options);
+		if (!options.modalHandler) {
+			options.modalHandler = '$.pkp.controllers.modal.AjaxModalHandler';
+		}
 
+		this.parent($handledElement, options);
 		// We assume that AJAX modals usually contain forms and
 		// therefore bind to form events by default.
 		this.bind('formSubmitted', this.formSubmitted);
@@ -83,12 +86,10 @@
 		// Retrieve remote modal content.
 		pkp.eventBus.$emit('open-modal-vue', {
 			component: 'LegacyAjax',
+			modalId: this.uniqueModalId,
+			// passing modalHandler to be able to bridge events
 			options: {...this.options, modalHandler: this},
 		});
-
-		///$handledElement
-		///	.find('.content')
-		///	.pkpAjaxHtml(/** @type {{ url: string }} */ (this.options).url);
 	};
 
 	/**

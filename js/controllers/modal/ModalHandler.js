@@ -47,20 +47,8 @@
 				closeCleanVueInstances: Array }} */
 			(this.mergeOptions(internalOptions));
 
-		// Attach content to the modal
-		///$handledElement.html(this.modalBuild()[0].outerHTML);
-
 		// Open the modal
 		this.modalOpen($handledElement);
-
-		// Set up close controls
-		$handledElement
-			.find('.pkpModalCloseButton')
-			.click(this.callbackWrapper(this.modalClose));
-		$handledElement.on(
-			'click keyup',
-			this.callbackWrapper(this.handleWrapperEvents),
-		);
 
 		// Publish some otherwise private events triggered
 		// by nested widgets so that they can be handled by
@@ -206,23 +194,9 @@
 	$.pkp.controllers.modal.ModalHandler.prototype.modalOpen = function (
 		$handledElement,
 	) {
-		// The $handledElement must be attached to the DOM before events will
-		// bubble up to SiteHandler
-		///var $body = $('body');
-		///$body.append($handledElement);
+		this.uniqueModalId = "id" + Math.random().toString(16).slice(2)
 
-		// Trigger visibility state change on the next tick, so that CSS
-		// transform animations will run
-		///setTimeout(function() {
-		///	$handledElement.addClass('is_visible');
-		//},10);
-
-		// Set focus to the modal. Leave a sizeable delay here so that the
-		// element can be added to the dom first
-		///setTimeout(function() {
-		///	$handledElement.focus();
-		///}, 300);
-
+		$.pkp.controllers.modal.RedirectConfirmationModalHandler;
 		// Trigger events
 		$handledElement.trigger('pkpModalOpen', [$handledElement]);
 	};
@@ -263,7 +237,11 @@
 		// DOM and remove the handler once the CSS animation is complete
 		$modalElement.removeClass('is_visible');
 		this.trigger('pkpModalClose');
-		pkp.eventBus.$emit('close-modal-vue');
+		if (this.dialogProps) {
+			pkp.eventBus.$emit('close-dialog-vue');
+		} else {
+			pkp.eventBus.$emit('close-modal-vue', {modalId: this.uniqueModalId});
+		}
 		setTimeout(function () {
 			var vueInstances = modalHandler.options.closeCleanVueInstances,
 				instance,
@@ -355,7 +333,9 @@
 			this.options.closeOnFormSuccessId === formId
 		) {
 			var self = this;
-			setTimeout(function () {
+			pkp.eventBus.$emit('close-modal-vue-soon', {modalId: this.uniqueModalId});
+
+			setTimeout(() => {
 				self.modalClose();
 			}, 1500);
 		}

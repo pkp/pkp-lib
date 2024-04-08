@@ -38,6 +38,30 @@
 	$.pkp.controllers.modal.ConfirmationModalHandler =
 			function($handledElement, options) {
 
+		/** create props for Vue.js dialog component */
+        this.dialogProps = {
+            title: options.title,
+            message: options.dialogText,    
+            actions: [],
+            closeLegacyHandler: this.callbackWrapper(this.modalClose),
+        };
+
+        if (options.okButton) {
+            this.dialogProps.actions.push({
+                label: options.okButton,
+                callback: this.callbackWrapper(this.modalConfirm),
+            });
+        }
+
+        if (options.cancelButton) {
+            this.dialogProps.actions.push({
+                label: options.cancelButton,
+                isWarnable: true,
+                callback: this.callbackWrapper(this.modalClose),
+            });
+        }
+
+
 		this.parent($handledElement, options);
 
 		this.callback_ = options.callback || null;
@@ -96,6 +120,21 @@
 				typeof castOptions.dialogText === 'string';
 	};
 
+	/**
+     * Open dialog - pass the props to the modalStore to display Vue.js dialog
+     * @param {jQueryObject} $handledElement The clickable element
+     *  the modal will be attached to.
+     * @protected
+     */
+    $.pkp.controllers.modal.ConfirmationModalHandler.prototype.modalOpen =
+        function ($handledElement) {
+
+		this.parent('modalOpen', $handledElement);
+		// Retrieve remote modal content.
+		pkp.eventBus.$emit('open-dialog-vue', {
+			dialogProps: this.dialogProps,
+		});
+	};
 
 	//
 	// Public methods

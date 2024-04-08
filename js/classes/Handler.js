@@ -336,6 +336,9 @@
 		// Remove all event handlers in our namespace.
 		$element = this.getHtmlElement();
 		$element.unbind('.pkpHandler');
+		// form-success which is registered in ModalHandler was not removed when Modal closed
+		// this ensure to remove that binding
+		this.unbindGlobalAll();
 
 		// Remove all our data items except for the
 		// handler itself.
@@ -464,7 +467,7 @@
 	 *  removed, otherwise false.
 	 */
 	$.pkp.classes.Handler.prototype.unbind = function(eventName, handler) {
-		$.pkp.classes.Handler.checkContext_(this);
+	$.pkp.classes.Handler.checkContext_(this);
 
 		// Remove the event from the internal event cache.
 		if (!this.eventBindings_[eventName]) {

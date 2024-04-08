@@ -134,6 +134,7 @@
 		});
 	};
 
+
 	/**
 	 * Callback that will be activated when the modal's
 	 * confirm button is clicked.

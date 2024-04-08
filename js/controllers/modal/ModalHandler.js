@@ -63,10 +63,9 @@
 		this.bind('notifyUser', this.redirectNotifyUserEventHandler_);
 		this.bindGlobal('form-success', this.onFormSuccess_);
 	};
-	$.pkp.classes.Helper.inherits(
-		$.pkp.controllers.modal.ModalHandler,
-		$.pkp.classes.Handler,
-	);
+	$.pkp.classes.Helper.inherits($.pkp.controllers.modal.ModalHandler,
+			$.pkp.classes.Handler);
+
 
 	//
 	// Private static properties

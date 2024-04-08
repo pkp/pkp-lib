@@ -246,13 +246,13 @@
 	 * @private
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.redirectNotifyUserEventHandler_ =
-		function (sourceElement, event, triggerElement) {
-			// Use the notification helper to redirect the notify user event.
-			$.pkp.classes.notification.NotificationHelper.redirectNotifyUserEvent(
-				this,
-				triggerElement,
-			);
-		};
+			function(sourceElement, event, triggerElement) {
+
+		// Use the notification helper to redirect the notify user event.
+		$.pkp.classes.notification.NotificationHelper.
+				redirectNotifyUserEvent(this, triggerElement);
+	};
+
 
 	/**
 	 * Handler to listen to global form success events, and close when an event
@@ -262,20 +262,18 @@
 	 * @param {Object} formId The form component's id prop
 	 * @private
 	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.onFormSuccess_ = function (
-		source,
-		formId,
-	) {
-		if (
-			this.options.closeOnFormSuccessId &&
-			this.options.closeOnFormSuccessId === formId
-		) {
+		$.pkp.controllers.modal.ModalHandler.prototype.onFormSuccess_ =
+			function(source, formId) {
+		if (this.options.closeOnFormSuccessId &&
+				this.options.closeOnFormSuccessId === formId) {
 			var self = this;
 			pkp.eventBus.$emit('close-modal-vue-soon', {modalId: this.uniqueModalId});
 
-			setTimeout(() => {
+			setTimeout(function() {
 				self.modalClose();
 			}, 1500);
 		}
 	};
+
+
 })(jQuery);

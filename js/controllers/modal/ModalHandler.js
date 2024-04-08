@@ -214,19 +214,23 @@
 	 *  a close button. Not set if called via callback.
 	 */
 	$.pkp.controllers.modal.ModalHandler.prototype.handleWrapperEvents =
-		function (opt_callingContext, opt_event) {
-			// Close click events directly on modal (background screen)
-			if (opt_event.type == 'click' && opt_callingContext == opt_event.target) {
-				$.pkp.classes.Handler.getHandler($(opt_callingContext)).modalClose();
-				return;
-			}
+			function(opt_callingContext, opt_event) {
 
-			// Close for ESC keypresses (27) that have bubbled up
-			if (opt_event.type == 'keyup' && opt_event.which == 27) {
-				$.pkp.classes.Handler.getHandler($(opt_callingContext)).modalClose();
-				return;
-			}
-		};
+		// Close click events directly on modal (background screen)
+		if (opt_event.type == 'click' && opt_callingContext == opt_event.target) {
+			$.pkp.classes.Handler.getHandler($(opt_callingContext))
+					.modalClose();
+			return;
+		}
+
+		// Close for ESC keypresses (27) that have bubbled up
+		if (opt_event.type == 'keyup' && opt_event.which == 27) {
+			$.pkp.classes.Handler.getHandler($(opt_callingContext))
+					.modalClose();
+			return;
+		}
+	};
+
 
 	//
 	// Private methods

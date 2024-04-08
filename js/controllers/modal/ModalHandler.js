@@ -151,6 +151,7 @@
 		$handledElement.trigger('pkpModalOpen', [$handledElement]);
 	};
 
+
 	/**
 	 * Close the modal. Typically invoked via an event of some kind, such as
 	 * a `click` or `keyup`
@@ -201,8 +202,10 @@
 			}
 		}, 300);
 
+
 		return false;
 	};
+
 
 	/**
 	 * Process events that reach the wrapper element.
@@ -262,7 +265,7 @@
 	 * @param {Object} formId The form component's id prop
 	 * @private
 	 */
-		$.pkp.controllers.modal.ModalHandler.prototype.onFormSuccess_ =
+	$.pkp.controllers.modal.ModalHandler.prototype.onFormSuccess_ =
 			function(source, formId) {
 		if (this.options.closeOnFormSuccessId &&
 				this.options.closeOnFormSuccessId === formId) {

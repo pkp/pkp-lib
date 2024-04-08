@@ -16,9 +16,9 @@
  *
  *  A modal that has only one button and expects a simple message string.
  */
-(function ($) {
+(function($){
 	/** @type {Object} */
-	$.pkp.controllers.modal = $.pkp.controllers.modal || {};
+	$.pkp.controllers.modal = $.pkp.controllers.modal || { };
 
 	/**
 	 * @constructor

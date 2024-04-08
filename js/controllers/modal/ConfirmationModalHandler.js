@@ -134,42 +134,6 @@
 		});
 	};
 
-	//
-	// Public methods
-	//
-	/**
-	 * Add content to modal
-	 *
-	 * @return {jQueryObject} jQuery object representing modal content
-	 */
-	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.modalBuild =
-			function() {
-
-		var $modal = this.parent('modalBuild'),
-				buttons = '<button class="ok pkpModalConfirmButton">' +
-				(/** @type {{ okButton: string }} */ (this.options)).okButton +
-				'</button>';
-
-		$modal.addClass('pkp_modal_confirmation').find('.content')
-				.append('<div class="message">' +
-				(/** @type {{ dialogText: string }} */ (this.options)).dialogText +
-				'</div>');
-
-		if (this.options.cancelButton) {
-			buttons += '<button class="cancel pkpModalCloseButton">' +
-					this.options.cancelButton + '</button>';
-		}
-
-		$modal.append('<div class="footer">' + buttons + '</div>');
-
-		// Add aria role and label
-		$modal.attr('role', 'dialog')
-				.attr('aria-label', this.options.title);
-
-		return /** @type {jQueryObject} */ ($modal);
-	};
-
-
 	/**
 	 * Callback that will be activated when the modal's
 	 * confirm button is clicked.

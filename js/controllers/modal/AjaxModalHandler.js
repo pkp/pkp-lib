@@ -11,6 +11,9 @@
  * @brief A modal that retrieves content from a remote AJAX endpoint.
  */
 (function ($) {
+
+
+
 	/**
 	 * @constructor
 	 *

@@ -49,6 +49,9 @@ abstract class PKPWorkflowHandler extends Handler {
 
 			$this->markRoleAssignmentsChecked();
 		} else {
+			import('lib.pkp.classes.security.authorization.internal.SubmissionCompletePolicy');
+			$this->addPolicy(new SubmissionCompletePolicy($request, $args, 'submissionId'));
+
 			import('lib.pkp.classes.security.authorization.WorkflowStageAccessPolicy');
 			$this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->identifyStageId($request, $args), WORKFLOW_TYPE_EDITORIAL));
 		}

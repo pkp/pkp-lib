@@ -28,7 +28,7 @@
 	 * @param {jQueryObject} $handledElement The modal.
 	 * @param {Object.<string, *>} options The modal options.
 	 */
-	$.pkp.controllers.modal.ModalHandler = function ($handledElement, options) {
+	$.pkp.controllers.modal.ModalHandler = function($handledElement, options) {
 		this.parent($handledElement, options);
 
 		// Check the options.
@@ -38,7 +38,7 @@
 
 		// Clone the options object before we manipulate them.
 		var internalOptions = $.extend(true, {}, options),
-			canClose;
+				canClose;
 
 		// Merge user and default options.
 		this.options =

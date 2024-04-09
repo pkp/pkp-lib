@@ -23,13 +23,24 @@ class FieldSlider extends Field
 
     /**
      * Range min value
+     *
+     * @var int|float
      */
-    public int $min;
+    public $min;
 
     /**
      * Range max value
+     *
+     * @var int|float
      */
-    public int $max;
+    public $max;
+
+    /**
+     * Range step value
+     *
+     * @var int|float
+     */
+    public $step = 1;
 
     /**
      * Label for min value, it displays actual value when not present
@@ -66,6 +77,7 @@ class FieldSlider extends Field
         $config = parent::getConfig();
         $config['min'] = $this->min;
         $config['max'] = $this->max;
+        $config['step'] = $this->step;
         $config['minLabel'] = $this->minLabel;
         $config['maxLabel'] = $this->maxLabel;
         $config['valueLabel'] = $this->valueLabel;

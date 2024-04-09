@@ -1,3 +1,4 @@
 cypress/tests/**/*
 lib/pkp/cypress/**/*
+cypress/support/**/*
 package.json

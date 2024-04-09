@@ -23,11 +23,11 @@ Cypress.Commands.add('addSubmissionGalleys', (files) => {
 	files.forEach(file => {
 		cy.get('a:contains("Add File")').click();
 		cy.wait(2000); // Avoid occasional failure due to form init taking time
-		cy.get('div.pkp_modal_panel').then($modalDiv => {
+		cy.get('[role="dialog"]').then(($modalDiv) => {
 			cy.wait(3000);
 			$modalDiv.find('div.header:contains("Add File")');
-			cy.get('div.pkp_modal_panel input[id^="label-"]').type('PDF', {delay: 0});
-			cy.get('div.pkp_modal_panel button:contains("Save")').click();
+			cy.get('[role="dialog"] input[id^="label-"]').type('PDF', {delay: 0});
+			cy.get('[role="dialog"] button:contains("Save")').click();
 			cy.wait(2000); // Avoid occasional failure due to form init taking time
 		});
 		cy.get('select[id=genreId]').select(file.genre);

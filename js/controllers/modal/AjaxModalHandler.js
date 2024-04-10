@@ -79,8 +79,12 @@
 		this.parent('modalOpen', $handledElement);
 
 		// Retrieve remote modal content.
-		$handledElement.find('.content')
-				.pkpAjaxHtml(/** @type {{ url: string }} */ (this.options).url);
+		pkp.eventBus.$emit('open-modal-vue', {
+			component: 'LegacyAjax',
+			modalId: this.uniqueModalId,
+			// passing modalHandler to be able to bridge events
+			options: {...this.options, modalHandler: this},
+		});
 	};
 
 

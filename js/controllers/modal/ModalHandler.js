@@ -49,17 +49,8 @@
 				closeCleanVueInstances: Array }} */
 				(this.mergeOptions(internalOptions));
 
-		// Attach content to the modal
-		$handledElement.html(this.modalBuild()[0].outerHTML);
-
 		// Open the modal
 		this.modalOpen($handledElement);
-
-		// Set up close controls
-		$handledElement.find(
-				'.pkpModalCloseButton').click(this.callbackWrapper(this.modalClose));
-		$handledElement.on(
-				'click keyup', this.callbackWrapper(this.handleWrapperEvents));
 
 		// Publish some otherwise private events triggered
 		// by nested widgets so that they can be handled by
@@ -148,54 +139,6 @@
 		return mergedOptions;
 	};
 
-
-	//
-	// Public methods
-	//
-	/**
-	 * Build the markup for a modal container, including the header, close
-	 * button and a container for the content to be placed in.
-	 * TODO: This kind of markup probably shouldn't be embedded within the JS...
-	 *
-	 * @protected
-	 * @return {Object} jQuery object representing modal content
-	 */
-	$.pkp.controllers.modal.ModalHandler.prototype.modalBuild =
-			function() {
-
-		var $titleDiv, $modal = $('<div class="pkp_modal_panel"></div>');
-
-		// Title bar
-		if (typeof(this.options.textTitle) !== 'undefined') {
-			$titleDiv = $('<div class="header"/>').text(this.options.textTitle);
-			$modal.append($titleDiv);
-		} else if (typeof(this.options.title) !== 'undefined') {
-			$modal.append('<div class="header">' + this.options.title + '</div>');
-		} else {
-			$modal.append('<div class="header">' + '</div>');
-		}
-
-		// Close button
-		if (this.options.canClose) {
-			$modal.append(
-					'<a href="#" class="close pkpModalCloseButton">' +
-					'<span :aria-hidden="true">×</span>' +
-					'<span class="pkp_screen_reader">' +
-					(/** @type {{ closeButtonText: string }} */ (this.options))
-					.closeButtonText + '</span></a>');
-		}
-
-		// Content
-		$modal.append('<div class="content"></div>');
-
-		// Add aria role and label
-		$modal.attr('role', 'dialog')
-				.attr('aria-label', this.options.title);
-
-		return $modal;
-	};
-
-
 	/**
 	 * Attach a modal to the dom and make it visible
 	 * @param {jQueryObject} $handledElement The modal.
@@ -203,22 +146,7 @@
 	$.pkp.controllers.modal.ModalHandler.prototype.modalOpen =
 			function($handledElement) {
 
-		// The $handledElement must be attached to the DOM before events will
-		// bubble up to SiteHandler
-		var $body = $('body');
-		$body.append($handledElement);
-
-		// Trigger visibility state change on the next tick, so that CSS
-		// transform animations will run
-		setTimeout(function() {
-			$handledElement.addClass('is_visible');
-		},10);
-
-		// Set focus to the modal. Leave a sizeable delay here so that the
-		// element can be added to the dom first
-		setTimeout(function() {
-			$handledElement.focus();
-		}, 300);
+		this.uniqueModalId = "id" + Math.random().toString(16).slice(2)
 
 		// Trigger events
 		$handledElement.trigger('pkpModalOpen', [$handledElement]);
@@ -242,22 +170,15 @@
 				$form = $modalElement.find('form').first(),
 				handler, informationObject;
 
-		// Unregister a form if attached to this modalElement
-		// modalClose is called on both 'cancel' and 'close' events.  With
-		// callbacks both callingContext and event are undefined. So,
-		// unregister this form with SiteHandler.
-		if ($form.length == 1) {
-			informationObject = {closePermitted: true};
-			$form.trigger('containerClose', [informationObject]);
-			if (!informationObject.closePermitted) {
-				return false;
-			}
-		}
 
 		// Hide the modal, clean up any mounted vue instances, remove it from the
 		// DOM and remove the handler once the CSS animation is complete
-		$modalElement.removeClass('is_visible');
 		this.trigger('pkpModalClose');
+		if (this.dialogProps) {
+			pkp.eventBus.$emit('close-dialog-vue');
+		} else {
+			pkp.eventBus.$emit('close-modal-vue', {modalId: this.uniqueModalId});
+		}
 		setTimeout(function() {
 			var vueInstances = modalHandler.options.closeCleanVueInstances,
 					instance,
@@ -350,6 +271,8 @@
 		if (this.options.closeOnFormSuccessId &&
 				this.options.closeOnFormSuccessId === formId) {
 			var self = this;
+			pkp.eventBus.$emit('close-modal-vue-soon', {modalId: this.uniqueModalId});
+
 			setTimeout(function() {
 				self.modalClose();
 			}, 1500);
@@ -357,4 +280,4 @@
 	};
 
 
-}(jQuery));
+})(jQuery);

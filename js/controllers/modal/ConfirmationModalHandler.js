@@ -38,6 +38,29 @@
 	$.pkp.controllers.modal.ConfirmationModalHandler =
 			function($handledElement, options) {
 
+		/** create props for Vue.js dialog component */
+		this.dialogProps = {
+			title: options.title,
+			message: options.dialogText,    
+			actions: [],
+			closeLegacyHandler: this.callbackWrapper(this.modalClose),
+		};
+
+		if (options.okButton) {
+			this.dialogProps.actions.push({
+				label: options.okButton,
+				callback: this.callbackWrapper(this.modalConfirm),
+			});
+		}
+
+		if (options.cancelButton) {
+			this.dialogProps.actions.push({
+				label: options.cancelButton,
+				isWarnable: true,
+				callback: this.callbackWrapper(this.modalClose),
+			});
+		}
+
 		this.parent($handledElement, options);
 
 		this.callback_ = options.callback || null;
@@ -96,40 +119,19 @@
 				typeof castOptions.dialogText === 'string';
 	};
 
-
-	//
-	// Public methods
-	//
 	/**
-	 * Add content to modal
-	 *
-	 * @return {jQueryObject} jQuery object representing modal content
-	 */
-	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.modalBuild =
-			function() {
+     * Open dialog - pass the props to the modalStore to display Vue.js dialog
+     * @param {jQueryObject} $handledElement The clickable element
+     *  the modal will be attached to.
+     * @protected
+     */
+	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.modalOpen =
+			function($handledElement) {
 
-		var $modal = this.parent('modalBuild'),
-				buttons = '<button class="ok pkpModalConfirmButton">' +
-				(/** @type {{ okButton: string }} */ (this.options)).okButton +
-				'</button>';
-
-		$modal.addClass('pkp_modal_confirmation').find('.content')
-				.append('<div class="message">' +
-				(/** @type {{ dialogText: string }} */ (this.options)).dialogText +
-				'</div>');
-
-		if (this.options.cancelButton) {
-			buttons += '<button class="cancel pkpModalCloseButton">' +
-					this.options.cancelButton + '</button>';
-		}
-
-		$modal.append('<div class="footer">' + buttons + '</div>');
-
-		// Add aria role and label
-		$modal.attr('role', 'dialog')
-				.attr('aria-label', this.options.title);
-
-		return /** @type {jQueryObject} */ ($modal);
+		this.parent('modalOpen', $handledElement);
+		pkp.eventBus.$emit('open-dialog-vue', {
+			dialogProps: this.dialogProps,
+		});
 	};
 
 

@@ -201,13 +201,12 @@ class StageAssignment extends Model
     /**
     * Update the model using business params.
     */
-    public function updateWithParams(array $values)
+    public function scopeUpdateWithParams($query, array $attributes)
     {
-        $convertedValues = collect($values)->mapWithKeys(function ($value, $key) {
+        $convertedValues = collect($attributes)->mapWithKeys(function ($value, $key) {
             return [Str::snake($key) => $value];
         })->toArray();
 
-        // Assuming $this is a query builder instance, not a model instance
-        return $this->update($convertedValues);
+        return $query->update($convertedValues);
     }
 }

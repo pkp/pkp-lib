@@ -17,6 +17,8 @@ import GlobalMixins from '@/mixins/global.js';
 import VueAnnouncer from '@vue-a11y/announcer';
 import FloatingVue from 'floating-vue';
 
+import PrimeVue from 'primevue/config';
+
 import VueScrollTo from 'vue-scrollto';
 import emitter from 'tiny-emitter/instance';
 
@@ -92,6 +94,8 @@ import FieldText from '@/components/Form/fields/FieldText.vue';
 import FieldTextarea from '@/components/Form/fields/FieldTextarea.vue';
 import FieldUpload from '@/components/Form/fields/FieldUpload.vue';
 import FieldUploadImage from '@/components/Form/fields/FieldUploadImage.vue';
+import FieldSlider from '@/components/Form/fields/FieldSlider.vue';
+
 import VueHighlightJS from 'vue3-highlightjs';
 import 'highlight.js/styles/default.css';
 
@@ -192,6 +196,7 @@ VueRegistry.registerComponent('PkpFieldText', FieldText);
 VueRegistry.registerComponent('PkpFieldTextarea', FieldTextarea);
 VueRegistry.registerComponent('PkpFieldUpload', FieldUpload);
 VueRegistry.registerComponent('PkpFieldUploadImage', FieldUploadImage);
+VueRegistry.registerComponent('PkpFieldSlider', FieldSlider);
 
 // Required by the URN plugin, to be migrated at some point to pkp prefix
 VueRegistry.registerComponent('field-text', FieldText);
@@ -206,6 +211,9 @@ function pkpCreateVueApp(createAppArgs) {
 	// Initialize Vue
 	const vueApp = createApp(createAppArgs);
 	vueApp.use(pinia);
+	vueApp.use(PrimeVue, {
+		unstyled: true,
+	});
 
 	// https://github.com/vuejs/pinia/discussions/1197
 	// to be able globally share stores

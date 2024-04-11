@@ -244,19 +244,11 @@ class Invitation extends Model
     }
 
     /**
-     * Add a local scope to get invitations that are expired
-     */
-    public function scopeById($query)
-    {
-        return $query->where('expiry_date', '>=', Carbon::now());
-    }
-
-    /**
      * Mark invitation as a certain invitation status
      */
-    public function markAs(InvitationStatus $status): void
+    public function scopeMarkAs($query, InvitationStatus $status): bool
     {
-        $this->update([
+        return $query->update([
             'updated_at' => Carbon::now(),
             'status' => $status->value
         ]);

@@ -17,6 +17,7 @@
 namespace PKP\jobs\invitations;
 
 use APP\facades\Repo;
+use PKP\invitation\models\Invitation;
 use PKP\jobs\BaseJob;
 
 class RemoveExpiredInvitationsJob extends BaseJob
@@ -26,13 +27,7 @@ class RemoveExpiredInvitationsJob extends BaseJob
      */
     public function handle()
     {
-        $expiredInvitations = Repo::invitation()
-            ->expired()
-            ->getMany();
-
-        foreach ($expiredInvitations as $expiredInvitation) {
-            Repo::invitation()
-                ->delete($expiredInvitation->getId());
-        }
+        Invitation::expired()
+            ->delete();
     }
 }

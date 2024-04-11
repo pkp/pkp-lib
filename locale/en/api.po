@@ -316,3 +316,24 @@ msgstr "The reviewer for the assignment could not be found"
 
 msgid "api.submission.400.sectionDoesNotExist"
 msgstr "The provided section does not exist."
+
+msgid "api.invitations.404.invitationNotFound"
+msgstr "This invitation was not found"
+
+msgid "api.invitations.200.invitationUpdatedSuccessfully"
+msgstr "The invitation's payload was updated successfully"
+
+msgid "api.invitations.500.invitationFailedToUpdate"
+msgstr "The invitation's payload failed to update"
+
+msgid "api.invitations.200.invitationAccepted"
+msgstr "The invitation has been accepted"
+
+msgid "api.invitations.500.invitationAcceptedFailed"
+msgstr "The invitation accept process failed"
+
+msgid "api.invitations.200.invitationDeclined"
+msgstr "The invitation has been declined"
+
+msgid "api.invitations.500.invitationDeclinedFailed"
+msgstr "The invitation decline process failed"

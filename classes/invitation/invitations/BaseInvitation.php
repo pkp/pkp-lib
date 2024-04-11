@@ -81,26 +81,21 @@ abstract class BaseInvitation
         return $values;
     }
 
-    public function markStatus(InvitationStatus $status): void
+    public function finaliseAccept(): void
     {
-        $invitation = Repo::invitation()
-            ->getByKeyHash($this->keyHash);
-
-        if (is_null($invitation)) {
-            throw new Exception('This invitation was not found');
-        }
-
-        $invitation->markAs($status);
+        Repo::invitation()
+            ->markAs($this, InvitationStatus::ACCEPTED);
     }
 
-    public function acceptHandle(): void
+    public function finaliseDecline(): void
     {
-        $this->markStatus(InvitationStatus::ACCEPTED);
+        Repo::invitation()
+            ->markAs($this, InvitationStatus::DECLINED);
     }
-    public function declineHandle(): void
-    {
-        $this->markStatus(InvitationStatus::DECLINED);
-    }
+
+    abstract function acceptHandle(): void;
+
+    abstract function declineHandle(): void;
 
     abstract public function getMailable(): ?Mailable;
     abstract public function preDispatchActions(): bool;
@@ -155,7 +150,8 @@ abstract class BaseInvitation
             $this->keyHash = self::makeKeyHash($this->key);
         }
 
-        $invitationId = Repo::invitation()->addInvitation($this);
+        $invitationId = Repo::invitation()
+            ->addInvitation($this);
 
         $this->setId($invitationId);
 
@@ -172,29 +168,6 @@ abstract class BaseInvitation
         }
 
         return true;
-    }
-
-    public function isKeyValid(string $key): bool
-    {
-        $keyHash = self::makeKeyHash($key);
-
-        return $keyHash == $this->keyHash;
-    }
-
-    public function getExcludedPayloadVariables(): array
-    {
-        return [
-            'mailable',
-            'context',
-            'userId',
-            'assocId',
-            'key',
-            'keyHash',
-            'expirationDate',
-            'className',
-            'email',
-            'contextId',
-        ];
     }
 
     public function setMailable(Mailable $mailable): void
@@ -224,20 +197,6 @@ abstract class BaseInvitation
         $this->id = $invitationModel->id;
     }
 
-    /**
-     * Check if invitation is expired
-     */
-    public function isExpired(): bool
-    {
-        $currentDateTime = Carbon::now();
-
-        if ($this->expirationDate > $currentDateTime) {
-            return false;
-        }
-
-        return false;
-    }
-
     public static function makeKeyHash($key): string
     {
         return password_hash($key, PASSWORD_BCRYPT);
@@ -251,5 +210,18 @@ abstract class BaseInvitation
     public function getId(): int
     {
         return $this->id;
+    }
+
+    /**
+     * Get constructor parameters for exclusion.
+     */
+    public function getExcludedUpdatePayloadVariables(): array 
+    {
+        $reflection = new ReflectionClass(BaseInvitation::class);
+        $constructor = $reflection->getConstructor();
+        $parameters = $constructor ? $constructor->getParameters() : [];
+        return array_map(function ($param) {
+            return $param->getName();
+        }, $parameters);
     }
 }

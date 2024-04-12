@@ -27,6 +27,24 @@ msgstr ""
 "Fournir une liste structurée de références pour les travaux cités dans cette "
 "soumission."
 
+msgid "submission.submit.title"
+msgstr "Soumission d'un ouvrage"
+
+msgid "submission.submit.finishSubmission"
+msgstr "Terminer la soumission"
+
+msgid "submission.confirm.message"
+msgstr "Votre soumission a été téléchargée et est prête à être envoyée. Vous pouvez revenir en arrière pour vérifier et ajuster les informations que vous avez saisies avant de continuer. Lorsque vous êtes prêt, cliquez sur « Terminer la soumission »."
+
+msgid "submission.confirmSubmit"
+msgstr "Confirmez-vous que vous souhaitez envoyer cette soumission ?"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "{$contextName} vous remercie pour l'envoi de cette soumission."
+
+msgid "submission.submit.whatNext"
+msgstr "Que se passe-t-il ensuite ?"
+
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr ""
 "De nouvelles évaluations ont été soumises et sont examinées par le rédacteur."

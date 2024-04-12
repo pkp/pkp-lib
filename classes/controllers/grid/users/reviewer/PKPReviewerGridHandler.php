@@ -28,6 +28,7 @@ use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\users\reviewer\form\EditReviewForm;
 use PKP\controllers\grid\users\reviewer\form\EmailReviewerForm;
+use PKP\controllers\grid\users\reviewer\form\LogResponseForm;
 use PKP\controllers\grid\users\reviewer\form\ReinstateReviewerForm;
 use PKP\controllers\grid\users\reviewer\form\ResendRequestReviewerForm;
 use PKP\controllers\grid\users\reviewer\form\ReviewerGossipForm;
@@ -1031,9 +1032,26 @@ class PKPReviewerGridHandler extends GridHandler
 
     public function logResponse($args, $request)
     {
-        $templateMgr = TemplateManager::getManager($request);
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
-        return $templateMgr->fetchJson('workflow/reviewLogResponse.tpl');
+        // Form handling.
+        $emailReviewerForm = new LogResponseForm($reviewAssignment, $submission);
+        if (!$request->isPost()) {
+            $emailReviewerForm->initData();
+            return new JSONMessage(
+                true,
+                $emailReviewerForm->fetch(
+                    $request,
+                    null,
+                    false,
+                    $this->getRequestArgs()
+                )
+            );
+        }
+        $emailReviewerForm->readInputData();
+        $emailReviewerForm->execute();
+        return new JSONMessage(true);
     }
 
     /**

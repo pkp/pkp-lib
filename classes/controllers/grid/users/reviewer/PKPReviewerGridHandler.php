@@ -1029,6 +1029,12 @@ class PKPReviewerGridHandler extends GridHandler
         return new JSONMessage(false, __('user.authorization.roleBasedAccessDenied'));
     }
 
+    public function logResponse($args, $request)
+    {
+        $templateMgr = TemplateManager::getManager($request);
+
+        return $templateMgr->fetchJson('workflow/reviewLogResponse.tpl');
+    }
 
     /**
      * Fetches an email template's message body and returns it via AJAX.
@@ -1130,7 +1136,8 @@ class PKPReviewerGridHandler extends GridHandler
             'unconsiderReview',
             'editReview',
             'updateReview',
-            'gossip'
+            'gossip',
+            'logResponse'
         ];
     }
 
@@ -1192,6 +1199,7 @@ class PKPReviewerGridHandler extends GridHandler
             'reviewRead',
             'sendEmail',
             'gossip',
+            'logResponse',
         ];
     }
 

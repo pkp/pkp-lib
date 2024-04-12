@@ -160,6 +160,9 @@ msgstr "Unassign Reviewer"
 msgid "editor.review.cancelReviewer"
 msgstr "Cancel Reviewer"
 
+msgid "editor.review.logResponse"
+msgstr "Log Response"
+
 msgid "editor.review.reinstateReviewer"
 msgstr "Reinstate Reviewer"
 

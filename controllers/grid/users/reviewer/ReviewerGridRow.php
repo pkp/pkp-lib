@@ -215,6 +215,20 @@ class ReviewerGridRow extends GridRow
                     )
                 );
             }
+
+            // Add log response
+            $this->addAction(
+                new LinkAction(
+                    'logResponse',
+                    new AjaxModal(
+                        $router->url($request, null, null, 'logResponse', null, $actionArgs),
+                        __('editor.review.logResponse'),
+                        'modal_information'
+                    ),
+                    __('editor.review.logResponse'),
+                    'more_info'
+                )
+            );
         }
     }
 }

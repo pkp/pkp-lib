@@ -89,7 +89,7 @@ class PKPRouterTestCase extends PKPTestCase {
 		// Context depth = 1 but we try to access context level 2
 		$this->_setUpMockEnvironment(self::PATHINFO_ENABLED, 1, array('oneContext'));
 		$phpunitVersion = \PHPUnit\Runner\Version::id();
-		if (version_compare($phpunitVersion, '10.0.0', '<')) $this->expectError();
+		if (version_compare(phpversion(), '8.0.0', '<') or version_compare($phpunitVersion, '10.0.0', '<')) $this->expectError();
 		else $this->expectException(AssertionError::class);
 		$this->router->getRequestedContextPath($this->request, 2);
 	}

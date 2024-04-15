@@ -120,12 +120,26 @@ class ProfileTabHandler extends Handler
 
         $contactForm = new ContactForm($request->getUser());
         $contactForm->readInputData();
+
+        if ($contactForm->getData('action') == ContactForm::ACTION_CANCEL_EMAIL_CHANGE) {
+            $contactForm->cancelPendingEmail();
+            
+            $notificationMgr = new NotificationManager();
+            $notificationMgr->createTrivialNotification($request->getUser()->getId());
+
+            $contactForm->initData();
+            return new JSONMessage(true, $contactForm->fetch($request));
+        }
+        
         if ($contactForm->validate()) {
             $contactForm->execute();
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification($request->getUser()->getId());
-            return new JSONMessage(true);
+
+            $contactForm->initData();
+            return new JSONMessage(true, $contactForm->fetch($request));
         }
+
         return new JSONMessage(true, $contactForm->fetch($request));
     }
 

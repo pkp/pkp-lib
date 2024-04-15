@@ -24,10 +24,14 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\invitation\invitations\enums\InvitationStatus;
+use PKP\invitation\models\Invitation;
 use PKP\user\User;
 
 class RegistrationAccessInvite extends BaseInvitation
 {
+    private ?User $user = null;
+    private bool $isValidated = false;
+
     /**
      * Create a new invitation instance.
      */
@@ -59,35 +63,37 @@ class RegistrationAccessInvite extends BaseInvitation
      */
     public function preDispatchActions(): bool
     {
-        $invitations = Repo::invitation()
-            ->filterByStatus(InvitationStatus::PENDING)
-            ->filterByClassName($this->className)
-            ->filterByContextId($this->contextId)
-            ->filterByUserId($this->invitedUserId)
-            ->getMany();
-
-        foreach ($invitations as $invitation) {
-            $invitation->markStatus(InvitationStatus::CANCELLED);
-        }
+        Invitation::byStatus(InvitationStatus::PENDING)
+            ->byClassName($this->className)
+            ->byContextId($this->contextId)
+            ->byUserId($this->invitedUserId)
+            ->markAs(InvitationStatus::CANCELLED);
 
         return true;
     }
 
-    public function acceptHandle(): void
+    /**
+     * Fill the Invitation Object with all the neccesary info in order to 
+     * continue with the accept handle
+     */
+    public function finaliseAccept(): void
     {
-        $user = Repo::user()->get($this->invitedUserId, true);
+        $this->user = Repo::user()->get($this->invitedUserId, true);
 
-        if (!$user) {
+        if (!$this->user) {
             return;
         }
 
+        $this->isValidated = $this->setUserValid($this->user);
+
+        parent::finaliseAccept();
+    }
+
+    public function acceptHandle(): void
+    {
+        $this->finaliseAccept();
+
         $request = Application::get()->getRequest();
-        $validated = $this->_validateAccessKey($user, $request);
-
-        if ($validated) {
-            parent::acceptHandle();
-        }
-
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
@@ -95,7 +101,7 @@ class RegistrationAccessInvite extends BaseInvitation
             'user',
             'activateUser',
             [
-                $user->getUsername(),
+                $this->user->getUsername(),
             ]
         );
 
@@ -110,7 +116,7 @@ class RegistrationAccessInvite extends BaseInvitation
                 'user',
                 'activateUser',
                 [
-                    $user->getUsername(),
+                    $this->user->getUsername(),
                 ]
             );
         }
@@ -118,12 +124,15 @@ class RegistrationAccessInvite extends BaseInvitation
         $request->redirectUrl($url);
     }
 
-    private function _validateAccessKey(User $user, Request $request): bool
+    /**
+     */
+    public function declineHandle(): void 
     {
-        if (!$user) {
-            return false;
-        }
+        $this->finaliseDecline();
+    }
 
+    private function setUserValid(User $user): bool
+    {
         if ($user->getDateValidated() === null) {
             // Activate user
             $user->setDisabled(false);

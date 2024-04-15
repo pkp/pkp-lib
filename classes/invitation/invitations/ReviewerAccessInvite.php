@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use Illuminate\Mail\Mailable;
 use PKP\core\PKPApplication;
 use PKP\invitation\invitations\enums\InvitationStatus;
+use PKP\invitation\models\Invitation;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
@@ -29,6 +30,7 @@ use ReviewAssignment;
 class ReviewerAccessInvite extends BaseInvitation
 {
     private ReviewAssignment $reviewAssignment;
+    private bool $isValidated = false;
 
     /**
      * Create a new invitation instance.
@@ -67,27 +69,41 @@ class ReviewerAccessInvite extends BaseInvitation
      */
     public function preDispatchActions(): bool
     {
-        $invitations = Repo::invitation()
-            ->filterByStatus(InvitationStatus::PENDING)
-            ->filterByClassName($this->className)
-            ->filterByContextId($this->contextId)
-            ->filterByUserId($this->invitedUserId)
-            ->filterByAssocId($this->reviewAssignmentId)
-            ->getMany();
-
-        foreach ($invitations as $invitation) {
-            $invitation->markStatus(InvitationStatus::CANCELLED);
-        }
+        Invitation::byStatus(InvitationStatus::PENDING)
+            ->byClassName($this->className)
+            ->byContextId($this->contextId)
+            ->byUserId($this->invitedUserId)
+            ->markAs(InvitationStatus::CANCELLED);
 
         return true;
     }
 
-    public function acceptHandle(): void
+    /**
+     * Fill the Invitation Object with all the neccesary info in order to 
+     * continue with the accept handle
+     */
+    public function finaliseAccept(): void
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
-        $reviewAssignment = $this->reviewAssignment;
 
+        if ($context->getData('reviewerAccessKeysEnabled')) {
+            $this->isValidated = $this->_validateAccessKey();
+
+            if ($this->isValidated) {
+                parent::finaliseAccept();
+            }
+        }
+    }
+
+    public function acceptHandle(): void
+    {
+        $this->finaliseAccept();
+
+        $request = Application::get()->getRequest();
+        $context = $request->getContext();
+        $reviewAssignment = $this->reviewAssignment;
+        
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
@@ -101,16 +117,12 @@ class ReviewerAccessInvite extends BaseInvitation
             ]
         );
 
-        if ($context->getData('reviewerAccessKeysEnabled')) {
-            $validated = $this->_validateAccessKey();
-
-            if ($validated) {
-                parent::acceptHandle();
-            }
-
-        }
-
         $request->redirectUrl($url);
+    }
+
+    public function declineHandle(): void
+    {
+        $this->finaliseDecline();
     }
 
     private function _validateAccessKey(): bool

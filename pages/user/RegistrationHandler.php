@@ -154,9 +154,8 @@ class RegistrationHandler extends UserHandler
         $accessKeyCode = array_shift($args);
 
         if (isset($username) && isset($accessKeyCode)) { // Backward compatibility - use MD5 to create keyHash
-            $keyHash = md5($accessKeyCode);
-
-            $invitation = Repo::invitation()->getBOByKeyHash($keyHash);
+            $invitation = Repo::invitation()
+                ->getByMD5Key($accessKeyCode);
 
             if (isset($invitation)) {
                 $invitation->acceptHandle();

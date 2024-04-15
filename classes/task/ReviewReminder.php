@@ -71,10 +71,10 @@ class ReviewReminder extends ScheduledTask
                 unset($context);
                 $context = $contextDao->getById($submission->getData('contextId'));
 
-                $numDaysBeforeReviewResponseReminderDue = $context->getData('numDaysBeforeReviewResponseReminderDue');
-                $numDaysAfterReviewResponseReminderDue = $context->getData('numDaysAfterReviewResponseReminderDue');
-                $numDaysBeforeReviewSubmitReminderDue = $context->getData('numDaysBeforeReviewSubmitReminderDue');
-                $numDaysAfterReviewSubmitReminderDue = $context->getData('numDaysAfterReviewSubmitReminderDue');
+                $numDaysBeforeReviewResponseReminderDue = (int) $context->getData('numDaysBeforeReviewResponseReminderDue');
+                $numDaysAfterReviewResponseReminderDue  = (int) $context->getData('numDaysAfterReviewResponseReminderDue');
+                $numDaysBeforeReviewSubmitReminderDue   = (int) $context->getData('numDaysBeforeReviewSubmitReminderDue');
+                $numDaysAfterReviewSubmitReminderDue    = (int) $context->getData('numDaysAfterReviewSubmitReminderDue');
             }
 
             $mailable = null;
@@ -85,7 +85,6 @@ class ReviewReminder extends ScheduledTask
 
             // after a REVIEW REQUEST has been responded, the value of `dateReminded` and `reminderWasAutomatic`
             // get reset, see \PKP\submission\reviewer\ReviewerAction::confirmReview. 
-            // 
             if ($reviewAssignment->getDateConfirmed() === null) {
                 // REVIEW REQUEST has not been responded
                 // only need to concern with BEFORE/AFTER REVIEW REQUEST RESPONSE reminder
@@ -93,7 +92,7 @@ class ReviewReminder extends ScheduledTask
                 if ($reviewAssignment->getDateReminded() === null) {
                     // There has not been any reminder sent yet
                     // need to check should we sent a BEFORE REVIEW REQUEST RESPONSE reminder
-                    if ($numDaysBeforeReviewResponseReminderDue &&
+                    if ($numDaysBeforeReviewResponseReminderDue > 0 &&
                         $dateResponseDue->gt($currentDate) &&
                         $dateResponseDue->diffInDays($currentDate) <= $numDaysBeforeReviewResponseReminderDue) {
                     
@@ -106,7 +105,7 @@ class ReviewReminder extends ScheduledTask
 
                     $dateReminded = Carbon::parse($reviewAssignment->getDateReminded());
 
-                    if ($numDaysAfterReviewResponseReminderDue &&
+                    if ($numDaysAfterReviewResponseReminderDue > 0 &&
                         $currentDate->gt($dateResponseDue) &&
                         $dateReminded->lt($dateResponseDue) &&
                         $currentDate->diffInDays($dateResponseDue) >= $numDaysAfterReviewResponseReminderDue) {
@@ -122,7 +121,7 @@ class ReviewReminder extends ScheduledTask
                 if ($reviewAssignment->getDateReminded() === null) {
                     // There has not been any reminder sent after responding to REVIEW REQUEST
                     // no REVIEW SUBMIT reminder has been sent
-                    if ($numDaysBeforeReviewSubmitReminderDue &&
+                    if ($numDaysBeforeReviewSubmitReminderDue > 0 &&
                         $currentDate->lt($dateDue) &&
                         $dateDue->diffInDays($currentDate) <= $numDaysBeforeReviewSubmitReminderDue) {
 
@@ -135,7 +134,7 @@ class ReviewReminder extends ScheduledTask
 
                     $dateReminded = Carbon::parse($reviewAssignment->getDateReminded());
 
-                    if ($numDaysAfterReviewSubmitReminderDue &&
+                    if ($numDaysAfterReviewSubmitReminderDue > 0 &&
                         $currentDate->gt($dateDue) &&
                         $dateReminded->lt($dateDue) &&
                         $currentDate->diffInDays($dateDue) >= $numDaysAfterReviewSubmitReminderDue) {

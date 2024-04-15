@@ -19,7 +19,7 @@ namespace PKP\components\forms\context;
 use PKP\components\forms\FieldHTML;
 use PKP\context\Context;
 use PKP\components\forms\FieldOptions;
-use PKP\components\forms\FieldRangeSlider;
+use PKP\components\forms\FieldSlider;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\config\Config;
@@ -34,9 +34,8 @@ class PKPReviewSetupForm extends FormComponent
     protected const REVIEW_SETTINGS_GROUP = 'reviewSettingsGroup';
     protected const REVIEW_REMINDER_GROUP = 'reviewReminderGroup';
 
-    public const MIN_REMINDER_NOTIFICATION_SEND_IN_DAYS = 1;
+    public const MIN_REMINDER_NOTIFICATION_SEND_IN_DAYS = 0;
     public const MAX_REMINDER_NOTIFICATION_SEND_IN_DAYS = 14;
-    public const DEFAULT_REMINDER_NOTIFICATION_SEND_IN_DAYS = 7;
 
     /**
      * Constructor
@@ -131,63 +130,51 @@ class PKPReviewSetupForm extends FormComponent
 
         $this
             ->addGroup([
-                'id' => self::REVIEW_REMINDER_GROUP
+                'id' => self::REVIEW_REMINDER_GROUP,
             ])
             ->addField(new FieldHTML('reminderForReview', [
                 'label' => __('manager.setup.reviewOptions.reminders'),
                 'description' => __('manager.setup.reviewOptions.reminders.description'),
                 'groupId' => self::REVIEW_REMINDER_GROUP,
             ]))
-            ->addField(new FieldHTML('reviewRequestResponseReminder', [
-                'label' => __('manager.setup.reviewOptions.reminders.response'),
-                'groupId' => self::REVIEW_REMINDER_GROUP,
-            ]))
-            ->addField(new FieldRangeSlider('numDaysBeforeReviewResponseReminderDue', [
-                'label' => __('manager.setup.reviewOptions.reminders.description.before'),
+            ->addField(new FieldSlider('numDaysBeforeReviewResponseReminderDue', [
+                'label' => __('manager.setup.reviewOptions.reminders.response.before'),
                 'value' => $context->getData('numDaysBeforeReviewResponseReminderDue'),
                 'min' => static::MIN_REMINDER_NOTIFICATION_SEND_IN_DAYS,
                 'max' => static::MAX_REMINDER_NOTIFICATION_SEND_IN_DAYS,
-                'onResetValue' => $context->getData('numDaysBeforeReviewResponseReminderDue') ?? static::DEFAULT_REMINDER_NOTIFICATION_SEND_IN_DAYS,
-                'updateLabel' => __('manager.setup.reviewOptions.reminders.description.before.days'),
-                'controlLabelOnDisable' => __('manager.setup.reviewOptions.reminders.enable'),
-                'controlLabelOnEnable' => __('manager.setup.reviewOptions.reminders.disable'),
+                'minLabel' => __('manager.setup.reviewOptions.reminders.min.label'),
+                'valueLabel' => __('manager.setup.reviewOptions.reminders.label.before.days'),
+                'valueLabelMin' => __('manager.setup.reviewOptions.reminders.disbale.label'),
                 'groupId' => self::REVIEW_REMINDER_GROUP,
             ]))
-            ->addField(new FieldRangeSlider('numDaysAfterReviewResponseReminderDue', [
-                'label' => __('manager.setup.reviewOptions.reminders.description.after'),
+            ->addField(new FieldSlider('numDaysAfterReviewResponseReminderDue', [
+                'label' => __('manager.setup.reviewOptions.reminders.response.after'),
                 'value' => $context->getData('numDaysAfterReviewResponseReminderDue'),
                 'min' => static::MIN_REMINDER_NOTIFICATION_SEND_IN_DAYS,
                 'max' => static::MAX_REMINDER_NOTIFICATION_SEND_IN_DAYS,
-                'onResetValue' => $context->getData('numDaysAfterReviewResponseReminderDue') ?? static::DEFAULT_REMINDER_NOTIFICATION_SEND_IN_DAYS,
-                'updateLabel' => __('manager.setup.reviewOptions.reminders.description.after.days'),
-                'controlLabelOnDisable' => __('manager.setup.reviewOptions.reminders.enable'),
-                'controlLabelOnEnable' => __('manager.setup.reviewOptions.reminders.disable'),
+                'minLabel' => __('manager.setup.reviewOptions.reminders.min.label'),
+                'valueLabel' => __('manager.setup.reviewOptions.reminders.label.after.days'),
+                'valueLabelMin' => __('manager.setup.reviewOptions.reminders.disbale.label'),
                 'groupId' => self::REVIEW_REMINDER_GROUP,
             ]))
-            ->addField(new FieldHTML('submissionReviewResponseReminder', [
-                'label' => __('manager.setup.reviewOptions.reminders.submit'),
-                'groupId' => self::REVIEW_REMINDER_GROUP,
-            ]))
-            ->addField(new FieldRangeSlider('numDaysBeforeReviewSubmitReminderDue', [
-                'label' => __('manager.setup.reviewOptions.reminders.description.before'),
+            ->addField(new FieldSlider('numDaysBeforeReviewSubmitReminderDue', [
+                'label' => __('manager.setup.reviewOptions.reminders.submit.before'),
                 'value' => $context->getData('numDaysBeforeReviewSubmitReminderDue'),
                 'min' => static::MIN_REMINDER_NOTIFICATION_SEND_IN_DAYS,
                 'max' => static::MAX_REMINDER_NOTIFICATION_SEND_IN_DAYS,
-                'onResetValue' => $context->getData('numDaysBeforeReviewSubmitReminderDue') ?? static::DEFAULT_REMINDER_NOTIFICATION_SEND_IN_DAYS,
-                'updateLabel' => __('manager.setup.reviewOptions.reminders.description.before.days'),
-                'controlLabelOnDisable' => __('manager.setup.reviewOptions.reminders.enable'),
-                'controlLabelOnEnable' => __('manager.setup.reviewOptions.reminders.disable'),
+                'minLabel' => __('manager.setup.reviewOptions.reminders.min.label'),
+                'valueLabel' => __('manager.setup.reviewOptions.reminders.label.before.days'),
+                'valueLabelMin' => __('manager.setup.reviewOptions.reminders.disbale.label'),
                 'groupId' => self::REVIEW_REMINDER_GROUP,
             ]))
-            ->addField(new FieldRangeSlider('numDaysAfterReviewSubmitReminderDue', [
-                'label' => __('manager.setup.reviewOptions.reminders.description.after'),
+            ->addField(new FieldSlider('numDaysAfterReviewSubmitReminderDue', [
+                'label' => __('manager.setup.reviewOptions.reminders.submit.after'),
                 'value' => $context->getData('numDaysAfterReviewSubmitReminderDue'),
                 'min' => static::MIN_REMINDER_NOTIFICATION_SEND_IN_DAYS,
                 'max' => static::MAX_REMINDER_NOTIFICATION_SEND_IN_DAYS,
-                'onResetValue' => $context->getData('numDaysAfterReviewSubmitReminderDue') ?? static::DEFAULT_REMINDER_NOTIFICATION_SEND_IN_DAYS,
-                'updateLabel' => __('manager.setup.reviewOptions.reminders.description.after.days'),
-                'controlLabelOnDisable' => __('manager.setup.reviewOptions.reminders.enable'),
-                'controlLabelOnEnable' => __('manager.setup.reviewOptions.reminders.disable'),
+                'minLabel' => __('manager.setup.reviewOptions.reminders.min.label'),
+                'valueLabel' => __('manager.setup.reviewOptions.reminders.label.after.days'),
+                'valueLabelMin' => __('manager.setup.reviewOptions.reminders.disbale.label'),
                 'groupId' => self::REVIEW_REMINDER_GROUP,
             ]));
         

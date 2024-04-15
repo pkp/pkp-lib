@@ -19,11 +19,17 @@ namespace PKP\user\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use PKP\core\JSONMessage;
 use PKP\facades\Locale;
+use PKP\invitation\invitations\ChangeProfileEmailInvite;
+use PKP\invitation\invitations\enums\InvitationStatus;
+use PKP\invitation\models\Invitation;
 use PKP\user\User;
 
 class ContactForm extends BaseProfileForm
 {
+    public const ACTION_CANCEL_EMAIL_CHANGE = 'cancelPendingEmail';
+
     /**
      * Constructor.
      *
@@ -66,9 +72,16 @@ class ContactForm extends BaseProfileForm
         }
         asort($countries);
         $templateMgr = TemplateManager::getManager($request);
+
+        $invitationModel = Invitation::byClassName(ChangeProfileEmailInvite::class)
+            ->byUserId($this->_user->getId())
+            ->stillActive()
+            ->first();
+
         $templateMgr->assign([
             'countries' => $countries,
             'availableLocales' => $site->getSupportedLocaleNames(),
+            'changeEmailPending' => $invitationModel ? $invitationModel->email : null,
         ]);
 
         return parent::fetch($request, $template, $display);
@@ -100,7 +113,7 @@ class ContactForm extends BaseProfileForm
         parent::readInputData();
 
         $this->readUserVars([
-            'country', 'email', 'signature', 'phone', 'mailingAddress', 'affiliation', 'locales',
+            'country', 'email', 'signature', 'phone', 'mailingAddress', 'affiliation', 'locales', 'pendingEmail', 'action',
         ]);
 
         if ($this->getData('locales') == null || !is_array($this->getData('locales'))) {
@@ -111,13 +124,37 @@ class ContactForm extends BaseProfileForm
     /**
      * @copydoc Form::execute()
      */
+    public function cancelPendingEmail()
+    {
+        $user = $this->getUser();
+
+        $invitationModel = Invitation::byClassName(ChangeProfileEmailInvite::class)
+            ->byUserId($user->getId())
+            ->stillActive()
+            ->first();
+        
+        if ($invitationModel) {
+            $formPendingEmail = $this->getData('pendingEmail');
+            if ($invitationModel->email == $formPendingEmail) {
+                $invitationModel->markAs(InvitationStatus::DECLINED);
+            }
+        }
+    }
+
+    /**
+     * @copydoc Form::execute()
+     */
     public function execute(...$functionArgs)
     {
         $user = $this->getUser();
-        $functionArgs['emailUpdated'] = $user->getEmail() !== $this->getData('email');
+
+        // Email will be handled at the parent class code
+        if ($user->getEmail() !== $this->getData('email')) {
+            // If they are different, store the current email in the array
+            $functionArgs['emailUpdated'] = $this->getData('email');
+        }
 
         $user->setCountry($this->getData('country'));
-        $user->setEmail($this->getData('email'));
         $user->setSignature($this->getData('signature'), null); // Localized
         $user->setPhone($this->getData('phone'));
         $user->setMailingAddress($this->getData('mailingAddress'));

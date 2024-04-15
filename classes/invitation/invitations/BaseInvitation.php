@@ -159,9 +159,7 @@ abstract class BaseInvitation
 
         if ($sendEmail && isset($mailable)) {
             try {
-                Mail::to($this->email)
-                    ->send($mailable);
-
+                Mail::send($mailable);
             } catch (TransportException $e) {
                 trigger_error('Failed to send email invitation: ' . $e->getMessage(), E_USER_ERROR);
             }

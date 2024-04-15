@@ -230,7 +230,7 @@ class Invitation extends Model
     /**
      * Add a local scope to get invitations that are expired
      */
-    public function scopeExpired($query)
+    public function scopeExpired(Builder $query): Builder
     {
         return $query->where('expiry_date', '<', Carbon::now());
     }
@@ -238,15 +238,27 @@ class Invitation extends Model
     /**
      * Add a local scope to get invitations that are expired
      */
-    public function scopeNotExpired($query)
+    public function scopeNotExpired(Builder $query): Builder
     {
         return $query->where('expiry_date', '>=', Carbon::now());
     }
 
     /**
+     * Scope a query to only include invitations that are not expired and not handled.
+     */
+    public function scopeStillActive(Builder $query): Builder
+    {
+        // Apply the NotExpired scope
+        $query->notExpired();
+        
+        // Apply the NotHandled scope
+        return $query->notHandled();
+    }
+
+    /**
      * Mark invitation as a certain invitation status
      */
-    public function scopeMarkAs($query, InvitationStatus $status): bool
+    public function scopeMarkAs(Builder $query, InvitationStatus $status): bool
     {
         return $query->update([
             'updated_at' => Carbon::now(),

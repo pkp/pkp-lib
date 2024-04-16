@@ -1,11 +1,12 @@
 {**
- * templates/logResponseForm.tpl
+ * templates/controllers/grid/user/reviewer/form/logResponseForm.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Form for logging a reviewer's response.
+ *
  *}
 <script type="text/javascript">
     $(function() {ldelim}
@@ -13,10 +14,12 @@
         $('#logResponseForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
         {rdelim});
 </script>
-
-<form class="pkp_form" id="logResponseForm" method="post" action="{url op="addLog" params=$requestArgs}">
+<form class="pkp_form" id="logResponseForm" method="post" action="{url op="addLog"}">
     {csrf}
-    {include file="controllers/notification/inPlaceNotification.tpl" notificationId="logResponseFormNotification"}
+    <input type="hidden" name="reviewAssignmentId" value="{$reviewAssignmentId|escape}" />
+    <input type="hidden" name="stageId" value="{$stageId|escape}" />
+    <input type="hidden" name="submissionId" value="{$submissionId|escape}" />
+
     {fbvFormArea id="slideFormArea" class="border"}
     {fbvFormSection description="editor.review.logResponse.form.description" list=true}
     {fbvElement type="radio" name="logResponse" id="lr-accepted" label="editor.review.logResponse.form.option.accepted" value="1"}

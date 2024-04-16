@@ -5,14 +5,12 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * Limit the review files available to a reviewer who has already been
- * assigned to a submission.
+ * Form for logging a reviewer's response.
  *
  *}
 <script type="text/javascript">
 	$(function() {ldelim}
-		// Attach the form handler.
-		$('#editReviewForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.EditReviewFormHandler');
+		$('#editReviewForm').pkpHandler('$.pkp.controllers.grid.users.reviewer.form.AjaxFormHandler');
 	{rdelim});
 </script>
 

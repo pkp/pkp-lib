@@ -163,6 +163,9 @@ msgstr "Cancel Reviewer"
 msgid "editor.review.logResponse"
 msgstr "Log Response"
 
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "A response must be selected"
+
 msgid "editor.review.logResponse.form.option.accepted"
 msgstr "Reviewer has accepted the invitation to review"
 

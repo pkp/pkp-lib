@@ -145,4 +145,5 @@ after_failure:
   - find cypress/screenshots -type f -printf '%T+\t%p\n' | sort | head -n 1 | cut -f 2 | tar -czT - | uuencode /dev/stdout
 
 after_success:
+  - touch error.log
   - head -n 500 error.log

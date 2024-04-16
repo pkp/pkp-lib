@@ -480,6 +480,27 @@ class PKPReviewerGridHandler extends GridHandler
     }
 
     /**
+     * Add the log event
+     * @param $args array
+     * @param $request PKPRequest
+     * @return JSONMessage JSON object
+     */
+    public function addLog($args, $request)
+    {
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $logResponseForm = new LogResponseForm($request, $reviewAssignment, $this->getSubmission());
+        $logResponseForm->readInputData();
+        if ($logResponseForm->validate()) {
+            $logResponseForm->execute();
+            $json = DAO::getDataChangedEvent($reviewAssignment->getId());
+            $json->setGlobalEvent('update:decisions');
+            return $json;
+        } else {
+            return new JSONMessage(false);
+        }
+    }
+
+    /**
      * Get a list of all non-reviewer users in the system to populate the reviewer role assignment autocomplete.
      *
      * @param array $args
@@ -1045,21 +1066,6 @@ class PKPReviewerGridHandler extends GridHandler
         }
 
         return new JSONMessage(false, __('user.authorization.roleBasedAccessDenied'));
-    }
-
-    public function addLog($args, $request)
-    {
-        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $logResponseForm = new LogResponseForm($request, $reviewAssignment, $this->getSubmission());
-        $logResponseForm->readInputData();
-        if ($logResponseForm->validate()) {
-            $logResponseForm->execute();
-            $json = DAO::getDataChangedEvent($reviewAssignment->getId());
-            $json->setGlobalEvent('update:decisions');
-            return $json;
-        } else {
-            return new JSONMessage(false);
-        }
     }
 
     /**

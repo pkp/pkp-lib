@@ -1,17 +1,17 @@
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
-# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021.
+# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-12-22 12:24+0000\n"
+"PO-Revision-Date: 2024-04-16 06:33+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/ja_JP/>\n"
-"Language: ja_JP\n"
+"submission/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr "本書は既刊のため、著者を編集できません。"
@@ -1535,7 +1535,7 @@ msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
 
 msgid "editor.submission.decision.sendExternalReview"
-msgstr ""
+msgstr "査読に送る"
 
 msgid "editor.submission.decision.sendExternalReview.description"
 msgstr ""
@@ -2151,7 +2151,7 @@ msgid "submission.query.replies"
 msgstr "返答"
 
 msgid "submission.query.from"
-msgstr "から"
+msgstr "作者名"
 
 msgid "submission.query.lastReply"
 msgstr "最新返答"
@@ -2495,4 +2495,3 @@ msgstr ""
 
 msgid "submission.submissionFile"
 msgstr "投稿物ファイル"
-

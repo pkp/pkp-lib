@@ -25,13 +25,13 @@ use PKP\context\Context;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\core\PKPSessionGuard;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RedirectAction;
 use PKP\plugins\importexport\native\PKPNativeImportExportDeployment;
 use PKP\plugins\importexport\PKPImportExportDeployment;
-use PKP\session\SessionManager;
 
 abstract class ImportExportPlugin extends Plugin
 {
@@ -225,7 +225,7 @@ abstract class ImportExportPlugin extends Plugin
      */
     public function displayXMLValidationErrors($errors, $xml)
     {
-        if (SessionManager::isDisabled()) {
+        if (PKPSessionGuard::isSessionDisable()) {
             echo __('plugins.importexport.common.validationErrors') . "\n";
             foreach ($errors as $error) {
                 echo trim($error->message) . "\n";
@@ -423,7 +423,7 @@ abstract class ImportExportPlugin extends Plugin
                 null,
                 null,
                 ['plugin', $this->getName(), $bounceUrl],
-                array_merge($bounceParameterArray, ['csrfToken' => $request->getSession()->getCSRFToken()])
+                array_merge($bounceParameterArray, ['csrfToken' => $request->getSession()->token()])
             ),
         ]);
         header('Content-Type: application/json');

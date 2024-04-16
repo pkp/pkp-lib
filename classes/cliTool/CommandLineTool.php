@@ -28,9 +28,9 @@ use APP\core\Application;
 use APP\core\PageRouter;
 use APP\facades\Repo;
 use PKP\config\Config;
+use PKP\core\PKPSessionGuard;
 use PKP\core\Registry;
 use PKP\plugins\PluginRegistry;
-use PKP\session\SessionManager;
 use PKP\user\User;
 
 /** Initialization code */
@@ -39,8 +39,9 @@ chdir(dirname(INDEX_FILE_LOCATION)); /* Change to base directory */
 if (!defined('STDIN')) {
     define('STDIN', fopen('php://stdin', 'r'));
 }
+
 require_once './lib/pkp/includes/bootstrap.php';
-SessionManager::disable();
+PKPSessionGuard::disableSession();
 
 class CommandLineTool
 {

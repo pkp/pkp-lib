@@ -122,7 +122,7 @@ class QueryNoteForm extends Form
         $templateMgr->assign([
             'actionArgs' => $this->_actionArgs,
             'noteId' => $this->_noteId,
-            'csrfToken' => $request->getSession()->getCSRFToken(),
+            'csrfToken' => $request->getSession()->token(),
         ]);
         return parent::fetch($request, $template, $display);
     }

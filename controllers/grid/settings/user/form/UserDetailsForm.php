@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\settings\user\form;
 
 use APP\author\Author;
+use Illuminate\Support\Facades\Auth;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
@@ -30,7 +31,6 @@ use PKP\identity\Identity;
 use PKP\mail\mailables\UserCreated;
 use PKP\notification\PKPNotification;
 use PKP\security\Validation;
-use PKP\session\SessionManager;
 use PKP\user\InterestManager;
 use PKP\user\User;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -349,13 +349,9 @@ class UserDetailsForm extends UserForm
             if ($this->getData('password') !== '') {
                 $this->user->setPassword(Validation::encryptCredentials($this->user->getUsername(), $this->getData('password')));
 
-                $sessionManager = SessionManager::getManager();
-                $sessionManager->invalidateSessions(
-                    $this->user->getId(),
-                    (int) $this->user->getId() === (int) $request->getUser()->getId()
-                        ? $sessionManager->getUserSession()->getId()
-                        : null
-                );
+                (int) $this->user->getId() === (int) $request->getUser()->getId()
+                    ? Auth::logoutOtherDevices($this->getData('password'))
+                    : $request->getSessionGuard()->invalidateOtherSessions($this->user->getId());
             }
 
             Repo::user()->edit($this->user);

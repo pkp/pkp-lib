@@ -109,8 +109,6 @@ class PKPRoutingProvider extends RoutingServiceProvider
     public function registerRouter(): void
     {
         $this->app->singleton('router', function ($app) {
-            $request = Request::capture();
-            $app->instance(\Illuminate\Http\Request::class, $request);
             return new Router($app['events'], $app);
         });
     }

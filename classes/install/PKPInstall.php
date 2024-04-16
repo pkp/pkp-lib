@@ -99,6 +99,12 @@ class PKPInstall extends Installer
             'collation' => 'utf8_general_ci',
         ];
         FacadesConfig::set('database', $config);
+        
+        // Need to register the `DatabaseServiceProvider` as when the `SessionServiceProvider`
+        // registers itself in the `\PKP\core\PKPContainer::registerConfiguredProviders`, it 
+        // registers an instance of `\Illuminate\Database\ConnectionInterface` which contains the 
+        // initial details from the `config.inc.php` rather than what is set through the install form.
+        app()->register(new \Illuminate\Database\DatabaseServiceProvider(app()));
 
         return parent::preInstall();
     }

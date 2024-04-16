@@ -88,6 +88,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->smallInteger('disabled')->default(0);
             $table->text('disabled_reason')->nullable();
             $table->smallInteger('inline_help')->nullable();
+            $table->rememberToken();
         });
 
         switch (DB::getDriverName()) {
@@ -117,25 +118,6 @@ class CommonMigration extends \PKP\migration\Migration
 
             $table->unique(['user_id', 'locale', 'setting_name'], 'user_settings_unique');
             $table->index(['setting_name', 'locale'], 'user_settings_locale_setting_name_index');
-        });
-
-        Schema::create('sessions', function (Blueprint $table) {
-            $table->comment('Session data for logged-in users.');
-            $table->string('session_id', 128);
-
-            $table->bigInteger('user_id')->nullable();
-            $table->foreign('user_id', 'sessions_user_id')->references('user_id')->on('users')->onDelete('cascade');
-            $table->index(['user_id'], 'sessions_user_id');
-
-            $table->string('ip_address', 39);
-            $table->string('user_agent', 255)->nullable();
-            $table->bigInteger('created')->default(0);
-            $table->bigInteger('last_used')->default(0);
-            $table->smallInteger('remember')->default(0);
-            $table->text('data');
-            $table->string('domain', 255)->nullable();
-
-            $table->unique(['session_id'], 'sessions_pkey');
         });
 
         Schema::create('notifications', function (Blueprint $table) {
@@ -276,7 +258,6 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::drop('notification_subscription_settings');
         Schema::drop('notification_settings');
         Schema::drop('notifications');
-        Schema::drop('sessions');
         Schema::drop('user_settings');
         Schema::drop('users');
         Schema::drop('site_settings');

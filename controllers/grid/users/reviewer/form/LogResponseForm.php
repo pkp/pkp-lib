@@ -32,6 +32,7 @@ use PKP\core\Core;
 use PKP\plugins\Hook;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\ReviewerAction;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 
@@ -68,7 +69,7 @@ class LogResponseForm extends Form
     }
 
     /**
-     * Fetch the Edit Review Form form
+     * Fetch the Edit Review Form
      *
      * @see Form::fetch()
      *
@@ -102,16 +103,22 @@ class LogResponseForm extends Form
     public function execute(...$functionArgs)
     {
         $logResponse = $this->getData('logResponse');
-        $decline = (bool) $logResponse;
+        $decline = !boolval($logResponse);
         $reviewAssignment = $this->_reviewAssignment;
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
         if (!isset($reviewer)) return true;
 
         // Only confirm the review for the reviewer if
         // he has not previously done so.
+
+        $submission = $this->submission;
+        $request = $this->request;
+
         if ($reviewAssignment->getDateConfirmed() == null) {
-            Hook::call('ReviewerAction::confirmReview', [$this->request, &$submission, &$email, $decline]);
-            import('lib.pkp.classes.log.SubmissionEmailLogEntry'); // Import email event constants
+
+            $reviewerAction = new ReviewerAction();
+            $mailable = $reviewerAction->getResponseEmail($submission, $reviewAssignment, $decline, null);
+            Hook::call('ReviewerAction::confirmReview', [$request, $submission, $mailable, $decline]);
 
             $reviewAssignment->setDeclined($decline);
             $reviewAssignment->setDateConfirmed(Core::getCurrentDate());

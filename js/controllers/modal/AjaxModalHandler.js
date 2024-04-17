@@ -83,7 +83,7 @@
 			component: 'LegacyAjax',
 			modalId: this.uniqueModalId,
 			// passing modalHandler to be able to bridge events
-			options: {...this.options, modalHandler: this},
+			options: Object.assign({}, this.options, {modalHandler: this}),
 		});
 	};
 

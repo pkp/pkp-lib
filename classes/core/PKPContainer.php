@@ -31,6 +31,7 @@ use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
+use PKP\core\PKPUserProvider;
 use PKP\proxy\ProxyParser;
 use Throwable;
 
@@ -86,8 +87,8 @@ class PKPContainer extends Container
                                 'error' => $exception->getMessage()
                             ],
                             in_array($exception->getCode(), array_keys(Response::$statusTexts))
-                            ? $exception->getCode()
-                            : Response::HTTP_INTERNAL_SERVER_ERROR
+                                ? $exception->getCode()
+                                : Response::HTTP_INTERNAL_SERVER_ERROR
                         )->send();
                     }
 
@@ -100,6 +101,7 @@ class PKPContainer extends Container
                 }
             };
         });
+        
         $this->singleton(
             KernelContract::class,
             Kernel::class
@@ -120,6 +122,17 @@ class PKPContainer extends Container
             }
         );
 
+        $this->app->singleton('request', fn ($app) => \Illuminate\Http\Request::createFromGlobals());
+
+        $this->app->singleton(\Illuminate\Http\Request::class, fn ($app) => $app->get('request'));
+
+        $this->app->singleton(
+            'response', 
+            fn ($app) => new \Illuminate\Http\Response(headers: $app->get('request')->headers->all())
+        );
+
+        $this->app->singleton(\Illuminate\Http\Response::class, fn ($app) => $app->get('response'));
+
         Facade::setFacadeApplication($this);
     }
 
@@ -130,6 +143,11 @@ class PKPContainer extends Container
     {
         // Load main settings, this should be done before registering services, e.g., it's used by Database Service
         $this->loadConfiguration();
+
+        $this->register(new \PKP\core\PKPAuthServiceProvider($this));
+        $this->register(new \Illuminate\Cookie\CookieServiceProvider($this));
+        $this->register(new \PKP\core\PKPSessionServiceProvider($this));
+        $this->register(new \Illuminate\Pipeline\PipelineServiceProvider($this));
         $this->register(new \Illuminate\Cache\CacheServiceProvider($this));
         $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
         $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));
@@ -146,14 +164,14 @@ class PKPContainer extends Container
     }
 
     /**
-     * @param \Illuminate\Support\ServiceProvider $provider
-     *
      * @brief Simplified service registration
      */
-    public function register($provider)
+    public function register(\Illuminate\Support\ServiceProvider $provider)
     {
         $provider->register();
+
         $provider->callBootingCallbacks();
+        
         if (method_exists($provider, 'boot')) {
             $this->call([$provider, 'boot']);
         }
@@ -175,8 +193,6 @@ class PKPContainer extends Container
         }
 
         $provider->callBootedCallbacks();
-
-        $this->app->bind('request', fn () => \Illuminate\Http\Request::capture());
     }
 
     /**
@@ -185,6 +201,18 @@ class PKPContainer extends Container
     public function registerCoreContainerAliases()
     {
         foreach ([
+            'auth' => [
+                \Illuminate\Auth\AuthManager::class, 
+                \Illuminate\Contracts\Auth\Factory::class
+            ],
+            'auth.driver' => [
+                \Illuminate\Contracts\Auth\Guard::class
+            ],
+            'cookie' => [
+                \Illuminate\Cookie\CookieJar::class, 
+                \Illuminate\Contracts\Cookie\Factory::class, 
+                \Illuminate\Contracts\Cookie\QueueingFactory::class
+            ],
             'app' => [
                 self::class,
                 \Illuminate\Contracts\Container\Container::class,
@@ -213,6 +241,9 @@ class PKPContainer extends Container
             'db.connection' => [
                 \Illuminate\Database\Connection::class,
                 \Illuminate\Database\ConnectionInterface::class
+            ],
+            'db.factory' => [
+                \Illuminate\Database\Connectors\ConnectionFactory::class,
             ],
             'files' => [
                 \Illuminate\Filesystem\Filesystem::class
@@ -272,6 +303,11 @@ class PKPContainer extends Container
             'Route' => [
                 \Illuminate\Support\Facades\Route::class
             ],
+            'encrypter' => [
+                \Illuminate\Encryption\Encrypter::class,
+                \Illuminate\Contracts\Encryption\Encrypter::class,
+                \Illuminate\Contracts\Encryption\StringEncrypter::class,
+            ],
         ] as $key => $aliases) {
             foreach ($aliases as $alias) {
                 $this->alias($key, $alias);
@@ -286,6 +322,7 @@ class PKPContainer extends Container
     protected function loadConfiguration()
     {
         $items = [];
+        $_request = PKPApplication::get()->getRequest();
 
         // Database connection
         $driver = 'mysql';
@@ -306,6 +343,42 @@ class PKPContainer extends Container
             'charset' => Config::getVar('i18n', 'connection_charset', 'utf8'),
             'collation' => Config::getVar('database', 'collation', 'utf8_general_ci'),
         ];
+
+        // Auth
+        $items['auth'] = [
+            'defaults' => [
+                'guard' => 'web',
+            ],
+            'guards' => [
+                'web' => [
+                    'driver' => 'session',
+                    'provider' => 'users',
+                ],
+            ],
+            'providers' => [
+                'users' => [
+                    'driver' => PKPUserProvider::AUTH_PROVIDER,
+                ],
+            ],
+        ];
+
+        // Session manager
+        $items['session'] = [
+            'driver' => 'database',
+            'table' => 'sessions',
+            'cookie' => Config::getVar('general', 'session_cookie_name'),
+            'path' => Config::getVar('general', 'session_cookie_path', $_request->getBasePath() . '/'),
+            'domain' => $_request->getServerHost(includePort: false),
+            'secure' => Config::getVar('security', 'force_ssl', false),
+            'lifetime' => Config::getVar('general', 'session_lifetime', 30) * 24 * 60, // lifetime need to set in minutes
+            'lottery' => [2, 100],
+            'expire_on_close' => false,
+            'same_site' => Config::getVar('general', 'session_samesite', 'lax'),
+            'partitioned' => false,
+            'encrypt' => false,
+            'cookie_encryption_key' => Config::getVar('general', 'session_cookie_encryption_key', ''),
+        ];
+
 
         // Queue connection
         $items['queue']['default'] = 'database';

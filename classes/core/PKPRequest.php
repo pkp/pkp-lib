@@ -21,15 +21,15 @@ use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use PKP\config\Config;
 use PKP\context\Context;
+use PKP\core\PKPSessionGuard;
 use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
 use PKP\security\Validation;
-use PKP\session\Session;
-use PKP\session\SessionManager;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\user\User;
+use Illuminate\Contracts\Session\Session;
 
 class PKPRequest
 {
@@ -104,7 +104,7 @@ class PKPRequest
      */
     public function &getDispatcher()
     {
-        if (! $this->_dispatcher) {
+        if (!$this->_dispatcher) {
             $application = Application::get();
 
             $this->setDispatcher($application->getDispatcher());
@@ -127,7 +127,11 @@ class PKPRequest
             return;
         }
 
+        // sent out the cookie as header
+        Application::get()->getRequest()->getSessionGuard()->sendCookies();
+
         header("Location: {$url}");
+        
         exit;
     }
 
@@ -475,8 +479,7 @@ class PKPRequest
      */
     public function checkCSRF()
     {
-        $session = $this->getSession();
-        return $this->getUserVar('csrfToken') == $session->getCSRFToken();
+        return $this->getUserVar('csrfToken') == $this->getSession()->token();
     }
 
     /**
@@ -488,7 +491,7 @@ class PKPRequest
      */
     public function getRemoteAddr()
     {
-        $ipaddr = & Registry::get('remoteIpAddr'); // Reference required.
+        $ipaddr = &Registry::get('remoteIpAddr'); // Reference required.
         if (is_null($ipaddr)) {
             if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) &&
                 Config::getVar('general', 'trust_x_forwarded_for', true) &&
@@ -590,10 +593,19 @@ class PKPRequest
      */
     public function getSite(): ?Site
     {
-        $site = & Registry::get('site', true, null);
+        $site = &Registry::get('site', true, null);
         /** @var SiteDAO */
         $siteDao = DAORegistry::getDAO('SiteDAO');
         return $site ??= $siteDao->getSite();
+    }
+
+    /**
+     * Get the session guard resposible for managing session
+     */
+    public function getSessionGuard(): PKPSessionGuard
+    {
+        $sessionGuard = app()->get('auth.driver'); /** @var \PKP\core\PKPSessionGuard $sessionGuard */
+        return $sessionGuard;
     }
 
     /**
@@ -601,8 +613,7 @@ class PKPRequest
      */
     public function getSession(): Session
     {
-        $session = & Registry::get('session', true, null);
-        return $session ??= SessionManager::getManager()->getUserSession();
+        return $this->getSessionGuard()->getSession();
     }
 
     /**
@@ -610,13 +621,13 @@ class PKPRequest
      */
     public function getUser(): ?User
     {
-        $user = & Registry::get('user', true, null);
+        $user = &Registry::get('user', true, null);
         if ($user) {
             return $user;
         }
 
         // Attempt to load user from API token
-        if (($handler = $this->getRouter()->getHandler())
+        if (($handler = $this->getRouter()?->getHandler())
             && ($token = $handler->getApiToken())
             && ($apiUser = Repo::user()->getByApiKey($token))
             && $apiUser->getData('apiKeyEnabled')
@@ -626,7 +637,7 @@ class PKPRequest
 
         // Attempts to retrieve a logged user
         if (Validation::isLoggedIn()) {
-            $user = SessionManager::getManager()->getUserSession()->getUser();
+            $user = Repo::user()->get($this->getSessionGuard()->getUserId());
         }
 
         return $user;
@@ -898,7 +909,7 @@ class PKPRequest
         // as all router methods required the request
         // as their first parameter.
         $parameters = func_get_args();
-        $parameters[0] = & $this;
+        $parameters[0] = &$this;
 
         $returner = call_user_func_array($callable, $parameters);
         return $returner;

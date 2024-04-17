@@ -42,7 +42,7 @@ class DAO
     {
         if ($callHooks === true) {
             // Call hooks based on the object name. Results
-            // in hook calls named e.g. "sessiondao::_Constructor"
+            // in hook calls named e.g. "DAO_CLASS::_Constructor"
             $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
             if (Hook::run(strtolower_codesafe(end($classNameParts)) . '::_Constructor', [$this])) {
                 return;
@@ -66,7 +66,7 @@ class DAO
             $trace = debug_backtrace();
             // Call hooks based on the calling entity, assuming
             // this method is only called by a subclass. Results
-            // in hook calls named e.g. "sessiondao::_getsession"
+            // in hook calls named e.g. "DAO_CLASS::_get..."
             // (always lower case).
             $value = null;
             if (Hook::run(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$value])) {
@@ -94,7 +94,7 @@ class DAO
             $trace = debug_backtrace();
             // Call hooks based on the calling entity, assuming
             // this method is only called by a subclass. Results
-            // in hook calls named e.g. "sessiondao::_getsession"
+            // in hook calls named e.g. "DAO_CLASS::_get..."
             $value = null;
             if (Hook::run(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$dbResultRange, &$value])) {
                 return $value;
@@ -159,7 +159,7 @@ class DAO
             $trace = debug_backtrace();
             // Call hooks based on the calling entity, assuming
             // this method is only called by a subclass. Results
-            // in hook calls named e.g. "sessiondao::_updateobject"
+            // in hook calls named e.g. "DAO_CLASS::_updateobject"
             // (all lowercase)
             $value = null;
             if (Hook::run(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$value])) {
@@ -458,7 +458,7 @@ class DAO
         $returner = [];
         // Call hooks based on the calling entity, assuming
         // this method is only called by a subclass. Results
-        // in hook calls named e.g. "sessiondao::getAdditionalFieldNames"
+        // in hook calls named e.g. "DAO_CLASS::getAdditionalFieldNames"
         // (class names lowercase)
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
         Hook::run(strtolower_codesafe(end($classNameParts)) . '::getAdditionalFieldNames', [$this, &$returner]);
@@ -480,7 +480,7 @@ class DAO
         $returner = [];
         // Call hooks based on the calling entity, assuming
         // this method is only called by a subclass. Results
-        // in hook calls named e.g. "sessiondao::getLocaleFieldNames"
+        // in hook calls named e.g. "DAO_CLASS::getLocaleFieldNames"
         // (class names lowercase)
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
         Hook::run(strtolower_codesafe(end($classNameParts)) . '::getLocaleFieldNames', [$this, &$returner]);

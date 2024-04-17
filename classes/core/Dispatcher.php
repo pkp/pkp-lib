@@ -17,6 +17,7 @@
 namespace PKP\core;
 
 use APP\core\Services;
+use PKP\core\PKPSessionGuard;
 use PKP\config\Config;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
@@ -122,7 +123,10 @@ class Dispatcher
                 // Inject router and dispatcher into request
                 $request->setRouter($routerCandidate);
                 $request->setDispatcher($this);
-
+                
+                $this->setUserResolver();
+                $this->initSession();
+                
                 // We've found our router and can go on
                 // to handle the request.
                 $router = & $routerCandidate;
@@ -165,6 +169,46 @@ class Dispatcher
         $request->getRouter()->getContext($request, true);
 
         $router->route($request);
+    }
+
+    /**
+     * Init the session by running through session related middleware
+     */
+    public function initSession(): void
+    {
+        if (PKPSessionGuard::isSessionDisable()) {
+            return;
+        }
+
+        $illuminateRequest = app(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
+
+        (new \Illuminate\Pipeline\Pipeline(PKPContainer::getInstance()))
+            ->send($illuminateRequest)
+            ->through(
+                app()->has('encrypter')
+                    ? [
+                        \PKP\middleware\PKPEncryptCookies::class,
+                        \Illuminate\Session\Middleware\StartSession::class,
+                        \PKP\middleware\PKPAuthenticateSession::class,
+                    ] : [
+                        \Illuminate\Session\Middleware\StartSession::class,
+                        \PKP\middleware\PKPAuthenticateSession::class,
+                    ]
+            )
+            ->via('handle')
+            ->then(function (\Illuminate\Http\Request $request) {
+                return app()->get(\Illuminate\Http\Response::class);
+            });
+    }
+    
+    /**
+     * Set the user resolving logic for laravel inner use purpose
+     */
+    public function setUserResolver(): void
+    {
+        $illuminateRequest = app()->get(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
+        
+        $illuminateRequest->setUserResolver(fn () => \APP\core\Application::get()->getRequest()->getUser());
     }
 
     /**

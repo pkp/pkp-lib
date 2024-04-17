@@ -23,7 +23,6 @@ namespace PKP\core;
 use APP\core\Application;
 use Exception;
 use Illuminate\Http\Response;
-use PKP\session\SessionManager;
 
 class APIRouter extends PKPRouter
 {
@@ -93,11 +92,6 @@ class APIRouter extends PKPRouter
                 'errorMessage' => __('api.404.endpointNotFound'),
             ], Response::HTTP_NOT_FOUND)->send();
             exit;
-        }
-
-        if (!SessionManager::isDisabled()) {
-            // Initialize session
-            SessionManager::getManager();
         }
 
         $handler = require('./' . $sourceFile);

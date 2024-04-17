@@ -19,24 +19,19 @@ namespace PKP\security;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
-use PKP\session\SessionDAO;
-use PKP\session\SessionManager;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\user\User;
-use PKP\validation\ValidatorFactory;
 
 class Validation
 {
     public const ADMINISTRATION_PROHIBITED = 0;
     public const ADMINISTRATION_PARTIAL = 1;
     public const ADMINISTRATION_FULL = 2;
-
-    public const AUTH_KEY_USERNAME = 1;
-    public const AUTH_KEY_EMAIL = 2;
 
     /**
      * Authenticate user credentials and mark the user as logged in in the current session.
@@ -51,32 +46,10 @@ class Validation
     public static function login($username, $password, &$reason, $remember = false)
     {
         $reason = null;
-        $authKey = static::AUTH_KEY_USERNAME;
-
-        if (ValidatorFactory::make(['email' => $username], ['email' => 'email'])->passes()) {
-            $user = Repo::user()->getByEmail($username, true);
-            $authKey = static::AUTH_KEY_EMAIL;
-        } else {
-            $user = Repo::user()->getByUsername($username, true);
-        }
-
-        if (!isset($user)) {
-            // User does not exist
-            return false;
-        }
-
-        // Validate against user database
-        $rehash = null;
-        if (!self::verifyPassword($username, $password, $user->getPassword(), $rehash)) {
-            return false;
-        }
-
-        if (!empty($rehash)) {
-            // update to new hashing algorithm
-            $user->setPassword($rehash);
-        }
-
-        return self::registerUserSession($user, $reason, $remember, $authKey);
+        
+        return Auth::attempt(['username' => $username, 'password' => $password], $remember)
+            ? static::registerUserSession(Auth::user(), $reason) 
+            : false;
     }
 
     /**
@@ -112,20 +85,17 @@ class Validation
      * @param User      $user       user to register in the session
      * @param string    $reason     reference to string to receive the reason an account
      *                              was disabled; null otherwise
-     * @param bool      $remember   remember a user's session past the current browser session
-     * @param int       $authKey    const value of AUTH_KEY_* define auth key(email/username)
      *
      * @return mixed                User or boolean the User associated with the login credentials,
      *                              or false if the credentials are invalid
      */
-    public static function registerUserSession($user, &$reason, $remember = false, $authKey = self::AUTH_KEY_USERNAME)
+    public static function registerUserSession($user, &$reason)
     {
         if (!$user instanceof User) {
             return false;
         }
 
-        if ($user->getDisabled()) {
-            // The user has been disabled.
+        if ($user->getDisabled()) { // The user has been disabled.
             $reason = $user->getDisabledReason();
             if ($reason === null) {
                 $reason = '';
@@ -133,26 +103,8 @@ class Validation
             return false;
         }
 
-        // The user is valid, mark user as logged in in current session
-        $sessionManager = SessionManager::getManager();
-
-        // Regenerate session ID first
-        $sessionManager->regenerateSessionId();
-
-        $session = $sessionManager->getUserSession();
-        $session->setSessionVar('userId', $user->getId());
-        $session->setUserId($user->getId());
-        $session->setSessionVar('username', $user->getUsername());
-        if ($authKey === static::AUTH_KEY_EMAIL) {
-            $session->setSessionVar('email', $user->getEmail());
-        }
-        $session->getCSRFToken(); // Force generation (see issue #2417)
-        $session->setRemember($remember);
-
-        if ($remember && Config::getVar('general', 'session_lifetime') > 0) {
-            // Update session expiration time
-            $sessionManager->updateSessionLifetime(time() + Config::getVar('general', 'session_lifetime') * 86400);
-        }
+        $request = Application::get()->getRequest();
+        $request->getSessionGuard()->setUserDataToSession($user)->updateSession($user->getId());
 
         $user->setDateLastLogin(Core::getCurrentDate());
         Repo::user()->edit($user);
@@ -167,19 +119,18 @@ class Validation
      */
     public static function logout()
     {
-        $sessionManager = SessionManager::getManager();
-        $session = $sessionManager->getUserSession();
-        $session->unsetSessionVar('userId');
-        $session->unsetSessionVar('signedInAs');
-        $session->setUserId(null);
+        $request = Application::get()->getRequest();
+        $session = $request->getSession();
+        $user = Auth::user(); /** @var \PKP\user\User $user */
 
-        if ($session->getRemember()) {
-            $session->setRemember(0);
-            $sessionManager->updateSessionLifetime(0);
-        }
-
-        $sessionDao = DAORegistry::getDAO('SessionDAO'); /** @var SessionDAO $sessionDao */
-        $sessionDao->updateObject($session);
+        Auth::logout();
+        $session->invalidate();
+        $session->regenerateToken();
+        
+        $session->put('username', $user->getUsername());
+        $session->put('email', $user->getEmail());
+        
+        $request->getSessionGuard()->updateSession(null);
 
         return true;
     }
@@ -257,9 +208,7 @@ class Validation
             $contextId = $context == null ? 0 : $context->getId();
         }
 
-        $sessionManager = SessionManager::getManager();
-        $session = $sessionManager->getUserSession();
-        $user = $session->getUser();
+        $user = Auth::user(); /** @var \PKP\user\User $user */
 
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
         return $roleDao->userHasRole($contextId, $user->getId(), $roleId);
@@ -408,18 +357,10 @@ class Validation
 
     /**
      * Check if the user is logged in.
-     *
-     * @return bool
      */
-    public static function isLoggedIn()
+    public static function isLoggedIn(): bool
     {
-        if (!SessionManager::hasSession()) {
-            return false;
-        }
-
-        $sessionManager = SessionManager::getManager();
-        $session = $sessionManager->getUserSession();
-        return !!$session->getUserId();
+        return (bool) Application::get()->getRequest()->getSessionGuard()->getUserId();
     }
 
     /**
@@ -427,14 +368,7 @@ class Validation
      */
     public static function loggedInAs(): ?int
     {
-        if (!SessionManager::hasSession()) {
-            return null;
-        }
-        $sessionManager = SessionManager::getManager();
-        $session = $sessionManager->getUserSession();
-        $userId = $session->getSessionVar('signedInAs');
-
-        return $userId ? (int) $userId : null;
+        return Application::get()->getRequest()->getSession()->get('signedInAs') ?: null;
     }
 
     /**

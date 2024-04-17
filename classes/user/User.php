@@ -20,11 +20,13 @@
 
 namespace PKP\user;
 
+use Exception;
+use Illuminate\Contracts\Auth\Authenticatable;
 use PKP\db\DAORegistry;
 use PKP\identity\Identity;
 use PKP\security\RoleDAO;
 
-class User extends Identity
+class User extends Identity implements Authenticatable
 {
     /** @var array Roles assigned to this user grouped by context */
     protected $_roles = [];
@@ -452,6 +454,41 @@ class User extends Identity
     public function setRoles($roles, $contextId)
     {
         $this->_roles[$contextId] = $roles;
+    }
+
+    public function getAuthIdentifierName()
+    {
+        return 'user_id';
+    }
+
+    public function getAuthIdentifier()
+    {
+        return $this->getId();
+    }
+
+    public function getAuthPassword()
+    {
+        return $this->getData('password');
+    }
+
+    public function getRememberToken()
+    {
+        return $this->getData('rememberToken');
+    }
+
+    public function setRememberToken($value)
+    {
+        return $this->setData('rememberToken', $value);
+    }
+
+    /**
+     * Get the column name for the "remember me" token.
+     *
+     * @return string
+     */
+    public function getRememberTokenName()
+    {
+        return 'remember_token';
     }
 }
 

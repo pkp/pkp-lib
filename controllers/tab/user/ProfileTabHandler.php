@@ -27,7 +27,6 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\security\authorization\UserRequiredPolicy;
-use PKP\session\SessionManager;
 use PKP\user\form\APIProfileForm;
 use PKP\user\form\ChangePasswordForm;
 use PKP\user\form\ContactForm;
@@ -313,9 +312,6 @@ class ProfileTabHandler extends Handler
 
         if ($passwordForm->validate()) {
             $passwordForm->execute();
-
-            $sessionManager = SessionManager::getManager();
-            $sessionManager->invalidateSessions($user->getId(), $sessionManager->getUserSession()->getId());
 
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification($user->getId());

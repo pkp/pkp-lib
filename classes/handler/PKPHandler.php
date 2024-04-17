@@ -26,6 +26,7 @@ use PKP\config\Config;
 use PKP\core\Dispatcher;
 use PKP\core\Registry;
 use PKP\db\DBResultRange;
+use PKP\core\PKPSessionGuard;
 use PKP\security\authorization\AllowedHostsPolicy;
 use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
@@ -33,7 +34,6 @@ use PKP\security\authorization\HttpsPolicy;
 use PKP\security\authorization\RestrictedSiteAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Validation;
-use PKP\session\SessionManager;
 
 class PKPHandler
 {
@@ -329,7 +329,7 @@ class PKPHandler
 
         // Ensure the allowed hosts setting, when provided, is respected.
         $this->addPolicy(new AllowedHostsPolicy($request), true);
-        if (!SessionManager::isDisabled()) {
+        if (!PKPSessionGuard::isSessionDisable()) {
             // Add user roles in authorized context.
             $user = $request->getUser();
             if ($user instanceof \PKP\user\User) {
@@ -463,9 +463,9 @@ class PKPHandler
 
                 if ($request->getUserVar('clearPageContext')) {
                     // Explicitly clear the old page context
-                    $session->unsetSessionVar("page-{$contextHash}");
+                    $session->forget("page-{$contextHash}");
                 } else {
-                    $oldPage = $session->getSessionVar("page-{$contextHash}");
+                    $oldPage = $session->get("page-{$contextHash}");
                     if (is_numeric($oldPage)) {
                         $pageNum = $oldPage;
                     }
@@ -476,7 +476,7 @@ class PKPHandler
             if ($session && $contextData !== null) {
                 // Store the page number
                 $contextHash = self::hashPageContext($request, $contextData);
-                $session->setSessionVar("page-{$contextHash}", $pageNum);
+                $session->put("page-{$contextHash}", $pageNum);
             }
         }
 

@@ -156,7 +156,8 @@ abstract class UsageEvent
             null,
             $canonicalUrlPage,
             $canonicalUrlOp,
-            $canonicalUrlParams
+            $canonicalUrlParams,
+            urlLocaleForPage: ''
         );
 
         // Make sure we log the server name and not aliases.

@@ -278,6 +278,18 @@ class PKPTemplateManager extends Smarty
                         $this->addHeader('customHeaders', $customHeaders);
                     }
                 }
+
+                if (count($supportedLocales = $currentContext?->getSupportedLocales() ?? $site->getSupportedLocales()) > 1) {
+                    (function () use ($request, $router, $supportedLocales) {
+                        $page = $router->getRequestedPage($request);
+                        $op = $router->getRequestedOp($request);
+                        $path = $router->getRequestedArgs($request);
+                        $url = fn (string $locale = ""): string => $router->url($request, null, $page, $op, $path, urlLocaleForPage: $locale);
+                        collect($supportedLocales)
+                            ->each(fn (string $l) => $this->addHeader("language-$l", "<link rel='alternate' hreflang='" . str_replace(['_', '@cyrillic', '@latin'], ['-', '-Cyrl', '-Latn'], $l) . "' href='" . $url($l) . "' />"));
+                        $this->addHeader("language-xdefault", "<link rel='alternate' hreflang='x-default' href='" . $url() . "' />");
+                    })();
+                }
             }
 
             if ($currentContext && !$currentContext->getEnabled()) {
@@ -1779,8 +1791,8 @@ class PKPTemplateManager extends Smarty
         // Extract the reserved variables named in $paramList, and remove them
         // from the parameters array. Variables remaining in parameters will be passed
         // along to Request::url as extra parameters.
-        $params = $router = $page = $component = $anchor = $escape = $op = $path = null;
-        $paramList = ['params', 'router', 'context', 'page', 'component', 'op', 'path', 'anchor', 'escape'];
+        $params = $router = $page = $component = $anchor = $escape = $op = $path = $urlLocaleForPage = null;
+        $paramList = ['params', 'router', 'context', 'page', 'component', 'op', 'path', 'anchor', 'escape', 'urlLocaleForPage'];
         foreach ($paramList as $parameter) {
             if (isset($parameters[$parameter])) {
                 $$parameter = $parameters[$parameter];
@@ -1823,7 +1835,7 @@ class PKPTemplateManager extends Smarty
                 assert(false);
         }
         // Let the dispatcher create the url
-        return $dispatcher->url($this->_request, $router, $context, $handler, $op, $path, $parameters, $anchor, !isset($escape) || $escape);
+        return $dispatcher->url($this->_request, $router, $context, $handler, $op, $path, $parameters, $anchor, !isset($escape) || $escape, $urlLocaleForPage);
     }
 
     /**

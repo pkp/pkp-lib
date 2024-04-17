@@ -125,7 +125,7 @@ Cypress.Commands.add('install', function() {
 Cypress.Commands.add('login', (username, password, context) => {
 	context = context || 'index';
 	password = password || (username + username);
-	cy.visit('index.php/' + context + '/login/signIn', {
+	cy.visit('index.php/' + context + '/en/login/signIn', {
 		method: 'POST',
 		body: {username: username, password: password}
 	});

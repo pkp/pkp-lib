@@ -105,6 +105,14 @@ abstract class PKPRouter
     }
 
     /**
+     * get the current context
+     */
+    public function getCurrentContext(): ?Context
+    {
+        return $this->_context;
+    }
+
+    /**
      * get the dispatcher
      */
     public function getDispatcher(): \PKP\core\Dispatcher

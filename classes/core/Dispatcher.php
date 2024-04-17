@@ -223,6 +223,7 @@ class Dispatcher
      * @param array $params Optional set of name => value pairs to pass as user parameters
      * @param string $anchor Optional name of anchor to add to URL
      * @param bool $escape Whether or not to escape ampersands for this URL; default false.
+     * @param string $urlLocaleForPage Whether or not to override locale for this URL; Use '' to exclude.
      *
      * @return string the URL
      */
@@ -235,14 +236,15 @@ class Dispatcher
         $path = null,
         $params = null,
         $anchor = null,
-        $escape = false
+        $escape = false,
+        ?string $urlLocaleForPage = null,
     ) {
         // Instantiate the requested router
         assert(isset($this->_routerNames[$shortcut]));
         $routerName = $this->_routerNames[$shortcut];
         $router = & $this->_instantiateRouter($routerName, $shortcut);
 
-        return $router->url($request, $newContext, $handler, $op, $path, $params, $anchor, $escape);
+        return $router->url($request, $newContext, $handler, $op, $path, $params, $anchor, $escape, $urlLocaleForPage);
     }
 
     //

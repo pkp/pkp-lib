@@ -417,12 +417,6 @@ class Schema extends \PKP\core\maps\Schema
     {
         $reviews = [];
         foreach ($reviewAssignments as $reviewAssignment) {
-            // @todo for now, only show reviews that haven't been
-            // declined or cancelled
-            if ($reviewAssignment->getDeclined() || $reviewAssignment->getCancelled()) {
-                continue;
-            }
-
             $request = Application::get()->getRequest();
             $currentUser = $request->getUser();
             $dateDue = is_null($reviewAssignment->getDateDue()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateDue()));

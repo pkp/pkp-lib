@@ -2073,6 +2073,10 @@ msgstr "View All Submissions"
 msgid "submission.list.viewSubmission"
 msgstr "View Submission"
 
+msgid "submission.list.viewSubmissionSummary"
+msgstr "View Submission Summary"
+
+
 msgid "submission.list.reviewsCompleted"
 msgstr "Assigned reviews completed"
 

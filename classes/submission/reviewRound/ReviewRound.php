@@ -199,7 +199,7 @@ class ReviewRound extends \PKP\core\DataObject
         $pendingRecommendations = false;
         $recommendationsFinished = true;
         $recommendationsReady = false;
-        
+
         // Replaces StageAssignmentDAO::getEditorsAssignedToStage
         $editorsStageAssignments = StageAssignment::withSubmissionIds([$this->getSubmissionId()])
             ->withStageIds([$this->getStageId()])
@@ -237,7 +237,7 @@ class ReviewRound extends \PKP\core\DataObject
         $anyIncompletedReview = false;
         $anyUnreadReview = false;
         $reviewAssignments = Repo::reviewAssignment()->getCollector()
-            ->filterByReviewerIds([$this->getId()])
+            ->filterByReviewRoundIds([$this->getId()])
             ->getMany();
 
         foreach ($reviewAssignments as $reviewAssignment) {

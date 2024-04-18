@@ -20,14 +20,17 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\components\forms\dashboard\SubmissionFilters;
+use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
+use PKP\decision\Decision;
 use PKP\plugins\Hook;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\DashboardView;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\submissionFile\SubmissionFile;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
 define('SUBMISSIONS_LIST_ARCHIVE', 'archive');
@@ -136,8 +139,14 @@ class DashboardHandlerNext extends Handler
         );
 
 
+        $selectRevisionDecisionForm = new \PKP\components\forms\decision\SelectRevisionDecisionForm();
+        $selectRevisionRecommendationForm = new \PKP\components\forms\decision\SelectRevisionRecommendationForm();
+
+
         $templateMgr->setState([
             'pageInitConfig' => [
+                'selectRevisionDecisionForm' => $selectRevisionDecisionForm->getConfig(),
+                'selectRevisionRecommendationForm' => $selectRevisionRecommendationForm->getConfig(),
                 'dashboardPage' => $this->dashboardPage,
                 'assignParticipantUrl' => $dispatcher->url(
                     $request,
@@ -149,6 +158,119 @@ class DashboardHandlerNext extends Handler
                     [
                         'submissionId' => '__id__',
                         'stageId' => '__stageId__',
+                    ]
+                ),
+                //submissionId=12&stageId=3&reviewRoundId=14&selectionType=1
+                'addReviewerUrl' => $dispatcher->url(
+                    $request,
+                    Application::ROUTE_COMPONENT,
+                    null,
+                    'grid.users.reviewer.ReviewerGridHandler',
+                    'showReviewerForm',
+                    null,
+                    [
+                        'selectionType' => PKPReviewerGridHandler::REVIEWER_SELECT_ADVANCED_SEARCH,
+                        'submissionId' => '__id__',
+                        'stageId' => '__stageId__',
+                        'reviewRoundId' => '__reviewRoundId__'
+                    ]
+                ),
+                // /$$$call$$$/grid/users/reviewer/reviewer-grid/unassign-reviewer?submissionId=7&reviewAssignmentId=10&stageId=3&round=0
+                'unassignReviewerUrl' => $dispatcher->url(
+                    $request,
+                    Application::ROUTE_COMPONENT,
+                    null,
+                    'grid.users.reviewer.ReviewerGridHandler',
+                    'unassignReviewer',
+                    null,
+                    [
+                        'selectionType' => PKPReviewerGridHandler::REVIEWER_SELECT_ADVANCED_SEARCH,
+                        'submissionId' => '__id__',
+                        'stageId' => '__stageId__',
+                        'reviewAssignmentId' => '__reviewAssignmentId__'
+                    ]
+                ),
+                // resend-request-reviewer?submissionId=10&reviewAssignmentId=29&stageId=3&round=0
+                'resendRequestReviewerUrl' => $dispatcher->url(
+                    $request,
+                    Application::ROUTE_COMPONENT,
+                    null,
+                    'grid.users.reviewer.ReviewerGridHandler',
+                    'resendRequestReviewer',
+                    null,
+                    [
+                        'submissionId' => '__id__',
+                        'stageId' => '__stageId__',
+                        'reviewAssignmentId' => '__reviewAssignmentId__'
+                    ]
+                ),
+                // reviewer/reviewer-grid/read-review?submissionId=10&reviewAssignmentId=15&stageId=3&round=0
+                'reviewDetailsUrl' => $dispatcher->url(
+                    $request,
+                    Application::ROUTE_COMPONENT,
+                    null,
+                    'grid.users.reviewer.ReviewerGridHandler',
+                    'readReview',
+                    null,
+                    [
+                        'submissionId' => '__id__',
+                        'stageId' => '__stageId__',
+                        'reviewAssignmentId' => '__reviewAssignmentId__'
+                    ]
+                ),
+                // /reviewer/reviewer-grid/edit-review?submissionId=10&reviewAssignmentId=15&stageId=3&round=0
+                'editReviewUrl' => $dispatcher->url(
+                    $request,
+                    Application::ROUTE_COMPONENT,
+                    null,
+                    'grid.users.reviewer.ReviewerGridHandler',
+                    'editReview',
+                    null,
+                    [
+                        'submissionId' => '__id__',
+                        'stageId' => '__stageId__',
+                        'reviewAssignmentId' => '__reviewAssignmentId__'
+                    ]
+                ),
+                // /modals/publish/assign-to-issue/assign?submissionId=16&publicationId=17
+                'assignToIssueUrl' => $dispatcher->url(
+                    $request,
+                    Application::ROUTE_COMPONENT,
+                    null,
+                    'modals.publish.AssignToIssueHandler',
+                    'assign',
+                    null,
+                    [
+                        'submissionId' => '__id__',
+                        'publicationId' => '__publicationId__',
+                    ]
+                ),
+                // /information-center/submission-information-center/view-information-center?submissionId=7
+                'viewActivityLogUrl' => $dispatcher->url(
+                    $request,
+                    Application::ROUTE_COMPONENT,
+                    null,
+                    'informationCenter.SubmissionInformationCenterHandler',
+                    'viewInformationCenter',
+                    null,
+                    [
+                        'submissionId' => '__id__',
+                    ]
+                ),
+                // /wizard/file-upload/file-upload-wizard/start-wizard?submissionId=13&stageId=3&uploaderRoles=65536&fileStage=15&reviewRoundId=16
+                'fileUploadWizardUrl' => $dispatcher->url(
+                    $request,
+                    Application::ROUTE_COMPONENT,
+                    null,
+                    'wizard.fileUpload.FileUploadWizardHandler',
+                    'startWizard',
+                    null,
+                    [
+                        'submissionId' => '__id__',
+                        'stageId' => '__stageId__',
+                        'uploaderRoles' => Role::ROLE_ID_AUTHOR,
+                        'fileStage' => '__fileStage__',
+                        'reviewRoundId' => '__reviewRoundId__',
                     ]
                 ),
                 'countPerPage' => $this->perPage,
@@ -167,6 +289,7 @@ class DashboardHandlerNext extends Handler
 
         $templateMgr->setConstants([
             'STAGE_STATUS_SUBMISSION_UNASSIGNED' => Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED,
+            'REVIEW_ASSIGNMENT_STATUS_DECLINED' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_DECLINED,
             'REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE,
             'REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE,
             'REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE,
@@ -176,12 +299,22 @@ class DashboardHandlerNext extends Handler
             'REVIEW_ASSIGNMENT_STATUS_THANKED' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED,
             'REVIEW_ASSIGNMENT_STATUS_CANCELLED' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_CANCELLED,
             'REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND,
+            'REVIEW_ROUND_STATUS_REVISIONS_REQUESTED' => ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED,
+            'REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW' => ReviewRound::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW,
+            'REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL' => ReviewRound::REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL,
+            'REVIEW_ROUND_STATUS_ACCEPTED' => ReviewRound::REVIEW_ROUND_STATUS_ACCEPTED,
+            'REVIEW_ROUND_STATUS_DECLINED' => ReviewRound::REVIEW_ROUND_STATUS_DECLINED,
             'REVIEW_ROUND_STATUS_PENDING_REVIEWERS' => ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS,
+            'REVIEW_ROUND_STATUS_PENDING_REVIEWS' => ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWS,
             'REVIEW_ROUND_STATUS_REVIEWS_READY' => ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_READY,
             'REVIEW_ROUND_STATUS_REVIEWS_COMPLETED' => ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED,
             'REVIEW_ROUND_STATUS_REVIEWS_OVERDUE' => ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_OVERDUE,
             'REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED' => ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED,
-            'REVIEW_ROUND_STATUS_REVISIONS_REQUESTED' => ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED,
+            'REVIEW_ROUND_STATUS_PENDING_RECOMMENDATIONS' => ReviewRound::REVIEW_ROUND_STATUS_PENDING_RECOMMENDATIONS,
+            'REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY' => ReviewRound::REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY,
+            'REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED' => ReviewRound::REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED,
+            'REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED' => ReviewRound::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED,
+            'REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW' => ReviewRound::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW,
             'SUBMISSION_REVIEW_METHOD_ANONYMOUS' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS,
             'SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS,
             'SUBMISSION_REVIEW_METHOD_OPEN' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN,
@@ -193,6 +326,16 @@ class DashboardHandlerNext extends Handler
             'SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE,
             'SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS,
 
+            'DECISION_ACCEPT' => Decision::ACCEPT,
+            'DECISION_DECLINE' => Decision::DECLINE,
+            'DECISION_CANCEL_REVIEW_ROUND' => Decision::CANCEL_REVIEW_ROUND,
+            'DECISON_PENDING_REVISIONS' => Decision::PENDING_REVISIONS,
+
+
+            'SUBMISSION_FILE_SUBMISSION' => SubmissionFile::SUBMISSION_FILE_SUBMISSION,
+            'SUBMISSION_FILE_REVIEW_FILE' => SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+            'SUBMISSION_FILE_REVIEW_REVISION' => SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
+            'SUBMISSION_FILE_FINAL' => SubmissionFile::SUBMISSION_FILE_FINAL
         ]);
 
         $templateMgr->display('dashboard/editors.tpl');

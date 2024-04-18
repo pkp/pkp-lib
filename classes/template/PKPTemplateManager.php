@@ -861,17 +861,17 @@ class PKPTemplateManager extends Smarty
 
         // Set up the document type icons
         $documentTypeIcons = [
-            FileManager::DOCUMENT_TYPE_DEFAULT => 'file-o',
-            FileManager::DOCUMENT_TYPE_AUDIO => 'file-audio-o',
-            FileManager::DOCUMENT_TYPE_EPUB => 'file-text-o',
-            FileManager::DOCUMENT_TYPE_EXCEL => 'file-excel-o',
-            FileManager::DOCUMENT_TYPE_HTML => 'file-code-o',
-            FileManager::DOCUMENT_TYPE_IMAGE => 'file-image-o',
-            FileManager::DOCUMENT_TYPE_PDF => 'file-pdf-o',
-            FileManager::DOCUMENT_TYPE_WORD => 'file-word-o',
-            FileManager::DOCUMENT_TYPE_VIDEO => 'file-video-o',
-            FileManager::DOCUMENT_TYPE_ZIP => 'file-archive-o',
-            FileManager::DOCUMENT_TYPE_URL => 'external-link',
+            FileManager::DOCUMENT_TYPE_DEFAULT => 'DefaultDocument',
+            FileManager::DOCUMENT_TYPE_AUDIO => 'FileAudio',
+            FileManager::DOCUMENT_TYPE_EPUB => 'FileEpub',
+            FileManager::DOCUMENT_TYPE_EXCEL => 'FileExcel',
+            FileManager::DOCUMENT_TYPE_HTML => 'FileHtml',
+            FileManager::DOCUMENT_TYPE_IMAGE => 'FileImage',
+            FileManager::DOCUMENT_TYPE_PDF => 'FilePdf',
+            FileManager::DOCUMENT_TYPE_WORD => 'FileDoc',
+            FileManager::DOCUMENT_TYPE_VIDEO => 'FileVideo',
+            FileManager::DOCUMENT_TYPE_ZIP => 'FileZip',
+            FileManager::DOCUMENT_TYPE_URL => 'Url',
         ];
         $this->addJavaScript(
             'documentTypeIcons',

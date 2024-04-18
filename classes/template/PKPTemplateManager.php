@@ -40,9 +40,9 @@ use PKP\context\Context;
 use PKP\controllers\listbuilder\ListbuilderHandler;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
-use PKP\core\PKPSessionGuard;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\core\PKPSessionGuard;
 use PKP\core\PKPString;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
@@ -305,6 +305,7 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('modifier', 'substr', substr(...));
         $this->registerPlugin('modifier', 'strstr', strstr(...));
         $this->registerPlugin('modifier', 'strval', strval(...));
+        $this->registerPlugin('modifier', 'substr_replace', substr_replace(...));
         $this->registerPlugin('modifier', 'array_key_first', array_key_first(...));
         $this->registerPlugin('modifier', 'array_values', array_values(...));
         $this->registerPlugin('modifier', 'fatalError', fatalError(...));
@@ -1300,7 +1301,7 @@ class PKPTemplateManager extends Smarty
         foreach ($this->headers as $header) {
             header($header);
         }
-        
+
         // sent out the cookie as header
         Application::get()->getRequest()->getSessionGuard()->sendCookies();
 

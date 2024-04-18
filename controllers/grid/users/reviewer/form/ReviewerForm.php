@@ -88,6 +88,26 @@ class ReviewerForm extends Form
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }
 
+    /**
+     * Get the review submit and response due dates
+     */
+    public static function getDueDates(Context $context): array
+    {
+        $numWeeks = (int) $context->getData('numWeeksPerReview');
+        if ($numWeeks <= 0) {
+            $numWeeks = 4;
+        }
+        $reviewDueDate = strtotime('+' . $numWeeks . ' week');
+
+        $numWeeks = (int) $context->getData('numWeeksPerResponse');
+        if ($numWeeks <= 0) {
+            $numWeeks = 3;
+        }
+        $responseDueDate = strtotime('+' . $numWeeks . ' week');
+
+        return [$reviewDueDate, $responseDueDate];
+    }
+
     //
     // Getters and Setters
     //
@@ -211,17 +231,7 @@ class ReviewerForm extends Form
             $reviewFormId = null;
         }
 
-        $numWeeks = (int) $context->getData('numWeeksPerReview');
-        if ($numWeeks <= 0) {
-            $numWeeks = 4;
-        }
-        $reviewDueDate = strtotime('+' . $numWeeks . ' week');
-
-        $numWeeks = (int) $context->getData('numWeeksPerResponse');
-        if ($numWeeks <= 0) {
-            $numWeeks = 3;
-        }
-        $responseDueDate = strtotime('+' . $numWeeks . ' week');
+        [$reviewDueDate, $responseDueDate] = static::getDueDates($context);
 
         // Get the currently selected reviewer selection type to show the correct tab if we're re-displaying the form
         $selectionType = (int) $request->getUserVar('selectionType');

@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-29 10:39+0000\n"
+"PO-Revision-Date: 2024-04-18 19:11+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "emails/bg/>\n"
@@ -58,14 +58,13 @@ msgid "emails.decision.notifyReviewers.body"
 msgstr ""
 
 msgid "emails.decision.notifyOtherAuthors.subject"
-msgstr ""
+msgstr "Актуализация относно вашето изпращане на материали"
 
 msgid "emails.decision.notifyOtherAuthors.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
-msgstr "Решение на редактора"
+msgstr "Вашите подадени материали са е изпратени за рецензиране"
 
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"

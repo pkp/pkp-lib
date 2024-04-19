@@ -1,4 +1,4 @@
-# rl <biuro@fimagis.pl>, 2022.
+# rl <biuro@fimagis.pl>, 2022, 2024.
 # Pressto <pressto@amu.edu.pl>, 2022.
 # Dariusz Lis <Dariusz@Lis.PL>, 2023.
 msgid ""
@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:12:53+00:00\n"
-"PO-Revision-Date: 2023-05-04 22:49+0000\n"
-"Last-Translator: Dariusz Lis <Dariusz@Lis.PL>\n"
+"PO-Revision-Date: 2024-04-19 13:00+0000\n"
+"Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "pl/>\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Projekt Public Knowledge"
@@ -349,7 +349,7 @@ msgid "common.description"
 msgstr "Opis"
 
 msgid "common.details"
-msgstr ""
+msgstr "Szczegóły"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; przy {$dpi} DPI/PPI"
@@ -397,7 +397,7 @@ msgid "common.editItem"
 msgstr "Edytuj {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "Szablony email"
 
 msgid "common.enable"
 msgstr "Włącz"

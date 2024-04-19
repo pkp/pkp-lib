@@ -34,25 +34,6 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
 
     public function up(): void
     {
-        // Create a Filesystem object with the appropriate adapter to access the actual files
-        $umask = Config::getVar('files', 'umask', 0022);
-        $adapter = new LocalFilesystemAdapter(
-            Config::getVar('files', 'files_dir'),
-            PortableVisibilityConverter::fromArray([
-                'file' => [
-                    'public' => self::FILE_MODE_MASK & ~$umask,
-                    'private' => self::FILE_MODE_MASK & ~$umask,
-                ],
-                'dir' => [
-                    'public' => self::DIRECTORY_MODE_MASK & ~$umask,
-                    'private' => self::DIRECTORY_MODE_MASK & ~$umask,
-                ]
-            ]),
-            LOCK_EX,
-            LocalFilesystemAdapter::DISALLOW_LINKS
-        );
-        $filesystem = new Filesystem($adapter);
-
         // Does not have the foreign key reference
         Schema::table('notification_settings', function (Blueprint $table) {
             $table->foreign('notification_id')->references('notification_id')->on('notifications')->onDelete('cascade');
@@ -108,66 +89,7 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
             $table->index(['user_id'], 'query_participants_user_id');
         });
 
-        $orphanedIds = DB::table('notes AS n')
-            ->leftJoin('queries AS q', 'n.assoc_id', '=', 'q.query_id')
-            ->where('n.assoc_type', '=', self::ASSOC_TYPE_QUERY)
-            ->whereNull('q.query_id')
-            ->select('n.note_id', 'n.assoc_id')
-            ->lazyById(1000, 'n.note_id', 'note_id');
-
-        foreach ($orphanedIds as $orphanedId) {
-            ['noteId' => $noteId, 'assoc_id' => $neQueryId] = (array) $orphanedId;
-            $notesFileRows = DB::table('submission_files as sf')
-                ->join('files as f', 'sf.file_id', '=', 'f.file_id')
-                ->where('sf.assoc_type', '=', self::ASSOC_TYPE_NOTE)
-                ->where('sf.assoc_id', '=', $noteId)
-                ->get([
-                    'sf.submission_file_id as submissionFileId',
-                    'sf.file_id as fileId',
-                    'f.path as filePath'
-                ]);
-
-            $filesToCheckForDeletion = [];
-            foreach ($notesFileRows as $submissionFileRow) {
-                $submissionFileId = $submissionFileRow->submissionFileId;
-                $submissionFileFileId = $submissionFileRow->fileId;
-                $submissionFilePath = $submissionFileRow->filePath;
-
-                DB::table('submission_files')
-                    ->where('submission_file_id', '=', $submissionFileId)
-                    ->delete();
-
-                $filesToCheckForDeletion[$submissionFileFileId] ??= $submissionFilePath;
-            }
-
-            foreach ($filesToCheckForDeletion as $submissionFileFileId => $submissionFilePath) {
-                $remainingSubmissionFilesCount = DB::table('submission_files')
-                    ->where('file_id', '=', $submissionFileFileId)
-                    ->count();
-
-                // If the file is not used by another SubmissionFile, it can be deleted.
-                if ($remainingSubmissionFilesCount == 0) {
-                    if ($filesystem->has($submissionFilePath)) {
-                        try {
-                            $filesystem->delete($submissionFilePath);
-                            $this->_installer->log("A submission file that was attached to an orphaned note with ID {$noteId} at {$submissionFilePath} was successfully deleted.");
-                        } catch (FilesystemException | UnableToDeleteFile $exception) {
-                            $exceptionMessage = $exception->getMessage();
-                            $this->_installer->log("A submission file that was attached to an orphaned note with ID {$noteId} was found at {$submissionFilePath} but could not be deleted because of: {$exceptionMessage}.");
-                        }
-                    }
-
-                    DB::table('files')
-                        ->where('file_id', '=', $submissionFileFileId)
-                        ->delete();
-                }
-            }
-
-            $this->_installer->log("Removing orphaned note entry ID {$noteId} with nonexistent query {$neQueryId}");
-            DB::table('notes')
-                ->where('note_id', '=', $noteId)
-                ->delete();
-        }
+        $this->removeOrphanedNotes();
     }
 
     public function down(): void
@@ -208,5 +130,114 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
             $table->dropForeign('query_participants_query_id_foreign');
             $table->dropForeign('query_participants_user_id_foreign');
         });
+    }
+
+    public function removeOrphanedNotes(): void
+    {
+        // Create a Filesystem object with the appropriate adapter to access the actual files
+        $umask = Config::getVar('files', 'umask', 0022);
+        $adapter = new LocalFilesystemAdapter(
+            Config::getVar('files', 'files_dir'),
+            PortableVisibilityConverter::fromArray([
+                'file' => [
+                    'public' => self::FILE_MODE_MASK & ~$umask,
+                    'private' => self::FILE_MODE_MASK & ~$umask,
+                ],
+                'dir' => [
+                    'public' => self::DIRECTORY_MODE_MASK & ~$umask,
+                    'private' => self::DIRECTORY_MODE_MASK & ~$umask,
+                ]
+            ]),
+            LOCK_EX,
+            LocalFilesystemAdapter::DISALLOW_LINKS
+        );
+        $filesystem = new Filesystem($adapter);
+
+        // Select notes without an associated query
+        $orphanedNotesQuery = DB::table('notes AS n')
+            ->leftJoin('queries AS q', 'n.assoc_id', '=', 'q.query_id')
+            ->where('n.assoc_type', '=', static::ASSOC_TYPE_QUERY)
+            ->whereNull('q.query_id');
+
+        // Select files associated to the orphaned notes
+        $orphanedSubmissionFilesFromNotes = (clone $orphanedNotesQuery)
+            ->join('submission_files AS sf', 'sf.assoc_id', '=', 'n.note_id')
+            ->where('sf.assoc_type', '=', static::ASSOC_TYPE_NOTE)
+            ->join('files as f', 'sf.file_id', '=', 'f.file_id')
+            ->select(
+                'n.note_id',
+                'sf.submission_file_id',
+                'sf.file_id',
+                'f.path',
+                // Check wether the file is shared with another submission_file entry
+                DB::raw(
+                    'CASE WHEN EXISTS (
+                        SELECT 0
+                        FROM submission_files sf2
+                        WHERE sf2.file_id = sf.file_id
+                        AND sf2.submission_file_id <> sf.submission_file_id
+                    ) THEN 1 END AS is_shared'
+                )
+            )
+            ->lazyById(1000, 'sf.submission_file_id', 'submission_file_id');
+
+        $submissionFileIds = [];
+        $processSubmissionFileId = function ($id = null, $minimum = 1) use (&$submissionFileIds): void
+        {
+            if ($id) {
+                $submissionFileIds[] = $id;
+            }
+
+            $count = count($submissionFileIds);
+            if ($count && !($count % $minimum)) {
+                DB::table('submission_files')->whereIn('submission_file_id', $submissionFileIds)->delete();
+                $submissionFileIds = [];
+            }
+        };
+
+        $fileIds = [];
+        $processFileId = function ($id = null, $minimum = 1) use (&$fileIds): void
+        {
+            if ($id) {
+                $fileIds[] = $id;
+            }
+            $count = count($fileIds);
+            if ($count && !($count % $minimum)) {
+                DB::table('files')->whereIn('file_id', $fileIds)->delete();
+                $fileIds = [];
+            }
+        };
+        foreach ($orphanedSubmissionFilesFromNotes as $submissionFile) {
+            [
+                'note_id' => $noteId,
+                'submission_file_id' => $submissionFileId,
+                'file_id' => $fileId,
+                'path' => $path,
+                'is_shared' => $isShared
+            ] = (array) $submissionFile;
+
+            $processSubmissionFileId($submissionFileId, 1000);
+
+            if ($isShared) {
+                continue;
+            }
+
+            $processFileId($fileId, 1000);
+            if ($filesystem->has($path)) {
+                try {
+                    $filesystem->delete($path);
+                    $this->_installer->log("A submission file that was attached to an orphaned note with ID {$noteId} at {$path} was successfully deleted.");
+                } catch (FilesystemException | UnableToDeleteFile $exception) {
+                    $exceptionMessage = $exception->getMessage();
+                    $this->_installer->log("A submission file that was attached to an orphaned note with ID {$noteId} was found at {$path} but could not be deleted because of: {$exceptionMessage}.");
+                }
+            }
+        }
+        $processSubmissionFileId();
+        $processFileId();
+
+        $this->_installer->log("Attempting to remove orphaned note entries");
+        $deletedCount = $orphanedNotesQuery->delete();
+        $this->_installer->log($deletedCount ? "{$deletedCount} orphaned note entries were removed" : "No orphaned note entries were found");
     }
 }

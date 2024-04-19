@@ -142,7 +142,7 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
             ->join("{$this->getSectionTable()} AS s", "s.{$this->getContextId()}", '=', 'ug.context_id')
             // Only users that are not already assigned to the section
             ->leftJoin('subeditor_submission_group AS ssg', fn (JoinClause $j) => $j->on('ssg.context_id', '=', 'ug.context_id')
-                ->whereColumn('ssg.assoc_id', '=', 's.section_id')
+                ->whereColumn('ssg.assoc_id', '=', "s.{$this->getSectionId()}")
                 ->where('ssg.assoc_type', '=', 530) // ASSOC_TYPE_SECTION
                 ->whereColumn('ssg.user_id', '=', 'uug.user_id')
                 ->whereColumn('ssg.user_group_id', '=', 'ug.user_group_id')
@@ -151,7 +151,7 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
             ->get([
                 'ug.context_id',
                 DB::raw('530 AS assoc_type'), // ASSOC_TYPE_SECTION
-                DB::raw('s.section_id AS assoc_id'),
+                DB::raw("s.{$this->getSectionId()} AS assoc_id"),
                 'uug.user_id',
                 'ug.user_group_id'
             ])

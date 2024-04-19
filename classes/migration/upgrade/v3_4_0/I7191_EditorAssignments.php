@@ -14,7 +14,8 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
-use Exception;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -22,9 +23,20 @@ use PKP\install\DowngradeNotSupportedException;
 
 abstract class I7191_EditorAssignments extends \PKP\migration\Migration
 {
-    protected string $sectionDb;
-    protected string $sectionIdColumn;
-    protected string $contextColumn;
+    /**
+     * Retrieves the name of the section table
+     */
+    protected abstract function getSectionTable(): string;
+
+    /**
+     * Retrieves the name of the section ID field
+     */
+    protected abstract function getSectionId(): string;
+
+    /**
+     * Retrieves the name of the context ID field
+     */
+    protected abstract function getContextId(): string;
 
     /**
      * Adds a user_group_id column to the subeditor_submission_group
@@ -32,10 +44,6 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
      */
     public function up(): void
     {
-        if (empty($this->sectionDb) || empty($this->sectionIdColumn) || empty($this->contextColumn)) {
-            throw new Exception('Upgrade could not be completed because required properties for the I7191_EditorAssignments migration are undefined.');
-        }
-
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
             $table->bigInteger('user_group_id')->nullable();
         });
@@ -67,23 +75,21 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
     /**
      * Set the user group for all existing assignments
      *
-     * Uses the default user group for Role::ROLE_ID_SUB_EDITOR
-     * if one exists
+     * Uses the default user group for Role::ROLE_ID_SUB_EDITOR if one exists
      */
     protected function setUserGroup(): void
     {
-        $row = DB::table('user_groups')
-            ->where('role_id', '=', 17) // Role::ROLE_ID_SUB_EDITOR
-            ->orderBy('is_default')
-            ->get(['user_group_id', 'context_id'])
-            ->first();
+        $bestUserGroupIdQuery = DB::table('user_groups', 'ug')
+            ->whereColumn('ug.context_id', '=', 'ssg.context_id')
+            ->whereRaw('ug.role_id =  17') // Role::ROLE_ID_SUB_EDITOR
+            ->orderByDesc('ug.is_default')
+            ->orderByDesc('ug.permit_metadata_edit')
+            ->limit(1)
+            ->select('ug.user_group_id');
 
-        if ($row) {
-            DB::table('subeditor_submission_group')
-                ->whereNull('user_group_id')
-                ->where('context_id', '=', $row->context_id)
-                ->update(['user_group_id' => $row->user_group_id]);
-        }
+        DB::table('subeditor_submission_group', 'ssg')
+            ->whereNull('user_group_id')
+            ->update(['user_group_id' => DB::raw("({$bestUserGroupIdQuery->toSql()})")]);
     }
 
     /**
@@ -95,13 +101,10 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
      */
     protected function deleteOrphanedAssignments(): void
     {
-        DB::table('subeditor_submission_group')
-            ->whereNull('user_group_id')
-            ->delete();
-
         DB::table('subeditor_submission_group as ssg')
             ->leftJoin('users as u', 'u.user_id', '=', 'ssg.user_id')
             ->whereNull('u.user_id')
+            ->orWhereNull('ssg.user_group_id')
             ->delete();
     }
 
@@ -120,32 +123,41 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
      */
     protected function addAutomatedAssignments(): void
     {
-        $userGroups = DB::table('user_groups')
-            ->whereIn('role_id', [16, 4097]) // [Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT]
-            ->get(['user_group_id', 'context_id']);
+        $userCountQuery = fn (Builder $q) => $q->from('user_user_groups', 'uug')
+            ->whereColumn('uug.user_group_id', '=', 'ug.user_group_id')
+            ->selectRaw('COUNT(0)');
 
-        $userGroups->each(function ($userGroup) {
-            $userIds = DB::table('user_user_groups')
-                ->where('user_group_id', '=', $userGroup->user_group_id)
-                ->pluck('user_id');
-            if ($userIds->count() !== 1) {
-                return;
-            }
-            $newRows = DB::table($this->sectionDb)
-                ->where($this->contextColumn, '=', $userGroup->context_id)
-                ->pluck($this->sectionIdColumn)
-                ->map(function (int $sectionId) use ($userGroup, $userIds) {
-                    return [
-                        'context_id' => $userGroup->context_id,
-                        'assoc_type' => 530, // ASSOC_TYPE_SECTION
-                        'assoc_id' => $sectionId,
-                        'user_id' => $userIds->first(),
-                        'user_group_id' => $userGroup->user_group_id,
-                    ];
-                });
-            if ($newRows->count()) {
-                DB::table('subeditor_submission_group')->insertOrIgnore($newRows->toArray());
-            }
-        });
+        $editorAssignmentsQuery = DB::table('user_groups', 'ug')
+            // Look for role assignments at the WORKFLOW_STAGE_ID_SUBMISSION stage
+            ->join('user_group_stage AS ugs', fn (JoinClause $j) => $j->on('ug.user_group_id', '=', 'ugs.user_group_id')
+                ->whereColumn('ug.context_id', '=', 'ugs.context_id')
+                ->where('ugs.stage_id', '=', 1) // WORKFLOW_STAGE_ID_SUBMISSION
+            )
+            // Single users with the roles Role::ROLE_ID_MANAGER and Role::ROLE_ID_ASSISTANT at the context
+            ->join('user_user_groups AS uug', fn (JoinClause $j) => $j->on('uug.user_group_id', '=', 'ug.user_group_id')
+                ->whereIn('ug.role_id', [16, 4097]) // [Role::ROLE_ID_MANAGER, Role::ROLE_ID_ASSISTANT]
+                ->where($userCountQuery, '=', 1)
+            )
+            // Grabs all sections of the context
+            ->join("{$this->getSectionTable()} AS s", "s.{$this->getContextId()}", '=', 'ug.context_id')
+            // Only users that are not already assigned to the section
+            ->leftJoin('subeditor_submission_group AS ssg', fn (JoinClause $j) => $j->on('ssg.context_id', '=', 'ug.context_id')
+                ->whereColumn('ssg.assoc_id', '=', "s.{$this->getSectionId()}")
+                ->where('ssg.assoc_type', '=', 530) // ASSOC_TYPE_SECTION
+                ->whereColumn('ssg.user_id', '=', 'uug.user_id')
+                ->whereColumn('ssg.user_group_id', '=', 'ug.user_group_id')
+            )
+            ->whereNull('ssg.user_id')
+            ->get([
+                'ug.context_id',
+                DB::raw('530 AS assoc_type'), // ASSOC_TYPE_SECTION
+                DB::raw("s.{$this->getSectionId()} AS assoc_id"),
+                'uug.user_id',
+                'ug.user_group_id'
+            ])
+            ->map(fn (object $row) => (array) $row)
+            ->toArray();
+
+        DB::table('subeditor_submission_group')->insert($editorAssignmentsQuery);
     }
 }

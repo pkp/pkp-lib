@@ -44,6 +44,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     {
         try {
             $this->checkUsageStatsLogs();
+            $this->checkRequiredUserEditor();
             // It's needed to clear the duplicated settings before looking for duplicated localized data to avoid false positives
             $this->clearDuplicatedUserSettings();
             $this->checkLocaleConflicts();
@@ -101,11 +102,11 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     {
         $missingContactContexts = DB::table($this->getContextTable() . ' AS contexts')
             ->select('contexts.path AS path')
-            ->leftJoin($this->getContextSettingsTable() . ' AS email_join', function ($join) {
+            ->leftJoin($this->getContextSettingsTable() . ' AS email_join', function (JoinClause $join) {
                 $join->on("contexts.{$this->getContextKeyField()}", '=', "email_join.{$this->getContextKeyField()}")
                     ->where('email_join.setting_name', '=', 'contactEmail');
             })
-            ->leftJoin($this->getContextSettingsTable() . ' AS name_join', function ($join) {
+            ->leftJoin($this->getContextSettingsTable() . ' AS name_join', function (JoinClause $join) {
                 $join->on("contexts.{$this->getContextKeyField()}", '=', "name_join.{$this->getContextKeyField()}")
                     ->where('name_join.setting_name', '=', 'contactName');
             })
@@ -225,6 +226,32 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     }
 
     /**
+     * Ensures that contexts with section editor assignments have a section editor role
+     * @see classes\migration\upgrade\v3_4_0\I7191_EditorAssignments.php
+     *
+     * @throws Exception
+     */
+    protected function checkRequiredUserEditor(): void
+    {
+        $contextId = "c.{$this->getContextKeyField()}";
+        // Look for contexts that have section editor assignments, but no section editor role
+        $contextsWithoutSubEditor = DB::table($this->getContextTable(), 'c')
+            ->whereNotExists(fn (Builder $q) => $q->from('user_groups', 'ug')
+                ->whereColumn('ug.context_id', '=', $contextId)
+                ->where('ug.role_id', '=', 17) // Role::ROLE_ID_SUB_EDITOR
+                ->selectRaw('0')
+            )
+            ->whereExists(fn (Builder $q) => $q->from('subeditor_submission_group', 'ssg')
+                ->whereColumn('ssg.context_id', '=', $contextId)
+                ->selectRaw('0')
+            )
+            ->pluck('c.path');
+        if ($contextsWithoutSubEditor->count()) {
+            throw new Exception("The following contexts have section editor assignments, but no \"section editor\" role. Please, create the \"section editor\" role before proceeding with the upgrade: {$contextsWithoutSubEditor->join(', ')}");
+        }
+    }
+
+    /**
      * Ensures usernames and emails are unique in a case-insensitive way (PostgreSQL)
      * MySQL has been ignored from this check as it defaults to case-insensitive collations
      *
@@ -239,7 +266,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         // Flag users that have same emails if we consider them case insensitively.
         // By default, MySQL/MariaDB use case-insensitive collation, so they are not generally affected.
         $result = DB::table('users AS a')
-            ->join('users AS b', function ($join) {
+            ->join('users AS b', function (JoinClause $join) {
                 $join->on(DB::Raw('LOWER(a.email)'), '=', DB::Raw('LOWER(b.email)'));
                 $join->on('a.user_id', '<>', 'b.user_id');
             })
@@ -255,7 +282,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         // Flag users that have same username if we consider them case insensitively
         // By default, MySQL/MariaDB use case-insensitive collation, so they are not generally affected.
         $result = DB::table('users AS a')
-            ->join('users AS b', function ($join) {
+            ->join('users AS b', function (JoinClause $join) {
                 $join->on(DB::Raw('LOWER(a.username)'), '=', DB::Raw('LOWER(b.username)'));
                 $join->on('a.user_id', '<>', 'b.user_id');
             })

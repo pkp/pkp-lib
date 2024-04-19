@@ -27,7 +27,6 @@ use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\users\reviewer\form\EditReviewForm;
-use PKP\controllers\grid\users\reviewer\form\EditReviewForm2;
 use PKP\controllers\grid\users\reviewer\form\EmailReviewerForm;
 use PKP\controllers\grid\users\reviewer\form\LogResponseForm;
 use PKP\controllers\grid\users\reviewer\form\ReinstateReviewerForm;
@@ -481,8 +480,10 @@ class PKPReviewerGridHandler extends GridHandler
 
     /**
      * Add the log event
+     *
      * @param $args array
      * @param $request PKPRequest
+     *
      * @return JSONMessage JSON object
      */
     public function addLog($args, $request)
@@ -494,6 +495,9 @@ class PKPReviewerGridHandler extends GridHandler
             $logResponseForm->execute();
             $json = DAO::getDataChangedEvent($reviewAssignment->getId());
             $json->setGlobalEvent('update:decisions');
+            $notificationMgr = new NotificationManager();
+            $notificationMgr->createTrivialNotification(Validation::loggedInAs() ?? $request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.responseLogged')]);
+
             return $json;
         } else {
             return new JSONMessage(false);

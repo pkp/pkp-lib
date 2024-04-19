@@ -31,10 +31,10 @@ use PKP\jobs\BaseJob;
 class ReviewReminder extends BaseJob
 {
     public function __construct(
-        protected int $reviewAssignmentId,
-        protected int $submissionId,
-        protected int $contextId,
-        protected string $mailableClass
+        public int $reviewAssignmentId,
+        public int $submissionId,
+        public int $contextId,
+        public string $mailableClass
     )
     {
         parent::__construct();

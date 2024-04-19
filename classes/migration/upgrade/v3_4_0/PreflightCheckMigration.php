@@ -376,7 +376,6 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         );
 
         if (count($result) > 0) {
-            error_log(print_r($result,true));
             $tableNames = data_get($result, '*.table_name');
             throw new Exception(
                 'Storage engine that doesn\'t support foreign key constraints detected in one or more tables: ' .

@@ -1,19 +1,19 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2022.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2022, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2022-07-01 11:31+0000\n"
+"PO-Revision-Date: 2024-04-22 13:49+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
-"Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
-"ca_ES/>\n"
-"Language: ca_ES\n"
+"Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/ca/"
+">\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "grid.noItems"
 msgstr "No hi ha cap element"
@@ -286,7 +286,7 @@ msgid "grid.action.addAnnouncement"
 msgstr "Afegeix un anunci"
 
 msgid "grid.action.addInstitution"
-msgstr ""
+msgstr "Afegir institució"
 
 msgid "grid.action.mergeUser"
 msgstr "Fusiona l'usuari/ària"
@@ -369,7 +369,7 @@ msgid "grid.columns.locale"
 msgstr "Configuració regional"
 
 msgid "grid.columns.locale.code"
-msgstr ""
+msgstr "Codi"
 
 msgid "grid.sponsor.title"
 msgstr "Patrocinadors/ores"
@@ -710,7 +710,7 @@ msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Triar un tipus..."
 
 msgid "grid.action.view"
-msgstr ""
+msgstr "Veure"
 
 msgid "author.users.contributor.name"
 msgstr "Nom"

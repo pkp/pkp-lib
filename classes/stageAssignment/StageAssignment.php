@@ -199,14 +199,13 @@ class StageAssignment extends Model
     }
 
     /**
-    * Update the model using business params.
+    * Scope a stageAssignment to only include stage assignments that are related to submissions having a specific contextId.
     */
-    public function scopeUpdateWithParams($query, array $attributes)
+    public function scopeWithContextId(Builder $query, ?int $contextId): Builder
     {
-        $convertedValues = collect($attributes)->mapWithKeys(function ($value, $key) {
-            return [Str::snake($key) => $value];
-        })->toArray();
-
-        return $query->update($convertedValues);
+        return $query->when($contextId !== null, function ($query) use ($contextId) {
+            return $query->join('submissions', 'stage_assignments.submission_id', '=', 'submissions.submission_id')
+                        ->where('submissions.context_id', $contextId);
+        });
     }
 }

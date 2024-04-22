@@ -146,7 +146,7 @@
 	$.pkp.controllers.modal.ModalHandler.prototype.modalOpen =
 			function($handledElement) {
 
-		this.uniqueModalId = "id" + Math.random().toString(16).slice(2)
+		this.uniqueModalId = "id" + Math.random().toString(16).slice(2);
 
 		// Trigger events
 		$handledElement.trigger('pkpModalOpen', [$handledElement]);

@@ -499,7 +499,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'RoleDAO' => 'PKP\security\RoleDAO',
             'ScheduledTaskDAO' => 'PKP\scheduledTask\ScheduledTaskDAO',
             'SiteDAO' => 'PKP\site\SiteDAO',
-            'StageAssignmentDAO' => 'PKP\stageAssignment\StageAssignmentDAO',
             'SubEditorsDAO' => 'PKP\context\SubEditorsDAO',
             'SubmissionAgencyDAO' => 'PKP\submission\SubmissionAgencyDAO',
             'SubmissionAgencyEntryDAO' => 'PKP\submission\SubmissionAgencyEntryDAO',

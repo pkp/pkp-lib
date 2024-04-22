@@ -53,7 +53,6 @@ use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
-use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -569,18 +568,17 @@ class PKPSubmissionController extends PKPBaseController
         $submission = Repo::submission()->get($submissionId);
 
         // Assign submitter to submission
-        /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-        $stageAssignmentDao->build(
-            $submission->getId(),
-            $submitAsUserGroup->getId(),
-            $request->getUser()->getId(),
-            $submitAsUserGroup->getRecommendOnly(),
-            // Authors can always edit metadata before submitting
-            $submission->getData('submissionProgress')
-                ? true
-                : $submitAsUserGroup->getPermitMetadataEdit()
-        );
+        Repo::stageAssignment()
+            ->build(
+                $submission->getId(),
+                $submitAsUserGroup->getId(),
+                $request->getUser()->getId(),
+                $submitAsUserGroup->getRecommendOnly(),
+                // Authors can always edit metadata before submitting
+                $submission->getData('submissionProgress')
+                    ? true
+                    : $submitAsUserGroup->getPermitMetadataEdit()
+            );
 
         // Create an author record from the submitter's user account
         if ($submitAsUserGroup->getRoleId() === Role::ROLE_ID_AUTHOR) {

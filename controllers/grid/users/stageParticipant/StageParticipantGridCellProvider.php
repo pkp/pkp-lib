@@ -39,8 +39,8 @@ class StageParticipantGridCellProvider extends DataObjectGridCellProvider
         switch ($column->getId()) {
             case 'participants':
                 $stageAssignment = $row->getData();
-                $user = Repo::user()->get($stageAssignment->getUserId(), true);
-                $active = Repo::userGroup()->userInGroup($user->getId(), $stageAssignment->getUserGroupId());
+                $user = Repo::user()->get($stageAssignment->userId, true);
+                $active = Repo::userGroup()->userInGroup($user->getId(), $stageAssignment->userGroupId);
                 assert($user);
                 return ['label' => $user ? $user->getFullName() . (!$active ? ' (' . __('user.role.ended') . ')' : '') : ''];
             default:

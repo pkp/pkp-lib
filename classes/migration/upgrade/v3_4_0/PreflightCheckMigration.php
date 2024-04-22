@@ -23,6 +23,7 @@ use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\db\DAORegistry;
@@ -162,8 +163,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
         // _settings tables locales should not conflict after locale migration
         // See MergeLocalesMigration (#8598)
-        $conflictingSettings = collect();
-        $settingsExceptionMessage = '';
+        $hasConflictingSettings = false;
         foreach (MergeLocalesMigration::getSettingsTables() as $tableName => [$entityIdColumnName, $primaryKeyColumnName]) {
             if (!Schema::hasTable($tableName) || !Schema::hasColumn($tableName, 'locale')) {
                 continue;
@@ -171,28 +171,24 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
             foreach ($affectedLocales as $localeSource => $localeTarget) {
                 $conflictingSettings = DB::table($tableName)
-                    ->select('setting_name', DB::raw('COUNT(*)'))
+                    ->select('setting_name')
                     ->when($entityIdColumnName, fn (Builder $query) => $query->addSelect($entityIdColumnName))
                     ->where('locale', $localeSource)
                     ->orWhere('locale', $localeTarget)
-                    ->when(
-                        $entityIdColumnName,
-                        fn (Builder $query) => $query->groupBy($entityIdColumnName, 'setting_name'),
-                        fn (Builder $query) => $query->groupBy('setting_name')
-                    )
-                    ->havingRaw('COUNT(*) >= 2')
-                    ->get();
-
-                if (!$conflictingSettings->isEmpty()) {
-                    foreach ($conflictingSettings as $conflictingSetting) {
-                        $settingsExceptionMessage .= 'A row with "' . $entityIdColumnName . '"="' . $conflictingSetting->{$entityIdColumnName} . '" and "setting_name"="' . $conflictingSetting->setting_name . '" found in table "' . $tableName . '" which will conflict with other rows specific to the locale key "' . $localeTarget . '" after the migration. Please review this row before upgrading.' . PHP_EOL;
-                    }
+                    ->when($entityIdColumnName, fn (Builder $query) => $query->groupBy($entityIdColumnName)->orderBy($entityIdColumnName))
+                    ->groupBy('setting_name')
+                    ->orderBy('setting_name')
+                    ->havingRaw('COUNT(0) > 1')
+                    ->lazy();
+                foreach ($conflictingSettings as $conflictingSetting) {
+                    $hasConflictingSettings = true;
+                    $this->_installer->log('A row with "' . $entityIdColumnName . '"="' . $conflictingSetting->{$entityIdColumnName} . '" and "setting_name"="' . $conflictingSetting->setting_name . '" found in table "' . $tableName . '" which will conflict with other rows specific to the locale key "' . $localeTarget . '" after the migration. Please review this row before upgrading.');
                 }
             }
         }
 
-        if (!empty($settingsExceptionMessage)) {
-            throw new Exception($settingsExceptionMessage);
+        if ($hasConflictingSettings) {
+            throw new Exception('Some settings will get in conflict due to the merging of locales, solve them before upgrading');
         }
     }
 
@@ -400,14 +396,15 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         if (!Schema::hasColumn('publications', 'locale')) {
             return;
         }
-        $rows = DB::table('submissions AS s')->join('publications AS p', 'p.publication_id', '=', 's.current_publication_id')
+        DB::table('submissions AS s')->join('publications AS p', 'p.publication_id', '=', 's.current_publication_id')
             ->whereNull('s.locale')
             ->whereNotNull('p.locale')
-            ->get(['s.submission_id', 'p.locale']);
-        foreach ($rows as $row) {
-            $this->_installer->log("Updating locale of submission {$row->submission_id} to {$row->locale}.");
-            DB::table('submissions')->where('submission_id', '=', $row->submission_id)->update(['locale' => $row->locale]);
-        }
+            ->select('s.submission_id', 'p.locale')
+            ->lazyById(1000, 's.submission_id', 'submission_id')
+            ->each(function (object $row) {
+                $this->_installer->log("Updating locale of submission {$row->submission_id} to {$row->locale}.");
+                DB::table('submissions')->where('submission_id', '=', $row->submission_id)->update(['locale' => $row->locale]);
+            });
 
         if ($count = DB::table('submissions AS s')->whereNull('locale')->count()) {
             throw new Exception("There are {$count} submission records with null in the locale column. Please correct these before upgrading.");
@@ -419,12 +416,19 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      */
     protected function checkAuthorsMissingUserGroup(): void
     {
+        $hasMissingUserGroups = false;
         // Flag orphaned authors entries by user_group_id
-        $result = DB::table('authors AS a')->leftJoin('user_groups AS ug', 'ug.user_group_id', '=', 'a.user_group_id')->leftJoin('publications AS p', 'p.publication_id', '=', 'a.publication_id')->whereNull('ug.user_group_id')->select('a.author_id AS author_id', 'a.publication_id AS publication_id', 'a.user_group_id AS user_group_id', 'p.submission_id AS submission_id')->get();
-        foreach ($result as $row) {
-            $this->_installer->log("Found an orphaned author entry with author_id {$row->author_id} for publication_id {$row->publication_id} with submission_id {$row->submission_id} and user_group_id {$row->user_group_id}.");
-        }
-        if ($result->count()) {
+        DB::table('authors AS a')
+            ->leftJoin('user_groups AS ug', 'ug.user_group_id', '=', 'a.user_group_id')
+            ->leftJoin('publications AS p', 'p.publication_id', '=', 'a.publication_id')
+            ->whereNull('ug.user_group_id')
+            ->select('a.author_id AS author_id', 'a.publication_id AS publication_id', 'a.user_group_id AS user_group_id', 'p.submission_id AS submission_id')
+            ->lazyById(1000, 'a.author_id', 'author_id')
+            ->each(function (object $row) use (&$hasMissingUserGroups) {
+                $hasMissingUserGroups = true;
+                $this->_installer->log("Found an orphaned author entry with author_id {$row->author_id} for publication_id {$row->publication_id} with submission_id {$row->submission_id} and user_group_id {$row->user_group_id}.");
+            });
+        if ($hasMissingUserGroups) {
             throw new Exception('There are author records without matching user_group entries. Please correct these before upgrading.');
         }
     }
@@ -489,7 +493,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             $affectedRows += $this->deleteRequiredReference('submissions', 'context_id', $this->getContextTable(), $this->getContextKeyField());
 
             // Attempts to recover the field submissions.current_publication_id before discarding the entry
-            $rows = DB::table('submissions AS s')
+            DB::table('submissions AS s')
                 ->leftJoin('publications AS p', 'p.publication_id', '=', 's.current_publication_id')
                 ->join(
                     'publications AS last',
@@ -504,11 +508,12 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                     )
                 )
                 ->whereNull('p.publication_id')
-                ->pluck('s.submission_id', 'last.publication_id');
-            foreach ($rows as $publicationId => $submissionId) {
-                $this->_installer->log("The current publication ID ({$publicationId}) for the submission ID {$submissionId} is invalid, the publication ID {$publicationId} will replace it");
-                $affectedRows += DB::table('submissions')->where('submission_id', '=', $submissionId)->update(['current_publication_id' => $publicationId]);
-            }
+                ->select('s.submission_id', 'last.publication_id')
+                ->lazyById(1000, 's.submission_id', 'submission_id')
+                ->each(function (object $row) use (&$affectedRows) {
+                    $this->_installer->log("The current publication ID ({$row->publication_id}) for the submission ID {$row->submission_id} is invalid, the publication ID {$row->publication_id} will replace it");
+                    $affectedRows += DB::table('submissions')->where('submission_id', '=', $row->submission_id)->update(['current_publication_id' => $row->publication_id]);
+                });
 
             // The current_publication_id is nullable, but it's in fact required by the software, so we delete orphan entries instead of nulling them
             $affectedRows += $this->deleteRequiredReference('submissions', 'current_publication_id', 'publications', 'publication_id');
@@ -1024,28 +1029,28 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             return 0;
         }
 
-        $filter ??= fn(Builder $q) => $q;
-        $ids = $filter(
-            DB::table("{$sourceTable} AS s")
-                ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
-                ->whereNull("r.{$referenceColumn}")
-                ->distinct()
-        )
-            ->pluck("s.{$sourceColumn}");
+        /** @var Builder $query */
+        $query = DB::table("{$sourceTable} AS s")
+            ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
+            ->whereNull("r.{$referenceColumn}")
+            ->when($filter, $filter);
 
-        if (!$ids->count()) {
-            return 0;
-        }
+        $query
+            ->distinct("s.{$sourceColumn}")
+            ->orderBy("s.{$sourceColumn}")
+            ->chunk(
+                1000,
+                function (Collection $rows, int $page) use ($sourceTable, $sourceColumn, $referenceTable) {
+                    if ($page < 2) {
+                        $this->_installer->log("Removing orphaned entries from \"{$sourceTable}\" with an invalid value for the required column \"{$sourceColumn}\". The following IDs do not exist at the reference table \"{$referenceTable}\"");
+                    }
+                    $this->_installer->log($rows->pluck($sourceColumn)->join(', '));
+                }
+            );
 
-        $removed = 0;
-        $this->_installer->log("Removing orphaned entries from \"{$sourceTable}\" with an invalid value for the required column \"{$sourceColumn}\". The following IDs do not exist at the reference table \"{$referenceTable}\":\n{$ids->join(', ')}");
-        foreach ($ids->chunk(1000) as $chunkedIds) {
-            $removed += DB::table($sourceTable)
-                ->whereIn($sourceColumn, $chunkedIds)
-                ->orWhereNull($sourceColumn)
-                ->delete();
+        if ($removed = $query->delete()) {
+            $this->_installer->log("{$removed} entries removed");
         }
-        $this->_installer->log("{$removed} entries removed");
         return $removed;
     }
 
@@ -1060,28 +1065,29 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             return 0;
         }
 
-        $filter ??= fn(Builder $q) => $q;
-        $ids = $filter(
-            DB::table("{$sourceTable} AS s")
-                ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
-                ->whereNotNull("s.{$sourceColumn}")
-                ->whereNull("r.{$referenceColumn}")
-                ->distinct()
-        )
-            ->pluck("s.{$sourceColumn}");
+        /** @var Builder $query */
+        $query = DB::table("{$sourceTable} AS s")
+            ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
+            ->whereNotNull("s.{$sourceColumn}")
+            ->whereNull("r.{$referenceColumn}")
+            ->when($filter, $filter);
 
-        if (!$ids->count()) {
-            return 0;
-        }
+        $query
+            ->distinct("s.{$sourceColumn}")
+            ->orderBy("s.{$sourceColumn}")
+            ->chunk(
+                1000,
+                function (Collection $rows, int $page) use ($sourceTable, $sourceColumn, $referenceTable) {
+                    if ($page < 2) {
+                        $this->_installer->log("Cleaning orphaned entries from \"{$sourceTable}\" with an invalid value for the column \"{$sourceColumn}\". The following IDs do not exist at the reference table \"{$referenceTable}\" and will be reset to NULL");
+                    }
+                    $this->_installer->log($rows->pluck($sourceColumn)->join(', '));
+                }
+            );
 
-        $updated = 0;
-        $this->_installer->log("Cleaning orphaned entries from \"{$sourceTable}\" with an invalid value for the column \"{$sourceColumn}\". The following IDs do not exist at the reference table \"{$referenceTable}\" and will be reset to NULL:\n{$ids->join(', ')}");
-        foreach ($ids->chunk(1000) as $chunkedIds) {
-            $updated += DB::table($sourceTable)
-                ->whereIn($sourceColumn, $chunkedIds)
-                ->update([$sourceColumn => null]);
+        if ($updated = $query->update(["s.{$sourceColumn}" => null])) {
+            $this->_installer->log("{$updated} entries updated");
         }
-        $this->_installer->log("{$updated} entries updated");
         return $updated;
     }
 
@@ -1096,27 +1102,29 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             return 0;
         }
 
-        $filter ??= fn(Builder $q) => $q;
-        $ids = $filter(
-            DB::table("{$sourceTable} AS s")
-                ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
-                ->whereNotNull("s.{$sourceColumn}")
-                ->whereNull("r.{$referenceColumn}")
-                ->distinct()
-        )
-            ->pluck("s.{$sourceColumn}");
+        /** @var Builder $query */
+        $query = DB::table("{$sourceTable} AS s")
+            ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
+            ->whereNotNull("s.{$sourceColumn}")
+            ->whereNull("r.{$referenceColumn}")
+            ->when($filter, $filter);
 
-        if (!$ids->count()) {
-            return 0;
+        $query
+            ->distinct("s.{$sourceColumn}")
+            ->orderBy("s.{$sourceColumn}")
+            ->chunk(
+                1000,
+                function (Collection $rows, int $page) use ($sourceTable, $sourceColumn, $referenceTable) {
+                    if ($page < 2) {
+                        $this->_installer->log("Removing orphaned entries from \"{$sourceTable}\" with an invalid value for the column \"{$sourceColumn}\". The following IDs do not exist at the reference table \"{$referenceTable}\"");
+                    }
+                    $this->_installer->log($rows->pluck($sourceColumn)->join(', '));
+                }
+            );
+
+        if ($removed = $query->delete()) {
+            $this->_installer->log("{$removed} entries removed");
         }
-        $this->_installer->log("Removing orphaned entries from \"{$sourceTable}\" with an invalid value for the column \"{$sourceColumn}\". The following IDs do not exist at the reference table \"{$referenceTable}\":\n{$ids->join(', ')}");
-        $removed = 0;
-        foreach ($ids->chunk(1000) as $chunkedIds) {
-            $removed += DB::table($sourceTable)
-                ->whereIn($sourceColumn, $chunkedIds)
-                ->delete();
-        }
-        $this->_installer->log("{$removed} entries removed");
         return $removed;
     }
 

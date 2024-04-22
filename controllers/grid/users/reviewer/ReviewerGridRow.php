@@ -216,16 +216,18 @@ class ReviewerGridRow extends GridRow
                 );
             }
 
-            $this->addAction(new LinkAction(
-                'logResponse',
-                new AjaxModal(
-                    $router->url($request, null, null, 'logResponse', null, $actionArgs),
+            if ($reviewAssignment->getDateConfirmed() == null) {
+                $this->addAction(new LinkAction(
+                    'logResponse',
+                    new AjaxModal(
+                        $router->url($request, null, null, 'logResponse', null, $actionArgs),
+                        __('editor.review.logResponse'),
+                        'modal_log_response'
+                    ),
                     __('editor.review.logResponse'),
-                    'modal_log_response'
-                ),
-                __('editor.review.logResponse'),
-                'log_response'
-            ));
+                    'log_response'
+                ));
+            }
         }
     }
 }

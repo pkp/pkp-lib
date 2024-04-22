@@ -495,8 +495,6 @@ class PKPReviewerGridHandler extends GridHandler
             $logResponseForm->execute();
             $json = DAO::getDataChangedEvent($reviewAssignment->getId());
             $json->setGlobalEvent('update:decisions');
-            $notificationMgr = new NotificationManager();
-            $notificationMgr->createTrivialNotification(Validation::loggedInAs() ?? $request->getUser()->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.responseLogged')]);
 
             return $json;
         } else {

@@ -20,15 +20,16 @@ namespace PKP\controllers\grid\users\reviewer\form;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\log\event\SubmissionEventLogEntry;
+use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
-use PKP\core\JSONMessage;
+use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
-use PKP\core\Core;
+use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -99,6 +100,8 @@ class LogResponseForm extends Form
 
     /**
      * @copydoc Form::execute()
+     *
+     * @hook ReviewerAction::confirmReview [[$request, $submission, $mailable, $decline]]
      */
     public function execute(...$functionArgs)
     {
@@ -106,7 +109,9 @@ class LogResponseForm extends Form
         $decline = !boolval($logResponse);
         $reviewAssignment = $this->_reviewAssignment;
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
-        if (!isset($reviewer)) return true;
+        if (!isset($reviewer)) {
+            return true;
+        }
 
         // Only confirm the review for the reviewer if
         // he has not previously done so.
@@ -114,35 +119,37 @@ class LogResponseForm extends Form
         $submission = $this->submission;
         $request = $this->request;
 
-        if ($reviewAssignment->getDateConfirmed() == null) {
+        $notificationMgr = new NotificationManager();
+        $userId = Validation::loggedInAs() ?? $request->getUser()->getId();
 
-            $reviewerAction = new ReviewerAction();
-            $mailable = $reviewerAction->getResponseEmail($submission, $reviewAssignment, $decline, null);
-            Hook::call('ReviewerAction::confirmReview', [$request, $submission, $mailable, $decline]);
+        $reviewerAction = new ReviewerAction();
+        $mailable = $reviewerAction->getResponseEmail($submission, $reviewAssignment, $decline, null);
+        Hook::call('ReviewerAction::confirmReview', [$request, $submission, $mailable, $decline]);
 
-            $reviewAssignment->setDeclined($decline);
-            $reviewAssignment->setDateConfirmed(Core::getCurrentDate());
-            $reviewAssignment->stampModified();
+        $reviewAssignment->setDeclined($decline);
+        $reviewAssignment->setDateConfirmed(Core::getCurrentDate());
+        $reviewAssignment->stampModified();
 
-            $eventLog = Repo::eventLog()->newDataObject([
-                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
-                'assocId' => $submission->getId(),
-                'eventType' => $decline ? SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_DECLINE : SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ACCEPT,
-                'userId' => Validation::loggedInAs() ?? $this->request->getUser()->getId(),
-                'message' => $decline ? 'log.review.reviewDeclined' : 'log.review.reviewAccepted',
-                'isTranslate' => 0,
-                'dateLogged' => Core::getCurrentDate(),
-                'reviewAssignmentId' => $reviewAssignment->getId(),
-                'reviewerName' => $reviewer->getFullName(),
-                'submissionId' => $reviewAssignment->getSubmissionId(),
-                'round' => $reviewAssignment->getRound()
-            ]);
+        Repo::reviewAssignment()->edit($reviewAssignment, $reviewAssignment->getAllData());
 
-            Repo::eventLog()->add($eventLog);
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'eventType' => $decline ? SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_DECLINE : SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ACCEPT,
+            'userId' => $userId,
+            'message' => $decline ? 'log.review.reviewDeclined' : 'log.review.reviewAccepted',
+            'isTranslate' => 0,
+            'dateLogged' => Core::getCurrentDate(),
+            'reviewAssignmentId' => $reviewAssignment->getId(),
+            'reviewerName' => $reviewer->getFullName(),
+            'submissionId' => $reviewAssignment->getSubmissionId(),
+            'round' => $reviewAssignment->getRound()
+        ]);
 
-            return DAO::getDataChangedEvent($reviewAssignment->getId());
-        } else {
-            return new JSONMessage(false);
-        }
+        $notificationMgr->createTrivialNotification($userId, PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.responseLogged')]);
+
+        Repo::eventLog()->add($eventLog);
+
+        return DAO::getDataChangedEvent($reviewAssignment->getId());
     }
 }

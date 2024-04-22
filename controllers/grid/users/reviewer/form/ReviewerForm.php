@@ -77,9 +77,9 @@ class ReviewerForm extends Form
             new \PKP\form\validation\FormValidatorDateCompare(
                 $this,
                 'reviewDueDate',
-                \Carbon\Carbon::parse($this->getData('responseDueDate')),
-                \PKP\validation\ValidatorDateComparison::DATE_COMPARE_RULE_GREATER_OR_EQUAL,
-                'optional',
+                \Carbon\Carbon::parse(Application::get()->getRequest()->getUserVar('responseDueDate')),
+                \PKP\validation\enums\DateComparisonRule::GREATER_OR_EQUAL,
+                'required',
                 'editor.review.errorAddingReviewer.dateValidationFailed'
             )
         );

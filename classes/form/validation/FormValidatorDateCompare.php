@@ -3,8 +3,8 @@
 /**
  * @file classes/form/validation/FormValidatorDateCompare.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorDateCompare
@@ -18,7 +18,9 @@
 
 namespace PKP\form\validation;
 
+use PKP\form\Form;
 use PKP\validation\ValidatorDateComparison;
+use PKP\validation\enums\DateComparisonRule;
 use Carbon\Carbon;
 use DateTimeInterface;
 
@@ -27,10 +29,10 @@ class FormValidatorDateCompare extends FormValidator
     /**
      * Constructor.
      *
-     * @param \PKP\form\Form            $form           the associated form
+     * @param Form                      $form           the associated form
      * @param string                    $field          the name of the associated field
      * @param DateTimeInterface|Carbon  $comparingDate  the comparing date
-     * @param string                    $comparingRule  the comparing rule e.g. equal/greater/lesser/...
+     * @param DateComparisonRule        $comparingRule  the comparing rule
      * @param string                    $type           the type of check, either "required" or "optional"
      * @param string                    $message        the error message for validation failures (i18n key)
      */

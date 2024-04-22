@@ -2,8 +2,8 @@
 /**
  * @file classes/components/form/context/PKPReviewSetupForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPReviewSetupForm
@@ -56,7 +56,7 @@ class PKPReviewSetupForm extends FormComponent
         $this
             ->addDefaultFields($context)
             ->addReminderFields($context)
-            ->addReminderDisbaleNoticeField($context);
+            ->addReminderDisableNoticeField($context);
     }
 
     /**
@@ -188,7 +188,7 @@ class PKPReviewSetupForm extends FormComponent
     /**
      * Add a html note section instructing how to enable review reminder control fields
      */
-    protected function addReminderDisbaleNoticeField(Context $context): static
+    protected function addReminderDisableNoticeField(Context $context): static
     {
         if (Config::getVar('general', 'scheduled_tasks')) {
             return $this;

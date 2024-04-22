@@ -146,12 +146,7 @@ class ReviewReminder extends ScheduledTask
             }
 
             if ($mailable) {
-                ReviewReminderJob::dispatch(
-                    $reviewAssignment->getId(),
-                    $submission->getId(),
-                    $context->getId(),
-                    $mailable
-                );
+                ReviewReminderJob::dispatch($reviewAssignment->getId(), $mailable);
             }
         }
 

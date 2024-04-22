@@ -27,22 +27,11 @@ use PKP\mail\mailables\ReviewResponseRemindAuto;
 use PKP\mail\mailables\ReviewRemindAuto;
 use PKP\jobs\BaseJob;
 
-
 class ReviewReminder extends BaseJob
 {
-    public function __construct(
-        public int $reviewAssignmentId,
-        public int $submissionId,
-        public int $contextId,
-        public string $mailableClass
-    )
+    public function __construct(public int $reviewAssignmentId, public string $mailableClass)
     {
         parent::__construct();
-
-        $this->reviewAssignmentId = $reviewAssignmentId;
-        $this->submissionId = $submissionId;
-        $this->contextId = $contextId;
-        $this->mailableClass = $mailableClass;
     }
 
     /**
@@ -57,10 +46,10 @@ class ReviewReminder extends BaseJob
             return;
         }
 
-        $submission = Repo::submission()->get($this->submissionId);
+        $submission = Repo::submission()->get($reviewAssignment->getData('submissionId'));
         
         $contextService = Services::get('context');
-        $context = $contextService->get($this->contextId);
+        $context = $contextService->get($submission->getData('contextId'));
 
         /** @var ReviewRemindAuto|ReviewResponseRemindAuto $mailable */
         $mailable = new $this->mailableClass($context, $submission, $reviewAssignment);

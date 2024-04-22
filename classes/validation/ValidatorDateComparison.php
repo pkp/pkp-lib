@@ -3,8 +3,8 @@
 /**
  * @file classes/validation/ValidatorDateComparison.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ValidatorDateComparison
@@ -20,54 +20,25 @@ namespace PKP\validation;
 
 use Carbon\Carbon;
 use DateTimeInterface;
-use Exception;
+use PKP\validation\enums\DateComparisonRule;
 use PKP\validation\ValidatorFactory;
 
 class ValidatorDateComparison extends Validator
 {
-    public const DATE_COMPARE_RULE_EQUAL = 'equal';
-    public const DATE_COMPARE_RULE_GREATER = 'greater';
-    public const DATE_COMPARE_RULE_LESSER = 'lesser';
-    public const DATE_COMPARE_RULE_GREATER_OR_EQUAL = 'greaterOrEqual';
-    public const DATE_COMPARE_RULE_LESSER_OR_EQUAL = 'lesserOrEqual';
-
-    protected DateTimeInterface|Carbon $comparingDate;
-
-    protected string $comparingRule;
-
-    protected array $validationRulesMapping = [
-        self::DATE_COMPARE_RULE_EQUAL               => 'date_equals',
-        self::DATE_COMPARE_RULE_GREATER             => 'after',
-        self::DATE_COMPARE_RULE_LESSER              => 'before',
-        self::DATE_COMPARE_RULE_GREATER_OR_EQUAL    => 'after_or_equal',
-        self::DATE_COMPARE_RULE_LESSER_OR_EQUAL     => 'before_or_equal',
-    ];
-
-    public function __construct(DateTimeInterface|Carbon $comparingDate, string $comparingRule)
+    /**
+     * Constructor.
+     *
+     * @param DateTimeInterface|Carbon  $comparingDate  the comparing date
+     * @param DateComparisonRule        $rule           the comparing rule
+     */
+    public function __construct(
+        protected DateTimeInterface|Carbon $comparingDate,
+        protected DateComparisonRule $rule
+    )
     {
-        if (!in_array($comparingRule, static::getComparingRules())) {
-            throw new Exception(
-                sprintf(
-                    'Invalid comparison rule %s given, must be among [%s]',
-                    $comparingRule,
-                    implode(',', static::getComparingRules())
-                )
-            );
-        }
-
-        $this->comparingDate = $comparingDate instanceof Carbon ? $comparingDate : Carbon::parse($comparingDate);
-        $this->comparingRule = $comparingRule;
-    }
-
-    public static function getComparingRules(): array
-    {
-        return [
-            static::DATE_COMPARE_RULE_EQUAL,
-            static::DATE_COMPARE_RULE_GREATER,
-            static::DATE_COMPARE_RULE_LESSER,
-            static::DATE_COMPARE_RULE_GREATER_OR_EQUAL,
-            static::DATE_COMPARE_RULE_LESSER_OR_EQUAL ,
-        ];
+        $this->comparingDate = $comparingDate instanceof Carbon
+            ? $comparingDate
+            : Carbon::parse($comparingDate);
     }
 
     /**
@@ -79,19 +50,10 @@ class ValidatorDateComparison extends Validator
             ['value' => $value],
             ['value' => [
                 'date', 
-                $this->getValidationApplicableRule($this->comparingRule) . ':' . $this->comparingDate->toDateString()
+                $this->rule->value . ':' . $this->comparingDate->toDateString()
             ]]
         );
 
         return $validator->passes();
     }
-
-    protected function getValidationApplicableRule(string $rule): mixed
-    {
-        return $this->validationRulesMapping[$rule];
-    }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\validation\ValidatorDateComparison', '\ValidatorDateComparison');
 }

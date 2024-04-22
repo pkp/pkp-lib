@@ -67,7 +67,7 @@ class EditReviewForm extends Form
                 $this,
                 'reviewDueDate',
                 \Carbon\Carbon::parse(Application::get()->getRequest()->getUserVar('responseDueDate')),
-                \PKP\validation\ValidatorDateComparison::DATE_COMPARE_RULE_GREATER_OR_EQUAL,
+                \PKP\validation\enums\DateComparisonRule::GREATER_OR_EQUAL,
                 'optional',
                 'editor.review.errorAddingReviewer.dateValidationFailed'
             )

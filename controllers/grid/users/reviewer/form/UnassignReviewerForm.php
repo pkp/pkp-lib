@@ -77,7 +77,10 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
             }
             if ($reviewAssignment->getDateConfirmed()) {
                 // The review has been confirmed but not completed. Flag it as cancelled.
-                Repo::reviewAssignment()->edit($reviewAssignment, ['cancelled' => true]);
+                Repo::reviewAssignment()->edit($reviewAssignment, [
+                    'cancelled' => true,
+                    'dateCancelled' => Core::getCurrentDate(),
+                ]);
             } else {
                 // The review had not been confirmed yet. Delete the assignment.
                 Repo::reviewAssignment()->delete($reviewAssignment);

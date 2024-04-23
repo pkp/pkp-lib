@@ -29,6 +29,11 @@
 						{translate key="about.aboutContext"}
 					</a>
 				</li>
+				<li>
+					<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="editorialMasthead"}">
+						{translate key="common.editorialMasthead"}
+					</a>
+				</li>
 				{if $currentServer->getLocalizedData('editorialTeam')}
 					<li>
 						<a href="{url router=PKPApplication::ROUTE_PAGE page="about" op="editorialTeam"}">

@@ -444,35 +444,24 @@ class Collector implements CollectorInterface
             return $this;
         }
 
-        $subQuery = DB::table('user_user_groups as uug')
+        $userGroupsSubquery = fn (Builder $query) => $query->from('user_user_groups as uug')
             ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
             ->whereColumn('uug.user_id', '=', 'u.user_id')
-            ->when($this->userGroupIds !== null, fn (Builder $subQuery) => $subQuery->whereIn('uug.user_group_id', $this->userGroupIds))
+            ->when($this->userGroupIds !== null, fn (Builder $query) => $query->whereIn('uug.user_group_id', $this->userGroupIds))
             ->when(
                 $this->workflowStageIds !== null,
-                fn (Builder $subQuery) => $subQuery
+                fn (Builder $query) => $query
                     ->join('user_group_stage AS ugs', 'ug.user_group_id', '=', 'ugs.user_group_id')
                     ->whereIn('ugs.stage_id', $this->workflowStageIds)
             )
-            ->when($this->roleIds !== null, fn ($subQuery) => $subQuery->whereIn('ug.role_id', $this->roleIds))
-            ->when($this->contextIds !== null, fn ($subQuery) => $subQuery->whereIn('ug.context_id', $this->contextIds));
+            ->when($this->roleIds !== null, fn ($query) => $query->whereIn('ug.role_id', $this->roleIds))
+            ->when($this->contextIds !== null, fn ($query) => $query->whereIn('ug.context_id', $this->contextIds));
 
-        $joinSub = clone $subQuery;
-        $query
-            ->addWhereExistsQuery(
-                $subQuery->when(
-                    $this->excludeRoles != null,
-                    // This aggregates a column role_count, which holds an information whether user holds specified role
-                    fn (Builder $subQuery) => $subQuery->leftJoinSub(
-                        $joinSub
-                            ->select('uug.user_id')
-                            ->whereIn('ug.role_id', $this->excludeRoles),
-                        'agr',
-                        'uug.user_id',
-                        'agr.user_id'
-                    )->whereNull('agr.user_id')
-                )
-            );
+        $query->whereExists(fn (Builder $query) => $userGroupsSubquery($query));
+
+        if ($this->excludeRoles != null) {
+            $query->whereNotExists(fn (Builder $query) => $userGroupsSubquery($query)->whereIn('ug.role_id', $this->excludeRoles));
+        }
 
         return $this;
     }

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2024-03-02 04:59+0000\n"
+"PO-Revision-Date: 2024-04-23 16:06+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ca/>\n"
@@ -25,10 +25,12 @@ msgid "admin.adminFunctions"
 msgstr "Funcions administratives"
 
 msgid "admin.deleteCache"
-msgstr ""
+msgstr "Esborrar la memòria cau"
 
 msgid "admin.deleteCache.description"
 msgstr ""
+"Esborrar els arxius de la memòria cau del sistema. Això només s'hauria de "
+"fer en entorns de desenvolupament."
 
 msgid "admin.clearDataCache"
 msgstr "Esborra la memòria cau de dades"
@@ -81,6 +83,8 @@ msgstr "Fes vèncer les sessions d’usuari/usuària"
 
 msgid "admin.expireSessions.description"
 msgstr ""
+"Es tancarà immediatament la sessió de tots els usuaris/àries de l'aplicació, "
+"inclòs la vostra, i haureu de tornar a iniciar la sessió."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -147,7 +151,7 @@ msgid "admin.scheduledTask.noLog"
 msgstr "La tasca no ha generat cap registre (log)."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "Dipositar els DOI amb l'agència de registre configurada"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
@@ -156,12 +160,16 @@ msgstr ""
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
+"Enviar un correu electrònic a tots els editors/ores per recordar-los les "
+"seves tasques pendents"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "Identificar editors/ores per recordar en el context {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"S'han distribuït {$count} tasques per enviar recordatoris per correu "
+"electrònic als usuaris/àries {$userIds} en el context {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -173,9 +181,11 @@ msgstr "Neteja els registres de tasques programades"
 
 msgid "admin.scheduledTask.clearLogs.description"
 msgstr ""
+"Eliminar tots els registres de processos de tasques programades que ja s'han "
+"executat."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Eliminar els registres de tasques"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Publicar les trameses programades per a publicació"
@@ -184,76 +194,94 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr "Recordatori de revisió"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Notificació d'informe editorial"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Recordatori de caducitat de la subscripció"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Eliminar els usuaris/àries caducats no validats"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "Eliminar les tasques errònies més antigues de la llista d'errors."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Processar les tasques en cua pendents"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "Actualitzar la base de dades DB-IP city lite"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"El canvi de nom de l'arxiu de la base de dades DB-IP city lite "
+"{$sourceFilename} per {$targetFilename} ha fallat."
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Tasca de càrrega d'arxius d'estadístiques d'ús"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"El directori {$directory} no està buit. Això podria indicar que hi ha hagut "
+"un procés erroni previ o un procés executant-se simultàniament. Aquest arxiu "
+"es tornarà a processar automàticament."
 
 msgid "admin.job.processLogFile.openFileFailed"
 msgstr "L'arxiu {$file} no s'ha pogut obrir i s'ha rebutjat."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"L'arxiu {$file} està en un format de registre antic que no es pot processar, "
+"de manera que es retornarà al directori de preparació ('stage directory')."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"S'ha omès l'arxiu de registre {$file} perquè les estadístiques d'aquell mes "
+"ja s'havien calculat. Per tornar a calcular les estadístiques d'un mes previ "
+"haureu de restaurar tots els arxius de registre d'aquell mes i fer servir "
+"l'eina d'interfície de línia d'ordres (CLI) per tornar a processar les "
+"estadístiques."
 
 msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
+"La línia {$lineNumber} de l'arxiu de registre {$file} està en un format "
+"incorrecte i, per tant, s'ometrà."
 
 msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
+"Entrada de registre invàlida a la línia {$lineNumber} de l'arxiu de registre "
+"{$file}: {$error}"
 
 msgid "admin.job.processLogFile.invalidLogEntry.time"
-msgstr ""
+msgstr "La data no és vàlida."
 
 msgid "admin.job.processLogFile.invalidLogEntry.contextId"
-msgstr ""
+msgstr "L'ID del context no és un nombre enter."
 
 msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "L'ID de la tramesa no és un nombre enter."
 
 msgid "admin.job.processLogFile.invalidLogEntry.representationId"
-msgstr ""
+msgstr "L'ID de representació no és un nombre enter."
 
 msgid "admin.job.processLogFile.invalidLogEntry.assocType"
-msgstr ""
+msgstr "La tipologia associada no és compatible."
 
 msgid "admin.job.processLogFile.invalidLogEntry.fileType"
-msgstr ""
+msgstr "El tipus d'arxiu no és compatible."
 
 msgid "admin.job.processLogFile.invalidLogEntry.country"
-msgstr ""
+msgstr "El país no és una cadena de dos caràcters alfabètics."
 
 msgid "admin.job.processLogFile.invalidLogEntry.region"
-msgstr ""
+msgstr "La regió no és una cadena de tres caràcters alfanumèrics."
 
 msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "Les ID d'institució no són una matriu (array)."
 
 msgid "admin.job.processLogFile.insertError"
 msgstr ""
+"S'ha produït un error en processar l'arxiu de registre {$file} a la línia "
+"{$lineNumber}: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
@@ -347,9 +375,11 @@ msgstr "Informació del sistema"
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Veure informació sobre la versió i la configuració de l'aplicació i del "
+"servidor."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Veure informació del sistema"
 
 msgid "admin.versionBuild"
 msgstr "Muntatge"
@@ -505,16 +535,17 @@ msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Feines en cua"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Cua"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Connexió"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
 msgstr ""
@@ -808,3 +839,15 @@ msgstr ""
 #~ msgid "admin.copyAccessLogFileTool.error.noGunzip"
 #~ msgstr ""
 #~ "No s'ha configurat La ruta Gunzip. Consulteu config.inc.php, secció cli."
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Estadístiques del revisor/a"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"En una instal·lació multicontext, les estadístiques de revisors/ores, com el "
+"recompte de revisions enviades, poden mostrar-se individualment per a cada "
+"context o agrupades col·lectivament."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Inhabilitar les estadístiques agrupades de revisor/a"

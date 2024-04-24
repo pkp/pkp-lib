@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
-"PO-Revision-Date: 2024-04-11 18:04+0000\n"
+"PO-Revision-Date: 2024-04-24 16:12+0000\n"
 "Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
 "fr_FR/>\n"
@@ -189,7 +189,6 @@ msgstr ""
 "souhaitez.</p><p>Cordialement,</p>{$signature}<hr><p>Remarques formulées "
 "dans les rapports d'évaluation.</p>{$allReviewerComments}"
 
-#, fuzzy
 msgid "emails.editorRecommendation.subject"
 msgstr "Recommandation éditoriale"
 
@@ -206,7 +205,6 @@ msgid "emails.copyeditRequest.subject"
 msgstr ""
 "La soumission {$submissionId} est prête à être éditée pour {$contextAcronym}"
 
-#, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""
 "<p>{$recipientName},</p><p>Une nouvelle soumission est prête pour traitement "

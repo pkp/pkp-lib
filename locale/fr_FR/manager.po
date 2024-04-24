@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2024-04-07 17:39+0000\n"
+"PO-Revision-Date: 2024-04-24 16:12+0000\n"
 "Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fr_FR/>\n"
@@ -3908,3 +3908,107 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Les auteurs soumissionnaires doivent déposer une déclaration de conflits "
 "d'intérêts (CI) avec leur soumission."
+
+msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
+msgstr ""
+"Le fichier de soumission {$id} a été ignoré car il n'a pas un stade de "
+"fichier valide."
+
+msgid "manager.highlights.add"
+msgstr "Surligner"
+
+msgid "manager.highlights.delete"
+msgstr "Supprimer le surlignage"
+
+msgid "manager.highlights.edit"
+msgstr "Modifier le surlignage"
+
+msgid "manager.highlights.image"
+msgstr "Image"
+
+msgid "manager.highlights.urlText"
+msgstr "Étiquette du bouton"
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Êtes-vous sûr de vouloir supprimer {$title} ? Cette action ne peut être "
+"annulée."
+
+msgid "manager.highlights.url.description"
+msgstr ""
+"L'URL complète, y compris https://, pour le bouton dans l'élément surligné."
+
+msgid "manager.highlights.urlText.description"
+msgstr ""
+"L'étiquette, telle que « En savoir plus », du bouton dans le surlignage."
+
+msgid "manager.image"
+msgstr "Image"
+
+msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
+msgstr "Exclure les détails mensuels"
+
+msgid "manager.statistics.counterR5Report.settings.date.startDate.description"
+msgstr ""
+"La date doit être au format AAAA-MM-JJ ou AAAA-MM. La date la plus ancienne "
+"possible est {$earliestDate}."
+
+msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
+msgstr ""
+"La date doit être au format AAAA-MM-JJ ou AAAA-MM. La dernière date possible "
+"est {$lastDate}."
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Vous devez <a href=\"#announcements/announcement-settings\">activer les "
+"annonces</a>."
+
+msgid "manager.statistics.counterR5Report.settings.startDate"
+msgstr "Date de début"
+
+msgid "manager.statistics.counterR5Reports.description"
+msgstr ""
+"Consultez <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index"
+".html\" target=\"_new\">la documentation de COUNTER 5.0.3</a> pour plus "
+"d'informations sur chaque rapport."
+
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Il n'y a pas encore de statistiques d'utilisation de COUNTER R5."
+
+msgid "manager.statistics.counterR5Reports"
+msgstr "Rapports de COUNTER R5"
+
+msgid "manager.statistics.counterR5"
+msgstr "COUNTER R5"
+
+msgid "manager.statistics.counterR5Report.settings.endDate"
+msgstr "Date de fin"
+
+msgid "manager.statistics.counterR5Report.settings.wrongDateFormat"
+msgstr "Le format de la date n'est pas valide."
+
+msgid "manager.statistics.counterR5Report.settings.customerId"
+msgstr "Identifiant du client"
+
+msgid "manager.statistics.counterR5Report.settings.metricType"
+msgstr "Type de métrique"
+
+msgid "manager.statistics.counterR5Report.settings.attributesToShow"
+msgstr "Attributs à afficher"
+
+msgid "manager.statistics.counterR5Report.settings.yop"
+msgstr "Année de publication"
+
+msgid "manager.statistics.counterR5Report.settings.date.yop.description"
+msgstr ""
+"Une liste ou une plage d'années de publication à renvoyer dans la réponse au "
+"format aaaa|aaaa|aaaa-aaaa."
+
+msgid "manager.statistics.counterR5Report.settings.wrongYOPFormat"
+msgstr "Le format de l'année de publication n'est pas valide."
+
+msgid "manager.statistics.counterR5Report.settings.itemId"
+msgstr "Identifiant de soumission"
+
+msgid "manager.statistics.counterR5Report.settings.wrongItemId"
+msgstr "L'identifiant de la soumission n'existe pas."

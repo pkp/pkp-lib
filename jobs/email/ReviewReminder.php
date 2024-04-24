@@ -29,7 +29,11 @@ use PKP\jobs\BaseJob;
 
 class ReviewReminder extends BaseJob
 {
-    public function __construct(public int $reviewAssignmentId, public string $mailableClass)
+    public function __construct(
+        public int $contextId,
+        public int $reviewAssignmentId,
+        public string $mailableClass
+    )
     {
         parent::__construct();
     }
@@ -41,7 +45,7 @@ class ReviewReminder extends BaseJob
     {
         $reviewAssignment = Repo::reviewAssignment()->get($this->reviewAssignmentId);
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
-        
+
         if (!isset($reviewer)) {
             return;
         }
@@ -49,7 +53,7 @@ class ReviewReminder extends BaseJob
         $submission = Repo::submission()->get($reviewAssignment->getData('submissionId'));
         
         $contextService = Services::get('context');
-        $context = $contextService->get($submission->getData('contextId'));
+        $context = $contextService->get($this->contextId);
 
         /** @var ReviewRemindAuto|ReviewResponseRemindAuto $mailable */
         $mailable = new $this->mailableClass($context, $submission, $reviewAssignment);
@@ -59,6 +63,7 @@ class ReviewReminder extends BaseJob
             $context->getId(), 
             $mailable::getEmailTemplateKey()
         );
+
         $mailable->subject($emailTemplate->getLocalizedData('subject', $primaryLocale))
             ->body($emailTemplate->getLocalizedData('body', $primaryLocale))
             ->from($context->getData('contactEmail'), $context->getData('contactName'))
@@ -67,6 +72,7 @@ class ReviewReminder extends BaseJob
         $mailable->setData($primaryLocale);
 
         $reviewerAccessKeysEnabled = $context->getData('reviewerAccessKeysEnabled');
+
         if ($reviewerAccessKeysEnabled) { // Give one-click access if enabled
             $reviewInvitation = new ReviewerAccessInvite(
                 $reviewAssignment->getReviewerId(),

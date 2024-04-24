@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2024-04-23 16:06+0000\n"
+"PO-Revision-Date: 2024-04-24 16:12+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ca/>\n"
@@ -440,104 +440,158 @@ msgstr "Carregador de fitxers"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"L'arxiu no s'ha pogut descomprimir. La font gz-file {$filePath} no s'ha "
+"pogut obrir amb gzopen."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"L'arxiu no s'ha pogut descomprimir. L'arxiu de destí {$filePath} no s'ha "
+"pogut obrir amb fopen."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"L'arxiu no s'ha pogut descomprimir. La font gz-file {$file} no s'ha pogut "
+"llegir amb gzread."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"L'arxiu no s'ha pogut descomprimir. L'arxiu de destí {$filePath} no s'ha "
+"pogut escriure amb fwrite."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"L'arxiu no s'ha pogut descomprimir. L'arxiu de destinació obert {$filePath} "
+"no s'ha pogut tancar amb fclose."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"L'arxiu no s'ha pogut descomprimir. La font oberta gz-file {$filePath} no "
+"s'ha pogut tancar amb gzclose."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"L'arxiu no s'ha pogut descomprimir. La font descomprimida gz-file {$filePath}"
+" no s'ha pogut eliminar amb unlink."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"L'arxiu no s'ha pogut comprimir. El destí gz-file {$filePath} no s'ha pogut "
+"obrir amb gzopen."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"L'arxiu no s'ha pogut comprimir. L'arxiu font {$filePath} no s'ha pogut "
+"obrir amb fopen."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"L'arxiu no s'ha pogut comprimir. L'arxiu font {$filePath} no s'ha pogut "
+"llegir amb fread."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"L'arxiu no s'ha pogut comprimir. El destí gz-file {$filePath} no s'ha pogut "
+"escriure amb gzwrite."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"L'arxiu no s'ha pogut comprimir. L'arxiu font obert {$filePath} no s'ha "
+"pogut tancar amb fclose."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"L'arxiu no s'ha pogut comprimir. La destinació oberta gz-file {$filePath} no "
+"s'ha pogut tancar amb gzclose."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"L'arxiu no s'ha pogut comprimir. L'arxiu font comprimit {$filePath} no s'ha "
+"pogut eliminar amb unlink."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "No hi ha configuracions regionals disponibles per descarregar."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Ús:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "command [arguments]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Ordres disponibles per a l'espai de noms `{$namespace}`:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"No es poden executar les tasques en cua perquè el mode de manteniment de "
+"l'aplicació està actiu."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Llistar totes les tasques en cua. Si voleu paginar els resultats feu servir "
+"els paràmetres -page= i --perPage= . Utilitzeu la marca --failed per llistar "
+"les tasques errònies."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Eliminar una tasca específica de la cua basant-nos en el seu identificador. "
+"Si volguéssiu eliminar-ho tot, feu servir el paràmetre --all. Si volguéssiu "
+"eliminar-ho tot d'una cua específica, feu servir el paràmetre --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Afegir una tasca de prova a la cua de prova. Feu servir els paràmetres "
+"opcionals --only= i 'failed' or 'success' per enviar les tasques que han "
+"fallat o han tingut èxit."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Executar un procés de treball infinit del dimoni que continuarà processant "
+"les tasques. Feu servir la marca --help per veure les opcions disponibles "
+"associades amb aquesta ordre."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Llistar les tasques errònies. Ajusteu el paràmetres --queue=QUEUE_NAME i --"
+"connection=CONNECTION_NAME per filtrar el llistat. També podeu utilitzar el "
+"paràmetre/marca --redispatch i --clear per tornar les tasques errònies a la "
+"cua o borrar-les totes o només algunes."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Enviar les tasques disponibles a la cua. Per enviar una tasca a una cua "
+"específica, feu servir el paràmetre --queue=QUEUE_NAME. També podeu "
+"utilitzar --test per executar una tasca de prova i --once per aturar-la "
+"després d'una tasca única."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
+"S'ha completat l'execució de {$jobCount} tasques a la cua anomenada "
+"{$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr ""
+"No hi ha tasques disponibles per executar a la cua anomenada {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Mostrar totes les tasques en cua. Utilitzar la marca --failed per veure "
+"totes les tasques errònies."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Mostrar l'ús de l'ordre 'jobs'"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Mostrar els paràmetres d'ús de 'jobs'"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "L'opció no pot estar buida. Comproveu el mètode d'ús."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Tasques en cua errònies"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
 msgstr "Feines en cua"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
 msgstr "ID"
 
@@ -548,43 +602,47 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
 msgstr "Connexió"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Nom de la tasca"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Intents"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Reservat a"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Disponible a"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Creat a"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Error a"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Missatge d'error inesperat"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Paginació"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Actual"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Previ"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Següent"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Per utilitzar aquesta ordre hauríeu de fer servir, com a mínim, els "
+"identificadors de tasca '--all' o '--queue='"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"Tasca de prova enviada que està destinada a fallar a la cua anomenada "
+"{$queueName}"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
@@ -851,3 +909,19 @@ msgstr ""
 
 msgid "admin.settings.sharedReviewerStatistics.disable"
 msgstr "Inhabilitar les estadístiques agrupades de revisor/a"
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "L'arxiu {$filename} s'ha mogut a la carpeta d'enviament."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"No es poden executar les tasques en cua perquè el mode sandbox de "
+"l'aplicació està actiu."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Reiniciar 'daemons' de feines en cua després de la tasca actual."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Els treballadors/ores sortiran elegantment després de completar l'execució "
+"de la tasca actual."

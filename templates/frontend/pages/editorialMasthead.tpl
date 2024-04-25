@@ -39,6 +39,12 @@
 		{/if}
 	{/foreach}
 
+	<p>
+		<a href="{url page="about" op="editorialHistory" router=\PKP\core\PKPApplication::ROUTE_PAGE}">
+			{translate key="common.editorialHistory"}
+		</a>
+	</p>
+
 	{if !empty($reviewers)}
 		<h2>{translate key="common.editorialMasthead.peerReviewers"}</h2>
 		<p>{translate key="common.editorialMasthead.peerReviewers.description" year=$previousYear}</p>

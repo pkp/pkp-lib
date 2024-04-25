@@ -21,10 +21,12 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use DateTime;
+use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
 use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
+use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 use PKP\userGroup\relationships\UserUserGroup;
 
 class AboutContextHandler extends Handler
@@ -137,6 +139,89 @@ class AboutContextHandler extends Handler
         ]);
         $templateMgr->display('frontend/pages/editorialMasthead.tpl');
     }
+
+    /**
+     * Display editorial history page.
+     *
+     * @param array $args
+     * @param \PKP\core\PKPRequest $request
+     *
+     * @hook AboutContextHandler::editorialHistory [[$mastheadRoles, $mastheadUsers]]
+     */
+    public function editorialHistory($args, $request)
+    {
+        $context = $request->getContext();
+
+        $savedMastheadUserGroupIdsOrder = (array) $context->getData('mastheadUserGroupIds');
+
+        $collector = Repo::userGroup()->getCollector();
+        $allMastheadUserGroups = $collector
+            ->filterByContextIds([$context->getId()])
+            ->filterByMasthead(true)
+            ->orderBy($collector::ORDERBY_ROLE_ID)
+            ->getMany()
+            ->toArray();
+
+        // sort the masthead roles in their saved order for display
+        $mastheadRoles = array_replace(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups);
+
+        $mastheadUsers = [];
+        foreach ($mastheadRoles as $mastheadUserGroup) {
+            if ($mastheadUserGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
+                continue;
+            }
+            // Get all users that were active and are not active any more in the given role
+            // and that have accepted to be displayed on the masthead for that role.
+            // No need to filter by context ID, because the user groups are already filtered so.
+            $usersCollector = Repo::user()->getCollector();
+            $users = $usersCollector
+                ->filterByUserGroupIds([$mastheadUserGroup->getId()])
+                ->filterByUserUserGroupStatus(UserUserGroupStatus::STATUS_ENDED)
+                ->filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON)
+                ->orderBy($usersCollector::ORDERBY_FAMILYNAME, $usersCollector::ORDER_DIR_ASC, [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()])
+                ->getMany();
+
+            foreach ($users as $user) {
+                $userUserGroups = UserUserGroup::withUserId($user->getId())
+                    ->withUserGroupId($mastheadUserGroup->getId())
+                    ->withEnded()
+                    ->withMasthead()
+                    ->get();
+                $services = [];
+                foreach ($userUserGroups as $userUserGroup) {
+                    $startDatetime = new DateTime($userUserGroup->dateStart);
+                    $endDatetime = new DateTime($userUserGroup->dateEnd);
+                    $services[] = [
+                        'dateStart' => $startDatetime->format('Y'),
+                        'dateEnd' => $endDatetime->format('Y'),
+                    ];
+                }
+                if (!empty($services)) {
+                    $mastheadUsers[$mastheadUserGroup->getId()][$user->getId()] = [
+                        'user' => $user,
+                        'services' => $services
+                    ];
+                }
+
+            }
+        }
+
+        Hook::call('AboutContextHandler::editorialHistory', [$mastheadRoles, $mastheadUsers]);
+
+        // To come after https://github.com/pkp/pkp-lib/issues/9771
+        // $orcidIcon = OrcidManager::getIcon();
+        $orcidIcon = '';
+
+        $templateMgr = TemplateManager::getManager($request);
+        $this->setupTemplate($request);
+        $templateMgr->assign([
+            'mastheadRoles' => $mastheadRoles,
+            'mastheadUsers' => $mastheadUsers,
+            'orcidIcon' => $orcidIcon
+        ]);
+        $templateMgr->display('frontend/pages/editorialHistory.tpl');
+    }
+
 
     /**
      * Display editorialTeam page.

@@ -20,6 +20,7 @@
 switch ($op) {
     case 'index':
     case 'editorialMasthead':
+    case 'editorialHistory':
     case 'editorialTeam':
     case 'submissions':
     case 'contact':

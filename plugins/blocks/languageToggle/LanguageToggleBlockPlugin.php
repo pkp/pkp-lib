@@ -86,10 +86,8 @@ class LanguageToggleBlockPlugin extends BlockPlugin
             $templateMgr->assign('languageToggleNoUser', true);
         }
 
-        if (isset($locales) && count($locales) > 1) {
-            $templateMgr->assign('enableLanguageToggle', true);
-            $templateMgr->assign('languageToggleLocales', $locales);
-        }
+        $templateMgr->assign('enableLanguageToggle', count($locales) > 1);
+        $templateMgr->assign('languageToggleLocales', $locales);
 
         return parent::getContents($templateMgr, $request);
     }

@@ -22,7 +22,6 @@ switch ($op) {
     // Misc.
     //
     case 'index':
-    case 'setLocale':
     case 'authorizationDenied':
     case 'toggleHelp':
     case 'getInterests':

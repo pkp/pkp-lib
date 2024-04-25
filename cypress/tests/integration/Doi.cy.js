@@ -43,7 +43,7 @@ describe('DOI tests', function() {
 
 		cy.log('Check Submission Visibility');
 		// Select a submission
-		cy.visit(`/index.php/publicknowledge/preprint/view/${submissionId}`);
+		cy.visit(`/index.php/publicknowledge/en/preprint/view/${submissionId}`);
 
 		cy.get('section.item.doi')
 			.find('span.value').contains('https://doi.org/10.1234/');
@@ -411,7 +411,7 @@ describe('DOI tests', function() {
 			.click();
 		cy.get('#doisSetup [role="status"]').contains('Saved');
 
-		cy.visit('index.php/publicknowledge/dois');
+		cy.visit('index.php/publicknowledge/en/dois');
 
 		cy.get(
 			`#submission-doi-management .listPanel__item:contains("${articleTitle}") button.expander`

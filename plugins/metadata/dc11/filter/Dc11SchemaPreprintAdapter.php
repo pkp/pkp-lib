@@ -142,7 +142,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         // Identifier: URL
         $request = Application::get()->getRequest();
         $includeUrls = $server->getSetting('publishingMode') != \APP\server\Server::PUBLISHING_MODE_NONE;
-        $dc11Description->addStatement('dc:identifier', $request->url($server->getPath(), 'preprint', 'view', [$submission->getBestId()]));
+        $dc11Description->addStatement('dc:identifier', $request->getDispatcher()->url($request, Application::ROUTE_PAGE, $server->getPath(), 'preprint', 'view', [$submission->getBestId()], urlLocaleForPage: ''));
 
         // Language
         collect($galleys)
@@ -156,7 +156,7 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         // full text URLs
         if ($includeUrls) {
             foreach ($galleys as $galley) {
-                $relation = $request->url($server->getPath(), 'preprint', 'view', [$submission->getBestId(), $galley->getBestGalleyId()]);
+                $relation = $request->getDispatcher()->url($request, Application::ROUTE_PAGE, $server->getPath(), 'preprint', 'view', [$submission->getBestId(), $galley->getBestGalleyId()], urlLocaleForPage: '');
                 $dc11Description->addStatement('dc:relation', $relation);
             }
         }

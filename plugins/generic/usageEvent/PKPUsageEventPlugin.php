@@ -253,7 +253,8 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
             null,
             $canonicalUrlPage,
             $canonicalUrlOp,
-            $canonicalUrlParams
+            $canonicalUrlParams,
+            urlLocaleForPage: ''
         );
 
         // Make sure we log the server name and not aliases.
@@ -309,7 +310,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
         }
 
         // Service URI.
-        $serviceUri = $router->url($request, $context->getPath());
+        $serviceUri = $router->url($request, $context->getPath(), urlLocaleForPage: '');
 
         // IP and Host.
         $ip = $request->getRemoteAddr();

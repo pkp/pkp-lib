@@ -36,38 +36,6 @@ class PKPUserHandler extends Handler
     }
 
     /**
-     * Change the locale for the current user.
-     *
-     * @param array $args first parameter is the new locale
-     */
-    public function setLocale($args, $request)
-    {
-        $setLocale = array_shift($args);
-
-        $site = $request->getSite();
-        $context = $request->getContext();
-        if ($context != null) {
-            $contextSupportedLocales = (array) $context->getSupportedLocales();
-        }
-
-        if (Locale::isLocaleValid($setLocale) && (!isset($contextSupportedLocales) || in_array($setLocale, $contextSupportedLocales)) && in_array($setLocale, $site->getSupportedLocales())) {
-            $session = $request->getSession();
-            $session->put('currentLocale', $setLocale);
-        }
-
-        $source = $request->getUserVar('source');
-        if (preg_match('#^/\w#', $source) === 1) {
-            $request->redirectUrl($source);
-        }
-
-        if (isset($_SERVER['HTTP_REFERER'])) {
-            $request->redirectUrl($_SERVER['HTTP_REFERER']);
-        }
-
-        $request->redirect(null, 'index');
-    }
-
-    /**
      * Get interests for reviewer interests autocomplete.
      *
      * @param array $args

@@ -525,22 +525,13 @@ class Collector implements CollectorInterface
                         ->orWhereNull('uug.masthead')
             );
 
-        $joinSub = clone $subQuery;
-        $query
-            ->whereExists(
-                $subQuery->when(
-                    $this->excludeRoles != null,
-                    // This aggregates a column role_count, which holds an information whether user holds specified role
-                    fn (Builder $subQuery) => $subQuery->leftJoinSub(
-                        $joinSub
-                            ->select('uug.user_id')
-                            ->whereIn('ug.role_id', $this->excludeRoles),
-                        'agr',
-                        'uug.user_id',
-                        'agr.user_id'
-                    )->whereNull('agr.user_id')
-                )
-            );
+        $query->whereExists($subQuery);
+
+        if ($this->excludeRoles != null) {
+            $excludeRolesSubQuery = clone $subQuery;
+            $excludeRolesSubQuery->whereIn('ug.role_id', $this->excludeRoles);
+            $query->whereNotExists($excludeRolesSubQuery);
+        }
 
         return $this;
     }

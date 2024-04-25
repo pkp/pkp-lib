@@ -21,16 +21,16 @@ use APP\notification\Notification;
 use APP\template\TemplateManager;
 use Exception;
 use PKP\controllers\tab\workflow\PKPWorkflowTabHandler;
-use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\plugins\Hook;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignment;
 
 class WorkflowTabHandler extends PKPWorkflowTabHandler
 {
     /**
      * @copydoc PKPWorkflowTabHandler::fetchTab
+     *
      * @hook Publication::testAuthorValidatePublish [[&$errors, $assignment->getUserId(), $context->getId(), $submission->getId()]]
      */
     public function fetchTab($args, $request)
@@ -44,11 +44,12 @@ class WorkflowTabHandler extends PKPWorkflowTabHandler
                 $errors = [];
                 $context = $request->getContext();
 
-                $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-                $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds($submission->getId(), [Role::ROLE_ID_AUTHOR]);
+                $submitterAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+                    ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                    ->get();
 
-                while ($assignment = $submitterAssignments->next()) {
-                    Hook::call('Publication::testAuthorValidatePublish', [&$errors, $assignment->getUserId(), $context->getId(), $submission->getId()]);
+                foreach ($submitterAssignments as $submitterAssignment) {
+                    Hook::call('Publication::testAuthorValidatePublish', [&$errors, $submitterAssignment->userId, $context->getId(), $submission->getId()]);
                 }
 
                 if (!empty($errors)) {

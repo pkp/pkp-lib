@@ -20,11 +20,10 @@ use Illuminate\Support\Facades\App;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPString;
-use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\publication\Collector;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
 
 class Repository extends \PKP\publication\Repository
@@ -197,10 +196,13 @@ class Repository extends \PKP\publication\Repository
 
         // Check if current user is an author
         $isAuthor = false;
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds($submissionId, [Role::ROLE_ID_AUTHOR]);
-        while ($assignment = $submitterAssignments->next()) {
-            if ($user->getId() == $assignment->getUserId()) {
+
+        $submitterAssignments = StageAssignment::withSubmissionIds([$submissionId])
+            ->withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->get();
+
+        foreach ($submitterAssignments as $submitterAssignment) {
+            if ($user->getId() == $submitterAssignment->userId) {
                 $isAuthor = true;
             }
         }

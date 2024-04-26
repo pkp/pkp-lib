@@ -1,10 +1,10 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2023-04-27 07:49+0000\n"
+"PO-Revision-Date: 2024-04-26 18:03+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ca/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Informació"
@@ -499,16 +499,16 @@ msgid "manager.files.uploadedFiles"
 msgstr "Fitxers penjats"
 
 msgid "manager.files.uploadFile"
-msgstr "Puja un fitxer"
+msgstr "Carregar arxiu"
 
 msgid "manager.groups.confirmDelete"
-msgstr "Esteu segur/a que voleu suprimir aquest grup?"
+msgstr "Segur que voleu eliminar aquest grup?"
 
 msgid "manager.groups.createTitle"
-msgstr "Crea un títol"
+msgstr "Crear un títol"
 
 msgid "manager.groups.editTitle"
-msgstr "Edita el títol"
+msgstr "Editar el títol"
 
 msgid "manager.groups.form.groupTitleRequired"
 msgstr "Heu d’introduir un títol de grup."
@@ -663,7 +663,7 @@ msgid "manager.people.mustProvideName"
 msgstr "Indiqueu un cognom per a l’usuari/usuària com a mínim."
 
 msgid "manager.people.noMatchingUsers"
-msgstr "No s’han trobat usuaris/usuàries."
+msgstr "No s’han trobat usuaris/àries."
 
 msgid "manager.people.noneEnrolled"
 msgstr "No hi ha cap usuari/usuària donat d’alta."
@@ -1221,8 +1221,8 @@ msgstr ""
 
 msgid "manager.setup.styleSheetDescription"
 msgstr ""
-"Podeu carregar un fitxer de full d'estil en cascada (CSS) addicional per "
-"canviar l'aparença."
+"Els desenvolupadors/ores web amb experiència poden carregar un arxiu de full "
+"d'estil en cascada (CSS) per personalitzar més l'aparença del lloc web."
 
 msgid "manager.setup.technicalSupportContact"
 msgstr "Contacte de suport tècnic"
@@ -1313,7 +1313,7 @@ msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Usuaris/àries registrats"
 
 msgid "manager.users"
-msgstr "Usuaris/usuàries"
+msgstr "Usuaris/àries"
 
 msgid "plugins.categories.metadata"
 msgstr "Mòduls de metadades"
@@ -1688,9 +1688,9 @@ msgstr "Nivell de permisos"
 
 msgid "settings.roles.removeText"
 msgstr ""
-"Ara s'eliminarà el rol d'aquest context. Aquesta operació també eliminarà "
-"les configuracions relacionades i tots les assignacions del usuaris a aquest "
-"rol. Voleu continuar?"
+"Sou a punt d'eliminar el rol d'aquest context. Aquesta operació també "
+"eliminarà les configuracions relacionades i totes les assignacions d'usuaris/"
+"àries a aquest rol. Voleu continuar?"
 
 msgid "settings.roles.nameRequired"
 msgstr "Heu d'establir el nom del rol."

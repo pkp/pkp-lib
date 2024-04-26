@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2024-04-22 13:49+0000\n"
+"PO-Revision-Date: 2024-04-26 18:03+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ca/>\n"
@@ -265,7 +265,7 @@ msgid "common.closeWindow"
 msgstr "Tanca la finestra"
 
 msgid "common.complete"
-msgstr "Completa"
+msgstr "Finalitzada"
 
 msgid "common.completed"
 msgstr "Completada"
@@ -928,10 +928,10 @@ msgid "common.uploadedDate"
 msgstr "Data carregada"
 
 msgid "common.upload"
-msgstr "Penja"
+msgstr "Carregar"
 
 msgid "common.uploadFailed"
-msgstr "El fitxer no s’ha pogut carregar ni revisar."
+msgstr "L'arxiu no s’ha pogut carregar ni revisar."
 
 msgid "common.up"
 msgstr "Amunt"
@@ -1032,13 +1032,13 @@ msgid "defaultMetric.title"
 msgstr "Mètrica predeterminada"
 
 msgid "editor.submissionReview.uploadFile"
-msgstr "Carrega un fitxer de revisió"
+msgstr "Carregar l'arxiu de revisió"
 
 msgid "editor.submissionReview.uploadAttachment"
-msgstr "Puja un fitxer"
+msgstr "Carregar arxiu"
 
 msgid "email.addAttachment"
-msgstr "Afegeix un fitxer adjunt"
+msgstr "Afegeix un arxiu adjunt"
 
 msgid "email.addAttachment.submissionFiles.attach"
 msgstr "Adjuntar els arxius de tramesa"
@@ -1267,7 +1267,7 @@ msgstr ""
 "desconnectat. Torneu a carregar la pàgina i torneu-ho a provar."
 
 msgid "form.fileRequired"
-msgstr "Cal que carregueu un fitxer."
+msgstr "És necessari carregar un arxiu."
 
 msgid "form.required"
 msgstr "(* obligatori)"
@@ -1285,13 +1285,13 @@ msgid "form.saved"
 msgstr "Guardat"
 
 msgid "form.saveToUpload"
-msgstr "Utilitzeu «Desa» per a penjar el fitxer."
+msgstr "Utilitzeu «Desa» per carregar l'arxiu."
 
 msgid "form.send"
-msgstr "Envia"
+msgstr "Enviar"
 
 msgid "form.submit"
-msgstr "Tramet"
+msgstr "Trametre"
 
 msgid "form.invalidImage"
 msgstr ""
@@ -1965,7 +1965,7 @@ msgid "notification.type.awaitingCopyedits"
 msgstr "Esperant les correccions."
 
 msgid "notification.type.roundStatusTitle"
-msgstr "Ronda {$round} Estat"
+msgstr "Estat de la ronda {$round}"
 
 msgid "notification.type.editorialReport"
 msgstr "Resum de l'informe d'estadístiques."

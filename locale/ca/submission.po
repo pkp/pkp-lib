@@ -1,19 +1,19 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2021-08-07 02:45+0000\n"
+"PO-Revision-Date: 2024-04-26 18:03+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/ca_ES/>\n"
-"Language: ca_ES\n"
+"submission/ca/>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
@@ -431,7 +431,7 @@ msgid "submission.mySubmissions"
 msgstr "Les meves trameses d'autor/a"
 
 msgid "submission.addFile"
-msgstr "Puja un fitxer"
+msgstr "Carregar arxiu"
 
 msgid "submission.additionalFiles"
 msgstr "Arxius addicionals"
@@ -1126,7 +1126,7 @@ msgid "submission.underway"
 msgstr "En procés"
 
 msgid "submission.uploadFileTo"
-msgstr "Puja el fitxer a"
+msgstr "Carregar arxiu a"
 
 msgid "submission.createRemote"
 msgstr "Creació remota"
@@ -1234,7 +1234,7 @@ msgid "submission.submit.uploadStep"
 msgstr "1. Carrega la tramesa"
 
 msgid "submission.submit.uploadSubmissionFile"
-msgstr "Carrega el fitxer de la tramesa"
+msgstr "Carregar arxiu de tramesa"
 
 msgid "submission.submit.metadataStep"
 msgstr "2. Metadades"
@@ -1274,27 +1274,27 @@ msgid "submission.upload.uploadNewFile"
 msgstr "Això no és una revisió d'un arxiu existent"
 
 msgid "submission.upload.userGroup"
-msgstr "Carrega el fitxer amb el meu rol com a..."
+msgstr "Carregar aquest arxiu amb el meu rol de..."
 
 msgid "submission.upload.userGroupDescription"
 msgstr ""
-"Si esteu carregant un volum editat, haureu de carregar cadascun dels "
-"capítols individuals del volum amb el rol d'editor/a de volums."
+"Si esteu enviant un volum editat, haureu de carregar cadascun dels capítols "
+"individuals del volum amb el rol d'editor/a de volums."
 
 msgid "submission.upload.uploadLibraryFile"
-msgstr "Carrega un fitxer de biblioteca"
+msgstr "Carregar un arxiu de biblioteca"
 
 msgid "submission.upload.libraryCategory"
 msgstr "Categoria de documentació de la tramesa"
 
 msgid "submission.upload.finalDraft"
-msgstr "Puja un fitxer"
+msgstr "Carregar arxiu"
 
 msgid "submission.upload.copyeditedVersion"
-msgstr "Carrega un fitxer corregit"
+msgstr "Carregar l'arxiu corregit"
 
 msgid "submission.upload.uploadFiles"
-msgstr "Carrega fitxers"
+msgstr "Carregar arxius"
 
 msgid "submission.upload.response.description"
 msgstr ""
@@ -1302,13 +1302,13 @@ msgstr ""
 "següent i/o carregueu una còpia anotada del fitxer (o d'un altre fitxer)."
 
 msgid "submission.upload.productionReady"
-msgstr "Carrega un fitxer de producció llest"
+msgstr "Carregar un arxiu llest per a la producció"
 
 msgid "submission.upload.proof"
-msgstr "Carregueu un arxiu llest per a publicació"
+msgstr "Carregar un arxiu llest per a la publicació"
 
 msgid "submission.upload.noAvailableReviewFiles"
-msgstr "No hi ha fitxers pendents de revisar en aquest moment."
+msgstr "No teniu arxius pendents de revisar en aquest moment."
 
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "S'han sol·licitat les revisions."
@@ -1395,10 +1395,10 @@ msgstr ""
 "ària també té tasques d'auditoria pendents, també s'eliminaran."
 
 msgid "editor.submission.addStageParticipant.form.userGroupRequired"
-msgstr "Heu de seleccionar un grup d'usuaris."
+msgstr "Heu de seleccionar un grup d'usuaris/àries."
 
 msgid "editor.submission.addStageParticipant.form.userRequired"
-msgstr "Heu de seleccionar un usuari/ària per al grup d'usuaris especificat."
+msgstr "Heu de seleccionar un usuari/ària del grup especificat."
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
 msgstr ""
@@ -1462,7 +1462,7 @@ msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
 
 msgid "editor.submission.decision.decline"
-msgstr "Rebutja la tramesa"
+msgstr "Rebutjar la tramesa"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
@@ -1774,10 +1774,10 @@ msgid "submission.actionNeeded"
 msgstr "Necessita acció"
 
 msgid "reviewer.submission.reviewFiles"
-msgstr "Fitxers de revisió"
+msgstr "Arxius per revisar"
 
 msgid "submission.submit.currentFile"
-msgstr "Fitxer actual"
+msgstr "Arxiu actual"
 
 msgid "submission.finalDraft"
 msgstr "Esborranys finals"
@@ -2712,4 +2712,3 @@ msgstr ""
 
 msgid "submission.submissionFile"
 msgstr "Fitxer de la tramesa"
-

@@ -1,11 +1,12 @@
 # Jordi LC <jordi.lacruz@uab.cat>, 2021, 2024.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
 "PO-Revision-Date: 2024-04-26 18:03+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "reviewer/es/>\n"
 "Language: es\n"
@@ -57,7 +58,7 @@ msgid "reviewer.submission.continueToStepThree"
 msgstr "Continuar con Paso #3"
 
 msgid "reviewer.submission.submitReview"
-msgstr "Presentar solicitud"
+msgstr "Enviar revisión"
 
 msgid "reviewer.submission.saveReviewForLater"
 msgstr "Guardar para más tarde"

@@ -2,7 +2,7 @@
 # "M. Ali" <vorteem@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-20 02:39+0000\n"
+"PO-Revision-Date: 2024-04-26 18:03+0000\n"
 "Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ar/"
 ">\n"
@@ -867,3 +867,22 @@ msgstr "تعطيل إحصائيات التحكيم المجمعة"
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr "استعمال الموقع بمثابة المنصة لكل المجلات."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr "تعذر نقل الملف {$file} من {$dispatchFilePath} إلى {$archivedFilePath}."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr "يتعذر تشغيل مهام الطابور نظرًا لتمكين وضعية صندوق الرمل في التطبيق."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "الملف {$file} غير موجود."
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "الملف {$filename} تم نقله إلى مجلد الترحيل."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "إعادة تشغيل برامج تنفيذ الطابور بعد مهمتهم الحالية."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"برامج تنفيذ مهام الطابور ستنهي عملها بهدوء بعد إكمالها تنفيذ المهمة الحالية."

@@ -168,7 +168,7 @@ class Schema extends \PKP\core\maps\Schema
         $associatedReviewAssignments = $this->reviewAssignments->groupBy(fn (ReviewAssignment $reviewAssignment, int $key) =>
             $reviewAssignment->getData('submissionId'));
         $associatedStageAssignments = $this->stageAssignments->groupBy(fn (StageAssignment $stageAssignment, int $key) =>
-            $stageAssignment->getData('submissionId'));
+            $stageAssignment->submissionId);
 
         return $collection->map(
             fn ($item) =>
@@ -204,7 +204,7 @@ class Schema extends \PKP\core\maps\Schema
         );
         $associatedStageAssignment = $this->stageAssignments->groupBy(
             fn (StageAssignment $stageAssignment, int $key) =>
-            $stageAssignment->getData('submissionId')
+            $stageAssignment->submissionId
         );
 
         return $collection->map(
@@ -264,7 +264,7 @@ class Schema extends \PKP\core\maps\Schema
         );
         $associatedStageAssignment = $this->stageAssignments->groupBy(
             fn (StageAssignment $stageAssignment, int $key) =>
-            $stageAssignment->getData('submissionId')
+            $stageAssignment->submissionId
         );
 
         return $collection->map(
@@ -419,7 +419,6 @@ class Schema extends \PKP\core\maps\Schema
             $reviews[] = [
                 'id' => (int) $reviewAssignment->getId(),
                 'isCurrentUserAssigned' => $currentUser->getId() == (int) $reviewAssignment->getReviewerId(),
-                'dateAssigned' => $reviewAssignment->getData('dateAssigned'),
                 'statusId' => (int) $reviewAssignment->getStatus(),
                 'status' => __($reviewAssignment->getStatusKey()),
                 'dateDue' => $dateDue,
@@ -625,7 +624,7 @@ class Schema extends \PKP\core\maps\Schema
         }
 
         foreach ($stageAssignments as $stageAssignment) {
-            if (!$stageAssignment->getRecommendOnly()) {
+            if (!$stageAssignment->recommendOnly) {
                 return true;
             }
         }
@@ -648,14 +647,14 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @param Enumerable<Submission> $submissions
      *
-     * @return LazyCollection<StageAssignment> The collection of stage assignments associated with submissions
+     * @return Collection<StageAssignment> The collection of stage assignments associated with submissions
      */
-    protected function getStageAssignmentsBySubmissions(Enumerable $submissions, array $roleIds = []): LazyCollection
+    protected function getStageAssignmentsBySubmissions(Enumerable $submissions, array $roleIds = []): Collection
     {
         $submissionIds = $submissions->map(fn (Submission $submission) => $submission->getId())->toArray();
-
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        return $stageAssignmentDao->getCurrentBySubmissionIds($submissionIds, $roleIds)->remember();
+        return StageAssignment::withSubmissionIds($submissionIds)
+            ->withRoleIds($roleIds)
+            ->get();
     }
 
     /**
@@ -678,7 +677,7 @@ class Schema extends \PKP\core\maps\Schema
      */
     protected function areRecommendationsIn(ReviewRound $currentReviewRound, Enumerable $stageAssignments): ?bool
     {
-        $hasDecidingEditors = $stageAssignments->first(fn (StageAssignment $stageAssignment) => $stageAssignment->getData('recommendOnly'));
+        $hasDecidingEditors = $stageAssignments->first(fn (StageAssignment $stageAssignment) => $stageAssignment->recommendOnly);
         if (!$hasDecidingEditors) {
             return null;
         }

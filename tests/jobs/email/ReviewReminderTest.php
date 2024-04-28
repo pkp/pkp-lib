@@ -13,7 +13,6 @@
 namespace PKP\tests\classes\core;
 
 use Mockery;
-use APP\core\Services;
 use PKP\tests\PKPTestCase;
 use PKP\jobs\email\ReviewReminder;
 use Illuminate\Support\Facades\Mail;
@@ -88,14 +87,39 @@ class ReviewReminderTest extends PKPTestCase
      */
     public function testRunSerializedJob(): void
     {
-        Mail::fake();
-        
-        $reviewReminderJob = unserialize($this->serializedJobData);
+        // Fake the mail facade
+        Mail::fake();        
 
         // need to mock request so that a valid context information is set and can be retrived
-        $contextService = Services::get("context");
-        $context = $contextService->get($reviewReminderJob->contextId);
-        $this->mockRequest($context->getPath() . '/test-page/test-op');
+        $this->mockRequest();
+
+        // Need to replace the container binding of `context` with a mock object
+        \APP\core\Services::register(
+            new class extends \APP\services\OJSServiceProvider
+            {
+                public function register(\Pimple\Container $pimple)
+                {
+                    $pimple['context'] = Mockery::mock(\APP\services\ContextService::class)
+                        ->makePartial()
+                        ->shouldReceive('get')
+                        ->withAnyArgs()
+                        ->andReturn(
+                            // Mock the context(Journal/Press/Server) object
+                            Mockery::mock(\APP\journal\Journal::class)
+                                ->makePartial()
+                                ->shouldReceive([
+                                    'getPath' => '',
+                                    'getId' => 0,
+                                ])
+                                ->withAnyArgs()
+                                ->getMock()
+                        )
+                        ->getMock();
+                }
+            }
+        );
+
+        $reviewReminderJob = unserialize($this->serializedJobData);
 
         $publicationMock = Mockery::mock(\APP\publication\Publication::class)
             ->makePartial()

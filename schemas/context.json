@@ -267,7 +267,7 @@
 				"nullable"
 			]
 		},
-		"editorialTeam": {
+		"editorialHistory": {
 			"type": "string",
 			"multilingual": true,
 			"validation": [

@@ -40,6 +40,10 @@
 			</ul>
 		{/if}
 	{/foreach}
+
+	{include file="frontend/components/editLink.tpl" page="management" op="settings" path="context" anchor="masthead" sectionTitleKey="common.editorialHistory"}
+	{$currentContext->getLocalizedData('editorialHistory')}
+
 </div><!-- .page -->
 
 {include file="frontend/components/footer.tpl"}

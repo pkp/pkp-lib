@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2024-04-24 16:12+0000\n"
+"PO-Revision-Date: 2024-04-29 10:55+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "es/>\n"
@@ -705,7 +705,7 @@ msgid "navigation.tools.jobs.failed"
 msgstr "Trabajos fallidos"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr "Detalles de los trabajos fallidos"
+msgstr "Detalles del trabajo fallido"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
@@ -719,7 +719,7 @@ msgid "navigation.tools.jobs.failed.view"
 msgstr "Ver trabajos fallidos"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr "Ver detalles del trabajo fallido:{$id}"
+msgstr "Ver trabajo fallido: {$id} detalles"
 
 msgid "admin.job.failed.list.attribute"
 msgstr "Atributo"
@@ -746,10 +746,10 @@ msgid "admin.jobs.list.createdAt"
 msgstr "Creado en"
 
 msgid "admin.jobs.list.failedAt"
-msgstr "Error"
+msgstr "Error en"
 
 msgid "admin.jobs.list.payload"
-msgstr "Carga"
+msgstr "Carga útil"
 
 msgid "admin.jobs.list.exception"
 msgstr "Excepción"
@@ -758,7 +758,7 @@ msgid "admin.jobs.list.actions"
 msgstr "Acciones"
 
 msgid "admin.jobs.failedAt"
-msgstr "Creado en {$failedAt}"
+msgstr "Error en {$failedAt}"
 
 msgid "admin.jobs.createdAt"
 msgstr "Creado en {$createdAt}"
@@ -767,11 +767,11 @@ msgid "admin.jobs.failed.action.redispatch"
 msgstr "Intentar de nuevo"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr "Añadir a la cola los trabajos fallidos"
+msgstr "Volver a poner a la cola los trabajos fallidos"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
-"El trabajo que carga los datos estadísticos del archivo {$archivo} ha "
+"El trabajo que carga los datos estadísticos de uso del archivo {$file} ha "
 "fallado, y el archivo no se pudo mover de {$archivedFilePath} a "
 "{$stagingPath}."
 

@@ -58,6 +58,10 @@ class PKPNavigationMenuService
                 'description' => __('manager.navigationMenus.about.description'),
                 'conditionalWarning' => __('manager.navigationMenus.about.conditionalWarning'),
             ],
+            NavigationMenuItem::NMI_TYPE_MASTHEAD => [
+                'title' => __('common.editorialMasthead'),
+                'description' => __('manager.navigationMenus.editorialMasthead.description'),
+            ],
             NavigationMenuItem::NMI_TYPE_EDITORIAL_TEAM => [
                 'title' => __('about.editorialTeam'),
                 'description' => __('manager.navigationMenus.editorialTeam.description'),
@@ -249,6 +253,16 @@ class PKPNavigationMenuService
                         null,
                         'about',
                         'submissions',
+                        null
+                    ));
+                    break;
+                case NavigationMenuItem::NMI_TYPE_MASTHEAD:
+                    $navigationMenuItem->setUrl($dispatcher->url(
+                        $request,
+                        PKPApplication::ROUTE_PAGE,
+                        null,
+                        'about',
+                        'editorialMasthead',
                         null
                     ));
                     break;
@@ -654,9 +668,9 @@ class PKPNavigationMenuService
     {
         $request = Application::get()->getRequest();
 
-        $page = & $args[0];
-        $op = & $args[1];
-        $handler = & $args[3];
+        $page = &$args[0];
+        $op = &$args[1];
+        $handler = &$args[3];
 
         // Construct a path to look for
         $path = $page;

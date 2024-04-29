@@ -23,6 +23,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     // Types for all default navigationMenuItems
     public const NMI_TYPE_ABOUT = 'NMI_TYPE_ABOUT';
     public const NMI_TYPE_SUBMISSIONS = 'NMI_TYPE_SUBMISSIONS';
+    public const NMI_TYPE_MASTHEAD = 'NMI_TYPE_MASTHEAD';
     public const NMI_TYPE_EDITORIAL_TEAM = 'NMI_TYPE_EDITORIAL_TEAM';
     public const NMI_TYPE_CONTACT = 'NMI_TYPE_CONTACT';
     public const NMI_TYPE_ANNOUNCEMENTS = 'NMI_TYPE_ANNOUNCEMENTS';
@@ -311,6 +312,7 @@ if (!PKP_STRICT_MODE) {
     foreach ([
         'NMI_TYPE_ABOUT',
         'NMI_TYPE_SUBMISSIONS',
+        'NMI_TYPE_MASTHEAD',
         'NMI_TYPE_EDITORIAL_TEAM',
         'NMI_TYPE_CONTACT',
         'NMI_TYPE_ANNOUNCEMENTS',

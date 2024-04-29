@@ -178,4 +178,23 @@ class DAO extends EntityDAO
     {
         parent::_delete($reviewAssignment);
     }
+
+    /**
+     * Get IDs of the reviewers that have completed a reivew for the given context in the given year.
+     *
+     * @return Collection<int,int>
+     */
+    public function getReviewerIdsByCompletedYear(int $contextId, string $year): Collection
+    {
+        return DB::table($this->table)
+            ->whereIn(
+                'submission_id',
+                fn (Builder $q) => $q
+                    ->select('s.submission_id')
+                    ->from('submissions as s')
+                    ->where('s.context_id', $contextId)
+            )
+            ->whereYear('date_completed', $year)
+            ->pluck('reviewer_id');
+    }
 }

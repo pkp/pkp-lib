@@ -118,11 +118,14 @@ class PKPReviewController extends PKPBaseController
 
         $submission = Repo::submission()->get($submissionId, $contextId);
         $publication = $submission->getCurrentPublication();
-        //$publicationTitlePrefix = $publication->getData('prefix');
         $publicationTitle = $publication->getData('title');
 
-        $section = Repo::section()->get($submission->getSectionId());
-        $publicationType = $section->getData('title');
+        $publicationType = null;
+        if ($submission->getSectionId()) {
+            $section = Repo::section()->get($submission->getSectionId());
+            $publicationType = $section->getData('title');
+        }
+        
         $publicationAbstract = $publication->getData('abstract');
         $publicationKeywords = $publication->getData('keywords');
 
@@ -172,27 +175,31 @@ class PKPReviewController extends PKPBaseController
             ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT])
             ->filterByAssoc(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT, [$reviewAssignmentId])
             ->getMany();
+        
         $attachmentsProps = Repo::submissionFile()
             ->getSchemaMap()
             ->mapMany($attachments, $fileGenres)
             ->toArray();
 
+        $stageId = $reviewAssignment->getStageId();
         $lastReviewAssignment = Repo::reviewAssignment()->getCollector()
             ->filterByContextIds([$contextId])
             ->filterBySubmissionIds([$submissionId])
             ->filterByReviewerIds([$reviewerId])
+            ->filterByStageId($stageId)
             ->filterByLastReviewRound(true)
             ->getMany()
             ->first();
 
         $filesProps = [];
-        if ($lastReviewAssignment->getDeclined() != 1) {
+        if ($lastReviewAssignment && $lastReviewAssignment->getDeclined() != 1) {
             $files = Repo::submissionFile()->getCollector()
                 ->filterBySubmissionIds([$submissionId])
                 ->filterByReviewRoundIds([$reviewRoundId])
                 ->filterByAssoc(PKPApplication::ASSOC_TYPE_REVIEW_ROUND, [$reviewAssignmentId])
                 ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_FILE])
                 ->getMany();
+
             $filesProps = Repo::submissionFile()
                 ->getSchemaMap()
                 ->mapMany($files, $fileGenres)

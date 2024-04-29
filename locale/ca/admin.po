@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2024-04-24 16:12+0000\n"
+"PO-Revision-Date: 2024-04-29 10:55+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ca/>\n"
@@ -646,120 +646,127 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
+"Tasca de prova enviada que està destinada a tenir èxit a la cua anomenada "
+"{$queueName}"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Opció invàlida per a una tasca de prova. L'opció '--only=' només admet els "
+"valors 'failed' o 'success'."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "ID de tasca invàlid"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "La tasca ha estat eliminada!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "No s'han trobat tasques per eliminar."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Ha estat impossible eliminar totes les tasques."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "S'han eliminat totes les tasques!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"S'han eliminat correctament {$jobsCount} tasques errònies del llistat "
+"d'errors."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "S'han reenviat correctament {$jobsCount} tasques a la cua."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Hi ha {$total} tasques errònies"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Hi ha {$total} tasques en cua"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "L'opció {$option} no existeix."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Us referíeu a un dels següents?"
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Hi ha un total de <strong>{$total}</strong> tasques en cua"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Hi ha un total de <strong>{$total}</strong> tasques errònies."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Veure les tasques en cua"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Tasques"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Tasques errònies"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Detalls de la tasca errònia"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Veure totes les tasques en cua del sistema i rastrejar els intents erronis."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Veure tasques"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Veure tasques errònies"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Veure la tasca errònia: {$id} detalls"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Atribut"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Valor de l'atribut"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Tasca"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Cua"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Connexió"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Intents"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Creat a"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Error a"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Càrrega útil"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Excepció"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Accions"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Error a {$failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Creat a {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Torneu a provar-ho"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Tornar a posar a la cua totes les tasques errònies"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""

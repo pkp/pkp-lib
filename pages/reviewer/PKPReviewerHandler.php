@@ -69,6 +69,7 @@ class PKPReviewerHandler extends Handler
             ->filterByContextIds([$request->getContext()->getId()])
             ->filterBySubmissionIds([$submissionId])
             ->filterByReviewerIds([$reviewAssignment->getReviewerId()])
+            ->filterByStageId($reviewAssignment->getStageId())
             ->getMany()
             ->toArray();
         $reviewRoundHistories = [];

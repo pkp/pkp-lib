@@ -21,7 +21,7 @@
 		{$message}
 	</span>
 	<div class="details">
-		{if $isMultiContext}
+		{if $isMultiContext && $context}
 			<span class="acronym">
 				{$context->getLocalizedAcronym()|escape}
 			</span>

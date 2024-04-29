@@ -19,9 +19,9 @@ namespace PKP\core;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
+use Illuminate\Contracts\Session\Session;
 use PKP\config\Config;
 use PKP\context\Context;
-use PKP\core\PKPSessionGuard;
 use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
@@ -29,7 +29,6 @@ use PKP\security\Validation;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use PKP\user\User;
-use Illuminate\Contracts\Session\Session;
 
 class PKPRequest
 {
@@ -131,7 +130,7 @@ class PKPRequest
         Application::get()->getRequest()->getSessionGuard()->sendCookies();
 
         header("Location: {$url}");
-        
+
         exit;
     }
 
@@ -774,11 +773,12 @@ class PKPRequest
      * @param mixed $path string or array containing path info for redirect.
      * @param array $params Map of name => value pairs for additional parameters
      * @param string $anchor Name of desired anchor on the target page
+     * @param string $urlLocaleForPage Whether or not to override locale for this URL; Use '' to exclude.
      */
-    public function redirect($context = null, $page = null, $op = null, $path = null, $params = null, $anchor = null)
+    public function redirect($context = null, $page = null, $op = null, $path = null, $params = null, $anchor = null, ?string $urlLocaleForPage = null)
     {
         $dispatcher = $this->getDispatcher();
-        $this->redirectUrl($dispatcher->url($this, PKPApplication::ROUTE_PAGE, $context, $page, $op, $path, $params, $anchor));
+        $this->redirectUrl($dispatcher->url($this, PKPApplication::ROUTE_PAGE, $context, $page, $op, $path, $params, $anchor, false, $urlLocaleForPage));
     }
 
     /**

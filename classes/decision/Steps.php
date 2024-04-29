@@ -16,9 +16,8 @@ namespace PKP\decision;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\context\Context;
-use PKP\db\DAORegistry;
+use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
-use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\user\User;
 
@@ -77,18 +76,14 @@ class Steps
      */
     public function getStageParticipants(int $roleId): array
     {
-        /** @var StageAssignmentDAO $stageAssignmentDao  */
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-        $userIds = [];
-        $result = $stageAssignmentDao->getBySubmissionAndRoleIds(
-            $this->submission->getId(),
-            [$roleId],
-            $this->decisionType->getStageId()
-        );
-        /** @var StageAssignment $stageAssignment */
-        while ($stageAssignment = $result->next()) {
-            $userIds[] = (int) $stageAssignment->getUserId();
-        }
+        // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
+        $userIds = StageAssignment::withSubmissionIds([$this->submission->getId()])
+            ->withRoleIds([$roleId])
+            ->withStageIds([$this->decisionType->getStageId()])
+            ->get()
+            ->pluck('userId')
+            ->all();
+
         $users = [];
         foreach (array_unique($userIds) as $authorUserId) {
             $users[] = Repo::user()->get($authorUserId);
@@ -118,9 +113,15 @@ class Steps
      */
     public function getDecidingEditors(): array
     {
-        /** @var StageAssignmentDAO $stageAssignmentDao  */
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-        $userIds = $stageAssignmentDao->getDecidingEditorIds($this->submission->getId(), $this->decisionType->getStageId());
+        // Replaces StageAssignmentDAO::getDecidingEditorIds
+        $userIds = StageAssignment::withSubmissionIds([$this->submission->getId()])
+            ->withStageIds([$this->decisionType->getStageId()])
+            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+            ->withRecommendOnly(false)
+            ->get()
+            ->pluck('userId')
+            ->all();
+
         $users = [];
         foreach (array_unique($userIds) as $authorUserId) {
             $users[] = Repo::user()->get($authorUserId);

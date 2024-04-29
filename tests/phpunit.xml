@@ -15,6 +15,12 @@
     processIsolation="false"
     stopOnFailure="true">
     <testsuites>
+        <testsuite name="LibraryJobs">
+            <directory suffix="Test.php">jobs</directory>
+        </testsuite>
+        <testsuite name="ApplicationJobs">
+            <directory suffix="Test.php">../../../tests/jobs</directory>
+        </testsuite>
         <testsuite name="LibraryClasses">
             <directory suffix="Test.php">classes</directory>
         </testsuite>

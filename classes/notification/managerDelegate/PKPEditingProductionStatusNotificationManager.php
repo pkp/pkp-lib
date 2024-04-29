@@ -25,7 +25,8 @@ use PKP\db\DAORegistry;
 use PKP\notification\NotificationDAO;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\security\Role;
+use PKP\stageAssignment\StageAssignment;
 use PKP\submissionFile\SubmissionFile;
 
 class PKPEditingProductionStatusNotificationManager extends NotificationManagerDelegate
@@ -88,8 +89,11 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
         $submission = Repo::submission()->get($submissionId);
         $contextId = $submission->getData('contextId');
 
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $editorStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submissionId, $submission->getData('stageId'));
+        // Replaces StageAssignmentDAO::getEditorsAssignedToStage
+        $editorStageAssignments = StageAssignment::withSubmissionIds([$submissionId])
+            ->withStageIds([$submission->getData('stageId')])
+            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+            ->get();
 
         // Get the copyediting and production discussions
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var \PKP\query\QueryDAO $queryDao */
@@ -118,12 +122,12 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                 case WORKFLOW_STAGE_ID_PRODUCTION:
                     if ($notificationType == PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR || $notificationType == PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS) {
                         // Remove 'assign a copyeditor' and 'awaiting copyedits' notification
-                        $this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
+                        $this->_removeNotification($submissionId, $editorStageAssignment->userId, $notificationType, $contextId);
                     } else {
                         // If there is a representation
                         if (count($representations)) {
                             // Remove 'assign a production user' and 'awaiting representations' notification
-                            $this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
+                            $this->_removeNotification($submissionId, $editorStageAssignment->userId, $notificationType, $contextId);
                         } else {
                             // Remove 'assign a production user' and 'awaiting representations' notification
                             // If a production user is assigned i.e. there is a production discussion
@@ -133,13 +137,13 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                                     $this->_createNotification(
                                         $request,
                                         $submissionId,
-                                        $editorStageAssignment->getUserId(),
+                                        $editorStageAssignment->userId,
                                         $notificationType,
                                         $contextId
                                     );
                                 } elseif ($notificationType == PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER) {
                                     // Remove 'assign a production user' notification
-                                    $this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
+                                    $this->_removeNotification($submissionId, $editorStageAssignment->userId, $notificationType, $contextId);
                                 }
                             } else {
                                 if ($notificationType == PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER) {
@@ -147,13 +151,13 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                                     $this->_createNotification(
                                         $request,
                                         $submissionId,
-                                        $editorStageAssignment->getUserId(),
+                                        $editorStageAssignment->userId,
                                         $notificationType,
                                         $contextId
                                     );
                                 } elseif ($notificationType == PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS) {
                                     // Remove 'awaiting representations' notification
-                                    $this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
+                                    $this->_removeNotification($submissionId, $editorStageAssignment->userId, $notificationType, $contextId);
                                 }
                             }
                         }
@@ -162,7 +166,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                 case WORKFLOW_STAGE_ID_EDITING:
                     if ($countCopyeditedFiles) {
                         // Remove 'assign a copyeditor' and 'awaiting copyedits' notification
-                        $this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
+                        $this->_removeNotification($submissionId, $editorStageAssignment->userId, $notificationType, $contextId);
                     } else {
                         // If a copyeditor is assigned i.e. there is a copyediting discussion
                         $editingQueries = $queryDao->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_EDITING);
@@ -172,13 +176,13 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                                 $this->_createNotification(
                                     $request,
                                     $submissionId,
-                                    $editorStageAssignment->getUserId(),
+                                    $editorStageAssignment->userId,
                                     $notificationType,
                                     $contextId
                                 );
                             } elseif ($notificationType == PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR) {
                                 // Remove 'assign a copyeditor' notification
-                                $this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
+                                $this->_removeNotification($submissionId, $editorStageAssignment->userId, $notificationType, $contextId);
                             }
                         } else {
                             if ($notificationType == PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR) {
@@ -186,13 +190,13 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                                 $this->_createNotification(
                                     $request,
                                     $submissionId,
-                                    $editorStageAssignment->getUserId(),
+                                    $editorStageAssignment->userId,
                                     $notificationType,
                                     $contextId
                                 );
                             } elseif ($notificationType == PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS) {
                                 // Remove 'awaiting copyedits' notification
-                                $this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
+                                $this->_removeNotification($submissionId, $editorStageAssignment->userId, $notificationType, $contextId);
                             }
                         }
                     }

@@ -19,9 +19,8 @@ namespace PKP\security\authorization;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\db\DAORegistry;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignment;
 
 class StageRolePolicy extends AuthorizationPolicy
 {
@@ -72,15 +71,16 @@ class StageRolePolicy extends AuthorizationPolicy
             if ($this->_allowRecommendOnly) {
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
-            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-            $result = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId(
-                $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION)->getId(),
-                Application::get()->getRequest()->getUser()->getId(),
-                $this->_stageId
-            );
-            while ($stageAssignment = $result->next()) {
-                $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
-                if (in_array($userGroup->getRoleId(), $this->_roleIds) && !$stageAssignment->getRecommendOnly()) {
+
+            // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
+            $stageAssignments = StageAssignment::withSubmissionIds([$this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION)->getId()])
+                ->withStageIds([$this->_stageId])
+                ->withUserId(Application::get()->getRequest()->getUser()->getId())
+                ->get();
+
+            foreach ($stageAssignments as $stageAssignment) {
+                $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
+                if (in_array($userGroup->getRoleId(), $this->_roleIds) && !$stageAssignment->recommendOnly) {
                     return AuthorizationPolicy::AUTHORIZATION_PERMIT;
                 }
             }
@@ -92,17 +92,17 @@ class StageRolePolicy extends AuthorizationPolicy
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
             // Check stage assignments of a user with a managerial role
-            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-            $result = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId(
-                $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION)->getId(),
-                Application::get()->getRequest()->getUser()->getId(),
-                $this->_stageId
-            );
+            // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
+            $stageAssignments = StageAssignment::withSubmissionIds([$this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION)->getId()])
+                ->withStageIds([$this->_stageId])
+                ->withUserId(Application::get()->getRequest()->getUser()->getId())
+                ->get();
+
             $noResults = true;
-            while ($stageAssignment = $result->next()) {
+            foreach ($stageAssignments as $stageAssignment) {
                 $noResults = false;
-                $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
-                if ($userGroup->getRoleId() == Role::ROLE_ID_MANAGER && !$stageAssignment->getRecommendOnly()) {
+                $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
+                if ($userGroup->getRoleId() == Role::ROLE_ID_MANAGER && !$stageAssignment->recommendOnly) {
                     return AuthorizationPolicy::AUTHORIZATION_PERMIT;
                 }
             }

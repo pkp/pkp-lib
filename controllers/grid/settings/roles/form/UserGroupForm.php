@@ -26,8 +26,7 @@ use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
-use PKP\security\Validation;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignment;
 use PKP\userGroup\relationships\UserGroupStage;
 use PKP\workflow\WorkflowStageDAO;
 
@@ -222,14 +221,14 @@ class UserGroupForm extends Form
             if (in_array($userGroup->getRoleId(), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
                 $userGroup->setPermitMetadataEdit(true);
             } else {
-                $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-                $allUserAssignments = $stageAssignmentDao
-                    ->getByUserGroupId($userGroupId, $this->getContextId())
-                    ->toAssociativeArray();
+                $permitMetadataEdit = $userGroup->getPermitMetadataEdit();
 
-                foreach ($allUserAssignments as $userAssignment) {
-                    $userAssignment->setCanChangeMetadata($userGroup->getPermitMetadataEdit());
-                    $stageAssignmentDao->updateObject($userAssignment);
+                $stageAssignments = StageAssignment::withUserGroupId($userGroupId)
+                    ->withContextId($this->getContextId())
+                    ->get();
+
+                foreach ($stageAssignments as $stageAssignment) {
+                    $stageAssignment->update(['canChangeMetadata' => $permitMetadataEdit]);
                 }
             }
 

@@ -25,6 +25,7 @@ use Exception;
 use PKP\cache\CacheManager;
 use PKP\cache\FileCache;
 use PKP\config\Config;
+use PKP\facades\Locale;
 use SplFileInfo;
 
 define('PKP_LIB_PATH', 'lib/pkp');
@@ -153,14 +154,26 @@ class Core
     }
 
     /**
-     * Get the page present into the passed url information. It expects that urls were built using the system.
+     * Get localization path present into the passed
+     * url information.
+     */
+    public static function getLocalization(string $urlInfo): string
+    {
+        $locale = self::_getUrlComponents($urlInfo, 0);
+        return Locale::isLocaleValid($locale) ? $locale : '';
+    }
+
+    /**
+     * Get the page present into
+     * the passed url information. It expects that urls
+     * were built using the system.
      *
      * @param $urlInfo Full url or just path info.
      * @param $userVars (optional) Pass GET variables if needed (for testing only).
      */
     public static function getPage(string $urlInfo, array $userVars = []): string
     {
-        $page = static::_getUrlComponents($urlInfo, 0, 'page', $userVars);
+        $page = static::_getUrlComponents($urlInfo, self::_getOffset($urlInfo, 0), 'page', $userVars);
         return static::cleanFileVar($page ?? '');
     }
 
@@ -172,7 +185,7 @@ class Core
      */
     public static function getOp(string $urlInfo, array $userVars = []): string
     {
-        $operation = static::_getUrlComponents($urlInfo, 1, 'op', $userVars);
+        $operation = static::_getUrlComponents($urlInfo, self::_getOffset($urlInfo, 1), 'op', $userVars);
         return static::cleanFileVar($operation ?: 'index');
     }
 
@@ -186,7 +199,7 @@ class Core
      */
     public static function getArgs(string $urlInfo, array $userVars = []): array
     {
-        return static::_getUrlComponents($urlInfo, 2, 'path', $userVars);
+        return static::_getUrlComponents($urlInfo, self::_getOffset($urlInfo, 2), 'path', $userVars);
     }
 
     /**
@@ -450,6 +463,14 @@ class Core
         }
 
         return $component;
+    }
+
+    /**
+     * Get offset. Add 1 extra if localization present in URL
+     */
+    private static function _getOffset(string $urlInfo, int $varOffset): int
+    {
+        return $varOffset + (int) !!self::getLocalization($urlInfo);
     }
 
     /**

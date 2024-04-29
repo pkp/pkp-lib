@@ -41,15 +41,15 @@
 		/** create props for Vue.js dialog component */
 		this.dialogProps = {
 			title: options.title,
-			message: options.dialogText,    
+			message: options.dialogText,
 			actions: [],
-			closeLegacyHandler: this.callbackWrapper(this.modalClose),
+			closeLegacyHandler: this.callbackWrapper(this.modalClose)
 		};
 
 		if (options.okButton) {
 			this.dialogProps.actions.push({
 				label: options.okButton,
-				callback: this.callbackWrapper(this.modalConfirm),
+				callback: this.callbackWrapper(this.modalConfirm)
 			});
 		}
 
@@ -57,7 +57,7 @@
 			this.dialogProps.actions.push({
 				label: options.cancelButton,
 				isWarnable: true,
-				callback: this.callbackWrapper(this.modalClose),
+				callback: this.callbackWrapper(this.modalClose)
 			});
 		}
 
@@ -130,7 +130,7 @@
 
 		this.parent('modalOpen', $handledElement);
 		pkp.eventBus.$emit('open-dialog-vue', {
-			dialogProps: this.dialogProps,
+			dialogProps: this.dialogProps
 		});
 	};
 

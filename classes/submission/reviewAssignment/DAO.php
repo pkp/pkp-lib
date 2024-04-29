@@ -15,13 +15,14 @@ namespace PKP\submission\reviewAssignment;
 
 use APP\facades\Repo;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
-use Illuminate\Support\Collection;
 
 /**
  * @template T of ReviewAssignment
+ *
  * @extends EntityDAO<T>
  */
 class DAO extends EntityDAO
@@ -53,6 +54,7 @@ class DAO extends EntityDAO
         'reminderWasAutomatic' => 'reminder_was_automatic',
         'declined' => 'declined',
         'cancelled' => 'cancelled',
+        'dateCancelled' => 'date_cancelled',
         'dateRated' => 'date_rated',
         'dateReminded' => 'date_reminded',
         'quality' => 'quality',
@@ -81,7 +83,7 @@ class DAO extends EntityDAO
     {
         return DB::table($this->table)
             ->where($this->primaryKeyColumn, $id)
-            ->when($submissionId !== null, fn(Builder $query) => $query->where('submission_id', $submissionId))
+            ->when($submissionId !== null, fn (Builder $query) => $query->where('submission_id', $submissionId))
             ->exists();
     }
 
@@ -92,7 +94,7 @@ class DAO extends EntityDAO
     {
         $row = DB::table($this->table)
             ->where($this->primaryKeyColumn, $id)
-            ->when($submissionId !== null, fn(Builder $query) => $query->where('submission_id', $submissionId))
+            ->when($submissionId !== null, fn (Builder $query) => $query->where('submission_id', $submissionId))
             ->first();
 
         return $row ? $this->fromRow($row) : null;
@@ -132,7 +134,7 @@ class DAO extends EntityDAO
             ->getQueryBuilder()
             ->get();
 
-        return LazyCollection::make(function() use ($rows) {
+        return LazyCollection::make(function () use ($rows) {
             foreach ($rows as $row) {
                 yield $row->review_id => $this->fromRow($row);
             }
@@ -175,5 +177,24 @@ class DAO extends EntityDAO
     public function delete(ReviewAssignment $reviewAssignment)
     {
         parent::_delete($reviewAssignment);
+    }
+
+    /**
+     * Get IDs of the reviewers that have completed a reivew for the given context in the given year.
+     *
+     * @return Collection<int,int>
+     */
+    public function getReviewerIdsByCompletedYear(int $contextId, string $year): Collection
+    {
+        return DB::table($this->table)
+            ->whereIn(
+                'submission_id',
+                fn (Builder $q) => $q
+                    ->select('s.submission_id')
+                    ->from('submissions as s')
+                    ->where('s.context_id', $contextId)
+            )
+            ->whereYear('date_completed', $year)
+            ->pluck('reviewer_id');
     }
 }

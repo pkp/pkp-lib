@@ -1,5 +1,5 @@
 {**
- * templates/submission/review-editors-step.tpl
+ * templates/submission/review-editors.tpl
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2003-2022 John Willinsky

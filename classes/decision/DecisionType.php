@@ -34,7 +34,6 @@ use PKP\notification\NotificationDAO;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
-use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\GenreDAO;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -259,15 +258,13 @@ abstract class DecisionType
      */
     protected function getAssignedAuthorIds(Submission $submission): array
     {
-        $userIds = [];
-        /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
-        $result = $stageAssignmentDao->getBySubmissionAndRoleIds($submission->getId(), [Role::ROLE_ID_AUTHOR], $this->getStageId());
-        /** @var StageAssignment $stageAssignment */
-        while ($stageAssignment = $result->next()) {
-            $userIds[] = (int) $stageAssignment->getUserId();
-        }
-        return $userIds;
+        // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
+        return StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withRoleIds([Role::ROLE_ID_AUTHOR])
+            ->withStageIds([$this->getStageId()])
+            ->get()
+            ->pluck('userId')
+            ->all();
     }
 
     /**

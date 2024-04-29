@@ -16,6 +16,7 @@ namespace PKP\submission\reviewAssignment;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
+use Illuminate\Support\Collection;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\notification\NotificationDAO;
@@ -258,5 +259,15 @@ class Repository
         }
 
         return false;
+    }
+
+    /**
+     * @copydoc DAO::getReviewerIdsByCompletedYear()
+     *
+     * @return Collection<int,int>
+     */
+    public function getReviewerIdsByCompletedYear(int $contextId, string $year): Collection
+    {
+        return $this->dao->getReviewerIdsByCompletedYear($contextId, $year);
     }
 }

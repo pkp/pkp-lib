@@ -17,7 +17,6 @@
 namespace PKP\core;
 
 use APP\core\Services;
-use PKP\core\PKPSessionGuard;
 use PKP\config\Config;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
@@ -116,21 +115,21 @@ class Dispatcher
         /** @var PKPRouter */
         $router = null;
         foreach ($routerNames as $shortcut => $routerCandidateName) {
-            $routerCandidate = & $this->_instantiateRouter($routerCandidateName, $shortcut);
+            $routerCandidate = &$this->_instantiateRouter($routerCandidateName, $shortcut);
 
             // Does this router support the current request?
             if ($routerCandidate->supports($request)) {
                 // Inject router and dispatcher into request
                 $request->setRouter($routerCandidate);
                 $request->setDispatcher($this);
-                
+
                 $this->setUserResolver();
                 $this->initSession();
-                
+
                 // We've found our router and can go on
                 // to handle the request.
-                $router = & $routerCandidate;
-                $this->_router = & $router;
+                $router = &$routerCandidate;
+                $this->_router = &$router;
                 break;
             }
         }
@@ -143,7 +142,7 @@ class Dispatcher
 
         // Can we serve a cached response?
         if ($router->isCacheable($request)) {
-            $this->_requestCallbackHack = & $request;
+            $this->_requestCallbackHack = &$request;
             if (Config::getVar('cache', 'web_cache')) {
                 if ($this->_displayCached($router, $request)) {
                     exit;
@@ -200,14 +199,14 @@ class Dispatcher
                 return app()->get(\Illuminate\Http\Response::class);
             });
     }
-    
+
     /**
      * Set the user resolving logic for laravel inner use purpose
      */
     public function setUserResolver(): void
     {
         $illuminateRequest = app()->get(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
-        
+
         $illuminateRequest->setUserResolver(fn () => \APP\core\Application::get()->getRequest()->getUser());
     }
 
@@ -223,6 +222,7 @@ class Dispatcher
      * @param array $params Optional set of name => value pairs to pass as user parameters
      * @param string $anchor Optional name of anchor to add to URL
      * @param bool $escape Whether or not to escape ampersands for this URL; default false.
+     * @param string $urlLocaleForPage Whether or not to override locale for this URL; Use '' to exclude.
      *
      * @return string the URL
      */
@@ -235,14 +235,15 @@ class Dispatcher
         $path = null,
         $params = null,
         $anchor = null,
-        $escape = false
+        $escape = false,
+        ?string $urlLocaleForPage = null,
     ) {
         // Instantiate the requested router
         assert(isset($this->_routerNames[$shortcut]));
         $routerName = $this->_routerNames[$shortcut];
-        $router = & $this->_instantiateRouter($routerName, $shortcut);
+        $router = &$this->_instantiateRouter($routerName, $shortcut);
 
-        return $router->url($request, $newContext, $handler, $op, $path, $params, $anchor, $escape);
+        return $router->url($request, $newContext, $handler, $op, $path, $params, $anchor, $escape, $urlLocaleForPage);
     }
 
     //
@@ -267,7 +268,7 @@ class Dispatcher
             $router->setDispatcher($this);
 
             // Save the router instance for later re-use
-            $this->_routerInstances[$shortcut] = & $router;
+            $this->_routerInstances[$shortcut] = &$router;
         }
 
         return $this->_routerInstances[$shortcut];

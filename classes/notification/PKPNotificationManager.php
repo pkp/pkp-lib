@@ -35,7 +35,7 @@ use PKP\notification\managerDelegate\QueryNotificationManager;
 use PKP\notification\managerDelegate\SubmissionNotificationManager;
 use PKP\payment\QueuedPaymentDAO;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\workflow\WorkflowStageDAO;
 
@@ -165,10 +165,13 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 assert($notification->getAssocType() == Application::ASSOC_TYPE_REVIEW_ROUND && is_numeric($notification->getAssocId()));
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRound = $reviewRoundDao->getById($notification->getAssocId());
-                $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
                 $user = $request->getUser();
-                $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds($reviewRound->getSubmissionId(), [Role::ROLE_ID_AUTHOR], null, $user->getId());
-                $isAuthor = (bool) $stageAssignments->next();
+                // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
+                $isAuthor = StageAssignment::withSubmissionIds([$reviewRound->getSubmissionId()])
+                    ->withRoleIds([Role::ROLE_ID_AUTHOR])
+                    ->withUserId($user->getId())
+                    ->exists();
+
                 return __($reviewRound->getStatusKey($isAuthor));
             case PKPNotification::NOTIFICATION_TYPE_PAYMENT_REQUIRED:
                 return __('payment.type.publication.required');

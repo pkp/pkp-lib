@@ -23,8 +23,8 @@ namespace PKP\submission\reviewRound;
 
 use APP\decision\Decision;
 use APP\facades\Repo;
-use PKP\db\DAORegistry;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\security\Role;
+use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewRound extends \PKP\core\DataObject
@@ -196,20 +196,25 @@ class ReviewRound extends \PKP\core\DataObject
         }
 
         // Determine the round status by looking at the recommendOnly editor assignment statuses
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
         $pendingRecommendations = false;
         $recommendationsFinished = true;
         $recommendationsReady = false;
-        $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($this->getSubmissionId(), $this->getStageId());
+
+        // Replaces StageAssignmentDAO::getEditorsAssignedToStage
+        $editorsStageAssignments = StageAssignment::withSubmissionIds([$this->getSubmissionId()])
+            ->withStageIds([$this->getStageId()])
+            ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
+            ->get();
+
         foreach ($editorsStageAssignments as $editorsStageAssignment) {
-            if ($editorsStageAssignment->getRecommendOnly()) {
+            if ($editorsStageAssignment->recommendOnly) {
                 $pendingRecommendations = true;
                 // Get recommendation from the assigned recommendOnly editor
                 $decisions = Repo::decision()->getCollector()
                     ->filterBySubmissionIds([$this->getSubmissionId()])
                     ->filterByStageIds([$this->getStageId()])
                     ->filterByReviewRoundIds([$this->getId()])
-                    ->filterByEditorIds([$editorsStageAssignment->getUserId()])
+                    ->filterByEditorIds([$editorsStageAssignment->userId])
                     ->getCount();
 
                 if (!$decisions) {

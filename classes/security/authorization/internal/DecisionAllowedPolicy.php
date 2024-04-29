@@ -18,10 +18,9 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
 
 class DecisionAllowedPolicy extends AuthorizationPolicy
@@ -50,10 +49,13 @@ class DecisionAllowedPolicy extends AuthorizationPolicy
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $decisionType = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_DECISION_TYPE);
 
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $result = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId($submission->getId(), $this->user->getId(), $submission->getData('stageId'));
-        $stageAssignments = $result->toArray();
-        if (empty($stageAssignments)) {
+        // Replaces StageAssignmentDAO::getBySubmissionAndUserIdAndStageId
+        $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withStageIds([$submission->getData('stageId')])
+            ->withUserId($this->user->getId())
+            ->get();
+
+        if ($stageAssignments->isEmpty()) {
             $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
             $canAccessUnassignedSubmission = !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles));
             if ($canAccessUnassignedSubmission) {
@@ -65,13 +67,13 @@ class DecisionAllowedPolicy extends AuthorizationPolicy
         } else {
             $isAllowed = false;
             foreach ($stageAssignments as $stageAssignment) {
-                $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
+                $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
                 if (!in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])) {
                     continue;
                 }
-                if (Repo::decision()->isRecommendation($decisionType->getDecision()) && $stageAssignment->getRecommendOnly()) {
+                if (Repo::decision()->isRecommendation($decisionType->getDecision()) && $stageAssignment->recommendOnly) {
                     $isAllowed = true;
-                } elseif (!$stageAssignment->getRecommendOnly()) {
+                } elseif (!$stageAssignment->recommendOnly) {
                     $isAllowed = true;
                 }
 

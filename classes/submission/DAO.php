@@ -30,7 +30,7 @@ use PKP\note\NoteDAO;
 use PKP\notification\NotificationDAO;
 use PKP\query\QueryDAO;
 use PKP\services\PKPSchemaService;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 
 /**
@@ -283,11 +283,8 @@ class DAO extends EntityDAO
         $queryDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
 
         // Delete the stage assignments.
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($id);
-        while ($stageAssignment = $stageAssignments->next()) {
-            $stageAssignmentDao->deleteObject($stageAssignment);
-        }
+        StageAssignment::withSubmissionIds([$id])
+            ->delete();
 
         $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
         $noteDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);

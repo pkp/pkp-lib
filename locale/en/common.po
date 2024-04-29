@@ -148,6 +148,15 @@ msgstr "Attach Files"
 msgid "common.attachSelected"
 msgstr "Attach Selected"
 
+msgid "common.editorialMasthead"
+msgstr "Editorial Masthead"
+
+msgid "common.editorialMasthead.peerReviewers"
+msgstr "Peer Reviewers"
+
+msgid "common.editorialMasthead.peerReviewers.description"
+msgstr "The editors express their appreciation of the reviewers for {$year} listed below."
+
 msgid "common.name"
 msgstr "Name"
 

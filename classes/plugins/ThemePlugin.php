@@ -569,7 +569,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
         foreach ($this->options as $optionName => $optionConfig) {
             $value = $values[$optionName] ?? null;
             // Convert values stored in the db to the type of the default value
-            if (!is_null($optionConfig->default)) {
+            if ($value !== null && $optionConfig->default !== null) {
                 switch (gettype($optionConfig->default)) {
                     case 'boolean':
                         $value = !$value || $value === 'false' ? false : true;
@@ -579,7 +579,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
                         break;
                     case 'array':
                         try {
-                            $value = json_decode($value, true, flags: JSON_THROW_ON_ERROR);
+                            $value = json_decode((string) $value, true, flags: JSON_THROW_ON_ERROR);
                         } catch (Exception) {
                             // FIXME: pkp/pkp-lib#6250 Remove after 3.3.x upgrade code is removed (see also pkp/pkp-lib#5772)
                             $value = unserialize($value);
@@ -587,6 +587,16 @@ abstract class ThemePlugin extends LazyLoadPlugin
                         $value = is_array($value) ? $value : [];
                         break;
                 }
+            }
+            // If the value isn't null and it's a multilingual field, then we must ensure it's an array
+            if ($optionConfig->isMultilingual && $value !== null && !is_array($value)) {
+                try {
+                    $value = json_decode((string) $value, true, flags: JSON_THROW_ON_ERROR);
+                } catch (Exception) {
+                    // FIXME: pkp/pkp-lib#6250 Remove after 3.3.x upgrade code is removed (see also pkp/pkp-lib#5772)
+                    $value = unserialize($value);
+                }
+                $value = is_array($value) ? $value : [];
             }
             $return[$optionName] = $value;
         }

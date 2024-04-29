@@ -39,7 +39,7 @@ use PKP\reviewForm\ReviewFormResponse;
 use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\security\Role;
 use PKP\security\Validation;
-use PKP\stageAssignment\StageAssignmentDAO;
+use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\SubmissionComment;
 use PKP\submission\SubmissionCommentDAO;
@@ -169,16 +169,18 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             'recommendation' => (int) $this->getData('recommendation'), // assign the recommendation to the review assignment, if there was one.
         ]);
 
-        $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-        $stageAssignments = $stageAssignmentDao->getBySubmissionAndStageId($submission->getId(), $submission->getData('stageId'));
+        // Replaces StageAssignmentDAO::getBySubmissionAndStageId
+        $stageAssignments = StageAssignment::withSubmissionIds([$submission->getId()])
+            ->withStageIds([$submission->getData('stageId')])
+            ->get();
 
         $receivedList = []; // Avoid sending twice to the same user.
 
         /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-        while ($stageAssignment = $stageAssignments->next()) {
-            $userId = $stageAssignment->getUserId();
-            $userGroup = Repo::userGroup()->get($stageAssignment->getUserGroupId());
+        foreach ($stageAssignments as $stageAssignment) {
+            $userId = $stageAssignment->userId;
+            $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
 
             // Never send reviewer comment notification to users other than managers and editors.
             if (!in_array($userGroup->getRoleId(), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) || in_array($userId, $receivedList)) {

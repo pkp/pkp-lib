@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2024-04-29 10:55+0000\n"
+"PO-Revision-Date: 2024-04-29 16:26+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ca/>\n"
@@ -770,63 +770,88 @@ msgstr "Tornar a posar a la cua totes les tasques errònies"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"La tasca que carrega les dades estadístiques d'ús de l'arxiu {$file} ha "
+"fallat i l'arxiu no s'ha pogut moure de {$archivedFilePath} to "
+"{$stagingPath}."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"La tasca que carrega les dades estadístiques d'ús de l'arxiu {$file} ha "
+"fallat. L'arxiu s'ha mogut al directori de preproducció."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Recol·lecció de dades"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Configurar quins tipus d'estadístiques d'ús haurien de recol·lectar-se."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Emmagatzematge de dades"
 
 msgid "admin.settings.statistics.storage.description"
 msgstr ""
+"Configurar quines estadístiques d'ús haurien d'emmagatzemar-se en el "
+"servidor."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Protocol Sushi"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Configurar el protocol <a href=\"https://www.projectcounter.org/"
+"counter-sushi/\">COUNTER 5 SUSHI</a>, un format reconegut per la industria "
+"per distribuir estadístiques d'ús."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Estadístiques diàries o mensuals"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Indicar si voleu fer seguiment diari o mensual de les estadístiques d'ús. "
+"Rastrejar diàriament les estadístiques pot augmentar considerablement la "
+"mida de la vostra base de dades."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Rastrejar estadístiques diàries i mensuals"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Nomes rastrejar estadístiques mensuals"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Comprimir registres"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Les estadístiques es generen a partir d'arxius de registre d'accés que es "
+"mouen a <code>{$path}</code> quan ja s'han processat. S'haurien de comprimir "
+"aquests arxius de registre en arxius<code>.gz</code> un cop ja s'han "
+"processat? Comprimir-los pot estalviar espai de disc en el servidor."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Deixar els arxius de registre en el seu lloc"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
+msgstr "Comprimir els arxius de registre"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"Restringir l'accés a l'API d'estadístiques COUNTER SUSHI a administradors/"
+"ores i gestors/ores"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Plataforma"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"D'acord amb el protocol COUNTER SUSHI, cada informe estadístic ha "
+"d'identificar la \"plataforma\" que proporciona les estadístiques. Per "
+"defecte, la revista serà designada com la plataforma per a totes les "
+"estadístiques. No obstant això, si totes les revistes d'aquest lloc són "
+"publicades, operades o propietat del mateix proveïdor, potser preferiu "
+"designar el lloc com a plataforma."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "ID de plataforma"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
@@ -838,7 +863,7 @@ msgid "admin.cli.tool.jobs.work.options.title"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "ús: [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
 msgstr ""
@@ -880,10 +905,10 @@ msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
+msgstr "Nombre de segons d'espera entre tasques[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Executar el treballador dimoni (daemon) per a la cua de proves"
 
 #~ msgid "admin.scheduledTask.openAccessNotification"
 #~ msgstr "Notificació d'accés obert"
@@ -932,3 +957,14 @@ msgid "admin.cli.tool.jobs.available.options.restart.confirm"
 msgstr ""
 "Els treballadors/ores sortiran elegantment després de completar l'execució "
 "de la tasca actual."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"L'arxiu {$file} no s'ha pogut moure de {$dispatchFilePath} a "
+"{$archivedFilePath}."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "L'arxiu {$file} no existeix."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Utilitzar el lloc com a plataforma per a totes les revistes."

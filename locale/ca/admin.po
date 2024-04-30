@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2024-04-29 16:26+0000\n"
+"PO-Revision-Date: 2024-04-30 17:39+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ca/>\n"
@@ -855,54 +855,74 @@ msgstr "ID de plataforma"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"Manera d'identificar aquesta plataforma en els informes COUNTER SUSHI. L'ID "
+"de la plataforma ha de tenir, com a màxim, 17 caràcters i pot contenir "
+"lletres (a–z, A–Z), dígits (0–9), guions baixos (_), punts (.) i barres (/). "
+"L'ID de la plataforma s'utilitza en diverses columnes i hauria de ser tan "
+"curt com sigui possible, però, al mateix temps, ha de ser reconeixible. L'ID "
+"de la plataforma sol estar basat en el nom de l'editorial o plataforma, en "
+"el nom del domini o en una abreviatura única i coneguda."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"Ha de demanar-se un ID de plataforma quan el lloc s'identifiqui com a "
+"plataforma SUSHI."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "opcions d'ordre de treball"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
 msgstr "ús: [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Opcions disponibles per a l'ordre de treball"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "El nom de la connexió de la cua per treballar[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "El nom de la cua per treballar[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "El nom del treballador[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Els segons d'espera abans de reintentar una feina que s'ha trobat amb una "
+"excepció no detectada[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "El límit de memòria en megabytes[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
-msgstr ""
+msgstr "Els segons que pot executar-se un subprocés[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Segons per posar-se en suspensió quan no hi ha cap tasca disponible[default :"
+" '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Nombre d'intents per dur a terme una tasca abans de registrar-la com a "
+"errònia[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
+"Forçar l'execució del treballador encara que estigui en mode de manteniment["
+"default : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Aturar-se quan la cua estigui buida[default : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
 msgstr ""
+"El nombre de tasques per processar abans d'aturar-se[default : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"El nombre de segons màxim que el treballador hauria d'executar-se[default : "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
 msgstr "Nombre de segons d'espera entre tasques[default : '{$default}']"

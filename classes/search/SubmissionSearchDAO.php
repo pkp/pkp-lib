@@ -144,12 +144,19 @@ class SubmissionSearchDAO extends \PKP\db\DAO
     }
 
     /**
-     * Clear the search index.
+     * Clear the search index, either completely or by context ID.
      */
-    public function clearIndex()
+    public function clearIndex(?int $contextId = null)
     {
-        DB::table('submission_search_objects')->delete();
-        DB::table('submission_search_keyword_list')->delete();
+        if ($contextId === null) {
+            DB::table('submission_search_objects')->delete();
+            DB::table('submission_search_keyword_list')->delete();
+        } else {
+            // If a context is specified, just delete submission_search_objects for the journal's submissions
+            // and allow submission_search_object_keywords entries to delete by cascade. Do not clean out
+            // submission_search_keyword_list as entries may be used in other contexts.
+            DB::statement('DELETE FROM submission_search_objects WHERE submission_id IN (SELECT submission_id FROM submissions WHERE context_id = ?)', [$contextId]);
+        }
     }
 
     /**

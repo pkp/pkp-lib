@@ -132,7 +132,8 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
             'SELECT nmh.*
 				FROM navigation_menu_item_assignments as nmh
 				WHERE nmh.navigation_menu_id = ?
-				AND nmh.parent_id = ?',
+				AND nmh.parent_id = ?
+                ORDER BY nmh.seq',
             [(int) $menuId, (int) $parentId]
         );
         return new DAOResultFactory($result, $this, '_fromRow');
@@ -175,7 +176,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
 				navigation_menu_id = ?,
 				navigation_menu_item_id = ?,
 				parent_id = ?,
-				seq = ?,
+				seq = ?
 			WHERE navigation_menu_item_assignment_id = ?',
             [
                 (int) $navigationMenuItemAssignment->getMenuId(),

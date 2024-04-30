@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2024-04-26 18:03+0000\n"
+"PO-Revision-Date: 2024-04-30 17:39+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ca/>\n"
@@ -48,6 +48,8 @@ msgstr ""
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"Seleccioneu un rol editorial si voleu editar i publicar aquesta tramesa "
+"vostè mateix."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Requisits de la tramesa"
@@ -58,7 +60,7 @@ msgstr ""
 "continuar."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "Sí, la meva tramesa compleix tots aquests requisits."
 
 msgid "submission.submit.submissionComplete"
 msgstr "S'ha completat la tramesa"
@@ -543,7 +545,7 @@ msgid "submission.coverage"
 msgstr "Informació de la cobertura"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Detalls de la tramesa"
 
 msgid "submission.done"
 msgstr "Acabada"
@@ -609,12 +611,16 @@ msgstr "Suprimeix l’entrada del registre"
 
 msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
+"S'ha enviat un correu electrònic per informar de la decisió a "
+"{$recipientCount} revisors/ores amb l'assumpte {$subject}."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "La tramesa inicial s'ha completat."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$filename} ({$username}) ha acceptat els termes dels drets d'autoria per a "
+"la tramesa."
 
 msgid "submission.event.fileRevised"
 msgstr "S'ha carregat la revisió \"{$filename}\" de l'arxiu {$submissionFileId}."
@@ -666,9 +672,13 @@ msgstr "Fitxer de revisions del revisor/a actualitzat"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} ha enviat un recordatori a {$recipientName} en relació amb la "
+"seva assignació de revisió"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"S'ha enviat un correu electrònic automàtic de recordatori a {$recipientName} "
+"en relació amb la seva assignació de revisió"
 
 msgid "submission.event.subjectPrefix"
 msgstr "S'ha enviat un correu electrònic:"
@@ -698,10 +708,10 @@ msgstr ""
 "pot canviar."
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "Primera publicació"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "Per a editors/ores"
 
 msgid "submission.galley"
 msgstr "Galerades"
@@ -980,7 +990,7 @@ msgid "submission.review"
 msgstr "Revisió"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Revisar i enviar"
 
 msgid "submission.reviewed"
 msgstr "Revisada"
@@ -1067,7 +1077,7 @@ msgid "submission.submit.includeInBrowse"
 msgstr "Voleu incloure aquest contribuïdor/a a la llista de navegació?"
 
 msgid "submission.submit.includeInBrowse.title"
-msgstr ""
+msgstr "Llistes de publicacions"
 
 msgid "submission.submit.newFile"
 msgstr "Envia un fitxer nou"
@@ -1078,11 +1088,8 @@ msgstr "Ajustos addicionals"
 msgid "submission.submit.submissionLocale"
 msgstr "Llengua de la tramesa"
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"S'accepten trameses en diversos idiomes. Trieu l'idioma principal de la "
-"tramesa des del menú desplegable que hi ha a sobre."
+msgstr "Trieu l'idioma principal de la tramesa."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Arxius de la tramesa"
@@ -1460,21 +1467,28 @@ msgstr ""
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Enviar un correu electrònic als autors/ores per comunicar-los que la ronda "
+"de revisió s'ha acabat. Aquest correu electrònic no s'enviarà fins que "
+"s'hagi registrat la decisió."
 
 msgid "editor.submission.decision.decline"
 msgstr "Rebutjar la tramesa"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
+"Aquesta tramesa serà rebutjada per publicar-se. La fase d'avaluació per "
+"parells es tancarà i la tramesa serà arxivada."
 
 msgid "editor.submission.decision.decline.log"
-msgstr ""
+msgstr "{$editorName} ha rebutjat la tramesa."
 
 msgid "editor.submission.decision.decline.completed"
-msgstr ""
+msgstr "Tramesa rebutjada"
 
 msgid "editor.submission.decision.decline.completed.description"
 msgstr ""
+"La tramesa {$title} ha estat rebutjada i arxivada. Totes les notificacions "
+"s'han enviat, excepte les que hagueu decidit ometre."
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
@@ -1492,34 +1506,42 @@ msgid "editor.submission.decision.newReviewRound.log"
 msgstr ""
 
 msgid "editor.submission.decision.newReviewRound.completed"
-msgstr ""
+msgstr "S'ha creat una ronda de revisió"
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
+"S'ha creat una ronda de revisió nova per a la tramesa {$title}. Això s'ha "
+"notificat a l'autor/a, a no ser que hagueu triat ometre aquest correu "
+"electrònic."
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Enviar un correu electrònic als autors/ores per comunicar-los que la seva "
+"tramesa s'ha enviat a una ronda de revisió nova. Aquest correu electrònic no "
+"s'enviarà fins que s'hagi registrat la decisió."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
-msgstr ""
+msgstr "Seleccionar els arxius que haurien d'enviar-se a la fase d'edició."
 
 msgid "editor.submission.decision.promoteFiles.review"
-msgstr ""
+msgstr "Seleccionar els arxius que haurien d'enviar-se a revisió."
 
 msgid "editor.submission.decision.promoteFiles.production"
-msgstr ""
+msgstr "Seleccionar els arxius que haurien d'enviar-se a la fase de producció."
 
 msgid "editor.submission.decision.requestRevisions"
 msgstr "Sol·licita revisions"
 
 msgid "editor.submission.decision.requestRevisions.description"
 msgstr ""
+"L'autor/a ha d'aportar revisions abans que aquesta tramesa sigui acceptada "
+"per a la publicació."
 
 msgid "editor.submission.decision.requestRevisions.log"
-msgstr ""
+msgstr "{$editorName} ha sol·licitat revisions per a aquesta tramesa."
 
 msgid "editor.submission.decision.requestRevisions.completed"
-msgstr ""
+msgstr "Revisions sol·licitades"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
@@ -2712,3 +2734,9 @@ msgstr ""
 
 msgid "submission.submissionFile"
 msgstr "Fitxer de la tramesa"
+
+msgid "submission.authors.label"
+msgstr "Autors/ores"
+
+msgid "submission.author.list"
+msgstr "Llista d'autors/ores de la tramesa"

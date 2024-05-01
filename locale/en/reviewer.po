@@ -191,3 +191,6 @@ msgstr "Send to Reviewers"
 msgid "user.authorization.submissionReviewer"
 msgstr ""
 "The current user is not assigned as a reviewer for the requested document."
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "The review was not completed."

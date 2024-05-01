@@ -15,7 +15,7 @@
 	</h1>
 
 	<!-- rest of this template will be moved inside this component in future -->
-	<reviewer-submission-page v-if="isReviewRoundHistoryEnabled" v-bind="pageInitConfig"></reviewer-submission-page>
+	<reviewer-submission-page v-bind="pageInitConfig"></reviewer-submission-page>
 
 	<script type="text/javascript">
 		// Attach the JS file tab handler.

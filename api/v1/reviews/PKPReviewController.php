@@ -75,15 +75,10 @@ class PKPReviewController extends PKPBaseController
      */
     public function authorize(PKPRequest $request, array &$args, array $roleAssignments): bool
     {
-        $illuminateRequest = $args[0]; /** @var \Illuminate\Http\Request $illuminateRequest */
-        $actionName = static::getRouteActionName($illuminateRequest);
-
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
 
-        if ($actionName === 'getHistory') {
-            $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId', true));
-        }
+        $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId', true));
 
         return parent::authorize($request, $args, $roleAssignments);
     }

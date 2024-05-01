@@ -95,7 +95,6 @@ class PKPReviewerHandler extends Handler
         ]);
 
         $templateMgr->setState([
-            'isReviewRoundHistoryEnabled' => Config::getVar('features', 'enable_review_round_history'),
             'pageInitConfig' => [
                 'reviewRoundHistories' => $reviewRoundHistories,
             ]

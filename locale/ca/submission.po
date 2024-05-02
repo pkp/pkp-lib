@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2024-04-30 17:39+0000\n"
+"PO-Revision-Date: 2024-05-02 14:38+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ca/>\n"
@@ -1199,7 +1199,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Introduïu les referències."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Introduïu la declaració de disponibilitat de les dades."
 
 msgid "submission.form.name"
 msgstr "Poseu un nom al fitxer (p.ex., Tramesa Smith, Taula Smith 1)"
@@ -1320,9 +1320,8 @@ msgstr "No teniu arxius pendents de revisar en aquest moment."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "S'han sol·licitat les revisions."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "S'han tramès les revisions."
+msgstr "S'han enviat les revisions i ara s'ha de prendre una decisió."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
@@ -1365,10 +1364,10 @@ msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "S'han rebut totes les recomanacions i s'ha de prendre una decisió."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr ""
+msgstr "Inactiu durant més de {$days} dies a la fase de {$stage}."
 
 msgid "editor.submission.status.waitingInitialReview"
-msgstr ""
+msgstr "Una tramesa nova està pendent de ser rebutjada o enviada a revisió."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Participants"
@@ -1435,10 +1434,10 @@ msgid "editor.submission.decision"
 msgstr "Decisió"
 
 msgid "editor.submission.decision.notifyAuthors"
-msgstr ""
+msgstr "Notificar als autors/ores"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr ""
+msgstr "Notificar als revisors/ores"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
@@ -2740,3 +2739,6 @@ msgstr "Autors/ores"
 
 msgid "submission.author.list"
 msgstr "Llista d'autors/ores de la tramesa"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Retornat a revisió."

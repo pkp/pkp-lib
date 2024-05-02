@@ -38,7 +38,7 @@ class Collector implements CollectorInterface, ViewsCount
     public bool $isLastReviewRound = false;
     public ?int $count = null;
     public ?int $offset = null;
-    public ?int $reviewMethods = null;
+    public ?array $reviewMethods = null;
     public ?int $stageId = null;
     public ?array $reviewFormIds = null;
 

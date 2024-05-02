@@ -29,6 +29,7 @@ use Illuminate\Http\Response;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
+use PKP\core\PKPAppKey;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
@@ -320,8 +321,8 @@ class PKPContainer extends Container
         $_request = Application::get()->getRequest();
 
         $items['app'] = [
-            'key' => Config::getVar('general', 'key', ''),
-            'cipher' => Config::getVar('security', 'cipher', Application::getDefaultCipher()),
+            'key' => PKPAppKey::getKey(),
+            'cipher' => PKPAppKey::getCipher(),
         ];
 
         // Database connection

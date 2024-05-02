@@ -386,22 +386,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     }
 
     /**
-     * Get the default cipher algorithm
-     * Available and Valid cipher algorithms are
-     *  - aes-128-cbc
-     *  - aes-256-cbc
-     *  - aes-128-gcm
-     *  - aes-256-gcm
-     * @see \Illuminate\Encryption\Encrypter::$supportedCiphers
-     *
-     * @return string
-     */
-    public static function getDefaultCipher(): string
-    {
-        return 'AES-256-CBC';
-    }
-
-    /**
      * Get the locale key for the name of this application.
      *
      * @return string

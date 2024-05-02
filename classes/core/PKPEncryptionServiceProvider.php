@@ -20,9 +20,7 @@ use Illuminate\Encryption\EncryptionServiceProvider as IlluminateEncryptionServi
 class PKPEncryptionServiceProvider extends IlluminateEncryptionServiceProvider
 {
     /**
-     * Register the encrypter.
-     *
-     * @return void
+     * @copydoc Illuminate\Encryption\EncryptionServiceProvider::registerEncrypter()
      */
     protected function registerEncrypter()
     {

@@ -188,6 +188,7 @@ class PKPInstall extends Installer
         return $this->updateConfig(
             [
                 'general' => [
+                    'app_key' => \PKP\core\PKPAppKey::generate(),
                     'installed' => 'On',
                     'base_url' => $request->getBaseUrl(),
                     'enable_beacon' => $this->getParam('enableBeacon') ? 'On' : 'Off',

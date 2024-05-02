@@ -94,6 +94,66 @@ msgstr ""
 "Upload files you would like the editor and/or author to consult, including "
 "revised versions of the original review file(s)."
 
+msgid "reviewer.submission.reviewRound.info"
+msgstr "Previous Reviews"
+
+msgid "reviewer.submission.reviewRound.info.submittedOn"
+msgstr "Round {$round} Review Submitted on {$submittedOn}"
+
+msgid "reviewer.submission.reviewRound.info.read"
+msgstr "Read Round {$round} Review"
+
+msgid "reviewer.submission.reviewRound.info.modal.title"
+msgstr "Round {$round} Review submitted by you for"
+
+msgid "reviewer.submission.reviewRound.comments"
+msgstr "Reviewer Comments"
+
+msgid "reviewer.submission.reviewRound.comments.authorAndEditor"
+msgstr "For editors and authors"
+
+msgid "reviewer.submission.reviewRound.comments.editorOnly"
+msgstr "For editors only"
+
+msgid "reviewer.submission.reviewRound.comments.prefix"
+msgstr "Comment {$index}: "
+
+msgid "reviewer.submission.reviewRound.emailLog"
+msgstr "Decline reason sent by email"
+
+msgid "reviewer.submission.reviewRound.emailLog.defaultMessage"
+msgstr "No reason given to the decline of the review invitation."
+
+msgid "reviewer.submission.reviewRound.reviewDeclineDate"
+msgstr "Declined Date"
+
+msgid "reviewer.submission.reviewRound.metadata"
+msgstr "Article Metadata"
+
+msgid "reviewer.submission.reviewRound.metadata.type"
+msgstr "Type"
+
+msgid "reviewer.submission.reviewRound.metadata.abstract"
+msgstr "Abstract"
+
+msgid "reviewer.submission.reviewRound.metadata.keywords"
+msgstr "Keywords"
+
+msgid "reviewer.submission.reviewRound.general"
+msgstr "General Information"
+
+msgid "reviewer.submission.reviewRound.attachments"
+msgstr "Attachments"
+
+msgid "reviewer.submission.reviewRound.attachments.description"
+msgstr "These are files that you attached along with your review"
+
+msgid "reviewer.submission.reviewRound.files"
+msgstr "Files For Review"
+
+msgid "reviewer.submission.reviewRound.files.description"
+msgstr "These files were sent to you for review"
+
 msgid "reviewer.complete"
 msgstr "Review Submitted"
 
@@ -131,3 +191,6 @@ msgstr "Send to Reviewers"
 msgid "user.authorization.submissionReviewer"
 msgstr ""
 "The current user is not assigned as a reviewer for the requested document."
+
+msgid "reviewer.submission.reviewRound.reviewNotCompleted"
+msgstr "The review was not completed."

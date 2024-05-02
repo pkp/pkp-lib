@@ -67,6 +67,36 @@ class SubmissionEmailLogDAO extends EmailLogDAO
     }
 
     /**
+     * Get submission email log entries by submission ID, event type and sender ID
+     *
+     * @param int $submissionId
+     * @param int $eventType SubmissionEmailLogEntry::SUBMISSION_EMAIL_*
+     * @param int $senderId Return only emails sent by this user.
+     *
+     * @return DAOResultFactory<SubmissionEmailLogEntry>
+     */
+    public function getBySenderId($submissionId, $eventType, $senderId)
+    {
+        $result = $this->retrieveRange(
+            'SELECT	e.*
+             FROM email_log e
+             WHERE
+                e.assoc_type = ? AND
+                e.assoc_id = ? AND
+                e.event_type = ? AND
+                e.sender_id = ?',
+            [
+                Application::ASSOC_TYPE_SUBMISSION,
+                (int) $submissionId,
+                (int) $eventType,
+                (int) $senderId
+            ]
+        );
+
+        return new DAOResultFactory($result, $this, 'build');
+    }
+
+    /**
      * Create a log entry from data in a Mailable class
      *
      * @param int $eventType One of the SubmissionEmailLogEntry::SUBMISSION_EMAIL_* constants

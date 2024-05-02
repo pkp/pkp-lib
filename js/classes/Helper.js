@@ -183,6 +183,9 @@
 	 * @return {$.pkp.classes.ObjectProxy} the instantiated object.
 	 */
 	$.pkp.classes.Helper.objectFactory = function(objectName, args) {
+
+		console.log('objname', objectName);
+
 		var ObjectConstructor, ObjectProxyInstance, objectInstance;
 
 		// Resolve the object name.

@@ -22,6 +22,7 @@ use PKP\core\PKPApplication;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectConfirmationModal;
+use PKP\linkAction\request\VueModal;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
@@ -216,18 +217,34 @@ class ReviewerGridRow extends GridRow
                 );
             }
 
-            if ($reviewAssignment->getDateConfirmed() == null) {
-                $this->addAction(new LinkAction(
+            //            if ($reviewAssignment->getDateConfirmed() == null) {
+
+            //                $this->addAction(new LinkAction(
+            //                    'logResponse',
+            //                    new AjaxModal(
+            //                        $router->url($request, null, null, 'logResponse', null, $actionArgs),
+            //                        __('editor.review.logResponse.for'),
+            //                        'modal_log_response'
+            //                    ),
+            //                    __('editor.review.logResponse'),
+            //                    'log_response'
+            //                ));
+
+            //            dd($actionArgs);
+
+            $this->addAction(
+                new LinkAction(
                     'logResponse',
-                    new AjaxModal(
-                        $router->url($request, null, null, 'logResponse', null, $actionArgs),
-                        __('editor.review.logResponse'),
-                        'modal_log_response'
+                    new VueModal(
+                        'WorkflowLogResponseForModal',
+                        $actionArgs
                     ),
-                    __('editor.review.logResponse'),
-                    'log_response'
-                ));
-            }
+                    __('editor.review.logResponse')
+                )
+            );
+
+
+            //            }
         }
     }
 }

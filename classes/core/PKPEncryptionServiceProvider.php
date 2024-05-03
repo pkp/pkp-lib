@@ -30,6 +30,11 @@ class PKPEncryptionServiceProvider extends IlluminateEncryptionServiceProvider
             return;
         }
 
+        // if no app key set, the encrypter can not be registered
+        if (!PKPAppKey::hasKey()) {
+            return;
+        }
+
         parent::registerEncrypter();
     }
 }

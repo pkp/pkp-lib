@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\config\Config;
 use PKP\core\Core;
+use PKP\core\PKPAppKey;
 use PKP\core\PKPApplication;
 use PKP\core\PKPContainer;
 use PKP\db\DAORegistry;
@@ -40,6 +41,7 @@ use PKP\site\VersionCheck;
 use PKP\site\VersionDAO;
 use PKP\xml\PKPXMLParser;
 use PKP\xml\XMLNode;
+use Throwable;
 
 class Installer
 {
@@ -1001,6 +1003,34 @@ class Installer
 
         $this->setError(self::INSTALLER_ERROR_GENERAL, 'installer.unsupportedPhpError');
         return false;
+    }
+
+    /**
+     * Add the app key if not already set
+     *
+     * @return bool Success/failure
+     */
+    public function addAppKey()
+    {
+        // if APP KEY already exists, nothing to do
+        if (PKPAppKey::hasKey()) {
+            return true;
+        }
+
+        // will set an error if app key variable not set
+        // but will not halt the process
+        if (!PKPAppKey::hasKeyVariable()) {
+            error_log("No key variable named `app_key` defined in the `general` section of config file. Please update the config file's general section and add line `app_key = `");
+            return true;
+        }
+
+        try {
+            PKPAppKey::writeToConfig(PKPAppKey::generate());
+        } catch (Throwable $exception) {
+            error_log($exception->getMessage());
+        } finally {
+            return true;
+        }
     }
 }
 

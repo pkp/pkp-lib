@@ -175,9 +175,15 @@ class Dispatcher
         (new \Illuminate\Pipeline\Pipeline(PKPContainer::getInstance()))
             ->send($illuminateRequest)
             ->through(
-                \PKP\middleware\PKPEncryptCookies::class,
-                \Illuminate\Session\Middleware\StartSession::class,
-                \PKP\middleware\PKPAuthenticateSession::class,
+                app()->has('encrypter')
+                    ? [
+                        \PKP\middleware\PKPEncryptCookies::class,
+                        \Illuminate\Session\Middleware\StartSession::class,
+                        \PKP\middleware\PKPAuthenticateSession::class,
+                    ] : [
+                        \Illuminate\Session\Middleware\StartSession::class,
+                        \PKP\middleware\PKPAuthenticateSession::class,
+                    ]
             )
             ->via('handle')
             ->then(function (\Illuminate\Http\Request $request) {

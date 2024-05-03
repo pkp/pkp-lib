@@ -84,13 +84,17 @@ class AboutContextHandler extends Handler
 
         $mastheadUsers = [];
         foreach ($mastheadRoles as $mastheadUserGroup) {
+            if ($mastheadUserGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
+                continue;
+            }
             // Get all users that are active in the given role
             // and that have accepted to be displayed on the masthead for that role.
             // No need to filter by context ID, because the user groups are already filtered so.
-            $users = Repo::user()
-                ->getCollector()
+            $usersCollector = Repo::user()->getCollector();
+            $users = $usersCollector
                 ->filterByUserGroupIds([$mastheadUserGroup->getId()])
                 ->filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON)
+                ->orderBy($usersCollector::ORDERBY_FAMILYNAME, $usersCollector::ORDER_DIR_ASC, [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()])
                 ->getMany();
             foreach ($users as $user) {
                 $userUserGroup = UserUserGroup::withUserId($user->getId())
@@ -110,11 +114,11 @@ class AboutContextHandler extends Handler
 
         $previousYear = date('Y') - 1;
         $reviewerIds = Repo::reviewAssignment()->getReviewerIdsByCompletedYear($context->getId(), $previousYear);
-        $reviewers = Repo::user()
-            ->getCollector()
+        $usersCollector = Repo::user()->getCollector();
+        $reviewers = $usersCollector
             ->filterByUserIds($reviewerIds->toArray())
-            ->getMany()
-            ->all();
+            ->orderBy($usersCollector::ORDERBY_FAMILYNAME, $usersCollector::ORDER_DIR_ASC, [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()])
+            ->getMany();
 
         Hook::call('AboutContextHandler::editorialMasthead', [$mastheadRoles, $mastheadUsers, $reviewers, $previousYear]);
 

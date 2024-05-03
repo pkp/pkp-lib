@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2024-05-02 14:38+0000\n"
+"PO-Revision-Date: 2024-05-03 22:34+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ca/>\n"
@@ -1445,24 +1445,32 @@ msgstr ""
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"Enviar un correu electrònic als revisors/ores per notificar-los que la seva "
+"assignació de revisió s'ha cancel·lat."
 
 msgid "editor.submission.decision.accept"
 msgstr "Acceptar la tramesa"
 
 msgid "editor.submission.decision.accept.description"
-msgstr ""
+msgstr "Aquesta tramesa s'acceptarà per publicar-se i s'enviarà a edició."
 
 msgid "editor.submission.decision.accept.log"
-msgstr ""
+msgstr "{$editorName} ha acceptat la tramesa i l'ha enviat a la fase d'edició."
 
 msgid "editor.submission.decision.accept.completed"
-msgstr ""
+msgstr "Tramesa acceptada"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
+"La tramesa {$title} s'ha acceptat per publicar-se i s'ha enviat a la fase "
+"d'edició. S'han enviat totes les notificacions, excepte les que hagueu "
+"decidit ometre."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
+"Enviar un correu electrònic als autors/ores per notificar-los que la seva "
+"tramesa ha estat acceptada per publicar-se. Aquest correu no s'enviarà fins "
+"que la decisió s'hagi registrat."
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
@@ -1491,18 +1499,23 @@ msgstr ""
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
+"Enviar un correu electrònic als autors/ores per notificar-los que la seva "
+"tramesa ha estat rebutjada. Aquest correu electrònic no s'enviarà fins que "
+"la decisió s'hagi registrat."
 
 msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
+"Aquesta tramesa serà rebutjada per publicar-se. No es faran més revisions i "
+"la tramesa serà arxivada."
 
 msgid "editor.submission.decision.newReviewRound"
-msgstr ""
+msgstr "Nova ronda de revisió"
 
 msgid "editor.submission.decision.newReviewRound.description"
-msgstr ""
+msgstr "Obrir una altra ronda de revisió per a aquesta tramesa."
 
 msgid "editor.submission.decision.newReviewRound.log"
-msgstr ""
+msgstr "{$editorName} ha creat una ronda de revisió nova per a aquesta tramesa."
 
 msgid "editor.submission.decision.newReviewRound.completed"
 msgstr "S'ha creat una ronda de revisió"
@@ -1544,24 +1557,31 @@ msgstr "Revisions sol·licitades"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
+"S'han sol·licitat revisions per a la tramesa {$title}. S'han enviat totes "
+"les notificacions, excepte les que hagueu decidit ometre."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 
 msgid "editor.submission.decision.cancelReviewRound"
-msgstr ""
+msgstr "Cancel·lar la ronda de revisió"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
+"Cancel·lar la ronda de revisió actual i retornar la tramesa a la ronda de "
+"revisió prèvia. Si aquesta és la primera ronda de revisió, aleshores tornarà "
+"a la fase de tramesa."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
-msgstr ""
+msgstr "{$editorName} ha cancel·lat la ronda de revisió."
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr ""
+msgstr "S'ha cancel·lat l'última ronda de revisió."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
+"S'ha cancel·lat la ronda de revisió per a la tramesa {$title}. S'han enviat "
+"totes les notificacions, excepte les que hagueu decidit ometre."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
@@ -1588,13 +1608,13 @@ msgid "editor.submission.decision.sendExternalReview"
 msgstr "Envia a revisió externa"
 
 msgid "editor.submission.decision.sendExternalReview.description"
-msgstr ""
+msgstr "Aquesta tramesa està llesta per enviar-se a avaluació d'experts."
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr ""
+msgstr "{$editorName} ha enviat la tramesa a la fase de revisió."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr ""
+msgstr "Enviat a revisió"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2024-03-02 04:59+0000\n"
+"PO-Revision-Date: 2024-04-30 17:39+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "ca/>\n"
@@ -25,10 +25,12 @@ msgid "admin.adminFunctions"
 msgstr "Funcions administratives"
 
 msgid "admin.deleteCache"
-msgstr ""
+msgstr "Esborrar la memòria cau"
 
 msgid "admin.deleteCache.description"
 msgstr ""
+"Esborrar els arxius de la memòria cau del sistema. Això només s'hauria de "
+"fer en entorns de desenvolupament."
 
 msgid "admin.clearDataCache"
 msgstr "Esborra la memòria cau de dades"
@@ -81,6 +83,8 @@ msgstr "Fes vèncer les sessions d’usuari/usuària"
 
 msgid "admin.expireSessions.description"
 msgstr ""
+"Es tancarà immediatament la sessió de tots els usuaris/àries de l'aplicació, "
+"inclòs la vostra, i haureu de tornar a iniciar la sessió."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -147,7 +151,7 @@ msgid "admin.scheduledTask.noLog"
 msgstr "La tasca no ha generat cap registre (log)."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "Dipositar els DOI amb l'agència de registre configurada"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
@@ -156,12 +160,16 @@ msgstr ""
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
+"Enviar un correu electrònic a tots els editors/ores per recordar-los les "
+"seves tasques pendents"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "Identificar editors/ores per recordar en el context {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"S'han distribuït {$count} tasques per enviar recordatoris per correu "
+"electrònic als usuaris/àries {$userIds} en el context {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -173,9 +181,11 @@ msgstr "Neteja els registres de tasques programades"
 
 msgid "admin.scheduledTask.clearLogs.description"
 msgstr ""
+"Eliminar tots els registres de processos de tasques programades que ja s'han "
+"executat."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Eliminar els registres de tasques"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Publicar les trameses programades per a publicació"
@@ -184,76 +194,94 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr "Recordatori de revisió"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Notificació d'informe editorial"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Recordatori de caducitat de la subscripció"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Eliminar els usuaris/àries caducats no validats"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "Eliminar les tasques errònies més antigues de la llista d'errors."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Processar les tasques en cua pendents"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "Actualitzar la base de dades DB-IP city lite"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"El canvi de nom de l'arxiu de la base de dades DB-IP city lite "
+"{$sourceFilename} per {$targetFilename} ha fallat."
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Tasca de càrrega d'arxius d'estadístiques d'ús"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"El directori {$directory} no està buit. Això podria indicar que hi ha hagut "
+"un procés erroni previ o un procés executant-se simultàniament. Aquest arxiu "
+"es tornarà a processar automàticament."
 
 msgid "admin.job.processLogFile.openFileFailed"
 msgstr "L'arxiu {$file} no s'ha pogut obrir i s'ha rebutjat."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"L'arxiu {$file} està en un format de registre antic que no es pot processar, "
+"de manera que es retornarà al directori de preparació ('stage directory')."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"S'ha omès l'arxiu de registre {$file} perquè les estadístiques d'aquell mes "
+"ja s'havien calculat. Per tornar a calcular les estadístiques d'un mes previ "
+"haureu de restaurar tots els arxius de registre d'aquell mes i fer servir "
+"l'eina d'interfície de línia d'ordres (CLI) per tornar a processar les "
+"estadístiques."
 
 msgid "admin.job.processLogFile.wrongLoglineFormat"
 msgstr ""
+"La línia {$lineNumber} de l'arxiu de registre {$file} està en un format "
+"incorrecte i, per tant, s'ometrà."
 
 msgid "admin.job.processLogFile.invalidLogEntry"
 msgstr ""
+"Entrada de registre invàlida a la línia {$lineNumber} de l'arxiu de registre "
+"{$file}: {$error}"
 
 msgid "admin.job.processLogFile.invalidLogEntry.time"
-msgstr ""
+msgstr "La data no és vàlida."
 
 msgid "admin.job.processLogFile.invalidLogEntry.contextId"
-msgstr ""
+msgstr "L'ID del context no és un nombre enter."
 
 msgid "admin.job.processLogFile.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "L'ID de la tramesa no és un nombre enter."
 
 msgid "admin.job.processLogFile.invalidLogEntry.representationId"
-msgstr ""
+msgstr "L'ID de representació no és un nombre enter."
 
 msgid "admin.job.processLogFile.invalidLogEntry.assocType"
-msgstr ""
+msgstr "La tipologia associada no és compatible."
 
 msgid "admin.job.processLogFile.invalidLogEntry.fileType"
-msgstr ""
+msgstr "El tipus d'arxiu no és compatible."
 
 msgid "admin.job.processLogFile.invalidLogEntry.country"
-msgstr ""
+msgstr "El país no és una cadena de dos caràcters alfabètics."
 
 msgid "admin.job.processLogFile.invalidLogEntry.region"
-msgstr ""
+msgstr "La regió no és una cadena de tres caràcters alfanumèrics."
 
 msgid "admin.job.processLogFile.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "Les ID d'institució no són una matriu (array)."
 
 msgid "admin.job.processLogFile.insertError"
 msgstr ""
+"S'ha produït un error en processar l'arxiu de registre {$file} a la línia "
+"{$lineNumber}: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
@@ -347,9 +375,11 @@ msgstr "Informació del sistema"
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Veure informació sobre la versió i la configuració de l'aplicació i del "
+"servidor."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Veure informació del sistema"
 
 msgid "admin.versionBuild"
 msgstr "Muntatge"
@@ -410,384 +440,495 @@ msgstr "Carregador de fitxers"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"L'arxiu no s'ha pogut descomprimir. La font gz-file {$filePath} no s'ha "
+"pogut obrir amb gzopen."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"L'arxiu no s'ha pogut descomprimir. L'arxiu de destí {$filePath} no s'ha "
+"pogut obrir amb fopen."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"L'arxiu no s'ha pogut descomprimir. La font gz-file {$file} no s'ha pogut "
+"llegir amb gzread."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"L'arxiu no s'ha pogut descomprimir. L'arxiu de destí {$filePath} no s'ha "
+"pogut escriure amb fwrite."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"L'arxiu no s'ha pogut descomprimir. L'arxiu de destinació obert {$filePath} "
+"no s'ha pogut tancar amb fclose."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"L'arxiu no s'ha pogut descomprimir. La font oberta gz-file {$filePath} no "
+"s'ha pogut tancar amb gzclose."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"L'arxiu no s'ha pogut descomprimir. La font descomprimida gz-file {$filePath}"
+" no s'ha pogut eliminar amb unlink."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"L'arxiu no s'ha pogut comprimir. El destí gz-file {$filePath} no s'ha pogut "
+"obrir amb gzopen."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"L'arxiu no s'ha pogut comprimir. L'arxiu font {$filePath} no s'ha pogut "
+"obrir amb fopen."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"L'arxiu no s'ha pogut comprimir. L'arxiu font {$filePath} no s'ha pogut "
+"llegir amb fread."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"L'arxiu no s'ha pogut comprimir. El destí gz-file {$filePath} no s'ha pogut "
+"escriure amb gzwrite."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"L'arxiu no s'ha pogut comprimir. L'arxiu font obert {$filePath} no s'ha "
+"pogut tancar amb fclose."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"L'arxiu no s'ha pogut comprimir. La destinació oberta gz-file {$filePath} no "
+"s'ha pogut tancar amb gzclose."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"L'arxiu no s'ha pogut comprimir. L'arxiu font comprimit {$filePath} no s'ha "
+"pogut eliminar amb unlink."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "No hi ha configuracions regionals disponibles per descarregar."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Ús:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "command [arguments]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Ordres disponibles per a l'espai de noms `{$namespace}`:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"No es poden executar les tasques en cua perquè el mode de manteniment de "
+"l'aplicació està actiu."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Llistar totes les tasques en cua. Si voleu paginar els resultats feu servir "
+"els paràmetres -page= i --perPage= . Utilitzeu la marca --failed per llistar "
+"les tasques errònies."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Eliminar una tasca específica de la cua basant-nos en el seu identificador. "
+"Si volguéssiu eliminar-ho tot, feu servir el paràmetre --all. Si volguéssiu "
+"eliminar-ho tot d'una cua específica, feu servir el paràmetre --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Afegir una tasca de prova a la cua de prova. Feu servir els paràmetres "
+"opcionals --only= i 'failed' or 'success' per enviar les tasques que han "
+"fallat o han tingut èxit."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Executar un procés de treball infinit del dimoni que continuarà processant "
+"les tasques. Feu servir la marca --help per veure les opcions disponibles "
+"associades amb aquesta ordre."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Llistar les tasques errònies. Ajusteu el paràmetres --queue=QUEUE_NAME i --"
+"connection=CONNECTION_NAME per filtrar el llistat. També podeu utilitzar el "
+"paràmetre/marca --redispatch i --clear per tornar les tasques errònies a la "
+"cua o borrar-les totes o només algunes."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Enviar les tasques disponibles a la cua. Per enviar una tasca a una cua "
+"específica, feu servir el paràmetre --queue=QUEUE_NAME. També podeu "
+"utilitzar --test per executar una tasca de prova i --once per aturar-la "
+"després d'una tasca única."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
+"S'ha completat l'execució de {$jobCount} tasques a la cua anomenada "
+"{$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr ""
+"No hi ha tasques disponibles per executar a la cua anomenada {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Mostrar totes les tasques en cua. Utilitzar la marca --failed per veure "
+"totes les tasques errònies."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Mostrar l'ús de l'ordre 'jobs'"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Mostrar els paràmetres d'ús de 'jobs'"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "L'opció no pot estar buida. Comproveu el mètode d'ús."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Tasques en cua errònies"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Feines en cua"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Cua"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Connexió"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Nom de la tasca"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Intents"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Reservat a"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Disponible a"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Creat a"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Error a"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Missatge d'error inesperat"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Paginació"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Actual"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Previ"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Següent"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Per utilitzar aquesta ordre hauríeu de fer servir, com a mínim, els "
+"identificadors de tasca '--all' o '--queue='"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"Tasca de prova enviada que està destinada a fallar a la cua anomenada "
+"{$queueName}"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
+"Tasca de prova enviada que està destinada a tenir èxit a la cua anomenada "
+"{$queueName}"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Opció invàlida per a una tasca de prova. L'opció '--only=' només admet els "
+"valors 'failed' o 'success'."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "ID de tasca invàlid"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "La tasca ha estat eliminada!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "No s'han trobat tasques per eliminar."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Ha estat impossible eliminar totes les tasques."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "S'han eliminat totes les tasques!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"S'han eliminat correctament {$jobsCount} tasques errònies del llistat "
+"d'errors."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "S'han reenviat correctament {$jobsCount} tasques a la cua."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Hi ha {$total} tasques errònies"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Hi ha {$total} tasques en cua"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "L'opció {$option} no existeix."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Us referíeu a un dels següents?"
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Hi ha un total de <strong>{$total}</strong> tasques en cua"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Hi ha un total de <strong>{$total}</strong> tasques errònies."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Veure les tasques en cua"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Tasques"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Tasques errònies"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Detalls de la tasca errònia"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Veure totes les tasques en cua del sistema i rastrejar els intents erronis."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Veure tasques"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Veure tasques errònies"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Veure la tasca errònia: {$id} detalls"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Atribut"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Valor de l'atribut"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Tasca"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Cua"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Connexió"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Intents"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Creat a"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Error a"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Càrrega útil"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Excepció"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Accions"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Error a {$failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Creat a {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Torneu a provar-ho"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Tornar a posar a la cua totes les tasques errònies"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"La tasca que carrega les dades estadístiques d'ús de l'arxiu {$file} ha "
+"fallat i l'arxiu no s'ha pogut moure de {$archivedFilePath} to "
+"{$stagingPath}."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"La tasca que carrega les dades estadístiques d'ús de l'arxiu {$file} ha "
+"fallat. L'arxiu s'ha mogut al directori de preproducció."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Recol·lecció de dades"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Configurar quins tipus d'estadístiques d'ús haurien de recol·lectar-se."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Emmagatzematge de dades"
 
 msgid "admin.settings.statistics.storage.description"
 msgstr ""
+"Configurar quines estadístiques d'ús haurien d'emmagatzemar-se en el "
+"servidor."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Protocol Sushi"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Configurar el protocol <a href=\"https://www.projectcounter.org/"
+"counter-sushi/\">COUNTER 5 SUSHI</a>, un format reconegut per la industria "
+"per distribuir estadístiques d'ús."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Estadístiques diàries o mensuals"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Indicar si voleu fer seguiment diari o mensual de les estadístiques d'ús. "
+"Rastrejar diàriament les estadístiques pot augmentar considerablement la "
+"mida de la vostra base de dades."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Rastrejar estadístiques diàries i mensuals"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Nomes rastrejar estadístiques mensuals"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Comprimir registres"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Les estadístiques es generen a partir d'arxius de registre d'accés que es "
+"mouen a <code>{$path}</code> quan ja s'han processat. S'haurien de comprimir "
+"aquests arxius de registre en arxius<code>.gz</code> un cop ja s'han "
+"processat? Comprimir-los pot estalviar espai de disc en el servidor."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Deixar els arxius de registre en el seu lloc"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
+msgstr "Comprimir els arxius de registre"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"Restringir l'accés a l'API d'estadístiques COUNTER SUSHI a administradors/"
+"ores i gestors/ores"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Plataforma"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"D'acord amb el protocol COUNTER SUSHI, cada informe estadístic ha "
+"d'identificar la \"plataforma\" que proporciona les estadístiques. Per "
+"defecte, la revista serà designada com la plataforma per a totes les "
+"estadístiques. No obstant això, si totes les revistes d'aquest lloc són "
+"publicades, operades o propietat del mateix proveïdor, potser preferiu "
+"designar el lloc com a plataforma."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "ID de plataforma"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"Manera d'identificar aquesta plataforma en els informes COUNTER SUSHI. L'ID "
+"de la plataforma ha de tenir, com a màxim, 17 caràcters i pot contenir "
+"lletres (a–z, A–Z), dígits (0–9), guions baixos (_), punts (.) i barres (/). "
+"L'ID de la plataforma s'utilitza en diverses columnes i hauria de ser tan "
+"curt com sigui possible, però, al mateix temps, ha de ser reconeixible. L'ID "
+"de la plataforma sol estar basat en el nom de l'editorial o plataforma, en "
+"el nom del domini o en una abreviatura única i coneguda."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"Ha de demanar-se un ID de plataforma quan el lloc s'identifiqui com a "
+"plataforma SUSHI."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "opcions d'ordre de treball"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "ús: [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Opcions disponibles per a l'ordre de treball"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "El nom de la connexió de la cua per treballar[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "El nom de la cua per treballar[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "El nom del treballador[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Els segons d'espera abans de reintentar una feina que s'ha trobat amb una "
+"excepció no detectada[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "El límit de memòria en megabytes[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
-msgstr ""
+msgstr "Els segons que pot executar-se un subprocés[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Segons per posar-se en suspensió quan no hi ha cap tasca disponible[default :"
+" '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Nombre d'intents per dur a terme una tasca abans de registrar-la com a "
+"errònia[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
+"Forçar l'execució del treballador encara que estigui en mode de manteniment["
+"default : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Aturar-se quan la cua estigui buida[default : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
 msgstr ""
+"El nombre de tasques per processar abans d'aturar-se[default : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"El nombre de segons màxim que el treballador hauria d'executar-se[default : "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
+msgstr "Nombre de segons d'espera entre tasques[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Executar el treballador dimoni (daemon) per a la cua de proves"
 
 #~ msgid "admin.scheduledTask.openAccessNotification"
 #~ msgstr "Notificació d'accés obert"
@@ -808,3 +949,42 @@ msgstr ""
 #~ msgid "admin.copyAccessLogFileTool.error.noGunzip"
 #~ msgstr ""
 #~ "No s'ha configurat La ruta Gunzip. Consulteu config.inc.php, secció cli."
+
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Estadístiques del revisor/a"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"En una instal·lació multicontext, les estadístiques de revisors/ores, com el "
+"recompte de revisions enviades, poden mostrar-se individualment per a cada "
+"context o agrupades col·lectivament."
+
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Inhabilitar les estadístiques agrupades de revisor/a"
+
+msgid "admin.fileLoader.fileDispatched"
+msgstr "L'arxiu {$filename} s'ha mogut a la carpeta d'enviament."
+
+msgid "admin.cli.tool.jobs.sandbox.message"
+msgstr ""
+"No es poden executar les tasques en cua perquè el mode sandbox de "
+"l'aplicació està actiu."
+
+msgid "admin.cli.tool.jobs.available.options.restart.description"
+msgstr "Reiniciar 'daemons' de feines en cua després de la tasca actual."
+
+msgid "admin.cli.tool.jobs.available.options.restart.confirm"
+msgstr ""
+"Els treballadors/ores sortiran elegantment després de completar l'execució "
+"de la tasca actual."
+
+msgid "admin.job.archiveLogFile.error"
+msgstr ""
+"L'arxiu {$file} no s'ha pogut moure de {$dispatchFilePath} a "
+"{$archivedFilePath}."
+
+msgid "admin.job.processLogFile.fileNotFound"
+msgstr "L'arxiu {$file} no existeix."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Utilitzar el lloc com a plataforma per a totes les revistes."

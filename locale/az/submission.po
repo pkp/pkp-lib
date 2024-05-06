@@ -1,8 +1,8 @@
-# Osman Durmaz <osmandurmaz@hotmail.de>, 2022, 2023.
+# Osman Durmaz <osmandurmaz@hotmail.de>, 2022, 2023, 2024.
 # Gadirova <leylakb@yahoo.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-02 22:43+0000\n"
+"PO-Revision-Date: 2024-04-20 00:03+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/az/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "submission.submissionFile"
 msgstr "Fayl"
@@ -38,13 +38,13 @@ msgid "editor.submission.decision.requestRevisions"
 msgstr "Düzəliş tələb et"
 
 msgid "editor.submission.decision.resubmit.completed"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.recommend.completed"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.recommend.revisions"
-msgstr "#YOX"
+msgstr ""
 
 msgid "grid.action.editMetadata"
 msgstr "Üst datanı tənzimləyin"
@@ -509,7 +509,7 @@ msgid "submission.versions"
 msgstr "Versiya"
 
 msgid "submission.versionIdentity"
-msgstr "{$ DatePabled} ( {$version}"
+msgstr "{$datePublished} ({$version})"
 
 msgid "submission.identifiers"
 msgstr "Tərif edicilər"
@@ -978,16 +978,16 @@ msgid "editor.submission.decision.newReviewRound"
 msgstr "Yeni dəyərləndirmə turu"
 
 msgid "editor.submission.decision.newReviewRound.completed"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.requestRevisions.completed"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.sendExternalReview"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.newRound"
 msgstr "Yeni dəyərləndirmə turu"
@@ -996,10 +996,10 @@ msgid "editor.submission.decision.sendToProduction"
 msgstr "Çapa Göndər"
 
 msgid "editor.submission.decision.sendToProduction.completed"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.approveProofsDescription"
 msgstr ""
@@ -1010,13 +1010,13 @@ msgid "editor.submission.decision.approveProofs"
 msgstr "Düzəlişləri qəbul edin"
 
 msgid "editor.submission.decision.revertDecline.completed"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.recommend.resubmit"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.recommend.decline"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Təklif edin"
@@ -1451,7 +1451,7 @@ msgid "editor.submission.decision.skipReview"
 msgstr "Qəbul et və dəyərləndirməni keç"
 
 msgid "editor.submission.decision.skipReview.completed"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Daxili dəyərləndirməyə Göndər"
@@ -1465,7 +1465,7 @@ msgid "editor.submission.decision.revertDecline"
 msgstr "Rədd etməyi ləğv edin"
 
 msgid "editor.submission.recommend.accept"
-msgstr "#YOX"
+msgstr ""
 
 msgid "submission.description"
 msgstr "Açıqlama"
@@ -1483,49 +1483,49 @@ msgid "editor.submission.addStageParticipant.form.userGroupRequired"
 msgstr "Bir istifadəçi qrupu seçməlisiniz."
 
 msgid "editor.submission.decision.notifyReviewers.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.initialDecline.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.sendExternalReview.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Kopyalamadan geri göndərildi"
 
 msgid "editor.submission.recommend.completed.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.recommend.resubmit.log"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.recommend.decline.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.recommend.decline.log"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.recommendation.noDecidingEditors"
-msgstr "#YOX"
+msgstr ""
 
 msgid "submission.stageNotInitiated"
 msgstr "Mərhələ başladılmadı"
@@ -1819,10 +1819,10 @@ msgid "editor.submission.roundStatus.pendingReviews"
 msgstr "Rəyçilərdən cavab gözləyir."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.status.waitingInitialReview"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.addStageParticipant.userGroup"
 msgstr ""
@@ -1850,16 +1850,16 @@ msgstr ""
 "bir e-poçt göndərin."
 
 msgid "editor.submission.decision.accept.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.accept.log"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.accept.completedDescription"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
@@ -1867,46 +1867,46 @@ msgstr ""
 "poçt qərarın qeydə alınana qədər göndərilməyəcək."
 
 msgid "editor.submission.decision.decline.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.decline.log"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.decline.completed.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.newReviewRound.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.newReviewRound.log"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.promoteFiles.review"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.promoteFiles.production"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.requestRevisions.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.requestRevisions.log"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Baxış yuvarlaqını ləğv edin"
@@ -1934,16 +1934,16 @@ msgstr ""
 "olmadıqda yalnız nəzərdən keçirmə mərhələsini ləğv edə bilər."
 
 msgid "editor.submission.decision.resubmit.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.resubmit.completed.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.sendToProduction.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.backFromCopyediting.description"
 msgstr "Bu təqdimatı kopyalama mərhələsindən geri göndərin."
@@ -1962,40 +1962,40 @@ msgstr ""
 "və onların təqdim edilməsi sonrakı redaksiya nəzərdən keçiriləcəkdir."
 
 msgid "editor.submission.decision.backToCopyediting"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.backToCopyediting.log"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.skipReview.completed.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.recommend.notifyEditors.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.recommend.accept.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.recommend.accept.log"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.recommend.revisions.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.recommend.resubmit.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.recommendation.description"
 msgstr "Bu Məqalə/yazı üçün bir redaktor qərarı tövsiyə edin."
@@ -2396,7 +2396,7 @@ msgstr ""
 "\"{$name}\" ({$username}) bu Məqalə üçün {$userGroupName}'dan çıxarıldı."
 
 msgid "submission.event.decisionReviewerEmailSent"
-msgstr "#YOX"
+msgstr ""
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Məqalə göndərildi"
@@ -2527,34 +2527,34 @@ msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Bütün tövsiyələr hazırdır və bir qərara ehtiyac var."
 
 msgid "editor.submission.decision.resubmit.log"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Kopyalama ləğv edin"
 
 msgid "editor.submission.decision.skipReview.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.skipReview.log"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.revertDecline.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.revertDecline.log"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.revertDecline.completed.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
-msgstr "#YOX"
+msgstr ""
 
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""

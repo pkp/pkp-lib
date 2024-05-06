@@ -1,7 +1,7 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-08-01 08:25+0000\n"
+"PO-Revision-Date: 2024-03-31 01:24+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/tr/>"
 "\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "{$param} parametresi desteklenmiyor."
@@ -306,7 +306,7 @@ msgid "api.mailables.404.mailableNotFound"
 msgstr "İstediğiniz e-posta bulunamadı."
 
 msgid "api.jobs.404.failedJobNotFound"
-msgstr ""
+msgstr "Başarısız iş başarısız listesinde bulunamadı."
 
 msgid "api.jobs.406.failedJobPayloadMissing"
 msgstr ""
@@ -340,3 +340,9 @@ msgstr "Başarısız iş, başarısız listesinden silindi."
 
 #~ msgid "api.mailables.400.invalidTemplateKeys"
 #~ msgstr "Şablon Anahtarı bir dizi veya boş dize olmalıdır"
+
+msgid "api.400.errorUploadingImage"
+msgstr "Bu resmi yüklerken bir hata oluştu."
+
+msgid "api.highlights.400.noOrderData"
+msgstr "Sipariş bilgileri bulunamadığı için Highlight siparişi kaydedilemedi."

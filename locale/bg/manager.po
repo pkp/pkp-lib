@@ -215,9 +215,6 @@ msgstr ""
 msgid "manager.setup.contextTitle"
 msgstr "Заглавие на сървъра"
 
-msgid "manager.setup.keyInfo"
-msgstr "Ключова информация"
-
 msgid "manager.setup.lists"
 msgstr "Списъци"
 
@@ -378,11 +375,6 @@ msgid "manager.setup.serverThumbnail.description"
 msgstr ""
 "Малко лого или представяне на сървъра, което може да се използва в списъци "
 "със сървъри."
-
-msgid "manager.setup.keyInfo.description"
-msgstr ""
-"Осигурете описание на вашия сървър и идентифицирайте препринт мениджъра(ите) "
-"и други членове на екипа на сървъра за препринти."
 
 msgid "manager.setup.restrictSiteAccess"
 msgstr ""

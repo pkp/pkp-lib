@@ -248,12 +248,6 @@ msgstr ""
 msgid "manager.setup.contextTitle"
 msgstr "Palvelimen nimi"
 
-msgid "manager.setup.keyInfo"
-msgstr "Avaintiedot"
-
-msgid "manager.setup.keyInfo.description"
-msgstr ""
-
 msgid "manager.setup.lists"
 msgstr "Listat"
 

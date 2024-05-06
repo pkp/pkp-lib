@@ -187,9 +187,6 @@ msgstr "Kontakt"
 msgid "about.aboutContext"
 msgstr "Podrobnosti o tomto serveru"
 
-msgid "about.editorialTeam"
-msgstr "Tým preprintového serveru"
-
 msgid "about.submissions"
 msgstr "Příspěvky"
 

@@ -215,9 +215,6 @@ msgstr "Контакт"
 msgid "about.aboutContext"
 msgstr "За сървъра"
 
-msgid "about.editorialTeam"
-msgstr "Екип на сървъра за препринти"
-
 msgid "about.submissions"
 msgstr "Изпратени материали"
 

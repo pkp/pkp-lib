@@ -132,9 +132,6 @@ msgstr ""
 msgid "manager.setup"
 msgstr "Server-Einstellungen"
 
-msgid "manager.setup.editorialTeam"
-msgstr "Preprint-Server-Team"
-
 msgid "manager.setup.useStyleSheet"
 msgstr "Server-Formatvorlage"
 

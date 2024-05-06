@@ -138,9 +138,6 @@ msgid "manager.setup"
 msgstr "Configuración del servidor"
 
 #, fuzzy
-msgid "manager.setup.editorialTeam"
-msgstr "Equipo editorial"
-
 msgid "manager.setup.useStyleSheet"
 msgstr "Hoja de estilo del servidor"
 

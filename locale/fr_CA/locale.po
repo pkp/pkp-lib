@@ -243,9 +243,6 @@ msgid "about.aboutContext"
 msgstr "À propos du serveur"
 
 #, fuzzy
-msgid "about.editorialTeam"
-msgstr "Équipe éditoriale"
-
 msgid "about.submissions"
 msgstr "Soumissions"
 

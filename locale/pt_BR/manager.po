@@ -130,9 +130,6 @@ msgstr ""
 msgid "manager.setup"
 msgstr "Configuração do servidor"
 
-msgid "manager.setup.editorialTeam"
-msgstr "Equipe do Servidor de Preprint"
-
 msgid "manager.setup.useStyleSheet"
 msgstr "Página de estilo do servidor"
 

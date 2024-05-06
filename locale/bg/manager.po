@@ -18,9 +18,6 @@ msgstr "Препринти"
 msgid "manager.language.submissions"
 msgstr "Изпратени материали"
 
-msgid "manager.setup.editorialTeam"
-msgstr "Екип на сървъра за препринти"
-
 msgid "manager.setup.contextAbout"
 msgstr "За сървъра"
 

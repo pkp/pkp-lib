@@ -220,9 +220,6 @@ msgstr "Kontakt"
 msgid "about.aboutContext"
 msgstr "Über den Server"
 
-msgid "about.editorialTeam"
-msgstr "Preprint-Server-Team"
-
 msgid "about.submissions"
 msgstr "Einreichungen"
 

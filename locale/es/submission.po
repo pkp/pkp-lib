@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2024-02-15 18:54+0000\n"
+"PO-Revision-Date: 2024-05-03 22:34+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/es/>\n"
@@ -441,7 +441,7 @@ msgid "submission.mySubmissions"
 msgstr "Mis envíos de autoría"
 
 msgid "submission.addFile"
-msgstr "Subir archivo"
+msgstr "Cargar archivo"
 
 msgid "submission.additionalFiles"
 msgstr "Archivos adicionales"
@@ -675,8 +675,8 @@ msgstr "Archivo de revisiones actualizado"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
-"{$senderName} envió un recordatorio a {$recipientName} sobre su asignación "
-"de revisión"
+"{$senderName} envió un recordatorio a {$recipientName} en relación con su "
+"asignación de revisión"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
@@ -1113,7 +1113,7 @@ msgid "submission.upload.percentComplete"
 msgstr "{$percent}% de carga completado"
 
 msgid "submission.upload.dependent"
-msgstr "Subir un archivo dependiente"
+msgstr "Cargar un archivo dependiente"
 
 msgid "submission.upload.query"
 msgstr "Sube un archivo de discusión"
@@ -1137,7 +1137,7 @@ msgid "submission.underway"
 msgstr "En curso"
 
 msgid "submission.uploadFileTo"
-msgstr "Subir archivo a"
+msgstr "Cargar archivo a"
 
 msgid "submission.createRemote"
 msgstr "Crear remoto"
@@ -1245,7 +1245,7 @@ msgid "submission.submit.uploadStep"
 msgstr "1. Cargar envío"
 
 msgid "submission.submit.uploadSubmissionFile"
-msgstr "Subir archivo de envío"
+msgstr "Cargar archivo de envío"
 
 msgid "submission.submit.metadataStep"
 msgstr "2. Metadatos"
@@ -1285,27 +1285,27 @@ msgid "submission.upload.uploadNewFile"
 msgstr "Esto no es una revisión de un archivo existente"
 
 msgid "submission.upload.userGroup"
-msgstr "Subir este archivo con mi rol de..."
+msgstr "Cargar este archivo con mi rol de..."
 
 msgid "submission.upload.userGroupDescription"
 msgstr ""
-"Si está subiendo un volumen editado, debería subir todos los capítulos del "
+"Si está enviando un volumen editado, debería cargar todos los capítulos del "
 "volumen uno por uno con el rol de editor/a de volumen."
 
 msgid "submission.upload.uploadLibraryFile"
-msgstr "Subir un archivo de biblioteca"
+msgstr "Cargar un archivo de biblioteca"
 
 msgid "submission.upload.libraryCategory"
 msgstr "Categoría de documento del envío"
 
 msgid "submission.upload.finalDraft"
-msgstr "Subir archivo"
+msgstr "Cargar archivo"
 
 msgid "submission.upload.copyeditedVersion"
-msgstr "Subir archivo corregido"
+msgstr "Cargar el archivo corregido"
 
 msgid "submission.upload.uploadFiles"
-msgstr "Subir archivos"
+msgstr "Cargar archivos"
 
 msgid "submission.upload.response.description"
 msgstr ""
@@ -1313,10 +1313,10 @@ msgstr ""
 "abajo o suba una copia del archivo (u otro archivo) con comentarios."
 
 msgid "submission.upload.productionReady"
-msgstr "Subir un archivo listo para producción"
+msgstr "Cargar un archivo listo para la producción"
 
 msgid "submission.upload.proof"
-msgstr "Subir un archivo listo para publicación"
+msgstr "Cargar un archivo listo para la publicación"
 
 msgid "submission.upload.noAvailableReviewFiles"
 msgstr "No tiene archivos para revisar en este momento."
@@ -1368,7 +1368,7 @@ msgstr ""
 "Se han recibido todas las recomendaciones y hay que tomar una decisión."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr "Inactivo durante más de {$days} días en la fase {$stage}."
+msgstr "Inactivo durante más de {$days} días en la fase de {$stage}."
 
 msgid "editor.submission.status.waitingInitialReview"
 msgstr "Un envío nuevo está a la espera de revisión o de ser rechazado."
@@ -1409,7 +1409,7 @@ msgid "editor.submission.addStageParticipant.form.userGroupRequired"
 msgstr "Debe seleccionar un grupo de usuarios/as."
 
 msgid "editor.submission.addStageParticipant.form.userRequired"
-msgstr "Debe seleccionar un usuario/a del grupo de usuarios/as especificado."
+msgstr "Debe seleccionar un usuario/a del grupo especificado."
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
 msgstr ""
@@ -1554,8 +1554,8 @@ msgstr "Solicitar revisiones"
 
 msgid "editor.submission.decision.requestRevisions.description"
 msgstr ""
-"El autor/a debe proporcionar las revisiones antes de que este envío se "
-"acepte para su publicación."
+"El autor/a debe proporcionar revisiones antes de que este envío se acepte "
+"para su publicación."
 
 msgid "editor.submission.decision.requestRevisions.log"
 msgstr "{$editorName} solicitó revisiones para este envío."
@@ -1565,7 +1565,7 @@ msgstr "Revisiones solicitadas"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
-"Se han solicitado revisiones para el envío, {$title}. Se han enviado todas "
+"Se han solicitado revisiones para el envío {$title}. Se han enviado todas "
 "las notificaciones, excepto las que haya decidido omitir."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
@@ -1590,7 +1590,7 @@ msgid "editor.submission.decision.cancelReviewRound.log"
 msgstr "{$editorName} ha cancelado la ronda de revisión."
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr "La última ronda de revisión fue cancelada."
+msgstr "Se ha cancelado la última ronda de revisión."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
@@ -1897,7 +1897,7 @@ msgid "submission.actionNeeded"
 msgstr "Se requiere una acción"
 
 msgid "reviewer.submission.reviewFiles"
-msgstr "Revisar archivos"
+msgstr "Archivos para revisar"
 
 msgid "submission.submit.currentFile"
 msgstr "Archivo actual"
@@ -2026,7 +2026,7 @@ msgid "submission.productionReady"
 msgstr "Libro disponible"
 
 msgid "submission.review.uploadRevisionToRound"
-msgstr "Subir archivo revisado"
+msgstr "Cargar el archivo revisado"
 
 msgid "log.review.reviewerAssigned"
 msgstr ""

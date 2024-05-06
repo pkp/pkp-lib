@@ -1,10 +1,10 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2023-02-23 08:16+0000\n"
+"PO-Revision-Date: 2024-03-31 01:25+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr "Yayınlanmış yazıyı yazarlar düzenleyemez."
@@ -534,7 +534,7 @@ msgid "submission.coverage"
 msgstr "Kapsam Bilgisi"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Gönderim Detayları"
 
 msgid "submission.done"
 msgstr "Yapıldı"
@@ -601,6 +601,7 @@ msgstr "İlk gönderi tamamlandı."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$filename} ({$username}) gönderimi için telif hakkı koşullarını kabul etti."
 
 msgid "submission.event.fileRevised"
 msgstr ""
@@ -653,9 +654,13 @@ msgstr "Hakem revizyon dosyaları güncellendi"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName}, {$recipientName}'e değerlendirme görevi ile ilgili bir "
+"hatırlatma gönderdi"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"Değerlendirme görevleriyle ilgili olarak {$recipientName}'na otomatik bir "
+"hatırlatma e-postası gönderildi"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Bir e-posta gönderildi:"
@@ -687,7 +692,7 @@ msgid "submission.firstPublished"
 msgstr "İlk yayımlanma"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "Editör için"
 
 msgid "submission.galley"
 msgstr "Dizgi"
@@ -964,7 +969,7 @@ msgid "submission.review"
 msgstr "Değerlendirme"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Gözden geçir ve Gönder"
 
 msgid "submission.reviewed"
 msgstr "Değerlendirildi"
@@ -1062,11 +1067,8 @@ msgstr "Ek İyileştirmeler"
 msgid "submission.submit.submissionLocale"
 msgstr "Gönderi Dili"
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Çoklu dillerde gönderi kabul edilir. Yukarıdaki açılır listeden gönderinin "
-"birincil dilini seçin."
+msgstr "Aday makalenin birincil dilini seçin."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Gönderi Dosyaları"
@@ -1174,7 +1176,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Lütfen referansları giriniz."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Lütfen Veri Kullanılabilirlik Beyanını girin."
 
 msgid "submission.form.name"
 msgstr "Bu dosyaya anlamlı bir ad ver"
@@ -1411,13 +1413,12 @@ msgstr "Yazarları Bilgilendir"
 msgid "editor.submission.decision.notifyReviewers"
 msgstr "Hakemleri Bilgilendir"
 
-#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
-"Hakemlere değerlendirmeleri için teşekkür etmek ve kararın alındığını "
-"bildirmek için bir e-posta gönderin. Körleme hakemliği korumak için her "
-"hakeme ayrı bir e-posta gönderilecektir. {$recipientName} ifadesi, her "
-"hakemin adını güvenle eklemek için mesaj içeriğinde kullanılabilir."
+"Değerlendirme yapanlara, değerlendirmeleri için teşekkür etmek ve bir karar "
+"alındığını bildirmek için e-posta gönderin. Anonimliklerini korumak için her "
+"bir inceleyiciye ayrı bir e-posta gönderilecektir. Her bir hakemin adını "
+"güvenli bir şekilde eklemek için mesajda {$recipientName} ifadesi kullanılır."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
@@ -1439,23 +1440,21 @@ msgstr ""
 msgid "editor.submission.decision.accept.completed"
 msgstr "Aday Makale Kabul Edildi"
 
-#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
-"{$title} başlıklı aday makale, yayımlanmak üzere kabul edildi ve son kopya "
-"düzenleme aşamasına gönderildi."
+"{$title} başlıklı aday makale yayınlanmak üzere kabul edildi ve redaksiyon "
+"aşamasına gönderildi. E-posta göndermemeyi seçtikleriniz dışında tüm "
+"bildirimler gönderildi."
 
-#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
-"Yazarlara aday makalelerinin kabul edildiğini bildirmek için bir e-posta "
-"gönderin."
+"Aday makalenin yayımlanmak üzere kabul edildiğini bildirmek için yazarlara "
+"bir e-posta gönderin. Bu e-posta, karar kaydedilene kadar gönderilmeyecektir."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
-"Değerlendirme turunun kapandığını bildirmek için yazarlara bir e-posta "
-"gönderin."
+"Değerlendirme turunun kapatıldığını bildirmek için yazarlara bir e-posta "
+"gönderin. Bu e-posta, karar kaydedilene kadar gönderilmeyecektir."
 
 msgid "editor.submission.decision.decline"
 msgstr "Makaleyi Reddet"
@@ -1471,15 +1470,15 @@ msgstr "{$editorName} aday makaleyi reddetti."
 msgid "editor.submission.decision.decline.completed"
 msgstr "Makale Reddedildi"
 
-#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
-msgstr "{$title} başlıklı aday makale, reddedildi ve arşive gönderildi."
+msgstr ""
+"{$title} başlıklı aday makale reddedildi ve arşive gönderildi. E-posta "
+"göndermemeyi seçtikleriniz dışında tüm bildirimler gönderildi."
 
-#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
-"Yazarlara aday makalelerinin reddedildiğini bildirmek için bir e-posta "
-"gönderin."
+"Yazarlara aday makalelerinin reddedildiğini bildiren bir e-posta gönderin. "
+"Bu e-posta, karar kaydedilene kadar gönderilmeyecektir."
 
 msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
@@ -2649,3 +2648,11 @@ msgstr "Sürüm {$version}"
 msgid "submission.submissionFile"
 msgstr "Gönderi Dosyası"
 
+msgid "submission.authors.label"
+msgstr "Yazarlar"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Değerlendirme aşamasına geri dönüldü."
+
+msgid "submission.author.list"
+msgstr "Yazar Listesi"

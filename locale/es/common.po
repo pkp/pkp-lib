@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2024-03-11 19:05+0000\n"
-"Last-Translator: Jonas Raoni Soares da Silva <weblate@raoni.org>\n"
+"PO-Revision-Date: 2024-05-02 14:38+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "es/>\n"
 "Language: es\n"
@@ -135,7 +135,7 @@ msgid "common.add"
 msgstr "Añadir"
 
 msgid "common.addCCBCC"
-msgstr "Añadir CC/BCC"
+msgstr "Añadir CC/CCO"
 
 msgid "common.addFiles"
 msgstr "Añadir archivos"
@@ -268,7 +268,7 @@ msgid "common.closeWindow"
 msgstr "Cerrar ventana"
 
 msgid "common.complete"
-msgstr "Completar"
+msgstr "Finalizada"
 
 msgid "common.completed"
 msgstr "Completado"
@@ -346,7 +346,7 @@ msgid "common.deleteSelection"
 msgstr "Eliminar selección"
 
 msgid "common.deselect"
-msgstr "Desmarcar"
+msgstr "Deseleccionar"
 
 msgid "common.designation"
 msgstr "Designación"
@@ -932,12 +932,10 @@ msgid "common.uploadedDate"
 msgstr "Fecha de subida"
 
 msgid "common.upload"
-msgstr "Subir"
+msgstr "Cargar"
 
 msgid "common.uploadFailed"
-msgstr ""
-"No se ha podido subir el fichero. Por favor, inténtelo de nuevo o póngase en "
-"contacto con el administrador si el problema persiste."
+msgstr "El archivo no se ha podido cargar ni revisar."
 
 msgid "common.up"
 msgstr "Arriba"
@@ -946,7 +944,7 @@ msgid "common.addFile"
 msgstr "Añadir archivo"
 
 msgid "common.upload.addFile"
-msgstr "Subir fichero"
+msgstr "Cargar archivo"
 
 msgid "common.upload.addFile.description"
 msgstr "Cargar un archivo desde su ordenador."
@@ -961,7 +959,7 @@ msgid "common.upload.changeFile"
 msgstr "Cambiar fichero"
 
 msgid "common.upload.dragFile"
-msgstr "Arrastre y suelte aquí el fichero para empezar a subirlo"
+msgstr "Arrastre y suelte aquí el archivo para empezar la carga"
 
 msgid "common.url"
 msgstr "URL"
@@ -1038,10 +1036,10 @@ msgid "defaultMetric.title"
 msgstr "Métrica predeterminada"
 
 msgid "editor.submissionReview.uploadFile"
-msgstr "Subir archivo de revisión"
+msgstr "Cargar archivo de revisión"
 
 msgid "editor.submissionReview.uploadAttachment"
-msgstr "Subir fichero"
+msgstr "Cargar archivo"
 
 msgid "email.addAttachment"
 msgstr "Añadir adjunto"
@@ -1270,7 +1268,7 @@ msgstr ""
 "la página y vuelva a intentarlo."
 
 msgid "form.fileRequired"
-msgstr "Es necesario subir un archivo."
+msgstr "Es necesario cargar un archivo."
 
 msgid "form.required"
 msgstr "(* Obligatorio)"
@@ -1288,7 +1286,7 @@ msgid "form.saved"
 msgstr "Guardado"
 
 msgid "form.saveToUpload"
-msgstr "Use 'Guardar' para subir el fichero."
+msgstr "Use 'Guardar' para cargar el archivo."
 
 msgid "form.send"
 msgstr "Enviar"
@@ -1403,9 +1401,7 @@ msgid "stageParticipants.notify.startDiscussion.description"
 msgstr "Empezar una discusión con {$userFullName}."
 
 msgid "stageParticipants.notify.chooseMessage"
-msgstr ""
-"Elija un mensaje predefinido que vaya a utilizar o rellene el formulario "
-"siguiente."
+msgstr "Elija un mensaje predefinido o rellene el formulario siguiente."
 
 msgid "stageParticipants.notify.message"
 msgstr "Mensaje"
@@ -1968,13 +1964,14 @@ msgstr "Conversación añadida."
 
 msgid "notification.type.assignCopyeditors"
 msgstr ""
-"Asigne un corrector/a mediante la opción Añadir del panel de participantes."
+"Asigne la persona encargada de la corrección mediante la opción \"Asignar\" "
+"del panel de participantes."
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "Esperando correcciones."
 
 msgid "notification.type.roundStatusTitle"
-msgstr "Estado de ronda {$round}"
+msgstr "Estado de la ronda {$round}"
 
 msgid "notification.type.editorialReport"
 msgstr "Resumen del informe de estadísticas."

@@ -1,21 +1,27 @@
+# Kay <kay.pepping@huygens.knaw.nl>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:56+00:00\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: nl_NL\n"
+"PO-Revision-Date: 2024-04-17 19:57+0000\n"
+"Last-Translator: Kay <kay.pepping@huygens.knaw.nl>\n"
+"Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
+"De auteurs van deze publicatie kunnen niet bewerkt worden omdat het al "
+"gepubliceerd is."
 
 msgid "author.publicationNotFound"
-msgstr ""
+msgstr "De publicatie voor deze auteur kon niet worden gevonden."
 
 msgid "author.submit.submissionCitations"
 msgstr ""
@@ -27,6 +33,10 @@ msgstr "Er zijn nieuwe reviews ingediend die door de redacteur worden bekeken."
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
+"Een of meer recensenten hebben hun deadline gemist. De redactie is hiervan "
+"op de hoogte gesteld en zal actie ondernemen om ervoor te zorgen dat de "
+"beoordelingen worden voltooid. U hoeft op dit moment geen actie te "
+"ondernemen. U ontvangt bericht wanneer er een beslissing is genomen."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Stuur in als"
@@ -37,30 +47,29 @@ msgstr ""
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"Selecteer een redactionele rol als je deze inzending zelf wilt bewerken en "
+"publiceren."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Controlelijst voor inzendingen"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
-"U moet onderstaande vereisten lezen en bevestigen dat de inzending eraan "
-"voldoet voor u kan verder gaan."
+msgstr "Alle inzendingen moeten aan de volgende eisen voldoen."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "Ja, mijn inzending voldoet aan al deze eisen."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Inzending voltooid"
 
 msgid "submission.submit.genre.label"
-msgstr ""
+msgstr "Wat voor bestand is dit?"
 
 msgid "submission.submit.genre.description"
-msgstr ""
+msgstr "Kies de optie die dit bestand het best beschrijft."
 
 msgid "submission.submit.removeConfirm"
-msgstr ""
+msgstr "Weet u zeker dat u dit bestand wilt verwijderen?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "U kan nu:"
@@ -387,7 +396,7 @@ msgstr ""
 "'conference'."
 
 msgid "metadata.property.displayName.abstract"
-msgstr ""
+msgstr "Samenvatting"
 
 msgid "common.queue.long.submissionsUnassigned"
 msgstr "Niet toegewezen"
@@ -414,7 +423,7 @@ msgid "submission.shortAuthor"
 msgstr "{$author} e.a."
 
 msgid "submission.representationOfTitle"
-msgstr ""
+msgstr "{$representation} van {$title}"
 
 msgid "submission.mySubmissions"
 msgstr "Geschreven door mij"
@@ -423,7 +432,7 @@ msgid "submission.addFile"
 msgstr "Bestand laden"
 
 msgid "submission.additionalFiles"
-msgstr ""
+msgstr "Overige bestanden"
 
 msgid "submission.agencies"
 msgstr "Organisaties"
@@ -464,7 +473,7 @@ msgid "submission.parsedCitations"
 msgstr "Geëxtraheerde referenties"
 
 msgid "submission.parsedCitations.DOI"
-msgstr ""
+msgstr "DOI"
 
 msgid "submission.parsedCitations.description"
 msgstr ""
@@ -532,13 +541,13 @@ msgid "submission.coverage"
 msgstr "Informatie over de dekking"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Inzendingsdetails"
 
 msgid "submission.done"
 msgstr "Gedaan"
 
 msgid "submission.downloads"
-msgstr ""
+msgstr "Downloads"
 
 msgid "submission.dueDate"
 msgstr "Verwacht vóór"
@@ -591,12 +600,16 @@ msgstr "Verwijder uit logboek"
 
 msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
+"Er is een e-mail over de beslissing verstuurd naar {$recipientCount} "
+"beoordelaar(s) met als onderwerp {$subject}."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Initiële inzending voltooid."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$filename} ({$username}) ging akkoord met de auteursrechtelijke voorwaarden "
+"voor inzending."
 
 #, fuzzy
 msgid "submission.event.fileRevised"
@@ -649,9 +662,13 @@ msgstr "Bestand met revisies reviewer bijgewerkt"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} stuurde een herinnering naar {$recipientName} met betrekking "
+"tot hun beoordelingsopdracht"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"Er is een automatische herinneringse-mail verzonden naar {$recipientName} "
+"met betrekking tot hun beoordelingsopdracht"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Een e-mail is verstuurd:"
@@ -661,9 +678,11 @@ msgstr "Bekijk e-mail"
 
 msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
 msgstr ""
+"De auteurs kunnen nu metadata bewerken bij indiening in stadium {stage}."
 
 msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
 msgstr ""
+"De auteurs kunnen nu geen metadata bewerken bij indiening in stadium {stage}."
 
 msgid "submission.files"
 msgstr "Bestanden"
@@ -673,12 +692,14 @@ msgstr "Download alle bestanden"
 
 msgid "submission.file.notAllowedUploaderUserId"
 msgstr ""
+"Een record van de bestandsuploader wordt opgeslagen wanneer het bestand "
+"wordt aangemaakt en kan niet worden gewijzigd."
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "Eerste publicatie"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "Voor de redactie"
 
 msgid "submission.galley"
 msgstr "Proefdruk"
@@ -720,16 +741,18 @@ msgid "submission.initiated"
 msgstr "Geïnitieerd"
 
 msgid "submission.updatedOn"
-msgstr ""
+msgstr "{$datePublished} — Bijgewerkt op {$dateUpdated}"
 
 msgid "submission.versions"
-msgstr ""
+msgstr "Versies"
 
 msgid "submission.versionIdentity"
-msgstr ""
+msgstr "{$datePublished} ({$version})"
 
 msgid "submission.outdatedVersion"
 msgstr ""
+"Dit is een verouderde versie gepubliceerd op {$datePublished}. Lees de <a "
+"href=\"{$urlRecentVersion}\">meest recente versie</a>."
 
 msgid "submission.identifiers"
 msgstr "Identificatie"
@@ -739,9 +762,13 @@ msgstr "Publieke URL"
 
 msgid "submission.publisherId.description"
 msgstr ""
+"De uitgevers-ID kan gebruikt worden om de ID van een externe database op te "
+"nemen. Bijvoorbeeld, items die geëxporteerd worden voor deponering naar "
+"PubMed kunnen de uitgevers-ID bevatten. Dit moet niet gebruikt worden voor "
+"DOI's."
 
 msgid "submission.publisherId.enable"
-msgstr ""
+msgstr "Aanzetten voor {$objects}"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Informatie over de inzending"
@@ -950,7 +977,7 @@ msgid "submission.review"
 msgstr "Review"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Beoordelen en indienen"
 
 msgid "submission.reviewed"
 msgstr "Gereviewed"
@@ -1037,7 +1064,7 @@ msgid "submission.submit.includeInBrowse"
 msgstr "Deze bijdrager opnemen in het overzicht?"
 
 msgid "submission.submit.includeInBrowse.title"
-msgstr ""
+msgstr "Publicatie Lijsten"
 
 msgid "submission.submit.newFile"
 msgstr "Voeg een ander bestand toe"
@@ -1048,11 +1075,8 @@ msgstr "Bijkomende verfijningen"
 msgid "submission.submit.submissionLocale"
 msgstr "Taal van de inzending"
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Inzendingen worden aanvaard in verschillende talen. Kies de hoofdtaal van de "
-"inzending in bovenstaand selectiemenu."
+msgstr "Kies de hoofdtaal van de inzending."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Bestanden van de inzending"
@@ -1065,9 +1089,11 @@ msgstr "Beheer secundaire bestanden"
 
 msgid "submission.upload.instructions"
 msgstr ""
+"Upload alle bestanden die de redactie nodig heeft om uw inzending te "
+"beoordelen."
 
 msgid "submission.upload.percentComplete"
-msgstr ""
+msgstr "Uploaden {$percent}% compleet"
 
 msgid "submission.upload.dependent"
 msgstr "Laad een secundair bestand op"
@@ -1160,7 +1186,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Vul de referenties in."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Voer de verklaring van gegevensbeschikbaarheid in."
 
 msgid "submission.form.name"
 msgstr "Geef dit een behulpzame naam"
@@ -1280,9 +1306,8 @@ msgstr "U heeft geen bestanden om te reviewen."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Er werden revisies gevraagd."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Revisies zijn ingediend."
+msgstr "Revisies zijn ingediend en er is een beslissing nodig."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "De inzending moet worden ingediend voor een nieuwe reviewronde."
@@ -1325,10 +1350,12 @@ msgstr ""
 "Alle aanbevelingen zijn ingediend, er moet een beslissing worden genomen."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr ""
+msgstr "Inactief voor meer dan {$days} dagen in het {$stage} stadium."
 
 msgid "editor.submission.status.waitingInitialReview"
 msgstr ""
+"Een nieuwe inzending wacht om te worden verzonden voor beoordeling of om te "
+"worden geweigerd."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Deelnemers"
@@ -1343,7 +1370,7 @@ msgid "editor.submission.addStageParticipant"
 msgstr "Wijs deelnemer toe"
 
 msgid "editor.submission.editStageParticipant"
-msgstr ""
+msgstr "Opdracht bewerken"
 
 msgid "editor.submission.addStageParticipant.userGroup"
 msgstr ""
@@ -2517,3 +2544,11 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "In te sturen bestand"
 
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Teruggestuurd voor een beoordeling."
+
+msgid "submission.author.list"
+msgstr "Lijst van indienende auteurs"
+
+msgid "submission.authors.label"
+msgstr "Auteurs"

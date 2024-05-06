@@ -1,11 +1,12 @@
 # M. Ali <vorteem@gmail.com>, 2022, 2023.
+# "M. Ali" <vorteem@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2023-09-03 02:58+0000\n"
-"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"PO-Revision-Date: 2024-03-26 13:38+0000\n"
+"Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "installer/ar/>\n"
 "Language: ar\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "installer.additionalLocales"
 msgstr "لغات إضافية"
@@ -149,10 +150,9 @@ msgstr "حدث خطأ عند تحليل ملف قوالب الرسائل الا�
 msgid "installer.installParseFilterConfigFileError"
 msgstr "حدث خطأ عند تحليل ملف إعدادات التصفية <tt>{$file}</tt>."
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
-"الترقية غير مدعومة. أنظر الملف: docs/UPGRADE-UNSUPPORTED للمزيد من التفاصيل."
+"الترقية غير مدعومة. أنظر إرشادات الترقية: docs/UPGRADE-UNSUPPORTED للتفاصيل."
 
 msgid "installer.timezoneInstructions"
 msgstr "المنطقة الزمنية المستعملة في هذا النظام."

@@ -1,19 +1,19 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2022-09-29 12:01+0000\n"
+"PO-Revision-Date: 2024-03-31 01:25+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"installer/tr_TR/>\n"
-"Language: tr_TR\n"
+"installer/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "installer.additionalLocales"
 msgstr "Ek diller"
@@ -157,11 +157,10 @@ msgstr ""
 msgid "installer.installParseFilterConfigFileError"
 msgstr "Filitre konfigürasyon dosyası <tt>{$file}</tt> ayrıştırma hatası."
 
-#, fuzzy
 msgid "installer.unsupportedUpgradeError"
 msgstr ""
-"Yükseltme desteklenmiyor. Ayrıntılar için docs/UPGRADE-UNSUPPORTED "
-"dokümanına bakınız."
+"Yükseltme desteklenmiyor. Ayrıntılar için (https://docs.pkp.sfu.ca/dev/"
+"upgrade-guide) dokümanına bakınız."
 
 msgid "installer.timezoneInstructions"
 msgstr "Bu sistem için kullanılacak saat dilimi."
@@ -247,3 +246,6 @@ msgstr ""
 
 #~ msgid "installer.clientCharsetInstructions"
 #~ msgstr "Hizmet vericiden veri gönderme ve alma için şifreleme."
+
+msgid "installer.miscSettings"
+msgstr "Diğer Ayarlar"

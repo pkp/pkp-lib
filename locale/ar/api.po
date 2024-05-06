@@ -1,12 +1,13 @@
 # M. Ali <vorteem@gmail.com>, 2022, 2023.
 # Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2023.
+# "M. Ali" <vorteem@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"PO-Revision-Date: 2024-03-26 13:38+0000\n"
+"Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ar/>"
 "\n"
 "Language: ar\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "إن العامل {$param} غير مدعوم."
@@ -329,3 +330,16 @@ msgstr "تم حذف المهمة الفاشلة من قائمة المهمات �
 #~ msgid "api.dois.400.prefixRequired"
 #~ msgstr ""
 #~ "بادئة معرف المكون الرقمي مطلوبة حتمًا لتوليد معرفات المكونات الرقمية."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"ترتيب التمييز تعذر حفظه لتعذر العثور على واحد أو أكثر من المكونات المميزة."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "تعذر العثور على التمييز الذي طلبته."
+
+msgid "api.400.errorUploadingImage"
+msgstr "وقع خطأ عند رفع هذه الصورة."
+
+msgid "api.highlights.400.noOrderData"
+msgstr "ترتيب التمييز تعذر حفظه لتعذر العثور على معلومات الترتيب."

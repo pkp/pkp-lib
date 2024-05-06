@@ -2385,11 +2385,12 @@ msgstr "A URL must be provided"
 msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr "Learn more about when this menu item will be displayed or hidden."
 
+#, fuzzy
 msgid "manager.navigationMenus.form.submenuWarning"
 msgstr ""
 "When a menu item opens a submenu, it's link can not be followed on all "
 "devices. For example, if you have an \"About\" item which opens a submenu "
-"with \"Contact\" and \"Editorial Team\", the \"About\" link may not be "
+"with \"Contact\" and \"Editorial Masthead\", the \"About\" link may not be "
 "reachable on all devices. In the default menu, this is handled by creating a "
 "second menu item, \"About the Journal\", which appears in the submenu."
 

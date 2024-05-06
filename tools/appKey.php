@@ -96,7 +96,7 @@ class CommandAppKey extends CommandLineTool
     /**
      * Generate the app key and write in the config file
      */
-    protected function generate(): void
+    public function generate(): void
     {
         $output = $this->getCommandInterface()->getOutput();
 
@@ -137,7 +137,7 @@ class CommandAppKey extends CommandLineTool
     /**
      * Validate the app key from config file
      */
-    protected function validate(): void
+    public function validate(): void
     {
         $output = $this->getCommandInterface()->getOutput();
 

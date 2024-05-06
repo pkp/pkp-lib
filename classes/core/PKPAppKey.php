@@ -18,8 +18,8 @@ namespace PKP\core;
 
 use Exception;
 use PKP\config\Config;
-use Illuminate\Support\Str;
 use PKP\config\ConfigParser;
+use Illuminate\Support\Str;
 use Illuminate\Encryption\Encrypter;
 
 class PKPAppKey
@@ -29,7 +29,7 @@ class PKPAppKey
      *
      * @var array
      */
-    private static $supportedCiphers = [
+    private static array $supportedCiphers = [
         'aes-128-cbc' => ['size' => 16, 'aead' => false],
         'aes-256-cbc' => ['size' => 32, 'aead' => false],
         'aes-128-gcm' => ['size' => 16, 'aead' => true],
@@ -41,7 +41,7 @@ class PKPAppKey
      *
      * @var string
      */
-    private static $defaultCipher = 'aes-256-cbc';
+    private static string $defaultCipher = 'aes-256-cbc';
 
     /**
      * Get the list of supported ciphers
@@ -132,6 +132,8 @@ class PKPAppKey
 
     /**
      * Write the given app key in the config file
+     * 
+     * @throws \Exception
      */
     public static function writeToConfig(string $key): bool
     {

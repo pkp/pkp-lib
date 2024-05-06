@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * @file classes/cliTool/CommandInterface.php
+ *
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @trait CommandInterface
+ *
+ * @ingroup tools
+ *
+ * @brief Class to provide IO interface on CLI
+ */
+
 namespace PKP\cliTool;
 
 use Illuminate\Console\Concerns\InteractsWithIO;

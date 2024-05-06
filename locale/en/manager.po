@@ -233,6 +233,9 @@ msgstr "Server Abbreviation"
 msgid "manager.setup.contextSummary"
 msgstr "Server Summary"
 
+msgid "manager.setup.contextSummary.description"
+msgstr "Offer a brief description of your server to provide insight into its content and purpose."
+
 msgid "manager.setup.contextAbout"
 msgstr "About the Server"
 
@@ -262,6 +265,9 @@ msgstr ""
 
 msgid "manager.setup.contextTitle"
 msgstr "Server title"
+
+msgid "manager.setup.editorialMasthead.description"
+msgstr "Please provide the editorial history of your server, including the full name, affiliation, and start and end dates of each editor."
 
 msgid "manager.setup.lists"
 msgstr "Lists"

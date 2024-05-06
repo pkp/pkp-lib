@@ -2331,14 +2331,6 @@ msgstr ""
 "Deze link zal alleen worden getoond wanneer de sectie \"Over het tijdschrift"
 "\" is ingevuld in Instellingen > Tijdschrift > Impressum."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr "Link naar een \"Redactie\" pagina in Instellingen > Tijdschrift."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Deze link zal alleen worden getoond wanneer de sectie \"Redactie\" is "
-"ingevuld in Instellingen > Tijdschrift > Impressum."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Link naar de pagina met instructies voor inzendingen."
 

@@ -2462,16 +2462,6 @@ msgstr ""
 "Dette link vil kun blive vist, hvis du har udfyldt feltet 'Om tidsskriftet' "
 "under Indstillinger > Tidsskrift."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Link til en side, der viser indholdet i feltet 'Kolofon' under Indstillinger "
-"> Tidsskrift."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Dette link vil kun blive vist, hvis du har udfyldt feltet 'Redaktionsgruppe' "
-"under Indstillinger > Tidsskrift."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Link til siden, der viser indsendelsesanvisninger."
 

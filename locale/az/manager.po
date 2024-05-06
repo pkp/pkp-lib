@@ -2977,16 +2977,6 @@ msgstr ""
 "Bu link sadəcə \"Tənzimlər>Jurnal\" altındakı Jurnal haqqında bölməsini "
 "doldurmusunuzsa göstərilir."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"\"Tənzimlər> Jurnal\" bölməsindəki İdarəçi Siyahısı məzmununu göstərən bir "
-"səhifəyə link verin."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Bu link sadəcə \"Tənzimlər >Jurnal\" altındakı şəxslər və şuralar bölməsini "
-"dpldurmusunuzsa göstərilir."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Məqalə təlimatlarını göstərən səhifəyə link verin"
 

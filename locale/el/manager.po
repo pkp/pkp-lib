@@ -2365,16 +2365,6 @@ msgstr ""
 "Αυτός ο σύνδεσμος θα εμφανιστεί μόνο αν έχετε συμπληρώσει την ενότητα "
 "\"Σχετικά με το Περιοδικό\" στις Ρυθμίσεις > Περιοδικό."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Σύνδεση σε μια σελίδα που εμφανίζει το περιεχόμενο του Κύριου Τίτλου στις "
-"Ρυθμίσεις > Περιοδικό."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Αυτός ο σύνδεσμος θα εμφανιστεί μόνο αν έχετε συμπληρώσει την ενότητα "
-"\"Ομάδα Συντακτών\" στις Ρυθμίσεις > Περιοδικό."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Σύνδεση με τη σελίδα που εμφανίζει τις οδηγίες υποβολής."
 

@@ -2330,16 +2330,6 @@ msgstr ""
 "Tautan ini hanya akan ditampilkan jika Anda telah mengisi bagian Tentang "
 "Jurnal pada Pengaturan> Jurnal."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Tautan ke halaman yang menampilkan konten Tim Redaksi pada Pengaturan > "
-"Jurnal."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Tautan ini hanya akan ditampilkan jika Anda telah mengisi bagian Tim "
-"Editorial pada Pengaturan > Jurnal."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Tautan ke halaman yang menampilkan petunjuk pengiriman naskah."
 

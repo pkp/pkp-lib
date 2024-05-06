@@ -2446,14 +2446,6 @@ msgstr ""
 "Tämä linkki näkyy vain mikäli olet täyttänyt \"Tietoja julkaisusta/"
 "julkaisijasta/palvelimesta\"-kohdan asetuksista."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr "Linkki \"Toimituskunta\"-sivulle."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Tämä linkki näkyy vain mikäli olet täyttänyt \"Toimituskunta\"-kohdan "
-"asetuksista."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Linkki \"Käsikirjoitukset\"-sivulle."
 

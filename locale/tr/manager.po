@@ -2361,16 +2361,6 @@ msgstr ""
 "Bu bağlantı sadece \"Ayarlar > Dergi\" altındaki Dergi Hakkında bölümünü "
 "doldurduysanız görüntülenir."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"\"Ayarlar > Dergi\" bölümündeki Yönetici Listesi içeriğini görüntüleyen bir "
-"sayfaya bağlantı verin."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Bu bağlantı sadece \"Ayarlar > Dergi\" altındaki Kişiler ve Kurullar "
-"bölümünü doldurduysanız görüntülenir."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Gönderi talimatlarını gösteren sayfaya bağlantı ver."
 

@@ -2472,16 +2472,6 @@ msgstr ""
 "Эта ссылка будет показываться только в случае, если вы заполнили раздел «О "
 "журнале» в Настройки > Журнал."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Ссылка на страницу, отображающую контент «Выходные данные» в Настройки > "
-"Журнал."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Эта ссылка будет показываться только в случае, если вы заполнили раздел "
-"«Редакция» в Настройки > Журнал."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Ссылка на страницу, отображающую инструкции по отправке."
 

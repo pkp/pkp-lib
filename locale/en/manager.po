@@ -2422,14 +2422,6 @@ msgstr ""
 "This link will only be displayed if you have filled out the About the "
 "Journal section under Settings > Journal."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr "Link to a page displaying the Masthead content in Settings > Journal."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"This link will only be displayed if you have filled out the Editorial Team "
-"section under Settings > Journal."
-
 msgid "manager.navigationMenus.editorialMasthead.description"
 msgstr "Link to a page displaying all active editorial masthead services."
 

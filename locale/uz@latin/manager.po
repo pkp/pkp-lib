@@ -2084,12 +2084,6 @@ msgstr ""
 msgid "manager.navigationMenus.about.conditionalWarning"
 msgstr ""
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr ""
 

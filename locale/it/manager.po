@@ -2384,16 +2384,6 @@ msgstr ""
 "Il link viene mostrato solo se hai compilato la sezione \"About\" in "
 "Impostazioni > Rivista."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Link a una pagina che mosta la sezione \"Comitato di redazione\" definita in "
-"Impostazioni > Rivista."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Questo link viene visualizzato solo se hai compilato la sezione \"Comitato "
-"di redazione\" sotto Impostazioni > Rivista."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr ""
 "Link alla pagina che mosta le istruzioni per inviare una nuovo contributo."

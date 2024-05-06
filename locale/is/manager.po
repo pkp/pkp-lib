@@ -2312,15 +2312,6 @@ msgstr ""
 "Þessi tengill er bara sýndur ef það er búið að skrá eitthvað í \"Um tímaritið"
 "\" undir Stillingar > Tímarit."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Tengill á síðu sem sýnir upplýsingar á nafnplötu í Stillingar > Tímarit."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Þessi tengill er bara sýndur ef það er búið að skrá eitthvað í \"Editorial "
-"Team\" undir Stillingar>Tímarit."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Tengill á síðu sem sýnir leiðbeiningar um innsendingu handrita."
 

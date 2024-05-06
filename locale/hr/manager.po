@@ -2409,15 +2409,6 @@ msgstr ""
 "Ova će poveznica biti prikazana samo ako ste ispunili odjeljak O časopisu "
 "pod Postavke > Časopis."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Poveznica za stranicu koja prikazuje sadržaj Impresuma u Postavke > Časopis."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Ova poveznica bit će prikazana samo ako ste ispunili odjeljak Urednički tim "
-"pod Postavke > Časopis."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Poveznica za stranicu s uputama za podnošenje."
 

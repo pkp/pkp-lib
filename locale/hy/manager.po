@@ -2449,16 +2449,6 @@ msgstr ""
 "Այս հղումը կցուցադրվի միայն այն դեպքում, եթե լրացրել եք Ամսագրի մասին բաժինը "
 "այստեղից՝ Կարգավորումներ > Ամսագիր:"
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Հղում դեպի մի էջի, որը ցուցադրում է վերնախորագրային բովանդակությունը "
-"այստեղից՝ Կարգավորումներ > Ամսագիր:"
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Այս հղումը կցուցադրվի միայն այն դեպքում, եթե լրացրել եք «Խմբագրական թիմ» "
-"բաժինը այստեղից՝ Կարգավորումներ > Ամսագիր:"
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Հղում դեպի էջի, որտեղ ցուցադրվում են ներկայացման հրահանգները:"
 

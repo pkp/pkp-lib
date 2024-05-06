@@ -2132,12 +2132,6 @@ msgstr "链接到在“设置”>“期刊”中显示“关于期刊”内容�
 msgid "manager.navigationMenus.about.conditionalWarning"
 msgstr ""
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr ""
 

@@ -2351,14 +2351,6 @@ msgstr ""
 "هذا الرابط سيظهر فقط لو أنك قمت بتعبئة محتوى عن المجلة ضمن الإعدادات > "
 "المجلة."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr "إرتبط بصفحة تعرض محتوى دفة القيادة المذكور ضمن الإعدادات > المجلة."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"هذا الرابط سيظهر فقط لو أنك قمت بتعبئة محتوى عن فريق التحرير ضمن الإعدادات > "
-"المجلة."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "إرتبط بصفحة تعرض تعليمات تقديم طلب النشر."
 

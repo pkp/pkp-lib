@@ -2354,15 +2354,6 @@ msgstr ""
 "Acest link va fi afișat numai dacă ați completat secțiunea Despre jurnal sub "
 "Setări> Jurnal."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Link către o pagină care afișează conținutul Masthead în Setări> Jurnal."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Acest link va fi afișat numai dacă ați completat secțiunea Echipa editorială "
-"din Setări> Jurnal."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Link către pagina care afișează instrucțiuni de trimitere."
 

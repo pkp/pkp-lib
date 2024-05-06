@@ -135,19 +135,6 @@ class AboutContextHandler extends Handler
     }
 
     /**
-     * Display editorialTeam page.
-     *
-     * @param array $args
-     * @param \PKP\core\PKPRequest $request
-     */
-    public function editorialTeam($args, $request)
-    {
-        $templateMgr = TemplateManager::getManager($request);
-        $this->setupTemplate($request);
-        $templateMgr->display('frontend/pages/editorialTeam.tpl');
-    }
-
-    /**
      * Display submissions page.
      *
      * @param array $args

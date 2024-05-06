@@ -228,6 +228,12 @@
 			"type": "integer",
 			"description": "The ID of the submission associated with the assignment",
 			"apiSummary": true
+		},
+		"publicationTitle": {
+			"type": "string",
+			"multilingual": true,
+			"description": "The title of the associated with the current publication",
+			"readOnly": true
 		}
 	}
 }

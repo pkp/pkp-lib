@@ -284,10 +284,10 @@ class PKPTemplateManager extends Smarty
                         $page = $router->getRequestedPage($request);
                         $op = $router->getRequestedOp($request);
                         $path = $router->getRequestedArgs($request);
-                        $url = fn (string $locale = ""): string => $router->url($request, null, $page, $op, $path, urlLocaleForPage: $locale);
+                        $url = fn (string $locale = ''): string => $router->url($request, null, $page, $op, $path, urlLocaleForPage: $locale);
                         collect($supportedLocales)
-                            ->each(fn (string $l) => $this->addHeader("language-$l", "<link rel='alternate' hreflang='" . str_replace(['_', '@cyrillic', '@latin'], ['-', '-Cyrl', '-Latn'], $l) . "' href='" . $url($l) . "' />"));
-                        $this->addHeader("language-xdefault", "<link rel='alternate' hreflang='x-default' href='" . $url() . "' />");
+                            ->each(fn (string $l) => $this->addHeader("language-{$l}", "<link rel='alternate' hreflang='" . str_replace(['_', '@cyrillic', '@latin'], ['-', '-Cyrl', '-Latn'], $l) . "' href='" . $url($l) . "' />"));
+                        $this->addHeader('language-xdefault', "<link rel='alternate' hreflang='x-default' href='" . $url() . "' />");
                     })();
                 }
             }
@@ -1374,7 +1374,7 @@ class PKPTemplateManager extends Smarty
      *
      * @return TemplateManager the template manager object
      */
-    public static function &getManager($request = null)
+    public static function &getManager(?PKPRequest $request = null): TemplateManager
     {
         if (!isset($request)) {
             $request = Registry::get('request');
@@ -1382,8 +1382,6 @@ class PKPTemplateManager extends Smarty
                 throw new Exception('Deprecated call without request object.');
             }
         }
-        assert($request instanceof PKPRequest);
-
         $instance = &Registry::get('templateManager', true, null); // Reference required
 
         if ($instance === null) {

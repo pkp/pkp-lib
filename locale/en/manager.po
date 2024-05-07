@@ -1860,7 +1860,7 @@ msgstr "Yes, require submitting authors to upload one or more of these files."
 msgid "manager.setup.genres.submitRequired.no"
 msgstr "No, allow new submissions without these files."
 
-msgid "manager.setup.editorialMasthead.description"
+msgid "manager.setup.appereance.editorialMasthead.description"
 msgstr "Define the order of editorial masthead roles for public display."
 
 msgid "manager.settings.wizard"

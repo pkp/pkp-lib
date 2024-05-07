@@ -45,6 +45,7 @@ class PKPReviewController extends PKPBaseController
 
     /**
      * @copydoc \PKP\core\PKPBaseController::getRouteGroupMiddleware()
+     *
      * @throws \Exception
      */
     public function getRouteGroupMiddleware(): array
@@ -85,6 +86,7 @@ class PKPReviewController extends PKPBaseController
 
     /**
      * Get reviewer's submission round history
+     *
      * @throws \Exception
      */
     public function getHistory(Request $illuminateRequest): JsonResponse
@@ -120,7 +122,7 @@ class PKPReviewController extends PKPBaseController
             $section = Repo::section()->get($submission->getSectionId());
             $publicationType = $section->getData('title');
         }
-        
+
         $publicationAbstract = $publication->getData('abstract');
         $publicationKeywords = $publication->getData('keywords');
 
@@ -142,7 +144,7 @@ class PKPReviewController extends PKPBaseController
             }
         }
 
-        $reviewAssignmentProps = Repo::reviewAssignment()->getSchemaMap()->map($reviewAssignment);
+        $reviewAssignmentProps = Repo::reviewAssignment()->getSchemaMap()->map($reviewAssignment, $submission);
         // It doesn't seem we can translate the recommendation inside the vue page as it's a dynamic label key.
         $recommendation = $reviewAssignment->getLocalizedRecommendation();
 
@@ -170,7 +172,7 @@ class PKPReviewController extends PKPBaseController
             ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT])
             ->filterByAssoc(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT, [$reviewAssignmentId])
             ->getMany();
-        
+
         $attachmentsProps = Repo::submissionFile()
             ->getSchemaMap()
             ->mapMany($attachments, $fileGenres)

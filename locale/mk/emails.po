@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-28 17:39+0000\n"
+"PO-Revision-Date: 2024-05-07 12:43+0000\n"
 "Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "emails/mk/>\n"
@@ -183,7 +183,7 @@ msgstr ""
 "Корисничко име: {$recipientUsername}"
 
 msgid "emails.editorDecisionNewReviewRound.subject"
-msgstr ""
+msgstr "Вашиот поднесок е испратен за втора рунда на заедничка рецензија"
 
 msgid "emails.editorDecisionNewReviewRound.body"
 msgstr ""
@@ -239,7 +239,7 @@ msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 
 msgid "emails.editorDecisionCancelReviewRound.subject"
-msgstr "Реецензентската постапка за вашиот поднесок е откажана"
+msgstr "Рецензентската постапка за вашиот поднесок е откажана"
 
 msgid "emails.editorDecisionCancelReviewRound.body"
 msgstr ""

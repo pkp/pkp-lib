@@ -1,11 +1,12 @@
 # Johanna Skaug <johanna.skaug@ub.uio.no>, 2024.
+# "My L. Bjørnflaten" <myl@uio.no>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2024-01-05 22:40+0000\n"
-"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
+"PO-Revision-Date: 2024-05-08 09:16+0000\n"
+"Last-Translator: \"My L. Bjørnflaten\" <myl@uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/nb_NO/>\n"
 "Language: nb\n"
@@ -349,7 +350,7 @@ msgid "common.description"
 msgstr "Beskrivelse"
 
 msgid "common.details"
-msgstr ""
+msgstr "Detaljer"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"

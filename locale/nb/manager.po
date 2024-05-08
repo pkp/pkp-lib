@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2024-01-11 08:39+0000\n"
+"PO-Revision-Date: 2024-05-08 08:20+0000\n"
 "Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -1217,11 +1217,19 @@ msgstr ""
 msgid "manager.setup.theme.notFound"
 msgstr "Valgt tema er ikke installert eller aktivert."
 
+#, fuzzy
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Følgende vises til forfattere før de begynner med innleveringen. Gi en kort "
+"forklaring av innleveringsprosessen så forfatteren vet hva vedkommende kan "
+"forvente."
 
+#, fuzzy
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Følgende vises til forfattere når de skal laste opp filer. Gi en kort "
+"forklaring av hvilke filer forfattere forventes å laste opp med "
+"innleveringen."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""

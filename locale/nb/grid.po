@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2024-05-08 11:21+0000\n"
+"PO-Revision-Date: 2024-05-08 11:48+0000\n"
 "Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/grid/nb_NO/>\n"
@@ -452,8 +452,9 @@ msgstr "Element i sjekkliste"
 msgid "author.users.contributor.principalContact"
 msgstr "Kontaktperson"
 
+#, fuzzy
 msgid "author.users.contributor.setPrincipalContact"
-msgstr ""
+msgstr "Velg som kontaktpersjon"
 
 #, fuzzy
 msgid "contributor.listPanel.preview"

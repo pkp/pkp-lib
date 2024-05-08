@@ -75,7 +75,8 @@ class SubmissionEmailLogDAO extends EmailLogDAO
      *
      * @return DAOResultFactory<SubmissionEmailLogEntry>
      */
-    function getBySenderId($submissionId, $eventType, $senderId) {
+    public function getBySenderId($submissionId, $eventType, $senderId)
+    {
         $result = $this->retrieveRange(
             'SELECT	e.*
              FROM email_log e
@@ -88,7 +89,7 @@ class SubmissionEmailLogDAO extends EmailLogDAO
                 Application::ASSOC_TYPE_SUBMISSION,
                 (int) $submissionId,
                 (int) $eventType,
-                (int) $senderId
+                $senderId ?: null
             ]
         );
 
@@ -110,7 +111,7 @@ class SubmissionEmailLogDAO extends EmailLogDAO
         $entry->setEventType($eventType);
         $entry->setAssocId($submission->getId());
         $entry->setDateSent(Core::getCurrentDate());
-        $entry->setSenderId($sender ? $sender->getId() : 0);
+        $entry->setSenderId($sender ? $sender->getId() : null);
         $entry->setSubject(Mail::compileParams(
             $clonedMailable->subject,
             $clonedMailable->getData(Locale::getLocale())

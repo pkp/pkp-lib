@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2024-05-08 11:53+0000\n"
+"PO-Revision-Date: 2024-05-08 12:00+0000\n"
 "Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -1288,11 +1288,15 @@ msgstr "Er du sikker på at du vil aktivere denne seksjonen?"
 msgid "manager.sections.form.assignEditors"
 msgstr "Redaksjonelle oppgaver"
 
+#, fuzzy
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Velg de redaksjonelle brukerne som automatisk skal tildeles alle de nye "
+"innleveringene i denne tidsskriftseksjonen."
 
+#, fuzzy
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Tildel {$name} som {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""

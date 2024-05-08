@@ -3391,8 +3391,9 @@ msgstr "Ny innlevering"
 msgid "manager.newSubmission.description"
 msgstr "Konfigurer e-postene som sendes ut når det kommer en ny innlevering."
 
+#, fuzzy
 msgid "manager.submissionAck.description"
-msgstr ""
+msgstr "Hvem skal motta e-post når en innlevering er gjennomført."
 
 msgid "manager.submissionAck.off"
 msgstr ""

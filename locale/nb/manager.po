@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2024-05-08 12:16+0000\n"
+"PO-Revision-Date: 2024-05-08 12:32+0000\n"
 "Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -3350,8 +3350,11 @@ msgstr ""
 msgid "manager.manageEmails"
 msgstr "Administrer e-poster"
 
+#, fuzzy
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Legg til og rediger maler</a> for alle e-poster sendt "
+"fra systemet.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
@@ -3381,10 +3384,11 @@ msgid "manager.emailTemplate.name.description"
 msgstr ""
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Ny innlevering"
 
+#, fuzzy
 msgid "manager.newSubmission.description"
-msgstr ""
+msgstr "Konfigurer e-postene som sendes ut når det kommer en ny innlevering."
 
 msgid "manager.submissionAck.description"
 msgstr ""

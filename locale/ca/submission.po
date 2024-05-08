@@ -1684,10 +1684,10 @@ msgid "editor.submission.decision.backToCopyediting.description"
 msgstr "Retornar la tramesa a la fase d'edició."
 
 msgid "editor.submission.decision.backToCopyediting.log"
-msgstr ""
+msgstr "{$editorName} ha retornat la tramesa a la fase d'edició."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr ""
+msgstr "Retornat a edició"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""

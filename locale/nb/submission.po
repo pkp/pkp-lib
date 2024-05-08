@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2024-05-08 11:21+0000\n"
+"PO-Revision-Date: 2024-05-08 11:44+0000\n"
 "Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/nb_NO/>\n"
@@ -2323,8 +2323,11 @@ msgstr "Fullfør stegene for å lage en innsendelse"
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
 
+#, fuzzy
 msgid "submission.wizard.errors"
 msgstr ""
+"Det er en eller flere feil som må rettes før du kan sende inn. Gå gjennom "
+"opplysningene nedenfor og foreta de forespurte endringene."
 
 msgid "submission.wizard.validating"
 msgstr ""
@@ -2346,8 +2349,9 @@ msgstr "Innlevering"
 msgid "submission.wizard.titleWithStep"
 msgstr "Innlevering: {$step}"
 
+#, fuzzy
 msgid "submission.wizard.noContributors"
-msgstr ""
+msgstr "Det er ikke lagt til noen bidragsytere til denne innleveringen."
 
 msgid "submission.wizard.missingContributorLanguage"
 msgstr ""
@@ -2526,8 +2530,9 @@ msgstr ""
 msgid "submission.dataAvailability.tip"
 msgstr ""
 
+#, fuzzy
 msgid "submission.files.required.genre"
-msgstr ""
+msgstr "Du må laste opp minst en {$genre}-fil."
 
 msgid "submission.files.required.genres"
 msgstr ""

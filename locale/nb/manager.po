@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2024-05-08 10:32+0000\n"
+"PO-Revision-Date: 2024-05-08 10:45+0000\n"
 "Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -1245,11 +1245,19 @@ msgstr ""
 "som for eksempel tittel, sammendrag og andre viktige opplysninger om "
 "innleveringen."
 
+#, fuzzy
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Følgende vises til forfattere når de i innleveringen blir bedt om å legge "
+"inn metadata som nøkkelord, eventuelle kommentarer til redaktørene, og andre "
+"detaljer."
 
+#, fuzzy
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Følgende vises til forfattere i det siste steget av innleveringen, når de "
+"blir bedt om å se gjennom opplysningene de har gitt før de sender inn "
+"innleveringen."
 
 msgid "manager.setup.workflow.guidance"
 msgstr "Forfatterveiledning"

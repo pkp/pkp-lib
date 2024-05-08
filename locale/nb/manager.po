@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2024-05-08 12:03+0000\n"
+"PO-Revision-Date: 2024-05-08 12:13+0000\n"
 "Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -1798,14 +1798,20 @@ msgstr ""
 "velger du 'Tilleggsinnhold' for de fleste filtyper. Illustrasjoner er egnet "
 "for filer som krever separat kilde, bildetekst og lisensmetadata."
 
+#, fuzzy
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Påkrevd ved innlevering"
 
+#, fuzzy
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Skal minst én fil av denne typen være påkrevet ved hver innlevering? Hvis du "
+"velger ja, vil ikke forfattere kunne sende inn til tidsskriftet uten å ha "
+"lastet opp minst en fil av denne typen."
 
+#, fuzzy
 msgid "manager.setup.genres.submitRequired.yes"
-msgstr ""
+msgstr "Ja, krev at forfattere laster opp minst en fil av denne typen."
 
 msgid "manager.setup.genres.submitRequired.no"
 msgstr ""
@@ -3421,11 +3427,13 @@ msgstr ""
 "Skal forfatter bli bedt om å velge kategori når vedkommende sender inn en ny "
 "innlevering?"
 
+#, fuzzy
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Ja, legg til et kategorifelt i innleveringsarbeidsflyten."
 
+#, fuzzy
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Nei, ikke vis forfattere dette feltet."
 
 msgid "mailable.copyeditRequest.name"
 msgstr ""

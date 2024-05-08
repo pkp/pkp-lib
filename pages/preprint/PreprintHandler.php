@@ -30,6 +30,7 @@ use PKP\citation\CitationDAO;
 use PKP\config\Config;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\ContextRequiredPolicy;
@@ -194,6 +195,7 @@ class PreprintHandler extends Handler
             'galley' => $this->galley,
             'fileId' => $this->submissionFileId, // DEPRECATED in 3.4.0: https://github.com/pkp/pkp-lib/issues/6545
             'submissionFileId' => $this->submissionFileId,
+            'orcidIcon' => OrcidManager::getIcon(),
         ]);
         $this->setupTemplate($request);
 

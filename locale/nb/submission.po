@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2024-05-08 10:33+0000\n"
+"PO-Revision-Date: 2024-05-08 10:45+0000\n"
 "Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/nb_NO/>\n"
@@ -975,8 +975,9 @@ msgstr "Metadata for fagfellevurdering"
 msgid "submission.review"
 msgstr "Fagfellevurdering"
 
+#, fuzzy
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Gå gjennom og send inn"
 
 msgid "submission.reviewed"
 msgstr "Fagfellevurdert"
@@ -2365,7 +2366,7 @@ msgid "submission.wizard.sectionClosed"
 msgstr ""
 
 msgid "submission.wizard.start"
-msgstr ""
+msgstr "Start innlevering"
 
 msgid "submission.wizard.startingStatus"
 msgstr ""

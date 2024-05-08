@@ -1231,8 +1231,12 @@ msgstr ""
 "forklaring av hvilke filer forfattere forventes å laste opp med "
 "innleveringen."
 
+#, fuzzy
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Følgende vises til forfattere når de skal legge til bidragsytere. Gi en kort "
+"forklaring av hvilke opplysninger forfatter skal legge inn om seg selv, "
+"medforfattere og eventuelle andre bidragsytere."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""

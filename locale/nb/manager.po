@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2024-05-08 12:43+0000\n"
+"PO-Revision-Date: 2024-05-08 12:49+0000\n"
 "Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -1010,8 +1010,9 @@ msgstr ""
 msgid "manager.setup.submissionsNotifications"
 msgstr ""
 
+#, fuzzy
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr ""
+msgstr "Informer tidsskriftets kontaktperson"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
 msgstr "Ja, send en kopi til {$email}"
@@ -1020,7 +1021,7 @@ msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
 msgstr "Nei"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr ""
+msgstr "Informer alle"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
@@ -3396,7 +3397,7 @@ msgid "manager.submissionAck.description"
 msgstr "Hvem skal motta e-post når en innlevering er gjennomført."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Ikke send e-post."
 
 #, fuzzy
 msgid "manager.submissionAck.submittingAuthor"

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2024-05-08 11:44+0000\n"
+"PO-Revision-Date: 2024-05-08 11:53+0000\n"
 "Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/nb_NO/>\n"
@@ -2322,6 +2322,9 @@ msgstr "Fullfør stegene for å lage en innsendelse"
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
+"Innleveringen, <strong>{$title}</strong>, vil bli sendt til "
+"<strong>{$context}</strong> for redaksjonell vurdering. Er du sikker på at "
+"du vil sende inn?"
 
 #, fuzzy
 msgid "submission.wizard.errors"

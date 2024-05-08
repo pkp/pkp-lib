@@ -1681,7 +1681,7 @@ msgid "editor.submission.decision.backToCopyediting"
 msgstr "Retornar a edició"
 
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr ""
+msgstr "Retornar la tramesa a la fase d'edició."
 
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr ""

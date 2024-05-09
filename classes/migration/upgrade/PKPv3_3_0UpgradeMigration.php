@@ -812,6 +812,10 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
                 DB::table($tableName)->where('setting_type', 'object')->get()->each(function ($row) use ($tableName) {
                     $this->_toJSON($row, $tableName, ['plugin_name', 'context_id', 'setting_name'], 'setting_value');
                 });
+            } elseif ($tableName == 'review_form_element_settings') {
+                DB::table('review_form_element_settings')->where('setting_type', 'object')->get()->each(function ($row) {
+                    $this->_toJSON($row, 'review_form_element_settings', ['setting_name', 'locale', 'review_form_element_id'], 'setting_value');
+                });
             } elseif (Schema::hasColumn($tableName, 'setting_type')) {
                 try {
                     $settings = DB::table($tableName, 's')->where('setting_type', 'object')->get(['setting_name', 'setting_value', 's.*']);

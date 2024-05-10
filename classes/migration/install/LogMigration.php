@@ -70,7 +70,7 @@ class LogMigration extends \PKP\migration\Migration
             $table->bigInteger('assoc_id');
 
             $table->bigInteger('sender_id')->nullable();
-            $table->foreign('sender_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('sender_id')->references('user_id')->on('users')->onDelete('set null');
             $table->index(['sender_id'], 'email_log_sender_id');
 
             $table->datetime('date_sent');

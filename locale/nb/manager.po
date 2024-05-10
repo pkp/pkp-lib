@@ -1,13 +1,14 @@
 # Tormod Strømme <tormod.stromme@uib.no>, 2022.
 # Eirik Hanssen <eirikhanssen79@gmail.com>, 2023.
 # Johanna Skaug <johanna.skaug@ub.uio.no>, 2024.
+# "My L. Bjørnflaten" <myl@uio.no>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2024-05-08 12:50+0000\n"
-"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
+"PO-Revision-Date: 2024-05-11 10:39+0000\n"
+"Last-Translator: \"My L. Bjørnflaten\" <myl@uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
 "Language: nb\n"
@@ -2663,10 +2664,10 @@ msgid "stats.geographic.tooltip.label"
 msgstr ""
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "{$startDate} til {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Alle {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
 msgstr ""
@@ -2674,11 +2675,13 @@ msgstr ""
 msgid "stats.publications.downloadReport.downloadFiles.description"
 msgstr ""
 
+#, fuzzy
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Last ned geografi"
 
+#, fuzzy
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
+msgstr "Antall visninger og nedlastninger for hver by, region eller land"
 
 msgid "stats.region"
 msgstr "Region"
@@ -2690,13 +2693,14 @@ msgid "stats.submissionsActive"
 msgstr "Aktive innleveringer"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Tidslinje"
 
 msgid "stats.timeline.downloadReport.description"
 msgstr ""
 
+#, fuzzy
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Last ned tidslinje"
 
 msgid "stats.timelineInterval"
 msgstr ""

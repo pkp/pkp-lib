@@ -17,11 +17,11 @@
 namespace PKP\controllers\grid\settings\user\form;
 
 use APP\author\Author;
-use Illuminate\Support\Facades\Auth;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use PKP\core\Core;
@@ -327,11 +327,6 @@ class UserDetailsForm extends UserForm
         $this->user->setBiography($this->getData('biography'), null); // Localized
         $this->user->setMustChangePassword($this->getData('mustChangePassword') ? 1 : 0);
 
-        // Users can never view/edit their own gossip fields
-        if (Repo::user()->canCurrentUserGossip($this->user->getId())) {
-            $this->user->setGossip($this->getData('gossip'));
-        }
-
         $site = $request->getSite();
         $availableLocales = $site->getSupportedLocales();
 
@@ -346,6 +341,11 @@ class UserDetailsForm extends UserForm
         parent::execute(...$functionParams);
 
         if ($this->user->getId() != null) {
+            // Users can never view/edit their own gossip fields
+            if (Repo::user()->canCurrentUserGossip($this->user->getId())) {
+                $this->user->setGossip($this->getData('gossip'));
+            }
+
             if ($this->getData('password') !== '') {
                 $this->user->setPassword(Validation::encryptCredentials($this->user->getUsername(), $this->getData('password')));
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/migration/upgrade/v3_4_0/PreflightCheckMigration.php
+ * @file classes/migration/upgrade/v3_5_0/PreflightCheckMigration.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -12,7 +12,7 @@
  * @brief Check for common problems early in the upgrade process.
  */
 
-namespace PKP\migration\upgrade\v3_4_0;
+namespace PKP\migration\upgrade\v3_5_0;
 
 use PKP\db\DAORegistry;
 use Throwable;

@@ -14,6 +14,7 @@
 
 namespace PKP\migration\upgrade\v3_5_0;
 
+use APP\core\Application;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -37,6 +38,24 @@ class I8826_AddMissingForeignKeys extends Migration
             DB::table('email_log AS el')->leftJoin('users AS u', 'el.sender_id', '=', 'u.user_id')->whereNull('u.user_id')->update(['el.sender_id' => null]);
             $table->foreign('sender_id')->references('user_id')->on('users')->onDelete('set null');
             $table->index(['sender_id'], 'email_log_sender_id');
+        });
+
+        // Permit NULL context_id entries (previously used 0)
+        Schema::table('user_groups', function (Blueprint $table) {
+            $table->bigInteger('context_id')->nullable()->change();
+        });
+
+        // Add a new foreign key constraint and index on context_id.
+        Schema::table('user_groups', function (Blueprint $table) {
+            $contextDao = Application::getContextDAO();
+
+            // context_id 0 gets changed to null
+            DB::table('user_groups')->where('context_id', 0)->update(['context_id' => null]);
+            // Otherwise, context_id not corresponding to a context gets deleted
+            DB::table('user_groups AS ug')->leftJoin($contextDao->tableName . ' AS c', 'ug.context_id', '=', 'c.' . $contextDao->primaryKeyColumn)->whereNull('c.' . $contextDao->primaryKeyColumn)->whereNotNull('ug.context_id')->delete();
+
+            // Add the foreign key constraint. (The index already exists.)
+            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
         });
     }
 

@@ -19,7 +19,10 @@
 namespace PKP\security;
 
 use APP\facades\Repo;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
+use PKP\core\PKPApplication;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 
@@ -37,48 +40,43 @@ class RoleDAO extends DAO
 
     /**
      * Validation check to see if a user belongs to any group that has a given role
-     *
-     * @param int $contextId
-     * @param int $userId
-     * @param int|array $roleId ROLE_ID_...
-     *
-     * @return bool True iff at least one such role exists
      */
-    public function userHasRole($contextId, $userId, $roleId)
+    public function userHasRole(int $contextId, int $userId, int|array $roleIds): bool
     {
-        $currentDateTime = Core::getCurrentDate();
-        $roleId = is_array($roleId) ? join(',', array_map('intval', $roleId)) : (int) $roleId;
-        $result = $this->retrieve(
-            'SELECT count(*) AS row_count FROM user_groups ug JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE ug.context_id = ? AND uug.user_id = ? AND (uug.date_start IS NULL OR uug.date_start <= ?) AND (uug.date_end IS NULL OR uug.date_end > ?) AND ug.role_id IN (' . $roleId . ')',
-            [(int) $contextId, (int) $userId, $currentDateTime, $currentDateTime]
-        );
-        $row = (array) $result->current();
-        return $row && $row['row_count'];
+        return DB::table('user_groups AS ug')
+            ->join('user_user_groups AS uug', 'ug.user_group_id', '=', 'uug.user_group_id')
+            ->where('uug.user_id', (int) $userId)
+            ->whereIn('ug.role_id', is_array($roleIds) ? $roleIds : [$roleIds])
+            ->where(fn (Builder $q) => $q->whereNull('uug.date_start')->orWhere('uug.date_start', '<=', Core::getCurrentDate()))
+            ->where(fn (Builder $q) => $q->whereNull('uug.date_end')->orWhere('uug.date_end', '>', Core::getCurrentDate()))
+            ->when(
+                $contextId === PKPApplication::CONTEXT_SITE,
+                fn (Builder $q) => $q->whereNull('ug.context_id'),
+                fn (Builder $q) => $q->where('ug.context_id', $contextId)
+            )->exists();
     }
 
     /**
      * Return an array of row objects corresponding to the roles a given user has
      *
-     * @param int $userId
-     * @param int $contextId
      *
      * @return array of Roles
      */
-    public function getByUserId($userId, $contextId = null)
+    public function getByUserId(int $userId, ?int $contextId = null)
     {
-        $currentDateTime = Core::getCurrentDate();
-        $params = [(int) $userId, $currentDateTime, $currentDateTime];
-        if ($contextId !== null) {
-            $params[] = (int) $contextId;
-        }
-        $result = $this->retrieve(
-            'SELECT	DISTINCT ug.role_id AS role_id
-			FROM	user_groups ug
-				JOIN user_user_groups uug ON ug.user_group_id = uug.user_group_id
-			WHERE	uug.user_id = ? AND (uug.date_start IS NULL OR uug.date_start <= ?) AND (uug.date_end IS NULL OR uug.date_end > ?)' . ($contextId !== null ? ' AND ug.context_id = ?' : ''),
-            $params
-        );
+        $result = DB::table('user_groups AS ug')
+            ->join('user_user_groups AS uug', 'ug.user_group_id', '=', 'uug.user_group_id')
+            ->where('uug.user_id', $userId)
+            ->where(fn (Builder $q) => $q->whereNull('uug.date_start')->orWhere('uug.date_start', '<=', Core::getCurrentDate()))
+            ->where(fn (Builder $q) => $q->whereNull('uug.date_end')->orWhere('uug.date_end', '>', Core::getCurrentDate()))
+            ->when($contextId !== null, fn (Builder $q) => $q->when(
+                $contextId === PKPApplication::CONTEXT_SITE,
+                fn (Builder $q) => $q->whereNull('ug.context_id'),
+                fn (Builder $q) => $q->where('ug.context_id', $contextId)
+            ))
+            ->distinct()
+            ->select(['ug.role_id AS role_id'])
+            ->get();
 
         $roles = [];
         foreach ($result as $row) {
@@ -154,8 +152,7 @@ class RoleDAO extends DAO
      */
     public function getAlwaysActiveStages()
     {
-        $alwaysActiveStages = [Role::ROLE_ID_MANAGER];
-        return $alwaysActiveStages;
+        return [Role::ROLE_ID_MANAGER];
     }
 }
 

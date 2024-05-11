@@ -18,8 +18,8 @@ namespace PKP\security;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
@@ -46,9 +46,9 @@ class Validation
     public static function login($username, $password, &$reason, $remember = false)
     {
         $reason = null;
-        
+
         return Auth::attempt(['username' => $username, 'password' => $password], $remember)
-            ? static::registerUserSession(Auth::user(), $reason) 
+            ? static::registerUserSession(Auth::user(), $reason)
             : false;
     }
 
@@ -126,10 +126,10 @@ class Validation
         Auth::logout();
         $session->invalidate();
         $session->regenerateToken();
-        
+
         $session->put('username', $user->getUsername());
         $session->put('email', $user->getEmail());
-        
+
         $request->getSessionGuard()->updateSession(null);
 
         return true;
@@ -205,7 +205,7 @@ class Validation
             // Get context ID from request
             $request = Application::get()->getRequest();
             $context = $request->getContext();
-            $contextId = $context == null ? 0 : $context->getId();
+            $contextId = $context == null ? PKPApplication::CONTEXT_SITE : $context->getId();
         }
 
         $user = Auth::user(); /** @var \PKP\user\User $user */

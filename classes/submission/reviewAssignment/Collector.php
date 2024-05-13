@@ -33,6 +33,7 @@ class Collector implements CollectorInterface, ViewsCount
     public bool $isIncomplete = false;
     public bool $isArchived = false;
     public bool $isOverdue = false;
+    public bool $isOpen = false;
     public ?array $reviewRoundIds = null;
     public ?array $reviewerIds = null;
     public bool $isLastReviewRound = false;
@@ -165,6 +166,12 @@ class Collector implements CollectorInterface, ViewsCount
         return $this;
     }
 
+    public function filterByIsOpen(?bool $isOpen): static
+    {
+        $this->isOpen = $isOpen;
+        return $this;
+    }
+
     /**
      * Limit the number of objects retrieved
      */
@@ -251,6 +258,16 @@ class Collector implements CollectorInterface, ViewsCount
                 fn (Builder $q) => $q
                     ->whereNotNull('ra.date_completed')
                     ->orWhere('declined', 1)
+            )
+        );
+
+        $q->when(
+            $this->isOpen,
+            fn (Builder $q) =>
+            $q->where(
+                fn (Builder $q) => $q
+                    ->whereNotNull('ra.date_confirmed')
+                    ->whereNot('declined', 1)
             )
         );
 

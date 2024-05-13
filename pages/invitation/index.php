@@ -16,5 +16,6 @@
 switch ($op) {
     case 'decline':
     case 'accept':
+    case 'view':
         return new PKP\pages\invitation\PKPInvitationHandler();
 }

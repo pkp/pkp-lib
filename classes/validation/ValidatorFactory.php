@@ -153,6 +153,18 @@ class ValidatorFactory
             return isset($country);
         });
 
+        // Add custom validation rule for password
+        $validation->extend('password_rule', function ($attribute, $value, $parameters, $validator) use ($validation) {
+            $passwordValidator = $validation->make(
+                ['value' => $value],
+                ['value' => ['regex:/^(?=.*).{8,}$/']]
+            );
+            if ($passwordValidator->passes()) {
+                return true;
+            }
+            return false;
+        });
+
         $validator = $validation->make($props, $rules, self::getMessages($messages));
 
         return $validator;

@@ -161,7 +161,7 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler
         return Repo::reviewAssignment()->getCollector()
             ->filterByReviewRoundIds([$reviewRound->getId()])
             ->filterByReviewMethods([ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN])
-            ->filterByIsOpen(true)
+            ->filterByIsInProgress(true)
             ->getMany()
             ->keyBy(fn(ReviewAssignment $reviewAssignment, int $key) => $reviewAssignment->getId())
             ->sortKeys()

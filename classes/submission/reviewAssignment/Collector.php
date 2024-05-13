@@ -33,7 +33,7 @@ class Collector implements CollectorInterface, ViewsCount
     public bool $isIncomplete = false;
     public bool $isArchived = false;
     public bool $isOverdue = false;
-    public bool $isOpen = false;
+    public bool $isInProgress = false;
     public ?array $reviewRoundIds = null;
     public ?array $reviewerIds = null;
     public bool $isLastReviewRound = false;
@@ -166,9 +166,12 @@ class Collector implements CollectorInterface, ViewsCount
         return $this;
     }
 
-    public function filterByIsOpen(?bool $isOpen): static
+    /**
+     * Filter whether it is a 
+     */
+    public function filterByIsInProgress(?bool $isInProgress): static
     {
-        $this->isOpen = $isOpen;
+        $this->isInProgress = $isInProgress;
         return $this;
     }
 
@@ -262,7 +265,7 @@ class Collector implements CollectorInterface, ViewsCount
         );
 
         $q->when(
-            $this->isOpen,
+            $this->isInProgress,
             fn (Builder $q) =>
             $q->where(
                 fn (Builder $q) => $q

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2024-05-09 22:32+0000\n"
+"PO-Revision-Date: 2024-05-13 15:39+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ca/>\n"
@@ -1747,23 +1747,28 @@ msgstr "Revertir el rebuig"
 
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
+"Revertir la decisió anterior de rebutjar la tramesa i retornar-la al procés "
+"editorial actiu. S'ha enviat notificació a l'autor/a, a no ser que hagueu "
+"decidit ometre el correu electrònic."
 
 msgid "editor.submission.decision.revertDecline.log"
-msgstr ""
+msgstr "{$editorName} ha revocat la decisió de rebutjar la tramesa."
 
 msgid "editor.submission.decision.revertDecline.completed"
-msgstr ""
+msgstr "Tramesa reactivada"
 
 msgid "editor.submission.decision.revertDecline.completed.description"
-msgstr ""
+msgstr "La tramesa {$title} torna a estar activa a la fase de revisió."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
+"La tramesa {$title} torna a estar activa a la fase de tramesa. S'ha enviat "
+"notificació a l'autor/a, a no ser que hagueu decidit ometre el correu "
+"electrònic."
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
 "Assigneu un editor/a per habilitar les decisions editorials en aquesta fase."
@@ -1772,46 +1777,57 @@ msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
 
 msgid "editor.submission.recommend.accept"
-msgstr ""
+msgstr "Recomanar l'acceptació"
 
 msgid "editor.submission.recommend.accept.description"
 msgstr ""
+"Recomanar que aquesta tramesa s'accepti per publicar-se i enviar-la a edició."
 
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
+"{$editorName} recomana que aquesta tramesa sigui acceptada i enviada a "
+"edició."
 
 msgid "editor.submission.recommend.completed"
-msgstr ""
+msgstr "Recomanació enviada"
 
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
+"S'ha registrat la vostra recomanació i s'ha enviat notificació als editors/"
+"ores responsables."
 
 msgid "editor.submission.recommend.revisions"
-msgstr ""
+msgstr "Recomanar revisions"
 
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
+"Recomanar que es sol·licitin revisions a l'autor/a abans que la tramesa "
+"sigui acceptada per publicar-se."
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "{$editorName} ha recomanat que es sol·licitin revisions."
 
 msgid "editor.submission.recommend.resubmit"
-msgstr ""
+msgstr "Recomanar que es torni a enviar per a revisió"
 
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
+"Recomanar que es demani a l'autor/a que enviï revisions per a una altra "
+"ronda de revisió."
 
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
+"{$editorName} ha recomanat que es sol·licitin revisions i que aquestes "
+"s'enviïn a una altra ronda de revisió."
 
 msgid "editor.submission.recommend.decline"
-msgstr ""
+msgstr "Recomanar el rebuig"
 
 msgid "editor.submission.recommend.decline.description"
-msgstr ""
+msgstr "Recomanar que la tramesa sigui rebutjada per publicar-se."
 
 msgid "editor.submission.recommend.decline.log"
-msgstr ""
+msgstr "{$editorName} ha recomanat que la tramesa es rebutgi."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Fer recomanació"
@@ -1827,6 +1843,8 @@ msgstr "Recomanacions: {$recommendations}"
 
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
+"No podreu fer una recomanació fins que no s'assigni un editor/a amb permís "
+"per registrar una decisió."
 
 msgid "editor.submission.recommendation"
 msgstr "Recomanació"

@@ -2504,16 +2504,6 @@ msgstr ""
 "Dieser Link wird nur angezeigt, falls Sie den Abschnitt Über uns in den "
 "Einstellungen > Zeitschrift ausgefüllt haben."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Link zur Seite, welche den Inhalt des Impressums aus den Einstellungen > "
-"Zeitschrift anzeigt."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Dieser Link wird nur angezeigt, falls Sie den Abschnitt Herausgeber-Team "
-"unter Einstellungen > Zeitschrift ausgefüllt haben."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Link zur den Einreichungsrichtlinien."
 

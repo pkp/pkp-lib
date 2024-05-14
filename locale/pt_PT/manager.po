@@ -2445,16 +2445,6 @@ msgstr ""
 "Esta ligação só será apresentada se tiver preenchido a secção Sobre a "
 "Revista em Configurações > Revista."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Ligação para a página que apresenta o conteúdo principal em Configurações > "
-"Revista."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Esta ligação só será apresentada se tiver preenchido a secção Equipa "
-"Editorial em Configurações > Revista."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Ligação para a página com as instruções de submissão."
 

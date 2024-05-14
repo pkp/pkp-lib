@@ -2331,16 +2331,6 @@ msgstr ""
 "Ez a link csak akkor jelenik meg, ha kitöltötte a Folyóirat rovat mezőt a "
 "Beállítások > Folyóirat menüpontban."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Hivatkozás egy oldalra, amely megmutatja a fejléc tartalmát (Beállítások> "
-"Folyóirat)."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Ez a link csak akkor látszik, amikor kitöltötte a Szerkesztőség tagjai mezőt "
-"a Beállítások > Folyóirat -nál."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Link ahhoz az oldalhoz, amely megjeleníti a Beküldési javaslatokat."
 

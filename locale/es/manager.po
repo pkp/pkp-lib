@@ -2484,16 +2484,6 @@ msgstr ""
 "Este enlace solo se mostrará si ha completado la sección Acerca de esta "
 "revista bajo Ajustes > Revista."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Enlace a una página que muestre el contenido de la cabecera en Ajustes > "
-"Revista."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Este enlace solo se mostrará si ha completado la sección equipo editorial en "
-"Ajustes > Revista."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Enlace a la página que muestra las instrucciones de envío."
 

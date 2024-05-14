@@ -2434,16 +2434,6 @@ msgstr ""
 "Šī saite tiks parādīta tikai tad, ja būsiet aizpildījis lauku \"Par žurnālu\""
 " sadaļā Iestatījumi > Žurnāls."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Saite uz lapu, kurā parādīts lauka \"Galvenā lapa\" saturs sadaļā "
-"Iestatījumi > Žurnāls."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Šī saite tiks parādīta tikai tad, ja būsiet aizpildījis lauku \"Redkolēģija\""
-" sadaļā Iestatījumi > Žurnāls."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Saite uz lapu, kurā sniegti materiāla iesniegšanas norādījumi."
 

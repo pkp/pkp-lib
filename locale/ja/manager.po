@@ -2274,15 +2274,6 @@ msgstr ""
 "このリンクは、「設定」→「ジャーナル」の「ジャーナルについて」に記入した場合に"
 "のみ表示されます。"
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"「設定」→「ジャーナル」の奥付コンテンツを表示するページへのリンクです。"
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"このリンクは、「設定」→「ジャーナル」の「編集チーム」セクションに記入した場合"
-"にのみ表示されます。"
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "投稿方法を記載したページへのリンクです。"
 

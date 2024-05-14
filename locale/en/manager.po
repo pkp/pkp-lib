@@ -1860,7 +1860,7 @@ msgstr "Yes, require submitting authors to upload one or more of these files."
 msgid "manager.setup.genres.submitRequired.no"
 msgstr "No, allow new submissions without these files."
 
-msgid "manager.setup.editorialMasthead.description"
+msgid "manager.setup.appereance.editorialMasthead.description"
 msgstr "Define the order of editorial masthead roles for public display."
 
 msgid "manager.settings.wizard"
@@ -2385,11 +2385,12 @@ msgstr "A URL must be provided"
 msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr "Learn more about when this menu item will be displayed or hidden."
 
+#, fuzzy
 msgid "manager.navigationMenus.form.submenuWarning"
 msgstr ""
 "When a menu item opens a submenu, it's link can not be followed on all "
 "devices. For example, if you have an \"About\" item which opens a submenu "
-"with \"Contact\" and \"Editorial Team\", the \"About\" link may not be "
+"with \"Contact\" and \"Editorial Masthead\", the \"About\" link may not be "
 "reachable on all devices. In the default menu, this is handled by creating a "
 "second menu item, \"About the Journal\", which appears in the submenu."
 
@@ -2420,14 +2421,6 @@ msgid "manager.navigationMenus.about.conditionalWarning"
 msgstr ""
 "This link will only be displayed if you have filled out the About the "
 "Journal section under Settings > Journal."
-
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr "Link to a page displaying the Masthead content in Settings > Journal."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"This link will only be displayed if you have filled out the Editorial Team "
-"section under Settings > Journal."
 
 msgid "manager.navigationMenus.editorialMasthead.description"
 msgstr "Link to a page displaying all active editorial masthead services."

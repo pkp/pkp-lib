@@ -2338,15 +2338,6 @@ msgstr ""
 "Denne lenken vil bare vises dersom du har fylt ut «Om»-feltet under "
 "«Innstillinger» > «Tidsskrift»"
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Lenk til en side som viser kolofonen under «Innstillinger»  >  «Tidsskrift»."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Denne lenken vil bare vises dersom du har fylt ut feltet om redaksjonen "
-"under «Innstillinger» > «Tidsskrift»."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Lenke til siden som viser instrukser for innleveringer."
 

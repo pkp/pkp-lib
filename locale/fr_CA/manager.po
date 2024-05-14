@@ -2529,16 +2529,6 @@ msgstr ""
 "Ce lien ne sera affiché que si vous avez rempli la section « À propos », "
 "située sous Paramètres > Revue."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Lien vers une page affichant le contenu du « Bloc-générique » dans "
-"Paramètres > Revue."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Ce lien sera seulement affiché si vous avez rempli la section « Bloc-"
-"générique » dans Paramètres > Revue."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Lien vers la page affichant les instructions de soumission."
 

@@ -28,7 +28,6 @@ use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\users\reviewer\form\EditReviewForm;
 use PKP\controllers\grid\users\reviewer\form\EmailReviewerForm;
-use PKP\controllers\grid\users\reviewer\form\LogResponseForm;
 use PKP\controllers\grid\users\reviewer\form\ReinstateReviewerForm;
 use PKP\controllers\grid\users\reviewer\form\ResendRequestReviewerForm;
 use PKP\controllers\grid\users\reviewer\form\ReviewerGossipForm;
@@ -64,6 +63,7 @@ use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\ReviewerAction;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionCommentDAO;
@@ -463,22 +463,6 @@ class PKPReviewerGridHandler extends GridHandler
     }
 
     /**
-     * Manage reviewer access to files
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage JSON object
-     */
-    public function logResponse($args, $request)
-    {
-        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $editReviewForm = new LogResponseForm($request, $reviewAssignment, $this->getSubmission());
-        $editReviewForm->initData();
-        return new JSONMessage(true, $editReviewForm->fetch($request));
-    }
-
-    /**
      * Add the log event
      *
      * @param $args array
@@ -488,18 +472,21 @@ class PKPReviewerGridHandler extends GridHandler
      */
     public function addLog($args, $request)
     {
-        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
-        $logResponseForm = new LogResponseForm($request, $reviewAssignment, $this->getSubmission());
-        $logResponseForm->readInputData();
-        if ($logResponseForm->validate()) {
-            $logResponseForm->execute();
-            $json = DAO::getDataChangedEvent($reviewAssignment->getId());
-            $json->setGlobalEvent('update:decisions');
+        $acceptReview = (bool) $request->getUserVar('acceptReview');
+        $decline = !boolval($acceptReview);
 
-            return $json;
-        } else {
+        $reviewAssignment = Repo::reviewAssignment()->get($request->getUserVar('reviewAssignmentId'));
+        $submission = Repo::submission()->get($request->getUserVar('submissionId'));
+
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+        if (!isset($reviewer)) {
             return new JSONMessage(false);
         }
+
+        $reviewerAction = new ReviewerAction();
+        $reviewerAction->confirmReview($request, $reviewAssignment, $submission, $decline);
+
+        return DAO::getDataChangedEvent($reviewAssignment->getId());
     }
 
     /**
@@ -1171,7 +1158,6 @@ class PKPReviewerGridHandler extends GridHandler
             'editReview',
             'updateReview',
             'gossip',
-            'logResponse',
             'addLog',
         ];
     }
@@ -1217,7 +1203,7 @@ class PKPReviewerGridHandler extends GridHandler
             'resendRequestReviewer', 'updateResendRequestReviewer',
             'unconsiderReview',
             'editReview', 'updateReview',
-            'logResponse', 'addLog',
+            'addLog',
         ];
     }
 

@@ -160,6 +160,8 @@ msgstr "Unassign Reviewer"
 msgid "editor.review.cancelReviewer"
 msgstr "Cancel Reviewer"
 
+
+
 msgid "editor.review.logResponse.for"
 msgstr "Log Response for"
 
@@ -175,8 +177,11 @@ msgstr "Reviewer has accepted the invitation to review"
 msgid "editor.review.logResponse.form.option.declined"
 msgstr "Reviewer has declined the invitation to review"
 
-msgid "editor.review.logResponse.form.description"
-msgstr "*An editor can log a response on behalf of the reviewer:"
+msgid "editor.review.logResponse.form.detail"
+msgstr "Record the response on behalf of the reviewer."
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr "If the reviewer contacts you through email or any other means, you can record their response for them"
 
 msgid "editor.review.reinstateReviewer"
 msgstr "Reinstate Reviewer"

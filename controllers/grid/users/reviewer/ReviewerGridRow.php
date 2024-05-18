@@ -216,35 +216,24 @@ class ReviewerGridRow extends GridRow
                     )
                 );
             }
-
-            //            if ($reviewAssignment->getDateConfirmed() == null) {
-
-            //                $this->addAction(new LinkAction(
-            //                    'logResponse',
-            //                    new AjaxModal(
-            //                        $router->url($request, null, null, 'logResponse', null, $actionArgs),
-            //                        __('editor.review.logResponse.for'),
-            //                        'modal_log_response'
-            //                    ),
-            //                    __('editor.review.logResponse'),
-            //                    'log_response'
-            //                ));
-
-            //            dd($actionArgs);
-
-            $this->addAction(
-                new LinkAction(
-                    'logResponse',
-                    new VueModal(
-                        'WorkflowLogResponseForModal',
-                        $actionArgs
-                    ),
-                    __('editor.review.logResponse')
-                )
-            );
-
-
-            //            }
+            if ($reviewAssignment->getDateConfirmed() == null) {
+                $vueModalArgs = [
+                    'description' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
+                    'submissionLocale' => $submission->getData('locale'),
+                    'journalLocales' => $request->getContext()->getSupportedSubmissionMetadataLocales(),
+                    'url' => $router->url($request, null, null, 'addLog', null, $actionArgs),
+                ];
+                $this->addAction(
+                    new LinkAction(
+                        'logResponse',
+                        new VueModal(
+                            'WorkflowLogResponseForModal',
+                            array_merge($actionArgs, $vueModalArgs)
+                        ),
+                        __('editor.review.logResponse')
+                    )
+                );
+            }
         }
     }
 }

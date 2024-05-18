@@ -74,7 +74,6 @@ class VueModal extends Modal
         return array_merge(
             parent::getLocalizedOptions(),
             [
-                //                'modalHandler' => '$.pkp.controllers.modal.AjaxModalHandler',
                 'modalHandler' => '$.pkp.controllers.modal.VueModalHandler',
                 'component' => $this->getComponent(),
                 'props' => $this->getProps()

@@ -25,6 +25,7 @@ use Illuminate\Support\Collection;
 use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\orcid\OrcidManager;
+use PKP\core\PKPContainer;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
@@ -57,9 +58,65 @@ class AboutContextHandler extends Handler
      */
     public function index($args, $request)
     {
-        $templateMgr = TemplateManager::getManager($request);
-        $this->setupTemplate($request);
-        $templateMgr->display('frontend/pages/about.tpl');
+        // dd(BASE_SYS_DIR);
+        $container = PKPContainer::getInstance();
+
+        // we have to bind our app class to the interface
+        // as the blade compiler needs the `getNamespace()` method to guess Blade component FQCNs
+        // $container->instance(\Illuminate\Contracts\Foundation\Application::class, $container);
+
+        // Configuration
+        // Note that you can set several directories where your templates are located
+        // The one listed as last will have higher priority
+        $pathsToTemplates = [
+            BASE_SYS_DIR . '/lib/pkp/templates',
+            BASE_SYS_DIR . '/templates',
+        ];
+        $pathToCompiledTemplates = BASE_SYS_DIR . '/compiled';
+
+        // Dependencies
+        $filesystem = new \Illuminate\Filesystem\Filesystem;
+        $eventDispatcher = new \Illuminate\Events\Dispatcher($container);
+
+        // Create View Factory capable of rendering PHP and Blade templates
+        $viewResolver = new \Illuminate\View\Engines\EngineResolver;
+        $bladeCompiler = new \Illuminate\View\Compilers\BladeCompiler($filesystem, $pathToCompiledTemplates);
+        
+        $viewResolver->register('blade', function () use ($bladeCompiler) {
+            return new \Illuminate\View\Engines\CompilerEngine($bladeCompiler);
+        });
+        
+        $viewFinder = new \Illuminate\View\FileViewFinder($filesystem, $pathsToTemplates);
+        $viewFactory = new \Illuminate\View\Factory($viewResolver, $viewFinder, $eventDispatcher);
+        $viewFactory->setContainer($container);
+        // \Illuminate\Support\Facades\Facade::setFacadeApplication($container);
+        $container->instance(\Illuminate\Contracts\View\Factory::class, $viewFactory);
+        $container->alias(
+            \Illuminate\Contracts\View\Factory::class, 
+            (new class extends \Illuminate\Support\Facades\View {
+                public static function getFacadeAccessor() { return parent::getFacadeAccessor(); }
+            })::getFacadeAccessor()
+        );
+        $container->instance(\Illuminate\View\Compilers\BladeCompiler::class, $bladeCompiler);
+        $container->alias(
+            \Illuminate\View\Compilers\BladeCompiler::class, 
+            (new class extends \Illuminate\Support\Facades\Blade {
+                public static function getFacadeAccessor() { return parent::getFacadeAccessor(); }
+            })::getFacadeAccessor()
+        );
+
+        // Render template with page.blade.php
+        // we can also use $viewFactory->make(...)->render();
+        echo view('about', [
+            'title' => 'Title',
+            'text' => 'This is my text!',
+        ]);
+        
+        
+        // Original Code Implementation
+        // $templateMgr = TemplateManager::getManager($request);
+        // $this->setupTemplate($request);
+        // $templateMgr->display('frontend/pages/about.tpl');
     }
 
 

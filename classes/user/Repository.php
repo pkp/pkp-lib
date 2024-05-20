@@ -135,7 +135,7 @@ class Repository
      *
      * @return bool
      */
-    public function canCurrentUserGossip($userId)
+    public function canCurrentUserGossip(int $userId)
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();

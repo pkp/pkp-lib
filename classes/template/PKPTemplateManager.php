@@ -1374,7 +1374,7 @@ class PKPTemplateManager extends Smarty
      *
      * @return TemplateManager the template manager object
      */
-    public static function &getManager($request = null)
+    public static function &getManager(?PKPRequest $request = null): TemplateManager
     {
         if (!isset($request)) {
             $request = Registry::get('request');
@@ -1382,8 +1382,6 @@ class PKPTemplateManager extends Smarty
                 throw new Exception('Deprecated call without request object.');
             }
         }
-        assert($request instanceof PKPRequest);
-
         $instance = &Registry::get('templateManager', true, null); // Reference required
 
         if ($instance === null) {

@@ -573,13 +573,14 @@ class PKPPageRouter extends PKPRouter
             $request->redirectUrl($source);
         }
 
-        $uri = Core::removeBaseUrl($setLocale ? ($_SERVER['HTTP_REFERER'] ?? '') : ($_SERVER['REQUEST_URI'] ?? ''));
-        $newUrlLocale = $multiLingual ? $sessionLocale . '/' : '';
+        $indexUrl = $this->getIndexUrl($request);
+        $uri = preg_replace("#^{$indexUrl}#", '', $setLocale ? ($_SERVER['HTTP_REFERER'] ?? '') : $request->getCompleteUrl(), 1);
+        $newUrlLocale = $multiLingual ? "/{$sessionLocale}" : '';
         $pathInfo = ($uri)
-            ? preg_replace("#^/{$contextPath}" . ($urlLocale ? "/{$urlLocale}" : '') . '(/|$)#', "/{$contextPath}/{$newUrlLocale}", $uri, 1)
-            : "/index/{$newUrlLocale}";
+            ? preg_replace("#^/{$contextPath}" . ($urlLocale ? "/{$urlLocale}" : '') . '(?=[/?\\#]|$)#', "/{$contextPath}{$newUrlLocale}", $uri, 1)
+            : "/index{$newUrlLocale}";
 
-        $request->redirectUrl($this->getIndexUrl($request) . $pathInfo);
+        $request->redirectUrl($indexUrl . $pathInfo);
     }
 }
 

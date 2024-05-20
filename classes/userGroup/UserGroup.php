@@ -16,6 +16,8 @@
 
 namespace PKP\userGroup;
 
+use PKP\core\PKPApplication;
+
 class UserGroup extends \PKP\core\DataObject
 {
     /**
@@ -59,22 +61,18 @@ class UserGroup extends \PKP\core\DataObject
 
     /**
      * Get the context ID
-     *
-     * @return int
      */
-    public function getContextId()
+    public function getContextId(): int
     {
-        return $this->getData('contextId');
+        return $this->getData('contextId') ?: PKPApplication::CONTEXT_SITE;
     }
 
     /**
      * Set the context ID
-     *
-     * @param int $contextId
      */
-    public function setContextId($contextId)
+    public function setContextId(int $contextId)
     {
-        $this->setData('contextId', $contextId);
+        $this->setData('contextId', $contextId ?: null);
     }
 
     /**

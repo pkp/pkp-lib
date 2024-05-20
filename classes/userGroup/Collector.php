@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
+use PKP\core\PKPApplication;
 use PKP\plugins\Hook;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 
@@ -286,9 +287,15 @@ class Collector implements CollectorInterface
             })->whereIn('ugs.stage_id', $this->stageIds);
         }
 
-        if (isset($this->contextIds)) {
-            $q->whereIn('ug.context_id', $this->contextIds);
-        }
+        $q->when(isset($this->contextIds), fn (Builder $q) => $q->where(function (Builder $q) {
+            // For site-wide contexts, context_id will be null.
+            // Note: SQL "WHERE IN (null, ...)" would not work!
+            $q->whereIn('ug.context_id', $this->contextIds)
+                ->when(
+                    in_array(PKPApplication::CONTEXT_SITE, $this->contextIds),
+                    fn (Builder $q) => $q->orWhereNull('ug.context_id')
+                );
+        }));
 
         if (isset($this->roleIds)) {
             $q->whereIn('ug.role_id', $this->roleIds);

@@ -79,6 +79,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public ?bool $reviewsSubmitted = null;
     public ?bool $revisionsRequested = null;
     public ?bool $revisionsSubmitted = null;
+    public ?array $reviewIds = null;
 
     public function __construct(DAO $dao)
     {
@@ -269,6 +270,17 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public function isReviewedBy(int|array|null $isReviewedBy): AppCollector
     {
         $this->isReviewedBy = $isReviewedBy;
+        return $this;
+    }
+
+    /**
+     * Limit results by submissions with specific review assignment IDs
+     *
+     * @param array|null $reviewIds An array of review assignment IDs
+     */
+    public function filterByReviewIds(?array $reviewIds): AppCollector
+    {
+        $this->reviewIds = $reviewIds;
         return $this;
     }
 
@@ -626,6 +638,17 @@ abstract class Collector implements CollectorInterface, ViewsCount
         // Filter out excluded submission IDs
         $q->when($this->excludeIds !== null, fn (Builder $q) => $q->whereNotIn('s.submission_id', $this->excludeIds));
 
+        $q->when(
+            $this->reviewIds !== null,
+            fn (Builder $q) => $q
+                ->whereExists(
+                    fn (Builder $q) => $q
+                        ->from('review_assignments AS ra')
+                        ->whereColumn('s.submission_id', 'ra.submission_id')
+                        ->whereIn('ra.review_id', $this->reviewIds)
+                )
+        );
+
         // Limit and offset results for pagination
         if (isset($this->count)) {
             $q->limit($this->count);
@@ -645,7 +668,14 @@ abstract class Collector implements CollectorInterface, ViewsCount
      */
     protected function buildReviewStageQueries(Builder $q): Builder
     {
-        $reviewFilters = collect([$this->isReviewedBy, $this->reviewersNumber, $this->awaitingReviews, $this->reviewsSubmitted, $this->revisionsRequested, $this->revisionsSubmitted])->filter();
+        $reviewFilters = collect([
+            $this->isReviewedBy,
+            $this->reviewersNumber,
+            $this->awaitingReviews,
+            $this->reviewsSubmitted,
+            $this->revisionsRequested,
+            $this->revisionsSubmitted
+        ])->filter();
         if ($reviewFilters->isEmpty()) {
             return $q;
         }

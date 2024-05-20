@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\EntityDAO;
+use PKP\core\PKPApplication;
 use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
 
@@ -120,9 +121,13 @@ class DAO extends EntityDAO
      */
     public function fromRow(object $row): UserGroup
     {
-        $userGroup = parent::fromRow($row);
+        // The database layer uses null for context_id when a user_group is site-wide
+        // but the PHP layer uses a CONTEXT_SITE constant. Map from DB to PHP.
+        if ($row->context_id === null) {
+            $row->context_id = PKPApplication::CONTEXT_SITE;
+        }
 
-        return $userGroup;
+        return parent::fromRow($row);
     }
 
     /**

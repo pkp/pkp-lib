@@ -1,21 +1,22 @@
+# Jordi LC <jordi.lacruz@uab.cat>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-04 18:17+0000\n"
+"PO-Revision-Date: 2024-04-23 16:06+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
-"Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
-"ca_ES/>\n"
-"Language: ca_ES\n"
+"Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ca/>"
+"\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "El paràmetre {$param} no està suportat."
 
 msgid "api.400.propReadOnly"
-msgstr ""
+msgstr "La propietat {$prop} no es pot modificar."
 
 msgid "api.400.invalidApiToken"
 msgstr ""
@@ -27,13 +28,13 @@ msgstr ""
 "No s'ha pogut descodificar la API token a causa del següent error: {$error}"
 
 msgid "api.400.requireEmailSubjectBody"
-msgstr ""
+msgstr "Heu d'introduir l'assumpte i el cos del correu electrònic."
 
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "No és possible canviar la data en què es va crear."
 
 msgid "api.dois.403.prefixRequired"
-msgstr ""
+msgstr "És necessari un prefix DOI per generar els DOI."
 
 msgid "api.403.unauthorized"
 msgstr "No esteu autoritzat per accedir al recurs sol·licitat."
@@ -53,55 +54,68 @@ msgid "api.announcements.404.announcementNotFound"
 msgstr "No s'ha trobat l'avís que heu sol·licitat."
 
 msgid "api.institutions.404.institutionNotFound"
-msgstr ""
+msgstr "No s'ha trobat la institució sol·licitada."
 
 msgid "api.contexts.400.localesNotSupported"
 msgstr "Les següents configuracions regionals no són compatibles: {$locales}."
 
 msgid "api.dois.403.editItemOutOfContext"
-msgstr ""
+msgstr "No podeu editar un element del DOI que no aparegui en aquest context."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr ""
+msgstr "No s'ha reconegut el tipus de publicació."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
+"Aquest terminal no està disponible des de l'espai de noms de tot el lloc i "
+"s'ha de sol·licitar per a un context determinat."
 
 msgid "api.dois.404.doiNotFound"
-msgstr ""
+msgstr "No s'ha trobat el DOI sol·licitat."
 
 msgid "api.dois.404.pubObjectNotFound"
-msgstr ""
+msgstr "No s'ha trobat l'objecte de publicació sol·licitat."
 
 msgid "api.dois.404.submissionNotFound"
-msgstr ""
+msgstr "No s'ha trobat la tramesa sol·licitada."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
+"Els elements no publicats no es poden exportar/dipositar. Desseleccioneu els "
+"elements no publicats i torneu-ho a provar."
 
 msgid "api.dois.400.creationFailed"
-msgstr ""
+msgstr "S'ha produït un error i l'objecte DOI no s'ha pogut crear."
 
 msgid "api.dois.400.xmlExportFailed"
 msgstr ""
+"S'ha produït un error en la validació de l'XML i no s'ha pogut exportar."
 
 msgid "api.dois.400.markRegisteredFailed"
 msgstr ""
+"S'ha produït un error i alguns del elements enviats no s'han marcat com a "
+"registrats."
 
 msgid "api.dois.400.depositFailed"
 msgstr ""
+"Alguns elements no s'han dipositat correctament. Comproveu els missatges "
+"d'error específics de cada element."
 
 msgid "api.dois.404.noPubObjectIncluded"
-msgstr ""
+msgstr "No s'han inclòs objectes de publicació vàlids amb la sol·licitud."
 
 msgid "api.dois.400.invalidPubObjectIncluded"
 msgstr ""
+"Un o més objectes de publicació invàlids s'han inclòs amb la sol·licitud."
 
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
+"El mòdul configurat actualment ha de ser un mòdul d'agència de registre."
 
 msgid "api.decisions.403.alreadyPublished"
 msgstr ""
+"No podeu recomanar ni registrar una decisió per a aquesta tramesa perquè ja "
+"s'ha publicat."
 
 msgid "api.emails.400.missingBody"
 msgstr "Heu d'incloure un correu electrònic perquè s'enviï."
@@ -121,9 +135,11 @@ msgstr ""
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
 msgstr ""
+"Això no és una plantilla de correu electrònic predeterminada per a un correu "
+"conegut."
 
 msgid "api.emailTemplates.400.invalidContext"
-msgstr ""
+msgstr "Aquest context no és vàlid."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "No s'ha trobat la plantilla de correu electrònic que heu sol·licitat."
@@ -209,6 +225,8 @@ msgstr ""
 
 msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
+"La vostra sol·licitud no és vàlida. L'interval temporal ha de ser 'dia' o "
+"'mes'."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
@@ -241,7 +259,7 @@ msgid "api.submissionFiles.400.noFileStageId"
 msgstr "Heu de proporcionar una fase d'arxiu."
 
 msgid "api.submissionFiles.400.invalidFileStage"
-msgstr ""
+msgstr "La fase de l'arxiu proporcionada no és vàlida."
 
 msgid "api.submissionsFiles.400.noParams"
 msgstr ""
@@ -249,6 +267,8 @@ msgstr ""
 
 msgid "api.submissionFiles.400.reviewRoundIdRequired"
 msgstr ""
+"Heu de proporcionar un identificador de la ronda de revisió quan un arxiu es "
+"mou a aquesta fase."
 
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr ""
@@ -272,7 +292,7 @@ msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "El volum, el número o l'any sol·licitats no són vàlids."
 
 msgid "api.submissions.400.invalidSubmitAs"
-msgstr ""
+msgstr "No teniu permís per fer una tramesa amb aquest rol."
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
@@ -308,31 +328,33 @@ msgid "api.vocabs.400.localeNotSupported"
 msgstr "La configuració regional {$locale} no és compatible."
 
 msgid "api.mailables.404.mailableNotFound"
-msgstr ""
+msgstr "No s'ha trobat el correu electrònic sol·licitat."
 
 msgid "api.jobs.404.failedJobNotFound"
-msgstr ""
+msgstr "No s'ha trobat la tasca errònia a la llista d'errors."
 
 msgid "api.jobs.406.failedJobPayloadMissing"
-msgstr ""
+msgstr "La tasca errònia no té la càrrega útil per ser reenviada."
 
 msgid "api.jobs.406.failedJobEmpty"
-msgstr ""
+msgstr "No s'ha trobat cap tasca errònia en el llistat."
 
 msgid "api.jobs.400.failedJobRedispatchedFailed"
-msgstr ""
+msgstr "No es pot reenviar la tasca errònia."
 
 msgid "api.jobs.200.failedJobRedispatchedSucceed"
-msgstr ""
+msgstr "La tasca errònia s'ha reenviat correctament."
 
 msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
+"Totes les tasques errònies reenviables amb una càrrega útil vàlida s'han "
+"tornat a posar a la cua correctament."
 
 msgid "api.jobs.400.failedJobDeleteFailed"
-msgstr ""
+msgstr "No es pot eliminar la tasca errònia de la llista d'errors."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
-msgstr ""
+msgstr "La tasca errònia s'ha eliminat de la llista d'errors correctament."
 
 #~ msgid "api.vocabs.400.vocabNotSupported"
 #~ msgstr "El vocabulari {$vocab} no és compatible."
@@ -341,3 +363,19 @@ msgstr ""
 #~ msgstr ""
 #~ "Ha ocorregut un error inesperat. Torneu a carregar la pàgina i intenteu-"
 #~ "ho de nou."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"No s'ha pogut guardar la comanda seleccionada perquè no s'ha trobat "
+"informació relacionada."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "No s'ha trobat la selecció sol·licitada."
+
+msgid "api.400.errorUploadingImage"
+msgstr "S'ha produït un error en carregar la imatge."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"No s'ha pogut guardar la comanda seleccionada perquè no s'ha trobat una o "
+"més de les seleccions."

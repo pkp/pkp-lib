@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2024-02-15 18:54+0000\n"
+"PO-Revision-Date: 2024-05-02 14:38+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ca/>\n"
@@ -132,22 +132,22 @@ msgid "common.add"
 msgstr "Afegeix"
 
 msgid "common.addCCBCC"
-msgstr ""
+msgstr "Afegir CC/BCC"
 
 msgid "common.addFiles"
-msgstr ""
+msgstr "Afegir arxius"
 
 msgid "common.addSelf"
 msgstr "Afegeix-me"
 
 msgid "common.attachedFiles"
-msgstr ""
+msgstr "Arxius adjunts"
 
 msgid "common.attachFiles"
-msgstr ""
+msgstr "Adjuntar arxius"
 
 msgid "common.attachSelected"
-msgstr ""
+msgstr "Adjuntar la selecció"
 
 msgid "common.name"
 msgstr "Nom"
@@ -237,13 +237,16 @@ msgstr ""
 msgid "common.ccLicense.rt"
 msgstr ""
 "\n"
-"\t<div class=\"rtBlock\"><br /> <a rel=\"license\" href=\"https://"
-"creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt="
-"\"Llicència Creative Commons\" style=\"border-width:0\" src=\"//i."
-"creativecommons.org/l/by/3.0/80x15.png\" /></a> <br /> Aquesta obra està "
-"sota llicència de <a rel=\"license\" href=\"https://creativecommons.org/"
-"licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0</a>.</"
-"div>\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tAquesta obra està sota una llicència <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons "
+"Attribution 3.0</a>.\n"
+"\t</div>\n"
 "\t"
 
 msgid "common.changesSaved"
@@ -262,7 +265,7 @@ msgid "common.closeWindow"
 msgstr "Tanca la finestra"
 
 msgid "common.complete"
-msgstr "Completa"
+msgstr "Finalitzada"
 
 msgid "common.completed"
 msgstr "Completada"
@@ -340,7 +343,7 @@ msgid "common.deleteSelection"
 msgstr "Suprimeix la selecció"
 
 msgid "common.deselect"
-msgstr ""
+msgstr "Desseleccionar"
 
 msgid "common.designation"
 msgstr "Designació"
@@ -349,7 +352,7 @@ msgid "common.description"
 msgstr "Descripció"
 
 msgid "common.details"
-msgstr ""
+msgstr "Detalls"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}\" x {$height}\" @ {$dpi} DPI/PPI"
@@ -358,10 +361,10 @@ msgid "common.dimensionsPixels"
 msgstr "{$width} x {$height} píxels"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "No, descartar els canvis no guardats"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Desconnectat"
 
 msgid "common.disable"
 msgstr "Inhabilita"
@@ -382,13 +385,13 @@ msgid "common.downloadPdf"
 msgstr "Descarrega el PDF"
 
 msgid "common.downloadReport"
-msgstr ""
+msgstr "Descarregar informe"
 
 msgid "common.dragAndDropHere"
-msgstr ""
+msgstr "Arrossegar i deixar anar els arxius aquí."
 
 msgid "common.orUploadFile"
-msgstr ""
+msgstr "O carregar un arxiu"
 
 msgid "common.edit"
 msgstr "Edita"
@@ -397,7 +400,7 @@ msgid "common.editItem"
 msgstr "Editar {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "Plantilles de correu electrònic"
 
 msgid "common.enable"
 msgstr "Habilita"
@@ -468,13 +471,13 @@ msgid "common.filterRemove"
 msgstr "Netejar filtre: {$filterTitle}"
 
 msgid "common.findTemplate"
-msgstr ""
+msgstr "Trobar plantilla"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Formatació"
 
 msgid "common.geographic"
-msgstr ""
+msgstr "Geogràfic"
 
 msgid "common.go"
 msgstr "Vés-hi"
@@ -507,10 +510,10 @@ msgid "common.insert"
 msgstr "Inserir"
 
 msgid "common.insertContent"
-msgstr ""
+msgstr "Inserir contingut"
 
 msgid "common.insertContentSearch"
-msgstr ""
+msgstr "Trobar contingut per inserir"
 
 msgid "common.itemsPerPage"
 msgstr "Elements per pàgina"
@@ -519,7 +522,7 @@ msgid "common.keywords"
 msgstr "Paraules clau"
 
 msgid "common.label"
-msgstr ""
+msgstr "Etiqueta"
 
 msgid "common.language"
 msgstr "Llengua"
@@ -528,7 +531,7 @@ msgid "common.languages"
 msgstr "Llengües"
 
 msgid "common.lastSaved"
-msgstr ""
+msgstr "Últim guardat {$when}"
 
 msgid "common.lastActivity"
 msgstr "Darrera activitat registrada el {$date}."
@@ -543,7 +546,7 @@ msgid "common.lessThanOnly"
 msgstr "Menys que"
 
 msgid "common.keepWorking"
-msgstr ""
+msgstr "Continuar treballant"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -585,10 +588,10 @@ msgid "common.none"
 msgstr "Cap"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Cap seleccionat"
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Cap proporcionat"
 
 msgid "common.no"
 msgstr "No"
@@ -633,7 +636,7 @@ msgid "common.noMatches"
 msgstr "No s’han trobat coincidències"
 
 msgid "common.numberedMore"
-msgstr ""
+msgstr "{$number} més"
 
 msgid "common.off"
 msgstr "Desactivat"
@@ -732,7 +735,7 @@ msgid "common.readMoreWithTitle"
 msgstr "Llegir més sobre {$title}"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Reconnectant"
 
 msgid "common.record"
 msgstr "Enregistra"
@@ -782,10 +785,10 @@ msgid "common.reset"
 msgstr "Reinicia"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Ronda {$round}"
 
 msgid "common.role"
-msgstr ""
+msgstr "Rol"
 
 msgid "common.saveAndContinue"
 msgstr "Desa i continua"
@@ -803,10 +806,10 @@ msgid "common.search"
 msgstr "Cerca"
 
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "Cercar frase"
 
 msgid "common.searching"
-msgstr ""
+msgstr "Cercant"
 
 msgid "common.searchQuery"
 msgstr "Cerca"
@@ -836,10 +839,10 @@ msgid "common.sendEmail"
 msgstr "Envia el missatge de correu electrònic"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "Mostrar tots els passos"
 
 msgid "common.showingSteps"
-msgstr ""
+msgstr "{$current}/{$total} passos"
 
 msgid "common.size"
 msgstr "Mida"
@@ -866,10 +869,10 @@ msgid "common.suggest"
 msgstr "Suggereix"
 
 msgid "common.switchTo"
-msgstr ""
+msgstr "Canviar a"
 
 msgid "common.switchToNamedItem"
-msgstr ""
+msgstr "Canviar a {$name}"
 
 msgid "common.title"
 msgstr "Títol"
@@ -887,10 +890,10 @@ msgid "common.type"
 msgstr "Tipus"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "Carregat per {$name}"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "Carregat per {$name} el {$date}"
 
 msgid "common.component"
 msgstr "Component"
@@ -906,10 +909,14 @@ msgid "common.unread"
 msgstr "No llegit"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "Canvis sense guardar"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"Hem trobat canvis sense guardar des de {$when}. Això pot passar si perdeu la "
+"connexió amb el servidor mentre esteu treballant. Restaurar aquells canvis "
+"podria sobreescriure qualsevol modificació que hagueu fet des de llavors. "
+"Voleu restaurar aquells canvis ara?"
 
 msgid "common.untitled"
 msgstr "Sense títol"
@@ -921,10 +928,10 @@ msgid "common.uploadedDate"
 msgstr "Data carregada"
 
 msgid "common.upload"
-msgstr "Penja"
+msgstr "Carregar"
 
 msgid "common.uploadFailed"
-msgstr "El fitxer no s’ha pogut carregar ni revisar."
+msgstr "L'arxiu no s’ha pogut carregar ni revisar."
 
 msgid "common.up"
 msgstr "Amunt"
@@ -936,7 +943,7 @@ msgid "common.upload.addFile"
 msgstr "Carregar arxiu"
 
 msgid "common.upload.addFile.description"
-msgstr ""
+msgstr "Carregar un arxiu des del vostre ordinador."
 
 msgid "common.upload.restore"
 msgstr "Restaurar l'original"
@@ -963,7 +970,7 @@ msgid "common.view"
 msgstr "Visualitza"
 
 msgid "common.viewError"
-msgstr ""
+msgstr "Veure l'error"
 
 msgid "common.viewWithName"
 msgstr "Veure {$name}"
@@ -1025,37 +1032,39 @@ msgid "defaultMetric.title"
 msgstr "Mètrica predeterminada"
 
 msgid "editor.submissionReview.uploadFile"
-msgstr "Carrega un fitxer de revisió"
+msgstr "Carregar l'arxiu de revisió"
 
 msgid "editor.submissionReview.uploadAttachment"
-msgstr "Puja un fitxer"
+msgstr "Carregar arxiu"
 
 msgid "email.addAttachment"
-msgstr "Afegeix un fitxer adjunt"
+msgstr "Afegeix un arxiu adjunt"
 
 msgid "email.addAttachment.submissionFiles.attach"
-msgstr ""
+msgstr "Adjuntar els arxius de tramesa"
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr ""
+msgstr "Adjuntar els arxius carregats per l'autor/a en la fase de tramesa."
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
+"Adjuntar els arxius carregats durant el flux de treball de la tramesa, com "
+"per exemple les revisions o els arxius per revisar."
 
 msgid "email.addAttachment.libraryFiles"
-msgstr ""
+msgstr "Arxius de biblioteca"
 
 msgid "email.addAttachment.libraryFiles.attach"
-msgstr ""
+msgstr "Adjuntar els arxius de la biblioteca"
 
 msgid "email.addAttachment.libraryFiles.description"
-msgstr ""
+msgstr "Adjuntar els arxius des de les biblioteques editorial i de tramesa."
 
 msgid "email.addAttachment.reviewFiles.attach"
-msgstr ""
+msgstr "Adjuntar els arxius de revisió"
 
 msgid "email.addAttachment.reviewFiles.description"
-msgstr ""
+msgstr "Adjuntar els arxius carregats pels revisors/ores"
 
 msgid "email.addBccRecipient"
 msgstr "Afegeix BCC"
@@ -1070,7 +1079,7 @@ msgid "email.attachments"
 msgstr "Fitxers adjunts"
 
 msgid "email.attachmentNotFound"
-msgstr ""
+msgstr "L'arxiu {$fileName} no s'ha pogut adjuntar."
 
 msgid "email.bcc"
 msgstr "Amb còpia oculta"
@@ -1086,6 +1095,9 @@ msgstr "Amb còpia"
 
 msgid "email.confirmSwitchLocale"
 msgstr ""
+"Segur que voleu canviar a {$localeName} per redactar aquest correu "
+"electrònic? Els canvis que hagueu fet en l'assumpte i en el cos del correu "
+"es perdran."
 
 msgid "email.compose"
 msgstr "Envia el missatge de correu electrònic"
@@ -1255,7 +1267,7 @@ msgstr ""
 "desconnectat. Torneu a carregar la pàgina i torneu-ho a provar."
 
 msgid "form.fileRequired"
-msgstr "Cal que carregueu un fitxer."
+msgstr "És necessari carregar un arxiu."
 
 msgid "form.required"
 msgstr "(* obligatori)"
@@ -1273,13 +1285,13 @@ msgid "form.saved"
 msgstr "Guardat"
 
 msgid "form.saveToUpload"
-msgstr "Utilitzeu «Desa» per a penjar el fitxer."
+msgstr "Utilitzeu «Desa» per carregar l'arxiu."
 
 msgid "form.send"
-msgstr "Envia"
+msgstr "Enviar"
 
 msgid "form.submit"
-msgstr "Tramet"
+msgstr "Trametre"
 
 msgid "form.invalidImage"
 msgstr ""
@@ -1410,9 +1422,12 @@ msgstr ""
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Permisos"
 
-#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Permetre que aquesta persona editi els detalls de publicació."
+msgstr ""
+"Permetre que aquesta persona faci canvis en la publicació, com per exemple "
+"el títol, el resum, les metadades o altres detalls. Pot ser que vulgueu "
+"revocar aquest privilegi si la tramesa ha passat per una comprovació final i "
+"ja està llesta per publicar-se."
 
 msgid "stageParticipants.selectedUser"
 msgstr "Participant"
@@ -1556,7 +1571,7 @@ msgid "navigation.viewFrontend"
 msgstr "Veure el lloc"
 
 msgid "institution.institutions"
-msgstr ""
+msgstr "Institucions"
 
 msgid "notification.addedAuditor"
 msgstr "S'ha afegit un auditor."
@@ -1850,7 +1865,7 @@ msgid "notification.reinstatedReviewer"
 msgstr "Revisor/a restablert."
 
 msgid "notification.reviewerResendRequest"
-msgstr ""
+msgstr "Sol·licitud per reconsiderar l'assignació de revisió enviada."
 
 msgid "notification.addedStageParticipant"
 msgstr "L'usuari/ària s'ha afegit com a participant en aquesta fase."
@@ -1890,7 +1905,7 @@ msgid "notification.signedFile"
 msgstr "S'ha acceptat el fitxer."
 
 msgid "timeZone"
-msgstr ""
+msgstr "Zona horària"
 
 msgid "user.email"
 msgstr "Adreça de correu electrònic"
@@ -1943,14 +1958,14 @@ msgstr "Discussió afegida."
 
 msgid "notification.type.assignCopyeditors"
 msgstr ""
-"Assigna un corrector/a d'originals mitjançant l'opció \"Afegir\" de la "
-"llista de participants."
+"Assigneu la persona encarregada de la correcció mitjançant l'opció \"Assignar"
+"\" de la llista de participants."
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "Esperant les correccions."
 
 msgid "notification.type.roundStatusTitle"
-msgstr "Ronda {$round} Estat"
+msgstr "Estat de la ronda {$round}"
 
 msgid "notification.type.editorialReport"
 msgstr "Resum de l'informe d'estadístiques."
@@ -1961,7 +1976,7 @@ msgstr ""
 "mitjançant l'informe editorial."
 
 msgid "notification.type.editorialReminder"
-msgstr ""
+msgstr "Correu electrònic setmanal de tasques pendents"
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -2025,10 +2040,10 @@ msgid "list.viewLess"
 msgstr "Amagar els detalls de {$name}"
 
 msgid "list.expandAll"
-msgstr ""
+msgstr "Expandir-ho tot"
 
 msgid "list.collapseAll"
-msgstr ""
+msgstr "Replegar-ho tot"
 
 msgid "validation.invalidOption"
 msgstr "Això no és una opció vàlida."
@@ -2040,7 +2055,7 @@ msgid "validator.active_url"
 msgstr "Aquesta URL no és vàlida."
 
 msgid "validator.after"
-msgstr "Aquesta data ha de ser posterior a  {$date}."
+msgstr "Aquesta data ha de ser posterior a {$date}."
 
 msgid "validator.alpha"
 msgstr "Això només pot contenir lletres."
@@ -2084,6 +2099,9 @@ msgstr "Aquest país no és vàlid."
 
 msgid "validator.country.regex"
 msgstr ""
+"Això no és un país vàlid. El país ha de ser un dels codis internacionals de "
+"2 lletres. Podeu veure tots els codis a https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
 msgstr "Aquesta no és una moneda vàlida."
@@ -2234,10 +2252,10 @@ msgid "validator.url"
 msgstr "Aquesta URL no és vàlida."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "No es permet una línia nova."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Només es permeten[{$tags}] html."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
@@ -2253,7 +2271,7 @@ msgid "filter.import.error.couldNotImportNode"
 msgstr "No s'ha pogut importar el node XML"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Ordre desconeguda {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
@@ -2376,3 +2394,18 @@ msgstr "S'ha editat un autor/a."
 #~ msgstr ""
 #~ "No heu superat la comprovació de validació utilitzada per prevenir "
 #~ "trameses brossa."
+
+msgid "showLess"
+msgstr "Mostrar menys"
+
+msgid "common.highlight"
+msgstr "Destacar"
+
+msgid "common.highlights"
+msgstr "Destacats"
+
+msgid "common.sandbox"
+msgstr "L'aplicació està executant-se en mode 'sandbox'."
+
+msgid "showAll"
+msgstr "Mostrar-ho tot"

@@ -1,7 +1,7 @@
-# Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
+# Osman Durmaz <osmandurmaz@hotmail.de>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-06-03 13:08+0000\n"
+"PO-Revision-Date: 2024-04-20 00:03+0000\n"
 "Last-Translator: Osman Durmaz <osmandurmaz@hotmail.de>\n"
 "Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/az/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.appearance"
 msgstr "Görünüş"
@@ -595,7 +595,7 @@ msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} ({$percentage}%)"
 
 msgid "manager.statistics.statistics.totalNewValue"
-msgstr "{$ numertal} (yeni {$numNew}"
+msgstr "{$numTotal} ({$numNew} yeni)"
 
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Qeydiyyatdan keçmiş istifadəçilər"
@@ -1124,7 +1124,7 @@ msgid "stats.city"
 msgstr "Şəhər"
 
 msgid "stats.countWithYearlyAverage"
-msgstr "{$ Say unt} ( {$average} } /il)"
+msgstr "{$count} ({$average}/year)"
 
 msgid "stats.daily"
 msgstr "Gündəlik"
@@ -1316,16 +1316,16 @@ msgid "emailTemplate.variable.submission.authors"
 msgstr "Müəlliflərin tam adları"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr "#YOK"
+msgstr ""
 
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "Redaktor ekranındakı namizəd məqalənin URL-si"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
-msgstr "#YOK"
+msgstr ""
 
 msgid "emailTemplate.variable.passwordResetUrl"
-msgstr "#YOK"
+msgstr ""
 
 msgid "mailable.reviewerUnassign.name"
 msgstr "Rəyçidən geri alındı"

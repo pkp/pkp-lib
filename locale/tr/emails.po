@@ -4,20 +4,19 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
-"PO-Revision-Date: 2021-12-26 09:24+0000\n"
+"PO-Revision-Date: 2024-03-31 01:25+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
-"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/ojs/emails/"
-"tr_TR/>\n"
-"Language: tr_TR\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
+"tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
-#, fuzzy
 msgid "emails.submissionAck.subject"
-msgstr "{$contextName} için gönderdiğiniz aday makale için teşekkürler"
+msgstr "{$contextName} için aday makale gönderiminiz için teşekkür ederiz"
 
 #, fuzzy
 msgid "emails.submissionAck.body"
@@ -41,10 +40,11 @@ msgstr ""
 
 msgid "emails.submissionAck.description"
 msgstr ""
+"Bu e-posta, bir yazar aday makale gönderdiğinde yazarlara otomatik olarak "
+"gönderilir."
 
-#, fuzzy
 msgid "emails.reviewAck.subject"
-msgstr "Değerlendirme İçin Teşekkür"
+msgstr "Değerlendirmeniz için teşekkür ederiz"
 
 #, fuzzy
 msgid "emails.reviewAck.body"
@@ -57,20 +57,21 @@ msgstr ""
 "takdirle anıyoruz."
 
 msgid "emails.decision.notifyReviewers.subject"
-msgstr ""
+msgstr "Değerlendirmeniz için teşekkür ederiz"
 
 msgid "emails.decision.notifyReviewers.body"
 msgstr ""
 
 msgid "emails.decision.notifyOtherAuthors.subject"
-msgstr ""
+msgstr "Aday makaleniz ile ilgili bilgilendirme"
 
 msgid "emails.decision.notifyOtherAuthors.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
-msgstr "Editör Kararı"
+msgstr ""
+"Aday makaleniz ön değerlendirme aşamasından hakem değerlendirme aşamasına "
+"geçti"
 
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
@@ -84,9 +85,8 @@ msgstr ""
 "<br />\n"
 "Submission URL: {$submissionUrl}"
 
-#, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
-msgstr "Aday makalenizin yayınlanması için sonraki adımlar"
+msgstr "Aday makale yayımlanmak üzere üretim aşamasına alındı"
 
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
@@ -99,9 +99,8 @@ msgstr ""
 "<br />\n"
 "Gönderi URL'si: {$submissionUrl}"
 
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
-msgstr "Aday makalenizin değerlendirme süreci tamamlandı ve düzeltme talebi"
+msgstr "Aday makale değerlendirildi ve düzeltme talep edildi"
 
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
@@ -114,9 +113,8 @@ msgstr ""
 "<br />\n"
 "Kararımız: Düzeltme Gerekli"
 
-#, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
-msgstr "Editör Kararı"
+msgstr "Aday makaleniz değerlendirildi - Düzeltme"
 
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"
@@ -128,9 +126,8 @@ msgstr ""
 "<br />\n"
 "Kararımız: Hakem Değerlendirmesi İçin Tekrar Gönder"
 
-#, fuzzy
 msgid "emails.editorDecisionDecline.subject"
-msgstr "Editör Kararı"
+msgstr "Aday makaleniz reddedildi"
 
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
@@ -142,9 +139,8 @@ msgstr ""
 "<br />\n"
 "Kararımız: Makale Reddedildi"
 
-#, fuzzy
 msgid "emails.editorRecommendation.subject"
-msgstr "Editör Tavsiyesi"
+msgstr "Editör Tavsiye Karar"
 
 #, fuzzy
 msgid "emails.editorRecommendation.body"
@@ -154,9 +150,10 @@ msgstr ""
 "{$contextName}, &quot;{$submissionTitle}&quot; adlı gönderi ile ilgili "
 "öneri: {$recommendation}"
 
-#, fuzzy
 msgid "emails.copyeditRequest.subject"
-msgstr "Sayfa düzeni için rica"
+msgstr ""
+"{$contextAcronym} için kabul edilen {$submissionId} numaralı aday makale son "
+"kopya için hazır"
 
 #, fuzzy
 msgid "emails.copyeditRequest.body"
@@ -176,26 +173,25 @@ msgstr ""
 "DErgimizin kalitesini arttıran değerli katkılarınız için teşekkür ederiz."
 
 msgid "emails.editorDecisionNewReviewRound.subject"
-msgstr ""
+msgstr "Aday makaleniz için yeni bir değerlendirme turu başlatıldı"
 
 msgid "emails.editorDecisionNewReviewRound.body"
 msgstr ""
 
 msgid "emails.editorDecisionRevertDecline.subject"
-msgstr ""
+msgstr "Makalenizin reddedilmesi kararı geri alınmıştır"
 
 msgid "emails.editorDecisionRevertDecline.body"
 msgstr ""
 
 msgid "emails.editorDecisionRevertInitialDecline.subject"
-msgstr ""
+msgstr "Aday makalenizin reddedilmesi kararı geri alınmıştır"
 
 msgid "emails.editorDecisionRevertInitialDecline.body"
 msgstr ""
 
-#, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
-msgstr "Editör Kararı"
+msgstr "Aday makale reddedildi"
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
@@ -208,34 +204,36 @@ msgstr ""
 "Değerlendirme sonucu karar:  Aday Makale Reddedildi"
 
 msgid "emails.editorialReminder.subject"
-msgstr ""
+msgstr "{$contextName} için bekleyen editöryal görevleriniz bulunmaktadır"
 
 msgid "emails.editorialReminder.body"
 msgstr ""
 
 msgid "discussion.notification.description"
 msgstr ""
+"Bu e-posta, bir kullanıcı yeni bir tartışma oluşturduğunda veya mevcut bir "
+"tartışmaya yanıt verdiğinde gönderilir"
 
 msgid "emails.editorDecisionBackFromProduction.subject"
-msgstr ""
+msgstr "Aday makaleniz redaksiyon aşamasına geri gönderildi"
 
 msgid "emails.editorDecisionBackFromProduction.body"
 msgstr ""
 
 msgid "emails.editorDecisionBackFromCopyediting.subject"
-msgstr ""
+msgstr "Aday makaleniz değerlendirme aşamasına geri gönderildi"
 
 msgid "emails.editorDecisionBackFromCopyediting.body"
 msgstr ""
 
 msgid "emails.editorDecisionCancelReviewRound.subject"
-msgstr ""
+msgstr "Aday makale için değerlendirme turu iptal edildi"
 
 msgid "emails.editorDecisionCancelReviewRound.body"
 msgstr ""
 
 msgid "emails.reviewResendRequest.subject"
-msgstr ""
+msgstr "{$contextName} için tekrar değerlendirme talebi"
 
 msgid "emails.reviewResendRequest.body"
 msgstr ""
@@ -250,17 +248,16 @@ msgid "emails.footer.unsubscribe.automated"
 msgstr ""
 
 msgid "emailTemplate.variable.unsubscribe"
-msgstr ""
+msgstr "Bu bağlantı e-posta aboneliğinden çıkmak içindir."
 
-#, fuzzy
 msgid "emails.discussion.subject"
-msgstr "{$contextName} ile ilgili bir mesaj"
+msgstr "{$contextName} üzerinden mesaj"
 
 msgid "emails.discussion.body"
 msgstr "Lütfen mesajınızı giriniz."
 
 msgid "emails.versionCreated.subject"
-msgstr ""
+msgstr "{$submissionTitle} başlıklı makale için yeni bir sürüm oluşturuldu"
 
 msgid "emails.versionCreated.body"
 msgstr ""
@@ -297,19 +294,22 @@ msgstr ""
 "{$senderName}"
 
 msgid "emails.submissionSavedForLater.subject"
-msgstr ""
+msgstr "{$contextName} için aday makale gönderimini tamamlayın"
 
 msgid "emails.submissionSavedForLater.body"
 msgstr ""
 
 msgid "emails.submissionNeedsEditor.subject"
 msgstr ""
+"Yeni gelen {$submissionTitle} başlıklı aday makale için editör ataması "
+"bekleniyor"
 
 msgid "emails.submissionNeedsEditor.body"
 msgstr ""
 
 msgid "emails.submissionAckNotUser.description"
 msgstr ""
+"Bu e-posta aday makaleye eklenen tüm yazarlara otomatik olarak gönderilir."
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Gönderme onayı"

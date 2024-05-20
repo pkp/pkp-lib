@@ -144,7 +144,7 @@ class PKPReviewController extends PKPBaseController
             }
         }
 
-        $reviewAssignmentProps = Repo::reviewAssignment()->getSchemaMap()->map($reviewAssignment);
+        $reviewAssignmentProps = Repo::reviewAssignment()->getSchemaMap()->map($reviewAssignment, $submission);
         // It doesn't seem we can translate the recommendation inside the vue page as it's a dynamic label key.
         $recommendation = $reviewAssignment->getLocalizedRecommendation();
 

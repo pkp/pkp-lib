@@ -1,19 +1,19 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2021-08-07 02:45+0000\n"
+"PO-Revision-Date: 2024-04-26 18:03+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
-"ca_ES/>\n"
-"Language: ca_ES\n"
+"ca/>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Esteu segur/a que voleu suprimir permanentment aquesta tramesa?"
@@ -49,40 +49,55 @@ msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Canviar la decisió"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr ""
+msgstr "No teniu permís per registrar aquesta decisió en aquesta tramesa."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
+"No s'ha reconegut l'editor/a i pot ser que no tingui permís per registrar "
+"una decisió en aquesta tramesa."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
 msgstr ""
+"No podeu enviar un correu electrònic als destinataris següents: {$names}."
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "No s'ha pogut trobar aquesta ronda de revisió."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
+"Es va proporcionar una ronda de revisió, però la decisió no s'ha pres durant "
+"la fase de revisió."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr ""
+msgstr "Aquesta ronda de revisió no forma part de la tramesa."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
+"La tramesa no està a la fase apropiada del flux de treball per prendre "
+"aquesta decisió."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
+"Heu de ser assignats a la tramesa per poder registrar una decisió editorial."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
 msgstr ""
+"S'ha de proporcionar un identificador de ronda de revisió per poder prendre "
+"aquesta decisió."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
+"No es pot fer una recomanació llevat que s'assigni un editor/a a aquesta "
+"fase que pugui prendre una decisió final."
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
+"No es pot prendre una decisió en aquesta tramesa. L'identificador de la "
+"tramesa no hi és o no coincideix amb la tramesa sol·licitada."
 
 msgid "editor.submission.workflowDecision.typeInvalid"
 msgstr ""
+"No s'ha pogut trobar la decisió. Proporcioneu un tipus de decisió reconeguda."
 
 msgid "editor.review.notInitiated"
 msgstr "El procés de revisió encara no s'ha iniciat."
@@ -92,9 +107,7 @@ msgstr "Missatge per a l'usuari/ària"
 
 msgid "editor.submission.externalReviewDescription"
 msgstr ""
-"Esteu a punt d'iniciar una avaluació externa per a aquesta tramesa.  Els "
-"fitxers que formen part de la tramesa s'enumeren a sota i els podeu "
-"seleccionar per revisar-los."
+"Seleccioneu els arxius a continuació per enviar-los a la fase de revisió."
 
 msgid "editor.submission.fileAuditor.form.fileRequired"
 msgstr "Heu de seleccionar almenys un fitxer per assignar a l'usuari/ària."
@@ -161,7 +174,7 @@ msgid "editor.review.reinstateReviewer"
 msgstr "Restablir el revisor/a"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "Reenviar la sol·licitud de revisió"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Tipus de revisió"
@@ -177,7 +190,7 @@ msgid "editor.submissionReview.skipEmail"
 msgstr "No envieu un correu electrònic a l'autor"
 
 msgid "editor.submissionReview.open"
-msgstr "Oberts"
+msgstr "Oberta"
 
 msgid "editor.submissionReview.anonymous"
 msgstr "Revisor/a anònim / Autor/a públic"
@@ -204,7 +217,7 @@ msgid "editor.review.importantDates"
 msgstr "Dates importants"
 
 msgid "editor.review.uploadRevision"
-msgstr "Carrega revisió"
+msgstr "Carregar revisió"
 
 msgid "editor.review.newReviewRound"
 msgstr "Necessita una nova ronda de revisió"
@@ -219,9 +232,12 @@ msgstr ""
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
 msgstr ""
+"Les revisions no haurien d'estar sotmeses a una nova ronda d'avaluació per "
+"parells."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
 msgstr ""
+"Les revisions haurien de sotmetre's a una nova ronda d'avaluació per parells."
 
 msgid "editor.review.dateAccepted"
 msgstr "Data d'acceptació de la revisió"
@@ -299,7 +315,7 @@ msgid "editor.review.reviewerThanked"
 msgstr "Agraïments al revisor/a"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "Sol·licitud reenviada"
 
 msgid "editor.review.reviewerComments"
 msgstr "Comentaris del revisor/a"
@@ -329,6 +345,8 @@ msgstr "S'ha produït un error en restablir el revisor/a. Torneu-ho a provar."
 
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
+"S'ha produït un error en sol·licitar al revisor/a que reconsideri la "
+"invitació de revisió. Torneu-ho a provar."
 
 msgid "editor.review.userGroupSelect"
 msgstr ""
@@ -525,7 +543,7 @@ msgid "reviewer.list.activeReviewsDescription"
 msgstr "Revisions actives actualment assignades"
 
 msgid "reviewer.list.assignedToLastRound"
-msgstr ""
+msgstr "El revisor/a ha completat la revisió en l'última ronda."
 
 msgid "reviewer.list.completedReviews"
 msgstr "Revisions completades"
@@ -558,17 +576,16 @@ msgid "reviewer.list.reassign"
 msgstr "Reassignació"
 
 msgid "reviewer.list.reassign.withName"
-msgstr ""
+msgstr "Reassignar a {$name}"
 
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Aquest revisor/a ja ha estat assignat per revisar aquesta tramesa."
 
-#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
 "Aquest revisor/a està bloquejat perquè té un altre rol que li permet veure "
-"la identitat de l'autor/a. Per tant, l'avaluació d'experts amb cegament no "
-"està garantida. Voleu desbloquejar-lo igualment?"
+"la identitat de l'autor/a. Per tant, l'avaluació d'experts anònima no està "
+"garantida. Voleu desbloquejar-lo igualment?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Desbloquejar"
@@ -583,31 +600,31 @@ msgid "reviewer.list.empty"
 msgstr "No s'ha trobat cap revisor/a"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "Assignat en una ronda prèvia"
 
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "Cancel·lar la decisió"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "Segur que voleu cancel·lar aquesta decisió?"
 
 msgid "editor.decision.completeSteps"
-msgstr ""
+msgstr "Completeu els passos següents per prendre aquesta decisió"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "No ometre aquest correu electrònic"
 
 msgid "editor.decision.emailSkipped"
-msgstr ""
+msgstr "S'ha omès aquest pas i no s'enviarà cap correu electrònic."
 
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "Registrar la decisió"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "Ometre el correu electrònic"
 
 msgid "editor.decision.stepError"
-msgstr ""
+msgstr "Hi ha hagut un problema en el pas {$stepName}."
 
 #~ msgid "editor.submissionLibrary.description"
 #~ msgstr ""
@@ -714,3 +731,6 @@ msgstr ""
 
 #~ msgid "reviewer.list.count"
 #~ msgstr "{$count} revisors/es"
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "La mateixa institució que l'autor/a"

@@ -22,8 +22,6 @@ use PKP\core\PKPApplication;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectConfirmationModal;
-use PKP\linkAction\request\VueModal;
-
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
@@ -217,19 +215,6 @@ class ReviewerGridRow extends GridRow
                     )
                 );
             }
-
-            // To be removed before merging
-            $this->addAction(
-                new LinkAction(
-                    'logResponse',
-                    new VueModal(
-                        'WorkflowLogResponseForModal',
-                        $actionArgs
-                    ),
-                    'Log Response for'
-                )
-            );
-
         }
     }
 }

@@ -1,1 +1,4 @@
-Hello World - from /templates
+Hello World -- from /lib/pkp/template
+params : 
+    title : {{$title}}
+    text : {{$text}}

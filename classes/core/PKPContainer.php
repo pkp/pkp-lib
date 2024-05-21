@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Str;
 use Laravel\Scout\EngineManager;
 use PKP\config\Config;
+use PKP\core\PKPBladeViewServiceProvider;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
 use Throwable;
@@ -189,6 +190,7 @@ class PKPContainer extends Container
         $this->register(new ConsoleCommandServiceProvider($this));
         $this->register(new ValidationServiceProvider($this));
         $this->register(new \Illuminate\Foundation\Providers\FormRequestServiceProvider($this));
+        $this->register(new PKPBladeViewServiceProvider($this));
         $this->register(new \Laravel\Scout\ScoutServiceProvider($this));
     }
 

@@ -96,15 +96,6 @@ import FieldUpload from '@/components/Form/fields/FieldUpload.vue';
 import FieldUploadImage from '@/components/Form/fields/FieldUploadImage.vue';
 import FieldSlider from '@/components/Form/fields/FieldSlider.vue';
 
-
-
-import 'highlight.js/styles/stackoverflow-light.css'
-import hljs from 'highlight.js/lib/core';
-import xml from 'highlight.js/lib/languages/xml';
-import hljsVuePlugin from "@highlightjs/vue-plugin";
-
-hljs.registerLanguage('xml', xml);
-
 // Panel components from UI Library
 import ListPanel from '@/components/ListPanel/ListPanel.vue';
 
@@ -249,8 +240,6 @@ function pkpCreateVueApp(createAppArgs) {
 	Object.keys(allGlobalComponents).forEach((componentName) => {
 		vueApp.component(componentName, allGlobalComponents[componentName]);
 	});
-
-	vueApp.use(hljsVuePlugin);
 
 	return vueApp;
 }

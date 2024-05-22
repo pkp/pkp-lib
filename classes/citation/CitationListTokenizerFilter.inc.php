@@ -47,10 +47,6 @@ class CitationListTokenizerFilter extends Filter {
 		} else {
 			$citations = explode("\n", $input);
 		}
-		// 4) Remove numbers from the beginning of each citation.
-		foreach($citations as $index => $citation) {
-			$citations[$index] = PKPString::regexp_replace('/^\s*[\[#]?[0-9]+[.)\]]?\s*/', '', $citation);
-		}
 
 		return $citations;
 	}

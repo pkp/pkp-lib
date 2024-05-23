@@ -148,136 +148,10 @@ class DashboardHandlerNext extends Handler
                 'selectRevisionDecisionForm' => $selectRevisionDecisionForm->getConfig(),
                 'selectRevisionRecommendationForm' => $selectRevisionRecommendationForm->getConfig(),
                 'dashboardPage' => $this->dashboardPage,
-                'assignParticipantUrl' => $dispatcher->url(
-                    $request,
-                    Application::ROUTE_COMPONENT,
-                    null,
-                    'grid.users.stageParticipant.StageParticipantGridHandler',
-                    'addParticipant',
-                    null,
-                    [
-                        'submissionId' => '__id__',
-                        'stageId' => '__stageId__',
-                    ]
-                ),
-                //submissionId=12&stageId=3&reviewRoundId=14&selectionType=1
-                'addReviewerUrl' => $dispatcher->url(
-                    $request,
-                    Application::ROUTE_COMPONENT,
-                    null,
-                    'grid.users.reviewer.ReviewerGridHandler',
-                    'showReviewerForm',
-                    null,
-                    [
-                        'selectionType' => PKPReviewerGridHandler::REVIEWER_SELECT_ADVANCED_SEARCH,
-                        'submissionId' => '__id__',
-                        'stageId' => '__stageId__',
-                        'reviewRoundId' => '__reviewRoundId__'
-                    ]
-                ),
-                // /$$$call$$$/grid/users/reviewer/reviewer-grid/unassign-reviewer?submissionId=7&reviewAssignmentId=10&stageId=3&round=0
-                'unassignReviewerUrl' => $dispatcher->url(
-                    $request,
-                    Application::ROUTE_COMPONENT,
-                    null,
-                    'grid.users.reviewer.ReviewerGridHandler',
-                    'unassignReviewer',
-                    null,
-                    [
-                        'selectionType' => PKPReviewerGridHandler::REVIEWER_SELECT_ADVANCED_SEARCH,
-                        'submissionId' => '__id__',
-                        'stageId' => '__stageId__',
-                        'reviewAssignmentId' => '__reviewAssignmentId__'
-                    ]
-                ),
-                // resend-request-reviewer?submissionId=10&reviewAssignmentId=29&stageId=3&round=0
-                'resendRequestReviewerUrl' => $dispatcher->url(
-                    $request,
-                    Application::ROUTE_COMPONENT,
-                    null,
-                    'grid.users.reviewer.ReviewerGridHandler',
-                    'resendRequestReviewer',
-                    null,
-                    [
-                        'submissionId' => '__id__',
-                        'stageId' => '__stageId__',
-                        'reviewAssignmentId' => '__reviewAssignmentId__'
-                    ]
-                ),
-                // reviewer/reviewer-grid/read-review?submissionId=10&reviewAssignmentId=15&stageId=3&round=0
-                'reviewDetailsUrl' => $dispatcher->url(
-                    $request,
-                    Application::ROUTE_COMPONENT,
-                    null,
-                    'grid.users.reviewer.ReviewerGridHandler',
-                    'readReview',
-                    null,
-                    [
-                        'submissionId' => '__id__',
-                        'stageId' => '__stageId__',
-                        'reviewAssignmentId' => '__reviewAssignmentId__'
-                    ]
-                ),
-                // /reviewer/reviewer-grid/edit-review?submissionId=10&reviewAssignmentId=15&stageId=3&round=0
-                'editReviewUrl' => $dispatcher->url(
-                    $request,
-                    Application::ROUTE_COMPONENT,
-                    null,
-                    'grid.users.reviewer.ReviewerGridHandler',
-                    'editReview',
-                    null,
-                    [
-                        'submissionId' => '__id__',
-                        'stageId' => '__stageId__',
-                        'reviewAssignmentId' => '__reviewAssignmentId__'
-                    ]
-                ),
-                // /modals/publish/assign-to-issue/assign?submissionId=16&publicationId=17
-                'assignToIssueUrl' => $dispatcher->url(
-                    $request,
-                    Application::ROUTE_COMPONENT,
-                    null,
-                    'modals.publish.AssignToIssueHandler',
-                    'assign',
-                    null,
-                    [
-                        'submissionId' => '__id__',
-                        'publicationId' => '__publicationId__',
-                    ]
-                ),
-                // /information-center/submission-information-center/view-information-center?submissionId=7
-                'viewActivityLogUrl' => $dispatcher->url(
-                    $request,
-                    Application::ROUTE_COMPONENT,
-                    null,
-                    'informationCenter.SubmissionInformationCenterHandler',
-                    'viewInformationCenter',
-                    null,
-                    [
-                        'submissionId' => '__id__',
-                    ]
-                ),
-                // /wizard/file-upload/file-upload-wizard/start-wizard?submissionId=13&stageId=3&uploaderRoles=65536&fileStage=15&reviewRoundId=16
-                'fileUploadWizardUrl' => $dispatcher->url(
-                    $request,
-                    Application::ROUTE_COMPONENT,
-                    null,
-                    'wizard.fileUpload.FileUploadWizardHandler',
-                    'startWizard',
-                    null,
-                    [
-                        'submissionId' => '__id__',
-                        'stageId' => '__stageId__',
-                        'uploaderRoles' => Role::ROLE_ID_AUTHOR,
-                        'fileStage' => '__fileStage__',
-                        'reviewRoundId' => '__reviewRoundId__',
-                    ]
-                ),
                 'countPerPage' => $this->perPage,
                 'filtersForm' => $filtersForm->getConfig(),
                 'views' => $this->getViews(),
                 'columns' => $this->getColumns(),
-
             ]
         ]);
 
@@ -286,6 +160,9 @@ class DashboardHandlerNext extends Handler
             'pageTitle' => __('navigation.submissions'),
             'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
         ]);
+
+
+        class_exists(\APP\components\forms\publication\AssignToIssueForm::class); // Force define of FORM_ASSIGN_TO_ISSUE
 
         $templateMgr->setConstants([
             'STAGE_STATUS_SUBMISSION_UNASSIGNED' => Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED,
@@ -335,7 +212,13 @@ class DashboardHandlerNext extends Handler
             'SUBMISSION_FILE_SUBMISSION' => SubmissionFile::SUBMISSION_FILE_SUBMISSION,
             'SUBMISSION_FILE_REVIEW_FILE' => SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
             'SUBMISSION_FILE_REVIEW_REVISION' => SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
-            'SUBMISSION_FILE_FINAL' => SubmissionFile::SUBMISSION_FILE_FINAL
+            'SUBMISSION_FILE_FINAL' => SubmissionFile::SUBMISSION_FILE_FINAL,
+
+            'FORM_ASSIGN_TO_ISSUE' => FORM_ASSIGN_TO_ISSUE,
+
+            'REVIEWER_SELECT_ADVANCED_SEARCH' => PKPReviewerGridHandler::REVIEWER_SELECT_ADVANCED_SEARCH,
+
+            'ROLE_ID_AUTHOR' => Role::ROLE_ID_AUTHOR
         ]);
 
         $templateMgr->display('dashboard/editors.tpl');
@@ -421,19 +304,28 @@ class DashboardHandlerNext extends Handler
 
         if($this->dashboardPage === DashboardPage::MyReviewAssignments) {
             $columns = [
-                $this->createColumn('id', __('common.id'), 'ColumnReviewAssignmentId', true),
-                $this->createColumn('title', __('navigation.submissions'), 'ColumnReviewAssignmentTitle'),
-                $this->createColumn('activity', __('stats.editorialActivity'), 'ColumnReviewAssignmentActivity'),
-                $this->createColumn('actions', __('admin.jobs.list.actions'), 'ColumnReviewAssignmentActions')
+                $this->createColumn('id', __('common.id'), 'CellReviewAssignmentId', true),
+                $this->createColumn('title', __('navigation.submissions'), 'CellReviewAssignmentTitle'),
+                $this->createColumn('activity', __('stats.editorialActivity'), 'CellReviewAssignmentActivity'),
+                $this->createColumn('actions', __('admin.jobs.list.actions'), 'CellReviewAssignmentActions')
+            ];
+        } elseif($this->dashboardPage === DashboardPage::MySubmissions) {
+
+            $columns = [
+                $this->createColumn('id', __('common.id'), 'CellSubmissionId', true),
+                $this->createColumn('title', __('navigation.submissions'), 'CellSubmissionTitle'),
+                $this->createColumn('stage', __('workflow.stage'), 'CellSubmissionStage'),
+                $this->createColumn('activity', __('stats.editorialActivity'), 'CellSubmissionActivity'),
+                $this->createColumn('actions', __('admin.jobs.list.actions'), 'CellSubmissionActions')
             ];
         } else {
             $columns = [
-                $this->createColumn('id', __('common.id'), 'ColumnSubmissionId', true),
-                $this->createColumn('title', __('navigation.submissions'), 'ColumnSubmissionTitle'),
-                $this->createColumn('stage', __('workflow.stage'), 'ColumnSubmissionStage'),
-                $this->createColumn('days', __('editor.submission.days'), 'ColumnSubmissionDays'),
-                $this->createColumn('activity', __('stats.editorialActivity'), 'ColumnSubmissionActivity'),
-                $this->createColumn('actions', __('admin.jobs.list.actions'), 'ColumnSubmissionActions')
+                $this->createColumn('id', __('common.id'), 'CellSubmissionId', true),
+                $this->createColumn('title', __('navigation.submissions'), 'CellSubmissionTitle'),
+                $this->createColumn('stage', __('workflow.stage'), 'CellSubmissionStage'),
+                $this->createColumn('days', __('editor.submission.days'), 'CellSubmissionDays'),
+                $this->createColumn('activity', __('stats.editorialActivity'), 'CellSubmissionActivity'),
+                $this->createColumn('actions', __('admin.jobs.list.actions'), 'CellSubmissionActions')
             ];
         }
 

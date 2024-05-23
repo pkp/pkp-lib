@@ -1267,8 +1267,15 @@ class PKPTemplateManager extends Smarty
 
         $pageContext = [
             'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: 'index'),
-            'pageBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context?->getPath() ?: 'index') . '/'
-        ];
+            'pageBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context?->getPath() ?: 'index') . '/',
+            'legacyGridBaseUrl' => $dispatcher->url(
+                $request,
+                Application::ROUTE_COMPONENT,
+                null,
+                'componentHandler',
+                'action',
+                null,
+            )];
         $output .= 'pkp.context = ' . json_encode($pageContext) . ';';
 
 

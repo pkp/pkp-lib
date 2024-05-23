@@ -53,7 +53,7 @@ abstract class DAO extends EntityDAO
     {
         return $query
             ->getQueryBuilder()
-            ->safeCount();
+            ->getCountForPagination();
     }
 
     /**

@@ -28,7 +28,6 @@ use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
-use PKP\db\DatabaseServiceProvider;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
 use Throwable;
@@ -116,7 +115,6 @@ class PKPContainer extends Container
     {
         // Load main settings, this should be done before registering services, e.g., it's used by Database Service
         $this->loadConfiguration();
-        $this->register(new DatabaseServiceProvider($this));
         $this->register(new \Illuminate\Cache\CacheServiceProvider($this));
         $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
         $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));

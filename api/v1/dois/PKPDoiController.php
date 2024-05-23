@@ -204,7 +204,7 @@ class PKPDoiController extends PKPBaseController
         $dois = $collector->getMany();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(0)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::doi()->getSchemaMap()->summarizeMany($dois)->values(),
         ], Response::HTTP_OK);
     }

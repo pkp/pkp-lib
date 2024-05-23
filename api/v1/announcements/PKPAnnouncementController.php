@@ -184,7 +184,7 @@ class PKPAnnouncementController extends PKPBaseController
         $announcements = $collector->getMany();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::announcement()->getSchemaMap()->summarizeMany($announcements)->values(),
         ], Response::HTTP_OK);
     }

@@ -151,7 +151,7 @@ class SectionController extends PKPBaseController
         $sections = $collector->getMany();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::section()->getSchemaMap()->summarizeMany($sections)->values(),
         ], Response::HTTP_OK);
     }

@@ -362,7 +362,7 @@ class PKPSubmissionController extends PKPBaseController
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups, $genres)->values(),
         ], Response::HTTP_OK);
     }
@@ -900,7 +900,7 @@ class PKPSubmissionController extends PKPBaseController
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->summarizeMany($publications, $anonymize)->values(),
         ], Response::HTTP_OK);
     }
@@ -1357,7 +1357,7 @@ class PKPSubmissionController extends PKPBaseController
         $authors = $collector->getMany();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::author()->getSchemaMap()->summarizeMany($authors)->values(),
         ], Response::HTTP_OK);
     }

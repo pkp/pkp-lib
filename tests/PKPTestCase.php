@@ -30,6 +30,7 @@ use PKP\core\Core;
 use PKP\core\Dispatcher;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
+use Illuminate\Support\Facades\Config as FacadesConfig;
 
 abstract class PKPTestCase extends TestCase
 {
@@ -238,6 +239,21 @@ abstract class PKPTestCase extends TestCase
         $pieces = preg_split('/\{\$[^}]+\}/', $translation);
         $escapedPieces = array_map(fn ($piece) => preg_quote($piece, '/'), $pieces);
         return '/^' . implode('.*?', $escapedPieces) . '$/u';
+    }
+
+    /**
+     * Swap the mail driver with something better for test
+     * Default will be to `log` driver so that no mail would be set
+     * 
+     * We need to use this as we have override the default mail manager with some custom
+     * methods (e.g. `compileParams`, ...) which not available to core mail fake test class
+     * that is `Illuminate\Support\Testing\Fakes\MailFake` which cause test exception.
+     */
+    protected function swapMailDriver(string $driver = 'log'): void
+    {
+        $mailConfig = app()->get('config')['mail'];
+        $mailConfig['default'] = $driver;
+        FacadesConfig::set('mail', $mailConfig);
     }
 }
 

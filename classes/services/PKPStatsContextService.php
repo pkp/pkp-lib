@@ -33,7 +33,7 @@ class PKPStatsContextService
         unset($args['count']);
         unset($args['offset']);
         $metricsQB = $this->getQueryBuilder($args);
-        return $metricsQB->getContextIds()->safeCount();
+        return $metricsQB->getContextIds()->getCountForPagination();
     }
 
     /**

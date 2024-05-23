@@ -176,7 +176,7 @@ class PKPUserController extends PKPBaseController
         }
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => $items,
         ], Response::HTTP_OK);
     }
@@ -230,7 +230,7 @@ class PKPUserController extends PKPBaseController
         }
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => $items,
         ], Response::HTTP_OK);
     }

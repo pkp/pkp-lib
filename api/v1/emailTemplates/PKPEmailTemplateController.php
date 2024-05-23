@@ -154,7 +154,7 @@ class PKPEmailTemplateController extends PKPBaseController
         $emailTemplates = $collector->getMany();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::emailTemplate()->getSchemaMap()->summarizeMany($emailTemplates),
         ], Response::HTTP_OK);
     }

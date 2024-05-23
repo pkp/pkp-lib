@@ -150,7 +150,7 @@ class PKPUserHandler extends APIHandler
         }
 
         return $response->withJson([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => $items,
         ], 200);
     }
@@ -238,7 +238,7 @@ class PKPUserHandler extends APIHandler
         }
 
         return $response->withJson([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => $items,
         ], 200);
     }

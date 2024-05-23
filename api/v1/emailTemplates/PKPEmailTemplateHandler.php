@@ -138,7 +138,7 @@ class PKPEmailTemplateHandler extends APIHandler
         $emailTemplates = $collector->getMany();
 
         return $response->withJson([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::emailTemplate()->getSchemaMap()->summarizeMany($emailTemplates),
         ], 200);
     }

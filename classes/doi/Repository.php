@@ -161,7 +161,7 @@ class Repository extends \PKP\doi\Repository
                 ->getCollector()
                 ->filterByDoiIds([$doiId])
                 ->getQueryBuilder()
-                ->safeCount() > 0,
+                ->getCountForPagination() > 0,
             default => false,
         };
 

@@ -106,7 +106,7 @@ class DAO {
 	public function countRecords($sql, $params = []) {
 		// In case a Laravel Builder has been received, drop its SELECT and ORDER BY clauses for optimization purposes
 		if ($sql instanceof Builder) {
-			return $sql->safeCount();
+			return $sql->getCountForPagination();
 		}
 		$result = $this->retrieve('SELECT COUNT(*) AS row_count FROM (' . $sql . ') AS count_subquery', $params);
 		return $result->current()->row_count;

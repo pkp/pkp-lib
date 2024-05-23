@@ -239,7 +239,7 @@ abstract class PKPSubmissionQueryBuilder implements EntityQueryBuilderInterface 
 	public function getCount() {
 		return $this
 			->getQuery()
-			->safeCount();
+			->getCountForPagination();
 	}
 
 	/**

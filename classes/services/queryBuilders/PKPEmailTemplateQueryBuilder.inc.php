@@ -179,7 +179,7 @@ class PKPEmailTemplateQueryBuilder implements EntityQueryBuilderInterface {
 		$compiledQuery = $this->getCompiledQuery();
 		return Capsule::table(Capsule::raw('(' . $compiledQuery[0] . ') as email_template_count'))
 			->setBindings($compiledQuery[1])
-			->safeCount();
+			->getCountForPagination();
 	}
 
 	/**

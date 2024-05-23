@@ -222,22 +222,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 			error_log("Database query\n$query->sql\n" . json_encode($query->bindings));//\n Bindings: " . print_r($query->bindings, true));
 		});
 
-		Builder::macro('safeCount', function (): int {
-			// Discard the ORDER BY and enclose the query in a sub-query to avoid miscounting rows in the presence of a GROUP BY
-			$run = function (Builder $query): int {
-				return Capsule::table(Capsule::raw("({$query->reorder()->toSql()}) AS query"))->mergeBindings($query)->count();
-			};
-			try {
-				/** @var Builder $query */
-				$query = clone $this;
-				// Discard the SELECT if the query doesn't have a UNION
-				return $run(empty($query->unions) ? $query->select(Capsule::raw('0')) : $query);
-			} catch (Exception $e) {
-				// Retry using a fail-proof query, as dropping the SELECT might fail in the presence of a GROUP BY with an alias
-				return $run(clone $this);
-			}
-		});
-
 		// Set up Laravel queue handling
 		$laravelContainer->bind('exception.handler', function () {
 			return new class implements Illuminate\Contracts\Debug\ExceptionHandler {

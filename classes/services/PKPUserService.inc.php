@@ -594,7 +594,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	public function count($args = []) {
 		return $this->getQueryBuilder($args)
 			->getQuery()
-			->safeCount();
+			->getCountForPagination();
 	}
 
 	/**

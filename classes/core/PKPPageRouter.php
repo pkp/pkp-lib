@@ -18,6 +18,7 @@ namespace PKP\core;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use PKP\core\Core;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\Role;
@@ -106,7 +107,7 @@ class PKPPageRouter extends PKPRouter
     public function getRequestedPage($request)
     {
         if (!isset($this->_page)) {
-            $this->_page = $this->_getRequestedUrlParts(['Core', 'getPage'], $request);
+            $this->_page = $this->_getRequestedUrlParts([Core::class, 'getPage'], $request);
         }
         return $this->_page;
     }
@@ -121,7 +122,7 @@ class PKPPageRouter extends PKPRouter
     public function getRequestedOp($request)
     {
         if (!isset($this->_op)) {
-            $this->_op = $this->_getRequestedUrlParts(['Core', 'getOp'], $request);
+            $this->_op = $this->_getRequestedUrlParts([Core::class, 'getOp'], $request);
         }
         return $this->_op;
     }
@@ -135,7 +136,7 @@ class PKPPageRouter extends PKPRouter
      */
     public function getRequestedArgs($request)
     {
-        return $this->_getRequestedUrlParts(['Core', 'getArgs'], $request);
+        return $this->_getRequestedUrlParts([Core::class, 'getArgs'], $request);
     }
 
     /**

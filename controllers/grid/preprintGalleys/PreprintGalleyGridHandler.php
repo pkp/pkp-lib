@@ -144,6 +144,13 @@ class PreprintGalleyGridHandler extends GridHandler
             $cellProvider
         ));
 
+        $this->addColumn(new GridColumn(
+            'language',
+            'common.language',
+            null,
+            null,
+            $cellProvider
+        ));
 
         if ($this->canEdit()) {
             $this->addAction(new LinkAction(

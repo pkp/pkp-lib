@@ -105,7 +105,7 @@ class ReviewReminderTest extends PKPTestCase
                         ->withAnyArgs()
                         ->andReturn(
                             // Mock the context(Journal/Press/Server) object
-                            Mockery::mock(\APP\journal\Journal::class)
+                            Mockery::mock(\PKP\context\Context::class)
                                 ->makePartial()
                                 ->shouldReceive([
                                     'getPath' => '',

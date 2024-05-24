@@ -238,7 +238,7 @@ function pkpCreateVueApp(createAppArgs) {
 		themes: {
 			'pkp-tooltip': {
 				$extend: 'tooltip',
-				triggers: ['click'],
+				triggers: ['hover'],
 				delay: {
 					show: 0,
 					hide: 0,

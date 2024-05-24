@@ -1054,13 +1054,16 @@ class PKPTemplateManager extends Smarty
                                 'icon' => 'Institutes'
                             ];
                         }
+
+                        $settingsContextLink = $router->url($request, null, 'management', 'settings', ['context']);
                         $menu['settings'] = [
                             'name' => __('navigation.settings'),
                             'icon' => 'Settings',
+                            'addMargin' => true,
                             'submenu' => [
                                 'context' => [
                                     'name' => __('context.context'),
-                                    'url' => $router->url($request, null, 'management', 'settings', ['context']),
+                                    'url' => $settingsContextLink,
                                     'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('context', (array) $router->getRequestedArgs($request)),
                                 ],
                                 'website' => [
@@ -1088,13 +1091,15 @@ class PKPTemplateManager extends Smarty
                     }
 
                     if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR], $userRoles))) {
+                        $statisticsPublications = $router->url($request, null, 'stats', 'publications', ['publications']);
                         $menu['statistics'] = [
                             'name' => __('navigation.tools.statistics'),
                             'icon' => 'Statistics',
+                            'url' => $statisticsPublications,
                             'submenu' => [
                                 'publications' => [
                                     'name' => __('common.publications'),
-                                    'url' => $router->url($request, null, 'stats', 'publications', ['publications']),
+                                    'url' => $statisticsPublications,
                                     'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'publications',
                                 ],
                                 'context' => [
@@ -1140,6 +1145,7 @@ class PKPTemplateManager extends Smarty
                             'url' => $router->url($request, Application::SITE_CONTEXT_PATH, 'admin'),
                             'isCurrent' => $router->getRequestedPage($request) === 'admin',
                             'icon' => 'NavAdmin',
+                            'addMargin' => true,
                         ];
                     }
                 }

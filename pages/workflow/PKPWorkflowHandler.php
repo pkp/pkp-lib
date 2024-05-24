@@ -192,8 +192,8 @@ abstract class PKPWorkflowHandler extends Handler
             // If they have no stage assignments, check the role they have been granted
             // for the production workflow stage. An unassigned admin or manager may
             // have been granted access and should be allowed to publish.
-            if (empty($result) && is_array($accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION])) {
-                $canPublish = (bool) array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION] ?? []);
+            if (empty($result) && is_array($accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION] ?? null)) {
+                $canPublish = (bool) array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION]);
 
             // Otherwise, check stage assignments
             // "Recommend only" stage assignments can not publish

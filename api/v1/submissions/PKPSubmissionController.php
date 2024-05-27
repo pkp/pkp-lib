@@ -29,9 +29,11 @@ use APP\submission\Submission;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
@@ -54,6 +56,7 @@ use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
+use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -355,6 +358,8 @@ class PKPSubmissionController extends PKPBaseController
 
         $submissions = $collector->getMany();
 
+        $anonymizeReviews = $this->anonymizeReviews($submissions);
+
         $userGroups = Repo::userGroup()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->getMany();
@@ -365,7 +370,7 @@ class PKPSubmissionController extends PKPBaseController
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups, $genres)->values(),
+            'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups, $genres, $anonymizeReviews)->values(),
         ], Response::HTTP_OK);
     }
 
@@ -467,11 +472,23 @@ class PKPSubmissionController extends PKPBaseController
             ->filterByContextIds([$submission->getData('contextId')])
             ->getMany();
 
+        // Anonymize sensitive review assignment data if user is a reviewer or author assigned to the article and review isn't open
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany()->remember();
+
+        $anonymizeReviews = $this->anonymizeReviews($submission, $reviewAssignments);
+
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), Response::HTTP_OK);
+        return response()->json(Repo::submission()->getSchemaMap()->map(
+            $submission,
+            $userGroups,
+            $genres,
+            $reviewAssignments,
+            null,
+            !$anonymizeReviews || $anonymizeReviews->isEmpty() ? false : $anonymizeReviews
+        ), Response::HTTP_OK);
     }
 
     /**
@@ -1638,6 +1655,48 @@ class PKPSubmissionController extends PKPBaseController
         $decision = Repo::decision()->get($decisionId) ?? $decision;
 
         return response()->json(Repo::decision()->getSchemaMap()->map($decision), Response::HTTP_OK);
+    }
+
+    /**
+     * Checks if sensitive review assignment data should be anonymized for authors and reviewers
+     *
+     * @param LazyCollection<Submission>|Submission $submissions the list of submissions with IDs as keys or a single submission
+     * @param ?LazyCollection<ReviewAssignment> $reviewAssignments
+     *
+     * @return false|Collection List of review IDs to anonymize or false;
+     */
+    public function anonymizeReviews(LazyCollection|Submission $submissions, ?LazyCollection $reviewAssignments = null): false|Collection
+    {
+        $currentUser = $this->getRequest()->getUser();
+        $submissionIds = is_a($submissions, Submission::class) ? [$submissions->getId()] : $submissions->keys()->toArray();
+        $reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($submissionIds)->getMany();
+
+        $currentUserReviewAssignment = Repo::reviewAssignment()->getCollector()
+            ->filterBySubmissionIds($submissionIds)
+            ->filterByReviewerIds([$currentUser->getId()])
+            ->getMany();
+
+        $currentUserStageAssignments = StageAssignment::withSubmissionIds($submissionIds)
+            ->withUserId($currentUser->getId())
+            ->get();
+
+        $isAuthor = $currentUserStageAssignments->contains(
+            function (StageAssignment $stageAssignment) {
+                $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
+                return $userGroup->getRoleId() == Role::ROLE_ID_AUTHOR;
+            }
+        );
+
+        if ($currentUserReviewAssignment->isNotEmpty() || $isAuthor) {
+            $anonymizeReviews = $reviewAssignments->map(function (ReviewAssignment $reviewAssignment, int $reviewId) use ($currentUserReviewAssignment) {
+                if ($currentUserReviewAssignment->isNotEmpty() && $currentUserReviewAssignment->has($reviewId)) {
+                    return false;
+                }
+                return $reviewAssignment->getReviewMethod() !== ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN;
+            })->filter()->keys()->collect();
+        }
+
+        return !isset($anonymizeReviews) || $anonymizeReviews->isEmpty() ? false : $anonymizeReviews;
     }
 
     protected function getFirstUserGroupInRole(Enumerable $userGroups, int $role): ?UserGroup

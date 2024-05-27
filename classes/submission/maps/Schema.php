@@ -107,20 +107,22 @@ class Schema extends \PKP\core\maps\Schema
      * @param Genre[] $genres The file genres in this context
      * @param ?Enumerable $reviewAssignments review assignments associated with a submission
      * @param ?Enumerable $stageAssignments stage assignments associated with a submission
+     * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
      */
     public function map(
         Submission $item,
         LazyCollection $userGroups,
         array $genres,
         ?Enumerable $reviewAssignments = null,
-        ?Enumerable $stageAssignments = null
+        ?Enumerable $stageAssignments = null,
+        bool|Collection $anonymizeReviews = false
     ): array {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
         $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
 
-        return $this->mapByProperties($this->getProps(), $item);
+        return $this->mapByProperties($this->getProps(), $item, $anonymizeReviews);
     }
 
     /**
@@ -132,20 +134,22 @@ class Schema extends \PKP\core\maps\Schema
      * @param Genre[] $genres The file genres in this context
      * @param ?Enumerable $reviewAssignments review assignments associated with a submission
      * @param ?Enumerable $stageAssignments stage assignments associated with a submission
+     * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
      */
     public function summarize(
         Submission $item,
         LazyCollection $userGroups,
         array $genres,
         ?Enumerable $reviewAssignments = null,
-        ?Enumerable $stageAssignments = null
+        ?Enumerable $stageAssignments = null,
+        bool|Collection $anonymizeReviews = false,
     ): array {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
         $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
 
-        return $this->mapByProperties($this->getSummaryProps(), $item);
+        return $this->mapByProperties($this->getSummaryProps(), $item, $anonymizeReviews);
     }
 
     /**
@@ -155,8 +159,9 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
+     * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
      */
-    public function mapMany(Enumerable $collection, LazyCollection $userGroups, array $genres): Enumerable
+    public function mapMany(Enumerable $collection, LazyCollection $userGroups, array $genres, bool|Collection $anonymizeReviews = false): Enumerable
     {
         $this->collection = $collection;
         $this->userGroups = $userGroups;
@@ -175,7 +180,8 @@ class Schema extends \PKP\core\maps\Schema
                 $this->userGroups,
                 $this->genres,
                 $associatedReviewAssignments->get($item->getId()),
-                $associatedStageAssignments->get($item->getId())
+                $associatedStageAssignments->get($item->getId()),
+                $anonymizeReviews
             )
         );
     }
@@ -187,8 +193,9 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
+     * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
      */
-    public function summarizeMany(Enumerable $collection, LazyCollection $userGroups, array $genres): Enumerable
+    public function summarizeMany(Enumerable $collection, LazyCollection $userGroups, array $genres, bool|Collection $anonymizeReviews = false): Enumerable
     {
         $this->collection = $collection;
         $this->userGroups = $userGroups;
@@ -212,7 +219,8 @@ class Schema extends \PKP\core\maps\Schema
                 $this->userGroups,
                 $this->genres,
                 $associatedReviewAssignments->get($item->getId()),
-                $associatedStageAssignment->get($item->getId())
+                $associatedStageAssignment->get($item->getId()),
+                $anonymizeReviews
             )
         );
     }
@@ -315,8 +323,10 @@ class Schema extends \PKP\core\maps\Schema
 
     /**
      * Map schema properties of a Submission to an assoc array
+     *
+     * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
      */
-    protected function mapByProperties(array $props, Submission $submission): array
+    protected function mapByProperties(array $props, Submission $submission, bool|Collection $anonymizeReviews = false): array
     {
         $output = [];
 
@@ -349,7 +359,7 @@ class Schema extends \PKP\core\maps\Schema
                     $output[$prop] = $currentReviewRound ? $this->areRecommendationsIn($currentReviewRound, $this->stageAssignments) : null;
                     break;
                 case 'reviewAssignments':
-                    $output[$prop] = $this->getPropertyReviewAssignments($this->reviewAssignments);
+                    $output[$prop] = $this->getPropertyReviewAssignments($this->reviewAssignments, $anonymizeReviews);
                     break;
                 case 'reviewersNotAssigned':
                     $output[$prop] = $currentReviewRound && $this->reviewAssignments->count() >= intval($this->context->getData('numReviewersPerSubmission'));
@@ -396,7 +406,7 @@ class Schema extends \PKP\core\maps\Schema
     /**
      * Get details about the review assignments for a submission
      */
-    protected function getPropertyReviewAssignments(Enumerable $reviewAssignments): array
+    protected function getPropertyReviewAssignments(Enumerable $reviewAssignments, bool|Collection $anonymizeReviews = false): array
     {
         $reviews = [];
         foreach ($reviewAssignments as $reviewAssignment) {
@@ -428,6 +438,8 @@ class Schema extends \PKP\core\maps\Schema
                 'roundId' => (int) $reviewAssignment->getReviewRoundId(),
                 'recommendation' => $reviewAssignment->getRecommendation(),
                 'dateCancelled' => $reviewAssignment->getData('dateCancelled'),
+                'reviewerFullName' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('reviewerFullName'),
+                'reviewMethod' => $reviewAssignment->getData('reviewMethod')
             ];
         }
 

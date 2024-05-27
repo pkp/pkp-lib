@@ -66,31 +66,19 @@ class ReviewAssignmentEmailVariable extends Variable
     public function values(string $locale): array
     {
         $context = $this->getContext();
+        $format = $context->getLocalizedDateFormatShort($locale);
 
         return
         [
-            self::RESPONSE_DUE_DATE => $this->formatDate((string) $this->reviewAssignment->getDateResponseDue(), $locale, $context) ?? '{$' . self::RESPONSE_DUE_DATE . '}',
-            self::REVIEW_ASSIGNED_DATE => $this->formatDate((string) $this->reviewAssignment->getDateAssigned(), $locale, $context) ?? '{$' . self::REVIEW_ASSIGNED_DATE . '}',
+            self::RESPONSE_DUE_DATE => PKPString::getLocalizedDate((string) $this->reviewAssignment->getDateResponseDue(), $format) ?? '{$' . self::RESPONSE_DUE_DATE . '}',
+            self::REVIEW_ASSIGNED_DATE => PKPString::getLocalizedDate((string) $this->reviewAssignment->getDateAssigned(), $format) ?? '{$' . self::REVIEW_ASSIGNED_DATE . '}',
             self::REVIEW_ASSIGNMENT_URL => $this->getReviewUrl($context),
-            self::REVIEW_DUE_DATE => $this->formatDate((string) $this->reviewAssignment->getDateDue(), $locale, $context) ?? '{$' . self::REVIEW_DUE_DATE . '}',
+            self::REVIEW_DUE_DATE => PKPString::getLocalizedDate((string) $this->reviewAssignment->getDateDue(), $format) ?? '{$' . self::REVIEW_DUE_DATE . '}',
             self::REVIEW_METHOD => $this->getReviewMethod($locale),
             self::REVIEW_RECOMMENDATION => $this->getRecommendation($locale),
             self::REVIEW_ROUND => __('common.reviewRoundNumber', ['round' => $this->reviewAssignment->getRound()], $locale),
             self::REVIEWER_NAME => $this->reviewAssignment->getReviewerFullName(),
         ];
-    }
-
-    protected function formatDate(string $date, string $locale, Context $context): ?string
-    {
-        $time = strtotime($date);
-
-        if ($time === -1 || $time === false) {
-            return null;
-        }
-
-        $format = PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort($locale));
-
-        return date($format, $time);
     }
 
     protected function getRecommendation(string $locale): string

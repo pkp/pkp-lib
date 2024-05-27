@@ -91,7 +91,7 @@ trait PKPStatsServiceTrait
             $interval = 'P1M';
         } elseif ($timelineInterval === PKPStatisticsHelper::STATISTICS_DIMENSION_DAY) {
             $dateFormat = 'Y-m-d';
-            $labelFormat = PKPString::convertStrftimeFormat(Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong());
+            $labelFormat =Application::get()->getRequest()->getContext()->getLocalizedDateFormatLong();
             $interval = 'P1D';
         }
 
@@ -102,7 +102,7 @@ trait PKPStatsServiceTrait
         while ($startDate->format($dateFormat) <= $endDate->format($dateFormat)) {
             $timelineIntervals[] = [
                 'date' => $startDate->format($dateFormat),
-                'label' => date($labelFormat, $startDate->getTimestamp()),
+                'label' => PKPString::getLocalizedDate($startDate->getTimestamp(), $labelFormat),
                 'value' => 0,
             ];
             $startDate->add(new \DateInterval($interval));

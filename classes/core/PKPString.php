@@ -17,8 +17,13 @@
 
 namespace PKP\core;
 
+use Carbon\Carbon;
+use DateTimeInterface;
+use Exception;
 use Illuminate\Support\Str;
+use IntlDateFormatter;
 use PKP\config\Config;
+use PKP\facades\Locale;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
 
@@ -354,7 +359,7 @@ class PKPString
      * Introduced in 3.4.0; remove this function (and calls to it) after this is distributed
      * in an LTS release.
      */
-    public static function convertStrftimeFormat(string $format): string
+    private static function convertStrftimeFormat(string $format): string
     {
         // Following the lead of Smarty's date_format modifier, check the
         // format string for "%" characters. If found, attempt to convert.
@@ -391,6 +396,127 @@ class PKPString
     public static function getWordCount(string $str): int
     {
         return count(preg_split('/\s+/', trim(str_replace('&nbsp;', ' ', strip_tags($str)))));
+    }
+
+    /**
+     * Convert php date format to ICU date format 
+     */
+    private static function phpToIcuFormat(string $phpFormat): string 
+    {
+        $mapping = [
+            // Day
+            'd' => 'dd',   // Day of the month, 2 digits with leading zeros
+            'D' => 'EEE',  // A textual representation of a day, three letters
+            'j' => 'd',    // Day of the month without leading zeros
+            'l' => 'EEEE', // A full textual representation of the day of the week
+            'N' => 'e',    // ISO-8601 numeric representation of the day of the week
+            'S' => '',     // English ordinal suffix for the day of the month, 2 characters, no ICU equivalent
+            'w' => 'e',    // Numeric representation of the day of the week
+            'z' => 'D',    // The day of the year (starting from 0)
+            // Week
+            'W' => 'w',    // ISO-8601 week number of year
+            // Month
+            'F' => 'MMMM', // A full textual representation of a month
+            'm' => 'MM',   // Numeric representation of a month, with leading zeros
+            'M' => 'MMM',  // A short textual representation of a month, three letters
+            'n' => 'M',    // Numeric representation of a month, without leading zeros
+            't' => '',     // Number of days in the given month, no direct ICU equivalent
+            // Year
+            'L' => '',     // Whether it's a leap year, no direct ICU equivalent
+            'o' => 'Y',    // ISO-8601 week-numbering year
+            'Y' => 'yyyy', // A full numeric representation of a year, 4 digits
+            'y' => 'yy',   // A two digit representation of a year
+            // Time
+            'a' => 'a',    // Lowercase Ante meridiem and Post meridiem, am or pm
+            'A' => 'a',    // Uppercase Ante meridiem and Post meridiem, AM or PM
+            'B' => '',     // Swatch Internet time, no ICU equivalent
+            'g' => 'h',    // 12-hour format of an hour without leading zeros
+            'G' => 'H',    // 24-hour format of an hour without leading zeros
+            'h' => 'hh',   // 12-hour format of an hour with leading zeros
+            'H' => 'HH',   // 24-hour format of an hour with leading zeros
+            'i' => 'mm',   // Minutes with leading zeros
+            's' => 'ss',   // Seconds with leading zeros
+            'v' => '',     // Milliseconds, no direct ICU equivalent
+            // Timezone
+            'e' => 'zzzz', // Timezone identifier
+            'I' => '',     // Whether or not the date is in daylight saving time, no ICU equivalent
+            'O' => 'xx',   // Difference to Greenwich time (GMT) without colon between hours and minutes
+            'P' => 'xxx',  // Difference to Greenwich time (GMT) with colon between hours and minutes
+            'T' => 'z',    // Timezone abbreviation
+            'Z' => 'X',    // Timezone offset in seconds
+            // Full Date/Time
+            'c' => 'yyyy-MM-dd\'T\'HH:mm:ssXXX', // ISO 8601 date
+            'r' => 'r',    // RFC 2822 formatted date
+            'U' => 'U',    // Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
+        ];
+
+        $icuFormat = strtr($phpFormat, $mapping);
+        
+        return $icuFormat;
+    }
+
+    /**
+     * Add @calendar suffix to format for special cases
+     */
+    private static function getLocaleWithCalendar($locale) 
+    {
+        // Mapping of locales to their default calendar systems
+        $localeCalendars = [
+            'th' => '@calendar=buddhist', // Thai
+            'zh_CN' => '@calendar=chinese', // Chinese (Simplified)
+            'zh_TW' => '@calendar=roc', // Taiwanese
+            'am' => '@calendar=ethiopic', // Amharic
+            'ar_SA' => '@calendar=islamic-umalqura', // Arabic (Saudi Arabia)
+            'he' => '@calendar=hebrew', // Hebrew
+            'fa' => '@calendar=persian', // Persian
+            'ja_JP' => '@calendar=japanese', // Japanese
+        ];
+
+        if (array_key_exists($locale, $localeCalendars)) {
+            $locale = $locale . $localeCalendars[$locale];
+        }
+
+        return $locale;
+    }
+
+    /**
+     * Convert any datetime object to a localized string taking into account the 
+     * datetime format.
+     * 
+     * @throws \Exception General exception for potential errors during the date format
+     */
+    public static function getLocalizedDate(string|int|DateTimeInterface|null $date, string $format, ?string $locale = null): ?string
+    {
+        if (empty($date)) {
+            return null;
+        }
+
+        $format = self::convertStrftimeFormat($format);
+        $icuFormat = self::phpToIcuFormat($format);
+
+        $locale = $locale ?? Locale::getLocale();
+
+        $localeWithCalendar = self::getLocaleWithCalendar($locale);
+
+        try {
+            if (!($date instanceof Carbon)) {
+                $date = Carbon::parse($date);
+            }
+
+            $formatter = new IntlDateFormatter(
+                $localeWithCalendar,
+                IntlDateFormatter::FULL,
+                IntlDateFormatter::FULL,
+                $date->getTimezone(),
+                // This is overridden by the locale string $localeWithCalendar if a calendar (@calendar=) is specified
+                IntlDateFormatter::GREGORIAN, 
+                $icuFormat
+            );
+
+            return $formatter->format($date->getTimestamp());
+        } catch (Exception $e) {
+            throw $e;
+        }
     }
 }
 

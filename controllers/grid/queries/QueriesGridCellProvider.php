@@ -75,18 +75,18 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
         $user = $headNote ? $headNote->getUser() : null;
         $notes = $element->getReplies(null, NoteDAO::NOTE_ORDER_ID, \PKP\db\DAO::SORT_DIRECTION_DESC);
         $context = Application::get()->getRequest()->getContext();
-        $datetimeFormatShort = PKPString::convertStrftimeFormat($context->getLocalizedDateTimeFormatShort());
+        $datetimeFormatShort = $context->getLocalizedDateTimeFormatShort();
 
         switch ($columnId) {
             case 'replies':
                 return ['label' => max(0, $notes->count() - 1)];
             case 'from':
-                return ['label' => ($user ? $user->getUsername() : '&mdash;') . '<br />' . ($headNote ? date($datetimeFormatShort, strtotime($headNote->getDateCreated())) : '')];
+                return ['label' => ($user ? $user->getUsername() : '&mdash;') . '<br />' . ($headNote ? PKPString::getLocalizedDate($headNote->getDateCreated(), $datetimeFormatShort) : '')];
             case 'lastReply':
                 $latestReply = $notes->first();
                 if ($latestReply && $latestReply->getId() != $headNote->getId()) {
                     $repliedUser = $latestReply->getUser();
-                    return ['label' => ($repliedUser ? $repliedUser->getUsername() : '&mdash;') . '<br />' . date($datetimeFormatShort, strtotime($latestReply->getDateCreated()))];
+                    return ['label' => ($repliedUser ? $repliedUser->getUsername() : '&mdash;') . '<br />' . PKPString::getLocalizedDate($latestReply->getDateCreated(), $datetimeFormatShort)];
                 } else {
                     return ['label' => '-'];
                 }

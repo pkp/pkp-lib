@@ -36,7 +36,7 @@ class DateGridCellProvider extends GridCellProvider
     {
         parent::__construct();
         $this->_dataProvider = $dataProvider;
-        $this->_format = PKPString::convertStrftimeFormat($format);
+        $this->_format = $format;
     }
 
     //
@@ -54,7 +54,7 @@ class DateGridCellProvider extends GridCellProvider
     public function getTemplateVarsFromRowColumn($row, $column)
     {
         $v = $this->_dataProvider->getTemplateVarsFromRowColumn($row, $column);
-        $v['label'] = date($this->_format, strtotime($v['label']));
+        $v['label'] = PKPString::getLocalizedDate($v['label'], $this->_format);
         return $v;
     }
 }

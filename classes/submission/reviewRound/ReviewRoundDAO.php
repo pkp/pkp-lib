@@ -19,6 +19,7 @@
 namespace PKP\submission\reviewRound;
 
 use APP\core\Application;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 
@@ -193,21 +194,14 @@ class ReviewRoundDAO extends \PKP\db\DAO
      */
     public function getBySubmissionId($submissionId, $stageId = null, $round = null)
     {
-        $params = [(int) $submissionId];
-        if ($stageId) {
-            $params[] = $stageId;
-        }
-        if ($round) {
-            $params[] = $round;
-        }
+        $q = DB::table('review_rounds', 'rr')
+            ->where('rr.submission_id', '=', $submissionId)
+            ->when($stageId, fn (Builder $q) => $q->where('rr.stage_id', '=', $stageId))
+            ->when($round, fn (Builder $q) => $q->where('rr.round', '=', $round))
+            ->orderBy('rr.stage_id')
+            ->orderBy('rr.round');
 
-        $baseSql = '
-            FROM review_rounds
-            WHERE submission_id = ?
-            ' . ($stageId ? ' AND stage_id = ?' : '') . '
-            ' . ($round ? ' AND round = ?' : '');
-        $result = $this->retrieve("SELECT * {$baseSql} ORDER BY stage_id ASC, round ASC", $params);
-        return new DAOResultFactory($result, $this, '_fromRow', [], "SELECT 0 {$baseSql}", $params);
+        return new DAOResultFactory($q->get(), $this, '_fromRow', [], $q);
     }
 
     /**

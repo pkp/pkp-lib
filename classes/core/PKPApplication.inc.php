@@ -69,7 +69,6 @@ define('WORKFLOW_TYPE_EDITORIAL', 'editorial');
 define('WORKFLOW_TYPE_AUTHOR', 'author');
 
 use Illuminate\Database\Capsule\Manager as Capsule;
-use Illuminate\Database\Query\Builder;
 
 interface iPKPApplicationInfoProvider {
 	/**
@@ -221,6 +220,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider {
 		if (Config::getVar('database', 'debug')) Capsule::listen(function($query) {
 			error_log("Database query\n$query->sql\n" . json_encode($query->bindings));//\n Bindings: " . print_r($query->bindings, true));
 		});
+
 
 		// Set up Laravel queue handling
 		$laravelContainer->bind('exception.handler', function () {

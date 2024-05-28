@@ -18,6 +18,8 @@
 
 namespace PKP\submission;
 
+use DB;
+use Illuminate\Database\Query\Builder;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\Hook;
 
@@ -87,24 +89,15 @@ class SubmissionCommentDAO extends \PKP\db\DAO
      */
     public function getReviewerCommentsByReviewerId($submissionId, $reviewerId = null, $reviewId = null, $viewable = null)
     {
-        $params = [(int) $submissionId];
-        if ($reviewerId) {
-            $params[] = (int) $reviewerId;
-        }
-        if ($reviewId) {
-            $params[] = (int) $reviewId;
-        }
+        $q = DB::table('submission_comments', 'a')
+            ->where('a.submission_id', '=', $submissionId)
+            ->when($reviewerId, fn (Builder $q) => $q->where('a.author_id', '=', $reviewerId))
+            ->when($reviewId, fn (Builder $q) => $q->where('a.assoc_id', '=', $reviewId))
+            ->when($viewable !== null, fn (Builder $q) => $q->where('a.viewable', '=', $viewable))
+            ->orderByDesc('a.date_posted')
+            ->select('a.*');
 
-        $baseSql = '
-            FROM submission_comments a
-            WHERE submission_id = ?
-            ' . ($reviewerId ? ' AND author_id = ?' : '') . '
-            ' . ($reviewId ? ' AND assoc_id = ?' : '') . '
-            ' . ($viewable === true ? ' AND viewable = 1' : '') . '
-            ' . ($viewable === false ? ' AND viewable = 0' : '');
-
-        $result = $this->retrieve("SELECT a.* {$baseSql} ORDER BY date_posted DESC", $params);
-        return new DAOResultFactory($result, $this, '_fromRow', [], "SELECT 0 {$baseSql}", $params); // Counted in readReview.tpl and authorReadReview.tpl
+        return new DAOResultFactory($q->get(), $this, '_fromRow', [], $q); // Counted in readReview.tpl and authorReadReview.tpl
     }
 
     /**

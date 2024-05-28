@@ -19,6 +19,8 @@
 
 namespace PKP\reviewForm;
 
+use DB;
+use Illuminate\Database\Query\Builder;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
@@ -235,18 +237,13 @@ class ReviewFormElementDAO extends \PKP\db\DAO
      */
     public function getByReviewFormId($reviewFormId, $rangeInfo = null, $included = null)
     {
-        $baseSql = '
-            FROM review_form_elements
-            WHERE review_form_id = ?
-            ' . ($included === true ? ' AND included = 1' : '') . '
-            ' . ($included === false ? ' AND included = 0' : '');
-        $result = $this->retrieveRange(
-            "SELECT * {$baseSql} ORDER BY seq",
-            $params = [(int) $reviewFormId],
-            $rangeInfo
-        );
-
-        return new DAOResultFactory($result, $this, '_fromRow', [], "SELECT 0 {$baseSql}", $params);
+        $q = DB::table('review_form_elements', 'rfe')
+            ->where('rfe.review_form_id', '=', $reviewFormId)
+            ->where($included !== null, fn (Builder $q) => $q->where('rfe.included', '=', $included))
+            ->select('rfe.*')
+            ->orderBy('rfe.seq');
+        $result = $this->retrieveRange($q, [], $rangeInfo);
+        return new DAOResultFactory($result, $this, '_fromRow', [], $q);
     }
 
     /**

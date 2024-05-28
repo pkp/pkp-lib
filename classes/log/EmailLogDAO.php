@@ -19,6 +19,8 @@
 namespace PKP\log;
 
 use APP\facades\Repo;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\Hook;
@@ -64,29 +66,18 @@ class EmailLogDAO extends \PKP\db\DAO
      */
     public function _getByEventType($assocType, $assocId, $eventType, $userId = null, $rangeInfo = null)
     {
-        $params = [
-            (int) $assocType,
-            (int) $assocId,
-            (int) $eventType
-        ];
-        if ($userId) {
-            $params[] = $userId;
-        }
-
-        $baseSql = '
-            FROM email_log e
-            ' . ($userId ? ' LEFT JOIN email_log_users u ON e.log_id = u.email_log_id' : '') . '
-            WHERE e.assoc_type = ? AND
-            e.assoc_id = ? AND
-            e.event_type = ?
-            ' . ($userId ? ' AND u.user_id = ?' : '');
-        $result = $this->retrieveRange(
-            "SELECT e.* {$baseSql}",
-            $params,
-            $rangeInfo
-        );
-
-        return new DAOResultFactory($result, $this, 'build', [], "SELECT 0 {$baseSql}", $params, $rangeInfo); // Counted in submissionEmails.tpl
+        $q = DB::table('email_log', 'e')
+            ->when(
+                $userId,
+                fn (Builder $q) => $q->join(
+                    'email_log_users AS u',
+                    fn (JoinClause $j) => $j->on('u.email_log_id', '=', 'e.log_id')
+                        ->where('u.user_id', $userId)
+                )
+            )
+            ->select('e.*');
+        $result = $this->retrieveRange($q, [], $rangeInfo);
+        return new DAOResultFactory($result, $this, 'build', [], $q, [], $rangeInfo); // Counted in submissionEmails.tpl
     }
 
     /**

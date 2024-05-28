@@ -14,6 +14,7 @@
 namespace PKP\galley;
 
 use APP\facades\Repo;
+use APP\plugins\PubObjectsExportPlugin;
 use APP\publication\Publication;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
@@ -289,8 +290,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
         if ($issueId) {
             $params[] = (int) $issueId;
         }
-        import('classes.plugins.PubObjectsExportPlugin'); // Constant
-        if ($pubIdSettingName && $pubIdSettingValue && $pubIdSettingValue != EXPORT_STATUS_NOT_DEPOSITED) {
+        if ($pubIdSettingName && $pubIdSettingValue && $pubIdSettingValue != PubObjectsExportPlugin::EXPORT_STATUS_NOT_DEPOSITED) {
             $params[] = $pubIdSettingValue;
         }
 
@@ -313,8 +313,8 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
             . ($title != null ? ' AND (pst.setting_name = ? AND pst.setting_value LIKE ?)' : '')
             . ($author != null ? ' AND (asgs.setting_value LIKE ? OR asfs.setting_value LIKE ?)' : '')
             . ($issueId != null ? ' AND (ps.setting_name = \'issueId\' AND ps.setting_value = ? AND ps.locale = \'\'' : '')
-            . (($pubIdSettingName != null && $pubIdSettingValue != null && $pubIdSettingValue == EXPORT_STATUS_NOT_DEPOSITED) ? ' AND gss.setting_value IS NULL' : '')
-            . (($pubIdSettingName != null && $pubIdSettingValue != null && $pubIdSettingValue != EXPORT_STATUS_NOT_DEPOSITED) ? ' AND gss.setting_value = ?' : '')
+            . (($pubIdSettingName != null && $pubIdSettingValue != null && $pubIdSettingValue == PubObjectsExportPlugin::EXPORT_STATUS_NOT_DEPOSITED) ? ' AND gss.setting_value IS NULL' : '')
+            . (($pubIdSettingName != null && $pubIdSettingValue != null && $pubIdSettingValue != PubObjectsExportPlugin::EXPORT_STATUS_NOT_DEPOSITED) ? ' AND gss.setting_value = ?' : '')
             . (($pubIdSettingName != null && is_null($pubIdSettingValue)) ? ' AND (gss.setting_value IS NULL OR gss.setting_value = \'\')' : '');
 
         $result = $this->deprecatedDao->retrieveRange(

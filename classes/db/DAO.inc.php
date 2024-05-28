@@ -100,7 +100,7 @@ class DAO {
 	/**
 	 * Count the number of records in the supplied SQL statement (with optional bind parameters parameters)
 	 * @param $sql string|Builder SQL query to be counted
-	 * @param $params array Optional SQL query bind parameters
+	 * @param $params array Optional SQL query bind parameters, only used when the $sql argument is a string
 	 * @return int
 	 */
 	public function countRecords($sql, $params = []) {

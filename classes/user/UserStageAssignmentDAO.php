@@ -43,7 +43,7 @@ class UserStageAssignmentDAO extends DAO
 
     /**
      * Retrieve a set of users of a user group not assigned to a given submission stage and matching the specified settings.
-     * @todo Not working and not being used, probably can be removed
+     * @deprecated Deprecated in OJS 3.4
      *
      * @param int $submissionId
      * @param int $stageId

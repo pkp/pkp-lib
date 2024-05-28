@@ -544,7 +544,7 @@ class UserGroupDAO extends DAO {
 					' . ($userGroupId ? 'AND ug.user_group_id = ?' : '') . '
 			)';
 		}
-		$baseSql .= ' ' . $this->_getSearchSql($searchType, $search, $searchMatch, $params, '');
+		$baseSql .= ' ' . $this->_getSearchSql($searchType, $search, $searchMatch, $params);
 
 		// Get the result set
 		$result = $this->retrieveRange(
@@ -830,10 +830,9 @@ class UserGroupDAO extends DAO {
 	 * @param string $search the keywords to search for.
 	 * @param string $searchMatch where to match (is, contains, startsWith).
 	 * @param array $params SQL parameter array reference
-	 * @param ?string $querySuffix When null adds an ORDER BY clause using the UserDAO::getOrderBy()
 	 * @return string SQL search snippet
 	 */
-	function _getSearchSql($searchType, $search, $searchMatch, &$params, $querySuffix = null) {
+	function _getSearchSql($searchType, $search, $searchMatch, &$params) {
 		$hasUserSetting = "EXISTS(
 			SELECT 0
 			FROM user_settings
@@ -921,8 +920,6 @@ class UserGroupDAO extends DAO {
 					break;
 			}
 		}
-
-		$searchSql .= $querySuffix ?? $this->userDao->getOrderBy(); // FIXME Add "sort field" parameter?
 
 		return $searchSql;
 	}

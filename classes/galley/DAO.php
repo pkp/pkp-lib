@@ -311,6 +311,6 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
             ->select('g.*');
 
         $result = $this->deprecatedDao->retrieveRange($q, [], $rangeInfo);
-        return new DAOResultFactory($result, $this, '_fromRow', [], $q, [], $rangeInfo);
+        return new DAOResultFactory($result, $this, 'fromRow', [], $q, [], $rangeInfo);
     }
 }

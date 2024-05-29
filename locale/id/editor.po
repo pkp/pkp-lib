@@ -596,3 +596,26 @@ msgstr ""
 
 msgid "editor.decision.stepError"
 msgstr ""
+
+msgid "editor.review.logResponse.for"
+msgstr "Respons log untuk"
+
+msgid "editor.review.logResponse"
+msgstr "Respons log"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Respons harus dipilih"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Peninjau telah menerima undangan untuk meninjau"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Peninjau telah menolak undangan untuk meninjau"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Catat tanggapan atas nama pengulas"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Jika pengulas menghubungi Anda melalui email atau cara lain, Anda dapat "
+"merekam tanggapan mereka untuk mereka"

@@ -587,3 +587,24 @@ msgstr ""
 
 msgid "editor.decision.stepError"
 msgstr ""
+
+msgid "editor.review.logResponse.for"
+msgstr "のログ応答"
+
+msgid "editor.review.logResponse"
+msgstr "ログ応答"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "応答を選択する必要があります"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "レビュアーは、レビューへの招待状を受け入れました"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "レビューアはレビューへの招待を拒否しました"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "レビュアーに代わって応答を記録します"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr "電子メールまたはその他の手段を通じてレビュアーがあなたに連絡した場合、あなたは彼らのために彼らの応答を記録することができます"

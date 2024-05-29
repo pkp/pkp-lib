@@ -556,3 +556,26 @@ msgstr ""
 
 msgid "editor.decision.stepError"
 msgstr ""
+
+msgid "editor.review.logResponse.for"
+msgstr "Protokol pre"
+
+msgid "editor.review.logResponse"
+msgstr "Odpoveď"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Odpoveď musí byť vybraná"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Recenzent prijal pozvanie na preskúmanie"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Recenzent odmietol pozvanie na preskúmanie"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Zaznamenajte odpoveď v mene recenzenta"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Ak vás recenzent kontaktuje prostredníctvom e -mailu alebo iným spôsobom, "
+"môžete pre nich zaznamenať svoju odpoveď"

@@ -620,3 +620,26 @@ msgstr "Виникла проблема з кроком {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Така само установа, як і в автора"
+
+msgid "editor.review.logResponse.for"
+msgstr "Відповідь журналу для"
+
+msgid "editor.review.logResponse"
+msgstr "Відповідь журналу"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Необхідно вибрати відповідь"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Рецензент прийняв запрошення до перегляду"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Рецензент відмовився від запрошення на огляд"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Запишіть відповідь від імені рецензента"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Якщо рецензент зв’язується з вами електронною поштою або будь -якими іншими "
+"засобами, ви можете записати їх відповідь для них"

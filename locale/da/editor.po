@@ -626,3 +626,49 @@ msgstr "Der var et problem med trinnet {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Samme institution som forfatter"
+
+msgid "editor.review.logResponse.for"
+msgstr "Log svar til"
+
+msgid "editor.review.logResponse"
+msgstr "Log svar"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Et svar skal vælges"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Anmelderen har accepteret invitationen til at gennemgå"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Anmelderen har afvist invitationen til at gennemgå"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Registrer svaret på vegne af korrekturlæseren"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Hvis korrekturlæseren kontakter dig via e -mail eller anden måde, kan du "
+"registrere deres svar for dem"
+
+msgid "editor.review.logResponse.for"
+msgstr "Protokollantwort für"
+
+msgid "editor.review.logResponse"
+msgstr "Protokollantwort"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Eine Antwort muss ausgewählt werden"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Rezensent hat die Einladung zur Überprüfung angenommen"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Rezensent hat die Einladung zur Überprüfung abgelehnt"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Notieren Sie die Antwort im Namen des Rezensenten"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Wenn der Rezensent Sie über E -Mail oder andere Mittel kontaktiert, können "
+"Sie seine Antwort für ihn aufzeichnen"

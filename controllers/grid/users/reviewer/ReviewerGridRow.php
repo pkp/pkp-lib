@@ -217,11 +217,53 @@ class ReviewerGridRow extends GridRow
                 );
             }
             if ($reviewAssignment->getDateConfirmed() == null) {
+                $context = $request->getContext();
                 $vueModalArgs = [
                     'description' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
-                    'submissionLocale' => $submission->getData('locale'),
-                    'journalLocales' => $request->getContext()->getSupportedSubmissionMetadataLocales(),
-                    'url' => $router->url($request, null, null, 'addLog', null, $actionArgs),
+                    'logResponseForm' => [
+                        'id' => 'logResponseForm',
+                        'method' => 'POST',
+                        'action' => $router->url($request, null, null, 'addLog', null, $actionArgs),
+                        'fields' => [
+                            [
+                                'name' => 'log_response',
+                                'isRequired' => true,
+                                'description' => __('editor.review.logResponse.form.subDetail'),
+                                'component' => 'field-options',
+                                'label' => __('editor.review.logResponse.form.detail'),
+                                'value' => false,
+                                'type' => 'radio',
+                                'options' => [
+                                    [
+                                        'value' => 1,
+                                        'label' => __('editor.review.logResponse.form.option.accepted'),
+                                    ],
+                                    [
+                                        'value' => 0,
+                                        'label' => __('editor.review.logResponse.form.option.declined'),
+                                    ],
+                                ],
+                                'groupId' => 'default',
+                            ],
+                        ],
+                        'groups' => [
+                            [
+                                'id' => 'default',
+                                'pageId' => 'default',
+                            ],
+                        ],
+                        'pages' => [
+                            [
+                                'id' => 'default',
+                                'submitButton' => [
+                                    'label' => __('editor.review.logResponse')
+                                ]
+                            ],
+                        ],
+                        'primaryLocale' => $request->getContext(),
+                        'visibleLocales' => [$submission->getData('locale')],
+                        'supportedFormLocales' => $context->getSupportedFormLocales(),
+                    ]
                 ];
                 $this->addAction(
                     new LinkAction(

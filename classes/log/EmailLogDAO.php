@@ -75,6 +75,7 @@ class EmailLogDAO extends \PKP\db\DAO
                         ->where('u.user_id', $userId)
                 )
             )
+            ->orderBy('e.log_id')
             ->select('e.*');
         $result = $this->retrieveRange($q, [], $rangeInfo);
         return new DAOResultFactory($result, $this, 'build', [], $q, [], $rangeInfo); // Counted in submissionEmails.tpl

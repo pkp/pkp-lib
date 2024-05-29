@@ -19,8 +19,8 @@
 
 namespace PKP\reviewForm;
 
-use DB;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;

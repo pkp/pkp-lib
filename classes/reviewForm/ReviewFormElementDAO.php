@@ -241,7 +241,7 @@ class ReviewFormElementDAO extends \PKP\db\DAO
             ->select('rfe.*')
             ->orderBy('rfe.seq');
         $result = $this->retrieveRange($q, [], $rangeInfo);
-        return new DAOResultFactory($result, $this, '_fromRow', [], $q);
+        return new DAOResultFactory($result, $this, '_fromRow', [], $q, [], $rangeInfo);
     }
 
     /**

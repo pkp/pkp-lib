@@ -18,8 +18,8 @@
 
 namespace PKP\submission;
 
-use DB;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\Hook;
 

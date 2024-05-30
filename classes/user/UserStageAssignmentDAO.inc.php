@@ -106,31 +106,34 @@ class UserStageAssignmentDAO extends UserDAO {
 		if ($name !== null) {
 			$params = array_merge($params, array_fill(0, 6, (string) $name));
 		}
-		$result = $this->retrieveRange(
-			$sql = 'SELECT	u.*
-			FROM	users u
-				LEFT JOIN user_user_groups uug ON (u.user_id = uug.user_id)
-				LEFT JOIN stage_assignments s ON (s.user_id = uug.user_id AND s.user_group_id = uug.user_group_id AND s.submission_id = ?)
-				JOIN user_group_stage ugs ON (uug.user_group_id = ugs.user_group_id AND ugs.stage_id = ?)
-				LEFT JOIN user_settings usgs_pl ON (usgs_pl.user_id = u.user_id AND usgs_pl.setting_name = ? AND usgs_pl.locale = ?)
-				LEFT JOIN user_settings usfs_pl ON (usfs_pl.user_id = u.user_id AND usfs_pl.setting_name = ? AND usfs_pl.locale = ?)
-				LEFT JOIN user_settings usgs_l ON (usgs_l.user_id = u.user_id AND usgs_l.setting_name = ? AND usgs_l.locale = ?)
-				LEFT JOIN user_settings usfs_l ON (usfs_l.user_id = u.user_id AND usfs_l.setting_name = ? AND usfs_l.locale = ?)
 
-			WHERE	uug.user_group_id = ? AND
+		$baseSql = '
+			FROM users u
+			LEFT JOIN user_user_groups uug ON (u.user_id = uug.user_id)
+			LEFT JOIN stage_assignments s ON (s.user_id = uug.user_id AND s.user_group_id = uug.user_group_id AND s.submission_id = ?)
+			JOIN user_group_stage ugs ON (uug.user_group_id = ugs.user_group_id AND ugs.stage_id = ?)
+			LEFT JOIN user_settings usgs_pl ON (usgs_pl.user_id = u.user_id AND usgs_pl.setting_name = ? AND usgs_pl.locale = ?)
+			LEFT JOIN user_settings usfs_pl ON (usfs_pl.user_id = u.user_id AND usfs_pl.setting_name = ? AND usfs_pl.locale = ?)
+			LEFT JOIN user_settings usgs_l ON (usgs_l.user_id = u.user_id AND usgs_l.setting_name = ? AND usgs_l.locale = ?)
+			LEFT JOIN user_settings usfs_l ON (usfs_l.user_id = u.user_id AND usfs_l.setting_name = ? AND usfs_l.locale = ?)
+			WHERE uug.user_group_id = ? AND
 				s.user_group_id IS NULL'
-				. ($name !== null 
-					? " AND (LOWER(usgs_pl.setting_value) LIKE CONCAT('%', LOWER(?), '%') 
-						OR LOWER(usgs_l.setting_value) LIKE CONCAT('%', LOWER(?), '%') 
-						OR LOWER(usfs_pl.setting_value) LIKE CONCAT('%', LOWER(?), '%') 
-						OR LOWER(usfs_l.setting_value) LIKE CONCAT('%', LOWER(?), '%') 
-						OR LOWER(u.username) LIKE CONCAT('%', LOWER(?), '%') 
-						OR LOWER(u.email) LIKE CONCAT('%', LOWER(?), '%'))" 
-					: "")
-			. " ORDER BY COALESCE(usfs_l.setting_value, usfs_pl.setting_value)",
-				$params,
-				$rangeInfo);
-		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData', [], $sql, $params, $rangeInfo);
+				. ($name !== null
+					? " AND (LOWER(usgs_pl.setting_value) LIKE CONCAT('%', LOWER(?), '%')
+						OR LOWER(usgs_l.setting_value) LIKE CONCAT('%', LOWER(?), '%')
+						OR LOWER(usfs_pl.setting_value) LIKE CONCAT('%', LOWER(?), '%')
+						OR LOWER(usfs_l.setting_value) LIKE CONCAT('%', LOWER(?), '%')
+						OR LOWER(u.username) LIKE CONCAT('%', LOWER(?), '%')
+						OR LOWER(u.email) LIKE CONCAT('%', LOWER(?), '%'))"
+					: "") . '
+		';
+
+		$result = $this->retrieveRange(
+			"SELECT u.* {$baseSql} ORDER BY COALESCE(usfs_l.setting_value, usfs_pl.setting_value)",
+			$params,
+			$rangeInfo
+		);
+		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData', [], "SELECT 0 {$baseSql}", $params, $rangeInfo);
 	}
 }
 

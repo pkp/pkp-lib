@@ -83,7 +83,7 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 		$userListQO = $this->getQueryBuilder($args)->getQuery();
 		$userDao = DAORegistry::getDAO('UserDAO'); /* @var $userDao UserDAO */
 		$result = $userDao->retrieveRange($userListQO->toSql(), $userListQO->getBindings(), $range);
-		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithData', [], $userListQO->toSql(), $userListQO->getBindings());
+		$queryResults = new DAOResultFactory($result, $userDao, '_returnUserFromRowWithData', [], $userListQO);
 
 		return $queryResults->toIterator();
 	}
@@ -592,8 +592,9 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @param array $args See self::getMany()
 	 */
 	public function count($args = []) {
-		$qb = $this->getQueryBuilder($args);
-		return $qb->getQuery()->get()->count();
+		return $this->getQueryBuilder($args)
+			->getQuery()
+			->getCountForPagination();
 	}
 
 	/**

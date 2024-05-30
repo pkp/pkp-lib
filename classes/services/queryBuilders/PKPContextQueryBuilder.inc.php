@@ -85,9 +85,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface {
 	public function getCount() {
 		return $this
 			->getQuery()
-			->select('c.' . $this->dbIdColumn)
-			->get()
-			->count();
+			->getCountForPagination();
 	}
 
 	/**

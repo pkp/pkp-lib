@@ -95,7 +95,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 			$q->where('s.date_submitted', '<=', $this->dateEnd);
 		}
 
-		return $q->count();
+		return $q->getCountForPagination();
 	}
 
 	/**
@@ -165,7 +165,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 	public function countByStatus($status) {
 		return $this->_getObject()
 			->whereIn('s.status', (array) $status)
-			->count();
+			->getCountForPagination();
 	}
 
 	/**
@@ -180,7 +180,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 		return $this->_getObject()
 			->where('s.status', '=', STATUS_QUEUED)
 			->whereIn('s.stage_id', $stages)
-			->count();
+			->getCountForPagination();
 	}
 
 	/**
@@ -214,7 +214,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 			}
 		}
 
-		return $q->count();
+		return $q->getCountForPagination();
 	}
 
 	/**
@@ -433,7 +433,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 			->when($this->dateEnd, function (Builder $q) {
 				$q->where('s.date_submitted', '<=', $this->dateEnd);
 			})
-			->count();
+			->getCountForPagination();
 	}
 
 	/**
@@ -451,7 +451,7 @@ abstract class PKPStatsEditorialQueryBuilder {
 			->when($this->dateEnd, function (Builder $q) {
 				$q->where('s.date_submitted', '<=', $this->dateEnd);
 			})
-			->count();
+			->getCountForPagination();
 	}
 
 	/**

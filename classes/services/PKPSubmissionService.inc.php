@@ -102,8 +102,8 @@ abstract class PKPSubmissionService implements EntityPropertyInterface, EntityRe
 		if (isset($args['offset'])) unset($args['offset']);
 		$submissionListQO = $this->getQueryBuilder($args)->getQuery();
 		$submissionDao = DAORegistry::getDAO('SubmissionDAO'); /* @var $submissionDao SubmissionDAO */
-		$result = $submissionDao->retrieveRange($sql = $submissionListQO->toSql(), $params = $submissionListQO->getBindings(), $range);
-		$queryResults = new DAOResultFactory($result, $submissionDao, '_fromRow', [], $sql, $params, $range);
+		$result = $submissionDao->retrieveRange($submissionListQO->toSql(), $submissionListQO->getBindings(), $range);
+		$queryResults = new DAOResultFactory($result, $submissionDao, '_fromRow', [], $submissionListQO, [], $range);
 
 		return $queryResults->toIterator();
 	}

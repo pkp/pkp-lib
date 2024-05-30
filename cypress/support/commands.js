@@ -315,6 +315,7 @@ Cypress.Commands.add('assignParticipant', (role, name, recommendOnly) => {
 	cy.get('select[name=filterUserGroupId').select(role);
 	cy.get('input[id^="namegrid-users-userselect-userselectgrid-"]').type(names[1], {delay: 0});
 	cy.get('form[id="searchUserFilter-grid-users-userselect-userselectgrid"]').find('button[id^="submitFormButton-"]').click();
+	cy.waitJQuery();
 	cy.get('input[name="userId"]').click(); // Assume only one user results from the search.
 	if (recommendOnly) cy.get('input[name="recommendOnly"]').click();
 	cy.flushNotifications();
@@ -394,8 +395,14 @@ Cypress.Commands.add('createUser', user => {
 	user.roles.forEach(role => {
 		cy.get('form[id=userRoleForm]').contains(role).click();
 	});
-	cy.get('form[id=userRoleForm] button[id^=submitFormButton]').click();
-	cy.get('span[id$="-username"]:contains("' + Cypress.$.escapeSelector(user.username) + '")');
+	cy.server();
+	cy.route('POST', '**/grid/settings/user/user-grid/update-user-roles*').as('rolesSaved');
+	cy.get('div[id^=component-grid-settings-user-usergrid]').as('userGrid').then(staleUserGrid => {
+		cy.get('form[id=userRoleForm] button[id^=submitFormButton]').click();
+		cy.wait('@rolesSaved').its('status').should('eq', 200);
+		// Wait for the interface to refresh, the "User Grid" will be recreated and get a new ID.
+		cy.get('@userGrid').should('not.have.attr', 'id', staleUserGrid.attr('id'));
+	});
 });
 
 Cypress.Commands.add('flushNotifications', function() {

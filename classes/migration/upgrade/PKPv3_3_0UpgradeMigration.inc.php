@@ -491,7 +491,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			// be unique.
 			$count = Capsule::table('review_round_files')
 				->where('file_id', '=', $row->file_id)
-				->count();
+				->getCountForPagination();
 			if ($count > 1) {
 				Capsule::table('review_round_files')
 					->where('file_id', '=', $row->file_id)

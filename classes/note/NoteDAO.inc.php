@@ -89,18 +89,19 @@ class NoteDAO extends DAO {
 				$directionSanitized = 'DESC';
 		}
 
-		$result = $this->retrieve(
-			$sql = 'SELECT	*
-			FROM	notes
-			WHERE	assoc_id = ?
+		$baseSql = '
+			FROM notes
+			WHERE assoc_id = ?
 				AND assoc_type = ?
 				' . ($userId?' AND user_id = ?':'') .
-				($isAdmin?'':'
-				AND (title IS NOT NULL OR contents IS NOT NULL)') . '
-			ORDER BY ' . $orderSanitized . ' ' . $directionSanitized,
+				($isAdmin?'':' AND (title IS NOT NULL OR contents IS NOT NULL)') . '
+		';
+
+		$result = $this->retrieve(
+			"SELECT * {$baseSql} ORDER BY {$orderSanitized} {$directionSanitized}",
 			$params
 		);
-		return new DAOResultFactory($result, $this, '_fromRow', [], $sql, $params); // Counted in QueriesGridCellProvider
+		return new DAOResultFactory($result, $this, '_fromRow', [], "SELECT 0 {$baseSql}", $params); // Counted in QueriesGridCellProvider
 	}
 
 	/**

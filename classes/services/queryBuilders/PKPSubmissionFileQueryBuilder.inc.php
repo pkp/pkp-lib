@@ -159,9 +159,7 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface {
 	public function getCount() {
 		return $this
 			->getQuery()
-			->select('sf.submission_file_id')
-			->get()
-			->count();
+			->getCountForPagination();
 	}
 
 	/**

@@ -250,18 +250,21 @@ class UserGroupDAO extends DAO {
 	function getByRoleId($contextId, $roleId, $default = false, $dbResultRange = null) {
 		$params = [(int) $contextId, (int) $roleId];
 		if ($default) $params[] = 1; // true
-		$result = $this->retrieveRange(
-			$sql = 'SELECT	*
-			FROM	user_groups
-			WHERE	context_id = ? AND
+
+		$baseSql = '
+			FROM user_groups
+			WHERE context_id = ? AND
 				role_id = ?
-				' . ($default?' AND is_default = ?':'')
-			. ' ORDER BY user_group_id',
+				' . ($default?' AND is_default = ?':'') . '
+		';
+
+		$result = $this->retrieveRange(
+			"SELECT * {$baseSql} ORDER BY user_group_id",
 			$params,
 			$dbResultRange
 		);
 
-		return new DAOResultFactory($result, $this, '_returnFromRow', [], $sql, $params, $dbResultRange);
+		return new DAOResultFactory($result, $this, '_returnFromRow', [], "SELECT 0 {$baseSql}", $params, $dbResultRange);
 	}
 
 	/**
@@ -381,15 +384,18 @@ class UserGroupDAO extends DAO {
 		$params = [];
 		if ($contextId) $params[] = (int) $contextId;
 
+		$baseSql = '
+			FROM user_groups ug' .
+			($contextId?' WHERE ug.context_id = ?':'') . '
+		';
+
 		$result = $this->retrieveRange(
-			$sql = 'SELECT ug.*
-			FROM	user_groups ug' .
-				($contextId?' WHERE ug.context_id = ?':''),
+			"SELECT ug.* {$baseSql}",
 			$params,
 			$dbResultRange
 		);
 
-		return new DAOResultFactory($result, $this, '_returnFromRow', [], $sql, $params, $dbResultRange);
+		return new DAOResultFactory($result, $this, '_returnFromRow', [], "SELECT 0 {$baseSql}", $params, $dbResultRange);
 	}
 
 	/**
@@ -509,14 +515,15 @@ class UserGroupDAO extends DAO {
 				COALESCE(us.setting_value, '') = '', us.locale <> ?
 			LIMIT 1
 		)";
-		$params = [
+		$selectParams = [
 			IDENTITY_SETTING_GIVENNAME, $locale, $primaryLocale, $locale,
 			IDENTITY_SETTING_FAMILYNAME, $locale, $primaryLocale, $locale
 		];
 
-		$sql = "SELECT u.*, $settingValue AS user_given, $settingValue AS user_family
+		$baseSql = '
 			FROM users AS u
-			WHERE 1 = 1";
+			WHERE 1 = 1
+		';
 
 		// Has user group
 		if ($contextId || $userGroupId) {
@@ -526,7 +533,7 @@ class UserGroupDAO extends DAO {
 			if ($userGroupId) {
 				$params[] = (int) $userGroupId;
 			}
-			$sql .= ' AND EXISTS (
+			$baseSql .= ' AND EXISTS (
 				SELECT 0
 				FROM user_user_groups uug
 				INNER JOIN user_groups ug
@@ -537,12 +544,16 @@ class UserGroupDAO extends DAO {
 					' . ($userGroupId ? 'AND ug.user_group_id = ?' : '') . '
 			)';
 		}
-		$sql .= ' ' . $this->_getSearchSql($searchType, $search, $searchMatch, $params);
+		$baseSql .= ' ' . $this->_getSearchSql($searchType, $search, $searchMatch, $params);
 
 		// Get the result set
-		$result = $this->retrieveRange($sql, $params, $dbResultRange);
+		$result = $this->retrieveRange(
+			"SELECT u.*, $settingValue AS user_given, $settingValue AS user_family {$baseSql} " . $this->userDao->getOrderBy(),
+			array_merge($selectParams, $params),
+			$dbResultRange
+		);
 
-		return new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData', [], $sql, $params, $dbResultRange);
+		return new DAOResultFactory($result, $this->userDao, '_returnUserFromRowWithData', [], "SELECT 0 {$baseSql}", $params, $dbResultRange);
 	}
 
 	//
@@ -910,8 +921,6 @@ class UserGroupDAO extends DAO {
 			}
 		}
 
-		$searchSql .= $this->userDao->getOrderBy(); // FIXME Add "sort field" parameter?
-
 		return $searchSql;
 	}
 
@@ -930,22 +939,25 @@ class UserGroupDAO extends DAO {
 	function getUserGroupsByStage($contextId, $stageId, $roleId = null, $dbResultRange = null) {
 		$params = [(int) $contextId, (int) $stageId];
 		if ($roleId) $params[] = (int) $roleId;
+
+		$baseSql = '
+			FROM user_groups ug
+			JOIN user_group_stage ugs ON (ug.user_group_id = ugs.user_group_id AND ug.context_id = ugs.context_id)
+			WHERE ugs.context_id = ? AND
+				ugs.stage_id = ?
+				' . ($roleId?'AND ug.role_id = ?':'') . '
+		';
+
 		return new DAOResultFactory(
 			$this->retrieveRange(
-				$sql = 'SELECT	ug.*
-				FROM	user_groups ug
-					JOIN user_group_stage ugs ON (ug.user_group_id = ugs.user_group_id AND ug.context_id = ugs.context_id)
-				WHERE	ugs.context_id = ? AND
-					ugs.stage_id = ?
-					' . ($roleId?'AND ug.role_id = ?':'') . '
-				ORDER BY ug.role_id ASC',
+				"SELECT ug.* {$baseSql} ORDER BY ug.role_id ASC",
 				$params,
 				$dbResultRange
 			),
 			$this,
 			'_returnFromRow',
 			[],
-			$sql, $params, $dbResultRange
+			"SELECT 0 {$baseSql}", $params, $dbResultRange
 		);
 	}
 

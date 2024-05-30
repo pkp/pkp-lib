@@ -54,7 +54,7 @@
 									pkp_button_offset
 								{/if}
 							{/strip}{/capture}
-							{capture assign="url"}{$decision->getUrl(\APP\core\Application::get()->getRequest(), $currentContext, $submission, $reviewRoundId)}{/capture}
+							{capture assign="url"}{$decision->getUrl(APP\core\Application::get()->getRequest(), $currentContext, $submission, $reviewRoundId)}{/capture}
 							<li>
 								{if $decision->getDecision() === Decision::PENDING_REVISIONS}
 									<button class="pkp_button {$class}" data-decision="{$decision->getDecision()}" data-review-round-id="{$reviewRoundId}">
@@ -91,7 +91,7 @@
 				{if $canRecordDecision}
 					<ul class="pkp_workflow_decisions_options{if $lastRecommendation} pkp_workflow_decisions_options_hidden{/if}">
 						{foreach from=$recommendations item=recommendation}
-							{capture assign="url"}{$recommendation->getUrl(\APP\core\Application::get()->getRequest(), $currentContext, $submission, $reviewRoundId)}{/capture}
+							{capture assign="url"}{$recommendation->getUrl(APP\core\Application::get()->getRequest(), $currentContext, $submission, $reviewRoundId)}{/capture}
 							<li>
 								{if $recommendation->getDecision() === Decision::RECOMMEND_PENDING_REVISIONS}
 									<button class="pkp_button" data-recommendation="{$recommendation->getDecision()}" data-review-round-id="{$reviewRoundId}">

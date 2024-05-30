@@ -345,7 +345,7 @@ class GridHandler extends PKPHandler
      */
     public function addColumn($column)
     {
-        assert($column instanceof \PKP\controllers\grid\GridColumn);
+        assert($column instanceof GridColumn);
         $this->_columns[$column->getId()] = $column;
     }
 
@@ -718,6 +718,7 @@ class GridHandler extends PKPHandler
         // Prepare the template to render the grid.
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->registerClass(self::class, self::class);
+        $templateMgr->registerClass(GridColumn::class, GridColumn::class);
         $templateMgr->assign('grid', $this);
         $templateMgr->assign('request', $request);
 
@@ -1160,7 +1161,7 @@ class GridHandler extends PKPHandler
         $renderedCells = [];
         $columns = $this->getColumns();
         foreach ($columns as $column) {
-            assert($column instanceof \PKP\controllers\grid\GridColumn);
+            assert($column instanceof GridColumn);
             $renderedCells[] = $this->_renderCellInternally($request, $row, $column);
         }
 

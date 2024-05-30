@@ -113,7 +113,7 @@
 				{/if}
 				<li>
 					{assign var="hasPreprintAccess" value=$hasAccess}
-					{if $currentContext->getSetting('publishingMode') == \APP\server\Server::PUBLISHING_MODE_OPEN}
+					{if $currentContext->getSetting('publishingMode') == APP\server\Server::PUBLISHING_MODE_OPEN}
 						{assign var="hasPreprintAccess" value=1}
 					{/if}
 					{assign var="id" value="preprint-{$preprint->getId()}-galley-{$galley->getId()}"}

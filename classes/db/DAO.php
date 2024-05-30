@@ -24,6 +24,7 @@
 namespace PKP\db;
 
 use Generator;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\cache\CacheManager;
 use PKP\core\JSONMessage;
@@ -80,8 +81,8 @@ class DAO
     /**
      * Execute a SELECT SQL statement, returning rows in the range supplied.
      *
-     * @param string $sql the SQL statement
-     * @param array $params parameters for the SQL statement
+     * @param string|Builder $sql the SQL statement
+     * @param array $params parameters for the SQL statement, params is used only when $sql is a string
      * @param DBResultRange $dbResultRange object describing the desired range
      *
      * @deprecated 3.4
@@ -102,20 +103,24 @@ class DAO
         }
 
         if ($dbResultRange && $dbResultRange->isValid()) {
-            $sql .= ' LIMIT ' . (int) $dbResultRange->getCount();
+            $limit = (int) $dbResultRange->getCount();
             $offset = (int) $dbResultRange->getOffset();
             $offset += max(0, $dbResultRange->getPage() - 1) * (int) $dbResultRange->getCount();
-            $sql .= ' OFFSET ' . $offset;
+            if ($sql instanceof Builder) {
+                $sql->limit($limit)->offset($offset);
+            } else {
+                $sql .= " LIMIT {$limit} OFFSET {$offset}";
+            }
         }
 
-        return DB::cursor(DB::raw($sql)->getValue(DB::connection()->getQueryGrammar()), $params);
+        return $sql instanceof Builder ? $sql->get() : DB::cursor(DB::raw($sql)->getValue(DB::connection()->getQueryGrammar()), $params);
     }
 
     /**
      * Count the number of records in the supplied SQL statement (with optional bind parameters parameters)
      *
-     * @param string $sql SQL query to be counted
-     * @param array $params Optional SQL query bind parameters
+     * @param string|Builder $sql SQL query to be counted
+     * @param array $params Optional SQL query bind parameters, only used when the $sql argument is a string
      *
      * @deprecated 3.4
      *
@@ -123,6 +128,10 @@ class DAO
      */
     public function countRecords($sql, $params = [])
     {
+        // In case a Laravel Builder has been received, drop its SELECT and ORDER BY clauses for optimization purposes
+        if ($sql instanceof Builder) {
+            return $sql->getCountForPagination();
+        }
         $result = $this->retrieve('SELECT COUNT(*) AS row_count FROM (' . $sql . ') AS count_subquery', $params);
         return $result->current()->row_count;
     }

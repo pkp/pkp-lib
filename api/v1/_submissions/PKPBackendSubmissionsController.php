@@ -224,7 +224,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres)->values(),
         ], Response::HTTP_OK);
     }
@@ -259,7 +259,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres)->values(),
         ], Response::HTTP_OK);
     }
@@ -326,7 +326,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres)->values(),
         ], Response::HTTP_OK);
     }
@@ -384,7 +384,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $reviewAssignments = $collector->getMany();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::reviewAssignment()->getSchemaMap()->mapMany($reviewAssignments)->values(),
         ], Response::HTTP_OK);
     }

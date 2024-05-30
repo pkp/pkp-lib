@@ -154,7 +154,7 @@ class PKPInstitutionController extends PKPBaseController
         $institutions = $collector->getMany();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::institution()->getSchemaMap()->summarizeMany($institutions->values())->values(),
         ], Response::HTTP_OK);
     }

@@ -123,7 +123,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     {
         return $query
             ->getQueryBuilder()
-            ->count();
+            ->getCountForPagination();
     }
 
     /**
@@ -361,7 +361,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
                 'sfs.setting_value' => (string) $pubId,
                 'sfs.submission_file_id' => (int) $excludePubObjectId,
                 's.context_id' => (int) $contextId
-            ])->count();
+            ])->getCountForPagination();
         return (bool) $result > 0;
     }
 

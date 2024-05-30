@@ -48,7 +48,7 @@ class PKPStatsGeoService
             $groupBy = [StatisticsHelper::STATISTICS_DIMENSION_COUNTRY];
         }
 
-        return $metricsQB->getGeoData($groupBy)->get()->count();
+        return $metricsQB->getGeoData($groupBy)->getCountForPagination();
     }
 
     /**

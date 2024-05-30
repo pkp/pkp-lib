@@ -79,8 +79,7 @@ class DAO extends EntityDAO
     {
         return $query
             ->getQueryBuilder()
-            ->select('i.' . $this->primaryKeyColumn)
-            ->count();
+            ->getCountForPagination();
     }
 
     /**

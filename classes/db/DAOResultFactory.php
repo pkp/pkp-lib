@@ -18,6 +18,8 @@
 namespace PKP\db;
 
 use APP\submission\DAO;
+use Countable;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use PKP\core\ItemIterator;
@@ -45,7 +47,7 @@ class DAOResultFactory extends ItemIterator
     public $records;
 
     /**
-     * @var string|null Fetch SQL
+     * @var string|Builder|null Fetch SQL
      */
     public $sql;
 
@@ -75,8 +77,8 @@ class DAOResultFactory extends ItemIterator
      * @param object $dao DAO class for factory
      * @param string $functionName The function to call on $dao to create an object
      * @param array $idFields an array of primary key field names that uniquely identify a result row in the record set. Should be data object _data array key, not database column name
-     * @param string $sql Optional SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
-     * @param array $params Optional parameters for SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
+     * @param string|Builder|null $sql Optional SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
+     * @param array $params Optional parameters for SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging), only used when the $sql argument is a string. WARNING: New code should not use this.
      * @param ?DBResultRange $rangeInfo Optional pagination information. WARNING: New code should not use this.
      */
     public function __construct($records, $dao, $functionName, $idFields = [], $sql = null, $params = [], $rangeInfo = null)
@@ -206,9 +208,8 @@ class DAOResultFactory extends ItemIterator
         if ($this->records == null) {
             return true;
         }
-        /** @var DAOResultIterator */
-        $records = $this->records;
-        return !$records->valid();
+
+        return $this->records instanceof Countable ? !count($this->records) : !$this->records->valid();
     }
 
     /**

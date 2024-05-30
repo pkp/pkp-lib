@@ -333,7 +333,7 @@ class PKPSubmissionHandler extends APIHandler
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
         return $response->withJson([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups, $genres)->values(),
         ], 200);
     }
@@ -887,7 +887,7 @@ class PKPSubmissionHandler extends APIHandler
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         return $response->withJson([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->summarizeMany($publications, $anonymize)->values(),
         ], 200);
     }
@@ -1354,7 +1354,7 @@ class PKPSubmissionHandler extends APIHandler
         $authors = $collector->getMany();
 
         return $response->withJson([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::author()->getSchemaMap()->summarizeMany($authors)->values(),
         ], 200);
     }

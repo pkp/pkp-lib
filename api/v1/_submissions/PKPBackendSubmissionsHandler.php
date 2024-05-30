@@ -134,7 +134,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
         return $response->withJson([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres)->values(),
         ], 200);
     }

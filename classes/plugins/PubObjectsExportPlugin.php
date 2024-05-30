@@ -853,7 +853,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
 }
 
 if (!PKP_STRICT_MODE) {
-    class_alias('\APP\plugins\PubObjectsExportPlugin', '\PubObjectExportsPlugin');
+    class_alias('\APP\plugins\PubObjectsExportPlugin', '\PubObjectsExportPlugin');
 
     foreach ([
         'EXPORT_STATUS_ANY',

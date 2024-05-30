@@ -19,6 +19,7 @@ namespace APP\pages\index;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\observers\events\UsageEvent;
+use APP\server\Server;
 use APP\server\ServerDAO;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
@@ -97,6 +98,7 @@ class IndexHandler extends PKPIndexHandler
                 'authorUserGroups' => Repo::userGroup()->getCollector()->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])->filterByContextIds([$server->getId()])->getMany()->remember(),
             ]);
 
+            $templateMgr->registerClass(Server::class, Server::class);
             $templateMgr->display('frontend/pages/indexServer.tpl');
             event(new UsageEvent(Application::ASSOC_TYPE_SERVER, $server));
             return;

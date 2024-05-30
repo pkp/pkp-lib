@@ -20,6 +20,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\security\authorization\OpsServerMustPublishPolicy;
+use APP\server\Server;
 use APP\submission\Collector;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
@@ -81,6 +82,7 @@ class PreprintsHandler extends Handler
         $nextPage = $total > $showingEnd ? $page + 1 : null;
         $prevPage = $showingStart > 1 ? $page - 1 : null;
 
+        $templateMgr->registerClass(Server::class, Server::class);
         $templateMgr->assign([
             'sections' => $sections,
             'categories' => iterator_to_array($categories),

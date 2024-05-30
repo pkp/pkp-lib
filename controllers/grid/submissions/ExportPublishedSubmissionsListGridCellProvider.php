@@ -17,6 +17,7 @@
 namespace APP\controllers\grid\submissions;
 
 use APP\facades\Repo;
+use APP\plugins\PubObjectsExportPlugin;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridHandler;
 use PKP\linkAction\LinkAction;
@@ -119,7 +120,7 @@ class ExportPublishedSubmissionsListGridCellProvider extends DataObjectGridCellP
                         $label = $statusNames[$status];
                     }
                 } else {
-                    $label = $statusNames[EXPORT_STATUS_NOT_DEPOSITED];
+                    $label = $statusNames[PubObjectsExportPlugin::EXPORT_STATUS_NOT_DEPOSITED];
                 }
                 return ['label' => $label];
         }

@@ -13,6 +13,7 @@
 
 namespace APP\submission;
 
+use APP\plugins\PubObjectsExportPlugin;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBResultRange;
 use PKP\identity\Identity;
@@ -72,7 +73,7 @@ class DAO extends \PKP\submission\DAO
         if ($issueId) {
             $params[] = $issueId;
         }
-        if ($pubIdSettingName && $pubIdSettingValue && $pubIdSettingValue != EXPORT_STATUS_NOT_DEPOSITED) {
+        if ($pubIdSettingName && $pubIdSettingValue && $pubIdSettingValue != PubObjectsExportPlugin::EXPORT_STATUS_NOT_DEPOSITED) {
             $params[] = $pubIdSettingValue;
         }
 
@@ -92,8 +93,8 @@ class DAO extends \PKP\submission\DAO
             . ($pubIdType != null ? ' AND pspidt.setting_name = ? AND pspidt.setting_value IS NOT NULL' : '')
             . ($title != null ? ' AND (pst.setting_name = ? AND pst.setting_value LIKE ?)' : '')
             . ($author != null ? ' AND (asgs.setting_value LIKE ? OR asfs.setting_value LIKE ?)' : '')
-            . (($pubIdSettingName != null && $pubIdSettingValue != null && $pubIdSettingValue == EXPORT_STATUS_NOT_DEPOSITED) ? ' AND pss.setting_value IS NULL' : '')
-            . (($pubIdSettingName != null && $pubIdSettingValue != null && $pubIdSettingValue != EXPORT_STATUS_NOT_DEPOSITED) ? ' AND pss.setting_value = ?' : '')
+            . (($pubIdSettingName != null && $pubIdSettingValue != null && $pubIdSettingValue == PubObjectsExportPlugin::EXPORT_STATUS_NOT_DEPOSITED) ? ' AND pss.setting_value IS NULL' : '')
+            . (($pubIdSettingName != null && $pubIdSettingValue != null && $pubIdSettingValue != PubObjectsExportPlugin::EXPORT_STATUS_NOT_DEPOSITED) ? ' AND pss.setting_value = ?' : '')
             . (($pubIdSettingName != null && is_null($pubIdSettingValue)) ? ' AND (pss.setting_value IS NULL OR pss.setting_value = \'\')' : '');
 
         $rows = $this->deprecatedDao->retrieveRange(

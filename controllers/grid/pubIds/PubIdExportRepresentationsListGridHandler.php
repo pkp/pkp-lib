@@ -285,7 +285,7 @@ class PubIdExportRepresentationsListGridHandler extends GridHandler
         } else {
             $column = null;
         }
-        if (isset($filter['statusId']) && $filter['statusId'] != EXPORT_STATUS_ANY) {
+        if (isset($filter['statusId']) && $filter['statusId'] != PubObjectsExportPlugin::EXPORT_STATUS_ANY) {
             $statusId = $filter['statusId'];
         } else {
             $statusId = null;

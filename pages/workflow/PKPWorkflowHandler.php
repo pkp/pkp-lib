@@ -728,7 +728,7 @@ abstract class PKPWorkflowHandler extends Handler
             'lastRecommendation' => $lastRecommendation,
             'allRecommendations' => $allRecommendations,
         ]);
-        $templateMgr->registerClass(Decision::class, Decision::class);
+        $templateMgr->registerClass('Decision', Decision::class);
         return $templateMgr->fetchJson('workflow/editorialLinkActions.tpl');
     }
 

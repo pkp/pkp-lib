@@ -11,7 +11,7 @@
 
 	{if $enableAnnouncements}
 		<li>
-			<a href="{url router=PKPApplication::ROUTE_PAGE page="announcement"}">
+			<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement"}">
 				{translate key="announcement.announcements"}
 			</a>
 		</li>
@@ -20,35 +20,35 @@
 	{if $currentServer}
 
 		<li>
-			<a href="{url router=PKPApplication::ROUTE_PAGE page="about"}">
+			<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about"}">
 				{translate key="navigation.about"}
 			</a>
 			<ul>
 				<li>
-					<a href="{url router=PKPApplication::ROUTE_PAGE page="about"}">
+					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about"}">
 						{translate key="about.aboutContext"}
 					</a>
 				</li>
 				<li>
-					<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="editorialMasthead"}">
+					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="editorialMasthead"}">
 						{translate key="common.editorialMasthead"}
 					</a>
 				</li>
 				{if $currentServer->getLocalizedData('editorialTeam')}
 					<li>
-						<a href="{url router=PKPApplication::ROUTE_PAGE page="about" op="editorialTeam"}">
+						<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="editorialTeam"}">
 							{translate key="about.editorialTeam"}
 						</a>
 					</li>
 				{/if}
 				<li>
-					<a href="{url router=PKPApplication::ROUTE_PAGE page="about" op="submissions"}">
+					<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="submissions"}">
 						{translate key="about.submissions"}
 					</a>
 				</li>
 				{if $currentServer->getData('mailingAddress') || $currentServer->getData('contactName')}
 					<li>
-						<a href="{url router=PKPApplication::ROUTE_PAGE page="about" op="contact"}">
+						<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="contact"}">
 							{translate key="about.contact"}
 						</a>
 					</li>

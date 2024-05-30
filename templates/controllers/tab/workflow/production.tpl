@@ -22,14 +22,14 @@
 	{/if}
 
 	<div class="pkp_workflow_sidebar">
-		{capture assign=productionEditorDecisionsUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
+		{capture assign=productionEditorDecisionsUrl}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
 		{load_url_in_div id="productionEditorDecisionsDiv" url=$productionEditorDecisionsUrl class="editorDecisionActions pkp_tab_actions"}
-		{capture assign=stageParticipantGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.users.stageParticipant.StageParticipantGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
+		{capture assign=stageParticipantGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.users.stageParticipant.StageParticipantGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
 		{load_url_in_div id="stageParticipantGridContainer" url=$stageParticipantGridUrl class="pkp_participants_grid"}
 	</div>
 
 	<div class="pkp_workflow_content">
-		{capture assign=queriesGridUrl}{url router=PKPApplication::ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
+		{capture assign=queriesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
 		{load_url_in_div id="queriesGrid" url=$queriesGridUrl}
 	</div>
 

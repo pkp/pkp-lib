@@ -48,12 +48,12 @@
 
 		{* Pagination *}
 		{if $prevPage > 1}
-			{capture assign=prevUrl}{url router=PKPApplication::ROUTE_PAGE page="preprints" path=$prevPage}{/capture}
+			{capture assign=prevUrl}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="preprints" path=$prevPage}{/capture}
 		{elseif $prevPage === 1}
-			{capture assign=prevUrl}{url router=PKPApplication::ROUTE_PAGE page="preprints"}{/capture}
+			{capture assign=prevUrl}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="preprints"}{/capture}
 		{/if}
 		{if $nextPage}
-			{capture assign=nextUrl}{url router=PKPApplication::ROUTE_PAGE page="preprints" path=$nextPage}{/capture}
+			{capture assign=nextUrl}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="preprints" path=$nextPage}{/capture}
 		{/if}
 		{include
 			file="frontend/components/pagination.tpl"

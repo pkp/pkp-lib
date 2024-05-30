@@ -359,7 +359,7 @@
 						<ul class="value">
 							{foreach from=$categories item=category}
 								<li class="category_{$category.path}">
-									<a href="{url router=PKPApplication::ROUTE_PAGE page="preprints" op="category" path=$category.path|escape}">
+									<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="preprints" op="category" path=$category.path|escape}">
 										{$category.title|escape}
 									</a>
 								</li>

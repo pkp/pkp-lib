@@ -18,6 +18,7 @@
 namespace PKP\db;
 
 use APP\submission\DAO;
+use Countable;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
@@ -207,9 +208,8 @@ class DAOResultFactory extends ItemIterator
         if ($this->records == null) {
             return true;
         }
-        /** @var DAOResultIterator */
-        $records = $this->records;
-        return !$records->valid();
+
+        return $this->records instanceof Countable ? !count($this->records) : !$this->records->valid();
     }
 
     /**

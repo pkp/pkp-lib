@@ -13,7 +13,7 @@
  *
  */
 
- import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
+import('lib.pkp.classes.security.authorization.DataObjectRequiredPolicy');
 
 class SubmissionCompletePolicy extends DataObjectRequiredPolicy {
 
@@ -47,10 +47,6 @@ class SubmissionCompletePolicy extends DataObjectRequiredPolicy {
 	 */
 	public function dataObjectEffect() {
 		$submissionId = $this->getDataObjectId();
-
-		if ($submissionId === false) {
-			return AUTHORIZATION_DENY;
-		}
 
 		$submissionDao = DAORegistry::getDAO("SubmissionDAO"); /** @var SubmissionDAO $submissionDao */
 		$submission = $submissionDao->getById($submissionId);

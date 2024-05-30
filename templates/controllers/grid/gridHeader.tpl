@@ -15,9 +15,9 @@
 		</h4>
 	{/if}
 
-	{if $grid->getActions(\PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_ABOVE)}
-		{if $grid->getActions(\PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_ABOVE)}
-			{include file="controllers/grid/gridActionsAbove.tpl" actions=$grid->getActions(\PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_ABOVE) gridId=$staticId}
+	{if $grid->getActions(PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_ABOVE)}
+		{if $grid->getActions(PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_ABOVE)}
+			{include file="controllers/grid/gridActionsAbove.tpl" actions=$grid->getActions(PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_ABOVE) gridId=$staticId}
 		{/if}
 	{/if}
 </div>

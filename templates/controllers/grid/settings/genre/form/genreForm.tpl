@@ -15,7 +15,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="genreForm" method="post" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.genre.GenreGridHandler" op="updateGenre"}">
+<form class="pkp_form" id="genreForm" method="post" action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.genre.GenreGridHandler" op="updateGenre"}">
 {csrf}
 {include file="controllers/notification/inPlaceNotification.tpl" notificationId="genreFormNotification"}
 

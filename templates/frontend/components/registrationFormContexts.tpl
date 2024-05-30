@@ -70,7 +70,7 @@
 								<div class="context_privacy {if $isSelected}context_privacy_visible{/if}">
 									<label>
 										<input type="checkbox" name="privacyConsent[{$contextId}]" id="privacyConsent[{$contextId}]" value="1"{if $privacyConsent[$contextId]} checked="checked"{/if}>
-										{capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE context=$context->getPath() page="about" op="privacy"}{/capture}
+										{capture assign="privacyUrl"}{url router=PKP\core\PKPApplication::ROUTE_PAGE context=$context->getPath() page="about" op="privacy"}{/capture}
 										{translate key="user.register.form.privacyConsentThisContext" privacyUrl=$privacyUrl}
 									</label>
 								</div>

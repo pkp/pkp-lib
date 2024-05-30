@@ -24,7 +24,7 @@
 			/>
 		</tab>
 		<tab id="announcementTypes" label="{translate key="manager.announcementTypes"}">
-			{capture assign=announcementTypeGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.announcements.AnnouncementTypeGridHandler" op="fetchGrid" escape=false}{/capture}
+			{capture assign=announcementTypeGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.announcements.AnnouncementTypeGridHandler" op="fetchGrid" escape=false}{/capture}
 			{load_url_in_div id="announcementTypeGridContainer" url=$announcementTypeGridUrl}
 		</tab>
 		{call_hook name="Template::Announcements"}

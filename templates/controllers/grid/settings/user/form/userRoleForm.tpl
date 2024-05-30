@@ -13,7 +13,7 @@
 		$('#userRoleForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
 	{rdelim});
 </script>
-<form class="pkp_form" id="userRoleForm" method="post" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="updateUserRoles"}">
+<form class="pkp_form" id="userRoleForm" method="post" action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="updateUserRoles"}">
 	{csrf}
 
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="userRoleFormNotification"}

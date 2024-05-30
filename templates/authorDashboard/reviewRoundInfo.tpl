@@ -16,16 +16,16 @@
 
 {* Reviewer grid *}
 {if $showReviewerGrid}
-	{capture assign="reviewersGridUrl"}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.users.reviewer.AuthorReviewerGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
+	{capture assign="reviewersGridUrl"}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.users.reviewer.AuthorReviewerGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 	{load_url_in_div id="reviewersGrid-round_"|concat:$reviewRoundId url=$reviewersGridUrl}
 {/if}
 
 <!-- Display review attachments grid -->
 {if $showReviewAttachments}
 	{** need to use the stage id in the div because two of these grids can appear in the dashboard at the same time (one for each stage). *}
-	{capture assign=reviewAttachmentsGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.attachment.AuthorReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
+	{capture assign=reviewAttachmentsGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.attachment.AuthorReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 	{load_url_in_div id="reviewAttachmentsGridContainer-`$stageId`-`$reviewRoundId`" url=$reviewAttachmentsGridUrl}
 
-	{capture assign=revisionsGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.review.AuthorReviewRevisionsGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
+	{capture assign=revisionsGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.review.AuthorReviewRevisionsGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 	{load_url_in_div id="revisionsGrid-`$stageId`-`$reviewRoundId`" url=$revisionsGridUrl}
 {/if}

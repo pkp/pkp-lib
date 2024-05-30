@@ -27,7 +27,7 @@
             {else}
                 <article class="obj_announcement_summary">
                     <h4>
-                        <a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
+                        <a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
                             {$announcement->getLocalizedTitle()|escape}
                         </a>
                     </h4>

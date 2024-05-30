@@ -66,7 +66,7 @@
 		{capture assign=enablePublicAccess}{translate key="common.publicAccess"}{/capture}
 		{fbvElement type="checkbox" id="publicAccess" value="1" checked=$publicAccess label=$enablePublicAccess translate=false}
 		<p>
-			{capture assign=downloadUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="libraryFiles" op="downloadPublic" path=$libraryFile->getId()}{/capture}
+			{capture assign=downloadUrl}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="libraryFiles" op="downloadPublic" path=$libraryFile->getId()}{/capture}
 			{translate key="settings.libraryFiles.public.viewInstructions" downloadUrl=$downloadUrl}
 		</p>
 	{/fbvFormSection}

@@ -14,13 +14,13 @@
 <nav class="cmp_breadcrumbs cmp_breadcrumbs_announcement" role="navigation">
 	<ol>
 		<li>
-			<a href="{url page="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}">
+			<a href="{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}">
 				{translate key="common.homepageNavigationLabel"}
 			</a>
 			<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 		</li>
 		<li>
-			<a href="{url page="announcement" router=\PKP\core\PKPApplication::ROUTE_PAGE}">
+			<a href="{url page="announcement" router=PKP\core\PKPApplication::ROUTE_PAGE}">
 				{translate key="announcement.announcements"}
 			</a>
 			<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>

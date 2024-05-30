@@ -23,7 +23,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="navigationMenuForm" method="post" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenusGridHandler" op="updateNavigationMenu"}">
+<form class="pkp_form" id="navigationMenuForm" method="post" action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.navigationMenus.NavigationMenusGridHandler" op="updateNavigationMenu"}">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="navigationMenuFormNotification"}
 	{fbvFormArea id="navigationMenuInfo"}

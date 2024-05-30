@@ -17,7 +17,7 @@
 		</notification>
 	{/if}
 
-	{capture assign=contextsUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.admin.context.ContextGridHandler" op="fetchGrid" escape=false}{/capture}
+	{capture assign=contextsUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.admin.context.ContextGridHandler" op="fetchGrid" escape=false}{/capture}
 	{load_url_in_div id="contextGridContainer" url=$contextsUrl}
 
 {/block}

@@ -48,7 +48,7 @@
 					/>
 				</tab>
 				<tab id="components" label="{translate key="grid.genres.title.short"}">
-					{capture assign=genresUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.genre.GenreGridHandler" op="fetchGrid" escape=false}{/capture}
+					{capture assign=genresUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.genre.GenreGridHandler" op="fetchGrid" escape=false}{/capture}
 					{load_url_in_div id="genresGridContainer" url=$genresUrl}
 				</tab>
 				{call_hook name="Template::Settings::workflow::submission"}
@@ -71,7 +71,7 @@
 						/>
 					</tab>
 					<tab id="reviewForms" label="{translate key="manager.reviewForms"}">
-						{capture assign=reviewFormsUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormGridHandler" op="fetchGrid" escape=false}{/capture}
+						{capture assign=reviewFormsUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormGridHandler" op="fetchGrid" escape=false}{/capture}
 						{load_url_in_div id="reviewFormGridContainer" url=$reviewFormsUrl}
 					</tab>
 					{call_hook name="Template::Settings::workflow::review"}
@@ -80,7 +80,7 @@
 		{/if}
 		<tab id="library" label="{translate key="manager.publication.library"}">
 			{help file="settings/workflow-settings" section="publisher" class="pkp_help_tab"}
-			{capture assign=libraryGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.library.LibraryFileAdminGridHandler" op="fetchGrid" canEdit=true escape=false}{/capture}
+			{capture assign=libraryGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.library.LibraryFileAdminGridHandler" op="fetchGrid" canEdit=true escape=false}{/capture}
 			{load_url_in_div id="libraryGridDiv" url=$libraryGridUrl}
 		</tab>
 		<tab id="emails" label="{translate key="manager.publication.emails"}">

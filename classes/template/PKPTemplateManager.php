@@ -311,11 +311,12 @@ class PKPTemplateManager extends Smarty
         }
 
         // Register classes that need to expose class constants to templates
-        foreach ([PKPApplication::class, \PKP\controllers\grid\GridHandler::class] as $fqcn) {
-            $this->registerClass('\\' . $fqcn, $fqcn);
+        foreach ([PKPApplication::class, Role::class] as $fqcn) {
+            $this->registerClass($fqcn, $fqcn);
         }
 
         // Register custom functions
+        $this->registerPlugin('modifier', 'is_a', is_a(...));
         $this->registerPlugin('modifier', 'count', count(...));
         $this->registerPlugin('modifier', 'intval', intval(...));
         $this->registerPlugin('modifier', 'json_encode', json_encode(...));

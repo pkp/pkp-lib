@@ -22,7 +22,7 @@
 <div id="{$reviewRoundTabsId}" class="pkp_controllers_tab">
 	<ul>
 		{foreach from=$reviewRounds item=reviewRound}
-			<li><a href="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="tab.authorDashboard.AuthorDashboardReviewRoundTabHandler" op="fetchReviewRoundInfo" submissionId=$submission->getId() stageId=$reviewRound->getStageId() reviewRoundId=$reviewRound->getId() escape=false}">{translate key="submission.round" round=$reviewRound->getRound()}</a></li>
+			<li><a href="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="tab.authorDashboard.AuthorDashboardReviewRoundTabHandler" op="fetchReviewRoundInfo" submissionId=$submission->getId() stageId=$reviewRound->getStageId() reviewRoundId=$reviewRound->getId() escape=false}">{translate key="submission.round" round=$reviewRound->getRound()}</a></li>
 		{/foreach}
 	</ul>
 </div>

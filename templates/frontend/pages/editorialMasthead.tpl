@@ -15,7 +15,7 @@
 
 	<h1>{translate key="common.editorialMasthead"}</h1>
 	{foreach from=$mastheadRoles item="mastheadRole"}
-		{if $mastheadRole->getRoleId() != \PKP\security\Role::ROLE_ID_REVIEWER}
+		{if $mastheadRole->getRoleId() != PKP\security\Role::ROLE_ID_REVIEWER}
 			{if array_key_exists($mastheadRole->getId(), $mastheadUsers)}
 				<h2>{$mastheadRole->getLocalizedName()|escape}</h2>
 				<ul>

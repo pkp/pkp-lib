@@ -21,8 +21,8 @@
 </script>
 <div id="editReviewFormTabs" class="pkp_controllers_tab">
 	<ul>
-		<li><a href="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT op="reviewFormBasics" reviewFormId=$reviewFormId}">{translate key="manager.reviewForms.edit"}</a></li>
-		<li><a href="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT op="reviewFormElements" reviewFormId=$reviewFormId}">{translate key="manager.reviewFormElements"}</a></li>
-		<li><a href="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT op="reviewFormPreview" reviewFormId=$reviewFormId}">{translate key="manager.reviewForms.preview"}</a></li>
+		<li><a href="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT op="reviewFormBasics" reviewFormId=$reviewFormId}">{translate key="manager.reviewForms.edit"}</a></li>
+		<li><a href="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT op="reviewFormElements" reviewFormId=$reviewFormId}">{translate key="manager.reviewFormElements"}</a></li>
+		<li><a href="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT op="reviewFormPreview" reviewFormId=$reviewFormId}">{translate key="manager.reviewForms.preview"}</a></li>
 	</ul>
 </div>

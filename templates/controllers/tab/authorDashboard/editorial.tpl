@@ -12,12 +12,12 @@
 	{include file="authorDashboard/submissionEmails.tpl" submissionEmails=$copyeditingEmails}
 
 	<!-- Display queries grid -->
-	{capture assign=queriesGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_EDITING escape=false}{/capture}
+	{capture assign=queriesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$smarty.const.WORKFLOW_STAGE_ID_EDITING escape=false}{/capture}
 	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}
 
 	<!-- Copyedited Files grid -->
 	{if $canAccessCopyeditingStage}
-		{capture assign=copyeditedFilesGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.copyedit.CopyeditFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
+		{capture assign=copyeditedFilesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.copyedit.CopyeditFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
 		{load_url_in_div id="copyeditedFilesGrid" url=$copyeditedFilesGridUrl}
 	{/if}
 {else}

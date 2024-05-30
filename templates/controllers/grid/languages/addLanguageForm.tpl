@@ -15,7 +15,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="addLanguageForm" method="post" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.languages.SubmissionLanguageGridHandler" op="addLanguages"}">
+<form class="pkp_form" id="addLanguageForm" method="post" action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.languages.SubmissionLanguageGridHandler" op="addLanguages"}">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="installLanguageFormNotification"}
 

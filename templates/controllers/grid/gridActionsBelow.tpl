@@ -9,7 +9,7 @@
  *}
 
 <ul class="actions btm">
-	{foreach from=$grid->getActions(\PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_BELOW) item=action}
+	{foreach from=$grid->getActions(PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_BELOW) item=action}
 		<li>
 			{include file="linkAction/linkAction.tpl" action=$action contextId=$gridId}
 		</li>

@@ -48,7 +48,7 @@
 					{/if}
 					<div class="pkp_site_name">
 					{capture assign="homeUrl"}
-						{url page="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}
+						{url page="index" router=PKP\core\PKPApplication::ROUTE_PAGE}
 					{/capture}
 					{if $displayPageHeaderLogo}
 						<a href="{$homeUrl}" class="is_img">

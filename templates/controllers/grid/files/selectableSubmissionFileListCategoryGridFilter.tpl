@@ -11,7 +11,7 @@
 	// Attach the form handler to the form.
 	$('#fileListFilterForm').pkpHandler('$.pkp.controllers.form.ToggleFormHandler');
 </script>
-<form class="pkp_form filter" id="fileListFilterForm" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT op="fetchGrid"}" method="post">
+<form class="pkp_form filter" id="fileListFilterForm" action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT op="fetchGrid"}" method="post">
 	{csrf}
 	{fbvFormArea id="includeAllStagesArea"}
 		{fbvFormSection list="true"}

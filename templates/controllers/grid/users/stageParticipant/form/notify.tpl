@@ -13,7 +13,7 @@
 		$('#notifyForm').pkpHandler(
 			'$.pkp.controllers.grid.users.stageParticipant.form.StageParticipantNotifyHandler',
 			{ldelim}
-				templateUrl: {url|json_encode router=\PKP\core\PKPApplication::ROUTE_COMPONENT component='grid.users.stageParticipant.StageParticipantGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$submissionId escape=false}
+				templateUrl: {url|json_encode router=PKP\core\PKPApplication::ROUTE_COMPONENT component='grid.users.stageParticipant.StageParticipantGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$submissionId escape=false}
 			{rdelim}
 		);
 	{rdelim});

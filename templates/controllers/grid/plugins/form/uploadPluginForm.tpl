@@ -15,14 +15,14 @@
 			{ldelim}
 				$uploader: $('#plupload'),
 				uploaderOptions: {ldelim}
-					uploadUrl: {url|json_encode router=\PKP\core\PKPApplication::ROUTE_COMPONENT op="uploadPluginFile" function=$function escape=false},
+					uploadUrl: {url|json_encode router=PKP\core\PKPApplication::ROUTE_COMPONENT op="uploadPluginFile" function=$function escape=false},
 					baseUrl: {$baseUrl|json_encode}
 				{rdelim}
 			{rdelim});
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="uploadPluginForm" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT op="saveUploadPlugin" function=$function category=$category plugin=$plugin}" method="post">
+<form class="pkp_form" id="uploadPluginForm" action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT op="saveUploadPlugin" function=$function category=$category plugin=$plugin}" method="post">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="uploadPluginNotification"}
 

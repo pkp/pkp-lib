@@ -58,7 +58,7 @@
 		{/foreach}
 
 		<p>
-			{capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
+			{capture assign="privacyUrl"}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 			{translate key="user.privacyLink" privacyUrl=$privacyUrl}
 		</p>
 

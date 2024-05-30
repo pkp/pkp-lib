@@ -384,7 +384,7 @@ class GridHandler extends PKPHandler
      */
     public function hasGridDataElements($request)
     {
-        $data = & $this->getGridDataElements($request);
+        $data = &$this->getGridDataElements($request);
         assert(is_array($data));
         return (bool) count($data);
     }
@@ -717,6 +717,7 @@ class GridHandler extends PKPHandler
 
         // Prepare the template to render the grid.
         $templateMgr = TemplateManager::getManager($request);
+        $templateMgr->registerClass(self::class, self::class);
         $templateMgr->assign('grid', $this);
         $templateMgr->assign('request', $request);
 
@@ -936,7 +937,7 @@ class GridHandler extends PKPHandler
      */
     protected function getRowDataElement($request, &$rowId)
     {
-        $elements = & $this->getGridDataElements($request);
+        $elements = &$this->getGridDataElements($request);
 
         assert(is_array($elements));
         if (!isset($elements[$rowId])) {
@@ -1073,7 +1074,7 @@ class GridHandler extends PKPHandler
      */
     protected function setFirstDataColumn()
     {
-        $columns = & $this->getColumns();
+        $columns = &$this->getColumns();
         $firstColumn = reset($columns);
         $firstColumn->addFlag('firstColumn', true);
     }
@@ -1243,7 +1244,7 @@ class GridHandler extends PKPHandler
     {
         // If there is no object, then we want to return an empty row.
         // override the assigned GridCellProvider and provide the default.
-        $element = & $row->getData();
+        $element = &$row->getData();
         if (is_null($element) && $row->getIsModified()) {
             $cellProvider = new GridCellProvider();
             return $cellProvider->render($request, $row, $column);
@@ -1268,7 +1269,7 @@ class GridHandler extends PKPHandler
      */
     private function _fixColumnWidths()
     {
-        $columns = & $this->getColumns();
+        $columns = &$this->getColumns();
         $width = 0;
         $noSpecifiedWidthCount = 0;
         // Find the total width and how many columns do not specify their width.

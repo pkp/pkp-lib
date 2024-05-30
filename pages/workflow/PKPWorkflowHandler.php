@@ -39,6 +39,7 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\decision\Decision;
 use PKP\notification\NotificationDAO;
 use PKP\notification\PKPNotification;
 use PKP\plugins\PluginRegistry;
@@ -625,7 +626,7 @@ abstract class PKPWorkflowHandler extends Handler
                         ->withRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR])
                         ->withRecommendOnly(false)
                         ->exists();
-                        
+
                 } elseif ($makeDecision) {
                     // Get the made editorial decisions from all users
                     $editorDecisions = Repo::decision()
@@ -727,6 +728,7 @@ abstract class PKPWorkflowHandler extends Handler
             'lastRecommendation' => $lastRecommendation,
             'allRecommendations' => $allRecommendations,
         ]);
+        $templateMgr->registerClass(Decision::class, Decision::class);
         return $templateMgr->fetchJson('workflow/editorialLinkActions.tpl');
     }
 

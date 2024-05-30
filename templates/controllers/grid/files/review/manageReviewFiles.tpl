@@ -19,7 +19,7 @@
 	<div id="existingFilesContainer">
 		{csrf}
 		<!-- Available submission files -->
-		{capture assign=availableReviewFilesGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.review.ManageReviewFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
+		{capture assign=availableReviewFilesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.review.ManageReviewFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 		{load_url_in_div id="availableReviewFilesGrid" url=$availableReviewFilesGridUrl}
 		{fbvFormButtons}
 	</div>

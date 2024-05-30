@@ -24,7 +24,7 @@
 	{/if}
 	<div class="obj_announcement_summary_details">
 		<{$heading}>
-			<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
+			<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
 				{$announcement->getLocalizedTitle()|escape}
 			</a>
 		</{$heading}>
@@ -33,7 +33,7 @@
 		</div>
 		<div class="summary">
 			{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
-			<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}" class="read_more">
+			<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}" class="read_more">
 				<span aria-hidden="true" role="presentation">
 					{translate key="common.readMore"}
 				</span>

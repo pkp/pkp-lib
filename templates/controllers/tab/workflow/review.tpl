@@ -29,7 +29,7 @@
 		<ul>
 			{foreach from=$reviewRounds item=reviewRound}
 				<li>
-					<a href="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="tab.workflow.ReviewRoundTabHandler" op=$reviewRoundOp submissionId=$submission->getId() stageId=$reviewRound->getStageId() reviewRoundId=$reviewRound->getId()}">{translate key="submission.round" round=$reviewRound->getRound()}</a>
+					<a href="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="tab.workflow.ReviewRoundTabHandler" op=$reviewRoundOp submissionId=$submission->getId() stageId=$reviewRound->getStageId() reviewRoundId=$reviewRound->getId()}">{translate key="submission.round" round=$reviewRound->getRound()}</a>
 				</li>
 			{/foreach}
 			{if $newRoundUrl}
@@ -45,7 +45,7 @@
 		</ul>
 	</div>
 
-	{capture assign=queriesGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
+	{capture assign=queriesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
 	{load_url_in_div id="queriesGrid" url=$queriesGridUrl}
 {else}
 	<p>{translate key="editor.review.notInitiated"}</p>

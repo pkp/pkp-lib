@@ -21,7 +21,7 @@
 		{csrf}
 		{fbvFormArea id="manageCopyeditFiles"}
 			{fbvFormSection}
-				{capture assign=manageCopyeditFilesGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.copyedit.ManageCopyeditFilesGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}{/capture}
+				{capture assign=manageCopyeditFilesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.copyedit.ManageCopyeditFilesGridHandler" op="fetchGrid" submissionId=$submissionId escape=false}{/capture}
 				{load_url_in_div id="manageCopyeditFilesGrid" url=$manageCopyeditFilesGridUrl}
 			{/fbvFormSection}
 

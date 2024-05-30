@@ -10,5 +10,5 @@
 
 {help file="editorial-workflow" section="editorial-history" class="pkp_help_tab"}
 
-{capture assign=submissionHistoryGridUrl}{url params=$gridParameters router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.eventLog.SubmissionEventLogGridHandler" op="fetchGrid" escape=false}{/capture}
+{capture assign=submissionHistoryGridUrl}{url params=$gridParameters router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.eventLog.SubmissionEventLogGridHandler" op="fetchGrid" escape=false}{/capture}
 {load_url_in_div id="submissionHistoryGridContainer" url=$submissionHistoryGridUrl}

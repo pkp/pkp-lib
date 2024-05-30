@@ -38,7 +38,7 @@
 
 	{capture assign="extraContent"}
 		<!-- Available review files -->
-		{capture assign=limitReviewFilesGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.review.LimitReviewFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
+		{capture assign=limitReviewFilesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.review.LimitReviewFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 		{load_url_in_div id="limitReviewFilesGrid" url=$limitReviewFilesGridUrl}
 	{/capture}
 	<div id="filesAccordian" class="section">

@@ -15,7 +15,7 @@
 
 	<p>{translate key="notification.unsubscribeNotifications.pageMessage" contextName=$contextName|escape email=$userEmail|escape}
 
-	<form class="cmp_form" id="unsubscribeNotificationForm" method="post" action="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="notification" op="unsubscribe"}">
+	<form class="cmp_form" id="unsubscribeNotificationForm" method="post" action="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="notification" op="unsubscribe"}">
 		{csrf}
 
 		<input type="hidden" name="validate" value="{$validationToken|escape}" />

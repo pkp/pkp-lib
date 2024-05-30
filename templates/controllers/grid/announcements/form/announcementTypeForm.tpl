@@ -15,7 +15,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="announcementTypeForm" method="post" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.announcements.AnnouncementTypeGridHandler" op="updateAnnouncementType"}">
+<form class="pkp_form" id="announcementTypeForm" method="post" action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.announcements.AnnouncementTypeGridHandler" op="updateAnnouncementType"}">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="announcementTypeFormNotification"}
 	{fbvFormArea id="announcementTypeInfo"}

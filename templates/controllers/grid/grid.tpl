@@ -56,9 +56,9 @@
 					<th scope="col" style="text-align: {$alignment};">
 						{$column->getLocalizedTitle()}
 						{* TODO: Remove this stuff.  Actions should not ever appear in the TH of a grid. *}
-						{if $smarty.foreach.columns.last && $grid->getActions(\PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_LASTCOL)}
+						{if $smarty.foreach.columns.last && $grid->getActions(PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_LASTCOL)}
 							<span class="options pkp_linkActions">
-								{foreach from=$grid->getActions(\PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_LASTCOL) item=action}
+								{foreach from=$grid->getActions(PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_LASTCOL) item=action}
 									{include file="linkAction/linkAction.tpl" action=$action contextId=$staticId}
 								{/foreach}
 							</span>
@@ -96,11 +96,11 @@
 		</div>
 	{/if}
 
-	{if $grid->getActions(\PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_BELOW) || $grid->getFootNote()}
+	{if $grid->getActions(PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_BELOW) || $grid->getFootNote()}
 	<div class="footer">
 
-		{if $grid->getActions(\PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_BELOW)}
-			{include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions(\PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_BELOW) gridId=$staticId}
+		{if $grid->getActions(PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_BELOW)}
+			{include file="controllers/grid/gridActionsBelow.tpl" actions=$grid->getActions(PKP\controllers\grid\GridHandler::GRID_ACTION_POSITION_BELOW) gridId=$staticId}
 		{/if}
 
 		{if $grid->getFootNote()}

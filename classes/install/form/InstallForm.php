@@ -101,7 +101,7 @@ class InstallForm extends MaintenanceForm
         }, ['UTC' => 'UTC']);
 
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->registerPlugin('function', 'is_writeable', 'is_writeable');
+        $templateMgr->registerPlugin('modifier', 'is_writeable', is_writeable(...));
         $languages = array_map(fn (LocaleMetadata $locale) => $locale->getDisplayName($locale->locale, true), Locale::getLocales());
         asort($languages);
         $templateMgr->assign([

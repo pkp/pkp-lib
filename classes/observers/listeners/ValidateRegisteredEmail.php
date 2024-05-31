@@ -20,7 +20,7 @@ use APP\facades\Repo;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
-use PKP\invitation\invitations\RegistrationAccessInvite;
+use PKP\invitations\RegistrationAccessInvite;
 use PKP\mail\mailables\ValidateEmailContext as ContextMailable;
 use PKP\mail\mailables\ValidateEmailSite as SiteMailable;
 use PKP\observers\events\UserRegisteredContext;
@@ -83,12 +83,10 @@ class ValidateRegisteredEmail
             $mailable->from($event->site->getLocalizedContactEmail(), $event->site->getLocalizedContactName());
         }
 
-        $reviewInvitation = new RegistrationAccessInvite(
-            $event->recipient->getId(),
-            $contextId
-        );
-        $reviewInvitation->setMailable($mailable);
-        $reviewInvitation->dispatch();
+        $registrationAccessInvite = new RegistrationAccessInvite();
+        $registrationAccessInvite->initialize($event->recipient->getId(), $contextId, null);
+        $registrationAccessInvite->dispatch();
+        $registrationAccessInvite->updateMailableWithUrl($mailable);
 
         $registerTemplate = Repo::emailTemplate()->getByKey($contextId, $mailable::getEmailTemplateKey());
 

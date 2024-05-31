@@ -16,10 +16,13 @@
 
 namespace PKP\pages\invitation;
 
+use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
-use PKP\invitation\invitations\BaseInvitation;
+use Exception;
+use PKP\invitation\invitations\enums\InvitationAction;
+use PKP\invitation\invitations\Invitation;
 
 class PKPInvitationHandler extends Handler
 {
@@ -30,10 +33,12 @@ class PKPInvitationHandler extends Handler
     /**
      * Accept invitation handler
      */
-    public function accept($args, $request): void
+    public function accept(array $args, Request $request): void
     {
         $invitation = $this->getInvitationByKey($request);
-        $invitation->acceptHandle();
+        $invitationHandler = $invitation->getInvitationActionRedirectController();
+        $invitationHandler->preRedirectActions(InvitationAction::ACCEPT);
+        $invitationHandler->acceptHandle($request);
     }
 
     /**
@@ -42,10 +47,12 @@ class PKPInvitationHandler extends Handler
     public function decline(array $args, Request $request): void
     {
         $invitation = $this->getInvitationByKey($request);
-        $invitation->declineHandle();
+        $invitationHandler = $invitation->getInvitationActionRedirectController();
+        $invitationHandler->preRedirectActions(InvitationAction::DECLINE);
+        $invitationHandler->declineHandle($request);
     }
 
-    private function getInvitationByKey(Request $request): BaseInvitation
+    private function getInvitationByKey(Request $request): Invitation
     {
         $key = $request->getUserVar('key') ?: null;
         $id = $request->getUserVar('id') ?: null;
@@ -58,5 +65,32 @@ class PKPInvitationHandler extends Handler
         }
 
         return $invitation;
+    }
+
+    public static function getActionUrl(InvitationAction $action, Invitation $invitation): string
+    {
+        $invitationId = $invitation->getId();
+        $invitationKey = $invitation->getKey();
+
+        if (!isset($invitationId) || !isset($invitationKey)) {
+            throw new Exception();
+        }
+
+        $request = Application::get()->getRequest();
+        $contextPath = $request->getContext() ? $request->getContext()->getPath() : null;
+        
+        return $request->getDispatcher()
+            ->url(
+                $request,
+                Application::ROUTE_PAGE,
+                $contextPath,
+                PKPInvitationHandler::REPLY_PAGE,
+                $action->value,
+                null,
+                [
+                    'id' => $invitationId,
+                    'key' => $invitationKey,
+                ]
+            );
     }
 }

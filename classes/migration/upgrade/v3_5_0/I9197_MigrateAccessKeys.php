@@ -19,8 +19,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\install\DowngradeNotSupportedException;
-use PKP\invitation\invitations\RegistrationAccessInvite;
-use PKP\invitation\invitations\ReviewerAccessInvite;
+use PKP\invitations\ReviewerAccessInvite;
+use PKP\invitations\RegistrationAccessInvite;
 use PKP\migration\Migration;
 
 class I9197_MigrateAccessKeys extends Migration
@@ -74,11 +74,8 @@ class I9197_MigrateAccessKeys extends Migration
 
             // Add Table custom invitations Indexes
 
-            // RegistrationAccessInvite
-            $table->index(['status', 'context_id', 'user_id', 'class_name']);
-
-            // ReviewerAccessInvite
-            $table->index(['status', 'context_id', 'user_id', 'class_name', 'assoc_id']);
+            // Invitations
+            $table->index(['status', 'context_id', 'user_id', 'payload']);
 
             // Expired
             $table->index(['expiry_date']);
@@ -91,18 +88,19 @@ class I9197_MigrateAccessKeys extends Migration
             $invitation = null;
 
             if ($accessKey->context == 'RegisterContext') { // Registered User validation Invitation
-                $invitation = new RegistrationAccessInvite($accessKey->user_id);
+                $invitation = new RegistrationAccessInvite();
+                $invitation->initialize($accessKey->user_id, null, null);
             } elseif (isset($accessKey->context)) { // Reviewer Invitation
-                $invitation = new ReviewerAccessInvite(
-                    $accessKey->user_id,
-                    $accessKey->context,
-                    $accessKey->assoc_id
-                );
+                $invitation = new ReviewerAccessInvite();
+                $invitation->initialize($accessKey->user_id, $accessKey->context, null);
+                
+                $invitation->reviewAssignmentId = $accessKey->assoc_id;
+                $invitation->updatePayload();
             }
 
             if (isset($invitation)) {
-                $invitation->setKeyHash($accessKey->key_hash);
-                $invitation->setExpirationDate(new Carbon($accessKey->expiry_date));
+                $invitation->invitationModel->keyHash = $accessKey->key_hash;
+                $invitation->setExpiryDate(new Carbon($accessKey->expiry_date));
 
                 $invitation->dispatch();
 

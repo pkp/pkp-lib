@@ -28,7 +28,7 @@ use PKP\core\PKPRequest;
 use PKP\core\PKPServices;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
-use PKP\invitation\invitations\ReviewerAccessInvite;
+use PKP\invitations\ReviewerAccessInvite;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\ReviewRequest;
 use PKP\mail\mailables\ReviewRequestSubsequent;
@@ -232,13 +232,14 @@ class EditorAction
             new ReviewRequestSubsequent($context, $submission, $reviewAssignment);
 
         if ($context->getData('reviewerAccessKeysEnabled')) {
-            $reviewInvitation = new ReviewerAccessInvite(
-                $reviewAssignment->getReviewerId(),
-                $context->getId(),
-                $reviewAssignment->getId()
-            );
-            $reviewInvitation->setMailable($mailable);
+            $reviewInvitation = new ReviewerAccessInvite();
+            $reviewInvitation->initialize($reviewAssignment->getReviewerId(), $context->getId(), null);
+
+            $reviewInvitation->reviewAssignmentId = $reviewAssignment->getId();
+            $reviewInvitation->updatePayload();
+
             $reviewInvitation->dispatch();
+            $reviewInvitation->updateMailableWithUrl($mailable);
         }
 
         $mailable

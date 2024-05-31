@@ -9,8 +9,6 @@
  *
  * @class InvitationStatus
  *
- * @ingroup invitations
- *
  * @brief Enumeration for invitation statuses
  */
 
@@ -18,6 +16,7 @@ namespace PKP\invitation\invitations\enums;
 
 enum InvitationStatus: string
 {
+    case INITIALIZED = 'INITIALIZED';
     case PENDING = 'PENDING';
     case ACCEPTED = 'ACCEPTED';
     case DECLINED = 'DECLINED';

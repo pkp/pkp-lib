@@ -161,6 +161,7 @@ class PKPContainer extends Container
         $this->register(new AppServiceProvider($this));
         $this->register(new LocaleServiceProvider($this));
         $this->register(new PKPRoutingProvider($this));
+        $this->register(new PKPInvitationServiceProvider($this));
     }
 
     /**

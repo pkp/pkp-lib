@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
-use PKP\invitation\invitations\ReviewerAccessInvite;
+use PKP\invitations\ReviewerAccessInvite;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\ReviewRemindAuto;
 use PKP\mail\mailables\ReviewResponseRemindAuto;
@@ -66,13 +66,14 @@ class ReviewReminder extends ScheduledTask
 
         $reviewerAccessKeysEnabled = $context->getData('reviewerAccessKeysEnabled');
         if ($reviewerAccessKeysEnabled) { // Give one-click access if enabled
-            $reviewInvitation = new ReviewerAccessInvite(
-                $reviewAssignment->getReviewerId(),
-                $context->getId(),
-                $reviewAssignment->getId()
-            );
-            $reviewInvitation->setMailable($mailable);
+            $reviewInvitation = new ReviewerAccessInvite();
+            $reviewInvitation->initialize($reviewAssignment->getReviewerId(), $context->getId(), null);
+
+            $reviewInvitation->reviewAssignmentId = $reviewAssignment->getId();
+            $reviewInvitation->updatePayload();
+
             $reviewInvitation->dispatch();
+            $reviewInvitation->updateMailableWithUrl($mailable);
         }
 
         // deprecated template variables OJS 2.x

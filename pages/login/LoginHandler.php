@@ -223,7 +223,7 @@ class LoginHandler extends Handler
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
 
-        $email = $request->getUserVar('email');
+        $email = (string) $request->getUserVar('email');
         $user = $email ? Repo::user()->getByEmail($email, true) : null;
         if ($user !== null) {
             if ($user->getDisabled()) {

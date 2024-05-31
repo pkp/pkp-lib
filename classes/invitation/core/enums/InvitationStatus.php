@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file invitation/invitations/enums/InvitationStatus.php
+ * @file invitation/core/enums/InvitationStatus.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
@@ -12,7 +12,7 @@
  * @brief Enumeration for invitation statuses
  */
 
-namespace PKP\invitation\invitations\enums;
+namespace PKP\invitation\core\enums;
 
 enum InvitationStatus: string
 {

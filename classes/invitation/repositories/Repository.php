@@ -14,7 +14,7 @@
 
 namespace PKP\invitation\repositories;
 
-use PKP\invitation\invitations\Invitation;
+use PKP\invitation\core\Invitation;
 use PKP\invitation\models\InvitationModel;
 
 class Repository

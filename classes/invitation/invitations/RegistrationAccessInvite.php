@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file invitations/RegistrationAccessInvite.php
+ * @file classes/invitation/invitations/RegistrationAccessInvite.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
@@ -12,20 +12,20 @@
  * @brief Registration with Access Key invitation
  */
 
-namespace PKP\invitations;
+namespace PKP\invitation\invitations;
 
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Mail\Mailable;
 use PKP\core\Core;
-use PKP\invitation\invitations\enums\InvitationAction;
-use PKP\invitation\invitations\enums\InvitationStatus;
-use PKP\invitation\invitations\contracts\IBackofficeHandleable;
-use PKP\invitation\invitations\contracts\IMailableUrlUpdateable;
-use PKP\invitation\invitations\Invitation;
-use PKP\invitation\invitations\PKPInvitationActionRedirectController;
+use PKP\invitation\core\enums\InvitationAction;
+use PKP\invitation\core\enums\InvitationStatus;
+use PKP\invitation\core\contracts\IBackofficeHandleable;
+use PKP\invitation\core\contracts\IMailableUrlUpdateable;
+use PKP\invitation\core\Invitation;
+use PKP\invitation\core\PKPInvitationActionRedirectController;
 use PKP\invitation\models\InvitationModel;
-use PKP\invitations\handlers\RegistrationAccessInviteRedirectController;
+use PKP\invitation\invitations\handlers\RegistrationAccessInviteRedirectController;
 use PKP\user\User;
 
 class RegistrationAccessInvite extends Invitation implements IBackofficeHandleable, IMailableUrlUpdateable

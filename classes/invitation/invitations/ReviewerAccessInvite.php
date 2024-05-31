@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file invitations/ReviewerAccessInvite.php
+ * @file classes/invitation/invitations/ReviewerAccessInvite.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
@@ -12,21 +12,21 @@
  * @brief Reviewer with Access Key invitation
  */
 
-namespace PKP\invitations;
+namespace PKP\invitation\invitations;
 
 use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Mail\Mailable;
-use PKP\invitation\invitations\enums\InvitationAction;
-use PKP\invitation\invitations\enums\InvitationStatus;
-use PKP\invitation\invitations\contracts\IBackofficeHandleable;
-use PKP\invitation\invitations\contracts\IMailableUrlUpdateable;
-use PKP\invitation\invitations\Invitation;
-use PKP\invitation\invitations\PKPInvitationActionRedirectController;
-use PKP\invitation\invitations\traits\ShouldValidate;
+use PKP\invitation\core\enums\InvitationAction;
+use PKP\invitation\core\enums\InvitationStatus;
+use PKP\invitation\core\contracts\IBackofficeHandleable;
+use PKP\invitation\core\contracts\IMailableUrlUpdateable;
+use PKP\invitation\core\Invitation;
+use PKP\invitation\core\PKPInvitationActionRedirectController;
+use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\models\InvitationModel;
-use PKP\invitations\handlers\ReviewerAccessInviteRedirectController;
+use PKP\invitation\invitations\handlers\ReviewerAccessInviteRedirectController;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\security\Validation;
 

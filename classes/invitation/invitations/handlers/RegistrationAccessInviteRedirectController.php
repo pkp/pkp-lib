@@ -1,33 +1,31 @@
 <?php
 
 /**
- * @file invitations/handlers/ReviewerAccessInviteRedirectController.php
+ * @file classes/invitation/invitations/handlers/RegistrationAccessInviteRedirectController.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ReviewerAccessInviteRedirectController
- *
- * @ingroup invitations\handlers
+ * @class RegistrationAccessInviteRedirectController
  *
  * @brief Change Profile Email invitation
  */
 
-namespace PKP\invitations\handlers;
+namespace PKP\invitation\invitations\handlers;
 
 use APP\core\Request;
 use APP\facades\Repo;
 use Exception;
 use PKP\core\PKPApplication;
-use PKP\invitation\invitations\enums\InvitationAction;
-use PKP\invitation\invitations\enums\InvitationStatus;
-use PKP\invitation\invitations\PKPInvitationActionRedirectController;
-use PKP\invitations\ReviewerAccessInvite;
+use PKP\invitation\core\enums\InvitationAction;
+use PKP\invitation\core\enums\InvitationStatus;
+use PKP\invitation\core\PKPInvitationActionRedirectController;
+use PKP\invitation\invitations\RegistrationAccessInvite;
 
-class ReviewerAccessInviteRedirectController extends PKPInvitationActionRedirectController
+class RegistrationAccessInviteRedirectController extends PKPInvitationActionRedirectController
 {
-    public function getInvitation(): ReviewerAccessInvite
+    public function getInvitation(): RegistrationAccessInvite
     {
         return $this->invitation;
     }
@@ -38,26 +36,37 @@ class ReviewerAccessInviteRedirectController extends PKPInvitationActionRedirect
             $request->getDispatcher()->handle404();
         }
         
-        $context = $request->getContext();
-
-        $reviewAssignment = Repo::reviewAssignment()->get($this->getInvitation()->reviewAssignmentId);
-
-        if (!$reviewAssignment) {
+        $user = Repo::user()->get($this->invitation->invitationModel->userId, true);
+        
+        if (!$user) {
             throw new Exception();
         }
 
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
-            $context->getData('urlPath'),
-            'reviewer',
-            'submission',
             null,
+            'user',
+            'activateUser',
             [
-                'submissionId' => $reviewAssignment->getSubmissionId(),
-                'reviewId' => $reviewAssignment->getId(),
+                $user->getUsername(),
             ]
         );
+
+        if (isset($this->invitationModel->contextId)) {
+            $context = $request->getContext();
+
+            $url = PKPApplication::get()->getDispatcher()->url(
+                PKPApplication::get()->getRequest(),
+                PKPApplication::ROUTE_PAGE,
+                $context->getData('urlPath'),
+                'user',
+                'activateUser',
+                [
+                    $user->getUsername(),
+                ]
+            );
+        }
 
         $request->redirectUrl($url);
     }
@@ -83,7 +92,7 @@ class ReviewerAccessInviteRedirectController extends PKPInvitationActionRedirect
 
         $request->redirectUrl($url);
     }
-
+    
     public function preRedirectActions(InvitationAction $action) 
     {
         if ($action == InvitationAction::ACCEPT) {

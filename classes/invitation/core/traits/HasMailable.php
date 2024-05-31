@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/invitation/invitations/traits/HasMailable.php
+ * @file classes/invitation/core/traits/HasMailable.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
@@ -12,7 +12,7 @@
  * @brief Interface for all Invitation API Handlers
  */
 
-namespace PKP\invitation\invitations\traits;
+namespace PKP\invitation\core\traits;
 
 use Illuminate\Mail\Mailable;
 

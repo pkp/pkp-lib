@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file invitations/ChangeProfileEmailInvite.php
+ * @file classes/invitation/invitations/ChangeProfileEmailInvite.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
@@ -9,27 +9,25 @@
  *
  * @class ChangeProfileEmailInvite
  *
- * @ingroup invitations
- *
  * @brief Change Profile Email invitation
  */
 
-namespace PKP\invitations;
+namespace PKP\invitation\invitations;
 
 use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Mail\Mailable;
 use PKP\identity\Identity;
-use PKP\invitation\invitations\contracts\IBackofficeHandleable;
-use PKP\invitation\invitations\enums\InvitationAction;
-use PKP\invitation\invitations\enums\InvitationStatus;
-use PKP\invitation\invitations\Invitation;
-use PKP\invitation\invitations\PKPInvitationActionRedirectController;
-use PKP\invitation\invitations\traits\HasMailable;
-use PKP\invitation\invitations\traits\ShouldValidate;
+use PKP\invitation\core\contracts\IBackofficeHandleable;
+use PKP\invitation\core\enums\InvitationAction;
+use PKP\invitation\core\enums\InvitationStatus;
+use PKP\invitation\core\Invitation;
+use PKP\invitation\core\PKPInvitationActionRedirectController;
+use PKP\invitation\core\traits\HasMailable;
+use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\models\InvitationModel;
-use PKP\invitations\handlers\ChangeProfileEmailInviteRedirectController;
+use PKP\invitation\invitations\handlers\ChangeProfileEmailInviteRedirectController;
 use PKP\mail\mailables\ChangeProfileEmailInvitationNotify;
 
 class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleable

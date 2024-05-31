@@ -19,8 +19,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\install\DowngradeNotSupportedException;
-use PKP\invitations\ReviewerAccessInvite;
-use PKP\invitations\RegistrationAccessInvite;
+use PKP\invitation\invitations\ReviewerAccessInvite;
+use PKP\invitation\invitations\RegistrationAccessInvite;
 use PKP\migration\Migration;
 
 class I9197_MigrateAccessKeys extends Migration

@@ -19,7 +19,7 @@ namespace PKP\user\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\form\Form;
-use PKP\invitations\ChangeProfileEmailInvite;
+use PKP\invitation\invitations\ChangeProfileEmailInvite;
 use PKP\user\User;
 
 abstract class BaseProfileForm extends Form

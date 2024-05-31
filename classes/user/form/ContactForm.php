@@ -20,9 +20,9 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\facades\Locale;
-use PKP\invitation\invitations\enums\InvitationStatus;
+use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\models\InvitationModel;
-use PKP\invitations\ChangeProfileEmailInvite;
+use PKP\invitation\invitations\ChangeProfileEmailInvite;
 use PKP\user\User;
 
 class ContactForm extends BaseProfileForm

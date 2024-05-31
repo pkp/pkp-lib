@@ -18,7 +18,7 @@
 namespace PKP\mail\traits;
 
 use PKP\context\Context;
-use PKP\invitations\ReviewerAccessInvite;
+use PKP\invitation\invitation\invitations\ReviewerAccessInvite;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 trait OneClickReviewerAccess

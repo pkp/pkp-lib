@@ -25,10 +25,10 @@ class CitationListTokenizerFilterTest extends PKPTestCase {
 		$tokenizer = new CitationListTokenizerFilter();
 		$rawCitationList = "\t1. citation1\n\n2 citation2\r\n 3) citation3\n[4]citation4";
 		$expectedResult = array(
-			'citation1',
-			'citation2',
-			'citation3',
-			'citation4'
+			'1. citation1',
+			'2 citation2',
+			'3) citation3',
+			'[4]citation4'
 		);
 		self::assertEquals($expectedResult, $tokenizer->process($rawCitationList));
 

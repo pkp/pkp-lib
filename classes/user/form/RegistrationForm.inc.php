@@ -329,7 +329,7 @@ class RegistrationForm extends Form {
 				'activateUrl' => $request->url($contextPath, 'user', 'activateUser', [$this->getData('username'), $accessKey])
 			]);
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
-			if (!$mail->send()) {
+			if ($mail->isEnabled() && !$mail->send()) {
 				import('classes.notification.NotificationManager');
 				$notificationMgr = new NotificationManager();
 				$notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));

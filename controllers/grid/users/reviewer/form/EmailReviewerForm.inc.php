@@ -87,7 +87,7 @@ class EmailReviewerForm extends Form {
 		$email->setSubject($this->getData('subject'));
 		$email->setBody($this->getData('message'));
 		$email->assignParams();
-		if (!$email->send()) {
+		if ($email->isEnabled() && !$email->send()) {
 			import('classes.notification.NotificationManager');
 			$notificationMgr = new NotificationManager();
 			$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));

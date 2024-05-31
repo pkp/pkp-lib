@@ -181,7 +181,7 @@ abstract class PKPStageParticipantNotifyForm extends Form {
 
 			$suppressNotificationEmail = false;
 
-			if (!$email->send($request)) {
+			if ($email->isEnabled() && !$email->send($request)) {
 				import('classes.notification.NotificationManager');
 				$notificationMgr = new NotificationManager();
 				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));

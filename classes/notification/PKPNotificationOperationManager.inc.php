@@ -385,7 +385,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 			if (is_callable($mailConfigurator)) {
 				$mail = $mailConfigurator($mail);
 			}
-			if (!$mail->send() && $request->getUser()) {
+			if ($mail->isEnabled() && !$mail->send() && $request->getUser()) {
 				import('classes.notification.NotificationManager');
 				$notificationMgr = new NotificationManager();
 				$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));

@@ -58,6 +58,9 @@ class ReviewReminder extends ScheduledTask {
 				break;
 		}
 		$email = new SubmissionMailTemplate($submission, $emailKey, $context->getPrimaryLocale(), $context, false);
+		if (!$email->isEnabled()) {
+			return;
+		}
 		$email->setContext($context);
 		$email->setReplyTo(null);
 		$email->addRecipient($reviewer->getEmail(), $reviewer->getFullName());

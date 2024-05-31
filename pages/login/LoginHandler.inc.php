@@ -199,7 +199,9 @@ class LoginHandler extends Handler {
 				'recipientUsername' => $user->getUsername(),
 			]);
 			$mail->addRecipient($user->getEmail(), $user->getFullName());
-			$mail->send();
+			if ($mail->isEnabled()) {
+				$mail->send();
+			}
 		}
 
 		$templateMgr->assign([

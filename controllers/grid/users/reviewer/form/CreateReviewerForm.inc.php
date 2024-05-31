@@ -141,7 +141,7 @@ class CreateReviewerForm extends ReviewerForm {
 					'userFullName' => htmlspecialchars($user->getFullName()),
 				]);
 				$mail->addRecipient($user->getEmail(), $user->getFullName());
-				if (!$mail->send($request)) {
+				if (!$mail->send()) {
 					import('classes.notification.NotificationManager');
 					$notificationMgr = new NotificationManager();
 					$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));

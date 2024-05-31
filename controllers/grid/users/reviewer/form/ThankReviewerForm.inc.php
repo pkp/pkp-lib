@@ -107,7 +107,7 @@ class ThankReviewerForm extends Form {
 		$email->addRecipient($reviewer->getEmail(), $reviewer->getFullName());
 		$email->setBody($this->getData('message'));
 
-		if (!$this->getData('skipEmail')) {
+		if ($email->isEnabled() && !$this->getData('skipEmail')) {
 			HookRegistry::call('ThankReviewerForm::thankReviewer', array(&$submission, &$reviewAssignment, &$email));
 			$request = Application::get()->getRequest();
 			$dispatcher = $request->getDispatcher();

@@ -5,7 +5,7 @@
  * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @brief Display journal's editorial masthead page.
+ * @brief Display context's editorial masthead page.
  *
  *}
 {include file="frontend/components/header.tpl" pageTitle="common.editorialMasthead"}
@@ -20,9 +20,13 @@
 			<ul>
 			{foreach from=$mastheadUsers[$mastheadRole->getId()] item="mastheadUser"}
 				<li>
-					{$mastheadUser['user']->getFullName()|escape},
-					{$mastheadUser['user']->getLocalizedData('affiliation')|escape},
-					{$mastheadUser['dateStart']}
+					<ul id="commaList">
+						<li>{$mastheadUser['user']->getFullName()|escape}</li>
+						{if !empty($mastheadUser['user']->getLocalizedData('affiliation'))}
+							<li>{$mastheadUser['user']->getLocalizedData('affiliation')|escape}</li>
+						{/if}
+						<li>{$mastheadUser['dateStart']}</li>
+					</ul>
 					{if $mastheadUser['user']->getData('orcid')}
 						<span class="orcid">
 							{if $mastheadUser['user']->getData('orcidAccessToken')}
@@ -30,7 +34,7 @@
 							{/if}
 							<a href="{$mastheadUser['user']->getData('orcid')|escape}" target="_blank">
 							{$mastheadUser['user']->getData('orcid')|escape}
-						</a>
+							</a>
 						</span>
 					{/if}
 				</li>
@@ -51,8 +55,12 @@
 		<ul>
 		{foreach from=$reviewers item="reviewer"}
 			<li>
-				{$reviewer->getFullName()|escape},
-				{$reviewer->getLocalizedData('affiliation')|escape}
+				<ul id="commaList">
+					<li>{$reviewer->getFullName()|escape}</li>
+					{if !empty($reviewer->getLocalizedData('affiliation'))}
+						<li>{$reviewer->getLocalizedData('affiliation')|escape}</li>
+					{/if}
+				</ul>
 				{if $reviewer->getData('orcid')}
 					<span class="orcid">
 						{if $reviewer->getData('orcidAccessToken')}

@@ -20,7 +20,9 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use DateInterval;
 use DateTime;
+use Illuminate\Support\Facades\Cache;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextRequiredPolicy;
@@ -28,9 +30,14 @@ use PKP\security\Role;
 use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
 use PKP\userGroup\relationships\enums\UserUserGroupStatus;
 use PKP\userGroup\relationships\UserUserGroup;
+use PKP\userGroup\UserGroup;
+use stdClass;
 
 class AboutContextHandler extends Handler
 {
+    /** @var string Max lifetime for the Editorial History users cache. */
+    public const MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME = '1 year';
+
     /**
      * @see PKPHandler::authorize()
      */
@@ -60,6 +67,22 @@ class AboutContextHandler extends Handler
     }
 
     /**
+     * Clear editorial masthead cache
+     */
+    public static function forgetEditorialMastheadCache(int $contextId)
+    {
+        Cache::forget('PKP\pages\about\AboutContextHandler::editorialMasthead' . $contextId . AboutContextHandler::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME);
+    }
+
+    /**
+     * Clear editorial history cache
+     */
+    public static function forgetEditorialHistoryCache(int $contextId)
+    {
+        Cache::forget('PKP\pages\about\AboutContextHandler::editorialMasthead' . $contextId . AboutContextHandler::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME);
+    }
+
+    /**
      * Display editorial masthead page.
      *
      * @param array $args
@@ -84,21 +107,45 @@ class AboutContextHandler extends Handler
         // sort the masthead roles in their saved order for display
         $mastheadRoles = array_replace(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups);
 
+        // Cache/get cached array of user IDs groped by role IDs [user_group_id => [user_ids]]
+        $key = __METHOD__ . $context->getId() . self::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME;
+        $expiration = DateInterval::createFromDateString(static::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME);
+        $allUsersIdsGroupedByUserGroupId = Cache::remember($key, $expiration, function () use ($mastheadRoles) {
+            $mastheadRolesIds = array_map(
+                function (UserGroup $item) {
+                    return $item->getId();
+                },
+                $mastheadRoles
+            );
+            // Query that gets all users that are active in the given masthead roles
+            // and that have accepted to be displayed on the masthead for the roles.
+            // No need to filter by context ID, because the user groups are already filtered so.
+            // Sort the results by role IDs and family name.
+            $usersCollector = Repo::user()->getCollector();
+            $usersQuery = $usersCollector
+                ->filterByUserGroupIds($mastheadRolesIds)
+                ->filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON)
+                ->orderBy($usersCollector::ORDERBY_FAMILYNAME, $usersCollector::ORDER_DIR_ASC, [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()])
+                ->orderByUserGroupIds($mastheadRolesIds)
+                ->getQueryBuilder()
+                ->get();
+
+            // Get unique user IDs grouped by user group ID
+            $userIdsByUserGroupId = $usersQuery->mapToGroups(function (stdClass $item, int $key) {
+                return [$item->user_group_id => $item->user_id];
+            })->map(function ($item) {
+                return collect($item)->unique();
+            });
+            return $userIdsByUserGroupId->toArray();
+        });
+
         $mastheadUsers = [];
         foreach ($mastheadRoles as $mastheadUserGroup) {
             if ($mastheadUserGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
                 continue;
             }
-            // Get all users that are active in the given role
-            // and that have accepted to be displayed on the masthead for that role.
-            // No need to filter by context ID, because the user groups are already filtered so.
-            $usersCollector = Repo::user()->getCollector();
-            $users = $usersCollector
-                ->filterByUserGroupIds([$mastheadUserGroup->getId()])
-                ->filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON)
-                ->orderBy($usersCollector::ORDERBY_FAMILYNAME, $usersCollector::ORDER_DIR_ASC, [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()])
-                ->getMany();
-            foreach ($users as $user) {
+            foreach ($allUsersIdsGroupedByUserGroupId[$mastheadUserGroup->getId()] ?? [] as $userId) {
+                $user = Repo::user()->get($userId);
                 $userUserGroup = UserUserGroup::withUserId($user->getId())
                     ->withUserGroupId($mastheadUserGroup->getId())
                     ->withActive()
@@ -165,23 +212,46 @@ class AboutContextHandler extends Handler
         // sort the masthead roles in their saved order for display
         $mastheadRoles = array_replace(array_flip($savedMastheadUserGroupIdsOrder), $allMastheadUserGroups);
 
+        // Cache/get cached array of user IDs groped by role IDs [user_group_id => [user_ids]]
+        $key = __METHOD__ . $context->getId() . self::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME;
+        $expiration = DateInterval::createFromDateString(static::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME);
+        $allUsersIdsGroupedByUserGroupId = Cache::remember($key, $expiration, function () use ($mastheadRoles) {
+            $mastheadRolesIds = array_map(
+                function (UserGroup $item) {
+                    return $item->getId();
+                },
+                $mastheadRoles
+            );
+            // Query that gets all users that were active and are not active any more in the masthead roles
+            // and that have accepted to be displayed on the masthead for the roles.
+            // No need to filter by context ID, because the user groups are already filtered so.
+            // Sort the results by role IDs and family name.
+            $usersCollector = Repo::user()->getCollector();
+            $usersQuery = $usersCollector
+                ->filterByUserGroupIds($mastheadRolesIds)
+                ->filterByUserUserGroupStatus(UserUserGroupStatus::STATUS_ENDED)
+                ->filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON)
+                ->orderBy($usersCollector::ORDERBY_FAMILYNAME, $usersCollector::ORDER_DIR_ASC, [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()])
+                ->orderByUserGroupIds($mastheadRolesIds)
+                ->getQueryBuilder()
+                ->get();
+
+            // Group all user IDs grouped by user group ID
+            $userIdsByUserGroupId = $usersQuery->mapToGroups(function (stdClass $item, int $key) {
+                return [$item->user_group_id => $item->user_id];
+            })->map(function ($item) {
+                return collect($item)->unique();
+            });
+            return $userIdsByUserGroupId->toArray();
+        });
+
         $mastheadUsers = [];
         foreach ($mastheadRoles as $mastheadUserGroup) {
             if ($mastheadUserGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
                 continue;
             }
-            // Get all users that were active and are not active any more in the given role
-            // and that have accepted to be displayed on the masthead for that role.
-            // No need to filter by context ID, because the user groups are already filtered so.
-            $usersCollector = Repo::user()->getCollector();
-            $users = $usersCollector
-                ->filterByUserGroupIds([$mastheadUserGroup->getId()])
-                ->filterByUserUserGroupStatus(UserUserGroupStatus::STATUS_ENDED)
-                ->filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON)
-                ->orderBy($usersCollector::ORDERBY_FAMILYNAME, $usersCollector::ORDER_DIR_ASC, [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()])
-                ->getMany();
-
-            foreach ($users as $user) {
+            foreach ($allUsersIdsGroupedByUserGroupId[$mastheadUserGroup->getId()] ?? [] as $userId) {
+                $user = Repo::user()->get($userId);
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
                     ->withUserGroupId($mastheadUserGroup->getId())
                     ->withEnded()
@@ -202,7 +272,6 @@ class AboutContextHandler extends Handler
                         'services' => $services
                     ];
                 }
-
             }
         }
 

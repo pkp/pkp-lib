@@ -5,7 +5,7 @@
  * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @brief Display journal's editorial history page.
+ * @brief Display context's editorial history page.
  *
  *}
 {include file="frontend/components/header.tpl" pageTitle="common.editorialHistory"}
@@ -21,9 +21,13 @@
 			{foreach from=$mastheadUsers[$mastheadRole->getId()] item="mastheadUser"}
 				{foreach from=$mastheadUser['services'] item="service"}
 					<li>
-						{$mastheadUser['user']->getFullName()|escape},
-						{$mastheadUser['user']->getLocalizedData('affiliation')|escape},
-						{$service['dateStart']} - {$service['dateEnd']}
+						<ul id="commaList">
+							<li>{$mastheadUser['user']->getFullName()|escape}</li>
+							{if !empty($mastheadUser['user']->getLocalizedData('affiliation'))}
+								<li>{$mastheadUser['user']->getLocalizedData('affiliation')|escape}</li>
+							{/if}
+							<li>{$service['dateStart']} - {$service['dateEnd']}</li>
+						</ul>
 						{if $mastheadUser['user']->getData('orcid')}
 							<span class="orcid">
 								{if $mastheadUser['user']->getData('orcidAccessToken')}

@@ -35,7 +35,7 @@ abstract class BaseInvitation
     public const DEFAULT_EXPIRY_DAYS = 3;
 
     /**
-     * The name of the class name of the specific invitation
+     * The name of the class name of the specific custom invitation
      */
     public string $className;
     private string $keyHash;

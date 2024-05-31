@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/invitation/invitations/contracts/IMailableUrlUpdateable.php
+ * @file classes/invitation/core/contracts/IMailableUrlUpdateable.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
@@ -12,7 +12,7 @@
  * @brief Interface for all Invitation API Handlers
  */
 
-namespace PKP\invitation\invitations\contracts;
+namespace PKP\invitation\core\contracts;
 
 use Illuminate\Mail\Mailable;
 

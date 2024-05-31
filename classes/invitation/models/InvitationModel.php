@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\InteractsWithTime;
-use PKP\invitation\invitations\enums\InvitationStatus;
+use PKP\invitation\core\enums\InvitationStatus;
 
 class InvitationModel extends Model
 {

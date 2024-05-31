@@ -28,7 +28,7 @@ use PKP\core\PKPRequest;
 use PKP\core\PKPServices;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
-use PKP\invitations\ReviewerAccessInvite;
+use PKP\invitation\invitations\ReviewerAccessInvite;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\ReviewRequest;
 use PKP\mail\mailables\ReviewRequestSubsequent;

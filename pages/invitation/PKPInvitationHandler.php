@@ -21,8 +21,8 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use Exception;
-use PKP\invitation\invitations\enums\InvitationAction;
-use PKP\invitation\invitations\Invitation;
+use PKP\invitation\core\enums\InvitationAction;
+use PKP\invitation\core\Invitation;
 
 class PKPInvitationHandler extends Handler
 {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/invitation/invitations/contracts/IApiHandleable.php
+ * @file classes/invitation/core/contracts/IApiHandleable.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
@@ -12,7 +12,7 @@
  * @brief Interface for all Invitation API Handlers
  */
 
-namespace PKP\invitation\invitations\contacts;
+namespace PKP\invitation\core\contacts;
 
 interface IApiHandleable
 {

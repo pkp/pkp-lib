@@ -1,63 +1,94 @@
 <?php
 
-/**
- * @file classes/core/PKPInvitationServiceProvider.php
- *
- * Copyright (c) 2024 Simon Fraser University
- * Copyright (c) 2024 John Willinsky
- * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
- *
- * @class PKPInvitationServiceProvider
- *
- * @brief Registers a new service provider for Invitations
- */
-
 namespace PKP\core;
 
+use Illuminate\Support\Facades\Cache;
+use DateInterval;
 use Illuminate\Support\ServiceProvider;
 use PKP\invitation\core\PKPInvitationFactory;
-use PKP\invitation\invitations\Invitation;
+use PKP\invitation\core\Invitation;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
+use ReflectionClass;
 
 class PKPInvitationServiceProvider extends ServiceProvider
 {
+    protected const MAX_CACHE_LIFETIME = '1 day';
+    
     public function register(): void 
     {
         // Ensures that PKPInvitationFactory is initialized only once
         $this->app->singleton(Invitation::class, function ($app) {
-            PKPInvitationFactory::init();
+            PKPInvitationFactory::init($this->getInvitations());
             return PKPInvitationFactory::getInstance();
         });
     }
 
-    public function boot(): void
+    protected function discoverInvitationsWithin(): array
     {
-        $this->preloadInvitationClasses();
+        return [
+            $this->app->basePath('lib/pkp/classes/invitation/invitations'),
+            $this->app->basePath('classes/invitation/invitations'),
+            $this->app->basePath('plugins'),
+        ];
     }
 
-    protected function preloadInvitationClasses(): void
+    public function discoverInvitations(): array
     {
-        $invitationDirectories = [
-            'PKP\invitations' => __DIR__ . '/../../invitations',
-            'APP\invitations' => __DIR__ . '/../../../../invitations',
-        ];
+        return collect($this->discoverInvitationsWithin())
+            ->reject(function ($directory) {
+                return !is_dir($directory);
+            })
+            ->reduce(function ($discovered, $directory) {
+                return array_merge_recursive(
+                    $discovered,
+                    $this->scanDirectoryForInvitations($directory)
+                );
+            }, []);
+    }
 
-        foreach ($invitationDirectories as $namespace => $path) {
-            if (!is_dir($path)) {
-                continue;
-            }
+    protected function scanDirectoryForInvitations(string $directory): array
+    {
+        $invitationClasses = [];
 
-            $invitationDirectory = new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS);
-            $iterator = new RecursiveIteratorIterator($invitationDirectory);
+        $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory));
 
-            foreach ($iterator as $file) {
-                if ($file->isFile() && preg_match('/Invite\.php$/', $file->getFilename())) {
-                    $className = $namespace . '\\' . str_replace('.php', '', $file->getFilename());
+        foreach ($iterator as $file) {
+            if ($file->isFile() && preg_match('/Invite\.php$/', $file->getFilename())) {
+                $class = Core::classFromFile($file);
+                if (class_exists($class) && is_subclass_of($class, Invitation::class)) {
+                    $reflectedClass = new ReflectionClass($class);
 
-                    class_exists($className, true);
+                    if (!$reflectedClass->isAbstract()) {
+                        $type = $class::getType();
+                        $invitationClasses[$type] = $class;
+                    }
                 }
             }
         }
+
+        return $invitationClasses;
+    }
+
+    /**
+     * Clears the invitation cache
+     */
+    public static function clearCache(): void
+    {
+        Cache::forget(static::getCacheKey());
+    }
+
+    /**
+     * Retrieves a unique and static key to store the invitation cache
+     */
+    private static function getCacheKey(): string
+    {
+        return __METHOD__ . static::MAX_CACHE_LIFETIME;
+    }
+
+    public function getInvitations(): array
+    {
+        $expiration = DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME);
+        return Cache::remember(static::getCacheKey(), $expiration, fn () => $this->discoverInvitations());
     }
 }

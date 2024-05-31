@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/invitation/invitations/traits/ShouldValidate.php
+ * @file classes/invitation/core/traits/ShouldValidate.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
@@ -12,7 +12,7 @@
  * @brief Interface for all Invitation API Handlers
  */
 
-namespace PKP\invitation\invitations\traits;
+namespace PKP\invitation\core\traits;
 
 trait ShouldValidate {
     private array $errors = [];

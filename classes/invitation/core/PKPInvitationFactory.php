@@ -15,7 +15,7 @@
 namespace PKP\invitation\core;
 
 use Exception;
-use PKP\invitation\invitations\Invitation;
+use PKP\invitation\core\Invitation;
 use PKP\invitation\models\InvitationModel;
 
 class PKPInvitationFactory 
@@ -23,9 +23,9 @@ class PKPInvitationFactory
     protected static $invitations = [];
     private static $instance;
 
-    public static function init(): void 
+    public static function init($invitations): void 
     {
-        self::$invitations = PKPInvitationDiscovery::discoverInvitations();
+        self::$invitations = $invitations;
         self::$instance = new self();
     }
 

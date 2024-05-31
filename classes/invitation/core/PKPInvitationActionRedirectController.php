@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/invitation/invitations/PKPInvitationActionRedirectController.php
+ * @file classes/invitation/core/PKPInvitationActionRedirectController.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
@@ -12,11 +12,11 @@
  * @brief Interface for all Invitation API Handlers
  */
 
-namespace PKP\invitation\invitations;
+namespace PKP\invitation\core;
 
 use APP\core\Request;
 use Illuminate\Routing\Controller;
-use PKP\invitation\invitations\enums\InvitationAction;
+use PKP\invitation\core\enums\InvitationAction;
 
 abstract class PKPInvitationActionRedirectController extends Controller
 {

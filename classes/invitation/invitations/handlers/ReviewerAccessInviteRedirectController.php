@@ -1,33 +1,31 @@
 <?php
 
 /**
- * @file invitations/handlers/ChangeProfileEmailInviteRedirectController.php
+ * @file classes/invitation/invitations/handlers/ReviewerAccessInviteRedirectController.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ChangeProfileEmailInviteRedirectController
- *
- * @ingroup invitations\handlers
+ * @class ReviewerAccessInviteRedirectController
  *
  * @brief Change Profile Email invitation
  */
 
-namespace PKP\invitations\handlers;
+namespace PKP\invitation\invitations\handlers;
 
 use APP\core\Request;
-use APP\notification\NotificationManager;
-use PKP\core\PKPApplication;
 use APP\facades\Repo;
-use PKP\invitation\invitations\enums\InvitationAction;
-use PKP\invitation\invitations\enums\InvitationStatus;
-use PKP\invitation\invitations\PKPInvitationActionRedirectController;
-use PKP\invitations\ChangeProfileEmailInvite;
+use Exception;
+use PKP\core\PKPApplication;
+use PKP\invitation\core\enums\InvitationAction;
+use PKP\invitation\core\enums\InvitationStatus;
+use PKP\invitation\core\PKPInvitationActionRedirectController;
+use PKP\invitation\invitations\ReviewerAccessInvite;
 
-class ChangeProfileEmailInviteRedirectController extends PKPInvitationActionRedirectController
+class ReviewerAccessInviteRedirectController extends PKPInvitationActionRedirectController
 {
-    public function getInvitation(): ChangeProfileEmailInvite
+    public function getInvitation(): ReviewerAccessInvite
     {
         return $this->invitation;
     }
@@ -37,20 +35,25 @@ class ChangeProfileEmailInviteRedirectController extends PKPInvitationActionRedi
         if ($this->invitation->getStatus() !== InvitationStatus::ACCEPTED) {
             $request->getDispatcher()->handle404();
         }
+        
+        $context = $request->getContext();
 
-        $user = Repo::user()->get($this->invitation->invitationModel->userId);
+        $reviewAssignment = Repo::reviewAssignment()->get($this->getInvitation()->reviewAssignmentId);
 
-        $notificationManager = new NotificationManager();
-        $notificationManager->createTrivialNotification($user->getId());
+        if (!$reviewAssignment) {
+            throw new Exception();
+        }
 
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
+            $context->getData('urlPath'),
+            'reviewer',
+            'submission',
             null,
-            'user',
-            'profile',
             [
-                'contact'
+                'submissionId' => $reviewAssignment->getSubmissionId(),
+                'reviewId' => $reviewAssignment->getId(),
             ]
         );
 
@@ -63,19 +66,16 @@ class ChangeProfileEmailInviteRedirectController extends PKPInvitationActionRedi
             $request->getDispatcher()->handle404();
         }
 
-        $user = Repo::user()->get($this->invitation->invitationModel->userId);
-
-        $notificationManager = new NotificationManager();
-        $notificationManager->createTrivialNotification($user->getId());
+        $context = $request->getContext();
 
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
-            null,
+            $context->getData('urlPath'),
             'user',
-            'profile',
+            'login',
+            null,
             [
-                'contact'
             ]
         );
 

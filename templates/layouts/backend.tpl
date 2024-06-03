@@ -147,13 +147,6 @@
 			{/if}
 		</header>
 
-		{* Swap the navigation menu for a back-to-dashboard link when only one item exists *}
-		<nav v-if="backToDashboardLink" class="app__returnHeader" aria-label="{translate key="common.navigation.site"}">
-			<a class="app__returnHeaderLink" :href="backToDashboardLink.url">
-				{{ backToDashboardLabel }}
-			</a>
-		</nav>
-
 		<div class="app__body">
 			{block name="menu"}
 				<pkp-navigation :links="menu" aria-label="{translate key="common.navigation.site"}">

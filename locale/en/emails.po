@@ -458,6 +458,10 @@ msgstr ""
 msgid "emails.changeProfileEmailInvitationNotify.subject"
 msgstr "Confirm account contact email change request"
 
+msgid "emails.changeProfileEmailInvitationNotify.description"
+msgstr ""
+"This email is sent to users who request a change to their email address."
+
 msgid "emails.changeProfileEmailInvitationNotify.body"
 msgstr ""
 "<p>Dear {$recipientName},</p>"

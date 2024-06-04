@@ -47,7 +47,7 @@ class Repository
         return app(Invitation::class)->getExisting($invitationModel->type, $invitationModel);
     }
 
-    public function getByMD5Key($key): ?Invitation
+    public function getByKey($key): ?Invitation
     {
         $keyHash = md5($key);
 

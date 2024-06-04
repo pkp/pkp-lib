@@ -42,7 +42,7 @@ class InvitationController extends PKPBaseController
     public $requiresOnlyId = [
         'get',
         'populate',
-        'dispatchInvitation',
+        'dispatch',
     ];
 
     public $requiresIdAndKey = [
@@ -112,7 +112,7 @@ class InvitationController extends PKPBaseController
                 self::roleAuthorizer(Role::getAllRoles()),
             ]);
 
-        Route::put('{invitationId}/dispatch', $this->dispatchInvitation(...))
+        Route::put('{invitationId}/dispatch', $this->dispatch(...))
             ->name('invitation.dispatch')
             ->whereNumber('invitationId')
             ->middleware([
@@ -219,7 +219,7 @@ class InvitationController extends PKPBaseController
         return $this->selectedHandler->populate($illuminateRequest);
     }
 
-    public function dispatchInvitation(Request $illuminateRequest): JsonResponse
+    public function dispatch(Request $illuminateRequest): JsonResponse
     {
         return $this->selectedHandler->dispatch($illuminateRequest);
     }

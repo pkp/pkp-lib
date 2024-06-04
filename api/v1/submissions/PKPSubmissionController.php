@@ -50,6 +50,7 @@ use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
@@ -316,6 +317,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         if ($actionName === 'addDecision') {
+            $this->addPolicy(new SubmissionCompletePolicy($request, $args));
             $this->addPolicy(new DecisionWritePolicy($request, $args, (int) $request->getUserVar('decision'), $request->getUser()));
         }
 

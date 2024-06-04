@@ -44,6 +44,7 @@ use PKP\notification\NotificationDAO;
 use PKP\notification\PKPNotification;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
+use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
@@ -82,6 +83,7 @@ abstract class PKPWorkflowHandler extends Handler
 
             $this->markRoleAssignmentsChecked();
         } else {
+            $this->addPolicy(new SubmissionCompletePolicy($request, $args, 'submissionId'));
             $this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->identifyStageId($request, $args), PKPApplication::WORKFLOW_TYPE_EDITORIAL));
         }
 

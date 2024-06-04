@@ -66,6 +66,9 @@ msgstr "You don't currently have access to that stage of the workflow."
 msgid "user.authorization.workflowStageRequired"
 msgstr "A workflow stage was not specified."
 
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "Workflow access for incomplete submission is restricted."
+
 msgid "user.authorization.pluginRequired"
 msgstr "A plugin was not specified and is required."
 

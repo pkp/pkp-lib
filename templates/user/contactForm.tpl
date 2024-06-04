@@ -27,7 +27,7 @@
 			<p>
 				{fbvElement type="hidden" id="pendingEmail" value=$changeEmailPending}
 				{translate key="user.pendingEmailChange" pendingEmail=$changeEmailPending}
-				<button type="submit" name="action" value="cancelPendingEmail">{translate key="common.cancel"}</button>
+				<button type="submit" class="pkp_button" name="action" value="cancelPendingEmail">{translate key="common.cancel"}</button>
 			</p>
 		{/if}
 		{fbvElement type="email" readonly=$changeEmailPending|default:false label="user.email" id="email" value=$email size=$fbvStyles.size.MEDIUM required=true}

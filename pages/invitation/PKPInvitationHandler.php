@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file pages/invitation/PKPInvitationHandler.php
+ * @file pages/invitation/InvitationHandler.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPInvitationHandler
+ * @class InvitationHandler
  *
  * @ingroup pages_invitation
  *
@@ -24,7 +24,7 @@ use Exception;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\Invitation;
 
-class PKPInvitationHandler extends Handler
+class InvitationHandler extends Handler
 {
     public const REPLY_PAGE = 'invitation';
     public const REPLY_OP_ACCEPT = 'accept';
@@ -78,13 +78,13 @@ class PKPInvitationHandler extends Handler
 
         $request = Application::get()->getRequest();
         $contextPath = $request->getContext() ? $request->getContext()->getPath() : null;
-        
+
         return $request->getDispatcher()
             ->url(
                 $request,
                 Application::ROUTE_PAGE,
                 $contextPath,
-                PKPInvitationHandler::REPLY_PAGE,
+                static::REPLY_PAGE,
                 $action->value,
                 null,
                 [

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/invitation/core/PKPCreateInvitationController.php
+ * @file classes/invitation/core/CreateInvitationController.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPCreateInvitationController
+ * @class CreateInvitationController
  *
  * @brief Interface for all Invitation API Handlers
  */
@@ -20,7 +20,7 @@ use Illuminate\Routing\Controller;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 
-abstract class PKPCreateInvitationController extends Controller
+abstract class CreateInvitationController extends Controller
 {
     abstract public function authorize(PKPBaseController $controller, PKPRequest $request, array &$args, array $roleAssignments): bool;
     abstract public function add(Request $illuminateRequest): JsonResponse;

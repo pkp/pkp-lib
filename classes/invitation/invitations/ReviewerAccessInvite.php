@@ -18,32 +18,32 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Mail\Mailable;
-use PKP\invitation\core\enums\InvitationAction;
-use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\contracts\IBackofficeHandleable;
 use PKP\invitation\core\contracts\IMailableUrlUpdateable;
+use PKP\invitation\core\enums\InvitationAction;
+use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
-use PKP\invitation\core\PKPInvitationActionRedirectController;
+use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\core\traits\ShouldValidate;
-use PKP\invitation\models\InvitationModel;
 use PKP\invitation\invitations\handlers\ReviewerAccessInviteRedirectController;
+use PKP\invitation\models\InvitationModel;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\security\Validation;
 
 class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, IMailableUrlUpdateable
 {
     use ShouldValidate;
-    
-    const INVITATION_TYPE = 'reviewerAccess';
+
+    public const INVITATION_TYPE = 'reviewerAccess';
 
     public ?int $reviewAssignmentId = null;
 
-    public static function getType(): string 
+    public static function getType(): string
     {
         return self::INVITATION_TYPE;
     }
 
-    protected function getExpiryDays(): int 
+    protected function getExpiryDays(): int
     {
         if (!isset($this->invitationModel) || !isset($this->invitationModel->contextId)) {
             throw new Exception('The context id is nessesary');
@@ -62,13 +62,13 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
     public function getHiddenAfterDispatch(): array
     {
         $baseHiddenItems = parent::getHiddenAfterDispatch();
-        
+
         $additionalHiddenItems = ['reviewAssignmentId'];
 
         return array_merge($baseHiddenItems, $additionalHiddenItems);
     }
 
-    public function updateMailableWithUrl(Mailable $mailable): void 
+    public function updateMailableWithUrl(Mailable $mailable): void
     {
         $url = $this->getActionURL(InvitationAction::ACCEPT);
 
@@ -147,12 +147,12 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
         return true;
     }
 
-    public function getInvitationActionRedirectController(): ?PKPInvitationActionRedirectController
+    public function getInvitationActionRedirectController(): ?InvitationActionRedirectController
     {
         return new ReviewerAccessInviteRedirectController($this);
     }
 
-    public function validate(): bool 
+    public function validate(): bool
     {
         if (isset($this->reviewAssignmentId)) {
             $reviewAssignment = Repo::reviewAssignment()->get($this->reviewAssignmentId);

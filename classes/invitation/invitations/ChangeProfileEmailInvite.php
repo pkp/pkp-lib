@@ -23,18 +23,19 @@ use PKP\invitation\core\contracts\IBackofficeHandleable;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
-use PKP\invitation\core\PKPInvitationActionRedirectController;
+use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\core\traits\ShouldValidate;
-use PKP\invitation\models\InvitationModel;
 use PKP\invitation\invitations\handlers\ChangeProfileEmailInviteRedirectController;
+use PKP\invitation\models\InvitationModel;
 use PKP\mail\mailables\ChangeProfileEmailInvitationNotify;
 
 class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleable
 {
-    use HasMailable, ShouldValidate;
+    use HasMailable;
+    use ShouldValidate;
 
-    const INVITATION_TYPE = 'changeProfileEmail';
+    public const INVITATION_TYPE = 'changeProfileEmail';
 
     public $newEmail = null;
 
@@ -46,7 +47,7 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
     public function getHiddenAfterDispatch(): array
     {
         $baseHiddenItems = parent::getHiddenAfterDispatch();
-        
+
         $additionalHiddenItems = ['newEmail'];
 
         return array_merge($baseHiddenItems, $additionalHiddenItems);
@@ -75,7 +76,7 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
         $mailable->setData($sitePrimaryLocale);
 
         $this->setMailable($mailable);
-        
+
         $acceptUrl = $this->getActionURL(InvitationAction::ACCEPT);
         $declineUrl = $this->getActionURL(InvitationAction::DECLINE);
 
@@ -111,7 +112,7 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
     public function finalise(): void
     {
         $user = Repo::user()->get($this->invitationModel->userId);
-        
+
         if (!$user) {
             throw new Exception();
         }
@@ -123,12 +124,12 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
         $this->invitationModel->markAs(InvitationStatus::ACCEPTED);
     }
 
-    public function getInvitationActionRedirectController(): ?PKPInvitationActionRedirectController
+    public function getInvitationActionRedirectController(): ?InvitationActionRedirectController
     {
         return new ChangeProfileEmailInviteRedirectController($this);
     }
 
-    public function validate(): bool 
+    public function validate(): bool
     {
         if ($this->newEmail) {
             if (filter_var($this->newEmail, FILTER_VALIDATE_EMAIL) == false) {

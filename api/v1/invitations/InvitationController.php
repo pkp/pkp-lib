@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file api/v1/invitations/PKPInvitationController.php
+ * @file api/v1/invitations/InvitationController.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPInvitationController
+ * @class InvitationController
  *
  * @brief Controller class to handle API requests for invitations operations.
  *
@@ -23,13 +23,13 @@ use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\invitation\core\contacts\IApiHandleable;
-use PKP\invitation\core\PKPCreateInvitationController;
+use PKP\invitation\core\CreateInvitationController;
 use PKP\invitation\core\Invitation;
-use PKP\invitation\core\PKPReceiveInvitationController;
+use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\models\InvitationModel;
 use PKP\security\Role;
 
-class PKPInvitationController extends PKPBaseController
+class InvitationController extends PKPBaseController
 {
     public const PARAM_TYPE = 'type';
     public const PARAM_ID = 'invitationId';
@@ -53,9 +53,9 @@ class PKPInvitationController extends PKPBaseController
     ];
 
     private ?Invitation $invitation = null;
-    private ?PKPCreateInvitationController $createInvitationHandler = null;
-    private ?PKPReceiveInvitationController $receiveInvitationHandler = null;
-    private PKPCreateInvitationController|PKPReceiveInvitationController|null $selectedHandler = null;
+    private ?CreateInvitationController $createInvitationHandler = null;
+    private ?ReceiveInvitationController $receiveInvitationHandler = null;
+    private CreateInvitationController|ReceiveInvitationController|null $selectedHandler = null;
 
     private function getHandlerForAction(string $actionName)
     {
@@ -67,7 +67,7 @@ class PKPInvitationController extends PKPBaseController
             return $this->receiveInvitationHandler;
         }
 
-        throw new Exception("No handler defined for the action: $actionName");
+        throw new Exception("No handler defined for the action: {$actionName}");
     }
 
     /**
@@ -104,7 +104,7 @@ class PKPInvitationController extends PKPBaseController
             ->middleware([
                 self::roleAuthorizer(Role::getAllRoles()),
             ]);
-        
+
         Route::put('{invitationId}/populate', $this->populate(...))
             ->name('invitation.populate')
             ->whereNumber('invitationId')
@@ -123,15 +123,15 @@ class PKPInvitationController extends PKPBaseController
         Route::get('{invitationId}/key/{key}', $this->receive(...))
             ->name('invitation.receive')
             ->whereNumber('invitationId');
-        
+
         Route::put('{invitationId}/key/{key}/finalize', $this->finalize(...))
             ->name('invitation.finalize')
             ->whereNumber('invitationId');
-        
+
         Route::put('{invitationId}/key/{key}/refine', $this->refine(...))
             ->name('invitation.refine')
             ->whereNumber('invitationId');
-        
+
         Route::put('{invitationId}/key/{key}/decline', $this->decline(...))
             ->name('invitation.decline')
             ->whereNumber('invitationId');
@@ -164,7 +164,7 @@ class PKPInvitationController extends PKPBaseController
 
             $invitationModel = InvitationModel::find($invitationId);
             if (!isset($invitationModel)) {
-                throw new Exception("Invitation not found");
+                throw new Exception('Invitation not found');
             }
 
             $invitation = app(Invitation::class)->getExisting($invitationModel->type, $invitationModel);
@@ -177,7 +177,7 @@ class PKPInvitationController extends PKPBaseController
         }
 
         if (!isset($invitation)) {
-            throw new Exception("Invitation could not be created");
+            throw new Exception('Invitation could not be created');
         }
 
         $this->invitation = $invitation;
@@ -196,9 +196,9 @@ class PKPInvitationController extends PKPBaseController
         $this->selectedHandler = $this->getHandlerForAction($actionName);
 
         if (!method_exists($this->selectedHandler, $actionName)) {
-            throw new Exception("The handler does not support the method: $actionName");
+            throw new Exception("The handler does not support the method: {$actionName}");
         }
-        
+
         $this->selectedHandler->authorize($this, $request, $args, $roleAssignments);
 
         return parent::authorize($request, $args, $roleAssignments);

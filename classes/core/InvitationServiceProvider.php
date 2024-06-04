@@ -2,25 +2,25 @@
 
 namespace PKP\core;
 
-use Illuminate\Support\Facades\Cache;
 use DateInterval;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
-use PKP\invitation\core\PKPInvitationFactory;
 use PKP\invitation\core\Invitation;
+use PKP\invitation\core\InvitationFactory;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use ReflectionClass;
 
-class PKPInvitationServiceProvider extends ServiceProvider
+class InvitationServiceProvider extends ServiceProvider
 {
     protected const MAX_CACHE_LIFETIME = '1 day';
-    
-    public function register(): void 
+
+    public function register(): void
     {
-        // Ensures that PKPInvitationFactory is initialized only once
+        // Ensures that InvitationFactory is initialized only once
         $this->app->singleton(Invitation::class, function ($app) {
-            PKPInvitationFactory::init($this->getInvitations());
-            return PKPInvitationFactory::getInstance();
+            InvitationFactory::init($this->getInvitations());
+            return InvitationFactory::getInstance();
         });
     }
 

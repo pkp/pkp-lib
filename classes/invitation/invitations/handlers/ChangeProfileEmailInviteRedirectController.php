@@ -15,22 +15,22 @@
 namespace PKP\invitation\invitations\handlers;
 
 use APP\core\Request;
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\core\PKPApplication;
-use APP\facades\Repo;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
-use PKP\invitation\core\PKPInvitationActionRedirectController;
+use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\invitations\ChangeProfileEmailInvite;
 
-class ChangeProfileEmailInviteRedirectController extends PKPInvitationActionRedirectController
+class ChangeProfileEmailInviteRedirectController extends InvitationActionRedirectController
 {
     public function getInvitation(): ChangeProfileEmailInvite
     {
         return $this->invitation;
     }
 
-    public function acceptHandle(Request $request): void 
+    public function acceptHandle(Request $request): void
     {
         if ($this->invitation->getStatus() !== InvitationStatus::ACCEPTED) {
             $request->getDispatcher()->handle404();
@@ -54,8 +54,8 @@ class ChangeProfileEmailInviteRedirectController extends PKPInvitationActionRedi
 
         $request->redirectUrl($url);
     }
-    
-    public function declineHandle(Request $request): void 
+
+    public function declineHandle(Request $request): void
     {
         if ($this->invitation->getStatus() !== InvitationStatus::DECLINED) {
             $request->getDispatcher()->handle404();
@@ -80,7 +80,7 @@ class ChangeProfileEmailInviteRedirectController extends PKPInvitationActionRedi
         $request->redirectUrl($url);
     }
 
-    public function preRedirectActions(InvitationAction $action) 
+    public function preRedirectActions(InvitationAction $action)
     {
         if ($action == InvitationAction::ACCEPT) {
             $this->getInvitation()->finalise();

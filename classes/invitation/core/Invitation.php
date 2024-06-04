@@ -20,11 +20,10 @@ use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
-use PKP\invitation\core\PKPInvitationActionRedirectController;
 use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\models\InvitationModel;
-use PKP\pages\invitation\PKPInvitationHandler;
+use PKP\pages\invitation\InvitationHandler;
 use PKP\security\Validation;
 use ReflectionClass;
 use ReflectionProperty;
@@ -42,9 +41,9 @@ abstract class Invitation
     protected array $hiddenAfterDispatch = [];
     protected array $payloadAccessibleProperties = [];
 
-    abstract static function getType(): string;
+    abstract public static function getType(): string;
     abstract protected function preDispatchActions(): void;
-    abstract public function getInvitationActionRedirectController(): ?PKPInvitationActionRedirectController;
+    abstract public function getInvitationActionRedirectController(): ?InvitationActionRedirectController;
 
     public function __construct(InvitationModel $invitationModel = null)
     {
@@ -55,7 +54,7 @@ abstract class Invitation
         $this->fillFromPayload();
     }
 
-    public function initialize(?int $userId = null, ?int $contextId = null, ?string $email = null) 
+    public function initialize(?int $userId = null, ?int $contextId = null, ?string $email = null)
     {
         if (!isset($userId) && !isset($email)) {
             throw new Exception("Invitation should contain at least one user id or an invited email')");
@@ -70,7 +69,7 @@ abstract class Invitation
         $this->invitationModel->save();
     }
 
-    public function fillFromArgs(array $args) 
+    public function fillFromArgs(array $args)
     {
         foreach ($args as $propName => $value) {
             if ($this->getStatus() == InvitationStatus::INITIALIZED) {
@@ -91,7 +90,7 @@ abstract class Invitation
         }
     }
 
-    protected function fillFromPayload() 
+    protected function fillFromPayload()
     {
         if ($this->invitationModel->payload) {
             foreach ($this->invitationModel->payload as $key => $value) {
@@ -139,22 +138,22 @@ abstract class Invitation
         return $this->invitationModel->save();
     }
 
-    function getHiddenBeforeDispatch(): array
+    public function getHiddenBeforeDispatch(): array
     {
         return $this->hiddenBeforeDispatch;
     }
 
-    function getHiddenAfterDispatch(): array
+    public function getHiddenAfterDispatch(): array
     {
         return $this->hiddenAfterDispatch;
     }
 
-    function getPayloadAccessibleProperties(): array
+    public function getPayloadAccessibleProperties(): array
     {
         return $this->payloadAccessibleProperties;
     }
 
-    protected function checkForKey() 
+    protected function checkForKey()
     {
         if (!isset($this->invitationModel->keyHash)) {
             if (!isset($this->key)) {
@@ -165,7 +164,7 @@ abstract class Invitation
         }
     }
 
-    public function setExpiryDate(Carbon $expiryDate) 
+    public function setExpiryDate(Carbon $expiryDate)
     {
         if ($this->getStatus() !== InvitationStatus::INITIALIZED) {
             throw new Exception('Can not change expiry date at this stage');
@@ -236,10 +235,10 @@ abstract class Invitation
 
     public function getActionURL(InvitationAction $invitationAction): ?string
     {
-        return PKPInvitationHandler::getActionUrl($invitationAction, $this);
+        return InvitationHandler::getActionUrl($invitationAction, $this);
     }
 
-    public function validatePayload(array $initialPayload, array $modifiedPayload): bool 
+    public function validatePayload(array $initialPayload, array $modifiedPayload): bool
     {
         $checkArray = null;
 
@@ -281,7 +280,7 @@ abstract class Invitation
         $this->invitationModel->markAs(InvitationStatus::DECLINED);
     }
 
-    protected function getExpiryDays(): int 
+    protected function getExpiryDays(): int
     {
         return (int) Config::getVar('invitations', 'expiration_days', self::DEFAULT_EXPIRY_DAYS);
     }

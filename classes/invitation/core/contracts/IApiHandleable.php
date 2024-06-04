@@ -16,6 +16,6 @@ namespace PKP\invitation\core\contacts;
 
 interface IApiHandleable
 {
-    public function getCreateInvitationController(): PKPCreateInvitationController;
-    public function getReceiveInvitationController(): PKPReceiveInvitationController;
+    public function getCreateInvitationController(): CreateInvitationController;
+    public function getReceiveInvitationController(): ReceiveInvitationController;
 }

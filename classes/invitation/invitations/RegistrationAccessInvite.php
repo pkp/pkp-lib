@@ -18,21 +18,21 @@ use APP\facades\Repo;
 use Exception;
 use Illuminate\Mail\Mailable;
 use PKP\core\Core;
-use PKP\invitation\core\enums\InvitationAction;
-use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\contracts\IBackofficeHandleable;
 use PKP\invitation\core\contracts\IMailableUrlUpdateable;
+use PKP\invitation\core\enums\InvitationAction;
+use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
-use PKP\invitation\core\PKPInvitationActionRedirectController;
-use PKP\invitation\models\InvitationModel;
+use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\invitations\handlers\RegistrationAccessInviteRedirectController;
+use PKP\invitation\models\InvitationModel;
 use PKP\user\User;
 
 class RegistrationAccessInvite extends Invitation implements IBackofficeHandleable, IMailableUrlUpdateable
 {
-    const INVITATION_TYPE = 'registrationAccess';
+    public const INVITATION_TYPE = 'registrationAccess';
 
-    public static function getType(): string 
+    public static function getType(): string
     {
         return self::INVITATION_TYPE;
     }
@@ -64,7 +64,7 @@ class RegistrationAccessInvite extends Invitation implements IBackofficeHandleab
     public function finalise(): void
     {
         $user = Repo::user()->get($this->invitationModel->userId, true);
-        
+
         if (!$user) {
             throw new Exception();
         }
@@ -91,7 +91,7 @@ class RegistrationAccessInvite extends Invitation implements IBackofficeHandleab
         return false;
     }
 
-    public function getInvitationActionRedirectController(): ?PKPInvitationActionRedirectController
+    public function getInvitationActionRedirectController(): ?InvitationActionRedirectController
     {
         return new RegistrationAccessInviteRedirectController($this);
     }

@@ -20,22 +20,22 @@ use Exception;
 use PKP\core\PKPApplication;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
-use PKP\invitation\core\PKPInvitationActionRedirectController;
+use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\invitations\ReviewerAccessInvite;
 
-class ReviewerAccessInviteRedirectController extends PKPInvitationActionRedirectController
+class ReviewerAccessInviteRedirectController extends InvitationActionRedirectController
 {
     public function getInvitation(): ReviewerAccessInvite
     {
         return $this->invitation;
     }
 
-    public function acceptHandle(Request $request): void 
+    public function acceptHandle(Request $request): void
     {
         if ($this->invitation->getStatus() !== InvitationStatus::ACCEPTED) {
             $request->getDispatcher()->handle404();
         }
-        
+
         $context = $request->getContext();
 
         $reviewAssignment = Repo::reviewAssignment()->get($this->getInvitation()->reviewAssignmentId);
@@ -59,8 +59,8 @@ class ReviewerAccessInviteRedirectController extends PKPInvitationActionRedirect
 
         $request->redirectUrl($url);
     }
-    
-    public function declineHandle(Request $request): void 
+
+    public function declineHandle(Request $request): void
     {
         if ($this->invitation->getStatus() !== InvitationStatus::DECLINED) {
             $request->getDispatcher()->handle404();
@@ -82,7 +82,7 @@ class ReviewerAccessInviteRedirectController extends PKPInvitationActionRedirect
         $request->redirectUrl($url);
     }
 
-    public function preRedirectActions(InvitationAction $action) 
+    public function preRedirectActions(InvitationAction $action)
     {
         if ($action == InvitationAction::ACCEPT) {
             $this->getInvitation()->finalise();

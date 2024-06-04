@@ -519,3 +519,8 @@ msgstr "Enter new password to update login password."
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
 "Password has been updated successfully. Please login with updated password."
+
+msgid "user.pendingEmailChange"
+msgstr ""
+"You have requested a change of your email to \"{$pendingEmail}\". "
+"We have already sent you an email with directions on how to validate the changed email."

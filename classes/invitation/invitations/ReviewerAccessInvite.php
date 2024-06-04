@@ -1,15 +1,13 @@
 <?php
 
 /**
- * @file invitation/invitations/ReviewerAccessInvite.php
+ * @file classes/invitation/invitations/ReviewerAccessInvite.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerAccessInvite
- *
- * @ingroup invitations
  *
  * @brief Reviewer with Access Key invitation
  */
@@ -18,114 +16,118 @@ namespace PKP\invitation\invitations;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use Exception;
 use Illuminate\Mail\Mailable;
-use PKP\core\PKPApplication;
-use PKP\invitation\invitations\enums\InvitationStatus;
+use PKP\invitation\core\contracts\IBackofficeHandleable;
+use PKP\invitation\core\contracts\IMailableUrlUpdateable;
+use PKP\invitation\core\enums\InvitationAction;
+use PKP\invitation\core\enums\InvitationStatus;
+use PKP\invitation\core\Invitation;
+use PKP\invitation\core\InvitationActionRedirectController;
+use PKP\invitation\core\traits\ShouldValidate;
+use PKP\invitation\invitations\handlers\ReviewerAccessInviteRedirectController;
+use PKP\invitation\models\InvitationModel;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\security\Validation;
-use ReviewAssignment;
 
-class ReviewerAccessInvite extends BaseInvitation
+class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, IMailableUrlUpdateable
 {
-    private ReviewAssignment $reviewAssignment;
+    use ShouldValidate;
 
-    /**
-     * Create a new invitation instance.
-     */
-    public function __construct(
-        public ?int $invitedUserId,
-        int $contextId,
-        public int $reviewAssignmentId
-    ) {
+    public const INVITATION_TYPE = 'reviewerAccess';
+
+    public ?int $reviewAssignmentId = null;
+
+    public static function getType(): string
+    {
+        return self::INVITATION_TYPE;
+    }
+
+    protected function getExpiryDays(): int
+    {
+        if (!isset($this->invitationModel) || !isset($this->invitationModel->contextId)) {
+            throw new Exception('The context id is nessesary');
+        }
+
         $contextDao = Application::getContextDAO();
-        $this->context = $contextDao->getById($contextId);
+        $context = $contextDao->getById($this->invitationModel->contextId);
 
-        $expiryDays = ($this->context->getData('numWeeksPerReview') + 4) * 7;
-
-        parent::__construct($invitedUserId, null, $contextId, $reviewAssignmentId, $expiryDays);
-
-        $this->reviewAssignment = Repo::reviewAssignment()->get($this->reviewAssignmentId);
-    }
-
-    public function getMailable(): ?Mailable
-    {
-        if (isset($this->mailable)) {
-            $url = $this->getAcceptUrl();
-
-            $this->mailable->buildViewDataUsing(function () use ($url) {
-                return [
-                    ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL => $url
-                ];
-            });
+        if (!isset($context)) {
+            throw new Exception('The context is nessesary');
         }
 
-        return $this->mailable;
+        return ($context->getData('numWeeksPerReview') + 4) * 7;
     }
 
-    /**
-     */
-    public function preDispatchActions(): bool
+    public function getHiddenAfterDispatch(): array
     {
-        $invitations = Repo::invitation()
-            ->filterByStatus(InvitationStatus::PENDING)
-            ->filterByClassName($this->className)
-            ->filterByContextId($this->contextId)
-            ->filterByUserId($this->invitedUserId)
-            ->filterByAssocId($this->reviewAssignmentId)
-            ->getMany();
+        $baseHiddenItems = parent::getHiddenAfterDispatch();
 
-        foreach ($invitations as $invitation) {
-            $invitation->markStatus(InvitationStatus::CANCELLED);
+        $additionalHiddenItems = ['reviewAssignmentId'];
+
+        return array_merge($baseHiddenItems, $additionalHiddenItems);
+    }
+
+    public function updateMailableWithUrl(Mailable $mailable): void
+    {
+        $url = $this->getActionURL(InvitationAction::ACCEPT);
+
+        $mailable->buildViewDataUsing(function () use ($url) {
+            return [
+                ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL => $url
+            ];
+        });
+    }
+
+    public function preDispatchActions(): void
+    {
+        if (!isset($this->reviewAssignmentId)) {
+            throw new Exception('The review assignment id should be declared before dispatch');
         }
 
-        return true;
+        $reviewAssignment = Repo::reviewAssignment()->get($this->reviewAssignmentId);
+
+        if (!$reviewAssignment) {
+            throw new Exception('The review assignment ID does not correspond to a valid assignment');
+        }
+
+        $pendingInvitations = InvitationModel::byStatus(InvitationStatus::PENDING)
+            ->byType(self::INVITATION_TYPE)
+            ->byContextId($this->invitationModel->contextId)
+            ->byUserId($this->invitationModel->userId)
+            ->get();
+
+        foreach($pendingInvitations as $pendingInvitation) {
+            $pendingInvitation->markAs(InvitationStatus::CANCELLED);
+        }
     }
 
-    public function acceptHandle(): void
+    public function finalise(): void
     {
-        $request = Application::get()->getRequest();
-        $context = $request->getContext();
-        $reviewAssignment = $this->reviewAssignment;
-
-        $url = PKPApplication::get()->getDispatcher()->url(
-            PKPApplication::get()->getRequest(),
-            PKPApplication::ROUTE_PAGE,
-            $context->getData('urlPath'),
-            'reviewer',
-            'submission',
-            null,
-            [
-                'submissionId' => $reviewAssignment->getSubmissionId(),
-                'reviewId' => $reviewAssignment->getId(),
-            ]
-        );
+        $contextDao = Application::getContextDAO();
+        $context = $contextDao->getById($this->invitationModel->contextId);
 
         if ($context->getData('reviewerAccessKeysEnabled')) {
-            $validated = $this->_validateAccessKey();
-
-            if ($validated) {
-                parent::acceptHandle();
+            if (!$this->_validateAccessKey()) {
+                throw new Exception();
             }
 
+            $this->invitationModel->markAs(InvitationStatus::ACCEPTED);
         }
-
-        $request->redirectUrl($url);
     }
 
     private function _validateAccessKey(): bool
     {
-        $reviewAssignment = $this->reviewAssignment;
-        $reviewId = $reviewAssignment->getId();
+        $reviewAssignment = Repo::reviewAssignment()->get($this->reviewAssignmentId);
 
-        // Check if the user is already logged in
-        if (Application::get()->getRequest()->getSessionGuard()->getUserId() != $this->userId) {
+        if (!$reviewAssignment) {
             return false;
         }
 
-        $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
-        if (!$reviewAssignment) {
+        // Check if the user is already logged in
+        if (Application::get()->getRequest()->getSessionGuard()->getUserId() && Application::get()->getRequest()->getSessionGuard()->getUserId() != $this->invitationModel->userId) {
             return false;
-        } // e.g. deleted review assignment
+        }
 
         $reviewSubmission = Repo::submission()->getByBestId($reviewAssignment->getSubmissionId());
         if (!isset($reviewSubmission)) {
@@ -133,7 +135,7 @@ class ReviewerAccessInvite extends BaseInvitation
         }
 
         // Get the reviewer user object
-        $user = Repo::user()->get($this->invitedUserId);
+        $user = Repo::user()->get($this->invitationModel->userId);
         if (!$user) {
             return false;
         }
@@ -143,5 +145,23 @@ class ReviewerAccessInvite extends BaseInvitation
         Validation::registerUserSession($user, $reason);
 
         return true;
+    }
+
+    public function getInvitationActionRedirectController(): ?InvitationActionRedirectController
+    {
+        return new ReviewerAccessInviteRedirectController($this);
+    }
+
+    public function validate(): bool
+    {
+        if (isset($this->reviewAssignmentId)) {
+            $reviewAssignment = Repo::reviewAssignment()->get($this->reviewAssignmentId);
+
+            if (!$reviewAssignment) {
+                $this->addError('The review assignment ID does not correspond to a valid assignment');
+            }
+        }
+
+        return $this->isValid();
     }
 }

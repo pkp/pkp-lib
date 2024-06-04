@@ -1,129 +1,83 @@
 <?php
 
 /**
- * @file invitation/invitations/RegistrationAccessInvite.php
+ * @file classes/invitation/invitations/RegistrationAccessInvite.php
  *
- * Copyright (c) 2023 Simon Fraser University
- * Copyright (c) 2023 John Willinsky
+ * Copyright (c) 2023-2024 Simon Fraser University
+ * Copyright (c) 2023-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RegistrationAccessInvite
- *
- * @ingroup invitations
  *
  * @brief Registration with Access Key invitation
  */
 
 namespace PKP\invitation\invitations;
 
-use APP\core\Application;
-use APP\core\Request;
 use APP\facades\Repo;
+use Exception;
 use Illuminate\Mail\Mailable;
-use PKP\config\Config;
 use PKP\core\Core;
-use PKP\core\PKPApplication;
-use PKP\invitation\invitations\enums\InvitationStatus;
+use PKP\invitation\core\contracts\IBackofficeHandleable;
+use PKP\invitation\core\contracts\IMailableUrlUpdateable;
+use PKP\invitation\core\enums\InvitationAction;
+use PKP\invitation\core\enums\InvitationStatus;
+use PKP\invitation\core\Invitation;
+use PKP\invitation\core\InvitationActionRedirectController;
+use PKP\invitation\invitations\handlers\RegistrationAccessInviteRedirectController;
+use PKP\invitation\models\InvitationModel;
 use PKP\user\User;
 
-class RegistrationAccessInvite extends BaseInvitation
+class RegistrationAccessInvite extends Invitation implements IBackofficeHandleable, IMailableUrlUpdateable
 {
-    /**
-     * Create a new invitation instance.
-     */
-    public function __construct(
-        public ?int $invitedUserId,
-        ?int $contextId = null
-    ) {
-        $expiryDays = Config::getVar('email', 'validation_timeout');
+    public const INVITATION_TYPE = 'registrationAccess';
 
-        parent::__construct($invitedUserId, null, $contextId, null, $expiryDays);
+    public static function getType(): string
+    {
+        return self::INVITATION_TYPE;
     }
 
-    public function getMailable(): ?Mailable
+    public function updateMailableWithUrl(Mailable $mailable): void
     {
-        if (isset($this->mailable)) {
-            $url = $this->getAcceptUrl();
+        $url = $this->getActionURL(InvitationAction::ACCEPT);
 
-            $this->mailable->buildViewDataUsing(function () use ($url) {
-                return [
-                    'activateUrl' => $url
-                ];
-            });
+        $mailable->buildViewDataUsing(function () use ($url) {
+            return [
+                'activateUrl' => $url
+            ];
+        });
+    }
+
+    protected function preDispatchActions(): void
+    {
+        $pendingInvitations = InvitationModel::byStatus(InvitationStatus::PENDING)
+            ->byType(self::INVITATION_TYPE)
+            ->byContextId($this->invitationModel->contextId)
+            ->byUserId($this->invitationModel->userId)
+            ->get();
+
+        foreach($pendingInvitations as $pendingInvitation) {
+            $pendingInvitation->markAs(InvitationStatus::CANCELLED);
         }
-
-        return $this->mailable;
     }
 
-    /**
-     */
-    public function preDispatchActions(): bool
+    public function finalise(): void
     {
-        $invitations = Repo::invitation()
-            ->filterByStatus(InvitationStatus::PENDING)
-            ->filterByClassName($this->className)
-            ->filterByContextId($this->contextId)
-            ->filterByUserId($this->invitedUserId)
-            ->getMany();
-
-        foreach ($invitations as $invitation) {
-            $invitation->markStatus(InvitationStatus::CANCELLED);
-        }
-
-        return true;
-    }
-
-    public function acceptHandle(): void
-    {
-        $user = Repo::user()->get($this->invitedUserId, true);
+        $user = Repo::user()->get($this->invitationModel->userId, true);
 
         if (!$user) {
-            return;
+            throw new Exception();
         }
 
-        $request = Application::get()->getRequest();
-        $validated = $this->_validateAccessKey($user, $request);
-
-        if ($validated) {
-            parent::acceptHandle();
+        if (!$this->setUserValid($user)) {
+            throw new Exception();
         }
 
-        $url = PKPApplication::get()->getDispatcher()->url(
-            PKPApplication::get()->getRequest(),
-            PKPApplication::ROUTE_PAGE,
-            null,
-            'user',
-            'activateUser',
-            [
-                $user->getUsername(),
-            ]
-        );
-
-        if (isset($this->contextId)) {
-            $contextDao = Application::getContextDAO();
-            $this->context = $contextDao->getById($this->contextId);
-
-            $url = PKPApplication::get()->getDispatcher()->url(
-                PKPApplication::get()->getRequest(),
-                PKPApplication::ROUTE_PAGE,
-                $this->context->getData('urlPath'),
-                'user',
-                'activateUser',
-                [
-                    $user->getUsername(),
-                ]
-            );
-        }
-
-        $request->redirectUrl($url);
+        $this->invitationModel->markAs(InvitationStatus::ACCEPTED);
     }
 
-    private function _validateAccessKey(User $user, Request $request): bool
+    private function setUserValid(User $user): bool
     {
-        if (!$user) {
-            return false;
-        }
-
         if ($user->getDateValidated() === null) {
             // Activate user
             $user->setDisabled(false);
@@ -135,5 +89,10 @@ class RegistrationAccessInvite extends BaseInvitation
         }
 
         return false;
+    }
+
+    public function getInvitationActionRedirectController(): ?InvitationActionRedirectController
+    {
+        return new RegistrationAccessInviteRedirectController($this);
     }
 }

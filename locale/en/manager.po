@@ -3561,3 +3561,6 @@ msgstr "Require submitting Authors to file a Competing Interest (CI) statement w
 
 msgid "manager.setup.masthead"
 msgstr "Masthead"
+
+msgid "mailable.changeProfileEmailInvitationNotify.name"
+msgstr "Change Email Address Invitation"

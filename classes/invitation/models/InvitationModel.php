@@ -17,11 +17,12 @@ namespace PKP\invitation\models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\InteractsWithTime;
-use PKP\invitation\invitations\enums\InvitationStatus;
+use PKP\invitation\core\enums\InvitationStatus;
 
-class Invitation extends Model
+class InvitationModel extends Model
 {
     use InteractsWithTime;
 
@@ -62,7 +63,6 @@ class Invitation extends Model
         'keyHash' => 'string',
         'payload' => 'array',
         'userId' => 'int',
-        'assocId' => 'int',
         'expiryDate' => 'datetime',
         'updatedAt' => 'datetime',
         'createdAt' => 'datetime',
@@ -73,16 +73,15 @@ class Invitation extends Model
         'id' => 'int',
     ];
 
-    protected $hidden = [
-        'key_hash',
+    protected $visible = [
+        'invitation_id',  
+        'status', 
+        'createdAt', 
+        'updatedAt',
         'user_id',
-        'assoc_id',
-        'expiry_date',
-        'updated_at',
-        'created_at',
         'context_id',
-        'class_name',
-        'invitation_id',
+        'expiry_date',
+        'email',
     ];
 
     public function keyHash(): Attribute
@@ -98,14 +97,6 @@ class Invitation extends Model
         return Attribute::make(
             get: fn ($user, $attributes) => $attributes['user_id'],
             set: fn ($value) => ['user_id' => $value]
-        );
-    }
-
-    public function assocId(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($user, $attributes) => $attributes['assoc_id'],
-            set: fn ($value) => ['assoc_id' => $value]
         );
     }
 
@@ -155,6 +146,14 @@ class Invitation extends Model
         );
     }
 
+    public function status(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($user, $attributes) => InvitationStatus::from($attributes['status']),
+            set: fn ($value) => ['status' => $value->value]
+        );
+    }
+
     /**
      * Add a local scope to get invitations with certain key_hash
      */
@@ -188,13 +187,11 @@ class Invitation extends Model
     }
 
     /**
-     * Add a local scope to get invitations that are of certain assoc_id
+     * Add a local scope to get invitations that are of certain invitation type
      */
-    public function scopeByAssocId(Builder $query, ?int $assocId): Builder
+    public function scopeByType(Builder $query, string $type): Builder
     {
-        return $query->when($assocId, function ($query, $assocId) {
-            return $query->where('assoc_id', '=', $assocId);
-        })->orWhereNull('assoc_id');
+        return $query->where('type', '=', $type);
     }
 
     /**
@@ -230,35 +227,56 @@ class Invitation extends Model
     /**
      * Add a local scope to get invitations that are expired
      */
-    public function scopeExpired($query)
+    public function scopeExpired(Builder $query): Builder
     {
-        return $query->where('expiry_date', '<', Carbon::now());
+        return $query->where('expiry_date', '<', Carbon::now())
+            ->orWhereNull('expiry_date');
     }
 
     /**
      * Add a local scope to get invitations that are expired
      */
-    public function scopeNotExpired($query)
+    public function scopeNotExpired(Builder $query): Builder
     {
-        return $query->where('expiry_date', '>=', Carbon::now());
+        return $query->where('expiry_date', '>=', Carbon::now())
+            ->orWhereNull('expiry_date');
     }
 
     /**
-     * Add a local scope to get invitations that are expired
+     * Scope a query to only include invitations that are not expired and not handled.
      */
-    public function scopeById($query)
+    public function scopeStillActive(Builder $query): Builder
     {
-        return $query->where('expiry_date', '>=', Carbon::now());
+        // Apply the NotExpired scope
+        $query->notExpired();
+        
+        // Apply the NotHandled scope
+        return $query->notHandled();
+    }
+
+    public function markAs(InvitationStatus $status): bool
+    {
+        $this->status = $status;
+        $this->updated_at = Carbon::now();
+        
+        return $this->save();
     }
 
     /**
-     * Mark invitation as a certain invitation status
+     * Mark all invitations with a given status.
+     * 
      */
-    public function markAs(InvitationStatus $status): void
+    public static function markAllAs(InvitationStatus $status, Collection $ids): int
     {
-        $this->update([
-            'updated_at' => Carbon::now(),
-            'status' => $status->value
+        $query = static::query();
+
+        if ($ids->isNotEmpty()) {
+            $query->whereIn('id', $ids);
+        }
+
+        return $query->update([
+            'status' => $status->value,
+            'updated_at' => Carbon::now()
         ]);
     }
 }

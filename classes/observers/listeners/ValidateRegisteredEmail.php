@@ -83,12 +83,10 @@ class ValidateRegisteredEmail
             $mailable->from($event->site->getLocalizedContactEmail(), $event->site->getLocalizedContactName());
         }
 
-        $reviewInvitation = new RegistrationAccessInvite(
-            $event->recipient->getId(),
-            $contextId
-        );
-        $reviewInvitation->setMailable($mailable);
-        $reviewInvitation->dispatch();
+        $registrationAccessInvite = new RegistrationAccessInvite();
+        $registrationAccessInvite->initialize($event->recipient->getId(), $contextId, null);
+        $registrationAccessInvite->dispatch();
+        $registrationAccessInvite->updateMailableWithUrl($mailable);
 
         $registerTemplate = Repo::emailTemplate()->getByKey($contextId, $mailable::getEmailTemplateKey());
 

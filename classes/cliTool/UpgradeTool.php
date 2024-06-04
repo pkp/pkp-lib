@@ -76,7 +76,6 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
     public function check()
     {
         $this->checkVersion(VersionCheck::getLatestVersion());
-        $this->checkForAppKey();
     }
 
     /**
@@ -209,21 +208,6 @@ class UpgradeTool extends \PKP\cliTool\CommandLineTool
         }
 
         return $compare1;
-    }
-
-    /**
-     * Check the existence of `app_key` variable in config file and print warning message if not found
-     */
-    public function checkForAppKey(): void
-    {
-        // if the app key variable `app_key` set in the config, nothing to do
-        if (PKPAppKey::hasKeyVariable()) {
-            return;
-        }
-        
-        printf("\n\e[;43mWARNING: It is noticed that there is not `app_key` variable defined in the `general` section of the config file which is necessary to cookie and other encryption purpose.\nWe suggest add the following line in the `general` section of config file.\e[0m\n\n");
-        
-        printf("\e[;44mapp_key = \e[0m\n");
     }
 
     /**

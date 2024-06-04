@@ -940,8 +940,11 @@ msgstr "Display the AppKey usage parameters"
 msgid "admin.cli.tool.appKey.options.validate.description"
 msgstr "Validate the current app key if any found in the config file"
 
+msgid "admin.cli.tool.appKey.options.configure.description"
+msgstr "Add the app_key config variable in the config.inc.php file."
+
 msgid "admin.cli.tool.appKey.options.generate.description"
-msgstr "Generate a new app key and replace in the config file. pass with flag --show to only view and --force to overwrite an existing valid app key."
+msgstr "Generate a new app key and replace in the config file. Pass with flag --show to only view and --force to overwrite an existing valid app key."
 
 msgid "admin.cli.tool.appKey.mean.those"
 msgstr "Did you mean one of the following?"
@@ -950,7 +953,10 @@ msgid "admin.cli.tool.appKey.show"
 msgstr "Generated App Key: {$appKey}"
 
 msgid "admin.cli.tool.appKey.error.missingKeyVariable"
-msgstr "No key variable named `app_key` defined in the `general` section of config file. Please update the config file's general section and add line `app_key = `"
+msgstr "No key variable named `app_key` defined in the `general` section of config file. Please update the config file's general section and add line `app_key = ` or run the command `php lib/pkp/tools/appKey.php configure` to set it."
+
+msgid "admin.cli.tool.appKey.error.alreadyKeyVariableExists"
+msgstr "The `app_key` variable already exists under the `general` section in the config file. Run command `php lib/pkp/tools/appKey.php generate` to set a new app key."
 
 msgid "admin.cli.tool.appKey.error.missingAppKey"
 msgstr "No app key set in the config file ."
@@ -963,6 +969,12 @@ msgstr "A valid APP Key already set in the config file. To overwrite, pass the f
 
 msgid "admin.cli.tool.appKey.success.writtenToConfig"
 msgstr "App key set successfully in the config file."
+
+msgid "admin.cli.tool.appKeyVariable.success.writtenToConfig"
+msgstr "App key variable set successfully in the config file. Run command `php lib/pkp/tools/appKey.php generate` to set a new app key."
+
+msgid "admin.cli.tool.appKeyVariable.error.writtenToConfig"
+msgstr "Unable to set the `app_key` variable in the config file. Please update the config file's general section and add line `app_key = `."
 
 msgid "admin.cli.tool.appKey.success.valid"
 msgstr "A valid app key set in the config file"

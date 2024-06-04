@@ -3,13 +3,11 @@
 /**
  * @file classes/cliTool/traits/HasParameterList.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @trait HasParameterList
- *
- * @ingroup tools
  *
  * @brief A helper trait manage the params and flags on CLI interface
  */

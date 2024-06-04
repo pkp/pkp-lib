@@ -3,13 +3,11 @@
 /**
  * @file classes/core/PKPAppKey.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAppKey
- *
- * @ingroup core
  *
  * @brief Class to manage app key related behaviours
  */
@@ -29,7 +27,7 @@ class PKPAppKey
      *
      * @var array
      */
-    private static array $supportedCiphers = [
+    public const SUPPORTED_CIPHERS = [
         'aes-128-cbc' => ['size' => 16, 'aead' => false],
         'aes-256-cbc' => ['size' => 32, 'aead' => false],
         'aes-128-gcm' => ['size' => 16, 'aead' => true],
@@ -41,26 +39,30 @@ class PKPAppKey
      *
      * @var string
      */
-    private static string $defaultCipher = 'aes-256-cbc';
+    public const DEFAULT_CIPHER = 'aes-256-cbc';
 
     /**
-     * Get the list of supported ciphers
+     * The `app_key` variable with description to write in the `config.inc.php` file
+     *
+     * @var string
      */
-    public static function getSupportedCiphers(): array
-    {
-        return self::$supportedCiphers;
-    }
+    public const APP_KEY_VARIABLE_CONTENT = <<<CONTENT
+    ; An application specific key that is required for the app to run
+    ; Internally this is used for any encryption (specifically cookie encryption if enabled)
+    app_key = 
+
+    CONTENT;
 
     /**
      * Get the defined cipher
      */
     public static function getCipher(): string
     {
-        return Config::getVar('security', 'cipher', self::$defaultCipher);
+        return Config::getVar('security', 'cipher', self::DEFAULT_CIPHER);
     }
 
     /**
-     * Has the app key defined in config file
+     * Is the app key defined in config file
      */
     public static function hasKey(): bool
     {
@@ -90,8 +92,8 @@ class PKPAppKey
     {
         $cipher = strtolower($cipher);
 
-        if (!in_array($cipher, array_keys(static::getSupportedCiphers()))) {
-            $ciphers = implode(', ', array_keys(static::getSupportedCiphers()));
+        if (!in_array($cipher, array_keys(self::SUPPORTED_CIPHERS))) {
+            $ciphers = implode(', ', array_keys(self::SUPPORTED_CIPHERS));
             
             throw new Exception(
                 sprintf(
@@ -131,19 +133,55 @@ class PKPAppKey
     }
 
     /**
+     * Write the `app_key` variable in the `config.inc.php` file
+     *
+     * @throws \Exception
+     */
+    public static function writeAppKeyVaribaleToConfig(): bool
+    {
+        $instruction = __('installer.appKey.keyVariable.missing.instruction');
+
+        if (static::hasKeyVariable()) {
+            throw new Exception(__('installer.appKey.keyVariable.alreadyExist.notice'));
+        }
+
+        $configFile = Config::getConfigFileName();
+
+        if (!file_exists($configFile) || !is_readable($configFile)) {
+            throw new Exception(__('installer.appKey.keyVariable.configFile.read.error') . $instruction);
+        }
+
+        $configContent = file_get_contents($configFile);
+        $splits = explode("[general]\n", $configContent);
+
+        if (count($splits) > 2) {
+            throw new Exception(__('installer.appKey.keyVariable.configFile.parse.error') . $instruction);
+        }
+
+        $configContent = $splits[0] . "[general]\n\n" . self::APP_KEY_VARIABLE_CONTENT . "\n" . $splits[1];
+        $configParser = (new ConfigParser)->setFileContent($configContent);
+
+        if (!$configParser->writeConfig(Config::getConfigFileName())) {
+            throw new Exception(__('installer.appKey.keyVariable.configFile.write.error') . $instruction);
+        }
+
+        return true;
+    }
+
+    /**
      * Write the given app key in the config file
      * 
      * @throws \Exception
      */
-    public static function writeToConfig(string $key): bool
+    public static function writeAppKeyToConfig(string $key): bool
     {
         if (!static::validate($key)) {
-            $ciphers = implode(', ', array_keys(static::getSupportedCiphers()));
+            $ciphers = implode(', ', array_keys(self::SUPPORTED_CIPHERS));
             
             // Error invalid app key
-            throw new Exception(
-                "Unsupported cipher or incorrect key length. Supported ciphers are: {$ciphers}."
-            );
+            throw new Exception(__('installer.appKey.validate.error', [
+                'ciphers' => $ciphers
+            ]));
         }
 
         $configParser = new ConfigParser;
@@ -155,17 +193,27 @@ class PKPAppKey
 
         if (!static::hasKeyVariable()) {
             // Error if the config key `app_key` not defined under `general` section
-            throw new Exception('Config variable named `app_key` not defined in the `general` section');
+            throw new Exception(
+                __('installer.appKey.keyVariable.missing.error') .
+                __('installer.appKey.keyVariable.missing.instruction') .
+                __('installer.appKey.set.value', ['key' => $key])
+            );
         }
 
         if (!$configParser->updateConfig(Config::getConfigFileName(), $configParams)) {
             // Error reading config file
-            throw new Exception('Unable to read the config file');
+            throw new Exception(
+                __('installer.appKey.keyVariable.configFile.read.error') .
+                __('installer.appKey.set.value', ['key' => $key])
+            );
         }
 
         if (!$configParser->writeConfig(Config::getConfigFileName())) {
             // Error writing config file
-            throw new Exception('Unable to write the app key in the config file');
+            throw new Exception(
+                __('installer.appKey.write.error') .
+                __('installer.appKey.set.value', ['key' => $key])
+            );
         }
 
         return true;

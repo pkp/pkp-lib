@@ -3,13 +3,11 @@
 /**
  * @file tools/appKey.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2000-2024 John Willinsky
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CommandAppKey
- *
- * @ingroup tools
  *
  * @brief CLI tool to generate/validate app key
  */
@@ -35,6 +33,7 @@ class CommandAppKey extends CommandLineTool
     protected const AVAILABLE_OPTIONS = [
         'validate'  => 'admin.cli.tool.appKey.options.validate.description',
         'generate'  => 'admin.cli.tool.appKey.options.generate.description',
+        'configure' => 'admin.cli.tool.appKey.options.configure.description',
         'usage'     => 'admin.cli.tool.appKey.options.usage.description',
     ];
 
@@ -94,6 +93,27 @@ class CommandAppKey extends CommandLineTool
     }
 
     /**
+     * Write the `app_key` variable in the `config.inc.php` file if missing
+     */
+    public function configure(): void
+    {
+        $output = $this->getCommandInterface()->getOutput();
+
+        if (PKPAppKey::hasKeyVariable()) {
+            $output->error(__('admin.cli.tool.appKey.error.alreadyKeyVariableExists'));
+            return;
+        }
+
+        try {
+            PKPAppKey::writeAppKeyVaribaleToConfig()
+                ? $output->success(__('admin.cli.tool.appKeyVariable.success.writtenToConfig'))
+                : $output->error(__('admin.cli.tool.appKeyVariable.error.writtenToConfig'));
+        } catch (Throwable $exception) {
+            $output->error($exception->getMessage());
+        }
+    }
+
+    /**
      * Generate the app key and write in the config file
      */
     public function generate(): void
@@ -125,7 +145,7 @@ class CommandAppKey extends CommandLineTool
         }
 
         try {
-            PKPAppKey::writeToConfig($appKey);
+            PKPAppKey::writeAppKeyToConfig($appKey);
             $output->success(__('admin.cli.tool.appKey.success.writtenToConfig'));
         } catch (Throwable $exception) {
             $this->getCommandInterface()->getOutput()->error($exception->getMessage());    
@@ -153,7 +173,7 @@ class CommandAppKey extends CommandLineTool
 
         if (!PKPAppKey::validate(PKPAppKey::getKey())) {
             $output->error(__('admin.cli.tool.appKey.error.InvalidAppKey', [
-                'ciphers' => implode(', ', array_keys(PKPAppKey::getSupportedCiphers()))
+                'ciphers' => implode(', ', array_keys(PKPAppKey::SUPPORTED_CIPHERS))
             ]));
             return;
         }

@@ -239,7 +239,7 @@ class ReviewFormElementDAO extends \PKP\db\DAO
     {
         $q = DB::table('review_form_elements', 'rfe')
             ->where('rfe.review_form_id', '=', $reviewFormId)
-            ->where($included !== null, fn (Builder $q) => $q->where('rfe.included', '=', $included))
+            ->when($included !== null, fn (Builder $q) => $q->where('rfe.included', '=', $included))
             ->select('rfe.*')
             ->orderBy('rfe.seq');
         $result = $this->retrieveRange($q, [], $rangeInfo);

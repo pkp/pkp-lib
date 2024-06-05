@@ -104,7 +104,6 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                         Role::ROLE_ID_MANAGER,
                         Role::ROLE_ID_SUB_EDITOR,
                         Role::ROLE_ID_ASSISTANT,
-                        Role::ROLE_ID_AUTHOR,
                     ]),
                 ]);
 
@@ -348,7 +347,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
         $dashboardViews = Repo::submission()->getDashboardViews($context, $currentUser);
 
         return response()->json(
-            $dashboardViews->map(fn(DashboardView $view) => $view->getCount()),
+            $dashboardViews->map(fn (DashboardView $view) => $view->getCount()),
             Response::HTTP_OK
         );
     }

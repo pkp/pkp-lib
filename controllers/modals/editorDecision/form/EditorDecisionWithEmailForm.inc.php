@@ -311,7 +311,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 		}
 
 		// Send the email.
-		if (!$this->getData('skipEmail')) {
+		if ($email->isEnabled() && !$this->getData('skipEmail')) {
 			$router = $request->getRouter();
 			$dispatcher = $router->getDispatcher();
 			$context = $request->getContext();

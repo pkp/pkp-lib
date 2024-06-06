@@ -147,6 +147,9 @@ class ReviewReminderForm extends Form {
 		$context = $request->getContext();
 		$templateKey = $this->_getMailTemplateKey($context);
 		$email = new SubmissionMailTemplate($submission, $templateKey, null, null, null, false);
+		if (!$email->isEnabled()) {
+			return;
+		}
 
 		$reviewUrlArgs = array('submissionId' => $reviewAssignment->getSubmissionId());
 		if ($context->getData('reviewerAccessKeysEnabled')) {

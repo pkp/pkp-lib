@@ -343,7 +343,7 @@ class UserDetailsForm extends UserForm {
 					'userFullName' => htmlspecialchars($this->user->getFullName())
 				]);
 				$mail->addRecipient($this->user->getEmail(), $this->user->getFullName());
-				if (!$mail->send()) {
+				if ($mail->isEnabled() && !$mail->send()) {
 					import('classes.notification.NotificationManager');
 					$notificationMgr = new NotificationManager();
 					$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => __('email.compose.error')));

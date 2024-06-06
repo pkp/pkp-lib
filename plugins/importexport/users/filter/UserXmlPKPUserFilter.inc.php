@@ -238,7 +238,9 @@ class UserXmlPKPUserFilter extends NativeImportFilter {
 					'userFullName' => htmlspecialchars($user->getFullName()),
 				]);
 				$mail->addRecipient($user->getEmail(), $user->getFullName());
-				$mail->send();
+				if ($mail->isEnabled()) {
+					$mail->send();
+				}
 			}
 		} else {
 			// the username and the email do not match to the one and the same existing user

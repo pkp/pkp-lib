@@ -201,7 +201,7 @@ class RecommendationForm extends Form {
 				'submissionUrl' => $submissionUrl,
 				'recommendation' => __($recommendationOptions[$recommendation]),
 			]);
-			if (!$this->getData('skipEmail')) {
+			if ($email->isEnabled() && !$this->getData('skipEmail')) {
 				if (!$email->send($request)) {
 					import('classes.notification.NotificationManager');
 					$notificationMgr = new NotificationManager();

@@ -187,6 +187,9 @@ class MailTemplate extends Mail {
 	 * @return boolean false if there was a problem sending the email
 	 */
 	function send() {
+		if (!$this->isEnabled()) {
+			return false;
+		}
 		if (isset($this->context)) {
 			$signature = $this->context->getData('emailSignature');
 			if (strstr($this->getBody(), '{$templateSignature}') === false) {

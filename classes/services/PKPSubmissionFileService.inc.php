@@ -436,7 +436,7 @@ class PKPSubmissionFileService implements EntityPropertyInterface, EntityReadInt
 				]);
 
 				if ($mail->getRecipients()){
-					if (!$mail->send($request)) {
+					if ($mail->isEnabled() && !$mail->send($request)) {
 						import('classes.notification.NotificationManager');
 						$notificationMgr = new \NotificationManager();
 						$notificationMgr->createTrivialNotification($request->getUser()->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('email.compose.error')]);

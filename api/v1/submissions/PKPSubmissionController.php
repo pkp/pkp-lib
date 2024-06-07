@@ -964,7 +964,6 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        $params = (new \PKP\submission\Sanitizer())->sanitize($params, ['title']);
         $publication = Repo::publication()->newDataObject($params);
         $newId = Repo::publication()->add($publication);
         $publication = Repo::publication()->get($newId);
@@ -1124,9 +1123,7 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        $params = (new \PKP\submission\Sanitizer())->sanitize($params, ['title', 'subtitle']);
         Repo::publication()->edit($publication, $params);
-
         $publication = Repo::publication()->get($publication->getId());
 
         $userGroups = Repo::userGroup()->getCollector()

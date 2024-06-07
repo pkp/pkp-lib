@@ -73,7 +73,7 @@ abstract class PersistableFilter extends Filter
         $this->_filterGroup = $filterGroup;
 
         // Initialize the filter.
-        $this->setParentFilterId(0);
+        $this->setParentFilterId(null);
         $this->setIsTemplate(false);
         parent::__construct($filterGroup->getInputType(), $filterGroup->getOutputType());
     }
@@ -125,20 +125,16 @@ abstract class PersistableFilter extends Filter
 
     /**
      * Set the parent filter id
-     *
-     * @param ?int $parentFilterId
      */
-    public function setParentFilterId($parentFilterId)
+    public function setParentFilterId(?int $parentFilterId): void
     {
         $this->setData('parentFilterId', $parentFilterId);
     }
 
     /**
      * Get the parent filter id
-     *
-     * @return ?int
      */
-    public function getParentFilterId()
+    public function getParentFilterId(): ?int
     {
         return $this->getData('parentFilterId');
     }

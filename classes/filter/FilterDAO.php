@@ -154,7 +154,7 @@ class FilterDAO extends \PKP\db\DAO
                 $filter->getDisplayName(),
                 $filter->getClassName(),
                 $filter->getIsTemplate() ? 1 : 0,
-                (int) $filter->getParentFilterId(),
+                $filter->getParentFilterId(),
                 (int) $filter->getSequence()
             ]
         );
@@ -379,19 +379,19 @@ class FilterDAO extends \PKP\db\DAO
 
         $this->update(
             'UPDATE	filters
-			SET	filter_group_id = ?,
-				display_name = ?,
-				class_name = ?,
-				is_template = ?,
-				parent_filter_id = ?,
-				seq = ?
-			WHERE filter_id = ?',
+            SET	filter_group_id = ?,
+                display_name = ?,
+                class_name = ?,
+                is_template = ?,
+                parent_filter_id = ?,
+                seq = ?
+            WHERE filter_id = ?',
             [
                 (int) $filterGroup->getId(),
                 $filter->getDisplayName(),
                 $filter->getClassName(),
                 $filter->getIsTemplate() ? 1 : 0,
-                (int) $filter->getParentFilterId(),
+                $filter->getParentFilterId(),
                 (int) $filter->getSequence(),
                 (int) $filter->getId()
             ]
@@ -538,7 +538,7 @@ class FilterDAO extends \PKP\db\DAO
         $filter->setId((int)$row['filter_id']);
         $filter->setDisplayName($row['display_name']);
         $filter->setIsTemplate((bool)$row['is_template']);
-        $filter->setParentFilterId((int)$row['parent_filter_id']);
+        $filter->setParentFilterId($row['parent_filter_id']);
         $filter->setSequence((int)$row['seq']);
         $this->getDataObjectSettings('filter_settings', 'filter_id', $row['filter_id'], $filter);
 
@@ -564,10 +564,9 @@ class FilterDAO extends \PKP\db\DAO
         }
 
         // Retrieve the sub-filters from the database.
-        $parentFilterId = $parentFilter->getId();
         $result = $this->retrieve(
             'SELECT * FROM filters WHERE parent_filter_id = ? ORDER BY seq',
-            [(int) $parentFilterId]
+            [$parentFilter->getId()]
         );
         /** @var DAOResultFactory<PersistableFilter> */
         $daoResultFactory = new DAOResultFactory($result, $this, '_fromRow', ['filter_id']);
@@ -604,12 +603,10 @@ class FilterDAO extends \PKP\db\DAO
      */
     public function _deleteSubFiltersByParentFilterId(int $parentFilterId): void
     {
-        $parentFilterId = (int) $parentFilterId;
-
         // Identify sub-filters.
         $result = $this->retrieve(
             'SELECT * FROM filters WHERE parent_filter_id = ?',
-            [(int) $parentFilterId]
+            [$parentFilterId]
         );
 
         foreach ($result as $row) {

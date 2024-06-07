@@ -219,6 +219,11 @@
 			"description": "The ID of the review stage: external or internal review",
 			"apiSummary": true
 		},
+		"status": {
+			"type": "integer",
+			"description": "The status of the review assignment. One of the REVIEW_ASSIGNMENT_STATUS_ constants",
+			"apiSummary": true
+		},
 		"step": {
 			"type": "integer",
 			"description": "The current step of the reviewer form",
@@ -227,6 +232,11 @@
 		"submissionId": {
 			"type": "integer",
 			"description": "The ID of the submission associated with the assignment",
+			"apiSummary": true
+		},
+		"submissionLocale": {
+			"type": "string",
+			"description": "The locale of the submission associated with the assignment",
 			"apiSummary": true
 		},
 		"publicationTitle": {

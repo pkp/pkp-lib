@@ -146,13 +146,13 @@ class EmailLogDAO extends \PKP\db\DAO
         $this->update(
             sprintf(
                 'INSERT INTO email_log
-				(sender_id, date_sent, event_type, assoc_type, assoc_id, from_address, recipients, cc_recipients, bcc_recipients, subject, body)
-				VALUES
-				(?, %s, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                (sender_id, date_sent, event_type, assoc_type, assoc_id, from_address, recipients, cc_recipients, bcc_recipients, subject, body)
+                VALUES
+                (?, %s, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
                 $this->datetimeToDB($entry->getDateSent())
             ),
             [
-                $entry->getSenderId() ?: null,
+                $entry->getSenderId(),
                 $entry->getEventType(),
                 $entry->getAssocType(),
                 $entry->getAssocId(),
@@ -213,7 +213,7 @@ class EmailLogDAO extends \PKP\db\DAO
      * @param int $oldUserId
      * @param int $newUserId
      */
-    public function changeUser($oldUserId, $newUserId)
+    public function changeUser(int $oldUserId, int $newUserId): array
     {
         return [
             $this->update(

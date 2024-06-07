@@ -240,13 +240,13 @@ msgid "installer.appKey.keyVariable.missing.instruction"
 msgstr "Please add the config variable named `app_key` under the `general` section manually or run the command `php lib/pkp/tools/appKey.php configure` to set it from CLI."
 
 msgid "installer.appKey.keyVariable.missing.error"
-msgstr "Config variable named `app_key` not defined in the `general` section."
+msgstr "Config variable named `app_key` not defined in the `general` section. "
 
 msgid "installer.appKey.keyVariable.alreadyExist.notice"
-msgstr "Config variable named `app_key` already defined in the `general` section."
+msgstr "Config variable named `app_key` already defined in the `general` section. "
 
 msgid "installer.appKey.keyVariable.configFile.read.error"
-msgstr "Unable to read the config file or file does not exists at expected path."
+msgstr "Unable to read the config file or file does not exists at expected path. "
 
 msgid "installer.appKey.keyVariable.configFile.parse.error"
 msgstr "Unable to parse the config file."

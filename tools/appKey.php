@@ -121,6 +121,11 @@ class CommandAppKey extends CommandLineTool
         $output = $this->getCommandInterface()->getOutput();
 
         try {
+            // configure `app_key` variable if not already configured
+            if (!PKPAppKey::hasKeyVariable()) {
+                $this->configure();
+            }
+
             $appKey = PKPAppKey::generate();
         } catch (Throwable $exception) {
             $output->error($exception->getMessage());
@@ -137,9 +142,7 @@ class CommandAppKey extends CommandLineTool
             return;
         }
 
-        if ((PKPAppKey::hasKey() && PKPAppKey::validate(PKPAppKey::getKey())) &&
-            !$this->hasFlagSet('--force')) {
-            
+        if ((PKPAppKey::hasKey() && PKPAppKey::validate(PKPAppKey::getKey())) && !$this->hasFlagSet('--force')) {
             $output->warning(__('admin.cli.tool.appKey.warning.replaceValidKey'));
             return;
         }

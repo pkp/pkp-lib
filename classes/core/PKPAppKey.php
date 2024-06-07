@@ -165,6 +165,10 @@ class PKPAppKey
             throw new Exception(__('installer.appKey.keyVariable.configFile.write.error') . $instruction);
         }
 
+        // Need to reset the config data in registry 
+        // This is to make sure this change is available on running request lift cycle
+        Config::setConfigFileName(CONFIG_FILE);
+
         return true;
     }
 

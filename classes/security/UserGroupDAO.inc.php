@@ -524,7 +524,7 @@ class UserGroupDAO extends DAO {
 			FROM users AS u
 			WHERE 1 = 1
 		';
-
+		$params = [];
 		// Has user group
 		if ($contextId || $userGroupId) {
 			if ($contextId) {

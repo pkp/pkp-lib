@@ -24,8 +24,11 @@ use APP\core\Application;
 use APP\core\PageRouter;
 use APP\core\Request;
 use Mockery;
+use Mockery\MockInterface;
+use Mockery\LegacyMockInterface;
 use PHPUnit\Framework\TestCase;
 use PKP\config\Config;
+use PKP\core\PKPContainer;
 use PKP\core\Core;
 use PKP\core\Dispatcher;
 use PKP\core\Registry;
@@ -34,6 +37,8 @@ use Illuminate\Support\Facades\Config as FacadesConfig;
 
 abstract class PKPTestCase extends TestCase
 {
+    public const MOCKED_GUZZLE_CLIENT_NAME = 'GuzzleClient';
+
     private array $daoBackup = [];
     private array $registryBackup = [];
     private array $containerBackup = [];
@@ -79,6 +84,7 @@ abstract class PKPTestCase extends TestCase
     {
         parent::setUp();
         $this->setBackupGlobals(true);
+        PKPContainer::getInstance()->setRunningUnitTests();
 
         // Rather than using "include_once()", ADOdb uses
         // a global variable to maintain the information
@@ -127,6 +133,10 @@ abstract class PKPTestCase extends TestCase
         foreach ($this->getMockedDAOs() as $mockedDao) {
             DAORegistry::registerDAO($mockedDao, $this->daoBackup[$mockedDao]);
         }
+
+        Registry::delete(self::MOCKED_GUZZLE_CLIENT_NAME);
+
+        PKPContainer::getInstance()->unsetRunningUnitTests();
 
         Mockery::close();
         parent::tearDown();
@@ -254,6 +264,30 @@ abstract class PKPTestCase extends TestCase
         $mailConfig = app()->get('config')['mail'];
         $mailConfig['default'] = $driver;
         FacadesConfig::set('mail', $mailConfig);
+    }
+
+    /**
+     * Create mockable guzzle client
+     * @see https://docs.guzzlephp.org/en/stable/testing.html
+     * 
+     * @param bool $setToRegistry   Should store it in app registry to be used by call
+     *                              as `Application::get()->getHttpClient()`
+     * 
+     * @return \Mockery\MockInterface|\Mockery\LegacyMockInterface
+     */
+    protected function mockGuzzleClient(bool $setToRegistry = true): MockInterface|LegacyMockInterface
+    {
+        $guzzleClientMock = Mockery::mock(\GuzzleHttp\Client::class)
+            ->shouldReceive('request')
+            ->withAnyArgs()
+            ->andReturn(new \GuzzleHttp\Psr7\Response)
+            ->getMock();
+
+        if ($setToRegistry) {
+            Registry::set(self::MOCKED_GUZZLE_CLIENT_NAME, $guzzleClientMock);
+        }
+
+        return $guzzleClientMock;
     }
 }
 

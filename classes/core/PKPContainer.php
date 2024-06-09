@@ -35,6 +35,11 @@ use Throwable;
 class PKPContainer extends Container
 {
     /**
+     * Define if the app currently runing the unit test
+     */
+    private bool $isRunningUnitTest = false;
+
+    /**
      * @var string
      *
      * @brief the base path of the application, needed for base_path helper
@@ -369,9 +374,25 @@ class PKPContainer extends Container
      *
      * @return bool
      */
-    public function runningUnitTests()
+    public function runningUnitTests(): bool
     {
-        return false;
+        return $this->isRunningUnitTest;
+    }
+
+    /**
+     * Set the app running unit test
+     */
+    public function setRunningUnitTests(): void
+    {
+        $this->isRunningUnitTest = true;
+    }
+
+    /**
+     * Unset the app running unit test
+     */
+    public function unsetRunningUnitTests(): void
+    {
+        $this->isRunningUnitTest = false;
     }
 
     /**

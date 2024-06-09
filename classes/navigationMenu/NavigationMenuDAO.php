@@ -86,7 +86,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Check if a navigationMenu exists with the given title.
      */
-    public function navigationMenuExistsByTitle(int $contextId, string $title): bool
+    public function navigationMenuExistsByTitle(?int $contextId, string $title): bool
     {
         $result = $this->retrieve('SELECT COUNT(*) AS row_count FROM navigation_menus WHERE title = ? AND COALESCE(context_id, 0) = ?', [$title, (int) $contextId]);
         $row = (array) $result->current();
@@ -122,7 +122,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
     {
         $this->update(
             'INSERT INTO navigation_menus (title, area_name, context_id) VALUES (?, ?, ?)',
-            [$navigationMenu->getTitle(), $navigationMenu->getAreaName(), (int) $navigationMenu->getContextId() ?: null]
+            [$navigationMenu->getTitle(), $navigationMenu->getAreaName(), $navigationMenu->getContextId()]
         );
         $navigationMenu->setId($this->getInsertId());
         return $navigationMenu->getId();
@@ -143,7 +143,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
             [
                 $navigationMenu->getTitle(),
                 $navigationMenu->getAreaName(),
-                (int) $navigationMenu->getContextId() ?: null,
+                $navigationMenu->getContextId(),
                 (int) $navigationMenu->getId(),
             ]
         );

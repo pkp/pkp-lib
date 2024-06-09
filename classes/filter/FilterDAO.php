@@ -139,7 +139,7 @@ class FilterDAO extends \PKP\db\DAO
      *
      * @return The new filter id
      */
-    public function insertObject(PersistableFilter $filter, int $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE): int
+    public function insertObject(PersistableFilter $filter, ?int $contextId = null): int
     {
         $filterGroup = $filter->getFilterGroup();
         assert($filterGroup->getSymbolic() != FILTER_GROUP_TEMPORARY_ONLY);
@@ -149,8 +149,8 @@ class FilterDAO extends \PKP\db\DAO
                 (filter_group_id, context_id, display_name, class_name, is_template, parent_filter_id, seq)
                 VALUES (?, ?, ?, ?, ?, ?, ?)'),
             [
-                (int) $filterGroup->getId(),
-                (int) $contextId,
+                (int) $filterGroup->getId() ?: null,
+                $contextId,
                 $filter->getDisplayName(),
                 $filter->getClassName(),
                 $filter->getIsTemplate() ? 1 : 0,
@@ -205,15 +205,15 @@ class FilterDAO extends \PKP\db\DAO
      */
     public function getObjectsByClass(
         string $className,
-        int $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE,
+        ?int $contextId = null,
         bool $getTemplates = false,
         bool $allowSubfilters = false
     ): DAOResultFactory {
         $result = $this->retrieve(
-            'SELECT	* FROM filters
-                WHERE context_id = ? AND
+            'SELECT * FROM filters
+                WHERE COALESCE(context_id, 0) = ? AND
                 LOWER(class_name) = LOWER(?) AND
-            ' . ($allowSubfilters ? '' : ' parent_filter_id = 0 AND ') . '
+            ' . ($allowSubfilters ? '' : ' parent_filter_id IS NULL AND ') . '
             ' . ($getTemplates ? ' is_template = 1' : ' is_template = 0'),
             [(int) $contextId, $className]
         );
@@ -234,15 +234,15 @@ class FilterDAO extends \PKP\db\DAO
     public function getObjectsByGroupAndClass(
         string $groupSymbolic,
         string $className,
-        int $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE,
+        ?int $contextId = null,
         bool $getTemplates = false,
         bool $allowSubfilters = false
     ): DAOResultFactory {
         $result = $this->retrieve(
             'SELECT f.* FROM filters f' .
             ' INNER JOIN filter_groups fg ON f.filter_group_id = fg.filter_group_id' .
-            ' WHERE fg.symbolic = ? AND f.context_id = ? AND LOWER(f.class_name) = LOWER(?)' .
-            ' ' . ($allowSubfilters ? '' : 'AND f.parent_filter_id = 0') .
+            ' WHERE fg.symbolic = ? AND COALESCE(f.context_id, 0) = ? AND LOWER(f.class_name) = LOWER(?)' .
+            ' ' . ($allowSubfilters ? '' : 'AND f.parent_filter_id IS NULL') .
             ' AND ' . ($getTemplates ? 'f.is_template = 1' : 'f.is_template = 0'),
             [$groupSymbolic, (int) $contextId, $className]
         );

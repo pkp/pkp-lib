@@ -41,7 +41,7 @@ class RoleDAO extends DAO
     /**
      * Validation check to see if a user belongs to any group that has a given role
      */
-    public function userHasRole(int $contextId, int $userId, int|array $roleIds): bool
+    public function userHasRole(?int $contextId, int $userId, int|array $roleIds): bool
     {
         return DB::table('user_groups AS ug')
             ->join('user_user_groups AS uug', 'ug.user_group_id', '=', 'uug.user_group_id')
@@ -49,8 +49,8 @@ class RoleDAO extends DAO
             ->whereIn('ug.role_id', is_array($roleIds) ? $roleIds : [$roleIds])
             ->where(fn (Builder $q) => $q->whereNull('uug.date_start')->orWhere('uug.date_start', '<=', Core::getCurrentDate()))
             ->where(fn (Builder $q) => $q->whereNull('uug.date_end')->orWhere('uug.date_end', '>', Core::getCurrentDate()))
-            ->where(DB::raw('COALESCE(ug.context_id, 0)'), $contextId)
-            )->exists();
+            ->where(DB::raw('COALESCE(ug.context_id, 0)'), (int) $contextId)
+            ->exists();
     }
 
     /**
@@ -66,7 +66,7 @@ class RoleDAO extends DAO
             ->where('uug.user_id', $userId)
             ->where(fn (Builder $q) => $q->whereNull('uug.date_start')->orWhere('uug.date_start', '<=', Core::getCurrentDate()))
             ->where(fn (Builder $q) => $q->whereNull('uug.date_end')->orWhere('uug.date_end', '>', Core::getCurrentDate()))
-            ->when($contextId !== null, fn (Builder $q) => $q->where(DB::raw('COALESCE(ug.context_id, 0)'), $contextId))
+            ->when($contextId !== null, fn (Builder $q) => $q->where(DB::raw('COALESCE(ug.context_id, 0)'), (int) $contextId))
             ->distinct()
             ->select(['ug.role_id AS role_id'])
             ->get();

@@ -205,7 +205,7 @@ class Validation
             // Get context ID from request
             $request = Application::get()->getRequest();
             $context = $request->getContext();
-            $contextId = $context == null ? Application::CONTEXT_SITE : $context->getId();
+            $contextId = $context == null ? Application::SITE_CONTEXT_ID : $context->getId();
         }
 
         $user = Auth::user(); /** @var \PKP\user\User $user */
@@ -412,12 +412,12 @@ class Validation
         }
 
         // You cannot administer administrators
-        if ($roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $administeredUserId, Role::ROLE_ID_SITE_ADMIN)) {
+        if ($roleDao->userHasRole(\PKP\core\PKPApplication::SITE_CONTEXT_ID, $administeredUserId, Role::ROLE_ID_SITE_ADMIN)) {
             return false;
         }
 
         // Otherwise, administrators can administer everyone
-        if ($roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $administratorUserId, Role::ROLE_ID_SITE_ADMIN)) {
+        if ($roleDao->userHasRole(\PKP\core\PKPApplication::SITE_CONTEXT_ID, $administratorUserId, Role::ROLE_ID_SITE_ADMIN)) {
             return true;
         }
 
@@ -425,7 +425,7 @@ class Validation
         // that the administrator user doesn't have a manager role in.
         $userGroups = Repo::userGroup()->userUserGroups($administeredUserId);
         foreach ($userGroups as $userGroup) {
-            if ((int) $userGroup->getContextId() != \PKP\core\PKPApplication::CONTEXT_SITE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
+            if ((int) $userGroup->getContextId() != \PKP\core\PKPApplication::SITE_CONTEXT_ID && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
                 // Found an assignment: disqualified.
                 return false;
             }
@@ -465,7 +465,7 @@ class Validation
 
         $filteredSiteAdminUserGroups = Repo::userGroup()
             ->getCollector()
-            ->filterByContextIds([\PKP\core\PKPApplication::CONTEXT_SITE])
+            ->filterByContextIds([\PKP\core\PKPApplication::SITE_CONTEXT_ID])
             ->filterByRoleIds([Role::ROLE_ID_SITE_ADMIN]);
 
         // You cannot administer administrators

@@ -138,7 +138,7 @@ class Repository
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
-        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
+        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::SITE_CONTEXT_ID;
         $currentUser = $request->getUser();
 
         // Logged out users can never view gossip fields
@@ -216,9 +216,9 @@ class Repository
             }
 
             // Has admin role?
-            if ($contextId != PKPApplication::CONTEXT_ID_NONE &&
-                array_key_exists(PKPApplication::CONTEXT_ID_NONE, $userRoles) &&
-                in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles[PKPApplication::CONTEXT_ID_NONE])
+            if ($contextId != PKPApplication::SITE_CONTEXT_ID &&
+                array_key_exists(PKPApplication::SITE_CONTEXT_ID, $userRoles) &&
+                in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles[PKPApplication::SITE_CONTEXT_ID])
             ) {
                 $userRoleIds[] = Role::ROLE_ID_SITE_ADMIN;
             }

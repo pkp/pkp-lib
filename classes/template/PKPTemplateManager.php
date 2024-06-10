@@ -2168,7 +2168,7 @@ class PKPTemplateManager extends Smarty
         $areaName = $params['name'];
         $declaredMenuTemplatePath = $params['path'] ?? null;
         $currentContext = $this->_request->getContext();
-        $contextId = Application::CONTEXT_ID_NONE;
+        $contextId = Application::SITE_CONTEXT_ID;
         if ($currentContext) {
             $contextId = $currentContext->getId();
         }

@@ -196,7 +196,7 @@ abstract class Repository
         if ($submission->getData('submissionProgress') &&
             ($authorDashboard ||
                 $user->hasRole([Role::ROLE_ID_MANAGER], $submissionContext->getId()) ||
-                $user->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::CONTEXT_SITE))) {
+                $user->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::SITE_CONTEXT_ID))) {
             return $dispatcher->url(
                 $request,
                 Application::ROUTE_PAGE,
@@ -477,28 +477,18 @@ abstract class Repository
             return false;
         }
 
-        $canDelete = false;
-
         // Only allow admins and journal managers to delete submissions, except
         // for authors who can delete their own incomplete submissions
-        if ($currentUser->hasRole([Role::ROLE_ID_MANAGER], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::CONTEXT_SITE)) {
-            $canDelete = true;
-        } else {
-            if ($submission->getData('submissionProgress')) {
-                // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-                $assignments = StageAssignment::withSubmissionIds([$submission->getId()])
+        return ($currentUser->hasRole([Role::ROLE_ID_MANAGER], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::SITE_CONTEXT_ID))
+            || (
+                $submission->getData('submissionProgress') &&
+                StageAssignment::withSubmissionIds([$submission->getId()])
                     ->withRoleIds([Role::ROLE_ID_AUTHOR])
                     ->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
                     ->withUserId($currentUser->getId())
-                    ->get();
-
-                if ($assignments->isNotEmpty()) {
-                    $canDelete = true;
-                }
-            }
-        }
-
-        return $canDelete;
+                    ->get()
+                    ->isNotEmpty()
+            );
     }
 
     /**

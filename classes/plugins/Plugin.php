@@ -356,7 +356,7 @@ abstract class Plugin
         $plugin = basename($pluginPath);
         $category = basename(dirname($pluginPath));
 
-        $contextId = PKPApplication::CONTEXT_SITE;
+        $contextId = PKPApplication::SITE_CONTEXT_ID;
         if (Application::isInstalled()) {
             $context = Application::get()->getRequest()->getContext();
             if ($context instanceof \PKP\context\Context) {
@@ -535,7 +535,7 @@ abstract class Plugin
     public function installSiteSettings($hookName, $args)
     {
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
-        $pluginSettingsDao->installSettings(PKPApplication::CONTEXT_SITE, $this->getName(), $this->getInstallSitePluginSettingsFile());
+        $pluginSettingsDao->installSettings(PKPApplication::SITE_CONTEXT_ID, $this->getName(), $this->getInstallSitePluginSettingsFile());
 
         return false;
     }

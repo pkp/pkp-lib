@@ -770,7 +770,7 @@ class AdminHandler extends Handler
                 'apiUrl' => $apiUrl,
                 'form' => $form,
                 'getParams' => [
-                    'contextIds' => [Application::CONTEXT_ID_NONE],
+                    'contextIds' => [Application::SITE_CONTEXT_ID],
                     'count' => 30,
                 ],
                 'items' => $items->values(),

@@ -432,7 +432,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             $request = $this->getRequest();
             $router = $request->getRouter();
 
-            $mainContextId = $router->getContext($request)?->getId() ?? self::CONTEXT_SITE;
+            $mainContextId = $router->getContext($request)?->getId() ?? self::SITE_CONTEXT_ID;
         }
         if (!isset($this->enabledProducts[$mainContextId])) {
             $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var \PKP\site\VersionDAO $versionDao */

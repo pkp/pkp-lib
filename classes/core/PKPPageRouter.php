@@ -437,7 +437,7 @@ class PKPPageRouter extends PKPRouter
         } else {
             // The user is at the site context, check to see if they are
             // only registered in one place w/ one role
-            $userGroups = Repo::userGroup()->userUserGroups($userId, \PKP\core\PKPApplication::CONTEXT_ID_NONE);
+            $userGroups = Repo::userGroup()->userUserGroups($userId, \PKP\core\PKPApplication::SITE_CONTEXT_ID);
             if ($userGroups->count() == 1) {
                 $firstUserGroup = $userGroups->first();
                 $contextDao = Application::getContextDAO();

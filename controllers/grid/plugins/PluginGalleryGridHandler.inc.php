@@ -119,19 +119,19 @@ class PluginGalleryGridHandler extends GridHandler {
 	 * @return array Grid data.
 	 */
 	protected function loadData($request, $filter) {
-        // Get all plugins.
-        $pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO'); /* @var $pluginGalleryDao PluginGalleryDAO */
-        try {
-            return $pluginGalleryDao->getNewestCompatible(
-                Application::get(),
-                $request->getUserVar('category'),
-                $request->getUserVar('pluginText')
-            );
-        } catch (GuzzleHttp\Exception\TransferException $e) {
-            error_log($e);
-            return [];
+                // Get all plugins.
+                $pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO'); /* @var $pluginGalleryDao PluginGalleryDAO */
+                try {
+                        return $pluginGalleryDao->getNewestCompatible(
+                                Application::get(),
+                                $request->getUserVar('category'),
+                                $request->getUserVar('pluginText')
+                        );
+                } catch (GuzzleHttp\Exception\TransferException $e) {
+                        error_log($e);
+                        return [];
+                }
         }
-    }
 
 	/**
 	 * @see GridHandler::getFilterForm()
@@ -181,11 +181,11 @@ class PluginGalleryGridHandler extends GridHandler {
 		$templateMgr = TemplateManager::getManager($request);
 
 		try {
-            $plugin = $this->_getSpecifiedPlugin($request);
-        } catch (GuzzleHttp\Exception\TransferException $e) {
-            error_log($e);
-            return new JSONMessage(false, $e->getMessage());
-        }
+                        $plugin = $this->_getSpecifiedPlugin($request);
+                } catch (GuzzleHttp\Exception\TransferException $e) {
+                        error_log($e);
+                        return new JSONMessage(false, $e->getMessage());
+                }
 
 		// Display plugin information
 		$templateMgr->assign('plugin', $plugin)
@@ -262,12 +262,12 @@ class PluginGalleryGridHandler extends GridHandler {
 		$user = $request->getUser();
 
 		try {
-            $plugin = $this->_getSpecifiedPlugin($request);
-        } catch (GuzzleHttp\Exception\TransferException $e) {
-            error_log($e);
-            $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => $e->getMessage()));
-            return $request->redirectUrlJson($redirectUrl);
-        }
+                        $plugin = $this->_getSpecifiedPlugin($request);
+                } catch (GuzzleHttp\Exception\TransferException $e) {
+                        error_log($e);
+                        $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => $e->getMessage()));
+                        return $request->redirectUrlJson($redirectUrl);
+                }
 
 		// Download the file and ensure the MD5 sum
 		$destPath = tempnam(sys_get_temp_dir(), 'plugin');

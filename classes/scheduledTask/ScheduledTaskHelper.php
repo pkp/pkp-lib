@@ -192,7 +192,7 @@ class ScheduledTaskHelper
         $application = Application::get();
         $request = $application->getRequest();
         $router = $request->getRouter();
-        $downloadLogUrl = $router->url($request, 'index', 'admin', 'downloadScheduledTaskLogFile', null, ['file' => basename($executionLogFile)]);
+        $downloadLogUrl = $router->url($request, Application::SITE_CONTEXT_PATH, 'admin', 'downloadScheduledTaskLogFile', null, ['file' => basename($executionLogFile)]);
         return __('admin.scheduledTask.downloadLog', [
             'url' => $downloadLogUrl,
             'softwareName' => __($application->getNameKey()),

@@ -26,8 +26,8 @@ use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\Validation;
 
-define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
-define('ROUTER_DEFAULT_OP', 'index');
+define('ROUTER_DEFAULT_PAGE', './pages/' . Application::SITE_CONTEXT_PATH . '/index.php');
+define('ROUTER_DEFAULT_OP', Application::SITE_CONTEXT_PATH);
 
 class PKPPageRouter extends PKPRouter
 {
@@ -143,7 +143,7 @@ class PKPPageRouter extends PKPRouter
     public function getCacheFilename(PKPRequest $request): string
     {
         if (!isset($this->_cacheFilename)) {
-            $id = $_SERVER['PATH_INFO'] ?? 'index';
+            $id = $_SERVER['PATH_INFO'] ?? Application::SITE_CONTEXT_PATH;
             $id .= '-' . Locale::getLocale();
             $path = Core::getBaseDir();
             $this->_cacheFilename = $path . '/cache/wc-' . md5($id) . '.html';
@@ -169,10 +169,10 @@ class PKPPageRouter extends PKPRouter
             // A non-installation page was called although
             // the system is not yet installed. Redirect to
             // the installation page.
-            $request->redirect('index', 'install');
+            $request->redirect(Application::SITE_CONTEXT_PATH, 'install');
         } elseif (Application::isInstalled() && in_array($page, $this->getInstallationPages())) {
             // Redirect to the index page
-            $request->redirect('index', 'index');
+            $request->redirect(Application::SITE_CONTEXT_PATH, 'index');
         }
 
         // Redirect requests from logged-out users to a context which is not
@@ -468,13 +468,13 @@ class PKPPageRouter extends PKPRouter
                 $contextDao = Application::getContextDAO();
                 $context = $contextDao->getById($firstUserGroup->getContextId());
                 if (!isset($context)) {
-                    $request->redirect('index', 'index');
+                    $request->redirect(Application::SITE_CONTEXT_PATH, 'index');
                 }
                 if ($firstUserGroup->getRoleId() == Role::ROLE_ID_READER) {
                     $request->redirect(null, 'index');
                 }
             }
-            return $request->url('index', 'index');
+            return $request->url(Application::SITE_CONTEXT_PATH, 'index');
         }
     }
 
@@ -512,14 +512,12 @@ class PKPPageRouter extends PKPRouter
     private function _getContextAndLocales(PKPRequest $request, string $contextPath): array
     {
         return [
-            $context = $this->getCurrentContext() ?? (($contextPath === 'index' || !$contextPath || $contextPath === Application::CONTEXT_ID_ALL)
+            $context = $this->getCurrentContext() ?? ((!$contextPath || $contextPath === Application::SITE_CONTEXT_PATH)
                 ? null
                 : Application::getContextDAO()->getByPath($contextPath)),
             $context?->getSupportedLocales()
-                ?? (($contextPath === 'index')
-                    ? (Application::isInstalled()
-                        ? $request->getSite()->getSupportedLocales()
-                        : array_keys(Locale::getLocales()))
+                ?? ($contextPath === Application::SITE_CONTEXT_PATH
+                    ? (Application::isInstalled() ? $request->getSite()->getSupportedLocales() : array_keys(Locale::getLocales()))
                     : [])
         ];
     }

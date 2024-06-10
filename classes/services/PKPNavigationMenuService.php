@@ -292,7 +292,7 @@ class PKPNavigationMenuService
                     $navigationMenuItem->setUrl($dispatcher->url(
                         $request,
                         PKPApplication::ROUTE_PAGE,
-                        'index',
+                        Application::SITE_CONTEXT_PATH,
                         'admin',
                         'index',
                         null

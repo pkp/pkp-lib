@@ -644,7 +644,7 @@ class PKPHandler
         $router = $request->getRouter();
         $requestedPath = $router->getRequestedContextPath($request);
 
-        if ($requestedPath === 'index' || $requestedPath === '') {
+        if ($requestedPath === Application::SITE_CONTEXT_PATH || $requestedPath === '') {
             // No context requested. Check how many contexts the site has.
             $contextDao = Application::getContextDAO();
             $contexts = $contextDao->getAll(true);

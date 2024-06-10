@@ -361,13 +361,8 @@ abstract class Collector implements CollectorInterface, ViewsCount
             ->leftJoin('publications AS po', 's.current_publication_id', '=', 'po.publication_id')
             ->select(['s.*']);
 
-        // Never permit a query without a context_id unless the CONTEXT_ID_ALL wildcard
-        // has been set explicitly.
-        if (!isset($this->contextIds)) {
-            throw new Exception('Submissions can not be retrieved without a context id. Pass the CONTEXT_ID_ALL wildcard to get submissions from any context.');
-        } elseif (!in_array(Application::CONTEXT_ID_ALL, $this->contextIds)) {
-            $q->whereIn('s.context_id', $this->contextIds);
-        }
+
+        $q->when($this->contextIds !== null, fn (Builder $q) => $q->whereIn('s.context_id', $this->contextIds));
 
         // Prepare keywords (allows short and numeric words)
         $keywords = collect(Application::getSubmissionSearchIndex()->filterKeywords($this->searchPhrase, false, true, true))

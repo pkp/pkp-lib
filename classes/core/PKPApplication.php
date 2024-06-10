@@ -156,7 +156,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
                 'WORKFLOW_TYPE_EDITORIAL', 'WORKFLOW_TYPE_AUTHOR', 'PHP_REQUIRED_VERSION',
                 'API_VERSION',
                 'ROUTE_COMPONENT', 'ROUTE_PAGE', 'ROUTE_API',
-                'CONTEXT_SITE', 'CONTEXT_ID_NONE', 'CONTEXT_ID_ALL',
+                'CONTEXT_SITE', 'CONTEXT_ID_NONE', 'SITE_CONTEXT_PATH',
 
                 'ASSOC_TYPE_PRODUCTION_ASSIGNMENT',
                 'ASSOC_TYPE_SUBMISSION_FILE',

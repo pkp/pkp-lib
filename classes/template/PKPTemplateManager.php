@@ -833,7 +833,7 @@ class PKPTemplateManager extends Smarty
         $hash = Locale::getUITranslator()->getCacheHash();
         $this->addJavaScript(
             'i18n_keys',
-            $request->getDispatcher()->url($request, Application::ROUTE_API, $request->getContext()?->getPath() ?? 'index', '_i18n/ui.js?hash=' . $hash),
+            $request->getDispatcher()->url($request, Application::ROUTE_API, $request->getContext()?->getPath() ?? Application::SITE_CONTEXT_PATH, '_i18n/ui.js?hash=' . $hash),
             [
                 'priority' => self::STYLE_SEQUENCE_CORE,
                 'contexts' => 'backend',
@@ -1122,7 +1122,7 @@ class PKPTemplateManager extends Smarty
                     if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
                         $menu['admin'] = [
                             'name' => __('navigation.admin'),
-                            'url' => $router->url($request, 'index', 'admin'),
+                            'url' => $router->url($request, Application::SITE_CONTEXT_PATH, 'admin'),
                             'isCurrent' => $router->getRequestedPage($request) === 'admin',
                         ];
                     }
@@ -1238,8 +1238,8 @@ class PKPTemplateManager extends Smarty
         $context = $request->getContext();
 
         $pageContext = [
-            'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: 'index'),
-            'pageBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context?->getPath() ?: 'index') . '/',
+            'apiBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_API, $context?->getPath() ?: Application::SITE_CONTEXT_PATH),
+            'pageBaseUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context?->getPath() ?: Application::SITE_CONTEXT_PATH) . '/',
             'legacyGridBaseUrl' => $dispatcher->url(
                 $request,
                 Application::ROUTE_COMPONENT,

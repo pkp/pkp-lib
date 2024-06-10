@@ -76,7 +76,7 @@ class ContextGridRow extends GridRow
         $this->addAction(
             new LinkAction(
                 'wizard',
-                new RedirectAction($dispatcher->url($request, PKPApplication::ROUTE_PAGE, 'index', 'admin', 'wizard', [$element->getId()])),
+                new RedirectAction($dispatcher->url($request, PKPApplication::ROUTE_PAGE, Application::SITE_CONTEXT_PATH, 'admin', 'wizard', [$element->getId()])),
                 __('grid.action.wizard'),
                 'wrench'
             )

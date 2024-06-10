@@ -191,7 +191,7 @@ abstract class PKPRouter
             $path = $this->getRequestedContextPath($request);
 
             // Resolve the path to the context
-            if ($path === 'index' || $path === '' || $path === Application::CONTEXT_ID_ALL) {
+            if ($path === '' || $path === Application::SITE_CONTEXT_PATH) {
                 $this->_context = null;
             } else {
                 // FIXME: Can't just use Application::get()->getContextDAO() without test breakage
@@ -376,7 +376,7 @@ abstract class PKPRouter
             // No new context has been set so determine
             // the current request's context
             $contextObject = $this->getContext($request);
-            $contextValue = $contextObject?->getPath() ?? 'index';
+            $contextValue = $contextObject?->getPath() ?? Application::SITE_CONTEXT_PATH;
         }
 
         // Check whether the base URL is overridden.

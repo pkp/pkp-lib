@@ -86,11 +86,11 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	protected function _isChangePermitMetadataAllowed(UserGroup $userGroup, int $userId) {
 		$currentUser = Application::get()->getRequest()->getUser();
 
-		if ($currentUser->getId() === $userId && $userGroup->getRoleId() === ROLE_ID_SUB_EDITOR) {
+		if ($currentUser->getId() === $userId && $userGroup->getRoleId() == ROLE_ID_SUB_EDITOR) {
 			return false;
 		}
 
-		return $userGroup->getRoleId() !== ROLE_ID_MANAGER;
+		return $userGroup->getRoleId() != ROLE_ID_MANAGER;
 	}
 
 	/**
@@ -103,7 +103,7 @@ class AddParticipantForm extends StageParticipantNotifyForm {
 	protected function _isChangeRecommendOnlyAllowed(UserGroup $userGroup, int $userId) {
 		$currentUser = Application::get()->getRequest()->getUser();
 
-		if ($currentUser->getId() === $userId && $userGroup->getRoleId() === ROLE_ID_SUB_EDITOR) {
+		if ($currentUser->getId() === $userId && $userGroup->getRoleId() == ROLE_ID_SUB_EDITOR) {
 			return false;
 		}
 

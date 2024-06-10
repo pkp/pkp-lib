@@ -234,10 +234,6 @@ abstract class PKPStatsPublicationService
         return [
             'dateStart' => PKPStatisticsHelper::STATISTICS_EARLIEST_DATE,
             'dateEnd' => date('Y-m-d', strtotime('yesterday')),
-
-            // Require a context to be specified to prevent unwanted data leakage
-            // if someone forgets to specify the context.
-            'contextIds' => [\PKP\core\PKPApplication::CONTEXT_SITE],
         ];
     }
 

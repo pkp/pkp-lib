@@ -2322,3 +2322,6 @@ msgstr "Author edited."
 
 msgid "common.sandbox"
 msgstr "Application running in sandbox mode."
+
+msgid "common.fromUntil"
+msgstr "{$from} - {$until}"

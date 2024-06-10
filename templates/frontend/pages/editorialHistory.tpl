@@ -26,7 +26,7 @@
 							{if !empty($mastheadUser['user']->getLocalizedData('affiliation'))}
 								<li>{$mastheadUser['user']->getLocalizedData('affiliation')|escape}</li>
 							{/if}
-							<li>{$service['dateStart']} - {$service['dateEnd']}</li>
+							<li>{translate key="common.fromUntil" from=$service['dateStart'] until=$service['dateEnd']}</li>
 						</ul>
 						{if $mastheadUser['user']->getData('orcid')}
 							<span class="orcid">

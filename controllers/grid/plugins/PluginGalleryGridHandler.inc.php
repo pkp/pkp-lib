@@ -119,14 +119,19 @@ class PluginGalleryGridHandler extends GridHandler {
 	 * @return array Grid data.
 	 */
 	protected function loadData($request, $filter) {
-		// Get all plugins.
-		$pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO'); /* @var $pluginGalleryDao PluginGalleryDAO */
-		return $pluginGalleryDao->getNewestCompatible(
-			Application::get(),
-			$request->getUserVar('category'),
-			$request->getUserVar('pluginText')
-		);
-	}
+        // Get all plugins.
+        $pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO'); /* @var $pluginGalleryDao PluginGalleryDAO */
+        try {
+            return $pluginGalleryDao->getNewestCompatible(
+                Application::get(),
+                $request->getUserVar('category'),
+                $request->getUserVar('pluginText')
+            );
+        } catch (GuzzleHttp\Exception\TransferException $e) {
+            error_log($e);
+            return [];
+        }
+    }
 
 	/**
 	 * @see GridHandler::getFilterForm()
@@ -173,11 +178,17 @@ class PluginGalleryGridHandler extends GridHandler {
 	 * @return JSONMessage JSON object
 	 */
 	function viewPlugin($args, $request) {
-		$plugin = $this->_getSpecifiedPlugin($request);
+		$templateMgr = TemplateManager::getManager($request);
+
+		try {
+            $plugin = $this->_getSpecifiedPlugin($request);
+        } catch (GuzzleHttp\Exception\TransferException $e) {
+            error_log($e);
+            return new JSONMessage(false, $e->getMessage());
+        }
 
 		// Display plugin information
-		$templateMgr = TemplateManager::getManager($request);
-		$templateMgr->assign('plugin', $plugin);
+		$templateMgr->assign('plugin', $plugin)
 
 		// Get currently installed version, if any.
 		$installActionKey = $installConfirmKey = $installOp = null;
@@ -247,10 +258,16 @@ class PluginGalleryGridHandler extends GridHandler {
 	function installPlugin($args, $request, $isUpgrade = false) {
 		$redirectUrl = $request->getDispatcher()->url($request, ROUTE_PAGE, null, 'management', 'settings', array('website'), array('r' => uniqid()), 'plugins');
 		if (!$request->checkCSRF()) return $request->redirectUrlJson($redirectUrl);
-
-		$plugin = $this->_getSpecifiedPlugin($request);
 		$notificationMgr = new NotificationManager();
 		$user = $request->getUser();
+
+		try {
+            $plugin = $this->_getSpecifiedPlugin($request);
+        } catch (GuzzleHttp\Exception\TransferException $e) {
+            error_log($e);
+            $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, array('contents' => $e->getMessage()));
+            return $request->redirectUrlJson($redirectUrl);
+        }
 
 		// Download the file and ensure the MD5 sum
 		$destPath = tempnam(sys_get_temp_dir(), 'plugin');

@@ -124,7 +124,7 @@ class DAO extends EntityDAO
         // The database layer uses null for context_id when a user_group is site-wide
         // but the PHP layer uses a CONTEXT_SITE constant. Map from DB to PHP.
         if ($row->context_id === null) {
-            $row->context_id = PKPApplication::CONTEXT_SITE;
+            $row->context_id = PKPApplication::SITE_CONTEXT_ID;
         }
 
         return parent::fromRow($row);

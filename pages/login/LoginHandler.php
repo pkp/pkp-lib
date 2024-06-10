@@ -240,7 +240,7 @@ class LoginHandler extends Handler
             $site = $request->getSite(); /** @var Site $site */
             $context = $request->getContext(); /** @var Context $context */
             $template = Repo::emailTemplate()->getByKey(
-                $context ? $context->getId() : PKPApplication::CONTEXT_SITE,
+                $context ? $context->getId() : PKPApplication::SITE_CONTEXT_ID,
                 PasswordResetRequested::getEmailTemplateKey()
             );
             $mailable = (new PasswordResetRequested($site))

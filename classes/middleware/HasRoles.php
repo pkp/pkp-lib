@@ -47,7 +47,7 @@ class HasRoles
         $user = $request->user(); /** @var \PKP\user\User $user */
         $context = $request->attributes->get('context'); /** @var \PKP\context\Context $context */
 
-        $userRoles = collect($user->getRoles($context?->getId() ?? Application::CONTEXT_SITE))
+        $userRoles = collect($user->getRoles($context?->getId() ?? Application::SITE_CONTEXT_ID))
             ->map(fn ($role) => $role->getId())
             ->sort();
 

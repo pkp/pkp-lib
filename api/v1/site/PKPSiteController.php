@@ -133,7 +133,7 @@ class PKPSiteController extends PKPBaseController
         }
 
         $data = array_merge(
-            $activeTheme->getOptionValues(\PKP\core\PKPApplication::CONTEXT_ID_NONE),
+            $activeTheme->getOptionValues(Application::SITE_CONTEXT_ID),
             ['themePluginPath' => $theme->getDirName()]
         );
 
@@ -212,7 +212,7 @@ class PKPSiteController extends PKPBaseController
             $selectedTheme->init();
         }
 
-        $errors = $selectedTheme->validateOptions($params, $themePluginPath, \PKP\core\PKPApplication::CONTEXT_ID_NONE, $request);
+        $errors = $selectedTheme->validateOptions($params, $themePluginPath, \PKP\core\PKPApplication::SITE_CONTEXT_ID, $request);
         if (!empty($errors)) {
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
@@ -223,7 +223,7 @@ class PKPSiteController extends PKPBaseController
             if (!array_key_exists($optionName, $params)) {
                 continue;
             }
-            $selectedTheme->saveOption($optionName, $params[$optionName], \PKP\core\PKPApplication::CONTEXT_ID_NONE);
+            $selectedTheme->saveOption($optionName, $params[$optionName], \PKP\core\PKPApplication::SITE_CONTEXT_ID);
         }
 
         // Clear the template cache so that new settings can take effect
@@ -232,7 +232,7 @@ class PKPSiteController extends PKPBaseController
         $templateMgr->clearCssCache();
 
         $data = array_merge(
-            $selectedTheme->getOptionValues(\PKP\core\PKPApplication::CONTEXT_ID_NONE),
+            $selectedTheme->getOptionValues(\PKP\core\PKPApplication::SITE_CONTEXT_ID),
             ['themePluginPath' => $themePluginPath]
         );
 

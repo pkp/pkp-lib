@@ -64,7 +64,7 @@ class UserGroup extends \PKP\core\DataObject
      */
     public function getContextId(): int
     {
-        return $this->getData('contextId') ?: PKPApplication::CONTEXT_SITE;
+        return $this->getData('contextId') ?: PKPApplication::SITE_CONTEXT_ID;
     }
 
     /**

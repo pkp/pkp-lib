@@ -473,7 +473,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
         // Retrieve option values if they haven't been loaded yet
         if (is_null($this->_optionValues)) {
             $context = Application::get()->getRequest()->getContext();
-            $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
+            $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::SITE_CONTEXT_ID;
             $this->_optionValues = $this->getOptionValues($contextId);
         }
 
@@ -619,7 +619,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      * @param array $options Key/value list of options to validate
      * @param string $themePluginPath The theme these options are for
      * @param int $contextId The context these theme options are for, or
-     *  CONTEXT_ID_NONE for the site-wide settings.
+     *  CONTEXT_SITE for the site-wide settings.
      * @param Request $request
      *
      * @return array List of errors with option name as the key and the value as

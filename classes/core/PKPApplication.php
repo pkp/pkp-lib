@@ -91,7 +91,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     public const CONTEXT_SITE = 0;
     public const CONTEXT_ID_NONE = 0;
     public const CONTEXT_ID_ALL = '_';
-    public const REVIEW_ROUND_NONE = 0;
 
     public const ASSOC_TYPE_PRODUCTION_ASSIGNMENT = 0x0000202;
     public const ASSOC_TYPE_SUBMISSION_FILE = 0x0000203;
@@ -151,7 +150,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
                 'WORKFLOW_TYPE_EDITORIAL', 'WORKFLOW_TYPE_AUTHOR', 'PHP_REQUIRED_VERSION',
                 'API_VERSION',
                 'ROUTE_COMPONENT', 'ROUTE_PAGE', 'ROUTE_API',
-                'CONTEXT_SITE', 'CONTEXT_ID_NONE', 'CONTEXT_ID_ALL', 'REVIEW_ROUND_NONE',
+                'CONTEXT_SITE', 'CONTEXT_ID_NONE', 'CONTEXT_ID_ALL',
 
                 'ASSOC_TYPE_PRODUCTION_ASSIGNMENT',
                 'ASSOC_TYPE_SUBMISSION_FILE',

@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-11 05:07+0000\n"
+"PO-Revision-Date: 2024-06-11 05:26+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja/>\n"
@@ -527,7 +527,7 @@ msgid "submission.coverage"
 msgstr "カバレッジ情報"
 
 msgid "submission.details"
-msgstr ""
+msgstr "投稿内容"
 
 msgid "submission.done"
 msgstr "完了"
@@ -678,7 +678,7 @@ msgid "submission.firstPublished"
 msgstr ""
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "編集部へ"
 
 msgid "submission.galley"
 msgstr "ゲラ版"
@@ -2279,67 +2279,71 @@ msgid "submission.wizard.beforeStart"
 msgstr "始める前に"
 
 msgid "submission.wizard.categories.description"
-msgstr ""
+msgstr "投稿に適したカテゴリーのみを選択してください。"
 
 msgid "submission.wizard.changeSubmission"
-msgstr ""
+msgstr "投稿設定の変更"
 
 msgid "submission.wizard.completeSteps"
-msgstr ""
+msgstr "提出するためのステップを完了してください"
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
+"<strong>{$title}</strong>という投稿は、編集部による査読のため、<strong>{$cont"
+"ext}</strong>に提出されます。この投稿でよろしいですか？"
 
 msgid "submission.wizard.errors"
-msgstr ""
+msgstr "提出前に修正すべき問題が1つ以上あります。以下の情報を確認し、必要な変更を行っ"
+"てください。"
 
 msgid "submission.wizard.validating"
-msgstr ""
+msgstr "提出投稿を確認中"
 
 msgid "submission.wizard.commentsForTheEditor.description"
-msgstr ""
+msgstr "投稿を評価する際に、編集部が知っておくべきと思われる情報を追加してください。"
 
 msgid "submission.wizard.confirm"
-msgstr ""
+msgstr "以下の事項をご確認の上、提出してください。"
 
 msgid "submission.wizard.title"
-msgstr ""
+msgstr "投稿"
 
 msgid "submission.wizard.titleWithStep"
-msgstr ""
+msgstr "投稿: {$step}"
 
 msgid "submission.wizard.noContributors"
-msgstr ""
+msgstr "この投稿には寄稿者が指定されていません。"
 
 msgid "submission.wizard.missingContributorLanguage"
-msgstr ""
+msgstr "1 人以上の寄稿者には、指定された名前が、{$language} で欠落しています。"
 
 msgid "submission.wizard.notAllowed"
-msgstr ""
+msgstr "不可"
 
 msgid "submission.wizard.privacyConsent"
 msgstr "個人情報保護への同意"
 
 msgid "submission.wizard.saved"
-msgstr ""
+msgstr "一時保存"
 
 msgid "submission.wizard.saved.description"
-msgstr ""
+msgstr "投稿の詳細がシステムに保存されましたが、まだ検討に提出されていません。下記の"
+"リンクから、いつでも投稿を完了することができます。"
 
 msgid "submission.wizard.saved.emailConfirmation"
-msgstr ""
+msgstr "このリンクのコピーを{$email}に電子メールで送信しました。"
 
 msgid "submission.wizard.sectionClosed"
-msgstr ""
+msgstr "セクション閉鎖"
 
 msgid "submission.wizard.start"
 msgstr "投稿開始"
 
 msgid "submission.wizard.startingStatus"
-msgstr ""
+msgstr "新規投稿の開始"
 
 msgid "submission.wizard.unableToSave"
-msgstr ""
+msgstr "エラーが発生し、投稿を保存できませんでした。切断された可能性があります。"
 
 msgid "grid.category.categories"
 msgstr "カテゴリー"
@@ -2450,7 +2454,8 @@ msgid "submission.wizard.submittingToSection"
 msgstr ""
 
 msgid "submission.wizard.submittingToSectionInLanguage"
-msgstr ""
+msgstr "<strong>{$language}</strong> の <strong>{$section}</strong> "
+"セクションに提出する。"
 
 msgid "submission.type.tip"
 msgstr ""

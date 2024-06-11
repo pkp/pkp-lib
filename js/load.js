@@ -101,6 +101,7 @@ import 'highlight.js/styles/default.css';
 
 // Panel components from UI Library
 import ListPanel from '@/components/ListPanel/ListPanel.vue';
+import InvitationsPage from '@/pages/invitations/InvitationsPage.vue';
 
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
@@ -204,6 +205,7 @@ VueRegistry.registerComponent('field-pub-id', FieldPubId);
 
 // Register ListPanel
 VueRegistry.registerComponent('PkpListPanel', ListPanel);
+VueRegistry.registerComponent('InvitationsPage', InvitationsPage);
 
 const pinia = createPinia();
 

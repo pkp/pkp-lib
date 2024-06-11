@@ -14,11 +14,16 @@
 
 namespace PKP\invitation\repositories;
 
+use APP\core\Services;
+use APP\facades\Repo;
 use Carbon\Carbon;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use PKP\invitation\invitations\BaseInvitation;
 use PKP\invitation\invitations\enums\InvitationStatus;
 use PKP\invitation\models\Invitation as PKPInvitationModel;
+use PKP\services\PKPSchemaService;
+use PKP\validation\ValidatorFactory;
 
 class Invitation extends BaseRepository
 {
@@ -100,6 +105,12 @@ class Invitation extends BaseRepository
     public function filterByAssocId(int $assocId): Invitation
     {
         $this->query->byAssocId($assocId);
+        return $this;
+    }
+
+    public function filterByEmail(string $email): Invitation
+    {
+        $this->query->byEmail($email);
         return $this;
     }
 
@@ -188,5 +199,129 @@ class Invitation extends BaseRepository
         $model = $this->add($invitationModelData);
 
         return $model->id;
+    }
+
+    public function getById(int $id): ?Collection
+    {
+        $data = $this->model
+            ->notHandled()
+            ->notExpired()
+            ->find($id);
+
+        $invitation = new Collection();
+        $bo = $this->constructBOFromModel($data);
+        $invitation->add($bo);
+
+        return $invitation;
+    }
+    public function limit($count): Invitation
+    {
+        $this->query->limit($count);
+        return $this;
+    }
+
+    public function offset($count): Invitation
+    {
+        $this->query->offset($count);
+        return $this;
+    }
+
+    public function showInvitations(): LengthAwarePaginator
+    {
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $sanitizedPage = $currentPage - 1;
+        $offsetRows = $this->perPage * $sanitizedPage;
+
+        $query = $this->model
+            ->notHandled()
+            ->notExpired();
+
+        $total = $this->total();
+
+        $data = $query
+            ->skip($offsetRows)
+            ->take($this->perPage)
+            ->get();
+        foreach ($data as $key => $invitations) {
+            $data[$key]['user'] = Repo::user()->getSchemaMap()->map(Repo::user()->get($invitations->user_id));
+        }
+
+        return new LengthAwarePaginator(
+            $data,
+            $total,
+            $this->perPage
+        );
+    }
+    /**
+     * Validate properties for an invitation
+     *
+     * Perform validation checks on data used to add a decision. It is not
+     * possible to edit a decision.
+     *
+     * @param array $props A key/value array with the new data to validate
+     *
+     * @return array A key/value array with validation errors. Empty if no errors
+     *
+     * @hook Invitation::validate [[&$errors, $props]]
+     */
+    public function validate(array $props): array
+    {
+        $schemaService = Services::get('schema');
+        // Return early if no valid decision type exists
+        if (isset($props['userId']) && !$props['user']) {
+            return ['userId' => [__('invitation.userId.invalid')]];
+        }
+        if(!$props['email']) {
+            return ['email' => [__('invitation.email.required')]];
+        }
+        if(isset($props['userId']) && ($props['user']['email'] != $props['email'])) {
+            return ['email' => [__('invitation.email.invalid')]];
+        }
+
+        $validator = ValidatorFactory::make(
+            $props,
+            $schemaService->getValidationRules(PKPSchemaService::SCHEMA_USER_INVITATION, []),
+        );
+
+        // Check required
+        ValidatorFactory::required(
+            $validator,
+            null,
+            $schemaService->getRequiredProps(PKPSchemaService::SCHEMA_USER_INVITATION),
+            $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_USER_INVITATION),
+            [],
+            ''
+        );
+        $errors = [];
+        if ($validator->fails()) {
+            $errors = $schemaService->formatValidationErrors($validator->errors());
+        }
+        return $errors;
+    }
+
+    public function validateAcceptInvitation(array $props): array
+    {
+        $schemaService = Services::get('schema');
+        // Return early if no valid decision type exists
+
+        $validator = ValidatorFactory::make(
+            $props,
+            $schemaService->getValidationRules(PKPSchemaService::SCHEMA_ACCEPT_INVITATION, []),
+        );
+
+        // Check required
+        ValidatorFactory::required(
+            $validator,
+            null,
+            $schemaService->getRequiredProps(PKPSchemaService::SCHEMA_ACCEPT_INVITATION),
+            $schemaService->getMultilingualProps(PKPSchemaService::SCHEMA_ACCEPT_INVITATION),
+            [],
+            ''
+        );
+        $errors = [];
+        if ($validator->fails()) {
+            $errors = $schemaService->formatValidationErrors($validator->errors());
+        }
+        return $errors;
     }
 }

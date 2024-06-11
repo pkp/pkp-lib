@@ -1,0 +1,58 @@
+{
+	"title": "User Invitation",
+	"description": "Invite a user to ojs.",
+	"required": [
+		"email",
+		"actions"
+	],
+	"properties": {
+		"email": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"email_or_localhost"
+			]
+		},
+		"actions": {
+			"type": "object",
+			"description": "A list of actions to be taken with this invitation, such as sending an email.",
+			"writeOnly": true,
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"locale": {
+					"type": "string"
+				},
+				"subject": {
+					"type": "string"
+				},
+				"body": {
+					"type": "string"
+				}
+			}
+		},
+		"familyName": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"givenName": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"orcid": {
+			"type": "string",
+			"apiSummary": true,
+			"validation": [
+				"orcid",
+				"nullable"
+			]
+		}
+	}
+}

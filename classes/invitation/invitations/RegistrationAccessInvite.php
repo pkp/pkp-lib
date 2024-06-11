@@ -33,7 +33,11 @@ class RegistrationAccessInvite extends BaseInvitation
      */
     public function __construct(
         public ?int $invitedUserId,
-        ?int $contextId = null
+        ?int $contextId = null,
+        public ?string $familyName = null,
+        public ?string $givenName = null,
+        public ?string $orcid = null,
+        public ?string $roles = null
     ) {
         $expiryDays = Config::getVar('email', 'validation_timeout');
 
@@ -63,7 +67,7 @@ class RegistrationAccessInvite extends BaseInvitation
             ->filterByStatus(InvitationStatus::PENDING)
             ->filterByClassName($this->className)
             ->filterByContextId($this->contextId)
-            ->filterByUserId($this->invitedUserId)
+            ->filterByEmail($this->email)
             ->getMany();
 
         foreach ($invitations as $invitation) {

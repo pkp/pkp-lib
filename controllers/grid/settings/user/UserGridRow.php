@@ -56,7 +56,7 @@ class UserGridRow extends GridRow
         parent::initialize($request, $template);
 
         // Is this a new row or an existing row?
-        $element = & $this->getData();
+        $element = &$this->getData();
         assert($element instanceof User);
 
         $rowId = $this->getId();
@@ -98,7 +98,7 @@ class UserGridRow extends GridRow
                     );
                 }
 
-                // Otherwise display all the default link actions
+            // Otherwise display all the default link actions
             } else {
                 $this->addAction(
                     new LinkAction(

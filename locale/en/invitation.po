@@ -1,0 +1,156 @@
+msgid "grid.user.currentInvitations"
+msgstr "Invitations"
+
+msgid "invitation.email"
+msgstr "Email"
+
+msgid "invitation.status"
+msgstr "Status"
+
+msgid "invitation.expiryDate"
+msgstr "Expiry Date"
+
+msgid "invitation.noUserFound"
+msgstr "The user does not have a role in this journal"
+
+msgid "invitation.searchUserLabel"
+msgstr "Search User"
+
+msgid "invitation.searchUserStep"
+msgstr "{$step} - Search User"
+
+msgid "invitation.searchUserDescription"
+msgstr "Search for the user using their email address, username or ORCID ID. Enter at least one details to get started. If user does not exist, ypu can invite them to take up roles and be a part of your journal. If the user already exist in the system, you can view user information and invite to take a additional roles."
+
+msgid "invitation.enterDetailsLabel"
+msgstr "Enter details"
+
+msgid "invitation.enterDetailStep"
+msgstr "{$step} - Enter details and invite for roles"
+
+msgid "invitation.enterDetailsDescription"
+msgstr "You can invite them to take up a role in OJS"
+
+msgid "invitation.reviewAndInviteLabel"
+msgstr "Review & invite for roles"
+
+msgid "invitation.reviewAndInviteStep"
+msgstr "{$step} - Modify email shared with the user"
+
+msgid "invitation.reviewAndInviteDescription"
+msgstr "Send the user an email to let them know about the invitation, next steps, journal GDPR polices and ORCiD verification"
+
+msgid "invitation.wizard.completeSteps"
+msgstr "Complete the steps to make a Invitation"
+
+msgid "invitation.wizard.pageTitle"
+msgstr "Invite user to take a role"
+
+msgid "invitation.wizard.pageTitleDescription"
+msgstr "You are inviting a user to take a role in OJS along with appearing in the journal masthead"
+
+msgid "invitation.userId.invalid"
+msgstr "invalid user id"
+
+msgid "invitation.email.invalid"
+msgstr "invalid user email"
+
+msgid "invitation.email.required"
+msgstr "This field is required"
+
+msgid "invitation.wizard.errors"
+msgstr "There are one or more problems that need to be fixed before you can send invitation. Please check previous step and make the requested changes"
+
+msgid "invitation.wizard.success"
+msgstr "{$email} has been invited to a new role in OJS. You can be updated about the user's decision on the User & Role page, your OJS notification and/or your email"
+
+msgid "invitation.notification.closeBtn"
+msgstr "View all users"
+
+msgid "invitation.notification.title"
+msgstr "Invitation sent"
+
+msgid "invitation.emptySearchFields"
+msgstr "Provide least one search field to search user"
+
+msgid "invitation.verifyOrcid"
+msgstr "Verify ORCID iD"
+
+msgid "invitation.verifyOrcidStep"
+msgstr "{$step} - Verify ORCID iD"
+
+msgid "invitation.verifyOrcidDescription"
+msgstr "Please verify orcid iD"
+
+msgid "invitation.userCreate"
+msgstr "Create OJS account"
+
+msgid "invitation.userCreateReviewName"
+msgstr "Account details"
+
+msgid "invitation.userCreateStep"
+msgstr "{$step} - Create OJS account"
+
+msgid "invitation.userCreateDescription"
+msgstr "To get started with OJS and accept the new role, you will need to create an account with us. For this purpose please enter a username and password."
+
+msgid "invitation.userCreateDetails"
+msgstr "Enter details"
+
+msgid "invitation.userCreateDetailsReviewName"
+msgstr "User Details"
+
+msgid "invitation.userCreateDetailStep"
+msgstr "{$step} - Enter details"
+
+msgid "invitation.userCreateDetailsDescription"
+msgstr "Enter your details like email ID, affiliation ect. As per the GDPR compliance, this information can only modified by you. You can also choose if you want this information to be visible on your profile to the editor. "
+
+msgid "invitation.userCreateReview"
+msgstr "Review & create account"
+
+msgid "invitation.userCreateReviewStep"
+msgstr "{$step} - Review & create account"
+
+msgid "invitation.userCreateReviewDescription"
+msgstr "Review details to start your new roles in OJS"
+
+msgid "invitation.userCreateStep.button"
+msgstr "Create account and continue"
+
+msgid "invitation.verifyOrcidStep.button"
+msgstr "Skip ORCID verification"
+
+msgid "invitation.userCreateDetailStep.button"
+msgstr "Save and continue"
+
+msgid "invitation.userCreateReviewStep.button"
+msgstr "Accept invitation and continue to OJS"
+
+msgid "invitation.role.selectRole"
+msgstr "Select a new role"
+
+msgid "invitation.role.dateStart"
+msgstr "Start Date"
+
+msgid "invitation.role.dateEnd"
+msgstr "End Date"
+
+msgid "invitation.role.masthead"
+msgstr "Journal Masthead"
+
+msgid "invitation.role.removeRole.button"
+msgstr "Remove Role"
+
+msgid "invitation.role.addRole.button"
+msgstr "Add Another Role"
+
+msgid "invitation.orcid.message"
+msgstr "On acception the invite, the user will be redirected to ORCID to verify their account, if they wish"
+
+msgid "invitation.userAndRoles"
+msgstr "user & roles"
+
+msgid "invitation.users"
+msgstr "users"
+

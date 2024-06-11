@@ -19,7 +19,6 @@ namespace PKP\core;
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
 use Illuminate\Foundation\Http\Middleware\TrimStrings;
 use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 use Illuminate\Routing\RoutingServiceProvider;
 use Illuminate\Support\Facades\Response;
@@ -38,11 +37,11 @@ class PKPRoutingProvider extends RoutingServiceProvider
         AllowCrossOrigin::class,
         SetupContextBasedOnRequestUrl::class,
         DecodeApiTokenWithValidation::class,
-        ValidateCsrfToken::class,
+        //        ValidateCsrfToken::class,
         ValidatePostSize::class,
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,
-        PolicyAuthorizer::class,
+        //        PolicyAuthorizer::class,
     ];
 
     /**

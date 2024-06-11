@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2024-03-31 01:25+0000\n"
+"PO-Revision-Date: 2024-06-03 05:04+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/tr/>\n"
@@ -1497,16 +1497,16 @@ msgstr "{$editorName} tarafından yeni bir değerlendirme turu başlatıldı."
 msgid "editor.submission.decision.newReviewRound.completed"
 msgstr "Değerlendirme Turu Oluşturuldu"
 
-#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
-"{$title} başlıklı aday makale için yeni bir değerlendirme turu oluşturuldu."
+"{$title} başlıklı aday makale için yeni bir değerlendirme turu oluşturuldu. "
+"Bu e-postayı atlamayı seçmediyseniz, yazar bilgilendirilmiştir."
 
-#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Yazarlara aday makalelerinin yeni bir değerlendirme turu için gönderildiğini "
-"bildirmek üzere e-posta gönderin."
+"bildirmek üzere e-posta gönderin. Bu e-posta, karar kaydedilene kadar "
+"gönderilmeyecektir."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "Son kopya düzenleme aşamasına gönderilmesi gereken dosyaları seçin."
@@ -1530,11 +1530,11 @@ msgstr "{$editorName} aday makale için düzeltme istedi."
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Düzeltme İstendi"
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
-msgstr "{$title} başlıklı aday makale için düzeltme istendi."
+msgstr ""
+"{$title} başlıklı aday makale için düzeltme istendi. Atlamayı seçtikleriniz "
+"hariç tüm bildirimler gönderildi."
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Aday makale kabul edilmeden önce düzeltme gerekli olduğunu bildirmek için "
@@ -1557,9 +1557,10 @@ msgstr "{$editorName} tarafından değerlendirme turu iptal edildi."
 msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "En son değerlendirme turu iptal edildi."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
-msgstr "{$title} başlıklı aday makale için değerlendirme turu iptal edildi."
+msgstr ""
+"{$title} başlıklı aday makale için değerlendirme turu iptal edildi. Atlamayı "
+"seçtikleriniz hariç tüm bildirimler gönderildi."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""

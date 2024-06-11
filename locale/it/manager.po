@@ -1,13 +1,13 @@
 # Alfredo Cosco <alfredo.cosco@gmail.com>, 2021.
-# Martin Brändle <martin.braendle@uzh.ch>, 2022, 2023.
+# Martin Brändle <martin.braendle@uzh.ch>, 2022, 2023, 2024.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
-"PO-Revision-Date: 2023-05-17 15:49+0000\n"
-"Last-Translator: Stefan Schneider <mail@stefan-schneider.at>\n"
+"PO-Revision-Date: 2024-05-22 17:07+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "it/>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Informazioni sul sito"
@@ -184,16 +184,23 @@ msgstr ""
 "registrati?"
 
 msgid "manager.dois.actions.markUnregistered.label"
-msgstr ""
+msgstr "Contrassegnare i DOI come non registrati"
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
+"Stai per contrassegnare i record di metadati DOI per le voci {$count} come "
+"non registrati. Siete sicuri di voler contrassegnare questi record come non "
+"registrati?"
 
 msgid "manager.dois.actions.markStale.label"
-msgstr ""
+msgstr "Contrassegnare i DOI da sincronizzare"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
+"Si sta per contrassegnare i record di metadati DOI per gli elementi {$count} "
+"come da sincronizzare. Lo stato Necessità di sincronizzazione può essere "
+"applicato solo ai DOI inviati in precedenza. Siete sicuri di voler "
+"contrassegnare questi record come obsoleti?"
 
 msgid "manager.dois.actions.export.label"
 msgstr "Esportare i DOI"
@@ -224,10 +231,10 @@ msgstr ""
 "deposito di tutti questi elementi?"
 
 msgid "manager.dois.actions.description"
-msgstr ""
+msgstr "Eseguire l'azione su {$count} elementi selezionati."
 
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Azioni di massa"
 
 msgid "manager.dois.depositStatus"
 msgstr "Stato del deposito"
@@ -240,111 +247,131 @@ msgstr "I metadati di questa voce sono stati inviati a {$registrationAgency}."
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
 msgstr ""
+"Questo articolo è stato registrato manualmente presso un'agenzia di "
+"registrazione."
 
 msgid "manager.dois.registration.notSubmittedDescription"
 msgstr ""
+"I metadati per questa voce non sono stati inviati a {$registrationAgency}."
 
 msgid "manager.dois.registration.notPublishedDescription"
-msgstr ""
+msgstr "Questo articolo non può essere depositato fino alla sua pubblicazione."
 
 msgid "manager.dois.registration.viewError"
-msgstr ""
+msgstr "Visualizza errore"
 
 msgid "manager.dois.registration.viewError.title"
-msgstr ""
+msgstr "Messaggio di errore di registrazione"
 
 msgid "manager.dois.registration.viewRecord"
-msgstr ""
+msgstr "Visualizza il record"
 
 msgid "manager.dois.registration.viewRecord.title"
-msgstr ""
+msgstr "Messaggio di registrazione riuscita"
 
 msgid "manager.dois.update.success"
-msgstr ""
+msgstr "DOI aggiornati con successo"
 
 msgid "manager.dois.registration.depositDois"
-msgstr ""
+msgstr "Inviare DOI"
 
 msgid "manager.dois.status.needsDoi"
-msgstr ""
+msgstr "DOI richiesto"
 
 msgid "manager.dois.status.unregistered"
-msgstr ""
+msgstr "Non registrato"
 
 msgid "manager.dois.status.submitted"
-msgstr ""
+msgstr "Inviato"
 
 msgid "manager.dois.status.registered"
-msgstr ""
+msgstr "Registrato"
 
 msgid "manager.dois.status.error"
-msgstr ""
+msgstr "Errore"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Ha Errore"
 
 msgid "manager.dois.status.stale"
-msgstr ""
+msgstr "Necessità di sincronizzazione"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI Assegnato"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "A tutti gli articoli manca un DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "A tutti gli articoli è stato assegnato un DOI."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Tutti gli articoli con un DOI che sono stati pubblicati ma non ancora "
+"depositati presso un'agenzia di registrazione."
 
 msgid "manager.dois.status.submitted.description"
 msgstr ""
+"Tutti gli elementi che sono stati presentati a un'agenzia di registrazione."
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Tutti gli articoli che sono stati registrati presso un'agenzia di "
+"registrazione o contrassegnati manualmente come registrati."
 
 msgid "manager.dois.status.error.description"
 msgstr ""
+"Tutti gli elementi che hanno riscontrato un errore nel processo di "
+"registrazione."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Tutti gli articoli che sono stati ripubblicati dall'ultima volta che sono "
+"stati depositati presso un'agenzia di registrazione. Devono essere "
+"ripubblicati all'agenzia di registrazione per aggiornare i loro record di "
+"metadati."
 
 msgid "manager.dois.update.failedCreation"
-msgstr ""
+msgstr "Aggiornamenti DOI falliti"
 
 msgid "manager.dois.update.partialFailure"
-msgstr ""
+msgstr "Non è stato possibile aggiornare alcune DOI"
 
 msgid "manager.dois.notification.exportSuccess"
-msgstr ""
+msgstr "Articoli esportati con successo"
 
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr ""
+msgstr "Articoli contrassegnati con successo registrati"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr ""
+msgstr "Articoli contrassegnati con successo come non registrati"
 
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Articoli contrassegnati con successo necessitano di sincronizzazione"
 
 msgid "manager.dois.notification.assignDoisSuccess"
-msgstr ""
+msgstr "Articoli a cui sono stati assegnati nuovi DOI"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr ""
+msgstr "Articoli inviati con successo per il deposito"
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "Stati DOI"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"DOI management has moved. Si vedano le pagine <a href=\"{$doiManagementUrl}\""
+">Gestione DOI</a> e <a href=\"{$doiSettingsUrl}\">Impostazioni DOI</a>."
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"I DOI non possono essere assegnati se non si fornisce il prefisso DOI "
+"assegnato. <a href=\"{$doiSettingsUrl}\">Aggiungi prefisso DOI</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"Ho provato a creare un DOI, ma è necessario un prefisso DOI perché il "
+"contesto ne crei uno."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
@@ -881,7 +908,7 @@ msgstr ""
 "gli elementi  pubblicato con lo stesso prefisso DOI:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Usa i pattern di default."
+msgstr "Usa i pattern di default"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
@@ -2217,6 +2244,7 @@ msgstr "Codifica sconosciuta {$param}"
 msgid "plugins.importexport.common.error.encodingError"
 msgstr "Il contenuto non è codificato come {$param}"
 
+#, fuzzy
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr "Gruppo utente sconosciuto {$param}"
 

@@ -132,9 +132,6 @@ msgstr ""
 msgid "manager.setup"
 msgstr "Поставки на серверот"
 
-msgid "manager.setup.editorialTeam"
-msgstr "Тим за сервер за печатење"
-
 msgid "manager.setup.useStyleSheet"
 msgstr "Лист со стил на сервер"
 
@@ -276,14 +273,6 @@ msgstr ""
 
 msgid "manager.setup.contextTitle"
 msgstr "Наслов на серверот"
-
-msgid "manager.setup.keyInfo"
-msgstr "Клучни информации"
-
-msgid "manager.setup.keyInfo.description"
-msgstr ""
-"Обезбедете опис на вашиот сервер и идентификувајте ги менаџерите за печатење "
-"и другите членови на тимот на сервери за печатење."
 
 msgid "manager.setup.lists"
 msgstr "Списоци"

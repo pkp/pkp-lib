@@ -138,9 +138,6 @@ msgid "manager.setup"
 msgstr "Configuración del servidor"
 
 #, fuzzy
-msgid "manager.setup.editorialTeam"
-msgstr "Equipo editorial"
-
 msgid "manager.setup.useStyleSheet"
 msgstr "Hoja de estilo del servidor"
 
@@ -281,14 +278,6 @@ msgstr ""
 
 msgid "manager.setup.contextTitle"
 msgstr "Título del servidor"
-
-msgid "manager.setup.keyInfo"
-msgstr "Información clave"
-
-msgid "manager.setup.keyInfo.description"
-msgstr ""
-"Proporcione una breve descripción de su servidor e identifique a los "
-"editores, directores generales y otros miembros de su equipo editorial."
 
 msgid "manager.setup.lists"
 msgstr "Listas"

@@ -214,9 +214,6 @@ msgstr "İletişim"
 msgid "about.aboutContext"
 msgstr "Sunucu hakkında"
 
-msgid "about.editorialTeam"
-msgstr "Ön Baskı Sunucusu Takımı"
-
 msgid "about.submissions"
 msgstr "Gönderimler"
 

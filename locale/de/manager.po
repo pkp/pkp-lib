@@ -132,9 +132,6 @@ msgstr ""
 msgid "manager.setup"
 msgstr "Server-Einstellungen"
 
-msgid "manager.setup.editorialTeam"
-msgstr "Preprint-Server-Team"
-
 msgid "manager.setup.useStyleSheet"
 msgstr "Server-Formatvorlage"
 
@@ -276,14 +273,6 @@ msgstr ""
 
 msgid "manager.setup.contextTitle"
 msgstr "Server-Titel"
-
-msgid "manager.setup.keyInfo"
-msgstr "Wichtige Informationen"
-
-msgid "manager.setup.keyInfo.description"
-msgstr ""
-"Geben Sie eine Beschreibung Ihres Servers und nennen Sie den/die Preprint-"
-"Manager und andere Mitglieder des Preprint-Server-Teams."
 
 msgid "manager.setup.lists"
 msgstr "Listen"

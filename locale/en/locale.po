@@ -215,9 +215,6 @@ msgstr "Contact"
 msgid "about.aboutContext"
 msgstr "About the Server"
 
-msgid "about.editorialTeam"
-msgstr "Preprint Server Team"
-
 msgid "about.submissions"
 msgstr "Submissions"
 

@@ -81,9 +81,6 @@ msgstr "Pravidla sekce"
 msgid "manager.sections.submissionIndexing"
 msgstr "Nebudou zahrnuty do indexace serveru"
 
-msgid "manager.setup.editorialTeam"
-msgstr "Tým preprintového serveru"
-
 msgid "manager.setup.announcements"
 msgstr "Oznámení"
 
@@ -235,9 +232,6 @@ msgstr "Miniatura serveru"
 
 msgid "manager.setup.contextTitle"
 msgstr "Název serveru"
-
-msgid "manager.setup.keyInfo"
-msgstr "Klíčová informace"
 
 msgid "manager.setup.lists"
 msgstr "Seznamy"
@@ -790,11 +784,6 @@ msgid "manager.setup.resetPermissions.confirm"
 msgstr ""
 "Jste si jisti, že si přejete obnovit údaje o oprávněních pro všechny "
 "preprinty? Tuto akci nelze vrátit zpět."
-
-msgid "manager.setup.keyInfo.description"
-msgstr ""
-"Uveďte popis svého serveru a identifikujte správce preprintů a další členy "
-"týmu preprintového serveru."
 
 msgid "manager.setup.numPageLinks.description"
 msgstr ""

@@ -200,9 +200,6 @@ msgstr ""
 msgid "about.aboutContext"
 msgstr ""
 
-msgid "about.editorialTeam"
-msgstr ""
-
 msgid "about.submissions"
 msgstr ""
 

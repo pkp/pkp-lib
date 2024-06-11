@@ -134,9 +134,6 @@ msgid "manager.setup"
 msgstr "Paramètres du serveur"
 
 #, fuzzy
-msgid "manager.setup.editorialTeam"
-msgstr "Équipe éditoriale"
-
 msgid "manager.setup.useStyleSheet"
 msgstr "Feuille de styles de la série"
 
@@ -277,15 +274,6 @@ msgstr ""
 
 msgid "manager.setup.contextTitle"
 msgstr "Titre du serveur"
-
-msgid "manager.setup.keyInfo"
-msgstr "Renseignements de base"
-
-msgid "manager.setup.keyInfo.description"
-msgstr ""
-"Fournir une brève description de votre serveur et présenter les rédacteurs-"
-"trices, les directeurs-trices ainsi que les autres membres de votre équipe "
-"éditoriale."
 
 msgid "manager.setup.lists"
 msgstr "Listes"

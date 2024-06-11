@@ -25,6 +25,7 @@ use PKP\core\PKPRequest;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\userGroup\UserGroup;
 
 trait AnonymizeData
 {
@@ -49,15 +50,18 @@ trait AnonymizeData
             ->filterByReviewerIds([$currentUser->getId()])
             ->getMany();
 
-        $currentUserStageAssignments = StageAssignment::withSubmissionIds($submissionIds)
+        $currentUserUserGroupIds = StageAssignment::withSubmissionIds($submissionIds)
             ->withUserId($currentUser->getId())
-            ->get();
+            ->pluck('user_group_id')
+            ->toArray();
 
-        $isAuthor = $currentUserStageAssignments->contains(
-            function (StageAssignment $stageAssignment) {
-                $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
-                return $userGroup->getRoleId() == Role::ROLE_ID_AUTHOR;
-            }
+        $currentUserGroups = Repo::userGroup()->getCollector()
+            ->filterByUserGroupIds($currentUserUserGroupIds)
+            ->getMany();
+
+        $isAuthor = $currentUserGroups->contains(
+            fn (UserGroup $userGroup) =>
+            $userGroup->getRoleId() == Role::ROLE_ID_AUTHOR
         );
 
         if ($currentUserReviewAssignment->isNotEmpty() || $isAuthor) {

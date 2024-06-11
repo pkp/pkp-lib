@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2022, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-11 05:29+0000\n"
+"PO-Revision-Date: 2024-06-11 05:30+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ja/>\n"
@@ -524,7 +524,7 @@ msgid "common.languages"
 msgstr "言語"
 
 msgid "common.lastSaved"
-msgstr "最終保存日: {$when}"
+msgstr "最終保存時: {$when}"
 
 msgid "common.lastActivity"
 msgstr "最近活動記録日: {$date}"

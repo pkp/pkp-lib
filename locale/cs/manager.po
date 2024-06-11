@@ -2399,14 +2399,6 @@ msgstr ""
 "Tento odkaz se zobrazí pouze v případě, že jste v sekci Nastavení> Časopis "
 "vyplnili sekci O časopisu."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr "Odkaz na stránku, která zobrazí obsah hlavičky v Nastavení > Časopis."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Tento odkaz se zobrazí pouze v případě, že jste vyplnili sekci Redakční tým "
-"v Nastavení > Časopis."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Odkaz na stránku popisující pokyny pro podávání příspěvků."
 

@@ -62,11 +62,6 @@ class PKPNavigationMenuService
                 'title' => __('common.editorialMasthead'),
                 'description' => __('manager.navigationMenus.editorialMasthead.description'),
             ],
-            NavigationMenuItem::NMI_TYPE_EDITORIAL_TEAM => [
-                'title' => __('about.editorialTeam'),
-                'description' => __('manager.navigationMenus.editorialTeam.description'),
-                'conditionalWarning' => __('manager.navigationMenus.editorialTeam.conditionalWarning'),
-            ],
             NavigationMenuItem::NMI_TYPE_SUBMISSIONS => [
                 'title' => __('about.submissions'),
                 'description' => __('manager.navigationMenus.submissions.description'),
@@ -181,9 +176,6 @@ class PKPNavigationMenuService
                     || (!$context && $request->getSite()->getData('enableAnnouncements'))
                 );
                 break;
-            case NavigationMenuItem::NMI_TYPE_EDITORIAL_TEAM:
-                $navigationMenuItem->setIsDisplayed($context && $context->getLocalizedData('editorialTeam'));
-                break;
             case NavigationMenuItem::NMI_TYPE_CONTACT:
                 $navigationMenuItem->setIsDisplayed($context && ($context->getData('mailingAddress') || $context->getData('contactName')));
                 break;
@@ -263,16 +255,6 @@ class PKPNavigationMenuService
                         null,
                         'about',
                         'editorialMasthead',
-                        null
-                    ));
-                    break;
-                case NavigationMenuItem::NMI_TYPE_EDITORIAL_TEAM:
-                    $navigationMenuItem->setUrl($dispatcher->url(
-                        $request,
-                        PKPApplication::ROUTE_PAGE,
-                        null,
-                        'about',
-                        'editorialTeam',
                         null
                     ));
                     break;

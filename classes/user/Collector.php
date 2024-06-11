@@ -49,6 +49,7 @@ class Collector implements CollectorInterface
     public DAO $dao;
 
     public string $orderBy = self::ORDERBY_ID;
+    public array $orderByUserGroupIds = [];
     public string $orderDirection = 'ASC';
     public ?array $orderLocales = null;
     public ?array $userGroupIds = null;
@@ -205,7 +206,6 @@ class Collector implements CollectorInterface
         $this->workflowStageIds = $workflowStageIds;
         return $this;
     }
-
 
     /**
      * Limit results to users with user groups in these context IDs
@@ -377,6 +377,17 @@ class Collector implements CollectorInterface
         $this->orderBy = $sorter;
         $this->orderDirection = $direction;
         $this->orderLocales = $locales;
+        return $this;
+    }
+
+    /**
+     * Order the results additionally by user group ID
+     *
+     * @param array $userGroupIds The IDs in the order the user query result should be ordered by
+     */
+    public function orderByUserGroupIds(array $userGroupIds): self
+    {
+        $this->orderByUserGroupIds = $userGroupIds;
         return $this;
     }
 
@@ -732,6 +743,22 @@ class Collector implements CollectorInterface
      */
     protected function buildOrderBy(Builder $query): self
     {
+        if (!empty($this->orderByUserGroupIds)) {
+            $query->addSelect('uugob.user_group_id')
+                ->leftJoin('user_user_groups AS uugob', 'uugob.user_id', '=', 'u.user_id');
+            switch (DB::getDriverName()) {
+                case 'mysql':
+                    $userGroupOrderBy = implode(', ', $this->orderByUserGroupIds);
+                    $query->orderByRaw("FIELD(uugob.user_group_id, {$userGroupOrderBy}) ASC");
+                    break;
+                case 'pgsql':
+                    $userGroupOrderBy = array_map(fn ($item) => 'uugob.user_group_id=' . $item, $this->orderByUserGroupIds);
+                    $userGroupOrderBy = implode(', ', $userGroupOrderBy);
+                    $query->orderByRaw("({$userGroupOrderBy}) ASC");
+                    break;
+            }
+        }
+
         $orderByFields = [self::ORDERBY_ID => 'u.user_id'];
         if ($orderByField = $orderByFields[$this->orderBy] ?? null) {
             $query->orderBy($orderByField, $this->orderDirection);

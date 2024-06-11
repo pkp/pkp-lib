@@ -2375,15 +2375,6 @@ msgstr ""
 "Бұл сілтеме Параметрлер > Журнал ішіндегі «Журнал туралы» бөлімін аяқтаған "
 "жағдайда ғана көрсетіледі."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Параметрлер > Журнал тармағында тақырыптың мазмұнын көрсететін бетке сілтеме."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Бұл сілтеме Параметрлер > Журнал ішіндегі Редакциялық топ бөлімін аяқтасаңыз "
-"ғана пайда болады."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Жіберу нұсқауларын көрсететін бетке сілтеме."
 

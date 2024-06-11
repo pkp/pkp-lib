@@ -24,7 +24,6 @@ class NavigationMenuItem extends \PKP\core\DataObject
     public const NMI_TYPE_ABOUT = 'NMI_TYPE_ABOUT';
     public const NMI_TYPE_SUBMISSIONS = 'NMI_TYPE_SUBMISSIONS';
     public const NMI_TYPE_MASTHEAD = 'NMI_TYPE_MASTHEAD';
-    public const NMI_TYPE_EDITORIAL_TEAM = 'NMI_TYPE_EDITORIAL_TEAM';
     public const NMI_TYPE_CONTACT = 'NMI_TYPE_CONTACT';
     public const NMI_TYPE_ANNOUNCEMENTS = 'NMI_TYPE_ANNOUNCEMENTS';
     public const NMI_TYPE_CUSTOM = 'NMI_TYPE_CUSTOM';
@@ -313,7 +312,6 @@ if (!PKP_STRICT_MODE) {
         'NMI_TYPE_ABOUT',
         'NMI_TYPE_SUBMISSIONS',
         'NMI_TYPE_MASTHEAD',
-        'NMI_TYPE_EDITORIAL_TEAM',
         'NMI_TYPE_CONTACT',
         'NMI_TYPE_ANNOUNCEMENTS',
         'NMI_TYPE_CUSTOM',

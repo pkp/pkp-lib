@@ -2336,15 +2336,6 @@ msgstr ""
 "Pautan ini hanya akan dipaparkan jika anda telah mengisi bahagian Mengenai "
 "Jurnal di bawah Tetapan > Jurnal."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Pautan ke halaman yang memaparkan kandungan Masthead dalam Tetapan > Jurnal."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Pautan ini hanya akan dipaparkan jika anda telah mengisi bahagian Pasukan "
-"Editorial di bawah Tetapan > Jurnal."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Pautan ke halaman yang memaparkan arahan penyerahan."
 

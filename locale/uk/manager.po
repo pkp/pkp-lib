@@ -2435,16 +2435,6 @@ msgstr ""
 "Це покликання відображатиметься, лише якщо ви заповнили розділ \"Про журнал\""
 " у \"Налаштування\" > \"Журнал\"."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Покликання на сторінку, яка відображає вміст розділу \"Вихідні дані\" в "
-"\"Налаштування\" > \"Журнал\"."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Це покликання відображатиметься, лише якщо ви заповнили розділ \"Редакція\" "
-"в \"Налаштування\" > \"Журнал\"."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr ""
 "Покликання на сторінку, де відображаються інструкції щодо подачі матеріалів."

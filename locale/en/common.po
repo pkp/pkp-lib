@@ -157,6 +157,9 @@ msgstr "Peer Reviewers"
 msgid "common.editorialMasthead.peerReviewers.description"
 msgstr "The editors express their appreciation of the reviewers for {$year} listed below."
 
+msgid "common.editorialHistory"
+msgstr "Editorial History"
+
 msgid "common.name"
 msgstr "Name"
 
@@ -2319,3 +2322,6 @@ msgstr "Author edited."
 
 msgid "common.sandbox"
 msgstr "Application running in sandbox mode."
+
+msgid "common.fromUntil"
+msgstr "{$from} - {$until}"

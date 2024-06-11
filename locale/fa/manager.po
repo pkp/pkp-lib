@@ -2180,14 +2180,6 @@ msgstr ""
 "این لینک تنها در صورتی که بخش درباره مجله (در قسمت تنظیمات > مجله) تکمیل شده "
 "باشد، نمایش داده خواهد شد."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr "لینک به صفحه نمایش اطلاعات کلی مجله"
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"این لینک تنها در صورتی که بخش تیم سردبیر مجله (در قسمت تنظیمات > مجله) تکمیل "
-"شده باشد، نمایش داده خواهد شد."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "لینک به صفحه دستورالعمل‌های ثبت مقاله"
 

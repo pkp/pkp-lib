@@ -373,7 +373,8 @@ class Repository
         $userGroups = Repo::userGroup()->userUserGroups($oldUserId);
         foreach ($userGroups as $userGroup) {
             if (!Repo::userGroup()->userInGroup($newUserId, $userGroup->getId())) {
-                Repo::userGroup()->assignUserToGroup($newUserId, $userGroup->getId());
+                $mastheadStatus = Repo::userGroup()->getUserUserGroupMastheadStatus($oldUserId, $userGroup->getId());
+                Repo::userGroup()->assignUserToGroup($newUserId, $userGroup->getId(), null, null, $mastheadStatus);
             }
         }
 

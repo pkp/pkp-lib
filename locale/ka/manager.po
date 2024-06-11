@@ -2361,16 +2361,6 @@ msgstr ""
 "ეს ბმული გამოჩნდება მხოლოდ იმ შემთხვევაში, თუ შეავსეთ ჟურნალის შესახებ "
 "განყოფილება განყოფილებაში პარამეტრები > ჟურნალი."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"მიჰყევით გვერდს, სადაც ნაჩვენებია Masthead-ის შინაარსი პარამეტრებში > "
-"ჟურნალი."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"ეს ბმული მხოლოდ იმ შემთხვევაში გამოჩნდება, თუ შეავსეთ სარედაქციო ჯგუფის "
-"განყოფილება პარამეტრები > ჟურნალი."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "გვერდის ბმული, რომელიც აჩვენებს წარდგენის ინსტრუქციას."
 

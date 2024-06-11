@@ -2381,16 +2381,6 @@ msgstr ""
 "Aquest enllaç només es mostrarà si heu completat la secció \"Quant a la "
 "revista\" que hi ha a Configuració > Revista."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Enllaç a un pàgina que mostri el contingut de la capçalera a Configuració > "
-"Revista."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Aquest enllaç només es mostrarà si heu completat la secció d'equip editorial "
-"que hi ha a Configuració > Revista."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Enllaç a la pàgina que mostra les instruccions de tramesa."
 

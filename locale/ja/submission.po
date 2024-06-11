@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-04-16 06:33+0000\n"
+"PO-Revision-Date: 2024-06-11 04:57+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja/>\n"
@@ -51,7 +51,7 @@ msgstr ""
 "い。"
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "はい、提出物はこれらの条件をすべて満たしています。"
 
 msgid "submission.submit.submissionComplete"
 msgstr "投稿完了"

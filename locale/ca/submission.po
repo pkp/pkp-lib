@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2024-05-03 22:34+0000\n"
+"PO-Revision-Date: 2024-05-13 15:39+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Catalan <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ca/>\n"
@@ -548,7 +548,7 @@ msgid "submission.details"
 msgstr "Detalls de la tramesa"
 
 msgid "submission.done"
-msgstr "Acabada"
+msgstr "Fet"
 
 msgid "submission.downloads"
 msgstr "Descàrregues"
@@ -1591,15 +1591,22 @@ msgstr "Torna-ho a trametre per a revisió"
 
 msgid "editor.submission.decision.resubmit.description"
 msgstr ""
+"L'autor/a ha de proporcionar revisions, que es sotmetran a una altra ronda "
+"de revisió abans que aquesta tramesa sigui acceptada per publicar-se."
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
+"{$editorName} ha sol·licitat revisions per a aquesta tramesa que haurien de "
+"ser sotmeses a una altra ronda de revisió."
 
 msgid "editor.submission.decision.resubmit.completed"
-msgstr ""
+msgstr "Revisions sol·licitades"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
+"S'han sol·licitat revisions per a la tramesa {$title}. S'ha registrat la "
+"decisió d'enviar les revisions a una altra ronda de revisió. S'han enviat "
+"totes les notificacions, excepte les que hagueu decidit ometre."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
@@ -1618,6 +1625,9 @@ msgstr "Enviat a revisió"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
+"La tramesa {$title} s'ha enviat a la fase de revisió. S'ha enviat "
+"notificació a l'autor/a, a no ser que hagueu decidit ometre el correu "
+"electrònic."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Nova ronda de revisió"
@@ -1627,51 +1637,66 @@ msgstr "Enviar a producció"
 
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr ""
+"Enviar la tramesa a la fase de producció per preparar-la per publicar-se."
 
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr ""
+msgstr "{$editorName} ha enviat la tramesa a la fase de producció."
 
 msgid "editor.submission.decision.sendToProduction.completed"
-msgstr ""
+msgstr "Enviat a producció"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
+"La tramesa {$title} s'ha enviat a la fase de producció. S'ha enviat "
+"notificació a l'autor/a, a no ser que hagueu decidit ometre el correu "
+"electrònic."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
+"Enviar un correu electrònic als autors/ores per notificar-los que la seva "
+"tramesa s'ha enviat a la fase de producció. Aquest correu electrònic no "
+"s'enviarà fins que s'hagi registrat la decisió."
 
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr ""
+msgstr "Cancel·lar la correcció"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr ""
+msgstr "Retornar la tramesa des de la fase d'edició."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
-msgstr ""
+msgstr "{$editorName} ha retornat la tramesa des de la fase d'edició."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr ""
+msgstr "Retornat des de la fase d'edició"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
+"La tramesa {$title} s'ha retornat des de la fase d'edició. S'ha notificat a "
+"l'autor/a, a no ser que hagueu decidit ometre aquest correu electrònic."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Enviar un correu electrònic als autors/ores per notificar-los que s'ha "
+"cancel·lat l'edició i que la seva tramesa es sotmetrà a una altra revisió "
+"editorial."
 
 msgid "editor.submission.decision.backToCopyediting"
-msgstr ""
+msgstr "Retornar a edició"
 
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr ""
+msgstr "Retornar la tramesa a la fase d'edició."
 
 msgid "editor.submission.decision.backToCopyediting.log"
-msgstr ""
+msgstr "{$editorName} ha retornat la tramesa a la fase d'edició."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr ""
+msgstr "Retornat a edició"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
+"La tramesa {$title} s'ha retornat a la fase d'edició. S'ha enviat una "
+"notificació a l'autor/a, a no ser que hagueu decidit ometre el correu "
+"electrònic."
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
@@ -1681,15 +1706,22 @@ msgstr "Acceptar i ometre la revisió"
 
 msgid "editor.submission.decision.skipReview.description"
 msgstr ""
+"Acceptar la tramesa per publicar-se i ometre la fase de revisió. Aquesta "
+"decisió enviarà la tramesa a la fase d'edició."
 
 msgid "editor.submission.decision.skipReview.log"
 msgstr ""
+"{$editorName} ha omès la fase de revisió i ha enviat la tramesa a la fase "
+"d'edició."
 
 msgid "editor.submission.decision.skipReview.completed"
-msgstr ""
+msgstr "Revisió omesa"
 
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
+"S'ha omès la fase de revisió de la tramesa {$title} i s'ha enviat a la fase "
+"d'edició. S'ha enviat notificació a l'autor/a, a no ser que hagueu decidit "
+"ometre el correu electrònic."
 
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
@@ -1715,23 +1747,28 @@ msgstr "Revertir el rebuig"
 
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
+"Revertir la decisió anterior de rebutjar la tramesa i retornar-la al procés "
+"editorial actiu. S'ha enviat notificació a l'autor/a, a no ser que hagueu "
+"decidit ometre el correu electrònic."
 
 msgid "editor.submission.decision.revertDecline.log"
-msgstr ""
+msgstr "{$editorName} ha revocat la decisió de rebutjar la tramesa."
 
 msgid "editor.submission.decision.revertDecline.completed"
-msgstr ""
+msgstr "Tramesa reactivada"
 
 msgid "editor.submission.decision.revertDecline.completed.description"
-msgstr ""
+msgstr "La tramesa {$title} torna a estar activa a la fase de revisió."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
+"La tramesa {$title} torna a estar activa a la fase de tramesa. S'ha enviat "
+"notificació a l'autor/a, a no ser que hagueu decidit ometre el correu "
+"electrònic."
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
 "Assigneu un editor/a per habilitar les decisions editorials en aquesta fase."
@@ -1740,46 +1777,57 @@ msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
 
 msgid "editor.submission.recommend.accept"
-msgstr ""
+msgstr "Recomanar l'acceptació"
 
 msgid "editor.submission.recommend.accept.description"
 msgstr ""
+"Recomanar que aquesta tramesa s'accepti per publicar-se i enviar-la a edició."
 
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
+"{$editorName} recomana que aquesta tramesa sigui acceptada i enviada a "
+"edició."
 
 msgid "editor.submission.recommend.completed"
-msgstr ""
+msgstr "Recomanació enviada"
 
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
+"S'ha registrat la vostra recomanació i s'ha enviat notificació als editors/"
+"ores responsables."
 
 msgid "editor.submission.recommend.revisions"
-msgstr ""
+msgstr "Recomanar revisions"
 
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
+"Recomanar que es sol·licitin revisions a l'autor/a abans que la tramesa "
+"sigui acceptada per publicar-se."
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "{$editorName} ha recomanat que es sol·licitin revisions."
 
 msgid "editor.submission.recommend.resubmit"
-msgstr ""
+msgstr "Recomanar que es torni a enviar per a revisió"
 
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
+"Recomanar que es demani a l'autor/a que enviï revisions per a una altra "
+"ronda de revisió."
 
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
+"{$editorName} ha recomanat que es sol·licitin revisions i que aquestes "
+"s'enviïn a una altra ronda de revisió."
 
 msgid "editor.submission.recommend.decline"
-msgstr ""
+msgstr "Recomanar el rebuig"
 
 msgid "editor.submission.recommend.decline.description"
-msgstr ""
+msgstr "Recomanar que la tramesa sigui rebutjada per publicar-se."
 
 msgid "editor.submission.recommend.decline.log"
-msgstr ""
+msgstr "{$editorName} ha recomanat que la tramesa es rebutgi."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Fer recomanació"
@@ -1795,6 +1843,8 @@ msgstr "Recomanacions: {$recommendations}"
 
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
+"No podreu fer una recomanació fins que no s'assigni un editor/a amb permís "
+"per registrar una decisió."
 
 msgid "editor.submission.recommendation"
 msgstr "Recomanació"

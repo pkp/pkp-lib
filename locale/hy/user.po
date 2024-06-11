@@ -1,8 +1,8 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-08-04 21:43+0000\n"
+"PO-Revision-Date: 2024-06-06 18:05+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hy/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
 msgstr "Հաշվի տեղեկատվություն"
@@ -526,3 +526,8 @@ msgstr ""
 
 msgid "user.usernameOrEmail"
 msgstr "Մուտքանուն կամ էլ. փոստ"
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr ""
+"Անավարտ ներկայացման համար աշխատանքային հոսքի հասանելիությունը սահմանափակված "
+"է:"

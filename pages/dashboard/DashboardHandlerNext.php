@@ -22,6 +22,7 @@ use APP\template\TemplateManager;
 use PKP\components\forms\dashboard\SubmissionFilters;
 use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\JSONMessage;
+use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\decision\Decision;
 use PKP\plugins\Hook;
@@ -163,6 +164,7 @@ class DashboardHandlerNext extends Handler
 
 
         class_exists(\APP\components\forms\publication\AssignToIssueForm::class); // Force define of FORM_ASSIGN_TO_ISSUE
+        class_exists(\APP\components\forms\publication\PublishForm::class); // Force define of FORM_PUBLISH
 
         $templateMgr->setConstants([
             'STAGE_STATUS_SUBMISSION_UNASSIGNED' => Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED,
@@ -207,18 +209,29 @@ class DashboardHandlerNext extends Handler
             'DECISION_DECLINE' => Decision::DECLINE,
             'DECISION_CANCEL_REVIEW_ROUND' => Decision::CANCEL_REVIEW_ROUND,
             'DECISON_PENDING_REVISIONS' => Decision::PENDING_REVISIONS,
-
+            'DECISION_EXTERNAL_REVIEW' => Decision::EXTERNAL_REVIEW,
+            'DECISION_SKIP_EXTERNAL_REVIEW' => Decision::SKIP_EXTERNAL_REVIEW,
+            'DECISION_INITIAL_DECLINE' => Decision::INITIAL_DECLINE,
+            'DECISION_SEND_TO_PRODUCTION' => Decision::SEND_TO_PRODUCTION,
+            'DECISION_BACK_FROM_COPYEDITING' => Decision::BACK_FROM_COPYEDITING,
 
             'SUBMISSION_FILE_SUBMISSION' => SubmissionFile::SUBMISSION_FILE_SUBMISSION,
             'SUBMISSION_FILE_REVIEW_FILE' => SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
             'SUBMISSION_FILE_REVIEW_REVISION' => SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
             'SUBMISSION_FILE_FINAL' => SubmissionFile::SUBMISSION_FILE_FINAL,
-
+            'SUBMISSION_FILE_REVIEW_ATTACHMENT' => SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT,
+            'SUBMISSION_FILE_COPYEDIT' => SubmissionFile::SUBMISSION_FILE_COPYEDIT,
+            'SUBMISSION_FILE_PRODUCTION_READY' => SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
+            'SUBMISSION_FILE_PROOF' => SubmissionFile::SUBMISSION_FILE_PROOF,
             'FORM_ASSIGN_TO_ISSUE' => FORM_ASSIGN_TO_ISSUE,
+            'FORM_PUBLISH' => FORM_PUBLISH,
 
             'REVIEWER_SELECT_ADVANCED_SEARCH' => PKPReviewerGridHandler::REVIEWER_SELECT_ADVANCED_SEARCH,
 
-            'ROLE_ID_AUTHOR' => Role::ROLE_ID_AUTHOR
+            'ROLE_ID_AUTHOR' => Role::ROLE_ID_AUTHOR,
+
+            // ASSOC
+            'ASSOC_TYPE_REVIEW_ASSIGNMENT' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT
         ]);
 
         $templateMgr->display('dashboard/editors.tpl');

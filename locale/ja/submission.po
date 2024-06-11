@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-11 05:00+0000\n"
+"PO-Revision-Date: 2024-06-11 05:07+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja/>\n"
@@ -2318,7 +2318,7 @@ msgid "submission.wizard.notAllowed"
 msgstr ""
 
 msgid "submission.wizard.privacyConsent"
-msgstr ""
+msgstr "個人情報保護への同意"
 
 msgid "submission.wizard.saved"
 msgstr ""
@@ -2333,7 +2333,7 @@ msgid "submission.wizard.sectionClosed"
 msgstr ""
 
 msgid "submission.wizard.start"
-msgstr ""
+msgstr "投稿開始"
 
 msgid "submission.wizard.startingStatus"
 msgstr ""

@@ -29,11 +29,9 @@ use APP\submission\Submission;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
@@ -48,15 +46,14 @@ use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
+use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
-use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
-use PKP\stageAssignment\StageAssignment;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -64,6 +61,8 @@ use PKP\userGroup\UserGroup;
 
 class PKPSubmissionController extends PKPBaseController
 {
+    use AnonymizeData;
+
     /** @var int The default number of items to return in one request */
     public const DEFAULT_COUNT = 30;
 
@@ -1655,48 +1654,6 @@ class PKPSubmissionController extends PKPBaseController
         $decision = Repo::decision()->get($decisionId) ?? $decision;
 
         return response()->json(Repo::decision()->getSchemaMap()->map($decision), Response::HTTP_OK);
-    }
-
-    /**
-     * Checks if sensitive review assignment data should be anonymized for authors and reviewers
-     *
-     * @param LazyCollection<Submission>|Submission $submissions the list of submissions with IDs as keys or a single submission
-     * @param ?LazyCollection<ReviewAssignment> $reviewAssignments
-     *
-     * @return false|Collection List of review IDs to anonymize or false;
-     */
-    public function anonymizeReviews(LazyCollection|Submission $submissions, ?LazyCollection $reviewAssignments = null): false|Collection
-    {
-        $currentUser = $this->getRequest()->getUser();
-        $submissionIds = is_a($submissions, Submission::class) ? [$submissions->getId()] : $submissions->keys()->toArray();
-        $reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds($submissionIds)->getMany();
-
-        $currentUserReviewAssignment = Repo::reviewAssignment()->getCollector()
-            ->filterBySubmissionIds($submissionIds)
-            ->filterByReviewerIds([$currentUser->getId()])
-            ->getMany();
-
-        $currentUserStageAssignments = StageAssignment::withSubmissionIds($submissionIds)
-            ->withUserId($currentUser->getId())
-            ->get();
-
-        $isAuthor = $currentUserStageAssignments->contains(
-            function (StageAssignment $stageAssignment) {
-                $userGroup = Repo::userGroup()->get($stageAssignment->userGroupId);
-                return $userGroup->getRoleId() == Role::ROLE_ID_AUTHOR;
-            }
-        );
-
-        if ($currentUserReviewAssignment->isNotEmpty() || $isAuthor) {
-            $anonymizeReviews = $reviewAssignments->map(function (ReviewAssignment $reviewAssignment, int $reviewId) use ($currentUserReviewAssignment) {
-                if ($currentUserReviewAssignment->isNotEmpty() && $currentUserReviewAssignment->has($reviewId)) {
-                    return false;
-                }
-                return $reviewAssignment->getReviewMethod() !== ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN;
-            })->filter()->keys()->collect();
-        }
-
-        return !isset($anonymizeReviews) || $anonymizeReviews->isEmpty() ? false : $anonymizeReviews;
     }
 
     protected function getFirstUserGroupInRole(Enumerable $userGroups, int $role): ?UserGroup

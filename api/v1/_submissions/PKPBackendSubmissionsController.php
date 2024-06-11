@@ -24,6 +24,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\API\v1\submissions\AnonymizeData;
 use PKP\config\Config;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
@@ -38,6 +39,8 @@ use PKP\submission\PKPSubmission;
 
 abstract class PKPBackendSubmissionsController extends PKPBaseController
 {
+    use AnonymizeData;
+
     /** @var int Max items that can be requested */
     public const MAX_COUNT = 100;
 
@@ -104,6 +107,7 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
                         Role::ROLE_ID_MANAGER,
                         Role::ROLE_ID_SUB_EDITOR,
                         Role::ROLE_ID_ASSISTANT,
+                        Role::ROLE_ID_AUTHOR,
                     ]),
                 ]);
 
@@ -259,7 +263,12 @@ abstract class PKPBackendSubmissionsController extends PKPBaseController
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($submissions, $userGroups, $genres)->values(),
+            'items' => Repo::submission()->getSchemaMap()->mapManyToSubmissionsList(
+                $submissions,
+                $userGroups,
+                $genres,
+                $this->anonymizeReviews($submissions)
+            )->values(),
         ], Response::HTTP_OK);
     }
 

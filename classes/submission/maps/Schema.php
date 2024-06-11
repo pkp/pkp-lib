@@ -232,6 +232,7 @@ class Schema extends \PKP\core\maps\Schema
      * @param Genre[] $genres The file genres in this context
      * @param ?Enumerable $reviewAssignments review assignments associated with a submission
      * @param ?Enumerable $stageAssignments stage assignments associated with a submission
+     * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
      */
     public function mapToSubmissionsList(
         Submission $item,
@@ -239,13 +240,13 @@ class Schema extends \PKP\core\maps\Schema
         array $genres,
         ?Enumerable $reviewAssignments = null,
         ?Enumerable $stageAssignments = null,
+        bool|Collection $anonymizeReviews = false
     ): array {
         $this->userGroups = $userGroups;
         $this->genres = $genres;
         $this->reviewAssignments = $reviewAssignments ?? Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$item->getId()])->getMany()->remember();
         $this->stageAssignments = $stageAssignments ?? $this->getStageAssignmentsBySubmissions(collect([$item]), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]);
-
-        return $this->mapByProperties($this->getSubmissionsListProps(), $item);
+        return $this->mapByProperties($this->getSubmissionsListProps(), $item, $anonymizeReviews);
     }
 
     /**
@@ -255,9 +256,14 @@ class Schema extends \PKP\core\maps\Schema
      *
      * @param LazyCollection<int,UserGroup> $userGroups The user groups in this context
      * @param Genre[] $genres The file genres in this context
+     * @param bool|Collection<int> $anonymizeReviews List of review assignment IDs to anonymize
      */
-    public function mapManyToSubmissionsList(Enumerable $collection, LazyCollection $userGroups, array $genres): Enumerable
-    {
+    public function mapManyToSubmissionsList(
+        Enumerable $collection,
+        LazyCollection $userGroups,
+        array $genres,
+        bool|Collection $anonymizeReviews = false
+    ): Enumerable {
         $this->collection = $collection;
         $this->userGroups = $userGroups;
         $this->genres = $genres;
@@ -280,7 +286,8 @@ class Schema extends \PKP\core\maps\Schema
                 $this->userGroups,
                 $this->genres,
                 $associatedReviewAssignments->get($item->getId()),
-                $associatedStageAssignment->get($item->getId())
+                $associatedStageAssignment->get($item->getId()),
+                $anonymizeReviews
             )
         );
     }

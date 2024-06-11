@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-11 05:39+0000\n"
+"PO-Revision-Date: 2024-06-11 08:47+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja/>\n"
@@ -39,7 +39,7 @@ msgid "submission.submit.availableUserGroupsDescription"
 msgstr "この投稿に対する貢献を最もよく表す役割を選択してください。"
 
 msgid "submission.submit.managerUserGroupsDescription"
-msgstr ""
+msgstr "この投稿を自分で編集して公開したい場合は、編集者の役割を選択してください。"
 
 msgid "submission.submit.submissionChecklist"
 msgstr "投稿前の確認リスト"

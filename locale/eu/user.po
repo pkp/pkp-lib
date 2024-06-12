@@ -1,12 +1,12 @@
-# Josu Acosta <josuacostacalvo@gmail.com>, 2023.
+# Josu Acosta <josuacostacalvo@gmail.com>, 2023, 2024.
 # Informatikaria <informatikaria@ueu.eus>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2023-12-21 14:31+0000\n"
-"Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
+"PO-Revision-Date: 2024-06-12 14:03+0000\n"
+"Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/user/eu/>"
 "\n"
 "Language: eu\n"
@@ -366,13 +366,13 @@ msgid "user.role.assistant"
 msgstr ""
 
 msgid "user.role.author"
-msgstr ""
+msgstr "Egilea"
 
 msgid "user.role.author_s"
-msgstr ""
+msgstr "Egilea(k)"
 
 msgid "user.role.authors"
-msgstr ""
+msgstr "Egileak"
 
 msgid "user.role.editor"
 msgstr ""

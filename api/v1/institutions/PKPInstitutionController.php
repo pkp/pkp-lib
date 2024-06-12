@@ -74,7 +74,7 @@ class PKPInstitutionController extends PKPBaseController
             ->name('institution.getInstitution')
             ->whereNumber('institutionId');
 
-        Route::post('add', $this->add(...))
+        Route::post('', $this->add(...))
             ->name('institution.add');
 
         Route::put('{institutionId}', $this->edit(...))

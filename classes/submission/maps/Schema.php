@@ -15,15 +15,16 @@ namespace APP\submission\maps;
 
 use APP\core\Application;
 use APP\submission\Submission;
+use Illuminate\Support\Collection;
 
 class Schema extends \PKP\submission\maps\Schema
 {
     /**
      * @copydoc \PKP\submission\maps\Schema::mapByProperties()
      */
-    protected function mapByProperties(array $props, Submission $submission): array
+    protected function mapByProperties(array $props, Submission $submission, bool|Collection $anonymizeReviews = false): array
     {
-        $output = parent::mapByProperties($props, $submission);
+        $output = parent::mapByProperties($props, $submission, $anonymizeReviews);
         if (in_array('urlPublished', $props)) {
             $output['urlPublished'] = $this->request->getDispatcher()->url(
                 $this->request,

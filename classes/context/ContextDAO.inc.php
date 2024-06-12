@@ -150,4 +150,15 @@ abstract class ContextDAO extends SchemaDAO {
 			$i+=2;
 		}
 	}
+
+	/**
+	 * Calculates the seq value to be assigned to a new Context entry.
+	 * @return int The seq value for a new Context entry.
+	 */
+	public function getNextSeqValue()
+	{
+		$result = $this->retrieve('SELECT seq FROM ' . $this->tableName . ' ORDER BY seq DESC LIMIT 1;');
+
+		return ($result && $result->current()) ? $result->current()->seq + 1 : 1;
+	}
 }

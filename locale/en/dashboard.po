@@ -7,6 +7,24 @@ msgstr "Review Assignments"
 msgid "dashboard.mySubmissions"
 msgstr "My Submissions"
 
+msgid "dashboard.stage.deskReview"
+msgstr "Desk Review"
+
+msgid "dashboard.stage.reviewWithRound"
+msgstr "Review (Round {$round})"
+
+msgid "dashboard.stage.copyediting"
+msgstr "Copyediting"
+
+msgid "dashboard.stage.production"
+msgstr "Production"
+
+msgid "dashboard.stage.scheduledForPublication"
+msgstr "Scheduled For Publication"
+
+msgid "dashboard.stage.published"
+msgstr "Scheduled For Publication"
+
 msgid "dashboard.reviewersAssigned"
 msgstr "Reviewers assigned"
 

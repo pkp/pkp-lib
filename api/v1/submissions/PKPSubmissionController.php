@@ -46,11 +46,11 @@ use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
+use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
-use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
@@ -61,6 +61,8 @@ use PKP\userGroup\UserGroup;
 
 class PKPSubmissionController extends PKPBaseController
 {
+    use AnonymizeData;
+
     /** @var int The default number of items to return in one request */
     public const DEFAULT_COUNT = 30;
 
@@ -355,6 +357,8 @@ class PKPSubmissionController extends PKPBaseController
 
         $submissions = $collector->getMany();
 
+        $anonymizeReviews = $this->anonymizeReviews($submissions);
+
         $userGroups = Repo::userGroup()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->getMany();
@@ -365,7 +369,7 @@ class PKPSubmissionController extends PKPBaseController
 
         return response()->json([
             'itemsMax' => $collector->getCount(),
-            'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups, $genres)->values(),
+            'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups, $genres, $anonymizeReviews)->values(),
         ], Response::HTTP_OK);
     }
 
@@ -467,11 +471,23 @@ class PKPSubmissionController extends PKPBaseController
             ->filterByContextIds([$submission->getData('contextId')])
             ->getMany();
 
+        // Anonymize sensitive review assignment data if user is a reviewer or author assigned to the article and review isn't open
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany()->remember();
+
+        $anonymizeReviews = $this->anonymizeReviews($submission, $reviewAssignments);
+
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), Response::HTTP_OK);
+        return response()->json(Repo::submission()->getSchemaMap()->map(
+            $submission,
+            $userGroups,
+            $genres,
+            $reviewAssignments,
+            null,
+            !$anonymizeReviews || $anonymizeReviews->isEmpty() ? false : $anonymizeReviews
+        ), Response::HTTP_OK);
     }
 
     /**

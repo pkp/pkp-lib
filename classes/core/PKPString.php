@@ -17,7 +17,6 @@
 
 namespace PKP\core;
 
-use Illuminate\Support\Str;
 use PKP\config\Config;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
 use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
@@ -170,52 +169,14 @@ class PKPString
         }
 
         static $caches;
-
+    
         if (!isset($caches[$configKey])) {
-
-            $config = (new HtmlSanitizerConfig())
-                ->allowLinkSchemes(['https', 'http', 'mailto'])
-                ->allowMediaSchemes(['https', 'http']);
-
-            $allowedTagToAttributeMap = Str::of(Config::getVar('security', $configKey))
-                ->explode(',')
-                ->mapWithKeys(function (string $allowedTagWithAttr) {
-
-                    // Extract the tag itself (e.g. div, p, a ...)
-                    preg_match('/\[[^][]+]\K|\w+/', $allowedTagWithAttr, $matches);
-                    $allowedTag = collect($matches)->first();
-
-                    // Extract the attributes associated with tag (e.g. class, href ...)
-                    preg_match("/\[([^\]]*)\]/", $allowedTagWithAttr, $matches);
-                    $allowedAttributes = collect($matches)->last();
-
-                    if($allowedTag) {
-                        return [
-                            $allowedTag => Str::of($allowedAttributes)
-                                ->explode('|')
-                                ->filter()
-                                ->toArray()
-                        ];
-                    }
-
-                    return [];
-                })
-                ->each(function (array $attributes, string $tag) use (&$config) {
-                    $config = $config->allowElement($tag, $attributes);
-                });
-
-            $caches[$configKey] = [
-                'allowedTagToAttributeMap' => $allowedTagToAttributeMap,
-                'sanitizer' => new HtmlSanitizer($config),
-            ];
+            $caches[$configKey] = new \PKP\core\PKPHtmlSanitizer(
+                Config::getVar('security', $configKey)
+            );
         }
-
-        // need to apply html_entity_decode as sanitizer apply htmlentities internally for special chars
-        return html_entity_decode(
-            $caches[$configKey]['sanitizer']->sanitize(
-                strip_tags($input, $caches[$configKey]['allowedTagToAttributeMap']->keys()->toArray())
-            )
-        );
+    
+        return $caches[$configKey]->sanitize($input);
     }
 
     /**

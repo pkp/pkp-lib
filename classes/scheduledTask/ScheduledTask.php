@@ -52,7 +52,8 @@ abstract class ScheduledTask
         $fileMgr = new PrivateFileManager();
 
         $scheduledTaskFilesPath = realpath($fileMgr->getBasePath()) . '/' . ScheduledTaskHelper::SCHEDULED_TASK_EXECUTION_LOG_DIR;
-        $this->_executionLogFile = "{$scheduledTaskFilesPath}/" . str_replace(' ', '', $this->getName()) .
+        $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
+        $this->_executionLogFile = "{$scheduledTaskFilesPath}/" . end($classNameParts) .
             '-' . $this->getProcessId() . '-' . date('Ymd') . '.log';
         if (!$fileMgr->fileExists($scheduledTaskFilesPath, 'dir')) {
             $success = $fileMgr->mkdirtree($scheduledTaskFilesPath);

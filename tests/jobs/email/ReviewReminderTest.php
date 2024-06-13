@@ -10,7 +10,7 @@
  * @brief Tests for review response and submit due reminder job.
  */
 
-namespace PKP\tests\classes\core;
+namespace PKP\tests\jobs\email;
 
 use Mockery;
 use PKP\tests\PKPTestCase;
@@ -22,6 +22,7 @@ use PKP\emailTemplate\Repository as EmailTemplateRepository;
 use PKP\invitation\repositories\Invitation as InvitationRepository;
 use PKP\submission\reviewAssignment\Repository as ReviewAssignmentRepository;
 use PKP\log\event\Repository as EventRepository;
+use APP\user\Repository as UserRepository;
 
 /**
  * @runTestsInSeparateProcesses
@@ -37,17 +38,24 @@ class ReviewReminderTest extends PKPTestCase
     /**
      * Test job is a proper instance
      */
-    public function testUnserializationGetProperReviewReminderJobInstance(): void
+    public function testUnserializationGetProperJobInstance(): void
     {
         $this->assertInstanceOf(ReviewReminder::class, unserialize($this->serializedJobData));
     }
 
     /**
-     * Test job will not fail when no reviewer associated with review assignment
+     * Ensure that a serialized job can be unserialized and executed
      */
-    public function testJobWillRunWithIfNoReviewerExists(): void
+    public function testRunSerializedJob(): void
     {
+        /** @var ReviewReminder $reviewReminderJob */
         $reviewReminderJob = unserialize($this->serializedJobData);
+
+        // Fake the mail facade
+        Mail::fake();        
+
+        // need to mock request so that a valid context information is set and can be retrived
+        $this->mockRequest();
 
         $reviewAssignmentMock = Mockery::mock(ReviewAssignment::class)
             ->shouldReceive([
@@ -66,8 +74,6 @@ class ReviewReminderTest extends PKPTestCase
             ->withAnyArgs()
             ->getMock();
         
-        app()->instance(ReviewAssignment::class, $reviewAssignmentMock);
-        
         $reviewAssignmentRepoMock = Mockery::mock(app(ReviewAssignmentRepository::class))
             ->makePartial()
             ->shouldReceive([
@@ -78,24 +84,28 @@ class ReviewReminderTest extends PKPTestCase
             ->getMock();
         
         app()->instance(ReviewAssignmentRepository::class, $reviewAssignmentRepoMock);
+
+        $userMock = Mockery::mock(\PKP\user\User::class)
+            ->makePartial()
+            ->shouldReceive([
+                'getId' => 0,
+                'getFullName' => 'Test User',
+            ])
+            ->withAnyArgs()
+            ->getMock();
+
+        $userRepoMock = Mockery::mock(app(UserRepository::class))
+            ->makePartial()
+            ->shouldReceive('get')
+            ->withAnyArgs()
+            ->andReturn($userMock)
+            ->getMock();
         
-        $this->assertNull($reviewReminderJob->handle());
-    }
-
-    /**
-     * Test job will not fail
-     */
-    public function testRunSerializedJob(): void
-    {
-        // Fake the mail facade
-        Mail::fake();        
-
-        // need to mock request so that a valid context information is set and can be retrived
-        $this->mockRequest();
-
+        app()->instance(UserRepository::class, $userRepoMock);
+        
         // Need to replace the container binding of `context` with a mock object
         \APP\core\Services::register(
-            new class extends \APP\services\OJSServiceProvider
+            new class implements \Pimple\ServiceProviderInterface
             {
                 public function register(\Pimple\Container $pimple)
                 {
@@ -118,8 +128,6 @@ class ReviewReminderTest extends PKPTestCase
                 }
             }
         );
-
-        $reviewReminderJob = unserialize($this->serializedJobData);
 
         $publicationMock = Mockery::mock(\APP\publication\Publication::class)
             ->makePartial()

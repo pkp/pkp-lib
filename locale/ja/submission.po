@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-13 04:40+0000\n"
+"PO-Revision-Date: 2024-06-13 04:43+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja/>\n"
@@ -2331,7 +2331,7 @@ msgstr "投稿の詳細がシステムに保存されましたが、まだ検討
 "リンクから、いつでも投稿を完了することができます。"
 
 msgid "submission.wizard.saved.emailConfirmation"
-msgstr "このリンクのコピーを{$email}に電子メールで送信しました。"
+msgstr "このリンクのコピーを{$email}にメールで送信しました。"
 
 msgid "submission.wizard.sectionClosed"
 msgstr "セクション閉鎖"

@@ -1,16 +1,17 @@
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
+# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-12-12 14:16+0000\n"
-"Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
+"PO-Revision-Date: 2024-06-13 04:43+0000\n"
+"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"manager/ja_JP/>\n"
-"Language: ja_JP\n"
+"manager/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "情報"
@@ -358,7 +359,7 @@ msgid "manager.publication.productionStage"
 msgstr "制作"
 
 msgid "manager.publication.emails"
-msgstr "電子メール"
+msgstr "メール"
 
 msgid "manager.publication.reviewerGuidance"
 msgstr "査読ガイドライン"
@@ -379,7 +380,7 @@ msgid "manager.emails.addEmail"
 msgstr "テンプレートの追加"
 
 msgid "manager.emails.createEmail"
-msgstr "電子メールの作成"
+msgstr "メールの作成"
 
 msgid "manager.emails.data"
 msgstr "テンプレートメッセージデータ"
@@ -421,8 +422,7 @@ msgid "manager.emails.enable.message"
 msgstr "メールを有効にしようとしています。 この操作を承認しますか？"
 
 msgid "manager.emails.form.emailKeyRequired"
-msgstr ""
-"電子メールには、スペースや特殊文字を含まないユニークなEメールキーが必要です。"
+msgstr "メールには、スペースや特殊文字を含まないユニークなEメールキーが必要です。"
 
 msgid "manager.emails.form.bodyRequired"
 msgstr "メールには件名が必要です。"
@@ -2910,7 +2910,7 @@ msgid "mailable.reviewerUnassign.description"
 msgstr "このメールは、編集者が査読者の任命を解除したときに送信されます。"
 
 msgid "mailable.validateEmailSite.name"
-msgstr "電子メールの検証（サイト）"
+msgstr "メールの検証（サイト）"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""

@@ -151,12 +151,14 @@ class PKPContainer extends Container
         // will spin through them and register them with the application, which
         // serves as a convenience layer while registering a lot of bindings.
         if (property_exists($provider, 'bindings')) {
+            /** @disregard P1014 PHP Intelephense error suppression */
             foreach ($provider->bindings as $key => $value) {
                 $this->bind($key, $value);
             }
         }
 
         if (property_exists($provider, 'singletons')) {
+            /** @disregard P1014 PHP Intelephense error suppression */
             foreach ($provider->singletons as $key => $value) {
                 $key = is_int($key) ? $value : $key;
                 $this->singleton($key, $value);

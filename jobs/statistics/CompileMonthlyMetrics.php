@@ -49,14 +49,14 @@ class CompileMonthlyMetrics extends BaseJob
         $currentMonth = date('Ym');
         $lastMonth = date('Ym', strtotime('last month'));
 
-        $geoService = Services::get('geoStats');
+        $geoService = Services::get('geoStats'); /** @var \PKP\services\PKPStatsGeoService $geoService */
         $geoService->deleteMonthlyMetrics($this->month);
         $geoService->addMonthlyMetrics($this->month);
         if (!$this->site->getData('keepDailyUsageStats') && $this->month != $currentMonth && $this->month != $lastMonth) {
             $geoService->deleteDailyMetrics($this->month);
         }
 
-        $counterService = Services::get('sushiStats');
+        $counterService = Services::get('sushiStats'); /** @var \PKP\services\PKPStatsSushiService $counterService */
         $counterService->deleteMonthlyMetrics($this->month);
         $counterService->addMonthlyMetrics($this->month);
         if (!$this->site->getData('keepDailyUsageStats') && $this->month != $currentMonth && $this->month != $lastMonth) {

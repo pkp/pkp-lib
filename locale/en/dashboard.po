@@ -23,7 +23,7 @@ msgid "dashboard.stage.scheduledForPublication"
 msgstr "Scheduled For Publication"
 
 msgid "dashboard.stage.published"
-msgstr "Scheduled For Publication"
+msgstr "Published"
 
 msgid "dashboard.reviewersAssigned"
 msgstr "Reviewers assigned"

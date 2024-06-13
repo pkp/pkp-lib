@@ -362,11 +362,24 @@ class Mail extends DataObject {
 	}
 
 	/**
-	 * Set the subject of the message.
-	 * @param $subject string
-	 */
+	* Set the subject of the message.
+	* @param $subject string
+	*/
 	function setSubject($subject) {
-		$this->setData('subject', $subject);
+		$sanitizedSubject = $this->sanitizeSubject($subject);
+		$decodedSubject = htmlspecialchars_decode($sanitizedSubject, ENT_QUOTES | ENT_HTML5);
+		$this->setData('subject', $decodedSubject);
+	}
+
+	/**
+	 * Sanitize subject to remove any harmful content.
+	 * @param $subject string
+	 * @return string
+	 */
+	function sanitizeSubject($subject) {
+		$sanitizedSubject = strip_tags($subject);
+		$sanitizedSubject = preg_replace('/[\x00-\x1F\x7F<>]/', '', $sanitizedSubject);
+		return $sanitizedSubject;
 	}
 
 	/**

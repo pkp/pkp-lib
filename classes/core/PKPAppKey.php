@@ -66,7 +66,7 @@ class PKPAppKey
      */
     public static function hasKey(): bool
     {
-        return !empty(Config::getVar('general', 'app_key', ''));
+        return !empty(Config::getVar('general', 'app_key'));
     }
 
     /**
@@ -82,7 +82,7 @@ class PKPAppKey
      */
     public static function getKey(): string
     {
-        return Config::getVar('general', 'app_key', '');
+        return Config::getVar('general', 'app_key');
     }
 
     /**
@@ -108,7 +108,7 @@ class PKPAppKey
     }
 
     /**
-     * Validate given or config defined app
+     * Validate given or config defined app key
      */
     public static function validate(string $key = null, string $cipher = null): bool
     {

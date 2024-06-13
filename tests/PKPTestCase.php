@@ -21,6 +21,8 @@
 namespace PKP\tests;
 
 use APP\core\Application;
+use Illuminate\Support\Facades\Mail;
+
 use APP\core\PageRouter;
 use APP\core\Request;
 use Mockery;
@@ -252,18 +254,21 @@ abstract class PKPTestCase extends TestCase
     }
 
     /**
-     * Swap the mail driver with something better for test
-     * Default will be to `log` driver so that no mail would be set
-     * 
-     * We need to use this as we have override the default mail manager with some custom
-     * methods (e.g. `compileParams`, ...) which not available to core mail fake test class
-     * that is `Illuminate\Support\Testing\Fakes\MailFake` which cause test exception.
+     * Mock the mail facade
+     * @see https://laravel.com/docs/10.x/mocking
      */
-    protected function swapMailDriver(string $driver = 'log'): void
+    protected function mockMail(): void
     {
-        $mailConfig = app()->get('config')['mail'];
-        $mailConfig['default'] = $driver;
-        FacadesConfig::set('mail', $mailConfig);
+        /**
+         * @disregard P1013 PHP Intelephense error suppression
+         * @see https://github.com/bmewburn/vscode-intelephense/issues/568
+         */
+        Mail::shouldReceive('send')
+            ->withAnyArgs()
+            ->andReturn(null)
+            ->shouldReceive('compileParams')
+            ->withAnyArgs()
+            ->andReturn('');
     }
 
     /**
@@ -278,6 +283,7 @@ abstract class PKPTestCase extends TestCase
     protected function mockGuzzleClient(bool $setToRegistry = true): MockInterface|LegacyMockInterface
     {
         $guzzleClientMock = Mockery::mock(\GuzzleHttp\Client::class)
+            ->makePartial()
             ->shouldReceive('request')
             ->withAnyArgs()
             ->andReturn(new \GuzzleHttp\Psr7\Response)

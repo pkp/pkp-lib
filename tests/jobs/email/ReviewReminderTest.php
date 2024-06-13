@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Mail;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use APP\submission\Repository as SubmissionRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
-use PKP\invitation\repositories\Invitation as InvitationRepository;
 use PKP\submission\reviewAssignment\Repository as ReviewAssignmentRepository;
 use PKP\log\event\Repository as EventRepository;
 use APP\user\Repository as UserRepository;
@@ -158,7 +157,7 @@ class ReviewReminderTest extends PKPTestCase
         $emailTemplateMock = Mockery::mock(\PKP\emailTemplate\EmailTemplate::class)
             ->makePartial()
             ->shouldReceive([
-                "getLocalizedData" => ""
+                'getLocalizedData' => '',
             ])
             ->withAnyArgs()
             ->getMock();
@@ -172,17 +171,6 @@ class ReviewReminderTest extends PKPTestCase
             ->getMock();
 
         app()->instance(EmailTemplateRepository::class, $emailTemplateRepoMock);
-
-        $invitationRepoMock = Mockery::mock(app(InvitationRepository::class))
-            ->makePartial()
-            ->shouldReceive([
-                'addInvitation' => 0,
-                'getMailable' => null,
-            ])
-            ->withAnyArgs()
-            ->getMock();
-        
-        app()->instance(InvitationRepository::class, $invitationRepoMock);
 
         $eventRepoMock = Mockery::mock(app(EventRepository::class))
             ->makePartial()

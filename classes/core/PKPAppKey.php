@@ -80,7 +80,7 @@ class PKPAppKey
     /**
      * Get the app key defined in config file
      */
-    public static function getKey(): string
+    public static function getKey(): ?string
     {
         return Config::getVar('general', 'app_key');
     }

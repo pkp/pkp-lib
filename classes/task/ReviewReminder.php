@@ -48,6 +48,7 @@ class ReviewReminder extends ScheduledTask
             ->getCollector()
             ->filterByIsIncomplete(true)
             ->orderByContextId()
+            ->orderBySubmissionId()
             ->getMany();
 
         foreach ($incompleteAssignments as $reviewAssignment) {

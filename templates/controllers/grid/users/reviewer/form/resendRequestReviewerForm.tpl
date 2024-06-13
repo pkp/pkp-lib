@@ -34,6 +34,11 @@
 		{fbvElement type="checkbox" id="skipEmail" name="skipEmail" label="editor.review.skipEmail"}
 	{/fbvFormSection}
 
+	{fbvFormSection title="editor.review.importantDates"}
+		{fbvElement type="text" id="responseDueDate" name="responseDueDate" label="submission.task.responseDueDate" value=$responseDueDate inline=true size=$fbvStyles.size.MEDIUM class="datepicker"}
+		{fbvElement type="text" id="reviewDueDate" name="reviewDueDate" label="editor.review.reviewDueDate" value=$reviewDueDate inline=true size=$fbvStyles.size.MEDIUM class="datepicker"}
+	{/fbvFormSection}
+
 	{fbvFormButtons submitText="editor.review.resendRequestReviewer"}
 </form>
 

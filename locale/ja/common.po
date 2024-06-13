@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2022, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-11 05:54+0000\n"
+"PO-Revision-Date: 2024-06-13 04:43+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ja/>\n"
@@ -1974,8 +1974,7 @@ msgid "notification.unsubscribeNotifications.error"
 msgstr "購読を解除できませんでした"
 
 msgid "notification.unsubscribeNotifications.pageMessage"
-msgstr ""
-"{$contextName} から {$email} で受信したくない電子メールを選択してください。"
+msgstr "{$contextName} から {$email} で受信したくないメールを選択してください。"
 
 msgid "notification.unsubscribeNotifications.resubscribe"
 msgstr ""

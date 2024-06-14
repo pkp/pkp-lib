@@ -362,9 +362,9 @@ class Mail extends DataObject {
 	}
 
 	/**
-	* Set the subject of the message.
-	* @param $subject string
-	*/
+	 * Set the subject of the message.
+	 * @param $subject string
+	 */
 	function setSubject($subject) {
 		$this->setData('subject', $subject);
 	}

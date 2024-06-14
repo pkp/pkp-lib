@@ -41,7 +41,9 @@ class PubObjectCache
             $this->_insertInternally($object, 'preprints', $object->getId());
         }
         if ($object instanceof Galley) {
-            assert($parent instanceof Submission);
+            if (!$parent instanceof Submission) {
+                throw new Exception('Parent object of galley is unexpected type!');
+            }
             $this->_insertInternally($object, 'galleys', $object->getId());
             $this->_insertInternally($object, 'galleysByPreprint', $object->getData('submissionId'), $object->getId());
         }

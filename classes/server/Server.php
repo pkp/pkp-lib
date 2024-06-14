@@ -39,10 +39,8 @@ class Server extends Context
 
     /**
      * Get the association type for this context.
-     *
-     * @return int
      */
-    public function getAssocType()
+    public function getAssocType(): int
     {
         return Application::ASSOC_TYPE_SERVER;
     }
@@ -50,7 +48,7 @@ class Server extends Context
     /**
      * @copydoc DataObject::getDAO()
      */
-    public function getDAO()
+    public function getDAO(): ServerDAO
     {
         return DAORegistry::getDAO('ServerDAO');
     }

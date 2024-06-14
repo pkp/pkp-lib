@@ -160,6 +160,12 @@ msgstr "The editors express their appreciation of the reviewers for {$year} list
 msgid "common.editorialHistory"
 msgstr "Editorial History"
 
+msgid "common.editorialHistory.page"
+msgstr "Editorial History Page"
+
+msgid "common.editorialHistory.page.description"
+msgstr "Here, you will find a comprehensive record of all past contributors associated with this journal. This page highlights our commitment to transparency and showcases our editorial evolution."
+
 msgid "common.name"
 msgstr "Name"
 

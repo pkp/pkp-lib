@@ -44,9 +44,8 @@
 	{/foreach}
 
 	<p>
-		<a href="{url page="about" op="editorialHistory" router=\PKP\core\PKPApplication::ROUTE_PAGE}">
-			{translate key="common.editorialHistory"}
-		</a>
+		{capture assign=editorialHistoryUrl}{url page="about" op="editorialHistory" router=\PKP\core\PKPApplication::ROUTE_PAGE}{/capture}
+		{translate key="about.editorialMasthead.linkToEditorialHistory" url=$editorialHistoryUrl}
 	</p>
 
 	{if !empty($reviewers)}

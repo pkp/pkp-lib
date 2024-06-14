@@ -88,9 +88,15 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     public const ROUTE_PAGE = 'page';
     public const ROUTE_API = 'api';
 
-    public const CONTEXT_SITE = 0;
-    public const CONTEXT_ID_NONE = 0;
-    public const CONTEXT_ID_ALL = '_';
+    public const SITE_CONTEXT_ID_ALL = -1;
+    public const SITE_CONTEXT_ID = null;
+    public const SITE_CONTEXT_PATH = 'index';
+    /** @deprecated 3.5 Use Application::SITE_CONTEXT_ID, which had the value modified to null */
+    public const CONTEXT_SITE = self::SITE_CONTEXT_ID;
+    /** @deprecated 3.5 Use Application::SITE_CONTEXT_ID, which had the value modified to null */
+    public const CONTEXT_ID_NONE = self::SITE_CONTEXT_ID;
+    /** @deprecated 3.5 Use Application::SITE_CONTEXT_PATH, which had the value modified to "index" */
+    public const CONTEXT_ID_ALL = self::SITE_CONTEXT_PATH;
 
     public const ASSOC_TYPE_PRODUCTION_ASSIGNMENT = 0x0000202;
     public const ASSOC_TYPE_SUBMISSION_FILE = 0x0000203;

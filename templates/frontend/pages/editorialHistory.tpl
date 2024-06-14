@@ -13,34 +13,39 @@
 <div class="page page_masthead">
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="common.editorialHistory"}
 
-	<h1>{translate key="common.editorialHistory"}</h1>
+	<h1>{translate key="common.editorialHistory.page"}</h1>
+	<p>{translate key="common.editorialHistory.page.description"}</p>
 	{foreach from=$mastheadRoles item="mastheadRole"}
 		{if array_key_exists($mastheadRole->getId(), $mastheadUsers)}
 			<h2>{$mastheadRole->getLocalizedName()|escape}</h2>
 			<ul>
-			{foreach from=$mastheadUsers[$mastheadRole->getId()] item="mastheadUser"}
-				{foreach from=$mastheadUser['services'] item="service"}
+				{foreach from=$mastheadUsers[$mastheadRole->getId()] item="mastheadUser"}
 					<li>
 						<ul id="commaList">
 							<li>{$mastheadUser['user']->getFullName()|escape}</li>
 							{if !empty($mastheadUser['user']->getLocalizedData('affiliation'))}
 								<li>{$mastheadUser['user']->getLocalizedData('affiliation')|escape}</li>
 							{/if}
-							<li>{translate key="common.fromUntil" from=$service['dateStart'] until=$service['dateEnd']}</li>
+							{if $mastheadUser['user']->getData('orcid')}
+								<span class="orcid">
+									{if $mastheadUser['user']->getData('orcidAccessToken')}
+										{$orcidIcon}
+									{/if}
+									<a href="{$mastheadUser['user']->getData('orcid')|escape}" target="_blank">
+										{$mastheadUser['user']->getData('orcid')|escape}
+									</a>
+								</span>
+							{/if}
+							<li>
+								{foreach from=$mastheadUser['services'] item="service"}
+									<ul>
+										<li>{translate key="common.fromUntil" from=$service['dateStart'] until=$service['dateEnd']}</li>
+									</ul>
+								{/foreach}
+							</li>
 						</ul>
-						{if $mastheadUser['user']->getData('orcid')}
-							<span class="orcid">
-								{if $mastheadUser['user']->getData('orcidAccessToken')}
-									{$orcidIcon}
-								{/if}
-								<a href="{$mastheadUser['user']->getData('orcid')|escape}" target="_blank">
-								{$mastheadUser['user']->getData('orcid')|escape}
-							</a>
-							</span>
-						{/if}
 					</li>
 				{/foreach}
-			{/foreach}
 			</ul>
 		{/if}
 	{/foreach}

@@ -143,22 +143,9 @@ abstract class ContextDAO extends SchemaDAO {
 	 */
 	function resequence() {
 		$result = $this->retrieve('SELECT ' . $this->primaryKeyColumn . ' AS context_id FROM ' . $this->tableName . ' ORDER BY seq');
-		$i=1;
-		for ($i=1; $row = (array) $result->current(); $i+=2 && $result->next()) {
-			$this->update('UPDATE ' . $this->tableName . ' SET seq = ? WHERE ' . $this->primaryKeyColumn . ' = ?', [$i, $row['context_id']]);
-			$result->next();
-			$i+=2;
+
+		foreach ($result as $key => $value) {
+			$this->update('UPDATE ' . $this->tableName . ' SET seq = ? WHERE ' . $this->primaryKeyColumn . ' = ?', [$key + 1, $value->context_id]);
 		}
-	}
-
-	/**
-	 * Calculates the seq value to be assigned to a new Context entry.
-	 * @return int The seq value for a new Context entry.
-	 */
-	public function getNextSeqValue()
-	{
-		$result = $this->retrieve('SELECT seq FROM ' . $this->tableName . ' ORDER BY seq DESC LIMIT 1;');
-
-		return ($result && $result->current()) ? $result->current()->seq + 1 : 1;
 	}
 }

@@ -20,7 +20,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="newNoteForm" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT op="saveNote" params=$linkParams}" method="post">
+<form class="pkp_form" id="newNoteForm" action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT op="saveNote" params=$linkParams}" method="post">
 	<div id="newNoteContainer">
 		{csrf}
 		{fbvFormSection title="informationCenter.addNote" for="newNote"}

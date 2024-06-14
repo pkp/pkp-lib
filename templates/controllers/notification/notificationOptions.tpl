@@ -11,7 +11,7 @@
 {if $refreshOn}
 	refreshOn: {$refreshOn|json_encode},
 {/if}
-fetchNotificationUrl: {url|json_encode router=\PKP\core\PKPApplication::ROUTE_PAGE page='notification' op='fetchNotification' escape=false},
+fetchNotificationUrl: {url|json_encode router=PKP\core\PKPApplication::ROUTE_PAGE page='notification' op='fetchNotification' escape=false},
 hasSystemNotifications: {$hasSystemNotifications|json_encode}
 {if $requestOptions}
 	,

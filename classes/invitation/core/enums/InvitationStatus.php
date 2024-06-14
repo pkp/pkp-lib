@@ -1,23 +1,22 @@
 <?php
 
 /**
- * @file invitation/invitations/enums/InvitationStatus.php
+ * @file invitation/core/enums/InvitationStatus.php
  *
- * Copyright (c) 2023 Simon Fraser University
- * Copyright (c) 2023 John Willinsky
+ * Copyright (c) 2023-2024 Simon Fraser University
+ * Copyright (c) 2023-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class InvitationStatus
  *
- * @ingroup invitations
- *
  * @brief Enumeration for invitation statuses
  */
 
-namespace PKP\invitation\invitations\enums;
+namespace PKP\invitation\core\enums;
 
 enum InvitationStatus: string
 {
+    case INITIALIZED = 'INITIALIZED';
     case PENDING = 'PENDING';
     case ACCEPTED = 'ACCEPTED';
     case DECLINED = 'DECLINED';

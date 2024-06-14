@@ -46,6 +46,7 @@ use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\DecisionWritePolicy;
+use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\authorization\PublicationWritePolicy;
 use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
@@ -60,6 +61,8 @@ use PKP\userGroup\UserGroup;
 
 class PKPSubmissionController extends PKPBaseController
 {
+    use AnonymizeData;
+
     /** @var int The default number of items to return in one request */
     public const DEFAULT_COUNT = 30;
 
@@ -316,6 +319,7 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         if ($actionName === 'addDecision') {
+            $this->addPolicy(new SubmissionCompletePolicy($request, $args));
             $this->addPolicy(new DecisionWritePolicy($request, $args, (int) $request->getUserVar('decision'), $request->getUser()));
         }
 
@@ -353,6 +357,8 @@ class PKPSubmissionController extends PKPBaseController
 
         $submissions = $collector->getMany();
 
+        $anonymizeReviews = $this->anonymizeReviews($submissions);
+
         $userGroups = Repo::userGroup()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->getMany();
@@ -362,8 +368,8 @@ class PKPSubmissionController extends PKPBaseController
         $genres = $genreDao->getByContextId($context->getId())->toArray();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
-            'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups, $genres)->values(),
+            'itemsMax' => $collector->getCount(),
+            'items' => Repo::submission()->getSchemaMap()->summarizeMany($submissions, $userGroups, $genres, $anonymizeReviews)->values(),
         ], Response::HTTP_OK);
     }
 
@@ -465,11 +471,23 @@ class PKPSubmissionController extends PKPBaseController
             ->filterByContextIds([$submission->getData('contextId')])
             ->getMany();
 
+        // Anonymize sensitive review assignment data if user is a reviewer or author assigned to the article and review isn't open
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany()->remember();
+
+        $anonymizeReviews = $this->anonymizeReviews($submission, $reviewAssignments);
+
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return response()->json(Repo::submission()->getSchemaMap()->map($submission, $userGroups, $genres), Response::HTTP_OK);
+        return response()->json(Repo::submission()->getSchemaMap()->map(
+            $submission,
+            $userGroups,
+            $genres,
+            $reviewAssignments,
+            null,
+            !$anonymizeReviews || $anonymizeReviews->isEmpty() ? false : $anonymizeReviews
+        ), Response::HTTP_OK);
     }
 
     /**
@@ -900,7 +918,7 @@ class PKPSubmissionController extends PKPBaseController
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->summarizeMany($publications, $anonymize)->values(),
         ], Response::HTTP_OK);
     }
@@ -962,7 +980,6 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        $params = (new \PKP\submission\Sanitizer())->sanitize($params, ['title']);
         $publication = Repo::publication()->newDataObject($params);
         $newId = Repo::publication()->add($publication);
         $publication = Repo::publication()->get($newId);
@@ -1122,9 +1139,7 @@ class PKPSubmissionController extends PKPBaseController
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
-        $params = (new \PKP\submission\Sanitizer())->sanitize($params, ['title', 'subtitle']);
         Repo::publication()->edit($publication, $params);
-
         $publication = Repo::publication()->get($publication->getId());
 
         $userGroups = Repo::userGroup()->getCollector()
@@ -1357,7 +1372,7 @@ class PKPSubmissionController extends PKPBaseController
         $authors = $collector->getMany();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::author()->getSchemaMap()->summarizeMany($authors)->values(),
         ], Response::HTTP_OK);
     }

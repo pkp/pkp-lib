@@ -29,7 +29,7 @@
 				{if $publicationId}
 					<input type="hidden" name="publicationId" value="{$publicationId|escape}">
 				{/if}
-				{capture assign=availableReviewFilesGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.proof.ManageProofFilesGridHandler" op="fetchGrid" submissionId=$submissionId publicationId=$publicationId representationId=$representationId escape=false}{/capture}
+				{capture assign=availableReviewFilesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.proof.ManageProofFilesGridHandler" op="fetchGrid" submissionId=$submissionId publicationId=$publicationId representationId=$representationId escape=false}{/capture}
 				{load_url_in_div id="availableReviewFilesGrid" url=$availableReviewFilesGridUrl}
 			{/fbvFormSection}
 

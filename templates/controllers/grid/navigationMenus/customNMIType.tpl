@@ -12,7 +12,7 @@
 		{fbvFormSection title="manager.navigationMenus.form.path" for="path" required="true"}
 			{fbvElement type="text" id="path" value=$path required="true"}
 			<p>
-				{capture assign=exampleUrl}{url|replace:"REPLACEME":"%PATH%" router=\PKP\core\PKPApplication::ROUTE_PAGE page="REPLACEME"}{/capture}
+				{capture assign=exampleUrl}{url|replace:"REPLACEME":"%PATH%" router=PKP\core\PKPApplication::ROUTE_PAGE page="REPLACEME"}{/capture}
 				{translate key="manager.navigationMenus.form.viewInstructions" pagesPath=$exampleUrl}
 			</p>
 		{/fbvFormSection}

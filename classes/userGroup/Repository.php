@@ -13,13 +13,18 @@
 
 namespace PKP\userGroup;
 
+use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
+use Carbon\Carbon;
+use DateInterval;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -30,6 +35,7 @@ use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\validation\ValidatorFactory;
 use PKP\xml\PKPXMLParser;
+use stdClass;
 
 class Repository
 {
@@ -37,6 +43,9 @@ class Repository
      * A list of roles not able to change submissionMetadataEdit permission option.
      */
     public const NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES = [Role::ROLE_ID_MANAGER];
+
+    /** @var string Max lifetime for the Editorial Masthead and Editorial History users cache. */
+    public const MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME = '1 year';
 
     /** @var DAO */
     public $dao;
@@ -147,6 +156,11 @@ class Repository
 
         Hook::call('UserGroup::add', [$userGroup]);
 
+        // Clear editorial masthead cache if the new role should be added to the masthead
+        // Because it is a new role, no need to clear editorial history chache
+        if ($userGroup->getMasthead()) {
+            self::forgetEditorialMastheadCache($userGroup->getContextId());
+        }
         return $userGroup->getId();
     }
 
@@ -157,6 +171,12 @@ class Repository
         Hook::call('UserGroup::edit', [$newUserGroup, $userGroup, $params]);
 
         $this->dao->update($newUserGroup);
+
+        // Clear editorial masthead and history cache if the role is on the masthead
+        if ($userGroup->getMasthead()) {
+            self::forgetEditorialMastheadCache($userGroup->getContextId());
+            self::forgetEditorialHistoryCache($userGroup->getContextId());
+        }
 
         Repo::userGroup()->get($newUserGroup->getId());
     }
@@ -242,6 +262,23 @@ class Repository
     }
 
     /**
+    * Return all context IDs for masthead user groups the given user is or was assigned to
+    *
+    * @return Collection of context IDs
+    */
+    public function getUserUserGroupsContextIds(int $userId): Collection
+    {
+        return Repo::userGroup()
+            ->getCollector()
+            ->filterByUserIds([$userId])
+            ->filterByUserUserGroupStatus(UserUserGroupStatus::STATUS_ALL)
+            ->filterByMasthead(true)
+            ->getQueryBuilder()
+            ->pluck('context_id')
+            ->unique();
+    }
+
+    /**
     * return whether a user is in a user group
     */
     public function userInGroup(int $userId, int $userGroupId): bool
@@ -256,18 +293,40 @@ class Repository
     /**
     * return whether an active user in a user group should be displayed on the masthead
     */
-    public function userOnMasthead(int $userId, int $userGroupId): bool
+    public function userOnMasthead(int $userId, ?int $userGroupId): bool
     {
-        $userGroup = Repo::userGroup()->get($userGroupId);
-        if (!$userGroup->getMasthead()) {
-            return false;
+        if ($userGroupId) {
+            $userGroup = Repo::userGroup()->get($userGroupId);
+            if (!$userGroup->getMasthead()) {
+                return false;
+            }
         }
-        return UserUserGroup::withUserId($userId)
+        $query = UserUserGroup::withUserId($userId)
+            ->withActive()
+            ->withMasthead();
+        if ($userGroupId) {
+            $query->withUserGroupId($userGroupId);
+        }
+        return $query->get()->isNotEmpty();
+    }
+
+    /**
+     * Get user masthead status for a user group the user is currently active in
+     */
+    public function getUserUserGroupMastheadStatus(int $userId, int $userGroupId): UserUserGroupMastheadStatus
+    {
+        $masthead = UserUserGroup::withUserId($userId)
             ->withUserGroupId($userGroupId)
             ->withActive()
-            ->withMasthead()
-            ->get()
-            ->isNotEmpty();
+            ->pluck('masthead');
+        switch ($masthead[0]) {
+            case 1:
+                return UserUserGroupMastheadStatus::STATUS_ON;
+            case 0:
+                return UserUserGroupMastheadStatus::STATUS_OFF;
+            case null:
+                return UserUserGroupMastheadStatus::STATUS_NULL;
+        }
     }
 
     /**
@@ -282,9 +341,20 @@ class Repository
             ->getCount() > 0;
     }
 
-    public function assignUserToGroup(int $userId, int $userGroupId, ?string $startDate = null, ?string $endDate = null, ?UserUserGroupMastheadStatus $mastheadStatus = null): UserUserGroup
+    /**
+     * Assign a user to a role
+     *
+     * @param string|null $startDate The date in ISO (YYYY-MM-DD HH:MM:SS) format
+     * @param string|null $endDate The date in ISO (YYYY-MM-DD HH:MM:SS) format
+     */
+    public function assignUserToGroup(int $userId, int $userGroupId, ?string $startDate = null, ?string $endDate = null, ?UserUserGroupMastheadStatus $mastheadStatus = null): ?UserUserGroup
     {
+        if ($endDate && !Carbon::parse($endDate)->isFuture()) {
+            return null;
+        }
+
         $dateStart = $startDate ?? Core::getCurrentDate();
+        $userGroup = Repo::userGroup()->get($userGroupId);
         // user_user_group's masthead does not inherit from the user_group's masthead,
         // it needs to be specified (when accepting an invitations).
         switch ($mastheadStatus) {
@@ -295,7 +365,11 @@ class Repository
                 $masthead = 0;
                 break;
             default:
-                $masthead = null;
+                $masthead = $userGroup->getMasthead() ? 1 : null;
+        }
+        // Clear editorial masthead cache if a new user is assigned to a masthead role
+        if ($userGroup->getMasthead()) {
+            self::forgetEditorialMastheadCache($userGroup->getContextId());
         }
         return UserUserGroup::create([
             'userId' => $userId,
@@ -306,12 +380,28 @@ class Repository
         ]);
     }
 
+    /**
+     * Remove all user role assignments. This should be used only when merging i.e. fully deleting an user.
+     */
     public function deleteAssignmentsByUserId(int $userId, ?int $userGroupId = null): bool
     {
+        if (!$userGroupId) {
+            $contextIds = $this->getUserUserGroupsContextIds($userId);
+            foreach ($contextIds as $contextId) {
+                self::forgetEditorialMastheadCache($contextId);
+                self::forgetEditorialHistoryCache($contextId);
+            }
+        }
+
         $query = UserUserGroup::withUserId($userId);
 
         if ($userGroupId) {
             $query->withUserGroupId($userGroupId);
+            $userGroup = $this->get($userGroupId);
+            if ($userGroup->getMasthead()) {
+                self::forgetEditorialMastheadCache($contextId);
+                self::forgetEditorialHistoryCache($contextId);
+            }
         }
 
         return $query->delete();
@@ -319,6 +409,12 @@ class Repository
 
     public function endAssignments(int $contextId, int $userId, ?int $userGroupId = null): void
     {
+        // Clear editorial masthead and history cache if the user was displayed on the masthead for the given role
+        if ($this->userOnMasthead($userId, $userGroupId)) {
+            self::forgetEditorialMastheadCache($contextId);
+            self::forgetEditorialHistoryCache($contextId);
+        }
+
         $dateEnd = Core::getCurrentDate();
         $query = UserUserGroup::withContextId($contextId)
             ->withUserId($userId)
@@ -481,6 +577,9 @@ class Repository
             }
         }
 
+        self::forgetEditorialMastheadCache($contextId);
+        self::forgetEditorialHistoryCache($contextId);
+
         return true;
     }
 
@@ -509,4 +608,74 @@ class Repository
             $this->edit($userGroup, []);
         }
     }
+
+    /**
+     * Cache/get cached array of masthead user IDs grouped by masthead role IDs [user_group_id => [user_ids]]
+     *
+     * @param array $mastheadRoles Masthead roles, filtered by the given context ID, and sorted as they should appear on the Editorial Masthead and Editorial History page
+     *
+     */
+    public function getMastheadUserIdsByRoleIds(array $mastheadRoles, int $contextId, UserUserGroupStatus $userUserGroupStatus = UserUserGroupStatus::STATUS_ACTIVE): array
+    {
+        $key = __METHOD__;
+        switch ($userUserGroupStatus) {
+            case UserUserGroupStatus::STATUS_ACTIVE:
+                $key .= 'EditorialMasthead';
+                break;
+            case UserUserGroupStatus::STATUS_ENDED:
+                $key .= 'EditorialHistory';
+                break;
+        }
+        $key .= $contextId . self::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME;
+        $expiration = DateInterval::createFromDateString(static::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME);
+        $allUsersIdsGroupedByUserGroupId = Cache::remember($key, $expiration, function () use ($mastheadRoles, $contextId, $userUserGroupStatus) {
+            $mastheadRolesIds = array_map(
+                function (UserGroup $item) use ($contextId) {
+                    if ($item->getContextId() == $contextId) {
+                        return $item->getId();
+                    }
+                },
+                $mastheadRoles
+            );
+            // Query that gets all users that are or were active in the given masthead roles
+            // and that have accepted to be displayed on the masthead for the roles.
+            // Sort the results by role ID and user family name.
+            $usersCollector = Repo::user()->getCollector();
+            $usersQuery = $usersCollector
+                ->filterByContextIds([$contextId])
+                ->filterByUserGroupIds($mastheadRolesIds)
+                ->filterByUserUserGroupStatus($userUserGroupStatus)
+                ->filterByUserUserGroupMastheadStatus(UserUserGroupMastheadStatus::STATUS_ON)
+                ->orderBy($usersCollector::ORDERBY_FAMILYNAME, $usersCollector::ORDER_DIR_ASC, [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()])
+                ->orderByUserGroupIds($mastheadRolesIds)
+                ->getQueryBuilder()
+                ->get();
+
+            // Get unique user IDs grouped by user group ID
+            $userIdsByUserGroupId = $usersQuery->mapToGroups(function (stdClass $item, int $key) {
+                return [$item->user_group_id => $item->user_id];
+            })->map(function ($item) {
+                return collect($item)->unique();
+            });
+            return $userIdsByUserGroupId->toArray();
+        });
+        return $allUsersIdsGroupedByUserGroupId;
+    }
+
+    /**
+     * Clear editorial masthead cache
+     */
+    public static function forgetEditorialMastheadCache(int $contextId)
+    {
+        Cache::forget('PKP\userGroup\Repository::getMastheadUserIdsByRoleIdsEditorialMasthead' . $contextId . self::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME);
+    }
+
+    /**
+     * Clear editorial history cache
+     */
+    public static function forgetEditorialHistoryCache(int $contextId)
+    {
+        Cache::forget('PKP\userGroup\Repository::getMastheadUserIdsByRoleIdsEditorialHistory' . $contextId . self::MAX_EDITORIAL_MASTHEAD_CACHE_LIFETIME);
+    }
+
 }

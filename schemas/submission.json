@@ -127,6 +127,10 @@
 						"type": "integer",
 						"readOnly": true
 					},
+					"statusId": {
+						"type": "integer",
+						"readOnly": true
+					},
 					"statusLabel": {
 						"type": "integer",
 						"readOnly": true
@@ -146,8 +150,16 @@
 					"round": {
 						"type": "integer"
 					},
+					"reviewerFullName": {
+						"type": "string",
+						"readOnly": true
+					},
 					"reviewRoundId": {
 						"type": "integer"
+					},
+					"reviewMethod": {
+						"type": "string",
+						"readOnly": true
 					}
 				}
 			}

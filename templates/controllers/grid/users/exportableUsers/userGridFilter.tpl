@@ -15,7 +15,7 @@
 		{rdelim}
 	);
 </script>
-<form class="pkp_form filter" id="userSearchForm" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="fetchGrid"}" method="post">
+<form class="pkp_form filter" id="userSearchForm" action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="fetchGrid"}" method="post">
 	{csrf}
 	{fbvFormArea id="userSearchFormArea"}
 		{fbvFormSection title="common.search" for="search"}

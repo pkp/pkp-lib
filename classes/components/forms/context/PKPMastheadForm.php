@@ -89,32 +89,33 @@ class PKPMastheadForm extends FormComponent
                 'value' => $context ? $context->getData('country') : null,
             ]))
             ->addGroup([
-                'id' => 'keyInfo',
-                'label' => __('manager.setup.keyInfo'),
-                'description' => __('manager.setup.keyInfo.description'),
+                'id' => 'editorialMasthead',
+                'label' => __('common.editorialMasthead'),
             ])
-            ->addField(new FieldRichTextarea('description', [
-                'label' => __('manager.setup.contextSummary'),
+            ->addField(new FieldRichTextarea('editorialHistory', [
+                'label' => __('common.editorialHistory'),
+                'description' => __('manager.setup.editorialMasthead.description'),
                 'isMultilingual' => true,
-                'groupId' => 'keyInfo',
-                'value' => $context->getData('description'),
-            ]))
-            ->addField(new FieldRichTextarea('editorialTeam', [
-                'label' => __('manager.setup.editorialTeam'),
-                'isMultilingual' => true,
-                'groupId' => 'keyInfo',
+                'groupId' => 'editorialMasthead',
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',
                 'plugins' => 'paste,link,lists,image,code',
                 'uploadUrl' => $imageUploadUrl,
-                'value' => $context->getData('editorialTeam'),
+                'value' => $context->getData('editorialHistory'),
             ]))
             ->addGroup([
                 'id' => 'about',
                 'label' => __('common.description'),
-                'description' => __('manager.setup.contextAbout.description'),
             ])
+            ->addField(new FieldRichTextarea('description', [
+                'label' => __('manager.setup.contextSummary'),
+                'description' => __('manager.setup.contextSummary.description'),
+                'isMultilingual' => true,
+                'groupId' => 'about',
+                'value' => $context->getData('description'),
+            ]))
             ->addField(new FieldRichTextarea('about', [
                 'label' => __('manager.setup.contextAbout'),
+                'description' => __('manager.setup.contextAbout.description'),
                 'isMultilingual' => true,
                 'size' => 'large',
                 'groupId' => 'about',

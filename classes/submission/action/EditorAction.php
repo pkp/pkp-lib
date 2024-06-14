@@ -232,13 +232,14 @@ class EditorAction
             new ReviewRequestSubsequent($context, $submission, $reviewAssignment);
 
         if ($context->getData('reviewerAccessKeysEnabled')) {
-            $reviewInvitation = new ReviewerAccessInvite(
-                $reviewAssignment->getReviewerId(),
-                $context->getId(),
-                $reviewAssignment->getId()
-            );
-            $reviewInvitation->setMailable($mailable);
+            $reviewInvitation = new ReviewerAccessInvite();
+            $reviewInvitation->initialize($reviewAssignment->getReviewerId(), $context->getId(), null);
+
+            $reviewInvitation->reviewAssignmentId = $reviewAssignment->getId();
+            $reviewInvitation->updatePayload();
+
             $reviewInvitation->dispatch();
+            $reviewInvitation->updateMailableWithUrl($mailable);
         }
 
         $mailable

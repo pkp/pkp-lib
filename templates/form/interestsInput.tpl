@@ -15,7 +15,7 @@
 			autocomplete: {ldelim}
 				source: function(request, response) {ldelim}
 					$.ajax({ldelim}
-						url: {url|json_encode router=\PKP\core\PKPApplication::ROUTE_PAGE page='user' op='getInterests' escape=false},
+						url: {url|json_encode router=PKP\core\PKPApplication::ROUTE_PAGE page='user' op='getInterests' escape=false},
 						data: {ldelim}'term': request.term{rdelim},
 						dataType: 'json',
 						success: function(jsonData) {ldelim}

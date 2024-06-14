@@ -185,7 +185,7 @@ class VersionCheck
     {
         try {
             $versionInfo = self::getLatestVersion();
-        } catch (\GuzzleHttp\Exception\ConnectException $e) {
+        } catch (\GuzzleHttp\Exception\TransferException $e) {
             error_log('Failed to retrieve the latest version info: ' . $e->getMessage());
             return false;
         }

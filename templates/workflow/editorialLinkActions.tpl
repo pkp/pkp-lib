@@ -9,7 +9,7 @@
  *}
 
 {if count($decisions) || count($recommendations)}
-	{if array_intersect(array(\PKP\security\Role::ROLE_ID_MANAGER, \PKP\security\Role::ROLE_ID_SUB_EDITOR), (array)$userRoles)}
+	{if array_intersect(array(PKP\security\Role::ROLE_ID_MANAGER, PKP\security\Role::ROLE_ID_SUB_EDITOR), (array)$userRoles)}
 		<script>
 			// Initialize JS handler.
 			$(function() {ldelim}
@@ -54,9 +54,9 @@
 									pkp_button_offset
 								{/if}
 							{/strip}{/capture}
-							{capture assign="url"}{$decision->getUrl(\APP\core\Application::get()->getRequest(), $currentContext, $submission, $reviewRoundId)}{/capture}
+							{capture assign="url"}{$decision->getUrl(APP\core\Application::get()->getRequest(), $currentContext, $submission, $reviewRoundId)}{/capture}
 							<li>
-								{if $decision->getDecision() === \APP\decision\Decision::PENDING_REVISIONS}
+								{if $decision->getDecision() === Decision::PENDING_REVISIONS}
 									<button class="pkp_button {$class}" data-decision="{$decision->getDecision()}" data-review-round-id="{$reviewRoundId}">
 										{$decision->getLabel()}
 									</button>
@@ -91,9 +91,9 @@
 				{if $canRecordDecision}
 					<ul class="pkp_workflow_decisions_options{if $lastRecommendation} pkp_workflow_decisions_options_hidden{/if}">
 						{foreach from=$recommendations item=recommendation}
-							{capture assign="url"}{$recommendation->getUrl(\APP\core\Application::get()->getRequest(), $currentContext, $submission, $reviewRoundId)}{/capture}
+							{capture assign="url"}{$recommendation->getUrl(APP\core\Application::get()->getRequest(), $currentContext, $submission, $reviewRoundId)}{/capture}
 							<li>
-								{if $recommendation->getDecision() === \APP\decision\Decision::RECOMMEND_PENDING_REVISIONS}
+								{if $recommendation->getDecision() === Decision::RECOMMEND_PENDING_REVISIONS}
 									<button class="pkp_button" data-recommendation="{$recommendation->getDecision()}" data-review-round-id="{$reviewRoundId}">
 										{$recommendation->getLabel()}
 									</button>
@@ -113,7 +113,7 @@
 			{/if}
 		</div>
 	{/if}
-{elseif !$editorsAssigned && array_intersect(array(\PKP\security\Role::ROLE_ID_MANAGER, \PKP\security\Role::ROLE_ID_SUB_EDITOR), (array)$userRoles)}
+{elseif !$editorsAssigned && array_intersect(array(PKP\security\Role::ROLE_ID_MANAGER, PKP\security\Role::ROLE_ID_SUB_EDITOR), (array)$userRoles)}
 	<div class="pkp_no_workflow_decisions">
 		{translate key="editor.submission.decision.noDecisionsAvailable"}
 	</div>

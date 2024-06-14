@@ -16,7 +16,7 @@
 	{* Editorial decision actions, if available *}
 	<div class="pkp_workflow_sidebar">
 		{if !$isAssignedAsAuthor}
-			{capture assign=reviewDecisionsUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId contextId="reviewRoundTab-"|concat:$reviewRoundId escape=false}{/capture}
+			{capture assign=reviewDecisionsUrl}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId contextId="reviewRoundTab-"|concat:$reviewRoundId escape=false}{/capture}
 			{load_url_in_div id="reviewDecisionsDiv-"|concat:$reviewRoundId url=$reviewDecisionsUrl class="pkp_tab_actions" refreshOn="update:decisions"}
 		{/if}
 		{include file="controllers/tab/workflow/stageParticipants.tpl"}
@@ -25,15 +25,15 @@
 	<div class="pkp_workflow_content">
 
 		{* Review files grid *}
-		{capture assign=reviewFileSelectionGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.review.EditorReviewFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
+		{capture assign=reviewFileSelectionGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.review.EditorReviewFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 		{load_url_in_div id="reviewFileSelection-round_"|concat:$reviewRoundId url=$reviewFileSelectionGridUrl}
 
 		{* Reviewer grid *}
-		{capture assign=reviewersGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.users.reviewer.ReviewerGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
+		{capture assign=reviewersGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.users.reviewer.ReviewerGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 		{load_url_in_div id="reviewersGrid-round_"|concat:$reviewRoundId url=$reviewersGridUrl}
 
 		{* Review revisions grid *}
-		{capture assign=revisionsGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.review.WorkflowReviewRevisionsGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
+		{capture assign=revisionsGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.review.WorkflowReviewRevisionsGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 		{load_url_in_div id="revisionsGrid-round_"|concat:$reviewRoundId url=$revisionsGridUrl}
 	</div>
 </div>

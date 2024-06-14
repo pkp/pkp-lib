@@ -26,7 +26,7 @@
 		{rdelim}
 	);
 </script>
-<form class="pkp_form filter" id="{$filterId}" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="fetchGrid"}" method="post">
+<form class="pkp_form filter" id="{$filterId}" action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="fetchGrid"}" method="post">
 	{csrf}
 	{if $filterData.oldUserId}
 		<input type="hidden" name="oldUserId" value="{$filterData.oldUserId|escape}">

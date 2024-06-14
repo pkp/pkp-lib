@@ -2417,15 +2417,6 @@ msgstr ""
 "Link będzie wyświetlany w przypadku wypełnienia sekcji O czasopiśmie na "
 "stronie Ustawienia > Czasopismo."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Link do strony wyświetlającej stopkę redakcyjną w Ustawienia > Czasopismo."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Link będzie wyświetlany w przypadku wypełnienia sekcji Zespół redakcyjny na "
-"stronie Ustawienia > Czasopismo."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Link do strony wyświetlającej instrukcje dodawania tekstu."
 

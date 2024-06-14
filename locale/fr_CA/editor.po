@@ -1,11 +1,12 @@
 # Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
+# "Marie-Hélène Vézina [UdeMontréal]" <marie-helene.vezina@umontreal.ca>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-07-07 19:58+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
+"PO-Revision-Date: 2024-05-17 23:27+0000\n"
+"Last-Translator: \"Marie-Hélène Vézina [UdeMontréal]\" <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "editor/fr_CA/>\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 # localization file for fr_CA. Last revision 2019-10-22T04:44:40 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "editor.submissionArchive.confirmDelete"
@@ -396,7 +397,7 @@ msgid "editor.discussion.errorNotStageParticipant"
 msgstr "Un.e participant.e sélectionné.e ne peut être assigné.e à cette étape."
 
 msgid "editor.submission.schedulePublication"
-msgstr "Calendrier de publication"
+msgstr "Programmer la publication"
 
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Fichiers en révision"

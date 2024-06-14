@@ -1,11 +1,11 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022, 2023.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2021, 2022, 2023, 2024.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2023-08-08 02:42+0000\n"
+"PO-Revision-Date: 2024-06-06 18:05+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/da/>"
 "\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
 msgstr "Kontoinformation"
@@ -539,3 +539,6 @@ msgstr ""
 
 msgid "user.usernameOrEmail"
 msgstr "Brugernavn eller e-mail"
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "Adgang til workflow'et for ufærdige indsendelser er begrænset."

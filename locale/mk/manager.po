@@ -2448,16 +2448,6 @@ msgstr ""
 "Овој линк ќе биде прикажан само доколку ја имате пополнето секцијата За "
 "списанието во Поставки > Списание."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Линк до страницата која ја прикажува Главната содржина во Подесување > "
-"Списание."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Овој линк ќе биде прикажан само доколку ја имате пополнето секцијата "
-"Уреднички тим во Поставки > Списание."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Поврзете се до страницата која ги прикажува упатствата за поднесување."
 

@@ -97,7 +97,7 @@
 									<ul>
 										{foreach from=$supportedLocales item="locale" key="localeKey"}
 											<li>
-												<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="user" op="setLocale" path=$localeKey}" class="pkpDropdown__action">
+												<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="setLocale" path=$localeKey}" class="pkpDropdown__action">
 													{if $localeKey == $currentLocale}
 														<icon icon="check" :inline="true"></icon>
 													{/if}
@@ -112,7 +112,7 @@
 								<div class="pkpDropdown__section">
 									<div class="app__userNav__loggedInAs">
 										{translate key="manager.people.signedInAs" username=$currentUser->getData('userName')}
-										<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOutAsUser"}" class="app__userNav__logOutAs">{translate key="user.logOutAs" username=$currentUser->getData('userName')}</a>.
+										<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOutAsUser"}" class="app__userNav__logOutAs">{translate key="user.logOutAs" username=$currentUser->getData('userName')}</a>.
 									</div>
 								</div>
 							{/if}
@@ -124,17 +124,17 @@
 										</a>
 									</li>
 									<li>
-										<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="user" op="profile"}" class="pkpDropdown__action">
+										<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="user" op="profile"}" class="pkpDropdown__action">
 											{translate key="user.profile.editProfile"}
 										</a>
 									</li>
 									<li>
 										{if $isUserLoggedInAs}
-											<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOutAsUser"}" class="pkpDropdown__action">
+											<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOutAsUser"}" class="pkpDropdown__action">
 												{translate key="user.logOutAs" username=$currentUser->getData('userName')}
 											</a>
 										{else}
-											<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOut"}" class="pkpDropdown__action">
+											<a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="login" op="signOut"}" class="pkpDropdown__action">
 												{translate key="user.logOut"}
 											</a>
 										{/if}

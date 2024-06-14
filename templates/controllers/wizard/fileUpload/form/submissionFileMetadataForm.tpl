@@ -65,7 +65,7 @@
 	{/fbvFormArea}
 
 	{if $supportsDependentFiles}
-		{capture assign=dependentFilesGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.dependent.DependentFilesGridHandler" op="fetchGrid" submissionId=$submissionFile->getData('submissionId') submissionFileId=$submissionFile->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
+		{capture assign=dependentFilesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.dependent.DependentFilesGridHandler" op="fetchGrid" submissionId=$submissionFile->getData('submissionId') submissionFileId=$submissionFile->getId() stageId=$stageId reviewRoundId=$reviewRoundId escape=false}{/capture}
 		{load_url_in_div id="dependentFilesGridDiv" url=$dependentFilesGridUrl}
 	{/if}
 

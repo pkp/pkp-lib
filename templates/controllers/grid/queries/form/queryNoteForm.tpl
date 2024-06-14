@@ -29,7 +29,7 @@
 	{/fbvFormSection}
 
 	{fbvFormArea id="queryNoteFilesArea"}
-		{capture assign=queryNoteFilesGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.query.QueryNoteFilesGridHandler" op="fetchGrid" params=$actionArgs noteId=$noteId escape=false}{/capture}
+		{capture assign=queryNoteFilesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.query.QueryNoteFilesGridHandler" op="fetchGrid" params=$actionArgs noteId=$noteId escape=false}{/capture}
 		{load_url_in_div id="queryNoteFilesGrid" url=$queryNoteFilesGridUrl}
 	{/fbvFormArea}
 

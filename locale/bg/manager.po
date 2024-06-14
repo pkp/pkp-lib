@@ -2500,16 +2500,6 @@ msgstr ""
 "Тази връзка ще се показва само ако сте попълнили секцията \"За списанието\" "
 "в Настройки > Списание."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Връзка към страница, показваща съдържанието на главния банер в Настройки > "
-"Списание."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Тази връзка ще се показва само ако сте попълнили секцията \"Редакционен екип"
-"\" в Настройки > Списание."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Връзка към страницата, показваща инструкции за подаване на материали."
 

@@ -2348,16 +2348,6 @@ msgstr ""
 "Esta ligazón só se amosará se completou a sección \"Acerca da revista\" en "
 "Configuración > Revista."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Ligazón a unha páxina que mostra o contido da cabeceira Configuración > "
-"Revista."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Esta ligazón só se amosará se cubriu a sección Equipo editorial en "
-"Configuración > Revista."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Ligazón á páxina que mostra as instrucións de envío."
 

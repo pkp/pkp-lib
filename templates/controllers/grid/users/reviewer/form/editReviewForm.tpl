@@ -41,7 +41,7 @@
 	{include file="controllers/grid/users/reviewer/form/noFilesWarning.tpl"}
 
 	<h3>{translate key="editor.submissionReview.restrictFiles"}</h3>
-	{capture assign=limitReviewFilesGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.review.LimitReviewFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId reviewAssignmentId=$reviewAssignmentId escape=false}{/capture}
+	{capture assign=limitReviewFilesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.review.LimitReviewFilesGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId reviewRoundId=$reviewRoundId reviewAssignmentId=$reviewAssignmentId escape=false}{/capture}
 	{load_url_in_div id="limitReviewFilesGrid" url=$limitReviewFilesGridUrl}
 
 	{if $reviewForms}

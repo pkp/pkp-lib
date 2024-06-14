@@ -15,9 +15,9 @@
 </script>
 <div id="editFileMetadataTabs">
 	<ul>
-		<li><a href="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT op="editMetadataTab" submissionFileId=$submissionFile->getId() submissionId=$submissionFile->getData('submissionId') stageId=$stageId}">{translate key="grid.action.editMetadata"}</a></li>
+		<li><a href="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT op="editMetadataTab" submissionFileId=$submissionFile->getId() submissionId=$submissionFile->getData('submissionId') stageId=$stageId}">{translate key="grid.action.editMetadata"}</a></li>
 		{if $showIdentifierTab}
-			<li><a href="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT op="identifiers" submissionFileId=$submissionFile->getId() submissionId=$submissionFile->getData('submissionId') stageId=$stageId}">{translate key="submission.identifiers"}</a></li>
+			<li><a href="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT op="identifiers" submissionFileId=$submissionFile->getId() submissionId=$submissionFile->getData('submissionId') stageId=$stageId}">{translate key="submission.identifiers"}</a></li>
 		{/if}
 	</ul>
 </div>

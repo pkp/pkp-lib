@@ -1,13 +1,14 @@
 # Tormod Strømme <tormod.stromme@uib.no>, 2022.
 # Eirik Hanssen <eirikhanssen79@gmail.com>, 2023.
 # Johanna Skaug <johanna.skaug@ub.uio.no>, 2024.
+# "My L. Bjørnflaten" <myl@uio.no>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2024-01-11 08:39+0000\n"
-"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
+"PO-Revision-Date: 2024-05-22 17:07+0000\n"
+"Last-Translator: \"My L. Bjørnflaten\" <myl@uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
 "Language: nb\n"
@@ -995,23 +996,31 @@ msgstr "Varsel om innlevering fra forfatter"
 msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Send en kopi til denne e-postadressen"
 
+#, fuzzy
 msgid "manager.setup.notifyAllAuthors"
-msgstr ""
+msgstr "Varsle alle forfattere"
 
+#, fuzzy
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"Hvem skal motta beskjed via epost når en redaksjonell beslutning registeres?"
 
+#, fuzzy
 msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr ""
+msgstr "Send beskjed via epost til innleveringens forfattere"
 
+#, fuzzy
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"Send kun epost til forfatterne hvis de er tildelt redaksjonell arbeidsflyt. "
+"Dette gjelder som regel kun den innsendende forfatter."
 
 msgid "manager.setup.submissionsNotifications"
 msgstr ""
 
+#, fuzzy
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr ""
+msgstr "Informer tidsskriftets kontaktperson"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
 msgstr "Ja, send en kopi til {$email}"
@@ -1020,10 +1029,14 @@ msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
 msgstr "Nei"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr ""
+msgstr "Informer alle"
 
+#, fuzzy
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
+"En kopi av bekreftelses-e-posten, som sendes ut når en ny innlevering "
+"gjennomføres, sendes til alle eposter som angis her. Skill e-postadressene "
+"med komma. For eksempel: one@example.com,two@example.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
 msgstr ""
@@ -1217,23 +1230,47 @@ msgstr ""
 msgid "manager.setup.theme.notFound"
 msgstr "Valgt tema er ikke installert eller aktivert."
 
+#, fuzzy
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Følgende vises til forfattere før de begynner med innleveringen. Gi en kort "
+"forklaring av innleveringsprosessen så forfatteren vet hva vedkommende kan "
+"forvente."
 
+#, fuzzy
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Følgende vises til forfattere når de skal laste opp filer. Gi en kort "
+"forklaring av hvilke filer forfattere forventes å laste opp med "
+"innleveringen."
 
+#, fuzzy
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Følgende vises til forfattere når de skal legge til bidragsytere. Gi en kort "
+"forklaring av hvilke opplysninger forfatter skal legge inn om seg selv, "
+"medforfattere og eventuelle andre bidragsytere."
 
+#, fuzzy
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Følgende vises til forfattere når de skal legge inn detaljer om artikkelen, "
+"som for eksempel tittel, sammendrag og andre viktige opplysninger om "
+"innleveringen."
 
+#, fuzzy
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Følgende vises til forfattere når de i innleveringen blir bedt om å legge "
+"inn metadata som nøkkelord, eventuelle kommentarer til redaktørene, og andre "
+"detaljer."
 
+#, fuzzy
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Følgende vises til forfattere i det siste steget av innleveringen, når de "
+"blir bedt om å se gjennom opplysningene de har gitt før de sender inn "
+"innleveringen."
 
 msgid "manager.setup.workflow.guidance"
 msgstr "Forfatterveiledning"
@@ -1260,14 +1297,19 @@ msgstr "Er du sikker på at du vil deaktivere denne seksjonen?"
 msgid "manager.sections.confirmActivateSection"
 msgstr "Er du sikker på at du vil aktivere denne seksjonen?"
 
+#, fuzzy
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Redaksjonelle oppgaver"
 
+#, fuzzy
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Velg de redaksjonelle brukerne som automatisk skal tildeles alle de nye "
+"innleveringene i denne tidsskriftseksjonen."
 
+#, fuzzy
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Tildel {$name} som {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
@@ -1769,17 +1811,24 @@ msgstr ""
 "velger du 'Tilleggsinnhold' for de fleste filtyper. Illustrasjoner er egnet "
 "for filer som krever separat kilde, bildetekst og lisensmetadata."
 
+#, fuzzy
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Påkrevd ved innlevering"
 
+#, fuzzy
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Skal minst én fil av denne typen være påkrevet ved hver innlevering? Hvis du "
+"velger ja, vil ikke forfattere kunne sende inn til tidsskriftet uten å ha "
+"lastet opp minst en fil av denne typen."
 
+#, fuzzy
 msgid "manager.setup.genres.submitRequired.yes"
-msgstr ""
+msgstr "Ja, krev at forfattere laster opp minst en fil av denne typen."
 
+#, fuzzy
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Nei, tillat innleveringer uten denne filtypen."
 
 msgid "manager.settings.wizard"
 msgstr "Innstillingsguide"
@@ -2338,15 +2387,6 @@ msgstr ""
 "Denne lenken vil bare vises dersom du har fylt ut «Om»-feltet under "
 "«Innstillinger» > «Tidsskrift»"
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Lenk til en side som viser kolofonen under «Innstillinger»  >  «Tidsskrift»."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Denne lenken vil bare vises dersom du har fylt ut feltet om redaksjonen "
-"under «Innstillinger» > «Tidsskrift»."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Lenke til siden som viser instrukser for innleveringer."
 
@@ -2570,8 +2610,11 @@ msgstr ""
 "beskrive når flertallet av forfatterne som sender inn manuskripter til "
 "tidsskriftet ditt, kan forvente en beslutning."
 
+#, fuzzy
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Dette inkluderer bidrag som ikke tas med i totalsummene, for eksempel bidrag "
+"som er under behandling og bidrag som er importert."
 
 msgid "stats.descriptionForStat"
 msgstr "Beskrivelse av {$stat}"
@@ -2597,29 +2640,32 @@ msgstr "Månedlig"
 msgid "stats.pdf"
 msgstr "PDF"
 
+#, fuzzy
 msgid "stats.geographic.ccAttribution"
-msgstr ""
+msgstr "Geo-lokasjon levert av<a href='https://db-ip.com'>DB-IP</a>"
 
 msgid "stats.geographic.tooltip.label"
 msgstr ""
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "{$startDate} til {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Alle {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr ""
+msgstr "Last ned filer"
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Antall nedlastninger for hver fil."
 
+#, fuzzy
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Last ned geografi"
 
+#, fuzzy
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
+msgstr "Antall visninger og nedlastninger for hver by, region eller land."
 
 msgid "stats.region"
 msgstr "Region"
@@ -2631,13 +2677,14 @@ msgid "stats.submissionsActive"
 msgstr "Aktive innleveringer"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Tidslinje"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "Antall {$type} for hver {$interval}."
 
+#, fuzzy
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Last ned tidslinje"
 
 msgid "stats.timelineInterval"
 msgstr ""
@@ -2667,13 +2714,15 @@ msgid "stats.name.submissionsReceived"
 msgstr "Mottatte innleveringer"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Andre innleveringer"
 
+#, fuzzy
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Pågående innleveringer"
 
+#, fuzzy
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Importerte innleveringer"
 
 msgid "stats.name.submissionsAccepted"
 msgstr "Aksepterte innleveringer"
@@ -3204,8 +3253,9 @@ msgstr ""
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
 
+#, fuzzy
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Bekreftelse på innlevering"
 
 #, fuzzy
 msgid "mailable.submissionAck.description"
@@ -3294,10 +3344,13 @@ msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Administrer e-poster"
 
+#, fuzzy
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Legg til og rediger maler</a> for alle e-poster sendt "
+"fra systemet.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
@@ -3327,28 +3380,35 @@ msgid "manager.emailTemplate.name.description"
 msgstr ""
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Ny innlevering"
 
+#, fuzzy
 msgid "manager.newSubmission.description"
-msgstr ""
+msgstr "Konfigurer e-postene som sendes ut når det kommer en ny innlevering."
 
+#, fuzzy
 msgid "manager.submissionAck.description"
-msgstr ""
+msgstr "Hvem skal motta e-post når en innlevering er gjennomført."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Ikke send e-post."
 
+#, fuzzy
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Send kun e-post til forfatteren som var ansvarlig for innleveringen."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Send en e-post til alle forfattere."
 
+#, fuzzy
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Redaksjonelle beslutninger"
 
+#, fuzzy
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Konfigurer e-post varslinger til forfattere når en redaksjonell beslutning "
+"registreres."
 
 msgid "manager.forEditors"
 msgstr ""
@@ -3368,14 +3428,19 @@ msgstr ""
 msgid "manager.editorialStatistics.off"
 msgstr ""
 
+#, fuzzy
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Skal forfatter bli bedt om å velge kategori når vedkommende sender inn en ny "
+"innlevering?"
 
+#, fuzzy
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Ja, legg til et kategorifelt i innleveringsarbeidsflyten."
 
+#, fuzzy
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Nei, ikke vis forfattere dette feltet."
 
 msgid "mailable.copyeditRequest.name"
 msgstr ""
@@ -3489,3 +3554,6 @@ msgstr "Bilde"
 
 msgid "manager.setup.masthead"
 msgstr "Kolofon"
+
+msgid "manager.statistics.counterR5"
+msgstr ""

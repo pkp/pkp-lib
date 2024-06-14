@@ -79,9 +79,7 @@ abstract class DAO extends EntityDAO
     {
         return $query
             ->getQueryBuilder()
-            ->select('d.' . $this->primaryKeyColumn)
-            ->get()
-            ->count();
+            ->getCountForPagination();
     }
 
     /**

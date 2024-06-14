@@ -22,7 +22,7 @@
 				anonymousReviewerIds: {$anonymousReviewerIds|@json_encode},
 				anonymousReviewerWarning: {$anonymousReviewerWarning|@json_encode},
 				anonymousReviewerWarningOk: {$anonymousReviewerWarningOk|@json_encode},
-				templateUrl: {url|json_encode router=\PKP\core\PKPApplication::ROUTE_COMPONENT component='grid.users.stageParticipant.StageParticipantGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$submissionId escape=false},
+				templateUrl: {url|json_encode router=PKP\core\PKPApplication::ROUTE_COMPONENT component='grid.users.stageParticipant.StageParticipantGridHandler' op='fetchTemplateBody' stageId=$stageId submissionId=$submissionId escape=false},
 				notChangeMetadataEditPermissionRoles: {$notPossibleEditSubmissionMetadataPermissionChange|@json_encode},
 				permitMetadataEditUserGroupIds: {$permitMetadataEditUserGroupIds|@json_encode}
 			{rdelim}
@@ -63,7 +63,7 @@
 				{translate key="stageParticipants.noOptionsToHandle"}
 			{/if}
 		{else}
-			{capture assign=userSelectGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.users.userSelect.UserSelectGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}{/capture}
+			{capture assign=userSelectGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.users.userSelect.UserSelectGridHandler" op="fetchGrid" submissionId=$submissionId stageId=$stageId escape=false}{/capture}
 			{load_url_in_div id='userSelectGridContainer' url=$userSelectGridUrl}
 
 			{fbvFormSection title="stageParticipants.options" list="true" class="recommendOnlyWrapper"}

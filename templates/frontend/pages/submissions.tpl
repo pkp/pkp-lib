@@ -63,7 +63,7 @@
 		<div class="copyright_notice">
 			<h2>
 				{translate key="about.copyrightNotice"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/authorGuidelines" sectionTitleKey="about.copyrightNotice"}
+				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="workflow" anchor="submission/instructions" sectionTitleKey="about.copyrightNotice"}
 			</h2>
 			{$currentContext->getLocalizedData('copyrightNotice')}
 		</div>

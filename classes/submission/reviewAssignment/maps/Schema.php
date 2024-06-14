@@ -103,8 +103,14 @@ class Schema extends \PKP\core\maps\Schema
         $output = [];
         foreach ($props as $prop) {
             switch ($prop) {
+                case 'submissionLocale':
+                    $output[$prop] = $submission->getData('locale');
+                    break;
                 case 'publicationTitle':
                     $output[$prop] = $submission->getCurrentPublication()->getFullTitles('html');
+                    break;
+                case 'status':
+                    $output[$prop] = $item->getStatus();
                     break;
                 case '_href':
                     $output[$prop] = $this->getApiUrl('_submissions/reviewAssignments/' . $item->getId());

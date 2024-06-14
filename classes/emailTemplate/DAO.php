@@ -147,8 +147,7 @@ class DAO extends EntityDAO
     {
         return $query
             ->getQueryBuilder()
-            ->get()
-            ->count();
+            ->getCountForPagination();
     }
 
     /**

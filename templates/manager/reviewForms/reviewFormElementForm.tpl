@@ -30,7 +30,7 @@ function togglePossibleResponses(newValue, multipleResponsesElementTypesString) 
 // -->
 </script>
 
-<form class="pkp_form" id="reviewFormElementForm" method="post" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormElementsGridHandler" op="updateReviewFormElement" anchor="possibleResponses"}">
+<form class="pkp_form" id="reviewFormElementForm" method="post" action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormElementsGridHandler" op="updateReviewFormElement" anchor="possibleResponses"}">
 	{csrf}
 	{fbvElement id="reviewFormId" type="hidden" name="reviewFormId" value=$reviewFormId}
 	{fbvElement id="reviewFormElementId" type="hidden" name="reviewFormElementId" value=$reviewFormElementId}
@@ -80,7 +80,7 @@ function togglePossibleResponses(newValue, multipleResponsesElementTypesString) 
 		<!-- Options listbuilder. Activated for some element types. -->
 		<div id="elementOptions" class="full left">
 			<div id="elementOptionsContainer" class="full left">
-				{capture assign=elementOptionsUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="listbuilder.settings.reviewForms.ReviewFormElementResponseItemListbuilderHandler" op="fetch" reviewFormId=$reviewFormId reviewFormElementId=$reviewFormElementId escape=false}{/capture}
+				{capture assign=elementOptionsUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="listbuilder.settings.reviewForms.ReviewFormElementResponseItemListbuilderHandler" op="fetch" reviewFormId=$reviewFormId reviewFormElementId=$reviewFormElementId escape=false}{/capture}
 				{load_url_in_div id="elementOptionsListbuilderContainer" url=$elementOptionsUrl}
 			</div>
 		</div>

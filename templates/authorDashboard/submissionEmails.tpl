@@ -29,7 +29,7 @@
 									titleIcon: 'modal_information',
 									title: {translate|json_encode key="notification.notifications"},
 									modalHandler: '$.pkp.controllers.modal.AjaxModalHandler',
-									url: {url|json_encode router=\PKP\core\PKPApplication::ROUTE_PAGE page="authorDashboard" op="readSubmissionEmail" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId submissionEmailId=$submissionEmail->getId() escape=false}
+									url: {url|json_encode router=PKP\core\PKPApplication::ROUTE_PAGE page="authorDashboard" op="readSubmissionEmail" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId submissionEmailId=$submissionEmail->getId() escape=false}
 								{rdelim}
 							{rdelim}
 						);

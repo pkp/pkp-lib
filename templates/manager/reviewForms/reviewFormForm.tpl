@@ -16,7 +16,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="reviewFormForm" method="post" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormGridHandler" op="updateReviewForm"}">
+<form class="pkp_form" id="reviewFormForm" method="post" action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.reviewForms.ReviewFormGridHandler" op="updateReviewForm"}">
 	{csrf}
 
 	{if $reviewFormId}

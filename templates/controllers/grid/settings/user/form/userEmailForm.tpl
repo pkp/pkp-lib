@@ -13,7 +13,7 @@
 		$('#sendEmailForm').pkpHandler('$.pkp.controllers.form.AjaxFormHandler');
 	{rdelim});
 </script>
-<form class="pkp_form" id="sendEmailForm" method="post" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="sendEmail"}" >
+<form class="pkp_form" id="sendEmailForm" method="post" action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.settings.user.UserGridHandler" op="sendEmail"}" >
 	{csrf}
 
 	<input type="hidden" name="userId" value="{$userId|escape}" />

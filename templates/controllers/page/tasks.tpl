@@ -7,5 +7,5 @@
  *
  * User-specific tasks panel.
  *}
-{capture assign=notificationsGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.notifications.TaskNotificationsGridHandler" op="fetchGrid" escape=false}{/capture}
+{capture assign=notificationsGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.notifications.TaskNotificationsGridHandler" op="fetchGrid" escape=false}{/capture}
 {load_url_in_div id="notificationsGrid" url=$notificationsGridUrl}

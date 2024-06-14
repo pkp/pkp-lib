@@ -15,19 +15,19 @@
 	{help file="editorial-workflow/copyediting" class="pkp_help_tab"}
 
 	<div class="pkp_workflow_sidebar">
-		{capture assign=copyeditingEditorDecisionsUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
+		{capture assign=copyeditingEditorDecisionsUrl}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="workflow" op="editorDecisionActions" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
 		{load_url_in_div id="copyeditingEditorDecisionsDiv" url=$copyeditingEditorDecisionsUrl class="editorDecisionActions pkp_tab_actions"}
 		{include file="controllers/tab/workflow/stageParticipants.tpl"}
 	</div>
 
 	<div class="pkp_workflow_content">
-		{capture assign=finalDraftFilesGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.final.FinalDraftFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
+		{capture assign=finalDraftFilesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.final.FinalDraftFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
 		{load_url_in_div id="finalDraftFilesGrid" url=$finalDraftFilesGridUrl}
 
-		{capture assign=queriesGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
+		{capture assign=queriesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.queries.QueriesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
 		{load_url_in_div id="queriesGrid" url=$queriesGridUrl}
 
-		{capture assign=copyeditedFilesGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.copyedit.CopyeditFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
+		{capture assign=copyeditedFilesGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.copyedit.CopyeditFilesGridHandler" op="fetchGrid" submissionId=$submission->getId() stageId=$stageId escape=false}{/capture}
 		{load_url_in_div id="copyeditedFilesGrid" url=$copyeditedFilesGridUrl}
 	</div>
 

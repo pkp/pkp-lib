@@ -80,8 +80,7 @@ class DAO extends EntityDAO
     {
         return $query
             ->getQueryBuilder()
-            ->select('i.' . $this->primaryKeyColumn)
-            ->count();
+            ->getCountForPagination();
     }
 
     /**
@@ -223,7 +222,7 @@ class DAO extends EntityDAO
                     if (strpos($ipRange, '/') === false) {
                         $ipStart = sprintf('%u', ip2long($ipRange));
 
-                        // Convert CIDR IP to IP range
+                    // Convert CIDR IP to IP range
                     } else {
                         [$cidrIPString, $cidrBits] = explode('/', $ipRange);
 
@@ -240,13 +239,13 @@ class DAO extends EntityDAO
                         }
                     }
 
-                    // Convert wildcard IP to IP range
+                // Convert wildcard IP to IP range
                 } else {
                     $ipStart = sprintf('%u', ip2long(str_replace(Institution::IP_RANGE_WILDCARD, '0', $ipRange)));
                     $ipEnd = sprintf('%u', ip2long(str_replace(Institution::IP_RANGE_WILDCARD, '255', $ipRange)));
                 }
 
-                // Convert wildcard IP range to IP range
+            // Convert wildcard IP range to IP range
             } else {
                 [$ipStart, $ipEnd] = explode(Institution::IP_RANGE_RANGE, $ipRange);
 

@@ -1,12 +1,12 @@
-# rl <biuro@fimagis.pl>, 2022.
+# rl <biuro@fimagis.pl>, 2022, 2024.
 # Dariusz Lis <Dariusz@Lis.PL>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:39+00:00\n"
-"PO-Revision-Date: 2023-05-04 22:49+0000\n"
-"Last-Translator: Dariusz Lis <Dariusz@Lis.PL>\n"
+"PO-Revision-Date: 2024-05-17 23:27+0000\n"
+"Last-Translator: rl <biuro@fimagis.pl>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/pl/>\n"
 "Language: pl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
@@ -2020,7 +2020,7 @@ msgstr ""
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
-"Radaktor {$username} potwierdził przyjęcie recenzji dla rundy {$round} w "
+"Radaktor {$editorName} potwierdził przyjęcie recenzji dla rundy {$round} w "
 "zgłoszeniu {$submissionid}."
 
 msgid "log.review.reviewReady"
@@ -2774,4 +2774,3 @@ msgstr ""
 
 msgid "submission.submissionFile"
 msgstr "Plik z tekstem"
-

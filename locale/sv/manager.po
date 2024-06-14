@@ -2372,16 +2372,6 @@ msgstr ""
 "Den här länken visas bara om du har fyllt i sektionen Om tidskriften under "
 "Inställningar > Tidskrift."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Länka till en sida som visar innehållet i Redaktionsruta i Inställningar > "
-"Tidskrift."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Den här länken visas bara om du har fyllt i sektionen Redaktionsruta under "
-"Inställningar > Tidskrift."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Länka till sidan som visar instruktioner för att skicka in bidrag."
 

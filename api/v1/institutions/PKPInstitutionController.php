@@ -74,7 +74,7 @@ class PKPInstitutionController extends PKPBaseController
             ->name('institution.getInstitution')
             ->whereNumber('institutionId');
 
-        Route::post('add', $this->add(...))
+        Route::post('', $this->add(...))
             ->name('institution.add');
 
         Route::put('{institutionId}', $this->edit(...))
@@ -154,7 +154,7 @@ class PKPInstitutionController extends PKPBaseController
         $institutions = $collector->getMany();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::institution()->getSchemaMap()->summarizeMany($institutions->values())->values(),
         ], Response::HTTP_OK);
     }

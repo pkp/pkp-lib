@@ -31,7 +31,6 @@ use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
-use PKP\core\PKPUserProvider;
 use PKP\proxy\ProxyParser;
 use Throwable;
 
@@ -101,7 +100,7 @@ class PKPContainer extends Container
                 }
             };
         });
-        
+
         $this->singleton(
             KernelContract::class,
             Kernel::class
@@ -127,7 +126,7 @@ class PKPContainer extends Container
         $this->app->singleton(\Illuminate\Http\Request::class, fn ($app) => $app->get('request'));
 
         $this->app->singleton(
-            'response', 
+            'response',
             fn ($app) => new \Illuminate\Http\Response(headers: $app->get('request')->headers->all())
         );
 
@@ -161,6 +160,7 @@ class PKPContainer extends Container
         $this->register(new AppServiceProvider($this));
         $this->register(new LocaleServiceProvider($this));
         $this->register(new PKPRoutingProvider($this));
+        $this->register(new InvitationServiceProvider($this));
     }
 
     /**
@@ -171,7 +171,7 @@ class PKPContainer extends Container
         $provider->register();
 
         $provider->callBootingCallbacks();
-        
+
         if (method_exists($provider, 'boot')) {
             $this->call([$provider, 'boot']);
         }
@@ -202,15 +202,15 @@ class PKPContainer extends Container
     {
         foreach ([
             'auth' => [
-                \Illuminate\Auth\AuthManager::class, 
+                \Illuminate\Auth\AuthManager::class,
                 \Illuminate\Contracts\Auth\Factory::class
             ],
             'auth.driver' => [
                 \Illuminate\Contracts\Auth\Guard::class
             ],
             'cookie' => [
-                \Illuminate\Cookie\CookieJar::class, 
-                \Illuminate\Contracts\Cookie\Factory::class, 
+                \Illuminate\Cookie\CookieJar::class,
+                \Illuminate\Contracts\Cookie\Factory::class,
                 \Illuminate\Contracts\Cookie\QueueingFactory::class
             ],
             'app' => [

@@ -186,7 +186,7 @@ class PKPSelectReviewerListPanel extends ListPanel
      */
     public function getItemsMax()
     {
-        return $this->_getCollector()->offset(null)->limit(null)->getCount();
+        return $this->_getCollector()->getCount();
     }
 
     /**

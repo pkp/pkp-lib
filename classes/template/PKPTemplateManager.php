@@ -310,7 +310,15 @@ class PKPTemplateManager extends Smarty
             }
         }
 
+        // Register classes that need to expose class constants to templates
+        foreach ([PKPApplication::class, Application::class, Role::class, Submission::class] as $fqcn) {
+            $this->registerClass($fqcn, $fqcn);
+        }
+
         // Register custom functions
+        $this->registerPlugin('modifier', 'get_class', get_class(...));
+        $this->registerPlugin('modifier', 'is_a', is_a(...));
+        $this->registerPlugin('modifier', 'count', count(...));
         $this->registerPlugin('modifier', 'intval', intval(...));
         $this->registerPlugin('modifier', 'json_encode', json_encode(...));
         $this->registerPlugin('modifier', 'uniqid', uniqid(...));
@@ -318,6 +326,8 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('modifier', 'strstr', strstr(...));
         $this->registerPlugin('modifier', 'strval', strval(...));
         $this->registerPlugin('modifier', 'substr_replace', substr_replace(...));
+        $this->registerPlugin('modifier', 'array_reverse', array_reverse(...));
+        $this->registerPlugin('modifier', 'array_intersect', array_intersect(...));
         $this->registerPlugin('modifier', 'array_key_first', array_key_first(...));
         $this->registerPlugin('modifier', 'array_values', array_values(...));
         $this->registerPlugin('modifier', 'fatalError', fatalError(...));
@@ -336,6 +346,7 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('modifier', 'strtotime', $this->smartyStrtotime(...));
         $this->registerPlugin('modifier', 'explode', $this->smartyExplode(...));
         $this->registerPlugin('modifier', 'escape', $this->smartyEscape(...));
+        $this->registerPlugin('function', 'constant', constant(...));
         $this->registerPlugin('function', 'csrf', $this->smartyCSRF(...));
         $this->registerPlugin('function', 'translate', $this->smartyTranslate(...));
         $this->registerPlugin('function', 'null_link_action', $this->smartyNullLinkAction(...));

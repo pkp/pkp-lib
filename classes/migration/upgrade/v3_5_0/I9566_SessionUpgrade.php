@@ -14,8 +14,8 @@
 
 namespace PKP\migration\upgrade\v3_5_0;
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
 
 class I9566_SessionUpgrade extends Migration
@@ -36,11 +36,9 @@ class I9566_SessionUpgrade extends Migration
             $table->index(['user_id'], 'sessions_user_id');
 
             $table->string('ip_address', 45)->nullable();
-            $table->string('user_agent', 255)->nullable();
-            $table->bigInteger('last_activity')->index();
-            $table->text('payload');
-
-            $table->unique(['id'], 'sessions_pkey');
+            $table->text('user_agent')->nullable();
+            $table->integer('last_activity')->index();
+            $table->longText('payload');
         });
     }
 
@@ -50,7 +48,7 @@ class I9566_SessionUpgrade extends Migration
     public function down(): void
     {
         Schema::drop('sessions');
-        
+
         Schema::create('sessions', function (Blueprint $table) {
             $table->comment('Session data for logged-in users.');
             $table->string('session_id', 128);

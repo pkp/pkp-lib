@@ -39,9 +39,11 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\decision\Decision;
 use PKP\notification\NotificationDAO;
 use PKP\notification\PKPNotification;
 use PKP\plugins\PluginRegistry;
+use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
@@ -81,6 +83,7 @@ abstract class PKPWorkflowHandler extends Handler
 
             $this->markRoleAssignmentsChecked();
         } else {
+            $this->addPolicy(new SubmissionCompletePolicy($request, $args, 'submissionId'));
             $this->addPolicy(new WorkflowStageAccessPolicy($request, $args, $roleAssignments, 'submissionId', $this->identifyStageId($request, $args), PKPApplication::WORKFLOW_TYPE_EDITORIAL));
         }
 
@@ -727,6 +730,7 @@ abstract class PKPWorkflowHandler extends Handler
             'lastRecommendation' => $lastRecommendation,
             'allRecommendations' => $allRecommendations,
         ]);
+        $templateMgr->registerClass('Decision', Decision::class);
         return $templateMgr->fetchJson('workflow/editorialLinkActions.tpl');
     }
 

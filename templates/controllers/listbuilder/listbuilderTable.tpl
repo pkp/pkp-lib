@@ -17,7 +17,7 @@
 					{if $column->hasFlag('alignment')}
 						{assign var=alignment value=$column->getFlag('alignment')}
 					{else}
-						{assign var=alignment value=\PKP\controllers\grid\GridColumn::COLUMN_ALIGNMENT_LEFT}
+						{assign var=alignment value=PKP\controllers\grid\GridColumn::COLUMN_ALIGNMENT_LEFT}
 					{/if}
 					<th scope="col" style="text-align: {$alignment};">
 						{$column->getLocalizedTitle()|escape}

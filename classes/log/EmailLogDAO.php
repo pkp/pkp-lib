@@ -19,6 +19,8 @@
 namespace PKP\log;
 
 use APP\facades\Repo;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\Hook;
@@ -64,28 +66,19 @@ class EmailLogDAO extends \PKP\db\DAO
      */
     public function _getByEventType($assocType, $assocId, $eventType, $userId = null, $rangeInfo = null)
     {
-        $params = [
-            (int) $assocType,
-            (int) $assocId,
-            (int) $eventType
-        ];
-        if ($userId) {
-            $params[] = $userId;
-        }
-
-        $result = $this->retrieveRange(
-            $sql = 'SELECT	e.*
-			FROM	email_log e' .
-            ($userId ? ' LEFT JOIN email_log_users u ON e.log_id = u.email_log_id' : '') .
-            ' WHERE	e.assoc_type = ? AND
-				e.assoc_id = ? AND
-				e.event_type = ?' .
-                ($userId ? ' AND u.user_id = ?' : ''),
-            $params,
-            $rangeInfo
-        );
-
-        return new DAOResultFactory($result, $this, 'build', [], $sql, $params, $rangeInfo); // Counted in submissionEmails.tpl
+        $q = DB::table('email_log', 'e')
+            ->when(
+                $userId,
+                fn (Builder $q) => $q->join(
+                    'email_log_users AS u',
+                    fn (JoinClause $j) => $j->on('u.email_log_id', '=', 'e.log_id')
+                        ->where('u.user_id', $userId)
+                )
+            )
+            ->orderBy('e.log_id')
+            ->select('e.*');
+        $result = $this->retrieveRange($q, [], $rangeInfo);
+        return new DAOResultFactory($result, $this, 'build', [], $q, [], $rangeInfo); // Counted in submissionEmails.tpl
     }
 
     /**
@@ -227,7 +220,7 @@ class EmailLogDAO extends \PKP\db\DAO
                 [(int) $newUserId, (int) $oldUserId]
             ),
             $this->update(
-                'UPDATE email_log_users 
+                'UPDATE email_log_users
                 SET user_id = ?
                 WHERE user_id = ? AND email_log_id NOT IN (SELECT t1.email_log_id
                     FROM (SELECT email_log_id FROM email_log_users WHERE user_id = ?) AS t1

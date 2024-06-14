@@ -150,7 +150,7 @@ class HighlightsController extends PKPBaseController
         $highlights = $collector->getMany();
 
         return response()->json([
-            'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+            'itemsMax' => $collector->getCount(),
             'items' => Repo::highlight()->getSchemaMap()->summarizeMany($highlights)->values(),
         ], Response::HTTP_OK);
     }

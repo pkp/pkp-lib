@@ -2302,16 +2302,6 @@ msgstr ""
 "Liên kết này sẽ chỉ được hiển thị nếu bạn đã điền vào phần Giới thiệu Tạp "
 "chí trong Cài đặt > Tạp chí."
 
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Liên kết đến một trang hiển thị nội dung giới thiệu về Ban biên tập trong "
-"Cài đặt > Tạp chí."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Liên kết này sẽ chỉ được hiển thị nếu bạn đã điền vào phần Nhóm biên tập "
-"trong Cài đặt> Nhật ký."
-
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Liên kết đến trang hiển thị hướng dẫn gửi bài."
 

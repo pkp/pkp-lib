@@ -31,9 +31,9 @@
 		<span class="date">
 			{$note->getDateCreated()|date_format:$datetimeFormatShort}
 		</span>
-		{if ($notesDeletable && array_intersect(array(\PKP\security\Role::ROLE_ID_MANAGER, \PKP\security\Role::ROLE_ID_SUB_EDITOR), (array)$userRoles))}
+		{if ($notesDeletable && array_intersect(array(PKP\security\Role::ROLE_ID_MANAGER, PKP\security\Role::ROLE_ID_SUB_EDITOR), (array)$userRoles))}
 			<div class="actions">
-				{if $notesDeletable && array_intersect(array(\PKP\security\Role::ROLE_ID_MANAGER, \PKP\security\Role::ROLE_ID_SUB_EDITOR), (array)$userRoles)}
+				{if $notesDeletable && array_intersect(array(PKP\security\Role::ROLE_ID_MANAGER, PKP\security\Role::ROLE_ID_SUB_EDITOR), (array)$userRoles)}
 					<form class="pkp_form" id="{$formId}" action="{url op="deleteNote" noteId=$noteId params=$linkParams}">
 						{csrf}
 						{assign var=deleteNoteButtonId value="deleteNote-$noteId"}

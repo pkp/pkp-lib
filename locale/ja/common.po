@@ -1,17 +1,17 @@
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
-# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2022.
+# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2022, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-27 11:08+0000\n"
+"PO-Revision-Date: 2024-06-11 05:54+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
-"ja_JP/>\n"
-"Language: ja_JP\n"
+"ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -345,7 +345,7 @@ msgid "common.description"
 msgstr "記述"
 
 msgid "common.details"
-msgstr ""
+msgstr "詳細"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
@@ -524,7 +524,7 @@ msgid "common.languages"
 msgstr "言語"
 
 msgid "common.lastSaved"
-msgstr ""
+msgstr "最終保存時: {$when}"
 
 msgid "common.lastActivity"
 msgstr "最近活動記録日: {$date}"
@@ -584,7 +584,7 @@ msgid "common.noneSelected"
 msgstr ""
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "提供なし"
 
 msgid "common.no"
 msgstr "いいえ"
@@ -1424,7 +1424,7 @@ msgid "navigation.access"
 msgstr "ユーザー＆役割"
 
 msgid "navigation.about"
-msgstr "このサイト/雑誌について"
+msgstr "本誌について"
 
 msgid "navigation.admin"
 msgstr "管理"

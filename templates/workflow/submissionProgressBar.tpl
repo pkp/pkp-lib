@@ -31,7 +31,7 @@
 	<ul>
 		{foreach from=$workflowStages item=$stage}
 			<li class="pkp_workflow_{$stage.path} stageId{$stage.id}{if $stage.id === $currentStageId} initiated{/if}">
-				<a href="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="tab.workflow.WorkflowTabHandler" op="fetchTab" submissionId=$submission->getId() stageId=$stage.id escape=false}">
+				<a href="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="tab.workflow.WorkflowTabHandler" op="fetchTab" submissionId=$submission->getId() stageId=$stage.id escape=false}">
 					{translate key=$stage.translationKey}
 				</a>
 			</li>

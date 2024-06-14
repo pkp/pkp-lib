@@ -418,7 +418,7 @@ class PreprintSearchIndexTest extends PKPTestCase
             ->getMock();
         $serversIterator
             ->method('toIterator')
-            ->will($this->returnValue([]));
+            ->will($this->returnValue(new \ArrayIterator()));
 
         // Mock the getAll() method.
         $serverDao->expects($this->any())

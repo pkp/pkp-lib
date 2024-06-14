@@ -39,42 +39,34 @@ class PKPPageRouter extends PKPRouter
     // only via their respective getters/setters
     //
     /** @var string the requested page */
-    public $_page;
+    public string $_page;
     /** @var string the requested operation */
-    public $_op;
+    public string $_op;
     /** @var string cache filename */
-    public $_cacheFilename;
+    public string $_cacheFilename;
 
     /**
      * get the installation pages
-     *
-     * @return array
      */
-    public function getInstallationPages()
+    public function getInstallationPages(): array
     {
         return $this->_installationPages;
     }
 
     /**
      * get the cacheable pages
-     *
-     * @return array
      */
-    public function getCacheablePages()
+    public function getCacheablePages(): array
     {
-        // Can be overridden by sub-classes.
         return [];
     }
 
     /**
      * Determine whether or not the request is cacheable.
      *
-     * @param PKPRequest $request
-     * @param bool $testOnly required for unit test to
-     *  bypass session check.
-     *
+     * @param bool $testOnly required for unit test to bypass session check.
      */
-    public function isCacheable($request, $testOnly = false): bool
+    public function isCacheable(PKPRequest $request, bool $testOnly = false): bool
     {
         if (PKPSessionGuard::isSessionDisable() && !$testOnly) {
             return false;
@@ -99,12 +91,8 @@ class PKPPageRouter extends PKPRouter
 
     /**
      * Get the page requested in the URL.
-     *
-     * @param PKPRequest $request the request to be routed
-     *
-     * @return string the page path (under the "pages" directory)
      */
-    public function getRequestedPage($request)
+    public function getRequestedPage(PKPRequest $request): string
     {
         if (!isset($this->_page)) {
             $this->_page = $this->_getRequestedUrlParts(Core::getPage(...), $request);
@@ -114,12 +102,8 @@ class PKPPageRouter extends PKPRouter
 
     /**
      * Get the operation requested in the URL (assumed to exist in the requested page handler).
-     *
-     * @param PKPRequest $request the request to be routed
-     *
-     * @return string
      */
-    public function getRequestedOp($request)
+    public function getRequestedOp(PKPRequest $request): string
     {
         if (!isset($this->_op)) {
             $this->_op = $this->_getRequestedUrlParts(Core::getOp(...), $request);
@@ -129,24 +113,16 @@ class PKPPageRouter extends PKPRouter
 
     /**
      * Get the arguments requested in the URL.
-     *
-     * @param PKPRequest $request the request to be routed
-     *
-     * @return array
      */
-    public function getRequestedArgs($request)
+    public function getRequestedArgs(PKPRequest $request): array
     {
         return $this->_getRequestedUrlParts(Core::getArgs(...), $request);
     }
 
     /**
      * Get the anchor (#anchor) requested in the URL
-     *
-     * @para $request PKPRequest the request to be routed
-     *
-     * @return string
      */
-    public function getRequestedAnchor($request)
+    public function getRequestedAnchor(PKPRequest $request): string
     {
         $url = $request->getRequestUrl();
         $parts = explode('#', $url);
@@ -163,7 +139,7 @@ class PKPPageRouter extends PKPRouter
     /**
      * @copydoc PKPRouter::getCacheFilename()
      */
-    public function getCacheFilename($request)
+    public function getCacheFilename(PKPRequest $request): string
     {
         if (!isset($this->_cacheFilename)) {
             $id = $_SERVER['PATH_INFO'] ?? 'index';
@@ -179,7 +155,7 @@ class PKPPageRouter extends PKPRouter
      *
      * @hook LoadHandler [[&$page, &$op, &$sourceFile, &$handler]]
      */
-    public function route($request)
+    public function route(PKPRequest $request): void
     {
         // Determine the requested page and operation
         $page = $this->getRequestedPage($request);
@@ -287,25 +263,18 @@ class PKPPageRouter extends PKPRouter
 
     /**
      * @copydoc PKPRouter::url()
-     *
-     * @param null|mixed $newContext
-     * @param null|mixed $page
-     * @param null|mixed $op
-     * @param null|mixed $path
-     * @param null|mixed $params
-     * @param null|mixed $anchor
      */
     public function url(
         PKPRequest $request,
         ?string $newContext = null,
-        $page = null,
-        $op = null,
-        $path = null,
-        $params = null,
-        $anchor = null,
-        $escape = false,
+        ?string $page = null,
+        ?string $op = null,
+        mixed $path = null,
+        ?array $params = null,
+        ?string $anchor = null,
+        bool $escape = false,
         ?string $urlLocaleForPage = null,
-    ) {
+    ): string {
         //
         // Base URL and Context
         //
@@ -427,10 +396,10 @@ class PKPPageRouter extends PKPRouter
      * @copydoc PKPRouter::handleAuthorizationFailure()
      */
     public function handleAuthorizationFailure(
-        $request,
-        $authorizationMessage,
+        PKPRequest $request,
+        string $authorizationMessage,
         array $messageParams = []
-    ) {
+    ): void {
         // Redirect to the authorization denied page.
         if (!$request->getUser()) {
             Validation::redirectLogin();
@@ -441,7 +410,7 @@ class PKPPageRouter extends PKPRouter
     /**
      * Redirect to user home page (or the user group home page if the user has one user group).
      */
-    public function redirectHome(PKPRequest $request)
+    public function redirectHome(PKPRequest $request): void
     {
         $request->redirectUrl($this->getHomeUrl($request));
     }
@@ -451,7 +420,7 @@ class PKPPageRouter extends PKPRouter
      *
      * @param PKPRequest $request the request to be routed
      */
-    public function getHomeUrl($request)
+    public function getHomeUrl($request): string
     {
         $user = Auth::user(); /** @var \PKP\user\User $user */
         $userId = $user->getId();
@@ -504,7 +473,7 @@ class PKPPageRouter extends PKPRouter
     {
         $url = null;
         if (!$request->getRouter() instanceof PKPPageRouter) {
-            throw new Exception('Router is not expected PKPPageRouter!');
+            throw new \Exception('Router is not expected PKPPageRouter!');
         }
 
         if (isset($_SERVER['PATH_INFO'])) {

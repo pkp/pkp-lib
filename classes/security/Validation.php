@@ -205,7 +205,7 @@ class Validation
             // Get context ID from request
             $request = Application::get()->getRequest();
             $context = $request->getContext();
-            $contextId = $context == null ? PKPApplication::CONTEXT_SITE : $context->getId();
+            $contextId = $context == null ? Application::CONTEXT_SITE : $context->getId();
         }
 
         $user = Auth::user(); /** @var \PKP\user\User $user */

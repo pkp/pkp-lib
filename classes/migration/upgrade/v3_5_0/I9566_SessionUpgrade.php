@@ -36,11 +36,9 @@ class I9566_SessionUpgrade extends Migration
             $table->index(['user_id'], 'sessions_user_id');
 
             $table->string('ip_address', 45)->nullable();
-            $table->string('user_agent', 255)->nullable();
-            $table->bigInteger('last_activity')->index();
-            $table->text('payload');
-
-            $table->unique(['id'], 'sessions_pkey');
+            $table->text('user_agent')->nullable();
+            $table->integer('last_activity')->index();
+            $table->longText('payload');
         });
     }
 

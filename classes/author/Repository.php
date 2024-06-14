@@ -149,6 +149,7 @@ class Repository
      * @copydoc \PKP\services\entityProperties\EntityWriteInterface::add()
      *
      * @hook Author::add [[$author]]
+     * @hook Author::add::before [[$author]]
      */
     public function add(Author $author): int
     {
@@ -158,6 +159,8 @@ class Repository
             $nextSeq = $this->dao->getNextSeq($author->getData('publicationId'));
             $author->setData('seq', $nextSeq);
         }
+
+        Hook::call('Author::add::before', [$author]);
 
         $authorId = $this->dao->insert($author);
         $author = Repo::author()->get($authorId);

@@ -17,7 +17,6 @@
 namespace PKP\core;
 
 use APP\core\Services;
-use PKP\core\PKPSessionGuard;
 use PKP\config\Config;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
@@ -25,37 +24,31 @@ use PKP\services\PKPSchemaService;
 
 class Dispatcher
 {
-    /** @var PKPApplication */
-    public $_application;
+    public PKPApplication $_application;
 
     /** @var array an array of Router implementation class names */
-    public $_routerNames = [];
+    public array $_routerNames = [];
 
     /** @var array an array of Router instances */
-    public $_routerInstances = [];
+    public array $_routerInstances = [];
 
-    /** @var PKPRouter */
-    public $_router;
+    public PKPRouter $_router;
 
     /** @var PKPRequest Used for a callback hack - NOT GENERALLY SET. */
-    public $_requestCallbackHack;
+    public ?PKPRequest $_requestCallbackHack;
 
     /**
      * Get the application
-     *
-     * @return PKPApplication
      */
-    public function &getApplication()
+    public function &getApplication(): PKPApplication
     {
         return $this->_application;
     }
 
     /**
      * Set the application
-     *
-     * @param PKPApplication $application
      */
-    public function setApplication($application)
+    public function setApplication(PKPApplication $application)
     {
         $this->_application = $application;
     }
@@ -65,7 +58,7 @@ class Dispatcher
      *
      * @return array an array of Router names
      */
-    public function &getRouterNames()
+    public function &getRouterNames(): array
     {
         return $this->_routerNames;
     }
@@ -90,9 +83,8 @@ class Dispatcher
      * @param string $shortcut a shortcut name for the router
      *  to be used for quick router instance retrieval.
      */
-    public function addRouterName($routerName, $shortcut)
+    public function addRouterName(string $routerName, string $shortcut)
     {
-        assert(is_array($this->_routerNames) && is_string($routerName));
         $this->_routerNames[$shortcut] = $routerName;
     }
 
@@ -101,11 +93,9 @@ class Dispatcher
      * let the router dispatch the request to the appropriate
      * handler method.
      *
-     * @param PKPRequest $request
-     *
      * @hook Dispatcher::dispatch [[$request]]
      */
-    public function dispatch($request)
+    public function dispatch(PKPRequest $request)
     {
         // Make sure that we have at least one router configured
         $routerNames = $this->getRouterNames();
@@ -123,10 +113,10 @@ class Dispatcher
                 // Inject router and dispatcher into request
                 $request->setRouter($routerCandidate);
                 $request->setDispatcher($this);
-                
+
                 $this->setUserResolver();
                 $this->initSession();
-                
+
                 // We've found our router and can go on
                 // to handle the request.
                 $router = & $routerCandidate;
@@ -200,14 +190,14 @@ class Dispatcher
                 return app()->get(\Illuminate\Http\Response::class);
             });
     }
-    
+
     /**
      * Set the user resolving logic for laravel inner use purpose
      */
     public function setUserResolver(): void
     {
         $illuminateRequest = app()->get(\Illuminate\Http\Request::class); /** @var \Illuminate\Http\Request $illuminateRequest */
-        
+
         $illuminateRequest->setUserResolver(fn () => \APP\core\Application::get()->getRequest()->getUser());
     }
 
@@ -318,7 +308,6 @@ class Dispatcher
      */
     public function _cacheContent($contents)
     {
-        assert($this->_router instanceof \PKP\core\PKPRouter);
         if ($contents == '') {
             return $contents;
         } // Do not cache empties

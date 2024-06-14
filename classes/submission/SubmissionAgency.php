@@ -45,7 +45,7 @@ class SubmissionAgency extends \PKP\controlledVocab\ControlledVocabEntry
         $this->setData('submissionAgency', $agency, $locale);
     }
 
-    public function getLocaleMetadataFieldNames()
+    public function getLocaleMetadataFieldNames(): array
     {
         return ['submissionAgency'];
     }

@@ -12,7 +12,6 @@
  * @ingroup submission
  *
  * @see SubmissionLanguageEntryDAO
- * 
  * @deprecated 3.5
  *
  * @brief Basic class describing a submission language
@@ -50,7 +49,7 @@ class SubmissionLanguage extends \PKP\controlledVocab\ControlledVocabEntry
     /**
      * @copydoc \PKP\controlledVocab\ControlledVocabEntry::getLocaleMetadataFieldNames()
      */
-    public function getLocaleMetadataFieldNames()
+    public function getLocaleMetadataFieldNames(): array
     {
         return ['submissionLanguage'];
     }

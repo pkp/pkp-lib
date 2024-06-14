@@ -26,7 +26,6 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Routing\Route;
-use PKP\core\PKPSessionGuard;
 use PKP\security\authorization\AllowedHostsPolicy;
 use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
@@ -210,7 +209,6 @@ abstract class PKPBaseController extends Controller
      */
     public function &getAuthorizedContextObject(int $assocType): mixed
     {
-        assert($this->_authorizationDecisionManager instanceof AuthorizationDecisionManager);
         return $this->_authorizationDecisionManager->getAuthorizedContextObject($assocType);
     }
 
@@ -224,7 +222,6 @@ abstract class PKPBaseController extends Controller
      */
     public function &getAuthorizedContext(): array
     {
-        assert($this->_authorizationDecisionManager instanceof AuthorizationDecisionManager);
         return $this->_authorizationDecisionManager->getAuthorizedContext();
     }
 
@@ -339,9 +336,6 @@ abstract class PKPBaseController extends Controller
                 $this->addPolicy(new UserRolesRequiredPolicy($request), true);
             }
         }
-
-        // Make sure that we have a valid decision manager instance.
-        assert($this->_authorizationDecisionManager instanceof AuthorizationDecisionManager);
 
         $router = $request->getRouter();
         if ($router instanceof \PKP\core\PKPPageRouter) {

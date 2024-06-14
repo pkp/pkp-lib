@@ -45,7 +45,7 @@ class SubmissionDiscipline extends \PKP\controlledVocab\ControlledVocabEntry
         $this->setData('submissionDiscipline', $discipline, $locale);
     }
 
-    public function getLocaleMetadataFieldNames()
+    public function getLocaleMetadataFieldNames(): array
     {
         return ['submissionDiscipline'];
     }

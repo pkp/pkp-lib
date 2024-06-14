@@ -27,6 +27,7 @@ use Generator;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\cache\CacheManager;
+use PKP\core\DataObject;
 use PKP\core\JSONMessage;
 use PKP\plugins\Hook;
 
@@ -500,13 +501,9 @@ class DAO
     /**
      * Update the settings table of a data object.
      *
-     * @param string $tableName
-     * @param \PKP\core\DataObject $dataObject
-     * @param array $idArray
-     *
      * @deprecated 3.4
      */
-    public function updateDataObjectSettings($tableName, $dataObject, $idArray)
+    public function updateDataObjectSettings(string $tableName, DataObject $dataObject, array $idArray)
     {
         // Initialize variables
         $idFields = array_keys($idArray);
@@ -602,7 +599,7 @@ class DAO
      *
      * @param string $tableName Settings table name
      * @param string $idFieldName Name of ID column
-     * @param \PKP\core\DataObject $dataObject Object in which to store retrieved values
+     * @param DataObject $dataObject Object in which to store retrieved values
      *
      * @deprecated 3.4
      */

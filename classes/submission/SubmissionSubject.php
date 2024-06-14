@@ -48,7 +48,7 @@ class SubmissionSubject extends \PKP\controlledVocab\ControlledVocabEntry
     /**
      * @copydoc \PKP\controlledVocab\ControlledVocabEntry::getLocaleMetadataFieldNames()
      */
-    public function getLocaleMetadataFieldNames()
+    public function getLocaleMetadataFieldNames(): array
     {
         return ['submissionSubject'];
     }

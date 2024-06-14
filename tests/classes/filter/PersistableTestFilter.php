@@ -16,24 +16,15 @@
 
 namespace PKP\tests\classes\filter;
 
-use PKP\filter\FilterGroup;
-use PKP\filter\FilterSetting;
 use PKP\filter\PersistableFilter;
 
 class PersistableTestFilter extends PersistableFilter
 {
     /**
-     * Constructor
-     *
-     * @param FilterGroup $filterGroup
+     * Just for testing purposes; do anything
      */
-    public function __construct($filterGroup)
+    public function &process(&$input)
     {
-        $this->addSetting(new FilterSetting('some-key', null, null));
-        parent::__construct($filterGroup);
+        return $input;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias(PersistableTestFilter::class, 'PersistableTestFilter');
 }

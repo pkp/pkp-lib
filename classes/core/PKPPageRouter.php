@@ -19,7 +19,6 @@ namespace PKP\core;
 use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\Auth;
-use PKP\core\PKPSessionGuard;
 use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
@@ -194,7 +193,7 @@ class PKPPageRouter extends PKPRouter
             // the system is not yet installed. Redirect to
             // the installation page.
             $request->redirect('index', 'install');
-        } else if (Application::isInstalled() && in_array($page, $this->getInstallationPages())) {
+        } elseif (Application::isInstalled() && in_array($page, $this->getInstallationPages())) {
             // Redirect to the index page
             $request->redirect('index', 'index');
         }
@@ -295,7 +294,6 @@ class PKPPageRouter extends PKPRouter
      * @param null|mixed $path
      * @param null|mixed $params
      * @param null|mixed $anchor
-     * @param null|string $urlLocaleForPage
      */
     public function url(
         PKPRequest $request,
@@ -406,7 +404,7 @@ class PKPPageRouter extends PKPRouter
         // Context, locale?, page, operation and additional path go into the path info.
         $pathInfoArray = $context;
         if ($urlLocaleForPage !== '') {
-            [$contextObject, $contextLocales] = $this->_getContextAndLocales($request, $context[0] ?? "");
+            [$contextObject, $contextLocales] = $this->_getContextAndLocales($request, $context[0] ?? '');
             if (count($contextLocales) > 1) {
                 $pathInfoArray[] = $this->_getLocaleForUrl($request, $contextObject, $contextLocales, $urlLocaleForPage);
             }
@@ -505,7 +503,9 @@ class PKPPageRouter extends PKPRouter
     private function _getRequestedUrlParts($callback, $request): array|string|null
     {
         $url = null;
-        assert($request->getRouter() instanceof \PKP\core\PKPPageRouter);
+        if (!$request->getRouter() instanceof PKPPageRouter) {
+            throw new Exception('Router is not expected PKPPageRouter!');
+        }
 
         if (isset($_SERVER['PATH_INFO'])) {
             $url = $_SERVER['PATH_INFO'];
@@ -564,23 +564,23 @@ class PKPPageRouter extends PKPRouter
                 $request->setCookieVar('currentLocale', $l);
             }
             // In case session current locale has been set to non-supported locale, or is null, somewhere else
-            if (!Locale::isSupported($session->get('currentLocale') ?? "")) {
+            if (!Locale::isSupported($session->get('currentLocale') ?? '')) {
                 $session->put('currentLocale', Locale::getLocale());
                 $request->setCookieVar('currentLocale', Locale::getLocale());
             }
             return $session->get('currentLocale');
         })($setLocale ?? $urlLocale);
 
-        if (preg_match('#^/\w#', $source = $request->getUserVar('source') ?? "")) {
+        if (preg_match('#^/\w#', $source = $request->getUserVar('source') ?? '')) {
             $request->redirectUrl($source);
         }
 
         $indexUrl = $this->getIndexUrl($request);
-        $uri = preg_replace("#^$indexUrl#", "", $setLocale ? ($_SERVER['HTTP_REFERER'] ?? "") : $request->getCompleteUrl(), 1);
-        $newUrlLocale = $multiLingual ? "/$sessionLocale" : "";
+        $uri = preg_replace("#^{$indexUrl}#", '', $setLocale ? ($_SERVER['HTTP_REFERER'] ?? '') : $request->getCompleteUrl(), 1);
+        $newUrlLocale = $multiLingual ? "/{$sessionLocale}" : '';
         $pathInfo = ($uri)
-            ? preg_replace("#^/$contextPath" . ($urlLocale ? "/$urlLocale" : "") . "(?=[/?\\#]|$)#", "/$contextPath$newUrlLocale", $uri, 1)
-            : "/index$newUrlLocale";
+            ? preg_replace("#^/{$contextPath}" . ($urlLocale ? "/{$urlLocale}" : '') . '(?=[/?\\#]|$)#', "/{$contextPath}{$newUrlLocale}", $uri, 1)
+            : "/index{$newUrlLocale}";
 
         $request->redirectUrl($indexUrl . $pathInfo);
     }

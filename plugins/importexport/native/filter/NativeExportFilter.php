@@ -19,28 +19,24 @@ namespace PKP\plugins\importexport\native\filter;
 use PKP\plugins\importexport\PKPImportExportFilter;
 use PKP\xslt\XMLTypeDescription;
 
-class NativeExportFilter extends PKPImportExportFilter
+abstract class NativeExportFilter extends PKPImportExportFilter
 {
     /** @var bool If set to true no validation (e.g. XML validation) will be done */
-    public $_noValidation = null;
-    public $opts = [];
+    public ?bool $_noValidation = null;
+    public array $opts = [];
 
     /**
      * Set no validation option
-     *
-     * @param bool $noValidation
      */
-    public function setNoValidation($noValidation)
+    public function setNoValidation(bool $noValidation): void
     {
         $this->_noValidation = $noValidation;
     }
 
     /**
      * Get no validation option
-     *
-     * @return bool true|null
      */
-    public function getNoValidation()
+    public function getNoValidation(): ?bool
     {
         return $this->_noValidation;
     }
@@ -51,7 +47,7 @@ class NativeExportFilter extends PKPImportExportFilter
     /**
      * @copydoc Filter::supports()
      */
-    public function supports(&$input, &$output)
+    public function supports(&$input, &$output): bool
     {
         // Validate input
         $inputType = & $this->getInputType();
@@ -80,12 +76,10 @@ class NativeExportFilter extends PKPImportExportFilter
      * Create a set of child nodes of parentNode containing the
      * localeKey => value data representing translated content.
      *
-     * @param \DOMDocument $doc
-     * @param \DOMNode $parentNode
      * @param string $name Node name
-     * @param array $values Array of locale key => value mappings
+     * @param $values Array of locale key => value mappings, or null for no values
      */
-    public function createLocalizedNodes($doc, $parentNode, $name, $values)
+    public function createLocalizedNodes(\DOMDocument $doc, \DOMNode $parentNode, string $name, ?array $values): void
     {
         $deployment = $this->getDeployment();
         foreach (is_array($values) ? $values : [] as $locale => $value) {
@@ -101,15 +95,8 @@ class NativeExportFilter extends PKPImportExportFilter
 
     /**
      * Create an optional node with a name and value.
-     *
-     * @param \DOMDocument $doc
-     * @param \DOMElement $parentNode
-     * @param string $name
-     * @param string|null $value
-     *
-     * @return ?\DOMElement
      */
-    public function createOptionalNode($doc, $parentNode, $name, $value)
+    public function createOptionalNode(\DOMDocument $doc, \DOMElement $parentNode, string $name, ?string $value): ?\DOMElement
     {
         if ($value === '' || $value === null) {
             return null;
@@ -122,10 +109,8 @@ class NativeExportFilter extends PKPImportExportFilter
 
     /**
      * Set xml filtering opts
-     *
-     * @param array $opts
      */
-    public function setOpts($opts)
+    public function setOpts(array $opts): void
     {
         $this->opts = $opts;
     }

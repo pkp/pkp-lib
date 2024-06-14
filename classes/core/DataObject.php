@@ -23,41 +23,44 @@ use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\filter\FilterDAO;
+use PKP\metadata\MetadataDataObjectAdapter;
+use PKP\metadata\MetadataDescription;
+use PKP\metadata\MetadataSchema;
 
 /**
  * @template T of EntityDAO|DAO
  */
 class DataObject
 {
-    /** @var array Array of object data */
-    public $_data = [];
+    /** @var Array of object data */
+    public array $_data = [];
 
-    /** @var bool whether this objects loads meta-data adapters from the database */
-    public $_hasLoadableAdapters = false;
+    /** @var Whether this objects loads meta-data adapters from the database */
+    public bool $_hasLoadableAdapters = false;
 
-    /** @var array an array of meta-data extraction adapters (one per supported schema) */
-    public $_metadataExtractionAdapters = [];
+    /** @var An array of meta-data extraction adapters (one per supported schema) */
+    public array $_metadataExtractionAdapters = [];
 
-    /** @var bool whether extraction adapters have already been loaded from the database */
-    public $_extractionAdaptersLoaded = false;
+    /** @var whether extraction adapters have already been loaded from the database */
+    public bool $_extractionAdaptersLoaded = false;
 
-    /** @var array an array of meta-data injection adapters (one per supported schema) */
+    /** @var An array of meta-data injection adapters (one per supported schema) */
     public $_metadataInjectionAdapters = [];
 
-    /** @var bool whether injection adapters have already been loaded from the database */
+    /** @var Whether injection adapters have already been loaded from the database */
     public $_injectionAdaptersLoaded = false;
 
-    /** @var array conversion table for locales */
-    public $_localesTable = [
-        "be@cyrillic" => "be",
-        "bs" => "bs_Latn",
-        "fr_FR" => "fr",
-        "nb" => "nb_NO",
-        "sr@cyrillic" => "sr_Cyrl",
-        "sr@latin" => "sr_Latn",
-        "uz@cyrillic" => "uz",
-        "uz@latin" => "uz_Latn",
-        "zh_CN" => "zh_Hans",
+    /** @var Conversion table for locales */
+    public array $_localesTable = [
+        'be@cyrillic' => 'be',
+        'bs' => 'bs_Latn',
+        'fr_FR' => 'fr',
+        'nb' => 'nb_NO',
+        'sr@cyrillic' => 'sr_Cyrl',
+        'sr@latin' => 'sr_Latn',
+        'uz@cyrillic' => 'uz',
+        'uz@latin' => 'uz_Latn',
+        'zh_CN' => 'zh_Hans',
     ];
 
     /**
@@ -66,7 +69,6 @@ class DataObject
     public function __construct()
     {
     }
-
 
     //
     // Getters and Setters
@@ -132,12 +134,8 @@ class DataObject
 
     /**
      * Get the value of a data variable.
-     *
-     * @param string $key
-     * @param string $locale (optional)
-     *
      */
-    public function &getData($key, $locale = null)
+    public function &getData(string $key, string $locale = null)
     {
         if (is_null($locale)) {
             if (array_key_exists($key, $this->_data)) {
@@ -153,7 +151,6 @@ class DataObject
     /**
      * Set the value of a new or existing data variable.
      *
-     * @param string $key
      * @param mixed $value can be either a single value or
      *  an array of of localized values in the form:
      *   array(
@@ -161,12 +158,12 @@ class DataObject
      *     'en' => 'in English',
      *     ...
      *   )
-     * @param string $locale (optional) non-null for a single
+     * @param $locale (optional) non-null for a single
      *  localized value. Null for a non-localized value or
      *  when setting all locales at once (see comment for
      *  $value parameter)
      */
-    public function setData($key, $value, $locale = null)
+    public function setData(string $key, mixed $value, ?string $locale = null)
     {
         if (is_null($locale)) {
             // This is either a non-localized value or we're passing in all locales at once.
@@ -196,12 +193,11 @@ class DataObject
     /**
      * Unset an element of the data object.
      *
-     * @param string $key
-     * @param string $locale (optional) non-null for a single
+     * @param $locale (optional) non-null for a single
      *  localized value. Null for a non-localized value or
      *  when unsetting all locales at once.
      */
-    public function unsetData($key, $locale = null)
+    public function unsetData(string $key, ?string $locale = null): void
     {
         if (is_null($locale)) {
             unset($this->_data[$key]);
@@ -212,53 +208,40 @@ class DataObject
 
     /**
      * Check whether a value exists for a given data variable.
-     *
-     * @param string $key
-     * @param string $locale (optional)
-     *
-     * @return bool
      */
-    public function hasData($key, $locale = null)
+    public function hasData(string $key, ?string $locale = null): bool
     {
         return is_null($locale) ? array_key_exists($key, $this->_data) : array_key_exists($locale, (array) ($this->_data[$key] ?? []));
     }
 
     /**
      * Return an array with all data variables.
-     *
-     * @return array
      */
-    public function &getAllData()
+    public function &getAllData(): array
     {
         return $this->_data;
     }
 
     /**
      * Set all data variables at once.
-     *
-     * @param array $data
      */
-    public function setAllData($data)
+    public function setAllData(array $data)
     {
         $this->_data = $data;
     }
 
     /**
      * Get ID of object.
-     *
-     * @return int
      */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->getData('id');
     }
 
     /**
      * Set ID of object.
-     *
-     * @param int $id
      */
-    public function setId($id)
+    public function setId(int $id)
     {
         $this->setData('id', $id);
     }
@@ -269,20 +252,16 @@ class DataObject
     //
     /**
      * Set whether the object has loadable meta-data adapters
-     *
-     * @param bool $hasLoadableAdapters
      */
-    public function setHasLoadableAdapters($hasLoadableAdapters)
+    public function setHasLoadableAdapters(bool $hasLoadableAdapters)
     {
         $this->_hasLoadableAdapters = $hasLoadableAdapters;
     }
 
     /**
      * Get whether the object has loadable meta-data adapters
-     *
-     * @return bool
      */
-    public function getHasLoadableAdapters()
+    public function getHasLoadableAdapters(): bool
     {
         return $this->_hasLoadableAdapters;
     }
@@ -291,13 +270,13 @@ class DataObject
      * Add a meta-data adapter that will be supported
      * by this application entity. Only one adapter per schema
      * can be added.
-     *
-     * @param \PKP\metadata\MetadataDataObjectAdapter $metadataAdapter
      */
-    public function addSupportedMetadataAdapter($metadataAdapter)
+    public function addSupportedMetadataAdapter(MetadataDataObjectAdapter $metadataAdapter): void
     {
         $metadataSchemaName = $metadataAdapter->getMetadataSchemaName();
-        assert(!empty($metadataSchemaName));
+        if (empty($metadataSchemaName)) {
+            throw new Exception('Metadata schema name not specified!');
+        }
 
         // NB: Some adapters are injectors and extractors at the same time,
         // notably the meta-data description dummy adapter that converts
@@ -325,11 +304,9 @@ class DataObject
      * Remove all adapters for the given meta-data schema
      * (if it exists).
      *
-     * @param string $metadataSchemaName fully qualified class name
-     *
-     * @return bool true if an adapter was removed, otherwise false.
+     * @param $metadataSchemaName fully qualified class name
      */
-    public function removeSupportedMetadataAdapter($metadataSchemaName)
+    public function removeSupportedMetadataAdapter(string $metadataSchemaName): bool
     {
         $result = false;
         if (isset($this->_metadataExtractionAdapters[$metadataSchemaName])) {
@@ -347,10 +324,8 @@ class DataObject
      * Get all meta-data extraction adapters that
      * support this data object. This includes adapters
      * loaded from the database.
-     *
-     * @return array
      */
-    public function getSupportedExtractionAdapters()
+    public function getSupportedExtractionAdapters(): array
     {
         // Load meta-data adapters from the database.
         if ($this->getHasLoadableAdapters() && !$this->_extractionAdaptersLoaded) {
@@ -369,10 +344,8 @@ class DataObject
      * Get all meta-data injection adapters that
      * support this data object. This includes adapters
      * loaded from the database.
-     *
-     * @return array
      */
-    public function getSupportedInjectionAdapters()
+    public function getSupportedInjectionAdapters(): array
     {
         // Load meta-data adapters from the database.
         if ($this->getHasLoadableAdapters() && !$this->_injectionAdaptersLoaded) {
@@ -390,10 +363,8 @@ class DataObject
     /**
      * Returns all supported meta-data schemas
      * which are supported by extractor adapters.
-     *
-     * @return array
      */
-    public function getSupportedMetadataSchemas()
+    public function getSupportedMetadataSchemas(): array
     {
         $supportedMetadataSchemas = [];
         $extractionAdapters = $this->getSupportedExtractionAdapters();
@@ -404,13 +375,12 @@ class DataObject
     }
 
     /**
-     * Retrieve the names of meta-data
-     * properties of this data object.
+     * Retrieve the names of meta-data properties of this data object.
      *
-     * @param bool $translated if true, return localized field
+     * @param $translated if true, return localized field
      *  names, otherwise return additional field names.
      */
-    public function getMetadataFieldNames($translated = true)
+    public function getMetadataFieldNames(bool $translated = true): array
     {
         // Create a list of all possible meta-data field names
         $metadataFieldNames = [];
@@ -430,12 +400,12 @@ class DataObject
      * properties that need to be persisted
      * (i.e. that have data).
      *
-     * @param bool $translated if true, return localized field
+     * @param $translated if true, return localized field
      *  names, otherwise return additional field names.
      *
      * @return array an array of field names
      */
-    public function getSetMetadataFieldNames($translated = true)
+    public function getSetMetadataFieldNames(bool $translated = true): array
     {
         // Retrieve a list of all possible meta-data field names
         $metadataFieldNameCandidates = $this->getMetadataFieldNames($translated);
@@ -453,10 +423,8 @@ class DataObject
     /**
      * Retrieve the names of translated meta-data
      * properties that need to be persisted.
-     *
-     * @return array an array of field names
      */
-    public function getLocaleMetadataFieldNames()
+    public function getLocaleMetadataFieldNames(): array
     {
         return $this->getMetadataFieldNames(true);
     }
@@ -464,10 +432,8 @@ class DataObject
     /**
      * Retrieve the names of additional meta-data
      * properties that need to be persisted.
-     *
-     * @return array an array of field names
      */
-    public function getAdditionalMetadataFieldNames()
+    public function getAdditionalMetadataFieldNames(): array
     {
         return $this->getMetadataFieldNames(false);
     }
@@ -476,11 +442,9 @@ class DataObject
      * Inject a meta-data description into this
      * data object.
      *
-     * @param \PKP\metadata\MetadataDescription $metadataDescription
-     *
      * @return bool true on success, otherwise false
      */
-    public function injectMetadata($metadataDescription)
+    public function injectMetadata(\PKP\metadata\MetadataDescription $metadataDescription): bool
     {
         $dataObject = null;
         $metadataSchemaName = $metadataDescription->getMetadataSchemaName();
@@ -505,12 +469,8 @@ class DataObject
     /**
      * Extract a meta-data description from this
      * data object.
-     *
-     * @param \PKP\metadata\MetadataSchema $metadataSchema
-     *
-     * @return MetadataDescription
      */
-    public function extractMetadata($metadataSchema)
+    public function extractMetadata(MetadataSchema $metadataSchema): MetadataDescription
     {
         $metadataDescription = null;
         $metadataSchemaName = $metadataSchema->getClassName();
@@ -529,12 +489,10 @@ class DataObject
 
     /**
      * Get DAO class for this object.
-     *
-     * @return T
      */
-    public function getDAO()
+    public function getDAO(): \PKP\db\DAO|\PKP\core\EntityDAO
     {
-        assert(false);
+        throw new Exception('Must be implemented by subclass if used');
     }
 }
 

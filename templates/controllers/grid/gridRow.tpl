@@ -7,7 +7,7 @@
  *
  * A grid row.
  *}
-{if !is_null($row->getId())}
+{if $row->getId() !== null}
 	{assign var=rowIdPrefix value="component-"|concat:$row->getGridId()}
 	{if $categoryId|@strlen > 0}
 		{assign var=rowIdPrefix value=$rowIdPrefix|concat:"-category-":$categoryId|escape}

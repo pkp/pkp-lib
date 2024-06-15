@@ -132,7 +132,7 @@ class AnnouncementTypeGridHandler extends GridHandler
     protected function loadData($request, $filter)
     {
         $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
-        return $announcementTypeDao->getByContextId($request->getContext()?->getId());
+        return iterator_to_array($announcementTypeDao->getByContextId($request->getContext()?->getId()));
     }
 
     /**

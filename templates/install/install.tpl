@@ -22,33 +22,34 @@
 	<br />
 
 	<div class="app__contentPanel">
-		{fbvFormSection label="common.language" for="installLanguage" style="position: absolute;"}
-			{fbvElement type="select" name="installLanguage" id="installLanguage" from=$languageOptions selected=$locale translate=false size=$fbvStyles.size.SMALL subLabelTranslate=true}
-		{/fbvFormSection}
-
-		{capture assign="writable_config"}{if is_writeable('config.inc.php')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
-		{capture assign="writable_cache"}{if is_writeable('cache')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
-		{capture assign="writable_public"}{if is_writeable('public')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
-		{capture assign="writable_db_cache"}{if is_writeable('cache/_db')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
-		{capture assign="writable_templates_cache"}{if is_writeable('cache/t_cache')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
-		{capture assign="writable_templates_compile"}{if is_writeable('cache/t_compile')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
-
-		{if !$phpIsSupportedVersion}
-			{capture assign="wrongPhpText"}{translate key="installer.installationWrongPhp"}{/capture}
-		{/if}
-
-		<script>
-			$(function() {ldelim}
-				// Attach the form handler.
-				$('#installForm').pkpHandler('$.pkp.controllers.form.FormHandler');
-				$('#installLanguage').change(function () {
-					var params = new URLSearchParams(location.search);
-					params.set('setLocale', this.value);
-					location = location.href.replace(/(\?.*)?$/, '?' + params);
-				});
-			{rdelim});
-		</script>
 		<form class="pkp_form" method="post" id="installForm" action="{url op="install"}">
+			{fbvFormSection label="common.language" for="installLanguage" style="position: absolute;"}
+				{fbvElement type="select" name="installLanguage" id="installLanguage" from=$languageOptions selected=$locale translate=false size=$fbvStyles.size.SMALL subLabelTranslate=true}
+			{/fbvFormSection}
+
+			{capture assign="writable_config"}{if is_writeable('config.inc.php')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
+			{capture assign="writable_cache"}{if is_writeable('cache')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
+			{capture assign="writable_public"}{if is_writeable('public')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
+			{capture assign="writable_db_cache"}{if is_writeable('cache/_db')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
+			{capture assign="writable_templates_cache"}{if is_writeable('cache/t_cache')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
+			{capture assign="writable_templates_compile"}{if is_writeable('cache/t_compile')}{translate key="installer.checkYes"}{else}{translate key="installer.checkNo"}{/if}{/capture}
+
+			{if !$phpIsSupportedVersion}
+				{capture assign="wrongPhpText"}{translate key="installer.installationWrongPhp"}{/capture}
+			{/if}
+
+			<script>
+				$(function() {ldelim}
+					// Attach the form handler.
+					$('#installForm').pkpHandler('$.pkp.controllers.form.FormHandler');
+					$('#installLanguage').change(function () {
+						var params = new URLSearchParams(location.search);
+						params.set('setLocale', this.value);
+						location = location.href.replace(/(\?.*)?$/, '?' + params);
+					});
+				{rdelim});
+			</script>
+
 			<input type="hidden" name="installing" value="0" />
 
 			{translate key="installer.installationInstructions" version=$version->getVersionString(false) upgradeUrl=$upgradeUrl baseUrl=$baseUrl writable_config=$writable_config writable_db_cache=$writable_db_cache writable_cache=$writable_cache writable_public=$writable_public writable_templates_cache=$writable_templates_cache writable_templates_compile=$writable_templates_compile phpRequiredVersion=$phpRequiredVersion wrongPhpText=$wrongPhpText phpVersion=$phpVersion}

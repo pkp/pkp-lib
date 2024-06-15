@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\Core;
 use PKP\core\interfaces\CollectorInterface;
+use PKP\core\PKPString;
 use PKP\plugins\Hook;
 
 /**
@@ -34,7 +35,6 @@ class Collector implements CollectorInterface
     public const SITE_ONLY = 'site';
     public const SITE_AND_CONTEXTS = 'all';
 
-    public DAO $dao;
     public ?array $contextIds = null;
     public ?string $isActive = null;
     public ?string $searchPhrase = null;
@@ -45,9 +45,13 @@ class Collector implements CollectorInterface
     public string $orderBy = self::ORDERBY_DATE_POSTED;
     public string $orderDirection = self::ORDER_DIR_DESC;
 
-    public function __construct(DAO $dao)
+    /**
+     * Constructor
+     *
+     * @param DAO<Announcement>
+     */
+    public function __construct(public DAO $dao)
     {
-        $this->dao = $dao;
     }
 
     /** @copydoc DAO::getCount() */
@@ -79,7 +83,7 @@ class Collector implements CollectorInterface
     /**
      * Filter announcements by one or more contexts
      */
-    public function filterByContextIds(?array $contextIds): self
+    public function filterByContextIds(?array $contextIds): static
     {
         $this->contextIds = $contextIds;
         return $this;
@@ -91,7 +95,7 @@ class Collector implements CollectorInterface
      * @param string $date Optionally filter announcements by those
      *   not expired until $date (YYYY-MM-DD).
      */
-    public function filterByActive(string $date = ''): self
+    public function filterByActive(?string $date = ''): static
     {
         $this->isActive = empty($date)
             ? Core::getCurrentDate()
@@ -102,7 +106,7 @@ class Collector implements CollectorInterface
     /**
      * Filter announcements by one or more announcement types
      */
-    public function filterByTypeIds(array $typeIds): self
+    public function filterByTypeIds(?array $typeIds): static
     {
         $this->typeIds = $typeIds;
         return $this;
@@ -111,7 +115,7 @@ class Collector implements CollectorInterface
     /**
      * Include site-level announcements in the results
      */
-    public function withSiteAnnouncements(?string $includeMethod = self::SITE_AND_CONTEXTS): self
+    public function withSiteAnnouncements(?string $includeMethod = self::SITE_AND_CONTEXTS): static
     {
         $this->includeSite = $includeMethod;
         return $this;
@@ -120,7 +124,7 @@ class Collector implements CollectorInterface
     /**
      * Filter announcements by those matching a search query
      */
-    public function searchPhrase(?string $phrase): self
+    public function searchPhrase(?string $phrase): static
     {
         $this->searchPhrase = $phrase;
         return $this;
@@ -129,7 +133,7 @@ class Collector implements CollectorInterface
     /**
      * Limit the number of objects retrieved
      */
-    public function limit(?int $count): self
+    public function limit(?int $count): static
     {
         $this->count = $count;
         return $this;
@@ -139,7 +143,7 @@ class Collector implements CollectorInterface
      * Offset the number of objects retrieved, for example to
      * retrieve the second page of contents
      */
-    public function offset(?int $offset): self
+    public function offset(?int $offset): static
     {
         $this->offset = $offset;
         return $this;
@@ -153,7 +157,7 @@ class Collector implements CollectorInterface
      * @param string $sorter One of the self::ORDERBY_ constants
      * @param string $direction One of the self::ORDER_DIR_ constants
      */
-    public function orderBy(?string $sorter, string $direction = self::ORDER_DIR_DESC): self
+    public function orderBy(?string $sorter, string $direction = self::ORDER_DIR_DESC): static
     {
         $this->orderBy = $sorter;
         $this->orderDirection = $direction;
@@ -165,53 +169,39 @@ class Collector implements CollectorInterface
      */
     public function getQueryBuilder(): Builder
     {
-        $qb = DB::table($this->dao->table . ' as a')
-            ->select(['a.*']);
+        $qb = DB::table($this->dao->table, 'a')
+            ->select(['a.*'])
+            ->where('a.assoc_type', Application::get()->getContextAssocType());
 
-        if (isset($this->contextIds) && $this->includeSite !== self::SITE_ONLY) {
-            $qb->where('a.assoc_type', Application::get()->getContextAssocType());
-            $qb->whereIn('a.assoc_id', $this->contextIds);
-            if ($this->includeSite === self::SITE_AND_CONTEXTS) {
-                $qb->orWhereNull('a.assoc_id');
-            }
-        } elseif ($this->includeSite === self::SITE_ONLY) {
-            $qb->where('a.assoc_type', Application::get()->getContextAssocType());
-            $qb->whereNull('a.assoc_id');
+        $includeSite = in_array($this->includeSite, [static::SITE_AND_CONTEXTS, static::SITE_ONLY]);
+        if (isset($this->contextIds) || $includeSite) {
+            $qb->whereIn(DB::raw('COALESCE(a.assoc_id, 0)'), array_merge($this->contextIds ?? [], $includeSite ? [0] : []));
         }
 
         if (isset($this->typeIds)) {
             $qb->whereIn('a.type_id', $this->typeIds);
         }
 
-        $qb->when($this->isActive, fn ($qb) => $qb->where(function ($qb) {
-            $qb->where('a.date_expire', '>', $this->isActive)
-                ->orWhereNull('a.date_expire');
-        }));
+        $qb->when(
+            $this->isActive,
+            fn (Builder $qb) => $qb->where(fn (Builder $qb) => $qb->where('a.date_expire', '>', $this->isActive)->orWhereNull('a.date_expire'))
+        );
 
-        if ($this->searchPhrase !== null) {
-            $words = explode(' ', $this->searchPhrase);
-            if (count($words)) {
-                $qb->whereIn('a.announcement_id', function ($query) use ($words) {
-                    $query->select('announcement_id')->from($this->dao->settingsTable);
-                    foreach ($words as $word) {
-                        $word = strtolower(addcslashes($word, '%_'));
-                        $query->where(function ($query) use ($word) {
-                            $query->where(function ($query) use ($word) {
-                                $query->where('setting_name', 'title');
-                                $query->where(DB::raw('lower(setting_value)'), 'LIKE', "%{$word}%");
-                            })
-                                ->orWhere(function ($query) use ($word) {
-                                    $query->where('setting_name', 'descriptionShort');
-                                    $query->where(DB::raw('lower(setting_value)'), 'LIKE', "%{$word}%");
-                                })
-                                ->orWhere(function ($query) use ($word) {
-                                    $query->where('setting_name', 'description');
-                                    $query->where(DB::raw('lower(setting_value)'), 'LIKE', "%{$word}%");
-                                });
-                        });
-                    }
-                });
-            }
+        $searchPhrase = trim($this->searchPhrase ?? '');
+        if (strlen($searchPhrase)) {
+            $words = PKPString::regexp_split('/\s+/', $searchPhrase);
+            $qb->whereIn('a.announcement_id', function (Builder $q) use ($words) {
+                $q->select('announcement_id')->from($this->dao->settingsTable);
+                foreach ($words as $word) {
+                    $word = strtolower(addcslashes($word, '%_'));
+                    $q->where(
+                        fn (Builder $q) => $q
+                            ->where(fn (Builder $q) => $q->where('setting_name', 'title')->where(DB::raw('lower(setting_value)'), 'LIKE', "%{$word}%"))
+                            ->orWhere(fn (Builder $q) => $q->where('setting_name', 'descriptionShort')->where(DB::raw('lower(setting_value)'), 'LIKE', "%{$word}%"))
+                            ->orWhere(fn (Builder $q) => $q->where('setting_name', 'description')->where(DB::raw('lower(setting_value)'), 'LIKE', "%{$word}%"))
+                    );
+                }
+            });
         }
 
         $qb->orderByDesc('a.date_posted');
@@ -224,14 +214,9 @@ class Collector implements CollectorInterface
             $qb->offset($this->offset);
         }
 
-        if (isset($this->orderBy)) {
-            $qb->orderBy('a.' . $this->orderBy, $this->orderDirection);
-            // Add a secondary sort by id to catch cases where two
-            // announcements share the same date
-            if (in_array($this->orderBy, [SELF::ORDERBY_DATE_EXPIRE, SELF::ORDERBY_DATE_POSTED])) {
-                $qb->orderBy('a.announcement_id', $this->orderDirection);
-            }
-        }
+        $qb->orderBy('a.' . $this->orderBy, $this->orderDirection);
+        // Add a secondary sort by id to catch cases where two announcements share the same date
+        $qb->orderBy('a.announcement_id', $this->orderDirection);
 
         Hook::call('Announcement::Collector', [&$qb, $this]);
 

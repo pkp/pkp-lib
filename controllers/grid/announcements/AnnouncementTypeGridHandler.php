@@ -16,7 +16,6 @@
 
 namespace PKP\controllers\grid\announcements;
 
-use APP\core\Application;
 use APP\notification\NotificationManager;
 use PKP\announcement\AnnouncementTypeDAO;
 use PKP\controllers\grid\announcements\form\AnnouncementTypeForm;
@@ -30,7 +29,6 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PKPSiteAccessPolicy;
-use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 
 class AnnouncementTypeGridHandler extends GridHandler
@@ -52,21 +50,16 @@ class AnnouncementTypeGridHandler extends GridHandler
         );
     }
 
-    //
-    // Overridden template methods
-    //
     /**
      * @copydoc GridHandler::authorize()
      */
     public function authorize($request, &$args, $roleAssignments)
     {
         $context = $request->getContext();
-
-        if ($context) {
-            $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-        } else {
-            $this->addPolicy(new PKPSiteAccessPolicy($request, null, $roleAssignments));
-        }
+        $policy = $context
+            ? new ContextAccessPolicy($request, $roleAssignments)
+            : new PKPSiteAccessPolicy($request, null, $roleAssignments);
+        $this->addPolicy($policy);
 
         $announcementTypeId = $request->getUserVar('announcementTypeId');
         if ($announcementTypeId) {
@@ -143,31 +136,18 @@ class AnnouncementTypeGridHandler extends GridHandler
         return new AnnouncementTypeGridRow();
     }
 
-    //
-    // Public grid actions.
-    //
     /**
      * Display form to add announcement type.
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage
      */
-    public function addAnnouncementType($args, $request)
+    public function addAnnouncementType(array $args, PKPRequest $request): JSONMessage
     {
         return $this->editAnnouncementType($args, $request);
     }
 
     /**
      * Display form to edit an announcement type.
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage JSON object
      */
-    public function editAnnouncementType($args, $request)
+    public function editAnnouncementType(array $args, PKPRequest $request): JSONMessage
     {
         $announcementTypeId = (int)$request->getUserVar('announcementTypeId');
         $announcementTypeForm = new AnnouncementTypeForm($request->getContext()?->getId(), $announcementTypeId);
@@ -178,13 +158,8 @@ class AnnouncementTypeGridHandler extends GridHandler
 
     /**
      * Save an edited/inserted announcement type.
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage JSON object
      */
-    public function updateAnnouncementType($args, $request)
+    public function updateAnnouncementType(array $args, PKPRequest $request): JSONMessage
     {
         // Identify the announcement type id.
         $announcementTypeId = $request->getUserVar('announcementTypeId');
@@ -218,13 +193,8 @@ class AnnouncementTypeGridHandler extends GridHandler
 
     /**
      * Delete an announcement type.
-     *
-     * @param array $args
-     * @param PKPRequest $request
-     *
-     * @return JSONMessage JSON object
      */
-    public function deleteAnnouncementType($args, $request)
+    public function deleteAnnouncementType(array $args, PKPRequest $request): JSONMessage
     {
         $announcementTypeId = (int) $request->getUserVar('announcementTypeId');
 

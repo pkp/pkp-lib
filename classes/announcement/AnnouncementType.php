@@ -20,58 +20,42 @@ namespace PKP\announcement;
 
 class AnnouncementType extends \PKP\core\DataObject
 {
-    //
-    // Get/set methods
-    //
     /**
      * Get context ID for this announcement.
-     *
-     * @return int
      */
-    public function getContextId()
+    public function getContextId(): ?int
     {
         return $this->getData('contextId');
     }
 
     /**
      * Set context ID for this announcement.
-     *
-     * @param int $contextId
      */
-    public function setContextId($contextId)
+    public function setContextId(?int $contextId): void
     {
         $this->setData('contextId', $contextId);
     }
 
     /**
      * Get the type of the announcement type.
-     *
-     * @return string
      */
-    public function getLocalizedTypeName()
+    public function getLocalizedTypeName(): ?string
     {
         return $this->getLocalizedData('name');
     }
 
     /**
      * Get the type of the announcement type.
-     *
-     * @param string $locale
-     *
-     * @return string
      */
-    public function getName($locale)
+    public function getName(?string $locale): array|string|null
     {
         return $this->getData('name', $locale);
     }
 
     /**
      * Set the type of the announcement type.
-     *
-     * @param string $name
-     * @param string $locale
      */
-    public function setName($name, $locale)
+    public function setName(array|string|null $name, ?string $locale): void
     {
         $this->setData('name', $name, $locale);
     }

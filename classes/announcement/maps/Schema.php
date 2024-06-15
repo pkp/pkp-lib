@@ -14,7 +14,6 @@
 namespace PKP\announcement\maps;
 
 use APP\core\Application;
-use APP\core\Request;
 use Illuminate\Support\Enumerable;
 use PKP\announcement\Announcement;
 use PKP\core\PKPApplication;

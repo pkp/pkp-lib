@@ -45,10 +45,10 @@ class DataObject
     public bool $_extractionAdaptersLoaded = false;
 
     /** @var An array of meta-data injection adapters (one per supported schema) */
-    public $_metadataInjectionAdapters = [];
+    public array $_metadataInjectionAdapters = [];
 
     /** @var Whether injection adapters have already been loaded from the database */
-    public $_injectionAdaptersLoaded = false;
+    public mixed $_injectionAdaptersLoaded = false;
 
     /** @var Conversion table for locales */
     public array $_localesTable = [

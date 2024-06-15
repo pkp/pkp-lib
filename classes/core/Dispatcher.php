@@ -204,33 +204,32 @@ class Dispatcher
     /**
      * Build a handler request URL into PKPApplication.
      *
-     * @param PKPRequest $request the request to be routed
-     * @param string $shortcut the short name of the router that should be used to construct the URL
-     * @param mixed $newContext Optional contextual paths
-     * @param string $handler Optional name of the handler to invoke
-     * @param string $op Optional name of operation to invoke
-     * @param mixed $path Optional string or array of args to pass to handler
-     * @param array $params Optional set of name => value pairs to pass as user parameters
-     * @param string $anchor Optional name of anchor to add to URL
-     * @param bool $escape Whether or not to escape ampersands for this URL; default false.
-     * @param string $urlLocaleForPage Whether or not to override locale for this URL; Use '' to exclude.
-     *
-     * @return string the URL
+     * @param $shortcut the short name of the router that should be used to construct the URL
+     * @param $newContext Optional contextual path
+     * @param $handler Optional name of the handler to invoke
+     * @param $op Optional name of operation to invoke
+     * @param $path Optional string or array of args to pass to handler
+     * @param $params Optional set of name => value pairs to pass as user parameters
+     * @param $anchor Optional name of anchor to add to URL
+     * @param $escape Whether or not to escape ampersands for this URL; default false.
+     * @param $urlLocaleForPage Whether or not to override locale for this URL; Use '' to exclude.
      */
     public function url(
         PKPRequest $request,
         string $shortcut,
         ?string $newContext = null,
-        $handler = null,
-        $op = null,
-        $path = null,
-        $params = null,
-        $anchor = null,
-        $escape = false,
+        ?string $handler = null,
+        ?string $op = null,
+        mixed $path = null,
+        ?array $params = null,
+        ?string $anchor = null,
+        bool $escape = false,
         ?string $urlLocaleForPage = null,
-    ) {
+    ): string {
         // Instantiate the requested router
-        assert(isset($this->_routerNames[$shortcut]));
+        if (!isset($this->_routerNames[$shortcut])) {
+            throw new \Exception('Specified router is not configured!');
+        }
         $routerName = $this->_routerNames[$shortcut];
         $router = & $this->_instantiateRouter($routerName, $shortcut);
 
@@ -243,11 +242,8 @@ class Dispatcher
 
     /**
      * Instantiate a router
-     *
-     * @param string $routerName
-     * @param string $shortcut
      */
-    public function &_instantiateRouter($routerName, $shortcut)
+    public function &_instantiateRouter(string $routerName, string $shortcut): PKPRouter
     {
         if (!isset($this->_routerInstances[$shortcut])) {
             // Instantiate the router
@@ -259,7 +255,7 @@ class Dispatcher
             $router->setDispatcher($this);
 
             // Save the router instance for later re-use
-            $this->_routerInstances[$shortcut] = & $router;
+            $this->_routerInstances[$shortcut] = $router;
         }
 
         return $this->_routerInstances[$shortcut];
@@ -267,10 +263,8 @@ class Dispatcher
 
     /**
      * Display the request contents from cache.
-     *
-     * @param PKPRouter $router
      */
-    public function _displayCached($router, $request)
+    public function _displayCached(PKPRouter $router, PKPRequest $request): bool
     {
         $filename = $router->getCacheFilename($request);
         if (!file_exists($filename)) {
@@ -301,12 +295,8 @@ class Dispatcher
 
     /**
      * Cache content as a local file.
-     *
-     * @param string $contents
-     *
-     * @return string
      */
-    public function _cacheContent($contents)
+    public function _cacheContent(string $contents): string
     {
         if ($contents == '') {
             return $contents;

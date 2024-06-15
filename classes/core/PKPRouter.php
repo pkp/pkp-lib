@@ -74,7 +74,7 @@ abstract class PKPRouter
     // only via their respective getters/setters
     //
     protected Application $_application;
-    protected Dispatcher $_dispatcher;
+    protected ?Dispatcher $_dispatcher = null;
     protected ?string $_contextPath = null;
     public ?Context $_context = null;
     public ?PKPHandler $_handler = null;
@@ -114,7 +114,7 @@ abstract class PKPRouter
     /**
      * get the dispatcher
      */
-    public function getDispatcher(): \PKP\core\Dispatcher
+    public function getDispatcher(): ?Dispatcher
     {
         return $this->_dispatcher;
     }
@@ -122,7 +122,7 @@ abstract class PKPRouter
     /**
      * set the dispatcher
      */
-    public function setDispatcher(\PKP\core\Dispatcher $dispatcher)
+    public function setDispatcher(Dispatcher $dispatcher)
     {
         $this->_dispatcher = $dispatcher;
     }

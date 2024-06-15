@@ -138,7 +138,7 @@ class DAOResultFactory extends ItemIterator
     /**
      * @copydoc ItemIterator::count()
      */
-    public function getCount()
+    public function getCount(): int
     {
         if ($this->sql === null) {
             throw new \Exception('DAOResultFactory instances cannot be counted unless supplied in constructor (DAO ' . $this->dao::class . ')!');

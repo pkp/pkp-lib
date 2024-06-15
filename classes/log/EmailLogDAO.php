@@ -23,6 +23,7 @@ use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
+use PKP\db\DBResultRange;
 use PKP\plugins\Hook;
 
 class EmailLogDAO extends \PKP\db\DAO
@@ -55,16 +56,8 @@ class EmailLogDAO extends \PKP\db\DAO
 
     /**
      * Retrieve a log entry by event type.
-     *
-     * @param int $assocType
-     * @param int $assocId
-     * @param int $eventType
-     * @param int $userId optional
-     * @param ?\PKP\db\DBResultRange $rangeInfo optional
-     *
-     * @return DAOResultFactory<EmailLogEntry>
      */
-    public function _getByEventType($assocType, $assocId, $eventType, $userId = null, $rangeInfo = null)
+    public function _getByEventType(int $assocType, int $assocId, int $eventType, ?int $userId = null, ?DBResultRange $rangeInfo = null): DAOResultFactory
     {
         $q = DB::table('email_log', 'e')
             ->when(

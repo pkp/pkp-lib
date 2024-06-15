@@ -59,10 +59,8 @@ class ReviewFormElementForm extends Form
 
     /**
      * Get the names of fields for which localized data is allowed.
-     *
-     * @return array
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /** @var ReviewFormElementDAO $reviewFormElementDao */
         return $reviewFormElementDao->getLocaleFieldNames();

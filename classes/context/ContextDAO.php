@@ -50,10 +50,8 @@ abstract class ContextDAO extends SchemaDAO
 
     /**
      * Get a list of localized settings.
-     *
-     * @return string[]
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         return ['name', 'description'];
     }

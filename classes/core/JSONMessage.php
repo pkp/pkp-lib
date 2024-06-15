@@ -22,16 +22,16 @@ class JSONMessage
     /** @var The status of an event (e.g. false if form validation fails). */
     public bool $_status;
 
-    /** @var mixed The message to be delivered back to the calling script. */
-    public string $_content;
+    /** @var The message to be delivered back to the calling script. */
+    public mixed $_content;
 
-    /** @var string ID for DOM element that will be replaced. */
+    /** @var ID for DOM element that will be replaced. */
     public string $_elementId;
 
-    /** @var array List of JS events generated on the server side. */
+    /** @var List of JS events generated on the server side. */
     public array $_events = [];
 
-    /** @var array Set of additional attributes for special cases. */
+    /** @var Set of additional attributes for special cases. */
     public array $_additionalAttributes;
 
     /**
@@ -68,9 +68,9 @@ class JSONMessage
     }
 
     /**
-     * Get the content string
+     * Get the content data
      */
-    public function getContent(): string
+    public function getContent(): mixed
     {
         return $this->_content;
     }
@@ -78,7 +78,7 @@ class JSONMessage
     /**
      * Set the content data
      */
-    public function setContent(string $content)
+    public function setContent(mixed $content)
     {
         $this->_content = $content;
     }

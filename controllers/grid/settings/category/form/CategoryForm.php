@@ -128,7 +128,7 @@ class CategoryForm extends Form
     /**
      * Get all locale field names
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         return ['name', 'description'];
     }

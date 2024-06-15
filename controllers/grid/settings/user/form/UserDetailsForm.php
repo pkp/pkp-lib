@@ -286,7 +286,7 @@ class UserDetailsForm extends UserForm
     /**
      * Get all locale field names
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         return ['biography', 'signature', 'affiliation', Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_FAMILYNAME, 'preferredPublicName'];
     }

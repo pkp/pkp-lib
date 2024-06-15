@@ -199,10 +199,8 @@ class GenreDAO extends DAO
 
     /**
      * Get a list of field names for which data is localized.
-     *
-     * @return array
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         return ['name'];
     }

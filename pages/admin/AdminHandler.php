@@ -238,7 +238,7 @@ class AdminHandler extends Handler
         $templateMgr->assign([
             'breadcrumbs' => $breadcrumbs,
             'pageTitle' => __('admin.siteSettings'),
-            'componentAvailability' => $this->siteSettingsAvailability($request),
+            'componentAvailability' => $this->siteSettingsAvailability(),
         ]);
 
         $templateMgr->display('admin/settings.tpl');
@@ -247,20 +247,11 @@ class AdminHandler extends Handler
     /**
      * Business logic for site settings single/multiple contexts availability
      *
-     * @param PKPRequest $request
-     *
-     * @return array [siteComponent, availability (bool)]
+     * @return array<string,bool> List of tabs, where the key is the tab name and the value its availability
      */
-    private function siteSettingsAvailability($request)
+    private function siteSettingsAvailability(): array
     {
-        $tabsSingleContextAvailability = [
-            'siteSetup',
-            'languages',
-            'bulkEmails',
-            'statistics',
-        ];
-
-        $tabs = [
+        $tabs = array_fill_keys([
             'siteSetup',
             'siteAppearance',
             'sitePlugins',
@@ -274,27 +265,20 @@ class AdminHandler extends Handler
             'siteAppearanceSetup',
             'statistics',
             'announcements',
-        ];
+        ], true);
 
-        if (!Config::getVar('features', 'site_announcements')) {
-            $tabs = array_filter(
-                $tabs,
-                function($tab) { return $tab !== 'announcements'; }
-            );
-        }
+        $tabs['announcements'] = (bool) Config::getVar('features', 'site_announcements');
+        $tabs['highlights'] = (bool) Config::getVar('features', 'highlights');
 
-        $singleContextSite = (Services::get('context')->getCount() == 1);
-
-        $tabsAvailability = [];
-
-        foreach ($tabs as $tab) {
-            $tabsAvailability[$tab] = true;
-            if ($singleContextSite && !in_array($tab, $tabsSingleContextAvailability)) {
-                $tabsAvailability[$tab] = false;
+        $isSingleContextSite = Services::get('context')->getCount() < 2;
+        if ($isSingleContextSite) {
+            $multipleContextTabs = ['siteSetup', 'languages', 'bulkEmails', 'statistics'];
+            foreach ($multipleContextTabs as $tab) {
+                $tabs[$tab] = false;
             }
         }
 
-        return $tabsAvailability;
+        return $tabs;
     }
 
     /**

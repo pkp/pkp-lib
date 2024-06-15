@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * @file tests/jobs/metadata/BatchMetadataChangedJobTest.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @brief Tests for changing metadata job in batch.
+ */
+
 namespace PKP\tests\jobs\metadata;
 
 use Mockery;
@@ -16,9 +26,9 @@ use APP\submission\Repository as SubmissionRepository;
 class BatchMetadataChangedJobTest extends PKPTestCase
 {
     /**
-     * Serializion from OJS 3.4.0
+     * base64_encoded serializion from OJS 3.4.0
      */
-    protected string $serializedJobData = 'O:41:"PKP\jobs\metadata\BatchMetadataChangedJob":3:{s:13:"submissionIds";a:2:{i:0;i:1;i:1;i:2;}s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}';
+    protected string $serializedJobData = 'Tzo0MToiUEtQXGpvYnNcbWV0YWRhdGFcQmF0Y2hNZXRhZGF0YUNoYW5nZWRKb2IiOjM6e3M6MTM6InN1Ym1pc3Npb25JZHMiO2E6Mjp7aTowO2k6MTtpOjE7aToyO31zOjEwOiJjb25uZWN0aW9uIjtzOjg6ImRhdGFiYXNlIjtzOjU6InF1ZXVlIjtzOjU6InF1ZXVlIjt9';
 
     /**
      * Test job is a proper instance
@@ -27,7 +37,7 @@ class BatchMetadataChangedJobTest extends PKPTestCase
     {
         $this->assertInstanceOf(
             BatchMetadataChangedJob::class,
-            unserialize($this->serializedJobData)
+            unserialize(base64_decode($this->serializedJobData))
         );
     }
 
@@ -39,7 +49,7 @@ class BatchMetadataChangedJobTest extends PKPTestCase
         $this->mockRequest();
 
         /** @var BatchMetadataChangedJob $batchMetadataChangedJob */
-        $batchMetadataChangedJob = unserialize($this->serializedJobData);
+        $batchMetadataChangedJob = unserialize(base64_decode($this->serializedJobData));
 
         /**
          * @disregard P1013 PHP Intelephense error suppression

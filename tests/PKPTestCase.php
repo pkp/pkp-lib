@@ -86,6 +86,8 @@ abstract class PKPTestCase extends TestCase
     {
         parent::setUp();
         $this->setBackupGlobals(true);
+
+        // Set application running unit test 
         PKPContainer::getInstance()->setRunningUnitTests();
 
         // Rather than using "include_once()", ADOdb uses
@@ -136,8 +138,10 @@ abstract class PKPTestCase extends TestCase
             DAORegistry::registerDAO($mockedDao, $this->daoBackup[$mockedDao]);
         }
 
+        // Delete the mocked guzzle client from registry
         Registry::delete(self::MOCKED_GUZZLE_CLIENT_NAME);
 
+        // Unset application running unit test 
         PKPContainer::getInstance()->unsetRunningUnitTests();
 
         Mockery::close();

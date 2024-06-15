@@ -156,18 +156,15 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     }
 
     /**
-     * Delete an announcement type by announcement type ID. Note that all announcements with
-     * this type ID are also deleted.
-     *
-     * @param int $typeId
+     * Delete an announcement type by announcement type ID. Note that all announcements with this type ID are also deleted.
      */
-    public function deleteById($typeId)
+    public function deleteById(int $typeId): void
     {
-        $this->update('DELETE FROM announcement_type_settings WHERE type_id = ?', [(int) $typeId]);
-        $this->update('DELETE FROM announcement_types WHERE type_id = ?', [(int) $typeId]);
-
-        $collector = Repo::announcement()->getCollector()->filterByTypeIds([(int) $typeId]);
+        $collector = Repo::announcement()->getCollector()->filterByTypeIds([$typeId]);
         Repo::announcement()->deleteMany($collector);
+        DB::table('announcement_types')
+            ->where('type_id', '=', $typeId)
+            ->delete();
     }
 
     /**

@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-11 05:35+0000\n"
+"PO-Revision-Date: 2024-06-16 06:10+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "ja/>\n"
@@ -56,7 +56,7 @@ msgid "grid.action.addUser"
 msgstr "ユーザー追加"
 
 msgid "grid.action.unassignReviewer"
-msgstr "この査読者を割り当て解除"
+msgstr "この査読者の任命を解除"
 
 msgid "grid.action.approveCopyedit"
 msgstr "次の段階に送信するため、この原稿整理ファイルを承認する"
@@ -290,7 +290,7 @@ msgid "grid.action.mergeUser"
 msgstr "ユーザーをマージ"
 
 msgid "grid.action.unassignUser"
-msgstr "ユーザーを割り当て解除"
+msgstr "ユーザーの任命を解除"
 
 msgid "grid.action.history"
 msgstr "歴を閲覧"
@@ -647,7 +647,7 @@ msgid "grid.artworkFile.placement"
 msgstr "図書の中での配置"
 
 msgid "grid.userGroup.assignStage"
-msgstr "段階を割り当て"
+msgstr "段階を指定"
 
 msgid "grid.userGroup.unassignStage"
 msgstr "段階を割り当て解除"

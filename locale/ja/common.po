@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2022, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-13 05:19+0000\n"
+"PO-Revision-Date: 2024-06-16 05:47+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ja/>\n"
@@ -177,7 +177,7 @@ msgid "common.applyAction"
 msgstr "処理実行"
 
 msgid "common.assign"
-msgstr "任命日"
+msgstr "担当者指定"
 
 msgid "common.assigned"
 msgstr "任命日"

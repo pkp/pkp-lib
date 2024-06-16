@@ -1,16 +1,17 @@
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
+# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-12-12 14:15+0000\n"
-"Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
+"PO-Revision-Date: 2024-06-16 06:10+0000\n"
+"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
-"ja_JP/>\n"
-"Language: ja_JP\n"
+"ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
 msgstr "アカウント情報"
@@ -72,7 +73,7 @@ msgid "user.authorization.pluginRequired"
 msgstr "プラグインが指定されていないので必須です。"
 
 msgid "user.authorization.invalidReviewAssignment"
-msgstr "この査読任命にアクセスする権限がありません。"
+msgstr "この査読課題にアクセスする権限がありません。"
 
 msgid "user.authorization.submissionQuery"
 msgstr "このディスカッションにアクセスする権限がありません。"

@@ -349,9 +349,12 @@ class UserDetailsForm extends UserForm
             if ($this->getData('password') !== '') {
                 $this->user->setPassword(Validation::encryptCredentials($this->user->getUsername(), $this->getData('password')));
 
-                (int) $this->user->getId() === (int) $request->getUser()->getId()
-                    ? Auth::logoutOtherDevices($this->getData('password'))
-                    : $request->getSessionGuard()->invalidateOtherSessions($this->user->getId());
+                if ((int) $this->user->getId() === (int) $request->getUser()->getId()) {
+                    Application::get()->getRequest()->getSessionGuard()->updateUser($this->user);
+                    $this->user = Auth::logoutOtherDevices($this->getData('password'));
+                } else {
+                    $request->getSessionGuard()->invalidateOtherSessions($this->user->getId());
+                }
             }
 
             Repo::user()->edit($this->user);

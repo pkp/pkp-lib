@@ -1,17 +1,18 @@
 # Emma U <emmaupkp@gmail.com>, 2021.
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
+# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-12-11 08:31+0000\n"
-"Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
+"PO-Revision-Date: 2024-06-16 06:10+0000\n"
+"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
-"ja_JP/>\n"
-"Language: ja_JP\n"
+"ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "この投稿物を完全に削除してもよろしいですか？"
@@ -101,7 +102,7 @@ msgid "editor.submission.fileAuditor.skipEmail"
 msgstr "監査役にメールを送らない"
 
 msgid "editor.submission.fileAuditor.form.userRequired"
-msgstr "割り当てるユーザーを選択する必要があります。"
+msgstr "指定ユーザーを選択する必要があります。"
 
 msgid "editor.submission.uploadSelectFiles"
 msgstr "ファイルのアップロード/選択"
@@ -144,7 +145,7 @@ msgid "editor.review.enrollReviewer.short"
 msgstr "既存のユーザーを登録する"
 
 msgid "editor.review.unassignReviewer"
-msgstr "査読者の未割当"
+msgstr "査読者の未指定"
 
 msgid "editor.review.cancelReviewer"
 msgstr "査読者の取り消し"
@@ -340,7 +341,7 @@ msgstr ""
 "め、作成できません。"
 
 msgid "editor.discussion.errorNotStageParticipant"
-msgstr "選択された参加者は、このステージに割り当てられません。"
+msgstr "選択された参加者は、この段階に割り当てられません。"
 
 msgid "editor.submission.schedulePublication"
 msgstr "公開スケジュール"
@@ -380,7 +381,7 @@ msgstr ""
 "なります。このファイルを非承認にしますか？"
 
 msgid "editor.submission.addAuditor"
-msgstr "監査役の任命"
+msgstr "監査役を指定"
 
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
 msgstr ""
@@ -532,7 +533,7 @@ msgid "reviewer.list.averageCompletion"
 msgstr "査読完了までの平均日数"
 
 msgid "reviewer.list.neverAssigned"
-msgstr "割り当てなし"
+msgstr "査読歴なし"
 
 msgid "reviewer.list.reassign"
 msgstr "再任命"

@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 06:59+0000\n"
+"PO-Revision-Date: 2024-06-16 07:07+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja/>\n"
@@ -1555,10 +1555,11 @@ msgid "editor.submission.decision.sendExternalReview.log"
 msgstr ""
 
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr ""
+msgstr "査読に送信済み"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
-msgstr ""
+msgstr "投稿「{$title}」は査読段階に送られました。メールをスキップすることを選択しな"
+"い限り、著者に通知されています。"
 
 msgid "editor.submission.decision.newRound"
 msgstr "新しい査読ラウンド"
@@ -1636,6 +1637,8 @@ msgstr ""
 
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
+"投稿「{$title}」は、査読段階をスキップし、原稿整理段階に送られました。メール"
+"をスキップすることを選択しない限り、著者に通知されています。"
 
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr "この投稿が採用され、査読なしで原稿整理段階に送られたことを著者に知らせるメー"

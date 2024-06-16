@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 06:10+0000\n"
+"PO-Revision-Date: 2024-06-16 18:13+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "ja/>\n"
@@ -131,7 +131,7 @@ msgid "grid.action.order"
 msgstr "表示順"
 
 msgid "grid.action.saveOrdering"
-msgstr ""
+msgstr "順序の保存"
 
 msgid "grid.action.cancelOrdering"
 msgstr "表示順をキャンセル"
@@ -284,7 +284,7 @@ msgid "grid.action.addAnnouncement"
 msgstr "お知らせの追加"
 
 msgid "grid.action.addInstitution"
-msgstr ""
+msgstr "所属機関の追加"
 
 msgid "grid.action.mergeUser"
 msgstr "ユーザーをマージ"
@@ -366,7 +366,7 @@ msgid "grid.columns.locale"
 msgstr "言語"
 
 msgid "grid.columns.locale.code"
-msgstr ""
+msgstr "コード"
 
 msgid "grid.sponsor.title"
 msgstr "スポンサー"
@@ -408,7 +408,7 @@ msgid "grid.action.deleteContributor"
 msgstr "寄稿者の削除"
 
 msgid "grid.action.deleteContributor.confirmationMessage"
-msgstr ""
+msgstr "{$name} を寄稿者として削除してもよろしいですか。元に戻せません。"
 
 msgid "grid.action.newVersion"
 msgstr "新しいバージョンを作成"
@@ -450,7 +450,7 @@ msgid "author.users.contributor.principalContact"
 msgstr "主な連絡先"
 
 msgid "author.users.contributor.setPrincipalContact"
-msgstr ""
+msgstr "主要連絡先を設定"
 
 msgid "contributor.listPanel.preview"
 msgstr "プレビュー"
@@ -700,7 +700,7 @@ msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "タイプを選択…"
 
 msgid "grid.action.view"
-msgstr ""
+msgstr "表示"
 
 msgid "author.users.contributor.name"
 msgstr "名前"

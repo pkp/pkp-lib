@@ -3,7 +3,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 07:01+0000\n"
+"PO-Revision-Date: 2024-06-16 07:54+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ja/>\n"
@@ -566,10 +566,10 @@ msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
 msgstr ""
 
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "決定キャンセル"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "この決定をキャンセルしてもよろしいですか?"
 
 msgid "editor.decision.completeSteps"
 msgstr ""

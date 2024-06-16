@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 07:18+0000\n"
+"PO-Revision-Date: 2024-06-16 07:27+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja/>\n"
@@ -1528,7 +1528,8 @@ msgid "editor.submission.decision.resubmit"
 msgstr "再投稿"
 
 msgid "editor.submission.decision.resubmit.description"
-msgstr ""
+msgstr "この投稿が採用できる前に、著者は修正版を提出し、それを別の査読ラウンドに送る"
+"必要があります。"
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""

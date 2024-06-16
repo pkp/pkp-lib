@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-13 04:43+0000\n"
+"PO-Revision-Date: 2024-06-16 06:10+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja/>\n"
@@ -1347,10 +1347,10 @@ msgid "editor.submission.participant"
 msgstr "参加者"
 
 msgid "editor.submission.addStageParticipant"
-msgstr "参加者を任命"
+msgstr "参加者指定"
 
 msgid "editor.submission.editStageParticipant"
-msgstr "段階任命の編集"
+msgstr "段階課題の編集"
 
 msgid "editor.submission.addStageParticipant.userGroup"
 msgstr ""
@@ -1661,9 +1661,8 @@ msgstr ""
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "編集者を割り当てて、この段階の編集上の決定を可能にします。"
+msgstr "この段階の編集上の決定を可能にするために、担当編集者を指定してください。"
 
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
@@ -1753,7 +1752,7 @@ msgid "submission.finalDraft"
 msgstr "原稿ファイル"
 
 msgid "editor.submission.addAuditorError"
-msgstr "監査役の任命中にエラーが発生しました。 もう一度やり直してください。"
+msgstr "監査役の指定中にエラーが発生しました。 もう一度やり直してください。"
 
 msgid "submission.event.fileEdited"
 msgstr ""
@@ -1816,7 +1815,7 @@ msgid "submission.documents"
 msgstr "投稿文書"
 
 msgid "notification.type.editorAssign"
-msgstr "投稿「{$title}」の編集者として割り当てられました。"
+msgstr "投稿「{$title}」の担当編集者として指定されました。"
 
 msgid "notification.type.copyeditorRequest"
 msgstr "投稿「{$title}」の原稿整理版を確認するように求められました。"
@@ -2194,9 +2193,8 @@ msgid "submission.query.participantTitle"
 msgstr "{$fullName}、{$userGroup}"
 
 msgid "submission.query.noParticipantOptions"
-msgstr ""
-"ディスカッションを開始する前に、この投稿に少なくとも一人の参加者を割り当てる"
-"必要があります。"
+msgstr "ディスカッションを開始する前に、この投稿に少なくとも一人の参加者を指定する必"
+"要があります。"
 
 msgid "submission.list.infoCenter"
 msgstr "アクティビティログと注記"
@@ -2208,7 +2206,7 @@ msgid "submission.list.responseDue"
 msgstr "応答期日: {$date}"
 
 msgid "submission.list.reviewAssignment"
-msgstr "査読指定"
+msgstr "査読課題"
 
 msgid "submission.list.reviewDue"
 msgstr "査読期限日: {$date}"
@@ -2229,7 +2227,7 @@ msgid "submission.list.viewSubmission"
 msgstr "投稿の閲覧"
 
 msgid "submission.list.reviewsCompleted"
-msgstr "割り当てられた査読が完了"
+msgstr "担当査読が完了"
 
 msgid "submission.list.revisionsSubmitted"
 msgstr "改訂が提出された"

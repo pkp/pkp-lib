@@ -3,7 +3,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 07:54+0000\n"
+"PO-Revision-Date: 2024-06-16 18:13+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
 "ja/>\n"
@@ -90,7 +90,7 @@ msgid "editor.submission.copyediting.personalMessageToUser"
 msgstr "ユーザーへのメッセージ"
 
 msgid "editor.submission.externalReviewDescription"
-msgstr "下記のファイルを選択することで、査読ステージに移行します。"
+msgstr "以下からファイルを選択して査読段階に送ってください。"
 
 msgid "editor.submission.fileAuditor.form.fileRequired"
 msgstr "ユーザーを割り当てるファイルを1つ以上選択する必要があります。"
@@ -154,7 +154,7 @@ msgid "editor.review.reinstateReviewer"
 msgstr "査読者の復活"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "査読依頼を再送信"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "査読タイプ"
@@ -208,10 +208,10 @@ msgid "editor.review.NotifyAuthorResubmit"
 msgstr "改訂版では、新たな査読が行われます。"
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
-msgstr ""
+msgstr "改訂版は新たな査読の対象にはなりません。"
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
-msgstr ""
+msgstr "改訂版は新たな査読の対象にはなります。"
 
 msgid "editor.review.dateAccepted"
 msgstr "査読受理日"
@@ -289,7 +289,7 @@ msgid "editor.review.reviewerThanked"
 msgstr "査読者へ謝意送付済み"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "依頼送信済み"
 
 msgid "editor.review.reviewerComments"
 msgstr "査読者コメント"
@@ -506,7 +506,7 @@ msgid "reviewer.list.activeReviewsDescription"
 msgstr "現在任命されているアクティブな査読"
 
 msgid "reviewer.list.assignedToLastRound"
-msgstr ""
+msgstr "この査読者は前回のラウンドで査読を完了しました。"
 
 msgid "reviewer.list.completedReviews"
 msgstr "査読完了"
@@ -539,7 +539,7 @@ msgid "reviewer.list.reassign"
 msgstr "再任命"
 
 msgid "reviewer.list.reassign.withName"
-msgstr ""
+msgstr "{$name} を再指定"
 
 msgid "reviewer.list.currentlyAssigned"
 msgstr "査読者はすでにこの投稿の査読に割り当てられています。"
@@ -563,7 +563,7 @@ msgid "reviewer.list.empty"
 msgstr "査読者が見つかりませんでした"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "以前のラウンドに任命した"
 
 msgid "editor.decision.cancelDecision"
 msgstr "決定キャンセル"
@@ -575,16 +575,19 @@ msgid "editor.decision.completeSteps"
 msgstr ""
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "このメールをスキップしないでください"
 
 msgid "editor.decision.emailSkipped"
-msgstr ""
+msgstr "このステップはスキップされ、メールは送信されません。"
 
 msgid "editor.decision.recordDecision"
 msgstr "決定記録"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "メールをスキップ"
 
 msgid "editor.decision.stepError"
 msgstr ""
+
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "著者と同じ所属機関"

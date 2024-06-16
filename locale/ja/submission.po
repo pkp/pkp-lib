@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 07:08+0000\n"
+"PO-Revision-Date: 2024-06-16 07:09+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja/>\n"
@@ -1308,7 +1308,7 @@ msgid "editor.submission.roundStatus.declined"
 msgstr "投稿は辞退されました。"
 
 msgid "editor.submission.roundStatus.pendingReviewers"
-msgstr "査読者の割り当て待ちです。"
+msgstr "査読者指定待ち"
 
 msgid "editor.submission.roundStatus.pendingReviews"
 msgstr "査読者の応答待ちです。"

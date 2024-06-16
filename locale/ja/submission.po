@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 07:42+0000\n"
+"PO-Revision-Date: 2024-06-16 07:46+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja/>\n"
@@ -1470,10 +1470,11 @@ msgid "editor.submission.decision.newReviewRound.log"
 msgstr ""
 
 msgid "editor.submission.decision.newReviewRound.completed"
-msgstr ""
+msgstr "査読ラウンド作成された"
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
-msgstr ""
+msgstr "投稿「{$title}」に対して新しい査読ラウンドが作成されました。メールをスキップ"
+"することを選択しない限り、著者に通知されます。"
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr "著者にメールを送信して、投稿が新しい査読ラウンドに送られたことを知らせます。"

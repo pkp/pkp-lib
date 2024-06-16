@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-13 04:43+0000\n"
+"PO-Revision-Date: 2024-06-16 06:10+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/ja/>\n"
@@ -1612,7 +1612,7 @@ msgid "settings.roles.roleAbbrev"
 msgstr "略語"
 
 msgid "settings.roles.assignedStages"
-msgstr "任命されたステージ"
+msgstr "任命された段階"
 
 msgid "settings.roles.stages"
 msgstr "ステージ"
@@ -1645,7 +1645,7 @@ msgid "settings.roles.roleIdRequired"
 msgstr "役割のパーミッションレベルを定義する必要があります。"
 
 msgid "settings.roles.stageIdRequired"
-msgstr "任命先のステージを定義する必要があります。"
+msgstr "任命先の段階を定義する必要があります。"
 
 msgid "settings.roles.permitMetadataEdit"
 msgstr "投稿のメタデータ編集を許可します。"
@@ -2228,10 +2228,10 @@ msgid "manager.navigationMenuItems"
 msgstr "ナビゲーションメニュー項目"
 
 msgid "manager.navigationMenus.assignedMenuItems"
-msgstr "割り当て済みメニュー項目"
+msgstr "指定済みメニュー項目"
 
 msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr "未割り当てナビゲーションメニュー項目"
+msgstr "未指定ナビゲーションメニュー項目"
 
 msgid "manager.navigationMenus.form.navigationMenuArea"
 msgstr "アクティブテーマのナビゲーションエリア"
@@ -2240,7 +2240,7 @@ msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
 msgstr "ナビゲーション領域の選択"
 
 msgid "manager.navigationMenus.form.menuAssigned"
-msgstr "この領域には、すでにナビゲーションメニューが割り当てられています。"
+msgstr "このところには、すでにナビゲーションメニューが指定されています。"
 
 msgid "manager.navigationMenus.form.url"
 msgstr "URL"

@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 06:10+0000\n"
+"PO-Revision-Date: 2024-06-16 18:13+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "ja/>\n"
@@ -163,11 +163,10 @@ msgstr ""
 msgid "user.login"
 msgstr "ログイン"
 
-#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
-"確認メールを入力されたメールアドレスに送信しました。メールに書かれている指示"
-"に従って、パスワードをリセットしてください。"
+"一致するアカウントが見つかった場合は、確認メールがあなたのメールアドレスに送"
+"信されました。メールの指示に従ってパスワードをリセットしてください。"
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr ""
@@ -485,17 +484,17 @@ msgid "user.apiKey.generate"
 msgstr "新しいAPIキーを発行する"
 
 msgid "user.apiKey.remove"
-msgstr ""
+msgstr "削除"
 
 msgid "user.apiKey.generateWarning"
 msgstr ""
 "新しいAPIキーを発行すると、このユーザーの既存のキーはすべて無効になります。"
 
 msgid "user.apiKey.removeWarning"
-msgstr ""
+msgstr "キーを削除すると、キーを使用するアプリケーションのアクセスが取り消されます。"
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr ""
+msgstr "この API キーを削除してもよろしいですか。"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -511,10 +510,16 @@ msgid "user.login.lostPassword.invalidUser"
 msgstr ""
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
-msgstr ""
+msgstr "{$reason} のため、パスワード リセット要求を完了できません。"
 
 msgid "user.login.passwordResetProcessInstructions"
-msgstr ""
+msgstr "ログインパスワードを更新するための新しいパスワードを入力してください。"
 
 msgid "user.login.resetPassword.passwordUpdated"
-msgstr ""
+msgstr "パスワードが正常に更新されました。更新したパスワードでログインしてください。"
+
+msgid "user.usernameOrEmail"
+msgstr "ユーザー名またはメールアドレス"
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "不完全な投稿に対するワークフロー アクセスは制限されます。"

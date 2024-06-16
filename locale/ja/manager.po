@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 06:10+0000\n"
+"PO-Revision-Date: 2024-06-16 06:43+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/ja/>\n"
@@ -2780,12 +2780,19 @@ msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"本誌では、二重盲検査読を実施しています。査読者は貴方や共著者に関する識別情報"
+"を一切見ることができません。同様に、貴方も誰がこの投稿を査読たか知ることはな"
+"く、査読者から直接連絡を受けることもありません。"
 
 msgid "emailTemplate.variable.reviewType.anonymous"
-msgstr ""
+msgstr "本誌では、「査読者匿名」の査読を実施しています。貴方の氏名と共著者の氏名は査"
+"読者に表示されますが、査読者の身元は匿名のままです。"
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"本誌では、オープン査読を実施しています。査読者には貴方の氏名と所属、および共"
+"著者の氏名と所属が表示されます。同様に、貴方も査読者の氏名と所属を見ることが"
+"できます。"
 
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "送信者のフルネーム"

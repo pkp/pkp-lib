@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 07:27+0000\n"
+"PO-Revision-Date: 2024-06-16 07:31+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja/>\n"
@@ -1402,14 +1402,18 @@ msgid "editor.submission.decision.notifyAuthors"
 msgstr "著者に通知"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr ""
+msgstr "査読者に通知"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"査読者に査読に対する感謝と決定が下されたことを知らせるメールを送信します。匿"
+"名性を保護するために、各査読者には個別のメールが送信されます。メッセージに "
+"{$recipientName} "
+"というフレーズを使用すると、各査読者の氏名を安全に含めることができます。"
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
-msgstr ""
+msgstr "担当査読者にメールを送信して、査読課題がキャンセルされたことを通知します。"
 
 msgid "editor.submission.decision.accept"
 msgstr "採用"

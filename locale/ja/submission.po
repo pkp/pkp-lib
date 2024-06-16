@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 07:31+0000\n"
+"PO-Revision-Date: 2024-06-16 07:38+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja/>\n"
@@ -1498,10 +1498,11 @@ msgid "editor.submission.decision.requestRevisions.log"
 msgstr ""
 
 msgid "editor.submission.decision.requestRevisions.completed"
-msgstr ""
+msgstr "改訂依頼"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
-msgstr ""
+msgstr "投稿「{$title}」の修正が要求されました。スキップすることを選択したものを除き"
+"、すべての通知が送信されました。"
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
@@ -1536,13 +1537,17 @@ msgstr "この投稿が採用できる前に、著者は修正版を提出し、
 "必要があります。"
 
 msgid "editor.submission.decision.resubmit.log"
-msgstr ""
+msgstr "{$editorName} "
+"がこの投稿に対して修正を要求したため、再度の査読に送るる必要があります。"
 
 msgid "editor.submission.decision.resubmit.completed"
-msgstr ""
+msgstr "改訂依頼"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
+"投稿「{$title}」の修正が要求されました。修正版を再度の査読に送るという決定が"
+"記録されました。スキップすることを選択したものを除き、すべての通知が送信され"
+"ました。"
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
@@ -1714,10 +1719,10 @@ msgid "editor.submission.recommend.revisions"
 msgstr ""
 
 msgid "editor.submission.recommend.revisions.description"
-msgstr ""
+msgstr "この投稿が採用できる前に、著者に修正を依頼することをお勧めします。"
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "{$editorName} は修正を依頼することを推奨しました。"
 
 msgid "editor.submission.recommend.resubmit"
 msgstr ""
@@ -1726,7 +1731,8 @@ msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
 
 msgid "editor.submission.recommend.resubmit.log"
-msgstr ""
+msgstr "{$editorName} "
+"は、修正を要求し、これらの修正を別の査読ラウンドに送ることを推奨しました。"
 
 msgid "editor.submission.recommend.decline"
 msgstr ""

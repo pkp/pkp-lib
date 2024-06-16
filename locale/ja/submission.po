@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 07:54+0000\n"
+"PO-Revision-Date: 2024-06-16 18:13+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja/>\n"
@@ -675,7 +675,7 @@ msgstr ""
 "できません。"
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "初版"
 
 msgid "submission.forTheEditors"
 msgstr "編集部へ"
@@ -1335,7 +1335,7 @@ msgid "editor.submission.status.inactiveDaysInStage"
 msgstr ""
 
 msgid "editor.submission.status.waitingInitialReview"
-msgstr ""
+msgstr "新しい投稿は、査読に送られるか、不採用されるのを決定待ちです。"
 
 msgid "editor.submission.stageParticipants"
 msgstr "参加者"
@@ -1425,10 +1425,11 @@ msgid "editor.submission.decision.accept.log"
 msgstr ""
 
 msgid "editor.submission.decision.accept.completed"
-msgstr ""
+msgstr "投稿が採用された"
 
 msgid "editor.submission.decision.accept.completedDescription"
-msgstr ""
+msgstr "投稿「{$title}」は採用され、原稿整理段階に送られました。スキップすることを選"
+"択したものを除き、すべての通知が送信されました。"
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr "著者にメールを送信して、投稿が採用されたことを知らせます。このメールは、決定"
@@ -1442,23 +1443,25 @@ msgid "editor.submission.decision.decline"
 msgstr "不採用"
 
 msgid "editor.submission.decision.decline.description"
-msgstr ""
+msgstr "この投稿は公開されません。査読段階は終了し、投稿はアーカイブされます。"
 
 msgid "editor.submission.decision.decline.log"
 msgstr ""
 
 msgid "editor.submission.decision.decline.completed"
-msgstr ""
+msgstr "投稿不採用"
 
 msgid "editor.submission.decision.decline.completed.description"
-msgstr ""
+msgstr "投稿「{$title}」は不採用され、アーカイブに送信されました。スキップすることを"
+"選択したものを除き、すべての通知が送信されました。"
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr "著者にメールを送信して、投稿が不採用されたことを知らせます。このメールは、決"
 "定が記録されるまで送信されません。"
 
 msgid "editor.submission.decision.initialDecline.description"
-msgstr ""
+msgstr "この投稿は公開されません。これ以上の査読は行われず、投稿はアーカイブされます"
+"。"
 
 msgid "editor.submission.decision.newReviewRound"
 msgstr "新規査読ラウンド"
@@ -1481,19 +1484,19 @@ msgstr "著者にメールを送信して、投稿が新しい査読ラウンド
 "このメールは、決定が記録されるまで送信されません。"
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
-msgstr ""
+msgstr "原稿整理段階に送るファイルを選択してください。"
 
 msgid "editor.submission.decision.promoteFiles.review"
-msgstr ""
+msgstr "査読に送るファイルを選択してください。"
 
 msgid "editor.submission.decision.promoteFiles.production"
-msgstr ""
+msgstr "制作段階に送るファイルを選択してください。"
 
 msgid "editor.submission.decision.requestRevisions"
 msgstr "改訂の要求"
 
 msgid "editor.submission.decision.requestRevisions.description"
-msgstr ""
+msgstr "この投稿が採用できる前に、著者は修正を加える必要があります。"
 
 msgid "editor.submission.decision.requestRevisions.log"
 msgstr ""
@@ -1516,16 +1519,18 @@ msgid "editor.submission.decision.cancelReviewRound"
 msgstr "査読ラウンドをキャンセル"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
-msgstr ""
+msgstr "現在の査読ラウンドをキャンセルし、投稿を最後の査読ラウンドに戻します。これが"
+"最初の査読ラウンドである場合は、提出段階に戻されます。"
 
 msgid "editor.submission.decision.cancelReviewRound.log"
 msgstr ""
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr ""
+msgstr "最新の査読ラウンドをキャンセルしました。"
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
-msgstr ""
+msgstr "投稿「{$title} 」の査読 ラウンドはキャンセルされました。スキップすることを選"
+"択したものを除き、すべての通知が送信されました。"
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
@@ -1579,54 +1584,57 @@ msgid "editor.submission.decision.sendToProduction"
 msgstr "制作段階に送る"
 
 msgid "editor.submission.decision.sendToProduction.description"
-msgstr ""
+msgstr "公開の準備のため、この投稿を制作段階に送ります。"
 
 msgid "editor.submission.decision.sendToProduction.log"
 msgstr ""
 
 msgid "editor.submission.decision.sendToProduction.completed"
-msgstr ""
+msgstr "制作段階に送った"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
-msgstr ""
+msgstr "投稿「{$title}」は制作段階に送られました。メールをスキップすることを選択しな"
+"い限り、著者に通知されています。"
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr "著者にメールを送信して、この投稿が制作段階に送られたことを知らせます。このメ"
 "ールは、決定が記録されるまで送信されません。"
 
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr ""
+msgstr "原稿整理をキャンセル"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr ""
+msgstr "この投稿を原稿整理段階から送り返します。"
 
 msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr ""
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr ""
+msgstr "原稿整理から返送"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
-msgstr ""
+msgstr "投稿「{$title}」は原稿整理段階から送り返されました。メールをスキップすること"
+"を選択しない限り、著者に通知されました。"
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr "著者にメールを送信して、原稿整理がキャンセルされ、投稿がさらに編集査読を受け"
 "ることを知らせます。"
 
 msgid "editor.submission.decision.backToCopyediting"
-msgstr ""
+msgstr "原稿整理に戻る"
 
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr ""
+msgstr "この投稿を原稿整理段階に戻します。"
 
 msgid "editor.submission.decision.backToCopyediting.log"
-msgstr ""
+msgstr "{$editorName} がこの投稿を原稿整理段階に戻しました。"
 
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr ""
+msgstr "原稿整理に戻した"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
-msgstr ""
+msgstr "投稿「{$title}」は原稿整理段階に戻されました。メールをスキップすることを選択"
+"しない限り、著者に通知されました。"
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
@@ -1638,13 +1646,14 @@ msgid "editor.submission.decision.skipReview"
 msgstr "査読を省略し採用する"
 
 msgid "editor.submission.decision.skipReview.description"
-msgstr ""
+msgstr "この投稿を採用し、査読段階をスキップします。この決定により、投稿は原稿整理段"
+"階に送られます。"
 
 msgid "editor.submission.decision.skipReview.log"
 msgstr ""
 
 msgid "editor.submission.decision.skipReview.completed"
-msgstr ""
+msgstr "査読スキップ"
 
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
@@ -2533,3 +2542,12 @@ msgstr ""
 
 msgid "submission.submissionFile"
 msgstr "投稿物ファイル"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "査読に戻られました。"
+
+msgid "submission.authors.label"
+msgstr "著者"
+
+msgid "submission.author.list"
+msgstr "投稿著者リスト"

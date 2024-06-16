@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2022, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 05:47+0000\n"
+"PO-Revision-Date: 2024-06-16 06:10+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ja/>\n"
@@ -1399,7 +1399,7 @@ msgstr ""
 "とを確認してください。"
 
 msgid "stageParticipants.options"
-msgstr "権限の割当"
+msgstr "任命権限"
 
 msgid "stageParticipants.recommendOnly"
 msgstr ""
@@ -1850,7 +1850,7 @@ msgid "notification.addedStageParticipant"
 msgstr "ユーザーが段階参加者として追加されました。"
 
 msgid "notification.editStageParticipant"
-msgstr "段階の割当が変更されました。"
+msgstr "段階の課題が変更されました。"
 
 msgid "notification.type.newAnnouncement"
 msgstr "新しいお知らせ。"
@@ -1859,7 +1859,7 @@ msgid "notification.type.reviewAssignment"
 msgstr "査読待機中。"
 
 msgid "notification.type.reviewAssignmentUpdated"
-msgstr "査読割当が更新されました。"
+msgstr "査読課題が更新されました。"
 
 msgid "notification.type.auditorRequest"
 msgstr "「{$file}」の監査要求"
@@ -1913,7 +1913,7 @@ msgid "user.authorization.unauthorizedNote"
 msgstr "このディスカッションメッセージへのアクセス権がありません。"
 
 msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr "この査読割当にアクセス権がありません。"
+msgstr "この査読課題にアクセス権がありません。"
 
 msgid "user.authorization.authorRoleMissing"
 msgstr ""
@@ -1935,8 +1935,8 @@ msgid "notification.type.queryAdded"
 msgstr "ディスカッションが追加されました。"
 
 msgid "notification.type.assignCopyeditors"
-msgstr ""
-"参加者リストの「任命」リンクを使用して、コピーエディターを割り当てください。"
+msgstr "参加者リストの「担当者指定」リンクを使用して、コピーエディターを指定してくだ"
+"さい。"
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "原稿整理待ち中。"

@@ -353,7 +353,9 @@ class Mailable extends IlluminateMailable
      */
     protected function buildSubject($message): self
     {
-        $this->subject ??= ''; // Allow email with empty subject if not set
+        if ($this->subject === null) {
+            $this->subject = ''; // Allow email with empty subject if not set
+        }
         $withoutTagViewData = collect($this->viewData)
             ->map(fn (mixed $viewableData) => is_string($viewableData) ? strip_tags($viewableData) : $viewableData)
             ->toArray();

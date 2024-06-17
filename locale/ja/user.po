@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 18:13+0000\n"
+"PO-Revision-Date: 2024-06-17 05:35+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "ja/>\n"
@@ -236,9 +236,8 @@ msgid "user.preferredPublicName"
 msgstr "好ましいパブリック名称"
 
 msgid "user.preferredPublicName.description"
-msgstr ""
-"どのように呼べてほしいですか？ 敬称、ミドルネーム、接尾辞をここに追加できま"
-"す。"
+msgstr "どのように呼べてほしいですか。 "
+"敬称、ミドルネーム、接尾辞をここに追加できます。"
 
 msgid "user.profile.changePasswordInstructions"
 msgstr ""
@@ -360,7 +359,7 @@ msgid "user.register.form.passwordLengthRestriction"
 msgstr "パスワードは{$length}文字以上をお願いします。"
 
 msgid "user.register.registerAs"
-msgstr "{$contextName} での登録ユーザーの役割"
+msgstr "『{$contextName}』での登録ユーザーの役割"
 
 msgid "user.register"
 msgstr "登録"

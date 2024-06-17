@@ -265,6 +265,7 @@ class PKPSubmissionFileController extends PKPBaseController
         $data = [
             'itemsMax' => $files->count(),
             'items' => $items->values(),
+            'stageIds' => $files->map(fn ($file) => Repo::submissionFile()->getWorkflowStageId($file)),
         ];
 
         return response()->json($data, Response::HTTP_OK);

@@ -111,10 +111,8 @@ class LibraryFileDAO extends \PKP\db\DAO
 
     /**
      * Get the list of fields for which data is localized.
-     *
-     * @return array
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         return ['name'];
     }

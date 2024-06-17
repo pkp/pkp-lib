@@ -20,5 +20,11 @@ use PKP\filter\CompositeFilter;
 
 class OtherCompositeFilter extends CompositeFilter
 {
-    // A test class.
+    /**
+     * Just for testing purposes; do anything
+     */
+    public function &process(&$input)
+    {
+        return $input;
+    }
 }

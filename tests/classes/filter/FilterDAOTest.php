@@ -60,7 +60,7 @@ class FilterDAOTest extends DatabaseTestCase
 
         // Install a test filter object.
         $settings = ['seq' => '1', 'some-key' => 'some-value'];
-        $testFilter = $filterDao->configureObject(PersistableTestFilter::class, 'test-filter-group', $settings, false, 1);
+        $testFilter = $filterDao->configureObject(PersistableTestFilterWithSetting::class, 'test-filter-group', $settings, false, 1);
         self::assertInstanceOf('PersistableFilter', $testFilter);
         $filterId = $testFilter->getId();
         self::assertTrue(is_integer($filterId));
@@ -80,14 +80,14 @@ class FilterDAOTest extends DatabaseTestCase
         self::assertEquals($testFilter, $filterByGroup);
 
         // Retrieve filter by class.
-        $filtersByClassFactory = $filterDao->getObjectsByClass(PersistableTestFilter::class, 1);
+        $filtersByClassFactory = $filterDao->getObjectsByClass(PersistableTestFilterWithSetting::class, 1);
         $filterByClass = $filtersByClassFactory->next();
         $nonexistentSecondFilter = $filtersByClassFactory->next();
         assert($filterByClass !== null && $nonexistentSecondFilter === null);
         self::assertEquals($testFilter, $filterByClass);
 
         // Retrieve filter by group and class.
-        $filtersByGroupAndClassFactory = $filterDao->getObjectsByGroupAndClass('test-filter-group', PersistableTestFilter::class, 1);
+        $filtersByGroupAndClassFactory = $filterDao->getObjectsByGroupAndClass('test-filter-group', PersistableTestFilterWithSetting::class, 1);
         $filterByGroupAndClass = $filtersByGroupAndClassFactory->next();
         $nonexistentSecondFilter = $filtersByGroupAndClassFactory->next();
         assert($filterByClass !== null && $nonexistentSecondFilter === null);
@@ -114,13 +114,13 @@ class FilterDAOTest extends DatabaseTestCase
 
         // sub-filter 1
         $subFilter1Settings = ['seq' => 1, 'displayName' => '1st sub-filter'];
-        $subFilter1 = $filterDao->configureObject(PersistableTestFilter::class, 'test-filter-group', $subFilter1Settings, false, 1, [], false);
+        $subFilter1 = $filterDao->configureObject(PersistableTestFilterWithSettting::class, 'test-filter-group', $subFilter1Settings, false, 1, [], false);
 
         // sub-sub-filters for sub-filter 2
         $subSubFilter1Settings = ['seq' => 1, 'displayName' => '1st sub-sub-filter'];
-        $subSubFilter1 = $filterDao->configureObject(PersistableTestFilter::class, 'test-filter-group', $subSubFilter1Settings, false, 1, [], false);
+        $subSubFilter1 = $filterDao->configureObject(PersistableTestFilterWithSetting::class, 'test-filter-group', $subSubFilter1Settings, false, 1, [], false);
         $subSubFilter2Settings = ['seq' => 2, 'displayName' => '2nd sub-sub-filter'];
-        $subSubFilter2 = $filterDao->configureObject(PersistableTestFilter::class, 'test-filter-group', $subSubFilter2Settings, false, 1, [], false);
+        $subSubFilter2 = $filterDao->configureObject(PersistableTestFilterWithSetting::class, 'test-filter-group', $subSubFilter2Settings, false, 1, [], false);
         $subSubFilters = [$subSubFilter1, $subSubFilter2];
 
         // sub-filter 2
@@ -169,7 +169,7 @@ class FilterDAOTest extends DatabaseTestCase
         $subFilter3 = new GenericMultiplexerFilter($filter);
         $subFilter3->setDisplayName('3rd sub-filter');
         $subFilter3->addFilter($subSubFilter1);
-        $subSubFilter3 = new PersistableTestFilter($testFilter->getFilterGroup());
+        $subSubFilter3 = new PersistableTestFilterWithSetting($testFilter->getFilterGroup());
         $subSubFilter3->setDisplayName('3rd sub-sub-filter');
         $subFilter3->addFilter($subSubFilter3);
         $testFilter->addFilter($subFilter3);

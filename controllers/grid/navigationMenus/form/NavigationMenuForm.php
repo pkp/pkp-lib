@@ -57,12 +57,10 @@ class NavigationMenuForm extends Form
 
     /**
      * Get a list of localized field names for this form
-     *
-     * @return ?array
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
-        return null;
+        return [];
     }
 
     /**

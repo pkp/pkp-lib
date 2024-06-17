@@ -26,8 +26,8 @@ namespace PKP\form;
 use APP\core\Application;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
-use PKP\core\PKPSessionGuard;
 use PKP\core\PKPRequest;
+use PKP\core\PKPSessionGuard;
 use PKP\facades\Locale;
 use PKP\form\validation\FormValidator;
 use PKP\notification\PKPNotification;
@@ -352,10 +352,8 @@ class Form
 
     /**
      * Get the list of field names that need to support multiple locales
-     *
-     * @return array
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         // Call hooks based on the calling entity, assuming
         // this method is only called by a subclass. Results

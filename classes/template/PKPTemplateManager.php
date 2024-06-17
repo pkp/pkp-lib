@@ -311,7 +311,7 @@ class PKPTemplateManager extends Smarty
         }
 
         // Register classes that need to expose class constants to templates
-        foreach ([PKPApplication::class, Application::class, Role::class, Submission::class] as $fqcn) {
+        foreach ([PKPApplication::class, Application::class, Role::class, Submission::class, Locale::class] as $fqcn) {
             $this->registerClass($fqcn, $fqcn);
         }
 

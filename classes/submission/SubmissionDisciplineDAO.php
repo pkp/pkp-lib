@@ -43,10 +43,8 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO
 
     /**
      * Get the list of localized additional fields to store.
-     *
-     * @return array
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         return ['submissionDiscipline'];
     }

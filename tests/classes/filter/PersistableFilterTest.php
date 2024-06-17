@@ -34,7 +34,7 @@ class PersistableFilterTest extends PKPTestCase
             'class::lib.pkp.tests.classes.filter.TestClass1',
             'class::lib.pkp.tests.classes.filter.TestClass2'
         );
-        $testFilter = new PersistableFilter($constructorArg);
+        $testFilter = new PersistableTestFilter($constructorArg);
 
         // Test getters/setters that are not implicitly tested by other tests
         self::assertInstanceOf('FilterGroup', $testFilter->getFilterGroup());
@@ -46,6 +46,7 @@ class PersistableFilterTest extends PKPTestCase
         self::assertEquals(1, $testFilter->getParentFilterId());
 
         // Test settings
+        error_log('HERE: ' . print_r($testFilter->_settings, true));
         self::assertFalse($testFilter->hasSettings());
         $testSetting = new EmailFilterSetting('testEmail', 'Test Email', 'Test Email is required');
         $testSetting2 = new EmailFilterSetting('testEmail2', 'Test Email2', 'Test Email2 is required');

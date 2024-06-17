@@ -81,28 +81,24 @@ use PKP\core\PKPApplication;
 use PKP\core\RuntimeEnvironment;
 use PKP\plugins\Hook;
 
-class Filter extends \PKP\core\DataObject
+abstract class Filter extends \PKP\core\DataObject
 {
-    /** @var TypeDescription */
-    public $_inputType;
-
-    /** @var TypeDescription */
-    public $_outputType;
+    public TypeDescription $_inputType;
 
     /**  */
+    public TypeDescription $_outputType;
+
     public $_input;
 
-    /**  */
     public $_output;
 
-    /** @var array a list of errors occurred while filtering */
-    public $_errors = [];
+    /** @var A list of errors occurred while filtering */
+    public array $_errors = [];
 
     /**
-     * @var RuntimeEnvironment the installation requirements required to
-     * run this filter instance, false on initialization.
+     * @var The installation requirements required to run this filter instance
      */
-    public $_runtimeEnvironment = false;
+    public ?RuntimeEnvironment $_runtimeEnvironment = null;
 
     /**
      * Constructor
@@ -111,10 +107,10 @@ class Filter extends \PKP\core\DataObject
      *
      * @see TypeDescription
      *
-     * @param string $inputType a string representation of a TypeDescription
-     * @param string $outputType a string representation of a TypeDescription
+     * @param $inputType a string representation of a TypeDescription
+     * @param $outputType a string representation of a TypeDescription
      */
-    public function __construct($inputType, $outputType)
+    public function __construct(string $inputType, string $outputType)
     {
         // Initialize the filter.
         parent::__construct();
@@ -126,10 +122,8 @@ class Filter extends \PKP\core\DataObject
     //
     /**
      * Set the display name
-     *
-     * @param string $displayName
      */
-    public function setDisplayName($displayName)
+    public function setDisplayName(string $displayName): void
     {
         $this->setData('displayName', $displayName);
     }
@@ -142,10 +136,8 @@ class Filter extends \PKP\core\DataObject
      * with the filter class name. Subclasses can of
      * course override this behavior by explicitly
      * setting a display name.
-     *
-     * @return string
      */
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         if (!$this->hasData('displayName')) {
             $this->setData('displayName', get_class($this));
@@ -156,20 +148,16 @@ class Filter extends \PKP\core\DataObject
 
     /**
      * Set the sequence id
-     *
-     * @param int $seq
      */
-    public function setSequence($seq)
+    public function setSequence(int $seq): void
     {
         $this->setData('seq', $seq);
     }
 
     /**
      * Get the sequence id
-     *
-     * @return int
      */
-    public function getSequence()
+    public function getSequence(): ?int
     {
         return $this->getData('seq');
     }
@@ -177,22 +165,17 @@ class Filter extends \PKP\core\DataObject
     /**
      * Set the input/output type of this filter group.
      *
-     * @param TypeDescription|string $inputType
-     * @param TypeDescription|string $outputType
-     *
      * @see TypeDescriptionFactory::instantiateTypeDescription() for more details
      */
-    public function setTransformationType(&$inputType, &$outputType)
+    public function setTransformationType(TypeDescription|string &$inputType, TypeDescription|string &$outputType)
     {
         $typeDescriptionFactory = TypeDescriptionFactory::getInstance();
 
         // Instantiate the type descriptions if we got string input.
         if (!$inputType instanceof TypeDescription) {
-            assert(is_string($inputType));
             $inputType = $typeDescriptionFactory->instantiateTypeDescription($inputType);
         }
         if (!$outputType instanceof TypeDescription) {
-            assert(is_string($outputType));
             $outputType = $typeDescriptionFactory->instantiateTypeDescription($outputType);
         }
 
@@ -203,20 +186,16 @@ class Filter extends \PKP\core\DataObject
 
     /**
      * Get the input type
-     *
-     * @return TypeDescription
      */
-    public function &getInputType()
+    public function &getInputType(): TypeDescription
     {
         return $this->_inputType;
     }
 
     /**
      * Get the output type
-     *
-     * @return TypeDescription
      */
-    public function &getOutputType()
+    public function &getOutputType(): TypeDescription
     {
         return $this->_outputType;
     }
@@ -264,9 +243,8 @@ class Filter extends \PKP\core\DataObject
     /**
      * Add a filter error
      *
-     * @param string $message
      */
-    public function addError($message)
+    public function addError(string $message): void
     {
         $this->_errors[] = $message;
     }
@@ -274,19 +252,16 @@ class Filter extends \PKP\core\DataObject
     /**
      * Get all filter errors
      *
-     * @return array
      */
-    public function getErrors()
+    public function getErrors(): array
     {
         return $this->_errors;
     }
 
     /**
      * Whether this filter has produced errors.
-     *
-     * @return bool
      */
-    public function hasErrors()
+    public function hasErrors(): bool
     {
         return (!empty($this->_errors));
     }
@@ -294,7 +269,7 @@ class Filter extends \PKP\core\DataObject
     /**
      * Clear all processing errors.
      */
-    public function clearErrors()
+    public function clearErrors(): void
     {
         $this->_errors = [];
     }
@@ -302,11 +277,9 @@ class Filter extends \PKP\core\DataObject
     /**
      * Set the required runtime environment
      *
-     * @param RuntimeEnvironment $runtimeEnvironment
      */
-    public function setRuntimeEnvironment(&$runtimeEnvironment)
+    public function setRuntimeEnvironment(RuntimeEnvironment &$runtimeEnvironment): void
     {
-        assert($runtimeEnvironment instanceof RuntimeEnvironment);
         $this->_runtimeEnvironment = &$runtimeEnvironment;
 
         // Inject the runtime settings into the data object
@@ -320,10 +293,8 @@ class Filter extends \PKP\core\DataObject
 
     /**
      * Get the required runtime environment
-     *
-     * @return RuntimeEnvironment
      */
-    public function &getRuntimeEnvironment()
+    public function &getRuntimeEnvironment(): RuntimeEnvironment
     {
         return $this->_runtimeEnvironment;
     }
@@ -341,10 +312,7 @@ class Filter extends \PKP\core\DataObject
      * @return mixed non-validated filter output or null
      *  if processing was not successful.
      */
-    public function &process(&$input)
-    {
-        assert(false);
-    }
+    abstract public function &process(&$input);
 
     //
     // Public methods
@@ -367,11 +335,8 @@ class Filter extends \PKP\core\DataObject
      * type based checking. Subclasses must
      * implement any required stateful inspection
      * of the provided objects.
-     *
-     *
-     * @return bool
      */
-    public function supports(&$input, &$output)
+    public function supports(&$input, &$output): bool
     {
         // Validate input
         $inputType = &$this->getInputType();
@@ -395,11 +360,8 @@ class Filter extends \PKP\core\DataObject
      *
      * NB: sub-classes will not normally override
      * this method.
-     *
-     *
-     * @return bool
      */
-    public function supportsAsInput(&$input)
+    public function supportsAsInput(&$input): bool
     {
         $nullVar = null;
         return($this->supports($input, $nullVar));
@@ -408,12 +370,10 @@ class Filter extends \PKP\core\DataObject
     /**
      * Check whether the filter is compatible with
      * the required runtime environment.
-     *
-     * @return bool
      */
-    public function isCompatibleWithRuntimeEnvironment()
+    public function isCompatibleWithRuntimeEnvironment(): bool
     {
-        if ($this->_runtimeEnvironment === false) {
+        if ($this->_runtimeEnvironment === null) {
             $phpVersionMin = $phpVersionMax = $phpExtensions = $externalPrograms = null;
             // The runtime environment has never been
             // queried before.
@@ -460,13 +420,13 @@ class Filter extends \PKP\core\DataObject
      *
      * @param mixed $input an input value that is supported
      *  by this filter
-     * @param bool $returnErrors whether the value
+     * @param $returnErrors whether the value
      *  should be returned also if an error occurred
      *
      * @return mixed a valid return value or null
      *  if an error occurred during processing
      */
-    public function &execute(&$input, $returnErrors = false)
+    public function &execute(&$input, bool $returnErrors = false)
     {
         // Make sure that we don't destroy referenced
         // data somewhere out there.
@@ -519,10 +479,8 @@ class Filter extends \PKP\core\DataObject
     /**
      * Returns a static array with supported runtime
      * environment settings and their default values.
-     *
-     * @return array
      */
-    public static function supportedRuntimeEnvironmentSettings()
+    public static function supportedRuntimeEnvironmentSettings(): array
     {
         static $runtimeEnvironmentSettings = [
             'phpVersionMin' => PKPApplication::PHP_REQUIRED_VERSION,

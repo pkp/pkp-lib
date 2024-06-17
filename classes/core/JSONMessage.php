@@ -19,109 +19,91 @@ namespace PKP\core;
 
 class JSONMessage
 {
-    /** @var string The status of an event (e.g. false if form validation fails). */
-    public $_status;
+    /** @var The status of an event (e.g. false if form validation fails). */
+    public bool $_status;
 
-    /** @var mixed The message to be delivered back to the calling script. */
-    public $_content;
+    /** @var The message to be delivered back to the calling script. */
+    public mixed $_content;
 
-    /** @var string ID for DOM element that will be replaced. */
-    public $_elementId;
+    /** @var ID for DOM element that will be replaced. */
+    public string $_elementId;
 
-    /** @var array List of JS events generated on the server side. */
-    public $_events;
+    /** @var List of JS events generated on the server side. */
+    public array $_events = [];
 
-    /** @var array Set of additional attributes for special cases. */
-    public $_additionalAttributes;
+    /** @var Set of additional attributes for special cases. */
+    public array $_additionalAttributes;
 
     /**
      * Constructor.
      *
-     * @param bool $status The status of an event (e.g. false if form validation fails).
-     * @param mixed $content The message to be delivered back to the calling script.
-     * @param string $elementId The DOM element to be replaced.
-     * @param array $additionalAttributes Additional data to be returned.
+     * @param $status The status of an event (e.g. false if form validation fails).
+     * @param $content The message to be delivered back to the calling script.
+     * @param $elementId The DOM element to be replaced.
+     * @param $additionalAttributes Additional data to be returned.
      */
-    public function __construct($status = true, $content = '', $elementId = '0', $additionalAttributes = null)
+    public function __construct(bool $status = true, string $content = '', string $elementId = '0', array $additionalAttributes = [])
     {
         // Set internal state.
         $this->setStatus($status);
         $this->setContent($content);
         $this->setElementId($elementId);
-        if (isset($additionalAttributes)) {
-            $this->setAdditionalAttributes($additionalAttributes);
-        }
+        $this->setAdditionalAttributes($additionalAttributes);
     }
 
     /**
      * Get the status string
-     *
-     * @return string
      */
-    public function getStatus()
+    public function getStatus(): bool
     {
         return $this->_status;
     }
 
     /**
      * Set the status string
-     *
-     * @param string $status
      */
-    public function setStatus($status)
+    public function setStatus(bool $status)
     {
-        assert(is_bool($status));
         $this->_status = $status;
     }
 
     /**
-     * Get the content string
+     * Get the content data
      */
-    public function getContent()
+    public function getContent(): mixed
     {
         return $this->_content;
     }
 
     /**
      * Set the content data
-     *
      */
-    public function setContent($content)
+    public function setContent(mixed $content)
     {
         $this->_content = $content;
     }
 
     /**
      * Get the elementId string
-     *
-     * @return string
      */
-    public function getElementId()
+    public function getElementId(): string
     {
         return $this->_elementId;
     }
 
     /**
      * Set the elementId string
-     *
-     * @param string $elementId
      */
-    public function setElementId($elementId)
+    public function setElementId(string $elementId)
     {
-        assert(is_string($elementId) || is_numeric($elementId));
         $this->_elementId = $elementId;
     }
 
     /**
      * Set the event to trigger with this JSON message
-     *
-     * @param string $eventName
-     * @param null|mixed $eventData
      */
-    public function setEvent($eventName, $eventData = null)
+    public function setEvent(string $eventName, mixed $eventData = null)
     {
-        assert(is_string($eventName));
-
         // Construct the even as an associative array.
         $event = ['name' => $eventName];
         if (!is_null($eventData)) {
@@ -140,10 +122,9 @@ class JSONMessage
      * triggered directly on the handler. They are intended for broadcasting
      * updates from one handler to other handlers.
      *
-     * @param string $eventName
-     * @param array $eventData Global event data must be an assoc array
+     * @param $eventData Global event data must be an assoc array
      */
-    public function setGlobalEvent($eventName, $eventData = [])
+    public function setGlobalEvent(string $eventName, array $eventData = [])
     {
         assert(is_array($eventData));
         $eventData['isGlobalEvent'] = true;
@@ -152,41 +133,32 @@ class JSONMessage
 
     /**
      * Get the events to trigger with this JSON message
-     *
-     * @return array
      */
-    public function getEvents()
+    public function getEvents(): array
     {
         return $this->_events;
     }
 
     /**
-     * Get the additionalAttributes array
-     *
-     * @return array
+     * Get the additionalAttributes
      */
-    public function getAdditionalAttributes()
+    public function getAdditionalAttributes(): array
     {
         return $this->_additionalAttributes;
     }
 
     /**
-     * Set the additionalAttributes array
-     *
-     * @param array $additionalAttributes
+     * Set the additionalAttributes
      */
-    public function setAdditionalAttributes($additionalAttributes)
+    public function setAdditionalAttributes(array $additionalAttributes)
     {
-        assert(is_array($additionalAttributes));
         $this->_additionalAttributes = $additionalAttributes;
     }
 
     /**
-     * Construct a JSON string to use for AJAX communication
-     *
-     * @return string
+     * Construct a JSON string to use for AJAX communication, or false if an error occurred
      */
-    public function getString()
+    public function getString(): string|bool
     {
         // Construct an associative array that contains all information we require.
         $jsonObject = [

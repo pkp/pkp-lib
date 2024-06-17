@@ -16,13 +16,13 @@
 
 namespace PKP\filter;
 
-class CompositeFilter extends PersistableFilter
+abstract class CompositeFilter extends PersistableFilter
 {
     /** @var array An ordered array of sub-filters */
-    public $_filters = [];
+    public array $_filters = [];
 
     /** @var int the max sequence number that has been attributed so far */
-    public $_maxSeq = 0;
+    public int $_maxSeq = 0;
 
     /**
      * Constructor
@@ -45,17 +45,13 @@ class CompositeFilter extends PersistableFilter
      * NB: A filter that is using the sequence number of
      * another filter will not be added.
      *
-     * @param Filter $filter
-     *
-     * @return ?int the filter's sequence number, null
+     * @return the filter's sequence number, null
      *  if the sequence number of the filter had already been
      *  set before by a different filter and the filter has
      *  not been added.
      */
-    public function addFilter(&$filter)
+    public function addFilter(Filter &$filter): ?int
     {
-        assert($filter instanceof \PKP\filter\Filter);
-
         // Identify an appropriate sequence number.
         $seq = $filter->getSequence();
         if (is_numeric($seq) && $seq > 0) {
@@ -81,12 +77,8 @@ class CompositeFilter extends PersistableFilter
     /**
      * Identify a filter by sequence
      * number.
-     *
-     * @param int $seq
-     *
-     * @return Filter
      */
-    public function &getFilter($seq)
+    public function &getFilter(int $seq): ?Filter
     {
         $filter = null;
         if (isset($this->_filters[$seq])) {
@@ -99,7 +91,7 @@ class CompositeFilter extends PersistableFilter
      * Gets the array of subfilters that are
      * part of the composite filter.
      */
-    public function &getFilters()
+    public function &getFilters(): array
     {
         return $this->_filters;
     }
@@ -107,7 +99,7 @@ class CompositeFilter extends PersistableFilter
     /**
      * Set the settings mappings
      *
-     * @param array $settingsMapping
+     * @param $settingsMapping
      *  A settings mapping is of the form:
      *  array(
      *    $settingName => array($targetSetting1, $targetSetting2, ...),
@@ -128,7 +120,7 @@ class CompositeFilter extends PersistableFilter
      *  You have to map all sub-filter settings that you
      *  wish to access from the composite filter.
      */
-    public function setSettingsMapping($settingsMapping)
+    public function setSettingsMapping(array $settingsMapping): void
     {
         $this->setData('settingsMapping', $settingsMapping);
     }
@@ -136,7 +128,7 @@ class CompositeFilter extends PersistableFilter
     /**
      * Get the settings mapping.
      */
-    public function getSettingsMapping()
+    public function getSettingsMapping(): array
     {
         $settingsMapping = $this->getData('settingsMapping');
         if (is_null($settingsMapping)) {
@@ -148,10 +140,8 @@ class CompositeFilter extends PersistableFilter
 
     /**
      * Get a settings mapping
-     *
-     * @return array
      */
-    public function getSettingsMappingForSetting($settingName)
+    public function getSettingsMappingForSetting($settingName): array
     {
         $settingsMapping = [];
         $settingsMappingData = $this->getData('settingsMapping');
@@ -168,7 +158,7 @@ class CompositeFilter extends PersistableFilter
     /**
      * @see PersistableFilter::getSetting()
      */
-    public function &getSetting($settingName)
+    public function getSetting(string $settingName): FilterSetting
     {
         // Try first whether we have the setting locally.
         if (parent::hasSetting($settingName)) {
@@ -182,7 +172,7 @@ class CompositeFilter extends PersistableFilter
     /**
      * @see PersistableFilter::getSettings()
      */
-    public function &getSettings()
+    public function &getSettings(): array
     {
         // Get local settings.
         $settings = parent::getSettings();
@@ -198,7 +188,7 @@ class CompositeFilter extends PersistableFilter
     /**
      * @see PersistableFilter::hasSettings()
      */
-    public function hasSettings()
+    public function hasSettings(): bool
     {
         // Return true if this filter has own
         // or mapped settings.
@@ -209,7 +199,7 @@ class CompositeFilter extends PersistableFilter
     /**
      * @see PersistableFilter::getSettingNames()
      */
-    public function getSettingNames()
+    public function getSettingNames(): array
     {
         // Composite filters persist only
         // their own settings. Mapped settings
@@ -234,7 +224,7 @@ class CompositeFilter extends PersistableFilter
     /**
      * @see PersistableFilter::getLocalizedSettingNames()
      */
-    public function getLocalizedSettingNames()
+    public function getLocalizedSettingNames(): array
     {
         // We cannot use the parent implementation
         // here as this would include all sub-
@@ -251,7 +241,7 @@ class CompositeFilter extends PersistableFilter
     /**
      * @see PersistableFilter::getInternalSettings()
      */
-    public function getInternalSettings()
+    public function getInternalSettings(): array
     {
         $filterInternalSettings = parent::getInternalSettings();
         $filterInternalSettings[] = 'settingsMapping';
@@ -265,7 +255,7 @@ class CompositeFilter extends PersistableFilter
     /**
      * @see Filter::isCompatibleWithRuntimeEnvironment()
      */
-    public function isCompatibleWithRuntimeEnvironment()
+    public function isCompatibleWithRuntimeEnvironment(): bool
     {
         // Return false if any of the sub-filters is not compatible.
         foreach ($this->getFilters() as $filter) {
@@ -285,7 +275,7 @@ class CompositeFilter extends PersistableFilter
      *
      * @param null|mixed $locale
      */
-    public function &getData($key, $locale = null)
+    public function &getData($key, ?string $locale = null)
     {
         // Directly read local settings.
         if (in_array($key, $this->getInternalSettings()) || in_array($key, $this->getSettingNames())) {
@@ -300,10 +290,8 @@ class CompositeFilter extends PersistableFilter
 
     /**
      * @see \PKP\core\DataObject::setData()
-     *
-     * @param null|mixed $locale
      */
-    public function setData($key, $value, $locale = null)
+    public function setData($key, mixed $value, ?string $locale = null)
     {
         // Directly write internal settings.
         if (is_null($locale)) {
@@ -330,10 +318,8 @@ class CompositeFilter extends PersistableFilter
 
     /**
      * @see \PKP\core\DataObject::hasData()
-     *
-     * @param null|mixed $locale
      */
-    public function hasData($key, $locale = null)
+    public function hasData(string $key, ?string $locale = null): bool
     {
         // Internal settings will only be checked locally.
         if (in_array($key, $this->getInternalSettings())) {
@@ -365,11 +351,9 @@ class CompositeFilter extends PersistableFilter
      * they are identical and return only the first
      * one.
      *
-     * @param string $settingName
-     *
-     * @return string Composite setting name
+     * @return Composite setting name
      */
-    public function _getCompositeSettingName($settingName)
+    public function _getCompositeSettingName(string $settingName): ?string
     {
         $compositeSettingName = $this->getSettingsMappingForSetting($settingName);
         if (empty($compositeSettingName)) {
@@ -387,11 +371,9 @@ class CompositeFilter extends PersistableFilter
      * then we assume that those settings are identical
      * and will return only the first one.
      *
-     * @param string $settingName a mapped sub-filter setting
-     *
-     * @return FilterSetting
+     * @param $settingName a mapped sub-filter setting
      */
-    public function &_getSubfilterSetting($settingName)
+    public function &_getSubfilterSetting(string $settingName): FilterSetting
     {
         // Resolve the setting name and retrieve the setting by name.
         $compositeSettingName = $this->_getCompositeSettingName($settingName);
@@ -403,32 +385,29 @@ class CompositeFilter extends PersistableFilter
      * Split a composite setting name and identify the
      * corresponding sub-filter and setting name.
      *
-     * @param string $compositeSettingName
      *
      * @return array the first entry will be the sub-filter
      *  and the second entry the setting name.
      */
-    public function _resolveCompositeSettingName($compositeSettingName)
+    public function _resolveCompositeSettingName(string $compositeSettingName): array
     {
-        assert(is_string($compositeSettingName));
-
         // The key should be of the
         // form filterSeq-settingName.
         $compositeSettingNameParts = explode('_', $compositeSettingName, 2);
         if (count($compositeSettingNameParts) != 2) {
-            fatalError('Invalid composite setting name "' . $compositeSettingName . '"!');
+            throw new Exception('Invalid composite setting name "' . $compositeSettingName . '"!');
         }
         [$seq, $settingName] = $compositeSettingNameParts;
         $seq = str_replace('seq', '', $seq);
         if (!is_numeric($seq)) {
-            fatalError('Invalid sequence number in "' . $compositeSettingName . '"!');
+            throw new Exception('Invalid sequence number in "' . $compositeSettingName . '"!');
         }
         $seq = (int)$seq;
 
         // Identify the sub-filter.
         $filter = & $this->getFilter($seq);
         if (is_null($filter)) {
-            fatalError('Invalid filter sequence number!');
+            throw new Exception('Invalid filter sequence number!');
         }
 
         // Return the result.

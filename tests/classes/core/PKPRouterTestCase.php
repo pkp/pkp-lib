@@ -290,8 +290,11 @@ class PKPRouterTestCase extends PKPTestCase
             ->getMock();
         if (!$firstContextIsNull) {
             $firstContextInstance = $this->getMockBuilder($contextClassName)
-                ->onlyMethods(['getPath', 'getSetting', 'getSupportedLocales'])
+                ->onlyMethods(['getPath', 'getSetting', 'getSupportedLocales', 'getId'])
                 ->getMock();
+            $firstContextInstance->expects($this->any())
+                ->method('getId')
+                ->will($this->returnValue(1));
             $firstContextInstance->expects($this->any())
                 ->method('getPath')
                 ->will($this->returnValue($firstContextPath));

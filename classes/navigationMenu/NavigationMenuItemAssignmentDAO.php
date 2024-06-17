@@ -286,10 +286,8 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
 
     /**
      * Get the list of localized field names for this table
-     *
-     * @return array
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         return ['title'];
     }

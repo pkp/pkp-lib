@@ -149,10 +149,8 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
 
     /**
      * Get the list of localized field names for this table
-     *
-     * @return array
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         return ['title', 'content', 'remoteUrl'];
     }
@@ -160,7 +158,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
     /**
      * @copydoc DAO::getAdditionalFieldNames()
      */
-    public function getAdditionalFieldNames()
+    public function getAdditionalFieldNames(): array
     {
         return ['titleLocaleKey'];
     }

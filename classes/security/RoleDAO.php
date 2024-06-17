@@ -18,6 +18,7 @@
 
 namespace PKP\security;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
@@ -59,14 +60,14 @@ class RoleDAO extends DAO
      *
      * @return array of Roles
      */
-    public function getByUserId(int $userId, ?int $contextId = null)
+    public function getByUserId(int $userId, ?int $contextId = Application::SITE_CONTEXT_ID_ALL)
     {
         $result = DB::table('user_groups AS ug')
             ->join('user_user_groups AS uug', 'ug.user_group_id', '=', 'uug.user_group_id')
             ->where('uug.user_id', $userId)
             ->where(fn (Builder $q) => $q->whereNull('uug.date_start')->orWhere('uug.date_start', '<=', Core::getCurrentDate()))
             ->where(fn (Builder $q) => $q->whereNull('uug.date_end')->orWhere('uug.date_end', '>', Core::getCurrentDate()))
-            ->when($contextId !== null, fn (Builder $q) => $q->where(DB::raw('COALESCE(ug.context_id, 0)'), (int) $contextId))
+            ->when($contextId !== Application::SITE_CONTEXT_ID_ALL, fn (Builder $q) => $q->where(DB::raw('COALESCE(ug.context_id, 0)'), (int) $contextId))
             ->distinct()
             ->select(['ug.role_id AS role_id'])
             ->get();

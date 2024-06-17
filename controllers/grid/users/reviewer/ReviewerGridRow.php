@@ -17,6 +17,7 @@
 namespace PKP\controllers\grid\users\reviewer;
 
 use APP\facades\Repo;
+use PKP\components\forms\decision\LogReviewerResponseForm;
 use PKP\controllers\grid\GridRow;
 use PKP\core\PKPApplication;
 use PKP\linkAction\LinkAction;
@@ -219,59 +220,20 @@ class ReviewerGridRow extends GridRow
 
             if ($reviewAssignment->getDateConfirmed() == null) {
                 $context = $request->getContext();
-                $vueModalArgs = [
+                $action = $router->url($request, null, null, 'addLog', null, $actionArgs);
+                $logResponseForm = new LogReviewerResponseForm($action, $context->getSupportedFormLocales(), $context);
+
+                $form = [
                     'description' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
-                    'logResponseForm' => [
-                        'id' => 'logResponseForm',
-                        'method' => 'POST',
-                        'action' => $router->url($request, null, null, 'addLog', null, $actionArgs),
-                        'fields' => [
-                            [
-                                'name' => 'acceptReview',
-                                'isRequired' => true,
-                                'description' => __('editor.review.logResponse.form.subDetail'),
-                                'component' => 'field-options',
-                                'label' => __('editor.review.logResponse.form.detail'),
-                                'value' => false,
-                                'type' => 'radio',
-                                'options' => [
-                                    [
-                                        'value' => 1,
-                                        'label' => __('editor.review.logResponse.form.option.accepted'),
-                                    ],
-                                    [
-                                        'value' => 0,
-                                        'label' => __('editor.review.logResponse.form.option.declined'),
-                                    ],
-                                ],
-                                'groupId' => 'default',
-                            ],
-                        ],
-                        'groups' => [
-                            [
-                                'id' => 'default',
-                                'pageId' => 'default',
-                            ],
-                        ],
-                        'pages' => [
-                            [
-                                'id' => 'default',
-                                'submitButton' => [
-                                    'label' => __('editor.review.logResponse')
-                                ]
-                            ],
-                        ],
-                        'primaryLocale' => $request->getContext()->getPrimaryLocale(),
-                        'visibleLocales' => [$submission->getData('locale')],
-                        'supportedFormLocales' => $context->getSupportedFormLocales(),
-                    ]
+                    'logResponseForm' => $logResponseForm->getConfig()
                 ];
+
                 $this->addAction(
                     new LinkAction(
                         'logResponse',
                         new VueModal(
                             'WorkflowLogResponseForModal',
-                            array_merge($actionArgs, $vueModalArgs)
+                            array_merge($actionArgs, $form)
                         ),
                         __('editor.review.logResponse')
                     )

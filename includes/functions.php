@@ -187,7 +187,7 @@ function __p(string $key, int $number, array $replace = [], ?string $locale = nu
  * Check if run on CLI
  */
 if (!function_exists('runOnCLI')) {
-    function runOnCLI(string $scriptPath = null): bool
+    function runOnCLI(?string $scriptPath = null): bool
     {
         if (php_sapi_name() && strtolower(php_sapi_name()) === 'cli') {
             return true;

@@ -298,7 +298,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         if (!strlen((string) $uniqueSiteId)) {
             $uniqueSiteId = PKPString::generateUUID();
             $site->setUniqueSiteID($uniqueSiteId);
-            /** @var SiteDAO */
+            /** @var \PKP\site\SiteDAO */
             $siteDao = DAORegistry::getDAO('SiteDAO');
             $siteDao->updateObject($site);
         }

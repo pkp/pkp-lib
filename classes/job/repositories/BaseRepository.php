@@ -86,7 +86,7 @@ abstract class BaseRepository
         return $this;
     }
 
-    public function deleteJobs(string $queue = null, array $ids = []): int
+    public function deleteJobs(?string $queue = null, array $ids = []): int
     {
         $query = $this->model->newQuery();
 

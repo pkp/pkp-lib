@@ -18,6 +18,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
 
+/**
+ * @template T of Highlight
+ *
+ * @extends EntityDAO<T>
+ */
 class DAO extends EntityDAO
 {
     public $schema = \PKP\services\PKPSchemaService::SCHEMA_HIGHLIGHT;

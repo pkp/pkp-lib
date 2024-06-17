@@ -383,7 +383,7 @@ class Locale implements LocaleInterface
     /**
      * @copy LocaleInterface::getFormattedDisplayNames()
      */
-    public function getFormattedDisplayNames(array $filterByLocales = null, array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH, bool $omitLocaleCodeInDisplay = true): array
+    public function getFormattedDisplayNames(?array $filterByLocales = null, ?array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH, bool $omitLocaleCodeInDisplay = true): array
     {
         $locales ??= $this->getLocales();
 
@@ -457,7 +457,7 @@ class Locale implements LocaleInterface
      *
      * @return  array The list of locales with formatted display name
      */
-    protected function getFilteredLocales(array $locales, array $filterByLocales = null): array
+    protected function getFilteredLocales(array $locales, ?array $filterByLocales = null): array
     {
         if (!$filterByLocales) {
             return $locales;
@@ -538,7 +538,7 @@ class Locale implements LocaleInterface
     /**
      * Retrieves the ISO codes factory
      */
-    private function _getIsoCodes(string $locale = null): IsoCodesFactory
+    private function _getIsoCodes(?string $locale = null): IsoCodesFactory
     {
         return app(IsoCodesFactory::class, $locale ? ['locale' => $locale] : []);
     }

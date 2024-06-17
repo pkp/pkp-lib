@@ -72,13 +72,13 @@ abstract class Repository
     }
 
     /** @copydoc DAO::exists() */
-    public function exists(int $id, int $submissionId = null): bool
+    public function exists(int $id, ?int $submissionId = null): bool
     {
         return $this->dao->exists($id, $submissionId);
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id, int $submissionId = null): ?Publication
+    public function get(int $id, ?int $submissionId = null): ?Publication
     {
         return $this->dao->get($id, $submissionId);
     }

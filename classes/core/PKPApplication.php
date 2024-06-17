@@ -426,7 +426,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      *
      * @return array
      */
-    public function getEnabledProducts($category = null, $mainContextId = null)
+    public function getEnabledProducts($category = null, ?int $mainContextId = null)
     {
         if (is_null($mainContextId)) {
             $request = $this->getRequest();
@@ -434,18 +434,10 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
             $mainContextId = $router->getContext($request)?->getId() ?? self::SITE_CONTEXT_ID;
         }
-        if (!isset($this->enabledProducts[$mainContextId])) {
-            $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var \PKP\site\VersionDAO $versionDao */
-            $this->enabledProducts[$mainContextId] = $versionDao->getCurrentProducts($mainContextId);
-        }
+        $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var \PKP\site\VersionDAO $versionDao */
+        $enabledProducts = $this->enabledProducts[(int) $mainContextId] ??= $versionDao->getCurrentProducts($mainContextId);
 
-        if (is_null($category)) {
-            return $this->enabledProducts[$mainContextId];
-        } elseif (isset($this->enabledProducts[$mainContextId][$category])) {
-            return $this->enabledProducts[$mainContextId][$category];
-        } else {
-            return [];
-        }
+        return $category ? ($enabledProducts[$category] ?? []) : $enabledProducts;
     }
 
     /**

@@ -18,6 +18,7 @@
 
 namespace PKP\context;
 
+use APP\core\Application;
 use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
 use PKP\db\DAOResultFactory;
@@ -139,10 +140,26 @@ abstract class ContextDAO extends SchemaDAO
 
         $result = $this->retrieveRange(
             'SELECT c.* FROM ' . $this->tableName . ' c
-			WHERE	' .
+            WHERE ' .
                 ($userId ?
-                    'c.' . $this->primaryKeyColumn . ' IN (SELECT DISTINCT ug.context_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE uug.user_id = ? AND (uug.date_start IS NULL OR uug.date_start <= ?) AND (uug.date_end IS NULL OR uug.date_end > ?))
-					OR ? IN (SELECT user_id FROM user_groups ug JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id) WHERE ug.role_id = ? AND (uug.date_start IS NULL OR uug.date_start <= ?) AND (uug.date_end IS NULL OR uug.date_end > ?))'
+                    'c.' . $this->primaryKeyColumn . ' IN (
+                        SELECT DISTINCT ug.context_id
+                        FROM user_groups ug
+                        JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id)
+                        WHERE
+                            uug.user_id = ?
+                            AND (uug.date_start IS NULL OR uug.date_start <= ?)
+                            AND (uug.date_end IS NULL OR uug.date_end > ?)
+                    )
+                    OR ? IN (
+                        SELECT user_id
+                        FROM user_groups ug
+                        JOIN user_user_groups uug ON (ug.user_group_id = uug.user_group_id)
+                        WHERE
+                            ug.role_id = ?
+                            AND (uug.date_start IS NULL OR uug.date_start <= ?)
+                            AND (uug.date_end IS NULL OR uug.date_end > ?)
+                    )'
                 : 'c.enabled = 1') .
             ' ORDER BY seq',
             $params,
@@ -160,10 +177,10 @@ abstract class ContextDAO extends SchemaDAO
      *
      * @return DAOResultFactory<T>
      */
-    public function getBySetting($settingName, $settingValue, $contextId = null)
+    public function getBySetting($settingName, $settingValue, ?int $contextId = Application::SITE_CONTEXT_ID_ALL)
     {
         $params = [$settingName, $settingValue];
-        if ($contextId) {
+        if ($contextId !== Application::SITE_CONTEXT_ID_ALL) {
             $params[] = $contextId;
         }
 
@@ -172,7 +189,7 @@ abstract class ContextDAO extends SchemaDAO
 			LEFT JOIN ' . $this->settingsTableName . ' AS cs
 			ON c.' . $this->primaryKeyColumn . ' = cs.' . $this->primaryKeyColumn .
             ' WHERE cs.setting_name = ? AND cs.setting_value = ?' .
-            ($contextId ? ' AND c.' . $this->primaryKeyColumn . ' = ?' : ''),
+            ($contextId !== Application::SITE_CONTEXT_ID_ALL ? ' AND c.' . $this->primaryKeyColumn . ' = ?' : ''),
             $params
         );
 

@@ -49,13 +49,13 @@ class Repository
     }
 
     /** @copydoc DAO::exists() */
-    public function exists(int $id, int $contextId = null): bool
+    public function exists(int $id, ?int $contextId = null): bool
     {
         return $this->dao->exists($id, $contextId);
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id, int $contextId = null): ?Section
+    public function get(int $id, ?int $contextId = null): ?Section
     {
         return $this->dao->get($id, $contextId);
     }

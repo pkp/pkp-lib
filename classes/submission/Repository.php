@@ -78,13 +78,13 @@ abstract class Repository
     }
 
     /** @copydoc DAO::exists() */
-    public function exists(int $id, int $contextId = null): bool
+    public function exists(int $id, ?int $contextId = null): bool
     {
         return $this->dao->exists($id, $contextId);
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id, int $contextId = null): ?Submission
+    public function get(int $id, ?int $contextId = null): ?Submission
     {
         return $this->dao->get($id, $contextId);
     }
@@ -108,7 +108,7 @@ abstract class Repository
      * Get a submission by "best" submission id -- url path if it exists,
      * falling back on the internal submission ID otherwise.
      */
-    public function getByBestId(string $idOrUrlPath, int $contextId = null): ?Submission
+    public function getByBestId(string $idOrUrlPath, ?int $contextId = null): ?Submission
     {
         return ctype_digit((string) $idOrUrlPath)
             ? $this->get((int) $idOrUrlPath, $contextId)

@@ -53,11 +53,11 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
     /**
      * Retrieve Notification subscription settings by user id
      */
-    public function &getNotificationSubscriptionSettings(string $settingName, int $userId, ?int $contextId): array
+    public function getNotificationSubscriptionSettings(string $settingName, int $userId, ?int $contextId): array
     {
         $result = $this->retrieve(
-            'SELECT setting_value FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND context = ?',
-            [$userId, $settingName, $contextId]
+            'SELECT setting_value FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND COALESCE(context, 0) = ?',
+            [$userId, $settingName, (int) $contextId]
         );
 
         $settings = [];
@@ -74,8 +74,8 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
     {
         // Delete old settings first, then insert new settings
         $this->update(
-            'DELETE FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND context = ?',
-            [$userId, $settingName, $contextId]
+            'DELETE FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND COALESCE(context, 0) = ?',
+            [$userId, $settingName, (int) $contextId]
         );
 
         foreach ($settings as $setting) {

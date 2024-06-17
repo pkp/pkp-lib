@@ -18,11 +18,11 @@
 
 namespace PKP\notification;
 
+use APP\core\Application;
 use APP\notification\Notification;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
-use PKP\core\PKPApplication;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\Hook;
 
@@ -56,13 +56,13 @@ class NotificationDAO extends \PKP\db\DAO
      *
      * @return DAOResultFactory<Notification> Object containing matching Notification objects
      */
-    public function getByUserId(?int $userId, int $level = Notification::NOTIFICATION_LEVEL_NORMAL, ?int $type = null, ?int $contextId = null): DAOResultFactory
+    public function getByUserId(?int $userId, int $level = Notification::NOTIFICATION_LEVEL_NORMAL, ?int $type = null, ?int $contextId = Application::SITE_CONTEXT_ID_ALL): DAOResultFactory
     {
         $result = DB::table('notifications')
             ->where('user_id', '=', $userId)
             ->where('level', '=', $level)
             ->when($type !== null, fn ($query) => $query->where('type', '=', $type))
-            ->when($contextId !== null, fn ($query) => $query->where(DB::raw('COALESCE(context_id, 0)'), '=', (int) $contextId))
+            ->when($contextId !== Application::SITE_CONTEXT_ID_ALL, fn (Builder $query) => $query->where(DB::raw('COALESCE(context_id, 0)'), '=', (int) $contextId))
             ->orderBy('date_created', 'desc')
             ->get();
         return new DAOResultFactory($result, $this, '_fromRow');
@@ -77,14 +77,14 @@ class NotificationDAO extends \PKP\db\DAO
      *
      * @return DAOResultFactory<Notification>
      */
-    public function getByAssoc(int $assocType, int $assocId, ?int $userId = null, ?int $type = null, ?int $contextId = null): DAOResultFactory
+    public function getByAssoc(int $assocType, int $assocId, ?int $userId = null, ?int $type = null, ?int $contextId = Application::SITE_CONTEXT_ID_ALL): DAOResultFactory
     {
         $params = [$assocType, $assocId];
         if ($userId) {
             $params[] = $userId;
         }
-        if ($contextId) {
-            $params[] = $contextId;
+        if ($contextId !== Application::SITE_CONTEXT_ID_ALL) {
+            $params[] = (int) $contextId;
         }
         if ($type) {
             $params[] = $type;
@@ -93,7 +93,7 @@ class NotificationDAO extends \PKP\db\DAO
         $result = $this->retrieveRange(
             'SELECT * FROM notifications WHERE assoc_type = ? AND assoc_id = ?' .
             ($userId ? ' AND user_id = ?' : '') .
-            ($contextId ? ' AND context_id = ?' : '') .
+            ($contextId ? ' AND COALESCE(context_id, 0) = ?' : '') .
             ($type ? ' AND type = ?' : '') .
             ' ORDER BY date_created DESC',
             $params
@@ -144,7 +144,7 @@ class NotificationDAO extends \PKP\db\DAO
             [
                 (int) $notification->getUserId() ?: null,
                 (int) $notification->getLevel(),
-                (int) $notification->getContextId() ?: null,
+                $notification->getContextId(),
                 (int) $notification->getType(),
                 (int) $notification->getAssocType(),
                 (int) $notification->getAssocId()
@@ -157,13 +157,8 @@ class NotificationDAO extends \PKP\db\DAO
 
     /**
      * Inserts or update a notification into notifications table.
-     *
-     * @param int $userId (optional)
-     * @param int $contextId (optional)
-     *
-     * @return mixed Notification or null
      */
-    public function build(int $contextId, int $level, int $type, int $assocType, int $assocId, ?int $userId = null): Notification
+    public function build(?int $contextId, int $level, int $type, int $assocType, int $assocId, ?int $userId = null): Notification
     {
         DB::table('notifications')
             ->when(fn (Builder $query) => $query->where(DB::raw('COALESCE(context_id, 0)'), '=', (int) $contextId))
@@ -208,7 +203,7 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Delete notification(s) by association
      */
-    public function deleteByAssoc(int $assocType, int $assocId, ?int $userId = null, ?int $type = null, ?int $contextId = null): int
+    public function deleteByAssoc(int $assocType, int $assocId, ?int $userId = null, ?int $type = null, ?int $contextId = Application::SITE_CONTEXT_ID_ALL): int
     {
         $notificationsFactory = $this->getByAssoc($assocType, $assocId, $userId, $type, $contextId);
         $deletedRows = 0;
@@ -223,16 +218,16 @@ class NotificationDAO extends \PKP\db\DAO
      *
      * @param bool $read Whether to check for read (true) or unread (false) notifications
      */
-    public function getNotificationCount(bool $read = true, ?int $userId = null, ?int $contextId = null, ?int $level = Notification::NOTIFICATION_LEVEL_NORMAL): int
+    public function getNotificationCount(bool $read = true, ?int $userId = null, ?int $contextId = Application::SITE_CONTEXT_ID_ALL, ?int $level = Notification::NOTIFICATION_LEVEL_NORMAL): int
     {
         $params = [(int) $userId, (int) $level];
-        if ($contextId) {
+        if ($contextId !== Application::SITE_CONTEXT_ID_ALL) {
             $params[] = (int) $contextId;
         }
 
         $result = $this->retrieve(
             'SELECT count(*) AS row_count FROM notifications WHERE user_id = ? AND date_read IS' . ($read ? ' NOT' : '') . ' NULL AND level = ?'
-            . (isset($contextId) ? ' AND context_id = ?' : ''),
+            . ($contextId !== Application::SITE_CONTEXT_ID_ALL ? ' AND COALESCE(context_id, 0) = ?' : ''),
             $params
         );
 

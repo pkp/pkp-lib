@@ -235,21 +235,19 @@ class PKPNotification extends \PKP\core\DataObject
     }
 
     /**
-     * get context id
-     *
-     * @return int
+     * Get context id
      */
-    public function getContextId()
+    public function getContextId(): ?int
     {
         return $this->getData('context_id');
     }
 
     /**
-     * set context id
+     * Set context id
      */
-    public function setContextId($contextId)
+    public function setContextId(?int $contextId): void
     {
-        $this->setData('context_id', (int) $contextId ?: null);
+        $this->setData('context_id', $contextId);
     }
 }
 

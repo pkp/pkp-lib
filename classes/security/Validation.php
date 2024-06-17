@@ -456,7 +456,7 @@ class Validation
      *
      * @return int The authorized administration level
      */
-    public static function getAdministrationLevel(int $administeredUserId, int $administratorUserId, int $contextId = null): int
+    public static function getAdministrationLevel(int $administeredUserId, int $administratorUserId, ?int $contextId = null): int
     {
         // You can administer yourself
         if ($administeredUserId == $administratorUserId) {

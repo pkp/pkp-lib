@@ -29,7 +29,7 @@ import localizeMoment from '@/mixins/localizeMoment.js';
 // Global components of UI Library
 import Badge from '@/components/Badge/Badge.vue';
 import Dropdown from '@/components/Dropdown/Dropdown.vue';
-import DropdownMenu from '@/components/DropdownMenu/DropdownMenu.vue';
+import DropdownActions from '@/components/DropdownActions/DropdownActions.vue';
 import Icon from '@/components/Icon/Icon.vue';
 import Notification from '@/components/Notification/Notification.vue';
 import Panel from '@/components/Panel/Panel.vue';
@@ -109,7 +109,7 @@ VueRegistry.registerComponent('Badge', Badge);
 VueRegistry.registerComponent('PkpBadge', Badge);
 VueRegistry.registerComponent('Dropdown', Dropdown);
 VueRegistry.registerComponent('PkpDropdown', Dropdown);
-VueRegistry.registerComponent('DropdownMenu', DropdownMenu);
+VueRegistry.registerComponent('DropdownActions', DropdownActions);
 VueRegistry.registerComponent('Icon', Icon);
 VueRegistry.registerComponent('PkpIcon', Icon);
 VueRegistry.registerComponent('Notification', Notification);

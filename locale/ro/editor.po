@@ -606,3 +606,26 @@ msgstr ""
 
 #~ msgid "reviewer.list.count"
 #~ msgstr "{$count} revizori"
+
+msgid "editor.review.logResponse.for"
+msgstr "Răspuns jurnal pentru"
+
+msgid "editor.review.logResponse"
+msgstr "Răspuns jurnal"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Trebuie selectat un răspuns"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Recenzorul a acceptat invitația de revizuire"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Recenzorul a refuzat invitația de revizuire"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Înregistrați răspunsul în numele recenzorului"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Dacă recenzorul vă contactează prin e -mail sau prin orice alte mijloace, "
+"puteți înregistra răspunsul lor pentru ei"

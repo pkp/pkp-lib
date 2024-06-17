@@ -601,3 +601,26 @@ msgstr "هناك مشكلة في الخطوة {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "نفس مؤسسة المؤلف"
+
+msgid "editor.review.logResponse.for"
+msgstr "استجابة سجل ل"
+
+msgid "editor.review.logResponse"
+msgstr "استجابة السجل"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "يجب اختيار استجابة"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "قبل المراجع الدعوة للمراجعة"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "رفض المراجع الدعوة للمراجعة"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "سجل الرد نيابة عن المراجع"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"إذا اتصل بك المراجع عبر البريد الإلكتروني أو أي وسيلة أخرى ، فيمكنك تسجيل "
+"ردهم لهم"

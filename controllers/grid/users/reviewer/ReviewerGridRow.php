@@ -22,6 +22,7 @@ use PKP\core\PKPApplication;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectConfirmationModal;
+use PKP\linkAction\request\VueModal;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
@@ -212,6 +213,67 @@ class ReviewerGridRow extends GridRow
                         ),
                         __('user.gossip'),
                         'more_info'
+                    )
+                );
+            }
+
+            if ($reviewAssignment->getDateConfirmed() == null) {
+                $context = $request->getContext();
+                $vueModalArgs = [
+                    'description' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
+                    'logResponseForm' => [
+                        'id' => 'logResponseForm',
+                        'method' => 'POST',
+                        'action' => $router->url($request, null, null, 'addLog', null, $actionArgs),
+                        'fields' => [
+                            [
+                                'name' => 'acceptReview',
+                                'isRequired' => true,
+                                'description' => __('editor.review.logResponse.form.subDetail'),
+                                'component' => 'field-options',
+                                'label' => __('editor.review.logResponse.form.detail'),
+                                'value' => false,
+                                'type' => 'radio',
+                                'options' => [
+                                    [
+                                        'value' => 1,
+                                        'label' => __('editor.review.logResponse.form.option.accepted'),
+                                    ],
+                                    [
+                                        'value' => 0,
+                                        'label' => __('editor.review.logResponse.form.option.declined'),
+                                    ],
+                                ],
+                                'groupId' => 'default',
+                            ],
+                        ],
+                        'groups' => [
+                            [
+                                'id' => 'default',
+                                'pageId' => 'default',
+                            ],
+                        ],
+                        'pages' => [
+                            [
+                                'id' => 'default',
+                                'submitButton' => [
+                                    'label' => __('editor.review.logResponse')
+                                ]
+                            ],
+                        ],
+                        'primaryLocale' => $request->getContext()->getPrimaryLocale(),
+                        'visibleLocales' => [$submission->getData('locale')],
+                        'supportedFormLocales' => $context->getSupportedFormLocales(),
+                    ]
+                ];
+                $this->addAction(
+                    new LinkAction(
+                        'logResponse',
+                        new VueModal(
+                            'WorkflowLogResponseForModal',
+                            array_merge($actionArgs, $vueModalArgs)
+                        ),
+                        __('editor.review.logResponse')
                     )
                 );
             }

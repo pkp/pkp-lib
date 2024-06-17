@@ -596,3 +596,26 @@ msgstr ""
 
 msgid "editor.decision.stepError"
 msgstr ""
+
+msgid "editor.review.logResponse.for"
+msgstr "Resposta de rexistro para"
+
+msgid "editor.review.logResponse"
+msgstr "Resposta do rexistro"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Debe seleccionarse unha resposta"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "O revisor aceptou a invitación a revisar"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "O revisor rexeitou a invitación a revisar"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Grava a resposta en nome do revisor"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Se o revisor póñase en contacto con vostede a través de correo electrónico "
+"ou calquera outro medio, pode gravar a súa resposta por eles"

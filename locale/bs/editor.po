@@ -597,3 +597,26 @@ msgstr ""
 
 msgid "editor.decision.stepError"
 msgstr ""
+
+msgid "editor.review.logResponse.for"
+msgstr "Odgovor dnevnika za"
+
+msgid "editor.review.logResponse"
+msgstr "Odgovor dnevnika"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Odgovor mora biti odabran"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Recenzent je prihvatio poziv za pregled"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Recenzent je odbio poziv za pregled"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Zabilježite odgovor u ime recenzenata"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Ako vas recenzent kontaktira putem e-pošte ili bilo koji drugi način, možete"
+" zabilježiti njihov odgovor za njih"

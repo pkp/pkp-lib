@@ -614,3 +614,26 @@ msgstr "Det fanns ett problem med steg nummer {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Samma institution som författaren"
+
+msgid "editor.review.logResponse.for"
+msgstr "Logga svar för"
+
+msgid "editor.review.logResponse"
+msgstr "Loggsvar"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Ett svar måste väljas"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Granskaren har accepterat inbjudan att granska"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Granskaren har avböjt inbjudan att granska"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Registrera svaret på granskarens vägnar"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Om granskaren kontaktar dig via e -post eller något annat sätt kan du spela "
+"in deras svar för dem"

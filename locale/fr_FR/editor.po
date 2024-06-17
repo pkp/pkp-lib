@@ -748,3 +748,26 @@ msgstr "L’étape {$stepName} a posé un problème."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Même institution de rattachement que l'auteur·e"
+
+msgid "editor.review.logResponse.for"
+msgstr "Réponse du journal pour"
+
+msgid "editor.review.logResponse"
+msgstr "Réponse du journal"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Une réponse doit être sélectionnée"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Le réviseur a accepté l'invitation à réviser"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "L'examinateur a refusé l'invitation à examiner"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Enregistrez la réponse au nom du réviseur"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Si le réviseur vous contacte par e-mail ou tout autre moyen, vous pouvez "
+"enregistrer leur réponse pour eux"

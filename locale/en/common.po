@@ -1900,6 +1900,9 @@ msgstr "User added as a stage participant."
 msgid "notification.editStageParticipant"
 msgstr "The stage assignment has been changed."
 
+msgid "notification.responseLogged"
+msgstr "The reviewer response has been logged."
+
 msgid "notification.type.newAnnouncement"
 msgstr "New announcement."
 

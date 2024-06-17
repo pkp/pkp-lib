@@ -671,3 +671,26 @@ msgid "editor.submission.proofreading.confirmRemoveCompletion"
 msgstr ""
 "Düzəliş prosesinin başa çatmadığını və faylın nəşrə hazır olmadığını "
 "göstərmək üçün bu düzəliş təsdiqini ləğv edin."
+
+msgid "editor.review.logResponse.for"
+msgstr "Üçün giriş"
+
+msgid "editor.review.logResponse"
+msgstr "Giriş cavabı"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Cavab seçilməlidir"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Rəyçi nəzərdən keçirmək üçün dəvəti qəbul etdi"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Rəyçi nəzərdən keçirməyə dəvətini rədd etdi"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Rəyçi adından cavabı qeyd edin"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Rəyçi e-poçt və ya başqa bir vasitə ilə sizinlə əlaqə saxlayırsa, onların "
+"cavablarını yaza bilərsiniz"

@@ -341,6 +341,9 @@ msgstr "The submission for this review assignment could not be found."
 msgid "api.reviews.assignments.invalidReviewer"
 msgstr "The reviewer for the assignment could not be found"
 
+msgid "api.review.assignments.invalidInvitationResponse"
+msgstr "Only 'accept' and 'decline' are valid values"
+
 msgid "api.submission.400.sectionDoesNotExist"
 msgstr "The provided section does not exist."
 

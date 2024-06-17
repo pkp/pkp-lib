@@ -205,9 +205,6 @@ msgstr "Email to be sent to reviewer"
 msgid "editor.review.importantDates"
 msgstr "Important Dates"
 
-msgid "editor.review.importantDates.notice"
-msgstr "Review due date must be greater or equal to response due date."
-
 msgid "editor.review.uploadRevision"
 msgstr "Upload Revision"
 
@@ -323,9 +320,6 @@ msgstr "You must select a reviewer"
 
 msgid "editor.review.errorAddingReviewer"
 msgstr "There was an error adding the reviewer.  Please try again."
-
-msgid "editor.review.errorAddingReviewer.dateValidationFailed"
-msgstr "There was an error adding the reviewer as review due date must be equal or greater than responde due date."
 
 msgid "editor.review.errorDeletingReviewer"
 msgstr "There was an error deleting the reviewer.  Please try again."
@@ -465,6 +459,11 @@ msgstr "Search submissions, ID, authors, keywords, etc."
 msgid "editor.submission.days"
 msgstr "Days"
 
+msgid "editor.submission.daysInStage"
+msgstr "Days in Stage"
+
+msgid "editor.submission.viewSummary"
+msgstr "Summary"
 
 msgid "editor.article.reviewForms"
 msgstr "Review Forms"
@@ -627,6 +626,27 @@ msgstr "Skip this email"
 
 msgid "editor.decision.stepError"
 msgstr "There was a problem with the {$stepName} step."
+
+msgid "editor.review.logResponse.for"
+msgstr "Log Response for"
+
+msgid "editor.review.logResponse"
+msgstr "Log Response"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "A response must be selected"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Reviewer has accepted the invitation to review"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Reviewer has declined the invitation to review"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Record the response on behalf of the reviewer"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr "If the reviewer contacts you through email or any other means, you can record their response for them"
 
 msgid "editor.review.download"
 msgstr "Download Review Form"

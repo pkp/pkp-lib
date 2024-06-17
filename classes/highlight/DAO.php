@@ -47,7 +47,7 @@ class DAO extends EntityDAO
     {
         return DB::table($this->table)
             ->where($this->primaryKeyColumn, $id)
-            ->where($this->parentKeyColumn, $contextId)
+            ->where(DB::raw("COALESCE({$this->parentKeyColumn}, 0)"), (int) $contextId)
             ->exists();
     }
 
@@ -58,7 +58,7 @@ class DAO extends EntityDAO
     {
         $row = DB::table($this->table)
             ->where($this->primaryKeyColumn, $id)
-            ->where($this->parentKeyColumn, $contextId)
+            ->where(DB::raw("COALESCE({$this->parentKeyColumn}, 0)"), (int) $contextId)
             ->first();
         return $row ? $this->fromRow($row) : null;
     }
@@ -125,11 +125,7 @@ class DAO extends EntityDAO
     public function getLastSequence(?int $contextId = null): ?int
     {
         return DB::table($this->table)
-            ->when(
-                $contextId,
-                fn ($qb) => $qb->where('context_id', $contextId),
-                fn ($qb) => $qb->whereNull('context_id')
-            )
+            ->where(DB::raw("COALESCE(context_id, 0)"), (int) $contextId)
             ->orderBy('sequence', 'desc')
             ->first('sequence')
             ?->sequence;

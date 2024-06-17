@@ -78,7 +78,7 @@ class DAO extends EntityDAO
      * Optionally, pass the publication ID to only get an author
      * if it exists and is assigned to that publication.
      */
-    public function get(int $id, int $publicationId = null): ?Author
+    public function get(int $id, ?int $publicationId = null): ?Author
     {
         // This is overridden due to the need to include submission_locale
         // to the fromRow function
@@ -98,7 +98,7 @@ class DAO extends EntityDAO
      * Optionally, pass the publication ID to check if the author
      * exists and is assigned to that publication.
      */
-    public function exists(int $id, int $publicationId = null): bool
+    public function exists(int $id, ?int $publicationId = null): bool
     {
         return DB::table($this->table)
             ->where($this->primaryKeyColumn, '=', $id)

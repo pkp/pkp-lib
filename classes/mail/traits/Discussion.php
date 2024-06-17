@@ -30,7 +30,7 @@ trait Discussion
         return $this;
     }
 
-    protected function setFooterText(string $locale, string $localeKey = null): string
+    protected function setFooterText(string $locale, ?string $localeKey = null): string
     {
         if (is_null($localeKey)) {
             $localeKey = 'emails.footer.unsubscribe.discussion';

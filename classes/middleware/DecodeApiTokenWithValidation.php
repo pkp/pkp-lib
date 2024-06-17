@@ -118,7 +118,7 @@ class DecodeApiTokenWithValidation
      * that mean the request probably came from within the app itself
      * and we need to retrive the user from session manager in that case
      */
-    protected function setUserResolver(Request &$request, User $user = null): void
+    protected function setUserResolver(Request &$request, ?User $user = null): void
     {
         if (!$user && !PKPSessionGuard::isSessionDisable()) {
             $user = Application::get()->getRequest()->getUser();

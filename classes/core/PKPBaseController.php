@@ -93,7 +93,7 @@ abstract class PKPBaseController extends Controller
     /**
      * Get the curernt requested route
      */
-    public static function getRequestedRoute(Request $request = null): ?Route
+    public static function getRequestedRoute(?Request $request = null): ?Route
     {
         $router = app('router'); /** @var \Illuminate\Routing\Router $router */
         $routes = $router->getRoutes(); /** @var \Illuminate\Routing\RouteCollection $routes */
@@ -109,7 +109,7 @@ abstract class PKPBaseController extends Controller
     /**
      * Get the curernt requested route's controller instance
      */
-    public static function getRouteController(Request $request = null): ?static
+    public static function getRouteController(?Request $request = null): ?static
     {
         if (!$requestedRoute = static::getRequestedRoute($request)) {
             return null;
@@ -121,7 +121,7 @@ abstract class PKPBaseController extends Controller
     /**
      * Get the curernt requested route's controller action/method name
      */
-    public static function getRouteActionName(Request $request = null): ?string
+    public static function getRouteActionName(?Request $request = null): ?string
     {
         if (!$requestedRoute = static::getRequestedRoute($request)) {
             return null;

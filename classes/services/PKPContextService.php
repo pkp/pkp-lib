@@ -516,6 +516,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             $context->setData('supportedSubmissionMetadataLocales', [$context->getData('supportedDefaultSubmissionLocale')]);
         }
 
+        $context->setSequence(REALLY_BIG_NUMBER);
         $contextDao->insertObject($context);
         $contextDao->resequence();
 

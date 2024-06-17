@@ -364,7 +364,7 @@ class Mailable extends IlluminateMailable
 
         if (empty($subject)) {
             trigger_error(
-                'You are sending ' . static::getName() ?? static::class . ' email with empty subject',
+                'You are sending ' . (static::getName() ?? static::class) . ' email with empty subject',
                 E_USER_WARNING
             );
         }

@@ -18,6 +18,7 @@
 
 namespace PKP\navigationMenu;
 
+use APP\core\Application;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
@@ -111,15 +112,15 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      *
      * @return DAOResultFactory<NavigationMenuItem>
      */
-    public function getByType(string $type, ?int $contextId = null): DAOResultFactory
+    public function getByType(string $type, ?int $contextId = Application::SITE_CONTEXT_ID_ALL)
     {
         $params = [$type];
-        if ($contextId !== null) {
-            $params[] = $contextId;
+        if ($contextId !== Application::SITE_CONTEXT_ID_ALL) {
+            $params[] = (int) $contextId;
         }
         $result = $this->retrieve(
             'SELECT * FROM navigation_menu_items WHERE type = ?' .
-            ($contextId !== null ? ' AND COALESCE(context_id, 0) = ?' : ''),
+            ($contextId !== Application::SITE_CONTEXT_ID_ALL ? ' AND COALESCE(context_id, 0) = ?' : ''),
             $params
         );
         return new DAOResultFactory($result, $this, '_fromRow');
@@ -265,7 +266,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
         $xmlParser = new PKPXMLParser();
         $tree = $xmlParser->parse($filename);
 
-        if ($contextId == \PKP\core\PKPApplication::SITE_CONTEXT_ID) {
+        if ($contextId === \PKP\core\PKPApplication::SITE_CONTEXT_ID) {
             $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var \PKP\site\SiteDAO $siteDao */
             $site = $siteDao->getSite();
         }
@@ -276,7 +277,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
 
         foreach ($tree->getChildren() as $setting) {
             $site = $setting->getAttribute('site');
-            if ($contextId == \PKP\core\PKPApplication::SITE_CONTEXT_ID && !$site) {
+            if ($contextId === \PKP\core\PKPApplication::SITE_CONTEXT_ID && !$site) {
                 continue;
             }
             $this->installNodeSettings($contextId, $setting, null, null, 0, true);

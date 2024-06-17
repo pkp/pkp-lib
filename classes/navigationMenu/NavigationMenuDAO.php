@@ -16,6 +16,7 @@
 
 namespace PKP\navigationMenu;
 
+use APP\core\Application;
 use Illuminate\Support\Facades\Cache;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
@@ -35,15 +36,15 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Retrieve a navigation menu by navigation menu ID.
      */
-    public function getById(int $navigationMenuId, ?int $contextId = null): ?NavigationMenuItem
+    public function getById(int $navigationMenuId, ?int $contextId = Application::SITE_CONTEXT_ID_ALL)
     {
         $params = [(int) $navigationMenuId];
-        if ($contextId !== null) {
+        if ($contextId !== Application::SITE_CONTEXT_ID_ALL) {
             $params[] = (int) $contextId;
         }
         $result = $this->retrieve(
             'SELECT * FROM navigation_menus WHERE navigation_menu_id = ?' .
-            ($contextId !== null ? ' AND COALESCE(context_id, 0) = ?' : ''),
+            ($contextId !== Application::SITE_CONTEXT_ID_ALL ? ' AND COALESCE(context_id, 0) = ?' : ''),
             $params
         );
 

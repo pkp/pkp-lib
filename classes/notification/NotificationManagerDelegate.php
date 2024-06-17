@@ -19,6 +19,7 @@
 
 namespace PKP\notification;
 
+use APP\core\Application;
 use APP\notification\Notification;
 use PKP\core\PKPRequest;
 
@@ -70,12 +71,11 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
      *
      * @param null|mixed $userId
      * @param null|mixed $notificationType
-     * @param null|mixed $contextId
      * @param null|mixed $assocType
      * @param null|mixed $assocId
      * @param null|mixed $params
      */
-    public function createNotification($request, $userId = null, $notificationType = null, $contextId = null, $assocType = null, $assocId = null, $level = Notification::NOTIFICATION_LEVEL_NORMAL, $params = null)
+    public function createNotification($request, $userId = null, $notificationType = null, ?int $contextId = Application::SITE_CONTEXT_ID, $assocType = null, $assocId = null, $level = Notification::NOTIFICATION_LEVEL_NORMAL, $params = null)
     {
         assert($notificationType == $this->getNotificationType() || $this->multipleTypesUpdate());
         return parent::createNotification($request, $userId, $notificationType, $contextId, $assocType, $assocId, $level, $params);

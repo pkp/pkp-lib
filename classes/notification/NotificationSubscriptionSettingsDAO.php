@@ -62,11 +62,11 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
      *
      * @return array
      */
-    public function &getNotificationSubscriptionSettings($settingName, $userId, ?int $contextId)
+    public function getNotificationSubscriptionSettings($settingName, $userId, ?int $contextId)
     {
         $result = $this->retrieve(
-            'SELECT setting_value FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND context = ?',
-            [(int) $userId, $settingName, $contextId]
+            'SELECT setting_value FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND COALESCE(context, 0) = ?',
+            [(int) $userId, $settingName, (int) $contextId]
         );
 
         $settings = [];
@@ -87,8 +87,8 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
     {
         // Delete old settings first, then insert new settings
         $this->update(
-            'DELETE FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND context = ?',
-            [(int) $userId, $settingName, $contextId]
+            'DELETE FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND COALESCE(context, 0) = ?',
+            [(int) $userId, $settingName, (int) $contextId]
         );
 
         foreach ($settings as $setting) {
@@ -112,14 +112,13 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
      * Gets a user id by an RSS token value
      *
      * @param int $token
-     * @param int $contextId
      *
      * @return int|null
      */
-    public function getUserIdByRSSToken($token, $contextId)
+    public function getUserIdByRSSToken($token, ?int $contextId)
     {
         $result = $this->retrieve(
-            'SELECT user_id FROM notification_subscription_settings WHERE setting_value = ? AND setting_name = ? AND context = ?',
+            'SELECT user_id FROM notification_subscription_settings WHERE setting_value = ? AND setting_name = ? AND COALESCE(context, 0) = ?',
             [$token, 'token', (int) $contextId]
         );
         $row = $result->current();
@@ -130,14 +129,13 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
      * Gets an RSS token for a user id
      *
      * @param int $userId
-     * @param int $contextId
      *
      * @return int|null
      */
-    public function getRSSTokenByUserId($userId, $contextId)
+    public function getRSSTokenByUserId($userId, ?int  $contextId)
     {
         $result = $this->retrieve(
-            'SELECT setting_value FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND context = ?',
+            'SELECT setting_value FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND COALESCE(context, 0) = ?',
             [(int) $userId, 'token', (int) $contextId]
         );
         $row = $result->current();
@@ -148,11 +146,10 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
      * Generates and inserts a new token for a user's RSS feed
      *
      * @param int $userId
-     * @param int $contextId
      *
      * @return string
      */
-    public function insertNewRSSToken($userId, $contextId)
+    public function insertNewRSSToken($userId, ?int $contextId)
     {
         $token = uniqid(random_int(0, PHP_INT_MAX));
 
@@ -170,7 +167,7 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
                 'token',
                 $token,
                 (int) $userId,
-                (int) $contextId,
+                $contextId,
                 'string'
             ]
         );

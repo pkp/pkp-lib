@@ -203,7 +203,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'notification_subscription_settings_user_id');
 
-            $table->bigInteger('context');
+            $table->bigInteger('context')->nullable();
             $contextDao = Application::getContextDAO();
             $table->foreign('context')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
             $table->index(['context'], 'notification_subscription_settings_context');

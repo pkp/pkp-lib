@@ -43,6 +43,7 @@
 
 namespace PKP\filter;
 
+use APP\core\Application;
 use Exception;
 use PKP\core\DataObject;
 use PKP\db\DAORegistry;
@@ -74,7 +75,7 @@ class FilterDAO extends \PKP\db\DAO
         string $filterGroupSymbolic,
         array $settings = [],
         bool $asTemplate = false,
-        int $contextId = 0,
+        ?int $contextId = null,
         array $subFilters = [],
         bool $persist = true
     ): bool|PersistableFilter {
@@ -205,7 +206,7 @@ class FilterDAO extends \PKP\db\DAO
      */
     public function getObjectsByClass(
         string $className,
-        ?int $contextId = null,
+        ?int $contextId = Application::SITE_CONTEXT_ID,
         bool $getTemplates = false,
         bool $allowSubfilters = false
     ): DAOResultFactory {
@@ -234,7 +235,7 @@ class FilterDAO extends \PKP\db\DAO
     public function getObjectsByGroupAndClass(
         string $groupSymbolic,
         string $className,
-        ?int $contextId = null,
+        ?int $contextId = Application::SITE_CONTEXT_ID,
         bool $getTemplates = false,
         bool $allowSubfilters = false
     ): DAOResultFactory {
@@ -340,7 +341,7 @@ class FilterDAO extends \PKP\db\DAO
      */
     public function getObjectsByGroup(
         string $groupSymbolic,
-        ?int $contextId = null,
+        ?int $contextId = Application::SITE_CONTEXT_ID_ALL,
         bool $getTemplates = false,
         bool $checkRuntimeEnvironment = true
     ): array {
@@ -349,8 +350,8 @@ class FilterDAO extends \PKP\db\DAO
             'SELECT f.* FROM filters f' .
             ' INNER JOIN filter_groups fg ON f.filter_group_id = fg.filter_group_id' .
             ' WHERE LOWER(fg.symbolic) = LOWER(?) AND ' . ($getTemplates ? 'f.is_template = 1' : 'f.is_template = 0') .
-            '  ' . ($contextId ? 'AND f.context_id in (0, ' . (int)$contextId . ')' : '') .
-            '  AND f.parent_filter_id = 0',
+            '  ' . ($contextId !== Application::SITE_CONTEXT_ID_ALL ? 'AND COALESCE(f.context_id, 0) IN (0, ' . (int)$contextId . ')' : '') .
+            '  AND f.parent_filter_id IS NULL',
             [$groupSymbolic]
         );
 

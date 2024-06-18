@@ -281,12 +281,12 @@ class Repository
     }
 
     /**
-     * @copydoc DAO::getReviewerIdsByCompletedYear()
+     * @copydoc DAO::getExternalReviewerIdsByCompletedYear()
      *
      * @return Collection<int,int>
      */
-    public function getReviewerIdsByCompletedYear(int $contextId, string $year): Collection
+    public function getExternalReviewerIdsByCompletedYear(int $contextId, string $year): Collection
     {
-        return $this->dao->getReviewerIdsByCompletedYear($contextId, $year);
+        return $this->dao->getExternalReviewerIdsByCompletedYear($contextId, $year);
     }
 }

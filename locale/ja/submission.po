@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2021, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-17 05:35+0000\n"
+"PO-Revision-Date: 2024-06-18 07:16+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ja/>\n"
@@ -979,7 +979,7 @@ msgid "submissions.completed"
 msgstr "完了"
 
 msgid "submissions.declined"
-msgstr "辞退"
+msgstr "不採用"
 
 msgid "submissions.incomplete"
 msgstr "不完全"
@@ -1197,7 +1197,7 @@ msgid "submission.status.unassigned"
 msgstr "未処理"
 
 msgid "submission.status.declined"
-msgstr "辞退"
+msgstr "不採用"
 
 msgid "submission.status.published"
 msgstr "公開済"
@@ -1301,7 +1301,7 @@ msgid "editor.submission.roundStatus.accepted"
 msgstr "投稿が採用されました。"
 
 msgid "editor.submission.roundStatus.declined"
-msgstr "投稿は辞退されました。"
+msgstr "投稿は不採用されました。"
 
 msgid "editor.submission.roundStatus.pendingReviewers"
 msgstr "査読者指定待ち"
@@ -1891,10 +1891,10 @@ msgid "notification.type.editorDecisionNewRound"
 msgstr "新しい査読ラウンドが開始されました。"
 
 msgid "notification.type.editorDecisionDecline"
-msgstr "投稿は辞退されました。"
+msgstr "投稿は不採用されました。"
 
 msgid "notification.type.editorDecisionRevertDecline"
-msgstr "辞退された投稿が復元されました。"
+msgstr "不採用された投稿が復元されました。"
 
 msgid "notification.uploadedResponse"
 msgstr "応答がアップロードされました。"

@@ -359,9 +359,12 @@ class Mailable extends IlluminateMailable
             ->toArray();
 
         $subject = app('mailer')->compileParams($this->subject, $withoutTagViewData);
+        // decode HTML entities for the subject
+        $subject = htmlspecialchars_decode($subject, ENT_QUOTES | ENT_HTML5);
+
         if (empty($subject)) {
             trigger_error(
-                'You are sending ' . static::getName() ?? static::class . ' email with empty subject',
+                'You are sending ' . static::getName() . ' email with empty subject',
                 E_USER_WARNING
             );
         }

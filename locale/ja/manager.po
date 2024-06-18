@@ -1,16 +1,17 @@
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
+# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-12-12 14:16+0000\n"
-"Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
+"PO-Revision-Date: 2024-06-16 07:43+0000\n"
+"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"manager/ja_JP/>\n"
-"Language: ja_JP\n"
+"manager/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "情報"
@@ -358,7 +359,7 @@ msgid "manager.publication.productionStage"
 msgstr "制作"
 
 msgid "manager.publication.emails"
-msgstr "電子メール"
+msgstr "メール"
 
 msgid "manager.publication.reviewerGuidance"
 msgstr "査読ガイドライン"
@@ -379,7 +380,7 @@ msgid "manager.emails.addEmail"
 msgstr "テンプレートの追加"
 
 msgid "manager.emails.createEmail"
-msgstr "電子メールの作成"
+msgstr "メールの作成"
 
 msgid "manager.emails.data"
 msgstr "テンプレートメッセージデータ"
@@ -421,8 +422,7 @@ msgid "manager.emails.enable.message"
 msgstr "メールを有効にしようとしています。 この操作を承認しますか？"
 
 msgid "manager.emails.form.emailKeyRequired"
-msgstr ""
-"電子メールには、スペースや特殊文字を含まないユニークなEメールキーが必要です。"
+msgstr "メールには、スペースや特殊文字を含まないユニークなEメールキーが必要です。"
 
 msgid "manager.emails.form.bodyRequired"
 msgstr "メールには件名が必要です。"
@@ -1612,7 +1612,7 @@ msgid "settings.roles.roleAbbrev"
 msgstr "略語"
 
 msgid "settings.roles.assignedStages"
-msgstr "任命されたステージ"
+msgstr "任命された段階"
 
 msgid "settings.roles.stages"
 msgstr "ステージ"
@@ -1645,7 +1645,7 @@ msgid "settings.roles.roleIdRequired"
 msgstr "役割のパーミッションレベルを定義する必要があります。"
 
 msgid "settings.roles.stageIdRequired"
-msgstr "任命先のステージを定義する必要があります。"
+msgstr "任命先の段階を定義する必要があります。"
 
 msgid "settings.roles.permitMetadataEdit"
 msgstr "投稿のメタデータ編集を許可します。"
@@ -2211,10 +2211,10 @@ msgid "manager.navigationMenuItems"
 msgstr "ナビゲーションメニュー項目"
 
 msgid "manager.navigationMenus.assignedMenuItems"
-msgstr "割り当て済みメニュー項目"
+msgstr "指定済みメニュー項目"
 
 msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr "未割り当てナビゲーションメニュー項目"
+msgstr "未指定ナビゲーションメニュー項目"
 
 msgid "manager.navigationMenus.form.navigationMenuArea"
 msgstr "アクティブテーマのナビゲーションエリア"
@@ -2223,7 +2223,7 @@ msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
 msgstr "ナビゲーション領域の選択"
 
 msgid "manager.navigationMenus.form.menuAssigned"
-msgstr "この領域には、すでにナビゲーションメニューが割り当てられています。"
+msgstr "このところには、すでにナビゲーションメニューが指定されています。"
 
 msgid "manager.navigationMenus.form.url"
 msgstr "URL"
@@ -2484,9 +2484,9 @@ msgid "stats.description.acceptRejectRate"
 msgstr ""
 "選択された日付範囲の割合は、この日付範囲内に提出され、最終決定を受けた投稿を"
 "対象に計算されます。<br><br>例えば、この日付範囲内に10件の投稿が行われた場合"
-"を考えてみましょう。4件が採択、4件が却下、2件が最終決定を待っている状態です。"
-"<br><br>最終決定に至っていない2本の投稿はカウントされないため、採択率は50%（8"
-"本中4本）となります。"
+"を考えてみましょう。4件が採用、4件が不採用、2件が最終決定を待っている状態です"
+"。<br><br>最終決定に至っていない2本の投稿はカウントされないため、採用率は50%"
+"（8本中4本）となります。"
 
 msgid "stats.description.daysToDecision"
 msgstr ""
@@ -2601,7 +2601,7 @@ msgid "stats.name.submissionsImported"
 msgstr ""
 
 msgid "stats.name.submissionsAccepted"
-msgstr "採択投稿"
+msgstr "採用された投稿"
 
 msgid "stats.name.submissionsDeclined"
 msgstr "返戻投稿"
@@ -2625,7 +2625,7 @@ msgid "stats.name.daysToReject"
 msgstr "リジェクトまでの日数"
 
 msgid "stats.name.acceptanceRate"
-msgstr "採択率"
+msgstr "採用率"
 
 msgid "stats.name.declineRate"
 msgstr "リジェクト率"
@@ -2754,12 +2754,19 @@ msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"本誌では、二重盲検査読を実施しています。査読者は貴方や共著者に関する識別情報"
+"を一切見ることができません。同様に、貴方も誰がこの投稿を査読たか知ることはな"
+"く、査読者から直接連絡を受けることもありません。"
 
 msgid "emailTemplate.variable.reviewType.anonymous"
-msgstr ""
+msgstr "本誌では、「査読者匿名」の査読を実施しています。貴方の氏名と共著者の氏名は査"
+"読者に表示されますが、査読者の身元は匿名のままです。"
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"本誌では、オープン査読を実施しています。査読者には貴方の氏名と所属、および共"
+"著者の氏名と所属が表示されます。同様に、貴方も査読者の氏名と所属を見ることが"
+"できます。"
 
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "送信者のフルネーム"
@@ -2884,7 +2891,7 @@ msgid "mailable.reviewerUnassign.description"
 msgstr "このメールは、編集者が査読者の任命を解除したときに送信されます。"
 
 msgid "mailable.validateEmailSite.name"
-msgstr "電子メールの検証（サイト）"
+msgstr "メールの検証（サイト）"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
@@ -2921,7 +2928,7 @@ msgid ""
 msgstr ""
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
-msgstr ""
+msgstr "著者らには、さらなる査読のために改訂版を提出するよう依頼しました。"
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
@@ -2961,7 +2968,7 @@ msgid "mailable.decision.initialDecline.notifyAuthor.name"
 msgstr ""
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "新規査読ラウンド開始済み"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""

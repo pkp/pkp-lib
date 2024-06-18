@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2022, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-11 05:54+0000\n"
+"PO-Revision-Date: 2024-06-17 10:09+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ja/>\n"
@@ -177,7 +177,7 @@ msgid "common.applyAction"
 msgstr "処理実行"
 
 msgid "common.assign"
-msgstr "任命日"
+msgstr "担当者指定"
 
 msgid "common.assigned"
 msgstr "任命日"
@@ -324,7 +324,7 @@ msgid "common.default"
 msgstr "デフォルト"
 
 msgid "common.declined"
-msgstr "拒否"
+msgstr "不採用"
 
 msgid "common.delete"
 msgstr "削除"
@@ -354,10 +354,10 @@ msgid "common.dimensionsPixels"
 msgstr "{$width}&times;{$height} ピクセル"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "いいえ、保存されていない変更を破棄する"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "切断された"
 
 msgid "common.disable"
 msgstr "無効化"
@@ -393,7 +393,7 @@ msgid "common.editItem"
 msgstr "{$name}を編集"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "メールテンプレート"
 
 msgid "common.enable"
 msgstr "有効化"
@@ -467,7 +467,7 @@ msgid "common.findTemplate"
 msgstr "テンプレートの検索"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "フォーマット"
 
 msgid "common.geographic"
 msgstr "地理的データ"
@@ -515,7 +515,7 @@ msgid "common.keywords"
 msgstr "キーワード"
 
 msgid "common.label"
-msgstr ""
+msgstr "ラベル"
 
 msgid "common.language"
 msgstr "言語"
@@ -581,7 +581,7 @@ msgid "common.none"
 msgstr "なし"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "何も選択していない"
 
 msgid "common.noneProvided"
 msgstr "提供なし"
@@ -628,7 +628,7 @@ msgid "common.noMatches"
 msgstr "マッチなし"
 
 msgid "common.numberedMore"
-msgstr ""
+msgstr "さらに{$number}"
 
 msgid "common.off"
 msgstr "オフ"
@@ -727,7 +727,7 @@ msgid "common.readMoreWithTitle"
 msgstr "{$title}についてもっと読む"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "再接続"
 
 msgid "common.record"
 msgstr "設定"
@@ -766,7 +766,8 @@ msgid "common.replaceFile"
 msgstr "ファイルの置換え"
 
 msgid "common.requiredField"
-msgstr "* は必須フィールドを表します"
+msgstr "<abbr class=\"required\" title=\"required\""
+">*</abbr>は必須フィールドを表します"
 
 msgid "common.required"
 msgstr "必須"
@@ -775,10 +776,10 @@ msgid "common.reset"
 msgstr "リセット"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "第{$round}ラウンド"
 
 msgid "common.role"
-msgstr ""
+msgstr "役割"
 
 msgid "common.saveAndContinue"
 msgstr "保存して継続"
@@ -796,10 +797,10 @@ msgid "common.search"
 msgstr "検索"
 
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "検索フレーズ"
 
 msgid "common.searching"
-msgstr ""
+msgstr "検索中"
 
 msgid "common.searchQuery"
 msgstr "検索クエリ"
@@ -829,10 +830,10 @@ msgid "common.sendEmail"
 msgstr "メール送信"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "すべてのステップを表示"
 
 msgid "common.showingSteps"
-msgstr ""
+msgstr "{$total}の第{$current}ステップ"
 
 msgid "common.size"
 msgstr "サイズ"
@@ -859,10 +860,10 @@ msgid "common.suggest"
 msgstr "提案"
 
 msgid "common.switchTo"
-msgstr ""
+msgstr "切り替え"
 
 msgid "common.switchToNamedItem"
-msgstr ""
+msgstr "{$name}に切り替え"
 
 msgid "common.title"
 msgstr "タイトル"
@@ -880,10 +881,10 @@ msgid "common.type"
 msgstr "タイプ"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "{$name} によってアップロードされた"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "{$date}に{$name} によってアップロードされた"
 
 msgid "common.component"
 msgstr "要素"
@@ -900,10 +901,14 @@ msgid "common.unread"
 msgstr "未読"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "未保存の変更"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"{$when} から保存されていない変更が見つかりました。作業中にサーバーへの接続が"
+"失われた場合に、この状況が発生する可能性があります。これらの変更を復元すると"
+"、それ以降に行った変更が上書きされる可能性があります。これらの変更を今すぐ復"
+"元しますか?"
 
 msgid "common.untitled"
 msgstr "タイトルなし"
@@ -932,7 +937,7 @@ msgid "common.upload.addFile"
 msgstr "ファイルアップロード"
 
 msgid "common.upload.addFile.description"
-msgstr ""
+msgstr "コンピュータからファイルをアップロード。"
 
 msgid "common.upload.restore"
 msgstr "元に戻す"
@@ -959,7 +964,7 @@ msgid "common.view"
 msgstr "閲覧"
 
 msgid "common.viewError"
-msgstr ""
+msgstr "エラーの表示"
 
 msgid "common.viewWithName"
 msgstr "{$name}を閲覧"
@@ -1028,28 +1033,29 @@ msgid "email.addAttachment"
 msgstr "添付ファイルを追加"
 
 msgid "email.addAttachment.submissionFiles.attach"
-msgstr ""
+msgstr "投稿ファイルを添付する"
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr ""
+msgstr "投稿段階で著者がアップロードしたファイルを添付する。"
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
-msgstr ""
+msgstr "修正や査読対象のファイルなど、投稿ワークフロー中にアップロードされたファイル"
+"を添付する。"
 
 msgid "email.addAttachment.libraryFiles"
-msgstr ""
+msgstr "ライブラリー・ファイル"
 
 msgid "email.addAttachment.libraryFiles.attach"
-msgstr ""
+msgstr "ライブラリー・ファイルを添付する"
 
 msgid "email.addAttachment.libraryFiles.description"
-msgstr ""
+msgstr "投稿ライブラリと発行者ライブラリからファイルを添付する。"
 
 msgid "email.addAttachment.reviewFiles.attach"
-msgstr ""
+msgstr "査読ファイルを添付する"
 
 msgid "email.addAttachment.reviewFiles.description"
-msgstr ""
+msgstr "査読者がアップロードしたファイルを添付する"
 
 msgid "email.addBccRecipient"
 msgstr "BCCを追加"
@@ -1064,7 +1070,7 @@ msgid "email.attachments"
 msgstr "添付ファイル"
 
 msgid "email.attachmentNotFound"
-msgstr ""
+msgstr "ファイル {$fileName} を添付できませんでした。"
 
 msgid "email.bcc"
 msgstr "BCC"
@@ -1079,7 +1085,8 @@ msgid "email.cc"
 msgstr "CC"
 
 msgid "email.confirmSwitchLocale"
-msgstr ""
+msgstr "このメールを作成するために {$localeName} に変更してもよろしいでしょうか。メー"
+"ルの件名と本文に加えた変更はすべて失われます。"
 
 msgid "email.compose"
 msgstr "メール送信"
@@ -1101,7 +1108,7 @@ msgid "email.email"
 msgstr "メール"
 
 msgid "email.from"
-msgstr "From"
+msgstr "送信元"
 
 msgid "email.invalid"
 msgstr "このメールアドレス {$email} は不正です。"
@@ -1392,7 +1399,7 @@ msgstr ""
 "とを確認してください。"
 
 msgid "stageParticipants.options"
-msgstr "権限の割当"
+msgstr "任命権限"
 
 msgid "stageParticipants.recommendOnly"
 msgstr ""
@@ -1550,7 +1557,7 @@ msgid "navigation.viewFrontend"
 msgstr "サイトを閲覧"
 
 msgid "institution.institutions"
-msgstr ""
+msgstr "機関"
 
 msgid "notification.addedAuditor"
 msgstr "監査人が追加されました。"
@@ -1837,13 +1844,13 @@ msgid "notification.reinstatedReviewer"
 msgstr "査読者が回復されました。"
 
 msgid "notification.reviewerResendRequest"
-msgstr ""
+msgstr "査読課題の再検討リクエストが送信されました。"
 
 msgid "notification.addedStageParticipant"
 msgstr "ユーザーが段階参加者として追加されました。"
 
 msgid "notification.editStageParticipant"
-msgstr "段階の割当が変更されました。"
+msgstr "段階の課題が変更されました。"
 
 msgid "notification.type.newAnnouncement"
 msgstr "新しいお知らせ。"
@@ -1852,7 +1859,7 @@ msgid "notification.type.reviewAssignment"
 msgstr "査読待機中。"
 
 msgid "notification.type.reviewAssignmentUpdated"
-msgstr "査読割当が更新されました。"
+msgstr "査読課題が更新されました。"
 
 msgid "notification.type.auditorRequest"
 msgstr "「{$file}」の監査要求"
@@ -1878,7 +1885,7 @@ msgid "notification.signedFile"
 msgstr "ファイルが考慮されました。"
 
 msgid "timeZone"
-msgstr ""
+msgstr "タイムゾーン"
 
 msgid "user.email"
 msgstr "メールアドレス"
@@ -1906,7 +1913,7 @@ msgid "user.authorization.unauthorizedNote"
 msgstr "このディスカッションメッセージへのアクセス権がありません。"
 
 msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr "この査読割当にアクセス権がありません。"
+msgstr "この査読課題にアクセス権がありません。"
 
 msgid "user.authorization.authorRoleMissing"
 msgstr ""
@@ -1928,8 +1935,8 @@ msgid "notification.type.queryAdded"
 msgstr "ディスカッションが追加されました。"
 
 msgid "notification.type.assignCopyeditors"
-msgstr ""
-"参加者リストの「任命」リンクを使用して、コピーエディターを割り当てください。"
+msgstr "参加者リストの「担当者指定」リンクを使用して、コピーエディターを指定してくだ"
+"さい。"
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "原稿整理待ち中。"
@@ -1944,7 +1951,7 @@ msgid "notification.type.editorialReport.contents"
 msgstr "雑誌の健康を編集のレポートによって点検するための親切なリマインドです。"
 
 msgid "notification.type.editorialReminder"
-msgstr ""
+msgstr "未処理のタスクについての毎週のメール"
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1974,8 +1981,7 @@ msgid "notification.unsubscribeNotifications.error"
 msgstr "購読を解除できませんでした"
 
 msgid "notification.unsubscribeNotifications.pageMessage"
-msgstr ""
-"{$contextName} から {$email} で受信したくない電子メールを選択してください。"
+msgstr "{$contextName} から {$email} で受信したくないメールを選択してください。"
 
 msgid "notification.unsubscribeNotifications.resubscribe"
 msgstr ""
@@ -2004,10 +2010,10 @@ msgid "list.viewLess"
 msgstr "{$name}の詳細を非表示"
 
 msgid "list.expandAll"
-msgstr ""
+msgstr "すべて展開"
 
 msgid "list.collapseAll"
-msgstr ""
+msgstr "すべて縮小"
 
 msgid "validation.invalidOption"
 msgstr "有効なオプションではありません。"
@@ -2064,6 +2070,10 @@ msgstr "有効な国ではありません。"
 
 msgid "validator.country.regex"
 msgstr ""
+"有効な国ではありません。国設定は 2 "
+"文字の国際コードのいずれかでなければなりません。https://en.wikipedia.org/"
+"wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements. "
+"ですべてのコードを参照してください。"
 
 msgid "validator.currency"
 msgstr "有効な通貨ではありません。"
@@ -2214,10 +2224,10 @@ msgid "validator.url"
 msgstr "有効なURLではありません。"
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "改行は許可されません。"
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "[{$tags}]のHTMLタグのみが許可されています。"
 
 msgid "filter.input.error.notSupported"
 msgstr ""
@@ -2232,7 +2242,7 @@ msgid "filter.import.error.couldNotImportNode"
 msgstr "XMLノードはインポートできなかった"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "不明なコマンド {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
@@ -2251,3 +2261,18 @@ msgstr "著者が編集されました。"
 
 #~ msgid "common.captchaField.description"
 #~ msgstr "上の図に表示されている文字を入力してください。"
+
+msgid "showLess"
+msgstr "表示の縮小"
+
+msgid "common.highlight"
+msgstr "ハイライト"
+
+msgid "common.highlights"
+msgstr "ハイライト"
+
+msgid "common.sandbox"
+msgstr "サンドボックスモードで動作するアプリケーション。"
+
+msgid "showAll"
+msgstr "すべて表示"

@@ -90,7 +90,7 @@ class PKPMastheadForm extends FormComponent
             ])
             ->addField(new FieldRichTextarea('editorialHistory', [
                 'label' => __('common.editorialHistory'),
-                'description' => __('manager.setup.editorialMasthead.description'),
+                'description' => __('manager.setup.editorialMasthead.editorialHistory.description'),
                 'isMultilingual' => true,
                 'groupId' => 'editorialMasthead',
                 'toolbar' => 'bold italic superscript subscript | link | blockquote bullist numlist | image | code',

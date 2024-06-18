@@ -3555,6 +3555,9 @@ msgstr "Require submitting Authors to file a Competing Interest (CI) statement w
 msgid "manager.setup.masthead"
 msgstr "Masthead"
 
+msgid "manager.setup.editorialMasthead.order.description"
+msgstr "Define the order of masthead roles for public display."
+
 msgid "manager.setup.editorialMasthead.order.reviewers.description"
 msgstr "Reviewers will be displayed in a standardized format to maintain uniformity and ensure easy discoverability in this section."
 

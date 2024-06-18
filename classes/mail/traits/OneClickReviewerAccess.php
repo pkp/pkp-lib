@@ -35,7 +35,7 @@ trait OneClickReviewerAccess
         $reviewInvitation->reviewAssignmentId = $reviewAssignment->getId();
         $reviewInvitation->updatePayload();
 
-        $reviewInvitation->dispatch();
+        $reviewInvitation->invite();
         $reviewInvitation->updateMailableWithUrl($this);
     }
 }

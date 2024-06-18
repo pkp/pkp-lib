@@ -25,6 +25,6 @@ abstract class CreateInvitationController extends Controller
     abstract public function authorize(PKPBaseController $controller, PKPRequest $request, array &$args, array $roleAssignments): bool;
     abstract public function add(Request $illuminateRequest): JsonResponse;
     abstract public function populate(Request $illuminateRequest): JsonResponse;
-    abstract public function dispatch(Request $illuminateRequest): JsonResponse;
+    abstract public function invite(Request $illuminateRequest): JsonResponse;
     abstract public function get(Request $illuminateRequest): JsonResponse;
 }

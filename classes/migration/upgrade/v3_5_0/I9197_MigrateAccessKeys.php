@@ -102,7 +102,7 @@ class I9197_MigrateAccessKeys extends Migration
                 $invitation->invitationModel->keyHash = $accessKey->key_hash;
                 $invitation->setExpiryDate(new Carbon($accessKey->expiry_date));
 
-                $invitation->dispatch();
+                $invitation->invite();
 
                 DB::table('access_keys')
                     ->where('access_key_id', $accessKey->access_key_id)

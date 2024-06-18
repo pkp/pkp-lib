@@ -85,7 +85,7 @@ class ValidateRegisteredEmail
 
         $registrationAccessInvite = new RegistrationAccessInvite();
         $registrationAccessInvite->initialize($event->recipient->getId(), $contextId, null);
-        $registrationAccessInvite->dispatch();
+        $registrationAccessInvite->invite();
         $registrationAccessInvite->updateMailableWithUrl($mailable);
 
         $registerTemplate = Repo::emailTemplate()->getByKey($contextId, $mailable::getEmailTemplateKey());

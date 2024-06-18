@@ -173,7 +173,7 @@ abstract class Invitation
         $this->invitationModel->expiryDate = $expiryDate;
     }
 
-    public function dispatch(): bool
+    public function invite(): bool
     {
         if ($this->getStatus() !== InvitationStatus::INITIALIZED) {
             throw new Exception('The invitation can not be dispatched');

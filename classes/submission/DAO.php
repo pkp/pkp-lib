@@ -162,7 +162,7 @@ class DAO extends EntityDAO
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      * @param null|mixed $contextId
      */
-    public function getByPubId(string $pubIdType, string $pubId, $contextId = null): ?Submission
+    public function getByPubId(string $pubIdType, string $pubId, int $contextId = null): ?Submission
     {
         // Add check for incoming DOI request for legacy calls that bypass the Submission Repository
         if ($pubIdType == 'doi') {

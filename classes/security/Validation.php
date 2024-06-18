@@ -195,21 +195,13 @@ class Validation
      *
      * @return bool
      */
-    public static function isAuthorized($roleId, $contextId = 0)
+    public static function isAuthorized($roleId, ?int $contextId = Application::SITE_CONTEXT_ID)
     {
         if (!self::isLoggedIn()) {
             return false;
         }
 
-        if ($contextId === -1) {
-            // Get context ID from request
-            $request = Application::get()->getRequest();
-            $context = $request->getContext();
-            $contextId = $context == null ? Application::SITE_CONTEXT_ID : $context->getId();
-        }
-
         $user = Auth::user(); /** @var \PKP\user\User $user */
-
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
         return $roleDao->userHasRole($contextId, $user->getId(), $roleId);
     }

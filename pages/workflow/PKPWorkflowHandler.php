@@ -816,7 +816,7 @@ abstract class PKPWorkflowHandler extends Handler
      *
      * @return bool
      */
-    protected function notificationOptionsByStage($user, $stageId, $contextId)
+    protected function notificationOptionsByStage($user, $stageId, int $contextId)
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */

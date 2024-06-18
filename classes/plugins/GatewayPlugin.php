@@ -70,13 +70,13 @@ abstract class GatewayPlugin extends Plugin
     }
 
     /**
-     * Get the current context ID or the site-wide context ID (0) if no context
+     * Get the current context ID or the site-wide context ID (Application::SITE_CONTEXT_ID) if no context
      * can be found.
      */
     public function getCurrentContextId()
     {
         $context = Application::get()->getRequest()->getContext();
-        return is_null($context) ? 0 : $context->getId();
+        return is_null($context) ? Application::SITE_CONTEXT_ID : $context->getId();
     }
 
     /**

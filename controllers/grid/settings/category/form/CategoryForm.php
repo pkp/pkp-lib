@@ -56,7 +56,7 @@ class CategoryForm extends Form
      * @param int $contextId Context id.
      * @param int $categoryId Category id.
      */
-    public function __construct($contextId, $categoryId = null)
+    public function __construct(int $contextId, $categoryId = null)
     {
         parent::__construct('controllers/grid/settings/category/form/categoryForm.tpl');
         $this->_contextId = $contextId;

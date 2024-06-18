@@ -96,7 +96,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     /** @deprecated 3.5 Use Application::SITE_CONTEXT_ID, which had the value modified to null */
     public const CONTEXT_ID_NONE = self::SITE_CONTEXT_ID;
     /** @deprecated 3.5 Use Application::SITE_CONTEXT_PATH, which had the value modified to "index" */
-    public const CONTEXT_ID_ALL = self::SITE_CONTEXT_PATH;
+    public const CONTEXT_ID_ALL = self::SITE_CONTEXT_ID_ALL;
 
     public const ASSOC_TYPE_PRODUCTION_ASSIGNMENT = 0x0000202;
     public const ASSOC_TYPE_SUBMISSION_FILE = 0x0000203;
@@ -156,7 +156,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
                 'WORKFLOW_TYPE_EDITORIAL', 'WORKFLOW_TYPE_AUTHOR', 'PHP_REQUIRED_VERSION',
                 'API_VERSION',
                 'ROUTE_COMPONENT', 'ROUTE_PAGE', 'ROUTE_API',
-                'CONTEXT_SITE', 'CONTEXT_ID_NONE', 'SITE_CONTEXT_PATH',
+                'CONTEXT_SITE', 'CONTEXT_ID_NONE', 'CONTEXT_ID_ALL',
 
                 'ASSOC_TYPE_PRODUCTION_ASSIGNMENT',
                 'ASSOC_TYPE_SUBMISSION_FILE',
@@ -428,7 +428,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public function getEnabledProducts($category = null, ?int $mainContextId = null)
     {
-        if (is_null($mainContextId)) {
+        if ($mainContextId === null) {
             $request = $this->getRequest();
             $router = $request->getRouter();
 

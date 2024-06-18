@@ -72,20 +72,20 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
      *
      * @param array<int,Role[]> $userRoles List of roles grouped by contextId
      */
-    protected function _getContextRoles(int $contextId, array $userRoles): array
+    protected function _getContextRoles(?int $contextId, array $userRoles): array
     {
         // Adapt the role context based on the passed role id.
         $contextRoles = [];
 
         // Check if user has site level or manager roles.
-        if (array_key_exists(Application::SITE_CONTEXT_ID, $userRoles) &&
-            array_key_exists(Role::ROLE_ID_SITE_ADMIN, $userRoles[Application::SITE_CONTEXT_ID])) {
+        if (array_key_exists((int) Application::SITE_CONTEXT_ID, $userRoles) &&
+            array_key_exists(Role::ROLE_ID_SITE_ADMIN, $userRoles[(int)  Application::SITE_CONTEXT_ID])) {
             // site level role
             $contextRoles[] = Role::ROLE_ID_SITE_ADMIN;
         }
 
         // Get the user roles related to the passed context.
-        if ($contextId != Application::SITE_CONTEXT_ID && isset($userRoles[$contextId])) {
+        if ($contextId !== Application::SITE_CONTEXT_ID && isset($userRoles[$contextId])) {
             // Filter the user roles to the found context id.
             return array_merge(
                 $contextRoles,

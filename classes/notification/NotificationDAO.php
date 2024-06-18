@@ -93,7 +93,7 @@ class NotificationDAO extends \PKP\db\DAO
         $result = $this->retrieveRange(
             'SELECT * FROM notifications WHERE assoc_type = ? AND assoc_id = ?' .
             ($userId ? ' AND user_id = ?' : '') .
-            ($contextId ? ' AND COALESCE(context_id, 0) = ?' : '') .
+            ($contextId !== Application::SITE_CONTEXT_ID_ALL ? ' AND COALESCE(context_id, 0) = ?' : '') .
             ($type ? ' AND type = ?' : '') .
             ' ORDER BY date_created DESC',
             $params

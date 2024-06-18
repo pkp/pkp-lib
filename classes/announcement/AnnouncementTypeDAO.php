@@ -41,7 +41,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     {
         $announcement = DB::table('announcement_types')
             ->where('type_id', '=', $typeId)
-            ->when($contextId !== Application::SITE_CONTEXT_ID_ALL, fn (Builder $q) => $q->where(DB::escape('COALESCE(context_id, 0)'), '=', (int) $contextId))
+            ->when($contextId !== Application::SITE_CONTEXT_ID_ALL, fn (Builder $q) => $q->where(DB::raw('COALESCE(context_id, 0)'), '=', (int) $contextId))
             ->first();
         return $announcement ? $this->_fromRow((array) $announcement) : null;
     }
@@ -142,7 +142,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     public function getByContextId(?int $contextId): Generator
     {
         $rows = DB::table('announcement_types')
-            ->where(DB::escape('COALESCE(context_id, 0)'), '=', (int) $contextId)
+            ->where(DB::raw('COALESCE(context_id, 0)'), '=', (int) $contextId)
             ->orderBy('type_id')
             ->get();
         foreach ($rows as $row) {

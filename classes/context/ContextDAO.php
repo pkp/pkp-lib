@@ -173,7 +173,6 @@ abstract class ContextDAO extends SchemaDAO
      * Get journals by setting.
      *
      * @param string $settingName
-     * @param ?int $contextId
      *
      * @return DAOResultFactory<T>
      */

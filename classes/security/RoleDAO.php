@@ -23,7 +23,6 @@ use APP\facades\Repo;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
-use PKP\core\PKPApplication;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 

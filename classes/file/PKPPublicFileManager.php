@@ -37,7 +37,7 @@ abstract class PKPPublicFileManager extends FileManager
      *
      * @return string
      */
-    abstract public function getContextFilesPath($contextId);
+    abstract public function getContextFilesPath(int $contextId);
 
     /**
      * Upload a file to a context's public directory.
@@ -48,7 +48,7 @@ abstract class PKPPublicFileManager extends FileManager
      *
      * @return bool
      */
-    public function uploadContextFile($contextId, $fileName, $destFileName)
+    public function uploadContextFile(int $contextId, $fileName, $destFileName)
     {
         return $this->uploadFile($fileName, $this->getContextFilesPath($contextId) . '/' . $destFileName);
     }
@@ -62,7 +62,7 @@ abstract class PKPPublicFileManager extends FileManager
      *
      * @return bool
      */
-    public function writeContextFile($contextId, $destFileName, $contents)
+    public function writeContextFile(int $contextId, $destFileName, $contents)
     {
         return $this->writeFile($this->getContextFilesPath($contextId) . '/' . $destFileName, $contents);
     }
@@ -102,7 +102,7 @@ abstract class PKPPublicFileManager extends FileManager
      *
      * @return bool
      */
-    public function copyContextFile($contextId, $sourceFile, $destFileName)
+    public function copyContextFile(int $contextId, $sourceFile, $destFileName)
     {
         return $this->copyFile($sourceFile, $this->getContextFilesPath($contextId) . '/' . $destFileName);
     }
@@ -115,7 +115,7 @@ abstract class PKPPublicFileManager extends FileManager
      *
      * @return bool
      */
-    public function removeContextFile($contextId, $fileName)
+    public function removeContextFile(int $contextId, $fileName)
     {
         return $this->deleteByPath($this->getContextFilesPath($contextId) . '/' . $fileName);
     }

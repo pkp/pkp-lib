@@ -553,11 +553,9 @@ abstract class ThemePlugin extends LazyLoadPlugin
      * This retrieves a single array containing option values for this theme
      * and any parent themes.
      *
-     * @param int $contextId
-     *
      * @return array
      */
-    public function getOptionValues($contextId)
+    public function getOptionValues(?int $contextId)
     {
         /** @var PluginSettingsDAO */
         $pluginSettingsDAO = DAORegistry::getDAO('PluginSettingsDAO');
@@ -618,8 +616,8 @@ abstract class ThemePlugin extends LazyLoadPlugin
      *
      * @param array $options Key/value list of options to validate
      * @param string $themePluginPath The theme these options are for
-     * @param int $contextId The context these theme options are for, or
-     *  CONTEXT_SITE for the site-wide settings.
+     * @param ?int int $contextId The context these theme options are for, or
+     *  Application::SITE_CONTEXT_ID for the site-wide settings.
      * @param Request $request
      *
      * @return array List of errors with option name as the key and the value as
@@ -640,7 +638,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      *
      * @param string $name A unique id for the option to save
      * @param mixed $value The new value to save
-     * @param int $contextId Optional context id. Defaults to the current
+     * @param ?int $contextId Optional context id. Defaults to the current
      *  context
      */
     public function saveOption($name, $value, $contextId = null)

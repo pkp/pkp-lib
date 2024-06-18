@@ -22,9 +22,6 @@ use PKP\form\Form;
 
 class LibraryFileForm extends Form
 {
-    /** @var int the id of the context this library file is attached to */
-    public $contextId;
-
     /** @var LibraryFileManager the library file manager instantiated in this form. */
     public $libraryFileManager;
 
@@ -32,12 +29,10 @@ class LibraryFileForm extends Form
      * Constructor.
      *
      * @param string $template
-     * @param int $contextId
+     * @param int $contextId The id of the context this library file is attached to
      */
-    public function __construct($template, $contextId)
+    public function __construct($template, public int $contextId)
     {
-        $this->contextId = $contextId;
-
         parent::__construct($template);
         $this->libraryFileManager = $libraryFileManager = new LibraryFileManager($contextId);
 

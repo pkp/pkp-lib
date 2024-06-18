@@ -168,12 +168,11 @@ class NotificationHandler extends Handler
      * Get the notifications using options.
      *
      * @param array $notificationOptions
-     * @param int $contextId
      * @param int $userId
      *
      * @return array
      */
-    public function _getNotificationsByOptions($notificationOptions, $contextId, $userId = null)
+    public function _getNotificationsByOptions($notificationOptions, int $contextId, $userId = null)
     {
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notificationsArray = [];

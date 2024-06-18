@@ -35,7 +35,7 @@ class NewLibraryFileForm extends LibraryFileForm
      *
      * @param int $contextId
      */
-    public function __construct($contextId, $submissionId)
+    public function __construct(int $contextId, $submissionId)
     {
         parent::__construct('controllers/grid/files/submissionDocuments/form/newFileForm.tpl', $contextId);
         $this->submissionId = $submissionId;

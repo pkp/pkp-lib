@@ -42,7 +42,7 @@ class NavigationMenuForm extends Form
      * @param int $contextId Context ID
      * @param int $navigationMenuId NavigationMenu Id
      */
-    public function __construct($contextId, $navigationMenuId = null)
+    public function __construct(int $contextId, $navigationMenuId = null)
     {
         $this->_navigationMenuId = !empty($navigationMenuId) ? (int) $navigationMenuId : null;
         $this->_contextId = $contextId;

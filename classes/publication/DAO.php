@@ -332,7 +332,7 @@ class DAO extends EntityDAO
     /**
      * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
      */
-    public function deleteAllPubIds($contextId, $pubIdType)
+    public function deleteAllPubIds(int $contextId, $pubIdType)
     {
         switch (DB::getDriverName()) {
             case 'mysql':

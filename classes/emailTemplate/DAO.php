@@ -162,7 +162,7 @@ class DAO extends EntityDAO
         $schema = $this->schemaService->get($this->schema);
         $contextDao = Application::getContextDAO();
 
-        $supportedLocalesJson = (int) $row->context_id === PKPApplication::SITE_CONTEXT_ID
+        $supportedLocalesJson = $row->context_id === PKPApplication::SITE_CONTEXT_ID
             ? DB::table('site')->first()->supported_locales
             : DB::table($contextDao->settingsTableName)
                 ->where($contextDao->primaryKeyColumn, $row->context_id)

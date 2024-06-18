@@ -16,6 +16,7 @@
 
 namespace PKP\controllers\grid\admin\context;
 
+use APP\core\Application;
 use PKP\controllers\grid\GridRow;
 use PKP\core\PKPApplication;
 use PKP\linkAction\LinkAction;

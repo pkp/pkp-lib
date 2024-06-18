@@ -40,11 +40,10 @@ class SubEditorsDAO extends \PKP\db\DAO
     /**
      * Insert a new sub editor.
      *
-     * @param int $contextId
      * @param int $assocId
      * @param int $userId
      */
-    public function insertEditor($contextId, $assocId, $userId, $assocType, int $userGroupId)
+    public function insertEditor(int $contextId, $assocId, $userId, $assocType, int $userGroupId)
     {
         return $this->update(
             'INSERT INTO subeditor_submission_group
@@ -52,7 +51,7 @@ class SubEditorsDAO extends \PKP\db\DAO
 				VALUES
 				(?, ?, ?, ?, ?)',
             [
-                (int) $contextId,
+                $contextId,
                 (int) $assocId,
                 (int) $userId,
                 (int) $assocType,
@@ -64,17 +63,16 @@ class SubEditorsDAO extends \PKP\db\DAO
     /**
      * Delete a sub editor.
      *
-     * @param int $contextId
      * @param int $assocId
      * @param int $userId
      * @param int $assocType Application::ASSOC_TYPE_SECTION or Application::ASSOC_TYPE_CATEGORY
      */
-    public function deleteEditor($contextId, $assocId, $userId, $assocType)
+    public function deleteEditor(int $contextId, $assocId, $userId, $assocType)
     {
         $this->update(
             'DELETE FROM subeditor_submission_group WHERE context_id = ? AND section_id = ? AND user_id = ? AND assoc_type = ?',
             [
-                (int) $contextId,
+                $contextId,
                 (int) $assocId,
                 (int) $userId,
                 (int) $assocType,
@@ -104,9 +102,8 @@ class SubEditorsDAO extends \PKP\db\DAO
      *
      * @param int $assocId
      * @param int $assocType Application::ASSOC_TYPE_SECTION or Application::ASSOC_TYPE_CATEGORY
-     * @param int $contextId
      */
-    public function deleteBySubmissionGroupId($assocId, $assocType, $contextId = null)
+    public function deleteBySubmissionGroupId($assocId, $assocType, ?int $contextId = null)
     {
         $params = [(int) $assocId, (int) $assocType];
         if ($contextId) {
@@ -152,18 +149,17 @@ class SubEditorsDAO extends \PKP\db\DAO
     /**
      * Check if a user is assigned to a specified submission group.
      *
-     * @param int $contextId
      * @param int $assocId
      * @param int $userId
      * @param int $assocType optional Application::ASSOC_TYPE_SECTION or Application::ASSOC_TYPE_CATEGORY
      *
      * @return bool
      */
-    public function editorExists($contextId, $assocId, $userId, $assocType)
+    public function editorExists(int $contextId, $assocId, $userId, $assocType)
     {
         $result = $this->retrieve(
             'SELECT COUNT(*) AS row_count FROM subeditor_submission_group WHERE context_id = ? AND section_id = ? AND user_id = ? AND assoc_id = ?',
-            [(int) $contextId, (int) $assocId, (int) $userId, (int) $assocType]
+            [$contextId, (int) $assocId, (int) $userId, (int) $assocType]
         );
         $row = $result->current();
         return $row ? (bool) $row->row_count : false;
@@ -218,9 +214,9 @@ class SubEditorsDAO extends \PKP\db\DAO
             $userGroup = $userGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() == $assignment->userGroupId);
             Repo::stageAssignment()
                 ->build(
-                    $submission->getId(), 
-                    $assignment->userGroupId, 
-                    $assignment->userId, 
+                    $submission->getId(),
+                    $assignment->userGroupId,
+                    $assignment->userId,
                     $userGroup->getRecommendOnly()
                 );
         }

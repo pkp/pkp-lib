@@ -245,8 +245,8 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      *
-     * @param null|mixed $submissionId
-     * @param null|mixed $contextId
+     * @param ?int $submissionId
+     * @param ?int $contextId
      */
     public function getByPubId(
         $pubIdType,

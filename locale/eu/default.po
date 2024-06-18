@@ -1,8 +1,9 @@
 # Informatikaria <informatikaria@ueu.eus>, 2023.
+# Josu Acosta <josuacostacalvo@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-12-12 14:15+0000\n"
-"Last-Translator: Informatikaria <informatikaria@ueu.eus>\n"
+"PO-Revision-Date: 2024-06-12 14:03+0000\n"
+"Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
 "eu/>\n"
 "Language: eu\n"
@@ -32,3 +33,9 @@ msgstr "CE."
 
 msgid "default.groups.name.reader"
 msgstr "Irakurlea"
+
+msgid "default.groups.plural.author"
+msgstr "Egileak"
+
+msgid "default.groups.name.author"
+msgstr "Egilea"

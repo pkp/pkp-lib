@@ -18,6 +18,7 @@ namespace PKP\core;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use PKP\config\Config;
 use Illuminate\Support\Facades\Auth;
 use PKP\context\Context;
 use PKP\facades\Locale;
@@ -434,6 +435,27 @@ class PKPPageRouter extends PKPRouter
                 || ($userGroups->count() == 1 && $userGroups->first()->getRoleId() == Role::ROLE_ID_READER)
             ) {
                 return $request->url(null, 'index');
+            }
+
+            if(Config::getVar('features', 'enable_new_submission_listing')) {
+
+                $roleIds = $userGroups->map(function ($group) {
+                    return $group->getRoleId();
+                });
+
+                $roleIdsArray = $roleIds->all();
+
+                if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $roleIdsArray))) {
+                    return $request->url(null, 'dashboard', 'editorial');
+
+                }
+                if(count(array_intersect([ Role::ROLE_ID_REVIEWER], $roleIdsArray))) {
+                    return $request->url(null, 'dashboard', 'reviewAssignments');
+
+                }
+                if(count(array_intersect([  Role::ROLE_ID_AUTHOR], $roleIdsArray))) {
+                    return $request->url(null, 'dashboard', 'mySubmissions');
+                }
             }
 
             return $request->url(null, 'submissions');

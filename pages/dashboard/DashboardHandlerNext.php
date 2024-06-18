@@ -20,14 +20,18 @@ use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\components\forms\dashboard\SubmissionFilters;
+use PKP\controllers\grid\users\reviewer\PKPReviewerGridHandler;
 use PKP\core\JSONMessage;
+use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\decision\Decision;
 use PKP\plugins\Hook;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\DashboardView;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
+use PKP\submissionFile\SubmissionFile;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
 define('SUBMISSIONS_LIST_ARCHIVE', 'archive');
@@ -136,26 +140,19 @@ class DashboardHandlerNext extends Handler
         );
 
 
+        $selectRevisionDecisionForm = new \PKP\components\forms\decision\SelectRevisionDecisionForm();
+        $selectRevisionRecommendationForm = new \PKP\components\forms\decision\SelectRevisionRecommendationForm();
+
+
         $templateMgr->setState([
             'pageInitConfig' => [
+                'selectRevisionDecisionForm' => $selectRevisionDecisionForm->getConfig(),
+                'selectRevisionRecommendationForm' => $selectRevisionRecommendationForm->getConfig(),
                 'dashboardPage' => $this->dashboardPage,
-                'assignParticipantUrl' => $dispatcher->url(
-                    $request,
-                    Application::ROUTE_COMPONENT,
-                    null,
-                    'grid.users.stageParticipant.StageParticipantGridHandler',
-                    'addParticipant',
-                    null,
-                    [
-                        'submissionId' => '__id__',
-                        'stageId' => '__stageId__',
-                    ]
-                ),
                 'countPerPage' => $this->perPage,
                 'filtersForm' => $filtersForm->getConfig(),
                 'views' => $this->getViews(),
                 'columns' => $this->getColumns(),
-
             ]
         ]);
 
@@ -165,8 +162,13 @@ class DashboardHandlerNext extends Handler
             'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
         ]);
 
+
+        class_exists(\APP\components\forms\publication\AssignToIssueForm::class); // Force define of FORM_ASSIGN_TO_ISSUE
+        class_exists(\APP\components\forms\publication\PublishForm::class); // Force define of FORM_PUBLISH
+
         $templateMgr->setConstants([
             'STAGE_STATUS_SUBMISSION_UNASSIGNED' => Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED,
+            'REVIEW_ASSIGNMENT_STATUS_DECLINED' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_DECLINED,
             'REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE,
             'REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE,
             'REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE,
@@ -176,12 +178,22 @@ class DashboardHandlerNext extends Handler
             'REVIEW_ASSIGNMENT_STATUS_THANKED' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED,
             'REVIEW_ASSIGNMENT_STATUS_CANCELLED' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_CANCELLED,
             'REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND' => ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REQUEST_RESEND,
+            'REVIEW_ROUND_STATUS_REVISIONS_REQUESTED' => ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED,
+            'REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW' => ReviewRound::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW,
+            'REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL' => ReviewRound::REVIEW_ROUND_STATUS_SENT_TO_EXTERNAL,
+            'REVIEW_ROUND_STATUS_ACCEPTED' => ReviewRound::REVIEW_ROUND_STATUS_ACCEPTED,
+            'REVIEW_ROUND_STATUS_DECLINED' => ReviewRound::REVIEW_ROUND_STATUS_DECLINED,
             'REVIEW_ROUND_STATUS_PENDING_REVIEWERS' => ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS,
+            'REVIEW_ROUND_STATUS_PENDING_REVIEWS' => ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWS,
             'REVIEW_ROUND_STATUS_REVIEWS_READY' => ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_READY,
             'REVIEW_ROUND_STATUS_REVIEWS_COMPLETED' => ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED,
             'REVIEW_ROUND_STATUS_REVIEWS_OVERDUE' => ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_OVERDUE,
             'REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED' => ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED,
-            'REVIEW_ROUND_STATUS_REVISIONS_REQUESTED' => ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED,
+            'REVIEW_ROUND_STATUS_PENDING_RECOMMENDATIONS' => ReviewRound::REVIEW_ROUND_STATUS_PENDING_RECOMMENDATIONS,
+            'REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY' => ReviewRound::REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY,
+            'REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED' => ReviewRound::REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED,
+            'REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED' => ReviewRound::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED,
+            'REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW' => ReviewRound::REVIEW_ROUND_STATUS_RETURNED_TO_REVIEW,
             'SUBMISSION_REVIEW_METHOD_ANONYMOUS' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS,
             'SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS,
             'SUBMISSION_REVIEW_METHOD_OPEN' => ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN,
@@ -193,6 +205,33 @@ class DashboardHandlerNext extends Handler
             'SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_DECLINE,
             'SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS' => ReviewAssignment::SUBMISSION_REVIEWER_RECOMMENDATION_SEE_COMMENTS,
 
+            'DECISION_ACCEPT' => Decision::ACCEPT,
+            'DECISION_DECLINE' => Decision::DECLINE,
+            'DECISION_CANCEL_REVIEW_ROUND' => Decision::CANCEL_REVIEW_ROUND,
+            'DECISON_PENDING_REVISIONS' => Decision::PENDING_REVISIONS,
+            'DECISION_EXTERNAL_REVIEW' => Decision::EXTERNAL_REVIEW,
+            'DECISION_SKIP_EXTERNAL_REVIEW' => Decision::SKIP_EXTERNAL_REVIEW,
+            'DECISION_INITIAL_DECLINE' => Decision::INITIAL_DECLINE,
+            'DECISION_SEND_TO_PRODUCTION' => Decision::SEND_TO_PRODUCTION,
+            'DECISION_BACK_FROM_COPYEDITING' => Decision::BACK_FROM_COPYEDITING,
+
+            'SUBMISSION_FILE_SUBMISSION' => SubmissionFile::SUBMISSION_FILE_SUBMISSION,
+            'SUBMISSION_FILE_REVIEW_FILE' => SubmissionFile::SUBMISSION_FILE_REVIEW_FILE,
+            'SUBMISSION_FILE_REVIEW_REVISION' => SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
+            'SUBMISSION_FILE_FINAL' => SubmissionFile::SUBMISSION_FILE_FINAL,
+            'SUBMISSION_FILE_REVIEW_ATTACHMENT' => SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT,
+            'SUBMISSION_FILE_COPYEDIT' => SubmissionFile::SUBMISSION_FILE_COPYEDIT,
+            'SUBMISSION_FILE_PRODUCTION_READY' => SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
+            'SUBMISSION_FILE_PROOF' => SubmissionFile::SUBMISSION_FILE_PROOF,
+            'FORM_ASSIGN_TO_ISSUE' => FORM_ASSIGN_TO_ISSUE,
+            'FORM_PUBLISH' => FORM_PUBLISH,
+
+            'REVIEWER_SELECT_ADVANCED_SEARCH' => PKPReviewerGridHandler::REVIEWER_SELECT_ADVANCED_SEARCH,
+
+            'ROLE_ID_AUTHOR' => Role::ROLE_ID_AUTHOR,
+
+            // ASSOC
+            'ASSOC_TYPE_REVIEW_ASSIGNMENT' => PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT
         ]);
 
         $templateMgr->display('dashboard/editors.tpl');
@@ -278,19 +317,28 @@ class DashboardHandlerNext extends Handler
 
         if($this->dashboardPage === DashboardPage::MyReviewAssignments) {
             $columns = [
-                $this->createColumn('id', __('common.id'), 'ColumnReviewAssignmentId', true),
-                $this->createColumn('title', __('navigation.submissions'), 'ColumnReviewAssignmentTitle'),
-                $this->createColumn('activity', __('stats.editorialActivity'), 'ColumnReviewAssignmentActivity'),
-                $this->createColumn('actions', __('admin.jobs.list.actions'), 'ColumnReviewAssignmentActions')
+                $this->createColumn('id', __('common.id'), 'CellReviewAssignmentId', true),
+                $this->createColumn('title', __('navigation.submissions'), 'CellReviewAssignmentTitle'),
+                $this->createColumn('activity', __('stats.editorialActivity'), 'CellReviewAssignmentActivity'),
+                $this->createColumn('actions', __('admin.jobs.list.actions'), 'CellReviewAssignmentActions')
+            ];
+        } elseif($this->dashboardPage === DashboardPage::MySubmissions) {
+
+            $columns = [
+                $this->createColumn('id', __('common.id'), 'CellSubmissionId', true),
+                $this->createColumn('title', __('navigation.submissions'), 'CellSubmissionTitle'),
+                $this->createColumn('stage', __('workflow.stage'), 'CellSubmissionStage'),
+                $this->createColumn('activity', __('stats.editorialActivity'), 'CellSubmissionActivity'),
+                $this->createColumn('actions', __('admin.jobs.list.actions'), 'CellSubmissionActions')
             ];
         } else {
             $columns = [
-                $this->createColumn('id', __('common.id'), 'ColumnSubmissionId', true),
-                $this->createColumn('title', __('navigation.submissions'), 'ColumnSubmissionTitle'),
-                $this->createColumn('stage', __('workflow.stage'), 'ColumnSubmissionStage'),
-                $this->createColumn('days', __('editor.submission.days'), 'ColumnSubmissionDays'),
-                $this->createColumn('activity', __('stats.editorialActivity'), 'ColumnSubmissionActivity'),
-                $this->createColumn('actions', __('admin.jobs.list.actions'), 'ColumnSubmissionActions')
+                $this->createColumn('id', __('common.id'), 'CellSubmissionId', true),
+                $this->createColumn('title', __('navigation.submissions'), 'CellSubmissionTitle'),
+                $this->createColumn('stage', __('workflow.stage'), 'CellSubmissionStage'),
+                $this->createColumn('days', __('editor.submission.days'), 'CellSubmissionDays'),
+                $this->createColumn('activity', __('stats.editorialActivity'), 'CellSubmissionActivity'),
+                $this->createColumn('actions', __('admin.jobs.list.actions'), 'CellSubmissionActions')
             ];
         }
 

@@ -180,6 +180,7 @@ class DecisionHandler extends Handler
             ),
             'viewAllSubmissionsLabel' => __('submission.list.viewAllSubmissions'),
             'viewSubmissionLabel' => __('submission.list.viewSubmission'),
+            'viewSubmissionSummaryLabel' => __('submission.list.viewSubmissionSummary')
         ]);
 
         $templateMgr->assign([

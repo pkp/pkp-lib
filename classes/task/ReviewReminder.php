@@ -72,7 +72,7 @@ class ReviewReminder extends ScheduledTask
             $reviewInvitation->reviewAssignmentId = $reviewAssignment->getId();
             $reviewInvitation->updatePayload();
 
-            $reviewInvitation->dispatch();
+            $reviewInvitation->invite();
             $reviewInvitation->updateMailableWithUrl($mailable);
         }
 

@@ -133,7 +133,7 @@ class Submission extends PKPSubmission
         foreach ($publications as $publication) {
             foreach ($publication->getData('galleys') as $galley) {
                 $file = $galley->getFile();
-                if (!$galley->getData('urlRemote') && $file) {
+                if (!$galley->getData('urlRemote') && $file && !in_array($file->getId(), $fileIds)) {
                     $fileIds[] = $file->getId();
                 }
             }

@@ -263,8 +263,10 @@ class PKPAuthorForm extends Form
                 throw new Exception('Invalid primary contact ID. This author can not be a primary contact.');
             }
             Repo::publication()->edit($publication, $params);
+        } else {
+            // Log an event when publication data is updated
+            $publication = Repo::publication()->edit($publication, []);
         }
-
         return $authorId;
     }
 }

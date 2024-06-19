@@ -301,11 +301,20 @@ class DAO extends EntityDAO
                 LEFT JOIN user_settings usp ON (usp.user_id = us.user_id AND usp.locale = ? AND usp.setting_name = ?)',
             [$newLocale, Identity::IDENTITY_SETTING_GIVENNAME, $newLocale, Identity::IDENTITY_SETTING_FAMILYNAME, $newLocale, 'preferredPublicName']
         );
+
         foreach ($result as $row) {
             $userId = $row->user_id;
-            if (empty($row->given_name) && empty($row->family_name) && empty($row->preferred_public_name)) {
-                // if no user name exists in the new locale, insert them all
-                foreach ($settingNames as $settingName) {
+
+            foreach ($settingNames as $settingName) {
+                // check if the setting already exists
+                $existingSettingCheck = DB::select(
+                    'SELECT COUNT(*) AS count FROM user_settings
+                    WHERE user_id = ? AND locale = ? AND setting_name = ?',
+                    [$userId, $newLocale, $settingName]
+                );
+
+                if (empty($existingSettingCheck[0]->count)) {
+                    // insert the setting if it does not exist
                     DB::insert(
                         'INSERT INTO user_settings (user_id, locale, setting_name, setting_value)
                         SELECT DISTINCT us.user_id, ?, ?, us.setting_value
@@ -313,16 +322,19 @@ class DAO extends EntityDAO
                         WHERE us.setting_name = ? AND us.locale = ? AND us.user_id = ?',
                         [$newLocale, $settingName, $settingName, $oldLocale, $userId]
                     );
+                } else {
+                    // update the setting if it exists
+                    DB::update(
+                        'UPDATE user_settings
+                        SET setting_value = (
+                            SELECT us.setting_value
+                            FROM user_settings us
+                            WHERE us.setting_name = ? AND us.locale = ? AND us.user_id = ?
+                        )
+                        WHERE user_id = ? AND locale = ? AND setting_name = ?',
+                        [$settingName, $oldLocale, $userId, $userId, $newLocale, $settingName]
+                    );
                 }
-            } elseif (empty($row->given_name)) {
-                // if the given name does not exist in the new locale (but one of the other names do exist), insert it
-                DB::insert(
-                    'INSERT INTO user_settings (user_id, locale, setting_name, setting_value)
-                    SELECT DISTINCT us.user_id, ?, ?, us.setting_value
-                    FROM user_settings us
-                    WHERE us.setting_name = ? AND us.locale = ? AND us.user_id = ?',
-                    [$newLocale, Identity::IDENTITY_SETTING_GIVENNAME, Identity::IDENTITY_SETTING_GIVENNAME, $oldLocale, $userId]
-                );
             }
         }
     }

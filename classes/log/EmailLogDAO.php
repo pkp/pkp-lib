@@ -22,11 +22,19 @@ use APP\facades\Repo;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\Hook;
 
 class EmailLogDAO extends \PKP\db\DAO
 {
+    /**
+     * The maximum length for the email subject.
+     *
+     * This value should match the length of the `subject` column in the `email_log` table, defined in LogMigration.php.
+     */
+    private const MAX_SUBJECT_LENGTH = 255;
+
     /**
      * Retrieve a log entry by ID.
      *
@@ -157,7 +165,7 @@ class EmailLogDAO extends \PKP\db\DAO
                 $entry->getRecipients(),
                 $entry->getCcs(),
                 $entry->getBccs(),
-                $entry->getSubject(),
+                Str::limit($entry->getSubject(), self::MAX_SUBJECT_LENGTH - 3), // Subtract 3 to compensate for the '...' that gets added to the end of the string.
                 $entry->getBody()
             ]
         );

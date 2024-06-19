@@ -251,34 +251,23 @@ class AdminHandler extends Handler
      */
     private function siteSettingsAvailability(): array
     {
-        $tabs = array_fill_keys([
-            'siteSetup',
-            'siteAppearance',
-            'sitePlugins',
-            'siteConfig',
-            'siteInfo',
-            'languages',
-            'navigationMenus',
-            'highlights',
-            'bulkEmails',
-            'siteTheme',
-            'siteAppearanceSetup',
-            'statistics',
-            'announcements',
-        ], true);
-
-        $tabs['announcements'] = (bool) Config::getVar('features', 'site_announcements');
-        $tabs['highlights'] = (bool) Config::getVar('features', 'highlights');
-
-        $isSingleContextSite = Services::get('context')->getCount() < 2;
-        if ($isSingleContextSite) {
-            $multipleContextTabs = ['siteSetup', 'languages', 'bulkEmails', 'statistics'];
-            foreach ($multipleContextTabs as $tab) {
-                $tabs[$tab] = false;
-            }
-        }
-
-        return $tabs;
+        // The multi context UI is also displayed when the journal has no contexts
+        $isMultiContextSite = Services::get('context')->getCount() === 1;
+        return [
+            'siteSetup' => true,
+            'languages' => true,
+            'bulkEmails' => true,
+            'statistics' => true,
+            'siteAppearance' => $isMultiContextSite,
+            'sitePlugins' => $isMultiContextSite,
+            'siteConfig' => $isMultiContextSite,
+            'siteInfo' => $isMultiContextSite,
+            'navigationMenus' => $isMultiContextSite,
+            'highlights' => $isMultiContextSite && Config::getVar('features', 'highlights'),
+            'siteTheme' => $isMultiContextSite,
+            'siteAppearanceSetup' => $isMultiContextSite,
+            'announcements' => $isMultiContextSite && Config::getVar('features', 'site_announcements'),
+        ];
     }
 
     /**

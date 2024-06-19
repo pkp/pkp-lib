@@ -1,16 +1,16 @@
 <?php
 /**
- * @file classes/components/form/dashboard/SubmissionFilters.php
+ * @file classes/components/form/deecision/LogReviewerResponseForm.php
  *
  * Copyright (c) 2014-2023 Simon Fraser University
  * Copyright (c) 2000-2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class SubmissionFilters
+ * @class LogReviewerResponseForm
  *
  * @ingroup classes_controllers_form
  *
- * @brief A preset form to add and remove filters in the submissions dashboard
+ * @brief A form to accept or decline a review request on behalf of a reviewer
  */
 
 namespace PKP\components\forms\decision;
@@ -23,8 +23,6 @@ class LogReviewerResponseForm extends FormComponent
 {
     public $id = 'logReviewerResponse';
     public $action = FormComponent::ACTION_EMIT;
-
-    /** @copydoc FormComponent::$method */
     public $method = 'POST';
 
     public function __construct(

@@ -256,8 +256,10 @@ class PKPAuthorForm extends Form {
 				throw new Exception('Invalid primary contact ID. This author can not be a primary contact.');
 			}
 			$publication = Services::get('publication')->edit($publication, $params, Application::get()->getRequest());
+		} else {
+			// Log an event when publication data is updated
+			$publication = Services::get('publication')->edit($publication, [], Application::get()->getRequest());
 		}
-
 		return $authorId;
 	}
 }

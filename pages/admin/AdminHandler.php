@@ -252,7 +252,7 @@ class AdminHandler extends Handler
     private function siteSettingsAvailability(): array
     {
         // The multi context UI is also displayed when the journal has no contexts
-        $isMultiContextSite = Services::get('context')->getCount() === 1;
+        $isMultiContextSite = Services::get('context')->getCount() !== 1;
         return [
             'siteSetup' => true,
             'languages' => true,

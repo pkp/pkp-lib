@@ -292,53 +292,26 @@ class DAO extends EntityDAO
         foreach ($settingNames as $settingName) {
             DB::delete("DELETE from user_settings WHERE locale = ? AND setting_name = ? AND setting_value = ''", [$newLocale, $settingName]);
         }
-        // get all names of all users in the new locale
-        $result = DB::select(
-            'SELECT DISTINCT us.user_id, usg.setting_value AS given_name, usf.setting_value AS family_name, usp.setting_value AS preferred_public_name
-            FROM user_settings us
-                LEFT JOIN user_settings usg ON (usg.user_id = us.user_id AND usg.locale = ? AND usg.setting_name = ?)
-                LEFT JOIN user_settings usf ON (usf.user_id = us.user_id AND usf.locale = ? AND usf.setting_name = ?)
-                LEFT JOIN user_settings usp ON (usp.user_id = us.user_id AND usp.locale = ? AND usp.setting_name = ?)',
-            [$newLocale, Identity::IDENTITY_SETTING_GIVENNAME, $newLocale, Identity::IDENTITY_SETTING_FAMILYNAME, $newLocale, 'preferredPublicName']
+    
+        // escape new locale value
+        $newLocaleEscaped = DB::getPdo()->quote($newLocale);
+    
+        // insert missing data
+        DB::table('user_settings')->insertUsing(
+            ['user_id', 'locale', 'setting_name', 'setting_value'],
+            DB::table('user_settings AS us_old')
+                ->select('us_old.user_id', DB::raw("{$newLocaleEscaped} AS locale"), 'us_old.setting_name', 'us_old.setting_value')
+                ->leftJoin('user_settings AS us_new', function ($join) use ($newLocale) {
+                    $join->on('us_new.user_id', '=', 'us_old.user_id')
+                        ->where('us_new.locale', '=', $newLocale)
+                        ->whereColumn('us_new.setting_name', 'us_old.setting_name');
+                })
+                ->where('us_old.locale', '=', $oldLocale)
+                ->whereIn('us_old.setting_name', $settingNames)
+                ->whereNull('us_new.setting_value')
         );
-
-        foreach ($result as $row) {
-            $userId = $row->user_id;
-
-            foreach ($settingNames as $settingName) {
-                // check if the setting already exists
-                $existingSettingCheck = DB::select(
-                    'SELECT COUNT(*) AS count FROM user_settings
-                    WHERE user_id = ? AND locale = ? AND setting_name = ?',
-                    [$userId, $newLocale, $settingName]
-                );
-
-                if (empty($existingSettingCheck[0]->count)) {
-                    // insert the setting if it does not exist
-                    DB::insert(
-                        'INSERT INTO user_settings (user_id, locale, setting_name, setting_value)
-                        SELECT DISTINCT us.user_id, ?, ?, us.setting_value
-                        FROM user_settings us
-                        WHERE us.setting_name = ? AND us.locale = ? AND us.user_id = ?',
-                        [$newLocale, $settingName, $settingName, $oldLocale, $userId]
-                    );
-                } else {
-                    // update the setting if it exists
-                    DB::update(
-                        'UPDATE user_settings
-                        SET setting_value = (
-                            SELECT us.setting_value
-                            FROM user_settings us
-                            WHERE us.setting_name = ? AND us.locale = ? AND us.user_id = ?
-                        )
-                        WHERE user_id = ? AND locale = ? AND setting_name = ?',
-                        [$settingName, $oldLocale, $userId, $userId, $newLocale, $settingName]
-                    );
-                }
-            }
-        }
     }
-
+       
     /**
      * Delete unvalidated expired users
      *

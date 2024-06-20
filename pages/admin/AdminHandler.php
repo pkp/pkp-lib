@@ -27,10 +27,10 @@ use Illuminate\Support\Str;
 use PDO;
 use PKP\announcement\Collector;
 use PKP\cache\CacheManager;
-use PKP\components\forms\highlight\HighlightForm;
-use PKP\components\listPanels\HighlightsListPanel;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
 use PKP\components\forms\context\PKPAnnouncementSettingsForm;
+use PKP\components\forms\highlight\HighlightForm;
+use PKP\components\listPanels\HighlightsListPanel;
 use PKP\components\listPanels\PKPAnnouncementsListPanel;
 use PKP\config\Config;
 use PKP\core\JSONMessage;
@@ -360,7 +360,6 @@ class AdminHandler extends Handler
 
         if ($request->getUserVar('versionCheck')) {
             $latestVersionInfo = VersionCheck::getLatestVersion();
-            $latestVersionInfo['patch'] = VersionCheck::getPatch($latestVersionInfo);
         } else {
             $latestVersionInfo = null;
         }

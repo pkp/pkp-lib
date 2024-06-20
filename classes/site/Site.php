@@ -1,20 +1,13 @@
 <?php
 
 /**
- * @defgroup site Site
- * Site-related concerns such as the Site object and version management.
- */
-
-/**
  * @file classes/site/Site.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Site
- *
- * @ingroup site
  *
  * @see SiteDAO
  *
@@ -72,10 +65,8 @@ class Site extends \PKP\core\DataObject
 
     /**
      * Get site title.
-     *
-     * @param string $locale Locale code to return, if desired.
      */
-    public function getTitle($locale = null)
+    public function getTitle(?string $locale = null): null|array|string
     {
         return $this->getData('title', $locale);
     }
@@ -83,35 +74,31 @@ class Site extends \PKP\core\DataObject
     /**
      * Get localized site title.
      */
-    public function getLocalizedTitle()
+    public function getLocalizedTitle(): ?string
     {
         return $this->getLocalizedData('title');
     }
 
     /**
      * Get redirect
-     *
-     * @return int
      */
-    public function getRedirect()
+    public function getRedirect(): bool
     {
         return $this->getData('redirect');
     }
 
     /**
      * Set redirect
-     *
-     * @param int $redirect
      */
-    public function setRedirect($redirect)
+    public function setRedirect(bool $redirect): void
     {
-        $this->setData('redirect', (int)$redirect);
+        $this->setData('redirect', $redirect);
     }
 
     /**
      * Get localized site about statement.
      */
-    public function getLocalizedAbout()
+    public function getLocalizedAbout(): ?string
     {
         return $this->getLocalizedData('about');
     }
@@ -119,7 +106,7 @@ class Site extends \PKP\core\DataObject
     /**
      * Get localized site contact name.
      */
-    public function getLocalizedContactName()
+    public function getLocalizedContactName(): ?string
     {
         return $this->getLocalizedData('contactName');
     }
@@ -127,57 +114,47 @@ class Site extends \PKP\core\DataObject
     /**
      * Get localized site contact email.
      */
-    public function getLocalizedContactEmail()
+    public function getLocalizedContactEmail(): ?string
     {
         return $this->getLocalizedData('contactEmail');
     }
 
     /**
      * Get minimum password length.
-     *
-     * @return int
      */
-    public function getMinPasswordLength()
+    public function getMinPasswordLength(): int
     {
         return $this->getData('minPasswordLength');
     }
 
     /**
      * Set minimum password length.
-     *
-     * @param int $minPasswordLength
      */
-    public function setMinPasswordLength($minPasswordLength)
+    public function setMinPasswordLength(int $minPasswordLength): void
     {
         $this->setData('minPasswordLength', $minPasswordLength);
     }
 
     /**
      * Get primary locale.
-     *
-     * @return string
      */
-    public function getPrimaryLocale()
+    public function getPrimaryLocale(): string
     {
         return $this->getData('primaryLocale');
     }
 
     /**
      * Set primary locale.
-     *
-     * @param string $primaryLocale
      */
-    public function setPrimaryLocale($primaryLocale)
+    public function setPrimaryLocale(string $primaryLocale): void
     {
         $this->setData('primaryLocale', $primaryLocale);
     }
 
     /**
      * Get installed locales.
-     *
-     * @return array
      */
-    public function getInstalledLocales()
+    public function getInstalledLocales(): array
     {
         return $this->getData('installedLocales') ?? [];
     }
@@ -185,36 +162,31 @@ class Site extends \PKP\core\DataObject
     /**
      * Set installed locales.
      *
-     * @param array $installedLocales
      */
-    public function setInstalledLocales($installedLocales)
+    public function setInstalledLocales(array $installedLocales): void
     {
         $this->setData('installedLocales', $installedLocales);
     }
 
     /**
      * Get array of all supported locales (for static text).
-     *
-     * @return array
      */
-    public function getSupportedLocales()
+    public function getSupportedLocales(): array
     {
         return $this->getData('supportedLocales') ?? [];
     }
 
     /**
      * Set array of all supported locales (for static text).
-     *
-     * @param array $supportedLocales
      */
-    public function setSupportedLocales($supportedLocales)
+    public function setSupportedLocales(array $supportedLocales): void
     {
         $this->setData('supportedLocales', $supportedLocales);
     }
 
     /**
-    * Get the unique site ID.
-    */
+     * Get the unique site ID.
+     */
     public function getUniqueSiteID(): ?string
     {
         return $this->getData('uniqueSiteId');

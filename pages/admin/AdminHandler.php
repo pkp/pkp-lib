@@ -238,7 +238,7 @@ class AdminHandler extends Handler
         $templateMgr->assign([
             'breadcrumbs' => $breadcrumbs,
             'pageTitle' => __('admin.siteSettings'),
-            'componentAvailability' => $this->siteSettingsAvailability($request),
+            'componentAvailability' => $this->siteSettingsAvailability(),
         ]);
 
         $templateMgr->display('admin/settings.tpl');
@@ -247,54 +247,27 @@ class AdminHandler extends Handler
     /**
      * Business logic for site settings single/multiple contexts availability
      *
-     * @param PKPRequest $request
-     *
-     * @return array [siteComponent, availability (bool)]
+     * @return array<string,bool> List of tabs, where the key is the tab name and the value its availability
      */
-    private function siteSettingsAvailability($request)
+    private function siteSettingsAvailability(): array
     {
-        $tabsSingleContextAvailability = [
-            'siteSetup',
-            'languages',
-            'bulkEmails',
-            'statistics',
+        // The multi context UI is also displayed when the journal has no contexts
+        $isMultiContextSite = Services::get('context')->getCount() !== 1;
+        return [
+            'siteSetup' => true,
+            'languages' => true,
+            'bulkEmails' => true,
+            'statistics' => true,
+            'siteAppearance' => $isMultiContextSite,
+            'sitePlugins' => $isMultiContextSite,
+            'siteConfig' => $isMultiContextSite,
+            'siteInfo' => $isMultiContextSite,
+            'navigationMenus' => $isMultiContextSite,
+            'highlights' => $isMultiContextSite && Config::getVar('features', 'highlights'),
+            'siteTheme' => $isMultiContextSite,
+            'siteAppearanceSetup' => $isMultiContextSite,
+            'announcements' => $isMultiContextSite && Config::getVar('features', 'site_announcements'),
         ];
-
-        $tabs = [
-            'siteSetup',
-            'siteAppearance',
-            'sitePlugins',
-            'siteConfig',
-            'siteInfo',
-            'languages',
-            'navigationMenus',
-            'highlights',
-            'bulkEmails',
-            'siteTheme',
-            'siteAppearanceSetup',
-            'statistics',
-            'announcements',
-        ];
-
-        if (!Config::getVar('features', 'site_announcements')) {
-            $tabs = array_filter(
-                $tabs,
-                function($tab) { return $tab !== 'announcements'; }
-            );
-        }
-
-        $singleContextSite = (Services::get('context')->getCount() == 1);
-
-        $tabsAvailability = [];
-
-        foreach ($tabs as $tab) {
-            $tabsAvailability[$tab] = true;
-            if ($singleContextSite && !in_array($tab, $tabsSingleContextAvailability)) {
-                $tabsAvailability[$tab] = false;
-            }
-        }
-
-        return $tabsAvailability;
     }
 
     /**

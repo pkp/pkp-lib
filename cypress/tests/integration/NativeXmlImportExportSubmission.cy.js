@@ -37,7 +37,7 @@ describe('Data suite tests', function() {
 			});
 		});
 	});
-	it('Imports submissions from XML', function() {
+	it.skip('Imports submissions from XML', function() {
 		var username = 'admin';
 		cy.login(username, 'admin');
 

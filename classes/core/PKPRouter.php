@@ -366,7 +366,7 @@ abstract class PKPRouter
      *
      * @param $newContext Context path (defaulting to the current request's context)
      *
-     * @return An array consisting of the base url and context.
+     * @return array An array consisting of the base url and context.
      */
     public function _urlGetBaseAndContext(PKPRequest $request, ?string $newContext = null): array
     {
@@ -393,7 +393,7 @@ abstract class PKPRouter
      * @param $params The parameter list to be transformed to a url part.
      * @param $escape Whether or not to escape structural elements
      *
-     * @return The encoded parameters or an empty array if no parameters were given.
+     * @return array The encoded parameters or an empty array if no parameters were given.
      */
     public function _urlGetAdditionalParameters(PKPRequest $request, ?array $params = null, bool $escape = true): array
     {

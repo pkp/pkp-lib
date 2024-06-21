@@ -38,6 +38,8 @@ class getHooks extends \PKP\cliTool\CommandLineTool
         './lib/pkp/.git',
         './lib/pkp/cypress',
         './lib/pkp/lib/vendor',
+        './plugins/generic/citationStyleLanguage/lib/vendor',
+        './plugins/paymethod/paypal/vendor',
         './lib/pkp/classes/dev',
         './lib/pkp/locale',
         './lib/ui-library',
@@ -111,9 +113,10 @@ class getHooks extends \PKP\cliTool\CommandLineTool
                 }
 
                 // Try to detect classname
-                if (preg_match('/\nclass ([^ ]*) [^{]*{\n/', $file, $matches)) {
-                    $classname = $matches[1];
+                if (preg_match('/\n(abstract )?(class|trait|interface|enum) ([^ ]*)( [^{]*{)?\n/', $file, $matches)) {
+                    $classname = $matches[3];
                 } else {
+                    error_log('Unable to detect classname from ' . $fileName);
                     $classname = null;
                 }
 
@@ -191,6 +194,12 @@ class getHooks extends \PKP\cliTool\CommandLineTool
                 if ($fileInfo->isDir()) {
                     $this->processDir($fileInfo->getPathname(), $function);
                 } else {
+                    if ($fileInfo->getFilename() == 'index.php') {
+                        continue;
+                    }
+                    if ($fileInfo->getExtension() !== 'php') {
+                        continue;
+                    }
                     call_user_func($function, $dir . '/' . $fileInfo->getFilename());
                 }
             }

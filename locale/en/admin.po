@@ -978,3 +978,14 @@ msgstr "Unable to set the `app_key` variable in the config file. Please update t
 
 msgid "admin.cli.tool.appKey.success.valid"
 msgstr "A valid app key set in the config file"
+msgid "admin.cli.tool.schedular.options.run.description"
+msgstr "Run the schedular."
+
+msgid "admin.cli.tool.schedular.options.usage.description"
+msgstr "Display the Schedular usage parameters."
+
+msgid "admin.cli.tool.schedular.maintenance.message"
+msgstr "Can not run queue schedule tasks because the application maintenance mode is enabled."
+
+msgid "admin.cli.tool.schedular.mean.those"
+msgstr "Did you mean one of the following?"

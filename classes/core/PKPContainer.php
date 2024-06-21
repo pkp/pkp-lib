@@ -17,6 +17,8 @@
 namespace PKP\core;
 
 use APP\core\Application;
+use PKP\core\PKPScheduleServiceProvider;
+
 use APP\core\AppServiceProvider;
 use Exception;
 use Illuminate\Config\Repository;
@@ -156,6 +158,7 @@ class PKPContainer extends Container
         $this->register(new LocaleServiceProvider($this));
         $this->register(new PKPRoutingProvider($this));
         $this->register(new InvitationServiceProvider($this));
+        $this->register(new PKPScheduleServiceProvider($this));
     }
 
     /**

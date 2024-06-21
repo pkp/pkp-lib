@@ -92,8 +92,7 @@ class PKPEmailTemplateController extends PKPBaseController
                 ->name('emailTemplate.restoreDefaults');
 
             Route::delete('{key}', $this->delete(...))
-                ->name('emailTemplate.delete')
-                ->whereAlphaNumeric('key');
+                ->name('emailTemplate.delete');
         });
     }
 

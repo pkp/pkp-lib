@@ -22,6 +22,7 @@ use APP\controllers\grid\users\author\form\AuthorForm;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
+use APP\publication\Publication;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -444,6 +445,8 @@ class AuthorGridHandler extends GridHandler
 
         $json = \PKP\db\DAO::getDataChangedEvent($authorId);
         $json->setGlobalEvent('authorsUpdated');
+        $publication = $this->getPublication();  /** @var Publication $publication */
+        $publication = Repo::publication()->edit($publication, []);
         return $json;
     }
 

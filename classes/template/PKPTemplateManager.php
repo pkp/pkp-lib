@@ -60,6 +60,7 @@ use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\site\VersionDAO;
 use PKP\submission\GenreDAO;
+use PKP\submission\PKPSubmission;
 use Smarty;
 use Smarty_Internal_Template;
 
@@ -311,7 +312,7 @@ class PKPTemplateManager extends Smarty
         }
 
         // Register classes that need to expose class constants to templates
-        foreach ([PKPApplication::class, Application::class, Role::class, Submission::class, Locale::class] as $fqcn) {
+        foreach ([PKPApplication::class, Application::class, Role::class, Submission::class, PKPSubmission::class, Locale::class] as $fqcn) {
             $this->registerClass($fqcn, $fqcn);
         }
 

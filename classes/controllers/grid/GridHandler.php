@@ -717,7 +717,6 @@ class GridHandler extends PKPHandler
 
         // Prepare the template to render the grid.
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->registerClass(self::class, self::class);
         $templateMgr->registerClass(GridColumn::class, GridColumn::class);
         $templateMgr->assign('grid', $this);
         $templateMgr->assign('request', $request);

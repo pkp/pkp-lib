@@ -37,6 +37,7 @@ use Less_Parser;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
 use PKP\context\Context;
+use PKP\controllers\grid\GridHandler;
 use PKP\controllers\listbuilder\ListbuilderHandler;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
@@ -61,6 +62,7 @@ use PKP\security\Validation;
 use PKP\site\VersionDAO;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
+use PKP\submissionFile\SubmissionFile;
 use Smarty;
 use Smarty_Internal_Template;
 
@@ -312,11 +314,12 @@ class PKPTemplateManager extends Smarty
         }
 
         // Register classes that need to expose class constants to templates
-        foreach ([PKPApplication::class, Application::class, Role::class, Submission::class, PKPSubmission::class, Locale::class] as $fqcn) {
+        foreach ([PKPApplication::class, Application::class, Role::class, Submission::class, PKPSubmission::class, Locale::class, SubmissionFile::class, GridHandler::class] as $fqcn) {
             $this->registerClass($fqcn, $fqcn);
         }
 
         // Register custom functions
+        $this->registerPlugin('modifier', 'is_numeric', is_numeric(...));
         $this->registerPlugin('modifier', 'get_class', get_class(...));
         $this->registerPlugin('modifier', 'is_a', is_a(...));
         $this->registerPlugin('modifier', 'count', count(...));

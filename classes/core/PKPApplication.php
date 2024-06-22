@@ -26,7 +26,6 @@ use GuzzleHttp\Client;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Support\Facades\DB;
-use PKP\core\PKPSessionGuard;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -138,7 +137,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             class_alias('\PKP\config\Config', '\Config');
             class_alias('\PKP\core\Registry', '\Registry');
             class_alias('\PKP\core\Core', '\Core');
-            class_alias('\PKP\cache\CacheManager', '\CacheManager');
             class_alias('\PKP\handler\PKPHandler', '\PKPHandler');
             class_alias('\PKP\payment\QueuedPayment', '\QueuedPayment'); // QueuedPayment instances may be serialized
         }
@@ -189,7 +187,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         }
 
         ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
-        
+
         if (!static::isInstalled() && !PKPSessionGuard::isSessionDisable()) {
             PKPSessionGuard::disableSession();
         }

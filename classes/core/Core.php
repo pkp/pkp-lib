@@ -22,8 +22,7 @@
 namespace PKP\core;
 
 use Exception;
-use PKP\cache\CacheManager;
-use PKP\cache\FileCache;
+use Illuminate\Support\Facades\Cache;
 use PKP\config\Config;
 use PKP\facades\Locale;
 use SplFileInfo;
@@ -33,9 +32,6 @@ define('COUNTER_USER_AGENTS_FILE', Core::getBaseDir() . '/' . PKP_LIB_PATH . '/l
 
 class Core
 {
-    /** @var array The regular expressions that will find a bot user agent */
-    public static array $botRegexps = [];
-
     /**
      * Get the path to the base installation directory.
      */
@@ -88,18 +84,30 @@ class Core
      */
     public static function isUserAgentBot(string $userAgent, string $botRegexpsFile = COUNTER_USER_AGENTS_FILE): bool
     {
-        static $botRegexps;
-        Registry::set('currentUserAgentsFile', $botRegexpsFile);
+        $botRegexps = Cache::remember('botUserAgents-' . md5($botRegexpsFile), 24 * 60 * 60, function () use ($botRegexpsFile) {
+            $filteredBotRegexps = array_filter(
+                file($botRegexpsFile),
+                function ($regexp) {
+                    $regexp = trim($regexp);
+                    return !empty($regexp) && $regexp[0] != '#';
+                }
+            );
+            $botRegexps = array_map(
+                function ($regexp) {
+                    $delimiter = '/';
+                    $regexp = trim($regexp);
+                    if (strpos($regexp, $delimiter) !== 0) {
+                        // Make sure delimiters are in place.
+                        $regexp = $delimiter . $regexp . $delimiter;
+                    }
+                    return $regexp;
+                },
+                $filteredBotRegexps
+            );
+            return $botRegexps;
+        });
 
-        if (!isset($botRegexps[$botRegexpsFile])) {
-            $botFileCacheId = md5($botRegexpsFile);
-            $cacheManager = CacheManager::getManager();
-            /** @var FileCache */
-            $cache = $cacheManager->getCache('core', $botFileCacheId, Core::_botFileListCacheMiss(...), CACHE_TYPE_FILE);
-            $botRegexps[$botRegexpsFile] = $cache->getContents();
-        }
-
-        foreach ($botRegexps[$botRegexpsFile] as $regexp) {
+        foreach ($botRegexps as $regexp) {
             // make the search case insensitive
             $regexp .= 'ui';
             if (preg_match($regexp, $userAgent)) {
@@ -348,36 +356,6 @@ class Core
         }
 
         return false;
-    }
-
-    /**
-     * Bot list file cache miss fallback.
-     * (WARNING: This function appears to be used externally, hence public despite _ prefix.)
-     */
-    public static function _botFileListCacheMiss(FileCache $cache): array
-    {
-        $id = $cache->getCacheId();
-        $filteredBotRegexps = array_filter(
-            file(Registry::get('currentUserAgentsFile')),
-            function ($regexp) {
-                $regexp = trim($regexp);
-                return !empty($regexp) && $regexp[0] != '#';
-            }
-        );
-        $botRegexps = array_map(
-            function ($regexp) {
-                $delimiter = '/';
-                $regexp = trim($regexp);
-                if (strpos($regexp, $delimiter) !== 0) {
-                    // Make sure delimiters are in place.
-                    $regexp = $delimiter . $regexp . $delimiter;
-                }
-                return $regexp;
-            },
-            $filteredBotRegexps
-        );
-        $cache->setEntireCache($botRegexps);
-        return $botRegexps;
     }
 
     /**

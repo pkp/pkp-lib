@@ -20,8 +20,6 @@ namespace PKP\statistics;
 use APP\facades\Repo;
 use GeoIp2\Database\Reader;
 use InvalidArgumentException;
-use PKP\cache\CacheManager;
-use PKP\cache\FileCache;
 use PKP\context\Context;
 use PKP\file\PrivateFileManager;
 use PKP\site\Site;
@@ -76,8 +74,8 @@ abstract class PKPStatisticsHelper
     public const STATISTICS_SETTING_REGION = 'country+region';
     public const STATISTICS_SETTING_CITY = 'country+region+city';
 
-    public FileCache $geoDataCache;
-    public FileCache $institutionDataCache;
+    public array $geoDataCache;
+    public array $institutionDataCache;
 
     /**
      * Get the usage stats directory path.
@@ -199,18 +197,12 @@ abstract class PKPStatisticsHelper
      */
     public function getLocation(string $ip, string $hashedIp, bool $flush = false): array
     {
-        if (!isset($this->geoDataCache)) {
-            $geoCacheManager = CacheManager::getManager();
-            /** @var FileCache */
-            $this->geoDataCache = $geoCacheManager->getCache('geoIP', 'all', $this->geoDataCacheMiss(...));
-        }
-
         if ($flush) {
             // Salt and thus hashed IPs changed, empty the cache.
-            $this->geoDataCacheMiss($this->geoDataCache);
+            $this->geoDataCache = [];
         }
 
-        $cachedGeoData = $this->geoDataCache->getContents();
+        $cachedGeoData &= $this->geoDataCache;
         if (array_key_exists($hashedIp, $cachedGeoData)) {
             return $cachedGeoData[$hashedIp];
         }
@@ -259,17 +251,7 @@ abstract class PKPStatisticsHelper
         $cachedGeoData[$hashedIp]['country'] = $countryIsoCode;
         $cachedGeoData[$hashedIp]['region'] = $regionIsoCode;
         $cachedGeoData[$hashedIp]['city'] = $cityName;
-        $this->geoDataCache->setEntireCache($cachedGeoData);
         return $cachedGeoData[$hashedIp];
-    }
-
-    /**
-    * Geo cache miss callback.
-    */
-    public function geoDataCacheMiss(FileCache $cache): array
-    {
-        $cache->setEntireCache([]);
-        return [];
     }
 
     /**
@@ -288,18 +270,12 @@ abstract class PKPStatisticsHelper
      */
     public function getInstitutionIds(int $contextId, string $ip, string $hashedIp, bool $flush = false): array
     {
-        if (!isset($this->institutionDataCache)) {
-            $institutionCacheManager = CacheManager::getManager();
-            /** @var FileCache */
-            $this->institutionDataCache = $institutionCacheManager->getCache('institutionIP', 'all', $this->institutionDataCacheMiss(...));
-        }
-
         if ($flush) {
             // Salt and thus hashed IPs changed, empty the cache.
-            $this->institutionDataCacheMiss($this->institutionDataCache);
+            $this->institutionDataCache = [];
         }
 
-        $cachedInstitutionData = $this->institutionDataCache->getContents();
+        $cachedInstitutionData = & $this->institutionDataCache;
         if (array_key_exists($hashedIp, $cachedInstitutionData) && array_key_exists($contextId, $cachedInstitutionData[$hashedIp])) {
             return $cachedInstitutionData[$hashedIp][$contextId];
         }
@@ -310,17 +286,7 @@ abstract class PKPStatisticsHelper
             ->toArray();
 
         $cachedInstitutionData[$hashedIp][$contextId] = $institutionIds;
-        $this->institutionDataCache->setEntireCache($cachedInstitutionData);
         return $cachedInstitutionData[$hashedIp][$contextId];
-    }
-
-    /**
-    * Institution cache miss callback.
-    */
-    public function institutionDataCacheMiss(FileCache $cache): array
-    {
-        $cache->setEntireCache([]);
-        return [];
     }
 }
 

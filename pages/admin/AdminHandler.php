@@ -26,7 +26,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use PDO;
 use PKP\announcement\Collector;
-use PKP\cache\CacheManager;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
 use PKP\components\forms\context\PKPAnnouncementSettingsForm;
 use PKP\components\forms\highlight\HighlightForm;
@@ -455,11 +454,7 @@ class AdminHandler extends Handler
             return new JSONMessage(false);
         }
 
-        // Clear the CacheManager's caches
-        $cacheManager = CacheManager::getManager();
-        $cacheManager->flush();
-
-        //clear laravel cache
+        // Clear Laravel caches
         $cacheManager = PKPContainer::getInstance()['cache'];
         $cacheManager->store()->flush();
 

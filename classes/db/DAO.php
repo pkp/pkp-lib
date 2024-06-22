@@ -26,7 +26,6 @@ namespace PKP\db;
 use Generator;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
-use PKP\cache\CacheManager;
 use PKP\core\DataObject;
 use PKP\core\JSONMessage;
 use PKP\plugins\Hook;
@@ -205,35 +204,6 @@ class DAO
     public function _getInsertId(): int
     {
         return $this->getInsertId();
-    }
-
-    /**
-     * Configure the caching directory for database results
-     * NOTE: This is implemented as a GLOBAL setting and cannot
-     * be set on a per-connection basis.
-     *
-     * @deprecated 3.4
-     */
-    protected function setCacheDir(): void
-    {
-        static $cacheDir;
-        if (!isset($cacheDir)) {
-            global $ADODB_CACHE_DIR;
-
-            $cacheDir = CacheManager::getFileCachePath() . '/_db';
-
-            $ADODB_CACHE_DIR = $cacheDir;
-        }
-    }
-
-    /**
-     * Flush the system cache.
-     *
-     * @deprecated 3.4
-     */
-    public function flushCache(): void
-    {
-        $this->setCacheDir();
     }
 
     /**

@@ -34,7 +34,6 @@ use APP\template\TemplateManager;
 use Exception;
 use Illuminate\Support\Str;
 use Less_Parser;
-use PKP\cache\CacheManager;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\controllers\grid\GridHandler;
@@ -127,9 +126,7 @@ class PKPTemplateManager extends Smarty
         parent::__construct();
 
         // Set up Smarty configuration
-        $baseDir = Core::getBaseDir();
-        $cachePath = CacheManager::getFileCachePath();
-
+        $cachePath = Core::getBaseDir() . '/cache';
         $this->compile_dir = "{$cachePath}/t_compile";
         $this->config_dir = "{$cachePath}/t_config";
         $this->cache_dir = "{$cachePath}/t_cache";
@@ -532,7 +529,7 @@ class PKPTemplateManager extends Smarty
      */
     public function getCachedLessFilePath($name)
     {
-        $directory = CacheManager::getFileCachePath();
+        $directory = Core::getBaseDir() . '/cache';
         $contextId = $this->_request->getContext()?->getId() ?? 0;
         $hash = crc32($this->_request->getBaseUrl());
         return "{$directory}/{$contextId}-{$name}-{$hash}.css";
@@ -1362,9 +1359,9 @@ class PKPTemplateManager extends Smarty
      */
     public function clearCssCache()
     {
-        $cacheDirectory = CacheManager::getFileCachePath();
+        $cacheDirectory = Core::getBaseDir() . '/cache';
         $files = scandir($cacheDirectory);
-        array_map('unlink', glob(CacheManager::getFileCachePath() . '/*.' . self::CSS_FILENAME_SUFFIX));
+        array_map('unlink', glob($cacheDirectory . '/*.' . self::CSS_FILENAME_SUFFIX));
     }
 
     /**

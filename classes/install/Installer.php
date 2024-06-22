@@ -21,7 +21,6 @@ use APP\core\Application;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use PKP\cache\CacheManager;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -720,12 +719,7 @@ class Installer
      */
     public function clearDataCache()
     {
-        // Clear the CacheManager's caches
-        $cacheManager = CacheManager::getManager();
-        $cacheManager->flush(null, CACHE_TYPE_FILE);
-        $cacheManager->flush(null, CACHE_TYPE_OBJECT);
-
-        //clear laravel cache
+        // Clear Laravel caches
         $cacheManager = PKPContainer::getInstance()['cache'];
         $cacheManager->store()->flush();
 

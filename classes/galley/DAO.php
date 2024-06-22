@@ -250,7 +250,6 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
                 [$settingName, $galleyId]
             );
         }
-        $this->deprecatedDao->flushCache();
     }
 
     /**
@@ -293,16 +292,18 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
             ->when($title != null, fn (Builder $q) => $q->where('pst.setting_name', '=', 'title')->where('pst.setting_value', 'LIKE', "%{$title}%"))
             ->when($author != null, fn (Builder $q) => $q->whereRaw("CONCAT(COALESCE(asgs.setting_value, ''), ' ', COALESCE(asfs.setting_value, '')) LIKE ?", ["%{$author}%"]))
             ->when($issueId != null, fn (Builder $q) => $q->where('ps.setting_name', '=', 'issueId')->where('ps.setting_value', '=', $issueId)->where('ps.locale', '=', ''))
-            ->when($pubIdSettingName, fn (Builder $q) =>
+            ->when(
+                $pubIdSettingName,
+                fn (Builder $q) =>
             $q->when(
-                    $pubIdSettingValue === null,
-                    fn (Builder $q) => $q->whereRaw("COALESCE(gss.setting_value, '') = ''"),
-                    fn (Builder $q) => $q->when(
-                        $pubIdSettingValue != PubObjectsExportPlugin::EXPORT_STATUS_NOT_DEPOSITED,
-                        fn (Builder $q) => $q->where('gss.setting_value', '=', $pubIdSettingValue),
-                        fn (Builder $q) => $q->whereNull('gss.setting_value')
-                    )
+                $pubIdSettingValue === null,
+                fn (Builder $q) => $q->whereRaw("COALESCE(gss.setting_value, '') = ''"),
+                fn (Builder $q) => $q->when(
+                    $pubIdSettingValue != PubObjectsExportPlugin::EXPORT_STATUS_NOT_DEPOSITED,
+                    fn (Builder $q) => $q->where('gss.setting_value', '=', $pubIdSettingValue),
+                    fn (Builder $q) => $q->whereNull('gss.setting_value')
                 )
+            )
             )
             ->groupBy('g.galley_id')
             ->orderByDesc('p.date_published')

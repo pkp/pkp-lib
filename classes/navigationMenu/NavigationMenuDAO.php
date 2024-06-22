@@ -18,9 +18,7 @@
 
 namespace PKP\navigationMenu;
 
-use APP\core\Services;
-use PKP\cache\CacheManager;
-use PKP\cache\GenericCache;
+use Illuminate\Support\Facades\Cache;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\site\SiteDAO;
@@ -164,14 +162,11 @@ class NavigationMenuDAO extends \PKP\db\DAO
 
     /**
      * Update an existing NavigationMenu
-     *
-     * @param NavigationMenu $navigationMenu
-     *
-     * @return bool
      */
-    public function updateObject($navigationMenu)
+    public function updateObject(NavigationMenu $navigationMenu): bool
     {
-        $returner = $this->update(
+        Cache::forget("navigationMenu-{$navigationMenu->getId()}");
+        return (bool) $this->update(
             'UPDATE	navigation_menus
 			SET	title = ?,
 				area_name = ?,
@@ -184,8 +179,6 @@ class NavigationMenuDAO extends \PKP\db\DAO
                 (int) $navigationMenu->getId(),
             ]
         );
-        $this->unCache($navigationMenu->getId());
-        return (bool) $returner;
     }
 
     /**
@@ -200,13 +193,11 @@ class NavigationMenuDAO extends \PKP\db\DAO
 
     /**
      * Delete a NavigationMenu.
-     *
-     * @param int $navigationMenuId
      */
-    public function deleteById($navigationMenuId)
+    public function deleteById(int $navigationMenuId)
     {
-        $this->unCache($navigationMenuId);
-        $this->update('DELETE FROM navigation_menus WHERE navigation_menu_id = ?', [(int) $navigationMenuId]);
+        Cache::forget("navigationMenu-{$navigationMenuId}");
+        $this->update('DELETE FROM navigation_menus WHERE navigation_menu_id = ?', [$navigationMenuId]);
         $navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO'); /** @var NavigationMenuItemAssignmentDAO $navigationMenuItemAssignmentDao */
         $navigationMenuItemAssignmentDao->deleteByMenuId($navigationMenuId);
     }
@@ -296,52 +287,6 @@ class NavigationMenuDAO extends \PKP\db\DAO
         }
 
         return true;
-    }
-
-    /**
-     * unCache the NM with id
-     *
-     * @param int $id
-     */
-    public function unCache($id)
-    {
-        $cache = $this->getCache($id);
-        if ($cache) {
-            $cache->flush();
-        }
-    }
-
-    /**
-     * Get the settings cache for a given ID
-     *
-     * @param string $id
-     *
-     * @return GenericCache
-     */
-    public function getCache($id)
-    {
-        static $navigationMenuCache = [];
-        return $navigationMenuCache[$id] ??= CacheManager::getManager()->getCache(
-            'navigationMenu',
-            $id,
-            $this->_cacheMiss(...)
-        );
-    }
-
-    /**
-     * Callback for a cache miss.
-     *
-     * @param GenericCache $cache
-     * @param string $id
-     */
-    public function _cacheMiss($cache, $id)
-    {
-        /** @var NavigationMenuDAO */
-        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-        $navigationMenu = $navigationMenuDao->getById($cache->getCacheId());
-        Services::get('navigationMenu')->getMenuTree($navigationMenu);
-
-        return $navigationMenu;
     }
 }
 

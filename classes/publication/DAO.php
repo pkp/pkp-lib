@@ -367,7 +367,6 @@ class DAO extends EntityDAO
                 break;
             default: fatalError('Unknown database type!');
         }
-        $this->deprecatedDao->flushCache();
     }
 
     /**

@@ -19,6 +19,7 @@
 
 namespace PKP\navigationMenu;
 
+use Illuminate\Support\Facades\Cache;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 
@@ -312,10 +313,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
         if ($navigationMenuItemAssignment = $this->getById($id)) {
             /** @var NavigationMenuDAO */
             $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-            $cache = $navigationMenuDao->getCache($navigationMenuItemAssignment->getMenuId());
-            if ($cache) {
-                $cache->flush();
-            }
+            Cache::forget("navigationMenu-{$navigationMenuItemAssignment->getMenuId()}");
         }
     }
 }

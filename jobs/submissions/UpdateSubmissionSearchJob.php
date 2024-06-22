@@ -67,7 +67,6 @@ class UpdateSubmissionSearchJob extends BaseJob
             $submissionSearchIndex->submissionFilesChanged($submission);
         }
 
-        Application::getSubmissionSearchDAO()->flushCache();
         $submissionSearchIndex->submissionChangesFinished();
     }
 }

@@ -21,9 +21,8 @@ namespace PKP\plugins;
 use APP\core\Application;
 use DOMDocument;
 use DOMElement;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
-use PKP\cache\CacheManager;
-use PKP\cache\FileCache;
 use PKP\controllers\grid\plugins\PluginGalleryGridHandler;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -117,30 +116,8 @@ class PluginGalleryDAO extends \PKP\db\DAO
      */
     protected function getCachedDocument(): ?string
     {
-        $cacheManager = CacheManager::getManager();
-        /** @var FileCache */
-        $cache = $cacheManager->getCache(
-            'loadPluginsXML',
-            Application::CONTEXT_SITE,
-            function (FileCache $cache) {
-                $cache->setEntireCache($this->getExternalDocument());
-            }
-        );
+        return Cache::remember('pluginGallery', 60 * 60 * 24, fn () => $this->getExternalDocument());
 
-        $cacheTime = $cache->getCacheTime();
-
-        // Checking if the cache is older than 1 day, or its null
-        if ($cacheTime === null || (time() - $cacheTime > self::TTL_CACHE_SECONDS)) {
-            // This cache is out of date; so, lets request a new version.
-            $response = $this->getExternalDocument();
-
-            // The plugins.xml request wasnt empty, so lets replace it
-            if ($response !== null) {
-                $cache->setEntireCache($response);
-            }
-        }
-
-        return $cache->getContents();
     }
 
     /**

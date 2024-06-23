@@ -17,6 +17,7 @@
 namespace PKP\core;
 
 use APP\core\Services;
+use PKP\core\APIRouter;
 use PKP\config\Config;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
@@ -219,6 +220,7 @@ class Dispatcher
         ?string $anchor = null,
         bool $escape = false,
         ?string $urlLocaleForPage = null,
+        array $pluginOptions = []
     ): string {
         // Instantiate the requested router
         if (!isset($this->_routerNames[$shortcut])) {
@@ -226,6 +228,10 @@ class Dispatcher
         }
         $routerName = $this->_routerNames[$shortcut];
         $router = & $this->_instantiateRouter($routerName, $shortcut);
+        
+        if ($router instanceof APIRouter) {
+            return $router->url($request, $newContext, $handler, $op, $path, $params, $anchor, $escape, $urlLocaleForPage, $pluginOptions);
+        }
 
         return $router->url($request, $newContext, $handler, $op, $path, $params, $anchor, $escape, $urlLocaleForPage);
     }

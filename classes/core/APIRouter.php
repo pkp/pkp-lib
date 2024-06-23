@@ -26,6 +26,7 @@ use Illuminate\Http\Response;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\handler\APIHandler;
+use PKP\plugins\PluginRegistry;
 
 class APIRouter extends PKPRouter
 {
@@ -99,12 +100,12 @@ class APIRouter extends PKPRouter
         }
 
         // Context-specific API requests: [index.php]/{contextPath}/api
-        if ($pathInfoParts[1] == 'api') {
+        if (strtolower($pathInfoParts[1]) === 'api') {
             return true;
         }
 
         // plugin specific API request [index.php]/{contextPath}/plugins/{category}/{pluginName}/api
-        if ($pathInfoParts[1] == $this->getPluginApiPathPrefix() && $pathInfoParts[4] == 'api') {
+        if (strtolower($pathInfoParts[1]) === $this->getPluginApiPathPrefix() && strtolower($pathInfoParts[4]) === 'api') {
             $this->_pluginApi = true;
             return true;
         }
@@ -236,7 +237,9 @@ class APIRouter extends PKPRouter
         ?array $path = null,
         ?array $params = null,
         ?string $anchor = null,
-        bool $escape = false
+        bool $escape = false,
+        ?string $urlLocaleForPage = null,
+        array $pluginOptions = []
     ): string {
         // APIHandlers do not understand $op, $path or $anchor. All routing is baked
         // into the $endpoint string. It only accepts a string as the $newContext,
@@ -249,6 +252,48 @@ class APIRouter extends PKPRouter
         $additionalParameters = $this->_urlGetAdditionalParameters($request, $params, $escape);
 
         return $this->_urlFromParts($baseUrl, [$context, 'api', Application::API_VERSION, $endpoint], $additionalParameters, $anchor, $escape);
+    }
+
+    /**
+     * Validate the plugin options to generate plugin specific API url
+     * 
+     * @param PKPRequest    $request        The request object
+     * @param array         $pluginOptions  Array containing only 2 elements, first one is plugin category
+     *                                      and second one is plugin name
+     * 
+     * @return bool If plugin details can be retrived when details present, will return TRUE
+     *              If options are empty, will return FALSE
+     *              Otherwise will throw exception
+     * 
+     * @throws \Exception
+     */
+    protected function validatePluginOptions(PKPRequest $request, array $pluginOptions = []): bool
+    {
+        if (empty($pluginOptions)) {
+            return false;
+        }
+
+        // To generate api url for plugin specific, we only need two information as plugin options
+        // as plugin category and plugin name in proper order
+        if (count($pluginOptions) !== 2) {
+            throw new Exception('APIRouter::url() for plugin specific api must be provided with only 2 details e.g. plugin category and name as an array');
+        }
+
+        $contextId = $this->getContext($request)?->getId() ?? Application::CONTEXT_SITE;
+        $plugin = PluginRegistry::loadPlugin(reset($pluginOptions), last($pluginOptions), $contextId);
+
+        if (!$plugin) {
+            throw new Exception(
+                sprintf(
+                    'Unable to load plugin for with given category: %s and name: %s for context ID: %d',
+                    reset($pluginOptions),
+                    last($pluginOptions),
+                    $contextId
+                )
+            );
+        }
+
+        return true;
     }
 }
 

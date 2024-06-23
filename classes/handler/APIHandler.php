@@ -49,6 +49,11 @@ class APIHandler extends PKPHandler
      */
     protected PKPBaseController $apiController;
 
+    /** 
+     * List of route details that has been added via hook
+     */
+    protected array $routesFromHook = [];
+
     /**
      * Constructor
      */
@@ -65,6 +70,8 @@ class APIHandler extends PKPHandler
         $this->_pathPattern = $controller->getPathPattern();
         $this->_handlerPath = $controller->getHandlerPath();
         $this->_apiForAdmin = $controller->isSiteWide();
+
+        $this->registerRoute();
 
         app('router')->group([
             'prefix' => $this->getEndpointPattern(),
@@ -179,6 +186,50 @@ class APIHandler extends PKPHandler
             : "/{contextPath}/api/{version}/{$this->_handlerPath}";
 
         return $this->_pathPattern;
+    }
+
+    /**
+     * Add a new route details pushed from the `APIHandler::endpoints::ENTITY_NAME` hook
+     * for the current running API Controller
+     * 
+     * @param string    $method     The route HTTP request method e.g. `GET`,`POST`,...
+     * @param string    $uri        The route uri segment
+     * @param callable  $callback   The callback handling to execute actions when route got hit
+     * @param string    $name       The name of route
+     * @param array     $roles      The route accessable role from `Role::ROLE_ID_*`
+     */
+    public function addRoute(string $method, string $uri, callable $callback, string $name, array $roles): void
+    {
+        array_push($this->routesFromHook, [
+            'method' => $method,
+            'uri' => $uri,
+            'callback' => $callback,
+            'name' => $name,
+            'roles' => $roles
+        ]);
+    }
+
+    /**
+     * Register the routes in the routes collection which was added via hook
+     */
+    protected function registerRoute(): void
+    {
+        if (empty($this->routesFromHook)) {
+            return;
+        }
+
+        $router = app('router'); /** @var \Illuminate\Routing\Router $router */
+
+        foreach ($this->routesFromHook as $routeParams) {
+            $router
+                ->addRoute(
+                    $routeParams['method'],
+                    $this->getEndpointPattern() . '/' . $routeParams['uri'],
+                    $routeParams['callback']
+                )
+                ->name($routeParams['name'])
+                ->middleware($this->apiController->roleAuthorizer($routeParams['roles']));
+        }
     }
 }
 

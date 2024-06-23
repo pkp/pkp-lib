@@ -17,6 +17,7 @@
 namespace PKP\core;
 
 use APP\core\Services;
+use PKP\core\APIRouter;
 use PKP\config\Config;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
@@ -198,15 +199,17 @@ class Dispatcher
     /**
      * Build a handler request URL into PKPApplication.
      *
-     * @param $shortcut the short name of the router that should be used to construct the URL
-     * @param $newContext Optional contextual path
-     * @param $handler Optional name of the handler to invoke
-     * @param $op Optional name of operation to invoke
-     * @param $path Optional string or array of args to pass to handler
-     * @param $params Optional set of name => value pairs to pass as user parameters
-     * @param $anchor Optional name of anchor to add to URL
-     * @param $escape Whether or not to escape ampersands for this URL; default false.
-     * @param $urlLocaleForPage Whether or not to override locale for this URL; Use '' to exclude.
+     * @param PKPRequest    $request            The request object
+     * @param string        $shortcut           the short name of the router that should be used to construct the URL
+     * @param string|null   $newContext         Optional contextual path
+     * @param string|null   $handler            Optional name of the handler to invoke
+     * @param string|null   $op                 Optional name of operation to invoke
+     * @param mixed         $path               Optional string or array of args to pass to handler
+     * @param array|null    $params             Optional set of name => value pairs to pass as user parameters
+     * @param string|null   $anchor             Optional name of anchor to add to URL
+     * @param bool          $escape             Whether or not to escape ampersands for this URL; default false.
+     * @param string|null   $urlLocaleForPage   Whether or not to override locale for this URL; Use '' to exclude.
+     * @param array         $pluginOptions      The plugin level information (category and name) to generate api url for plugin
      */
     public function url(
         PKPRequest $request,
@@ -219,6 +222,7 @@ class Dispatcher
         ?string $anchor = null,
         bool $escape = false,
         ?string $urlLocaleForPage = null,
+        array $pluginOptions = []
     ): string {
         // Instantiate the requested router
         if (!isset($this->_routerNames[$shortcut])) {
@@ -226,6 +230,10 @@ class Dispatcher
         }
         $routerName = $this->_routerNames[$shortcut];
         $router = & $this->_instantiateRouter($routerName, $shortcut);
+        
+        if ($router instanceof APIRouter) {
+            return $router->url($request, $newContext, $handler, $op, $path, $params, $anchor, $escape, $urlLocaleForPage, $pluginOptions);
+        }
 
         return $router->url($request, $newContext, $handler, $op, $path, $params, $anchor, $escape, $urlLocaleForPage);
     }

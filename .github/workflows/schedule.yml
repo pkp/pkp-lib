@@ -74,3 +74,29 @@ jobs:
           dataset_branch: 'stable-3_4_0'
           DATASETS_ACCESS_KEY: ${{secrets.DATASETS_ACCESS_KEY}}
           DEBUG_IN_TMATE: false
+
+  ops-stable-3_3_0:
+    if: github.repository == 'pkp/ops'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - php-version: 7.4
+            validate: 'validate'
+            database: pgsql
+            test: 'test'
+            SAVE_BUILD: 'save_build'
+          - php-version: 7.4
+            database: mysql
+            test: 'test'
+            SAVE_BUILD: 'save_build'
+
+    name: ops-stable-3_0
+    steps:
+      - uses: pkp/pkp-github-actions@v1
+        with:
+          node_version: 12
+          dataset_branch: 'stable-3_3_0'
+          DATASETS_ACCESS_KEY: ${{secrets.DATASETS_ACCESS_KEY}}
+          DEBUG_IN_TMATE: false

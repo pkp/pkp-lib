@@ -180,11 +180,11 @@ class DAO extends EntityDAO
     }
 
     /**
-     * Get IDs of the reviewers that have completed a reivew for the given context in the given year.
+     * Get IDs of the external reviewers that have completed a reivew for the given context in the given year.
      *
      * @return Collection<int,int>
      */
-    public function getReviewerIdsByCompletedYear(int $contextId, string $year): Collection
+    public function getExternalReviewerIdsByCompletedYear(int $contextId, string $year): Collection
     {
         return DB::table($this->table)
             ->whereIn(
@@ -195,6 +195,7 @@ class DAO extends EntityDAO
                     ->where('s.context_id', $contextId)
             )
             ->whereYear('date_completed', $year)
+            ->where('stage_id', '=', WORKFLOW_STAGE_ID_EXTERNAL_REVIEW)
             ->pluck('reviewer_id');
     }
 }

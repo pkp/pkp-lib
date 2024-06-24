@@ -108,7 +108,7 @@ class AboutContextHandler extends Handler
         }
 
         $previousYear = date('Y') - 1;
-        $reviewerIds = Repo::reviewAssignment()->getReviewerIdsByCompletedYear($context->getId(), $previousYear);
+        $reviewerIds = Repo::reviewAssignment()->getExternalReviewerIdsByCompletedYear($context->getId(), $previousYear);
         $usersCollector = Repo::user()->getCollector();
         $reviewers = $usersCollector
             ->filterByUserIds($reviewerIds->toArray())

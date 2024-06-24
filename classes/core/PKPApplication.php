@@ -31,6 +31,7 @@ use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\security\Role;
+use PKP\site\Version;
 use PKP\site\VersionDAO;
 use PKP\submission\RepresentationDAOInterface;
 
@@ -307,9 +308,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         $application = Application::get();
         $userAgent = $application->getName() . '/';
         if (static::isInstalled() && !static::isUpgrading()) {
-            /** @var \PKP\site\VersionDAO */
-            $versionDao = DAORegistry::getDAO('VersionDAO');
-            $currentVersion = $versionDao->getCurrentVersion();
+            $currentVersion = $application->getCurrentVersion();
             $userAgent .= $currentVersion->getVersionString();
         } else {
             $userAgent .= '?';
@@ -451,13 +450,10 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
     /**
      * Return the current version of the application.
-     *
-     * @return \PKP\site\Version
      */
-    public function getCurrentVersion()
+    public function getCurrentVersion(): Version
     {
         $currentVersion = $this->getEnabledProducts('core');
-        assert(count($currentVersion)) == 1;
         return $currentVersion[$this->getName()];
     }
 

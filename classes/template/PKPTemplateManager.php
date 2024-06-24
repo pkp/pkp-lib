@@ -2154,7 +2154,7 @@ class PKPTemplateManager extends Smarty
 
         if (!PKPSessionGuard::isSessionDisable()) {
             $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
-            $appVersion = $versionDao->getCurrentVersion()->getVersionString();
+            $appVersion = Application::get()->getCurrentVersion()->getVersionString();
         } else {
             $appVersion = null;
         }
@@ -2243,8 +2243,7 @@ class PKPTemplateManager extends Smarty
         }
 
         if (!PKPSessionGuard::isSessionDisable()) {
-            $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
-            $appVersion = $versionDao->getCurrentVersion()->getVersionString();
+            $appVersion = Application::get()->getCurrentVersion()->getVersionString();
         } else {
             $appVersion = null;
         }

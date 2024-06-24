@@ -42,6 +42,8 @@ class Collector implements CollectorInterface
 
     public ?array $roleIds = null;
 
+    public ?array $excludeRoles = null;
+
     public ?array $stageIds = null; // getUserGroupsByStage
 
     public ?array $publicationIds = null;
@@ -128,6 +130,15 @@ class Collector implements CollectorInterface
     public function filterByRoleIds(?array $roleIds): self
     {
         $this->roleIds = $roleIds;
+        return $this;
+    }
+
+    /**
+     * Exclude roles
+     */
+    public function filterExcludeRoles(?array $excludedRoles): self
+    {
+        $this->excludeRoles = $excludedRoles;
         return $this;
     }
 
@@ -299,6 +310,10 @@ class Collector implements CollectorInterface
 
         if (isset($this->roleIds)) {
             $q->whereIn('ug.role_id', $this->roleIds);
+        }
+
+        if (isset($this->excludeRoles)) {
+            $q->whereNotIn('ug.role_id', $this->excludeRoles);
         }
 
         $q->when($this->isRecommendOnly !== null, function (Builder $q) {

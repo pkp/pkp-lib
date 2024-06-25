@@ -785,12 +785,12 @@ Cypress.Commands.add('checkDoiMarkedStatus', (status, itemId, isValid, expectedS
 	if (isValid) {
 		cy.get('.app__notifications').contains(`Items successfully marked ${status}`, {matchCase: false, timeout:20000});
 	} else {
-		cy.get('div[name="failedDoiActionModal"]').contains('Failed to mark the DOI', {timeout:20000});
+		cy.get('div[role=dialog]').contains('Failed to mark the DOI', {timeout:20000});
 	}
 
 	cy.get(`#list-item-${itemType}-${itemId} .pkpBadge`).contains(expectedStatus);
 	if (!isValid) {
-		cy.get(`div[name="failedDoiActionModal"] button:contains('Close')`).click();
+		cy.get(`div[role=dialog] button:contains('Close')`).click();
 	}
 });
 

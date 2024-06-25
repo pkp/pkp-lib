@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2024-05-22 17:07+0000\n"
-"Last-Translator: \"My L. Bjørnflaten\" <myl@uio.no>\n"
+"PO-Revision-Date: 2024-06-25 07:25+0000\n"
+"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
 "Language: nb\n"
@@ -805,11 +805,12 @@ msgstr "Sponsor"
 msgid "manager.setup.dois"
 msgstr "DOI-er"
 
+#, fuzzy
 msgid "manager.setup.dois.setup"
-msgstr ""
+msgstr "Konfigurasjon"
 
 msgid "manager.setup.dois.registration"
-msgstr ""
+msgstr "Registrering"
 
 msgid "doi.manager.settings.doiPrefix"
 msgstr "DOI-prefiks"
@@ -833,10 +834,11 @@ msgid "doi.manager.settings.doiPrefixPattern"
 msgstr ""
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr ""
+msgstr "Automatisk tildeling av DOI"
 
+#, fuzzy
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr ""
+msgstr "Når skal en innlevering tildeles en DOI?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
 msgstr ""
@@ -873,11 +875,15 @@ msgstr ""
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr "Bruk standardformatene."
 
+#, fuzzy
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Ingen - Suffikser skal angis manuelt på <a href=\"{$doiManagementUrl}\">DOI-"
+"konfigureringssiden</a> og vil ikke bli automatisk generert"
 
+#, fuzzy
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Egendefinert format"
 
 msgid "doi.manager.settings.registrationAgency"
 msgstr ""
@@ -3437,23 +3443,32 @@ msgstr ""
 "Konfigurer e-post varslinger til forfattere når en redaksjonell beslutning "
 "registreres."
 
+#, fuzzy
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Til redaktører"
 
+#, fuzzy
 msgid "manager.forEditors.description"
-msgstr ""
+msgstr "Konfigurer e-posten som skal sendes til redaktører."
 
+#, fuzzy
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Redaksjonell statistikk"
 
+#, fuzzy
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Hvorvidt det skal sendes en månedlig e-post med tidsskriftets redaksjonelle "
+"statistikk, som for eksempel antalle aksepterte og avviste innleveringer. "
+"Redaktører kan melde seg av denne e-posten i brukerprofilen sin."
 
+#, fuzzy
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Send en månedlig e-post til redaktørene."
 
+#, fuzzy
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Ikke send e-posten til redaktørene."
 
 #, fuzzy
 msgid "manager.submitWithCategories.description"

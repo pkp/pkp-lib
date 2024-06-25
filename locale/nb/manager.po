@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2024-06-25 07:25+0000\n"
+"PO-Revision-Date: 2024-06-25 08:44+0000\n"
 "Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -748,40 +748,59 @@ msgid "manager.setup.statistics"
 msgstr "Statistikk"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Geografisk statistikk"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Velg typen geografisk bruksstatistikk som skal samles inn. Mer detaljert "
+"geografisk statistikk kan betydelig øke databasestørrelsen din og, i noen "
+"sjeldne tilfeller, kan det svekke anonymiteten til dine besøkende."
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "Ikke samle inn noen geografiske data"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Samle inn data om besøkendes land"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Samle inn data om besøkendes land og region"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr ""
+msgstr "Samle inn data om besøkendes land, region og by"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Institusjonell statistikk"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Aktiver institusjonsstatistikk hvis du ønsker å samle bruksstatistikk etter "
+"institusjon. Hvis aktivert, må du konfigurere IP-intervaller for hver "
+"institusjon du ønsker å spore."
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Aktiver institusjonell statistikk"
 
 msgid "manager.settings.statistics.publicSushiApi"
 msgstr "Offentlig API"
 
+#, fuzzy
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"Hvorvidt man skal begrense tilgangen til API-endepunktene for COUNTER SUSHI-"
+"statistikk. Hvis ikke avkrysset, vil API kun være tilgjengelig for brukere "
+"med administrator- eller managerroller."
 
+#, fuzzy
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "Gjør COUNTER SUSHI-statistikken offentlig tilgjengelig"
 
 #, fuzzy
 msgid "manager.statistics.reports"
@@ -821,8 +840,13 @@ msgstr "Automatisk deponering"
 msgid "doi.manager.setup.automaticDeposit.enable"
 msgstr "Aktiver automatisk deponering"
 
+#, fuzzy
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"DOI-er kan automatisk deponeres hos den valgte registreringsorganisasjonen "
+"når en innlevering med DOI publiseres. AUtomatisk deponering vil skje ved "
+"planlagte intervaller og hver DOI sin status kan kontrolleres på siden hvor "
+"DOI-ene håndteres."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
@@ -879,7 +903,7 @@ msgstr "Bruk standardformatene."
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
 "Ingen - Suffikser skal angis manuelt på <a href=\"{$doiManagementUrl}\">DOI-"
-"konfigureringssiden</a> og vil ikke bli automatisk generert"
+"håndteringssiden</a> og vil ikke bli automatisk generert"
 
 #, fuzzy
 msgid "doi.manager.settings.doiSuffixUserDefined"
@@ -2311,7 +2335,7 @@ msgstr ""
 "med en og samme eksisterende bruker."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Testing"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Tittel"
@@ -3596,3 +3620,11 @@ msgstr "Bilde"
 
 msgid "manager.statistics.counterR5"
 msgstr ""
+
+#, fuzzy
+msgid "manager.highlights.add"
+msgstr "Legg til høydepunkt"
+
+#, fuzzy
+msgid "manager.statistics.counterR5Reports"
+msgstr "Counter R5 rapporter"

@@ -228,6 +228,39 @@ class Repository
     }
 
     /**
+     * Delete all review assignments for a given context ID.
+     *
+     * @param int $contextId
+     * @return void
+     */
+    public function deleteByContextId($contextId)
+    {
+        // using reviewAssignmentCollector to fetch and delete all review assignments for the context
+        $reviewAssignmentCollector = $this->getCollector();
+        $reviewAssignmentCollector->filterByContextIds([$contextId]);
+        $reviewAssignments = $reviewAssignmentCollector->getMany();
+    
+        foreach ($reviewAssignments as $reviewAssignment) {
+            $this->delete($reviewAssignment);
+        }
+    
+        // delete review rounds associated with this context
+        $this->deleteReviewRoundsByContextId($contextId);
+    }
+
+    /**
+     * Delete all review rounds for submissions within a given context ID.
+     *
+     * @param int $contextId
+     * @return void
+     */
+    public function deleteReviewRoundsByContextId($contextId)
+    {
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao->deleteByContextId($contextId);
+    }
+
+    /**
      * Return the review methods translation keys.
      */
     public function getReviewMethodsTranslationKeys(): array

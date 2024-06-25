@@ -620,6 +620,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
         $announcementTypeDao->deleteByContextId($context->getId());
 
+        Repo::reviewAssignment()->deleteByContextId($context->getId());
+
         Repo::userGroup()->deleteByContextId($context->getId());
 
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */

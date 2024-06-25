@@ -838,7 +838,7 @@ Cypress.Commands.add('uploadSubmissionFiles', (files, options) => {
 			} else {
 				$row.get('button:contains("Other")').last().click({force: true});
 				cy.get('.pkpFormField--options__optionLabel').contains(file.genre).click();
-				cy.get('.modal button').contains('Save').click();
+				cy.get('div[role="dialog"] button').contains('Save').click();
 			}
 			cy.wait('@genreDefined').its('response.statusCode').should('eq', 200);
 

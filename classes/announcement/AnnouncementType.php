@@ -39,9 +39,9 @@ class AnnouncementType extends \PKP\core\DataObject
     /**
      * Get the type of the announcement type.
      */
-    public function getLocalizedTypeName(): ?string
+    public function getLocalizedTypeName(): string
     {
-        return $this->getLocalizedData('name');
+        return $this->getLocalizedData('name') ?? '';
     }
 
     /**

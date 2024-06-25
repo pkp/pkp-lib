@@ -2,7 +2,7 @@
 # Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 07:43+0000\n"
+"PO-Revision-Date: 2024-06-25 07:25+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/ja/>\n"
@@ -1213,7 +1213,7 @@ msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "著者案内"
 
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "提出準備チェックリスト"

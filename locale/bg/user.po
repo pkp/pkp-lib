@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-08-16 10:37+0000\n"
+"PO-Revision-Date: 2024-06-25 07:25+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "bg/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
 msgstr "Информация за профила"
@@ -757,3 +757,6 @@ msgstr "Открити са дублиращи се ORCiD за сътрудни�
 
 msgid "orcid.verify.hasUnauthenticatedOrcid"
 msgstr "Открити са неавтентифицирани ORCiD за сътрудници."
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "Достъпът до работния процес за непълно подадени материали е ограничен."

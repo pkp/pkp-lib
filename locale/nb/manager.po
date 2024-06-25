@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2024-05-22 17:07+0000\n"
-"Last-Translator: \"My L. Bjørnflaten\" <myl@uio.no>\n"
+"PO-Revision-Date: 2024-06-25 11:45+0000\n"
+"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
 "Language: nb\n"
@@ -748,40 +748,59 @@ msgid "manager.setup.statistics"
 msgstr "Statistikk"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Geografisk statistikk"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Velg typen geografisk bruksstatistikk som skal samles inn. Mer detaljert "
+"geografisk statistikk kan betydelig øke databasestørrelsen din og, i noen "
+"sjeldne tilfeller, kan det svekke anonymiteten til dine besøkende."
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "Ikke samle inn noen geografiske data"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Samle inn data om besøkendes land"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Samle inn data om besøkendes land og region"
 
+#, fuzzy
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr ""
+msgstr "Samle inn data om besøkendes land, region og by"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Institusjonell statistikk"
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Aktiver institusjonsstatistikk hvis du ønsker å samle bruksstatistikk etter "
+"institusjon. Hvis aktivert, må du konfigurere IP-intervaller for hver "
+"institusjon du ønsker å spore."
 
+#, fuzzy
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Aktiver institusjonell statistikk"
 
 msgid "manager.settings.statistics.publicSushiApi"
 msgstr "Offentlig API"
 
+#, fuzzy
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"Hvorvidt man skal begrense tilgangen til API-endepunktene for COUNTER SUSHI-"
+"statistikk. Hvis ikke avkrysset, vil API kun være tilgjengelig for brukere "
+"med administrator- eller managerroller."
 
+#, fuzzy
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "Gjør COUNTER SUSHI-statistikken offentlig tilgjengelig"
 
 #, fuzzy
 msgid "manager.statistics.reports"
@@ -805,11 +824,12 @@ msgstr "Sponsor"
 msgid "manager.setup.dois"
 msgstr "DOI-er"
 
+#, fuzzy
 msgid "manager.setup.dois.setup"
-msgstr ""
+msgstr "Konfigurasjon"
 
 msgid "manager.setup.dois.registration"
-msgstr ""
+msgstr "Registrering"
 
 msgid "doi.manager.settings.doiPrefix"
 msgstr "DOI-prefiks"
@@ -820,8 +840,13 @@ msgstr "Automatisk deponering"
 msgid "doi.manager.setup.automaticDeposit.enable"
 msgstr "Aktiver automatisk deponering"
 
+#, fuzzy
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"DOI-er kan automatisk deponeres hos den valgte registreringsorganisasjonen "
+"når en innlevering med DOI publiseres. AUtomatisk deponering vil skje ved "
+"planlagte intervaller og hver DOI sin status kan kontrolleres på siden hvor "
+"DOI-ene håndteres."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
@@ -833,10 +858,11 @@ msgid "doi.manager.settings.doiPrefixPattern"
 msgstr ""
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr ""
+msgstr "Automatisk tildeling av DOI"
 
+#, fuzzy
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr ""
+msgstr "Når skal en innlevering tildeles en DOI?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
 msgstr ""
@@ -873,11 +899,15 @@ msgstr ""
 msgid "doi.manager.settings.doiSuffixDefault"
 msgstr "Bruk standardformatene."
 
+#, fuzzy
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Ingen - Suffikser skal angis manuelt på <a href=\"{$doiManagementUrl}\">DOI-"
+"håndteringssiden</a> og vil ikke bli automatisk generert"
 
+#, fuzzy
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Egendefinert format"
 
 msgid "doi.manager.settings.registrationAgency"
 msgstr ""
@@ -2287,7 +2317,7 @@ msgstr ""
 "med en og samme eksisterende bruker."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Testing"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Tittel"
@@ -3410,23 +3440,32 @@ msgstr ""
 "Konfigurer e-post varslinger til forfattere når en redaksjonell beslutning "
 "registreres."
 
+#, fuzzy
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Til redaktører"
 
+#, fuzzy
 msgid "manager.forEditors.description"
-msgstr ""
+msgstr "Konfigurer e-posten som skal sendes til redaktører."
 
+#, fuzzy
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Redaksjonell statistikk"
 
+#, fuzzy
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Hvorvidt det skal sendes en månedlig e-post med tidsskriftets redaksjonelle "
+"statistikk, som for eksempel antalle aksepterte og avviste innleveringer. "
+"Redaktører kan melde seg av denne e-posten i brukerprofilen sin."
 
+#, fuzzy
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Send en månedlig e-post til redaktørene."
 
+#, fuzzy
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Ikke send e-posten til redaktørene."
 
 #, fuzzy
 msgid "manager.submitWithCategories.description"
@@ -3556,4 +3595,22 @@ msgid "manager.setup.masthead"
 msgstr "Kolofon"
 
 msgid "manager.statistics.counterR5"
+msgstr "Counter R5"
+
+#, fuzzy
+msgid "manager.highlights.add"
+msgstr "Legg til høydepunkt"
+
+#, fuzzy
+msgid "manager.statistics.counterR5Reports"
+msgstr "Counter R5 rapporter"
+
+msgid "manager.statistics.counterR5Reports.description"
 msgstr ""
+"Se <a href=\"https://cop5.projectcounter.org/en/5.0.3/04-reports/index.html\""
+" target=\"_new\">COUNTER 5.0.3 dokumentasjon</a> for mer informasjon om hver "
+"rapport."
+
+#, fuzzy
+msgid "manager.statistics.counterR5Reports.usageNotPossible"
+msgstr "Det er for øyeblikket ingen COUNTER R5 bruksstatistikk tilgjengelig."

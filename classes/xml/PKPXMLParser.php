@@ -65,9 +65,6 @@ class PKPXMLParser
 
         $result = $this->handler->getResult();
         $this->destroyParser($parser);
-        if (isset($handler)) {
-            $handler->destroy();
-        }
         return $result;
     }
 
@@ -106,9 +103,6 @@ class PKPXMLParser
         $stream->close();
         $result = $this->handler->getResult();
         $this->destroyParser($parser);
-        if (isset($handler)) {
-            $handler->destroy();
-        }
         return $result;
     }
 
@@ -238,9 +232,4 @@ class PKPXMLParser
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\xml\PKPXMLParser', '\PKPXMLParser');
-
-    // For PHP < 8.x, this class used to be called XMLParser. Alias for compatibility when possible.
-    if (!class_exists('XMLParser')) {
-        class_alias('\PKPXMLParser', '\XMLParser');
-    }
 }

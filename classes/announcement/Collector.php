@@ -193,12 +193,12 @@ class Collector implements CollectorInterface
             $qb->whereIn('a.announcement_id', function (Builder $q) use ($words) {
                 $q->select('announcement_id')->from($this->dao->settingsTable);
                 foreach ($words as $word) {
-                    $word = strtolower(addcslashes($word, '%_'));
+                    $word = addcslashes($word, '%_');
                     $q->where(
                         fn (Builder $q) => $q
-                            ->where(fn (Builder $q) => $q->where('setting_name', 'title')->where(DB::raw('lower(setting_value)'), 'LIKE', "%{$word}%"))
-                            ->orWhere(fn (Builder $q) => $q->where('setting_name', 'descriptionShort')->where(DB::raw('lower(setting_value)'), 'LIKE', "%{$word}%"))
-                            ->orWhere(fn (Builder $q) => $q->where('setting_name', 'description')->where(DB::raw('lower(setting_value)'), 'LIKE', "%{$word}%"))
+                            ->where(fn (Builder $q) => $q->where('setting_name', 'title')->whereRaw('LOWER(setting_value) LIKE ?', ["%{$word}%"]))
+                            ->orWhere(fn (Builder $q) => $q->where('setting_name', 'descriptionShort')->whereRaw('LOWER(setting_value) LIKE ?', ["%{$word}%"]))
+                            ->orWhere(fn (Builder $q) => $q->where('setting_name', 'description')->whereRaw('LOWER(setting_value) LIKE ?', ["%{$word}%"]))
                     );
                 }
             });

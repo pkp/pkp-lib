@@ -50,6 +50,7 @@ use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\submission\GenreDAO;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\validation\ValidatorFactory;
 
 abstract class PKPContextService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
@@ -637,6 +638,9 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
         $navigationMenuItemDao->deleteByContextId($context->getId());
+    
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao*/
+        $reviewAssignmentDao->deleteByContextId($context->getId());
 
         $contextFileManager = new ContextFileManager($context->getId());
         $contextFileManager->rmtree($contextFileManager->getBasePath());

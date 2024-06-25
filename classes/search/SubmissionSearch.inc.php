@@ -208,7 +208,7 @@ abstract class SubmissionSearch {
 	 * Keywords are supplied in an array of the following format:
 	 * $keywords[SUBMISSION_SEARCH_AUTHOR] = array('John', 'Doe');
 	 * $keywords[SUBMISSION_SEARCH_...] = array(...);
-	 * $keywords[null] = array('Matches', 'All', 'Fields');
+	 * $keywords[''] = array('Matches', 'All', 'Fields');
 	 * @param $request Request
 	 * @param $context object The context to search
 	 * @param $keywords array List of keywords

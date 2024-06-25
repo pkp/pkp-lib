@@ -3,13 +3,14 @@
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
+# Rodolphe Lemétayer <rlemetayer@protonmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2024-05-13 15:39+0000\n"
-"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
+"PO-Revision-Date: 2024-06-21 19:39+0000\n"
+"Last-Translator: Rodolphe Lemétayer <rlemetayer@protonmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -47,7 +48,7 @@ msgid "about.contact.principalContact"
 msgstr "Contact principal"
 
 msgid "about.contact.supportContact"
-msgstr "Contact de soutien"
+msgstr "Support technique"
 
 msgid "about.other"
 msgstr "Autre"

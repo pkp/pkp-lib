@@ -1,7 +1,7 @@
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-06-16 07:16+0000\n"
+"PO-Revision-Date: 2024-06-22 05:53+0000\n"
 "Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/emails/"
 "ja/>\n"
@@ -371,7 +371,7 @@ msgstr ""
 "<p>{$recipientName} 様、</p><p>{$reviewerName} "
 "さんが下記の査読を完了しました:</p><p><a href=\"{$submissionUrl}\""
 ">#{$submissionId} {$authorsShort} — 「{$submissionTitle}」</a><br "
-"/><b>推奨事項:</b> {$reviewRecommendation><br /><b>タイプ:</b> "
+"/><b>推奨事項:</b> {$reviewRecommendation}<br /><b>タイプ:</b> "
 "{$reviewMethod}</p><p>この査読者が提供した <a href=\"{$submissionUrl}\""
 ">すべてのファイルとコメントを表示</a>するには、ログインしてください。</p>"
 

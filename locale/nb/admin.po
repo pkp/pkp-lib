@@ -2,13 +2,14 @@
 # Eirik Hanssen <eirikh@oslomet.no>, 2023.
 # FRITT, University of Oslo Library <fritt-info@journals.uio.no>, 2023.
 # Eirik Hanssen <eirikhanssen79@gmail.com>, 2023.
+# Johanna Skaug <johanna.skaug@ub.uio.no>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Tormod Strømme <tormod.stromme@uib.no>\n"
+"PO-Revision-Date: 2024-06-25 08:44+0000\n"
+"Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/nb_NO/>\n"
 "Language: nb\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Innstillingsnavn"
@@ -926,3 +927,17 @@ msgstr "Kjør arbeider-bakgrunnsprosessen for testkø"
 
 #~ msgid "admin.languages.downloadLocales"
 #~ msgstr "Last ned språkpakker"
+
+#, fuzzy
+msgid "admin.settings.sharedReviewerStatistics"
+msgstr "Fagfellestatistikk"
+
+msgid "admin.settings.sharedReviewerStatistics.description"
+msgstr ""
+"I en installasjon med flere tidsskrifter/utgivere kan statistikk for "
+"fagfeller, som antall innsendte vurderinger, enten vises individuelt for "
+"hvert tidsskrift/utgiver eller samlet for alle."
+
+#, fuzzy
+msgid "admin.settings.sharedReviewerStatistics.disable"
+msgstr "Deaktiver samlet fagfellestatistikk"

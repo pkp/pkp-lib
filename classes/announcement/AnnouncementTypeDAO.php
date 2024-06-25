@@ -105,20 +105,25 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     }
 
     /**
-     * Delete an announcement type. Note that all announcements with this type are also deleted.
+     * Delete an announcement type.
+     * @param bool $deleteAnnouncements Defaults to false, when true, all announcements with this type are also deleted.
      */
-    public function deleteObject(AnnouncementType $announcementType): void
+    public function deleteObject(AnnouncementType $announcementType, bool $deleteAnnouncements = false): void
     {
-        $this->deleteById($announcementType->getId());
+        $this->deleteById($announcementType->getId(), $deleteAnnouncements);
     }
 
     /**
      * Delete an announcement type by announcement type ID. Note that all announcements with this type ID are also deleted.
+     * @param bool $deleteAnnouncements Defaults to false, when true, all announcements with this type are also deleted.
      */
-    public function deleteById(int $typeId): void
+    public function deleteById(int $typeId, bool $deleteAnnouncements = false): void
     {
-        $collector = Repo::announcement()->getCollector()->filterByTypeIds([$typeId]);
-        Repo::announcement()->deleteMany($collector);
+        if ($deleteAnnouncements) {
+            $collector = Repo::announcement()->getCollector()->filterByTypeIds([$typeId]);
+            Repo::announcement()->deleteMany($collector);
+        }
+
         DB::table('announcement_types')
             ->where('type_id', '=', $typeId)
             ->delete();
@@ -130,7 +135,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     public function deleteByContextId(?int $contextId): void
     {
         foreach ($this->getByContextId($contextId) as $type) {
-            $this->deleteObject($type);
+            $this->deleteObject($type, true);
         }
     }
 

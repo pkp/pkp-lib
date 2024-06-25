@@ -322,7 +322,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
      * @param int $contextId
      * @return void
      */
-    public function deleteByContextId($contextId)
+    public function deleteByContextId(int $contextId): void
     {
         DB::table('review_rounds')
             ->join('submissions', 'review_rounds.submission_id', '=', 'submissions.submission_id')

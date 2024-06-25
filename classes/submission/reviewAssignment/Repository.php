@@ -229,33 +229,22 @@ class Repository
 
     /**
      * Delete all review assignments for a given context ID.
-     *
-     * @param int $contextId
-     * @return void
      */
-    public function deleteByContextId($contextId)
+    public function deleteByContextId(int $contextId): void
     {
-        // using reviewAssignmentCollector to fetch and delete all review assignments for the context
+        // using reviewAssignmentCollector to fetch ids of all review assignments for the context
         $reviewAssignmentCollector = $this->getCollector();
         $reviewAssignmentCollector->filterByContextIds([$contextId]);
-        $reviewAssignments = $reviewAssignmentCollector->getMany();
+        $reviewAssignmentIds = $reviewAssignmentCollector->getIds();
     
-        foreach ($reviewAssignments as $reviewAssignment) {
-            $this->delete($reviewAssignment);
+        foreach ($reviewAssignmentIds as $reviewAssignmentId) {
+            $reviewAssignment = $this->get($reviewAssignmentId);
+            if ($reviewAssignment) {
+                $this->delete($reviewAssignment);
+            }
         }
     
         // delete review rounds associated with this context
-        $this->deleteReviewRoundsByContextId($contextId);
-    }
-
-    /**
-     * Delete all review rounds for submissions within a given context ID.
-     *
-     * @param int $contextId
-     * @return void
-     */
-    public function deleteReviewRoundsByContextId($contextId)
-    {
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao->deleteByContextId($contextId);
     }

@@ -1,12 +1,13 @@
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022, 2023.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
+# Emma U <emmaupkp@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2023-04-28 14:09+0000\n"
-"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"PO-Revision-Date: 2024-06-25 20:10+0000\n"
+"Last-Translator: Emma U <emmaupkp@gmail.com>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "de/>\n"
 "Language: de\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -838,7 +839,7 @@ msgid "common.sendEmail"
 msgstr "E-Mail senden"
 
 msgid "common.showAllSteps"
-msgstr "Zeige alle Schritte"
+msgstr "Alle Schritte anzeigen"
 
 msgid "common.showingSteps"
 msgstr "{$current}/{$total} Schritte"
@@ -2317,3 +2318,9 @@ msgstr "Autor/in bearbeitet."
 
 #~ msgid "common.captchaField"
 #~ msgstr "Validierung"
+
+msgid "showAll"
+msgstr "Alles anzeigen"
+
+msgid "showLess"
+msgstr "Weniger anzeigen"

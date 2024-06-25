@@ -466,7 +466,7 @@ abstract class Filter extends \PKP\core\DataObject
             $this->_output = &$preliminaryOutput;
         }
         if (!$isValidOutput) {
-            error_log('Filter output validation failed, expected "' . $this->getOutputType()->getTypeName() . '", but found "' . gettype($preliminaryOutput) . '"');
+            error_log(new Exception('Filter output validation failed, expected "' . $this->getOutputType()->getTypeName() . '", but found "' . gettype($preliminaryOutput) . '"'));
         }
 
         // Return processed data

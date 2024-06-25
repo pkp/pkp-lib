@@ -303,7 +303,6 @@ class ReviewRoundDAO extends \PKP\db\DAO
         }
     }
 
-
     /**
      * Delete review rounds by submission ID.
      *
@@ -315,6 +314,20 @@ class ReviewRoundDAO extends \PKP\db\DAO
         while ($reviewRound = $reviewRounds->next()) {
             $this->deleteObject($reviewRound);
         }
+    }
+
+    /**
+     * Delete all review rounds for submissions within a given context ID.
+     *
+     * @param int $contextId
+     * @return void
+     */
+    public function deleteByContextId($contextId)
+    {
+        DB::table('review_rounds')
+            ->join('submissions', 'review_rounds.submission_id', '=', 'submissions.submission_id')
+            ->where('submissions.context_id', $contextId)
+            ->delete();
     }
 
     /**

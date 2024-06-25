@@ -669,6 +669,41 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
             ->map(fn ($reviewId) => $this->deleteById($reviewId))
             ->count();
     }
+
+    /**
+     * Delete all review assignments and review rounds for a given context ID.
+     *
+     * @param int $contextId
+     * @return void
+     */
+    public function deleteByContextId($contextId)
+    {
+        // retrieve all submission IDs for the context
+        $submissionIds = DB::table('submissions')
+            ->where('context_id', $contextId)
+            ->pluck('submission_id');
+    
+        foreach ($submissionIds as $submissionId) {
+            // delete review assignments for each submission
+            $this->deleteBySubmissionId($submissionId);
+            // delete review rounds for each submission
+            $this->deleteReviewRoundsBySubmissionId($submissionId);
+        }
+    }
+    
+    /**
+     * Delete all review rounds for a given submission ID.
+     *
+     * @param int $submissionId
+     * @return void
+     */
+    public function deleteReviewRoundsBySubmissionId($submissionId)
+    {
+        DB::table('review_rounds')
+            ->where('submission_id', $submissionId)
+            ->delete();
+    }
+
 }
 
 if (!PKP_STRICT_MODE) {

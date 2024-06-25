@@ -18,7 +18,7 @@
  *
  * @see DAO
  *
- * @brief Basic class describing a announcement.
+ * @brief Basic class describing an announcement.
  */
 
 namespace PKP\announcement;
@@ -30,11 +30,8 @@ use PKP\db\DAORegistry;
 
 class Announcement extends \PKP\core\DataObject
 {
-    //
-    // Get/set methods
-    //
     /**
-     * Get assoc ID for this announcement.
+     * Get assoc ID.
      */
     public function getAssocId(): ?int
     {
@@ -42,7 +39,7 @@ class Announcement extends \PKP\core\DataObject
     }
 
     /**
-     * Set assoc ID for this announcement.
+     * Set assoc ID.
      */
     public function setAssocId(?int $assocId): void
     {
@@ -50,7 +47,7 @@ class Announcement extends \PKP\core\DataObject
     }
 
     /**
-     * Get assoc type for this announcement.
+     * Get assoc type.
      */
     public function getAssocType(): ?int
     {
@@ -58,7 +55,7 @@ class Announcement extends \PKP\core\DataObject
     }
 
     /**
-     * Set assoc type for this announcement.
+     * Set assoc type.
      */
     public function setAssocType(?int $assocType): void
     {
@@ -66,7 +63,7 @@ class Announcement extends \PKP\core\DataObject
     }
 
     /**
-     * Get the announcement type of the announcement.
+     * Get the announcement type.
      */
     public function getTypeId(): ?int
     {
@@ -74,7 +71,7 @@ class Announcement extends \PKP\core\DataObject
     }
 
     /**
-     * Set the announcement type of the announcement.
+     * Set the announcement type.
      */
     public function setTypeId(?int $typeId): void
     {
@@ -82,7 +79,7 @@ class Announcement extends \PKP\core\DataObject
     }
 
     /**
-     * Get the announcement type name of the announcement.
+     * Get the announcement type name.
      */
     public function getAnnouncementTypeName(): string
     {

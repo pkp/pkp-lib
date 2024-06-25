@@ -21,7 +21,7 @@ namespace PKP\announcement;
 class AnnouncementType extends \PKP\core\DataObject
 {
     /**
-     * Get context ID for this announcement.
+     * Get the context ID.
      */
     public function getContextId(): ?int
     {
@@ -29,7 +29,7 @@ class AnnouncementType extends \PKP\core\DataObject
     }
 
     /**
-     * Set context ID for this announcement.
+     * Set the context ID.
      */
     public function setContextId(?int $contextId): void
     {
@@ -37,7 +37,7 @@ class AnnouncementType extends \PKP\core\DataObject
     }
 
     /**
-     * Get the type of the announcement type.
+     * Get the localized name.
      */
     public function getLocalizedTypeName(): string
     {
@@ -45,7 +45,7 @@ class AnnouncementType extends \PKP\core\DataObject
     }
 
     /**
-     * Get the type of the announcement type.
+     * Get the name.
      */
     public function getName(?string $locale): array|string|null
     {
@@ -53,7 +53,7 @@ class AnnouncementType extends \PKP\core\DataObject
     }
 
     /**
-     * Set the type of the announcement type.
+     * Set the name.
      */
     public function setName(array|string|null $name, ?string $locale): void
     {

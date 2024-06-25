@@ -47,8 +47,6 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
 
     /**
      * Get the locale field names.
-     *
-     * @return array
      */
     public function getLocaleFieldNames(): array
     {

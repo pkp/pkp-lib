@@ -451,8 +451,12 @@ class Filter extends DataObject {
 		HookRegistry::call(strtolower_codesafe(get_class($this) . '::execute'), array(&$preliminaryOutput));
 
 		// Validate the filter output
-		if ((!is_null($preliminaryOutput) && $this->supports($input, $preliminaryOutput)) || $returnErrors) {
-			$this->_output =& $preliminaryOutput;
+		$isValidOutput = $preliminaryOutput !== null && $this->supports($input, $preliminaryOutput);
+		if ($isValidOutput || $returnErrors) {
+			$this->_output = & $preliminaryOutput;
+		}
+		if (!$isValidOutput) {
+			error_log(new Exception('Filter output validation failed, expected "' . $this->getOutputType()->getTypeName() . '", but found "' . gettype($preliminaryOutput) . '"'));
 		}
 
 		// Return processed data

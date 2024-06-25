@@ -3,13 +3,11 @@
 /**
  * @file classes/xml/XMLParserHandler.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class XMLParserHandler
- *
- * @ingroup xml
  *
  * @brief Interface for handler class used by PKPXMLParser.
  * All XML parser handler classes must implement these methods.
@@ -17,36 +15,26 @@
 
 namespace PKP\xml;
 
-class XMLParserHandler
+abstract class XMLParserHandler
 {
     /**
      * Callback function to act as the start element handler.
-     *
-     * @param PKPXMLParser $parser
-     * @param string $tag
-     * @param array $attributes
      */
-    public function startElement($parser, $tag, $attributes)
+    public function startElement(PKPXMLParser $parser, string $tag, array $attributes)
     {
     }
 
     /**
      * Callback function to act as the end element handler.
-     *
-     * @param PKPXMLParser $parser
-     * @param string $tag
      */
-    public function endElement($parser, $tag)
+    public function endElement(PKPXMLParser $parser, string $tag)
     {
     }
 
     /**
      * Callback function to act as the character data handler.
-     *
-     * @param PKPXMLParser $parser
-     * @param string $data
      */
-    public function characterData($parser, $data)
+    public function characterData(PKPXMLParser $parser, string $data)
     {
     }
 
@@ -54,19 +42,7 @@ class XMLParserHandler
      * Returns a resulting data structure representing the parsed content.
      * The format of this object is specific to the handler.
      */
-    public function getResult()
-    {
-        return null;
-    }
-
-    /**
-     * Perform clean up for this object
-     *
-     * @deprecated
-     */
-    public function destroy()
-    {
-    }
+    abstract public function getResult() : mixed;
 }
 
 if (!PKP_STRICT_MODE) {

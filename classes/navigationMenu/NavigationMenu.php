@@ -3,13 +3,11 @@
 /**
  * @file classes/navigationMenu/NavigationMenu.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenu
- *
- * @ingroup navigationMenu
  *
  * @see NavigationMenuDAO
  *
@@ -21,7 +19,7 @@ namespace PKP\navigationMenu;
 class NavigationMenu extends \PKP\core\DataObject
 {
     /** @var array $menuTree Hierarchical array of NavigationMenuItems */
-    public $menuTree = null;
+    public ?array $menuTree = null;
 
     //
     // Get/set methods
@@ -29,60 +27,48 @@ class NavigationMenu extends \PKP\core\DataObject
 
     /**
      * Get contextId of this NavigationMenu
-     *
-     * @return int
      */
-    public function getContextId()
+    public function getContextId(): int
     {
         return $this->getData('contextId');
     }
 
     /**
      * Set contextId of this NavigationMenu
-     *
-     * @param int $contextId
      */
-    public function setContextId($contextId)
+    public function setContextId(int $contextId): void
     {
         $this->setData('contextId', $contextId);
     }
 
     /**
      * Get title of this NavigationMenu. Not localized.
-     *
-     * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
-        return $this->getData('title');
+        return $this->getData('title') ?? '';
     }
 
     /**
      * Set title of this NavigationMenu. Not localized.
-     *
-     * @param string $title
      */
-    public function setTitle($title)
+    public function setTitle(string $title): void
     {
         $this->setData('title', $title);
     }
 
     /**
      * Get areaName of this NavigationMenu. Not localized.
-     *
-     * @return string
      */
-    public function getAreaName()
+    public function getAreaName(): string
     {
-        return $this->getData('areaName');
+        return $this->getData('areaName') ?? '';
     }
 
     /**
      * Set navigationArea name of this NavigationMenu. Not localized.
-     *
-     * @param string $areaName
      */
-    public function setAreaName($areaName)
+    public function setAreaName(string $areaName): void
     {
         $this->setData('areaName', $areaName);
     }

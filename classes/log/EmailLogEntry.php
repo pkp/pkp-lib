@@ -18,13 +18,45 @@
 
 namespace PKP\log;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Model;
+
 use APP\facades\Repo;
 
-class EmailLogEntry extends \PKP\core\DataObject
+
+class EmailLogEntry extends Model
 {
+    protected $table = 'email_log';
+    protected $primaryKey = 'log_id';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'assocType',
+        'assocId',
+        'senderId',
+        'dateSent',
+        'eventType',
+        'from',
+        'recipients',
+        'ccs',
+        'bccs',
+        'subject',
+        'body'
+    ];
+
+    private $_senderFullName = '';
+    private $_senderEmail = '';
+
     //
     // Get/set methods
     //
+    protected function id(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes[$this->primaryKey] ?? null,
+            set: fn($value) => [$this->primaryKey => $value],
+        );
+    }
 
     /**
      * Get user ID of sender.
@@ -44,6 +76,14 @@ class EmailLogEntry extends \PKP\core\DataObject
     public function setSenderId($senderId)
     {
         $this->setData('senderId', $senderId);
+    }
+
+    protected function senderId(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['sender_id'],
+            set: fn($value) => ['sender_id' => $value]
+        );
     }
 
     /**
@@ -66,6 +106,14 @@ class EmailLogEntry extends \PKP\core\DataObject
         $this->setData('dateSent', $dateSent);
     }
 
+    protected function dateSent(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['date_sent'],
+            set: fn($value) => ['date_sent' => $value]
+        );
+    }
+
     /**
      * Get event type.
      *
@@ -84,6 +132,14 @@ class EmailLogEntry extends \PKP\core\DataObject
     public function setEventType($eventType)
     {
         $this->setData('eventType', $eventType);
+    }
+
+    protected function eventType(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['event_type'],
+            set: fn($value) => ['event_type' => $value]
+        );
     }
 
     /**
@@ -106,6 +162,16 @@ class EmailLogEntry extends \PKP\core\DataObject
         $this->setData('assocType', $assocType);
     }
 
+    protected function assocType(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['assoc_type'],
+            set: fn($value) => ['assoc_type' => $value]
+        );
+    }
+
+
+
     /**
      * Get associated ID.
      *
@@ -126,6 +192,14 @@ class EmailLogEntry extends \PKP\core\DataObject
         $this->setData('assocId', $assocId);
     }
 
+    protected function assocId(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['assoc_id'],
+            set: fn($value) => ['assoc_id' => $value]
+        );
+    }
+
     /**
      * Return the full name of the sender (not necessarily the same as the from address).
      *
@@ -133,15 +207,16 @@ class EmailLogEntry extends \PKP\core\DataObject
      */
     public function getSenderFullName()
     {
-        $senderFullName = $this->getData('senderFullName');
 
-        if ($senderFullName) {
-            return $senderFullName;
+        if ($this->_senderFullName) {
+            return $this->_senderFullName;
         }
 
         $sender = $this->getSenderId()
             ? Repo::user()->get($this->getSenderId(), true)
             : null;
+
+        $this->_senderFullName = $sender->getFullName();
 
         return $sender ? $sender->getFullName() : '';
     }
@@ -153,13 +228,12 @@ class EmailLogEntry extends \PKP\core\DataObject
      */
     public function getSenderEmail()
     {
-        $senderEmail = & $this->getData('senderEmail');
 
-        if (!isset($senderEmail)) {
-            $senderEmail = Repo::user()->get($this->getSenderId(), true)->getEmail();
+        if (!isset($this->_senderEmail)) {
+            $this->_senderEmail = Repo::user()->get($this->getSenderId(), true)->getEmail();
         }
 
-        return ($senderEmail ? $senderEmail : '');
+        return ($this->_senderEmail ?: '');
     }
 
 
@@ -177,6 +251,15 @@ class EmailLogEntry extends \PKP\core\DataObject
         $this->setData('from', $from);
     }
 
+    protected function from(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['from_address'],
+            set: fn($value) => ['from_address' => $value]
+        );
+    }
+
+
     public function getRecipients()
     {
         return $this->getData('recipients');
@@ -185,6 +268,14 @@ class EmailLogEntry extends \PKP\core\DataObject
     public function setRecipients($recipients)
     {
         $this->setData('recipients', $recipients);
+    }
+
+    protected function recipients(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['recipients'],
+            set: fn($value) => ['recipients' => $value]
+        );
     }
 
     public function getCcs()
@@ -197,6 +288,14 @@ class EmailLogEntry extends \PKP\core\DataObject
         $this->setData('ccs', $ccs);
     }
 
+    protected function css(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['cc_recipients'],
+            set: fn($value) => ['cc_recipients' => $value]
+        );
+    }
+
     public function getBccs()
     {
         return $this->getData('bccs');
@@ -205,6 +304,14 @@ class EmailLogEntry extends \PKP\core\DataObject
     public function setBccs($bccs)
     {
         $this->setData('bccs', $bccs);
+    }
+
+    protected function bccs(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['bcc_recipients'],
+            set: fn($value) => ['bcc_recipients' => $value]
+        );
     }
 
     public function getSubject()
@@ -217,6 +324,14 @@ class EmailLogEntry extends \PKP\core\DataObject
         $this->setData('subject', $subject);
     }
 
+    protected function subject(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['subject'],
+            set: fn($value) => ['subject' => $value]
+        );
+    }
+
     public function getBody()
     {
         return $this->getData('body');
@@ -226,6 +341,15 @@ class EmailLogEntry extends \PKP\core\DataObject
     {
         $this->setData('body', $body);
     }
+
+    protected function body(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['body'],
+            set: fn($value) => ['body' => $value]
+        );
+    }
+
 
     /**
      * Returns the subject of the message with a prefix explaining the event type

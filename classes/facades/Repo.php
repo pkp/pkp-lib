@@ -39,6 +39,7 @@ use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
 use PKP\jats\Repository as JatsRepository;
 use PKP\stageAssignment\Repository as StageAssignmentRepository;
+use PKP\log\Repository as EmailLogEntryRepository;
 
 class Repo
 {
@@ -115,5 +116,10 @@ class Repo
     public static function stageAssignment(): StageAssignmentRepository
     {
         return app(StageAssignmentRepository::class);
+    }
+
+    public static function emailLogEntry(): EmailLogEntryRepository
+    {
+        return app()->make(EmailLogEntryRepository::class);
     }
 }

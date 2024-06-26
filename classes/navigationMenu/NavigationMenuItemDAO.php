@@ -57,6 +57,8 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
 
     /**
      * Retrieve a navigation menu items by context Id.
+     *
+     * @return DAOResultFactory<NavigationMenuItem>
      */
     public function getByContextId(int $contextId): DAOResultFactory
     {
@@ -70,6 +72,8 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
 
     /**
      * Retrieve items by menu id
+     *
+     * @return DAOResultFactory<NavigationMenuItem>
      */
     public function getByMenuId(int $navigationMenuId): DAOResultFactory
     {
@@ -104,6 +108,8 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
 
     /**
      * Retrieve the menu items with the specified type (NMI_TYPE_...).
+     *
+     * @return DAOResultFactory<NavigationMenuItem>
      */
     public function getByType(string $type, ?int $contextId = null): DAOResultFactory
     {
@@ -378,8 +384,6 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
 
     /**
      * Retrieve a context setting value.
-     *
-     * @param string $locale optional
      */
     public function getSetting(int $navigationMenuItemId, string $name, ?string $locale = null): mixed
     {

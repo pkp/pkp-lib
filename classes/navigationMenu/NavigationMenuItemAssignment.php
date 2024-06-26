@@ -20,10 +20,10 @@ namespace PKP\navigationMenu;
 
 class NavigationMenuItemAssignment extends \PKP\core\DataObject
 {
-    /** @var The object this assignment refers to */
+    /** @var ?NavigationMenuItem The object this assignment refers to */
     public ?NavigationMenuItem $navigationMenuItem = null;
 
-    /** @var List of NavigationMenuItem objects nested under this one. */
+    /** @var array List of NavigationMenuItem objects nested under this one. */
     public array $children = [];
 
     //

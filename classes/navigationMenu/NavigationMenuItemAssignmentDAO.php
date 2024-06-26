@@ -48,6 +48,8 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
 
     /**
      * Retrieve items by menu id
+     *
+     * @return DAOResultFactory<NavigationMenuItemAssignment>
      */
     public function getByMenuId(int $navigationMenuId): DAOResultFactory
     {
@@ -64,6 +66,8 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
 
     /**
      * Retrieve items by menu item id
+     *
+     * @return DAOResultFactory<NavigationMenuItemAssignment>
      */
     public function getByMenuItemId(int $menuItemId): DAOResultFactory
     {
@@ -101,6 +105,8 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
 
     /**
      * Retrieve items by navigationMenu id and ParentId
+     *
+     * @return DAOResultFactory<NavigationMenuItemAssignment>
      */
     public function getByMenuIdAndParentId(int $menuId, int $parentId): DAOResultFactory
     {

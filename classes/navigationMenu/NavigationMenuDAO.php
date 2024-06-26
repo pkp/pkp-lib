@@ -53,6 +53,8 @@ class NavigationMenuDAO extends \PKP\db\DAO
 
     /**
      * Retrieve a navigation menu by context Id.
+     *
+     * @return DAOResultFactory<NavigationMenu>
      */
     public function getByContextId(int $contextId): DAOResultFactory
     {
@@ -62,6 +64,8 @@ class NavigationMenuDAO extends \PKP\db\DAO
 
     /**
      * Retrieve a navigation menu by navigation menu area.
+     *
+     * @return DAOResultFactory<NavigationMenu>
      */
     public function getByArea(int $contextId, string $areaName): DAOResultFactory
     {
@@ -147,8 +151,6 @@ class NavigationMenuDAO extends \PKP\db\DAO
 
     /**
      * Delete a NavigationMenu.
-     *
-     * @param NavigationMenu $navigationMenu
      */
     public function deleteObject($navigationMenu)
     {

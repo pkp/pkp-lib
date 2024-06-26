@@ -194,7 +194,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Get $isChildVisible for this navigation menu item.
      *
-     * @return true if at least one NMI child is visible. It is defined at the Service functionality level
+     * @return bool True if at least one NMI child is visible. It is defined at the Service functionality level
      */
     public function getIsChildVisible(): bool
     {
@@ -204,7 +204,7 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Set $isChildVisible for this navigation menu item.
      *
-     * @param $isChildVisible true if at least one NMI child is visible. It is defined at the Service functionality level
+     * @param bool $isChildVisible true if at least one NMI child is visible. It is defined at the Service functionality level
      */
     public function setIsChildVisible(bool $isChildVisible): void
     {
@@ -245,8 +245,6 @@ class NavigationMenuItem extends \PKP\core\DataObject
 
     /**
      * Set the remoteUrl of the navigation menu item.
-     *
-     * @param string $url
      */
     public function setRemoteUrl(array|string $url, ?string $locale): void
     {

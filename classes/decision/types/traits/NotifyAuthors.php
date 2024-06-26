@@ -66,9 +66,7 @@ trait NotifyAuthors
 
         Mail::send($mailable->recipients($recipients, $email->locale));
 
-        /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
-        $submissionEmailLogDao->logMailable(
+        Repo::emailLogEntry()->logMailable(
             SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
             $mailable,
             $submission,

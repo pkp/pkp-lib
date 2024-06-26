@@ -824,8 +824,8 @@ abstract class Repository
             ->replyTo($context->getData('contactEmail'), $context->getData('contactName'));
 
         Mail::send($mailable);
-        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-        $submissionEmailLogDao->logMailable(
+
+        Repo::emailLogEntry()->logMailable(
             SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION,
             $mailable,
             $submission,

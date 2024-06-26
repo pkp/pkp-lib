@@ -133,8 +133,7 @@ class ThankReviewerForm extends Form
             $mailable->setData(Locale::getLocale());
             try {
                 Mail::send($mailable);
-                $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-                $submissionEmailLogDao->logMailable(
+                Repo::emailLogEntry()->logMailable(
                     SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_THANK_REVIEWER,
                     $mailable,
                     $submission,

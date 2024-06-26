@@ -120,6 +120,6 @@ class Repo
 
     public static function emailLogEntry(): EmailLogEntryRepository
     {
-        return app()->make(EmailLogEntryRepository::class);
+        return app(EmailLogEntryRepository::class);
     }
 }

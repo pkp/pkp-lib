@@ -60,11 +60,7 @@ class FailedJob extends BaseRepository
             $failedJobs = $failedJobs->queuedAt($queue);
         }
 
-        return $failedJobs->where(
-            fn ($query) => $query
-                ->whereNotNull('payload')
-                ->whereRaw("payload <> ''")
-        )->get();
+        return $failedJobs->where('payload', '<>', '')->get();
     }
 
     public function redispatchToQueue(string $queue = null, array $failedIds = []): int

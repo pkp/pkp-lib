@@ -709,7 +709,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                     ->whereIn('ra.reviewer_id', (array) $this->isReviewedBy)
                     ->where('ra.declined', 0)
                     ->where('ra.cancelled', 0)
-                    ->whereRaw('ra.round = agrr.current_round')
+                    ->whereColumn('ra.round', '=', 'agrr.current_round')
             )
         );
 
@@ -738,7 +738,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                                 )
                                 ->where('ra.declined', 0)
                                 ->where('ra.cancelled', 0)
-                                ->whereRaw('ra.round = agrr.current_round')
+                                ->whereColumn('ra.round', '=', 'agrr.current_round')
                                 ->distinct()
                         )
                 )
@@ -787,7 +787,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                         ->whereNull('ra.date_completed')
                         ->where('ra.cancelled', 0)
                         ->where('ra.declined', 0)
-                        ->whereRaw('ra.round = agrr.current_round')
+                        ->whereColumn('ra.round', '=', 'agrr.current_round')
                 )
         );
 
@@ -806,7 +806,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                             $join->on('ra.submission_id', '=', 'agrr.submission_id')
                         )
                         ->whereNotNull('ra.date_completed')
-                        ->whereRaw('ra.round = agrr.current_round')
+                        ->whereColumn('ra.round', '=', 'agrr.current_round')
                 )
         );
 
@@ -824,7 +824,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                             fn (JoinClause $join) =>
                             $join->on('rr.submission_id', '=', 'agrr.submission_id')
                         )
-                        ->whereRaw('rr.round = agrr.current_round')
+                        ->whereColumn('rr.round', '=', 'agrr.current_round')
                         ->where('rr.status', ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED)
                 )
         );
@@ -843,7 +843,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
                             fn (JoinClause $join) =>
                             $join->on('rr.submission_id', '=', 'agrr.submission_id')
                         )
-                        ->whereRaw('rr.round = agrr.current_round')
+                        ->whereColumn('rr.round', '=', 'agrr.current_round')
                         ->where('rr.status', ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED)
                 )
         );

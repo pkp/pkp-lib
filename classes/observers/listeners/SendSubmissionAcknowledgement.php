@@ -71,9 +71,7 @@ abstract class SendSubmissionAcknowledgement
 
             Mail::send($mailable);
 
-            /** @var SubmissionEmailLogDAO $logDao */
-            $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
-            $logDao->logMailable(
+            Repo::emailLogEntry()->logMailable(
                 SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_SUBMISSION_ACK,
                 $mailable,
                 $event->submission
@@ -106,9 +104,7 @@ abstract class SendSubmissionAcknowledgement
 
             Mail::send($mailable);
 
-            /** @var SubmissionEmailLogDAO $logDao */
-            $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
-            $logDao->logMailable(
+            Repo::emailLogEntry()->logMailable(
                 SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_SUBMISSION_ACK,
                 $mailable,
                 $event->submission

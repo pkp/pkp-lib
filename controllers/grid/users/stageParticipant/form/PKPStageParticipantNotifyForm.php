@@ -238,7 +238,7 @@ class PKPStageParticipantNotifyForm extends Form
         $logDao = null;
         try {
             Mail::send($mailable);
-            $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $logDao */
+            $logDao = Repo::emailLogEntry();
         } catch (TransportException $e) {
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification(

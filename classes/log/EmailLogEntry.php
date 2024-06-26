@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 use APP\facades\Repo;
-
+use Illuminate\Database\Eloquent\Builder;
 
 class EmailLogEntry extends Model
 {
@@ -41,7 +41,7 @@ class EmailLogEntry extends Model
         'ccs',
         'bccs',
         'subject',
-        'body'
+        'body',
     ];
 
     private $_senderFullName = '';
@@ -288,7 +288,7 @@ class EmailLogEntry extends Model
         $this->setData('ccs', $ccs);
     }
 
-    protected function css(): Attribute
+    protected function ccs(): Attribute
     {
         return Attribute::make(
             get: fn($value, $attributes) => $attributes['cc_recipients'],
@@ -346,7 +346,7 @@ class EmailLogEntry extends Model
     {
         return Attribute::make(
             get: fn($value, $attributes) => $attributes['body'],
-            set: fn($value) => ['body' => $value]
+            set: fn($value) => ['body' => $value],
         );
     }
 
@@ -359,6 +359,35 @@ class EmailLogEntry extends Model
     public function getPrefixedSubject()
     {
         return __('submission.event.subjectPrefix') . ' ' . $this->getSubject();
+    }
+
+    // Scopes
+    public function scopeWithSubmissionIds(Builder $query, ?array $submissionIds): Builder
+    {
+        return $query->when($submissionIds !== null, function ($query) use ($submissionIds) {
+            return $query->whereIn('submission_id', $submissionIds);
+        });
+    }
+
+    public function scopeWithSenderId(Builder $query, $senderId): Builder
+    {
+        return $query->when($senderId !== null, function ($query) use ($senderId) {
+            return $query->where('sender_id', $senderId);
+        });
+    }
+
+    public function scopeWithEventType(Builder $query, $eventType): Builder
+    {
+        return $query->when($eventType !== null, function ($query) use ($eventType) {
+            return $query->where('event_type', $eventType);
+        });
+    }
+
+    public function scopeWithAssocType(Builder $query, $assocType): Builder
+    {
+        return $query->when($assocType !== null, function ($query) use ($assocType) {
+            return $query->where('assoc_type', $assocType);
+        });
     }
 }
 

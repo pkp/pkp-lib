@@ -17,6 +17,7 @@
 
 namespace PKP\log;
 
+use APP\core\Application;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
@@ -102,10 +103,10 @@ class Repository
         $this->model->senderId = $sender ? $sender->getId() : null;
         $this->model->from = $this->getContactString($clonedMailable->from);
         $this->model->recipients = $this->getContactString($clonedMailable->to);
-        $this->model->css = $this->getContactString($clonedMailable->cc);
+        $this->model->ccs = $this->getContactString($clonedMailable->cc);
         $this->model->bccs = $this->getContactString($clonedMailable->bcc);
         $this->model->body = $clonedMailable->render();
-
+        $this->model->assocType = Application::ASSOC_TYPE_SUBMISSION;
         $this->model->subject = Mail::compileParams(
             $clonedMailable->subject,
             $clonedMailable->getData(Locale::getLocale())

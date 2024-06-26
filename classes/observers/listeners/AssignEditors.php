@@ -66,8 +66,6 @@ class AssignEditors
         $notificationManager = new NotificationManager();
         /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-        /** @var SubmissionEmailLogDAO $logDao */
-        $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
         foreach ($managers as $manager) {
 
             // Send notification
@@ -118,7 +116,7 @@ class AssignEditors
             Mail::send($mailable);
 
             // Log email
-            $logDao->logMailable(
+            Repo::emailLogEntry()->logMailable(
                 SubmissionEmailLogEntry::SUBMISSION_EMAIL_NEEDS_EDITOR,
                 $mailable,
                 $event->submission

@@ -26,11 +26,11 @@ use PKP\facades\Locale;
 use PKP\userGroup\UserGroup;
 
 class PKPPublication extends \PKP\core\DataObject
-{    
+{
     /**
      * Get the default/fall back locale the values should exist for
      */
-    public function getDefaultLocale(): ?string 
+    public function getDefaultLocale(): ?string
     {
         return $this->getData('locale');
     }
@@ -98,7 +98,7 @@ class PKPPublication extends \PKP\core\DataObject
                 break;
             case 'text':
                 // Title is in HTML, prefix is already in text. Convert title.
-                $title = strip_tags($title);
+                $title = htmlspecialchars_decode(strip_tags($title));
                 break;
             default: throw new \Exception('Invalid format!');
         }
@@ -123,7 +123,7 @@ class PKPPublication extends \PKP\core\DataObject
         $subTitle = $this->getLocalizedData('subtitle', $preferredLocale);
 
         if ($subTitle) {
-            return strtolower($format) === 'text' ? strip_tags($subTitle) : $subTitle;
+            return strtolower($format) === 'text' ? htmlspecialchars_decode(strip_tags($subTitle)) : $subTitle;
         }
 
         return '';

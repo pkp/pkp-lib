@@ -112,7 +112,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     }
 
     /**
-     * Delete an announcement type by announcement type ID. Note that all announcements with this type ID are also deleted.
+     * Delete an announcement type by announcement type ID.
      * @param bool $deleteAnnouncements Defaults to false, when true, all announcements with this type are also deleted.
      */
     public function deleteById(int $typeId, bool $deleteAnnouncements = false): void

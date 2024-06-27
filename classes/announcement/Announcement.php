@@ -185,7 +185,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Set announcement expiration date.
      *
-     * @param ?string $dateExpire Format YYYY-MM-DD HH:MM:SS
+     * @param ?string $dateExpire Format YYYY-MM-DD
      */
     public function setDateExpire(?string $dateExpire): void
     {

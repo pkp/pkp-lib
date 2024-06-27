@@ -17,6 +17,10 @@
 namespace PKP\core;
 
 use APP\core\Application;
+use Illuminate\Support\Str;
+
+use PKP\core\PKPConsoleCommandServiceProvider;
+
 use PKP\core\PKPScheduleServiceProvider;
 
 use APP\core\AppServiceProvider;
@@ -159,6 +163,7 @@ class PKPContainer extends Container
         $this->register(new PKPRoutingProvider($this));
         $this->register(new InvitationServiceProvider($this));
         $this->register(new PKPScheduleServiceProvider($this));
+        $this->register(new PKPConsoleCommandServiceProvider($this));
     }
 
     /**
@@ -325,6 +330,11 @@ class PKPContainer extends Container
         $items['app'] = [
             'key' => PKPAppKey::getKey(),
             'cipher' => PKPAppKey::getCipher(),
+        ];
+
+        $items['app'] = [
+            'timezone' => Config::getVar('general', 'timezone', 'UTC'),
+            'env' => Config::getVar('general', 'app_env', 'production'),
         ];
 
         // Database connection
@@ -544,6 +554,28 @@ class PKPContainer extends Container
     public function isDownForMaintenance()
     {
         return Application::isUnderMaintenance();
+    }
+
+    // public function isLocal(): bool
+    // {
+    //     return true;
+    // }
+
+    /**
+     * Get or check the current application environment.
+     *
+     * @param  string|array  ...$environments
+     * @return string|bool
+     */
+    public function environment(...$environments)
+    {
+        if (count($environments) > 0) {
+            $patterns = is_array($environments[0]) ? $environments[0] : $environments;
+
+            return Str::is($patterns, $this->get('config')['app']['env']);
+        }
+
+        return $this->get('config')['app']['env'];
     }
 }
 

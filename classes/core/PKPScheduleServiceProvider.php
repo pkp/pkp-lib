@@ -2,9 +2,9 @@
 
 namespace PKP\core;
 
+use APP\scheduler\Scheduler;
 use PKP\config\Config;
 use PKP\core\PKPContainer;
-use PKP\scheduledTask\PKPSchedular;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Console\Scheduling\Schedule;
 
@@ -12,8 +12,11 @@ class PKPScheduleServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        // After the resolving to \Illuminate\Console\Scheduling\Schedule::class
+        // need to register all the schedules into the scheduler
         $this->callAfterResolving(Schedule::class, function (Schedule $schedule) {
-            (new PKPSchedular($schedule))->registerSchedules();
+            $scheduler = $this->app->get(Scheduler::class); /** @var \APP\schedular\Scheduler $scheduler */
+            $scheduler->registerSchedules();
         });
     }
 
@@ -31,6 +34,6 @@ class PKPScheduleServiceProvider extends ServiceProvider
             )->useCache($cacheConfig['default']);
         });
 
-        $this->app->alias(Schedule::class, 'schedule');
+        $this->app->singleton(Scheduler::class, fn ($app) => new Scheduler($app->get(Schedule::class)));
     }
 }

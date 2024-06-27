@@ -981,6 +981,12 @@ msgstr "A valid app key set in the config file"
 msgid "admin.cli.tool.schedular.options.run.description"
 msgstr "Run the schedular."
 
+msgid "admin.cli.tool.schedular.options.list.description"
+msgstr "List all scheduled tasks."
+
+msgid "admin.cli.tool.schedular.options.work.description"
+msgstr "Start the schedule worker."
+
 msgid "admin.cli.tool.schedular.options.usage.description"
 msgstr "Display the Schedular usage parameters."
 

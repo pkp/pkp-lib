@@ -71,7 +71,7 @@ class ReviewerAction
             if (!empty($mailable->to)) {
                 try {
                     Mail::send($mailable);
-                    Repo::emailLogEntry()->logMailable(
+                    SubmissionEmailLogEntry::logMailable(
                         $decline ? SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_DECLINE : SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_CONFIRM,
                         $mailable,
                         $submission,

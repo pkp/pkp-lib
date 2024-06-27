@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Str;
 
 class EmailLogEntry extends Model
 {
@@ -47,8 +48,24 @@ class EmailLogEntry extends Model
     private $_senderFullName = '';
     private $_senderEmail = '';
 
+    /**
+     * The maximum length for the email subject.
+     *
+     * This value should match the length of the `subject` column in the `email_log` table, defined in LogMigration.php.
+     */
+    private const MAX_SUBJECT_LENGTH = 255;
+
+    protected static function booted(): void
+    {
+        static::creating(function (EmailLogEntry $entry) {
+            $subject = $entry->subject;
+            // Subtract 3 to compensate for the '...' that gets added to the end of the string.
+            $entry->subject = Str::limit($subject, self::MAX_SUBJECT_LENGTH - 3);
+        });
+    }
+
     //
-    // Get/set methods
+    // Accessors / Mutators
     //
     protected function id(): Attribute
     {
@@ -56,26 +73,6 @@ class EmailLogEntry extends Model
             get: fn($value, $attributes) => $attributes[$this->primaryKey] ?? null,
             set: fn($value) => [$this->primaryKey => $value],
         );
-    }
-
-    /**
-     * Get user ID of sender.
-     *
-     * @return int
-     */
-    public function getSenderId()
-    {
-        return $this->getData('senderId');
-    }
-
-    /**
-     * Set user ID of sender.
-     *
-     * @param int $senderId
-     */
-    public function setSenderId($senderId)
-    {
-        $this->setData('senderId', $senderId);
     }
 
     protected function senderId(): Attribute
@@ -86,52 +83,12 @@ class EmailLogEntry extends Model
         );
     }
 
-    /**
-     * Get date email was sent.
-     *
-     * @return string
-     */
-    public function getDateSent()
-    {
-        return $this->getData('dateSent');
-    }
-
-    /**
-     * Set date email was sent.
-     *
-     * @param string $dateSent
-     */
-    public function setDateSent($dateSent)
-    {
-        $this->setData('dateSent', $dateSent);
-    }
-
     protected function dateSent(): Attribute
     {
         return Attribute::make(
             get: fn($value, $attributes) => $attributes['date_sent'],
             set: fn($value) => ['date_sent' => $value]
         );
-    }
-
-    /**
-     * Get event type.
-     *
-     * @return int
-     */
-    public function getEventType()
-    {
-        return $this->getData('eventType');
-    }
-
-    /**
-     * Set event type.
-     *
-     * @param int $eventType
-     */
-    public function setEventType($eventType)
-    {
-        $this->setData('eventType', $eventType);
     }
 
     protected function eventType(): Attribute
@@ -142,26 +99,6 @@ class EmailLogEntry extends Model
         );
     }
 
-    /**
-     * Get associated type.
-     *
-     * @return int
-     */
-    public function getAssocType()
-    {
-        return $this->getData('assocType');
-    }
-
-    /**
-     * Set associated type.
-     *
-     * @param int $assocType
-     */
-    public function setAssocType($assocType)
-    {
-        $this->setData('assocType', $assocType);
-    }
-
     protected function assocType(): Attribute
     {
         return Attribute::make(
@@ -170,33 +107,60 @@ class EmailLogEntry extends Model
         );
     }
 
-
-
-    /**
-     * Get associated ID.
-     *
-     * @return int
-     */
-    public function getAssocId()
-    {
-        return $this->getData('assocId');
-    }
-
-    /**
-     * Set associated ID.
-     *
-     * @param int $assocId
-     */
-    public function setAssocId($assocId)
-    {
-        $this->setData('assocId', $assocId);
-    }
-
     protected function assocId(): Attribute
     {
         return Attribute::make(
             get: fn($value, $attributes) => $attributes['assoc_id'],
             set: fn($value) => ['assoc_id' => $value]
+        );
+    }
+    
+    protected function from(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['from_address'],
+            set: fn($value) => ['from_address' => $value]
+        );
+    }
+
+
+    protected function recipients(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['recipients'],
+            set: fn($value) => ['recipients' => $value]
+        );
+    }
+
+    protected function ccs(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['cc_recipients'],
+            set: fn($value) => ['cc_recipients' => $value]
+        );
+    }
+
+    protected function bccs(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['bcc_recipients'],
+            set: fn($value) => ['bcc_recipients' => $value]
+        );
+    }
+
+    protected function subject(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['subject'],
+            set: fn($value) => ['subject' => $value]
+        );
+    }
+
+    protected function body(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes['body'],
+            set: fn($value) => ['body' => $value],
         );
     }
 
@@ -212,13 +176,13 @@ class EmailLogEntry extends Model
             return $this->_senderFullName;
         }
 
-        $sender = $this->getSenderId()
-            ? Repo::user()->get($this->getSenderId(), true)
+        $sender = $this->senderId
+            ? Repo::user()->get($this->senderId, true)
             : null;
 
         $this->_senderFullName = $sender->getFullName();
 
-        return $sender ? $sender->getFullName() : '';
+        return $this->_senderFullName ? $this->_senderFullName : '';
     }
 
     /**
@@ -237,120 +201,6 @@ class EmailLogEntry extends Model
     }
 
 
-    //
-    // Email data
-    //
-
-    public function getFrom()
-    {
-        return $this->getData('from');
-    }
-
-    public function setFrom($from)
-    {
-        $this->setData('from', $from);
-    }
-
-    protected function from(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['from_address'],
-            set: fn($value) => ['from_address' => $value]
-        );
-    }
-
-
-    public function getRecipients()
-    {
-        return $this->getData('recipients');
-    }
-
-    public function setRecipients($recipients)
-    {
-        $this->setData('recipients', $recipients);
-    }
-
-    protected function recipients(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['recipients'],
-            set: fn($value) => ['recipients' => $value]
-        );
-    }
-
-    public function getCcs()
-    {
-        return $this->getData('ccs');
-    }
-
-    public function setCcs($ccs)
-    {
-        $this->setData('ccs', $ccs);
-    }
-
-    protected function ccs(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['cc_recipients'],
-            set: fn($value) => ['cc_recipients' => $value]
-        );
-    }
-
-    public function getBccs()
-    {
-        return $this->getData('bccs');
-    }
-
-    public function setBccs($bccs)
-    {
-        $this->setData('bccs', $bccs);
-    }
-
-    protected function bccs(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['bcc_recipients'],
-            set: fn($value) => ['bcc_recipients' => $value]
-        );
-    }
-
-    public function getSubject()
-    {
-        return $this->getData('subject');
-    }
-
-    public function setSubject($subject)
-    {
-        $this->setData('subject', $subject);
-    }
-
-    protected function subject(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['subject'],
-            set: fn($value) => ['subject' => $value]
-        );
-    }
-
-    public function getBody()
-    {
-        return $this->getData('body');
-    }
-
-    public function setBody($body)
-    {
-        $this->setData('body', $body);
-    }
-
-    protected function body(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['body'],
-            set: fn($value) => ['body' => $value],
-        );
-    }
-
-
     /**
      * Returns the subject of the message with a prefix explaining the event type
      *
@@ -358,15 +208,15 @@ class EmailLogEntry extends Model
      */
     public function getPrefixedSubject()
     {
-        return __('submission.event.subjectPrefix') . ' ' . $this->getSubject();
+        return __('submission.event.subjectPrefix') . ' ' . $this->subject;
     }
 
+    //
     // Scopes
-    public function scopeWithSubmissionIds(Builder $query, ?array $submissionIds): Builder
+    //
+    public function scopeWithSubmissionId(Builder $query, int $submissionId = null): Builder
     {
-        return $query->when($submissionIds !== null, function ($query) use ($submissionIds) {
-            return $query->whereIn('submission_id', $submissionIds);
-        });
+        return $query->where('assoc_id', (int)$submissionId);
     }
 
     public function scopeWithSenderId(Builder $query, $senderId): Builder

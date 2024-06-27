@@ -108,7 +108,7 @@ class EmailReviewerForm extends Form
 
         try {
             Mail::send($mailable);
-            Repo::emailLogEntry()->logMailable(
+            SubmissionEmailLogEntry::logMailable(
                 SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_NOTIFY_REVIEWER,
                 $mailable,
                 $this->submission,

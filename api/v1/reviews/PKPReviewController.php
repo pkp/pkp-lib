@@ -128,16 +128,20 @@ class PKPReviewController extends PKPBaseController
 
         $declineEmail = null;
         if ($reviewAssignment->getDeclined()) {
-            $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
-            $emailLogs = $submissionEmailLogDao->getBySenderId($submissionId, SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_DECLINE, $reviewerId)->toArray();
+            $emailLogs = SubmissionEmailLogEntry::withSubmissionId($submissionId)
+                ->withEventType(SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_DECLINE)
+                ->withSenderId($reviewerId)
+                ->withAssoc()
+                ->get();
+
             foreach ($emailLogs as $emailLog) {
-                $dateSent = substr($emailLog->getData('dateSent'), 0, 10);
+                $dateSent = substr($emailLog->dateSent, 0, 10);
                 $dateConfirmed = substr($reviewAssignment->getData('dateConfirmed'), 0, 10);
                 // Compare the dates to get the decline email associated to the current round.
                 if ($dateSent === $dateConfirmed) {
                     $declineEmail = [
-                        'subject' => $emailLog->getData('subject'),
-                        'body' => $emailLog->getData('body'),
+                        'subject' => $emailLog->subject,
+                        'body' => $emailLog->body,
                     ];
                     break;
                 }

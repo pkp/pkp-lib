@@ -693,7 +693,7 @@ class QueriesGridHandler extends GridHandler
                 ));
 
                 Mail::send($mailable);
-                Repo::emailLogEntry()->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_DISCUSSION_NOTIFY, $mailable, $submission);
+                SubmissionEmailLogEntry::logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_DISCUSSION_NOTIFY, $mailable, $submission);
             }
 
             return \PKP\db\DAO::getDataChangedEvent($query->getId());

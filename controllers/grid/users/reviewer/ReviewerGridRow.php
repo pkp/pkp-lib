@@ -20,10 +20,13 @@ use APP\facades\Repo;
 use PKP\components\forms\decision\LogReviewerResponseForm;
 use PKP\controllers\grid\GridRow;
 use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectConfirmationModal;
 use PKP\linkAction\request\VueModal;
+use PKP\security\Role;
+use PKP\security\RoleDAO;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
@@ -218,8 +221,10 @@ class ReviewerGridRow extends GridRow
                 );
             }
 
-            if ($reviewAssignment->getDateConfirmed() == null) {
-                $context = $request->getContext();
+            $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+            $context = $request->getContext();
+
+            if ($roleDao->userHasRole($context->getId(), $user->getId(), [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER]) && $reviewAssignment->getDateConfirmed() == null) {
                 $action = $router->url($request, null, null, 'addLog', null, $actionArgs);
                 $logResponseForm = new LogReviewerResponseForm($action, $context->getSupportedFormLocales(), $context);
 

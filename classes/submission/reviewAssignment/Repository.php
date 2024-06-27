@@ -238,10 +238,7 @@ class Repository
         $reviewAssignmentIds = $reviewAssignmentCollector->getIds();
     
         foreach ($reviewAssignmentIds as $reviewAssignmentId) {
-            $reviewAssignment = $this->get($reviewAssignmentId);
-            if ($reviewAssignment) {
-                $this->delete($reviewAssignment);
-            }
+            $this->dao->deleteById($reviewAssignmentId);
         }
     
         // delete review rounds associated with this context

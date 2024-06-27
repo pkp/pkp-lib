@@ -133,7 +133,7 @@ class ThankReviewerForm extends Form
             $mailable->setData(Locale::getLocale());
             try {
                 Mail::send($mailable);
-                Repo::emailLogEntry()->logMailable(
+                SubmissionEmailLogEntry::logMailable(
                     SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_THANK_REVIEWER,
                     $mailable,
                     $submission,

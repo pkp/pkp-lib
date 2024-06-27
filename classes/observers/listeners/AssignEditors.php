@@ -26,7 +26,6 @@ use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\SubEditorsDAO;
 use PKP\db\DAORegistry;
-use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\mailables\SubmissionNeedsEditor;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
@@ -116,7 +115,7 @@ class AssignEditors
             Mail::send($mailable);
 
             // Log email
-            Repo::emailLogEntry()->logMailable(
+            SubmissionEmailLogEntry::logMailable(
                 SubmissionEmailLogEntry::SUBMISSION_EMAIL_NEEDS_EDITOR,
                 $mailable,
                 $event->submission

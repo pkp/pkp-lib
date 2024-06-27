@@ -18,14 +18,19 @@
 namespace PKP\log;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\submission\Submission;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
+use PKP\db\DBResultRange;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\mail\Mailable;
 use PKP\user\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class Repository
 {
@@ -74,7 +79,7 @@ class Repository
      *
      * @param array $addressees Expects Mailable::$to or Mailable::$from
      */
-    protected function getContactString(array $addressees): string
+    public function getContactString(array $addressees): string
     {
         $contactStrings = [];
         foreach ($addressees as $addressee) {
@@ -85,35 +90,96 @@ class Repository
         return join(', ', $contactStrings);
     }
 
+
     /**
-     * Create a log entry from data in a Mailable class
+     * Stores the correspondent user ids of the all recipient emails.
      *
-     * @param int $eventType One of the SubmissionEmailLogEntry::SUBMISSION_EMAIL_* constants
-     *
-     * @return int The new log entry id
+     * @param EmailLogEntry $entry
      */
-    public function logMailable(int $eventType, Mailable $mailable, Submission $submission, ?User $sender = null): int
+    public function insertLogUserIds(EmailLogEntry $entry)
     {
-        $clonedMailable = clone $mailable;
-        $clonedMailable->removeFooter();
+        $recipients = $entry->recipients;
 
-        $this->model->eventType = $eventType;
-        $this->model->assocId = $submission->getId();
-        $this->model->dateSent = Core::getCurrentDate();
-        $this->model->senderId = $sender ? $sender->getId() : null;
-        $this->model->from = $this->getContactString($clonedMailable->from);
-        $this->model->recipients = $this->getContactString($clonedMailable->to);
-        $this->model->ccs = $this->getContactString($clonedMailable->cc);
-        $this->model->bccs = $this->getContactString($clonedMailable->bcc);
-        $this->model->body = $clonedMailable->render();
-        $this->model->assocType = Application::ASSOC_TYPE_SUBMISSION;
-        $this->model->subject = Mail::compileParams(
-            $clonedMailable->subject,
-            $clonedMailable->getData(Locale::getLocale())
-        );
+        // We can use a simple regex to get emails, since we don't want to validate it.
+        $pattern = '/(?<=\<)[^\>]*(?=\>)/';
+        preg_match_all($pattern, $recipients, $matches);
+        if (!isset($matches[0])) {
+            return;
+        }
 
-        $this->model->save();
-
-        return $this->model->id;
+        foreach ($matches[0] as $emailAddress) {
+            $user = Repo::user()->getByEmail($emailAddress, true);
+            if ($user instanceof \PKP\user\User) {
+                // We use replace here to avoid inserting duplicated entries
+                // in table (sometimes the recipients can have the same email twice).
+                DB::table('email_log_users')->updateOrInsert(
+                    ['email_log_id' => $entry->id, 'user_id' => $user->getId()]
+                );
+            }
+        }
     }
+
+    /**
+     * Delete all log entries for an object.
+     *
+     * @param int $assocType
+     * @param int $assocId
+     * @return int The number of affected rows.
+     */
+    public function deleteByAssoc(int $assocType, int $assocId): int
+    {
+        return $this->model
+            ->newQuery()
+            ->where('assoc_type', (int)$assocType)
+            ->where('assoc_id', (int)$assocId)
+            ->delete();
+    }
+
+    /**
+     * Transfer all log and log users entries to another user.
+     *
+     * @param int $oldUserId
+     * @param int $newUserId
+     */
+    public function changeUser($oldUserId, $newUserId)
+    {
+        return [
+            DB::update(
+                'UPDATE email_log SET sender_id = ? WHERE sender_id = ?',
+                [(int) $newUserId, (int) $oldUserId]
+            ),
+            DB::update(
+                'UPDATE email_log_users
+                SET user_id = ?
+                WHERE user_id = ? AND email_log_id NOT IN (SELECT t1.email_log_id
+                    FROM (SELECT email_log_id FROM email_log_users WHERE user_id = ?) AS t1
+                    INNER JOIN
+                    (SELECT email_log_id FROM email_log_users WHERE user_id = ?) AS t2
+                    ON t1.email_log_id = t2.email_log_id);',
+                [(int)$newUserId, (int)$oldUserId, (int)$newUserId, (int)$oldUserId]
+            )
+        ];
+    }
+
+
+    /**
+     * Retrieve a log entry by event type.
+     */
+    public function getByEventType(int $assocType, int $assocId, int $eventType, ?int $userId = null)
+    {
+        $q = DB::table('email_log', 'e')
+            ->when(
+                $userId,
+                fn (Builder $q) => $q->join(
+                    'email_log_users AS u',
+                    fn (JoinClause $j) => $j->on('u.email_log_id', '=', 'e.log_id')
+                        ->where('u.user_id', $userId)
+                )
+            )
+            ->orderBy('e.log_id')
+            ->select('e.*')->get();
+
+        return $q; // Counted in submissionEmails.tpl
+    }
+
 }

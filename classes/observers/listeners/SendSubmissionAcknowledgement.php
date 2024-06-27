@@ -71,7 +71,7 @@ abstract class SendSubmissionAcknowledgement
 
             Mail::send($mailable);
 
-            Repo::emailLogEntry()->logMailable(
+            SubmissionEmailLogEntry::logMailable(
                 SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_SUBMISSION_ACK,
                 $mailable,
                 $event->submission
@@ -104,7 +104,7 @@ abstract class SendSubmissionAcknowledgement
 
             Mail::send($mailable);
 
-            Repo::emailLogEntry()->logMailable(
+            SubmissionEmailLogEntry::logMailable(
                 SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_SUBMISSION_ACK,
                 $mailable,
                 $event->submission

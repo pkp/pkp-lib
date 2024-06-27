@@ -825,7 +825,7 @@ abstract class Repository
 
         Mail::send($mailable);
 
-        Repo::emailLogEntry()->logMailable(
+        SubmissionEmailLogEntry::logMailable(
             SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION,
             $mailable,
             $submission,

@@ -218,9 +218,9 @@ class SubEditorsDAO extends \PKP\db\DAO
             $userGroup = $userGroups->first(fn (UserGroup $userGroup) => $userGroup->getId() == $assignment->userGroupId);
             Repo::stageAssignment()
                 ->build(
-                    $submission->getId(), 
-                    $assignment->userGroupId, 
-                    $assignment->userId, 
+                    $submission->getId(),
+                    $assignment->userGroupId,
+                    $assignment->userId,
                     $userGroup->getRecommendOnly()
                 );
         }
@@ -287,10 +287,7 @@ class SubEditorsDAO extends \PKP\db\DAO
                 $mailable->recipients([$recipient]);
 
                 Mail::send($mailable);
-
-                /** @var SubmissionEmailLogDAO $logDao */
-                $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
-                $logDao->logMailable(
+                SubmissionEmailLogEntry::logMailable(
                     SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_ASSIGN,
                     $mailable,
                     $submission

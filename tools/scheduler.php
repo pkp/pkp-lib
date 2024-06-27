@@ -1,24 +1,23 @@
 <?php
 
-declare(strict_types=1);
-
 /**
- * @file tools/jobs.php
+ * @file tools/schedular.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2003-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class commandJobs
+ * @class commandSchedular
  *
  * @ingroup tools
  *
- * @brief CLI tool to list, iterate and purge queued jobs on database
+ * @brief 
  */
 
 namespace PKP\tools;
 
 use APP\core\Application;
+
 use Symfony\Component\Console\Output\BufferedOutput;
 
 use Symfony\Component\Console\Input\ArrayInput;
@@ -31,8 +30,11 @@ use Carbon\Carbon;
 use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Console\Scheduling\ScheduleListCommand;
+use Illuminate\Console\Scheduling\ScheduleWorkCommand;
 use PKP\cliTool\CommandLineTool;
 use PKP\config\Config;
+use PKP\core\PKPConsoleCommandServiceProvider;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Exception\InvalidArgumentException as CommandInvalidArgumentException;
 use Symfony\Component\Console\Helper\Helper;
@@ -69,10 +71,12 @@ class commandInterface
     }
 }
 
-class commandSchedular extends CommandLineTool
+class CommandScheduler extends CommandLineTool
 {
     protected const AVAILABLE_OPTIONS = [
         'run'       => 'admin.cli.tool.schedular.options.run.description',
+        'list'      => 'admin.cli.tool.schedular.options.list.description',
+        // 'work'      => 'admin.cli.tool.schedular.options.work.description',
         'usage'     => 'admin.cli.tool.schedular.options.usage.description',
     ];
 
@@ -219,27 +223,47 @@ class commandSchedular extends CommandLineTool
             return;
         }
 
-        $parameterList = $this->getParameterList();
-        
-        $schedule = app()->get(Schedule::class);
+        [$input, $output] = PKPConsoleCommandServiceProvider::getConsoleIOInstances();
 
-        $scheduler = new ScheduleRunCommand();
-        $scheduler->setLaravel(PKPContainer::getInstance());
+        $scheduleRunCommand = new ScheduleRunCommand();
+        $scheduleRunCommand->setLaravel(PKPContainer::getInstance());
+        $scheduleRunCommand->setInput($input);
+        $scheduleRunCommand->setOutput(PKPConsoleCommandServiceProvider::getConsoleOutputStyle());
 
-        $input = new ArrayInput([]);
-        $output = new BufferedOutput();
-        $scheduler->setInput($input);
-        $scheduler->setOutput(new OutputStyle($input, $output));
-
-        $scheduler->handle(
-            $schedule,
-            app(\Illuminate\Contracts\Events\Dispatcher::class),
-            app(\Illuminate\Contracts\Cache\Repository::class),
-            app(\Illuminate\Contracts\Debug\ExceptionHandler::class)
-        );
-
-        echo $output->fetch();
+        $scheduleRunCommand->run($input, $output);
     }
+
+    /**
+     * Dispatch jobs into the queue
+     */
+    protected function list(): void
+    {
+        [$input, $output] = PKPConsoleCommandServiceProvider::getConsoleIOInstances();
+
+        $scheduleListCommand = new ScheduleListCommand;
+        $scheduleListCommand->setLaravel(PKPContainer::getInstance());
+        $scheduleListCommand->setInput($input);
+        $scheduleListCommand->setOutput(PKPConsoleCommandServiceProvider::getConsoleOutputStyle());
+
+        $scheduleListCommand->run($input, $output);
+    }
+
+    // protected function work(): void
+    // {
+    //     [$input, $output] = PKPConsoleCommandServiceProvider::getConsoleIOInstances();
+        
+    //     $scheduleWorkCommand = new ScheduleWorkCommand;
+    //     $scheduleWorkCommand->setLaravel(PKPContainer::getInstance());
+    //     $scheduleWorkCommand->setInput($input);
+    //     $scheduleWorkCommand->setOutput(PKPConsoleCommandServiceProvider::getConsoleOutputStyle());
+
+    //     $scheduleWorkCommand->run($input, $output);
+    // }
+
+    // protected function test(): void
+    // {
+
+    // }
 
     /**
      * Print given options in a pretty way.
@@ -278,7 +302,7 @@ class commandSchedular extends CommandLineTool
 }
 
 try {
-    $tool = new commandSchedular($argv ?? []);
+    $tool = new CommandScheduler($argv ?? []);
     $tool->execute();
 } catch (Throwable $e) {
     $output = new commandInterface();

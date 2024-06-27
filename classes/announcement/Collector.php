@@ -196,9 +196,9 @@ class Collector implements CollectorInterface
                     $word = addcslashes($word, '%_');
                     $q->where(
                         fn (Builder $q) => $q
-                            ->where(fn (Builder $q) => $q->where('setting_name', 'title')->whereRaw('LOWER(setting_value) LIKE ?', ["%{$word}%"]))
-                            ->orWhere(fn (Builder $q) => $q->where('setting_name', 'descriptionShort')->whereRaw('LOWER(setting_value) LIKE ?', ["%{$word}%"]))
-                            ->orWhere(fn (Builder $q) => $q->where('setting_name', 'description')->whereRaw('LOWER(setting_value) LIKE ?', ["%{$word}%"]))
+                            ->where(fn (Builder $q) => $q->where('setting_name', 'title')->whereRaw('LOWER(setting_value) LIKE LOWER(?)', ["%{$word}%"]))
+                            ->orWhere(fn (Builder $q) => $q->where('setting_name', 'descriptionShort')->whereRaw('LOWER(setting_value) LIKE LOWER(?)', ["%{$word}%"]))
+                            ->orWhere(fn (Builder $q) => $q->where('setting_name', 'description')->whereRaw('LOWER(setting_value) LIKE LOWER(?)', ["%{$word}%"]))
                     );
                 }
             });

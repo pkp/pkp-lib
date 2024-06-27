@@ -22,7 +22,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
-use PKP\invitation\core\contacts\IApiHandleable;
+use PKP\invitation\core\contracts\IApiHandleable;
 use PKP\invitation\core\CreateInvitationController;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\ReceiveInvitationController;

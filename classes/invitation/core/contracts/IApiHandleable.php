@@ -12,7 +12,7 @@
  * @brief Interface for all Invitation API Handlers
  */
 
-namespace PKP\invitation\core\contacts;
+namespace PKP\invitation\core\contracts;
 
 interface IApiHandleable
 {

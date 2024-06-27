@@ -124,8 +124,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     // Constant used in UsageStats for submission files that are not full texts
     public const ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER = 0x0000213;
 
-    public $enabledProducts = [];
-    public $allProducts;
+    public array $enabledProducts = [];
 
     /**
      * Constructor

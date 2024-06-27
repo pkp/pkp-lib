@@ -37,9 +37,7 @@ use Throwable;
 class PKPContainer extends Container
 {
     /**
-     * @var string
-     *
-     * @brief the base path of the application, needed for base_path helper
+     * @var string The base path of the application, needed for base_path helper
      */
     protected $basePath;
 

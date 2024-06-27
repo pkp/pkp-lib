@@ -18,19 +18,19 @@ namespace PKP\core;
 
 class ArrayItemIterator extends ItemIterator
 {
-    /** @var The array of contents of this iterator. */
+    /** @var ?array The array of contents of this iterator. */
     public ?array $theArray;
 
-    /** @var Number of items to iterate through on this page */
+    /** @var int Number of items to iterate through on this page */
     public int $itemsPerPage;
 
-    /** @var The current page. */
+    /** @var int The current page. */
     public int $page;
 
-    /** @var The total number of items. */
+    /** @var int The total number of items. */
     public int $count;
 
-    /** @var Whether or not the iterator was empty from the start */
+    /** @var bool Whether or not the iterator was empty from the start */
     public bool $wasEmpty;
 
     /**

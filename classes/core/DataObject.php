@@ -32,22 +32,22 @@ use PKP\metadata\MetadataSchema;
  */
 class DataObject
 {
-    /** @var Array of object data */
+    /** @var array Array of object data */
     public array $_data = [];
 
-    /** @var Whether this objects loads meta-data adapters from the database */
+    /** @var bool Whether this objects loads meta-data adapters from the database */
     public bool $_hasLoadableAdapters = false;
 
-    /** @var An array of meta-data extraction adapters (one per supported schema) */
+    /** @var array An array of meta-data extraction adapters (one per supported schema) */
     public array $_metadataExtractionAdapters = [];
 
-    /** @var whether extraction adapters have already been loaded from the database */
+    /** @var bool whether extraction adapters have already been loaded from the database */
     public bool $_extractionAdaptersLoaded = false;
 
-    /** @var An array of meta-data injection adapters (one per supported schema) */
+    /** @var array An array of meta-data injection adapters (one per supported schema) */
     public array $_metadataInjectionAdapters = [];
 
-    /** @var Whether injection adapters have already been loaded from the database */
+    /** @var mixed Whether injection adapters have already been loaded from the database */
     public mixed $_injectionAdaptersLoaded = false;
 
     /** @var Conversion table for locales */

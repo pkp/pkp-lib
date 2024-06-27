@@ -73,13 +73,13 @@ class PKPComponentRouter extends PKPRouter
     // NB: Please do not access directly but
     // only via their respective getters/setters
     //
-    /** @var the requested component handler */
+    /** @var ?string the requested component handler */
     public ?string $_component = null;
-    /** @var the requested operation */
+    /** @var ?string the requested operation */
     public ?string $_op = null;
-    /** @var the rpc service endpoint parts from the request */
+    /** @var mixed the rpc service endpoint parts from the request */
     public mixed $_rpcServiceEndpointParts = false;
-    /** @var the rpc service endpoint the request was routed to */
+    /** @var mixed the rpc service endpoint the request was routed to */
     public mixed $_rpcServiceEndpoint = false;
 
 

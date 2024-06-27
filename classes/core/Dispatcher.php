@@ -128,7 +128,7 @@ class Dispatcher
         // None of the router handles this request? This is a development-time
         // configuration error.
         if (is_null($router)) {
-            fatalError('None of the configured routers supports this request.');
+            throw new \Exception('None of the configured routers supports this request.');
         }
 
         // Can we serve a cached response?
@@ -316,7 +316,8 @@ class Dispatcher
     public static function handle404()
     {
         header('HTTP/1.0 404 Not Found');
-        fatalError('404 Not Found');
+        echo "<h1>404 Not Found</h1>\n";
+        exit;
     }
 }
 

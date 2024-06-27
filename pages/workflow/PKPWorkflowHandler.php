@@ -43,8 +43,8 @@ use PKP\decision\Decision;
 use PKP\notification\NotificationDAO;
 use PKP\notification\PKPNotification;
 use PKP\plugins\PluginRegistry;
-use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
+use PKP\security\authorization\internal\SubmissionRequiredPolicy;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
@@ -199,8 +199,8 @@ abstract class PKPWorkflowHandler extends Handler
             if ($stageAssignments->isEmpty() && is_array($accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION] ?? null)) {
                 $canPublish = (bool) array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $accessibleWorkflowStages[WORKFLOW_STAGE_ID_PRODUCTION]);
 
-            // Otherwise, check stage assignments
-            // "Recommend only" stage assignments can not publish
+                // Otherwise, check stage assignments
+                // "Recommend only" stage assignments can not publish
             } else {
                 foreach ($stageAssignments as $stageAssignment) {
                     foreach ($workflowUserGroups as $workflowUserGroup) {
@@ -237,7 +237,7 @@ abstract class PKPWorkflowHandler extends Handler
             $submissionContext->getData('urlPath'),
             'decision',
             'record',
-            $submission->getId(),
+            [$submission->getId()],
             [
                 'decision' => '__decision__',
                 'reviewRoundId' => '__reviewRoundId__',

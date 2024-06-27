@@ -19,19 +19,19 @@ namespace PKP\core;
 
 class JSONMessage
 {
-    /** @var The status of an event (e.g. false if form validation fails). */
+    /** @var bool The status of an event (e.g. false if form validation fails). */
     public bool $_status;
 
-    /** @var The message to be delivered back to the calling script. */
+    /** @var mixed The message to be delivered back to the calling script. */
     public mixed $_content;
 
-    /** @var ID for DOM element that will be replaced. */
+    /** @var string ID for DOM element that will be replaced. */
     public string $_elementId;
 
-    /** @var List of JS events generated on the server side. */
+    /** @var array List of JS events generated on the server side. */
     public array $_events = [];
 
-    /** @var Set of additional attributes for special cases. */
+    /** @var array Set of additional attributes for special cases. */
     public array $_additionalAttributes;
 
     /**

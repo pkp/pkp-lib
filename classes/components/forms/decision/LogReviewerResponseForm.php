@@ -37,15 +37,15 @@ class LogReviewerResponseForm extends FormComponent
             'label' => __('editor.review.logResponse.form.detail'),
             'options' => [
                 [
-                    'value' => 1,
+                    'value' => '1',
                     'label' => __('editor.review.logResponse.form.option.accepted'),
                 ],
                 [
-                    'value' => 0,
+                    'value' => '0',
                     'label' => __('editor.review.logResponse.form.option.declined'),
                 ],
             ],
-            'value' => false,
+            'value' => '',
             'type' => 'radio',
             'isRequired' => true,
             'description' => __('editor.review.logResponse.form.subDetail'),

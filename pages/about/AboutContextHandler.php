@@ -76,6 +76,7 @@ class AboutContextHandler extends Handler
         $allMastheadUserGroups = $collector
             ->filterByContextIds([$context->getId()])
             ->filterByMasthead(true)
+            ->filterExcludeRoles([Role::ROLE_ID_REVIEWER])
             ->orderBy($collector::ORDERBY_ROLE_ID)
             ->getMany()
             ->toArray();
@@ -87,9 +88,6 @@ class AboutContextHandler extends Handler
 
         $mastheadUsers = [];
         foreach ($mastheadRoles as $mastheadUserGroup) {
-            if ($mastheadUserGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
-                continue;
-            }
             foreach ($allUsersIdsGroupedByUserGroupId[$mastheadUserGroup->getId()] ?? [] as $userId) {
                 $user = Repo::user()->get($userId);
                 $userUserGroup = UserUserGroup::withUserId($user->getId())
@@ -151,6 +149,7 @@ class AboutContextHandler extends Handler
         $allMastheadUserGroups = $collector
             ->filterByContextIds([$context->getId()])
             ->filterByMasthead(true)
+            ->filterExcludeRoles([Role::ROLE_ID_REVIEWER])
             ->orderBy($collector::ORDERBY_ROLE_ID)
             ->getMany()
             ->toArray();
@@ -162,9 +161,6 @@ class AboutContextHandler extends Handler
 
         $mastheadUsers = [];
         foreach ($mastheadRoles as $mastheadUserGroup) {
-            if ($mastheadUserGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
-                continue;
-            }
             foreach ($allUsersIdsGroupedByUserGroupId[$mastheadUserGroup->getId()] ?? [] as $userId) {
                 $user = Repo::user()->get($userId);
                 $userUserGroups = UserUserGroup::withUserId($user->getId())

@@ -16,8 +16,10 @@
 namespace PKP\components\forms\context;
 
 use APP\facades\Repo;
+use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
+use PKP\security\Role;
 
 define('FORM_APPEARANCE_MASTHEAD', 'appearanceMasthead');
 
@@ -48,6 +50,7 @@ class PKPAppearanceMastheadForm extends FormComponent
         $allMastheadUserGroups = $collector
             ->filterByContextIds([$context->getId()])
             ->filterByMasthead(true)
+            ->filterExcludeRoles([Role::ROLE_ID_REVIEWER])
             ->orderBy($collector::ORDERBY_ROLE_ID)
             ->getMany()
             ->toArray();
@@ -69,6 +72,10 @@ class PKPAppearanceMastheadForm extends FormComponent
             'value' => array_column($mastheadOptions, 'value'),
             'options' => $mastheadOptions,
             'allowOnlySorting' => true
-        ]));
+        ]))
+            ->addField(new FieldHTML('reviewer', [
+                'label' => __('user.role.reviewers'),
+                'description' => __('manager.setup.editorialMasthead.order.reviewers.description')
+            ]));
     }
 }

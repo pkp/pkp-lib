@@ -147,7 +147,7 @@ class PKPStatsContextController extends PKPBaseController
             if (empty($allowedParams['contextIds'])) {
                 if ($responseCSV) {
                     $csvColumnNames = $this->_getContextReportColumnNames();
-                    return response()->withCSV([], $csvColumnNames, 0);
+                    return response()->withFile([], $csvColumnNames, 0);
                 }
                 return response()->json([
                     'items' => [],
@@ -176,7 +176,7 @@ class PKPStatsContextController extends PKPBaseController
         $itemsMax = $statsService->getCount($allowedParams);
         if ($responseCSV) {
             $csvColumnNames = $this->_getContextReportColumnNames();
-            return response()->withCSV($items, $csvColumnNames, $itemsMax);
+            return response()->withFile($items, $csvColumnNames, $itemsMax);
         }
 
         return response()->json([
@@ -236,7 +236,7 @@ class PKPStatsContextController extends PKPBaseController
                 $emptyTimeline = $statsService->getEmptyTimelineIntervals($dateStart, $dateEnd, $allowedParams['timelineInterval']);
                 if ($responseCSV) {
                     $csvColumnNames = $statsService->getTimelineReportColumnNames();
-                    return response()->withCSV($emptyTimeline, $csvColumnNames, 0);
+                    return response()->withFile($emptyTimeline, $csvColumnNames, 0);
                 }
                 return response()->json($emptyTimeline, Response::HTTP_OK);
             }
@@ -245,7 +245,7 @@ class PKPStatsContextController extends PKPBaseController
         $data = $statsService->getTimeline($allowedParams['timelineInterval'], $allowedParams);
         if ($responseCSV) {
             $csvColumnNames = $statsService->getTimelineReportColumnNames();
-            return response()->withCSV($data, $csvColumnNames, count($data));
+            return response()->withFile($data, $csvColumnNames, count($data));
         }
 
         return response()->json($data, Response::HTTP_OK);
@@ -305,7 +305,7 @@ class PKPStatsContextController extends PKPBaseController
         if ($responseCSV) {
             $csvColumnNames = $this->_getContextReportColumnNames();
             $items = [$this->getItemForCSV($context->getId(), $contextViews)];
-            return response()->withCSV($items, $csvColumnNames, 1);
+            return response()->withFile($items, $csvColumnNames, 1);
         }
 
         return response()->json([
@@ -373,7 +373,7 @@ class PKPStatsContextController extends PKPBaseController
 
         if ($responseCSV) {
             $csvColumnNames = Services::get('contextStats')->getTimelineReportColumnNames();
-            return response()->withCSV($data, $csvColumnNames, count($data));
+            return response()->withFile($data, $csvColumnNames, count($data));
         }
 
         return response()->withJson($data, Response::HTTP_OK);

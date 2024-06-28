@@ -23,16 +23,19 @@ namespace PKP\tests;
 use APP\core\Application;
 use APP\core\PageRouter;
 use APP\core\Request;
+use Illuminate\Support\Facades\Mail;
 use Mockery;
 use PHPUnit\Framework\TestCase;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\Dispatcher;
+use PKP\core\PKPContainer;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 
 abstract class PKPTestCase extends TestCase
 {
+    const MOCKED_GUZZLE_CLIENT_NAME = 'GuzzleClient';
     private array $daoBackup = [];
     private array $registryBackup = [];
     private array $containerBackup = [];
@@ -78,6 +81,9 @@ abstract class PKPTestCase extends TestCase
     {
         parent::setUp();
         $this->setBackupGlobals(true);
+
+        // Set application running unit test
+        PKPContainer::getInstance()->setRunningUnitTests();
 
         // Rather than using "include_once()", ADOdb uses
         // a global variable to maintain the information
@@ -126,6 +132,12 @@ abstract class PKPTestCase extends TestCase
         foreach ($this->getMockedDAOs() as $mockedDao) {
             DAORegistry::registerDAO($mockedDao, $this->daoBackup[$mockedDao]);
         }
+
+        // Delete the mocked guzzle client from registry
+        Registry::delete(self::MOCKED_GUZZLE_CLIENT_NAME);
+
+        // Unset application running unit test
+        PKPContainer::getInstance()->unsetRunningUnitTests();
 
         Mockery::close();
         parent::tearDown();
@@ -238,6 +250,49 @@ abstract class PKPTestCase extends TestCase
         $pieces = preg_split('/\{\$[^}]+\}/', $translation);
         $escapedPieces = array_map(fn ($piece) => preg_quote($piece, '/'), $pieces);
         return '/^' . implode('.*?', $escapedPieces) . '$/u';
+    }
+
+    /**
+     * Mock the mail facade
+     * @see https://laravel.com/docs/10.x/mocking
+     */
+    protected function mockMail(): void
+    {
+        /**
+         * @disregard P1013 PHP Intelephense error suppression
+         * @see https://github.com/bmewburn/vscode-intelephense/issues/568
+         */
+        Mail::shouldReceive()
+            ->withAnyArgs()
+            ->andReturn(null)
+            ->shouldReceive('compileParams')
+            ->withAnyArgs()
+            ->andReturn('');
+    }
+
+    /**
+     * Create mockable guzzle client
+     * @see https://docs.guzzlephp.org/en/stable/testing.html
+     *
+     * @param bool $setToRegistry   Should store it in app registry to be used by call
+     *                              as `Application::get()->getHttpClient()`
+     *
+     * @return \Mockery\MockInterface|\Mockery\LegacyMockInterface
+     */
+    protected function mockGuzzleClient(bool $setToRegistry = true): Mockery\MockInterface|Mockery\LegacyMockInterface
+    {
+        $guzzleClientMock = Mockery::mock(\GuzzleHttp\Client::class)
+            ->makePartial()
+            ->shouldReceive('request')
+            ->withAnyArgs()
+            ->andReturn(new \GuzzleHttp\Psr7\Response)
+            ->getMock();
+
+        if ($setToRegistry) {
+            Registry::set(self::MOCKED_GUZZLE_CLIENT_NAME, $guzzleClientMock);
+        }
+
+        return $guzzleClientMock;
     }
 }
 

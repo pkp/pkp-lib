@@ -33,6 +33,7 @@ use PKP\security\Role;
 use PKP\site\Version;
 use PKP\site\VersionDAO;
 use PKP\submission\RepresentationDAOInterface;
+use PKP\tests\PKPTestCase;
 
 interface iPKPApplicationInfoProvider
 {
@@ -302,6 +303,12 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public function getHttpClient()
     {
+        if (PKPContainer::getInstance()->runningUnitTests()) {
+            $client = Registry::get(PKPTestCase::MOCKED_GUZZLE_CLIENT_NAME);
+            if ($client) {
+                return $client;
+            }
+        }
         $application = Application::get();
         $userAgent = $application->getName() . '/';
         if (static::isInstalled() && !static::isUpgrading()) {

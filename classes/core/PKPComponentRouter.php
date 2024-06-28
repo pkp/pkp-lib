@@ -317,15 +317,8 @@ class PKPComponentRouter extends PKPRouter
         $componentParts = explode('.', $component);
         $componentName = array_pop($componentParts);
         assert(substr($componentName, -7) == 'Handler');
-        $componentName = PKPString::uncamelize(substr($componentName, 0, -7));
-
-        // uncamelize the component parts
-        $uncamelizedComponentParts = [];
-        foreach ($componentParts as $part) {
-            $uncamelizedComponentParts[] = PKPString::uncamelize($part);
-        }
-        array_push($uncamelizedComponentParts, $componentName);
-        $opName = PKPString::uncamelize($op);
+        $componentName = substr($componentName, 0, -7);
+        $uncamelizedComponentParts = array_map(PKPString::uncamelize(...), [...$componentParts, $componentName]);
 
         //
         // Additional query parameters
@@ -337,21 +330,10 @@ class PKPComponentRouter extends PKPRouter
         //
         $anchor = (empty($anchor) ? '' : '#' . rawurlencode($anchor));
 
-        //
-        // Assemble URL
-        //
         // Context, page, operation and additional path go into the path info.
-        $pathInfoArray = array_merge(
-            $context,
-            [COMPONENT_ROUTER_PATHINFO_MARKER],
-            $uncamelizedComponentParts,
-            [$opName]
-        );
+        $pathInfoArray = [$context, COMPONENT_ROUTER_PATHINFO_MARKER, ...$uncamelizedComponentParts, PKPString::uncamelize($op)];
 
-        // Query parameters
-        $queryParametersArray = $additionalParameters;
-
-        return $this->_urlFromParts($baseUrl, $pathInfoArray, $queryParametersArray, $anchor, $escape);
+        return $this->_urlFromParts($baseUrl, $pathInfoArray, $additionalParameters, $anchor, $escape);
     }
 
     /**

@@ -29,7 +29,7 @@ class ScheduledTaskHelper {
 
 	/**
 	 * Constructor.
-	 * Ovewrites both parameters if one is not passed. 
+	 * Ovewrites both parameters if one is not passed.
 	 * @param $email string (optional)
 	 * @param $contactName string (optional)
 	 */
@@ -140,7 +140,7 @@ class ScheduledTaskHelper {
 
 		if (!$result || !$reportErrorOnly) {
 			$message = $this->getMessage($executionLogFile);
-			
+
 			if ($result) {
 				// Success.
 				$type = SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED;
@@ -165,13 +165,13 @@ class ScheduledTaskHelper {
 		if (!$executionLogFile) {
 			return __('admin.scheduledTask.noLog');
 		}
-		
+
 		$request = Application::get()->getRequest();
 		$router = $request->getRouter();
 		$downloadLogUrl = $router->url($request, 'index', 'admin', 'downloadScheduledTaskLogFile', null, array('file' => basename($executionLogFile)));
 		return __('admin.scheduledTask.downloadLog', array(
 			'url' => $downloadLogUrl,
-			'softwareName' => __(Application::getNameKey()),
+			'softwareName' => __(Application::get()->getNameKey()),
 		));
 	}
 
@@ -184,8 +184,8 @@ class ScheduledTaskHelper {
 	static function clearExecutionLogs() {
 		import('lib.pkp.classes.file.PrivateFileManager');
 		$fileMgr = new PrivateFileManager();
-	
-		$fileMgr->rmtree($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR);	
+
+		$fileMgr->rmtree($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR);
 	}
 
 	/**
@@ -196,7 +196,7 @@ class ScheduledTaskHelper {
 		import('lib.pkp.classes.file.PrivateFileManager');
 		$fileMgr = new PrivateFileManager();
 
-		$fileMgr->downloadByPath($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR . DIRECTORY_SEPARATOR . $file);	
+		$fileMgr->downloadByPath($fileMgr->getBasePath() . DIRECTORY_SEPARATOR . SCHEDULED_TASK_EXECUTION_LOG_DIR . DIRECTORY_SEPARATOR . $file);
 	}
 
 

@@ -16,6 +16,7 @@ use PKP\scheduledTask\ScheduledTask;
 use PKP\task\RemoveExpiredInvitations;
 use PKP\scheduledTask\ScheduledTaskDAO;
 use Illuminate\Console\Scheduling\Event;
+use PKP\scheduledTask\ScheduleTaskRunner;
 use Illuminate\Console\Scheduling\Schedule;
 use PKP\task\RemoveUnvalidatedExpiredUsers;
 use PKP\plugins\interfaces\HasTaskScheduler;
@@ -132,12 +133,12 @@ abstract class PKPScheduler
     {
         // We only want to load all plugins and register schedule in following way if running on CLI mode
         // as in non cli mode, schedule tasks should be registered from the plugin's `register` method
-        // otherwise it will be just double try to register which is memory and time consuming.
+        // otherwise it will be just double try to register which is memory and time expensive.
         if (!runOnCLI()) {
             return;
         }
 
-        $plugins = PluginRegistry::loadAllPlugins();
+        $plugins = PluginRegistry::loadAllPlugins(true);
 
         foreach ($plugins as $name => $plugin) {
             if (!$plugin instanceof HasTaskScheduler) {
@@ -146,5 +147,15 @@ abstract class PKPScheduler
 
             $plugin->registerSchedules($this);
         }
+    }
+
+    public function runWebBasedScheduleTaskRunner(): void
+    {
+        (new ScheduleTaskRunner(
+            $this->schedule,
+            app()->get(\Illuminate\Contracts\Events\Dispatcher::class),
+            app()->get(\Illuminate\Contracts\Cache\Repository::class),
+            app()->get(\Illuminate\Contracts\Debug\ExceptionHandler::class)
+        ))->run();
     }
 }

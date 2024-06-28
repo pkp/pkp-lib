@@ -17,12 +17,6 @@
 namespace PKP\core;
 
 use APP\core\Application;
-use Illuminate\Support\Str;
-
-use PKP\core\PKPConsoleCommandServiceProvider;
-
-use PKP\core\PKPScheduleServiceProvider;
-
 use APP\core\AppServiceProvider;
 use Exception;
 use Illuminate\Config\Repository;
@@ -35,6 +29,10 @@ use Illuminate\Http\Response;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\Str;
+use PKP\core\PKPAppKey;
+use PKP\core\PKPConsoleCommandServiceProvider;
+use PKP\core\PKPScheduleServiceProvider;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
@@ -555,11 +553,6 @@ class PKPContainer extends Container
     {
         return Application::isUnderMaintenance();
     }
-
-    // public function isLocal(): bool
-    // {
-    //     return true;
-    // }
 
     /**
      * Get or check the current application environment.

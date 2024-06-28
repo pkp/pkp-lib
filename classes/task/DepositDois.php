@@ -26,7 +26,7 @@ class DepositDois extends ScheduledTask
     /**
      * @copydoc ScheduledTask::getName()
      */
-    public function getName()
+    public function getName(): string
     {
         return __('admin.scheduledTask.depositDois');
     }
@@ -34,7 +34,7 @@ class DepositDois extends ScheduledTask
     /**
      * @inheritDoc
      */
-    protected function executeActions()
+    protected function executeActions(): bool
     {
         /** @var ContextService $contextService */
         $contextService = Services::get('context');

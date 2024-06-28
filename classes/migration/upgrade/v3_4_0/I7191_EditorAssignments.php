@@ -46,6 +46,9 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
     {
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
             $table->bigInteger('user_group_id')->nullable();
+            // Drop the old unique index and introduce a new one with the user_group_id
+            $table->dropUnique('section_editors_unique');
+            $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id', 'user_group_id'], 'section_editors_unique');
         });
 
         $this->setUserGroup();

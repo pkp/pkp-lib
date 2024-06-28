@@ -49,13 +49,9 @@ class PluginGalleryDAO extends \PKP\db\DAO
      * Get a set of GalleryPlugin objects describing the available
      * compatible plugins in their newest versions.
      *
-     * @param PKPApplication $application
-     * @param string $category Optional category name to use as filter
-     * @param string $search Optional text to use as filter
-     *
-     * @return array GalleryPlugin objects
+     * @return GalleryPlugin[]
      */
-    public function getNewestCompatible($application, $category = null, $search = null)
+    public function getNewestCompatible(PKPApplication $application, ?string $category = null, ?string $search = null): array
     {
         $doc = $this->_getDocument();
         $plugins = [];
@@ -78,8 +74,6 @@ class PluginGalleryDAO extends \PKP\db\DAO
 
     /**
      * Get the external Plugin XML document
-     *
-     * @return ?string
      */
     protected function getExternalDocument(): ?string
     {
@@ -111,8 +105,6 @@ class PluginGalleryDAO extends \PKP\db\DAO
 
     /**
      * Get the cached Plugin XML document
-     *
-     * @return ?string
      */
     protected function getCachedDocument(): ?string
     {
@@ -122,10 +114,8 @@ class PluginGalleryDAO extends \PKP\db\DAO
 
     /**
      * Get the DOM document for the plugin gallery.
-     *
-     * @return DOMDocument
      */
-    private function _getDocument()
+    private function _getDocument(): DOMDocument
     {
         $doc = new DOMDocument('1.0', 'utf-8');
         $doc->loadXML($this->getCachedDocument());
@@ -135,10 +125,8 @@ class PluginGalleryDAO extends \PKP\db\DAO
 
     /**
      * Construct a new data object.
-     *
-     * @return GalleryPlugin
      */
-    public function newDataObject()
+    public function newDataObject(): GalleyPlugin
     {
         return new GalleryPlugin();
     }
@@ -146,13 +134,8 @@ class PluginGalleryDAO extends \PKP\db\DAO
     /**
      * Build a GalleryPlugin from a DOM element, using the newest compatible
      * release with the supplied Application.
-     *
-     * @param DOMElement $element
-     * @param Application $application
-     *
-     * @return GalleryPlugin|null, if no compatible plugin was available
      */
-    protected function _compatibleFromElement($element, $application)
+    protected function _compatibleFromElement(DOMElement $element, PKPApplication $application): ?GalleryPlugin
     {
         $plugin = $this->newDataObject();
         $plugin->setCategory($element->getAttribute('category'));
@@ -203,10 +186,8 @@ class PluginGalleryDAO extends \PKP\db\DAO
 
     /**
      * Handle a maintainer element
-     *
-     * @param GalleryPlugin $plugin
      */
-    public function _handleMaintainer($element, $plugin)
+    public function _handleMaintainer(DOMElement $element, GalleryPlugin $plugin): void
     {
         for ($n = $element->firstChild; $n; $n = $n->nextSibling) {
             if (!($n instanceof DOMElement)) {
@@ -231,11 +212,8 @@ class PluginGalleryDAO extends \PKP\db\DAO
 
     /**
      * Handle a release element
-     *
-     * @param GalleryPlugin $plugin
-     * @param PKPApplication $application
      */
-    public function _handleRelease($element, $plugin, $application)
+    public function _handleRelease(DOMElement $element, GalleryPlugin $plugin, PKPApplication $application): bool
     {
         $release = [
             'date' => strtotime($element->getAttribute('date')),
@@ -289,12 +267,9 @@ class PluginGalleryDAO extends \PKP\db\DAO
      * Handle a compatibility element, fishing out the most recent statement
      * of compatibility.
      *
-     * @param GalleryPlugin $plugin
-     * @param PKPApplication $application
-     *
      * @return bool True iff a compatibility statement matched this app
      */
-    public function _handleCompatibility($element, $plugin, $application)
+    public function _handleCompatibility(DOMElement $element, GalleryPlugin $plugin, PKPApplication $application): bool
     {
         // Check that the compatibility statement refers to this app
         if ($element->getAttribute('application') != $application->getName()) {

@@ -37,6 +37,10 @@ use Throwable;
 class PKPContainer extends Container
 {
     /**
+     * Define if the app is currently running a unit test
+     */
+    private bool $isRunningUnitTest = false;
+    /**
      * @var string The base path of the application, needed for base_path helper
      */
     protected $basePath;
@@ -175,12 +179,14 @@ class PKPContainer extends Container
         // will spin through them and register them with the application, which
         // serves as a convenience layer while registering a lot of bindings.
         if (property_exists($provider, 'bindings')) {
+            /** @disregard P1014 PHP Intelephense error suppression */
             foreach ($provider->bindings as $key => $value) {
                 $this->bind($key, $value);
             }
         }
 
         if (property_exists($provider, 'singletons')) {
+            /** @disregard P1014 PHP Intelephense error suppression */
             foreach ($provider->singletons as $key => $value) {
                 $key = is_int($key) ? $value : $key;
                 $this->singleton($key, $value);
@@ -523,14 +529,28 @@ class PKPContainer extends Container
     }
 
     /**
-     * Override Laravel method; always false.
+     * Override the Laravel method--defaults to false.
      * Prevents the undefined method error when the Log Manager tries to determine the driver
-     *
-     * @return bool
      */
-    public function runningUnitTests()
+   public function runningUnitTests(): bool
+   {
+       return $this->isRunningUnitTest;
+   }
+
+    /**
+     * Set the app running unit test
+     */
+   public function setRunningUnitTests(): void
+   {
+       $this->isRunningUnitTest = true;
+   }
+
+    /**
+     * Unset the app running unit test
+     */
+    public function unsetRunningUnitTests(): void
     {
-        return false;
+        $this->isRunningUnitTest = false;
     }
 
     /**

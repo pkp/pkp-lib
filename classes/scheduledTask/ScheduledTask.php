@@ -20,30 +20,36 @@
 namespace PKP\scheduledTask;
 
 use PKP\config\Config;
+use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\core\Core;
 use PKP\file\PrivateFileManager;
 
 abstract class ScheduledTask
 {
-    /** @var array task arguments */
-    private $_args;
+    /**
+     * Task arguments
+     */
+    private array $_args;
 
-    /** @var ?string This process id. */
-    private $_processId = null;
+    /**
+     * This process id
+     */
+    private ?string $_processId = null;
 
-    /** @var string File path in which execution log messages will be written. */
-    private $_executionLogFile;
+    /**
+     * File path in which execution log messages will be written.
+     */
+    private string $_executionLogFile;
 
-    /** @var ScheduledTaskHelper */
-    private $_helper;
-
+    /** 
+     * The schedule task helper
+     */
+    private ?ScheduledTaskHelper $_helper = null;
 
     /**
      * Constructor.
-     *
-     * @param array $args
      */
-    public function __construct($args = [])
+    public function __construct(array $args = [])
     {
         $this->_args = $args;
         $this->_processId = uniqid();
@@ -65,40 +71,30 @@ abstract class ScheduledTask
         }
     }
 
-
-    //
-    // Protected methods.
-    //
     /**
      * Get this process id.
-     *
-     * @return string
      */
-    public function getProcessId()
+    public function getProcessId(): ?string
     {
         return $this->_processId;
     }
 
     /**
      * Get scheduled task helper object.
-     *
-     * @return ScheduledTaskHelper
      */
-    public function getHelper()
+    public function getHelper(): ScheduledTaskHelper
     {
         if (!$this->_helper) {
-            $this->_helper = new ScheduledTaskHelper();
+            $this->_helper = new ScheduledTaskHelper;
         }
+        
         return $this->_helper;
     }
 
     /**
-     * Get the scheduled task name. Override to
-     * define a custom task name.
-     *
-     * @return string
+     * Get the scheduled task name. Override to define a custom task name.
      */
-    public function getName()
+    public function getName(): string
     {
         return __('admin.scheduledTask');
     }
@@ -106,11 +102,10 @@ abstract class ScheduledTask
     /**
      * Add an entry into the execution log.
      *
-     * @param string $message A translated message.
-     * @param string $type (optional) One of the ScheduledTaskHelper
-     * SCHEDULED_TASK_MESSAGE_TYPE... constants.
+     * @param string        $message    A translated message.
+     * @param string|null   $type       One of the ScheduledTaskHelper SCHEDULED_TASK_MESSAGE_TYPE... constants
      */
-    public function addExecutionLogEntry($message, $type = null)
+    public function addExecutionLogEntry(string $message, ?string $type = null): void
     {
         $logFile = $this->_executionLogFile;
 
@@ -135,30 +130,21 @@ abstract class ScheduledTask
         fclose($fp);
     }
 
-
-    //
-    // Protected abstract methods.
-    //
     /**
      * Implement this method to execute the task actions.
      *
-     * @return bool true iff success
+     * @return bool true if succeed
      */
-    abstract protected function executeActions();
+    abstract protected function executeActions(): bool;
 
-
-    //
-    // Public methods.
-    //
     /**
      * Make sure the execution process follow the required steps.
      * This is not the method one should extend to implement the
      * task actions, for this see ScheduledTask::executeActions().
      *
-     * @return bool Whether or not the task was succesfully
-     * executed.
+     * @return bool Whether or not the task was succesfully executed.
      */
-    public function execute()
+    public function execute(): bool
     {
         $this->addExecutionLogEntry(Config::getVar('general', 'base_url'));
         $this->addExecutionLogEntry(__('admin.scheduledTask.startTime'), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);

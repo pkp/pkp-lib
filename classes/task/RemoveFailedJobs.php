@@ -25,7 +25,7 @@ class RemoveFailedJobs extends ScheduledTask
     /**
      * @copydoc ScheduledTask::getName()
      */
-    public function getName()
+    public function getName(): string
     {
         return __('admin.scheduledTask.removeFailedJobs');
     }
@@ -34,7 +34,7 @@ class RemoveFailedJobs extends ScheduledTask
     /**
      * @copydoc ScheduledTask::executeActions()
      */
-    public function executeActions()
+    public function executeActions(): bool
     {
         $cleanUpPeriod = (int) Config::getVar('queues', 'delete_failed_jobs_after', null);
 

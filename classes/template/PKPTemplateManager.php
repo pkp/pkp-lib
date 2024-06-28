@@ -1717,6 +1717,9 @@ class PKPTemplateManager extends Smarty
             }
             unset($parameters[$parameter]);
         }
+        if (is_scalar($path)) {
+            $path = [$path];
+        }
 
         // Merge parameters specified in the {url paramName=paramValue} format with
         // those optionally supplied in {url params=$someAssociativeArray} format

@@ -34,11 +34,9 @@ abstract class ContextDAO extends SchemaDAO
     /**
      * Retrieve the IDs and names of all contexts in an associative array.
      *
-     * @param bool $enabledOnly true iff only enabled contexts are to be included
-     *
      * @return array<int,string>
      */
-    public function getNames($enabledOnly = false)
+    public function getNames(bool $enabledOnly = false): array
     {
         $contexts = [];
         $iterator = $this->getAll($enabledOnly);
@@ -68,12 +66,8 @@ abstract class ContextDAO extends SchemaDAO
 
     /**
      * Check if a context exists with a specified path.
-     *
-     * @param string $path the path for the context
-     *
-     * @return bool
      */
-    public function existsByPath($path)
+    public function existsByPath(string $path): bool
     {
         $result = $this->retrieve(
             'SELECT COUNT(*) AS row_count FROM ' . $this->tableName . ' WHERE path = ?',

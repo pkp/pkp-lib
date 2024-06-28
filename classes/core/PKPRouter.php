@@ -254,7 +254,7 @@ abstract class PKPRouter
      * @param $newContext Optional contextual paths
      * @param $handler Optional name of the handler to invoke
      * @param $op Optional name of operation to invoke
-     * @param $path Optional string or array of args to pass to handler
+     * @param $path Optional array of args to pass to handler
      * @param $params Optional set of name => value pairs to pass as user parameters
      * @param $anchor Optional name of anchor to add to URL
      * @param $escape Whether or not to escape ampersands, square brackets, etc. for this URL; default false.
@@ -266,7 +266,7 @@ abstract class PKPRouter
         ?string $newContext = null,
         ?string $handler = null,
         ?string $op = null,
-        mixed $path = null,
+        ?array $path = null,
         ?array $params = null,
         ?string $anchor = null,
         bool $escape = false
@@ -365,8 +365,7 @@ abstract class PKPRouter
      *
      * @param $newContext Context path (defaulting to the current request's context)
      *
-     * @return An array consisting of the base url as the first
-     *  entry and the context as the remaining entries.
+     * @return An array consisting of the base url and context.
      */
     public function _urlGetBaseAndContext(PKPRequest $request, ?string $newContext = null): array
     {
@@ -382,9 +381,9 @@ abstract class PKPRouter
 
         // Check whether the base URL is overridden.
         if ($overriddenBaseUrl = Config::getVar('general', "base_url[{$contextValue}]")) {
-            return [$overriddenBaseUrl, []];
+            return [$overriddenBaseUrl, null];
         }
-        return [$this->getIndexUrl($request), [$contextValue]];
+        return [$this->getIndexUrl($request), $contextValue];
     }
 
     /**

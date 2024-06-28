@@ -18,8 +18,8 @@ namespace PKP\core;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\config\Config;
 use Illuminate\Support\Facades\Auth;
+use PKP\config\Config;
 use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
@@ -270,31 +270,17 @@ class PKPPageRouter extends PKPRouter
         ?string $newContext = null,
         ?string $page = null,
         ?string $op = null,
-        mixed $path = null,
+        ?array $path = null,
         ?array $params = null,
         ?string $anchor = null,
         bool $escape = false,
         ?string $urlLocaleForPage = null,
     ): string {
         //
-        // Base URL and Context
+        // Base URL, context, and additional path info
         //
-        $baseUrlAndContext = $this->_urlGetBaseAndContext($request, $newContext);
-        $baseUrl = array_shift($baseUrlAndContext);
-        $context = array_shift($baseUrlAndContext);
-
-        //
-        // Additional path info
-        //
-        if (empty($path)) {
-            $additionalPath = [];
-        } else {
-            if (is_array($path)) {
-                $additionalPath = array_map('rawurlencode', $path);
-            } else {
-                $additionalPath = [rawurlencode($path)];
-            }
-        }
+        [$baseUrl, $context] = $this->_urlGetBaseAndContext($request, $newContext);
+        $additionalPath = array_map(rawurlencode(...), $path ?? []);
 
         //
         // Page and Operation
@@ -372,9 +358,9 @@ class PKPPageRouter extends PKPRouter
         // Assemble URL
         //
         // Context, locale?, page, operation and additional path go into the path info.
-        $pathInfoArray = $context;
+        $pathInfoArray = [$context];
         if ($urlLocaleForPage !== '') {
-            [$contextObject, $contextLocales] = $this->_getContextAndLocales($request, $context[0] ?? '');
+            [$contextObject, $contextLocales] = $this->_getContextAndLocales($request, $context ?? '');
             if (count($contextLocales) > 1) {
                 $pathInfoArray[] = $this->_getLocaleForUrl($request, $contextObject, $contextLocales, $urlLocaleForPage);
             }
@@ -418,10 +404,8 @@ class PKPPageRouter extends PKPRouter
 
     /**
      * Get the user's "home" page URL (e.g. where they are sent after login).
-     *
-     * @param PKPRequest $request the request to be routed
      */
-    public function getHomeUrl($request): string
+    public function getHomeUrl(PKPRequest $request): string
     {
         $user = Auth::user(); /** @var \PKP\user\User $user */
         $userId = $user->getId();

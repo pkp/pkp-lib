@@ -1,15 +1,15 @@
 # Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # COUSSY-LACROIX Hélène <helene.coussy-lacroix@u-bordeaux.fr>, 2023.
-# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023.
+# Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-09-22 13:06+0000\n"
-"Last-Translator: Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>\n"
+"PO-Revision-Date: 2024-06-29 17:40+0000\n"
+"Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
 msgstr "Renseignements sur le compte"
@@ -545,3 +545,7 @@ msgstr ""
 
 msgid "user.usernameOrEmail"
 msgstr "Nom d'utilisateur ou courriel"
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr ""
+"L'accès au flux de travail pour les soumissions incomplètes est restreint."

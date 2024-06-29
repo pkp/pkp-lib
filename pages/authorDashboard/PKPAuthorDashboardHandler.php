@@ -241,16 +241,13 @@ abstract class PKPAuthorDashboardHandler extends Handler
         $titleAbstractForm = $this->getTitleAbstractForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
         $citationsForm = new PKPCitationsForm($latestPublicationApiUrl, $latestPublication);
 
-        // Import constants
-        import('classes.components.forms.publication.PublishForm');
-
         $templateMgr->setConstants([
             'STATUS_QUEUED' => PKPSubmission::STATUS_QUEUED,
             'STATUS_PUBLISHED' => PKPSubmission::STATUS_PUBLISHED,
             'STATUS_DECLINED' => PKPSubmission::STATUS_DECLINED,
             'STATUS_SCHEDULED' => PKPSubmission::STATUS_SCHEDULED,
-            'FORM_TITLE_ABSTRACT' => FORM_TITLE_ABSTRACT,
-            'FORM_CITATIONS' => FORM_CITATIONS,
+            'FORM_TITLE_ABSTRACT' => $titleAbstractForm::FORM_TITLE_ABSTRACT,
+            'FORM_CITATIONS' => $citationsForm::FORM_CITATIONS,
         ]);
 
         // Get the submission props without the full publication details. We'll
@@ -306,14 +303,14 @@ abstract class PKPAuthorDashboardHandler extends Handler
         $state = [
             'canEditPublication' => $canEditPublication,
             'components' => [
-                FORM_TITLE_ABSTRACT => $this->getLocalizedForm($titleAbstractForm, $submissionLocale, $locales),
-                FORM_CITATIONS => $this->getLocalizedForm($citationsForm, $submissionLocale, $locales),
+                $titleAbstractForm::FORM_TITLE_ABSTRACT => $this->getLocalizedForm($titleAbstractForm, $submissionLocale, $locales),
+                $citationsForm::FORM_CITATIONS => $this->getLocalizedForm($citationsForm, $submissionLocale, $locales),
                 $contributorsListPanel->id => $contributorsListPanel->getConfig(),
             ],
             'currentPublication' => $currentPublicationProps,
             'publicationFormIds' => [
-                FORM_TITLE_ABSTRACT,
-                FORM_CITATIONS,
+                $titleAbstractForm::FORM_TITLE_ABSTRACT,
+                $citationsForm::FORM_CITATIONS,
             ],
             'representationsGridUrl' => $canAccessProductionStage ? $this->_getRepresentationsGridUrl($request, $submission) : '',
             'submission' => $submissionProps,
@@ -336,10 +333,10 @@ abstract class PKPAuthorDashboardHandler extends Handler
 
         if ($metadataEnabled) {
             $templateMgr->setConstants([
-                'FORM_METADATA' => FORM_METADATA,
+                'FORM_METADATA' => $metadataForm::FORM_METADATA,
             ]);
-            $state['components'][FORM_METADATA] = $this->getLocalizedForm($metadataForm, $submissionLocale, $locales);
-            $state['publicationFormIds'][] = FORM_METADATA;
+            $state['components'][$metadataForm::FORM_METADATA] = $this->getLocalizedForm($metadataForm, $submissionLocale, $locales);
+            $state['publicationFormIds'][] = $metadataForm::FORM_METADATA;
         }
 
         $templateMgr->setState($state);

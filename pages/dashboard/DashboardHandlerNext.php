@@ -15,6 +15,7 @@
 
 namespace PKP\pages\dashboard;
 
+use APP\components\form\publication\PublishForm;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
@@ -164,7 +165,6 @@ class DashboardHandlerNext extends Handler
 
 
         class_exists(\APP\components\forms\publication\AssignToIssueForm::class); // Force define of FORM_ASSIGN_TO_ISSUE
-        class_exists(\APP\components\forms\publication\PublishForm::class); // Force define of FORM_PUBLISH
 
         $templateMgr->setConstants([
             'STAGE_STATUS_SUBMISSION_UNASSIGNED' => Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED,
@@ -224,7 +224,7 @@ class DashboardHandlerNext extends Handler
             'SUBMISSION_FILE_PRODUCTION_READY' => SubmissionFile::SUBMISSION_FILE_PRODUCTION_READY,
             'SUBMISSION_FILE_PROOF' => SubmissionFile::SUBMISSION_FILE_PROOF,
             'FORM_ASSIGN_TO_ISSUE' => FORM_ASSIGN_TO_ISSUE,
-            'FORM_PUBLISH' => FORM_PUBLISH,
+            'FORM_PUBLISH' => PublishForm::FORM_PUBLISH,
 
             'REVIEWER_SELECT_ADVANCED_SEARCH' => PKPReviewerGridHandler::REVIEWER_SELECT_ADVANCED_SEARCH,
 

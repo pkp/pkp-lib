@@ -19,14 +19,10 @@ use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 
-define('FORM_SITE_INFO', 'siteInfo');
-
 class PKPSiteInformationForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_SITE_INFO;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_SITE_INFO = 'siteInfo';
+    public $id = self::FORM_SITE_INFO;
     public $method = 'PUT';
 
     /**

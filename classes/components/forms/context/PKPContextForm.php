@@ -22,14 +22,10 @@ use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\facades\Locale;
 
-define('FORM_CONTEXT', 'context');
-
 class PKPContextForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_CONTEXT;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_CONTEXT = 'context';
+    public $id = self::FORM_CONTEXT;
     public $method = 'POST';
 
     /**

@@ -26,7 +26,7 @@
 		<tab id="license" label="{translate key="submission.license"}">
 			{help file="settings/distribution-settings" class="pkp_help_tab"}
 			<pkp-form
-				v-bind="components.{$smarty.const.FORM_LICENSE}"
+				v-bind="components.{PKP\components\forms\context\PKPLicenseForm::FORM_LICENSE}"
 				@set="set"
 			/>
 		</tab>
@@ -49,14 +49,14 @@
 		<tab id="indexing" label="{translate key="manager.setup.searchEngineIndexing"}">
 			{help file="settings/distribution-settings" section="indexing" class="pkp_help_tab"}
 			<pkp-form
-				v-bind="components.{$smarty.const.FORM_SEARCH_INDEXING}"
+				v-bind="components.{PKP\components\forms\context\PKPSearchIndexingForm::FORM_SEARCH_INDEXING}"
 				@set="set"
 			/>
 		</tab>
 		<tab id="payments" label="{translate key="manager.paymentMethod"}">
 			{help file="settings/distribution-settings" section="payments" class="pkp_help_tab"}
 			<pkp-form
-				v-bind="components.{$smarty.const.FORM_PAYMENT_SETTINGS}"
+				v-bind="components.{PKP\components\forms\context\PKPPaymentSettingsForm::FORM_PAYMENT_SETTINGS}"
 				@set="set"
 			/>
 		</tab>
@@ -64,7 +64,7 @@
 		<tab id="statistics" label="{translate key="manager.setup.statistics"}">
 			{help file="settings/distribution-settings" section="statistics" class="pkp_help_tab"}
 			<pkp-form
-				v-bind="components.{$smarty.const.FORM_CONTEXT_STATISTICS}"
+				v-bind="components.{PKP\components\forms\context\PKPContextStatisticsForm::FORM_CONTEXT_STATISTICS}"
 				@set="set"
 			/>
 		</tab>

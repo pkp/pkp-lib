@@ -16,6 +16,7 @@
 
 namespace PKP\pages\workflow;
 
+use APP\components\forms\publication\PublishForm;
 use APP\core\Application;
 use APP\core\PageRouter;
 use APP\core\Request;
@@ -294,19 +295,20 @@ abstract class PKPWorkflowHandler extends Handler
             $canEditPublication
         );
 
-        // Import constants
-        import('classes.components.forms.publication.PublishForm');
-
         $templateMgr->setConstants([
             'STATUS_QUEUED' => PKPSubmission::STATUS_QUEUED,
             'STATUS_PUBLISHED' => PKPSubmission::STATUS_PUBLISHED,
             'STATUS_DECLINED' => PKPSubmission::STATUS_DECLINED,
             'STATUS_SCHEDULED' => PKPSubmission::STATUS_SCHEDULED,
-            'FORM_CITATIONS' => FORM_CITATIONS,
-            'FORM_PUBLICATION_LICENSE' => FORM_PUBLICATION_LICENSE,
-            'FORM_PUBLISH' => FORM_PUBLISH,
-            'FORM_TITLE_ABSTRACT' => FORM_TITLE_ABSTRACT,
+            'FORM_CITATIONS' => $citationsForm::FORM_CITATIONS,
+            'FORM_PUBLICATION_LICENSE' => $publicationLicenseForm::FORM_PUBLICATION_LICENSE,
+            'FORM_PUBLISH' => PublishForm::FORM_PUBLISH,
+            'FORM_TITLE_ABSTRACT' => $titleAbstractForm::FORM_TITLE_ABSTRACT,
         ]);
+        $templateMgr->registerClass($publicationLicenseForm::class, $publicationLicenseForm::class); // FORM_PUBLICATION_LICENSE
+        $templateMgr->registerClass(PublishForm::class, PublishForm::class); // FORM_PUBLISH;
+        $templateMgr->registerClass($titleAbstractForm::class, $titleAbstractForm::class); // FORM_TITLE_ABSTRACT
+        $templateMgr->registerClass($citationsForm::class, $citationsForm::class); // FORM_CITATIONS
 
         // Get the submission props without the full publication details. We'll
         // retrieve just the publication information that we need separately to
@@ -345,10 +347,10 @@ abstract class PKPWorkflowHandler extends Handler
             'decisionUrl' => $decisionUrl,
             'editorialHistoryUrl' => $editorialHistoryUrl,
             'publicationFormIds' => [
-                FORM_CITATIONS,
-                FORM_PUBLICATION_LICENSE,
-                FORM_PUBLISH,
-                FORM_TITLE_ABSTRACT,
+                $citationsForm::FORM_CITATIONS,
+                $publicationLicenseForm::FORM_PUBLICATION_LICENSE,
+                PublishForm::FORM_PUBLISH,
+                $titleAbstractForm::FORM_TITLE_ABSTRACT,
             ],
             'publicationList' => $publicationList,
             'publicationTabsLabel' => __('publication.version.details'),
@@ -380,10 +382,10 @@ abstract class PKPWorkflowHandler extends Handler
 
         if ($metadataEnabled) {
             $templateMgr->setConstants([
-                'FORM_METADATA' => FORM_METADATA,
+                'FORM_METADATA' => PKPMetadataForm::FORM_METADATA,
             ]);
-            $state['components'][FORM_METADATA] = $this->getLocalizedForm($metadataForm, $submissionLocale, $locales);
-            $state['publicationFormIds'][] = FORM_METADATA;
+            $state['components'][PKPMetadataForm::FORM_METADATA] = $this->getLocalizedForm($metadataForm, $submissionLocale, $locales);
+            $state['publicationFormIds'][] = PKPMetadataForm::FORM_METADATA;
         }
 
         // Add the identifiers form if one or more identifier is enabled
@@ -398,10 +400,11 @@ abstract class PKPWorkflowHandler extends Handler
         if ($identifiersEnabled) {
             $identifiersForm = new \PKP\components\forms\publication\PKPPublicationIdentifiersForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext);
             $templateMgr->setConstants([
-                'FORM_PUBLICATION_IDENTIFIERS' => FORM_PUBLICATION_IDENTIFIERS,
+                'FORM_PUBLICATION_IDENTIFIERS' => $identifiersForm::FORM_PUBLICATION_IDENTIFIERS,
             ]);
-            $state['components'][FORM_PUBLICATION_IDENTIFIERS] = $identifiersForm->getConfig();
-            $state['publicationFormIds'][] = FORM_PUBLICATION_IDENTIFIERS;
+            $state['components'][$identifiersForm::FORM_PUBLICATION_IDENTIFIERS] = $identifiersForm->getConfig();
+            $state['publicationFormIds'][] = $identifiersForm::FORM_PUBLICATION_IDENTIFIERS;
+            $templateMgr->registerClass($identifiersForm::class, $identifiersForm::class); // FORM_PUBLICATION_IDENTIFIERS
         }
 
         // Add the revision decision/recommendation forms if this app supports a review stage
@@ -411,8 +414,8 @@ abstract class PKPWorkflowHandler extends Handler
             $state['components'][$selectRevisionDecisionForm->id] = $selectRevisionDecisionForm->getConfig();
             $state['components'][$selectRevisionRecommendationForm->id] = $this->getLocalizedForm($selectRevisionRecommendationForm, $submissionLocale, $locales);
             $templateMgr->setConstants([
-                'FORM_SELECT_REVISION_DECISION' => FORM_SELECT_REVISION_DECISION,
-                'FORM_SELECT_REVISION_RECOMMENDATION' => FORM_SELECT_REVISION_RECOMMENDATION,
+                'FORM_SELECT_REVISION_DECISION' => $selectRevisionDecisionForm::FORM_SELECT_REVISION_DECISION,
+                'FORM_SELECT_REVISION_RECOMMENDATION' => $selectRevisionRecommendationForm::FORM_SELECT_REVISION_RECOMMENDATION,
             ]);
         }
 

@@ -19,14 +19,10 @@ use APP\decision\Decision;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 
-define('FORM_SELECT_REVISION_DECISION', 'selectRevisionDecision');
-
 class SelectRevisionDecisionForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_SELECT_REVISION_DECISION;
-
-    /** @copydoc FormComponent::$action */
+    public const FORM_SELECT_REVISION_DECISION = 'selectRevisionDecision';
+    public $id = self::FORM_SELECT_REVISION_DECISION;
     public $action = FormComponent::ACTION_EMIT;
 
     /**

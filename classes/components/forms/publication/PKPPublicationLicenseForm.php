@@ -21,14 +21,10 @@ use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 
-define('FORM_PUBLICATION_LICENSE', 'publicationLicense');
-
 class PKPPublicationLicenseForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_PUBLICATION_LICENSE;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_PUBLICATION_LICENSE = 'publicationLicense';
+    public $id = self::FORM_PUBLICATION_LICENSE;
     public $method = 'PUT';
 
     /**

@@ -107,10 +107,11 @@ class PublishHandler extends Handler
 
         $settingsData = [
             'components' => [
-                FORM_PUBLISH => $publishForm->getConfig(),
+                PublishForm::FORM_PUBLISH => $publishForm->getConfig(),
             ],
         ];
 
+        $templateMgr->registerClass(PublishForm::class, PublishForm::class);
         $templateMgr->assign('publishData', $settingsData);
 
         return $templateMgr->fetchJson('controllers/modals/publish/publish.tpl');

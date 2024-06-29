@@ -198,19 +198,11 @@ class PKPComponentRouter extends PKPRouter
                         $componentInstance = new $className();
                         break;
 
-                    case file_exists("{$componentFileNamePart}.inc.php"):
-                        // This behaviour is DEPRECATED as of 3.4.0.
-                        break;
-
                     case file_exists(PKP_LIB_PATH . "/{$componentFileNamePart}.php"):
                         $className = 'PKP\\' . strtr($componentFileNamePart, '/', '\\');
                         $componentInstance = new $className();
                         break;
 
-                    case file_exists(PKP_LIB_PATH . "/{$componentFileNamePart}.inc.php"):
-                        // This behaviour is DEPRECATED as of 3.4.0.
-                        $component = 'lib.pkp.' . $component;
-                        break;
 
                     default:
                         // Request to non-existent handler
@@ -331,7 +323,7 @@ class PKPComponentRouter extends PKPRouter
         $anchor = (empty($anchor) ? '' : '#' . rawurlencode($anchor));
 
         // Context, page, operation and additional path go into the path info.
-        $pathInfoArray = [$context, COMPONENT_ROUTER_PATHINFO_MARKER, ...$uncamelizedComponentParts, PKPString::uncamelize($op)];
+        $pathInfoArray = [...($context ? [$context] : []), COMPONENT_ROUTER_PATHINFO_MARKER, ...$uncamelizedComponentParts, PKPString::uncamelize($op)];
 
         return $this->_urlFromParts($baseUrl, $pathInfoArray, $additionalParameters, $anchor, $escape);
     }

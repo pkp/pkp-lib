@@ -26,11 +26,10 @@ use PKP\submission\SubmissionDisciplineDAO;
 use PKP\submission\SubmissionKeywordDAO;
 use PKP\submission\SubmissionSubjectDAO;
 
-define('FORM_METADATA', 'metadata');
-
 class PKPMetadataForm extends FormComponent
 {
-    public $id = FORM_METADATA;
+    public const FORM_METADATA = 'metadata';
+    public $id = self::FORM_METADATA;
     public $method = 'PUT';
     public Context $context;
     public Publication $publication;

@@ -19,14 +19,10 @@ use APP\core\Application;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 
-define('FORM_SITE_BULK_EMAILS', 'bulkEmails');
-
 class PKPSiteBulkEmailsForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_SITE_BULK_EMAILS;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_SITE_BULK_EMAILS = 'bulkEmails';
+    public $id = self::FORM_SITE_BULK_EMAILS;
     public $method = 'PUT';
 
     /**

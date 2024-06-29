@@ -18,12 +18,10 @@ namespace PKP\components\forms\publication;
 use APP\publication\Publication;
 use PKP\components\forms\FormComponent;
 
-define('FORM_PUBLICATION_IDENTIFIERS', 'publicationIdentifiers');
-
 class PKPPublicationIdentifiersForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_PUBLICATION_IDENTIFIERS;
+    public const FORM_PUBLICATION_IDENTIFIERS = 'publicationIdentifiers';
+    public $id = self::FORM_PUBLICATION_IDENTIFIERS;
 
     /** @copydoc FormComponent::$method */
     public $method = 'PUT';

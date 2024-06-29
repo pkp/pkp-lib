@@ -22,19 +22,15 @@ use PKP\site\Site;
 use PKP\statistics\PKPStatisticsHelper;
 use PKP\task\FileLoader;
 
-define('FORM_SITE_STATISTICS', 'siteStatistics');
-
 class PKPSiteStatisticsForm extends FormComponent
 {
+    public const FORM_SITE_STATISTICS = 'siteStatistics';
+    public $id = self::FORM_SITE_STATISTICS;
+    public $method = 'PUT';
+
     public const COLLECTION_GROUP = 'collection';
     public const STORAGE_GROUP = 'storage';
     public const SUSHI_GROUP = 'sushi';
-
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_SITE_STATISTICS;
-
-    /** @copydoc FormComponent::$method */
-    public $method = 'PUT';
 
     /**
      * Constructor

@@ -21,14 +21,10 @@ use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\facades\Locale;
 
-define('FORM_MASTHEAD', 'masthead');
-
 class PKPMastheadForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_MASTHEAD;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_MASTHEAD = 'masthead';
+    public $id = self::FORM_MASTHEAD;
     public $method = 'PUT';
 
     /**

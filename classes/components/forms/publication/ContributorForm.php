@@ -29,12 +29,11 @@ use PKP\security\Role;
 use PKP\userGroup\UserGroup;
 use Sokil\IsoCodes\IsoCodesFactory;
 
-define('FORM_CONTRIBUTOR', 'contributor');
-
 class ContributorForm extends FormComponent
 {
+    public const FORM_CONTRIBUTOR = 'contributor';
     /** @copydoc FormComponent::$id */
-    public $id = FORM_CONTRIBUTOR;
+    public $id = self::FORM_CONTRIBUTOR;
 
     /** @copydoc FormComponent::$method */
     public $method = 'POST';
@@ -114,9 +113,9 @@ class ContributorForm extends FormComponent
             ]));
         }
         $this->addField(new FieldRichTextarea('biography', [
-                'label' => __('user.biography'),
-                'isMultilingual' => true,
-            ]))
+            'label' => __('user.biography'),
+            'isMultilingual' => true,
+        ]))
             ->addField(new FieldText('affiliation', [
                 'label' => __('user.affiliation'),
                 'isMultilingual' => true,

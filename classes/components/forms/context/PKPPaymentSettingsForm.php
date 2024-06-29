@@ -21,14 +21,10 @@ use PKP\components\forms\FormComponent;
 use PKP\facades\Locale;
 use PKP\plugins\PluginRegistry;
 
-define('FORM_PAYMENT_SETTINGS', 'paymentSettings');
-
 class PKPPaymentSettingsForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_PAYMENT_SETTINGS;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_PAYMENT_SETTINGS = 'paymentSettings';
+    public $id = self::FORM_PAYMENT_SETTINGS;
     public $method = 'PUT';
 
     /**

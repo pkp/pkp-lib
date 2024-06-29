@@ -19,14 +19,10 @@ namespace PKP\components\forms\context;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 
-define('FORM_LISTS', 'lists');
-
 class PKPListsForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_LISTS;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_LISTS = 'lists';
+    public $id = self::FORM_LISTS;
     public $method = 'PUT';
 
     /**

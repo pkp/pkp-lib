@@ -22,14 +22,10 @@ use PKP\components\forms\FieldUploadImage;
 use PKP\components\forms\FormComponent;
 use PKP\plugins\PluginRegistry;
 
-define('FORM_APPEARANCE_SETUP', 'appearanceSetup');
-
 class PKPAppearanceSetupForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_APPEARANCE_SETUP;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_APPEARANCE_SETUP = 'appearanceSetup';
+    public $id = self::FORM_APPEARANCE_SETUP;
     public $method = 'PUT';
 
     /**

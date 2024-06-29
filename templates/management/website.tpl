@@ -31,25 +31,25 @@
 			<tabs :is-side-tabs="true" :track-history="true">
 				<tab id="theme" label="{translate key="manager.setup.theme"}">
 					<theme-form
-						v-bind="components.{$smarty.const.FORM_THEME}"
+						v-bind="components.{PKP\components\forms\context\PKPThemeForm::FORM_THEME}"
 						@set="set"
 					/>
 				</tab>
 				<tab id="appearance-setup" label="{translate key="navigation.setup"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_APPEARANCE_SETUP}"
+						v-bind="components.{APP\components\forms\context\AppearanceSetupForm::FORM_APPEARANCE_SETUP}"
 						@set="set"
 					/>
 				</tab>
 				<tab id="appearance-masthead" label="{translate key="common.editorialMasthead"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_APPEARANCE_MASTHEAD}"
+						v-bind="components.{PKP\components\forms\context\PKPAppearanceMastheadForm::FORM_APPEARANCE_MASTHEAD}"
 						@set="set"
 					/>
 				</tab>
 				<tab id="advanced" label="{translate key="manager.setup.advanced"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_APPEARANCE_ADVANCED}"
+						v-bind="components.{APP\components\forms\context\AppearanceAdvancedForm::FORM_APPEARANCE_ADVANCED}"
 						@set="set"
 					/>
 				</tab>
@@ -62,7 +62,7 @@
 				{if $includeInformationForm}
 					<tab id="information" label="{translate key="manager.website.information"}">
 						<pkp-form
-							v-bind="components.{$smarty.const.FORM_INFORMATION}"
+							v-bind="components.{PKP\components\forms\context\PKPInformationForm::FORM_INFORMATION}"
 							@set="set"
 						/>
 					</tab>
@@ -81,7 +81,7 @@
 				</tab>
 				<tab id="announcements" label="{translate key="manager.setup.announcements"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_ANNOUNCEMENT_SETTINGS}"
+						v-bind="components.{PKP\components\forms\context\PKPAnnouncementSettingsForm::FORM_ANNOUNCEMENT_SETTINGS}"
 						@set="set"
 					/>
 				</tab>
@@ -93,19 +93,19 @@
 				</tab>
 				<tab id="lists" label="{translate key="manager.setup.lists"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_LISTS}"
+						v-bind="components.{PKP\components\forms\context\PKPListsForm::FORM_LISTS}"
 						@set="set"
 					/>
 				</tab>
 				<tab id="privacy" label="{translate key="manager.setup.privacyStatement"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_PRIVACY}"
+						v-bind="components.{PKP\components\forms\context\PKPPrivacyForm::FORM_PRIVACY}"
 						@set="set"
 					/>
 				</tab>
 				<tab id="dateTime" label="{translate key="manager.setup.dateTime"}">
 					<date-time-form
-							v-bind="components.{$smarty.const.FORM_DATE_TIME}"
+							v-bind="components.{PKP\components\forms\context\PKPDateTimeForm::FORM_DATE_TIME}"
 							@set="set"
 					/>
 				</tab>

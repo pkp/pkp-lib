@@ -16,6 +16,7 @@
 
 namespace PKP\pages\admin;
 
+use APP\components\forms\context\ContextForm;
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
@@ -28,8 +29,16 @@ use PDO;
 use PKP\announcement\Collector;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
 use PKP\components\forms\context\PKPAnnouncementSettingsForm;
+use PKP\components\forms\context\PKPContextForm;
+use PKP\components\forms\context\PKPSearchIndexingForm;
+use PKP\components\forms\context\PKPThemeForm;
 use PKP\components\forms\highlight\HighlightForm;
 use PKP\components\forms\site\OrcidSiteSettingsForm;
+use PKP\components\forms\site\PKPSiteAppearanceForm;
+use PKP\components\forms\site\PKPSiteBulkEmailsForm;
+use PKP\components\forms\site\PKPSiteConfigForm;
+use PKP\components\forms\site\PKPSiteInformationForm;
+use PKP\components\forms\site\PKPSiteStatisticsForm;
 use PKP\components\listPanels\HighlightsListPanel;
 use PKP\components\listPanels\PKPAnnouncementsListPanel;
 use PKP\config\Config;
@@ -197,13 +206,13 @@ class AdminHandler extends Handler
 
         $contexts = Services::get('context')->getManySummary();
 
-        $siteAppearanceForm = new \PKP\components\forms\site\PKPSiteAppearanceForm($apiUrl, $locales, $site, $baseUrl, $temporaryFileApiUrl);
-        $siteConfigForm = new \PKP\components\forms\site\PKPSiteConfigForm($apiUrl, $locales, $site);
-        $siteInformationForm = new \PKP\components\forms\site\PKPSiteInformationForm($apiUrl, $locales, $site);
-        $siteBulkEmailsForm = new \PKP\components\forms\site\PKPSiteBulkEmailsForm($apiUrl, $site, $contexts);
+        $siteAppearanceForm = new PKPSiteAppearanceForm($apiUrl, $locales, $site, $baseUrl, $temporaryFileApiUrl);
+        $siteConfigForm = new PKPSiteConfigForm($apiUrl, $locales, $site);
+        $siteInformationForm = new PKPSiteInformationForm($apiUrl, $locales, $site);
+        $siteBulkEmailsForm = new PKPSiteBulkEmailsForm($apiUrl, $site, $contexts);
         $orcidSettingsForm = new OrcidSiteSettingsForm($apiUrl, $locales, $site);
-        $themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales);
-        $siteStatisticsForm = new \PKP\components\forms\site\PKPSiteStatisticsForm($apiUrl, $locales, $site);
+        $themeForm = new PKPThemeForm($themeApiUrl, $locales);
+        $siteStatisticsForm = new PKPSiteStatisticsForm($apiUrl, $locales, $site);
         $highlightsListPanel = $this->getHighlightsListPanel();
         $announcementSettingsForm = new PKPAnnouncementSettingsForm($apiUrl, $locales, $site);
         $announcementsForm = new PKPAnnouncementForm($announcementsApiUrl, $locales, Repo::announcement()->getFileUploadBaseUrl(), $temporaryFileApiUrl);
@@ -212,22 +221,22 @@ class AdminHandler extends Handler
         $templateMgr = TemplateManager::getManager($request);
 
         $templateMgr->setConstants([
-            'FORM_ANNOUNCEMENT_SETTINGS' => FORM_ANNOUNCEMENT_SETTINGS,
+            'FORM_ANNOUNCEMENT_SETTINGS' => PKPAnnouncementSettingsForm::FORM_ANNOUNCEMENT_SETTINGS,
         ]);
 
         $templateMgr->setState([
             'announcementsEnabled' => (bool) $site->getData('enableAnnouncements'),
             'components' => [
                 $announcementsListPanel->id => $announcementsListPanel->getConfig(),
-                FORM_SITE_APPEARANCE => $siteAppearanceForm->getConfig(),
-                FORM_SITE_CONFIG => $siteConfigForm->getConfig(),
-                FORM_SITE_INFO => $siteInformationForm->getConfig(),
-                FORM_SITE_BULK_EMAILS => $siteBulkEmailsForm->getConfig(),
+                $siteAppearanceForm::FORM_SITE_APPEARANCE => $siteAppearanceForm->getConfig(),
+                $siteConfigForm::FORM_SITE_CONFIG => $siteConfigForm->getConfig(),
+                $siteInformationForm::FORM_SITE_INFO => $siteInformationForm->getConfig(),
+                $siteBulkEmailsForm::FORM_SITE_BULK_EMAILS => $siteBulkEmailsForm->getConfig(),
                 $orcidSettingsForm->id => $orcidSettingsForm->getConfig(),
-                FORM_THEME => $themeForm->getConfig(),
-                FORM_SITE_STATISTICS => $siteStatisticsForm->getConfig(),
+                $themeForm::FORM_THEME => $themeForm->getConfig(),
+                $siteStatisticsForm::FORM_SITE_STATISTICS => $siteStatisticsForm->getConfig(),
                 $highlightsListPanel->id => $highlightsListPanel->getConfig(),
-                FORM_ANNOUNCEMENT_SETTINGS => $announcementSettingsForm->getConfig(),
+                $announcementSettingsForm::FORM_ANNOUNCEMENT_SETTINGS => $announcementSettingsForm->getConfig(),
             ],
         ]);
 
@@ -301,14 +310,14 @@ class AdminHandler extends Handler
         $locales = $context->getSupportedFormLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
-        $contextForm = new \APP\components\forms\context\ContextForm($apiUrl, $locales, $request->getBaseUrl(), $context);
-        $themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $context);
-        $indexingForm = new \PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
+        $contextForm = new ContextForm($apiUrl, $locales, $request->getBaseUrl(), $context);
+        $themeForm = new PKPThemeForm($themeApiUrl, $locales, $context);
+        $indexingForm = new PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
 
         $components = [
-            FORM_CONTEXT => $contextForm->getConfig(),
-            FORM_SEARCH_INDEXING => $indexingForm->getConfig(),
-            FORM_THEME => $themeForm->getConfig(),
+            $contextForm::FORM_CONTEXT => $contextForm->getConfig(),
+            $indexingForm::FORM_SEARCH_INDEXING => $indexingForm->getConfig(),
+            $themeForm::FORM_THEME => $themeForm->getConfig(),
         ];
 
         $bulkEmailsEnabled = in_array($context->getId(), (array) $request->getSite()->getData('enableBulkEmails'));
@@ -344,6 +353,9 @@ class AdminHandler extends Handler
             'editContext' => $context,
             'pageTitle' => __('manager.settings.wizard'),
         ]);
+
+        $templateMgr->registerClass(PKPSearchIndexingForm::class, PKPSearchIndexingForm::class); // FORM_SEARCH_INDEXING
+        $templateMgr->registerClass(PKPContextForm::class, PKPContextForm::class); // FORM_CONTEXT
 
         $templateMgr->display('admin/contextSettings.tpl');
     }

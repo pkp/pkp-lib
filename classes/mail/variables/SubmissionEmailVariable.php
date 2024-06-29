@@ -111,9 +111,7 @@ abstract class SubmissionEmailVariable extends Variable
             $context->getData('urlPath'),
             'authorDashboard',
             'submission',
-            [
-                $this->submission->getId(),
-            ]
+            [$this->submission->getId()]
         );
     }
 
@@ -131,7 +129,7 @@ abstract class SubmissionEmailVariable extends Variable
             $context->getData('urlPath'),
             'workflow',
             'access',
-            $this->submission->getId()
+            [$this->submission->getId()]
         );
     }
 

@@ -19,14 +19,10 @@ use PKP\components\forms\FieldText;
 use PKP\components\forms\FieldTextarea;
 use PKP\components\forms\FormComponent;
 
-define('FORM_CONTACT', 'contact');
-
 class PKPContactForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_CONTACT;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_CONTACT = 'contact';
+    public $id = self::FORM_CONTACT;
     public $method = 'PUT';
 
     /**

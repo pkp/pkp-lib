@@ -21,14 +21,10 @@ use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 
-define('FORM_METADATA_SETTINGS', 'metadataSettings');
-
 class PKPMetadataSettingsForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_METADATA_SETTINGS;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_METADATA_SETTINGS = 'metadataSettings';
+    public $id = self::FORM_METADATA_SETTINGS;
     public $method = 'PUT';
 
     /**

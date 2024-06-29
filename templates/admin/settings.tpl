@@ -31,7 +31,7 @@
 				{if $componentAvailability['siteConfig']}
 				<tab id="settings" label="{translate key="admin.settings"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_SITE_CONFIG}"
+						v-bind="components.{PKP\components\forms\site\PKPSiteConfigForm::FORM_SITE_CONFIG}"
 						@set="set"
 					/>
 				</tab>
@@ -39,7 +39,7 @@
 				{if $componentAvailability['siteInfo']}
 				<tab id="info" label="{translate key="manager.setup.information"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_SITE_INFO}"
+						v-bind="components.{PKP\components\forms\site\PKPSiteInformationForm::FORM_SITE_INFO}"
 						@set="set"
 					/>
 				</tab>
@@ -69,7 +69,7 @@
 				{if $componentAvailability['bulkEmails']}
 				<tab id="bulkEmails" label="{translate key="admin.settings.enableBulkEmails.label"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_SITE_BULK_EMAILS}"
+						v-bind="components.{PKP\components\forms\site\PKPSiteBulkEmailsForm::FORM_SITE_BULK_EMAILS}"
 						@set="set"
 					/>
 				</tab>
@@ -77,7 +77,7 @@
 				{if $componentAvailability['statistics']}
 				<tab id="statistics" label="{translate key="manager.setup.statistics"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_SITE_STATISTICS}"
+						v-bind="components.{PKP\components\forms\site\PKPSiteStatisticsForm::FORM_SITE_STATISTICS}"
 						@set="set"
 					/>
 				</tab>
@@ -100,7 +100,7 @@
 				{if $componentAvailability['siteTheme']}
 				<tab id="theme" label="{translate key="manager.setup.theme"}">
 					<theme-form
-						v-bind="components.{$smarty.const.FORM_THEME}"
+						v-bind="components.{PKP\components\forms\context\PKPThemeForm::FORM_THEME}"
 						@set="set"
 					/>
 				</tab>
@@ -108,7 +108,7 @@
 				{if $componentAvailability['siteAppearanceSetup']}
 				<tab id="setup" label="{translate key="navigation.setup"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_SITE_APPEARANCE}"
+						v-bind="components.{PKP\components\forms\site\PKPSiteAppearanceForm::FORM_SITE_APPEARANCE}"
 						@set="set"
 					/>
 				</tab>
@@ -122,7 +122,7 @@
 			<tabs :is-side-tabs="true" :track-history="true">
 				<tab id="announcement-settings" label="{translate key="admin.settings"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_ANNOUNCEMENT_SETTINGS}"
+						v-bind="components.{PKP\components\forms\context\PKPAnnouncementSettingsForm::FORM_ANNOUNCEMENT_SETTINGS}"
 						@set="set"
 					></pkp-form>
 				</tab>

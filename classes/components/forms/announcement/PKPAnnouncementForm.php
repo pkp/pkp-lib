@@ -15,7 +15,6 @@
 
 namespace PKP\components\forms\announcement;
 
-use APP\core\Application;
 use PKP\announcement\AnnouncementTypeDAO;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRichTextarea;
@@ -25,16 +24,11 @@ use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 
-define('FORM_ANNOUNCEMENT', 'announcement');
-
 class PKPAnnouncementForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_ANNOUNCEMENT;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_ANNOUNCEMENT = 'announcement';
+    public $id = self::FORM_ANNOUNCEMENT;
     public $method = 'POST';
-
     public ?Context $context;
 
     /**

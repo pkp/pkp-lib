@@ -22,16 +22,10 @@ use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 
-define('FORM_NOTIFY_USERS', 'notifyUsers');
-
 class PKPNotifyUsersForm extends FormComponent
 {
     public const FORM_NOTIFY_USERS = 'notifyUsers';
-
-    /** @copydoc FormComponent::$id */
     public $id = self::FORM_NOTIFY_USERS;
-
-    /** @copydoc FormComponent::$method */
     public $method = 'POST';
 
     /** @var array count of users in each group */

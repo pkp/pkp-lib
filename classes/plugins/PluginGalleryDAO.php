@@ -126,7 +126,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
     /**
      * Construct a new data object.
      */
-    public function newDataObject(): GalleyPlugin
+    public function newDataObject(): GalleryPlugin
     {
         return new GalleryPlugin();
     }

@@ -37,6 +37,7 @@ use Less_Parser;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\controllers\grid\GridHandler;
+use PKP\controllers\grid\GridRow;
 use PKP\controllers\listbuilder\ListbuilderHandler;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
@@ -302,8 +303,8 @@ class PKPTemplateManager extends Smarty
             }
         }
 
-        // Register classes that need to expose class constants to templates
-        foreach ([PKPApplication::class, Application::class, Role::class, Submission::class, PKPSubmission::class, Locale::class, SubmissionFile::class, GridHandler::class] as $fqcn) {
+        // Register classes that need to expose class constants to templates. FIXME: This should be done closer to usage.
+        foreach ([PKPApplication::class, Application::class, Role::class, Submission::class, PKPSubmission::class, Locale::class, SubmissionFile::class, GridHandler::class, GridRow::class] as $fqcn) {
             $this->registerClass($fqcn, $fqcn);
         }
 
@@ -1022,7 +1023,7 @@ class PKPTemplateManager extends Smarty
                         if ($request->getContext()->getData('enableAnnouncements')) {
                             $menu['announcements'] = [
                                 'name' => __('announcement.announcements'),
-                                'url' => $router->url($request, null, 'management', 'settings', 'announcements'),
+                                'url' => $router->url($request, null, 'management', 'settings', ['announcements']),
                                 'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('announcements', (array) $router->getRequestedArgs($request)),
                             ];
                         }
@@ -1038,7 +1039,7 @@ class PKPTemplateManager extends Smarty
                         if ($request->getContext()->isInstitutionStatsEnabled($request->getSite())) {
                             $menu['institutions'] = [
                                 'name' => __('institution.institutions'),
-                                'url' => $router->url($request, null, 'management', 'settings', 'institutions'),
+                                'url' => $router->url($request, null, 'management', 'settings', ['institutions']),
                                 'isCurrent' => $request->getRequestedPage() === 'management' && in_array('institutions', (array) $request->getRequestedArgs()),
                             ];
                         }
@@ -1047,27 +1048,27 @@ class PKPTemplateManager extends Smarty
                             'submenu' => [
                                 'context' => [
                                     'name' => __('context.context'),
-                                    'url' => $router->url($request, null, 'management', 'settings', 'context'),
+                                    'url' => $router->url($request, null, 'management', 'settings', ['context']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('context', (array) $router->getRequestedArgs($request)),
                                 ],
                                 'website' => [
                                     'name' => __('manager.website'),
-                                    'url' => $router->url($request, null, 'management', 'settings', 'website'),
+                                    'url' => $router->url($request, null, 'management', 'settings', ['website']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('website', (array) $router->getRequestedArgs($request)),
                                 ],
                                 'workflow' => [
                                     'name' => __('manager.workflow'),
-                                    'url' => $router->url($request, null, 'management', 'settings', 'workflow'),
+                                    'url' => $router->url($request, null, 'management', 'settings', ['workflow']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('workflow', (array) $router->getRequestedArgs($request)),
                                 ],
                                 'distribution' => [
                                     'name' => __('manager.distribution'),
-                                    'url' => $router->url($request, null, 'management', 'settings', 'distribution'),
+                                    'url' => $router->url($request, null, 'management', 'settings', ['distribution']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('distribution', (array) $router->getRequestedArgs($request)),
                                 ],
                                 'access' => [
                                     'name' => __('navigation.access'),
-                                    'url' => $router->url($request, null, 'management', 'settings', 'access'),
+                                    'url' => $router->url($request, null, 'management', 'settings', ['access']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('access', (array) $router->getRequestedArgs($request)),
                                 ]
                             ]
@@ -1080,22 +1081,22 @@ class PKPTemplateManager extends Smarty
                             'submenu' => [
                                 'publications' => [
                                     'name' => __('common.publications'),
-                                    'url' => $router->url($request, null, 'stats', 'publications', 'publications'),
+                                    'url' => $router->url($request, null, 'stats', 'publications', ['publications']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'publications',
                                 ],
                                 'context' => [
                                     'name' => __('context.context'),
-                                    'url' => $router->url($request, null, 'stats', 'context', 'context'),
+                                    'url' => $router->url($request, null, 'stats', 'context', ['context']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'context',
                                 ],
                                 'editorial' => [
                                     'name' => __('stats.editorialActivity'),
-                                    'url' => $router->url($request, null, 'stats', 'editorial', 'editorial'),
+                                    'url' => $router->url($request, null, 'stats', 'editorial', ['editorial']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'editorial',
                                 ],
                                 'users' => [
                                     'name' => __('manager.users'),
-                                    'url' => $router->url($request, null, 'stats', 'users', 'users'),
+                                    'url' => $router->url($request, null, 'stats', 'users', ['users']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'users',
                                 ]
                             ]

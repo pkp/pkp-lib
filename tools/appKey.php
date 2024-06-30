@@ -105,7 +105,7 @@ class CommandAppKey extends CommandLineTool
         }
 
         try {
-            PKPAppKey::writeAppKeyVaribaleToConfig()
+            PKPAppKey::writeAppKeyVariableToConfig()
                 ? $output->success(__('admin.cli.tool.appKeyVariable.success.writtenToConfig'))
                 : $output->error(__('admin.cli.tool.appKeyVariable.error.writtenToConfig'));
         } catch (Throwable $exception) {

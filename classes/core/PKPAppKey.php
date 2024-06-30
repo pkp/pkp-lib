@@ -137,7 +137,7 @@ class PKPAppKey
      *
      * @throws \Exception
      */
-    public static function writeAppKeyVaribaleToConfig(): bool
+    public static function writeAppKeyVariableToConfig(): bool
     {
         $instruction = __('installer.appKey.keyVariable.missing.instruction');
 

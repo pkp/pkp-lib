@@ -32,7 +32,7 @@ class I9895_AddAppKeyToConfigFile extends Migration
 
         try {
             if (!PKPAppKey::hasKeyVariable()) {
-                PKPAppKey::writeAppKeyVaribaleToConfig();    
+                PKPAppKey::writeAppKeyVariableToConfig();
             }
             PKPAppKey::writeAppKeyToConfig(PKPAppKey::generate());
         } catch (Throwable $exception) {

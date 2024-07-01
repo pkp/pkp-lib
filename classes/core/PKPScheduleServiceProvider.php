@@ -53,7 +53,6 @@ class PKPScheduleServiceProvider extends ServiceProvider
     
                     // If the last run exceeds task runner interval in secods
                     if ($curerntTimestamp - $lastRunTimestamp > $taskRunnerInternal) {
-                        ray('ready to run task runner');
                         $scheduler = $this->app->get(Scheduler::class); /** @var \APP\scheduler\Scheduler $scheduler */
                         $scheduler->runWebBasedScheduleTaskRunner();
     

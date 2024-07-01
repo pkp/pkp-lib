@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2024-07-01 19:27+0000\n"
+"PO-Revision-Date: 2024-07-01 19:36+0000\n"
 "Last-Translator: Pia Spriensma <p.j.huizinga@rug.nl>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
@@ -1493,7 +1493,7 @@ msgstr "Inzending geweigerd"
 
 msgid "editor.submission.decision.decline.completed.description"
 msgstr ""
-"De inzending, {$titel}, is geweigerd en naar het archief gestuurd. Alle "
+"De inzending, {$title}, is geweigerd en naar het archief gestuurd. Alle "
 "berichten zijn verzonden, tenzij u ervoor heeft gekozen om e-mails over te "
 "slaan."
 
@@ -1557,7 +1557,7 @@ msgstr "Revisies gevraagd"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
-"Revisies voor de inzending, {$titel}, zijn aangevraagd. Alle berichten zijn "
+"Revisies voor de inzending, {$title}, zijn aangevraagd. Alle berichten zijn "
 "verstuurd, tenzij u ervoor heeft gekozen om e-mails over te slaan."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
@@ -1585,7 +1585,7 @@ msgstr "Laatste reviewronde geannuleerd."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
-"De reviewronde voor de inzending {$titel} is geannuleerd. Alle berichten "
+"De reviewronde voor de inzending {$title} is geannuleerd. Alle berichten "
 "zijn verstuurd, tenzij u ervoor heeft gekozen om e-mails over te slaan."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
@@ -1611,7 +1611,7 @@ msgstr "Revisies aangevraagd"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
-"Revisies voor de inzending, {$titel}, zijn aangevraagd. Er is besloten om de "
+"Revisies voor de inzending, {$title}, zijn aangevraagd. Er is besloten om de "
 "revisies door te sturen naar een volgende reviewronde. Alle berichten zijn "
 "verstuurd, tenzij u ervoor heeft gekozen om e-mails over te slaan."
 
@@ -1636,7 +1636,7 @@ msgstr "Verstuurd naar reviewfase"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
-"De inzending, {$titel}, is naar de reviewer gestuurd. De auteur is op de "
+"De inzending, {$title}, is naar de reviewer gestuurd. De auteur is op de "
 "hoogte gesteld, tenzij u ervoor heeft gekozen om deze e-mail over te slaan."
 
 msgid "editor.submission.decision.newRound"
@@ -1658,7 +1658,7 @@ msgstr "In productie gegeven"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
-"De inzending, {$titel}, is naar de productiefase gestuurd. De auteur is op "
+"De inzending, {$title}, is naar de productiefase gestuurd. De auteur is op "
 "de hoogte gesteld, tenzij u ervoor heeft gekozen om deze e-mail over te "
 "slaan."
 
@@ -1734,7 +1734,7 @@ msgstr "Review overgeslagen"
 
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
-"De inzending, {$titel}, heeft de reviewfase overgeslagen en is doorgestuurd "
+"De inzending, {$title}, heeft de reviewfase overgeslagen en is doorgestuurd "
 "naar de redactiefase. De auteur is op de hoogte gesteld, tenzij u ervoor "
 "heeft gekozen deze e-mail over te slaan."
 
@@ -1778,7 +1778,7 @@ msgid "editor.submission.decision.revertDecline.completed"
 msgstr "Inzending gereactiveerd"
 
 msgid "editor.submission.decision.revertDecline.completed.description"
-msgstr "De inzending, {$titel}, is nu een actieve inzending in de reviewfase."
+msgstr "De inzending, {$title}, is nu een actieve inzending in de reviewfase."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""

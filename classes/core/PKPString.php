@@ -328,6 +328,27 @@ class PKPString
     {
         return count(preg_split('/\s+/', trim(str_replace('&nbsp;', ' ', strip_tags($str)))));
     }
+
+    /**
+     * Map the specific HTML tags in title/ sub title for JATS schema compability
+     * @see https://jats.nlm.nih.gov/publishing/0.4/xsd/JATS-journalpublishing0.xsd
+     *
+     * @param  string $htmlTitle The submission title/sub title as in HTML
+     * @return string
+     */
+    public static function mapTitleHtmlTagsToXml(string $htmlTitle): string
+    {
+        $mappings = [
+            '<b>' 	=> '<bold>',
+            '</b>' 	=> '</bold>',
+            '<i>' 	=> '<italic>',
+            '</i>' 	=> '</italic>',
+            '<u>' 	=> '<underline>',
+            '</u>' 	=> '</underline>',
+        ];
+
+        return str_replace(array_keys($mappings), array_values($mappings), $htmlTitle);
+    }
 }
 
 if (!PKP_STRICT_MODE) {

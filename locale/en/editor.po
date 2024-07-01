@@ -627,3 +627,12 @@ msgstr "Skip this email"
 
 msgid "editor.decision.stepError"
 msgstr "There was a problem with the {$stepName} step."
+
+msgid "editor.review.download"
+msgstr "Download Review Form"
+
+msgid "editor.review.authorOnly"
+msgstr "Author-Only Sections Displayed"
+
+msgid "editor.review.allSections"
+msgstr "Editor Form Shows All Review Sections"

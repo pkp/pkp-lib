@@ -621,3 +621,6 @@ msgstr "Skip this email"
 
 msgid "editor.decision.stepError"
 msgstr "There was a problem with the {$stepName} step."
+
+msgid "editor.review.download"
+msgstr "Download Review Form"

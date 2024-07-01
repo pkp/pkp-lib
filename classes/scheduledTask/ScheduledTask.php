@@ -11,7 +11,7 @@
  *
  * @ingroup scheduledTask
  *
- * @see ScheduledTaskDAO
+ * @see
  *
  * @brief Base class for executing scheduled tasks.
  * All scheduled task classes must extend this class and implement execute().

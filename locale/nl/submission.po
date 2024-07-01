@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2024-07-01 18:52+0000\n"
+"PO-Revision-Date: 2024-07-01 19:27+0000\n"
 "Last-Translator: Pia Spriensma <p.j.huizinga@rug.nl>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
@@ -48,7 +48,7 @@ msgstr ""
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
-"Selecteer een redactionele rol als je deze inzending zelf wilt bewerken en "
+"Selecteer een redactionele rol als u deze inzending zelf wilt bewerken en "
 "publiceren."
 
 msgid "submission.submit.submissionChecklist"
@@ -149,7 +149,7 @@ msgid "metadata.property.displayName.article-title"
 msgstr "Artikel/Paper titel"
 
 msgid "metadata.property.validationMessage.article-title"
-msgstr "Geef een geldige titel voor het artikel of papaer"
+msgstr "Geef een geldige titel voor het artikel of paper"
 
 msgid "metadata.property.displayName.source"
 msgstr "Tijdschrift/boek titel"
@@ -215,7 +215,7 @@ msgid "metadata.property.displayName.conf-date"
 msgstr "Datum van de conferentie"
 
 msgid "metadata.property.validationMessage.conf-date"
-msgstr "Geef een geldige datum voor de converentie (formaat: DD-MM-YYYY)."
+msgstr "Geef een geldige datum voor de conferentie (formaat: DD-MM-YYYY)."
 
 msgid "metadata.property.displayName.conf-loc"
 msgstr "Lokatie van de conferentie"
@@ -668,8 +668,8 @@ msgstr ""
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
-"Er is een automatische herinneringse-mail verzonden naar {$recipientName} "
-"met betrekking tot hun beoordelingsopdracht"
+"Er is een automatische herinnering verzonden naar {$recipientName} met "
+"betrekking tot hun beoordelingsopdracht"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Een e-mail is verstuurd:"
@@ -840,7 +840,7 @@ msgid "submission.layout.galleyRemoteURLValid"
 msgstr "Geef de remote URL (inclusief http://)"
 
 msgid "submission.layout.galleyNoImages"
-msgstr "No images have been added to this galley."
+msgstr "Er zijn geen afbeeldingen toegevoegd aan deze proefdruk."
 
 msgid "submission.layout.galleys"
 msgstr "Proefdrukken"
@@ -969,7 +969,7 @@ msgid "submission.response"
 msgstr "Reactie"
 
 msgid "submission.restrictions"
-msgstr "Berperkingen"
+msgstr "Beperkingen"
 
 msgid "submission.reviewMetadata"
 msgstr "Beoordeel Metadata"
@@ -1261,14 +1261,14 @@ msgstr "Selecteer het bestand dat u wilt reviseren."
 
 msgid "submission.upload.selectOptionalFileToRevise"
 msgstr ""
-"Als u een gereviseerde versie van een bestaand bestand wilt opladen, "
+"Als u een gereviseerde versie van een bestaand bestand wilt uploaden, "
 "selecteer dan om welk bestand het gaat."
 
 msgid "submission.upload.uploadNewFile"
 msgstr "Dit is geen gereviseerde versie van een bestaand bestand"
 
 msgid "submission.upload.userGroup"
-msgstr "Laad dit bestand op in mijn hoedanigheid als..."
+msgstr "Upload dit bestand in mijn hoedanigheid als..."
 
 msgid "submission.upload.userGroupDescription"
 msgstr ""
@@ -1276,30 +1276,30 @@ msgstr ""
 "opladen in uw hoedanigheid als volumeredacteur."
 
 msgid "submission.upload.uploadLibraryFile"
-msgstr "Bibliotheekbestand opladen"
+msgstr "Bibliotheekbestand uploaden"
 
 msgid "submission.upload.libraryCategory"
 msgstr "Documenttype van de inzending"
 
 msgid "submission.upload.finalDraft"
-msgstr "Bestand opladen"
+msgstr "Bestand uploaden"
 
 msgid "submission.upload.copyeditedVersion"
-msgstr "Geredigeerd bestand opladen"
+msgstr "Geredigeerd bestand uploaden"
 
 msgid "submission.upload.uploadFiles"
-msgstr "Bestanden opladen"
+msgstr "Bestanden uploaden"
 
 msgid "submission.upload.response.description"
 msgstr ""
 "Beoordeel het toegewezen bestand en geef hieronder uw opmerkingen, en/of "
-"laad een kopie van het bestand met opmerkingen op (of een ander bestand)."
+"upload een kopie van het bestand met opmerkingen  (of een ander bestand)."
 
 msgid "submission.upload.productionReady"
-msgstr "Bestand opladen dat klaar is voor productie"
+msgstr "Bestand uploaden dat klaar is voor productie"
 
 msgid "submission.upload.proof"
-msgstr "Proef opladen"
+msgstr "Proef uploaden"
 
 msgid "submission.upload.noAvailableReviewFiles"
 msgstr "U heeft geen bestanden om te reviewen."
@@ -1407,17 +1407,14 @@ msgstr ""
 msgid "editor.submission.removePermissionToEdit"
 msgstr "Toestemming bewerken metadata intrekken"
 
-#, fuzzy
 msgid "editor.submission.addPermissionToEdit"
 msgstr "Metadata bewerken toestaan"
 
-#, fuzzy
 msgid "editor.submission.removePermissionToEditDescription"
 msgstr ""
 "Weet u zeker dat de auteurs van deze inzending de metadata van de inzending "
 "in dat stadium niet mogen bewerken?"
 
-#, fuzzy
 msgid "editor.submission.addPermissionToEditDescription"
 msgstr ""
 "Weet u zeker dat de auteurs van deze inzending de metadata van de inzending "
@@ -1426,15 +1423,12 @@ msgstr ""
 msgid "editor.submission.decision"
 msgstr "Beslissing"
 
-#, fuzzy
 msgid "editor.submission.decision.notifyAuthors"
 msgstr "Auteurs op de hoogte brengen"
 
-#, fuzzy
 msgid "editor.submission.decision.notifyReviewers"
 msgstr "Reviewers op de hoogte brengen"
 
-#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "Stuur een e-mail naar de reviewers om hen te bedanken voor hun beoordeling "
@@ -1443,7 +1437,6 @@ msgstr ""
 " kan in het bericht worden gebruikt om de naam van elke reviewer veilig op "
 "te nemen."
 
-#, fuzzy
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
@@ -1453,13 +1446,11 @@ msgstr ""
 msgid "editor.submission.decision.accept"
 msgstr "Inzending aanvaarden"
 
-#, fuzzy
 msgid "editor.submission.decision.accept.description"
 msgstr ""
 "Deze inzending wordt geaccepteerd voor publicatie en verzonden voor "
 "copyediting."
 
-#, fuzzy
 msgid "editor.submission.decision.accept.log"
 msgstr ""
 "{$editorName} accepteerde deze inzending and stuurde deze naar Copyediting "
@@ -1470,7 +1461,7 @@ msgstr "Inzending geaccepteerd"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
-"De inzending, {$titel}, is geaccepteerd voor publicatie en doorgestuurd naar "
+"De inzending, {$title}, is geaccepteerd voor publicatie en doorgestuurd naar "
 "de redactiefase. Alle berichten zijn verstuurd, tenzij u ervoor heeft "
 "gekozen om e-mails over te slaan."
 
@@ -1691,7 +1682,7 @@ msgstr "Redactiefase geannuleerd"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
-"De inzending, {$titel}, is teruggestuurd uit de redactiefase. De auteur is "
+"De inzending, {$title}, is teruggestuurd uit de redactiefase. De auteur is "
 "op de hoogte gesteld, tenzij u ervoor heeft gekozen deze e-mail over te "
 "slaan."
 
@@ -1714,7 +1705,7 @@ msgstr "Teruggestuurd naar redactie"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
-"De inzending, {$titel}, is teruggestuurd naar de redactiefase. De auteur is "
+"De inzending, {$title}, is teruggestuurd naar de redactiefase. De auteur is "
 "op de hoogte gesteld, tenzij u ervoor heeft gekozen deze e-mail over te "
 "slaan."
 
@@ -2002,7 +1993,7 @@ msgid "notification.type.editorDecisionRevertDecline"
 msgstr "Geweigerde inzending opnieuw in behandeling genomen."
 
 msgid "notification.uploadedResponse"
-msgstr "Antwoord opgeladen."
+msgstr "Antwoord geüpload."
 
 msgid "notification.type.editorAssignment"
 msgstr ""
@@ -2507,7 +2498,7 @@ msgid "submission.wizard.sectionClosed"
 msgstr "Sectie gesloten"
 
 msgid "submission.wizard.start"
-msgstr ""
+msgstr "Start inzending"
 
 msgid "submission.wizard.startingStatus"
 msgstr "Een nieuwe inzending beginnen"

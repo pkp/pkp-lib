@@ -995,3 +995,7 @@ msgstr "Can not run queue schedule tasks because the application maintenance mod
 
 msgid "admin.cli.tool.schedular.mean.those"
 msgstr "Did you mean one of the following?"
+
+msgid "admin.cli.tool.schedule.sandbox.message"
+msgstr ""
+"Can not run schedule tasks because the application sandbox mode is enabled."

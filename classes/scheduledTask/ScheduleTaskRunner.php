@@ -98,7 +98,7 @@ class ScheduleTaskRunner
 
         $start = microtime(true);
 
-        try {
+        try {            
             $event->run(PKPContainer::getInstance());
 
             $this->dispatcher->dispatch(new ScheduledTaskFinished(

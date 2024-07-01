@@ -14,6 +14,7 @@
 
 namespace PKP\middleware;
 
+use Closure;
 use Illuminate\Cookie\CookieValuePrefix;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -27,6 +28,24 @@ class PKPEncryptCookies extends \Illuminate\Cookie\Middleware\EncryptCookies
     protected $except = [
         //
     ];
+
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function handle($request, Closure $next)
+    {
+        $config = app()->get('config')->get('session');
+        
+        if (!$config['cookie_encryption']) {
+            return $next($request);
+        }
+
+        return $this->encrypt($next($this->decrypt($request)));
+    }
     
     /**
      * Encrypt the cookies on an outgoing response.

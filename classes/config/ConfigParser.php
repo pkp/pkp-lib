@@ -3,13 +3,11 @@
 /**
  * @file classes/config/ConfigParser.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2014-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ConfigParser
- *
- * @ingroup config
  *
  * @brief Class for parsing and modifying php.ini style configuration files.
  */
@@ -18,15 +16,10 @@ namespace PKP\config;
 
 class ConfigParser
 {
-    /** @var string Contents of the config file currently being parsed */
-    public $content;
-
     /**
-     * Constructor.
+     * Contents of the config file currently being parsed
      */
-    public function __construct()
-    {
-    }
+    protected string $content;
 
     /**
      * Read a configuration file into a multidimensional array.
@@ -36,7 +29,7 @@ class ConfigParser
      *
      * @return bool|array the configuration data (same format as http://php.net/parse_ini_file)
      */
-    public static function &readConfig($file)
+    public static function &readConfig(string $file): bool|array
     {
         $configData = [];
         $currentSection = false;
@@ -129,7 +122,7 @@ class ConfigParser
      *
      * @return bool true if file could be read, false otherwise
      */
-    public function updateConfig($file, $params)
+    public function updateConfig(string $file, array $params): bool
     {
         if (!file_exists($file) || !is_readable($file)) {
             return false;
@@ -189,7 +182,7 @@ class ConfigParser
      *
      * @return bool file write is successful
      */
-    public function writeConfig($file)
+    public function writeConfig(string $file): bool
     {
         if (!(file_exists($file) && is_writable($file))
             && !(!file_exists($file) && is_dir(dirname($file)) && is_writable(dirname($file)))) {
@@ -209,11 +202,19 @@ class ConfigParser
 
     /**
      * Return the contents of the current config file.
-     *
-     * @return string
      */
-    public function getFileContents()
+    public function getFileContents(): string
     {
         return $this->content;
+    }
+
+    /**
+     * Set the content of file
+     */
+    public function setFileContent(string $content): static
+    {
+        $this->content = $content;
+
+        return $this;
     }
 }

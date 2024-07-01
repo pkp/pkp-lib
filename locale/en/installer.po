@@ -235,3 +235,30 @@ msgid "installer.unsupportedPhpError"
 msgstr ""
 "Your server's PHP version is not supported by this software. Double-check "
 "the installation requirements in docs/README."
+
+msgid "installer.appKey.keyVariable.missing.instruction"
+msgstr "Please add the config variable named `app_key` under the `general` section manually or run the command `php lib/pkp/tools/appKey.php configure` to set it from CLI."
+
+msgid "installer.appKey.keyVariable.missing.error"
+msgstr "Config variable named `app_key` not defined in the `general` section. "
+
+msgid "installer.appKey.keyVariable.alreadyExist.notice"
+msgstr "Config variable named `app_key` already defined in the `general` section. "
+
+msgid "installer.appKey.keyVariable.configFile.read.error"
+msgstr "Unable to read the config file or file does not exists at expected path. "
+
+msgid "installer.appKey.keyVariable.configFile.parse.error"
+msgstr "Unable to parse the config file."
+
+msgid "installer.appKey.keyVariable.configFile.write.error"
+msgstr "Unable to write the app key variable in the config file."
+
+msgid "installer.appKey.validate.error"
+msgstr "Unsupported cipher or incorrect key length. Supported ciphers are: {$ciphers}."
+
+msgid "installer.appKey.write.error"
+msgstr "Unable to write the app key in the config file."
+
+msgid "installer.appKey.set.value"
+msgstr "Set the value of `app_key` under `general` section in `config.inc.php` file to {$key} ."

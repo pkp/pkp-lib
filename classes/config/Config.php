@@ -37,11 +37,17 @@ class Config
      * ]
      */
     public const SENSITIVE_DATA = [
+        'general' => [
+            'app_key',
+        ],
         'database' => [
             'password',
         ],
         'email' => [
             'smtp_password',
+        ],
+        'security' => [
+            'api_key_secret',
         ],
     ];
 

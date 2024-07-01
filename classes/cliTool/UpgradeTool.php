@@ -20,6 +20,7 @@ namespace PKP\cliTool;
 
 use APP\core\Application;
 use APP\install\Upgrade;
+use PKP\core\PKPAppKey;
 use PKP\site\VersionCheck;
 
 Application::upgrade();

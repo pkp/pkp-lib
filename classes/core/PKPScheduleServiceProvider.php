@@ -2,16 +2,17 @@
 
 namespace PKP\core;
 
-use APP\core\Application;
-use APP\scheduler\Scheduler;
 use Carbon\Carbon;
+use PKP\config\Config;
+use APP\core\Application;
+use PKP\core\PKPContainer;
+use APP\scheduler\Scheduler;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Support\Facades\Cache;
-use PKP\core\PKPContainer;
-use PKP\config\Config;
+use Illuminate\Contracts\Support\DeferrableProvider;
 
-class PKPScheduleServiceProvider extends ServiceProvider
+class PKPScheduleServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     public function boot()
     {
@@ -84,5 +85,18 @@ class PKPScheduleServiceProvider extends ServiceProvider
                 return new Scheduler($app->get(Schedule::class));
             }
         );
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return [
+            Schedule::class,
+            Scheduler::class,
+        ];
     }
 }

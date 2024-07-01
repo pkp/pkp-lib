@@ -2,8 +2,11 @@
 
 namespace PKP\scheduledTask;
 
-use PKP\db\DAORegistry;
 use APP\core\Application;
+use Illuminate\Console\Scheduling\Event;
+use Illuminate\Console\Scheduling\Schedule;
+use PKP\core\PKPContainer;
+use PKP\db\DAORegistry;
 use PKP\task\DepositDois;
 use PKP\task\UpdateIPGeoDB;
 use PKP\task\ReviewReminder;
@@ -15,9 +18,7 @@ use PKP\task\EditorialReminders;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\task\RemoveExpiredInvitations;
 use PKP\scheduledTask\ScheduledTaskDAO;
-use Illuminate\Console\Scheduling\Event;
 use PKP\scheduledTask\ScheduleTaskRunner;
-use Illuminate\Console\Scheduling\Schedule;
 use PKP\task\RemoveUnvalidatedExpiredUsers;
 use PKP\plugins\interfaces\HasTaskScheduler;
 
@@ -151,11 +152,13 @@ abstract class PKPScheduler
 
     public function runWebBasedScheduleTaskRunner(): void
     {
+        $container = PKPContainer::getInstance();
+
         (new ScheduleTaskRunner(
             $this->schedule,
-            app()->get(\Illuminate\Contracts\Events\Dispatcher::class),
-            app()->get(\Illuminate\Contracts\Cache\Repository::class),
-            app()->get(\Illuminate\Contracts\Debug\ExceptionHandler::class)
+            $container->get(\Illuminate\Contracts\Events\Dispatcher::class),
+            $container->get(\Illuminate\Contracts\Cache\Repository::class),
+            $container->get(\Illuminate\Contracts\Debug\ExceptionHandler::class)
         ))->run();
     }
 }

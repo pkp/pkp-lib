@@ -197,9 +197,9 @@ class Announcement extends \PKP\core\DataObject
      *
      * @return string Format YYYY-MM-DD
      */
-    public function getDatePosted(): string
+    public function getDatePosted(): ?string
     {
-        return $this->getData('datePosted') ? date('Y-m-d', strtotime($this->getData('datePosted'))) : '';
+        return $this->getData('datePosted') ? date('Y-m-d', strtotime($this->getData('datePosted'))) : null;
     }
 
     /**
@@ -207,9 +207,9 @@ class Announcement extends \PKP\core\DataObject
      *
      * @return string Format YYYY-MM-DD HH:MM:SS
      */
-    public function getDatetimePosted(): string
+    public function getDatetimePosted(): ?string
     {
-        return $this->getData('datePosted') ?? '';
+        return $this->getData('datePosted') ?? null;
     }
 
     /**

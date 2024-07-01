@@ -6,7 +6,6 @@ use APP\core\Application;
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\Schedule;
 use PKP\core\PKPContainer;
-use PKP\db\DAORegistry;
 use PKP\task\DepositDois;
 use PKP\task\UpdateIPGeoDB;
 use PKP\task\ReviewReminder;
@@ -17,7 +16,6 @@ use PKP\plugins\PluginRegistry;
 use PKP\task\EditorialReminders;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\task\RemoveExpiredInvitations;
-use PKP\scheduledTask\ScheduledTaskDAO;
 use PKP\scheduledTask\ScheduleTaskRunner;
 use PKP\task\RemoveUnvalidatedExpiredUsers;
 use PKP\plugins\interfaces\HasTaskScheduler;
@@ -28,13 +26,10 @@ abstract class PKPScheduler
 
     protected string $appName;
 
-    protected ScheduledTaskDAO $scheduledTaskDao;
-
     public function __construct(Schedule $schedule, string $appName = null)
     {
         $this->schedule = $schedule;
         $this->appName = $appName ?? Application::get()->getName();
-        $this->scheduledTaskDao = DAORegistry::getDAO('ScheduledTaskDAO');
     }
 
     public function addSchedule(ScheduledTask $scheduleTask): Event
@@ -60,72 +55,63 @@ abstract class PKPScheduler
             ->call(fn () => (new ReviewReminder)->execute())
             ->hourly()
             ->name(ReviewReminder::class)
-            ->withoutOverlapping()
-            ->then(fn () => $this->scheduledTaskDao->updateLastRunTime(ReviewReminder::class));
+            ->withoutOverlapping();
         
         $this
             ->schedule
             ->call(fn () => (new StatisticsReport)->execute())
             ->daily()
             ->name(StatisticsReport::class)
-            ->withoutOverlapping()
-            ->then(fn () => $this->scheduledTaskDao->updateLastRunTime(StatisticsReport::class));
+            ->withoutOverlapping();
         
         $this
             ->schedule
             ->call(fn () => (new DepositDois)->execute())
             ->hourly()
             ->name(DepositDois::class)
-            ->withoutOverlapping()
-            ->then(fn () => $this->scheduledTaskDao->updateLastRunTime(DepositDois::class));
+            ->withoutOverlapping();
             
         $this
             ->schedule
             ->call(fn () => (new RemoveUnvalidatedExpiredUsers)->execute())
             ->daily()
             ->name(RemoveUnvalidatedExpiredUsers::class)
-            ->withoutOverlapping()
-            ->then(fn () => $this->scheduledTaskDao->updateLastRunTime(RemoveUnvalidatedExpiredUsers::class));
+            ->withoutOverlapping();
         
         $this
             ->schedule
             ->call(fn () => (new EditorialReminders)->execute())
             ->daily()
             ->name(EditorialReminders::class)
-            ->withoutOverlapping()
-            ->then(fn () => $this->scheduledTaskDao->updateLastRunTime(EditorialReminders::class));
+            ->withoutOverlapping();
         
         $this
             ->schedule
             ->call(fn () => (new UpdateIPGeoDB)->execute())
             ->cron('0 0 1-10 * *')
             ->name(UpdateIPGeoDB::class)
-            ->withoutOverlapping()
-            ->then(fn () => $this->scheduledTaskDao->updateLastRunTime(UpdateIPGeoDB::class));
+            ->withoutOverlapping();
 
         $this
             ->schedule
             ->call(fn () => (new ProcessQueueJobs)->execute())
             ->everyMinute()
             ->name(ProcessQueueJobs::class)
-            ->withoutOverlapping()
-            ->then(fn () => $this->scheduledTaskDao->updateLastRunTime(ProcessQueueJobs::class));
+            ->withoutOverlapping();
 
         $this
             ->schedule
             ->call(fn () => (new RemoveFailedJobs)->execute())
             ->daily()
             ->name(RemoveFailedJobs::class)
-            ->withoutOverlapping()
-            ->then(fn () => $this->scheduledTaskDao->updateLastRunTime(RemoveFailedJobs::class));
+            ->withoutOverlapping();
         
         $this
             ->schedule
             ->call(fn () => (new RemoveExpiredInvitations)->execute())
             ->daily()
             ->name(RemoveExpiredInvitations::class)
-            ->withoutOverlapping()
-            ->then(fn () => $this->scheduledTaskDao->updateLastRunTime(RemoveExpiredInvitations::class));
+            ->withoutOverlapping();
         
         $this->registerPluginSchedules();
     }

@@ -3,12 +3,13 @@
 namespace PKP\core;
 
 use Illuminate\Console\OutputStyle;
-use Illuminate\Console\View\Components\Factory;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Console\View\Components\Factory;
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
-class PKPConsoleCommandServiceProvider extends ServiceProvider
+class PKPConsoleCommandServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     public function register()
     {
@@ -31,6 +32,18 @@ class PKPConsoleCommandServiceProvider extends ServiceProvider
         return [
             new ArgvInput([]),
             new ConsoleOutput(),
+        ];
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return [
+            Factory::class,
         ];
     }
 }

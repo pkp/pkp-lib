@@ -196,7 +196,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             if ($e->getCode() == 200) {
                 if ($responseCSV) {
                     $csvColumnNames = $this->_getSubmissionReportColumnNames();
-                    return response()->withCSV([], $csvColumnNames, 0);
+                    return response()->withFile([], $csvColumnNames, 0);
                 }
 
                 return response()->json([
@@ -236,7 +236,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
         $itemsMax = $statsService->getCount($allowedParams);
         if ($responseCSV) {
             $csvColumnNames = $this->_getSubmissionReportColumnNames();
-            return response()->withCSV($items, $csvColumnNames, $itemsMax);
+            return response()->withFile($items, $csvColumnNames, $itemsMax);
         }
         return response()->json([
             'items' => $items,
@@ -276,7 +276,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
 
                 if ($responseCSV) {
                     $csvColumnNames = $statsService->getTimelineReportColumnNames();
-                    return response()->withCSV($emptyTimeline, $csvColumnNames, 0);
+                    return response()->withFile($emptyTimeline, $csvColumnNames, 0);
                 }
 
                 return response()->json($emptyTimeline, Response::HTTP_OK);
@@ -292,7 +292,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
         $data = $statsService->getTimeline($allowedParams['timelineInterval'], $allowedParams);
         if ($responseCSV) {
             $csvColumnNames = $statsService->getTimelineReportColumnNames();
-            return response()->withCSV($data, $csvColumnNames, count($data));
+            return response()->withFile($data, $csvColumnNames, count($data));
         }
         return response()->json($data, Response::HTTP_OK);
     }
@@ -414,7 +414,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             if ($e->getCode() == 200) {
                 if ($responseCSV) {
                     $csvColumnNames = $this->_getFileReportColumnNames();
-                    return response()->withCSV([], $csvColumnNames, 0);
+                    return response()->withFile([], $csvColumnNames, 0);
                 }
 
                 return response()->json([
@@ -452,7 +452,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
         $itemsMax = $statsService->getFilesCount($allowedParams);
         if ($responseCSV) {
             $csvColumnNames = $this->_getFileReportColumnNames();
-            return response()->withCSV($items, $csvColumnNames, $itemsMax);
+            return response()->withFile($items, $csvColumnNames, $itemsMax);
         }
 
         return response()->json([
@@ -488,7 +488,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             if ($e->getCode() == 200) {
                 if ($responseCSV) {
                     $csvColumnNames = $this->_getGeoReportColumnNames(StatisticsHelper::STATISTICS_DIMENSION_COUNTRY);
-                    return response()->withCSV([], $csvColumnNames, 0);
+                    return response()->withFile([], $csvColumnNames, 0);
                 }
 
                 return response()->json([
@@ -524,7 +524,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
         $itemsMax = $statsService->getCount($allowedParams, StatisticsHelper::STATISTICS_DIMENSION_COUNTRY);
         if ($responseCSV) {
             $csvColumnNames = $this->_getGeoReportColumnNames(StatisticsHelper::STATISTICS_DIMENSION_COUNTRY);
-            return response()->withCSV($items, $csvColumnNames, $itemsMax);
+            return response()->withFile($items, $csvColumnNames, $itemsMax);
         }
         return response()->json([
             'items' => $items,
@@ -559,7 +559,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             if ($e->getCode() == 200) {
                 if ($responseCSV) {
                     $csvColumnNames = $this->_getGeoReportColumnNames(StatisticsHelper::STATISTICS_DIMENSION_REGION);
-                    return response()->withCSV([], $csvColumnNames, 0);
+                    return response()->withFile([], $csvColumnNames, 0);
                 }
 
                 return response()->json([
@@ -601,7 +601,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
         $itemsMax = $statsService->getCount($allowedParams, StatisticsHelper::STATISTICS_DIMENSION_REGION);
         if ($responseCSV) {
             $csvColumnNames = $this->_getGeoReportColumnNames(StatisticsHelper::STATISTICS_DIMENSION_REGION);
-            return response()->withCSV($items, $csvColumnNames, $itemsMax);
+            return response()->withFile($items, $csvColumnNames, $itemsMax);
         }
 
         return response()->json([
@@ -637,7 +637,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             if ($e->getCode() == 200) {
                 if ($responseCSV) {
                     $csvColumnNames = $this->_getGeoReportColumnNames(StatisticsHelper::STATISTICS_DIMENSION_CITY);
-                    return response()->withCSV([], $csvColumnNames, 0);
+                    return response()->withFile([], $csvColumnNames, 0);
                 }
 
                 return response()->json([
@@ -680,7 +680,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
         $itemsMax = $statsService->getCount($allowedParams, StatisticsHelper::STATISTICS_DIMENSION_CITY);
         if ($responseCSV) {
             $csvColumnNames = $this->_getGeoReportColumnNames(StatisticsHelper::STATISTICS_DIMENSION_CITY);
-            return response()->withCSV($items, $csvColumnNames, $itemsMax);
+            return response()->withFile($items, $csvColumnNames, $itemsMax);
         }
 
         return response()->json([

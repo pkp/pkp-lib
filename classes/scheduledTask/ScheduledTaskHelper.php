@@ -75,7 +75,7 @@ class ScheduledTaskHelper
      */
     public function notifyExecutionResult(int|string $id, string $name, bool $result, string $executionLogFile = ''): bool
     {
-        $reportErrorOnly = Config::getVar('general', 'scheduled_tasks_report_error_only', true);
+        $reportErrorOnly = Config::getVar('schedule', 'scheduled_tasks_report_error_only', true);
 
         if (!$result || !$reportErrorOnly) {
             $message = $this->getMessage($executionLogFile);

@@ -13,7 +13,6 @@ installed = On
 base_url = "https://pkp.sfu.ca/ojs"
 session_cookie_name = OJSSID
 session_lifetime = 30
-scheduled_tasks = Off
 
 date_format_short = "Y-m-d"
 date_format_long = "F j, Y"
@@ -103,3 +102,8 @@ show_stacktrace = On
 [queues]
 default_queue = "test_default_queue"
 disable_jobs_run_at_shutdown = Off
+
+[schedule]
+task_runner = On
+task_runner_interval = 60
+scheduled_tasks_report_error_only = Off

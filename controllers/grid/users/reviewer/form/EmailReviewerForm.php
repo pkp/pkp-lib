@@ -108,8 +108,7 @@ class EmailReviewerForm extends Form
 
         try {
             Mail::send($mailable);
-            $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-            $submissionEmailLogDao->logMailable(
+            SubmissionEmailLogEntry::logMailable(
                 SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_NOTIFY_REVIEWER,
                 $mailable,
                 $this->submission,

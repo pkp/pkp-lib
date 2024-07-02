@@ -24,6 +24,7 @@ use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
+use PKP\facades\Repo;
 use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\notification\PKPNotification;
@@ -116,11 +117,11 @@ class AuthorDashboardTabHandler extends Handler
             case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
                 return $templateMgr->fetchJson('controllers/tab/authorDashboard/externalReview.tpl');
             case WORKFLOW_STAGE_ID_EDITING:
-                $templateMgr->assign('copyeditingEmails', $submissionEmailLogDao->getByEventType($submission->getId(), SubmissionEmailLogEntry::SUBMISSION_EMAIL_COPYEDIT_NOTIFY_AUTHOR, $user->getId()));
+                $templateMgr->assign('copyeditingEmails', SubmissionEmailLogEntry::getByEventType($submission->getId(), SubmissionEmailLogEntry::SUBMISSION_EMAIL_COPYEDIT_NOTIFY_AUTHOR, $user->getId()));
                 return $templateMgr->fetchJson('controllers/tab/authorDashboard/editorial.tpl');
             case WORKFLOW_STAGE_ID_PRODUCTION:
                 $templateMgr->assign([
-                    'productionEmails' => $submissionEmailLogDao->getByEventType($submission->getId(), SubmissionEmailLogEntry::SUBMISSION_EMAIL_PROOFREAD_NOTIFY_AUTHOR, $user->getId()),
+                    'productionEmails' => SubmissionEmailLogEntry::getByEventType($submission->getId(), SubmissionEmailLogEntry::SUBMISSION_EMAIL_PROOFREAD_NOTIFY_AUTHOR, $user->getId()),
                 ]);
                 return $templateMgr->fetchJson('controllers/tab/authorDashboard/production.tpl');
         }

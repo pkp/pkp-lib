@@ -303,8 +303,7 @@ class DAO extends EntityDAO
                 Repo::eventLog()->delete($logEntry);
             });
 
-        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-        $submissionEmailLogDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
+        Repo::emailLogEntry()->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
 
         parent::deleteById($id);
     }

@@ -18,8 +18,6 @@ use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Validator;
 use PKP\context\Context;
-use PKP\db\DAORegistry;
-use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\EmailData;
 use PKP\mail\Mailable;
@@ -66,9 +64,7 @@ trait NotifyAuthors
 
         Mail::send($mailable->recipients($recipients, $email->locale));
 
-        /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
-        $submissionEmailLogDao->logMailable(
+        SubmissionEmailLogEntry::logMailable(
             SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
             $mailable,
             $submission,

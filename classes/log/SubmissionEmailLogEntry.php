@@ -18,6 +18,18 @@
 
 namespace PKP\log;
 
+use APP\core\Application;
+use APP\submission\Submission;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Mail;
+use PKP\core\Core;
+use PKP\db\DAOResultFactory;
+use PKP\facades\Locale;
+use PKP\facades\Repo;
+use PKP\mail\Mailable;
+use PKP\user\User;
+
 class SubmissionEmailLogEntry extends EmailLogEntry
 {
     // Author events						0x20000000
@@ -74,24 +86,62 @@ class SubmissionEmailLogEntry extends EmailLogEntry
     // Discussion
     public const SUBMISSION_EMAIL_DISCUSSION_NOTIFY = 0x90000001;
 
-    /**
-     * Set the submission ID for the log entry.
-     *
-     * @param int $submissionId
-     */
-    public function setSubmissionId($submissionId)
+
+    public function __construct()
     {
-        return $this->setAssocId($submissionId);
+        $this->assocType = Application::ASSOC_TYPE_SUBMISSION;
+    }
+    
+    public function scopeWithAssoc(Builder $query): Builder
+    {
+        return $query->where('assoc_type', Application::ASSOC_TYPE_SUBMISSION);
     }
 
     /**
-     * Get the submission ID for the log entry.
+     * Create a log entry from data in a Mailable class
      *
-     * @return int
+     * @param int $eventType One of the SubmissionEmailLogEntry::SUBMISSION_EMAIL_* constants
+     *
+     * @return int The new log entry id
      */
-    public function getSubmissionId()
+    static function logMailable(int $eventType, Mailable $mailable, Submission $submission, ?User $sender = null): int
     {
-        return $this->getAssocId();
+        $entry = new self();
+        $clonedMailable = clone $mailable;
+        $clonedMailable->removeFooter();
+        $logRepo = Repo::emailLogEntry();
+
+        $entry->eventType = $eventType;
+        $entry->assocId = $submission->getId();
+        $entry->dateSent = Core::getCurrentDate();
+        $entry->senderId = $sender ? $sender->getId() : null;
+        $entry->from = $logRepo->getContactString($clonedMailable->from);
+        $entry->recipients = $logRepo->getContactString($clonedMailable->to);
+        $entry->ccs = $logRepo->getContactString($clonedMailable->cc);
+        $entry->bccs = $logRepo->getContactString($clonedMailable->bcc);
+        $entry->body = $clonedMailable->render();
+        $entry->subject = Mail::compileParams(
+            $clonedMailable->subject,
+            $clonedMailable->getData(Locale::getLocale())
+        );
+
+        $entry->save();
+        $logRepo->insertLogUserIds($entry);
+
+        return $entry->id;
+    }
+
+
+    /**
+     * Get submission email log entries by submission ID and event type
+     *
+     * @param int $submissionId
+     * @param int $userId optional Return only emails sent to this user.
+     *
+     */
+    static function getByEventType($submissionId, $eventType, $userId = null)
+    {
+        return Repo::emailLogEntry()->getByEventType(Application::ASSOC_TYPE_SUBMISSION, $submissionId, $eventType, $userId);
     }
 }
 

@@ -1,0 +1,220 @@
+<?php
+
+/**
+ * @file tests/jobs/email/EditorialReminderTest.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @brief Tests for editorial reminder job.
+ */
+
+namespace PKP\tests\jobs\email;
+
+use Mockery;
+use PKP\db\DAORegistry;
+use PKP\facades\Locale;
+use PKP\tests\PKPTestCase;
+use PKP\jobs\email\EditorialReminder;
+use APP\user\Repository as UserRepository;
+use PKP\submission\reviewRound\ReviewRound;
+use APP\submission\Collector as SubmissionCollector;
+use APP\submission\Repository as SubmissionRepository;
+use PKP\emailTemplate\Repository as EmailTemplateRepository;
+
+/**
+ * @runTestsInSeparateProcesses
+ *
+ * @see https://docs.phpunit.de/en/9.6/annotations.html#runtestsinseparateprocesses
+ */
+class EditorialReminderTest extends PKPTestCase
+{
+    /**
+     * base64_encoded serializion from OJS 3.4.0
+     */
+    protected string $serializedJobData = 'TzozMjoiUEtQXGpvYnNcZW1haWxcRWRpdG9yaWFsUmVtaW5kZXIiOjQ6e3M6MTE6IgAqAGVkaXRvcklkIjtpOjI7czoxMjoiACoAY29udGV4dElkIjtpOjE7czoxMDoiY29ubmVjdGlvbiI7czo4OiJkYXRhYmFzZSI7czo1OiJxdWV1ZSI7czo1OiJxdWV1ZSI7fQ==';
+
+    /**
+     * Test job is a proper instance
+     */
+    public function testUnserializationGetProperJobInstance(): void
+    {
+        $this->assertInstanceOf(
+            EditorialReminder::class, 
+            unserialize(base64_decode($this->serializedJobData))
+        );
+    }
+
+    /**
+     * Ensure that a serialized job can be unserialized and executed
+     */
+    public function testRunSerializedJob()
+    {
+        $this->mockRequest();
+
+        $this->mockMail();
+        
+        /** @var EditorialReminder $editorialReminderJob*/
+        $editorialReminderJob = unserialize(base64_decode($this->serializedJobData));
+
+        $notificationSubscriptionSettingsDAO = Mockery::mock(
+                \PKP\notification\NotificationSubscriptionSettingsDAO::class
+            )
+            ->makePartial()
+            ->shouldReceive('getNotificationSubscriptionSettings')
+            ->withAnyArgs()
+            ->andReturn([])
+            ->getMock();
+
+        DAORegistry::registerDAO(
+            'NotificationSubscriptionSettingsDAO',
+            $notificationSubscriptionSettingsDAO
+        );
+
+        // Need to replace the container binding of `context` with a mock object
+        \APP\core\Services::register(
+            new class extends \APP\services\OJSServiceProvider
+            {
+                public function register(\Pimple\Container $pimple)
+                {
+                    $pimple['context'] = Mockery::mock(\APP\services\ContextService::class)
+                        ->makePartial()
+                        ->shouldReceive('get')
+                        ->withAnyArgs()
+                        ->andReturn(
+                            // Mock the context(Journal/Press/Server) object
+                            Mockery::mock(\PKP\context\Context::class)
+                                ->makePartial()
+                                ->shouldReceive([
+                                    'getPath' => '',
+                                    'getId' => 0,
+                                    'getContactEmail' => 'testmail@test.com',
+                                    'getLocalizedName' => 'Test Context',
+                                    'getPrimaryLocale' => 'en',
+                                    'getSupportedLocales' => ['en', 'fr_CA'],
+                                ])
+                                ->withAnyArgs()
+                                ->getMock()
+                        )
+                        ->getMock();
+                }
+            }
+        );
+
+        $userRepoMock = Mockery::mock(app(UserRepository::class))
+            ->makePartial()
+            ->shouldReceive('get')
+            ->withAnyArgs()
+            ->andReturn(new \PKP\user\User)
+            ->getMock();
+        
+        app()->instance(UserRepository::class, $userRepoMock);
+
+        /**
+         * @disregard P1013 PHP Intelephense error suppression
+         * @see https://github.com/bmewburn/vscode-intelephense/issues/568
+         */
+        Locale::shouldReceive('getLocale')
+            ->withAnyArgs()
+            ->andReturn('en')
+            ->shouldReceive('get')
+            ->withAnyArgs()
+            ->andReturn('')
+            ->shouldReceive('setLocale')
+            ->withAnyArgs()
+            ->andReturn(null);
+
+        /**
+         * @disregard P1013 PHP Intelephense error suppression
+         * @see https://github.com/bmewburn/vscode-intelephense/issues/568
+         */
+        $submissionCollectorMock = Mockery::mock(app(SubmissionCollector::class))
+            ->makePartial()
+            ->shouldReceive('assignedTo')
+            ->withAnyArgs()
+            ->andReturnSelf()
+            ->shouldReceive('filterByContextIds')
+            ->withAnyArgs()
+            ->andReturnSelf()
+            ->shouldReceive('filterByStatus')
+            ->withAnyArgs()
+            ->andReturnSelf()
+            ->shouldReceive('filterByIncomplete')
+            ->withAnyArgs()
+            ->andReturnSelf()
+            ->shouldReceive('getIds')
+            ->withAnyArgs()
+            ->andReturn(collect([1,2]))
+            ->getMock();
+        
+        app()->instance(SubmissionCollector::class, $submissionCollectorMock);
+
+        $publicationMock = Mockery::mock(\APP\publication\Publication::class)
+            ->makePartial()
+            ->shouldReceive([
+                'getLocalizedFullTitle' => 'Submission Full Title',
+                'getShortAuthorString' => 'Author',
+            ])
+            ->withAnyArgs()
+            ->getMock();
+
+        $submissionMock = Mockery::mock(\APP\submission\Submission::class)
+            ->makePartial()
+            ->shouldReceive([
+                'getId' => 0,
+                'getCurrentPublication' => $publicationMock,
+            ])
+            ->shouldReceive('getData')
+            ->with('stageId')
+            ->andReturn(WORKFLOW_STAGE_ID_INTERNAL_REVIEW)
+            ->getMock();
+
+        $submissionRepoMock = Mockery::mock(app(SubmissionRepository::class))
+            ->makePartial()
+            ->shouldReceive([
+                'get' => $submissionMock,
+            ])
+            ->withAnyArgs()
+            ->getMock();
+        
+        app()->instance(SubmissionRepository::class, $submissionRepoMock);
+
+        $reviewRoundMock = Mockery::mock(\PKP\submission\reviewRound\ReviewRound::class)
+            ->makePartial()
+            ->shouldReceive([
+                'getStatus' => ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS,
+            ])
+            ->withAnyArgs()
+            ->getMock();
+
+        $reviewRoundDaoMock = Mockery::mock(\PKP\submission\reviewRound\ReviewRoundDAO::class)
+            ->makePartial()
+            ->shouldReceive('getLastReviewRoundBySubmissionId')
+            ->withAnyArgs()
+            ->andReturn($reviewRoundMock)
+            ->getMock();
+
+        DAORegistry::registerDAO('ReviewRoundDAO', $reviewRoundDaoMock);
+
+        $emailTemplateMock = Mockery::mock(\PKP\emailTemplate\EmailTemplate::class)
+            ->makePartial()
+            ->shouldReceive([
+                'getLocalizedData' => '',
+            ])
+            ->withAnyArgs()
+            ->getMock();
+
+        $emailTemplateRepoMock = Mockery::mock(app(EmailTemplateRepository::class))
+            ->makePartial()
+            ->shouldReceive([
+                'getByKey' => $emailTemplateMock,
+            ])
+            ->withAnyArgs()
+            ->getMock();
+
+        app()->instance(EmailTemplateRepository::class, $emailTemplateRepoMock);
+
+        $this->assertNull($editorialReminderJob->handle());
+    }
+}

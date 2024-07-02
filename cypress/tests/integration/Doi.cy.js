@@ -86,7 +86,7 @@ describe('DOI tests', function() {
 	});
 
 	it('Check Assignment for multi-version submissions', function() {
-		const modalSelector = '.modal';
+		const modalSelector = 'div[role="dialog"]';
 		const articleTitle = 'Computer Skill Requirements for New and Existing Teachers: Implications for Policy and Practice';
 
 		loginAndGoToDoiPage();
@@ -283,7 +283,7 @@ describe('DOI tests', function() {
 	});
 
 	it('Check DOI versioning behaviour in workflow', function() {
-		const modalSelector = '.modal';
+		const modalSelector = 'div[role="dialog"]';
 		const articleTitle = 'The Facets Of Job Satisfaction: A Nine-Nation Comparative Study Of Construct Equivalence'
 
 		loginAndGoToDoiPage();
@@ -308,7 +308,7 @@ describe('DOI tests', function() {
 
 		cy.get('button#publication-button').click();
 		cy.get('button:contains("Unpost")').click();
-		cy.get('.modal button:contains("Unpost")').click();
+		cy.get('div[role="dialog"] button:contains("Unpost")').click();
 
 		cy.get('button:contains("Unpost")').should('not.exist');
 
@@ -353,8 +353,8 @@ describe('DOI tests', function() {
 		cy.get('button#publication-button').click();
 
 		cy.get('button:contains("Create New Version")').click();
-		cy.get('.modal').contains('Create New Version');
-		cy.get('.modal button:contains("Yes")').click();
+		cy.get('div[role="dialog"]').contains('Create New Version');
+		cy.get('div[role="dialog"] button:contains("Yes")').click();
 
 		cy.get('button:contains("Post")').click();
 		cy.get('div.pkpWorkflow__publishModal button:contains("Post")').click();
@@ -490,7 +490,7 @@ describe('DOI tests', function() {
 
 		// We have to unpost it first
 		cy.get('button:contains("Unpost")').click();
-		cy.get('.modal button:contains("Unpost")').click();
+		cy.get('div[role="dialog"] button:contains("Unpost")').click();
 		cy.get('button:contains("Post")').should('not.exist');
 
 		cy.get('button:contains("Post")').click();

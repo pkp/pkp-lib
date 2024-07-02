@@ -66,7 +66,7 @@ describe('Data suite: Dphillips', function() {
 		cy.get('#publication-button').click();
 		cy.get('button').contains('Unpost').click();
 		cy.contains('Are you sure you don\'t want this to be posted?');
-		cy.get('.modal__panel button').contains('Unpost').click();
+		cy.get('div[role=dialog] button').contains('Unpost').click();
 		cy.wait(1000);
 		cy.visit('/index.php/publicknowledge/preprints');
 		cy.contains('Signalling Theory Dividends').should('not.exist');

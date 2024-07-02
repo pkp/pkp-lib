@@ -114,7 +114,7 @@ describe('Data suite: Ckwantes', function() {
 		cy.get('h2').contains('Contributors');
 		cy.get('.listPanel__item:contains("Catherine Kwantes")');
 		cy.get('button').contains('Add Contributor').click();
-		cy.get('.modal__panel:contains("Add Contributor")').find('button').contains('Save').click();
+		cy.get('div[role=dialog]:contains("Add Contributor")').find('button').contains('Save').click();
 		cy.get('#contributor-givenName-error-en').contains('This field is required.');
 		cy.get('#contributor-email-error').contains('This field is required.');
 		cy.get('#contributor-country-error').contains('This field is required.');
@@ -122,37 +122,37 @@ describe('Data suite: Ckwantes', function() {
 		cy.get('.pkpFormField:contains("Family Name")').find('input[name*="familyName-en"]').type(submission.authors[0].familyName);
 		cy.get('.pkpFormField:contains("Country")').find('select').select(submission.authors[0].country)
 		cy.get('.pkpFormField:contains("Email")').find('input').type('notanemail');
-		cy.get('.modal__panel:contains("Add Contributor")').find('button').contains('Save').click();
+		cy.get('div[role=dialog]:contains("Add Contributor")').find('button').contains('Save').click();
 		cy.get('#contributor-email-error').contains('This is not a valid email address.');
 		cy.get('.pkpFormField:contains("Email")').find('input').type(submission.authors[0].email);
-		cy.get('.modal__panel:contains("Add Contributor")').find('button').contains('Save').click();
+		cy.get('div[role=dialog]:contains("Add Contributor")').find('button').contains('Save').click();
 		cy.wait(3000);
 		cy.get('button').contains('Order').click();
 		cy.wait(3000);
 		cy.get('button:contains("Decrease position of Catherine Kwantes")').click();
 		cy.get('button').contains('Save Order').click();
 		cy.get('button:contains("Preview")').click(); // Will only appear after order is saved
-		cy.get('.modal__panel:contains("List of Contributors")').find('tr:contains("Abbreviated")').contains('Kekkonen et al.');
-		cy.get('.modal__panel:contains("List of Contributors")').find('tr:contains("Publication Lists")').contains('Urho Kekkonen, Catherine Kwantes (Author)');
-		cy.get('.modal__panel:contains("List of Contributors")').find('tr:contains("Full")').contains('Urho Kekkonen, Catherine Kwantes (Author)');
-		cy.get('.modal__panel:contains("List of Contributors")').find('.modal__closeButton').click();
+		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Abbreviated")').contains('Kekkonen et al.');
+		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Publication Lists")').contains('Urho Kekkonen, Catherine Kwantes (Author)');
+		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Full")').contains('Urho Kekkonen, Catherine Kwantes (Author)');
+		cy.get('div[role=dialog]:contains("List of Contributors")').find('button:contains("Close")').click();
 		cy.get('.listPanel:contains("Contributors")').find('button').contains('Order').click();
 		cy.get('button:contains("Increase position of Catherine Kwantes")').click();
 		cy.get('.listPanel:contains("Contributors")').find('button').contains('Save Order').click();
 		cy.get('.listPanel:contains("Contributors") button:contains("Preview")').click(); // Will only appear after order is saved
-		cy.get('.modal__panel:contains("List of Contributors")').find('tr:contains("Abbreviated")').contains('Kwantes et al.');
-		cy.get('.modal__panel:contains("List of Contributors")').find('tr:contains("Publication Lists")').contains('Catherine Kwantes, Urho Kekkonen (Author)');
-		cy.get('.modal__panel:contains("List of Contributors")').find('tr:contains("Full")').contains('Catherine Kwantes, Urho Kekkonen (Author)');
-		cy.get('.modal__panel:contains("List of Contributors")').find('.modal__closeButton').click();
+		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Abbreviated")').contains('Kwantes et al.');
+		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Publication Lists")').contains('Catherine Kwantes, Urho Kekkonen (Author)');
+		cy.get('div[role=dialog]:contains("List of Contributors")').find('tr:contains("Full")').contains('Catherine Kwantes, Urho Kekkonen (Author)');
+		cy.get('div[role=dialog]:contains("List of Contributors")').find('button:contains("Close")').click();
 
 		// Delete a contributor
 		cy.get('.listPanel:contains("Contributors")').find('button').contains('Add Contributor').click();
 		cy.get('.pkpFormField:contains("Given Name")').find('input[name*="givenName-en"]').type('Fake Author Name');
 		cy.get('.pkpFormField:contains("Email")').find('input').type('delete@mailinator.com');
 		cy.get('.pkpFormField:contains("Country")').find('select').select('Barbados');
-		cy.get('.modal__panel:contains("Add Contributor")').find('button').contains('Save').click();
+		cy.get('div[role=dialog]:contains("Add Contributor")').find('button').contains('Save').click();
 		cy.get('.listPanel__item:contains("Fake Author Name")').find('button').contains('Delete').click();
-		cy.get('.modal__panel:contains("Are you sure you want to remove Fake Author Name as a contributor?")').find('button').contains('Delete Contributor').click();
+		cy.get('div[role=dialog]:contains("Are you sure you want to remove Fake Author Name as a contributor?")').find('button').contains('Delete Contributor').click();
 		cy.get('.listPanel__item:contains("Fake Author Name")').should('not.exist');
 
 		cy.get('.submissionWizard__footer button').contains('Continue').click();
@@ -215,7 +215,7 @@ describe('Data suite: Ckwantes', function() {
 		cy.contains('Make a Submission: Review');
 		cy.get('button:contains("Submit")').click();
 		const message = 'Are you sure you want to submit ' + submission.title + ' to ' + Cypress.env('contextTitles').en + '? Once you submit, a moderator will review the preprint before posting it online.';
-		cy.get('.modal__panel:contains("' + message + '")').find('button').contains('Submit').click();
+		cy.get('div[role=dialog]:contains("' + message + '")').find('button').contains('Submit').click();
 		cy.contains('Submission complete');
 		cy.get('a').contains('Create a new submission');
 		cy.get('a').contains('Return to your dashboard');

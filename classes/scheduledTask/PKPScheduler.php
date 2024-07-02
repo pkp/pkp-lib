@@ -113,17 +113,15 @@ abstract class PKPScheduler
             ->name(RemoveExpiredInvitations::class)
             ->withoutOverlapping();
         
-        $this->registerPluginSchedules();
+        // We only want to load all plugins and register schedule in following way if running on CLI mode
+        // as in non cli mode, schedule tasks should be registered web based task runner
+        if (runOnCLI()) {
+            $this->registerPluginSchedules();
+        }
     }
 
     public function registerPluginSchedules(): void
     {
-        // We only want to load all plugins and register schedule in following way if running on CLI mode
-        // as in non cli mode, schedule tasks should be registered from the plugin's `register` method
-        // otherwise it will be just double try to register which is memory and time expensive.
-        if (!runOnCLI()) {
-            return;
-        }
 
         $plugins = PluginRegistry::loadAllPlugins(true);
 
@@ -138,6 +136,8 @@ abstract class PKPScheduler
 
     public function runWebBasedScheduleTaskRunner(): void
     {
+        $this->registerPluginSchedules();
+
         $container = PKPContainer::getInstance();
 
         (new ScheduleTaskRunner(

@@ -3,27 +3,23 @@
 /**
  * @file lib/pkp/classes/handler/APIHandler.php
  *
- * Copyright (c) 2023 Simon Fraser University
- * Copyright (c) 2023 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2014-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class APIHandler
- *
- * @ingroup handler
  *
  * @brief Base request API handler
  */
 
 namespace PKP\handler;
 
-use APP\core\Application;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Pipeline;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPContainer;
 use PKP\core\PKPRoutingProvider;
 use PKP\plugins\Hook;
-use PKP\plugins\PluginRegistry;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
@@ -98,22 +94,6 @@ class APIHandler extends PKPHandler
             ], Response::HTTP_BAD_REQUEST)->send();
         }
 
-        $router = $this->apiController->getRequest()->getRouter(); /** @var \PKP\core\APIRouter $router */
-        
-        if ($router->isPluginApi()) {
-            $contextId = $this->apiController->getRequest()->getContext()?->getId() ?? Application::CONTEXT_SITE;
-            
-            // load the plugin only for current running context or site if no context available
-            $plugin = PluginRegistry::loadPlugin($router->getPluginCategory(), $router->getPluginName(), $contextId);
-
-            // Will only allow api call only from enable plugins
-            if (!$plugin->getEnabled($contextId)) {
-                return response()->json([
-                    'error' => __('api.400.pluginNotEnabled')
-                ], Response::HTTP_BAD_REQUEST)->send();
-            }
-        }
-
         try {
             $response = (new Pipeline(PKPContainer::getInstance()))
                 ->send(app(\Illuminate\Http\Request::class))
@@ -170,20 +150,13 @@ class APIHandler extends PKPHandler
         if (isset($this->_pathPattern)) {
             return $this->_pathPattern;
         }
-        
-        $router = $this->apiController->getRequest()->getRouter(); /** @var \PKP\core\APIRouter $router */
 
         if ($this->_apiForAdmin) {
-            $this->_pathPattern = $router->isPluginApi()
-                ? "/index/{$router->getPluginApiPathPrefix()}/{$router->getPluginCategory()}/{$router->getPluginName()}/api/{version}/{$this->_handlerPath}"
-                : "/index/api/{version}/{$this->_handlerPath}";
-
+            $this->_pathPattern = "/index/api/{version}/{$this->_handlerPath}";
             return $this->_pathPattern;
         }
 
-        $this->_pathPattern = $router->isPluginApi()
-            ? "/{contextPath}/{$router->getPluginApiPathPrefix()}/{$router->getPluginCategory()}/{$router->getPluginName()}/api/{version}/{$this->_handlerPath}"
-            : "/{contextPath}/api/{version}/{$this->_handlerPath}";
+        $this->_pathPattern = "/{contextPath}/api/{version}/{$this->_handlerPath}";
 
         return $this->_pathPattern;
     }

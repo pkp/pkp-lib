@@ -86,7 +86,6 @@ class PKPRoutingProvider extends RoutingServiceProvider
     /**
      * Boot the service provider.
      *
-     *
      */
     public function boot()
     {

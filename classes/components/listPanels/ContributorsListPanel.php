@@ -65,21 +65,6 @@ class ContributorsListPanel extends ListPanel
                 'publicationApiUrlFormat' => $this->getPublicationUrlFormat(),
                 'form' => $this->getLocalizedForm(),
                 'items' => $this->items,
-                'i18nAddContributor' => __('grid.action.addContributor'),
-                'i18nConfirmDelete' => __('grid.action.deleteContributor.confirmationMessage'),
-                'i18nDeleteContributor' => __('grid.action.deleteContributor'),
-                'i18nEditContributor' => __('grid.action.edit'),
-                'i18nSetPrimaryContact' => __('author.users.contributor.setPrincipalContact'),
-                'i18nPrimaryContact' => __('author.users.contributor.principalContact'),
-                'i18nContributors' => __('submission.contributors'),
-                'i18nSaveOrder' => __('grid.action.saveOrdering'),
-                'i18nPreview' => __('contributor.listPanel.preview'),
-                'i18nPreviewDescription' => __('contributor.listPanel.preview.description'),
-                'i18nDisplay' => __('contributor.listPanel.preview.display'),
-                'i18nFormat' => __('contributor.listPanel.preview.format'),
-                'i18nAbbreviated' => __('contributor.listPanel.preview.abbreviated'),
-                'i18nPublicationLists' => __('contributor.listPanel.preview.publicationLists'),
-                'i18nFull' => __('contributor.listPanel.preview.full'),
             ]
         );
 

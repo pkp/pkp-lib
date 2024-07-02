@@ -47,6 +47,11 @@ class PKPStatsPublicationPage extends PKPStatsComponent
     /** @var string A search phrase to filter the list of items */
     public $searchPhrase = null;
 
+    /** @var string When Geographical statistic are enabled, options: countries/regions/cities */
+    public $geoReportType = null;
+
+
+
     /**
      * Retrieve the configuration data to be used when initializing this
      * handler on the frontend
@@ -85,6 +90,7 @@ class PKPStatsPublicationPage extends PKPStatsComponent
                 'orderBy' => $this->orderBy,
                 'orderDirection' => $this->orderDirection,
                 'isLoadingTimeline' => false,
+                'geoReportType' => $this->geoReportType
             ]
         );
 

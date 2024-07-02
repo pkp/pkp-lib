@@ -3,13 +3,11 @@
 /**
  * @file classes/core/APIRouter.php
  *
- * Copyright (c) 2023 Simon Fraser University
- * Copyright (c) 2023 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2014-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class APIRouter
- *
- * @ingroup core
  *
  * @brief Map HTTP requests to a REST API using the laravel router
  *
@@ -26,15 +24,9 @@ use Illuminate\Http\Response;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\handler\APIHandler;
-use PKP\plugins\PluginRegistry;
 
 class APIRouter extends PKPRouter
 {
-    /** 
-     * Define if the api call for a plugin implemented endpoint 
-     */
-    protected bool $_pluginApi = false;
-
     /**
      * Determines path info parts
      */
@@ -48,38 +40,7 @@ class APIRouter extends PKPRouter
      */
     protected function getSourceFilePath(): string
     {
-        if ($this->_pluginApi) {
-            return sprintf(
-                '%s/%s/%s/api/%s/%s/index.php',
-                $this->getPluginApiPathPrefix(),
-                $this->getPluginCategory(),
-                $this->getPluginName(),
-                $this->getVersion(), 
-                $this->getEntity()
-            );
-        }
-
         return sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
-    }
-
-    /**
-     * Get the starting api url segment for plugin implemented API endpoint
-     * 
-     * @example Considering an API endpoint such as 
-     *          http://BASE_URL/index.php/CONTEXT_PATH/plugins/PLUGIN_CATEGORY/PLUGIN_NAME/api/VERSION/ENTITY
-     *          the plugin api uri prefix is `plugins` which start right after the CONTEXT_PATH
-     */
-    public function getPluginApiPathPrefix(): string
-    {
-        return 'plugins';
-    }
-
-    /**
-     * Define if the target reqeust is for plugin implemented API routes
-     */
-    public function isPluginApi(): bool
-    {
-        return $this->_pluginApi;
     }
 
     /**
@@ -104,12 +65,6 @@ class APIRouter extends PKPRouter
             return true;
         }
 
-        // plugin specific API request [index.php]/{contextPath}/plugins/{category}/{pluginName}/api
-        if (strtolower($pathInfoParts[1]) === $this->getPluginApiPathPrefix() && strtolower($pathInfoParts[4]) === 'api') {
-            $this->_pluginApi = true;
-            return true;
-        }
-
         return false;
     }
 
@@ -119,10 +74,6 @@ class APIRouter extends PKPRouter
     public function getVersion(): string
     {
         $pathInfoParts = $this->getPathInfoParts();
-
-        if ($this->isPluginApi()) {
-            return Core::cleanFileVar($pathInfoParts[5] ?? '');
-        }
 
         return Core::cleanFileVar($pathInfoParts[2] ?? '');
     }
@@ -134,39 +85,7 @@ class APIRouter extends PKPRouter
     {
         $pathInfoParts = $this->getPathInfoParts();
 
-        if ($this->isPluginApi()) {
-            return Core::cleanFileVar($pathInfoParts[6] ?? '');
-        }
-
         return Core::cleanFileVar($pathInfoParts[3] ?? '');
-    }
-
-    /** 
-     * Get the plugin name if the api endpoint is implemented at plugin level
-     */
-    public function getPluginName(): string
-    {
-        if (!$this->isPluginApi()) {
-            return '';
-        }
-
-        $pathInfoParts = $this->getPathInfoParts();
-
-        return Core::cleanFileVar($pathInfoParts[3]);
-    }
-
-    /** 
-     * Get the plugin category if the api endpoint is implemented at plugin level
-     */
-    public function getPluginCategory(): string
-    {
-        if (!$this->isPluginApi()) {
-            return '';
-        }
-
-        $pathInfoParts = $this->getPathInfoParts();
-
-        return Core::cleanFileVar($pathInfoParts[2]);
     }
 
     //
@@ -238,8 +157,7 @@ class APIRouter extends PKPRouter
         ?array $params = null,
         ?string $anchor = null,
         bool $escape = false,
-        ?string $urlLocaleForPage = null,
-        array $pluginOptions = []
+        ?string $urlLocaleForPage = null
     ): string {
         // APIHandlers do not understand $op, $path or $anchor. All routing is baked
         // into the $endpoint string. It only accepts a string as the $newContext,
@@ -252,48 +170,6 @@ class APIRouter extends PKPRouter
         $additionalParameters = $this->_urlGetAdditionalParameters($request, $params, $escape);
 
         return $this->_urlFromParts($baseUrl, [$context, 'api', Application::API_VERSION, $endpoint], $additionalParameters, $anchor, $escape);
-    }
-
-    /**
-     * Validate the plugin options to generate plugin specific API url
-     * 
-     * @param PKPRequest    $request        The request object
-     * @param array         $pluginOptions  Array containing only 2 elements, first one is plugin category
-     *                                      and second one is plugin name
-     * 
-     * @return bool If plugin details can be retrived when details present, will return TRUE
-     *              If options are empty, will return FALSE
-     *              Otherwise will throw exception
-     * 
-     * @throws \Exception
-     */
-    protected function validatePluginOptions(PKPRequest $request, array $pluginOptions = []): bool
-    {
-        if (empty($pluginOptions)) {
-            return false;
-        }
-
-        // To generate api url for plugin specific, we only need two information as plugin options
-        // as plugin category and plugin name in proper order
-        if (count($pluginOptions) !== 2) {
-            throw new Exception('APIRouter::url() for plugin specific api must be provided with only 2 details e.g. plugin category and name as an array');
-        }
-
-        $contextId = $this->getContext($request)?->getId() ?? Application::CONTEXT_SITE;
-        $plugin = PluginRegistry::loadPlugin(reset($pluginOptions), last($pluginOptions), $contextId);
-
-        if (!$plugin) {
-            throw new Exception(
-                sprintf(
-                    'Unable to load plugin for with given category: %s and name: %s for context ID: %d',
-                    reset($pluginOptions),
-                    last($pluginOptions),
-                    $contextId
-                )
-            );
-        }
-
-        return true;
     }
 }
 

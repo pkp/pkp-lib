@@ -29,7 +29,7 @@ class SubmissionEmailVariable extends \PKP\mail\variables\SubmissionEmailVariabl
             $context->getPath(),
             'preprint',
             'view',
-            $this->submission->getBestId()
+            [$this->submission->getBestId()]
         );
     }
 }

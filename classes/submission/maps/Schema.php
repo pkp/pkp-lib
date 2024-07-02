@@ -32,7 +32,7 @@ class Schema extends \PKP\submission\maps\Schema
                 $this->context->getPath(),
                 'preprint',
                 'view',
-                $submission->getBestId()
+                [$submission->getBestId()]
             );
         }
 

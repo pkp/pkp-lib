@@ -75,7 +75,6 @@ class TemplateManager extends PKPTemplateManager
                 /** @var NotificationDAO */
                 $notificationDao = DAORegistry::getDAO('NotificationDAO');
                 // Exclude certain tasks, defined in the notifications grid handler
-                import('lib.pkp.controllers.grid.notifications.TaskNotificationsGridHandler');
                 $this->assign('unreadNotificationCount', $notificationDao->getNotificationCount(false, $user->getId(), null, Notification::NOTIFICATION_LEVEL_TASK));
             }
             if (isset($context)) {
@@ -97,7 +96,7 @@ class TemplateManager extends PKPTemplateManager
                 // reproducing a lot of OMP/OPS-specific logic there.
                 $dispatcher = $request->getDispatcher();
                 $this->assign([
-                    'contextSettingsUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'management', 'settings', 'context'),
+                    'contextSettingsUrl' => $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'management', 'settings', ['context']),
                     'pageFooter' => $context->getLocalizedData('pageFooter')
                 ]);
             } else {

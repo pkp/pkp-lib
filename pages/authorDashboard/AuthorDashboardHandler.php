@@ -16,6 +16,7 @@
 
 namespace APP\pages\authorDashboard;
 
+use APP\components\forms\publication\PublishForm;
 use APP\core\Application;
 use APP\core\PageRouter;
 use APP\core\Services;
@@ -69,17 +70,16 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
         $relationForm = new \APP\components\forms\publication\RelationForm($relatePublicationApiUrl, $latestPublication);
 
         // Import constants
-        class_exists(\APP\components\forms\publication\RelationForm::class); // Force define of FORM_ID_RELATION
         $templateMgr->setConstants([
-            'FORM_ID_RELATION' => FORM_ID_RELATION,
-            'FORM_PUBLISH' => FORM_PUBLISH,
+            'FORM_ID_RELATION' => $relationForm::FORM_ID_RELATION,
+            'FORM_PUBLISH' => PublishForm::FORM_PUBLISH,
         ]);
 
         $components = $templateMgr->getState('components');
-        $components[FORM_ID_RELATION] = $relationForm->getConfig();
+        $components[$relationForm::FORM_ID_RELATION] = $relationForm->getConfig();
 
         $publicationFormIds = $templateMgr->getState('publicationFormIds');
-        $publicationFormIds[] = FORM_PUBLISH;
+        $publicationFormIds[] = PublishForm::FORM_PUBLISH;
 
         $templateMgr->setState([
             'components' => $components,

@@ -92,11 +92,9 @@ class WorkflowHandler extends PKPWorkflowHandler
         $issueEntryForm = new \APP\components\forms\publication\IssueEntryForm($latestPublicationApiUrl, $locales, $latestPublication, $submissionContext, $baseUrl, $temporaryFileApiUrl);
         $relationForm = new \APP\components\forms\publication\RelationForm($relatePublicationApiUrl, $latestPublication);
 
-        import('classes.components.forms.publication.IssueEntryForm'); // Constant import
-        import('classes.components.forms.publication.RelationForm'); // Constant import
         $templateMgr->setConstants([
-            'FORM_ISSUE_ENTRY' => FORM_ISSUE_ENTRY,
-            'FORM_ID_RELATION' => FORM_ID_RELATION,
+            'FORM_ISSUE_ENTRY' => $issueEntryForm::FORM_ISSUE_ENTRY,
+            'FORM_ID_RELATION' => $relationForm::FORM_ID_RELATION,
         ]);
 
         $sectionWordLimits = [];
@@ -111,21 +109,21 @@ class WorkflowHandler extends PKPWorkflowHandler
 
         // Add the word limit to the existing title/abstract form
         $components = $templateMgr->getState('components');
-        if (!empty($components[FORM_TITLE_ABSTRACT]) &&
+        if (!empty($components[TitleAbstractForm::FORM_TITLE_ABSTRACT]) &&
                 array_key_exists($submission->getLatestPublication()->getData('sectionId'), $sectionWordLimits)) {
             $limit = (int) $sectionWordLimits[$submission->getLatestPublication()->getData('sectionId')];
-            foreach ($components[FORM_TITLE_ABSTRACT]['fields'] as $key => $field) {
+            foreach ($components[TitleAbstractForm::FORM_TITLE_ABSTRACT]['fields'] as $key => $field) {
                 if ($field['name'] === 'abstract') {
-                    $components[FORM_TITLE_ABSTRACT]['fields'][$key]['wordLimit'] = $limit;
+                    $components[TitleAbstractForm::FORM_TITLE_ABSTRACT]['fields'][$key]['wordLimit'] = $limit;
                     break;
                 }
             }
         }
-        $components[FORM_ISSUE_ENTRY] = $this->getLocalizedForm($issueEntryForm, $submissionLocale, $locales);
-        $components[FORM_ID_RELATION] = $relationForm->getConfig();
+        $components[$issueEntryForm::FORM_ISSUE_ENTRY] = $this->getLocalizedForm($issueEntryForm, $submissionLocale, $locales);
+        $components[$relationForm::FORM_ID_RELATION] = $relationForm->getConfig();
 
         $publicationFormIds = $templateMgr->getState('publicationFormIds');
-        $publicationFormIds[] = FORM_ISSUE_ENTRY;
+        $publicationFormIds[] = $issueEntryForm::FORM_ISSUE_ENTRY;
 
         $templateMgr->setState([
             'components' => $components,

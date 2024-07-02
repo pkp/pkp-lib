@@ -19,14 +19,10 @@ use APP\publication\Publication;
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FormComponent;
 
-define('FORM_PUBLISH', 'publish');
-
 class PublishForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_PUBLISH;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_PUBLISH = 'publish';
+    public $id = self::FORM_PUBLISH;
     public $method = 'PUT';
 
     /** @var Publication */

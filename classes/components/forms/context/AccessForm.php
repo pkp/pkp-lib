@@ -20,14 +20,10 @@ use APP\server\Server;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 
-define('FORM_ACCESS', 'access');
-
 class AccessForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_ACCESS;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_ACCESS = 'access';
+    public $id = self::FORM_ACCESS;
     public $method = 'PUT';
 
     /**

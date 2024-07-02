@@ -20,14 +20,10 @@ use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 
-define('FORM_ID_RELATION', 'relation');
-
 class RelationForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_ID_RELATION;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_ID_RELATION = 'relation';
+    public $id = self::FORM_ID_RELATION;
     public $method = 'PUT';
 
     /**

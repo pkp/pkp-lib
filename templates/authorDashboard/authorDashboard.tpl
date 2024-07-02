@@ -85,7 +85,7 @@
 									class="pkpWorkflow__relation"
 									label="{translate key="publication.relation"}"
 								>
-									<pkp-form class="pkpWorkflow__relateForm" v-bind="components.{$smarty.const.FORM_ID_RELATION}" @set="set">
+									<pkp-form class="pkpWorkflow__relateForm" v-bind="components.{APP\components\forms\publication\RelationForm::FORM_ID_RELATION}" @set="set">
 								</dropdown>
 							</span>
 							{if $canPublish}
@@ -122,7 +122,7 @@
 					</div>
 					<tabs :is-side-tabs="true" :track-history="true" class="pkpPublication__tabs" :label="publicationTabsLabel">
 						<tab id="titleAbstract" label="{translate key="publication.titleAbstract"}">
-							<pkp-form v-bind="components.{$smarty.const.FORM_TITLE_ABSTRACT}" @set="set" />
+							<pkp-form v-bind="components.{PKP\components\forms\publication\TitleAbstractForm::FORM_TITLE_ABSTRACT}" @set="set" />
 						</tab>
 						<tab id="contributors" label="{translate key="publication.contributors"}">
 							<contributors-list-panel
@@ -138,11 +138,11 @@
 						</tab>
 						{if $metadataEnabled}
 							<tab id="metadata" label="{translate key="submission.informationCenter.metadata"}">
-								<pkp-form v-bind="components.{$smarty.const.FORM_METADATA}" @set="set" />
+								<pkp-form v-bind="components.{PKP\components\forms\publication\PKPMetadataForm::FORM_METADATA}" @set="set" />
 							</tab>
 						{/if}
 						<tab v-if="supportsReferences" id="citations" label="{translate key="submission.citations"}">
-							<pkp-form v-bind="components.{$smarty.const.FORM_CITATIONS}" @set="set" />
+							<pkp-form v-bind="components.{PKP\components\forms\publication\PKPCitationsForm::FORM_CITATIONS}" @set="set" />
 						</tab>
 						<tab id="galleys" label="{translate key="submission.layout.galleys"}">
 							<div id="representations-grid" ref="representations">

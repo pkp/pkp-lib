@@ -293,7 +293,7 @@ class PreprintHandler extends Handler
             // Ask robots not to index outdated versions and point to the canonical url for the latest version
             if ($publication->getId() !== $preprint->getCurrentPublication()->getId()) {
                 $templateMgr->addHeader('noindex', '<meta name="robots" content="noindex">');
-                $url = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, null, 'preprint', 'view', $preprint->getBestId());
+                $url = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, null, 'preprint', 'view', [$preprint->getBestId()]);
                 $templateMgr->addHeader('canonical', '<link rel="canonical" href="' . $url . '">');
             }
 

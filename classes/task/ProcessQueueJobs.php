@@ -26,7 +26,7 @@ class ProcessQueueJobs extends ScheduledTask
     /**
      * @copydoc ScheduledTask::getName()
      */
-    public function getName()
+    public function getName(): string
     {
         return __('admin.scheduledTask.processQueueJobs');
     }
@@ -35,7 +35,7 @@ class ProcessQueueJobs extends ScheduledTask
     /**
      * @copydoc ScheduledTask::executeActions()
      */
-    public function executeActions()
+    public function executeActions(): bool
     {
         if (Application::isUnderMaintenance() || !Config::getVar('queues', 'job_runner', true)) {
             return true;

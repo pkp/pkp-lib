@@ -27,12 +27,12 @@ use PKP\user\Collector;
 
 class EditorialReminders extends ScheduledTask
 {
-    public function getName()
+    public function getName(): string
     {
         return __('mailable.editorialReminder.description');
     }
 
-    protected function executeActions()
+    protected function executeActions(): bool
     {
         /** @var ContextService $contextService */
         $contextService = Services::get('context');

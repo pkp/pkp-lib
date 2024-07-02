@@ -26,7 +26,7 @@ class RemoveUnvalidatedExpiredUsers extends ScheduledTask
     /**
      * @copydoc ScheduledTask::getName()
      */
-    public function getName()
+    public function getName(): string
     {
         return __('admin.scheduledTask.removeUnvalidatedExpiredUsers');
     }
@@ -35,7 +35,7 @@ class RemoveUnvalidatedExpiredUsers extends ScheduledTask
     /**
      * @copydoc ScheduledTask::executeActions()
      */
-    public function executeActions()
+    public function executeActions(): bool
     {
         // No need to remove invalidated users if validation requirement is turned off
         if (!Config::getVar('email', 'require_validation', false)) {

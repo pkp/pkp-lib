@@ -17,6 +17,7 @@ namespace PKP\migration\upgrade\v3_4_0;
 use APP\core\Application;
 use APP\migration\upgrade\v3_4_0\MergeLocalesMigration;
 use APP\statistics\StatisticsHelper;
+use DateTime;
 use Exception;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
@@ -25,6 +26,7 @@ use Illuminate\Database\Query\JoinClause;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use PKP\config\Config;
 use PKP\db\DAORegistry;
 use Throwable;
 
@@ -94,6 +96,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
     /**
      * Check the contexts' contact details before upgrade
+     *
      * @see https://github.com/pkp/pkp-lib/issues/8183
      *
      * @throws Exception
@@ -128,6 +131,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
     /**
      * Ensures locale conflicts won't happen at a later stage of the migration
+     *
      * @see https://github.com/pkp/pkp-lib/issues/8598
      *
      * @throws Exception
@@ -204,6 +208,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     protected function checkUsageStatsLogs(): void
     {
         $usageStatsDir = StatisticsHelper::getUsageStatsDirPath();
+        $filePathToCheck = '';
         // check if there are usage stats log files older than yesterday
         foreach (glob($usageStatsDir . '/usageEventLogs/*') as $usageStatsLogFile) {
             if (!preg_match('/(\d{8})\.log$/', $usageStatsLogFile, $logFileDate)) {
@@ -214,6 +219,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             if ($yesterday > $logFileDate) {
                 throw new Exception("There are unprocessed log files from more than 1 day ago in the directory {$usageStatsDir}/usageEventLogs/. This happens when the scheduled task to process usage stats logs is not being run daily. All logs in this directory older than {$yesterday} must be processed or removed before the upgrade can continue.");
             }
+            $filePathToCheck = $usageStatsLogFile;
         }
         // check if there are old usage stats log files there that were not successfully processed
         if (
@@ -223,10 +229,80 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         ) {
             throw new Exception("There are one or more log files that were unable to finish processing. This happens when the scheduled task to process usage stats logs encounters a failure of some kind. These logs must be repaired and reprocessed or removed before the upgrade can continue. The logs can be found in the folders reject, processing and stage in {$usageStatsDir}.");
         }
+
+        $this->checkUsageStatsLogFileUrl($filePathToCheck);
+    }
+
+    /**
+     * Check if the domains in the log file URLs are correct i.e. the same as the base_url in the config.inc.php.
+     * Only the first URL in the log file is checked (and the same assumed for all URLs in the log file).
+     *
+     * @throws Exception
+     */
+    protected function checkUsageStatsLogFileUrl(string $filePathToCheck): void
+    {
+        $fhandle = fopen($filePathToCheck, 'r');
+        if (!$fhandle) {
+            throw new Exception("Can not open file {$filePathToCheck}.");
+        }
+        while (!feof($fhandle)) {
+            $line = trim(fgets($fhandle));
+            if (empty($line) || substr($line, 0, 1) === '#') {
+                continue;
+            } // Spacing or comment lines.
+
+            $entryData = $this->getDataFromLogEntry($line);
+
+            if (empty($entryData)) {
+                continue;
+            }
+            // Avoid internal apache requests.
+            if ($entryData['url'] == '*') {
+                continue;
+            }
+            // Avoid non sucessful requests.
+            $sucessfulReturnCodes = [200, 304];
+            if (!in_array($entryData['returnCode'], $sucessfulReturnCodes)) {
+                continue;
+            }
+
+            $configBaseUrl = Config::getVar('general', 'base_url');
+            $baseUrls = array_merge(Config::getContextBaseUrls(), [$configBaseUrl]);
+            foreach ($baseUrls as $baseUrl) {
+                if (str_contains($entryData['url'], $baseUrl)) {
+                    return;
+                }
+            }
+            break;
+        }
+        fclose($fhandle);
+        throw new Exception('The base_url in config.inc.php should be the same as in URLs in the usage stats log file.');
+    }
+
+    /**
+     * Get data from the passed log entry.
+     */
+    protected function getDataFromLogEntry(string $entry): array
+    {
+        $entryData = [];
+        // The default regex that can parse the usageStats plugin's log files.
+        $parseRegex = '/^(?P<ip>\S+) \S+ \S+ "(?P<date>.*?)" (?P<url>\S+) (?P<returnCode>\S+) "(?P<userAgent>.*?)"/';
+        if (preg_match($parseRegex, $entry, $m)) {
+            $associative = count(array_filter(array_keys($m), 'is_string')) > 0;
+            $entryData['ip'] = $associative ? $m['ip'] : $m[1];
+            $time = $associative ? $m['date'] : $m[2];
+            $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $time);
+            $entryData['date'] = $dateTime->format('Y-m-d H:i:s');
+            $entryData['url'] = urldecode($associative ? $m['url'] : $m[3]);
+            $entryData['returnCode'] = $associative ? $m['returnCode'] : $m[4];
+            $entryData['userAgent'] = $associative ? $m['userAgent'] : $m[5];
+        }
+        return $entryData;
     }
 
     /**
      * Ensures that contexts with section editor assignments have a section editor role
+     *
      * @see classes\migration\upgrade\v3_4_0\I7191_EditorAssignments.php
      *
      * @throws Exception
@@ -236,14 +312,16 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         $contextId = "c.{$this->getContextKeyField()}";
         // Look for contexts that have section editor assignments, but no section editor role
         $contextsWithoutSubEditor = DB::table($this->getContextTable(), 'c')
-            ->whereNotExists(fn (Builder $q) => $q->from('user_groups', 'ug')
-                ->whereColumn('ug.context_id', '=', $contextId)
-                ->where('ug.role_id', '=', 17) // Role::ROLE_ID_SUB_EDITOR
-                ->selectRaw('0')
+            ->whereNotExists(
+                fn (Builder $q) => $q->from('user_groups', 'ug')
+                    ->whereColumn('ug.context_id', '=', $contextId)
+                    ->where('ug.role_id', '=', 17) // Role::ROLE_ID_SUB_EDITOR
+                    ->selectRaw('0')
             )
-            ->whereExists(fn (Builder $q) => $q->from('subeditor_submission_group', 'ssg')
-                ->whereColumn('ssg.context_id', '=', $contextId)
-                ->selectRaw('0')
+            ->whereExists(
+                fn (Builder $q) => $q->from('subeditor_submission_group', 'ssg')
+                    ->whereColumn('ssg.context_id', '=', $contextId)
+                    ->selectRaw('0')
             )
             ->pluck('c.path');
         if ($contextsWithoutSubEditor->count()) {
@@ -298,8 +376,10 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
     /**
      * Apply some validations to the submission checklist and attempts to auto-fix a small issue within the JSON data
+     *
      * @see https://github.com/pkp/pkp-lib/issues/7191
      * @see About the fix attempt: https://github.com/pkp/pkp-lib/issues/8929#issuecomment-1519867805
+     *
      * @throws Exception
      */
     protected function checkSubmissionChecklist(): void
@@ -342,6 +422,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
     /**
      * Checks whether the database is ready for the introduction of foreign keys (MySQL only)
+     *
      * @see https://github.com/pkp/pkp-lib/issues/6732
      *
      * @throws Exception
@@ -368,7 +449,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         );
 
         if (count($result) > 0) {
-            error_log(print_r($result,true));
+            error_log(print_r($result, true));
             $tableNames = data_get($result, '*.table_name');
             throw new Exception(
                 'Storage engine that doesn\'t support foreign key constraints detected in one or more tables: ' .
@@ -424,6 +505,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      * - Rows with required, but invalid foreign keys (null/bad values) will be deleted
      * - Rows with nullable/optional foreign keys will be inspected on a case-by-case basis (if possible they will be nulled, otherwise removed)
      * - Consideration is given to bidirectional/direct dependencies and exceptional cases (e.g. submission.current_publication_id, which is nullable, but required)
+     *
      * @see https://github.com/pkp/pkp-lib/issues/6093
      *
      * @throws Exception
@@ -434,7 +516,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         // Sort the tables by the number of dependent entities
         uksort(
             $this->tableProcessors,
-            fn(string $a, string $b) => count($this->getEntityRelationships()[$b] ?? []) <=> count($this->getEntityRelationships()[$a] ?? [])
+            fn (string $a, string $b) => count($this->getEntityRelationships()[$b] ?? []) <=> count($this->getEntityRelationships()[$a] ?? [])
         );
         // Start the processing
         foreach (array_keys($this->tableProcessors) as $table) {
@@ -448,7 +530,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      */
     protected function processTable(string $tableName): void
     {
-        $affectedRows = array_reduce($this->tableProcessors[$tableName] ?? [], fn(int $affectedRows, callable $processor): int => $affectedRows += $processor(), 0);
+        $affectedRows = array_reduce($this->tableProcessors[$tableName] ?? [], fn (int $affectedRows, callable $processor): int => $affectedRows += $processor(), 0);
         if (!$affectedRows) {
             return;
         }
@@ -481,8 +563,8 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 ->leftJoin('publications AS p', 'p.publication_id', '=', 's.current_publication_id')
                 ->join(
                     'publications AS last',
-                    fn(JoinClause $q) => $q->where(
-                        fn(Builder $q) => $q->from('publications AS p2')
+                    fn (JoinClause $q) => $q->where(
+                        fn (Builder $q) => $q->from('publications AS p2')
                             ->whereColumn('p2.submission_id', '=', 's.submission_id')
                             ->orderByDesc('p2.publication_id')
                             ->limit(1)
@@ -1004,6 +1086,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     /**
      * Delete rows from the source table where the foreign key field contains either invalid values or NULL
      * Used for NOT NULL/required relationships
+     *
      * @param $filter callable(Builder): Builder
      */
     protected function deleteRequiredReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn, ?callable $filter = null): int
@@ -1012,7 +1095,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             return 0;
         }
 
-        $filter ??= fn(Builder $q) => $q;
+        $filter ??= fn (Builder $q) => $q;
         $ids = $filter(
             DB::table("{$sourceTable} AS s")
                 ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
@@ -1040,6 +1123,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     /**
      * Resets optional/nullable foreign key fields from the source table to NULL when the field contains invalid values
      * Used for NULLABLE relationships
+     *
      * @param $filter callable(Builder): Builder
      */
     protected function cleanOptionalReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn, ?callable $filter = null): int
@@ -1048,7 +1132,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             return 0;
         }
 
-        $filter ??= fn(Builder $q) => $q;
+        $filter ??= fn (Builder $q) => $q;
         $ids = $filter(
             DB::table("{$sourceTable} AS s")
                 ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
@@ -1076,6 +1160,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     /**
      * Deletes rows from the source table where the foreign key field contains invalid values
      * Used for NULLABLE relationships, where the source record lose the meaning without its relationship
+     *
      * @param $filter callable(Builder): Builder
      */
     protected function deleteOptionalReference(string $sourceTable, string $sourceColumn, string $referenceTable, string $referenceColumn, ?callable $filter = null): int
@@ -1084,7 +1169,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             return 0;
         }
 
-        $filter ??= fn(Builder $q) => $q;
+        $filter ??= fn (Builder $q) => $q;
         $ids = $filter(
             DB::table("{$sourceTable} AS s")
                 ->leftJoin("{$referenceTable} AS r", "s.{$sourceColumn}", '=', "r.{$referenceColumn}")
@@ -1127,7 +1212,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      */
     protected function ignoreZero(string $sourceColumn): callable
     {
-        return fn(Builder $q) => $q->where("s.{$sourceColumn}", '!=', 0);
+        return fn (Builder $q) => $q->where("s.{$sourceColumn}", '!=', 0);
     }
 
     /**
@@ -1150,6 +1235,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      * Clears duplicated user_settings
      * This method used to be a migration, it has been incorporated at the pre-flight to avoid issues with the checks introduced by the MergeLocalesMigration
      * Given that it operates on duplicated entries, it should be ok to run it several times
+     *
      * @see https://github.com/pkp/pkp-lib/issues/7167
      */
     protected function clearDuplicatedUserSettings(): void

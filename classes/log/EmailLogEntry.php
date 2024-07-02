@@ -19,29 +19,28 @@
 namespace PKP\log;
 
 use APP\facades\Repo;
+use PKP\user\User;
 
 class EmailLogEntry extends \PKP\core\DataObject
 {
+    private ?User $sender;
+
     //
     // Get/set methods
     //
 
     /**
      * Get user ID of sender.
-     *
-     * @return int
      */
-    public function getSenderId()
+    public function getSenderId(): ?int
     {
         return $this->getData('senderId');
     }
 
     /**
      * Set user ID of sender.
-     *
-     * @param int $senderId
      */
-    public function setSenderId($senderId)
+    public function setSenderId(?int $senderId): void
     {
         $this->setData('senderId', $senderId);
     }
@@ -127,39 +126,29 @@ class EmailLogEntry extends \PKP\core\DataObject
     }
 
     /**
-     * Return the full name of the sender (not necessarily the same as the from address).
-     *
-     * @return string
+     * Return the sender user.
      */
-    public function getSenderFullName()
+    public function getSender(): ?User
     {
-        $senderFullName = $this->getData('senderFullName');
+        return $this->sender ??= $this->getSenderId() ? Repo::user()->get($this->getSenderId(), true)?->getFullName() : null;
+    }
 
-        if ($senderFullName) {
-            return $senderFullName;
-        }
-
-        $sender = $this->getSenderId()
-            ? Repo::user()->get($this->getSenderId(), true)
-            : null;
-
-        return $sender ? $sender->getFullName() : '';
+    /**
+     * Return the full name of the sender (not necessarily the same as the from address).
+     */
+    public function getSenderFullName(): string
+    {
+        $senderFullName = & $this->getData('senderFullName');
+        return $senderFullName ??= $this->getSender()?->getFullName() ?? '';
     }
 
     /**
      * Return the email address of sender.
-     *
-     * @return string
      */
-    public function getSenderEmail()
+    public function getSenderEmail(): string
     {
         $senderEmail = & $this->getData('senderEmail');
-
-        if (!isset($senderEmail)) {
-            $senderEmail = Repo::user()->get($this->getSenderId(), true)->getEmail();
-        }
-
-        return ($senderEmail ? $senderEmail : '');
+        return $senderEmail ??= $this->getSender()?->getEmail() ?? '';
     }
 
 

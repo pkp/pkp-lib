@@ -105,7 +105,7 @@ class PKPRouterTestCase extends PKPTestCase
         $this->_setUpMockEnvironment();
         $_SERVER['PATH_INFO'] = null;
         self::assertEquals(
-            'index',
+            Application::SITE_CONTEXT_PATH,
             $this->router->getRequestedContextPath($this->request)
         );
     }

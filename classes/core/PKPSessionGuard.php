@@ -182,8 +182,8 @@ class PKPSessionGuard extends SessionGuard
     /**
      * Update session cookie based in the response
      */
-    public function updateSessionCookieToResponse(Session $session = null): void
-    {   
+    public function updateSessionCookieToResponse(?Session $session = null): void
+    {
         $session ??= $this->getSession();
         $headerCookies = [];
 
@@ -199,27 +199,27 @@ class PKPSessionGuard extends SessionGuard
         }
 
         $cookie = new Cookie(
-            name: $session->getName(), 
-            value: $session->getId(), 
+            name: $session->getName(),
+            value: $session->getId(),
             expire: $this->getCookieExpirationDate($config),
-            path: $config['path'], 
-            domain: $config['domain'], 
+            path: $config['path'],
+            domain: $config['domain'],
             secure: $config['secure'] ?? false,
-            httpOnly: $config['http_only'] ?? true, 
-            raw: false, 
+            httpOnly: $config['http_only'] ?? true,
+            raw: false,
             sameSite: $config['same_site'] ?? null
         );
 
         $headerCookies[] = $session->getName().'='.$session->getId();
         $response->headers->setCookie($cookie);
-        
+
         // Set remember me cookie
         $cookieJar = $this->getCookieJar(); /** @var \Illuminate\Cookie\CookieJar $cookieJar */
         if ( ($rememberCookie = $cookieJar->queued($this->getRecallerName())) ) {
             $response->headers->setCookie($rememberCookie);
             $headerCookies[] = $rememberCookie->getName() . '=' . $rememberCookie->getValue();
         }
-        
+
         // update response header cookie values in formar [name=value]
         $response->headers->set('cookie', $headerCookies);
 
@@ -251,7 +251,7 @@ class PKPSessionGuard extends SessionGuard
      * @param int       $userId                 The user id for which session data need to be removed
      * @param string    $excludableSessionId    The session id which should be kept
      */
-    public function invalidateOtherSessions(int $userId, string $excludableSessionId = null): void
+    public function invalidateOtherSessions(int $userId, ?string $excludableSessionId = null): void
     {
         DB::table('sessions')
             ->where($this->provider->createUserInstance()->getAuthIdentifierName(), $userId)
@@ -282,7 +282,7 @@ class PKPSessionGuard extends SessionGuard
         return tap($this->user, function(&$user) use ($password, $rehash) {
             $rehash ??= Validation::encryptCredentials($user->getUsername(), $password);
             $user->setPassword($rehash);
-            
+
             $auth = app()->get('auth'); /** @var \PKP\core\PKPAuthManager $auth */
             Application::get()->getRequest()->getSession()->put([
                 'password_hash_' . $auth->getDefaultDriver() => $rehash,

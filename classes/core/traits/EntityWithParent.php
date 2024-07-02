@@ -44,7 +44,7 @@ trait EntityWithParent
      * Optionally, pass the ID of a parent entity to check if the object
      * exists and is assigned to that parent.
      */
-    public function exists(int $id, int $parentId = null): bool
+    public function exists(int $id, ?int $parentId = null): bool
     {
         return DB::table($this->table)
             ->where($this->primaryKeyColumn, '=', $id)
@@ -60,7 +60,7 @@ trait EntityWithParent
      *
      * @return ?T
      */
-    public function get(int $id, int $parentId = null): ?DataObject
+    public function get(int $id, ?int $parentId = null): ?DataObject
     {
         $row = DB::table($this->table)
             ->where($this->primaryKeyColumn, $id)

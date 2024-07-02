@@ -334,7 +334,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
         if ($user) {
             $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
             $rolesByContext = $roleDao->getByUserIdGroupedByContext($user->getId());
-            foreach ([\PKP\core\PKPApplication::CONTEXT_SITE, $context->getId()] as $workingContext) {
+            foreach ([\PKP\core\PKPApplication::SITE_CONTEXT_ID, $context->getId()] as $workingContext) {
                 if (isset($rolesByContext[$workingContext])) {
                     foreach ($rolesByContext[$workingContext] as $roleId => $role) {
                         $roles[] = $roleId;

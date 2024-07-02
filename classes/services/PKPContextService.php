@@ -423,7 +423,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             $user = Application::get()->getRequest()->getUser();
             $validator->after(function ($validator) use ($user) {
                 $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
-                if (!$roleDao->userHasRole(PKPApplication::CONTEXT_ID_NONE, $user->getId(), Role::ROLE_ID_SITE_ADMIN)) {
+                if (!$roleDao->userHasRole(PKPApplication::SITE_CONTEXT_ID, $user->getId(), Role::ROLE_ID_SITE_ADMIN)) {
                     $validator->errors()->add('disableBulkEmailUserGroups', __('admin.settings.disableBulkEmailRoles.adminOnly'));
                 }
             });

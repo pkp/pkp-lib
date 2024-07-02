@@ -186,7 +186,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
     /**
      * @copydoc PKPPubIdPluginDAO::pubIdExists()
      */
-    public function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId)
+    public function pubIdExists($pubIdType, $pubId, $excludePubObjectId, int $contextId)
     {
         $result = $this->deprecatedDao->retrieve(
             'SELECT COUNT(*) AS row_count
@@ -199,7 +199,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
                 'pub-id::' . $pubIdType,
                 $pubId,
                 (int) $excludePubObjectId,
-                (int) $contextId
+                $contextId
             ]
         );
         $row = $result->current();
@@ -235,13 +235,13 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
     /**
      * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
      */
-    public function deleteAllPubIds($contextId, $pubIdType)
+    public function deleteAllPubIds(int $contextId, $pubIdType)
     {
         $settingName = 'pub-id::' . $pubIdType;
 
         $galleyIds = Repo::galley()
             ->getCollector()
-            ->filterByContextIds([(int) $contextId])
+            ->filterByContextIds([$contextId])
             ->getIds();
 
         foreach ($galleyIds as $galleyId) {
@@ -255,7 +255,6 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
     /**
      * Get all published submission galleys (eventually with a pubId assigned and) matching the specified settings.
      *
-     * @param int $contextId optional
      * @param string $pubIdType
      * @param string $title optional
      * @param string $author optional
@@ -269,7 +268,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
      *
      * @return DAOResultFactory<Galley>
      */
-    public function getExportable($contextId, $pubIdType = null, $title = null, $author = null, $issueId = null, $pubIdSettingName = null, $pubIdSettingValue = null, $rangeInfo = null)
+    public function getExportable(int $contextId, $pubIdType = null, $title = null, $author = null, $issueId = null, $pubIdSettingName = null, $pubIdSettingValue = null, $rangeInfo = null)
     {
 
         $q = DB::table('publication_galleys', 'g')

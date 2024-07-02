@@ -51,7 +51,7 @@ class Mailer extends IlluminateMailer
      *
      * @copydoc \Illuminate\Mail\Mailer::__construct()
      */
-    public function __construct(string $name, TransportInterface $transport, Dispatcher $events = null)
+    public function __construct(string $name, TransportInterface $transport, ?Dispatcher $events = null)
     {
         $this->name = $name;
         $this->transport = $transport;

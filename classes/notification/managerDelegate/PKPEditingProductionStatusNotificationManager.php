@@ -214,9 +214,8 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
      * @param int $submissionId
      * @param int $userId
      * @param int $notificationType NOTIFICATION_TYPE_
-     * @param int $contextId
      */
-    public function _removeNotification($submissionId, $userId, $notificationType, $contextId)
+    public function _removeNotification($submissionId, $userId, $notificationType, ?int $contextId)
     {
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notificationDao->deleteByAssoc(
@@ -235,9 +234,8 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
      * @param int $submissionId
      * @param int $userId
      * @param int $notificationType NOTIFICATION_TYPE_
-     * @param int $contextId
      */
-    public function _createNotification($request, $submissionId, $userId, $notificationType, $contextId)
+    public function _createNotification($request, $submissionId, $userId, $notificationType, ?int $contextId)
     {
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notificationFactory = $notificationDao->getByAssoc(

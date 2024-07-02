@@ -68,7 +68,7 @@ class PKPSection extends \PKP\core\DataObject
         return $this->getData('title', $locale);
     }
 
-    public function setTitle(string|array $title, string $locale = null): void
+    public function setTitle(string|array $title, ?string $locale = null): void
     {
         $this->setData('title', $title, $locale);
     }

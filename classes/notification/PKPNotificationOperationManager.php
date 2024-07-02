@@ -153,7 +153,6 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      * @param ?PKPRequest $request
      * @param int $userId (optional)
      * @param int $notificationType
-     * @param int $contextId
      * @param int $assocType
      * @param int $assocId
      * @param int $level
@@ -161,7 +160,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      *
      * @return ?Notification
      */
-    public function createNotification($request, $userId = null, $notificationType = null, $contextId = null, $assocType = null, $assocId = null, $level = Notification::NOTIFICATION_LEVEL_NORMAL, $params = null)
+    public function createNotification($request, $userId = null, $notificationType = null, ?int $contextId = Application::SITE_CONTEXT_ID, $assocType = null, $assocId = null, $level = Notification::NOTIFICATION_LEVEL_NORMAL, $params = null)
     {
         $blockedNotifications = $this->getUserBlockedNotifications($userId, $contextId);
 
@@ -170,7 +169,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
             $notification = $notificationDao->newDataObject(); /** @var Notification $notification */
             $notification->setUserId((int) $userId);
             $notification->setType((int) $notificationType);
-            $notification->setContextId((int) $contextId);
+            $notification->setContextId($contextId);
             $notification->setAssocType((int) $assocType);
             $notification->setAssocId((int) $assocId);
             $notification->setLevel((int) $level);
@@ -203,7 +202,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notification = $notificationDao->newDataObject();
         $notification->setUserId($userId);
-        $notification->setContextId(PKPApplication::CONTEXT_ID_NONE);
+        $notification->setContextId(Application::SITE_CONTEXT_ID);
         $notification->setType($notificationType);
         $notification->setLevel(Notification::NOTIFICATION_LEVEL_TRIVIAL);
 
@@ -285,14 +284,13 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      * Get set of notifications types user does not want to be notified of.
      *
      * @param int $userId The notification user
-     * @param int $contextId
      *
      * @return array
      */
-    protected function getUserBlockedNotifications($userId, $contextId)
+    protected function getUserBlockedNotifications($userId, ?int $contextId)
     {
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
-        return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY, $userId, (int) $contextId);
+        return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY, $userId, $contextId);
     }
 
     /**
@@ -300,10 +298,10 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      *
      * @return array
      */
-    protected function getUserBlockedEmailedNotifications($userId, $contextId)
+    protected function getUserBlockedEmailedNotifications($userId, ?int $contextId)
     {
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
-        return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY, $userId, (int) $contextId);
+        return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY, $userId, $contextId);
     }
 
     /**

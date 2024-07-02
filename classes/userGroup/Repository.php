@@ -77,13 +77,13 @@ class Repository
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id, int $contextId = null): ?UserGroup
+    public function get(int $id, ?int $contextId = null): ?UserGroup
     {
         return $this->dao->get($id, $contextId);
     }
 
     /** @copydoc DAO::exists() */
-    public function exists(int $id, int $contextId = null): bool
+    public function exists(int $id, ?int $contextId = null): bool
     {
         return $this->dao->exists($id, $contextId);
     }
@@ -192,10 +192,8 @@ class Repository
 
     /**
     * Delete all user groups assigned to a certain context by contextId
-    *
-    * @param int $contextId
     */
-    public function deleteByContextId($contextId)
+    public function deleteByContextId(int $contextId)
     {
         $userGroupIds = Repo::userGroup()->getCollector()
             ->filterByContextIds([$contextId])
@@ -207,12 +205,11 @@ class Repository
     }
 
     /**
-    * return all user group ids given a certain role id
+    * Return all user group ids given a certain role id
     *
     * @param int $roleId
-    * @param int|null $contextId
     */
-    public function getArrayIdByRoleId($roleId, $contextId = null): array
+    public function getArrayIdByRoleId($roleId, ?int $contextId = null): array
     {
         $collector = Repo::userGroup()->getCollector()
             ->filterByRoleIds([$roleId]);
@@ -433,7 +430,7 @@ class Repository
     *
     * @return LazyCollection<int,UserGroup>
     */
-    public function getUserGroupsByStage($contextId, $stageId, $roleId = null, $count = null): LazyCollection
+    public function getUserGroupsByStage(int $contextId, $stageId, $roleId = null, $count = null): LazyCollection
     {
         $userGroups = $this->getCollector()
             ->filterByContextIds([$contextId])
@@ -509,7 +506,7 @@ class Repository
      *
      * @return bool true === success
      */
-    public function installSettings($contextId, $filename)
+    public function installSettings(?int $contextId, $filename)
     {
         $xmlParser = new PKPXMLParser();
         $tree = $xmlParser->parse($filename);

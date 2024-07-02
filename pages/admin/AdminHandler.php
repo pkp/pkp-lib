@@ -111,7 +111,7 @@ class AdminHandler extends Handler
                 'breadcrumbs' => [
                     [
                         'id' => 'admin',
-                        'url' => $router->url($request, 'index', 'admin'),
+                        'url' => $router->url($request, Application::SITE_CONTEXT_PATH, 'admin'),
                         'name' => __('navigation.admin'),
                     ]
                 ]
@@ -184,10 +184,10 @@ class AdminHandler extends Handler
         $site = $request->getSite();
         $dispatcher = $request->getDispatcher();
 
-        $apiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'site');
-        $themeApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'site/theme');
-        $temporaryFileApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'temporaryFiles');
-        $announcementsApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'announcements');
+        $apiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'site');
+        $themeApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'site/theme');
+        $temporaryFileApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'temporaryFiles');
+        $announcementsApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'announcements');
 
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath();
@@ -331,7 +331,7 @@ class AdminHandler extends Handler
         $breadcrumbs[] = [
             'id' => 'contexts',
             'name' => __('admin.hostedContexts'),
-            'url' => $router->url($request, 'index', 'admin', 'contexts'),
+            'url' => $router->url($request, Application::SITE_CONTEXT_PATH, 'admin', 'contexts'),
         ];
         $breadcrumbs[] = [
             'id' => 'wizard',
@@ -554,7 +554,7 @@ class AdminHandler extends Handler
                     'value' => 'created_at',
                 ]
             ],
-            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'index', 'jobs/all'),
+            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'jobs/all'),
         ];
     }
 
@@ -627,8 +627,8 @@ class AdminHandler extends Handler
                     'value' => 'action',
                 ],
             ],
-            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'index', 'jobs/failed/all'),
-            'apiUrlRedispatchAll' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'index', 'jobs/redispatch/all'),
+            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'jobs/failed/all'),
+            'apiUrlRedispatchAll' => $request->getDispatcher()->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'jobs/redispatch/all'),
         ];
     }
 
@@ -702,7 +702,7 @@ class AdminHandler extends Handler
         $apiUrl = $dispatcher->url(
             $request,
             Application::ROUTE_API,
-            Application::CONTEXT_ID_ALL,
+            Application::SITE_CONTEXT_PATH,
             'highlights'
         );
 
@@ -712,7 +712,7 @@ class AdminHandler extends Handler
             $dispatcher->url(
                 Application::get()->getRequest(),
                 Application::ROUTE_API,
-                Application::CONTEXT_ID_ALL,
+                Application::SITE_CONTEXT_PATH,
                 'temporaryFiles'
             )
         );
@@ -758,7 +758,7 @@ class AdminHandler extends Handler
                 'apiUrl' => $apiUrl,
                 'form' => $form,
                 'getParams' => [
-                    'contextIds' => [Application::CONTEXT_ID_NONE],
+                    'contextIds' => [Application::SITE_CONTEXT_ID],
                     'count' => 30,
                 ],
                 'items' => $items->values(),

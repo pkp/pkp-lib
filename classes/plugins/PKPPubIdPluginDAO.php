@@ -27,11 +27,10 @@ interface PKPPubIdPluginDAO
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      * @param string $pubId
      * @param int $excludePubObjectId ID of the pub object to be excluded from the search.
-     * @param int $contextId
      *
      * @return bool
      */
-    public function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId);
+    public function pubIdExists($pubIdType, $pubId, $excludePubObjectId, int $contextId);
 
     /**
      * Change the public ID of a submission.
@@ -57,12 +56,11 @@ interface PKPPubIdPluginDAO
     /**
      * Delete the public IDs of all submissions in this context.
      *
-     * @param int $contextId
      * @param string $pubIdType One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      */
-    public function deleteAllPubIds($contextId, $pubIdType);
+    public function deleteAllPubIds(int $contextId, $pubIdType);
 }
 
 if (!PKP_STRICT_MODE) {

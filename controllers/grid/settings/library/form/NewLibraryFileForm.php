@@ -32,7 +32,7 @@ class NewLibraryFileForm extends LibraryFileForm
      *
      * @param int $contextId
      */
-    public function __construct($contextId)
+    public function __construct(int $contextId)
     {
         parent::__construct('controllers/grid/settings/library/form/newFileForm.tpl', $contextId);
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'temporaryFileId', 'required', 'settings.libraryFiles.fileRequired'));

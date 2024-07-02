@@ -402,11 +402,11 @@ class User extends Identity implements Authenticatable
      * Check if this user has a role in a context
      *
      * @param int|array $roles Role(s) to check for
-     * @param int $contextId The context to check for roles in.
+     * @param ?int $contextId The context to check for roles in.
      *
      * @return bool
      */
-    public function hasRole($roles, $contextId)
+    public function hasRole($roles, ?int $contextId)
     {
         $contextRoles = $this->getRoles($contextId);
 
@@ -430,13 +430,14 @@ class User extends Identity implements Authenticatable
     /**
      * Get this user's roles in a context
      *
-     * @param int $contextId The context to retrieve roles in.
+     * @param ?int $contextId The context to retrieve roles in.
      * @param bool $noCache Force the roles to be retrieved from the database
      *
      * @return array
      */
-    public function getRoles($contextId, $noCache = false)
+    public function getRoles(?int $contextId, $noCache = false)
     {
+        $contextId = (int) $contextId;
         if ($noCache || empty($this->_roles[$contextId])) {
             $userRolesDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $userRolesDao */
             $this->setRoles($userRolesDao->getByUserId($this->getId(), $contextId), $contextId);
@@ -449,10 +450,11 @@ class User extends Identity implements Authenticatable
      * Set this user's roles in a context
      *
      * @param array $roles The roles to assign this user
-     * @param int $contextId The context to assign these roles
+     * @param ?int $contextId The context to assign these roles
      */
-    public function setRoles($roles, $contextId)
+    public function setRoles($roles, ?int $contextId)
     {
+        $contextId = (int) $contextId;
         $this->_roles[$contextId] = $roles;
     }
 

@@ -458,6 +458,7 @@ class PKPStatsContextController extends PKPBaseController
     {
         // Get context title for display
         $contexts = Services::get('context')->getManySummary([]);
+        // @todo: Avoid retrieving all contexts just to grab one item
         $context = array_filter($contexts, function ($context) use ($contextId) {
             return $context->id == $contextId;
         });

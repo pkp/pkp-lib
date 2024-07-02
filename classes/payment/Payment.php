@@ -130,20 +130,16 @@ class Payment
 
     /**
      * Get the context ID for the payment.
-     *
-     * @return int
      */
-    public function getContextId()
+    public function getContextId(): int
     {
         return $this->contextId;
     }
 
     /**
      * Set the context ID for the payment.
-     *
-     * @param int $contextId
      */
-    public function setContextId($contextId)
+    public function setContextId(int $contextId): void
     {
         $this->contextId = $contextId;
     }

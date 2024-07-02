@@ -99,10 +99,10 @@ class PKPInstall extends Installer
             'collation' => 'utf8_general_ci',
         ];
         FacadesConfig::set('database', $config);
-        
+
         // Need to register the `DatabaseServiceProvider` as when the `SessionServiceProvider`
-        // registers itself in the `\PKP\core\PKPContainer::registerConfiguredProviders`, it 
-        // registers an instance of `\Illuminate\Database\ConnectionInterface` which contains the 
+        // registers itself in the `\PKP\core\PKPContainer::registerConfiguredProviders`, it
+        // registers an instance of `\Illuminate\Database\ConnectionInterface` which contains the
         // initial details from the `config.inc.php` rather than what is set through the install form.
         app()->register(new \Illuminate\Database\DatabaseServiceProvider(app()));
 
@@ -239,7 +239,7 @@ class PKPInstall extends Installer
         // Create an admin user group
         $adminUserGroup = Repo::userGroup()->newDataObject();
         $adminUserGroup->setRoleId(Role::ROLE_ID_SITE_ADMIN);
-        $adminUserGroup->setContextId(\PKP\core\PKPApplication::CONTEXT_ID_NONE);
+        $adminUserGroup->setContextId(\PKP\core\PKPApplication::SITE_CONTEXT_ID);
         $adminUserGroup->setDefault(true);
         foreach ($this->installedLocales as $locale) {
             $name = __('default.groups.name.siteAdmin', [], $locale);

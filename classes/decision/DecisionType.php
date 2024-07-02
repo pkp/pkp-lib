@@ -120,7 +120,7 @@ abstract class DecisionType
      *
      * @throws Exception If the editorial decision is in the review stage but no review round id has been passed
      */
-    public function getUrl(Request $request, Context $context, Submission $submission, int $reviewRoundId = null): string
+    public function getUrl(Request $request, Context $context, Submission $submission, ?int $reviewRoundId = null): string
     {
         $args = [
             'decision' => $this->getDecision(),

@@ -3,13 +3,11 @@
 /**
  * @file classes/core/Dispatcher.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Dispatcher
- *
- * @ingroup core
  *
  * @brief Class dispatching HTTP requests to handlers.
  */
@@ -198,15 +196,16 @@ class Dispatcher
     /**
      * Build a handler request URL into PKPApplication.
      *
-     * @param $shortcut the short name of the router that should be used to construct the URL
-     * @param $newContext Optional contextual path
-     * @param $handler Optional name of the handler to invoke
-     * @param $op Optional name of operation to invoke
-     * @param $path Optional string or array of args to pass to handler
-     * @param $params Optional set of name => value pairs to pass as user parameters
-     * @param $anchor Optional name of anchor to add to URL
-     * @param $escape Whether or not to escape ampersands for this URL; default false.
-     * @param $urlLocaleForPage Whether or not to override locale for this URL; Use '' to exclude.
+     * @param PKPRequest    $request            The request object
+     * @param string        $shortcut           the short name of the router that should be used to construct the URL
+     * @param string|null   $newContext         Optional contextual path
+     * @param string|null   $handler            Optional name of the handler to invoke
+     * @param string|null   $op                 Optional name of operation to invoke
+     * @param mixed         $path               Optional string or array of args to pass to handler
+     * @param array|null    $params             Optional set of name => value pairs to pass as user parameters
+     * @param string|null   $anchor             Optional name of anchor to add to URL
+     * @param bool          $escape             Whether or not to escape ampersands for this URL; default false.
+     * @param string|null   $urlLocaleForPage   Whether or not to override locale for this URL; Use '' to exclude.
      */
     public function url(
         PKPRequest $request,
@@ -218,7 +217,7 @@ class Dispatcher
         ?array $params = null,
         ?string $anchor = null,
         bool $escape = false,
-        ?string $urlLocaleForPage = null,
+        ?string $urlLocaleForPage = null
     ): string {
         // Instantiate the requested router
         if (!isset($this->_routerNames[$shortcut])) {

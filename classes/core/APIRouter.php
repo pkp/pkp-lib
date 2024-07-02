@@ -129,7 +129,7 @@ class APIRouter extends PKPRouter
         ?string $newContext = null,
         ?string $endpoint = null,
         ?string $op = null,
-        mixed $path = null,
+        ?array $path = null,
         ?array $params = null,
         ?string $anchor = null,
         bool $escape = false
@@ -141,28 +141,10 @@ class APIRouter extends PKPRouter
             throw new Exception('APIRouter::url() should not be called with an op, path or anchor. If a new context is passed, the context path must be passed instead of the context object.');
         }
 
-        //
-        // Base URL and Context
-        //
-        $baseUrlAndContext = $this->_urlGetBaseAndContext($request, $newContext);
-        $baseUrl = array_shift($baseUrlAndContext);
-        $context = array_shift($baseUrlAndContext);
-
-        //
-        // Additional query parameters
-        //
+        [$baseUrl, $context] = $this->_urlGetBaseAndContext($request, $newContext);
         $additionalParameters = $this->_urlGetAdditionalParameters($request, $params, $escape);
 
-        //
-        // Assemble URL
-        //
-        $pathInfoArray = array_merge(
-            $context,
-            ['api', Application::API_VERSION, $endpoint]
-        );
-        $queryParametersArray = $additionalParameters;
-
-        return $this->_urlFromParts($baseUrl, $pathInfoArray, $queryParametersArray, $anchor, $escape);
+        return $this->_urlFromParts($baseUrl, [$context, 'api', Application::API_VERSION, $endpoint], $additionalParameters, $anchor, $escape);
     }
 }
 

@@ -21,65 +21,50 @@ use PKP\db\DAORegistry;
 use PKP\site\Version;
 use PKP\site\VersionDAO;
 
-define('PLUGIN_GALLERY_STATE_AVAILABLE', 0);
-define('PLUGIN_GALLERY_STATE_INCOMPATIBLE', 0);
-define('PLUGIN_GALLERY_STATE_UPGRADABLE', 1);
-define('PLUGIN_GALLERY_STATE_CURRENT', 2);
-define('PLUGIN_GALLERY_STATE_NEWER', 3);
-
 class GalleryPlugin extends \PKP\core\DataObject
 {
+    public const PLUGIN_GALLERY_STATE_AVAILABLE = 0;
+    public const PLUGIN_GALLERY_STATE_INCOMPATIBLE = 0;
+    public const PLUGIN_GALLERY_STATE_UPGRADABLE = 1;
+    public const PLUGIN_GALLERY_STATE_CURRENT = 2;
+    public const PLUGIN_GALLERY_STATE_NEWER = 3;
+
     /**
      * Get the localized name of the plugin
-     *
-     * @param string $preferredLocale
-     *
-     * @return string
      */
-    public function getLocalizedName($preferredLocale = null)
+    public function getLocalizedName(?string $preferredLocale = null): ?string
     {
         return $this->getLocalizedData('name', $preferredLocale);
     }
 
     /**
      * Set the name of the plugin
-     *
-     * @param string $name
-     * @param string $locale optional
      */
-    public function setName($name, $locale = null)
+    public function setName(array|string $name, ?string $locale = null): void
     {
         $this->setData('name', $name, $locale);
     }
 
     /**
      * Get the name of the plugin
-     *
-     * @param string $locale optional
-     *
-     * @return string
      */
-    public function getName($locale = null)
+    public function getName(?string $locale = null): null|string|array
     {
         return $this->getData('name', $locale);
     }
 
     /**
      * Get the homepage for this plugin
-     *
-     * @return string
      */
-    public function getHomepage()
+    public function getHomepage(): string
     {
         return $this->getData('homepage');
     }
 
     /**
      * Set the homepage for this plugin
-     *
-     * @param string $homepage
      */
-    public function setHomepage($homepage)
+    public function setHomepage(string $homepage): void
     {
         $this->setData('homepage', $homepage);
     }
@@ -87,39 +72,32 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Get the product (symbolic name) for this plugin
      *
-     * @return string
      */
-    public function getProduct()
+    public function getProduct(): string
     {
         return $this->getData('product');
     }
 
     /**
      * Set the product (symbolic name) for this plugin
-     *
-     * @param string $product
      */
-    public function setProduct($product)
+    public function setProduct(string $product): void
     {
         $this->setData('product', $product);
     }
 
     /**
      * Get the category for this plugin
-     *
-     * @return string
      */
-    public function getCategory()
+    public function getCategory(): string
     {
         return $this->getData('category');
     }
 
     /**
      * Set the category for this plugin
-     *
-     * @param string $category
      */
-    public function setCategory($category)
+    public function setCategory(string $category): void
     {
         $this->setData('category', $category);
     }
@@ -129,10 +107,8 @@ class GalleryPlugin extends \PKP\core\DataObject
      *
      * @param bool $pad True iff returned version numbers should be
      *  padded to 4 terms, e.g. 1.0.0.0 instead of just 1.0
-     *
-     * @return string
      */
-    public function getVersion($pad = false)
+    public function getVersion(bool $pad = false): string
     {
         $version = $this->getData('version');
         if ($pad) {
@@ -147,232 +123,176 @@ class GalleryPlugin extends \PKP\core\DataObject
 
     /**
      * Set the version for this plugin
-     *
-     * @param string $version
      */
-    public function setVersion($version)
+    public function setVersion(string $version): void
     {
         $this->setData('version', $version);
     }
 
     /**
      * Get the release date of this plugin
-     *
-     * @return int
      */
-    public function getDate()
+    public function getDate(): int
     {
         return $this->getData('date');
     }
 
     /**
      * Set the release date for this plugin
-     *
-     * @param int $date
      */
-    public function setDate($date)
+    public function setDate(int $date): void
     {
         $this->setData('date', $date);
     }
 
     /**
      * Get the contact name for this plugin
-     *
-     * @return string
      */
-    public function getContactName()
+    public function getContactName(): string
     {
         return $this->getData('contactName');
     }
 
     /**
      * Set the contact name for this plugin
-     *
-     * @param string $contactName
      */
-    public function setContactName($contactName)
+    public function setContactName(string $contactName): void
     {
         $this->setData('contactName', $contactName);
     }
 
     /**
      * Get the contact institution name for this plugin
-     *
-     * @return string
      */
-    public function getContactInstitutionName()
+    public function getContactInstitutionName(): string
     {
         return $this->getData('contactInstitutionName');
     }
 
     /**
      * Set the contact institution name for this plugin
-     *
-     * @param string $contactInstitutionName
      */
-    public function setContactInstitutionName($contactInstitutionName)
+    public function setContactInstitutionName(string $contactInstitutionName): void
     {
         $this->setData('contactInstitutionName', $contactInstitutionName);
     }
 
     /**
      * Get the contact email for this plugin
-     *
-     * @return string
      */
-    public function getContactEmail()
+    public function getContactEmail(): string
     {
         return $this->getData('contactEmail');
     }
 
     /**
      * Set the contact email for this plugin
-     *
-     * @param string $contactEmail
      */
-    public function setContactEmail($contactEmail)
+    public function setContactEmail(string $contactEmail): void
     {
         $this->setData('contactEmail', $contactEmail);
     }
 
     /**
      * Get plugin summary.
-     *
-     * @param string $locale optional
-     *
-     * @return string
      */
-    public function getSummary($locale = null)
+    public function getSummary(?string $locale = null): null|string|array
     {
         return $this->getData('summary', $locale);
     }
 
     /**
      * Set plugin summary.
-     *
-     * @param string $summary
-     * @param string $locale optional
      */
-    public function setSummary($summary, $locale = null)
+    public function setSummary(array|string $summary, ?string $locale = null): void
     {
         $this->setData('summary', $summary, $locale);
     }
 
     /**
      * Get plugin description.
-     *
-     * @param string $locale optional
-     *
-     * @return string
      */
-    public function getDescription($locale = null)
+    public function getDescription(?string $locale = null): null|string|array
     {
         return $this->getData('description', $locale);
     }
 
     /**
      * Set plugin description.
-     *
-     * @param string $description
-     * @param string $locale optional
      */
-    public function setDescription($description, $locale = null)
+    public function setDescription(array|string $description, ?string $locale = null): void
     {
         $this->setData('description', $description, $locale);
     }
 
     /**
      * Get plugin installation instructions.
-     *
-     * @param string $locale optional
-     *
-     * @return string
      */
-    public function getInstallationInstructions($locale = null)
+    public function getInstallationInstructions(?string $locale = null): null|string|array
     {
         return $this->getData('installation', $locale);
     }
 
     /**
      * Set plugin installation instructions.
-     *
-     * @param string $installation
-     * @param string $locale optional
      */
-    public function setInstallationInstructions($installation, $locale = null)
+    public function setInstallationInstructions(array|string $installation, ?string $locale = null): void
     {
         $this->setData('installation', $installation, $locale);
     }
 
     /**
      * Get release description.
-     *
-     * @param string $locale optional
-     *
-     * @return string
      */
-    public function getReleaseDescription($locale = null)
+    public function getReleaseDescription(?string $locale = null): null|string|array
     {
         return $this->getData('releaseDescription', $locale);
     }
 
     /**
      * Set plugin release description.
-     *
-     * @param string $releaseDescription
-     * @param string $locale optional
      */
-    public function setReleaseDescription($releaseDescription, $locale = null)
+    public function setReleaseDescription(array|string $releaseDescription, ?string $locale = null): void
     {
         $this->setData('releaseDescription', $releaseDescription, $locale);
     }
 
     /**
      * Get release MD5 checksum.
-     *
-     * @return string
      */
-    public function getReleaseMD5()
+    public function getReleaseMD5(): string
     {
         return $this->getData('releaseMD5');
     }
 
     /**
      * Set plugin release MD5.
-     *
-     * @param string $releaseMD5
      */
-    public function setReleaseMD5($releaseMD5)
+    public function setReleaseMD5(string $releaseMD5): void
     {
         $this->setData('releaseMD5', $releaseMD5);
     }
 
     /**
      * Get the certifications for this plugin release
-     *
-     * @return array
      */
-    public function getReleaseCertifications()
+    public function getReleaseCertifications(): array
     {
         return $this->getData('releaseCertifications');
     }
 
     /**
      * Set the certifications for this plugin release
-     *
-     * @param array $certifications
      */
-    public function setReleaseCertifications($certifications)
+    public function setReleaseCertifications(array $certifications)
     {
         $this->setData('releaseCertifications', $certifications);
     }
 
     /**
      * Get the package URL for this plugin release
-     *
-     * @return string
      */
-    public function getReleasePackage()
+    public function getReleasePackage(): string
     {
         return $this->getData('releasePackage');
     }
@@ -380,47 +300,39 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Set the package URL for this plugin release
      */
-    public function setReleasePackage($releasePackage)
+    public function setReleasePackage(string $releasePackage): void
     {
         $this->setData('releasePackage', $releasePackage);
     }
 
     /**
      * Get the localized summary of the plugin.
-     *
-     * @return string
      */
-    public function getLocalizedSummary()
+    public function getLocalizedSummary(): null|string
     {
         return $this->getLocalizedData('summary');
     }
 
     /**
      * Get the localized installation instructions of the plugin.
-     *
-     * @return string
      */
-    public function getLocalizedInstallationInstructions()
+    public function getLocalizedInstallationInstructions(): null|string
     {
         return $this->getLocalizedData('installation');
     }
 
     /**
      * Get the localized description of the plugin.
-     *
-     * @return string
      */
-    public function getLocalizedDescription()
+    public function getLocalizedDescription(): null|string
     {
         return $this->getLocalizedData('description');
     }
 
     /**
      * Get the localized release description of the plugin.
-     *
-     * @return string
      */
-    public function getLocalizedReleaseDescription()
+    public function getLocalizedReleaseDescription(): null|string
     {
         return $this->getLocalizedData('releaseDescription');
     }
@@ -428,10 +340,8 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Determine the version of this plugin that is currently installed,
      * if any
-     *
-     * @return Version|null
      */
-    public function getInstalledVersion()
+    public function getInstalledVersion(): ?Version
     {
         $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
         return $versionDao->getCurrentVersion('plugins.' . $this->getCategory(), $this->getProduct());
@@ -443,28 +353,28 @@ class GalleryPlugin extends \PKP\core\DataObject
      *
      * @return int PLUGIN_GALLERY_STATE_...
      */
-    public function getCurrentStatus()
+    public function getCurrentStatus(): int
     {
         $installedVersion = $this->getInstalledVersion();
         if ($this->getVersion() === null) {
-            return PLUGIN_GALLERY_STATE_INCOMPATIBLE;
+            return self::PLUGIN_GALLERY_STATE_INCOMPATIBLE;
         }
         if (!$installedVersion) {
-            return PLUGIN_GALLERY_STATE_AVAILABLE;
+            return self::PLUGIN_GALLERY_STATE_AVAILABLE;
         }
         if ($installedVersion->compare($this->getVersion(true)) > 0) {
-            return PLUGIN_GALLERY_STATE_NEWER;
+            return self::PLUGIN_GALLERY_STATE_NEWER;
         }
         if ($installedVersion->compare($this->getVersion(true)) < 0) {
-            return PLUGIN_GALLERY_STATE_UPGRADABLE;
+            return self::PLUGIN_GALLERY_STATE_UPGRADABLE;
         }
 
         $targetPath = Core::getBaseDir() . '/plugins/' . $this->getCategory() . '/' . $this->getProduct();
         if (!is_dir($targetPath)) {
-            return PLUGIN_GALLERY_STATE_UPGRADABLE;
+            return self::PLUGIN_GALLERY_STATE_UPGRADABLE;
         }
 
-        return PLUGIN_GALLERY_STATE_CURRENT;
+        return self::PLUGIN_GALLERY_STATE_CURRENT;
     }
 }
 

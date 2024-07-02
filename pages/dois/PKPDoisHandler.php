@@ -115,7 +115,6 @@ abstract class PKPDoisHandler extends Handler
         $templateMgr->setState(['components' => $stateComponents]);
 
         $templateMgr->assign($this->getTemplateVariables($enabledDoiTypes));
-
         $templateMgr->display('management/dois.tpl');
     }
 

@@ -19,14 +19,10 @@ use APP\core\Application;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 
-define('FORM_DISABLE_SUBMISSIONS', 'disableSubmissions');
-
 class PKPDisableSubmissionsForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_DISABLE_SUBMISSIONS;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_DISABLE_SUBMISSIONS = 'disableSubmissions';
+    public $id = self::FORM_DISABLE_SUBMISSIONS;
     public $method = 'PUT';
 
     /**
@@ -47,7 +43,7 @@ class PKPDisableSubmissionsForm extends FormComponent
             null,
             'management',
             'settings',
-            'context',
+            ['context'],
             null,
             'sections'
         );

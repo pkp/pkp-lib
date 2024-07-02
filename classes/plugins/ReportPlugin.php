@@ -42,7 +42,7 @@ abstract class ReportPlugin extends Plugin
                         null,
                         'stats',
                         'reports',
-                        'report',
+                        ['report'],
                         ['pluginName' => $this->getName()]
                     )),
                     __('manager.statistics.reports'),

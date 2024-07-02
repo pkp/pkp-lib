@@ -40,7 +40,7 @@ class HttpFailedJobResource extends JsonResource
             'payload' => $this->getResource()->payload,
             'exception' => $this->getResource()->exception,
             '_hrefs' => [
-                '_details' => $pkpRequest->getDispatcher()->url($pkpRequest, Application::ROUTE_PAGE, 'index', 'admin', 'failedJobDetails', $this->getResource()->id),
+                '_details' => $pkpRequest->getDispatcher()->url($pkpRequest, Application::ROUTE_PAGE, 'index', 'admin', 'failedJobDetails', [$this->getResource()->id]),
                 '_redispatch' => $pkpRequest->getDispatcher()->url($pkpRequest, Application::ROUTE_API, 'index', 'jobs/redispatch/' . $this->getResource()->id),
                 '_delete' => $pkpRequest->getDispatcher()->url($pkpRequest, Application::ROUTE_API, 'index', 'jobs/failed/delete/' . $this->getResource()->id),
             ],

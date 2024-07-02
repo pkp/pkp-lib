@@ -19,14 +19,10 @@ use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldShowEnsuringLink;
 use PKP\components\forms\FormComponent;
 
-define('FORM_REVIEW_GUIDANCE', 'reviewerGuidance');
-
 class PKPReviewGuidanceForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_REVIEW_GUIDANCE;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_REVIEW_GUIDANCE = 'reviewerGuidance';
+    public $id = self::FORM_REVIEW_GUIDANCE;
     public $method = 'PUT';
 
     /**

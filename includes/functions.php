@@ -29,30 +29,6 @@ define('ZB_IN_BYTES', 1024 * EB_IN_BYTES);
 define('YB_IN_BYTES', 1024 * ZB_IN_BYTES);
 
 /**
- * Emulate a Java-style import statement.
- * Simply includes the associated PHP file (using require_once so multiple calls to include the same file have no effect).
- *
- * @deprecated 3.4.0 pkp/pkp-lib#8186
- *
- * @param string $class the complete name of the class to be imported (e.g. 'lib.pkp.classes.core.Core')
- */
-if (!function_exists('import')) {
-    function import($class)
-    {
-        $filePathPart = BASE_SYS_DIR . '/' . str_replace('.', '/', $class);
-        $filePath = $filePathPart . '.php';
-        if (file_exists($filePath)) {
-            // Load .php suffix
-            require_once($filePath);
-        } else {
-            // Fallback: Try .inc.php suffix
-            // This behaviour is DEPRECATED as of 3.4.0.
-            require_once($filePathPart . '.inc.php');
-        }
-    }
-}
-
-/**
  * Wrapper around exit() to pretty-print an error message with an optional stack trace.
  */
 function fatalError($reason)
@@ -225,7 +201,10 @@ function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expected
     }
 
     // Import the requested class
-    import($fullyQualifiedClassName);
+    $filePath = BASE_SYS_DIR . '/' . str_replace('.', '/', $fullyQualifiedClassName) . '.php';
+    if (file_exists($filePath)) {
+        include_once($filePath);
+    }
 
     // Identify the class name
     $fullyQualifiedClassNameParts = explode('.', $fullyQualifiedClassName);

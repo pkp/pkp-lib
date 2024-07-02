@@ -130,7 +130,7 @@ class StageParticipantGridRow extends GridRow
                     $context->getPath(),
                     $handler,
                     $op,
-                    $submission->getId()
+                    [$submission->getId()]
                 );
 
                 $this->addAction(
@@ -139,7 +139,7 @@ class StageParticipantGridRow extends GridRow
                         new RedirectConfirmationModal(
                             __('grid.user.confirmLogInAs'),
                             __('grid.action.logInAs'),
-                            $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'signInAsUser', $userId, ['redirectUrl' => $redirectUrl])
+                            $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'signInAsUser', [$userId], ['redirectUrl' => $redirectUrl])
                         ),
                         __('grid.action.logInAs'),
                         'enroll_user'

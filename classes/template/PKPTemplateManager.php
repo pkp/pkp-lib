@@ -37,6 +37,7 @@ use Less_Parser;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\controllers\grid\GridHandler;
+use PKP\controllers\grid\GridRow;
 use PKP\controllers\listbuilder\ListbuilderHandler;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
@@ -49,8 +50,6 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\form\FormBuilderVocabulary;
-use PKP\linkAction\LinkAction;
-use PKP\linkAction\request\NullAction;
 use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\notification\NotificationDAO;
 use PKP\plugins\Hook;
@@ -91,28 +90,28 @@ class PKPTemplateManager extends Smarty
     public const PAGE_WIDTH_FULL = 'full';
 
     /** @var array of URLs to stylesheets */
-    private $_styleSheets = [];
+    private array $_styleSheets = [];
 
     /** @var array of URLs to javascript files */
-    private $_javaScripts = [];
+    private array $_javaScripts = [];
 
     /** @var array of HTML head content to output */
-    private $_htmlHeaders = [];
+    private array $_htmlHeaders = [];
 
     /** @var array Key/value list of constants to expose in the JS interface */
-    private $_constants = [];
+    private array $_constants = [];
 
     /** @var array Initial state data to be managed by the page's Vue.js component */
-    protected $_state = [];
+    protected array $_state = [];
 
     /** @var string Type of cacheability (Cache-Control). */
-    private $_cacheability;
+    private string $_cacheability = self::CACHEABILITY_NO_STORE; // Safe default
 
     /** @var object The form builder vocabulary class. */
-    private $_fbv;
+    private FormBuilderVocabulary $_fbv;
 
-    /** @var PKPRequest */
-    private $_request;
+    /**  */
+    private PKPRequest $_request;
 
     /** @var string[] */
     private array $headers = [];
@@ -131,8 +130,6 @@ class PKPTemplateManager extends Smarty
         $this->config_dir = "{$cachePath}/t_config";
         $this->cache_dir = "{$cachePath}/t_cache";
 
-        $this->_cacheability = self::CACHEABILITY_NO_STORE; // Safe default
-
         // Register the template resources.
         $this->registerResource('core', new PKPTemplateResource($coreTemplateDir = 'lib/pkp/templates'));
         $this->registerResource('app', new PKPTemplateResource(['templates', $coreTemplateDir]));
@@ -143,18 +140,14 @@ class PKPTemplateManager extends Smarty
 
     /**
      * Initialize the template manager.
-     *
-     * @param PKPRequest $request
      */
-    public function initialize($request)
+    public function initialize(PKPRequest $request)
     {
-        assert($request instanceof PKPRequest);
         $this->_request = $request;
 
         $locale = Locale::getLocale();
         $application = Application::get();
         $router = $request->getRouter();
-        assert($router instanceof \PKP\core\PKPRouter);
         $currentContext = $request->getContext();
 
         $this->assign([
@@ -310,8 +303,8 @@ class PKPTemplateManager extends Smarty
             }
         }
 
-        // Register classes that need to expose class constants to templates
-        foreach ([PKPApplication::class, Application::class, Role::class, Submission::class, PKPSubmission::class, Locale::class, SubmissionFile::class, GridHandler::class] as $fqcn) {
+        // Register classes that need to expose class constants to templates. FIXME: This should be done closer to usage.
+        foreach ([PKPApplication::class, Application::class, Role::class, Submission::class, PKPSubmission::class, Locale::class, SubmissionFile::class, GridHandler::class, GridRow::class] as $fqcn) {
             $this->registerClass($fqcn, $fqcn);
         }
 
@@ -333,7 +326,7 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('modifier', 'array_key_first', array_key_first(...));
         $this->registerPlugin('modifier', 'array_values', array_values(...));
         $this->registerPlugin('modifier', 'fatalError', fatalError(...));
-        $this->registerPlugin('modifier', 'translate', $this->smartyTranslateModifier(...));
+        $this->registerPlugin('modifier', 'translate', __(...));
         $this->registerPlugin('modifier', 'strip_unsafe_html', \PKP\core\PKPString::stripUnsafeHtml(...));
         $this->registerPlugin('modifier', 'parse_url', parse_url(...));
         $this->registerPlugin('modifier', 'parse_str', parse_str(...));
@@ -342,16 +335,15 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('modifier', 'array_keys', array_keys(...));
         $this->registerPlugin('modifier', 'String_substr', Str::substr(...));
         $this->registerPlugin('modifier', 'dateformatPHP2JQueryDatepicker', \PKP\core\PKPString::dateformatPHP2JQueryDatepicker(...));
-        $this->registerPlugin('modifier', 'to_array', $this->smartyToArray(...));
+        $this->registerPlugin('modifier', 'to_array', fn () => func_get_args());
         $this->registerPlugin('modifier', 'compare', $this->smartyCompare(...));
-        $this->registerPlugin('modifier', 'concat', $this->smartyConcat(...));
-        $this->registerPlugin('modifier', 'strtotime', $this->smartyStrtotime(...));
-        $this->registerPlugin('modifier', 'explode', $this->smartyExplode(...));
+        $this->registerPlugin('modifier', 'concat', fn (...$args) => implode('', $args));
+        $this->registerPlugin('modifier', 'strtotime', strtotime(...));
+        $this->registerPlugin('modifier', 'explode', explode(...));
         $this->registerPlugin('modifier', 'escape', $this->smartyEscape(...));
         $this->registerPlugin('function', 'constant', constant(...));
         $this->registerPlugin('function', 'csrf', $this->smartyCSRF(...));
         $this->registerPlugin('function', 'translate', $this->smartyTranslate(...));
-        $this->registerPlugin('function', 'null_link_action', $this->smartyNullLinkAction(...));
         $this->registerPlugin('function', 'help', $this->smartyHelp(...));
         $this->registerPlugin('function', 'flush', $this->smartyFlush(...));
         $this->registerPlugin('function', 'call_hook', $this->smartyCallHook(...));
@@ -446,10 +438,8 @@ class PKPTemplateManager extends Smarty
 
     /**
      * Flag the page as cacheable (or not).
-     *
-     * @param string $cacheability optional
      */
-    public function setCacheability($cacheability = self::CACHEABILITY_PUBLIC)
+    public function setCacheability(string $cacheability = self::CACHEABILITY_PUBLIC): void
     {
         $this->_cacheability = $cacheability;
     }
@@ -467,7 +457,7 @@ class PKPTemplateManager extends Smarty
      *
      * @hook PageHandler::compileLess [[&$less, &$lessFile, &$args, $name, $request]]
      */
-    public function compileLess($name, $lessFile, $args = [])
+    public function compileLess(string $name, string $lessFile, array $args = []): string
     {
         $less = new Less_Parser([
             'relativeUrls' => false,
@@ -508,10 +498,8 @@ class PKPTemplateManager extends Smarty
      *
      * @param string $path File path to save the compiled styles
      * @param string $styles CSS styles compiled from the LESS
-     *
-     * @return bool success/failure
      */
-    public function cacheLess($path, $styles)
+    public function cacheLess(string $path, string $styles): bool
     {
         if (file_put_contents($path, $styles) === false) {
             error_log("Unable to write \"{$path}\".");
@@ -524,14 +512,12 @@ class PKPTemplateManager extends Smarty
     /**
      * Retrieve the file path for a cached LESS file
      *
-     * @param string $name Unique name for the LESS file
-     *
-     * @return string Path to the less file or false if not found
+     * @param string $name Unique identifier for the LESS file
      */
-    public function getCachedLessFilePath($name)
+    public function getCachedLessFilePath(string $name): string
     {
         $directory = Core::getBaseDir() . '/cache';
-        $contextId = $this->_request->getContext()?->getId() ?? 0;
+        $contextId = $this->_request->getContext()?->getId() ?? PKPApplication::CONTEXT_SITE;
         $hash = crc32($this->_request->getBaseUrl());
         return "{$directory}/{$contextId}-{$name}-{$hash}.css";
     }
@@ -539,7 +525,7 @@ class PKPTemplateManager extends Smarty
     /**
      * Register a stylesheet with the style handler
      *
-     * @param string $name Unique name for the stylesheet
+     * @param string $name Unique identifier for the stylesheet
      * @param string $style The stylesheet to be included. Should be a URL
      *   or, if the `inline` argument is included, stylesheet data to be output.
      * @param array $args Key/value array defining display details
@@ -550,7 +536,7 @@ class PKPTemplateManager extends Smarty
      *   `inline` bool Whether the $stylesheet value should be output directly as
      *      stylesheet data. Used to pass backend data to the scripts.
      */
-    public function addStyleSheet($name, $style, $args = [])
+    public function addStyleSheet(string $name, string $style, array $args = []): void
     {
         $args = array_merge(
             [
@@ -573,7 +559,7 @@ class PKPTemplateManager extends Smarty
     /**
      * Register a script with the script handler
      *
-     * @param string $name Unique name for the script
+     * @param string $name Unique identifier for the script
      * @param string $script The script to be included. Should be a URL or, if
      *   the `inline` argument is included, script data to be output.
      * @param array $args Key/value array defining display details
@@ -584,7 +570,7 @@ class PKPTemplateManager extends Smarty
      *   `inline` bool Whether the $script value should be output directly as
      *      script data. Used to pass backend data to the scripts.
      */
-    public function addJavaScript($name, $script, $args = [])
+    public function addJavaScript(string $name, string $script, array $args = []): void
     {
         $args = array_merge(
             [
@@ -607,7 +593,7 @@ class PKPTemplateManager extends Smarty
     /**
      * Add a page-specific item to the <head>.
      *
-     * @param string $name Unique name for the header
+     * @param string $name Unique identifier for the header
      * @param string $header The header to be included.
      * @param array $args Key/value array defining display details
      *   `priority` int The order in which to print this header.
@@ -615,7 +601,7 @@ class PKPTemplateManager extends Smarty
      *   `contexts` string|array Where the header should be loaded.
      *      Default: array('frontend')
      */
-    public function addHeader($name, $header, $args = [])
+    public function addHeader(string $name, string $header, array $args = []): void
     {
         $args = array_merge(
             [
@@ -636,20 +622,17 @@ class PKPTemplateManager extends Smarty
     /**
      * Set constants to be exposed in JavaScript at pkp.const.<constant>
      *
-     * @param array $names Array mapping constant names to values
+     * @param array $constants Associative array of constant names to values
      */
-    public function setConstants($names)
+    public function setConstants(array $constants): void
     {
-        foreach ($names as $name => $value) {
-            $this->_constants[$name] = $value;
-        }
+        $this->_constants = array_merge($this->_constants, $constants);
     }
 
     /**
      * Get a piece of the state data
-     *
      */
-    public function getState(string $key)
+    public function getState(string $key): mixed
     {
         return array_key_exists($key, $this->_state)
             ? $this->_state[$key]
@@ -658,10 +641,8 @@ class PKPTemplateManager extends Smarty
 
     /**
      * Set initial state data to be managed by the Vue.js component on this page
-     *
-     * @param array $data
      */
-    public function setState($data)
+    public function setState(array $data)
     {
         $this->_state = array_merge($this->_state, $data);
     }
@@ -669,7 +650,7 @@ class PKPTemplateManager extends Smarty
     /**
      * Register all files required by the core JavaScript library
      */
-    public function registerJSLibrary()
+    public function registerJSLibrary(): void
     {
         $baseUrl = $this->_request->getBaseUrl();
         $localeChecks = [Locale::getLocale(), strtolower(substr(Locale::getLocale(), 0, 2))];
@@ -753,7 +734,7 @@ class PKPTemplateManager extends Smarty
      * may also take advantage of a hook to include data required by their own
      * scripts, when integrating with the pkp-lib framework.
      */
-    public function registerJSLibraryData()
+    public function registerJSLibraryData(): void
     {
         $context = $this->_request->getContext();
 
@@ -859,7 +840,6 @@ class PKPTemplateManager extends Smarty
                 'contexts' => 'backend',
             ]
         );
-
 
         // Set up the document type icons
         $documentTypeIcons = [
@@ -1043,7 +1023,7 @@ class PKPTemplateManager extends Smarty
                         if ($request->getContext()->getData('enableAnnouncements')) {
                             $menu['announcements'] = [
                                 'name' => __('announcement.announcements'),
-                                'url' => $router->url($request, null, 'management', 'settings', 'announcements'),
+                                'url' => $router->url($request, null, 'management', 'settings', ['announcements']),
                                 'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('announcements', (array) $router->getRequestedArgs($request)),
                             ];
                         }
@@ -1059,7 +1039,7 @@ class PKPTemplateManager extends Smarty
                         if ($request->getContext()->isInstitutionStatsEnabled($request->getSite())) {
                             $menu['institutions'] = [
                                 'name' => __('institution.institutions'),
-                                'url' => $router->url($request, null, 'management', 'settings', 'institutions'),
+                                'url' => $router->url($request, null, 'management', 'settings', ['institutions']),
                                 'isCurrent' => $request->getRequestedPage() === 'management' && in_array('institutions', (array) $request->getRequestedArgs()),
                             ];
                         }
@@ -1068,27 +1048,27 @@ class PKPTemplateManager extends Smarty
                             'submenu' => [
                                 'context' => [
                                     'name' => __('context.context'),
-                                    'url' => $router->url($request, null, 'management', 'settings', 'context'),
+                                    'url' => $router->url($request, null, 'management', 'settings', ['context']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('context', (array) $router->getRequestedArgs($request)),
                                 ],
                                 'website' => [
                                     'name' => __('manager.website'),
-                                    'url' => $router->url($request, null, 'management', 'settings', 'website'),
+                                    'url' => $router->url($request, null, 'management', 'settings', ['website']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('website', (array) $router->getRequestedArgs($request)),
                                 ],
                                 'workflow' => [
                                     'name' => __('manager.workflow'),
-                                    'url' => $router->url($request, null, 'management', 'settings', 'workflow'),
+                                    'url' => $router->url($request, null, 'management', 'settings', ['workflow']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('workflow', (array) $router->getRequestedArgs($request)),
                                 ],
                                 'distribution' => [
                                     'name' => __('manager.distribution'),
-                                    'url' => $router->url($request, null, 'management', 'settings', 'distribution'),
+                                    'url' => $router->url($request, null, 'management', 'settings', ['distribution']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('distribution', (array) $router->getRequestedArgs($request)),
                                 ],
                                 'access' => [
                                     'name' => __('navigation.access'),
-                                    'url' => $router->url($request, null, 'management', 'settings', 'access'),
+                                    'url' => $router->url($request, null, 'management', 'settings', ['access']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'management' && in_array('access', (array) $router->getRequestedArgs($request)),
                                 ]
                             ]
@@ -1101,22 +1081,22 @@ class PKPTemplateManager extends Smarty
                             'submenu' => [
                                 'publications' => [
                                     'name' => __('common.publications'),
-                                    'url' => $router->url($request, null, 'stats', 'publications', 'publications'),
+                                    'url' => $router->url($request, null, 'stats', 'publications', ['publications']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'publications',
                                 ],
                                 'context' => [
                                     'name' => __('context.context'),
-                                    'url' => $router->url($request, null, 'stats', 'context', 'context'),
+                                    'url' => $router->url($request, null, 'stats', 'context', ['context']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'context',
                                 ],
                                 'editorial' => [
                                     'name' => __('stats.editorialActivity'),
-                                    'url' => $router->url($request, null, 'stats', 'editorial', 'editorial'),
+                                    'url' => $router->url($request, null, 'stats', 'editorial', ['editorial']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'editorial',
                                 ],
                                 'users' => [
                                     'name' => __('manager.users'),
-                                    'url' => $router->url($request, null, 'stats', 'users', 'users'),
+                                    'url' => $router->url($request, null, 'stats', 'users', ['users']),
                                     'isCurrent' => $router->getRequestedPage($request) === 'stats' && $router->getRequestedOp($request) === 'users',
                                 ]
                             ]
@@ -1197,10 +1177,8 @@ class PKPTemplateManager extends Smarty
      * @param string $id ID to use for the generated container element.
      * @param string $url URL to fetch the contents from.
      * @param string $element Element to use for container.
-     *
-     * @return JSONMessage The JSON-encoded result.
      */
-    public function fetchAjax($id, $url, $element = 'div')
+    public function fetchAjax(string $id, string $url, string $element = 'div'): JSONMessage
     {
         return new JSONMessage(true, $this->smartyLoadUrlInEl(
             [
@@ -1214,12 +1192,8 @@ class PKPTemplateManager extends Smarty
 
     /**
      * Calculate a compile ID for a resource.
-     *
-     * @param string $resourceName Resource name.
-     *
-     * @return string
      */
-    public function getCompileId($resourceName)
+    public function getCompileId(string $resourceName): string
     {
         if (Application::isInstalled()) {
             $context = $this->_request->getContext();
@@ -1235,11 +1209,8 @@ class PKPTemplateManager extends Smarty
      * Returns the template results as a JSON message.
      *
      * @param string $template Template filename (or Smarty resource name)
-     * @param bool $status
-     *
-     * @return JSONMessage JSON object
      */
-    public function fetchJson($template, $status = true)
+    public function fetchJson(string $template, bool $status = true): JSONMessage
     {
         return new JSONMessage($status, $this->fetch($template));
     }
@@ -1279,8 +1250,6 @@ class PKPTemplateManager extends Smarty
                 null,
             )];
         $output .= 'pkp.context = ' . json_encode($pageContext) . ';';
-
-
 
         // Load current user data
         if (Application::isInstalled()) {
@@ -1361,7 +1330,6 @@ class PKPTemplateManager extends Smarty
     public function clearCssCache()
     {
         $cacheDirectory = Core::getBaseDir() . '/cache';
-        $files = scandir($cacheDirectory);
         array_map('unlink', glob($cacheDirectory . '/*.' . self::CSS_FILENAME_SUFFIX));
     }
 
@@ -1389,10 +1357,6 @@ class PKPTemplateManager extends Smarty
 
     /**
      * Return an instance of the template manager.
-     *
-     * @param ?PKPRequest $request
-     *
-     * @return TemplateManager the template manager object
      */
     public static function &getManager(?PKPRequest $request = null): TemplateManager
     {
@@ -1418,12 +1382,10 @@ class PKPTemplateManager extends Smarty
 
     /**
      * Return an instance of the Form Builder Vocabulary class.
-     *
-     * @return TemplateManager the template manager object
      */
-    public function getFBV()
+    public function getFBV(): FormBuilderVocabulary
     {
-        if (!$this->_fbv) {
+        if (!isset($this->_fbv)) {
             $this->_fbv = new FormBuilderVocabulary();
         }
         return $this->_fbv;
@@ -1432,7 +1394,6 @@ class PKPTemplateManager extends Smarty
     /**
      * Display the sidebar
      *
-     * @param string $hookName
      * @param array $args [
      *
      *		@option array Params passed to the hook
@@ -1440,7 +1401,7 @@ class PKPTemplateManager extends Smarty
      *		@option string The output
      * ]
      */
-    public function displaySidebar($hookName, $args)
+    public function displaySidebar(string $hookName, array $args): bool
     {
         $params = &$args[0];
         $smarty = &$args[1];
@@ -1499,7 +1460,6 @@ class PKPTemplateManager extends Smarty
      *
      * @param array $params associative array, must contain "key" parameter for string to translate plus zero or more named parameters for substitution.
      * 	Translation variables can be specified also as an optional associative array named "params".
-     * @param Smarty $smarty
      *
      * @return string the localized string, including any parameter substitutions
      */
@@ -1516,69 +1476,6 @@ class PKPTemplateManager extends Smarty
         $variables = $params + $variables;
         // Decides between the simple/pluralized version
         return $count === null ? __($key, $variables, $locale) : __p($key, $count, $variables, $locale);
-    }
-
-    /**
-     * Applies a translation modifier, where the value to be transformed is used as locale key
-     * Simple translation
-     * {$foo|translate}
-     *
-     * Passing variables for the translation
-     * {$foo|translate:varFoo:valueFoo:varBar:valueBar}
-     *
-     * Pluralized translation with a different locale
-     * {$foo|translate:count:123:locale:pt_BR}
-     */
-    public function smartyTranslateModifier(): string
-    {
-        $params = func_get_args();
-        $key = array_shift($params);
-        $variables = [];
-        if (count($params)) {
-            $name = null;
-            foreach ($params as $i => $value) {
-                if ($i % 2) {
-                    $variables[$name] = $value;
-                } else {
-                    $name = $value;
-                }
-            }
-        }
-        $count = $variables['count'] ?? null;
-        $locale = $variables['locale'] ?? null;
-        return $count === null ? __($key, $variables, $locale) : __p($key, $count, $variables, $locale);
-    }
-
-    /**
-     * Smarty usage: {null_link_action id="linkId" key="localization.key.name" image="imageClassName"}
-     *
-     * Custom Smarty function for displaying a null link action; these will
-     * typically be attached and handled in Javascript.
-     *
-     * @param Smarty $smarty
-     *
-     * @return string the HTML for the generated link action
-     */
-    public function smartyNullLinkAction($params, $smarty)
-    {
-        assert(isset($params['id']));
-
-        $id = $params['id'];
-        $key = $params['key'] ?? null;
-        $hoverTitle = isset($params['hoverTitle']) ? true : false;
-        $image = $params['image'] ?? null;
-        $translate = isset($params['translate']) ? false : true;
-
-        $key = $translate ? __($key) : $key;
-        $this->assign('action', new LinkAction(
-            $id,
-            new NullAction(),
-            $key,
-            $image
-        ));
-
-        $this->assign('hoverTitle', $hoverTitle);
-        return $this->fetch('linkAction/linkAction.tpl');
     }
 
     /**
@@ -1687,8 +1584,10 @@ class PKPTemplateManager extends Smarty
 
         if (isset($params['key'])) {
             [$key, $value] = $iterator->nextWithKey();
-            $smarty->assign($params['item'], $value);
-            $smarty->assign($params['key'], $key);
+            $smarty->assign([
+                $params['item'] => $value,
+                $params['key'] => $key
+            ]);
         } else {
             $smarty->assign($params['item'], $iterator->next());
         }
@@ -1790,7 +1689,7 @@ class PKPTemplateManager extends Smarty
      * - escape (default to true unless otherwise specified)
      * - params: parameters to include in the URL if available as an array
      */
-    public function smartyUrl($parameters, $smarty)
+    public function smartyUrl($parameters, $smarty): string
     {
         if (!isset($parameters['context'])) {
             // Extract the variables named in $paramList, and remove them
@@ -1819,6 +1718,9 @@ class PKPTemplateManager extends Smarty
             }
             unset($parameters[$parameter]);
         }
+        if (is_scalar($path)) {
+            $path = [$path];
+        }
 
         // Merge parameters specified in the {url paramName=paramValue} format with
         // those optionally supplied in {url params=$someAssociativeArray} format
@@ -1833,26 +1735,14 @@ class PKPTemplateManager extends Smarty
             }
         }
 
-        // Check the router
-        $dispatcher = Application::get()->getDispatcher();
-        $routerShortcuts = array_keys($dispatcher->getRouterNames());
-        assert(in_array($router, $routerShortcuts));
-
         // Identify the handler
-        switch ($router) {
-            case PKPApplication::ROUTE_PAGE:
-                $handler = $page;
-                break;
+        $handler = match ($router) {
+            PKPApplication::ROUTE_PAGE => $page,
+            PKPApplication::ROUTE_COMPONENT => $component,
+        };
 
-            case PKPApplication::ROUTE_COMPONENT:
-                $handler = $component;
-                break;
-
-            default:
-                // Unknown router type
-                assert(false);
-        }
         // Let the dispatcher create the url
+        $dispatcher = Application::get()->getDispatcher();
         return $dispatcher->url($this->_request, $router, $context, $handler, $op, $path, $parameters, $anchor, !isset($escape) || $escape, $urlLocaleForPage);
     }
 
@@ -1874,7 +1764,7 @@ class PKPTemplateManager extends Smarty
      * - escape (default to true unless otherwise specified)
      * - params: parameters to include in the URL if available as an array
      */
-    public function smartyTitle($parameters, $smarty)
+    public function smartyTitle($parameters, $smarty): string
     {
         $page = $parameters['value'] ?? '';
         if ($smarty->getTemplateVars('currentContext')) {
@@ -1902,7 +1792,7 @@ class PKPTemplateManager extends Smarty
      *	additional_param=myAdditionalParameterValue
      * }
      */
-    public function smartyPageLinks($params, $smarty)
+    public function smartyPageLinks($params, $smarty): string
     {
         $iterator = $params['iterator'];
         $name = $params['name'];
@@ -1976,23 +1866,6 @@ class PKPTemplateManager extends Smarty
     }
 
     /**
-     * Convert the parameters of a function to an array.
-     */
-    public function smartyToArray()
-    {
-        return func_get_args();
-    }
-
-    /**
-     * Concatenate the parameters and return the result.
-     */
-    public function smartyConcat()
-    {
-        $args = func_get_args();
-        return implode('', $args);
-    }
-
-    /**
      * Compare the parameters.
      *
      * @param mixed $a Parameter A
@@ -2004,22 +1877,6 @@ class PKPTemplateManager extends Smarty
     {
         $result = $strict ? $a === $b : $a == $b;
         return $invert ? !$result : $result;
-    }
-
-    /**
-     * Convert a string to a numeric time.
-     */
-    public function smartyStrtotime($string)
-    {
-        return strtotime($string);
-    }
-
-    /**
-     * Split the supplied string by the supplied separator.
-     */
-    public function smartyExplode($string, $separator)
-    {
-        return explode($separator, $string);
     }
 
     /**

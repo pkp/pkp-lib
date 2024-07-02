@@ -19,14 +19,10 @@ use PKP\components\forms\FieldText;
 use PKP\components\forms\FieldTextarea;
 use PKP\components\forms\FormComponent;
 
-define('FORM_SEARCH_INDEXING', 'searchIndexing');
-
 class PKPSearchIndexingForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_SEARCH_INDEXING;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_SEARCH_INDEXING = 'searchIndexing';
+    public $id = self::FORM_SEARCH_INDEXING;
     public $method = 'PUT';
 
     /**

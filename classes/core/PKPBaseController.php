@@ -116,7 +116,7 @@ abstract class PKPBaseController extends Controller
         
         $calledRouteController = (new ReflectionFunction($requestedRoute->action['uses']))->getClosureThis();
 
-        // When the routes are added to router as a closure/callbale from other section like from a 
+        // When the routes are added to router as a closure/callable from other section like from a 
         // plugin through the hook, the resolved called route class may not be an instance of
         // `PKPBaseController` and we need to resolve the current controller instance from 
         // `APIHandler::getApiController` method

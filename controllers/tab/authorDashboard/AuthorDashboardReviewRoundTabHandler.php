@@ -112,9 +112,8 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
         }
 
         // Display notification emails to the author related to editorial decisions
-        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
         $templateMgr->assign([
-            'submissionEmails' => $submissionEmailLogDao->getByEventType(
+            'submissionEmails' => SubmissionEmailLogEntry::getByEventType(
                 $submission->getId(),
                 SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
                 $request->getUser()->getId()

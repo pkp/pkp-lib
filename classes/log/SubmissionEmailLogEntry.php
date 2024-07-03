@@ -21,10 +21,8 @@ namespace PKP\log;
 use APP\core\Application;
 use APP\submission\Submission;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
-use PKP\db\DAOResultFactory;
 use PKP\facades\Locale;
 use PKP\facades\Repo;
 use PKP\mail\Mailable;
@@ -91,7 +89,7 @@ class SubmissionEmailLogEntry extends EmailLogEntry
     {
         $this->assocType = Application::ASSOC_TYPE_SUBMISSION;
     }
-    
+
     public function scopeWithAssoc(Builder $query): Builder
     {
         return $query->where('assoc_type', Application::ASSOC_TYPE_SUBMISSION);
@@ -129,19 +127,6 @@ class SubmissionEmailLogEntry extends EmailLogEntry
         $logRepo->insertLogUserIds($entry);
 
         return $entry->id;
-    }
-
-
-    /**
-     * Get submission email log entries by submission ID and event type
-     *
-     * @param int $submissionId
-     * @param int $userId optional Return only emails sent to this user.
-     *
-     */
-    static function getByEventType($submissionId, $eventType, $userId = null)
-    {
-        return Repo::emailLogEntry()->getByEventType(Application::ASSOC_TYPE_SUBMISSION, $submissionId, $eventType, $userId);
     }
 }
 

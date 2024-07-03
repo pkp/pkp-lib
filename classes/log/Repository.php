@@ -160,26 +160,4 @@ class Repository
             )
         ];
     }
-
-
-    /**
-     * Retrieve a log entry by event type.
-     */
-    public function getByEventType(int $assocType, int $assocId, int $eventType, ?int $userId = null)
-    {
-        $q = DB::table('email_log', 'e')
-            ->when(
-                $userId,
-                fn (Builder $q) => $q->join(
-                    'email_log_users AS u',
-                    fn (JoinClause $j) => $j->on('u.email_log_id', '=', 'e.log_id')
-                        ->where('u.user_id', $userId)
-                )
-            )
-            ->orderBy('e.log_id')
-            ->select('e.*')->get();
-
-        return $q; // Counted in submissionEmails.tpl
-    }
-
 }

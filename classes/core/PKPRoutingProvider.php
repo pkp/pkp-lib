@@ -19,7 +19,6 @@ namespace PKP\core;
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
 use Illuminate\Foundation\Http\Middleware\TrimStrings;
 use Illuminate\Foundation\Http\Middleware\ValidatePostSize;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 use Illuminate\Routing\RoutingServiceProvider;
 use Illuminate\Support\Facades\Response;
@@ -34,6 +33,17 @@ use PKP\middleware\ValidateCsrfToken;
 
 class PKPRoutingProvider extends RoutingServiceProvider
 {
+    public const RESPONSE_CSV = [
+        'mime' => 'text/csv',
+        'extension' => '.csv',
+        'separator' => ','
+    ];
+    public const RESPONSE_TSV = [
+        'mime' => 'text/tab-separated-values',
+        'extension' => '.tsv',
+        'separator' => '\t'
+    ];
+
     protected static $globalMiddleware = [
         AllowCrossOrigin::class,
         SetupContextBasedOnRequestUrl::class,
@@ -79,28 +89,30 @@ class PKPRoutingProvider extends RoutingServiceProvider
      */
     public function boot()
     {
-        Response::macro('withCSV', function (array $rows, array $columns, int $maxRows) {
+        Response::macro('withFile', function (array $rows, array $columns, int $maxRows, array $responseType = PKPRoutingProvider::RESPONSE_CSV) {
             return response()->stream(
-                function () use ($rows, $columns) {
+                function () use ($rows, $columns, $responseType) {
                     $fp = fopen('php://output', 'wt');
 
                     // Adds BOM (byte order mark) to enforce the UTF-8 format
                     fwrite($fp, "\xEF\xBB\xBF");
 
-                    fputcsv($fp, ['']);
-                    fputcsv($fp, $columns);
+                    if (!empty($columns)) {
+                        fputcsv($fp, [''], $responseType['separator']);
+                        fputcsv($fp, $columns, $responseType['separator']);
+                    }
 
                     foreach ($rows as $row) {
-                        fputcsv($fp, $row);
+                        fputcsv($fp, $row, $responseType['separator']);
                     }
 
                     fclose($fp);
                 },
                 \Illuminate\Http\Response::HTTP_OK,
                 [
-                    'content-type' => 'text/csv',
+                    'content-type' => $responseType['mime'],
                     'X-Total-Count' => $maxRows,
-                    'content-disposition' => 'attachment; filename="user-report-' . date('Y-m-d') . '.csv"',
+                    'content-disposition' => 'attachment; filename="user-report-' . date('Y-m-d') . $responseType['extension'] . '"',
                 ]
             );
         });

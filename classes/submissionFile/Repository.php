@@ -770,18 +770,16 @@ abstract class Repository
         $user = $this->request->getUser();
 
         // Fetch the latest notification email timestamp
-        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
-        /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-        $submissionEmails = $submissionEmailLogDao->getByEventType(
+        $submissionEmails = SubmissionEmailLogEntry::getByEventType(
             $submission->getId(),
             SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION
         );
         $lastNotification = null;
         $sentDates = [];
         if ($submissionEmails) {
-            while ($email = $submissionEmails->next()) {
-                if ($email->getDateSent()) {
-                    $sentDates[] = $email->getDateSent();
+            foreach ($submissionEmails as $email ) {
+                if ($email->dateSent) {
+                    $sentDates[] = $email->dateSent;
                 }
             }
             if (!empty($sentDates)) {

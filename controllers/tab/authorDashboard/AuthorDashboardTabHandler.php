@@ -100,7 +100,6 @@ class AuthorDashboardTabHandler extends Handler
 
         // If the submission is in or past the editorial stage,
         // assign the editor's copyediting emails to the template
-        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
         $user = $request->getUser();
 
         // Define the notification options.

@@ -110,14 +110,13 @@ abstract class PKPAuthorDashboardHandler extends Handler
      */
     public function readSubmissionEmail($args, $request)
     {
-        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
         $user = $request->getUser();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $submissionEmailId = $request->getUserVar('submissionEmailId');
 
-        $submissionEmailFactory = $submissionEmailLogDao->getByEventType($submission->getId(), SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId());
-        while ($email = $submissionEmailFactory->next()) { // validate the email id for this user.
-            if ($email->getId() == $submissionEmailId) {
+        $submissionEmailFactory = SubmissionEmailLogEntry::getByEventType($submission->getId(), SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId());
+        foreach ($submissionEmailFactory as $email) { // validate the email id for this user.
+            if ($email->id == $submissionEmailId) {
                 $templateMgr = TemplateManager::getManager($request);
                 $templateMgr->assign('submissionEmail', $email);
                 return $templateMgr->fetchJson('authorDashboard/submissionEmail.tpl');

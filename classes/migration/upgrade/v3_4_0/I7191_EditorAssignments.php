@@ -81,7 +81,7 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
     {
         $bestUserGroupIdQuery = DB::table('user_groups', 'ug')
             ->whereColumn('ug.context_id', '=', 'ssg.context_id')
-            ->where('ug.role_id', '=', 17) // Role::ROLE_ID_SUB_EDITOR
+            ->whereRaw('ug.role_id = 17') // Role::ROLE_ID_SUB_EDITOR
             ->orderByDesc('ug.is_default')
             ->orderByDesc('ug.permit_metadata_edit')
             ->limit(1)

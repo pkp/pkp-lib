@@ -23,6 +23,9 @@ class FieldSelect extends Field
     /** @var array The options which can be selected */
     public $options = [];
 
+    /** @var string Accepts: `normal` or `large` */
+    public $size = 'normal';
+
     /**
      * @copydoc Field::getConfig()
      */
@@ -30,6 +33,7 @@ class FieldSelect extends Field
     {
         $config = parent::getConfig();
         $config['options'] = $this->options;
+        $config['size'] = $this->size;
 
         return $config;
     }

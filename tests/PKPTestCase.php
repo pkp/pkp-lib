@@ -217,8 +217,10 @@ abstract class PKPTestCase extends TestCase
         $request->setRouter($router);
 
         // Test user.
-        $session = $request->getSession();
-        $session->setUserId($userId);
+        // TODO: The user may need to be explicitly set rather than only the ID. To look into.
+        if ($userId !== null) {
+            $request->getSessionGuard()->setUserId($userId)->getSession();
+        }
 
         return $request;
     }

@@ -552,6 +552,30 @@ class PKPContainer extends Container
     }
 
     /**
+     * Determine if the application is running in the console.
+     */
+    public function runningInConsole(string $scriptPath = null): bool
+    {
+        if (php_sapi_name() && strtolower(php_sapi_name()) === 'cli') {
+            return true;
+        }
+
+        if ($scriptPath) {
+            $scriptPath = strtolower($scriptPath);
+
+            if (isset($_SERVER['SCRIPT_NAME']) && strpos(strtolower($_SERVER['SCRIPT_NAME']), $scriptPath) !== false) {
+                return true;
+            }
+
+            if (isset($_SERVER['SCRIPT_FILENAME']) && strpos(strtolower($_SERVER['SCRIPT_FILENAME']), $scriptPath) !== false) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    /**
      * Get or check the current application environment.
      *
      * @param  string|array  ...$environments

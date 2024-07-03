@@ -185,27 +185,13 @@ function __p(string $key, int $number, array $replace = [], ?string $locale = nu
 
 /**
  * Check if run on CLI
+ * 
+ * @deprecated 3.5.0 use PKPContainer::getInstance()->runningInConsole()
  */
 if (!function_exists('runOnCLI')) {
     function runOnCLI(?string $scriptPath = null): bool
     {
-        if (php_sapi_name() && strtolower(php_sapi_name()) === 'cli') {
-            return true;
-        }
-
-        if ($scriptPath) {
-            $serverVars = $_SERVER;
-
-            if (isset($serverVars['SCRIPT_NAME']) && strpos(strtolower($serverVars['SCRIPT_NAME']), strtolower($scriptPath)) !== false) {
-                return true;
-            }
-
-            if (isset($serverVars['SCRIPT_FILENAME']) && strpos(strtolower($serverVars['SCRIPT_FILENAME']), strtolower($scriptPath)) !== false) {
-                return true;
-            }
-        }
-
-        return false;
+        return \PKP\core\PKPContainer::getInstance()->runningInConsole($scriptPath);
     }
 }
 

@@ -53,11 +53,12 @@ class PKPScheduleServiceProvider extends ServiceProvider implements DeferrablePr
         
                         // We only want to web based task runner for the web request life cycle
                         // not in any CLI based request life cycle
-                        if (runOnCLI()) {
+                        if ($this->app->runningInConsole()) {
                             return;
                         }
                         
                         $scheduler = $this->app->get(Scheduler::class); /** @var \APP\scheduler\Scheduler $scheduler */
+                        $scheduler->registerPluginSchedules();
                         $scheduler->runWebBasedScheduleTaskRunner();
                     });
                 }
@@ -86,7 +87,7 @@ class PKPScheduleServiceProvider extends ServiceProvider implements DeferrablePr
             }
         );
 
-        if (!runOnCLI()) {
+        if (!$this->app->runningInConsole()) {
             $this->booted(fn () => $this->app->make(Schedule::class));
         }
     }

@@ -2,7 +2,6 @@
 
 namespace PKP\scheduledTask;
 
-use APP\core\Application;
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\Schedule;
 use PKP\core\PKPContainer;
@@ -24,12 +23,9 @@ abstract class PKPScheduler
 {
     protected Schedule $schedule;
 
-    protected string $appName;
-
-    public function __construct(Schedule $schedule, string $appName = null)
+    public function __construct(Schedule $schedule)
     {
         $this->schedule = $schedule;
-        $this->appName = $appName ?? Application::get()->getName();
     }
 
     public function addSchedule(ScheduledTask $scheduleTask): Event
@@ -115,14 +111,13 @@ abstract class PKPScheduler
         
         // We only want to load all plugins and register schedule in following way if running on CLI mode
         // as in non cli mode, schedule tasks should be registered web based task runner
-        if (runOnCLI()) {
+        if (PKPContainer::getInstance()->runningInConsole()) {
             $this->registerPluginSchedules();
         }
     }
 
     public function registerPluginSchedules(): void
     {
-
         $plugins = PluginRegistry::loadAllPlugins(true);
 
         foreach ($plugins as $name => $plugin) {
@@ -136,8 +131,6 @@ abstract class PKPScheduler
 
     public function runWebBasedScheduleTaskRunner(): void
     {
-        $this->registerPluginSchedules();
-
         $container = PKPContainer::getInstance();
 
         (new ScheduleTaskRunner(

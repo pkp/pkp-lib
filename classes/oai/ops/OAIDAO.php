@@ -253,10 +253,10 @@ class OAIDAO extends PKPOAIDAO
                 return $query->where('p.section_id', '=', $sectionId);
             })
             ->when($from, function ($query, $from) {
-                return $query->where('a.last_modified', '>=', $this->datetimeToDB($from));
+                return $query->whereDate('a.last_modified', '>=', \DateTime::createFromFormat('U', $from));
             })
             ->when($until, function ($query, $until) {
-                return $query->where('a.last-modified', '<=', $this->datetimeToDB($until));
+                return $query->whereDate('a.last-modified', '<=', \DateTime::createFromFormat('U', $until));
             })
             ->when($submissionId, function ($query, $submissionId) {
                 return $query->where('a.submission_id', '=', $submissionId);
@@ -295,10 +295,10 @@ class OAIDAO extends PKPOAIDAO
                             ->orWhere('dot.set_spec', 'like', $set . ':%');
                     })
                     ->when($from, function ($query, $from) {
-                        return $query->where('dot.date_deleted', '>=', $from);
+                        return $query->whereDate('dot.date_deleted', '>=', \DateTime::createFromFormat('U', $from));
                     })
                     ->when($until, function ($query, $until) {
-                        return $query->where('dot.date_deleted', '<=', $until);
+                        return $query->whereDate('dot.date_deleted', '<=', \DateTime::createFromFormat('U', $until));
                     })
                     ->when($submissionId, function ($query, $submissionId) {
                         return $query->where('dot.data_object_id', '=', (int) $submissionId);

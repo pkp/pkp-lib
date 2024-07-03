@@ -76,6 +76,9 @@ class EmailLogDAO extends \PKP\db\DAO
                         ->where('u.user_id', $userId)
                 )
             )
+            ->where('e.assoc_type', '=', (int) $assocType)
+            ->where('e.assoc_id', '=', (int) $assocId)
+            ->where('e.event_type', '=', (int) $eventType)
             ->orderBy('e.log_id')
             ->select('e.*');
         $result = $this->retrieveRange($q, [], $rangeInfo);

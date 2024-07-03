@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/core/PKPScheduleServiceProvider.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PKPScheduleServiceProvider
+ *
+ * @brief Register schedule and run related functionalities
+ */
+
 namespace PKP\core;
 
 use Carbon\Carbon;
@@ -14,6 +26,9 @@ use Illuminate\Contracts\Support\DeferrableProvider;
 
 class PKPScheduleServiceProvider extends ServiceProvider implements DeferrableProvider
 {
+    /**
+     * Boot service provider
+     */
     public function boot()
     {
         $this->callAfterResolving(Schedule::class, function (Schedule $schedule) {
@@ -66,6 +81,9 @@ class PKPScheduleServiceProvider extends ServiceProvider implements DeferrablePr
         });
     }
 
+    /**
+     * Register service provider
+     */
     public function register()
     {
         // initialize schedule

@@ -3,15 +3,15 @@
 /**
  * @file tools/schedular.php
  *
- * Copyright (c) 2014-2022 Simon Fraser University
- * Copyright (c) 2003-2022 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class commandSchedular
  *
  * @ingroup tools
  *
- * @brief 
+ * @brief CLI tool to list and run schedule tasks
  */
 
 namespace PKP\tools;
@@ -40,7 +40,6 @@ class CommandScheduler extends CommandLineTool
     protected const AVAILABLE_OPTIONS = [
         'run'       => 'admin.cli.tool.schedular.options.run.description',
         'list'      => 'admin.cli.tool.schedular.options.list.description',
-        // 'work'      => 'admin.cli.tool.schedular.options.work.description',
         'usage'     => 'admin.cli.tool.schedular.options.usage.description',
     ];
 
@@ -100,7 +99,7 @@ class CommandScheduler extends CommandLineTool
     }
 
     /**
-     * Dispatch jobs into the queue
+     * Run all the schedule tasks that are ready/due to run
      */
     protected function run(): void
     {
@@ -127,7 +126,7 @@ class CommandScheduler extends CommandLineTool
     }
 
     /**
-     * Dispatch jobs into the queue
+     * List all the schedule tasks in the system
      */
     protected function list(): void
     {
@@ -140,23 +139,6 @@ class CommandScheduler extends CommandLineTool
 
         $scheduleListCommand->run($input, $output);
     }
-
-    // protected function work(): void
-    // {
-    //     [$input, $output] = PKPConsoleCommandServiceProvider::getConsoleIOInstances();
-        
-    //     $scheduleWorkCommand = new ScheduleWorkCommand;
-    //     $scheduleWorkCommand->setLaravel(PKPContainer::getInstance());
-    //     $scheduleWorkCommand->setInput($input);
-    //     $scheduleWorkCommand->setOutput(PKPConsoleCommandServiceProvider::getConsoleOutputStyle());
-
-    //     $scheduleWorkCommand->run($input, $output);
-    // }
-
-    // protected function test(): void
-    // {
-
-    // }
 }
 
 try {

@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * @file classes/migration/upgrade/v3_5_0/I9678_RemoveScheduledTasksTable.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class I9678_RemoveScheduledTasksTable
+ *
+ * @brief Remove scheduled_tasks table.
+ * @see https://github.com/pkp/pkp-lib/issues/9678
+ * 
+ */
+
 namespace PKP\migration\upgrade\v3_5_0;
 
 use PKP\migration\Migration;

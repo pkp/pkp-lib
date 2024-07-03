@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/core/PKPConsoleCommandServiceProvider.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PKPConsoleCommandServiceProvider
+ *
+ * @brief Register required component to invoke laravel console commands
+ */
+
 namespace PKP\core;
 
 use Illuminate\Console\OutputStyle;
@@ -11,6 +23,9 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 class PKPConsoleCommandServiceProvider extends ServiceProvider implements DeferrableProvider
 {
+    /**
+     * Register service provider
+     */
     public function register()
     {
         $this->app->bind(Factory::class, function ($app) {
@@ -20,6 +35,9 @@ class PKPConsoleCommandServiceProvider extends ServiceProvider implements Deferr
         });
     }
 
+    /**
+     * Get command line output style
+     */
     public static function getConsoleOutputStyle(): OutputStyle
     {
         return new OutputStyle(
@@ -27,6 +45,9 @@ class PKPConsoleCommandServiceProvider extends ServiceProvider implements Deferr
         );
     }
 
+    /**
+     * Get console command line input and output components
+     */
     public static function getConsoleIOInstances(): array
     {
         return [

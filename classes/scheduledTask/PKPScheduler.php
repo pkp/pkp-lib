@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/scheduledTask/PKPScheduler.php
+ *
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PKPScheduler
+ *
+ * @brief Core Scheduler to register schedule tasks
+ */
+
 namespace PKP\scheduledTask;
 
 use Illuminate\Console\Scheduling\Event;
@@ -21,13 +33,25 @@ use PKP\plugins\interfaces\HasTaskScheduler;
 
 abstract class PKPScheduler
 {
+    /**
+     * The core illuminate Schedule that is responsible to run schedule tasks
+     */
     protected Schedule $schedule;
 
+    /**
+     * Constructor
+     */
     public function __construct(Schedule $schedule)
     {
         $this->schedule = $schedule;
     }
 
+    /**
+     * Add a new schedule task into the core illuminate Schedule
+     * 
+     * This method allow dynamic injection of schedule tasks at run time. One
+     * particular use is allow plugin to add own schedule tasks.
+     */
     public function addSchedule(ScheduledTask $scheduleTask): Event
     {
         $events = $this->schedule->events();
@@ -44,6 +68,9 @@ abstract class PKPScheduler
             ?? $this->schedule->call(fn () => $scheduleTask->execute());
     }
 
+    /**
+     * Register core schedule tasks
+     */
     public function registerSchedules(): void
     {
         $this
@@ -110,12 +137,15 @@ abstract class PKPScheduler
             ->withoutOverlapping();
         
         // We only want to load all plugins and register schedule in following way if running on CLI mode
-        // as in non cli mode, schedule tasks should be registered web based task runner
+        // as in non CLI mode, schedule tasks should be registered before calliing web based task runner
         if (PKPContainer::getInstance()->runningInConsole()) {
             $this->registerPluginSchedules();
         }
     }
 
+    /**
+     * Register plugins schedule tasks
+     */
     public function registerPluginSchedules(): void
     {
         $plugins = PluginRegistry::loadAllPlugins(true);
@@ -129,6 +159,9 @@ abstract class PKPScheduler
         }
     }
 
+    /**
+     * Run the web based schedule task runner
+     */
     public function runWebBasedScheduleTaskRunner(): void
     {
         $container = PKPContainer::getInstance();

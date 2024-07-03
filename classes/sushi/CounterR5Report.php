@@ -17,9 +17,15 @@
 
 namespace PKP\sushi;
 
+use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
+use DateInterval;
+use DatePeriod;
 use DateTime;
+use Exception;
+use PKP\components\forms\FieldSelect;
+use PKP\components\forms\FieldText;
 use PKP\context\Context;
 
 abstract class CounterR5Report
@@ -172,11 +178,16 @@ abstract class CounterR5Report
         }
     }
 
-    /**
-     * Get report items
-     */
+    /** Get report items */
     abstract public function getReportItems(): array;
 
+    /** Get report items prepared for TSV report */
+    abstract public function getTSVReportItems(): array;
+
+    /** Get TSV report column names */
+    abstract public function getTSVColumnNames(): array;
+
+    /** Add a warning */
     protected function addWarning(array $exception): void
     {
         $this->warnings[] = $exception;
@@ -293,25 +304,45 @@ abstract class CounterR5Report
     }
 
     /**
+     * Get the first month the usage data is available for COUNTER R5 reports.
+     * It is either:
+     * the next month of the COUNTER R5 start, or
+     * this journal's first publication date.
+     */
+    public static function getEarliestDate(): string
+    {
+        $context = Application::get()->getRequest()->getContext();
+        $statsService = Services::get('sushiStats');
+        $counterR5StartDate = $statsService->getEarliestDate();
+        $firstDatePublished = Repo::publication()->getDateBoundaries(
+            Repo::publication()
+                ->getCollector()
+                ->filterByContextIds([$context->getId()])
+        )->min_date_published;
+        $earliestDate = strtotime($firstDatePublished) > strtotime($counterR5StartDate) ? $firstDatePublished : $counterR5StartDate;
+        $earliestDate = date('Y-m-01', strtotime($earliestDate . ' + 1 months'));
+        return $earliestDate;
+    }
+
+    /**
+     * Get the last possible date COUNTER R5 reports could exist for.
+     * This is the last day of the previous month,
+     * because the all stats for the previous month should be already compiled.
+     */
+    public static function getLastDate(): string
+    {
+        return date('Y-m-d', strtotime('last day of previous month'));
+    }
+
+    /**
      * Validate the date parameters (begin_date, end_date)
      *
      * @throws SushiException
      */
     protected function checkDate($params): void
     {
-        // get the first month the usage data is available for COUNTER R5, it is either:
-        // the next month of the COUNTER R5 start, or
-        // this journal's first publication date.
-        $statsService = Services::get('sushiStats');
-        $counterR5StartDate = $statsService->getEarliestDate();
-        $firstDatePublished = Repo::publication()->getDateBoundaries(
-            Repo::publication()
-                ->getCollector()
-                ->filterByContextIds([$this->context->getId()])
-        )->min_date_published;
-        $earliestDate = strtotime($firstDatePublished) > strtotime($counterR5StartDate) ? $firstDatePublished : $counterR5StartDate;
-        $earliestDate = date('Y-m-01', strtotime($earliestDate . ' + 1 months'));
-        $lastDate = date('Y-m-d', strtotime('last day of previous month')); // get the last month in the DB table
+        $earliestDate = self::getEarliestDate();
+        $lastDate = self::getLastDate();
         $beginDate = $params['begin_date'];
         $endDate = $params['end_date'];
 
@@ -532,6 +563,78 @@ abstract class CounterR5Report
         return $reportHeader;
     }
 
+    /** Get report header for TSV reports */
+    public function getTSVReportHeader(): array
+    {
+        $institutionIds = [];
+        if (isset($this->institutionIds)) {
+            foreach ($this->institutionIds as $institutionId) {
+                if ($institutionId['Type'] == 'Proprietary') {
+                    $institutionIds[] = $institutionId['Value'];
+                } else {
+                    $institutionIds[] = $institutionId['Type'] . ':' . $institutionId['Value'];
+                }
+            }
+        }
+        $reportHeaderInstitutionId = !empty($institutionIds) ? implode(';', $institutionIds) : '';
+        $reportHeaderMetricTypes = $beginDate = $endDate = '';
+        $reportHeaderFilters = $reportHeaderAttributes = [];
+        foreach ($this->filters as $filter) {
+            switch ($filter['Name']) {
+                case ('Metric_Type'):
+                    $reportHeaderMetricTypes = implode(';', explode('|', $filter['Value']));
+                    break;
+                case ('Begin_Date'):
+                    $beginDate = $filter['Name'] . '=' . $filter['Value'];
+                    break;
+                case ('End_Date'):
+                    $endDate = $filter['Name'] . '=' . $filter['Value'];
+                    break;
+                default:
+                    $reportHeaderFilters[] = $filter['Name'] . '=' . $filter['Value'];
+            }
+        }
+        foreach ($this->attributes as $attribute) {
+            if ($attribute['Name'] == 'granularity') {
+                $excludeMonthlyDetails = $attribute['Value'] == 'Month' ? 'False' : 'True';
+                $reportHeaderAttributes[] = 'Exclude_Monthly_Details' . '=' . $excludeMonthlyDetails;
+            } else {
+                $reportHeaderAttributes[] = $attribute['Name'] . '=' . $attribute['Value'];
+            }
+        }
+
+        $exceptions = [];
+        foreach ($this->warnings as $warning) {
+            $exceptions[] = $warning['Code'] . ':' . $warning['Message'] . '(' . $warning['Data'] . ')';
+        }
+
+        $reportHeader = [
+            ['Report_Name', $this->getName()],
+            ['Report_ID', $this->getID()],
+            ['Release', $this->getRelease()],
+            ['Institution_Name', $this->institutionName],
+            ['Institution_ID', $reportHeaderInstitutionId],
+            ['Metric_Types', $reportHeaderMetricTypes],
+            ['Report_Filters', implode(';', $reportHeaderFilters)],
+            ['Report_Attributes', implode(';', $reportHeaderAttributes)],
+            ['Exceptions',  implode(';', $exceptions)],
+            ['Reporting_Period', $beginDate . ';' . $endDate],
+            ['Created', date('Y-m-d\TH:i:s\Z', time())],
+            ['Created_By', $this->platformName],
+        ];
+        return $reportHeader;
+    }
+
+    /** Get monthly period */
+    protected function getMonthlyDatePeriod(): DatePeriod
+    {
+        // every month for the given period needs to be considered
+        $start = new DateTime($this->beginDate);
+        $end = new DateTime($this->endDate);
+        $interval = DateInterval::createFromDateString('1 month');
+        return new DatePeriod($start, $interval, $end);
+    }
+
     /**
      * Validate date, check if the date is a valid date and in requested format
      */
@@ -539,5 +642,52 @@ abstract class CounterR5Report
     {
         $d = DateTime::createFromFormat($format, $date);
         return $d && $d->format($format) === $date;
+    }
+
+    /**
+     * Get report form fields common to all reports
+     */
+    public static function getCommonReportSettingsFormFields(): array
+    {
+        $context = Application::get()->getRequest()->getContext();
+        $institutions = Repo::institution()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+
+        $institutionOptions = [['value' => '0', 'label' => 'The World']];
+        foreach ($institutions as $institution) {
+            $institutionOptions[] = ['value' => $institution->getId(), 'label' => $institution->getLocalizedName()];
+        }
+
+        $earliestDate = self::getEarliestDate();
+        $lastDate = self::getLastDate();
+
+        return [
+            new FieldText('begin_date', [
+                'label' => __('manager.statistics.counterR5Report.settings.startDate'),
+                'description' => __('manager.statistics.counterR5Report.settings.date.startDate.description', ['earliestDate' => $earliestDate]),
+                'size' => 'small',
+                'isMultilingual' => false,
+                'isRequired' => true,
+                'value' => $earliestDate,
+                'groupId' => 'default',
+            ]),
+            new FieldText('end_date', [
+                'label' => __('manager.statistics.counterR5Report.settings.endDate'),
+                'description' => __('manager.statistics.counterR5Report.settings.date.endDate.description', ['lastDate' => $lastDate]),
+                'size' => 'small',
+                'isMultilingual' => false,
+                'isRequired' => true,
+                'value' => $lastDate,
+                'groupId' => 'default',
+            ]),
+            new FieldSelect('customer_id', [
+                'label' => __('manager.statistics.counterR5Report.settings.customerId'),
+                'options' => $institutionOptions,
+                'value' => '0',
+                'isRequired' => true,
+                'groupId' => 'default',
+            ]),
+        ];
     }
 }

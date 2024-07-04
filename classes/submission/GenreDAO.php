@@ -165,6 +165,7 @@ class GenreDAO extends DAO
     {
         return DB::table('genres')
             ->where('context_id', $contextId)
+            ->where('enabled', 1)
             ->where('required', 1)
             ->get()
             ->map(function (object $row) {

@@ -98,7 +98,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
                 Hook::add('Schema::get::' . $dao->schema, $this->addToSchema(...));
             } else {
                 $classNameParts = explode('\\', get_class($dao)); // Separate namespace info from class name
-                Hook::add(strtolower_codesafe(end($classNameParts)) . '::getAdditionalFieldNames', $this->getAdditionalFieldNames(...));
+                Hook::add(strtolower(end($classNameParts)) . '::getAdditionalFieldNames', $this->getAdditionalFieldNames(...));
             }
         }
         return true;

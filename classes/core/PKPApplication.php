@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
+use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\site\Version;
 use PKP\site\VersionDAO;
@@ -139,6 +140,9 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             class_alias('\PKP\handler\PKPHandler', '\PKPHandler');
             class_alias('\PKP\payment\QueuedPayment', '\QueuedPayment'); // QueuedPayment instances may be serialized
         }
+
+        // Ensure that nobody registers for hooks that are no longer supported
+        Hook::addUnsupportedHooks('APIHandler::endpoints'); // pkp/pkp-lib#9434 Unavailable since stable-3_4_0
 
         // If not in strict mode, globally expose constants on this class.
         if (!PKP_STRICT_MODE) {

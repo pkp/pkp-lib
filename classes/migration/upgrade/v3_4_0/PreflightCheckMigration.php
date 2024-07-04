@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
+use SplFileObject;
 use Throwable;
 
 abstract class PreflightCheckMigration extends \PKP\migration\Migration
@@ -241,12 +242,14 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      */
     protected function checkUsageStatsLogFileUrl(string $filePathToCheck): void
     {
-        $fhandle = fopen($filePathToCheck, 'r');
-        if (!$fhandle) {
+        try {
+            $splFileObject = new SplFileObject($filePathToCheck, 'r');
+        } catch (Exception $e) {
             throw new Exception("Can not open file {$filePathToCheck}.");
         }
-        while (!feof($fhandle)) {
-            $line = trim(fgets($fhandle));
+
+        while (!$splFileObject->eof()) {
+            $line = $splFileObject->fgets();
             if (empty($line) || substr($line, 0, 1) === '#') {
                 continue;
             } // Spacing or comment lines.
@@ -273,10 +276,9 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                     return;
                 }
             }
-            break;
+            $splFileObject = null;
+            throw new Exception('The base_url in config.inc.php should be the same as in URLs in the usage stats log file.');
         }
-        fclose($fhandle);
-        throw new Exception('The base_url in config.inc.php should be the same as in URLs in the usage stats log file.');
     }
 
     /**
@@ -288,14 +290,13 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         // The default regex that can parse the usageStats plugin's log files.
         $parseRegex = '/^(?P<ip>\S+) \S+ \S+ "(?P<date>.*?)" (?P<url>\S+) (?P<returnCode>\S+) "(?P<userAgent>.*?)"/';
         if (preg_match($parseRegex, $entry, $m)) {
-            $associative = count(array_filter(array_keys($m), 'is_string')) > 0;
-            $entryData['ip'] = $associative ? $m['ip'] : $m[1];
-            $time = $associative ? $m['date'] : $m[2];
+            $entryData['ip'] = $m['ip'];
+            $time = $m['date'];
             $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $time);
             $entryData['date'] = $dateTime->format('Y-m-d H:i:s');
-            $entryData['url'] = urldecode($associative ? $m['url'] : $m[3]);
-            $entryData['returnCode'] = $associative ? $m['returnCode'] : $m[4];
-            $entryData['userAgent'] = $associative ? $m['userAgent'] : $m[5];
+            $entryData['url'] = urldecode($m['url']);
+            $entryData['returnCode'] = $m['returnCode'];
+            $entryData['userAgent'] = $m['userAgent'];
         }
         return $entryData;
     }
@@ -449,7 +450,6 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         );
 
         if (count($result) > 0) {
-            error_log(print_r($result, true));
             $tableNames = data_get($result, '*.table_name');
             throw new Exception(
                 'Storage engine that doesn\'t support foreign key constraints detected in one or more tables: ' .

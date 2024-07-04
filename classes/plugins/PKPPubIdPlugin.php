@@ -57,7 +57,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
                 } else {
                     // For non-schema-backed DAOs, DAOName::getAdditionalFieldNames can be used.
                     $classNameParts = explode('\\', get_class($dao)); // Separate namespace info from class name
-                    Hook::add(strtolower_codesafe(end($classNameParts)) . '::getAdditionalFieldNames', $this->getAdditionalFieldNames(...));
+                    Hook::add(strtolower(end($classNameParts)) . '::getAdditionalFieldNames', $this->getAdditionalFieldNames(...));
                 }
             }
         }

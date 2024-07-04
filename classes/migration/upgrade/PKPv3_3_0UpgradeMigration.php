@@ -446,7 +446,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
                 $row->revision,
                 $row->file_stage,
                 date('Ymd', strtotime($row->date_uploaded)),
-                strtolower_codesafe($fileManager->parseFileExtension($row->original_file_name))
+                strtolower($fileManager->parseFileExtension($row->original_file_name))
             );
             $path = sprintf(
                 '%s/%s/%s',
@@ -732,7 +732,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
             $updateBlocks = false;
             $blocks = unserialize($row->setting_value);
             foreach ($blocks as $key => $block) {
-                $newBlock = strtolower_codesafe($block);
+                $newBlock = strtolower($block);
                 if ($block !== $newBlock) {
                     $blocks[$key] = $newBlock;
                     $updateBlocks = true;

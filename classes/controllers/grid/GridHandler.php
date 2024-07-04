@@ -1094,7 +1094,7 @@ class GridHandler extends PKPHandler
     {
         $returner = [];
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-        Hook::call(strtolower_codesafe(end($classNameParts) . '::initFeatures'), [$this, $request, $args, &$returner]);
+        Hook::call(strtolower(end($classNameParts) . '::initFeatures'), [$this, $request, $args, &$returner]);
         return $returner;
     }
 

@@ -219,12 +219,12 @@ class PKPString
         assert($type == static::CAMEL_CASE_HEAD_UP || $type == static::CAMEL_CASE_HEAD_DOWN);
 
         // Transform "handler-class" to "HandlerClass" and "my-op" to "MyOp"
-        $string = implode(array_map('ucfirst_codesafe', explode('-', $string)));
+        $string = implode(array_map(ucfirst(...), explode('-', $string)));
 
         switch ($type) {
             case static::CAMEL_CASE_HEAD_DOWN:
                 // Transform "MyOp" to "myOp"
-                $string = strtolower_codesafe(substr($string, 0, 1)) . substr($string, 1);
+                $string = strtolower(substr($string, 0, 1)) . substr($string, 1);
                 break;
             case self::CAMEL_CASE_HEAD_UP:
                 break;
@@ -240,12 +240,12 @@ class PKPString
     public static function uncamelize(string $string): string
     {
         // Transform "myOp" to "MyOp"
-        $string = ucfirst_codesafe($string);
+        $string = ucfirst($string);
 
         // Insert hyphens between words and return the string in lowercase
         $words = [];
         preg_match_all('/[A-Z][a-z0-9]*/u', $string, $words);
-        return strtolower_codesafe(implode('-', $words[0]));
+        return strtolower(implode('-', $words[0]));
     }
 
     /**

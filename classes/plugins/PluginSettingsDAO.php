@@ -36,7 +36,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
 
     protected function _normalizePluginName(string $pluginName): string
     {
-        return strtolower_codesafe($pluginName);
+        return strtolower($pluginName);
     }
 
     /**
@@ -72,7 +72,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
     public function getPluginSettings(int $contextId, string $pluginName): array
     {
         // Normalize plug-in name to lower case.
-        $pluginName = strtolower_codesafe($pluginName);
+        $pluginName = $this->_normalizePluginName($pluginName);
 
         $result = DB::table('plugin_settings')->where('plugin_name', $pluginName)->where('context_id', $contextId)->get();
         $settings = $result->mapWithKeys(fn ($row) => [$row->setting_name => $this->convertFromDB($row->setting_value, $row->setting_type)]);

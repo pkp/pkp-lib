@@ -74,7 +74,7 @@ class Core
      */
     public static function isWindows(): bool
     {
-        return strtolower_codesafe(substr(PHP_OS, 0, 3)) == 'win';
+        return strtolower(substr(PHP_OS, 0, 3)) == 'win';
     }
 
     /**

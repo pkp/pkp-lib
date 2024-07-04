@@ -269,58 +269,6 @@ function stripAssocArray($values)
 }
 
 /**
- * Perform a code-safe strtolower, i.e. one that doesn't behave differently
- * based on different locales. (tr_TR, I'm looking at you.)
- *
- * @param string $str Input string
- *
- * @return string
- */
-function strtolower_codesafe($str)
-{
-    return strtr($str, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz');
-}
-
-/**
- * Perform a code-safe strtoupper, i.e. one that doesn't behave differently
- * based on different locales. (tr_TR, I'm looking at you.)
- *
- * @param string $str Input string
- *
- * @return string
- */
-function strtoupper_codesafe($str)
-{
-    return strtr($str, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-}
-
-/**
- * Perform a code-safe lcfirst, i.e. one that doesn't behave differently
- * based on different locales. (tr_TR, I'm looking at you.)
- *
- * @param string $str Input string
- *
- * @return string
- */
-function lcfirst_codesafe($str)
-{
-    return strtolower_codesafe(substr($str, 0, 1)) . substr($str, 1);
-}
-
-/**
- * Perform a code-safe ucfirst, i.e. one that doesn't behave differently
- * based on different locales. (tr_TR, I'm looking at you.)
- *
- * @param string $str Input string
- *
- * @return string
- */
-function ucfirst_codesafe($str)
-{
-    return strtoupper_codesafe(substr($str, 0, 1)) . substr($str, 1);
-}
-
-/**
  * @copydoc Core::cleanFileVar
  * Warning: Call this function from Core class. It is only exposed here to make
  * it available early in bootstrapping.

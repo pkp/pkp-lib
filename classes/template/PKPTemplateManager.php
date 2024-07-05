@@ -876,7 +876,7 @@ class PKPTemplateManager extends Smarty
         );
         $this->addJavaScript(
             'jqueryUI',
-            $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js',
+            $request->getBaseUrl() . '/lib/pkp/js/lib/jquery/plugins/jquery-ui/jquery-ui' . $min . '.js',
             [
                 'priority' => self::STYLE_SEQUENCE_CORE,
                 'contexts' => 'backend',

@@ -175,10 +175,10 @@ class OrcidManager
 
         // We need to construct a page url, but the request is using the component router.
         // Use the Dispatcher to construct the url and set the page router.
-        $redirectUrl = $request->getDispatcher()->url(
+        $redirectUrl = Application::get()->getDispatcher()->url(
             $request,
             Application::ROUTE_PAGE,
-            null,
+            $context->getPath(),
             'orcid',
             $handlerMethod,
             null,

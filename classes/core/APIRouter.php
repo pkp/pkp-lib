@@ -61,7 +61,7 @@ class APIRouter extends PKPRouter
         }
 
         // Context-specific API requests: [index.php]/{contextPath}/api
-        if (strtolower($pathInfoParts[1]) === 'api') {
+        if ($pathInfoParts[1] === 'api') {
             return true;
         }
 

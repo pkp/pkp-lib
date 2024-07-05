@@ -187,10 +187,6 @@ class APIHandler extends PKPHandler
      */
     protected function registerRoute(): void
     {
-        if (empty($this->routesFromHook)) {
-            return;
-        }
-
         $router = app('router'); /** @var \Illuminate\Routing\Router $router */
 
         foreach ($this->routesFromHook as $routeParams) {

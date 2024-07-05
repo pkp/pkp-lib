@@ -32,7 +32,7 @@ class Schema extends \PKP\section\maps\Schema
                 $this->context->getPath(),
                 'preprints',
                 'section',
-                $section->getPath()
+                [$section->getPath()]
             );
         }
         $output = $this->schemaService->addMissingMultilingualValues($this->schema, $output, $this->context->getSupportedFormLocales());

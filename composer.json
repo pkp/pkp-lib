@@ -1,7 +1,6 @@
 {
 	"require": {
 		"ralouphie/getallheaders": "*",
-		"components/jqueryui": "1.*",
 		"components/jquery": "^3.5",
 		"wikimedia/less.php": "3.*",
 		"phpmailer/phpmailer": "6.*",

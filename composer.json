@@ -1,7 +1,6 @@
 {
 	"require": {
 		"components/jquery": "^3.5",
-		"components/jqueryui": "1.*",
 		"composer/semver": "^3.3",
 		"cweagans/composer-patches": "^1.7",
 		"dflydev/base32-crockford": "^1.0",

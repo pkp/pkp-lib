@@ -122,16 +122,16 @@
         },
         {
             "name": "components/jquery",
-            "version": "3.6.0",
+            "version": "v3.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/jquery.git",
-                "reference": "6cf38ee1fd04b6adf8e7dda161283aa35be818c3"
+                "reference": "8edc7785239bb8c2ad2b83302b856a1d61de60e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/jquery/zipball/6cf38ee1fd04b6adf8e7dda161283aa35be818c3",
-                "reference": "6cf38ee1fd04b6adf8e7dda161283aa35be818c3",
+                "url": "https://api.github.com/repos/components/jquery/zipball/8edc7785239bb8c2ad2b83302b856a1d61de60e7",
+                "reference": "8edc7785239bb8c2ad2b83302b856a1d61de60e7",
                 "shasum": ""
             },
             "type": "component",
@@ -167,7 +167,7 @@
                 "source": "https://github.com/jquery/jquery",
                 "wiki": "http://docs.jquery.com/"
             },
-            "time": "2021-03-20T19:13:42+00:00"
+            "time": "2023-09-22T01:43:46+00:00"
         },
         {
             "name": "components/jqueryui",

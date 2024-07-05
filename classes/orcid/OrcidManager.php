@@ -337,9 +337,9 @@ class OrcidManager
     /**
      * Write out log message at the INFO level.
      */
-    public static function logInfo(string $message): void
+    public static function logInfo(string $message, ?Context $context = null): void
     {
-        if (self::getLogLevel() !== self::LOG_LEVEL_INFO) {
+        if (self::getLogLevel($context) !== self::LOG_LEVEL_INFO) {
             return;
         }
         self::writeLog($message, self::LOG_LEVEL_INFO);
@@ -348,9 +348,9 @@ class OrcidManager
     /**
      * Write out log message at the ERROR level.
      */
-    public static function logError(string $message): void
+    public static function logError(string $message, ?Context $context = null): void
     {
-        if (self::getLogLevel() !== self::LOG_LEVEL_ERROR) {
+        if (self::getLogLevel($context) !== self::LOG_LEVEL_ERROR) {
             return;
         }
         self::writeLog($message, self::LOG_LEVEL_ERROR);

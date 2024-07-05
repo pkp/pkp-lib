@@ -29,7 +29,6 @@ use Illuminate\Http\Response;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
-use PKP\core\PKPAppKey;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
@@ -369,7 +368,7 @@ class PKPContainer extends Container
             'table' => 'sessions',
             'cookie' => Config::getVar('general', 'session_cookie_name'),
             'path' => Config::getVar('general', 'session_cookie_path', $_request->getBasePath() . '/'),
-            'domain' => $_request->getServerHost(includePort: false),
+            'domain' => $_request->getServerHost(false, false) ?: 'localhost', // FIXME: Do not store default early in bootstrap
             'secure' => Config::getVar('security', 'force_ssl', false),
             'lifetime' => Config::getVar('general', 'session_lifetime', 30) * 24 * 60, // lifetime need to set in minutes
             'lottery' => [2, 100],

@@ -246,7 +246,7 @@ class DAO extends EntityDAO
     /**
      * @copydoc \PKP\core\EntityDAO::deleteById()
      */
-    public function deleteById(int $id)
+    public function deleteById(int $id): int
     {
         $submission = Repo::submission()->get($id);
 
@@ -306,6 +306,6 @@ class DAO extends EntityDAO
         $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
         $submissionEmailLogDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
 
-        parent::deleteById($id);
+        return parent::deleteById($id);
     }
 }

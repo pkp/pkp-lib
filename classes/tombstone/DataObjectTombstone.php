@@ -3,13 +3,11 @@
 /**
  * @file classes/tombstone/DataObjectTombstone.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DataObjectTombstone
- *
- * @ingroup tombstone
  *
  * @brief Base class for data object tombstones.
  */
@@ -17,45 +15,38 @@
 namespace PKP\tombstone;
 
 use PKP\core\Core;
+use PKP\core\DataObject;
 
-class DataObjectTombstone extends \PKP\core\DataObject
+class DataObjectTombstone extends DataObject
 {
     /**
      * get data object id
-     *
-     * @return int
      */
-    public function getDataObjectId()
+    public function getDataObjectId(): int
     {
         return $this->getData('dataObjectId');
     }
 
     /**
      * set data object id
-     *
-     * @param int $dataObjectId
      */
-    public function setDataObjectId($dataObjectId)
+    public function setDataObjectId(int $dataObjectId): void
     {
         $this->setData('dataObjectId', $dataObjectId);
     }
 
     /**
      * get date deleted
-     *
-     * @return string
      */
-    public function getDateDeleted()
+    public function getDateDeleted(): string
     {
         return $this->getData('dateDeleted');
     }
 
     /**
      * set date deleted
-     *
-     * @param string $dateDeleted
      */
-    public function setDateDeleted($dateDeleted)
+    public function setDateDeleted(string $dateDeleted)
     {
         $this->setData('dateDeleted', $dateDeleted);
     }
@@ -63,67 +54,55 @@ class DataObjectTombstone extends \PKP\core\DataObject
     /**
      * Stamp the date of the deletion to the current time.
      */
-    public function stampDateDeleted()
+    public function stampDateDeleted(): void
     {
-        return $this->setDateDeleted(Core::getCurrentDate());
+        $this->setDateDeleted(Core::getCurrentDate());
     }
 
     /**
      * Get oai setSpec.
-     *
-     * @return string
      */
-    public function getSetSpec()
+    public function getSetSpec(): string
     {
         return $this->getData('setSpec');
     }
 
     /**
      * Set oai setSpec.
-     *
-     * @param string $setSpec
      */
-    public function setSetSpec($setSpec)
+    public function setSetSpec(string $setSpec): void
     {
         $this->setData('setSpec', $setSpec);
     }
 
     /**
      * Get oai setName.
-     *
-     * @return string
      */
-    public function getSetName()
+    public function getSetName(): string
     {
         return $this->getData('setName');
     }
 
     /**
      * Set oai setName.
-     *
-     * @param string $setName
      */
-    public function setSetName($setName)
+    public function setSetName(string $setName): void
     {
         $this->setData('setName', $setName);
     }
 
     /**
      * Get oai identifier.
-     *
-     * @return string
      */
-    public function getOAIIdentifier()
+    public function getOAIIdentifier(): string
     {
         return $this->getData('oaiIdentifier');
     }
 
     /**
      * Set oai identifier.
-     *
-     * @param string $oaiIdentifier
      */
-    public function setOAIIdentifier($oaiIdentifier)
+    public function setOAIIdentifier(string $oaiIdentifier): void
     {
         $this->setData('oaiIdentifier', $oaiIdentifier);
     }
@@ -132,11 +111,9 @@ class DataObjectTombstone extends \PKP\core\DataObject
      * Get an specific object id that is part of
      * the OAI set of this tombstone.
      *
-     * @param int $assocType
-     *
      * @return ?int The object id.
      */
-    public function getOAISetObjectId($assocType)
+    public function getOAISetObjectId(int $assocType): ?int
     {
         $setObjectsIds = $this->getOAISetObjectsIds();
         if (isset($setObjectsIds[$assocType])) {
@@ -149,11 +126,8 @@ class DataObjectTombstone extends \PKP\core\DataObject
     /**
      * Set an specific object id that is part of
      * the OAI set of this tombstone.
-     *
-     * @param int $assocType
-     * @param int $assocId
      */
-    public function setOAISetObjectId($assocType, $assocId)
+    public function setOAISetObjectId(int $assocType, int $assocId): void
     {
         $setObjectsIds = $this->getOAISetObjectsIds();
         $setObjectsIds[$assocType] = $assocId;
@@ -167,7 +141,7 @@ class DataObjectTombstone extends \PKP\core\DataObject
      *
      * @return array assocType => assocId
      */
-    public function getOAISetObjectsIds()
+    public function getOAISetObjectsIds(): array
     {
         return $this->getData('OAISetObjectsIds');
     }
@@ -176,9 +150,9 @@ class DataObjectTombstone extends \PKP\core\DataObject
      * Set all objects ids that are part of
      * the OAI set of this tombstone.
      *
-     * @param array $OAISetObjectsIds assocType => assocId
+     * @param $OAISetObjectsIds assocType => assocId
      */
-    public function setOAISetObjectsIds($OAISetObjectsIds)
+    public function setOAISetObjectsIds(array $OAISetObjectsIds): void
     {
         $this->setData('OAISetObjectsIds', $OAISetObjectsIds);
     }

@@ -319,8 +319,6 @@ class ReviewRoundDAO extends \PKP\db\DAO
     /**
      * Delete all review rounds for submissions within a given context ID.
      *
-     * @param int $contextId
-     * @return void
      */
     public function deleteByContextId(int $contextId): void
     {
@@ -342,15 +340,17 @@ class ReviewRoundDAO extends \PKP\db\DAO
 
     /**
      * Delete a review round by ID.
-     *
-     * @param int $reviewRoundId
-     *
-     * @return bool
      */
-    public function deleteById($reviewRoundId)
+    public function deleteById(int $reviewRoundId): int
     {
-        $this->update('DELETE FROM notifications WHERE assoc_type = ? AND assoc_id = ?', [(int) Application::ASSOC_TYPE_REVIEW_ROUND, (int) $reviewRoundId]);
-        return $this->update('DELETE FROM review_rounds WHERE review_round_id = ?', [(int) $reviewRoundId]);
+        DB::table('notifications')
+            ->where('assoc_type', '=', Application::ASSOC_TYPE_REVIEW_ROUND)
+            ->where('assoc_id', '=', $reviewRoundId)
+            ->delete();
+
+        return DB::table('review_rounds')
+            ->where('review_round_id', '=', $reviewRoundId)
+            ->delete();
     }
 
     //

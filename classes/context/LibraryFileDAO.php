@@ -18,6 +18,7 @@
 
 namespace PKP\context;
 
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\Hook;
 
@@ -249,13 +250,12 @@ class LibraryFileDAO extends \PKP\db\DAO
 
     /**
      * Delete a library file by ID.
-     *
-     * @param int $revision
      */
-    public function deleteById($fileId, $revision = null)
+    public function deleteById(int $fileId): int
     {
-        $this->update('DELETE FROM library_files WHERE file_id = ?', [(int) $fileId]);
-        $this->update('DELETE FROM library_file_settings WHERE file_id = ?', [(int) $fileId]);
+        return DB::table('library_files')
+            ->where('file_id', '=', $fileId)
+            ->delete();
     }
 
     /**

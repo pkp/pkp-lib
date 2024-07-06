@@ -206,18 +206,13 @@ abstract class SchemaDAO extends DAO
     /**
      * Delete an object by its ID
      *
-     * @param int $objectId
+     * @return int Number of affected rows
      */
-    public function deleteById($objectId)
+    public function deleteById(int $objectId): int
     {
-        $this->update(
-            "DELETE FROM {$this->tableName} WHERE {$this->primaryKeyColumn} = ?",
-            [(int) $objectId]
-        );
-        $this->update(
-            "DELETE FROM {$this->settingsTableName} WHERE {$this->primaryKeyColumn} = ?",
-            [(int) $objectId]
-        );
+        return DB::table($this->tableName)
+            ->where($this->primaryKeyColumn, '=', $objectId)
+            ->delete();
     }
 
     /**

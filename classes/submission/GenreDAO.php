@@ -332,15 +332,12 @@ class GenreDAO extends DAO
 
     /**
      * Soft delete a genre by id.
-     *
-     * @param int $genreId Genre ID
      */
-    public function deleteById($genreId)
+    public function deleteById(int $genreId): int
     {
-        return $this->update(
-            'UPDATE genres SET enabled = ? WHERE genre_id = ?',
-            [0, (int) $genreId]
-        );
+        return DB::table('genres')
+            ->where('genre_id', '=', $genreId)
+            ->update(['enabled' => 0]);
     }
 
     /**

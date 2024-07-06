@@ -3,13 +3,11 @@
 /**
  * @file classes/tombstone/DataObjectTombstoneDAO.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DataObjectTombstoneDAO
- *
- * @ingroup tombstone
  *
  * @see DataObjectTombstone
  *
@@ -18,9 +16,10 @@
 
 namespace PKP\tombstone;
 
-use PKP\db\DAORegistry;
+use Illuminate\Support\Facades\DB;
+use PKP\db\DAO;
 
-class DataObjectTombstoneDAO extends \PKP\db\DAO
+class DataObjectTombstoneDAO extends DAO
 {
     /**
      * Return an instance of the DataObjectTombstone class.
@@ -34,19 +33,13 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
 
     /**
      * Retrieve DataObjectTombstone by id.
-     *
-     * @param int $tombstoneId
-     * @param int $assocType
-     * @param int $assocId
-     *
-     * @return DataObjectTombstone object
      */
-    public function getById($tombstoneId, $assocType = null, $assocId = null)
+    public function getById(int $tombstoneId, ?int $assocType = null, ?int $assocId = null): ?DataObjectTombstone
     {
-        $params = [(int) $tombstoneId];
+        $params = [$tombstoneId];
         if ($assocId !== null && $assocType !== null) {
-            $params[] = (int) $assocType;
-            $params[] = (int) $assocId;
+            $params[] = $assocType;
+            $params[] = $assocId;
         }
         $result = $this->retrieve(
             'SELECT DISTINCT * ' . $this->_getSelectTombstoneSql($assocType, $assocId),
@@ -58,16 +51,12 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
 
     /**
      * Retrieve DataObjectTombstone by data object id.
-     *
-     * @param int $dataObjectId
-     *
-     * @return DataObjectTombstone object
      */
-    public function getByDataObjectId($dataObjectId)
+    public function getByDataObjectId(int $dataObjectId): ?DataObjectTombstone
     {
         $result = $this->retrieve(
             'SELECT * FROM data_object_tombstones WHERE data_object_id = ?',
-            [(int) $dataObjectId]
+            [$dataObjectId]
         );
         $row = $result->current();
         return $row ? $this->_fromRow((array) $row) : null;
@@ -75,12 +64,8 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
 
     /**
      * Creates and returns a data object tombstone object from a row.
-     *
-     * @param array $row
-     *
-     * @return DataObjectTombstone object
      */
-    public function _fromRow($row)
+    public function _fromRow(array $row): DataObjectTombstone
     {
         $dataObjectTombstone = $this->newDataObject();
         $dataObjectTombstone->setId($row['tombstone_id']);
@@ -98,57 +83,39 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
 
     /**
      * Delete DataObjectTombstone by tombstone id.
-     *
-     * @param int $tombstoneId
-     * @param int $assocType
-     * @param int $assocId
-     *
-     * @return bool
      */
-    public function deleteById($tombstoneId, $assocType = null, $assocId = null)
+    public function deleteById(int $tombstoneId, ?int $assocType = null, ?int $assocId = null): int
     {
         $tombstone = $this->getById($tombstoneId, $assocType, $assocId);
         if (!$tombstone) {
-            return false;
-        } // Did not exist
-
-        assert($tombstone instanceof \PKP\tombstone\DataObjectTombstone);
-
-        if ($this->update(
-            'DELETE FROM data_object_tombstones WHERE tombstone_id = ?',
-            [(int) $tombstoneId]
-        )) {
-            $dataObjectTombstoneSettingsDao = DAORegistry::getDAO('DataObjectTombstoneSettingsDAO'); /** @var DataObjectTombstoneSettingsDAO $dataObjectTombstoneSettingsDao */
-            $settingsDeleted = $dataObjectTombstoneSettingsDao->deleteSettings($tombstoneId);
-            $setObjectsDeleted = $this->deleteOAISetObjects($tombstoneId);
-            if ($settingsDeleted && $setObjectsDeleted) {
-                return true;
-            }
+            // Did not exist
+            return 0;
         }
-        return false;
+
+        return DB::table('data_object_tombstones')
+            ->where('tombstone_id', '=', $tombstoneId)
+            ->delete();
     }
 
     /**
      * Delete DataObjectTombstone by data object id.
-     *
-     * @param int $dataObjectId
      */
-    public function deleteByDataObjectId($dataObjectId)
+    public function deleteByDataObjectId(int $dataObjectId): int
     {
         $dataObjectTombstone = $this->getByDataObjectId($dataObjectId);
-        if ($dataObjectTombstone) {
-            $this->deleteById($dataObjectTombstone->getId());
+        if (!$dataObjectTombstone) {
+            return 0;
         }
+
+        return $this->deleteById($dataObjectTombstone->getId());
     }
 
     /**
      * Inserts a new data object tombstone into data_object_tombstone table.
      *
-     * @param DataObjectTombstone $dataObjectTombstone
-     *
      * @return int Data object tombstone id.
      */
-    public function insertObject(&$dataObjectTombstone)
+    public function insertObject(DataObjectTombstone $dataObjectTombstone): int
     {
         $this->update(
             sprintf(
@@ -159,7 +126,7 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
                 $this->datetimeToDB(date('Y-m-d H:i:s'))
             ),
             [
-                (int) $dataObjectTombstone->getDataObjectId(),
+                $dataObjectTombstone->getDataObjectId(),
                 $dataObjectTombstone->getSetSpec(),
                 $dataObjectTombstone->getSetName(),
                 $dataObjectTombstone->getOAIIdentifier()
@@ -175,13 +142,11 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
     /**
      * Update a data object tombstone in the data_object_tombstones table.
      *
-     * @param DataObjectTombstone $dataObjectTombstone
-     *
-     * @return int dataObjectTombstone id
+     * @return int Affected row count
      */
-    public function updateObject($dataObjectTombstone)
+    public function updateObject(DataObjectTombstone $dataObjectTombstone): int
     {
-        $returner = $this->update(
+        $affectedRows = $this->update(
             sprintf(
                 'UPDATE	data_object_tombstones SET
 					data_object_id = ?,
@@ -193,35 +158,35 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
                 $this->datetimeToDB(date('Y-m-d H:i:s'))
             ),
             [
-                (int) $dataObjectTombstone->getDataObjectId(),
+                $dataObjectTombstone->getDataObjectId(),
                 $dataObjectTombstone->getSetSpec(),
                 $dataObjectTombstone->getSetName(),
                 $dataObjectTombstone->getOAIIdentifier(),
-                (int) $dataObjectTombstone->getId()
+                $dataObjectTombstone->getId()
             ]
         );
 
         $this->updateOAISetObjects($dataObjectTombstone);
 
-        return $returner;
+        return $affectedRows;
     }
 
     /**
      * Retrieve all sets for data object tombstones that are inside of
      * the passed set object id.
      *
-     * @param int $assocType The assoc type of the parent set object.
-     * @param int $assocId The id of the parent set object.
+     * @param $assocType The assoc type of the parent set object.
+     * @param $assocId The id of the parent set object.
      *
      * @return array('setSpec' => setName)
      */
-    public function &getSets($assocType, $assocId)
+    public function getSets(int $assocType, int $assocId): array
     {
         $result = $this->retrieve(
             'SELECT DISTINCT dot.set_spec AS set_spec, dot.set_name AS set_name FROM data_object_tombstones dot
 			LEFT JOIN data_object_tombstone_oai_set_objects oso ON (dot.tombstone_id = oso.tombstone_id)
 			WHERE oso.assoc_type = ? AND oso.assoc_id = ?',
-            [(int) $assocType, (int) $assocId]
+            [$assocType, $assocId]
         );
 
         $returner = [];
@@ -235,15 +200,13 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
      * Get all objects ids that are part of the passed
      * tombstone OAI set.
      *
-     * @param int $tombstoneId
-     *
      * @return array assocType => assocId
      */
-    public function getOAISetObjectsIds($tombstoneId)
+    public function getOAISetObjectsIds(int $tombstoneId): array
     {
         $result = $this->retrieve(
             'SELECT * FROM data_object_tombstone_oai_set_objects WHERE tombstone_id = ?',
-            [(int) $tombstoneId]
+            [$tombstoneId]
         );
 
         $oaiSetObjectsIds = [];
@@ -256,22 +219,20 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
     /**
      * Delete OAI set objects data from data_object_tombstone_oai_set_objects table.
      *
-     * @param int $tombstoneId The related tombstone id.
+     * @param $tombstoneId The related tombstone id.
      */
-    public function deleteOAISetObjects($tombstoneId)
+    public function deleteOAISetObjects(int $tombstoneId): int
     {
         return $this->update(
             'DELETE FROM data_object_tombstone_oai_set_objects WHERE tombstone_id = ?',
-            [(int) $tombstoneId]
+            [$tombstoneId]
         );
     }
 
     /**
      * Insert OAI set objects data into data_object_tombstone_oai_set_objects table.
-     *
-     * @param DataObjectTombstone $dataObjectTombstone
      */
-    public function insertOAISetObjects($dataObjectTombstone)
+    public function insertOAISetObjects(DataObjectTombstone $dataObjectTombstone): void
     {
         foreach ($dataObjectTombstone->getOAISetObjectsIds() as $assocType => $assocId) {
             $this->update(
@@ -290,10 +251,8 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
 
     /**
      * Update OAI set objects data into data_object_tombstone_oai_set_objects table.
-     *
-     * @param DataObjectTombstone $dataObjectTombstone
      */
-    public function updateOAISetObjects($dataObjectTombstone)
+    public function updateOAISetObjects(DataObjectTombstone $dataObjectTombstone): void
     {
         foreach ($dataObjectTombstone->getOAISetObjectsIds() as $assocType => $assocId) {
             $this->update(
@@ -302,9 +261,9 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
 					assoc_id = ?
 					WHERE	tombstone_id = ?',
                 [
-                    (int) $assocType,
-                    (int) $assocId,
-                    (int) $dataObjectTombstone->getId()
+                    $assocType,
+                    $assocId,
+                    $dataObjectTombstone->getId()
                 ]
             );
         }
@@ -318,10 +277,8 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
     /**
      * Get the sql to select a tombstone from table, optionally
      * using an OAI set object id.
-     *
-     * @return string
      */
-    public function _getSelectTombstoneSql($assocType, $assocId)
+    public function _getSelectTombstoneSql(?int $assocType, ?int $assocId): string
     {
         return 'FROM data_object_tombstones dot
 			LEFT JOIN data_object_tombstone_oai_set_objects oso ON (dot.tombstone_id = oso.tombstone_id)

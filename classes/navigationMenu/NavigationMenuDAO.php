@@ -160,12 +160,12 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Delete a NavigationMenu.
      */
-    public function deleteById(int $navigationMenuId)
+    public function deleteById(int $navigationMenuId): int
     {
         Cache::forget("navigationMenu-{$navigationMenuId}");
-        $this->update('DELETE FROM navigation_menus WHERE navigation_menu_id = ?', [$navigationMenuId]);
-        $navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO'); /** @var NavigationMenuItemAssignmentDAO $navigationMenuItemAssignmentDao */
-        $navigationMenuItemAssignmentDao->deleteByMenuId($navigationMenuId);
+        return DB::table('navigation_menus')
+            ->where('navigation_menu_id', '=', $navigationMenuId)
+            ->delete();
     }
 
     /**

@@ -20,6 +20,7 @@
 namespace PKP\navigationMenu;
 
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 
@@ -232,12 +233,13 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     /**
      * Delete a NavigationMenuItemAssignment by NavigationMenuItemAssignment ID.
      */
-    public function deleteById(int $navigationMenuItemAssignmentId)
+    public function deleteById(int $navigationMenuItemAssignmentId): int
     {
         $this->unCacheRelatedNavigationMenus($navigationMenuItemAssignmentId);
 
-        $this->update('DELETE FROM navigation_menu_item_assignment_settings WHERE navigation_menu_item_assignment_id = ?', [$navigationMenuItemAssignmentId]);
-        $this->update('DELETE FROM navigation_menu_item_assignments WHERE navigation_menu_item_assignment_id = ?', [$navigationMenuItemAssignmentId]);
+        return DB::table('navigation_menu_item_assignments')
+            ->where('navigation_menu_item_assignment_id', '=', $navigationMenuItemAssignmentId)
+            ->delete();
     }
 
     /**

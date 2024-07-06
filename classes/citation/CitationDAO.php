@@ -18,6 +18,7 @@
 
 namespace PKP\citation;
 
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 use PKP\plugins\Hook;
 
@@ -178,15 +179,12 @@ class CitationDAO extends \PKP\db\DAO
 
     /**
      * Delete a citation by id.
-     *
-     * @param int $citationId
-     *
-     * @return bool
      */
-    public function deleteById($citationId)
+    public function deleteById(int $citationId): int
     {
-        $this->update('DELETE FROM citation_settings WHERE citation_id = ?', [(int) $citationId]);
-        return $this->update('DELETE FROM citations WHERE citation_id = ?', [(int) $citationId]);
+        return DB::table('citations')
+            ->where('citation_id', '=', $citationId)
+            ->delete();
     }
 
     /**

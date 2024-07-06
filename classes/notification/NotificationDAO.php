@@ -192,15 +192,12 @@ class NotificationDAO extends \PKP\db\DAO
 
     /**
      * Delete Notification by notification id
-     *
-     * @param int $userId
-     *
      */
-    public function deleteById(int $notificationId, ?int $userId = null)
+    public function deleteById(int $notificationId, ?int $userId = null): int
     {
-        $query = DB::table('notifications')
+        return DB::table('notifications')
             ->where('notification_id', '=', $notificationId)
-            ->when($userId, fn ($query, $userId) => $query->where('user_id', '=', $userId))
+            ->when($userId !== null, fn ($q) => $q->where('user_id', '=', $userId))
             ->delete();
     }
 

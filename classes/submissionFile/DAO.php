@@ -222,7 +222,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     /**
      * @copydoc EntityDao::deleteById()
      */
-    public function deleteById(int $submissionFileId)
+    public function deleteById(int $submissionFileId): int
     {
         DB::table('submission_file_revisions')
             ->where('submission_file_id', '=', $submissionFileId)
@@ -235,7 +235,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
         $reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /** @var ReviewFilesDAO $reviewFilesDao */
         $reviewFilesDao->revokeBySubmissionFileId($submissionFileId);
 
-        parent::deleteById($submissionFileId);
+        return parent::deleteById($submissionFileId);
     }
 
     /**
@@ -348,10 +348,10 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      */
     public function pubIdExists(
-        $pubIdType,
-        $pubId,
-        $excludePubObjectId,
-        $contextId
+        string $pubIdType,
+        string $pubId,
+        int $excludePubObjectId,
+        int $contextId
     ): bool {
         $result = DB::table($this->settingsTable . ' as sfs')
             ->join('submission_files AS sf', 'sfs.submission_file_id', '=', 'sf.submission_file_id')
@@ -362,7 +362,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
                 'sfs.submission_file_id' => (int) $excludePubObjectId,
                 's.context_id' => (int) $contextId
             ])->getCountForPagination();
-        return (bool) $result > 0;
+        return $result > 0;
     }
 
     /**
@@ -384,9 +384,9 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     /**
      * @copydoc PKPPubIdPluginDAO::deletePubId()
      */
-    public function deletePubId($pubObjectId, $pubIdType)
+    public function deletePubId(int $pubObjectId, string $pubIdType): int
     {
-        DB::table($this->settingsTable)
+        return DB::table($this->settingsTable)
             ->where([
                 'submission_file_id' => (int) $pubObjectId,
                 'setting_name' => 'pub-id::' . (string) $pubIdType
@@ -396,7 +396,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     /**
      * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
      */
-    public function deleteAllPubIds($contextId, $pubIdType)
+    public function deleteAllPubIds(int $contextId, string $pubIdType): int
     {
         return DB::table('publication_settings as ps')
             ->leftJoin('publications as p', 'p.publication_id', '=', 'ps.publication_id')

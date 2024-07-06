@@ -22,16 +22,12 @@ interface PKPPubIdPluginDAO
      * Checks if public identifier exists (other than for the specified
      * submission ID, which is treated as an exception).
      *
-     * @param string $pubIdType One of the NLM pub-id-type values or
+     * @param $pubIdType One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
-     * @param string $pubId
-     * @param int $excludePubObjectId ID of the pub object to be excluded from the search.
-     * @param int $contextId
-     *
-     * @return bool
+     * @param $excludePubObjectId ID of the pub object to be excluded from the search.
      */
-    public function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId);
+    public function pubIdExists(string $pubIdType, string $pubId, int $excludePubObjectId, int $contextId): bool;
 
     /**
      * Change the public ID of a submission.
@@ -47,22 +43,21 @@ interface PKPPubIdPluginDAO
     /**
      * Delete the public ID of a submission.
      *
-     * @param int $pubObjectId ID of the pub object
-     * @param string $pubIdType One of the NLM pub-id-type values or
+     * @param $pubObjectId ID of the pub object
+     * @param $pubIdType One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      */
-    public function deletePubId($pubObjectId, $pubIdType);
+    public function deletePubId(int $pubObjectId, string $pubIdType): int;
 
     /**
      * Delete the public IDs of all submissions in this context.
      *
-     * @param int $contextId
-     * @param string $pubIdType One of the NLM pub-id-type values or
+     * @param $pubIdType One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      */
-    public function deleteAllPubIds($contextId, $pubIdType);
+    public function deleteAllPubIds(int $contextId, string $pubIdType): int;
 }
 
 if (!PKP_STRICT_MODE) {

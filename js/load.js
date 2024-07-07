@@ -16,6 +16,7 @@ import PkpLoad from '../lib/pkp/js/load.js';
 
 // Import controllers used by OPS
 import Container from '@/components/Container/Container.vue';
+import AdvancedSearchReviewerContainer from '@/components/Container/AdvancedSearchReviewerContainer.vue';
 import Page from '@/components/Container/Page.vue';
 import AccessPage from '@/components/Container/AccessPage.vue';
 import AddContextContainer from '@/components/Container/AddContextContainer.vue';
@@ -44,6 +45,7 @@ window.pkp = Object.assign(PkpLoad, window.pkp || {}, {
 		AccessPage,
 		AddContextContainer,
 		AdminPage,
+		AdvancedSearchReviewerContainer,
 		DecisionPage,
 		DoiPage,
 		ImportExportPage,

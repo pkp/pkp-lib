@@ -249,20 +249,20 @@ class SubmissionEventLogGridHandler extends GridHandler
     public function _formatEmail(EmailLogEntry $emailLogEntry)
     {
         $text = [];
-        $text[] = __('email.from') . ': ' . htmlspecialchars($emailLogEntry->from);
+        $text[] = __('email.from') . ': ' . htmlspecialchars($emailLogEntry->fromAddress);
         $text[] = __('email.to') . ': ' . htmlspecialchars($emailLogEntry->recipients);
         if ($emailLogEntry->getCcs()) {
-            $text[] = __('email.cc') . ': ' . htmlspecialchars($emailLogEntry->ccs);
+            $text[] = __('email.cc') . ': ' . htmlspecialchars($emailLogEntry->ccRecipients);
         }
         if ($emailLogEntry->getBccs()) {
-            $text[] = __('email.bcc') . ': ' . htmlspecialchars($emailLogEntry->bccs);
+            $text[] = __('email.bcc') . ': ' . htmlspecialchars($emailLogEntry->bccRecipients);
         }
         $text[] = __('email.subject') . ': ' . htmlspecialchars($emailLogEntry->subject);
 
         return
             '<div class="pkp_workflow_email_log_view">'
             . nl2br(join(PHP_EOL, $text)) . '<br><br>'
-            . PKPString::stripUnsafeHtml($emailLogEntry->getBody())
+            . PKPString::stripUnsafeHtml($emailLogEntry->body)
             . '</div>';
     }
 }

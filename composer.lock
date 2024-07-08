@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "78ff5e2128d44ea48b6a6e8a66fb17d1",
+    "content-hash": "afd28797158bafb9bc7b00ae6f92cdf6",
     "packages": [
         {
             "name": "brick/math",
@@ -1440,7 +1440,7 @@
             "version": "v2.13.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:maxmind/GeoIP2-php.git",
+                "url": "https://github.com/maxmind/GeoIP2-php.git",
                 "reference": "6a41d8fbd6b90052bc34dff3b4252d0f88067b23"
             },
             "dist": {
@@ -1487,6 +1487,10 @@
                 "geolocation",
                 "maxmind"
             ],
+            "support": {
+                "issues": "https://github.com/maxmind/GeoIP2-php/issues",
+                "source": "https://github.com/maxmind/GeoIP2-php/tree/v2.13.0"
+            },
             "time": "2022-08-05T20:32:58+00:00"
         },
         {
@@ -2179,6 +2183,124 @@
             "time": "2023-08-27T10:19:19+00:00"
         },
         {
+            "name": "hanneskod/classtools",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hanneskod/classtools.git",
+                "reference": "2be9c06ee966e89770258dd01878b329180ff847"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hanneskod/classtools/zipball/2be9c06ee966e89770258dd01878b329180ff847",
+                "reference": "2be9c06ee966e89770258dd01878b329180ff847",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "hanneskod/exemplify": "dev-master@dev",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "hanneskod\\classtools\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "WTFPL"
+            ],
+            "authors": [
+                {
+                    "name": "Hannes Forsgård",
+                    "email": "hannes.forsgard@fripost.org"
+                }
+            ],
+            "description": "Iterate over classes found in filesystem",
+            "homepage": "https://github.com/hanneskod/classtools",
+            "keywords": [
+                "class iterator",
+                "class minimizer"
+            ],
+            "support": {
+                "issues": "https://github.com/hanneskod/classtools/issues",
+                "source": "https://github.com/hanneskod/classtools/tree/master"
+            },
+            "time": "2014-05-15T12:17:49+00:00"
+        },
+        {
+            "name": "hashids/hashids",
+            "version": "5.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vinkla/hashids.git",
+                "reference": "197171016b77ddf14e259e186559152eb3f8cf33"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vinkla/hashids/zipball/197171016b77ddf14e259e186559152eb3f8cf33",
+                "reference": "197171016b77ddf14e259e186559152eb3f8cf33",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.0"
+            },
+            "suggest": {
+                "ext-bcmath": "Required to use BC Math arbitrary precision mathematics (*).",
+                "ext-gmp": "Required to use GNU multiple precision mathematics (*)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hashids\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Akimov",
+                    "email": "ivan@barreleye.com"
+                },
+                {
+                    "name": "Vincent Klaiber",
+                    "email": "hello@doubledip.se"
+                }
+            ],
+            "description": "Generate short, unique, non-sequential ids (like YouTube and Bitly) from numbers",
+            "homepage": "https://hashids.org/php",
+            "keywords": [
+                "bitly",
+                "decode",
+                "encode",
+                "hash",
+                "hashid",
+                "hashids",
+                "ids",
+                "obfuscate",
+                "youtube"
+            ],
+            "support": {
+                "issues": "https://github.com/vinkla/hashids/issues",
+                "source": "https://github.com/vinkla/hashids/tree/5.0.2"
+            },
+            "time": "2023-02-23T15:00:54+00:00"
+        },
+        {
             "name": "kevinlebrun/colors.php",
             "version": "1.0.3",
             "source": {
@@ -2232,6 +2354,76 @@
                 "source": "https://github.com/kevinlebrun/colors.php/tree/master"
             },
             "time": "2018-05-30T08:34:23+00:00"
+        },
+        {
+            "name": "kirkbushell/eloquence",
+            "version": "11.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kirkbushell/eloquence.git",
+                "reference": "f97e9f80b1e3351f42ffe040108ec6483893577e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kirkbushell/eloquence/zipball/f97e9f80b1e3351f42ffe040108ec6483893577e",
+                "reference": "f97e9f80b1e3351f42ffe040108ec6483893577e",
+                "shasum": ""
+            },
+            "require": {
+                "hanneskod/classtools": "^0.1.0",
+                "hashids/hashids": "^4.1||^5.0",
+                "illuminate/database": "^10.0||^11.0",
+                "illuminate/support": "^10.0||^11.0",
+                "php": "^8.1",
+                "symfony/finder": "^6.3||^7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.48",
+                "illuminate/events": "^10.0",
+                "mockery/mockery": "^1.4.4",
+                "orchestra/testbench": "^8.0",
+                "phpunit/phpunit": "^9.5.10"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Eloquence\\EloquenceServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tests\\": "tests/",
+                    "Eloquence\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Kirk Bushell",
+                    "email": "torm3nt@gmail.com"
+                }
+            ],
+            "description": "A set of extensions adding additional functionality and consistency to Laravel's awesome Eloquent library.",
+            "keywords": [
+                "aggregates",
+                "cache",
+                "camel",
+                "camelcase",
+                "case",
+                "count",
+                "eloquent",
+                "laravel",
+                "snake",
+                "snake_case",
+                "sum"
+            ],
+            "support": {
+                "issues": "https://github.com/kirkbushell/eloquence/issues",
+                "source": "https://github.com/kirkbushell/eloquence/tree/11.0.4"
+            },
+            "time": "2024-06-27T04:58:44+00:00"
         },
         {
             "name": "laravel/framework",

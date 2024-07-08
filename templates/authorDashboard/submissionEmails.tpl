@@ -8,15 +8,15 @@
  * Display submission emails to authors.
  *}
 
-{if $submissionEmails && $submissionEmails->getCount()}
+{if $submissionEmails && $submissionEmails->count()}
 
 	<div class="pkp_submission_emails">
 		<h3>{translate key="notification.notifications"}</h3>
 
 		<ul>
-			{iterate from=submissionEmails item=submissionEmail}
+			{foreach $submissionEmails as $submissionEmail}
 
-				{capture assign=submissionEmailLinkId}submissionEmail-{$submissionEmail->getId()}{/capture}
+				{capture assign=submissionEmailLinkId}submissionEmail-{$submissionEmail->id}{/capture}
 				<script type="text/javascript">
 					// Initialize JS handler.
 					$(function() {ldelim}
@@ -29,7 +29,7 @@
 									titleIcon: 'modal_information',
 									title: {translate|json_encode key="notification.notifications"},
 									modalHandler: '$.pkp.controllers.modal.AjaxModalHandler',
-									url: {url|json_encode router=PKP\core\PKPApplication::ROUTE_PAGE page="authorDashboard" op="readSubmissionEmail" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId submissionEmailId=$submissionEmail->getId() escape=false}
+									url: {url|json_encode router=PKP\core\PKPApplication::ROUTE_PAGE page="authorDashboard" op="readSubmissionEmail" submissionId=$submission->getId() stageId=$stageId reviewRoundId=$reviewRoundId submissionEmailId=$submissionEmail->id escape=false}
 								{rdelim}
 							{rdelim}
 						);
@@ -38,14 +38,14 @@
 
 				<li>
 					<span class="message">
-						<a href="#" id="{$submissionEmailLinkId|escape}">{$submissionEmail->getSubject()|escape}</a>
+						<a href="#" id="{$submissionEmailLinkId|escape}">{$submissionEmail->subject|escape}</a>
 					</span>
 					<span class="date">
-						{$submissionEmail->getDateSent()|date_format:$datetimeFormatShort}
+						{$submissionEmail->dateSent|date_format:$datetimeFormatShort}
 					</span>
 				</li>
 
-			{/iterate}
+			{/foreach}
 		</ul>
 	</div>
 {/if}

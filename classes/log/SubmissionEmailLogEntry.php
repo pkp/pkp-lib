@@ -113,10 +113,10 @@ class SubmissionEmailLogEntry extends EmailLogEntry
         $entry->assocId = $submission->getId();
         $entry->dateSent = Core::getCurrentDate();
         $entry->senderId = $sender ? $sender->getId() : null;
-        $entry->from = $logRepo->getContactString($clonedMailable->from);
+        $entry->fromAddress = $logRepo->getContactString($clonedMailable->from);
         $entry->recipients = $logRepo->getContactString($clonedMailable->to);
-        $entry->ccs = $logRepo->getContactString($clonedMailable->cc);
-        $entry->bccs = $logRepo->getContactString($clonedMailable->bcc);
+        $entry->ccRecipients = $logRepo->getContactString($clonedMailable->cc);
+        $entry->bccRecipients = $logRepo->getContactString($clonedMailable->bcc);
         $entry->body = $clonedMailable->render();
         $entry->subject = Mail::compileParams(
             $clonedMailable->subject,

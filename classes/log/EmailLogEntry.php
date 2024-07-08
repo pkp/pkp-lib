@@ -19,15 +19,17 @@
 namespace PKP\log;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
+use Eloquence\Behaviours\HasCamelCasing;
 
 class EmailLogEntry extends Model
 {
+    use HasCamelCasing;
+
     protected $table = 'email_log';
     protected $primaryKey = 'log_id';
     public $timestamps = false;
@@ -40,10 +42,10 @@ class EmailLogEntry extends Model
         'eventType',
         'from',
         'recipients',
-        'ccs',
-        'bccs',
         'subject',
         'body',
+        'bccRecipients',
+        'ccRecipients'
     ];
 
     private $_senderFullName = '';
@@ -76,94 +78,6 @@ class EmailLogEntry extends Model
         );
     }
 
-    protected function senderId(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['sender_id'],
-            set: fn($value) => ['sender_id' => $value]
-        );
-    }
-
-    protected function dateSent(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['date_sent'],
-            set: fn($value) => ['date_sent' => $value]
-        );
-    }
-
-    protected function eventType(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['event_type'],
-            set: fn($value) => ['event_type' => $value]
-        );
-    }
-
-    protected function assocType(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['assoc_type'],
-            set: fn($value) => ['assoc_type' => $value]
-        );
-    }
-
-    protected function assocId(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['assoc_id'],
-            set: fn($value) => ['assoc_id' => $value]
-        );
-    }
-
-    protected function from(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['from_address'],
-            set: fn($value) => ['from_address' => $value]
-        );
-    }
-
-
-    protected function recipients(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['recipients'],
-            set: fn($value) => ['recipients' => $value]
-        );
-    }
-
-    protected function ccs(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['cc_recipients'],
-            set: fn($value) => ['cc_recipients' => $value]
-        );
-    }
-
-    protected function bccs(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['bcc_recipients'],
-            set: fn($value) => ['bcc_recipients' => $value]
-        );
-    }
-
-    protected function subject(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['subject'],
-            set: fn($value) => ['subject' => $value]
-        );
-    }
-
-    protected function body(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value, $attributes) => $attributes['body'],
-            set: fn($value) => ['body' => $value],
-        );
-    }
 
     /**
      * Return the full name of the sender (not necessarily the same as the from address).

@@ -226,6 +226,11 @@ class PKPPageRouter extends PKPRouter
             $op = self::ROUTER_DEFAULT_OP;
         }
 
+        if (defined('HANDLER_CLASS')) {
+            // Deprecated with 3.4.0; error added for 3.5; remove this post-3.6
+            throw new \Exception('The use of HANDLER_CLASS is no longer supported for injecting handlers.');
+        }
+
         // Redirect to 404 if the operation doesn't exist
         // for the handler.
         if (!is_object($handler) || !in_array($op, get_class_methods($handler))) {

@@ -14,6 +14,7 @@
 		"gettext/translator": "1.*",
 		"guzzlehttp/guzzle": "^7.0",
 		"kevinlebrun/colors.php": "^1.0",
+		"kirkbushell/eloquence": "^11.0",
 		"laravel/framework": "^10.0",
 		"league/flysystem": "^3.0",
 		"league/flysystem-ftp": "^3.0",

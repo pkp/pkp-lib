@@ -31,7 +31,6 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\log\event\EventLogEntry;
-use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\note\NoteDAO;
 use PKP\notification\NotificationDAO;
@@ -238,7 +237,7 @@ class PKPStageParticipantNotifyForm extends Form
         $log = null;
         try {
             Mail::send($mailable);
-            $log =  new SubmissionEmailLogEntry();
+            $log =  Repo::emailLogEntry();
         } catch (TransportException $e) {
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification(

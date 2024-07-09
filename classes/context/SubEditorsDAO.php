@@ -27,7 +27,6 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\db\DAORegistry;
-use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\mailables\EditorAssigned;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
@@ -287,7 +286,7 @@ class SubEditorsDAO extends \PKP\db\DAO
                 $mailable->recipients([$recipient]);
 
                 Mail::send($mailable);
-                SubmissionEmailLogEntry::logMailable(
+                Repo::emailLogEntry()->logMailable(
                     SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_ASSIGN,
                     $mailable,
                     $submission

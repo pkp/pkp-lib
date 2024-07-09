@@ -165,7 +165,8 @@ class PKPUserController extends PKPBaseController
             ->orderBy($orderBy, $orderDirection, [Locale::getLocale(), Application::get()->getRequest()->getSite()->getPrimaryLocale()])
             ->limit($params['count'] ?? null)
             ->offset($params['offset'] ?? null)
-            ->filterByStatus($params['status'] ?? $collector::STATUS_ALL);
+            ->filterByStatus($params['status'] ?? $collector::STATUS_ALL)
+            ->filterByContextIds([ $params['contextId'] ]);
 
         $users = $collector->getMany();
 

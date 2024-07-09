@@ -139,7 +139,8 @@ class PKPUserHandler extends APIHandler
             ->orderBy($orderBy, $orderDirection, [Locale::getLocale(), $request->getSite()->getPrimaryLocale()])
             ->limit($params['count'] ?? null)
             ->offset($params['offset'] ?? null)
-            ->filterByStatus($params['status'] ?? $collector::STATUS_ALL);
+            ->filterByStatus($params['status'] ?? $collector::STATUS_ALL)
+            ->filterByContextIds([ $params['contextId'] ]);
 
         $users = $collector->getMany();
 

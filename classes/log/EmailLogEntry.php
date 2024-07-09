@@ -25,6 +25,7 @@ use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use Eloquence\Behaviours\HasCamelCasing;
+use PKP\log\core\EmailLogEventType;
 
 class EmailLogEntry extends Model
 {
@@ -141,10 +142,10 @@ class EmailLogEntry extends Model
         });
     }
 
-    public function scopeWithEventType(Builder $query, $eventType): Builder
+    public function scopeWithEventType(Builder $query, EmailLogEventType $eventType): Builder
     {
-        return $query->when($eventType !== null, function ($query) use ($eventType) {
-            return $query->where('event_type', $eventType);
+        return $query->when($eventType->value !== null, function ($query) use ($eventType) {
+            return $query->where('event_type', $eventType->value);
         });
     }
 

@@ -23,6 +23,7 @@ use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\facades\Locale;
+use PKP\log\core\EmailLogEventType;
 use PKP\plugins\Hook;
 use PKP\mail\Mailable;
 use PKP\user\User;
@@ -66,8 +67,6 @@ class Repository
         ]);
 
 
-        Hook::call('EmailLogDAO::build', [&$entry, &$row]);
-
         return $entry;
     }
 
@@ -76,7 +75,7 @@ class Repository
      *
      * @param array $addressees Expects Mailable::$to or Mailable::$from
      */
-    public function getContactString(array $addressees): string
+    private function getContactString(array $addressees): string
     {
         $contactStrings = [];
         foreach ($addressees as $addressee) {
@@ -93,7 +92,7 @@ class Repository
      *
      * @param EmailLogEntry $entry
      */
-    public function insertLogUserIds(EmailLogEntry $entry)
+    private function insertLogUserIds(EmailLogEntry $entry)
     {
         $recipients = $entry->recipients;
 
@@ -161,18 +160,18 @@ class Repository
     /**
      * Create a log entry for a submission from data in a Mailable class
      *
-     * @param int $eventType One of the SubmissionEmailLogEntry::SUBMISSION_EMAIL_* constants
+     * @param EmailLogEventType $eventType Type of email event to log
      * @param Mailable $mailable
      * @param Submission $submission
      * @param ?User $sender
      * @return int The new log entry id
      */
-    function logMailable(int $eventType, Mailable $mailable, Submission $submission, ?User $sender = null): int
+    function logMailable(EmailLogEventType $eventType, Mailable $mailable, Submission $submission, ?User $sender = null): int
     {
         $clonedMailable = clone $mailable;
         $clonedMailable->removeFooter();
 
-        $this->model->eventType = $eventType;
+        $this->model->eventType = $eventType->value;
         $this->model->assocId = $submission->getId();
         $this->model->dateSent = Core::getCurrentDate();
         $this->model->senderId = $sender ? $sender->getId() : null;
@@ -197,11 +196,11 @@ class Repository
      * Get email log entries by assoc ID, event type and assoc type
      *
      * @param int $assocId
-     * @param int $eventType
+     * @param EmailLogEventType $eventType Type of email event
      * @param int $assocType
      * @param ?int $userId optional Return only emails sent to this user.
      */
-    function getByEventType(int $assocId, int $eventType, int $assocType, ?int $userId = null)
+    function getByEventType(int $assocId, EmailLogEventType $eventType, int $assocType, ?int $userId = null)
     {
         $query = $this->model->newQuery();
 
@@ -212,7 +211,7 @@ class Repository
         $query
             ->where('assoc_type', $assocType)
             ->where('assoc_id', $assocId)
-            ->where('event_type', $eventType)
+            ->where('event_type', $eventType->value)
             ->when($userId, function ($query) use ($userId) {
                 $query->where('u.user_id', $userId);
             })->select('email_log.*');

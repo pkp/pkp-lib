@@ -27,8 +27,8 @@ class I7245_UpdateUserLocaleStringToParsableJsonString extends Migration
         DB::table('users')
             ->select(['user_id', 'locales'])
             ->where('locales', '<>', '[]')
-            ->cursor()
-            ->each(function ($user) {
+            ->lazyById(1000, 'user_id')
+            ->each(function (object $user) {
                 $parsedLocales = @json_decode($user->locales, true);
                 if (!is_array($parsedLocales)) {
                     // Expected format: "en:fr_CA:fr_FR"

@@ -169,7 +169,11 @@ class UserGroupForm extends Form {
 		// Check if we are editing an existing user group or creating another one.
 		if ($userGroupId == null) {
 			$userGroup = $userGroupDao->newDataObject();
-			$userGroup->setRoleId($this->getData('roleId'));
+
+			$roleId = $this->getData('roleId');
+			if ($roleId == ROLE_ID_SITE_ADMIN) fatalError('Site administrator roles cannot be created here.');
+			$userGroup->setRoleId($roleId);
+
 			$userGroup->setContextId($this->getContextId());
 			$userGroup->setDefault(false);
 			$userGroup->setShowTitle($this->getData('showTitle'));

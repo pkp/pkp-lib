@@ -88,12 +88,18 @@ class UserForm extends Form {
 	 */
 	function execute(...$functionArgs) {
 		if (isset($this->userId)) {
+			$contextId = Application::get()->getRequest()->getContext()->getId();
+
 			import('lib.pkp.classes.security.UserGroupAssignmentDAO');
 			$userGroupAssignmentDao = DAORegistry::getDAO('UserGroupAssignmentDAO'); /* @var $userGroupAssignmentDao UserGroupAssignmentDAO */
-			$userGroupAssignmentDao->deleteAssignmentsByContextId(Application::get()->getRequest()->getContext()->getId(), $this->userId);
+			$userGroupAssignmentDao->deleteAssignmentsByContextId($contextId, $this->userId);
 			if ($this->getData('userGroupIds')) {
 				$userGroupDao = DAORegistry::getDAO('UserGroupDAO'); /* @var $userGroupDao UserGroupDAO */
-				foreach ($this->getData('userGroupIds') as $userGroupId) {
+				$contextUserGroupIds = array_keys($userGroupDao->getByContextId($contextId)->toAssociativeArray());
+
+				// Only consider user groups that are in the current context
+				$userGroupIds = array_intersect($contextUserGroupIds, $this->getData('userGroupIds'));
+				foreach ($userGroupIds as $userGroupId) {
 					$userGroupDao->assignUserToGroup($this->userId, $userGroupId);
 				}
 			}

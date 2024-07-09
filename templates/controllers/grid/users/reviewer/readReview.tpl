@@ -11,94 +11,137 @@
 
 {* Form handler attachment implemented in application-specific versions of this template. *}
 
+<script>
+	$(function() {ldelim}
+			$("#btnExport").click(function() {
+				$("#exportOptions").show();
+			});
+
+			$("#readReviewForm").on('click', function(event) {
+				let $target = $(event.target);
+				if (!$target.closest('#exportOptions').length && !$target.is('#btnExport')) {
+					$("#exportOptions").hide();
+				}
+			});
+      {rdelim});
+</script>
 <form class="pkp_form" id="readReviewForm" method="post" action="{url op="reviewRead"}">
-	{csrf}
-	<input type="hidden" name="reviewAssignmentId" value="{$reviewAssignment->getId()|escape}" />
-	<input type="hidden" name="submissionId" value="{$reviewAssignment->getSubmissionId()|escape}" />
-	<input type="hidden" name="stageId" value="{$reviewAssignment->getStageId()|escape}" />
+    {csrf}
+    <input type="hidden" name="reviewAssignmentId" value="{$reviewAssignment->getId()|escape}" />
+    <input type="hidden" name="submissionId" value="{$reviewAssignment->getSubmissionId()|escape}" />
+    <input type="hidden" name="stageId" value="{$reviewAssignment->getStageId()|escape}" />
+    <input type="hidden" name="roundId" value="{$reviewAssignment->getReviewRoundId()|escape}" />
+
+    {*    <p>{json_encode($reviewAssignment)}</p>*}
+
+    {fbvFormSection}
+        <div id="reviewAssignment-{$reviewAssignment->getId()|escape}">
+            <div>
+                <h2>{$reviewAssignment->getReviewerFullName()|escape}</h2>
+                <div id="btnExport" class="pkp_button pkp_helpers_align_right">
+                    {translate key="editor.review.download"} <i class="fa fa-caret-down"></i>
+                </div>
+            </div>
+
+            <div id="exportOptions" style="position:absolute;right:0" class="shadow -mb bg-secondary z-10 mt-8 me-8 hidden">
+                <div>
+                    <a
+                        class="border-solid border-b-form-fields p-3 block"
+                        href="{url op="exportPDF" submissionId="{$reviewAssignment->getSubmissionId()|escape}" stageId="{$reviewAssignment->getStageId()|escape}" reviewRoundId="{$reviewAssignment->getReviewRoundId()|escape}" reviewAssignmentId="{$reviewAssignment->getId()}" authorFriendly=true}">{translate key="editor.review.authorOnly"} (PDF)
+                    </a>
+                    <a
+                        class="border-1 border-b-form-fields p-3 block"
+                        href="{url op="exportXML" submissionId="{$reviewAssignment->getSubmissionId()|escape}" stageId="{$reviewAssignment->getStageId()|escape}" reviewRoundId="{$reviewAssignment->getReviewRoundId()|escape}" reviewAssignmentId="{$reviewAssignment->getId()}" authorFriendly=true}">{translate key="editor.review.authorOnly"} (XML)</a>
+                    </a>
+                    <a
+                        class="border-1 border-b-form-fields p-3 block"
+                        href="{url op="exportPDF" submissionId="{$reviewAssignment->getSubmissionId()|escape}" stageId="{$reviewAssignment->getStageId()|escape}" reviewRoundId="{$reviewAssignment->getReviewRoundId()|escape}" reviewAssignmentId="{$reviewAssignment->getId()}"}">{translate key="editor.review.allSections"} (PDF)</a>
+                    </a>
+                    <a
+                        class="border-1 border-b-form-fields p-3 block"
+                        href="{url op="exportXML" submissionId="{$reviewAssignment->getSubmissionId()|escape}" stageId="{$reviewAssignment->getStageId()|escape}" reviewRoundId="{$reviewAssignment->getReviewRoundId()|escape}" reviewAssignmentId="{$reviewAssignment->getId()}"}">{translate key="editor.review.allSections"} (XML)</a>
+                    </a>
+                </div>
+            </div>
+
+            {fbvFormSection class="description"}
+            {translate key="editor.review.readConfirmation"}
+            {/fbvFormSection}
+
+            {if $reviewAssignment->getDateCompleted()}
+                {if $reviewAssignment->getCompetingInterests()}
+                    <h3>{translate key="reviewer.submission.competingInterests"}</h3>
+                    <div class="review_competing_interests">
+                        {$reviewAssignment->getCompetingInterests()|nl2br|strip_unsafe_html}
+                    </div>
+                {/if}
+
+                {fbvFormSection}
+                    <div class="pkp_controllers_informationCenter_itemLastEvent">
+                        {translate key="common.completed.date" dateCompleted=$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}
+                    </div>
+                {/fbvFormSection}
+
+                {if $reviewAssignment->getRecommendation()}
+                    {fbvFormSection}
+                        <div class="pkp_controllers_informationCenter_itemLastEvent">
+                            {translate key="submission.recommendation" recommendation=$reviewAssignment->getLocalizedRecommendation()}
+                        </div>
+                    {/fbvFormSection}
+                {/if}
+
+                {if $reviewAssignment->getReviewFormId()}
+                    {include file="reviewer/review/reviewFormResponse.tpl"}
+                {elseif $comments->getCount() || $commentsPrivate->getCount()}
+                    <h3>{translate key="editor.review.reviewerComments"}</h3>
+                    {iterate from=comments item=comment}
+                        <h4>{translate key="submission.comments.canShareWithAuthor"}</h4>
+                        {include file="controllers/revealMore.tpl" content=$comment->getComments()|strip_unsafe_html}
+                    {/iterate}
+                    {iterate from=commentsPrivate item=comment}
+                        <h4>{translate key="submission.comments.cannotShareWithAuthor"}</h4>
+                        {include file="controllers/revealMore.tpl" content=$comment->getComments()|strip_unsafe_html}
+                    {/iterate}
+                {/if}
+
+            {else}
+                {if $reviewAssignment->getDateCompleted()}
+                    <span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.completed.date" dateCompleted=$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}</span>
+                {elseif $reviewAssignment->getDateConfirmed()}
+                    <span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.confirmed.date" dateConfirmed=$reviewAssignment->getDateConfirmed()|date_format:$datetimeFormatShort}</span>
+                {elseif $reviewAssignment->getDateReminded()}
+                    <span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.reminded.date" dateReminded=$reviewAssignment->getDateReminded()|date_format:$datetimeFormatShort}</span>
+                {elseif $reviewAssignment->getDateNotified()}
+                    <span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.notified.date" dateNotified=$reviewAssignment->getDateNotified()|date_format:$datetimeFormatShort}</span>
+                {elseif $reviewAssignment->getDateAssigned()}
+                    <span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.assigned.date" dateAssigned=$reviewAssignment->getDateAssigned()|date_format:$datetimeFormatShort}</span>
+                {/if}
+            {/if}
+        </div>
+    {/fbvFormSection}
 
 
-	{fbvFormSection}
-		<div id="reviewAssignment-{$reviewAssignment->getId()|escape}">
-			<h2>{$reviewAssignment->getReviewerFullName()|escape}</h2>
-			{fbvFormSection class="description"}
-				{translate key="editor.review.readConfirmation"}
-			{/fbvFormSection}
+    <div class="pkp_notification" id="noFilesWarning" style="display: none;">
+        {include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=noFilesWarningContent notificationStyleClass=notifyWarning notificationTitle="editor.review.noReviewFilesUploaded"|translate notificationContents="editor.review.noReviewFilesUploaded.details"|translate}
+    </div>
 
-			{if $reviewAssignment->getDateCompleted()}
-				{if $reviewAssignment->getCompetingInterests()}
-					<h3>{translate key="reviewer.submission.competingInterests"}</h3>
-					<div class="review_competing_interests">
-						{$reviewAssignment->getCompetingInterests()|nl2br|strip_unsafe_html}
-					</div>
-				{/if}
+    {fbvFormArea id="readReview"}
+    {fbvFormSection title="reviewer.submission.reviewerFiles"}
+    {capture assign=reviewAttachmentsGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.attachment.EditorReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submission->getId() reviewId=$reviewAssignment->getId() stageId=$reviewAssignment->getStageId() escape=false}{/capture}
+    {load_url_in_div id="readReviewAttachmentsGridContainer" url=$reviewAttachmentsGridUrl}
+    {/fbvFormSection}
 
-				{fbvFormSection}
-					<div class="pkp_controllers_informationCenter_itemLastEvent">
-						{translate key="common.completed.date" dateCompleted=$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}
-					</div>
-				{/fbvFormSection}
+    {$reviewerRecommendations}
 
-				{if $reviewAssignment->getRecommendation()}
-					{fbvFormSection}
-						<div class="pkp_controllers_informationCenter_itemLastEvent">
-							{translate key="submission.recommendation" recommendation=$reviewAssignment->getLocalizedRecommendation()}
-						</div>
-					{/fbvFormSection}
-				{/if}
+    {fbvFormSection label="editor.review.rateReviewer" description="editor.review.rateReviewer.description"}
+    {foreach from=$reviewerRatingOptions item="stars" key="value"}
+        <label class="pkp_star_selection">
+            <input type="radio" name="quality" value="{$value|escape}"{if $value == $reviewAssignment->getQuality()} checked{/if}>
+            {$stars}
+        </label>
+    {/foreach}
+    {/fbvFormSection}
 
-				{if $reviewAssignment->getReviewFormId()}
-					{include file="reviewer/review/reviewFormResponse.tpl"}
-				{elseif $comments->getCount() || $commentsPrivate->getCount()}
-					<h3>{translate key="editor.review.reviewerComments"}</h3>
-					{iterate from=comments item=comment}
-						<h4>{translate key="submission.comments.canShareWithAuthor"}</h4>
-						{include file="controllers/revealMore.tpl" content=$comment->getComments()|strip_unsafe_html}
-					{/iterate}
-					{iterate from=commentsPrivate item=comment}
-						<h4>{translate key="submission.comments.cannotShareWithAuthor"}</h4>
-						{include file="controllers/revealMore.tpl" content=$comment->getComments()|strip_unsafe_html}
-					{/iterate}
-				{/if}
-
-			{else}
-				{if $reviewAssignment->getDateCompleted()}
-					<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.completed.date" dateCompleted=$reviewAssignment->getDateCompleted()|date_format:$datetimeFormatShort}</span>
-				{elseif $reviewAssignment->getDateConfirmed()}
-					<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.confirmed.date" dateConfirmed=$reviewAssignment->getDateConfirmed()|date_format:$datetimeFormatShort}</span>
-				{elseif $reviewAssignment->getDateReminded()}
-					<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.reminded.date" dateReminded=$reviewAssignment->getDateReminded()|date_format:$datetimeFormatShort}</span>
-				{elseif $reviewAssignment->getDateNotified()}
-					<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.notified.date" dateNotified=$reviewAssignment->getDateNotified()|date_format:$datetimeFormatShort}</span>
-				{elseif $reviewAssignment->getDateAssigned()}
-					<span class="pkp_controllers_informationCenter_itemLastEvent">{translate key="common.assigned.date" dateAssigned=$reviewAssignment->getDateAssigned()|date_format:$datetimeFormatShort}</span>
-				{/if}
-			{/if}
-		</div>
-	{/fbvFormSection}
-
-
-	<div class="pkp_notification" id="noFilesWarning" style="display: none;">
-		{include file="controllers/notification/inPlaceNotificationContent.tpl" notificationId=noFilesWarningContent notificationStyleClass=notifyWarning notificationTitle="editor.review.noReviewFilesUploaded"|translate notificationContents="editor.review.noReviewFilesUploaded.details"|translate}
-	</div>
-
-	{fbvFormArea id="readReview"}
-		{fbvFormSection title="reviewer.submission.reviewerFiles"}
-			{capture assign=reviewAttachmentsGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.files.attachment.EditorReviewAttachmentsGridHandler" op="fetchGrid" submissionId=$submission->getId() reviewId=$reviewAssignment->getId() stageId=$reviewAssignment->getStageId() escape=false}{/capture}
-			{load_url_in_div id="readReviewAttachmentsGridContainer" url=$reviewAttachmentsGridUrl}
-		{/fbvFormSection}
-
-		{$reviewerRecommendations}
-
-		{fbvFormSection label="editor.review.rateReviewer" description="editor.review.rateReviewer.description"}
-			{foreach from=$reviewerRatingOptions item="stars" key="value"}
-				<label class="pkp_star_selection">
-					<input type="radio" name="quality" value="{$value|escape}"{if $value == $reviewAssignment->getQuality()} checked{/if}>
-					{$stars}
-				</label>
-			{/foreach}
-		{/fbvFormSection}
-
-		{fbvFormButtons id="closeButton" hideCancel=false submitText="common.confirm"}
-	{/fbvFormArea}
+    {fbvFormButtons id="closeButton" hideCancel=false submitText="common.confirm"}
+    {/fbvFormArea}
 </form>

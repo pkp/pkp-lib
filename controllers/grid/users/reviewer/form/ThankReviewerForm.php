@@ -22,10 +22,8 @@ use APP\notification\NotificationManager;
 use APP\orcid\actions\SendReviewToOrcid;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
-use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
-use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\mailables\ReviewAcknowledgement;
 use PKP\notification\PKPNotification;
@@ -133,7 +131,7 @@ class ThankReviewerForm extends Form
             $mailable->setData(Locale::getLocale());
             try {
                 Mail::send($mailable);
-                SubmissionEmailLogEntry::logMailable(
+                Repo::emailLogEntry()->logMailable(
                     SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_THANK_REVIEWER,
                     $mailable,
                     $submission,

@@ -24,8 +24,6 @@ use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
-use PKP\facades\Repo;
-use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;

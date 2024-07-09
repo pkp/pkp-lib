@@ -94,40 +94,6 @@ class SubmissionEmailLogEntry extends EmailLogEntry
     {
         return $query->where('assoc_type', Application::ASSOC_TYPE_SUBMISSION);
     }
-
-    /**
-     * Create a log entry from data in a Mailable class
-     *
-     * @param int $eventType One of the SubmissionEmailLogEntry::SUBMISSION_EMAIL_* constants
-     *
-     * @return int The new log entry id
-     */
-    static function logMailable(int $eventType, Mailable $mailable, Submission $submission, ?User $sender = null): int
-    {
-        $entry = new self();
-        $clonedMailable = clone $mailable;
-        $clonedMailable->removeFooter();
-        $logRepo = Repo::emailLogEntry();
-
-        $entry->eventType = $eventType;
-        $entry->assocId = $submission->getId();
-        $entry->dateSent = Core::getCurrentDate();
-        $entry->senderId = $sender ? $sender->getId() : null;
-        $entry->fromAddress = $logRepo->getContactString($clonedMailable->from);
-        $entry->recipients = $logRepo->getContactString($clonedMailable->to);
-        $entry->ccRecipients = $logRepo->getContactString($clonedMailable->cc);
-        $entry->bccRecipients = $logRepo->getContactString($clonedMailable->bcc);
-        $entry->body = $clonedMailable->render();
-        $entry->subject = Mail::compileParams(
-            $clonedMailable->subject,
-            $clonedMailable->getData(Locale::getLocale())
-        );
-
-        $entry->save();
-        $logRepo->insertLogUserIds($entry);
-
-        return $entry->id;
-    }
 }
 
 if (!PKP_STRICT_MODE) {

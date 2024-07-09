@@ -64,7 +64,7 @@ trait NotifyAuthors
 
         Mail::send($mailable->recipients($recipients, $email->locale));
 
-        SubmissionEmailLogEntry::logMailable(
+        Repo::emailLogEntry()->logMailable(
             SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
             $mailable,
             $submission,

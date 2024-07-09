@@ -30,7 +30,6 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\log\event\SubmissionFileEventLogEntry;
-use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\mailables\RevisedVersionNotify;
 use PKP\note\NoteDAO;
@@ -823,7 +822,7 @@ abstract class Repository
 
         Mail::send($mailable);
 
-        SubmissionEmailLogEntry::logMailable(
+        Repo::emailLogEntry()->logMailable(
             SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION,
             $mailable,
             $submission,

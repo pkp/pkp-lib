@@ -20,11 +20,8 @@ namespace PKP\log;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
-use Illuminate\Database\Query\Builder;
-use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
-use PKP\db\DBResultRange;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\mail\Mailable;
@@ -159,5 +156,40 @@ class Repository
                 [(int)$newUserId, (int)$oldUserId, (int)$newUserId, (int)$oldUserId]
             )
         ];
+    }
+
+    /**
+     * Create a log entry for a submission from data in a Mailable class
+     *
+     * @param int $eventType One of the SubmissionEmailLogEntry::SUBMISSION_EMAIL_* constants
+     * @param Mailable $mailable
+     * @param Submission $submission
+     * @param ?User $sender
+     * @return int The new log entry id
+     */
+    function logMailable(int $eventType, Mailable $mailable, Submission $submission, ?User $sender = null): int
+    {
+        $clonedMailable = clone $mailable;
+        $clonedMailable->removeFooter();
+
+        $this->model->eventType = $eventType;
+        $this->model->assocId = $submission->getId();
+        $this->model->dateSent = Core::getCurrentDate();
+        $this->model->senderId = $sender ? $sender->getId() : null;
+        $this->model->fromAddress = $this->getContactString($clonedMailable->from);
+        $this->model->recipients = $this->getContactString($clonedMailable->to);
+        $this->model->ccRecipients = $this->getContactString($clonedMailable->cc);
+        $this->model->bccRecipients = $this->getContactString($clonedMailable->bcc);
+        $this->model->body = $clonedMailable->render();
+        $this->model->assocType = Application::ASSOC_TYPE_SUBMISSION;
+        $this->model->subject = Mail::compileParams(
+            $clonedMailable->subject,
+            $clonedMailable->getData(Locale::getLocale())
+        );
+
+        $this->model->save();
+        $this->insertLogUserIds( $this->model);
+
+        return $this->model->id;
     }
 }

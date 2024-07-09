@@ -35,7 +35,6 @@ use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
-use PKP\log\SubmissionEmailLogDAO;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\notification\NotificationDAO;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
@@ -693,7 +692,7 @@ class QueriesGridHandler extends GridHandler
                 ));
 
                 Mail::send($mailable);
-                SubmissionEmailLogEntry::logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_DISCUSSION_NOTIFY, $mailable, $submission);
+                Repo::emailLogEntry()->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_DISCUSSION_NOTIFY, $mailable, $submission);
             }
 
             return \PKP\db\DAO::getDataChangedEvent($query->getId());

@@ -154,34 +154,6 @@ class EmailLogEntry extends Model
             return $query->where('assoc_type', $assocType);
         });
     }
-
-
-    /**
-     * Get submission email log entries by submission ID and event type
-     *
-     * @param int $submissionId
-     * @param int $eventType
-     * @param ?int $userId optional Return only emails sent to this user.
-     */
-    static function getByEventType(int $submissionId, int $eventType, ?int $userId = null)
-    {
-        $instance = new static();
-        $query = $instance->newQuery();
-
-        if ($userId) {
-            $query->leftJoin('email_log_users as u', 'email_log.log_id', '=', 'u.email_log_id');
-        }
-
-        $query
-            ->where('assoc_type', $instance->assocType)
-            ->where('assoc_id', $submissionId)
-            ->where('event_type', $eventType)
-            ->when($userId, function ($query) use ($userId) {
-                $query->where('u.user_id', $userId);
-            })->select('email_log.*');
-
-        return $query->get(); // Counted in submissionEmails.tpl
-    }
 }
 
 if (!PKP_STRICT_MODE) {

@@ -23,6 +23,8 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use DOMDocument;
+use Fpdf\Fpdf;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -66,6 +68,7 @@ use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submission\SubmissionCommentDAO;
+use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
 use Symfony\Component\Mailer\Exception\TransportException;
 
@@ -962,6 +965,191 @@ class PKPReviewerGridHandler extends GridHandler
         return new JSONMessage(true);
     }
 
+    function exportPDF($args, $request)
+    {
+        $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
+        $context = $request->getContext();
+        $submissionId = $request->getUserVar('submissionId');
+        $reviewId = $request->getUserVar('reviewAssignmentId');
+        $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, null, $reviewId, true);
+        $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, null, $reviewId, false);
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
+        $submission = Repo::submission()->get($submissionId);
+        $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany();
+        $alphabet = range('A', 'Z');
+
+        $reviewerLetter = "";
+        $i = 0;
+        foreach($reviewAssignments as $submissionReviewAssignment) {
+            if($reviewAssignment->getReviewerId() === $submissionReviewAssignment->getReviewerId()) {
+                $reviewerLetter = $alphabet[$i];
+            }
+            $i++;
+        }
+
+        $title = $submission->getCurrentPublication()->getLocalizedTitle(null, 'html');
+        $cleanTitle = str_replace("&nbsp;", " ", strip_tags($title));
+
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetTextColor(41, 41, 41);
+        $leftMargin = 15;
+        $rightMargin = 15;
+        $height = 8;
+        $multiCellWidth = $pdf->GetPageWidth() - $leftMargin - $rightMargin;
+
+        $pdf->SetFont('Arial', 'b', 11);
+        $pdf->MultiCell($multiCellWidth, $height, __('editor.review') . ": $cleanTitle");
+        $pdf->Ln(5);
+
+        $authorFriendly = $request->getUserVar('authorFriendly');
+
+        $pdf->SetFont('Arial', 'b', 16);
+
+        if($authorFriendly) {
+            $pdf->MultiCell($multiCellWidth, $height, __('user.role.reviewer') . ": $reviewerLetter");
+        } else {
+            $pdf->MultiCell($multiCellWidth, $height, $reviewAssignment->getReviewerFullName() . ":");
+        }
+        $pdf->Ln(5);
+
+        if ($reviewAssignment->getDateCompleted()) {
+            $pdf->SetFont('Arial', 'b', 11);
+            $pdf->MultiCell($multiCellWidth, $height, __('common.completed') .': '. date('Y-m-d H:i', strtotime($reviewAssignment->getDateCompleted())));
+        }
+
+        if ($reviewAssignment->getRecommendation()) {
+            $pdf->SetFont('Arial', 'b', 11);
+            $pdf->MultiCell($multiCellWidth, $height, __('editor.submission.recommendation') .': '. $reviewAssignment->getLocalizedRecommendation());
+            $pdf->Ln(5);
+        }
+
+        if ($reviewAssignment->getReviewFormId()) {
+            $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+            /* @var $reviewFormElementDao ReviewFormElementDAO */
+            $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
+            /* @var $reviewFormResponseDao ReviewFormResponseDAO */
+            $reviewFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
+            $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
+            while ($reviewFormElement = $reviewFormElements->next()) {
+                if ($authorFriendly && !$reviewFormElement->getIncluded()) continue;
+
+                $elementId = $reviewFormElement->getId();
+                $value = $reviewFormResponses[$elementId];
+
+                $pdf->SetFont('Arial', 'B', 11);
+                $pdf->MultiCell($multiCellWidth, $height, strip_tags($reviewFormElement->getLocalizedQuestion()));
+
+                $pdf->SetFont('Arial', '', 11);
+                $pdf->SetTextColor(100, 100, 100);
+                $pdf->MultiCell($multiCellWidth, $height, strip_tags(str_replace('<br>', ' ', $reviewFormElement->getLocalizedDescription())));
+                $pdf->SetTextColor(41, 41, 41);
+                $pdf->SetFont('Arial', 'B', 11);
+
+                $pdf->SetFont('Arial', '', 11);
+                if ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD) {
+                    $pdf->MultiCell($multiCellWidth, $height, $value);
+                    $pdf->Ln(5);
+                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD) {
+                    $pdf->MultiCell($multiCellWidth, $height, $value);
+                    $pdf->Ln(5);
+                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA) {
+                    $pdf->MultiCell($multiCellWidth, $height, $value);
+                    $pdf->Ln(5);
+                } elseif (in_array($reviewFormElement->getElementType(), [ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES, ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS])) {
+                    $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
+                    foreach ($possibleResponses as $index => $responseItem) {
+                        $checked = $index == $reviewFormResponses[$elementId];
+                        if ($checked) {
+                            $pdf->SetFont('Arial', 'B', 11);
+                            $pdf->MultiCell($multiCellWidth, $height, $responseItem);
+                            $pdf->SetFont('Arial', '', 11);
+                        } else {
+                            $pdf->SetTextColor(100, 100, 100);
+                            $pdf->MultiCell($multiCellWidth, $height, $responseItem);
+                            $pdf->SetTextColor(41, 41, 41);
+                        }
+                    }
+                    $pdf->Ln(5);
+                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX) {
+                    $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
+                    $selectedValue = $possibleResponses[$reviewFormResponses[$elementId]];
+                    $pdf->MultiCell($multiCellWidth, $height, $selectedValue);
+                    $pdf->Ln(5);
+                }
+            }
+        } else {
+            $pdf->SetFont('Arial', 'b', 16);
+            $pdf->MultiCell($multiCellWidth, $height, __('editor.review.reviewerComments'));
+
+            $pdf->SetFont('Arial', 'b', 11);
+            $pdf->SetTextColor(100, 100, 100);
+            $pdf->MultiCell($multiCellWidth, $height, __('submission.comments.forAuthorEditor'));
+            $pdf->SetTextColor(41, 41, 41);
+
+            $pdf->SetFont('Arial', '', 11);
+            foreach ($submissionComments->records as $comment) {
+                $pdf->MultiCell($multiCellWidth, $height, iconv('UTF-8', 'windows-1252', strip_tags($comment->comments)));
+                $pdf->Ln(5);
+            }
+
+            if (!$authorFriendly) {
+                $pdf->SetFont('Arial', 'b', 11);
+                $pdf->SetTextColor(100, 100, 100);
+                $pdf->MultiCell($multiCellWidth, $height, __('submission.comments.cannotShareWithAuthor'));
+                $pdf->SetTextColor(41, 41, 41);
+                $pdf->SetFont('Arial', '', 11);
+                foreach ($submissionCommentsPrivate->records as $comment) {
+                    $pdf->MultiCell($multiCellWidth, $height, iconv('UTF-8', 'windows-1252', strip_tags($comment->comments)));
+                    $pdf->Ln(5);
+                }
+            }
+        }
+
+        $submissionFiles = Repo::submissionFile()
+            ->getCollector()
+            ->filterBySubmissionIds([$submissionId])
+            ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_SUBMISSION])
+            ->getMany();
+
+        $primaryLocale = $context->getPrimaryLocale();
+
+        $pdf->SetFont('Arial', 'b', 11);
+        $pdf->MultiCell($multiCellWidth, $height, __('reviewer.submission.reviewerFiles'));
+        $pdf->SetFont('Arial', '', 11);
+        foreach ($submissionFiles as $submissionFile) {
+            $pdf->MultiCell($multiCellWidth, $height, $submissionFile->_data['name'][$primaryLocale]);
+        }
+
+        $pdf->Output('D', "submission_review_{$submissionId}-{$reviewId}.pdf");
+        exit;
+    }
+
+    public function exportXML($args, $request) {
+
+        $submissionId = $request->getUserVar('submissionId');
+        $reviewId = $request->getUserVar('reviewAssignmentId');
+
+        $fileName = "submission_review_{$submissionId}-{$reviewId}";
+
+        header("Content-Disposition: attachment; filename={$fileName}");
+        header('Content-Type: application/xml');
+
+        $submission = Repo::submission()->get($submissionId);
+
+        $xml = new DOMDocument('1.0', 'UTF-8');
+        $root = $xml->createElement('root');
+        $xml->appendChild($root);
+
+        $title = $submission->getCurrentPublication()->getLocalizedTitle(null, 'html');
+        $cleanTitle = str_replace("&nbsp;", " ", strip_tags($title));
+
+        $text1 = $xml->createElement('text', $cleanTitle);
+        $root->appendChild($text1);
+
+        echo $xml->saveXML();
+        exit();
+    }
 
     /**
      * Displays a modal containing history for the review assignment.
@@ -1146,7 +1334,9 @@ class PKPReviewerGridHandler extends GridHandler
             'fetchGrid', 'fetchRow', 'showReviewerForm', 'reloadReviewerForm',
             'createReviewer', 'enrollReviewer', 'updateReviewer',
             'getUsersNotAssignedAsReviewers',
-            'fetchTemplateBody'
+            'fetchTemplateBody',
+            'exportPDF',
+            'exportXML'
         ];
     }
 
@@ -1175,6 +1365,8 @@ class PKPReviewerGridHandler extends GridHandler
             'resendRequestReviewer', 'updateResendRequestReviewer',
             'unconsiderReview',
             'editReview', 'updateReview',
+            'exportPDF',
+            'exportXML'
         ];
     }
 
@@ -1192,6 +1384,8 @@ class PKPReviewerGridHandler extends GridHandler
             'reviewRead',
             'sendEmail',
             'gossip',
+            'exportPDF',
+            'exportXML',
         ];
     }
 

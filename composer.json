@@ -8,6 +8,7 @@
 		"doctrine/dbal": "^3.5",
 		"elcobvg/laravel-opcache": "^0.5.0",
 		"firebase/php-jwt": "6.*",
+		"fpdf/fpdf": "^1.86",
 		"geoip2/geoip2": "~2.0",
 		"gettext/gettext": "5.*",
 		"gettext/translator": "1.*",

@@ -95,7 +95,7 @@ class APIHandler extends PKPHandler
         }
 
         try {
-            $response = (new Pipeline(PKPContainer::getInstance()))
+            $response = (new Pipeline(app()))
                 ->send(app(\Illuminate\Http\Request::class))
                 ->through(PKPRoutingProvider::getGlobalRouteMiddleware())
                 ->via('handle')

@@ -49,9 +49,7 @@ class EmailLogEntry extends Model
         'ccRecipients'
     ];
 
-    private $_senderFullName = '';
-    private $_senderEmail = '';
-
+    
     /**
      * The maximum length for the email subject.
      *
@@ -85,20 +83,16 @@ class EmailLogEntry extends Model
      *
      * @return string
      */
-    public function getSenderFullName()
+    protected function senderFullName(): Attribute
     {
-
-        if ($this->_senderFullName) {
-            return $this->_senderFullName;
-        }
-
-        $sender = $this->senderId
-            ? Repo::user()->get($this->senderId, true)
-            : null;
-
-        $this->_senderFullName = $sender->getFullName();
-
-        return $this->_senderFullName ? $this->_senderFullName : '';
+        return Attribute::make(
+            get: function () {
+                $sender = $this->senderId
+                    ? Repo::user()->get($this->senderId, true)
+                    : null;
+                return $sender ? $sender->getFullName() : '';
+            },
+        )->shouldCache();
     }
 
     /**
@@ -106,14 +100,15 @@ class EmailLogEntry extends Model
      *
      * @return string
      */
-    public function getSenderEmail()
+    protected function senderEmail(): Attribute
     {
+        return Attribute::make(
+            get: function () {
+                $email = Repo::user()->get($this->senderId, true)->getEmail();
 
-        if (!isset($this->_senderEmail)) {
-            $this->_senderEmail = Repo::user()->get($this->getSenderId(), true)->getEmail();
-        }
-
-        return ($this->_senderEmail ?: '');
+                return $email ?:'';
+            },
+        )->shouldCache();
     }
 
 
@@ -122,9 +117,11 @@ class EmailLogEntry extends Model
      *
      * @return string Prefixed subject
      */
-    public function getPrefixedSubject()
+    protected function prefixedSubject(): Attribute
     {
-        return __('submission.event.subjectPrefix') . ' ' . $this->subject;
+        return Attribute::make(
+            get: fn() => __('submission.event.subjectPrefix') . ' ' . $this->subject
+        )->shouldCache();
     }
 
     //

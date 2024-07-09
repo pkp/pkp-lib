@@ -62,9 +62,9 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
         /** @var EventLogEntry $element */
         switch ($columnId) {
             case 'date':
-                return ['label' => $element instanceof EventLogEntry ? $element->getDateLogged() : $element->getDateSent()];
+                return ['label' => $element instanceof EventLogEntry ? $element->getDateLogged() : $element->dateSent];
             case 'event':
-                return ['label' => $element instanceof EventLogEntry ? $element->getTranslatedMessage(null, $this->_isCurrentUserAssignedAuthor) : $element->getPrefixedSubject()];
+                return ['label' => $element instanceof EventLogEntry ? $element->getTranslatedMessage(null, $this->_isCurrentUserAssignedAuthor) : $element->prefixedSubject];
             case 'user':
                 if ($element instanceof EventLogEntry) {
                     $userName = $element->getUserFullName();
@@ -103,7 +103,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                         }
                     }
                 } else {
-                    $userName = $element->getSenderFullName();
+                    $userName = $element->senderFullName;
                 }
                 return ['label' => $userName];
             default:

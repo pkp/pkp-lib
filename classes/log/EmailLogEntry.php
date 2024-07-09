@@ -11,8 +11,6 @@
  *
  * @ingroup log
  *
- * @see EmailLogDAO
- *
  * @brief Describes an entry in the email log.
  */
 
@@ -20,7 +18,6 @@ namespace PKP\log;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
-
 use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
@@ -46,10 +43,10 @@ class EmailLogEntry extends Model
         'subject',
         'body',
         'bccRecipients',
-        'ccRecipients'
+        'ccRecipients',
+        'fromAddress'
     ];
 
-    
     /**
      * The maximum length for the email subject.
      *
@@ -127,7 +124,7 @@ class EmailLogEntry extends Model
     //
     // Scopes
     //
-    public function scopeWithSubmissionId(Builder $query, int $submissionId = null): Builder
+    public function scopeWithAssocId(Builder $query, int $submissionId = null): Builder
     {
         return $query->where('assoc_id', (int)$submissionId);
     }

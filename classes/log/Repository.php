@@ -6,11 +6,9 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class EmailLogRepository
+ * @class Repository
  *
  * @ingroup log
- *
- * @see EmailLogEntry
  *
  * @brief Operations for retrieving and modifying EmailLogEntry objects.
  */
@@ -24,15 +22,12 @@ use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\facades\Locale;
 use PKP\log\core\EmailLogEventType;
-use PKP\plugins\Hook;
 use PKP\mail\Mailable;
 use PKP\user\User;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class Repository
 {
-
     private EmailLogEntry $model;
 
     public function __construct(EmailLogEntry $model)
@@ -40,35 +35,6 @@ class Repository
         $this->model = $model;
     }
 
-
-    /**
-     * Function to return an EmailLogEntry object.
-     *
-     * @param array $row
-     *
-     * @return EmailLogEntry
-     *
-     * @hook EmailLogDAO::build [[&$entry, &$row]]
-     */
-    public function build($row)
-    {
-        $entry = new EmailLogEntry([
-            'assocType' => $row['assoc_type'],
-            'assocId' => $row['assoc_id'],
-            'senderId' => $row['sender_id'],
-            'dateSent' => Carbon::parse($row['date_sent'])->toIso8601String(),
-            'eventType' => $row['event_type'],
-            'from' => $row['from_address'],
-            'recipients' => $row['recipients'],
-            'ccs' => $row['cc_recipients'],
-            'bccs' => $row['bcc_recipients'],
-            'subject' => $row['subject'],
-            'body' => $row['body']
-        ]);
-
-
-        return $entry;
-    }
 
     /**
      * Get the from or to data as a string
@@ -160,7 +126,7 @@ class Repository
     /**
      * Create a log entry for a submission from data in a Mailable class
      *
-     * @param EmailLogEventType $eventType Type of email event to log
+     * @param EmailLogEventType $eventType Type of email event
      * @param Mailable $mailable
      * @param Submission $submission
      * @param ?User $sender

@@ -117,7 +117,8 @@ abstract class PKPAuthorDashboardHandler extends Handler
             $submission->getId(),
             SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
             Application::ASSOC_TYPE_SUBMISSION, $user->getId());
-        foreach ($submissionEmailFactory as $email) { // validate the email id for this user.
+        foreach ($submissionEmailFactory as $email) {
+            // validate the email id for this user.
             if ($email->id == $submissionEmailId) {
                 $templateMgr = TemplateManager::getManager($request);
                 $templateMgr->assign('submissionEmail', $email);

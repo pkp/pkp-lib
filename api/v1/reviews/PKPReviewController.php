@@ -130,7 +130,7 @@ class PKPReviewController extends PKPBaseController
 
         $declineEmail = null;
         if ($reviewAssignment->getDeclined()) {
-            $emailLogs = EmailLogEntry::withSubmissionId($submissionId)
+            $emailLogs = EmailLogEntry::withAssocId($submissionId)
                 ->withEventType(SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_DECLINE)
                 ->withSenderId($reviewerId)
                 ->withAssocType(Application::ASSOC_TYPE_SUBMISSION)

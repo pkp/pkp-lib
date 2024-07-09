@@ -206,8 +206,8 @@ class SubmissionEventLogGridHandler extends GridHandler
             ->filterByAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION, [$submission->getId()])
             ->getMany();
 
-        $emailLogEntries = SubmissionEmailLogEntry::withSubmissionId($submission->getId())
-            ->withAssoc()->get();
+        $emailLogEntries = EmailLogEntry::withAssocId($submission->getId())
+            ->withAssocType(Application::ASSOC_TYPE_SUBMISSION)->get();
 
         $entries = array_merge($eventLogEntries->toArray(), $emailLogEntries->toArray());
 
@@ -236,7 +236,7 @@ class SubmissionEventLogGridHandler extends GridHandler
      */
     public function viewEmail($args, $request)
     {
-        $emailLogEntry = SubmissionEmailLogEntry::find((int) $args['emailLogEntryId']);
+        $emailLogEntry = EmailLogEntry::find((int) $args['emailLogEntryId']);
         return new JSONMessage(true, $this->_formatEmail($emailLogEntry));
     }
 

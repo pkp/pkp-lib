@@ -111,9 +111,10 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
 
         // Display notification emails to the author related to editorial decisions
         $templateMgr->assign([
-            'submissionEmails' => SubmissionEmailLogEntry::getByEventType(
+            'submissionEmails' => Repo::emailLogEntry()->getByEventType(
                 $submission->getId(),
                 SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
+                Application::ASSOC_TYPE_SUBMISSION,
                 $request->getUser()->getId()
             ),
             'showReviewAttachments' => true,

@@ -769,9 +769,10 @@ abstract class Repository
         $user = $this->request->getUser();
 
         // Fetch the latest notification email timestamp
-        $submissionEmails = SubmissionEmailLogEntry::getByEventType(
+        $submissionEmails = Repo::emailLogEntry()->getByEventType(
             $submission->getId(),
-            SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION
+            SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION,
+            Application::ASSOC_TYPE_SUBMISSION
         );
         $lastNotification = null;
         $sentDates = [];

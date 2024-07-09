@@ -192,4 +192,31 @@ class Repository
 
         return $this->model->id;
     }
+
+    /**
+     * Get email log entries by assoc ID, event type and assoc type
+     *
+     * @param int $assocId
+     * @param int $eventType
+     * @param int $assocType
+     * @param ?int $userId optional Return only emails sent to this user.
+     */
+    function getByEventType(int $assocId, int $eventType, int $assocType, ?int $userId = null)
+    {
+        $query = $this->model->newQuery();
+
+        if ($userId) {
+            $query->leftJoin('email_log_users as u', 'email_log.log_id', '=', 'u.email_log_id');
+        }
+
+        $query
+            ->where('assoc_type', $assocType)
+            ->where('assoc_id', $assocId)
+            ->where('event_type', $eventType)
+            ->when($userId, function ($query) use ($userId) {
+                $query->where('u.user_id', $userId);
+            })->select('email_log.*');
+
+        return $query->get(); // Counted in submissionEmails.tpl
+    }
 }

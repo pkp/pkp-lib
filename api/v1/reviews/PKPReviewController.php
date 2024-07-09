@@ -17,6 +17,7 @@
 
 namespace PKP\API\v1\reviews;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -26,6 +27,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
+use PKP\log\EmailLogEntry;
 use PKP\log\SubmissionEmailLogEntry;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
@@ -128,10 +130,10 @@ class PKPReviewController extends PKPBaseController
 
         $declineEmail = null;
         if ($reviewAssignment->getDeclined()) {
-            $emailLogs = SubmissionEmailLogEntry::withSubmissionId($submissionId)
+            $emailLogs = EmailLogEntry::withSubmissionId($submissionId)
                 ->withEventType(SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_DECLINE)
                 ->withSenderId($reviewerId)
-                ->withAssoc()
+                ->withAssocType(Application::ASSOC_TYPE_SUBMISSION)
                 ->get();
 
             foreach ($emailLogs as $emailLog) {

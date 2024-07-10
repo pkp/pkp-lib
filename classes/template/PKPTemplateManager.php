@@ -678,10 +678,10 @@ class PKPTemplateManager extends Smarty
         // properly by our build script
         $this->addJavaScript(
             'jqueryValidate',
-            $baseUrl . '/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.min.js',
+            $baseUrl . '/lib/pkp/lib/vendor/jquery/validation/dist/jquery.validate.min.js',
             $args
         );
-        $jqvLocalePath = 'lib/pkp/js/lib/jquery/plugins/validate/localization/messages_';
+        $jqvLocalePath = 'lib/pkp/lib/vendor/jquery/validation/dist/localization/messages_';
         foreach ($localeChecks as $localeCheck) {
             if (file_exists($jqvLocalePath . $localeCheck . '.js')) {
                 $this->addJavaScript('jqueryValidateLocale', $baseUrl . '/' . $jqvLocalePath . $localeCheck . '.js', $args);

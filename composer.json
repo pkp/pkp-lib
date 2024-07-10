@@ -67,6 +67,9 @@
 				"Apply PKP ADODB patches": "lib/adodb.diff",
 				"Apply PKP ADODB PHP8.1 patches": "lib/adodb-php8.1.diff",
 				"Apply PKP ADODB patches for error handling": "lib/adodb-datadict-errors.diff"
+			},
+			"slim/slim": {
+				"Apply PKP patch to remove deprecated warnings on PHP +8.1": "lib/slim-collection-php8.1.diff"
 			}
 		}
 	},

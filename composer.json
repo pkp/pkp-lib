@@ -12,6 +12,7 @@
 		"gettext/gettext": "5.*",
 		"gettext/translator": "1.2.*",
 		"guzzlehttp/guzzle": "^7.0",
+		"jquery/ui": "1.13.3",
 		"kevinlebrun/colors.php": "^1.0",
 		"kirkbushell/eloquence": "^11.0",
 		"laravel/framework": "^11.0",
@@ -56,7 +57,8 @@
 			"@weblateFilesDownload"
 		],
 		"isoFileCheck": [
-			"PKP\\dev\\ComposerScript::isoFileCheck"		],
+			"PKP\\dev\\ComposerScript::isoFileCheck"
+		],
 		"weblateFilesDownload": [
 			"PKP\\dev\\ComposerScript::weblateFilesDownload"
 		]
@@ -82,5 +84,18 @@
 			"PKP\\tests\\": "tests/",
 			"APP\\tests\\": "../../tests/"
 		}
-	}
+	},
+	"repositories": [
+		{
+			"type": "package",
+			"package": {
+				"name": "jquery/ui",
+				"version": "1.13.3",
+				"dist": {
+					"url": "https://registry.npmjs.org/jquery-ui/-/jquery-ui-1.13.3.tgz",
+					"type": "tar"
+				}
+			}
+		}
+	]
 }

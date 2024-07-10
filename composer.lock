@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d3e6443a7ad41b80bc90a3d78513b75f",
+    "content-hash": "141dcc167972736564eed23e60a774b1",
     "packages": [
         {
             "name": "brick/math",
@@ -1946,6 +1946,15 @@
                 "source": "https://github.com/vinkla/hashids/tree/5.0.2"
             },
             "time": "2023-02-23T15:00:54+00:00"
+        },
+        {
+            "name": "jquery/ui",
+            "version": "1.13.3",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/jquery-ui/-/jquery-ui-1.13.3.tgz"
+            },
+            "type": "library"
         },
         {
             "name": "kevinlebrun/colors.php",

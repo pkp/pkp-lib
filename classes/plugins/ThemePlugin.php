@@ -16,6 +16,7 @@
 
 namespace PKP\plugins;
 
+use Illuminate\Support\Facades\Cache;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;

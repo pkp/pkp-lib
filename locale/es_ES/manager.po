@@ -2473,3 +2473,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Pedir a los autores/as que adjunten una declaración de conflicto de "
 "intereses a su envío."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validar el XML antes de la exportación y el registro."

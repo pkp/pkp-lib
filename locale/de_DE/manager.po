@@ -2452,3 +2452,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Verlangen Sie von Autor/innen, die einen Beitrag einreichen wollen, "
 "zusätzlich eine Erklärung zu möglicherweise bestehenden Interessenkonflikten."
+
+msgid "plugins.importexport.common.validation"
+msgstr "XML vor Export und Registrierung validieren."

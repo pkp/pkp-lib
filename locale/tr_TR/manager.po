@@ -2419,3 +2419,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Yazarların gönderileriyle birlikte bir Çıkar Çatışması bildirimi dosyası "
 "göndermeleri gereklidir."
+
+msgid "plugins.importexport.common.validation"
+msgstr "İhraç ve kayıt işleminden önce XML'i doğrulayın."

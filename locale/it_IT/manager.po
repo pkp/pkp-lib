@@ -2395,3 +2395,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Richiedi agli autori di inviare una dichiarazione di assenza di conflitto di "
 "interessi durante l'invio della proposta."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Valida l'XML prima dell'esportazione e della registrazione."

@@ -2333,3 +2333,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "لازم است که نویسنده ارسال کننده مقاله بیانیه تضاد منافع در رابطه با مقاله "
 "خود را اعلام کند."
+
+msgid "plugins.importexport.common.validation"
+msgstr "اعتبار سنجی  XML را قبل از برون دهی"

@@ -2588,3 +2588,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Demana als autors/ores que presentin una declaració de conflictes "
 "d’interessos (CI) juntament amb la tramesa."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validar el XML abans de l'exportació i el registre."

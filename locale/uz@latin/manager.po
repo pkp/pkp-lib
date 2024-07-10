@@ -3157,3 +3157,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Mualliflardan raqobatbardosh qiziqish (CI) to'g'risidagi bayonotni taqdim "
 "etishni talab qiling."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Eksport va ro'yxatdan o'tishdan oldin XML -ni tasdiqlang."

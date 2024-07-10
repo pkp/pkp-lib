@@ -3795,3 +3795,6 @@ msgstr ""
 
 msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
 msgstr "Zahrnout i nadřazené podrobnosti"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validujte XML před exportem a registrací."

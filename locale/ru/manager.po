@@ -3827,3 +3827,6 @@ msgstr ""
 
 msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
 msgstr "Включить сведения о родительском элементе"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Проверять XML перед экспортом и регистрацией."

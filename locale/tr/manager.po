@@ -3593,3 +3593,6 @@ msgid "manager.announcements.notEnabled"
 msgstr ""
 "<a href=\"#announcements/announcement-settings\">Duyuruları</a> "
 "etkinleştirmelisiniz."
+
+msgid "plugins.importexport.common.validation"
+msgstr "İhraç ve kayıt işleminden önce XML'i doğrulayın."

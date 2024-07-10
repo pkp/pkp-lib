@@ -3391,3 +3391,6 @@ msgstr ""
 msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "投稿する著者に、投稿時に競合する利益（CI）に関する声明を提出するよう求める。"
+
+msgid "plugins.importexport.common.validation"
+msgstr "エクスポートや登録の前にXMLを検証します。"

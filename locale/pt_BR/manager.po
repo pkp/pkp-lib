@@ -3844,3 +3844,6 @@ msgstr "Incluir detalhes associados"
 
 msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
 msgstr "Excluir detalhes mensais"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Valide o XML antes da exportação e registro."

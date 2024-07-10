@@ -3594,3 +3594,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Författare måste skicka in en intressekonfliktsförklaring i samband med att "
 "bidraget skickas in."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validera XML före export och registrering."

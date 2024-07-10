@@ -3931,3 +3931,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Müəlliflərin məqalə ilə birlikdə mənfəət münaqişəsi bildirişi faylı "
 "göndərmələri gərəklidir."
+
+msgid "plugins.importexport.common.validation"
+msgstr "İxrac və qeydiyyat əməliyyatından əvvəl XML-i təsdiqləyin"

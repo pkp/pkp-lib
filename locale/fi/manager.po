@@ -3756,3 +3756,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Vaadi käsikirjoituksen lähettäviä kirjoittajia jättämään Sidonnaisuudet-"
 "lausunto lähetyksen yhteydessä."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validoi XML ennen vientiä ja rekisteröintiä."

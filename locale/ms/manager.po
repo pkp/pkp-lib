@@ -3446,3 +3446,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Wajib mengemukakan Pengarang untuk mengemukakan pernyataan Konflik "
 "Kepentingan dengan penyerahannya."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Sahkan XML sebelum eksport dan pendaftaran."

@@ -3439,3 +3439,6 @@ msgstr ""
 msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Yêu cầu tác giả gửi một tuyên bố xung đột lợi ích (CI) với bài gửi của họ."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Xác thực XML trước khi xuất và đăng ký."

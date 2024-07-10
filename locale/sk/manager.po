@@ -3138,3 +3138,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Požadovať od autorov, aby spolu s príspevkom zaslali súbor s vyhlásením o "
 "konflikte záujmov."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validujte XML pred exportom a registráciou."

@@ -3915,3 +3915,6 @@ msgid "manager.statistics.counterR5Report.settings.date.endDate.description"
 msgstr ""
 "La fecha debe estar en formato AAAA-MM-DD o AAAA-MM. La fecha más reciente "
 "posible es {$lastDate}."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validar el XML antes de la exportación y el registro."

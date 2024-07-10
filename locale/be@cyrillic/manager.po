@@ -3073,3 +3073,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Патрабаваць ад аўтараў падаваць Дэкларацыю аб канфлікце інтарэсаў разам з "
 "адпраўляемым матэрыялам."
+
+msgid "plugins.importexport.common.validation"
+msgstr ""

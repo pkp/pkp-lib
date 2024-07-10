@@ -3615,3 +3615,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Zahtijevaj od autora da prilikom prijave svog rukopisa ispune izjavu o "
 "sukobu interesa."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Prije izvoženja i registracije potvrdi XML."

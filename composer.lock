@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad52c48b33db90831db1eb6595acf48e",
+    "content-hash": "80aeea10907a6843b326ebddf6061cb2",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -2211,6 +2211,15 @@
                 }
             ],
             "time": "2021-10-07T12:57:01+00:00"
+        },
+        {
+            "name": "jquery/ui",
+            "version": "1.13.3",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/jquery-ui/-/jquery-ui-1.13.3.tgz"
+            },
+            "type": "library"
         },
         {
             "name": "kevinlebrun/colors.php",

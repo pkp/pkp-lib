@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "141dcc167972736564eed23e60a774b1",
+    "content-hash": "51d68aa80e7212bf5d18dde3d7aea6b0",
     "packages": [
         {
             "name": "brick/math",
@@ -1953,6 +1953,15 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/jquery-ui/-/jquery-ui-1.13.3.tgz"
+            },
+            "type": "library"
+        },
+        {
+            "name": "jquery/validation",
+            "version": "1.19.5",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/jquery-validation/-/jquery-validation-1.19.5.tgz"
             },
             "type": "library"
         },

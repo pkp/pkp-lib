@@ -167,6 +167,7 @@ class AboutContextHandler extends Handler
                     ->withUserGroupId($mastheadUserGroup->getId())
                     ->withEnded()
                     ->withMasthead()
+                    ->sortBy('date_start', 'desc')
                     ->get();
                 $services = [];
                 foreach ($userUserGroups as $userUserGroup) {

@@ -3560,3 +3560,6 @@ msgstr "Reviewers will be displayed in a standardized format to maintain uniform
 
 msgid "mailable.changeProfileEmailInvitationNotify.name"
 msgstr "Change Email Address Invitation"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validate XML before the export and registration."

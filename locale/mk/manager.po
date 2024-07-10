@@ -3718,3 +3718,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Мајстор"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Потврдете го XML пред извозот и регистрацијата."

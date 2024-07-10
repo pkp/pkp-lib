@@ -3991,3 +3991,6 @@ msgstr "Paramètres du rapport"
 
 msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
 msgstr "Inclure les détails parents"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Valider le XML avec l'export."

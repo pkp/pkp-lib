@@ -3478,3 +3478,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Masthead"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validarea XML înainte de exportare și înregistrare."

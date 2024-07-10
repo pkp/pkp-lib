@@ -3195,3 +3195,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Portada"
+
+msgid "plugins.importexport.common.validation"
+msgstr ""

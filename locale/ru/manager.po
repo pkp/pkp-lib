@@ -3801,3 +3801,6 @@ msgstr "Включить сведения о родительском элеме
 
 msgid "manager.setup.masthead"
 msgstr "Выходные данные"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Проверять XML перед экспортом и регистрацией."

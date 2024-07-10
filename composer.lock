@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "84f4855832af8011039a9cf411e49516",
+    "content-hash": "722baa2e976483efce506e4109e6035c",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -1362,6 +1362,15 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/jquery-ui/-/jquery-ui-1.13.3.tgz"
+            },
+            "type": "library"
+        },
+        {
+            "name": "jquery/validation",
+            "version": "1.19.5",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/jquery-validation/-/jquery-validation-1.19.5.tgz"
             },
             "type": "library"
         },

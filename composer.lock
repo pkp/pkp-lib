@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13489064617014314c33293614f358a2",
+    "content-hash": "84f4855832af8011039a9cf411e49516",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -1355,6 +1355,15 @@
                 "url"
             ],
             "time": "2020-09-30T07:37:11+00:00"
+        },
+        {
+            "name": "jquery/ui",
+            "version": "1.13.3",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/jquery-ui/-/jquery-ui-1.13.3.tgz"
+            },
+            "type": "library"
         },
         {
             "name": "laravel/framework",

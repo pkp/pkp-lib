@@ -16,7 +16,6 @@
 namespace PKP\API\v1\temporaryFiles;
 
 use APP\core\Application;
-use APP\core\Services;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -139,7 +138,7 @@ class PKPTemporaryFilesController extends PKPBaseController
             'id' => $uploadedFile->getId(),
             'name' => $uploadedFile->getData('originalFileName'),
             'mimetype' => $uploadedFile->getData('filetype'),
-            'documentType' => Services::get('file')->getDocumentType($uploadedFile->getData('filetype')),
+            'documentType' => app()->get('file')->getDocumentType($uploadedFile->getData('filetype')),
         ], Response::HTTP_OK);
     }
 

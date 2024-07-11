@@ -18,7 +18,6 @@ namespace PKP\pages\admin;
 
 use APP\components\forms\context\ContextForm;
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
@@ -204,7 +203,7 @@ class AdminHandler extends Handler
         $locales = $site->getSupportedLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
-        $contexts = Services::get('context')->getManySummary();
+        $contexts = app()->get('context')->getManySummary();
 
         $siteAppearanceForm = new PKPSiteAppearanceForm($apiUrl, $locales, $site, $baseUrl, $temporaryFileApiUrl);
         $siteConfigForm = new PKPSiteConfigForm($apiUrl, $locales, $site);
@@ -261,7 +260,7 @@ class AdminHandler extends Handler
     private function siteSettingsAvailability(): array
     {
         // The multi context UI is also displayed when the journal has no contexts
-        $isMultiContextSite = Services::get('context')->getCount() !== 1;
+        $isMultiContextSite = app()->get('context')->getCount() !== 1;
         return [
             'siteSetup' => true,
             'languages' => true,
@@ -296,7 +295,7 @@ class AdminHandler extends Handler
             $request->getDispatcher()->handle404();
         }
 
-        $contextService = Services::get('context');
+        $contextService = app()->get('context');
         $context = $contextService->get((int) $args[0]);
 
         if (empty($context)) {

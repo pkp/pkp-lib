@@ -18,7 +18,6 @@
 
 namespace PKP\controllers\grid\navigationMenus\form;
 
-use APP\core\Services;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
@@ -106,10 +105,10 @@ class NavigationMenuForm extends Form
         });
 
         foreach ($unassignedItems as $unassignedItem) {
-            Services::get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $unassignedItem);
+            app()->get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $unassignedItem);
         }
 
-        $navigationMenuItemTypes = Services::get('navigationMenu')->getMenuItemTypes();
+        $navigationMenuItemTypes = app()->get('navigationMenu')->getMenuItemTypes();
 
         $typeConditionalWarnings = [];
         foreach ($navigationMenuItemTypes as $type => $settings) {
@@ -142,7 +141,7 @@ class NavigationMenuForm extends Form
             $navigationMenu = $navigationMenusDao->getById($this->_navigationMenuId);
 
             if ($navigationMenu != null) {
-                Services::get('navigationMenu')->getMenuTree($navigationMenu);
+                app()->get('navigationMenu')->getMenuTree($navigationMenu);
 
                 $this->_data = [
                     'title' => $navigationMenu->getTitle(),

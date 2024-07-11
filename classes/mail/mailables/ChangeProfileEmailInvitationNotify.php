@@ -16,7 +16,6 @@
 
 namespace PKP\mail\mailables;
 
-use APP\core\Services;
 use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;

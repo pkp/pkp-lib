@@ -14,7 +14,6 @@
  * @brief CLI tool to reprocess the usage stats log files for a month.
  */
 
-use APP\core\Services;
 use APP\tasks\UsageStatsLoader;
 
 require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
@@ -58,8 +57,8 @@ class ReprocessUsageStatsMonth extends \PKP\cliTool\CommandLineTool
     public function execute(): void
     {
         // Remove the month from the monthly DB tables
-        $counterService = Services::get('sushiStats');
-        $geoService = Services::get('geoStats');
+        $counterService = app()->get('sushiStats');
+        $geoService = app()->get('geoStats');
         $counterService->deleteMonthlyMetrics($this->month);
         $geoService->deleteMonthlyMetrics($this->month);
         // Check if all log files from that month are in usageEventLogs folder???

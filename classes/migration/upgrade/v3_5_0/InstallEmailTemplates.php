@@ -14,7 +14,6 @@
 
 namespace PKP\migration\upgrade\v3_5_0;
 
-use APP\core\Services;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use PKP\db\XMLDAO;
@@ -42,7 +41,7 @@ class InstallEmailTemplates extends Migration
             throw new Exception('Unable to find <email> entries in registry/emailTemplates.xml.');
         }
 
-        $contextIds = Services::get('context')->getIds();
+        $contextIds = app()->get('context')->getIds();
         $locales = json_decode(
             DB::table('site')->pluck('installed_locales')->first()
         );

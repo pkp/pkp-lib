@@ -18,7 +18,6 @@
 namespace PKP\API\v1\submissions;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\mail\variables\ContextEmailVariable;
 use APP\notification\NotificationManager;
@@ -970,7 +969,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $submissionContext = $request->getContext();
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
-            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+            $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
 
         $errors = Repo::publication()->validate(null, $params, $submission, $submissionContext);
@@ -1129,7 +1128,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $submissionContext = $request->getContext();
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
-            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+            $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
 
         $errors = Repo::publication()->validate($publication, $params, $submission, $submissionContext);
@@ -1188,7 +1187,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $submissionContext = $request->getContext();
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
-            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+            $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
         $primaryLocale = $submission->getData('locale');
         $allowedLocales = $submissionContext->getData('supportedSubmissionLocales');
@@ -1413,7 +1412,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $submissionContext = $request->getContext();
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
-            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+            $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
 
         $errors = Repo::author()->validate(null, $params, $submission, $submissionContext);
@@ -1524,7 +1523,7 @@ class PKPSubmissionController extends PKPBaseController
 
         $submissionContext = $request->getContext();
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
-            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+            $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
 
         if ($publication->getId() !== $author->getData('publicationId')) {
@@ -1683,7 +1682,7 @@ class PKPSubmissionController extends PKPBaseController
      */
     protected function getWriteDisabledErrors(string $schemaName, array $params): array
     {
-        $schema = Services::get('schema')->get($schemaName);
+        $schema = app()->get('schema')->get($schemaName);
 
         $writeDisabledProps = [];
         foreach ($schema->properties as $propName => $propSchema) {

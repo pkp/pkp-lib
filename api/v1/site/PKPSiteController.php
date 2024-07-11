@@ -16,7 +16,6 @@
 namespace PKP\API\v1\site;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\template\TemplateManager;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -101,7 +100,7 @@ class PKPSiteController extends PKPBaseController
     {
         $request = $this->getRequest();
 
-        $siteProps = Services::get('site')
+        $siteProps = app()->get('site')
             ->getFullProperties($request->getSite(), [
                 'request' => $request,
             ]);
@@ -149,7 +148,7 @@ class PKPSiteController extends PKPBaseController
     {
         $request = $this->getRequest();
         $site = $request->getSite();
-        $siteService = Services::get('site');
+        $siteService = app()->get('site');
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SITE, $illuminateRequest->input());
 
@@ -175,7 +174,7 @@ class PKPSiteController extends PKPBaseController
     {
         $request = $this->getRequest();
         $site = $request->getSite();
-        $siteService = Services::get('site');
+        $siteService = app()->get('site');
 
         $params = $illuminateRequest->input();
 

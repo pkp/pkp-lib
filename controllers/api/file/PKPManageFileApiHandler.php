@@ -18,7 +18,6 @@ namespace PKP\controllers\api\file;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
@@ -151,7 +150,7 @@ abstract class PKPManageFileApiHandler extends Handler
         );
 
         // Remove uploaded file
-        Services::get('file')->delete($revisedFileId);
+        app()->get('file')->delete($revisedFileId);
 
         $this->setupTemplate($request);
         return \PKP\db\DAO::getDataChangedEvent();

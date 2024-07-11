@@ -25,7 +25,6 @@ namespace PKP\template;
 use APP\core\Application;
 use APP\core\PageRouter;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\submission\Submission;
@@ -295,7 +294,7 @@ class PKPTemplateManager extends Smarty
             }
 
             // Register Navigation Menus
-            $nmService = Services::get('navigationMenu');
+            $nmService = app()->get('navigationMenu');
 
             if (Application::isInstalled()) {
                 Hook::add('LoadHandler', $nmService->_callbackHandleCustomNavigationMenuItems(...));
@@ -953,7 +952,7 @@ class PKPTemplateManager extends Smarty
                 } else {
                     $args = ['userId' => $request->getUser()->getId()];
                 }
-                $availableContexts = Services::get('context')->getManySummary($args);
+                $availableContexts = app()->get('context')->getManySummary($args);
                 if ($request->getContext()) {
                     $availableContexts = array_filter($availableContexts, function ($context) use ($request) {
                         return $context->id !== $request->getContext()->getId();
@@ -2204,7 +2203,7 @@ class PKPTemplateManager extends Smarty
         $navigationMenus = $navigationMenuDao->getByArea($contextId, $areaName)->toArray();
         if (isset($navigationMenus[0])) {
             $navigationMenu = $navigationMenus[0];
-            Services::get('navigationMenu')->getMenuTree($navigationMenu);
+            app()->get('navigationMenu')->getMenuTree($navigationMenu);
         }
 
 

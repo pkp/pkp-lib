@@ -16,7 +16,6 @@
 
 namespace PKP\site;
 
-use APP\core\Services;
 use Illuminate\Support\Facades\DB;
 use PKP\services\PKPSchemaService;
 
@@ -61,7 +60,7 @@ class SiteDAO extends \PKP\db\DAO
      */
     public function _fromRow(array $primaryRow, bool $callHook = true): Site
     {
-        $schemaService = Services::get('schema');
+        $schemaService = app()->get('schema');
         $schema = $schemaService->get(PKPSchemaService::SCHEMA_SITE);
 
         $site = $this->newDataObject();
@@ -120,7 +119,7 @@ class SiteDAO extends \PKP\db\DAO
      */
     public function updateObject(Site $site): void
     {
-        $schemaService = Services::get('schema');
+        $schemaService = app()->get('schema');
         $schema = $schemaService->get(PKPSchemaService::SCHEMA_SITE);
         $sanitizedProps = $schemaService->sanitize(PKPSchemaService::SCHEMA_SITE, $site->_data);
 

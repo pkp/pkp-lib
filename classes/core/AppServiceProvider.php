@@ -15,7 +15,6 @@
 
 namespace PKP\core;
 
-use APP\core\Services;
 use APP\core\Application;
 use Illuminate\Support\ServiceProvider;
 use PKP\services\PKPStatsSushiService;

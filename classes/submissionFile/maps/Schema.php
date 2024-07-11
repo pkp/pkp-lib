@@ -15,7 +15,6 @@ namespace PKP\submissionFile\maps;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use Illuminate\Support\Enumerable;
 use PKP\context\Context;
@@ -127,7 +126,7 @@ class Schema extends BaseSchema
             }
 
             if ($prop === 'documentType') {
-                $output[$prop] = Services::get('file')->getDocumentType($submissionFile->getData('mimetype'));
+                $output[$prop] = app()->get('file')->getDocumentType($submissionFile->getData('mimetype'));
 
                 continue;
             }
@@ -171,7 +170,7 @@ class Schema extends BaseSchema
                     }
 
                     $files[] = [
-                        'documentType' => Services::get('file')->getDocumentType($revision->mimetype),
+                        'documentType' => app()->get('file')->getDocumentType($revision->mimetype),
                         'fileId' => $revision->fileId,
                         'mimetype' => $revision->mimetype,
                         'path' => $revision->path,

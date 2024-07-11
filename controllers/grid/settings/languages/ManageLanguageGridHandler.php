@@ -17,7 +17,6 @@
 namespace PKP\controllers\grid\settings\languages;
 
 use APP\core\Request;
-use APP\core\Services;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\languages\LanguageGridHandler;
 use PKP\core\JSONMessage;
@@ -117,7 +116,7 @@ class ManageLanguageGridHandler extends LanguageGridHandler
             return new JSONMessage(false);
         }
 
-        $context = Services::get('context')->restoreLocaleDefaults($context, $request, $locale);
+        $context = app()->get('context')->restoreLocaleDefaults($context, $request, $locale);
 
         $notificationManager = new NotificationManager();
         $notificationManager->createTrivialNotification(

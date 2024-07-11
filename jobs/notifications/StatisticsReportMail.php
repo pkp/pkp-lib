@@ -17,7 +17,6 @@
 namespace PKP\jobs\notifications;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use DateTimeImmutable;
@@ -57,13 +56,13 @@ class StatisticsReportMail extends BaseJob
         $locale = $context->getPrimaryLocale();
         $template = Repo::emailTemplate()->getByKey($this->contextId, StatisticsReportNotify::getEmailTemplateKey());
 
-        $editorialTrends = Services::get('editorialStats')->getOverview([
+        $editorialTrends = app()->get('editorialStats')->getOverview([
             'contextIds' => [$context->getId()],
             'dateStart' => $this->dateStart->format('Y-m-d'),
             'dateEnd' => $this->dateEnd->format('Y-m-d'),
         ]);
-        $editorialTrendsTotal = Services::get('editorialStats')->getOverview(['contextIds' => [$context->getId()]]);
-        $totalSubmissions = Services::get('editorialStats')->countSubmissionsReceived(['contextIds' => [$context->getId()]]);
+        $editorialTrendsTotal = app()->get('editorialStats')->getOverview(['contextIds' => [$context->getId()]]);
+        $totalSubmissions = app()->get('editorialStats')->countSubmissionsReceived(['contextIds' => [$context->getId()]]);
         $formatter = IntlDateFormatter::create(
             $locale,
             IntlDateFormatter::FULL,
@@ -128,7 +127,7 @@ class StatisticsReportMail extends BaseJob
             foreach (Application::getApplicationStages() as $stageId) {
                 $file->fputcsv([
                     __(Application::getWorkflowStageName($stageId), [], $locale),
-                    Services::get('editorialStats')->countActiveByStages($stageId)
+                    app()->get('editorialStats')->countActiveByStages($stageId)
                 ]);
             }
 

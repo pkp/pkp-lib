@@ -18,7 +18,6 @@ namespace PKP\plugins;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\statistics\StatisticsHelper;
 use APP\template\TemplateManager;
@@ -994,7 +993,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
             $params['dateStart'] = $earliestDatePublished;
         }
 
-        $statsService = Services::get('publicationStats'); /** @var \App\services\StatsPublicationService $statsService */
+        $statsService = app()->get('publicationStats'); /** @var \App\services\StatsPublicationService $statsService */
         $data = $statsService->getTimeline($params['timelineInterval'], $params);
         return $data;
     }

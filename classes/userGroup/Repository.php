@@ -15,7 +15,6 @@ namespace PKP\userGroup;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use Carbon\Carbon;
 use DateInterval;
@@ -119,7 +118,7 @@ class Repository
      */
     public function validate($userGroup, $props, $allowedLocales, $primaryLocale)
     {
-        $schemaService = Services::get('schema');
+        $schemaService = app()->get('schema');
 
         $validator = ValidatorFactory::make(
             $props,

@@ -15,7 +15,6 @@ namespace PKP\submissionFile;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\publication\Publication;
@@ -487,7 +486,7 @@ abstract class Repository
                 ->includeDependentFiles(true)
                 ->getCount();
             if (!$countFileShares) {
-                Services::get('file')->delete($revision->fileId);
+                app()->get('file')->delete($revision->fileId);
             }
         }
 
@@ -763,7 +762,7 @@ abstract class Repository
     protected function notifyEditorsRevisionsUploaded(SubmissionFile $submissionFile): void
     {
         $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
-        $context = Services::get('context')->get($submission->getData('contextId'));
+        $context = app()->get('context')->get($submission->getData('contextId'));
         $uploader = Repo::user()->get($submissionFile->getData('uploaderUserId'));
         $user = $this->request->getUser();
 
@@ -860,7 +859,7 @@ abstract class Repository
 
         $oldFileId = $submissionFile->getData('fileId');
 
-        $oldFile = Services::get('file')->get($oldFileId);
+        $oldFile = app()->get('file')->get($oldFileId);
 
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
@@ -873,7 +872,7 @@ abstract class Repository
                 $newPublication->getData('submissionId')
             );
 
-        $newFileId = Services::get('file')->add(
+        $newFileId = app()->get('file')->add(
             Config::getVar('files', 'files_dir') . '/' . $oldFile->path,
             $submissionDir . '/' . uniqid() . '.' . $extension
         );

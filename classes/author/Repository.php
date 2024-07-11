@@ -16,7 +16,6 @@ namespace PKP\author;
 use APP\author\Author;
 use APP\author\DAO;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\context\Context;
@@ -98,7 +97,7 @@ class Repository
      */
     public function validate($author, $props, Submission $submission, Context $context)
     {
-        $schemaService = Services::get('schema');
+        $schemaService = app()->get('schema');
         $primaryLocale = $submission->getData('locale');
         $allowedLocales = $submission->getPublicationLanguages($context->getSupportedSubmissionMetadataLocales());
 

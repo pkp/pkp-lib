@@ -17,7 +17,6 @@
 namespace PKP\jobs\email;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
@@ -57,7 +56,7 @@ class EditorialReminder extends BaseJob
         }
 
         /** @var Context $context */
-        $context = Services::get('context')->get($this->contextId);
+        $context = app()->get('context')->get($this->contextId);
         $editor = Repo::user()->get($this->editorId);
 
         // Don't use the request locale because this job is

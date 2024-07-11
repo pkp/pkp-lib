@@ -17,7 +17,6 @@
 namespace PKP\plugins\importexport\native\filter;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -327,7 +326,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             clearstatcache(true, $temporaryFilename);
             $fileManager = new FileManager();
             $submissionDir = Repo::submissionFile()->getSubmissionDir($submission->getData('contextId'), $submission->getId());
-            $newFileId = Services::get('file')->add(
+            $newFileId = app()->get('file')->add(
                 $temporaryFilename,
                 $submissionDir . '/' . uniqid() . '.' . $node->getAttribute('extension')
             );

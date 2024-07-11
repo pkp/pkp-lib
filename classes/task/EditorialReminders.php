@@ -16,7 +16,6 @@
 
 namespace PKP\task;
 
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\services\ContextService;
 use PKP\jobs\email\EditorialReminder;
@@ -35,7 +34,7 @@ class EditorialReminders extends ScheduledTask
     protected function executeActions(): bool
     {
         /** @var ContextService $contextService */
-        $contextService = Services::get('context');
+        $contextService = app()->get('context');
         $contextIds = $contextService->getIds(['isEnabled' => true]);
 
         foreach ($contextIds as $contextId) {

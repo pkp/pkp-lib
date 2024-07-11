@@ -29,7 +29,6 @@
 namespace PKP\install;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\Config as FacadesConfig;
 use PKP\config\Config;
@@ -267,7 +266,7 @@ class PKPInstall extends Installer
         Repo::emailTemplate()->dao->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), $this->installedLocales);
 
         // Install default site settings
-        $schemaService = Services::get('schema');
+        $schemaService = app()->get('schema');
         $site = $schemaService->setDefaults(PKPSchemaService::SCHEMA_SITE, $site, $site->getSupportedLocales(), $site->getPrimaryLocale());
         $site->setData('contactEmail', $this->getParam('adminEmail'), $site->getPrimaryLocale());
         $siteDao->updateObject($site);

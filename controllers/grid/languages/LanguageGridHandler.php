@@ -18,7 +18,6 @@ namespace PKP\controllers\grid\languages;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -89,7 +88,7 @@ class LanguageGridHandler extends GridHandler
         $availableLocales = $this->getGridDataElements($request);
         $context = $request->getContext();
 
-        $contextService = Services::get('context');
+        $contextService = app()->get('context');
 
         $permittedSettings = ['supportedLocales', 'supportedFormLocales', 'supportedSubmissionLocales', 'supportedSubmissionMetadataLocales'];
         if (in_array($settingName, $permittedSettings) && $locale) {
@@ -180,7 +179,7 @@ class LanguageGridHandler extends GridHandler
 
         if (Locale::isLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
             // Make sure at least the primary locale is chosen as available
-            $context = Services::get('context')->edit(
+            $context = app()->get('context')->edit(
                 $context,
                 collect(['supportedLocales', 'supportedFormLocales'])
                     ->mapWithKeys(fn ($name) => [$name => collect($context->getData($name))->push($locale)->unique()->sort()->values()])
@@ -218,7 +217,7 @@ class LanguageGridHandler extends GridHandler
 
         if (Locale::isSubmissionLocaleValid($locale) && array_key_exists($locale, $availableLocales)) {
             // Make sure at least the primary locale is chosen as available
-            Services::get('context')->edit(
+            app()->get('context')->edit(
                 $context,
                 [
                     'supportedDefaultSubmissionLocale' => $locale,

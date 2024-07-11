@@ -16,7 +16,6 @@
 
 namespace PKP\galley;
 
-use APP\core\Services;
 use APP\facades\Repo;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleMetadata;
@@ -200,7 +199,7 @@ class Galley extends Representation
      */
     public function getLanguages(): array
     {
-        $props = Services::get('schema')->getMultilingualProps(PKPSchemaService::SCHEMA_GALLEY);
+        $props = app()->get('schema')->getMultilingualProps(PKPSchemaService::SCHEMA_GALLEY);
         $locales = array_map(fn (string $prop): array => array_keys($this->getData($prop) ?? []), $props);
         return collect([$this->getData('locale')])
             ->concat($locales)

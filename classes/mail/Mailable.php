@@ -28,7 +28,6 @@
 
 namespace PKP\mail;
 
-use APP\core\Services;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\mail\variables\ContextEmailVariable;
@@ -596,7 +595,7 @@ class Mailable extends IlluminateMailable
         if (!$submissionFile) {
             throw new Exception('Tried to attach submission file ' . $id . ' that does not exist.');
         }
-        $file = Services::get('file')->get($submissionFile->getData('fileId'));
+        $file = app()->get('file')->get($submissionFile->getData('fileId'));
         $this->attach(
             Config::getVar('files', 'files_dir') . '/' . $file->path,
             [

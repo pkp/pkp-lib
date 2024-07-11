@@ -17,7 +17,6 @@
 
 namespace PKP\API\v1\_payments;
 
-use APP\core\Services;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -94,7 +93,7 @@ class PKPBackendPaymentsSettingsController extends PKPBaseController
         $request = $this->getRequest();
         $context = $request->getContext();
         $params = $illuminateRequest->input();
-        $contextService = Services::get('context');
+        $contextService = app()->get('context');
 
         // Process query params to format incoming data as needed
         foreach ($illuminateRequest->input() as $param => $val) {

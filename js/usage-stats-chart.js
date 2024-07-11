@@ -43,10 +43,12 @@
 
 	// Define default chart options
 	var chartOptions = {
-		legend: {
-			display: false,
+		plugins: {
+			legend: {
+				display: false,
+			},
 		},
-		tooltips: {
+		tooltip: {
 			titleFontColor: '#333',
 			bodyFontColor: '#333',
 			footerFontColor: '#333',
@@ -60,7 +62,7 @@
 				borderJoinStyle: 'round',
 				backgroundColor: 'rgba(0,0,0,0.3)',
 			},
-			rectangle: {
+			bar: {
 				backgroundColor: 'rgba(0,0,0,0.3)',
 			},
 			point: {
@@ -71,34 +73,23 @@
 			},
 		},
 		scales: {
-			xAxes: [
-				{
-					gridLines: {
-						color: 'rgba(0,0,0,0.05)',
-						drawTicks: false,
-					},
-				},
-			],
-			yAxes: [
-				{
-					gridLines: {
-						color: 'rgba(0,0,0,0.05)',
-						drawTicks: false,
-					},
-				},
-			],
-		},
-	};
-
-	if (pkpUsageStats.config.chartType === 'bar') {
-		chartOptions.scales.xAxes = [
-			{
-				gridLines: {
-					color: 'transparent',
+			x: {
+				grid: {
+					color:
+						pkpUsageStats.config.chartType === 'bar'
+							? 'transparent'
+							: 'rgba(0,0,0,0.05)',
+					drawTicks: false,
 				},
 			},
-		];
-	}
+			y: {
+				grid: {
+					color: 'rgba(0,0,0,0.05)',
+					drawTicks: false,
+				},
+			},
+		},
+	};
 
 	// Fire an event to allow third-party customization of the options
 	var optionsEvent = document.createEvent('Event');

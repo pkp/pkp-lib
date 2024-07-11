@@ -14,7 +14,6 @@
 namespace APP\submission;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\preprint\PreprintTombstoneManager;
 use APP\section\Section;
@@ -91,7 +90,7 @@ class Repository extends \PKP\submission\Repository
             if ($requestContext && $requestContext->getId() === $submission->getData('contextId')) {
                 $context = $requestContext;
             } else {
-                $context = Services::get('context')->get($submission->getData('contextId'));
+                $context = app()->get('context')->get($submission->getData('contextId'));
             }
             $preprintTombstoneManager = new PreprintTombstoneManager();
             if (!$section) {

@@ -17,7 +17,6 @@
 
 namespace APP\API\v1\submissions;
 
-use APP\core\Services;
 use APP\facades\Repo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -122,7 +121,7 @@ class SubmissionController extends \PKP\API\v1\submissions\PKPSubmissionControll
         // Validate against the schema
         $submissionContext = $request->getContext();
         if (!$submissionContext || $submissionContext->getId() !== $submission->getData('contextId')) {
-            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+            $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
 
         $errors = Repo::publication()->validate($publication, $params, $submission, $submissionContext);

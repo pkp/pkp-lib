@@ -19,7 +19,6 @@ namespace APP\pages\authorDashboard;
 use APP\components\forms\publication\PublishForm;
 use APP\core\Application;
 use APP\core\PageRouter;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\template\TemplateManager;
@@ -45,7 +44,7 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
 
         $submissionContext = $request->getContext();
         if ($submission->getData('contextId') !== $submissionContext->getId()) {
-            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+            $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
 
         $locales = $submissionContext->getSupportedFormLocaleNames();

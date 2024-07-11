@@ -17,7 +17,6 @@
 namespace APP\pages\workflow;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\decision\types\Decline;
 use APP\decision\types\RevertDecline;
 use APP\facades\Repo;
@@ -70,7 +69,7 @@ class WorkflowHandler extends PKPWorkflowHandler
 
         $submissionContext = $request->getContext();
         if ($submission->getData('contextId') !== $submissionContext->getId()) {
-            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+            $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
 
         $latestPublication = $submission->getLatestPublication();

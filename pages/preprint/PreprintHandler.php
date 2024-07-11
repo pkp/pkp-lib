@@ -19,7 +19,6 @@ namespace APP\pages\preprint;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\observers\events\UsageEvent;
@@ -374,11 +373,11 @@ class PreprintHandler extends Handler
             if (!Hook::call('PreprintHandler::download', [$this->preprint, &$this->galley, &$this->submissionFileId])) {
                 $submissionFile = Repo::submissionFile()->get($this->submissionFileId);
 
-                if (!Services::get('file')->fs->has($submissionFile->getData('path'))) {
+                if (!app()->get('file')->fs->has($submissionFile->getData('path'))) {
                     $request->getDispatcher()->handle404();
                 }
 
-                $filename = Services::get('file')->formatFilename($submissionFile->getData('path'), $submissionFile->getLocalizedData('name'));
+                $filename = app()->get('file')->formatFilename($submissionFile->getData('path'), $submissionFile->getLocalizedData('name'));
 
                 // if the file is a galley file (i.e. not a dependent file e.g. CSS or images), fire an usage event.
                 if ($this->galley->getData('submissionFileId') == $this->submissionFileId) {
@@ -395,7 +394,7 @@ class PreprintHandler extends Handler
                 $returner = true;
                 Hook::call('FileManager::downloadFileFinished', [&$returner]);
 
-                Services::get('file')->download($submissionFile->getData('fileId'), $filename);
+                app()->get('file')->download($submissionFile->getData('fileId'), $filename);
             }
         } else {
             header('HTTP/1.0 403 Forbidden');

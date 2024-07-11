@@ -76,7 +76,6 @@ plugins/generic/citationStyleLanguage/lib/vendor/guzzle/guzzle/tests/Guzzle/Test
 plugins/generic/citationStyleLanguage/lib/vendor/symfony/config/Tests/			\
 lib/pkp/lib/vendor/symfony/translation/Tests/						\
 lib/pkp/lib/vendor/symfony/process/Tests/						\
-lib/pkp/lib/vendor/pimple/pimple/src/Pimple/Tests/					\
 lib/pkp/lib/vendor/robloach/component-installer/tests/ComponentInstaller/Test/		\
 lib/pkp/lib/vendor/michelf/php-markdown/test						\
 plugins/generic/citationStyleLanguage/lib/vendor/satooshi/php-coveralls/tests/		\
@@ -87,7 +86,6 @@ plugins/generic/citationStyleLanguage/lib/vendor/seboettg/citeproc-php/example/	
 lib/pkp/lib/vendor/nikic/fast-route/test/						\
 lib/pkp/lib/vendor/ezyang/htmlpurifier/tests/						\
 lib/pkp/lib/vendor/ezyang/htmlpurifier/smoketests/					\
-lib/pkp/lib/vendor/pimple/pimple/ext/pimple/tests/					\
 lib/pkp/lib/vendor/robloach/component-installer/tests/					\
 lib/pkp/lib/vendor/swiftmailer/swiftmailer/tests/					\
 lib/pkp/lib/vendor/dragonmantank/cron-expression/tests/					\

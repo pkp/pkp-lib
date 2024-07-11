@@ -24,7 +24,6 @@
 
 namespace APP\submission;
 
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\statistics\StatisticsHelper;
@@ -56,7 +55,7 @@ class Submission extends PKPSubmission
      */
     public function _getContextLicenseFieldValue($locale, $field, $publication = null)
     {
-        $context = Services::get('context')->get($this->getData('contextId'));
+        $context = app()->get('context')->get($this->getData('contextId'));
         $fieldValue = null; // Scrutinizer
         switch ($field) {
             case Submission::PERMISSIONS_FIELD_LICENSE_URL:
@@ -144,7 +143,7 @@ class Submission extends PKPSubmission
             'contextIds' => [$this->getData('contextId')],
             'fileIds' => $fileIds,
         ];
-        $metrics = Services::get('publicationStats')
+        $metrics = app()->get('publicationStats')
             ->getQueryBuilder($filters)
             ->getSum([])
             ->value('metric');

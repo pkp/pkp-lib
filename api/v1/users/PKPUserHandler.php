@@ -371,7 +371,7 @@ class PKPUserHandler extends APIHandler
 
         $report = Repo::user()->getReport($params);
         header('content-type: text/comma-separated-values');
-        header('content-disposition: attachment; filename="user-report-' . date('Y-m-d') . '.csv"');
+        header('content-disposition: attachment; filename=user-report-' . date('Y-m-d') . '.csv');
         $report->serialize(fopen('php://output', 'w+'));
         exit;
     }

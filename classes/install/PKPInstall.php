@@ -256,7 +256,7 @@ class PKPInstall extends Installer
         /** @var SiteDAO */
         $siteDao = DAORegistry::getDAO('SiteDAO');
         $site = $siteDao->newDataObject();
-        $site->setRedirect(0);
+        $site->setRedirect(null);
         $site->setMinPasswordLength(static::MIN_PASSWORD_LENGTH);
         $site->setPrimaryLocale($siteLocale);
         $site->setInstalledLocales($this->installedLocales);

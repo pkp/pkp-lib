@@ -101,7 +101,6 @@
 	{assign var="showGenreSelector" value=true}
 	{if empty($submissionFileOptions)}
 		{* Use case 4: Upload a new file *}
-		{if is_numeric($revisedFileId)}{"A revised file id cannot be given when uploading a new file!"|fatalError}{/if}
 		{assign var="showFileSelector" value=false}
 	{else}
 		{* Use case 3: Upload a new file or a revision *}

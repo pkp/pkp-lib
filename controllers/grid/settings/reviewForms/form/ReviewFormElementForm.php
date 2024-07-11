@@ -135,7 +135,7 @@ class ReviewFormElementForm extends Form
             $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /** @var ReviewFormDAO $reviewFormDao */
             $reviewForm = $reviewFormDao->getById($reviewFormElement->getReviewFormId(), Application::getContextAssocType(), $context->getId());
             if (!$reviewForm) {
-                fatalError('Invalid review form element ID!');
+                throw new \Exception('Invalid review form element ID!');
             }
         } else {
             $reviewFormElement = $reviewFormElementDao->newDataObject();

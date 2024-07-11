@@ -13,8 +13,6 @@
  * Any frequently-used functions that cannot be put into an appropriate class should be added here.
  */
 
-use PKP\config\Config;
-use PKP\core\Registry;
 
 /*
  * Constants for expressing human-readable data sizes in their respective number of bytes.
@@ -27,107 +25,6 @@ define('PB_IN_BYTES', 1024 * TB_IN_BYTES);
 define('EB_IN_BYTES', 1024 * PB_IN_BYTES);
 define('ZB_IN_BYTES', 1024 * EB_IN_BYTES);
 define('YB_IN_BYTES', 1024 * ZB_IN_BYTES);
-
-/**
- * Wrapper around exit() to pretty-print an error message with an optional stack trace.
- */
-function fatalError($reason)
-{
-    // Because this method may be called when checking the value of the show_stacktrace
-    // configuration string, we need to ensure that we don't get stuck in an infinite loop.
-    static $isErrorCondition = null;
-    static $showStackTrace = false;
-
-    if ($isErrorCondition === null) {
-        $isErrorCondition = true;
-        $showStackTrace = Config::getVar('debug', 'show_stacktrace');
-        $isErrorCondition = false;
-    }
-
-    echo '<h1>' . htmlspecialchars($reason) . '</h1>';
-
-    if ($showStackTrace) {
-        echo "<h4>Stack Trace:</h4>\n";
-        $trace = debug_backtrace();
-
-        // Remove the call to fatalError from the call trace.
-        array_shift($trace);
-
-        // Back-trace pretty-printer adapted from the following URL:
-        // http://ca3.php.net/manual/en/function.debug-backtrace.php
-        // Thanks to diz at ysagoon dot com
-
-        // FIXME: Is there any way to localize this when the localization
-        // functions may have caused the failure in the first place?
-        foreach ($trace as $bt) {
-            $args = '';
-            if (isset($bt['args'])) {
-                foreach ($bt['args'] as $a) {
-                    if (!empty($args)) {
-                        $args .= ', ';
-                    }
-                    switch (gettype($a)) {
-                        case 'integer':
-                        case 'double':
-                            $args .= $a;
-                            break;
-                        case 'string':
-                            $a = htmlspecialchars(substr($a, 0, 64)) . ((strlen($a) > 64) ? '...' : '');
-                            $args .= "\"{$a}\"";
-                            break;
-                        case 'array':
-                            $args .= 'Array(' . count($a) . ')';
-                            break;
-                        case 'object':
-                            $args .= 'Object(' . get_class($a) . ')';
-                            break;
-                        case 'resource':
-                            $args .= 'Resource(' . strstr($a, '#') . ')';
-                            break;
-                        case 'boolean':
-                            $args .= $a ? 'True' : 'False';
-                            break;
-                        case 'NULL':
-                            $args .= 'Null';
-                            break;
-                        default:
-                            $args .= 'Unknown';
-                    }
-                }
-            }
-            $class = $bt['class'] ?? '';
-            $type = $bt['type'] ?? '';
-            $function = $bt['function'] ?? '';
-            $file = $bt['file'] ?? '(unknown)';
-            $line = $bt['line'] ?? '(unknown)';
-
-            echo "<strong>File:</strong> {$file} line {$line}<br />\n";
-            echo "<strong>Function:</strong> {$class}{$type}{$function}({$args})<br />\n";
-            echo "<br/>\n";
-        }
-    }
-
-    // Determine the application name. Use defensive code so that we
-    // can handle errors during early application initialization.
-    $application = null;
-    if (class_exists('Registry')) {
-        $application = Registry::get('application', true, null);
-    }
-    $applicationName = '';
-    if (!is_null($application)) {
-        $applicationName = $application->getName() . ': ';
-    }
-
-    error_log($applicationName . $reason);
-
-    if (defined('DONT_DIE_ON_ERROR') && DONT_DIE_ON_ERROR == true) {
-        // trigger an error to be catched outside the application
-        trigger_error($reason);
-        return;
-    }
-
-    exit;
-}
 
 /**
  * Instantiates an object for a given fully qualified

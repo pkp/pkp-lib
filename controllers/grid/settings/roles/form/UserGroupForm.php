@@ -200,7 +200,9 @@ class UserGroupForm extends Form
             $userGroup = Repo::userGroup()->newDataObject();
 
             $roleId = $this->getData('roleId');
-            if ($roleId == Role::ROLE_ID_SITE_ADMIN) throw new \Exception('Site administrator roles cannot be created here.');
+            if ($roleId == Role::ROLE_ID_SITE_ADMIN) {
+                throw new \Exception('Site administrator roles cannot be created here.');
+            }
             $userGroup->setRoleId($roleId);
 
             $userGroup->setContextId($this->getContextId());
@@ -291,7 +293,7 @@ class UserGroupForm extends Form
                     'stageId' => $stageId
                 ]);
             } else {
-                fatalError('Invalid stage id');
+                throw new \Exception('Invalid stage id');
             }
         }
     }

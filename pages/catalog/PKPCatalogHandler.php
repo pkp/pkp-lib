@@ -133,7 +133,7 @@ class PKPCatalogHandler extends Handler
                 $contextFileManager->downloadByPath($contextFileManager->getBasePath() . '/categories/' . $imageInfo['name'], null, true);
                 break;
             default:
-                fatalError('invalid type specified');
+                throw new \Exception('invalid type specified');
         }
     }
 
@@ -157,7 +157,7 @@ class PKPCatalogHandler extends Handler
                 $contextFileManager->downloadByPath($contextFileManager->getBasePath() . '/categories/' . $imageInfo['thumbnailName'], null, true);
                 break;
             default:
-                fatalError('invalid type specified');
+                throw new \Exception('invalid type specified');
         }
     }
 

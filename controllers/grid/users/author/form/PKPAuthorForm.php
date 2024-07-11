@@ -219,7 +219,7 @@ class PKPAuthorForm extends Form
         } else {
             $existingAuthor = true;
             if ($publication->getId() !== $author->getData('publicationId')) {
-                fatalError('Invalid author!');
+                throw new \Exception('Invalid author!');
             }
         }
 

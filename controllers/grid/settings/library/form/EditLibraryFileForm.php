@@ -45,16 +45,18 @@ class EditLibraryFileForm extends LibraryFileForm
         $this->libraryFile = $libraryFileDao->getById($fileId);
 
         if (!$this->libraryFile || $this->libraryFile->getContextId() != $this->contextId) {
-            fatalError('Invalid library file!');
+            throw new \Exception('Invalid library file!');
         }
     }
 
     /**
      * Assign form data to user-submitted data.
+     *
      * @see Form::readInputData()
      */
-    function readInputData() {
-        $this->readUserVars(array('temporaryFileId'));
+    public function readInputData()
+    {
+        $this->readUserVars(['temporaryFileId']);
         return parent::readInputData();
     }
 

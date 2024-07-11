@@ -118,7 +118,7 @@ class VersionDAO extends \PKP\db\DAO
                     $this->update('UPDATE versions SET current = 0 WHERE current = 1 AND product = ?', [$version->getProduct()]);
                 } else {
                     // We do not support downgrades.
-                    fatalError('You are trying to downgrade the product "' . $version->getProduct() . '" from version [' . $oldVersion->getVersionString(false) . '] to version [' . $version->getVersionString(false) . ']. Downgrades are not supported.');
+                    throw new \Exception('You are trying to downgrade the product "' . $version->getProduct() . '" from version [' . $oldVersion->getVersionString(false) . '] to version [' . $version->getVersionString(false) . ']. Downgrades are not supported.');
                 }
             }
         }

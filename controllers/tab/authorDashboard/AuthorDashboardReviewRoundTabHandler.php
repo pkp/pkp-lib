@@ -87,7 +87,7 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         if ($stageId !== WORKFLOW_STAGE_ID_INTERNAL_REVIEW && $stageId !== WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
-            fatalError('Invalid Stage Id');
+            throw new \Exception('Invalid Stage Id');
         }
 
         $templateMgr->assign([

@@ -151,7 +151,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
      * @param $paramArray contains variables for replacement
      *
      */
-    public function _performReplacement(string $rawInput, array $paramArray = []): string
+    public function _performReplacement(?string $rawInput, array $paramArray = []): string
     {
         $value = preg_replace_callback('{{translate key="([^"]+)"}}', fn ($matches) => __($matches[1]), (string) $rawInput);
         foreach ($paramArray as $pKey => $pValue) {

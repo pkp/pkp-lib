@@ -225,7 +225,7 @@ class PreprintHandler extends Handler
 
 
         if ($this->galley && !$this->userCanViewGalley($request)) {
-            fatalError('Cannot view galley.');
+            throw new \Exception('Cannot view galley.');
         }
 
         // Get galleys sorted into primary and supplementary groups

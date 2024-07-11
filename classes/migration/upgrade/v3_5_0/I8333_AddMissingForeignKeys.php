@@ -47,6 +47,9 @@ abstract class I8333_AddMissingForeignKeys extends \PKP\migration\Migration
 
     protected function updateSpecialValues(): void
     {
+        DB::table('site')
+            ->where('redirect', '=', 0)
+            ->update(['redirect' => null]);
         DB::table('filters')
             ->where('parent_filter_id', '=', 0)
             ->update(['parent_filter_id' => null]);
@@ -73,6 +76,13 @@ abstract class I8333_AddMissingForeignKeys extends \PKP\migration\Migration
      */
     protected function setupFieldSchema(): void
     {
+        Schema::table('site', function (Blueprint $table) {
+            $table->bigInteger('redirect')->nullable()->default(null)->change();
+        });
+        Schema::table('site', function (Blueprint $table) {
+            $table->renameColumn('redirect', 'redirect_context_id');
+        });
+
         Schema::table('filters', function (Blueprint $table) {
             // Only needed to fix the default value (0)
             $table->bigInteger('filter_group_id')->default(null)->change();
@@ -96,6 +106,9 @@ abstract class I8333_AddMissingForeignKeys extends \PKP\migration\Migration
      */
     protected function clearOrphanedEntities(): void
     {
+        // site
+        $this->deleteOptionalReference('site', 'redirect_context_id', $this->getContextTable(), $this->getContextKeyField());
+
         // user_groups
         $ignoreAdministratorUserGroup = fn (Builder $q) => $q->where(
             fn (Builder $where) => $where->where('s.context_id', '!=', 0)->orWhere('s.role_id', '!=', 1)

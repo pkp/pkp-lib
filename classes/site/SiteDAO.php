@@ -24,7 +24,7 @@ class SiteDAO extends \PKP\db\DAO
 {
     /** @var array Maps schema properties for the primary table to their column names */
     public $primaryTableColumns = [
-        'redirect' => 'redirect',
+        'redirectContextId' => 'redirect_context_id',
         'primaryLocale' => 'primary_locale',
         'minPasswordLength' => 'min_password_length',
         'installedLocales' => 'installed_locales',
@@ -102,7 +102,7 @@ class SiteDAO extends \PKP\db\DAO
         $type = 'array';
         $this->update(
             'INSERT INTO site
-				(redirect, min_password_length, primary_locale, installed_locales, supported_locales)
+				(redirect_context_id, min_password_length, primary_locale, installed_locales, supported_locales)
 				VALUES
 				(?, ?, ?, ?, ?)',
             [

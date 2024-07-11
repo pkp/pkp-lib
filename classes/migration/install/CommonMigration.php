@@ -47,7 +47,10 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::create('site', function (Blueprint $table) {
             $table->comment('A singleton table describing basic information about the site.');
             $table->bigIncrements('site_id');
-            $table->bigInteger('redirect')->default(0)->comment('If not 0, redirect to the specified journal/conference/... site.');
+            $table->bigInteger('redirect_context_id')->nullable()->comment('If not null, redirect to the specified journal/conference/... site.');
+            $contextDao = Application::getContextDAO();
+            $table->foreign('redirect_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->nullOnDelete();
+            $table->index(['redirect_context_id'], 'site_context_id');
             $table->string('primary_locale', 28)->comment('Primary locale for the site.');
             $table->smallInteger('min_password_length')->default(6);
             $table->string('installed_locales', 1024)->default('en')->comment('Locales for which support has been installed.');

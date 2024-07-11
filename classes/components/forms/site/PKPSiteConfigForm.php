@@ -59,11 +59,11 @@ class PKPSiteConfigForm extends FormComponent
             ];
         }
         if (count($options) > 1) {
-            $this->addField(new FieldSelect('redirect', [
+            $this->addField(new FieldSelect('redirectContextId', [
                 'label' => __('admin.settings.redirect'),
                 'description' => __('admin.settings.redirectInstructions'),
                 'options' => $options,
-                'value' => $site->getData('redirect'),
+                'value' => $site->getRedirect(),
             ]));
         }
 

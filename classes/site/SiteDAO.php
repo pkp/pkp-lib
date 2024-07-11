@@ -127,7 +127,8 @@ class SiteDAO extends \PKP\db\DAO
         $set = $params = [];
         foreach ($this->primaryTableColumns as $propName => $column) {
             $set[] = $column . ' = ?';
-            $params[] = $this->convertToDb($sanitizedProps[$propName], $schema->properties->{$propName}->type);
+            $property = $schema->properties->{$propName};
+            $params[] = $this->convertToDb($sanitizedProps[$propName], $property->type, in_array('nullable', $property->validation ?? []));
         }
         $this->update('UPDATE site SET ' . join(',', $set), $params);
 

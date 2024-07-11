@@ -112,7 +112,7 @@ class PKPRoutingProvider extends RoutingServiceProvider
                 [
                     'content-type' => $responseType['mime'],
                     'X-Total-Count' => $maxRows,
-                    'content-disposition' => 'attachment; filename="user-report-' . date('Y-m-d') . $responseType['extension'] . '"',
+                    'content-disposition' => 'attachment; filename=user-report-' . date('Y-m-d') . $responseType['extension'],
                 ]
             );
         });

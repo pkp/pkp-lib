@@ -44,13 +44,13 @@ class PKPSitemapHandler extends Handler
             $doc = $this->_createSitemapIndex($request);
             header('Content-Type: application/xml');
             header('Cache-Control: private');
-            header('Content-Disposition: inline; filename="sitemap_index.xml"');
+            header('Content-Disposition: inline; filename=sitemap_index.xml');
             echo $doc->saveXml();
         } else {
             $doc = $this->_createContextSitemap($request);
             header('Content-Type: application/xml');
             header('Cache-Control: private');
-            header('Content-Disposition: inline; filename="sitemap.xml"');
+            header('Content-Disposition: inline; filename=sitemap.xml');
             echo $doc->saveXml();
         }
     }

@@ -280,7 +280,7 @@ class PKPUserController extends PKPBaseController
             Response::HTTP_OK,
             [
                 'content-type' => 'application/force-download',
-                'content-disposition' => 'attachment; filename="user-report-' . date('Y-m-d') . '.csv"',
+                'content-disposition' => 'attachment; filename=user-report-' . date('Y-m-d') . '.csv',
             ]
         );
     }

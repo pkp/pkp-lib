@@ -63,7 +63,7 @@ class PKPAppearanceMastheadForm extends FormComponent
 
         $this->addField(new FieldOptions('mastheadUserGroupIds', [
             'label' => __('common.editorialMasthead'),
-            'description' => __('manager.setup.editorialMasthead.description'),
+            'description' => __('manager.setup.editorialMasthead.order.description'),
             'isOrderable' => true,
             'value' => array_column($mastheadOptions, 'value'),
             'options' => $mastheadOptions,

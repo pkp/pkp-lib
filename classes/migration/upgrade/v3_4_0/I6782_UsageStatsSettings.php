@@ -14,7 +14,6 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
-use APP\core\Services;
 use Illuminate\Support\Facades\DB;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
@@ -94,7 +93,7 @@ class I6782_UsageStatsSettings extends Migration
 
         // Migrate context settings
         // Get all, also disabled, contexts
-        $contextIds = Services::get('context')->getIds();
+        $contextIds = app()->get('context')->getIds();
         foreach ($contextIds as $contextId) {
             $contextDisplayStatistics = $contextChartType = null;
             $contextDisplayStatistics = DB::table('plugin_settings')

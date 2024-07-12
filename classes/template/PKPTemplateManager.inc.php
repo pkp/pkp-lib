@@ -616,10 +616,10 @@ class PKPTemplateManager extends Smarty {
 		// properly by our build script
 		$this->addJavaScript(
 			'jqueryValidate',
-			$baseUrl . '/lib/pkp/lib/vendor/jquery/validation/dist/jquery.validate.min.js',
+			$baseUrl . '/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.min.js',
 			$args
 		);
-		$jqvLocalePath = 'lib/pkp/lib/vendor/jquery/validation/dist/localization/messages_';
+		$jqvLocalePath = 'lib/pkp/js/lib/jquery/plugins/validate/localization/messages_';
 		foreach ($localeChecks as $localeCheck) {
 			if (file_exists($jqvLocalePath . $localeCheck .'.js')) {
 				$this->addJavaScript('jqueryValidateLocale', $baseUrl . '/' . $jqvLocalePath . $localeCheck . '.js', $args);
@@ -843,7 +843,7 @@ class PKPTemplateManager extends Smarty {
 		);
 		$this->addJavaScript(
 			'jqueryUI',
-			$request->getBaseUrl() . '/lib/pkp/lib/vendor/jquery/ui/dist/jquery-ui' . $min . '.js',
+			$request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js',
 			[
 				'priority' => STYLE_SEQUENCE_CORE,
 				'contexts' => 'backend',

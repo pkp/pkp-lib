@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * @file classes/core/PKPQueueProvider.php
  *
@@ -76,10 +74,10 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
      */
     public function runJobsViaDaemon(string $connection, string $queue, array $workerOptions = []): void
     {
-        $worker = PKPContainer::getInstance()['queue.worker']; /** @var \Illuminate\Queue\Worker $worker */
+        $worker = $this->app->get('queue.worker'); /** @var \Illuminate\Queue\Worker $worker */
 
         $worker
-            ->setCache(app()->get('cache.store'))
+            ->setCache($this->app->get('cache.store'))
             ->daemon(
                 $connection,
                 $queue,
@@ -98,9 +96,9 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
             return;
         }
 
-        $laravelContainer = PKPContainer::getInstance();
+        $worker = $this->app->get('queue.worker'); /** @var \Illuminate\Queue\Worker $worker */
 
-        $laravelContainer['queue.worker']->runNextJob(
+        $worker->runNextJob(
             'database',
             $job->queue ?? Config::getVar('queues', 'default_queue', 'queue'),
             $this->getWorkerOptions()

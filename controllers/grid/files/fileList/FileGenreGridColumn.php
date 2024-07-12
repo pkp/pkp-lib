@@ -18,7 +18,7 @@ namespace PKP\controllers\grid\files\fileList;
 use PKP\controllers\grid\ColumnBasedGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\db\DAORegistry;
-use PKP\submission\GenreDAO;
+use PKP\submission\genre\Genre;
 use PKP\submissionFile\SubmissionFile;
 
 class FileGenreGridColumn extends GridColumn
@@ -51,8 +51,7 @@ class FileGenreGridColumn extends GridColumn
         assert($submissionFile instanceof SubmissionFile);
 
         // Retrieve the genre label for the submission file.
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-        $genre = $genreDao->getById($submissionFile->getGenreId());
+        $genre = Genre::find($submissionFile->getData('genreId'));
 
         // If no label exists (e.g. for review attachments)
         if (!$genre) {

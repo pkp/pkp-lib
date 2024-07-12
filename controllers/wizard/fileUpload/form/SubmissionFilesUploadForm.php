@@ -23,8 +23,7 @@ use APP\submission\Submission;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\form\validation\FormValidator;
-use PKP\submission\Genre;
-use PKP\submission\GenreDAO;
+use PKP\submission\genre\Genre;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 use PKP\user\User;
@@ -150,8 +149,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
                 FormValidator::FORM_VALIDATOR_REQUIRED_VALUE,
                 'submission.upload.noGenre',
                 function ($genreId) use ($context) {
-                    $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-                    return $genreDao->getById($genreId, $context->getId()) instanceof Genre;
+                    return Genre::where('id', $genreId)->where('context_id', $context->getId())->exists();
                 }
             ));
         }
@@ -263,16 +261,16 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
     public function _retrieveGenreList($request)
     {
         $context = $request->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $dependentFilesOnly = $request->getUserVar('dependentFilesOnly') ? true : false;
-        $genres = $genreDao->getByDependenceAndContextId($dependentFilesOnly, $context->getId());
+        $genres = Repo::genre()->getByDependenceAndContextId($dependentFilesOnly, $context->getId());
 
         // Transform the genres into an array and
         // assign them to the form.
         $genreList = [];
-        while ($genre = $genres->next()) {
-            $genreList[$genre->getId()] = $genre->getLocalizedName();
+        foreach ($genres as $genre) {
+            $genreList[$genre->id] = $genre->name; // TODO: localized name handling needed
         }
         return $genreList;
     }
+   
 }

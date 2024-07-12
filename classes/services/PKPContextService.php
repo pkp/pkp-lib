@@ -547,6 +547,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
         }
         $context = $this->edit($context, $params, $request);
 
+        // TODO: transition to using Genre repository once installDefaults is implemented
+        // this usage is temporary and pending finalization of settings management.
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genreDao->installDefaults($context->getId(), $context->getData('supportedLocales'));
 

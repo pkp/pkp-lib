@@ -37,7 +37,7 @@ use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
-use PKP\submission\GenreDAO;
+use PKP\submission\genre\Genre;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
@@ -459,9 +459,7 @@ class FileUploadWizardHandler extends Handler
         $form = new SubmissionFilesMetadataForm($submissionFile, $this->getStageId(), $this->getReviewRound());
         $form->initData();
 
-        /** @var GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $fileGenres = $genreDao->getByContextId($context->getId())->toArray();
+        $fileGenres = Genre::where('context_id', $context->getId())->get()->toArray();
 
         $fileData = Repo::submissionFile()
             ->getSchemaMap()
@@ -497,9 +495,8 @@ class FileUploadWizardHandler extends Handler
             $templateMgr->assign('fileStage', $submissionFile->getData('fileStage'));
         }
 
-        /** @var GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $fileGenres = $genreDao->getByContextId($request->getContext()->getId())->toArray();
+        $contextId = $request->getContext()->getId();
+        $fileGenres = Genre::where('context_id', $contextId)->get()->toArray();
 
         $fileData = Repo::submissionFile()
             ->getSchemaMap()

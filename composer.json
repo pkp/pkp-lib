@@ -1,7 +1,6 @@
 {
 	"require": {
 		"adodb/adodb-php": "v5.20.18",
-		"components/jquery": "^3.5",
 		"composer/semver": "^3.3",
 		"cweagans/composer-patches": "^1.7",
 		"dflydev/base32-crockford": "^1.0",
@@ -13,8 +12,6 @@
 		"gettext/gettext": "5.*",
 		"gettext/translator": "1.*",
 		"guzzlehttp/guzzle": "^7.0",
-		"jquery/ui": "1.13.3",
-		"jquery/validation": "1.19.5",
 		"kevinlebrun/colors.php": "^1.0",
 		"laravel/framework": "^9.0",
 		"league/flysystem": "^3.0",
@@ -96,29 +93,5 @@
 			"PKP\\tests\\": "tests/",
 			"APP\\tests\\": "../../tests/"
 		}
-	},
-	"repositories": [
-		{
-			"type": "package",
-			"package": {
-				"name": "jquery/ui",
-				"version": "1.13.3",
-				"dist": {
-					"url": "https://registry.npmjs.org/jquery-ui/-/jquery-ui-1.13.3.tgz",
-					"type": "tar"
-				}
-			}
-		},
-		{
-			"type": "package",
-			"package": {
-				"name": "jquery/validation",
-				"version": "1.19.5",
-				"dist": {
-					"url": "https://registry.npmjs.org/jquery-validation/-/jquery-validation-1.19.5.tgz",
-					"type": "tar"
-				}
-			}
-		}
-	]
+	}
 }

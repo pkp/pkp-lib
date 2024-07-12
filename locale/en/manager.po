@@ -3561,5 +3561,8 @@ msgstr "Define the order of masthead roles for public display."
 msgid "manager.setup.editorialMasthead.order.reviewers.description"
 msgstr "Reviewers will be displayed in a standardized format to maintain uniformity and ensure easy discoverability in this section."
 
+msgid "manager.setup.editorialMasthead.editorialHistory.description"
+msgstr "Please provide the editorial history, including the full name, affiliation, and start and end dates of each editor."
+
 msgid "mailable.changeProfileEmailInvitationNotify.name"
 msgstr "Change Email Address Invitation"

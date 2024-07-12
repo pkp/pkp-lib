@@ -17,6 +17,8 @@
 
 namespace PKP\core;
 
+use HTMLPurifier;
+use HTMLPurifier_Config;
 use PKP\config\Config;
 
 class PKPString
@@ -161,15 +163,16 @@ class PKPString
             return '';
         }
 
-        static $caches;
-
-        if (!isset($caches[$configKey])) {
-            $caches[$configKey] = new \PKP\core\PKPHtmlSanitizer(
-                Config::getVar('security', $configKey)
-            );
+        static $purifier;
+        if (!isset($purifier)) {
+            $config = HTMLPurifier_Config::createDefault();
+            $config->set('Core.Encoding', 'utf-8');
+            $config->set('HTML.Doctype', 'HTML 4.01 Transitional');
+            $config->set('HTML.Allowed', Config::getVar('security', $configKey));
+            $config->set('Cache.SerializerPath', 'cache');
+            $purifier = new HTMLPurifier($config);
         }
-
-        return $caches[$configKey]->sanitize($input);
+        return $purifier->purify((string) $input);
     }
 
     /**

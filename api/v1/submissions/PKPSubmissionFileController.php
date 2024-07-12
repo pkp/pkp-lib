@@ -34,7 +34,7 @@ use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
-use PKP\submission\GenreDAO;
+use PKP\submission\genre\Genre;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
 
@@ -329,12 +329,10 @@ class PKPSubmissionFileController extends PKPBaseController
 
         // If no genre has been set and there is only one genre possible, set it automatically
         if (empty($params['genreId'])) {
-            /** @var GenreDAO */
-            $genreDao = DAORegistry::getDAO('GenreDAO');
-            $genres = $genreDao->getEnabledByContextId($request->getContext()->getId());
-            [$firstGenre, $secondGenre] = [$genres->next(), $genres->next()];
-            if ($firstGenre && !$secondGenre) {
-                $params['genreId'] = $firstGenre->getId();
+            $genres = Repo::genre()->getEnabledByContextId($request->getContext()->getId());
+
+            if ($genres->count() == 1) {
+                $params['genreId'] = $genres->first()->id;
             }
         }
 
@@ -579,9 +577,8 @@ class PKPSubmissionFileController extends PKPBaseController
      */
     protected function getFileGenres(): array
     {
-        /** @var GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        return $genreDao->getByContextId($this->getRequest()->getContext()->getId())->toArray();
+        $contextId = $this->getRequest()->getContext()->getId();
+        return Genre::where('context_id', $contextId)->get()->toArray();
     }
 
     /**

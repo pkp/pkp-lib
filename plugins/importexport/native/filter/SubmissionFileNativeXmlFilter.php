@@ -25,7 +25,7 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\filter\FilterGroup;
 use PKP\plugins\PluginRegistry;
-use PKP\submission\GenreDAO;
+use PKP\submission\genre\Genre;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileNativeXmlFilter extends NativeExportFilter
@@ -88,10 +88,8 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
             return null;
         }
 
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
-        $genre = $genreDao->getById($submissionFile->getData('genreId'));
-        // @todo The uploader should always exist, see https://github.com/pkp/pkp-lib/issues/9414
-        $uploaderUser = $submissionFile->getData('uploaderUserId') ? Repo::user()->get($submissionFile->getData('uploaderUserId'), true) : null;
+        $genre = Genre::find($submissionFile->getData('genreId'));
+        $uploaderUser = Repo::user()->get($submissionFile->getData('uploaderUserId'), true);
 
         // Create the submission_file node and set metadata
         $submissionFileNode = $doc->createElementNS($deployment->getNamespace(), $this->getSubmissionFileElementName());

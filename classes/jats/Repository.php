@@ -138,9 +138,9 @@ class Repository
         $context = Application::get()->getRequest()->getContext();
         $user = Application::get()->getRequest()->getUser();
 
-        /** @var GenreDAO */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+        // If no genre has been set and there is only one genre possible, set it automatically
+        $genres = Repo::genre()->getEnabledByContextId($context->getId());
+
 
         // Check if a JATS file already exists
         $existingJatsFile = $this->getJatsFile($publicationId, $submissionId, $genres->toArray());

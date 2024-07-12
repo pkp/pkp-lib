@@ -414,17 +414,9 @@ abstract class Repository
             }
         }
 
-        // Clone data citations if any
-        $dataCitations = $publication->getData('dataCitations');
-        foreach ($dataCitations as $dataCitation) {
-            $data = $dataCitation->toArray();
-            unset($data['dataCitationId']);
-            $data['publicationId'] = $newPublication->getId();
-            $newDataCitation = DataCitation::create($data);
-        }
 
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+        $genres = Repo::genre()->getEnabledByContextId($context->getId());
+
 
         $jatsFile = Repo::jats()
             ->getJatsFile($publication->getId(), null, $genres->toArray());

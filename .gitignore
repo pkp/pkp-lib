@@ -3,3 +3,4 @@ lib/tinymce/jscripts/tiny_mce/*.gz
 lib/vendor
 lib/components
 .DS_Store
+js/lib/jquery/plugins/validate/

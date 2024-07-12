@@ -25,7 +25,7 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
-use PKP\submission\GenreDAO;
+use PKP\submission\genre\Genre;
 use PKP\submission\PKPSubmission;
 use PKP\config\Config;
 use PKP\userGroup\UserGroup;
@@ -77,9 +77,140 @@ class DashboardHandler extends Handler
             $request->redirect(null, 'user');
         }
 
+<<<<<<< HEAD
 	// Send to the new submission lists.
         $pkpPageRouter = $request->getRouter();  /** @var \PKP\core\PKPPageRouter $pkpPageRouter */
         $pkpPageRouter->redirectHome($request);
+=======
+        $templateMgr = TemplateManager::getManager($request);
+        $this->setupTemplate($request);
+
+        $currentUser = $request->getUser();
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_submissions');
+        $lists = [];
+
+        $includeIssuesFilter = array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles);
+        $includeAssignedEditorsFilter = array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles);
+        $includeCategoriesFilter = array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT], $userRoles);
+
+        // Get all available categories
+        $categories = [];
+        $categoryCollection = Repo::category()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+
+        foreach ($categoryCollection as $category) {
+            $categories[] = [
+                'id' => $category->getId(),
+                'title' => $category->getLocalizedTitle(),
+            ];
+        }
+
+        // My Queue
+        $collector = Repo::submission()->getCollector()
+            ->filterByContextIds([(int) $request->getContext()->getId()])
+            ->filterByStatus([PKPSubmission::STATUS_QUEUED])
+            ->assignedTo([(int) $request->getUser()->getId()]);
+
+        $itemsMax = $collector->getCount();
+        $items = $collector->limit(30)->getMany();
+
+        $userGroups = Repo::userGroup()->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getMany();
+
+        $genres = Genre::where('context_id', $context->getId())->get()->toArray();
+
+        $items = Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($items, $userGroups, $genres);
+
+        $myQueueListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+            SUBMISSIONS_LIST_MY_QUEUE,
+            __('common.queue.long.myAssigned'),
+            [
+                'apiUrl' => $apiUrl,
+                'getParams' => [
+                    'status' => PKPSubmission::STATUS_QUEUED,
+                    'assignedTo' => [(int) $request->getUser()->getId()],
+                ],
+                'includeIssuesFilter' => $includeIssuesFilter,
+                'includeCategoriesFilter' => $includeCategoriesFilter,
+                'includeActiveSectionFiltersOnly' => true,
+                'items' => $items->values(),
+                'itemsMax' => $itemsMax,
+                'categories' => $categories,
+            ]
+        );
+        $lists[$myQueueListPanel->id] = $myQueueListPanel->getConfig();
+
+        if (!empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles))) {
+            // Unassigned
+            $unassignedListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+                SUBMISSIONS_LIST_UNASSIGNED,
+                __('common.queue.long.submissionsUnassigned'),
+                [
+                    'apiUrl' => $apiUrl,
+                    'getParams' => [
+                        'status' => PKPSubmission::STATUS_QUEUED,
+                        'assignedTo' => \PKP\submission\Collector::UNASSIGNED,
+                    ],
+                    'lazyLoad' => true,
+                    'includeIssuesFilter' => $includeIssuesFilter,
+                    'includeCategoriesFilter' => $includeCategoriesFilter,
+                    'includeActiveSectionFiltersOnly' => true,
+                    'categories' => $categories,
+                ]
+            );
+            $lists[$unassignedListPanel->id] = $unassignedListPanel->getConfig();
+
+            // Active
+            $activeListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+                SUBMISSIONS_LIST_ACTIVE,
+                __('common.queue.long.active'),
+                [
+                    'apiUrl' => $apiUrl,
+                    'getParams' => [
+                        'status' => PKPSubmission::STATUS_QUEUED,
+                    ],
+                    'lazyLoad' => true,
+                    'includeIssuesFilter' => $includeIssuesFilter,
+                    'includeCategoriesFilter' => $includeCategoriesFilter,
+                    'includeAssignedEditorsFilter' => $includeAssignedEditorsFilter,
+                    'categories' => $categories,
+                ]
+            );
+            $lists[$activeListPanel->id] = $activeListPanel->getConfig();
+        }
+
+        // Archived
+        $params = [
+            'status' => [PKPSubmission::STATUS_DECLINED, PKPSubmission::STATUS_PUBLISHED, PKPSubmission::STATUS_SCHEDULED],
+        ];
+        if (empty(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
+            $params['assignedTo'] = (int) $currentUser->getId();
+        }
+        $archivedListPanel = new \APP\components\listPanels\SubmissionsListPanel(
+            SUBMISSIONS_LIST_ARCHIVE,
+            __('submissions.archived'),
+            [
+                'apiUrl' => $apiUrl,
+                'getParams' => $params,
+                'lazyLoad' => true,
+                'includeIssuesFilter' => $includeIssuesFilter,
+                'includeCategoriesFilter' => $includeCategoriesFilter,
+                'includeAssignedEditorsFilter' => $includeAssignedEditorsFilter,
+                'categories' => $categories,
+            ]
+        );
+        $lists[$archivedListPanel->id] = $archivedListPanel->getConfig();
+
+        $templateMgr->setState(['components' => $lists]);
+        $templateMgr->assign([
+            'pageTitle' => __('navigation.submissions'),
+        ]);
+
+        return $templateMgr->display('dashboard/index.tpl');
+>>>>>>> 9de162ec3b... pkp/pkp-lib#10133 Port Genre and GenreDAO to Use Eloquent Model
     }
 
     /**

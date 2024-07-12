@@ -387,8 +387,8 @@ abstract class Repository
             $citationDao->importCitations($newPublication->getId(), $newPublication->getData('citationsRaw'));
         }
 
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+        $genres = Repo::genre()->getEnabledByContextId($context->getId());
+
 
         $jatsFile = Repo::jats()
             ->getJatsFile($publication->getId(), null, $genres->toArray());

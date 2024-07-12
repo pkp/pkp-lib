@@ -46,6 +46,7 @@ use PKP\security\Role;
 use PKP\submission\reviewer\ReviewerAction;
 use PKP\submission\SubmissionCommentDAO;
 use PKP\submissionFile\SubmissionFile;
+use PKP\submission\genre\Genre;
 
 class PKPReviewController extends PKPBaseController
 {
@@ -223,8 +224,8 @@ class PKPReviewController extends PKPBaseController
             }
         }
 
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        $fileGenres = $genreDao->getByContextId($contextId)->toArray();
+        $fileGenres = Genre::where('context_id', $contextId)->get()->toArray();
+
 
         $attachments = Repo::submissionFile()->getCollector()
             ->filterBySubmissionIds([$submissionId])

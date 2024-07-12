@@ -34,7 +34,7 @@ use PKP\notification\Notification;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
-use PKP\submission\GenreDAO;
+use PKP\submission\genre\Genre;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
@@ -541,8 +541,6 @@ abstract class DecisionType
      */
     protected function getFileGenres(int $contextId): array
     {
-        /** @var GenreDAO $genreDao */
-        $genreDao = DAORegistry::getDAO('GenreDAO');
-        return $genreDao->getByContextId($contextId)->toAssociativeArray();
+        return Genre::where('context_id', $contextId)->get()->toArray();
     }
 }

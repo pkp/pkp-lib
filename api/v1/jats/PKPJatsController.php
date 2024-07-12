@@ -129,8 +129,7 @@ class PKPJatsController extends PKPBaseController
         }
 
         $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+        $genres = Repo::genre()->getEnabledByContextId($context->getId());
 
         $jatsFile = Repo::jats()
             ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
@@ -172,8 +171,7 @@ class PKPJatsController extends PKPBaseController
             );
 
         $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+        $genres = Repo::genre()->getEnabledByContextId($context->getId());
 
         $jatsFile = Repo::jats()
             ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());
@@ -192,8 +190,9 @@ class PKPJatsController extends PKPBaseController
         $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
 
         $context = Application::get()->getRequest()->getContext();
-        $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var \PKP\submission\GenreDAO $genreDao */
-        $genres = $genreDao->getEnabledByContextId($context->getId());
+
+        $genres = Repo::genre()->getEnabledByContextId($context->getId());
+
 
         $jatsFile = Repo::jats()
             ->getJatsFile($publication->getId(), $submission->getId(), $genres->toArray());

@@ -32,7 +32,8 @@ use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\file\FileManager;
-use PKP\submission\Genre;
+use PKP\submission\genre\Genre;
+
 
 if (!defined('STDERR')) {
     define('STDERR', fopen('php://stderr', 'w'));
@@ -767,14 +768,17 @@ trait ConvertLogFile
                 }
 
                 // is this a full text or supp file
-                /** @var \PKP\submission\GenreDAO */
-                $genreDao = DAORegistry::getDAO('GenreDAO');
-                $genre = $genreDao->getById($submissionFile->getData('genreId'));
-                if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
+                $genre = Genre::find($submissionFile->getData('genreId'));
+
+
+
+
+                if ($genre && ($genre->category != Genre::GENRE_CATEGORY_DOCUMENT || $genre->supplementary || $genre->dependent)) {
                     $newEntry['assocType'] = Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER;
                 } else {
                     $newEntry['assocType'] = $assocType;
                 }
+
                 $newEntry['submissionId'] = $submissionId;
                 $newEntry['representationId'] = $representationId;
                 $newEntry['submissionFileId'] = $submissionFileId;
@@ -987,14 +991,14 @@ trait ConvertLogFile
                 }
 
                 // is this a full text or supp file
-                /** @var \PKP\submission\GenreDAO */
-                $genreDao = DAORegistry::getDAO('GenreDAO');
-                $genre = $genreDao->getById($submissionFile->getData('genreId'));
-                if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
+                $genre = Genre::find($submissionFile->getData('genreId'));
+
+                if ($genre && ($genre->category != Genre::GENRE_CATEGORY_DOCUMENT || $genre->supplementary || $genre->dependent)) {
                     $newEntry['assocType'] = Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER;
                 } else {
                     $newEntry['assocType'] = $assocType;
                 }
+
                 $newEntry['submissionId'] = $submissionId;
                 $newEntry['representationId'] = $representationId;
                 $newEntry['submissionFileId'] = $submissionFileId;
@@ -1130,14 +1134,15 @@ trait ConvertLogFile
                 }
 
                 // is this a full text or supp file
-                /** @var \PKP\submission\GenreDAO */
-                $genreDao = DAORegistry::getDAO('GenreDAO');
-                $genre = $genreDao->getById($submissionFile->getData('genreId'));
-                if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
+                $genre = Genre::find($submissionFile->getData('genreId'));
+
+                // Check genre details to determine the appropriate assocType
+                if ($genre && ($genre->category != Genre::GENRE_CATEGORY_DOCUMENT || $genre->supplementary || $genre->dependent)) {
                     $newEntry['assocType'] = Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER;
                 } else {
                     $newEntry['assocType'] = $assocType;
                 }
+
                 $newEntry['submissionId'] = $submissionId;
                 $newEntry['representationId'] = $representationId;
                 $newEntry['submissionFileId'] = $submissionFileId;

@@ -23,8 +23,9 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
-use DOMDocument;
+use DOMImplementation;
 use Fpdf\Fpdf;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -1126,29 +1127,202 @@ class PKPReviewerGridHandler extends GridHandler
     }
 
     public function exportXML($args, $request) {
-
         $submissionId = $request->getUserVar('submissionId');
         $reviewId = $request->getUserVar('reviewAssignmentId');
+        $stageId = $request->getUserVar('stageId');
+        $authorFriendly = $request->getUserVar('authorFriendly');
 
-        $fileName = "submission_review_{$submissionId}-{$reviewId}";
-
-        header("Content-Disposition: attachment; filename={$fileName}");
-        header('Content-Type: application/xml');
+        $xmlFileName = "submission_review_{$submissionId}-{$reviewId}.xml";
 
         $submission = Repo::submission()->get($submissionId);
+        $publication = $submission->getCurrentPublication();
+        $htmlTitle = $publication->getLocalizedTitle(null, 'html');
 
-        $xml = new DOMDocument('1.0', 'UTF-8');
-        $root = $xml->createElement('root');
-        $xml->appendChild($root);
+        $mappings = [
+            '<b>' 	=> '<bold>',
+            '</b>' 	=> '</bold>',
+            '<i>' 	=> '<italic>',
+            '</i>' 	=> '</italic>',
+            '<u>' 	=> '<underline>',
+            '</u>' 	=> '</underline>',
+        ];
 
-        $title = $submission->getCurrentPublication()->getLocalizedTitle(null, 'html');
-        $cleanTitle = str_replace("&nbsp;", " ", strip_tags($title));
+        $articleTitle = str_replace(array_keys($mappings), array_values($mappings), $htmlTitle);
+        $doi = $publication->getStoredPubId('doi');
 
-        $text1 = $xml->createElement('text', $cleanTitle);
-        $root->appendChild($text1);
+        if($doi) {
+            $doi = $publication->getStoredPubId('publisher-id');
+            $pubIdType = 'publisher-id';
+        }
 
-        echo $xml->saveXML();
-        exit();
+        $publicationDate = $publication->getData('datePublished');
+
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
+        $recmmendation = $reviewAssignment->getLocalizedRecommendation();
+
+        $pubDateObject = Carbon::parse($publicationDate);
+
+        $publicationDay = $pubDateObject->day;
+        $publicationMonth = $pubDateObject->month;
+        $publicationYear = $pubDateObject->year;
+
+        $impl = new DOMImplementation();
+
+        $doctype = $impl->createDocumentType('article',
+            '-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.2 20190208//EN',
+            'JATS-archivearticle1.dtd');
+
+        $xml = $impl->createDocument(null, '', $doctype);
+
+        $article = $xml->createElement('article');
+        $article->setAttribute('article-type', 'reviewer-report');
+        $article->setAttribute('dtd-version', '1.2');
+        $article->setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink');
+        $xml->appendChild($article);
+
+        $front = $xml->createElement('front');
+        $article->appendChild($front);
+
+        $journalMeta = $xml->createElement('journal-meta');
+
+//        <journal-meta>
+//            <journal-id journal-id-type="acspubs">ol</journal-id>
+//            <self-uri>pubs.acs.org/OrgLett</self-uri>
+//        </journal-meta>
+
+//        $journalId = $xml->createElement('journal-id', 'ol');
+//        $journalId->setAttribute('journal-id-type', 'acspubs');
+//        $journalMeta->appendChild($journalId);
+
+        // Create the <self-uri> element
+
+
+        $journalUrl = $request->getBaseUrl();
+        if($journalUrl === 'http://localhost:8080') $journalUrl = 'https://upt-j-utj1.ubiquityjournal.website/'; //REMOVE
+
+        $selfUri = $xml->createElement('self-uri', $request->getBaseUrl());
+        $journalMeta->appendChild($selfUri);
+
+        $front->appendChild($journalMeta);
+
+        $articleMeta = $xml->createElement('article-meta');
+        $front->appendChild($articleMeta);
+
+        $articleId = $xml->createElement('article-id', $doi);
+        $articleId->setAttribute('pub-id-type', $pubIdType);
+
+        $articleMeta->appendChild($articleId);
+
+        $titleGroup = $xml->createElement('title-group');
+        $articleMeta->appendChild($titleGroup);
+        $articleTitle = $xml->createElement('article-title', $articleTitle);
+        $titleGroup->appendChild($articleTitle);
+
+        $contribGroup = $xml->createElement('contrib-group');
+        $articleMeta->appendChild($contribGroup);
+
+        $contrib = $xml->createElement('contrib'); //author name?????? role???? surely always author?????
+        $contrib->setAttribute('contrib-type', 'author');
+        $contribGroup->appendChild($contrib);
+
+        $anonymous = $xml->createElement('anonymous'); //logic needs to determine this
+        $contrib->appendChild($anonymous);
+
+        $role = $xml->createElement('role', 'Reviewer'); //what is this
+        $role->setAttribute('specific-use', 'reviewer');
+        $contrib->appendChild($role);
+
+        $pubDate = $xml->createElement('pub-date');
+        $pubDate->setAttribute('publication-format', 'electronic');
+        $pubDate->setAttribute('date-type', 'original-publication');
+
+        $pubDate->setAttribute('iso-8601-date', $publicationDate);
+        $articleMeta->appendChild($pubDate);
+
+        $day = $xml->createElement('day', $publicationDay);
+        $pubDate->appendChild($day);
+
+        $month = $xml->createElement('month', $publicationMonth);
+        $pubDate->appendChild($month);
+
+        $year = $xml->createElement('year', $publicationYear);
+        $pubDate->appendChild($year);
+
+        $permissions = $xml->createElement('permissions');
+        $articleMeta->appendChild($permissions);
+
+        $licenseRef = $xml->createElement('ali:license_ref', 'http://creativecommons.org/licenses/by/4.0/');
+        $permissions->appendChild($licenseRef);
+
+        $relatedObject = $xml->createElement('related-object');
+        $relatedObject->setAttribute('document-id', $doi); //ANOTHER DOI??
+        $relatedObject->setAttribute('document-id-type', 'doi');
+        $relatedObject->setAttribute('document-type', 'peer-reviewed-article');
+        $relatedObject->setAttribute('source-id', 'https://www.biorxiv.org/'); //WHAT ON EEARTH IS THIS??
+        $relatedObject->setAttribute('source-id-type', 'url');
+        $articleMeta->appendChild($relatedObject);
+
+        $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
+        $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, null, $reviewId, true);
+
+        $customMetaGroupObject = $xml->createElement('custom-meta-group');
+        $customMetaPeerReviewStage = $xml->createElement('custom-meta');
+        $peerReviewStageTag = $xml->createElement('meta-name', 'peer-review-stage'); //make dynamic
+        $peerReviewStageValueTag = $xml->createElement('meta-value', 'pre-publication'); //make dynamic
+
+        $customMetaPeerReviewStage->appendChild($peerReviewStageTag);
+        $customMetaPeerReviewStage->appendChild($peerReviewStageValueTag);
+
+        $customMetaReccomObject = $xml->createElement('custom-meta');
+        $recomTag = $xml->createElement('meta-name', 'peer-review-recommendation'); //make dynamic
+        $recomValueTag = $xml->createElement('meta-value', $recmmendation);
+
+        $customMetaReccomObject->appendChild($recomTag);
+        $customMetaReccomObject->appendChild($recomValueTag);
+
+        foreach ($submissionComments->records as $key => $comment) {
+            $customMetaCommentsObject = $xml->createElement('custom-meta');
+            $metaName = $submissionComments->records->count() > 1 ? 'submission-comments-' . $key + 1 : 'submission-comments';
+            $commentsTag = $xml->createElement('meta-name', $metaName);
+            $commentsValueTag = $xml->createElement('meta-value', $comment->comments);
+            $customMetaCommentsObject->appendChild($commentsTag);
+            $customMetaCommentsObject->appendChild($commentsValueTag);
+            $customMetaGroupObject->appendChild($customMetaCommentsObject);
+        }
+
+        if(!$authorFriendly) {
+            $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, null, $reviewId, false);
+            foreach ($submissionCommentsPrivate->records as $key => $comment) {
+                $customMetaCommentsPrivateObject = $xml->createElement('custom-meta');
+                $metaName = $submissionCommentsPrivate->records->count() > 1 ? 'submission-comments-private-' . $key + 1 : 'submission-comments-private';
+                $commentsTag = $xml->createElement('meta-name', $metaName);
+                $commentsValueTag = $xml->createElement('meta-value', $comment->comments);
+                $customMetaCommentsPrivateObject->appendChild($commentsTag);
+                $customMetaCommentsPrivateObject->appendChild($commentsValueTag);
+                $customMetaGroupObject->appendChild($customMetaCommentsPrivateObject);
+            }
+        }
+
+        $customMetaGroupObject->appendChild($customMetaPeerReviewStage);
+        $customMetaGroupObject->appendChild($customMetaReccomObject);
+
+        $articleMeta->appendChild($customMetaGroupObject);
+        $xml->formatOutput = true;
+        $xml->save($xmlFileName);
+
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/xml');
+        header('Content-Disposition: attachment; filename="' . basename($xmlFileName) . '"');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($xmlFileName));
+
+        readfile($xmlFileName);
+
+        unlink($xmlFileName);
+
+        exit;
     }
 
     /**

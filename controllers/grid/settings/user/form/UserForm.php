@@ -81,8 +81,7 @@ class UserForm extends Form
      */
     public function display($request = null, $template = null)
     {
-        $context = $request->getContext();
-        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::SITE_CONTEXT_ID;
+        $contextId = $request->getContext()?->getId() ?? \PKP\core\PKPApplication::SITE_CONTEXT_ID;
         $templateMgr = TemplateManager::getManager($request);
 
         $allUserGroups = [];

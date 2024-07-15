@@ -404,7 +404,7 @@ trait ConvertLogFile
                     Application::ASSOC_TYPE_ISSUE_GALLEY => [
                         'issue/download']
                 ];
-                $pageAndOp[Application::getContextAssocType()][] = 'index';
+                $pageAndOp[Application::getContextAssocType()][] = Application::SITE_CONTEXT_PATH;
                 break;
             case 'omp':
                 // Before 3.4 OMP did not have chapter assoc type i.e. chapter landing page
@@ -426,7 +426,7 @@ trait ConvertLogFile
                     Application::ASSOC_TYPE_SUBMISSION => [
                         'preprint/view']
                 ];
-                $pageAndOp[Application::getContextAssocType()][] = 'index';
+                $pageAndOp[Application::getContextAssocType()][] = Application::SITE_CONTEXT_PATH;
                 break;
             default:
                 throw new Exception('Unrecognized application name.');
@@ -464,7 +464,7 @@ trait ConvertLogFile
         for ($key = 0; $key < $contextDepth; $key++) {
             $contextPaths[$key] = (
                 isset($contextPaths[$key]) && !empty($contextPaths[$key]) ?
-                $contextPaths[$key] : 'index'
+                $contextPaths[$key] : Application::SITE_CONTEXT_PATH
             );
             $contextPaths[$key] = Core::cleanFileVar($contextPaths[$key]);
         }

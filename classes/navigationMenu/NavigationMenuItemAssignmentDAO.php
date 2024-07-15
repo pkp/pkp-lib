@@ -154,11 +154,11 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
 				seq = ?
 			WHERE navigation_menu_item_assignment_id = ?',
             [
-                (int) $navigationMenuItemAssignment->getMenuId(),
-                (int) $navigationMenuItemAssignment->getMenuItemId(),
-                (int) $navigationMenuItemAssignment->getParentId() ?: null,
-                (int) $navigationMenuItemAssignment->getSequence(),
-                (int) $navigationMenuItemAssignment->getId(),
+                $navigationMenuItemAssignment->getMenuId(),
+                $navigationMenuItemAssignment->getMenuItemId(),
+                $navigationMenuItemAssignment->getParentId(),
+                $navigationMenuItemAssignment->getSequence(),
+                $navigationMenuItemAssignment->getId(),
             ]
         );
         $this->updateLocaleFields($navigationMenuItemAssignment);
@@ -179,7 +179,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
             [
                 $assignment->getMenuId(),
                 $assignment->getMenuItemId(),
-                (int) $assignment->getParentId() ?: null,
+                $assignment->getParentId(),
                 $assignment->getSequence(),
             ]
         );

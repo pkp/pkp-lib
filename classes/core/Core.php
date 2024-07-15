@@ -164,7 +164,7 @@ class Core
     public static function getOp(string $urlInfo, array $userVars = []): string
     {
         $operation = static::_getUrlComponents($urlInfo, self::_getOffset($urlInfo, 1), 'op', $userVars);
-        return static::cleanFileVar($operation ?: Application::SITE_CONTEXT_PATH);
+        return static::cleanFileVar($operation ?: 'index');
     }
 
     /**

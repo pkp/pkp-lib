@@ -190,7 +190,7 @@ class VersionDAO extends \PKP\db\DAO
                     ->where('ps.setting_name', '=', 'enabled')
                     ->when(
                         $contextId !== Application::SITE_CONTEXT_ID_ALL,
-                        fn (Builder $q) => $q->where(fn (Builder $q) => $q->where(DB::raw('COALESCE(context_id, 0)'), '=', (int) $contextId)->orWhere('v.sitewide', '=', 1))
+                        fn (Builder $q) => $q->where(fn (Builder $q) => $q->whereRaw('COALESCE(context_id, 0) = ?', [(int) $contextId])->orWhere('v.sitewide', '=', 1))
                     )
             )
             ->where('v.current', '=', 1)

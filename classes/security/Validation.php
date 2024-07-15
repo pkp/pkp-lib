@@ -417,7 +417,7 @@ class Validation
         // that the administrator user doesn't have a manager role in.
         $userGroups = Repo::userGroup()->userUserGroups($administeredUserId);
         foreach ($userGroups as $userGroup) {
-            if ((int) $userGroup->getContextId() != \PKP\core\PKPApplication::SITE_CONTEXT_ID && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
+            if ($userGroup->getContextId() != \PKP\core\PKPApplication::SITE_CONTEXT_ID && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
                 // Found an assignment: disqualified.
                 return false;
             }

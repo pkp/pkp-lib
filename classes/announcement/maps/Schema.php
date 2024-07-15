@@ -107,7 +107,7 @@ class Schema extends \PKP\core\maps\Schema
 
     protected function getUrlPath(): string
     {
-        return $this->context?->getData('urlPath') ?? Application::SITE_CONTEXT_PATH;
+        return $this->context?->getData('urlPath') ?? 'index';
     }
 
     protected function getSupportedLocales(): array

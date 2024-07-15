@@ -119,7 +119,7 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
     {
         return $query
             ->join('user_groups as ug', 'user_user_groups.user_group_id', '=', 'ug.user_group_id')
-            ->where(DB::raw('COALESCE(ug.context_id, 0)'), (int) $contextId);
+            ->whereRaw('COALESCE(ug.context_id, 0) = ?', [(int) $contextId]);
     }
 
     public function scopeWithMasthead(Builder $query): Builder

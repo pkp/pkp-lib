@@ -49,7 +49,7 @@ class RoleDAO extends DAO
             ->whereIn('ug.role_id', is_array($roleIds) ? $roleIds : [$roleIds])
             ->where(fn (Builder $q) => $q->whereNull('uug.date_start')->orWhere('uug.date_start', '<=', Core::getCurrentDate()))
             ->where(fn (Builder $q) => $q->whereNull('uug.date_end')->orWhere('uug.date_end', '>', Core::getCurrentDate()))
-            ->where(DB::raw('COALESCE(ug.context_id, 0)'), (int) $contextId)
+            ->whereRaw('COALESCE(ug.context_id, 0) = ?', [(int) $contextId])
             ->exists();
     }
 
@@ -66,7 +66,7 @@ class RoleDAO extends DAO
             ->where('uug.user_id', $userId)
             ->where(fn (Builder $q) => $q->whereNull('uug.date_start')->orWhere('uug.date_start', '<=', Core::getCurrentDate()))
             ->where(fn (Builder $q) => $q->whereNull('uug.date_end')->orWhere('uug.date_end', '>', Core::getCurrentDate()))
-            ->when($contextId !== Application::SITE_CONTEXT_ID_ALL, fn (Builder $q) => $q->where(DB::raw('COALESCE(ug.context_id, 0)'), (int) $contextId))
+            ->when($contextId !== Application::SITE_CONTEXT_ID_ALL, fn (Builder $q) => $q->whereRaw('COALESCE(ug.context_id, 0) = ?', [(int) $contextId]))
             ->distinct()
             ->select(['ug.role_id AS role_id'])
             ->get();

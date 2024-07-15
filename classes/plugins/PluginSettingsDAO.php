@@ -98,7 +98,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
         $value = $this->convertToDB($value, $type);
 
         DB::table('plugin_settings')->updateOrInsert(
-            ['context_id' => (int) $contextId ?: null, 'plugin_name' => $pluginName, 'setting_name' => $settingName],
+            ['context_id' => $contextId, 'plugin_name' => $pluginName, 'setting_name' => $settingName],
             ['setting_value' => $value, 'setting_type' => $type]
         );
     }

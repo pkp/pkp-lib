@@ -48,8 +48,8 @@ abstract class I8333_AddMissingForeignKeys extends \PKP\migration\Migration
     protected function updateSpecialValues(): void
     {
         DB::table('site')
-            ->where('redirect', '=', 0)
-            ->update(['redirect' => null]);
+            ->where('redirect_context_id', '=', 0)
+            ->update(['redirect_context_id' => null]);
         DB::table('filters')
             ->where('parent_filter_id', '=', 0)
             ->update(['parent_filter_id' => null]);

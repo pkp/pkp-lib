@@ -188,7 +188,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
 				(?, ?, ?)',
             [
                 $navigationMenuItem->getPath(),
-                (int) $navigationMenuItem->getContextId() ?: null,
+                $navigationMenuItem->getContextId(),
                 $navigationMenuItem->getType(),
             ]
         );
@@ -214,7 +214,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
 				WHERE navigation_menu_item_id = ?',
             [
                 $navigationMenuItem->getPath(),
-                (int) $navigationMenuItem->getContextId() ?: null,
+                $navigationMenuItem->getContextId(),
                 $navigationMenuItem->getType(),
                 (int) $navigationMenuItem->getId(),
             ]

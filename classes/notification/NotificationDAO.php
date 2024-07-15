@@ -62,7 +62,7 @@ class NotificationDAO extends \PKP\db\DAO
             ->where('user_id', '=', $userId)
             ->where('level', '=', $level)
             ->when($type !== null, fn ($query) => $query->where('type', '=', $type))
-            ->when($contextId !== Application::SITE_CONTEXT_ID_ALL, fn (Builder $query) => $query->where(DB::raw('COALESCE(context_id, 0)'), '=', (int) $contextId))
+            ->when($contextId !== Application::SITE_CONTEXT_ID_ALL, fn (Builder $query) => $query->whereRaw('COALESCE(context_id, 0) = ?', [(int) $contextId]))
             ->orderBy('date_created', 'desc')
             ->get();
         return new DAOResultFactory($result, $this, '_fromRow');
@@ -161,7 +161,7 @@ class NotificationDAO extends \PKP\db\DAO
     public function build(?int $contextId, int $level, int $type, int $assocType, int $assocId, ?int $userId = null): Notification
     {
         DB::table('notifications')
-            ->when(fn (Builder $query) => $query->where(DB::raw('COALESCE(context_id, 0)'), '=', (int) $contextId))
+            ->when(fn (Builder $query) => $query->whereRaw('COALESCE(context_id, 0) = ?', [(int) $contextId]))
             ->where('level', '=', $level)
             ->where('assoc_type', '=', $assocType)
             ->where('assoc_id', '=', $assocId)

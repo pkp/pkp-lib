@@ -18,6 +18,7 @@ require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\statistics\StatisticsHelper;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\DB;
 
@@ -67,7 +68,7 @@ class generateTestMetrics extends \PKP\cliTool\CommandLineTool
         $endDate = new DateTime($this->dateEnd);
         $endDateTimeStamp = $endDate->getTimestamp();
 
-        $count = 0;
+        $submissionsCount = $submissionFilesCount = 0;
         while ($currentDate->getTimestamp() < $endDateTimeStamp) {
             foreach ($submissionIds as $submissionId) {
                 DB::table('metrics_submission')->insert([
@@ -78,12 +79,45 @@ class generateTestMetrics extends \PKP\cliTool\CommandLineTool
                     'date' => $currentDate->format('Y-m-d'),
                     'metric' => random_int(1, 10),
                 ]);
-                $count++;
+                $submissionsCount++;
+
+                // OMP needs different handling for publication formats and files
+                if (Application::get()->getName() === 'omp') {
+                    continue;
+                }
+
+                $submission = Repo::submission()->get($submissionId);
+                $galleys = $submission->getCurrentPublication()->getData('galleys');
+                foreach ($galleys as $galley) {
+                    $submissionFileId = $galley->getData('submissionFileId');
+                    if ($submissionFileId && $submissionFile = Repo::submissionFile()->get($submissionFileId)) {
+                        if ($submissionFile->getData('mimetype') == 'application/pdf') {
+                            $fileType = StatisticsHelper::STATISTICS_FILE_TYPE_PDF;
+                        } elseif ($submissionFile->getData('mimetype') == 'text/html') {
+                            $fileType = StatisticsHelper::STATISTICS_FILE_TYPE_HTML;
+                        } else {
+                            $fileType = StatisticsHelper::STATISTICS_FILE_TYPE_OTHER;
+                        }
+                        if ($fileType) {
+                            DB::table('metrics_submission')->insert([
+                                'load_id' => 'test_events_' . $currentDate->format('Ymd'),
+                                'context_id' => $this->contextId,
+                                'submission_id' => $submissionId,
+                                'assoc_type' => Application::ASSOC_TYPE_SUBMISSION_FILE,
+                                'representation_id' => $galley->getId(),
+                                'file_type' => $fileType,
+                                'date' => $currentDate->format('Y-m-d'),
+                                'metric' => random_int(1, 10),
+                            ]);
+                            $submissionFilesCount++;
+                        }
+                    }
+                }
             }
             $currentDate->add(new DateInterval('P1D'));
         }
 
-        echo $count . ' records added for ' . count($submissionIds) . " submissions.\n";
+        echo $submissionsCount . ' view and ' . $submissionFilesCount . ' download records added for ' . count($submissionIds) . " submissions.\n";
     }
 
     /**

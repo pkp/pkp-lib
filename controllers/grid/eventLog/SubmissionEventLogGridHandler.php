@@ -28,7 +28,6 @@ use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\log\EmailLogEntry;
 use PKP\log\event\EventLogEntry;
-use PKP\log\SubmissionEmailLogEntry;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;

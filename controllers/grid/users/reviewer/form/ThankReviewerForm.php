@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\facades\Locale;
 use PKP\form\Form;
-use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionEmailLogEntryType;
 use PKP\mail\mailables\ReviewAcknowledgement;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
@@ -132,7 +132,7 @@ class ThankReviewerForm extends Form
             try {
                 Mail::send($mailable);
                 Repo::emailLogEntry()->logMailable(
-                    SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_THANK_REVIEWER,
+                    SubmissionEmailLogEntryType::SUBMISSION_EMAIL_REVIEW_THANK_REVIEWER,
                     $mailable,
                     $submission,
                     $user,

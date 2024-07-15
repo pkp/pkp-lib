@@ -23,7 +23,7 @@ use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\form\Form;
-use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionEmailLogEntryType;
 use PKP\mail\Mailable;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -107,7 +107,7 @@ class EmailReviewerForm extends Form
         try {
             Mail::send($mailable);
             Repo::emailLogEntry()->logMailable(
-                SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_NOTIFY_REVIEWER,
+                SubmissionEmailLogEntryType::SUBMISSION_EMAIL_REVIEW_NOTIFY_REVIEWER,
                 $mailable,
                 $this->submission,
                 $fromUser,

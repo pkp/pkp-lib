@@ -30,7 +30,7 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\log\event\SubmissionFileEventLogEntry;
-use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionEmailLogEntryType;
 use PKP\mail\mailables\RevisedVersionNotify;
 use PKP\note\NoteDAO;
 use PKP\notification\PKPNotification;
@@ -771,7 +771,7 @@ abstract class Repository
         // Fetch the latest notification email timestamp
         $submissionEmails = Repo::emailLogEntry()->getByEventType(
             $submission->getId(),
-            SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION,
+            SubmissionEmailLogEntryType::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION,
             Application::ASSOC_TYPE_SUBMISSION
         );
         $lastNotification = null;
@@ -824,7 +824,7 @@ abstract class Repository
         Mail::send($mailable);
 
         Repo::emailLogEntry()->logMailable(
-            SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION,
+            SubmissionEmailLogEntryType::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION,
             $mailable,
             $submission,
             $user

@@ -31,7 +31,7 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\log\event\EventLogEntry;
-use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionEmailLogEntryType;
 use PKP\note\NoteDAO;
 use PKP\notification\NotificationDAO;
 use PKP\notification\PKPNotification;
@@ -234,10 +234,10 @@ class PKPStageParticipantNotifyForm extends Form
         );
 
         $mailable->allowUnsubscribe($notification);
-        $log = null;
+        $logRepository = null;
         try {
             Mail::send($mailable);
-            $log =  Repo::emailLogEntry();
+            $logRepository =  Repo::emailLogEntry();
         } catch (TransportException $e) {
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification(
@@ -252,28 +252,28 @@ class PKPStageParticipantNotifyForm extends Form
         switch ($templateKey) {
             case 'EDITOR_ASSIGN':
                 $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGN, $user->getId(), $submission->getId());
-                !$log ?: $log->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_ASSIGN, $mailable, $submission);
+                !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEntryType::SUBMISSION_EMAIL_EDITOR_ASSIGN, $mailable, $submission);
                 break;
             case 'COPYEDIT_REQUEST':
                 $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT, $user->getId(), $submission->getId());
-                !$log ?: $log->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_COPYEDIT_NOTIFY_COPYEDITOR, $mailable, $submission);
+                !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEntryType::SUBMISSION_EMAIL_COPYEDIT_NOTIFY_COPYEDITOR, $mailable, $submission);
                 break;
             case 'LAYOUT_REQUEST':
                 $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $user->getId(), $submission->getId());
-                !$log ?: $log->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_LAYOUT_NOTIFY_EDITOR, $mailable, $submission);
+                !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEntryType::SUBMISSION_EMAIL_LAYOUT_NOTIFY_EDITOR, $mailable, $submission);
                 break;
             case 'INDEX_REQUEST':
                 $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $user->getId(), $submission->getId());
-                !$log ?: $log->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_INDEX_NOTIFY_INDEXER, $mailable, $submission);
+                !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEntryType::SUBMISSION_EMAIL_INDEX_NOTIFY_INDEXER, $mailable, $submission);
                 break;
             case 'LAYOUT_COMPLETE':
-                !$log ?: $log->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_LAYOUT_NOTIFY_COMPLETE, $mailable, $submission);
+                !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEntryType::SUBMISSION_EMAIL_LAYOUT_NOTIFY_COMPLETE, $mailable, $submission);
                 break;
             case 'INDEX_COMPLETE':
-                !$log ?: $log->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_INDEX_NOTIFY_COMPLETE, $mailable, $submission);
+                !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEntryType::SUBMISSION_EMAIL_INDEX_NOTIFY_COMPLETE, $mailable, $submission);
                 break;
             default:
-                !$log ?: $log->logMailable(SubmissionEmailLogEntry::SUBMISSION_EMAIL_DISCUSSION_NOTIFY, $mailable, $submission);
+                !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEntryType::SUBMISSION_EMAIL_DISCUSSION_NOTIFY, $mailable, $submission);
                 break;
         }
 

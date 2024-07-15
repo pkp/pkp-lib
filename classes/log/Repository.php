@@ -28,11 +28,8 @@ use Illuminate\Support\Facades\DB;
 
 class Repository
 {
-    private EmailLogEntry $model;
-
-    public function __construct(EmailLogEntry $model)
+    public function __construct(private EmailLogEntry $model)
     {
-        $this->model = $model;
     }
 
 
@@ -55,10 +52,8 @@ class Repository
 
     /**
      * Stores the correspondent user ids of the all recipient emails.
-     *
-     * @param EmailLogEntry $entry
      */
-    private function insertLogUserIds(EmailLogEntry $entry)
+    private function insertLogUserIds(EmailLogEntry $entry):void
     {
         $recipients = $entry->recipients;
 
@@ -83,53 +78,42 @@ class Repository
 
     /**
      * Delete all log entries for an object.
-     *
-     * @param int $assocType
-     * @param int $assocId
      * @return int The number of affected rows.
      */
     public function deleteByAssoc(int $assocType, int $assocId): int
     {
         return $this->model
             ->newQuery()
-            ->where('assoc_type', (int)$assocType)
-            ->where('assoc_id', (int)$assocId)
+            ->where('assoc_type', $assocType)
+            ->where('assoc_id', $assocId)
             ->delete();
     }
 
     /**
      * Transfer all log and log users entries to another user.
-     *
-     * @param int $oldUserId
-     * @param int $newUserId
      */
-    public function changeUser($oldUserId, $newUserId)
+    public function changeUser(int $oldUserId, int $newUserId)
     {
         return [
-            DB::update(
-                'UPDATE email_log SET sender_id = ? WHERE sender_id = ?',
-                [(int) $newUserId, (int) $oldUserId]
-            ),
-            DB::update(
-                'UPDATE email_log_users
-                SET user_id = ?
-                WHERE user_id = ? AND email_log_id NOT IN (SELECT t1.email_log_id
-                    FROM (SELECT email_log_id FROM email_log_users WHERE user_id = ?) AS t1
-                    INNER JOIN
-                    (SELECT email_log_id FROM email_log_users WHERE user_id = ?) AS t2
-                    ON t1.email_log_id = t2.email_log_id);',
-                [(int)$newUserId, (int)$oldUserId, (int)$newUserId, (int)$oldUserId]
-            )
+            $this->model
+                ->newQuery()
+                ->where('sender_id', $oldUserId)
+                ->update(['sender_id' => $newUserId]),
+
+            DB::table('email_log_users')
+                ->where('user_id', $oldUserId)
+                ->whereNotIn('email_log_id', function ($query) use ($newUserId, $oldUserId) {
+                    $query->select('t1.email_log_id')
+                        ->from(DB::table('email_log_users')->as('t1'))
+                        ->join(DB::table('email_log_users')->as('t2'), 't1.email_log_id', '=', 't2.email_log_id')
+                        ->where('t1.user_id', $newUserId)
+                        ->where('t2.user_id', $oldUserId);
+                })->update(['user_id' => $newUserId])
         ];
     }
 
     /**
      * Create a log entry for a submission from data in a Mailable class
-     *
-     * @param EmailLogEventType $eventType Type of email event
-     * @param Mailable $mailable
-     * @param Submission $submission
-     * @param ?User $sender
      * @return int The new log entry id
      */
     function logMailable(EmailLogEventType $eventType, Mailable $mailable, Submission $submission, ?User $sender = null): int
@@ -153,17 +137,13 @@ class Repository
         );
 
         $this->model->save();
-        $this->insertLogUserIds( $this->model);
+        $this->insertLogUserIds($this->model);
 
         return $this->model->id;
     }
 
     /**
      * Get email log entries by assoc ID, event type and assoc type
-     *
-     * @param int $assocId
-     * @param EmailLogEventType $eventType Type of email event
-     * @param int $assocType
      * @param ?int $userId optional Return only emails sent to this user.
      */
     function getByEventType(int $assocId, EmailLogEventType $eventType, int $assocType, ?int $userId = null)

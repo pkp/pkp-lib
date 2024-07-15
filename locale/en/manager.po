@@ -3566,3 +3566,6 @@ msgstr "Please provide the editorial history, including the full name, affiliati
 
 msgid "mailable.changeProfileEmailInvitationNotify.name"
 msgstr "Change Email Address Invitation"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validate XML before the export and registration."

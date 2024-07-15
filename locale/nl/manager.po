@@ -3405,3 +3405,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Impressum"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Valideer XML alvorens te exporteren en registreren."

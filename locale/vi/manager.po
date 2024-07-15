@@ -3414,3 +3414,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Tiêu đề"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Xác thực XML trước khi xuất và đăng ký."

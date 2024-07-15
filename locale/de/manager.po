@@ -3779,3 +3779,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Impressum"
+
+msgid "plugins.importexport.common.validation"
+msgstr "XML vor Export und Registrierung validieren."

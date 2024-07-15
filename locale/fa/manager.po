@@ -3385,3 +3385,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "سربرگ"
+
+msgid "plugins.importexport.common.validation"
+msgstr "فایل XML را قبل از برون دهی اعتبار سنجی کن."

@@ -3139,3 +3139,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Sarlavha (Asosiy)"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Eksport va ro'yxatdan o'tishdan oldin XML -ni tasdiqlang."

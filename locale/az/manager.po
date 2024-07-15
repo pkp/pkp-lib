@@ -3904,3 +3904,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "İdarəçi siyahısı"
+
+msgid "plugins.importexport.common.validation"
+msgstr "İxrac və qeydiyyat əməliyyatından əvvəl XML-i təsdiqləyin"

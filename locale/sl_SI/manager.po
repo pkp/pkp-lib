@@ -2375,3 +2375,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Zahtevaj od avtorjev izjavo o konfliktu interesov med procesom oddaje "
 "prispevka."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Preveri XML datoteko pred izvozom in registracijo."

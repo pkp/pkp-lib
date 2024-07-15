@@ -2353,3 +2353,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Mengharuskan Penulis untuk memberikan pernyataan Konflik Kepentingan dalam "
 "naskah mereka."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validasi XML sebelum proses ekspor dan registrasi."

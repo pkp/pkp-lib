@@ -2403,3 +2403,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Потребно е да ги доставите авторите да поднесат изјава за натпреварувачки "
 "интерес (КИ) со нивно поднесување."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Потврдете го XML пред извозот и регистрацијата."

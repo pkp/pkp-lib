@@ -2263,3 +2263,6 @@ msgstr "معدل الرفض بعد التحكيم"
 msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "يتطلب تقديم المؤلفين لبيان المصالح المتضاربة (CI) مع طلبات النشر الخاصة بهم."
+
+msgid "plugins.importexport.common.validation"
+msgstr "تحقق من نصوص XML قبل التصدير والتسجيل."

@@ -2421,3 +2421,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Solicitați autorilor care înregistrează manuscrise să depună o declarație de "
 "interes (CI) odată cu transmiterea lor."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validarea XML înainte de exportare și înregistrare."

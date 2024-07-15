@@ -2442,3 +2442,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Απαιτείται από τους Συγγραφείς να καταθέτουν Δήλωση Αντικρουόμενων "
 "Συμφερόντων μαζί με την υποβολή."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Επικυρώστε το XML πριν από την εξαγωγή και την ευρετηρίαση."

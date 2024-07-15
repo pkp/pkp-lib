@@ -2348,3 +2348,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Požadovat od autorů, aby spolu s příspěvkem zaslali soubor s prohlášením o "
 "střetu zájmů."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validujte XML před exportem a registrací."

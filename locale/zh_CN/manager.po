@@ -2142,3 +2142,6 @@ msgstr ""
 
 msgid "manager.setup.competingInterests.requireAuthors"
 msgstr "要求投稿作者提供一个利益冲突（CI）的文字声明。"
+
+msgid "plugins.importexport.common.validation"
+msgstr "在导出和注册之前验证XML。"

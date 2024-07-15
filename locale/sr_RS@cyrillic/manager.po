@@ -2182,3 +2182,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Захтевајте од аутора да у току пријаве чланка потврде изјаву о Конфликту "
 "интереса."
+
+msgid "plugins.importexport.common.validation"
+msgstr ""

@@ -2076,3 +2076,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "داوا لە توێژەرە پێشکەشکراوەکان بکە بۆ ئەوەی (CI) لەگەڵ پێشکەشکردنەکانیان "
 "داخل بکەن."
+
+msgid "plugins.importexport.common.validation"
+msgstr "وردبینی لە XML بکە پێش هەناردەکردن و تۆمارکردن."

@@ -2444,3 +2444,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Les auteurs-es soumissionnaires doivent déposer une déclaration de conflits "
 "d'intérêts avec leur soumission."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Valider le XML avant l'exportation et l'enregistrement."

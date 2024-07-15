@@ -2359,3 +2359,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Exigir dos Autores o registo de Conflito de Interesses (CI) junto com a "
 "submissão."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validar o XML antes de exportar e registar."

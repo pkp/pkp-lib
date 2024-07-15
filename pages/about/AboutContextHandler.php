@@ -22,6 +22,7 @@ use APP\handler\Handler;
 use APP\template\TemplateManager;
 use DateTime;
 use PKP\facades\Locale;
+use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
@@ -115,10 +116,6 @@ class AboutContextHandler extends Handler
 
         Hook::call('AboutContextHandler::editorialMasthead', [$mastheadRoles, $mastheadUsers, $reviewers, $previousYear]);
 
-        // To come after https://github.com/pkp/pkp-lib/issues/9771
-        // $orcidIcon = OrcidManager::getIcon();
-        $orcidIcon = '';
-
         $templateMgr = TemplateManager::getManager($request);
         $this->setupTemplate($request);
         $templateMgr->assign([
@@ -126,7 +123,7 @@ class AboutContextHandler extends Handler
             'mastheadUsers' => $mastheadUsers,
             'reviewers' => $reviewers,
             'previousYear' => $previousYear,
-            'orcidIcon' => $orcidIcon
+            'orcidIcon' => OrcidManager::getIcon(),
         ]);
         $templateMgr->display('frontend/pages/editorialMasthead.tpl');
     }
@@ -189,16 +186,12 @@ class AboutContextHandler extends Handler
 
         Hook::call('AboutContextHandler::editorialHistory', [$mastheadRoles, $mastheadUsers]);
 
-        // To come after https://github.com/pkp/pkp-lib/issues/9771
-        // $orcidIcon = OrcidManager::getIcon();
-        $orcidIcon = '';
-
         $templateMgr = TemplateManager::getManager($request);
         $this->setupTemplate($request);
         $templateMgr->assign([
             'mastheadRoles' => $mastheadRoles,
             'mastheadUsers' => $mastheadUsers,
-            'orcidIcon' => $orcidIcon
+            'orcidIcon' => OrcidManager::getIcon(),
         ]);
         $templateMgr->display('frontend/pages/editorialHistory.tpl');
     }

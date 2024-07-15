@@ -3882,3 +3882,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "A cikket beadó szerzők felszólítása az összeférhetetlenségi nyilatkozat "
 "benyújtására."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Érvényesítse az XML-t mielőtt exportálja és regisztrálja."

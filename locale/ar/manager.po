@@ -3665,3 +3665,6 @@ msgid "manager.statistics.counterR5Report.settings.date.yop.description"
 msgstr ""
 "قائمة أو مدى من سنوات النشر لإرجاعها في الاستجابة وبتنسيق yyyy|yyyy|yyyy-"
 "yyyy."
+
+msgid "plugins.importexport.common.validation"
+msgstr "تحقق من نصوص XML قبل التصدير والتسجيل."

@@ -3811,3 +3811,6 @@ msgstr "Vključi podrobnosti staršev"
 
 msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
 msgstr "Ne prikaži mesečnih podrobnosti"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Preveri XML datoteko pred izvozom in registracijo."

@@ -3820,3 +3820,6 @@ msgstr "Incluir Detalhes Associados"
 
 msgid "manager.statistics.counterR5Report.settings.excludeMonthlyDetails"
 msgstr "Excluir Delhalhes Mensais"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validar o XML antes de exportar e registar."

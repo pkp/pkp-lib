@@ -3827,3 +3827,6 @@ msgstr "Հատկանիշներ ցուցադրելու համար"
 msgid "plugins.importexport.native.error.submissionFileInvalidFileStage"
 msgstr ""
 "Ներկայացման {$id} նիշքը բաց է թողնվել, քանի որ այն չունի վավեր նիշքի փուլ:"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Վավերացրեք XML-ը մինչև արտահանումը և գրանցումը:"

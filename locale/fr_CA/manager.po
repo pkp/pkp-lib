@@ -3852,3 +3852,6 @@ msgstr ""
 
 msgid "manager.statistics.counterR5"
 msgstr "Counter R5"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Valider le XML avant l'exportation et l'enregistrement."

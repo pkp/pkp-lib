@@ -3638,3 +3638,6 @@ msgstr ""
 #, fuzzy
 msgid "manager.statistics.counterR5Reports.usageNotPossible"
 msgstr "Det er for øyeblikket ingen COUNTER R5 bruksstatistikk tilgjengelig."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Valider XML før eksport og registrering."

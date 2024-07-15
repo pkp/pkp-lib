@@ -3566,3 +3566,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Требовать от авторов представлять Декларацию о конфликте интересов вместе с "
 "отправляемым материалом."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Проверять XML перед экспортом и регистрацией."

@@ -3765,3 +3765,6 @@ msgstr ""
 
 msgid "manager.setup.competingInterests.requireAuthors"
 msgstr "Wymagaj od autorów oświadczenia o zbieżności zainteresowań."
+
+msgid "plugins.importexport.common.validation"
+msgstr "Sprawdź XML przed eksportem i rejestracją."

@@ -3194,3 +3194,8 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "अपने जमा करने के साथ एक प्रतियोगी ब्याज (CI) बयान दर्ज करने के लिए लेखकों को प्रस्तुत करने "
 "की आवश्यकता है।"
+
+msgid "plugins.importexport.common.validation"
+msgstr "निर्यात और पंजीकरण से पहले XML सत्यापित करें।"
+
+# (pofilter) endpunc: Different punctuation at the end

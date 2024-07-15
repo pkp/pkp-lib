@@ -3213,3 +3213,6 @@ msgid "manager.setup.competingInterests.requireAuthors"
 msgstr ""
 "Eskatu lana bidaltzen duten egileei Interes-gatazkari buruzko deklarazio bat "
 "erants dezatela bidalketan."
+
+msgid "plugins.importexport.common.validation"
+msgstr ""

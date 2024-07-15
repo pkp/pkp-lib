@@ -35,7 +35,7 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
-use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionEmailLogEntryType;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\GenreDAO;
@@ -115,7 +115,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
 
         $submissionEmailFactory = Repo::emailLogEntry()->getByEventType(
             $submission->getId(),
-            SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
+            SubmissionEmailLogEntryType::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
             Application::ASSOC_TYPE_SUBMISSION, $user->getId());
         foreach ($submissionEmailFactory as $email) {
             // validate the email id for this user.

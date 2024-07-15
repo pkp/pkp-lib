@@ -28,7 +28,7 @@ use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\log\EmailLogEntry;
-use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionEmailLogEntryType;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -131,7 +131,7 @@ class PKPReviewController extends PKPBaseController
         $declineEmail = null;
         if ($reviewAssignment->getDeclined()) {
             $emailLogs = EmailLogEntry::withAssocId($submissionId)
-                ->withEventType(SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_DECLINE)
+                ->withEventType(SubmissionEmailLogEntryType::SUBMISSION_EMAIL_REVIEW_DECLINE)
                 ->withSenderId($reviewerId)
                 ->withAssocType(Application::ASSOC_TYPE_SUBMISSION)
                 ->get();

@@ -77,8 +77,6 @@ class EmailLogEntry extends Model
 
     /**
      * Return the full name of the sender (not necessarily the same as the from address).
-     *
-     * @return string
      */
     protected function senderFullName(): Attribute
     {
@@ -94,8 +92,6 @@ class EmailLogEntry extends Model
 
     /**
      * Return the email address of sender.
-     *
-     * @return string
      */
     protected function senderEmail(): Attribute
     {
@@ -111,8 +107,6 @@ class EmailLogEntry extends Model
 
     /**
      * Returns the subject of the message with a prefix explaining the event type
-     *
-     * @return string Prefixed subject
      */
     protected function prefixedSubject(): Attribute
     {
@@ -124,30 +118,24 @@ class EmailLogEntry extends Model
     //
     // Scopes
     //
-    public function scopeWithAssocId(Builder $query, int $submissionId = null): Builder
+    public function scopeWithAssocId(Builder $query, int $assocId): Builder
     {
-        return $query->where('assoc_id', (int)$submissionId);
+        return $query->where('assoc_id', $assocId);
     }
 
-    public function scopeWithSenderId(Builder $query, $senderId): Builder
+    public function scopeWithSenderId(Builder $query, int $senderId): Builder
     {
-        return $query->when($senderId !== null, function ($query) use ($senderId) {
-            return $query->where('sender_id', $senderId);
-        });
+        return $query->where('sender_id', $senderId);
     }
 
     public function scopeWithEventType(Builder $query, EmailLogEventType $eventType): Builder
     {
-        return $query->when($eventType->value !== null, function ($query) use ($eventType) {
-            return $query->where('event_type', $eventType->value);
-        });
+        return $query->where('event_type', $eventType->value);
     }
 
-    public function scopeWithAssocType(Builder $query, $assocType): Builder
+    public function scopeWithAssocType(Builder $query, int $assocType): Builder
     {
-        return $query->when($assocType !== null, function ($query) use ($assocType) {
-            return $query->where('assoc_type', $assocType);
-        });
+        return $query->where('assoc_type', $assocType);
     }
 }
 

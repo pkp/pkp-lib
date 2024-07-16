@@ -25,7 +25,7 @@ use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\facades\Repo;
-use PKP\log\SubmissionEmailLogEntryType;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;
 use PKP\security\Role;
@@ -118,7 +118,7 @@ class AuthorDashboardTabHandler extends Handler
                 $templateMgr->assign('copyeditingEmails',
                     Repo::emailLogEntry()->getByEventType(
                         $submission->getId(),
-                        SubmissionEmailLogEntryType::SUBMISSION_EMAIL_COPYEDIT_NOTIFY_AUTHOR,
+                        SubmissionEmailLogEventType::SUBMISSION_EMAIL_COPYEDIT_NOTIFY_AUTHOR,
                         Application::ASSOC_TYPE_SUBMISSION, $user->getId())
                 );
                 return $templateMgr->fetchJson('controllers/tab/authorDashboard/editorial.tpl');
@@ -126,7 +126,7 @@ class AuthorDashboardTabHandler extends Handler
                 $templateMgr->assign([
                     'productionEmails' => Repo::emailLogEntry()->getByEventType(
                         $submission->getId(),
-                        SubmissionEmailLogEntryType::SUBMISSION_EMAIL_PROOFREAD_NOTIFY_AUTHOR,
+                        SubmissionEmailLogEventType::SUBMISSION_EMAIL_PROOFREAD_NOTIFY_AUTHOR,
                         Application::ASSOC_TYPE_SUBMISSION, $user->getId()
                     ),
                 ]);

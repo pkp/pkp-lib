@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/log/SubmissionEmailLogEntryType.php
+ * @file classes/log/SubmissionEmailLogEventType.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @enum SubmissionEmailLogEntry
+ * @enum SubmissionEmailLogEventType
  *
  * @ingroup log
  *
@@ -17,7 +17,7 @@
 namespace PKP\log;
 use PKP\log\core\EmailLogEventType;
 
-enum SubmissionEmailLogEntryType: int implements EmailLogEventType
+enum SubmissionEmailLogEventType: int implements EmailLogEventType
 {
     // Author events						0x20000000
     case SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION = 0x20000001;

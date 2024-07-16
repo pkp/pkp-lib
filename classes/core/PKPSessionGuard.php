@@ -269,9 +269,9 @@ class PKPSessionGuard extends SessionGuard
     }
 
     /**
-     * @copydoc \Illuminate\Auth\SessionGuard::rehashUserPassword($password, $attribute)
+     * @copydoc \Illuminate\Auth\SessionGuard::rehashUserPasswordForDeviceLogout
      */
-    protected function rehashUserPassword($password, $attribute)
+    protected function rehashUserPasswordForDeviceLogout($password)
     {
         $rehash = null;
 

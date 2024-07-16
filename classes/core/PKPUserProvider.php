@@ -15,7 +15,9 @@
 namespace PKP\core;
 
 use PKP\user\User;
+use APP\core\Application;
 use APP\facades\Repo;
+use PKP\security\Validation;
 use PKP\validation\ValidatorFactory;
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Database\ConnectionInterface;
@@ -148,6 +150,26 @@ class PKPUserProvider implements UserProvider
         }
 
         return $this->hasher->check($plain, $user->getAuthPassword());
+    }
+
+    /**
+     * Rehash the user's password if required and supported.
+     *
+     * @param  \Illuminate\Contracts\Auth\Authenticatable|\PKP\user\User  $user
+     * @param  array  $credentials
+     * @param  bool  $force
+     * @return void
+     */
+    public function rehashPasswordIfRequired(UserContract $user, #[\SensitiveParameter] array $credentials, bool $force = false)
+    {
+        if (!$this->hasher->needsRehash($user->getAuthPassword()) && !$force) {
+            return;
+        }
+
+        $rehash = Validation::encryptCredentials($user->getUsername(), $credentials['password']);
+        $user->setPassword($rehash);
+
+        Repo::user()->edit($user);
     }
 
     /**

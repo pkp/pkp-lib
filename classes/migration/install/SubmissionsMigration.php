@@ -105,7 +105,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             // The foreign key relationship on this table is defined with the publications table.
             $table->bigInteger('publication_id');
 
-            $table->float('seq', 8, 2)->default(0);
+            $table->float('seq', 53)->default(0);
 
             $table->bigInteger('user_group_id')->nullable();
             $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
@@ -205,7 +205,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->bigInteger('assoc_type');
             $table->bigInteger('assoc_id');
             $table->smallInteger('stage_id');
-            $table->float('seq', 8, 2)->default(0);
+            $table->float('seq', 53)->default(0);
             $table->datetime('date_posted')->nullable();
             $table->datetime('date_modified')->nullable();
             $table->smallInteger('closed')->default(0);

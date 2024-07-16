@@ -27,7 +27,7 @@
 		"sokil/php-isocodes-db-i18n": "^4.0",
 		"symfony/mailer": "^7.0",
 		"tinymce/tinymce": "^5.7",
-		"wikimedia/less.php": "4.*"
+		"wikimedia/less.php": "3.*"
 	},
 	"require-dev": {
         "phpunit/phpunit": "~11",

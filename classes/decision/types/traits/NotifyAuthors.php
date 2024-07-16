@@ -18,7 +18,7 @@ use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Validator;
 use PKP\context\Context;
-use PKP\log\SubmissionEmailLogEntryType;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\EmailData;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\DecisionNotifyOtherAuthors;
@@ -65,7 +65,7 @@ trait NotifyAuthors
         Mail::send($mailable->recipients($recipients, $email->locale));
 
         Repo::emailLogEntry()->logMailable(
-            SubmissionEmailLogEntryType::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
+            SubmissionEmailLogEventType::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
             $mailable,
             $submission,
             $editor

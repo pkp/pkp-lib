@@ -208,7 +208,7 @@ class SubmissionEventLogGridHandler extends GridHandler
         $emailLogEntries = EmailLogEntry::withAssocId($submission->getId())
             ->withAssocType(Application::ASSOC_TYPE_SUBMISSION)->get();
 
-        $entries = array_merge($eventLogEntries->toArray(), $emailLogEntries->toArray());
+        $entries = array_merge($eventLogEntries->toArray(), $emailLogEntries->all());
 
         // Sort the merged data by date, most recent first
         usort($entries, function ($a, $b) {
@@ -250,10 +250,10 @@ class SubmissionEventLogGridHandler extends GridHandler
         $text = [];
         $text[] = __('email.from') . ': ' . htmlspecialchars($emailLogEntry->fromAddress);
         $text[] = __('email.to') . ': ' . htmlspecialchars($emailLogEntry->recipients);
-        if ($emailLogEntry->getCcs()) {
+        if ($emailLogEntry->ccRecipients) {
             $text[] = __('email.cc') . ': ' . htmlspecialchars($emailLogEntry->ccRecipients);
         }
-        if ($emailLogEntry->getBccs()) {
+        if ($emailLogEntry->bccRecipients) {
             $text[] = __('email.bcc') . ': ' . htmlspecialchars($emailLogEntry->bccRecipients);
         }
         $text[] = __('email.subject') . ': ' . htmlspecialchars($emailLogEntry->subject);

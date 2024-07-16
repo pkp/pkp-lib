@@ -23,7 +23,7 @@ use APP\notification\Notification;
 use APP\pages\authorDashboard\AuthorDashboardHandler;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
-use PKP\log\SubmissionEmailLogEntryType;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
@@ -113,7 +113,7 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
         $templateMgr->assign([
             'submissionEmails' => Repo::emailLogEntry()->getByEventType(
                 $submission->getId(),
-                SubmissionEmailLogEntryType::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
+                SubmissionEmailLogEventType::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
                 Application::ASSOC_TYPE_SUBMISSION,
                 $request->getUser()->getId()
             ),

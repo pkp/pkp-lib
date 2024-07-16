@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
+use PKP\log\EmailLogEntry;
 use PKP\log\event\EventLogEntry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -58,7 +59,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
     {
         $element = $row->getData();
         $columnId = $column->getId();
-        assert($element instanceof \PKP\core\DataObject && !empty($columnId));
+        assert(($element instanceof \PKP\core\DataObject || $element instanceof EmailLogEntry) && !empty($columnId) );
         /** @var EventLogEntry $element */
         switch ($columnId) {
             case 'date':

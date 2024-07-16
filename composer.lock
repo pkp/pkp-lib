@@ -7479,16 +7479,16 @@
         },
         {
             "name": "wikimedia/less.php",
-            "version": "v5.0.0",
+            "version": "v4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wikimedia/less.php.git",
-                "reference": "1ed8afc79c726ffe3c29754d87b0717d8882cdaa"
+                "reference": "7d66ab6d38af72f80a0c0a3598d7feac04bbc7b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wikimedia/less.php/zipball/1ed8afc79c726ffe3c29754d87b0717d8882cdaa",
-                "reference": "1ed8afc79c726ffe3c29754d87b0717d8882cdaa",
+                "url": "https://api.github.com/repos/wikimedia/less.php/zipball/7d66ab6d38af72f80a0c0a3598d7feac04bbc7b7",
+                "reference": "7d66ab6d38af72f80a0c0a3598d7feac04bbc7b7",
                 "shasum": ""
             },
             "require": {
@@ -7548,9 +7548,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wikimedia/less.php/issues",
-                "source": "https://github.com/wikimedia/less.php/tree/v5.0.0"
+                "source": "https://github.com/wikimedia/less.php/tree/v4.4.1"
             },
-            "time": "2024-06-27T22:34:11+00:00"
+            "time": "2024-05-27T14:47:49+00:00"
         }
     ],
     "packages-dev": [

@@ -14,7 +14,7 @@
  *}
 
 {if $inLocale}
-    {assign var="localizedProp" value=$prop|cat:"."|cat:$inLocale}
+    {assign var="localizedProp" value=$prop|cat:"['"|cat:$inLocale|cat:"']"}
 {else}
     {assign var="localizedProp" value=$prop}
 {/if}

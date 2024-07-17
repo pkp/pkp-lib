@@ -132,7 +132,7 @@ class ThankReviewerForm extends Form
             try {
                 Mail::send($mailable);
                 Repo::emailLogEntry()->logMailable(
-                    SubmissionEmailLogEventType::SUBMISSION_EMAIL_REVIEW_THANK_REVIEWER,
+                    SubmissionEmailLogEventType::REVIEW_THANK_REVIEWER,
                     $mailable,
                     $submission,
                     $user,

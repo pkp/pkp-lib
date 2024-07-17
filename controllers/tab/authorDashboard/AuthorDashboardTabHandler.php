@@ -115,19 +115,23 @@ class AuthorDashboardTabHandler extends Handler
             case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
                 return $templateMgr->fetchJson('controllers/tab/authorDashboard/externalReview.tpl');
             case WORKFLOW_STAGE_ID_EDITING:
-                $templateMgr->assign('copyeditingEmails',
+                $templateMgr->assign(
+                    'copyeditingEmails',
                     Repo::emailLogEntry()->getByEventType(
                         $submission->getId(),
-                        SubmissionEmailLogEventType::SUBMISSION_EMAIL_COPYEDIT_NOTIFY_AUTHOR,
-                        Application::ASSOC_TYPE_SUBMISSION, $user->getId())
+                        SubmissionEmailLogEventType::COPYEDIT_NOTIFY_AUTHOR,
+                        Application::ASSOC_TYPE_SUBMISSION,
+                        $user->getId()
+                    )
                 );
                 return $templateMgr->fetchJson('controllers/tab/authorDashboard/editorial.tpl');
             case WORKFLOW_STAGE_ID_PRODUCTION:
                 $templateMgr->assign([
                     'productionEmails' => Repo::emailLogEntry()->getByEventType(
                         $submission->getId(),
-                        SubmissionEmailLogEventType::SUBMISSION_EMAIL_PROOFREAD_NOTIFY_AUTHOR,
-                        Application::ASSOC_TYPE_SUBMISSION, $user->getId()
+                        SubmissionEmailLogEventType::PROOFREAD_NOTIFY_AUTHOR,
+                        Application::ASSOC_TYPE_SUBMISSION,
+                        $user->getId()
                     ),
                 ]);
                 return $templateMgr->fetchJson('controllers/tab/authorDashboard/production.tpl');

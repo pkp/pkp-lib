@@ -70,7 +70,7 @@ class ReviewerAction
                 try {
                     Mail::send($mailable);
                     Repo::emailLogEntry()->logMailable(
-                        $decline ? SubmissionEmailLogEventType::SUBMISSION_EMAIL_REVIEW_DECLINE : SubmissionEmailLogEventType::SUBMISSION_EMAIL_REVIEW_CONFIRM,
+                        $decline ? SubmissionEmailLogEventType::REVIEW_DECLINE : SubmissionEmailLogEventType::REVIEW_CONFIRM,
                         $mailable,
                         $submission,
                         $mailable->getSenderUser()

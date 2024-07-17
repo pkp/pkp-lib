@@ -116,7 +116,7 @@ class AssignEditors
 
             // Log email
             Repo::emailLogEntry()->logMailable(
-                SubmissionEmailLogEventType::SUBMISSION_EMAIL_NEEDS_EDITOR,
+                SubmissionEmailLogEventType::NEEDS_EDITOR,
                 $mailable,
                 $event->submission
             );

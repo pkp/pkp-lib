@@ -113,7 +113,7 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
         $templateMgr->assign([
             'submissionEmails' => Repo::emailLogEntry()->getByEventType(
                 $submission->getId(),
-                SubmissionEmailLogEventType::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
+                SubmissionEmailLogEventType::EDITOR_NOTIFY_AUTHOR,
                 Application::ASSOC_TYPE_SUBMISSION,
                 $request->getUser()->getId()
             ),

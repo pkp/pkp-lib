@@ -771,13 +771,13 @@ abstract class Repository
         // Fetch the latest notification email timestamp
         $submissionEmails = Repo::emailLogEntry()->getByEventType(
             $submission->getId(),
-            SubmissionEmailLogEventType::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION,
+            SubmissionEmailLogEventType::AUTHOR_NOTIFY_REVISED_VERSION,
             Application::ASSOC_TYPE_SUBMISSION
         );
         $lastNotification = null;
         $sentDates = [];
         if ($submissionEmails) {
-            foreach ($submissionEmails as $email ) {
+            foreach ($submissionEmails as $email) {
                 if ($email->dateSent) {
                     $sentDates[] = $email->dateSent;
                 }
@@ -824,7 +824,7 @@ abstract class Repository
         Mail::send($mailable);
 
         Repo::emailLogEntry()->logMailable(
-            SubmissionEmailLogEventType::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION,
+            SubmissionEmailLogEventType::AUTHOR_NOTIFY_REVISED_VERSION,
             $mailable,
             $submission,
             $user
@@ -856,8 +856,7 @@ abstract class Repository
     public function versionSubmissionFile(
         SubmissionFile $submissionFile,
         Publication $newPublication
-    ): SubmissionFile
-    {
+    ): SubmissionFile {
         $newSubmissionFile = clone $submissionFile;
 
         $oldFileId = $submissionFile->getData('fileId');
@@ -900,7 +899,7 @@ abstract class Repository
      */
     public function getSubmissionFileContent(SubmissionFile $submissionFile): string | false
     {
-        $fileName = Config::getVar('files', 'files_dir') . '/' . $submissionFile->getData('path') .'';
+        $fileName = Config::getVar('files', 'files_dir') . '/' . $submissionFile->getData('path') . '';
         $retValue = file_get_contents($fileName);
 
         if ($retValue === false) {

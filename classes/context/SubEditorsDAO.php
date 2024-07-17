@@ -287,7 +287,7 @@ class SubEditorsDAO extends \PKP\db\DAO
 
                 Mail::send($mailable);
                 Repo::emailLogEntry()->logMailable(
-                    SubmissionEmailLogEventType::SUBMISSION_EMAIL_EDITOR_ASSIGN,
+                    SubmissionEmailLogEventType::EDITOR_ASSIGN,
                     $mailable,
                     $submission
                 );

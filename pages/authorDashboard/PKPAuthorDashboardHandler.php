@@ -115,8 +115,10 @@ abstract class PKPAuthorDashboardHandler extends Handler
 
         $submissionEmailFactory = Repo::emailLogEntry()->getByEventType(
             $submission->getId(),
-            SubmissionEmailLogEventType::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
-            Application::ASSOC_TYPE_SUBMISSION, $user->getId());
+            SubmissionEmailLogEventType::EDITOR_NOTIFY_AUTHOR,
+            Application::ASSOC_TYPE_SUBMISSION,
+            $user->getId()
+        );
         foreach ($submissionEmailFactory as $email) {
             // validate the email id for this user.
             if ($email->id == $submissionEmailId) {

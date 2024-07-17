@@ -58,6 +58,7 @@ use PKP\notification\NotificationDAO;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
 use PKP\reviewForm\ReviewFormDAO;
+use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
@@ -1041,9 +1042,12 @@ class PKPReviewerGridHandler extends GridHandler
                 $pdf->SetFont('Arial', 'B', 11);
                 $pdf->MultiCell($multiCellWidth, $height, strip_tags($reviewFormElement->getLocalizedQuestion()));
 
-                $pdf->SetFont('Arial', '', 11);
-                $pdf->SetTextColor(100, 100, 100);
-                $pdf->MultiCell($multiCellWidth, $height, strip_tags(str_replace('<br>', ' ', $reviewFormElement->getLocalizedDescription())));
+                if($reviewFormElement->getLocalizedDescription()) {
+                    $pdf->SetFont('Arial', '', 11);
+                    $pdf->SetTextColor(100, 100, 100);
+                    $pdf->MultiCell($multiCellWidth, $height, strip_tags(str_replace('<br>', ' ', $reviewFormElement->getLocalizedDescription())));
+                }
+
                 $pdf->SetTextColor(41, 41, 41);
                 $pdf->SetFont('Arial', 'B', 11);
 
@@ -1057,24 +1061,43 @@ class PKPReviewerGridHandler extends GridHandler
                 } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA) {
                     $pdf->MultiCell($multiCellWidth, $height, $value);
                     $pdf->Ln(5);
-                } elseif (in_array($reviewFormElement->getElementType(), [ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES, ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS])) {
+                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
                     $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
-                    foreach ($possibleResponses as $index => $responseItem) {
-                        $checked = $index == $reviewFormResponses[$elementId];
-                        if ($checked) {
+                    foreach ($possibleResponses as $key => $possibleResponse) {
+                        $match = false;
+                        foreach ($reviewFormResponses[$elementId] as $checkedResponse) {
+                            if ($checkedResponse == $key) {
+                                $match = true;
+                                $pdf->SetFont('Arial', 'B', 11);
+                                $pdf->MultiCell($multiCellWidth, $height, $possibleResponses[$checkedResponse]);
+                                $pdf->SetFont('Arial', '', 11);
+                            }
+                        }
+
+                        if(!$match) {
+                            $pdf->SetTextColor(100, 100, 100);
+                            $pdf->MultiCell($multiCellWidth, $height, $possibleResponse);
+                            $pdf->SetTextColor(41, 41, 41);
+                        }
+                    }
+                    $pdf->Ln(5);
+                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS) {
+                    $possibleResponsesRadios = $reviewFormElement->getLocalizedPossibleResponses();
+                    foreach ($possibleResponsesRadios as $key => $possibleResponseRadio) {
+                        if($reviewFormResponses[$elementId] == $key) {
                             $pdf->SetFont('Arial', 'B', 11);
-                            $pdf->MultiCell($multiCellWidth, $height, $responseItem);
+                            $pdf->MultiCell($multiCellWidth, $height, $possibleResponseRadio);
                             $pdf->SetFont('Arial', '', 11);
                         } else {
                             $pdf->SetTextColor(100, 100, 100);
-                            $pdf->MultiCell($multiCellWidth, $height, $responseItem);
+                            $pdf->MultiCell($multiCellWidth, $height, $possibleResponseRadio);
                             $pdf->SetTextColor(41, 41, 41);
                         }
                     }
                     $pdf->Ln(5);
                 } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX) {
-                    $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
-                    $selectedValue = $possibleResponses[$reviewFormResponses[$elementId]];
+                    $possibleResponsesDropdown = $reviewFormElement->getLocalizedPossibleResponses();
+                    $selectedValue = $possibleResponsesDropdown[$reviewFormResponses[$elementId]];
                     $pdf->MultiCell($multiCellWidth, $height, $selectedValue);
                     $pdf->Ln(5);
                 }
@@ -1129,7 +1152,6 @@ class PKPReviewerGridHandler extends GridHandler
     public function exportXML($args, $request) {
         $submissionId = $request->getUserVar('submissionId');
         $reviewId = $request->getUserVar('reviewAssignmentId');
-        $stageId = $request->getUserVar('stageId');
         $authorFriendly = $request->getUserVar('authorFriendly');
 
         $xmlFileName = "submission_review_{$submissionId}-{$reviewId}.xml";
@@ -1148,23 +1170,9 @@ class PKPReviewerGridHandler extends GridHandler
         ];
 
         $articleTitle = str_replace(array_keys($mappings), array_values($mappings), $htmlTitle);
-        $doi = $publication->getStoredPubId('doi');
-
-        if($doi) {
-            $doi = $publication->getStoredPubId('publisher-id');
-            $pubIdType = 'publisher-id';
-        }
-
-        $publicationDate = $publication->getData('datePublished');
 
         $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
-        $recmmendation = $reviewAssignment->getLocalizedRecommendation();
-
-        $pubDateObject = Carbon::parse($publicationDate);
-
-        $publicationDay = $pubDateObject->day;
-        $publicationMonth = $pubDateObject->month;
-        $publicationYear = $pubDateObject->year;
+        $recommendation = $reviewAssignment->getLocalizedRecommendation();
 
         $impl = new DOMImplementation();
 
@@ -1185,21 +1193,6 @@ class PKPReviewerGridHandler extends GridHandler
 
         $journalMeta = $xml->createElement('journal-meta');
 
-//        <journal-meta>
-//            <journal-id journal-id-type="acspubs">ol</journal-id>
-//            <self-uri>pubs.acs.org/OrgLett</self-uri>
-//        </journal-meta>
-
-//        $journalId = $xml->createElement('journal-id', 'ol');
-//        $journalId->setAttribute('journal-id-type', 'acspubs');
-//        $journalMeta->appendChild($journalId);
-
-        // Create the <self-uri> element
-
-
-        $journalUrl = $request->getBaseUrl();
-        if($journalUrl === 'http://localhost:8080') $journalUrl = 'https://upt-j-utj1.ubiquityjournal.website/'; //REMOVE
-
         $selfUri = $xml->createElement('self-uri', $request->getBaseUrl());
         $journalMeta->appendChild($selfUri);
 
@@ -1208,8 +1201,8 @@ class PKPReviewerGridHandler extends GridHandler
         $articleMeta = $xml->createElement('article-meta');
         $front->appendChild($articleMeta);
 
-        $articleId = $xml->createElement('article-id', $doi);
-        $articleId->setAttribute('pub-id-type', $pubIdType);
+        $articleId = $xml->createElement('article-id', $submissionId);
+        $articleId->setAttribute('id-type', 'submission-id');
 
         $articleMeta->appendChild($articleId);
 
@@ -1232,21 +1225,32 @@ class PKPReviewerGridHandler extends GridHandler
         $role->setAttribute('specific-use', 'reviewer');
         $contrib->appendChild($role);
 
-        $pubDate = $xml->createElement('pub-date');
-        $pubDate->setAttribute('publication-format', 'electronic');
-        $pubDate->setAttribute('date-type', 'original-publication');
+        $pubHistory = $xml->createElement('pub-history');
+        $event = $xml->createElement('event');
+        $event->setAttribute('event-type', 'current-submission-review-completed');
 
-        $pubDate->setAttribute('iso-8601-date', $publicationDate);
-        $articleMeta->appendChild($pubDate);
+        $dateReviewCompleted = $reviewAssignment->getDateCompleted();
+        $dateParsed = Carbon::parse($dateReviewCompleted);
 
-        $day = $xml->createElement('day', $publicationDay);
-        $pubDate->appendChild($day);
+        $eventDesc = $xml->createElement('event-desc', 'Current Submission Review Completed');
+        $eventDate = $xml->createElement('date');
+        $eventDate->setAttribute('iso-8601-date', $dateReviewCompleted);
 
-        $month = $xml->createElement('month', $publicationMonth);
-        $pubDate->appendChild($month);
+        $event->appendChild($eventDesc);
 
-        $year = $xml->createElement('year', $publicationYear);
-        $pubDate->appendChild($year);
+        $day = $xml->createElement('day', $dateParsed->day);
+        $eventDate->appendChild($day);
+
+        $month = $xml->createElement('month', $dateParsed->month);
+        $eventDate->appendChild($month);
+
+        $year = $xml->createElement('year', $dateParsed->year);
+        $eventDate->appendChild($year);
+
+        $event->appendChild($eventDate);
+        $pubHistory->appendChild($event);
+
+        $articleMeta->append($pubHistory);
 
         $permissions = $xml->createElement('permissions');
         $articleMeta->appendChild($permissions);
@@ -1255,7 +1259,7 @@ class PKPReviewerGridHandler extends GridHandler
         $permissions->appendChild($licenseRef);
 
         $relatedObject = $xml->createElement('related-object');
-        $relatedObject->setAttribute('document-id', $doi); //ANOTHER DOI??
+        $relatedObject->setAttribute('document-id', 'WHAT THE HELL IS THIS'); //ANOTHER DOI??
         $relatedObject->setAttribute('document-id-type', 'doi');
         $relatedObject->setAttribute('document-type', 'peer-reviewed-article');
         $relatedObject->setAttribute('source-id', 'https://www.biorxiv.org/'); //WHAT ON EEARTH IS THIS??
@@ -1267,39 +1271,97 @@ class PKPReviewerGridHandler extends GridHandler
 
         $customMetaGroupObject = $xml->createElement('custom-meta-group');
         $customMetaPeerReviewStage = $xml->createElement('custom-meta');
-        $peerReviewStageTag = $xml->createElement('meta-name', 'peer-review-stage'); //make dynamic
-        $peerReviewStageValueTag = $xml->createElement('meta-value', 'pre-publication'); //make dynamic
+        $peerReviewStageTag = $xml->createElement('meta-name', 'peer-review-stage');
+        $peerReviewStageValueTag = $xml->createElement('meta-value', 'pre-publication');
 
         $customMetaPeerReviewStage->appendChild($peerReviewStageTag);
         $customMetaPeerReviewStage->appendChild($peerReviewStageValueTag);
 
         $customMetaReccomObject = $xml->createElement('custom-meta');
-        $recomTag = $xml->createElement('meta-name', 'peer-review-recommendation'); //make dynamic
-        $recomValueTag = $xml->createElement('meta-value', $recmmendation);
+        $recomTag = $xml->createElement('meta-name', 'peer-review-recommendation');
+        $recomValueTag = $xml->createElement('meta-value', $recommendation);
 
         $customMetaReccomObject->appendChild($recomTag);
         $customMetaReccomObject->appendChild($recomValueTag);
 
-        foreach ($submissionComments->records as $key => $comment) {
-            $customMetaCommentsObject = $xml->createElement('custom-meta');
-            $metaName = $submissionComments->records->count() > 1 ? 'submission-comments-' . $key + 1 : 'submission-comments';
-            $commentsTag = $xml->createElement('meta-name', $metaName);
-            $commentsValueTag = $xml->createElement('meta-value', $comment->comments);
-            $customMetaCommentsObject->appendChild($commentsTag);
-            $customMetaCommentsObject->appendChild($commentsValueTag);
-            $customMetaGroupObject->appendChild($customMetaCommentsObject);
-        }
+        if ($reviewAssignment->getReviewFormId()) {
+            $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO');
+            /* @var $reviewFormElementDao ReviewFormElementDAO */
+            $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO');
+            /* @var $reviewFormResponseDao ReviewFormResponseDAO */
+            $reviewFormResponses = $reviewFormResponseDao->getReviewReviewFormResponseValues($reviewAssignment->getId());
+            $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
+            while ($reviewFormElement = $reviewFormElements->next()) {
+                if ($authorFriendly && !$reviewFormElement->getIncluded()) continue;
 
-        if(!$authorFriendly) {
-            $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, null, $reviewId, false);
-            foreach ($submissionCommentsPrivate->records as $key => $comment) {
-                $customMetaCommentsPrivateObject = $xml->createElement('custom-meta');
-                $metaName = $submissionCommentsPrivate->records->count() > 1 ? 'submission-comments-private-' . $key + 1 : 'submission-comments-private';
+                $elementId = $reviewFormElement->getId();
+                $value = $reviewFormResponses[$elementId];
+                if (in_array($reviewFormElement->getElementType(),  [ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD, ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD, ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA])) {
+                    $customMetaTextObject = $xml->createElement('custom-meta');
+                    $textTag = $xml->createElement('meta-name', strip_tags($reviewFormElement->getLocalizedQuestion()));
+                    $textValueTag = $xml->createElement('meta-value', $value);
+                    $customMetaTextObject->appendChild($textTag);
+                    $customMetaTextObject->appendChild($textValueTag);
+                    $customMetaGroupObject->appendChild($customMetaTextObject);
+                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
+                    $results = [];
+                    foreach ($reviewFormResponses[$elementId] as $index) {
+                        if (isset($reviewFormElement->getLocalizedPossibleResponses()[$index])) {
+                            $results[] = $reviewFormElement->getLocalizedPossibleResponses()[$index];
+                        }
+                    }
+
+                    $customMetaCheckboxObject = $xml->createElement('custom-meta');
+                    $checkboxTag = $xml->createElement('meta-name', strip_tags($reviewFormElement->getLocalizedQuestion()));
+                    $checkboxValuesTag = $xml->createElement('meta-value', implode(', ', $results));
+                    $customMetaCheckboxObject->appendChild($checkboxTag);
+                    $customMetaCheckboxObject->appendChild($checkboxValuesTag);
+                    $customMetaGroupObject->appendChild($customMetaCheckboxObject);
+                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS) {
+                    $possibleResponsesRadios = $reviewFormElement->getLocalizedPossibleResponses();
+                    $radioResponse = array_key_exists($reviewFormResponses[$elementId], $possibleResponsesRadios) ? $possibleResponsesRadios[$reviewFormResponses[$elementId]] : '';
+
+                    $customMetaRadioObject = $xml->createElement('custom-meta');
+                    $radioTag = $xml->createElement('meta-name', strip_tags($reviewFormElement->getLocalizedQuestion()));
+                    $radioValueTag = $xml->createElement('meta-value', $radioResponse);
+                    $customMetaRadioObject->appendChild($radioTag);
+                    $customMetaRadioObject->appendChild($radioValueTag);
+                    $customMetaGroupObject->appendChild($customMetaRadioObject);
+
+                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX) {
+                    $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
+                    $selectedValue = $possibleResponses[$reviewFormResponses[$elementId]];
+
+                    $customMetaSelectObject = $xml->createElement('custom-meta');
+                    $selectTag = $xml->createElement('meta-name', strip_tags($reviewFormElement->getLocalizedQuestion()));
+                    $selectValueTag = $xml->createElement('meta-value', $selectedValue);
+                    $customMetaSelectObject->appendChild($selectTag);
+                    $customMetaSelectObject->appendChild($selectValueTag);
+                    $customMetaGroupObject->appendChild($customMetaSelectObject);
+                }
+            }
+        } else {
+            foreach ($submissionComments->records as $key => $comment) {
+                $customMetaCommentsObject = $xml->createElement('custom-meta');
+                $metaName = $submissionComments->records->count() > 1 ? 'submission-comments-' . $key + 1 : 'submission-comments';
                 $commentsTag = $xml->createElement('meta-name', $metaName);
                 $commentsValueTag = $xml->createElement('meta-value', $comment->comments);
-                $customMetaCommentsPrivateObject->appendChild($commentsTag);
-                $customMetaCommentsPrivateObject->appendChild($commentsValueTag);
-                $customMetaGroupObject->appendChild($customMetaCommentsPrivateObject);
+                $customMetaCommentsObject->appendChild($commentsTag);
+                $customMetaCommentsObject->appendChild($commentsValueTag);
+                $customMetaGroupObject->appendChild($customMetaCommentsObject);
+            }
+
+            if(!$authorFriendly) {
+                $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, null, $reviewId, false);
+                foreach ($submissionCommentsPrivate->records as $key => $comment) {
+                    $customMetaCommentsPrivateObject = $xml->createElement('custom-meta');
+                    $metaName = $submissionCommentsPrivate->records->count() > 1 ? 'submission-comments-private-' . $key + 1 : 'submission-comments-private';
+                    $commentsTag = $xml->createElement('meta-name', $metaName);
+                    $commentsValueTag = $xml->createElement('meta-value', $comment->comments);
+                    $customMetaCommentsPrivateObject->appendChild($commentsTag);
+                    $customMetaCommentsPrivateObject->appendChild($commentsValueTag);
+                    $customMetaGroupObject->appendChild($customMetaCommentsPrivateObject);
+                }
             }
         }
 
@@ -1308,8 +1370,8 @@ class PKPReviewerGridHandler extends GridHandler
 
         $articleMeta->appendChild($customMetaGroupObject);
         $xml->formatOutput = true;
-        $xml->save($xmlFileName);
 
+        $xml->save($xmlFileName);
         header('Content-Description: File Transfer');
         header('Content-Type: application/xml');
         header('Content-Disposition: attachment; filename="' . basename($xmlFileName) . '"');

@@ -1,5 +1,6 @@
 {
 	"require": {
+		"php": "^8.2",
 		"components/jquery": "^3.5",
 		"components/jqueryui": "1.*",
 		"composer/semver": "^3.4",
@@ -27,7 +28,7 @@
 		"sokil/php-isocodes-db-i18n": "^4.0",
 		"symfony/mailer": "^7.0",
 		"tinymce/tinymce": "^5.7",
-		"wikimedia/less.php": "5.*"
+		"wikimedia/less.php": "3.*"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~11",

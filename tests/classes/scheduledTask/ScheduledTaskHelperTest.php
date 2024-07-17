@@ -18,6 +18,7 @@
 
 namespace PKP\tests\classes\scheduledTask;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PKP\config\Config;
 use PKP\mail\Mail;
 use PKP\mail\Mailable;
@@ -34,10 +35,9 @@ class ScheduledTaskHelperTest extends PKPTestCase
      * @param string $taskName
      * @param string $message
      *
-     * @dataProvider notifyExecutionResultTestsDataProvider
-     *
      * @covers ScheduledTaskHelper::notifyExecutionResult
      */
+    #[DataProvider('notifyExecutionResultTestsDataProvider')]
     public function testNotifyExecutionResultError($taskId, $taskName, $message)
     {
         $taskResult = false;
@@ -64,11 +64,10 @@ class ScheduledTaskHelperTest extends PKPTestCase
      * @param string $taskId
      * @param string $taskName
      * @param string $message
-     *
-     * @dataProvider notifyExecutionResultTestsDataProvider
-     *
+     * 
      * @covers ScheduledTaskHelper::notifyExecutionResult
      */
+    #[DataProvider('notifyExecutionResultTestsDataProvider')]
     public function testNotifyExecutionResultSuccess($taskId, $taskName, $message)
     {
         $taskResult = true;
@@ -91,10 +90,8 @@ class ScheduledTaskHelperTest extends PKPTestCase
 
     /**
      * All notifyExecutionResult tests data provider.
-     *
-     * @return array
      */
-    public function notifyExecutionResultTestsDataProvider()
+    public static function notifyExecutionResultTestsDataProvider(): array
     {
         return [['someTaskId', 'TaskName', 'Any message']];
     }

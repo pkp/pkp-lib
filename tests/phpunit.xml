@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit
+<phpunit 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.2/phpunit.xsd"
     cacheResult="true"
     beStrictAboutOutputDuringTests="true"
     backupGlobals="false"
-    backupStaticAttributes="false"
     bootstrap="phpunit-bootstrap.php"
     colors="true"
-    convertErrorsToExceptions="true"
     testdox="true"
-    convertNoticesToExceptions="true"
-    convertWarningsToExceptions="true"
     processIsolation="false"
-    stopOnFailure="true">
-    <testsuites>
+    stopOnFailure="true"
+    cacheDirectory=".phpunit.cache"
+    backupStaticProperties="false"
+>
+  <testsuites>
         <testsuite name="LibraryJobs">
             <directory suffix="Test.php">jobs</directory>
         </testsuite>
@@ -35,14 +34,20 @@
         </testsuite>
     </testsuites>
     <coverage>
+        <report>
+            <text 
+                outputFile="results/coverage.txt"
+                showUncoveredFiles="false"
+                showOnlySummary="true"
+            />
+        </report>
+    </coverage>
+    <source>
         <include>
             <directory suffix=".php">./../classes</directory>
             <directory suffix=".php">./../api</directory>
             <directory suffix=".php">./../controllers</directory>
             <directory suffix=".php">./../pages</directory>
         </include>
-        <report>
-            <text outputFile="results/coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>
-        </report>
-    </coverage>
+    </source>
 </phpunit>

@@ -59,7 +59,7 @@ class DispatcherTest extends PKPTestCase
         // Set up the getContextName() method
         $mockApplication->expects($this->any())
             ->method('getContextName')
-            ->will($this->returnValue('firstContext'));
+            ->willReturn('firstContext');
 
         $this->dispatcher = $mockApplication->getDispatcher(); // this also adds the component router
         $this->dispatcher->addRouterName(\PKP\core\PKPPageRouter::class, 'page');
@@ -101,15 +101,15 @@ class DispatcherTest extends PKPTestCase
             ->getMock();
         $contextObject->expects($this->any())
             ->method('getPath')
-            ->will($this->returnValue('context1'));
+            ->willReturn('context1');
         $contextObject->expects($this->any())
             ->method('getSupportedLocales')
-            ->will($this->returnValue(['en']));
+            ->willReturn(['en']);
 
         $mockFirstContextDao->expects($this->any())
             ->method('getByPath')
             ->with('context1')
-            ->will($this->returnValue($contextObject));
+            ->willReturn($contextObject);
 
         DAORegistry::registerDAO('FirstContextDAO', $mockFirstContextDao);
     }

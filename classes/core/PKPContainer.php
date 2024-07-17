@@ -234,9 +234,6 @@ class PKPContainer extends Container
                 \Illuminate\Contracts\Cache\Repository::class,
                 \Psr\SimpleCache\CacheInterface::class
             ],
-            'cache.psr6' => [
-                \Psr\Cache\CacheItemPoolInterface::class
-            ],
             'db' => [
                 \Illuminate\Database\DatabaseManager::class,
                 \Illuminate\Database\ConnectionResolverInterface::class

@@ -39,6 +39,14 @@
 			"cweagans/composer-patches": true
 		}
 	},
+	"scripts": {
+		"post-install-cmd": [
+			"@copyNodeModuleDeps"
+		],
+		"copyNodeModuleDeps": [
+			"PKP\\dev\\ComposerScript::copyNodeModuleDeps"
+		]
+	},
 	"repositories": [
 		{
 			"type": "vcs",
@@ -82,6 +90,11 @@
 			"php81_bc/strftime": {
 				"Apply strftime locale patch": "lib/strftime-locale-patch.diff"
 			}
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"PKP\\": "classes/"
 		}
 	}
 }

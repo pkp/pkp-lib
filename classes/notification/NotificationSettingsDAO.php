@@ -23,13 +23,9 @@ use Illuminate\Support\Facades\DB;
 class NotificationSettingsDAO extends \PKP\db\DAO
 {
     /**
-     * Update a notification's metadata
-     *
-     * @param int $notificationId
-     *
-     * @return array
+     * Get a notification's metadata
      */
-    public function getNotificationSettings($notificationId)
+    public function getNotificationSettings(int $notificationId): array
     {
         $result = $this->retrieve(
             'SELECT * FROM notification_settings WHERE notification_id = ?',
@@ -53,14 +49,8 @@ class NotificationSettingsDAO extends \PKP\db\DAO
 
     /**
      * Store a notification's metadata
-     *
-     * @param int $notificationId
-     * @param string $name
-     * @param string $value
-     * @param bool $isLocalized optional
-     * @param string $type optional
      */
-    public function updateNotificationSetting($notificationId, $name, $value, $isLocalized = false, $type = null)
+    public function updateNotificationSetting(int $notificationId, string $name, mixed $value, bool $isLocalized = false, ?string $type = null): void
     {
         if (!$isLocalized) {
             $value = $this->convertToDB($value, $type);

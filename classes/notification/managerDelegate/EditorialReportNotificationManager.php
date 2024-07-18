@@ -20,6 +20,7 @@ use APP\core\Request;
 use APP\notification\Notification;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
 use PKP\user\User;
@@ -51,7 +52,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationMessage($request, $notification): string
+    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): ?string
     {
         return __('notification.type.editorialReport', [], $this->_context->getPrimaryLocale());
     }
@@ -59,7 +60,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationUrl()
      */
-    public function getNotificationUrl($request, $notification)
+    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string
     {
         $application = Application::get();
         $context = $application->getContextDAO()->getById($notification->getContextId());

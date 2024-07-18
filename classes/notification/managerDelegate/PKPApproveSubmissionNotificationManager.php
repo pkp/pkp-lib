@@ -19,6 +19,7 @@ namespace PKP\notification\managerDelegate;
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\notification\NotificationDAO;
 use PKP\notification\NotificationManagerDelegate;
@@ -29,7 +30,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationUrl()
      */
-    public function getNotificationUrl($request, $notification)
+    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string
     {
         $dispatcher = Application::get()->getDispatcher();
         $context = $request->getContext();
@@ -55,7 +56,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
     /**
      * @copydoc NotificationManagerDelegate::updateNotification()
      */
-    public function updateNotification($request, $userIds, $assocType, $assocId)
+    public function updateNotification(PKPRequest $request, ?array $userIds, int $assocType, int $assocId): void
     {
         $submissionId = $assocId;
         $submission = Repo::submission()->get($submissionId);
@@ -101,7 +102,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
     /**
      * @copydoc NotificationManagerDelegate.php
      */
-    protected function multipleTypesUpdate()
+    protected function multipleTypesUpdate(): bool
     {
         return true;
     }

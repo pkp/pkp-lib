@@ -34,26 +34,20 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationMessage($request, $notification)
+    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): ?string
     {
-        switch ($notification->getType()) {
-            case PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR:
-                return __('notification.type.assignCopyeditors');
-            case PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS:
-                return __('notification.type.awaitingCopyedits');
-            case PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER:
-                return __('notification.type.assignProductionUser');
-            case PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS:
-                return __('notification.type.awaitingRepresentations');
-            default:
-                assert(false);
-        }
+        return match($notification->getType()) {
+            PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR => __('notification.type.assignCopyeditors'),
+            PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS => __('notification.type.awaitingCopyedits'),
+            PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER => __('notification.type.assignProductionUser'),
+            PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS => __('notification.type.awaitingRepresentations'),
+        };
     }
 
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationUrl()
      */
-    public function getNotificationUrl($request, $notification)
+    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string
     {
         $dispatcher = Application::get()->getDispatcher();
         $contextDao = Application::getContextDAO();
@@ -64,17 +58,18 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
             case PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS:
             case PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER:
             case PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS:
-                assert($notification->getAssocType() == Application::ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
+                if ($notification->getAssocType() != Application::ASSOC_TYPE_SUBMISSION) {
+                    throw new \Exception('Unexpected assoc type for notification!');
+                }
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', [$notification->getAssocId()]);
-            default:
-                assert(false);
         }
+        throw new \Exception('Unmatched notification type!');
     }
 
     /**
      * @copydoc PKPNotificationOperationManager::getStyleClass()
      */
-    public function getStyleClass($notification)
+    public function getStyleClass(PKPNotification $notification): string
     {
         return NOTIFICATION_STYLE_CLASS_INFORMATION;
     }
@@ -82,10 +77,12 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
     /**
      * @copydoc NotificationManagerDelegate::updateNotification()
      */
-    public function updateNotification($request, $userIds, $assocType, $assocId)
+    public function updateNotification(PKPRequest $request, ?array $userIds, int $assocType, int $submissionId): void
     {
-        assert($assocType == Application::ASSOC_TYPE_SUBMISSION);
-        $submissionId = $assocId;
+        if ($assocType != Application::ASSOC_TYPE_SUBMISSION) {
+            throw new \Exception('Unexpected assoc type for notification!');
+        }
+
         $submission = Repo::submission()->get($submissionId);
         $contextId = $submission->getData('contextId');
 
@@ -210,16 +207,11 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
     //
     /**
      * Remove a notification.
-     *
-     * @param int $submissionId
-     * @param int $userId
-     * @param int $notificationType NOTIFICATION_TYPE_
-     * @param int $contextId
      */
-    public function _removeNotification($submissionId, $userId, $notificationType, $contextId)
+    public function _removeNotification(int $submissionId, int $userId, int $notificationType, int $contextId)
     {
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notificationDao->deleteByAssoc(
+        return $notificationDao->deleteByAssoc(
             Application::ASSOC_TYPE_SUBMISSION,
             $submissionId,
             $userId,
@@ -230,14 +222,8 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 
     /**
      * Create a notification if none exists.
-     *
-     * @param PKPRequest $request
-     * @param int $submissionId
-     * @param int $userId
-     * @param int $notificationType NOTIFICATION_TYPE_
-     * @param int $contextId
      */
-    public function _createNotification($request, $submissionId, $userId, $notificationType, $contextId)
+    public function _createNotification(PKPRequest $request, int $submissionId, int $userId, int $notificationType, int $contextId): void
     {
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notificationFactory = $notificationDao->getByAssoc(

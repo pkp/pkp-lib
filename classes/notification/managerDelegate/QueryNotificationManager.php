@@ -19,6 +19,7 @@ namespace PKP\notification\managerDelegate;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\note\NoteDAO;
@@ -30,32 +31,20 @@ use PKP\query\QueryDAO;
 class QueryNotificationManager extends NotificationManagerDelegate
 {
     /**
-     * @copydoc NotificationManagerDelegate::getNotificationTitle()
-     */
-    public function getNotificationTitle($notification)
-    {
-        switch ($notification->getType()) {
-            case PKPNotification::NOTIFICATION_TYPE_NEW_QUERY:
-                assert(false);
-                break;
-            case PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
-                assert(false);
-                break;
-            default: assert(false);
-        }
-    }
-
-    /**
      * @copydoc NotificationManagerDelegate::getNotificationMessage()
      */
-    public function getNotificationMessage($request, $notification)
+    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): ?string
     {
-        assert($notification->getAssocType() == Application::ASSOC_TYPE_QUERY);
+        if ($notification->getAssocType() != Application::ASSOC_TYPE_QUERY) {
+            throw new \Exception('Unexpected assoc type!');
+        }
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $queryDao->getById($notification->getAssocId());
 
         $headNote = $query->getHeadNote();
-        assert(isset($headNote));
+        if (!$headNote) {
+            throw new \Exception('Unable to retrieve head note for query!');
+        }
 
         switch ($notification->getType()) {
             case PKPNotification::NOTIFICATION_TYPE_NEW_QUERY:
@@ -74,18 +63,14 @@ class QueryNotificationManager extends NotificationManagerDelegate
                     'noteContents' => substr(PKPString::html2text($latestNote->getContents()), 0, 200),
                     'noteTitle' => substr($headNote->getTitle(), 0, 200),
                 ]);
-            default: assert(false);
         }
+        throw new \Exception('Unexpected notification type!');
     }
 
     /**
      * Get the submission for a query.
-     *
-     * @param Query $query
-     *
-     * @return Submission
      */
-    protected function getQuerySubmission($query)
+    protected function getQuerySubmission(Query $query): Submission
     {
         switch ($query->getAssocType()) {
             case Application::ASSOC_TYPE_SUBMISSION:
@@ -96,35 +81,39 @@ class QueryNotificationManager extends NotificationManagerDelegate
                 $publication = Repo::publication()->get($representation->getData('publicationId'));
                 return Repo::submission()->get($publication->getData('submissionId'));
         }
-        assert(false);
+        throw new \Exception('Unexpected query assoc type!');
     }
 
     /**
      * @copydoc NotificationManagerDelegate::getNotificationUrl()
      */
-    public function getNotificationUrl($request, $notification)
+    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string
     {
-        assert($notification->getAssocType() == Application::ASSOC_TYPE_QUERY);
+        if ($notification->getAssocType() != Application::ASSOC_TYPE_QUERY) {
+            throw new \Exception('Unexpected query assoc type!');
+        }
+
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $queryDao->getById($notification->getAssocId());
-        assert($query instanceof Query);
-        $submission = $this->getQuerySubmission($query);
+        if (!$query) {
+            return null;
+        }
 
+        $submission = $this->getQuerySubmission($query);
         return Repo::submission()->getWorkflowUrlByUserRoles($submission, $notification->getUserId());
     }
 
     /**
      * @copydoc NotificationManagerDelegate::getNotificationContents()
      */
-    public function getNotificationContents($request, $notification)
+    public function getNotificationContents(PKPRequest $request, PKPNotification $notification): mixed
     {
-        assert($notification->getAssocType() == Application::ASSOC_TYPE_QUERY);
+        if($notification->getAssocType() != Application::ASSOC_TYPE_QUERY) {
+            throw new \Exception('Unexpected assoc type!');
+        }
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $queryDao->getById($notification->getAssocId());
-        assert($query instanceof Query);
-
         $submission = $this->getQuerySubmission($query);
-        assert($submission instanceof Submission);
 
         switch ($notification->getType()) {
             case PKPNotification::NOTIFICATION_TYPE_NEW_QUERY:
@@ -143,14 +132,14 @@ class QueryNotificationManager extends NotificationManagerDelegate
                         'submissionTitle' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
                     ]
                 );
-            default: assert(false);
         }
+        throw new \Exception('Unexpected notification type!');
     }
 
     /**
      * @copydoc NotificationManagerDelegate::getStyleClass()
      */
-    public function getStyleClass($notification)
+    public function getStyleClass(PKPNotification $notification): string
     {
         return NOTIFICATION_STYLE_CLASS_WARNING;
     }

@@ -29,53 +29,32 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
 
     /**
      * Constructor.
-     *
-     * @param int $notificationType NOTIFICATION_TYPE_...
      */
-    public function __construct($notificationType)
+    public function __construct(int $notificationType)
     {
         $this->_notificationType = $notificationType;
     }
 
     /**
      * Get the current notification type this manager is handling.
-     *
-     * @return int NOTIFICATION_TYPE_...
      */
-    public function getNotificationType()
+    public function getNotificationType(): int
     {
         return $this->_notificationType;
     }
 
     /**
      * Define operations to update notifications.
-     *
-     * @param PKPRequest $request Request object
-     * @param array $userIds List of user IDs to notify
-     * @param int $assocType Application::ASSOC_TYPE_...
-     * @param int $assocId ID corresponding to $assocType
-     *
-     * @return bool True iff success
      */
-    public function updateNotification($request, $userIds, $assocType, $assocId)
-    {
-        return false;
-    }
+    abstract public function updateNotification(PKPRequest $request, ?array $userIds, int $assocType, int $assocId): void;
 
     /**
      * Check if this manager delegate can handle the
      * creation of the passed notification type.
      *
      * @copydoc PKPNotificationOperationManager::createNotification()
-     *
-     * @param null|mixed $userId
-     * @param null|mixed $notificationType
-     * @param null|mixed $contextId
-     * @param null|mixed $assocType
-     * @param null|mixed $assocId
-     * @param null|mixed $params
      */
-    public function createNotification($request, $userId = null, $notificationType = null, $contextId = null, $assocType = null, $assocId = null, $level = Notification::NOTIFICATION_LEVEL_NORMAL, $params = null)
+    public function createNotification(PKPRequest $request, ?int $userId = null, ?int $notificationType = null, ?int $contextId = null, ?int $assocType = null, ?int $assocId = null, int $level = Notification::NOTIFICATION_LEVEL_NORMAL, ?array $params = null): ?PKPNotification
     {
         assert($notificationType == $this->getNotificationType() || $this->multipleTypesUpdate());
         return parent::createNotification($request, $userId, $notificationType, $contextId, $assocType, $assocId, $level, $params);
@@ -87,10 +66,8 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
      * this to true if you're sure the notification manager provides
      * all information for all notification types you're handling (via
      * the getNotification... methods).
-     *
-     * @return bool
      */
-    protected function multipleTypesUpdate()
+    protected function multipleTypesUpdate(): bool
     {
         return false;
     }

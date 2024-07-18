@@ -414,7 +414,7 @@ abstract class Repository
     /**
      * Update notifications controlled by the NotificationManager
      */
-    protected function updateNotifications(Decision $decision, DecisionType $decisionType, Submission $submission)
+    protected function updateNotifications(Decision $decision, DecisionType $decisionType, Submission $submission): void
     {
         $notificationMgr = new NotificationManager();
 

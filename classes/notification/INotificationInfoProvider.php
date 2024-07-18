@@ -31,75 +31,42 @@ interface INotificationInfoProvider
 {
     /**
      * Get a URL for the notification.
-     *
-     * @param PKPRequest $request
-     * @param Notification $notification
-     *
-     * @return string
      */
-    public function getNotificationUrl($request, $notification);
+    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string;
 
     /**
      * Get the notification message. Only return translated locale
      * key strings.
-     *
-     * @param PKPRequest $request
-     * @param Notification $notification
-     *
-     * @return string|array
      */
-    public function getNotificationMessage($request, $notification);
+    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): ?string;
 
     /**
      * Get the notification contents. Content is anything that's
      * more than text, like presenting link actions inside fetched
      * template files.
-     *
-     * @param PKPRequest $request
-     * @param Notification $notification
-     *
-     * @return string|array
      */
-    public function getNotificationContents($request, $notification);
+    public function getNotificationContents(PKPRequest $request, PKPNotification $notification): mixed;
 
     /**
      * Get the notification title.
-     *
-     * @param Notification $notification
-     *
-     * @return string
      */
-    public function getNotificationTitle($notification);
+    public function getNotificationTitle(PKPNotification $notification): string;
 
     /**
      * Get the notification style class.
-     *
-     * @param Notification $notification
-     *
-     * @return string
      */
-    public function getStyleClass($notification);
+    public function getStyleClass(PKPNotification $notification): string;
 
     /**
      * Get the notification icon class.
-     *
-     * @param Notification $notification
-     *
-     * @return string
      */
-    public function getIconClass($notification);
+    public function getIconClass(PKPNotification $notification): string;
 
     /**
      * Whether any notification with the passed notification type
      * is visible to all users or not.
-     *
-     * @param int $notificationType
-     * @param int $assocType Application::ASSOC_TYPE_...
-     * @param int $assocId
-     *
-     * @return bool
      */
-    public function isVisibleToAllUsers($notificationType, $assocType, $assocId);
+    public function isVisibleToAllUsers(int $notificationType, int $assocType, int $assocId): bool;
 }
 
 if (!PKP_STRICT_MODE) {

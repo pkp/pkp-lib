@@ -21,6 +21,7 @@ use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use PKP\controllers\api\file\linkAction\AddRevisionLinkAction;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\notification\NotificationDAO;
 use PKP\notification\NotificationManagerDelegate;
@@ -34,7 +35,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getStyleClass()
      */
-    public function getStyleClass($notification)
+    public function getStyleClass(PKPNotification $notification): string
     {
         return NOTIFICATION_STYLE_CLASS_WARNING;
     }
@@ -42,7 +43,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationUrl()
      */
-    public function getNotificationUrl($request, $notification)
+    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string
     {
         $submission = Repo::submission()->get($notification->getAssocId());
         return Repo::submission()->getWorkflowUrlByUserRoles($submission, $notification->getUserId());
@@ -51,7 +52,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationMessage($request, $notification)
+    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): ?string
     {
         $stageData = $this->_getStageDataByType();
         $stageKey = $stageData['translationKey'];
@@ -62,7 +63,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationContents()
      */
-    public function getNotificationContents($request, $notification)
+    public function getNotificationContents(PKPRequest $request, PKPNotification $notification): mixed
     {
         $stageData = $this->_getStageDataByType();
         $stageId = $stageData['id'];
@@ -84,7 +85,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationTitle()
      */
-    public function getNotificationTitle($notification)
+    public function getNotificationTitle(PKPNotification $notification): string
     {
         $stageData = $this->_getStageDataByType();
         $stageKey = $stageData['translationKey'];
@@ -94,7 +95,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc NotificationManagerDelegate::updateNotification()
      */
-    public function updateNotification($request, $userIds, $assocType, $assocId)
+    public function updateNotification(PKPRequest $request, ?array $userIds, int $assocType, int $assocId): void
     {
         $userId = current($userIds);
         $submissionId = $assocId;
@@ -153,23 +154,16 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     // Private helper methods.
     //
     /**
-     * Get the data for an workflow stage by
-     * pending revisions notification type.
-     *
-     * @return string
+     * Get the data for an workflow stage by pending revisions notification type.
      */
-    private function _getStageDataByType()
+    private function _getStageDataByType(): ?array
     {
         $stagesData = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
 
-        switch ($this->getNotificationType()) {
-            case PKPNotification::NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS:
-                return $stagesData[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] ?? null;
-            case PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS:
-                return $stagesData[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] ?? null;
-            default:
-                assert(false);
-        }
+        return match ($this->getNotificationType()) {
+            PKPNotification::NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS => $stagesData[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] ?? null,
+            PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS => $stagesData[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] ?? null,
+        };
     }
 }
 

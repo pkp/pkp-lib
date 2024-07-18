@@ -19,7 +19,7 @@ use APP\core\Application;
 use APP\notification\Notification;
 use PKP\announcement\Announcement;
 use PKP\core\PKPApplication;
-use PKP\emailTemplate\EmailTemplate;
+use PKP\core\PKPRequest;
 use PKP\facades\Repo;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
@@ -43,7 +43,7 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationMessage($request, $notification): string
+    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): ?string
     {
         return __('emails.announcement.subject');
     }
@@ -51,7 +51,7 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationContents($request, $notification): EmailTemplate
+    public function getNotificationContents(PKPRequest $request, PKPNotification $notification): mixed
     {
         return Repo::emailTemplate()->getByKey($notification->getContextId(), 'ANNOUNCEMENT');
     }
@@ -59,7 +59,7 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationUrl()
      */
-    public function getNotificationUrl($request, $notification)
+    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string
     {
         return $request->getDispatcher()->url(
             $request,

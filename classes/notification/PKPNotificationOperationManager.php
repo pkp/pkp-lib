@@ -22,14 +22,12 @@
 namespace PKP\notification;
 
 use APP\core\Application;
-use APP\core\Request;
-
 use APP\notification\Notification;
-
 use APP\template\TemplateManager;
 use Firebase\JWT\Key;
 use InvalidArgumentException;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPJwt as JWT;
@@ -47,7 +45,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * @copydoc INotificationInfoProvider::getNotificationUrl()
      */
-    public function getNotificationUrl($request, $notification)
+    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string
     {
         return null;
     }
@@ -55,7 +53,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * @copydoc INotificationInfoProvider::getNotificationMessage()
      */
-    public function getNotificationMessage($request, $notification)
+    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): ?string
     {
         return null;
     }
@@ -65,7 +63,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      *
      * @copydoc INotificationInfoProvider::getNotificationContents()
      */
-    public function getNotificationContents($request, $notification)
+    public function getNotificationContents(PKPRequest $request, PKPNotification $notification): mixed
     {
         return $this->getNotificationMessage($request, $notification);
     }
@@ -73,7 +71,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * @copydoc INotificationInfoProvider::getNotificationTitle()
      */
-    public function getNotificationTitle($notification)
+    public function getNotificationTitle(PKPNotification $notification): string
     {
         return __('notification.notification');
     }
@@ -81,7 +79,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * @copydoc INotificationInfoProvider::getStyleClass()
      */
-    public function getStyleClass($notification)
+    public function getStyleClass(PKPNotification $notification): string
     {
         return '';
     }
@@ -89,7 +87,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * @copydoc INotificationInfoProvider::getIconClass()
      */
-    public function getIconClass($notification)
+    public function getIconClass(PKPNotification $notification): string
     {
         return '';
     }
@@ -97,7 +95,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * @copydoc INotificationInfoProvider::isVisibleToAllUsers()
      */
-    public function isVisibleToAllUsers($notificationType, $assocType, $assocId)
+    public function isVisibleToAllUsers(int $notificationType, int $assocType, int $assocId): bool
     {
         return false;
     }
@@ -111,12 +109,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      *  For each parameter, return (in preferred order) a value for the user's current locale,
      *  a param for the journal's default locale, or the first value (in case the value
      *  is not localized)
-     *
-     * @param array $params
-     *
-     * @return array
      */
-    public function getParamsForCurrentLocale($params)
+    public function getParamsForCurrentLocale(array $params): array
     {
         $locale = Locale::getLocale();
         $primaryLocale = Locale::getPrimaryLocale();
@@ -149,56 +143,38 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
     /**
      * Create a new notification with the specified arguments and insert into DB
-     *
-     * @param ?PKPRequest $request
-     * @param int $userId (optional)
-     * @param int $notificationType
-     * @param int $contextId
-     * @param int $assocType
-     * @param int $assocId
-     * @param int $level
-     * @param array $params
-     *
-     * @return ?Notification
      */
-    public function createNotification($request, $userId = null, $notificationType = null, $contextId = null, $assocType = null, $assocId = null, $level = Notification::NOTIFICATION_LEVEL_NORMAL, $params = null)
+    public function createNotification(PKPRequest $request, ?int $userId = null, ?int $notificationType = null, ?int $contextId = null, ?int $assocType = null, ?int $assocId = null, int $level = Notification::NOTIFICATION_LEVEL_NORMAL, ?array $params = null): ?PKPNotification
     {
-        $blockedNotifications = $this->getUserBlockedNotifications($userId, $contextId);
-
-        if (!in_array($notificationType, $blockedNotifications)) {
-            $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-            $notification = $notificationDao->newDataObject(); /** @var Notification $notification */
-            $notification->setUserId((int) $userId);
-            $notification->setType((int) $notificationType);
-            $notification->setContextId((int) $contextId);
-            $notification->setAssocType((int) $assocType);
-            $notification->setAssocId((int) $assocId);
-            $notification->setLevel((int) $level);
-
-            $notificationId = $notificationDao->insertObject($notification);
-
-            if ($params) {
-                $notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /** @var NotificationSettingsDAO $notificationSettingsDao */
-                foreach ($params as $name => $value) {
-                    $notificationSettingsDao->updateNotificationSetting($notificationId, $name, $value);
-                }
-            }
-
-            return $notification;
+        if ($userId && in_array($notificationType, $this->getUserBlockedNotifications($userId, $contextId))) {
+            return null;
         }
+
+        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
+        $notification = $notificationDao->newDataObject(); /** @var Notification $notification */
+        $notification->setUserId((int) $userId);
+        $notification->setType((int) $notificationType);
+        $notification->setContextId((int) $contextId);
+        $notification->setAssocType((int) $assocType);
+        $notification->setAssocId((int) $assocId);
+        $notification->setLevel((int) $level);
+
+        $notificationId = $notificationDao->insertObject($notification);
+
+        if ($params) {
+            $notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /** @var NotificationSettingsDAO $notificationSettingsDao */
+            foreach ($params as $name => $value) {
+                $notificationSettingsDao->updateNotificationSetting($notificationId, $name, $value);
+            }
+        }
+
+        return $notification;
     }
 
     /**
      * Create a new notification with the specified arguments and insert into DB
-     * This is a static method
-     *
-     * @param int $userId
-     * @param int $notificationType
-     * @param array $params
-     *
-     * @return Notification object
      */
-    public function createTrivialNotification($userId, $notificationType = PKPNotification::NOTIFICATION_TYPE_SUCCESS, $params = null)
+    public function createTrivialNotification(int $userId, int $notificationType = PKPNotification::NOTIFICATION_TYPE_SUCCESS, ?array $params = null): PKPNotification
     {
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notification = $notificationDao->newDataObject();
@@ -221,10 +197,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
     /**
      * Deletes trivial notifications from database.
-     *
-     * @param array $notifications
      */
-    public function deleteTrivialNotifications($notifications)
+    public function deleteTrivialNotifications(array $notifications): void
     {
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         foreach ($notifications as $notification) {
@@ -237,13 +211,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
     /**
      * General notification data formatting.
-     *
-     * @param PKPRequest $request
-     * @param array $notifications
-     *
-     * @return array
      */
-    public function formatToGeneralNotification($request, $notifications)
+    public function formatToGeneralNotification(PKPRequest $request, array $notifications): array
     {
         $formattedNotificationsData = [];
         foreach ($notifications as $notification) { /** @var Notification $notification */
@@ -261,21 +230,14 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
     /**
      * In place notification data formating.
-     *
-     * @param PKPRequest $request
-     * @param array $notifications
-     *
-     * @return array
      */
-    public function formatToInPlaceNotification($request, $notifications)
+    public function formatToInPlaceNotification(PKPRequest $request, array $notifications): array
     {
         $formattedNotificationsData = null;
 
-        if (!empty($notifications)) {
-            $templateMgr = TemplateManager::getManager($request);
-            foreach ((array)$notifications as $notification) {
-                $formattedNotificationsData[$notification->getLevel()][$notification->getId()] = $this->formatNotification($request, $notification, 'controllers/notification/inPlaceNotificationContent.tpl');
-            }
+        $templateMgr = TemplateManager::getManager($request);
+        foreach ($notifications as $notification) {
+            $formattedNotificationsData[$notification->getLevel()][$notification->getId()] = $this->formatNotification($request, $notification, 'controllers/notification/inPlaceNotificationContent.tpl');
         }
 
         return $formattedNotificationsData;
@@ -283,38 +245,26 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
     /**
      * Get set of notifications types user does not want to be notified of.
-     *
-     * @param int $userId The notification user
-     * @param int $contextId
-     *
-     * @return array
      */
-    protected function getUserBlockedNotifications($userId, $contextId)
+    protected function getUserBlockedNotifications(int $userId, int $contextId): array
     {
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
-        return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY, $userId, (int) $contextId);
+        return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY, $userId, $contextId);
     }
 
     /**
      * Get set of notification types user will also be notified by email.
-     *
-     * @return array
      */
-    protected function getUserBlockedEmailedNotifications($userId, $contextId)
+    protected function getUserBlockedEmailedNotifications(int $userId, int $contextId): array
     {
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO'); /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
-        return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY, $userId, (int) $contextId);
+        return $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY, $userId, $contextId);
     }
 
     /**
      * Get a notification content with a link action.
-     *
-     * @param LinkAction $linkAction
-     * @param Request $request
-     *
-     * @return string
      */
-    protected function fetchLinkActionNotificationContent($linkAction, $request)
+    protected function fetchLinkActionNotificationContent(LinkAction $linkAction, PKPRequest $request): string
     {
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('linkAction', $linkAction);
@@ -323,13 +273,8 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
     /**
      * Return a fully formatted notification for display
-     *
-     * @param PKPRequest $request
-     * @param object $notification Notification
-     *
-     * @return string
      */
-    private function formatNotification($request, $notification, $notificationTemplate)
+    private function formatNotification(PKPRequest $request, PKPNotification $notification, string $notificationTemplate): string
     {
         $templateMgr = TemplateManager::getManager($request);
 
@@ -361,74 +306,45 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
     /**
      * Creates and returns a unique string for the given notification, that will be encoded and validated against.
-     *
-     * @param Notification $notification
-     *
-     * @return string
      */
-    public function createUnsubscribeUniqueKey($notification)
+    public function createUnsubscribeUniqueKey(PKPNotification $notification): string
     {
-        $uniqueKey = 'unsubscribe' . '-' . $notification->getContextId() . '-' . $notification->getUserId() . '-' . $notification->getId();
-
-        return $uniqueKey;
+        return "unsubscribe-{$notification->getContextId()}-{$notification->getUserId()}-{$notification->getId()}";
     }
 
     /**
      * Creates and returns an encoded token that will be used to validate an unsubscribe url.
-     *
-     * @param Notification $notification
-     *
-     * @return string
+     * Returns an empty string if the API key secret has not been configured.
      */
-    public function createUnsubscribeToken($notification)
+    public function createUnsubscribeToken(PKPNotification $notification): string
     {
-        $encodeString = $this->createUnsubscribeUniqueKey($notification);
-
         $secret = Config::getVar('security', 'api_key_secret', '');
-        $jwt = '';
-        if ($secret !== '') {
-            $jwt = JWT::encode([$encodeString], $secret, 'HS256');
+        if ($secret === '') {
+            return '';
         }
 
-        return $jwt;
+        return  JWT::encode([$this->createUnsubscribeUniqueKey($notification)], $secret, 'HS256');
     }
 
     /**
      * The given notification is validated against the requested token.
-     *
-     * @param string $token
-     * @param Notification $notification
-     *
-     * @return bool
      */
-    public function validateUnsubscribeToken($token, $notification)
+    public function validateUnsubscribeToken(string $token, PKPNotification $notification): bool
     {
-        $encodeString = $this->createUnsubscribeUniqueKey($notification);
-
         $secret = Config::getVar('security', 'api_key_secret', '');
-        $jwt = '';
-        if ($secret !== '') {
-            $headers = new stdClass();
-            $jwt = ((array)JWT::decode($token, new Key($secret, 'HS256'), $headers))[0]; /** @var string $jwt */
+        if ($secret === '') {
+            return false;
         }
 
-        if ($jwt == $encodeString) {
-            return true;
-        }
-
-        return false;
+        $headers = new stdClass();
+        $jwt = ((array)JWT::decode($token, new Key($secret, 'HS256'), $headers))[0]; /** @var string $jwt */
+        return $jwt === $this->createUnsubscribeUniqueKey($notification);
     }
 
     /**
      * Returns the unsubscribe url for the given notification.
-     *
-     * @param PKPRequest $request
-     * @param Notification $notification
-     * @param null|mixed $context
-     *
-     * @return string
      */
-    public function getUnsubscribeNotificationUrl($request, $notification, $context = null)
+    public function getUnsubscribeNotificationUrl(PKPRequest $request, PKPNotification $notification, ?Context $context = null): string
     {
         $application = Application::get();
         $dispatcher = $application->getDispatcher();

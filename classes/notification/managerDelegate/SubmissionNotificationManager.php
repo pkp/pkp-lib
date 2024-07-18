@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
 
@@ -28,32 +29,32 @@ class SubmissionNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationMessage($request, $notification)
+    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): ?string
     {
-        assert($notification->getAssocType() == Application::ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
+        if ($notification->getAssocType() != Application::ASSOC_TYPE_SUBMISSION) {
+            throw new \Exception('Unexpected assoc type!');
+        }
         $submission = Repo::submission()->get($notification->getAssocId()); /** @var Submission $submission */
 
-        switch ($notification->getType()) {
-            case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
-                return __('notification.type.submissionSubmitted', ['title' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html')]);
-            case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
-                return __('notification.type.submissionNewVersion');
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
-                return __('notification.type.editorAssignmentTask');
-            default:
-                assert(false);
-        }
+        return match($notification->getType()) {
+            PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => __('notification.type.submissionSubmitted', ['title' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html')]),
+            PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION => __('notification.type.submissionNewVersion'),
+            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED => __('notification.type.editorAssignmentTask'),
+        };
     }
 
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationUrl()
      */
-    public function getNotificationUrl($request, $notification)
+    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string
     {
         $router = $request->getRouter();
         $dispatcher = $router->getDispatcher();
 
-        assert($notification->getAssocType() == Application::ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
+        if ($notification->getAssocType() != Application::ASSOC_TYPE_SUBMISSION) {
+            throw new \Exception('Unexpected assoc type for notification!');
+        }
+
         switch ($notification->getType()) {
             case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
             case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
@@ -66,39 +67,30 @@ class SubmissionNotificationManager extends NotificationManagerDelegate
                 $context = $contextDao->getById($notification->getContextId());
 
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'production', $notification->getAssocId());
-            default:
-                assert(false);
         }
+        throw new \Exception('Unexpected notification type!');
     }
 
     /**
      * @copydoc PKPNotificationManager::getIconClass()
      */
-    public function getIconClass($notification)
+    public function getIconClass(PKPNotification $notification): string
     {
-        switch ($notification->getType()) {
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
-                return 'notifyIconPageAlert';
-            case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
-                return 'notifyIconNewPage';
-            default:
-                assert(false);
-        }
+        return match ($notification->getType()) {
+            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED => 'notifyIconPageAlert',
+            PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => 'notifyIconNewPage',
+        };
     }
 
     /**
      * @copydoc PKPNotificationManager::getStyleClass()
      */
-    public function getStyleClass($notification)
+    public function getStyleClass(PKPNotification $notification): string
     {
-        switch ($notification->getType()) {
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
-                return NOTIFICATION_STYLE_CLASS_INFORMATION;
-            case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
-                return '';
-            default:
-                assert(false);
-        }
+        return match($notification->getType()) {
+            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED => NOTIFICATION_STYLE_CLASS_INFORMATION,
+            PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => '',
+        };
     }
 }
 

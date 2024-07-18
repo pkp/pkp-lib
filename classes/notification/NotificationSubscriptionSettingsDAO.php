@@ -35,15 +35,11 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
 
     /**
      * Delete a notification setting by setting name
-     *
-     * @param int $notificationId
-     * @param int $userId
-     * @param string $settingName optional
      */
-    public function deleteNotificationSubscriptionSettings($notificationId, $userId, $settingName = null)
+    public function deleteNotificationSubscriptionSettings(int $notificationId, int $userId, ?string $settingName = null): int
     {
-        $params = [(int) $notificationId, (int) $userId];
-        if ($settingName) {
+        $params = [$notificationId, $userId];
+        if ($settingName !== null) {
             $params[] = $settingName;
         }
 
@@ -56,17 +52,12 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
 
     /**
      * Retrieve Notification subscription settings by user id
-     *
-     * @param string $settingName
-     * @param int $userId
-     *
-     * @return array
      */
-    public function &getNotificationSubscriptionSettings($settingName, $userId, ?int $contextId)
+    public function &getNotificationSubscriptionSettings(string $settingName, int $userId, ?int $contextId): array
     {
         $result = $this->retrieve(
             'SELECT setting_value FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND context = ?',
-            [(int) $userId, $settingName, $contextId]
+            [$userId, $settingName, $contextId]
         );
 
         $settings = [];
@@ -78,17 +69,13 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
 
     /**
      * Update a user's notification subscription settings
-     *
-     * @param string $settingName
-     * @param array $settings
-     * @param int $userId
      */
-    public function updateNotificationSubscriptionSettings($settingName, $settings, $userId, ?int $contextId)
+    public function updateNotificationSubscriptionSettings(string $settingName, array $settings, int $userId, ?int $contextId): void
     {
         // Delete old settings first, then insert new settings
         $this->update(
             'DELETE FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND context = ?',
-            [(int) $userId, $settingName, $contextId]
+            [$userId, $settingName, $contextId]
         );
 
         foreach ($settings as $setting) {
@@ -100,82 +87,12 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
                 [
                     $settingName,
                     (int) $setting,
-                    (int) $userId,
+                    $userId,
                     $contextId,
                     'int'
                 ]
             );
         }
-    }
-
-    /**
-     * Gets a user id by an RSS token value
-     *
-     * @param int $token
-     * @param int $contextId
-     *
-     * @return int|null
-     */
-    public function getUserIdByRSSToken($token, $contextId)
-    {
-        $result = $this->retrieve(
-            'SELECT user_id FROM notification_subscription_settings WHERE setting_value = ? AND setting_name = ? AND context = ?',
-            [$token, 'token', (int) $contextId]
-        );
-        $row = $result->current();
-        return $row ? $row->user_id : null;
-    }
-
-    /**
-     * Gets an RSS token for a user id
-     *
-     * @param int $userId
-     * @param int $contextId
-     *
-     * @return int|null
-     */
-    public function getRSSTokenByUserId($userId, $contextId)
-    {
-        $result = $this->retrieve(
-            'SELECT setting_value FROM notification_subscription_settings WHERE user_id = ? AND setting_name = ? AND context = ?',
-            [(int) $userId, 'token', (int) $contextId]
-        );
-        $row = $result->current();
-        return $row ? $row->setting_value : null;
-    }
-
-    /**
-     * Generates and inserts a new token for a user's RSS feed
-     *
-     * @param int $userId
-     * @param int $contextId
-     *
-     * @return string
-     */
-    public function insertNewRSSToken($userId, $contextId)
-    {
-        $token = uniqid(random_int(0, PHP_INT_MAX));
-
-        // Recurse if this token already exists
-        if ($this->getUserIdByRSSToken($token, $contextId)) {
-            return $this->insertNewRSSToken($userId, $contextId);
-        }
-
-        $this->update(
-            'INSERT INTO notification_subscription_settings
-				(setting_name, setting_value, user_id, context, setting_type)
-				VALUES
-				(?, ?, ?, ?, ?)',
-            [
-                'token',
-                $token,
-                (int) $userId,
-                (int) $contextId,
-                'string'
-            ]
-        );
-
-        return $token;
     }
 
     /**

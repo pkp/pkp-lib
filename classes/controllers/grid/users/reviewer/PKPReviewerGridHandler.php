@@ -1295,50 +1295,27 @@ class PKPReviewerGridHandler extends GridHandler
                 if ($authorFriendly && !$reviewFormElement->getIncluded()) continue;
 
                 $elementId = $reviewFormElement->getId();
-                $value = $reviewFormResponses[$elementId];
-                if (in_array($reviewFormElement->getElementType(),  [ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD, ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXT_FIELD, ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_TEXTAREA])) {
-                    $customMetaTextObject = $xml->createElement('custom-meta');
-                    $textTag = $xml->createElement('meta-name', strip_tags($reviewFormElement->getLocalizedQuestion()));
-                    $textValueTag = $xml->createElement('meta-value', $value);
-                    $customMetaTextObject->appendChild($textTag);
-                    $customMetaTextObject->appendChild($textValueTag);
-                    $customMetaGroupObject->appendChild($customMetaTextObject);
-                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
+                if ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_CHECKBOXES) {
                     $results = [];
                     foreach ($reviewFormResponses[$elementId] as $index) {
                         if (isset($reviewFormElement->getLocalizedPossibleResponses()[$index])) {
                             $results[] = $reviewFormElement->getLocalizedPossibleResponses()[$index];
                         }
                     }
-
-                    $customMetaCheckboxObject = $xml->createElement('custom-meta');
-                    $checkboxTag = $xml->createElement('meta-name', strip_tags($reviewFormElement->getLocalizedQuestion()));
-                    $checkboxValuesTag = $xml->createElement('meta-value', implode(', ', $results));
-                    $customMetaCheckboxObject->appendChild($checkboxTag);
-                    $customMetaCheckboxObject->appendChild($checkboxValuesTag);
-                    $customMetaGroupObject->appendChild($customMetaCheckboxObject);
-                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS) {
-                    $possibleResponsesRadios = $reviewFormElement->getLocalizedPossibleResponses();
-                    $radioResponse = array_key_exists($reviewFormResponses[$elementId], $possibleResponsesRadios) ? $possibleResponsesRadios[$reviewFormResponses[$elementId]] : '';
-
-                    $customMetaRadioObject = $xml->createElement('custom-meta');
-                    $radioTag = $xml->createElement('meta-name', strip_tags($reviewFormElement->getLocalizedQuestion()));
-                    $radioValueTag = $xml->createElement('meta-value', $radioResponse);
-                    $customMetaRadioObject->appendChild($radioTag);
-                    $customMetaRadioObject->appendChild($radioValueTag);
-                    $customMetaGroupObject->appendChild($customMetaRadioObject);
-
-                } elseif ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX) {
+                    $answer = implode(', ', $results);
+                } elseif (in_array($reviewFormElement->getElementType(), [ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_RADIO_BUTTONS, ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_DROP_DOWN_BOX])) {
                     $possibleResponses = $reviewFormElement->getLocalizedPossibleResponses();
-                    $selectedValue = $possibleResponses[$reviewFormResponses[$elementId]];
-
-                    $customMetaSelectObject = $xml->createElement('custom-meta');
-                    $selectTag = $xml->createElement('meta-name', strip_tags($reviewFormElement->getLocalizedQuestion()));
-                    $selectValueTag = $xml->createElement('meta-value', $selectedValue);
-                    $customMetaSelectObject->appendChild($selectTag);
-                    $customMetaSelectObject->appendChild($selectValueTag);
-                    $customMetaGroupObject->appendChild($customMetaSelectObject);
+                    $answer = array_key_exists($reviewFormResponses[$elementId], $possibleResponses) ? $possibleResponses[$reviewFormResponses[$elementId]] : '';
+                } else {
+                    $answer = $reviewFormResponses[$elementId];
                 }
+
+                $customMetaObject = $xml->createElement('custom-meta');
+                $nameTag = $xml->createElement('meta-name', strip_tags($reviewFormElement->getLocalizedQuestion()));
+                $valueTag = $xml->createElement('meta-value', $answer);
+                $customMetaObject->appendChild($nameTag);
+                $customMetaObject->appendChild($valueTag);
+                $customMetaGroupObject->appendChild($customMetaObject);
             }
         } else {
             foreach ($submissionComments->records as $key => $comment) {

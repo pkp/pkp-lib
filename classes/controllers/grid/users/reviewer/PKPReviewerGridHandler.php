@@ -1214,14 +1214,14 @@ class PKPReviewerGridHandler extends GridHandler
         $contribGroup = $xml->createElement('contrib-group');
         $articleMeta->appendChild($contribGroup);
 
-        $contrib = $xml->createElement('contrib'); //author name?????? role???? surely always author?????
+        $contrib = $xml->createElement('contrib');
         $contrib->setAttribute('contrib-type', 'author');
         $contribGroup->appendChild($contrib);
 
-        $anonymous = $xml->createElement('anonymous'); //logic needs to determine this
+        $anonymous = $xml->createElement('anonymous');
         $contrib->appendChild($anonymous);
 
-        $role = $xml->createElement('role', 'Reviewer'); //what is this
+        $role = $xml->createElement('role', 'Reviewer');
         $role->setAttribute('specific-use', 'reviewer');
         $contrib->appendChild($role);
 
@@ -1257,14 +1257,6 @@ class PKPReviewerGridHandler extends GridHandler
 
         $licenseRef = $xml->createElement('ali:license_ref', 'http://creativecommons.org/licenses/by/4.0/');
         $permissions->appendChild($licenseRef);
-
-        $relatedObject = $xml->createElement('related-object');
-        $relatedObject->setAttribute('document-id', 'WHAT THE HELL IS THIS'); //ANOTHER DOI??
-        $relatedObject->setAttribute('document-id-type', 'doi');
-        $relatedObject->setAttribute('document-type', 'peer-reviewed-article');
-        $relatedObject->setAttribute('source-id', 'https://www.biorxiv.org/'); //WHAT ON EEARTH IS THIS??
-        $relatedObject->setAttribute('source-id-type', 'url');
-        $articleMeta->appendChild($relatedObject);
 
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
         $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, null, $reviewId, true);
@@ -1344,11 +1336,10 @@ class PKPReviewerGridHandler extends GridHandler
 
         $customMetaGroupObject->appendChild($customMetaPeerReviewStage);
         $customMetaGroupObject->appendChild($customMetaReccomObject);
-
         $articleMeta->appendChild($customMetaGroupObject);
         $xml->formatOutput = true;
-
         $xml->save($xmlFileName);
+
         header('Content-Description: File Transfer');
         header('Content-Type: application/xml');
         header('Content-Disposition: attachment; filename="' . basename($xmlFileName) . '"');

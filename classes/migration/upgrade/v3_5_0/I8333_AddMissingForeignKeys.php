@@ -3,8 +3,8 @@
 /**
  * @file classes/migration/upgrade/v3_5_0/I8333_AddMissingForeignKeys.php
  *
- * Copyright (c) 2023 Simon Fraser University
- * Copyright (c) 2023 John Willinsky
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I8333_AddMissingForeignKeys
@@ -60,6 +60,10 @@ abstract class I8333_AddMissingForeignKeys extends \PKP\migration\Migration
             ->where('sender_id', '=', 0)
             ->update(['sender_id' => null]);
         // Only the administrator user group (role_id = 1) is allowed to have a null context_id
+        DB::table('user_groups')
+            ->where('role_id', '=', 1)
+            ->where('context_id', '!=', 0)
+            ->delete();
         DB::table('user_groups')
             ->where('role_id', '=', 1)
             ->where('context_id', '=', 0)

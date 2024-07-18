@@ -31,8 +31,8 @@ class PKPPageRouter extends PKPRouter
     /** @var array pages that don't need an installed system to be displayed */
     public $_installationPages = ['install', 'help', 'header', 'sidebar'];
 
-    public const ROUTER_DEFAULT_PAGE = './pages/' . Application::SITE_CONTEXT_PATH . '/index.php';
-    public const ROUTER_DEFAULT_OP = Application::SITE_CONTEXT_PATH;
+    public const ROUTER_DEFAULT_PAGE = './pages/index/index.php';
+    public const ROUTER_DEFAULT_OP = 'index';
     //
     // Internal state cache variables
     // NB: Please do not access directly but

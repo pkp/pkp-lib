@@ -112,7 +112,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      *
      * @return DAOResultFactory<NavigationMenuItem>
      */
-    public function getByType(string $type, ?int $contextId = Application::SITE_CONTEXT_ID_ALL)
+    public function getByType(string $type, ?int $contextId = Application::SITE_CONTEXT_ID_ALL): DAOResultFactory
     {
         $params = [$type];
         if ($contextId !== Application::SITE_CONTEXT_ID_ALL) {

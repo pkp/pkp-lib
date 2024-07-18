@@ -396,7 +396,7 @@ class PKPRequest
     public function getProtocol(): string
     {
         if (!isset($this->_protocol)) {
-            $this->_protocol = (!isset($_SERVER['HTTPS']) || strtolower_codesafe($_SERVER['HTTPS']) != 'on') ? 'http' : 'https';
+            $this->_protocol = (!isset($_SERVER['HTTPS']) || strtolower($_SERVER['HTTPS']) != 'on') ? 'http' : 'https';
             Hook::call('Request::getProtocol', [&$this->_protocol]);
         }
         return $this->_protocol;

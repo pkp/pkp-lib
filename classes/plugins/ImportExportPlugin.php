@@ -431,7 +431,7 @@ abstract class ImportExportPlugin extends Plugin
     }
 
     /**
-     * Download file given it's name
+     * Download file given its name
      */
     public function downloadExportedFile(string $exportedFileContentNamePart, string $exportedFileDatePart, PKPImportExportDeployment $deployment)
     {
@@ -449,7 +449,7 @@ abstract class ImportExportPlugin extends Plugin
     }
 
     /**
-     * Create file given it's name and content
+     * Create file given its name and content
      *
      * @param ?DateTime $dateFilenamePart
      *

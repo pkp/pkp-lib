@@ -3816,3 +3816,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Kolofon"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Godkend XML før eksport og registrering."

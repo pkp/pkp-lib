@@ -19,11 +19,10 @@ use PKP\components\forms\FieldPreparedContent;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 
-define('FORM_EMAIL_TEMPLATE', 'editEmailTemplate');
-
 class EmailTemplateForm extends FormComponent
 {
-    public $id = FORM_EMAIL_TEMPLATE;
+    public const FORM_EMAIL_TEMPLATE = 'editEmailTemplate';
+    public $id = self::FORM_EMAIL_TEMPLATE;
 
     public function __construct(string $action, array $locales)
     {

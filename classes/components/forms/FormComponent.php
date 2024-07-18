@@ -191,7 +191,7 @@ class FormComponent
     public function addPage($args, $position = []): static
     {
         if (empty($args['id'])) {
-            fatalError('Tried to add a form page without an id.');
+            throw new \Exception('Tried to add a form page without an id.');
         }
         if (empty($position)) {
             $this->pages[] = $args;

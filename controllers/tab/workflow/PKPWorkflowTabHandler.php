@@ -227,20 +227,12 @@ abstract class PKPWorkflowTabHandler extends Handler
 
     /**
      * Identifies the review round.
-     *
-     * @param int $stageId
-     *
-     * @return string
      */
-    private function _identifyReviewRoundOp($stageId)
+    private function _identifyReviewRoundOp(int $stageId): string
     {
-        switch ($stageId) {
-            case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
-                return 'internalReviewRound';
-            case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-                return 'externalReviewRound';
-            default:
-                fatalError('unknown review round id.');
-        }
+        return match($stageId) {
+            WORKFLOW_STAGE_ID_INTERNAL_REVIEW => 'internalReviewRound',
+            WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => 'externalReviewRound',
+        };
     }
 }

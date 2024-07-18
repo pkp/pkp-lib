@@ -3570,3 +3570,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Redaktionsruta"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validera XML före export och registrering."

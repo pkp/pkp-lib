@@ -21,11 +21,10 @@ use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 
-define('FORM_TITLE_ABSTRACT', 'titleAbstract');
-
 class TitleAbstractForm extends FormComponent
 {
-    public $id = FORM_TITLE_ABSTRACT;
+    public const FORM_TITLE_ABSTRACT = 'titleAbstract';
+    public $id = self::FORM_TITLE_ABSTRACT;
     public $method = 'PUT';
     public $publication;
     public int $abstractWordLimit;

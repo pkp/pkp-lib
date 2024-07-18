@@ -89,7 +89,7 @@ class PKPEmailSetupForm extends FormComponent
             $this->context->getPath(),
             'management',
             'settings',
-            'manageEmails'
+            ['manageEmails']
         );
         return $this->addField(new FieldHTML('emailTemplates', [
             'label' => __('manager.emails.emailTemplates'),
@@ -165,7 +165,7 @@ class PKPEmailSetupForm extends FormComponent
         $request = Application::get()->getRequest();
 
         $pageUrl = $request->getDispatcher()
-            ->url($request, Application::ROUTE_PAGE, null, 'management', 'settings', 'context', null, 'contact');
+            ->url($request, Application::ROUTE_PAGE, null, 'management', 'settings', ['context'], null, 'contact');
 
         return $this->addField(new FieldHTML('copySubmissionAckPrimaryContact', [
             'label' => __('manager.setup.notifications.copySubmissionAckPrimaryContact'),

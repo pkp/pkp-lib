@@ -27,14 +27,10 @@ use PKP\components\forms\FormComponent;
 use PKP\plugins\PluginRegistry;
 use PKP\plugins\ThemePlugin;
 
-define('FORM_THEME', 'theme');
-
 class PKPThemeForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_THEME;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_THEME = 'theme';
+    public $id = self::FORM_THEME;
     public $method = 'PUT';
 
     /** @var array A key/value store of theme option fields, keyed by theme name */

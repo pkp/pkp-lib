@@ -202,7 +202,7 @@ class Dispatcher
      * @param $newContext Optional contextual path
      * @param $handler Optional name of the handler to invoke
      * @param $op Optional name of operation to invoke
-     * @param $path Optional string or array of args to pass to handler
+     * @param $path Optional array of args to pass to handler
      * @param $params Optional set of name => value pairs to pass as user parameters
      * @param $anchor Optional name of anchor to add to URL
      * @param $escape Whether or not to escape ampersands for this URL; default false.
@@ -214,7 +214,7 @@ class Dispatcher
         ?string $newContext = null,
         ?string $handler = null,
         ?string $op = null,
-        mixed $path = null,
+        ?array $path = null,
         ?array $params = null,
         ?string $anchor = null,
         bool $escape = false,

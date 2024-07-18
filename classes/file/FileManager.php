@@ -485,7 +485,7 @@ class FileManager
         if (!file_exists($dirPath)) {
             //Avoid infinite recursion when file_exists reports false for root directory
             if ($dirPath == dirname($dirPath)) {
-                fatalError('There are no readable files in this directory tree. Are safe mode or open_basedir active?');
+                throw new \Exception('There are no readable files in this directory tree. Are safe mode or open_basedir active?');
                 return false;
             } elseif ($this->mkdirtree(dirname($dirPath), $perms)) {
                 return $this->mkdir($dirPath, $perms);

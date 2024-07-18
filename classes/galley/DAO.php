@@ -186,24 +186,17 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
     /**
      * @copydoc PKPPubIdPluginDAO::pubIdExists()
      */
-    public function pubIdExists($pubIdType, $pubId, $excludePubObjectId, $contextId)
+    public function pubIdExists(string $pubIdType, string $pubId, int $excludePubObjectId, int $contextId): bool
     {
-        $result = $this->deprecatedDao->retrieve(
-            'SELECT COUNT(*) AS row_count
-			FROM publication_galley_settings pgs
-				INNER JOIN publication_galleys pg ON pgs.galley_id = pg.galley_id
-				INNER JOIN publications p ON pg.publication_id = p.publication_id
-				INNER JOIN submissions s ON p.submission_id = s.submission_id
-			WHERE pgs.setting_name = ? AND pgs.setting_value = ? AND pgs.galley_id <> ? AND s.context_id = ?',
-            [
-                'pub-id::' . $pubIdType,
-                $pubId,
-                (int) $excludePubObjectId,
-                (int) $contextId
-            ]
-        );
-        $row = $result->current();
-        return $row ? (bool) $row->row_count : false;
+        return DB::table('publication_galley_settings AS pgs')
+            ->join('publication_galleys AS pg', 'pgs.galley_id', '=', 'pg.galley_id')
+            ->join('publications AS p', 'pg.publication_id', '=', 'p.publication_id')
+            ->join('submissions AS s', 'p.submission_id', '=', 's.submission_id')
+            ->where('pgs.setting_name', '=', "pub-id::{$pubIdType}")
+            ->where('pgs.setting_value', '=', $pubId)
+            ->where('pgs.galley_id', '<>', $excludePubObjectId)
+            ->where('s.context_id', '=', $contextId)
+            ->count() > 0;
     }
 
     /**
@@ -220,36 +213,29 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
     /**
      * @copydoc PKPPubIdPluginDAO::deletePubId()
      */
-    public function deletePubId($pubObjectId, $pubIdType)
+    public function deletePubId(int $pubObjectId, string $pubIdType): int
     {
-        $settingName = 'pub-id::' . $pubIdType;
-        $this->deprecatedDao->update(
-            'DELETE FROM publication_galley_settings WHERE setting_name = ? AND galley_id = ?',
-            [
-                $settingName,
-                (int)$pubObjectId
-            ]
-        );
+        return DB::table('publication_galley_settings')
+            ->where('setting_name', '=', "pub-id::{$pubIdType}")
+            ->where('galley_id', '=', $pubObjectId)
+            ->delete();
     }
 
     /**
      * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
      */
-    public function deleteAllPubIds($contextId, $pubIdType)
+    public function deleteAllPubIds(int $contextId, string $pubIdType): int
     {
-        $settingName = 'pub-id::' . $pubIdType;
-
+        $affectedRows = 0;
         $galleyIds = Repo::galley()
             ->getCollector()
             ->filterByContextIds([(int) $contextId])
             ->getIds();
 
         foreach ($galleyIds as $galleyId) {
-            $this->deprecatedDao->update(
-                'DELETE FROM publication_galley_settings WHERE setting_name = ? AND galley_id = ?',
-                [$settingName, $galleyId]
-            );
+            $affectedRows += $this->deletePubId($galleyId, $pubIdType);
         }
+        return $affectedRows;
     }
 
     /**

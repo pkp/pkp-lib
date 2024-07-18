@@ -328,7 +328,7 @@ class ReviewerForm extends Form
         $reviewerId = (int) $this->getData('reviewerId');
 
         if (!$this->_isValidReviewer($context, $submission, $currentReviewRound, $reviewerId)) {
-            fatalError('Invalid reviewer id.');
+            throw new \Exception('Invalid reviewer id.');
         }
 
         $reviewMethod = (int) $this->getData('reviewMethod');

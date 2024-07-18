@@ -3643,3 +3643,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "طاقم المجلة"
+
+msgid "plugins.importexport.common.validation"
+msgstr "تحقق من نصوص XML قبل التصدير والتسجيل."

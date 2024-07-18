@@ -3773,3 +3773,6 @@ msgstr "Zahrnout i nadřazené podrobnosti"
 
 msgid "manager.setup.masthead"
 msgstr "Hlavička"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validujte XML před exportem a registrací."

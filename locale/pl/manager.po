@@ -3740,3 +3740,6 @@ msgstr "Wymagaj od autorów oświadczenia o zbieżności zainteresowań."
 
 msgid "manager.setup.masthead"
 msgstr "Stopka redakcyjna"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Sprawdź XML przed eksportem i rejestracją."

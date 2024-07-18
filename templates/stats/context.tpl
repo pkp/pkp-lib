@@ -104,51 +104,10 @@
 						<template #actions>
 							<pkp-button
 								ref="downloadReportModalButton"
-								@click="isModalOpenedDownloadReport = true"
+								@click="openDownloadReportModal"
 							>
 								{translate key="common.downloadReport"}
 							</pkp-button>
-							<modal
-								close-label="{translate key="common.close"}"
-								name="downloadReport"
-								title={translate key="common.download"}
-								:open="isModalOpenedDownloadReport"
-								@close="isModalOpenedDownloadReport = false"
-							>
-								<p>{translate key="stats.context.downloadReport.description"}</p>
-								<table class="pkpTable pkpStats__reportParams">
-									<tr class="pkpTable__row">
-										<th>{translate key="stats.dateRange"}</th>
-										<td>{{ getDateRangeDescription() }}</th>
-									</tr>
-								</table>
-								<action-panel class="pkpStats__reportAction">
-									<h2>{translate key="context.context"}</h2>
-									<p>
-										{translate key="stats.context.downloadReport.downloadContext.description"}
-									</p>
-									<template #actions>
-										<pkp-button
-											@click="downloadReport"
-										>
-											{translate key="stats.context.downloadReport.downloadContext"}
-										</pkp-button>
-									</template>
-								</action-panel>
-								<action-panel class="pkpStats__reportAction">
-									<h2>{translate key="stats.timeline"}</h2>
-									<p>
-										{{ getTimelineDescription() }}
-									</p>
-									<template #actions>
-										<pkp-button
-											@click="downloadReport('timeline')"
-										>
-											{translate key="stats.timeline.downloadReport.downloadTimeline"}
-										</pkp-button>
-									</template>
-								</action-panel>
-							</modal>
 						</template>
 					</pkp-header>
 					<pkp-table

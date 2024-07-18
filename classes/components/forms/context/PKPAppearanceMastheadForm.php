@@ -21,14 +21,10 @@ use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 use PKP\security\Role;
 
-define('FORM_APPEARANCE_MASTHEAD', 'appearanceMasthead');
-
 class PKPAppearanceMastheadForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_APPEARANCE_SETUP;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_APPEARANCE_MASTHEAD = 'appearanceMasthead';
+    public $id = self::FORM_APPEARANCE_MASTHEAD;
     public $method = 'PUT';
 
     /**
@@ -67,7 +63,7 @@ class PKPAppearanceMastheadForm extends FormComponent
 
         $this->addField(new FieldOptions('mastheadUserGroupIds', [
             'label' => __('common.editorialMasthead'),
-            'description' => __('manager.setup.editorialMasthead.description'),
+            'description' => __('manager.setup.editorialMasthead.order.description'),
             'isOrderable' => true,
             'value' => array_column($mastheadOptions, 'value'),
             'options' => $mastheadOptions,

@@ -156,7 +156,7 @@ abstract class PersistableFilter extends Filter
         // Check that the setting name does not
         // collide with one of the internal settings.
         if (in_array($settingName, $this->getInternalSettings())) {
-            fatalError('Trying to override an internal filter setting!');
+            throw new \Exception('Trying to override an internal filter setting!');
         }
 
         assert(!isset($this->_settings[$settingName]));

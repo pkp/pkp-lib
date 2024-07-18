@@ -3854,3 +3854,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Impresszum"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Érvényesítse az XML-t mielőtt exportálja és regisztrálja."

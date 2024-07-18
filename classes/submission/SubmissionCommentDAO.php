@@ -202,15 +202,12 @@ class SubmissionCommentDAO extends \PKP\db\DAO
 
     /**
      * Removes a submission note by id
-     *
-     * @param int $commentId
      */
-    public function deleteById($commentId)
+    public function deleteById(int $commentId): int
     {
-        $this->update(
-            'DELETE FROM submission_comments WHERE comment_id = ?',
-            [(int) $commentId]
-        );
+        return DB::table('submission_comments')
+            ->where('comment_id', '=', $commentId)
+            ->delete();
     }
 
     /**

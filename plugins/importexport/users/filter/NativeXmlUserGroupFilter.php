@@ -127,7 +127,7 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
 
             return $userGroup;
         } else {
-            fatalError('unable to find "name" userGroup node element.  Check import XML document structure for validity.');
+            throw new \Exception('Unable to find "name" userGroup node element.  Check import XML document structure for validity.');
         }
     }
 }

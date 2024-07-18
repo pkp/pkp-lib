@@ -267,11 +267,8 @@ class NoteDAO extends \PKP\db\DAO
 
     /**
      * Delete Note by note id
-     *
-     * @param int $noteId
-     * @param int $userId optional
      */
-    public function deleteById($noteId, $userId = null)
+    public function deleteById(int $noteId, int $userId = null): int
     {
         Repo::submissionFile()
             ->getCollector()
@@ -281,7 +278,7 @@ class NoteDAO extends \PKP\db\DAO
                 Repo::submissionFile()->delete($file);
             });
 
-        DB::table('notes')
+        return DB::table('notes')
             ->where('note_id', '=', (int) $noteId)
             ->when(!is_null($userId), function (Builder $q) use ($userId) {
                 $q->where('user_id', '=', $userId);

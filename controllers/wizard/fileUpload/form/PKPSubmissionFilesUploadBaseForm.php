@@ -76,7 +76,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
             !is_numeric($fileStage) || $fileStage <= 0 ||
             !is_numeric($stageId) || $stageId < 1 || $stageId > 5 ||
             isset($assocType) !== isset($assocId)) {
-            fatalError('Invalid parameters!');
+            throw new \Exception('Invalid parameters!');
         }
 
         // Initialize class.
@@ -89,7 +89,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
             // Get the review assignment object.
             $reviewAssignment = Repo::reviewAssignment()->get((int) $assocId);
             if ($reviewAssignment->getDateCompleted()) {
-                fatalError('Review already completed!');
+                throw new \Exception('Review already completed!');
             }
 
             // Get the review round object.
@@ -261,7 +261,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                 ->withStageIds([$this->getStageId()])
                 ->withUserId($user->getId())
                 ->exists();
-                
+
             if (
                 ($submissionFile->getFileStage() == SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT || $submissionFile->getFileStage() == SubmissionFile::SUBMISSION_FILE_REVIEW_FILE) &&
                 $hasAnyAssignments
@@ -351,7 +351,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
         // Make sure that the revised file (if any) really was among
         // the retrieved submission files in the current file stage.
         if ($revisedFileId && !$foundRevisedFile) {
-            fatalError('Invalid revised file id!');
+            throw new \Exception('Invalid revised file id!');
         }
 
         // Set the review file candidate data in the template.

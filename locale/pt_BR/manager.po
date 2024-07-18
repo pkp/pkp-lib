@@ -3817,3 +3817,6 @@ msgstr "Excluir detalhes mensais"
 
 msgid "manager.setup.masthead"
 msgstr "Expediente"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Valide o XML antes da exportação e registro."

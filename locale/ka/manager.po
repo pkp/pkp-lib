@@ -3559,3 +3559,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "გამომავალი მონაცემები"
+
+msgid "plugins.importexport.common.validation"
+msgstr "დაადასტურეთ XML ექსპორტამდე და რეგისტრაციამდე."

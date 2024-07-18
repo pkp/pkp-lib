@@ -3368,3 +3368,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "マストヘッド"
+
+msgid "plugins.importexport.common.validation"
+msgstr "エクスポートや登録の前にXMLを検証します。"

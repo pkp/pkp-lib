@@ -3207,3 +3207,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Uprava"
+
+msgid "plugins.importexport.common.validation"
+msgstr ""

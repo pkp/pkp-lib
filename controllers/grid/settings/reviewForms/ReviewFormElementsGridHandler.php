@@ -245,7 +245,7 @@ class ReviewFormElementsGridHandler extends GridHandler
         $reviewForm = $reviewFormDao->getById($this->reviewFormId, Application::getContextAssocType(), $context->getId());
 
         if (!$reviewFormDao->unusedReviewFormExists($this->reviewFormId, Application::getContextAssocType(), $context->getId()) || ($reviewFormElementId && !$reviewFormElementDao->reviewFormElementExists($reviewFormElementId, $this->reviewFormId))) {
-            fatalError('Invalid review form information!');
+            throw new \Exception('Invalid review form information!');
         }
 
         $reviewFormElementForm = new ReviewFormElementForm($this->reviewFormId, $reviewFormElementId);

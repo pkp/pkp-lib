@@ -21,14 +21,10 @@ use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 
-define('FORM_LICENSE', 'license');
-
 class PKPLicenseForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_LICENSE;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_LICENSE = 'license';
+    public $id = self::FORM_LICENSE;
     public $method = 'PUT';
 
     /**

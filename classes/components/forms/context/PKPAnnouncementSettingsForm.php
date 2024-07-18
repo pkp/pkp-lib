@@ -22,14 +22,10 @@ use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 use PKP\site\Site;
 
-define('FORM_ANNOUNCEMENT_SETTINGS', 'announcementSettings');
-
 class PKPAnnouncementSettingsForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_ANNOUNCEMENT_SETTINGS;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_ANNOUNCEMENT_SETTINGS = 'announcementSettings';
+    public $id = self::FORM_ANNOUNCEMENT_SETTINGS;
     public $method = 'PUT';
 
     /**

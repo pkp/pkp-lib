@@ -3822,3 +3822,6 @@ msgstr "Counter R5"
 
 msgid "manager.setup.masthead"
 msgstr "Bloc générique"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Valider le XML avant l'exportation et l'enregistrement."

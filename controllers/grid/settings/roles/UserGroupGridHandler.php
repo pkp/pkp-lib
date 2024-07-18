@@ -94,7 +94,7 @@ class UserGroupGridHandler extends GridHandler
             $userGroup = Repo::userGroup()->get($userGroupId);
 
             if (!$userGroup) {
-                fatalError('Invalid user group id!');
+                throw new \Exception('Invalid user group id!');
             } else {
                 $this->_userGroup = $userGroup;
             }

@@ -198,19 +198,11 @@ class PKPComponentRouter extends PKPRouter
                         $componentInstance = new $className();
                         break;
 
-                    case file_exists("{$componentFileNamePart}.inc.php"):
-                        // This behaviour is DEPRECATED as of 3.4.0.
-                        break;
-
                     case file_exists(PKP_LIB_PATH . "/{$componentFileNamePart}.php"):
                         $className = 'PKP\\' . strtr($componentFileNamePart, '/', '\\');
                         $componentInstance = new $className();
                         break;
 
-                    case file_exists(PKP_LIB_PATH . "/{$componentFileNamePart}.inc.php"):
-                        // This behaviour is DEPRECATED as of 3.4.0.
-                        $component = 'lib.pkp.' . $component;
-                        break;
 
                     default:
                         // Request to non-existent handler
@@ -317,15 +309,8 @@ class PKPComponentRouter extends PKPRouter
         $componentParts = explode('.', $component);
         $componentName = array_pop($componentParts);
         assert(substr($componentName, -7) == 'Handler');
-        $componentName = PKPString::uncamelize(substr($componentName, 0, -7));
-
-        // uncamelize the component parts
-        $uncamelizedComponentParts = [];
-        foreach ($componentParts as $part) {
-            $uncamelizedComponentParts[] = PKPString::uncamelize($part);
-        }
-        array_push($uncamelizedComponentParts, $componentName);
-        $opName = PKPString::uncamelize($op);
+        $componentName = substr($componentName, 0, -7);
+        $uncamelizedComponentParts = array_map(PKPString::uncamelize(...), [...$componentParts, $componentName]);
 
         //
         // Additional query parameters
@@ -337,21 +322,10 @@ class PKPComponentRouter extends PKPRouter
         //
         $anchor = (empty($anchor) ? '' : '#' . rawurlencode($anchor));
 
-        //
-        // Assemble URL
-        //
         // Context, page, operation and additional path go into the path info.
-        $pathInfoArray = array_merge(
-            $context,
-            [COMPONENT_ROUTER_PATHINFO_MARKER],
-            $uncamelizedComponentParts,
-            [$opName]
-        );
+        $pathInfoArray = [...($context ? [$context] : []), COMPONENT_ROUTER_PATHINFO_MARKER, ...$uncamelizedComponentParts, PKPString::uncamelize($op)];
 
-        // Query parameters
-        $queryParametersArray = $additionalParameters;
-
-        return $this->_urlFromParts($baseUrl, $pathInfoArray, $queryParametersArray, $anchor, $escape);
+        return $this->_urlFromParts($baseUrl, $pathInfoArray, $additionalParameters, $anchor, $escape);
     }
 
     /**
@@ -481,7 +455,7 @@ class PKPComponentRouter extends PKPRouter
             }
 
             // Service endpoint URLs are case insensitive.
-            $rpcServiceEndpointParts[$key] = strtolower_codesafe($rpcServiceEndpointPart);
+            $rpcServiceEndpointParts[$key] = strtolower($rpcServiceEndpointPart);
 
             // We only allow letters, numbers and the hyphen.
             if (!preg_match('/^[a-z0-9-]*$/', $rpcServiceEndpointPart)) {

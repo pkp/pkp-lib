@@ -3718,3 +3718,6 @@ msgstr "Neietvert ikmēneša sīkāku informāciju"
 
 msgid "manager.setup.masthead"
 msgstr "Galvenā lapa"
+
+msgid "plugins.importexport.common.validation"
+msgstr "XML validācija pirms eksportēšanas un reģistrācijas."

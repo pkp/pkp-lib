@@ -178,7 +178,7 @@ class PKPFileService
         header("Content-Type: {$mimetype}");
         header("Content-Length: {$filesize}");
         header('Accept-Ranges: none');
-        header('Content-Disposition: ' . ($inline ? 'inline' : 'attachment') . ";filename=\"{$encodedFilename}\";filename*=UTF-8''{$encodedFilename}");
+        header('Content-Disposition: ' . ($inline ? 'inline' : 'attachment') . ";filename={$encodedFilename};filename*=UTF-8''{$encodedFilename}");
         header('Cache-Control: private'); // Workarounds for IE weirdness
         header('Pragma: public');
 

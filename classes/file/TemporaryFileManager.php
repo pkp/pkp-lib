@@ -57,17 +57,15 @@ class TemporaryFileManager extends PrivateFileManager
 
     /**
      * Delete a file by ID.
-     *
-     * @param int $fileId
      */
-    public function deleteById($fileId, $userId)
+    public function deleteById(int $fileId, int $userId): int
     {
         $temporaryFile = $this->getFile($fileId, $userId);
 
         parent::deleteByPath($this->getBasePath() . $temporaryFile->getServerFileName());
 
         $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $temporaryFileDao */
-        $temporaryFileDao->deleteTemporaryFileById($fileId, $userId);
+        return $temporaryFileDao->deleteTemporaryFileById($fileId, $userId);
     }
 
     /**

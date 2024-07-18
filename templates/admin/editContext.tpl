@@ -13,7 +13,7 @@
 	{else}
 	<pkp-form
 	{/if}
-		v-bind="components.{$smarty.const.FORM_CONTEXT}"
+		v-bind="components.{PKP\components\forms\context\PKPContextForm::FORM_CONTEXT}"
 		@set="set"
 	/>
 </div>

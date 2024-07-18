@@ -69,6 +69,7 @@ class AllowedHostsPolicy extends AuthorizationPolicy
     {
         http_response_code(400);
         error_log('Server host "' . $this->_request->getServerHost(null, false) . '" not allowed!');
-        fatalError('400 Bad Request');
+        echo "<h1>400 Server host not allowed</h1>\n";
+        exit;
     }
 }

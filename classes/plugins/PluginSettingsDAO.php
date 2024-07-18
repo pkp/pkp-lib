@@ -36,7 +36,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
 
     protected function _normalizePluginName(string $pluginName): string
     {
-        return strtolower_codesafe($pluginName);
+        return strtolower($pluginName);
     }
 
     /**
@@ -72,7 +72,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
     public function getPluginSettings(int $contextId, string $pluginName): array
     {
         // Normalize plug-in name to lower case.
-        $pluginName = strtolower_codesafe($pluginName);
+        $pluginName = $this->_normalizePluginName($pluginName);
 
         $result = DB::table('plugin_settings')->where('plugin_name', $pluginName)->where('context_id', $contextId)->get();
         $settings = $result->mapWithKeys(fn ($row) => [$row->setting_name => $this->convertFromDB($row->setting_value, $row->setting_type)]);
@@ -145,11 +145,11 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Used internally by installSettings to perform variable and translation replacements.
      *
-     * @param string $rawInput contains text including variable and/or translate replacements.
-     * @param array $paramArray contains variables for replacement
+     * @param $rawInput contains text including variable and/or translate replacements.
+     * @param $paramArray contains variables for replacement
      *
      */
-    public function _performReplacement($rawInput, $paramArray = []): string
+    public function _performReplacement(string $rawInput, array $paramArray = []): string
     {
         $value = preg_replace_callback('{{translate key="([^"]+)"}}', fn ($matches) => __($matches[1]), (string) $rawInput);
         foreach ($paramArray as $pKey => $pValue) {

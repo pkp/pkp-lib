@@ -37,7 +37,7 @@ class XSLTransformationFilter extends PersistableFilter
     {
         // Check that we only get xml input, the output type is arbitrary.
         if (!substr($filterGroup->getInputType(), 0, 5) == 'xml::') {
-            fatalError('XSL filters need XML as input.');
+            throw new \Exception('XSL filters need XML as input.');
         }
 
         // Instantiate the settings of this filter

@@ -19,14 +19,10 @@ namespace PKP\components\forms\context;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 
-define('FORM_USER_ACCESS', 'userAccess');
-
 class PKPUserAccessForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_USER_ACCESS;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_USER_ACCESS = 'userAccess';
+    public $id = self::FORM_USER_ACCESS;
     public $method = 'PUT';
 
     /**

@@ -11,230 +11,131 @@
  *
  * @ingroup log
  *
- * @see EmailLogDAO
- *
  * @brief Describes an entry in the email log.
  */
 
 namespace PKP\log;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Model;
 use APP\facades\Repo;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Str;
+use Eloquence\Behaviours\HasCamelCasing;
+use PKP\log\core\EmailLogEventType;
 
-class EmailLogEntry extends \PKP\core\DataObject
+class EmailLogEntry extends Model
 {
+    use HasCamelCasing;
+
+    protected $table = 'email_log';
+    protected $primaryKey = 'log_id';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'assocType',
+        'assocId',
+        'senderId',
+        'dateSent',
+        'eventType',
+        'from',
+        'recipients',
+        'subject',
+        'body',
+        'bccRecipients',
+        'ccRecipients',
+        'fromAddress'
+    ];
+
+    /**
+     * The maximum length for the email subject.
+     *
+     * This value should match the length of the `subject` column in the `email_log` table, defined in LogMigration.php.
+     */
+    private const MAX_SUBJECT_LENGTH = 255;
+
+    protected static function booted(): void
+    {
+        static::creating(function (EmailLogEntry $entry) {
+            $subject = $entry->subject;
+            // Subtract 3 to compensate for the '...' that gets added to the end of the string.
+            $entry->subject = Str::limit($subject, self::MAX_SUBJECT_LENGTH - 3);
+        });
+    }
+
     //
-    // Get/set methods
+    // Accessors / Mutators
     //
-
-    /**
-     * Get user ID of sender.
-     *
-     * @return int
-     */
-    public function getSenderId()
+    protected function id(): Attribute
     {
-        return $this->getData('senderId');
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes[$this->primaryKey] ?? null,
+            set: fn($value) => [$this->primaryKey => $value],
+        );
     }
 
-    /**
-     * Set user ID of sender.
-     *
-     * @param int $senderId
-     */
-    public function setSenderId($senderId)
-    {
-        $this->setData('senderId', $senderId);
-    }
-
-    /**
-     * Get date email was sent.
-     *
-     * @return string
-     */
-    public function getDateSent()
-    {
-        return $this->getData('dateSent');
-    }
-
-    /**
-     * Set date email was sent.
-     *
-     * @param string $dateSent
-     */
-    public function setDateSent($dateSent)
-    {
-        $this->setData('dateSent', $dateSent);
-    }
-
-    /**
-     * Get event type.
-     *
-     * @return int
-     */
-    public function getEventType()
-    {
-        return $this->getData('eventType');
-    }
-
-    /**
-     * Set event type.
-     *
-     * @param int $eventType
-     */
-    public function setEventType($eventType)
-    {
-        $this->setData('eventType', $eventType);
-    }
-
-    /**
-     * Get associated type.
-     *
-     * @return int
-     */
-    public function getAssocType()
-    {
-        return $this->getData('assocType');
-    }
-
-    /**
-     * Set associated type.
-     *
-     * @param int $assocType
-     */
-    public function setAssocType($assocType)
-    {
-        $this->setData('assocType', $assocType);
-    }
-
-    /**
-     * Get associated ID.
-     *
-     * @return int
-     */
-    public function getAssocId()
-    {
-        return $this->getData('assocId');
-    }
-
-    /**
-     * Set associated ID.
-     *
-     * @param int $assocId
-     */
-    public function setAssocId($assocId)
-    {
-        $this->setData('assocId', $assocId);
-    }
 
     /**
      * Return the full name of the sender (not necessarily the same as the from address).
-     *
-     * @return string
      */
-    public function getSenderFullName()
+    protected function senderFullName(): Attribute
     {
-        $senderFullName = $this->getData('senderFullName');
-
-        if ($senderFullName) {
-            return $senderFullName;
-        }
-
-        $sender = $this->getSenderId()
-            ? Repo::user()->get($this->getSenderId(), true)
-            : null;
-
-        return $sender ? $sender->getFullName() : '';
+        return Attribute::make(
+            get: function () {
+                $sender = $this->senderId
+                    ? Repo::user()->get($this->senderId, true)
+                    : null;
+                return $sender ? $sender->getFullName() : '';
+            },
+        )->shouldCache();
     }
 
     /**
      * Return the email address of sender.
-     *
-     * @return string
      */
-    public function getSenderEmail()
+    protected function senderEmail(): Attribute
     {
-        $senderEmail = & $this->getData('senderEmail');
+        return Attribute::make(
+            get: function () {
+                $email = Repo::user()->get($this->senderId, true)->getEmail();
 
-        if (!isset($senderEmail)) {
-            $senderEmail = Repo::user()->get($this->getSenderId(), true)->getEmail();
-        }
-
-        return ($senderEmail ? $senderEmail : '');
+                return $email ?:'';
+            },
+        )->shouldCache();
     }
 
-
-    //
-    // Email data
-    //
-
-    public function getFrom()
-    {
-        return $this->getData('from');
-    }
-
-    public function setFrom($from)
-    {
-        $this->setData('from', $from);
-    }
-
-    public function getRecipients()
-    {
-        return $this->getData('recipients');
-    }
-
-    public function setRecipients($recipients)
-    {
-        $this->setData('recipients', $recipients);
-    }
-
-    public function getCcs()
-    {
-        return $this->getData('ccs');
-    }
-
-    public function setCcs($ccs)
-    {
-        $this->setData('ccs', $ccs);
-    }
-
-    public function getBccs()
-    {
-        return $this->getData('bccs');
-    }
-
-    public function setBccs($bccs)
-    {
-        $this->setData('bccs', $bccs);
-    }
-
-    public function getSubject()
-    {
-        return $this->getData('subject');
-    }
-
-    public function setSubject($subject)
-    {
-        $this->setData('subject', $subject);
-    }
-
-    public function getBody()
-    {
-        return $this->getData('body');
-    }
-
-    public function setBody($body)
-    {
-        $this->setData('body', $body);
-    }
 
     /**
      * Returns the subject of the message with a prefix explaining the event type
-     *
-     * @return string Prefixed subject
      */
-    public function getPrefixedSubject()
+    protected function prefixedSubject(): Attribute
     {
-        return __('submission.event.subjectPrefix') . ' ' . $this->getSubject();
+        return Attribute::make(
+            get: fn() => __('submission.event.subjectPrefix') . ' ' . $this->subject
+        )->shouldCache();
+    }
+
+    //
+    // Scopes
+    //
+    public function scopeWithAssocId(Builder $query, int $assocId): Builder
+    {
+        return $query->where('assoc_id', $assocId);
+    }
+
+    public function scopeWithSenderId(Builder $query, int $senderId): Builder
+    {
+        return $query->where('sender_id', $senderId);
+    }
+
+    public function scopeWithEventType(Builder $query, EmailLogEventType $eventType): Builder
+    {
+        return $query->where('event_type', $eventType->value);
+    }
+
+    public function scopeWithAssocType(Builder $query, int $assocType): Builder
+    {
+        return $query->where('assoc_type', $assocType);
     }
 }
 

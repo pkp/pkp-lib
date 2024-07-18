@@ -334,7 +334,7 @@ abstract class FileLoader extends ScheduledTask
 
             // Script should always stop if it can't manipulate files inside
             // its own directory system.
-            fatalError($message);
+            throw new \Exception($message);
         }
 
         return $destinationPath;

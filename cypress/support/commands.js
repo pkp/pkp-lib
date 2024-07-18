@@ -785,12 +785,12 @@ Cypress.Commands.add('checkDoiMarkedStatus', (status, itemId, isValid, expectedS
 	if (isValid) {
 		cy.get('.app__notifications').contains(`Items successfully marked ${status}`, {matchCase: false, timeout:20000});
 	} else {
-		cy.get('div[name="failedDoiActionModal"]').contains('Failed to mark the DOI', {timeout:20000});
+		cy.get('div[role=dialog]').contains('Failed to mark the DOI', {timeout:20000});
 	}
 
 	cy.get(`#list-item-${itemType}-${itemId} .pkpBadge`).contains(expectedStatus);
 	if (!isValid) {
-		cy.get(`div[name="failedDoiActionModal"] button:contains('Close')`).click();
+		cy.get(`div[role=dialog] button:contains('Close')`).click();
 	}
 });
 
@@ -838,7 +838,7 @@ Cypress.Commands.add('uploadSubmissionFiles', (files, options) => {
 			} else {
 				$row.get('button:contains("Other")').last().click({force: true});
 				cy.get('.pkpFormField--options__optionLabel').contains(file.genre).click();
-				cy.get('.modal button').contains('Save').click();
+				cy.get('div[role="dialog"] button').contains('Save').click();
 			}
 			cy.wait('@genreDefined').its('response.statusCode').should('eq', 200);
 

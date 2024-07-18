@@ -43,32 +43,15 @@ class PluginGalleryGridCellProvider extends GridCellProvider
                 // The name is returned as an action.
                 return ['label' => ''];
             case 'summary':
-                $label = $element->getLocalizedSummary();
-                return ['label' => $label];
+                return ['label' => $element->getLocalizedSummary()];
             case 'status':
-                switch ($element->getCurrentStatus()) {
-                    case PLUGIN_GALLERY_STATE_NEWER:
-                        $statusKey = 'manager.plugins.installedVersionNewer.short';
-                        break;
-                    case PLUGIN_GALLERY_STATE_UPGRADABLE:
-                        $statusKey = 'manager.plugins.installedVersionOlder.short';
-                        break;
-                    case PLUGIN_GALLERY_STATE_CURRENT:
-                        $statusKey = 'manager.plugins.installedVersionNewest.short';
-                        break;
-                    case PLUGIN_GALLERY_STATE_AVAILABLE:
-                        $statusKey = null;
-                        break;
-                    case PLUGIN_GALLERY_STATE_INCOMPATIBLE:
-                        $statusKey = 'manager.plugins.noCompatibleVersion.short';
-                        break;
-                    default:
-                        assert(false);
-                        return;
-                }
-                return ['label' => __($statusKey)];
-            default:
-                break;
+                return ['label' => __(match($element->getCurrentStatus()) {
+                    GalleryPlugin::PLUGIN_GALLERY_STATE_NEWER => 'manager.plugins.installedVersionNewer.short',
+                    GalleryPlugin::PLUGIN_GALLERY_STATE_UPGRADABLE => 'manager.plugins.installedVersionOlder.short',
+                    GalleryPlugin::PLUGIN_GALLERY_STATE_CURRENT => 'manager.plugins.installedVersionNewest.short',
+                    GalleryPlugin::PLUGIN_GALLERY_STATE_AVAILABLE => null,
+                    GalleryPlugin::PLUGIN_GALLERY_STATE_INCOMPATIBLE => 'manager.plugins.noCompatibleVersion.short',
+                })];
         }
     }
 

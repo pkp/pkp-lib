@@ -16,19 +16,37 @@
 
 namespace PKP\pages\management;
 
+use APP\components\forms\context\AppearanceAdvancedForm;
+use APP\components\forms\context\AppearanceSetupForm;
 use APP\components\forms\context\DoiSetupSettingsForm;
+use APP\components\forms\context\LicenseForm;
+use APP\components\forms\context\MastheadForm;
 use APP\core\Application;
+
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\components\forms\announcement\PKPAnnouncementForm;
+use PKP\components\forms\context\PKPAnnouncementSettingsForm;
+use PKP\components\forms\context\PKPAppearanceMastheadForm;
+use PKP\components\forms\context\PKPContactForm;
+use PKP\components\forms\context\PKPContextStatisticsForm;
+use PKP\components\forms\context\PKPDateTimeForm;
 use PKP\components\forms\context\PKPDoiRegistrationSettingsForm;
+use PKP\components\forms\context\PKPDoiSetupSettingsForm;
 use PKP\components\forms\context\PKPEmailSetupForm;
 use PKP\components\forms\context\PKPInformationForm;
+use PKP\components\forms\context\PKPListsForm;
+use PKP\components\forms\context\PKPMastheadForm;
 use PKP\components\forms\context\PKPNotifyUsersForm;
+use PKP\components\forms\context\PKPPaymentSettingsForm;
+use PKP\components\forms\context\PKPPrivacyForm;
 use PKP\components\forms\context\PKPReviewSetupForm;
+use PKP\components\forms\context\PKPSearchIndexingForm;
+use PKP\components\forms\context\PKPThemeForm;
+use PKP\components\forms\context\PKPUserAccessForm;
 use PKP\components\forms\emailTemplate\EmailTemplateForm;
 use PKP\components\forms\highlight\HighlightForm;
 use PKP\components\forms\submission\SubmissionGuidanceSettings;
@@ -134,13 +152,13 @@ class ManagementHandler extends Handler
 
         $locales = $this->getSupportedFormLocales($context);
 
-        $contactForm = new \PKP\components\forms\context\PKPContactForm($apiUrl, $locales, $context);
-        $mastheadForm = new \APP\components\forms\context\MastheadForm($apiUrl, $locales, $context, $publicFileApiUrl);
+        $contactForm = new PKPContactForm($apiUrl, $locales, $context);
+        $mastheadForm = new MastheadForm($apiUrl, $locales, $context, $publicFileApiUrl);
 
         $templateMgr->setState([
             'components' => [
-                FORM_CONTACT => $contactForm->getConfig(),
-                FORM_MASTHEAD => $mastheadForm->getConfig(),
+                PKPContactForm::FORM_CONTACT => $contactForm->getConfig(),
+                MastheadForm::FORM_MASTHEAD => $mastheadForm->getConfig(),
             ],
         ]);
 
@@ -168,6 +186,10 @@ class ManagementHandler extends Handler
         }
 
         $templateMgr->assign('pageTitle', __('manager.setup'));
+
+        $templateMgr->registerClass(PKPContactForm::class, PKPContactForm::class); // FORM_CONTACT
+        $templateMgr->registerClass(PKPMastheadForm::class, PKPMastheadForm::class); // FORM_MASTHEAD
+
         $templateMgr->display('management/context.tpl');
     }
 
@@ -195,43 +217,44 @@ class ManagementHandler extends Handler
 
         $locales = $this->getSupportedFormLocales($context);
 
-        $announcementSettingsForm = new \PKP\components\forms\context\PKPAnnouncementSettingsForm($contextApiUrl, $locales, $context);
-        $appearanceAdvancedForm = new \APP\components\forms\context\AppearanceAdvancedForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl, $publicFileApiUrl);
-        $appearanceSetupForm = new \APP\components\forms\context\AppearanceSetupForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl, $publicFileApiUrl);
-        $appearanceMastheadForm = new \PKP\components\forms\context\PKPAppearanceMastheadForm($contextApiUrl, $locales, $context);
+        $announcementSettingsForm = new PKPAnnouncementSettingsForm($contextApiUrl, $locales, $context);
+        $appearanceAdvancedForm = new AppearanceAdvancedForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl, $publicFileApiUrl);
+        $appearanceSetupForm = new AppearanceSetupForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl, $publicFileApiUrl);
+        $appearanceMastheadForm = new PKPAppearanceMastheadForm($contextApiUrl, $locales, $context);
         $informationForm = $this->getInformationForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
-        $listsForm = new \PKP\components\forms\context\PKPListsForm($contextApiUrl, $locales, $context);
-        $privacyForm = new \PKP\components\forms\context\PKPPrivacyForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
-        $themeForm = new \PKP\components\forms\context\PKPThemeForm($themeApiUrl, $locales, $context);
-        $dateTimeForm = new \PKP\components\forms\context\PKPDateTimeForm($contextApiUrl, $locales, $context);
+        $listsForm = new PKPListsForm($contextApiUrl, $locales, $context);
+        $privacyForm = new PKPPrivacyForm($contextApiUrl, $locales, $context, $publicFileApiUrl);
+        $themeForm = new PKPThemeForm($themeApiUrl, $locales, $context);
+        $dateTimeForm = new PKPDateTimeForm($contextApiUrl, $locales, $context);
 
         $highlightsListPanel = $this->getHighlightsListPanel();
 
         $templateMgr->setConstants([
-            'FORM_ANNOUNCEMENT_SETTINGS' => FORM_ANNOUNCEMENT_SETTINGS,
+            'FORM_ANNOUNCEMENT_SETTINGS' => $announcementSettingsForm::FORM_ANNOUNCEMENT_SETTINGS,
         ]);
 
         $components = [
-            FORM_ANNOUNCEMENT_SETTINGS => $announcementSettingsForm->getConfig(),
-            FORM_APPEARANCE_ADVANCED => $appearanceAdvancedForm->getConfig(),
-            FORM_APPEARANCE_SETUP => $appearanceSetupForm->getConfig(),
-            FORM_APPEARANCE_MASTHEAD => $appearanceMastheadForm->getConfig(),
-            FORM_LISTS => $listsForm->getConfig(),
-            FORM_PRIVACY => $privacyForm->getConfig(),
-            FORM_THEME => $themeForm->getConfig(),
-            FORM_DATE_TIME => $dateTimeForm->getConfig(),
+            $announcementSettingsForm::FORM_ANNOUNCEMENT_SETTINGS => $announcementSettingsForm->getConfig(),
+            $appearanceAdvancedForm::FORM_APPEARANCE_ADVANCED => $appearanceAdvancedForm->getConfig(),
+            $appearanceSetupForm::FORM_APPEARANCE_SETUP => $appearanceSetupForm->getConfig(),
+            $appearanceMastheadForm::FORM_APPEARANCE_MASTHEAD => $appearanceMastheadForm->getConfig(),
+            $listsForm::FORM_LISTS => $listsForm->getConfig(),
+            $privacyForm::FORM_PRIVACY => $privacyForm->getConfig(),
+            $themeForm::FORM_THEME => $themeForm->getConfig(),
+            $dateTimeForm::FORM_DATE_TIME => $dateTimeForm->getConfig(),
             $highlightsListPanel->id => $highlightsListPanel->getConfig(),
         ];
 
         if ($informationForm) {
-            $components[FORM_INFORMATION] = $informationForm->getConfig();
+            $components[$informationForm::FORM_INFORMATION] = $informationForm->getConfig();
+            $templateMgr->registerClass($informationForm::class, $informationForm::class);
         }
 
         $templateMgr->setState([
             'components' => $components,
             'announcementsNavLink' => [
                 'name' => __('announcement.announcements'),
-                'url' => $router->url($request, null, 'management', 'settings', 'announcements'),
+                'url' => $router->url($request, null, 'management', 'settings', ['announcements']),
                 'isCurrent' => false,
             ],
         ]);
@@ -240,6 +263,15 @@ class ManagementHandler extends Handler
             'includeInformationForm' => (bool) $informationForm,
             'pageTitle' => __('manager.website.title'),
         ]);
+
+        $templateMgr->registerClass($announcementSettingsForm::class, $announcementSettingsForm::class);
+        $templateMgr->registerClass($appearanceAdvancedForm::class, $appearanceAdvancedForm::class);
+        $templateMgr->registerClass($appearanceSetupForm::class, $appearanceSetupForm::class);
+        $templateMgr->registerClass($appearanceMastheadForm::class, $appearanceMastheadForm::class);
+        $templateMgr->registerClass($listsForm::class, $listsForm::class);
+        $templateMgr->registerClass($privacyForm::class, $privacyForm::class);
+        $templateMgr->registerClass($themeForm::class, $themeForm::class);
+        $templateMgr->registerClass($dateTimeForm::class, $dateTimeForm::class);
 
         $templateMgr->display('management/website.tpl');
     }
@@ -268,9 +300,9 @@ class ManagementHandler extends Handler
 
         $templateMgr->setState([
             'components' => [
-                FORM_DISABLE_SUBMISSIONS => $disableSubmissionsForm->getConfig(),
+                $disableSubmissionsForm::FORM_DISABLE_SUBMISSIONS => $disableSubmissionsForm->getConfig(),
                 $emailSetupForm->id => $emailSetupForm->getConfig(),
-                FORM_METADATA_SETTINGS => $metadataSettingsForm->getConfig(),
+                $metadataSettingsForm::FORM_METADATA_SETTINGS => $metadataSettingsForm->getConfig(),
                 $submissionGuidanceSettingsForm->id => $submissionGuidanceSettingsForm->getConfig(),
             ],
         ]);
@@ -301,37 +333,36 @@ class ManagementHandler extends Handler
         $paymentsUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_payments');
 
         $locales = $this->getSupportedFormLocales($context);
+        $site = $request->getSite();
 
-        $licenseForm = new \APP\components\forms\context\LicenseForm($apiUrl, $locales, $context);
+        $licenseForm = new LicenseForm($apiUrl, $locales, $context);
         $doiSetupSettingsForm = new DoiSetupSettingsForm($apiUrl, $locales, $context);
         $doiRegistrationSettingsForm = new PKPDoiRegistrationSettingsForm($doiRegistrationSettingsApiUrl, $locales, $context);
-        $searchIndexingForm = new \PKP\components\forms\context\PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
-        $paymentSettingsForm = new \PKP\components\forms\context\PKPPaymentSettingsForm($paymentsUrl, $locales, $context);
-
-        $site = $request->getSite();
-        $contextStatisticsForm = new \PKP\components\forms\context\PKPContextStatisticsForm($apiUrl, $locales, $site, $context);
+        $searchIndexingForm = new PKPSearchIndexingForm($apiUrl, $locales, $context, $sitemapUrl);
+        $paymentSettingsForm = new PKPPaymentSettingsForm($paymentsUrl, $locales, $context);
+        $contextStatisticsForm = new PKPContextStatisticsForm($apiUrl, $locales, $site, $context);
         $displayStatisticsTab = ($site->getData('enableGeoUsageStats') && $site->getData('enableGeoUsageStats') !== 'disabled') ||
             $site->getData('enableInstitutionUsageStats') ||
             ($site->getData('isSushiApiPublic') === null || $site->getData('isSushiApiPublic'));
         $templateMgr->setConstants([
-            'FORM_PAYMENT_SETTINGS' => FORM_PAYMENT_SETTINGS,
-            'FORM_CONTEXT_STATISTICS' => FORM_CONTEXT_STATISTICS,
+            'FORM_PAYMENT_SETTINGS' => PKPPaymentSettingsForm::FORM_PAYMENT_SETTINGS,
+            'FORM_CONTEXT_STATISTICS' => PKPContextStatisticsForm::FORM_CONTEXT_STATISTICS,
             'FORM_DOI_REGISTRATION_SETTINGS' => PKPDoiRegistrationSettingsForm::FORM_DOI_REGISTRATION_SETTINGS,
         ]);
 
         $templateMgr->setState([
             'components' => [
-                FORM_LICENSE => $licenseForm->getConfig(),
-                \PKP\components\forms\context\PKPDoiSetupSettingsForm::FORM_DOI_SETUP_SETTINGS => $doiSetupSettingsForm->getConfig(),
+                LicenseForm::FORM_LICENSE => $licenseForm->getConfig(),
+                PKPDoiSetupSettingsForm::FORM_DOI_SETUP_SETTINGS => $doiSetupSettingsForm->getConfig(),
                 PKPDoiRegistrationSettingsForm::FORM_DOI_REGISTRATION_SETTINGS => $doiRegistrationSettingsForm->getConfig(),
-                FORM_SEARCH_INDEXING => $searchIndexingForm->getConfig(),
-                FORM_PAYMENT_SETTINGS => $paymentSettingsForm->getConfig(),
-                FORM_CONTEXT_STATISTICS => $contextStatisticsForm->getConfig(),
+                PKPSearchIndexingForm::FORM_SEARCH_INDEXING => $searchIndexingForm->getConfig(),
+                PKPPaymentSettingsForm::FORM_PAYMENT_SETTINGS => $paymentSettingsForm->getConfig(),
+                PKPContextStatisticsForm::FORM_CONTEXT_STATISTICS => $contextStatisticsForm->getConfig(),
             ],
             // Add an institutions link to be added/removed when statistics form is submitted
             'institutionsNavLink' => [
                 'name' => __('institution.institutions'),
-                'url' => $router->url($request, null, 'management', 'settings', 'institutions'),
+                'url' => $router->url($request, null, 'management', 'settings', ['institutions']),
                 'isCurrent' => false,
             ],
         ]);
@@ -490,12 +521,16 @@ class ManagementHandler extends Handler
 
         $templateMgr->setState([
             'components' => [
-                FORM_USER_ACCESS => $userAccessForm->getConfig(),
+                $userAccessForm::FORM_USER_ACCESS => $userAccessForm->getConfig(),
                 PKPNotifyUsersForm::FORM_NOTIFY_USERS => $notifyUsersForm ? $notifyUsersForm->getConfig() : null,
                 $orcidSettingsForm->id => $orcidSettingsForm->getConfig(),
             ],
         ]);
 
+        $templateMgr->registerClass(PKPNotifyUsersForm::class, PKPNotifyUsersForm::class);
+        $templateMgr->registerClass(PKPUserAccessForm::class, PKPUserAccessForm::class);
+        $templateMgr->registerClass(PKPNotifyUsersForm::class, PKPNotifyUsersForm::class);
+        $templateMgr->registerClass($orcidSettingsForm::class, $orcidSettingsForm::class);
         $templateMgr->display('management/access.tpl');
     }
 

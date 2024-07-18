@@ -280,7 +280,7 @@ class FormBuilderVocabulary
         $smarty->assign('FBV_validation', $params['validation'] ?? null);
 
         // Set up the specific field's template
-        switch (strtolower_codesafe($params['type'])) {
+        switch (strtolower($params['type'])) {
             case 'autocomplete':
                 $content = $this->_smartyFBVAutocompleteInput($params, $smarty);
                 break;

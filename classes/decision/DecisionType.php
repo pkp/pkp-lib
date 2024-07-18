@@ -137,7 +137,7 @@ abstract class DecisionType
             $context->getPath(),
             'decision',
             'record',
-            $submission->getId(),
+            [$submission->getId()],
             $args
         );
     }

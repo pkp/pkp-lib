@@ -45,7 +45,7 @@ class DAO
             // Call hooks based on the object name. Results
             // in hook calls named e.g. "DAO_CLASS::_Constructor"
             $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-            if (Hook::run(strtolower_codesafe(end($classNameParts)) . '::_Constructor', [$this])) {
+            if (Hook::run(strtolower(end($classNameParts)) . '::_Constructor', [$this])) {
                 return;
             }
         }
@@ -70,7 +70,7 @@ class DAO
             // in hook calls named e.g. "DAO_CLASS::_get..."
             // (always lower case).
             $value = null;
-            if (Hook::run(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$value])) {
+            if (Hook::run(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$value])) {
                 return $value;
             }
         }
@@ -95,7 +95,7 @@ class DAO
             // this method is only called by a subclass. Results
             // in hook calls named e.g. "DAO_CLASS::_get..."
             $value = null;
-            if (Hook::run(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$dbResultRange, &$value])) {
+            if (Hook::run(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$dbResultRange, &$value])) {
                 return $value;
             }
         }
@@ -165,7 +165,7 @@ class DAO
             // in hook calls named e.g. "DAO_CLASS::_updateobject"
             // (all lowercase)
             $value = null;
-            if (Hook::run(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$value])) {
+            if (Hook::run(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$value])) {
                 return $value;
             }
         }
@@ -397,7 +397,7 @@ class DAO
         // in hook calls named e.g. "DAO_CLASS::getAdditionalFieldNames"
         // (class names lowercase)
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-        Hook::run(strtolower_codesafe(end($classNameParts)) . '::getAdditionalFieldNames', [$this, &$returner]);
+        Hook::run(strtolower(end($classNameParts)) . '::getAdditionalFieldNames', [$this, &$returner]);
 
         return $returner;
     }
@@ -419,7 +419,7 @@ class DAO
         // in hook calls named e.g. "DAO_CLASS::getLocaleFieldNames"
         // (class names lowercase)
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-        Hook::run(strtolower_codesafe(end($classNameParts)) . '::getLocaleFieldNames', [$this, &$returner]);
+        Hook::run(strtolower(end($classNameParts)) . '::getLocaleFieldNames', [$this, &$returner]);
 
         return $returner;
     }

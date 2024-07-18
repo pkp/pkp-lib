@@ -18,22 +18,21 @@ namespace PKP\core;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\config\Config;
 use Illuminate\Support\Facades\Auth;
+use PKP\config\Config;
 use PKP\context\Context;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\Validation;
 
-define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
-define('ROUTER_DEFAULT_OP', 'index');
-
 class PKPPageRouter extends PKPRouter
 {
     /** @var array pages that don't need an installed system to be displayed */
     public $_installationPages = ['install', 'help', 'header', 'sidebar'];
 
+    public const ROUTER_DEFAULT_PAGE = './pages/index/index.php';
+    public const ROUTER_DEFAULT_OP = 'index';
     //
     // Internal state cache variables
     // NB: Please do not access directly but
@@ -206,7 +205,7 @@ class PKPPageRouter extends PKPRouter
                     $handler = $result;
                 }
             } elseif (empty($page)) {
-                $handler = require(ROUTER_DEFAULT_PAGE);
+                $handler = require(self::ROUTER_DEFAULT_PAGE);
             } else {
                 $dispatcher = $this->getDispatcher();
                 $dispatcher->handle404();
@@ -224,29 +223,21 @@ class PKPPageRouter extends PKPRouter
         // Call the selected handler's index operation if
         // no operation was defined in the request.
         if (empty($op)) {
-            $op = ROUTER_DEFAULT_OP;
+            $op = self::ROUTER_DEFAULT_OP;
+        }
+
+        if (defined('HANDLER_CLASS')) {
+            // Deprecated with 3.4.0; error added for 3.5; remove this post-3.6
+            throw new \Exception('The use of HANDLER_CLASS is no longer supported for injecting handlers.');
         }
 
         // Redirect to 404 if the operation doesn't exist
         // for the handler.
-        $methods = [];
-        if ($handler) {
-            $methods = get_class_methods($handler);
-        } elseif (defined('HANDLER_CLASS')) {
-            // The use of HANDLER_CLASS is DEPRECATED with 3.4.0 pkp/pkp-lib#6019
-            $methods = get_class_methods(HANDLER_CLASS);
-        }
-        if (!in_array($op, $methods)) {
+        if (!is_object($handler) || !in_array($op, get_class_methods($handler))) {
             $dispatcher = $this->getDispatcher();
             $dispatcher->handle404();
         }
 
-        // Instantiate the handler class
-        if (!$handler) {
-            // The use of HANDLER_CLASS is DEPRECATED with 3.4.0 pkp/pkp-lib#6019
-            $handlerClass = HANDLER_CLASS;
-            $handler = new $handlerClass($request);
-        }
         $this->setHandler($handler);
 
         // Authorize and initialize the request but don't call the
@@ -270,38 +261,24 @@ class PKPPageRouter extends PKPRouter
         ?string $newContext = null,
         ?string $page = null,
         ?string $op = null,
-        mixed $path = null,
+        ?array $path = null,
         ?array $params = null,
         ?string $anchor = null,
         bool $escape = false,
         ?string $urlLocaleForPage = null,
     ): string {
         //
-        // Base URL and Context
+        // Base URL, context, and additional path info
         //
-        $baseUrlAndContext = $this->_urlGetBaseAndContext($request, $newContext);
-        $baseUrl = array_shift($baseUrlAndContext);
-        $context = array_shift($baseUrlAndContext);
-
-        //
-        // Additional path info
-        //
-        if (empty($path)) {
-            $additionalPath = [];
-        } else {
-            if (is_array($path)) {
-                $additionalPath = array_map('rawurlencode', $path);
-            } else {
-                $additionalPath = [rawurlencode($path)];
-            }
-        }
+        [$baseUrl, $context] = $this->_urlGetBaseAndContext($request, $newContext);
+        $additionalPath = array_map(rawurlencode(...), $path ?? []);
 
         //
         // Page and Operation
         //
 
         // Are we in a page request?
-        $currentRequestIsAPageRequest = $request->getRouter() instanceof \PKP\core\PKPPageRouter;
+        $currentRequestIsAPageRequest = $request->getRouter() instanceof PKPPageRouter;
 
         // Determine the operation
         if ($op) {
@@ -372,9 +349,9 @@ class PKPPageRouter extends PKPRouter
         // Assemble URL
         //
         // Context, locale?, page, operation and additional path go into the path info.
-        $pathInfoArray = $context;
+        $pathInfoArray = $context ? [$context] : [];
         if ($urlLocaleForPage !== '') {
-            [$contextObject, $contextLocales] = $this->_getContextAndLocales($request, $context[0] ?? '');
+            [$contextObject, $contextLocales] = $this->_getContextAndLocales($request, $context ?? '');
             if (count($contextLocales) > 1) {
                 $pathInfoArray[] = $this->_getLocaleForUrl($request, $contextObject, $contextLocales, $urlLocaleForPage);
             }
@@ -418,10 +395,8 @@ class PKPPageRouter extends PKPRouter
 
     /**
      * Get the user's "home" page URL (e.g. where they are sent after login).
-     *
-     * @param PKPRequest $request the request to be routed
      */
-    public function getHomeUrl($request): string
+    public function getHomeUrl(PKPRequest $request): string
     {
         $user = Auth::user(); /** @var \PKP\user\User $user */
         $userId = $user->getId();

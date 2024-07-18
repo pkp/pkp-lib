@@ -3055,3 +3055,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Выходныя даныя"
+
+msgid "plugins.importexport.common.validation"
+msgstr ""

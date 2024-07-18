@@ -22,11 +22,9 @@ use APP\notification\NotificationManager;
 use APP\orcid\actions\SendReviewToOrcid;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
-use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
-use PKP\log\SubmissionEmailLogDAO;
-use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\ReviewAcknowledgement;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
@@ -133,9 +131,8 @@ class ThankReviewerForm extends Form
             $mailable->setData(Locale::getLocale());
             try {
                 Mail::send($mailable);
-                $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-                $submissionEmailLogDao->logMailable(
-                    SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_THANK_REVIEWER,
+                Repo::emailLogEntry()->logMailable(
+                    SubmissionEmailLogEventType::REVIEW_THANK_REVIEWER,
                     $mailable,
                     $submission,
                     $user,

@@ -30,8 +30,7 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\log\event\SubmissionFileEventLogEntry;
-use PKP\log\SubmissionEmailLogDAO;
-use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\RevisedVersionNotify;
 use PKP\note\NoteDAO;
 use PKP\notification\PKPNotification;
@@ -770,18 +769,17 @@ abstract class Repository
         $user = $this->request->getUser();
 
         // Fetch the latest notification email timestamp
-        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
-        /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-        $submissionEmails = $submissionEmailLogDao->getByEventType(
+        $submissionEmails = Repo::emailLogEntry()->getByEventType(
             $submission->getId(),
-            SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION
+            SubmissionEmailLogEventType::AUTHOR_NOTIFY_REVISED_VERSION,
+            Application::ASSOC_TYPE_SUBMISSION
         );
         $lastNotification = null;
         $sentDates = [];
         if ($submissionEmails) {
-            while ($email = $submissionEmails->next()) {
-                if ($email->getDateSent()) {
-                    $sentDates[] = $email->getDateSent();
+            foreach ($submissionEmails as $email) {
+                if ($email->dateSent) {
+                    $sentDates[] = $email->dateSent;
                 }
             }
             if (!empty($sentDates)) {
@@ -824,9 +822,9 @@ abstract class Repository
             ->replyTo($context->getData('contactEmail'), $context->getData('contactName'));
 
         Mail::send($mailable);
-        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-        $submissionEmailLogDao->logMailable(
-            SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_NOTIFY_REVISED_VERSION,
+
+        Repo::emailLogEntry()->logMailable(
+            SubmissionEmailLogEventType::AUTHOR_NOTIFY_REVISED_VERSION,
             $mailable,
             $submission,
             $user
@@ -858,8 +856,7 @@ abstract class Repository
     public function versionSubmissionFile(
         SubmissionFile $submissionFile,
         Publication $newPublication
-    ): SubmissionFile
-    {
+    ): SubmissionFile {
         $newSubmissionFile = clone $submissionFile;
 
         $oldFileId = $submissionFile->getData('fileId');
@@ -902,7 +899,7 @@ abstract class Repository
      */
     public function getSubmissionFileContent(SubmissionFile $submissionFile): string | false
     {
-        $fileName = Config::getVar('files', 'files_dir') . '/' . $submissionFile->getData('path') .'';
+        $fileName = Config::getVar('files', 'files_dir') . '/' . $submissionFile->getData('path') . '';
         $retValue = file_get_contents($fileName);
 
         if ($retValue === false) {

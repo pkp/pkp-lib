@@ -24,9 +24,7 @@ use APP\facades\Repo;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
-use PKP\db\DAORegistry;
-use PKP\log\SubmissionEmailLogDAO;
-use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\SubmissionAcknowledgement;
 use PKP\mail\mailables\SubmissionAcknowledgementOtherAuthors;
@@ -71,10 +69,8 @@ abstract class SendSubmissionAcknowledgement
 
             Mail::send($mailable);
 
-            /** @var SubmissionEmailLogDAO $logDao */
-            $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
-            $logDao->logMailable(
-                SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_SUBMISSION_ACK,
+            Repo::emailLogEntry()->logMailable(
+                SubmissionEmailLogEventType::AUTHOR_SUBMISSION_ACK,
                 $mailable,
                 $event->submission
             );
@@ -106,10 +102,8 @@ abstract class SendSubmissionAcknowledgement
 
             Mail::send($mailable);
 
-            /** @var SubmissionEmailLogDAO $logDao */
-            $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
-            $logDao->logMailable(
-                SubmissionEmailLogEntry::SUBMISSION_EMAIL_AUTHOR_SUBMISSION_ACK,
+            Repo::emailLogEntry()->logMailable(
+                SubmissionEmailLogEventType::AUTHOR_SUBMISSION_ACK,
                 $mailable,
                 $event->submission
             );

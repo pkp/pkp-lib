@@ -28,6 +28,9 @@ class Hook
     public const CONTINUE = false;
     public const ABORT = true;
 
+    /** @var array An associative array of [unsupported_hook_name => anything] */
+    protected static $unsupportedHooks = [];
+
     /**
      * Get the current set of hook registrations.
      *
@@ -52,6 +55,15 @@ class Hook
     }
 
     /**
+     * Add an unsupported hook name to the list. If a caller attempts to register for a hook named by
+     * calls to this function, an exception will be thrown.
+     */
+    public static function addUnsupportedHooks(...$hookNames): void
+    {
+        self::$unsupportedHooks = array_merge(self::$unsupportedHooks, array_flip($hookNames));
+    }
+
+    /**
      * Clear hooks registered against the given name.
      */
     public static function clear(string $hookName): void
@@ -63,12 +75,15 @@ class Hook
     /**
      * Register a hook against the given hook name.
      *
-     * @param string $hookName Name of hook to register against
-     * @param callable $callback Callback pseudo-type
-     * @param int $hookSequence Optional hook sequence specifier SEQUENCE_...
+     * @param $hookName Name of hook to register against
+     * @param $callback Callback pseudo-type
+     * @param $hookSequence Optional hook sequence specifier SEQUENCE_...
      */
     public static function add(string $hookName, callable $callback, int $hookSequence = self::SEQUENCE_NORMAL): void
     {
+        if (isset(self::$unsupportedHooks[$hookName])) {
+            throw new \Exception("Hook {$hookName} is not supported (possibly removed) and callbacks should not be added to it!");
+        }
         $hooks = & static::getHooks();
         $hooks[$hookName]['hooks'][$hookSequence][] = $callback;
         $hooks[$hookName]['dirty'] = true; // Need to re-sort

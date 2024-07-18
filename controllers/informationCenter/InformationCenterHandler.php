@@ -133,7 +133,7 @@ abstract class InformationCenterHandler extends Handler
         $note = $noteDao->getById($noteId);
 
         if (!$request->checkCSRF() || !$note || $note->getAssocType() != $this->_getAssocType() || $note->getAssocId() != $this->_getAssocId()) {
-            fatalError('Invalid note!');
+            throw new \Exception('Invalid note!');
         }
         $noteDao->deleteById($noteId);
 

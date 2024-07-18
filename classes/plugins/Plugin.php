@@ -518,18 +518,6 @@ abstract class Plugin
         event(new PluginSettingChanged($this, $name, $value, $contextId));
     }
 
-    /**
-     * Load a PHP file from this plugin's installation directory.
-     *
-     * @deprecated 3.4.0 pkp/pkp-lib#8186
-     *
-     * @param string $class
-     */
-    public function import($class)
-    {
-        require_once $this->getPluginPath() . '/' . str_replace('.', '/', $class) . '.inc.php';
-    }
-
     /*
      * Helper methods (for internal use only, should not
      * be used by custom plug-ins)

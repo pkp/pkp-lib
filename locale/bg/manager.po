@@ -3884,3 +3884,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Входни данни"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Проверете XML преди експортирането и регистрацията."

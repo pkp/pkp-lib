@@ -19,14 +19,10 @@ use PKP\components\forms\FieldText;
 use PKP\components\forms\FieldTextarea;
 use PKP\components\forms\FormComponent;
 
-define('FORM_INSTITUTION', 'institution');
-
 class PKPInstitutionForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_INSTITUTION;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_INSTITUTION = 'institution';
+    public $id = self::FORM_INSTITUTION;
     public $method = 'POST';
 
     /**

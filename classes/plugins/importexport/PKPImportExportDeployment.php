@@ -590,6 +590,10 @@ class PKPImportExportDeployment
 
             $currentFilter = PKPImportExportFilter::getFilter($rootFilter, $this, $opts);
 
+            if (array_key_exists('noValidation', $opts)) {
+                $currentFilter->setNoValidation($opts['noValidation']);
+            }
+
             libxml_use_internal_errors(true);
             $result = $currentFilter->execute($exportObjects, true);
 

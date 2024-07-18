@@ -3833,3 +3833,6 @@ msgstr "Виключити деталі за місяцями"
 
 msgid "manager.setup.masthead"
 msgstr "Вихідні данні"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Перевіряти XML перед експортом та реєстрацією."

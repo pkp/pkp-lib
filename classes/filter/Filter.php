@@ -458,7 +458,7 @@ abstract class Filter extends \PKP\core\DataObject
         $preliminaryOutput = &$this->process($input);
 
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-        Hook::call(strtolower_codesafe(end($classNameParts) . '::execute'), [&$preliminaryOutput]);
+        Hook::call(strtolower(end($classNameParts) . '::execute'), [&$preliminaryOutput]);
 
         // Validate the filter output
         $isValidOutput = $preliminaryOutput !== null && $this->supports($input, $preliminaryOutput);

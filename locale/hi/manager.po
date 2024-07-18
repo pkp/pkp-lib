@@ -3176,3 +3176,8 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "मास्टहेड"
+
+msgid "plugins.importexport.common.validation"
+msgstr "निर्यात और पंजीकरण से पहले XML सत्यापित करें।"
+
+# (pofilter) endpunc: Different punctuation at the end

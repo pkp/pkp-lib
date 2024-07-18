@@ -3802,3 +3802,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Մասթհեդ"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Վավերացրեք XML-ը մինչև արտահանումը և գրանցումը:"

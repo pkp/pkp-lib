@@ -222,7 +222,7 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $result = $this->router->url($this->request, 'new-context1', null, 'new-op');
         self::assertEquals('http://mydomain.org/index.php/new-context1/index/new-op', $result);
 
-        $result = $this->router->url($this->request, 'new-context1', null, null, 'add?path');
+        $result = $this->router->url($this->request, 'new-context1', null, null, ['add?path']);
         self::assertEquals('http://mydomain.org/index.php/new-context1/index/index/add%3Fpath', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, null, ['add-path1', 'add?path2']);
@@ -247,7 +247,7 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $result = $this->router->url($this->request, 'new-context1', null, null, null, null, 'some/anchor');
         self::assertEquals('http://mydomain.org/index.php/new-context1#some/anchor', $result);
 
-        $result = $this->router->url($this->request, 'new-context1', null, 'new-op', 'add-path', ['key' => 'val'], 'some-anchor');
+        $result = $this->router->url($this->request, 'new-context1', null, 'new-op', ['add-path'], ['key' => 'val'], 'some-anchor');
         self::assertEquals('http://mydomain.org/index.php/new-context1/index/new-op/add-path?key=val#some-anchor', $result);
 
         $result = $this->router->url($this->request, 'new-context1', null, null, null, ['key1' => 'val1', 'key2' => 'val2'], null, true);

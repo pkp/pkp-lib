@@ -45,6 +45,9 @@ msgstr "Principal Contact"
 msgid "about.contact.supportContact"
 msgstr "Support Contact"
 
+msgid "about.editorialMasthead.linkToEditorialHistory"
+msgstr "View <a href=\"{$url}\">Editorial History</a>"
+
 msgid "about.other"
 msgstr "Other"
 
@@ -159,6 +162,12 @@ msgstr "The editors express their appreciation of the reviewers for {$year} list
 
 msgid "common.editorialHistory"
 msgstr "Editorial History"
+
+msgid "common.editorialHistory.page"
+msgstr "Editorial History Page"
+
+msgid "common.editorialHistory.page.description"
+msgstr "This section lists past contributors."
 
 msgid "common.name"
 msgstr "Name"

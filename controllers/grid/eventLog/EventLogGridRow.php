@@ -103,8 +103,8 @@ class EventLogGridRow extends GridRow
                     $request,
                     __('submission.event.viewEmail'),
                     [
-                        'submissionId' => $logEntry->getAssocId(),
-                        'emailLogEntryId' => $logEntry->getId(),
+                        'submissionId' => $logEntry->assocId,
+                        'emailLogEntryId' => $logEntry->id,
                     ]
                 )
             );

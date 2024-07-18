@@ -21,7 +21,6 @@ use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
-use PKP\facades\Locale;
 use PKP\security\Validation;
 use PKP\user\InterestManager;
 
@@ -66,7 +65,7 @@ class PKPUserHandler extends Handler
         // Get message with sanity check (for XSS or phishing)
         $authorizationMessage = $request->getUserVar('message');
         if (!preg_match('/^[a-zA-Z0-9.]+$/', $authorizationMessage)) {
-            fatalError('Invalid locale key for auth message.');
+            throw new \Exception('Invalid locale key for auth message.');
         }
 
         $this->setupTemplate($request);

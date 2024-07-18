@@ -313,11 +313,11 @@ class QueryDAO extends \PKP\db\DAO
      * the onDelete CASCADE foreign key relationship in
      * the database table.
      *
-     * @param int $queryId Query ID
-     * @param int $assocType Optional Application::ASSOC_TYPE_...
-     * @param int $assocId Optional assoc ID per assocType
+     * @param $queryId Query ID
+     * @param $assocType Optional Application::ASSOC_TYPE_...
+     * @param $assocId Optional assoc ID per assocType
      */
-    public function deleteById($queryId, $assocType = null, $assocId = null)
+    public function deleteById(int $queryId, ?int $assocType = null, ?int $assocId = null): int
     {
         $countDeleted = DB::table('queries')
             ->where('query_id', '=', $queryId)
@@ -339,6 +339,8 @@ class QueryDAO extends \PKP\db\DAO
                 $notificationDao->deleteObject($notification);
             }
         }
+
+        return $countDeleted;
     }
 
     /**

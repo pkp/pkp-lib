@@ -123,7 +123,7 @@ class FileUploadWizardHandler extends Handler
         if ($submissionFileIdToValidate) {
             $this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY, $submissionFileIdToValidate));
 
-        // Allow uploading to review attachments
+            // Allow uploading to review attachments
         } elseif ($fileStage === SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
             $assocType = (int) $request->getUserVar('assocType');
             $assocId = (int) $request->getUserVar('assocId');
@@ -137,7 +137,7 @@ class FileUploadWizardHandler extends Handler
             $this->addPolicy(new ReviewRoundRequiredPolicy($request, $args));
             $this->addPolicy(new ReviewAssignmentFileWritePolicy($request, $assocId));
 
-        // Allow uploading to a note
+            // Allow uploading to a note
         } elseif ($fileStage === SubmissionFile::SUBMISSION_FILE_QUERY) {
             $assocType = (int) $request->getUserVar('assocType');
             $assocId = (int) $request->getUserVar('assocId');
@@ -149,7 +149,7 @@ class FileUploadWizardHandler extends Handler
             $this->addPolicy(new QueryAccessPolicy($request, $args, $roleAssignments, $stageId));
             $this->addPolicy(new NoteAccessPolicy($request, $assocId, NoteAccessPolicy::NOTE_ACCESS_WRITE));
 
-        // Allow uploading a dependent file to another file
+            // Allow uploading a dependent file to another file
         } elseif ($fileStage === SubmissionFile::SUBMISSION_FILE_DEPENDENT) {
             $assocType = (int) $request->getUserVar('assocType');
             $assocId = (int) $request->getUserVar('assocId');
@@ -159,7 +159,7 @@ class FileUploadWizardHandler extends Handler
 
             $this->addPolicy(new SubmissionFileAccessPolicy($request, $args, $roleAssignments, SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_MODIFY, $assocId));
 
-        // Allow uploading to other file stages in the workflow
+            // Allow uploading to other file stages in the workflow
         } else {
             $stageId = (int) $request->getUserVar('stageId');
             $assocType = (int) $request->getUserVar('assocType');
@@ -207,7 +207,7 @@ class FileUploadWizardHandler extends Handler
             $uploaderRoles = explode('-', $uploaderRoles);
             foreach ($uploaderRoles as $uploaderRole) {
                 if (!is_numeric($uploaderRole)) {
-                    fatalError('Invalid uploader role!');
+                    throw new \Exception('Invalid uploader role!');
                 }
                 $this->_uploaderRoles[] = (int)$uploaderRole;
             }

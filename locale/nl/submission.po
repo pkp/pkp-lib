@@ -1,11 +1,12 @@
 # Kay <kay.pepping@huygens.knaw.nl>, 2024.
+# Pia Spriensma <p.j.huizinga@rug.nl>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:56+00:00\n"
-"PO-Revision-Date: 2024-04-17 19:57+0000\n"
-"Last-Translator: Kay <kay.pepping@huygens.knaw.nl>\n"
+"PO-Revision-Date: 2024-07-01 19:36+0000\n"
+"Last-Translator: Pia Spriensma <p.j.huizinga@rug.nl>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/nl/>\n"
 "Language: nl\n"
@@ -47,7 +48,7 @@ msgstr ""
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
-"Selecteer een redactionele rol als je deze inzending zelf wilt bewerken en "
+"Selecteer een redactionele rol als u deze inzending zelf wilt bewerken en "
 "publiceren."
 
 msgid "submission.submit.submissionChecklist"
@@ -148,7 +149,7 @@ msgid "metadata.property.displayName.article-title"
 msgstr "Artikel/Paper titel"
 
 msgid "metadata.property.validationMessage.article-title"
-msgstr "Geef een geldige titel voor het artikel of papaer"
+msgstr "Geef een geldige titel voor het artikel of paper"
 
 msgid "metadata.property.displayName.source"
 msgstr "Tijdschrift/boek titel"
@@ -214,7 +215,7 @@ msgid "metadata.property.displayName.conf-date"
 msgstr "Datum van de conferentie"
 
 msgid "metadata.property.validationMessage.conf-date"
-msgstr "Geef een geldige datum voor de converentie (formaat: DD-MM-YYYY)."
+msgstr "Geef een geldige datum voor de conferentie (formaat: DD-MM-YYYY)."
 
 msgid "metadata.property.displayName.conf-loc"
 msgstr "Lokatie van de conferentie"
@@ -611,9 +612,9 @@ msgstr ""
 "{$filename} ({$username}) ging akkoord met de auteursrechtelijke voorwaarden "
 "voor inzending."
 
-#, fuzzy
 msgid "submission.event.fileRevised"
-msgstr "Revisie \"{$filename}\" (bestands-ID {$submissionFileId}) werd opgeladen."
+msgstr ""
+"Revisie \"{$filename}\" (bestands-ID {$submissionFileId}) werd geüpload."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadata van de inzending veranderd"
@@ -667,8 +668,8 @@ msgstr ""
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
-"Er is een automatische herinneringse-mail verzonden naar {$recipientName} "
-"met betrekking tot hun beoordelingsopdracht"
+"Er is een automatische herinnering verzonden naar {$recipientName} met "
+"betrekking tot hun beoordelingsopdracht"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Een e-mail is verstuurd:"
@@ -839,7 +840,7 @@ msgid "submission.layout.galleyRemoteURLValid"
 msgstr "Geef de remote URL (inclusief http://)"
 
 msgid "submission.layout.galleyNoImages"
-msgstr "No images have been added to this galley."
+msgstr "Er zijn geen afbeeldingen toegevoegd aan deze proefdruk."
 
 msgid "submission.layout.galleys"
 msgstr "Proefdrukken"
@@ -968,7 +969,7 @@ msgid "submission.response"
 msgstr "Reactie"
 
 msgid "submission.restrictions"
-msgstr "Berperkingen"
+msgstr "Beperkingen"
 
 msgid "submission.reviewMetadata"
 msgstr "Beoordeel Metadata"
@@ -1260,14 +1261,14 @@ msgstr "Selecteer het bestand dat u wilt reviseren."
 
 msgid "submission.upload.selectOptionalFileToRevise"
 msgstr ""
-"Als u een gereviseerde versie van een bestaand bestand wilt opladen, "
+"Als u een gereviseerde versie van een bestaand bestand wilt uploaden, "
 "selecteer dan om welk bestand het gaat."
 
 msgid "submission.upload.uploadNewFile"
 msgstr "Dit is geen gereviseerde versie van een bestaand bestand"
 
 msgid "submission.upload.userGroup"
-msgstr "Laad dit bestand op in mijn hoedanigheid als..."
+msgstr "Upload dit bestand in mijn hoedanigheid als..."
 
 msgid "submission.upload.userGroupDescription"
 msgstr ""
@@ -1275,30 +1276,30 @@ msgstr ""
 "opladen in uw hoedanigheid als volumeredacteur."
 
 msgid "submission.upload.uploadLibraryFile"
-msgstr "Bibliotheekbestand opladen"
+msgstr "Bibliotheekbestand uploaden"
 
 msgid "submission.upload.libraryCategory"
 msgstr "Documenttype van de inzending"
 
 msgid "submission.upload.finalDraft"
-msgstr "Bestand opladen"
+msgstr "Bestand uploaden"
 
 msgid "submission.upload.copyeditedVersion"
-msgstr "Geredigeerd bestand opladen"
+msgstr "Geredigeerd bestand uploaden"
 
 msgid "submission.upload.uploadFiles"
-msgstr "Bestanden opladen"
+msgstr "Bestanden uploaden"
 
 msgid "submission.upload.response.description"
 msgstr ""
 "Beoordeel het toegewezen bestand en geef hieronder uw opmerkingen, en/of "
-"laad een kopie van het bestand met opmerkingen op (of een ander bestand)."
+"upload een kopie van het bestand met opmerkingen  (of een ander bestand)."
 
 msgid "submission.upload.productionReady"
-msgstr "Bestand opladen dat klaar is voor productie"
+msgstr "Bestand uploaden dat klaar is voor productie"
 
 msgid "submission.upload.proof"
-msgstr "Proef opladen"
+msgstr "Proef uploaden"
 
 msgid "submission.upload.noAvailableReviewFiles"
 msgstr "U heeft geen bestanden om te reviewen."
@@ -1404,245 +1405,344 @@ msgstr ""
 "gegarandeerd."
 
 msgid "editor.submission.removePermissionToEdit"
-msgstr ""
+msgstr "Toestemming bewerken metadata intrekken"
 
 msgid "editor.submission.addPermissionToEdit"
-msgstr ""
+msgstr "Metadata bewerken toestaan"
 
 msgid "editor.submission.removePermissionToEditDescription"
 msgstr ""
+"Weet u zeker dat de auteurs van deze inzending de metadata van de inzending "
+"in dat stadium niet mogen bewerken?"
 
 msgid "editor.submission.addPermissionToEditDescription"
 msgstr ""
+"Weet u zeker dat de auteurs van deze inzending de metadata van de inzending "
+"in dat stadium mogen bewerken?"
 
 msgid "editor.submission.decision"
 msgstr "Beslissing"
 
 msgid "editor.submission.decision.notifyAuthors"
-msgstr ""
+msgstr "Auteurs op de hoogte brengen"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr ""
+msgstr "Reviewers op de hoogte brengen"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"Stuur een e-mail naar de reviewers om hen te bedanken voor hun beoordeling "
+"en hen te laten weten dat er een beslissing is genomen. Elke reviewer krijgt "
+"een aparte e-mail om zijn anonimiteit te beschermen. De code {$recipientName}"
+" kan in het bericht worden gebruikt om de naam van elke reviewer veilig op "
+"te nemen."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"Stuur een e-mail naar de toegewezen reviewers om hen te laten weten dat het "
+"reviewverzoek is geannuleerd."
 
 msgid "editor.submission.decision.accept"
 msgstr "Inzending aanvaarden"
 
 msgid "editor.submission.decision.accept.description"
 msgstr ""
+"Deze inzending wordt geaccepteerd voor publicatie en verzonden voor "
+"copyediting."
 
 msgid "editor.submission.decision.accept.log"
 msgstr ""
+"{$editorName} accepteerde deze inzending and stuurde deze naar Copyediting "
+"stage."
 
 msgid "editor.submission.decision.accept.completed"
-msgstr ""
+msgstr "Inzending geaccepteerd"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
+"De inzending, {$title}, is geaccepteerd voor publicatie en doorgestuurd naar "
+"de redactiefase. Alle berichten zijn verstuurd, tenzij u ervoor heeft "
+"gekozen om e-mails over te slaan."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
+"Stuur een e-mail naar de auteurs om hen te laten weten dat hun inzending is "
+"geaccepteerd voor publicatie. Deze e-mail wordt pas verzonden nadat de "
+"beslissing is vastgelegd."
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Stuur een e-mail naar de auteurs om hen te laten weten dat de reviewronde is "
+"afgesloten. Deze e-mail wordt pas verzonden nadat de beslissing is "
+"vastgelegd."
 
 msgid "editor.submission.decision.decline"
 msgstr "Inzending weigeren"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
+"Deze inzending wordt afgewezen voor publicatie. De reviewfase wordt "
+"afgesloten en de inzending wordt gearchiveerd."
 
 msgid "editor.submission.decision.decline.log"
-msgstr ""
+msgstr "{$editorName} heeft deze inzending geweigerd."
 
 msgid "editor.submission.decision.decline.completed"
-msgstr ""
+msgstr "Inzending geweigerd"
 
 msgid "editor.submission.decision.decline.completed.description"
 msgstr ""
+"De inzending, {$title}, is geweigerd en naar het archief gestuurd. Alle "
+"berichten zijn verzonden, tenzij u ervoor heeft gekozen om e-mails over te "
+"slaan."
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
+"Stuur een e-mail naar de auteurs om hen te laten weten dat hun inzending is "
+"geweigerd. Deze e-mail wordt pas verzonden nadat de beslissing is vastgelegd."
 
 msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
+"Deze inzending wordt geweigerd voor publicatie. Er vindt geen verdere "
+"beoordeling plaats en de inzending wordt gearchiveerd."
 
 msgid "editor.submission.decision.newReviewRound"
-msgstr ""
+msgstr "Nieuwe reviewronde"
 
 msgid "editor.submission.decision.newReviewRound.description"
-msgstr ""
+msgstr "Open een nieuwe reviewronde voor deze inzending."
 
 msgid "editor.submission.decision.newReviewRound.log"
 msgstr ""
+"{$editorName} heeft een nieuwe reviewronde aangemaakt voor deze inzending."
 
 msgid "editor.submission.decision.newReviewRound.completed"
-msgstr ""
+msgstr "Reviewronde aangemaakt"
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
+"Er is een nieuwe reviewronde aangemaakt voor de inzending, {$title}. De "
+"auteur is op de hoogte gesteld, tenzij u ervoor heeft gekozen om die e-mail "
+"over te slaan."
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Stuur een e-mail naar de auteurs om hen te laten weten dat hun inzending is "
+"doorgestuurd voor een nieuwe reviewronde. Deze e-mail wordt pas verzonden "
+"nadat de beslissing is vastgelegd."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
-msgstr ""
+msgstr "Selecteer bestanden die naar de redactiefase moeten."
 
 msgid "editor.submission.decision.promoteFiles.review"
-msgstr ""
+msgstr "Selecteer bestanden die naar de reviewfase moeten."
 
 msgid "editor.submission.decision.promoteFiles.production"
-msgstr ""
+msgstr "Selecteer bestanden die naar de productiefase moeten."
 
 msgid "editor.submission.decision.requestRevisions"
 msgstr "Vraag revisies"
 
 msgid "editor.submission.decision.requestRevisions.description"
 msgstr ""
+"De auteur moet revisies indienen voordat deze inzending wordt geaccepteerd "
+"voor publicatie."
 
 msgid "editor.submission.decision.requestRevisions.log"
-msgstr ""
+msgstr "{$editorName} vroeg om revisies voor deze inzending."
 
 msgid "editor.submission.decision.requestRevisions.completed"
-msgstr ""
+msgstr "Revisies gevraagd"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
+"Revisies voor de inzending, {$title}, zijn aangevraagd. Alle berichten zijn "
+"verstuurd, tenzij u ervoor heeft gekozen om e-mails over te slaan."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
+"Stuur een e-mail naar de auteurs om hen te laten weten dat revisies nodig "
+"zijn voordat deze inzending wordt geaccepteerd voor publicatie. Vermeld alle "
+"details die de auteur nodig heeft om zijn inzending te herzien. Vergeet niet "
+"om eventueel commentaar van reviewers te anonimiseren. Deze e-mail wordt pas "
+"verzonden nadat de beslissing is vastgelegd."
 
 msgid "editor.submission.decision.cancelReviewRound"
-msgstr ""
+msgstr "Annuleer reviewronde"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
+"Annuleer de huidige reviewronde en stuur de inzending terug naar de laatste "
+"reviewronde. Als dit de eerste reviewronde is, wordt het teruggestuurd naar "
+"de indieningsfase."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
-msgstr ""
+msgstr "{$editorName} heeft de laatste reviewronde geannuleerd."
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr ""
+msgstr "Laatste reviewronde geannuleerd."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
+"De reviewronde voor de inzending {$title} is geannuleerd. Alle berichten "
+"zijn verstuurd, tenzij u ervoor heeft gekozen om e-mails over te slaan."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
+"Kan alleen reviewronde annuleren als geen enkele gekoppelde reviewer een "
+"voltooide of ingediende review beschikbaar heeft."
 
 msgid "editor.submission.decision.resubmit"
 msgstr "Opnieuw indienen voor review"
 
 msgid "editor.submission.decision.resubmit.description"
 msgstr ""
+"De auteur moet revisies indienen die naar een volgende reviewronde worden "
+"verzonden voordat deze inzending wordt geaccepteerd voor publicatie."
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
+"{$editorName} vroeg om revisies voor deze inzending die nog een keer moeten "
+"worden beoordeeld."
 
 msgid "editor.submission.decision.resubmit.completed"
-msgstr ""
+msgstr "Revisies aangevraagd"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
+"Revisies voor de inzending, {$title}, zijn aangevraagd. Er is besloten om de "
+"revisies door te sturen naar een volgende reviewronde. Alle berichten zijn "
+"verstuurd, tenzij u ervoor heeft gekozen om e-mails over te slaan."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
+"Stuur een e-mail naar de auteurs om hen te laten weten dat revisies nodig "
+"zijn die opgestuurd worden voor een nieuwe reviewronde. Vermeld alle details "
+"die de auteur nodig heeft om zijn inzending te herzien. Vergeet niet om "
+"eventueel commentaar van reviewers te anonimiseren."
 
 msgid "editor.submission.decision.sendExternalReview"
-msgstr ""
+msgstr "Stuur naar review"
 
 msgid "editor.submission.decision.sendExternalReview.description"
-msgstr ""
+msgstr "Deze inzending is klaar voor peer review."
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr ""
+msgstr "{$editorName} heeft deze inzending naar de reviewfase gestuurd."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr ""
+msgstr "Verstuurd naar reviewfase"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
+"De inzending, {$title}, is naar de reviewer gestuurd. De auteur is op de "
+"hoogte gesteld, tenzij u ervoor heeft gekozen om deze e-mail over te slaan."
 
 msgid "editor.submission.decision.newRound"
-msgstr ""
+msgstr "Nieuwe reviewronde"
 
 msgid "editor.submission.decision.sendToProduction"
 msgstr "In productie geven"
 
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr ""
+"Stuur deze inzending naar de productiefase om te worden voorbereid voor "
+"publicatie."
 
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr ""
+msgstr "{$editorName} heeft deze inzending naar de productiefase gestuurd."
 
 msgid "editor.submission.decision.sendToProduction.completed"
-msgstr ""
+msgstr "In productie gegeven"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
+"De inzending, {$title}, is naar de productiefase gestuurd. De auteur is op "
+"de hoogte gesteld, tenzij u ervoor heeft gekozen om deze e-mail over te "
+"slaan."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
+"Stuur een e-mail naar de auteurs om hen te laten weten dat deze inzending "
+"naar de productiefase is gestuurd. Deze e-mail wordt pas verzonden nadat de "
+"beslissing is vastgelegd."
 
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr ""
+msgstr "Redactiefase annuleren"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr ""
+msgstr "Annuleer de redactiefase van deze inzending."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
-msgstr ""
+msgstr "{$editorName} heeft de redactiefase van deze inzending geannuleerd."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr ""
+msgstr "Redactiefase geannuleerd"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
+"De inzending, {$title}, is teruggestuurd uit de redactiefase. De auteur is "
+"op de hoogte gesteld, tenzij u ervoor heeft gekozen deze e-mail over te "
+"slaan."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Stuur een e-mail naar de auteurs om hen te laten weten dat het redigeren is "
+"geannuleerd en dat hun inzending verder zal worden beoordeeld."
 
 msgid "editor.submission.decision.backToCopyediting"
-msgstr ""
+msgstr "Terug naar redactie"
 
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr ""
+msgstr "Stuur deze inzending terug naar de redactiefase."
 
 msgid "editor.submission.decision.backToCopyediting.log"
-msgstr ""
+msgstr "{$editorName} heeft deze inzending teruggestuurd naar de redactiefase."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr ""
+msgstr "Teruggestuurd naar redactie"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
+"De inzending, {$title}, is teruggestuurd naar de redactiefase. De auteur is "
+"op de hoogte gesteld, tenzij u ervoor heeft gekozen deze e-mail over te "
+"slaan."
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Stuur een e-mail naar de auteurs om hen te laten weten dat deze inzending is "
+"teruggestuurd naar de redactiefase. Leg uit waarom deze beslissing is "
+"genomen en informeer de auteur over de verdere bewerking die nodig is "
+"voordat deze inzending klaar is voor productie."
 
 msgid "editor.submission.decision.skipReview"
 msgstr "Aanvaarden en review overslaan"
 
 msgid "editor.submission.decision.skipReview.description"
 msgstr ""
+"Accepteer deze inzending voor publicatie en sla de reviewfase over. Deze "
+"beslissing stuurt de inzending naar de redactiefase."
 
 msgid "editor.submission.decision.skipReview.log"
 msgstr ""
+"{$editorName} heeft de reviewfase overgeslagen en deze inzending naar de "
+"redactiefase gestuurd."
 
 msgid "editor.submission.decision.skipReview.completed"
-msgstr ""
+msgstr "Review overgeslagen"
 
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
+"De inzending, {$title}, heeft de reviewfase overgeslagen en is doorgestuurd "
+"naar de redactiefase. De auteur is op de hoogte gesteld, tenzij u ervoor "
+"heeft gekozen deze e-mail over te slaan."
 
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
+"Stuur een e-mail naar de auteurs om hen te laten weten dat deze inzending is "
+"geaccepteerd voor publicatie en zonder review naar de redactiefase is "
+"gestuurd. Deze e-mail wordt pas verzonden nadat de beslissing is vastgelegd."
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "In interne review geven"
@@ -1661,34 +1761,48 @@ msgstr ""
 "aankopen. Wilt u ze afkeuren?"
 
 msgid "editor.submission.decision.revertDecline"
-msgstr ""
+msgstr "Afwijzing terugdraaien"
 
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
+"Draai een eerdere beslissing om deze inzending te weigeren terug en breng "
+"deze terug naar het actieve redactieproces. De auteur is op de hoogte "
+"gesteld, tenzij u ervoor heeft gekozen deze e-mail over te slaan."
 
 msgid "editor.submission.decision.revertDecline.log"
 msgstr ""
+"{$editorName} heeft de beslissing om deze inzending te weigeren "
+"teruggedraaid."
 
 msgid "editor.submission.decision.revertDecline.completed"
-msgstr ""
+msgstr "Inzending gereactiveerd"
 
 msgid "editor.submission.decision.revertDecline.completed.description"
-msgstr ""
+msgstr "De inzending, {$title}, is nu een actieve inzending in de reviewfase."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
+"Stuur een e-mail naar de auteurs om hen te laten weten dat een eerdere "
+"beslissing om deze inzending af te wijzen is teruggedraaid. Leg uit waarom "
+"de beslissing is teruggedraaid en laat hen weten of de inzending verder zal "
+"worden beoordeeld."
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
+"De inzending, {$title}, is nu actief in de inzendingsfase. De auteur is op "
+"de hoogte gebracht, tenzij u ervoor heeft gekozen om deze e-mail over te "
+"slaan."
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
-"Wijs een redacteur toe om editeursbeslissingen voor deze stap in te "
+"Wijs een redacteur toe om redactiebeslissingen voor deze stap in te "
 "schakelen."
 
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
+"Stuur een bericht naar de beslissende redacteuren om hen op de hoogte te "
+"stellen van de aanbeveling. Leg uit waarom deze aanbeveling is gedaan in "
+"reactie op de aanbevelingen en opmerkingen van reviewers."
 
 msgid "editor.submission.recommend.accept"
 msgstr ""
@@ -1746,6 +1860,8 @@ msgstr "Aanbevelingen: {$recommendations}"
 
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
+"U kunt pas een aanbeveling doen als een redacteur toestemming heeft gekregen "
+"om een beslissing vast te leggen."
 
 msgid "editor.submission.recommendation"
 msgstr "Aanbeveling"
@@ -1778,7 +1894,7 @@ msgid "editor.submission.addAuditorError"
 msgstr "Er was een fout bij het toewijzen van een corrector. Probeer opnieuw."
 
 msgid "submission.event.fileEdited"
-msgstr ""
+msgstr "De metadata voor bestand \"{$filename}\" is gewijzigd door {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
@@ -1868,16 +1984,16 @@ msgid "notification.type.editorDecisionResubmit"
 msgstr "Dien opnieuw in voor review."
 
 msgid "notification.type.editorDecisionNewRound"
-msgstr ""
+msgstr "Er is een nieuwe reviewronde gestart."
 
 msgid "notification.type.editorDecisionDecline"
 msgstr "Inzending geweigerd."
 
 msgid "notification.type.editorDecisionRevertDecline"
-msgstr ""
+msgstr "Geweigerde inzending opnieuw in behandeling genomen."
 
 msgid "notification.uploadedResponse"
-msgstr "Antwoord opgeladen."
+msgstr "Antwoord geüpload."
 
 msgid "notification.type.editorAssignment"
 msgstr ""
@@ -2026,7 +2142,7 @@ msgid "submission.copyrightHolder"
 msgstr "Copyright houder"
 
 msgid "submission.copyrightHolder.other"
-msgstr ""
+msgstr "Aangepaste copyrightverklaring"
 
 msgid "submission.copyrightOther"
 msgstr ""
@@ -2235,7 +2351,7 @@ msgid "submission.list.infoCenter"
 msgstr "Log van activiteiten en opmerkingen"
 
 msgid "submission.list.empty"
-msgstr ""
+msgstr "Geen inzendingen gevonden."
 
 msgid "submission.list.responseDue"
 msgstr "In afwachting van een antwoord"
@@ -2309,72 +2425,88 @@ msgstr "Wijs een redacteur aan"
 
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
+"Deze inzending is al ingediend. Ga naar <a href=\"{$url}\">het dashboard "
+"voor inzendingen</a> om het te bekijken."
 
 msgid "submission.wizard.beforeStart"
-msgstr ""
+msgstr "Voordat u begint"
 
 msgid "submission.wizard.categories.description"
-msgstr ""
+msgstr "Selecteer alleen de categorieën die geschikt zijn voor uw inzending."
 
 msgid "submission.wizard.changeSubmission"
-msgstr ""
+msgstr "Instellingen voor inzending wijzigen"
 
 msgid "submission.wizard.completeSteps"
-msgstr ""
+msgstr "Voltooi de stappen om een inzending te maken"
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
+"De inzending, <strong>{$title}</strong>, wordt ter redactionele beoordeling "
+"naar <strong>{$context}</strong> gestuurd. Weet u zeker dat u deze inzending "
+"wilt voltooien?"
 
 msgid "submission.wizard.errors"
 msgstr ""
+"Er zijn een of meer problemen die moeten worden opgelost voordat u het "
+"artikel kunt insturen. Bekijk de informatie hieronder en breng de gevraagde "
+"wijzigingen aan."
 
 msgid "submission.wizard.validating"
-msgstr ""
+msgstr "Uw inzending controleren"
 
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
+"Voeg informatie toe waarvan u denkt dat onze redactie deze moet weten bij "
+"het beoordelen van uw inzending."
 
 msgid "submission.wizard.confirm"
 msgstr ""
 
 msgid "submission.wizard.title"
-msgstr ""
+msgstr "Een inzending maken"
 
 msgid "submission.wizard.titleWithStep"
-msgstr ""
+msgstr "Een inzending maken: {$step}"
 
 msgid "submission.wizard.noContributors"
-msgstr ""
+msgstr "Er zijn geen medewerkers toegevoegd voor deze inzending."
 
 msgid "submission.wizard.missingContributorLanguage"
 msgstr ""
+"De voornaam ontbreekt in {$language} voor een of meer van de medewerkers."
 
 msgid "submission.wizard.notAllowed"
-msgstr ""
+msgstr "Niet toegestaan"
 
 msgid "submission.wizard.privacyConsent"
-msgstr ""
+msgstr "Privacy Toestemming"
 
 msgid "submission.wizard.saved"
-msgstr ""
+msgstr "Opgeslagen voor later"
 
 msgid "submission.wizard.saved.description"
 msgstr ""
+"Uw inzendingsgegevens zijn opgeslagen in ons systeem, maar het is nog niet "
+"ingediend om te worden overwogen. U kunt op elk moment terugkeren om uw "
+"inzending te voltooien door de onderstaande link te volgen."
 
 msgid "submission.wizard.saved.emailConfirmation"
-msgstr ""
+msgstr "We hebben een kopie van deze link naar u gemaild op {$email}."
 
 msgid "submission.wizard.sectionClosed"
-msgstr ""
+msgstr "Sectie gesloten"
 
 msgid "submission.wizard.start"
-msgstr ""
+msgstr "Start inzending"
 
 msgid "submission.wizard.startingStatus"
-msgstr ""
+msgstr "Een nieuwe inzending beginnen"
 
 msgid "submission.wizard.unableToSave"
 msgstr ""
+"Er is een fout opgetreden en we konden uw inzending niet opslaan. Mogelijk "
+"is de verbinding verbroken."
 
 msgid "grid.category.categories"
 msgstr "Categorieën"
@@ -2392,7 +2524,7 @@ msgid "catalog.sortBy.datePublishedDesc"
 msgstr "Publicatiedatum (nieuwste eerst)"
 
 msgid "category.category"
-msgstr ""
+msgstr "Categorieën"
 
 msgid "category.coverImage"
 msgstr "Omslagafbeelding"
@@ -2404,10 +2536,10 @@ msgid "submission.currentCoverImage"
 msgstr "Huidige omslagafbeelding"
 
 msgid "catalog.category.noItems"
-msgstr ""
+msgstr "Er is nog niets gepubliceerd in deze categorie."
 
 msgid "catalog.category.subcategories"
-msgstr ""
+msgstr "Subcategorieën"
 
 msgid "publication.contributors"
 msgstr ""
@@ -2422,7 +2554,7 @@ msgid "publication.event.versionCreated"
 msgstr ""
 
 msgid "publication.publicationLicense"
-msgstr ""
+msgstr "Toestemmingen & openbaarmaking"
 
 msgid "publication.status.scheduled"
 msgstr ""
@@ -2431,7 +2563,7 @@ msgid "publication.status.unpublished"
 msgstr ""
 
 msgid "publication.titleAbstract"
-msgstr ""
+msgstr "Titel & samenvatting"
 
 msgid "publication.unschedule"
 msgstr ""

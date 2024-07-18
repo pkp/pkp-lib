@@ -3163,3 +3163,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Impresum"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Prije izvoženja i registracije potvrdi XML."

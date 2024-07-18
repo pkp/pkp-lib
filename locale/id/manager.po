@@ -3410,3 +3410,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Tajuk"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validasi XML sebelum proses ekspor dan registrasi."

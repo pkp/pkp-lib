@@ -26,9 +26,7 @@ use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
-use PKP\log\SubmissionEmailLogDAO;
-use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\ReviewConfirm;
 use PKP\mail\mailables\ReviewDecline;
 use PKP\notification\PKPNotification;
@@ -71,9 +69,8 @@ class ReviewerAction
             if (!empty($mailable->to)) {
                 try {
                     Mail::send($mailable);
-                    $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-                    $submissionEmailLogDao->logMailable(
-                        $decline ? SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_DECLINE : SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_CONFIRM,
+                    Repo::emailLogEntry()->logMailable(
+                        $decline ? SubmissionEmailLogEventType::REVIEW_DECLINE : SubmissionEmailLogEventType::REVIEW_CONFIRM,
                         $mailable,
                         $submission,
                         $mailable->getSenderUser()

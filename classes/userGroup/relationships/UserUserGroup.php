@@ -125,4 +125,9 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
     {
         return $query->where('user_user_groups.masthead', 1);
     }
+
+    public function scopeSortBy(Builder $query, string $column, ?string $direction = 'asc')
+    {
+        return $query->orderBy('user_user_groups.' . $column, $direction);
+    }
 }

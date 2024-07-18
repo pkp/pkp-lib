@@ -31,7 +31,7 @@
 			<tabs :is-side-tabs="true" :track-history="true">
 				<tab id="disableSubmissions" label="{translate key="manager.setup.disableSubmissions"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_DISABLE_SUBMISSIONS}"
+						v-bind="components.{PKP\components\forms\context\PKPDisableSubmissionsForm::FORM_DISABLE_SUBMISSIONS}"
 						@set="set"
 					/>
 				</tab>
@@ -43,7 +43,7 @@
 				</tab>
 				<tab id="metadata" label="{translate key="submission.informationCenter.metadata"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_METADATA_SETTINGS}"
+						v-bind="components.{PKP\components\forms\context\PKPMetadataSettingsForm::FORM_METADATA_SETTINGS}"
 						@set="set"
 					/>
 				</tab>
@@ -60,13 +60,13 @@
 				<tabs :is-side-tabs="true" :track-history="true">
 					<tab id="reviewSetup" label="{translate key="navigation.setup"}">
 						<pkp-form
-							v-bind="components.{$smarty.const.FORM_REVIEW_SETUP}"
+							v-bind="components.{PKP\components\forms\context\PKPReviewSetupForm::FORM_REVIEW_SETUP}"
 							@set="set"
 						/>
 					</tab>
 					<tab id="reviewerGuidance" label="{translate key="manager.publication.reviewerGuidance"}">
 						<pkp-form
-							v-bind="components.{$smarty.const.FORM_REVIEW_GUIDANCE}"
+							v-bind="components.{PKP\components\forms\context\PKPReviewGuidanceForm::FORM_REVIEW_GUIDANCE}"
 							@set="set"
 						/>
 					</tab>

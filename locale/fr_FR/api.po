@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2024-04-09 13:12+0000\n"
+"PO-Revision-Date: 2024-06-29 17:40+0000\n"
 "Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "fr_FR/>\n"
@@ -398,3 +398,16 @@ msgstr "La tâche en échec a été supprimée avec succès de la liste d'échec
 
 msgid "api.400.errorUploadingImage"
 msgstr "Une erreur est survenue lors du téléversement de cette image."
+
+msgid "api.highlights.400.noOrderData"
+msgstr ""
+"La commande surlignée n'a pas pu être enregistrée parce qu'aucune "
+"information sur la commande n'a été trouvée."
+
+msgid "api.highlights.404.highlightNotFound"
+msgstr "L'élément surligné que vous avez demandé n'a pas été trouvé."
+
+msgid "api.highlights.400.orderHighlightNotFound"
+msgstr ""
+"La commande surlignée n'a pas pu être sauvegardée parce qu'un ou plusieurs "
+"éléments surlignés n'ont pas été trouvés."

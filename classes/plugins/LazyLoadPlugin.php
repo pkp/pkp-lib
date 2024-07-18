@@ -52,7 +52,7 @@ abstract class LazyLoadPlugin extends Plugin
         // this implementation is backwards compatible.
         // NB: strtolower was required for PHP4 compatibility.
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-        return strtolower_codesafe(end($classNameParts));
+        return strtolower(end($classNameParts));
     }
 
 

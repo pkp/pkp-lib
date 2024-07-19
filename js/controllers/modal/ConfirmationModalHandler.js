@@ -119,12 +119,13 @@
 				typeof castOptions.dialogText === 'string';
 	};
 
+
 	/**
-     * Open dialog - pass the props to the modalStore to display Vue.js dialog
-     * @param {jQueryObject} $handledElement The clickable element
-     *  the modal will be attached to.
-     * @protected
-     */
+	 * Open dialog - pass the props to the modalStore to display Vue.js dialog
+	 * @param {jQueryObject} $handledElement The clickable element
+	 *  the modal will be attached to.
+	 * @protected
+	 */
 	$.pkp.controllers.modal.ConfirmationModalHandler.prototype.modalOpen =
 			function($handledElement) {
 

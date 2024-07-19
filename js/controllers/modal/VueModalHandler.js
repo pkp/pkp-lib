@@ -8,7 +8,7 @@
  * @class VueModalHandler
  * @ingroup js_controllers_modal
  *
- * @brief A modal that opens native Vue.js component. 
+ * @brief A modal that opens native Vue.js component.
  * It needs to be added in ModalManager to be available.
  */
 (function($) {

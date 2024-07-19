@@ -26,6 +26,7 @@ use APP\facades\Repo;
 use APP\statistics\StatisticsHelper;
 use DateTime;
 use Exception;
+use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
@@ -169,7 +170,6 @@ trait ConvertLogFile
             }
 
             $newEntry['userAgent'] = $entryData['userAgent'];
-            $newEntry['canonicalUrl'] = $entryData['url'];
 
             [
                 'workingAssocType' => $assocType,
@@ -188,13 +188,23 @@ trait ConvertLogFile
                 $context = $this->contextsByPath[$foundContextPath];
                 $newEntry['contextId'] = $context->getId();
 
-                $this->setAssoc($assocType, $op, $args, $newEntry);
+                // temporarily set the canonicalUrlPage that is needed in the child class
+                $newEntry['canonicalUrlPage'] = $page;
+                $this->setAssoc($assocType, $args, $newEntry);
                 if (!array_key_exists('assocType', $newEntry)) {
                     if (!$this->isApacheAccessLogFile()) {
                         fwrite(STDERR, "The URL {$entryData['url']} in the line number {$lineNumber} was not considered." . PHP_EOL);
                     }
                     continue;
                 }
+
+                $canonicalUrl = $entryData['url']; // if this is not the apache log file i.e. it is the internal log file, the URLs are already canonical
+                if ($this->isApacheAccessLogFile()) {
+                    $canonicalUrl = $this->getCanonicalUrl($foundContextPath, $newEntry['canonicalUrlPage'], $newEntry['canonicalUrlOp'], $newEntry['canonicalUrlArgs'] ?? null);
+                }
+                $newEntry['canonicalUrl'] = $canonicalUrl;
+                // unset elements that are temporarily used and should not be logged
+                unset($newEntry['canonicalUrlPage'], $newEntry['canonicalUrlOp'], $newEntry['canonicalUrlArgs']);
             } else {
                 continue;
             }
@@ -408,11 +418,13 @@ trait ConvertLogFile
                 break;
             case 'omp':
                 // Before 3.4 OMP did not have chapter assoc type i.e. chapter landing page
-                // so no need to consider it here
+                // consider it here however, in order to allow current apache access log file conversion
                 $pageAndOp = $pageAndOp + [
                     Application::ASSOC_TYPE_SUBMISSION_FILE => [
                         'catalog/download'],
                     Application::ASSOC_TYPE_MONOGRAPH => [
+                        'catalog/book'],
+                    Application::ASSOC_TYPE_CHAPTER => [
                         'catalog/book'],
                     Application::ASSOC_TYPE_SERIES => [
                         'catalog/series']
@@ -479,7 +491,7 @@ trait ConvertLogFile
     protected static function getPage(string $urlInfo, bool $isPathInfo): string
     {
         $page = self::getUrlComponents($urlInfo, $isPathInfo, 0, 'page');
-        return Core::cleanFileVar(is_null($page) ? '' : $page);
+        return Core::cleanFileVar($page ?? '');
     }
 
     /**
@@ -490,7 +502,7 @@ trait ConvertLogFile
     protected static function getOp(string $urlInfo, bool $isPathInfo): string
     {
         $operation = self::getUrlComponents($urlInfo, $isPathInfo, 1, 'op');
-        return Core::cleanFileVar(empty($operation) ? 'index' : $operation);
+        return Core::cleanFileVar($operation ?: 'index');
     }
 
     /**
@@ -508,7 +520,7 @@ trait ConvertLogFile
      * Get url components (page, operation and args)
      * based on the passed offset.
      */
-    protected static function getUrlComponents(string $urlInfo, bool $isPathInfo, int $offset, string $varName = ''): mixed
+    protected static function getUrlComponents(string $urlInfo, bool $isPathInfo, int $offset, string $varName = ''): array|string|null
     {
         $component = null;
 
@@ -517,7 +529,6 @@ trait ConvertLogFile
             $isArrayComponent = true;
         }
         if ($isPathInfo) {
-            $application = Application::get();
             $contextDepth = 1; // Was $application->getContextDepth();
 
             $vars = explode('/', trim($urlInfo, '/'));
@@ -545,9 +556,42 @@ trait ConvertLogFile
     }
 
     /**
+     * Construct the URL from context path, page, op, and params
+     */
+    protected function getCanonicalUrl(string $contextPath, string $canonicalUrlPage, string $canonicalUrlOp, array $canonicalUrlArgs = null): string
+    {
+        $canonicalUrl = Application::get()->getDispatcher()->url(
+            Application::get()->getRequest(),
+            Application::ROUTE_PAGE,
+            $contextPath,
+            $canonicalUrlPage,
+            $canonicalUrlOp,
+            $canonicalUrlArgs,
+        );
+
+        // Make sure we log the server name and not aliases.
+        $configBaseUrl = Config::getVar('general', 'base_url');
+        $requestBaseUrl = Application::get()->getRequest()->getBaseUrl();
+        if ($requestBaseUrl !== $configBaseUrl) {
+            // Make sure it's not an url override (no alias on that case).
+            if (!in_array($requestBaseUrl, Config::getContextBaseUrls()) &&
+                    $requestBaseUrl !== Config::getVar('general', 'base_url[index]')) {
+                // Alias found, replace it by base_url from config file.
+                // Make sure we use the correct base url override value for the context, if any.
+                $baseUrlReplacement = Config::getVar('general', 'base_url[' . $contextPath . ']');
+                if (!$baseUrlReplacement) {
+                    $baseUrlReplacement = $configBaseUrl;
+                }
+                $canonicalUrl = str_replace($requestBaseUrl, $baseUrlReplacement, $canonicalUrl);
+            }
+        }
+        return $canonicalUrl;
+    }
+
+    /**
      * Set assoc type and IDs from the passed page, operation and arguments.
      */
-    protected function setAssoc(int $assocType, string $op, array $args, array &$newEntry): void
+    protected function setAssoc(int $assocType, array $args, array &$newEntry): void
     {
         $application = Application::get();
         $applicationName = $application->getName();

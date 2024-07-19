@@ -149,11 +149,16 @@ class PluginGalleryGridHandler extends GridHandler
     {
         // Get all plugins.
         $pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO'); /** @var PluginGalleryDAO $pluginGalleryDao */
-        return $pluginGalleryDao->getNewestCompatible(
-            Application::get(),
-            $request->getUserVar('category'),
-            $request->getUserVar('pluginText')
-        );
+        try {
+            return $pluginGalleryDao->getNewestCompatible(
+                Application::get(),
+                $request->getUserVar('category'),
+                $request->getUserVar('pluginText')
+            );
+        } catch (\GuzzleHttp\Exception\TransferException $e) {
+            error_log($e);
+            return [];
+        }
     }
 
     /**

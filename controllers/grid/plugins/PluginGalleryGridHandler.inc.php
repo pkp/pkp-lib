@@ -188,7 +188,7 @@ class PluginGalleryGridHandler extends GridHandler {
                 }
 
 		// Display plugin information
-		$templateMgr->assign('plugin', $plugin)
+		$templateMgr->assign('plugin', $plugin);
 
 		// Get currently installed version, if any.
 		$installActionKey = $installConfirmKey = $installOp = null;

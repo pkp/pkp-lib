@@ -29,6 +29,8 @@ use PKP\core\PKPServices;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\log\SubmissionEmailLogDAO;
+use PKP\log\SubmissionEmailLogEntry;
 use PKP\mail\mailables\ReviewRequest;
 use PKP\mail\mailables\ReviewRequestSubsequent;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
@@ -137,6 +139,13 @@ class EditorAction
 
                 try {
                     Mail::send($mailable);
+
+                    /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
+                    $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
+                    $submissionEmailLogDao->logMailable(
+                        $round === ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED
+                            ? SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_REQUEST
+                            : SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_REQUEST_SUBSEQUENT, $mailable, $submission, $user);
                 } catch (TransportException $e) {
                     $notificationMgr = new PKPNotificationManager();
                     $notificationMgr->createTrivialNotification(

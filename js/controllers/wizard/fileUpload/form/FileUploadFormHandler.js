@@ -207,7 +207,7 @@
 			// Trigger the file uploaded event.
 			// If form validation fails, response does not have uploadedFile
 			if (jsonData.uploadedFile) {
-				this.trigger("fileUploaded", jsonData.uploadedFile);
+				this.trigger('fileUploaded', jsonData.uploadedFile);
 			}
 
 			// Display the revision confirmation form.

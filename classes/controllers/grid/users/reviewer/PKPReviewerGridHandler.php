@@ -967,6 +967,14 @@ class PKPReviewerGridHandler extends GridHandler
         return new JSONMessage(true);
     }
 
+    /**
+     * Export review as a PDF
+     *
+     * @param array $args
+     * @param PKPRequest $request
+     *
+     * @return void
+     */
     function exportPDF($args, $request)
     {
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /* @var $submissionCommentDao SubmissionCommentDAO */
@@ -979,7 +987,6 @@ class PKPReviewerGridHandler extends GridHandler
         $submission = Repo::submission()->get($submissionId);
         $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany();
         $alphabet = range('A', 'Z');
-
         $reviewerLetter = "";
         $i = 0;
         foreach($reviewAssignments as $submissionReviewAssignment) {
@@ -991,7 +998,6 @@ class PKPReviewerGridHandler extends GridHandler
 
         $title = $submission->getCurrentPublication()->getLocalizedTitle(null, 'html');
         $cleanTitle = str_replace("&nbsp;", " ", strip_tags($title));
-
         $pdf = new FPDF();
         $pdf->AddPage();
         $pdf->SetTextColor(41, 41, 41);
@@ -999,22 +1005,17 @@ class PKPReviewerGridHandler extends GridHandler
         $rightMargin = 15;
         $height = 8;
         $multiCellWidth = $pdf->GetPageWidth() - $leftMargin - $rightMargin;
-
         $pdf->SetFont('Arial', 'b', 11);
         $pdf->MultiCell($multiCellWidth, $height, __('editor.review') . ": $cleanTitle");
         $pdf->Ln(5);
-
         $authorFriendly = $request->getUserVar('authorFriendly');
-
         $pdf->SetFont('Arial', 'b', 16);
-
         if($authorFriendly) {
             $pdf->MultiCell($multiCellWidth, $height, __('user.role.reviewer') . ": $reviewerLetter");
         } else {
             $pdf->MultiCell($multiCellWidth, $height, $reviewAssignment->getReviewerFullName() . ":");
         }
         $pdf->Ln(5);
-
         if ($reviewAssignment->getDateCompleted()) {
             $pdf->SetFont('Arial', 'b', 11);
             $pdf->MultiCell($multiCellWidth, $height, __('common.completed') .': '. date('Y-m-d H:i', strtotime($reviewAssignment->getDateCompleted())));
@@ -1035,22 +1036,17 @@ class PKPReviewerGridHandler extends GridHandler
             $reviewFormElements = $reviewFormElementDao->getByReviewFormId($reviewAssignment->getReviewFormId());
             while ($reviewFormElement = $reviewFormElements->next()) {
                 if ($authorFriendly && !$reviewFormElement->getIncluded()) continue;
-
                 $elementId = $reviewFormElement->getId();
                 $value = $reviewFormResponses[$elementId];
-
                 $pdf->SetFont('Arial', 'B', 11);
                 $pdf->MultiCell($multiCellWidth, $height, strip_tags($reviewFormElement->getLocalizedQuestion()));
-
                 if($reviewFormElement->getLocalizedDescription()) {
                     $pdf->SetFont('Arial', '', 11);
                     $pdf->SetTextColor(100, 100, 100);
                     $pdf->MultiCell($multiCellWidth, $height, strip_tags(str_replace('<br>', ' ', $reviewFormElement->getLocalizedDescription())));
                 }
-
                 $pdf->SetTextColor(41, 41, 41);
                 $pdf->SetFont('Arial', 'B', 11);
-
                 $pdf->SetFont('Arial', '', 11);
                 if ($reviewFormElement->getElementType() == ReviewFormElement::REVIEW_FORM_ELEMENT_TYPE_SMALL_TEXT_FIELD) {
                     $pdf->MultiCell($multiCellWidth, $height, $value);
@@ -1073,7 +1069,6 @@ class PKPReviewerGridHandler extends GridHandler
                                 $pdf->SetFont('Arial', '', 11);
                             }
                         }
-
                         if(!$match) {
                             $pdf->SetTextColor(100, 100, 100);
                             $pdf->MultiCell($multiCellWidth, $height, $possibleResponse);
@@ -1105,18 +1100,15 @@ class PKPReviewerGridHandler extends GridHandler
         } else {
             $pdf->SetFont('Arial', 'b', 16);
             $pdf->MultiCell($multiCellWidth, $height, __('editor.review.reviewerComments'));
-
             $pdf->SetFont('Arial', 'b', 11);
             $pdf->SetTextColor(100, 100, 100);
             $pdf->MultiCell($multiCellWidth, $height, __('submission.comments.forAuthorEditor'));
             $pdf->SetTextColor(41, 41, 41);
-
             $pdf->SetFont('Arial', '', 11);
             foreach ($submissionComments->records as $comment) {
                 $pdf->MultiCell($multiCellWidth, $height, iconv('UTF-8', 'windows-1252', strip_tags($comment->comments)));
                 $pdf->Ln(5);
             }
-
             if (!$authorFriendly) {
                 $pdf->SetFont('Arial', 'b', 11);
                 $pdf->SetTextColor(100, 100, 100);
@@ -1129,7 +1121,6 @@ class PKPReviewerGridHandler extends GridHandler
                 }
             }
         }
-
         $submissionFiles = Repo::submissionFile()
             ->getCollector()
             ->filterBySubmissionIds([$submissionId])
@@ -1137,7 +1128,6 @@ class PKPReviewerGridHandler extends GridHandler
             ->getMany();
 
         $primaryLocale = $context->getPrimaryLocale();
-
         $pdf->SetFont('Arial', 'b', 11);
         $pdf->MultiCell($multiCellWidth, $height, __('reviewer.submission.reviewerFiles'));
         $pdf->SetFont('Arial', '', 11);
@@ -1149,17 +1139,22 @@ class PKPReviewerGridHandler extends GridHandler
         exit;
     }
 
+    /**
+     * Export review as XML
+     *
+     * @param array $args
+     * @param PKPRequest $request
+     *
+     * @return void
+     */
     public function exportXML($args, $request) {
         $submissionId = $request->getUserVar('submissionId');
         $reviewId = $request->getUserVar('reviewAssignmentId');
         $authorFriendly = $request->getUserVar('authorFriendly');
-
         $xmlFileName = "submission_review_{$submissionId}-{$reviewId}.xml";
-
         $submission = Repo::submission()->get($submissionId);
         $publication = $submission->getCurrentPublication();
         $htmlTitle = $publication->getLocalizedTitle(null, 'html');
-
         $mappings = [
             '<b>' 	=> '<bold>',
             '</b>' 	=> '</bold>',
@@ -1168,20 +1163,15 @@ class PKPReviewerGridHandler extends GridHandler
             '<u>' 	=> '<underline>',
             '</u>' 	=> '</underline>',
         ];
-
         $articleTitle = str_replace(array_keys($mappings), array_values($mappings), $htmlTitle);
-
         $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
         $recommendation = $reviewAssignment->getLocalizedRecommendation();
-
         $impl = new DOMImplementation();
-
         $doctype = $impl->createDocumentType('article',
             '-//NLM//DTD JATS (Z39.96) Journal Archiving and Interchange DTD v1.2 20190208//EN',
             'JATS-archivearticle1.dtd');
 
         $xml = $impl->createDocument(null, '', $doctype);
-
         $article = $xml->createElement('article');
         $article->setAttribute('article-type', 'reviewer-report');
         $article->setAttribute('dtd-version', '1.2');
@@ -1192,18 +1182,15 @@ class PKPReviewerGridHandler extends GridHandler
         $article->appendChild($front);
 
         $journalMeta = $xml->createElement('journal-meta');
-
         $selfUri = $xml->createElement('self-uri', $request->getBaseUrl());
         $journalMeta->appendChild($selfUri);
 
         $front->appendChild($journalMeta);
-
         $articleMeta = $xml->createElement('article-meta');
         $front->appendChild($articleMeta);
 
         $articleId = $xml->createElement('article-id', $submissionId);
         $articleId->setAttribute('id-type', 'submission-id');
-
         $articleMeta->appendChild($articleId);
 
         $titleGroup = $xml->createElement('title-group');
@@ -1237,19 +1224,14 @@ class PKPReviewerGridHandler extends GridHandler
         $eventDate->setAttribute('iso-8601-date', $dateReviewCompleted);
 
         $event->appendChild($eventDesc);
-
         $day = $xml->createElement('day', $dateParsed->day);
         $eventDate->appendChild($day);
-
         $month = $xml->createElement('month', $dateParsed->month);
         $eventDate->appendChild($month);
-
         $year = $xml->createElement('year', $dateParsed->year);
         $eventDate->appendChild($year);
-
         $event->appendChild($eventDate);
         $pubHistory->appendChild($event);
-
         $articleMeta->append($pubHistory);
 
         $permissions = $xml->createElement('permissions');
@@ -1301,7 +1283,6 @@ class PKPReviewerGridHandler extends GridHandler
                 } else {
                     $answer = $reviewFormResponses[$elementId];
                 }
-
                 $customMetaObject = $xml->createElement('custom-meta');
                 $nameTag = $xml->createElement('meta-name', strip_tags($reviewFormElement->getLocalizedQuestion()));
                 $valueTag = $xml->createElement('meta-value', $answer);
@@ -1339,7 +1320,6 @@ class PKPReviewerGridHandler extends GridHandler
         $articleMeta->appendChild($customMetaGroupObject);
         $xml->formatOutput = true;
         $xml->save($xmlFileName);
-
         header('Content-Description: File Transfer');
         header('Content-Type: application/xml');
         header('Content-Disposition: attachment; filename="' . basename($xmlFileName) . '"');
@@ -1347,9 +1327,7 @@ class PKPReviewerGridHandler extends GridHandler
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
         header('Content-Length: ' . filesize($xmlFileName));
-
         readfile($xmlFileName);
-
         unlink($xmlFileName);
 
         exit;

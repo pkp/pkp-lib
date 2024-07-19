@@ -32,8 +32,6 @@
     <input type="hidden" name="stageId" value="{$reviewAssignment->getStageId()|escape}" />
     <input type="hidden" name="roundId" value="{$reviewAssignment->getReviewRoundId()|escape}" />
 
-    {*    <p>{json_encode($reviewAssignment)}</p>*}
-
     {fbvFormSection}
         <div id="reviewAssignment-{$reviewAssignment->getId()|escape}">
             <div>

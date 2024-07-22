@@ -105,7 +105,7 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Set the date read for a notification
      */
-    public function setDateRead(int $notificationId, string $dateRead): string
+    public function setDateRead(int $notificationId, ?string $dateRead): string|null
     {
         $this->update(
             sprintf(

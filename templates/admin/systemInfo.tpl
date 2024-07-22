@@ -108,8 +108,5 @@
 				</tbody>
 			{/foreach}
 		</table>
-
-
-		<a href="{url op="phpinfo"}" target="_blank">{translate key="admin.phpInfo"}</a>
 	</div><!-- .pkp_page_content -->
 {/block}

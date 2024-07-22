@@ -39,6 +39,15 @@ class Config {
 		],
 		'email' => [
 			'smtp_password',
+			'smtp_username',
+			'smtp_oauth_clientsecret'
+		],
+		'security' => [
+			'salt',
+			'api_key_secret'
+		],
+		'captcha' => [
+			'recaptcha_private_key',
 		],
 	];
 

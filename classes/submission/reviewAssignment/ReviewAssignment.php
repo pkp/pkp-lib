@@ -41,6 +41,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     public const REVIEW_ASSIGNMENT_CONSIDERED = 3; // Has been marked considered by an editor
     public const REVIEW_ASSIGNMENT_UNCONSIDERED = 1; // Considered status has been revoked by an editor and is awaiting re-confirmation by an editor
     public const REVIEW_ASSIGNMENT_RECONSIDERED = 2; // Considered status has been granted again by an editor
+    public const REVIEW_ASSIGNMENT_VIEWED = 4; // Editor opened a review assignment but hasn't marked it as considered yet
 
     public const REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE = 0; // request has been sent but reviewer has not responded
     public const REVIEW_ASSIGNMENT_STATUS_DECLINED = 1; // reviewer declined review request

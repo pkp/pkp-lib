@@ -24,7 +24,7 @@ class PublicFileManager extends PKPPublicFileManager
     /**
      * @copydoc PKPPublicFileManager::getContextFilesPath()
      */
-    public function getContextFilesPath($contextId)
+    public function getContextFilesPath(int $contextId)
     {
         return Config::getVar('files', 'public_files_dir') . '/contexts/' . (int) $contextId;
     }

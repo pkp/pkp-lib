@@ -38,8 +38,7 @@ class ServerOAI extends OAI
     /** @var Server associated server object */
     public $server;
 
-    /** @var int|null Server ID; null if no server */
-    public $serverId;
+    public ?int $serverId;
 
     /** @var OAIDAO DAO for retrieving OAI records/tokens from database */
     public $dao;
@@ -182,6 +181,7 @@ class ServerOAI extends OAI
 
     /**
      * @copydoc OAI::records()
+     *
      * @hook ServerOAI::records [[$this, $from, $until, $set, $offset, $limit, &$total, &$records]]
      */
     public function records($metadataPrefix, $from, $until, $set, $offset, $limit, &$total)
@@ -201,6 +201,7 @@ class ServerOAI extends OAI
 
     /**
      * @copydoc OAI::identifiers()
+     *
      * @hook ServerOAI::identifiers [[$this, $from, $until, $set, $offset, $limit, &$total, &$records]]
      */
     public function identifiers($metadataPrefix, $from, $until, $set, $offset, $limit, &$total)
@@ -220,6 +221,7 @@ class ServerOAI extends OAI
 
     /**
      * @copydoc OAI::sets()
+     *
      * @hook ServerOAI::sets [[$this, $offset, $limit, &$total, &$sets]]
      */
     public function sets($offset, $limit, &$total)

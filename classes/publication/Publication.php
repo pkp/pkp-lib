@@ -30,11 +30,9 @@ class Publication extends PKPPublication
     /**
      * Get the URL to a localized cover image
      *
-     * @param int $contextId
-     *
      * @return string
      */
-    public function getLocalizedCoverImageUrl($contextId)
+    public function getLocalizedCoverImageUrl(int $contextId)
     {
         $coverImage = $this->getLocalizedData('coverImage');
 

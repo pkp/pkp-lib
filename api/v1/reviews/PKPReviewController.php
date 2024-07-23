@@ -27,7 +27,6 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
-use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\log\EmailLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
@@ -239,7 +238,10 @@ class PKPReviewController extends PKPBaseController
         return response()->json($reviewRoundHistory, Response::HTTP_OK);
     }
 
-    public function confirmReview(Request $illuminateRequest)
+    /**
+     * Accept or decline a review invitation on behalf of a reviewer
+     */
+    public function confirmReview(Request $illuminateRequest): JsonResponse
     {
         $submissionId = $illuminateRequest->route('submissionId');
         $reviewAssignmentId = $illuminateRequest->route('reviewAssignmentId');
@@ -247,6 +249,14 @@ class PKPReviewController extends PKPBaseController
         $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignmentId);
 
         if (!$reviewAssignment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+
+        if (!isset($reviewer)) {
             return response()->json([
                 'error' => __('api.404.resourceNotFound'),
             ], Response::HTTP_NOT_FOUND);
@@ -263,12 +273,6 @@ class PKPReviewController extends PKPBaseController
         }
 
         $submission = Repo::submission()->get($submissionId);
-        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
-
-        if (!isset($reviewer)) {
-            return new JSONMessage(false);
-        }
-
         $request = $this->getRequest();
         $reviewerAction = new ReviewerAction();
         $reviewerAction->confirmReview($request, $reviewAssignment, $submission, $decline);

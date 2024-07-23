@@ -23,9 +23,11 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
+use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\log\EmailLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
@@ -33,6 +35,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\submission\reviewer\ReviewerAction;
 use PKP\submissionFile\SubmissionFile;
 
 class PKPReviewController extends PKPBaseController
@@ -71,6 +74,17 @@ class PKPReviewController extends PKPBaseController
         Route::get('history/{submissionId}/{reviewRoundId}', $this->getHistory(...))
             ->name('review.get.submission.round.history')
             ->whereNumber(['reviewRoundId', 'submissionId']);
+
+        Route::put('{submissionId}/{reviewAssignmentId}/confirmReview', $this->confirmReview(...))
+            ->name('review.confirm')
+            ->whereNumber(['reviewAssignmentId', 'submissionId'])
+            ->middleware([
+                self::roleAuthorizer([
+                    Role::ROLE_ID_SITE_ADMIN,
+                    Role::ROLE_ID_MANAGER,
+                    Role::ROLE_ID_SUB_EDITOR,
+                ])
+            ]);
     }
 
     /**
@@ -80,7 +94,6 @@ class PKPReviewController extends PKPBaseController
     {
         $this->addPolicy(new UserRolesRequiredPolicy($request), true);
         $this->addPolicy(new ContextAccessPolicy($request, $roleAssignments));
-
         $this->addPolicy(new SubmissionAccessPolicy($request, $args, $roleAssignments, 'submissionId', true));
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -224,5 +237,43 @@ class PKPReviewController extends PKPBaseController
         ];
 
         return response()->json($reviewRoundHistory, Response::HTTP_OK);
+    }
+
+    public function confirmReview(Request $illuminateRequest)
+    {
+        $submissionId = $illuminateRequest->route('submissionId');
+        $reviewAssignmentId = $illuminateRequest->route('reviewAssignmentId');
+        $acceptReview = $illuminateRequest->decision;
+        $reviewAssignment = Repo::reviewAssignment()->get($reviewAssignmentId);
+
+        if (!$reviewAssignment) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        if ($acceptReview === 'accept') {
+            $decline = false;
+        } elseif ($acceptReview === 'decline') {
+            $decline = true;
+        } else {
+            return response()->json([
+                'error' => __('api.review.assignments.invalidInvitationResponse'),
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
+        $submission = Repo::submission()->get($submissionId);
+        $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+
+        if (!isset($reviewer)) {
+            return new JSONMessage(false);
+        }
+
+        $request = $this->getRequest();
+        $reviewerAction = new ReviewerAction();
+        $reviewerAction->confirmReview($request, $reviewAssignment, $submission, $decline);
+
+        return response()->json($reviewAssignment, Response::HTTP_OK);
+
     }
 }

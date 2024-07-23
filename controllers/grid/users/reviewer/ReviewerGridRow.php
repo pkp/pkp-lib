@@ -225,9 +225,10 @@ class ReviewerGridRow extends GridRow
             $context = $request->getContext();
 
             if ($roleDao->userHasRole($context->getId(), $user->getId(), [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER]) && $reviewAssignment->getDateConfirmed() == null) {
-                $action = $router->url($request, null, null, 'addLog', null, $actionArgs);
+                $reviewAssignmentId = $reviewAssignment->getId();
+                $initials = $context->getData('initials', $context->getPrimaryLocale());
+                $action = "/$initials/api/v1/reviews/$submissionId/$reviewAssignmentId/confirmReview";
                 $logResponseForm = new LogReviewerResponseForm($action, $context->getSupportedFormLocales(), $context);
-
                 $form = [
                     'description' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
                     'logResponseForm' => $logResponseForm->getConfig()

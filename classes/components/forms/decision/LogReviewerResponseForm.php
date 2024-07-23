@@ -23,7 +23,7 @@ class LogReviewerResponseForm extends FormComponent
 {
     public $id = 'logReviewerResponse';
     public $action = FormComponent::ACTION_EMIT;
-    public $method = 'POST';
+    public $method = 'PUT';
 
     public function __construct(
         string $action,
@@ -32,16 +32,16 @@ class LogReviewerResponseForm extends FormComponent
     ) {
         $this->action = $action;
         $this->locales = $locales;
-        $this->addField(new FieldRadioInput('acceptReview', [
+        $this->addField(new FieldRadioInput('decision', [
             'groupId' => 'default',
             'label' => __('editor.review.logResponse.form.detail'),
             'options' => [
                 [
-                    'value' => '1',
+                    'value' => 'accept',
                     'label' => __('editor.review.logResponse.form.option.accepted'),
                 ],
                 [
-                    'value' => '0',
+                    'value' => 'decline',
                     'label' => __('editor.review.logResponse.form.option.declined'),
                 ],
             ],

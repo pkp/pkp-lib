@@ -191,7 +191,8 @@ abstract class PKPRouter
             $path = $this->getRequestedContextPath($request);
 
             // Resolve the path to the context
-            if ($path === '' || $path === Application::SITE_CONTEXT_PATH) {
+            /** @deprecated 3.5 The usage of "_" as a site context has been deprecated */
+            if (in_array($path, [Application::SITE_CONTEXT_PATH, '', '_'])) {
                 $this->_context = null;
             } else {
                 // FIXME: Can't just use Application::get()->getContextDAO() without test breakage

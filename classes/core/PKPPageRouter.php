@@ -487,7 +487,8 @@ class PKPPageRouter extends PKPRouter
     private function _getContextAndLocales(PKPRequest $request, string $contextPath): array
     {
         return [
-            $context = $this->getCurrentContext() ?? ((!$contextPath || $contextPath === Application::SITE_CONTEXT_PATH)
+            /** @deprecated 3.5 The usage of "_" as a site context has been deprecated */
+            $context = $this->getCurrentContext() ?? (in_array($contextPath, [Application::SITE_CONTEXT_PATH, '', '_'])
                 ? null
                 : Application::getContextDAO()->getByPath($contextPath)),
             $context?->getSupportedLocales()

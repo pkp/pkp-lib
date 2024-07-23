@@ -88,6 +88,8 @@ class PKPStatsGeoService
         return [
             'dateStart' => StatisticsHelper::STATISTICS_EARLIEST_DATE,
             'dateEnd' => date('Y-m-d', strtotime('yesterday')),
+            // Require a context to be specified to prevent unwanted data leakage if someone forgets to specify the context.
+            'contextIds' => [],
         ];
     }
 

@@ -103,6 +103,10 @@ abstract class I8333_AddMissingForeignKeys extends \PKP\migration\Migration
         }
 
         Schema::table('email_log', fn (Blueprint $table) => $table->bigInteger('sender_id')->nullable()->default(null)->change());
+        Schema::table('notification_subscription_settings', function (Blueprint $table) {
+            $table->renameIndex('notification_subscription_settings_context', 'notification_subscription_settings_context_id');
+            $table->renameColumn('context', 'context_id');
+        });
     }
 
     /**

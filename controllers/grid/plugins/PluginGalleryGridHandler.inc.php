@@ -256,7 +256,15 @@ class PluginGalleryGridHandler extends GridHandler {
 	 * @param $isUpgrade boolean
 	 */
 	function installPlugin($args, $request, $isUpgrade = false) {
-		$redirectUrl = $request->getDispatcher()->url($request, ROUTE_PAGE, null, 'management', 'settings', array('website'), array('r' => uniqid()), 'plugins');
+		if ($request->getContext() == '') {
+			$handler = 'admin';
+			$path = null;
+		} else {
+			$handler = 'management';
+			$path = array('website');
+		}
+
+		$redirectUrl = $request->getDispatcher()->url($request, ROUTE_PAGE, null, $handler, 'settings', $path, array('r' => uniqid()), 'plugins');
 		if (!$request->checkCSRF()) return $request->redirectUrlJson($redirectUrl);
 		$notificationMgr = new NotificationManager();
 		$user = $request->getUser();

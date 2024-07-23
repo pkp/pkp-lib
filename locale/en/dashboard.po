@@ -1,0 +1,300 @@
+msgid "dashboard.dashboards"
+msgstr "Dashboards"
+
+msgid "dashboard.reviewAssignments"
+msgstr "Review Assignments"
+
+msgid "dashboard.mySubmissions"
+msgstr "My Submissions"
+
+msgid "dashboard.stage.deskReview"
+msgstr "Desk Review"
+
+msgid "dashboard.stage.reviewWithRound"
+msgstr "Review (Round {$round})"
+
+msgid "dashboard.stage.copyediting"
+msgstr "Copyediting"
+
+msgid "dashboard.stage.production"
+msgstr "Production"
+
+msgid "dashboard.stage.scheduledForPublication"
+msgstr "Scheduled For Publication"
+
+msgid "dashboard.stage.published"
+msgstr "Published"
+
+msgid "dashboard.reviewersAssigned"
+msgstr "Reviewers assigned"
+
+msgid "dashboard.reviewUpdateCounts"
+msgstr "Review update {$reviewsCompletedCount}/{$reviewsTotalCount}"
+
+msgid "dashboard.action"
+msgstr "Action"
+
+msgid "dashboard.viewSummary"
+msgstr "Summary"
+
+msgid "dashboard.viewSummary"
+msgstr "Summary"
+
+msgid "dashboard.applyFilters"
+msgstr "Apply Filters"
+
+msgid "dashboard.clearFilters"
+msgstr "Clear Filters"
+
+msgid "dashboard.startNewSubmission"
+msgstr "Start A New Submission"
+
+msgid "dashboard.assignEditor"
+msgstr "Assign Editor"
+
+msgid "dashboard.assignReviewers"
+msgstr "Assign Reviewers"
+
+msgid "dashboard.revisionRequestedFromAuthor"
+msgstr "Revisions requested from author"
+
+
+msgid "dashboard.revisionsRequestedFromAuthorNextRound"
+msgstr "Revisions requested from the author to be taken to a new review round"
+
+msgid "dashboard.revisionsSubmittedByAuthor"
+msgstr "Revisions submitted by author"
+
+msgid "dashboard.newReviewRoundToBeCreated"
+msgstr "New review round to be created"
+
+msgid "dashboard.revisionRequested"
+msgstr "Revision requested"
+
+msgid "dashboard.submitRevisions"
+msgstr "Submit revisions"
+
+msgid "dashboard.acceptOrDeclineRequestDate"
+msgstr "Please accept or decline this request {$date}"
+
+msgid "dashboard.deadlineForRespondingAcceptOrDecline"
+msgstr "Deadline for responding to this request has passed. Please accept or decline this request at the earliest."
+
+msgid "dashboard.completeReviewByDate"
+msgstr "Please complete this review by {$date}."
+
+msgid "dashboard.deadlineForComplitingReviewHasPassed"
+msgstr "Deadline for completing this review has passed. Please complete the review at the earliest."
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.title"
+msgstr "Awaiting Response from the reviewer"
+
+msgid "dashboard.reviewAssignment.statusAwaitingResponse.description"
+msgstr "Review request has been shared with reviewer. Awaiting response in <b>{$days} days on {$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusDeclined.title"
+msgstr "Review Request declined on {$date}"
+
+msgid "dashboard.reviewAssignment.statusDeclined.description"
+msgstr "Reviewer declined the review request on <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.title"
+msgstr "Review Request overdue by {$days} days"
+
+msgid "dashboard.reviewAssignment.statusResponseOverdue.description"
+msgstr "This reviewer has not responded to the review request. A response was due on <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusAccepted.title"
+msgstr "Ongoing review - request accepted"
+
+msgid "dashboard.reviewAssignment.statusAccepted.description"
+msgstr "This reviewer has accepted the review request. Their review is due in <b>{$days} days on {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.title"
+msgstr "Review overdue by {$days} days"
+
+msgid "dashboard.reviewAssignment.statusReviewOverdue.description"
+msgstr "This reviewer has not completed their review. A response was due on <b>{$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusReceived.title"
+msgstr "Review completed on {$date}"
+
+msgid "dashboard.reviewAssignment.statusReceived.description"
+msgstr "The review was completed on {$date} with the following recommendation: <b>{$recommendation}</b>"
+
+msgid "dashboard.reviewAssignment.statusComplete.title"
+msgstr "Review was confirmed by editor"
+
+msgid "dashboard.reviewAssignment.statusComplete.description"
+msgstr "The review was accepted by the editor on {$date}.</b>"
+
+msgid "dashboard.reviewAssignment.statusCancelled.title"
+msgstr "Reviewer cancelled review request"
+
+msgid "dashboard.reviewAssignment.statusCancelled.description"
+msgstr "Reviewer has cancelled the review request on <b>{$date}</b>"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.title"
+msgstr "Awaiting Response from the reviewer"
+
+msgid "dashboard.reviewAssignment.statusRequestResend.description"
+msgstr "Review request has been reshared with reviewer. Awaiting response in {$days} days on {$date}"
+
+msgid "dashboard.reviewAssignment.action.viewDetails"
+msgstr "View details"
+
+msgid "dashboard.reviewAssignment.action.resendReviewRequest"
+msgstr "Resend Review Request"
+
+msgid "dashboard.reviewAssignment.action.cancelReviewer"
+msgstr "Cancel Reviewer"
+
+msgid "dashboard.reviewAssignment.action.unassignReviewer"
+msgstr "Unassign"
+
+msgid "dashboard.reviewAssignment.action.editDueDate"
+msgstr "Edit Due Date"
+
+msgid "dashboard.reviewAssignment.action.viewRecommendation"
+msgstr "View recommendation"
+
+msgid "dashboard.reviewAssignment.action.viewUnreadRecommendation"
+msgstr "View unread recommendation"
+
+msgid "dashboard.summary.editorsAssigned"
+msgstr "Editors assigned"
+
+msgid "dashboard.summary.issueNo"
+msgstr "Issue No"
+
+msgid "dashboard.summary.notAssigned"
+msgstr "Not assigned"
+
+msgid "dashboard.summary.assignToIssue"
+msgstr "Assign To Issue"
+
+msgid "dashboard.summary.viewActivityLog"
+msgstr "View activity log"
+
+msgid "dashboard.summary.viewSubmissionInDetail"
+msgstr "View submission in detail"
+
+msgid "dashboard.summary.deskReviewFiles"
+msgstr "Desk Review Files"
+
+msgid "dashboard.summary.deskReviewFilesDescription"
+msgstr "These are the files that will be taken forward to the review stage in the workflow."
+
+msgid "dashboard.summary.revisionsSubmitted"
+msgstr "Revisions Submitted"
+
+msgid "dashboard.summary.revisionsSubmittedDescription"
+msgstr "These files have been submitted by the author after visions were requested"
+
+msgid "dashboard.summary.filesForReview"
+msgstr "Files for review"
+
+msgid "dashboard.summary.filesForReviewDescription"
+msgstr "These files will be sent to the reviewers to review"
+
+msgid "dashboard.summary.copyeditedFiles"
+msgstr "Copyedited Files"
+
+msgid "dashboard.summary.copyeditedFilesDescription"
+msgstr "These are edited files that will be taken to the production stage"
+
+msgid "dashboard.summary.draftFiles"
+msgstr "Draft Files"
+
+msgid "dashboard.summary.draftFilesDescription"
+msgstr "These are files from the review stage which are to be copyedited"
+
+msgid "dashboard.summary.productionReadyFiles"
+msgstr "Production Ready Files"
+
+msgid "dashboard.summary.productionReadyFilesDescription"
+msgstr "These are the files that will be sent for publication"
+
+msgid "dashboard.summary.galleys"
+msgstr "Galleys"
+
+msgid "dashboard.summary.uploadRevisions"
+msgstr "Upload Revisions"
+
+msgid "dashboard.summary.sendSubmissionForReview"
+msgstr "Send submission for review"
+
+msgid "dashboard.summary.acceptAndSkipReview"
+msgstr "Accept and skip review"
+
+msgid "dashboard.summary.declineSubmission"
+msgstr "Decline Submission"
+
+msgid "dashboard.summary.requestRevisions"
+msgstr "Request Revisions"
+
+msgid "dashboard.summary.acceptSubmission"
+msgstr "Accept Submission"
+
+msgid "dashboard.summary.cancelReviewRound"
+msgstr "Cancel Review Round"
+
+msgid "dashboard.summary.acceptReview"
+msgstr "Accept review"
+
+msgid "dashboard.summary.accessReviewForm"
+msgstr "Access review form"
+
+msgid "dashboard.summary.uploadFile"
+msgstr "Upload File"
+
+msgid "dashboard.summary.decline"
+msgstr "Decline"
+
+msgid "dashboard.summary.sendToProduction"
+msgstr "Send to Production"
+
+msgid "dashboard.summary.scheduleForProduction"
+msgstr "Schedule for Publication"
+
+msgid "dashboard.summary.preview"
+msgstr "Preview"
+
+msgid "dashboard.summary.unschedule"
+msgstr "Unschedule"
+
+msgid "dashboard.summary.submittedOn"
+msgstr "Submitted on"
+
+msgid "dashboard.summary.daysSinceSubmission"
+msgstr "Days since submission"
+
+msgid "dashboard.summary.daysInSubmission"
+msgstr "Days in submission"
+
+msgid "dashboard.summary.daysInReview"
+msgstr "Days in review"
+
+msgid "dashboard.summary.daysInCopyediting"
+msgstr "Days in copyediting"
+
+msgid "dashboard.summary.daysInProduction"
+msgstr "Days in production"
+
+msgid "dashboard.summary.journalName"
+msgstr "Journal name"
+
+msgid "dashboard.summary.submissionLanguage"
+msgstr "Submission Language"
+
+msgid "dashboard.summary.reviewers"
+msgstr "Reviewers"
+
+msgid "dashboard.summary.reviewer"
+msgstr "Reviewer"
+
+msgid "dashboard.summary.reviewerStatus"
+msgstr "Reviewer status"
+
+
+

@@ -18,14 +18,10 @@ namespace PKP\components\forms\context;
 use PKP\components\forms\FieldRadioInput;
 use PKP\components\forms\FormComponent;
 
-define('FORM_DATE_TIME', 'dateTime');
-
 class PKPDateTimeForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_DATE_TIME;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_DATE_TIME = 'dateTime';
+    public $id = self::FORM_DATE_TIME;
     public $method = 'PUT';
 
     /**

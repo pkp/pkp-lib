@@ -7,7 +7,7 @@
  *
  * A grid row.
  *}
-{if !is_null($row->getId())}
+{if $row->getId() !== null}
 	{assign var=rowIdPrefix value="component-"|concat:$row->getGridId()}
 	{if $categoryId|@strlen > 0}
 		{assign var=rowIdPrefix value=$rowIdPrefix|concat:"-category-":$categoryId|escape}
@@ -58,8 +58,8 @@
 					<span class="category_items_number">({$grid->getCategoryItemsCount($categoryRow->getData(), $request)})</span>
 				{/if}
 				<div class="row_actions">
-					{if $row->getActions(\PKP\controllers\grid\GridRow::GRID_ACTION_POSITION_ROW_LEFT)}
-						{foreach from=$row->getActions(\PKP\controllers\grid\GridRow::GRID_ACTION_POSITION_ROW_LEFT) item=action}
+					{if $row->getActions(PKP\controllers\grid\GridRow::GRID_ACTION_POSITION_ROW_LEFT)}
+						{foreach from=$row->getActions(PKP\controllers\grid\GridRow::GRID_ACTION_POSITION_ROW_LEFT) item=action}
 							{include file="linkAction/linkAction.tpl" action=$action contextId=$rowId|replace:" ":"_"}
 						{/foreach}
 					{/if}

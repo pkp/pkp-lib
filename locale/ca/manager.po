@@ -3651,3 +3651,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Capçalera"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validar el XML abans de l'exportació i el registre."

@@ -19,14 +19,10 @@ use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 
-define('FORM_CONFIRM_SUBMISSION', 'confirmSubmission');
-
 class ConfirmSubmission extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_CONFIRM_SUBMISSION;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_CONFIRM_SUBMISSION = 'confirmSubmission';
+    public $id = self::FORM_CONFIRM_SUBMISSION;
     public $method = 'PUT';
 
     public function __construct(string $action, Context $context)

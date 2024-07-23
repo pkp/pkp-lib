@@ -130,7 +130,7 @@ abstract class ScheduledTask
             fwrite($fp, $log . PHP_EOL);
             flock($fp, LOCK_UN);
         } else {
-            fatalError("Couldn't lock the file.");
+            throw new \Exception("Couldn't lock the file.");
         }
         fclose($fp);
     }

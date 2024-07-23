@@ -59,10 +59,8 @@ class ReviewFormElementForm extends Form
 
     /**
      * Get the names of fields for which localized data is allowed.
-     *
-     * @return array
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /** @var ReviewFormElementDAO $reviewFormElementDao */
         return $reviewFormElementDao->getLocaleFieldNames();
@@ -137,7 +135,7 @@ class ReviewFormElementForm extends Form
             $reviewFormDao = DAORegistry::getDAO('ReviewFormDAO'); /** @var ReviewFormDAO $reviewFormDao */
             $reviewForm = $reviewFormDao->getById($reviewFormElement->getReviewFormId(), Application::getContextAssocType(), $context->getId());
             if (!$reviewForm) {
-                fatalError('Invalid review form element ID!');
+                throw new \Exception('Invalid review form element ID!');
             }
         } else {
             $reviewFormElement = $reviewFormElementDao->newDataObject();

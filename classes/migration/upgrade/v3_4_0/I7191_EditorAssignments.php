@@ -46,6 +46,9 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
     {
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
             $table->bigInteger('user_group_id')->nullable();
+            // Drop the old unique index and introduce a new one with the user_group_id
+            $table->dropUnique('section_editors_unique');
+            $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id', 'user_group_id'], 'section_editors_unique');
         });
 
         $this->setUserGroup();
@@ -81,7 +84,7 @@ abstract class I7191_EditorAssignments extends \PKP\migration\Migration
     {
         $bestUserGroupIdQuery = DB::table('user_groups', 'ug')
             ->whereColumn('ug.context_id', '=', 'ssg.context_id')
-            ->whereRaw('ug.role_id =  17') // Role::ROLE_ID_SUB_EDITOR
+            ->whereRaw('ug.role_id = 17') // Role::ROLE_ID_SUB_EDITOR
             ->orderByDesc('ug.is_default')
             ->orderByDesc('ug.permit_metadata_edit')
             ->limit(1)

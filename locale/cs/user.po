@@ -551,3 +551,252 @@ msgstr "Uživatelské jméno nebo email"
 
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Přístup k pracovním postupům pro neúplná podání je omezen."
+
+msgid "orcid.displayName"
+msgstr "Plugin pro profil ORCID"
+
+msgid "orcid.description"
+msgstr "Umožňuje import informací o uživatelských profilech z ORCID."
+
+msgid "orcid.instructions"
+msgstr "Tento formulář můžete předvyplnit informacemi z profilu ORCID. Zadejte emailovou adresu nebo ORCID iD přidruženou k profilu ORCID a klikněte na tlačítko Odeslat."
+
+msgid "orcid.noData"
+msgstr "Nelze získat z ORCID žádná data."
+
+msgid "orcid.emailOrOrcid"
+msgstr "Emailová adresa nebo ORCID iD:"
+
+msgid "orcid.manager.orcidProfileSettings"
+msgstr "Nastavení profilu ORCID"
+
+msgid "orcid.manager.settings.description"
+msgstr "Nakonfigurujte rozhraní ORCID API pro použití při stahování informací z profilu ORCID do profilu uživatele."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Veřejný"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Veřejné „pískoviště“"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Člen"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Členské „pískovištěô"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "ID klienta"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "\"Client Secret\" (tajemství klienta)"
+
+msgid "orcid.author.submission"
+msgstr "ORCID příspěvku"
+
+msgid "orcid.author.submission.success"
+msgstr "Váš příspěvek byl úspěšně přidružen k vaší ORDID iD."
+
+msgid "orcid.author.submission.failure"
+msgstr "Váš příspěvek nemohl být úspěšně přidružen k vašemu ORDID iD. Obraťte se na správce časopisu se svým jménem, ORCID ID a podrobnostmi o vašem příspěvku."
+
+msgid "orcid.authFailure"
+msgstr "Systém OJS nebyl schopen komunikovat se službou ORCID. Obraťte se na správce časopisu se svým jménem, ORCID iD a podrobnostmi o vašem příspěvku."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.connect"
+msgstr "Vytvořte či připojte vaše ORCID iD"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "skryté"
+
+msgid "orcid.manager.settings.title"
+msgstr "Nastavení ORCID API"
+
+msgid "orcid.about.display"
+msgstr ""
+"Abychom potvrdili, že jste použili svůj iD a že byl ověřen, zobrazujeme "
+"ikonu ORCID iD <img src = \"https://info.orcid.org/wp-content/uploads/2020/"
+"12/ORCIDiD_icon16x16.png\" alt=\"ikona iD\" width=\"16\" height=\"16\" "
+"border=\"0\">vedle vašeho jména na stránce článku vašeho příspěvku a ve "
+"vašem veřejném uživatelském profilu. <br>\n"
+"Další informace naleznete v <a href=\"https://info.orcid.org/"
+"how-should-an-orcid-id-be-displayed/\">Jak by se měl zobrazit ORCID iD.</a>"
+
+msgid "orcid.about.display.title"
+msgstr "Kde jsou zobrazeny ORCID iD?"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"Tento časopis shromažďuje vaše ORCID iD, abychom si my i širší komunita byli "
+"jisti tím, že jste správně identifikován(a) jako autor vaší publikace/vašich "
+"publikací. To zajistí, aby byla plná kolekce vašich výstupů propojena s vámi "
+"po celou dobu vaší kariéry..<br>\n"
+"Když v rozbalovací nabídce ORCID kliknete na tlačítko „Autorizovat“, "
+"požádáme vás o sdílení vašeho iD pomocí autentifikačního procesu: buď <a "
+"href = \"https://support.orcid.org/hc/en-us/articles/360006897454\">"
+"registrací v systému ORCID iD</a> nebo, pokud již ORCID iD máte, <a href=\""
+"https://support.orcid.org/hc/en-us/categories/360000661673\">k přihlášení "
+"svůj účet ORCID</a>, udělením oprávnění získat váš ORCID iD. Děláme to "
+"proto, abychom zajistili správnou identifikaci a bezpečné připojení vašeho "
+"ORCID iD. <br>\n"
+"Další informace naleznete na následujícím odkazu ORCID <a href=\""
+"https://info.orcid.org/whats-so-special-about-signing-in/\">What’s so "
+"special about signing in.</a><br>\n"
+"Tento časopis bude shromažďovat a zobrazovat iD autentifikovaných autorů a "
+"spoluautorů v OJS profilu a na stránce článku."
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Jak a proč shromažďujeme ORCID iD?"
+
+msgid "orcid.about.orcidExplanation"
+msgstr ""
+"ORCID je nezávislá nezisková organizace, která poskytuje trvalý "
+"identifikátor - ORCID iD -, který vás odlišuje od ostatních vědců a "
+"mechanismus pro propojení výstupů a činností z výzkumu s vaším iD. ORCID je "
+"integrován do mnoha systémů používaných vydavateli, investory, institucemi a "
+"dalšími službami souvisejícími s výzkumem. Další informace naleznete na "
+"adrese <a href=\"https://orcid.org\">orcid.org</a>."
+
+msgid "orcid.about.title"
+msgstr "Co je ORCID?"
+
+msgid "orcid.authorise"
+msgstr "Autorizujte a připojte svůj ORCID iD"
+
+msgid "orcid.failure.contact"
+msgstr ""
+"Obraťte se na manažera časopisu se svým jménem, ORCID iD a podrobnostmi o "
+"vašem příspěvku."
+
+msgid "orcid.verify.denied"
+msgstr "Odepřeli jste přístup k vašemu záznamu ORCID."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "Pro tento příspěvek již bylo ORCID iD uloženo."
+
+msgid "orcid.verify.failure"
+msgstr "Vaše ORCID iD se nepodařilo ověřit. Odkaz již není platný."
+
+msgid "orcid.verify.success"
+msgstr "Vaše ORCID iD bylo ověřeno a úspěšně spojeno s odesláním."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "Při publikování bude odesláno do vašeho záznamu ORCID."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "Odeslání nebylo možné přidat do vašeho záznamu ORCID."
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Odeslání bylo přidáno do vašeho záznamu ORCID."
+
+msgid "orcid.verify.title"
+msgstr "Autorizace ORCID"
+
+msgid "orcid.author.unauthenticated"
+msgstr "ORCID iD není ověřen! Požádejte o ověření od přispěvatele."
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Níže naleznete žádost o autentizovaný ORCID iD"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Odstraňte ORCID iD a přístupový token!"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Pošlete e-mail a požádejte o autorizaci ORCID od přispěvatele"
+
+msgid "orcid.author.accessTokenStored"
+msgstr "Přístup k záznamu ORCID s rozsahem {$orcidAccessScope}, platný do"
+
+msgid "orcid.author.accessDenied"
+msgstr "Přístup ORCID byl odepřen na"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Vše"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Chyby"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Vyberte množství protokolovaného výstupu zapsaného pluginem"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "Protokol požadavků ORCID"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Pošlete e-mail a požádejte autory o autorizaci ORCID, pokud je článek "
+"přijat, tj. odeslán k editaci"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Nastavení e-mailu"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Rozsah přístupu k profilu"
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr ""
+"ORCID API bylo nakonfigurováno hostitelem globálně. Následující pověření "
+"byla uložena."
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"Tento časopis shromažďuje vaše ORCID iD, abychom si my i širší komunita byli "
+"jisti tím, že jste správně identifikován(a) jako autor vaší publikace/vašich "
+"publikací. To zajistí, aby byla plná kolekce vašich výstupů propojena s vámi "
+"po celou dobu vaší kariéry..<br>\n"
+"\tPokud kliknete na tlačítko „Autorizovat“ ve vyskakovacím okně ORCID, "
+"budete požádáni o sdílení vašeho iD pomocí autorizačního procesu – buď "
+"registrací u ORCID iD, nebo, pokud již ORCID iD máte, přihlášením k vašemu "
+"ORCID účtu – to nám zajistí povolení použít vaše ORCID iD. To potřebujeme, "
+"abychom zajistili, že jste správně identifikováni a propojeni s vaším ORCID "
+"iD.<br>\n"
+"\tVíce najdete na stránkách ORCID <a href=\"https://info.orcid.org/whats-so-"
+"special-about-signing-in\">What’s so special about signing in.</a><br>\n"
+"\tTento časopis bude shromažďovat a zobrazovat iD autentifikovaných autorů a "
+"spoluautorů v OJS profilu a na stránce článku. Navíc, metadata článku budou "
+"automaticky přidány do vašeho záznamu ORCID – tím vám pomůžeme zachovat "
+"tento záznam aktuální a ověřený. Více najdete na následujícím odkazu <a href="
+"\"https://info.orcid.org/six-ways-to-make-your-orcid-id-work-for-you/\">Six "
+"ways to make your ORCID iD work for you!</a>\n"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Neplatné tajemství klienta"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Neplatné ID klienta"
+
+msgid "orcid.manager.settings.city"
+msgstr "Město"
+
+msgid "orcid.invalidClient"
+msgstr "Neplatné přihlašovací údaje klienta"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Konfigurace podle časopisu"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "Id klienta je platné"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Tajný kód klienta je platný"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Uložena nastavení"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "Id klienta je neplatné, zkontrolujte, prosím, zadání"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Tajný kód klienta je neplatný, zkontrolujte si prosím své údaje"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Zjištěny duplicitní ORCiD pro přispěvatele."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Zjištěny neověřené ORCiD pro přispěvatele."

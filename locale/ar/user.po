@@ -515,3 +515,226 @@ msgstr "تم تحديث كلمة المرور بنجاح. يرجى الدخول 
 
 msgid "user.usernameOrEmail"
 msgstr "اسم المستخدم أو البريد الالكتروني"
+
+msgid "orcid.displayName"
+msgstr "إضافة الملف التعريفي ORCID"
+
+msgid "orcid.description"
+msgstr "تسمح باستيراد بيانات الملف الشخصي للمستخدم من ORCID."
+
+msgid "orcid.instructions"
+msgstr "بإمكانك توطين هذا النموذج ببيانات من ملف تعريفي مسجل في ORCID. أدخل عنوان البريد الالكتروني أو معرف ORCID المتعلق بالملف الشخصي في ORCID ثم أنقر \"تقديم\"."
+
+msgid "orcid.noData"
+msgstr "تعذر العثور على أي بيانات من ORCID."
+
+msgid "orcid.emailOrOrcid"
+msgstr "البريد الالكتروني أو معرف ORCID:"
+
+msgid "orcid.manager.settings.title"
+msgstr "إعدادات واجهة برمجة التطبيق لـ ORCID"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "مخفي"
+
+msgid "orcid.manager.settings.description"
+msgstr "لطفاً، قم بتهيئة API الخاصة بـ ORCID لاستعمالها في سحب البيانات الشخصية من قاعدة بيانات ORCID إلى الملف الشخصي للمستخدم وتحديث السجلات المرتبطة بـ ORCID مع المنشورات الجديدة (هذا لأعضاء ORCID حصراً)."
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr "إن واجهة برمجة التطبيق لـ ORCID قد تمت تهيئتها على مستوى النظام من قبل المضيف. بيانات الدخول الآتية قد تم حفظها."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "عام"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "صلاحيات عامة"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "عضو"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "صلاحيات عضو"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "الرمز التعريفي للعميل"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "الرقم السري للعميل"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "مدى صلاحيات الحساب"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "إعدادات البريد الالكتروني"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "سجل وقوعات مطالبات ORCID"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "إختر حجم مخرجات سجل الوقوعات الذي تحتفظ به هذه الإضافة"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "أخطاء"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "الكل"
+
+msgid "orcid.author.accessDenied"
+msgstr "تم رفض الوصول من قبل ORCID عند"
+
+msgid "orcid.author.accessTokenStored"
+msgstr "تم السماح بالوصول إلى سجل ORCID بمدى {$orcidAccessScope}، وهو متاح حتى"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "إبعث رسالة للمطالبة بتفويض من المساهمين في العمل في ORCID"
+
+msgid "orcid.author.deleteORCID"
+msgstr "حذف معرف ORCID ورمز الوصول!"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "أنظر أدناه للمطالبة برمز تفويض أصلي من ORCID"
+
+msgid "orcid.author.unauthenticated"
+msgstr "رمز ORCID غير مفوض! لطفاً، إلتمس التفويض من المساهم."
+
+msgid "orcid.verify.title"
+msgstr "تفويض ORCID"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "طلب التقديم قد تمت إضافته إلى حسابك في ORCID."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "تعذرت إضافة طلب التقديم إلى حسابك في ORCID."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "طلب التقديم ستتم إضافته إلى حسابك في ORCID خلال عملية النشر."
+
+msgid "orcid.verify.success"
+msgstr "تم التحقق من رمزك في ORCID وربطه مع طلب تقديمك بنجاح."
+
+msgid "orcid.verify.failure"
+msgstr "تعذر التحقق من رمزك في ORCID. الرابط لم يعد صحيحاً."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "لقد تم سابقاً حفظ رمز ORCID لطلب التقديم هذا."
+
+msgid "orcid.verify.denied"
+msgstr "لقد قمت بمنع الوصول إلى حسابك في ORCID."
+
+msgid "orcid.authFailure"
+msgstr "رابط تفويض ORCID قد سبق استعماله أو هو غير صحيح."
+
+msgid "orcid.failure.contact"
+msgstr "لطفاً، اتصل برئيس التحرير وأبلغه اسمك، رمزك في ORCID، وتفاصيل طلب تقديمك."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.connect"
+msgstr "إنشئ رمزك التعريفي في ORCID أو أربطه"
+
+msgid "orcid.authorise"
+msgstr "تفويض وربط رمزك في ORCID"
+
+msgid "orcid.about.title"
+msgstr "ما هو ORCID?"
+
+msgid "orcid.about.orcidExplanation"
+msgstr "إن ORCID هي منظمة مستقلة غير ربحية تقدم معرفاً دائمياً يسمى – رمز ORCID – يعمل على تمييزك من بين غيرك من الباحثين مع آلية لربط مخرجات أبحاثك ونشاطاتك مع هذا الرمز. إن ORCID متكامل مع العديد من الأنظمة المستعملة من قبل الناشرين، الممولين، المؤسسات، وغيرها من الخدمات ذات الصلة بالأبحاث. لمعرفة المزيد <a href=\"https://orcid.org\">orcid.org</a>."
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "لماذا وكيف نقوم بجمع رموز ORCID ؟"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"هذه المجلة تقوم بالحصول على رمزك في ORCID من أجل أن [نضيف غرضاً للتمييز ما "
+"بين API الأعضاء و API العامة].\n"
+"\tعندما تنقر على زر “التفويض” في الواجهة المنبثقة لـ ORCID، سنطالبك بمشاركة "
+"رمزك عبر عملية التفويض: إما عبر <a href=\"https://support.orcid.org/hc/en-us/"
+"articles/360006897454\">التسجيل للحصول على رمز ORCID</a> أو، إذا كان لديك "
+"مسبقاً هذا الرمز، <a href=\"https://support.orcid.org/hc/en-us/categories/"
+"360000661673\">تسجيل الدخول إلى حسابك في ORCID</a>، ومن ثم منحنا صلاحية "
+"الحصول على رمزك. نحن نقوم بهذا للتأكد من كونك معرَّف وتتصل بشكل آمن مع حسابك "
+"في ORCID.<br>\n"
+"\tتعرف على المزيد في <a href=\"https://info.orcid.org/blog/2017/02/20/"
+"whats-so-special-about-signing-in/\">ما هو المميز بشأن تسجيل الدخول؟.</a>br>"
+"\n"
+"هذه المجلة ستجمع وتعرض رموز المؤلفين والمؤلفين المشاركين المفوضين في صفحة "
+"الملف الشخصي لنظام المجلات المفتوحة فضلاً عن صفحة المقالة."
+
+msgid "orcid.about.display.title"
+msgstr "أين يتم عرض رموز ORCID ؟"
+
+msgid "orcid.about.display"
+msgstr ""
+"للتعرف على أنك قمت مسبقاً باستعمال رمزك وأنه مفوض من قبلك، نقوم بعرض إيقونة "
+"رمز ORCID <img src=\"https://info.orcid.org/sites/default/files/images/"
+"orcid_16x16(1).gifwp-content/uploads/2020/12/ORCIDiD_icon16x16.png\" alt=\""
+"إيقونة الرمز\" width=\"16\" height=\"16\" border=\"0\"> بجوار اسمك على صفحة "
+"المقالة الخاصة بطلب تقديمك وعلى صفحة حسابك الشخصي.<br>\n"
+"\tتعرف على المزيد في <a href=\"https://info.orcid.org/blog/2013/02/22/"
+"how-should-an-orcid-id-be-displayed/\">كيف يجب عرض رمز ORCID.</a>"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"أرسل رسالة الكترونية ملتمساً تفويض ORCID من المؤلفين عند قبول المقالة. أي "
+"عند الإرسال لمرحلة التدقيق"
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"هذه المجلة تجمع مُعرَّف ORCID iD الخاص بك لكي نكون نحن وغيرنا على ثقة بأنك "
+"مُعرَّف بشكل صحيح ومتصل بمنشوراتك. هذا سيضمن صلتك الكاملة بأعمالك على امتداد "
+"حياتك المهنية.<br>\n"
+"\tعندما تنقر زر “التفويض” في النافذة المنبثقة من ORCID، سنلتمس منك مشاركة "
+"مُعرَّفك iD باستعمال عملية مصادقة—إما عبر تسجيل حساب في ORCID، أو، إن كان "
+"لديك حساب سلفاً، عبر تسجيل الدخول إلى حسابك في ORCID، ثم منحنا صلاحية الوصول "
+"إلى مُعرَّفك ORCID iD. نحن نقوم بذلك للتأكد من أنك مُعرَّف بشكل صحيح ومتصل "
+"بشكل آمن بهذا الحساب.<br>\n"
+"\tتعلم المزيد في <a href=\"https://info.orcid.org/blog/2017/02/20/"
+"whats-so-special-about-signing-in/\">ما الذي يجعل تسجيل الدخول "
+"مميزاً.</a><br>\n"
+"\tهذه المجلة ستجمع مُعرَّفات المؤلفين المفوضين ومساعديهم وستعرضها في صفحات "
+"الملفات الشخصية لهم وكذلك في صفحة المقالة. فضلاً عن ذلك، البيانات الوصفية "
+"للمقالة ستوضع لك تلقائياً ضمن حسابك في ORCID، مما يمكننا من الحفاظ على حسابك "
+"محدثاً بمعلومات موثوقة. لمعرفة المزيد <a href=\"https://info.orcid.org/blog/"
+"2017/08/10/six-ways-to-make-your-orcid-id-work-for-you/\">ست طرق لجعل ORCID "
+"iD الخاص بك يعمل لحسابك!</a>\n"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "سر العميل غير صحيح"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "مُعرَّف العميل غير صحيح"
+
+msgid "orcid.manager.settings.saved"
+msgstr "تم حفظ الإعدادات"
+
+msgid "orcid.manager.settings.city"
+msgstr "المدينة"
+
+msgid "orcid.invalidClient"
+msgstr "معطيات العميل خاطئة"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "مُهيَّأة على عموم المجلة"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "مُعرَّف العميل صحيح"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "سر العميل صحيح"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "سر العميل خاطئ، يرجى التأكد من معطياتك"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "مُعرَّف العميل خاطئ، يرجى التأكد من إدخالك"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "تم الكشف عن مُعرَّفات ORCiD مكررة للمساهمين."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "تم الكشف عن مُعرَّفات ORCiD غير مرخصة للمساهمين."

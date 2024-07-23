@@ -136,6 +136,8 @@ abstract class EntityDAO
      * Insert an object into the database
      *
      * @param T $object
+     *
+     * @return int New entry's database identifier
      */
     protected function _insert(DataObject $object): int
     {
@@ -185,7 +187,7 @@ abstract class EntityDAO
      *
      * @param T $object
      */
-    protected function _update(DataObject $object)
+    protected function _update(DataObject $object): void
     {
         $schemaService = $this->schemaService;
         $schema = $schemaService->get($this->schema);
@@ -257,18 +259,22 @@ abstract class EntityDAO
      * Delete an object from the database
      *
      * @param T $object
+     *
+     * @return int The number of affected rows
      */
-    protected function _delete(DataObject $object)
+    protected function _delete(DataObject $object): int
     {
-        $this->deleteById($object->getId());
+        return $this->deleteById($object->getId());
     }
 
     /**
      * Delete an object from the database by its id
+     *
+     * @return int The number of affected rows
      */
-    public function deleteById(int $id)
+    public function deleteById(int $id): int
     {
-        DB::table($this->table)
+        return DB::table($this->table)
             ->where($this->primaryKeyColumn, '=', $id)
             ->delete();
     }

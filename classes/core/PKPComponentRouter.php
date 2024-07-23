@@ -73,24 +73,20 @@ class PKPComponentRouter extends PKPRouter
     // NB: Please do not access directly but
     // only via their respective getters/setters
     //
-    /** @var string the requested component handler */
-    public $_component;
-    /** @var string the requested operation */
-    public $_op;
-    /** @var array the rpc service endpoint parts from the request */
-    public $_rpcServiceEndpointParts = false;
-    /** @var callable the rpc service endpoint the request was routed to */
-    public $_rpcServiceEndpoint = false;
+    /** @var ?string the requested component handler */
+    public ?string $_component = null;
+    /** @var ?string the requested operation */
+    public ?string $_op = null;
+    /** @var mixed the rpc service endpoint parts from the request */
+    public mixed $_rpcServiceEndpointParts = false;
+    /** @var mixed the rpc service endpoint the request was routed to */
+    public mixed $_rpcServiceEndpoint = false;
 
 
     /**
      * Determines whether this router can route the given request.
-     *
-     * @param PKPRequest $request
-     *
-     * @return bool true, if the router supports this request, otherwise false
      */
-    public function supports($request): bool
+    public function supports(PKPRequest $request): bool
     {
         // See whether this looks like a component router request.
         // NOTE: this is prone to false positives i.e. when a class
@@ -101,17 +97,10 @@ class PKPComponentRouter extends PKPRouter
     }
 
     /**
-     * Retrieve the requested component from the request.
-     *
-     * NB: This can be a component that not actually exists
-     * in the code base.
-     *
-     * @param PKPRequest $request
-     *
-     * @return string the requested component or an empty string
-     *  if none can be found.
+     * Retrieve the requested component from the request, or an empty string if none can be found.
+     * NB: This can be a component that does not actually exist in the code base.
      */
-    public function getRequestedComponent($request)
+    public function getRequestedComponent(PKPRequest $request): string
     {
         if (is_null($this->_component)) {
             $this->_component = '';
@@ -142,17 +131,10 @@ class PKPComponentRouter extends PKPRouter
     }
 
     /**
-     * Retrieve the requested operation from the request
-     *
-     * NB: This can be an operation that not actually
-     * exists in the requested component.
-     *
-     * @param PKPRequest $request
-     *
-     * @return string the requested operation or an empty string
-     *  if none can be found.
+     * Retrieve the requested operation from the request, or an empty string if none can be found.
+     * NB: This can be an operation that does not actually exist in the requested component.
      */
-    public function getRequestedOp($request)
+    public function getRequestedOp(PKPRequest $request): string
     {
         if (is_null($this->_op)) {
             $this->_op = '';
@@ -175,24 +157,23 @@ class PKPComponentRouter extends PKPRouter
      * If no such RPC service endpoint can be constructed then the method
      * returns null.
      *
-     * @param PKPRequest $request the request to be routed
-     *
-     * @return callable|array|null an array with the handler instance
-     *  and the handler operation to be called by call_user_func().
+     * @return callable|array|null The handler operation to be called by call_user_func().
      *
      * @hook LoadComponentHandler [[&$component, &$op, &$componentInstance]]
      */
-    public function &getRpcServiceEndpoint($request)
+    public function getRpcServiceEndpoint(PKPRequest $request): callable|array|null
     {
         if ($this->_rpcServiceEndpoint === false) {
             // We have not yet resolved this request. Mark the
             // state variable so that we don't try again next
             // time.
-            $this->_rpcServiceEndpoint = $nullVar = null;
+            $this->_rpcServiceEndpoint = null;
 
             // Retrieve requested component operation
             $op = $this->getRequestedOp($request);
-            assert(!empty($op));
+            if (empty($op)) {
+                throw new \Exception('An operation was not specified!');
+            }
 
             //
             // Component Handler
@@ -205,7 +186,7 @@ class PKPComponentRouter extends PKPRouter
             // Give plugins a chance to intervene
             if (!Hook::call('LoadComponentHandler', [&$component, &$op, &$componentInstance])) {
                 if (empty($component)) {
-                    return $nullVar;
+                    return null;
                 }
 
                 // Construct the component handler file name and test its existence.
@@ -217,23 +198,15 @@ class PKPComponentRouter extends PKPRouter
                         $componentInstance = new $className();
                         break;
 
-                    case file_exists("{$componentFileNamePart}.inc.php"):
-                        // This behaviour is DEPRECATED as of 3.4.0.
-                        break;
-
                     case file_exists(PKP_LIB_PATH . "/{$componentFileNamePart}.php"):
                         $className = 'PKP\\' . strtr($componentFileNamePart, '/', '\\');
                         $componentInstance = new $className();
                         break;
 
-                    case file_exists(PKP_LIB_PATH . "/{$componentFileNamePart}.inc.php"):
-                        // This behaviour is DEPRECATED as of 3.4.0.
-                        $component = 'lib.pkp.' . $component;
-                        break;
 
                     default:
                         // Request to non-existent handler
-                        return $nullVar;
+                        return null;
                 }
 
                 // We expect the handler to be part of one
@@ -254,7 +227,7 @@ class PKPComponentRouter extends PKPRouter
                 $componentInstance = instantiate($component, 'PKPHandler', $allowedPackages, $requiredMethods);
             }
             if (!is_object($componentInstance)) {
-                return $nullVar;
+                return null;
             }
             $this->setHandler($componentInstance);
 
@@ -275,14 +248,13 @@ class PKPComponentRouter extends PKPRouter
     /**
      * @copydoc PKPRouter::route()
      */
-    public function route($request)
+    public function route(PKPRequest $request): void
     {
         // Determine the requested service endpoint.
-        $rpcServiceEndpoint = &$this->getRpcServiceEndpoint($request);
+        $rpcServiceEndpoint = $this->getRpcServiceEndpoint($request);
 
         // Retrieve RPC arguments from the request.
         $args = $request->getUserVars();
-        assert(is_array($args));
 
         // Remove the caller-parameter (if present)
         if (isset($args[COMPONENT_ROUTER_PARAMETER_MARKER])) {
@@ -295,24 +267,17 @@ class PKPComponentRouter extends PKPRouter
 
     /**
      * @copydoc PKPRouter::url()
-     *
-     * @param null|mixed $newContext
-     * @param null|mixed $component
-     * @param null|mixed $op
-     * @param null|mixed $path
-     * @param null|mixed $params
-     * @param null|mixed $anchor
      */
     public function url(
-        $request,
-        $newContext = null,
-        $component = null,
-        $op = null,
-        $path = null,
-        $params = null,
-        $anchor = null,
-        $escape = false
-    ) {
+        PKPRequest $request,
+        ?string $newContext = null,
+        ?string $component = null,
+        ?string $op = null,
+        mixed $path = null,
+        ?array $params = null,
+        ?string $anchor = null,
+        bool $escape = false
+    ): string {
         if (!is_null($path)) {
             throw new Exception('Path must be null when calling PKPComponentRouter::url()');
         }
@@ -336,21 +301,16 @@ class PKPComponentRouter extends PKPRouter
                 $op = $this->getRequestedOp($request);
             }
         }
-        assert(!empty($component) && !empty($op));
+        if (empty($component) || empty($op)) {
+            throw new \Exception('Component and operation must be specified!');
+        }
 
         // Encode the component and operation
         $componentParts = explode('.', $component);
         $componentName = array_pop($componentParts);
         assert(substr($componentName, -7) == 'Handler');
-        $componentName = PKPString::uncamelize(substr($componentName, 0, -7));
-
-        // uncamelize the component parts
-        $uncamelizedComponentParts = [];
-        foreach ($componentParts as $part) {
-            $uncamelizedComponentParts[] = PKPString::uncamelize($part);
-        }
-        array_push($uncamelizedComponentParts, $componentName);
-        $opName = PKPString::uncamelize($op);
+        $componentName = substr($componentName, 0, -7);
+        $uncamelizedComponentParts = array_map(PKPString::uncamelize(...), [...$componentParts, $componentName]);
 
         //
         // Additional query parameters
@@ -362,29 +322,18 @@ class PKPComponentRouter extends PKPRouter
         //
         $anchor = (empty($anchor) ? '' : '#' . rawurlencode($anchor));
 
-        //
-        // Assemble URL
-        //
         // Context, page, operation and additional path go into the path info.
-        $pathInfoArray = array_merge(
-            $context,
-            [COMPONENT_ROUTER_PATHINFO_MARKER],
-            $uncamelizedComponentParts,
-            [$opName]
-        );
+        $pathInfoArray = [...($context ? [$context] : []), COMPONENT_ROUTER_PATHINFO_MARKER, ...$uncamelizedComponentParts, PKPString::uncamelize($op)];
 
-        // Query parameters
-        $queryParametersArray = $additionalParameters;
-
-        return $this->_urlFromParts($baseUrl, $pathInfoArray, $queryParametersArray, $anchor, $escape);
+        return $this->_urlFromParts($baseUrl, $pathInfoArray, $additionalParameters, $anchor, $escape);
     }
 
     /**
      * @copydoc PKPRouter::handleAuthorizationFailure()
      */
     public function handleAuthorizationFailure(
-        $request,
-        $authorizationMessage,
+        PKPRequest $request,
+        string $authorizationMessage,
         array $messageParams = []
     ) {
         $translatedAuthorizationMessage = __($authorizationMessage, $messageParams);
@@ -410,13 +359,8 @@ class PKPComponentRouter extends PKPRouter
      * Get the (validated) RPC service endpoint parts from the request.
      * If no such RPC service endpoint parts can be retrieved
      * then the method returns null.
-     *
-     * @param PKPRequest $request the request to be routed
-     *
-     * @return ?array a string array with the RPC service endpoint
-     *  parts as values.
      */
-    public function _getValidatedServiceEndpointParts($request)
+    public function _getValidatedServiceEndpointParts(PKPRequest $request): ?array
     {
         if ($this->_rpcServiceEndpointParts === false) {
             // Mark the internal state variable so this
@@ -443,16 +387,10 @@ class PKPComponentRouter extends PKPRouter
     }
 
     /**
-     * Try to retrieve a (non-validated) array with the service
-     * endpoint parts from the request. See the classdoc for the
-     * URL patterns supported here.
-     *
-     * @param PKPRequest $request the request to be routed
-     *
-     * @return ?array an array of (non-validated) service endpoint
-     *  parts or null if the request is not an RPC request.
+     * Try to retrieve a (non-validated) array with the service endpoint parts from the request,
+     * or null if this is not an RPC request. See the classdoc for the URL patterns supported here.
      */
-    public function _retrieveServiceEndpointParts($request)
+    public function _retrieveServiceEndpointParts(PKPRequest $request)
     {
         if (!isset($_SERVER['PATH_INFO'])) {
             return null;
@@ -485,12 +423,10 @@ class PKPComponentRouter extends PKPRouter
      * we try to convert them to a file/method name. This also
      * converts all parts to lower case.
      *
-     * @param array $rpcServiceEndpointParts
-     *
-     * @return ?array the validated service endpoint parts or null if validation
+     * @return The validated service endpoint parts or null if validation
      *  does not succeed.
      */
-    public function _validateServiceEndpointParts($rpcServiceEndpointParts)
+    public function _validateServiceEndpointParts(array $rpcServiceEndpointParts): ?array
     {
         // Do we have data at all?
         if (is_null($rpcServiceEndpointParts) || empty($rpcServiceEndpointParts)
@@ -519,7 +455,7 @@ class PKPComponentRouter extends PKPRouter
             }
 
             // Service endpoint URLs are case insensitive.
-            $rpcServiceEndpointParts[$key] = strtolower_codesafe($rpcServiceEndpointPart);
+            $rpcServiceEndpointParts[$key] = strtolower($rpcServiceEndpointPart);
 
             // We only allow letters, numbers and the hyphen.
             if (!preg_match('/^[a-z0-9-]*$/', $rpcServiceEndpointPart)) {

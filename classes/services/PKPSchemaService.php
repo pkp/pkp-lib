@@ -70,6 +70,8 @@ class PKPSchemaService
      */
     public function get($schemaName, $forceReload = false)
     {
+        Hook::run('Schema::get::before::' . $schemaName, [&$forceReload]);
+        
         if (!$forceReload && array_key_exists($schemaName, $this->_schemas)) {
             return $this->_schemas[$schemaName];
         }

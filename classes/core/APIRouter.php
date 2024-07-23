@@ -56,10 +56,8 @@ class APIRouter extends PKPRouter
 
     /**
      * Get the API version
-     *
-     * @return string
      */
-    public function getVersion()
+    public function getVersion(): string
     {
         $pathInfoParts = $this->getPathInfoParts();
         return Core::cleanFileVar($pathInfoParts[2] ?? '');
@@ -67,10 +65,8 @@ class APIRouter extends PKPRouter
 
     /**
      * Get the entity being requested
-     *
-     * @return string
      */
-    public function getEntity()
+    public function getEntity(): string
     {
         $pathInfoParts = $this->getPathInfoParts();
         return Core::cleanFileVar($pathInfoParts[3] ?? '');
@@ -82,7 +78,7 @@ class APIRouter extends PKPRouter
     /**
      * @copydoc PKPRouter::route()
      */
-    public function route($request)
+    public function route(PKPRequest $request): void
     {
         $sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
 
@@ -100,12 +96,8 @@ class APIRouter extends PKPRouter
 
     /**
      * Get the requested operation
-     *
-     * @param PKPRequest $request
-     *
-     * @return string
      */
-    public function getRequestedOp($request)
+    public function getRequestedOp(PKPRequest $request): string
     {
         if ($routeActionName = PKPBaseController::getRouteActionName()) {
             return $routeActionName;
@@ -118,10 +110,10 @@ class APIRouter extends PKPRouter
      * @copydoc PKPRouter::handleAuthorizationFailure()
      */
     public function handleAuthorizationFailure(
-        $request,
-        $authorizationMessage,
+        PKPRequest $request,
+        string $authorizationMessage,
         array $messageParams = []
-    ) {
+    ): void {
         response()->json([
             'error' => $authorizationMessage,
             'errorMessage' => __($authorizationMessage, $messageParams),
@@ -131,24 +123,17 @@ class APIRouter extends PKPRouter
 
     /**
      * @copydoc PKPRouter::url()
-     *
-     * @param null|mixed $newContext
-     * @param null|mixed $endpoint
-     * @param null|mixed $op
-     * @param null|mixed $path
-     * @param null|mixed $params
-     * @param null|mixed $anchor
      */
     public function url(
         PKPRequest $request,
         ?string $newContext = null,
-        $endpoint = null,
-        $op = null,
-        $path = null,
-        $params = null,
-        $anchor = null,
-        $escape = false
-    ) {
+        ?string $endpoint = null,
+        ?string $op = null,
+        ?array $path = null,
+        ?array $params = null,
+        ?string $anchor = null,
+        bool $escape = false
+    ): string {
         // APIHandlers do not understand $op, $path or $anchor. All routing is baked
         // into the $endpoint string. It only accepts a string as the $newContext,
         // since it relies on this when path info is disabled.
@@ -156,28 +141,10 @@ class APIRouter extends PKPRouter
             throw new Exception('APIRouter::url() should not be called with an op, path or anchor. If a new context is passed, the context path must be passed instead of the context object.');
         }
 
-        //
-        // Base URL and Context
-        //
-        $baseUrlAndContext = $this->_urlGetBaseAndContext($request, $newContext);
-        $baseUrl = array_shift($baseUrlAndContext);
-        $context = array_shift($baseUrlAndContext);
-
-        //
-        // Additional query parameters
-        //
+        [$baseUrl, $context] = $this->_urlGetBaseAndContext($request, $newContext);
         $additionalParameters = $this->_urlGetAdditionalParameters($request, $params, $escape);
 
-        //
-        // Assemble URL
-        //
-        $pathInfoArray = array_merge(
-            $context,
-            ['api', Application::API_VERSION, $endpoint]
-        );
-        $queryParametersArray = $additionalParameters;
-
-        return $this->_urlFromParts($baseUrl, $pathInfoArray, $queryParametersArray, $anchor, $escape);
+        return $this->_urlFromParts($baseUrl, [$context, 'api', Application::API_VERSION, $endpoint], $additionalParameters, $anchor, $escape);
     }
 }
 

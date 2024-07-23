@@ -218,7 +218,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                 });
                 // if all given names are empty, import fails
                 if (empty($notEmptyGivenNames)) {
-                    fatalError('User given name is empty.');
+                    throw new \Exception('User given name is empty.');
                 }
                 if (!empty($userFamilyNames)) {
                     $notEmptyFamilyNames = array_filter($userFamilyNames, function ($a) {
@@ -297,7 +297,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
 
             // Extract user groups from the User XML and assign the user to those (existing) groups.
             // Note:  It is possible for a user to exist with no user group assignments so there is
-            // no fatalError() as is the case with \PKP\author\Author import.
+            // no exception thrown as is the case with \PKP\author\Author import.
             $userGroupNodeList = $node->getElementsByTagNameNS($deployment->getNamespace(), 'user_group_ref');
             if ($userGroupNodeList->length > 0) {
                 for ($i = 0 ; $i < $userGroupNodeList->length ; $i++) {
@@ -351,7 +351,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                 $this->parseUser($n);
                 break;
             default:
-                fatalError('Unknown element ' . $n->tagName);
+                throw new \Exception('Unknown element ' . $n->tagName);
         }
     }
 

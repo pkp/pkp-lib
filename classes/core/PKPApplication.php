@@ -26,11 +26,12 @@ use GuzzleHttp\Client;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Support\Facades\DB;
-use PKP\core\PKPSessionGuard;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
+use PKP\plugins\Hook;
 use PKP\security\Role;
+use PKP\site\Version;
 use PKP\site\VersionDAO;
 use PKP\submission\RepresentationDAOInterface;
 
@@ -124,8 +125,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     // Constant used in UsageStats for submission files that are not full texts
     public const ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER = 0x0000213;
 
-    public $enabledProducts = [];
-    public $allProducts;
+    public array $enabledProducts = [];
 
     /**
      * Constructor
@@ -137,10 +137,13 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             class_alias('\PKP\config\Config', '\Config');
             class_alias('\PKP\core\Registry', '\Registry');
             class_alias('\PKP\core\Core', '\Core');
-            class_alias('\PKP\cache\CacheManager', '\CacheManager');
             class_alias('\PKP\handler\PKPHandler', '\PKPHandler');
             class_alias('\PKP\payment\QueuedPayment', '\QueuedPayment'); // QueuedPayment instances may be serialized
         }
+
+        // Ensure that nobody registers for hooks that are no longer supported
+        Hook::addUnsupportedHooks('APIHandler::endpoints'); // pkp/pkp-lib#9434 Unavailable since stable-3_4_0; remove for 3.6.0 development branch
+        Hook::addUnsupportedHooks('Mail::send', 'EditorAction::modifyDecisionOptions', 'EditorAction::recordDecision', 'Announcement::getProperties', 'Author::getProperties::values', 'EmailTemplate::getProperties', 'Galley::getProperties::values', 'Issue::getProperties::fullProperties', 'Issue::getProperties::summaryProperties', 'Issue::getProperties::values', 'Publication::getProperties', 'Section::getProperties::fullProperties', 'Section::getProperties::summaryProperties', 'Section::getProperties::values', 'Submission::getProperties::values', 'SubmissionFile::getProperties', 'User::getProperties::fullProperties', 'User::getProperties::reviewerSummaryProperties', 'User::getProperties::summaryProperties', 'User::getProperties::values', 'Announcement::getMany::queryBuilder', 'Announcement::getMany::queryObject', 'Author::getMany::queryBuilder', 'Author::getMany::queryObject', 'EmailTemplate::getMany::queryBuilder', 'EmailTemplate::getMany::queryObject::custom', 'EmailTemplate::getMany::queryObject::default', 'Galley::getMany::queryBuilder', 'Issue::getMany::queryBuilder', 'Publication::getMany::queryBuilder', 'Publication::getMany::queryObject', 'Stats::getOrderedObjects::queryBuilder', 'Stats::getRecords::queryBuilder', 'Stats::queryBuilder', 'Stats::queryObject', 'Submission::getMany::queryBuilder', 'Submission::getMany::queryObject', 'SubmissionFile::getMany::queryBuilder', 'SubmissionFile::getMany::queryObject', 'User::getMany::queryBuilder', 'User::getMany::queryObject', 'User::getReviewers::queryBuilder', 'CategoryDAO::_fromRow', 'IssueDAO::_fromRow', 'IssueDAO::_returnIssueFromRow', 'SectionDAO::_fromRow', 'UserDAO::_returnUserFromRow', 'UserDAO::_returnUserFromRowWithData', 'UserDAO::_returnUserFromRowWithReviewerStats', 'UserGroupDAO::_returnFromRow', 'ReviewerSubmissionDAO::_fromRow', 'API::stats::publication::abstract::params', 'API::stats::publication::galley::params', 'API::stats::publications::abstract::params', 'API::stats::publications::galley::params', 'PKPLocale::installLocale', 'PKPLocale::registerLocaleFile', 'PKPLocale::registerLocaleFile::isValidLocaleFile', 'PKPLocale::translate', 'API::submissions::files::params', 'ArticleGalleyDAO::getLocalizedGalleysByArticle', 'PluginGridHandler::plugin', 'PluginGridHandler::plugin', 'SubmissionFile::assignedFileStages', 'SubmissionHandler::saveSubmit'); // From the 3.4.0 Release Notebook; remove for 3.6.0 development branch
 
         // If not in strict mode, globally expose constants on this class.
         if (!PKP_STRICT_MODE) {
@@ -188,7 +191,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         }
 
         ini_set('display_errors', Config::getVar('debug', 'display_errors', ini_get('display_errors')));
-        
+
         if (!static::isInstalled() && !PKPSessionGuard::isSessionDisable()) {
             PKPSessionGuard::disableSession();
         }
@@ -307,9 +310,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         $application = Application::get();
         $userAgent = $application->getName() . '/';
         if (static::isInstalled() && !static::isUpgrading()) {
-            /** @var \PKP\site\VersionDAO */
-            $versionDao = DAORegistry::getDAO('VersionDAO');
-            $currentVersion = $versionDao->getCurrentVersion();
+            $currentVersion = $application->getCurrentVersion();
             $userAgent .= $currentVersion->getVersionString();
         } else {
             $userAgent .= '?';
@@ -451,13 +452,10 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
 
     /**
      * Return the current version of the application.
-     *
-     * @return \PKP\site\Version
      */
-    public function getCurrentVersion()
+    public function getCurrentVersion(): Version
     {
         $currentVersion = $this->getEnabledProducts('core');
-        assert(count($currentVersion)) == 1;
         return $currentVersion[$this->getName()];
     }
 
@@ -505,7 +503,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'SubmissionCommentDAO' => 'PKP\submission\SubmissionCommentDAO',
             'SubmissionDisciplineDAO' => 'PKP\submission\SubmissionDisciplineDAO',
             'SubmissionDisciplineEntryDAO' => 'PKP\submission\SubmissionDisciplineEntryDAO',
-            'SubmissionEmailLogDAO' => 'PKP\log\SubmissionEmailLogDAO',
             'QueryDAO' => 'PKP\query\QueryDAO',
             'SubmissionKeywordDAO' => 'PKP\submission\SubmissionKeywordDAO',
             'SubmissionKeywordEntryDAO' => 'PKP\submission\SubmissionKeywordEntryDAO',

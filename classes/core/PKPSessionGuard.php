@@ -223,7 +223,7 @@ class PKPSessionGuard extends SessionGuard
         // update response header cookie values in formar [name=value]
         $response->headers->set('cookie', $headerCookies);
 
-        if (app()->has('encrypter')) {
+        if ($config['cookie_encryption']) {
             $pkpEncryptCookies = app()->make(\PKP\middleware\PKPEncryptCookies::class); /** @var \PKP\middleware\PKPEncryptCookies $pkpEncryptCookies */
             $pkpEncryptCookies->encrypt($response);
         }
@@ -279,12 +279,13 @@ class PKPSessionGuard extends SessionGuard
             throw new InvalidArgumentException('The given password does not match the current password.');
         }
 
-        return tap($this->user, function(&$user) use ($password) {
+        return tap($this->user, function(&$user) use ($password, $rehash) {
             $rehash ??= Validation::encryptCredentials($user->getUsername(), $password);
             $user->setPassword($rehash);
             
+            $auth = app()->get('auth'); /** @var \PKP\core\PKPAuthManager $auth */
             Application::get()->getRequest()->getSession()->put([
-                'password_hash_' . app()->get('auth')->getDefaultDriver() => $rehash,
+                'password_hash_' . $auth->getDefaultDriver() => $rehash,
             ]);
 
             Repo::user()->edit($user);

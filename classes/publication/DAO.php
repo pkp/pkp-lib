@@ -253,14 +253,16 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::deleteById()
      */
-    public function deleteById(int $publicationId)
+    public function deleteById(int $publicationId): int
     {
-        parent::deleteById($publicationId);
+        $affectedRows = parent::deleteById($publicationId);
 
         $this->deleteAuthors($publicationId);
         $this->deleteCategories($publicationId);
         $this->deleteControlledVocab($publicationId);
         $this->deleteCitations($publicationId);
+
+        return $affectedRows;
     }
 
     /**
@@ -282,26 +284,16 @@ class DAO extends EntityDAO
     /**
      * @copydoc PKPPubIdPluginDAO::pubIdExists()
      */
-    public function pubIdExists($pubIdType, $pubId, $excludePubObjectId, int $contextId)
+    public function pubIdExists(string $pubIdType, string $pubId, int $excludePubObjectId, int $contextId): bool
     {
-        $result = $this->deprecatedDao->retrieve(
-            'SELECT COUNT(*) AS row_count
-			FROM publication_settings ps
-			LEFT JOIN publications p ON p.publication_id = ps.publication_id
-			LEFT JOIN submissions s ON p.submission_id = s.submission_id
-			WHERE ps.setting_name = ? and ps.setting_value = ? and s.submission_id <> ? AND s.context_id = ?',
-            [
-                'pub-id::' . $pubIdType,
-                $pubId,
-                // The excludePubObjectId refers to the submission id
-                // because multiple versions of the same submission
-                // are allowed to share a DOI.
-                (int) $excludePubObjectId,
-                (int) $contextId
-            ]
-        );
-        $row = $result->current();
-        return $row ? (bool) $row->row_count : false;
+        return DB::table('publication_settings AS ps')
+            ->join('publications AS p', 'p.publication_id', '=', 'ps.publication_id')
+            ->join('submissions AS s', 'p.submission_id', '=', 's.submission_id')
+            ->where('ps.setting_name', '=', "pub-id::{$pubIdType}")
+            ->where('ps.setting_value', '=', $pubId)
+            ->where('s.submission_id', '<>', $excludePubObjectId)
+            ->where('s.context_id', '=', $contextId)
+            ->count() > 0;
     }
 
     /**
@@ -321,9 +313,9 @@ class DAO extends EntityDAO
     /**
      * @copydoc PKPPubIdPluginDAO::deletePubId()
      */
-    public function deletePubId($pubObjectId, $pubIdType)
+    public function deletePubId(int $pubObjectId, string $pubIdType): int
     {
-        DB::table($this->settingsTable)
+        return DB::table($this->settingsTable)
             ->where('publication_id', (int) $pubObjectId)
             ->where('setting_name', '=', 'pub-id::' . $pubIdType)
             ->delete();
@@ -332,42 +324,14 @@ class DAO extends EntityDAO
     /**
      * @copydoc PKPPubIdPluginDAO::deleteAllPubIds()
      */
-    public function deleteAllPubIds($contextId, $pubIdType)
+    public function deleteAllPubIds(int $contextId, string $pubIdType): int
     {
-        switch (DB::getDriverName()) {
-            case 'mysql':
-                $this->deprecatedDao->update(
-                    'DELETE ps FROM publication_settings ps
-						LEFT JOIN publications p ON p.publication_id = ps.publication_id
-						LEFT JOIN submissions s ON s.submission_id = p.submission_id
-						WHERE ps.setting_name = ?
-						AND s.context_id = ?',
-                    [
-                        'pub-id::' . $pubIdType,
-                        $contextId,
-                    ]
-                );
-                break;
-            case 'pgsql':
-                $this->deprecatedDao->update(
-                    'DELETE FROM publication_settings
-					USING publication_settings ps
-						LEFT JOIN publications p ON p.publication_id = ps.publication_id
-						LEFT JOIN submissions s ON s.submission_id = p.submission_id
-					WHERE	ps.setting_name = ?
-						AND s.context_id = ?
-						AND ps.publication_id = publication_settings.publication_id
-						AND ps.locale = publication_settings.locale
-						AND ps.setting_name = publication_settings.setting_name',
-                    [
-                        'pub-id::' . $pubIdType,
-                        $contextId,
-                    ]
-                );
-                break;
-            default: fatalError('Unknown database type!');
-        }
-        $this->deprecatedDao->flushCache();
+        return DB::table('publication_settings AS ps')
+            ->join('publications AS p', 'p.publication_id', '=', 'ps.publication_id')
+            ->join('submissions AS s', 's.submission_id', '=', 'p.submission_id')
+            ->where('ps.setting_name', '=', "pub-id::{$pubIdType}")
+            ->where('s.context_id', '=', $contextId)
+            ->delete();
     }
 
     /**

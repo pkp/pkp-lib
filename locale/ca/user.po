@@ -548,3 +548,261 @@ msgstr ""
 
 msgid "user.usernameOrEmail"
 msgstr "Nom d'usuari/ària o adreça electrónica"
+
+msgid "orcid.about.display.title"
+msgstr "On es mostren els identificadors ORCID?"
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Com i per què recopilem identificadors ORCID?"
+
+msgid "orcid.about.title"
+msgstr "Què és ORCID?"
+
+msgid "orcid.authorise"
+msgstr "Autoritzeu i connecteu el vostre identificador ORCID"
+
+msgid "orcid.connect"
+msgstr "Creeu o connecteu el vostre identificador ORCID"
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.failure.contact"
+msgstr ""
+"Contacteu amb l'administrador/a de la revista indicant el vostre nom, "
+"l'identificador ORCID i els detalls de la tramesa."
+
+msgid "orcid.authFailure"
+msgstr ""
+"L'enllaç d'autorització d'ORCID ja s'ha utilitzat anteriorment o no és vàlid."
+
+msgid "orcid.verify.denied"
+msgstr "Heu denegat l'accés al vostre registre ORCID."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "Ja s'ha emmagatzemat un identificador ORCID per a aquesta tramesa."
+
+msgid "orcid.verify.failure"
+msgstr ""
+"No s'ha pogut verificar el vostre identificador ORCID. L'enllaç ja no és "
+"vàlid."
+
+msgid "orcid.verify.success"
+msgstr ""
+"El vostre identificador ORCID s'ha verificat i s'ha associat correctament "
+"amb la tramesa."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr ""
+"La tramesa serà incorporada en el vostre registre ORCID durant la publicació."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "La tramesa no ha pogut ser incorporada en el vostre registre ORCID."
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "La tramesa ha estat incorporada en el vostre registre ORCID."
+
+msgid "orcid.verify.title"
+msgstr "Autorització ORCID"
+
+msgid "orcid.author.unauthenticated"
+msgstr ""
+"Identificador ORCID no autenticat! Demaneu autenticació del col·laborador."
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Vegeu a continuació per sol·licitar un identificador ORCID autenticat"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Eliminar identificador ORCID i credencials d'accés!"
+
+msgid "orcid.author.requestAuthorization"
+msgstr ""
+"Enviar correu electrònic per sol·licitar autorització ORCID del col·laborador"
+
+msgid "orcid.author.accessTokenStored"
+msgstr ""
+"S'ha concedit accés al registre ORCID amb abast {$orcidAccessScope}, vàlid "
+"fins a"
+
+msgid "orcid.author.accessDenied"
+msgstr "S'ha denegat l'accés ORCID a"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Tot"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Errors"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Seleccioneu la quantitat de registres de sortida generats pel mòdul"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "Registre de sol·licituds ORCID"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Enviar un correu electrònic per sol·licitar autorització ORCID dels autors/"
+"es quan un article sigui acceptat, és a dir, enviat a correcció"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Configuració de correu electrònic"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Abast d'accés del perfil"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Clau del client"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "Id. del client"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Entorn segur de l'usuari/ària"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Membre"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Entorn segur públic"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Públic"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "API ORCID"
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr ""
+"L'API d'ORCID ha estat configurada globalment per l'amfitrió. Les següents "
+"credencials s'han guardat."
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"Configureu l'accés de l'API d'ORCID per importar la informació del perfil "
+"ORCID en els perfils d'usuari/ària i d'autor/a i per actualitzar els "
+"registres ORCID connectats amb les noves publicacions (només per a membres "
+"ORCID)."
+
+msgid "orcid.manager.settings.hidden"
+msgstr "ocult"
+
+msgid "orcid.manager.settings.title"
+msgstr "Configuració de l'API d'ORCID"
+
+msgid "orcid.emailOrOrcid"
+msgstr "Correu electrònic o identificador ORCID:"
+
+msgid "orcid.noData"
+msgstr "No s'han trobat dades d'ORCID."
+
+msgid "orcid.instructions"
+msgstr ""
+"Podeu emplenar aquest formulari amb informació procedent d'un perfil ORCID. "
+"Introduïu el correu electrònic o l'identificador ORCID associat amb el "
+"perfil ORCID i feu clic a \"Enviar\"."
+
+msgid "orcid.description"
+msgstr "Permet la importació del perfil d'usuari/ària des d'ORCID."
+
+msgid "orcid.displayName"
+msgstr "Mòdul de perfil ORCID"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"Aquesta revista recopila el vostre ORCID iD per tal que tant nosaltres com "
+"la comunitat en general estiguem segurs que esteu correctament identificats "
+"i connectats amb les vostres publicacions. Això garanteix que la connexió "
+"amb totes les vostres obres es mantindrà al llarg de tota la vostra "
+"carrera.<br>\n"
+"\tQuan feu clic en el botó “Autoritzar” de la finestra emergent d'ORCID us "
+"demanarem que compartiu la vostra iD mitjançant un procés d'autenticació, ja "
+"sigui registrant un iD d'ORCID o, si ja en teniu un, iniciant la sessió en "
+"el vostre compte d'ORCID i donant-nos permís per obtenir el vostre iD "
+"d'ORCID. Això ho fem per assegurar-nos que us identifiqueu correctament i "
+"que us connecteu de forma segura al vostre iD d'ORCID.<br>\n"
+"\tPodeu obtenir més informació a <a href=\"https://info.orcid.org/"
+"whats-so-special-about-signing-in/\">What’s so special about signing "
+"in.</a><br>\n"
+"\tAquesta revista recopilarà i mostrarà els identificadors autenticats d'"
+"autors/ores i coautors/ores en el perfil d'OJS i en la pàgina de l'article."
+
+msgid "orcid.about.orcidExplanation"
+msgstr ""
+"ORCID és una organització independent sense afany de lucre que proporciona "
+"un identificador persistent —iD ORCID— que us permet diferenciar-vos "
+"d'altres investigadors/ores i també és un mecanisme per connectar els "
+"resultats i activitats de la vostra recerca amb el vostre iD. ORCID "
+"s'integra en molts sistemes utilitzats per editorials, inversors/ores, "
+"institucions i altres serveis relacionats amb la recerca. Visiteu <a href=\""
+"https://orcid.org\">orcid.org</a> per saber-ne més."
+
+msgid "orcid.about.display"
+msgstr ""
+"Per reconèixer que heu utilitzat el vostre iD i que aquest ha estat "
+"autenticat, mostrem la icona de iD d'ORCID <img src=\"https://info.orcid.org/"
+"wp-content/uploads/2020/12/ORCIDiD_icon16x16.png\" alt=\"iD icon\" width=\""
+"16\" height=\"16\" border=\"0\"> al costat del vostre nom en la pàgina "
+"d'article de la tramesa i en el vostre perfil d'usuari/ària públic.<br>\n"
+"\t\tMés informació a <a href=\"https://info.orcid.org/"
+"how-should-an-orcid-id-be-displayed/\">How should an ORCID iD be "
+"displayed.</a>"
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"Aquesta revista recopila el vostre ORCID iD per tal que tant nosaltres com "
+"la comunitat en general estiguem segurs que esteu correctament identificats "
+"i connectats amb les vostres publicacions. Això garanteix que la connexió "
+"amb totes les vostres obres es mantindrà al llarg de tota la vostra "
+"carrera.<br>\n"
+"\tQuan feu clic en el botó “Autoritzar” de la finestra emergent d'ORCID us "
+"demanarem que compartiu la vostra iD mitjançant un procés d'autenticació, ja "
+"sigui registrant un iD d'ORCID o, si ja en teniu un, iniciant la sessió en "
+"el vostre compte d'ORCID i donant-nos permís per obtenir el vostre iD "
+"d'ORCID. Això ho fem per assegurar-nos que us identifiqueu correctament i "
+"que us connecteu de forma segura al vostre iD d'ORCID.<br>\n"
+"\tPodeu obtenir més informació a <a href=\"https://info.orcid.org/"
+"whats-so-special-about-signing-in/\">What’s so special about signing "
+"in.</a><br>\n"
+"\tAquesta revista recopilarà i mostrarà els identificadors autenticats d'"
+"autors/ores i coautors/ores en el perfil d'OJS i en la pàgina de l'article. "
+"A més, les metadades dels articles s'afegiran automàticament en el vostre "
+"registre ORCID, cosa que ens permet ajudar-vos a mantenir el vostre registre "
+"actualitzat amb informació verificable. Teniu més informació a <a href=\""
+"https://info.orcid.org/six-ways-to-make-your-orcid-id-work-for-you/\">Six "
+"ways to make your ORCID iD work for you!</a>\n"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Contrasenya de client invàlida"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "ID de client invàlida"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Configuració guardada"
+
+msgid "orcid.manager.settings.city"
+msgstr "Ciutat"
+
+msgid "orcid.invalidClient"
+msgstr "Credencials de client invàlides"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Configurat en relació amb la revista"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "L'identificador de client és vàlid"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Client Secret és vàlid"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Client Secret no és vàlid, comproveu les vostres credencials"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "L'identificador de client no és vàlid, comproveu les dades introduïdes"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "S'han detectat ORCID duplicats en els col·laboradors/ores."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "S'han detectat ORCID no autenticats en els col·laboradors/ores."

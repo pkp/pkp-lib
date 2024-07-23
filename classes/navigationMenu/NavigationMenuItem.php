@@ -3,13 +3,11 @@
 /**
  * @file classes/navigationMenu/NavigationMenuItem.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenuItem
- *
- * @ingroup navigationMenu
  *
  * @see NavigationMenuItemDAO
  *
@@ -40,10 +38,10 @@ class NavigationMenuItem extends \PKP\core\DataObject
     public const NMI_TYPE_PRIVACY = 'NMI_TYPE_PRIVACY';
 
     /** @var array $navigationMenuItems The navigationMenuItems underneath this navigationMenuItem */
-    public $navigationMenuItems = [];
+    public array $navigationMenuItems = [];
 
-    public $_isDisplayed = true;
-    public $_isChildVisible = false;
+    public bool $_isDisplayed = true;
+    public bool $_isChildVisible = false;
 
     //
     // Get/set methods
@@ -51,185 +49,144 @@ class NavigationMenuItem extends \PKP\core\DataObject
 
     /**
      * Set path for this navigation menu item.
-     *
-     * @param string $path
      */
-    public function setPath($path)
+    public function setPath(?string $path): void
     {
         $this->setData('path', $path);
     }
 
     /**
      * Get path for this navigation menu item.
-     *
-     * @return string
      */
-    public function getPath()
+    public function getPath(): ?string
     {
         return $this->getData('path');
     }
 
     /**
      * Set url for this navigation menu item.
-     *
-     * @param string $url
      */
-    public function setUrl($url)
+    public function setUrl(string $url): void
     {
         $this->setData('url', $url);
     }
 
     /**
      * Get url for this navigation menu item.
-     *
-     * @return string
      */
-    public function getUrl()
+    public function getUrl(): string
     {
         return $this->getData('url');
     }
 
     /**
      * Set type for this navigation menu item.
-     *
-     * @param string $type
      */
-    public function setType($type)
+    public function setType(string $type): void
     {
         $this->setData('type', $type);
     }
 
     /**
      * Get type for this navigation menu item.
-     *
-     * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->getData('type');
     }
 
     /**
      * Get contextId for this navigation menu item.
-     *
-     * @return int
      */
-    public function getContextId()
+    public function getContextId(): int
     {
         return $this->getData('contextId');
     }
 
     /**
      * Set context_id for this navigation menu item.
-     *
-     * @param int $contextId
      */
-    public function setContextId($contextId)
+    public function setContextId(int $contextId)
     {
         $this->setData('contextId', $contextId);
     }
 
     /**
      * Get the title of the navigation Menu.
-     *
-     * @return string
      */
-    public function getLocalizedTitle()
+    public function getLocalizedTitle(): ?string
     {
         return $this->getLocalizedData('title');
     }
 
     /**
      * Get the title of the navigation menu item.
-     *
-     * @param string $locale
-     *
      */
-    public function getTitle($locale)
+    public function getTitle(?string $locale = null): null|string|array
     {
         return $this->getData('title', $locale);
     }
 
     /**
      * Set the title of the navigation menu item.
-     *
-     * @param string $title
-     * @param string $locale
      */
-    public function setTitle($title, $locale)
+    public function setTitle(null|array|string $title, ?string $locale): void
     {
         $this->setData('title', $title, $locale);
     }
 
     /**
      * Get the content of the navigation Menu.
-     *
-     * @return string
      */
-    public function getLocalizedContent()
+    public function getLocalizedContent(): ?string
     {
         return $this->getLocalizedData('content');
     }
 
     /**
      * Get the content of the navigation menu item.
-     *
-     * @param string $locale
-     *
-     * @return string
      */
-    public function getContent($locale)
+    public function getContent(?string $locale): null|string|array
     {
         return $this->getData('content', $locale);
     }
 
     /**
      * Set the content of the navigation menu item.
-     *
-     * @param string $content
-     * @param string $locale
      */
-    public function setContent($content, $locale)
+    public function setContent(string|array $content, ?string $locale): void
     {
         $this->setData('content', $content, $locale);
     }
 
     /**
      * Get seq for this navigation menu item.
-     *
-     * @return int
      */
-    public function getSequence()
+    public function getSequence(): int
     {
         return $this->getData('seq');
     }
 
     /**
      * Set seq for this navigation menu item.
-     *
-     * @param int $seq
      */
-    public function setSequence($seq)
+    public function setSequence(int $seq): void
     {
         $this->setData('seq', $seq);
     }
 
     /**
      * Get $isDisplayed for this navigation menu item.
-     *
-     * @return bool
      */
-    public function getIsDisplayed()
+    public function getIsDisplayed(): bool
     {
         return $this->_isDisplayed;
     }
 
     /**
      * Set $isDisplayed for this navigation menu item.
-     *
-     * @param bool $isDisplayed
      */
-    public function setIsDisplayed($isDisplayed)
+    public function setIsDisplayed(bool $isDisplayed): void
     {
         $this->_isDisplayed = $isDisplayed;
     }
@@ -237,9 +194,9 @@ class NavigationMenuItem extends \PKP\core\DataObject
     /**
      * Get $isChildVisible for this navigation menu item.
      *
-     * @return bool true if at least one NMI child is visible. It is defined at the Service functionality level
+     * @return bool True if at least one NMI child is visible. It is defined at the Service functionality level
      */
-    public function getIsChildVisible()
+    public function getIsChildVisible(): bool
     {
         return $this->_isChildVisible;
     }
@@ -249,58 +206,47 @@ class NavigationMenuItem extends \PKP\core\DataObject
      *
      * @param bool $isChildVisible true if at least one NMI child is visible. It is defined at the Service functionality level
      */
-    public function setIsChildVisible($isChildVisible)
+    public function setIsChildVisible(bool $isChildVisible): void
     {
         $this->_isChildVisible = $isChildVisible;
     }
 
     /**
      * Get the titleLocaleKey of the navigation Menu.
-     *
-     * @return string
      */
-    public function getTitleLocaleKey()
+    public function getTitleLocaleKey(): ?string
     {
         return $this->getData('titleLocaleKey');
     }
 
     /**
      * Set titleLocaleKey for this navigation menu item.
-     *
-     * @param string $titleLocaleKey
      */
-    public function setTitleLocaleKey($titleLocaleKey)
+    public function setTitleLocaleKey(string $titleLocaleKey): void
     {
-        return $this->setData('titleLocaleKey', $titleLocaleKey);
+        $this->setData('titleLocaleKey', $titleLocaleKey);
     }
 
     /**
      * Get the remoteUrl of the navigation Menu.
-     *
-     * @return string
      */
-    public function getLocalizedRemoteUrl()
+    public function getLocalizedRemoteUrl(): ?string
     {
         return $this->getLocalizedData('remoteUrl');
     }
 
     /**
      * Get the remoteUrl of the navigation menu item.
-     *
-     * @param string $locale
      */
-    public function getRemoteUrl($locale)
+    public function getRemoteUrl(?string $locale): array|string|null
     {
         return $this->getData('remoteUrl', $locale);
     }
 
     /**
      * Set the remoteUrl of the navigation menu item.
-     *
-     * @param string $url
-     * @param string $locale
      */
-    public function setRemoteUrl($url, $locale)
+    public function setRemoteUrl(array|string $url, ?string $locale): void
     {
         $this->setData('remoteUrl', $url, $locale);
     }

@@ -37,7 +37,7 @@
 				</p>
 			</div>
 			<notify-users-form v-else
-				v-bind="components.{$smarty.const.FORM_NOTIFY_USERS}"
+				v-bind="components.{PKP\components\forms\context\PKPNotifyUsersForm::FORM_NOTIFY_USERS}"
 				@set="set"
 			/>
 		</tab>
@@ -45,10 +45,16 @@
 		<tab id="access" label="{translate key="manager.siteAccessOptions.siteAccessOptions"}">
 		{help file="users-and-roles" section="site-access" class="pkp_help_tab"}
 			<pkp-form
-				v-bind="components.{$smarty.const.FORM_USER_ACCESS}"
+				v-bind="components.{PKP\components\forms\context\PKPUserAccessForm::FORM_USER_ACCESS}"
 				@set="set"
 			/>
 		</tab>
+        <tab id="orcidSettings" label="{translate key="orcid.displayName"}">
+            <pkp-form
+                    v-bind="components.orcidSettings"
+                    @set="set"
+            />
+        </tab>
 		{call_hook name="Template::Settings::access"}
 	</tabs>
 {/block}

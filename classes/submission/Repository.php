@@ -216,7 +216,7 @@ abstract class Repository
                 $submissionContext->getPath(),
                 'authorDashboard',
                 'submission',
-                $submission->getId()
+                [$submission->getId()]
             );
         }
 
@@ -235,7 +235,7 @@ abstract class Repository
                 $submissionContext->getPath(),
                 'reviewer',
                 'submission',
-                $submission->getId()
+                [$submission->getId()]
             );
         }
 
@@ -247,7 +247,7 @@ abstract class Repository
             $submissionContext->getPath(),
             'workflow',
             'access',
-            $submission->getId()
+            [$submission->getId()]
         );
     }
 
@@ -267,8 +267,8 @@ abstract class Repository
     {
         $primaryLocale = $props['locale'] ?? $submission?->getData('locale') ?? $context->getSupportedDefaultSubmissionLocale();
         $allowedLocales = $context->getSupportedSubmissionLocales();
-        
-        if (!in_array($primaryLocale, $allowedLocales) ) {
+
+        if (!in_array($primaryLocale, $allowedLocales)) {
             $allowedLocales[] = $primaryLocale;
         }
 
@@ -512,7 +512,7 @@ abstract class Repository
             ->get();
 
         // Check for permission from stage assignments
-        if ($stageAssignments->contains(fn($stageAssignment) => $stageAssignment->canChangeMetadata)) {
+        if ($stageAssignments->contains(fn ($stageAssignment) => $stageAssignment->canChangeMetadata)) {
             return true;
         }
         // If user has no stage assigments, check if user can edit anyway ie. is manager
@@ -545,7 +545,7 @@ abstract class Repository
                 ->withRoleIds([Role::ROLE_ID_AUTHOR])
                 ->withUserId($user->getId())
                 ->get();
-                
+
             if ($stageAssignments->isNotEmpty()) {
                 return true;
             }
@@ -765,7 +765,7 @@ abstract class Repository
             $context->getData('urlPath'),
             'authorDashboard',
             'submission',
-            $submissionId
+            [$submissionId]
         );
     }
 
@@ -780,7 +780,7 @@ abstract class Repository
             $context->getData('urlPath'),
             'workflow',
             'access',
-            $submissionId
+            [$submissionId]
         );
     }
 

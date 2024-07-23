@@ -12,7 +12,6 @@
  * @ingroup submission
  *
  * @see Submission
- * 
  * @deprecated 3.5
  *
  * @brief Operations for retrieving and modifying a submission's assigned languages
@@ -45,10 +44,8 @@ class SubmissionLanguageDAO extends ControlledVocabDAO
 
     /**
      * Get the list of localized additional fields to store.
-     *
-     * @return array
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         return ['submissionLanguage'];
     }

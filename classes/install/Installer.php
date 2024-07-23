@@ -16,12 +16,10 @@
 
 namespace PKP\install;
 
-use adoSchema;
 use APP\core\Application;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use PKP\cache\CacheManager;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -404,30 +402,6 @@ class Installer
     public function executeAction($action)
     {
         switch ($action['type']) {
-            case 'schema':
-                $fileName = $action['file'];
-                $this->log(sprintf('schema: %s', $action['file']));
-
-                require_once('lib/pkp/lib/vendor/adodb/adodb-php/adodb.inc.php');
-                require_once('./lib/pkp/lib/vendor/adodb/adodb-php/adodb-xmlschema.inc.php');
-                $dbconn = ADONewConnection(Config::getVar('database', 'driver'));
-                $port = Config::getVar('database', 'port');
-                $dbconn->Connect(
-                    Config::getVar('database', 'host') . ($port ? ':' . $port : ''),
-                    Config::getVar('database', 'username'),
-                    Config::getVar('database', 'password'),
-                    Config::getVar('database', 'name')
-                );
-                $schemaXMLParser = new adoSchema($dbconn);
-                $dict = $schemaXMLParser->dict;
-                $sql = $schemaXMLParser->parseSchema($fileName);
-                $schemaXMLParser->destroy();
-
-                if ($sql) {
-                    return $this->executeSQL($sql);
-                }
-                $this->setError(self::INSTALLER_ERROR_DB, str_replace('{$file}', $fileName, __('installer.installParseDBFileError')));
-                return false;
             case 'data':
                 $fileName = $action['file'];
                 $condition = $action['attr']['condition'] ?? null;
@@ -518,6 +492,7 @@ class Installer
                 $this->log(sprintf('note: %s', $action['file']));
                 $this->notes[] = join('', file($action['file']));
                 break;
+            default: throw new Exception("Unknown action type {$action['type']}!");
         }
 
         return true;
@@ -720,12 +695,7 @@ class Installer
      */
     public function clearDataCache()
     {
-        // Clear the CacheManager's caches
-        $cacheManager = CacheManager::getManager();
-        $cacheManager->flush(null, CACHE_TYPE_FILE);
-        $cacheManager->flush(null, CACHE_TYPE_OBJECT);
-
-        //clear laravel cache
+        // Clear Laravel caches
         $cacheManager = PKPContainer::getInstance()['cache'];
         $cacheManager->store()->flush();
 

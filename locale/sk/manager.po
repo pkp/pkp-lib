@@ -3120,3 +3120,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Hlavný titulok"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validujte XML pred exportom a registráciou."

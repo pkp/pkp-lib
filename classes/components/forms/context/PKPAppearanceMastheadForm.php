@@ -16,17 +16,15 @@
 namespace PKP\components\forms\context;
 
 use APP\facades\Repo;
+use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
-
-define('FORM_APPEARANCE_MASTHEAD', 'appearanceMasthead');
+use PKP\security\Role;
 
 class PKPAppearanceMastheadForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_APPEARANCE_SETUP;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_APPEARANCE_MASTHEAD = 'appearanceMasthead';
+    public $id = self::FORM_APPEARANCE_MASTHEAD;
     public $method = 'PUT';
 
     /**
@@ -48,6 +46,7 @@ class PKPAppearanceMastheadForm extends FormComponent
         $allMastheadUserGroups = $collector
             ->filterByContextIds([$context->getId()])
             ->filterByMasthead(true)
+            ->filterExcludeRoles([Role::ROLE_ID_REVIEWER])
             ->orderBy($collector::ORDERBY_ROLE_ID)
             ->getMany()
             ->toArray();
@@ -64,11 +63,15 @@ class PKPAppearanceMastheadForm extends FormComponent
 
         $this->addField(new FieldOptions('mastheadUserGroupIds', [
             'label' => __('common.editorialMasthead'),
-            'description' => __('manager.setup.editorialMasthead.description'),
+            'description' => __('manager.setup.editorialMasthead.order.description'),
             'isOrderable' => true,
             'value' => array_column($mastheadOptions, 'value'),
             'options' => $mastheadOptions,
             'allowOnlySorting' => true
-        ]));
+        ]))
+            ->addField(new FieldHTML('reviewer', [
+                'label' => __('user.role.reviewers'),
+                'description' => __('manager.setup.editorialMasthead.order.reviewers.description')
+            ]));
     }
 }

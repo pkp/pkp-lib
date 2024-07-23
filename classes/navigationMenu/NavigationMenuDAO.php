@@ -3,13 +3,11 @@
 /**
  * @file classes/navigationMenu/NavigationMenuDAO.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenuDAO
- *
- * @ingroup navigationMenu
  *
  * @see NavigationMenu
  *
@@ -18,9 +16,7 @@
 
 namespace PKP\navigationMenu;
 
-use APP\core\Services;
-use PKP\cache\CacheManager;
-use PKP\cache\GenericCache;
+use Illuminate\Support\Facades\Cache;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\site\SiteDAO;
@@ -30,23 +26,16 @@ class NavigationMenuDAO extends \PKP\db\DAO
 {
     /**
      * Generate a new data object.
-     *
-     * @return NavigationMenu
      */
-    public function newDataObject()
+    public function newDataObject(): NavigationMenu
     {
         return new NavigationMenu();
     }
 
     /**
      * Retrieve a navigation menu by navigation menu ID.
-     *
-     * @param int $navigationMenuId navigation menu ID
-     * @param int $contextId Context Id
-     *
-     * @return ?NavigationMenu
      */
-    public function getById($navigationMenuId, $contextId = null)
+    public function getById(int $navigationMenuId, ?int $contextId = null): ?NavigationMenuItem
     {
         $params = [(int) $navigationMenuId];
         if ($contextId !== null) {
@@ -65,39 +54,29 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Retrieve a navigation menu by context Id.
      *
-     * @param int $contextId Context Id
-     *
      * @return DAOResultFactory<NavigationMenu>
      */
-    public function getByContextId($contextId)
+    public function getByContextId(int $contextId): DAOResultFactory
     {
-        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE context_id = ?', [(int) $contextId]);
+        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE context_id = ?', [$contextId]);
         return new DAOResultFactory($result, $this, '_fromRow');
     }
 
     /**
      * Retrieve a navigation menu by navigation menu area.
      *
-     * @param int $contextId Context Id
-     * @param string $areaName Template Area name
-     *
      * @return DAOResultFactory<NavigationMenu>
      */
-    public function getByArea($contextId, $areaName)
+    public function getByArea(int $contextId, string $areaName): DAOResultFactory
     {
-        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE area_name = ? and context_id = ?', [$areaName, (int) $contextId]);
+        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE area_name = ? and context_id = ?', [$areaName, $contextId]);
         return new DAOResultFactory($result, $this, '_fromRow');
     }
 
     /**
      * Retrieve a navigation menu by title
-     *
-     * @param int $contextId Context Id
-     * @param string $title
-     *
-     * @return ?NavigationMenu
      */
-    public function getByTitle($contextId, $title)
+    public function getByTitle(int $contextId, string $title): ?NavigationMenu
     {
         $result = $this->retrieve('SELECT * FROM navigation_menus WHERE context_id = ? and title = ?', [(int) $contextId, $title]);
         $row = (array) $result->current();
@@ -106,37 +85,26 @@ class NavigationMenuDAO extends \PKP\db\DAO
 
     /**
      * Check if a navigationMenu exists with the given title.
-     *
-     * @param int $contextId
-     * @param int $title
-     *
-     * @return bool True if a NM exists by that title
      */
-    public function navigationMenuExistsByTitle($contextId, $title)
+    public function navigationMenuExistsByTitle(int $contextId, string $title): bool
     {
-        $result = $this->retrieve('SELECT COUNT(*) AS row_count FROM navigation_menus WHERE title = ? AND context_id = ?', [$title, (int) $contextId]);
+        $result = $this->retrieve('SELECT COUNT(*) AS row_count FROM navigation_menus WHERE title = ? AND context_id = ?', [$title, $contextId]);
         $row = (array) $result->current();
         return $row && $row['row_count'] != 0;
     }
 
     /**
      * Get the locale field names.
-     *
-     * @return array
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         return [];
     }
 
     /**
      * Internal function to return an NavigationMenu object from a row.
-     *
-     * @param array $row
-     *
-     * @return NavigationMenu
      */
-    public function _fromRow($row)
+    public function _fromRow(array $row): NavigationMenu
     {
         $navigationMenu = $this->newDataObject();
         $navigationMenu->setId($row['navigation_menu_id']);
@@ -149,16 +117,12 @@ class NavigationMenuDAO extends \PKP\db\DAO
 
     /**
      * Insert a new NavigationMenu.
-     *
-     * @param NavigationMenu $navigationMenu
-     *
-     * @return int
      */
-    public function insertObject($navigationMenu)
+    public function insertObject(NavigationMenu $navigationMenu): int
     {
         $this->update(
             'INSERT INTO navigation_menus (title, area_name, context_id) VALUES (?, ?, ?)',
-            [$navigationMenu->getTitle(), $navigationMenu->getAreaName(), (int) $navigationMenu->getContextId()]
+            [$navigationMenu->getTitle(), $navigationMenu->getAreaName(), $navigationMenu->getContextId()]
         );
         $navigationMenu->setId($this->getInsertId());
         return $navigationMenu->getId();
@@ -166,14 +130,11 @@ class NavigationMenuDAO extends \PKP\db\DAO
 
     /**
      * Update an existing NavigationMenu
-     *
-     * @param NavigationMenu $navigationMenu
-     *
-     * @return bool
      */
-    public function updateObject($navigationMenu)
+    public function updateObject(NavigationMenu $navigationMenu): bool
     {
-        $returner = $this->update(
+        Cache::forget("navigationMenu-{$navigationMenu->getId()}");
+        return (bool) $this->update(
             'UPDATE	navigation_menus
 			SET	title = ?,
 				area_name = ?,
@@ -182,18 +143,14 @@ class NavigationMenuDAO extends \PKP\db\DAO
             [
                 $navigationMenu->getTitle(),
                 $navigationMenu->getAreaName(),
-                (int) $navigationMenu->getContextId(),
-                (int) $navigationMenu->getId(),
+                $navigationMenu->getContextId(),
+                $navigationMenu->getId(),
             ]
         );
-        $this->unCache($navigationMenu->getId());
-        return (bool) $returner;
     }
 
     /**
      * Delete a NavigationMenu.
-     *
-     * @param NavigationMenu $navigationMenu
      */
     public function deleteObject($navigationMenu)
     {
@@ -202,23 +159,19 @@ class NavigationMenuDAO extends \PKP\db\DAO
 
     /**
      * Delete a NavigationMenu.
-     *
-     * @param int $navigationMenuId
      */
-    public function deleteById($navigationMenuId)
+    public function deleteById(int $navigationMenuId): int
     {
-        $this->unCache($navigationMenuId);
-        $this->update('DELETE FROM navigation_menus WHERE navigation_menu_id = ?', [(int) $navigationMenuId]);
-        $navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO'); /** @var NavigationMenuItemAssignmentDAO $navigationMenuItemAssignmentDao */
-        $navigationMenuItemAssignmentDao->deleteByMenuId($navigationMenuId);
+        Cache::forget("navigationMenu-{$navigationMenuId}");
+        return DB::table('navigation_menus')
+            ->where('navigation_menu_id', '=', $navigationMenuId)
+            ->delete();
     }
 
     /**
      * Delete NavigationMenus by contextId.
-     *
-     * @param int $contextId
      */
-    public function deleteByContextId($contextId)
+    public function deleteByContextId(int $contextId)
     {
         $navigationMenus = $this->getByContextId($contextId);
         while ($navigationMenu = $navigationMenus->next()) {
@@ -228,13 +181,8 @@ class NavigationMenuDAO extends \PKP\db\DAO
 
     /**
      * Load the XML file and move the settings to the DB
-     *
-     * @param int $contextId
-     * @param string $filename
-     *
-     * @return bool true === success
      */
-    public function installSettings($contextId, $filename)
+    public function installSettings(int $contextId, string $filename): bool
     {
         $xmlParser = new PKPXMLParser();
         $tree = $xmlParser->parse($filename);
@@ -298,52 +246,6 @@ class NavigationMenuDAO extends \PKP\db\DAO
         }
 
         return true;
-    }
-
-    /**
-     * unCache the NM with id
-     *
-     * @param int $id
-     */
-    public function unCache($id)
-    {
-        $cache = $this->getCache($id);
-        if ($cache) {
-            $cache->flush();
-        }
-    }
-
-    /**
-     * Get the settings cache for a given ID
-     *
-     * @param string $id
-     *
-     * @return GenericCache
-     */
-    public function getCache($id)
-    {
-        static $navigationMenuCache = [];
-        return $navigationMenuCache[$id] ??= CacheManager::getManager()->getCache(
-            'navigationMenu',
-            $id,
-            $this->_cacheMiss(...)
-        );
-    }
-
-    /**
-     * Callback for a cache miss.
-     *
-     * @param GenericCache $cache
-     * @param string $id
-     */
-    public function _cacheMiss($cache, $id)
-    {
-        /** @var NavigationMenuDAO */
-        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-        $navigationMenu = $navigationMenuDao->getById($cache->getCacheId());
-        Services::get('navigationMenu')->getMenuTree($navigationMenu);
-
-        return $navigationMenu;
     }
 }
 

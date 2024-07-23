@@ -103,7 +103,7 @@ class PKPReviewerReviewStep1Form extends ReviewerReviewForm
         $declineReviewLinkAction = new LinkAction(
             'declineReview',
             new AjaxModal(
-                $request->url(null, null, 'showDeclineReview', $reviewAssignment->getSubmissionId()),
+                $request->url(null, null, 'showDeclineReview', [$reviewAssignment->getSubmissionId()]),
                 __('reviewer.submission.declineReview')
             )
         );

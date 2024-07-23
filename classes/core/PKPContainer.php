@@ -37,9 +37,7 @@ use Throwable;
 class PKPContainer extends Container
 {
     /**
-     * @var string
-     *
-     * @brief the base path of the application, needed for base_path helper
+     * @var string The base path of the application, needed for base_path helper
      */
     protected $basePath;
 
@@ -106,19 +104,15 @@ class PKPContainer extends Container
             Kernel::class
         );
 
-        $this->singleton('pkpJobQueue', function ($app) {
-            return new PKPQueueProvider($app);
-        });
+        $this->singleton('pkpJobQueue', fn ($app) => new PKPQueueProvider($app));
 
         $this->singleton(
             'queue.failer',
-            function ($app) {
-                return new DatabaseFailedJobProvider(
-                    $app['db'],
-                    config('queue.failed.database'),
-                    config('queue.failed.table')
-                );
-            }
+            fn ($app) => new DatabaseFailedJobProvider(
+                $app['db'],
+                config('queue.failed.database'),
+                config('queue.failed.table')
+            )
         );
 
         $this->app->singleton('request', fn ($app) => \Illuminate\Http\Request::createFromGlobals());
@@ -143,6 +137,8 @@ class PKPContainer extends Container
         // Load main settings, this should be done before registering services, e.g., it's used by Database Service
         $this->loadConfiguration();
 
+        $this->register(new AppServiceProvider($this));
+        $this->register(new \PKP\core\PKPEncryptionServiceProvider($this));
         $this->register(new \PKP\core\PKPAuthServiceProvider($this));
         $this->register(new \Illuminate\Cookie\CookieServiceProvider($this));
         $this->register(new \PKP\core\PKPSessionServiceProvider($this));
@@ -157,7 +153,6 @@ class PKPContainer extends Container
         $this->register(new \Illuminate\Bus\BusServiceProvider($this));
         $this->register(new PKPQueueProvider($this));
         $this->register(new MailServiceProvider($this));
-        $this->register(new AppServiceProvider($this));
         $this->register(new LocaleServiceProvider($this));
         $this->register(new PKPRoutingProvider($this));
         $this->register(new InvitationServiceProvider($this));
@@ -322,7 +317,12 @@ class PKPContainer extends Container
     protected function loadConfiguration()
     {
         $items = [];
-        $_request = PKPApplication::get()->getRequest();
+        $_request = Application::get()->getRequest();
+
+        $items['app'] = [
+            'key' => PKPAppKey::getKey(),
+            'cipher' => PKPAppKey::getCipher(),
+        ];
 
         // Database connection
         $driver = 'mysql';
@@ -368,7 +368,7 @@ class PKPContainer extends Container
             'table' => 'sessions',
             'cookie' => Config::getVar('general', 'session_cookie_name'),
             'path' => Config::getVar('general', 'session_cookie_path', $_request->getBasePath() . '/'),
-            'domain' => $_request->getServerHost(includePort: false),
+            'domain' => $_request->getServerHost(false, false) ?: 'localhost', // FIXME: Do not store default early in bootstrap
             'secure' => Config::getVar('security', 'force_ssl', false),
             'lifetime' => Config::getVar('general', 'session_lifetime', 30) * 24 * 60, // lifetime need to set in minutes
             'lottery' => [2, 100],
@@ -376,7 +376,7 @@ class PKPContainer extends Container
             'same_site' => Config::getVar('general', 'session_samesite', 'lax'),
             'partitioned' => false,
             'encrypt' => false,
-            'cookie_encryption_key' => Config::getVar('general', 'session_cookie_encryption_key', ''),
+            'cookie_encryption' => Config::getVar('security', 'cookie_encryption'),
         ];
 
 
@@ -540,7 +540,7 @@ class PKPContainer extends Container
      */
     public function isDownForMaintenance()
     {
-        return PKPApplication::isUnderMaintenance();
+        return Application::isUnderMaintenance();
     }
 }
 

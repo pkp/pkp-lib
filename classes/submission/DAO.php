@@ -25,7 +25,6 @@ use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\db\DAORegistry;
 use PKP\log\event\EventLogEntry;
-use PKP\log\SubmissionEmailLogDAO;
 use PKP\note\NoteDAO;
 use PKP\notification\NotificationDAO;
 use PKP\query\QueryDAO;
@@ -246,7 +245,7 @@ class DAO extends EntityDAO
     /**
      * @copydoc \PKP\core\EntityDAO::deleteById()
      */
-    public function deleteById(int $id)
+    public function deleteById(int $id): int
     {
         $submission = Repo::submission()->get($id);
 
@@ -303,9 +302,8 @@ class DAO extends EntityDAO
                 Repo::eventLog()->delete($logEntry);
             });
 
-        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-        $submissionEmailLogDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
+        Repo::emailLogEntry()->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
 
-        parent::deleteById($id);
+        return parent::deleteById($id);
     }
 }

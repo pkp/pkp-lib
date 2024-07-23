@@ -23,7 +23,6 @@ use PKP\context\SubEditorsDAO;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileDAO;
-use PKP\log\SubmissionEmailLogDAO;
 use PKP\note\NoteDAO;
 use PKP\notification\NotificationDAO;
 use PKP\plugins\Hook;
@@ -346,8 +345,7 @@ class Repository
             Repo::reviewAssignment()->edit($reviewAssignment, ['reviewerId' => $newUserId]);
         }
 
-        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-        $submissionEmailLogDao->changeUser($oldUserId, $newUserId);
+        Repo::emailLogEntry()->changeUser($oldUserId, $newUserId);
         Repo::eventLog()->dao->changeUser($oldUserId, $newUserId);
 
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /** @var SubmissionCommentDAO $submissionCommentDao */

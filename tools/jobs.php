@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * @file tools/jobs.php
  *
@@ -21,14 +19,14 @@ namespace PKP\tools;
 use APP\core\Application;
 use APP\facades\Repo;
 use Carbon\Carbon;
-use Illuminate\Console\Concerns\InteractsWithIO;
-use Illuminate\Console\OutputStyle;
 use Illuminate\Contracts\Queue\Job;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
 use Illuminate\Queue\Events\JobProcessing;
 use PKP\cliTool\CommandLineTool;
+use PKP\cliTool\traits\HasCommandInterface;
+use PKP\cliTool\traits\HasParameterList;
 use PKP\config\Config;
 use PKP\job\models\Job as PKPJobModel;
 use PKP\jobs\testJobs\TestJobFailure;
@@ -36,44 +34,18 @@ use PKP\jobs\testJobs\TestJobSuccess;
 use PKP\queue\WorkerConfiguration;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Exception\InvalidArgumentException as CommandInvalidArgumentException;
-use Symfony\Component\Console\Helper\Helper;
 use Symfony\Component\Console\Helper\TableCell;
 use Symfony\Component\Console\Helper\TableCellStyle;
-use Symfony\Component\Console\Input\StringInput;
-use Symfony\Component\Console\Output\StreamOutput;
 use Throwable;
 
 define('APP_ROOT', dirname(__FILE__, 4));
 require_once APP_ROOT . '/tools/bootstrap.php';
 
-class commandInterface
-{
-    use InteractsWithIO;
-
-    public function __construct()
-    {
-        $output = new OutputStyle(
-            new StringInput(''),
-            new StreamOutput(fopen('php://stdout', 'w'))
-        );
-
-        $this->setOutput($output);
-    }
-
-    public function errorBlock(array $messages = [], ?string $title = null): void
-    {
-        $this->getOutput()->block(
-            $messages,
-            $title,
-            'fg=white;bg=red',
-            ' ',
-            true
-        );
-    }
-}
-
 class commandJobs extends CommandLineTool
 {
+    use HasParameterList;
+    use HasCommandInterface;
+    
     protected const AVAILABLE_OPTIONS = [
         'list'      => 'admin.cli.tool.jobs.available.options.list.description',
         'purge'     => 'admin.cli.tool.jobs.available.options.purge.description',
@@ -97,16 +69,6 @@ class commandJobs extends CommandLineTool
     protected $option = null;
 
     /**
-     * @var null|array Parameters and arguments from CLI
-     */
-    protected $parameterList = null;
-
-    /**
-     * CLI interface, this object should extends InteractsWithIO
-     */
-    protected $commandInterface = null;
-
-    /**
      * Constructor
      */
     public function __construct($argv = [])
@@ -126,68 +88,7 @@ class commandJobs extends CommandLineTool
 
         $this->option = $this->getParameterList()[0];
 
-        $this->setCommandInterface(new commandInterface());
-    }
-
-    public function setCommandInterface(commandInterface $commandInterface): self
-    {
-        $this->commandInterface = $commandInterface;
-
-        return $this;
-    }
-
-    public function getCommandInterface(): commandInterface
-    {
-        return $this->commandInterface;
-    }
-
-    /**
-     * Save the parameter list passed on CLI
-     *
-     * @param array $items Array with parameters and arguments passed on CLI
-     *
-     */
-    public function setParameterList(array $items): self
-    {
-        $parameters = [];
-
-        foreach ($items as $param) {
-            if (strpos($param, '=')) {
-                [$key, $value] = explode('=', ltrim($param, '-'));
-                $parameters[$key] = $value;
-
-                continue;
-            }
-
-            $parameters[] = $param;
-        }
-
-        $this->parameterList = $parameters;
-
-        return $this;
-    }
-
-    /**
-     * Get the parameter list passed on CLI
-     *
-     */
-    public function getParameterList(): ?array
-    {
-        return $this->parameterList;
-    }
-
-    /**
-     * Get the value of a specific parameter
-     *
-     *
-     */
-    protected function getParameterValue(string $parameter, mixed $default = null): mixed
-    {
-        if (!isset($this->getParameterList()[$parameter])) {
-            return $default;
-        }
-
-        return $this->getParameterList()[$parameter];
+        $this->setCommandInterface();
     }
 
     /**
@@ -199,7 +100,7 @@ class commandJobs extends CommandLineTool
         $this->getCommandInterface()->line(__('admin.cli.tool.usage.parameters') . PHP_EOL);
         $this->getCommandInterface()->line('<comment>' . __('admin.cli.tool.available.commands', ['namespace' => 'jobs']) . '</comment>');
 
-        $this->printUsage(self::AVAILABLE_OPTIONS);
+        $this->printCommandList(self::AVAILABLE_OPTIONS);
     }
 
     /**
@@ -208,20 +109,6 @@ class commandJobs extends CommandLineTool
     public function help(): void
     {
         $this->usage();
-    }
-
-    /**
-     * Retrieve the columnWidth based on the commands text size
-     */
-    protected function getColumnWidth(array $commands): int
-    {
-        $widths = [];
-
-        foreach ($commands as $command) {
-            $widths[] = Helper::width($command);
-        }
-
-        return $widths ? max($widths) + 2 : 0;
     }
 
     /**
@@ -632,27 +519,7 @@ class commandJobs extends CommandLineTool
             '--test' => __('admin.cli.tool.jobs.work.option.test.description'),
         ];
 
-        $this->printUsage($options, false);
-    }
-
-    /**
-     * Print given options in a pretty way.
-     */
-    protected function printUsage(array $options, bool $shouldTranslate = true): void
-    {
-        $width = $this->getColumnWidth(array_keys($options));
-
-        foreach ($options as $commandName => $description) {
-            $spacingWidth = $width - Helper::width($commandName);
-            $this->getCommandInterface()->line(
-                sprintf(
-                    '  <info>%s</info>%s%s',
-                    $commandName,
-                    str_repeat(' ', $spacingWidth),
-                    $shouldTranslate ? __($description) : $description
-                )
-            );
-        }
+        $this->printCommandList($options, false);
     }
 
     /**
@@ -697,7 +564,7 @@ try {
     $tool = new commandJobs($argv ?? []);
     $tool->execute();
 } catch (Throwable $e) {
-    $output = new commandInterface();
+    $output = new \PKP\cliTool\CommandInterface;
 
     if ($e instanceof CommandInvalidArgumentException) {
         $output->errorBlock([$e->getMessage()]);

@@ -100,6 +100,9 @@ class Schema extends \PKP\core\maps\Schema
                 case 'fullName':
                     $output[$prop] = $item->getFullName();
                     break;
+                case 'hasVerifiedOrcid':
+                    $output[$prop] = $item->hasVerifiedOrcid();
+                    break;
                 default:
                     $output[$prop] = $item->getData($prop);
                     break;

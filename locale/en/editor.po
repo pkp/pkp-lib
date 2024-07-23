@@ -459,11 +459,6 @@ msgstr "Search submissions, ID, authors, keywords, etc."
 msgid "editor.submission.days"
 msgstr "Days"
 
-msgid "editor.submission.daysInStage"
-msgstr "Days in Stage"
-
-msgid "editor.submission.viewSummary"
-msgstr "Summary"
 
 msgid "editor.article.reviewForms"
 msgstr "Review Forms"

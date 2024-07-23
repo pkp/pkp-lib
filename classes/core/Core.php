@@ -22,8 +22,7 @@
 namespace PKP\core;
 
 use Exception;
-use PKP\cache\CacheManager;
-use PKP\cache\FileCache;
+use Illuminate\Support\Facades\Cache;
 use PKP\config\Config;
 use PKP\facades\Locale;
 use SplFileInfo;
@@ -33,15 +32,10 @@ define('COUNTER_USER_AGENTS_FILE', Core::getBaseDir() . '/' . PKP_LIB_PATH . '/l
 
 class Core
 {
-    /** @var array The regular expressions that will find a bot user agent */
-    public static $botRegexps = [];
-
     /**
      * Get the path to the base installation directory.
-     *
-     * @return string
      */
-    public static function getBaseDir()
+    public static function getBaseDir(): string
     {
         static $baseDir;
         return $baseDir ??= dirname(INDEX_FILE_LOCATION);
@@ -50,12 +44,8 @@ class Core
     /**
      * Sanitize a value to be used in a file path.
      * Removes any characters except alphanumeric characters, underscores, and dashes.
-     *
-     * @param string $var
-     *
-     * @return string
      */
-    public static function cleanFileVar($var)
+    public static function cleanFileVar(string $var): string
     {
         return cleanFileVar($var);
     }
@@ -64,20 +54,16 @@ class Core
      * Return the current date in ISO (YYYY-MM-DD HH:MM:SS) format.
      *
      * @param int $ts optional, use specified timestamp instead of current time
-     *
-     * @return string
      */
-    public static function getCurrentDate($ts = null)
+    public static function getCurrentDate(?int $ts = null): string
     {
         return date('Y-m-d H:i:s', $ts ?? time());
     }
 
     /**
      * Return *nix timestamp with microseconds (in units of seconds).
-     *
-     * @return float
      */
-    public static function microtime()
+    public static function microtime(): float
     {
         [$usec, $sec] = explode(' ', microtime());
         return (float)$sec + (float)$usec;
@@ -85,52 +71,43 @@ class Core
 
     /**
      * Check if the server platform is Windows.
-     *
-     * @return bool
      */
-    public static function isWindows()
+    public static function isWindows(): bool
     {
-        return strtolower_codesafe(substr(PHP_OS, 0, 3)) == 'win';
-    }
-
-    /**
-     * Checks to see if a PHP module is enabled.
-     *
-     * @param string $moduleName
-     *
-     * @return bool
-     */
-    public static function checkGeneralPHPModule($moduleName)
-    {
-        if (extension_loaded($moduleName)) {
-            return true;
-        }
-        return false;
+        return strtolower(substr(PHP_OS, 0, 3)) == 'win';
     }
 
     /**
      * Check the passed user agent for a bot.
      *
-     * @param string $userAgent
-     * @param string $botRegexpsFile An alternative file with regular
-     * expressions to find bots inside user agent strings.
-     *
-     * @return bool
+     * @param $botRegexpsFile An alternative file with regular expressions to find bots inside user agent strings.
      */
-    public static function isUserAgentBot($userAgent, $botRegexpsFile = COUNTER_USER_AGENTS_FILE)
+    public static function isUserAgentBot(string $userAgent, string $botRegexpsFile = COUNTER_USER_AGENTS_FILE): bool
     {
-        static $botRegexps;
-        Registry::set('currentUserAgentsFile', $botRegexpsFile);
+        $botRegexps = Cache::remember('botUserAgents-' . md5($botRegexpsFile), 24 * 60 * 60, function () use ($botRegexpsFile) {
+            $filteredBotRegexps = array_filter(
+                file($botRegexpsFile),
+                function ($regexp) {
+                    $regexp = trim($regexp);
+                    return !empty($regexp) && $regexp[0] != '#';
+                }
+            );
+            $botRegexps = array_map(
+                function ($regexp) {
+                    $delimiter = '/';
+                    $regexp = trim($regexp);
+                    if (strpos($regexp, $delimiter) !== 0) {
+                        // Make sure delimiters are in place.
+                        $regexp = $delimiter . $regexp . $delimiter;
+                    }
+                    return $regexp;
+                },
+                $filteredBotRegexps
+            );
+            return $botRegexps;
+        });
 
-        if (!isset($botRegexps[$botRegexpsFile])) {
-            $botFileCacheId = md5($botRegexpsFile);
-            $cacheManager = CacheManager::getManager();
-            /** @var FileCache */
-            $cache = $cacheManager->getCache('core', $botFileCacheId, Core::_botFileListCacheMiss(...), CACHE_TYPE_FILE);
-            $botRegexps[$botRegexpsFile] = $cache->getContents();
-        }
-
-        foreach ($botRegexps[$botRegexpsFile] as $regexp) {
+        foreach ($botRegexps as $regexp) {
             // make the search case insensitive
             $regexp .= 'ui';
             if (preg_match($regexp, $userAgent)) {
@@ -160,7 +137,7 @@ class Core
     public static function getLocalization(string $urlInfo): string
     {
         $locale = self::_getUrlComponents($urlInfo, 0);
-        return Locale::isLocaleValid($locale) ? $locale : "";
+        return Locale::isLocaleValid($locale) ? $locale : '';
     }
 
     /**
@@ -207,17 +184,15 @@ class Core
      * Also, if true, checks for the context path in
      * url and if it's missing, tries to add it.
      *
-     * @param string $url
      *
-     * @return string|bool The url without base url,
-     * false if it was not possible to remove it.
+     * @return string|null The url without base url, null if it was not possible to remove it.
      */
-    public static function removeBaseUrl($url)
+    public static function removeBaseUrl(string $url): ?string
     {
         [$baseUrl, $contextPath] = Core::_getBaseUrlAndPath($url);
 
         if (!$baseUrl) {
-            return false;
+            return null;
         }
 
         // Remove base url from url, if any.
@@ -266,11 +241,9 @@ class Core
      * is set to use base url override, context
      * path for the passed url.
      *
-     * @param string $url
-     *
-     * @return array With two elements, base url and context path.
+     * @return Array with two elements, base url and context path.
      */
-    protected static function _getBaseUrlAndPath($url)
+    protected static function _getBaseUrlAndPath(string $url): array
     {
         $baseUrl = false;
         $contextPath = false;
@@ -341,14 +314,10 @@ class Core
      * full url (host plus path) or just the path,
      * but they have to be consistent.
      *
-     * @param string $baseUrl Full base url
-     * or just it's path info.
-     * @param string $url Full url or just it's
-     * path info.
-     *
-     * @return ?bool
+     * @param string $baseUrl Full base url or just its path info.
+     * @param string $url Full url or just its path info.
      */
-    protected static function _checkBaseUrl($baseUrl, $url)
+    protected static function _checkBaseUrl(string $baseUrl, string $url): ?bool
     {
         // Check if both base url and url have host
         // component or not.
@@ -358,7 +327,7 @@ class Core
             return false;
         }
 
-        $contextBaseUrls = &Config::getContextBaseUrls();
+        $contextBaseUrls = Config::getContextBaseUrls();
 
         // If the base url is found inside the passed url,
         // then we might found the right context path.
@@ -387,40 +356,6 @@ class Core
         }
 
         return false;
-    }
-
-    /**
-     * Bot list file cache miss fallback.
-     * (WARNING: This function appears to be used externally, hence public despite _ prefix.)
-     *
-     * @param FileCache $cache
-     *
-     * @return array
-     */
-    public static function _botFileListCacheMiss($cache)
-    {
-        $id = $cache->getCacheId();
-        $filteredBotRegexps = array_filter(
-            file(Registry::get('currentUserAgentsFile')),
-            function ($regexp) {
-                $regexp = trim($regexp);
-                return !empty($regexp) && $regexp[0] != '#';
-            }
-        );
-        $botRegexps = array_map(
-            function ($regexp) {
-                $delimiter = '/';
-                $regexp = trim($regexp);
-                if (strpos($regexp, $delimiter) !== 0) {
-                    // Make sure delimiters are in place.
-                    $regexp = $delimiter . $regexp . $delimiter;
-                }
-                return $regexp;
-            },
-            $filteredBotRegexps
-        );
-        $cache->setEntireCache($botRegexps);
-        return $botRegexps;
     }
 
     /**

@@ -196,7 +196,7 @@ class ReviewerGridRow extends GridRow
                         new RedirectConfirmationModal(
                             __('grid.user.confirmLogInAs'),
                             __('grid.action.logInAs'),
-                            $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'signInAsUser', $reviewAssignment->getReviewerId())
+                            $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'signInAsUser', [$reviewAssignment->getReviewerId()])
                         ),
                         __('grid.action.logInAs'),
                         'enroll_user'

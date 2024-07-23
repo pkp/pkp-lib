@@ -3,13 +3,11 @@
 /**
  * @file classes/site/VersionDAO.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class VersionDAO
- *
- * @ingroup site
  *
  * @see Version
  *
@@ -120,7 +118,7 @@ class VersionDAO extends \PKP\db\DAO
                     $this->update('UPDATE versions SET current = 0 WHERE current = 1 AND product = ?', [$version->getProduct()]);
                 } else {
                     // We do not support downgrades.
-                    fatalError('You are trying to downgrade the product "' . $version->getProduct() . '" from version [' . $oldVersion->getVersionString(false) . '] to version [' . $version->getVersionString(false) . ']. Downgrades are not supported.');
+                    throw new \Exception('You are trying to downgrade the product "' . $version->getProduct() . '" from version [' . $oldVersion->getVersionString(false) . '] to version [' . $version->getVersionString(false) . ']. Downgrades are not supported.');
                 }
             }
         }

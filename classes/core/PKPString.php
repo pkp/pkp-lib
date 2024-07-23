@@ -17,9 +17,9 @@
 
 namespace PKP\core;
 
+use HTMLPurifier;
+use HTMLPurifier_Config;
 use PKP\config\Config;
-use Symfony\Component\HtmlSanitizer\HtmlSanitizer;
-use Symfony\Component\HtmlSanitizer\HtmlSanitizerConfig;
 
 class PKPString
 {
@@ -32,7 +32,7 @@ class PKPString
     /**
      * Perform initialization required for the string wrapper library.
      */
-    public static function initialize()
+    public static function initialize(): void
     {
         static $isInitialized;
         if (!$isInitialized) {
@@ -73,12 +73,9 @@ class PKPString
     /**
      * @see https://www.php.net/mime_content_type
      *
-     * @param string $filename Filename to test.
-     * @param string $suggestedExtension Suggested file extension (used for common misconfigurations)
-     *
-     * @return string Detected MIME type
+     * @param $suggestedExtension Suggested file extension (used for common misconfigurations)
      */
-    public static function mime_content_type($filename, $suggestedExtension = '')
+    public static function mime_content_type(string $filename, string $suggestedExtension = ''): string
     {
         $result = null;
 
@@ -127,12 +124,10 @@ class PKPString
     }
 
     /**
-     * @return string[]
-     *
      * @brief overrides for ambiguous mime types returned by finfo
      * SUGGESTED_EXTENSION:DETECTED_MIME_TYPE => OVERRIDE_MIME_TYPE
      */
-    public static function getAmbiguousExtensionsMap()
+    public static function getAmbiguousExtensionsMap(): array
     {
         return [
             'html:text/xml' => 'text/html',
@@ -168,15 +163,16 @@ class PKPString
             return '';
         }
 
-        static $caches;
-    
-        if (!isset($caches[$configKey])) {
-            $caches[$configKey] = new \PKP\core\PKPHtmlSanitizer(
-                Config::getVar('security', $configKey)
-            );
+        static $purifier;
+        if (!isset($purifier)) {
+            $config = HTMLPurifier_Config::createDefault();
+            $config->set('Core.Encoding', 'utf-8');
+            $config->set('HTML.Doctype', 'HTML 4.01 Transitional');
+            $config->set('HTML.Allowed', Config::getVar('security', $configKey));
+            $config->set('Cache.SerializerPath', 'cache');
+            $purifier = new HTMLPurifier($config);
         }
-    
-        return $caches[$configKey]->sanitize($input);
+        return $purifier->purify((string) $input);
     }
 
     /**
@@ -184,9 +180,8 @@ class PKPString
      *
      * @param string $html
      *
-     * @return string
      */
-    public static function html2text($html)
+    public static function html2text($html): string
     {
         $html = preg_replace('/<[\/]?p>/u', "\n", $html);
         $html = preg_replace('/<li>/u', '&bull; ', $html);
@@ -199,12 +194,8 @@ class PKPString
     /**
      * Joins two title string fragments (in $fields) either with a
      * space or a colon.
-     *
-     * @param array $fields
-     *
-     * @return string the joined string
      */
-    public static function concatTitleFields($fields)
+    public static function concatTitleFields(array $fields): string
     {
         // Set the characters that will avoid the use of
         // a semicolon between title and subtitle.
@@ -224,57 +215,46 @@ class PKPString
     }
 
     /**
-     * Transform "handler-class" to "HandlerClass"
-     * and "my-op" to "myOp".
-     *
-     * @param string $string input string
-     * @param int $type which kind of camel case?
-     *
-     * @return string the string in camel case
+     * Transform "handler-class" to "HandlerClass" and "my-op" to "myOp".
      */
-    public static function camelize($string, $type = self::CAMEL_CASE_HEAD_UP)
+    public static function camelize(string $string, int $type = self::CAMEL_CASE_HEAD_UP): string
     {
         assert($type == static::CAMEL_CASE_HEAD_UP || $type == static::CAMEL_CASE_HEAD_DOWN);
 
         // Transform "handler-class" to "HandlerClass" and "my-op" to "MyOp"
-        $string = implode(array_map('ucfirst_codesafe', explode('-', $string)));
+        $string = implode(array_map(ucfirst(...), explode('-', $string)));
 
-        // Transform "MyOp" to "myOp"
-        if ($type == static::CAMEL_CASE_HEAD_DOWN) {
-            $string = strtolower_codesafe(substr($string, 0, 1)) . substr($string, 1);
+        switch ($type) {
+            case static::CAMEL_CASE_HEAD_DOWN:
+                // Transform "MyOp" to "myOp"
+                $string = strtolower(substr($string, 0, 1)) . substr($string, 1);
+                break;
+            case self::CAMEL_CASE_HEAD_UP:
+                break;
+            default: throw new \Exception('Invalid camelization type specified!');
         }
 
         return $string;
     }
 
     /**
-     * Transform "HandlerClass" to "handler-class"
-     * and "myOp" to "my-op".
-     *
-     * @param string $string
-     *
-     * @return string
+     * Transform "HandlerClass" to "handler-class" and "myOp" to "my-op".
      */
-    public static function uncamelize($string)
+    public static function uncamelize(string $string): string
     {
-        assert(!empty($string));
-
         // Transform "myOp" to "MyOp"
-        $string = ucfirst_codesafe($string);
+        $string = ucfirst($string);
 
         // Insert hyphens between words and return the string in lowercase
         $words = [];
         preg_match_all('/[A-Z][a-z0-9]*/u', $string, $words);
-        assert(isset($words[0]) && !empty($words[0]) && strlen(implode('', $words[0])) == strlen($string));
-        return strtolower_codesafe(implode('-', $words[0]));
+        return strtolower(implode('-', $words[0]));
     }
 
     /**
      * Create a new UUID (version 4)
-     *
-     * @return string
      */
-    public static function generateUUID()
+    public static function generateUUID(): string
     {
         $charid = strtoupper(md5(uniqid(random_int(0, PHP_INT_MAX), true)));
         $hyphen = '-';
@@ -322,7 +302,7 @@ class PKPString
         // We don't expect date/time formats to contain other uses of %.
         if (strstr($format, '%')) {
             if (Config::getVar('debug', 'deprecation_warnings')) {
-                trigger_error('Deprecated use of strftime-based date format.');
+                throw new \Exception('Deprecated use of strftime-based date format.');
             }
             $format = strtr($format, self::getStrftimeConversion());
         }
@@ -330,14 +310,9 @@ class PKPString
     }
 
     /**
-     * Matches each symbol of PHP date format string
-     * to jQuery Datepicker widget date format.
-     *
-     * @param string $phpFormat
-     *
-     * @return string
+     * Matches each symbol of PHP date format string to jQuery Datepicker widget date format.
      */
-    public static function dateformatPHP2JQueryDatepicker($phpFormat)
+    public static function dateformatPHP2JQueryDatepicker(string $phpFormat): string
     {
         return str_replace(
             ['d',  'j', 'l',  'm',  'n', 'F',  'Y'],

@@ -36,10 +36,8 @@ class InterestEntryDAO extends ControlledVocabEntryDAO
 
     /**
      * Get the list of non-localized additional fields to store.
-     *
-     * @return array
      */
-    public function getAdditionalFieldNames()
+    public function getAdditionalFieldNames(): array
     {
         return ['interest'];
     }

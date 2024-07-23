@@ -1,0 +1,82 @@
+# Murari P Tapaswi <tapaswimurari@gmail.com>, 2024.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-07-01 08:40+0000\n"
+"Last-Translator: Murari P Tapaswi <tapaswimurari@gmail.com>\n"
+"Language-Team: Marathi <http://translate.pkp.sfu.ca/projects/pkp-lib/reader/"
+"mr/>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
+
+msgid "comments.body"
+msgstr "लेखाचा मुख्य भाग"
+
+msgid "comments.titleRequired"
+msgstr "टिप्पणीला शीर्षक असणे बंधनकारक आहे."
+
+msgid "comments.confirmDeleteChildren"
+msgstr ""
+"ही टिप्पणी वगळली तर त्यावर केलेले प्रतिवाद देखील हटवले जातील. तुमची खात्री "
+"आहे का की तुम्ही हे करू इच्छिता?"
+
+msgid "comments.delete"
+msgstr "ही टिप्पणी वगळा"
+
+msgid "comments.email"
+msgstr "संदेश पाठवणार्‍याचा ई-मेल"
+
+msgid "comments.emailReply"
+msgstr "ई-मेलला उत्तर"
+
+msgid "comments.enterComment"
+msgstr "टिप्पणीची नोंद करा"
+
+msgid "comments.inResponseTo"
+msgstr "<a href=\"{$url}\">{$title}</a> च्या प्रतिसादात"
+
+#, fuzzy
+msgid "comments.name"
+msgstr "संदेश पाठवणार्‍याचे नाव"
+
+msgid "comments.noComments"
+msgstr "वाचकांच्या टिप्पण्या अद्याप नोंदवलेल्या नाहीत."
+
+msgid "comments.nReplies"
+msgstr "({$num} प्रत्युत्तरे)"
+
+msgid "comments.oneReply"
+msgstr "(1 प्रत्युत्तर)"
+
+msgid "comments.postAnonymously"
+msgstr "या टिप्पणीची नोंद निनावी करावी"
+
+msgid "comments.postReply"
+msgstr "प्रत्युत्तराची नोंद करा"
+
+msgid "comments.readerComments"
+msgstr "वाचकांच्या टिप्पण्या"
+
+msgid "comments.readMore"
+msgstr "पुढे वाचा"
+
+msgid "comments.replies"
+msgstr "प्रत्युत्तरे"
+
+msgid "comments.title"
+msgstr "शीर्षक"
+
+msgid "comments.viewAllComments"
+msgstr "सर्व टिप्पण्या पहा"
+
+msgid "reader.fullText"
+msgstr "संपूर्ण मजकूर :"
+
+msgid "comments.anonymousNamed"
+msgstr "वापरकर्त्याचे नाव \"{$userName}\""
+
+msgid "comments.anonymous"
+msgstr "निनावी वापरकर्ता"

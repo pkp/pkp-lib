@@ -542,3 +542,256 @@ msgstr "Brugernavn eller e-mail"
 
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Adgang til workflow'et for ufærdige indsendelser er begrænset."
+
+msgid "orcid.displayName"
+msgstr "ORCID profil-plugin"
+
+msgid "orcid.description"
+msgstr "Tillader import af brugerprofilinformationer fra ORCID."
+
+msgid "orcid.instructions"
+msgstr "Du kan udfylde denne formular på forhånd med information fra en ORCID-profil. Indsæt e-mailadressen eller ORCID-iD tilknyttet ORCID-profilen og klik 'Indsend'."
+
+msgid "orcid.noData"
+msgstr "Kunne ikke finde data fra ORCID."
+
+msgid "orcid.emailOrOrcid"
+msgstr "E-mailadresse eller ORCID-iD:"
+
+msgid "orcid.manager.orcidProfileSettings"
+msgstr "ORCID profilindstillinger"
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"Konfigurér ORCID API-adgangen så du kan trække ORCID-profiloplysninger ind i "
+"bruger- og forfatterprofiler og opdatere tilsluttede ORCID-registreringer "
+"med nye publikationer (kun for ORCID-medlemmer)."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Offentlig"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Offentlig sandbox"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Medlem"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Medlems-sandbox"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "Klient-ID"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Klienthemmelighed (Client Secret)"
+
+msgid "orcid.author.submission"
+msgstr "Indsendelses-ORCID"
+
+msgid "orcid.author.submission.success"
+msgstr "Din indsendelse blev forbundet med din ORCID-iD"
+
+msgid "orcid.author.submission.failure"
+msgstr "Din indsendelse kunne ikke forbindes med din ORCID iD. Kontakt tidsskriftschefen med oplysning om dit navn, ORCID og indsendelsesdetaljer."
+
+msgid "orcid.authFailure"
+msgstr "ORCID-autorisationslinket er allerede brugt eller er ugyldigt."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.connect"
+msgstr "Opret eller tilslut din ORCID iD"
+
+msgid "orcid.about.display"
+msgstr ""
+"For at anerkende, at du har brugt dit iD, og at det er godkendt, viser vi "
+"ORCID iD-ikonet <img src=\"https://info.orcid.org/wp-content/uploads/2020/12/"
+"ORCIDiD_icon16x16.png\" alt=\"iD icon\" width=\"16\" height=\"16\" border=\""
+"0\"> ved siden af dit navn på din indsendelses artikelside og på din "
+"offentlige brugerprofil. <br>\n"
+"  Lær mere i in <a href=\"https://info.orcid.org/"
+"how-should-an-orcid-id-be-displayed/\"> Hvordan skal en ORCID iD vises.</a>"
+
+msgid "orcid.about.display.title"
+msgstr "Hvor vises ORCID iD'er?"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"Dette tidsskrift indhenter dit ORCID iD, så vi kan være sikre på, at du er "
+"korrekt identificeret og forbundet med din(e) publikation(er). Dette vil "
+"sikre, at du tilknyttes din samlede værkproduktion gennem hele din karriere. "
+"<br> \n"
+" Når du klikker på knappen \"Godkend\" i ORCID-pop op-vinduet, vil vi bede "
+"dig om at dele dit iD via en godkendt proces - enten ved tilmelding til et "
+"ORCID iD eller, hvis du allerede har et, ved at logge ind på din ORCID-konto "
+"og give os tilladelse til at få din ORCID iD. Vi gør dette for at sikre, at "
+"du er korrekt identificeret og sikkert knyttet til din ORCID iD.<br>\n"
+"Lær mere i <a href=\"https://info.orcid.org/"
+"whats-so-special-about-signing-in/\"> Hvad er så specielt ved at logge "
+"ind.</a><br>\n"
+"Dette tidsskrift samler og viser godkendte forfattere og medforfatteres "
+"iD'er på OJS-profilen og artikelsiden."
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Hvordan og hvorfor vi indsamler ORCID iD'er?"
+
+msgid "orcid.about.orcidExplanation"
+msgstr ""
+"ORCID er en uafhængig nonprofit organisation, der leverer en persistent "
+"identifikator - et ORCID iD - der kan skelne dig fra andre forskere og en "
+"teknik til at knytte dine forskningsresultater og aktiviteter til din iD. "
+"ORCID er integreret i mange systemer, der bruges af udgivere, sponsorer, "
+"institutioner og andre forskningsrelaterede tjenester. Lær mere på <a href=\""
+"https://orcid.org\"> orcid.org </a>."
+
+msgid "orcid.about.title"
+msgstr "Hvad er ORCID?"
+
+msgid "orcid.authorise"
+msgstr "Godkend og tilslut dit ORCID iD"
+
+msgid "orcid.failure.contact"
+msgstr ""
+"Kontakt tidsskrifschefen med dit navn, ORCID iD og detaljerede oplysninger "
+"om din indsendelse."
+
+msgid "orcid.verify.denied"
+msgstr "Du er blevet nægtet adgang til din ORCID-optegnelse."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "En ORCID iD blev allerede gemt i forbindelse med denne indsendelse."
+
+msgid "orcid.verify.failure"
+msgstr "Din ORCID iD kunne ikke verificeres. Linket er ikke længere gyldigt."
+
+msgid "orcid.verify.success"
+msgstr "Din ORCID iD er verificeret og blevet tilknyttet indsendelsen."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "Indsendelsen føjes til din ORCID-optegnelse under publiceringen."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "Indsendelsen kunne ikke føjes til din ORCID-optegnelse."
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Indsendelsen er føjet til din ORCID-optegnelse."
+
+msgid "orcid.verify.title"
+msgstr "ORCID-godkendelse"
+
+msgid "orcid.author.unauthenticated"
+msgstr "ORCID iD ikke godkendt! Anmod om godkendelse fra bidragyderen."
+
+msgid "orcid.author.accessDenied"
+msgstr "ORCID-adgang blev nægtet kl."
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Se nedenfor for at anmode om godkendt ORCID iD"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Slet ORCID iD og access token!"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Send e-mail for at anmode om ORCID-godkendelse fra bidragyderen"
+
+msgid "orcid.author.accessTokenStored"
+msgstr ""
+"ORCID log-adgang tildelt med følgende omfang {$orcidAccessScope}, gyldig "
+"indtil"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Alt"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Fejl"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Vælg mængden af dataindsamling (logging output) skrevet af pluginen"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "ORCID-anmodningslog"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Send e-mail for at anmode om ORCID-autorisation fra forfattere, når en "
+"artikel accepteres, dvs. bliver sendt til manuskriptredigering"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "E-mail-indstillinger"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Profils adgangsområde"
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr ""
+"ORCID API blev konfigureret globalt af værten. Følgende "
+"legitimationsoplysninger er blevet gemt."
+
+msgid "orcid.manager.settings.hidden"
+msgstr "skjult"
+
+msgid "orcid.manager.settings.title"
+msgstr "ORCID API indstillinger"
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"Dette tidsskrift indhenter din ORCID iD, så vi kan være sikre på, at du er "
+"korrekt identificeret og knyttet til din(e) publikation(er). Dette vil "
+"sikre, at du linkes til din samlede værkproduktion gennem hele din karriere. "
+"<br>\n"
+" Når du klikker på knappen \"Godkend\" i ORCID-pop op-vinduet, beder vi dig "
+"om at dele din iD ved hjælp af en godkendt proces - enten ved at tilmelde "
+"dig en ORCID iD eller, hvis du allerede har en, ved at logge ind på din "
+"ORCID-konto og derefter give os tilladelse til at få din ORCID iD. Vi gør "
+"dette for at sikre, at du er korrekt identificeret og fået oprettet en "
+"sikker forbindelse til din ORCID iD. <br>\n"
+" Få flere oplysninger her<a href=\"https://info.orcid.org/"
+"whats-so-special-about-signing-in/\">Hvad er så specielt ved at logge ind. "
+"</a> <br>\n"
+" Dette tidsskrift samler og viser godkendte forfattere og medforfatteres "
+"iD'er på OJS-profilen og artikelsiden. Derudover vil artikelmetadata "
+"automatisk blive overført til din ORCID-post, så vi kan hjælpe dig med at "
+"holde din post opdateret med pålidelige oplysninger. Lær mere her: <a href=\""
+"https://info.orcid.org/six-ways-to-make-your-orcid-id-work-for-you/\">Seks "
+"måder at få din ORCID iD til at arbejde for dig!</a>\n"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Ugyldigt klient-kode (client secret)"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Ugyldigt klient-id"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Indstillinger gemt"
+
+msgid "orcid.manager.settings.city"
+msgstr "By"
+
+msgid "orcid.invalidClient"
+msgstr "Ugyldige legitimationsoplysninger"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Konfigureret per tidsskrift"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "Klient ID er gyldig"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "Klient ID er ugyldig, tjek venligst dit input"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Klient hemmelighed er gyldig"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr ""
+"Klient hemmelighed er ugyldig, tjek venligst dine legitimationsoplysninger"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Der er detekteret dubletter blandt de angivne ORCiD's for bidragyderne."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Der blev detekteret ikke-godkendte ORCiDs for nogle bidragydere."

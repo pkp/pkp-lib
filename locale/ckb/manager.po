@@ -3172,3 +3172,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "دەستەی بەڕێوەبردنی گۆڤار"
+
+msgid "plugins.importexport.common.validation"
+msgstr "وردبینی لە XML بکە پێش هەناردەکردن و تۆمارکردن."

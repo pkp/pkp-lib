@@ -3071,3 +3071,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr ""
+
+msgid "plugins.importexport.common.validation"
+msgstr ""

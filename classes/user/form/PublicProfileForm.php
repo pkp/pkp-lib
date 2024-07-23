@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\template\TemplateManager;
 use PKP\core\Core;
+use PKP\orcid\OrcidManager;
 use PKP\user\User;
 
 class PublicProfileForm extends BaseProfileForm
@@ -38,7 +39,6 @@ class PublicProfileForm extends BaseProfileForm
         parent::__construct('user/publicProfileForm.tpl', $user);
 
         // Validation checks for this form
-        $this->addCheck(new \PKP\form\validation\FormValidatorORCID($this, 'orcid', 'optional', 'user.orcid.orcidInvalid'));
         $this->addCheck(new \PKP\form\validation\FormValidatorUrl($this, 'userUrl', 'optional', 'user.profile.form.urlInvalid'));
     }
 
@@ -160,6 +160,26 @@ class PublicProfileForm extends BaseProfileForm
             'publicSiteFilesPath' => $publicFileManager->getSiteFilesPath(),
         ]);
 
+        // FIXME: ORCID validation/authorization requires a context so this should not appear at the
+        //        site level for the time-being
+        if ($request->getContext() !== null && OrcidManager::isEnabled()) {
+            $user = $request->getUser();
+            $targetOp = 'profile';
+            $templateMgr->assign([
+                'orcidEnabled' => true,
+                'targetOp' => $targetOp,
+                'orcidUrl' => OrcidManager::getOrcidUrl(),
+                'orcidOAuthUrl' => OrcidManager::buildOAuthUrl('authorizeOrcid', ['targetOp' => $targetOp]),
+                'orcidClientId' => OrcidManager::getClientId(),
+                'orcidIcon' => OrcidManager::getIcon(),
+                'orcidAuthenticated' => $user !== null && !empty($user->hasVerifiedOrcid()),
+            ]);
+        } else {
+            $templateMgr->assign([
+                'orcidEnabled' => false,
+            ]);
+        }
+
         return parent::fetch($request, $template, $display);
     }
 
@@ -171,7 +191,6 @@ class PublicProfileForm extends BaseProfileForm
         $request = Application::get()->getRequest();
         $user = $request->getUser();
 
-        $user->setOrcid($this->getData('orcid'));
         $user->setUrl($this->getData('userUrl'));
         $user->setBiography($this->getData('biography'), null); // Localized
 

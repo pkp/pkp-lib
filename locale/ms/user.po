@@ -516,3 +516,108 @@ msgstr ""
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+
+msgid "orcid.displayName"
+msgstr "Pemalam Profil ORCID"
+
+msgid "orcid.noData"
+msgstr "Tidak dapat mencari sebarang data daripada ORCID."
+
+msgid "orcid.emailOrOrcid"
+msgstr "Alamat e-mel atau iD ORCID:"
+
+msgid "orcid.manager.settings.title"
+msgstr "Tetapan API ORCID"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "tersembunyi"
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr ""
+"API ORCID telah dikonfigurasikan secara global oleh hos. Bukti kelayakan "
+"berikut telah disimpan."
+
+msgid "orcid.description"
+msgstr "Membenarkan pengimportan maklumat profil pengguna daripada ORCID."
+
+msgid "orcid.instructions"
+msgstr ""
+"Anda boleh praisi borang ini dengan maklumat daripada profil ORCID. Masukkan "
+"alamat e-mel atau ID ORCID yang digabungkan dengan profil ORCID, kemudian "
+"klik \"Serah\"."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "API ORCID"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Awam"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Perlindungan Awam"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Ahli"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Perlindungan Ahli"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "ID Pelanggan"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Rahsia Pelanggan"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Skop Capaian Profil"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Tetapan E-Mel"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Tetapan disimpan"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "Log permintaan ORCID"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Ralat"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Semua"
+
+msgid "orcid.manager.settings.city"
+msgstr "Bandar"
+
+msgid "orcid.author.accessDenied"
+msgstr "Capaian ORCID telah ditolak pada"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Hantar e-mel untuk meminta kebenaran ORCID daripada penyumbang"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Hapuskan ID ORCID dan token capaian!"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Lihat di bawah untuk meminta ID ORCID yang disahkan"
+
+msgid "orcid.author.unauthenticated"
+msgstr "ID ORCID tidak disahkan! Sila minta pengesahan daripada penyumbang."
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"Sila konfigurasikan akses API ORCID untuk digunakan dalam menarik maklumat "
+"profil ORCID ke dalam profil pengguna dan pengarang serta mengemas kini "
+"rekod ORCID yang disambungkan dengan penerbitan baharu (hanya untuk ahli "
+"ORCID)."
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Pilih jumlah output pengelogan yang ditulis oleh pemalam"
+
+msgid "orcid.author.accessTokenStored"
+msgstr ""
+"Capaian rekod ORCID diberikan dengan skop {$orcidAccessScope}, sah sehingga"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Hantar e-mel untuk meminta kebenaran ORCID daripada pengarang apabila "
+"artikel diterima iaitu dihantar untuk menyalin penyuntingan"

@@ -3734,3 +3734,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Tunnuslaatikko"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validoi XML ennen vientiä ja rekisteröintiä."

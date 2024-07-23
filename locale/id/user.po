@@ -530,3 +530,216 @@ msgstr "Password berhasil diubah. Silakan login dengan password baru."
 
 #~ msgid "user.register.completeForm"
 #~ msgstr "Isi form di bawah ini untuk mendaftar ke jurnal ini."
+
+msgid "orcid.author.accessDenied"
+msgstr "Akses ORCID ditolak pada"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Semua"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Galat"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Tentukan jumlah hasil log yang dihasilkan oleh plugin"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "Log permintaan ORCID"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Kirim surel untuk meminta otorisasi dari penulis jika satu artikel diterima, "
+"misalnya kirim ke copy editing"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Pengaturan Surel"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Batasan Akses Profil"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Rahasia Klien"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "ID Klien"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Sandbox Anggota"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Anggota"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Public Sandbox"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Publik"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "API ORCID"
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr ""
+"API ORCID diatur secara global oleh pemilik. Kredensial berikut sudah "
+"tersimpan."
+
+msgid "orcid.manager.settings.description"
+msgstr ""
+"Aturlah akses API ORCID terlebih dahulu untuk menarik data informasi profil "
+"ORCID ke dalam pengguna dan profil penulis serta memperbaharui catatan ORCID "
+"terkait dengan publikasi baru (khusus untuk Anggota ORCID)."
+
+msgid "orcid.manager.settings.hidden"
+msgstr "tersembunyi"
+
+msgid "orcid.manager.settings.title"
+msgstr "Pengaturan API ORCID"
+
+msgid "orcid.emailOrOrcid"
+msgstr "Alamat surel ata id ORCID:"
+
+msgid "orcid.noData"
+msgstr "Tidak menemukan data dari ORCID."
+
+msgid "orcid.instructions"
+msgstr ""
+"Anda dapat mengisi formulir ini dengan informasi dari profil ORCID. Masukkan "
+"alamat surel atau ORCID iD sesuai dengan profil ORCID, lalu klik \"Kirim\"."
+
+msgid "orcid.description"
+msgstr "Memungkinkan mengimpor informasi profil pengguna dari ORCID."
+
+msgid "orcid.displayName"
+msgstr "Plugin Profil ORCID"
+
+msgid "orcid.author.accessTokenStored"
+msgstr ""
+"Akses catatan ORCID diberikan terbatas pada {$orcidAccessScope}, valid hingga"
+
+msgid "orcid.about.display"
+msgstr ""
+"Untuk disetujui bahwa Anda sudah memiliki iD ORCID dan telah diotentikasi, "
+"kami menampilkan icon iD ORCID <img src=\"https://info.orcid.org/wp-content/"
+"uploads/2020/12/ORCIDiD_icon16x16.png\" alt=\"iD icon\" width=\"16\" height="
+"\"16\" border=\"0\"> di samping nama Anda pada halaman artikel naskah dan "
+"pada profil umum pengguna Anda.<br>\n"
+"\t\tPelajari lebih kanjut di <a href=\"https://info.orcid.org/"
+"how-should-an-orcid-id-be-displayed/\">Bagaimana tampilan iD ORCID yang "
+"seharusnya.</a>"
+
+msgid "orcid.about.display.title"
+msgstr "Di mana iD ORCID ditampilkan?"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"Jurnal ini mengumpulkan iD ORCID Anda sehingga kami bersama komunitas yakin "
+"bahwa Anda teridentifikasi dan terhubung dengan publikasi Anda. Hal ini akan "
+"memastikan Anda tetap terkoneksi ke karya lengkap Anda sepanjang karir. <br> "
+"\n"
+"\tBila Anda klik tombol “Beri Otorisasi” pada halaman popup ORCID, kami akan "
+"meminta Anda untuk membagikan iD Anda dengan menggunakan proses otentikasi: "
+"baik dengan mendaftar iD ORCID atau, jika sudah punya, dengan login ke akun "
+"ORCID Anda, lalu mengizinkan kami untuk mengambil iD ORCID Anda. Kami "
+"melakukan ini untuk memastikan bahwa Anda teridentifikasi dengan akurat dan "
+"terkoneksi dengan iD ORCID Anda dengan aman.<br>\n"
+"\tPelajari lebih lanjut <a href=\"https://info.orcid.org/"
+"whats-so-special-about-signing-in/\">Betapa istimewanya jika sign in.</a><br>"
+"\n"
+"Jurnal ini akan mengumpulkan dan menampilkan iD penulis dan rekan penulis "
+"yang terautentikasi di halaman profil dan artikel OJS."
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Bagaimana dan mengapa kami mengoleksi iD ORCID?"
+
+msgid "orcid.about.orcidExplanation"
+msgstr ""
+"ORCID adalah organisasi nirlaba independen yang menyediakan pengidentifikasi "
+"tetap - iD ORCID - yang membedakan Anda dari peneliti lain dan mekanisme "
+"untuk menghubungkan hasil dan aktivitas penelitian Anda ke iD Anda. ORCID "
+"terintegrasi dengan banyak sistem yang digunakan oleh penerbit, penyandang "
+"dana, lembaga, dan layanan yang terkait dengan penelitian lainnya. Pelajari "
+"lebih lanjut di <a href=\"https://orcid.org\"> orcid.org </a>."
+
+msgid "orcid.about.title"
+msgstr "Apa itu ORCID?"
+
+msgid "orcid.authorise"
+msgstr "Izinkan dan Hubungkan iD ORCID Anda"
+
+msgid "orcid.connect"
+msgstr "Buat atau hubungkan iD ORCID Anda"
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.failure.contact"
+msgstr ""
+"Hubungi manajer jurnal menggunakan nama, iD ORCID, dan rincian naskah Anda."
+
+msgid "orcid.authFailure"
+msgstr "Tautan otorisasi ORCID sudah digunakan atau tidak valid."
+
+msgid "orcid.verify.denied"
+msgstr "Anda menolak akses ke rekaman ORCID Anda."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "iD ORCID sudah disimpan untuk naskah ini."
+
+msgid "orcid.verify.failure"
+msgstr "iD ORCID ANda tidak bisa diverifikasi. Tautan tidak valid lagi."
+
+msgid "orcid.verify.success"
+msgstr ""
+"iD ORCID Anda telah diverifikasi dan berhasil dihubungkan dengan naskah."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "Naskah akan ditambahkan ke dalam rekaman ORCID Anda selama Publikasi."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "Naskah tidak bisa ditambahkan ke dalam rekaman ORCID Anda."
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Naskah telah dimasukkan ke rekaman ORCID anda."
+
+msgid "orcid.verify.title"
+msgstr "Otorisasi ORCID"
+
+msgid "orcid.author.unauthenticated"
+msgstr "iD ORCID tidak diotentikasi! Mintalah otentikasi dari kontributor."
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Perhatikan di bawah ini untuk meminta id ORCID otentik"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Hapus iD ORCID dan akses token!"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Kirim surel untuk meminta otorisasi ORCID dari kontributor"
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"Jurnal ini mengumpulkan iD ORCID Anda sehingga kami bersama komunitas yakin "
+"bahwa Anda teridentifikasi dan tersambung dengan publikasi Anda. Hal ini "
+"akan memastikan koneksi Anda ke seluruh karya Anda tetap bersama Anda "
+"sepanjang karier Anda.\n"
+"\tBila Anda klik tombol “Beri Otorisasi” pada halaman popup ORCID, kami akan "
+"meminta Anda untuk membagikan iD Anda dengan menggunakan proses otentikasi: "
+"baik dengan mendaftar iD ORCID atau, jika sudah punya, dengan login ke akun "
+"ORCID Anda, lalu mengizinkan kami untuk mengambil iD ORCID Anda. Kami "
+"melakukan ini untuk memastikan bahwa Anda teridentifikasi dengan akurat dan "
+"terkoneksi dengan iD ORCID Anda dengan aman.<br>\n"
+"\tPelajari lebih lanjut <a href=\"https://info.orcid.org/whats-so-special-"
+"about-signing-in\">Betapa istimewanya jika sign in.</a><br>\n"
+"Jurnal ini akan mengumpulkan dan menampilkan iD penulis dan rekan penulis "
+"yang diautentikasi di halaman profil dan artikel OJS. Selain itu, metadata "
+"artikel akan secara otomatis diimpor ke catatan ORCID Anda, memungkinkan "
+"kami untuk membantu Anda menjaga catatan Anda tetap mutakhir dengan "
+"informasi tepercaya.  Pelajari lebih lanjut <a href=\"https://info.orcid.org/"
+"six-ways-to-make-your-orcid-id-work-for-you\">Enam cara membuat iD ORCID "
+"Anda bekerja!</a>\n"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Client secret tidak valid"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Client ID Tidak Valid"

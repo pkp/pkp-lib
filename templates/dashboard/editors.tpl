@@ -10,5 +10,5 @@
 {extends file="layouts/backend.tpl"}
 
 {block name="page"}
-	<submissions-page v-bind="pageInitConfig" />
+	<dashboard-page v-bind="pageInitConfig" />
 {/block}

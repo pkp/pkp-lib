@@ -361,12 +361,12 @@ class MetadataDataObjectAdapter extends PersistableFilter
      * Return all field names introduced by the
      * meta-data schema that might have to be persisted.
      *
-     * @param bool $translated if true, return localized field
+     * @param $translated if true, return localized field
      *  names, otherwise return additional field names.
      *
-     * @return array an array of field names to be persisted.
+     * @return An array of field names to be persisted.
      */
-    public function getMetadataFieldNames($translated = true)
+    public function getMetadataFieldNames(bool $translated = true): array
     {
         // Do we need to build the field name cache first?
         if (is_null($this->_metadataFieldNames)) {

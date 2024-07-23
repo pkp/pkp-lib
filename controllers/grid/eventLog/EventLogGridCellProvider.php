@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
+use PKP\log\EmailLogEntry;
 use PKP\log\event\EventLogEntry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -58,13 +59,13 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
     {
         $element = $row->getData();
         $columnId = $column->getId();
-        assert($element instanceof \PKP\core\DataObject && !empty($columnId));
+        assert(($element instanceof \PKP\core\DataObject || $element instanceof EmailLogEntry) && !empty($columnId) );
         /** @var EventLogEntry $element */
         switch ($columnId) {
             case 'date':
-                return ['label' => $element instanceof EventLogEntry ? $element->getDateLogged() : $element->getDateSent()];
+                return ['label' => $element instanceof EventLogEntry ? $element->getDateLogged() : $element->dateSent];
             case 'event':
-                return ['label' => $element instanceof EventLogEntry ? $element->getTranslatedMessage(null, $this->_isCurrentUserAssignedAuthor) : $element->getPrefixedSubject()];
+                return ['label' => $element instanceof EventLogEntry ? $element->getTranslatedMessage(null, $this->_isCurrentUserAssignedAuthor) : $element->prefixedSubject];
             case 'user':
                 if ($element instanceof EventLogEntry) {
                     $userName = $element->getUserFullName();
@@ -103,7 +104,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                         }
                     }
                 } else {
-                    $userName = $element->getSenderFullName();
+                    $userName = $element->senderFullName;
                 }
                 return ['label' => $userName];
             default:

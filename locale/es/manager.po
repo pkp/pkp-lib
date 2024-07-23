@@ -3888,3 +3888,6 @@ msgstr ""
 
 msgid "manager.setup.masthead"
 msgstr "Cabecera"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validar el XML antes de la exportación y el registro."

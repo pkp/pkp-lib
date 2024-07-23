@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\template\TemplateManager;
+use PKP\components\forms\context\PKPContextForm;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -242,14 +243,14 @@ class ContextGridHandler extends GridHandler
         // Pass the URL to the context settings wizard so that the AddContextForm
         // component can redirect to it when a new context is added.
         if (!$context) {
-            $contextFormConfig['editContextUrl'] = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, 'index', 'admin', 'wizard', '__id__');
+            $contextFormConfig['editContextUrl'] = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, 'index', 'admin', 'wizard', ['__id__']);
         }
 
         $templateMgr = TemplateManager::getManager($request);
 
         $containerData = [
             'components' => [
-                FORM_CONTEXT => $contextFormConfig,
+                PKPContextForm::FORM_CONTEXT => $contextFormConfig,
             ],
             'tinyMCE' => [
                 'skinUrl' => $templateMgr->getTinyMceSkinUrl($request),
@@ -260,6 +261,8 @@ class ContextGridHandler extends GridHandler
             'containerData' => $containerData,
             'isAddingNewContext' => !$context,
         ]);
+
+        $templateMgr->registerClass(PKPContextForm::class, PKPContextForm::class);
 
         return new JSONMessage(true, $templateMgr->fetch('admin/editContext.tpl'));
     }

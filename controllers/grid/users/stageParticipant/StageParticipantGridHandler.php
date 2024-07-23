@@ -151,7 +151,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
                 null,
                 'workflow',
                 'access',
-                $submissionId
+                [$submissionId]
             );
             $this->addAction(
                 new LinkAction(

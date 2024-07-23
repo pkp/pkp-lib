@@ -26,10 +26,8 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\core\PKPString;
-use PKP\db\DAORegistry;
 use PKP\log\EmailLogEntry;
 use PKP\log\event\EventLogEntry;
-use PKP\log\SubmissionEmailLogDAO;
 use PKP\security\authorization\internal\UserAccessibleWorkflowStageRequiredPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
@@ -201,21 +199,21 @@ class SubmissionEventLogGridHandler extends GridHandler
      */
     protected function loadData($request, $filter = null)
     {
-        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-
         $submission = $this->getSubmission();
 
         $eventLogEntries = Repo::eventLog()->getCollector()
             ->filterByAssoc(PKPApplication::ASSOC_TYPE_SUBMISSION, [$submission->getId()])
             ->getMany();
-        $emailLogEntries = $submissionEmailLogDao->getBySubmissionId($submission->getId());
 
-        $entries = array_merge($eventLogEntries->toArray(), $emailLogEntries->toArray());
+        $emailLogEntries = EmailLogEntry::withAssocId($submission->getId())
+            ->withAssocType(Application::ASSOC_TYPE_SUBMISSION)->get();
+
+        $entries = array_merge($eventLogEntries->toArray(), $emailLogEntries->all());
 
         // Sort the merged data by date, most recent first
         usort($entries, function ($a, $b) {
-            $aDate = $a instanceof EventLogEntry ? $a->getDateLogged() : $a->getDateSent();
-            $bDate = $b instanceof EventLogEntry ? $b->getDateLogged() : $b->getDateSent();
+            $aDate = $a instanceof EventLogEntry ? $a->getDateLogged() : $a->dateSent;
+            $bDate = $b instanceof EventLogEntry ? $b->getDateLogged() : $b->dateSent;
 
             if ($aDate == $bDate) {
                 return 0;
@@ -237,8 +235,7 @@ class SubmissionEventLogGridHandler extends GridHandler
      */
     public function viewEmail($args, $request)
     {
-        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-        $emailLogEntry = $submissionEmailLogDao->getById((int) $args['emailLogEntryId']);
+        $emailLogEntry = EmailLogEntry::find((int) $args['emailLogEntryId']);
         return new JSONMessage(true, $this->_formatEmail($emailLogEntry));
     }
 
@@ -251,20 +248,20 @@ class SubmissionEventLogGridHandler extends GridHandler
     public function _formatEmail(EmailLogEntry $emailLogEntry)
     {
         $text = [];
-        $text[] = __('email.from') . ': ' . htmlspecialchars($emailLogEntry->getFrom());
-        $text[] = __('email.to') . ': ' . htmlspecialchars($emailLogEntry->getRecipients());
-        if ($emailLogEntry->getCcs()) {
-            $text[] = __('email.cc') . ': ' . htmlspecialchars($emailLogEntry->getCcs());
+        $text[] = __('email.from') . ': ' . htmlspecialchars($emailLogEntry->fromAddress);
+        $text[] = __('email.to') . ': ' . htmlspecialchars($emailLogEntry->recipients);
+        if ($emailLogEntry->ccRecipients) {
+            $text[] = __('email.cc') . ': ' . htmlspecialchars($emailLogEntry->ccRecipients);
         }
-        if ($emailLogEntry->getBccs()) {
-            $text[] = __('email.bcc') . ': ' . htmlspecialchars($emailLogEntry->getBccs());
+        if ($emailLogEntry->bccRecipients) {
+            $text[] = __('email.bcc') . ': ' . htmlspecialchars($emailLogEntry->bccRecipients);
         }
-        $text[] = __('email.subject') . ': ' . htmlspecialchars($emailLogEntry->getSubject());
+        $text[] = __('email.subject') . ': ' . htmlspecialchars($emailLogEntry->subject);
 
         return
             '<div class="pkp_workflow_email_log_view">'
             . nl2br(join(PHP_EOL, $text)) . '<br><br>'
-            . PKPString::stripUnsafeHtml($emailLogEntry->getBody())
+            . PKPString::stripUnsafeHtml($emailLogEntry->body)
             . '</div>';
     }
 }

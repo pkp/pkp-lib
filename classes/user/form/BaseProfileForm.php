@@ -76,7 +76,7 @@ abstract class BaseProfileForm extends Form
 
             $invite->updatePayload();
 
-            $invite->dispatch();
+            $invite->invite();
         }
     }
 }

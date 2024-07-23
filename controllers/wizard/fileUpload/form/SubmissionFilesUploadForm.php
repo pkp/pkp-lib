@@ -71,6 +71,10 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
         assert(is_null($uploaderRoles) || (is_array($uploaderRoles) && count($uploaderRoles) >= 1));
         $this->_uploaderRoles = $uploaderRoles;
 
+        if (!$revisionOnly && empty($submissionFileOptions) && is_numeric($revisedFileId)) {
+            throw new \Exception('A revised file id cannot be given when uploading a new file!');
+        }
+
         parent::__construct(
             $request,
             'controllers/wizard/fileUpload/form/fileUploadForm.tpl',

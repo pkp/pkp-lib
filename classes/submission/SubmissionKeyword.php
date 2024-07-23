@@ -45,7 +45,7 @@ class SubmissionKeyword extends \PKP\controlledVocab\ControlledVocabEntry
         $this->setData('submissionKeyword', $keyword, $locale);
     }
 
-    public function getLocaleMetadataFieldNames()
+    public function getLocaleMetadataFieldNames(): array
     {
         return ['submissionKeyword'];
     }

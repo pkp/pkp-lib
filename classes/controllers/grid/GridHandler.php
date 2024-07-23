@@ -717,7 +717,6 @@ class GridHandler extends PKPHandler
 
         // Prepare the template to render the grid.
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->registerClass(self::class, self::class);
         $templateMgr->registerClass(GridColumn::class, GridColumn::class);
         $templateMgr->assign('grid', $this);
         $templateMgr->assign('request', $request);
@@ -830,10 +829,10 @@ class GridHandler extends PKPHandler
     {
         // Check the requested column
         if (!isset($args['columnId'])) {
-            fatalError('Missing column id!');
+            throw new \Exception('Missing column id!');
         }
         if (!$this->hasColumn($args['columnId'])) {
-            fatalError('Invalid column id!');
+            throw new \Exception('Invalid column id!');
         }
         $this->setFirstDataColumn();
         $column = $this->getColumn($args['columnId']);
@@ -841,7 +840,7 @@ class GridHandler extends PKPHandler
         // Instantiate the requested row
         $row = $this->getRequestedRow($request, $args);
         if (is_null($row)) {
-            fatalError('Row not found!');
+            throw new \Exception('Row not found!');
         }
 
         // Render the cell
@@ -925,7 +924,7 @@ class GridHandler extends PKPHandler
      */
     protected function &getDataElementFromRequest($request, &$elementId)
     {
-        fatalError('Grid does not support data element creation!');
+        throw new \Exception('Grid does not support data element creation!');
     }
 
     /**
@@ -1095,7 +1094,7 @@ class GridHandler extends PKPHandler
     {
         $returner = [];
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-        Hook::call(strtolower_codesafe(end($classNameParts) . '::initFeatures'), [$this, $request, $args, &$returner]);
+        Hook::call(strtolower(end($classNameParts) . '::initFeatures'), [$this, $request, $args, &$returner]);
         return $returner;
     }
 

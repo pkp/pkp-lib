@@ -159,7 +159,7 @@ class PKPNavigationMenuItemsForm extends Form
     /**
      * @copydoc Form::getLocaleFieldNames()
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
         return $navigationMenuItemDao->getLocaleFieldNames();

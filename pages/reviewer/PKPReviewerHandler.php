@@ -23,7 +23,6 @@ use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
 use Illuminate\Support\Facades\Mail;
-use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
@@ -42,6 +41,7 @@ class PKPReviewerHandler extends Handler
 
     /**
      * Display the submission review page.
+     *
      * @throws Exception
      */
     public function submission(array $args, PKPRequest $request): void
@@ -105,6 +105,7 @@ class PKPReviewerHandler extends Handler
 
     /**
      * Display a step tab contents in the submission review page.
+     *
      * @throws Exception
      */
     public function step(array $args, PKPRequest $request): JSONMessage
@@ -124,7 +125,7 @@ class PKPReviewerHandler extends Handler
             $step = $reviewStep;
         } // Reviewer can't go past incomplete steps
         if ($step < 1 || $step > 4) {
-            fatalError('Invalid step!');
+            throw new \Exception('Invalid step!');
         }
 
         if ($step < 4) {
@@ -149,12 +150,12 @@ class PKPReviewerHandler extends Handler
     {
         $step = (int)$request->getUserVar('step');
         if ($step < 1 || $step > 3) {
-            fatalError('Invalid step!');
+            throw new \Exception('Invalid step!');
         }
 
         $reviewAssignment = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
         if ($reviewAssignment->getDateCompleted()) {
-            fatalError('Review already completed!');
+            throw new \Exception('Review already completed!');
         }
 
         $reviewSubmission = Repo::submission()->get($reviewAssignment->getSubmissionId());
@@ -216,7 +217,7 @@ class PKPReviewerHandler extends Handler
     {
         $reviewAssignment = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT); /** @var ReviewAssignment $reviewAssignment */
         if ($reviewAssignment->getDateCompleted()) {
-            fatalError('Review already completed!');
+            throw new \Exception('Review already completed!');
         }
 
         $declineReviewMessage = $request->getUserVar('declineReviewMessage');

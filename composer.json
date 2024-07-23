@@ -7,12 +7,14 @@
 		"dflydev/base32-crockford": "^1.0",
 		"doctrine/dbal": "^3.5",
 		"elcobvg/laravel-opcache": "^0.5.0",
+		"ezyang/htmlpurifier": "^4.17",
 		"firebase/php-jwt": "6.*",
 		"geoip2/geoip2": "~2.0",
 		"gettext/gettext": "5.*",
 		"gettext/translator": "1.*",
 		"guzzlehttp/guzzle": "^7.0",
 		"kevinlebrun/colors.php": "^1.0",
+		"kirkbushell/eloquence": "^11.0",
 		"laravel/framework": "^10.0",
 		"league/flysystem": "^3.0",
 		"league/flysystem-ftp": "^3.0",
@@ -25,7 +27,6 @@
 		"smarty/smarty": "4.*",
 		"sokil/php-isocodes": "^4.1",
 		"sokil/php-isocodes-db-i18n": "^4.0",
-		"symfony/html-sanitizer": "^6.2",
 		"symfony/mailer": "^6.0",
 		"tinymce/tinymce": "^5.7",
 		"wikimedia/less.php": "3.*"
@@ -42,7 +43,7 @@
 		"component-dir": "lib/components",
 		"vendor-dir": "lib/vendor",
 		"platform": {
-			"php": "8.1.0"
+			"php": "8.2.0"
 		},
 		"allow-plugins": {
 			"cweagans/composer-patches": true,

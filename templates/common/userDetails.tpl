@@ -111,7 +111,6 @@
 			{if !$disablePhoneSection}
 				{fbvElement type="tel" label="user.phone" name="phone" id="phone" value=$phone maxlength="24" inline=true size=$fbvStyles.size.SMALL}
 			{/if}
-			{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="46" inline=true size=$fbvStyles.size.SMALL}
 		{/fbvFormSection}
 
 		{if !$disableLocaleSection && count($availableLocales) > 1}

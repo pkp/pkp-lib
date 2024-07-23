@@ -22,7 +22,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
-use PKP\invitation\core\contacts\IApiHandleable;
+use PKP\invitation\core\contracts\IApiHandleable;
 use PKP\invitation\core\CreateInvitationController;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\ReceiveInvitationController;
@@ -42,7 +42,7 @@ class InvitationController extends PKPBaseController
     public $requiresOnlyId = [
         'get',
         'populate',
-        'dispatch',
+        'invite',
     ];
 
     public $requiresIdAndKey = [
@@ -112,8 +112,8 @@ class InvitationController extends PKPBaseController
                 self::roleAuthorizer(Role::getAllRoles()),
             ]);
 
-        Route::put('{invitationId}/dispatch', $this->dispatch(...))
-            ->name('invitation.dispatch')
+        Route::put('{invitationId}/invite', $this->invite(...))
+            ->name('invitation.invite')
             ->whereNumber('invitationId')
             ->middleware([
                 self::roleAuthorizer(Role::getAllRoles()),
@@ -219,9 +219,9 @@ class InvitationController extends PKPBaseController
         return $this->selectedHandler->populate($illuminateRequest);
     }
 
-    public function dispatch(Request $illuminateRequest): JsonResponse
+    public function invite(Request $illuminateRequest): JsonResponse
     {
-        return $this->selectedHandler->dispatch($illuminateRequest);
+        return $this->selectedHandler->invite($illuminateRequest);
     }
 
     public function receive(Request $illuminateRequest): JsonResponse

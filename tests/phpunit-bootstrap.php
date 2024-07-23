@@ -13,7 +13,6 @@
  * @see tools/runAllTests.sh
  */
 
-use PKP\cache\CacheManager;
 use PKP\core\PKPSessionGuard;
 
 // This script may not be executed remotely.
@@ -48,9 +47,6 @@ ini_set('display_startup_errors', '1');
 
 // Set up minimal PKP application environment
 require_once 'lib/pkp/includes/bootstrap.php';
-
-// Make sure ADOdb doesn't "clean up" our /tmp folder.
-$ADODB_CACHE_DIR = CacheManager::getFileCachePath() . '/_db';
 
 // Disable the session initialization
 PKPSessionGuard::disableSession();

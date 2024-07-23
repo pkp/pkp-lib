@@ -228,6 +228,25 @@ class Repository
     }
 
     /**
+     * Delete all review assignments for a given context ID.
+     */
+    public function deleteByContextId(int $contextId): void
+    {
+        // using reviewAssignmentCollector to fetch ids of all review assignments for the context
+        $reviewAssignmentCollector = $this->getCollector();
+        $reviewAssignmentCollector->filterByContextIds([$contextId]);
+        $reviewAssignmentIds = $reviewAssignmentCollector->getIds();
+    
+        foreach ($reviewAssignmentIds as $reviewAssignmentId) {
+            $this->dao->deleteById($reviewAssignmentId);
+        }
+    
+        // delete review rounds associated with this context
+        $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
+        $reviewRoundDao->deleteByContextId($contextId);
+    }
+
+    /**
      * Return the review methods translation keys.
      */
     public function getReviewMethodsTranslationKeys(): array
@@ -262,12 +281,12 @@ class Repository
     }
 
     /**
-     * @copydoc DAO::getReviewerIdsByCompletedYear()
+     * @copydoc DAO::getExternalReviewerIdsByCompletedYear()
      *
      * @return Collection<int,int>
      */
-    public function getReviewerIdsByCompletedYear(int $contextId, string $year): Collection
+    public function getExternalReviewerIdsByCompletedYear(int $contextId, string $year): Collection
     {
-        return $this->dao->getReviewerIdsByCompletedYear($contextId, $year);
+        return $this->dao->getExternalReviewerIdsByCompletedYear($contextId, $year);
     }
 }

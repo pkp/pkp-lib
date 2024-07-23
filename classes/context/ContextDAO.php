@@ -34,11 +34,9 @@ abstract class ContextDAO extends SchemaDAO
     /**
      * Retrieve the IDs and names of all contexts in an associative array.
      *
-     * @param bool $enabledOnly true iff only enabled contexts are to be included
-     *
      * @return array<int,string>
      */
-    public function getNames($enabledOnly = false)
+    public function getNames(bool $enabledOnly = false): array
     {
         $contexts = [];
         $iterator = $this->getAll($enabledOnly);
@@ -50,10 +48,8 @@ abstract class ContextDAO extends SchemaDAO
 
     /**
      * Get a list of localized settings.
-     *
-     * @return string[]
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         return ['name', 'description'];
     }
@@ -70,12 +66,8 @@ abstract class ContextDAO extends SchemaDAO
 
     /**
      * Check if a context exists with a specified path.
-     *
-     * @param string $path the path for the context
-     *
-     * @return bool
      */
-    public function existsByPath($path)
+    public function existsByPath(string $path): bool
     {
         $result = $this->retrieve(
             'SELECT COUNT(*) AS row_count FROM ' . $this->tableName . ' WHERE path = ?',
@@ -193,11 +185,9 @@ abstract class ContextDAO extends SchemaDAO
     public function resequence()
     {
         $result = $this->retrieve('SELECT ' . $this->primaryKeyColumn . ' AS context_id FROM ' . $this->tableName . ' ORDER BY seq');
-        $i = 1;
-        for ($i = 1; $row = (array) $result->current(); $i += 2 && $result->next()) {
-            $this->update('UPDATE ' . $this->tableName . ' SET seq = ? WHERE ' . $this->primaryKeyColumn . ' = ?', [$i, $row['context_id']]);
-            $result->next();
-            $i += 2;
+
+        foreach ($result as $key => $value) {
+            $this->update('UPDATE ' . $this->tableName . ' SET seq = ? WHERE ' . $this->primaryKeyColumn . ' = ?', [$key + 1, $value->context_id]);
         }
     }
 }

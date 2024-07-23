@@ -21,12 +21,11 @@ use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 
-define('FORM_SITE_CONFIG', 'siteConfig');
-
 class PKPSiteConfigForm extends FormComponent
 {
+    public const FORM_SITE_CONFIG = 'siteConfig';
     /** @copydoc FormComponent::$id */
-    public $id = FORM_SITE_CONFIG;
+    public $id = self::FORM_SITE_CONFIG;
 
     /** @copydoc FormComponent::$method */
     public $method = 'PUT';

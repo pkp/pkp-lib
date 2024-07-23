@@ -18,11 +18,9 @@
 
 namespace PKP\tests\classes\filter;
 
-use PKP\filter\CompositeFilter;
 use PKP\filter\FilterGroup;
 use PKP\filter\FilterHelper;
 use PKP\filter\FilterSetting;
-use PKP\filter\PersistableFilter;
 use PKP\tests\PKPTestCase;
 
 class FilterHelperTest extends PKPTestCase
@@ -38,7 +36,7 @@ class FilterHelperTest extends PKPTestCase
         $someGroup->setInputType('primitive::string');
         $someGroup->setOutputType('primitive::string');
 
-        $filterA = new PersistableFilter($someGroup);
+        $filterA = new PersistableTestFilter($someGroup);
         $filterBSettings = ['some-key' => 'some-value'];
         $filterBSubfilters = [];
         self::assertFalse($filterHelper->compareFilters($filterA, $filterBSettings, $filterBSubfilters));
@@ -49,19 +47,19 @@ class FilterHelperTest extends PKPTestCase
         $filterA->setData('some-key', 'some-value');
         self::assertTrue($filterHelper->compareFilters($filterA, $filterBSettings, $filterBSubfilters));
 
-        $filterA = new CompositeFilter($someGroup);
+        $filterA = new CompositeTestFilter($someGroup, 'Filter A');
         $filterBSettings = [];
-        $filterBSubfilter = new CompositeFilter($someGroup);
+        $filterBSubfilter = new CompositeTestFilter($someGroup, 'Filter B Subfilter');
         $filterBSubfilter->setSequence(1);
         $filterBSubfilters = [$filterBSubfilter];
         self::assertFalse($filterHelper->compareFilters($filterA, $filterBSettings, $filterBSubfilters));
 
-        $filterASubfilter = new OtherCompositeFilter($someGroup);
+        $filterASubfilter = new OtherCompositeFilter($someGroup, 'Filter A Subfilter');
         $filterA->addFilter($filterASubfilter);
         self::assertFalse($filterHelper->compareFilters($filterA, $filterBSettings, $filterBSubfilters));
 
-        $filterA = new CompositeFilter($someGroup);
-        $filterASubfilter = new CompositeFilter($someGroup);
+        $filterA = new CompositeTestFilter($someGroup, 'Filter A');
+        $filterASubfilter = new CompositeTestFilter($someGroup, 'Filter A Subfilter');
         $filterA->addFilter($filterASubfilter);
         self::assertTrue($filterHelper->compareFilters($filterA, $filterBSettings, $filterBSubfilters));
 

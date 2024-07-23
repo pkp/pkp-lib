@@ -522,3 +522,236 @@ msgstr ""
 
 msgid "user.usernameOrEmail"
 msgstr "Käyttäjätunnus tai sähköposti"
+
+msgid "orcid.displayName"
+msgstr "ORCID-lisäosa"
+
+msgid "orcid.description"
+msgstr "Helpottaa ORCID-tunnisteiden käyttöä OJS-järjestelmässä."
+
+msgid "orcid.instructions"
+msgstr "Voit esitäyttää lomakkeen ORCID-tilisi tiedoilla. Anna ORCID-tunniste tai siihen liitetty sähköpostiosoite ja paina \"Lähetä\"."
+
+msgid "orcid.noData"
+msgstr "Tietoja ei löytynyt."
+
+msgid "orcid.emailOrOrcid"
+msgstr "Sähköpostiosoite tai ORCID-tunniste:"
+
+msgid "orcid.submitAction"
+msgstr "Lähetä"
+
+msgid "orcid.manager.orcidProfileSettings"
+msgstr "ORCID-profiilin asetukset"
+
+msgid "orcid.manager.settings.description"
+msgstr "Määritä ORCID-rajapinta, jotta voit hakea tietoja ORCID-tileistä OJS-järjestelmän käyttäjäprofiiliin. Tietojen päivitys OJS-järjestelmästä ORCID-tilille vaatii maksullisen rajapinnan."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID-rajapinta (ORCID API)"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Julkinen (Public)"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Julkinen testirajapinta (Public Sandbox)"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Asiakas (Member)"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Asiakkaiden testirajapinta (Member Sandbox)"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "Asiakas ID (Client ID)"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Asiakasavain (Client Secret)"
+
+msgid "orcid.author.submission"
+msgstr "Käsikirjoituksen ORCID-tunniste"
+
+msgid "orcid.author.submission.success"
+msgstr "Käsikirjoitus on liitetty onnistuneesti ORCID-tunnisteen kanssa."
+
+msgid "orcid.author.submission.failure"
+msgstr "Käsikirjoitusta ei onnistuttu liittämään ORCID-tunnisteen kanssa. Ota yhteyttä lehden toimituskuntaan ja ilmoita nimesi, ORCID-tunnisteesi sekä käsikirjoituksesi otsikko."
+
+msgid "orcid.authFailure"
+msgstr "ORCID-tunnisteen vahvistuslinkkiä on jo käytetty tai se ei ole voimassa."
+
+msgid "orcid.manager.settings.title"
+msgstr "ORCID-rajapinnan asetukset"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "piilotettu"
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr "ORCID-rajapinta on määritetty ylläpitäjän toimesta alla olevien tietojen mukaisesti."
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Sähköpostin asetukset"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Lähetä kirjoittajille sähköposti, jossa pyydetään ORCID-tunnisteiden "
+"liittämistä julkaistuihin artikkeleihin, kun artikkeli lähetetään teknisen "
+"toimittamisen työvaiheeseen"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "ORCID-pyyntöjen loki"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Valitse millä tarkkuudella lisäosan tekemät pyynnöt tallennetaan"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Virheet"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Kaikki"
+
+msgid "orcid.author.accessDenied"
+msgstr "ORCID-pyyntö kiellettiin"
+
+msgid "orcid.author.accessTokenStored"
+msgstr "Pääsy ORCID-tietoihin laajuudella {$orcidAccessScope}, voimassa"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Lähetä sähköposti, jolla pyydät tekijää vahvistamaan ORCID-tunnisteensa"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Poista ORCID ja käyttöoikeustunniste!"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Alla lisätietoja autentikoitujen ORCID-tunnisteiden keräämiseen"
+
+msgid "orcid.author.unauthenticated"
+msgstr "ORCID-tunnistetta ei ole vahvistettu. Ole hyvä ja pyydä vahvistus tekijältä."
+
+msgid "orcid.verify.title"
+msgstr "ORCID-vahvistus"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Käsikirjoitus on lisätty ORCID-tilillesi."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "Käsikirjoitusta ei voitu lisätä ORCID-tilillesi."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "Käsikirjoitus lisätään ORCID-tilillesi sen julkaisun yhteydessä."
+
+msgid "orcid.verify.success"
+msgstr "ORCID-tunnisteesi on vahvistettu ja liitetty käsikirjoitukseen."
+
+msgid "orcid.verify.failure"
+msgstr "ORCID-tunnistetta ei voitu vahvistaa. Linkki ei ole enää voimassa."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "ORCID-tunniste on jo tallennettu tälle käsikirjoitukselle."
+
+msgid "orcid.verify.denied"
+msgstr "Olet kieltänyt pääsyn ORCID-tilillesi."
+
+msgid "orcid.failure.contact"
+msgstr ""
+"OJS-järjestelmä ei saanut yhteyttä ORCID-palveluun. Ota yhteyttä julkaisun "
+"toimituskuntaan ja ilmoita nimesi, ORCID-tunnisteesi sekä käsikirjoituksesi "
+"otsikko."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.connect"
+msgstr "Luo tai yhdistä ORCID-tunniste"
+
+msgid "orcid.authorise"
+msgstr "Vahvista ja yhdistä ORCID-tunnisteesi"
+
+msgid "orcid.about.title"
+msgstr "Mikä on ORCID?"
+
+msgid "orcid.about.orcidExplanation"
+msgstr "ORCID on itsenäinen ja voittoa tavoittelematon organisaatio, joka ylläpitää tutkijoiden tunnistamiseen tarkoitettuja ORCID-tunnisteita. Tunnisteen avulla voit ilmoittaa ja linkittää tekijyytesi esimerkiksi artikkeleihin ja aineistoihin. ORCID on integroitu moniin erilaisiin järjestelmiin, kuten rahoittajien hakujärjestelmiin ja julkaisujärjestelmiin. Lue lisää <a href=\"https://orcid.org\">orcid.org</a>."
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Miten ja miksi keräämme ORCID-tunnisteita?"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"Kun painat Vahvista-nappia ORCID-ikkunassa, pyydämme sinua antamaan ORCID-"
+"tunnisteesi joko <a href=\"https://support.orcid.org/hc/en-us/articles/"
+"360006897454\">rekisteröimällä uuden ORCID-tunnisteen</a> tai, mikäli "
+"sinulla jo tunniste, <a href=\"https://support.orcid.org/hc/en-us/categories/"
+"360000661673\">kirjautumalla ORCID-tilillesi</a> ja antamalla meille luvan "
+"hakea ORCID-tunnisteesi. Teemme tämän varmistaaksemme, että tallennettu "
+"ORCID-tunniste on vahvistettu ja oikean henkilön tunniste. Lue lisää <a href="
+"\"https://orcid.org/blog/2017/02/20/whats-so-special-about-signing\">miksi "
+"tämä on niin tärkeää</a>."
+
+msgid "orcid.about.display.title"
+msgstr "Missä ORCID-tunnisteet näkyvät?"
+
+msgid "orcid.about.display"
+msgstr ""
+"Vahvistettujen ORCID-tunnisteiden yhteydessä näkyy ORCID-logo <img src=\"https://orcid.org/sites/default/files/images/orcid_16x16.png\" alt=\"iD icon\" width=\"16\" height=\"16\" border=\"0\">tekijän nimen vieressä ja julkisessa käyttäjäprofiilissa."
+"Lue lisää siitä <a href=\"https://orcid.org/blog/2013/02/22/how-should-orcid-id-be-displayed\">miten ORCID-tunniste tulisi esittää.</a>"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Profiilin pääsyoikeuden laajuus"
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"Keräämme ORCID-tunnisteesi jotta me kaikki voimme luottaa henkilöllisyyteesi "
+"ja yhteydestä julkaisuusi. Samalla varmistamme, että yhteys tekemääsi työhön "
+"säilyy urasi ajan.<br />\n"
+"\tKun painat Vahvista-nappia ORCID-ikkunassa, pyydämme sinua antamaan ORCID-"
+"tunnisteesi joko <a href=\"https://support.orcid.org/hc/en-us/articles/"
+"360006897454\">rekisteröimällä uuden ORCID-tunnisteen</a> tai, mikäli "
+"sinulla jo tunniste, <a href=\"https://support.orcid.org/hc/en-us/categories/"
+"360000661673\">kirjautumalla ORCID-tilillesi</a> ja antamalla meille luvan "
+"hakea ORCID-tunnisteesi. Teemme tämän varmistaaksemme, että tallennettu "
+"ORCID-tunniste on vahvistettu ja oikean henkilön tunniste.<br />\n"
+"\tLue lisää <a href=\"https://orcid.org/blog/2017/02/20/whats-so-special-"
+"about-signing\">miksi tämä on niin tärkeää.</a><br />\n"
+"\tKeräämme ja näytämme tunnistettujen kirjoittajien ja tekijöiden ORCID-"
+"tunnisteet OJS-profiileissa ja artikkelisivuilla. Lisäksi artikkeleiden "
+"kuvailutiedot siirretään ORCID-tilillesi helpottamaan tietojesi "
+"päivittämistä. Lue lisää <a href=\"https://orcid.org/blog/2017/08/10/six-"
+"ways-make-your-orcid-id-work-you\">Kuudesta tavasta saada ORCID-tunniste "
+"työskentelemään puolestasi!</a>\n"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Virheellinen asiakasavain (Client Secret)"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Virheellinen asiakas ID (Client ID)"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Asetukset tallennettu"
+
+msgid "orcid.manager.settings.city"
+msgstr "Kaupunki"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Asetukset määritetty julkaisukohtaisesti"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "Asiakas ID on kelvollinen"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Asiakasavain (Client Secret) on kelvollinen"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Asiakasavain (Client Secret) on virheellinen, tarkista antamasi avain"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "Asiakas ID on virheellinen, tarkista antamasi ID"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Tekijätiedot sisältävät identtisiä ORCID-tunnuksia."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Tekijätiedot sisältävät vahvistamattomia ORCID-tunnuksia."
+
+msgid "orcid.invalidClient"
+msgstr "Virheelliset asiakkaan käyttäjätiedot (client)"

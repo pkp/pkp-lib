@@ -16,6 +16,7 @@
 
 use APP\core\Application;
 use PKP\db\DAORegistry;
+use PKP\plugins\GalleryPlugin;
 use PKP\plugins\PluginGalleryDAO;
 
 require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
@@ -125,9 +126,8 @@ class PluginsTool extends \PKP\cliTool\CommandLineTool
      * @param string $category a plugin category
      * @param string $name a plugin name
      *
-     * @return GalleryPlugin|null
      */
-    public function selectPlugin($category, $name)
+    public function selectPlugin(string $category, string $name): ?GalleryPlugin
     {
         /** @var PluginGalleryDAO $pluginGalleryDao */
         $pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO');
@@ -141,7 +141,7 @@ class PluginsTool extends \PKP\cliTool\CommandLineTool
                 return $plugin;
             }
         }
-        return;
+        return null;
     }
 
     /**
@@ -149,27 +149,17 @@ class PluginsTool extends \PKP\cliTool\CommandLineTool
      *
      * @param GalleryPlugin[] $plugins array of plugins
      */
-    public function listPlugins($plugins)
+    public function listPlugins(array $plugins): void
     {
         foreach ($plugins as $plugin) {
             $statusKey = '';
-            switch ($plugin->getCurrentStatus()) {
-                case PLUGIN_GALLERY_STATE_NEWER:
-                    $statusKey = 'manager.plugins.installedVersionNewer';
-                    break;
-                case PLUGIN_GALLERY_STATE_UPGRADABLE:
-                    $statusKey = 'manager.plugins.installedVersionOlder';
-                    break;
-                case PLUGIN_GALLERY_STATE_CURRENT:
-                    $statusKey = 'manager.plugins.installedVersionNewest';
-                    break;
-                case PLUGIN_GALLERY_STATE_AVAILABLE:
-                    $statusKey = 'manager.plugins.noInstalledVersion';
-                    break;
-                case PLUGIN_GALLERY_STATE_INCOMPATIBLE:
-                    $statusKey = 'manager.plugins.noCompatibleVersion';
-                    break;
-            }
+            $statusKey = match($plugin->getCurrentStatus()) {
+                GalleryPlugin::PLUGIN_GALLERY_STATE_NEWER => 'manager.plugins.installedVersionNewer',
+                GalleryPlugin::PLUGIN_GALLERY_STATE_UPGRADABLE => 'manager.plugins.installedVersionOlder',
+                GalleryPlugin::PLUGIN_GALLERY_STATE_CURRENT => 'manager.plugins.installedVersionNewest',
+                GalleryPlugin::PLUGIN_GALLERY_STATE_AVAILABLE => 'manager.plugins.noInstalledVersion',
+                GalleryPlugin::PLUGIN_GALLERY_STATE_INCOMPATIBLE => 'manager.plugins.noCompatibleVersion',
+            };
             $keyOut = explode('.', $statusKey);
             $keyOut = array_pop($keyOut);
             echo implode('/', ['plugins', $plugin->getData('category'), $plugin->getData('product')]) . ' ' . $plugin->getData('releasePackage') . ' ' . $keyOut . "\n";

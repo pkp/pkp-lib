@@ -26,7 +26,7 @@ namespace PKP\db;
 use Generator;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
-use PKP\cache\CacheManager;
+use PKP\core\DataObject;
 use PKP\core\JSONMessage;
 use PKP\plugins\Hook;
 
@@ -45,7 +45,7 @@ class DAO
             // Call hooks based on the object name. Results
             // in hook calls named e.g. "DAO_CLASS::_Constructor"
             $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-            if (Hook::run(strtolower_codesafe(end($classNameParts)) . '::_Constructor', [$this])) {
+            if (Hook::run(strtolower(end($classNameParts)) . '::_Constructor', [$this])) {
                 return;
             }
         }
@@ -61,7 +61,7 @@ class DAO
      *
      * @return Generator<int,object>
      */
-    public function retrieve($sql, $params = [], $callHooks = true)
+    public function retrieve(string $sql, array $params = [], bool $callHooks = true): Generator
     {
         if ($callHooks === true) {
             $trace = debug_backtrace();
@@ -70,7 +70,7 @@ class DAO
             // in hook calls named e.g. "DAO_CLASS::_get..."
             // (always lower case).
             $value = null;
-            if (Hook::run(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$value])) {
+            if (Hook::run(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$value])) {
                 return $value;
             }
         }
@@ -81,15 +81,13 @@ class DAO
     /**
      * Execute a SELECT SQL statement, returning rows in the range supplied.
      *
-     * @param string|Builder $sql the SQL statement
-     * @param array $params parameters for the SQL statement, params is used only when $sql is a string
-     * @param DBResultRange $dbResultRange object describing the desired range
+     * @param $sql the SQL statement
+     * @param $params parameters for the SQL statement, params is used only when $sql is a string
+     * @param $dbResultRange object describing the desired range
      *
      * @deprecated 3.4
-     *
-     * @return Generator
      */
-    public function retrieveRange($sql, $params = [], $dbResultRange = null, $callHooks = true)
+    public function retrieveRange(string|Builder $sql, array $params = [], ?DBResultRange $dbResultRange = null, bool $callHooks = true): Iterable
     {
         if ($callHooks === true) {
             $trace = debug_backtrace();
@@ -97,7 +95,7 @@ class DAO
             // this method is only called by a subclass. Results
             // in hook calls named e.g. "DAO_CLASS::_get..."
             $value = null;
-            if (Hook::run(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$dbResultRange, &$value])) {
+            if (Hook::run(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$dbResultRange, &$value])) {
                 return $value;
             }
         }
@@ -119,14 +117,12 @@ class DAO
     /**
      * Count the number of records in the supplied SQL statement (with optional bind parameters parameters)
      *
-     * @param string|Builder $sql SQL query to be counted
-     * @param array $params Optional SQL query bind parameters, only used when the $sql argument is a string
+     * @param $sql SQL query to be counted
+     * @param $params Optional SQL query bind parameters, only used when the $sql argument is a string
      *
      * @deprecated 3.4
-     *
-     * @return int
      */
-    public function countRecords($sql, $params = [])
+    public function countRecords(string|Builder $sql, array $params = []): int
     {
         // In case a Laravel Builder has been received, drop its SELECT and ORDER BY clauses for optimization purposes
         if ($sql instanceof Builder) {
@@ -142,10 +138,8 @@ class DAO
      * @param array ...$args SQL expressions (e.g. column names) to concatenate.
      *
      * @deprecated 3.4
-     *
-     * @return string
      */
-    public function concat(...$args)
+    public function concat(...$args): string
     {
         return 'CONCAT(' . join(',', $args) . ')';
     }
@@ -153,16 +147,16 @@ class DAO
     /**
      * Execute an INSERT, UPDATE, or DELETE SQL statement.
      *
-     * @param string $sql the SQL statement the execute
-     * @param array $params an array of parameters for the SQL statement
-     * @param bool $callHooks Whether or not to call hooks
-     * @param bool $dieOnError Whether or not to die if an error occurs
+     * @param $sql the SQL statement the execute
+     * @param $params an array of parameters for the SQL statement
+     * @param $callHooks Whether or not to call hooks
+     * @param $dieOnError Whether or not to die if an error occurs
      *
      * @deprecated 3.4
      *
-     * @return int Affected row count
+     * @return Affected row count
      */
-    public function update($sql, $params = [], $callHooks = true, $dieOnError = true)
+    public function update(string $sql, array $params = [], bool $callHooks = true, bool $dieOnError = true): int
     {
         if ($callHooks === true) {
             $trace = debug_backtrace();
@@ -171,7 +165,7 @@ class DAO
             // in hook calls named e.g. "DAO_CLASS::_updateobject"
             // (all lowercase)
             $value = null;
-            if (Hook::run(strtolower_codesafe($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$value])) {
+            if (Hook::run(strtolower($trace[1]['class'] . '::_' . $trace[1]['function']), [&$sql, &$params, &$value])) {
                 return $value;
             }
         }
@@ -182,13 +176,12 @@ class DAO
     /**
      * Insert a row in a table, replacing an existing row if necessary.
      *
-     * @param string $table
-     * @param array $arrFields Associative array of colName => value
-     * @param array $keyCols Array of column names that are keys
+     * @param $arrFields Associative array of colName => value
+     * @param $keyCols Array of column names that are keys
      *
      * @deprecated 3.4
      */
-    public function replace($table, $arrFields, $keyCols)
+    public function replace(string $table, array $arrFields, array $keyCols): void
     {
         $matchValues = array_filter($arrFields, fn ($key) => in_array($key, $keyCols), ARRAY_FILTER_USE_KEY);
         $additionalValues = array_filter($arrFields, fn ($key) => !in_array($key, $keyCols), ARRAY_FILTER_USE_KEY);
@@ -214,44 +207,13 @@ class DAO
     }
 
     /**
-     * Configure the caching directory for database results
-     * NOTE: This is implemented as a GLOBAL setting and cannot
-     * be set on a per-connection basis.
-     *
-     * @deprecated 3.4
-     */
-    protected function setCacheDir()
-    {
-        static $cacheDir;
-        if (!isset($cacheDir)) {
-            global $ADODB_CACHE_DIR;
-
-            $cacheDir = CacheManager::getFileCachePath() . '/_db';
-
-            $ADODB_CACHE_DIR = $cacheDir;
-        }
-    }
-
-    /**
-     * Flush the system cache.
-     *
-     * @deprecated 3.4
-     */
-    public function flushCache()
-    {
-        $this->setCacheDir();
-    }
-
-    /**
      * Return datetime formatted for DB insertion.
      *
-     * @param int|string $dt *nix timestamp or ISO datetime string
+     * @param $dt *nix timestamp or ISO datetime string
      *
      * @deprecated 3.4
-     *
-     * @return string
      */
-    public function datetimeToDB($dt)
+    public function datetimeToDB(null|int|string $dt): string
     {
         if ($dt === null) {
             return 'NULL';
@@ -265,13 +227,11 @@ class DAO
     /**
      * Return date formatted for DB insertion.
      *
-     * @param int|string $d *nix timestamp or ISO date string
+     * @param $d *nix timestamp or ISO date string
      *
      * @deprecated 3.4
-     *
-     * @return string
      */
-    public function dateToDB($d)
+    public function dateToDB(null|int|string $d): string
     {
         if ($d === null) {
             return 'NULL';
@@ -285,44 +245,31 @@ class DAO
     /**
      * Return datetime from DB as ISO datetime string.
      *
-     * @param string $dt datetime from DB
-     *
      * @deprecated 3.4
-     *
-     * @return string
      */
-    public function datetimeFromDB($dt)
+    public function datetimeFromDB(?string $dt): ?string
     {
-        if ($dt === null) {
-            return null;
-        }
-        return date('Y-m-d H:i:s', strtotime($dt));
+        return $dt === null ? null : date('Y-m-d H:i:s', strtotime($dt));
     }
+
     /**
      * Return date from DB as ISO date string.
      *
-     * @param string $d date from DB
-     *
      * @deprecated 3.4
-     *
-     * @return string
      */
-    public function dateFromDB($d)
+    public function dateFromDB(?string $d): ?string
     {
-        if ($d === null) {
-            return null;
-        }
-        return date('Y-m-d', strtotime($d));
+        return $d === null ? null : date('Y-m-d', strtotime($d));
     }
 
     /**
      * Convert a value from the database to a specific type
      *
-     * @param mixed $value Value from the database
-     * @param string $type Type from the database, eg `string`
-     * @param bool $nullable True iff the value is allowed to be null
+     * @param $value Value from the database
+     * @param $type Type from the database, eg `string`
+     * @param $nullable True iff the value is allowed to be null
      */
-    public function convertFromDB($value, $type, $nullable = false)
+    public function convertFromDB(mixed $value, ?string $type, bool $nullable = false): mixed
     {
         if ($nullable && $value === null) {
             return null;
@@ -339,14 +286,7 @@ class DAO
                 return (float) $value;
             case 'object':
             case 'array':
-                $decodedValue = json_decode($value, true);
-                // FIXME: pkp/pkp-lib#6250 Remove after 3.3.x upgrade code is removed (see also pkp/pkp-lib#5772)
-                if (!is_null($decodedValue)) {
-                    return $decodedValue;
-                } else {
-                    return unserialize($value);
-                }
-                // no break
+                return json_decode($value, true);
             case 'date':
                 return strtotime($value);
             case 'string':
@@ -360,48 +300,38 @@ class DAO
     /**
      * Get the type of a value to be stored in the database
      *
-     * @param string $value
-     *
      * @deprecated 3.4
-     *
-     * @return string
      */
-    public function getType($value)
+    public function getType(mixed $value): string
     {
-        switch (gettype($value)) {
-            case 'boolean':
-            case 'bool':
-                return 'bool';
-            case 'integer':
-            case 'int':
-                return 'int';
-            case 'double':
-            case 'float':
-                return 'float';
-            case 'array':
-            case 'object':
-                return 'object';
-            case 'string':
-            default:
-                return 'string';
-        }
+        return match(gettype($value)) {
+            'boolean' => 'bool',
+            'bool' => 'bool',
+            'integer' => 'int',
+            'int' => 'int',
+            'double' => 'float',
+            'float' => 'float',
+            'array' => 'object',
+            'object' => 'object',
+            'string' => 'string',
+            default => 'string'
+        };
     }
 
     /**
      * Convert a PHP variable into a string to be stored in the DB
      *
-     * @param string $type
      * @param bool $nullable True iff the value is allowed to be null.
      *
      * @return string
      */
-    public function convertToDB($value, &$type, $nullable = false)
+    public function convertToDB(mixed $value, ?string &$type = null, bool $nullable = false)
     {
         if ($nullable && $value === null) {
             return null;
         }
 
-        if ($type == null) {
+        if ($type === null) {
             $type = $this->getType($value);
         }
 
@@ -443,12 +373,9 @@ class DAO
     /**
      * Cast the given parameter to an int, or leave it null.
      *
-     *
      * @deprecated 3.4
-     *
-     * @return string|null
      */
-    public function nullOrInt($value)
+    public function nullOrInt(mixed $value): ?int
     {
         return (empty($value) ? null : (int) $value);
     }
@@ -462,7 +389,7 @@ class DAO
      *
      * @return array List of strings representing field names.
      */
-    public function getAdditionalFieldNames()
+    public function getAdditionalFieldNames(): array
     {
         $returner = [];
         // Call hooks based on the calling entity, assuming
@@ -470,7 +397,7 @@ class DAO
         // in hook calls named e.g. "DAO_CLASS::getAdditionalFieldNames"
         // (class names lowercase)
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-        Hook::run(strtolower_codesafe(end($classNameParts)) . '::getAdditionalFieldNames', [$this, &$returner]);
+        Hook::run(strtolower(end($classNameParts)) . '::getAdditionalFieldNames', [$this, &$returner]);
 
         return $returner;
     }
@@ -484,7 +411,7 @@ class DAO
      *
      * @return array Array of string field names.
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         $returner = [];
         // Call hooks based on the calling entity, assuming
@@ -492,7 +419,7 @@ class DAO
         // in hook calls named e.g. "DAO_CLASS::getLocaleFieldNames"
         // (class names lowercase)
         $classNameParts = explode('\\', get_class($this)); // Separate namespace info from class name
-        Hook::run(strtolower_codesafe(end($classNameParts)) . '::getLocaleFieldNames', [$this, &$returner]);
+        Hook::run(strtolower(end($classNameParts)) . '::getLocaleFieldNames', [$this, &$returner]);
 
         return $returner;
     }
@@ -500,13 +427,9 @@ class DAO
     /**
      * Update the settings table of a data object.
      *
-     * @param string $tableName
-     * @param \PKP\core\DataObject $dataObject
-     * @param array $idArray
-     *
      * @deprecated 3.4
      */
-    public function updateDataObjectSettings($tableName, $dataObject, $idArray)
+    public function updateDataObjectSettings(string $tableName, DataObject $dataObject, array $idArray)
     {
         // Initialize variables
         $idFields = array_keys($idArray);
@@ -600,13 +523,13 @@ class DAO
      * Get contents of the _settings table, storing entries in the specified
      * data object.
      *
-     * @param string $tableName Settings table name
-     * @param string $idFieldName Name of ID column
-     * @param \PKP\core\DataObject $dataObject Object in which to store retrieved values
+     * @param $tableName Settings table name
+     * @param $idFieldName Name of ID column
+     * @param $dataObject Object in which to store retrieved values
      *
      * @deprecated 3.4
      */
-    public function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject)
+    public function getDataObjectSettings(string $tableName, string $idFieldName, int $idFieldValue, DataObject $dataObject)
     {
         if ($idFieldName !== null) {
             $sql = "SELECT * FROM {$tableName} WHERE {$idFieldName} = ?";
@@ -629,24 +552,17 @@ class DAO
     }
 
     /**
-     * Get the driver for this connection.
-     *
-     * @param int $direction
+     * Get the direction specifier for sorting from a SORT_DIRECTION_... constant.
      *
      * @deprecated 3.4
-     *
-     * @return string
      */
-    public function getDirectionMapping($direction)
+    public function getDirectionMapping(int $direction): string
     {
-        switch ($direction) {
-            case self::SORT_DIRECTION_ASC:
-                return 'ASC';
-            case self::SORT_DIRECTION_DESC:
-                return 'DESC';
-            default:
-                return 'ASC';
-        }
+        return match($direction) {
+            self::SORT_DIRECTION_ASC => 'ASC',
+            self::SORT_DIRECTION_DESC => 'DESC',
+            default => 'ASC'
+        };
     }
 
     /**
@@ -654,20 +570,18 @@ class DAO
      * to the client to refresh itself according to changes
      * in the DB.
      *
-     * @param string $elementId (Optional) To refresh a single element
+     * @param $elementId (Optional) To refresh a single element
      *  give the element ID here. Otherwise all elements will
      *  be refreshed.
-     * @param string $parentElementId (Optional) To refresh a single
+     * @param $parentElementId (Optional) To refresh a single
      *  element that is associated with another one give the parent
      *  element ID here.
-     * @param mixed $content (Optional) Additional content to pass back
+     * @param $content (Optional) Additional content to pass back
      *  to the handler of the JSON message.
      *
      * @deprecated 3.4
-     *
-     * @return JSONMessage
      */
-    public static function getDataChangedEvent($elementId = null, $parentElementId = null, $content = '')
+    public static function getDataChangedEvent(?string $elementId = null, ?string $parentElementId = null, string $content = ''): JSONMessage
     {
         // Create the event data.
         $eventData = null;
@@ -697,10 +611,8 @@ class DAO
      * is in the past.
      *
      * @deprecated 3.4
-     *
-     * @return string|null
      */
-    protected function formatDateToDB($date, $defaultNumWeeks = null, $acceptPastDate = true)
+    protected function formatDateToDB(string $date, ?int $defaultNumWeeks = null, bool $acceptPastDate = true): ?string
     {
         $today = getDate();
         $todayTimestamp = mktime(0, 0, 0, $today['mon'], $today['mday'], $today['year']);

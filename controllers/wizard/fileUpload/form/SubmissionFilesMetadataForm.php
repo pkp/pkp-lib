@@ -134,7 +134,7 @@ class SubmissionFilesMetadataForm extends Form
     /**
      * @copydoc Form::getLocaleFieldNames()
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         return ['name'];
     }

@@ -90,7 +90,7 @@ class UserGroupForm extends Form
     /**
      * Get all locale field names
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         return ['name', 'abbrev'];
     }
@@ -198,7 +198,13 @@ class UserGroupForm extends Form
         // Check if we are editing an existing user group or creating another one.
         if ($userGroupId == null) {
             $userGroup = Repo::userGroup()->newDataObject();
-            $userGroup->setRoleId($this->getData('roleId'));
+
+            $roleId = $this->getData('roleId');
+            if ($roleId == Role::ROLE_ID_SITE_ADMIN) {
+                throw new \Exception('Site administrator roles cannot be created here.');
+            }
+            $userGroup->setRoleId($roleId);
+
             $userGroup->setContextId($this->getContextId());
             $userGroup->setDefault(false);
             $userGroup->setShowTitle(is_null($this->getData('showTitle')) ? false : $this->getData('showTitle'));
@@ -226,7 +232,7 @@ class UserGroupForm extends Form
                 $stageAssignments = StageAssignment::withUserGroupId($userGroupId)
                     ->withContextId($this->getContextId())
                     ->get();
-                
+
                 foreach ($stageAssignments as $stageAssignment) {
                     $stageAssignment->update(['canChangeMetadata' => $permitMetadataEdit]);
                 }
@@ -287,7 +293,7 @@ class UserGroupForm extends Form
                     'stageId' => $stageId
                 ]);
             } else {
-                fatalError('Invalid stage id');
+                throw new \Exception('Invalid stage id');
             }
         }
     }

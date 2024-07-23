@@ -25,13 +25,13 @@
 			<tabs :is-side-tabs="true" :track-history="true">
 				<tab id="context" label="{translate key="context.context"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_CONTEXT}"
+						v-bind="components.{PKP\components\forms\context\PKPContextForm::FORM_CONTEXT}"
 						@set="set"
 					/>
 				</tab>
 				<tab id="appearance" label="{translate key="manager.website.appearance"}">
 					<theme-form
-						v-bind="components.{$smarty.const.FORM_THEME}"
+						v-bind="components.{PKP\components\forms\context\PKPThemeForm::FORM_THEME}"
 						@set="set"
 					/>
 				</tab>
@@ -43,14 +43,14 @@
 				</tab>
 				<tab id="indexing" label="{translate key="manager.setup.searchEngineIndexing"}">
 					<pkp-form
-						v-bind="components.{$smarty.const.FORM_SEARCH_INDEXING}"
+						v-bind="components.{PKP\components\forms\context\PKPSearchIndexingForm::FORM_SEARCH_INDEXING}"
 						@set="set"
 					/>
 				</tab>
 				<tab id="restrictBulkEmails" label="{translate key="admin.settings.restrictBulkEmails"}">
 					{if $bulkEmailsEnabled}
 						<pkp-form
-							v-bind="components.{$smarty.const.FORM_RESTRICT_BULK_EMAILS}"
+							v-bind="components.{PKP\components\forms\context\PKPRestrictBulkEmailsForm::FORM_RESTRICT_BULK_EMAILS}"
 							@set="set"
 						/>
 					{else}

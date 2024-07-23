@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-08-16 10:37+0000\n"
+"PO-Revision-Date: 2024-06-25 07:25+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "bg/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
 msgstr "Информация за профила"
@@ -527,3 +527,236 @@ msgstr ""
 
 msgid "user.usernameOrEmail"
 msgstr "Потребителско име или имейл"
+
+msgid "orcid.displayName"
+msgstr "Добавка за ORCID профил"
+
+msgid "orcid.description"
+msgstr "Позволява инпортиране на информация от ORCID профили на потребители."
+
+msgid "orcid.instructions"
+msgstr "Можете предварително да разпространите този формуляр с информация от ORCID профил. Въведете имейл или идентификатор, свързани с ORCID профил, после щракнете \"Изпращане\"."
+
+msgid "orcid.noData"
+msgstr "Не се намериха данни от ORCID."
+
+msgid "orcid.emailOrOrcid"
+msgstr "Имейл адрес или ORCID идентификатор:"
+
+msgid "orcid.manager.settings.title"
+msgstr "Настройки на ORCID API"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "скрит"
+
+msgid "orcid.manager.settings.description"
+msgstr "Моля потвърдете достъп от ORCID API за използване изтеглянето на информация от ORCID профил в профила на автор и допълване на свързаните ORCID записи с публикацията (само за членове на ORCID)."
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr "ORCID API е конфигуриран глобално от хостинга. Следните данни за достъп са съхранени."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Обществен"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Обществен \"пясъчник\""
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Член"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "\"Пясъчник\" на потребител"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "Идентификатор на клиент"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Таен ключ на клиент"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Обхват на достъпа до профил"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Найстроики на имейл"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr "Изпращане на имейл за изискване на удостоверяване за ORCID от авторите на статии за публикуване на ново издание"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "Журнал на заявките за ORCID"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Изберете количеството на записаната в журнали информация от добавката"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Грешки"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Всичко"
+
+msgid "orcid.author.accessDenied"
+msgstr "Достъпът до ORCID отказан"
+
+msgid "orcid.author.accessTokenStored"
+msgstr "Предоставен е достъп до ORCID записи с обхват {$orcidAccessScope}, валиден до"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Изпращане на имейл за изискване на удостоверяване за ORCID от автор"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Изтриване на ORCID идентификатор и ключ за достъп!"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Вижте по-долу за да изискате удостоверяване за ORCID идентификатор"
+
+msgid "orcid.author.unauthenticated"
+msgstr "ORCID идентификатор не е удостоверен! Моля изискайте удостоверяване от автора."
+
+msgid "orcid.verify.title"
+msgstr "ORCID упълномощаване"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Предложената работа беше добавена във Вашия ORCID запис."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "Предложената работе не може да се добави във Вашия ORCID запис."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "Предложената работа ще бъде добавена във Вашия ORCID запис по време на публикуването."
+
+msgid "orcid.verify.success"
+msgstr "Вашият ORCID запис беше верифициран и успешно асоцииран с предложената работа."
+
+msgid "orcid.verify.failure"
+msgstr "Вашият ORCID запис не беше верифициран. Хипервръзката вече не е валидна."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "ORCID идентификатор вече е записан за тази предложена работа."
+
+msgid "orcid.verify.denied"
+msgstr "Вие отказахте достъп до Вашия ORCID запис."
+
+msgid "orcid.authFailure"
+msgstr "Хипервръзката за ORCID удостоверяване вече е използване или не е валидна."
+
+msgid "orcid.failure.contact"
+msgstr "Моля свържете се с мениджър на списанието, посочвайки своето име ORCID идентификатор и подробности за предлаганата работа."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.connect"
+msgstr "Създаване или свързване с Вашия ORCID идентификатор"
+
+msgid "orcid.authorise"
+msgstr "Упълномощаване и свързване на Вашия ORCID идентификатор"
+
+msgid "orcid.about.title"
+msgstr "Какво е ORCID?"
+
+msgid "orcid.about.orcidExplanation"
+msgstr "ORCID е независима, нетърговска организация, която предоставя постоянен идентификатор ORCID iD – който Ви отличава от други изследователи и свързва Вашите публикации на изследвания дейности с Вашия идентификатор. ORCID се използва в много системи, изпорзвани от издатели, финансиращи органи, институции и други свързани с изследвания услуги. Научете повече на <a href=\"https://orcid.org\">orcid.org</a>."
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Защо и как ние събираме ORCID идентификатори?"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"Това списание събира Вашите ORCID идентификатори за да можем [добавете цел и "
+"направете разлика между API за членове и обществен API].\n"
+"\tКогато кликнете бутон “Упълномощаване” в изскачащия прозорец за ORCID, ще "
+"Ви помолим да споделите своя идентификатор чрез процес на упълномощаване "
+"извършван чрез: <a href=\"https://support.orcid.org/hc/en-us/articles/"
+"360006897454\">регистриране за ORCID идентификатор</a> или, ако Вие имате "
+"такъв, чрез <a href=\"https://support.orcid.org/hc/en-us/categories/"
+"360000661673\">влизане във Вашия ORCID профил</a>, а след това предоставяне "
+"на нас разрешение да получим Вашия ORCID идентификатор. Ние правим това за "
+"да подсигурим, че коректно сте идентифицирани и сигурно сме свързали Вашия "
+"ORCID идентификатор.<br>\n"
+"\tНаучете повече на <a href=\"https://info.orcid.org/"
+"whats-so-special-about-signing-in/\">Какво е толкова специалното при "
+"влизането. </a> <br>\n"
+"Това списание ще събира и показва удостоверените идентификатори на автори и "
+"съавтори на страницата с профили и статии в OJS."
+
+msgid "orcid.about.display.title"
+msgstr "Къде се показват ORCID идентификатори?"
+
+msgid "orcid.about.display"
+msgstr ""
+"За да се потвърди, че Вие използвате свой идентификатор и че той е "
+"удостоверен, ние показваме икона ORCID iD <img src=\"https://info.orcid.org/"
+"wp-content/uploads/2020/12/ORCIDiD_icon16x16.png\" alt=\"iD icon\" width=\""
+"16\" height=\"16\" border=\"0\"> срещу Вашето име на страницата на "
+"предложена от Вас статия и във Вашия обществено достъпен профил.<br>\n"
+"\t\tНаучете повече на <a href=\"https://info.orcid.org/"
+"how-should-an-orcid-id-be-displayed/\">Как следва да бъде показван ORCID "
+"iD.</a>"
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"Това списание събира Вашите ORCID идентификатори за да можем ние и по -"
+"широката общност можем да сме сигурни, че сте правилно идентифицирани и "
+"свързани с вашата публикация (и). Това ще гарантира, че връзката ви с "
+"цялостната ви работа остава с вас през цялата ви кариера .\n"
+"\tКогато щракнете върху бутона „Упълномощаване“ в изскачащия прозорец на "
+"ORCID, ние ще ви помолим да споделите вашия iD, като използвате удостоверен "
+"процес - или като се регистрирате за ORCID iD, или, ако вече имате такъв, "
+"като влезете в акаунта си в ORCID, след което ще предоставите ни разрешение "
+"да получим вашия ORCID iD. Правим това, за да гарантираме, че сте правилно "
+"идентифицирани и се свързвате сигурно с вашия ORCID iD. <br>\n"
+"\tНаучете повече в <a href=\"https://info.orcid.org/"
+"whats-so-special-about-signing-in/\"> Какво е толкова специалното при "
+"влизането. </a> <br>\n"
+"\tТова списание ще събира и показва удостоверените идентификатори на автори "
+"и съавтори на страницата с профили и статии в OJS. В допълнение, метаданните "
+"на статиите автоматично ще бъдат прехвърлени към вашия ORCID запис, което ни "
+"позволява да ви помогнем да поддържате вашия запис актуален с надеждна "
+"информация. Научете повече в <a href=\"https://info.orcid.org/"
+"six-ways-to-make-your-orcid-id-work-for-you/\"> Шест начина да накарате "
+"вашия ORCID iD да работи за вас ! </a>\n"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Невалиден ID на клиента"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Невалиден секретен ключ на клиента"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Настройките са запазени"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr ""
+"Идентификационният номер на клиента е невалиден, моля, проверете въведеното"
+
+msgid "orcid.manager.settings.city"
+msgstr "Град"
+
+msgid "orcid.invalidClient"
+msgstr "Невалидни идентификационни данни на клиента"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Конфигуриран като списание"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "ID на клиента е валиден"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Тайният ключ на клиента е валиден"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr ""
+"Клиентският таен ключ е невалиден, моля, проверете идентификационните си "
+"данни"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Открити са дублиращи се ORCiD за сътрудници."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Открити са неавтентифицирани ORCiD за сътрудници."
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "Достъпът до работния процес за непълно подадени материали е ограничен."

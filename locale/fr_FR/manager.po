@@ -3,12 +3,13 @@
 # Rudy Hahusseau <rudy.hahusseau@univ-lorraine.fr>, 2023.
 # Germán Huélamo Bautista <germanhuelamo@gmail.com>, 2023, 2024.
 # Jean-Blaise Claivaz <jean-blaise.claivaz@unige.ch>, 2023.
+# Rodolphe Lemétayer <rlemetayer@protonmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2024-05-13 15:39+0000\n"
+"PO-Revision-Date: 2024-07-03 21:39+0000\n"
 "Last-Translator: Germán Huélamo Bautista <germanhuelamo@gmail.com>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fr_FR/>\n"
@@ -3199,7 +3200,9 @@ msgid "mailable.reviewerUnassign.name"
 msgstr "Evaluateur( trice) plus attribué(e)"
 
 msgid "mailable.reviewerUnassign.description"
-msgstr "Ce courriel est envoyé lorsqu'un rédacteur désassigne un évaluateur."
+msgstr ""
+"Ce courriel est envoyé lorsqu'un·e rédacteur·rice désassigne un·e "
+"évaluateur·rice."
 
 msgid "mailable.validateEmailSite.name"
 msgstr "Valider le courriel (site)"
@@ -3225,7 +3228,7 @@ msgstr ""
 "Une copie du courriel qui a été envoyé à l'auteur·e qui a fait la soumission"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr "Informer les évaluateurs·rices de la décision"
+msgstr "Informer les évaluateur·rice·s de la décision"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
@@ -3982,3 +3985,12 @@ msgstr "Identifiant de soumission"
 
 msgid "manager.statistics.counterR5Report.settings.wrongItemId"
 msgstr "L'identifiant de la soumission n'existe pas."
+
+msgid "manager.statistics.counterR5Report.settings"
+msgstr "Paramètres du rapport"
+
+msgid "manager.statistics.counterR5Report.settings.includeParentDetails"
+msgstr "Inclure les détails parents"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Valider le XML avec l'export."

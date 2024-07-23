@@ -3786,3 +3786,6 @@ msgstr "Ne prikaži mesečnih podrobnosti"
 
 msgid "manager.setup.masthead"
 msgstr "Kolofon"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Preveri XML datoteko pred izvozom in registracijo."

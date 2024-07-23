@@ -26,8 +26,7 @@ use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\SubEditorsDAO;
 use PKP\db\DAORegistry;
-use PKP\log\SubmissionEmailLogDAO;
-use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\SubmissionNeedsEditor;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\observers\events\SubmissionSubmitted;
@@ -66,8 +65,6 @@ class AssignEditors
         $notificationManager = new NotificationManager();
         /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-        /** @var SubmissionEmailLogDAO $logDao */
-        $logDao = DAORegistry::getDAO('SubmissionEmailLogDAO');
         foreach ($managers as $manager) {
 
             // Send notification
@@ -118,8 +115,8 @@ class AssignEditors
             Mail::send($mailable);
 
             // Log email
-            $logDao->logMailable(
-                SubmissionEmailLogEntry::SUBMISSION_EMAIL_NEEDS_EDITOR,
+            Repo::emailLogEntry()->logMailable(
+                SubmissionEmailLogEventType::NEEDS_EDITOR,
                 $mailable,
                 $event->submission
             );

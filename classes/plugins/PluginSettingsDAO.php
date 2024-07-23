@@ -18,204 +18,138 @@
 
 namespace PKP\plugins;
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
-use PKP\cache\CacheManager;
-use PKP\cache\GenericCache;
 use PKP\xml\PKPXMLParser;
 
 class PluginSettingsDAO extends \PKP\db\DAO
 {
-    /**
-     * Get the cache for plugin settings.
-     *
-     * @param int $contextId Context ID
-     * @param string $pluginName Plugin symbolic name
-     *
-     * @return GenericCache
-     */
-    public function _getCache($contextId, $pluginName)
+    public const CACHE_LIFETIME = 24 * 60 * 60;
+
+    protected function _getCacheId(int $contextId, string $pluginName, bool $isNormalized = false): string
     {
-        static $settingCache = [];
-        return $settingCache[(int) $contextId][$pluginName] ??= CacheManager::getManager()->getCache(
-            'pluginSettings-' . $contextId,
-            $pluginName,
-            $this->_cacheMiss(...)
-        );
+        if (!$isNormalized) {
+            $pluginName = static::_normalizePluginName($pluginName);
+        }
+        return "pluginSettings-{$contextId}-{$pluginName}";
+    }
+
+    protected function _normalizePluginName(string $pluginName): string
+    {
+        return strtolower($pluginName);
     }
 
     /**
      * Retrieve a plugin setting value.
-     *
-     * @param int $contextId Context ID
-     * @param string $pluginName Plugin symbolic name
-     * @param string $name Setting name
      */
-    public function getSetting($contextId, $pluginName, $name)
+    public function getSetting(int $contextId, string $pluginName, string $settingName): mixed
     {
-        // Normalize the plug-in name to lower case.
-        $pluginName = strtolower_codesafe($pluginName);
+        $pluginSettings = Cache::remember(
+            $this->_getCacheId($contextId, $pluginName),
+            static::CACHE_LIFETIME,
+            fn () => $this->getPluginSettings($contextId, $pluginName)
+        );
 
-        // Retrieve the setting.
-        $cache = $this->_getCache($contextId, $pluginName);
-        return $cache->get($name);
+        return $pluginSettings[$settingName] ?? null;
     }
 
     /**
-     * Does the plugin setting exist.
-     *
-     * @param int $contextId Context ID
-     * @param string $pluginName Plugin symbolic name
-     * @param string $name Setting name
-     *
-     * @return bool
+     * Determine if the plugin setting exists in the database.
      */
-    public function settingExists($contextId, $pluginName, $name)
+    public function settingExists(int $contextId, string $pluginName, string $settingName): bool
     {
-        $pluginName = strtolower_codesafe($pluginName);
         $result = $this->retrieve(
             'SELECT COUNT(*) AS row_count FROM plugin_settings WHERE plugin_name = ? AND context_id = ? AND setting_name = ?',
-            [$pluginName, (int) $contextId, $name]
+            [static::_normalizePluginName($pluginName), $contextId, $settingName]
         );
         $row = $result->current();
-        return $row ? (bool) $row->row_count : false;
+        return $row && $row->row_count;
     }
 
     /**
-     * Callback for a cache miss.
-     *
-     * @param object $cache Cache object
-     * @param string $id Identifier to look up in cache
+     * Retrieve all settings for a plugin from the database (and update the cache).
      */
-    public function _cacheMiss($cache, $id)
-    {
-        $contextParts = explode('-', $cache->getContext());
-        $contextId = array_pop($contextParts);
-        $settings = $this->getPluginSettings($contextId, $cache->getCacheId());
-        if (!isset($settings[$id])) {
-            // Make sure that even null values are cached
-            $cache->setCache($id, null);
-            return null;
-        }
-        return $settings[$id];
-    }
-
-    /**
-     * Retrieve and cache all settings for a plugin.
-     *
-     * @param int $contextId Context ID
-     * @param string $pluginName Plugin symbolic name
-     *
-     * @return array
-     */
-    public function getPluginSettings($contextId, $pluginName)
+    public function getPluginSettings(int $contextId, string $pluginName): array
     {
         // Normalize plug-in name to lower case.
-        $pluginName = strtolower_codesafe($pluginName);
+        $pluginName = $this->_normalizePluginName($pluginName);
 
-        $result = $this->retrieve(
-            'SELECT setting_name, setting_value, setting_type FROM plugin_settings WHERE plugin_name = ? AND context_id = ?',
-            [$pluginName, (int) $contextId]
-        );
-
-        $pluginSettings = [];
-        foreach ($result as $row) {
-            $pluginSettings[$row->setting_name] = $this->convertFromDB($row->setting_value, $row->setting_type);
-        }
-
-        $cache = $this->_getCache($contextId, $pluginName);
-        $cache->setEntireCache($pluginSettings);
-
-        return $pluginSettings;
+        $result = DB::table('plugin_settings')->where('plugin_name', $pluginName)->where('context_id', $contextId)->get();
+        $settings = $result->mapWithKeys(fn ($row) => [$row->setting_name => $this->convertFromDB($row->setting_value, $row->setting_type)]);
+        $settings = $settings->toArray();
+        Cache::put($this->_getCacheId($contextId, $pluginName, true), $settings, static::CACHE_LIFETIME);
+        return $settings;
     }
 
     /**
      * Add/update a plugin setting.
      *
-     * @param int $contextId Context ID
-     * @param string $pluginName Symbolic plugin name
-     * @param string $name Setting name
-     * @param mixed $value Setting value
-     * @param string $type data type of the setting. If omitted, type will be guessed
+     * @param $type data type of the setting. If omitted, type will be guessed
      */
-    public function updateSetting($contextId, $pluginName, $name, $value, $type = null)
+    public function updateSetting(int $contextId, string $pluginName, string $settingName, mixed $value, ?string $type = null): void
     {
         // Normalize the plug-in name to lower case.
-        $pluginName = strtolower_codesafe($pluginName);
+        $pluginName = static::_normalizePluginName($pluginName);
 
-        $cache = $this->_getCache($contextId, $pluginName);
-        $cache->setCache($name, $value);
+        Cache::forget($this->_getCacheId($contextId, $pluginName, true));
 
         $value = $this->convertToDB($value, $type);
 
         DB::table('plugin_settings')->updateOrInsert(
-            ['context_id' => (int) $contextId, 'plugin_name' => $pluginName, 'setting_name' => $name],
+            ['context_id' => $contextId, 'plugin_name' => $pluginName, 'setting_name' => $settingName],
             ['setting_value' => $value, 'setting_type' => $type]
         );
     }
 
     /**
      * Delete a plugin setting.
-     *
-     * @param int $contextId
-     * @param int $pluginName
-     * @param string $name
      */
-    public function deleteSetting($contextId, $pluginName, $name)
+    public function deleteSetting(int $contextId, string $pluginName, string $settingName): void
     {
         // Normalize the plug-in name to lower case.
-        $pluginName = strtolower_codesafe($pluginName);
+        $pluginName = static::_normalizePluginName($pluginName);
 
-        $cache = $this->_getCache($contextId, $pluginName);
-        $cache->setCache($name, null);
+        Cache::forget($this->_getCacheId($contextId, $pluginName, true));
 
-        return $this->update(
-            'DELETE FROM plugin_settings WHERE plugin_name = ? AND setting_name = ? AND context_id = ?',
-            [$pluginName, $name, (int) $contextId]
-        );
+        DB::table('plugin_settings')
+            ->where('plugin_Name', $pluginName)
+            ->where('context_id', $contextId)
+            ->where('setting_name', $settingName)
+            ->delete();
     }
 
     /**
      * Delete all settings for a plugin.
-     *
-     * @param int $contextId
-     * @param string $pluginName
      */
-    public function deleteSettingsByPlugin($contextId, $pluginName)
+    public function deleteSettingsByPlugin(int $contextId, string $pluginName): void
     {
         // Normalize the plug-in name to lower case.
-        $pluginName = strtolower_codesafe($pluginName);
+        $pluginName = static::_normalizePluginName($pluginName);
 
-        $cache = $this->_getCache($contextId, $pluginName);
-        $cache->flush();
+        Cache::forget($this->_getCacheId($contextId, $pluginName, true));
 
-        return $this->update(
-            'DELETE FROM plugin_settings WHERE context_id = ? AND plugin_name = ?',
-            [(int) $contextId, $pluginName]
-        );
+        DB::table('plugin_settings')
+            ->where('plugin_Name', $pluginName)
+            ->where('context_id', $contextId)
+            ->delete();
     }
 
     /**
      * Delete all settings for a context.
-     *
-     * @param int $contextId
      */
-    public function deleteByContextId($contextId)
+    public function deleteByContextId(int $contextId): void
     {
-        return $this->update(
-            'DELETE FROM plugin_settings WHERE context_id = ?',
-            [(int) $contextId]
-        );
+        DB::table('plugin_settings')->where('context_id', $contextId)->delete();
     }
 
     /**
      * Used internally by installSettings to perform variable and translation replacements.
      *
-     * @param string $rawInput contains text including variable and/or translate replacements.
-     * @param array $paramArray contains variables for replacement
+     * @param $rawInput contains text including variable and/or translate replacements.
+     * @param $paramArray contains variables for replacement
      *
-     * @return string
      */
-    public function _performReplacement($rawInput, $paramArray = [])
+    public function _performReplacement(string $rawInput, array $paramArray = []): string
     {
         $value = preg_replace_callback('{{translate key="([^"]+)"}}', fn ($matches) => __($matches[1]), (string) $rawInput);
         foreach ($paramArray as $pKey => $pValue) {
@@ -231,7 +165,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
      * @param object $node XMLNode <array> tag
      * @param array $paramArray Parameters to be replaced in key/value contents
      */
-    public function _buildObject($node, $paramArray = [])
+    public function _buildObject($node, $paramArray = []): array
     {
         $value = [];
         foreach ($node->getChildren() as $element) {
@@ -255,11 +189,11 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Install plugin settings from an XML file.
      *
-     * @param string $pluginName name of plugin for settings to apply to
-     * @param string $filename Name of XML file to parse and install
-     * @param array $paramArray Optional parameters for variable replacement in settings
+     * @param $pluginName name of plugin for settings to apply to
+     * @param $filename Name of XML file to parse and install
+     * @param $paramArray Optional parameters for variable replacement in settings
      */
-    public function installSettings($contextId, $pluginName, $filename, $paramArray = [])
+    public function installSettings(int $contextId, string $pluginName, string $filename, array $paramArray = []): bool
     {
         $xmlParser = new PKPXMLParser();
         $tree = $xmlParser->parse($filename);
@@ -295,20 +229,8 @@ class PluginSettingsDAO extends \PKP\db\DAO
                 $this->updateSetting($contextId, $pluginName, $name, $value, $type);
             }
         }
+        return true;
     }
-}
-
-/**
- * Used internally by plugin setting installation code to perform translation
- * function.
- *
- * @param array $matches
- *
- * @return string
- */
-function _installer_plugin_regexp_callback($matches)
-{
-    return __($matches[1]);
 }
 
 if (!PKP_STRICT_MODE) {

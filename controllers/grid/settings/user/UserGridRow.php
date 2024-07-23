@@ -185,7 +185,7 @@ class UserGridRow extends GridRow
                             new RedirectConfirmationModal(
                                 __('grid.user.confirmLogInAs'),
                                 __('grid.action.logInAs'),
-                                $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'signInAsUser', $this->getId())
+                                $dispatcher->url($request, PKPApplication::ROUTE_PAGE, null, 'login', 'signInAsUser', [$this->getId()])
                             ),
                             __('grid.action.logInAs'),
                             'enroll_user'

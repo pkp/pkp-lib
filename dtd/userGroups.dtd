@@ -17,4 +17,5 @@
 		plural CDATA #REQUIRED
 		abbrev CDATA #REQUIRED
 		permitSelfRegistration CDATA #IMPLIED
-		permitMetadataEdit CDATA #IMPLIED>
+		permitMetadataEdit CDATA #IMPLIED
+		masthead CDATA #IMPLIED>

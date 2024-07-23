@@ -178,6 +178,7 @@ class FormComponent
      *  @option id string Required A unique ID for this form page
      *  @option label string The name of the page to identify it in the page list
      *  @option submitButton array Required Assoc array defining submission/next button params. Supports any param of the Button component in the UI Library.
+     *  @option cancelButton array Assoc array defining the cancel button params. Supports any param of the Button component in the UI Library.
      *  @option previousButton array Assoc array defining button params to go back to the previous page. Supports any param of the Button component in the UI Library.
      * ]
      *
@@ -190,7 +191,7 @@ class FormComponent
     public function addPage($args, $position = []): static
     {
         if (empty($args['id'])) {
-            fatalError('Tried to add a form page without an id.');
+            throw new \Exception('Tried to add a form page without an id.');
         }
         if (empty($position)) {
             $this->pages[] = $args;

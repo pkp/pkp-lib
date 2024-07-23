@@ -36,10 +36,12 @@ class Role extends \PKP\core\DataObject
      * @param int $roleId for this role.  Default to null for backwards
      * 	compatibility
      */
-    public function __construct($roleId = null)
+    public function __construct(?int $roleId = null)
     {
         parent::__construct();
-        $this->setId($roleId);
+        if ($roleId !== null) {
+            $this->setId($roleId);
+        }
     }
 
 

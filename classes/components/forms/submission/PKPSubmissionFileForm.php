@@ -18,14 +18,10 @@ namespace PKP\components\forms\submission;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 
-define('FORM_SUBMISSION_FILE', 'submissionFile');
-
 class PKPSubmissionFileForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_SUBMISSION_FILE;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_SUBMISSION_FILE = 'submissionFile';
+    public $id = self::FORM_SUBMISSION_FILE;
     public $method = 'PUT';
 
     /**

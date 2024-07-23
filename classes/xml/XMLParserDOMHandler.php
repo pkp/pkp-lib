@@ -20,42 +20,33 @@
 
 namespace PKP\xml;
 
+use XMLParser;
+
 class XMLParserDOMHandler extends XMLParserHandler
 {
-    /** @var XMLNode reference to the root node */
-    public $rootNode;
+    /** @var Root node */
+    public ?XMLNode $rootNode;
 
-    /** @var XMLNode reference to the node currently being parsed */
-    public $currentNode;
+    /** @var The node currently being parsed */
+    public ?XMLNode $currentNode = null;
 
     /** @var string reference to the current data */
-    public $currentData;
+    public ?string $currentData = null;
 
     /** @var XMLNode[] */
-    public $rootNodes = [];
+    public array $rootNodes = [];
 
     /**
      * Constructor.
      */
     public function __construct()
     {
-        $this->rootNodes = [];
-        $this->currentNode = null;
-    }
-
-    public function destroy()
-    {
-        unset($this->currentNode, $this->currentData, $this->rootNode);
     }
 
     /**
      * Callback function to act as the start element handler.
-     *
-     * @param PKPXMLParser $parser
-     * @param string $tag
-     * @param array $attributes
      */
-    public function startElement($parser, $tag, $attributes)
+    public function startElement(XMLParser|PKPXMLParser $parser, string $tag, array $attributes) : void
     {
         $this->currentData = null;
         $node = new XMLNode($tag);
@@ -73,11 +64,8 @@ class XMLParserDOMHandler extends XMLParserHandler
 
     /**
      * Callback function to act as the end element handler.
-     *
-     * @param PKPXMLParser $parser
-     * @param string $tag
      */
-    public function endElement($parser, $tag)
+    public function endElement(XMLParser|PKPXMLParser $parser, string $tag)
     {
         $this->currentNode->setValue($this->currentData);
         $this->currentNode = & $this->currentNode->getParent();
@@ -86,21 +74,16 @@ class XMLParserDOMHandler extends XMLParserHandler
 
     /**
      * Callback function to act as the character data handler.
-     *
-     * @param PKPXMLParser $parser
-     * @param string $data
      */
-    public function characterData($parser, $data)
+    public function characterData(XMLParser|PKPXMLParser $parser, string $data)
     {
         $this->currentData .= $data;
     }
 
     /**
      * Returns a reference to the root node of the tree representing the document.
-     *
-     * @return XMLNode
      */
-    public function getResult()
+    public function getResult() : mixed
     {
         return $this->rootNode;
     }

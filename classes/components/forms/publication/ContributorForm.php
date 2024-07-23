@@ -18,21 +18,22 @@ namespace PKP\components\forms\publication;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\components\forms\FieldOptions;
+use PKP\components\forms\FieldOrcid;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
+use PKP\orcid\OrcidManager;
 use PKP\security\Role;
 use PKP\userGroup\UserGroup;
 use Sokil\IsoCodes\IsoCodesFactory;
 
-define('FORM_CONTRIBUTOR', 'contributor');
-
 class ContributorForm extends FormComponent
 {
+    public const FORM_CONTRIBUTOR = 'contributor';
     /** @copydoc FormComponent::$id */
-    public $id = FORM_CONTRIBUTOR;
+    public $id = self::FORM_CONTRIBUTOR;
 
     /** @copydoc FormComponent::$method */
     public $method = 'POST';
@@ -94,10 +95,16 @@ class ContributorForm extends FormComponent
             ]))
             ->addField(new FieldText('url', [
                 'label' => __('user.url'),
-            ]))
-            ->addField(new FieldText('orcid', [
-                'label' => __('user.orcid'),
             ]));
+
+        if (OrcidManager::isEnabled()) {
+            $this->addField(new FieldOrcid('orcid', [
+                'label' => __('user.orcid'),
+                'tooltip' => __('orcid.about.orcidExplanation'),
+            ]), [FIELD_POSITION_AFTER, 'url']);
+        }
+
+
         if ($context->getSetting('requireAuthorCompetingInterests')) {
             $this->addField(new FieldRichTextarea('competingInterests', [
                 'label' => __('author.competingInterests'),

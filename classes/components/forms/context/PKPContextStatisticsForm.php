@@ -21,14 +21,10 @@ use PKP\context\Context;
 use PKP\site\Site;
 use PKP\statistics\PKPStatisticsHelper;
 
-define('FORM_CONTEXT_STATISTICS', 'contextStatistics');
-
 class PKPContextStatisticsForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_CONTEXT_STATISTICS;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_CONTEXT_STATISTICS = 'contextStatistics';
+    public $id = self::FORM_CONTEXT_STATISTICS;
     public $method = 'PUT';
 
     /**

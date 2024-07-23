@@ -181,7 +181,7 @@ class ListbuilderHandler extends GridHandler
      */
     public function deleteEntry($request, $rowId)
     {
-        fatalError('ABSTRACT METHOD');
+        throw new \Exception('ABSTRACT METHOD');
     }
 
     /**
@@ -214,7 +214,7 @@ class ListbuilderHandler extends GridHandler
      */
     public function insertEntry($request, $newRowId)
     {
-        fatalError('ABSTRACT METHOD');
+        throw new \Exception('ABSTRACT METHOD');
     }
 
     /**

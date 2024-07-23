@@ -86,7 +86,7 @@ class EnrollExistingReviewerForm extends ReviewerForm
         $userGroupId = (int) $this->getData('userGroupId');
 
         if (!$this->isValidUserAndGroup($userId, $userGroupId)) {
-            fatalError('invalid user or userGroup ID');
+            throw new \Exception('invalid user or userGroup ID');
         }
 
         Repo::userGroup()->assignUserToGroup($userId, $userGroupId);

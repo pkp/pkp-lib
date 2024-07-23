@@ -251,6 +251,20 @@ class PKPStatsHandler extends Handler
             'dateEnd' => $dateEnd,
         ]);
 
+        $geoAPIEndPoint = null;
+        $geoStatsSetting = $context->getEnableGeoUsageStats($request->getSite());
+        switch ($geoStatsSetting) {
+            case PKPStatisticsHelper::STATISTICS_SETTING_COUNTRY:
+                $geoAPIEndPoint = 'countries';
+                break;
+            case PKPStatisticsHelper::STATISTICS_SETTING_REGION:
+                $geoAPIEndPoint = 'regions';
+                break;
+            case PKPStatisticsHelper::STATISTICS_SETTING_CITY:
+                $geoAPIEndPoint = 'cities';
+                break;
+        }
+
         $statsComponent = new \PKP\components\PKPStatsPublicationPage(
             $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'stats/publications'),
             [
@@ -322,28 +336,16 @@ class PKPStatsHandler extends Handler
                 ],
                 'orderBy' => 'total',
                 'orderDirection' => true,
+                'geoReportType' => $geoAPIEndPoint
+
             ]
         );
 
-        $geoAPIEndPoint = null;
-        $geoStatsSetting = $context->getEnableGeoUsageStats($request->getSite());
-        switch ($geoStatsSetting) {
-            case PKPStatisticsHelper::STATISTICS_SETTING_COUNTRY:
-                $geoAPIEndPoint = 'countries';
-                break;
-            case PKPStatisticsHelper::STATISTICS_SETTING_REGION:
-                $geoAPIEndPoint = 'regions';
-                break;
-            case PKPStatisticsHelper::STATISTICS_SETTING_CITY:
-                $geoAPIEndPoint = 'cities';
-                break;
-        }
         $templateMgr->setState($statsComponent->getConfig());
         $templateMgr->assign([
             'pageComponent' => 'StatsPublicationsPage',
             'pageTitle' => __('stats.publicationStats'),
             'pageWidth' => TemplateManager::PAGE_WIDTH_WIDE,
-            'geoReportType' => $geoAPIEndPoint
         ]);
 
         $templateMgr->display('stats/publications.tpl');

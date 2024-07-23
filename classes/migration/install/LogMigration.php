@@ -79,6 +79,7 @@ class LogMigration extends \PKP\migration\Migration
             $table->text('recipients')->nullable();
             $table->text('cc_recipients')->nullable();
             $table->text('bcc_recipients')->nullable();
+            // The length of the `subject` column must be the same as EmailLogEntry::MAX_SUBJECT_LENGTH
             $table->string('subject', 255)->nullable();
             $table->text('body')->nullable();
             $table->index(['assoc_type', 'assoc_id'], 'email_log_assoc');

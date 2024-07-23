@@ -13,8 +13,6 @@
  * Any frequently-used functions that cannot be put into an appropriate class should be added here.
  */
 
-use PKP\config\Config;
-use PKP\core\Registry;
 
 /*
  * Constants for expressing human-readable data sizes in their respective number of bytes.
@@ -27,131 +25,6 @@ define('PB_IN_BYTES', 1024 * TB_IN_BYTES);
 define('EB_IN_BYTES', 1024 * PB_IN_BYTES);
 define('ZB_IN_BYTES', 1024 * EB_IN_BYTES);
 define('YB_IN_BYTES', 1024 * ZB_IN_BYTES);
-
-/**
- * Emulate a Java-style import statement.
- * Simply includes the associated PHP file (using require_once so multiple calls to include the same file have no effect).
- *
- * @deprecated 3.4.0 pkp/pkp-lib#8186
- *
- * @param string $class the complete name of the class to be imported (e.g. 'lib.pkp.classes.core.Core')
- */
-if (!function_exists('import')) {
-    function import($class)
-    {
-        $filePathPart = BASE_SYS_DIR . '/' . str_replace('.', '/', $class);
-        $filePath = $filePathPart . '.php';
-        if (file_exists($filePath)) {
-            // Load .php suffix
-            require_once($filePath);
-        } else {
-            // Fallback: Try .inc.php suffix
-            // This behaviour is DEPRECATED as of 3.4.0.
-            require_once($filePathPart . '.inc.php');
-        }
-    }
-}
-
-/**
- * Wrapper around exit() to pretty-print an error message with an optional stack trace.
- */
-function fatalError($reason)
-{
-    // Because this method may be called when checking the value of the show_stacktrace
-    // configuration string, we need to ensure that we don't get stuck in an infinite loop.
-    static $isErrorCondition = null;
-    static $showStackTrace = false;
-
-    if ($isErrorCondition === null) {
-        $isErrorCondition = true;
-        $showStackTrace = Config::getVar('debug', 'show_stacktrace');
-        $isErrorCondition = false;
-    }
-
-    echo '<h1>' . htmlspecialchars($reason) . '</h1>';
-
-    if ($showStackTrace) {
-        echo "<h4>Stack Trace:</h4>\n";
-        $trace = debug_backtrace();
-
-        // Remove the call to fatalError from the call trace.
-        array_shift($trace);
-
-        // Back-trace pretty-printer adapted from the following URL:
-        // http://ca3.php.net/manual/en/function.debug-backtrace.php
-        // Thanks to diz at ysagoon dot com
-
-        // FIXME: Is there any way to localize this when the localization
-        // functions may have caused the failure in the first place?
-        foreach ($trace as $bt) {
-            $args = '';
-            if (isset($bt['args'])) {
-                foreach ($bt['args'] as $a) {
-                    if (!empty($args)) {
-                        $args .= ', ';
-                    }
-                    switch (gettype($a)) {
-                        case 'integer':
-                        case 'double':
-                            $args .= $a;
-                            break;
-                        case 'string':
-                            $a = htmlspecialchars(substr($a, 0, 64)) . ((strlen($a) > 64) ? '...' : '');
-                            $args .= "\"{$a}\"";
-                            break;
-                        case 'array':
-                            $args .= 'Array(' . count($a) . ')';
-                            break;
-                        case 'object':
-                            $args .= 'Object(' . get_class($a) . ')';
-                            break;
-                        case 'resource':
-                            $args .= 'Resource(' . strstr($a, '#') . ')';
-                            break;
-                        case 'boolean':
-                            $args .= $a ? 'True' : 'False';
-                            break;
-                        case 'NULL':
-                            $args .= 'Null';
-                            break;
-                        default:
-                            $args .= 'Unknown';
-                    }
-                }
-            }
-            $class = $bt['class'] ?? '';
-            $type = $bt['type'] ?? '';
-            $function = $bt['function'] ?? '';
-            $file = $bt['file'] ?? '(unknown)';
-            $line = $bt['line'] ?? '(unknown)';
-
-            echo "<strong>File:</strong> {$file} line {$line}<br />\n";
-            echo "<strong>Function:</strong> {$class}{$type}{$function}({$args})<br />\n";
-            echo "<br/>\n";
-        }
-    }
-
-    // Determine the application name. Use defensive code so that we
-    // can handle errors during early application initialization.
-    $application = null;
-    if (class_exists('Registry')) {
-        $application = Registry::get('application', true, null);
-    }
-    $applicationName = '';
-    if (!is_null($application)) {
-        $applicationName = $application->getName() . ': ';
-    }
-
-    error_log($applicationName . $reason);
-
-    if (defined('DONT_DIE_ON_ERROR') && DONT_DIE_ON_ERROR == true) {
-        // trigger an error to be catched outside the application
-        trigger_error($reason);
-        return;
-    }
-
-    exit;
-}
 
 /**
  * Instantiates an object for a given fully qualified
@@ -225,7 +98,10 @@ function &instantiate($fullyQualifiedClassName, $expectedTypes = null, $expected
     }
 
     // Import the requested class
-    import($fullyQualifiedClassName);
+    $filePath = BASE_SYS_DIR . '/' . str_replace('.', '/', $fullyQualifiedClassName) . '.php';
+    if (file_exists($filePath)) {
+        include_once($filePath);
+    }
 
     // Identify the class name
     $fullyQualifiedClassNameParts = explode('.', $fullyQualifiedClassName);
@@ -287,58 +163,6 @@ function stripAssocArray($values)
         }
     }
     return $values;
-}
-
-/**
- * Perform a code-safe strtolower, i.e. one that doesn't behave differently
- * based on different locales. (tr_TR, I'm looking at you.)
- *
- * @param string $str Input string
- *
- * @return string
- */
-function strtolower_codesafe($str)
-{
-    return strtr($str, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz');
-}
-
-/**
- * Perform a code-safe strtoupper, i.e. one that doesn't behave differently
- * based on different locales. (tr_TR, I'm looking at you.)
- *
- * @param string $str Input string
- *
- * @return string
- */
-function strtoupper_codesafe($str)
-{
-    return strtr($str, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-}
-
-/**
- * Perform a code-safe lcfirst, i.e. one that doesn't behave differently
- * based on different locales. (tr_TR, I'm looking at you.)
- *
- * @param string $str Input string
- *
- * @return string
- */
-function lcfirst_codesafe($str)
-{
-    return strtolower_codesafe(substr($str, 0, 1)) . substr($str, 1);
-}
-
-/**
- * Perform a code-safe ucfirst, i.e. one that doesn't behave differently
- * based on different locales. (tr_TR, I'm looking at you.)
- *
- * @param string $str Input string
- *
- * @return string
- */
-function ucfirst_codesafe($str)
-{
-    return strtoupper_codesafe(substr($str, 0, 1)) . substr($str, 1);
 }
 
 /**

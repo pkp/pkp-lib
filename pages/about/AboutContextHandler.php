@@ -22,6 +22,7 @@ use APP\handler\Handler;
 use APP\template\TemplateManager;
 use DateTime;
 use PKP\facades\Locale;
+use PKP\orcid\OrcidManager;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
@@ -76,6 +77,7 @@ class AboutContextHandler extends Handler
         $allMastheadUserGroups = $collector
             ->filterByContextIds([$context->getId()])
             ->filterByMasthead(true)
+            ->filterExcludeRoles([Role::ROLE_ID_REVIEWER])
             ->orderBy($collector::ORDERBY_ROLE_ID)
             ->getMany()
             ->toArray();
@@ -87,9 +89,6 @@ class AboutContextHandler extends Handler
 
         $mastheadUsers = [];
         foreach ($mastheadRoles as $mastheadUserGroup) {
-            if ($mastheadUserGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
-                continue;
-            }
             foreach ($allUsersIdsGroupedByUserGroupId[$mastheadUserGroup->getId()] ?? [] as $userId) {
                 $user = Repo::user()->get($userId);
                 $userUserGroup = UserUserGroup::withUserId($user->getId())
@@ -108,7 +107,7 @@ class AboutContextHandler extends Handler
         }
 
         $previousYear = date('Y') - 1;
-        $reviewerIds = Repo::reviewAssignment()->getReviewerIdsByCompletedYear($context->getId(), $previousYear);
+        $reviewerIds = Repo::reviewAssignment()->getExternalReviewerIdsByCompletedYear($context->getId(), $previousYear);
         $usersCollector = Repo::user()->getCollector();
         $reviewers = $usersCollector
             ->filterByUserIds($reviewerIds->toArray())
@@ -117,10 +116,6 @@ class AboutContextHandler extends Handler
 
         Hook::call('AboutContextHandler::editorialMasthead', [$mastheadRoles, $mastheadUsers, $reviewers, $previousYear]);
 
-        // To come after https://github.com/pkp/pkp-lib/issues/9771
-        // $orcidIcon = OrcidManager::getIcon();
-        $orcidIcon = '';
-
         $templateMgr = TemplateManager::getManager($request);
         $this->setupTemplate($request);
         $templateMgr->assign([
@@ -128,7 +123,7 @@ class AboutContextHandler extends Handler
             'mastheadUsers' => $mastheadUsers,
             'reviewers' => $reviewers,
             'previousYear' => $previousYear,
-            'orcidIcon' => $orcidIcon
+            'orcidIcon' => OrcidManager::getIcon(),
         ]);
         $templateMgr->display('frontend/pages/editorialMasthead.tpl');
     }
@@ -151,6 +146,7 @@ class AboutContextHandler extends Handler
         $allMastheadUserGroups = $collector
             ->filterByContextIds([$context->getId()])
             ->filterByMasthead(true)
+            ->filterExcludeRoles([Role::ROLE_ID_REVIEWER])
             ->orderBy($collector::ORDERBY_ROLE_ID)
             ->getMany()
             ->toArray();
@@ -162,15 +158,13 @@ class AboutContextHandler extends Handler
 
         $mastheadUsers = [];
         foreach ($mastheadRoles as $mastheadUserGroup) {
-            if ($mastheadUserGroup->getRoleId() == Role::ROLE_ID_REVIEWER) {
-                continue;
-            }
             foreach ($allUsersIdsGroupedByUserGroupId[$mastheadUserGroup->getId()] ?? [] as $userId) {
                 $user = Repo::user()->get($userId);
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
                     ->withUserGroupId($mastheadUserGroup->getId())
                     ->withEnded()
                     ->withMasthead()
+                    ->sortBy('date_start', 'desc')
                     ->get();
                 $services = [];
                 foreach ($userUserGroups as $userUserGroup) {
@@ -192,16 +186,12 @@ class AboutContextHandler extends Handler
 
         Hook::call('AboutContextHandler::editorialHistory', [$mastheadRoles, $mastheadUsers]);
 
-        // To come after https://github.com/pkp/pkp-lib/issues/9771
-        // $orcidIcon = OrcidManager::getIcon();
-        $orcidIcon = '';
-
         $templateMgr = TemplateManager::getManager($request);
         $this->setupTemplate($request);
         $templateMgr->assign([
             'mastheadRoles' => $mastheadRoles,
             'mastheadUsers' => $mastheadUsers,
-            'orcidIcon' => $orcidIcon
+            'orcidIcon' => OrcidManager::getIcon(),
         ]);
         $templateMgr->display('frontend/pages/editorialHistory.tpl');
     }

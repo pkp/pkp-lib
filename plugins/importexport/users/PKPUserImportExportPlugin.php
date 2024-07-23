@@ -252,7 +252,7 @@ abstract class PKPUserImportExportPlugin extends ImportExportPlugin
         if ($userXml) {
             $xml = $userXml->saveXml();
         } else {
-            fatalError('Could not convert users.');
+            throw new \Exception('Could not convert users.');
         }
         return $xml;
     }

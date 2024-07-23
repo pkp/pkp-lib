@@ -18,8 +18,9 @@
 
 namespace PKP\file;
 
-use PKP\plugins\Hook;
+use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
+use PKP\plugins\Hook;
 
 class TemporaryFileDAO extends \PKP\db\DAO
 {
@@ -44,8 +45,8 @@ class TemporaryFileDAO extends \PKP\db\DAO
 
     /**
      * Retrieve temporary files by user Id
+     *
      * @param $userId int
-     * @return DAOResultFactory
      */
     public function getTemporaryFilesByUserId(int $userId): DAOResultFactory
     {
@@ -154,23 +155,23 @@ class TemporaryFileDAO extends \PKP\db\DAO
 
     /**
      * Delete a temporary file by ID.
-     *
-     * @param int $fileId
-     * @param int $userId
      */
-    public function deleteTemporaryFileById($fileId, $userId)
+    public function deleteTemporaryFileById(int $fileId, int $userId): int
     {
-        return $this->update('DELETE FROM temporary_files WHERE file_id = ? AND user_id = ?', [(int) $fileId, (int) $userId]);
+        return DB::table('temporary_files')
+            ->where('file_id', '=', $fileId)
+            ->where('user_id', '=', $userId)
+            ->delete();
     }
 
     /**
      * Delete temporary files by user ID.
-     *
-     * @param int $userId
      */
-    public function deleteByUserId($userId)
+    public function deleteByUserId(int $userId): int
     {
-        return $this->update('DELETE FROM temporary_files WHERE user_id = ?', [(int) $userId]);
+        return DB::table('temporary_files')
+            ->where('user_id', '=', $userId)
+            ->delete();
     }
 
     /**

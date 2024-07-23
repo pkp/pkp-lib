@@ -524,3 +524,261 @@ msgid "user.pendingEmailChange"
 msgstr ""
 "You have requested a change of your email to \"{$pendingEmail}\". "
 "We have already sent you an email with directions on how to validate the changed email."
+
+msgid "orcid.displayName"
+msgstr "ORCID"
+
+msgid "orcid.description"
+msgstr "Allows for the import of user profile information from ORCID."
+
+msgid "orcid.instructions"
+msgstr "You can pre-populate this form with information from an ORCID profile. Enter the email address or ORCID iD associated with the ORCID profile, then click \"Submit\"."
+
+msgid "orcid.noData"
+msgstr "Couldn't find any data from ORCID."
+
+msgid "orcid.emailOrOrcid"
+msgstr "Email address or ORCID iD:"
+
+msgid "orcid.manager.settings.title"
+msgstr "ORCID API Settings"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "hidden"
+
+msgid "orcid.manager.settings.description"
+msgstr "Please configure the ORCID API access for use in pulling ORCID profile information into user and author profiles and updating connected ORCID records with new publications (only for ORCID Members)."
+
+#, fuzzy
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr "The ORCID API was configured globally by the host. The ORCID API, Client ID, and Client Secret have been set at the site-level and cannot be changed here. Contact your site administrator to disable ORCID functionality or change these credentials."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Public"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Public Sandbox"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Member"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Member Sandbox"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "Client ID"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Client Secret"
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Profile Access Scope"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "E-Mail Settings"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Settings saved"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr "Send e-mail to request ORCID authorization from authors when an article is accepted ie. sent to copy editing"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "ORCID request log"
+
+#, fuzzy
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Select the amount of logging output written by the ORCID feature"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Errors"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "All"
+
+msgid "orcid.manager.settings.city"
+msgstr "City"
+
+msgid "orcid.author.accessDenied"
+msgstr "ORCID access was denied at"
+
+msgid "orcid.author.accessTokenStored"
+msgstr "ORCID record access granted with scope {$orcidAccessScope}, valid until"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Send e-mail to request ORCID authorization from contributor"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Delete ORCID iD and access token!"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "See below to request authenticated ORCID iD"
+
+msgid "orcid.author.unauthenticated"
+msgstr "ORCID iD not authenticated! Please request authentication from the contributor."
+
+msgid "orcid.verify.title"
+msgstr "ORCID Authorization"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "The submission has been added to your ORCID record."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "The submission could not be added to your ORCID record."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "The submission will be added to your ORCID record during publication."
+
+msgid "orcid.verify.success"
+msgstr "Your ORCID iD has been verified and successfully associated with the submission."
+
+msgid "orcid.verify.failure"
+msgstr "Your ORCID iD could not be verified. The link is no longer valid."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "An ORCID iD was already stored for this submission."
+
+msgid "orcid.verify.denied"
+msgstr "You denied access to your ORCID record."
+
+msgid "orcid.authFailure"
+msgstr "The ORCID authorization link has already been used or is invalid."
+
+msgid "orcid.invalidClient"
+msgstr "Invalid client credentials"
+
+msgid "orcid.failure.contact"
+msgstr "Please contact the journal manager with your name, ORCID iD, and details of your submission."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.connect"
+msgstr "Create or Connect your ORCID iD"
+
+msgid "orcid.authorise"
+msgstr "Authorise and Connect your ORCID iD"
+
+msgid "orcid.about.title"
+msgstr "What is ORCID?"
+
+msgid "orcid.about.orcidExplanation"
+msgstr "ORCID is an independent non-profit organization that provides a persistent identifier – an ORCID iD – that distinguishes you from other researchers and a mechanism for linking your research outputs and activities to your iD. ORCID is integrated into many systems used by publishers, funders, institutions, and other research-related services. Learn more at <a href=\"https://orcid.org\">orcid.org</a>."
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "How and why we collect ORCID iDs?"
+
+#, fuzzy
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"This journal is collecting your ORCID iD so we and the wider community can "
+"be confident that you are correctly identified and connected with your "
+"publication(s). This will ensure your connection to your full body of work "
+"stays with you throughout your career. <br>\n"
+"\tWhen you click the “Authorize” button in the ORCID popup, we will ask you "
+"to share your iD using an authenticated process—either by registering for an "
+"ORCID iD or, if you already have one, by signing into your ORCID account, "
+"then granting us permission to get your ORCID iD. We do this to ensure you "
+"are correctly identified and securely connected to your ORCID iD.<br>\n"
+"\tLearn more in <a href=\"https://info.orcid.org/"
+"whats-so-special-about-signing-in/\">What’s so special about signing "
+"in.</a><br>\n"
+"This journal will collect and display authenticated authors’ and coauthors’ "
+"iDs on the OJS profile and article page."
+
+#, fuzzy
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"This journal is collecting your ORCID iD so we and the wider community can "
+"be confident you are correctly identified and connected with your "
+"publication(s). This will ensure your connection to your full body of work "
+"stays with you throughout your career.<br>\n"
+"\tWhen you click the “Authorize” button in the ORCID popup, we will ask you "
+"to share your iD using an authenticated process—either by registering for an "
+"ORCID iD or, if you already have one, by signing into your ORCID account, "
+"then granting us permission to get your ORCID iD. We do this to ensure you "
+"are correctly identified and securely connecting to your ORCID iD.<br>\n"
+"\tLearn more in <a href=\"https://info.orcid.org/"
+"whats-so-special-about-signing-in/\">What’s so special about signing "
+"in.</a><br>\n"
+"\tThis journal will collect and display authenticated authors’ and coauthors’"
+" iDs on the OJS profile and article page. In addition, article metadata will "
+"automatically be pushed to your ORCID record, enabling us to help you keep "
+"your record up-to-date with trusted information. Learn more in <a href=\""
+"https://info.orcid.org/six-ways-to-make-your-orcid-id-work-for-you/\">Six "
+"ways to make your ORCID iD work for you!</a>\n"
+
+msgid "orcid.about.display.title"
+msgstr "Where are ORCID iDs displayed?"
+
+#, fuzzy
+msgid "orcid.about.display"
+msgstr ""
+"To acknowledge that you have used your iD and that it has been "
+"authenticated, we display the ORCID iD icon <img src=\"https://info.orcid."
+"org/wp-content/uploads/2020/12/ORCIDiD_icon16x16.png\" alt=\"iD icon\" width="
+"\"16\" height=\"16\" border=\"0\"> alongside your name on the article page "
+"of your submission and on your public user profile.<br>\n"
+"\t\tLearn more in <a href=\"https://info.orcid.org/"
+"how-should-an-orcid-id-be-displayed/\">How should an ORCID iD be "
+"displayed.</a>"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Invalid client ID"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Invalid client secret"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Journal-wise configured"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "Client Id is valid"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "Client Id is invalid, please check your input"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Client Secret is valid"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Client Secret is invalid, please check your credentials"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Duplicate ORCiDs for contributors detected."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Unauthenticated ORCiDs for contributors detected."
+
+msgid "orcid.manager.context.enabled"
+msgstr "Enable ORCID functionality"
+
+msgid "orcid.manager.siteWide.enabled"
+msgstr "Enable ORCID functionality site-wide"
+
+msgid "orcid.manager.siteWide.description"
+msgstr "ORCID functionality can optionally be enabled and configured at a site level for all journals/presses/servers. If enabled, this will override all context-level credentials and apply the following credentials to all journals/presses/servers on this installation."
+
+msgid "orcid.field.verification.request"
+msgstr "Request verification"
+
+msgid "orcid.field.verification.requested"
+msgstr "Verification requested!"
+
+msgid "orcid.field.authorEmailModal.title"
+msgstr "Request ORCID verification"
+
+msgid "orcid.field.authorEmailModal.message"
+msgstr "Would you like to send an email to this author requesting they verify their ORCID?"
+
+msgid "orcid.field.deleteOrcidModal.title"
+msgstr "Delete ORCID"
+
+msgid "orcid.field.deleteOrcidModal.message"
+msgstr "Are you sure you want to remove this ORCID?"
+
+msgid "orcid.field.unverified.shouldRequest"
+msgstr "This ORCID has not been verified. Please remove this unverified ORCID and request verification from the user/author directly."

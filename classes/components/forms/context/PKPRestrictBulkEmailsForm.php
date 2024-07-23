@@ -20,14 +20,10 @@ use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 
-define('FORM_RESTRICT_BULK_EMAILS', 'restrictBulkEmails');
-
 class PKPRestrictBulkEmailsForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_RESTRICT_BULK_EMAILS;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_RESTRICT_BULK_EMAILS = 'restrictBulkEmails';
+    public $id = self::FORM_RESTRICT_BULK_EMAILS;
     public $method = 'PUT';
 
     /**

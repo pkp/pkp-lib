@@ -19,8 +19,6 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use PKP\cache\CacheManager;
-use PKP\db\DAORegistry;
 use PKP\install\DowngradeNotSupportedException;
 
 abstract class MergeLocalesMigration extends \PKP\migration\Migration
@@ -137,11 +135,11 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         // customBlockManager
         $blockPluginName = 'customblockmanagerplugin';
         $blockLocalizedSettingNames = ['blockTitle', 'blockContent'];
-        
+
         $contextIds = DB::table($this->CONTEXT_TABLE)
             ->get()
             ->pluck($this->CONTEXT_COLUMN);
-        
+
         foreach ($contextIds as $contextId) {
             $blocks = DB::table('plugin_settings')
                 ->where('plugin_name', '=', $blockPluginName)
@@ -149,7 +147,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                 ->where('context_id', '=', $contextId)
                 ->get()
                 ->pluck('setting_value');
-            
+
             if (!$blocks->isEmpty()) {
                 $blockNames = $blocks->first();
 
@@ -157,7 +155,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                 if (is_null($blocksArray)) {
                     $blocksArray = unserialize($blockNames);
                 }
-            
+
                 foreach ($blocksArray as $block) {
                     foreach ($blockLocalizedSettingNames as $blockLocalizedSettingName) {
                         $blockLocalizedContent = DB::table('plugin_settings')
@@ -171,9 +169,6 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                         }
                     }
                 }
-
-                $cacheManager = CacheManager::getManager();
-                $cacheManager->flush();
             }
         }
     }

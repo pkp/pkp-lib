@@ -516,6 +516,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
             $context->setData('supportedSubmissionMetadataLocales', [$context->getData('supportedDefaultSubmissionLocale')]);
         }
 
+        $context->setSequence(REALLY_BIG_NUMBER);
         $contextDao->insertObject($context);
         $contextDao->resequence();
 
@@ -619,6 +620,8 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO'); /** @var AnnouncementTypeDAO $announcementTypeDao */
         $announcementTypeDao->deleteByContextId($context->getId());
+
+        Repo::reviewAssignment()->deleteByContextId($context->getId());
 
         Repo::userGroup()->deleteByContextId($context->getId());
 

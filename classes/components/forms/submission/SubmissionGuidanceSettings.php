@@ -20,10 +20,9 @@ use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 
-define('FORM_METADATA', 'metadata');
-
 class SubmissionGuidanceSettings extends FormComponent
 {
+    public const FORM_METADATA = 'metadata';
     public $id = 'submissionGuidanceSettings';
     public $method = 'PUT';
     public Context $context;

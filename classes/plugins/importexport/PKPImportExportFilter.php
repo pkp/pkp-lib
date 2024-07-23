@@ -16,8 +16,6 @@
 
 namespace PKP\plugins\importexport;
 
-// FIXME: Add namespacing
-
 use APP\plugins\importexport\native\NativeImportExportDeployment;
 use Exception;
 use PKP\db\DAORegistry;
@@ -27,7 +25,7 @@ use PKP\filter\PersistableFilter;
 use PKP\plugins\importexport\native\filter\NativeExportFilter;
 use PKP\plugins\importexport\native\PKPNativeImportExportDeployment;
 
-class PKPImportExportFilter extends PersistableFilter
+abstract class PKPImportExportFilter extends PersistableFilter
 {
     /** @var PKPNativeImportExportDeployment */
     private $_deployment;

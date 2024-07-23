@@ -23,14 +23,10 @@ use PKP\components\forms\FormComponent;
 use PKP\config\Config;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
-define('FORM_REVIEW_SETUP', 'reviewSetup');
-
 class PKPReviewSetupForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_REVIEW_SETUP;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_REVIEW_SETUP = 'reviewSetup';
+    public $id = self::FORM_REVIEW_SETUP;
     public $method = 'PUT';
 
     /**

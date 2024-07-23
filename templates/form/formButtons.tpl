@@ -21,6 +21,22 @@
 	{* Loading indicator *}
 	<span class="pkp_spinner"></span>
 
+	{* Cancel button (if any) *}
+	{if !$FBV_hideCancel}
+		{assign var=cancelButtonId value="cancelFormButton"|concat:"-"|uniqid}
+		{if $FBV_cancelAction}
+			{include file="linkAction/buttonGenericLinkAction.tpl"
+					buttonSelector="#"|concat:$cancelButtonId
+					action=$FBV_cancelAction}
+		{elseif $FBV_cancelUrl}
+			{include file="linkAction/buttonRedirectLinkAction.tpl"
+					buttonSelector="#"|concat:$cancelButtonId
+					cancelUrl=$FBV_cancelUrl
+					cancelUrlTarget=$FBV_cancelUrlTarget}
+		{/if}
+		<a href="#" id="{$cancelButtonId}" class="cancelButton">{translate key=$FBV_cancelText}</a>
+	{/if}
+
 	{* Submit button *}
 	{assign var=submitButtonId value="submitFormButton"|concat:"-"|uniqid}
 
@@ -37,21 +53,5 @@
 	{if $FBV_saveText}
 		{assign var=saveButtonId value="saveFormButton"|concat:"-"|uniqid}
 		{fbvElement type="submit" class="saveFormButton" name="saveFormButton" id=$saveButtonId label=$FBV_saveText disabled=$FBV_submitDisabled}
-	{/if}
-
-	{* Cancel button (if any) *}
-	{if !$FBV_hideCancel}
-		{assign var=cancelButtonId value="cancelFormButton"|concat:"-"|uniqid}
-		{if $FBV_cancelAction}
-			{include file="linkAction/buttonGenericLinkAction.tpl"
-					buttonSelector="#"|concat:$cancelButtonId
-					action=$FBV_cancelAction}
-		{elseif $FBV_cancelUrl}
-			{include file="linkAction/buttonRedirectLinkAction.tpl"
-					buttonSelector="#"|concat:$cancelButtonId
-					cancelUrl=$FBV_cancelUrl
-					cancelUrlTarget=$FBV_cancelUrlTarget}
-		{/if}
-		<a href="#" id="{$cancelButtonId}" class="cancelButton">{translate key=$FBV_cancelText}</a>
 	{/if}
 {/fbvFormSection}

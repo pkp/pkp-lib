@@ -64,12 +64,10 @@ class Version extends \PKP\core\DataObject
      *     > 0 if this version is higher
      *
      * @param string|Version $version the version to compare against
-     *
-     * @return int
      */
-    public function compare($version)
+    public function compare(string|Version $version): int
     {
-        if (is_object($version)) {
+        if ($version instanceof Version) {
             return $this->compare($version->getVersionString());
         }
         return version_compare($this->getVersionString(), $version);
@@ -77,17 +75,8 @@ class Version extends \PKP\core\DataObject
 
     /**
      * Static method to return a new version from a version string of the form "W.X.Y.Z".
-     *
-     * @param string $versionString
-     * @param string $productType
-     * @param string $product
-     * @param string $productClass
-     * @param int $lazyLoad
-     * @param int $sitewide
-     *
-     * @return Version
      */
-    public static function fromString($versionString, $productType = null, $product = null, $productClass = '', $lazyLoad = 0, $sitewide = 1)
+    public static function fromString(string $versionString, ?string $productType = null, ?string $product = null, ?string $productClass = '', bool $lazyLoad = false, bool $sitewide = true): Version
     {
         $versionArray = explode('.', $versionString);
 
@@ -120,220 +109,176 @@ class Version extends \PKP\core\DataObject
 
     /**
      * Get major version.
-     *
-     * @return int
      */
-    public function getMajor()
+    public function getMajor(): int
     {
         return $this->getData('major');
     }
 
     /**
      * Set major version.
-     *
-     * @param int $major
      */
-    public function setMajor($major)
+    public function setMajor(int $major): void
     {
         $this->setData('major', $major);
     }
 
     /**
      * Get minor version.
-     *
-     * @return int
      */
-    public function getMinor()
+    public function getMinor(): int
     {
         return $this->getData('minor');
     }
 
     /**
      * Set minor version.
-     *
-     * @param int $minor
      */
-    public function setMinor($minor)
+    public function setMinor(int $minor): void
     {
         $this->setData('minor', $minor);
     }
 
     /**
      * Get revision version.
-     *
-     * @return int
      */
-    public function getRevision()
+    public function getRevision(): int
     {
         return $this->getData('revision');
     }
 
     /**
      * Set revision version.
-     *
-     * @param int $revision
      */
-    public function setRevision($revision)
+    public function setRevision(int $revision): void
     {
         $this->setData('revision', $revision);
     }
 
     /**
      * Get build version.
-     *
-     * @return int
      */
-    public function getBuild()
+    public function getBuild(): int
     {
         return $this->getData('build');
     }
 
     /**
      * Set build version.
-     *
-     * @param int $build
      */
-    public function setBuild($build)
+    public function setBuild(int $build): void
     {
         $this->setData('build', $build);
     }
 
     /**
      * Get date installed.
-     *
-     * @return string
      */
-    public function getDateInstalled()
+    public function getDateInstalled(): string
     {
         return $this->getData('dateInstalled');
     }
 
     /**
      * Set date installed.
-     *
-     * @param string $dateInstalled
      */
-    public function setDateInstalled($dateInstalled)
+    public function setDateInstalled(string $dateInstalled): void
     {
         $this->setData('dateInstalled', $dateInstalled);
     }
 
     /**
      * Check if current version.
-     *
-     * @return int
      */
-    public function getCurrent()
+    public function getCurrent(): bool
     {
         return $this->getData('current');
     }
 
     /**
      * Set if current version.
-     *
-     * @param int $current
      */
-    public function setCurrent($current)
+    public function setCurrent(bool $current): void
     {
         $this->setData('current', $current);
     }
 
     /**
      * Get product type.
-     *
-     * @return string
      */
-    public function getProductType()
+    public function getProductType(): string
     {
         return $this->getData('productType');
     }
 
     /**
      * Set product type.
-     *
-     * @param string $productType
      */
-    public function setProductType($productType)
+    public function setProductType(string $productType): void
     {
         $this->setData('productType', $productType);
     }
 
     /**
      * Get product name.
-     *
-     * @return string
      */
-    public function getProduct()
+    public function getProduct(): string
     {
         return $this->getData('product');
     }
 
     /**
      * Set product name.
-     *
-     * @param string $product
      */
-    public function setProduct($product)
+    public function setProduct(string $product): void
     {
         $this->setData('product', $product);
     }
 
     /**
      * Get the product's class name
-     *
-     * @return string
      */
-    public function getProductClassName()
+    public function getProductClassName(): string
     {
         return $this->getData('productClassName');
     }
 
     /**
      * Set the product's class name
-     *
-     * @param string $productClassName
      */
-    public function setProductClassName($productClassName)
+    public function setProductClassName(string $productClassName): void
     {
         $this->setData('productClassName', $productClassName);
     }
 
     /**
      * Get the lazy load flag for this product
-     *
-     * @return bool
      */
-    public function getLazyLoad()
+    public function getLazyLoad(): bool
     {
         return $this->getData('lazyLoad');
     }
 
     /**
      * Set the lazy load flag for this product
-     *
-     * @param bool $lazyLoad
      */
-    public function setLazyLoad($lazyLoad)
+    public function setLazyLoad(bool $lazyLoad): void
     {
         $this->setData('lazyLoad', $lazyLoad);
     }
 
     /**
      * Get the sitewide flag for this product
-     *
-     * @return bool
      */
-    public function getSitewide()
+    public function getSitewide(): bool
     {
         return $this->getData('sitewide');
     }
 
     /**
      * Set the sitewide flag for this product
-     *
-     * @param bool $sitewide
      */
-    public function setSitewide($sitewide)
+    public function setSitewide(bool $sitewide): void
     {
         $this->setData('sitewide', $sitewide);
     }
@@ -343,9 +288,8 @@ class Version extends \PKP\core\DataObject
      *
      * @param bool True (default) iff a numeric (comparable) version is to be returned.
      *
-     * @return string
      */
-    public function getVersionString($numeric = true)
+    public function getVersionString(bool $numeric = true): string
     {
         $numericVersion = sprintf('%d.%d.%d.%d', $this->getMajor(), $this->getMinor(), $this->getRevision(), $this->getBuild());
         if (!$numeric && $this->getProduct() == 'omp' && preg_match('/^0\.9\.9\./', $numericVersion)) {
@@ -368,15 +312,8 @@ class Version extends \PKP\core\DataObject
      * Checks if the Version is compatible with the given string of constraints for the version,
      * formatted per composer/semver specifications;
      * c.f. https://getcomposer.org/doc/articles/versions.md#writing-version-constraints
-     * Returns:
-     * 		true iff the version given is compatible with this version
-     * 		false iff the version given is incompatible with this version
-     *
-     * @param string $constraints the string of constraints for the version to be checked against
-     *
-     * @return boolean
      */
-    public function isCompatible($constraints)
+    public function isCompatible(string $constraints): bool
     {
         $semver = new semver();
         $version = $this->getVersionString();

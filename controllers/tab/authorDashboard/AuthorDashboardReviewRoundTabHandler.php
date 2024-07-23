@@ -23,9 +23,7 @@ use APP\notification\Notification;
 use APP\pages\authorDashboard\AuthorDashboardHandler;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
-use PKP\db\DAORegistry;
-use PKP\log\SubmissionEmailLogDAO;
-use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionEmailLogEventType;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
@@ -87,7 +85,7 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         if ($stageId !== WORKFLOW_STAGE_ID_INTERNAL_REVIEW && $stageId !== WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
-            fatalError('Invalid Stage Id');
+            throw new \Exception('Invalid Stage Id');
         }
 
         $templateMgr->assign([
@@ -112,11 +110,11 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
         }
 
         // Display notification emails to the author related to editorial decisions
-        $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
         $templateMgr->assign([
-            'submissionEmails' => $submissionEmailLogDao->getByEventType(
+            'submissionEmails' => Repo::emailLogEntry()->getByEventType(
                 $submission->getId(),
-                SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR,
+                SubmissionEmailLogEventType::EDITOR_NOTIFY_AUTHOR,
+                Application::ASSOC_TYPE_SUBMISSION,
                 $request->getUser()->getId()
             ),
             'showReviewAttachments' => true,

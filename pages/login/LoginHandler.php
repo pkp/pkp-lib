@@ -99,7 +99,7 @@ class LoginHandler extends Handler
     public function _redirectAfterLogin($request)
     {
         $context = $this->getTargetContext($request);
-        
+
         // If there's a context, send them to the dashboard after login.
         if ($context && $request->getUserVar('source') == '' && array_intersect(
             [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_ASSISTANT],
@@ -148,7 +148,7 @@ class LoginHandler extends Handler
             if ($user->getMustChangePassword()) {
                 // User must change their password in order to log in
                 Validation::logout();
-                $request->redirect(null, null, 'changePassword', $user->getUsername());
+                $request->redirect(null, null, 'changePassword', [$user->getUsername()]);
             }
             $source = $request->getUserVar('source');
             if (preg_match('#^/\w#', (string) $source) === 1) {

@@ -20,14 +20,10 @@ use PKP\components\forms\FieldUpload;
 use PKP\components\forms\FieldUploadImage;
 use PKP\components\forms\FormComponent;
 
-define('FORM_APPEARANCE_ADVANCED', 'appearanceAdvanced');
-
 class PKPAppearanceAdvancedForm extends FormComponent
 {
-    /** @copydoc FormComponent::$id */
-    public $id = FORM_APPEARANCE_ADVANCED;
-
-    /** @copydoc FormComponent::$method */
+    public const FORM_APPEARANCE_ADVANCED = 'appearanceAdvanced';
+    public $id = self::FORM_APPEARANCE_ADVANCED;
     public $method = 'PUT';
 
     /**

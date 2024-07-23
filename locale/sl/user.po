@@ -522,3 +522,226 @@ msgstr "Uporabniško ime ali geslo"
 
 msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
 msgstr "Dostop do delovnega toka ne dokončane oddaje je omejen."
+
+msgid "orcid.displayName"
+msgstr "Vtičnik za ORCID profil"
+
+msgid "orcid.description"
+msgstr "Omogoča uvoz uporabniških podatkov iz ORCID."
+
+msgid "orcid.instructions"
+msgstr "Obrazec lahko pednapolnite s podatki iz ORCID profila. Vnesite email naslvo ali ORCID iD, ki pripada ORCID profilu, in kliknite \"Pošlji\"."
+
+msgid "orcid.noData"
+msgstr "Iz ORCID ni bilo mogoče najti nobenih podatkov."
+
+msgid "orcid.emailOrOrcid"
+msgstr "Email naslov ali ORCID iD:"
+
+msgid "orcid.manager.settings.description"
+msgstr "Nastavite ORCID API za uporabo pri zajemanju podatkov iz ORCID profilov za uporabniške profile."
+
+msgid "orcid.manager.settings.orcidProfileAPIPath"
+msgstr "ORCID API"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.public"
+msgstr "Javno"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.publicSandbox"
+msgstr "Javni sandbox"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.member"
+msgstr "Član"
+
+msgid "orcid.manager.settings.orcidProfileAPIPath.memberSandbox"
+msgstr "Članski peskovnik"
+
+msgid "orcid.manager.settings.orcidClientId"
+msgstr "ID klienta"
+
+msgid "orcid.manager.settings.orcidClientSecret"
+msgstr "Secret klienta"
+
+msgid "orcid.authFailure"
+msgstr "OJS ni mogel komunicirati z ORCID servisom. Za pomoč kontaktirajte vašeka upravljalca revije skupaj z vašim imenom, ORCID iD-jem in podatki o vašem prispevku."
+
+msgid "orcid.fieldset"
+msgstr "ORCID"
+
+msgid "orcid.connect"
+msgstr "Ustvari ali poveži vaš ORCID iD"
+
+msgid "orcid.manager.settings.title"
+msgstr "Nastavitve za ORCID API"
+
+msgid "orcid.manager.settings.hidden"
+msgstr "skrito"
+
+msgid "orcid.manager.settings.description.globallyconfigured"
+msgstr "ORCID API je bil nastavljen globalno na strežniku. Nastavljene so bile naslednje nastavitve."
+
+msgid "orcid.manager.settings.orcidScope"
+msgstr "Področje dostopnosti profila"
+
+msgid "orcid.manager.settings.mailSectionTitle"
+msgstr "Email nastavitve"
+
+msgid "orcid.manager.settings.logSectionTitle"
+msgstr "ORCID dnevnik zahtevkov"
+
+msgid "orcid.manager.settings.logLevel.help"
+msgstr "Določite količino zapisov v dnevnik vtičnika"
+
+msgid "orcid.manager.settings.logLevel.error"
+msgstr "Napake"
+
+msgid "orcid.manager.settings.logLevel.all"
+msgstr "Vse"
+
+msgid "orcid.author.accessDenied"
+msgstr "ORCID dostop je bil zavrnjen"
+
+msgid "orcid.author.accessTokenStored"
+msgstr ""
+"Dostop do ORCID zapisa z dostopnostjo {$orcidAccessScope} je bil odobren z "
+"veljavnostjo do"
+
+msgid "orcid.author.requestAuthorization"
+msgstr "Pošlji email s prošnjo za ORCID avtorizacijo s strani sodelujočega"
+
+msgid "orcid.author.deleteORCID"
+msgstr "Zbirši ORCID iD in žeton za dostop!"
+
+msgid "orcid.author.orcidEmptyNotice"
+msgstr "Glej spodaj za zahtevo po avtenticiranem ORCID iD"
+
+msgid "orcid.author.unauthenticated"
+msgstr "ORCID iD ni avtenticiran! Prosimo zahtevajte avtentikacijo od sodelavca."
+
+msgid "orcid.verify.title"
+msgstr "ORCID avtorizacija"
+
+msgid "orcid.verify.sendSubmissionToOrcid.success"
+msgstr "Prispevek še ni bil dodan k vašemu ORCID zapisu."
+
+msgid "orcid.verify.sendSubmissionToOrcid.failure"
+msgstr "Prispevka ni bilo mogoče dodati k vašemu ORCID zapisu."
+
+msgid "orcid.verify.sendSubmissionToOrcid.notpublished"
+msgstr "Prispevek bo dodan k vašemu ORCID zapisu ob izdaji številke revije."
+
+msgid "orcid.verify.success"
+msgstr "Vaš ORCID iD je bil preverjen in uspešno povezan s prispevkom."
+
+msgid "orcid.verify.failure"
+msgstr "Vašega ORCID iDja ni bilo mogoče preveriti. Povezava ni več veljavna."
+
+msgid "orcid.verify.duplicateOrcid"
+msgstr "ORCID iD je bil že shranjen za ta prispevek."
+
+msgid "orcid.verify.denied"
+msgstr "Zavrnili ste dostop do vašega ORCID zapisa."
+
+msgid "orcid.failure.contact"
+msgstr "Prosimo kontaktirajte vašega upravljalca revije skupaj z vašim imenom, ORCID iD-jem in podatki o vašem prispevku."
+
+msgid "orcid.authorise"
+msgstr "Avtoriziraj in poveži vaš ORCID iD"
+
+msgid "orcid.about.title"
+msgstr "Kaj je ORCID?"
+
+msgid "orcid.about.howAndWhyPublicAPI"
+msgstr ""
+"Revija zbira vaš ORCID iD, da lahko povežemo prispevke in članke z vašimi "
+"ORCID podatki.\n"
+"\n"
+"Ko kliknete gumb \"Avtoriziraj\" v ORCID pojavnem oknu, vas bom prosili, da "
+"delite z nami vaš iD z uporabo avtoriziranega procesa: ali s <a href=\"https"
+"://support.orcid.org/hc/en-us/articles/360006897454\">kreiranjem novega "
+"ORCID računa</a> ali, če ORCID račun že imate, <a href=\"https://support."
+"orcid.org/hc/en-us/categories/360000661673\">z vpisom v vaš ORCID račun</a> "
+"in dovoljenjem dostopa do vašega ORCID iD. To je potrebno zaradi "
+"zagotavljanja vaše avtentičnosti in varne povezave z vašim ORCID id.<br>\n"
+" Več na <a href=\"https://info.orcid.org/whats-so-special-about-signing-in/\""
+">What’s so special about signing in</a>."
+
+msgid "orcid.about.orcidExplanation"
+msgstr "ORCID je neodvisna in nepridobitna organizacija, ki zagotavlja trajni identifikator, ORCID iD, za vašo enolično identifikacijo in mehanizem za povezavo med vašimi raziskovalnimi aktivnostmi in rezultati ter vašim ORCID iDjem. ORCID je integriran v veliko sistemov, ki jih uporabljajo založniki, sponzorji, institucije in ostalimi sistemi povezanimi z raziskovanjem. Več na <a href=\"https://orcid.org\">orcid.org</a>."
+
+msgid "orcid.about.howAndWhy.title"
+msgstr "Kako in zakaj shranjujemo ORCID iDje?"
+
+msgid "orcid.about.display.title"
+msgstr "Kje so ORCID iDji prikazani?"
+
+msgid "orcid.about.display"
+msgstr ""
+"Kot potrditev vaše uporabe vašega ORCID iDja in njegtovo avtorizacijo se "
+"prkazuje ORCID id ikona <img src=\"https://info.orcid.org/wp-content/uploads/"
+"2020/12/ORCIDiD_icon16x16.png\" alt=\"iD icon\" width=\"16\" height=\"16\" "
+"border=\"0\"> poleg vašega imena na strani članka in na vašem javnem "
+"profilu.<br>\n"
+" Več na <a href=\"https://info.orcid.org/blog/2013/02/22/"
+"how-should-an-orcid-id-be-displayed/\" >How should an ORCID iD be "
+"displayed.</a>"
+
+msgid "orcid.manager.settings.sendMailToAuthorsOnPublication"
+msgstr ""
+"Pošlji email z zahtevo za ORCID avtorizacijo od vseh avtorjev, ko je članek "
+"sprejet (gre v fazo lektoriranje)"
+
+msgid "orcid.about.howAndWhyMemberAPI"
+msgstr ""
+"Ta revija želi vaš ORCID iD zato, da smo mi in ostala šitša skupnost "
+"prepričani, da ste pravilno idenificirani in povezani z vašimi objavami. To "
+"bo zagotovilo povezavo z vsemi rezultati v vaši celotni karieri.<br>\n"
+"Ko kliknete gumb “Avtoriziraj” v ORCID oknu, vas bomo prosili, da nam "
+"posredujete vaš iD z uporbo overjenega postopka — ali z registriranjem za "
+"ORCID iD ali, če ga že imate, s prijavo v vaš ORCID račun ter dovoljenjem za "
+"dostop do vašega ORCID iDja. Želimo, da ste prepričani, da ste pravilno "
+"identificirani in varno povezani z vašim ORCID iD.<br>\n"
+"Več na <a href=\"https://info.orcid.org/whats-so-special-about-signing-in/\""
+">What’s so special about signing in.</a><br>\n"
+"Ta revija bo zbrala in prikazala avtorizirane ORCID iDje avtorjev in "
+"soavtorjev na OJS profilu in strani s člankom. Dodatno se bodo metapodatki "
+"članka avtomatično prenesli v vaš ORCID zapis, ki bo posodobljen s "
+"preverjenimi informacijami. Več na <a href=\"https://info.orcid.org/"
+"six-ways-to-make-your-orcid-id-work-for-you/\" >Six ways to make your ORCID "
+"iD work for you!</a>\n"
+
+msgid "orcid.manager.settings.orcidClientSecret.error"
+msgstr "Npaačen 'secret' klienta"
+
+msgid "orcid.manager.settings.orcidClientId.error"
+msgstr "Napačen ID klienta"
+
+msgid "orcid.manager.settings.saved"
+msgstr "Nastavitve so shranjene"
+
+msgid "orcid.manager.settings.city"
+msgstr "Mesto"
+
+msgid "orcid.manager.status.configuration.clientIdValid"
+msgstr "ID odjemalca je veljaven"
+
+msgid "orcid.invalidClient"
+msgstr "Neveljavne poverilnice odjemalca"
+
+msgid "orcid.manager.status.configuration.journal"
+msgstr "Nastavljeno na nivoju revije"
+
+msgid "orcid.manager.status.configuration.clientIdInvalid"
+msgstr "ID odjemalca je neveljaven, prosimo preverite vnešene podatke"
+
+msgid "orcid.manager.status.configuration.clientSecretValid"
+msgstr "Secret odjemalca je veljaven"
+
+msgid "orcid.manager.status.configuration.clientSecretInvalid"
+msgstr "Secret odjemalca je neveljaven, prosimo preverite vnešene podatke"
+
+msgid "orcid.verify.duplicateOrcidAuthor"
+msgstr "Zaznani so bili podvojeni ORCiD identifikatorji za avtorje."
+
+msgid "orcid.verify.hasUnauthenticatedOrcid"
+msgstr "Zaznani so bili neavtenticirani ORCiD identifikatorji za avtorje."

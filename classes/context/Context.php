@@ -16,8 +16,6 @@
 
 namespace PKP\context;
 
-use APP\core\Application;
-use APP\core\Services;
 use APP\plugins\IDoiRegistrationAgency;
 use Illuminate\Support\Arr;
 use PKP\config\Config;
@@ -328,7 +326,6 @@ abstract class Context extends \PKP\core\DataObject
     /**
      * Get the supported form locales.
      *
-     * @return array
      */
     public function getSupportedFormLocales(): ?array
     {
@@ -543,20 +540,6 @@ abstract class Context extends \PKP\core\DataObject
     public function getLocalizedSetting($name, $locale = null)
     {
         return $this->getLocalizedData($name, $locale);
-    }
-
-    /**
-     * Update a context setting value.
-     *
-     * @param string $name
-     * @param string $type optional
-     * @param bool $isLocalized optional
-     *
-     * @deprecated 3.3.0.0
-     */
-    public function updateSetting($name, $value, $type = null, $isLocalized = false)
-    {
-        Services::get('context')->edit($this, [$name => $value], Application::get()->getRequest());
     }
 
     /**

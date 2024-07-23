@@ -165,6 +165,7 @@ class GenreDAO extends DAO
     {
         return DB::table('genres')
             ->where('context_id', $contextId)
+            ->where('enabled', 1)
             ->where('required', 1)
             ->get()
             ->map(function (object $row) {
@@ -199,10 +200,8 @@ class GenreDAO extends DAO
 
     /**
      * Get a list of field names for which data is localized.
-     *
-     * @return array
      */
-    public function getLocaleFieldNames()
+    public function getLocaleFieldNames(): array
     {
         return ['name'];
     }
@@ -333,15 +332,12 @@ class GenreDAO extends DAO
 
     /**
      * Soft delete a genre by id.
-     *
-     * @param int $genreId Genre ID
      */
-    public function deleteById($genreId)
+    public function deleteById(int $genreId): int
     {
-        return $this->update(
-            'UPDATE genres SET enabled = ? WHERE genre_id = ?',
-            [0, (int) $genreId]
-        );
+        return DB::table('genres')
+            ->where('genre_id', '=', $genreId)
+            ->update(['enabled' => 0]);
     }
 
     /**

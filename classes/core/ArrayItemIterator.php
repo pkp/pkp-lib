@@ -18,29 +18,29 @@ namespace PKP\core;
 
 class ArrayItemIterator extends ItemIterator
 {
-    /** @var array The array of contents of this iterator. */
-    public $theArray;
+    /** @var ?array The array of contents of this iterator. */
+    public ?array $theArray;
 
     /** @var int Number of items to iterate through on this page */
-    public $itemsPerPage;
+    public int $itemsPerPage;
 
     /** @var int The current page. */
-    public $page;
+    public int $page;
 
     /** @var int The total number of items. */
-    public $count;
+    public int $count;
 
     /** @var bool Whether or not the iterator was empty from the start */
-    public $wasEmpty;
+    public bool $wasEmpty;
 
     /**
      * Constructor.
      *
-     * @param array $theArray The array of items to iterate through
-     * @param int $page the current page number
-     * @param int $itemsPerPage Number of items to display per page
+     * @param $theArray The array of items to iterate through
+     * @param $page the current page number
+     * @param $itemsPerPage Number of items to display per page
      */
-    public function __construct(&$theArray, $page = -1, $itemsPerPage = -1)
+    public function __construct(array $theArray, int $page = -1, int $itemsPerPage = -1)
     {
         parent::__construct();
         if ($page >= 1 && $itemsPerPage >= 1) {
@@ -58,31 +58,12 @@ class ArrayItemIterator extends ItemIterator
     }
 
     /**
-     * Static method: Generate an iterator from an array and rangeInfo object.
-     *
-     * @param array $theArray
-     * @param object $theRange
-     */
-    public function &fromRangeInfo(&$theArray, &$theRange)
-    {
-        if ($theRange && $theRange->isValid()) {
-            $theIterator = new ArrayItemIterator($theArray, $theRange->getPage(), $theRange->getCount());
-        } else {
-            $theIterator = new ArrayItemIterator($theArray);
-        }
-        return $theIterator;
-    }
-
-    /**
      * Return the next item in the iterator.
-     *
-     * @return ?object
      */
-    public function &next()
+    public function next(): mixed
     {
         if (!is_array($this->theArray)) {
-            $value = null;
-            return $value;
+            return null;
         }
         $value = current($this->theArray);
         if (next($this->theArray) === false) {
@@ -96,7 +77,7 @@ class ArrayItemIterator extends ItemIterator
      *
      * @return array (key, value)
      */
-    public function nextWithKey()
+    public function nextWithKey(): array
     {
         $key = key($this->theArray);
         $value = $this->next();
@@ -105,88 +86,75 @@ class ArrayItemIterator extends ItemIterator
 
     /**
      * Determine whether or not this iterator represents the first page
-     *
-     * @return bool
      */
-    public function atFirstPage()
+    public function atFirstPage(): bool
     {
         return $this->page == 1;
     }
 
     /**
      * Determine whether or not this iterator represents the last page
-     *
-     * @return bool
      */
-    public function atLastPage()
+    public function atLastPage(): bool
     {
         return ($this->page * $this->itemsPerPage) + 1 > $this->count;
     }
 
     /**
      * Get the current page number
-     *
-     * @return int
      */
-    public function getPage()
+    public function getPage(): int
     {
         return $this->page;
     }
 
     /**
      * Get the total count of items
-     *
-     * @return int
      */
-    public function getCount()
+    public function getCount(): int
     {
         return $this->count;
     }
 
     /**
      * Get the number of pages
-     *
-     * @return int
      */
-    public function getPageCount()
+    public function getPageCount(): int
     {
         return max(1, ceil($this->count / $this->itemsPerPage));
     }
 
     /**
      * Return a boolean indicating whether or not we've reached the end of results
-     *
-     * @return bool
      */
-    public function eof()
+    public function eof(): bool
     {
         return (($this->theArray == null) || (count($this->theArray) == 0));
     }
 
     /**
      * Return a boolean indicating whether or not this iterator was empty from the beginning
-     *
-     * @return bool
      */
-    public function wasEmpty()
+    public function wasEmpty(): bool
     {
         return $this->wasEmpty;
     }
 
     /**
      * Convert this iterator to an array
-     *
-     * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
+        if ($this->theArray === null) {
+            throw new \Exception('Iterated array has already been discarded.');
+        }
         return $this->theArray;
     }
 
     /**
      * Return this iterator as an associative array.
      */
-    public function toAssociativeArray()
+    public function toAssociativeArray(): ?array
     {
         return $this->theArray;
     }

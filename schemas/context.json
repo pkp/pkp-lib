@@ -574,6 +574,53 @@
 				"nullable"
 			]
 		},
+		"orcidApiType": {
+			"type": "string",
+			"validation": [
+				"nullable",
+				"in:publicProduction,publicSandbox,memberProduction,memberSandbox"
+			]
+		},
+		"orcidCity": {
+			"type": "string",
+			"default": "",
+			"validation": [
+				"nullable"
+			]
+		},
+		"orcidClientId": {
+			"type": "string",
+			"default": "",
+			"validation": [
+				"nullable"
+			]
+		},
+		"orcidClientSecret": {
+			"type": "string",
+			"default": "",
+			"validation": [
+				"nullable"
+			]
+		},
+		"orcidEnabled": {
+			"type": "boolean",
+			"default": false,
+			"description": "Whether ORCID functionality is enabled",
+			"validation": [
+				"nullable"
+			]
+		},
+		"orcidLogLevel": {
+			"type": "string",
+			"default": "ERROR",
+			"validation": [
+				"in:ERROR,INFO"
+			]
+		},
+		"orcidSendMailToAuthorsOnPublication":{
+			"type": "boolean",
+			"default": false
+		},
 		"pageFooter": {
 			"type": "string",
 			"multilingual": true,

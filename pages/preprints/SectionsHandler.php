@@ -60,7 +60,7 @@ class SectionsHandler extends Handler
         $sectionPath = $args[0] ?? null;
         $page = isset($args[1]) && ctype_digit((string) $args[1]) ? (int) $args[1] : 1;
         $context = $request->getContext();
-        $contextId = $context ? $context->getId() : Application::CONTEXT_ID_NONE;
+        $contextId = $context?->getId() ?? Application::SITE_CONTEXT_ID;
 
         // The page $arg can only contain an integer that's not 1. The first page
         // URL does not include page $arg

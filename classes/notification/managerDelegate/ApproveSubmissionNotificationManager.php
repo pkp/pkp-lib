@@ -17,6 +17,8 @@ namespace APP\notification\managerDelegate;
 
 use APP\notification\Notification;
 use PKP\notification\managerDelegate\PKPApproveSubmissionNotificationManager;
+use PKP\notification\PKPNotification;
+use PKP\request\PKPRequest;
 
 class ApproveSubmissionNotificationManager extends PKPApproveSubmissionNotificationManager
 {

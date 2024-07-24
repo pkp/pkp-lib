@@ -231,7 +231,7 @@ class ContextGridHandler extends GridHandler
             $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
             $locales = $context->getSupportedFormLocaleNames();
         } else {
-            $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, Application::CONTEXT_ID_ALL, 'contexts');
+            $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, Application::SITE_CONTEXT_PATH, 'contexts');
             $locales = $request->getSite()->getSupportedLocaleNames();
         }
 
@@ -243,7 +243,7 @@ class ContextGridHandler extends GridHandler
         // Pass the URL to the context settings wizard so that the AddContextForm
         // component can redirect to it when a new context is added.
         if (!$context) {
-            $contextFormConfig['editContextUrl'] = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, 'index', 'admin', 'wizard', ['__id__']);
+            $contextFormConfig['editContextUrl'] = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, Application::SITE_CONTEXT_PATH, 'admin', 'wizard', ['__id__']);
         }
 
         $templateMgr = TemplateManager::getManager($request);

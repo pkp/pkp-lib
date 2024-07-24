@@ -51,7 +51,7 @@ class Identity extends \PKP\core\DataObject
      * 	If true: Familyname, Givenname
      * @param string $preferredLocale The locale the full name is requested for. If null, the user locale will be used.
      */
-    public function getFullName(bool $preferred = true, bool $familyFirst = false, string $preferredLocale = null): string
+    public function getFullName(bool $preferred = true, bool $familyFirst = false, ?string $preferredLocale = null): string
     {
         $locale = $preferredLocale ?? Locale::getLocale();
         if ($preferred) {

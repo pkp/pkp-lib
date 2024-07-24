@@ -65,7 +65,7 @@ abstract class Schema extends Base
     /**
      * Get the URL to an object in the REST API
      */
-    protected function getApiUrl(string $route, $contextPath = PKPApplication::CONTEXT_ID_ALL): string
+    protected function getApiUrl(string $route, $contextPath = PKPApplication::SITE_CONTEXT_PATH): string
     {
         return $this->request->getDispatcher()->url(
             $this->request,

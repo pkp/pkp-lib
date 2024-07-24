@@ -139,11 +139,10 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
      *
      * @param string $pubIdPrefix
      * @param string $pubIdSuffix
-     * @param int $contextId
      *
      * @return string
      */
-    abstract public function constructPubId($pubIdPrefix, $pubIdSuffix, $contextId);
+    abstract public function constructPubId($pubIdPrefix, $pubIdSuffix, int $contextId);
 
     /**
      * Public identifier type, see
@@ -170,12 +169,11 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     /**
      * Get the whole resolving URL.
      *
-     * @param int $contextId
      * @param string $pubId
      *
      * @return string resolving URL
      */
-    abstract public function getResolvingURL($contextId, $pubId);
+    abstract public function getResolvingURL(int $contextId, $pubId);
 
     /**
      * Get the file (path + filename)
@@ -208,11 +206,9 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     /**
      * Get the settings form.
      *
-     * @param int $contextId
-     *
      * @return object Settings form
      */
-    abstract public function instantiateSettingsForm($contextId);
+    abstract public function instantiateSettingsForm(int $contextId);
 
     /**
      * Get the additional form field names,
@@ -283,11 +279,10 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
      * Is this object type enabled in plugin settings
      *
      * @param string $pubObjectType
-     * @param int $contextId
      *
      * @return bool
      */
-    abstract public function isObjectTypeEnabled($pubObjectType, $contextId);
+    abstract public function isObjectTypeEnabled($pubObjectType, int $contextId);
 
     /**
      * Get the error message for not unique pub id
@@ -302,12 +297,11 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
      * @param string $fieldName The form field to be checked.
      * @param string $fieldValue The value of the form field.
      * @param object $pubObject
-     * @param int $contextId
      * @param string $errorMsg Return validation error messages here.
      *
      * @return bool
      */
-    public function verifyData($fieldName, $fieldValue, $pubObject, $contextId, &$errorMsg)
+    public function verifyData($fieldName, $fieldValue, $pubObject, int $contextId, &$errorMsg)
     {
         // Verify pub id uniqueness.
         if ($fieldName == $this->getSuffixFieldName()) {
@@ -481,11 +475,10 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
      * @param string $pubId
      * @param string $pubObjectType Class name of the pub object being checked
      * @param int $excludeId This object id will not be checked for duplicates
-     * @param int $contextId
      *
      * @return bool
      */
-    public function checkDuplicate($pubId, $pubObjectType, $excludeId, $contextId)
+    public function checkDuplicate($pubId, $pubObjectType, $excludeId, int $contextId)
     {
         foreach ($this->getPubObjectTypes() as $type => $fqcn) {
             if ($type === 'Publication') {

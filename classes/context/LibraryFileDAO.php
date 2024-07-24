@@ -28,11 +28,10 @@ class LibraryFileDAO extends \PKP\db\DAO
      * Retrieve a library file by ID.
      *
      * @param int $fileId
-     * @param int $contextId optional
      *
      * @return LibraryFile
      */
-    public function getById($fileId, $contextId = null)
+    public function getById($fileId, ?int $contextId = null)
     {
         $params = [(int) $fileId];
         if ($contextId) {
@@ -51,14 +50,13 @@ class LibraryFileDAO extends \PKP\db\DAO
     /**
      * Retrieve all library files for a context.
      *
-     * @param int $contextId
      * @param string $type (optional)
      *
      * @return DAOResultFactory<LibraryFile> LibraryFiles
      */
-    public function getByContextId($contextId, $type = null)
+    public function getByContextId(int $contextId, $type = null)
     {
-        $params = [(int) $contextId];
+        $params = [$contextId];
         if (isset($type)) {
             $params[] = (int) $type;
         }
@@ -76,11 +74,10 @@ class LibraryFileDAO extends \PKP\db\DAO
      * Retrieve all library files for a submission.
      *
      * @param string $type (optional)
-     * @param int $contextId (optional)
      *
      * @return DAOResultFactory<LibraryFile> LibraryFiles
      */
-    public function getBySubmissionId(int $submissionId, $type = null, $contextId = null)
+    public function getBySubmissionId(int $submissionId, $type = null, ?int $contextId = null)
     {
         $params = [(int) $submissionId];
         if (isset($type)) {
@@ -261,15 +258,13 @@ class LibraryFileDAO extends \PKP\db\DAO
     /**
      * Check if a file with this filename already exists
      *
-     * @param int $contextId the context to check in.
-     *
      * @return bool
      */
-    public function filenameExists($contextId, $fileName)
+    public function filenameExists(int $contextId, $fileName)
     {
         $result = $this->retrieve(
             'SELECT COUNT(*) AS row_count FROM library_files WHERE context_id = ? AND file_name = ?',
-            [(int) $contextId, $fileName]
+            [$contextId, $fileName]
         );
         $row = $result->current();
         return $row ? (bool) $row->row_count : false;

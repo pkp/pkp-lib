@@ -198,8 +198,8 @@ class RegistrationForm extends Form
         if (!$request->getContext()) {
             if ($request->getSite()->getData('privacyStatement')) {
                 $privacyConsent = $this->getData('privacyConsent');
-                if (!is_array($privacyConsent) || !array_key_exists(Application::CONTEXT_ID_NONE, $privacyConsent)) {
-                    $this->addError('privacyConsent[' . Application::CONTEXT_ID_NONE . ']', __('user.register.form.missingSiteConsent'));
+                if (!is_array($privacyConsent) || !array_key_exists(Application::SITE_CONTEXT_ID, $privacyConsent)) {
+                    $this->addError('privacyConsent[' . Application::SITE_CONTEXT_ID . ']', __('user.register.form.missingSiteConsent'));
                 }
             }
 

@@ -32,7 +32,7 @@ class PHPMailerTransport implements TransportInterface
     /**
      * @inheritDoc
      */
-    public function send(RawMessage $symfonyMessage, Envelope $envelope = null): ?SentMessage
+    public function send(RawMessage $symfonyMessage, ?Envelope $envelope = null): ?SentMessage
     {
         if (!($symfonyMessage instanceof Email)) {
             throw new Exception('Can\'t send raw message with phpmailer');

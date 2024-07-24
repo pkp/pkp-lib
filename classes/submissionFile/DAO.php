@@ -90,7 +90,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
      * Optionally, pass the submission ID to only get a submission file
      * if it exists and is assigned to that submission.
      */
-    public function get(int $id, int $submissionId = null): ?SubmissionFile
+    public function get(int $id, ?int $submissionId = null): ?SubmissionFile
     {
         $query = new Collector($this);
         $row = $query
@@ -108,7 +108,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
      * Optionally, pass the submission ID to check if the submission file
      * exists and is assigned to that submission.
     */
-    public function exists(int $id, int $submissionId = null): bool
+    public function exists(int $id, ?int $submissionId = null): bool
     {
         return DB::table($this->table)
             ->where($this->primaryKeyColumn, '=', $id)
@@ -245,8 +245,8 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      *
-     * @param null|mixed $submissionId
-     * @param null|mixed $contextId
+     * @param ?int $submissionId
+     * @param ?int $contextId
      */
     public function getByPubId(
         $pubIdType,

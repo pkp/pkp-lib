@@ -63,7 +63,7 @@ class Institution extends \PKP\core\DataObject
     /**
      * Get the localized name of the institution
      */
-    public function getLocalizedName(string $preferredLocale = null): string
+    public function getLocalizedName(?string $preferredLocale = null): string
     {
         return $this->getLocalizedData('name', $preferredLocale);
     }
@@ -71,7 +71,7 @@ class Institution extends \PKP\core\DataObject
     /**
      * Get the name of the institution
      */
-    public function getName(string $locale = null): string|array
+    public function getName(?string $locale = null): string|array
     {
         return $this->getData('name', $locale);
     }
@@ -79,7 +79,7 @@ class Institution extends \PKP\core\DataObject
     /**
      * Set the name of the institution
      */
-    public function setName(string $name, string $locale = null): void
+    public function setName(string $name, ?string $locale = null): void
     {
         $this->setData('name', $name, $locale);
     }

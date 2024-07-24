@@ -17,6 +17,7 @@ namespace PKP\userGroup\relationships;
 use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
 
 class UserUserGroup extends \Illuminate\Database\Eloquent\Model
@@ -114,11 +115,11 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
             ->where('user_user_groups.date_end', '<=', $currentDateTime);
     }
 
-    public function scopeWithContextId(Builder $query, int $contextId): Builder
+    public function scopeWithContextId(Builder $query, ?int $contextId): Builder
     {
         return $query
             ->join('user_groups as ug', 'user_user_groups.user_group_id', '=', 'ug.user_group_id')
-            ->where('ug.context_id', $contextId);
+            ->whereRaw('COALESCE(ug.context_id, 0) = ?', [(int) $contextId]);
     }
 
     public function scopeWithMasthead(Builder $query): Builder

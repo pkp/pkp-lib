@@ -17,8 +17,10 @@
 
 namespace PKP\services\queryBuilders;
 
+use APP\core\Application;
 use APP\statistics\StatisticsHelper;
 use APP\submission\Submission;
+use Exception;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
@@ -132,7 +134,11 @@ abstract class PKPStatsGeoQueryBuilder extends PKPStatsQueryBuilder
         // consider only monthly DB table
         $q = DB::table('metrics_submission_geo_monthly');
 
-        if (!empty($this->contextIds)) {
+        if (empty($this->contextIds)) {
+            throw new Exception('Statistics cannot be retrieved without a context id. Pass the Application::SITE_CONTEXT_ID_ALL wildcard to get statistics from all contexts.');
+        }
+
+        if (!in_array(Application::SITE_CONTEXT_ID_ALL, $this->contextIds)) {
             $q->whereIn(StatisticsHelper::STATISTICS_DIMENSION_CONTEXT_ID, $this->contextIds);
         }
 

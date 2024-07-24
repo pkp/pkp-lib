@@ -49,7 +49,7 @@ class I9860_EditorialMastheadNavMenuItem extends Migration
                 $aboutNavMenuItemAssignments = $navigationMenuItemAssignmentDao->getByMenuItemId($aboutNavMenuItem->getId());
                 while ($aboutNavMenuItemAssignment = $aboutNavMenuItemAssignments->next()) {
                     // Find the assignment with no parent
-                    if ($aboutNavMenuItemAssignment->getParentId() == 0) {
+                    if (!$aboutNavMenuItemAssignment->getParentId()) {
                         $mainAboutNavMenuItemId = $aboutNavMenuItemAssignment->getMenuItemId();
                         $mainAboutNavMenuId = $aboutNavMenuItemAssignment->getMenuId();
                         break 2;

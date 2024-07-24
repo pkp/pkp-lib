@@ -77,7 +77,7 @@ class Collector implements CollectorInterface
     /**
      * Filter highlights by one or more contexts
      */
-    public function filterByContextIds(?array $contextIds): self
+    public function filterByContextIds(?array $contextIds): static
     {
         $this->contextIds = $contextIds;
         return $this;
@@ -86,7 +86,7 @@ class Collector implements CollectorInterface
     /**
      * Include site-level highlights in the collection
      */
-    public function withSiteHighlights(?string $includeMethod = self::SITE_AND_CONTEXTS): self
+    public function withSiteHighlights(?string $includeMethod = self::SITE_AND_CONTEXTS): static
     {
         $this->includeSite = $includeMethod;
         return $this;
@@ -95,7 +95,7 @@ class Collector implements CollectorInterface
     /**
      * Limit the number of objects retrieved
      */
-    public function limit(?int $count): self
+    public function limit(?int $count): static
     {
         $this->count = $count;
         return $this;
@@ -105,7 +105,7 @@ class Collector implements CollectorInterface
      * Offset the number of objects retrieved, for example to
      * retrieve the second page of contents
      */
-    public function offset(?int $offset): self
+    public function offset(?int $offset): static
     {
         $this->offset = $offset;
         return $this;
@@ -113,24 +113,15 @@ class Collector implements CollectorInterface
 
     public function getQueryBuilder(): Builder
     {
+        $includeSite = in_array($this->includeSite, [static::SITE_AND_CONTEXTS, static::SITE_ONLY]);
         $qb = DB::table($this->dao->table . ' as h')
             ->select(['h.*'])
-            ->when(isset($this->contextIds) && $this->includeSite !== self::SITE_ONLY, function ($qb) {
-                $qb->whereIn('h.' . $this->dao->parentKeyColumn, $this->contextIds);
-                if ($this->includeSite === self::SITE_AND_CONTEXTS) {
-                    $qb->orWhereNull('h.' . $this->dao->parentKeyColumn);
-                }
-            }, function ($qb) {
-                if ($this->includeSite === self::SITE_ONLY) {
-                    $qb->whereNull('h.' . $this->dao->parentKeyColumn);
-                }
-            })
-            ->when(isset($this->count), function ($qb) {
-                $qb->limit($this->count);
-            })
-            ->when(isset($this->offset), function ($qb) {
-                $qb->offset($this->offset);
-            })
+            ->when(
+                isset($this->contextIds) || $includeSite,
+                fn (Builder $qb) => $qb->whereIn(DB::raw("COALESCE(h.{$this->dao->parentKeyColumn}, 0)"), array_merge($this->contextIds ?? [], $includeSite ? [0] : []))
+            )
+            ->when(isset($this->count), fn (Builder $qb) => $qb->limit($this->count))
+            ->when(isset($this->offset), fn (Builder $qb) => $qb->offset($this->offset))
             ->orderBy('h.sequence', 'asc');
 
         Hook::run('Highlight::Collector', [&$qb, $this]);

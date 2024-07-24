@@ -959,7 +959,7 @@ class Installer
             $navigationMenuDao->installSettings($context->getId(), 'registry/navigationMenus.xml');
         }
 
-        $navigationMenuDao->installSettings(PKPApplication::CONTEXT_ID_NONE, 'registry/navigationMenus.xml');
+        $navigationMenuDao->installSettings(PKPApplication::SITE_CONTEXT_ID, 'registry/navigationMenus.xml');
 
         return true;
     }

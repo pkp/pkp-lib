@@ -139,7 +139,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         // Therefore filtering by both context IDs and role IDs will not cause problems.
         $userIds = Repo::user()->getCollector()
             ->filterByRoleIds([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN])
-            ->filterByContextIds([$submissionContext->getId(), PKPApplication::CONTEXT_SITE])
+            ->filterByContextIds([$submissionContext->getId(), PKPApplication::SITE_CONTEXT_ID])
             ->getIds()
             ->toArray();
         $warnOnAssignment = array_merge($warnOnAssignment, $userIds);

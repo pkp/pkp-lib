@@ -61,7 +61,7 @@ class NavigationMenuItemsGridHandler extends GridHandler
     public function authorize($request, &$args, $roleAssignments)
     {
         $context = $request->getContext();
-        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
+        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::SITE_CONTEXT_ID;
 
         $rolePolicy = new PolicySet(PolicySet::COMBINING_PERMIT_OVERRIDES);
 
@@ -133,7 +133,7 @@ class NavigationMenuItemsGridHandler extends GridHandler
     {
         $context = $request->getContext();
 
-        $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
+        $contextId = \PKP\core\PKPApplication::SITE_CONTEXT_ID;
         if ($context) {
             $contextId = $context->getId();
         }
@@ -165,7 +165,7 @@ class NavigationMenuItemsGridHandler extends GridHandler
     {
         $navigationMenuItemId = (int)$request->getUserVar('navigationMenuItemId');
         $context = $request->getContext();
-        $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
+        $contextId = \PKP\core\PKPApplication::SITE_CONTEXT_ID;
         if ($context) {
             $contextId = $context->getId();
         }
@@ -209,7 +209,7 @@ class NavigationMenuItemsGridHandler extends GridHandler
     {
         $navigationMenuItemId = (int) $request->getUserVar('navigationMenuItemId');
         $context = $request->getContext();
-        $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
+        $contextId = \PKP\core\PKPApplication::SITE_CONTEXT_ID;
         if ($context) {
             $contextId = $context->getId();
         }
@@ -232,7 +232,7 @@ class NavigationMenuItemsGridHandler extends GridHandler
     {
         $navigationMenuItemId = (int)$request->getUserVar('navigationMenuItemId');
         $context = $request->getContext();
-        $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
+        $contextId = \PKP\core\PKPApplication::SITE_CONTEXT_ID;
         if ($context) {
             $contextId = $context->getId();
         }

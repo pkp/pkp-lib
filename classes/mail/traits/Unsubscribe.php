@@ -136,7 +136,7 @@ trait Unsubscribe
     /**
      * Set the message to be displayed in the footer
      */
-    protected function setFooterText(string $locale, string $localeKey = null): string
+    protected function setFooterText(string $locale, ?string $localeKey = null): string
     {
         if (is_null($localeKey)) {
             $localeKey = $this->defaultUnsubscribeLocaleKey;

@@ -52,7 +52,7 @@ class VersionCheck
         return self::parseVersionXML(
             $application->getVersionDescriptorUrl() .
             ($includeId ? '?id=' . urlencode($uniqueSiteId) .
-                '&oai=' . urlencode($request->url('index', 'oai'))
+                '&oai=' . urlencode($request->url(Application::SITE_CONTEXT_PATH, 'oai'))
             : '')
         );
     }

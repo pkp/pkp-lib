@@ -18,6 +18,7 @@
 
 namespace PKP\plugins;
 
+use APP\core\Application;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use PKP\xml\PKPXMLParser;
@@ -26,11 +27,12 @@ class PluginSettingsDAO extends \PKP\db\DAO
 {
     public const CACHE_LIFETIME = 24 * 60 * 60;
 
-    protected function _getCacheId(int $contextId, string $pluginName, bool $isNormalized = false): string
+    protected function _getCacheId(?int $contextId, string $pluginName, bool $isNormalized = false): string
     {
         if (!$isNormalized) {
             $pluginName = static::_normalizePluginName($pluginName);
         }
+        $contextId = (int) $contextId;
         return "pluginSettings-{$contextId}-{$pluginName}";
     }
 
@@ -42,7 +44,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Retrieve a plugin setting value.
      */
-    public function getSetting(int $contextId, string $pluginName, string $settingName): mixed
+    public function getSetting(?int $contextId, string $pluginName, string $settingName): mixed
     {
         $pluginSettings = Cache::remember(
             $this->_getCacheId($contextId, $pluginName),
@@ -56,11 +58,11 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Determine if the plugin setting exists in the database.
      */
-    public function settingExists(int $contextId, string $pluginName, string $settingName): bool
+    public function settingExists(?int $contextId, string $pluginName, string $settingName): bool
     {
         $result = $this->retrieve(
-            'SELECT COUNT(*) AS row_count FROM plugin_settings WHERE plugin_name = ? AND context_id = ? AND setting_name = ?',
-            [static::_normalizePluginName($pluginName), $contextId, $settingName]
+            'SELECT COUNT(*) AS row_count FROM plugin_settings WHERE plugin_name = ? AND COALESCE(context_id, 0) = ? AND setting_name = ?',
+            [static::_normalizePluginName($pluginName), (int) $contextId, $settingName]
         );
         $row = $result->current();
         return $row && $row->row_count;
@@ -69,12 +71,12 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Retrieve all settings for a plugin from the database (and update the cache).
      */
-    public function getPluginSettings(int $contextId, string $pluginName): array
+    public function getPluginSettings(?int $contextId, string $pluginName): array
     {
         // Normalize plug-in name to lower case.
         $pluginName = $this->_normalizePluginName($pluginName);
 
-        $result = DB::table('plugin_settings')->where('plugin_name', $pluginName)->where('context_id', $contextId)->get();
+        $result = DB::table('plugin_settings')->where('plugin_name', $pluginName)->whereRaw('COALESCE(context_id, 0) = ?', [(int) $contextId])->get();
         $settings = $result->mapWithKeys(fn ($row) => [$row->setting_name => $this->convertFromDB($row->setting_value, $row->setting_type)]);
         $settings = $settings->toArray();
         Cache::put($this->_getCacheId($contextId, $pluginName, true), $settings, static::CACHE_LIFETIME);
@@ -86,7 +88,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
      *
      * @param $type data type of the setting. If omitted, type will be guessed
      */
-    public function updateSetting(int $contextId, string $pluginName, string $settingName, mixed $value, ?string $type = null): void
+    public function updateSetting(?int $contextId, string $pluginName, string $settingName, mixed $value, ?string $type = null): void
     {
         // Normalize the plug-in name to lower case.
         $pluginName = static::_normalizePluginName($pluginName);
@@ -104,7 +106,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Delete a plugin setting.
      */
-    public function deleteSetting(int $contextId, string $pluginName, string $settingName): void
+    public function deleteSetting(?int $contextId, string $pluginName, string $settingName): void
     {
         // Normalize the plug-in name to lower case.
         $pluginName = static::_normalizePluginName($pluginName);
@@ -113,7 +115,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
 
         DB::table('plugin_settings')
             ->where('plugin_Name', $pluginName)
-            ->where('context_id', $contextId)
+            ->whereRaw('COALESCE(context_id, 0) = ?', [(int) $contextId])
             ->where('setting_name', $settingName)
             ->delete();
     }
@@ -121,7 +123,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
     /**
      * Delete all settings for a plugin.
      */
-    public function deleteSettingsByPlugin(int $contextId, string $pluginName): void
+    public function deleteSettingsByPlugin(?int $contextId, string $pluginName): void
     {
         // Normalize the plug-in name to lower case.
         $pluginName = static::_normalizePluginName($pluginName);
@@ -130,16 +132,16 @@ class PluginSettingsDAO extends \PKP\db\DAO
 
         DB::table('plugin_settings')
             ->where('plugin_Name', $pluginName)
-            ->where('context_id', $contextId)
+            ->whereRaw('COALESCE(context_id, 0) = ?', [(int) $contextId])
             ->delete();
     }
 
     /**
      * Delete all settings for a context.
      */
-    public function deleteByContextId(int $contextId): void
+    public function deleteByContextId(?int $contextId): void
     {
-        DB::table('plugin_settings')->where('context_id', $contextId)->delete();
+        DB::table('plugin_settings')->whereRaw('COALESCE(context_id, 0) = ?', [(int) $contextId])->delete();
     }
 
     /**
@@ -149,7 +151,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
      * @param $paramArray contains variables for replacement
      *
      */
-    public function _performReplacement(string $rawInput, array $paramArray = []): string
+    public function _performReplacement(?string $rawInput, array $paramArray = []): string
     {
         $value = preg_replace_callback('{{translate key="([^"]+)"}}', fn ($matches) => __($matches[1]), (string) $rawInput);
         foreach ($paramArray as $pKey => $pValue) {
@@ -193,7 +195,7 @@ class PluginSettingsDAO extends \PKP\db\DAO
      * @param $filename Name of XML file to parse and install
      * @param $paramArray Optional parameters for variable replacement in settings
      */
-    public function installSettings(int $contextId, string $pluginName, string $filename, array $paramArray = []): bool
+    public function installSettings(?int $contextId, string $pluginName, string $filename, array $paramArray = []): bool
     {
         $xmlParser = new PKPXMLParser();
         $tree = $xmlParser->parse($filename);

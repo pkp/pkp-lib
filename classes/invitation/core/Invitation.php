@@ -45,7 +45,7 @@ abstract class Invitation
     abstract protected function preDispatchActions(): void;
     abstract public function getInvitationActionRedirectController(): ?InvitationActionRedirectController;
 
-    public function __construct(InvitationModel $invitationModel = null)
+    public function __construct(?InvitationModel $invitationModel = null)
     {
         $this->invitationModel = $invitationModel ?: new InvitationModel([
             'type' => $this->getType()

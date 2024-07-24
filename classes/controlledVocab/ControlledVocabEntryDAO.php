@@ -215,7 +215,7 @@ class ControlledVocabEntryDAO extends \PKP\db\DAO
      *
      * @return DAOResultFactory<ControlledVocabEntry>
      */
-    public function getByContextId($symbolic, $contextId, $locale, ?string $term = null)
+    public function getByContextId($symbolic, int $contextId, $locale, ?string $term = null)
     {
         $params = [
             $symbolic,

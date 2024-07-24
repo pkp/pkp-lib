@@ -48,20 +48,16 @@ class Doi extends DataObject
 
     /**
      * Get ID of context.
-     *
-     * @return int
      */
-    public function getContextId()
+    public function getContextId(): int
     {
         return $this->getData('contextId');
     }
 
     /**
      * Set ID of context.
-     *
-     * @param int $contextId
      */
-    public function setContextId($contextId)
+    public function setContextId(int $contextId): void
     {
         $this->setData('contextId', $contextId);
     }

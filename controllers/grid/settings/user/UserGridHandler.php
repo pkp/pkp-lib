@@ -584,7 +584,7 @@ class UserGridHandler extends GridHandler
 
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
         if (
-            !$roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $user->getId(), Role::ROLE_ID_SITE_ADMIN) && !(
+            !$roleDao->userHasRole(\PKP\core\PKPApplication::SITE_CONTEXT_ID, $user->getId(), Role::ROLE_ID_SITE_ADMIN) && !(
                 $context &&
                 $roleDao->userHasRole($context->getId(), $user->getId(), Role::ROLE_ID_MANAGER)
             )
@@ -618,7 +618,7 @@ class UserGridHandler extends GridHandler
 
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
         if (
-            !$roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $user->getId(), Role::ROLE_ID_SITE_ADMIN) && !(
+            !$roleDao->userHasRole(\PKP\core\PKPApplication::SITE_CONTEXT_ID, $user->getId(), Role::ROLE_ID_SITE_ADMIN) && !(
                 $context &&
                 $roleDao->userHasRole($context->getId(), $user->getId(), Role::ROLE_ID_MANAGER)
             )

@@ -496,7 +496,7 @@ class Collector implements CollectorInterface
                     ->whereIn('ugs.stage_id', $this->workflowStageIds)
             )
             ->when($this->roleIds !== null, fn ($subQuery) => $subQuery->whereIn('ug.role_id', $this->roleIds))
-            ->when($this->contextIds !== null, fn ($subQuery) => $subQuery->whereIn('ug.context_id', $this->contextIds))
+            ->when($this->contextIds !== null, fn ($subQuery) => $subQuery->whereIn(DB::raw('COALESCE(ug.context_id, 0)'), array_map(intval(...), $this->contextIds)))
             ->when(
                 $this->userUserGroupStatus === UserUserGroupStatus::STATUS_ACTIVE,
                 fn (Builder $subQuery) =>

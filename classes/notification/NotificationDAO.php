@@ -204,20 +204,22 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Delete Notification
      */
-    public function deleteObject(Notification $notification)
+    public function deleteObject(Notification $notification): int
     {
-        $this->deleteById($notification->getId());
+        return $this->deleteById($notification->getId());
     }
 
     /**
      * Delete notification(s) by association
      */
-    public function deleteByAssoc(int $assocType, int $assocId, ?int $userId = null, ?int $type = null, ?int $contextId = null)
+    public function deleteByAssoc(int $assocType, int $assocId, ?int $userId = null, ?int $type = null, ?int $contextId = null): int
     {
         $notificationsFactory = $this->getByAssoc($assocType, $assocId, $userId, $type, $contextId);
+        $deletedRows = 0;
         while ($notification = $notificationsFactory->next()) {
-            $this->deleteObject($notification);
+            $deletedRows += $this->deleteObject($notification);
         }
+        return $deletedRows;
     }
 
     /**

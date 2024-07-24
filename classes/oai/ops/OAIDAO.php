@@ -58,16 +58,11 @@ class OAIDAO extends PKPOAIDAO
     /**
      * Cached function to get a server
      *
-     * @param int $serverId
-     *
      * @return object
      */
-    public function &getServer($serverId)
+    public function getServer(int $serverId)
     {
-        if (!isset($this->serverCache[$serverId])) {
-            $this->serverCache[$serverId] = $this->serverDao->getById($serverId);
-        }
-        return $this->serverCache[$serverId];
+        return $this->serverCache[$serverId] ??= $this->serverDao->getById($serverId);
     }
 
     /**
@@ -92,14 +87,14 @@ class OAIDAO extends PKPOAIDAO
     /**
      * Return hierarchy of OAI sets (servers plus server sections).
      *
-     * @param int $serverId
      * @param int $offset
      * @param int $total
      *
      * @return array OAISet
+     *
      * @hook OAIDAO::getServerSets [[$this, $serverId, $offset, $limit, $total, &$sets]]
      */
-    public function &getServerSets($serverId, $offset, $limit, &$total)
+    public function &getServerSets(int $serverId, $offset, $limit, &$total)
     {
         if (isset($serverId)) {
             $servers = [$this->serverDao->getById($serverId)];

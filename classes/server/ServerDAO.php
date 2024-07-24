@@ -77,12 +77,11 @@ class ServerDAO extends ContextDAO
     /**
      * Delete the public IDs of all publishing objects in a server.
      *
-     * @param int $serverId
      * @param string $pubIdType One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      */
-    public function deleteAllPubIds($serverId, $pubIdType)
+    public function deleteAllPubIds(int $serverId, $pubIdType)
     {
         Repo::galley()->dao->deleteAllPubIds($serverId, $pubIdType);
         Repo::submissionFile()->dao->deleteAllPubIds($serverId, $pubIdType);
@@ -93,7 +92,6 @@ class ServerDAO extends ContextDAO
      * Check whether the given public ID exists for any publishing
      * object in a server.
      *
-     * @param int $serverId
      * @param string $pubIdType One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
@@ -106,7 +104,7 @@ class ServerDAO extends ContextDAO
      * @return bool
      */
     public function anyPubIdExists(
-        $serverId,
+        int $serverId,
         $pubIdType,
         $pubId,
         $assocType = MetadataTypeDescription::ASSOC_TYPE_ANY,

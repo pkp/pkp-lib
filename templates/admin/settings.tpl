@@ -150,9 +150,17 @@
 		{/if}
 		{if $componentAvailability['sitePlugins']}
 		<tab id="plugins" label="{translate key="common.plugins"}">
-			{capture assign=pluginGridUrl}{url router=PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.admin.plugins.AdminPluginGridHandler" op="fetchGrid" escape=false}{/capture}
-			{load_url_in_div id="pluginGridContainer" url=$pluginGridUrl}
-		</tab>
+            <tabs :track-history="true">
+                <tab id="installedPlugins" label="{translate key="manager.plugins.installed"}">
+                    {capture assign=pluginGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.admin.plugins.AdminPluginGridHandler" op="fetchGrid" escape=false}{/capture}
+                    {load_url_in_div id="pluginGridContainer" url=$pluginGridUrl}
+                </tab>
+                <tab id="pluginGallery" label="{translate key="manager.plugins.pluginGallery"}">
+                    {capture assign=pluginGalleryGridUrl}{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT component="grid.plugins.PluginGalleryGridHandler" op="fetchGrid" escape=false}{/capture}
+                    {load_url_in_div id="pluginGalleryGridContainer" url=$pluginGalleryGridUrl}
+                </tab>
+            </tabs>
+        </tab>
 		{/if}
 		{call_hook name="Template::Settings::admin"}
 	</tabs>

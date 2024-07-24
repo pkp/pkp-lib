@@ -489,13 +489,8 @@ class DAO extends EntityDAO
      */
     protected function setCategories(Publication $publication)
     {
-        $publication->setData(
-            'categoryIds',
-            Repo::category()->getCollector()
-                ->filterByPublicationIds([$publication->getId()])
-                ->getIds()
-                ->toArray()
-        );
+        $categoryIds = PublicationCategory::getCategoriesByPublicationId($publication->getId());
+        $publication->setData('categoryIds', $categoryIds);
     }
 
     /**
@@ -503,12 +498,8 @@ class DAO extends EntityDAO
      */
     protected function saveCategories(Publication $publication)
     {
-        Repo::category()->dao->deletePublicationAssignments($publication->getId());
-        if (!empty($publication->getData('categoryIds'))) {
-            foreach ($publication->getData('categoryIds') as $categoryId) {
-                Repo::category()->dao->insertPublicationAssignment($categoryId, $publication->getId());
-            }
-        }
+        $categoryIds = $publication->getData('categoryIds');
+        PublicationCategory::assignCategoriesToPublication($publication->getId(), $categoryIds);
     }
 
     /**
@@ -516,7 +507,7 @@ class DAO extends EntityDAO
      */
     protected function deleteCategories(int $publicationId)
     {
-        Repo::category()->dao->deletePublicationAssignments($publicationId);
+        PublicationCategory::where('publication_id', $publicationId)->delete();
     }
 
     /**

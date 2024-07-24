@@ -276,7 +276,12 @@ class PluginGalleryGridHandler extends GridHandler
      */
     public function installPlugin(array $args, PKPRequest $request, bool $isUpgrade = false): JSONMessage
     {
-        $redirectUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, null, 'management', 'settings', ['website'], ['r' => uniqid()], 'plugins');
+        if ($request->getContext()) {
+            $redirectUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, null, 'management', 'settings', ['website'], ['r' => uniqid()], 'plugins');
+        } else {
+            $redirectUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_PAGE, null, 'admin', 'settings', null, ['r' => uniqid()], 'plugins');
+        }
+
         if (!$request->checkCSRF()) {
             return $request->redirectUrlJson($redirectUrl);
         }

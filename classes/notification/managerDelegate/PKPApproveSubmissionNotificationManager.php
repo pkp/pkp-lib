@@ -40,7 +40,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
     /**
      * @copydoc PKPNotificationOperationManager::getStyleClass()
      */
-    public function getStyleClass($notification)
+    public function getStyleClass(PKPNotification $notification): string
     {
         return NOTIFICATION_STYLE_CLASS_INFORMATION;
     }
@@ -48,7 +48,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
     /**
      * @copydoc PKPNotificationOperationManager::isVisibleToAllUsers()
      */
-    public function isVisibleToAllUsers($notificationType, $assocType, $assocId)
+    public function isVisibleToAllUsers(int $notificationType, int $assocType, int $assocId): bool
     {
         return true;
     }

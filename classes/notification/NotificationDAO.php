@@ -247,7 +247,7 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Transfer the notifications for a user.
      */
-    public function transferNotifications(int $oldUserId, int $newUserId)
+    public function transferNotifications(int $oldUserId, int $newUserId): void
     {
         $this->update(
             'UPDATE notifications SET user_id = ? WHERE user_id = ?',

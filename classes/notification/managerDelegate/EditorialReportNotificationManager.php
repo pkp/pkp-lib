@@ -70,7 +70,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationManager::getIconClass()
      */
-    public function getIconClass($notification): string
+    public function getIconClass(PKPNotification $notification): string
     {
         return 'notifyIconInfo';
     }
@@ -78,7 +78,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationManager::getStyleClass()
      */
-    public function getStyleClass($notification): string
+    public function getStyleClass(PKPNotification $notification): string
     {
         return NOTIFICATION_STYLE_CLASS_INFORMATION;
     }

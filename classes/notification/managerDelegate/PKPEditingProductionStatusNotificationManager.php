@@ -208,7 +208,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
     /**
      * Remove a notification.
      */
-    public function _removeNotification(int $submissionId, int $userId, int $notificationType, int $contextId)
+    public function _removeNotification(int $submissionId, int $userId, int $notificationType, int $contextId): int
     {
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         return $notificationDao->deleteByAssoc(

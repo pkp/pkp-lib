@@ -480,7 +480,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'NavigationMenuItemDAO' => 'PKP\navigationMenu\NavigationMenuItemDAO',
             'NavigationMenuItemAssignmentDAO' => 'PKP\navigationMenu\NavigationMenuItemAssignmentDAO',
             'NoteDAO' => 'PKP\note\NoteDAO',
-            'NotificationDAO' => 'PKP\notification\NotificationDAO',
             'NotificationSettingsDAO' => 'PKP\notification\NotificationSettingsDAO',
             'NotificationSubscriptionSettingsDAO' => 'PKP\notification\NotificationSubscriptionSettingsDAO',
             'PluginGalleryDAO' => 'PKP\plugins\PluginGalleryDAO',

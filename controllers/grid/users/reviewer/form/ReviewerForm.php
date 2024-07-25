@@ -33,7 +33,7 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\mail\mailables\ReviewRequest;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\reviewForm\ReviewFormDAO;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
@@ -379,7 +379,7 @@ class ReviewerForm extends Form
         $msgKey = $this->getData('skipEmail') ? 'notification.addedReviewerNoEmail' : 'notification.addedReviewer';
         $notificationMgr->createTrivialNotification(
             $currentUser->getId(),
-            PKPNotification::NOTIFICATION_TYPE_SUCCESS,
+            Notification::NOTIFICATION_TYPE_SUCCESS,
             ['contents' => __($msgKey, ['reviewerName' => $reviewer->getFullName()])]
         );
 

@@ -20,14 +20,11 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
-use PKP\db\DAORegistry;
-use PKP\db\DAOResultFactory;
 use PKP\notification\form\PKPNotificationsUnsubscribeForm;
-use PKP\notification\NotificationDAO;
+use PKP\notification\Notification;
 
 class NotificationHandler extends Handler
 {
@@ -45,7 +42,6 @@ class NotificationHandler extends Handler
         $user = $request->getUser();
         $userId = $user ? $user->getId() : null;
         $context = $request->getContext();
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notifications = [];
 
         // Get the notification options from request.
@@ -58,8 +54,10 @@ class NotificationHandler extends Handler
             $notifications = $this->_getNotificationsByOptions($notificationOptions, $context->getId(), $userId);
         } else {
             // No options, get only TRIVIAL notifications.
-            $notifications = $notificationDao->getByUserId($userId, Notification::NOTIFICATION_LEVEL_TRIVIAL);
-            $notifications = $notifications->toArray();
+            $notifications = Notification::withUserId($userId)
+                ->withLevel(Notification::NOTIFICATION_LEVEL_TRIVIAL)
+                ->get()
+                ->all();
         }
 
         $json = new JSONMessage();
@@ -117,11 +115,10 @@ class NotificationHandler extends Handler
             $unsubscribeResult = true;
         }
 
-        $userId = $notification->getUserId();
-        $user = Repo::user()->get($userId, true);
+        $user = Repo::user()->get($notification->userId, true);
 
         $contextDao = Application::getContextDAO();
-        $context = $contextDao->getById($notification->getContextId());
+        $context = $contextDao->getById($notification->contextId);
 
         $templateMgr->assign([
             'contextName' => $context?->getLocalizedName(),
@@ -146,12 +143,10 @@ class NotificationHandler extends Handler
             $this->getDispatcher()->handle404();
         }
 
-        /** @var NotificationDAO $notificationDao */
-        $notificationDao = DAORegistry::getDAO('NotificationDAO');
         /** @var Notification $notification */
-        $notification = $notificationDao->getById($notificationId);
+        $notification = Notification::find($notificationId);
 
-        if (!isset($notification) || $notification->getId() == null) {
+        if (!isset($notification) || $notification->id == null) {
             $this->getDispatcher()->handle404();
         }
 
@@ -166,53 +161,44 @@ class NotificationHandler extends Handler
 
     /**
      * Get the notifications using options.
-     *
-     * @param array $notificationOptions
-     * @param int $userId
-     *
-     * @return array
      */
-    public function _getNotificationsByOptions($notificationOptions, int $contextId, $userId = null)
+    public function _getNotificationsByOptions(array $notificationOptions, int $contextId, ?int $userId = null): array
     {
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notificationsArray = [];
         $notificationMgr = new NotificationManager();
-
         foreach ($notificationOptions as $level => $levelOptions) {
             if ($levelOptions) {
                 foreach ($levelOptions as $type => $typeOptions) {
                     if ($typeOptions) {
                         $notificationMgr->isVisibleToAllUsers($type, $typeOptions['assocType'], $typeOptions['assocId']) ? $workingUserId = null : $workingUserId = $userId;
-                        $notificationsResultFactory = $notificationDao->getByAssoc($typeOptions['assocType'], $typeOptions['assocId'], $workingUserId, $type, $contextId);
-                        $notificationsArray = $this->_addNotificationsToArray($notificationsResultFactory, $notificationsArray);
+                        $notifications = Notification::withAssoc($typeOptions['assocType'], $typeOptions['assocId'])
+                            ->withUserId($workingUserId)
+                            ->withType($type)
+                            ->withContextId($contextId)
+                            ->get();
+                        $notificationsArray = array_merge($notificationsArray, $notifications->all());
                     } else {
                         if ($userId) {
-                            $notificationsResultFactory = $notificationDao->getByUserId($userId, $level, $type, $contextId);
-                            $notificationsArray = $this->_addNotificationsToArray($notificationsResultFactory, $notificationsArray);
+                            $notifications = Notification::withUserId($userId)
+                                ->withLevel($level)
+                                ->withType($type)
+                                ->withContextId($contextId)
+                                ->get();
+                            $notificationsArray = array_merge($notificationsArray, $notifications->all());
                         }
                     }
                 }
             } else {
                 if ($userId) {
-                    $notificationsResultFactory = $notificationDao->getByUserId($userId, $level, null, $contextId);
-                    $notificationsArray = $this->_addNotificationsToArray($notificationsResultFactory, $notificationsArray);
+                    $notifications = Notification::withUserId($userId)
+                        ->withLevel($level)
+                        ->withContextId($contextId)
+                        ->get();
+                    $notificationsArray = array_merge($notificationsArray, $notifications->all());
                 }
             }
-            $notificationsResultFactory = null;
         }
 
         return $notificationsArray;
-    }
-
-    /**
-     * Add notifications from a result factory to an array of
-     * existing notifications.
-     *
-     * @param DAOResultFactory<Notification> $resultFactory
-     * @param array $notificationArray
-     */
-    public function _addNotificationsToArray($resultFactory, $notificationArray)
-    {
-        return array_merge($notificationArray, $resultFactory->toArray());
     }
 }

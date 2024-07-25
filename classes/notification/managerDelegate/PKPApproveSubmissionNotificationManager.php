@@ -20,27 +20,25 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
-use PKP\notification\NotificationDAO;
+use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
-use PKP\notification\PKPNotification;
 
 class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegate
 {
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationUrl()
      */
-    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string
+    public function getNotificationUrl(PKPRequest $request, Notification $notification): ?string
     {
         $dispatcher = Application::get()->getDispatcher();
         $context = $request->getContext();
-        return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
+        return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->assocId);
     }
 
     /**
      * @copydoc PKPNotificationOperationManager::getStyleClass()
      */
-    public function getStyleClass(PKPNotification $notification): string
+    public function getStyleClass(Notification $notification): string
     {
         return NOTIFICATION_STYLE_CLASS_INFORMATION;
     }
@@ -62,25 +60,19 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
         $submission = Repo::submission()->get($submissionId);
         $publication = $submission->getCurrentPublication();
 
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-
         $notificationTypes = [
-            PKPNotification::NOTIFICATION_TYPE_APPROVE_SUBMISSION => false,
-            PKPNotification::NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION => false,
-            PKPNotification::NOTIFICATION_TYPE_VISIT_CATALOG => true,
+            Notification::NOTIFICATION_TYPE_APPROVE_SUBMISSION => false,
+            Notification::NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION => false,
+            Notification::NOTIFICATION_TYPE_VISIT_CATALOG => true,
         ];
 
         $isPublished = (bool) $publication->getData('datePublished');
 
         foreach ($notificationTypes as $type => $forPublicationState) {
-            $notificationFactory = $notificationDao->getByAssoc(
-                Application::ASSOC_TYPE_SUBMISSION,
-                $submissionId,
-                null,
-                $type,
-                $submission->getData('contextId')
-            );
-            $notification = $notificationFactory->next();
+            $notification = Notification::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+                ->withType($type)
+                ->withContextId($submission->getData('contextId'))
+                ->first();
 
             if (!$notification && $isPublished == $forPublicationState) {
                 // Create notification.
@@ -94,7 +86,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
                 );
             } elseif ($notification && $isPublished != $forPublicationState) {
                 // Delete existing notification.
-                $notificationDao->deleteObject($notification);
+                $notification->delete();
             }
         }
     }

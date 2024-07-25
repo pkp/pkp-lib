@@ -16,13 +16,12 @@
 namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
-use APP\notification\Notification;
 use PKP\announcement\Announcement;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\facades\Repo;
+use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
-use PKP\notification\PKPNotification;
 use PKP\user\User;
 
 class AnnouncementNotificationManager extends NotificationManagerDelegate
@@ -43,7 +42,7 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): ?string
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
     {
         return __('emails.announcement.subject');
     }
@@ -51,15 +50,15 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationContents(PKPRequest $request, PKPNotification $notification): mixed
+    public function getNotificationContents(PKPRequest $request, Notification $notification): mixed
     {
-        return Repo::emailTemplate()->getByKey($notification->getContextId(), 'ANNOUNCEMENT');
+        return Repo::emailTemplate()->getByKey($notification->contextId, 'ANNOUNCEMENT');
     }
 
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationUrl()
      */
-    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string
+    public function getNotificationUrl(PKPRequest $request, Notification $notification): ?string
     {
         return $request->getDispatcher()->url(
             $request,
@@ -92,14 +91,14 @@ class AnnouncementNotificationManager extends NotificationManagerDelegate
      *
      * @param User $user The user who will be notified
      *
-     * @return PKPNotification|null The notification instance or null if no notification created
+     * @return Notification|null The notification instance or null if no notification created
      */
-    public function notify(User $user): ?PKPNotification
+    public function notify(User $user): ?Notification
     {
         return parent::createNotification(
             Application::get()->getRequest(),
             $user->getId(),
-            PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
+            Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
             $this->_announcement->getAssocId(),
             null,
             null,

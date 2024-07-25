@@ -28,7 +28,7 @@ use IntlDateFormatter;
 use PKP\context\Context;
 use PKP\jobs\BaseJob;
 use PKP\mail\mailables\StatisticsReportNotify;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use SplFileObject;
 
 class StatisticsReportMail extends BaseJob
@@ -87,7 +87,7 @@ class StatisticsReportMail extends BaseJob
             $notification = $notificationManager->createNotification(
                 Application::get()->getRequest(),
                 $user->getId(),
-                PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT,
+                Notification::NOTIFICATION_TYPE_EDITORIAL_REPORT,
                 $this->contextId
             );
 

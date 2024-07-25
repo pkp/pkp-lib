@@ -16,19 +16,16 @@
 
 namespace PKP\controllers\grid\notifications;
 
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\feature\PagingFeature;
 use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
-use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\NullAction;
-use PKP\notification\NotificationDAO;
+use PKP\notification\Notification;
 
 class NotificationsGridHandler extends GridHandler
 {
@@ -191,13 +188,14 @@ class NotificationsGridHandler extends GridHandler
         if (!$request->checkCSRF()) {
             return new JSONMessage(false);
         }
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $user = $request->getUser();
 
         $selectedElements = (array) $request->getUserVar('selectedElements');
         foreach ($selectedElements as $notificationId) {
-            if ($notificationDao->getById($notificationId, $user->getId())) {
-                $notificationDao->setDateRead($notificationId, null);
+            $notification = Notification::find($notificationId);
+            if ($notification->userId == $user->getId()) {
+                $notification->dateRead = null;
+                $notification->update();
             }
         }
 
@@ -219,13 +217,14 @@ class NotificationsGridHandler extends GridHandler
         if (!$request->checkCSRF()) {
             return new JSONMessage(false);
         }
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $user = $request->getUser();
 
         $selectedElements = (array) $request->getUserVar('selectedElements');
         foreach ($selectedElements as $notificationId) {
-            if ($notification = $notificationDao->getById($notificationId, $user->getId())) {
-                $notificationDao->setDateRead($notificationId, Core::getCurrentDate());
+            $notification = Notification::find($notificationId);
+            if ($notification->userId == $user->getId()) {
+                $notifiction->dateRead = Carbon::now();
+                $notification->update();
             }
         }
         if ($request->getUserVar('redirect')) {
@@ -255,13 +254,13 @@ class NotificationsGridHandler extends GridHandler
         if (!$request->checkCSRF()) {
             return new JSONMessage(false);
         }
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $user = $request->getUser();
 
         $selectedElements = (array) $request->getUserVar('selectedElements');
         foreach ($selectedElements as $notificationId) {
-            if ($notification = $notificationDao->getById($notificationId, $user->getId())) {
-                $notificationDao->deleteObject($notification);
+            $notification = Notification::find($notificationId);
+            if ($notification && $notification->userId == $user->getId()) {
+                $notification->delete();
             }
         }
         $json = \PKP\db\DAO::getDataChangedEvent(null, null, $selectedElements);
@@ -276,7 +275,9 @@ class NotificationsGridHandler extends GridHandler
      */
     public function getUnreadNotificationsCount($user)
     {
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        return (int) $notificationDao->getNotificationCount(false, $user->getId(), null, Notification::NOTIFICATION_LEVEL_TASK);
+        return Notification::withUserId($user->getId())
+            ->withLevel(Notification::NOTIFICATION_LEVEL_TASK)
+            ->withRead(false)
+            ->count();
     }
 }

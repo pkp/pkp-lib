@@ -16,16 +16,15 @@
 
 namespace PKP\controllers\grid\settings\languages;
 
-use APP\core\Request;
 use APP\notification\NotificationManager;
-use PKP\controllers\grid\languages\LanguageGridHandler;
 use PKP\controllers\grid\languages\form\AddLanguageForm;
+use PKP\controllers\grid\languages\LanguageGridHandler;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
 use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 
@@ -71,7 +70,7 @@ class SubmissionLanguageGridHandler extends LanguageGridHandler
         foreach ($addedLocales as $locale) {
             $data[$locale] = [];
             $data[$locale]['code'] = $locale;
-            $data[$locale]['name'] = "$localeNames[$locale]/" . Locale::getSubmissionLocaleDisplayNames([$locale], $locale)[$locale];
+            $data[$locale]['name'] = "{$localeNames[$locale]}/" . Locale::getSubmissionLocaleDisplayNames([$locale], $locale)[$locale];
             $data[$locale]['supported'] = true;
             $data[$locale]['supportedDefaultSubmissionLocale'] = ($locale === $defaultSubmissionLocale);
         }
@@ -104,7 +103,7 @@ class SubmissionLanguageGridHandler extends LanguageGridHandler
             new LinkAction(
                 'addLanguageModal',
                 new AjaxModal(
-                   ($request->getRouter())->url($request, null, null, 'addLanguageModal', null, null),
+                    ($request->getRouter())->url($request, null, null, 'addLanguageModal', null, null),
                     __('manager.language.gridAction.addLangauage'),
                     null,
                     true,
@@ -140,7 +139,7 @@ class SubmissionLanguageGridHandler extends LanguageGridHandler
             $user = $request->getUser();
             $notificationManager->createTrivialNotification(
                 $user->getId(),
-                PKPNotification::NOTIFICATION_TYPE_SUCCESS,
+                Notification::NOTIFICATION_TYPE_SUCCESS,
                 ['contents' => __('notification.submissionLocales')]
             );
 

@@ -16,7 +16,6 @@
 
 namespace PKP\controllers\grid\announcements;
 
-use APP\core\Application;
 use APP\notification\NotificationManager;
 use PKP\announcement\AnnouncementTypeDAO;
 use PKP\controllers\grid\announcements\form\AnnouncementTypeForm;
@@ -27,10 +26,9 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PKPSiteAccessPolicy;
-use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 
 class AnnouncementTypeGridHandler extends GridHandler
@@ -207,7 +205,7 @@ class AnnouncementTypeGridHandler extends GridHandler
             // Record the notification to user.
             $notificationManager = new NotificationManager();
             $user = $request->getUser();
-            $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __($notificationLocaleKey)]);
+            $notificationManager->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __($notificationLocaleKey)]);
 
             // Prepare the grid row data.
             return \PKP\db\DAO::getDataChangedEvent($announcementTypeId);
@@ -236,7 +234,7 @@ class AnnouncementTypeGridHandler extends GridHandler
             // Create notification.
             $notificationManager = new NotificationManager();
             $user = $request->getUser();
-            $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.removedAnnouncementType')]);
+            $notificationManager->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.removedAnnouncementType')]);
 
             return \PKP\db\DAO::getDataChangedEvent();
         }

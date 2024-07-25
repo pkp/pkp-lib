@@ -24,7 +24,6 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileDAO;
 use PKP\note\NoteDAO;
-use PKP\notification\NotificationDAO;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
@@ -356,8 +355,7 @@ class Repository
             $submissionCommentDao->updateObject($submissionComment);
         }
 
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notificationDao->transferNotifications($oldUserId, $newUserId);
+        Repo::notification()->transfer($oldUserId, $newUserId);
 
         // Delete the old user and associated info.
         Application::get()->getRequest()->getSessionGuard()->invalidateOtherSessions($oldUserId);

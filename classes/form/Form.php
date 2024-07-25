@@ -30,7 +30,7 @@ use PKP\core\PKPRequest;
 use PKP\core\PKPSessionGuard;
 use PKP\facades\Locale;
 use PKP\form\validation\FormValidator;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\plugins\Hook;
 
 class Form
@@ -322,7 +322,7 @@ class Form
                 $notificationManager = new NotificationManager();
                 $notificationManager->createTrivialNotification(
                     $user->getId(),
-                    PKPNotification::NOTIFICATION_TYPE_FORM_ERROR,
+                    Notification::NOTIFICATION_TYPE_FORM_ERROR,
                     ['contents' => $this->getErrorsArray()]
                 );
             }

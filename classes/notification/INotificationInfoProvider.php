@@ -16,7 +16,6 @@
 
 namespace PKP\notification;
 
-use APP\notification\Notification;
 use PKP\core\PKPRequest;
 
 define('NOTIFICATION_STYLE_CLASS_WARNING', 'notifyWarning');
@@ -32,35 +31,35 @@ interface INotificationInfoProvider
     /**
      * Get a URL for the notification.
      */
-    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string;
+    public function getNotificationUrl(PKPRequest $request, Notification $notification): ?string;
 
     /**
      * Get the notification message. Only return translated locale
      * key strings.
      */
-    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): ?string;
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string;
 
     /**
      * Get the notification contents. Content is anything that's
      * more than text, like presenting link actions inside fetched
      * template files.
      */
-    public function getNotificationContents(PKPRequest $request, PKPNotification $notification): mixed;
+    public function getNotificationContents(PKPRequest $request, Notification $notification): mixed;
 
     /**
      * Get the notification title.
      */
-    public function getNotificationTitle(PKPNotification $notification): string;
+    public function getNotificationTitle(Notification $notification): string;
 
     /**
      * Get the notification style class.
      */
-    public function getStyleClass(PKPNotification $notification): string;
+    public function getStyleClass(Notification $notification): string;
 
     /**
      * Get the notification icon class.
      */
-    public function getIconClass(PKPNotification $notification): string;
+    public function getIconClass(Notification $notification): string;
 
     /**
      * Whether any notification with the passed notification type

@@ -22,7 +22,7 @@ use APP\notification\NotificationManager;
 use PKP\controllers\grid\languages\LanguageGridHandler;
 use PKP\core\JSONMessage;
 use PKP\facades\Locale;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 
@@ -122,7 +122,7 @@ class ManageLanguageGridHandler extends LanguageGridHandler
         $notificationManager = new NotificationManager();
         $notificationManager->createTrivialNotification(
             $request->getUser()->getId(),
-            PKPNotification::NOTIFICATION_TYPE_SUCCESS,
+            Notification::NOTIFICATION_TYPE_SUCCESS,
             ['contents' => __('notification.localeReloaded', ['locale' => $gridData[$locale]['name'], 'contextName' => $context->getLocalizedName()])]
         );
 

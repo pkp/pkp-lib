@@ -17,7 +17,6 @@
 namespace PKP\submission\action;
 
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
@@ -32,7 +31,7 @@ use PKP\invitation\invitations\ReviewerAccessInvite;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\ReviewRequest;
 use PKP\mail\mailables\ReviewRequestSubsequent;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\notification\PKPNotificationManager;
 use PKP\plugins\Hook;
 use PKP\security\Validation;
@@ -111,7 +110,7 @@ class EditorAction
             $notificationMgr->createNotification(
                 $request,
                 $reviewerId,
-                PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT,
+                Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT,
                 $submission->getData('contextId'),
                 PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 $reviewAssignment->getId(),
@@ -150,7 +149,7 @@ class EditorAction
                     $notificationMgr = new PKPNotificationManager();
                     $notificationMgr->createTrivialNotification(
                         $user->getId(),
-                        PKPNotification::NOTIFICATION_TYPE_ERROR,
+                        Notification::NOTIFICATION_TYPE_ERROR,
                         ['contents' => __('email.compose.error')]
                     );
                     trigger_error('Failed to send email: ' . $e->getMessage(), E_USER_WARNING);

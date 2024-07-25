@@ -19,7 +19,6 @@ namespace PKP\controllers\tab\workflow;
 use APP\core\Application;
 use APP\core\Request;
 use APP\handler\Handler;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
@@ -27,7 +26,7 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -121,8 +120,8 @@ abstract class PKPWorkflowTabHandler extends Handler
                 // Assign banner notifications to the template.
                 $notificationRequestOptions = [
                     Notification::NOTIFICATION_LEVEL_NORMAL => [
-                        PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR => [Application::ASSOC_TYPE_SUBMISSION, $submission->getId()],
-                        PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS => [Application::ASSOC_TYPE_SUBMISSION, $submission->getId()]],
+                        Notification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR => [Application::ASSOC_TYPE_SUBMISSION, $submission->getId()],
+                        Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS => [Application::ASSOC_TYPE_SUBMISSION, $submission->getId()]],
                     Notification::NOTIFICATION_LEVEL_TRIVIAL => []
                 ];
                 $templateMgr->assign('editingNotificationRequestOptions', $notificationRequestOptions);
@@ -184,13 +183,13 @@ abstract class PKPWorkflowTabHandler extends Handler
     {
         switch ($stageId) {
             case WORKFLOW_STAGE_ID_SUBMISSION:
-                return PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION;
+                return Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION;
             case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
-                return PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW;
+                return Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW;
             case WORKFLOW_STAGE_ID_EDITING:
-                return PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING;
+                return Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING;
             case WORKFLOW_STAGE_ID_PRODUCTION:
-                return PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION;
+                return Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION;
         }
         return null;
     }

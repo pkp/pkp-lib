@@ -26,7 +26,7 @@ use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\navigationMenu\NavigationMenuDAO;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
@@ -237,7 +237,7 @@ class NavigationMenusGridHandler extends GridHandler
             // Record the notification to user.
             $notificationManager = new NotificationManager();
             $user = $request->getUser();
-            $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __($notificationLocaleKey)]);
+            $notificationManager->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __($notificationLocaleKey)]);
 
             // Prepare the grid row data.
             return \PKP\db\DAO::getDataChangedEvent($navigationMenuId);
@@ -267,7 +267,7 @@ class NavigationMenusGridHandler extends GridHandler
             // Create notification.
             $notificationManager = new NotificationManager();
             $user = $request->getUser();
-            $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.removedNavigationMenu')]);
+            $notificationManager->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.removedNavigationMenu')]);
 
             return \PKP\db\DAO::getDataChangedEvent($navigationMenuId);
         }

@@ -88,7 +88,7 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
      * Retrieves IDs of all users subscribed to the notification of specific type
      *
      * @param string[] $blockedNotificationKey list of the NotificationSubscriptionSettingsDAO::BLOCKED_* constants
-     * @param int[] $blockedNotificationType list of the PKPNotification::NOTIFICATION_TYPE_* constants
+     * @param int[] $blockedNotificationType list of the Notification::NOTIFICATION_TYPE_* constants
      */
     public function getSubscribedUserIds(array $blockedNotificationKey, array $blockedNotificationType, array $contextIds, ?array $roleIds = null): Collection
     {

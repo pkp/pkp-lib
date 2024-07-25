@@ -25,17 +25,17 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Route;
-use PKP\core\PKPBaseController;
-use PKP\core\PKPRequest;
 use PKP\announcement\Collector;
 use PKP\context\Context;
 use PKP\core\exceptions\StoreTemporaryFileException;
+use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\jobs\notifications\NewAnnouncementNotifyUsers;
 use PKP\mail\Mailer;
+use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
-use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -327,7 +327,7 @@ class PKPAnnouncementController extends PKPBaseController
      */
     protected function getSiteRoleAssignments(array $roleAssignments): array
     {
-        return array_filter($roleAssignments, fn($key) => $key == Role::ROLE_ID_SITE_ADMIN, ARRAY_FILTER_USE_KEY);
+        return array_filter($roleAssignments, fn ($key) => $key == Role::ROLE_ID_SITE_ADMIN, ARRAY_FILTER_USE_KEY);
     }
 
     /**
@@ -346,14 +346,14 @@ class PKPAnnouncementController extends PKPBaseController
         // Notify users
         $userIdsToNotify = $notificationSubscriptionSettingsDao->getSubscribedUserIds(
             [NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY],
-            [PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT],
+            [Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT],
             [$context->getId()]
         );
 
         if ($sendEmail) {
             $userIdsToMail = $notificationSubscriptionSettingsDao->getSubscribedUserIds(
                 [NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY, NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY],
-                [PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT],
+                [Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT],
                 [$context->getId()]
             );
 
@@ -363,7 +363,7 @@ class PKPAnnouncementController extends PKPBaseController
 
         $sender = $request->getUser();
         $jobs = [];
-        foreach ($userIdsToNotify->chunk(PKPNotification::NOTIFICATION_CHUNK_SIZE_LIMIT) as $notifyUserIds) {
+        foreach ($userIdsToNotify->chunk(Notification::NOTIFICATION_CHUNK_SIZE_LIMIT) as $notifyUserIds) {
             $jobs[] = new NewAnnouncementNotifyUsers(
                 $notifyUserIds,
                 $context->getId(),

@@ -31,7 +31,7 @@ use PKP\file\FileManager;
 use PKP\file\TemporaryFileManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\plugins\Plugin;
 use PKP\plugins\PluginHelper;
 use PKP\plugins\PluginRegistry;
@@ -298,7 +298,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
             if (empty($args['disableNotification'])) {
                 $user = $request->getUser();
                 $notificationManager = new NotificationManager();
-                $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_PLUGIN_ENABLED, ['pluginName' => $plugin->getDisplayName()]);
+                $notificationManager->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_PLUGIN_ENABLED, ['pluginName' => $plugin->getDisplayName()]);
             }
             return \PKP\db\DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
         }
@@ -321,7 +321,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
             if (empty($args['disableNotification'])) {
                 $user = $request->getUser();
                 $notificationManager = new NotificationManager();
-                $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_PLUGIN_DISABLED, ['pluginName' => $plugin->getDisplayName()]);
+                $notificationManager->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_PLUGIN_DISABLED, ['pluginName' => $plugin->getDisplayName()]);
             }
             return \PKP\db\DAO::getDataChangedEvent($request->getUserVar('plugin'), $request->getUserVar($this->getCategoryRowIdParameterName()));
         }
@@ -442,13 +442,13 @@ abstract class PluginGridHandler extends CategoryGridHandler
             }
 
             if (is_dir($pluginDest) || is_dir($pluginLibDest)) {
-                $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('manager.plugins.deleteError', $pluginName)]);
+                $notificationMgr->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_ERROR, ['contents' => __('manager.plugins.deleteError', $pluginName)]);
             } else {
                 $versionDao->disableVersion('plugins.' . $category, $productName);
-                $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('manager.plugins.deleteSuccess', $pluginName)]);
+                $notificationMgr->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('manager.plugins.deleteSuccess', $pluginName)]);
             }
         } else {
-            $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => __('manager.plugins.doesNotExist', $pluginName)]);
+            $notificationMgr->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_ERROR, ['contents' => __('manager.plugins.doesNotExist', $pluginName)]);
         }
 
         return \PKP\db\DAO::getDataChangedEvent($plugin->getName());

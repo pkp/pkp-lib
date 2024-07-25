@@ -23,8 +23,8 @@ use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\note\NoteDAO;
+use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
-use PKP\notification\PKPNotification;
 use PKP\query\Query;
 use PKP\query\QueryDAO;
 
@@ -33,28 +33,28 @@ class QueryNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc NotificationManagerDelegate::getNotificationMessage()
      */
-    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): ?string
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
     {
-        if ($notification->getAssocType() != Application::ASSOC_TYPE_QUERY) {
+        if ($notification->assocType != Application::ASSOC_TYPE_QUERY) {
             throw new \Exception('Unexpected assoc type!');
         }
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query = $queryDao->getById($notification->getAssocId());
+        $query = $queryDao->getById($notification->assocId);
 
         $headNote = $query->getHeadNote();
         if (!$headNote) {
             throw new \Exception('Unable to retrieve head note for query!');
         }
 
-        switch ($notification->getType()) {
-            case PKPNotification::NOTIFICATION_TYPE_NEW_QUERY:
+        switch ($notification->type) {
+            case Notification::NOTIFICATION_TYPE_NEW_QUERY:
                 $user = $headNote->getUser();
                 return __('submission.query.new', [
                     'creatorName' => $user->getFullName(),
                     'noteContents' => substr(PKPString::html2text($headNote->getContents()), 0, 200),
                     'noteTitle' => substr($headNote->getTitle(), 0, 200),
                 ]);
-            case PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
+            case Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
                 $notes = $query->getReplies(null, NoteDAO::NOTE_ORDER_ID, \PKP\db\DAO::SORT_DIRECTION_DESC);
                 $latestNote = $notes->first();
                 $user = $latestNote->getUser();
@@ -87,36 +87,36 @@ class QueryNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc NotificationManagerDelegate::getNotificationUrl()
      */
-    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string
+    public function getNotificationUrl(PKPRequest $request, Notification $notification): ?string
     {
-        if ($notification->getAssocType() != Application::ASSOC_TYPE_QUERY) {
+        if ($notification->assocType != Application::ASSOC_TYPE_QUERY) {
             throw new \Exception('Unexpected query assoc type!');
         }
 
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query = $queryDao->getById($notification->getAssocId());
+        $query = $queryDao->getById($notification->assocId);
         if (!$query) {
             return null;
         }
 
         $submission = $this->getQuerySubmission($query);
-        return Repo::submission()->getWorkflowUrlByUserRoles($submission, $notification->getUserId());
+        return Repo::submission()->getWorkflowUrlByUserRoles($submission, $notification->userId);
     }
 
     /**
      * @copydoc NotificationManagerDelegate::getNotificationContents()
      */
-    public function getNotificationContents(PKPRequest $request, PKPNotification $notification): mixed
+    public function getNotificationContents(PKPRequest $request, Notification $notification): mixed
     {
-        if($notification->getAssocType() != Application::ASSOC_TYPE_QUERY) {
+        if($notification->assocType != Application::ASSOC_TYPE_QUERY) {
             throw new \Exception('Unexpected assoc type!');
         }
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query = $queryDao->getById($notification->getAssocId());
+        $query = $queryDao->getById($notification->assocId);
         $submission = $this->getQuerySubmission($query);
 
-        switch ($notification->getType()) {
-            case PKPNotification::NOTIFICATION_TYPE_NEW_QUERY:
+        switch ($notification->type) {
+            case Notification::NOTIFICATION_TYPE_NEW_QUERY:
                 return __(
                     'submission.query.new.contents',
                     [
@@ -124,7 +124,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
                         'submissionTitle' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
                     ]
                 );
-            case PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
+            case Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
                 return __(
                     'submission.query.activity.contents',
                     [
@@ -139,7 +139,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc NotificationManagerDelegate::getStyleClass()
      */
-    public function getStyleClass(PKPNotification $notification): string
+    public function getStyleClass(Notification $notification): string
     {
         return NOTIFICATION_STYLE_CLASS_WARNING;
     }

@@ -9,9 +9,6 @@
  *
  * @class PKPNotificationOperationManager
  *
- * @ingroup notification
- *
- * @see NotificationDAO
  * @see Notification
  *
  * @brief Base class for notification manager that implements
@@ -22,13 +19,12 @@
 namespace PKP\notification;
 
 use APP\core\Application;
-use APP\notification\Notification;
 use APP\template\TemplateManager;
+use Carbon\Carbon;
 use Firebase\JWT\Key;
 use InvalidArgumentException;
 use PKP\config\Config;
 use PKP\context\Context;
-use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPJwt as JWT;
 use PKP\core\PKPRequest;
@@ -45,7 +41,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * @copydoc INotificationInfoProvider::getNotificationUrl()
      */
-    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string
+    public function getNotificationUrl(PKPRequest $request, Notification $notification): ?string
     {
         return null;
     }
@@ -53,7 +49,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * @copydoc INotificationInfoProvider::getNotificationMessage()
      */
-    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): ?string
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
     {
         return null;
     }
@@ -63,7 +59,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      *
      * @copydoc INotificationInfoProvider::getNotificationContents()
      */
-    public function getNotificationContents(PKPRequest $request, PKPNotification $notification): mixed
+    public function getNotificationContents(PKPRequest $request, Notification $notification): mixed
     {
         return $this->getNotificationMessage($request, $notification);
     }
@@ -71,7 +67,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * @copydoc INotificationInfoProvider::getNotificationTitle()
      */
-    public function getNotificationTitle(PKPNotification $notification): string
+    public function getNotificationTitle(Notification $notification): string
     {
         return __('notification.notification');
     }
@@ -79,7 +75,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * @copydoc INotificationInfoProvider::getStyleClass()
      */
-    public function getStyleClass(PKPNotification $notification): string
+    public function getStyleClass(Notification $notification): string
     {
         return '';
     }
@@ -87,7 +83,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * @copydoc INotificationInfoProvider::getIconClass()
      */
-    public function getIconClass(PKPNotification $notification): string
+    public function getIconClass(Notification $notification): string
     {
         return '';
     }
@@ -144,27 +140,26 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Create a new notification with the specified arguments and insert into DB
      */
-    public function createNotification(PKPRequest $request, ?int $userId = null, ?int $notificationType = null, ?int $contextId = Application::SITE_CONTEXT_ID, ?int $assocType = null, ?int $assocId = null, int $level = Notification::NOTIFICATION_LEVEL_NORMAL, ?array $params = null): ?PKPNotification
+    public function createNotification(PKPRequest $request, ?int $userId = null, ?int $notificationType = null, ?int $contextId = Application::SITE_CONTEXT_ID, ?int $assocType = null, ?int $assocId = null, int $level = Notification::NOTIFICATION_LEVEL_NORMAL, ?array $params = null): ?Notification
     {
         if ($userId && in_array($notificationType, $this->getUserBlockedNotifications($userId, $contextId))) {
             return null;
         }
 
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notification = $notificationDao->newDataObject(); /** @var Notification $notification */
-        $notification->setUserId((int) $userId);
-        $notification->setType((int) $notificationType);
-        $notification->setContextId($contextId);
-        $notification->setAssocType((int) $assocType);
-        $notification->setAssocId((int) $assocId);
-        $notification->setLevel((int) $level);
-
-        $notificationId = $notificationDao->insertObject($notification);
+        $notification = Notification::create([
+            'userId' => $userId,
+            'type' => $notificationType,
+            'contextId' => $contextId,
+            'assocType' => $assocType,
+            'assocId' => $assocId,
+            'level' => $level,
+            'dateCreated' => Carbon::now()
+        ]);
 
         if ($params) {
             $notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /** @var NotificationSettingsDAO $notificationSettingsDao */
             foreach ($params as $name => $value) {
-                $notificationSettingsDao->updateNotificationSetting($notificationId, $name, $value);
+                $notificationSettingsDao->updateNotificationSetting($notification->id, $name, $value);
             }
         }
 
@@ -174,21 +169,22 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Create a new notification with the specified arguments and insert into DB
      */
-    public function createTrivialNotification(int $userId, int $notificationType = PKPNotification::NOTIFICATION_TYPE_SUCCESS, ?array $params = null): PKPNotification
+    public function createTrivialNotification(int $userId, int $notificationType = Notification::NOTIFICATION_TYPE_SUCCESS, ?array $params = null): Notification
     {
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notification = $notificationDao->newDataObject();
-        $notification->setUserId($userId);
-        $notification->setContextId(Application::SITE_CONTEXT_ID);
-        $notification->setType($notificationType);
-        $notification->setLevel(Notification::NOTIFICATION_LEVEL_TRIVIAL);
-
-        $notificationId = $notificationDao->insertObject($notification);
+        $notification = Notification::create([
+            'userId' => $userId,
+            'contextId' => null,
+            'type' => $notificationType,
+            'level' => Notification::NOTIFICATION_LEVEL_TRIVIAL,
+            'dateCreated' => Carbon::now(),
+            'assocType' => 0,
+            'assocId' => 0,
+        ]);
 
         if ($params) {
             $notificationSettingsDao = DAORegistry::getDAO('NotificationSettingsDAO'); /** @var NotificationSettingsDAO $notificationSettingsDao */
             foreach ($params as $name => $value) {
-                $notificationSettingsDao->updateNotificationSetting($notificationId, $name, $value);
+                $notificationSettingsDao->updateNotificationSetting($notification->id, $name, $value);
             }
         }
 
@@ -200,11 +196,10 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      */
     public function deleteTrivialNotifications(array $notifications): void
     {
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         foreach ($notifications as $notification) {
             // Delete only trivial notifications.
-            if ($notification->getLevel() == Notification::NOTIFICATION_LEVEL_TRIVIAL) {
-                $notificationDao->deleteById($notification->getId(), $notification->getUserId());
+            if ($notification->level == Notification::NOTIFICATION_LEVEL_TRIVIAL) {
+                $notification->delete();
             }
         }
     }
@@ -216,7 +211,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     {
         $formattedNotificationsData = [];
         foreach ($notifications as $notification) { /** @var Notification $notification */
-            $formattedNotificationsData[$notification->getLevel()][$notification->getId()] = [
+            $formattedNotificationsData[$notification->level][$notification->id] = [
                 'title' => $this->getNotificationTitle($notification),
                 'text' => $this->getNotificationContents($request, $notification),
                 'addclass' => $this->getStyleClass($notification),
@@ -237,7 +232,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
 
         $templateMgr = TemplateManager::getManager($request);
         foreach ($notifications as $notification) {
-            $formattedNotificationsData[$notification->getLevel()][$notification->getId()] = $this->formatNotification($request, $notification, 'controllers/notification/inPlaceNotificationContent.tpl');
+            $formattedNotificationsData[$notification->level][$notification->id] = $this->formatNotification($request, $notification, 'controllers/notification/inPlaceNotificationContent.tpl');
         }
 
         return $formattedNotificationsData;
@@ -274,30 +269,29 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Return a fully formatted notification for display
      */
-    private function formatNotification(PKPRequest $request, PKPNotification $notification, string $notificationTemplate): string
+    private function formatNotification(PKPRequest $request, Notification $notification, string $notificationTemplate): string
     {
         $templateMgr = TemplateManager::getManager($request);
 
         // Set the date read if it isn't already set
-        if (!$notification->getDateRead()) {
-            $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-            $dateRead = $notificationDao->setDateRead($notification->getId(), Core::getCurrentDate());
-            $notification->setDateRead($dateRead);
+        if (!$notification->dateRead) {
+            $notification->dateRead = Carbon::now();
+            $notification->update();
         }
 
         $user = $request->getUser();
         $templateMgr->assign([
             'isUserLoggedIn' => $user,
-            'notificationDateCreated' => $notification->getDateCreated(),
-            'notificationId' => $notification->getId(),
+            'notificationDateCreated' => $notification->dateCreated,
+            'notificationId' => $notification->id,
             'notificationContents' => $this->getNotificationContents($request, $notification),
             'notificationTitle' => $this->getNotificationTitle($notification),
             'notificationStyleClass' => $this->getStyleClass($notification),
             'notificationIconClass' => $this->getIconClass($notification),
-            'notificationDateRead' => $notification->getDateRead(),
+            'notificationDateRead' => $notification->dateRead,
         ]);
 
-        if ($notification->getLevel() != Notification::NOTIFICATION_LEVEL_TRIVIAL) {
+        if ($notification->level != Notification::NOTIFICATION_LEVEL_TRIVIAL) {
             $templateMgr->assign('notificationUrl', $this->getNotificationUrl($request, $notification));
         }
 
@@ -307,16 +301,16 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Creates and returns a unique string for the given notification, that will be encoded and validated against.
      */
-    public function createUnsubscribeUniqueKey(PKPNotification $notification): string
+    public function createUnsubscribeUniqueKey(Notification $notification): string
     {
-        return "unsubscribe-{$notification->getContextId()}-{$notification->getUserId()}-{$notification->getId()}";
+        return "unsubscribe-{$notification->contextId}-{$notification->userId}-{$notification->id}";
     }
 
     /**
      * Creates and returns an encoded token that will be used to validate an unsubscribe url.
      * Returns an empty string if the API key secret has not been configured.
      */
-    public function createUnsubscribeToken(PKPNotification $notification): string
+    public function createUnsubscribeToken(Notification $notification): string
     {
         $secret = Config::getVar('security', 'api_key_secret', '');
         if ($secret === '') {
@@ -329,7 +323,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * The given notification is validated against the requested token.
      */
-    public function validateUnsubscribeToken(string $token, PKPNotification $notification): bool
+    public function validateUnsubscribeToken(string $token, Notification $notification): bool
     {
         $secret = Config::getVar('security', 'api_key_secret', '');
         if ($secret === '') {
@@ -344,13 +338,13 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * Returns the unsubscribe url for the given notification.
      */
-    public function getUnsubscribeNotificationUrl(PKPRequest $request, PKPNotification $notification, ?Context $context = null): string
+    public function getUnsubscribeNotificationUrl(PKPRequest $request, Notification $notification, ?Context $context = null): string
     {
         $application = Application::get();
         $dispatcher = $application->getDispatcher();
         $contextPath = null;
         if ($context) {
-            if ($context->getId() !== $notification->getContextId()) {
+            if ($context->getId() !== $notification->contextId) {
                 throw new InvalidArgumentException('Trying to build notification unsubscribe URL with the wrong context');
             }
             $contextPath = $context->getData('urlPath');
@@ -363,7 +357,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
             'notification',
             'unsubscribe',
             null,
-            ['validate' => $this->createUnsubscribeToken($notification), 'id' => $notification->getId()]
+            ['validate' => $this->createUnsubscribeToken($notification), 'id' => $notification->id]
         );
     }
 }

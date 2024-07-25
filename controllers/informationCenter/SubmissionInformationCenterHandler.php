@@ -23,7 +23,7 @@ use PKP\controllers\informationCenter\form\NewSubmissionNoteForm;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\log\event\EventLogEntry;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\security\Role;
 
 class SubmissionInformationCenterHandler extends InformationCenterHandler
@@ -118,7 +118,7 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler
 
             $user = $request->getUser();
             $notificationManager = new NotificationManager();
-            $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.addedNote')]);
+            $notificationManager->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.addedNote')]);
 
             $jsonViewNotesResponse = $this->viewNotes($args, $request);
             $json = new JSONMessage(true);

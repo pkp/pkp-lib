@@ -20,46 +20,28 @@ namespace PKP\stageAssignment;
 
 use APP\facades\Repo;
 use PKP\core\Core;
-use PKP\userGroup\UserGroup;
 
 class Repository
 {
     /**
      * Fetch a stageAssignment by symbolic info, building it if needed.
-     *
-     * @param int $submissionId
-     * @param int $userGroupId
-     * @param int $userId
-     * @param bool $recommendOnly
-     * @param bool $canChangeMetadata
-     *
-     * @return StageAssignment
      */
     public function build(int $submissionId, int $userGroupId, int $userId, ?bool $recommendOnly = null, ?bool $canChangeMetadata = null): StageAssignment
     {
-        if (!isset($canChangeMetadata)) {
-            /** @var UserGroup $userGroup */
-            $userGroup = Repo::userGroup()->get($userGroupId);
-
-            $canChangeMetadata = $userGroup->getPermitMetadataEdit();
-        }
-
-        if (!isset($recommendOnly)) {
-            $recommendOnly = false;
-        }
+        // Set defaults
+        $canChangeMetadata ??= Repo::userGroup()->get($userGroupId)->getPermitMetadataEdit();
+        $recommendOnly ??= false;
 
         return StageAssignment::withSubmissionIds([$submissionId])
             ->withUserId($userId)
             ->withUserGroupId($userGroupId)
-            ->firstOr(function() use ($submissionId, $userGroupId, $userId, $recommendOnly, $canChangeMetadata) {
-                return StageAssignment::create([
-                    'submissionId' => $submissionId,
-                    'userGroupId' => $userGroupId,
-                    'userId' => $userId,
-                    'recommendOnly' => $recommendOnly,
-                    'canChangeMetadata' => $canChangeMetadata,
-                    'dateAssigned' => Core::getCurrentDate(),
-                ]);
-            });
+            ->firstOr(fn () => StageAssignment::create([
+                'submissionId' => $submissionId,
+                'userGroupId' => $userGroupId,
+                'userId' => $userId,
+                'recommendOnly' => $recommendOnly,
+                'canChangeMetadata' => $canChangeMetadata,
+                'dateAssigned' => Core::getCurrentDate(),
+            ]));
     }
 }

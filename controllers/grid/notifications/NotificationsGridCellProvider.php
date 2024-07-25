@@ -18,7 +18,6 @@ namespace PKP\controllers\grid\notifications;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\GridCellProvider;
@@ -28,6 +27,7 @@ use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
+use PKP\notification\Notification;
 use PKP\payment\QueuedPaymentDAO;
 use PKP\query\QueryDAO;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -50,7 +50,7 @@ class NotificationsGridCellProvider extends GridCellProvider
 
         $notification = $row->getData();
         $contextDao = Application::getContextDAO();
-        $context = $contextDao->getById($notification->getContextId());
+        $context = $contextDao->getById($notification->contextId);
 
         $notificationMgr = new NotificationManager();
         $router = $request->getRouter();
@@ -77,7 +77,7 @@ class NotificationsGridCellProvider extends GridCellProvider
                 null,
                 'markRead',
                 null,
-                ['redirect' => 1, 'selectedElements' => [$notification->getId()]]
+                ['redirect' => 1, 'selectedElements' => [$notification->id]]
             )),
             $templateMgr->fetch('controllers/grid/tasks/task.tpl')
         )];
@@ -113,12 +113,12 @@ class NotificationsGridCellProvider extends GridCellProvider
      */
     public function _getTitle($notification)
     {
-        switch ($notification->getAssocType()) {
+        switch ($notification->assocType) {
             case Application::ASSOC_TYPE_QUEUED_PAYMENT:
                 $contextDao = Application::getContextDAO();
-                $paymentManager = Application::getPaymentManager($contextDao->getById($notification->getContextId()));
+                $paymentManager = Application::getPaymentManager($contextDao->getById($notification->contextId));
                 $queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO'); /** @var QueuedPaymentDAO $queuedPaymentDao */
-                $queuedPayment = $queuedPaymentDao->getById($notification->getAssocId());
+                $queuedPayment = $queuedPaymentDao->getById($notification->assocId);
                 if ($queuedPayment) {
                     switch ($queuedPayment->getType()) {
                         case \PKP\payment\PaymentManager::PAYMENT_TYPE_PUBLICATION: // FIXME: This is OJS-only; move out of pkp-lib
@@ -128,32 +128,32 @@ class NotificationsGridCellProvider extends GridCellProvider
                 assert(false);
                 return '—';
             case Application::ASSOC_TYPE_ANNOUNCEMENT:
-                $announcementId = $notification->getAssocId();
+                $announcementId = $notification->assocId;
                 $announcement = Repo::announcement()->get($announcementId);
                 if ($announcement) {
                     return $announcement->getLocalizedTitle();
                 }
                 return null;
             case Application::ASSOC_TYPE_SUBMISSION:
-                $submissionId = $notification->getAssocId();
+                $submissionId = $notification->assocId;
                 break;
             case Application::ASSOC_TYPE_SUBMISSION_FILE:
-                $fileId = $notification->getAssocId();
+                $fileId = $notification->assocId;
                 break;
             case Application::ASSOC_TYPE_REVIEW_ASSIGNMENT:
-                $reviewAssignment = Repo::reviewAssignment()->get($notification->getAssocId());
+                $reviewAssignment = Repo::reviewAssignment()->get($notification->assocId);
                 assert($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment);
                 $submissionId = $reviewAssignment->getSubmissionId();
                 break;
             case Application::ASSOC_TYPE_REVIEW_ROUND:
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
-                $reviewRound = $reviewRoundDao->getById($notification->getAssocId());
+                $reviewRound = $reviewRoundDao->getById($notification->assocId);
                 assert($reviewRound instanceof \PKP\submission\reviewRound\ReviewRound);
                 $submissionId = $reviewRound->getSubmissionId();
                 break;
             case Application::ASSOC_TYPE_QUERY:
                 $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-                $query = $queryDao->getById($notification->getAssocId());
+                $query = $queryDao->getById($notification->assocId);
                 assert($query instanceof \PKP\query\Query);
                 switch ($query->getAssocType()) {
                     case Application::ASSOC_TYPE_SUBMISSION:

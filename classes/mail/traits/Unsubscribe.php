@@ -18,12 +18,12 @@ namespace PKP\mail\traits;
 
 use APP\core\Application;
 use APP\mail\variables\ContextEmailVariable;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use Exception;
 use Illuminate\Mail\Mailables\Headers;
 use PKP\mail\Mailable;
 use PKP\mail\variables\ContextEmailVariable as PKPContextEmailVariable;
+use PKP\notification\Notification;
 
 trait Unsubscribe
 {

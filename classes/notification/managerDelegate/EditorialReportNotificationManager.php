@@ -17,12 +17,11 @@ namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\notification\Notification;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
-use PKP\notification\PKPNotification;
 use PKP\user\User;
 
 class EditorialReportNotificationManager extends NotificationManagerDelegate
@@ -52,7 +51,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): ?string
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
     {
         return __('notification.type.editorialReport', [], $this->_context->getPrimaryLocale());
     }
@@ -60,17 +59,17 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationUrl()
      */
-    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string
+    public function getNotificationUrl(PKPRequest $request, Notification $notification): ?string
     {
         $application = Application::get();
-        $context = $application->getContextDAO()->getById($notification->getContextId());
+        $context = $application->getContextDAO()->getById($notification->contextId);
         return $application->getDispatcher()->url($this->_request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'stats', 'editorial');
     }
 
     /**
      * @copydoc PKPNotificationManager::getIconClass()
      */
-    public function getIconClass(PKPNotification $notification): string
+    public function getIconClass(Notification $notification): string
     {
         return 'notifyIconInfo';
     }
@@ -78,7 +77,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationManager::getStyleClass()
      */
-    public function getStyleClass(PKPNotification $notification): string
+    public function getStyleClass(Notification $notification): string
     {
         return NOTIFICATION_STYLE_CLASS_INFORMATION;
     }
@@ -88,14 +87,14 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
      *
      * @param User $user The user who will be notified
      *
-     * @return PKPNotification|null The notification instance
+     * @return Notification|null The notification instance
      */
-    public function notify(User $user): ?PKPNotification
+    public function notify(User $user): ?Notification
     {
         return parent::createNotification(
             $this->_request,
             $user->getId(),
-            PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT,
+            Notification::NOTIFICATION_TYPE_EDITORIAL_REPORT,
             $this->_context->getId(),
             null,
             null,

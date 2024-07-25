@@ -26,7 +26,6 @@ use PKP\core\traits\EntityWithParent;
 use PKP\db\DAORegistry;
 use PKP\log\event\EventLogEntry;
 use PKP\note\NoteDAO;
-use PKP\notification\NotificationDAO;
 use PKP\query\QueryDAO;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
@@ -292,8 +291,7 @@ class DAO extends EntityDAO
         $submissionCommentDao->deleteBySubmissionId($id);
 
         // Delete any outstanding notifications for this submission
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
+        Notification::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $id)->delete();
 
         Repo::eventLog()->getCollector()
             ->filterByAssoc(Application::ASSOC_TYPE_SUBMISSION, [$id])

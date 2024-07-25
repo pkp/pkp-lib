@@ -17,7 +17,6 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\decision\Decision;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Exception;
@@ -30,7 +29,7 @@ use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileManager;
 use PKP\mail\EmailData;
 use PKP\mail\Mailable;
-use PKP\notification\NotificationDAO;
+use PKP\notification\Notification;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
@@ -517,16 +516,11 @@ abstract class DecisionType
         );
 
         // Create review round status notification
-        /** @var NotificationDAO $notificationDao */
-        $notificationDao = DAORegistry::getDAO('NotificationDAO');
-        $notificationFactory = $notificationDao->getByAssoc(
-            Application::ASSOC_TYPE_REVIEW_ROUND,
-            $reviewRound->getId(),
-            null,
-            Notification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS,
-            $submission->getData('contextId')
-        );
-        if (!$notificationFactory->next()) {
+        $count = Notification::withAssoc(Application::ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId())
+            ->withType(Notification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS)
+            ->withContextId($submission->getData('contextId'))
+            ->count();
+        if ($count == 0) {
             $notificationMgr = new NotificationManager();
             $notificationMgr->createNotification(
                 Application::get()->getRequest(),

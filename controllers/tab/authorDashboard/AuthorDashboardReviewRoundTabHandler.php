@@ -19,12 +19,11 @@ namespace PKP\controllers\tab\authorDashboard;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\pages\authorDashboard\AuthorDashboardHandler;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\log\SubmissionEmailLogEventType;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
 use PKP\security\Role;
@@ -94,7 +93,7 @@ class AuthorDashboardReviewRoundTabHandler extends AuthorDashboardHandler
             'submission' => $submission,
             'reviewRoundNotificationRequestOptions' => [
                 Notification::NOTIFICATION_LEVEL_NORMAL => [
-                    PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => [Application::ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId()]],
+                    Notification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => [Application::ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId()]],
                 Notification::NOTIFICATION_LEVEL_TRIVIAL => []
             ],
         ]);

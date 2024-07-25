@@ -18,7 +18,6 @@ namespace PKP\plugins;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use PKP\core\EntityDAO;
 use PKP\core\JSONMessage;
@@ -27,6 +26,7 @@ use PKP\db\DAO;
 use PKP\db\SchemaDAO;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\notification\Notification;
 use PKP\template\PKPTemplateManager;
 
 abstract class PKPPubIdPlugin extends LazyLoadPlugin

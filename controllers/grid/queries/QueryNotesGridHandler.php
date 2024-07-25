@@ -18,7 +18,6 @@ namespace PKP\controllers\grid\queries;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
@@ -32,9 +31,8 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\note\Note;
 use PKP\note\NoteDAO;
-use PKP\notification\NotificationDAO;
+use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
-use PKP\notification\PKPNotification;
 use PKP\query\Query;
 use PKP\query\QueryDAO;
 use PKP\security\authorization\QueryAccessPolicy;
@@ -76,7 +74,6 @@ class QueryNotesGridHandler extends GridHandler
     /**
      * Get the query.
      *
-     * @return Query
      */
     public function getQuery(): ?Query
     {
@@ -288,7 +285,6 @@ class QueryNotesGridHandler extends GridHandler
     protected function insertedNoteNotify(Note $note): void
     {
         $notificationManager = new NotificationManager();
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $queryDao->getById($note->getData('assocId'));
         $sender = Repo::user()->get($note->getData('userId'));
@@ -311,13 +307,11 @@ class QueryNotesGridHandler extends GridHandler
 
         foreach ($queryDao->getParticipantIds($query->getId()) as $userId) {
             // Delete any prior notifications of the same type (e.g. prior "new" comments)
-            $notificationDao->deleteByAssoc(
-                PKPApplication::ASSOC_TYPE_QUERY,
-                $query->getId(),
-                $userId,
-                PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
-                $context->getId()
-            );
+            Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->getId())
+                ->withUserId($userId)
+                ->withType(Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY)
+                ->withContextId($context->getId())
+                ->delete();
 
             // No need to additionally notify the posting user.
             if ($userId == $sender->getId()) {
@@ -328,7 +322,7 @@ class QueryNotesGridHandler extends GridHandler
             $notification = $notificationManager->createNotification(
                 $request,
                 $userId,
-                PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
+                Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
                 $request->getContext()->getId(),
                 PKPApplication::ASSOC_TYPE_QUERY,
                 $query->getId(),
@@ -337,7 +331,7 @@ class QueryNotesGridHandler extends GridHandler
 
             // Check if user is subscribed to this type of notification emails
             if (!$notification || in_array(
-                PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
+                Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
                 $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
                     NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
                     $userId,

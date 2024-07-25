@@ -24,7 +24,7 @@ use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
 use PKP\mail\mailables\ReviewerRegister;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\security\Validation;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\user\InterestManager;
@@ -168,7 +168,7 @@ class CreateReviewerForm extends ReviewerForm
                 $notificationMgr = new NotificationManager();
                 $notificationMgr->createTrivialNotification(
                     $request->getUser()->getId(),
-                    PKPNotification::NOTIFICATION_TYPE_ERROR,
+                    Notification::NOTIFICATION_TYPE_ERROR,
                     ['contents' => __('email.compose.error')]
                 );
                 error_log($e->getMessage());

@@ -21,52 +21,52 @@ use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
-use PKP\notification\PKPNotification;
 
 class SubmissionNotificationManager extends NotificationManagerDelegate
 {
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): ?string
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
     {
-        if ($notification->getAssocType() != Application::ASSOC_TYPE_SUBMISSION) {
+        if ($notification->assocType != Application::ASSOC_TYPE_SUBMISSION) {
             throw new \Exception('Unexpected assoc type!');
         }
-        $submission = Repo::submission()->get($notification->getAssocId()); /** @var Submission $submission */
+        $submission = Repo::submission()->get($notification->assocId); /** @var Submission $submission */
 
-        return match($notification->getType()) {
-            PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => __('notification.type.submissionSubmitted', ['title' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html')]),
-            PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION => __('notification.type.submissionNewVersion'),
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED => __('notification.type.editorAssignmentTask'),
+        return match($notification->type) {
+            Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => __('notification.type.submissionSubmitted', ['title' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html')]),
+            Notification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION => __('notification.type.submissionNewVersion'),
+            Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED => __('notification.type.editorAssignmentTask'),
         };
     }
 
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationUrl()
      */
-    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): ?string
+    public function getNotificationUrl(PKPRequest $request, Notification $notification): ?string
     {
         $router = $request->getRouter();
         $dispatcher = $router->getDispatcher();
 
-        if ($notification->getAssocType() != Application::ASSOC_TYPE_SUBMISSION) {
+        if ($notification->assocType != Application::ASSOC_TYPE_SUBMISSION) {
             throw new \Exception('Unexpected assoc type for notification!');
         }
 
-        switch ($notification->getType()) {
-            case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
+        switch ($notification->type) {
+            case Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
+            case Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:
                 $contextDao = Application::getContextDAO();
-                $context = $contextDao->getById($notification->getContextId());
+                $context = $contextDao->getById($notification->contextId);
 
-                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'submission', $notification->getAssocId());
-            case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
+                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'submission', $notification->assocId);
+            case Notification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
                 $contextDao = Application::getContextDAO();
-                $context = $contextDao->getById($notification->getContextId());
+                $context = $contextDao->getById($notification->contextId);
 
-                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'production', $notification->getAssocId());
+                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'production', $notification->assocId);
         }
         throw new \Exception('Unexpected notification type!');
     }
@@ -74,22 +74,22 @@ class SubmissionNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationManager::getIconClass()
      */
-    public function getIconClass(PKPNotification $notification): string
+    public function getIconClass(Notification $notification): string
     {
-        return match ($notification->getType()) {
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED => 'notifyIconPageAlert',
-            PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => 'notifyIconNewPage',
+        return match ($notification->type) {
+            Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED => 'notifyIconPageAlert',
+            Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => 'notifyIconNewPage',
         };
     }
 
     /**
      * @copydoc PKPNotificationManager::getStyleClass()
      */
-    public function getStyleClass(PKPNotification $notification): string
+    public function getStyleClass(Notification $notification): string
     {
-        return match($notification->getType()) {
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED => NOTIFICATION_STYLE_CLASS_INFORMATION,
-            PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => '',
+        return match($notification->type) {
+            Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED => NOTIFICATION_STYLE_CLASS_INFORMATION,
+            Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED => '',
         };
     }
 }

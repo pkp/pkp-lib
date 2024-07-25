@@ -19,7 +19,6 @@ namespace PKP\jobs\email;
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
@@ -28,8 +27,8 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\jobs\BaseJob;
 use PKP\mail\mailables\EditorialReminder as MailablesEditorialReminder;
+use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
-use PKP\notification\PKPNotification;
 use PKP\submission\reviewRound\ReviewRound;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\user\User;
@@ -146,7 +145,7 @@ class EditorialReminder extends BaseJob
         $notification = $notificationManager->createNotification(
             Application::get()->getRequest(),
             $this->editorId,
-            PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REMINDER,
+            Notification::NOTIFICATION_TYPE_EDITORIAL_REMINDER,
             $this->contextId
         );
 

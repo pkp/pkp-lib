@@ -51,8 +51,7 @@ use PKP\mail\mailables\ReviewerReinstate;
 use PKP\mail\mailables\ReviewerResendRequest;
 use PKP\mail\mailables\ReviewerUnassign;
 use PKP\mail\traits\Sender;
-use PKP\notification\NotificationDAO;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\notification\PKPNotificationManager;
 use PKP\reviewForm\ReviewFormDAO;
 use PKP\reviewForm\ReviewFormElementDAO;
@@ -760,13 +759,10 @@ class PKPReviewerGridHandler extends GridHandler
             Repo::eventLog()->add($eventLog);
         }
         // Remove the reviewer task.
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notificationDao->deleteByAssoc(
-            Application::ASSOC_TYPE_REVIEW_ASSIGNMENT,
-            $reviewAssignment->getId(),
-            $reviewAssignment->getReviewerId(),
-            PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
-        );
+        Notification::withAssoc(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment->getId())
+            ->withUserId($reviewAssignment->getReviewerId())
+            ->withType(Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT)
+            ->delete();
 
         $json = DAO::getDataChangedEvent($reviewAssignment->getId());
         $json->setGlobalEvent('update:decisions');
@@ -874,7 +870,7 @@ class PKPReviewerGridHandler extends GridHandler
             $currentUser = $request->getUser();
             $notificationMgr = new NotificationManager();
             $messageKey = $thankReviewerForm->getData('skipEmail') ? __('notification.reviewAcknowledged') : __('notification.reviewerThankedEmail');
-            $notificationMgr->createTrivialNotification($currentUser->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => $messageKey]);
+            $notificationMgr->createTrivialNotification($currentUser->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => $messageKey]);
         } else {
             $json = new JSONMessage(false, __('editor.review.thankReviewerError'));
         }
@@ -923,7 +919,7 @@ class PKPReviewerGridHandler extends GridHandler
             // Insert a trivial notification to indicate the reviewer was reminded successfully.
             $currentUser = $request->getUser();
             $notificationMgr = new NotificationManager();
-            $notificationMgr->createTrivialNotification($currentUser->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.sentNotification')]);
+            $notificationMgr->createTrivialNotification($currentUser->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.sentNotification')]);
             return new JSONMessage(true);
         } else {
             return new JSONMessage(false, __('editor.review.reminderError'));
@@ -1215,7 +1211,7 @@ class PKPReviewerGridHandler extends GridHandler
             $notificationMgr = new PKPNotificationManager();
             $notificationMgr->createTrivialNotification(
                 $sender->getId(),
-                PKPNotification::NOTIFICATION_TYPE_ERROR,
+                Notification::NOTIFICATION_TYPE_ERROR,
                 ['contents' => __('email.compose.error')]
             );
             trigger_error($e->getMessage(), E_USER_WARNING);

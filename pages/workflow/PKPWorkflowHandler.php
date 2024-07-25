@@ -41,8 +41,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\decision\Decision;
-use PKP\notification\NotificationDAO;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\internal\SubmissionCompletePolicy;
 use PKP\security\authorization\internal\SubmissionRequiredPolicy;
@@ -812,28 +811,32 @@ abstract class PKPWorkflowHandler extends Handler
      *
      * @param User $user
      * @param int $stageId
-     * @param int $contextId
      *
      * @return bool
      */
     protected function notificationOptionsByStage($user, $stageId, int $contextId)
     {
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
 
         $editorAssignmentNotificationType = $this->getEditorAssignmentNotificationTypeByStageId($stageId);
 
-        $editorAssignments = $notificationDao->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submission->getId(), null, $editorAssignmentNotificationType, $contextId);
+        $notification = Notification::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submission->getId())
+            ->withType($editorAssignmentNotificationType)
+            ->withContextId($contextId)
+            ->first();
 
         // if the User has assigned TASKs in this stage check, return true
-        if ($editorAssignments->next()) {
+        if ($notification) {
             return true;
         }
 
         // check for more specific notifications on those stages that have them.
         if ($stageId == WORKFLOW_STAGE_ID_PRODUCTION) {
-            $submissionApprovalNotification = $notificationDao->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submission->getId(), null, PKPNotification::NOTIFICATION_TYPE_APPROVE_SUBMISSION, $contextId);
-            if ($submissionApprovalNotification->next()) {
+            $submissionApprovalNotification = Notification::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submission->getId())
+                ->withType(Notification::NOTIFICATION_TYPE_APPROVE_SUBMISSION)
+                ->withContextId($contextId)
+                ->first();
+            if ($submissionApprovalNotification) {
                 return true;
             }
         }

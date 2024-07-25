@@ -16,7 +16,7 @@
  * @uses $message string The message of the notification
  * @uses $isMultiContext bool Do we have multiple contexts?
  *}
-<div class="task{if !$notification->getDateRead()} unread{/if}">
+<div class="task{if !$notification->dateRead} unread{/if}">
 	<span class="message">
 		{$message}
 	</span>

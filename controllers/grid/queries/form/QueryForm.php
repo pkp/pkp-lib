@@ -28,7 +28,6 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\note\NoteDAO;
-use PKP\notification\NotificationDAO;
 use PKP\query\Query;
 use PKP\query\QueryDAO;
 use PKP\security\Role;
@@ -538,8 +537,9 @@ class QueryForm extends Form
         $removed = array_diff($oldParticipantIds, $newParticipantIds);
         foreach ($removed as $userId) {
             // Delete this users' notifications relating to this query
-            $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-            $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_QUERY, $query->getId(), $userId);
+            Notification::withAssoc(Application::ASSOC_TYPE_QUERY, $query->getId())
+                ->withUserId($userId)
+                ->delete();
         }
 
         // Stamp the submission status modification date.

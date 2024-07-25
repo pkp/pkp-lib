@@ -18,7 +18,6 @@ namespace PKP\context;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Exception;
@@ -29,6 +28,7 @@ use Illuminate\Support\Facades\Mail;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\EditorAssigned;
+use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;

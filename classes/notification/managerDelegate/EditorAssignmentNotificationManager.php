@@ -17,11 +17,9 @@
 namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
-use APP\notification\Notification;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
+use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
-use PKP\notification\PKPNotification;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 
@@ -30,21 +28,21 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage($notification)
      */
-    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): ?string
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
     {
-        return match($notification->getType()) {
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION,
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_INTERNAL_REVIEW,
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW => __('notification.type.editorAssignment'),
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING => __('notification.type.editorAssignmentEditing'),
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION => __('notification.type.editorAssignmentProduction'),
+        return match($notification->type) {
+            Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION,
+            Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_INTERNAL_REVIEW,
+            Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW => __('notification.type.editorAssignment'),
+            Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING => __('notification.type.editorAssignmentEditing'),
+            Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION => __('notification.type.editorAssignmentProduction'),
         };
     }
 
     /**
      * @copydoc PKPNotificationOperationManager::getStyleClass()
      */
-    public function getStyleClass(PKPNotification $notification): string
+    public function getStyleClass(Notification $notification): string
     {
         return NOTIFICATION_STYLE_CLASS_WARNING;
     }
@@ -74,14 +72,10 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate
         }
 
         // Check for an existing NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_...
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notificationFactory = $notificationDao->getByAssoc(
-            Application::ASSOC_TYPE_SUBMISSION,
-            $assocId,
-            null,
-            $this->getNotificationType(),
-            $context->getId()
-        );
+        $notification = Notification::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $assocId)
+            ->withType($this->getNotificationType())
+            ->withContextId($context->getId())
+            ->first();
 
         // Check for editor stage assignment.
         // Replaces StageAssignmentDAO::editorAssignedToStage
@@ -91,10 +85,9 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate
             ->exists();
 
         // Decide if we have to create or delete a notification.
-        $notification = $notificationFactory->next();
         if ($editorAssigned && $notification) {
             // Delete the notification.
-            $notificationDao->deleteObject($notification);
+            $notification->delete();
         } elseif (!$editorAssigned && !$notification) {
             // Create a notification.
             $this->createNotification(
@@ -119,11 +112,11 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate
     public function _getStageIdByNotificationType(): int
     {
         return match($this->getNotificationType()) {
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION => WORKFLOW_STAGE_ID_SUBMISSION,
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_INTERNAL_REVIEW => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW => WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING => WORKFLOW_STAGE_ID_EDITING,
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION => WORKFLOW_STAGE_ID_PRODUCTION,
+            Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION => WORKFLOW_STAGE_ID_SUBMISSION,
+            Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_INTERNAL_REVIEW => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
+            Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EXTERNAL_REVIEW => WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
+            Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_EDITING => WORKFLOW_STAGE_ID_EDITING,
+            Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_PRODUCTION => WORKFLOW_STAGE_ID_PRODUCTION,
             default => null
         };
     }

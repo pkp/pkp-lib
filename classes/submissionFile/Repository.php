@@ -17,7 +17,6 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\publication\Publication;
 use Exception;
@@ -33,7 +32,7 @@ use PKP\log\event\SubmissionFileEventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\RevisedVersionNotify;
 use PKP\note\NoteDAO;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\plugins\Hook;
 use PKP\query\QueryDAO;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
@@ -319,7 +318,7 @@ abstract class Repository
             $notificationMgr = new NotificationManager();
             $notificationMgr->updateNotification(
                 $this->request,
-                [PKPNotification::NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS],
+                [Notification::NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, Notification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS],
                 $authorUserIds,
                 PKPApplication::ASSOC_TYPE_SUBMISSION,
                 $submissionFile->getData('submissionId')

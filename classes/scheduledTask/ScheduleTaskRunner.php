@@ -20,31 +20,24 @@ use Illuminate\Console\Events\ScheduledTaskStarting;
 class ScheduleTaskRunner
 {
     /**
-     * The schedule instance.
-     */
-    protected Schedule $schedule;
-
-    /**
      * The 24 hour timestamp this scheduler command started running.
      */
     protected Carbon $startedAt;
 
     /**
-     * The event dispatcher.
+     * Constructor
+     * 
+     * @param Schedule          $schedule   The schedule instance.
+     * @param Dispatcher        $dispatcher The event dispatcher
+     * @param Cache             $cache      The cache store implementation
+     * @param ExceptionHandler  $handler    The exception handler
      */
-    protected Dispatcher $dispatcher;
-
-    /**
-     * The exception handler.
-     */
-    protected ExceptionHandler $handler;
-
-    /**
-     * The cache store implementation.
-     */
-    protected Cache $cache;
-
-    public function __construct(Schedule $schedule, Dispatcher $dispatcher, Cache $cache, ExceptionHandler $handler)
+    public function __construct(
+        protected Schedule $schedule,
+        protected Dispatcher $dispatcher,
+        protected Cache $cache,
+        protected ExceptionHandler $handler
+    )
     {
         $this->startedAt = Carbon::now();
         $this->schedule = $schedule;

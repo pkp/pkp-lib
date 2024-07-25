@@ -11,7 +11,7 @@
  *
  * @ingroup tasks
  *
- * @brief Class to process queue jobs via the schedular task
+ * @brief Class to process queue jobs via the scheduler task
  */
 
 namespace PKP\task;

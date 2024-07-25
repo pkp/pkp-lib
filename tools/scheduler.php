@@ -7,7 +7,7 @@
  * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class commandSchedular
+ * @class commandScheduler
  *
  * @ingroup tools
  *
@@ -46,11 +46,11 @@ class CommandScheduler extends CommandLineTool
     use HasCommandInterface;
     
     protected const AVAILABLE_OPTIONS = [
-        'run'       => 'admin.cli.tool.schedular.options.run.description',
-        'list'      => 'admin.cli.tool.schedular.options.list.description',
-        'work'      => 'admin.cli.tool.schedular.options.work.description',
-        'test'      => 'admin.cli.tool.schedular.options.test.description',
-        'usage'     => 'admin.cli.tool.schedular.options.usage.description',
+        'run'       => 'admin.cli.tool.scheduler.options.run.description',
+        'list'      => 'admin.cli.tool.scheduler.options.list.description',
+        'work'      => 'admin.cli.tool.scheduler.options.work.description',
+        'test'      => 'admin.cli.tool.scheduler.options.test.description',
+        'usage'     => 'admin.cli.tool.scheduler.options.usage.description',
     ];
 
     /**
@@ -160,7 +160,7 @@ class CommandScheduler extends CommandLineTool
         $components = app()->get(\Illuminate\Console\View\Components\Factory::class);
 
         $components->info(
-            __('admin.cli.tool.schedular.options.work.running.info'),
+            __('admin.cli.tool.scheduler.options.work.running.info'),
             OutputInterface::VERBOSITY_NORMAL
         );
 
@@ -220,7 +220,7 @@ class CommandScheduler extends CommandLineTool
         }
 
         if (empty($commandNames)) {
-            $components->warning(__('admin.cli.tool.schedular.tasks.empty'));
+            $components->warning(__('admin.cli.tool.scheduler.tasks.empty'));
             return;
         }
 
@@ -232,7 +232,7 @@ class CommandScheduler extends CommandLineTool
             });
 
             if (count($matches) !== 1) {
-                $components->error(__('admin.cli.tool.schedular.tasks.notFound'));
+                $components->error(__('admin.cli.tool.scheduler.tasks.notFound'));
                 return;
             }
 
@@ -279,7 +279,7 @@ class CommandScheduler extends CommandLineTool
             }, array_keys($commandNames), $commandNames);
 
             $selectedCommand = select(
-                __('admin.cli.tool.schedular.run.prompt'),
+                __('admin.cli.tool.scheduler.run.prompt'),
                 $uniqueCommandNames,
                 null,
                 $noScroll ? count($commandNames) : 10
@@ -291,7 +291,7 @@ class CommandScheduler extends CommandLineTool
         } else {
             return array_search(
                 select(
-                    __('admin.cli.tool.schedular.run.prompt'),
+                    __('admin.cli.tool.scheduler.run.prompt'),
                     $commandNames,
                     null,
                     $noScroll ? count($commandNames) : 10
@@ -302,7 +302,7 @@ class CommandScheduler extends CommandLineTool
     }
 
     /**
-     * Determine should process schedule tasks
+     * Determine if the process can run scheduled tasks
      */
     protected function shouldProcessTasks(): bool
     {
@@ -310,7 +310,7 @@ class CommandScheduler extends CommandLineTool
         $components = app()->get(\Illuminate\Console\View\Components\Factory::class);
 
         if (Application::isUnderMaintenance()) {
-            $components->error(__('admin.cli.tool.schedular.maintenance.message'));
+            $components->error(__('admin.cli.tool.scheduler.maintenance.message'));
             return false;
         }
 
@@ -338,7 +338,7 @@ try {
     if ($e instanceof CommandNotFoundException) {
         $alternatives = $e->getAlternatives();
 
-        $message = __('admin.cli.tool.schedular.mean.those') . PHP_EOL . implode(PHP_EOL, $alternatives);
+        $message = __('admin.cli.tool.scheduler.mean.those') . PHP_EOL . implode(PHP_EOL, $alternatives);
 
         $output->errorBlock([$e->getMessage(), $message]);
 

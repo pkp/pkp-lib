@@ -46,18 +46,24 @@ class PKPScheduleServiceProvider extends ServiceProvider implements DeferrablePr
         if (Config::getVar('schedule', 'task_runner', true)) {
             $taskRunnerInterval = Config::getVar('schedule', 'task_runner_interval', 60);
             $lastRunTimestamp   = Cache::get('schedule::taskRunner::lastRunAt') ?? 0;
-            $curerntTimestamp   = Carbon::now()->timestamp;
+            $currentTimestamp   = Carbon::now()->timestamp;
             
-            if ($curerntTimestamp - $lastRunTimestamp > $taskRunnerInterval) {
+            if ($currentTimestamp - $lastRunTimestamp > $taskRunnerInterval) {
                 
                 if (!$this->app->runningInConsole()) {
                     $this->booted(fn () => $this->app->make(Schedule::class));
                 }
 
                 Cache::forget('schedule::taskRunner::lastRunAt');
-                Cache::put('schedule::taskRunner::lastRunAt', $curerntTimestamp, 3600);
+                Cache::put('schedule::taskRunner::lastRunAt', $currentTimestamp, 3600);
+                $currentWorkingDir = getcwd();
 
-                register_shutdown_function(function () {
+                register_shutdown_function(function () use ($currentWorkingDir) {
+                    
+                    // restore the current working directory
+                    // see: https://www.php.net/manual/en/function.register-shutdown-function.php#refsect1-function.register-shutdown-function-notes
+                    chdir($currentWorkingDir);
+
                     // As this runs at the current request's end but the 'register_shutdown_function' registered
                     // at the service provider's registration time at application initial bootstrapping,
                     // need to check the maintenance status within the 'register_shutdown_function'
@@ -104,9 +110,7 @@ class PKPScheduleServiceProvider extends ServiceProvider implements DeferrablePr
 
         $this->app->singleton(
             Scheduler::class,
-            function ($app) {
-                return new Scheduler($app->get(Schedule::class));
-            }
+            fn ($app) => new Scheduler($app->get(Schedule::class))
         );
     }
 

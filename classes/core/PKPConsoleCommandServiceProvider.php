@@ -28,11 +28,12 @@ class PKPConsoleCommandServiceProvider extends ServiceProvider implements Deferr
      */
     public function register()
     {
-        $this->app->bind(Factory::class, function ($app) {
-            return new Factory(
-                self::getConsoleOutputStyle()
-            );
-        });
+        $this->app->bind(
+            Factory::class,
+            fn ($app) => new Factory(
+                static::getConsoleOutputStyle()
+            )
+        );
     }
 
     /**
@@ -41,7 +42,7 @@ class PKPConsoleCommandServiceProvider extends ServiceProvider implements Deferr
     public static function getConsoleOutputStyle(): OutputStyle
     {
         return new OutputStyle(
-            ...self::getConsoleIOInstances()
+            ...static::getConsoleIOInstances()
         );
     }
 

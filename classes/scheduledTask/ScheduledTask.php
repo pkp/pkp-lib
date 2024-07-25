@@ -3,18 +3,14 @@
 /**
  * @file classes/scheduledTask/ScheduledTask.php
  *
- * Copyright (c) 2013-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2013-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ScheduledTask
  *
- * @ingroup scheduledTask
- *
- * @see
- *
- * @brief Base class for executing scheduled tasks.
- * All scheduled task classes must extend this class and implement execute().
+ * @brief   Base class for executing scheduled tasks.
+ *          All scheduled task classes must extend this class and implement execute().
  */
 
 namespace PKP\scheduledTask;
@@ -27,46 +23,50 @@ use PKP\file\PrivateFileManager;
 abstract class ScheduledTask
 {
     /**
-     * Task arguments
-     */
-    private array $_args;
-
-    /**
      * This process id
      */
-    private ?string $_processId = null;
+    private string $processId;
 
     /**
      * File path in which execution log messages will be written.
      */
-    private string $_executionLogFile;
+    private string $executionLogFile;
 
     /** 
      * The schedule task helper
      */
-    private ?ScheduledTaskHelper $_helper = null;
+    private ScheduledTaskHelper $helper;
 
     /**
      * Constructor.
+     * 
+     * @param array $args The task arguments
      */
-    public function __construct(array $args = [])
+    public function __construct(private array $args = [])
     {
-        $this->_args = $args;
-        $this->_processId = uniqid();
+        $this->args = $args;
+        $this->processId = uniqid();
 
         // Check the scheduled task execution log folder.
         $fileMgr = new PrivateFileManager();
 
         $scheduledTaskFilesPath = realpath($fileMgr->getBasePath()) . '/' . ScheduledTaskHelper::SCHEDULED_TASK_EXECUTION_LOG_DIR;
         $classNameParts = explode('\\', $this::class); // Separate namespace info from class name
-        $this->_executionLogFile = "{$scheduledTaskFilesPath}/" . end($classNameParts) .
-            '-' . $this->getProcessId() . '-' . date('Ymd') . '.log';
+        
+        $this->executionLogFile = "{$scheduledTaskFilesPath}/"
+            . end($classNameParts)
+            . '-'
+            . $this->getProcessId()
+            . '-' 
+            . date('Ymd')
+            . '.log';
+
         if (!$fileMgr->fileExists($scheduledTaskFilesPath, 'dir')) {
             $success = $fileMgr->mkdirtree($scheduledTaskFilesPath);
             if (!$success) {
                 // files directory wrong configuration?
                 assert(false);
-                $this->_executionLogFile = null;
+                $this->executionLogFile = null;
             }
         }
     }
@@ -76,7 +76,7 @@ abstract class ScheduledTask
      */
     public function getProcessId(): ?string
     {
-        return $this->_processId;
+        return $this->processId;
     }
 
     /**
@@ -84,11 +84,11 @@ abstract class ScheduledTask
      */
     public function getHelper(): ScheduledTaskHelper
     {
-        if (!$this->_helper) {
-            $this->_helper = new ScheduledTaskHelper;
+        if (!isset($this->helper)) {
+            $this->helper = new ScheduledTaskHelper;
         }
         
-        return $this->_helper;
+        return $this->helper;
     }
 
     /**
@@ -107,7 +107,7 @@ abstract class ScheduledTask
      */
     public function addExecutionLogEntry(string $message, ?string $type = null): void
     {
-        $logFile = $this->_executionLogFile;
+        $logFile = $this->executionLogFile;
 
         if (!$message) {
             return;
@@ -154,7 +154,7 @@ abstract class ScheduledTask
         $this->addExecutionLogEntry(__('admin.scheduledTask.stopTime'), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
 
         $helper = $this->getHelper();
-        $helper->notifyExecutionResult($this->_processId, $this->getName(), $result, $this->_executionLogFile);
+        $helper->notifyExecutionResult($this->processId, $this->getName(), $result, $this->executionLogFile);
 
         return $result;
     }

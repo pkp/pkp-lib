@@ -9,7 +9,7 @@
  *
  * @class PKPScheduler
  *
- * @brief Core Scheduler to register schedule tasks
+ * @brief Scheduler class which is responsible to register scheduled tasks
  */
 
 namespace PKP\scheduledTask;
@@ -34,14 +34,11 @@ use PKP\plugins\interfaces\HasTaskScheduler;
 abstract class PKPScheduler
 {
     /**
-     * The core illuminate Schedule that is responsible to run schedule tasks
-     */
-    protected Schedule $schedule;
-
-    /**
      * Constructor
+     * 
+     * @param Schedule $schedule The core illuminate Schedule that is responsible to run schedule tasks
      */
-    public function __construct(Schedule $schedule)
+    public function __construct(protected Schedule $schedule)
     {
         $this->schedule = $schedule;
     }
@@ -60,10 +57,10 @@ abstract class PKPScheduler
             fn (Event $event) => [$event->getSummaryForDisplay() => $event]
         );
 
-        $scheduleTaskClass = get_class($scheduleTask);
+        $scheduleTaskClass = $scheduleTask::class;
 
         // Here we don't want to re-register the schedule task if it's already registered
-        // ohterwise it will be same task running multiple time at a given time
+        // otherwise the same task might run multiple times at the same time
         return $scheduleTasks[$scheduleTaskClass]
             ?? $this->schedule->call(fn () => $scheduleTask->execute());
     }
@@ -136,21 +133,21 @@ abstract class PKPScheduler
             ->name(RemoveExpiredInvitations::class)
             ->withoutOverlapping();
         
-        // We only want to load all plugins and register schedule in following way if running on CLI mode
-        // as in non CLI mode, schedule tasks should be registered before calliing web based task runner
+        // We only load all plugins and register their scheduled tasks when running under the CLI
+        // On the web based task runner the scheduled tasks must be registered before it starts running
         if (PKPContainer::getInstance()->runningInConsole()) {
             $this->registerPluginSchedules();
         }
     }
 
     /**
-     * Register plugins schedule tasks
+     * Load all plugins and register their scheduled tasks
      */
     public function registerPluginSchedules(): void
     {
         $plugins = PluginRegistry::loadAllPlugins(true);
 
-        foreach ($plugins as $name => $plugin) {
+        foreach ($plugins as $plugin) {
             if (!$plugin instanceof HasTaskScheduler) {
                 continue;
             }

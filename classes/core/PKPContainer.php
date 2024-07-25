@@ -557,34 +557,31 @@ class PKPContainer extends Container
     /**
      * Determine if the application is running in the console.
      */
-    public function runningInConsole(string $scriptPath = null): bool
+    public function runningInConsole(?string $scriptPath = null): bool
     {
-        if (php_sapi_name() && strtolower(php_sapi_name()) === 'cli') {
+        if (strtolower(php_sapi_name() ?: '') === 'cli') {
             return true;
         }
 
-        if ($scriptPath) {
-            $scriptPath = strtolower($scriptPath);
-
-            if (isset($_SERVER['SCRIPT_NAME']) && strpos(strtolower($_SERVER['SCRIPT_NAME']), $scriptPath) !== false) {
-                return true;
-            }
-
-            if (isset($_SERVER['SCRIPT_FILENAME']) && strpos(strtolower($_SERVER['SCRIPT_FILENAME']), $scriptPath) !== false) {
-                return true;
-            }
+        if (!$scriptPath) {
+            return false;
         }
-        
-        return false;
+
+        $scriptPath = mb_strtolower($scriptPath);
+
+        if (isset($_SERVER['SCRIPT_NAME']) && strpos(strtolower($_SERVER['SCRIPT_NAME']), $scriptPath) !== false) {
+            return true;
+        }
+
+        if (isset($_SERVER['SCRIPT_FILENAME']) && strpos(strtolower($_SERVER['SCRIPT_FILENAME']), $scriptPath) !== false) {
+            return true;
+        }
     }
 
     /**
      * Get or check the current application environment.
-     *
-     * @param  string|array  ...$environments
-     * @return string|bool
      */
-    public function environment(...$environments)
+    public function environment(string ...$environments): string|bool
     {
         if (count($environments) > 0) {
             $patterns = is_array($environments[0]) ? $environments[0] : $environments;

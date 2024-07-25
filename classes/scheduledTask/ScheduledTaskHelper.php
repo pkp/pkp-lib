@@ -22,7 +22,6 @@ use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\file\PrivateFileManager;
 use PKP\mail\Mailable;
-use PKP\site\Site;
 use PKP\site\SiteDAO;
 
 class ScheduledTaskHelper
@@ -34,46 +33,33 @@ class ScheduledTaskHelper
     public const SCHEDULED_TASK_EXECUTION_LOG_DIR = 'scheduledTaskLogs';
 
     /**
-     * Contact email.
-     */
-    public string $_contactEmail;
-
-    /**
-     * Contact name.
-     */
-    public string $_contactName;
-
-    /**
      * Constructor.
      * Overwrites both parameters if one is not passed.
      *
-     * @param string $email (optional)
-     * @param string $contactName (optional)
+     * @param string $email (optional)          Contact email
+     * @param string $contactName (optional)    Contact name
      */
-    public function __construct(string $email = '', string $contactName = '')
+    public function __construct(public string $contactEmail = '', public string $contactName = '')
     {
-        if (!$email || !$contactName) {
+        if (!$this->contactEmail || !$this->contactName) {
             $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
-            $site = $siteDao->getSite(); /** @var Site $site */
-            $email = $site->getLocalizedContactEmail();
-            $contactName = $site->getLocalizedContactName();
+            $site = $siteDao->getSite();
+            $this->contactEmail = $site->getLocalizedContactEmail();
+            $this->contactName = $site->getLocalizedContactName();
         }
-
-        $this->_contactEmail = $email;
-        $this->_contactName = $contactName;
     }
 
     /**
      * Notifies site administrator about the task execution result.
      *
-     * @param int|string    $id                 Task id.
-     * @param string        $name               Task name.
-     * @param bool          $result             Whether or not the task execution was successful.
-     * @param string        $executionLogFile   Task execution log file path.
+     * @param string    $id                 Task id.
+     * @param string    $name               Task name.
+     * @param bool      $result             Whether or not the task execution was successful.
+     * @param string    $executionLogFile   Task execution log file path.
      * 
-     * @return bool                             Notification mail sent successfully
+     * @return bool                         Notification mail sent successfully
      */
-    public function notifyExecutionResult(int|string $id, string $name, bool $result, string $executionLogFile = ''): bool
+    public function notifyExecutionResult(string $id, string $name, bool $result, string $executionLogFile = ''): bool
     {
         $reportErrorOnly = Config::getVar('schedule', 'scheduled_tasks_report_error_only', true);
 
@@ -142,8 +128,8 @@ class ScheduledTaskHelper
     {
         $mailable = new Mailable();
         $mailable
-            ->to($this->_contactEmail, $this->_contactName)
-            ->from($this->_contactEmail, $this->_contactName)
+            ->to($this->contactEmail, $this->contactName)
+            ->from($this->contactEmail, $this->contactName)
             ->subject($subject)
             ->body($message);
 

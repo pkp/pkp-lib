@@ -73,6 +73,17 @@ class ReviewerForm extends Form
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'responseDueDate', 'required', 'editor.review.errorAddingReviewer'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'reviewDueDate', 'required', 'editor.review.errorAddingReviewer'));
 
+        $this->addCheck(
+            new \PKP\form\validation\FormValidatorDateCompare(
+                $this,
+                'reviewDueDate',
+                \Carbon\Carbon::parse(Application::get()->getRequest()->getUserVar('responseDueDate')),
+                \PKP\validation\enums\DateComparisonRule::GREATER_OR_EQUAL,
+                'required',
+                'editor.review.errorAddingReviewer.dateValidationFailed'
+            )
+        );
+
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
     }

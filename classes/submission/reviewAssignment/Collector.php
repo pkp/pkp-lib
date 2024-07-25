@@ -27,6 +27,9 @@ use PKP\submission\ViewsCount;
  */
 class Collector implements CollectorInterface, ViewsCount
 {
+    public const ORDER_DIR_ASC = 'ASC';
+    public const ORDER_DIR_DESC = 'DESC';
+
     public DAO $dao;
     public ?array $contextIds = null;
     public ?array $submissionIds = null;
@@ -41,6 +44,10 @@ class Collector implements CollectorInterface, ViewsCount
     public ?array $reviewMethods = null;
     public ?int $stageId = null;
     public ?array $reviewFormIds = null;
+    public bool $orderByContextId = false;
+    public ?string $orderByContextIdDirection = null;
+    public bool $orderBySubmissionId = false;
+    public ?string $orderBySubmissionIdDirection = null;
 
     public function __construct(DAO $dao)
     {
@@ -185,6 +192,26 @@ class Collector implements CollectorInterface, ViewsCount
     }
 
     /**
+     * Order/Sort the review assignments by associated context id
+     */
+    public function orderByContextId(string $direction = self::ORDER_DIR_ASC): static
+    {
+        $this->orderByContextId = true;
+        $this->orderByContextIdDirection = $direction;
+        return $this;
+    }
+
+    /**
+     * Order/Sort the review assignments by associated submission id
+     */
+    public function orderBySubmissionId(string $direction = self::ORDER_DIR_ASC): static
+    {
+        $this->orderBySubmissionId = true;
+        $this->orderBySubmissionIdDirection = $direction;
+        return $this;
+    }
+
+    /**
      * @copydoc CollectorInterface::getQueryBuilder()
      */
     public function getQueryBuilder(): Builder
@@ -307,14 +334,34 @@ class Collector implements CollectorInterface, ViewsCount
 
         $q->when(
             $this->count !== null,
-            fn () =>
+            fn (Builder $q) =>
             $q->limit($this->count)
         );
 
         $q->when(
             $this->offset !== null,
-            fn () =>
+            fn (Builder $q) =>
             $q->offset($this->offset)
+        );
+
+        $q->when(
+            $this->orderByContextId,
+            fn (Builder $q) =>
+            $q->orderBy(
+                DB::table('submissions')
+                    ->select('context_id')
+                    ->whereColumn('submission_id', 'ra.submission_id'),
+                $this->orderByContextIdDirection
+            )
+        );
+
+        $q->when(
+            $this->orderBySubmissionId,
+            fn (Builder $q) =>
+            $q->orderBy(
+                'ra.submission_id',
+                $this->orderBySubmissionIdDirection
+            )
         );
 
         return $q;

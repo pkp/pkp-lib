@@ -1243,14 +1243,14 @@ msgstr "Set Reminders for Review"
 
 msgid "manager.setup.reviewOptions.reminders.description"
 msgstr ""
-"Send an email reminder before or after for review request response(if reviewer has not responded "
+"Send an email reminder before or after for review request response (if reviewer has not responded "
 "to review request yet) or review submission (if reviewer has not submitted review yet)"
 
 msgid "manager.setup.reviewOptions.reminders.response.before"
-msgstr "Response Request Response - Before Due Date"
+msgstr "Review Request Response - Before Due Date"
 
 msgid "manager.setup.reviewOptions.reminders.response.after"
-msgstr "Response Request Response - After Due Date"
+msgstr "Review Request Response - After Due Date"
 
 msgid "manager.setup.reviewOptions.reminders.submit.before"
 msgstr "Review Submission - Before Due Date"

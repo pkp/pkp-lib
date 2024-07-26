@@ -110,21 +110,15 @@
 							</pkp-button>
 						</template>
 					</pkp-header>
-					<pkp-table
-						labelled-by="contextDetailTableLabel"
-						:class="tableClasses"
-						:columns="tableColumns"
-						:rows="items"
-					>
-						<template #default="{ row, rowIndex }">
-							<table-cell
-								v-for="(column, columnIndex) in tableColumns"
-								:key="column.name"
-								:column="column"
-								:row="row"
-								:tabindex="!rowIndex && !columnIndex ? 0 : -1"
-							>
-								<template #default v-if="column.name === 'title'">
+					<pkp-table aria-label="{translate key="stats.views"}">
+						<table-header>
+							<table-column v-for="column in tableColumns" :key="column.name" :id="column.name">
+								{{ column.label }}
+							</table-column>
+						</table-header>
+						<table-body>
+							<table-row v-for="(row) in items" :key="row.key">
+								<table-cell>
 									<a
 										:href="row.url"
 										class="pkpStats__itemLink"
@@ -132,9 +126,10 @@
 									>
 										<span class="pkpStats__itemTitle">{{ localize(row.name) }}</span>
 									</a>
-								</template>
-							</table-cell>
-						</template>
+								</table-cell>
+								<table-cell>{{ row.total }}</table-cell>
+							</table-row>
+						</table-body>
 					</pkp-table>
 					<div v-if="!items.length" class="pkpStats__noRecords">
 						<template v-if="isLoadingItems">

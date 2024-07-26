@@ -14,34 +14,49 @@
 		{translate key=$pageTitle}
 	</h1>
 	<div class="app__contentPanel">
-		<pkp-table
-			:columns="columns"
-			:rows="rows"
-			:description="description"
-			:label="label"
-		>
-			<template #label v-if="total > 0">
-				<div>
-					<span class="pkp_helpers_half pkp_helpers_align_left">{{ label }}</span>
-					<span class="pkp_helpers_half pkp_helpers_align_right pkp_helpers_text_right">
-					<spinner v-if="isLoadingItems"></spinner>
-						<pkp-button @click="requeueAll">
-							{translate key="admin.jobs.failed.action.redispatch.all"}
-						</pkp-button>
-					</span>
+		<div class="bg-default p-4" v-if="total > 0">
+			<caption v-if="label || description">
+				<div v-if="label" class="pkpTable__label">
+					<div>
+						<span class="pkp_helpers_half pkp_helpers_align_left">
+							{{ label }}
+						</span>
+						<span
+							class="pkp_helpers_half pkp_helpers_align_right pkp_helpers_text_right"
+						>
+							<spinner v-if="isLoadingItems"></spinner>
+							<pkp-button @click="requeueAll">
+								{translate key="admin.jobs.failed.action.redispatch.all"}
+							</pkp-button>
+						</span>
+					</div>
 				</div>
-			</template>
-
-			<template #default="{ row, rowIndex }">
-				<table-cell
-					v-for="(column, columnIndex) in columns"
+				<div
+					v-if="description"
+					class="pkpTable__description"
+					v-html="description"
+				></div>
+			</caption>
+		</div>
+		<pkp-table :aria-label="label">
+			<table-header>
+				<table-column
+					v-for="column in columns"
 					:key="column.name"
-					:column="column"
-					:row="row"
-					:tabindex="!rowIndex && !columnIndex ? 0 : -1"
+					:id="column.name"
 				>
-					<template #default v-if="column.name === 'actions'">
-						<button-row >
+					{{ column.label }}
+				</table-column>
+			</table-header>
+			<table-body>
+				<table-row v-for="(row) in rows" :key="row.key">
+					<table-cell>{{ row.id }}</table-cell>
+					<table-cell>{{ row.displayName }}</table-cell>
+					<table-cell>{{ row.queue }}</table-cell>
+					<table-cell>{{ row.connection }}</table-cell>
+					<table-cell>{{ row.failed_at }}</table-cell>
+					<table-cell>
+						<button-row>
 							<pkp-button @click="redispatch(row)">
 								{translate key="admin.jobs.failed.action.redispatch"}
 							</pkp-button>
@@ -52,9 +67,9 @@
 								{translate key="common.details"}
 							</pkp-button>
 						</button-row>
-					</template>
-                </table-cell>
-			</template>
+					</table-cell>
+				</table-row>
+			</table-body>
 		</pkp-table>
 
 		<pagination 

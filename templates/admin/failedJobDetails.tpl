@@ -14,26 +14,28 @@
 		{translate key=$pageTitle}
 	</h1>
 	<div class="app__contentPanel app__contentPanel__overflow">
-		<pkp-table
-			:columns="columns"
-			:rows="rows"
-			:label="label"
-		>
-			<template #default="{ row, rowIndex }">
-				<table-cell
-					v-for="(column, columnIndex) in columns"
-					:key="column.name"
-					:column="column"
-					:row="row"
-					:tabindex="!rowIndex && !columnIndex ? 0 : -1"
-				>
-					<template #default v-if="column.name === 'value' && isValidJson(row.value)">
-						<span>
-							<pre>{{ row.value }}</pre>
-						</span>
-					</template>
-				</table-cell>
-			</template>
+		<div class="bg-default p-4">
+			<caption v-if="label">
+				<div class="pkpTable__label">
+					<slot name="label">{{ label }}</slot>
+				</div>
+			</caption>
+		</div>
+		<pkp-table :aria-label="label">
+			<table-header>
+				<table-column v-for="column in columns" :key="column.name" :id="column.name">
+					{{ column.label }}
+				</table-column>
+			</table-header>
+			<table-body>
+				<table-row v-for="(row) in rows" :key="row.key">
+					<table-cell v-html="row.attribute"></span>
+					</table-cell>
+					<table-cell>
+						<pre>{{ row.value }}</pre>
+					</table-cell>
+				</table-row>
+			</table-body>
 		</pkp-table>
 	</div>
 {/block}

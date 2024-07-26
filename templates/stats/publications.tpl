@@ -182,32 +182,35 @@
 						</template>
 					</pkp-header>
 					<pkp-table
-						labelled-by="publicationDetailTableLabel"
+						aria-label="{translate key="stats.publications.details"}"
 						:class="tableClasses"
-						:columns="tableColumns"
-						:rows="items"
-						:order-by="orderBy"
-						:order-direction="orderDirection"
-						@order-by="setOrderBy"
+						@sort="setOrderBy"
 					>
-						<template #thead-title>
-							<search
-								#thead-title
-								class="pkpStats__titleSearch"
-								:search-phrase="searchPhrase"
-								search-label="{translate key="stats.searchSubmissionDescription"}"
-								@search-phrase-changed="setSearchPhrase"
-							></search>
-						</template>
-						<template #default="{ row, rowIndex }">
-							<table-cell
-								v-for="(column, columnIndex) in tableColumns"
+						<table-header>
+							<table-column
+								v-for="column in tableColumns"
 								:key="column.name"
-								:column="column"
-								:row="row"
-								:tabindex="!rowIndex && !columnIndex ? 0 : -1"
+								:id="column.name"
+								:allows-sorting="column.name === 'total'"
 							>
-								<template #default v-if="column.name === 'title'">
+								<template v-if="column.name === 'title'">
+									{{ column.label }}
+									<search
+										#thead-title
+										class="pkpStats__titleSearch"
+										:search-phrase="searchPhrase"
+										search-label="{translate key="stats.searchSubmissionDescription"}"
+										@search-phrase-changed="setSearchPhrase"
+									></search>
+								</template>
+								<template v-else>
+									{{ column.label }}
+								</template>
+							</table-column>
+						</table-header>
+						<table-body>
+							<table-row v-for="(row) in items" :key="row.key">
+								<table-cell>
 									<a
 										:href="row.publication.urlPublished"
 										class="pkpStats__itemLink"
@@ -216,9 +219,15 @@
 										<span class="pkpStats__itemAuthors">{{ row.publication.authorsStringShort }}</span>
 										<span class="pkpStats__itemTitle">{{ localize(row.publication.fullTitle) }}</span>
 									</a>
-								</template>
-							</table-cell>
-						</template>
+								</table-cell>
+								<table-cell>{{ row.abstractViews }}</table-cell>
+								<table-cell>{{ row.galleyViews }}</table-cell>
+								<table-cell>{{ row.pdfViews }}</table-cell>
+								<table-cell>{{ row.htmlViews }}</table-cell>
+								<table-cell>{{ row.otherViews }}</table-cell>
+								<table-cell>{{ row.total }}</table-cell>
+							</table-row>
+						</table-body>
 					</pkp-table>
 					<div v-if="!items.length" class="pkpStats__noRecords">
 						<template v-if="isLoadingItems">

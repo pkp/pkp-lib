@@ -53,6 +53,7 @@ abstract class Collector implements CollectorInterface, ViewsCount
     public DAO $dao;
     public ?array $categoryIds = null;
     public ?array $contextIds = null;
+    public ?array $submissionIds = null;
     public ?int $count = null;
     public ?int $daysInactive = null;
     public bool $isIncomplete = false;
@@ -251,6 +252,17 @@ abstract class Collector implements CollectorInterface, ViewsCount
     }
 
     /**
+     * Limit results to only submissions with the specified IDs
+     *
+     * @param ?int[] $submissionIds Submission IDs
+     */
+    public function filterBySubmissionIds(?array $submissionIds): static
+    {
+        $this->submissionIds = $submissionIds;
+        return $this;
+    }
+
+    /**
      * Limit results to submissions assigned to these users
      *
      * @param int|array $assignedTo An array of user IDs
@@ -368,6 +380,10 @@ abstract class Collector implements CollectorInterface, ViewsCount
 
         if (!in_array(Application::SITE_CONTEXT_ID_ALL, $this->contextIds)) {
             $q->whereIn('s.context_id', $this->contextIds);
+        }
+
+        if (isset($this->submissionIds)) {
+            $q->whereIn('s.submission_id', array_map(intval(...), $this->submissionIds));
         }
 
         // Prepare keywords (allows short and numeric words)

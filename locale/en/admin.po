@@ -1022,4 +1022,7 @@ msgid "admin.submissions.incomplete.bulkDelete.body"
 msgstr "Are you sure you want to delete the selected items? This action cannot be undone. Please confirm to proceed."
 
 msgid "admin.submissions.incomplete.bulkDelete.selectionStatus"
-msgstr "{$selected} of {$total} Incomplete Submissions Selected"
+msgstr "Incomplete Submissions Selected."
+
+msgid "admin.submissions.incomplete.bulkDelete.success"
+msgstr "Submissions deleted successfully!"

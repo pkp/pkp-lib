@@ -28,6 +28,7 @@ use PKP\submission\SubmissionDisciplineDAO;
 use PKP\submission\SubmissionKeywordDAO;
 use PKP\submission\SubmissionLanguageDAO;
 use PKP\submission\SubmissionSubjectDAO;
+use Illuminate\Support\Facades\Log;
 
 /**
  * @template T of Publication
@@ -489,8 +490,12 @@ class DAO extends EntityDAO
      */
     protected function setCategories(Publication $publication)
     {
-        $categoryIds = PublicationCategory::getCategoriesByPublicationId($publication->getId());
-        $publication->setData('categoryIds', $categoryIds);
+        try {
+            $categoryIds = PublicationCategory::getCategoriesByPublicationId($publication->getId());
+            $publication->setData('categoryIds', $categoryIds);
+        } catch (\Exception $e) {
+            error_log('Error setting categories: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -498,8 +503,15 @@ class DAO extends EntityDAO
      */
     protected function saveCategories(Publication $publication)
     {
-        $categoryIds = $publication->getData('categoryIds');
-        PublicationCategory::assignCategoriesToPublication($publication->getId(), $categoryIds);
+        try {
+            $categoryIds = (array) $publication->getData('categoryIds');
+            if (empty($categoryIds)) {
+                $categoryIds = [];
+            }
+            PublicationCategory::assignCategoriesToPublication($publication->getId(), $categoryIds);
+        } catch (\Exception $e) {
+            error_log('Failed to save categories for publication: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -507,7 +519,11 @@ class DAO extends EntityDAO
      */
     protected function deleteCategories(int $publicationId)
     {
-        PublicationCategory::where('publication_id', $publicationId)->delete();
+        try {
+            PublicationCategory::where('publication_id', $publicationId)->delete();
+        } catch (\Exception $e) {
+            error_log('Failed to delete categories for publication: ' . $e->getMessage());
+        }
     }
 
     /**

@@ -8,6 +8,8 @@ class PublicationCategory extends Model
 {
     protected $table = 'publication_categories';
     protected $primaryKey = 'publication_category_id';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'publication_id', 'category_id'
@@ -28,13 +30,17 @@ class PublicationCategory extends Model
      */
     public static function assignCategoriesToPublication(int $publicationId, array $categoryIds)
     {
+        // delete all existing entries for the publication
         self::where('publication_id', $publicationId)->delete();
-
-        foreach ($categoryIds as $categoryId) {
-            self::create([
-                'publication_id' => $publicationId,
-                'category_id' => $categoryId
-            ]);
+    
+        //  insert if the category IDs are provided
+        if (!empty($categoryIds)) {
+            foreach ($categoryIds as $categoryId) {
+                self::create([
+                    'publication_id' => $publicationId,
+                    'category_id' => $categoryId
+                ]);
+            }
         }
     }
 }

@@ -846,6 +846,12 @@ class PKPReviewerGridHandler extends GridHandler
             ]);
         }
 
+        // If it's a new review assignment, mark it as viewed
+        if ($reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW) {
+            Repo::reviewAssignment()->edit($reviewAssignment, [
+                'considered' => ReviewAssignment::REVIEW_ASSIGNMENT_VIEWED,
+            ]);
+        }
 
         // Render the response.
         return $templateMgr->fetchJson('controllers/grid/users/reviewer/readReview.tpl');

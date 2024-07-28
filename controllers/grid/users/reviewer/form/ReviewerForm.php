@@ -224,7 +224,6 @@ class ReviewerForm extends Form
         $this->setData('responseDueDate', $responseDueDate);
         $this->setData('reviewDueDate', $reviewDueDate);
         $this->setData('selectionType', $selectionType);
-        $this->setData('considered', ReviewAssignment::REVIEW_ASSIGNMENT_NEW);
     }
 
     /**
@@ -350,7 +349,8 @@ class ReviewerForm extends Form
 
         Repo::reviewAssignment()->edit($reviewAssignment, [
             'dateNotified' => Core::getCurrentDate(),
-            'reviewFormId' => $reviewForm ? $reviewFormId : null
+            'reviewFormId' => $reviewForm ? $reviewFormId : null,
+            'considered' => ReviewAssignment::REVIEW_ASSIGNMENT_NEW
         ]);
 
         $fileStages = [$stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? SubmissionFile::SUBMISSION_FILE_INTERNAL_REVIEW_FILE : SubmissionFile::SUBMISSION_FILE_REVIEW_FILE];

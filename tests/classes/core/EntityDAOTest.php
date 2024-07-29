@@ -20,10 +20,13 @@ namespace PKP\tests\classes\core;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use PKP\core\EntityDAO;
 use PKP\core\DataObject;
 use PKP\plugins\Hook;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversMethod;
 
+#[CoversMethod(EntityDAO::class, '_insert')]
 class EntityDAOTest extends PKPTestCase
 {
     public static function setUpBeforeClass(): void
@@ -85,9 +88,6 @@ class EntityDAOTest extends PKPTestCase
         Schema::dropIfExists('test_entity');
     }
 
-    /**
-     * @covers \PKP\core\EntityDAO::_insert
-     */
     public function testCRUD()
     {
         $testEntityDao = app(TestEntityDAO::class);

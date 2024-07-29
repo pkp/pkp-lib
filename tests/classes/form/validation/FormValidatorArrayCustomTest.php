@@ -22,7 +22,12 @@ use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\form\validation\FormValidatorArrayCustom;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(FormValidator::class)]
+#[CoversClass(FormValidatorArrayCustom::class)]
+#[CoversMethod(FormValidatorArrayCustom::class, 'isArray')]
 class FormValidatorArrayCustomTest extends PKPTestCase
 {
     private array $checkedValues = [];
@@ -38,10 +43,6 @@ class FormValidatorArrayCustomTest extends PKPTestCase
         $this->localeFieldValidation = $this->userFunctionForLocaleFields(...);
     }
 
-    /**
-     * @covers FormValidatorArrayCustom
-     * @covers FormValidator
-     */
     public function testIsValidOptionalAndEmpty()
     {
         // Tests are completely bypassed when the validation type is
@@ -73,10 +74,6 @@ class FormValidatorArrayCustomTest extends PKPTestCase
         self::assertSame([], $this->checkedValues);
     }
 
-    /**
-     * @covers FormValidatorArrayCustom
-     * @covers FormValidator
-     */
     public function testIsValidNoArray()
     {
         // Field data must be an array, otherwise validation fails
@@ -89,9 +86,6 @@ class FormValidatorArrayCustomTest extends PKPTestCase
 
     /**
      * Check all sub-fields (default behavior of isValid)
-     *
-     * @covers FormValidatorArrayCustom
-     * @covers FormValidator
      */
     public function testIsValidCheckAllSubfields()
     {
@@ -135,9 +129,6 @@ class FormValidatorArrayCustomTest extends PKPTestCase
 
     /**
      * Check explicitly given sub-sub-fields within all sub-fields
-     *
-     * @covers FormValidatorArrayCustom
-     * @covers FormValidator
      */
     public function testIsValidCheckExplicitSubsubfields()
     {
@@ -201,9 +192,6 @@ class FormValidatorArrayCustomTest extends PKPTestCase
 
     /**
      * Check a few border conditions
-     *
-     * @covers FormValidatorArrayCustom
-     * @covers FormValidator
      */
     public function testIsValidWithBorderConditions()
     {
@@ -241,8 +229,6 @@ class FormValidatorArrayCustomTest extends PKPTestCase
 
     /**
      * Check explicitly given sub-sub-fields within all sub-fields
-     *
-     * @covers FormValidatorArrayCustom::isArray
      */
     public function testIsArray()
     {

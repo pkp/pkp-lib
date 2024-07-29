@@ -25,7 +25,9 @@ use PKP\filter\FilterGroupDAO;
 use PKP\filter\GenericMultiplexerFilter;
 use PKP\filter\GenericSequencerFilter;
 use PKP\tests\DatabaseTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(FilterDAO::class)]
 class FilterDAOTest extends DatabaseTestCase
 {
     /**
@@ -51,9 +53,6 @@ class FilterDAOTest extends DatabaseTestCase
         self::assertTrue(is_integer($filterGroupId = $filterGroupDao->insertObject($someGroup)));
     }
 
-    /**
-     * @covers FilterDAO
-     */
     public function testFilterCrud()
     {
         $filterDao = DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */

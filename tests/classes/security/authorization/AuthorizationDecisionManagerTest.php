@@ -23,7 +23,9 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\PolicySet;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(AuthorizationDecisionManager::class)]
 class AuthorizationDecisionManagerTest extends PolicyTestCase
 {
     private AuthorizationDecisionManager $decisionManager;
@@ -34,9 +36,6 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
         $this->decisionManager = new AuthorizationDecisionManager();
     }
 
-    /**
-     * @covers AuthorizationDecisionManager
-     */
     public function testDecideIfNoPolicyApplies()
     {
         // Mock a policy that doesn't apply.
@@ -45,7 +44,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
             ->getMock();
         $mockPolicy->expects($this->any())
             ->method('applies')
-            ->will($this->returnValue(false));
+            ->willReturn(false);
         $this->decisionManager->addPolicy($mockPolicy);
 
         // The default decision should be "deny".
@@ -56,9 +55,6 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
         self::assertEquals(AuthorizationPolicy::AUTHORIZATION_PERMIT, $this->decisionManager->decide());
     }
 
-    /**
-     * @covers AuthorizationDecisionManager
-     */
     public function testAuthorizationMessages()
     {
         // Create policies that deny access.
@@ -72,7 +68,7 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
             ->getMock();
         $permitPolicy->expects($this->any())
             ->method('effect')
-            ->will($this->returnValue(AuthorizationPolicy::AUTHORIZATION_PERMIT));
+            ->willReturn(AuthorizationPolicy::AUTHORIZATION_PERMIT);
 
         // Create a permit overrides policy set to make sure that
         // all policies will be tested even if several deny access.
@@ -90,9 +86,6 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
         self::assertEquals(['message 1', 'message 2'], $this->decisionManager->getAuthorizationMessages());
     }
 
-    /**
-     * @covers AuthorizationDecisionManager
-     */
     public function testAuthorizationContext()
     {
         // Create a test environment that can be used to
@@ -107,9 +100,6 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
         self::assertInstanceOf('PKP\userGroup\UserGroup', $this->decisionManager->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_GROUP));
     }
 
-    /**
-     * @covers AuthorizationDecisionManager
-     */
     public function testDecide()
     {
         // We have to test policies and policy sets
@@ -165,9 +155,6 @@ class AuthorizationDecisionManagerTest extends PolicyTestCase
         self::assertEquals(AuthorizationPolicy::AUTHORIZATION_PERMIT, $decisionManager->decide());
     }
 
-    /**
-     * @covers AuthorizationDecisionManager
-     */
     public function testCallOnDeny()
     {
         // Create a policy with a call-on-deny advice.

@@ -20,13 +20,20 @@ namespace PKP\tests\classes\core;
 
 use Mockery;
 use Mockery\MockInterface;
+use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\BackupGlobals;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use PKP\core\Core;
 use PKP\core\PKPPageRouter;
 use PKP\security\Validation;
 
-/**
- * @backupGlobals enabled
- */
+#[BackupGlobals(true)]
+#[CoversMethod(PKPPageRouter::class, 'isCacheable')]
+#[CoversMethod(PKPPageRouter::class, 'getCacheFilename')]
+#[CoversMethod(PKPPageRouter::class, 'getRequestedPage')]
+#[CoversMethod(PKPPageRouter::class, 'getRequestedOp')]
+#[CoversMethod(PKPPageRouter::class, 'url')]
 class PKPPageRouterTest extends PKPRouterTestCase
 {
     protected function setUp(): void
@@ -37,12 +44,9 @@ class PKPPageRouterTest extends PKPRouterTestCase
             ->getMock();
         $this->router->expects($this->any())
             ->method('getCacheablePages')
-            ->will($this->returnValue(['cacheable']));
+            ->willReturn(['cacheable']);
     }
 
-    /**
-     * @covers PKPPageRouter::isCacheable
-     */
     public function testIsCacheableNotInstalled()
     {
         $this->setTestConfiguration('request2', 'classes/core/config'); // not installed
@@ -50,9 +54,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
         self::assertFalse($this->router->isCacheable($this->request));
     }
 
-    /**
-     * @covers PKPPageRouter::isCacheable
-     */
     public function testIsCacheableWithPost()
     {
         $this->setTestConfiguration('request1', 'classes/core/config'); // installed
@@ -61,9 +62,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
         self::assertFalse($this->router->isCacheable($this->request));
     }
 
-    /**
-     * @covers PKPPageRouter::isCacheable
-     */
     public function testIsCacheableWithPathinfo()
     {
         $this->setTestConfiguration('request1', 'classes/core/config'); // installed
@@ -79,13 +77,8 @@ class PKPPageRouterTest extends PKPRouterTestCase
         self::assertFalse($this->router->isCacheable($this->request));
     }
 
-    /**
-     * @covers PKPPageRouter::isCacheable
-     *
-     * @runInSeparateProcess
-     *
-     * @preserveGlobalState disabled
-     */
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testIsCacheableWithPathinfoSuccess()
     {
         // Creates a mocked Validation only for this test (due to the @runInSeparateProcess)
@@ -110,9 +103,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
         self::assertFalse($this->router->isCacheable($this->request, true));
     }
 
-    /**
-     * @covers PKPPageRouter::getCacheFilename
-     */
     public function testGetCacheFilenameWithPathinfo()
     {
         $mockApplication = $this->_setUpMockEnvironment();
@@ -124,9 +114,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
         self::assertEquals(Core::getBaseDir() . '/cache/wc-' . md5($expectedId) . '.html', $this->router->getCacheFilename($this->request));
     }
 
-    /**
-     * @covers PKPPageRouter::getRequestedPage
-     */
     public function testGetRequestedPageWithPathinfo()
     {
         $mockApplication = $this->_setUpMockEnvironment();
@@ -138,9 +125,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
         self::assertEquals('somepage', $this->router->getRequestedPage($this->request));
     }
 
-    /**
-     * @covers PKPPageRouter::getRequestedPage
-     */
     public function testGetRequestedPageWithEmtpyPage()
     {
         $mockApplication = $this->_setUpMockEnvironment();
@@ -152,9 +136,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
         self::assertEquals('', $this->router->getRequestedPage($this->request));
     }
 
-    /**
-     * @covers PKPPageRouter::getRequestedOp
-     */
     public function testGetRequestedOpWithPathinfo()
     {
         $mockApplication = $this->_setUpMockEnvironment();
@@ -166,9 +147,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
         self::assertEquals('someop', $this->router->getRequestedOp($this->request));
     }
 
-    /**
-     * @covers PKPPageRouter::getRequestedOp
-     */
     public function testGetRequestedOpWithEmptyOp()
     {
         $mockApplication = $this->_setUpMockEnvironment();
@@ -180,9 +158,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
         self::assertEquals('index', $this->router->getRequestedOp($this->request));
     }
 
-    /**
-     * @covers PKPPageRouter::url
-     */
     public function testUrlWithPathinfo()
     {
         $this->setTestConfiguration('request1', 'classes/core/config'); // restful URLs
@@ -254,9 +229,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
         self::assertEquals('http://mydomain.org/index.php/new-context1?key1=val1&amp;key2=val2', $result);
     }
 
-    /**
-     * @covers PKPPageRouter::url
-     */
     public function testUrlWithPathinfoAndOverriddenBaseUrl()
     {
         $this->setTestConfiguration('request1', 'classes/core/config'); // contains overridden context
@@ -273,9 +245,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
         self::assertEquals('http://some-domain/xyz-context/current-page/current-op', $result);
     }
 
-    /**
-     * @covers PKPPageRouter::url
-     */
     public function testUrlWithPathinfoAndOverriddenNewContext()
     {
         $this->setTestConfiguration('request1', 'classes/core/config'); // contains overridden context
@@ -294,9 +263,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
         self::assertEquals('http://some-domain/xyz-context/new-page', $result);
     }
 
-    /**
-     * @covers PKPPageRouter::url
-     */
     public function testUrlWithLocale()
     {
         $mockApplication = $this->_setUpMockEnvironment();

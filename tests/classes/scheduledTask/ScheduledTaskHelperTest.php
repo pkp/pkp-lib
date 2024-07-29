@@ -116,7 +116,7 @@ class ScheduledTaskHelperTest extends PKPTestCase
             ->getMock();
         $helperMock->expects($this->any())
             ->method('getMessage')
-            ->will($this->returnValue($message));
+            ->willReturn($message);
 
         // Helper will use the Mail::send() method. Mock it.
         $mailMock = $this->getMockBuilder(Mailable::class)

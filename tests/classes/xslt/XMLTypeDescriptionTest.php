@@ -21,7 +21,9 @@ namespace PKP\tests\classes\xslt;
 use PKP\tests\PKPTestCase;
 use PKP\tests\PKPTestHelper;
 use PKP\xslt\XMLTypeDescription;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(XMLTypeDescription::class)]
 class XMLTypeDescriptionTest extends PKPTestCase
 {
     /**
@@ -33,9 +35,6 @@ class XMLTypeDescriptionTest extends PKPTestCase
         parent::tearDown();
     }
 
-    /**
-     * @covers XMLTypeDescription
-     */
     public function testInstantiateAndCheck()
     {
         // Xdebug's scream parameter will disable the @ operator

@@ -25,16 +25,16 @@
 namespace PKP\tests\classes\filter;
 
 use PHPUnit\Framework\Attributes\DataProvider;
+use PKP\filter\TypeDescription;
 use PKP\filter\PrimitiveTypeDescription;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use stdClass;
 
+#[CoversClass(PrimitiveTypeDescription::class)]
+#[CoversClass(TypeDescription::class)]
 class PrimitiveTypeDescriptionTest extends PKPTestCase
 {
-    /**
-     * @covers PrimitiveTypeDescription
-     * @covers TypeDescription
-     */
     public function testInstantiateAndCheck()
     {
         $typeDescription = new PrimitiveTypeDescription('string');
@@ -73,9 +73,6 @@ class PrimitiveTypeDescriptionTest extends PKPTestCase
         self::assertFalse($typeDescription->isCompatible(2));
     }
 
-    /**
-     * Provides test data
-     */
     public static function typeDescriptorDataProvider(): array
     {
         return [
@@ -85,10 +82,6 @@ class PrimitiveTypeDescriptionTest extends PKPTestCase
         ];
     }
 
-    /**
-     * @covers PrimitiveTypeDescription
-     * @covers TypeDescription
-     */
     #[DataProvider('typeDescriptorDataProvider')]
     public function testInstantiateWithInvalidTypeDescriptor(string $type)
     {

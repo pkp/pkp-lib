@@ -21,12 +21,14 @@ namespace PKP\tests\classes\core;
 use APP\core\Application;
 use APP\core\Request;
 use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\Attributes\CoversMethod;
 use PKP\core\Dispatcher;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\tests\PKPTestCase;
 
+#[CoversMethod(Dispatcher::class, 'url')]
 class DispatcherTest extends PKPTestCase
 {
     public const PATHINFO_ENABLED = true;
@@ -67,9 +69,6 @@ class DispatcherTest extends PKPTestCase
         $this->request = new Request();
     }
 
-    /**
-     * @covers Dispatcher::url
-     */
     public function testUrl()
     {
         $this->_setUpMockDAO();

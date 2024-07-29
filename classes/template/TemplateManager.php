@@ -20,13 +20,10 @@ namespace APP\template;
 
 use APP\core\Application;
 use APP\file\PublicFileManager;
-use APP\notification\Notification;
 use PKP\core\PKPApplication;
 use PKP\core\PKPSessionGuard;
-use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleMetadata;
-use PKP\notification\NotificationDAO;
 use PKP\site\Site;
 use PKP\template\PKPTemplateManager;
 
@@ -70,13 +67,6 @@ class TemplateManager extends PKPTemplateManager
                 'packageKey' => 'common.software',
             ]);
 
-            // Get a count of unread tasks.
-            if ($user = $request->getUser()) {
-                /** @var NotificationDAO */
-                $notificationDao = DAORegistry::getDAO('NotificationDAO');
-                // Exclude certain tasks, defined in the notifications grid handler
-                $this->assign('unreadNotificationCount', $notificationDao->getNotificationCount(false, $user->getId(), null, Notification::NOTIFICATION_LEVEL_TASK));
-            }
             if (isset($context)) {
                 $this->assign([
                     'currentServer' => $context,

@@ -15,9 +15,8 @@
 
 namespace APP\notification\managerDelegate;
 
-use APP\notification\Notification;
 use PKP\notification\managerDelegate\PKPApproveSubmissionNotificationManager;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\request\PKPRequest;
 
 class ApproveSubmissionNotificationManager extends PKPApproveSubmissionNotificationManager
@@ -25,9 +24,9 @@ class ApproveSubmissionNotificationManager extends PKPApproveSubmissionNotificat
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationTitle()
      */
-    public function getNotificationTitle(PKPNotification $notification): string
+    public function getNotificationTitle(Notification $notification): string
     {
-        return match ($notification->getType()) {
+        return match ($notification->type) {
             Notification::NOTIFICATION_TYPE_APPROVE_SUBMISSION,
             Notification::NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION => __('notification.type.approveSubmissionTitle'),
         };
@@ -36,9 +35,9 @@ class ApproveSubmissionNotificationManager extends PKPApproveSubmissionNotificat
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationMessage(PKPRequest $request, PKPNotification $notification): string|array|null
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): string|array|null
     {
-        return match ($notification->getType()) {
+        return match ($notification->type) {
             Notification::NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION => __('notification.type.formatNeedsApprovedSubmission'),
             Notification::NOTIFICATION_TYPE_APPROVE_SUBMISSION => __('notification.type.approveSubmission'),
             default => parent::getNotificationMessage($request, $notification)

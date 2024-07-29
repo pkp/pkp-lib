@@ -17,11 +17,11 @@
 namespace APP\controllers\tab\workflow;
 
 use APP\core\Application;
-use APP\notification\Notification;
 use APP\template\TemplateManager;
 use Exception;
 use PKP\controllers\tab\workflow\PKPWorkflowTabHandler;
 use PKP\decision\DecisionType;
+use PKP\notification\Notification;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
@@ -66,10 +66,6 @@ class WorkflowTabHandler extends PKPWorkflowTabHandler
 
     /**
      * Get all production notification options to be used in the production stage tab.
-     *
-     * @param int $submissionId
-     *
-     * @return array
      */
     protected function getProductionNotificationOptions($submissionId)
     {

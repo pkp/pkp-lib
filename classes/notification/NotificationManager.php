@@ -9,7 +9,6 @@
  *
  * @class NotificationManager
  *
- * @see NotificationDAO
  * @see Notification
  *
  * @brief Class for Notification Manager.
@@ -23,8 +22,8 @@ use APP\notification\managerDelegate\ApproveSubmissionNotificationManager;
 use APP\server\Server;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
-use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
 
 class NotificationManager extends PKPNotificationManager
@@ -35,18 +34,18 @@ class NotificationManager extends PKPNotificationManager
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationUrl()
      */
-    public function getNotificationUrl(PKPRequest $request, PKPNotification $notification): string
+    public function getNotificationUrl(PKPRequest $request, Notification $notification): string
     {
         $router = $request->getRouter();
         $dispatcher = $router->getDispatcher();
 
-        switch ($notification->getType()) {
+        switch ($notification->type) {
             // OPS: links leading to a new submission have to be redirected to production stage
             case Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
                 $contextDao = Application::getContextDAO();
                 /** @var Server */
-                $context = $contextDao->getById($notification->getContextId());
-                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'production', $notification->getAssocId());
+                $context = $contextDao->getById($notification->contextId);
+                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'production', $notification->assocId);
         }
         return parent::getNotificationUrl($request, $notification);
     }
@@ -54,21 +53,21 @@ class NotificationManager extends PKPNotificationManager
     /**
      * Helper function to get an preprint title from a notification's associated object
      */
-    public function _getPreprintTitle(PKPNotification $notification): string
+    public function _getPreprintTitle(Notification $notification): string
     {
-        if ($notification->getAssocType() != Application::ASSOC_TYPE_SUBMISSION) {
+        if ($notification->assocType != Application::ASSOC_TYPE_SUBMISSION) {
             throw new \Exception('Unexpected assoc type!');
         }
-        $preprint = Repo::submission()->get($notification->getAssocId());
+        $preprint = Repo::submission()->get($notification->assocId);
         return $preprint?->getCurrentPublication()?->getLocalizedFullTitle();
     }
 
     /**
      * Return a CSS class containing the icon of this notification type
      */
-    public function getIconClass(PKPNotification $notification): string
+    public function getIconClass(Notification $notification): string
     {
-        return match($notification->getType()) {
+        return match($notification->type) {
             Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT => 'notifyIconNewAnnouncement',
             default => parent::getIconClass($notification)
         };

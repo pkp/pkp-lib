@@ -22,13 +22,13 @@ use APP\decision\types\Decline;
 use APP\decision\types\RevertDecline;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
-use APP\notification\Notification;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Exception;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\context\Context;
+use PKP\notification\Notification;
 use PKP\pages\workflow\PKPWorkflowHandler;
 use PKP\plugins\Hook;
 use PKP\security\Role;
@@ -138,10 +138,6 @@ class WorkflowHandler extends PKPWorkflowHandler
     //
     /**
      * Return the editor assignment notification type based on stage id.
-     *
-     * @param int $stageId
-     *
-     * @return ?int
      */
     protected function getEditorAssignmentNotificationTypeByStageId($stageId)
     {

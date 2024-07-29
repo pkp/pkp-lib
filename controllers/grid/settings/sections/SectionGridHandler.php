@@ -20,7 +20,6 @@ use APP\controllers\grid\settings\sections\form\SectionForm;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use PKP\context\SubEditorsDAO;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
@@ -31,6 +30,7 @@ use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\notification\Notification;
 use PKP\security\Role;
 
 class SectionGridHandler extends SetupGridHandler

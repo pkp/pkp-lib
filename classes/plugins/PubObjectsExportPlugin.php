@@ -19,7 +19,6 @@ namespace APP\plugins;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\server\Server;
 use APP\server\ServerDAO;
@@ -36,6 +35,7 @@ use PKP\form\Form;
 use PKP\galley\Galley;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\NullAction;
+use PKP\notification\Notification;
 use PKP\plugins\Hook;
 use PKP\plugins\importexport\PKPImportExportDeployment;
 use PKP\plugins\ImportExportPlugin;
@@ -769,12 +769,11 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Add a notification.
      *
-     * @param User $user
-     * @param string $message An i18n key.
-     * @param int $notificationType One of the Notification::NOTIFICATION_TYPE_* constants.
-     * @param string $param An additional parameter for the message.
+     * @param $message An i18n key.
+     * @param $notificationType One of the Notification::NOTIFICATION_TYPE_* constants.
+     * @param $param An additional parameter for the message.
      */
-    public function _sendNotification($user, $message, $notificationType, $param = null)
+    public function _sendNotification(User $user, string $message, int $notificationType, ?string $param = null)
     {
         static $notificationManager = null;
         if (is_null($notificationManager)) {

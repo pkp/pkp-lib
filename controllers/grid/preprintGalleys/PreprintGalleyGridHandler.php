@@ -21,7 +21,6 @@ use APP\controllers\tab\pubIds\form\PublicIdentifiersForm;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\publication\Publication;
 use APP\submission\Submission;
@@ -35,7 +34,7 @@ use PKP\db\DAORegistry;
 use PKP\galley\Galley;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
-use PKP\notification\NotificationDAO;
+use PKP\notification\Notification;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\internal\RepresentationRequiredPolicy;
 use PKP\security\authorization\PublicationAccessPolicy;
@@ -341,9 +340,7 @@ class PreprintGalleyGridHandler extends GridHandler
 
         Repo::galley()->delete($galley);
 
-        /** @var NotificationDAO */
-        $notificationDao = DAORegistry::getDAO('NotificationDAO');
-        $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_REPRESENTATION, $galley->getId());
+        Notification::withAssoc(Application::ASSOC_TYPE_REPRESENTATION, $galley->getId())->delete();
 
         if ($this->getSubmission()->getData('stageId') == WORKFLOW_STAGE_ID_EDITING ||
             $this->getSubmission()->getData('stageId') == WORKFLOW_STAGE_ID_PRODUCTION) {

@@ -231,7 +231,9 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             throw new Exception("There are one or more log files that were unable to finish processing. This happens when the scheduled task to process usage stats logs encounters a failure of some kind. These logs must be repaired and reprocessed or removed before the upgrade can continue. The logs can be found in the folders reject, processing and stage in {$usageStatsDir}.");
         }
 
-        $this->checkUsageStatsLogFileUrl($filePathToCheck);
+        if (!empty($filePathToCheck)) {
+            $this->checkUsageStatsLogFileUrl($filePathToCheck);
+        }
     }
 
     /**

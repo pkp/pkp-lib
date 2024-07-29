@@ -45,8 +45,8 @@ class PKPScheduleServiceProvider extends ServiceProvider implements DeferrablePr
 
         if (Config::getVar('schedule', 'task_runner', true)) {
             $taskRunnerInterval = Config::getVar('schedule', 'task_runner_interval', 60);
-            $lastRunTimestamp   = Cache::get('schedule::taskRunner::lastRunAt') ?? 0;
-            $currentTimestamp   = Carbon::now()->timestamp;
+            $lastRunTimestamp = Cache::get('schedule::taskRunner::lastRunAt') ?? 0;
+            $currentTimestamp = Carbon::now()->timestamp;
             
             if ($currentTimestamp - $lastRunTimestamp > $taskRunnerInterval) {
                 

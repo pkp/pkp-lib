@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/scheduledTask/ScheduleTaskRunner.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class ScheduleTaskRunner
+ *
+ * @brief Web based schedule task runner.
+ */
+
 namespace PKP\scheduledTask;
 
 use Throwable;
@@ -40,10 +52,6 @@ class ScheduleTaskRunner
     )
     {
         $this->startedAt = Carbon::now();
-        $this->schedule = $schedule;
-        $this->dispatcher = $dispatcher;
-        $this->cache = $cache;
-        $this->handler = $handler;
     }
 
     /**
@@ -54,7 +62,7 @@ class ScheduleTaskRunner
         $events = $this->schedule->dueEvents(PKPContainer::getInstance());
 
         foreach ($events as $event) {
-            if (! $event->filtersPass(PKPContainer::getInstance())) {
+            if (!$event->filtersPass(PKPContainer::getInstance())) {
                 $this->dispatcher->dispatch(new ScheduledTaskSkipped($event));
 
                 continue;
@@ -91,7 +99,7 @@ class ScheduleTaskRunner
 
         $start = microtime(true);
 
-        try {            
+        try {
             $event->run(PKPContainer::getInstance());
 
             $this->dispatcher->dispatch(new ScheduledTaskFinished(
@@ -110,7 +118,7 @@ class ScheduleTaskRunner
     /**
      * Run the given repeating events.
      *
-     * @param  \Illuminate\Support\Collection<\Illuminate\Console\Scheduling\Event>  $events
+     * @param \Illuminate\Support\Collection<\Illuminate\Console\Scheduling\Event>  $events
      */
     protected function repeatEvents(Collection $events): void
     {
@@ -122,17 +130,17 @@ class ScheduleTaskRunner
                     return;
                 }
 
-                if (! $event->shouldRepeatNow()) {
+                if (!$event->shouldRepeatNow()) {
                     continue;
                 }
 
                 $hasEnteredMaintenanceMode = $hasEnteredMaintenanceMode || PKPContainer::getInstance()->isDownForMaintenance();
 
-                if ($hasEnteredMaintenanceMode && ! $event->runsInMaintenanceMode()) {
+                if ($hasEnteredMaintenanceMode && !$event->runsInMaintenanceMode()) {
                     continue;
                 }
 
-                if (! $event->filtersPass(PKPContainer::getInstance())) {
+                if (!$event->filtersPass(PKPContainer::getInstance())) {
                     $this->dispatcher->dispatch(new ScheduledTaskSkipped($event));
 
                     continue;

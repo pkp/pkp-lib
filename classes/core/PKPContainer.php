@@ -567,13 +567,11 @@ class PKPContainer extends Container
             return false;
         }
 
-        $scriptPath = mb_strtolower($scriptPath);
-
-        if (isset($_SERVER['SCRIPT_NAME']) && strpos(strtolower($_SERVER['SCRIPT_NAME']), $scriptPath) !== false) {
+        if (mb_stripos($_SERVER['SCRIPT_NAME'] ?? '', $scriptPath) !== false) {
             return true;
         }
-
-        if (isset($_SERVER['SCRIPT_FILENAME']) && strpos(strtolower($_SERVER['SCRIPT_FILENAME']), $scriptPath) !== false) {
+        
+        if (mb_stripos($_SERVER['SCRIPT_FILENAME'] ?? '', $scriptPath) !== false) {
             return true;
         }
     }
@@ -584,9 +582,7 @@ class PKPContainer extends Container
     public function environment(string ...$environments): string|bool
     {
         if (count($environments) > 0) {
-            $patterns = is_array($environments[0]) ? $environments[0] : $environments;
-
-            return Str::is($patterns, $this->get('config')['app']['env']);
+            return Str::is($environments, $this->get('config')['app']['env']);
         }
 
         return $this->get('config')['app']['env'];

@@ -66,13 +66,9 @@ class ScheduledTaskHelper
         if (!$result || !$reportErrorOnly) {
             $message = $this->getMessage($executionLogFile);
 
-            if ($result) {
-                // Success.
-                $type = self::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED;
-            } else {
-                // Error.
-                $type = self::SCHEDULED_TASK_MESSAGE_TYPE_ERROR;
-            }
+            $type = $result
+                ? static::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED // Success
+                : static::SCHEDULED_TASK_MESSAGE_TYPE_ERROR; // Error
 
             $subject = $name . ' - ' . $id . ' - ' . __($type);
             return $this->_sendEmail($message, $subject);
@@ -107,7 +103,7 @@ class ScheduledTaskHelper
     {
         $fileMgr = new PrivateFileManager();
 
-        return $fileMgr->rmtree("{$fileMgr->getBasePath()}/" . self::SCHEDULED_TASK_EXECUTION_LOG_DIR);
+        return $fileMgr->rmtree("{$fileMgr->getBasePath()}/" . static::SCHEDULED_TASK_EXECUTION_LOG_DIR);
     }
 
     /**
@@ -117,7 +113,7 @@ class ScheduledTaskHelper
     {
         $fileMgr = new PrivateFileManager();
 
-        $fileMgr->downloadByPath("{$fileMgr->getBasePath()}/" . self::SCHEDULED_TASK_EXECUTION_LOG_DIR . "/{$file}");
+        $fileMgr->downloadByPath("{$fileMgr->getBasePath()}/" . static::SCHEDULED_TASK_EXECUTION_LOG_DIR . "/{$file}");
     }
 
 

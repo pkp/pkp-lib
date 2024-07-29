@@ -3,8 +3,8 @@
 /**
  * @file tools/scheduler.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2003-2024 John Willinsky
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class commandScheduler
@@ -61,7 +61,7 @@ class CommandScheduler extends CommandLineTool
     /**
      * Constructor
      */
-    public function __construct($argv = [])
+    public function __construct(array $argv = [])
     {
         parent::__construct($argv);
 
@@ -69,14 +69,14 @@ class CommandScheduler extends CommandLineTool
 
         $this->setParameterList($argv);
 
-        if (!isset($this->getParameterList()[0])) {
+        $this->option = $this->getParameterList()[0];
+
+        if (!$this->option) {
             throw new CommandNotFoundException(
                 __('admin.cli.tool.jobs.empty.option'),
-                array_keys(self::AVAILABLE_OPTIONS)
+                array_keys(static::AVAILABLE_OPTIONS)
             );
         }
-
-        $this->option = $this->getParameterList()[0];
 
         $this->setCommandInterface();
     }
@@ -86,10 +86,10 @@ class CommandScheduler extends CommandLineTool
      */
     public function execute()
     {
-        if (!isset(self::AVAILABLE_OPTIONS[$this->option])) {
+        if (!isset(static::AVAILABLE_OPTIONS[$this->option])) {
             throw new CommandNotFoundException(
                 __('admin.cli.tool.jobs.option.doesnt.exists', ['option' => $this->option]),
-                array_keys(self::AVAILABLE_OPTIONS)
+                array_keys(static::AVAILABLE_OPTIONS)
             );
         }
 
@@ -105,7 +105,7 @@ class CommandScheduler extends CommandLineTool
         $this->getCommandInterface()->line(__('admin.cli.tool.usage.parameters') . PHP_EOL);
         $this->getCommandInterface()->line('<comment>' . __('admin.cli.tool.available.commands', ['namespace' => 'jobs']) . '</comment>');
 
-        $this->printCommandList(self::AVAILABLE_OPTIONS);
+        $this->printCommandList(static::AVAILABLE_OPTIONS);
     }
 
     /**
@@ -176,7 +176,7 @@ class CommandScheduler extends CommandLineTool
             usleep(100 * 1000);
 
             if (Carbon::now()->second === 0 &&
-                ! Carbon::now()->startOfMinute()->equalTo($lastExecutionStartedAt)) {
+                !Carbon::now()->startOfMinute()->equalTo($lastExecutionStartedAt)) {
                 $executions[] = $execution = Process::fromShellCommandline($command);
 
                 $execution->start();
@@ -185,12 +185,12 @@ class CommandScheduler extends CommandLineTool
             }
 
             foreach ($executions as $key => $execution) {
-                $output = $execution->getIncrementalOutput().
-                    $execution->getIncrementalErrorOutput();
+                $output = $execution->getIncrementalOutput()
+                    . $execution->getIncrementalErrorOutput();
 
                 $outputStyle->write(ltrim($output, "\n"));
 
-                if (! $execution->isRunning()) {
+                if (!$execution->isRunning()) {
                     unset($executions[$key]);
                 }
             }
@@ -198,9 +198,9 @@ class CommandScheduler extends CommandLineTool
     }
 
     /**
-     * Run a specific schedule task
+     * Run a specific scheduled task
      * 
-     * Useful in testing of the schedule tasks in development.
+     * Useful to test scheduled tasks under development.
      */
     protected function test(): void
     {
@@ -224,12 +224,13 @@ class CommandScheduler extends CommandLineTool
             return;
         }
 
-        if (! empty($name = $this->getParameterValue('name', ''))) {
+        if (!empty($name = $this->getParameterValue('name', ''))) {
             $commandBinary = $phpBinary . ' ' . $_SERVER['SCRIPT_NAME'];
 
-            $matches = array_filter($commandNames, function ($commandName) use ($commandBinary, $name) {
-                return trim(str_replace($commandBinary, '', $commandName)) === $name;
-            });
+            $matches = array_filter(
+                $commandNames,
+                fn ($commandName) => trim(str_replace($commandBinary, '', $commandName)) === $name
+            );
 
             if (count($matches) !== 1) {
                 $components->error(__('admin.cli.tool.scheduler.tasks.notFound'));
@@ -257,7 +258,7 @@ class CommandScheduler extends CommandLineTool
 
         $components->task($description, fn () => $event->run(PKPContainer::getInstance()));
 
-        if (! $event instanceof CallbackEvent) {
+        if (!$event instanceof CallbackEvent) {
             $components->bulletList([$event->getSummaryForDisplay()]);
         }
 
@@ -267,16 +268,19 @@ class CommandScheduler extends CommandLineTool
     /**
      * Get the selected command name by index.
      *
-     * @param  array  $commandNames
+     * @param array $commandNames   The name of schedule task to retrieve
+     * @param bool  $noScroll       Present the tasks list with no scrolling
+     * 
      * @return int
      */
     protected function getSelectedCommandByIndex(array $commandNames, bool $noScroll = false): int
     {
         if (count($commandNames) !== count(array_unique($commandNames))) {
             // Some commands (likely closures) have the same name, append unique indexes to each one...
-            $uniqueCommandNames = array_map(function ($index, $value) {
-                return "$value [$index]";
-            }, array_keys($commandNames), $commandNames);
+            $uniqueCommandNames = array_map(
+                fn ($index, $value) =>"$value [$index]",
+                array_keys($commandNames), $commandNames
+            );
 
             $selectedCommand = select(
                 __('admin.cli.tool.scheduler.run.prompt'),

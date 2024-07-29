@@ -3,8 +3,8 @@
 /**
  * @file classes/scheduledTask/PKPScheduler.php
  *
- * Copyright (c) 2014-2024 Simon Fraser University
- * Copyright (c) 2003-2024 John Willinsky
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPScheduler
@@ -40,7 +40,6 @@ abstract class PKPScheduler
      */
     public function __construct(protected Schedule $schedule)
     {
-        $this->schedule = $schedule;
     }
 
     /**

@@ -44,7 +44,6 @@ abstract class ScheduledTask
      */
     public function __construct(private array $args = [])
     {
-        $this->args = $args;
         $this->processId = uniqid();
 
         // Check the scheduled task execution log folder.
@@ -103,7 +102,7 @@ abstract class ScheduledTask
      * Add an entry into the execution log.
      *
      * @param string        $message    A translated message.
-     * @param string|null   $type       One of the ScheduledTaskHelper SCHEDULED_TASK_MESSAGE_TYPE... constants
+     * @param ?string|null  $type       One of the ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE... constants
      */
     public function addExecutionLogEntry(string $message, ?string $type = null): void
     {
@@ -133,7 +132,7 @@ abstract class ScheduledTask
     /**
      * Implement this method to execute the task actions.
      *
-     * @return bool true if succeed
+     * @return bool true if successful
      */
     abstract protected function executeActions(): bool;
 
@@ -142,7 +141,7 @@ abstract class ScheduledTask
      * This is not the method one should extend to implement the
      * task actions, for this see ScheduledTask::executeActions().
      *
-     * @return bool Whether or not the task was succesfully executed.
+     * @return bool Whether the task was successfully executed.
      */
     public function execute(): bool
     {

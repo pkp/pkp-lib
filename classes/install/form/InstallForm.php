@@ -44,7 +44,8 @@ class InstallForm extends MaintenanceForm
         // <driver> => array(<php-module>, <name>)
         'mysqli' => ['mysqli', 'MySQLi'],
         'postgres9' => ['pgsql', 'PostgreSQL'],
-        'mysql' => ['mysql', 'MySQL']
+        'mysql' => ['mysql', 'MySQL'],
+        'mariadb' => ['mysql', 'MariaDB'],
     ];
 
     /**

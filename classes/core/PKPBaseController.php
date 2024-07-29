@@ -76,7 +76,6 @@ abstract class PKPBaseController extends Controller
      * The unique endpoint string for the APIs that will be served through controller.
      *
      * This is equivalent to property \PKP\handler\APIHandler::_handlerPath
-     * which will be passed through \PKP\handler\APIHandler\PKPApiRoutingHandler
      */
     abstract public function getHandlerPath(): string;
 
@@ -114,8 +113,19 @@ abstract class PKPBaseController extends Controller
         if (!$requestedRoute = static::getRequestedRoute($request)) {
             return null;
         }
+        
+        $calledRouteController = (new ReflectionFunction($requestedRoute->action['uses']))->getClosureThis();
 
-        return (new ReflectionFunction($requestedRoute->action['uses']))->getClosureThis();
+        // When the routes are added to router as a closure/callable from other section like from a 
+        // plugin through the hook, the resolved called route class may not be an instance of
+        // `PKPBaseController` and we need to resolve the current controller instance from 
+        // `APIHandler::getApiController` method
+        if ($calledRouteController instanceof self) {
+            return $calledRouteController;
+        }
+
+        $apiHandler = Application::get()->getRequest()->getRouter()->getHandler(); /** @var \PKP\handler\APIHandler $apiHandler */
+        return $apiHandler->getApiController();
     }
 
     /**
@@ -148,7 +158,6 @@ abstract class PKPBaseController extends Controller
      * The endpoint pattern for the APIs that will be served through controller.
      *
      * This is equivalent to property \PKP\handler\APIHandler::_pathPattern
-     * which will be passed through \PKP\handler\APIHandler\PKPApiRoutingHandler
      */
     public function getPathPattern(): ?string
     {
@@ -159,7 +168,6 @@ abstract class PKPBaseController extends Controller
      * Define if all the path building for admin api use rather than at context level
      *
      * This is equivalent to property \PKP\handler\APIHandler::_apiForAdmin
-     * which will be passed through \PKP\handler\APIHandler\PKPApiRoutingHandler
      */
     public function isSiteWide(): bool
     {

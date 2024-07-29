@@ -144,14 +144,12 @@ class PKPRoutingProvider extends RoutingServiceProvider
 
     protected function registerResponseBindings(): void
     {
-        $container = PKPContainer::getInstance();
-
-        $container->bind(\Illuminate\Routing\RouteCollectionInterface::class, \Illuminate\Routing\RouteCollection::class);
-        $container->bind(
+        $this->app->bind(\Illuminate\Routing\RouteCollectionInterface::class, \Illuminate\Routing\RouteCollection::class);
+        $this->app->bind(
             \Illuminate\View\ViewFinderInterface::class,
             fn ($app) => new \Illuminate\View\FileViewFinder(app(\Illuminate\Filesystem\Filesystem::class), [])
         );
-        $container->bind(\Illuminate\Contracts\View\Factory::class, \Illuminate\View\Factory::class);
-        $container->bind(\Illuminate\Contracts\Routing\ResponseFactory::class, \Illuminate\Routing\ResponseFactory::class);
+        $this->app->bind(\Illuminate\Contracts\View\Factory::class, \Illuminate\View\Factory::class);
+        $this->app->bind(\Illuminate\Contracts\Routing\ResponseFactory::class, \Illuminate\Routing\ResponseFactory::class);
     }
 }

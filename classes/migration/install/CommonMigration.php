@@ -96,6 +96,7 @@ class CommonMigration extends \PKP\migration\Migration
 
         switch (DB::getDriverName()) {
             case 'mysql':
+            case 'mariadb':
                 Schema::table('users', function (Blueprint $table) {
                     $table->unique(['username'], 'users_username');
                     $table->unique(['email'], 'users_email');

@@ -20,12 +20,11 @@ namespace PKP\tests\classes\citation;
 
 use PKP\citation\CitationListTokenizerFilter;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(CitationListTokenizerFilter::class)]
 class CitationListTokenizerFilterTest extends PKPTestCase
 {
-    /**
-     * @covers CitationListTokenizerFilter
-     */
     public function testCitationListTokenizerFilter()
     {
         $tokenizer = new CitationListTokenizerFilter();

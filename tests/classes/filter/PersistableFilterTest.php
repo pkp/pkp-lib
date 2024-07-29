@@ -22,12 +22,11 @@ use PKP\filter\EmailFilterSetting;
 use PKP\filter\PersistableFilter;
 use PKP\filter\TypeDescriptionFactory;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(PersistableFilter::class)]
 class PersistableFilterTest extends PKPTestCase
 {
-    /**
-     * @covers PersistableFilter
-     */
     public function testInstantiationAndExecute()
     {
         $constructorArg = PersistableFilter::tempGroup(

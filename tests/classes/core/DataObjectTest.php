@@ -20,7 +20,13 @@ namespace PKP\tests\classes\core;
 
 use PKP\core\DataObject;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversMethod;
 
+#[CoversMethod(DataObject::class, 'setData')]
+#[CoversMethod(DataObject::class, 'getData')]
+#[CoversMethod(DataObject::class, 'getAllData')]
+#[CoversMethod(DataObject::class, 'setAllData')]
+#[CoversMethod(DataObject::class, 'hasData')]
 class DataObjectTest extends PKPTestCase
 {
     protected DataObject $dataObject;
@@ -31,11 +37,6 @@ class DataObjectTest extends PKPTestCase
         $this->dataObject = new DataObject();
     }
 
-    /**
-     * @covers DataObject::setData
-     * @covers DataObject::getData
-     * @covers DataObject::getAllData
-     */
     public function testSetGetData()
     {
         // Set data with and without locale
@@ -107,9 +108,6 @@ class DataObjectTest extends PKPTestCase
         self::assertEquals($expectedResult, $result);
     }
 
-    /**
-     * @covers DataObject::setAllData
-     */
     public function testSetAllData()
     {
         $expectedResult = ['someKey' => 'someVal'];
@@ -122,9 +120,6 @@ class DataObjectTest extends PKPTestCase
         self::assertNotEquals($expectedResult, $result);
     }
 
-    /**
-     * @covers DataObject::hasData
-     */
     public function testHasData()
     {
         $testData = [

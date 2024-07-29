@@ -20,12 +20,11 @@ namespace PKP\tests\classes\filter;
 
 use PKP\filter\Filter;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(Filter::class)]
 class FilterTest extends PKPTestCase
 {
-    /**
-     * @covers Filter
-     */
     public function testInstantiationAndExecute()
     {
         $mockFilter = $this->getFilterMock();
@@ -95,9 +94,6 @@ class FilterTest extends PKPTestCase
         self::assertNull($mockFilter->getLastOutput());
     }
 
-    /**
-     * @covers Filter
-     */
     public function testUnsupportedEnvironment()
     {
         $mockFilter = $this->getFilterMock();

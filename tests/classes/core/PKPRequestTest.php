@@ -19,14 +19,24 @@
 namespace PKP\tests\classes\core;
 
 use APP\core\Request;
+use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\BackupGlobals;
+use PHPUnit\Framework\Attributes\Depends;
 use PKP\core\PKPRequest;
 use PKP\core\Registry;
 use PKP\plugins\Hook;
 use PKP\tests\PKPTestCase;
 
-/**
- * @backupGlobals enabled
- */
+#[BackupGlobals(true)]
+#[CoversMethod(PKPRequest::class, 'isRestfulUrlsEnabled')]
+#[CoversMethod(PKPRequest::class, 'redirectUrl')]
+#[CoversMethod(PKPRequest::class, 'getBaseUrl')]
+#[CoversMethod(PKPRequest::class, 'getBasePath')]
+#[CoversMethod(PKPRequest::class, 'getRequestPath')]
+#[CoversMethod(PKPRequest::class, 'getServerHost')]
+#[CoversMethod(PKPRequest::class, 'getProtocol')]
+#[CoversMethod(PKPRequest::class, 'getRemoteAddr')]
+#[CoversMethod(PKPRequest::class, 'getUserVar')]
 class PKPRequestTest extends PKPTestCase
 {
     protected PKPRequest $request;
@@ -52,27 +62,18 @@ class PKPRequestTest extends PKPTestCase
         parent::tearDown();
     }
 
-    /**
-     * @covers PKPRequest::isRestfulUrlsEnabled
-     */
     public function testIsRestfulUrlsEnabled1()
     {
         $this->setTestConfiguration('request1', 'classes/core/config');
         self::assertFalse($this->request->isRestfulUrlsEnabled());
     }
 
-    /**
-     * @covers PKPRequest::isRestfulUrlsEnabled
-     */
     public function testIsRestfulUrlsEnabled2()
     {
         $this->setTestConfiguration('request2', 'classes/core/config');
         self::assertTrue($this->request->isRestfulUrlsEnabled());
     }
 
-    /**
-     * @covers PKPRequest::redirectUrl
-     */
     public function testRedirectUrl()
     {
         Hook::add('Request::redirect', $this->redirectUrlHook(...));
@@ -96,9 +97,6 @@ class PKPRequestTest extends PKPTestCase
         return true;
     }
 
-    /**
-     * @covers PKPRequest::getBaseUrl
-     */
     public function testGetBaseUrl()
     {
         $this->setTestConfiguration('request1', 'classes/core/config'); // baseurl1
@@ -126,9 +124,6 @@ class PKPRequestTest extends PKPTestCase
         );
     }
 
-    /**
-     * @covers PKPRequest::getBaseUrl
-     */
     public function testGetBaseUrlWithHostDetection()
     {
         $this->setTestConfiguration('request1', 'classes/core/config');
@@ -139,9 +134,6 @@ class PKPRequestTest extends PKPTestCase
         self::assertEquals('http://hostname/some/base/path', $this->request->getBaseUrl());
     }
 
-    /**
-     * @covers PKPRequest::getBasePath
-     */
     public function testGetBasePath()
     {
         $_SERVER = [
@@ -165,9 +157,6 @@ class PKPRequestTest extends PKPTestCase
         );
     }
 
-    /**
-     * @covers PKPRequest::getBasePath
-     */
     public function testGetEmptyBasePath()
     {
         $_SERVER = [
@@ -176,9 +165,6 @@ class PKPRequestTest extends PKPTestCase
         self::assertEquals('/main', $this->request->getBasePath());
     }
 
-    /**
-     * @covers PKPRequest::getRequestPath
-     */
     public function testGetRequestPath()
     {
         $_SERVER = [
@@ -204,9 +190,6 @@ class PKPRequestTest extends PKPTestCase
         );
     }
 
-    /**
-     * @covers PKPRequest::getRequestPath
-     */
     public function testGetRequestPathRestful()
     {
         $_SERVER = [
@@ -218,9 +201,6 @@ class PKPRequestTest extends PKPTestCase
     }
 
 
-    /**
-     * @covers PKPRequest::getRequestPath
-     */
     public function testGetRequestPathWithPathinfo()
     {
         $_SERVER = [
@@ -232,9 +212,6 @@ class PKPRequestTest extends PKPTestCase
         self::assertEquals('some/script/name/extra/path', $this->request->getRequestPath());
     }
 
-    /**
-     * @covers PKPRequest::getServerHost
-     */
     public function testGetServerHostLocalhost()
     {
         // if none of the server variables is set then return the default
@@ -244,11 +221,7 @@ class PKPRequestTest extends PKPTestCase
         self::assertEquals('localhost', $this->request->getServerHost());
     }
 
-    /**
-     * @covers PKPRequest::getServerHost
-     *
-     * @depends testGetServerHostLocalhost
-     */
+    #[Depends('testGetServerHostLocalhost')]
     public function testGetServerHostWithHostname()
     {
         // if SERVER_NAME is set then return it
@@ -259,11 +232,7 @@ class PKPRequestTest extends PKPTestCase
         self::assertEquals('hostname', $this->request->getServerHost());
     }
 
-    /**
-     * @covers PKPRequest::getServerHost
-     *
-     * @depends testGetServerHostLocalhost
-     */
+    #[Depends('testGetServerHostLocalhost')]
     public function testGetServerHostWithServerName()
     {
         // if SERVER_NAME is set then return it
@@ -274,11 +243,7 @@ class PKPRequestTest extends PKPTestCase
         self::assertEquals('hostname', $this->request->getServerHost());
     }
 
-    /**
-     * @covers PKPRequest::getServerHost
-     *
-     * @depends testGetServerHostWithHostname
-     */
+    #[Depends('testGetServerHostWithHostname')]
     public function testGetServerHostWithHttpHost()
     {
         // if HTTP_HOST is set then return it
@@ -290,11 +255,7 @@ class PKPRequestTest extends PKPTestCase
         self::assertEquals('http_host', $this->request->getServerHost());
     }
 
-    /**
-     * @covers PKPRequest::getServerHost
-     *
-     * @depends testGetServerHostWithHttpHost
-     */
+    #[Depends('testGetServerHostWithHttpHost')]
     public function testGetServerHostWithHttpXForwardedHost()
     {
         // if HTTP_X_FORWARDED_HOST is set then return it
@@ -307,9 +268,6 @@ class PKPRequestTest extends PKPTestCase
         self::assertEquals('x_host', $this->request->getServerHost());
     }
 
-    /**
-     * @covers PKPRequest::getProtocol
-     */
     public function testGetProtocolNoHttpsVariable()
     {
         $_SERVER = [];
@@ -330,9 +288,6 @@ class PKPRequestTest extends PKPTestCase
         );
     }
 
-    /**
-     * @covers PKPRequest::getProtocol
-     */
     public function testGetProtocolHttpsVariableOff()
     {
         $_SERVER = [
@@ -342,9 +297,6 @@ class PKPRequestTest extends PKPTestCase
         self::assertEquals('http', $this->request->getProtocol());
     }
 
-    /**
-     * @covers PKPRequest::getProtocol
-     */
     public function testGetProtocolHttpsVariableOn()
     {
         $_SERVER = [
@@ -354,9 +306,6 @@ class PKPRequestTest extends PKPTestCase
         self::assertEquals('https', $this->request->getProtocol());
     }
 
-    /**
-     * @covers PKPRequest::getRemoteAddr
-     */
     public function testTrustXForwardedForOn()
     {
         [$forwardedIp, $remoteIp] = $this->getRemoteAddrTestPrepare(
@@ -365,9 +314,6 @@ class PKPRequestTest extends PKPTestCase
         self::assertEquals($forwardedIp, $this->request->getRemoteAddr());
     }
 
-    /**
-     * @covers PKPRequest::getRemoteAddr
-     */
     public function testTrustXForwardedForOff()
     {
         [$forwardedIp, $remoteIp] = $this->getRemoteAddrTestPrepare(
@@ -376,9 +322,6 @@ class PKPRequestTest extends PKPTestCase
         self::assertEquals($remoteIp, $this->request->getRemoteAddr());
     }
 
-    /**
-     * @covers PKPRequest::getRemoteAddr
-     */
     public function testTrustXForwardedForNotSet()
     {
         [$forwardedIp, $remoteIp] = $this->getRemoteAddrTestPrepare([]);
@@ -407,9 +350,6 @@ class PKPRequestTest extends PKPTestCase
         return [$_SERVER['HTTP_X_FORWARDED_FOR'], $_SERVER['REMOTE_ADDR']];
     }
 
-    /**
-     * @covers PKPRequest::getUserVar
-     */
     public function testGetUserVar()
     {
         $_GET = [
@@ -426,9 +366,6 @@ class PKPRequestTest extends PKPTestCase
         self::assertEquals('val4', $this->request->getUserVar('par4'));
     }
 
-    /**
-     * @covers PKPRequest::getUserVars
-     */
     public function testGetUserVars()
     {
         $_GET = [

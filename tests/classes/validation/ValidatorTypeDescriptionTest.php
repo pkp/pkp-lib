@@ -21,13 +21,11 @@ namespace PKP\tests\classes\validation;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PKP\tests\PKPTestCase;
 use PKP\validation\ValidatorTypeDescription;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(ValidatorTypeDescription::class)]
 class ValidatorTypeDescriptionTest extends PKPTestCase
 {
-    /**
-     * @covers ValidatorTypeDescription
-     * @covers TypeDescription
-     */
     public function testInstantiateAndCheck()
     {
         $typeDescription = new ValidatorTypeDescription('email');
@@ -35,10 +33,6 @@ class ValidatorTypeDescriptionTest extends PKPTestCase
         self::assertFalse($typeDescription->isCompatible('another string'));
     }
 
-    /**
-     * @covers ValidatorTypeDescription
-     * @covers TypeDescription
-     */
     public function testInstantiateAndCheckWithParameters()
     {
         $typeDescription = new ValidatorTypeDescription('regExp("/123/")');
@@ -48,9 +42,6 @@ class ValidatorTypeDescriptionTest extends PKPTestCase
         self::assertFalse($typeDescription->checkType('abc'));
     }
 
-    /**
-     * Provides test data
-     */
     public static function typeDescriptorDataProvider(): array
     {
         return [
@@ -60,10 +51,6 @@ class ValidatorTypeDescriptionTest extends PKPTestCase
         ];
     }
 
-    /**
-     * @covers ValidatorTypeDescription
-     * @covers TypeDescription
-     */
     #[DataProvider('typeDescriptorDataProvider')]
     public function testInstantiateWithInvalidTypeDescriptor(string $type)
     {

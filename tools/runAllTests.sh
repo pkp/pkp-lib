@@ -103,7 +103,7 @@ if [ "$DO_COVERAGE" -eq 1 ]; then
 	export XDEBUG_MODE=coverage
 fi
 
-$PHPUNIT $DEBUG -v ${TEST_SUITES%%,}
+$PHPUNIT $DEBUG ${TEST_SUITES%%,}
 
 if [ "$DO_COVERAGE" -eq 1 ]; then
 	cat lib/pkp/tests/results/coverage.txt

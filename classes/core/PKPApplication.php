@@ -25,6 +25,8 @@ use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Database\MySqlConnection;
+use Illuminate\Database\MariaDbConnection;
+use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
@@ -272,9 +274,15 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         if (Application::isInstalled()) {
             // Retrieve the current offset
             $offset = (new DateTime())->format('P');
-            $statement = DB::connection() instanceof MySqlConnection
-                ? "SET time_zone = '{$offset}'"
-                : "SET TIME ZONE INTERVAL '{$offset}' HOUR TO MINUTE";
+            $statement = match (true) {
+                DB::connection() instanceof MySqlConnection,
+                DB::connection() instanceof MariaDbConnection
+                    => "SET time_zone = '{$offset}'",
+                DB::connection() instanceof PostgresConnection
+                    => "SET TIME ZONE INTERVAL '{$offset}' HOUR TO MINUTE",
+                default
+                    => throw new \Exception('Unknown DBMS driver!')
+            };
             DB::statement($statement);
         }
     }

@@ -19,7 +19,6 @@ use APP\migration\upgrade\v3_4_0\MergeLocalesMigration;
 use APP\statistics\StatisticsHelper;
 use DateTime;
 use Exception;
-use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\JoinClause;
@@ -433,9 +432,10 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     protected function checkForeignKeySupport(): void
     {
         // Check if database engine supports foreign key constraints
-        if (!(DB::connection() instanceof MySqlConnection)) {
+        if (DB::connection() instanceof PostgresConnection) {
             return;
         }
+        
         $defaultEngine = DB::scalar('SELECT ENGINE FROM INFORMATION_SCHEMA.ENGINES WHERE SUPPORT = "DEFAULT"');
         if (strtolower($defaultEngine) !== 'innodb') {
             throw new Exception(

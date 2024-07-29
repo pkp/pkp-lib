@@ -16,6 +16,8 @@ namespace PKP\user;
 use APP\core\Application;
 use Carbon\Carbon;
 use Illuminate\Database\MySqlConnection;
+use Illuminate\Database\MariaDbConnection;
+use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Collection;
@@ -654,9 +656,16 @@ class Collector implements CollectorInterface
         }
 
         $disableSharedReviewerStatistics = (bool) Application::get()->getRequest()->getSite()->getData('disableSharedReviewerStatistics');
-        $dateDiff = fn (string $dateA, string $dateB): string => DB::connection() instanceof MySqlConnection
-            ? "DATEDIFF({$dateA}, {$dateB})"
-            : "DATE_PART('day', {$dateA} - {$dateB})";
+
+        $dateDiff = fn (string $dateA, string $dateB): string => match (true) {
+            DB::connection() instanceof MySqlConnection,
+            DB::connection() instanceof MariaDbConnection
+                => "DATEDIFF({$dateA}, {$dateB})",
+            DB::connection() instanceof PostgresConnection
+                => "DATE_PART('day', {$dateA} - {$dateB})",
+            default
+                => throw new \Exception('Unknown DBMS driver!')
+        };
 
         $query->leftJoinSub(
             fn (Builder $query) => $query->from('review_assignments', 'ra')
@@ -748,6 +757,7 @@ class Collector implements CollectorInterface
                 ->leftJoin('user_user_groups AS uugob', 'uugob.user_id', '=', 'u.user_id');
             switch (DB::getDriverName()) {
                 case 'mysql':
+                case 'mariadb':
                     $userGroupOrderBy = implode(', ', $this->orderByUserGroupIds);
                     $query->orderByRaw("FIELD(uugob.user_group_id, {$userGroupOrderBy}) ASC");
                     break;

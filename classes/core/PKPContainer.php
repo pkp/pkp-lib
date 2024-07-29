@@ -41,12 +41,12 @@ use Throwable;
 class PKPContainer extends Container
 {
     /**
-     * @var string The base path of the application, needed for base_path helper
+     * The base path of the application, needed for base_path helper
      */
-    protected $basePath;
+    protected string $basePath;
 
     /**
-     * @brief Create own container instance, initialize bindings
+     * Create own container instance, initialize bindings
      */
     public function __construct()
     {
@@ -57,10 +57,24 @@ class PKPContainer extends Container
     }
 
     /**
-     * @brief Bind the current container and set it globally
+     * Get the proper database driver
+     */
+    protected function getDatabaseDriverName(): string
+    {
+        $driver = Config::getVar('database', 'driver');
+
+        if (substr(strtolower($driver), 0, 8) === 'postgres') {
+            return 'pgsql';
+        }
+
+        return $driver === 'mariadb' ? 'mariadb' : 'mysql';
+    }
+
+    /**
+     * Bind the current container and set it globally
      * let helpers, facades and services know to which container refer to
      */
-    protected function registerBaseBindings()
+    protected function registerBaseBindings(): void
     {
         static::setInstance($this);
         $this->instance('app', $this);
@@ -134,9 +148,9 @@ class PKPContainer extends Container
     }
 
     /**
-     * @brief Register used service providers within the container
+     * Register used service providers within the container
      */
-    public function registerConfiguredProviders()
+    public function registerConfiguredProviders(): void
     {
         // Load main settings, this should be done before registering services, e.g., it's used by Database Service
         $this->loadConfiguration();
@@ -165,9 +179,9 @@ class PKPContainer extends Container
     }
 
     /**
-     * @brief Simplified service registration
+     * Simplified service registration
      */
-    public function register(\Illuminate\Support\ServiceProvider $provider)
+    public function register(\Illuminate\Support\ServiceProvider $provider): void
     {
         $provider->register();
 
@@ -199,9 +213,9 @@ class PKPContainer extends Container
     }
 
     /**
-     * @brief Bind aliases with contracts
+     * Bind aliases with contracts
      */
-    public function registerCoreContainerAliases()
+    public function registerCoreContainerAliases(): void
     {
         foreach ([
             'auth' => [
@@ -316,10 +330,10 @@ class PKPContainer extends Container
     }
 
     /**
-     * @brief Bind and load container configurations
+     * Bind and load container configurations
      * usage from Facade, see Illuminate\Support\Facades\Config
      */
-    protected function loadConfiguration()
+    protected function loadConfiguration(): void
     {
         $items = [];
         $_request = Application::get()->getRequest();
@@ -333,12 +347,7 @@ class PKPContainer extends Container
         ];
 
         // Database connection
-        $driver = 'mysql';
-
-        if (substr(strtolower(Config::getVar('database', 'driver')), 0, 8) === 'postgres') {
-            $driver = 'pgsql';
-        }
-
+        $driver = $this->getDatabaseDriverName();
         $items['database']['default'] = $driver;
         $items['database']['connections'][$driver] = [
             'driver' => $driver,
@@ -450,21 +459,17 @@ class PKPContainer extends Container
     }
 
     /**
-     * @param string $path appended to the base path
-     *
-     * @brief see Illuminate\Foundation\Application::basePath
+     * @see Illuminate\Foundation\Application::basePath
      */
-    public function basePath($path = '')
+    public function basePath(string $path = ''): string
     {
         return $this->basePath . ($path ? "/{$path}" : $path);
     }
 
     /**
-     * @param string $path appended to the path
-     *
-     * @brief alias of basePath(), Laravel app path differs from installation path
+     * Alias of basePath(), Laravel app path differs from installation path
      */
-    public function path($path = '')
+    public function path(string $path = ''): string
     {
         return $this->basePath($path);
     }
@@ -533,20 +538,16 @@ class PKPContainer extends Container
     /**
      * Override Laravel method; always false.
      * Prevents the undefined method error when the Log Manager tries to determine the driver
-     *
-     * @return bool
      */
-    public function runningUnitTests()
+    public function runningUnitTests(): bool
     {
         return false;
     }
 
     /**
      * Determine if the application is currently down for maintenance.
-     *
-     * @return bool
      */
-    public function isDownForMaintenance()
+    public function isDownForMaintenance(): bool
     {
         return Application::isUnderMaintenance();
     }

@@ -81,7 +81,7 @@ class PKPInstall extends Installer
         if (substr($driver, 0, 8) === 'postgres') {
             $driver = 'pgsql';
         } else {
-            $driver = 'mysql';
+            $driver === 'mariadb' ? 'mariadb' : 'mysql';
         }
 
         $config = FacadesConfig::get('database');

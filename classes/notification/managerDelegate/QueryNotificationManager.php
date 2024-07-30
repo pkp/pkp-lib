@@ -22,7 +22,7 @@ use APP\submission\Submission;
 use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
-use PKP\note\NoteDAO;
+use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
 use PKP\query\Query;
@@ -51,17 +51,17 @@ class QueryNotificationManager extends NotificationManagerDelegate
                 $user = $headNote->getUser();
                 return __('submission.query.new', [
                     'creatorName' => $user->getFullName(),
-                    'noteContents' => substr(PKPString::html2text($headNote->getContents()), 0, 200),
-                    'noteTitle' => substr($headNote->getTitle(), 0, 200),
+                    'noteContents' => substr(PKPString::html2text($headNote->contents), 0, 200),
+                    'noteTitle' => substr($headNote->title, 0, 200),
                 ]);
             case Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
-                $notes = $query->getReplies(null, NoteDAO::NOTE_ORDER_ID, \PKP\db\DAO::SORT_DIRECTION_DESC);
+                $notes = $query->getReplies(null, Note::NOTE_ORDER_ID, \PKP\db\DAO::SORT_DIRECTION_DESC);
                 $latestNote = $notes->first();
                 $user = $latestNote->getUser();
                 return __('submission.query.activity', [
                     'responderName' => $user->getFullName(),
-                    'noteContents' => substr(PKPString::html2text($latestNote->getContents()), 0, 200),
-                    'noteTitle' => substr($headNote->getTitle(), 0, 200),
+                    'noteContents' => substr(PKPString::html2text($latestNote->contents), 0, 200),
+                    'noteTitle' => substr($headNote->title, 0, 200),
                 ]);
         }
         throw new \Exception('Unexpected notification type!');
@@ -120,7 +120,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
                 return __(
                     'submission.query.new.contents',
                     [
-                        'queryTitle' => $query->getHeadNote()->getTitle(),
+                        'queryTitle' => $query->getHeadNote()->title,
                         'submissionTitle' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
                     ]
                 );
@@ -128,7 +128,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
                 return __(
                     'submission.query.activity.contents',
                     [
-                        'queryTitle' => $query->getHeadNote()->getTitle(),
+                        'queryTitle' => $query->getHeadNote()->title,
                         'submissionTitle' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
                     ]
                 );

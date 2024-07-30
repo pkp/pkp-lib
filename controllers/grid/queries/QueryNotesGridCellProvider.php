@@ -19,10 +19,12 @@ namespace PKP\controllers\grid\queries;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use Illuminate\Database\Eloquent\Model;
 use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
+use PKP\core\DataObject;
 use PKP\core\PKPString;
 use PKP\note\Note;
 use PKP\submissionFile\SubmissionFile;
@@ -59,14 +61,14 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider
     {
         $element = $row->getData();
         $columnId = $column->getId();
-        assert($element instanceof \PKP\core\DataObject && !empty($columnId));
+        assert(($element instanceof DataObject || $element instanceof Model) && !empty($columnId));
         /** @var Note $element */
         $user = $element->getUser();
         $datetimeFormatShort = PKPString::convertStrftimeFormat(Application::get()->getRequest()->getContext()->getLocalizedDateTimeFormatShort());
 
         switch ($columnId) {
             case 'from':
-                return ['label' => ($user ? $user->getUsername() : '&mdash;') . '<br />' . date($datetimeFormatShort, strtotime($element->getDateCreated()))];
+                return ['label' => ($user ? $user->getUsername() : '&mdash;') . '<br />' . date($datetimeFormatShort, strtotime($element->dateCreated))];
         }
 
         return parent::getTemplateVarsFromRowColumn($row, $column);

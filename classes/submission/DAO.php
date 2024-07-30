@@ -25,7 +25,7 @@ use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\db\DAORegistry;
 use PKP\log\event\EventLogEntry;
-use PKP\note\NoteDAO;
+use PKP\note\Note;
 use PKP\query\QueryDAO;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
@@ -284,8 +284,8 @@ class DAO extends EntityDAO
         StageAssignment::withSubmissionIds([$id])
             ->delete();
 
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $noteDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
+        Note::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $id)
+            ->delete();
 
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /** @var SubmissionCommentDAO $submissionCommentDao */
         $submissionCommentDao->deleteBySubmissionId($id);

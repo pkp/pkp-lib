@@ -22,6 +22,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
+use Carbon\Carbon;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -29,7 +30,7 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\mail\Mailable;
-use PKP\note\NoteDAO;
+use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\plugins\Hook;
@@ -328,9 +329,7 @@ class QueryDAO extends \PKP\db\DAO
             ->delete();
 
         if ($countDeleted) {
-            $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-            $noteDao->deleteByAssoc(Application::ASSOC_TYPE_QUERY, $queryId);
-
+            Note::withAssoc(Application::ASSOC_TYPE_QUERY, $queryId)->delete();
             Notification::withAssoc(Application::ASSOC_TYPE_QUERY, $queryId)->delete();
         }
 
@@ -391,16 +390,15 @@ class QueryDAO extends \PKP\db\DAO
             $this->insertParticipant($query->getId(), $participantUserId);
         }
 
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $note = $noteDao->newDataObject();
-        $note->setAssocType(Application::ASSOC_TYPE_QUERY);
-        $note->setAssocId($query->getId());
-        $note->setContents($content);
-        $note->setTitle($title);
-        $note->setDateCreated(Core::getCurrentDate());
-        $note->setDateModified(Core::getCurrentDate());
-        $note->setUserId($fromUser->getId());
-        $noteDao->insertObject($note);
+        $note = Note::create([
+            'assocType' => Application::ASSOC_TYPE_QUERY,
+            'assocId' => $query->getId(),
+            'contents' =>  $content,
+            'title' =>  $title,
+            'userId' =>  $fromUser->getId(),
+            'dateCreated' => Carbon::now(),
+            'dateModified' => Carbon::now(),
+        ]);
 
         // Add task for assigned participants
         $notificationMgr = new NotificationManager();

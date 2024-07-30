@@ -21,8 +21,8 @@ namespace PKP\query;
 use Illuminate\Support\LazyCollection;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\db\DAO;
 use PKP\note\Note;
-use PKP\note\NoteDAO;
 
 class Query extends \PKP\core\DataObject
 {
@@ -133,22 +133,23 @@ class Query extends \PKP\core\DataObject
      */
     public function getHeadNote()
     {
-        $notes = $this->getReplies(null, NoteDAO::NOTE_ORDER_DATE_CREATED, \PKP\db\DAO::SORT_DIRECTION_ASC);
-        return $notes->first();
+        return $this->getReplies(null, Note::NOTE_ORDER_DATE_CREATED)->first();
     }
 
     /**
      * Get all notes on a query.
      *
      * @param int $userId Optional user ID
-     * @param int $sortBy Optional NoteDAO::NOTE_ORDER_...
+     * @param int $sortBy Optional Note::NOTE_ORDER_...
      * @param int $sortOrder Optional DAO::SORT_DIRECTION_...
      *
      */
-    public function getReplies(?int $userId = null, int $sortBy = NoteDAO::NOTE_ORDER_ID, int $sortOrder = \PKP\db\DAO::SORT_DIRECTION_ASC): LazyCollection
+    public function getReplies(?int $userId = null, int $sortBy = Note::NOTE_ORDER_ID, int $sortOrder = DAO::SORT_DIRECTION_ASC): LazyCollection
     {
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        return $noteDao->getByAssoc(PKPApplication::ASSOC_TYPE_QUERY, $this->getId(), null, $sortBy, $sortOrder);
+        return Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $this->getId())
+                    ->when($userId, fn (Builder $query, string $userId) => $query->withUserId($userId))
+                    ->withSort($sortBy, $sortOrder)
+                    ->lazy();
     }
 }
 

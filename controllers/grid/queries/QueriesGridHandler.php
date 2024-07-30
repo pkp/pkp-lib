@@ -649,7 +649,7 @@ class QueriesGridHandler extends GridHandler
                 ->getCollector()
                 ->filterByAssoc(
                     PKPApplication::ASSOC_TYPE_NOTE,
-                    [$note->getId()]
+                    [$note->id]
                 )->filterBySubmissionIds([$submission->getId()])
                 ->getMany();
 
@@ -679,8 +679,8 @@ class QueriesGridHandler extends GridHandler
                 $mailable = $this->getStageMailable($request->getContext(), $submission)
                     ->sender($currentUser)
                     ->recipients([$user])
-                    ->subject($note->getData('title'))
-                    ->body($note->getData('contents'))
+                    ->subject($note->title)
+                    ->body($note->contents)
                     ->allowUnsubscribe($notification);
 
                 $submissionFiles->each(fn (SubmissionFile $item) => $mailable->attachSubmissionFile(

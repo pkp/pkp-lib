@@ -20,6 +20,8 @@
 
 namespace PKP\controllers\grid;
 
+use Illuminate\Database\Eloquent\Model;
+use PKP\core\DataObject;
 use PKP\facades\Locale;
 
 class DataObjectGridCellProvider extends GridCellProvider
@@ -74,7 +76,7 @@ class DataObjectGridCellProvider extends GridCellProvider
     {
         $element = $row->getData();
         $columnId = $column->getId();
-        assert($element instanceof \PKP\core\DataObject && !empty($columnId));
+        assert(($element instanceof DataObject || $element instanceof Model) && !empty($columnId));
 
         $data = $element->getData($columnId);
         // For localized fields, $data will be an array; otherwise,

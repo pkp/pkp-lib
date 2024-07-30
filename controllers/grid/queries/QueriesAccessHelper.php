@@ -128,7 +128,7 @@ class QueriesAccessHelper
         // Assistants, authors and reviewers are allowed, if they created the query less than x seconds ago
         if ($this->hasStageRole($query->getStageId(), [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) {
             $headNote = $query->getHeadNote();
-            if ($headNote->getUserId() == $this->_user->getId() && (time() - strtotime($headNote->getDateCreated()) < 3600)) {
+            if ($headNote->userId == $this->_user->getId() && (time() - strtotime($headNote->dateCreated) < 3600)) {
                 return true;
             }
         }
@@ -156,7 +156,7 @@ class QueriesAccessHelper
         $query = $queryDao->getById($queryId);
         if ($query) {
             $headNote = $query->getHeadNote();
-            if ($headNote?->getUserId() == $this->_user->getId() && $headNote?->getTitle() == '') {
+            if ($headNote?->userId == $this->_user->getId() && $headNote?->title == '') {
                 return true;
             }
         }

@@ -3,15 +3,11 @@
 /**
  * @file classes/note/Note.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Note
- *
- * @ingroup note
- *
- * @see NoteDAO
  *
  * @brief Class for Note.
  */
@@ -19,27 +15,49 @@
 namespace PKP\note;
 
 use APP\facades\Repo;
+use Eloquence\Behaviours\HasCamelCasing;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Model;
+use PKP\db\DAO;
 
-class Note extends \PKP\core\DataObject
+class Note extends Model
 {
-    /**
-     * get user id of the note's author
-     *
-     * @return int
-     */
-    public function getUserId()
+    use HasCamelCasing;
+
+    public const NOTE_ORDER_DATE_CREATED = 1;
+    public const NOTE_ORDER_ID = 2;
+
+    protected $table = 'notes';
+    protected $primaryKey = 'note_id';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'assocType', 'assocId', 'userId',
+        'dateCreated', 'dateModified',
+        'title', 'contents'
+    ];
+
+    protected function casts(): array
     {
-        return $this->getData('userId');
+        return [
+            'assocType' => 'int',
+            'assocId' => 'int',
+            'userId' => 'int',
+            'dateCreated' => 'datetime',
+            'dateModified' => 'datetime'
+        ];
     }
 
     /**
-     * set user id of the note's author
-     *
-     * @param int $userId
+     * Accessor and Mutator for primary key => id
      */
-    public function setUserId($userId)
+    protected function id(): Attribute
     {
-        $this->setData('userId', $userId);
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes[$this->primaryKey] ?? null,
+            set: fn($value) => [$this->primaryKey => $value],
+        );
     }
 
     /**
@@ -49,127 +67,81 @@ class Note extends \PKP\core\DataObject
      */
     public function getUser()
     {
-        return Repo::user()->get($this->getUserId(), true);
+        return Repo::user()->get($this->userId, true);
     }
 
     /**
-     * get date note was created
+     * Compatibility function for including note IDs in grids.
      *
-     * @return string (YYYY-MM-DD HH:MM:SS)
+     * @deprecated
      */
-    public function getDateCreated()
+    public function getId()
     {
-        return $this->getData('dateCreated');
+        return $this->id;
     }
 
     /**
-     * set date note was created
+     * Compatibility function for including notes in grids.
      *
-     * @param string $dateCreated (YYYY-MM-DD HH:MM:SS)
+     * @deprecated
      */
-    public function setDateCreated($dateCreated)
+    public function getData(?string $field)
     {
-        $this->setData('dateCreated', $dateCreated);
+        return $field ? $this->$field : $this;
+    }
+
+    // Scopes
+
+    /**
+     * Scope a query to only include notes with a specific user ID.
+     */
+    public function scopeWithUserId(Builder $query, int $userId): Builder
+    {
+        return $query->where('userId', $userId);
     }
 
     /**
-     * get date note was modified
-     *
-     * @return string (YYYY-MM-DD HH:MM:SS)
+     * Scope a query to only include notes with a specific assoc type and assoc ID.
      */
-    public function getDateModified()
+    public function scopeWithAssoc(Builder $query, int $assocType, int $assocId): Builder
     {
-        return $this->getData('dateModified');
+        return $query->where('assoc_type', $assocType)
+                     ->where('assoc_id', $assocId);
     }
 
     /**
-     * set date note was modified
-     *
-     * @param string $dateModified (YYYY-MM-DD HH:MM:SS)
+     * Scope a query to only include notes with a specific type.
      */
-    public function setDateModified($dateModified)
+    public function scopeWithType(Builder $query, int $type): Builder
     {
-        $this->setData('dateModified', $dateModified);
+        return $query->where('type', $type);
     }
 
     /**
-     * get note contents
-     *
-     * @return string
+     * Scope a query to only include notes with a specific type.
      */
-    public function getContents()
+    public function scopeWithContents(Builder $query, string $contents): Builder
     {
-        return $this->getData('contents');
+        return $query->where('contents', $contents);
     }
 
     /**
-     * set note contents
-     *
-     * @param string $contents
+     * Scope a query to a specific sort order.
      */
-    public function setContents($contents)
+    public function scopeWithSort(Builder $query, int $orderBy = NOTE_ORDER_DATE_CREATED, int $sortDirection = DAO::SORT_DIRECTION_DESC): Builder
     {
-        $this->setData('contents', $contents);
-    }
+        // Sanitize sort ordering
+        $orderSanitized = match ($orderBy) {
+            self::NOTE_ORDER_ID => 'note_id',
+            default => 'date_created',
+        };
 
-    /**
-     * get note title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->getData('title');
-    }
+        $directionSanitized = match ($sortDirection) {
+            DAO::SORT_DIRECTION_ASC => 'ASC',
+            default => 'DESC',
+        };
 
-    /**
-     * set note title
-     *
-     * @param string $title
-     */
-    public function setTitle($title)
-    {
-        $this->setData('title', $title);
-    }
-
-    /**
-     * get note type
-     *
-     * @return int
-     */
-    public function getAssocType()
-    {
-        return $this->getData('assocType');
-    }
-
-    /**
-     * set note type
-     *
-     * @param int $assocType
-     */
-    public function setAssocType($assocType)
-    {
-        $this->setData('assocType', $assocType);
-    }
-
-    /**
-     * get note assoc id
-     *
-     * @return int
-     */
-    public function getAssocId()
-    {
-        return $this->getData('assocId');
-    }
-
-    /**
-     * set note assoc id
-     *
-     * @param int $assocId
-     */
-    public function setAssocId($assocId)
-    {
-        $this->setData('assocId', $assocId);
+        return $query->orderBy($orderSanitized, $directionSanitized);
     }
 }
 

@@ -17,14 +17,11 @@ namespace PKP\scheduledTask;
 use Illuminate\Console\Scheduling\Event;
 use Illuminate\Console\Scheduling\Schedule;
 use PKP\core\PKPContainer;
-use PKP\task\DepositDois;
 use PKP\task\UpdateIPGeoDB;
-use PKP\task\ReviewReminder;
 use PKP\task\ProcessQueueJobs;
 use PKP\task\RemoveFailedJobs;
 use PKP\task\StatisticsReport;
 use PKP\plugins\PluginRegistry;
-use PKP\task\EditorialReminders;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\task\RemoveExpiredInvitations;
 use PKP\scheduledTask\ScheduleTaskRunner;
@@ -68,26 +65,12 @@ abstract class PKPScheduler
      * Register core schedule tasks
      */
     public function registerSchedules(): void
-    {
-        $this
-            ->schedule
-            ->call(fn () => (new ReviewReminder)->execute())
-            ->hourly()
-            ->name(ReviewReminder::class)
-            ->withoutOverlapping();
-        
+    {   
         $this
             ->schedule
             ->call(fn () => (new StatisticsReport)->execute())
             ->daily()
             ->name(StatisticsReport::class)
-            ->withoutOverlapping();
-        
-        $this
-            ->schedule
-            ->call(fn () => (new DepositDois)->execute())
-            ->hourly()
-            ->name(DepositDois::class)
             ->withoutOverlapping();
             
         $this
@@ -95,13 +78,6 @@ abstract class PKPScheduler
             ->call(fn () => (new RemoveUnvalidatedExpiredUsers)->execute())
             ->daily()
             ->name(RemoveUnvalidatedExpiredUsers::class)
-            ->withoutOverlapping();
-        
-        $this
-            ->schedule
-            ->call(fn () => (new EditorialReminders)->execute())
-            ->daily()
-            ->name(EditorialReminders::class)
             ->withoutOverlapping();
         
         $this

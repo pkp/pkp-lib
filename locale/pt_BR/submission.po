@@ -2,13 +2,14 @@
 # Diego Abadan <diego@lepidus.com.br>, 2022.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2023.
+# Téssio Fechine <tessiof@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2024-01-31 12:37+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2024-07-30 19:56+0000\n"
+"Last-Translator: Téssio Fechine <tessiof@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1096,7 +1097,7 @@ msgstr "Gerenciar Arquivos Dependentes"
 
 msgid "submission.upload.instructions"
 msgstr ""
-"Transfira quaisquer arquivos que a equipe editorial precisará para avaliar a "
+"Envie quaisquer arquivos que a equipe editorial necessitar para avaliar a "
 "sua submissão."
 
 msgid "submission.upload.percentComplete"

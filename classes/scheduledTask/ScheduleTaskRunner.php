@@ -39,10 +39,10 @@ class ScheduleTaskRunner
     /**
      * Constructor
      * 
-     * @param Schedule          $schedule   The schedule instance.
-     * @param Dispatcher        $dispatcher The event dispatcher
-     * @param Cache             $cache      The cache store implementation
-     * @param ExceptionHandler  $handler    The exception handler
+     * @param Schedule $schedule The schedule instance.
+     * @param Dispatcher $dispatcher The event dispatcher
+     * @param Cache $cache The cache store implementation
+     * @param ExceptionHandler $handler The exception handler
      */
     public function __construct(
         protected Schedule $schedule,

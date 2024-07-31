@@ -31,8 +31,8 @@ use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Str;
 use PKP\core\PKPAppKey;
-use PKP\core\PKPConsoleCommandServiceProvider;
-use PKP\core\PKPScheduleServiceProvider;
+use PKP\core\ConsoleCommandServiceProvider;
+use PKP\core\ScheduleServiceProvider;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
@@ -160,8 +160,8 @@ class PKPContainer extends Container
         $this->register(new LocaleServiceProvider($this));
         $this->register(new PKPRoutingProvider($this));
         $this->register(new InvitationServiceProvider($this));
-        $this->register(new PKPScheduleServiceProvider($this));
-        $this->register(new PKPConsoleCommandServiceProvider($this));
+        $this->register(new ScheduleServiceProvider($this));
+        $this->register(new ConsoleCommandServiceProvider($this));
     }
 
     /**

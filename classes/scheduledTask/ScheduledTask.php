@@ -9,8 +9,8 @@
  *
  * @class ScheduledTask
  *
- * @brief   Base class for executing scheduled tasks.
- *          All scheduled task classes must extend this class and implement execute().
+ * @brief Base class for executing scheduled tasks.
+ * All scheduled task classes must extend this class and implement execute().
  */
 
 namespace PKP\scheduledTask;
@@ -101,8 +101,8 @@ abstract class ScheduledTask
     /**
      * Add an entry into the execution log.
      *
-     * @param string        $message    A translated message.
-     * @param ?string|null  $type       One of the ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE... constants
+     * @param string $message A translated message.
+     * @param ?string $type One of the ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE... constants
      */
     public function addExecutionLogEntry(string $message, ?string $type = null): void
     {

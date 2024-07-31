@@ -52,12 +52,12 @@ class ScheduledTaskHelper
     /**
      * Notifies site administrator about the task execution result.
      *
-     * @param string    $id                 Task id.
-     * @param string    $name               Task name.
-     * @param bool      $result             Whether or not the task execution was successful.
-     * @param string    $executionLogFile   Task execution log file path.
+     * @param string $id Task id.
+     * @param string $name Task name.
+     * @param bool $result Whether or not the task execution was successful.
+     * @param string $executionLogFile Task execution log file path.
      * 
-     * @return bool                         Notification mail sent successfully
+     * @return bool True if the notification email was sent successfully
      */
     public function notifyExecutionResult(string $id, string $name, bool $result, string $executionLogFile = ''): bool
     {

@@ -28,7 +28,7 @@ use PKP\cliTool\traits\HasCommandInterface;
 use PKP\cliTool\traits\HasParameterList;
 use PKP\core\PKPContainer;
 use PKP\cliTool\CommandLineTool;
-use PKP\core\PKPConsoleCommandServiceProvider;
+use PKP\core\ConsoleCommandServiceProvider;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Exception\InvalidArgumentException as CommandInvalidArgumentException;
@@ -117,12 +117,12 @@ class CommandScheduler extends CommandLineTool
             return;
         }
 
-        [$input, $output] = PKPConsoleCommandServiceProvider::getConsoleIOInstances();
+        [$input, $output] = ConsoleCommandServiceProvider::getConsoleIOInstances();
 
         $scheduleRunCommand = new ScheduleRunCommand();
         $scheduleRunCommand->setLaravel(PKPContainer::getInstance());
         $scheduleRunCommand->setInput($input);
-        $scheduleRunCommand->setOutput(PKPConsoleCommandServiceProvider::getConsoleOutputStyle());
+        $scheduleRunCommand->setOutput(ConsoleCommandServiceProvider::getConsoleOutputStyle());
 
         $scheduleRunCommand->run($input, $output);
     }
@@ -132,12 +132,12 @@ class CommandScheduler extends CommandLineTool
      */
     protected function list(): void
     {
-        [$input, $output] = PKPConsoleCommandServiceProvider::getConsoleIOInstances();
+        [$input, $output] = ConsoleCommandServiceProvider::getConsoleIOInstances();
 
         $scheduleListCommand = new ScheduleListCommand;
         $scheduleListCommand->setLaravel(PKPContainer::getInstance());
         $scheduleListCommand->setInput($input);
-        $scheduleListCommand->setOutput(PKPConsoleCommandServiceProvider::getConsoleOutputStyle());
+        $scheduleListCommand->setOutput(ConsoleCommandServiceProvider::getConsoleOutputStyle());
 
         $scheduleListCommand->run($input, $output);
     }
@@ -154,7 +154,7 @@ class CommandScheduler extends CommandLineTool
             return;
         }
 
-        $outputStyle = PKPConsoleCommandServiceProvider::getConsoleOutputStyle();
+        $outputStyle = ConsoleCommandServiceProvider::getConsoleOutputStyle();
 
         /** @var \Illuminate\Console\View\Components\Factory $components */
         $components = app()->get(\Illuminate\Console\View\Components\Factory::class);
@@ -204,7 +204,7 @@ class CommandScheduler extends CommandLineTool
      */
     protected function test(): void
     {
-        $outputStyle = PKPConsoleCommandServiceProvider::getConsoleOutputStyle();
+        $outputStyle = ConsoleCommandServiceProvider::getConsoleOutputStyle();
 
         /** @var \Illuminate\Console\View\Components\Factory $components */
         $components = app()->get(\Illuminate\Console\View\Components\Factory::class);

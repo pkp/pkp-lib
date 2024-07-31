@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/core/PKPScheduleServiceProvider.php
+ * @file classes/core/ScheduleServiceProvider.php
  *
  * Copyright (c) 2024 Simon Fraser University
  * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPScheduleServiceProvider
+ * @class ScheduleServiceProvider
  *
  * @brief Register schedule and run related functionalities
  */
@@ -24,7 +24,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Support\DeferrableProvider;
 
-class PKPScheduleServiceProvider extends ServiceProvider implements DeferrableProvider
+class ScheduleServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * Boot service provider

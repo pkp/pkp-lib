@@ -1,13 +1,13 @@
 <?php
 
 /**
- * @file classes/core/PKPConsoleCommandServiceProvider.php
+ * @file classes/core/ConsoleCommandServiceProvider.php
  *
  * Copyright (c) 2024 Simon Fraser University
  * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPConsoleCommandServiceProvider
+ * @class ConsoleCommandServiceProvider
  *
  * @brief Register required component to invoke laravel console commands
  */
@@ -21,7 +21,7 @@ use Illuminate\Contracts\Support\DeferrableProvider;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
-class PKPConsoleCommandServiceProvider extends ServiceProvider implements DeferrableProvider
+class ConsoleCommandServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * Register service provider

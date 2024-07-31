@@ -73,7 +73,7 @@ class ContactForm extends BaseProfileForm
         $templateMgr = TemplateManager::getManager($request);
 
         $invitationModel = InvitationModel::byType(ChangeProfileEmailInvite::INVITATION_TYPE)
-            ->withUserId($this->_user->getId())
+            ->byUserId($this->_user->getId())
             ->stillActive()
             ->first();
 
@@ -130,7 +130,7 @@ class ContactForm extends BaseProfileForm
         $user = $this->getUser();
 
         $invitationModel = InvitationModel::byType(ChangeProfileEmailInvite::INVITATION_TYPE)
-            ->withUserId($user->getId())
+            ->byUserId($user->getId())
             ->stillActive()
             ->first();
 

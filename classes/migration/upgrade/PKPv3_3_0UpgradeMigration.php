@@ -485,7 +485,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
             DB::table('event_log_settings as els')
                 ->join(
                     'event_log_settings as file_setting',
-                    fn (JoinClause $join) =>
+                    fn(JoinClause $join) =>
                     $join->on('file_setting.log_id', '=', 'els.log_id')
                         ->where('file_setting.setting_name', '=', 'fileId')
                         ->where('file_setting.setting_value', '=', (string) $row->file_id)
@@ -823,7 +823,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
                     error_log("Failed to migrate the settings entity \"{$tableName}\"\n" . $e);
                     continue;
                 }
-                $settings->each(fn ($row) => $this->_toJSON($row, $tableName, ['setting_name', 'locale'], 'setting_value'));
+                $settings->each(fn($row) => $this->_toJSON($row, $tableName, ['setting_name', 'locale'], 'setting_value'));
             }
         }
 
@@ -876,19 +876,37 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         }
         $newValue = json_encode($oldValue, JSON_UNESCAPED_UNICODE); // don't convert utf-8 characters to unicode escaped code
 
-        $id = array_key_first((array)$row); // get first/primary key column
-
-        // Remove empty filters
-        $searchBy = array_filter($searchBy, function ($item) use ($row) {
-            if (empty($row->{$item})) {
-                return false;
+        // Ensure ID fields are included on the filter to avoid updating similar rows
+        $tableDetails = DB::connection()->getDoctrineSchemaManager()->listTableDetails($tableName);
+        $primaryKeys = [];
+        try {
+            $primaryKeys = $tableDetails->getPrimaryKeyColumns();
+        } catch (Exception $e) {
+            foreach ($tableDetails->getIndexes() as $index) {
+                if ($index->isPrimary() || $index->isUnique()) {
+                    $primaryKeys = $index->getColumns();
+                    break;
+                }
             }
-            return true;
-        });
+        }
 
-        $queryBuilder = DB::table($tableName)->where($id, $row->{$id});
-        foreach ($searchBy as $key => $column) {
-            $queryBuilder = $queryBuilder->where($column, $row->{$column});
+        if (!count($primaryKeys)) {
+            foreach (array_keys(get_object_vars($row)) as $column) {
+                if (substr($column, -3, '_id')) {
+                    $primaryKeys[] = $column;
+                }
+            }
+        }
+
+        $searchBy = array_merge($searchBy, $primaryKeys);
+
+        $queryBuilder = DB::table($tableName);
+        foreach (array_unique($searchBy) as $column) {
+            if ($row->{$column} !== null) {
+                $queryBuilder->where($column, $row->{$column});
+            } else {
+                $queryBuilder->whereNull($column);
+            }
         }
         $queryBuilder->update([$valueToConvert => $newValue]);
     }

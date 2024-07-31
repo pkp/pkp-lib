@@ -768,6 +768,24 @@ abstract class Repository
     }
 
     /**
+     * Assign categories to a publication.
+     *
+     */
+    public function assignCategoriesToPublication(int $publicationId, array $categoryIds): void
+    {
+        // delete all existing entries for the publication
+        PublicationCategory::where('publication_id', $publicationId)->delete();
+
+        // insert new categories if provided
+        foreach ($categoryIds as $categoryId) {
+            PublicationCategory::create([
+                'publication_id' => $publicationId,
+                'category_id' => $categoryId
+            ]);
+        }
+    }
+
+    /**
      * Create all DOIs associated with the publication.
      */
     abstract protected function createDois(Publication $newPublication): void;

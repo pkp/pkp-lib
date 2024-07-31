@@ -30,7 +30,7 @@ use PKP\submission\SubmissionSubjectDAO;
 
 /**
  * @template T of Publication
- *
+ * 
  * @extends EntityDAO<T>
  */
 class DAO extends EntityDAO
@@ -125,7 +125,7 @@ class DAO extends EntityDAO
 
     /**
      * Get a collection of publications matching the configured query
-     *
+     * 
      * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection
@@ -441,36 +441,30 @@ class DAO extends EntityDAO
     /**
      * Set a publication's category property
      */
-    protected function setCategories(Publication $publication)
+    protected function setCategories(Publication $publication): void
     {
-        $publication->setData(
-            'categoryIds',
-            Repo::category()->getCollector()
-                ->filterByPublicationIds([$publication->getId()])
-                ->getIds()
-                ->toArray()
-        );
+        $categoryIds = PublicationCategory::withPublicationId($publication->getId())->pluck('category_id');
+        $publication->setData('categoryIds', $categoryIds);
     }
 
     /**
      * Save the assigned categories
      */
-    protected function saveCategories(Publication $publication)
+    protected function saveCategories(Publication $publication): void
     {
-        Repo::category()->dao->deletePublicationAssignments($publication->getId());
-        if (!empty($publication->getData('categoryIds'))) {
-            foreach ($publication->getData('categoryIds') as $categoryId) {
-                Repo::category()->dao->insertPublicationAssignment($categoryId, $publication->getId());
-            }
+        $categoryIds = (array) $publication->getData('categoryIds');
+        if (empty($categoryIds)) {
+            $categoryIds = [];
         }
+        Repo::publication()->assignCategoriesToPublication($publication->getId(), $categoryIds);
     }
 
     /**
      * Delete the category assignments
      */
-    protected function deleteCategories(int $publicationId)
+    protected function deleteCategories(int $publicationId): void
     {
-        Repo::category()->dao->deletePublicationAssignments($publicationId);
+         PublicationCategory::where('publication_id', $publicationId)->delete();
     }
 
     /**

@@ -877,11 +877,28 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         $newValue = json_encode($oldValue, JSON_UNESCAPED_UNICODE); // don't convert utf-8 characters to unicode escaped code
 
         // Ensure ID fields are included on the filter to avoid updating similar rows
-        foreach (array_keys($row) as $column) {
-            if (substr($column, -3, '_id')) {
-                $searchBy[] = $column;
+        $tableDetails = DB::connection()->getDoctrineSchemaManager()->listTableDetails($tableName);
+        $primaryKeys = [];
+        try {
+            $primaryKeys = $tableDetails->getPrimaryKeyColumns();
+        } catch (Exception $e) {
+            foreach ($tableDetails->getIndexes() as $index) {
+                if ($index->isPrimary() || $index->isUnique()) {
+                    $primaryKeys = $index->getColumns();
+                    break;
+                }
             }
         }
+
+        if (!count($primaryKeys)) {
+            foreach (array_keys($row) as $column) {
+                if (substr($column, -3, '_id')) {
+                    $primaryKeys[] = $column;
+                }
+            }
+        }
+
+        $searchBy = array_merge($searchBy, $primaryKeys);
 
         $queryBuilder = DB::table($tableName);
         foreach (array_unique($searchBy) as $column) {

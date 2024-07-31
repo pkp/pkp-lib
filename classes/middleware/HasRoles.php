@@ -21,6 +21,8 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
+use PKP\security\Role;
+use PKP\db\DAORegistry;
 
 class HasRoles
 {
@@ -45,18 +47,29 @@ class HasRoles
     public function handle(Request $request, Closure $next, string $matchableRoles, int $rolesMatchingCriteria = HasRoles::ROLES_MATCH_LOOSE)
     {
         $user = $request->user(); /** @var \PKP\user\User $user */
-        $context = $request->attributes->get('context'); /** @var \PKP\context\Context $context */
 
-        $userRoles = collect($user->getRoles($context?->getId() ?? Application::SITE_CONTEXT_ID))
-            ->map(fn ($role) => $role->getId())
-            ->sort();
+        // Get all user roles.
+        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var \PKP\security\RoleDAO $roleDao */
+        $userRoles = collect($roleDao->getByUserIdGroupedByContext($user->getId()));
+        $context = $request->attributes->get('context'); /** @var \PKP\context\Context $context */
 
         $matchableRoles = Str::of($matchableRoles)
             ->explode('|')
-            ->map(fn ($role) => (int)$role)
+            ->map(fn($role) => (int)$role)
             ->sort();
 
-        $matchedRoles = $userRoles->intersect($matchableRoles);
+        $matchedRoles = collect([]);
+
+        // Check for a match amongst Context specific roles
+        if ($context && $userRoles->has($context->getId())) {
+            $userContextRoles = collect(array_map(fn(Role $role) => $role->getId(), $userRoles->get($context->getId())));
+            $matchedRoles = $userContextRoles->intersect($matchableRoles);
+        }
+
+        // Apply site wide Admin role if user is Admin and matchableRoles contains value of Role::ROLE_ID_SITE_ADMIN.
+        if (array_key_exists(Role::ROLE_ID_SITE_ADMIN, $userRoles->get((int)Application::SITE_CONTEXT_ID) ?? []) && $matchableRoles->contains(Role::ROLE_ID_SITE_ADMIN)) {
+            $matchedRoles->add(Role::ROLE_ID_SITE_ADMIN);
+        }
 
         // if no roles matched
         // Or if role matching set to strict and not all roles matched

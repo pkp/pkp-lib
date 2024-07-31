@@ -40,7 +40,7 @@ class ScheduledTaskDAO extends \PKP\db\DAO
             [$className]
         );
         $row = $result->current();
-        return $row ? strtotime($this->datetimeFromDB($row->last_run)) : null;
+        return $row && $row->last_run ? strtotime($this->datetimeFromDB($row->last_run)) : 0;
     }
 
     /**

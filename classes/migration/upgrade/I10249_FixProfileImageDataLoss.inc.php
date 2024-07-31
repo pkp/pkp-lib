@@ -35,7 +35,11 @@ class I10249_FixProfileImageDataLoss extends Migration {
 					$globPattern = "{$publicFilesPath}/profileImage-{$row->user_id}.*";
 					$candidates = glob($globPattern, GLOB_NOSORT);
 					if (empty($candidates)) {
-						error_log("Failed to locate a profile image for the user ID {$row->user_id} at {$globPattern}");
+						error_log("Failed to locate a profile image for the user ID {$row->user_id} at {$globPattern}, cleaning up the value");
+						Capsule::table('user_settings')
+							->where('user_id', $row->user_id)
+							->where('setting_name', 'profileImage')
+							->update(['setting_value' => null]);
 						continue;
 					}
 
@@ -49,13 +53,16 @@ class I10249_FixProfileImageDataLoss extends Migration {
 					Capsule::table('user_settings')
 						->where('user_id', $row->user_id)
 						->where('setting_name', 'profileImage')
-						->update(['setting_value' => json_encode([
-							'name' => $fileName,
-							'uploadName' => $fileName,
-							'width' => $width,
-							'height' => $height,
-							'dateUploaded' => date('Y-m-d H:i:s', filemtime($filePath))
-						])]);
+						->update([
+							'setting_value' => json_encode([
+								'name' => $fileName,
+								'uploadName' => $fileName,
+								'width' => $width,
+								'height' => $height,
+								'dateUploaded' => date('Y-m-d H:i:s', filemtime($filePath))
+							]),
+							'setting_type' => 'object'
+						]);
 				}
 			}, 'user_id');
 	}

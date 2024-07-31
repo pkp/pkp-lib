@@ -1,30 +1,40 @@
 <?php
 
 /**
- * @file classes/migration/install/ScheduledTasksMigration.php
+ * @file classes/migration/upgrade/v3_5_0/I9678_RemoveScheduledTasksTable.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ScheduledTasksMigration
+ * @class I9678_RemoveScheduledTasksTable
  *
- * @brief Describe database table structures.
+ * @brief Remove scheduled_tasks table.
+ * @see https://github.com/pkp/pkp-lib/issues/9678
+ * 
  */
 
-namespace PKP\migration\install;
+namespace PKP\migration\upgrade\v3_5_0;
 
+use PKP\migration\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ScheduledTasksMigration extends \PKP\migration\Migration
+class I9678_RemoveScheduledTasksTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migration.
      */
     public function up(): void
     {
-        // The last run times of all scheduled tasks.
+        Schema::drop('scheduled_tasks');
+    }
+
+    /**
+     * Reverses the migration
+     */
+    public function down(): void
+    {
         Schema::create('scheduled_tasks', function (Blueprint $table) {
             $table->comment('The last time each scheduled task was run.');
             $table->bigIncrements('scheduled_task_id');
@@ -32,13 +42,5 @@ class ScheduledTasksMigration extends \PKP\migration\Migration
             $table->datetime('last_run')->nullable();
             $table->unique(['class_name'], 'scheduled_tasks_unique');
         });
-    }
-
-    /**
-     * Reverse the migration.
-     */
-    public function down(): void
-    {
-        Schema::drop('scheduled_tasks');
     }
 }

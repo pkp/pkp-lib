@@ -27,7 +27,7 @@ class PublishSubmissions extends ScheduledTask
     /**
      * @copydoc ScheduledTask::getName()
      */
-    public function getName()
+    public function getName(): string
     {
         return __('admin.scheduledTask.publishSubmissions');
     }
@@ -35,7 +35,7 @@ class PublishSubmissions extends ScheduledTask
     /**
      * @copydoc ScheduledTask::executeActions()
      */
-    public function executeActions()
+    public function executeActions(): bool
     {
         $contextIds = Services::get('context')->getIds([
             'isEnabled' => true,

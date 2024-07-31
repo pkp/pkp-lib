@@ -24,7 +24,7 @@ class RemoveExpiredInvitations extends ScheduledTask
     /**
      * @copydoc ScheduledTask::getName()
      */
-    public function getName()
+    public function getName(): string
     {
         return __('admin.scheduledTask.removeExpiredInvitations');
     }
@@ -32,7 +32,7 @@ class RemoveExpiredInvitations extends ScheduledTask
     /**
      * @inheritDoc
      */
-    protected function executeActions()
+    protected function executeActions(): bool
     {
         dispatch(new RemoveExpiredInvitationsJob());
 

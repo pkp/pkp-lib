@@ -11,13 +11,14 @@
  *
  * @ingroup tasks
  *
- * @brief Class to process queue jobs via the schedular task
+ * @brief Class to process queue jobs via the scheduler task
  */
 
 namespace PKP\task;
 
 use APP\core\Application;
 use PKP\config\Config;
+use PKP\core\PKPContainer;
 use PKP\queue\JobRunner;
 use PKP\scheduledTask\ScheduledTask;
 
@@ -26,7 +27,7 @@ class ProcessQueueJobs extends ScheduledTask
     /**
      * @copydoc ScheduledTask::getName()
      */
-    public function getName()
+    public function getName(): string
     {
         return __('admin.scheduledTask.processQueueJobs');
     }
@@ -35,7 +36,7 @@ class ProcessQueueJobs extends ScheduledTask
     /**
      * @copydoc ScheduledTask::executeActions()
      */
-    public function executeActions()
+    public function executeActions(): bool
     {
         if (Application::isUnderMaintenance() || !Config::getVar('queues', 'job_runner', true)) {
             return true;
@@ -50,7 +51,7 @@ class ProcessQueueJobs extends ScheduledTask
         }
 
         // Executes all pending jobs when running the runScheduledTasks.php on the CLI
-        if (runOnCLI('runScheduledTasks.php')) {
+        if (PKPContainer::getInstance()->runningInConsole('runScheduledTasks.php')) {
             while ($jobBuilder->count()) {
                 $jobQueue->runJobInQueue();
             }

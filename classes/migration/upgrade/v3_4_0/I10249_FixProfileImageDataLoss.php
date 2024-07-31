@@ -37,7 +37,7 @@ class I10249_FixProfileImageDataLoss extends \PKP\migration\Migration
                     $globPattern = "{$publicFilesPath}/profileImage-{$row->user_id}.*";
                     $candidates = glob($globPattern, GLOB_NOSORT);
                     if (empty($candidates)) {
-                        $this->_installer->log("Failed to locate a profile image for the user ID {$row->user_id} at $globPattern");
+                        $this->_installer->log("Failed to locate a profile image for the user ID {$row->user_id} at {$globPattern}");
                         continue;
                     }
 

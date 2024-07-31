@@ -14,8 +14,11 @@
  * @see https://github.com/pkp/pkp-lib/issues/10249
  */
 
+namespace PKP\migration\upgrade\v3_4_0;
+
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use PKP\config\Config;
 use PKP\install\DowngradeNotSupportedException;
 
 class I10249_FixProfileImageDataLoss extends \PKP\migration\Migration

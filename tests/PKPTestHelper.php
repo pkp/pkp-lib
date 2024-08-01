@@ -46,9 +46,7 @@ abstract class PKPTestHelper
                 DB::connection() instanceof MariaDbConnection
                     => "CREATE TABLE backup_{$table} LIKE {$table}",
                 DB::connection() instanceof PostgresConnection
-                    => "CREATE TABLE backup_{$table} (LIKE {$table})",
-                default
-                    => throw new \Exception('Unknown DBMS driver!')
+                    => "CREATE TABLE backup_{$table} (LIKE {$table})"
             };
 
             $sqls = [

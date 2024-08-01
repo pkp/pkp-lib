@@ -88,15 +88,12 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->unique(['publication_id', 'locale', 'setting_name'], 'publication_settings_unique');
         });
         // Add partial index (DBMS-specific)
-        switch (DB::getDriverName()) {
-            case 'mysql':
-            case 'mariadb':
-                DB::unprepared('CREATE INDEX publication_settings_name_value ON publication_settings (setting_name(50), setting_value(150))');
-                break;
-            case 'pgsql':
-                DB::unprepared("CREATE INDEX publication_settings_name_value ON publication_settings (setting_name, setting_value) WHERE setting_name IN ('indexingState', 'medra::registeredDoi', 'datacite::registeredDoi', 'pub-id::publisher-id')");
-                break;
-        }
+        match (DB::getDriverName()) {
+            'mysql', 'mariadb' =>
+                DB::unprepared('CREATE INDEX publication_settings_name_value ON publication_settings (setting_name(50), setting_value(150))'),
+            'pgsql' =>
+                DB::unprepared("CREATE INDEX publication_settings_name_value ON publication_settings (setting_name, setting_value) WHERE setting_name IN ('indexingState', 'medra::registeredDoi', 'datacite::registeredDoi', 'pub-id::publisher-id')")
+        };
 
         // Authors for submissions.
         Schema::create('authors', function (Blueprint $table) {
@@ -108,7 +105,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             // The foreign key relationship on this table is defined with the publications table.
             $table->bigInteger('publication_id');
 
-            $table->float('seq', 53)->default(0);
+            $table->float('seq')->default(0);
 
             $table->bigInteger('user_group_id')->nullable();
             $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
@@ -208,7 +205,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->bigInteger('assoc_type');
             $table->bigInteger('assoc_id');
             $table->smallInteger('stage_id');
-            $table->float('seq', 53)->default(0);
+            $table->float('seq')->default(0);
             $table->datetime('date_posted')->nullable();
             $table->datetime('date_modified')->nullable();
             $table->smallInteger('closed')->default(0);

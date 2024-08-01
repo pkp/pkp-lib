@@ -279,9 +279,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
                 DB::connection() instanceof MariaDbConnection
                     => "SET time_zone = '{$offset}'",
                 DB::connection() instanceof PostgresConnection
-                    => "SET TIME ZONE INTERVAL '{$offset}' HOUR TO MINUTE",
-                default
-                    => throw new \Exception('Unknown DBMS driver!')
+                    => "SET TIME ZONE INTERVAL '{$offset}' HOUR TO MINUTE"
             };
             DB::statement($statement);
         }

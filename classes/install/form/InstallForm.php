@@ -45,7 +45,7 @@ class InstallForm extends MaintenanceForm
         'mysqli' => ['mysqli', 'MySQLi'],
         'postgres9' => ['pgsql', 'PostgreSQL'],
         'mysql' => ['mysql', 'MySQL'],
-        'mariadb' => ['mysql', 'MariaDB'],
+        'mariadb' => ['mysqli', 'MariaDB'],
     ];
 
     /**

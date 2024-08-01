@@ -31,7 +31,7 @@ class ReviewFormsMigration extends \PKP\migration\Migration
                 $table->bigInteger('review_form_id')->autoIncrement();
                 $table->bigInteger('assoc_type');
                 $table->bigInteger('assoc_id');
-                $table->float('seq', 53)->nullable();
+                $table->float('seq')->nullable();
                 $table->smallInteger('is_active')->nullable();
             });
         }
@@ -64,7 +64,7 @@ class ReviewFormsMigration extends \PKP\migration\Migration
                 $table->foreign('review_form_id', 'review_form_elements_review_form_id')->references('review_form_id')->on('review_forms')->onDelete('cascade');
                 $table->index(['review_form_id'], 'review_form_elements_review_form_id');
 
-                $table->float('seq', 53)->nullable();
+                $table->float('seq')->nullable();
                 $table->bigInteger('element_type')->nullable();
                 $table->smallInteger('required')->nullable();
                 $table->smallInteger('included')->nullable();

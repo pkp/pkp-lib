@@ -14,7 +14,6 @@
 namespace PKP\jats;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\plugins\generic\jatsTemplate\classes\Article;
 use Exception;
@@ -96,7 +95,7 @@ class Repository
         $publication = Repo::publication()->get($publicationId, $submissionId);
         $submission = Repo::submission()->get($publication->getData('submissionId'));
 
-        $context = Services::get('context')->get($submission->getData('contextId'));
+        $context = app()->get('context')->get($submission->getData('contextId'));
         $section = Repo::section()->get($submission->getSectionId());
 
         $issue = null;
@@ -150,7 +149,7 @@ class Repository
                 $submission->getId()
             );
 
-        $fileId = Services::get('file')->add(
+        $fileId = app()->get('file')->add(
             $fileTmpName,
             $submissionDir . '/' . uniqid() . '.' . $extension
         );
@@ -186,7 +185,7 @@ class Repository
             );
 
         if (!empty($errors)) {
-            Services::get('file')->delete($fileId);
+            app()->get('file')->delete($fileId);
             throw new Exception(''. implode(', ', $errors));
         }
 

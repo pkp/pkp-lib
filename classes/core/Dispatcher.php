@@ -14,7 +14,6 @@
 
 namespace PKP\core;
 
-use APP\core\Services;
 use PKP\config\Config;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
@@ -153,7 +152,7 @@ class Dispatcher
 
         // Reload the context after generic plugins have loaded so that changes to
         // the context schema can take place
-        $contextSchema = Services::get('schema')->get(PKPSchemaService::SCHEMA_CONTEXT, true);
+        $contextSchema = app()->get('schema')->get(PKPSchemaService::SCHEMA_CONTEXT, true);
         $request->getRouter()->getContext($request, true);
 
         $router->route($request);

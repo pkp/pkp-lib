@@ -17,7 +17,6 @@
 namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
@@ -95,7 +94,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
     public function fetch($request, $template = null, $display = false)
     {
         // Get submission context
-        $submissionContext = Services::get('context')->get($this->getSubmission()->getData('contextId'));
+        $submissionContext = app()->get('context')->get($this->getSubmission()->getData('contextId'));
 
         // Pass along the request vars
         $actionArgs = $request->getUserVars();

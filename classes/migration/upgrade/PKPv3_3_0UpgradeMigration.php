@@ -14,7 +14,6 @@
 
 namespace PKP\migration\upgrade;
 
-use APP\core\Services;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Database\PostgresConnection;
@@ -412,7 +411,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
                 'sf.original_file_name',
                 'rrf.review_round_id'
             ]);
-        $fileService = Services::get('file');
+        $fileService = app()->get('file');
         $lastFileId = null;
         $lastReviewRoundId = null;
         $lastInsertedFileId = DB::table('submission_files')->max('file_id');

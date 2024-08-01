@@ -18,7 +18,6 @@ namespace PKP\pages\stats;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
@@ -88,9 +87,9 @@ class PKPStatsHandler extends Handler
             'contextIds' => [$context->getId()],
         ];
 
-        $totals = Services::get('editorialStats')->getOverview($args);
-        $averages = Services::get('editorialStats')->getAverages($args);
-        $dateRangeTotals = Services::get('editorialStats')->getOverview(
+        $totals = app()->get('editorialStats')->getOverview($args);
+        $averages = app()->get('editorialStats')->getAverages($args);
+        $dateRangeTotals = app()->get('editorialStats')->getOverview(
             array_merge(
                 $args,
                 [
@@ -156,7 +155,7 @@ class PKPStatsHandler extends Handler
         foreach (Application::getApplicationStages() as $stageId) {
             $activeByStage[] = [
                 'name' => __(Application::getWorkflowStageName($stageId)),
-                'count' => Services::get('editorialStats')->countActiveByStages($stageId, $args),
+                'count' => app()->get('editorialStats')->countActiveByStages($stageId, $args),
                 'color' => Application::getWorkflowStageColor($stageId),
             ];
         }
@@ -243,7 +242,7 @@ class PKPStatsHandler extends Handler
         $dateEnd = date('Y-m-d', strtotime('yesterday'));
         $count = 30;
 
-        $timeline = Services::get('publicationStats')->getTimeline(PKPStatisticsHelper::STATISTICS_DIMENSION_DAY, [
+        $timeline = app()->get('publicationStats')->getTimeline(PKPStatisticsHelper::STATISTICS_DIMENSION_DAY, [
             'assocTypes' => [Application::ASSOC_TYPE_SUBMISSION],
             'contextIds' => [$context->getId()],
             'count' => $count,
@@ -372,7 +371,7 @@ class PKPStatsHandler extends Handler
         $dateStart = date('Y-m-d', strtotime('-31 days'));
         $dateEnd = date('Y-m-d', strtotime('yesterday'));
 
-        $timeline = Services::get('contextStats')->getTimeline(PKPStatisticsHelper::STATISTICS_DIMENSION_DAY, [
+        $timeline = app()->get('contextStats')->getTimeline(PKPStatisticsHelper::STATISTICS_DIMENSION_DAY, [
             'dateStart' => $dateStart,
             'dateEnd' => $dateEnd,
             'contextIds' => [$context->getId()]

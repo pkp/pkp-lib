@@ -18,7 +18,6 @@
 namespace PKP\API\v1\stats\publications;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\statistics\StatisticsHelper;
 use APP\submission\Submission;
@@ -210,7 +209,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             ], $e->getCode());
         }
 
-        $statsService = Services::get('publicationStats'); /** @var \PKP\services\PKPStatsPublicationService $statsService */
+        $statsService = app()->get('publicationStats'); /** @var \PKP\services\PKPStatsPublicationService $statsService */
 
         // Get a list of top submissions by total views
         $totalMetrics = $statsService->getTotals($allowedParams);
@@ -263,7 +262,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
 
         Hook::call('API::stats::publications::timeline::params', [&$allowedParams, $illuminateRequest]);
 
-        $statsService = Services::get('publicationStats'); /** @var \PKP\services\PKPStatsPublicationService $statsService */
+        $statsService = app()->get('publicationStats'); /** @var \PKP\services\PKPStatsPublicationService $statsService */
 
         // Check/validate, filter and sanitize the request params
         try {
@@ -320,7 +319,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             return response()->json(['error' => $result], Response::HTTP_BAD_REQUEST);
         }
 
-        $statsService = Services::get('publicationStats'); /** @var \PKP\services\PKPStatsPublicationService $statsService */
+        $statsService = app()->get('publicationStats'); /** @var \PKP\services\PKPStatsPublicationService $statsService */
 
         // get abstract, pdf, html and other views for the submission
         $dateStart = array_key_exists('dateStart', $allowedParams) ? $allowedParams['dateStart'] : null;
@@ -383,7 +382,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             ], Response::HTTP_BAD_REQUEST);
         }
 
-        $statsService = Services::get('publicationStats'); /** @var \PKP\services\PKPStatsPublicationService $statsService */
+        $statsService = app()->get('publicationStats'); /** @var \PKP\services\PKPStatsPublicationService $statsService */
         $data = $statsService->getTimeline($allowedParams['timelineInterval'], $allowedParams);
 
         return response()->json($data, Response::HTTP_OK);
@@ -426,7 +425,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             return response()->json(['error' => $e->getMessage()], $e->getCode());
         }
 
-        $statsService = Services::get('publicationStats'); /** @var \PKP\services\PKPStatsPublicationService $statsService */
+        $statsService = app()->get('publicationStats'); /** @var \PKP\services\PKPStatsPublicationService $statsService */
         $filesMetrics = $statsService->getFilesTotals($allowedParams);
 
         $items = $submissionTitles = [];
@@ -500,7 +499,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             return response()->json(['error' => $e->getMessage()], $e->getCode());
         }
 
-        $statsService = Services::get('geoStats'); /** @var \PKP\services\PKPStatsGeoService $statsService */
+        $statsService = app()->get('geoStats'); /** @var \PKP\services\PKPStatsGeoService $statsService */
         // Get a list of top countries by total views
         $totals = $statsService->getTotals($allowedParams, StatisticsHelper::STATISTICS_DIMENSION_COUNTRY);
 
@@ -571,7 +570,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             return response()->json(['error' => $e->getMessage()], $e->getCode());
         }
 
-        $statsService = Services::get('geoStats'); /** @var \PKP\services\PKPStatsGeoService $statsService */
+        $statsService = app()->get('geoStats'); /** @var \PKP\services\PKPStatsGeoService $statsService */
         // Get a list of top regions by total views
         $totals = $statsService->getTotals($allowedParams, StatisticsHelper::STATISTICS_DIMENSION_REGION);
 
@@ -649,7 +648,7 @@ abstract class PKPStatsPublicationController extends PKPBaseController
             return response()->json(['error' => $e->getMessage()], $e->getCode());
         }
 
-        $statsService = Services::get('geoStats'); /** @var \PKP\services\PKPStatsGeoService $statsService */
+        $statsService = app()->get('geoStats'); /** @var \PKP\services\PKPStatsGeoService $statsService */
         // Get a list of top cities by total views
         $totals = $statsService->getTotals($allowedParams, StatisticsHelper::STATISTICS_DIMENSION_CITY);
 

@@ -18,7 +18,6 @@
 namespace PKP\core;
 
 use APP\core\Application;
-use APP\core\Services;
 use Exception;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -411,7 +410,7 @@ abstract class PKPBaseController extends Controller
      */
     public function convertStringsToSchema(string $schema, array $params): array
     {
-        $schema = Services::get('schema')->get($schema);
+        $schema = app()->get('schema')->get($schema);
 
         foreach ($params as $paramName => $paramValue) {
             if (!property_exists($schema->properties, $paramName)) {

@@ -15,7 +15,6 @@
  *  documentation.
  */
 
-use APP\core\Services;
 use PKP\decision\DecisionType;
 use PKP\file\FileManager;
 
@@ -80,7 +79,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                 }
 
                 $editDefinition = $summaryDefinition = $readDefinition = ['type' => 'object', 'properties' => []];
-                $entitySchema = Services::get('schema')->get($definition, true);
+                $entitySchema = app()->get('schema')->get($definition, true);
                 foreach ($entitySchema->properties as $propName => $propSchema) {
                     $editPropSchema = clone $propSchema;
                     $readPropSchema = clone $propSchema;

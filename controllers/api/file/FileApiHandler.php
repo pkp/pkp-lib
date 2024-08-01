@@ -21,7 +21,6 @@ namespace PKP\controllers\api\file;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use Exception;
@@ -109,7 +108,7 @@ class FileApiHandler extends Handler
         if (!$file) {
             throw new Exception('File ' . $fileId . ' is not a revision of submission file ' . $submissionFile->getId());
         }
-        if (!Services::get('file')->fs->has($file->path)) {
+        if (!app()->get('file')->fs->has($file->path)) {
             $request->getDispatcher()->handle404();
         }
 
@@ -132,8 +131,8 @@ class FileApiHandler extends Handler
             );
         }
 
-        $filename = Services::get('file')->formatFilename($file->path, $filename);
-        Services::get('file')->download((int) $fileId, $filename);
+        $filename = app()->get('file')->formatFilename($file->path, $filename);
+        app()->get('file')->download((int) $fileId, $filename);
     }
 
     /**
@@ -162,7 +161,7 @@ class FileApiHandler extends Handler
         $files = [];
         foreach ($submissionFiles as $submissionFile) {
             $path = $submissionFile->getData('path');
-            $files[$path] = Services::get('file')->formatFilename($path, $submissionFile->getLocalizedData('name'));
+            $files[$path] = app()->get('file')->formatFilename($path, $submissionFile->getLocalizedData('name'));
         }
 
         $filename = !empty($args['nameLocaleKey'])

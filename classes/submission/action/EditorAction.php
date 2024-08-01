@@ -24,7 +24,6 @@ use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\core\PKPServices;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\invitation\invitations\ReviewerAccessInvite;
@@ -137,7 +136,7 @@ class EditorAction
 
             // Send mail
             if (!$request->getUserVar('skipEmail')) {
-                $context = PKPServices::get('context')->get($submission->getData('contextId'));
+                $context = app()->get('context')->get($submission->getData('contextId'));
                 $emailTemplate = Repo::emailTemplate()->getByKey($submission->getData('contextId'), $request->getUserVar('template'));
                 $emailBody = $request->getUserVar('personalMessage');
                 $emailSubject = $emailTemplate->getLocalizedData('subject');

@@ -18,7 +18,6 @@ namespace PKP\controllers\grid\admin\context;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\template\TemplateManager;
 use PKP\components\forms\context\PKPContextForm;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
@@ -216,7 +215,7 @@ class ContextGridHandler extends GridHandler
      */
     public function editContext($args, $request)
     {
-        $contextService = Services::get('context');
+        $contextService = app()->get('context');
         $context = null;
 
         if ($request->getUserVar('rowId')) {
@@ -281,7 +280,7 @@ class ContextGridHandler extends GridHandler
             return new JSONMessage(false);
         }
 
-        $contextService = Services::get('context');
+        $contextService = app()->get('context');
 
         $context = $contextService->get((int) $request->getUserVar('rowId'));
 

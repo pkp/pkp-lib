@@ -38,7 +38,6 @@ use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\core\PKPServices;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\emailTemplate\EmailTemplate;
@@ -557,7 +556,7 @@ class PKPReviewerGridHandler extends GridHandler
         if ($reinstateReviewerForm->execute() && !$request->getUserVar('skipEmail')) {
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
             $user = $request->getUser();
-            $context = PKPServices::get('context')->get($submission->getData('contextId'));
+            $context = app()->get('context')->get($submission->getData('contextId'));
             $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewerReinstate::getEmailTemplateKey());
             $mailable = new ReviewerReinstate($context, $submission, $reviewAssignment);
             $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);
@@ -649,7 +648,7 @@ class PKPReviewerGridHandler extends GridHandler
         if ($unassignReviewerForm->execute() && !$request->getUserVar('skipEmail')) {
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
             $user = $request->getUser();
-            $context = PKPServices::get('context')->get($submission->getData('contextId'));
+            $context = app()->get('context')->get($submission->getData('contextId'));
             $template = Repo::emailTemplate()->getByKey($context->getId(), ReviewerUnassign::getEmailTemplateKey());
             $mailable = new ReviewerUnassign($context, $submission, $reviewAssignment);
             $this->createMail($mailable, $request->getUserVar('personalMessage'), $template, $user, $reviewer);

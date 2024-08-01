@@ -14,7 +14,6 @@
 
 namespace PKP\migration\upgrade\v3_5_0;
 
-use APP\core\Services;
 use PKP\db\DAORegistry;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
@@ -32,7 +31,7 @@ class I9860_EditorialMastheadNavMenuItem extends Migration
         $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO'); /** @var NavigationMenuItemDAO $navigationMenuItemDao */
         $navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO'); /** @var NavigationMenuItemAssignmentDAO $navigationMenuItemAssignmentDao */
 
-        $contextIds = Services::get('context')->getIds();
+        $contextIds = app()->get('context')->getIds();
         foreach ($contextIds as $contextId) {
             // Create and insert new Editorial Masthead navigation menu item
             $navigationMenuItem = $navigationMenuItemDao->newDataObject();

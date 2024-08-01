@@ -14,7 +14,6 @@
 namespace PKP\institution;
 
 use APP\core\Request;
-use APP\core\Services;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\LazyCollection;
 use PKP\plugins\Hook;
@@ -117,7 +116,7 @@ class Repository
         // The contextId must match an existing context
         $validator->after(function ($validator) use ($props) {
             if (isset($props['contextId']) && !$validator->errors()->get('contextId')) {
-                $institutionContext = Services::get('context')->get($props['contextId']);
+                $institutionContext = app()->get('context')->get($props['contextId']);
                 if (!$institutionContext) {
                     $validator->errors()->add('contextId', __('manager.institutions.noContext'));
                 }

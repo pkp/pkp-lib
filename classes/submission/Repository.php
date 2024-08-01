@@ -16,7 +16,6 @@ namespace PKP\submission;
 use APP\author\Author;
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\section\Section;
@@ -171,7 +170,7 @@ abstract class Repository
         $submissionContext = $request->getContext();
 
         if (!$submissionContext || $submissionContext->getId() != $submission->getData('contextId')) {
-            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+            $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
 
         $dispatcher = $request->getDispatcher();
@@ -304,7 +303,7 @@ abstract class Repository
         // The contextId must match an existing context
         $validator->after(function ($validator) use ($props) {
             if (isset($props['contextId']) && !$validator->errors()->get('contextId')) {
-                $submissionContext = Services::get('context')->exists($props['contextId']);
+                $submissionContext = app()->get('context')->exists($props['contextId']);
                 if (!$submissionContext) {
                     $validator->errors()->add('contextId', __('submission.submit.noContext'));
                 }

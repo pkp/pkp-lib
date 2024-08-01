@@ -16,8 +16,6 @@
 
 namespace PKP\file;
 
-use APP\core\Services;
-
 class PKPFile extends \PKP\core\DataObject
 {
     //
@@ -128,7 +126,7 @@ class PKPFile extends \PKP\core\DataObject
      */
     public function getNiceFileSize()
     {
-        return Services::get('file')->getNiceFileSize($this->getFileSize());
+        return app()->get('file')->getNiceFileSize($this->getFileSize());
     }
 
 

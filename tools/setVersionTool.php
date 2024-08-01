@@ -15,7 +15,6 @@
  */
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 
 require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
@@ -28,7 +27,7 @@ class SetVersionTool extends \PKP\cliTool\CommandLineTool
     public function execute()
     {
         $request = Application::get()->getRequest();
-        $contextIds = Services::get('context')->getIds();
+        $contextIds = app()->get('context')->getIds();
         foreach ($contextIds as $contextId) {
             $submissions = Repo::submission()
                 ->getCollector()

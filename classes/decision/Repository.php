@@ -15,7 +15,6 @@ namespace PKP\decision;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
@@ -232,7 +231,7 @@ abstract class Repository
         $decision = $this->get($decision->getId());
         $context = Application::get()->getRequest()->getContext();
         if (!$context || $context->getId() !== $submission->getData('contextId')) {
-            $context = Services::get('context')->get($submission->getData('contextId'));
+            $context = app()->get('context')->get($submission->getData('contextId'));
         }
 
         // Log the decision

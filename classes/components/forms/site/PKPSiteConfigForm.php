@@ -15,7 +15,6 @@
 
 namespace PKP\components\forms\site;
 
-use APP\core\Services;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FieldText;
@@ -42,7 +41,7 @@ class PKPSiteConfigForm extends FormComponent
         $this->action = $action;
         $this->locales = $locales;
 
-        $contextsIterator = Services::get('context')->getMany(['isEnabled' => true]);
+        $contextsIterator = app()->get('context')->getMany(['isEnabled' => true]);
 
         $this->addField(new FieldText('title', [
             'label' => __('admin.settings.siteTitle'),

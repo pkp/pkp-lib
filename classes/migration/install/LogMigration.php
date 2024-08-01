@@ -56,15 +56,12 @@ class LogMigration extends \PKP\migration\Migration
         });
 
         // Add partial index (DBMS-specific)
-        switch (DB::getDriverName()) {
-            case 'mysql':
-            case 'mariadb':
-                DB::unprepared('CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name(50), setting_value(150))');
-                break;
-            case 'pgsql': 
-                DB::unprepared("CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name, setting_value) WHERE setting_name IN ('fileId', 'submissionId')");
-                break;
-        }
+        match (DB::getDriverName()) {
+            'mysql', 'mariadb' =>
+                DB::unprepared('CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name(50), setting_value(150))'),
+            'pgsql' =>
+                DB::unprepared("CREATE INDEX event_log_settings_name_value ON event_log_settings (setting_name, setting_value) WHERE setting_name IN ('fileId', 'submissionId')")
+        };
 
         Schema::create('email_log', function (Blueprint $table) {
             $table->comment('A record of email messages that are sent in relation to an associated entity, such as a submission.');

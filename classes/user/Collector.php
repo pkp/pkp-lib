@@ -14,6 +14,7 @@
 namespace PKP\user;
 
 use APP\core\Application;
+use Exception;
 use Carbon\Carbon;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\MariaDbConnection;
@@ -662,9 +663,7 @@ class Collector implements CollectorInterface
             DB::connection() instanceof MariaDbConnection
                 => "DATEDIFF({$dateA}, {$dateB})",
             DB::connection() instanceof PostgresConnection
-                => "DATE_PART('day', {$dateA} - {$dateB})",
-            default
-                => throw new \Exception('Unknown DBMS driver!')
+                => "DATE_PART('day', {$dateA} - {$dateB})"
         };
 
         $query->leftJoinSub(
@@ -766,6 +765,7 @@ class Collector implements CollectorInterface
                     $userGroupOrderBy = implode(', ', $userGroupOrderBy);
                     $query->orderByRaw("({$userGroupOrderBy}) ASC");
                     break;
+                default: throw new Exception('Unexpected database driver!');
             }
         }
 

@@ -43,7 +43,7 @@ class ControlledVocabMigration extends \PKP\migration\Migration
             $table->foreign('controlled_vocab_id')->references('controlled_vocab_id')->on('controlled_vocabs')->onDelete('cascade');
             $table->index(['controlled_vocab_id'], 'controlled_vocab_entries_controlled_vocab_id');
 
-            $table->float('seq', 53)->nullable();
+            $table->float('seq')->nullable();
             $table->index(['controlled_vocab_id', 'seq'], 'controlled_vocab_entries_cv_id');
         });
 

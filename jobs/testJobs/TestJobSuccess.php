@@ -45,5 +45,6 @@ class TestJobSuccess extends BaseJob
      */
     public function handle(): void
     {
+        error_log('Test success job');
     }
 }

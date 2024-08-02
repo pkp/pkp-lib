@@ -19,6 +19,7 @@ use APP\facades\Repo;
 use Illuminate\Support\Collection;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
+use PKP\notification\Notification;
 use PKP\plugins\Hook;
 use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\security\Role;

@@ -17,6 +17,7 @@
 namespace PKP\mail\mailables;
 
 use APP\facades\Repo;
+use Carbon\Carbon;
 use Illuminate\Mail\Mailables\Attachment;
 use Jsvrcek\ICS\CalendarExport;
 use Jsvrcek\ICS\CalendarStream;
@@ -70,6 +71,10 @@ class ReviewRequest extends Mailable
         $event->setStart(new \DateTime())
             ->setSummary(__(static::$name))
             ->setUid(uniqid('reviewAssignment'));
+
+        if ($dateDue = $this->reviewAssignment->getDateDue()) {
+            $event->setEnd(new Carbon($dateDue));
+        }
 
         $reviewerUser = Repo::user()->get($this->reviewAssignment->getReviewerId());
         $attendee = new Attendee(new Formatter());

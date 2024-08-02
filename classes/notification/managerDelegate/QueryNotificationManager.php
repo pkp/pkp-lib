@@ -3,8 +3,8 @@
 /**
  * @file classes/notification/managerDelegate/QueryNotificationManager.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNotificationManager
@@ -19,8 +19,10 @@ namespace PKP\notification\managerDelegate;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use Illuminate\Support\Str;
 use PKP\core\PKPRequest;
 use PKP\core\PKPString;
+use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\note\Note;
 use PKP\notification\Notification;
@@ -48,20 +50,20 @@ class QueryNotificationManager extends NotificationManagerDelegate
 
         switch ($notification->type) {
             case Notification::NOTIFICATION_TYPE_NEW_QUERY:
-                $user = $headNote->getUser();
+                $user = $headNote->user;
                 return __('submission.query.new', [
                     'creatorName' => $user->getFullName(),
-                    'noteContents' => substr(PKPString::html2text($headNote->contents), 0, 200),
-                    'noteTitle' => substr($headNote->title, 0, 200),
+                    'noteContents' => Str::limit(PKPString::html2text($headNote->contents), 200),
+                    'noteTitle' => Str::limit($headNote->title, 200),
                 ]);
             case Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
-                $notes = $query->getReplies(null, Note::NOTE_ORDER_ID, \PKP\db\DAO::SORT_DIRECTION_DESC);
+                $notes = $query->getReplies(null, Note::NOTE_ORDER_ID, DAO::SORT_DIRECTION_DESC);
                 $latestNote = $notes->first();
-                $user = $latestNote->getUser();
+                $user = $latestNote->user;
                 return __('submission.query.activity', [
                     'responderName' => $user->getFullName(),
-                    'noteContents' => substr(PKPString::html2text($latestNote->contents), 0, 200),
-                    'noteTitle' => substr($headNote->title, 0, 200),
+                    'noteContents' => Str::limit(PKPString::html2text($latestNote->contents), 200),
+                    'noteTitle' => Str::limit($headNote->title,200),
                 ]);
         }
         throw new \Exception('Unexpected notification type!');

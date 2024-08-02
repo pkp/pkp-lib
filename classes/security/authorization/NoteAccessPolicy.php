@@ -91,7 +91,7 @@ class NoteAccessPolicy extends AuthorizationPolicy
 
         // Notes can only be edited by their original creators
         if ($this->_accessMode === self::NOTE_ACCESS_WRITE
-                && $note->userId() != $this->_request->getUser()->getId()) {
+                && $note->userId != $this->_request->getUser()->getId()) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
@@ -99,10 +99,4 @@ class NoteAccessPolicy extends AuthorizationPolicy
 
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\security\authorization\NoteAccessPolicy', '\NoteAccessPolicy');
-    define('NOTE_ACCESS_READ', NoteAccessPolicy::NOTE_ACCESS_READ);
-    define('NOTE_ACCESS_WRITE', NoteAccessPolicy::NOTE_ACCESS_WRITE);
 }

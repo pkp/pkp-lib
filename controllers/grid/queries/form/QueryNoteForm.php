@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/form/QueryNoteForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNoteForm
@@ -18,7 +18,6 @@ namespace PKP\controllers\grid\queries\form;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
-use Carbon\Carbon;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
@@ -61,8 +60,6 @@ class QueryNoteForm extends Form
             $note->assocType = Application::ASSOC_TYPE_QUERY;
             $note->assocId = $query->getId();
             $note->userId = $user->getId();
-            $note->dateCreated = Carbon::now();
-            $note->dateModified = Carbon::now();
             $note->save();
             $this->_noteId = $note->id;
             $this->_isNew = true;

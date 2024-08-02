@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/stageParticipant/form/PKPStageParticipantNotifyForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStageParticipantNotifyForm
@@ -22,7 +22,6 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\Core;
@@ -207,8 +206,6 @@ class PKPStageParticipantNotifyForm extends Form
             'userId' =>  $request->getUser()->getId(),
             'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
             'assocId' => $query->getId(),
-            'dateCreated' => Carbon::now(),
-            'dateModified' => Carbon::now(),
             'title' => Mail::compileParams(
                 $template->getLocalizedData('subject'),
                 $mailable->getData()

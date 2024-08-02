@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueryNotesGridCellProvider.php
  *
- * Copyright (c) 2016-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2016-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNotesGridCellProvider
@@ -63,12 +63,12 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider
         $columnId = $column->getId();
         assert(($element instanceof DataObject || $element instanceof Model) && !empty($columnId));
         /** @var Note $element */
-        $user = $element->getUser();
+        $user = $element->user;
         $datetimeFormatShort = PKPString::convertStrftimeFormat(Application::get()->getRequest()->getContext()->getLocalizedDateTimeFormatShort());
 
         switch ($columnId) {
             case 'from':
-                return ['label' => ($user ? $user->getUsername() : '&mdash;') . '<br />' . date($datetimeFormatShort, strtotime($element->dateCreated))];
+                return ['label' => ($user?->getUsername() ?? '&mdash;') . '<br />' . $element->dateCreated->format($datetimeFormatShort)];
         }
 
         return parent::getTemplateVarsFromRowColumn($row, $column);

@@ -150,7 +150,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
                     }
                     $note = Note::find($submissionFile->getData('assocId'));
                     $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-                    if ($note && $note->assocType == Application::ASSOC_TYPE_QUERY) {
+                    if ($note?->assocType == Application::ASSOC_TYPE_QUERY) {
                         $query = $queryDao->getById($note->assocId);
                     }
                     if ($query && $query->getStageId() == $stageId) {

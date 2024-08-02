@@ -28,9 +28,11 @@ class Note extends Model
     public const NOTE_ORDER_DATE_CREATED = 1;
     public const NOTE_ORDER_ID = 2;
 
+    const CREATED_AT = 'date_created';
+    const UPDATED_AT = 'date_modified';
+
     protected $table = 'notes';
     protected $primaryKey = 'note_id';
-    public $timestamps = false;
 
     protected $fillable = [
         'assocType', 'assocId', 'userId',
@@ -61,21 +63,23 @@ class Note extends Model
     }
 
     /**
-     * Return the user of the note's author.
-     *
-     * @return \PKP\user\User
+     * Accessor for user. Can be replaced with relationship once User is converted to an Eloquent Model.
      */
-    public function getUser()
+    protected function user(): Attribute
     {
-        return Repo::user()->get($this->userId, true);
+        return Attribute::make(
+            get: function () {
+                return Repo::user()->get($this->userId, true);
+            },
+        );
     }
 
     /**
      * Compatibility function for including note IDs in grids.
      *
-     * @deprecated
+     * @deprecated 3.5 Use $model->id instead. Can be removed once the DataObject pattern is removed.
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -83,7 +87,7 @@ class Note extends Model
     /**
      * Compatibility function for including notes in grids.
      *
-     * @deprecated
+     * @deprecated 3.5. Use $model or $model->$field instead. Can be removed once the DataObject pattern is removed.
      */
     public function getData(?string $field)
     {
@@ -143,8 +147,4 @@ class Note extends Model
 
         return $query->orderBy($orderSanitized, $directionSanitized);
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\note\Note', '\Note');
 }

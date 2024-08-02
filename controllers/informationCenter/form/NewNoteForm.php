@@ -3,8 +3,8 @@
 /**
  * @file controllers/informationCenter/form/NewNoteForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NewNoteForm
@@ -18,7 +18,6 @@ namespace PKP\controllers\informationCenter\form;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
-use Carbon\Carbon;
 use PKP\form\Form;
 use PKP\note\Note;
 
@@ -118,8 +117,6 @@ class NewNoteForm extends Form
             'assocType' => $this->getAssocType(),
             'assocId' => $this->getAssocId(),
             'contents' => $this->getData('newNote'),
-            'dateCreated' => Carbon::now(),
-            'dateModified' => Carbon::now(),
         ]);
 
         return $note->id;

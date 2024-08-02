@@ -16,14 +16,12 @@
 
 namespace PKP\note;
 
-use Carbon\Carbon;
-
 class Repository
 {
     /**
      * Fetch a note by symbolic info, building it if needed.
      */
-    public function build(int $assocType, int $assocId, ?int $userId, ?string $contents, ?string $title): Note
+    public function build(int $assocType, int $assocId, int $userId, ?string $contents, ?string $title): Note
     {
         return Note::withUserId($userId)
             ->withAssoc($assocType, $assocId)
@@ -33,14 +31,12 @@ class Repository
                 'userId' => $userId,
                 'contents' => $contents,
                 'title' => $title,
-                'dateCreated' => Carbon::now(),
-                'dateModified' => Carbon::now(),
             ]));
     }
-}
 
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\note\Note', '\Note');
-    define('NOTE_ORDER_DATE_CREATED', Note::NOTE_ORDER_DATE_CREATED);
-    define('NOTE_ORDER_ID', Note::NOTE_ORDER_ID);
+    public function transfer(int $oldUserId, int $newUserId): int
+    {
+        return Note::withUserId($oldUserId)
+            ->update(['user_id' => $newUserId]);
+    }
 }

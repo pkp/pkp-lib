@@ -131,7 +131,7 @@ abstract class InformationCenterHandler extends Handler
         $noteId = (int) $request->getUserVar('noteId');
         $note = Note::find($noteId);
 
-        if (!$request->checkCSRF() || !$note || $note->assocType != $this->_getAssocType() || $note->assocId != $this->_getAssocId()) {
+        if (!$request->checkCSRF() || $note?->assocType != $this->_getAssocType() || $note?->assocId != $this->_getAssocId()) {
             throw new \Exception('Invalid note!');
         }
 

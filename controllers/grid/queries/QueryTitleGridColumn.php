@@ -96,7 +96,7 @@ class QueryTitleGridColumn extends GridColumn
                         $headNote ? htmlspecialchars($headNote->title) : '&mdash;',
                         'modal_edit'
                     ),
-                    ($headNote && $headNote->title != '') ? htmlspecialchars($headNote->title) : '&mdash;',
+                    ($headNote?->title != '') ? htmlspecialchars($headNote->title) : '&mdash;',
                     null
                 )
             ]

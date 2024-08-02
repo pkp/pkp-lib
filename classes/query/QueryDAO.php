@@ -3,8 +3,8 @@
 /**
  * @file classes/query/QueryDAO.php
  *
- * Copyright (c) 2016-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2016-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryDAO
@@ -22,11 +22,11 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
-use Carbon\Carbon;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
+use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\mail\Mailable;
@@ -38,7 +38,7 @@ use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
 use PKP\user\User;
 
-class QueryDAO extends \PKP\db\DAO
+class QueryDAO extends DAO
 {
     /**
      * Retrieve a submission query by ID.
@@ -396,8 +396,6 @@ class QueryDAO extends \PKP\db\DAO
             'contents' =>  $content,
             'title' =>  $title,
             'userId' =>  $fromUser->getId(),
-            'dateCreated' => Carbon::now(),
-            'dateModified' => Carbon::now(),
         ]);
 
         // Add task for assigned participants

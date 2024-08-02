@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueriesAccessHelper.php
  *
- * Copyright (c) 2016-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2016-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueriesAccessHelper
@@ -27,6 +27,7 @@
 namespace PKP\controllers\grid\queries;
 
 use APP\core\Application;
+use Carbon\Carbon;
 use PKP\db\DAORegistry;
 use PKP\query\Query;
 use PKP\query\QueryDAO;
@@ -128,7 +129,7 @@ class QueriesAccessHelper
         // Assistants, authors and reviewers are allowed, if they created the query less than x seconds ago
         if ($this->hasStageRole($query->getStageId(), [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) {
             $headNote = $query->getHeadNote();
-            if ($headNote->userId == $this->_user->getId() && (time() - strtotime($headNote->dateCreated) < 3600)) {
+            if ($headNote->userId == $this->_user->getId() && (Carbon::now()->diffInSeconds($headNote->dateCreated)) < 3600) {
                 return true;
             }
         }

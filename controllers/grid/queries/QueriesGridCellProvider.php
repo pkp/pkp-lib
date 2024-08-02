@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueriesGridCellProvider.php
  *
- * Copyright (c) 2016-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2016-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueriesGridCellProvider
@@ -24,6 +24,7 @@ use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\DataObject;
 use PKP\core\PKPString;
+use PKP\db\DAO;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\note\Note;
@@ -74,8 +75,8 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
         assert(($element instanceof DataObject || $element instanceof Model) && !empty($columnId));
         /** @var Query $element */
         $headNote = $element->getHeadNote();
-        $user = $headNote?->getUser();
-        $notes = $element->getReplies(null, Note::NOTE_ORDER_ID, \PKP\db\DAO::SORT_DIRECTION_DESC);
+        $user = $headNote?->user;
+        $notes = $element->getReplies(null, Note::NOTE_ORDER_ID, DAO::SORT_DIRECTION_DESC);
         $context = Application::get()->getRequest()->getContext();
         $datetimeFormatShort = PKPString::convertStrftimeFormat($context->getLocalizedDateTimeFormatShort());
 
@@ -83,12 +84,12 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
             case 'replies':
                 return ['label' => max(0, $notes->count() - 1)];
             case 'from':
-                return ['label' => ($user ? $user->getUsername() : '&mdash;') . '<br />' . ($headNote ? date($datetimeFormatShort, strtotime($headNote->dateCreated)) : '')];
+                return ['label' => ($user?->getUsername() ?? '&mdash;') . '<br />' . ($headNote ? $headNote->dateCreated->format($datetimeFormatShort) : '')];
             case 'lastReply':
                 $latestReply = $notes->first();
                 if ($latestReply && $latestReply->getId() != $headNote->id) {
-                    $repliedUser = $latestReply->getUser();
-                    return ['label' => ($repliedUser ? $repliedUser->getUsername() : '&mdash;') . '<br />' . date($datetimeFormatShort, strtotime($latestReply->dateCreated))];
+                    $repliedUser = $latestReply->user;
+                    return ['label' => ($repliedUser?->getUsername() ?? '&mdash;') . '<br />' . $latestReply->dateCreated->format($datetimeFormatShort)];
                 } else {
                     return ['label' => '-'];
                 }

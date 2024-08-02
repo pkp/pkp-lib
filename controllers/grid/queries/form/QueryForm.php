@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/form/QueryForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryForm
@@ -89,8 +89,6 @@ class QueryForm extends Form
                 'userId' =>  $request->getUser()->getId(),
                 'assocType' => Application::ASSOC_TYPE_QUERY,
                 'assocId' => $query->getId(),
-                'dateCreated' => Carbon::now(),
-                'dateModified' => Carbon::now(),
             ]);
         } else {
             $query = $queryDao->getById($queryId, $assocType, $assocId);
@@ -392,7 +390,7 @@ class QueryForm extends Form
         $allowedEditTimeNotice = ['show' => false, 'limit' => 60];
         if (array_intersect($assignedRoles, [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) {
             $allowedEditTimeNotice['show'] = true;
-            $allowedEditTimeNotice['limit'] = (int) ($allowedEditTimeNotice['limit'] - (time() - strtotime($headNote->dateCreated)) / 60);
+            $allowedEditTimeNotice['limit'] = (int) ($allowedEditTimeNotice['limit'] - Carbon::now()->diffInMinutes($headNote->dateCreated));
         }
 
         $templateMgr->assign([

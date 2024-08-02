@@ -147,7 +147,7 @@ class Query extends \PKP\core\DataObject
     public function getReplies(?int $userId = null, int $sortBy = Note::NOTE_ORDER_ID, int $sortOrder = DAO::SORT_DIRECTION_ASC): LazyCollection
     {
         return Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $this->getId())
-                    ->when($userId, fn (Builder $query, string $userId) => $query->withUserId($userId))
+                    ->when($userId, fn (Builder $query, int $userId) => $query->withUserId($userId))
                     ->withSort($sortBy, $sortOrder)
                     ->lazy();
     }

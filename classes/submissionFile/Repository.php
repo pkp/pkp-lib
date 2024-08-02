@@ -701,7 +701,7 @@ abstract class Repository
             $note = Note::find($submissionFile->getData('assocId'));
 
             // The note should be associated with a query. If not, fail.
-            if ($note?->getAssocType() != PKPApplication::ASSOC_TYPE_QUERY) {
+            if ($note?->assocType != PKPApplication::ASSOC_TYPE_QUERY) {
                 return null;
             }
 

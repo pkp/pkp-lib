@@ -330,7 +330,7 @@ class Repository
             Repo::submissionFile()->edit($submissionFile, ['uploaderUserId' => $newUserId]);
         }
 
-        Note::withUserId($oldUserId)->each()->update(['userId' => $newUserId]);
+        Repo::note()->transfer($oldUserId, $newUserId);
 
         Repo::decision()->dao->reassignDecisions($oldUserId, $newUserId);
 

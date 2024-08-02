@@ -19,7 +19,6 @@ use APP\facades\Repo;
 use Illuminate\Support\Collection;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
-use PKP\notification\NotificationDAO;
 use PKP\plugins\Hook;
 use PKP\reviewForm\ReviewFormResponseDAO;
 use PKP\security\Role;
@@ -207,8 +206,7 @@ class Repository
         $reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /** @var ReviewFilesDAO $reviewFilesDao */
         $reviewFilesDao->revokeByReviewId($reviewAssignment->getId());
 
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment->getId());
+        Notification::withAssoc(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment->getId())->delete();
 
         $this->dao->delete($reviewAssignment);
 
@@ -236,11 +234,11 @@ class Repository
         $reviewAssignmentCollector = $this->getCollector();
         $reviewAssignmentCollector->filterByContextIds([$contextId]);
         $reviewAssignmentIds = $reviewAssignmentCollector->getIds();
-    
+
         foreach ($reviewAssignmentIds as $reviewAssignmentId) {
             $this->dao->deleteById($reviewAssignmentId);
         }
-    
+
         // delete review rounds associated with this context
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
         $reviewRoundDao->deleteByContextId($contextId);

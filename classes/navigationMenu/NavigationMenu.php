@@ -28,7 +28,7 @@ class NavigationMenu extends \PKP\core\DataObject
     /**
      * Get contextId of this NavigationMenu
      */
-    public function getContextId(): int
+    public function getContextId(): ?int
     {
         return $this->getData('contextId');
     }
@@ -36,7 +36,7 @@ class NavigationMenu extends \PKP\core\DataObject
     /**
      * Set contextId of this NavigationMenu
      */
-    public function setContextId(int $contextId): void
+    public function setContextId(?int $contextId): void
     {
         $this->setData('contextId', $contextId);
     }

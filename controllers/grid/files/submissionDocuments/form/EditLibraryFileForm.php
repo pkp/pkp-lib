@@ -35,7 +35,7 @@ class EditLibraryFileForm extends LibraryFileForm
      * @param int $contextId
      * @param int $fileId optional
      */
-    public function __construct($contextId, $fileId, $submissionId)
+    public function __construct(int $contextId, $fileId, $submissionId)
     {
         parent::__construct('controllers/grid/files/submissionDocuments/form/editFileForm.tpl', $contextId);
 

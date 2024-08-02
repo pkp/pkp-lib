@@ -16,7 +16,6 @@ namespace PKP\author;
 use APP\author\Author;
 use APP\author\DAO;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\context\Context;
@@ -58,13 +57,13 @@ class Repository
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id, int $publicationId = null): ?Author
+    public function get(int $id, ?int $publicationId = null): ?Author
     {
         return $this->dao->get($id, $publicationId);
     }
 
     /** @copydoc DAO::exists() */
-    public function exists(int $id, int $publicationId = null): bool
+    public function exists(int $id, ?int $publicationId = null): bool
     {
         return $this->dao->exists($id, $publicationId);
     }
@@ -98,7 +97,7 @@ class Repository
      */
     public function validate($author, $props, Submission $submission, Context $context)
     {
-        $schemaService = Services::get('schema');
+        $schemaService = app()->get('schema');
         $primaryLocale = $submission->getData('locale');
         $allowedLocales = $submission->getPublicationLanguages($context->getSupportedSubmissionMetadataLocales());
 

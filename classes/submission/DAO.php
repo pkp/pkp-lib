@@ -26,7 +26,6 @@ use PKP\core\traits\EntityWithParent;
 use PKP\db\DAORegistry;
 use PKP\log\event\EventLogEntry;
 use PKP\note\NoteDAO;
-use PKP\notification\NotificationDAO;
 use PKP\query\QueryDAO;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;
@@ -162,7 +161,7 @@ class DAO extends EntityDAO
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      * @param null|mixed $contextId
      */
-    public function getByPubId(string $pubIdType, string $pubId, $contextId = null): ?Submission
+    public function getByPubId(string $pubIdType, string $pubId, int $contextId = null): ?Submission
     {
         // Add check for incoming DOI request for legacy calls that bypass the Submission Repository
         if ($pubIdType == 'doi') {
@@ -292,8 +291,7 @@ class DAO extends EntityDAO
         $submissionCommentDao->deleteBySubmissionId($id);
 
         // Delete any outstanding notifications for this submission
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $id);
+        Notification::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $id)->delete();
 
         Repo::eventLog()->getCollector()
             ->filterByAssoc(Application::ASSOC_TYPE_SUBMISSION, [$id])

@@ -14,7 +14,6 @@
 namespace PKP\section;
 
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\section\DAO;
 use APP\section\Section;
@@ -49,13 +48,13 @@ class Repository
     }
 
     /** @copydoc DAO::exists() */
-    public function exists(int $id, int $contextId = null): bool
+    public function exists(int $id, ?int $contextId = null): bool
     {
         return $this->dao->exists($id, $contextId);
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id, int $contextId = null): ?Section
+    public function get(int $id, ?int $contextId = null): ?Section
     {
         return $this->dao->get($id, $contextId);
     }
@@ -113,7 +112,7 @@ class Repository
         // The contextId must match an existing context
         $validator->after(function ($validator) use ($props) {
             if (isset($props['contextId']) && !$validator->errors()->get('contextId')) {
-                $sectionContext = Services::get('context')->get($props['contextId']);
+                $sectionContext = app()->get('context')->get($props['contextId']);
                 if (!$sectionContext) {
                     $validator->errors()->add('contextId', __('manager.sections.noContext'));
                 }

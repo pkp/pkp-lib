@@ -18,7 +18,6 @@ namespace PKP\controllers\api\file;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
@@ -26,10 +25,8 @@ use APP\template\TemplateManager;
 use PKP\controllers\wizard\fileUpload\form\SubmissionFilesMetadataForm;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\log\event\EventLogEntry;
-use PKP\notification\NotificationDAO;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\observers\events\MetadataChanged;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
@@ -86,7 +83,7 @@ abstract class PKPManageFileApiHandler extends Handler
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification(
                 $user->getId(),
-                PKPNotification::NOTIFICATION_TYPE_SUCCESS,
+                Notification::NOTIFICATION_TYPE_SUCCESS,
                 ['contents' => __('notification.removedFile')]
             );
         }
@@ -153,7 +150,7 @@ abstract class PKPManageFileApiHandler extends Handler
         );
 
         // Remove uploaded file
-        Services::get('file')->delete($revisedFileId);
+        app()->get('file')->delete($revisedFileId);
 
         $this->setupTemplate($request);
         return \PKP\db\DAO::getDataChangedEvent();
@@ -242,16 +239,13 @@ abstract class PKPManageFileApiHandler extends Handler
             if ($reviewRound) {
                 // Delete any 'revision requested' notifications since revisions are now in.
                 $context = $request->getContext();
-                $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
 
                 foreach ($submitterAssignments as $submitterAssignment) {
-                    $notificationDao->deleteByAssoc(
-                        Application::ASSOC_TYPE_SUBMISSION, 
-                        $submission->getId(), 
-                        $submitterAssignment->userId, 
-                        PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, 
-                        $context->getId()
-                    );
+                    Notification::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submission->getId())
+                        ->withUserId($submitterAssignment->userId)
+                        ->withType(Notification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS)
+                        ->withContextId($context->getId())
+                        ->delete();
                 }
             }
 
@@ -271,7 +265,7 @@ abstract class PKPManageFileApiHandler extends Handler
      */
     protected function getUpdateNotifications()
     {
-        return [PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS];
+        return [Notification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS];
     }
 
     /**

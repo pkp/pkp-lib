@@ -22,7 +22,6 @@
 		"michelf/php-markdown": "1.*",
 		"moxiecode/plupload": "2.*",
 		"phpmailer/phpmailer": "6.*",
-		"pimple/pimple": "3.*",
 		"ralouphie/getallheaders": "*",
 		"smarty/smarty": "4.*",
 		"sokil/php-isocodes": "^4.1",

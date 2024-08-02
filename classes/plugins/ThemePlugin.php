@@ -18,7 +18,6 @@ namespace PKP\plugins;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\statistics\StatisticsHelper;
 use APP\template\TemplateManager;
@@ -473,7 +472,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
         // Retrieve option values if they haven't been loaded yet
         if (is_null($this->_optionValues)) {
             $context = Application::get()->getRequest()->getContext();
-            $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
+            $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::SITE_CONTEXT_ID;
             $this->_optionValues = $this->getOptionValues($contextId);
         }
 
@@ -553,11 +552,9 @@ abstract class ThemePlugin extends LazyLoadPlugin
      * This retrieves a single array containing option values for this theme
      * and any parent themes.
      *
-     * @param int $contextId
-     *
      * @return array
      */
-    public function getOptionValues($contextId)
+    public function getOptionValues(?int $contextId)
     {
         /** @var PluginSettingsDAO */
         $pluginSettingsDAO = DAORegistry::getDAO('PluginSettingsDAO');
@@ -618,8 +615,8 @@ abstract class ThemePlugin extends LazyLoadPlugin
      *
      * @param array $options Key/value list of options to validate
      * @param string $themePluginPath The theme these options are for
-     * @param int $contextId The context these theme options are for, or
-     *  CONTEXT_ID_NONE for the site-wide settings.
+     * @param ?int int $contextId The context these theme options are for, or
+     *  Application::SITE_CONTEXT_ID for the site-wide settings.
      * @param Request $request
      *
      * @return array List of errors with option name as the key and the value as
@@ -640,7 +637,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      *
      * @param string $name A unique id for the option to save
      * @param mixed $value The new value to save
-     * @param int $contextId Optional context id. Defaults to the current
+     * @param ?int $contextId Optional context id. Defaults to the current
      *  context
      */
     public function saveOption($name, $value, $contextId = null)
@@ -996,7 +993,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
             $params['dateStart'] = $earliestDatePublished;
         }
 
-        $statsService = Services::get('publicationStats'); /** @var \App\services\StatsPublicationService $statsService */
+        $statsService = app()->get('publicationStats'); /** @var \App\services\StatsPublicationService $statsService */
         $data = $statsService->getTimeline($params['timelineInterval'], $params);
         return $data;
     }

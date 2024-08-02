@@ -23,18 +23,12 @@ use PKP\db\DAORegistry;
 
 class PKPLibraryFileManager extends PrivateFileManager
 {
-    /** @var int Context id for the current context */
-    public $contextId;
-
     /**
      * Constructor
-     *
-     * @param int $contextId
      */
-    public function __construct($contextId)
+    public function __construct(public int $contextId)
     {
         parent::__construct();
-        $this->contextId = $contextId;
     }
 
     /**

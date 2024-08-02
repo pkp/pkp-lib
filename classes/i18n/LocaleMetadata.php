@@ -205,7 +205,7 @@ class LocaleMetadata
      * Compares two locales and retrieves the completeness ratio (source locale keys which are present in the reference)
      * If a locale isn't supplied, LocaleInterface::DEFAULT_LOCALE will be used as reference
      */
-    public function getCompletenessRatio(string $referenceLocale = null): float
+    public function getCompletenessRatio(?string $referenceLocale = null): float
     {
         $destiny = Locale::getBundle($referenceLocale ?? LocaleInterface::DEFAULT_LOCALE)->getTranslator()->getEntries();
         $source = Locale::getBundle($this->locale, false)->getTranslator()->getEntries();

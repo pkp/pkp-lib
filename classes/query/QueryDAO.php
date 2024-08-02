@@ -20,7 +20,6 @@ namespace PKP\query;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Illuminate\Database\Query\Builder;
@@ -31,9 +30,8 @@ use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\mail\Mailable;
 use PKP\note\NoteDAO;
-use PKP\notification\NotificationDAO;
+use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
-use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\stageAssignment\StageAssignment;
@@ -333,11 +331,7 @@ class QueryDAO extends \PKP\db\DAO
             $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
             $noteDao->deleteByAssoc(Application::ASSOC_TYPE_QUERY, $queryId);
 
-            $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-            $notifications = $notificationDao->getByAssoc(Application::ASSOC_TYPE_QUERY, $queryId);
-            while ($notification = $notifications->next()) {
-                $notificationDao->deleteObject($notification);
-            }
+            Notification::withAssoc(Application::ASSOC_TYPE_QUERY, $queryId)->delete();
         }
 
         return $countDeleted;
@@ -435,7 +429,7 @@ class QueryDAO extends \PKP\db\DAO
                 $participantUserId,
                 $contextId
             );
-            if (in_array(PKPNotification::NOTIFICATION_TYPE_NEW_QUERY, $notificationSubscriptionSettings)) {
+            if (in_array(Notification::NOTIFICATION_TYPE_NEW_QUERY, $notificationSubscriptionSettings)) {
                 continue;
             }
 

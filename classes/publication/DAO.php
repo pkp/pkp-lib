@@ -228,7 +228,7 @@ class DAO extends EntityDAO
     /**
      * @copydoc EntityDAO::update()
      */
-    public function update(Publication $publication, Publication $oldPublication = null)
+    public function update(Publication $publication, ?Publication $oldPublication = null)
     {
         $vocabs = $this->extractControlledVocab($publication);
 

@@ -19,7 +19,6 @@ namespace PKP\controllers\grid\users\stageParticipant\form;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
@@ -33,8 +32,7 @@ use PKP\form\Form;
 use PKP\log\event\EventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\note\NoteDAO;
-use PKP\notification\NotificationDAO;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\query\QueryDAO;
 use PKP\security\Role;
 use PKP\security\Validation;
@@ -242,7 +240,7 @@ class PKPStageParticipantNotifyForm extends Form
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification(
                 $request->getUser()->getId(),
-                PKPNotification::NOTIFICATION_TYPE_ERROR,
+                Notification::NOTIFICATION_TYPE_ERROR,
                 ['contents' => __('email.compose.error')]
             );
             error_log($e->getMessage());
@@ -251,19 +249,19 @@ class PKPStageParticipantNotifyForm extends Form
         // remove the INDEX_ and LAYOUT_ tasks if a user has sent the appropriate _COMPLETE email
         switch ($templateKey) {
             case 'EDITOR_ASSIGN':
-                $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGN, $user->getId(), $submission->getId());
+                $this->_addAssignmentTaskNotification($request, Notification::NOTIFICATION_TYPE_EDITOR_ASSIGN, $user->getId(), $submission->getId());
                 !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEventType::EDITOR_ASSIGN, $mailable, $submission);
                 break;
             case 'COPYEDIT_REQUEST':
-                $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT, $user->getId(), $submission->getId());
+                $this->_addAssignmentTaskNotification($request, Notification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT, $user->getId(), $submission->getId());
                 !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEventType::COPYEDIT_NOTIFY_COPYEDITOR, $mailable, $submission);
                 break;
             case 'LAYOUT_REQUEST':
-                $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $user->getId(), $submission->getId());
+                $this->_addAssignmentTaskNotification($request, Notification::NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT, $user->getId(), $submission->getId());
                 !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEventType::LAYOUT_NOTIFY_EDITOR, $mailable, $submission);
                 break;
             case 'INDEX_REQUEST':
-                $this->_addAssignmentTaskNotification($request, PKPNotification::NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $user->getId(), $submission->getId());
+                $this->_addAssignmentTaskNotification($request, Notification::NOTIFICATION_TYPE_INDEX_ASSIGNMENT, $user->getId(), $submission->getId());
                 !$logRepository ?: $logRepository->logMailable(SubmissionEmailLogEventType::INDEX_NOTIFY_INDEXER, $mailable, $submission);
                 break;
             case 'LAYOUT_COMPLETE':
@@ -283,10 +281,10 @@ class PKPStageParticipantNotifyForm extends Form
             $notificationMgr->updateNotification(
                 $request,
                 [
-                    PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
-                    PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
-                    PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
-                    PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+                    Notification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+                    Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+                    Notification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+                    Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
                 ],
                 null,
                 PKPApplication::ASSOC_TYPE_SUBMISSION,
@@ -345,15 +343,12 @@ class PKPStageParticipantNotifyForm extends Form
      */
     private function _addAssignmentTaskNotification($request, $type, $userId, $submissionId)
     {
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notificationFactory = $notificationDao->getByAssoc(
-            Application::ASSOC_TYPE_SUBMISSION,
-            $submissionId,
-            $userId,
-            $type
-        );
+        $notification = Notification::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+            ->withUserId($userId)
+            ->withType($type)
+            ->first();
 
-        if (!$notificationFactory->next()) {
+        if (!$notification) {
             $context = $request->getContext();
             $notificationMgr = new NotificationManager();
             $notificationMgr->createNotification(
@@ -390,7 +385,7 @@ class PKPStageParticipantNotifyForm extends Form
 
         // Create trivial notification.
         $notificationMgr = new NotificationManager();
-        $notificationMgr->createTrivialNotification($currentUser->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('stageParticipants.history.messageSent')]);
+        $notificationMgr->createTrivialNotification($currentUser->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('stageParticipants.history.messageSent')]);
     }
 
     /**

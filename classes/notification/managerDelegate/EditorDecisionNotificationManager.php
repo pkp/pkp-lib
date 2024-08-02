@@ -18,46 +18,35 @@ namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\notification\Notification;
-use PKP\db\DAORegistry;
+use PKP\core\PKPRequest;
+use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
-use PKP\notification\PKPNotification;
 
 class EditorDecisionNotificationManager extends NotificationManagerDelegate
 {
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationMessage($request, $notification)
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
     {
-        switch ($notification->getType()) {
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_INTERNAL_REVIEW:
-                return __('notification.type.editorDecisionInternalReview');
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT:
-                return __('notification.type.editorDecisionAccept');
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW:
-                return __('notification.type.editorDecisionExternalReview');
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS:
-                return __('notification.type.editorDecisionPendingRevisions');
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT:
-                return __('notification.type.editorDecisionResubmit');
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND:
-                return __('notification.type.editorDecisionNewRound');
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE:
-                return __('notification.type.editorDecisionDecline');
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE:
-                return __('notification.type.editorDecisionRevertDecline');
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION:
-                return __('notification.type.editorDecisionSendToProduction');
-            default:
-                return null;
-        }
+        return match ($notification->type) {
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_INTERNAL_REVIEW => __('notification.type.editorDecisionInternalReview'),
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT => __('notification.type.editorDecisionAccept'),
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW => __('notification.type.editorDecisionExternalReview'),
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS => __('notification.type.editorDecisionPendingRevisions'),
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT => __('notification.type.editorDecisionResubmit'),
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND => __('notification.type.editorDecisionNewRound'),
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE => __('notification.type.editorDecisionDecline'),
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE => __('notification.type.editorDecisionRevertDecline'),
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION => __('notification.type.editorDecisionSendToProduction'),
+            default => null
+        };
     }
 
     /**
      * @copydoc PKPNotificationOperationManager::getStyleClass()
      */
-    public function getStyleClass($notification)
+    public function getStyleClass(Notification $notification): string
     {
         return NOTIFICATION_STYLE_CLASS_INFORMATION;
     }
@@ -65,7 +54,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationTitle()
      */
-    public function getNotificationTitle($notification)
+    public function getNotificationTitle($notification): string
     {
         return __('notification.type.editorDecisionTitle');
     }
@@ -73,34 +62,31 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc NotificationManagerDelegate::updateNotification()
      */
-    public function updateNotification($request, $userIds, $assocType, $assocId)
+    public function updateNotification(PKPRequest $request, ?array $userIds, int $assocType, int $assocId): void
     {
-        $context = $request->getContext();
+        if ($assocType != Application::ASSOC_TYPE_SUBMISSION) {
+            throw new \Exception('Unexpected assoc type!');
+        }
 
         // Remove any existing editor decision notifications.
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var \PKP\notification\NotificationDAO $notificationDao */
-        $notificationFactory = $notificationDao->getByAssoc(
-            Application::ASSOC_TYPE_SUBMISSION,
-            $assocId,
-            null,
-            null,
-            $context->getId()
-        );
+        $notifications = Notification::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $assocId)
+            ->withContextId($request->getContext()->getId())
+            ->get();
 
         // Delete old notifications.
         $editorDecisionNotificationTypes = $this->_getAllEditorDecisionNotificationTypes();
-        while ($notification = $notificationFactory->next()) {
+        foreach ($notifications as $notification) {
             // If a list of user IDs was specified, make sure we're respecting it.
-            if ($userIds !== null && !in_array($notification->getUserId(), $userIds)) {
+            if ($userIds !== null && !in_array($notification->userId, $userIds)) {
                 continue;
             }
 
             // Check that the notification type is in the specified list.
-            if (!in_array($notification->getType(), $editorDecisionNotificationTypes)) {
+            if (!in_array($notification->type, $editorDecisionNotificationTypes)) {
                 continue;
             }
 
-            $notificationDao->deleteObject($notification);
+            $notification->delete();
         }
 
         // (Re)create notifications, but don’t send email, since we
@@ -110,7 +96,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
                 $request,
                 $userId,
                 $this->getNotificationType(),
-                $context->getId(),
+                $request->getContext()->getId(),
                 Application::ASSOC_TYPE_SUBMISSION,
                 $assocId,
                 $this->_getNotificationTaskLevel($this->getNotificationType())
@@ -121,22 +107,23 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc INotificationInfoProvider::getNotificationUrl()
      */
-    public function getNotificationUrl($request, $notification)
+    public function getNotificationUrl(PKPRequest $request, Notification $notification): ?string
     {
-        switch ($notification->getType()) {
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_INTERNAL_REVIEW:
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT:
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW:
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS:
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT:
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND:
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE:
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION:
-                $submission = Repo::submission()->get($notification->getAssocId());
-                return Repo::submission()->getWorkflowUrlByUserRoles($submission, $notification->getUserId());
-            default:
-                return '';
-        }
+        return match ($notification->type) {
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_INTERNAL_REVIEW,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION =>
+                Repo::submission()->getWorkflowUrlByUserRoles(
+                    Repo::submission()->get($notification->assocId),
+                    $notification->userId
+                ),
+            default => ''
+        };
     }
 
     //
@@ -144,40 +131,32 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
     //
     /**
      * Get all notification types corresponding to editor decisions.
-     *
-     * @return array
      */
-    public function _getAllEditorDecisionNotificationTypes()
+    public function _getAllEditorDecisionNotificationTypes(): array
     {
         return [
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_INTERNAL_REVIEW,
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT,
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW,
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS,
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT,
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND,
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE,
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE,
-            PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_INTERNAL_REVIEW,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION
         ];
     }
 
     /**
      * Get the notification level for the type of notification being created.
-     *
-     * @param int $type
-     *
-     * @return int
      */
-    public function _getNotificationTaskLevel($type)
+    public function _getNotificationTaskLevel(int $type): int
     {
-        switch ($type) {
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS:
-            case PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT:
-                return Notification::NOTIFICATION_LEVEL_TASK;
-            default:
-                return Notification::NOTIFICATION_LEVEL_NORMAL;
-        }
+        return match($type) {
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS,
+            Notification::NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT => Notification::NOTIFICATION_LEVEL_TASK,
+            default => Notification::NOTIFICATION_LEVEL_NORMAL
+        };
     }
 }
 

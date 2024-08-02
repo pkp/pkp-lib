@@ -29,6 +29,10 @@ use Illuminate\Http\Response;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\Str;
+use PKP\core\PKPAppKey;
+use PKP\core\ConsoleCommandServiceProvider;
+use PKP\core\ScheduleServiceProvider;
 use PKP\config\Config;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\proxy\ProxyParser;
@@ -156,6 +160,8 @@ class PKPContainer extends Container
         $this->register(new LocaleServiceProvider($this));
         $this->register(new PKPRoutingProvider($this));
         $this->register(new InvitationServiceProvider($this));
+        $this->register(new ScheduleServiceProvider($this));
+        $this->register(new ConsoleCommandServiceProvider($this));
     }
 
     /**
@@ -175,12 +181,14 @@ class PKPContainer extends Container
         // will spin through them and register them with the application, which
         // serves as a convenience layer while registering a lot of bindings.
         if (property_exists($provider, 'bindings')) {
+            /** @disregard P1014 PHP Intelephense error suppression */
             foreach ($provider->bindings as $key => $value) {
                 $this->bind($key, $value);
             }
         }
 
         if (property_exists($provider, 'singletons')) {
+            /** @disregard P1014 PHP Intelephense error suppression */
             foreach ($provider->singletons as $key => $value) {
                 $key = is_int($key) ? $value : $key;
                 $this->singleton($key, $value);
@@ -319,9 +327,12 @@ class PKPContainer extends Container
         $items = [];
         $_request = Application::get()->getRequest();
 
+        // App
         $items['app'] = [
             'key' => PKPAppKey::getKey(),
             'cipher' => PKPAppKey::getCipher(),
+            'timezone' => Config::getVar('general', 'timezone', 'UTC'),
+            'env' => Config::getVar('general', 'app_env', 'production'),
         ];
 
         // Database connection
@@ -541,6 +552,40 @@ class PKPContainer extends Container
     public function isDownForMaintenance()
     {
         return Application::isUnderMaintenance();
+    }
+
+    /**
+     * Determine if the application is running in the console.
+     */
+    public function runningInConsole(?string $scriptPath = null): bool
+    {
+        if (strtolower(php_sapi_name() ?: '') === 'cli') {
+            return true;
+        }
+
+        if (!$scriptPath) {
+            return false;
+        }
+
+        if (mb_stripos($_SERVER['SCRIPT_NAME'] ?? '', $scriptPath) !== false) {
+            return true;
+        }
+        
+        if (mb_stripos($_SERVER['SCRIPT_FILENAME'] ?? '', $scriptPath) !== false) {
+            return true;
+        }
+    }
+
+    /**
+     * Get or check the current application environment.
+     */
+    public function environment(string ...$environments): string|bool
+    {
+        if (count($environments) > 0) {
+            return Str::is($environments, $this->get('config')['app']['env']);
+        }
+
+        return $this->get('config')['app']['env'];
     }
 }
 

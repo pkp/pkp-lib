@@ -16,7 +16,6 @@
 namespace PKP\API\v1\contexts;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\plugins\IDoiRegistrationAgency;
 use APP\services\ContextService;
 use APP\template\TemplateManager;
@@ -181,7 +180,7 @@ class PKPContextController extends PKPBaseController
             }
         }
 
-        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
+        $contextService = app()->get('context'); /** @var PKPContextService $contextService */
         $items = [];
         $contextsIterator = $contextService->getMany($allowedParams);
         $propertyArgs = [
@@ -208,7 +207,7 @@ class PKPContextController extends PKPBaseController
         $request = $this->getRequest();
         $user = $request->getUser();
 
-        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
+        $contextService = app()->get('context'); /** @var PKPContextService $contextService */
         $context = $contextService->get((int) $illuminateRequest->route('contextId'));
 
         if (!$context) {
@@ -254,7 +253,7 @@ class PKPContextController extends PKPBaseController
         $request = $this->getRequest();
         $user = $request->getUser();
 
-        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
+        $contextService = app()->get('context'); /** @var PKPContextService $contextService */
         $context = $contextService->get((int) $illuminateRequest->route('contextId'));
 
         if (!$context) {
@@ -339,7 +338,7 @@ class PKPContextController extends PKPBaseController
             }
         }
 
-        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
+        $contextService = app()->get('context'); /** @var PKPContextService $contextService */
         $errors = $contextService->validate(EntityWriteInterface::VALIDATE_ACTION_ADD, $params, $allowedLocales, $primaryLocale);
 
         if (!empty($errors)) {
@@ -382,7 +381,7 @@ class PKPContextController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
+        $contextService = app()->get('context'); /** @var PKPContextService $contextService */
         $context = $contextService->get($contextId);
 
         if (!$context) {
@@ -445,7 +444,7 @@ class PKPContextController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
+        $contextService = app()->get('context'); /** @var PKPContextService $contextService */
         $context = $contextService->get($contextId);
 
         if (!$context) {
@@ -549,7 +548,7 @@ class PKPContextController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
+        $contextService = app()->get('context'); /** @var PKPContextService $contextService */
         $context = $contextService->get($contextId);
 
         if (!$context) {
@@ -565,7 +564,7 @@ class PKPContextController extends PKPBaseController
             ], Response::HTTP_FORBIDDEN);
         }
 
-        $schemaService = Services::get('schema'); /** @var PKPSchemaService $schemaService */
+        $schemaService = app()->get('schema'); /** @var PKPSchemaService $schemaService */
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_CONTEXT, $illuminateRequest->input());
         $contextFullProps = array_flip($schemaService->getFullProps(PKPSchemaService::SCHEMA_CONTEXT));
@@ -683,7 +682,7 @@ class PKPContextController extends PKPBaseController
 
         $contextId = (int) $illuminateRequest->route('contextId');
 
-        $contextService = Services::get('context'); /** @var PKPContextService $contextService */
+        $contextService = app()->get('context'); /** @var PKPContextService $contextService */
         $context = $contextService->get($contextId);
 
         if (!$context) {
@@ -712,7 +711,7 @@ class PKPContextController extends PKPBaseController
      */
     protected function updateRegistrationAgencyPluginSettings(int $contextId, Plugin $plugin, string $schemaName, array $props): void
     {
-        $schemaService = Services::get('schema'); /** @var PKPSchemaService $schemaService */
+        $schemaService = app()->get('schema'); /** @var PKPSchemaService $schemaService */
         $sanitizedProps = $schemaService->sanitize($schemaName, $props);
 
         foreach ($sanitizedProps as $fieldName => $value) {

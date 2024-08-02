@@ -24,7 +24,7 @@ use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileDAO;
 use PKP\file\TemporaryFileManager;
 use PKP\form\Form;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\plugins\PluginHelper;
 use PKP\plugins\PluginRegistry;
 
@@ -95,7 +95,7 @@ class UploadPluginForm extends Form
                     $pluginVersion = $pluginHelper->installPlugin($temporaryFile->getFilePath(), $temporaryFile->getOriginalFileName());
                     $notificationMgr->createTrivialNotification(
                         $user->getId(),
-                        PKPNotification::NOTIFICATION_TYPE_SUCCESS,
+                        Notification::NOTIFICATION_TYPE_SUCCESS,
                         ['contents' => __('manager.plugins.installSuccessful', ['versionNumber' => $pluginVersion->getVersionString(false)])]
                     );
                     break;
@@ -109,7 +109,7 @@ class UploadPluginForm extends Form
                     );
                     $notificationMgr->createTrivialNotification(
                         $user->getId(),
-                        PKPNotification::NOTIFICATION_TYPE_SUCCESS,
+                        Notification::NOTIFICATION_TYPE_SUCCESS,
                         ['contents' => __('manager.plugins.upgradeSuccessful', ['versionString' => $pluginVersion->getVersionString(false)])]
                     );
                     break;
@@ -117,7 +117,7 @@ class UploadPluginForm extends Form
                     throw new Exception(__('common.unknownError'));
             }
         } catch (Exception $e) {
-            $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => $e->getMessage()]);
+            $notificationMgr->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_ERROR, ['contents' => $e->getMessage()]);
         } finally {
             if ($temporaryFile) {
                 $temporaryFileManager->deleteById($temporaryFile->getId(), $user->getId());

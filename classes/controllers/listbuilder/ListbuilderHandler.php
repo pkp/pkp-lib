@@ -272,9 +272,9 @@ class ListbuilderHandler extends GridHandler
      * Unpack data to save using an external handler.
      *
      * @param string $data (the json encoded data from the listbuilder itself)
-     * @param array $deletionCallback callback to be used for each deleted element
-     * @param array $insertionCallback callback to be used for each updated element
-     * @param array $updateCallback callback to be used for each updated element
+     * @param callback $deletionCallback callback to be used for each deleted element
+     * @param callback $insertionCallback callback to be used for each updated element
+     * @param callback $updateCallback callback to be used for each updated element
      */
     public static function unpack($request, $data, $deletionCallback, $insertionCallback, $updateCallback)
     {

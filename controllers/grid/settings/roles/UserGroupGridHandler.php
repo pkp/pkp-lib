@@ -29,7 +29,7 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
 use PKP\security\Role;
@@ -356,7 +356,7 @@ class UserGroupGridHandler extends GridHandler
                 // Can't delete default user groups.
                 $notificationMgr->createTrivialNotification(
                     $user->getId(),
-                    PKPNotification::NOTIFICATION_TYPE_WARNING,
+                    Notification::NOTIFICATION_TYPE_WARNING,
                     ['contents' => __(
                         'grid.userGroup.cantRemoveDefaultUserGroup',
                         ['userGroupName' => $userGroup->getLocalizedName()	]
@@ -368,7 +368,7 @@ class UserGroupGridHandler extends GridHandler
 
                 $notificationMgr->createTrivialNotification(
                     $user->getId(),
-                    PKPNotification::NOTIFICATION_TYPE_SUCCESS,
+                    Notification::NOTIFICATION_TYPE_SUCCESS,
                     ['contents' => __(
                         'grid.userGroup.removed',
                         ['userGroupName' => $userGroup->getLocalizedName()	]
@@ -380,7 +380,7 @@ class UserGroupGridHandler extends GridHandler
             // is still assigned to that user group.
             $notificationMgr->createTrivialNotification(
                 $user->getId(),
-                PKPNotification::NOTIFICATION_TYPE_WARNING,
+                Notification::NOTIFICATION_TYPE_WARNING,
                 ['contents' => __(
                     'grid.userGroup.cantRemoveUserGroup',
                     ['userGroupName' => $userGroup->getLocalizedName(), 'usersCount' => $usersAssignedToUserGroupCount]
@@ -460,7 +460,7 @@ class UserGroupGridHandler extends GridHandler
 
         $notificationMgr->createTrivialNotification(
             $user->getId(),
-            PKPNotification::NOTIFICATION_TYPE_SUCCESS,
+            Notification::NOTIFICATION_TYPE_SUCCESS,
             ['contents' => __(
                 $messageKey,
                 ['userGroupName' => $userGroup->getLocalizedName(), 'stageName' => __($stageLocaleKeys[$stageId])]

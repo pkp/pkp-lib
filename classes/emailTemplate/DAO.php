@@ -14,7 +14,6 @@
 namespace PKP\emailTemplate;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\DB;
@@ -162,9 +161,9 @@ class DAO extends EntityDAO
         $schema = $this->schemaService->get($this->schema);
         $contextDao = Application::getContextDAO();
 
-        $supportedLocalesJson = $row->context_id === PKPApplication::CONTEXT_SITE ?
-            DB::table('site')->first()->supported_locales :
-            DB::table($contextDao->settingsTableName)
+        $supportedLocalesJson = $row->context_id === PKPApplication::SITE_CONTEXT_ID
+            ? DB::table('site')->first()->supported_locales
+            : DB::table($contextDao->settingsTableName)
                 ->where($contextDao->primaryKeyColumn, $row->context_id)
                 ->where('setting_name', 'supportedLocales')
                 ->value('setting_value');
@@ -277,7 +276,7 @@ class DAO extends EntityDAO
             $this->installEmailTemplateLocaleData($templatesFile, $locales, $attrs['key']);
 
             if (isset($attrs['alternateTo'])) {
-                $contextIds = Services::get('context')->getIds();
+                $contextIds = app()->get('context')->getIds();
                 foreach ($contextIds as $contextId) {
                     $this->installAlternateEmailTemplates($contextId, $attrs['key']);
                 }

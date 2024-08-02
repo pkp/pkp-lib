@@ -19,14 +19,13 @@ namespace PKP\controllers\tab\authorDashboard;
 use APP\core\Application;
 use APP\core\Request;
 use APP\handler\Handler;
-use APP\notification\Notification;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\facades\Repo;
 use PKP\log\SubmissionEmailLogEventType;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\security\authorization\AuthorDashboardAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -168,16 +167,16 @@ class AuthorDashboardTabHandler extends Handler
         $submissionAssocTypeAndIdArray = [Application::ASSOC_TYPE_SUBMISSION, $submission->getId()];
         return [
             Notification::NOTIFICATION_LEVEL_TASK => [
-                PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS => $submissionAssocTypeAndIdArray],
+                Notification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS => $submissionAssocTypeAndIdArray],
             Notification::NOTIFICATION_LEVEL_NORMAL => [
-                PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT => $submissionAssocTypeAndIdArray,
-                PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW => $submissionAssocTypeAndIdArray,
-                PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS => $submissionAssocTypeAndIdArray,
-                PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT => $submissionAssocTypeAndIdArray,
-                PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND => $submissionAssocTypeAndIdArray,
-                PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE => $submissionAssocTypeAndIdArray,
-                PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE => $submissionAssocTypeAndIdArray,
-                PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION => $submissionAssocTypeAndIdArray],
+                Notification::NOTIFICATION_TYPE_EDITOR_DECISION_ACCEPT => $submissionAssocTypeAndIdArray,
+                Notification::NOTIFICATION_TYPE_EDITOR_DECISION_EXTERNAL_REVIEW => $submissionAssocTypeAndIdArray,
+                Notification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS => $submissionAssocTypeAndIdArray,
+                Notification::NOTIFICATION_TYPE_EDITOR_DECISION_RESUBMIT => $submissionAssocTypeAndIdArray,
+                Notification::NOTIFICATION_TYPE_EDITOR_DECISION_NEW_ROUND => $submissionAssocTypeAndIdArray,
+                Notification::NOTIFICATION_TYPE_EDITOR_DECISION_DECLINE => $submissionAssocTypeAndIdArray,
+                Notification::NOTIFICATION_TYPE_EDITOR_DECISION_REVERT_DECLINE => $submissionAssocTypeAndIdArray,
+                Notification::NOTIFICATION_TYPE_EDITOR_DECISION_SEND_TO_PRODUCTION => $submissionAssocTypeAndIdArray],
             Notification::NOTIFICATION_LEVEL_TRIVIAL => []
         ];
     }

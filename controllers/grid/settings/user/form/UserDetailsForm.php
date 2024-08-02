@@ -29,7 +29,7 @@ use PKP\core\PKPRequest;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\mail\mailables\UserCreated;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\security\Validation;
 use PKP\user\InterestManager;
 use PKP\user\User;
@@ -384,7 +384,7 @@ class UserDetailsForm extends UserForm
                     $notificationMgr = new NotificationManager();
                     $notificationMgr->createTrivialNotification(
                         $request->getUser()->getId(),
-                        PKPNotification::NOTIFICATION_TYPE_ERROR,
+                        Notification::NOTIFICATION_TYPE_ERROR,
                         ['contents' => __('email.compose.error')]
                     );
                     error_log($e->getMessage());

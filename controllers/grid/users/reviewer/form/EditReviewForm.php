@@ -19,7 +19,6 @@ namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
@@ -28,8 +27,8 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\mail\mailables\EditReviewNotify;
+use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
-use PKP\notification\PKPNotification;
 use PKP\reviewForm\ReviewFormDAO;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\ReviewFilesDAO;
@@ -176,7 +175,7 @@ class EditReviewForm extends Form
             $notification = $notificationManager->createNotification(
                 $request,
                 $reviewAssignment->getReviewerId(),
-                PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
+                Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
                 $context->getId(),
                 PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 $reviewAssignment->getId(),
@@ -188,7 +187,7 @@ class EditReviewForm extends Form
             /** @var NotificationSubscriptionSettingsDAO */
             $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
             if ($notification && !in_array(
-                PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
+                Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,
                 $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
                     NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
                     $reviewer->getId(),

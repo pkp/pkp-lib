@@ -62,9 +62,9 @@ abstract class UsageEvent
     public function __construct(
         int $assocType,
         Context $context,
-        Submission $submission = null,
-        Representation $representation = null,
-        SubmissionFile $submissionFile = null
+        ?Submission $submission = null,
+        ?Representation $representation = null,
+        ?SubmissionFile $submissionFile = null
     ) {
         $this->time = Core::getCurrentDate();
         $this->assocType = $assocType;
@@ -136,7 +136,7 @@ abstract class UsageEvent
     /**
      * Construct the URL from page, op, and params
      */
-    protected function getRouterCanonicalUrl(Request $request, string $canonicalUrlPage = null, string $canonicalUrlOp = null, array $canonicalUrlParams = null): string
+    protected function getRouterCanonicalUrl(Request $request, ?string $canonicalUrlPage = null, ?string $canonicalUrlOp = null, ?array $canonicalUrlParams = null): string
     {
         $router = $request->getRouter(); /** @var PageRouter $router */
         $context = $router->getContext($request);

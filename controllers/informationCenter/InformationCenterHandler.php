@@ -28,7 +28,7 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\log\event\EventLogEntry;
 use PKP\note\NoteDAO;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
@@ -139,7 +139,7 @@ abstract class InformationCenterHandler extends Handler
 
         $user = $request->getUser();
         $notificationManager = new NotificationManager();
-        $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.removedNote')]);
+        $notificationManager->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.removedNote')]);
 
         $json = new JSONMessage(true);
         $jsonViewNotesResponse = $this->viewNotes($args, $request);

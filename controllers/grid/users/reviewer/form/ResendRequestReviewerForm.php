@@ -26,7 +26,7 @@ use PKP\core\PKPApplication;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewerResendRequest;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewRound\ReviewRound;
@@ -95,7 +95,7 @@ class ResendRequestReviewerForm extends ReviewerNotifyActionForm
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification(
                 $currentUser->getId(),
-                PKPNotification::NOTIFICATION_TYPE_SUCCESS,
+                Notification::NOTIFICATION_TYPE_SUCCESS,
                 ['contents' => __('notification.reviewerResendRequest')]
             );
 

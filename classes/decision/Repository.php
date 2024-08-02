@@ -15,10 +15,8 @@ namespace PKP\decision;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\decision\Decision;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Exception;
@@ -29,6 +27,7 @@ use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
+use PKP\notification\Notification;
 use PKP\observers\events\DecisionAdded;
 use PKP\plugins\Hook;
 use PKP\security\Role;
@@ -72,13 +71,13 @@ abstract class Repository
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id, int $submissionId = null): ?Decision
+    public function get(int $id, ?int $submissionId = null): ?Decision
     {
         return $this->dao->get($id, $submissionId);
     }
 
     /** @copydoc DAO::exists() */
-    public function exists(int $id, int $submissionId = null): bool
+    public function exists(int $id, ?int $submissionId = null): bool
     {
         return $this->dao->exists($id, $submissionId);
     }
@@ -232,7 +231,7 @@ abstract class Repository
         $decision = $this->get($decision->getId());
         $context = Application::get()->getRequest()->getContext();
         if (!$context || $context->getId() !== $submission->getData('contextId')) {
-            $context = Services::get('context')->get($submission->getData('contextId'));
+            $context = app()->get('context')->get($submission->getData('contextId'));
         }
 
         // Log the decision
@@ -414,7 +413,7 @@ abstract class Repository
     /**
      * Update notifications controlled by the NotificationManager
      */
-    protected function updateNotifications(Decision $decision, DecisionType $decisionType, Submission $submission)
+    protected function updateNotifications(Decision $decision, DecisionType $decisionType, Submission $submission): void
     {
         $notificationMgr = new NotificationManager();
 

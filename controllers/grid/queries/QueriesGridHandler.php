@@ -18,7 +18,6 @@ namespace PKP\controllers\grid\queries;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
@@ -36,9 +35,8 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\log\SubmissionEmailLogEventType;
-use PKP\notification\NotificationDAO;
+use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
-use PKP\notification\PKPNotification;
 use PKP\query\Query;
 use PKP\query\QueryDAO;
 use PKP\security\authorization\QueryAccessPolicy;
@@ -379,8 +377,7 @@ class QueriesGridHandler extends GridHandler
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $queryDao->deleteObject($query);
 
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notificationDao->deleteByAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->getId());
+        Notification::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->getId())->delete();
 
         if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
             $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
@@ -389,10 +386,10 @@ class QueriesGridHandler extends GridHandler
             $notificationMgr->updateNotification(
                 $request,
                 [
-                    PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
-                    PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
-                    PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
-                    PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+                    Notification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+                    Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+                    Notification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+                    Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
                 ],
                 null,
                 PKPApplication::ASSOC_TYPE_SUBMISSION,
@@ -622,10 +619,10 @@ class QueriesGridHandler extends GridHandler
                 $notificationMgr->updateNotification(
                     $request,
                     [
-                        PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
-                        PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
-                        PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
-                        PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
+                        Notification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR,
+                        Notification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
+                        Notification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER,
+                        Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
                     ],
                     null,
                     PKPApplication::ASSOC_TYPE_SUBMISSION,
@@ -662,7 +659,7 @@ class QueriesGridHandler extends GridHandler
                 $notification = $notificationMgr->createNotification(
                     $request,
                     $userId,
-                    PKPNotification::NOTIFICATION_TYPE_NEW_QUERY,
+                    Notification::NOTIFICATION_TYPE_NEW_QUERY,
                     $request->getContext()->getId(),
                     PKPApplication::ASSOC_TYPE_QUERY,
                     $query->getId(),
@@ -675,7 +672,7 @@ class QueriesGridHandler extends GridHandler
                     $user->getId(),
                     $request->getContext()->getId()
                 );
-                if (in_array(PKPNotification::NOTIFICATION_TYPE_NEW_QUERY, $notificationSubscriptionSettings)) {
+                if (in_array(Notification::NOTIFICATION_TYPE_NEW_QUERY, $notificationSubscriptionSettings)) {
                     continue;
                 }
 

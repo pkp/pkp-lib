@@ -16,7 +16,6 @@ namespace PKP\submission;
 use APP\author\Author;
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\section\Section;
@@ -78,13 +77,13 @@ abstract class Repository
     }
 
     /** @copydoc DAO::exists() */
-    public function exists(int $id, int $contextId = null): bool
+    public function exists(int $id, ?int $contextId = null): bool
     {
         return $this->dao->exists($id, $contextId);
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id, int $contextId = null): ?Submission
+    public function get(int $id, ?int $contextId = null): ?Submission
     {
         return $this->dao->get($id, $contextId);
     }
@@ -108,7 +107,7 @@ abstract class Repository
      * Get a submission by "best" submission id -- url path if it exists,
      * falling back on the internal submission ID otherwise.
      */
-    public function getByBestId(string $idOrUrlPath, int $contextId = null): ?Submission
+    public function getByBestId(string $idOrUrlPath, ?int $contextId = null): ?Submission
     {
         return ctype_digit((string) $idOrUrlPath)
             ? $this->get((int) $idOrUrlPath, $contextId)
@@ -171,7 +170,7 @@ abstract class Repository
         $submissionContext = $request->getContext();
 
         if (!$submissionContext || $submissionContext->getId() != $submission->getData('contextId')) {
-            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+            $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
 
         $dispatcher = $request->getDispatcher();
@@ -196,7 +195,7 @@ abstract class Repository
         if ($submission->getData('submissionProgress') &&
             ($authorDashboard ||
                 $user->hasRole([Role::ROLE_ID_MANAGER], $submissionContext->getId()) ||
-                $user->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::CONTEXT_SITE))) {
+                $user->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::SITE_CONTEXT_ID))) {
             return $dispatcher->url(
                 $request,
                 Application::ROUTE_PAGE,
@@ -304,7 +303,7 @@ abstract class Repository
         // The contextId must match an existing context
         $validator->after(function ($validator) use ($props) {
             if (isset($props['contextId']) && !$validator->errors()->get('contextId')) {
-                $submissionContext = Services::get('context')->exists($props['contextId']);
+                $submissionContext = app()->get('context')->exists($props['contextId']);
                 if (!$submissionContext) {
                     $validator->errors()->add('contextId', __('submission.submit.noContext'));
                 }
@@ -477,28 +476,18 @@ abstract class Repository
             return false;
         }
 
-        $canDelete = false;
-
         // Only allow admins and journal managers to delete submissions, except
         // for authors who can delete their own incomplete submissions
-        if ($currentUser->hasRole([Role::ROLE_ID_MANAGER], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::CONTEXT_SITE)) {
-            $canDelete = true;
-        } else {
-            if ($submission->getData('submissionProgress')) {
-                // Replaces StageAssignmentDAO::getBySubmissionAndRoleIds
-                $assignments = StageAssignment::withSubmissionIds([$submission->getId()])
+        return ($currentUser->hasRole([Role::ROLE_ID_MANAGER], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::SITE_CONTEXT_ID))
+            || (
+                $submission->getData('submissionProgress') &&
+                StageAssignment::withSubmissionIds([$submission->getId()])
                     ->withRoleIds([Role::ROLE_ID_AUTHOR])
                     ->withStageIds([WORKFLOW_STAGE_ID_SUBMISSION])
                     ->withUserId($currentUser->getId())
-                    ->get();
-
-                if ($assignments->isNotEmpty()) {
-                    $canDelete = true;
-                }
-            }
-        }
-
-        return $canDelete;
+                    ->get()
+                    ->isNotEmpty()
+            );
     }
 
     /**

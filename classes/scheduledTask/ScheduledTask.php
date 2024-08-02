@@ -3,15 +3,11 @@
 /**
  * @file classes/scheduledTask/ScheduledTask.php
  *
- * Copyright (c) 2013-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2013-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ScheduledTask
- *
- * @ingroup scheduledTask
- *
- * @see ScheduledTaskDAO
  *
  * @brief Base class for executing scheduled tasks.
  * All scheduled task classes must extend this class and implement execute().
@@ -20,85 +16,84 @@
 namespace PKP\scheduledTask;
 
 use PKP\config\Config;
+use PKP\scheduledTask\ScheduledTaskHelper;
 use PKP\core\Core;
 use PKP\file\PrivateFileManager;
 
 abstract class ScheduledTask
 {
-    /** @var array task arguments */
-    private $_args;
+    /**
+     * This process id
+     */
+    private string $processId;
 
-    /** @var ?string This process id. */
-    private $_processId = null;
+    /**
+     * File path in which execution log messages will be written.
+     */
+    private string $executionLogFile;
 
-    /** @var string File path in which execution log messages will be written. */
-    private $_executionLogFile;
-
-    /** @var ScheduledTaskHelper */
-    private $_helper;
-
+    /** 
+     * The schedule task helper
+     */
+    private ScheduledTaskHelper $helper;
 
     /**
      * Constructor.
-     *
-     * @param array $args
+     * 
+     * @param array $args The task arguments
      */
-    public function __construct($args = [])
+    public function __construct(private array $args = [])
     {
-        $this->_args = $args;
-        $this->_processId = uniqid();
+        $this->processId = uniqid();
 
         // Check the scheduled task execution log folder.
         $fileMgr = new PrivateFileManager();
 
         $scheduledTaskFilesPath = realpath($fileMgr->getBasePath()) . '/' . ScheduledTaskHelper::SCHEDULED_TASK_EXECUTION_LOG_DIR;
         $classNameParts = explode('\\', $this::class); // Separate namespace info from class name
-        $this->_executionLogFile = "{$scheduledTaskFilesPath}/" . end($classNameParts) .
-            '-' . $this->getProcessId() . '-' . date('Ymd') . '.log';
+        
+        $this->executionLogFile = "{$scheduledTaskFilesPath}/"
+            . end($classNameParts)
+            . '-'
+            . $this->getProcessId()
+            . '-' 
+            . date('Ymd')
+            . '.log';
+
         if (!$fileMgr->fileExists($scheduledTaskFilesPath, 'dir')) {
             $success = $fileMgr->mkdirtree($scheduledTaskFilesPath);
             if (!$success) {
                 // files directory wrong configuration?
                 assert(false);
-                $this->_executionLogFile = null;
+                $this->executionLogFile = null;
             }
         }
     }
 
-
-    //
-    // Protected methods.
-    //
     /**
      * Get this process id.
-     *
-     * @return string
      */
-    public function getProcessId()
+    public function getProcessId(): ?string
     {
-        return $this->_processId;
+        return $this->processId;
     }
 
     /**
      * Get scheduled task helper object.
-     *
-     * @return ScheduledTaskHelper
      */
-    public function getHelper()
+    public function getHelper(): ScheduledTaskHelper
     {
-        if (!$this->_helper) {
-            $this->_helper = new ScheduledTaskHelper();
+        if (!isset($this->helper)) {
+            $this->helper = new ScheduledTaskHelper;
         }
-        return $this->_helper;
+        
+        return $this->helper;
     }
 
     /**
-     * Get the scheduled task name. Override to
-     * define a custom task name.
-     *
-     * @return string
+     * Get the scheduled task name. Override to define a custom task name.
      */
-    public function getName()
+    public function getName(): string
     {
         return __('admin.scheduledTask');
     }
@@ -107,12 +102,11 @@ abstract class ScheduledTask
      * Add an entry into the execution log.
      *
      * @param string $message A translated message.
-     * @param string $type (optional) One of the ScheduledTaskHelper
-     * SCHEDULED_TASK_MESSAGE_TYPE... constants.
+     * @param ?string $type One of the ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE... constants
      */
-    public function addExecutionLogEntry($message, $type = null)
+    public function addExecutionLogEntry(string $message, ?string $type = null): void
     {
-        $logFile = $this->_executionLogFile;
+        $logFile = $this->executionLogFile;
 
         if (!$message) {
             return;
@@ -135,30 +129,21 @@ abstract class ScheduledTask
         fclose($fp);
     }
 
-
-    //
-    // Protected abstract methods.
-    //
     /**
      * Implement this method to execute the task actions.
      *
-     * @return bool true iff success
+     * @return bool true if successful
      */
-    abstract protected function executeActions();
+    abstract protected function executeActions(): bool;
 
-
-    //
-    // Public methods.
-    //
     /**
      * Make sure the execution process follow the required steps.
      * This is not the method one should extend to implement the
      * task actions, for this see ScheduledTask::executeActions().
      *
-     * @return bool Whether or not the task was succesfully
-     * executed.
+     * @return bool Whether the task was successfully executed.
      */
-    public function execute()
+    public function execute(): bool
     {
         $this->addExecutionLogEntry(Config::getVar('general', 'base_url'));
         $this->addExecutionLogEntry(__('admin.scheduledTask.startTime'), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
@@ -168,7 +153,7 @@ abstract class ScheduledTask
         $this->addExecutionLogEntry(__('admin.scheduledTask.stopTime'), ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_NOTICE);
 
         $helper = $this->getHelper();
-        $helper->notifyExecutionResult($this->_processId, $this->getName(), $result, $this->_executionLogFile);
+        $helper->notifyExecutionResult($this->processId, $this->getName(), $result, $this->executionLogFile);
 
         return $result;
     }

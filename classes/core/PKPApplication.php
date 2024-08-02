@@ -88,10 +88,15 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     public const ROUTE_PAGE = 'page';
     public const ROUTE_API = 'api';
 
-    public const CONTEXT_SITE = 0;
-    public const CONTEXT_ID_NONE = 0;
-    public const CONTEXT_ID_ALL = '_';
-    public const REVIEW_ROUND_NONE = 0;
+    public const SITE_CONTEXT_ID_ALL = -1;
+    public const SITE_CONTEXT_ID = null;
+    public const SITE_CONTEXT_PATH = 'index';
+    /** @deprecated 3.5 Use Application::SITE_CONTEXT_ID, which had the value modified to null */
+    public const CONTEXT_SITE = self::SITE_CONTEXT_ID;
+    /** @deprecated 3.5 Use Application::SITE_CONTEXT_ID, which had the value modified to null */
+    public const CONTEXT_ID_NONE = self::SITE_CONTEXT_ID;
+    /** @deprecated 3.5 Use Application::SITE_CONTEXT_PATH, which had the value modified to "index" */
+    public const CONTEXT_ID_ALL = self::SITE_CONTEXT_ID_ALL;
 
     public const ASSOC_TYPE_PRODUCTION_ASSIGNMENT = 0x0000202;
     public const ASSOC_TYPE_SUBMISSION_FILE = 0x0000203;
@@ -144,6 +149,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         // Ensure that nobody registers for hooks that are no longer supported
         Hook::addUnsupportedHooks('APIHandler::endpoints'); // pkp/pkp-lib#9434 Unavailable since stable-3_4_0; remove for 3.6.0 development branch
         Hook::addUnsupportedHooks('Mail::send', 'EditorAction::modifyDecisionOptions', 'EditorAction::recordDecision', 'Announcement::getProperties', 'Author::getProperties::values', 'EmailTemplate::getProperties', 'Galley::getProperties::values', 'Issue::getProperties::fullProperties', 'Issue::getProperties::summaryProperties', 'Issue::getProperties::values', 'Publication::getProperties', 'Section::getProperties::fullProperties', 'Section::getProperties::summaryProperties', 'Section::getProperties::values', 'Submission::getProperties::values', 'SubmissionFile::getProperties', 'User::getProperties::fullProperties', 'User::getProperties::reviewerSummaryProperties', 'User::getProperties::summaryProperties', 'User::getProperties::values', 'Announcement::getMany::queryBuilder', 'Announcement::getMany::queryObject', 'Author::getMany::queryBuilder', 'Author::getMany::queryObject', 'EmailTemplate::getMany::queryBuilder', 'EmailTemplate::getMany::queryObject::custom', 'EmailTemplate::getMany::queryObject::default', 'Galley::getMany::queryBuilder', 'Issue::getMany::queryBuilder', 'Publication::getMany::queryBuilder', 'Publication::getMany::queryObject', 'Stats::getOrderedObjects::queryBuilder', 'Stats::getRecords::queryBuilder', 'Stats::queryBuilder', 'Stats::queryObject', 'Submission::getMany::queryBuilder', 'Submission::getMany::queryObject', 'SubmissionFile::getMany::queryBuilder', 'SubmissionFile::getMany::queryObject', 'User::getMany::queryBuilder', 'User::getMany::queryObject', 'User::getReviewers::queryBuilder', 'CategoryDAO::_fromRow', 'IssueDAO::_fromRow', 'IssueDAO::_returnIssueFromRow', 'SectionDAO::_fromRow', 'UserDAO::_returnUserFromRow', 'UserDAO::_returnUserFromRowWithData', 'UserDAO::_returnUserFromRowWithReviewerStats', 'UserGroupDAO::_returnFromRow', 'ReviewerSubmissionDAO::_fromRow', 'API::stats::publication::abstract::params', 'API::stats::publication::galley::params', 'API::stats::publications::abstract::params', 'API::stats::publications::galley::params', 'PKPLocale::installLocale', 'PKPLocale::registerLocaleFile', 'PKPLocale::registerLocaleFile::isValidLocaleFile', 'PKPLocale::translate', 'API::submissions::files::params', 'ArticleGalleyDAO::getLocalizedGalleysByArticle', 'PluginGridHandler::plugin', 'PluginGridHandler::plugin', 'SubmissionFile::assignedFileStages', 'SubmissionHandler::saveSubmit'); // From the 3.4.0 Release Notebook; remove for 3.6.0 development branch
+        Hook::addUnsupportedHooks('AcronPlugin::parseCronTab'); // pkp/pkp-lib#9678 Unavailable since stable-3_5_0;
 
         // If not in strict mode, globally expose constants on this class.
         if (!PKP_STRICT_MODE) {
@@ -151,7 +157,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
                 'WORKFLOW_TYPE_EDITORIAL', 'WORKFLOW_TYPE_AUTHOR', 'PHP_REQUIRED_VERSION',
                 'API_VERSION',
                 'ROUTE_COMPONENT', 'ROUTE_PAGE', 'ROUTE_API',
-                'CONTEXT_SITE', 'CONTEXT_ID_NONE', 'CONTEXT_ID_ALL', 'REVIEW_ROUND_NONE',
+                'CONTEXT_SITE', 'CONTEXT_ID_NONE', 'CONTEXT_ID_ALL',
 
                 'ASSOC_TYPE_PRODUCTION_ASSIGNMENT',
                 'ASSOC_TYPE_SUBMISSION_FILE',
@@ -293,7 +299,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         if (!strlen((string) $uniqueSiteId)) {
             $uniqueSiteId = PKPString::generateUUID();
             $site->setUniqueSiteID($uniqueSiteId);
-            /** @var SiteDAO */
+            /** @var \PKP\site\SiteDAO */
             $siteDao = DAORegistry::getDAO('SiteDAO');
             $siteDao->updateObject($site);
         }
@@ -421,26 +427,18 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      *
      * @return array
      */
-    public function getEnabledProducts($category = null, $mainContextId = null)
+    public function getEnabledProducts($category = null, ?int $mainContextId = null)
     {
-        if (is_null($mainContextId)) {
+        if ($mainContextId === null) {
             $request = $this->getRequest();
             $router = $request->getRouter();
 
-            $mainContextId = $router->getContext($request)?->getId() ?? self::CONTEXT_SITE;
+            $mainContextId = $router->getContext($request)?->getId() ?? self::SITE_CONTEXT_ID;
         }
-        if (!isset($this->enabledProducts[$mainContextId])) {
-            $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var \PKP\site\VersionDAO $versionDao */
-            $this->enabledProducts[$mainContextId] = $versionDao->getCurrentProducts($mainContextId);
-        }
+        $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var \PKP\site\VersionDAO $versionDao */
+        $enabledProducts = $this->enabledProducts[(int) $mainContextId] ??= $versionDao->getCurrentProducts($mainContextId);
 
-        if (is_null($category)) {
-            return $this->enabledProducts[$mainContextId];
-        } elseif (isset($this->enabledProducts[$mainContextId][$category])) {
-            return $this->enabledProducts[$mainContextId][$category];
-        } else {
-            return [];
-        }
+        return $category ? ($enabledProducts[$category] ?? []) : $enabledProducts;
     }
 
     /**
@@ -483,7 +481,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'NavigationMenuItemDAO' => 'PKP\navigationMenu\NavigationMenuItemDAO',
             'NavigationMenuItemAssignmentDAO' => 'PKP\navigationMenu\NavigationMenuItemAssignmentDAO',
             'NoteDAO' => 'PKP\note\NoteDAO',
-            'NotificationDAO' => 'PKP\notification\NotificationDAO',
             'NotificationSettingsDAO' => 'PKP\notification\NotificationSettingsDAO',
             'NotificationSubscriptionSettingsDAO' => 'PKP\notification\NotificationSubscriptionSettingsDAO',
             'PluginGalleryDAO' => 'PKP\plugins\PluginGalleryDAO',
@@ -495,7 +492,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'ReviewFormResponseDAO' => 'PKP\reviewForm\ReviewFormResponseDAO',
             'ReviewRoundDAO' => 'PKP\submission\reviewRound\ReviewRoundDAO',
             'RoleDAO' => 'PKP\security\RoleDAO',
-            'ScheduledTaskDAO' => 'PKP\scheduledTask\ScheduledTaskDAO',
             'SiteDAO' => 'PKP\site\SiteDAO',
             'SubEditorsDAO' => 'PKP\context\SubEditorsDAO',
             'SubmissionAgencyDAO' => 'PKP\submission\SubmissionAgencyDAO',

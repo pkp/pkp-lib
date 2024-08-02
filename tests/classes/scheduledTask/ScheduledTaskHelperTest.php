@@ -148,6 +148,6 @@ class ScheduledTaskHelperTest extends PKPTestCase
     private function _setReportErrorOnly($state)
     {
         $configData = & Config::getData();
-        $configData['general']['scheduled_tasks_report_error_only'] = $state;
+        $configData['schedule']['scheduled_tasks_report_error_only'] = $state;
     }
 }

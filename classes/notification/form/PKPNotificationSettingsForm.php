@@ -25,8 +25,8 @@ use APP\template\TemplateManager;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
-use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 
 class PKPNotificationSettingsForm extends Form
@@ -82,27 +82,27 @@ class PKPNotificationSettingsForm extends Form
             // @see RegistrationForm::execute()
             ['categoryKey' => 'notification.type.public',
                 'settings' => [
-                    PKPNotification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
+                    Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT,
                 ]
             ],
             ['categoryKey' => 'notification.type.submissions',
                 'settings' => [
-                    PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
-                    PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
-                    PKPNotification::NOTIFICATION_TYPE_NEW_QUERY,
-                    PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
+                    Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED,
+                    Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED,
+                    Notification::NOTIFICATION_TYPE_NEW_QUERY,
+                    Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
                 ]
             ],
             ['categoryKey' => 'notification.type.reviewing',
                 'settings' => [
-                    PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
+                    Notification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
                 ]
             ],
             ['categoryKey' => 'user.role.editors',
                 'settings' => array_filter([
-                    PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REMINDER,
+                    Notification::NOTIFICATION_TYPE_EDITORIAL_REMINDER,
                     $context && $context->getData('editorialStatsEmail')
-                        ? PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT
+                        ? Notification::NOTIFICATION_TYPE_EDITORIAL_REPORT
                         : '',
                 ])
             ],

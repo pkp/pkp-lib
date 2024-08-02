@@ -14,7 +14,6 @@
 namespace PKP\decision\types\traits;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\submission\Submission;
@@ -208,7 +207,7 @@ trait IsRecommendation
     {
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
         $submissionDir = Repo::submissionFile()->getSubmissionDir($context->getId(), $submission->getId());
-        $fileId = Services::get('file')->add(
+        $fileId = app()->get('file')->add(
             $filepath,
             $submissionDir . '/' . uniqid() . '.' . $extension
         );

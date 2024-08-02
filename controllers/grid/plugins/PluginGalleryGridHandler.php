@@ -28,7 +28,7 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\plugins\GalleryPlugin;
 use PKP\plugins\PluginGalleryDAO;
 use PKP\plugins\PluginHelper;
@@ -149,11 +149,16 @@ class PluginGalleryGridHandler extends GridHandler
     {
         // Get all plugins.
         $pluginGalleryDao = DAORegistry::getDAO('PluginGalleryDAO'); /** @var PluginGalleryDAO $pluginGalleryDao */
-        return $pluginGalleryDao->getNewestCompatible(
-            Application::get(),
-            $request->getUserVar('category'),
-            $request->getUserVar('pluginText')
-        );
+        try {
+            return $pluginGalleryDao->getNewestCompatible(
+                Application::get(),
+                $request->getUserVar('category'),
+                $request->getUserVar('pluginText')
+            );
+        } catch (\GuzzleHttp\Exception\TransferException $e) {
+            error_log($e);
+            return [];
+        }
     }
 
     /**
@@ -319,7 +324,7 @@ class PluginGalleryGridHandler extends GridHandler
             $version = $pluginVersion->getVersionString(false);
             $notificationMgr->createTrivialNotification(
                 $user->getId(),
-                PKPNotification::NOTIFICATION_TYPE_SUCCESS,
+                Notification::NOTIFICATION_TYPE_SUCCESS,
                 [
                     'contents' => $isUpgrade
                         ? __('manager.plugins.upgradeSuccessful', ['versionString' => $version])
@@ -330,7 +335,7 @@ class PluginGalleryGridHandler extends GridHandler
             // Failure notification
             $notificationMgr->createTrivialNotification(
                 $user->getId(),
-                PKPNotification::NOTIFICATION_TYPE_ERROR,
+                Notification::NOTIFICATION_TYPE_ERROR,
                 ['contents' => $e->getMessage()]
             );
         } finally {

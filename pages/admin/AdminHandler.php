@@ -18,7 +18,6 @@ namespace PKP\pages\admin;
 
 use APP\components\forms\context\ContextForm;
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
@@ -120,7 +119,7 @@ class AdminHandler extends Handler
                 'breadcrumbs' => [
                     [
                         'id' => 'admin',
-                        'url' => $router->url($request, 'index', 'admin'),
+                        'url' => $router->url($request, Application::SITE_CONTEXT_PATH, 'admin'),
                         'name' => __('navigation.admin'),
                     ]
                 ]
@@ -193,10 +192,10 @@ class AdminHandler extends Handler
         $site = $request->getSite();
         $dispatcher = $request->getDispatcher();
 
-        $apiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'site');
-        $themeApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'site/theme');
-        $temporaryFileApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'temporaryFiles');
-        $announcementsApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::CONTEXT_ID_ALL, 'announcements');
+        $apiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'site');
+        $themeApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'site/theme');
+        $temporaryFileApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'temporaryFiles');
+        $announcementsApiUrl = $dispatcher->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'announcements');
 
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getSiteFilesPath();
@@ -204,7 +203,7 @@ class AdminHandler extends Handler
         $locales = $site->getSupportedLocaleNames();
         $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
 
-        $contexts = Services::get('context')->getManySummary();
+        $contexts = app()->get('context')->getManySummary();
 
         $siteAppearanceForm = new PKPSiteAppearanceForm($apiUrl, $locales, $site, $baseUrl, $temporaryFileApiUrl);
         $siteConfigForm = new PKPSiteConfigForm($apiUrl, $locales, $site);
@@ -261,7 +260,7 @@ class AdminHandler extends Handler
     private function siteSettingsAvailability(): array
     {
         // The multi context UI is also displayed when the journal has no contexts
-        $isMultiContextSite = Services::get('context')->getCount() !== 1;
+        $isMultiContextSite = app()->get('context')->getCount() !== 1;
         return [
             'siteSetup' => true,
             'languages' => true,
@@ -296,7 +295,7 @@ class AdminHandler extends Handler
             $request->getDispatcher()->handle404();
         }
 
-        $contextService = Services::get('context');
+        $contextService = app()->get('context');
         $context = $contextService->get((int) $args[0]);
 
         if (empty($context)) {
@@ -340,7 +339,7 @@ class AdminHandler extends Handler
         $breadcrumbs[] = [
             'id' => 'contexts',
             'name' => __('admin.hostedContexts'),
-            'url' => $router->url($request, 'index', 'admin', 'contexts'),
+            'url' => $router->url($request, Application::SITE_CONTEXT_PATH, 'admin', 'contexts'),
         ];
         $breadcrumbs[] = [
             'id' => 'wizard',
@@ -566,7 +565,7 @@ class AdminHandler extends Handler
                     'value' => 'created_at',
                 ]
             ],
-            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'index', 'jobs/all'),
+            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'jobs/all'),
         ];
     }
 
@@ -639,8 +638,8 @@ class AdminHandler extends Handler
                     'value' => 'action',
                 ],
             ],
-            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'index', 'jobs/failed/all'),
-            'apiUrlRedispatchAll' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'index', 'jobs/redispatch/all'),
+            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'jobs/failed/all'),
+            'apiUrlRedispatchAll' => $request->getDispatcher()->url($request, Application::ROUTE_API, Application::SITE_CONTEXT_PATH, 'jobs/redispatch/all'),
         ];
     }
 
@@ -714,7 +713,7 @@ class AdminHandler extends Handler
         $apiUrl = $dispatcher->url(
             $request,
             Application::ROUTE_API,
-            Application::CONTEXT_ID_ALL,
+            Application::SITE_CONTEXT_PATH,
             'highlights'
         );
 
@@ -724,7 +723,7 @@ class AdminHandler extends Handler
             $dispatcher->url(
                 Application::get()->getRequest(),
                 Application::ROUTE_API,
-                Application::CONTEXT_ID_ALL,
+                Application::SITE_CONTEXT_PATH,
                 'temporaryFiles'
             )
         );
@@ -770,7 +769,7 @@ class AdminHandler extends Handler
                 'apiUrl' => $apiUrl,
                 'form' => $form,
                 'getParams' => [
-                    'contextIds' => [Application::CONTEXT_ID_NONE],
+                    'contextIds' => [Application::SITE_CONTEXT_ID],
                     'count' => 30,
                 ],
                 'items' => $items->values(),

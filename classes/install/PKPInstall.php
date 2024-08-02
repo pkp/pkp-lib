@@ -29,7 +29,6 @@
 namespace PKP\install;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\Config as FacadesConfig;
 use PKP\config\Config;
@@ -99,10 +98,10 @@ class PKPInstall extends Installer
             'collation' => 'utf8_general_ci',
         ];
         FacadesConfig::set('database', $config);
-        
+
         // Need to register the `DatabaseServiceProvider` as when the `SessionServiceProvider`
-        // registers itself in the `\PKP\core\PKPContainer::registerConfiguredProviders`, it 
-        // registers an instance of `\Illuminate\Database\ConnectionInterface` which contains the 
+        // registers itself in the `\PKP\core\PKPContainer::registerConfiguredProviders`, it
+        // registers an instance of `\Illuminate\Database\ConnectionInterface` which contains the
         // initial details from the `config.inc.php` rather than what is set through the install form.
         app()->register(new \Illuminate\Database\DatabaseServiceProvider(app()));
 
@@ -239,7 +238,7 @@ class PKPInstall extends Installer
         // Create an admin user group
         $adminUserGroup = Repo::userGroup()->newDataObject();
         $adminUserGroup->setRoleId(Role::ROLE_ID_SITE_ADMIN);
-        $adminUserGroup->setContextId(\PKP\core\PKPApplication::CONTEXT_ID_NONE);
+        $adminUserGroup->setContextId(\PKP\core\PKPApplication::SITE_CONTEXT_ID);
         $adminUserGroup->setDefault(true);
         foreach ($this->installedLocales as $locale) {
             $name = __('default.groups.name.siteAdmin', [], $locale);
@@ -256,7 +255,7 @@ class PKPInstall extends Installer
         /** @var SiteDAO */
         $siteDao = DAORegistry::getDAO('SiteDAO');
         $site = $siteDao->newDataObject();
-        $site->setRedirect(0);
+        $site->setRedirect(null);
         $site->setMinPasswordLength(static::MIN_PASSWORD_LENGTH);
         $site->setPrimaryLocale($siteLocale);
         $site->setInstalledLocales($this->installedLocales);
@@ -267,7 +266,7 @@ class PKPInstall extends Installer
         Repo::emailTemplate()->dao->installEmailTemplates(Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(), $this->installedLocales);
 
         // Install default site settings
-        $schemaService = Services::get('schema');
+        $schemaService = app()->get('schema');
         $site = $schemaService->setDefaults(PKPSchemaService::SCHEMA_SITE, $site, $site->getSupportedLocales(), $site->getPrimaryLocale());
         $site->setData('contactEmail', $this->getParam('adminEmail'), $site->getPrimaryLocale());
         $siteDao->updateObject($site);

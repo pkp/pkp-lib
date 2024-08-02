@@ -17,7 +17,6 @@
 
 namespace PKP\API\v1\stats\editorial;
 
-use APP\core\Services;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -145,7 +144,7 @@ abstract class PKPStatsEditorialController extends PKPBaseController
                     $item['name'] = __($item['name']);
                     return $item;
                 },
-                Services::get('editorialStats')->getOverview($params)
+                app()->get('editorialStats')->getOverview($params)
             ),
             Response::HTTP_OK
         );
@@ -188,7 +187,7 @@ abstract class PKPStatsEditorialController extends PKPBaseController
 
         $params['contextIds'] = [$request->getContext()->getId()];
 
-        $statsEditorialService = Services::get('editorialStats'); /** @var \PKP\services\PKPStatsEditorialService $statsEditorialService */
+        $statsEditorialService = app()->get('editorialStats'); /** @var \PKP\services\PKPStatsEditorialService $statsEditorialService */
 
         return response()->json($statsEditorialService->getAverages($params), Response::HTTP_OK);
     }

@@ -15,9 +15,7 @@ namespace PKP\submissionFile;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\publication\Publication;
 use Exception;
@@ -33,7 +31,7 @@ use PKP\log\event\SubmissionFileEventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\RevisedVersionNotify;
 use PKP\note\NoteDAO;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\plugins\Hook;
 use PKP\query\QueryDAO;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
@@ -76,13 +74,13 @@ abstract class Repository
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id, int $submissionId = null): ?SubmissionFile
+    public function get(int $id, ?int $submissionId = null): ?SubmissionFile
     {
         return $this->dao->get($id, $submissionId);
     }
 
     /** @copydoc DAO::exists() */
-    public function exists(int $id, int $submissionId = null): bool
+    public function exists(int $id, ?int $submissionId = null): bool
     {
         return $this->dao->exists($id, $submissionId);
     }
@@ -319,7 +317,7 @@ abstract class Repository
             $notificationMgr = new NotificationManager();
             $notificationMgr->updateNotification(
                 $this->request,
-                [PKPNotification::NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS],
+                [Notification::NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, Notification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS],
                 $authorUserIds,
                 PKPApplication::ASSOC_TYPE_SUBMISSION,
                 $submissionFile->getData('submissionId')
@@ -488,7 +486,7 @@ abstract class Repository
                 ->includeDependentFiles(true)
                 ->getCount();
             if (!$countFileShares) {
-                Services::get('file')->delete($revision->fileId);
+                app()->get('file')->delete($revision->fileId);
             }
         }
 
@@ -764,7 +762,7 @@ abstract class Repository
     protected function notifyEditorsRevisionsUploaded(SubmissionFile $submissionFile): void
     {
         $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
-        $context = Services::get('context')->get($submission->getData('contextId'));
+        $context = app()->get('context')->get($submission->getData('contextId'));
         $uploader = Repo::user()->get($submissionFile->getData('uploaderUserId'));
         $user = $this->request->getUser();
 
@@ -861,7 +859,7 @@ abstract class Repository
 
         $oldFileId = $submissionFile->getData('fileId');
 
-        $oldFile = Services::get('file')->get($oldFileId);
+        $oldFile = app()->get('file')->get($oldFileId);
 
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
@@ -874,7 +872,7 @@ abstract class Repository
                 $newPublication->getData('submissionId')
             );
 
-        $newFileId = Services::get('file')->add(
+        $newFileId = app()->get('file')->add(
             Config::getVar('files', 'files_dir') . '/' . $oldFile->path,
             $submissionDir . '/' . uniqid() . '.' . $extension
         );

@@ -380,7 +380,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     Application::ASSOC_TYPE_ISSUE_GALLEY => [
                         'issue/download', 'issue/viewFile']
                 ];
-                $pageAndOp[Application::getContextAssocType()][] = 'index';
+                $pageAndOp[Application::getContextAssocType()][] = Application::SITE_CONTEXT_PATH;
                 break;
             case 'omp':
                 $pageAndOp = $pageAndOp + [
@@ -400,7 +400,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     Application::ASSOC_TYPE_SUBMISSION => [
                         'preprint/view']
                 ];
-                $pageAndOp[Application::getContextAssocType()][] = 'index';
+                $pageAndOp[Application::getContextAssocType()][] = Application::SITE_CONTEXT_PATH;
                 break;
             default:
                 throw new Exception('Unrecognized application name.');

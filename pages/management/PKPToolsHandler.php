@@ -21,7 +21,7 @@ use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\plugins\ImportExportPlugin;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
@@ -147,7 +147,7 @@ class PKPToolsHandler extends ManagementHandler
 
         $user = $request->getUser();
         $notificationManager = new NotificationManager();
-        $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('manager.setup.resetPermissions.success')]);
+        $notificationManager->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('manager.setup.resetPermissions.success')]);
 
         // This is an ugly hack to force the PageHandler to return JSON, so this
         // method can communicate properly with the AjaxFormHandler. Returning a

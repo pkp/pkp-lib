@@ -20,7 +20,6 @@ namespace PKP\observers\listeners;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Support\Facades\Mail;
@@ -28,6 +27,7 @@ use PKP\context\SubEditorsDAO;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\SubmissionNeedsEditor;
+use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\security\Role;

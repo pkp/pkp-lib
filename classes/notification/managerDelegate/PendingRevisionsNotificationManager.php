@@ -19,12 +19,11 @@ namespace PKP\notification\managerDelegate;
 use APP\core\Application;
 use APP\decision\Decision;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use PKP\controllers\api\file\linkAction\AddRevisionLinkAction;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
-use PKP\notification\NotificationDAO;
+use PKP\notification\Notification;
 use PKP\notification\NotificationManagerDelegate;
-use PKP\notification\PKPNotification;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\workflow\WorkflowStageDAO;
@@ -34,7 +33,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getStyleClass()
      */
-    public function getStyleClass($notification)
+    public function getStyleClass(Notification $notification): string
     {
         return NOTIFICATION_STYLE_CLASS_WARNING;
     }
@@ -42,16 +41,16 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationUrl()
      */
-    public function getNotificationUrl($request, $notification)
+    public function getNotificationUrl(PKPRequest $request, Notification $notification): ?string
     {
-        $submission = Repo::submission()->get($notification->getAssocId());
-        return Repo::submission()->getWorkflowUrlByUserRoles($submission, $notification->getUserId());
+        $submission = Repo::submission()->get($notification->assocId);
+        return Repo::submission()->getWorkflowUrlByUserRoles($submission, $notification->userId);
     }
 
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationMessage($request, $notification)
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
     {
         $stageData = $this->_getStageDataByType();
         $stageKey = $stageData['translationKey'];
@@ -62,11 +61,11 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationContents()
      */
-    public function getNotificationContents($request, $notification)
+    public function getNotificationContents(PKPRequest $request, Notification $notification): mixed
     {
         $stageData = $this->_getStageDataByType();
         $stageId = $stageData['id'];
-        $submissionId = $notification->getAssocId();
+        $submissionId = $notification->assocId;
 
         $submission = Repo::submission()->get($submissionId);
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
@@ -84,7 +83,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationTitle()
      */
-    public function getNotificationTitle($notification)
+    public function getNotificationTitle(Notification $notification): string
     {
         $stageData = $this->_getStageDataByType();
         $stageKey = $stageData['translationKey'];
@@ -94,7 +93,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc NotificationManagerDelegate::updateNotification()
      */
-    public function updateNotification($request, $userIds, $assocType, $assocId)
+    public function updateNotification(PKPRequest $request, ?array $userIds, int $assocType, int $assocId): void
     {
         $userId = current($userIds);
         $submissionId = $assocId;
@@ -113,18 +112,13 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
                 $removeNotifications = true;
             } else {
                 $context = $request->getContext();
-                $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-                $notificationFactory = $notificationDao->getByAssoc(
-                    Application::ASSOC_TYPE_SUBMISSION,
-                    $submissionId,
-                    $userId,
-                    PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS,
-                    $context->getId()
-                );
-                if (!$notificationFactory->next()) {
-                    // Create or update a pending revision task notification.
-                    $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-                    $notificationDao->build(
+                $notification = Notification::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+                    ->withUserId($userId)
+                    ->withType(Notification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS)
+                    ->withContextId($context->getId())
+                    ->first();
+                if (!$notification) {
+                    Repo::notification()->build(
                         $context->getId(),
                         Notification::NOTIFICATION_LEVEL_TASK,
                         $this->getNotificationType(),
@@ -142,9 +136,16 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
 
         if ($removeNotifications) {
             $context = $request->getContext();
-            $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-            $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId, $userId, $this->getNotificationType(), $context->getId());
-            $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId, $userId, PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
+            Notification::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+                ->withUserId($userId)
+                ->withType($this->getNotificationType())
+                ->withContextId($context->getId())
+                ->delete();
+            Notification::withAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId)
+                ->withUserId($userId)
+                ->withType(Notification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS)
+                ->withContextId($context->getId())
+                ->delete();
         }
     }
 
@@ -153,23 +154,16 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     // Private helper methods.
     //
     /**
-     * Get the data for an workflow stage by
-     * pending revisions notification type.
-     *
-     * @return string
+     * Get the data for an workflow stage by pending revisions notification type.
      */
-    private function _getStageDataByType()
+    private function _getStageDataByType(): ?array
     {
         $stagesData = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
 
-        switch ($this->getNotificationType()) {
-            case PKPNotification::NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS:
-                return $stagesData[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] ?? null;
-            case PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS:
-                return $stagesData[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] ?? null;
-            default:
-                assert(false);
-        }
+        return match ($this->getNotificationType()) {
+            Notification::NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS => $stagesData[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] ?? null,
+            Notification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS => $stagesData[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] ?? null,
+        };
     }
 }
 

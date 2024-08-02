@@ -30,53 +30,40 @@ class WorkflowStageDAO extends \PKP\db\DAO
 
     /**
      * Convert a stage id into a stage path
-     *
-     * @param int $stageId
-     *
-     * @return string|null
      */
-    public static function getPathFromId($stageId)
+    public static function getPathFromId(int $stageId): ?string
     {
-        static $stageMapping = [
+        return match($stageId) {
             WORKFLOW_STAGE_ID_SUBMISSION => self::WORKFLOW_STAGE_PATH_SUBMISSION,
             WORKFLOW_STAGE_ID_INTERNAL_REVIEW => self::WORKFLOW_STAGE_PATH_INTERNAL_REVIEW,
             WORKFLOW_STAGE_ID_EXTERNAL_REVIEW => self::WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW,
             WORKFLOW_STAGE_ID_EDITING => self::WORKFLOW_STAGE_PATH_EDITING,
-            WORKFLOW_STAGE_ID_PRODUCTION => self::WORKFLOW_STAGE_PATH_PRODUCTION
-        ];
-        return $stageMapping[$stageId] ?? null;
+            WORKFLOW_STAGE_ID_PRODUCTION => self::WORKFLOW_STAGE_PATH_PRODUCTION,
+            default => null
+        };
     }
 
     /**
      * Convert a stage path into a stage id
-     *
-     * @param string $stagePath
-     *
-     * @return int|null
      */
-    public static function getIdFromPath($stagePath)
+    public static function getIdFromPath(string $stagePath): ?int
     {
-        static $stageMapping = [
+        return match($stagePath) {
             self::WORKFLOW_STAGE_PATH_SUBMISSION => WORKFLOW_STAGE_ID_SUBMISSION,
             self::WORKFLOW_STAGE_PATH_INTERNAL_REVIEW => WORKFLOW_STAGE_ID_INTERNAL_REVIEW,
             self::WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW => WORKFLOW_STAGE_ID_EXTERNAL_REVIEW,
             self::WORKFLOW_STAGE_PATH_EDITING => WORKFLOW_STAGE_ID_EDITING,
-            self::WORKFLOW_STAGE_PATH_PRODUCTION => WORKFLOW_STAGE_ID_PRODUCTION
-        ];
-        return $stageMapping[$stagePath] ?? null;
+            self::WORKFLOW_STAGE_PATH_PRODUCTION => WORKFLOW_STAGE_ID_PRODUCTION,
+            default => null
+        };
     }
 
     /**
      * Convert a stage id into a stage translation key
-     *
-     * @param int $stageId
-     *
-     * @return string|null
      */
-    public static function getTranslationKeyFromId($stageId)
+    public static function getTranslationKeyFromId(int $stageId): ?string
     {
         $stageMapping = self::getWorkflowStageTranslationKeys(false);
-        assert(isset($stageMapping[$stageId]));
         return $stageMapping[$stageId];
     }
 
@@ -106,12 +93,9 @@ class WorkflowStageDAO extends \PKP\db\DAO
     }
 
     /**
-     * Return a mapping of workflow stages, its translation keys and
-     * paths.
-     *
-     * @return array
+     * Return a mapping of workflow stages, its translation keys and paths.
      */
-    public static function getWorkflowStageKeysAndPaths()
+    public static function getWorkflowStageKeysAndPaths(): array
     {
         $workflowStages = self::getWorkflowStageTranslationKeys();
         $stageMapping = [];
@@ -129,14 +113,8 @@ class WorkflowStageDAO extends \PKP\db\DAO
     /**
      * Returns an array containing data for rendering the stage workflow tabs
      * for a submission.
-     *
-     * @param Submission $submission
-     * @param array $stagesWithDecisions
-     * @param array $stageNotifications
-     *
-     * @return array
      */
-    public static function getStageStatusesBySubmission($submission, $stagesWithDecisions, $stageNotifications)
+    public static function getStageStatusesBySubmission(Submission $submission, array $stagesWithDecisions, array $stageNotifications): array
     {
         $currentStageId = $submission->getData('stageId');
         $workflowStages = self::getWorkflowStageKeysAndPaths();

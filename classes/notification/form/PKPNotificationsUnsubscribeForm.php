@@ -20,11 +20,11 @@
 namespace PKP\notification\form;
 
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 
 class PKPNotificationsUnsubscribeForm extends Form
@@ -84,8 +84,8 @@ class PKPNotificationsUnsubscribeForm extends Form
      */
     public function fetch($request, $template = null, $display = false)
     {
-        $userId = $this->_notification->getUserId();
-        $contextId = $this->_notification->getContextId();
+        $userId = $this->_notification->userId;
+        $contextId = $this->_notification->contextId;
 
         if ($contextId != $request->getContext()->getId()) {
             $dispatcher = $request->getDispatcher();
@@ -104,7 +104,7 @@ class PKPNotificationsUnsubscribeForm extends Form
             'userEmail' => $user->getEmail(),
             'emailSettings' => $emailSettings,
             'validationToken' => $this->_validationToken,
-            'notificationId' => $this->_notification->getId(),
+            'notificationId' => $this->_notification->id,
         ]);
 
         return parent::fetch($request, $template, $display);
@@ -125,7 +125,7 @@ class PKPNotificationsUnsubscribeForm extends Form
 
         /** @var NotificationSubscriptionSettingsDAO */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-        $notificationSubscriptionSettingsDao->updateNotificationSubscriptionSettings('blocked_emailed_notification', $emailSettings, $this->_notification->getUserId(), $this->_notification->getContextId());
+        $notificationSubscriptionSettingsDao->updateNotificationSubscriptionSettings('blocked_emailed_notification', $emailSettings, $this->_notification->userId, $this->_notification->contextId);
 
         return true;
     }

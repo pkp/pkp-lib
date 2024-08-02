@@ -21,6 +21,7 @@
 
 namespace PKP\core;
 
+use APP\core\Application;
 use Exception;
 use Illuminate\Support\Facades\Cache;
 use PKP\config\Config;
@@ -127,7 +128,7 @@ class Core
     public static function getContextPath(string $urlInfo): string
     {
         $contextPaths = explode('/', trim($urlInfo, '/'), 2);
-        return self::cleanFileVar($contextPaths[0] ?: 'index');
+        return self::cleanFileVar($contextPaths[0] ?: Application::SITE_CONTEXT_PATH);
     }
 
     /**
@@ -255,8 +256,8 @@ class Core
             $baseUrl = Config::getVar('general', 'base_url');
         } else {
             // We are just interested in context base urls, remove the index one.
-            if (isset($contextBaseUrls['index'])) {
-                unset($contextBaseUrls['index']);
+            if (isset($contextBaseUrls[Application::SITE_CONTEXT_PATH])) {
+                unset($contextBaseUrls[Application::SITE_CONTEXT_PATH]);
             }
 
             // Arrange them in length order, so we make sure

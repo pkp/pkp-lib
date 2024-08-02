@@ -16,7 +16,6 @@
 
 namespace PKP\task;
 
-use APP\core\Services;
 use APP\services\ContextService;
 use PKP\jobs\doi\DepositContext;
 use PKP\scheduledTask\ScheduledTask;
@@ -26,7 +25,7 @@ class DepositDois extends ScheduledTask
     /**
      * @copydoc ScheduledTask::getName()
      */
-    public function getName()
+    public function getName(): string
     {
         return __('admin.scheduledTask.depositDois');
     }
@@ -34,10 +33,10 @@ class DepositDois extends ScheduledTask
     /**
      * @inheritDoc
      */
-    protected function executeActions()
+    protected function executeActions(): bool
     {
         /** @var ContextService $contextService */
-        $contextService = Services::get('context');
+        $contextService = app()->get('context');
         $contextIds = $contextService->getIds(['isEnabled' => true]);
 
         foreach ($contextIds as $contextId) {

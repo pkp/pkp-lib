@@ -183,6 +183,8 @@ class EditorAction
                 'dateDue' => $reviewDueDate, // Set the review due date
                 'dateResponseDue' => $responseDueDate, // Set the response due date
             ]);
+            $reviewAssignment->setDateDue($reviewDueDate);
+            $reviewAssignment->setDateResponseDue($responseDueDate);
 
             // N.B. Only logging Date Due
             if ($logEntry) {
@@ -199,7 +201,7 @@ class EditorAction
                     'reviewerName' => $reviewer->getFullName(),
                     'reviewDueDate' => date(
                         PKPString::convertStrftimeFormat($context->getLocalizedDateFormatShort()),
-                        strtotime($reviewAssignment->getDateDue())
+                        strtotime($reviewDueDate)
                     ),
                     'submissionId' => $submission->getId(),
                     'stageId' => $reviewAssignment->getStageId(),

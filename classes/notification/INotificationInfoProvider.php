@@ -37,7 +37,7 @@ interface INotificationInfoProvider
      * Get the notification message. Only return translated locale
      * key strings.
      */
-    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string;
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): string|array|null;
 
     /**
      * Get the notification contents. Content is anything that's

@@ -117,7 +117,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
      *
      * @copydoc PKPNotificationOperationManager::getNotificationContents()
      */
-    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): string|array|null
     {
         switch ($notification->type) {
             case Notification::NOTIFICATION_TYPE_SUCCESS:

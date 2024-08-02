@@ -33,7 +33,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc NotificationManagerDelegate::getNotificationMessage()
      */
-    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): string|array|null
     {
         if ($notification->assocType != Application::ASSOC_TYPE_QUERY) {
             throw new \Exception('Unexpected assoc type!');

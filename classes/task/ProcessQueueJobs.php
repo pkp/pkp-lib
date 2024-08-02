@@ -16,7 +16,6 @@
 
 namespace PKP\task;
 
-use APP\core\Application;
 use PKP\config\Config;
 use PKP\core\PKPContainer;
 use PKP\queue\JobRunner;
@@ -38,11 +37,13 @@ class ProcessQueueJobs extends ScheduledTask
      */
     public function executeActions(): bool
     {
-        if (Application::isUnderMaintenance() || !Config::getVar('queues', 'job_runner', true)) {
+        // If processing of queue jobs via schedule task is disbaled
+        // will not process any queue jobs via scheduler
+        if (!Config::getVar('queues', 'process_jobs_at_task_scheduler', false)) {
             return true;
         }
 
-        $jobQueue = app('pkpJobQueue');
+        $jobQueue = app('pkpJobQueue'); /** @var \PKP\core\PKPQueueProvider $jobQueue */
 
         $jobBuilder = $jobQueue->getJobModelBuilder();
 
@@ -50,16 +51,25 @@ class ProcessQueueJobs extends ScheduledTask
             return true;
         }
 
-        // Executes all pending jobs when running the runScheduledTasks.php on the CLI
+        // When processing queue jobs vai schedule task in CLI mode
+        // will process a limited number of jobs at a single time
         if (PKPContainer::getInstance()->runningInConsole('runScheduledTasks.php')) {
-            while ($jobBuilder->count()) {
+            $maxJobCountToProcess = abs(Config::getVar('queues', 'job_runner_max_jobs', 30));
+            
+            while ($jobBuilder->count() && $maxJobCountToProcess) {
                 $jobQueue->runJobInQueue();
+                --$maxJobCountToProcess;
             }
 
             return true;
         }
 
-        // Executes a limited number of jobs when processing a request
+        // We don't need to process jobs when the job runner is enabled
+        if (Config::getVar('queues', 'job_runner', false)) {
+            return true;
+        }
+
+        // Executes a limited number of jobs when processing a via web request mode
         (new JobRunner($jobQueue))
             ->withMaxExecutionTimeConstrain()
             ->withMaxJobsConstrain()

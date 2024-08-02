@@ -18,6 +18,7 @@ namespace PKP\middleware;
 
 use APP\core\Application;
 use Closure;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
@@ -48,32 +49,24 @@ class HasRoles
     {
         $user = $request->user(); /** @var \PKP\user\User $user */
 
+        if (!$user) {
+            throw new Exception("No user found in `HasRole` middleware. Ensure that `HasUser` middleware is applied before `HasRole`.");
+        }
+
         // Get all user roles.
-        $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var \PKP\security\RoleDAO $roleDao */
-        $userRoles = collect($roleDao->getByUserIdGroupedByContext($user->getId()));
-        $context = $request->attributes->get('context'); /** @var \PKP\context\Context $context */
+        $context = $request->attributes->get('context'); /** @var ?\PKP\context\Context $context */
 
         $matchableRoles = Str::of($matchableRoles)
             ->explode('|')
-            ->map(fn($role) => (int)$role)
-            ->sort();
+            ->map(fn($role) => (int)$role);
 
-        $matchedRoles = collect([]);
+        $matcher = fn(int $roleId) => $user->hasRole($roleId, $roleId === Role::ROLE_ID_SITE_ADMIN ? Application::SITE_CONTEXT_ID : $context->getId());
+        $isAuthorized = match ($rolesMatchingCriteria) {
+            static::ROLES_MATCH_LOOSE => $matchableRoles->some($matcher),
+            static::ROLES_MATCH_STRICT => $matchableRoles->every($matcher)
+        };
 
-        // Check for a match amongst Context specific roles
-        if ($context && $userRoles->has($context->getId())) {
-            $userContextRoles = collect(array_map(fn(Role $role) => $role->getId(), $userRoles->get($context->getId())));
-            $matchedRoles = $userContextRoles->intersect($matchableRoles);
-        }
-
-        // Apply site wide Admin role if user is Admin and matchableRoles contains value of Role::ROLE_ID_SITE_ADMIN.
-        if (array_key_exists(Role::ROLE_ID_SITE_ADMIN, $userRoles->get((int)Application::SITE_CONTEXT_ID) ?? []) && $matchableRoles->contains(Role::ROLE_ID_SITE_ADMIN)) {
-            $matchedRoles->add(Role::ROLE_ID_SITE_ADMIN);
-        }
-
-        // if no roles matched
-        // Or if role matching set to strict and not all roles matched
-        if ($matchedRoles->isEmpty() || ($rolesMatchingCriteria === self::ROLES_MATCH_STRICT && !$matchableRoles->diff($matchedRoles)->isEmpty())) {
+        if (!$isAuthorized) {
             return response()->json([
                 'error' => __('api.403.unauthorized'),
             ], Response::HTTP_UNAUTHORIZED);

@@ -37,9 +37,9 @@ class ProcessQueueJobs extends ScheduledTask
      */
     public function executeActions(): bool
     {
-        // If processing of queue jobs via scheduler is disbaled
-        // will not process any queue jobs via schedule taks
-        if (!Config::getVar('queues', 'schedule_job_process', true)) {
+        // If processing of queue jobs via schedule task is disbaled
+        // will not process any queue jobs via scheduler
+        if (!Config::getVar('queues', 'process_jobs_at_task_scheduler', false)) {
             return true;
         }
 
@@ -54,18 +54,17 @@ class ProcessQueueJobs extends ScheduledTask
         // When processing queue jobs vai schedule task in CLI mode
         // will process a limited number of jobs at a single time
         if (PKPContainer::getInstance()->runningInConsole('runScheduledTasks.php')) {
-            $maxJobCountToProcess = (int)Config::getVar('queues', 'job_runner_max_jobs', 30);
+            $maxJobCountToProcess = abs(Config::getVar('queues', 'job_runner_max_jobs', 30));
             
             while ($jobBuilder->count() && $maxJobCountToProcess) {
                 $jobQueue->runJobInQueue();
-                $maxJobCountToProcess = $maxJobCountToProcess - 1;
+                --$maxJobCountToProcess;
             }
 
             return true;
         }
 
-        // If the job runner is enabled,
-        // Scheduler will not process any queue jobs when running in web request mode
+        // We don't need to process jobs when the job runner is enabled
         if (Config::getVar('queues', 'job_runner', false)) {
             return true;
         }

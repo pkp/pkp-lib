@@ -67,7 +67,10 @@ class PKPContainer extends Container
             return 'pgsql';
         }
 
-        return $driver === 'mariadb' ? 'mariadb' : 'mysql';
+        return match ($driver) {
+            'mysql', 'mysqli' => 'mysql',
+            'mariadb' => 'mariadb'
+        };
     }
 
     /**
@@ -572,6 +575,8 @@ class PKPContainer extends Container
         if (mb_stripos($_SERVER['SCRIPT_FILENAME'] ?? '', $scriptPath) !== false) {
             return true;
         }
+
+        return false;
     }
 
     /**

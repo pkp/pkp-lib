@@ -18,9 +18,12 @@ namespace PKP\middleware;
 
 use APP\core\Application;
 use Closure;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
+use PKP\security\Role;
+use PKP\db\DAORegistry;
 
 class HasRoles
 {
@@ -45,22 +48,25 @@ class HasRoles
     public function handle(Request $request, Closure $next, string $matchableRoles, int $rolesMatchingCriteria = HasRoles::ROLES_MATCH_LOOSE)
     {
         $user = $request->user(); /** @var \PKP\user\User $user */
-        $context = $request->attributes->get('context'); /** @var \PKP\context\Context $context */
 
-        $userRoles = collect($user->getRoles($context?->getId() ?? Application::SITE_CONTEXT_ID))
-            ->map(fn ($role) => $role->getId())
-            ->sort();
+        if (!$user) {
+            throw new Exception("No user found in `HasRole` middleware. Ensure that `HasUser` middleware is applied before `HasRole`.");
+        }
+
+        // Get all user roles.
+        $context = $request->attributes->get('context'); /** @var ?\PKP\context\Context $context */
 
         $matchableRoles = Str::of($matchableRoles)
             ->explode('|')
-            ->map(fn ($role) => (int)$role)
-            ->sort();
+            ->map(fn($role) => (int)$role);
 
-        $matchedRoles = $userRoles->intersect($matchableRoles);
+        $matcher = fn(int $roleId) => $user->hasRole($roleId, $roleId === Role::ROLE_ID_SITE_ADMIN ? Application::SITE_CONTEXT_ID : $context->getId());
+        $isAuthorized = match ($rolesMatchingCriteria) {
+            static::ROLES_MATCH_LOOSE => $matchableRoles->some($matcher),
+            static::ROLES_MATCH_STRICT => $matchableRoles->every($matcher)
+        };
 
-        // if no roles matched
-        // Or if role matching set to strict and not all roles matched
-        if ($matchedRoles->isEmpty() || ($rolesMatchingCriteria === self::ROLES_MATCH_STRICT && !$matchableRoles->diff($matchedRoles)->isEmpty())) {
+        if (!$isAuthorized) {
             return response()->json([
                 'error' => __('api.403.unauthorized'),
             ], Response::HTTP_UNAUTHORIZED);

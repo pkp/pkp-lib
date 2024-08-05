@@ -15,7 +15,7 @@
 
 namespace PKP\pages\dashboard;
 
-use APP\components\form\publication\PublishForm;
+use APP\components\forms\publication\PublishForm;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;

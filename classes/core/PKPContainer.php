@@ -59,9 +59,9 @@ class PKPContainer extends Container
     /**
      * Get the proper database driver
      */
-    protected function getDatabaseDriverName(): string
+    public static function getDatabaseDriverName(?string $driver = null): string
     {
-        $driver = Config::getVar('database', 'driver');
+        $driver ??= Config::getVar('database', 'driver');
 
         if (substr(strtolower($driver), 0, 8) === 'postgres') {
             return 'pgsql';
@@ -350,7 +350,7 @@ class PKPContainer extends Container
         ];
 
         // Database connection
-        $driver = $this->getDatabaseDriverName();
+        $driver = static::getDatabaseDriverName();
         $items['database']['default'] = $driver;
         $items['database']['connections'][$driver] = [
             'driver' => $driver,

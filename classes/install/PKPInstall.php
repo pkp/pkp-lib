@@ -33,6 +33,7 @@ use APP\facades\Repo;
 use Illuminate\Support\Facades\Config as FacadesConfig;
 use PKP\config\Config;
 use PKP\core\Core;
+use PKP\core\PKPContainer;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -77,12 +78,7 @@ class PKPInstall extends Installer
         }
 
         // Map valid config options to Illuminate database drivers
-        $driver = strtolower($this->getParam('databaseDriver'));
-        if (substr($driver, 0, 8) === 'postgres') {
-            $driver = 'pgsql';
-        } else {
-            $driver === 'mariadb' ? 'mariadb' : 'mysql';
-        }
+        $driver = PKPContainer::getDatabaseDriverName(strtolower($this->getParam('databaseDriver')));
 
         $config = FacadesConfig::get('database');
         $config['default'] = $driver;

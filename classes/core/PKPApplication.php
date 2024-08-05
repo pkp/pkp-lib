@@ -251,6 +251,10 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     protected function setTransactionIsolation(): void
     {
+        if (!Application::isInstalled()) {
+            return;
+        }
+
         DB::statement(match (DB::connection()::class) {
             MySqlConnection::class => 'SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED',
             PostgresConnection::class => 'SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL READ COMMITTED'

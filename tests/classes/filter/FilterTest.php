@@ -30,7 +30,7 @@ class FilterTest extends PKPTestCase
         $mockFilter = $this->getFilterMock();
 
         // Test getters/setters that are not implicitly tested by other tests
-        self::assertEquals('Mock_Filter_', substr($mockFilter->getDisplayName(), 0, 12));
+        self::assertEquals('MockObject_Filter_', substr($mockFilter->getDisplayName(), 0, 18));
         $mockFilter->setDisplayName('Some other display name');
         self::assertEquals('Some other display name', $mockFilter->getDisplayName());
         $mockFilter->setSequence(5);
@@ -145,7 +145,7 @@ class FilterTest extends PKPTestCase
         // Set the filter processor.
         $mockFilter->expects($this->any())
             ->method('process')
-            ->will($this->returnCallback($this->processCallback(...)));
+            ->willReturnCallback($this->processCallback(...));
 
         return $mockFilter;
     }

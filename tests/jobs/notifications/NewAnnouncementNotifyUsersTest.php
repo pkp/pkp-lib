@@ -31,7 +31,9 @@ class NewAnnouncementNotifyUsersTest extends PKPTestCase
     /**
      * base64_encoded serializion from OJS 3.4.0
      */
-    protected string $serializedJobData = 'Tzo0OToiUEtQXGpvYnNcbm90aWZpY2F0aW9uc1xOZXdBbm5vdW5jZW1lbnROb3RpZnlVc2VycyI6Nzp7czoxNToiACoAcmVjaXBpZW50SWRzIjtPOjI5OiJJbGx1bWluYXRlXFN1cHBvcnRcQ29sbGVjdGlvbiI6Mjp7czo4OiIAKgBpdGVtcyI7YTozOntpOjA7aToyO2k6MTtpOjM7aToyO2k6NDt9czoyODoiACoAZXNjYXBlV2hlbkNhc3RpbmdUb1N0cmluZyI7YjowO31zOjEyOiIAKgBjb250ZXh0SWQiO2k6MTtzOjE3OiIAKgBhbm5vdW5jZW1lbnRJZCI7aToxO3M6OToiACoAbG9jYWxlIjtzOjI6ImVuIjtzOjk6IgAqAHNlbmRlciI7TzoxMzoiUEtQXHVzZXJcVXNlciI6Nzp7czo1OiJfZGF0YSI7YToyMjp7czoyOiJpZCI7aToxO3M6ODoidXNlck5hbWUiO3M6NToiYWRtaW4iO3M6ODoicGFzc3dvcmQiO3M6NjA6IiQyeSQxMCR1Rm1ZWGc4L1VmYTBIYnNreVc1N0JlMjJzdEZHWTVxdHhKWm1UT2FlM1BmREI4NlYzeDdCVyI7czo1OiJlbWFpbCI7czoyMzoicGtwYWRtaW5AbWFpbGluYXRvci5jb20iO3M6MzoidXJsIjtOO3M6NToicGhvbmUiO047czoxNDoibWFpbGluZ0FkZHJlc3MiO047czoxNDoiYmlsbGluZ0FkZHJlc3MiO047czo3OiJjb3VudHJ5IjtOO3M6NzoibG9jYWxlcyI7YTowOnt9czo2OiJnb3NzaXAiO047czoxMzoiZGF0ZUxhc3RFbWFpbCI7TjtzOjE0OiJkYXRlUmVnaXN0ZXJlZCI7czoxOToiMjAyMy0wMi0yOCAyMDoxOTowNyI7czoxMzoiZGF0ZVZhbGlkYXRlZCI7TjtzOjEzOiJkYXRlTGFzdExvZ2luIjtzOjE5OiIyMDI0LTA1LTIyIDE5OjA1OjAzIjtzOjE4OiJtdXN0Q2hhbmdlUGFzc3dvcmQiO047czo3OiJhdXRoU3RyIjtOO3M6ODoiZGlzYWJsZWQiO2I6MDtzOjE0OiJkaXNhYmxlZFJlYXNvbiI7TjtzOjEwOiJpbmxpbmVIZWxwIjtiOjE7czoxMDoiZmFtaWx5TmFtZSI7YToxOntzOjI6ImVuIjtzOjU6ImFkbWluIjt9czo5OiJnaXZlbk5hbWUiO2E6MTp7czoyOiJlbiI7czo1OiJhZG1pbiI7fX1zOjIwOiJfaGFzTG9hZGFibGVBZGFwdGVycyI7YjowO3M6Mjc6Il9tZXRhZGF0YUV4dHJhY3Rpb25BZGFwdGVycyI7YTowOnt9czoyNToiX2V4dHJhY3Rpb25BZGFwdGVyc0xvYWRlZCI7YjowO3M6MjY6Il9tZXRhZGF0YUluamVjdGlvbkFkYXB0ZXJzIjthOjA6e31zOjI0OiJfaW5qZWN0aW9uQWRhcHRlcnNMb2FkZWQiO2I6MDtzOjk6IgAqAF9yb2xlcyI7YTowOnt9fXM6MTA6ImNvbm5lY3Rpb24iO3M6ODoiZGF0YWJhc2UiO3M6NToicXVldWUiO3M6NToicXVldWUiO30=';
+    protected string $serializedJobData = <<<END
+    O:49:"PKP\\jobs\\notifications\\NewAnnouncementNotifyUsers":7:{s:15:"\0*\0recipientIds";O:29:"Illuminate\Support\Collection":2:{s:8:"\0*\0items";a:3:{i:0;i:2;i:1;i:3;i:2;i:4;}s:28:"\0*\0escapeWhenCastingToString";b:0;}s:12:"\0*\0contextId";i:1;s:17:"\0*\0announcementId";i:1;s:9:"\0*\0locale";s:2:"en";s:9:"\0*\0sender";O:13:"PKP\user\User":7:{s:5:"_data";a:22:{s:2:"id";i:1;s:8:"userName";s:5:"admin";s:8:"password";s:60:"$2y$10\$uFmYXg8/Ufa0HbskyW57Be22stFGY5qtxJZmTOae3PfDB86V3x7BW";s:5:"email";s:23:"pkpadmin@mailinator.com";s:3:"url";N;s:5:"phone";N;s:14:"mailingAddress";N;s:14:"billingAddress";N;s:7:"country";N;s:7:"locales";a:0:{}s:6:"gossip";N;s:13:"dateLastEmail";N;s:14:"dateRegistered";s:19:"2023-02-28 20:19:07";s:13:"dateValidated";N;s:13:"dateLastLogin";s:19:"2024-05-22 19:05:03";s:18:"mustChangePassword";N;s:7:"authStr";N;s:8:"disabled";b:0;s:14:"disabledReason";N;s:10:"inlineHelp";b:1;s:10:"familyName";a:1:{s:2:"en";s:5:"admin";}s:9:"givenName";a:1:{s:2:"en";s:5:"admin";}}s:20:"_hasLoadableAdapters";b:0;s:27:"_metadataExtractionAdapters";a:0:{}s:25:"_extractionAdaptersLoaded";b:0;s:26:"_metadataInjectionAdapters";a:0:{}s:24:"_injectionAdaptersLoaded";b:0;s:9:"\0*\0_roles";a:0:{}}s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
+    END;
 
     /**
      * Test job is a proper instance
@@ -40,7 +42,7 @@ class NewAnnouncementNotifyUsersTest extends PKPTestCase
     {
         $this->assertInstanceOf(
             NewAnnouncementNotifyUsers::class,
-            unserialize(base64_decode($this->serializedJobData))
+            unserialize($this->serializedJobData)
         );
     }
 
@@ -54,7 +56,7 @@ class NewAnnouncementNotifyUsersTest extends PKPTestCase
         $this->mockRequest();
 
         /** @var NewAnnouncementNotifyUsers $newAnnouncementNotifyUsersJob */
-        $newAnnouncementNotifyUsersJob = unserialize(base64_decode($this->serializedJobData));
+        $newAnnouncementNotifyUsersJob = unserialize($this->serializedJobData);
 
         $announcementMock = Mockery::mock(\PKP\announcement\Announcement::class)
             ->makePartial()

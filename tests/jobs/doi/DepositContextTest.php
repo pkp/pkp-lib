@@ -30,7 +30,9 @@ class DepositContextTest extends PKPTestCase
     /**
      * base64_encoded serializion from OJS 3.4.0
      */
-    protected string $serializedJobData = 'TzoyNzoiUEtQXGpvYnNcZG9pXERlcG9zaXRDb250ZXh0IjozOntzOjEyOiIAKgBjb250ZXh0SWQiO2k6MTtzOjEwOiJjb25uZWN0aW9uIjtzOjg6ImRhdGFiYXNlIjtzOjU6InF1ZXVlIjtzOjU6InF1ZXVlIjt9';
+    protected string $serializedJobData = <<<END
+    O:27:"PKP\\jobs\\doi\\DepositContext":3:{s:12:"\0*\0contextId";i:1;s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
+    END;
 
     /**
      * Test job is a proper instance
@@ -39,7 +41,7 @@ class DepositContextTest extends PKPTestCase
     {
         $this->assertInstanceOf(
             DepositContext::class,
-            unserialize(base64_decode($this->serializedJobData))
+            unserialize($this->serializedJobData)
         );
     }
 
@@ -49,7 +51,7 @@ class DepositContextTest extends PKPTestCase
     public function testRunSerializedJob()
     {
         /** @var DepositContext $depositContextJob */
-        $depositContextJob = unserialize(base64_decode($this->serializedJobData));
+        $depositContextJob = unserialize($this->serializedJobData);
 
         $contextDaoClass = get_class(Application::getContextDAO());
 

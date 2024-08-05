@@ -33,7 +33,9 @@ class EditorialReminderTest extends PKPTestCase
     /**
      * base64_encoded serializion from OJS 3.4.0
      */
-    protected string $serializedJobData = 'TzozMjoiUEtQXGpvYnNcZW1haWxcRWRpdG9yaWFsUmVtaW5kZXIiOjQ6e3M6MTE6IgAqAGVkaXRvcklkIjtpOjI7czoxMjoiACoAY29udGV4dElkIjtpOjE7czoxMDoiY29ubmVjdGlvbiI7czo4OiJkYXRhYmFzZSI7czo1OiJxdWV1ZSI7czo1OiJxdWV1ZSI7fQ==';
+    protected string $serializedJobData = <<<END
+    O:32:"PKP\\jobs\\email\\EditorialReminder":4:{s:11:"\0*\0editorId";i:2;s:12:"\0*\0contextId";i:1;s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
+    END;
 
     /**
      * Test job is a proper instance
@@ -42,7 +44,7 @@ class EditorialReminderTest extends PKPTestCase
     {
         $this->assertInstanceOf(
             EditorialReminder::class, 
-            unserialize(base64_decode($this->serializedJobData))
+            unserialize($this->serializedJobData)
         );
     }
 
@@ -56,7 +58,7 @@ class EditorialReminderTest extends PKPTestCase
         $this->mockMail();
         
         /** @var EditorialReminder $editorialReminderJob*/
-        $editorialReminderJob = unserialize(base64_decode($this->serializedJobData));
+        $editorialReminderJob = unserialize($this->serializedJobData);
 
         $notificationSubscriptionSettingsDAO = Mockery::mock(
                 \PKP\notification\NotificationSubscriptionSettingsDAO::class

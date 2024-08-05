@@ -27,7 +27,9 @@ class RemoveDoubleClicksTest extends PKPTestCase
     /**
      * base64_encoded serializion from OJS 3.4.0
      */
-    protected string $serializedJobData = 'TzozODoiUEtQXGpvYnNcc3RhdGlzdGljc1xSZW1vdmVEb3VibGVDbGlja3MiOjM6e3M6OToiACoAbG9hZElkIjtzOjI1OiJ1c2FnZV9ldmVudHNfMjAyNDAxMzAubG9nIjtzOjEwOiJjb25uZWN0aW9uIjtzOjg6ImRhdGFiYXNlIjtzOjU6InF1ZXVlIjtzOjU6InF1ZXVlIjt9';
+    protected string $serializedJobData = <<<END
+    O:38:"PKP\\jobs\\statistics\\RemoveDoubleClicks":3:{s:9:"\0*\0loadId";s:25:"usage_events_20240130.log";s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
+    END;
 
     /**
      * Test job is a proper instance
@@ -36,7 +38,7 @@ class RemoveDoubleClicksTest extends PKPTestCase
     {
         $this->assertInstanceOf(
             RemoveDoubleClicks::class,
-            unserialize(base64_decode($this->serializedJobData))
+            unserialize($this->serializedJobData)
         );
     }
 
@@ -46,7 +48,7 @@ class RemoveDoubleClicksTest extends PKPTestCase
     public function testRunSerializedJob()
     {
         /** @var RemoveDoubleClicks $removeDoubleClicksJob */
-        $removeDoubleClicksJob = unserialize(base64_decode($this->serializedJobData));
+        $removeDoubleClicksJob = unserialize($this->serializedJobData);
 
         $temporaryTotalsDAOMock = Mockery::mock(\APP\statistics\TemporaryTotalsDAO::class)
             ->makePartial()

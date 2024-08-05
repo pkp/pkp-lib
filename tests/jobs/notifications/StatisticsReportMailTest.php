@@ -30,7 +30,9 @@ class StatisticsReportMailTest extends PKPTestCase
     /**
      * base64_encoded serializion from OJS 3.4.0
      */
-    protected string $serializedJobData = 'Tzo0MzoiUEtQXGpvYnNcbm90aWZpY2F0aW9uc1xTdGF0aXN0aWNzUmVwb3J0TWFpbCI6Njp7czoxMDoiACoAdXNlcklkcyI7TzoyOToiSWxsdW1pbmF0ZVxTdXBwb3J0XENvbGxlY3Rpb24iOjI6e3M6ODoiACoAaXRlbXMiO2E6NTp7aTowO2k6MTtpOjE7aToyO2k6MjtpOjM7aTozO2k6NDtpOjQ7aTo2O31zOjI4OiIAKgBlc2NhcGVXaGVuQ2FzdGluZ1RvU3RyaW5nIjtiOjA7fXM6MTI6IgAqAGNvbnRleHRJZCI7aToxO3M6MTI6IgAqAGRhdGVTdGFydCI7TzoxNzoiRGF0ZVRpbWVJbW11dGFibGUiOjM6e3M6NDoiZGF0ZSI7czoyNjoiMjAyNC0wNS0wMSAwMDowMDowMC4wMDAwMDAiO3M6MTM6InRpbWV6b25lX3R5cGUiO2k6MztzOjg6InRpbWV6b25lIjtzOjEwOiJBc2lhL0RoYWthIjt9czoxMDoiACoAZGF0ZUVuZCI7TzoxNzoiRGF0ZVRpbWVJbW11dGFibGUiOjM6e3M6NDoiZGF0ZSI7czoyNjoiMjAyNC0wNi0wMSAwMDowMDowMC4wMDAwMDAiO3M6MTM6InRpbWV6b25lX3R5cGUiO2k6MztzOjg6InRpbWV6b25lIjtzOjEwOiJBc2lhL0RoYWthIjt9czoxMDoiY29ubmVjdGlvbiI7czo4OiJkYXRhYmFzZSI7czo1OiJxdWV1ZSI7czo1OiJxdWV1ZSI7fQ==';
+    protected string $serializedJobData = <<<END
+    O:43:"PKP\\jobs\\notifications\\StatisticsReportMail":6:{s:10:"\0*\0userIds";O:29:"Illuminate\Support\Collection":2:{s:8:"\0*\0items";a:5:{i:0;i:1;i:1;i:2;i:2;i:3;i:3;i:4;i:4;i:6;}s:28:"\0*\0escapeWhenCastingToString";b:0;}s:12:"\0*\0contextId";i:1;s:12:"\0*\0dateStart";O:17:"DateTimeImmutable":3:{s:4:"date";s:26:"2024-05-01 00:00:00.000000";s:13:"timezone_type";i:3;s:8:"timezone";s:10:"Asia/Dhaka";}s:10:"\0*\0dateEnd";O:17:"DateTimeImmutable":3:{s:4:"date";s:26:"2024-06-01 00:00:00.000000";s:13:"timezone_type";i:3;s:8:"timezone";s:10:"Asia/Dhaka";}s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
+    END;
 
     /**
      * Test job is a proper instance
@@ -39,7 +41,7 @@ class StatisticsReportMailTest extends PKPTestCase
     {
         $this->assertInstanceOf(
             StatisticsReportMail::class,
-            unserialize(base64_decode($this->serializedJobData))
+            unserialize($this->serializedJobData)
         );
     }
 
@@ -49,7 +51,7 @@ class StatisticsReportMailTest extends PKPTestCase
     public function testRunSerializedJob()
     {
         /** @var StatisticsReportMail $statisticsReportMailJob */
-        $statisticsReportMailJob = unserialize(base64_decode($this->serializedJobData));
+        $statisticsReportMailJob = unserialize($this->serializedJobData);
 
         $this->mockRequest();
 

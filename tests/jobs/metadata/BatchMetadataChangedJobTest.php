@@ -28,7 +28,9 @@ class BatchMetadataChangedJobTest extends PKPTestCase
     /**
      * base64_encoded serializion from OJS 3.4.0
      */
-    protected string $serializedJobData = 'Tzo0MToiUEtQXGpvYnNcbWV0YWRhdGFcQmF0Y2hNZXRhZGF0YUNoYW5nZWRKb2IiOjM6e3M6MTM6InN1Ym1pc3Npb25JZHMiO2E6Mjp7aTowO2k6MTtpOjE7aToyO31zOjEwOiJjb25uZWN0aW9uIjtzOjg6ImRhdGFiYXNlIjtzOjU6InF1ZXVlIjtzOjU6InF1ZXVlIjt9';
+    protected string $serializedJobData = <<<END
+    O:41:"PKP\\jobs\\metadata\\BatchMetadataChangedJob":3:{s:13:"submissionIds";a:2:{i:0;i:1;i:1;i:2;}s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
+    END;
 
     /**
      * Test job is a proper instance
@@ -37,7 +39,7 @@ class BatchMetadataChangedJobTest extends PKPTestCase
     {
         $this->assertInstanceOf(
             BatchMetadataChangedJob::class,
-            unserialize(base64_decode($this->serializedJobData))
+            unserialize($this->serializedJobData)
         );
     }
 
@@ -49,7 +51,7 @@ class BatchMetadataChangedJobTest extends PKPTestCase
         $this->mockRequest();
 
         /** @var BatchMetadataChangedJob $batchMetadataChangedJob */
-        $batchMetadataChangedJob = unserialize(base64_decode($this->serializedJobData));
+        $batchMetadataChangedJob = unserialize($this->serializedJobData);
 
         /**
          * @disregard P1013 PHP Intelephense error suppression

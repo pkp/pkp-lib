@@ -28,7 +28,9 @@ class ArchiveUsageStatsLogFileTest extends PKPTestCase
     /**
      * base64_encoded serializion from OJS 3.4.0
      */
-    protected string $serializedJobData = 'Tzo0NDoiUEtQXGpvYnNcc3RhdGlzdGljc1xBcmNoaXZlVXNhZ2VTdGF0c0xvZ0ZpbGUiOjQ6e3M6OToiACoAbG9hZElkIjtzOjI1OiJ1c2FnZV9ldmVudHNfMjAyNDAxMzAubG9nIjtzOjc6IgAqAHNpdGUiO086MTM6IlBLUFxzaXRlXFNpdGUiOjY6e3M6NToiX2RhdGEiO2E6MTY6e3M6ODoicmVkaXJlY3QiO2k6MDtzOjEzOiJwcmltYXJ5TG9jYWxlIjtzOjI6ImVuIjtzOjE3OiJtaW5QYXNzd29yZExlbmd0aCI7aTo2O3M6MTY6Imluc3RhbGxlZExvY2FsZXMiO2E6Mjp7aTowO3M6MjoiZW4iO2k6MTtzOjU6ImZyX0NBIjt9czoxNjoic3VwcG9ydGVkTG9jYWxlcyI7YToyOntpOjA7czoyOiJlbiI7aToxO3M6NToiZnJfQ0EiO31zOjE3OiJjb21wcmVzc1N0YXRzTG9ncyI7YjowO3M6MTI6ImNvbnRhY3RFbWFpbCI7YToxOntzOjI6ImVuIjtzOjIzOiJwa3BhZG1pbkBtYWlsaW5hdG9yLmNvbSI7fXM6MTE6ImNvbnRhY3ROYW1lIjthOjI6e3M6MjoiZW4iO3M6MjA6Ik9wZW4gSm91cm5hbCBTeXN0ZW1zIjtzOjU6ImZyX0NBIjtzOjIwOiJPcGVuIEpvdXJuYWwgU3lzdGVtcyI7fXM6MTY6ImVuYWJsZUJ1bGtFbWFpbHMiO2E6Mjp7aTowO2k6MTtpOjE7aToyO31zOjE5OiJlbmFibGVHZW9Vc2FnZVN0YXRzIjtzOjg6ImRpc2FibGVkIjtzOjI3OiJlbmFibGVJbnN0aXR1dGlvblVzYWdlU3RhdHMiO2I6MDtzOjE5OiJpc1NpdGVTdXNoaVBsYXRmb3JtIjtiOjA7czoxNjoiaXNTdXNoaUFwaVB1YmxpYyI7YjoxO3M6MTk6ImtlZXBEYWlseVVzYWdlU3RhdHMiO2I6MDtzOjE1OiJ0aGVtZVBsdWdpblBhdGgiO3M6NzoiZGVmYXVsdCI7czoxMjoidW5pcXVlU2l0ZUlkIjtzOjM2OiJBNTcxN0Q0MS05NTlDLTREOTQtODNEQy1FQjRGMTBCQkU1QUYiO31zOjIwOiJfaGFzTG9hZGFibGVBZGFwdGVycyI7YjowO3M6Mjc6Il9tZXRhZGF0YUV4dHJhY3Rpb25BZGFwdGVycyI7YTowOnt9czoyNToiX2V4dHJhY3Rpb25BZGFwdGVyc0xvYWRlZCI7YjowO3M6MjY6Il9tZXRhZGF0YUluamVjdGlvbkFkYXB0ZXJzIjthOjA6e31zOjI0OiJfaW5qZWN0aW9uQWRhcHRlcnNMb2FkZWQiO2I6MDt9czoxMDoiY29ubmVjdGlvbiI7czo4OiJkYXRhYmFzZSI7czo1OiJxdWV1ZSI7czo1OiJxdWV1ZSI7fQ==';
+    protected string $serializedJobData = <<<END
+    O:44:"PKP\\jobs\\statistics\\ArchiveUsageStatsLogFile":4:{s:9:"\0*\0loadId";s:25:"usage_events_20240130.log";s:7:"\0*\0site";O:13:"PKP\site\Site":6:{s:5:"_data";a:16:{s:8:"redirect";i:0;s:13:"primaryLocale";s:2:"en";s:17:"minPasswordLength";i:6;s:16:"installedLocales";a:2:{i:0;s:2:"en";i:1;s:5:"fr_CA";}s:16:"supportedLocales";a:2:{i:0;s:2:"en";i:1;s:5:"fr_CA";}s:17:"compressStatsLogs";b:0;s:12:"contactEmail";a:1:{s:2:"en";s:23:"pkpadmin@mailinator.com";}s:11:"contactName";a:2:{s:2:"en";s:20:"Open Journal Systems";s:5:"fr_CA";s:20:"Open Journal Systems";}s:16:"enableBulkEmails";a:2:{i:0;i:1;i:1;i:2;}s:19:"enableGeoUsageStats";s:8:"disabled";s:27:"enableInstitutionUsageStats";b:0;s:19:"isSiteSushiPlatform";b:0;s:16:"isSushiApiPublic";b:1;s:19:"keepDailyUsageStats";b:0;s:15:"themePluginPath";s:7:"default";s:12:"uniqueSiteId";s:36:"A5717D41-959C-4D94-83DC-EB4F10BBE5AF";}s:20:"_hasLoadableAdapters";b:0;s:27:"_metadataExtractionAdapters";a:0:{}s:25:"_extractionAdaptersLoaded";b:0;s:26:"_metadataInjectionAdapters";a:0:{}s:24:"_injectionAdaptersLoaded";b:0;}s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
+    END;
 
     /**
      * Content example from OJS 3.4.0
@@ -42,7 +44,7 @@ class ArchiveUsageStatsLogFileTest extends PKPTestCase
     {
         $this->assertInstanceOf(
             ArchiveUsageStatsLogFile::class,
-            unserialize(base64_decode($this->serializedJobData))
+            unserialize($this->serializedJobData)
         );
     }
 
@@ -52,7 +54,7 @@ class ArchiveUsageStatsLogFileTest extends PKPTestCase
     public function testRunSerializedJob()
     {
         /** @var ArchiveUsageStatsLogFile $archiveUsageStatsLogFileJob */
-        $archiveUsageStatsLogFileJob = unserialize(base64_decode($this->serializedJobData));
+        $archiveUsageStatsLogFileJob = unserialize($this->serializedJobData);
 
         // we need to create a dummy file if not existed as to avoid mocking PHP's built in functions
         $dummyFileName = $this->createDummyFileIfNeeded($archiveUsageStatsLogFileJob, 'loadId');

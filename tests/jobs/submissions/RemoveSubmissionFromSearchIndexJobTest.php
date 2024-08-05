@@ -27,7 +27,9 @@ class RemoveSubmissionFromSearchIndexJobTest extends PKPTestCase
     /**
      * base64_encoded serializion from OJS 3.4.0
      */
-    protected string $serializedJobData = 'Tzo1NToiUEtQXGpvYnNcc3VibWlzc2lvbnNcUmVtb3ZlU3VibWlzc2lvbkZyb21TZWFyY2hJbmRleEpvYiI6Mzp7czoxNToiACoAc3VibWlzc2lvbklkIjtpOjI2O3M6MTA6ImNvbm5lY3Rpb24iO3M6ODoiZGF0YWJhc2UiO3M6NToicXVldWUiO3M6NToicXVldWUiO30=';
+    protected string $serializedJobData = <<<END
+    O:55:"PKP\\jobs\\submissions\\RemoveSubmissionFromSearchIndexJob":3:{s:15:"\0*\0submissionId";i:26;s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
+    END;
 
     /**
      * Test job is a proper instance
@@ -36,7 +38,7 @@ class RemoveSubmissionFromSearchIndexJobTest extends PKPTestCase
     {
         $this->assertInstanceOf(
             RemoveSubmissionFromSearchIndexJob::class,
-            unserialize(base64_decode($this->serializedJobData))
+            unserialize($this->serializedJobData)
         );
     }
     
@@ -46,7 +48,7 @@ class RemoveSubmissionFromSearchIndexJobTest extends PKPTestCase
     public function testRunSerializedJob()
     {
         /** @var RemoveSubmissionFromSearchIndexJob $removeSubmissionFromSearchIndexJob */
-        $removeSubmissionFromSearchIndexJob = unserialize(base64_decode($this->serializedJobData));
+        $removeSubmissionFromSearchIndexJob = unserialize($this->serializedJobData);
 
         $submissionSearchDAOMock = Mockery::mock(\PKP\search\SubmissionSearchDAO::class)
             ->makePartial()

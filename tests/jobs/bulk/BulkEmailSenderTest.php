@@ -28,7 +28,9 @@ class BulkEmailSenderTest extends PKPTestCase
     /**
      * base64_encoded serializion from OJS 3.4.0
      */
-    protected string $serializedJobData = 'TzoyOToiUEtQXGpvYnNcYnVsa1xCdWxrRW1haWxTZW5kZXIiOjk6e3M6MTA6IgAqAHVzZXJJZHMiO2E6Mzp7aTowO2k6MTtpOjE7aToyO2k6MjtpOjM7fXM6MTI6IgAqAGNvbnRleHRJZCI7aToxO3M6MTA6IgAqAHN1YmplY3QiO3M6MTI6IlRlc3Qgc3ViamVjdCI7czo3OiIAKgBib2R5IjtzOjE2OiI8cD5UZXN0IGJvZHk8L3A+IjtzOjEyOiIAKgBmcm9tRW1haWwiO3M6MjA6InJ2YWNhQG1haWxpbmF0b3IuY29tIjtzOjExOiIAKgBmcm9tTmFtZSI7czoxMToiUmFtaXJvIFZhY2EiO3M6MTA6ImNvbm5lY3Rpb24iO3M6ODoiZGF0YWJhc2UiO3M6NToicXVldWUiO3M6NToicXVldWUiO3M6NzoiYmF0Y2hJZCI7czozNjoiOWMxY2JjMDUtMDE3Yi00YTAyLWJkNWEtYjExM2M5MmE3NzM1Ijt9';
+    protected string $serializedJobData = <<<END
+    O:29:"PKP\\jobs\\bulk\BulkEmailSender":9:{s:10:"\0*\0userIds";a:3:{i:0;i:1;i:1;i:2;i:2;i:3;}s:12:"\0*\0contextId";i:1;s:10:"\0*\0subject";s:12:"Test subject";s:7:"\0*\0body";s:16:"<p>Test body</p>";s:12:"\0*\0fromEmail";s:20:"rvaca@mailinator.com";s:11:"\0*\0fromName";s:11:"Ramiro Vaca";s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";s:7:"batchId";s:36:"9c1cbc05-017b-4a02-bd5a-b113c92a7735";}
+    END;
 
     /**
      * Test job is a proper instance
@@ -37,7 +39,7 @@ class BulkEmailSenderTest extends PKPTestCase
     {
         $this->assertInstanceOf(
             BulkEmailSender::class,
-            unserialize(base64_decode($this->serializedJobData))
+            unserialize($this->serializedJobData)
         );
     }
 
@@ -49,7 +51,7 @@ class BulkEmailSenderTest extends PKPTestCase
         $this->mockMail();
         
         /** @var BulkEmailSender $bulkEmailSenderJob*/
-        $bulkEmailSenderJob = unserialize(base64_decode($this->serializedJobData));
+        $bulkEmailSenderJob = unserialize($this->serializedJobData);
 
         $userCollectorMock = Mockery::mock(app(UserCollector::class))
             ->makePartial()

@@ -26,7 +26,9 @@ class UpdateSubmissionSearchJobTest extends PKPTestCase
     /**
      * base64_encoded serializion from OJS 3.4.0
      */
-    protected string $serializedJobData = 'Tzo0NjoiUEtQXGpvYnNcc3VibWlzc2lvbnNcVXBkYXRlU3VibWlzc2lvblNlYXJjaEpvYiI6Mzp7czoxNToiACoAc3VibWlzc2lvbklkIjtpOjE3O3M6MTA6ImNvbm5lY3Rpb24iO3M6ODoiZGF0YWJhc2UiO3M6NToicXVldWUiO3M6NToicXVldWUiO30=';
+    protected string $serializedJobData = <<<END
+    O:46:"PKP\\jobs\\submissions\\UpdateSubmissionSearchJob":3:{s:15:"\0*\0submissionId";i:17;s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
+    END;
 
     /**
      * Test job is a proper instance
@@ -35,7 +37,7 @@ class UpdateSubmissionSearchJobTest extends PKPTestCase
     {
         $this->assertInstanceOf(
             UpdateSubmissionSearchJob::class,
-            unserialize(base64_decode($this->serializedJobData))
+            unserialize($this->serializedJobData)
         );
     }
     
@@ -45,7 +47,7 @@ class UpdateSubmissionSearchJobTest extends PKPTestCase
     public function testRunSerializedJob()
     {
         /** @var UpdateSubmissionSearchJob $updateSubmissionSearchJob */
-        $updateSubmissionSearchJob = unserialize(base64_decode($this->serializedJobData));
+        $updateSubmissionSearchJob = unserialize($this->serializedJobData);
 
         // Mock the Submission facade to return a fake submission when Repo::submission()->get($id) is called
         $mock = Mockery::mock(app(\APP\submission\Repository::class))

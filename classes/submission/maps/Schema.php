@@ -445,7 +445,7 @@ class Schema extends \PKP\core\maps\Schema
                 'roundId' => (int) $reviewAssignment->getReviewRoundId(),
                 'recommendation' => $reviewAssignment->getRecommendation(),
                 'dateCancelled' => $reviewAssignment->getData('dateCancelled'),
-                'reviewerId' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? null : $reviewAssignment->getReviewerId(),
+                'reviewerId' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getReviewerId()) ? null : $reviewAssignment->getReviewerId(),
                 'reviewerFullName' => $anonymizeReviews && $anonymizeReviews->contains($reviewAssignment->getId()) ? '' : $reviewAssignment->getData('reviewerFullName'),
                 'reviewMethod' => $reviewAssignment->getData('reviewMethod')
             ];

@@ -26,12 +26,15 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\config\Config;
+use PKP\core\traits\HasForeignKey;
 use PKP\db\DAORegistry;
 use SplFileObject;
 use Throwable;
 
 abstract class PreflightCheckMigration extends \PKP\migration\Migration
 {
+    use HasForeignKey;
+
     abstract protected function getContextTable(): string;
     abstract protected function getContextSettingsTable(): string;
     abstract protected function getContextKeyField(): string;
@@ -1310,20 +1313,20 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      */
     protected function dropForeignKeys(): void
     {
-        if (DB::getDoctrineSchemaManager()->introspectTable('submission_files')->hasForeignKey('submission_files_file_id_foreign')) {
+        if ($this->hasForeignKey('submission_files', 'submission_files_file_id_foreign')) {
             Schema::table('submission_files', fn (Blueprint $table) => $table->dropForeign('submission_files_file_id_foreign'));
         }
         Schema::table('submission_file_revisions', function (Blueprint $table) {
             foreach (['submission_file_revisions_submission_file_id_foreign', 'submission_file_revisions_file_id_foreign'] as $foreignKeyName) {
-                if (DB::getDoctrineSchemaManager()->introspectTable('submission_file_revisions')->hasForeignKey($foreignKeyName)) {
+                if ($this->hasForeignKey('submission_file_revisions', $foreignKeyName)) {
                     $table->dropForeign($foreignKeyName);
                 }
             }
         });
-        if (DB::getDoctrineSchemaManager()->introspectTable('review_files')->hasForeignKey('review_files_submission_file_id_foreign')) {
+        if ($this->hasForeignKey('review_files', 'review_files_submission_file_id_foreign')) {
             Schema::table('review_files', fn (Blueprint $table) => $table->dropForeign('review_files_submission_file_id_foreign'));
         }
-        if (DB::getDoctrineSchemaManager()->introspectTable('review_round_files')->hasForeignKey('review_round_files_submission_file_id_foreign')) {
+        if ($this->hasForeignKey('review_round_files', 'review_round_files_submission_file_id_foreign')) {
             Schema::table('review_round_files', fn (Blueprint $table) => $table->dropForeign('review_round_files_submission_file_id_foreign'));
         }
     }

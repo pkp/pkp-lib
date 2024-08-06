@@ -34,6 +34,8 @@ use PKP\security\Role;
 use PKP\site\Version;
 use PKP\site\VersionDAO;
 use PKP\submission\RepresentationDAOInterface;
+use PKP\tests\PKPTestCase;
+use Spatie\Ignition\Ignition;
 
 interface iPKPApplicationInfoProvider
 {
@@ -207,6 +209,12 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         $microTime = Core::microtime();
         Registry::set('system.debug.startTime', $microTime);
 
+        if (!empty($_SERVER['SERVER_NAME'])) {
+            Ignition::make()
+                ->applicationPath(BASE_SYS_DIR)
+                ->register(E_ERROR);
+        }
+
         $this->initializeLaravelContainer();
         PKPString::initialize();
 
@@ -313,6 +321,12 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public function getHttpClient()
     {
+        if (PKPContainer::getInstance()->runningUnitTests()) {
+            $client = Registry::get(PKPTestCase::MOCKED_GUZZLE_CLIENT_NAME);
+            if ($client) {
+                return $client;
+            }
+        }
         $application = Application::get();
         $userAgent = $application->getName() . '/';
         if (static::isInstalled() && !static::isUpgrading()) {

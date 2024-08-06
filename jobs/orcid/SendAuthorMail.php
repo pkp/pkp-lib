@@ -55,7 +55,7 @@ class SendAuthorMail extends BaseJob
 
         $emailToken = md5(microtime() . $this->author->getEmail());
         $this->author->setData('orcidEmailToken', $emailToken);
-        $oauthUrl = OrcidManager::buildOAuthUrl('verify', ['token' => $emailToken, 'state' => $publicationId]);
+        $oauthUrl = OrcidManager::buildOAuthUrl('verify', ['token' => $emailToken, 'state' => $publicationId], $this->context);
 
         if (OrcidManager::isMemberApiEnabled($this->context)) {
             $mailable = new OrcidRequestAuthorAuthorization($this->context, $submission, $oauthUrl);

@@ -65,7 +65,7 @@ abstract class PKPOrcidWork
             $this->context->getPath(),
             'article',
             'view',
-            $submission->getId(),
+            [$submission->getId()],
             urlLocaleForPage: '',
         );
 

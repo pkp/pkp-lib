@@ -66,8 +66,8 @@ class DepositOrcidSubmission extends BaseJob
             'Authorization' => 'Bearer ' . $this->author->getData('orcidAccessToken')
         ];
 
-        OrcidManager::logInfo("{$method} {$uri}");
-        OrcidManager::logInfo('Header: ' . var_export($headers, true));
+        OrcidManager::logInfo("{$method} {$uri}", $this->context);
+        OrcidManager::logInfo('Header: ' . var_export($headers, true), $this->context);
 
         $httpClient = Application::get()->getHttpClient();
         try {
@@ -81,24 +81,24 @@ class DepositOrcidSubmission extends BaseJob
             );
         } catch (ClientException $exception) {
             $reason = $exception->getResponse()->getBody();
-            OrcidManager::logError("Publication fail: {$reason}");
+            OrcidManager::logError("Publication fail: {$reason}", $this->context);
 
             $this->fail($exception);
         }
         $httpStatus = $response->getStatusCode();
-        OrcidManager::logInfo("Response status: {$httpStatus}");
+        OrcidManager::logInfo("Response status: {$httpStatus}", $this->context);
         $responseHeaders = $response->getHeaders();
 
         switch ($httpStatus) {
             case 200:
                 // Work updated
-                OrcidManager::logInfo("Work updated in profile, putCode: {$putCode}");
+                OrcidManager::logInfo("Work updated in profile, putCode: {$putCode}", $this->context);
                 break;
             case 201:
                 $location = $responseHeaders['Location'][0];
                 // Extract the ORCID work put code for updates/deletion.
                 $putCode = intval(basename(parse_url($location, PHP_URL_PATH)));
-                OrcidManager::logInfo("Work added to profile, putCode: {$putCode}");
+                OrcidManager::logInfo("Work added to profile, putCode: {$putCode}", $this->context);
                 $this->author->setData('orcidWorkPutCode', $putCode);
                 Repo::author()->dao->update($this->author);
                 break;
@@ -106,28 +106,28 @@ class DepositOrcidSubmission extends BaseJob
                 // invalid access token, token was revoked
                 $error = json_decode($response->getBody(), true);
                 if ($error['error'] === 'invalid_token') {
-                    OrcidManager::logError($error['error_description'] . ', deleting orcidAccessToken from author');
+                    OrcidManager::logError($error['error_description'] . ', deleting orcidAccessToken from author', $this->context);
                     OrcidManager::removeOrcidAccessToken($this->author);
                 }
                 break;
             case 403:
-                OrcidManager::logError('Work update forbidden: ' . $response->getBody());
+                OrcidManager::logError('Work update forbidden: ' . $response->getBody(), $this->context);
                 break;
             case 404:
                 // a work has been deleted from a ORCID record. putCode is no longer valid.
                 if ($method === 'PUT') {
-                    OrcidManager::logError('Work deleted from ORCID record, deleting putCode form author');
+                    OrcidManager::logError('Work deleted from ORCID record, deleting putCode form author', $this->context);
                     $this->author->setData('orcidWorkPutCode', null);
                     Repo::author()->dao->update($this->author);
                 } else {
-                    OrcidManager::logError("Unexpected status {$httpStatus} response, body: " . $response->getBody());
+                    OrcidManager::logError("Unexpected status {$httpStatus} response, body: " . $response->getBody(), $this->context);
                 }
                 break;
             case 409:
-                OrcidManager::logError('Work already added to profile, response body: ' . $response->getBody());
+                OrcidManager::logError('Work already added to profile, response body: ' . $response->getBody(), $this->context);
                 break;
             default:
-                OrcidManager::logError("Unexpected status {$httpStatus} response, body: " . $response->getBody());
+                OrcidManager::logError("Unexpected status {$httpStatus} response, body: " . $response->getBody(), $this->context);
         }
     }
 }

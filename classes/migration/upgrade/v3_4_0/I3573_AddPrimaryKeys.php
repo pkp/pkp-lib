@@ -33,7 +33,7 @@ abstract class I3573_AddPrimaryKeys extends \PKP\migration\Migration
                 continue;
             }
 
-            if (DB::getDoctrineSchemaManager()->introspectTable($tableName)->hasIndex($oldIndexName)) {
+            if (Schema::hasIndex($tableName, $oldIndexName)) {
                 // Depending on whether the schema was created with ADODB or Laravel schema management, user_settings_pkey
                 // will either be a constraint or an index. See https://github.com/pkp/pkp-lib/issues/7670.
                 try {

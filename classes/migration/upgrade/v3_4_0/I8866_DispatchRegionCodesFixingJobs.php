@@ -44,16 +44,12 @@ class I8866_DispatchRegionCodesFixingJobs extends Migration
 
             // temporary create index on the column country and region, in order to be able to update the region codes in a reasonable time
             Schema::table('metrics_submission_geo_daily', function (Blueprint $table) {
-                $sm = Schema::getConnection()->getDoctrineSchemaManager();
-                $indexesFound = $sm->listTableIndexes('metrics_submission_geo_daily');
-                if (!array_key_exists('metrics_submission_geo_daily_tmp_index', $indexesFound)) {
+                if (!Schema::hasIndex('metrics_submission_geo_daily', 'metrics_submission_geo_daily_tmp_index')) {
                     $table->index(['country', 'region'], 'metrics_submission_geo_daily_tmp_index');
                 }
             });
             Schema::table('metrics_submission_geo_monthly', function (Blueprint $table) {
-                $sm = Schema::getConnection()->getDoctrineSchemaManager();
-                $indexesFound = $sm->listTableIndexes('metrics_submission_geo_monthly');
-                if (!array_key_exists('metrics_submission_geo_monthly_tmp_index', $indexesFound)) {
+                if (!Schema::hasIndex('metrics_submission_geo_monthly', 'metrics_submission_geo_monthly_tmp_index')) {
                     $table->index(['country', 'region'], 'metrics_submission_geo_monthly_tmp_index');
                 }
             });
@@ -69,16 +65,12 @@ class I8866_DispatchRegionCodesFixingJobs extends Migration
                 ->then(function (Batch $batch) {
                     // drop the temporary index
                     Schema::table('metrics_submission_geo_daily', function (Blueprint $table) {
-                        $sm = Schema::getConnection()->getDoctrineSchemaManager();
-                        $indexesFound = $sm->listTableIndexes('metrics_submission_geo_daily');
-                        if (array_key_exists('metrics_submission_geo_daily_tmp_index', $indexesFound)) {
+                        if (Schema::hasIndex('metrics_submission_geo_daily', 'metrics_submission_geo_daily_tmp_index')) {
                             $table->dropIndex(['tmp']);
                         }
                     });
                     Schema::table('metrics_submission_geo_monthly', function (Blueprint $table) {
-                        $sm = Schema::getConnection()->getDoctrineSchemaManager();
-                        $indexesFound = $sm->listTableIndexes('metrics_submission_geo_monthly');
-                        if (array_key_exists('metrics_submission_geo_monthly_tmp_index', $indexesFound)) {
+                        if (Schema::hasIndex('metrics_submission_geo_monthly', 'metrics_submission_geo_monthly_tmp_index')) {
                             $table->dropIndex(['tmp']);
                         }
                     });

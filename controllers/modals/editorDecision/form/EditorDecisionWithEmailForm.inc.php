@@ -213,7 +213,7 @@ class EditorDecisionWithEmailForm extends EditorDecisionForm {
 
 		// Get submission authors in the same way as for the email template form,
 		// that editor sees. This also ensures that the recipient list is not empty.
-		$authors = $submission->getAuthors(true);
+		$authors = $submission->getAuthors();
 		foreach($authors as $author) {
 			$email->addRecipient($author->getEmail(), $author->getFullName());
 		}

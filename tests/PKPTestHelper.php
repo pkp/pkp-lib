@@ -88,8 +88,14 @@ abstract class PKPTestHelper
     public static function restoreDB($test)
     {
         $filename = getenv('DATABASEDUMP');
-        if (!$filename || !file_exists($filename)) {
+        
+        if (!$filename) {
             $test->fail('Database dump filename needs to be specified in env variable DATABASEDUMP!');
+            return;
+        }
+
+        if (!file_exists($filename)) {
+            $test->fail("The backup database dump file named {$filename} not found");
             return;
         }
 

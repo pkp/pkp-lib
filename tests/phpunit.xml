@@ -50,4 +50,7 @@
             <directory suffix=".php">./../pages</directory>
         </include>
     </source>
+    <php>
+        <env name="DATABASEDUMP" value="database.sql.gz" />
+    </php>
 </phpunit>

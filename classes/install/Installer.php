@@ -444,6 +444,8 @@ class Installer
                     $migration->up();
                     $this->migrations[] = $migration;
                 } catch (Exception $e) {
+                    $this->log('upgrade migration exception:');
+                    $this->log($e);
                     // Log an error message
                     $this->setError(
                         self::INSTALLER_ERROR_DB,

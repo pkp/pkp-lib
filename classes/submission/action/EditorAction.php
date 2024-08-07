@@ -186,6 +186,9 @@ class EditorAction
             $reviewAssignment->setDateDue($reviewDueDate);
             $reviewAssignment->setDateResponseDue($responseDueDate);
 
+            // Update due dates on local object
+            $reviewAssignment->setData( 'dateDue', $reviewDueDate);
+            $reviewAssignment->setData('dateResponseDue',$responseDueDate);
             // N.B. Only logging Date Due
             if ($logEntry) {
                 // Add log

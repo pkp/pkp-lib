@@ -88,7 +88,7 @@ class DAO extends EntityDAO
 
     /**
      * Get a collection of categories matching the configured query
-     * 
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection

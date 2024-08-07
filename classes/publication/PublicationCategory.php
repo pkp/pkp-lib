@@ -1,4 +1,15 @@
 <?php
+/**
+ * @file classes/publication/PublicationCategory.php
+ *
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PublicationCategory
+ *
+ * @brief Handles operations related to publication categories
+ */
 
 namespace PKP\publication;
 
@@ -20,7 +31,6 @@ class PublicationCategory extends Model
 
     /**
      * Scope a query to only include records with a specific publicationId
-     *
      */
     public function scopeWithPublicationId(Builder $query, int $publicationId): Builder
     {
@@ -29,6 +39,8 @@ class PublicationCategory extends Model
 
     /**
      * Scope a query to only include records with specific categoryIds
+     *
+     * @param int[] $categoryIds Array of category IDs
      */
     public function scopeWithCategoryIds(Builder $query, array $categoryIds): Builder
     {

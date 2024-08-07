@@ -138,11 +138,10 @@ class Collector implements CollectorInterface
         });
 
         $qb->when($this->publicationIds !== null, function ($query) {
-            $query->whereIn('c.category_id', function ($query) {
-                PublicationCategory::select('category_id')
-                ->withPublicationIds($this->publicationIds)
-                ->toBase();
-            });
+            $query->whereIn('c.category_id', PublicationCategory::select('category_id')
+                ->whereIn('publication_id', $this->publicationIds)
+                ->toBase()
+            );
         });
 
         $qb->when($this->parentIds !== null, function ($query) {

@@ -30,7 +30,7 @@ use PKP\submission\SubmissionSubjectDAO;
 
 /**
  * @template T of Publication
- * 
+ *
  * @extends EntityDAO<T>
  */
 class DAO extends EntityDAO
@@ -125,7 +125,7 @@ class DAO extends EntityDAO
 
     /**
      * Get a collection of publications matching the configured query
-     * 
+     *
      * @return LazyCollection<int,T>
      */
     public function getMany(Collector $query): LazyCollection
@@ -453,9 +453,6 @@ class DAO extends EntityDAO
     protected function saveCategories(Publication $publication): void
     {
         $categoryIds = (array) $publication->getData('categoryIds');
-        if (empty($categoryIds)) {
-            $categoryIds = [];
-        }
         Repo::publication()->assignCategoriesToPublication($publication->getId(), $categoryIds);
     }
 
@@ -464,7 +461,7 @@ class DAO extends EntityDAO
      */
     protected function deleteCategories(int $publicationId): void
     {
-         PublicationCategory::where('publication_id', $publicationId)->delete();
+        PublicationCategory::where('publication_id', $publicationId)->delete();
     }
 
     /**

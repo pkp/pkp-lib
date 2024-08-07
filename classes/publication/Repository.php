@@ -769,20 +769,22 @@ abstract class Repository
 
     /**
      * Assign categories to a publication.
-     *
      */
     public function assignCategoriesToPublication(int $publicationId, array $categoryIds): void
     {
-        // delete all existing entries for the publication
-        PublicationCategory::where('publication_id', $publicationId)->delete();
-
-        // insert new categories if provided
-        foreach ($categoryIds as $categoryId) {
-            PublicationCategory::create([
+        $records = array_map(function ($categoryId) use ($publicationId) {
+            return [
                 'publication_id' => $publicationId,
                 'category_id' => $categoryId
-            ]);
-        }
+            ];
+        }, $categoryIds);
+
+        PublicationCategory::upsert($records, ['publication_id', 'category_id']);
+
+        // delete categories that are no longer assigned
+        PublicationCategory::where('publication_id', $publicationId)
+            ->whereNotIn('category_id', $categoryIds)
+            ->delete();
     }
 
     /**

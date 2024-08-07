@@ -1,8 +1,6 @@
 {
 	"require": {
 		"ralouphie/getallheaders": "*",
-		"components/jqueryui": "1.*",
-		"components/jquery": "^3.5",
 		"wikimedia/less.php": "3.*",
 		"phpmailer/phpmailer": "6.*",
 		"smarty/smarty": "^4.3",
@@ -40,6 +38,14 @@
 		"allow-plugins": {
 			"cweagans/composer-patches": true
 		}
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"@copyNodeModuleDeps"
+		],
+		"copyNodeModuleDeps": [
+			"PKP\\dev\\ComposerScript::copyNodeModuleDeps"
+		]
 	},
 	"repositories": [
 		{
@@ -84,6 +90,11 @@
 			"php81_bc/strftime": {
 				"Apply strftime locale patch": "lib/strftime-locale-patch.diff"
 			}
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"PKP\\": "classes/"
 		}
 	}
 }

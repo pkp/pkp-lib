@@ -24,10 +24,10 @@ use Mockery;
 class UpdateSubmissionSearchJobTest extends PKPTestCase
 {
     /**
-     * base64_encoded serializion from OJS 3.4.0
+     * serializion from OJS 3.4.0
      */
     protected string $serializedJobData = <<<END
-    O:46:"PKP\\jobs\\submissions\\UpdateSubmissionSearchJob":3:{s:15:"\0*\0submissionId";i:17;s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
+    O:46:"PKP\jobs\submissions\UpdateSubmissionSearchJob":3:{s:15:"\0*\0submissionId";i:1;s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
     END;
 
     /**
@@ -44,7 +44,7 @@ class UpdateSubmissionSearchJobTest extends PKPTestCase
     /**
      * Ensure that a serialized job can be unserialized and executed
      */
-    public function testRunSerializedJob()
+    public function testRunSerializedJob(): void
     {
         /** @var UpdateSubmissionSearchJob $updateSubmissionSearchJob */
         $updateSubmissionSearchJob = unserialize($this->serializedJobData);

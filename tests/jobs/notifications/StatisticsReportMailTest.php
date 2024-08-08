@@ -28,7 +28,7 @@ use PKP\jobs\notifications\StatisticsReportMail;
 class StatisticsReportMailTest extends PKPTestCase
 {
     /**
-     * base64_encoded serializion from OJS 3.4.0
+     * serializion from OJS 3.4.0
      */
     protected string $serializedJobData = <<<END
     O:43:"PKP\\jobs\\notifications\\StatisticsReportMail":6:{s:10:"\0*\0userIds";O:29:"Illuminate\Support\Collection":2:{s:8:"\0*\0items";a:5:{i:0;i:1;i:1;i:2;i:2;i:3;i:3;i:4;i:4;i:6;}s:28:"\0*\0escapeWhenCastingToString";b:0;}s:12:"\0*\0contextId";i:1;s:12:"\0*\0dateStart";O:17:"DateTimeImmutable":3:{s:4:"date";s:26:"2024-05-01 00:00:00.000000";s:13:"timezone_type";i:3;s:8:"timezone";s:10:"Asia/Dhaka";}s:10:"\0*\0dateEnd";O:17:"DateTimeImmutable":3:{s:4:"date";s:26:"2024-06-01 00:00:00.000000";s:13:"timezone_type";i:3;s:8:"timezone";s:10:"Asia/Dhaka";}s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
@@ -48,7 +48,7 @@ class StatisticsReportMailTest extends PKPTestCase
     /**
      * Ensure that a serialized job can be unserialized and executed
      */
-    public function testRunSerializedJob()
+    public function testRunSerializedJob(): void
     {
         /** @var StatisticsReportMail $statisticsReportMailJob */
         $statisticsReportMailJob = unserialize($this->serializedJobData);

@@ -25,16 +25,16 @@ use PKP\jobs\submissions\RemoveSubmissionFileFromSearchIndexJob;
 class RemoveSubmissionFileFromSearchIndexJobTest extends PKPTestCase
 {
     /**
-     * base64_encoded serializion from OJS 3.4.0
+     * serializion from OJS 3.4.0
      */
     protected string $serializedJobData = <<<END
     O:59:"PKP\\jobs\\submissions\\RemoveSubmissionFileFromSearchIndexJob":4:{s:15:"\0*\0submissionId";i:25;s:19:"\0*\0submissionFileId";i:55;s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
     END;
 
     /**
-     * base64_encoded serializion from OJS 3.4.0
+     * Test job is a proper instance
      */
-    public function testUnserializationGetJobInstance(): void
+    public function testUnserializationGetProperJobInstance(): void
     {
         $this->assertInstanceOf(
             RemoveSubmissionFileFromSearchIndexJob::class,
@@ -45,7 +45,7 @@ class RemoveSubmissionFileFromSearchIndexJobTest extends PKPTestCase
     /**
      * Ensure that a serialized job can be unserialized and executed
      */
-    public function testRunSerializedJob()
+    public function testRunSerializedJob(): void
     {
         /** @var RemoveSubmissionFileFromSearchIndexJob $removeSubmissionFileFromSearchIndexJob */
         $removeSubmissionFileFromSearchIndexJob = unserialize($this->serializedJobData);

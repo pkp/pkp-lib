@@ -25,7 +25,7 @@ use PKP\jobs\statistics\RemoveDoubleClicks;
 class RemoveDoubleClicksTest extends PKPTestCase
 {
     /**
-     * base64_encoded serializion from OJS 3.4.0
+     * serializion from OJS 3.4.0
      */
     protected string $serializedJobData = <<<END
     O:38:"PKP\\jobs\\statistics\\RemoveDoubleClicks":3:{s:9:"\0*\0loadId";s:25:"usage_events_20240130.log";s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
@@ -45,7 +45,7 @@ class RemoveDoubleClicksTest extends PKPTestCase
     /**
      * Ensure that a serialized job can be unserialized and executed
      */
-    public function testRunSerializedJob()
+    public function testRunSerializedJob(): void
     {
         /** @var RemoveDoubleClicks $removeDoubleClicksJob */
         $removeDoubleClicksJob = unserialize($this->serializedJobData);

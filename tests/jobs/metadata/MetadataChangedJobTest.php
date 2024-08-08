@@ -26,7 +26,7 @@ use APP\submission\Repository as SubmissionRepository;
 class MetadataChangedJobTest extends PKPTestCase
 {
     /**
-     * base64_encoded serializion from OJS 3.4.0
+     * serializion from OJS 3.4.0
      */
     protected string $serializedJobData = <<<END
     O:36:"PKP\\jobs\\metadata\\MetadataChangedJob":3:{s:15:"\0*\0submissionId";i:24;s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
@@ -46,7 +46,7 @@ class MetadataChangedJobTest extends PKPTestCase
     /**
      * Ensure that a serialized job can be unserialized and executed
      */
-    public function testRunSerializedJob()
+    public function testRunSerializedJob(): void
     {
         $this->mockRequest();
 

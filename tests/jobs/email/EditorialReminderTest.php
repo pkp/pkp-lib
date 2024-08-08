@@ -31,7 +31,7 @@ use PKP\emailTemplate\Repository as EmailTemplateRepository;
 class EditorialReminderTest extends PKPTestCase
 {
     /**
-     * base64_encoded serializion from OJS 3.4.0
+     * serializion from OJS 3.4.0
      */
     protected string $serializedJobData = <<<END
     O:32:"PKP\\jobs\\email\\EditorialReminder":4:{s:11:"\0*\0editorId";i:2;s:12:"\0*\0contextId";i:1;s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
@@ -51,7 +51,7 @@ class EditorialReminderTest extends PKPTestCase
     /**
      * Ensure that a serialized job can be unserialized and executed
      */
-    public function testRunSerializedJob()
+    public function testRunSerializedJob(): void
     {
         $this->mockRequest();
 

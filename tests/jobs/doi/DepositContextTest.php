@@ -28,7 +28,7 @@ use APP\doi\Repository as DoiRepository;
 class DepositContextTest extends PKPTestCase
 {
     /**
-     * base64_encoded serializion from OJS 3.4.0
+     * serializion from OJS 3.4.0
      */
     protected string $serializedJobData = <<<END
     O:27:"PKP\\jobs\\doi\\DepositContext":3:{s:12:"\0*\0contextId";i:1;s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
@@ -48,7 +48,7 @@ class DepositContextTest extends PKPTestCase
     /**
      * Ensure that a serialized job can be unserialized and executed
      */
-    public function testRunSerializedJob()
+    public function testRunSerializedJob(): void
     {
         /** @var DepositContext $depositContextJob */
         $depositContextJob = unserialize($this->serializedJobData);

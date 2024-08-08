@@ -22,8 +22,8 @@ use PKP\form\Form;
 
 class LibraryFileForm extends Form
 {
-    /** @var LibraryFileManager the library file manager instantiated in this form. */
-    public $libraryFileManager;
+    /** the library file manager instantiated in this form. */
+    public LibraryFileManager $libraryFileManager;
 
     /**
      * Constructor.
@@ -56,7 +56,7 @@ class LibraryFileForm extends Form
      *
      * @param null|mixed $template
      */
-    public function fetch($request, $template = null, $display = false)
+    public function fetch($request, $template = null, $display = false): ?string
     {
         // load the file types for the selector on the form.
         $templateMgr = TemplateManager::getManager($request);
@@ -71,7 +71,7 @@ class LibraryFileForm extends Form
      *
      * @see Form::readInputData()
      */
-    public function readInputData()
+    public function readInputData(): void
     {
         $this->readUserVars(['libraryFileName', 'fileType', 'publicAccess']);
     }

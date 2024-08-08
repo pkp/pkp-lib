@@ -17,6 +17,7 @@
 
 namespace PKP\API\v1\submissions;
 
+use APP\author\Author;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\mail\variables\ContextEmailVariable;
@@ -55,6 +56,7 @@ use PKP\services\PKPSchemaService;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submissionFile\SubmissionFile;
 use PKP\userGroup\UserGroup;
 
 class PKPSubmissionController extends PKPBaseController
@@ -74,6 +76,7 @@ class PKPSubmissionController extends PKPBaseController
         'saveForLater',
         'submit',
         'delete',
+        'changeLocale',
         'getGalleys',
         'getDecisions',
         'getParticipants',
@@ -101,6 +104,7 @@ class PKPSubmissionController extends PKPBaseController
         'deleteContributor',
         'editContributor',
         'saveContributorsOrder',
+        'changeLocale',
     ];
 
     /** @var array Handlers that must be authorized to access a submission's production stage */
@@ -203,6 +207,10 @@ class PKPSubmissionController extends PKPBaseController
             Route::delete('{submissionId}', $this->delete(...))
                 ->name('submission.delete')
                 ->whereNumber('submissionId');
+
+            Route::put('{submissionId}/publications/{publicationId}/changeLocale', $this->changeLocale(...))
+                ->name('submission.publication.changeLocale')
+                ->whereNumber(['submissionId', 'publicationId']);
         });
 
         Route::middleware([
@@ -817,6 +825,50 @@ class PKPSubmissionController extends PKPBaseController
         Repo::submission()->delete($submission);
 
         return response()->json($submissionProps, Response::HTTP_OK);
+    }
+
+    /**
+     * Change submission language
+     */
+    public function changeLocale(Request $illuminateRequest): JsonResponse
+    {
+        $publication = Repo::publication()->get((int) $illuminateRequest->route('publicationId'));
+
+        if (!$publication) {
+            return response()->json([
+                'error' => __('api.404.resourceNotFound'),
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+
+        if ($submission->getId() !== $publication->getData('submissionId')) {
+            return response()->json([
+                'error' => __('api.publications.403.submissionsDidNotMatch'),
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        $paramsSubmission = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION, $illuminateRequest->input());
+        $newLocale = $paramsSubmission['locale'] ?? null;
+
+        // Submission language can not be changed when there are more than one publication or a publication's status is published
+        if (!$newLocale || count($submission->getData('publications')) > 1 || $publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
+            return response()->json(['error' => __('api.submission.403.cantChangeSubmissionLanguage')], Response::HTTP_FORBIDDEN);
+        }
+
+        // Convert a form field value to multilingual (if it is not) and merge rest values
+        collect(app()->get('schema')->getMultilingualProps(PKPSchemaService::SCHEMA_PUBLICATION))
+            ->each(fn (string $p) => $illuminateRequest->whenHas($p, fn ($v) => $illuminateRequest->merge([$p => array_merge($publication->getData($p) ?? [], is_array($v) ? $v : [$newLocale => $v])])));
+
+        $responsePublication = $this->editPublication($illuminateRequest);
+
+        if ($responsePublication->status() === 200) {
+            $this->copyMultilingualData($submission, $newLocale);
+        } else {
+            return $responsePublication;
+        }
+
+        return $this->edit($illuminateRequest);
     }
 
     /**
@@ -1705,5 +1757,42 @@ class PKPSubmissionController extends PKPBaseController
         }
 
         return $errors;
+    }
+
+    /**
+     * Copy author, files, etc. multilingual fields from old to new changed language
+     */
+    protected function copyMultilingualData(Submission $submission, string $newLocale): void {
+        $oldLocale = $submission->getData('locale');
+        $editProps = fn (Author|SubmissionFile $item, array $props): array => collect($props)
+            ->mapWithKeys(fn (string $p): array => [$p => ($d = $item->getData($p)[$oldLocale] ?? null) ? [$newLocale => $d] : null])
+            ->filter()
+            ->toArray();
+
+        // Submission files
+        $fileProps = [
+            'name',
+        ];
+        Repo::submissionFile()
+            ->getCollector()
+            ->filterBySubmissionIds([$submission->getId()])
+            ->getMany()
+            ->each(fn (SubmissionFile $f) => Repo::submissionFile()->edit($f, $editProps($f, $fileProps)));
+        
+        // Contributor
+        $contributorProps = [
+			'givenName',
+			'familyName',
+			'preferredPublicName',
+		];
+        Repo::author()
+            ->getCollector()
+            ->filterByPublicationIds([$submission->getLatestPublication()->getId()])
+            ->getMany()
+            ->each(function (Author $c) use ($contributorProps, $editProps, $newLocale) {
+                if (!($c->getData('givenName')[$newLocale] ?? null)) {
+                    Repo::author()->edit($c, $editProps($c, $contributorProps));
+                }
+            });
     }
 }

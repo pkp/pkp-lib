@@ -46,13 +46,6 @@
 			"apiSummary": true,
 			"readOnly": true
 		},
-		"categoryIds": {
-			"type": "array",
-			"apiSummary": true,
-			"items": {
-				"type": "integer"
-			}
-		},
 		"citations": {
 			"type": "array",
 			"description": "Optional metadata that contains an array of references for works cited in this submission. References have been split and parsed from the raw text.",

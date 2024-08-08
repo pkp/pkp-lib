@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27609a213b10e88af85de636e52ae3b3",
+    "content-hash": "6bedcd24689e6fdfcb460d9b0d27a908",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -119,144 +119,6 @@
                 }
             ],
             "time": "2022-08-10T22:54:19+00:00"
-        },
-        {
-            "name": "components/jquery",
-            "version": "3.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/components/jquery.git",
-                "reference": "6cf38ee1fd04b6adf8e7dda161283aa35be818c3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/components/jquery/zipball/6cf38ee1fd04b6adf8e7dda161283aa35be818c3",
-                "reference": "6cf38ee1fd04b6adf8e7dda161283aa35be818c3",
-                "shasum": ""
-            },
-            "type": "component",
-            "extra": {
-                "component": {
-                    "scripts": [
-                        "jquery.js"
-                    ],
-                    "files": [
-                        "jquery.min.js",
-                        "jquery.min.map",
-                        "jquery.slim.js",
-                        "jquery.slim.min.js",
-                        "jquery.slim.min.map"
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "JS Foundation and other contributors"
-                }
-            ],
-            "description": "jQuery JavaScript Library",
-            "homepage": "http://jquery.com",
-            "support": {
-                "forum": "http://forum.jquery.com",
-                "irc": "irc://irc.freenode.org/jquery",
-                "issues": "https://github.com/jquery/jquery/issues",
-                "source": "https://github.com/jquery/jquery",
-                "wiki": "http://docs.jquery.com/"
-            },
-            "time": "2021-03-20T19:13:42+00:00"
-        },
-        {
-            "name": "components/jqueryui",
-            "version": "1.12.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/components/jqueryui.git",
-                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/components/jqueryui/zipball/44ecf3794cc56b65954cc19737234a3119d036cc",
-                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc",
-                "shasum": ""
-            },
-            "require": {
-                "components/jquery": ">=1.6"
-            },
-            "type": "component",
-            "extra": {
-                "component": {
-                    "name": "jquery-ui",
-                    "scripts": [
-                        "jquery-ui.js"
-                    ],
-                    "files": [
-                        "ui/**",
-                        "themes/**",
-                        "jquery-ui.min.js"
-                    ],
-                    "shim": {
-                        "deps": [
-                            "jquery"
-                        ],
-                        "exports": "jQuery"
-                    }
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "jQuery UI Team",
-                    "homepage": "http://jqueryui.com/about"
-                },
-                {
-                    "name": "Joern Zaefferer",
-                    "email": "joern.zaefferer@gmail.com",
-                    "homepage": "http://bassistance.de"
-                },
-                {
-                    "name": "Scott Gonzalez",
-                    "email": "scott.gonzalez@gmail.com",
-                    "homepage": "http://scottgonzalez.com"
-                },
-                {
-                    "name": "Kris Borchers",
-                    "email": "kris.borchers@gmail.com",
-                    "homepage": "http://krisborchers.com"
-                },
-                {
-                    "name": "Mike Sherov",
-                    "email": "mike.sherov@gmail.com",
-                    "homepage": "http://mike.sherov.com"
-                },
-                {
-                    "name": "TJ VanToll",
-                    "email": "tj.vantoll@gmail.com",
-                    "homepage": "http://tjvantoll.com"
-                },
-                {
-                    "name": "Corey Frang",
-                    "email": "gnarf37@gmail.com",
-                    "homepage": "http://gnarf.net"
-                },
-                {
-                    "name": "Felix Nagel",
-                    "email": "info@felixnagel.com",
-                    "homepage": "http://www.felixnagel.com"
-                }
-            ],
-            "description": "jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library. Whether you're building highly interactive web applications or you just need to add a date picker to a form control, jQuery UI is the perfect choice.",
-            "support": {
-                "issues": "https://github.com/components/jqueryui/issues",
-                "source": "https://github.com/components/jqueryui/tree/master"
-            },
-            "time": "2016-09-16T05:47:55+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -11290,5 +11152,5 @@
     "platform-overrides": {
         "php": "8.0.2"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

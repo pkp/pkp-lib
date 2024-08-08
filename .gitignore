@@ -7,3 +7,6 @@ lib/components
 tests/.phpunit.result.cache
 .php-cs-fixer.cache
 styles/tinymce
+js/lib/jquery/plugins/validate/
+js/lib/Chart.js
+js/lib/Chart.min.js

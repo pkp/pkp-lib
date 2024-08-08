@@ -27,7 +27,6 @@
 namespace PKP\controllers\grid\queries;
 
 use APP\core\Application;
-use Carbon\Carbon;
 use PKP\db\DAORegistry;
 use PKP\query\Query;
 use PKP\query\QueryDAO;
@@ -116,7 +115,7 @@ class QueriesAccessHelper
      *
      * @param int $queryId Query ID
      *
-     * @return bool True iff the user is allowed to edit the query.
+     * @return bool True if the user is allowed to edit the query.
      */
     public function getCanEdit($queryId)
     {
@@ -129,7 +128,7 @@ class QueriesAccessHelper
         // Assistants, authors and reviewers are allowed, if they created the query less than x seconds ago
         if ($this->hasStageRole($query->getStageId(), [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) {
             $headNote = $query->getHeadNote();
-            if ($headNote->userId == $this->_user->getId() && (Carbon::now()->diffInSeconds($headNote->dateCreated)) < 3600) {
+            if ($headNote->userId == $this->_user->getId() && ($headNote->dateCreated->diffInHours() < 1)) {
                 return true;
             }
         }
@@ -148,7 +147,7 @@ class QueriesAccessHelper
      *
      * @param int $queryId Query ID
      *
-     * @return bool True iff the user is allowed to delete the query.
+     * @return bool True if the user is allowed to delete the query.
      */
     public function getCanDelete($queryId)
     {

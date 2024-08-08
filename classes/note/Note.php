@@ -132,17 +132,17 @@ class Note extends Model
     /**
      * Scope a query to a specific sort order.
      */
-    public function scopeWithSort(Builder $query, int $orderBy = NOTE_ORDER_DATE_CREATED, int $sortDirection = DAO::SORT_DIRECTION_DESC): Builder
+    public function scopeWithSort(Builder $query, int $orderBy = self::NOTE_ORDER_DATE_CREATED, int $sortDirection = DAO::SORT_DIRECTION_DESC): Builder
     {
         // Sanitize sort ordering
         $orderSanitized = match ($orderBy) {
             self::NOTE_ORDER_ID => 'note_id',
-            default => 'date_created',
+            self::NOTE_ORDER_DATE_CREATED => 'date_created',
         };
 
         $directionSanitized = match ($sortDirection) {
             DAO::SORT_DIRECTION_ASC => 'ASC',
-            default => 'DESC',
+            DAO::SORT_DIRECTION_DESC => 'DESC',
         };
 
         return $query->orderBy($orderSanitized, $directionSanitized);

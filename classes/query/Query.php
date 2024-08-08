@@ -3,8 +3,8 @@
 /**
  * @file classes/query/Query.php
  *
- * Copyright (c) 2016-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2016-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Query
@@ -133,23 +133,9 @@ class Query extends \PKP\core\DataObject
      */
     public function getHeadNote()
     {
-        return $this->getReplies(null, Note::NOTE_ORDER_DATE_CREATED)->first();
-    }
-
-    /**
-     * Get all notes on a query.
-     *
-     * @param int $userId Optional user ID
-     * @param int $sortBy Optional Note::NOTE_ORDER_...
-     * @param int $sortOrder Optional DAO::SORT_DIRECTION_...
-     *
-     */
-    public function getReplies(?int $userId = null, int $sortBy = Note::NOTE_ORDER_ID, int $sortOrder = DAO::SORT_DIRECTION_ASC): LazyCollection
-    {
         return Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $this->getId())
-                    ->when($userId, fn (Builder $query, int $userId) => $query->withUserId($userId))
-                    ->withSort($sortBy, $sortOrder)
-                    ->lazy();
+            ->withSort(Note::NOTE_ORDER_DATE_CREATED, DAO::SORT_DIRECTION_ASC)
+            ->first();
     }
 }
 

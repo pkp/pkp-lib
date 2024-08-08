@@ -20,10 +20,8 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\queries\traits\StageMailable;
-use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
@@ -390,7 +388,7 @@ class QueryForm extends Form
         $allowedEditTimeNotice = ['show' => false, 'limit' => 60];
         if (array_intersect($assignedRoles, [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) {
             $allowedEditTimeNotice['show'] = true;
-            $allowedEditTimeNotice['limit'] = (int) ($allowedEditTimeNotice['limit'] - Carbon::now()->diffInMinutes($headNote->dateCreated));
+            $allowedEditTimeNotice['limit'] = (int) ($allowedEditTimeNotice['limit'] - $headNote->dateCreated->diffInMinutes());
         }
 
         $templateMgr->assign([

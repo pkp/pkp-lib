@@ -25,7 +25,7 @@
 <div id="note-{$noteId}" class="note">
 	<div class="details">
 		<span class="user">
-			{assign var=noteUser value=$note->getUser()}
+			{assign var=noteUser value=$note->user}
 			{$noteUser->getFullName()|escape}
 		</span>
 		<span class="date">

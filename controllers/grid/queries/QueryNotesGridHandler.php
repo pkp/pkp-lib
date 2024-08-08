@@ -185,8 +185,9 @@ class QueryNotesGridHandler extends GridHandler
      */
     public function loadData($request, $filter = null)
     {
-        return $this->getQuery()
-            ->getReplies(null, Note::NOTE_ORDER_DATE_CREATED, DAO::SORT_DIRECTION_ASC)
+        return Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $this->getQuery()->getId())
+            ->withSort(Note::NOTE_ORDER_DATE_CREATED, DAO::SORT_DIRECTION_ASC)
+            ->lazy()
             ->filter(function (Note $note) use ($request) {
                 return $note->contents || $note->userId === $request->getUser()->getId();
             });

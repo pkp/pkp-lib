@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Str;
+use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\db\DAO;
@@ -57,8 +58,9 @@ class QueryNotificationManager extends NotificationManagerDelegate
                     'noteTitle' => Str::limit($headNote->title, 200),
                 ]);
             case Notification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
-                $notes = $query->getReplies(null, Note::NOTE_ORDER_ID, DAO::SORT_DIRECTION_DESC);
-                $latestNote = $notes->first();
+                $latestNote = Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $query->getAssocId())
+                    ->withSort(Note::NOTE_ORDER_ID)
+                    ->first();
                 $user = $latestNote->user;
                 return __('submission.query.activity', [
                     'responderName' => $user->getFullName(),

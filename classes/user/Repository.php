@@ -23,7 +23,7 @@ use PKP\context\SubEditorsDAO;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileDAO;
-use PKP\note\NoteDAO;
+use PKP\note\Note;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
@@ -330,12 +330,7 @@ class Repository
             Repo::submissionFile()->edit($submissionFile, ['uploaderUserId' => $newUserId]);
         }
 
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $notes = $noteDao->getByUserId($oldUserId);
-        while ($note = $notes->next()) {
-            $note->setUserId($newUserId);
-            $noteDao->updateObject($note);
-        }
+        Repo::note()->transfer($oldUserId, $newUserId);
 
         Repo::decision()->dao->reassignDecisions($oldUserId, $newUserId);
 

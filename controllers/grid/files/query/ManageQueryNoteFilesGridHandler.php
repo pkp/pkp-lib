@@ -79,7 +79,7 @@ class ManageQueryNoteFilesGridHandler extends SelectableSubmissionFileListCatego
         // Passed the checks above. If it's part of the current query, mark selected.
         $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
         $headNote = $query->getHeadNote();
-        return ($submissionFile->getData('assocType') == Application::ASSOC_TYPE_NOTE && $submissionFile->getData('assocId') == $headNote->getId());
+        return $submissionFile->getData('assocType') == Application::ASSOC_TYPE_NOTE && $submissionFile->getData('assocId') == $headNote->id;
     }
 
     //

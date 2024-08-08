@@ -62,9 +62,9 @@ class QueryNotesGridRow extends GridRow
         parent::initialize($request, $template);
 
         // Is this a new row or an existing row?
-        $rowId = $this->getId();
+        $rowId = abs($this->getId());
         $headNote = $this->getQuery()->getHeadNote();
-        if (!empty($rowId) && is_numeric($rowId) && (!$headNote || $headNote->getId() != $rowId)) {
+        if ($rowId > 0 && $headNote?->id != $rowId) {
             // Only add row actions if this is an existing row
             $router = $request->getRouter();
             $actionArgs = array_merge(

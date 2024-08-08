@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/form/QueryNoteForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNoteForm
@@ -22,7 +22,6 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\note\Note;
-use PKP\note\NoteDAO;
 use PKP\query\Query;
 use PKP\query\QueryDAO;
 use PKP\user\User;
@@ -57,13 +56,12 @@ class QueryNoteForm extends Form
 
         if ($noteId === null) {
             // Create a new (placeholder) note.
-            $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-            $note = $noteDao->newDataObject();
-            $note->setAssocType(Application::ASSOC_TYPE_QUERY);
-            $note->setAssocId($query->getId());
-            $note->setUserId($user->getId());
-            $note->setDateCreated(Core::getCurrentDate());
-            $this->_noteId = $noteDao->insertObject($note);
+            $note = new Note;
+            $note->assocType = Application::ASSOC_TYPE_QUERY;
+            $note->assocId = $query->getId();
+            $note->userId = $user->getId();
+            $note->save();
+            $this->_noteId = $note->id;
             $this->_isNew = true;
         } else {
             $this->_noteId = $noteId;
@@ -137,19 +135,18 @@ class QueryNoteForm extends Form
         $request = Application::get()->getRequest();
         $user = $request->getUser();
 
-        // Create a new note.
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $note = $noteDao->getById($this->_noteId);
-        $note->setUserId($request->getUser()->getId());
-        $note->setContents($this->getData('comment'));
-        $noteDao->updateObject($note);
+        $note = Note::find($this->_noteId);
+        $note->userId = $request->getUser()->getId();
+        $note->contents = $this->getData('comment');
+        $note->save();
+
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
 
         // Check whether the query needs re-opening
         $query = $this->getQuery();
         if ($query->getIsClosed()) {
             $headNote = $query->getHeadNote();
-            if ($user->getId() != $headNote->getUserId()) {
+            if ($user->getId() != $headNote->userId) {
                 // Re-open the query.
                 $query->setIsClosed(false);
                 $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */

@@ -23,7 +23,7 @@ use PKP\controllers\api\file\linkAction\AddFileLinkAction;
 use PKP\controllers\grid\files\fileList\linkAction\SelectFilesLinkAction;
 use PKP\controllers\grid\files\SubmissionFilesGridDataProvider;
 use PKP\db\DAORegistry;
-use PKP\note\NoteDAO;
+use PKP\note\Note;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\submissionFile\SubmissionFile;
 
@@ -78,9 +78,8 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider
         $submission = $this->getSubmission();
         $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
 
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $note = $noteDao->getById($this->_noteId);
-        if ($note->getAssocType() != Application::ASSOC_TYPE_QUERY || $note->getAssocId() != $query->getId()) {
+        $note = Note::find($this->_noteId);
+        if ($note->assocType != Application::ASSOC_TYPE_QUERY || $note->assocId != $query->getId()) {
             throw new Exception('Invalid note ID specified!');
         }
 

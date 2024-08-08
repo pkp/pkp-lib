@@ -19,7 +19,7 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use PKP\db\DAORegistry;
-use PKP\note\NoteDAO;
+use PKP\note\Note;
 use PKP\query\QueryDAO;
 use PKP\security\authorization\AuthorizationPolicy;
 
@@ -52,22 +52,21 @@ class SubmissionFileAssignedQueryAccessPolicy extends SubmissionFileBaseAccessPo
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $note = $noteDao->getById($submissionFile->getData('assocId'));
+        $note = Note::find($submissionFile->getData('assocId'));
         if (!$note instanceof \PKP\note\Note) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        if ($note->getAssocType() != Application::ASSOC_TYPE_QUERY) {
+        if ($note->assocType != Application::ASSOC_TYPE_QUERY) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query = $queryDao->getById($note->getAssocId());
+        $query = $queryDao->getById($note->assocId);
         if (!$query) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        if ($queryDao->getParticipantIds($note->getAssocId(), $user->getId())) {
+        if ($queryDao->getParticipantIds($note->assocId, $user->getId())) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 

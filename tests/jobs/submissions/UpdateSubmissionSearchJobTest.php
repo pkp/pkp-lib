@@ -27,7 +27,7 @@ class UpdateSubmissionSearchJobTest extends PKPTestCase
      * serializion from OJS 3.4.0
      */
     protected string $serializedJobData = <<<END
-    O:46:"PKP\jobs\submissions\UpdateSubmissionSearchJob":3:{s:15:"\0*\0submissionId";i:1;s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
+    O:46:"PKP\\jobs\\submissions\\UpdateSubmissionSearchJob":3:{s:15:"\0*\0submissionId";i:17;s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
     END;
 
     /**

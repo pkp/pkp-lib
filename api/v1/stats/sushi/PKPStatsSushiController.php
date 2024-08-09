@@ -35,6 +35,7 @@ use PKP\security\Role;
 use PKP\sushi\CounterR5Report;
 use PKP\sushi\SushiException;
 use PKP\validation\ValidatorFactory;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class PKPStatsSushiController extends PKPBaseController
 {
@@ -245,7 +246,7 @@ class PKPStatsSushiController extends PKPBaseController
      * COUNTER 'Platform Usage' [PR_P1].
      * A customizable report summarizing activity across the Platform (journal, press, or server).
      */
-    public function getReportsPR(Request $illuminateRequest): JsonResponse
+    public function getReportsPR(Request $illuminateRequest): JsonResponse|StreamedResponse
     {
         return $this->getReportResponse(new PR(), $illuminateRequest);
     }
@@ -254,7 +255,7 @@ class PKPStatsSushiController extends PKPBaseController
      * COUNTER 'Platform Master Report' [PR].
      * This is a Standard View of the Platform Master Report that presents usage for the overall Platform broken down by Metric_Type
      */
-    public function getReportsPR1(Request $illuminateRequest): JsonResponse
+    public function getReportsPR1(Request $illuminateRequest): JsonResponse|StreamedResponse
     {
         return $this->getReportResponse(new PR_P1(), $illuminateRequest);
     }
@@ -334,10 +335,11 @@ class PKPStatsSushiController extends PKPBaseController
     /**
      * Get the requested report
      */
-    protected function getReportResponse(CounterR5Report $report, Request $illuminateRequest): JsonResponse
+    protected function getReportResponse(CounterR5Report $report, Request $illuminateRequest): JsonResponse|StreamedResponse
     {
         $params = $illuminateRequest->query();
-        $responseTSV = str_contains($illuminateRequest->getHeaderLine('Accept'), PKPRoutingProvider::RESPONSE_TSV) ? true : false;
+        //$responseTSV = str_contains($illuminateRequest->getHeaderLine('Accept'), PKPRoutingProvider::RESPONSE_TSV['mime']) ? true : false;
+        $responseTSV = $illuminateRequest->accepts(PKPRoutingProvider::RESPONSE_TSV['mime']);
 
         if ($responseTSV) {
             $errors = $this->_validateUserInput($report, $params);
@@ -370,7 +372,7 @@ class PKPStatsSushiController extends PKPBaseController
                 }
             }
             $report = array_merge($reportHeader, [['']], $reportColumnNames, $reportItems);
-            return response()->withCSV($report, [], count($reportItems), PKPRoutingProvider::RESPONSE_TSV);
+            return response()->withFile($report, [], count($reportItems));
         }
 
         $reportHeader = $report->getReportHeader();

@@ -606,3 +606,26 @@ msgstr ""
 
 msgid "editor.decision.stepError"
 msgstr ""
+
+msgid "editor.review.logResponse.for"
+msgstr "Log svar fyrir"
+
+msgid "editor.review.logResponse"
+msgstr "Log svar"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Velja verður svar"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Gagnrýnandi hefur samþykkt boðið að endurskoða"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Gagnrýnandi hefur hafnað boðinu um að endurskoða"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Skráðu svarið fyrir hönd gagnrýnandans"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Ef gagnrýnandinn hefur samband við þig með tölvupósti eða öðrum hætti "
+"geturðu skráð svar þeirra fyrir þeim"

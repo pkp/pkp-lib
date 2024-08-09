@@ -560,3 +560,26 @@ msgstr ""
 
 msgid "editor.decision.stepError"
 msgstr ""
+
+msgid "editor.review.logResponse.for"
+msgstr "Erregistroaren erantzuna"
+
+msgid "editor.review.logResponse"
+msgstr "Erregistroaren erantzuna"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Erantzun bat hautatu behar da"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Berrikusleak berrikusteko gonbidapena onartu du"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Berrikusleak berrikusteko gonbidapena ukatu du"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Grabatu erantzuna berrikuslearen izenean"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Ebaluatzaileak posta elektroniko bidez edo beste edozein bitarteko bidez "
+"kontaktuan badu, haien erantzuna grabatu dezakezu"

@@ -630,3 +630,26 @@ msgstr ""
 #~ "A nyilvános azonosító '{$publicIdentifier}' már foglalt egy másik "
 #~ "ugyanilyen típusú objektum számára. Kérjük egyedi azonosítót válasszon a "
 #~ "folyóiraton belül az azonos típusú objektumokhoz."
+
+msgid "editor.review.logResponse.for"
+msgstr "Naplóválasz"
+
+msgid "editor.review.logResponse"
+msgstr "Naplóválasz"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Válaszot kell választani"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "A recenzens elfogadta a felülvizsgálat meghívását"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "A recenzens elutasította a felülvizsgálat meghívását"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Rögzítse a választ az értékelő nevében"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Ha a recenzens e -mailben vagy bármilyen más eszközön keresztül felveszi "
+"Önnel a kapcsolatot, akkor rögzítheti a válaszukat számukra"

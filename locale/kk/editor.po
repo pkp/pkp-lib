@@ -607,3 +607,26 @@ msgstr "Бұл электрондық поштаны өткізіп жібері
 
 msgid "editor.decision.stepError"
 msgstr "{$stepName} қадамында ақаулық орын алды."
+
+msgid "editor.review.logResponse.for"
+msgstr "Журнал жауабы"
+
+msgid "editor.review.logResponse"
+msgstr "Журнал жауабы"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Жауап таңдау керек"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Рецензент қарауға шақыруды қабылдады"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Рецензент қарауға шақырудан бас тартты"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Рецензент атынан жауап жазыңыз"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Егер шолушы сіз электрондық пошта арқылы немесе басқа тәсілдермен "
+"байланысатын болсаңыз, олар үшін олардың жауабын жаза аласыз"

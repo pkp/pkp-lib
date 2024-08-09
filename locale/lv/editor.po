@@ -616,3 +616,26 @@ msgstr "Radās problēma ar soli {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Tā pati iestāde, kas autoram"
+
+msgid "editor.review.logResponse.for"
+msgstr "Žurnāla atbilde par"
+
+msgid "editor.review.logResponse"
+msgstr "Žurnāla atbilde"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Jāizvēlas atbilde"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Recenzents ir pieņēmis ielūgumu pārskatīt"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Recenzents ir noraidījis ielūgumu pārskatīt"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Reģistrēt atbildi recenzenta vārdā"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Ja recenzents sazinās ar jums pa e -pastu vai citiem līdzekļiem, varat "
+"ierakstīt viņu atbildi"

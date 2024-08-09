@@ -560,3 +560,27 @@ msgstr ""
 
 msgid "editor.decision.stepError"
 msgstr ""
+
+msgid "editor.review.logResponse.for"
+msgstr "के लिए लॉग प्रतिक्रिया"
+
+msgid "editor.review.logResponse"
+msgstr "लॉग -रिस्पॉन्स"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "एक प्रतिक्रिया का चयन किया जाना चाहिए"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "समीक्षक ने समीक्षा करने के लिए निमंत्रण स्वीकार कर लिया है"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "समीक्षक ने समीक्षा करने के निमंत्रण को अस्वीकार कर दिया है"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "समीक्षक की ओर से प्रतिक्रिया रिकॉर्ड करें"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"यदि समीक्षक आपको ईमेल या किसी अन्य साधन के माध्यम से संपर्क करता है, तो आप "
+"उनके लिए उनकी प्रतिक्रिया रिकॉर्ड कर सकते हैं"
+

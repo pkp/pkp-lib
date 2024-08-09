@@ -602,3 +602,26 @@ msgstr ""
 
 #~ msgid "reviewer.list.count"
 #~ msgstr "{$count} phản biện"
+
+msgid "editor.review.logResponse.for"
+msgstr "Đăng nhập phản hồi cho"
+
+msgid "editor.review.logResponse"
+msgstr "Phản hồi nhật ký"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "Phải chọn phản hồi"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "Người đánh giá đã chấp nhận lời mời để xem xét"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "Người đánh giá đã từ chối lời mời để xem xét"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "Ghi lại phản hồi thay mặt cho người đánh giá"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"Nếu người đánh giá liên hệ với bạn qua email hoặc bất kỳ phương tiện nào "
+"khác, bạn có thể ghi lại phản hồi của họ cho họ"

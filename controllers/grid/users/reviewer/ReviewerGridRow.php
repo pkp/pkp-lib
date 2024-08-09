@@ -17,11 +17,16 @@
 namespace PKP\controllers\grid\users\reviewer;
 
 use APP\facades\Repo;
+use PKP\components\forms\decision\LogReviewerResponseForm;
 use PKP\controllers\grid\GridRow;
 use PKP\core\PKPApplication;
+use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectConfirmationModal;
+use PKP\linkAction\request\VueModal;
+use PKP\security\Role;
+use PKP\security\RoleDAO;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
@@ -212,6 +217,31 @@ class ReviewerGridRow extends GridRow
                         ),
                         __('user.gossip'),
                         'more_info'
+                    )
+                );
+            }
+
+            $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
+            $context = $request->getContext();
+
+            if ($roleDao->userHasRole($context->getId(), $user->getId(), [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER]) && $reviewAssignment->getDateConfirmed() == null) {
+                $reviewAssignmentId = $reviewAssignment->getId();
+                $initials = $context->getData('acronym', $context->getPrimaryLocale());
+                $action = "/$initials/api/v1/reviews/$submissionId/$reviewAssignmentId/confirmReview";
+                $logResponseForm = new LogReviewerResponseForm($action, $context->getSupportedFormLocales(), $context);
+                $form = [
+                    'description' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
+                    'logResponseForm' => $logResponseForm->getConfig()
+                ];
+
+                $this->addAction(
+                    new LinkAction(
+                        'logResponse',
+                        new VueModal(
+                            'WorkflowLogResponseForModal',
+                            array_merge($actionArgs, $form)
+                        ),
+                        __('editor.review.logResponse')
                     )
                 );
             }

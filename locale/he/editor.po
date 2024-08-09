@@ -556,3 +556,26 @@ msgstr ""
 
 msgid "editor.decision.stepError"
 msgstr ""
+
+msgid "editor.review.logResponse.for"
+msgstr "תגובת יומן עבור"
+
+msgid "editor.review.logResponse"
+msgstr "תגובת יומן"
+
+msgid "editor.review.logResponse.form.responseRequired"
+msgstr "יש לבחור תגובה"
+
+msgid "editor.review.logResponse.form.option.accepted"
+msgstr "הסוקר קיבל את ההזמנה לבדיקה"
+
+msgid "editor.review.logResponse.form.option.declined"
+msgstr "הסוקר דחה את ההזמנה לבדיקה"
+
+msgid "editor.review.logResponse.form.detail"
+msgstr "רשום את התגובה מטעם הסוקר"
+
+msgid "editor.review.logResponse.form.subDetail"
+msgstr ""
+"אם הסוקר יוצר איתך קשר באמצעות דואר אלקטרוני או בכל אמצעי אחר, אתה יכול "
+"לרשום את תגובתם עבורם"

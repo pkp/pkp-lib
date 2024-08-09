@@ -47,11 +47,21 @@ class ValidateCsrfToken
     }
 
     /**
-     * Check if this is a API request
+     * Check if this is an API request
      */
     protected function isApiRequest(Request $request): bool
     {
-        return $request->query('apiToken', null) ? true : false;
+        // API Token may be sent as request query param.
+        // Deprecated since 3.4: API Token in query parameters is no longer recommended. Authorization header should be used.
+        if ($request->query('apiToken')) {
+            return true;
+        }
+
+        if ($request->header('authorization')) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

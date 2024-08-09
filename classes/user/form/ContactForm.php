@@ -21,7 +21,7 @@ use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\facades\Locale;
 use PKP\invitation\core\enums\InvitationStatus;
-use PKP\invitation\invitations\ChangeProfileEmailInvite;
+use PKP\invitation\invitations\changeProfileEmail\ChangeProfileEmailInvite;
 use PKP\invitation\models\InvitationModel;
 use PKP\user\User;
 

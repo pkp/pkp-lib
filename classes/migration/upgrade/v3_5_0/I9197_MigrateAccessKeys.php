@@ -19,8 +19,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\install\DowngradeNotSupportedException;
-use PKP\invitation\invitations\RegistrationAccessInvite;
-use PKP\invitation\invitations\ReviewerAccessInvite;
+use PKP\invitation\invitations\registrationAccess\RegistrationAccessInvite;
+use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
 use PKP\migration\Migration;
 
 class I9197_MigrateAccessKeys extends Migration
@@ -33,33 +33,30 @@ class I9197_MigrateAccessKeys extends Migration
         Schema::create('invitations', function (Blueprint $table) {
             $table->comment('Invitations are sent to request a person (by email) to allow them to accept or reject an operation or position, such as a board membership or a submission peer review.');
             $table->bigInteger('invitation_id')->autoIncrement();
-            $table->string('key_hash', 255);
+            $table->string('key_hash', 255)->nullable();
+            $table->string('type', 255);
 
             $table->bigInteger('user_id')->nullable();
-            $table->foreign('user_id')
-                ->references('user_id')
-                ->on('users')
-                ->onDelete('cascade');
-
+            $table->bigInteger('inviter_id')->nullable();
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'invitations_user_id');
+            $table->foreign('inviter_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['inviter_id'], 'invitations_inviter_id');
 
-            $table->bigInteger('assoc_id')->nullable();
-            $table->datetime('expiry_date');
+            $table->datetime('expiry_date')->nullable();
             $table->json('payload')->nullable();
 
-            // The values are references to the enum InvitationStatus
-            // InvitationStatus::PENDING, InvitationStatus::ACCEPTED,
-            // InvitationStatus::DECLINED, InvitationStatus::CANCELLED
             $table->enum(
                 'status',
                 [
+                    'INITIALIZED',
                     'PENDING',
                     'ACCEPTED',
                     'DECLINED',
-                    'CANCELLED'
+                    'CANCELLED',
                 ]
             );
-            $table->string('class_name');
+
             $table->string('email')->nullable()->comment('When present, the email address of the invitation recipient; when null, user_id must be set and the email can be fetched from the users table.');
 
             $table->bigInteger('context_id')->nullable();
@@ -89,10 +86,10 @@ class I9197_MigrateAccessKeys extends Migration
 
             if ($accessKey->context == 'RegisterContext') { // Registered User validation Invitation
                 $invitation = new RegistrationAccessInvite();
-                $invitation->initialize($accessKey->user_id, null, null);
+                $invitation->initialize($accessKey->user_id, null, null, null);
             } elseif (isset($accessKey->context)) { // Reviewer Invitation
                 $invitation = new ReviewerAccessInvite();
-                $invitation->initialize($accessKey->user_id, $accessKey->context, null);
+                $invitation->initialize($accessKey->user_id, $accessKey->context, null, null);
 
                 $invitation->reviewAssignmentId = $accessKey->assoc_id;
                 $invitation->updatePayload();

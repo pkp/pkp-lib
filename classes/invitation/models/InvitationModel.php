@@ -70,9 +70,10 @@ class InvitationModel extends Model
         'createdAt' => 'datetime',
         'status' => 'string',
         'contextId' => 'int',
-        'className' => 'string',
+        'type' => 'string',
         'email' => 'string',
         'id' => 'int',
+        'inviterId' => 'int',
     ];
 
     protected $visible = [
@@ -84,6 +85,7 @@ class InvitationModel extends Model
         'contextId',
         'expiryDate',
         'email',
+        'inviterId'
     ];
 
 
@@ -130,14 +132,6 @@ class InvitationModel extends Model
     /**
      * Add a local scope to get invitations that are of certain invitation type
      */
-    public function scopeByClassName(Builder $query, string $className): Builder
-    {
-        return $query->where('class_name', '=', $className);
-    }
-
-    /**
-     * Add a local scope to get invitations that are of certain invitation type
-     */
     public function scopeByType(Builder $query, string $type): Builder
     {
         return $query->where('type', '=', $type);
@@ -148,9 +142,11 @@ class InvitationModel extends Model
      */
     public function scopeByUserId(Builder $query, ?int $userId): Builder
     {
-        return $query->when($userId, function ($query, $userId) {
-            return $query->where('user_id', '=', $userId);
-        })->orWhereNull('user_id');
+        return $query->when($userId !== null, function ($query) use ($userId) {
+                return $query->where('user_id', $userId);
+            }, function ($query) {
+                return $query->whereNull('user_id');
+            });
     }
 
     /**
@@ -158,9 +154,11 @@ class InvitationModel extends Model
      */
     public function scopeByEmail(Builder $query, ?string $email): Builder
     {
-        return $query->when($email, function ($query, $email) {
-            return $query->where('email', '=', $email);
-        })->orWhereNull('email');
+        return $query->when($email !== null, function ($query) use ($email) {
+                return $query->where('email', $email);
+            }, function ($query) {
+                return $query->whereNull('email');
+            });
     }
 
     /**
@@ -168,9 +166,11 @@ class InvitationModel extends Model
      */
     public function scopeByContextId(Builder $query, ?int $contextId): Builder
     {
-        return $query->when($contextId, function ($query, $contextId) {
-            return $query->where('context_id', '=', $contextId);
-        })->orWhereNull('context_id');
+        return $query->when($contextId !== null, function ($query) use ($contextId) {
+                return $query->where('context_id', $contextId);
+            }, function ($query) {
+                return $query->whereNull('context_id');
+            });
     }
 
     /**
@@ -227,5 +227,21 @@ class InvitationModel extends Model
             'status' => $status->value,
             'updated_at' => Carbon::now()
         ]);
+    }
+
+    // Custom toArray method to ensure serialization of attributes
+    public function toArray()
+    {
+        return [
+            'id' => $this->id,
+            'status' => $this->status,
+            'createdAt' => $this->createdAt,
+            'updatedAt' => $this->updatedAt,
+            'userId' => $this->userId,
+            'contextId' => $this->contextId,
+            'expiryDate' => $this->expiryDate,
+            'email' => $this->email,
+            'inviterId' => $this->inviterId,
+        ];
     }
 }

@@ -547,3 +547,108 @@ msgstr "orcidRequestAuthorAuthorization"
 #, fuzzy
 msgid "orcid.orcidCollectAuthorId.name"
 msgstr "orcidCollectAuthorId"
+
+#, fuzzy
+msgid "emails.userRoleAssignmentInvitationNotify.description"
+msgstr "This email is sent to users that are invited to obtain certain roles"
+
+#, fuzzy
+msgid "emails.userRoleAssignmentInvitationNotify.subject"
+msgstr "You are invited to new roles"
+
+#, fuzzy
+msgid "emails.userRoleAssignmentInvitationNotify.body"
+msgstr ""
+"<div class='email-container'>"
+"    <div class='email-header'>"
+"        <h2>Invitation to New Role</h2>"
+"    </div>"
+"    <div class='email-content'>"
+"        <p>Dear {$recipientName},</p>"
+"        <p>In light of your expertise, you have been invited by {$inviterName} to take on new roles at {$journalName}</p>"
+"        <p>At {$journalName}, we value your privacy. As such, we have taken steps to ensure that we are fully GDPR compliant. These steps include you being accountable to enter your own data and choosing who can see what information. or additional information on how we handled your data, please refer to our Privacy Policy.</p>"
+"        <div>{$existingRoles}</div>"
+"        <div>{$rolesAdded}</div>"
+"        <div>{$rolesRemoved}</div>"
+"        <p>On accepting the invite, you will be redirected to {$journalName}</p>"
+"        <p>Feel free to contact me with any questions about the process.</p>"
+"        <p><a href='{$acceptUrl}' class='btn btn-accept'>Accept Invitation</a></p>"
+"        <p><a href='{$declineUrl}' class='btn btn-decline'>Decline Invitation</a></p>"
+"        <p>Kind regards,</p>"
+"        <p>{$journalName}</p>"
+"    </div>"
+"</div>"
+"<style>"
+"{$emailTemplateStyle}"
+"</style>"
+
+#, fuzzy
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSection"
+msgstr ""
+"<div class='section'>"
+"    <div class='section-number'>{$sectionNumber}.</div>"
+"    <div class='section-content'>"
+"        <h2>{$sectionName}</h2>"
+"        <p>Starting from {$dateStart}</p>"
+"        <p>{$sectionEndingDate}</p>"
+"        <p>{$sectionMastheadAppear}</p>"
+"    </div>"
+"</div>"
+
+#, fuzzy
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate"
+msgstr "Ending at {$dateEnd}"
+
+#, fuzzy
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillNotAppear"
+msgstr "Your name will not appear in {$contextName}'s masthead as a {$sectionName}"
+
+#, fuzzy
+msgid "emails.userRoleAssignmentInvitationNotify.userGroupSectionWillAppear"
+msgstr "Your name will appear in the {$contextName}'s masthead as a {$sectionName}"
+
+#, fuzzy
+msgid "emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles"
+msgstr "<p><h2>Newly assigned roles</h2></p>"
+
+#, fuzzy
+msgid "emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles"
+msgstr "<p><h2>Already assigned roles</h2></p>"
+
+#, fuzzy
+msgid "emails.userRoleAssignmentInvitationNotify.removedRoles"
+msgstr "<p><h2>Removed roles</h2></p>"
+
+#, fuzzy
+msgid "emailTemplate.variable.invitation.recipientName"
+msgstr "This is the name of the invitation recipient"
+
+#, fuzzy
+msgid "emailTemplate.variable.invitation.inviterName"
+msgstr "This is the name of the sender of the invitation"
+
+#, fuzzy
+msgid "emailTemplate.variable.invitation.inviterRole"
+msgstr "This is the role of the sender of the invitation"
+
+#, fuzzy
+msgid "emailTemplate.variable.invitation.rolesAdded"
+msgstr "This section describes the roles that will be added to the user upon the invitation acceptance"
+
+#, fuzzy
+msgid "emailTemplate.variable.invitation.rolesRemoved"
+msgstr "This section describes the roles that will be removed from the user upon the invitation acceptance"
+
+#, fuzzy
+msgid "emailTemplate.variable.invitation.existingRoles"
+msgstr "This section describes the roles that the user already has."
+
+#, fuzzy
+msgid "emailTemplate.variable.invitation.acceptUrl"
+msgstr "This is the accept invitation URL"
+
+#, fuzzy
+msgid "emailTemplate.variable.invitation.declineUrl"
+msgstr "This is the decline invitation URL"
+
+

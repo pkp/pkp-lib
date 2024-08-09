@@ -323,6 +323,15 @@ abstract class Invitation
         return Repo::user()->get($this->invitationModel->inviterId);
     }
 
+    public function getExistingUser(): ?User
+    {
+        if (!isset($this->invitationModel->userId)) {
+            return null;
+        }
+
+        return Repo::user()->get($this->invitationModel->userId);
+    }
+
     public function getContext(): ?Context
     {
         if (!isset($this->invitationModel->contextId)) {

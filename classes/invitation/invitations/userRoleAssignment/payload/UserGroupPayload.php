@@ -15,6 +15,7 @@
 namespace PKP\invitation\invitations\userRoleAssignment\payload;
 
 use APP\facades\Repo;
+use PKP\userGroup\relationships\UserUserGroup;
 use PKP\userGroup\UserGroup;
 
 
@@ -41,6 +42,16 @@ class UserGroupPayload
             $data['masthead'],
             $data['dateStart'],
             $data['dateEnd'] ?? null
+        );
+    }
+
+    public static function fromUserUserGroup(UserUserGroup $userUserGroup): self
+    {
+        return new self(
+            $userUserGroup->userGroupId,
+            $userUserGroup->masthead,
+            $userUserGroup->dateStart,
+            $userUserGroup->dateEnd
         );
     }
 }

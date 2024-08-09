@@ -19,6 +19,12 @@ msgstr "At least one user group to add must be defined"
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting"
 msgstr "At least one user group to remove must be defined"
 
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
+msgstr "Remove user roles can't be defined for not existing users."
+
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.userDoesNotHaveRoles"
+msgstr "The user that the invitation will be send does not have the given roles, so they can't be removed."
+
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr "The invitation can not be dispatched because you have not defined any user group changes"
 

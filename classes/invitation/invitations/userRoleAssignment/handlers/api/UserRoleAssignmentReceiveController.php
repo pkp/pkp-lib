@@ -49,7 +49,7 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
             Response::HTTP_OK
         );
     }
-    
+
     /**
      * @inheritDoc
      */
@@ -63,7 +63,7 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
             Response::HTTP_OK
         );
     }
-    
+
     /**
      * @inheritDoc
      */
@@ -76,7 +76,7 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
             Response::HTTP_OK
         );
     }
-    
+
     /**
      * @inheritDoc
      */

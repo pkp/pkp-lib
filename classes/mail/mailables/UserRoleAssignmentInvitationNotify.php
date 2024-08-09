@@ -94,16 +94,22 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
         $count = 1;
         foreach ($userUserGroups as $userUserGroup) {
-            $userGroupPayload = UserGroupPayload::fromArray($userUserGroup);
+            if ($userUserGroup instanceof UserUserGroup) {
+                $userGroupPayload = UserGroupPayload::fromUserUserGroup($userUserGroup);
+            } else {
+                $userGroupPayload = UserGroupPayload::fromArray($userUserGroup);
+            }
+            
             if ($count == 1) {
                 $retString = $title;
             }
 
-            if (!isset($userGroup)) {
-                $userGroup = Repo::userGroup()->get($userGroupPayload->userGroupId);
+            $userGroupToUse = $userGroup;
+            if (!isset($userGroupToUse)) {
+                $userGroupToUse = Repo::userGroup()->get($userGroupPayload->userGroupId);
             }
 
-            $userGroupSection = $this->getUserUserGroupSection($userGroupPayload, $userGroup, $context, $count, $locale);
+            $userGroupSection = $this->getUserUserGroupSection($userGroupPayload, $userGroupToUse, $context, $count, $locale);
 
             $retString .= $userGroupSection;
 
@@ -116,7 +122,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
     private function getUserUserGroupSection(UserGroupPayload $userUserGroup, UserGroup $userGroup, Context $context, int  $count, string $locale): string 
     {
         $sectionEndingDate = '';
-        if (isset($userGroupData['dateEnd'])) {
+        if (isset($userUserGroup->dateEnd)) {
             $sectionEndingDate = __('emails.userRoleAssignmentInvitationNotify.userGroupSectionEndingDate', 
             [
                 'dateEnd' => $userUserGroup->dateEnd
@@ -166,6 +172,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
         $sendIdentity = $this->invitation->getMailableReceiver($locale);
 
         // Inviter
+        $user = $this->invitation->getExistingUser();
         $inviter = $this->invitation->getInviter();
 
         $context = $this->invitation->getContext();
@@ -176,19 +183,21 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
 
         $existingUserGroupsTitle = __('emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles');
-        $userGroupsremovedTitle = __('emails.userRoleAssignmentInvitationNotify.removedRoles');
+        $userGroupsRemovedTitle = __('emails.userRoleAssignmentInvitationNotify.removedRoles');
         $existingUserGroups = '';
-        $userGroupsremoved = '';
+        $userGroupsRemoved = '';
 
         if (isset($user)) {
             // Roles Removed
             foreach ($this->invitation->userGroupsToRemove as $userUserGroup) {
-                $userGroup = Repo::userGroup()->get($userUserGroup->userGroupId);
+                $userGroupPayload = UserGroupPayload::fromArray($userUserGroup);
+                
+                $userGroup = Repo::userGroup()->get($userGroupPayload->userGroupId);
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
                     ->withUserGroupId($userGroup->getId())
                     ->get();
                 
-                $userGroupsremoved = $this->getAllUserUserGroupSection($userUserGroups, $userGroup, $context, $locale, $userGroupsremovedTitle);
+                $userGroupsRemoved = $this->getAllUserUserGroupSection($userUserGroups->toArray(), $userGroup, $context, $locale, $userGroupsRemovedTitle);
             }
 
             // Existing Roles
@@ -202,23 +211,25 @@ class UserRoleAssignmentInvitationNotify extends Mailable
                     ->withUserGroupId($userGroup->getId())
                     ->get();
                 
-                $existingUserGroups = $this->getAllUserUserGroupSection($userUserGroups, $userGroup, $context, $locale, $existingUserGroupsTitle);
+                $existingUserGroups = $this->getAllUserUserGroupSection($userUserGroups->toArray(), $userGroup, $context, $locale, $existingUserGroupsTitle);
             }
         }
 
         $targetPath = Core::getBaseDir() . '/lib/pkp/styles/mailables/style.css';
         $emailTemplateStyle = file_get_contents($targetPath);
 
+        $recipientName = !empty($sendIdentity->getFullName()) ? $sendIdentity->getFullName() : $sendIdentity->getEmail();
+
         // Set view data for the template
         $this->viewData = array_merge(
             $this->viewData,
             [
-                static::$recipientName => $sendIdentity->getFullName(),
+                static::$recipientName => $recipientName,
                 static::$inviterName => $inviter->getFullName(),
                 static::$acceptUrl => $this->invitation->getActionURL(InvitationAction::ACCEPT),
                 static::$declineUrl => $this->invitation->getActionURL(InvitationAction::DECLINE),
                 static::$rolesAdded => $userGroupsAdded,
-                static::$rolesRemoved => $userGroupsremoved,
+                static::$rolesRemoved => $userGroupsRemoved,
                 static::$existingRoles => $existingUserGroups,
                 static::EMAIL_TEMPLATE_STYLE_PROPERTY => $emailTemplateStyle,
             ]

@@ -36,6 +36,7 @@ use PKP\invitation\models\InvitationModel;
 use PKP\mail\mailables\UserRoleAssignmentInvitationNotify;
 use PKP\security\Validation;
 use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
+use PKP\userGroup\relationships\UserUserGroup;
 
 class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 {
@@ -120,8 +121,13 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
         $receiver = parent::getMailableReceiver($locale);
 
-        $receiver->setFamilyName($this->familyName, $locale);
-        $receiver->setGivenName($this->givenName, $locale);
+        if (isset($this->familyName)) {
+            $receiver->setFamilyName($this->familyName, $locale);
+        }
+
+        if (isset($this->givenName)) {
+            $receiver->setGivenName($this->givenName, $locale);
+        }
 
         return $receiver;
     }
@@ -241,8 +247,27 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         }
 
         if (isset($this->userGroupsToRemove)) {
-            if (empty($this->userGroupsToRemove)) {
-                $this->addError('userGroupsToRemove', __('invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting'));
+            if (isset($userId)) {
+                $user = $this->getExistingUser();
+
+                if (empty($this->userGroupsToRemove)) {
+                    $this->addError('userGroupsToRemove', __('invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting'));
+                } else {
+                    foreach ($this->userGroupsToRemove as $userUserGroup) {
+                        $userGroupPayload = UserGroupPayload::fromArray($userUserGroup);
+                        
+                        $userGroup = Repo::userGroup()->get($userGroupPayload->userGroupId);
+                        $userUserGroups = UserUserGroup::withUserId($user->getId())
+                            ->withUserGroupId($userGroup->getId())
+                            ->get();
+
+                        if (empty($userUserGroups)) {
+                            $this->addError('userGroupsToRemove', __('invitation.userRoleAssignment.validation.error.removeUserRoles.userDoesNotHaveRoles'));
+                        } 
+                    }
+                }
+            } else {
+                $this->addError('userGroupsToRemove', __('invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser'));
             }
         }
 

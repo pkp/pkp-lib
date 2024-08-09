@@ -23,13 +23,10 @@ use League\Flysystem\Local\LocalFilesystemAdapter;
 use League\Flysystem\UnableToDeleteFile;
 use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
 use PKP\config\Config;
-use PKP\core\traits\HasForeignKey;
 use PKP\migration\Migration;
 
 class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
 {
-    use HasForeignKey;
-
     private const ASSOC_TYPE_NOTE = 0x0000208; // PKPApplication::ASSOC_TYPE_NOTE
     private const ASSOC_TYPE_QUERY = 0x010000a; // PKPApplication::ASSOC_TYPE_QUERY
     private const FILE_MODE_MASK = 0666; // FileManager::FILE_MODE_MASK

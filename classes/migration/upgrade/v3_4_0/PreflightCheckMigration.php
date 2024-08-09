@@ -26,15 +26,12 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\config\Config;
-use PKP\core\traits\HasForeignKey;
 use PKP\db\DAORegistry;
 use SplFileObject;
 use Throwable;
 
 abstract class PreflightCheckMigration extends \PKP\migration\Migration
 {
-    use HasForeignKey;
-
     abstract protected function getContextTable(): string;
     abstract protected function getContextSettingsTable(): string;
     abstract protected function getContextKeyField(): string;

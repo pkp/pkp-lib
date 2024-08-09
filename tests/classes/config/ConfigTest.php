@@ -22,15 +22,8 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\tests\PKPTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\CoversMethod;
 
-#[CoversMethod(Config::class, 'getConfigFileName')]
-#[CoversMethod(Config::class, 'setConfigFileName')]
-#[CoversMethod(Config::class, 'reloadData')]
-#[CoversMethod(Config::class, 'getVar')]
-#[CoversMethod(Config::class, 'getData')]
-#[CoversMethod(Config::class, 'hasVar')]
-#[CoversMethod(Config::class, 'isSensitive')]
+#[CoversClass(Config::class)]
 class ConfigTest extends PKPTestCase
 {
     /**

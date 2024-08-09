@@ -852,33 +852,6 @@ class Installer
     }
 
     /**
-     * Check to see whether a column exists.
-     * Used in installer XML in conditional checks on <data> nodes.
-     */
-    public function columnExists(string $tableName, string $columnName): bool
-    {
-        // Make sure the table exists
-        $tables = collect(Schema::getTables())->pluck('name')->toArray();
-
-        if (!in_array($tableName, $tables)) {
-            return false;
-        }
-
-        return Schema::hasColumn($tableName, $columnName);
-    }
-
-    /**
-     * Check to see whether a table exists.
-     * Used in installer XML in conditional checks on <data> nodes.
-     */
-    public function tableExists(string $tableName): bool
-    {
-        return collect(Schema::getTables())
-            ->pluck('name')
-            ->contains($tableName);
-    }
-
-    /**
      * Insert or update plugin data in versions
      * and plugin_settings tables.
      *

@@ -26,16 +26,15 @@ use PKP\file\TemporaryFileManager;
 
 class EditLibraryFileForm extends LibraryFileForm
 {
-    /** @var LibraryFile the file being edited, or null for new */
-    public $libraryFile;
+    /** The file being edited, or null for new */
+    public ?LibraryFile $libraryFile;
 
-    /** @var int the id of the context this library file is attached to */
-    public $contextId;
+    /** The id of the context this library file is attached to */
+    public int $contextId;
 
     /**
      * Constructor.
      *
-     * @param int $contextId
      * @param int $fileId optional
      */
     public function __construct(int $contextId, $fileId)
@@ -63,7 +62,7 @@ class EditLibraryFileForm extends LibraryFileForm
     /**
      * Initialize form data from current settings.
      */
-    public function initData()
+    public function initData(): void
     {
         $this->_data = [
             'libraryFileName' => $this->libraryFile->getName(null), // Localized
@@ -81,13 +80,13 @@ class EditLibraryFileForm extends LibraryFileForm
         $userId = Application::get()->getRequest()->getUser()->getId();
 
         // Fetch the temporary file storing the uploaded library file
-        $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var $temporaryFileDao TemporaryFileDAO */
+        $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /* @var \PKP\file\TemporaryFileDAO $temporaryFileDao*/
         $temporaryFile = $temporaryFileDao->getTemporaryFile(
             $this->getData('temporaryFileId'),
             $userId
         );
         if ($temporaryFile) {
-            $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var $libraryFileDao LibraryFileDAO */
+            $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /* @var LibraryFileDAO $libraryFileDao */
             $libraryFileManager = new LibraryFileManager($this->contextId);
 
             // Convert the temporary file to a library file and store

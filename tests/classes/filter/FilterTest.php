@@ -20,18 +20,17 @@ namespace PKP\tests\classes\filter;
 
 use PKP\filter\Filter;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(Filter::class)]
 class FilterTest extends PKPTestCase
 {
-    /**
-     * @covers Filter
-     */
     public function testInstantiationAndExecute()
     {
         $mockFilter = $this->getFilterMock();
 
         // Test getters/setters that are not implicitly tested by other tests
-        self::assertEquals('Mock_Filter_', substr($mockFilter->getDisplayName(), 0, 12));
+        self::assertEquals('MockObject_Filter_', substr($mockFilter->getDisplayName(), 0, 18));
         $mockFilter->setDisplayName('Some other display name');
         self::assertEquals('Some other display name', $mockFilter->getDisplayName());
         $mockFilter->setSequence(5);
@@ -95,9 +94,6 @@ class FilterTest extends PKPTestCase
         self::assertNull($mockFilter->getLastOutput());
     }
 
-    /**
-     * @covers Filter
-     */
     public function testUnsupportedEnvironment()
     {
         $mockFilter = $this->getFilterMock();
@@ -149,7 +145,7 @@ class FilterTest extends PKPTestCase
         // Set the filter processor.
         $mockFilter->expects($this->any())
             ->method('process')
-            ->will($this->returnCallback($this->processCallback(...)));
+            ->willReturnCallback($this->processCallback(...));
 
         return $mockFilter;
     }

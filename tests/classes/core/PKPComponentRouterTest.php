@@ -22,10 +22,23 @@ use PKP\core\PKPComponentRouter;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\UserRolesRequiredPolicy;
+use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\BackupGlobals;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 
-/**
- * @backupGlobals enabled
- */
+#[BackupGlobals(true)]
+#[CoversMethod(PKPComponentRouter::class, 'supports')]
+#[CoversMethod(PKPComponentRouter::class, 'route')]
+#[CoversMethod(PKPComponentRouter::class, 'getRequestedOp')]
+#[CoversMethod(PKPComponentRouter::class, 'getRpcServiceEndpoint')]
+#[CoversMethod(PKPComponentRouter::class, '_getValidatedServiceEndpointParts')]
+#[CoversMethod(PKPComponentRouter::class, '_retrieveServiceEndpointParts')]
+#[CoversMethod(PKPComponentRouter::class, '_validateServiceEndpointParts')]
+#[CoversMethod(PKPComponentRouter::class, 'url')]
+#[CoversMethod(PKPComponentRouter::class, '_urlGetBaseAndContext')]
+#[CoversMethod(PKPComponentRouter::class, '_urlGetAdditionalParameters')]
+#[CoversMethod(PKPComponentRouter::class, '_urlFromParts')]
 class PKPComponentRouterTest extends PKPRouterTestCase
 {
     /**
@@ -47,13 +60,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         $this->markTestSkipped('The method PKPRouter::testSupports() is not relevant for component routers');
     }
 
-    /**
-     * @covers PKPComponentRouter::supports
-     * @covers PKPComponentRouter::getRpcServiceEndpoint
-     * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
-     * @covers PKPComponentRouter::_retrieveServiceEndpointParts
-     * @covers PKPComponentRouter::_validateServiceEndpointParts
-     */
     public function testSupportsWithPathinfoSuccessful()
     {
         $mockApplication = $this->_setUpMockEnvironment();
@@ -65,13 +71,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         self::assertTrue($this->router->supports($this->request));
     }
 
-    /**
-     * @covers PKPComponentRouter::supports
-     * @covers PKPComponentRouter::getRpcServiceEndpoint
-     * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
-     * @covers PKPComponentRouter::_retrieveServiceEndpointParts
-     * @covers PKPComponentRouter::_validateServiceEndpointParts
-     */
     public function testSupportsWithPathinfoUnsuccessfulNoComponentNotEnoughPathElements()
     {
         $mockApplication = $this->_setUpMockEnvironment();
@@ -84,13 +83,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         self::assertFalse($this->router->supports($this->request));
     }
 
-    /**
-     * @covers PKPComponentRouter::supports
-     * @covers PKPComponentRouter::getRpcServiceEndpoint
-     * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
-     * @covers PKPComponentRouter::_retrieveServiceEndpointParts
-     * @covers PKPComponentRouter::_validateServiceEndpointParts
-     */
     public function testSupportsWithPathinfoUnsuccessfulNoComponentNoMarker()
     {
         $mockApplication = $this->_setUpMockEnvironment();
@@ -103,13 +95,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         self::assertFalse($this->router->supports($this->request));
     }
 
-    /**
-     * @covers PKPComponentRouter::supports
-     * @covers PKPComponentRouter::getRpcServiceEndpoint
-     * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
-     * @covers PKPComponentRouter::_retrieveServiceEndpointParts
-     * @covers PKPComponentRouter::_validateServiceEndpointParts
-     */
     public function testSupportsWithPathinfoAndComponentFileDoesNotExist()
     {
         $mockApplication = $this->_setUpMockEnvironment();
@@ -123,12 +108,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         self::assertTrue($this->router->supports($this->request));
     }
 
-    /**
-     * @covers PKPComponentRouter::getRequestedComponent
-     * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
-     * @covers PKPComponentRouter::_retrieveServiceEndpointParts
-     * @covers PKPComponentRouter::_validateServiceEndpointParts
-     */
     public function testGetRequestedComponentWithPathinfo()
     {
         $mockApplication = $this->_setUpMockEnvironment();
@@ -140,12 +119,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         self::assertEquals('path.to.SomeComponentHandler', $this->router->getRequestedComponent($this->request));
     }
 
-    /**
-     * @covers PKPComponentRouter::getRequestedComponent
-     * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
-     * @covers PKPComponentRouter::_retrieveServiceEndpointParts
-     * @covers PKPComponentRouter::_validateServiceEndpointParts
-     */
     public function testGetRequestedComponentWithPathinfoAndMalformedComponentString()
     {
         $mockApplication = $this->_setUpMockEnvironment();
@@ -157,12 +130,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         self::assertEquals('', $this->router->getRequestedComponent($this->request));
     }
 
-    /**
-     * @covers PKPComponentRouter::getRequestedOp
-     * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
-     * @covers PKPComponentRouter::_retrieveServiceEndpointParts
-     * @covers PKPComponentRouter::_validateServiceEndpointParts
-     */
     public function testGetRequestedOpWithPathinfo()
     {
         $mockApplication = $this->_setUpMockEnvironment();
@@ -174,12 +141,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         self::assertEquals('someOp', $this->router->getRequestedOp($this->request));
     }
 
-    /**
-     * @covers PKPComponentRouter::getRequestedOp
-     * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
-     * @covers PKPComponentRouter::_retrieveServiceEndpointParts
-     * @covers PKPComponentRouter::_validateServiceEndpointParts
-     */
     public function testGetRequestedOpWithPathinfoAndMalformedOpString()
     {
         $mockApplication = $this->_setUpMockEnvironment();
@@ -191,17 +152,8 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         self::assertEquals('', $this->router->getRequestedOp($this->request));
     }
 
-    /**
-     * @covers PKPComponentRouter::route
-     * @covers PKPComponentRouter::getRpcServiceEndpoint
-     * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
-     * @covers PKPComponentRouter::_retrieveServiceEndpointParts
-     * @covers PKPComponentRouter::_validateServiceEndpointParts
-     *
-     * @runInSeparateProcess
-     *
-     * @preserveGlobalState disabled
-     */
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testRoute()
     {
         $this->setTestConfiguration('mysql');
@@ -245,12 +197,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         self::assertInstanceOf('Context', $firstContextDao->getByPath('context1'));
     }
 
-    /**
-     * @covers PKPComponentRouter::url
-     * @covers PKPComponentRouter::_urlGetBaseAndContext
-     * @covers PKPComponentRouter::_urlGetAdditionalParameters
-     * @covers PKPComponentRouter::_urlFromParts
-     */
     public function testUrlWithPathinfo()
     {
         $this->setTestConfiguration('request1', 'classes/core/config'); // restful URLs
@@ -305,12 +251,6 @@ class PKPComponentRouterTest extends PKPRouterTestCase
         self::assertEquals('http://mydomain.org/index.php/new-context1/$$$call$$$/current/component-class/current-op?key1=val1&amp;key2=val2', $result);
     }
 
-    /**
-     * @covers PKPComponentRouter::url
-     * @covers PKPComponentRouter::_urlGetBaseAndContext
-     * @covers PKPComponentRouter::_urlGetAdditionalParameters
-     * @covers PKPComponentRouter::_urlFromParts
-     */
     public function testUrlWithPathinfoAndOverriddenBaseUrl()
     {
         $this->setTestConfiguration('request1', 'classes/core/config'); // contains overridden context

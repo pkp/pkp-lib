@@ -18,15 +18,14 @@
 
 namespace PKP\tests\classes\validation;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PKP\tests\PKPTestCase;
 use PKP\validation\ValidatorTypeDescription;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(ValidatorTypeDescription::class)]
 class ValidatorTypeDescriptionTest extends PKPTestCase
 {
-    /**
-     * @covers ValidatorTypeDescription
-     * @covers TypeDescription
-     */
     public function testInstantiateAndCheck()
     {
         $typeDescription = new ValidatorTypeDescription('email');
@@ -34,10 +33,6 @@ class ValidatorTypeDescriptionTest extends PKPTestCase
         self::assertFalse($typeDescription->isCompatible('another string'));
     }
 
-    /**
-     * @covers ValidatorTypeDescription
-     * @covers TypeDescription
-     */
     public function testInstantiateAndCheckWithParameters()
     {
         $typeDescription = new ValidatorTypeDescription('regExp("/123/")');
@@ -47,10 +42,7 @@ class ValidatorTypeDescriptionTest extends PKPTestCase
         self::assertFalse($typeDescription->checkType('abc'));
     }
 
-    /**
-     * Provides test data
-     */
-    public function typeDescriptorDataProvider(): array
+    public static function typeDescriptorDataProvider(): array
     {
         return [
             'Invalid name' => ['email(xyz]'],
@@ -59,12 +51,7 @@ class ValidatorTypeDescriptionTest extends PKPTestCase
         ];
     }
 
-    /**
-     * @covers ValidatorTypeDescription
-     * @covers TypeDescription
-     *
-     * @dataProvider typeDescriptorDataProvider
-     */
+    #[DataProvider('typeDescriptorDataProvider')]
     public function testInstantiateWithInvalidTypeDescriptor(string $type)
     {
         $this->expectException(\Exception::class); // Trying to instantiate a "validator" type description with an invalid type name "$type"

@@ -20,14 +20,11 @@ namespace PKP\tests\classes\validation;
 
 use PKP\tests\PKPTestCase;
 use PKP\validation\ValidatorUrl;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(ValidatorUrl::class)]
 class ValidatorUrlTest extends PKPTestCase
 {
-    /**
-     * @covers ValidatorUrl
-     * @covers ValidatorRegExp
-     * @covers Validator
-     */
     public function testValidatorUrlAndUri()
     {
         $validator = new ValidatorUrl();

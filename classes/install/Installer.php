@@ -854,17 +854,12 @@ class Installer
     /**
      * Check to see whether a column exists.
      * Used in installer XML in conditional checks on <data> nodes.
-     *
-     * @param string $tableName
-     * @param string $columnName
-     *
-     * @return bool
      */
-    public function columnExists($tableName, $columnName)
+    public function columnExists(string $tableName, string $columnName): bool
     {
-        $schema = DB::getDoctrineSchemaManager();
         // Make sure the table exists
-        $tables = $schema->listTableNames();
+        $tables = collect(Schema::getTables())->pluck('name')->toArray();
+
         if (!in_array($tableName, $tables)) {
             return false;
         }
@@ -875,15 +870,12 @@ class Installer
     /**
      * Check to see whether a table exists.
      * Used in installer XML in conditional checks on <data> nodes.
-     *
-     * @param string $tableName
-     *
-     * @return bool
      */
-    public function tableExists($tableName)
+    public function tableExists(string $tableName): bool
     {
-        $tables = DB::getDoctrineSchemaManager()->listTableNames();
-        return in_array($tableName, $tables);
+        return collect(Schema::getTables())
+            ->pluck('name')
+            ->contains($tableName);
     }
 
     /**

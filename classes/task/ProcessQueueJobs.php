@@ -53,7 +53,7 @@ class ProcessQueueJobs extends ScheduledTask
 
         // When processing queue jobs vai schedule task in CLI mode
         // will process a limited number of jobs at a single time
-        if (PKPContainer::getInstance()->runningInConsole('runScheduledTasks.php')) {
+        if (PKPContainer::getInstance()->runningInConsole()) {
             $maxJobCountToProcess = abs(Config::getVar('queues', 'job_runner_max_jobs', 30));
             
             while ($jobBuilder->count() && $maxJobCountToProcess) {

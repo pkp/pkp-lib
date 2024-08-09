@@ -22,15 +22,13 @@ use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\form\validation\FormValidatorCustom;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(FormValidatorCustom::class)]
 class FormValidatorCustomTest extends PKPTestCase
 {
     private ?string $checkedValue = null;
 
-    /**
-     * @covers FormValidatorCustom
-     * @covers FormValidator
-     */
     public function testIsValid()
     {
         $form = new Form('some template');

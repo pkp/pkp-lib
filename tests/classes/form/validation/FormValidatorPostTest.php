@@ -24,7 +24,9 @@ use PKP\core\Registry;
 use PKP\form\Form;
 use PKP\form\validation\FormValidatorPost;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(FormValidatorPost::class)]
 class FormValidatorPostTest extends PKPTestCase
 {
     private bool $_isPosted = false;
@@ -49,10 +51,6 @@ class FormValidatorPostTest extends PKPTestCase
         Registry::set('request', $mock);
     }
 
-    /**
-     * @covers FormValidatorPost
-     * @covers FormValidator
-     */
     public function testIsValid()
     {
         // Instantiate test validator

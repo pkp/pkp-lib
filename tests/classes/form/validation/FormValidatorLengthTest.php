@@ -22,13 +22,11 @@ use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\form\validation\FormValidatorLength;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(FormValidatorLengthTest::class)]
 class FormValidatorLengthTest extends PKPTestCase
 {
-    /**
-     * @covers FormValidatorLength
-     * @covers FormValidator
-     */
     public function testIsValid()
     {
         $form = new Form('some template');

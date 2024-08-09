@@ -137,17 +137,17 @@ abstract class PolicyTestCase extends PKPTestCase
 
         $router->expects($this->any())
             ->method('getHandler')
-            ->will($this->returnValue(new PKPHandler()));
+            ->willReturn(new PKPHandler());
 
         // Mock the getRequestedOp() method.
         $router->expects($this->any())
             ->method('getRequestedOp')
-            ->will($this->returnValue($requestedOp));
+            ->willReturn($requestedOp);
 
         // Mock the getContext() method.
         $router->expects($this->any())
             ->method('getContext')
-            ->will($this->returnValue($context));
+            ->willReturn($context);
 
         // Put a user into the registry if one has been
         // passed in.

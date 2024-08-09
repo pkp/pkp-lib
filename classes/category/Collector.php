@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\plugins\Hook;
+use PKP\publication\PublicationCategory;
+
 
 /**
  * @template T of Category
@@ -136,9 +138,10 @@ class Collector implements CollectorInterface
         });
 
         $qb->when($this->publicationIds !== null, function ($query) {
-            $query->whereIn('c.category_id', function ($query) {
-                $query->select('category_id')->from('publication_categories')->whereIn('publication_id', $this->publicationIds);
-            });
+            $query->whereIn('c.category_id', PublicationCategory::select('category_id')
+                ->whereIn('publication_id', $this->publicationIds)
+                ->toBase()
+            );
         });
 
         $qb->when($this->parentIds !== null, function ($query) {

@@ -80,6 +80,11 @@ abstract class Invitation
      */
     abstract public function getInvitationActionRedirectController(): ?InvitationActionRedirectController;
 
+    /**
+     * This is used during every populate call so that the code can use the currenlty processing properties.
+     */
+    protected array $currentlyFilledFromArgs = [];
+
     public function __construct(?InvitationModel $invitationModel = null)
     {
         $this->invitationModel = $invitationModel ?: new InvitationModel([
@@ -178,6 +183,8 @@ abstract class Invitation
             }
 
             if ($propName !== 'invitationModel' && property_exists($this, $propName)) {
+                $this->currentlyFilledFromArgs[] = $propName;
+
                 $this->{$propName} = $value;
             }
         }
@@ -282,7 +289,6 @@ abstract class Invitation
             throw new Exception('The invitation can not be dispatched');
         }
 
-        // Need to return error messages also?
         $this->preInviteActions();
 
         if (in_array(ShouldValidate::class, class_uses($this))) {
@@ -472,5 +478,20 @@ abstract class Invitation
     public function fillCustomProperties(): void
     {
         return;
+    }
+
+    public function getUserId(): ?int
+    {
+        return $this->invitationModel->userId;
+    }
+
+    public function getContextId(): ?int
+    {
+        return $this->invitationModel->contextId;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->invitationModel->email;
     }
 }

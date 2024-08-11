@@ -28,5 +28,42 @@ msgstr "The user that the invitation will be send does not have the given roles,
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr "The invitation can not be dispatched because you have not defined any user group changes"
 
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
+msgstr "The user group {$userGroupName} ({$userGroupId}) is duplicated."
+
+msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
+msgstr "There is already an existing user with the username {$username}. Try another one."
+
+msgid "invitation.userRoleAssignment.validation.error.user.mustExist"
+msgstr "When an invitation has a user id ({$userId}) assigned, the corresponding user must exist."
+
+msgid "invitation.userRoleAssignment.validation.error.user.emailMustNotExist"
+msgstr "When an invitation has an email ({$email}) assigned, this email must not be in use by another user."
+
+msgid "invitation.userRoleAssignment.validation.error.username.mandatory"
+msgstr "A username must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.password.mandatory"
+msgstr "A password must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.affiliation.mandatory"
+msgstr "An affiliation must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.country.mandatory"
+msgstr "A country must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.givenName.mandatory"
+msgstr "A given name must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
+msgstr "A family name must be provided"
+
+msgid "invitation.api.error.invitationTypeNotHasMailable"
+msgstr "This invitation type does not have a mailable defined"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
+msgstr "The provided user group ID {$userGroupId} does not exist"
+
+
 
 

@@ -27,6 +27,7 @@ use PKP\invitation\core\contracts\IApiHandleable;
 use PKP\invitation\core\CreateInvitationController;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\ReceiveInvitationController;
+use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\models\InvitationModel;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
@@ -36,6 +37,11 @@ class InvitationController extends PKPBaseController
     public const PARAM_TYPE = 'type';
     public const PARAM_ID = 'invitationId';
     public const PARAM_KEY = 'key';
+
+    public $notNeedAPIHandler = [
+        'getMany',
+        'getMailable'
+    ];
 
     public $noParamRequired = [
         'getMany',
@@ -49,6 +55,7 @@ class InvitationController extends PKPBaseController
         'get',
         'populate',
         'invite',
+        'getMailable',
     ];
 
     public $requiresIdAndKey = [
@@ -131,6 +138,12 @@ class InvitationController extends PKPBaseController
                 self::roleAuthorizer(Role::getAllRoles()),
             ]);
 
+        Route::get('{invitationId}/getMailable', $this->getMailable(...))
+            ->name('invitation.getMailable')
+            ->middleware([
+                self::roleAuthorizer(Role::getAllRoles()),
+            ]);
+
         // Get By Key methods.
         Route::get('{invitationId}/key/{key}', $this->receive(...))
             ->name('invitation.receive')
@@ -197,26 +210,27 @@ class InvitationController extends PKPBaseController
 
             $this->invitation = $invitation;
 
-            if (!$this->invitation instanceof IApiHandleable) {
-                throw new Exception('This invitation does not support API handling');
+            if (!in_array($actionName, $this->notNeedAPIHandler)) {
+                if (!$this->invitation instanceof IApiHandleable) {
+                    throw new Exception('This invitation does not support API handling');
+                }
+
+                $this->createInvitationHandler = $invitation->getCreateInvitationController($this->invitation);
+                $this->receiveInvitationHandler = $invitation->getReceiveInvitationController($this->invitation);
+
+                if (!isset($this->createInvitationHandler) || !isset($this->receiveInvitationHandler)) {
+                    throw new Exception('This invitation should have defined its API handling code');
+                }
+
+                $this->selectedHandler = $this->getHandlerForAction($actionName);
+
+                if (!method_exists($this->selectedHandler, $actionName)) {
+                    throw new Exception("The handler does not support the method: {$actionName}");
+                }
+
+                $this->selectedHandler->authorize($this, $request, $args, $roleAssignments);
             }
-
-            $this->createInvitationHandler = $invitation->getCreateInvitationController($this->invitation);
-            $this->receiveInvitationHandler = $invitation->getReceiveInvitationController($this->invitation);
-
-            if (!isset($this->createInvitationHandler) || !isset($this->receiveInvitationHandler)) {
-                throw new Exception('This invitation should have defined its API handling code');
-            }
-
-            $this->selectedHandler = $this->getHandlerForAction($actionName);
-
-            if (!method_exists($this->selectedHandler, $actionName)) {
-                throw new Exception("The handler does not support the method: {$actionName}");
-            }
-
-            $this->selectedHandler->authorize($this, $request, $args, $roleAssignments);
         }
-        
 
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -294,5 +308,20 @@ class InvitationController extends PKPBaseController
             'itemsMax' => $maxCount,
             'items' => $finalCollection,
         ], Response::HTTP_OK);
+    }
+
+    public function getMailable(Request $illuminateRequest): JsonResponse
+    {
+        if (in_array(HasMailable::class, class_uses($this->invitation))) {
+            $mailable = $this->invitation->getMailable();
+            
+            return response()->json([
+                'mailable' => $mailable,
+            ], Response::HTTP_OK);
+        }
+
+        return response()->json([
+            'error' => __('invitation.api.error.invitationTypeNotHasMailable'),
+        ], Response::HTTP_BAD_REQUEST);
     }
 }

@@ -19,6 +19,7 @@
 namespace PKP\core;
 
 use APP\core\Application;
+use Exception;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;

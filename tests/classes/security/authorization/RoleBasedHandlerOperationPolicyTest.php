@@ -18,19 +18,18 @@
 
 namespace PKP\tests\classes\security\authorization;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
 
+#[CoversClass(RoleBasedHandlerOperationPolicy::class)]
 class RoleBasedHandlerOperationPolicyTest extends PolicyTestCase
 {
     private const ROLE_ID_NON_AUTHORIZED = 0x7777;
 
-    /**
-     * @covers RoleBasedHandlerOperationPolicy
-     */
     public function testRoleAuthorization()
     {
         // Construct the user roles array.

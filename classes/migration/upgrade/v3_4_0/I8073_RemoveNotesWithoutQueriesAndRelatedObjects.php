@@ -59,7 +59,7 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
         });
 
         // Does have the foreign key reference but not the CASCADE
-        if (DB::getDoctrineSchemaManager()->introspectTable('submission_files')->hasForeignKey('submission_files_file_id_foreign')) {
+        if ($this->hasForeignKey('submission_files', 'submission_files_file_id_foreign')) {
             Schema::table('submission_files', fn (Blueprint $table) => $table->dropForeign('submission_files_file_id_foreign'));
         }
         Schema::table('submission_files', function (Blueprint $table) {
@@ -68,7 +68,7 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
 
         // Does have the foreign key reference but not the CASCADE
         foreach (['submission_file_revisions_submission_file_id_foreign', 'submission_file_revisions_file_id_foreign'] as $foreignKeyName) {
-            if (DB::getDoctrineSchemaManager()->introspectTable('submission_file_revisions')->hasForeignKey($foreignKeyName)) {
+            if ($this->hasForeignKey('submission_file_revisions', $foreignKeyName)) {
                 Schema::table('submission_file_revisions', fn (Blueprint $table) => $table->dropForeign($foreignKeyName));
             }
         }
@@ -84,7 +84,7 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
         });
 
         // Does have the foreign key reference but not the CASCADE
-        if (DB::getDoctrineSchemaManager()->introspectTable('review_files')->hasForeignKey('review_files_submission_file_id_foreign')) {
+        if ($this->hasForeignKey('review_files', 'review_files_submission_file_id_foreign')) {
             Schema::table('review_files', fn (Blueprint $table) => $table->dropForeign('review_files_submission_file_id_foreign'));
         }
         Schema::table('review_files', function (Blueprint $table) {
@@ -93,7 +93,7 @@ class I8073_RemoveNotesWithoutQueriesAndRelatedObjects extends Migration
         });
 
         // Does have the foreign key reference but not the CASCADE
-        if (DB::getDoctrineSchemaManager()->introspectTable('review_round_files')->hasForeignKey('review_round_files_submission_file_id_foreign')) {
+        if ($this->hasForeignKey('review_round_files', 'review_round_files_submission_file_id_foreign')) {
             Schema::table('review_round_files', fn (Blueprint $table) => $table->dropForeign('review_round_files_submission_file_id_foreign'));
         }
         Schema::table('review_round_files', function (Blueprint $table) {

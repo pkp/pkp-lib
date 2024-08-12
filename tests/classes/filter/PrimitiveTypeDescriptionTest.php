@@ -24,16 +24,17 @@
 
 namespace PKP\tests\classes\filter;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+use PKP\filter\TypeDescription;
 use PKP\filter\PrimitiveTypeDescription;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use stdClass;
 
+#[CoversClass(PrimitiveTypeDescription::class)]
+#[CoversClass(TypeDescription::class)]
 class PrimitiveTypeDescriptionTest extends PKPTestCase
 {
-    /**
-     * @covers PrimitiveTypeDescription
-     * @covers TypeDescription
-     */
     public function testInstantiateAndCheck()
     {
         $typeDescription = new PrimitiveTypeDescription('string');
@@ -72,10 +73,7 @@ class PrimitiveTypeDescriptionTest extends PKPTestCase
         self::assertFalse($typeDescription->isCompatible(2));
     }
 
-    /**
-     * Provides test data
-     */
-    public function typeDescriptorDataProvider(): array
+    public static function typeDescriptorDataProvider(): array
     {
         return [
             'An unknown type name will cause an error' => ['xyz'],
@@ -84,12 +82,7 @@ class PrimitiveTypeDescriptionTest extends PKPTestCase
         ];
     }
 
-    /**
-     * @covers PrimitiveTypeDescription
-     * @covers TypeDescription
-     *
-     * @dataProvider typeDescriptorDataProvider
-     */
+    #[DataProvider('typeDescriptorDataProvider')]
     public function testInstantiateWithInvalidTypeDescriptor(string $type)
     {
         $this->expectException(\Exception::class); // Trying to instantiate a "primitive" type description with an invalid type name "$type"

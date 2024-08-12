@@ -22,13 +22,12 @@ use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\form\validation\FormValidatorArray;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(FormValidator::class)]
+#[CoversClass(FormValidatorArray::class)]
 class FormValidatorArrayTest extends PKPTestCase
 {
-    /**
-     * @covers FormValidatorArray
-     * @covers FormValidator
-     */
     public function testIsValid()
     {
         $form = new Form('some template');

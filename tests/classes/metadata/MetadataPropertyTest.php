@@ -26,22 +26,11 @@ use PKP\metadata\MetadataDescription;
 use PKP\metadata\MetadataProperty;
 use PKP\tests\PKPTestCase;
 use stdClass;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(MetadataProperty::class)]
 class MetadataPropertyTest extends PKPTestCase
 {
-    /**
-     * @covers MetadataProperty::__construct
-     * @covers MetadataProperty::getName
-     * @covers MetadataProperty::getAssocTypes
-     * @covers MetadataProperty::getAllowedTypes
-     * @covers MetadataProperty::getTranslated
-     * @covers MetadataProperty::getCardinality
-     * @covers MetadataProperty::getDisplayName
-     * @covers MetadataProperty::getValidationMessage
-     * @covers MetadataProperty::getMandatory
-     * @covers MetadataProperty::getId
-     * @covers MetadataProperty::getSupportedCardinalities
-     */
     public function testMetadataPropertyConstructor()
     {
         // test instantiation with non-default values
@@ -75,8 +64,6 @@ class MetadataPropertyTest extends PKPTestCase
 
     /**
      * Tests special error conditions while setting composite types
-     *
-     * @covers MetadataProperty::__construct
      */
     public function testCompositeWithoutParameter()
     {
@@ -86,8 +73,6 @@ class MetadataPropertyTest extends PKPTestCase
 
     /**
      * Tests special error conditions while setting composite types
-     *
-     * @covers MetadataProperty::__construct
      */
     public function testCompositeWithWrongParameter()
     {
@@ -97,8 +82,6 @@ class MetadataPropertyTest extends PKPTestCase
 
     /**
      * Tests special error conditions while setting controlled vocab types
-     *
-     * @covers MetadataProperty::__construct
      */
     public function testControlledVocabWithoutParameter()
     {
@@ -108,8 +91,6 @@ class MetadataPropertyTest extends PKPTestCase
 
     /**
      * Tests special error conditions while setting controlled vocab types
-     *
-     * @covers MetadataProperty::__construct
      */
     public function testControlledVocabWithWrongParameter()
     {
@@ -119,8 +100,6 @@ class MetadataPropertyTest extends PKPTestCase
 
     /**
      * Tests special error conditions while setting non-parameterized type
-     *
-     * @covers MetadataProperty::__construct
      */
     public function testNonParameterizedTypeWithParameter()
     {
@@ -130,8 +109,6 @@ class MetadataPropertyTest extends PKPTestCase
 
     /**
      * Tests special error conditions while setting an unsupported type
-     *
-     * @covers MetadataProperty::getSupportedTypes
      */
     public function testSetUnsupportedType()
     {
@@ -141,8 +118,6 @@ class MetadataPropertyTest extends PKPTestCase
 
     /**
      * Tests special error conditions while setting an unsupported cardinality
-     *
-     * @covers MetadataProperty::getSupportedCardinalities
      */
     public function testSetUnsupportedCardinality()
     {
@@ -150,9 +125,6 @@ class MetadataPropertyTest extends PKPTestCase
         $metadataProperty = new MetadataProperty('testElement', [0x001], MetadataProperty::METADATA_PROPERTY_TYPE_COMPOSITE, true, 0x99999999);
     }
 
-    /**
-     * @covers MetadataProperty::isValid
-     */
     public function testValidateString()
     {
         $metadataProperty = new MetadataProperty('testElement');
@@ -162,9 +134,6 @@ class MetadataPropertyTest extends PKPTestCase
         self::assertFalse($metadataProperty->isValid(['string1', 'string2']));
     }
 
-    /**
-     * @covers MetadataProperty::isValid
-     */
     public function testValidateUri()
     {
         $metadataProperty = new MetadataProperty('testElement', [], MetadataProperty::METADATA_PROPERTY_TYPE_URI);
@@ -175,9 +144,6 @@ class MetadataPropertyTest extends PKPTestCase
         self::assertFalse($metadataProperty->isValid(['ftp://some.domain.org/path', 'http://some.domain.org/']));
     }
 
-    /**
-     * @covers MetadataProperty::isValid
-     */
     public function testValidateControlledVocabulary()
     {
         // Build a test vocabulary. (Assoc type and id are 0 to
@@ -204,9 +170,6 @@ class MetadataPropertyTest extends PKPTestCase
         $controlledVocabDao->deleteObject($testControlledVocab);
     }
 
-    /**
-     * @covers MetadataProperty::isValid
-     */
     public function testValidateDate()
     {
         $metadataProperty = new MetadataProperty('testElement', [], MetadataProperty::METADATA_PROPERTY_TYPE_DATE);
@@ -222,9 +185,6 @@ class MetadataPropertyTest extends PKPTestCase
         self::assertFalse($metadataProperty->isValid(['2009-10-25', '2009-10-26']));
     }
 
-    /**
-     * @covers MetadataProperty::isValid
-     */
     public function testValidateInteger()
     {
         $metadataProperty = new MetadataProperty('testElement', [], MetadataProperty::METADATA_PROPERTY_TYPE_INTEGER);
@@ -234,9 +194,6 @@ class MetadataPropertyTest extends PKPTestCase
         self::assertFalse($metadataProperty->isValid([4, 8]));
     }
 
-    /**
-     * @covers MetadataProperty::isValid
-     */
     public function testValidateComposite()
     {
         $metadataProperty = new MetadataProperty('testElement', [], [MetadataProperty::METADATA_PROPERTY_TYPE_COMPOSITE => 0x002], false, MetadataProperty::METADATA_PROPERTY_CARDINALITY_ONE);
@@ -256,9 +213,6 @@ class MetadataPropertyTest extends PKPTestCase
         self::assertFalse($metadataProperty->isValid([$metadataDescription, $anotherMetadataDescription]));
     }
 
-    /**
-     * @covers MetadataProperty::isValid
-     */
     public function testValidateMultitype()
     {
         $metadataProperty = new MetadataProperty('testElement', [], [MetadataProperty::METADATA_PROPERTY_TYPE_DATE, MetadataProperty::METADATA_PROPERTY_TYPE_INTEGER], false, MetadataProperty::METADATA_PROPERTY_CARDINALITY_ONE);

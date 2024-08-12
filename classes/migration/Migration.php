@@ -15,6 +15,7 @@
 namespace PKP\migration;
 
 use PKP\install\Installer;
+use Illuminate\Support\Facades\Schema;
 
 abstract class Migration extends \Illuminate\Database\Migrations\Migration
 {
@@ -28,6 +29,16 @@ abstract class Migration extends \Illuminate\Database\Migrations\Migration
     {
         $this->_attributes = $attributes;
         $this->_installer = $installer;
+    }
+
+    /**
+     * Check if the given key is set as a foreign in the given table
+     */
+    public function hasForeignKey(string $tableName, string $keyName): bool
+    {
+        return collect(Schema::getForeignKeys($tableName))
+            ->pluck('name')
+            ->contains($keyName);
     }
 
     /**

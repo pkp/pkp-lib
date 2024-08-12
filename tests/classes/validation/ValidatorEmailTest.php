@@ -20,13 +20,11 @@ namespace PKP\tests\classes\validation;
 
 use PKP\tests\PKPTestCase;
 use PKP\validation\ValidatorEmail;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(ValidatorEmail::class)]
 class ValidatorEmailTest extends PKPTestCase
 {
-    /**
-     * @covers ValidatorEmail
-     * @covers ValidatorRegExp
-     */
     public function testValidatorEmail()
     {
         $validator = new ValidatorEmail();

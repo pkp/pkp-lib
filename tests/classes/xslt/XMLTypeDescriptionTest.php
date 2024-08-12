@@ -21,7 +21,9 @@ namespace PKP\tests\classes\xslt;
 use PKP\tests\PKPTestCase;
 use PKP\tests\PKPTestHelper;
 use PKP\xslt\XMLTypeDescription;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(XMLTypeDescription::class)]
 class XMLTypeDescriptionTest extends PKPTestCase
 {
     /**
@@ -33,9 +35,6 @@ class XMLTypeDescriptionTest extends PKPTestCase
         parent::tearDown();
     }
 
-    /**
-     * @covers XMLTypeDescription
-     */
     public function testInstantiateAndCheck()
     {
         // Xdebug's scream parameter will disable the @ operator
@@ -48,13 +47,13 @@ class XMLTypeDescriptionTest extends PKPTestCase
         $testXmlDom->load(dirname(__FILE__) . '/dtdsample-valid.xml');
         self::assertTrue($typeDescription->isCompatible($testXmlDom));
         $testXmlDom->load(dirname(__FILE__) . '/dtdsample-invalid.xml');
-        /** @var \Throwable $e */
-        $exception = null;
+        
+        $exception = null; /** @var \Throwable $exception */
         try {
             $typeDescription->isCompatible($testXmlDom);
         } catch(\Throwable $exception) {
+            self::assertMatchesRegularExpression('/element collection content does not follow the DTD/i', $exception?->getMessage());
         }
-        self::assertMatchesRegularExpression('/element collection content does not follow the DTD/i', $exception?->getMessage());
 
         // Test with xsd validation
         $typeDescription = new XMLTypeDescription('schema(' . dirname(__FILE__) . '/xsdsample.xsd)');

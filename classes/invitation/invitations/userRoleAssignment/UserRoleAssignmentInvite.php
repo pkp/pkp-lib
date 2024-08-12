@@ -192,34 +192,52 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         $seenUserGroupIds = [];
 
         foreach ($this->userGroupsToAdd as $userUserGroup) {
-            $userGroupPayload = UserGroupPayload::fromArray($userUserGroup);
-            $userGroup = Repo::userGroup()->get($userGroupPayload->userGroupId);
-
-            if (!isset($userGroup)) {
-                $this->addError('userGroupsToAdd', __('invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting', 
-                    [
-                        'userGroupId' => $userGroupPayload->userGroupId
-                    ])
-                );
-
-                continue;
+            $shouldCheckGroup = true;
+            if (!isset($userUserGroup['userGroupId'])) {
+                $this->addError('userGroupsToAdd.userGroupId', __('invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory'));
+                $shouldCheckGroup = false;
             }
 
-            if (isset($seenUserGroupIds[$userGroupPayload->userGroupId])) {
-                // Duplicate userGroupId found
-                $this->addError('userGroupsToAdd', __('invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId', 
-                    [
-                        'userGroupId' => $userGroupPayload->userGroupId,
-                        'userGroupName' => $userGroup->getLocalizedName()
-                    ])
-                );
-
-                // Skip processing this duplicate entry
-                continue; 
+            if (!isset($userUserGroup['dateStart'])) {
+                $this->addError('userGroupsToAdd.dateStart', __('invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory'));
             }
 
-            // Mark this userGroupId as seen
-            $seenUserGroupIds[$userGroupPayload->userGroupId] = true;
+            if (!isset($userUserGroup['masthead'])) {
+                $this->addError('userGroupsToAdd.masthead', __('invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory'));
+            }
+
+            if ($shouldCheckGroup) {
+                $userGroupPayload = UserGroupPayload::fromArray($userUserGroup);
+                $userGroup = Repo::userGroup()->get($userGroupPayload->userGroupId);
+
+                if (!isset($userGroup)) {
+                    $this->addError('userGroupsToAdd', __('invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting', 
+                        [
+                            'userGroupId' => $userGroupPayload->userGroupId
+                        ])
+                    );
+
+                    continue;
+                }
+
+                if (isset($seenUserGroupIds[$userGroupPayload->userGroupId])) {
+                    // Duplicate userGroupId found
+                    $this->addError('userGroupsToAdd', __('invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId', 
+                        [
+                            'userGroupId' => $userGroupPayload->userGroupId,
+                            'userGroupName' => $userGroup->getLocalizedName()
+                        ])
+                    );
+
+                    // Skip processing this duplicate entry
+                    continue; 
+                }
+
+                // Mark this userGroupId as seen
+                $seenUserGroupIds[$userGroupPayload->userGroupId] = true;
+            }
+
+            
         }
     }
 

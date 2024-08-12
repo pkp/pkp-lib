@@ -58,6 +58,15 @@ msgstr "A given name must be provided"
 msgid "invitation.userRoleAssignment.validation.error.familyName.mandatory"
 msgstr "A family name must be provided"
 
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory"
+msgstr "For added user groups, a user group id must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory"
+msgstr "For added user groups, a date start must be provided"
+
+msgid "invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory"
+msgstr "For added user groups, a masthead must be provided"
+
 msgid "invitation.api.error.invitationTypeNotHasMailable"
 msgstr "This invitation type does not have a mailable defined"
 

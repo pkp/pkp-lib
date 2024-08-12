@@ -19,9 +19,11 @@ class ComposerScript
 {
 	/**
 	 * A post-install-cmd custom composer script that
-	 * copies node_module dependencies
+	 * copies composer installs from repositories
+	 * to the correct/existing directories of the following dependencies:
+	 * jquery-ui and jquery validation
 	 */
-	public static function copyNodeModuleDeps(): void
+	public static function copyVendorAssets(): void
 	{   
 		function copyDir($src, $dst) {
 			$dir = opendir($src);
@@ -39,22 +41,28 @@ class ComposerScript
 		}
 
 		try {
-			$baseDir = __DIR__ . '/../../../../node_modules';
-			$jqueryDist = $baseDir . '/jquery/dist';
-			$jqueryUiDist = $baseDir . '/jquery-ui/dist';
+			$vendorBaseDir = __DIR__ . '/../../lib/vendor';
+			$jsPluginsDir = __DIR__ . '/../../js/lib';
+			$jqueryPluginsDir = $jsPluginsDir . '/jquery/plugins';
 			$vendorComponents = __DIR__ . '/../../lib/vendor/components';
 
-			if (!file_exists($vendorComponents . '/jquery')) {
-				mkdir($vendorComponents . '/jquery', 0755, true);
-			}
+			$jqueryUiDist = $vendorBaseDir . '/jquery/ui/dist';
+			$jqueryValidationDist = $vendorBaseDir . '/jquery/validation/dist';
+			$chartjsDist = $vendorBaseDir . '/chart/js/dist';
+
+			// jQuery UI
 			if (!file_exists($vendorComponents . '/jqueryui')) {
 				mkdir($vendorComponents . '/jqueryui', 0755, true);
 			}
-
-			copyDir($jqueryDist, $vendorComponents . '/jquery');
 			copy($jqueryUiDist . '/jquery-ui.js', $vendorComponents . '/jqueryui/jquery-ui.js');
 			copy($jqueryUiDist . '/jquery-ui.min.js', $vendorComponents . '/jqueryui/jquery-ui.min.js');
 
+			// jQuery Validation
+			if (!file_exists($jqueryPluginsDir . '/validate')) {
+				mkdir($jqueryPluginsDir . '/validate', 0755, true);
+			}
+			copyDir($jqueryValidationDist, $jqueryPluginsDir . '/validate');
+			
 		} catch (Exception $e) {
 			error_log($e->getMessage());
 		}

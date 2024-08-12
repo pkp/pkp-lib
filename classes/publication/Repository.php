@@ -769,15 +769,12 @@ abstract class Repository
 
     /**
      * Assign categories to a publication.
+     *
+     * @param int[] $categoryIds
      */
     public function assignCategoriesToPublication(int $publicationId, array $categoryIds): void
     {
-        $records = array_map(function ($categoryId) use ($publicationId) {
-            return [
-                'publication_id' => $publicationId,
-                'category_id' => $categoryId
-            ];
-        }, $categoryIds);
+        $records = array_map(fn ($categoryId) => ['publication_id' => $publicationId, 'category_id' => $categoryId], $categoryIds);
 
         PublicationCategory::upsert($records, ['publication_id', 'category_id']);
 

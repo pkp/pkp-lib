@@ -626,8 +626,8 @@ abstract class Collector implements CollectorInterface, ViewsCount
 
         if (isset($this->categoryIds)) {
             $publicationIds = PublicationCategory::withCategoryIds($this->categoryIds)
-                        ->distinct()
-                        ->pluck('publication_id')->toArray();
+                                ->select('publication_id')
+                                ->toBase();
         
             $q->whereIn('s.current_publication_id', $publicationIds);
         }

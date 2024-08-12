@@ -37,7 +37,7 @@
 		"phpunit/phpunit": "~9",
 		"psy/psysh": "@stable",
 		"friendsofphp/php-cs-fixer": "^3.8",
-		"mockery/mockery": "^1.4",
+		"mockery/mockery": "1.6.12",
 		"captainhook/captainhook": "^5.10",
 		"captainhook/plugin-composer": "^5.3"
 	},

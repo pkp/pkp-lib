@@ -59,13 +59,13 @@
 		"fix": "PHP_CS_FIXER_IGNORE_ENV=1 ./lib/vendor/bin/php-cs-fixer fix --allow-risky=yes",
 		"post-install-cmd": [
 			"@isoFileCheck",
-			"@copyNodeModuleDeps"
+			"@copyVendorAssets"
 		],
 		"isoFileCheck": [
 			"PKP\\dev\\ComposerScript::isoFileCheck"
 		],
-		"copyNodeModuleDeps": [
-			"PKP\\dev\\ComposerScript::copyNodeModuleDeps"
+		"copyVendorAssets": [
+			"PKP\\dev\\ComposerScript::copyVendorAssets"
 		]
 	},
 	"extra": {

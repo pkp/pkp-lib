@@ -250,11 +250,6 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
             return;
         }
 
-        if (empty($this->userGroupsToRemove)) {
-            $this->addError('userGroupsToRemove', __('invitation.userRoleAssignment.validation.error.removeUserRoles.notExisting'));
-            return;
-        }
-
         foreach ($this->userGroupsToRemove as $userUserGroup) {
             $userGroupPayload = UserGroupPayload::fromArray($userUserGroup);
 

@@ -32,6 +32,8 @@ class Collector implements CollectorInterface
     public ?array $doiIds = null;
     public ?int $count;
     public ?int $offset;
+    public ?array $issueIds = null;
+
 
     public function __construct(DAO $dao)
     {
@@ -76,6 +78,17 @@ class Collector implements CollectorInterface
     public function filterBySubmissionIds(?array $submissionIds): self
     {
         $this->submissionIds = $submissionIds;
+        return $this;
+    }
+
+    /**
+     * Set the filter for issue IDs to limit the publications retrieved.
+     *
+     * @param array|null $issueIds An array of issue IDs to filter by, or null to remove the filter.
+     */
+    public function filterByIssueIds(?array $issueIds): self
+    {
+        $this->issueIds = $issueIds;
         return $this;
     }
 
@@ -125,6 +138,10 @@ class Collector implements CollectorInterface
 
         $qb->when($this->doiIds !== null, function (Builder $qb) {
             $qb->whereIn('p.doi_id', $this->doiIds);
+        });
+
+        $qb->when($this->issueIds !== null, function (Builder $qb) {
+            $qb->whereIn('p.issue_id', $this->issueIds);
         });
 
         if (isset($this->count)) {

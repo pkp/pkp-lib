@@ -64,7 +64,7 @@ class I6759_RenameVariables extends \PKP\migration\Migration
 
         Schema::table('servers', function (Blueprint $table) {
             $table->renameColumn('journal_id', 'server_id');
-            $table->float('seq', 8, 2)->comment('Used to order lists of servers')->change();
+            $table->float('seq')->comment('Used to order lists of servers')->change();
             $table->smallInteger('enabled')->default(1)->comment('Controls whether or not the server is considered "live" and will appear on the website. (Note that disabled servers may still be accessible, but only if the user knows the URL.)')->change();
             $table->unique(['path'], 'servers_path');
         });

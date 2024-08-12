@@ -38,7 +38,7 @@ class OPSMigration extends \PKP\migration\Migration
             $table->foreign('review_form_id')->references('review_form_id')->on('review_forms')->onDelete('set null');
             $table->index(['review_form_id'], 'sections_review_form_id');
 
-            $table->float('seq', 8, 2)->default(0);
+            $table->float('seq')->default(0);
             $table->tinyInteger('editor_restricted')->default(0);
             $table->tinyInteger('meta_indexed')->default(0);
             $table->tinyInteger('meta_reviewed')->default(1);
@@ -122,7 +122,7 @@ class OPSMigration extends \PKP\migration\Migration
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('SET NULL');
             $table->index(['submission_file_id'], 'publication_galleys_submission_file_id');
 
-            $table->float('seq', 8, 2)->default(0);
+            $table->float('seq')->default(0);
             $table->string('remote_url', 2047)->nullable();
             $table->tinyInteger('is_approved')->default(0);
 
@@ -152,12 +152,12 @@ class OPSMigration extends \PKP\migration\Migration
 
 
         // Add partial index (DBMS-specific)
-        switch (DB::getDriverName()) {
-            case 'mysql': DB::unprepared('CREATE INDEX publication_galley_settings_name_value ON publication_galley_settings (setting_name(50), setting_value(150))');
-                break;
-            case 'pgsql': DB::unprepared('CREATE INDEX publication_galley_settings_name_value ON publication_galley_settings (setting_name, setting_value)');
-                break;
-        }
+        match (DB::getDriverName()) {
+            'mysql', 'mariadb' =>
+                DB::unprepared('CREATE INDEX publication_galley_settings_name_value ON publication_galley_settings (setting_name(50), setting_value(150))'),
+            'pgsql' =>
+                DB::unprepared('CREATE INDEX publication_galley_settings_name_value ON publication_galley_settings (setting_name, setting_value)'),
+        };
     }
 
     /**

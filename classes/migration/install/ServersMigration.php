@@ -29,7 +29,7 @@ class ServersMigration extends \PKP\migration\Migration
             $table->comment('A list of preprint servers managed by the installation.');
             $table->bigInteger('server_id')->autoIncrement();
             $table->string('path', 32);
-            $table->float('seq', 8, 2)->default(0)->comment('Used to order lists of servers');
+            $table->float('seq')->default(0)->comment('Used to order lists of servers');
             $table->string('primary_locale', 28);
             $table->tinyInteger('enabled')->default(1)->comment('Controls whether or not the server is considered "live" and will appear on the website. (Note that disabled servers may still be accessible, but only if the user knows the URL.)');
             $table->unique(['path'], 'servers_path');

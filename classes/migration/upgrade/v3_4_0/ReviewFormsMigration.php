@@ -32,7 +32,7 @@ class ReviewFormsMigration extends \PKP\migration\Migration
                 $table->bigInteger('review_form_id')->autoIncrement();
                 $table->bigInteger('assoc_type');
                 $table->bigInteger('assoc_id');
-                $table->float('seq', 8, 2)->nullable();
+                $table->float('seq')->nullable();
                 $table->smallInteger('is_active')->nullable();
             });
         }
@@ -54,7 +54,7 @@ class ReviewFormsMigration extends \PKP\migration\Migration
             Schema::create('review_form_elements', function (Blueprint $table) {
                 $table->bigInteger('review_form_element_id')->autoIncrement();
                 $table->bigInteger('review_form_id');
-                $table->float('seq', 8, 2)->nullable();
+                $table->float('seq')->nullable();
                 $table->bigInteger('element_type')->nullable();
                 $table->smallInteger('required')->nullable();
                 $table->smallInteger('included')->nullable();

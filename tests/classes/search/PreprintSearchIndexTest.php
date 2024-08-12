@@ -26,6 +26,7 @@ use APP\server\ServerDAO;
 use APP\submission\Submission;
 use Mockery;
 use Mockery\MockInterface;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
@@ -34,6 +35,7 @@ use PKP\submissionFile\Collector as SubmissionFileCollector;
 use PKP\submissionFile\SubmissionFile;
 use PKP\tests\PKPTestCase;
 
+#[CoversClass(PreprintSearchIndex::class)]
 class PreprintSearchIndexTest extends PKPTestCase
 {
     //
@@ -77,9 +79,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     //
     // Unit tests
     //
-    /**
-     * @covers PreprintSearchIndex
-     */
+
     public function testUpdateFileIndexViaPluginHook()
     {
         // Diverting to the search plugin hook.
@@ -100,9 +100,6 @@ class PreprintSearchIndexTest extends PKPTestCase
         Hook::clear('PreprintSearchIndex::submissionFileChanged');
     }
 
-    /**
-     * @covers PreprintSearchIndex
-     */
     public function testDeleteTextIndex()
     {
         // Prepare the mock environment for this test.
@@ -116,9 +113,6 @@ class PreprintSearchIndexTest extends PKPTestCase
         $preprintSearchIndex->submissionFileDeleted(0);
     }
 
-    /**
-     * @covers PreprintSearchIndex
-     */
     public function testDeleteTextIndexViaPluginHook()
     {
         // Diverting to the search plugin hook.
@@ -140,9 +134,6 @@ class PreprintSearchIndexTest extends PKPTestCase
         Hook::clear('PreprintSearchIndex::submissionFileDeleted');
     }
 
-    /**
-     * @covers PreprintSearchIndex
-     */
     public function testRebuildIndex()
     {
         // Prepare the mock environment for this test.
@@ -160,9 +151,6 @@ class PreprintSearchIndexTest extends PKPTestCase
         $preprintSearchIndex->rebuildIndex(true);
     }
 
-    /**
-     * @covers PreprintSearchIndex
-     */
     public function testRebuildIndexViaPluginHook()
     {
         // Diverting to the search plugin hook.
@@ -180,9 +168,6 @@ class PreprintSearchIndexTest extends PKPTestCase
         Hook::clear('PreprintSearchIndex::rebuildIndex');
     }
 
-    /**
-     * @covers PreprintSearchIndex
-     */
     public function testIndexPreprintMetadata()
     {
         // Make sure that no hook is being called.
@@ -203,16 +188,13 @@ class PreprintSearchIndexTest extends PKPTestCase
             ->getMock();
         $preprint->expects($this->any())
             ->method('getCurrentPublication')
-            ->will($this->returnValue($publication));
+            ->willReturn($publication);
 
         // Test indexing an preprint with a mock environment.
         $preprintSearchIndex = $this->getMockPreprintSearchIndex($this->atLeastOnce());
         $preprintSearchIndex->submissionMetadataChanged($preprint);
     }
 
-    /**
-     * @covers PreprintSearchIndex
-     */
     public function testIndexPreprintMetadataViaPluginHook()
     {
         // Diverting to the search plugin hook.
@@ -231,9 +213,6 @@ class PreprintSearchIndexTest extends PKPTestCase
         Hook::clear('PreprintSearchIndex::preprintMetadataChanged');
     }
 
-    /**
-     * @covers PreprintSearchIndex
-     */
     public function testIndexSubmissionFiles()
     {
         // Make sure that no hook is being called.
@@ -247,9 +226,6 @@ class PreprintSearchIndexTest extends PKPTestCase
         $this->assertTrue(true);
     }
 
-    /**
-     * @covers PreprintSearchIndex
-     */
     public function testIndexSubmissionFilesViaPluginHook()
     {
         // Diverting to the search plugin hook.
@@ -389,12 +365,12 @@ class PreprintSearchIndexTest extends PKPTestCase
         // Test the clearIndex() method.
         $preprintSearchDao->expects($clearIndexExpected)
             ->method('clearIndex')
-            ->will($this->returnValue(null));
+            ->willReturn(null);
 
         // Test the deleteSubmissionKeywords() method.
         $preprintSearchDao->expects($deletePreprintExpected)
             ->method('deleteSubmissionKeywords')
-            ->will($this->returnValue(null));
+            ->willReturn(null);
 
         // Register the mock DAO.
         DAORegistry::registerDAO('PreprintSearchDAO', $preprintSearchDao);
@@ -418,12 +394,12 @@ class PreprintSearchIndexTest extends PKPTestCase
             ->getMock();
         $serversIterator
             ->method('toIterator')
-            ->will($this->returnValue(new \ArrayIterator()));
+            ->willReturn(new \ArrayIterator());
 
         // Mock the getAll() method.
         $serverDao->expects($this->any())
             ->method('getAll')
-            ->will($this->returnValue($serversIterator));
+            ->willReturn($serversIterator);
 
         // Register the mock DAO.
         DAORegistry::registerDAO('ServerDAO', $serverDao);
@@ -461,7 +437,7 @@ class PreprintSearchIndexTest extends PKPTestCase
         // Check for _updateTextIndex() calls.
         $preprintSearchIndex->expects($expectedCall)
             ->method('_updateTextIndex')
-            ->will($this->returnValue(null));
+            ->willReturn(null);
         return $preprintSearchIndex;
     }
 }

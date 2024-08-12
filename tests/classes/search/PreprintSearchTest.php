@@ -24,10 +24,12 @@ use APP\search\PreprintSearch;
 use APP\search\PreprintSearchDAO;
 use APP\server\Server;
 use APP\server\ServerDAO;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\tests\PKPTestCase;
 
+#[CoversClass(PreprintSearch::class)]
 class PreprintSearchTest extends PKPTestCase
 {
     private const SUBMISSION_SEARCH_TEST_DEFAULT_PREPRINT = 1;
@@ -77,9 +79,7 @@ class PreprintSearchTest extends PKPTestCase
     //
     // Unit tests
     //
-    /**
-     * @covers PreprintSearch
-     */
+
     public function testRetrieveResults()
     {
         // Make sure that no hook is being called.
@@ -101,9 +101,6 @@ class PreprintSearchTest extends PKPTestCase
         self::assertEquals('', $error);
     }
 
-    /**
-     * @covers PreprintSearch
-     */
     public function testRetrieveResultsViaPluginHook()
     {
         // Diverting a search to the search plugin hook.
@@ -215,7 +212,7 @@ class PreprintSearchTest extends PKPTestCase
         // Mock the getPhraseResults() method.
         $preprintSearchDao->expects($this->any())
             ->method('getPhraseResults')
-            ->will($this->returnValue($searchResult));
+            ->willReturn($searchResult);
 
         // Register the mock DAO.
         DAORegistry::registerDAO('PreprintSearchDAO', $preprintSearchDao);
@@ -239,7 +236,7 @@ class PreprintSearchTest extends PKPTestCase
         // Mock the getById() method.
         $serverDao->expects($this->any())
             ->method('getById')
-            ->will($this->returnValue($server));
+            ->willReturn($server);
 
         // Register the mock DAO.
         DAORegistry::registerDAO('ServerDAO', $serverDao);

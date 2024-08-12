@@ -24,13 +24,12 @@ namespace APP\tests\plugins\importexport;
 use APP\facades\Repo;
 use APP\plugins\PubObjectCache;
 use APP\submission\Submission;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PKP\tests\PKPTestCase;
 
+#[CoversClass(PubObjectCache::class)]
 class PubObjectCacheTest extends PKPTestCase
 {
-    /**
-     * @covers PubObjectCache
-     */
     public function testAddSubmission()
     {
         $cache = new PubObjectCache();
@@ -46,9 +45,6 @@ class PubObjectCacheTest extends PKPTestCase
         self::assertEquals($submission, $retrievedIssue);
     }
 
-    /**
-     * @covers PubObjectCache
-     */
     public function testAddPreprint()
     {
         $cache = new PubObjectCache();
@@ -69,10 +65,6 @@ class PubObjectCacheTest extends PKPTestCase
         self::assertEquals($preprint, $retrievedPreprint);
     }
 
-
-    /**
-     * @covers PubObjectCache
-     */
     public function testAddGalley()
     {
         $nullVar = null;
@@ -109,9 +101,6 @@ class PubObjectCacheTest extends PKPTestCase
         self::assertFalse($cache->isCached('galleysByIssue', $preprint->getCurrentPublication()->getData('issueId')));
     }
 
-    /**
-     * @covers PubObjectCache
-     */
     public function testAddSeveralGalleys()
     {
         $nullVar = null;

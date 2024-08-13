@@ -26,6 +26,7 @@ use PKP\core\traits\EntityWithParent;
 use PKP\db\DAORegistry;
 use PKP\log\event\EventLogEntry;
 use PKP\note\Note;
+use PKP\notification\Notification;
 use PKP\query\QueryDAO;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignment;

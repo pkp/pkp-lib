@@ -1020,3 +1020,11 @@ msgstr ""
 #, fuzzy
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Test növbəsi üçün işçi Deamon'u işə salın"
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"ADS-nin istifadə edilə bilir yeni versiyası var! Bu halda ADS-nin "
+"{$currentVersion} versiyasını istifadə edirsiniz. {$latestVersion} ADS-nin "
+"daha güncəl versiyasıdır. Güncəl versiyasını endirmək və yeniləmə "
+"təlimatları tapmaq üçün zəhmət olmasa <a href=\"http://pkp.sfu.ca/"
+"ojs_download\" target=\"_new\">bu sayfayı</a> ziyarət edin."

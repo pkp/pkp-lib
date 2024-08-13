@@ -789,3 +789,9 @@ msgstr ""
 
 #~ msgid "admin.languages.download"
 #~ msgstr "下载语言"
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"有新版本的 OJS 可用！您目前使用 OJS {$currentVersion}。最新的版本为 OJS "
+"{$latestVersion}。请访问<a href=\"http://pkp.sfu.ca/ojs_download\" target="
+"\"_new\">此页面 </a>下载最新的版本并找到升级说明。"

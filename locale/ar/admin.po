@@ -886,3 +886,10 @@ msgstr "إعادة تشغيل برامج تنفيذ الطابور بعد مهم
 msgid "admin.cli.tool.jobs.available.options.restart.confirm"
 msgstr ""
 "برامج تنفيذ مهام الطابور ستنهي عملها بهدوء بعد إكمالها تنفيذ المهمة الحالية."
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"تم إطلاق نسخة جديدة من نظام المجلات المفتوحة! أنت حالياً تستعمل النسخة "
+"{$currentVersion} منه. النسخة ذات الإصدار الأحدث هي OJS {$latestVersion}. "
+"لطفاً، قم بزيارة <a href=\"https://pkp.sfu.ca/ojs_download\" target=\"_new"
+"\">هذه الصفحة</a> لتنزيل النسخة الأحدث والعثور على تعليمات الترقية."

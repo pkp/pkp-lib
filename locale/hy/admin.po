@@ -969,3 +969,10 @@ msgstr "Վերագործարկեք queue worker daemons-ները իրենց ըն
 msgid "admin.cli.tool.jobs.available.options.restart.confirm"
 msgstr ""
 "Աշխատողները նրբորեն կհեռանան ընթացիկ աշխատանքի կատարումն ավարտելուց հետո:"
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Հասանելի է OJS-ի նոր տարբերակը: Դուք ներկայումս օգտագործում եք OJS "
+"{$currentVersion}: Ամենավերջին տարբերակն է OJS {$latestVersion}: Խնդրում ենք "
+"այցելել <a href=\"https://pkp.sfu.ca/ojs_download\" target=\"_new\">այս էջը</"
+"a>՝ ամենավերջին տարբերակը ներբեռնելու և թարմացման հրահանգները ստանալու համար:"

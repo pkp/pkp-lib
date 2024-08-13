@@ -782,3 +782,10 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr ""
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Hai unha nova versión de OJS dispoñible! Está utilizando a versión de OJS "
+"{$currentVersion}. A versión máis recente é OJS {$latestVersion}. Visite <a "
+"href=\"http://pkp.sfu.ca/ojs_download\" target=\"_new\">esta páxina</a> para "
+"descargar a versión máis recente e obter as instrucións para a actualización."

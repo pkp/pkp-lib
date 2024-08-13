@@ -922,3 +922,10 @@ msgstr "Pokrenite radni deamon za testni red"
 
 #~ msgid "admin.jobs.list.queueName"
 #~ msgstr "Red"
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Dostupna je nova verzija OJS! Vi trenutno koristite OJS {$currentVersion}. "
+"Najnovija verzija jeOJS {$latestVersion}. Posjetite <a href=\"http://pkp.sfu."
+"ca/ojs_download\" target=\"_new\">ovu stranu</a> za preuzimanje najnovije "
+"verzije i uputa za nadogradnju."

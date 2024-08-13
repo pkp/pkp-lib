@@ -981,3 +981,10 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.restart.description"
 msgstr "Reinicie os daemons de trabalho da fila após a tarefa atual."
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Uma nova versão do sistema está disponível! Sua versão atual é OJS "
+"{$currentVersion}. A versão mais recente é OJS {$latestVersion}. Acesse <a "
+"href=\"http://pkp.sfu.ca/ojs_download\" target=\"_new\">esta página</a> para "
+"baixar a nova versão e para instruções sobre atualização."

@@ -365,3 +365,10 @@ msgstr ""
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Non ci sono lingue disponibili per il download."
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Una nuova versione di OJS è disponibile! Stai utilizzando OJS "
+"{$currentVersion}. La versione più recente è OJS {$latestVersion}. Visita <a "
+"href=\"http://pkp.sfu.ca/ojs_download\" target=\"_new\">questa pagina</a> "
+"per scaricare la versione più recente e trovare le istruzioni per aggiornare."

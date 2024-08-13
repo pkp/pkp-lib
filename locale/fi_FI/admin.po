@@ -359,3 +359,10 @@ msgstr ""
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Kielialueita ei ole ladattavissa."
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"OJS:stä on saatavilla uusi versio! Käytät tällä hetkellä versiota OJS "
+"{$currentVersion}. Viimeisin versio on OJS {$latestVersion}. Lataa uusin "
+"versio ja tutustu päivitysohjeisiin <a href=\"http://pkp.sfu.ca/ojs_download"
+"\" target=\"_new\">täällä</a>."

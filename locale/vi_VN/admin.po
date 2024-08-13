@@ -378,3 +378,10 @@ msgstr "Không có ngôn ngữ nào có sẵn để tải xuống."
 
 #~ msgid "admin.languages.download"
 #~ msgstr "Tải xuống Ngôn ngữ"
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Có một phiên bản mới của OJS! Bạn hiện đang sử dụng OJS {$currentVersion}. "
+"Phiên bản gần đây nhất là OJS {$latestVersion}. Vui lòng truy cập <a href="
+"\"http://pkp.sfu.ca/ojs_download\" target=\"_new\">this page</a> để tải "
+"xuống phiên bản mới nhất và tìm hướng dẫn nâng cấp."

@@ -369,3 +369,11 @@ msgstr ""
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "İndirilecek herhangi bir dil bulunmuyor."
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"ADS'nin kullanılabilir yeni bir sürümü var! Şu halde ADS'nin "
+"{$currentVersion} sürümünü kullanıyorsunuz.  {$latestVersion} ADS'nin daha "
+"güncel sürümüdür. Güncel sürümü indirmek  ve güncelleme talimatları bulmak "
+"için lütfen <a href=\"http://pkp.sfu.ca/ojs_download\" target=\"_new\">bu "
+"sayfayı</a> ziyaret ediniz."

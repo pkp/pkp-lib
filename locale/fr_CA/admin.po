@@ -380,3 +380,11 @@ msgstr ""
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Il n'y a pas de paramètre régional disponible pour l'installation."
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Une nouvelle version d'OJS est maintenant disponible ! Vous utilisez "
+"actuellement OJS {$currentVersion}. La dernière version est OJS "
+"{$latestVersion}. Veuillez visiter <a href=\"http://pkp.sfu.ca/ojs_download"
+"\" target=\"_new\">cette page</a> pour télécharger la dernière version d'OJS "
+"et voir les instructions concernant la mise à jour."

@@ -353,3 +353,11 @@ msgstr "Nema lokalizacija dostupnih za preuzimanje"
 
 #~ msgid "admin.settings.oaiRegistration"
 #~ msgstr "Registrujte sajt za indeksiranje (sakupljanje metapodataka)"
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Dostupna je nova verzija OJS! Trenutno koristite OJS {$currentVersion}.\n"
+" Najnovija verzija ОЈС је {$latestVersion}. Poslednja verzija OJS "
+"{$latestVersion}. Posetite <a href=\"http://pkp.sfu.ca/ojs_download\" target="
+"\"_new\">ovu stranu</a>da preuzmete poslednju verziju i da nađete uputstvo "
+"za nadogradnju."

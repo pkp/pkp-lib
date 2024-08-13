@@ -361,3 +361,11 @@ msgstr ""
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Nejsou dostupné žádné lokalizace ke stažení."
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Nová verze OJS je dostupná! V současné době používáte verzi OJS "
+"{$currentVersion}. Nejnovější verze OJS je {$latestVersion}. Navštivte, "
+"prosím, <a href=\"http://php.sfu.ca/ojs_download\" target=\"_new\">tuto "
+"stránku</a> a stáhněte si nejnovější verzi OJS a přečtěte si pokyny pro "
+"upgrade."

@@ -342,3 +342,10 @@ msgstr ""
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "زبانی برای دانلود وجود ندارد."
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"نسخه جدیدی از OJS در دسترس است. شما در حال استفاده از نسخه {$currentVersion} "
+"هستید در حالی که آخرین نسخه موجود، نسخه {$latestVersion} است. لطفاً به <a "
+"href=\"http://pkp.sfu.ca/ojs_download\" target=\"_new\">این صفحه</a> مراجعه "
+"کرده، آخرین نسخه را دانلود نمونه و دستورالعمل‌های به‌روزرسانی را مطالعه کنید."

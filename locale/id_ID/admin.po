@@ -376,3 +376,10 @@ msgstr "Tidak ada bahasa yang dapat diunduh."
 
 #~ msgid "admin.settings.passwordCharacters"
 #~ msgstr "Karakter"
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Ada versi baru OJS! Anda saat ini menggunakan OJS {$currentVersion}. Versi "
+"terbaru adalah OJS {$latestVersion}. Silakan kunjungi <a href=\"http://pkp."
+"sfu.ca/ojs_download\" target=\"_new\">laman ini</a> untuk mengunduh versi "
+"terbaru dan membaca instruksi upgrade-nya."

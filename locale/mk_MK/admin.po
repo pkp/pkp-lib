@@ -387,3 +387,10 @@ msgstr "Нема достапни локализации за преземање
 
 #~ msgid "admin.languages.download"
 #~ msgstr "Симнете локализација"
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Достапна е нова верзија на OJS! Во моментов користите OJS {$currentVersion}. "
+"Најновата верзија е OJS {$latestVersion}. Посетете ја <a href=\"http://pkp."
+"sfu.ca/ojs_download\" target=\"_new\"> оваа страница </a> за да ја преземете "
+"најновата верзија и да најдете упатства за надградба."

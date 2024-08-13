@@ -387,3 +387,10 @@ msgstr "Ingen språkpakker er tilgjengelig for nedlasting."
 
 #~ msgid "admin.languages.downloadLocales"
 #~ msgstr "Last ned språkpakker"
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"En ny versjon av OJS er tilgengelig. Du bruker for tiden OJS "
+"{$currentVersion}. Den nyeste versjonen av OJS er {$latestVersion}. Besøk <a "
+"href=\"http://pkp.sfu.ca/ojs_download\" target=\"_new\">denne siden</a> for "
+"å laste ned den nyeste versjonen og for å finne instruksjon for oppgradering."

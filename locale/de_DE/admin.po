@@ -380,3 +380,11 @@ msgstr ""
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Es sind keine Regionaleinstellungen zum Download verfügbar."
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Eine neue Version von OJS ist verfügbar! Sie benutzen momentan OJS "
+"{$currentVersion}. Die aktuelleste Version ist OJS {$latestVersion}. Bitte "
+"gehen Sie zu <a href=\"http://pkp.sfu.ca/ojs_download\" target=\"_new"
+"\">dieser Seite</a>, um die aktuelle Version herunterzuladen und um "
+"Informationen zum Upgrade einzusehen."

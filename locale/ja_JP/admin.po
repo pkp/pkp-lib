@@ -1,0 +1,21 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-01-04 11:25+0000\n"
+"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
+"Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/ojs/locale/"
+"ja_JP/>\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+
+#, fuzzy
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"There is a new version of OJS available! You are currently using OJS "
+"{$currentVersion}. The most recent version is OJS {$latestVersion}. Please "
+"visit <a href=\"http://pkp.sfu.ca/ojs_download\" target=\"_new\">this page</"
+"a> to download the most recent version and find upgrade instructions."

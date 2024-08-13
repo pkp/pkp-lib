@@ -374,3 +374,10 @@ msgstr "Brak plików tłumaczeń do pobrania."
 
 #~ msgid "admin.settings.homeHeaderImageInvalid"
 #~ msgstr "Niepoprawny format pliku. Akceptowane formaty to GIF, JPG, lub PNG."
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Nowa wersja OJS jest dostępna! W tej chwili używasz OJS w wersji "
+"{$currentVersion}. Najnowszą wersją jest {$latestVersion}. Przejdź <a href="
+"\"http://pkp.sfu.ca/ojs_download\" target=\"_new\">na stronę </a> w celu "
+"pobrania najnowszej wersji."

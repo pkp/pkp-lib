@@ -364,3 +364,10 @@ msgstr ""
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Na voljo ni nobneih jezikovnih paketov za prenos."
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Na voljo je nova verzija OJS! Trenutno uporabljate verzijo "
+"{$currentVersion}. Zadnja verzija OJS je {$latestVersion}. Obiščite <a href="
+"\"http://pkp.sfu.ca/ojs_download\" target=\"_new\">to stran</a>, da "
+"prenesete zadnjo verzijo in navodila za nadgradnjo."

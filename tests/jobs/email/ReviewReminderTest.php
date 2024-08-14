@@ -16,7 +16,7 @@ use Mockery;
 use PKP\tests\PKPTestCase;
 use PKP\jobs\email\ReviewReminder;
 use Illuminate\Support\Facades\Mail;
-use APP\user\Repository as UserRepository;
+use PKP\user\Repository as UserRepository;
 use PKP\log\event\Repository as EventRepository;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use APP\submission\Repository as SubmissionRepository;

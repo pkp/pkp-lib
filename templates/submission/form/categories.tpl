@@ -7,10 +7,10 @@
  *
  * Include categories for submissions.
  *}
-{if $categories && is_array($categories) && count($categories)}
+{if is_array($categoryOptions) && !empty($categoryOptions)}
 	{if $readOnly}
 		{fbvFormSection title="grid.category.categories" list=true}
-			{foreach from=$categories item="category" key="id"}
+			{foreach from=$categoryOptions item="category" key="id"}
 				{if in_array($id, $assignedCategories)}
 					<li>{$category->getLocalizedTitle()|escape}</li>
 				{/if}
@@ -18,8 +18,8 @@
 		{/fbvFormSection}
 	{else}
 		{fbvFormSection list=true title="grid.category.categories"}
-			{foreach from=$categories item="category" key="id"}
-				{fbvElement type="checkbox" id="categories[]" value=$id checked=in_array($id, $assignedCategories) label=$category|escape translate=false}
+			{foreach from=$categoryOptions item="category" key="id"}
+				{fbvElement type="checkbox" id="categories[]" value=$id checked=in_array($id, $categories) label=$category|escape translate=false}
 			{/foreach}
 		{/fbvFormSection}
 	{/if}

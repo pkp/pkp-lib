@@ -173,7 +173,8 @@ class PKPSubmissionSubmitStep1Form extends SubmissionSubmitForm {
 		}
 		$templateMgr->assign(array(
 			'assignedCategories' => $assignedCategories,
-			'categories' => $items,
+			'categoryOptions' => $items,
+			'categories' => (array) $request->getUserVar('categories'),
 		));
 
 		return parent::fetch($request, $template, $display);

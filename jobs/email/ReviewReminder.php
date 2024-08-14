@@ -17,7 +17,6 @@
 namespace PKP\jobs\email;
 
 use APP\facades\Repo;
-use APP\core\Services;
 use Illuminate\Support\Facades\Mail;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\core\PKPApplication;
@@ -52,7 +51,7 @@ class ReviewReminder extends BaseJob
 
         $submission = Repo::submission()->get($reviewAssignment->getData('submissionId'));
         
-        $contextService = Services::get('context');
+        $contextService = app()->get('context');
         $context = $contextService->get($this->contextId);
 
         /** @var ReviewRemindAuto|ReviewResponseRemindAuto $mailable */

@@ -16,30 +16,35 @@ use Mockery;
 use PKP\tests\PKPTestCase;
 use PKP\jobs\email\ReviewReminder;
 use Illuminate\Support\Facades\Mail;
+use APP\user\Repository as UserRepository;
+use PKP\log\event\Repository as EventRepository;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use APP\submission\Repository as SubmissionRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
 use PKP\submission\reviewAssignment\Repository as ReviewAssignmentRepository;
-use PKP\log\event\Repository as EventRepository;
-use APP\user\Repository as UserRepository;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/**
- * @runTestsInSeparateProcesses
- * @see https://docs.phpunit.de/en/9.6/annotations.html#runtestsinseparateprocesses
- */
+#[RunTestsInSeparateProcesses]
+#[CoversClass(ReviewReminder::class)]
 class ReviewReminderTest extends PKPTestCase
 {
     /**
      * Serializion from OJS 3.5.0
      */
-    protected string $serializedJobData = 'O:29:"PKP\jobs\email\ReviewReminder":5:{s:9:"contextId";i:1;s:18:"reviewAssignmentId";i:57;s:13:"mailableClass";s:43:"PKP\mail\mailables\ReviewResponseRemindAuto";s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}';
+    protected string $serializedJobData = <<<END
+    O:29:"PKP\\jobs\\email\\ReviewReminder":5:{s:9:"contextId";i:1;s:18:"reviewAssignmentId";i:57;s:13:"mailableClass";s:43:"PKP\mail\mailables\ReviewResponseRemindAuto";s:10:"connection";s:8:"database";s:5:"queue";s:5:"queue";}
+    END;
 
     /**
      * Test job is a proper instance
      */
     public function testUnserializationGetProperJobInstance(): void
     {
-        $this->assertInstanceOf(ReviewReminder::class, unserialize($this->serializedJobData));
+        $this->assertInstanceOf(
+            ReviewReminder::class,
+            unserialize($this->serializedJobData)
+        );
     }
 
     /**
@@ -101,32 +106,24 @@ class ReviewReminderTest extends PKPTestCase
             ->getMock();
         
         app()->instance(UserRepository::class, $userRepoMock);
+
+        $contextMock = Mockery::mock(\PKP\context\Context::class)
+            ->makePartial()
+            ->shouldReceive([
+                'getPath' => '',
+                'getId' => 0,
+            ])
+            ->withAnyArgs()
+            ->getMock();
         
-        // Need to replace the container binding of `context` with a mock object
-        \APP\core\Services::register(
-            new class implements \Pimple\ServiceProviderInterface
-            {
-                public function register(\Pimple\Container $pimple)
-                {
-                    $pimple['context'] = Mockery::mock(\APP\services\ContextService::class)
-                        ->makePartial()
-                        ->shouldReceive('get')
-                        ->withAnyArgs()
-                        ->andReturn(
-                            // Mock the context(Journal/Press/Server) object
-                            Mockery::mock(\PKP\context\Context::class)
-                                ->makePartial()
-                                ->shouldReceive([
-                                    'getPath' => '',
-                                    'getId' => 0,
-                                ])
-                                ->withAnyArgs()
-                                ->getMock()
-                        )
-                        ->getMock();
-                }
-            }
-        );
+        $contextServiceMock = Mockery::mock(\APP\services\ContextService::class)
+            ->makePartial()
+            ->shouldReceive('get')
+            ->withAnyArgs()
+            ->andReturn($contextMock)
+            ->getMock();
+        
+        app()->instance('context', $contextServiceMock);
 
         $publicationMock = Mockery::mock(\APP\publication\Publication::class)
             ->makePartial()

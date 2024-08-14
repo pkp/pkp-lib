@@ -15,6 +15,9 @@ namespace PKP\dev;
 
 use Exception;
 
+require_once '../../tools/bootstrap.inc.php';
+import('lib.pkp.classes.file.FileManager');
+
 class ComposerScript
 {
 	/**
@@ -24,47 +27,28 @@ class ComposerScript
 	 * jquery-ui and jquery validation
 	 */
 	public static function copyVendorAssets(): void
-	{   
-		function copyDir($src, $dst) {
-			$dir = opendir($src);
-			@mkdir($dst, 0755, true);
-			while (false !== ($file = readdir($dir))) {
-				if ($file != '.' && $file != '..') {
-					if (is_dir($src . '/' . $file)) {
-						copyDir($src . '/' . $file, $dst . '/' . $file);
-					} else {
-						copy($src . '/' . $file, $dst . '/' . $file);
-					}
-				}
-			}
-			closedir($dir);
-		}
+	{
+		$fileManager = new \FileManager();
+		$vendorBaseDir = __DIR__ . '/../../lib/vendor';
+		$jsPluginsDir = __DIR__ . '/../../js/lib';
 
-		try {
-			$vendorBaseDir = __DIR__ . '/../../lib/vendor';
-			$jsPluginsDir = __DIR__ . '/../../js/lib';
-			$jqueryPluginsDir = $jsPluginsDir . '/jquery/plugins';
-			$vendorComponents = __DIR__ . '/../../lib/vendor/components';
+		$source = [
+			'jquery-ui.js' => $vendorBaseDir . '/jquery/ui/dist/jquery-ui.js',
+			'jquery-ui.min.js' => $vendorBaseDir . '/jquery/ui/dist/jquery-ui.min.js',
+			'jquery-validate' => $vendorBaseDir . '/jquery/validation/dist'
+		];
 
-			$jqueryUiDist = $vendorBaseDir . '/jquery/ui/dist';
-			$jqueryValidationDist = $vendorBaseDir . '/jquery/validation/dist';
-			$chartjsDist = $vendorBaseDir . '/chart/js/dist';
+		$dest = [
+			'jquery-ui.js' => $vendorBaseDir . '/components/jqueryui/jquery-ui.js',
+			'jquery-ui.min.js' => $vendorBaseDir . '/components/jqueryui/jquery-ui.min.js',
+			'jquery-validate' => $jsPluginsDir . '/jquery/plugins/validate'
+		];
 
-			// jQuery UI
-			if (!file_exists($vendorComponents . '/jqueryui')) {
-				mkdir($vendorComponents . '/jqueryui', 0755, true);
-			}
-			copy($jqueryUiDist . '/jquery-ui.js', $vendorComponents . '/jqueryui/jquery-ui.js');
-			copy($jqueryUiDist . '/jquery-ui.min.js', $vendorComponents . '/jqueryui/jquery-ui.min.js');
+		// jQuery UI
+		$fileManager->copyFile($source['jquery-ui.js'], $dest['jquery-ui.js']) || throw new Exception('Failed to copy jquery-ui.js to destination folder');
+		$fileManager->copyFile($source['jquery-ui.min.js'], $dest['jquery-ui.min.js']) || throw new Exception('Failed to copy jquery-ui.min.js to destination folder');
 
-			// jQuery Validation
-			if (!file_exists($jqueryPluginsDir . '/validate')) {
-				mkdir($jqueryPluginsDir . '/validate', 0755, true);
-			}
-			copyDir($jqueryValidationDist, $jqueryPluginsDir . '/validate');
-			
-		} catch (Exception $e) {
-			error_log($e->getMessage());
-		}
+		// jQuery Validation
+		$fileManager->copyDir($source['jquery-validate'], $dest['jquery-validate']) || throw new Exception('Failed to copy jquery-validate to destination folder');
 	}
 }

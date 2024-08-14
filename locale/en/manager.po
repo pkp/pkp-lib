@@ -1571,6 +1571,9 @@ msgstr "Maintainer"
 msgid "manager.plugins.pluginGallery.version"
 msgstr "v{$version} released on {$date}"
 
+msgid "manager.plugins.pluginGallery.installed"
+msgstr "Installed version: {$version}"
+
 msgid "manager.plugins.pluginGallery.homepage"
 msgstr "Homepage"
 

@@ -306,6 +306,11 @@ class FileManager {
 	 * @return boolean returns true if successful
 	 */
 	function mkdir($dirPath, $perms = null) {
+		if (is_dir($dirPath)) {
+			// Directory already exists, no need to create it
+			return true;
+		}
+
 		if ($perms !== null) {
 			return mkdir($dirPath, $perms);
 		} else {

@@ -307,8 +307,7 @@ class FileManager {
 	 */
 	function mkdir($dirPath, $perms = null) {
 		if (is_dir($dirPath)) {
-			// Directory already exists, no need to create it
-			return true;
+			return $this->setMode($dirPath, DIRECTORY_MODE_MASK);
 		}
 
 		if ($perms !== null) {

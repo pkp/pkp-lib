@@ -15,7 +15,7 @@ namespace PKP\dev;
 
 use Exception;
 
-require_once '../../tools/bootstrap.php';
+require_once __DIR__ . '/../../../../tools/bootstrap.php';
 import('lib.pkp.classes.file.FileManager');
 
 class ComposerScript

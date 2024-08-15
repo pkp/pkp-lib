@@ -45,10 +45,16 @@ class ComposerScript
 		];
 
 		// jQuery UI
-		$fileManager->copyFile($source['jquery-ui.js'], $dest['jquery-ui.js']) || throw new Exception('Failed to copy jquery-ui.js to destination folder');
-		$fileManager->copyFile($source['jquery-ui.min.js'], $dest['jquery-ui.min.js']) || throw new Exception('Failed to copy jquery-ui.min.js to destination folder');
+		if (!$fileManager->copyFile($source['jquery-ui.js'], $dest['jquery-ui.js'])) {
+			throw new Exception('Failed to copy jquery-ui.js to destination folder');
+		}
+		if (!$fileManager->copyFile($source['jquery-ui.min.js'], $dest['jquery-ui.min.js'])) {
+			throw new Exception('Failed to copy jquery-ui.min.js to destination folder');
+		}
 
 		// jQuery Validation
-		$fileManager->copyDir($source['jquery-validate'], $dest['jquery-validate']) || throw new Exception('Failed to copy jquery-validate to destination folder');
+		if (!$fileManager->copyDir($source['jquery-validate'], $dest['jquery-validate'])) {
+			throw new Exception('Failed to copy jquery-validate to destination folder');
+		}
 	}
 }

@@ -49,17 +49,8 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
     protected array $notAccessibleBeforeInvite = [
         'orcid',
-    ];
-
-    protected array $validateFunctions = [
-        'givenName' => 'validateGivenName',
-        'userGroupsToAdd' => 'validateUserGroupsToAdd',
-        'userGroupsToRemove' => 'validateUserGroupsToRemove',
-        'familyName' => 'validateFamilyName',
-        'affiliation' => 'validateAffiliation',
-        'country' => 'validateCountry',
-        'username' => 'validateUsername',
-        'password' => 'validatePassword',
+        'username',
+        'password'
     ];
 
     public ?string $orcid = null;
@@ -83,7 +74,6 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
     {
         return self::INVITATION_TYPE;
     }
-
 
     public function getNotAccessibleAfterInvite(): array
     {
@@ -142,11 +132,6 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
 
     protected function preInviteActions(): void
     {
-        if (empty($this->userGroupsToAdd) && empty($this->userGroupsToRemove)) {
-            $this->addError('', __('invitation.userRoleAssignment.validation.error.noUserGroupChanges'));
-            return;
-        }
-
         // Invalidate any other related invitation
         InvitationModel::byStatus(InvitationStatus::PENDING)
             ->byType(self::INVITATION_TYPE)
@@ -181,170 +166,210 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         return new UserRoleAssignmentReceiveController($invitation);
     }
 
-    public function validateUserGroupsToAdd()
+    public function getInviteValidationRules(): array
     {
-        if (empty($this->userGroupsToAdd)) {
-            $this->addError('userGroupsToAdd', __('invitation.userRoleAssignment.validation.error.addUserRoles.notExisting'));
-
-            return;
-        }
-
-        $seenUserGroupIds = [];
-
-        foreach ($this->userGroupsToAdd as $userUserGroup) {
-            $shouldCheckGroup = true;
-            if (!isset($userUserGroup['userGroupId'])) {
-                $this->addError('userGroupsToAdd.userGroupId', __('invitation.userRoleAssignment.validation.error.addUserRoles.userGroupIdMandatory'));
-                $shouldCheckGroup = false;
-            }
-
-            if (!isset($userUserGroup['dateStart'])) {
-                $this->addError('userGroupsToAdd.dateStart', __('invitation.userRoleAssignment.validation.error.addUserRoles.dateStartMandatory'));
-            }
-
-            if (!isset($userUserGroup['masthead'])) {
-                $this->addError('userGroupsToAdd.masthead', __('invitation.userRoleAssignment.validation.error.addUserRoles.mastheadMandatory'));
-            }
-
-            if ($shouldCheckGroup) {
-                $userGroupPayload = UserGroupPayload::fromArray($userUserGroup);
-                $userGroup = Repo::userGroup()->get($userGroupPayload->userGroupId);
-
-                if (!isset($userGroup)) {
-                    $this->addError('userGroupsToAdd', __('invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting', 
-                        [
-                            'userGroupId' => $userGroupPayload->userGroupId
-                        ])
-                    );
-
-                    continue;
+        return ['customValidation' => [
+                function ($attribute, $value, $fail) {
+                    if (empty($this->invitation->userGroupsToAdd) && empty($this->invitation->userGroupsToRemove)) {
+                        $fail(__('invitation.userRoleAssignment.validation.error.noUserGroupChanges'));
+                    }
                 }
+            ]
+        ];
+    }
 
-                if (isset($seenUserGroupIds[$userGroupPayload->userGroupId])) {
-                    // Duplicate userGroupId found
-                    $this->addError('userGroupsToAdd', __('invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId', 
-                        [
-                            'userGroupId' => $userGroupPayload->userGroupId,
-                            'userGroupName' => $userGroup->getLocalizedName()
-                        ])
-                    );
+    public function getFinaliseValidationRules(): array
+    {
+        return ['customValidation' => [
+                function ($attribute, $value, $fail) {
+                    $userId = $this->getUserId();
 
-                    // Skip processing this duplicate entry
-                    continue; 
+                    if (isset($userId)) {
+                        $user = $this->getExistingUser();
+
+                        if (!isset($user)) {
+                            $fail(__('invitation.userRoleAssignment.validation.error.user.mustExist',
+                                [
+                                    'userId' => $userId
+                                ])
+                            );
+                        }
+                    }
+                    else if ($this->getEmail()) {
+                        $user = Repo::user()->getByEmail($this->getEmail());
+
+                        if (isset($user)) {
+                            $fail(__('invitation.userRoleAssignment.validation.error.user.emailMustNotExist', 
+                                [
+                                    'email' => $this->getEmail()
+                                ])
+                            );
+                        }
+                    }
                 }
-
-                // Mark this userGroupId as seen
-                $seenUserGroupIds[$userGroupPayload->userGroupId] = true;
-            }
-
-            
-        }
+            ]
+        ];
     }
 
-    public function validateUserGroupsToRemove()
+    public function getValidationRules(): array
     {
-        $user = $this->getExistingUser();
+        $commonRules = [
+            'givenName' => [
+                'sometimes',
+                'string',
+                'max:255',
+                function ($attribute, $value, $fail) {
+                    if (is_null($this->getUserId()) && empty($value) && $this->getStatus() == InvitationStatus::PENDING) {
+                        $fail(__('validation.required', ['attribute' => $attribute]));
+                    }
+                }
+            ],
+            'familyName' => [
+                'sometimes',
+                'string',
+                'max:255',
+                function ($attribute, $value, $fail) {
+                    if (is_null($this->getUserId()) && empty($value) && $this->getStatus() == InvitationStatus::PENDING) {
+                        $fail(__('validation.required', ['attribute' => $attribute]));
+                    }
+                }
+            ],
+            'affiliation' => [
+                'sometimes',
+                'string',
+                'max:255',
+                function ($attribute, $value, $fail) {
+                    if (is_null($this->getUserId()) && empty($value) && $this->getStatus() == InvitationStatus::PENDING) {
+                        $fail(__('validation.required', ['attribute' => $attribute]));
+                    }
+                }
+            ],
+            'country' => [
+                'sometimes',
+                'string',
+                'max:255',
+                function ($attribute, $value, $fail) {
+                    if (is_null($this->getUserId()) && empty($value) && $this->getStatus() == InvitationStatus::PENDING) {
+                        $fail(__('validation.required', ['attribute' => $attribute]));
+                    }
+                }
+            ],
+        ];
 
-        if (!isset($user)) {
-            $this->addError('userGroupsToRemove', __('invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser'));
-            return;
+        if ($this->getStatus() == InvitationStatus::INITIALIZED) {
+            return array_merge($commonRules, [
+                'userGroupsToAdd' => [
+                    'sometimes',
+                    'array',
+                    function ($attribute, $value, $fail) {
+                        $userGroupIds = array_column($value, 'userGroupId');
+                        if (count($userGroupIds) !== count(array_unique($userGroupIds))) {
+                            $fail(__('invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId'));
+                        }
+                    }
+                ],
+                'userGroupsToAdd.*.userGroupId' => [
+                    'required',
+                    'integer',
+                    function ($attribute, $value, $fail) {
+                        // Custom validation logic for userGroupId
+                        $userGroup = Repo::userGroup()->get($value);
+
+                        if (!isset($userGroup)) {
+                            $fail(__('invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting', 
+                                [
+                                    'userGroupId' => $value
+                                ])
+                            );
+                        }
+                    }
+                ],
+                'userGroupsToAdd.*.masthead' => 'required|bool',
+                'userGroupsToAdd.*.dateStart' => 'required|date',
+                'userGroupsToRemove' => [
+                    'sometimes',
+                    'array',
+                    function ($attribute, $value, $fail) {
+                        if (is_null($this->getUserId()) && !empty($value)) {
+                            $fail(__('invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser'));
+                        }
+                    }
+                ],
+                'userGroupsToRemove.*.userGroupId' => [
+                    'required',
+                    'integer',
+                    function ($attribute, $value, $fail) {
+                        $userGroup = Repo::userGroup()->get($value);
+
+                        if (!isset($userGroup)) {
+                            $fail(__('invitation.userRoleAssignment.validation.error.removeUserRoles.userGroupNotExisting', 
+                                [
+                                    'userGroupId' => $value
+                                ])
+                            );
+                        }
+
+                        $user = $this->getExistingUser();
+                        if ($user) {
+                            $userUserGroups = UserUserGroup::withUserId($user->getId())
+                                ->withUserGroupId($userGroup->getId())
+                                ->get();
+
+                            if (empty($userUserGroups)) {
+                                $fail(__('invitation.userRoleAssignment.validation.error.removeUserRoles.userGroupNotAssignedToUser', 
+                                    [
+                                        'userGroupName' => $userGroup->getLocalizedName()
+                                    ])
+                                );
+                            }
+                        }
+                    }
+                ]
+            ]);
+        } elseif ($this->getStatus() == InvitationStatus::PENDING) {
+            return array_merge($commonRules, [
+                'username' => [
+                    'sometimes',
+                    'nullable',
+                    'string',
+                    'max:255',
+                    function ($attribute, $value, $fail) {
+                        if (is_null($this->getUserId())) {
+                            if (empty($value)) {
+                                $fail(__('validation.required', ['attribute' => $attribute]));
+                            }
+
+                            $existingUser = Repo::user()->getByUsername($value, true);
+
+                            if (isset($existingUser)) {
+                                $fail(__('invitation.userRoleAssignment.validation.error.username.alreadyExisting', 
+                                    [
+                                        'username' => $value
+                                    ])
+                                );
+                            }
+                        }
+                    },
+                ],
+                'orcid' => [
+                    'nullable',
+                    'sometimes',
+                    'orcid'
+                ],
+                'password' => [
+                    'nullable',
+                    'sometimes',
+                    'string',
+                    function ($attribute, $value, $fail) {
+                        if (is_null($this->getUserId()) && empty($value)) {
+                            $fail(__('validation.required', ['attribute' => $attribute]));
+                        }
+                    }
+                ],
+            ]);
         }
 
-        foreach ($this->userGroupsToRemove as $userUserGroup) {
-            $userGroupPayload = UserGroupPayload::fromArray($userUserGroup);
-
-            $userGroup = Repo::userGroup()->get($userGroupPayload->userGroupId);
-            $userUserGroups = UserUserGroup::withUserId($user->getId())
-                ->withUserGroupId($userGroup->getId())
-                ->get();
-
-            if (empty($userUserGroups)) {
-                $this->addError('userGroupsToRemove', __('invitation.userRoleAssignment.validation.error.removeUserRoles.userDoesNotHaveRoles'));
-            }
-        }
-    }
-
-    public function validateUsername()
-    {
-        $existingUser = Repo::user()->getByUsername($this->username, true);
-
-        if (isset($existingUser)) {
-            $this->addError('username', __('invitation.userRoleAssignment.validation.error.username.alreadyExisting', 
-                [
-                    'username' => $this->username
-                ])
-            );
-        }
-    }
-
-    public function validateAffiliation()
-    {
-        if (empty($this->affiliation)) {
-            $this->addError('affiliation', __('invitation.userRoleAssignment.validation.error.affiliation.mandatory'));
-        }
-    }
-
-    public function validateGivenName()
-    {
-        if (empty($this->givenName)) {
-            $this->addError('givenName', __('invitation.userRoleAssignment.validation.error.givenName.mandatory'));
-        }
-    }
-
-    public function validateFamilyName()
-    {
-        if (empty($this->givenName)) {
-            $this->addError('familyName', __('invitation.userRoleAssignment.validation.error.familyName.mandatory'));
-        }
-    }
-
-    public function validateCountry()
-    {
-        if (empty($this->country)) {
-            $this->addError('country', __('invitation.userRoleAssignment.validation.error.country.mandatory'));
-        }
-    }
-
-    public function validatePassword()
-    {
-        if (empty($this->country)) {
-            $this->addError('password', __('invitation.userRoleAssignment.validation.error.password.mandatory'));
-        }
-    }
-
-    public function validateBeforeFinalise()
-    {
-        $userId = $this->getUserId();
-
-        if (isset($userId)) {
-            $user = $this->getExistingUser();
-
-            if (!isset($user)) {
-                $this->addError('', __('invitation.userRoleAssignment.validation.error.user.mustExist',
-                    [
-                        'userId' => $userId
-                    ])
-                );
-            }
-        }
-        else if ($this->getEmail()) {
-            $user = Repo::user()->getByEmail($this->getEmail());
-
-            if (isset($user)) {
-                $this->addError('', __('invitation.userRoleAssignment.validation.error.user.emailMustNotExist', 
-                    [
-                        'email' => $this->getEmail()
-                    ])
-                );
-            }
-        }
-
-        $this->validateUsername();
-        $this->validatePassword();
-        $this->validateAffiliation();
-        $this->validateCountry();
-        $this->validateGivenName();
-        $this->validateFamilyName();
+        return [];
     }
 
     /**
@@ -352,14 +377,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
      */
     public function validate(): bool
     {
-        foreach ($this->currentlyFilledFromArgs as $property) {
-            if (isset($this->validateFunctions[$property])) {
-                $function = $this->validateFunctions[$property];
-                $this->$function();
-            }
-        }
-
-        return $this->isValid();
+        return true;
     }
 
     /**

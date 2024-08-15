@@ -22,14 +22,14 @@ msgstr "At least one user group to remove must be defined"
 msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser"
 msgstr "Remove user roles can't be defined for not existing users."
 
-msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.userDoesNotHaveRoles"
-msgstr "The user that the invitation will be send does not have the given roles, so they can't be removed."
+msgid "invitation.userRoleAssignment.validation.error.removeUserRoles.userGroupNotAssignedToUser"
+msgstr "The user group {$userGroupName} is not assigned to the invited user"
 
 msgid "invitation.userRoleAssignment.validation.error.noUserGroupChanges"
 msgstr "The invitation can not be dispatched because you have not defined any user group changes"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId"
-msgstr "The user group {$userGroupName} ({$userGroupId}) is duplicated."
+msgstr "The provided user groups contain duplicate entries."
 
 msgid "invitation.userRoleAssignment.validation.error.username.alreadyExisting"
 msgstr "There is already an existing user with the username {$username}. Try another one."
@@ -72,6 +72,9 @@ msgstr "This invitation type does not have a mailable defined"
 
 msgid "invitation.userRoleAssignment.validation.error.addUserRoles.userGroupNotExisting"
 msgstr "The provided user group ID {$userGroupId} does not exist"
+
+msgid "invitation.validation.required"
+msgstr "The {$attribute} field is required."
 
 
 

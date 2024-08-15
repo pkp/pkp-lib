@@ -25,8 +25,8 @@ use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\invitations\userRoleAssignment\payload\UserGroupPayload;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
+use PKP\validation\ValidatorFactory;
 use PKPRequest;
-use Exception;
 use Validation;
 
 class UserRoleAssignmentReceiveController extends ReceiveInvitationController
@@ -42,7 +42,7 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
     {
         return true;
     }
-    
+
     /**
      * @inheritDoc
      */
@@ -62,19 +62,26 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
      */
     public function finalize(Request $illuminateRequest): JsonResponse 
     {
-        $this->invitation->validateBeforeFinalise();
+        $data = [
+            'username' => $this->invitation->username,
+            'orcid' => $this->invitation->orcid,
+            'givenName' => $this->invitation->givenName,
+            'familyName' => $this->invitation->familyName,
+            'affiliation' => $this->invitation->affiliation,
+            'country' => $this->invitation->country,
+        ];
 
-        if (!$this->invitation->isValid()) {
-            $response = [
-                'invitation' => $this->invitation,
-                'validationError' => !$this->invitation->isValid(),
-                'errors' => $this->invitation->getErrors(),
-            ];
+        $rules = $this->invitation->getValidationRules();
+        $finaliseRules = $this->invitation->getFinaliseValidationRules();
 
-            return response()->json(
-                $response, 
-                Response::HTTP_UNPROCESSABLE_ENTITY
-            );
+        $rules = array_merge($rules, $finaliseRules);
+
+        $validator = ValidatorFactory::make($data, $rules);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'errors' => $validator->errors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
         $user = $this->invitation->getExistingUser();
@@ -152,23 +159,23 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
         $reqInput = $illuminateRequest->all();
         $payload = $reqInput['invitationData'];
 
+        $rules = $this->invitation->getValidationRules();
+
+        $validator = ValidatorFactory::make(
+            $payload,
+            $rules,
+            []
+        );
+
+        if ($validator->fails()) {
+            return response()->json([
+                'errors' => $validator->errors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
         $this->invitation->fillFromArgs($payload);
 
         $this->invitation->updatePayload();
-
-        if (!$this->invitation->isValid()) {
-            // This can be generalised inside the HasValidation trait
-            $response = [
-                'invitation' => $this->invitation,
-                'validationError' => !$this->invitation->isValid(),
-                'errors' => $this->invitation->getErrors(),
-            ];
-
-            return response()->json(
-                $response, 
-                Response::HTTP_UNPROCESSABLE_ENTITY
-            );
-        }
 
         return response()->json(
             $this->invitation, 

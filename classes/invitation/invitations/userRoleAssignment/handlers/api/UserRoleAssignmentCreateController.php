@@ -13,6 +13,7 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\handlers\api;
 
+use APP\facades\Repo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -22,6 +23,7 @@ use PKP\invitation\core\CreateInvitationController;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\validation\ValidatorFactory;
 
 class UserRoleAssignmentCreateController extends CreateInvitationController
 {
@@ -69,23 +71,24 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
         $reqInput = $illuminateRequest->all();
         $payload = $reqInput['invitationData'];
 
+        $rules = $this->invitation->getValidationRules();
+
+        // Perform validation
+        $validator = ValidatorFactory::make(
+            $payload,
+            $rules,
+            []
+        );
+
+        if ($validator->fails()) {
+            return response()->json([
+                'errors' => $validator->errors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
         $this->invitation->fillFromArgs($payload);
 
         $this->invitation->updatePayload();
-
-        if (!$this->invitation->isValid()) {
-            // This can be generalised inside the HasValidation trait
-            $response = [
-                'invitation' => $this->invitation,
-                'validationError' => !$this->invitation->isValid(),
-                'errors' => $this->invitation->getErrors(),
-            ];
-
-            return response()->json(
-                $response, 
-                Response::HTTP_UNPROCESSABLE_ENTITY
-            );
-        }
 
         // Here we should consider returning a certain json taken from the custom invitation
         // in order to be able to fully control the response
@@ -107,18 +110,25 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
      */
     public function invite(Request $illuminateRequest): JsonResponse 
     {
-        if (!$this->invitation->invite()) {
-            $response = [
-                'invitation' => $this->invitation,
-                'validationError' => !$this->invitation->isValid(),
-                'errors' => $this->invitation->getErrors(),
-            ];
+        $data = [
+            'userGroupsToAdd' => $this->invitation->userGroupsToAdd,
+            'userGroupsToRemove' => $this->invitation->userGroupsToRemove,
+        ];
 
-            return response()->json(
-                $response, 
-                Response::HTTP_UNPROCESSABLE_ENTITY
-            );
+        $rules = $this->invitation->getValidationRules();
+        $inviteRules = $this->invitation->getInviteValidationRules();
+
+        $rules = array_merge($rules, $inviteRules);
+
+        $validator = ValidatorFactory::make($data, $rules);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'errors' => $validator->errors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
+
+        $this->invitation->invite();
 
         return response()->json(
             $this->invitation, 

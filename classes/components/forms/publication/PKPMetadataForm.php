@@ -21,7 +21,7 @@ use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
-use PKP\submission\SubmissionAgencyDAO;
+use PKP\submission\SubmissionAgencyVocab;
 use PKP\submission\SubmissionDisciplineDAO;
 use PKP\submission\SubmissionKeywordDAO;
 use PKP\submission\SubmissionSubjectDAO;
@@ -88,7 +88,7 @@ class PKPMetadataForm extends FormComponent
                 'label' => __('submission.supportingAgencies'),
                 'tooltip' => __('manager.setup.metadata.agencies.description'),
                 'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', SubmissionAgencyDAO::CONTROLLED_VOCAB_SUBMISSION_AGENCY, $suggestionUrlBase),
+                'apiUrl' => str_replace('__vocab__', SubmissionAgencyVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY, $suggestionUrlBase),
                 'locales' => $this->locales,
                 'value' => (array) $publication->getData('supportingAgencies'),
             ]));

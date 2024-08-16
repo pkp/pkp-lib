@@ -23,7 +23,7 @@ use PKP\citation\CitationDAO;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
-use PKP\submission\SubmissionAgencyDAO;
+use PKP\submission\SubmissionAgencyVocab;
 use PKP\submission\SubmissionDisciplineDAO;
 use PKP\submission\SubmissionKeywordDAO;
 use PKP\submission\SubmissionSubjectDAO;
@@ -58,9 +58,6 @@ class DAO extends EntityDAO
     /** @var SubmissionDisciplineDAO */
     public $submissionDisciplineDao;
 
-    /** @var SubmissionAgencyDAO */
-    public $submissionAgencyDao;
-
     /** @var CitationDAO */
     public $citationDao;
 
@@ -71,7 +68,6 @@ class DAO extends EntityDAO
         SubmissionKeywordDAO $submissionKeywordDao,
         SubmissionSubjectDAO $submissionSubjectDao,
         SubmissionDisciplineDAO $submissionDisciplineDao,
-        SubmissionAgencyDAO $submissionAgencyDao,
         CitationDAO $citationDao,
         PKPSchemaService $schemaService
     ) {
@@ -80,7 +76,6 @@ class DAO extends EntityDAO
         $this->submissionKeywordDao = $submissionKeywordDao;
         $this->submissionSubjectDao = $submissionSubjectDao;
         $this->submissionDisciplineDao = $submissionDisciplineDao;
-        $this->submissionAgencyDao = $submissionAgencyDao;
         $this->citationDao = $citationDao;
     }
 
@@ -373,7 +368,7 @@ class DAO extends EntityDAO
         $publication->setData('keywords', $this->submissionKeywordDao->getKeywords($publication->getId()));
         $publication->setData('subjects', $this->submissionSubjectDao->getSubjects($publication->getId()));
         $publication->setData('disciplines', $this->submissionDisciplineDao->getDisciplines($publication->getId()));
-        $publication->setData('supportingAgencies', $this->submissionAgencyDao->getAgencies($publication->getId()));
+        $publication->setData('supportingAgencies', SubmissionAgencyVocab::getAgencies($publication->getId()));
     }
 
     /**
@@ -421,7 +416,7 @@ class DAO extends EntityDAO
                     $this->submissionDisciplineDao->insertDisciplines($value, $publicationId);
                     break;
                 case 'supportingAgencies':
-                    $this->submissionAgencyDao->insertAgencies($value, $publicationId);
+                    SubmissionAgencyVocab::insertAgencies($value, $publicationId);
                     break;
             }
         }
@@ -435,7 +430,7 @@ class DAO extends EntityDAO
         $this->submissionKeywordDao->insertKeywords([], $publicationId);
         $this->submissionSubjectDao->insertSubjects([], $publicationId);
         $this->submissionDisciplineDao->insertDisciplines([], $publicationId);
-        $this->submissionAgencyDao->insertAgencies([], $publicationId);
+        SubmissionAgencyVocab::insertAgencies([], $publicationId);
     }
 
     /**

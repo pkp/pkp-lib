@@ -21,7 +21,7 @@ use APP\publication\DAO;
 use APP\publication\Publication;
 use PKP\citation\CitationDAO;
 use PKP\services\PKPSchemaService;
-use PKP\submission\SubmissionAgencyDAO;
+use PKP\submission\SubmissionAgencyVocab;
 use PKP\submission\SubmissionDisciplineDAO;
 use PKP\submission\SubmissionKeywordDAO;
 use PKP\submission\SubmissionSubjectDAO;
@@ -43,7 +43,6 @@ class PublicationTest extends PKPTestCase
             new SubmissionKeywordDAO(),
             new SubmissionSubjectDAO(),
             new SubmissionDisciplineDAO(),
-            new SubmissionAgencyDAO(),
             new CitationDAO(),
             new PKPSchemaService()
         ))->newDataObject();

@@ -6,103 +6,130 @@
 /**
  * @file classes/controlledVocab/ControlledVocab.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ControlledVocab
  *
- * @ingroup controlled_vocab
- *
- * @see ControlledVocabDAO
- *
- * @brief Basic class describing an controlled vocab.
+ * @brief 
  */
 
 namespace PKP\controlledVocab;
 
-use PKP\db\DAORegistry;
+use Eloquence\Behaviours\HasCamelCasing;
+use Illuminate\Database\Query\JoinClause;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Builder;
+use PKP\facades\Locale;
 
-class ControlledVocab extends \PKP\core\DataObject
+class ControlledVocab extends Model
 {
-    //
-    // Get/set methods
-    //
+    use HasCamelCasing;
 
-    /**
-     * get assoc id
-     *
-     * @return int
-     */
-    public function getAssocId()
+    protected $table = 'controlled_vocabs';
+    protected $primaryKey = 'controlled_vocab_id';
+
+    protected $guarded = [
+        'controlled_vocab_id',
+    ];
+
+    protected function casts(): array
     {
-        return $this->getData('assocId');
+        return [
+            'symbolic' => 'string',
+            'assoc_type' => 'integer',
+            'assoc_id' => 'integer',
+        ];
     }
 
     /**
-     * set assoc id
-     *
-     * @param int $assocId
+     * Accessor and Mutator for primary key => id
      */
-    public function setAssocId($assocId)
+    protected function id(): Attribute
     {
-        $this->setData('assocId', $assocId);
+        return Attribute::make(
+            get: fn($value, $attributes) => $attributes[$this->primaryKey] ?? null,
+            set: fn($value) => [$this->primaryKey => $value],
+        );
     }
 
     /**
-     * Get associated type.
+     * Compatibility function for including note IDs in grids.
      *
-     * @return int
+     * @deprecated 3.5.0 Use $model->id instead. Can be removed once the DataObject pattern is removed.
      */
-    public function getAssocType()
+    public function getId(): int
     {
-        return $this->getData('assocType');
+        return $this->id;
     }
 
     /**
-     * Set associated type.
+     * Compatibility function for including notes in grids.
      *
-     * @param int $assocType
+     * @deprecated 3.5. Use $model or $model->$field instead. Can be removed once the DataObject pattern is removed.
      */
-    public function setAssocType($assocType)
+    public function getData(?string $field): mixed
     {
-        $this->setData('assocType', $assocType);
+        return $field ? $this->$field : $this;
     }
 
     /**
-     * Get symbolic name.
-     *
-     * @return string
+     * Scope a query to only include notes with a specific user ID.
      */
-    public function getSymbolic()
+    public function scopeWithSymbolic(Builder $query, string $symbolic): Builder
     {
-        return $this->getData('symbolic');
+        return $query->where(DB::raw('lower(symbolic)'), strtolower($symbolic));
     }
 
     /**
-     * Set symbolic name.
-     *
-     * @param string $symbolic
+     * Scope a query to only include notes with a specific assoc type and assoc ID.
      */
-    public function setSymbolic($symbolic)
+    public function scopeWithAssoc(Builder $query, int $assocType, int $assocId): Builder
     {
-        $this->setData('symbolic', $symbolic);
+        return $query
+            ->where('assoc_type', $assocType)
+            ->where('assoc_id', $assocId);
     }
 
     /**
      * Get a list of controlled vocabulary options.
      *
      * @param string $settingName optional
-     *
      * @return array $controlledVocabEntryId => name
      */
-    public function enumerate($settingName = 'name')
-    {
-        $controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO'); /** @var ControlledVocabDAO $controlledVocabDao */
-        return $controlledVocabDao->enumerate($this->getId(), $settingName);
+    public function enumerate(string $settingName = 'name'): array
+    {    
+        return DB::table('controlled_vocab_entries AS e')
+            ->leftJoin('controlled_vocab_entry_settings AS l', fn (JoinClause $join) => $join
+                ->on('l.controlled_vocab_entry_id', '=', 'e.controlled_vocab_entry_id')
+                ->where('l.setting_name', '=', $settingName)
+                ->where('l.locale', '=', Locale::getLocale())
+            )
+            ->leftJoin('controlled_vocab_entry_settings AS p', fn (JoinClause $join) => $join
+                    ->on('p.controlled_vocab_entry_id', '=', 'e.controlled_vocab_entry_id')
+                    ->where('p.setting_name', '=', $settingName)
+                    ->where('p.locale', '=', Locale::getPrimaryLocale())
+            )
+            ->leftJoin('controlled_vocab_entry_settings AS n', fn (JoinClause $join) => $join
+                    ->on('n.controlled_vocab_entry_id', '=', 'e.controlled_vocab_entry_id')
+                    ->where('n.setting_name', '=', $settingName)
+                    ->where('n.locale', '=', '')
+            )
+            ->select([
+                'e.controlled_vocab_entry_id',
+                DB::raw(
+                    'coalesce (l.setting_value, p.setting_value, n.setting_value) as setting_value'
+                ),
+                DB::raw(
+                    'coalesce (l.setting_type, p.setting_type, n.setting_type) as setting_type'
+                ),
+            ])
+            ->where('e.controlled_vocab_id', '=', $this->id)
+            ->get()
+            ->pluck('setting_value', 'controlled_vocab_entry_id')
+            ->toArray();
     }
-}
-
-if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\controlledVocab\ControlledVocab', '\ControlledVocab');
 }

@@ -31,7 +31,7 @@ use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use PKP\submission\SubmissionAgencyDAO;
+use PKP\submission\SubmissionAgencyVocab;
 use PKP\submission\SubmissionDisciplineDAO;
 use PKP\submission\SubmissionKeywordDAO;
 use PKP\submission\SubmissionSubjectDAO;
@@ -126,7 +126,7 @@ class PKPVocabController extends PKPBaseController
                 $submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO'); /** @var \PKP\submission\SubmissionDisciplineEntryDAO $submissionDisciplineEntryDao */
                 $entries = $submissionDisciplineEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
                 break;
-            case SubmissionAgencyDAO::CONTROLLED_VOCAB_SUBMISSION_AGENCY:
+            case SubmissionAgencyVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY:
                 $submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /** @var \PKP\submission\SubmissionAgencyEntryDAO $submissionAgencyEntryDao */
                 $entries = $submissionAgencyEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
                 break;

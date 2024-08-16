@@ -457,7 +457,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         return [
             'AnnouncementTypeDAO' => 'PKP\announcement\AnnouncementTypeDAO',
             'CitationDAO' => 'PKP\citation\CitationDAO',
-            'ControlledVocabDAO' => 'PKP\controlledVocab\ControlledVocabDAO',
             'ControlledVocabEntryDAO' => 'PKP\controlledVocab\ControlledVocabEntryDAO',
             'DataObjectTombstoneDAO' => 'PKP\tombstone\DataObjectTombstoneDAO',
             'DataObjectTombstoneSettingsDAO' => 'PKP\tombstone\DataObjectTombstoneSettingsDAO',
@@ -483,7 +482,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'RoleDAO' => 'PKP\security\RoleDAO',
             'SiteDAO' => 'PKP\site\SiteDAO',
             'SubEditorsDAO' => 'PKP\context\SubEditorsDAO',
-            'SubmissionAgencyDAO' => 'PKP\submission\SubmissionAgencyDAO',
             'SubmissionAgencyEntryDAO' => 'PKP\submission\SubmissionAgencyEntryDAO',
             'SubmissionCommentDAO' => 'PKP\submission\SubmissionCommentDAO',
             'SubmissionDisciplineDAO' => 'PKP\submission\SubmissionDisciplineDAO',

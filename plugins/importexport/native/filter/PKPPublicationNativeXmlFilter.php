@@ -216,10 +216,10 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
         $supportedLocales = $deployment->getContext()->getSupportedFormLocales();
         $controlledVocabulariesMapping = $this->_getControlledVocabulariesMappings();
         foreach ($controlledVocabulariesMapping as $controlledVocabulariesNodeName => $mappings) {
-            $dao = DAORegistry::getDAO($mappings[0]);
+            $vocabModel = $mappings[0];
             $getFunction = $mappings[1];
             $controlledVocabularyNodeName = $mappings[2];
-            $controlledVocabulary = $dao->$getFunction($entity->getId(), $supportedLocales);
+            $controlledVocabulary = $vocabModel::$getFunction($entity->getId(), $supportedLocales);
             $this->addControlledVocabulary($doc, $entityNode, $controlledVocabulariesNodeName, $controlledVocabularyNodeName, $controlledVocabulary);
         }
     }
@@ -305,7 +305,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     {
         return [
             'keywords' => ['SubmissionKeywordDAO', 'getKeywords', 'keyword'],
-            'agencies' => ['SubmissionAgencyDAO', 'getAgencies', 'agency'],
+            'agencies' => ['SubmissionAgencyVocab', 'getAgencies', 'agency'],
             'disciplines' => ['SubmissionDisciplineDAO', 'getDisciplines', 'discipline'],
             'subjects' => ['SubmissionSubjectDAO', 'getSubjects', 'subject'],
         ];

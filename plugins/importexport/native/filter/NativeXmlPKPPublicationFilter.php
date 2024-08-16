@@ -138,7 +138,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
         if (in_array($n->tagName, $setterMappings)) {
             $publication->setData($n->tagName, $value, $locale);
         } elseif (isset($controlledVocabulariesMappings[$n->tagName])) {
-            $controlledVocabulariesDao = $submissionKeywordDao = DAORegistry::getDAO($controlledVocabulariesMappings[$n->tagName][0]);
+            $controlledVocabulariesModel = $submissionKeywordModel = $controlledVocabulariesMappings[$n->tagName][0];
             $insertFunction = $controlledVocabulariesMappings[$n->tagName][1];
 
             $controlledVocabulary = [];
@@ -151,7 +151,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
             $controlledVocabulariesValues = [];
             $controlledVocabulariesValues[$locale] = $controlledVocabulary;
 
-            $controlledVocabulariesDao->$insertFunction($controlledVocabulariesValues, $publication->getId(), false);
+            $controlledVocabulariesModel::$insertFunction($controlledVocabulariesValues, $publication->getId(), false);
 
             $publicationNew = Repo::publication()->get($publication->getId());
             $publication->setData($n->tagName, $publicationNew->getData($n->tagName));
@@ -316,7 +316,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     {
         return [
             'keywords' => ['SubmissionKeywordDAO', 'insertKeywords'],
-            'agencies' => ['SubmissionAgencyDAO', 'insertAgencies'],
+            'agencies' => ['SubmissionAgencyVocab', 'insertAgencies'],
             'disciplines' => ['SubmissionDisciplineDAO', 'insertDisciplines'],
             'subjects' => ['SubmissionSubjectDAO', 'insertSubjects'],
         ];

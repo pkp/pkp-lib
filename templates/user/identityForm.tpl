@@ -40,6 +40,14 @@
 		{fbvElement type="text" label="user.preferredPublicName" multilingual="true" name="preferredPublicName" id="preferredPublicName" value=$preferredPublicName size=$fbvStyles.size.LARGE}
 	{/fbvFormSection}
 
+	{if $orcidEnabled}
+		{* FIXME: The form element is still required for "connect ORCID" functionality to work. *}
+		{fbvFormSection}
+			{fbvElement type="text" label="user.orcid" name="orcid" id="orcid" value=$orcid maxlength="46"}
+		{/fbvFormSection}
+		{include file="form/orcidProfile.tpl"}
+	{/if}
+
 	<p>
 		{capture assign="privacyUrl"}{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 		{translate key="user.privacyLink" privacyUrl=$privacyUrl}

@@ -202,9 +202,9 @@ abstract class PKPRouter
                 // Retrieve the context from the DAO (by path)
                 $this->_context = $contextDao->getByPath($path);
 
-                // If the context couldn't be retrieved, it's a 404 error.
+                // If the context couldn't be retrieved, assume site context so that a 404 error can be provided by the site.
                 if (!$this->_context) {
-                    $this->getDispatcher()?->handle404();
+                    $this->_context = null;
                 }
             }
         }

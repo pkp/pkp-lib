@@ -56,7 +56,7 @@ class SubmissionAgencyVocab extends ControlledVocab
     /**
      * Get an array of all of the submission's agencies
      */
-    public function scoprGetAllUniqueAgencies(Builder $query):array
+    public function scopeGetAllUniqueAgencies(Builder $query):array
     {
         return Repo::controlledVocab()->getAllUniqueBySymbolic(
             static::CONTROLLED_VOCAB_SUBMISSION_AGENCY
@@ -71,7 +71,7 @@ class SubmissionAgencyVocab extends ControlledVocab
      * @param bool  $deleteFirst True iff existing agencies should be removed first.
      * @param int   $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
      */
-    public function scoprInsertAgencies(
+    public function scopeInsertAgencies(
         Builder $query,
         array $agencies,
         int $publicationId,

@@ -84,7 +84,7 @@ class Collector implements CollectorInterface
     /**
      * Set the filter for issue IDs to limit the publications retrieved.
      *
-     * @param array|null $issueIds An array of issue IDs to filter by, or null to remove the filter.
+     * @param ?int[] $issueIds An array of issue IDs to filter by, or null to remove the filter.
      */
     public function filterByIssueIds(?array $issueIds): self
     {
@@ -140,9 +140,7 @@ class Collector implements CollectorInterface
             $qb->whereIn('p.doi_id', $this->doiIds);
         });
 
-        $qb->when($this->issueIds !== null, function (Builder $qb) {
-            $qb->whereIn('p.issue_id', $this->issueIds);
-        });
+        $qb->when($this->issueIds !== null, fn (Builder $qb) => $qb->whereIn('p.issue_id', $this->issueIds));
 
         if (isset($this->count)) {
             $qb->limit($this->count);

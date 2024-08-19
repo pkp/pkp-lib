@@ -315,10 +315,10 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     public function _getControlledVocabulariesMappings()
     {
         return [
-            'keywords' => ['SubmissionKeywordDAO', 'insertKeywords'],
+            'keywords' => ['SubmissionKeywordVocab', 'insertKeywords'],
             'agencies' => ['SubmissionAgencyVocab', 'insertAgencies'],
-            'disciplines' => ['SubmissionDisciplineDAO', 'insertDisciplines'],
-            'subjects' => ['SubmissionSubjectDAO', 'insertSubjects'],
+            'disciplines' => ['SubmissionDisciplineVocab', 'insertDisciplines'],
+            'subjects' => ['SubmissionSubjectVocab', 'insertSubjects'],
         ];
     }
 

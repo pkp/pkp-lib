@@ -220,7 +220,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
                 'max:255',
                 function ($attribute, $value, $fail) {
                     if (is_null($this->getUserId()) && empty($value) && $this->getStatus() == InvitationStatus::PENDING) {
-                        $fail(__('validation.required', ['attribute' => $attribute]));
+                        $fail(__('invitation.validation.required', ['attribute' => $attribute]));
                     }
                 }
             ],
@@ -230,7 +230,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
                 'max:255',
                 function ($attribute, $value, $fail) {
                     if (is_null($this->getUserId()) && empty($value) && $this->getStatus() == InvitationStatus::PENDING) {
-                        $fail(__('validation.required', ['attribute' => $attribute]));
+                        $fail(__('invitation.validation.required', ['attribute' => $attribute]));
                     }
                 }
             ],
@@ -240,7 +240,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
                 'max:255',
                 function ($attribute, $value, $fail) {
                     if (is_null($this->getUserId()) && empty($value) && $this->getStatus() == InvitationStatus::PENDING) {
-                        $fail(__('validation.required', ['attribute' => $attribute]));
+                        $fail(__('invitation.validation.required', ['attribute' => $attribute]));
                     }
                 }
             ],
@@ -250,7 +250,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
                 'max:255',
                 function ($attribute, $value, $fail) {
                     if (is_null($this->getUserId()) && empty($value) && $this->getStatus() == InvitationStatus::PENDING) {
-                        $fail(__('validation.required', ['attribute' => $attribute]));
+                        $fail(__('invitation.validation.required', ['attribute' => $attribute]));
                     }
                 }
             ],
@@ -330,13 +330,13 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
             return array_merge($commonRules, [
                 'username' => [
                     'sometimes',
-                    'nullable',
                     'string',
                     'max:255',
                     function ($attribute, $value, $fail) {
                         if (is_null($this->getUserId())) {
                             if (empty($value)) {
-                                $fail(__('validation.required', ['attribute' => $attribute]));
+                                $fail(__('invitation.validation.required', ['attribute' => $attribute]));
+                                return;
                             }
 
                             $existingUser = Repo::user()->getByUsername($value, true);
@@ -352,17 +352,15 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
                     },
                 ],
                 'orcid' => [
-                    'nullable',
                     'sometimes',
                     'orcid'
                 ],
                 'password' => [
-                    'nullable',
                     'sometimes',
                     'string',
                     function ($attribute, $value, $fail) {
                         if (is_null($this->getUserId()) && empty($value)) {
-                            $fail(__('validation.required', ['attribute' => $attribute]));
+                            $fail(__('invitation.validation.required', ['attribute' => $attribute]));
                         }
                     }
                 ],

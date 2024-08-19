@@ -166,13 +166,6 @@ abstract class Repository
             });
         }
 
-        if (isset($props['issueId'])) {
-            $validator->after(function ($validator) use ($props) {
-                if (!is_int($props['issueId'])) {
-                    $validator->errors()->add('issueId', __('validator.integer'));
-                }
-            });
-        }
 
         // A title must be provided if the submission is not still in progress
         if (!$submission->getData('submissionProgress')) {
@@ -299,10 +292,6 @@ abstract class Repository
         $publication = Repo::publication()->get($publicationId);
         $submission = Repo::submission()->get($publication->getData('submissionId'));
 
-        if ($publication->getData('issueId')) {
-            $this->edit($publication, ['issueId' => $publication->getData('issueId')]);
-        }
-
         // Move uploaded files into place and update the settings
         if ($publication->getData('coverImage')) {
             $userId = $this->request->getUser() ? $this->request->getUser()->getId() : null;
@@ -412,10 +401,6 @@ abstract class Repository
     {
         $submission = Repo::submission()->get($publication->getData('submissionId'));
         $userId = $this->request->getUser()?->getId();
-
-        if (isset($params['issueId'])) {
-            $publication->setData('issueId', $params['issueId']);
-        }
 
         // Move uploaded files into place and update the params
         if (array_key_exists('coverImage', $params)) {

@@ -22,9 +22,9 @@ use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 use PKP\submission\SubmissionAgencyVocab;
-use PKP\submission\SubmissionDisciplineDAO;
-use PKP\submission\SubmissionKeywordDAO;
-use PKP\submission\SubmissionSubjectDAO;
+use PKP\submission\SubmissionDisciplineVocab;
+use PKP\submission\SubmissionKeywordVocab;
+use PKP\submission\SubmissionSubjectVocab;
 
 class PKPMetadataForm extends FormComponent
 {
@@ -55,7 +55,7 @@ class PKPMetadataForm extends FormComponent
                 'label' => __('common.keywords'),
                 'tooltip' => __('manager.setup.metadata.keywords.description'),
                 'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', SubmissionKeywordDAO::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $suggestionUrlBase),
+                'apiUrl' => str_replace('__vocab__', SubmissionKeywordVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $suggestionUrlBase),
                 'locales' => $this->locales,
                 'value' => (array) $publication->getData('keywords'),
             ]));
@@ -66,7 +66,7 @@ class PKPMetadataForm extends FormComponent
                 'label' => __('common.subjects'),
                 'tooltip' => __('manager.setup.metadata.subjects.description'),
                 'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', SubmissionSubjectDAO::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $suggestionUrlBase),
+                'apiUrl' => str_replace('__vocab__', SubmissionSubjectVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $suggestionUrlBase),
                 'locales' => $this->locales,
                 'value' => (array) $publication->getData('subjects'),
             ]));
@@ -77,7 +77,7 @@ class PKPMetadataForm extends FormComponent
                 'label' => __('search.discipline'),
                 'tooltip' => __('manager.setup.metadata.disciplines.description'),
                 'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', SubmissionDisciplineDAO::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $suggestionUrlBase),
+                'apiUrl' => str_replace('__vocab__', SubmissionDisciplineVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $suggestionUrlBase),
                 'locales' => $this->locales,
                 'value' => (array) $publication->getData('disciplines'),
             ]));

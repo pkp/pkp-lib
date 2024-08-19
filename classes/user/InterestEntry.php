@@ -9,10 +9,6 @@
  *
  * @class Interest
  *
- * @ingroup user
- *
- * @see InterestDAO
- *
  * @brief Basic class describing a reviewer interest
  */
 

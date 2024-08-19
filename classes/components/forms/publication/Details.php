@@ -18,7 +18,7 @@ namespace PKP\components\forms\publication;
 use APP\publication\Publication;
 use PKP\components\forms\FieldControlledVocab;
 use PKP\context\Context;
-use PKP\submission\SubmissionKeywordDAO;
+use PKP\submission\SubmissionKeywordVocab;
 
 class Details extends TitleAbstractForm
 {
@@ -46,7 +46,7 @@ class Details extends TitleAbstractForm
                 'label' => __('common.keywords'),
                 'description' => __('manager.setup.metadata.keywords.description'),
                 'isMultilingual' => true,
-                'apiUrl' => str_replace('__vocab__', SubmissionKeywordDAO::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $suggestionUrlBase),
+                'apiUrl' => str_replace('__vocab__', SubmissionKeywordVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $suggestionUrlBase),
                 'locales' => $this->locales,
                 'value' => (array) $publication->getData('keywords'),
                 'isRequired' => $context->getData('keywords') === Context::METADATA_REQUIRE ? true : false,

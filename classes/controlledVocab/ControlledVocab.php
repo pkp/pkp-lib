@@ -36,6 +36,13 @@ class ControlledVocab extends Model
         'controlled_vocab_id',
     ];
 
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
     protected function casts(): array
     {
         return [
@@ -81,7 +88,7 @@ class ControlledVocab extends Model
      */
     public function scopeWithSymbolic(Builder $query, string $symbolic): Builder
     {
-        return $query->where(DB::raw('lower(symbolic)'), strtolower($symbolic));
+        return $query->where(DB::raw('LOWER(symbolic)'), strtolower($symbolic));
     }
 
     /**
@@ -103,31 +110,38 @@ class ControlledVocab extends Model
     public function enumerate(string $settingName = 'name'): array
     {    
         return DB::table('controlled_vocab_entries AS e')
-            ->leftJoin('controlled_vocab_entry_settings AS l', fn (JoinClause $join) => $join
-                ->on('l.controlled_vocab_entry_id', '=', 'e.controlled_vocab_entry_id')
-                ->where('l.setting_name', '=', $settingName)
-                ->where('l.locale', '=', Locale::getLocale())
+            ->leftJoin(
+                'controlled_vocab_entry_settings AS l',
+                fn (JoinClause $join) => $join
+                    ->on('l.controlled_vocab_entry_id', '=', 'e.controlled_vocab_entry_id')
+                    ->where('l.setting_name', $settingName)
+                    ->where('l.locale', Locale::getLocale())
             )
-            ->leftJoin('controlled_vocab_entry_settings AS p', fn (JoinClause $join) => $join
+            ->leftJoin(
+                'controlled_vocab_entry_settings AS p',
+                fn (JoinClause $join) => $join
                     ->on('p.controlled_vocab_entry_id', '=', 'e.controlled_vocab_entry_id')
-                    ->where('p.setting_name', '=', $settingName)
-                    ->where('p.locale', '=', Locale::getPrimaryLocale())
+                    ->where('p.setting_name', $settingName)
+                    ->where('p.locale', Locale::getPrimaryLocale())
             )
-            ->leftJoin('controlled_vocab_entry_settings AS n', fn (JoinClause $join) => $join
+            ->leftJoin(
+                'controlled_vocab_entry_settings AS n',
+                fn (JoinClause $join) => $join
                     ->on('n.controlled_vocab_entry_id', '=', 'e.controlled_vocab_entry_id')
-                    ->where('n.setting_name', '=', $settingName)
-                    ->where('n.locale', '=', '')
+                    ->where('n.setting_name', $settingName)
+                    ->where('n.locale', '')
             )
             ->select([
                 'e.controlled_vocab_entry_id',
                 DB::raw(
-                    'coalesce (l.setting_value, p.setting_value, n.setting_value) as setting_value'
+                    'COALESCE (l.setting_value, p.setting_value, n.setting_value) as setting_value'
                 ),
                 DB::raw(
-                    'coalesce (l.setting_type, p.setting_type, n.setting_type) as setting_type'
+                    'COALESCE (l.setting_type, p.setting_type, n.setting_type) as setting_type'
                 ),
             ])
-            ->where('e.controlled_vocab_id', '=', $this->id)
+            ->where('e.controlled_vocab_id', $this->id)
+            ->orderBy('e.seq')
             ->get()
             ->pluck('setting_value', 'controlled_vocab_entry_id')
             ->toArray();

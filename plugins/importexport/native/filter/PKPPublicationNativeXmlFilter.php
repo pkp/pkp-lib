@@ -304,10 +304,10 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     public function _getControlledVocabulariesMappings()
     {
         return [
-            'keywords' => ['SubmissionKeywordDAO', 'getKeywords', 'keyword'],
+            'keywords' => ['SubmissionKeywordVocab', 'getKeywords', 'keyword'],
             'agencies' => ['SubmissionAgencyVocab', 'getAgencies', 'agency'],
-            'disciplines' => ['SubmissionDisciplineDAO', 'getDisciplines', 'discipline'],
-            'subjects' => ['SubmissionSubjectDAO', 'getSubjects', 'subject'],
+            'disciplines' => ['SubmissionDisciplineVocab', 'getDisciplines', 'discipline'],
+            'subjects' => ['SubmissionSubjectVocab', 'getSubjects', 'subject'],
         ];
     }
 

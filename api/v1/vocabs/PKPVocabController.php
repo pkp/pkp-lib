@@ -32,9 +32,9 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 use PKP\submission\SubmissionAgencyVocab;
-use PKP\submission\SubmissionDisciplineDAO;
-use PKP\submission\SubmissionKeywordDAO;
-use PKP\submission\SubmissionSubjectDAO;
+use PKP\submission\SubmissionDisciplineVocab;
+use PKP\submission\SubmissionKeywordVocab;
+use PKP\submission\SubmissionSubjectVocab;
 
 class PKPVocabController extends PKPBaseController
 {
@@ -114,15 +114,15 @@ class PKPVocabController extends PKPBaseController
         }
 
         switch ($vocab) {
-            case SubmissionKeywordDAO::CONTROLLED_VOCAB_SUBMISSION_KEYWORD:
+            case SubmissionKeywordVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD:
                 $submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /** @var \PKP\submission\SubmissionKeywordEntryDAO $submissionKeywordEntryDao */
                 $entries = $submissionKeywordEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
                 break;
-            case SubmissionSubjectDAO::CONTROLLED_VOCAB_SUBMISSION_SUBJECT:
+            case SubmissionSubjectVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT:
                 $submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO'); /** @var \PKP\submission\SubmissionSubjectEntryDAO $submissionSubjectEntryDao */
                 $entries = $submissionSubjectEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
                 break;
-            case SubmissionDisciplineDAO::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE:
+            case SubmissionDisciplineVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE:
                 $submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO'); /** @var \PKP\submission\SubmissionDisciplineEntryDAO $submissionDisciplineEntryDao */
                 $entries = $submissionDisciplineEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
                 break;

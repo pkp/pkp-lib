@@ -1,15 +1,16 @@
 <?php
 
 /**
- * @file classes/submission/SubmissionAgencyVocab.php
+ * @file classes/submission/SubmissionDisciplineVocab.php
  *
  * Copyright (c) 2024 Simon Fraser University
  * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class SubmissionAgencyVocab
+ * @class SubmissionDisciplineVocab
  *
- * @brief Operations for retrieving and modifying a submission's assigned agencies
+ * @brief Operations for retrieving and modifying a submission's assigned disciplines
+ * 
  */
 
 namespace PKP\submission;
@@ -19,26 +20,28 @@ use Illuminate\Database\Eloquent\Builder;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\core\PKPApplication;
 
-
-class SubmissionAgencyVocab extends ControlledVocab
+class SubmissionDisciplineVocab extends ControlledVocab
 {
-    public const CONTROLLED_VOCAB_SUBMISSION_AGENCY = 'submissionAgency';
+    public const CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE = 'submissionDiscipline';
 
     /**
      * Get the list of localized additional fields to store.
      */
     public function scopeGetLocaleFieldNames(Builder $query): array
     {
-        return ['submissionAgency'];
+        return ['submissionDiscipline'];
     }
 
     /**
-     * Get agencies for a specified submission ID.
+     * Get disciplines for a submission.
      *
+     * @param int $publicationId
+     * @param array $locales
      * @param int $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#6213
-     * 
+     *
+     * @return array
      */
-    public function scopeGetAgencies(
+    public function scopeGetDisciplines(
         Builder $query,
         int $publicationId,
         array $locales = [],
@@ -46,7 +49,7 @@ class SubmissionAgencyVocab extends ControlledVocab
     ): array
     {
         return Repo::controlledVocab()->getBySymbolic(
-            static::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
+            static::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
             $assocType,
             $publicationId,
             $locales
@@ -54,37 +57,36 @@ class SubmissionAgencyVocab extends ControlledVocab
     }
 
     /**
-     * Get an array of all of the submission's agencies
+     * Get an array of all of the submission's disciplines     
      */
-    public function scoprGetAllUniqueAgencies(Builder $query):array
+    public function scopeGetAllUniqueDisciplines(Builder $query): array
     {
         return Repo::controlledVocab()->getAllUniqueBySymbolic(
-            static::CONTROLLED_VOCAB_SUBMISSION_AGENCY
+            static::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE
         );
     }
 
     /**
-     * Add an array of agencies
+     * Add an array of disciplines
      *
-     * @param array $agencies List of agencies.
-     * @param int   $publicationId Submission ID.
-     * @param bool  $deleteFirst True iff existing agencies should be removed first.
-     * @param int   $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
+     * @param array $disciplines
+     * @param int $publicationId
+     * @param bool $deleteFirst
+     * @param int $assocType DO NOT USE: For <3.1 to 3.x migration pkp/pkp-lib#3572 pkp/pkp-lib#6213
      */
-    public function scoprInsertAgencies(
+    public function scopeInsertDisciplines(
         Builder $query,
-        array $agencies,
+        array $disciplines,
         int $publicationId,
         bool $deleteFirst = true,
-        int $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION
-    ): void
+        int $assocType = PKPApplication::ASSOC_TYPE_PUBLICATION): void
     {
         Repo::controlledVocab()->insertBySymbolic(
-            static::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
-            $agencies,
+            static::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
+            $disciplines,
             $assocType,
             $publicationId,
             $deleteFirst
         );
-    }   
+    }
 }

@@ -37,7 +37,7 @@ class FormValidatorControlledVocabTest extends PKPTestCase
      */
     protected function getMockedDAOs(): array
     {
-        return [...parent::getMockedDAOs(), 'ControlledVocabDAO'];
+        return [...parent::getMockedDAOs()];
     }
 
     public function testIsValid()
@@ -74,7 +74,15 @@ class FormValidatorControlledVocabTest extends PKPTestCase
         DAORegistry::registerDAO('ControlledVocabDAO', $mockControlledVocabDao);
 
         // Instantiate validator
-        $validator = new \PKP\form\validation\FormValidatorControlledVocab($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', 'testVocab', Application::ASSOC_TYPE_CITATION, 333);
+        $validator = new FormValidatorControlledVocab(
+            $form,
+            'testData',
+            FormValidator::FORM_VALIDATOR_REQUIRED_VALUE,
+            'some.message.key',
+            'testVocab',
+            Application::ASSOC_TYPE_CITATION,
+            333
+        );
 
         $form->setData('testData', '1');
         self::assertTrue($validator->isValid());

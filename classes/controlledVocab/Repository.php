@@ -2,8 +2,12 @@
 
 namespace PKP\controlledVocab;
 
-use PKP\db\DAORegistry;
+use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
+use PKP\db\DAORegistry;
+use PKP\user\UserInterest;
+use PKP\user\InterestEntry;
+use PKP\user\InterestEntryDAO;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\controlledVocab\ControlledVocabEntryDAO;
 
@@ -44,7 +48,8 @@ class Repository
         int $assocType,
         int $assocId,
         array $locales = [],
-        ?string $entryDaoClassName = null): array
+        ?string $entryDaoClassName = null
+    ): array
     {
         $result = [];
 
@@ -92,7 +97,8 @@ class Repository
         int $assocType,
         int $assocId,
         bool $deleteFirst = true,
-        ?string $entryDaoClassName = null): void
+        ?string $entryDaoClassName = null
+    ): void
     {
         /** @var  ControlledVocabEntryDAO $entryDao */
         $entryDao = $entryDaoClassName
@@ -123,5 +129,50 @@ class Repository
                 }
             }
         }
+    }
+
+    /**
+     * Update a user's set of interests
+     */
+    public function setUserInterests(array $interests, int $userId): void
+    {
+        $controlledVocab = Repo::controlledVocab()->build(
+            UserInterest::CONTROLLED_VOCAB_INTEREST
+        );
+
+        /** @var InterestEntryDAO $interestEntryDao */
+        $interestEntryDao = DAORegistry::getDAO('InterestEntryDAO');
+
+        DB::beginTransaction();
+
+        // Delete the existing interests association.
+        UserInterest::withUserId($userId)->delete();
+
+        collect($interests)
+            ->map(fn (string $interest): string => trim($interest))
+            ->unique()
+            ->each(function (string $interest) use ($controlledVocab, $interestEntryDao, $userId): void {
+                $interestEntry = $interestEntryDao->getBySetting(
+                    $interest,
+                    $controlledVocab->symbolic,
+                    $controlledVocab->assocId,
+                    $controlledVocab->assocType,
+                    $controlledVocab->symbolic
+                );
+
+                if (!$interestEntry) {
+                    $interestEntry = $interestEntryDao->newDataObject(); /** @var InterestEntry $interestEntry */
+                    $interestEntry->setInterest($interest);
+                    $interestEntry->setControlledVocabId($controlledVocab->id);
+                    $interestEntry->setId($interestEntryDao->insertObject($interestEntry));
+                }
+
+                UserInterest::create([
+                    'userId' => $userId,
+                    'controlledVocabEntryId' => $interestEntry->getId(),
+                ]);
+            });
+        
+        DB::commit();
     }
 }

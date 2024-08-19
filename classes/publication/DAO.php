@@ -24,9 +24,9 @@ use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
 use PKP\submission\SubmissionAgencyVocab;
-use PKP\submission\SubmissionDisciplineDAO;
-use PKP\submission\SubmissionKeywordDAO;
-use PKP\submission\SubmissionSubjectDAO;
+use PKP\submission\SubmissionDisciplineVocab;
+use PKP\submission\SubmissionKeywordVocab;
+use PKP\submission\SubmissionSubjectVocab;
 
 /**
  * @template T of Publication
@@ -49,33 +49,16 @@ class DAO extends EntityDAO
     /** @copydoc EntityDAO::$primaryKeyColumn */
     public $primaryKeyColumn = 'publication_id';
 
-    /** @var SubmissionKeywordDAO */
-    public $submissionKeywordDao;
-
-    /** @var SubmissionSubjectDAO */
-    public $submissionSubjectDao;
-
-    /** @var SubmissionDisciplineDAO */
-    public $submissionDisciplineDao;
-
     /** @var CitationDAO */
     public $citationDao;
 
     /**
      * Constructor
      */
-    public function __construct(
-        SubmissionKeywordDAO $submissionKeywordDao,
-        SubmissionSubjectDAO $submissionSubjectDao,
-        SubmissionDisciplineDAO $submissionDisciplineDao,
-        CitationDAO $citationDao,
-        PKPSchemaService $schemaService
-    ) {
+    public function __construct(CitationDAO $citationDao, PKPSchemaService $schemaService)
+    {
         parent::__construct($schemaService);
 
-        $this->submissionKeywordDao = $submissionKeywordDao;
-        $this->submissionSubjectDao = $submissionSubjectDao;
-        $this->submissionDisciplineDao = $submissionDisciplineDao;
         $this->citationDao = $citationDao;
     }
 
@@ -365,9 +348,9 @@ class DAO extends EntityDAO
      */
     protected function setControlledVocab(Publication $publication)
     {
-        $publication->setData('keywords', $this->submissionKeywordDao->getKeywords($publication->getId()));
-        $publication->setData('subjects', $this->submissionSubjectDao->getSubjects($publication->getId()));
-        $publication->setData('disciplines', $this->submissionDisciplineDao->getDisciplines($publication->getId()));
+        $publication->setData('keywords', SubmissionKeywordVocab::getKeywords($publication->getId()));
+        $publication->setData('subjects', SubmissionSubjectVocab::getSubjects($publication->getId()));
+        $publication->setData('disciplines', SubmissionDisciplineVocab::getDisciplines($publication->getId()));
         $publication->setData('supportingAgencies', SubmissionAgencyVocab::getAgencies($publication->getId()));
     }
 
@@ -405,20 +388,12 @@ class DAO extends EntityDAO
     {
         // Update controlled vocabularly for which we have props
         foreach ($values as $prop => $value) {
-            switch ($prop) {
-                case 'keywords':
-                    $this->submissionKeywordDao->insertKeywords($value, $publicationId);
-                    break;
-                case 'subjects':
-                    $this->submissionSubjectDao->insertSubjects($value, $publicationId);
-                    break;
-                case 'disciplines':
-                    $this->submissionDisciplineDao->insertDisciplines($value, $publicationId);
-                    break;
-                case 'supportingAgencies':
-                    SubmissionAgencyVocab::insertAgencies($value, $publicationId);
-                    break;
-            }
+            match ($prop) {
+                'keywords' => SubmissionKeywordVocab::insertKeywords($value, $publicationId),
+                'subjects' => SubmissionSubjectVocab::insertSubjects($value, $publicationId),
+                'disciplines' => SubmissionDisciplineVocab::insertDisciplines($value, $publicationId),
+                'supportingAgencies' => SubmissionAgencyVocab::insertAgencies($value, $publicationId),
+            };
         }
     }
 
@@ -427,9 +402,9 @@ class DAO extends EntityDAO
      */
     protected function deleteControlledVocab(int $publicationId)
     {
-        $this->submissionKeywordDao->insertKeywords([], $publicationId);
-        $this->submissionSubjectDao->insertSubjects([], $publicationId);
-        $this->submissionDisciplineDao->insertDisciplines([], $publicationId);
+        SubmissionKeywordVocab::insertKeywords([], $publicationId);
+        SubmissionSubjectVocab::insertSubjects([], $publicationId);
+        SubmissionDisciplineVocab::insertDisciplines([], $publicationId);
         SubmissionAgencyVocab::insertAgencies([], $publicationId);
     }
 

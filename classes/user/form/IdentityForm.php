@@ -109,7 +109,7 @@ class IdentityForm extends BaseProfileForm
         parent::readInputData();
 
         $this->readUserVars([
-            'givenName', 'familyName', 'preferredPublicName', 'orcid',
+            'givenName', 'familyName', 'preferredPublicName', 'orcid','removeOrcidId'
         ]);
     }
 
@@ -121,9 +121,17 @@ class IdentityForm extends BaseProfileForm
         $request = Application::get()->getRequest();
         $user = $request->getUser();
 
-        $user->setGivenName($this->getData('givenName'), null);
-        $user->setFamilyName($this->getData('familyName'), null);
-        $user->setPreferredPublicName($this->getData('preferredPublicName'), null);
+
+        // Request to delete ORCID token is handled separately from other form field updates
+        if($this->getData('removeOrcidId') === 'true') {
+            $user->setOrcid(null);
+            $user->setOrcidVerified(false);
+            OrcidManager::removeOrcidAccessToken($user);
+        } else {
+            $user->setGivenName($this->getData('givenName'), null);
+            $user->setFamilyName($this->getData('familyName'), null);
+            $user->setPreferredPublicName($this->getData('preferredPublicName'), null);
+        }
 
         parent::execute(...$functionArgs);
     }

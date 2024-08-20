@@ -148,6 +148,7 @@ class Repository
      * @copydoc \PKP\services\entityProperties\EntityWriteInterface::add()
      *
      * @hook Author::add [[$author]]
+     * @hook Author::add::before [[$author]]
      */
     public function add(Author $author): int
     {
@@ -173,7 +174,7 @@ class Repository
      *
      * @hook Author::edit [[$newAuthor, $author, $params]]
      */
-    public function edit(Author $author, array $params)
+    public function edit(Author $author, array $params = [])
     {
         $newAuthor = Repo::author()->newDataObject(array_merge($author->_data, $params));
 

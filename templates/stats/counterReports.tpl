@@ -10,19 +10,5 @@
 {extends file="layouts/backend.tpl"}
 
 {block name="page"}
-	<h1 class="app__pageHeading">
-		{translate key="manager.statistics.counterR5Reports"}
-	</h1>
-	<p>{translate key="manager.statistics.counterR5Reports.description"}</p>
-	{if !$usagePossible}
-		<notification class="pkpNotification--backendPage__header" type="warning">{translate key="manager.statistics.counterR5Reports.usageNotPossible"}</notification>
-	{/if}
-	<panel>
-		<panel-section>
-			<counter-reports-list-panel
-				v-bind="components.counterReportsListPanel"
-				@set="set"
-			/>
-		</panel-section>
-	</panel>
+	<counter-reports-page v-bind="pageInitConfig" />
 {/block}

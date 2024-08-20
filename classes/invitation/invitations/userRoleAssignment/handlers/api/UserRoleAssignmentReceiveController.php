@@ -63,13 +63,18 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
     public function finalize(Request $illuminateRequest): JsonResponse 
     {
         $data = [
-            'username' => $this->invitation->username,
             'orcid' => $this->invitation->orcid,
-            'givenName' => $this->invitation->givenName,
-            'familyName' => $this->invitation->familyName,
-            'affiliation' => $this->invitation->affiliation,
-            'country' => $this->invitation->country,
         ];
+
+        if (is_null($this->invitation->getUserId())) {
+            $data = array_merge($data, [
+                'username' => $this->invitation->username,
+                'givenName' => $this->invitation->givenName,
+                'familyName' => $this->invitation->familyName,
+                'affiliation' => $this->invitation->affiliation,
+                'country' => $this->invitation->country,
+            ]);
+        }
 
         $rules = $this->invitation->getValidationRules();
         $finaliseRules = $this->invitation->getFinaliseValidationRules();

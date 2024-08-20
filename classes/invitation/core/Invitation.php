@@ -19,6 +19,7 @@ use APP\facades\Repo;
 use Carbon\Carbon;
 use Exception;
 use Identity;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
 use PKP\context\Context;
@@ -60,12 +61,6 @@ abstract class Invitation
      */
     protected array $payloadAccessibleProperties = [];
 
-    /**
-     * This is filled with correlation between an invitation property
-     * and the Object that this property corresponds to.
-     */
-    protected array $propertyType = [];
-
     abstract public static function getType(): string;
 
     /**
@@ -106,30 +101,20 @@ abstract class Invitation
             throw new Exception("Invitation should contain the user id or an invited email.')");
         }
 
-        $userIdUsed = null;
-        $emailUsed = null;
         if (isset($userId)) {
-            $userIdUsed = $userId;
-        } else {
-            $emailUsed = $email;
+            unset($email);
         }
 
         InvitationModel::byStatus(InvitationStatus::INITIALIZED)
-            ->when($userIdUsed !== null, function ($query) use ($userIdUsed) {
-                return $query->byUserId($userIdUsed);
-            })
-            ->when($contextId !== null, function ($query) use ($contextId) {
-                return $query->byContextId($contextId);
-            })
-            ->when($emailUsed !== null, function ($query) use ($emailUsed) {
-                return $query->byEmail($emailUsed);
-            })
+            ->when($userId !== null, fn (Builder $q) => $q->byUserId($userId))
+            ->when($contextId !== null, fn (Builder $q) => $q->byContextId($contextId))
+            ->when($email !== null, fn (Builder $q) => $q->byEmail($email))
             ->byType($this->getType())
             ->delete();
 
-        $this->invitationModel->userId = $userIdUsed;
+        $this->invitationModel->userId = $userId;
         $this->invitationModel->contextId = $contextId;
-        $this->invitationModel->email = $emailUsed;
+        $this->invitationModel->email = $email;
         $this->invitationModel->inviterId = $inviterId;
 
         $this->invitationModel->status = InvitationStatus::INITIALIZED;
@@ -139,25 +124,13 @@ abstract class Invitation
 
     /**
      * Used to fill the invitation's properties from the model's payload values.
-     * if the $propertyType has values in, then the property is filled by the 
-     * fromArray function of the given Object correlation
      */
     protected function fillFromPayload(): void
     {
         if ($this->invitationModel->payload) {
             foreach ($this->invitationModel->payload as $key => $value) {
                 if (property_exists($this, $key)) {
-                    if (property_exists($this, 'propertyType') && !empty($this->propertyType) && array_key_exists($key, $this->propertyType)) {
-                        if (is_array($value)) {
-                            $this->{$key} = array_map(function ($item) use ($key) {
-                                return $this->propertyType[$key]::fromArray($item);
-                            }, $value);
-                        } else {
-                            $this->{$key} = $this->propertyType[$key]::fromArray($item);
-                        }
-                    } else {
-                        $this->{$key} = $value;
-                    }
+                    $this->{$key} = $value;
                 }
             }
         }

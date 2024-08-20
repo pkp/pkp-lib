@@ -28,6 +28,10 @@ use PKP\plugins\PluginRegistry;
 use PKP\submission\PKPSubmission;
 use PKP\submission\Representation;
 use PKP\submission\RepresentationDAOInterface;
+use PKP\submission\SubmissionKeywordVocab;
+use PKP\submission\SubmissionAgencyVocab;
+use PKP\submission\SubmissionDisciplineVocab;
+use PKP\submission\SubmissionSubjectVocab;
 
 class PKPPublicationNativeXmlFilter extends NativeExportFilter
 {
@@ -304,10 +308,10 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     public function _getControlledVocabulariesMappings()
     {
         return [
-            'keywords' => ['SubmissionKeywordVocab', 'getKeywords', 'keyword'],
-            'agencies' => ['SubmissionAgencyVocab', 'getAgencies', 'agency'],
-            'disciplines' => ['SubmissionDisciplineVocab', 'getDisciplines', 'discipline'],
-            'subjects' => ['SubmissionSubjectVocab', 'getSubjects', 'subject'],
+            'keywords' => [SubmissionKeywordVocab::class, 'getKeywords', 'keyword'],
+            'agencies' => [SubmissionAgencyVocab::class, 'getAgencies', 'agency'],
+            'disciplines' => [SubmissionDisciplineVocab::class, 'getDisciplines', 'discipline'],
+            'subjects' => [SubmissionSubjectVocab::class, 'getSubjects', 'subject'],
         ];
     }
 

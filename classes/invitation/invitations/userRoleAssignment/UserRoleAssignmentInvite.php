@@ -211,7 +211,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         ];
     }
 
-    public function getValidationRules(): array
+    public function getValidationRules(string $validationContext = 'default'): array
     {
         $commonRules = [
             'givenName' => [
@@ -351,8 +351,18 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
                         }
                     },
                 ],
-                'orcid' => [
+                'orcid' => ($validationContext === 'populate' || $validationContext === 'refine') ? [
                     'sometimes',
+                    'string',
+                    'orcid',
+                    function ($attribute, $value, $fail) {
+                        if (is_null($value)) {
+                            $fail(__('invitation.validation.required', ['attribute' => $attribute]));
+                        }
+                    }
+                ] : [
+                    'nullable',  // Allows null but must be valid if present
+                    'string',
                     'orcid'
                 ],
                 'password' => [

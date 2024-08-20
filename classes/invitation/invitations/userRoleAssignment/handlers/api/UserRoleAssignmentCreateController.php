@@ -71,7 +71,7 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
         $reqInput = $illuminateRequest->all();
         $payload = $reqInput['invitationData'];
 
-        $rules = $this->invitation->getValidationRules();
+        $rules = $this->invitation->getValidationRules('populate');
 
         // Perform validation
         $validator = ValidatorFactory::make(

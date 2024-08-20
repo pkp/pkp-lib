@@ -159,7 +159,7 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
         $reqInput = $illuminateRequest->all();
         $payload = $reqInput['invitationData'];
 
-        $rules = $this->invitation->getValidationRules();
+        $rules = $this->invitation->getValidationRules('refine');
 
         $validator = ValidatorFactory::make(
             $payload,

@@ -1,7 +1,4 @@
 <?php
-/**
- * @defgroup controlled_vocab Controlled Vocabulary
- */
 
 /**
  * @file classes/controlledVocab/ControlledVocab.php
@@ -12,7 +9,7 @@
  *
  * @class ControlledVocab
  *
- * @brief 
+ * @brief ControlledVocab model class
  */
 
 namespace PKP\controlledVocab;

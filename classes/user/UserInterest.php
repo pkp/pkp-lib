@@ -9,7 +9,7 @@
  *
  * @class UserInterest
  *
- * @brief 
+ * @brief UserInterest model calss
  */
 
 namespace PKP\user;

@@ -460,13 +460,17 @@ class PKPStatsHandler extends Handler
         $lastDate = CounterR5Report::getLastDate();
 
         $templateMgr->setState([
-            'components' => [
+            'pageInitConfig' => [
                 $counterReportsListPanel->id => $counterReportsListPanel->getConfig(),
+                'usageNotPossible' => $lastDate <= $earliestDate,
+                'title' => __('manager.statistics.counterR5Reports'),
+                'description' => __('manager.statistics.counterR5Reports.description'),
             ],
         ]);
         $templateMgr->assign([
-            'pageComponent' => 'CounterReportsPage',
-            'usagePossible' => $lastDate > $earliestDate,
+            'pageComponent' => 'Page',
+            'pageTitle' => __('manager.statistics.counterR5Reports'),
+            'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
         ]);
         $templateMgr->display('stats/counterReports.tpl');
     }

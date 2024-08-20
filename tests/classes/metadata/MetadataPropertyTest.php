@@ -18,8 +18,8 @@
 
 namespace PKP\tests\classes\metadata;
 
+use APP\facades\Repo;
 use InvalidArgumentException;
-use PKP\controlledVocab\ControlledVocabDAO;
 use PKP\controlledVocab\ControlledVocabEntryDAO;
 use PKP\db\DAORegistry;
 use PKP\metadata\MetadataDescription;
@@ -148,26 +148,32 @@ class MetadataPropertyTest extends PKPTestCase
     {
         // Build a test vocabulary. (Assoc type and id are 0 to
         // simulate a site-wide vocabulary).
-        /** @var ControlledVocabDAO */
-        $controlledVocabDao = DAORegistry::getDAO('ControlledVocabDAO');
-        $testControlledVocab = $controlledVocabDao->_build('test-controlled-vocab', 0, 0);
+        $testControlledVocab = Repo::controlledVocab()->build('test-controlled-vocab', 0, 0);
 
         // Make a vocabulary entry
         /** @var ControlledVocabEntryDAO */
         $controlledVocabEntryDao = DAORegistry::getDAO('ControlledVocabEntryDAO');
         $testControlledVocabEntry = $controlledVocabEntryDao->newDataObject();
         $testControlledVocabEntry->setName('testEntry', 'en');
-        $testControlledVocabEntry->setControlledVocabId($testControlledVocab->getId());
+        $testControlledVocabEntry->setControlledVocabId($testControlledVocab->id);
         $controlledVocabEntryId = $controlledVocabEntryDao->insertObject($testControlledVocabEntry);
 
-        $metadataProperty = new MetadataProperty('testElement', [], [MetadataProperty::METADATA_PROPERTY_TYPE_VOCABULARY => 'test-controlled-vocab']);
+        $metadataProperty = new MetadataProperty(
+            'testElement',
+            [], 
+            [MetadataProperty::METADATA_PROPERTY_TYPE_VOCABULARY => 'test-controlled-vocab']
+        );
 
         // This validator checks numeric values
-        self::assertEquals([MetadataProperty::METADATA_PROPERTY_TYPE_VOCABULARY => 'test-controlled-vocab'], $metadataProperty->isValid($controlledVocabEntryId));
+        self::assertEquals(
+            [MetadataProperty::METADATA_PROPERTY_TYPE_VOCABULARY => 'test-controlled-vocab'],
+            $metadataProperty->isValid($controlledVocabEntryId)
+        );
         self::assertFalse($metadataProperty->isValid($controlledVocabEntryId + 1));
 
         // Delete the test vocabulary
-        $controlledVocabDao->deleteObject($testControlledVocab);
+        $controlledVocabEntryDao->deleteObjectById($controlledVocabEntryId);
+        $testControlledVocab->delete();
     }
 
     public function testValidateDate()

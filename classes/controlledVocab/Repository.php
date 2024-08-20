@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/controlledVocab/Repository.php
+ *
+ * Copyright (c) 2024 Simon Fraser University
+ * Copyright (c) 2024 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class Repository
+ *
+ * @brief A repository to manage actions related to controlled vocab
+ */
+
 namespace PKP\controlledVocab;
 
 use APP\facades\Repo;
@@ -38,11 +50,20 @@ class Repository
         return DAORegistry::getDAO('ControlledVocabEntryDAO');
     }
 
+    /**
+     * Return the extended Controlled Vocab Entry DAO.
+     * Can be subclassed to provide extended DAOs.
+     * 
+     * Will be removed once the eloquent based settings table relations task completes.
+     */
     public function getEntryDaoBySymbolic(string $symbolic): ControlledVocabEntryDAO
     {
         return DAORegistry::getDAO(ucfirst($symbolic) . 'EntryDAO');
     }
 
+    /**
+     * Get localized entry data
+     */
     public function getBySymbolic(
         string $symbolic,
         int $assocType,

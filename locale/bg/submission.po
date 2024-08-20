@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-29 08:29+0000\n"
+"PO-Revision-Date: 2024-08-20 21:11+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg/>\n"
@@ -199,7 +199,7 @@ msgid "metadata.property.validationMessage.edition"
 msgstr "Моля, въведете валидно издание."
 
 msgid "metadata.property.displayName.series"
-msgstr "Серия"
+msgstr "Серии (колекции)"
 
 msgid "metadata.property.validationMessage.series"
 msgstr "Моля, въведете валидна серия."

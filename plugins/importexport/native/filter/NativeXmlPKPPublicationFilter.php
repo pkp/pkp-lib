@@ -24,6 +24,10 @@ use PKP\db\DAORegistry;
 use PKP\filter\Filter;
 use PKP\filter\FilterGroup;
 use PKP\plugins\PluginRegistry;
+use PKP\submission\SubmissionKeywordVocab;
+use PKP\submission\SubmissionAgencyVocab;
+use PKP\submission\SubmissionDisciplineVocab;
+use PKP\submission\SubmissionSubjectVocab;
 
 class NativeXmlPKPPublicationFilter extends NativeImportFilter
 {
@@ -138,7 +142,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
         if (in_array($n->tagName, $setterMappings)) {
             $publication->setData($n->tagName, $value, $locale);
         } elseif (isset($controlledVocabulariesMappings[$n->tagName])) {
-            $controlledVocabulariesModel = $submissionKeywordModel = $controlledVocabulariesMappings[$n->tagName][0];
+            $controlledVocabulariesModel = $controlledVocabulariesMappings[$n->tagName][0];
             $insertFunction = $controlledVocabulariesMappings[$n->tagName][1];
 
             $controlledVocabulary = [];
@@ -315,10 +319,10 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     public function _getControlledVocabulariesMappings()
     {
         return [
-            'keywords' => ['SubmissionKeywordVocab', 'insertKeywords'],
-            'agencies' => ['SubmissionAgencyVocab', 'insertAgencies'],
-            'disciplines' => ['SubmissionDisciplineVocab', 'insertDisciplines'],
-            'subjects' => ['SubmissionSubjectVocab', 'insertSubjects'],
+            'keywords' => [SubmissionKeywordVocab::class, 'insertKeywords'],
+            'agencies' => [SubmissionAgencyVocab::class, 'insertAgencies'],
+            'disciplines' => [SubmissionDisciplineVocab::class, 'insertDisciplines'],
+            'subjects' => [SubmissionSubjectVocab::class, 'insertSubjects'],
         ];
     }
 

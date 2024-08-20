@@ -16,7 +16,6 @@ namespace PKP\invitation\invitations\userRoleAssignment;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use Exception;
 use Illuminate\Mail\Mailable;
 use PKP\identity\Identity;
 use PKP\invitation\core\contracts\IApiHandleable;
@@ -247,7 +246,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
             'country' => [
                 'sometimes',
                 'string',
-                'max:255',
+                'max:2',
                 function ($attribute, $value, $fail) {
                     if (is_null($this->getUserId()) && empty($value) && $this->getStatus() == InvitationStatus::PENDING) {
                         $fail(__('invitation.validation.required', ['attribute' => $attribute]));
@@ -330,8 +329,9 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
             return array_merge($commonRules, [
                 'username' => [
                     'sometimes',
+                    'required_with:password',
                     'string',
-                    'max:255',
+                    'max:32',
                     function ($attribute, $value, $fail) {
                         if (is_null($this->getUserId())) {
                             if (empty($value)) {
@@ -353,7 +353,6 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
                 ],
                 'orcid' => ($validationContext === 'populate' || $validationContext === 'refine') ? [
                     'sometimes',
-                    'string',
                     'orcid',
                     function ($attribute, $value, $fail) {
                         if (is_null($value)) {
@@ -362,12 +361,13 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
                     }
                 ] : [
                     'nullable',  // Allows null but must be valid if present
-                    'string',
                     'orcid'
                 ],
                 'password' => [
                     'sometimes',
+                    'required_with:username',
                     'string',
+                    'max:255',
                     function ($attribute, $value, $fail) {
                         if (is_null($this->getUserId()) && empty($value)) {
                             $fail(__('invitation.validation.required', ['attribute' => $attribute]));

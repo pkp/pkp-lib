@@ -306,10 +306,6 @@ class FileManager {
 	 * @return boolean returns true if successful
 	 */
 	function mkdir($dirPath, $perms = null) {
-		if (is_dir($dirPath)) {
-			return $this->setMode($dirPath, DIRECTORY_MODE_MASK);
-		}
-
 		if ($perms !== null) {
 			return mkdir($dirPath, $perms);
 		} else {

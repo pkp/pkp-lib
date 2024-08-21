@@ -1,13 +1,14 @@
 # Alfredo Cosco <alfredo.cosco@gmail.com>, 2021.
 # Martin Brändle <martin.braendle@uzh.ch>, 2022, 2023, 2024.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
+# Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
-"PO-Revision-Date: 2024-05-22 17:07+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2024-08-21 18:21+0000\n"
+"Last-Translator: Gabriele Raimondi <gabriele.raimondi5@unibo.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "it/>\n"
 "Language: it\n"
@@ -25,8 +26,8 @@ msgstr "Aspetto"
 
 msgid "manager.website.imageFileRequired"
 msgstr ""
-"E' necessario caricare un'immagine.  Controllare di aver scelto e caricato "
-"un file."
+"È necessario caricare un'immagine. Controllare di aver scelto e caricato un "
+"file."
 
 msgid "manager.announcements"
 msgstr "Avvisi"
@@ -1115,7 +1116,7 @@ msgstr "Politica al riguardo dell'Open Access"
 msgid "manager.setup.openAccessPolicy.description"
 msgstr ""
 "Se viene consentito accesso gratuito immediato a tutti i contenuti considera "
-"di  inserire questa descrizione nella norme su Open Access."
+"di inserire questa descrizione nella norme su Open Access."
 
 msgid "manager.setup.pageHeaderLogoImageInvalid"
 msgstr ""
@@ -1418,7 +1419,7 @@ msgid "manager.plugins.delete"
 msgstr "Cancella Plugin"
 
 msgid "manager.plugins.installConfirm"
-msgstr "Sei sicuro di installare questo plugin ?"
+msgstr "Sei sicuro di installare questo plugin?"
 
 msgid "manager.plugins.upgradeConfirm"
 msgstr "Confermi di voler aggiornare questo plugin?"
@@ -1427,7 +1428,7 @@ msgid "grid.action.installPlugin"
 msgstr "Installa o aggiorna questo plugin"
 
 msgid "manager.plugins.deleteConfirm"
-msgstr "Sei sicuro di cancellare questo plugin dal sistema ?"
+msgstr "Sei sicuro di cancellare questo plugin dal sistema?"
 
 msgid "manager.plugins.deleteDescription"
 msgstr "Cliccando 'cancella', cancellerai il plugin dal sistema."
@@ -1440,7 +1441,7 @@ msgstr ""
 "dimenticarti di togliere poi l'autorizzazione."
 
 msgid "manager.plugins.deleteSuccess"
-msgstr "Il plugin \"{$pluginName}\"  è stato cancellato con successo"
+msgstr "Il plugin \"{$pluginName}\" è stato cancellato con successo"
 
 msgid "manager.plugins.description"
 msgstr ""
@@ -1486,8 +1487,7 @@ msgstr "Ufficiale"
 
 msgid "manager.plugins.pluginGallery.certifications.official.description"
 msgstr ""
-"Questo plugin è sviluppato e mantenuta dal team del Public Knowledge "
-"Project ."
+"Questo plugin è sviluppato e mantenuto dal team del Public Knowledge Project."
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
 msgstr "Rivisto"
@@ -1553,7 +1553,7 @@ msgid "manager.plugins.installFailed"
 msgstr "Installazione fallita. {$errorString}"
 
 msgid "manager.plugins.installSuccessful"
-msgstr "E' stata installato con successo la versione {$versionNumber}"
+msgstr "È stata installata con successo la versione {$versionNumber}"
 
 msgid "manager.plugins.invalidPluginArchive"
 msgstr ""
@@ -1571,7 +1571,7 @@ msgstr ""
 "corrisponde al nome del plugin che si è provato ad aggiornare."
 
 msgid "manager.plugins.pleaseInstall"
-msgstr "Il plugin non esiste nel sistam. Prova invece ad installarlo"
+msgstr "Il plugin non esiste nel sistema. Prova invece a installarlo"
 
 msgid "manager.plugins.pleaseUpgrade"
 msgstr ""
@@ -1615,10 +1615,10 @@ msgid "notification.localeDisabled"
 msgstr "Lingua disabilitata."
 
 msgid "notification.primaryLocaleDefined"
-msgstr "La lingua {$locale}  è definita come lingua primaria."
+msgstr "La lingua {$locale} è definita come lingua primaria."
 
 msgid "notification.localeInstalled"
-msgstr "Tutte le lingue selezionate  sono installate e attive."
+msgstr "Tutte le lingue selezionate sono installate e attive."
 
 msgid "notification.localeUninstalled"
 msgstr "Lingua {$locale} disinstallata."
@@ -1711,7 +1711,7 @@ msgid "settings.roles.removeText"
 msgstr ""
 "Stai rimuovendo questo ruolo da questo ambito. Questa operazione cancellerà "
 "anche tutte le configuazioni relative e tutti gli utenti collegati a questo "
-"ruolo. Vuoi continuare ?"
+"ruolo. Vuoi continuare?"
 
 msgid "settings.roles.nameRequired"
 msgstr "Devi definire un nome per il ruolo."
@@ -1765,7 +1765,7 @@ msgstr "Altro"
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
 "<p>Questo file è pubblicamente scaricabile se è stato abilitato l'\"Accesso "
-"pubblico\". Il link è:  <blockquote>{$downloadUrl}</blockquote></p>"
+"pubblico\". Il link è: <blockquote>{$downloadUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Seleziona un file da usare come supporto per aggiungerlo"
@@ -1862,12 +1862,12 @@ msgstr "Moduli per la revisione"
 
 msgid "manager.reviewForms.confirmActivate"
 msgstr ""
-"Sei sicuro di voler attivare questo form di revisione ? Una volta che l'hai "
-"assegnato ad una revisione, non sarai più in grado di disabilitarlo."
+"Sei sicuro di voler attivare questo form di revisione? Una volta che l'hai "
+"assegnato a una revisione, non sarai più in grado di disabilitarlo."
 
 msgid "manager.reviewForms.confirmDeactivate"
 msgstr ""
-"Sei sicuro di voler disattivare questo form di revisione ? Non sarà più "
+"Sei sicuro di voler disattivare questo form di revisione? Non sarà più "
 "disponibile per nuove revisioni."
 
 msgid "manager.reviewForms.confirmCopy"
@@ -1980,10 +1980,10 @@ msgid "manager.reviewFormElements.radiobuttons"
 msgstr "Radio button (Una sola scelta possibile)"
 
 msgid "manager.reviewFormElements.required"
-msgstr "E' necessario che i revisori completino il documento"
+msgstr "È necessario che i revisori completino il documento"
 
 msgid "manager.reviewFormElements.included"
-msgstr "Includilo in um messaggio all'autore"
+msgstr "Includilo in un messaggio all'autore"
 
 msgid "manager.reviewFormElements.smalltextfield"
 msgstr "Text box per una sola parola"
@@ -2016,9 +2016,9 @@ msgstr "Copertura"
 
 msgid "manager.setup.metadata.coverage.description"
 msgstr ""
-"La copertura  indica generalmente la posizione di un'opera (luogo o "
-"coordinate geografiche), il periodo temporale (periodo,  data o un "
-"intervallo di date) o la giurisdizione (ad esempio un'entità amministrativa)."
+"La copertura indica generalmente la posizione di un'opera (luogo o "
+"coordinate geografiche), il periodo temporale (periodo, data o un intervallo "
+"di date) o la giurisdizione (ad esempio un'entità amministrativa)."
 
 msgid "manager.setup.metadata.coverage.enable"
 msgstr "Abilitare i metadati di copertura"
@@ -2039,7 +2039,7 @@ msgstr ""
 
 msgid "manager.setup.metadata.keywords.description"
 msgstr ""
-"Le parole chiave sono generalmente frasi composte da uno a tre parole che "
+"Le parole chiave sono generalmente frasi composte da una a tre parole che "
 "identificano gli argomenti principali dell'argomento trattato."
 
 msgid "manager.setup.metadata.keywords.enable"

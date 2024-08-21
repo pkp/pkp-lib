@@ -2,13 +2,14 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2022.
 # Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022.
 # Piero Grandesso <piero.grandesso2@unibo.it>, 2024.
+# Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2024-08-08 00:21+0000\n"
-"Last-Translator: Piero Grandesso <piero.grandesso2@unibo.it>\n"
+"PO-Revision-Date: 2024-08-21 11:49+0000\n"
+"Last-Translator: Gabriele Raimondi <gabriele.raimondi5@unibo.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "it/>\n"
 "Language: it\n"
@@ -1255,7 +1256,7 @@ msgid "form.postRequired"
 msgstr "Il modulo non è stato inviato correttamente."
 
 msgid "form.csrfInvalid"
-msgstr "Il form non è stato inviato corettamente."
+msgstr "Il form non è stato inviato correttamente."
 
 msgid "form.fileRequired"
 msgstr "È richiesto il caricamento di un file."

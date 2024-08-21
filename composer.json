@@ -1,8 +1,6 @@
 {
 	"require": {
 		"php": "^8.2",
-		"components/jquery": "^3.5",
-		"components/jqueryui": "1.*",
 		"composer/semver": "^3.4",
 		"cweagans/composer-patches": "^1.7",
 		"dflydev/base32-crockford": "^1.0",
@@ -57,7 +55,8 @@
 			"@weblateFilesDownload"
 		],
 		"isoFileCheck": [
-			"PKP\\dev\\ComposerScript::isoFileCheck"		],
+			"PKP\\dev\\ComposerScript::isoFileCheck"
+		],
 		"weblateFilesDownload": [
 			"PKP\\dev\\ComposerScript::weblateFilesDownload"
 		]

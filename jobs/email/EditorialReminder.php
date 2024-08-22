@@ -22,6 +22,7 @@ use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
@@ -92,30 +93,31 @@ class EditorialReminder extends BaseJob
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
                 $reviewRound = $reviewRoundDao->getLastReviewRoundBySubmissionId($submission->getId(), $submission->getData('stageId'));
 
-                if ($reviewRound->getStatus() === ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS) {
+                if ($reviewRound->determineStatus() === ReviewRound::REVIEW_ROUND_STATUS_PENDING_REVIEWERS) {
                     $outstanding[$submissionId] = __('editor.submission.roundStatus.pendingReviewers');
                     continue;
                 }
 
-                if ($reviewRound->getStatus() === ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED) {
+                if ($reviewRound->determineStatus() === ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_COMPLETED) {
                     $outstanding[$submissionId] = __('editor.submission.roundStatus.reviewsCompleted');
                     continue;
                 }
 
-                if ($reviewRound->getStatus() === ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_OVERDUE) {
+                if ($reviewRound->determineStatus() === ReviewRound::REVIEW_ROUND_STATUS_REVIEWS_OVERDUE) {
                     $outstanding[$submissionId] = __('editor.submission.roundStatus.reviewOverdue');
                     continue;
                 }
 
-                if ($reviewRound->getStatus() === ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
+                if ($reviewRound->determineStatus() === ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED) {
                     $outstanding[$submissionId] = __('editor.submission.roundStatus.revisionsSubmitted');
                     continue;
                 }
             }
 
             if (in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION])) {
-                $lastActivityTimestamp = strtotime($submission->getData('dateLastActivity'));
-                if ($lastActivityTimestamp < strtotime('-30 days')) {
+                $lastActivityTimestamp = Carbon::parse($submission->getData('dateLastActivity'))->endOfDay();
+                $comparingTimestamp = Carbon::today()->endOfDay()->subDays(30);
+                if ($comparingTimestamp->gt($lastActivityTimestamp)) {
                     /** @var WorkflowStageDAO $workflowStageDao */
                     $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO');
                     $outstanding[$submissionId] = __(

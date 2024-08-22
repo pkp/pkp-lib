@@ -1,4 +1,4 @@
-# Martin Brändle <martin.braendle@uzh.ch>, 2022.
+# Martin Brändle <martin.braendle@uzh.ch>, 2022, 2024.
 # Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022.
 # Fulvio Delle Donne <fulviodelledonne@libero.it>, 2022.
 # Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
 "PO-Revision-Date: 2024-08-23 14:45+0000\n"
-"Last-Translator: Gabriele Raimondi <gabriele.raimondi5@unibo.it>\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/it/>\n"
 "Language: it\n"
@@ -51,6 +51,8 @@ msgstr ""
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"Selezionare un ruolo editoriale se si desidera modificare e pubblicare "
+"personalmente questo invio."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Requisiti per le proposte"
@@ -61,7 +63,7 @@ msgstr ""
 "Devi aver letto e completato i requisiti qui indicati prima di procedere."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "Sì, il mio invio soddisfa tutti questi requisiti."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Proposta completata"
@@ -546,7 +548,7 @@ msgid "submission.coverage"
 msgstr "Informazione sulla copertura"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Dettagli di invio"
 
 msgid "submission.done"
 msgstr "Completata"
@@ -616,6 +618,7 @@ msgstr "Invio iniziale completato."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$filename} ({$username}) ha accettato i termini di copyright per l'invio."
 
 msgid "submission.event.fileRevised"
 msgstr ""
@@ -668,9 +671,13 @@ msgstr "Aggiornato il file di revisioni del revisore"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} ha inviato un promemoria a {$recipientName} per il suo "
+"incarico di revisione"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"È stata inviata un'e-mail automatica di promemoria a {$recipientName} per "
+"l'assegnazione della revisione"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Una email è stata mandata:"
@@ -703,7 +710,7 @@ msgid "submission.firstPublished"
 msgstr "Prima pubblicazione"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "Per gli editori"
 
 msgid "submission.galley"
 msgstr "Gabbia"
@@ -981,7 +988,7 @@ msgid "submission.review"
 msgstr "Revisione"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Revisionare e inviare"
 
 msgid "submission.reviewed"
 msgstr "Revisionato"
@@ -1195,7 +1202,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Per favore inserisci le citazioni."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Inserire la dichiarazione di disponibilità dei dati."
 
 msgid "submission.form.name"
 msgstr "Dai al file un nome comprensibile"
@@ -1588,6 +1595,8 @@ msgstr "Il round di revisione per la proposta {$title}, e' stato cancellato."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
+"Può annullare il turno di revisione solo se nessun revisore associato ha "
+"revisioni completate o inviate disponibili."
 
 msgid "editor.submission.decision.resubmit"
 msgstr "Invia di nuovo per revisione"
@@ -2688,3 +2697,12 @@ msgstr ""
 
 msgid "submission.submissionFile"
 msgstr "File del contributo"
+
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Riportato indietro per la revisione."
+
+msgid "submission.authors.label"
+msgstr "Autori"
+
+msgid "submission.author.list"
+msgstr "Elenco degli autori della presentazione"

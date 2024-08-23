@@ -120,7 +120,7 @@ class ConvertApacheAccessLogFile extends ConvertLogFileTool
         }
 
         // This tool needs egrep path configured.
-        if (file_exists(self::EGREP_PATH)) {
+        if (!file_exists(self::EGREP_PATH)) {
             fwrite(STDERR, 'Error: This tool needs egrep program. Please define the constatn EGREP_PATH in this script, enter there the path to egrep command on your machine.' . PHP_EOL);
             exit(9);
         }
@@ -156,7 +156,7 @@ class ConvertApacheAccessLogFile extends ConvertLogFileTool
      */
     public function usage()
     {
-        echo "\nConvert the passed apache access log file into the new usage stats log file format.
+        echo "\nConvert the apache access log file into the new usage stats log file format.
 This will copy the apache access file to the usageStats/tmp/ folder in the files directory,
 filter entries related to this installation, split the file by day, rename the result file(s)
 into apache_usage_events_YYYYMMDD.log, convert them into the new JSON format, and
@@ -304,6 +304,8 @@ Must run under user with enough privilegies to read access apache log files.\n"
         }
 
         // Get all days between the first and the last date, including the last date
+        $firstDate->setTime(0, 0, 0);
+        $lastDate->setTime(0, 0, 1);
         $period = new DatePeriod(
             $firstDate,
             new DateInterval('P1D'),
@@ -409,37 +411,24 @@ Must run under user with enough privilegies to read access apache log files.\n"
     }
 
     /**
-     * Set assoc type and IDs from the passed page, operation and arguments.
-     */
-    protected function setAssoc(int $assocType, string $op, array $args, array &$newEntry): void
-    {
-        $application = Application::get();
-        $applicationName = $application->getName();
-        switch ($applicationName) {
-            case 'ojs2':
-                $this->setOJSAssoc($assocType, $args, $newEntry);
-                break;
-            case 'omp':
-                $this->setOMPAssoc($assocType, $args, $newEntry);
-                break;
-            case 'ops':
-                $this->setOPSAssoc($assocType, $args, $newEntry);
-                break;
-            default:
-                throw new Exception('Unrecognized application name!');
-        }
-    }
-
-    /**
      * Set assoc type and IDs from the passed page, operation and
      * arguments specific to OJS.
      */
     protected function setOJSAssoc(int $assocType, array $args, array &$newEntry): void
     {
+        $newEntry['submissionId'] = null;
+        $newEntry['representationId'] = null;
+        $newEntry['submissionFileId'] = null;
+        $newEntry['fileType'] = null;
+        $newEntry['issueId'] = null;
+        $newEntry['issueGalleyId'] = null;
+
         switch ($assocType) {
             case Application::getContextAssocType():
                 // $newEntry['contextId'] has already been set
                 $newEntry['assocType'] = $assocType;
+                $newEntry['canonicalUrlPage'] = Application::SITE_CONTEXT_PATH;
+                $newEntry['canonicalUrlOp'] = '';
                 break;
 
             case Application::ASSOC_TYPE_SUBMISSION:
@@ -454,6 +443,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     break;
                 }
                 $submissionId = $submission->getId();
+                $newEntry['canonicalUrlArgs'] = [$submissionId];
 
                 // If it is an older submission version, the arguments must be:
                 // $submissionId/version/$publicationId.
@@ -470,6 +460,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                         fwrite(STDERR, "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
+                    array_push($newEntry['canonicalUrlArgs'], 'version', $publicationId);
                 } elseif (count($args) == 2) {
                     // Consider usage stats log files from releases 2.x:
                     // The URL article/view/{$articleId}/{$galleyId} was used for assoc type galley.
@@ -523,10 +514,16 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     $newEntry['representationId'] = $representationId;
                     $newEntry['submissionFileId'] = $submissionFileId;
                     $newEntry['fileType'] = $fileType;
+
+                    $newEntry['canonicalUrlPage'] = 'article';
+                    $newEntry['canonicalUrlOp'] = 'download';
+                    array_push($newEntry['canonicalUrlArgs'], $representationId, $submissionFileId);
                     break;
                 }
                 $newEntry['submissionId'] = $submissionId;
                 $newEntry['assocType'] = $assocType;
+                $newEntry['canonicalUrlPage'] = 'article';
+                $newEntry['canonicalUrlOp'] = 'view';
                 break;
 
             case Application::ASSOC_TYPE_SUBMISSION_FILE:
@@ -545,6 +542,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     break;
                 }
                 $submissionId = $submission->getId();
+                $newEntry['canonicalUrlArgs'] = [$submissionId];
 
                 // If it is an older submission version, the arguments must be:
                 // $submissionId/version/$publicationId/$representationId/$submissionFileId.
@@ -564,6 +562,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     if (isset($args[4])) {
                         $submissionFileId = (int) $args[4];
                     }
+                    array_push($newEntry['canonicalUrlArgs'], 'version', $publicationId);
                 } else {
                     $representationUrlPath = $args[1];
                     if (isset($args[2])) {
@@ -643,7 +642,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 }
 
                 // is this a full text or supp file
-                $genreDao = DAORegistry::getDAO('GenreDAO');
+                $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
                 $genre = $genreDao->getById($submissionFile->getData('genreId'));
                 if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
                     $newEntry['assocType'] = Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER;
@@ -654,6 +653,10 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 $newEntry['representationId'] = $representationId;
                 $newEntry['submissionFileId'] = $submissionFileId;
                 $newEntry['fileType'] = StatisticsHelper::getDocumentType($submissionFile->getData('mimetype'));
+
+                $newEntry['canonicalUrlPage'] = 'article';
+                $newEntry['canonicalUrlOp'] = 'download';
+                array_push($newEntry['canonicalUrlArgs'], $representationId, $submissionFileId);
                 break;
 
             case Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER:
@@ -673,6 +676,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     break;
                 }
                 $submissionId = $submission->getId();
+                $newEntry['canonicalUrlArgs'] = [$submissionId];
 
                 $galley = $submissionFile = null;
                 $publications = $submission->getData('publications');
@@ -707,6 +711,10 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     $newEntry['representationId'] = $galley->getId();
                     $newEntry['submissionFileId'] = $submissionFile->getId();
                     $newEntry['fileType'] = StatisticsHelper::getDocumentType($submissionFile->getData('mimetype'));
+
+                    $newEntry['canonicalUrlPage'] = 'article';
+                    $newEntry['canonicalUrlOp'] = 'download';
+                    $newEntry['canonicalUrlArgs'] = [$submissionId, $galley->getId(), $submissionFile->getId()];
                 } else {
                     fwrite(STDERR, 'Supp file could not be found.' . PHP_EOL);
                 }
@@ -732,6 +740,10 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 $issueId = $issue->getId();
                 $newEntry['issueId'] = $issueId;
                 $newEntry['assocType'] = $assocType;
+
+                $newEntry['canonicalUrlPage'] = 'issue';
+                $newEntry['canonicalUrlOp'] = 'view';
+                $newEntry['canonicalUrlArgs'] = [$issue->getId()];
                 break;
 
             case Application::ASSOC_TYPE_ISSUE_GALLEY:
@@ -750,7 +762,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     break;
                 }
                 $issueId = $issue->getId();
-                $issueGalleyDao = DAORegistry::getDAO('IssueGalleyDAO');
+                $issueGalleyDao = DAORegistry::getDAO('IssueGalleyDAO'); /** @var IssueGalleyDAO $issueGalleyDao */
                 $issueGalley = $issueGalleyDao->getByBestId($args[1], $issueId);
                 if (!$issueGalley) {
                     fwrite(STDERR, "Issue galley with the URL path or ID {$args[1]} does not exist in the issue with the ID {$issueId}." . PHP_EOL);
@@ -759,6 +771,9 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 $newEntry['issueId'] = $issueId;
                 $newEntry['issueGalleyId'] = $issueGalley->getId();
                 $newEntry['assocType'] = $assocType;
+                $newEntry['canonicalUrlPage'] = 'issue';
+                $newEntry['canonicalUrlOp'] = 'download';
+                $newEntry['canonicalUrlArgs'] = [$issue->getId(), $issueGalley->getId()];
                 break;
         }
     }
@@ -769,10 +784,18 @@ Must run under user with enough privilegies to read access apache log files.\n"
      */
     protected function setOMPAssoc(int $assocType, array $args, array &$newEntry): void
     {
+        $newEntry['submissionId'] = null;
+        $newEntry['representationId'] = null;
+        $newEntry['submissionFileId'] = null;
+        $newEntry['fileType'] = null;
+        $newEntry['chapterId'] = null;
+        $newEntry['seriesId'] = null;
+
         switch ($assocType) {
             case Application::getContextAssocType():
                 // $newEntry['contextId'] has already been set
                 $newEntry['assocType'] = $assocType;
+                $newEntry['canonicalUrlOp'] = $newEntry['canonicalUrlPage'] == 'catalog' ? 'index' : '';
                 break;
 
             case Application::ASSOC_TYPE_SUBMISSION:
@@ -787,6 +810,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     break;
                 }
                 $submissionId = $submission->getId();
+                $newEntry['canonicalUrlArgs'] = [$submissionId];
 
                 // If it is an older submission version, the arguments must be:
                 // $submissionId/version/$publicationId.
@@ -801,6 +825,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                         fwrite(STDERR, "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
+                    array_push($newEntry['canonicalUrlArgs'], 'version', $publicationId);
                 }
 
                 // Is it a chapter landing page
@@ -827,11 +852,14 @@ Must run under user with enough privilegies to read access apache log files.\n"
                         fwrite(STDERR, "Chapter with the ID {$chapterId} does not exist." . PHP_EOL);
                         break;
                     }
+                    array_push($newEntry['canonicalUrlArgs'], 'chapter', $chapterId);
                 }
 
                 $newEntry['submissionId'] = $submissionId;
                 $newEntry['assocType'] = isset($chapter) ? Application::ASSOC_TYPE_CHAPTER : $assocType;
                 $newEntry['chpaterId'] = isset($chapter) ? $chapter->getId() : null;
+                $newEntry['canonicalUrlPage'] = 'catalog';
+                $newEntry['canonicalUrlOp'] = 'book';
                 break;
 
             case Application::ASSOC_TYPE_SUBMISSION_FILE:
@@ -854,6 +882,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     break;
                 }
                 $submissionId = $submission->getId();
+                $newEntry['canonicalUrlArgs'] = [$submissionId];
 
                 // If it is an older submission version, the arguments must be:
                 // $submissionId/version/$publicationId/$representationId/$submissionFileId.
@@ -866,6 +895,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     $publicationId = (int) $args[2];
                     $representationUrlPath = $args[3];
                     $submissionFileId = (int) $args[4];
+                    array_push($newEntry['canonicalUrlArgs'], 'version', $publicationId);
                 } else {
                     $representationUrlPath = $args[1];
                     $submissionFileId = (int) $args[2];
@@ -940,7 +970,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 }
 
                 // is this a full text or supp file
-                $genreDao = DAORegistry::getDAO('GenreDAO');
+                $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
                 $genre = $genreDao->getById($submissionFile->getData('genreId'));
                 if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
                     $newEntry['assocType'] = Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER;
@@ -952,6 +982,10 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 $newEntry['submissionFileId'] = $submissionFileId;
                 $newEntry['fileType'] = StatisticsHelper::getDocumentType($submissionFile->getData('mimetype'));
                 $newEntry['chapterId'] = $submissionFile->getData('chapterId');
+
+                $newEntry['canonicalUrlPage'] = 'book';
+                $newEntry['canonicalUrlOp'] = 'download';
+                array_push($newEntry['canonicalUrlArgs'], $representationId, $submissionFileId);
                 break;
 
             case Application::ASSOC_TYPE_SERIES:
@@ -967,6 +1001,10 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 }
                 $newEntry['seriesId'] = $series->getId();
                 $newEntry['assocType'] = $assocType;
+
+                $newEntry['canonicalUrlPage'] = 'catalog';
+                $newEntry['canonicalUrlOp'] = 'series';
+                $newEntry['canonicalUrlArgs'] = [$seriesPath];
                 break;
         }
     }
@@ -977,10 +1015,17 @@ Must run under user with enough privilegies to read access apache log files.\n"
      */
     protected function setOPSAssoc(int $assocType, array $args, array &$newEntry): void
     {
+        $newEntry['submissionId'] = null;
+        $newEntry['representationId'] = null;
+        $newEntry['submissionFileId'] = null;
+        $newEntry['fileType'] = null;
+
         switch ($assocType) {
             case Application::getContextAssocType():
                 // $newEntry['contextId'] has already been set
                 $newEntry['assocType'] = $assocType;
+                $newEntry['canonicalUrlPage'] = Application::SITE_CONTEXT_PATH;
+                $newEntry['canonicalUrlOp'] = '';
                 break;
 
             case Application::ASSOC_TYPE_SUBMISSION:
@@ -995,6 +1040,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     break;
                 }
                 $submissionId = $submission->getId();
+                $newEntry['canonicalUrlArgs'] = [$submissionId];
 
                 // If it is an older submission version, the arguments must be:
                 // $submissionId/version/$publicationId.
@@ -1008,9 +1054,12 @@ Must run under user with enough privilegies to read access apache log files.\n"
                         fwrite(STDERR, "Publication (submission version) with the ID {$publicationId} does not exist in the submission with the ID {$submissionId}." . PHP_EOL);
                         break;
                     }
+                    array_push($newEntry['canonicalUrlArgs'], 'version', $publicationId);
                 }
                 $newEntry['submissionId'] = $submissionId;
                 $newEntry['assocType'] = $assocType;
+                $newEntry['canonicalUrlPage'] = 'preprint';
+                $newEntry['canonicalUrlOp'] = 'view';
                 break;
 
             case Application::ASSOC_TYPE_SUBMISSION_FILE:
@@ -1033,6 +1082,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     break;
                 }
                 $submissionId = $submission->getId();
+                $newEntry['canonicalUrlArgs'] = [$submissionId];
 
                 // If it is an older submission version, the arguments must be:
                 // $submissionId/version/$publicationId/$representationId/$submissionFileId.
@@ -1045,6 +1095,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     $publicationId = (int) $args[2];
                     $representationUrlPath = $args[3];
                     $submissionFileId = (int) $args[4];
+                    array_push($newEntry['canonicalUrlArgs'], 'version', $publicationId);
                 } else {
                     $representationUrlPath = $args[1];
                     $submissionFileId = (int) $args[2];
@@ -1115,7 +1166,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 }
 
                 // is this a full text or supp file
-                $genreDao = DAORegistry::getDAO('GenreDAO');
+                $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDao $genreDao */
                 $genre = $genreDao->getById($submissionFile->getData('genreId'));
                 if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
                     $newEntry['assocType'] = Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER;
@@ -1126,6 +1177,10 @@ Must run under user with enough privilegies to read access apache log files.\n"
                 $newEntry['representationId'] = $representationId;
                 $newEntry['submissionFileId'] = $submissionFileId;
                 $newEntry['fileType'] = StatisticsHelper::getDocumentType($submissionFile->getData('mimetype'));
+
+                $newEntry['canonicalUrlPage'] = 'preprint';
+                $newEntry['canonicalUrlOp'] = 'download';
+                array_push($newEntry['canonicalUrlArgs'], $representationId, $submissionFileId);
                 break;
         }
     }

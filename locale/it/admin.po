@@ -1,12 +1,13 @@
 # Fulvio Delle Donne <fulviodelledonne@libero.it>, 2022, 2023.
 # Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022, 2023.
+# Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2023-12-24 10:39+0000\n"
-"Last-Translator: Fulvio Delle Donne <fulviodelledonne@libero.it>\n"
+"PO-Revision-Date: 2024-08-23 14:45+0000\n"
+"Last-Translator: Gabriele Raimondi <gabriele.raimondi5@unibo.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "it/>\n"
 "Language: it\n"
@@ -52,7 +53,7 @@ msgstr "Sei sicuro di voler svuotare la cache dei template compilati?"
 msgid "admin.confirmExpireSessions"
 msgstr ""
 "Sei sicuro di voler chiudere tutte le sessioni utente? Tutti gli utenti "
-"attualmente collegati al sistema saranno costretti ad effettuare di nuovo il "
+"attualmente collegati al sistema saranno costretti a effettuare di nuovo il "
 "log in (te compreso)."
 
 msgid "admin.contentsOfConfigFile"
@@ -169,8 +170,7 @@ msgstr ""
 "utenti {$userIds} nella Casa Editrice{$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
-msgstr ""
-"Sei sicuro di voler cancellare tutti i log della procedure programmate ?"
+msgstr "Sei sicuro di voler cancellare tutti i log della procedure programmate?"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Svuota registro delle procedure programmate"

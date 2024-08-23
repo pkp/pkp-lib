@@ -2,13 +2,14 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2022.
 # Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022.
 # Piero Grandesso <piero.grandesso2@unibo.it>, 2024.
+# Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2024-08-08 00:21+0000\n"
-"Last-Translator: Piero Grandesso <piero.grandesso2@unibo.it>\n"
+"PO-Revision-Date: 2024-08-23 14:45+0000\n"
+"Last-Translator: Gabriele Raimondi <gabriele.raimondi5@unibo.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "it/>\n"
 "Language: it\n"
@@ -459,7 +460,7 @@ msgstr "Tipo di file"
 
 msgid "common.fileUploaderError"
 msgstr ""
-"Il sistema per caricare i files sta girando. Se non lo vedi è possibile che "
+"Il sistema per caricare i file sta girando. Se non lo vedi è possibile che "
 "nessuno dei suoi runtimes riesca funzionare con questo browser. Per favore "
 "contatta il gestore per il supporto."
 
@@ -536,7 +537,7 @@ msgid "common.lastSaved"
 msgstr ""
 
 msgid "common.lastActivity"
-msgstr "Ultima attività registrata il  {$date}."
+msgstr "Ultima attività registrata il {$date}."
 
 msgid "common.less"
 msgstr "Meno"
@@ -903,7 +904,7 @@ msgstr "Non iniziato"
 
 msgid "common.unknownError"
 msgstr ""
-"E' avvenuto un errore inatteso. Per favore ricarica la pagina e prova di "
+"È avvenuto un errore inatteso. Per favore ricarica la pagina e prova di "
 "nuovo."
 
 msgid "common.unread"
@@ -1255,7 +1256,7 @@ msgid "form.postRequired"
 msgstr "Il modulo non è stato inviato correttamente."
 
 msgid "form.csrfInvalid"
-msgstr "Il form non è stato inviato corettamente."
+msgstr "Il form non è stato inviato correttamente."
 
 msgid "form.fileRequired"
 msgstr "È richiesto il caricamento di un file."
@@ -1650,7 +1651,7 @@ msgid "notification.reminderSent"
 msgstr "Abbiamo inviato una nuova password all'indirizzo indicato."
 
 msgid "notification.savedSubmissionMetadata"
-msgstr "Metadati della sottomissione salvati."
+msgstr "Metadati della proposta salvati."
 
 msgid "notification.sendNotificationConfirmation"
 msgstr "Invia un'e-mail di notifica a tutti gli utenti registrati."
@@ -1843,8 +1844,8 @@ msgstr ""
 
 msgid "notification.addedReviewerNoEmail"
 msgstr ""
-"{$reviewerName} è stato designato come revisore di questa proposta e  non "
-"gli è stata inviata una email."
+"{$reviewerName} è stato designato come revisore di questa proposta e non gli "
+"è stata inviata una email."
 
 msgid "notification.removedReviewer"
 msgstr "Revisore rimosso."
@@ -1934,8 +1935,8 @@ msgstr "Non hai accesso a questo compito di revisione."
 
 msgid "user.authorization.authorRoleMissing"
 msgstr ""
-"Non hai sufficienti permessi per vedere la sottomissione. Controlla il tuo "
-"profilo per accertati che ti sia stato assegnato il ruolo appropriato alla "
+"Non hai sufficienti permessi per vedere la proposta. Controlla il tuo "
+"profilo per accertarti che ti sia stato assegnato il ruolo appropriato alla "
 "voce \"Registrato come\"."
 
 msgid "user.authorization.submissionAuthor"
@@ -1950,7 +1951,7 @@ msgid "notification.type.queryActivity"
 msgstr "Commenti all'interno di una discussione."
 
 msgid "notification.type.queryAdded"
-msgstr "E' stata aperta una nuova discussione."
+msgstr "È stata aperta una nuova discussione."
 
 msgid "notification.type.assignCopyeditors"
 msgstr ""
@@ -2164,7 +2165,7 @@ msgid "validator.max.array"
 msgstr "Non può più di {$max} oggetti."
 
 msgid "validator.mimes"
-msgstr "Deve essere un file di tipo  {$values}."
+msgstr "Deve essere un file di tipo {$values}."
 
 msgid "validator.min.numeric"
 msgstr "Deve essere almeno {$min}."

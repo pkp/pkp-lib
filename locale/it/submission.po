@@ -2,13 +2,14 @@
 # Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022.
 # Fulvio Delle Donne <fulviodelledonne@libero.it>, 2022.
 # Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
+# Martina Marafioti <martina.marafioti3@unibo.it>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
 "PO-Revision-Date: 2024-08-23 14:45+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"Last-Translator: Martina Marafioti <martina.marafioti3@unibo.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/it/>\n"
 "Language: it\n"
@@ -2595,10 +2596,9 @@ msgstr ""
 msgid "doi.submission.notPublished"
 msgstr ""
 
-#, fuzzy
 msgid "submission.viewingPreview"
 msgstr ""
-"Questa è una preview non ancora pubblicata  <a href=\"{$url}\">Vai "
+"Questa è una preview non ancora pubblicata <a href=\"{$url}\">Vai "
 "all'articolo</a>"
 
 msgid "author.submit.noFiles"

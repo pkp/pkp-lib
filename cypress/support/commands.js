@@ -745,6 +745,10 @@ Cypress.Commands.add('checkDoiAssignment', (selectorId) => {
 	});
 });
 
+Cypress.Commands.add('checkDisabledDoiAssignment', (selectorId) => {
+	cy.get(`input#${selectorId}`).should('have.value', '');
+});
+
 Cypress.Commands.add('checkDoiFilterResults', (filterName, textToCheck, expectedCount, itemType = 'submission') => {
 	if (filterName === 'Unpublished') {
 		// 'Unpublished' is ambiguious so we must specify which 'Unpublished' button we mean

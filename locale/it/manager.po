@@ -2,13 +2,14 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2022, 2023, 2024.
 # Stefan Schneider <mail@stefan-schneider.at>, 2023.
 # Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
+# Martina Marafioti <martina.marafioti3@unibo.it>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
 "PO-Revision-Date: 2024-08-23 14:45+0000\n"
-"Last-Translator: Gabriele Raimondi <gabriele.raimondi5@unibo.it>\n"
+"Last-Translator: Martina Marafioti <martina.marafioti3@unibo.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "it/>\n"
 "Language: it\n"
@@ -2501,9 +2502,9 @@ msgstr ""
 
 msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
 msgstr ""
-"Questo link viene visualizzato solo se il visitaroe è loggato, i pagamenti "
-"sono abilititati in Impostazioni > Distribuzione > Pagamenti e gli "
-"abbonamenti sono richiesti in Impostazioni > Distribuzione > Accesso."
+"Questo link viene visualizzato solo se l'utente è loggato, i pagamenti sono "
+"abilititati in Impostazioni > Distribuzione > Pagamenti e gli abbonamenti "
+"sono richiesti in Impostazioni > Distribuzione > Accesso."
 
 msgid "manager.navigationMenus.search.description"
 msgstr "Link alla pagina di ricerca."

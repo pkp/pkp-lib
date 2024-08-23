@@ -1,11 +1,11 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023, 2024.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2023-10-19 22:34+0000\n"
+"PO-Revision-Date: 2024-08-23 14:45+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/da/>"
 "\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "Parameteren {$param} understøttes ikke."
@@ -374,3 +374,6 @@ msgstr ""
 
 msgid "api.highlights.404.highlightNotFound"
 msgstr "Højdepunktet, som du anmodede om, blev ikke fundet."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "Der kunne ikke tildeles en DOI til dette element."

@@ -261,9 +261,24 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
                     'sometimes',
                     'array',
                     function ($attribute, $value, $fail) {
-                        $userGroupIds = array_column($value, 'userGroupId');
-                        if (count($userGroupIds) !== count(array_unique($userGroupIds))) {
-                            $fail(__('invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId'));
+                        if (is_array($value)) {
+                            $userGroupIds = array_column($value, 'userGroupId');
+                            if (count($userGroupIds) !== count(array_unique($userGroupIds))) {
+                                $fail(__('invitation.userRoleAssignment.validation.error.addUserRoles.duplicateUserGroupId'));
+                            }
+                        }
+                    }
+                ],
+                'userGroupsToAdd.*' => [
+                    'array',
+                    function ($attribute, $value, $fail) {
+                        $allowedKeys = ['userGroupId', 'masthead', 'dateStart', 'dateEnd'];
+                        $unexpectedKeys = array_diff(array_keys($value), $allowedKeys);
+                        if (!empty($unexpectedKeys)) {
+                            $fail(__('invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties', [
+                                'attribute' => $attribute,
+                                'properties' => implode(', ', $unexpectedKeys),
+                            ]));
                         }
                     }
                 ],
@@ -291,6 +306,19 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
                     function ($attribute, $value, $fail) {
                         if (is_null($this->getUserId()) && !empty($value)) {
                             $fail(__('invitation.userRoleAssignment.validation.error.removeUserRoles.cantRemoveFromNonExistingUser'));
+                        }
+                    }
+                ],
+                'userGroupsToRemove.*' => [
+                    'array',
+                    function ($attribute, $value, $fail) {
+                        $allowedKeys = ['userGroupId'];
+                        $unexpectedKeys = array_diff(array_keys($value), $allowedKeys);
+                        if (!empty($unexpectedKeys)) {
+                            $fail(__('invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties', [
+                                'attribute' => $attribute,
+                                'properties' => implode(', ', $unexpectedKeys),
+                            ]));
                         }
                     }
                 ],

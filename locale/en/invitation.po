@@ -76,6 +76,9 @@ msgstr "The provided user group ID {$userGroupId} does not exist"
 msgid "invitation.validation.required"
 msgstr "The {$attribute} field is required."
 
+msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
+msgstr "Unexpected properties found in the item at index {$attribute}: {$properties}."
+
 
 
 

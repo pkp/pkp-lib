@@ -24,6 +24,8 @@ use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\invitations\userRoleAssignment\payload\UserGroupPayload;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
+use PKP\security\authorization\AnonymousUserPolicy;
+use PKP\security\authorization\UserRequiredPolicy;
 use PKP\userGroup\relationships\enums\UserUserGroupMastheadStatus;
 use PKP\validation\ValidatorFactory;
 use PKPRequest;
@@ -40,6 +42,17 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
      */
     public function authorize(PKPBaseController $controller, PKPRequest $request, array &$args, array $roleAssignments): bool 
     {
+        $user = $this->invitation->getExistingUser();
+        if (!isset($user)) {
+            $controller->addPolicy(new AnonymousUserPolicy($request));
+        } else {
+            // Register the user object in the session
+            $reason = null;
+            Validation::registerUserSession($user, $reason);
+
+            $controller->addPolicy(new UserRequiredPolicy($request));
+        }
+        
         return true;
     }
 

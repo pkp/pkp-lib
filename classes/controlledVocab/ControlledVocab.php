@@ -26,6 +26,12 @@ class ControlledVocab extends Model
 {
     use HasCamelCasing;
 
+    public const CONTROLLED_VOCAB_SUBMISSION_AGENCY = 'submissionAgency';
+    public const CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE = 'submissionDiscipline';
+    public const CONTROLLED_VOCAB_SUBMISSION_KEYWORD = 'submissionKeyword';
+    public const CONTROLLED_VOCAB_SUBMISSION_LANGUAGE = 'submissionLanguage';
+    public const CONTROLLED_VOCAB_SUBMISSION_SUBJECT = 'submissionSubject';
+
     protected $table = 'controlled_vocabs';
     protected $primaryKey = 'controlled_vocab_id';
 
@@ -39,6 +45,22 @@ class ControlledVocab extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    public static function getDefinedVocabSymbolic(): array
+    {
+        return [
+            static::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
+            static::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
+            static::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+            static::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE,
+            static::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
+        ];
+    }
+
+    public static function hasDefinedVocabSymbolic(string $vocab): bool
+    {
+        return in_array($vocab, static::getDefinedVocabSymbolic());
+    }
 
     protected function casts(): array
     {
@@ -60,6 +82,17 @@ class ControlledVocab extends Model
         );
     }
 
+    public function getLocaleFieldNames(): array
+    {
+        if (!$this->symbolic) {
+            return [];
+        }
+
+        return static::hasDefinedVocabSymbolic($this->symbolic)
+            ? [$this->symbolic]
+            : [];
+    }
+
     /**
      * Compatibility function for including note IDs in grids.
      *
@@ -71,21 +104,11 @@ class ControlledVocab extends Model
     }
 
     /**
-     * Compatibility function for including notes in grids.
-     *
-     * @deprecated 3.5. Use $model or $model->$field instead. Can be removed once the DataObject pattern is removed.
-     */
-    public function getData(?string $field): mixed
-    {
-        return $field ? $this->$field : $this;
-    }
-
-    /**
      * Scope a query to only include notes with a specific user ID.
      */
     public function scopeWithSymbolic(Builder $query, string $symbolic): Builder
     {
-        return $query->where(DB::raw('LOWER(symbolic)'), strtolower($symbolic));
+        return $query->where('symbolic', $symbolic);
     }
 
     /**

@@ -49,5 +49,10 @@ class ValidatorControlledVocabTest extends PKPTestCase
         self::assertTrue($validator->isValid($controlledVocabEntryId1));
         self::assertTrue($validator->isValid($controlledVocabEntryId2));
         self::assertFalse($validator->isValid(3));
+
+        // Delete the test entried
+        $controlledVocabEntryDao->deleteObjectById($controlledVocabEntryId1);
+        $controlledVocabEntryDao->deleteObjectById($controlledVocabEntryId2);
+        $testControlledVocab->delete();
     }
 }

@@ -16,7 +16,6 @@ namespace PKP\user\maps;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use Illuminate\Support\Enumerable;
-use PKP\user\UserInterest;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\security\Role;
@@ -187,7 +186,7 @@ class Schema extends \PKP\core\maps\Schema
                 case 'interests':
                     $output[$prop] = [];
                     if ($this->context) {
-                        $interestEntryIds = UserInterest::getUserInterestIds($user->getId());
+                        $interestEntryIds = Repo::userInterest()->getUserInterestIds($user->getId());
                         if (!empty($interestEntryIds)) {
                             $interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /** @var \PKP\user\InterestEntryDAO $interestEntryDao */
                             $results = $interestEntryDao->getByIds($interestEntryIds);

@@ -14,12 +14,8 @@
 
 namespace PKP\controlledVocab;
 
-use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
-use PKP\user\UserInterest;
-use PKP\user\InterestEntry;
-use PKP\user\InterestEntryDAO;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\controlledVocab\ControlledVocabEntryDAO;
 
@@ -150,50 +146,5 @@ class Repository
                 }
             }
         }
-    }
-
-    /**
-     * Update a user's set of interests
-     */
-    public function setUserInterests(array $interests, int $userId): void
-    {
-        $controlledVocab = Repo::controlledVocab()->build(
-            UserInterest::CONTROLLED_VOCAB_INTEREST
-        );
-
-        /** @var InterestEntryDAO $interestEntryDao */
-        $interestEntryDao = DAORegistry::getDAO('InterestEntryDAO');
-
-        DB::beginTransaction();
-
-        // Delete the existing interests association.
-        UserInterest::withUserId($userId)->delete();
-
-        collect($interests)
-            ->map(fn (string $interest): string => trim($interest))
-            ->unique()
-            ->each(function (string $interest) use ($controlledVocab, $interestEntryDao, $userId): void {
-                $interestEntry = $interestEntryDao->getBySetting(
-                    $interest,
-                    $controlledVocab->symbolic,
-                    $controlledVocab->assocId,
-                    $controlledVocab->assocType,
-                    $controlledVocab->symbolic
-                );
-
-                if (!$interestEntry) {
-                    $interestEntry = $interestEntryDao->newDataObject(); /** @var InterestEntry $interestEntry */
-                    $interestEntry->setInterest($interest);
-                    $interestEntry->setControlledVocabId($controlledVocab->id);
-                    $interestEntry->setId($interestEntryDao->insertObject($interestEntry));
-                }
-
-                UserInterest::create([
-                    'userId' => $userId,
-                    'controlledVocabEntryId' => $interestEntry->getId(),
-                ]);
-            });
-        
-        DB::commit();
     }
 }

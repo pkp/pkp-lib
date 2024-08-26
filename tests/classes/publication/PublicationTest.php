@@ -21,10 +21,6 @@ use APP\publication\DAO;
 use APP\publication\Publication;
 use PKP\citation\CitationDAO;
 use PKP\services\PKPSchemaService;
-use PKP\submission\SubmissionAgencyVocab;
-use PKP\submission\SubmissionDisciplineVocab;
-use PKP\submission\SubmissionKeywordVocab;
-use PKP\submission\SubmissionSubjectVocab;
 use PKP\tests\PKPTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 

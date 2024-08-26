@@ -20,14 +20,11 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use PKP\citation\CitationDAO;
+use PKP\controlledVocab\ControlledVocab;
 use PKP\db\DAORegistry;
 use PKP\filter\Filter;
 use PKP\filter\FilterGroup;
 use PKP\plugins\PluginRegistry;
-use PKP\submission\SubmissionKeywordVocab;
-use PKP\submission\SubmissionAgencyVocab;
-use PKP\submission\SubmissionDisciplineVocab;
-use PKP\submission\SubmissionSubjectVocab;
 
 class NativeXmlPKPPublicationFilter extends NativeImportFilter
 {
@@ -142,10 +139,9 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
         if (in_array($n->tagName, $setterMappings)) {
             $publication->setData($n->tagName, $value, $locale);
         } elseif (isset($controlledVocabulariesMappings[$n->tagName])) {
-            $controlledVocabulariesModel = $controlledVocabulariesMappings[$n->tagName][0];
-            $insertFunction = $controlledVocabulariesMappings[$n->tagName][1];
-
+            $symbolic = $controlledVocabulariesMappings[$n->tagName][0];
             $controlledVocabulary = [];
+            
             for ($nc = $n->firstChild; $nc !== null; $nc = $nc->nextSibling) {
                 if ($nc instanceof \DOMElement) {
                     $controlledVocabulary[] = $nc->textContent;
@@ -155,7 +151,13 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
             $controlledVocabulariesValues = [];
             $controlledVocabulariesValues[$locale] = $controlledVocabulary;
 
-            $controlledVocabulariesModel::$insertFunction($controlledVocabulariesValues, $publication->getId(), false);
+            Repo::controlledVocab()->insertBySymbolic(
+                $symbolic,
+                $controlledVocabulariesValues,
+                Application::ASSOC_TYPE_PUBLICATION,
+                $publication->getId(),
+                false
+            );
 
             $publicationNew = Repo::publication()->get($publication->getId());
             $publication->setData($n->tagName, $publicationNew->getData($n->tagName));
@@ -319,10 +321,10 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
     public function _getControlledVocabulariesMappings()
     {
         return [
-            'keywords' => [SubmissionKeywordVocab::class, 'insertKeywords'],
-            'agencies' => [SubmissionAgencyVocab::class, 'insertAgencies'],
-            'disciplines' => [SubmissionDisciplineVocab::class, 'insertDisciplines'],
-            'subjects' => [SubmissionSubjectVocab::class, 'insertSubjects'],
+            'keywords' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD],
+            'agencies' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY],
+            'disciplines' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE],
+            'subjects' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT],
         ];
     }
 

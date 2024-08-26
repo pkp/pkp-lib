@@ -3,13 +3,14 @@
 # Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022.
 # Piero Grandesso <piero.grandesso2@unibo.it>, 2024.
 # Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
+# Martina Marafioti <martina.marafioti3@unibo.it>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
 "PO-Revision-Date: 2024-08-27 05:40+0000\n"
-"Last-Translator: Gabriele Raimondi <gabriele.raimondi5@unibo.it>\n"
+"Last-Translator: Martina Marafioti <martina.marafioti3@unibo.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "it/>\n"
 "Language: it\n"
@@ -2019,9 +2020,9 @@ msgstr ""
 msgid "notification.unsubscribeNotifications.errorMessage"
 msgstr ""
 "Si è verificato un errore inaspettato e non siamo stati in grado di "
-"annullare l'iscrizione alle notifiche all'indirizzo email {$email}.  Puoi "
-"cancellarti da tutte le notifiche email nel tuo <a href="
-"\"{$profileNotificationUrl}\">profilo utente</a> o chiederci direttamente "
+"annullare l'iscrizione alle notifiche all'indirizzo email {$email}. Puoi "
+"cancellarti da tutte le notifiche email nel tuo <a href=\""
+"{$profileNotificationUrl}\">profilo utente</a> o chiederci direttamente "
 "aiuto."
 
 msgid "notification.unsubscribeNotifications"

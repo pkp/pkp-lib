@@ -17,7 +17,7 @@ namespace PKP\user;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\user\User;
-use PKP\user\UserInterest;
+use PKP\user\interest\UserInterest;
 
 class InterestManager
 {
@@ -26,7 +26,7 @@ class InterestManager
      */
     public function getAllInterests(?string $filter = null): array
     {
-        $interests = UserInterest::getAllInterests($filter);
+        $interests = Repo::userInterest()->getAllInterests($filter);
 
         $interestReturner = [];
         while ($interest = $interests->next()) {
@@ -46,7 +46,7 @@ class InterestManager
         $interestEntryDao = DAORegistry::getDAO('InterestEntryDAO'); /** @var InterestEntryDAO $interestEntryDao */
         $controlledVocab = Repo::controlledVocab()->build(UserInterest::CONTROLLED_VOCAB_INTEREST);
 
-        foreach (UserInterest::getUserInterestIds($user->getId()) as $interestEntryId) {
+        foreach (Repo::userInterest()->getUserInterestIds($user->getId()) as $interestEntryId) {
             /** @var InterestEntry */
             $interestEntry = $interestsCache[$interestEntryId] ??= $interestEntryDao->getById(
                 $interestEntryId,
@@ -79,7 +79,7 @@ class InterestManager
             ? $interests
             : (empty($interests) ? [] : explode(',', $interests));
 
-        Repo::controlledVocab()->setUserInterests($interests, $user->getId());
+        Repo::userInterest()->setUserInterests($interests, $user->getId());
     }
 }
 

@@ -23,18 +23,14 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\controlledVocab\ControlledVocab;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use PKP\submission\SubmissionAgencyVocab;
-use PKP\submission\SubmissionDisciplineVocab;
-use PKP\submission\SubmissionKeywordVocab;
-use PKP\submission\SubmissionSubjectVocab;
 
 class PKPVocabController extends PKPBaseController
 {
@@ -113,26 +109,13 @@ class PKPVocabController extends PKPBaseController
             ], Response::HTTP_BAD_REQUEST);
         }
 
-        switch ($vocab) {
-            case SubmissionKeywordVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD:
-                $submissionKeywordEntryDao = DAORegistry::getDAO('SubmissionKeywordEntryDAO'); /** @var \PKP\submission\SubmissionKeywordEntryDAO $submissionKeywordEntryDao */
-                $entries = $submissionKeywordEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
-                break;
-            case SubmissionSubjectVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT:
-                $submissionSubjectEntryDao = DAORegistry::getDAO('SubmissionSubjectEntryDAO'); /** @var \PKP\submission\SubmissionSubjectEntryDAO $submissionSubjectEntryDao */
-                $entries = $submissionSubjectEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
-                break;
-            case SubmissionDisciplineVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE:
-                $submissionDisciplineEntryDao = DAORegistry::getDAO('SubmissionDisciplineEntryDAO'); /** @var \PKP\submission\SubmissionDisciplineEntryDAO $submissionDisciplineEntryDao */
-                $entries = $submissionDisciplineEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
-                break;
-            case SubmissionAgencyVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY:
-                $submissionAgencyEntryDao = DAORegistry::getDAO('SubmissionAgencyEntryDAO'); /** @var \PKP\submission\SubmissionAgencyEntryDAO $submissionAgencyEntryDao */
-                $entries = $submissionAgencyEntryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
-                break;
-            default:
-                $entries = [];
-                Hook::call('API::vocabs::getMany', [$vocab, &$entries, $illuminateRequest, response(), $request]);
+        if (ControlledVocab::hasDefinedVocabSymbolic($vocab)) {
+            /** @var \PKP\controlledVocab\ControlledVocabEntryDAO $entryDao */
+            $entryDao = Repo::controlledVocab()->getEntryDaoBySymbolic($vocab);
+            $entries = $entryDao->getByContextId($vocab, $context->getId(), $locale, $term)->toArray();
+        } else {
+            $entries = [];
+            Hook::call('API::vocabs::getMany', [$vocab, &$entries, $illuminateRequest, response(), $request]);
         }
 
         $data = [];

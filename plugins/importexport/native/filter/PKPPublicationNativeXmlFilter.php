@@ -17,9 +17,11 @@
 namespace PKP\plugins\importexport\native\filter;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\plugins\importexport\native\NativeImportExportDeployment;
 use APP\publication\Publication;
 use Exception;
+use PKP\controlledVocab\ControlledVocab;
 use PKP\citation\CitationDAO;
 use PKP\db\DAORegistry;
 use PKP\filter\FilterGroup;
@@ -28,10 +30,6 @@ use PKP\plugins\PluginRegistry;
 use PKP\submission\PKPSubmission;
 use PKP\submission\Representation;
 use PKP\submission\RepresentationDAOInterface;
-use PKP\submission\SubmissionKeywordVocab;
-use PKP\submission\SubmissionAgencyVocab;
-use PKP\submission\SubmissionDisciplineVocab;
-use PKP\submission\SubmissionSubjectVocab;
 
 class PKPPublicationNativeXmlFilter extends NativeExportFilter
 {
@@ -220,10 +218,14 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
         $supportedLocales = $deployment->getContext()->getSupportedFormLocales();
         $controlledVocabulariesMapping = $this->_getControlledVocabulariesMappings();
         foreach ($controlledVocabulariesMapping as $controlledVocabulariesNodeName => $mappings) {
-            $vocabModel = $mappings[0];
-            $getFunction = $mappings[1];
-            $controlledVocabularyNodeName = $mappings[2];
-            $controlledVocabulary = $vocabModel::$getFunction($entity->getId(), $supportedLocales);
+            $symbolic = $mappings[0];
+            $controlledVocabularyNodeName = $mappings[1];
+            $controlledVocabulary = Repo::controlledVocab()->getBySymbolic(
+                $symbolic,
+                Application::ASSOC_TYPE_PUBLICATION,
+                $entity->getId(),
+                $supportedLocales
+            );
             $this->addControlledVocabulary($doc, $entityNode, $controlledVocabulariesNodeName, $controlledVocabularyNodeName, $controlledVocabulary);
         }
     }
@@ -308,10 +310,10 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
     public function _getControlledVocabulariesMappings()
     {
         return [
-            'keywords' => [SubmissionKeywordVocab::class, 'getKeywords', 'keyword'],
-            'agencies' => [SubmissionAgencyVocab::class, 'getAgencies', 'agency'],
-            'disciplines' => [SubmissionDisciplineVocab::class, 'getDisciplines', 'discipline'],
-            'subjects' => [SubmissionSubjectVocab::class, 'getSubjects', 'subject'],
+            'keywords' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, 'keyword'],
+            'agencies' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY, 'agency'],
+            'disciplines' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, 'discipline'],
+            'subjects' => [ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, 'subject'],
         ];
     }
 

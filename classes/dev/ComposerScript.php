@@ -104,7 +104,7 @@ class ComposerScript
             // jQuery UI
             if (!file_exists($vendorBaseDir . '/components/jqueryui')) {
                 if (!mkdir($vendorBaseDir . '/components/jqueryui', 0755, true)) {
-                    throw new Exception("Failed to create directory: {$vendorBaseDir}/jqueryui");
+                    throw new Exception("Failed to create directory: {$vendorBaseDir}/components/jqueryui");
                 }
             }
 

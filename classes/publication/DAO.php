@@ -14,19 +14,17 @@
 namespace PKP\publication;
 
 use APP\facades\Repo;
+use APP\core\Application;
 use APP\publication\Publication;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\citation\CitationDAO;
+use PKP\controlledVocab\ControlledVocab;
 use PKP\core\EntityDAO;
 use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
-use PKP\submission\SubmissionAgencyVocab;
-use PKP\submission\SubmissionDisciplineVocab;
-use PKP\submission\SubmissionKeywordVocab;
-use PKP\submission\SubmissionSubjectVocab;
 
 /**
  * @template T of Publication
@@ -348,10 +346,41 @@ class DAO extends EntityDAO
      */
     protected function setControlledVocab(Publication $publication)
     {
-        $publication->setData('keywords', SubmissionKeywordVocab::getKeywords($publication->getId()));
-        $publication->setData('subjects', SubmissionSubjectVocab::getSubjects($publication->getId()));
-        $publication->setData('disciplines', SubmissionDisciplineVocab::getDisciplines($publication->getId()));
-        $publication->setData('supportingAgencies', SubmissionAgencyVocab::getAgencies($publication->getId()));
+        $publication->setData(
+            'keywords',
+            Repo::controlledVocab()->getBySymbolic(
+                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
+                Application::ASSOC_TYPE_PUBLICATION,
+                $publication->getId()
+            )
+        );
+
+        $publication->setData(
+            'subjects',
+            Repo::controlledVocab()->getBySymbolic(
+                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
+                Application::ASSOC_TYPE_PUBLICATION,
+                $publication->getId()
+            )
+        );
+
+        $publication->setData(
+            'disciplines',
+            Repo::controlledVocab()->getBySymbolic(
+                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
+                Application::ASSOC_TYPE_PUBLICATION,
+                $publication->getId()
+            )
+        );
+
+        $publication->setData(
+            'supportingAgencies',
+            Repo::controlledVocab()->getBySymbolic(
+                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
+                Application::ASSOC_TYPE_PUBLICATION,
+                $publication->getId()
+            )
+        );
     }
 
     /**
@@ -389,10 +418,10 @@ class DAO extends EntityDAO
         // Update controlled vocabularly for which we have props
         foreach ($values as $prop => $value) {
             match ($prop) {
-                'keywords' => SubmissionKeywordVocab::insertKeywords($value, $publicationId),
-                'subjects' => SubmissionSubjectVocab::insertSubjects($value, $publicationId),
-                'disciplines' => SubmissionDisciplineVocab::insertDisciplines($value, $publicationId),
-                'supportingAgencies' => SubmissionAgencyVocab::insertAgencies($value, $publicationId),
+                'keywords' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId),
+                'subjects' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId),
+                'disciplines' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId),
+                'supportingAgencies' => Repo::controlledVocab()->insertBySymbolic(ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY, $value, Application::ASSOC_TYPE_PUBLICATION, $publicationId),
             };
         }
     }
@@ -402,10 +431,33 @@ class DAO extends EntityDAO
      */
     protected function deleteControlledVocab(int $publicationId)
     {
-        SubmissionKeywordVocab::insertKeywords([], $publicationId);
-        SubmissionSubjectVocab::insertSubjects([], $publicationId);
-        SubmissionDisciplineVocab::insertDisciplines([], $publicationId);
-        SubmissionAgencyVocab::insertAgencies([], $publicationId);
+        Repo::controlledVocab()->insertBySymbolic(
+            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+            [],
+            Application::ASSOC_TYPE_PUBLICATION,
+            $publicationId
+        );
+
+        Repo::controlledVocab()->insertBySymbolic(
+            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
+            [], 
+            Application::ASSOC_TYPE_PUBLICATION,
+            $publicationId
+        );
+
+        Repo::controlledVocab()->insertBySymbolic(
+            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
+            [], 
+            Application::ASSOC_TYPE_PUBLICATION,
+            $publicationId
+        );
+
+        Repo::controlledVocab()->insertBySymbolic(
+            ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
+            [], 
+            Application::ASSOC_TYPE_PUBLICATION,
+            $publicationId
+        );
     }
 
     /**

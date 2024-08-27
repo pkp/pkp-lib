@@ -74,7 +74,7 @@ class EditorialReminder extends Mailable
                 $this->context->getPath(),
                 'workflow',
                 'access',
-                $submission->getId()
+                [$submission->getId()]
             );
 
             $outstandingTasks[] = '

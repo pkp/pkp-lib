@@ -15,7 +15,6 @@
 
 namespace PKP\jobs\invitations;
 
-use APP\facades\Repo;
 use PKP\invitation\models\InvitationModel;
 use PKP\jobs\BaseJob;
 

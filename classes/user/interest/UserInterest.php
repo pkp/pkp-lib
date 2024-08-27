@@ -26,9 +26,25 @@ class UserInterest extends Model
 
     public const CONTROLLED_VOCAB_INTEREST = 'interest';
 
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     protected $table = 'user_interests';
+
+    /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
     protected $primaryKey = 'user_interest_id';
 
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array<string>|bool
+     */
     protected $guarded = [
         'user_interest_id',
     ];
@@ -40,6 +56,11 @@ class UserInterest extends Model
      */
     public $timestamps = false;
 
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
     protected function casts(): array
     {
         return [

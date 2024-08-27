@@ -349,7 +349,7 @@ class DAO extends EntityDAO
         $publication->setData(
             'keywords',
             Repo::controlledVocab()->getBySymbolic(
-                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
+                ControlledVocab::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
                 Application::ASSOC_TYPE_PUBLICATION,
                 $publication->getId()
             )

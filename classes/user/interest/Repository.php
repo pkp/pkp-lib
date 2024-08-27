@@ -9,10 +9,10 @@
  *
  * @class Repository
  *
- * @brief 
+ * @brief A repository to manage actions related to user interest
  */
 
- namespace PKP\user\interest;
+namespace PKP\user\interest;
 
 use APP\facades\Repo;
 use PKP\db\DAORegistry;

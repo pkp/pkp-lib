@@ -26,15 +26,34 @@ class ControlledVocab extends Model
 {
     use HasCamelCasing;
 
+    /**
+     * List of pre defined vocab symbolic as const in format of CONTROLLED_VOCAB_*
+     */
     public const CONTROLLED_VOCAB_SUBMISSION_AGENCY = 'submissionAgency';
     public const CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE = 'submissionDiscipline';
     public const CONTROLLED_VOCAB_SUBMISSION_KEYWORD = 'submissionKeyword';
     public const CONTROLLED_VOCAB_SUBMISSION_LANGUAGE = 'submissionLanguage';
     public const CONTROLLED_VOCAB_SUBMISSION_SUBJECT = 'submissionSubject';
 
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     protected $table = 'controlled_vocabs';
+
+    /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
     protected $primaryKey = 'controlled_vocab_id';
 
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array<string>|bool
+     */
     protected $guarded = [
         'controlled_vocab_id',
     ];
@@ -46,22 +65,11 @@ class ControlledVocab extends Model
      */
     public $timestamps = false;
 
-    public static function getDefinedVocabSymbolic(): array
-    {
-        return [
-            static::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
-            static::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
-            static::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
-            static::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE,
-            static::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
-        ];
-    }
-
-    public static function hasDefinedVocabSymbolic(string $vocab): bool
-    {
-        return in_array($vocab, static::getDefinedVocabSymbolic());
-    }
-
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
     protected function casts(): array
     {
         return [
@@ -82,6 +90,31 @@ class ControlledVocab extends Model
         );
     }
 
+    /**
+     * Get the list of pre defined vocab symbolics
+     */
+    public static function getDefinedVocabSymbolic(): array
+    {
+        return [
+            static::CONTROLLED_VOCAB_SUBMISSION_AGENCY,
+            static::CONTROLLED_VOCAB_SUBMISSION_DISCIPLINE,
+            static::CONTROLLED_VOCAB_SUBMISSION_KEYWORD,
+            static::CONTROLLED_VOCAB_SUBMISSION_LANGUAGE,
+            static::CONTROLLED_VOCAB_SUBMISSION_SUBJECT,
+        ];
+    }
+
+    /**
+     * Check if a provided vocab symbolic defined in pre defined symbolic list
+     */
+    public static function hasDefinedVocabSymbolic(string $vocab): bool
+    {
+        return in_array($vocab, static::getDefinedVocabSymbolic());
+    }
+
+    /**
+     * Get the locale field names for this controlled vocab
+     */
     public function getLocaleFieldNames(): array
     {
         if (!$this->symbolic) {
@@ -124,7 +157,6 @@ class ControlledVocab extends Model
     /**
      * Get a list of controlled vocabulary options.
      *
-     * @param string $settingName optional
      * @return array $controlledVocabEntryId => name
      */
     public function enumerate(string $settingName = 'name'): array

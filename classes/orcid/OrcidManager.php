@@ -20,7 +20,7 @@ use APP\facades\Repo;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\Core;
-use pkp\jobs\orcid\RevokeOrcidToken;
+use PKP\jobs\orcid\RevokeOrcidToken;
 use PKP\user\User;
 
 class OrcidManager

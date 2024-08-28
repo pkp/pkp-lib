@@ -25,6 +25,8 @@ use Firebase\JWT\SignatureInvalidException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use PKP\middleware\HasUser;
+use PKP\middleware\traits\HasRequiredMiddleware;
 use PKP\config\Config;
 use PKP\core\PKPJwt as JWT;
 use PKP\core\PKPSessionGuard;
@@ -35,6 +37,18 @@ use UnexpectedValueException;
 
 class DecodeApiTokenWithValidation
 {
+    use HasRequiredMiddleware;
+
+    /**
+     * @copydoc \PKP\middleware\traits\HasRequiredMiddleware::requiredMiddleware()
+     */
+    public function requiredMiddleware(): array
+    {
+        return [
+            HasUser::class,
+        ];
+    }
+    
     /**
      * Decode and validate the API token with incoming api request.
      *
@@ -44,15 +58,19 @@ class DecodeApiTokenWithValidation
      */
     public function handle(Request $request, Closure $next)
     {
+        // Set the default/initial user resolver
+        $this->setUserResolver($request);
+
+        if (!$this->hasRequiredMiddleware($request)) {
+            // Required middleware not attached to target routes, move to next
+            return $next($request);
+        }
+
         $jwtToken = $this->getApiToken($request);
 
         /* VALIDATIONS */
 
         if (!$jwtToken) {
-
-            // Set the user resolver
-            $this->setUserResolver($request);
-
             // there is nothing to decode or validate,
             // upto the auth layer to determine the how to handle
             return $next($request);
@@ -106,6 +124,7 @@ class DecodeApiTokenWithValidation
 
         /* ACTIONS */
 
+        // Update the user resolver
         $this->setUserResolver($request, $user);
 
         return $next($request);

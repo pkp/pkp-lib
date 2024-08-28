@@ -36,6 +36,9 @@
             {elseif $submissionNotPublished}
                 {translate key="orcid.verify.sendSubmissionToOrcid.notpublished"}
             {/if}
+            <span class='orcid-redirect'>
+                {translate key="orcid.verify.success.redirect" contextName=$contextName}
+            </span>
         {else}
             <div class="orcid-failure">
                 {if $orcidAPIError}
@@ -59,3 +62,11 @@
 </div>
 
 {include file="frontend/components/footer.tpl"}
+
+{if $verifySuccess}
+    <script type="text/javascript">
+			setTimeout(function() {
+				window.location.href = "{$currentUrl}";
+			}, 5000); // 5 seconds
+    </script>
+{/if}

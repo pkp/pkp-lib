@@ -635,6 +635,9 @@ msgstr "The submission will be added to your ORCID record during publication."
 msgid "orcid.verify.success"
 msgstr "Your ORCID iD has been verified and successfully associated with the submission."
 
+msgid "orcid.verify.success.redirect"
+msgstr "You will now be automatically directed back to {$contextName}."
+
 msgid "orcid.verify.failure"
 msgstr "Your ORCID iD could not be verified. The link is no longer valid."
 
@@ -766,7 +769,10 @@ msgid "orcid.field.verification.request"
 msgstr "Request verification"
 
 msgid "orcid.field.verification.requested"
-msgstr "Verification requested!"
+msgstr "ORCID Verification has been requested!"
+
+msgid "orcid.field.verification.resendRequest"
+msgstr "Resend Verification Email"
 
 msgid "orcid.field.authorEmailModal.title"
 msgstr "Request ORCID verification"

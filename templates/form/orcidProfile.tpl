@@ -12,32 +12,21 @@
 
 {capture name=orcidButton assign=orcidButton}
     <button id="connect-orcid-button" class="pkp_button" onclick="return openORCID();">
-        {if $orcid && $orcidAuthenticated }
-            {$orcidIcon}
-            {translate key='orcid.authorise'}
+        {if $orcid && !$orcidAuthenticated }
+            <div class="orcid_button_container">{$orcidIcon}{translate key='orcid.authorise'}</div>
         {else}
-            {translate key='orcid.connect'}
+            <div class="orcid_button_container">{$orcidIcon} {translate key='orcid.connect'}</div>
         {/if}
     </button>
-    <a href="{url router="page" page="orcid" op="about"}">{translate key='orcid.about.title'}</a>
+    <a href="{url router="page" page="orcid" op="about"}"> {translate key='orcid.about.title'}</a>
 {/capture}
 
 
 {capture name=orcidLink assign=orcidLink}
     {if $orcidAuthenticated}
-        <a href="{$orcid}" target="_blank" id='orcid-link' >{$orcidIcon}{$orcid}</a>
-        <style>
-            #orcid-link {
-                display: flex;
-                gap: 0.5rem;
-            }
-            #orcid-link svg {
-                width: 2rem;
-                height: 1.5rem;
-            }
-        </style>
+        <a href="{$orcid}" target="_blank" id='orcid-link'>{$orcidIcon}{$orcid}</a>
     {else}
-        <a href="{$orcid}" target="_blank">{$orcid}</a>&nbsp;{$orcidButton}
+        {$orcidButton}
     {/if}
 {/capture}
 
@@ -79,3 +68,8 @@
     {$orcidButton}
 {/if}
 
+<style>
+    .orcid_button_container {
+        padding:0.5rem;
+    }
+</style>

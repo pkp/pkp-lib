@@ -58,8 +58,9 @@ class UpdateSubmissionSearchJobTest extends PKPTestCase
 
         app()->instance(\APP\submission\Repository::class, $mock);
 
-        // Test that the job can be handled without causing an exception.
-        $this->assertNull($updateSubmissionSearchJob->handle());
+        $updateSubmissionSearchJob->handle();
+
+        $this->expectNotToPerformAssertions();
     }
 }
 

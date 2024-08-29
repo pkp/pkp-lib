@@ -144,6 +144,8 @@ class StatisticsReportMailTest extends PKPTestCase
         
         app()->instance(UserRepository::class, $userRepoMock);
 
-        $this->assertNull($statisticsReportMailJob->handle());
+        $statisticsReportMailJob->handle();
+
+        $this->expectNotToPerformAssertions();
     }
 }

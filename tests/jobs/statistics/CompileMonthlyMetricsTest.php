@@ -72,6 +72,8 @@ class CompileMonthlyMetricsTest extends PKPTestCase
         
         app()->instance('sushiStats', $statsSushiService);
 
-        $this->assertNull($compileMonthlyMetricsJob->handle());
+        $compileMonthlyMetricsJob->handle();
+
+        $this->expectNotToPerformAssertions();
     }
 }

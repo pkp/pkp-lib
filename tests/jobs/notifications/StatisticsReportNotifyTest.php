@@ -58,6 +58,8 @@ class StatisticsReportNotifyTest extends PKPTestCase
         
         app()->instance(UserRepository::class, $userRepoMock);
 
-        $this->assertNull($statisticsReportNotifyJob->handle());
+        $statisticsReportNotifyJob->handle();
+
+        $this->expectNotToPerformAssertions();
     }
 }

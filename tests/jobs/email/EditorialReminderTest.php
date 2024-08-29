@@ -208,6 +208,8 @@ class EditorialReminderTest extends PKPTestCase
 
         app()->instance(EmailTemplateRepository::class, $emailTemplateRepoMock);
 
-        $this->assertNull($editorialReminderJob->handle());
+        $editorialReminderJob->handle();
+
+        $this->expectNotToPerformAssertions();
     }
 }

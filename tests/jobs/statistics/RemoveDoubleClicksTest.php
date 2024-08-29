@@ -59,6 +59,8 @@ class RemoveDoubleClicksTest extends PKPTestCase
 
         DAORegistry::registerDAO('TemporaryTotalsDAO', $temporaryTotalsDAOMock);
 
-        $this->assertNull($removeDoubleClicksJob->handle());
+        $removeDoubleClicksJob->handle();
+
+        $this->expectNotToPerformAssertions();
     }
 }

@@ -79,6 +79,8 @@ class DepositContextTest extends PKPTestCase
 
         app()->instance(DoiRepository::class, $doiRepoMock);
 
-        $this->assertNull($depositContextJob->handle());
+        $depositContextJob->handle();
+
+        $this->expectNotToPerformAssertions();
     }
 }

@@ -102,6 +102,8 @@ class MetadataChangedJobTest extends PKPTestCase
         DAORegistry::registerDAO('MonographSearchDAO', $submissionSearchDAOMock);   // for OMP
         DAORegistry::registerDAO('PreprintSearchDAO', $submissionSearchDAOMock);    // for OPS
 
-        $this->assertNull($metadataChangedJob->handle());
+        $metadataChangedJob->handle();
+
+        $this->expectNotToPerformAssertions();
     }
 }

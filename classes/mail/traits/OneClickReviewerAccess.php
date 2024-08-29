@@ -32,10 +32,17 @@ trait OneClickReviewerAccess
         $reviewInvitation = new ReviewerAccessInvite();
         $reviewInvitation->initialize($reviewAssignment->getReviewerId(), $context->getId(), null);
 
-        $reviewInvitation->reviewAssignmentId = $reviewAssignment->getId();
-        $reviewInvitation->updatePayload();
+        $reviewInvitation->getSpecificPayload()->reviewAssignmentId = $reviewAssignment->getId();
 
-        $reviewInvitation->invite();
-        $reviewInvitation->updateMailableWithUrl($this);
+        $inviteResult = false;
+        $updateResult = $reviewInvitation->updatePayload();
+        if ($updateResult) {
+            $inviteResult = $reviewInvitation->invite();
+            $reviewInvitation->updateMailableWithUrl($this);
+        }
+
+        if (!$inviteResult) {
+            throw new \Exception('Invitation could be send');
+        }
     }
 }

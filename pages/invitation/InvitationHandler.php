@@ -20,7 +20,6 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
-use Exception;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\Invitation;
 

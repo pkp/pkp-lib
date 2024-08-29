@@ -64,7 +64,7 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
 
         $context = $request->getContext();
 
-        $contextId = 1;
+        $contextId = null;
         $locale = Locale::getLocale();
         $contactName = '';
         if (isset($context)) {

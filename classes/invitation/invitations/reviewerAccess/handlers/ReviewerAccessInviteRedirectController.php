@@ -37,7 +37,7 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
 
         $context = $request->getContext();
 
-        $reviewAssignment = Repo::reviewAssignment()->get($this->getInvitation()->reviewAssignmentId);
+        $reviewAssignment = Repo::reviewAssignment()->get($this->getInvitation()->getSpecificPayload()->reviewAssignmentId);
 
         if (!$reviewAssignment) {
             throw new Exception();
@@ -55,6 +55,8 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
                 'reviewId' => $reviewAssignment->getId(),
             ]
         );
+
+        $this->getInvitation()->finalize();
 
         $request->redirectUrl($url);
     }
@@ -78,15 +80,13 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
             ]
         );
 
+        $this->getInvitation()->decline();
+
         $request->redirectUrl($url);
     }
 
     public function preRedirectActions(InvitationAction $action)
     {
-        if ($action == InvitationAction::ACCEPT) {
-            $this->getInvitation()->finalize();
-        } elseif ($action == InvitationAction::DECLINE) {
-            $this->getInvitation()->decline();
-        }
+        return;
     }
 }

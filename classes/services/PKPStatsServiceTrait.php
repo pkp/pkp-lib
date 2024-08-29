@@ -20,6 +20,7 @@ use APP\core\Application;
 use PKP\core\PKPString;
 use PKP\plugins\Hook;
 use PKP\statistics\PKPStatisticsHelper;
+use PKP\facades\Locale;
 
 trait PKPStatsServiceTrait
 {
@@ -101,7 +102,7 @@ trait PKPStatsServiceTrait
         while ($startDate->format($dateFormat) <= $endDate->format($dateFormat)) {
             $timelineIntervals[] = [
                 'date' => $startDate->format($dateFormat),
-                'label' => date($labelFormat, $startDate->getTimestamp()),
+                'label' => (new \Carbon\Carbon($startDate->getTimestamp()))->locale(Locale::getLocale())->translatedFormat($labelFormat),
                 'value' => 0,
             ];
             $startDate->add(new \DateInterval($interval));

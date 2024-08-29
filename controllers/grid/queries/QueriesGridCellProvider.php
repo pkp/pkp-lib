@@ -26,6 +26,7 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\note\NoteDAO;
 use PKP\query\Query;
+use PKP\facades\Locale;
 
 class QueriesGridCellProvider extends DataObjectGridCellProvider
 {
@@ -81,12 +82,12 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
             case 'replies':
                 return ['label' => max(0, $notes->count() - 1)];
             case 'from':
-                return ['label' => ($user ? $user->getUsername() : '&mdash;') . '<br />' . ($headNote ? date($datetimeFormatShort, strtotime($headNote->getDateCreated())) : '')];
+                return ['label' => ($user ? $user->getUsername() : '&mdash;') . '<br />' . ($headNote ? (new \Carbon\Carbon($headNote->getDateCreated()))->locale(Locale::getLocale())->translatedFormat($datetimeFormatShort) : '')];
             case 'lastReply':
                 $latestReply = $notes->first();
                 if ($latestReply && $latestReply->getId() != $headNote->getId()) {
                     $repliedUser = $latestReply->getUser();
-                    return ['label' => ($repliedUser ? $repliedUser->getUsername() : '&mdash;') . '<br />' . date($datetimeFormatShort, strtotime($latestReply->getDateCreated()))];
+                    return ['label' => ($repliedUser ? $repliedUser->getUsername() : '&mdash;') . '<br />' . (new \Carbon\Carbon($latestReply->getDateCreated()))->locale(Locale::getLocale())->translatedFormat($datetimeFormatShort)];
                 } else {
                     return ['label' => '-'];
                 }

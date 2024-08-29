@@ -9,7 +9,7 @@
  *
  * @class HasRequiredMiddleware
  *
- * @brief Helper trait to find the required middleware attachments
+ * @brief Trait to find the required middleware attachments in a middleware
  */
 
 namespace PKP\middleware\traits;
@@ -56,10 +56,10 @@ trait HasRequiredMiddleware
         $router = app('router'); /** @var \Illuminate\Routing\Router $router */
         $routerMiddleware = $router->getMiddleware();
 
-        // need to replace the alish name with full class path
+        // need to replace the alias name with full class path
         $routeMiddleware = $routeMiddleware->map(function (string $middleware) use($routerMiddleware): string {
-            // extract the middleware class or alias name if in formar 
-            // as `has.roles:1|16|17` or `PKP\middleware\HasRoles:1|16|17`
+            // extract the middleware class or alias name if in format
+            // such as `has.roles:1|16|17` or `PKP\middleware\HasRoles:1|16|17`
             $middleware = array_shift(array_pad(explode(":", $middleware, 2), 2, []));
 
             if (class_exists($middleware)) {

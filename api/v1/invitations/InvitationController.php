@@ -28,6 +28,7 @@ use PKP\invitation\core\CreateInvitationController;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\core\traits\HasMailable;
+use PKP\invitation\invitations\userRoleAssignment\resources\UserRoleAssignmentInviteResource;
 use PKP\invitation\models\InvitationModel;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
@@ -300,13 +301,12 @@ class InvitationController extends PKPBaseController
 
         $finalCollection = $invitations->map(function ($invitation) {
             $specificInvitation = Repo::invitation()->getById($invitation->id);
-            $specificInvitation->fillCustomProperties();
             return $specificInvitation;
         });
 
         return response()->json([
             'itemsMax' => $maxCount,
-            'items' => $finalCollection,
+            'items' => (UserRoleAssignmentInviteResource::collection($finalCollection)),
         ], Response::HTTP_OK);
     }
 

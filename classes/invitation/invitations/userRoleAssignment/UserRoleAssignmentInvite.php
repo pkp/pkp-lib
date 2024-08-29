@@ -23,15 +23,17 @@ use PKP\invitation\core\CreateInvitationController;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
+use PKP\invitation\core\InvitePayload;
 use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\invitations\userRoleAssignment\handlers\api\UserRoleAssignmentCreateController;
 use PKP\invitation\invitations\userRoleAssignment\handlers\api\UserRoleAssignmentReceiveController;
 use PKP\invitation\invitations\userRoleAssignment\handlers\UserRoleAssignmentInviteRedirectController;
-use PKP\invitation\invitations\userRoleAssignment\payload\UserGroupPayload;
+use PKP\invitation\invitations\userRoleAssignment\payload\UserRoleAssignmentInvitePayload;
 use PKP\invitation\models\InvitationModel;
 use PKP\mail\mailables\UserRoleAssignmentInvitationNotify;
+use PKP\security\Validation;
 use PKP\userGroup\relationships\UserUserGroup;
 
 class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
@@ -51,23 +53,6 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         'username',
         'password'
     ];
-
-    public ?string $orcid = null;
-    public ?string $givenName = null;
-    public ?string $familyName = null;
-    public ?string $affiliation = null;
-    public ?string $country = null;
-
-    public ?string $username = null;
-    public ?string $password = null;
-
-    public ?string $emailSubject = null;
-    public ?string $emailBody = null;
-    public ?bool $existingUser = null;
-
-    public ?array $userGroupsToAdd = null;
-
-    public ?array $userGroupsToRemove = null;
 
     public static function getType(): string
     {
@@ -119,11 +104,11 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         $receiver = parent::getMailableReceiver($locale);
 
         if (isset($this->familyName)) {
-            $receiver->setFamilyName($this->familyName, $locale);
+            $receiver->setFamilyName($this->getSpecificPayload()->familyName, $locale);
         }
 
         if (isset($this->givenName)) {
-            $receiver->setGivenName($this->givenName, $locale);
+            $receiver->setGivenName($this->getSpecificPayload()->givenName, $locale);
         }
 
         return $receiver;
@@ -165,11 +150,28 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         return new UserRoleAssignmentReceiveController($invitation);
     }
 
-    public function getInviteValidationRules(): array
+    /**
+     * @inheritDoc
+     */
+    protected function createPayload(): InvitePayload
     {
-        return ['customValidation' => [
+        return new UserRoleAssignmentInvitePayload();
+    }
+
+    /**
+     * Access the UserRoleAssignmentInvitePayload properties.
+     */
+    public function getSpecificPayload(): UserRoleAssignmentInvitePayload
+    {
+        return $this->payload;
+    }
+
+    private function getInviteValidationRules(): array
+    {
+        return [
+            Invitation::VALIDATION_RULE_GENERIC => [
                 function ($attribute, $value, $fail) {
-                    if (empty($this->invitation->userGroupsToAdd) && empty($this->invitation->userGroupsToRemove)) {
+                    if (empty($this->getSpecificPayload()->userGroupsToAdd) && empty($this->getSpecificPayload()->userGroupsToRemove)) {
                         $fail(__('invitation.userRoleAssignment.validation.error.noUserGroupChanges'));
                     }
                 }
@@ -177,9 +179,10 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         ];
     }
 
-    public function getFinaliseValidationRules(): array
+    private function getFinaliseValidationRules(): array
     {
-        return ['customValidation' => [
+        return [
+            Invitation::VALIDATION_RULE_GENERIC => [
                 function ($attribute, $value, $fail) {
                     $userId = $this->getUserId();
 
@@ -210,8 +213,18 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         ];
     }
 
-    public function getValidationRules(string $validationContext = 'default'): array
+    public function getValidationRules(string $validationContext = Invitation::VALIDATION_CONTEXT_DEFAULT): array
     {
+        $validationRules = [];
+
+        if ($validationContext == self::VALIDATION_CONTEXT_INVITE) {
+            $validationRules = array_merge($validationRules, $this->getInviteValidationRules());
+        }
+
+        if ($validationContext == self::VALIDATION_CONTEXT_FINALIZE) {
+            $validationRules = array_merge($validationRules, $this->getFinaliseValidationRules());
+        }
+
         $commonRules = [
             'givenName' => [
                 'sometimes',
@@ -255,8 +268,10 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
             ],
         ];
 
+        $validationRules = array_merge($validationRules, $commonRules);
+
         if ($this->getStatus() == InvitationStatus::INITIALIZED) {
-            return array_merge($commonRules, [
+            $validationRules = array_merge($validationRules, [
                 'userGroupsToAdd' => [
                     'sometimes',
                     'array',
@@ -354,9 +369,8 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
                 ]
             ]);
         } elseif ($this->getStatus() == InvitationStatus::PENDING) {
-            return array_merge($commonRules, [
+            $validationRules = array_merge($validationRules, [
                 'username' => [
-                    'sometimes',
                     'required_with:password',
                     'string',
                     'max:32',
@@ -392,7 +406,6 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
                     'orcid'
                 ],
                 'password' => [
-                    'sometimes',
                     'required_with:username',
                     'string',
                     'max:255',
@@ -405,43 +418,48 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
             ]);
         }
 
-        return [];
+        return $validationRules;
+    }
+
+    protected function prepareValidationData(array $data, string $context = Invitation::VALIDATION_CONTEXT_DEFAULT): array
+    {
+        $data = $this->globalTraitValidationData($data, $context);
+
+        if ($context == Invitation::VALIDATION_CONTEXT_INVITE) {
+            $data = array_merge($data, [
+                'userGroupsToAdd' => $this->getSpecificPayload()->userGroupsToAdd,
+                'userGroupsToRemove' => $this->getSpecificPayload()->userGroupsToRemove,
+            ]);
+        } elseif ($context == Invitation::VALIDATION_CONTEXT_FINALIZE) {
+            $data['orcid'] = $this->getSpecificPayload()->orcid;
+
+            if (is_null($this->getUserId())) {
+                $data = array_merge($data, [
+                    'username' => $this->getSpecificPayload()->username,
+                    'password' => $this->getSpecificPayload()->password,
+                    'givenName' => $this->getSpecificPayload()->givenName,
+                    'familyName' => $this->getSpecificPayload()->familyName,
+                    'affiliation' => $this->getSpecificPayload()->affiliation,
+                    'country' => $this->getSpecificPayload()->country,
+                ]);
+            }
+        }
+
+        return $data;
     }
 
     /**
      * @inheritDoc
      */
-    public function validate(): bool
+    public function updatePayload(string $validationContext = Invitation::VALIDATION_CONTEXT_DEFAULT): ?bool
     {
-        return true;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function fillCustomProperties(): void
-    {
-        $this->fillInvitationWithUserGroups();
-    }
-
-    public function fillInvitationWithUserGroups(): void
-    {
-        if (isset($this->userGroupsToAdd)) {
-            $this->fillArrayWithUserGroups($this->userGroupsToAdd);
+        // Encrypt the password if it exists
+        // There is already a validation rule that makes username and password fields interconnected
+        if (isset($this->payload->username) && isset($this->payload->password)) {
+            $this->payload->password = Validation::encryptCredentials($this->payload->username, $this->payload->password);
         }
 
-        if (isset($this->userGroupsToRemove)) {
-            $this->fillArrayWithUserGroups($this->userGroupsToRemove);
-        }
-    }
-
-    private function fillArrayWithUserGroups(array &$userGroups): void
-    {
-        $userGroups = array_map(function ($userGroup) {
-            $userGroupPayload = UserGroupPayload::fromArray($userGroup);
-            $userGroupPayload->getUserGroupName();
-            $userGroup['userGroupPayload'] = $userGroupPayload;
-            return $userGroup;
-        }, $userGroups);
+        // Call the parent updatePayload method to continue the normal update process
+        return parent::updatePayload($validationContext);
     }
 }

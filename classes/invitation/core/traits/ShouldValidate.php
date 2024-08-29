@@ -14,29 +14,77 @@
 
 namespace PKP\invitation\core\traits;
 
+use Illuminate\Support\MessageBag;
+use Illuminate\Validation\Validator;
+use PKP\invitation\core\Invitation;
+use PKP\validation\ValidatorFactory;
+
 trait ShouldValidate
 {
-    private array $errors = [];
+    private ?Validator $validator = null;
 
-    abstract public function validate(): bool;
+    private array $globalTraitValidation = [
+        Invitation::VALIDATION_RULE_GENERIC => true
+    ];
+
+    /**
+     * Declares an array of validation rules to be applied to provided data.
+     */
+    abstract public function getValidationRules(string $context = Invitation::VALIDATION_CONTEXT_DEFAULT): array;
+
+    protected function globalTraitValidationData(array $data, string $context): array {
+        $data = array_merge($data, $this->globalTraitValidation);
+
+        return $data;
+    }
+
+    /**
+     * Optionally allows subclasses to modify or add more keys to the data array.
+     * This method can be overridden in classes using this trait.
+     */
+    protected function prepareValidationData(array $data, string $context = Invitation::VALIDATION_CONTEXT_DEFAULT): array
+    {
+        return $this->globalTraitValidationData($data, $context);
+    }
+
+    /**
+     * Checks the validity of the data provided against the provided rules.
+     * Returns true if everything is valid. 
+     */
+    public function validate(array $data = [], string $context = Invitation::VALIDATION_CONTEXT_DEFAULT): bool
+    {
+        $data = $this->prepareValidationData($data, $context);
+
+        // Check if $data contains any keys not present in $globalTraitValidation
+        $otherFields = array_diff(array_keys($data), array_keys($this->globalTraitValidation));
+
+        if (empty($otherFields)) {
+            $data = array_merge($data, get_object_vars($this->getSpecificPayload())); // Populate $data with all the properties of the current object
+        }
+
+        $rules = $this->getValidationRules($context);
+
+        $this->validator = ValidatorFactory::make(
+            $data,
+            $rules,
+            []
+        );
+
+        return $this->isValid();
+    }
 
     public function isValid(): bool
     {
-        return empty($this->errors);
+        return !$this->validator->fails();
     }
 
-    public function getErrors(): array
+    public function getErrors(): MessageBag
     {
-        return $this->errors;
+        return $this->validator->errors();
     }
 
-    protected function addError(string $field, string $error): void
+    public function getValidator(): Validator
     {
-        $this->errors[$field] = $error;
-    }
-
-    protected function clearErrors(): void
-    {
-        $this->errors = [];
+        return $this->validator;
     }
 }

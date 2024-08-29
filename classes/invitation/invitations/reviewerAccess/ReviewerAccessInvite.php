@@ -26,6 +26,7 @@ use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\invitations\reviewerAccess\handlers\ReviewerAccessInviteRedirectController;
+use PKP\invitation\invitations\reviewerAccess\payload\ReviewerAccessInvitePayload;
 use PKP\invitation\models\InvitationModel;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\security\Validation;
@@ -35,8 +36,6 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
     use ShouldValidate;
 
     public const INVITATION_TYPE = 'reviewerAccess';
-
-    public ?int $reviewAssignmentId = null;
 
     protected array $notAccessibleAfterInvite = [
         'reviewAssignmentId',
@@ -81,16 +80,6 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
 
     public function preInviteActions(): void
     {
-        if (!isset($this->reviewAssignmentId)) {
-            throw new Exception('The review assignment id should be declared before dispatch');
-        }
-
-        $reviewAssignment = Repo::reviewAssignment()->get($this->reviewAssignmentId);
-
-        if (!$reviewAssignment) {
-            throw new Exception('The review assignment ID does not correspond to a valid assignment');
-        }
-
         $pendingInvitations = InvitationModel::byStatus(InvitationStatus::PENDING)
             ->byType(self::INVITATION_TYPE)
             ->byContextId($this->invitationModel->contextId)
@@ -118,7 +107,7 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
 
     private function _validateAccessKey(): bool
     {
-        $reviewAssignment = Repo::reviewAssignment()->get($this->reviewAssignmentId);
+        $reviewAssignment = Repo::reviewAssignment()->get($this->getSpecificPayload()->reviewAssignmentId);
 
         if (!$reviewAssignment) {
             return false;
@@ -152,16 +141,43 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
         return new ReviewerAccessInviteRedirectController($this);
     }
 
-    public function validate(): bool
+    /**
+     * @inheritDoc
+     */
+    public function getValidationRules(string $context = self::VALIDATION_CONTEXT_DEFAULT): array 
     {
-        if (isset($this->reviewAssignmentId)) {
-            $reviewAssignment = Repo::reviewAssignment()->get($this->reviewAssignmentId);
+        return [
+            'reviewAssignmentId' => [
+                'required',
+                'integer',
+                function ($attribute, $value, $fail) {
+                    $reviewAssignment = Repo::reviewAssignment()->get($value);
 
-            if (!$reviewAssignment) {
-                $this->addError('reviewAssignmentId', 'The review assignment ID does not correspond to a valid assignment');
-            }
-        }
+                    if (!$reviewAssignment) {
+                        $fail(__('invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting', 
+                            [
+                                'reviewAssignmentId' => $value
+                            ])
+                        );
+                    }
+                }
+            ]
+        ];
+    }
 
-        return $this->isValid();
+    /**
+     * @inheritDoc
+     */
+    protected function createPayload(): ReviewerAccessInvitePayload
+    {
+        return new ReviewerAccessInvitePayload();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getSpecificPayload(): ReviewerAccessInvitePayload 
+    {
+        return $this->payload;
     }
 }

@@ -79,6 +79,5 @@ msgstr "The {$attribute} field is required."
 msgid "invitation.userRoleAssignment.validation.error.userRoles.unexpectedProperties"
 msgstr "Unexpected properties found in the item at index {$attribute}: {$properties}."
 
-
-
-
+msgid "invitation.reviewerAccess.validation.error.reviewAssignmentId.notExisting"
+msgstr "The id {reviewAssignmentId} does not correspond to a valid review assignment"

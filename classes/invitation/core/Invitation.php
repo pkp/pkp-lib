@@ -31,17 +31,25 @@ use PKP\invitation\models\InvitationModel;
 use PKP\pages\invitation\InvitationHandler;
 use PKP\security\Validation;
 use PKP\user\User;
-use ReflectionClass;
-use ReflectionProperty;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 abstract class Invitation
 {
+    public const VALIDATION_CONTEXT_DEFAULT = 'default';
+    public const VALIDATION_CONTEXT_INVITE = 'invite';
+    public const VALIDATION_CONTEXT_FINALIZE = 'finalize';
+    public const VALIDATION_CONTEXT_POPULATE = 'populate';
+    public const VALIDATION_CONTEXT_REFINE = 'refine';
+
+    public const VALIDATION_RULE_GENERIC = 'generic_validation_rule';
+
     public const DEFAULT_EXPIRY_DAYS = 3;
 
     private ?string $key = null;
 
     public InvitationModel $invitationModel;
+
+    public InvitePayload $payload;
 
     /**
      * The properties of the invitation that are added here should not change
@@ -74,6 +82,16 @@ abstract class Invitation
      * urls send to the invitee's email
      */
     abstract public function getInvitationActionRedirectController(): ?InvitationActionRedirectController;
+
+    /**
+     * Create and return a specific payload instance for the child class.
+     */
+    abstract protected function createPayload(): InvitePayload;
+
+    /**
+     * Get the specific payload instance for the child class.
+     */
+    abstract public function getSpecificPayload(): InvitePayload;
 
     /**
      * This is used during every populate call so that the code can use the currenlty processing properties.
@@ -119,6 +137,8 @@ abstract class Invitation
 
         $this->invitationModel->status = InvitationStatus::INITIALIZED;
 
+        $this->invitationModel->payload = $this->payload;
+
         $this->invitationModel->save();
     }
 
@@ -127,85 +147,102 @@ abstract class Invitation
      */
     protected function fillFromPayload(): void
     {
+        $payloadClass = $this->createPayload();
+        $this->payload = $payloadClass;
+
         if ($this->invitationModel->payload) {
-            foreach ($this->invitationModel->payload as $key => $value) {
-                if (property_exists($this, $key)) {
-                    $this->{$key} = $value;
-                }
-            }
+            $this->payload = $payloadClass::fromArray(
+                $this->invitationModel->payload
+            );
         }
     }
 
     /**
-     * Use that when you have an array of values that the invitation needs to fill its 
-     * properties with. 
+     * Validates the incoming data given the validation context if necessary,
+     * and fills the invitation payload with the given data.
      */
-    public function fillFromArgs(array $args): void
+    public function fillFromData(array $data): bool
     {
-        foreach ($args as $propName => $value) {
-            if ($this->getStatus() == InvitationStatus::INITIALIZED) {
-                if (in_array($propName, $this->notAccessibleBeforeInvite)) {
-                    continue;
-                }
-            } elseif ($this->getStatus() == InvitationStatus::PENDING) {
-                if (in_array($propName, $this->notAccessibleAfterInvite)) {
-                    continue;
-                }
-            } else {
-                throw new Exception('You can not modify the Invitation in this stage');
-            }
-
-            if ($propName !== 'invitationModel' && property_exists($this, $propName)) {
-                $this->currentlyFilledFromArgs[] = $propName;
-
-                $this->{$propName} = $value;
-            }
-        }
-    }
-
-    /**
-     * Saves the payload to the database, after it passes a sanity check 
-     */
-    public function updatePayload(): ?bool
-    {
-        $payload = $this->invitationModel->payload ?: [];
-
-        $payloadAccessibleProperties = $this->getPayloadAccessibleProperties();
-        if (!empty($payloadAccessibleProperties)) {
-            foreach ($payloadAccessibleProperties as $payloadAccessibleProperty) {
-                if ($propName !== 'invitationModel' && property_exists($this, $payloadAccessibleProperty)) {
-                    $payload[$payloadAccessibleProperty] = $this->{$payloadAccessibleProperty};
-                }
-            }
+        // Determine the properties that are not allowed to be changed based on the current status
+        $checkArray = [];
+        if ($this->getStatus() == InvitationStatus::INITIALIZED) {
+            $checkArray = $this->getNotAccessibleBeforeInvite();
+        } elseif ($this->getStatus() == InvitationStatus::PENDING) {
+            $checkArray = $this->getNotAccessibleAfterInvite();
         } else {
-            // Create a ReflectionClass instance for the current object
-            $reflection = new ReflectionClass($this);
+            throw new Exception('You cannot modify the Invitation in this stage.');
+        }
 
-            // Get public properties only
-            $properties = $reflection->getProperties(ReflectionProperty::IS_PUBLIC);
+        // Filter out the properties that are not allowed to change
+        $filteredArgs = array_diff_key($data, array_flip($checkArray));
 
-            foreach ($properties as $property) {
-                $propName = $property->getName();
+        // Convert the existing payload to an array
+        $existingData = $this->payload->toArray();
 
-                if ($propName !== 'invitationModel' && property_exists($this, $propName)) {
-                    // if the initial payload does not have the specific property name, and no value is set 
-                    // currently for that property name, don't add the property to the payload
-                    if ((!isset($this->invitationModel->payload) || !array_key_exists($propName, $this->invitationModel->payload)) && !isset($this->{$propName})) {
-                        continue;
-                    }
+        // Merge existing payload data with the filtered arguments
+        $mergedData = array_merge($existingData, $filteredArgs);
 
-                    $payload[$propName] = $this->{$propName};
-                }
+        // Update the payload with the filtered arguments using fromArray
+        $payloadClass = $this->createPayload();
+        $this->payload = $payloadClass::fromArray($mergedData);
+
+        // Track which properties have been updated
+        $this->currentlyFilledFromArgs = array_keys($filteredArgs);
+
+        return true;
+    }
+
+    /**
+     * Saves the payload to the database, after it passes a sanity check
+     * Returns: True : if database update SUCCEEDED or if there is nothing to update
+     *          False: if database update FAILED
+     *          null : if invitation validation failed for properties
+     */
+    public function updatePayload(string $validationContext = Invitation::VALIDATION_CONTEXT_DEFAULT): ?bool
+    {
+        // Convert the current payload object to an array
+        $currentPayloadArray = $this->payload->toArray();
+
+        // Get the existing payload from the database
+        $existingPayloadArray = $this->invitationModel->payload ?? [];
+
+        // Compare the current payload with the existing one
+        $changedData = $this->array_diff_assoc_recursive($currentPayloadArray, $existingPayloadArray);
+
+        // If no changes are detected, return true (no need to update)
+        if (empty($changedData)) {
+            return true;
+        }
+
+        // Determine which properties are not allowed to be changed based on the current status
+         $checkArray = [];
+        if ($this->getStatus() == InvitationStatus::INITIALIZED) {
+            $checkArray = $this->getNotAccessibleBeforeInvite();
+        } elseif ($this->getStatus() == InvitationStatus::PENDING) {
+            $checkArray = $this->getNotAccessibleAfterInvite();
+        } else {
+            throw new Exception('You cannot modify the Invitation in this stage');
+        }
+
+        // Filter out the changes that are not allowed based on the current status
+        $invalidChanges = array_intersect_key($changedData, array_flip($checkArray));
+
+        if (!empty($invalidChanges)) {
+            // Throw an exception or handle the error if there are invalid changes
+            throw new Exception('The following properties cannot be modified at this stage: ' . implode(', ', array_keys($invalidChanges)));
+        }
+
+        // Validate only the changed data if the ShouldValidate trait is used
+        if (in_array(ShouldValidate::class, class_uses($this))) {
+            if (!$this->validate($changedData, $validationContext)) {
+                return null; // Validation failed
             }
         }
 
-        if (!$this->checkPayloadIntegrity($this->invitationModel->payload ?? [], $payload)) {
-            return null;
-        }
+        // Update the payload attribute on the invitation model
+        $this->invitationModel->setAttribute('payload', $currentPayloadArray);
 
-        // Update the payload attribute on the invitation
-        $this->invitationModel->setAttribute('payload', $payload);
-
+        // Save the updated invitation model to the database
         return $this->invitationModel->save();
     }
 
@@ -262,13 +299,13 @@ abstract class Invitation
             throw new Exception('The invitation can not be dispatched');
         }
 
-        $this->preInviteActions();
-
         if (in_array(ShouldValidate::class, class_uses($this))) {
-            if (!$this->isValid()) {
+            if (!$this->validate([], self::VALIDATION_CONTEXT_INVITE)) {
                 return false;
             }
         }
+
+        $this->preInviteActions();
 
         $this->checkForKey();
 
@@ -390,48 +427,6 @@ abstract class Invitation
         return InvitationHandler::getActionUrl($invitationAction, $this);
     }
 
-    /**
-     * Checks the payload integrity.
-     * - Whether a property that should not change in this stage, is changed.
-     * - Whether the value of the properties are valid.
-     */
-    public function checkPayloadIntegrity(array $initialPayload, array $modifiedPayload): bool
-    {
-        $checkArray = null;
-
-        if ($this->getStatus() == InvitationStatus::INITIALIZED) {
-            $checkArray = $this->getNotAccessibleBeforeInvite();
-        } elseif ($this->getStatus() == InvitationStatus::PENDING) {
-            $checkArray = $this->getNotAccessibleAfterInvite();
-        } else {
-            throw new Exception('You can not modify the Invitation in this stage');
-        }
-
-        foreach ($modifiedPayload as $key => $value) {
-            // Check if the key exists in the initial payload
-            if (!array_key_exists($key, $initialPayload)) {
-                // Key does not exist in initial, so this is a modification
-                if (in_array($key, $checkArray)) {
-                    throw new Exception('The property ' . $key . ' can not be modified in this stage');
-                }
-            }
-
-            // The key exists; now compare values
-            if ($initialPayload[$key] !== $value) {
-                // Different value detected, this is a modification
-                if (in_array($key, $checkArray)) {
-                    throw new Exception('The property ' . $key . ' can not be modified in this stage');
-                }
-            }
-        }
-
-        if (in_array(ShouldValidate::class, class_uses($this))) {
-            return $this->validate();
-        }
-
-        return true;
-    }
-
     public function decline(): void
     {
         $this->invitationModel->markAs(InvitationStatus::DECLINED);
@@ -440,17 +435,6 @@ abstract class Invitation
     protected function getExpiryDays(): int
     {
         return (int) Config::getVar('invitations', 'expiration_days', self::DEFAULT_EXPIRY_DAYS);
-    }
-
-    /**
-     * this function is overriden by custom invitations if necessary
-     * so that properties of the invitation are filled before returning 
-     * the invitation object to the code.
-     * Used in InvitationFactory::getExisting.
-     */
-    public function fillCustomProperties(): void
-    {
-        return;
     }
 
     public function getUserId(): ?int
@@ -466,5 +450,30 @@ abstract class Invitation
     public function getEmail(): ?string
     {
         return $this->invitationModel->email;
+    }
+
+    protected function array_diff_assoc_recursive($array1, $array2) 
+    {
+        $difference = [];
+
+        foreach ($array1 as $key => $value) {
+            if (is_array($value)) {
+                if (!isset($array2[$key]) || !is_array($array2[$key])) {
+                    // If $array2 doesn't have the key or the corresponding value isn't an array
+                    $difference[$key] = $value;
+                } else {
+                    // Recursively call the function
+                    $new_diff = $this->array_diff_assoc_recursive($value, $array2[$key]);
+                    if (!empty($new_diff)) {
+                        $difference[$key] = $new_diff;
+                    }
+                }
+            } elseif (!array_key_exists($key, $array2) || $array2[$key] !== $value) {
+                // If $array2 doesn't have the key or the values don't match
+                $difference[$key] = $value;
+            }
+        }
+
+        return $difference;
     }
 }

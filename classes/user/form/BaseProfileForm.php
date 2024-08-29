@@ -72,11 +72,17 @@ abstract class BaseProfileForm extends Form
 
             $invite->initialize($user->getId());
 
-            $invite->newEmail = $functionArgs['emailUpdated'];
+            $invite->getSpecificPayload()->newEmail = $functionArgs['emailUpdated'];
 
-            $invite->updatePayload();
+            $inviteResult = false;
+            $updateResult = $invite->updatePayload();
+            if ($updateResult) {
+                $inviteResult = $invite->invite();
+            }
 
-            $invite->invite();
+            if (!$inviteResult) {
+                throw new \Exception('Invitation could be send');
+            }
         }
     }
 }

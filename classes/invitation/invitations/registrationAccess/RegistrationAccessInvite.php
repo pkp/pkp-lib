@@ -20,6 +20,7 @@ use Illuminate\Mail\Mailable;
 use PKP\core\Core;
 use PKP\invitation\core\contracts\IBackofficeHandleable;
 use PKP\invitation\core\contracts\IMailableUrlUpdateable;
+use PKP\invitation\core\EmptyInvitePayload;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
@@ -94,5 +95,21 @@ class RegistrationAccessInvite extends Invitation implements IBackofficeHandleab
     public function getInvitationActionRedirectController(): ?InvitationActionRedirectController
     {
         return new RegistrationAccessInviteRedirectController($this);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected function createPayload(): EmptyInvitePayload
+    {
+        return new EmptyInvitePayload();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getSpecificPayload(): EmptyInvitePayload 
+    {
+        return $this->payload;
     }
 }

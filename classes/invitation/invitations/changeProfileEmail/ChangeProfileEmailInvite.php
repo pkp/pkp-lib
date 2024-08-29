@@ -27,6 +27,7 @@ use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\core\traits\HasMailable;
 use PKP\invitation\core\traits\ShouldValidate;
 use PKP\invitation\invitations\changeProfileEmail\handlers\ChangeProfileEmailInviteRedirectController;
+use PKP\invitation\invitations\changeProfileEmail\payload\ChangeProfileEmailInvitePayload;
 use PKP\invitation\models\InvitationModel;
 use PKP\mail\mailables\ChangeProfileEmailInvitationNotify;
 
@@ -36,8 +37,6 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
     use ShouldValidate;
 
     public const INVITATION_TYPE = 'changeProfileEmail';
-
-    public $newEmail = null;
 
     protected array $notAccessibleAfterInvite = [
         'newEmail',
@@ -92,7 +91,7 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
             return [
                 'acceptInvitationUrl' => $acceptUrl,
                 'declineInvitationUrl' => $declineUrl,
-                'newEmail' => $this->newEmail,
+                'newEmail' => $this->getSpecificPayload()->newEmail,
                 'siteContactName' => $contactName
             ];
         });
@@ -103,14 +102,14 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
     protected function preInviteActions(): void
     {
         // Check if everything is in order regarding the properties
-        if (!isset($this->newEmail)) {
+        if (!isset($this->getSpecificPayload()->newEmail)) {
             throw new Exception('The invitation can not be dispatched because the email property is missing');
         }
 
         // Invalidate any other related invitation
         $pendingInvitations = InvitationModel::byStatus(InvitationStatus::PENDING)
             ->byType(self::INVITATION_TYPE)
-            ->byUserId($this->invitationModel->userId)
+            ->byUserId($this->getUserId())
             ->get();
 
         foreach($pendingInvitations as $pendingInvitation) {
@@ -120,13 +119,13 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
 
     public function finalize(): void
     {
-        $user = Repo::user()->get($this->invitationModel->userId);
+        $user = Repo::user()->get($this->getUserId());
 
         if (!$user) {
             throw new Exception();
         }
 
-        $user->setEmail($this->newEmail);
+        $user->setEmail($this->getSpecificPayload()->newEmail);
 
         Repo::user()->edit($user);
 
@@ -138,14 +137,29 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
         return new ChangeProfileEmailInviteRedirectController($this);
     }
 
-    public function validate(): bool
+    /**
+     * @inheritDoc
+     */
+    protected function createPayload(): ChangeProfileEmailInvitePayload
     {
-        if ($this->newEmail) {
-            if (filter_var($this->newEmail, FILTER_VALIDATE_EMAIL) == false) {
-                $this->addError('newEmail', 'The provided email is not in the correct form');
-            }
-        }
+        return new ChangeProfileEmailInvitePayload();
+    }
 
-        return $this->isValid();
+    /**
+     * @inheritDoc
+     */
+    public function getSpecificPayload(): ChangeProfileEmailInvitePayload
+    {
+        return $this->payload;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getValidationRules(string $context = self::VALIDATION_CONTEXT_DEFAULT): array 
+    {
+        return [
+            'newEmail' => 'required|email',
+        ];
     }
 }

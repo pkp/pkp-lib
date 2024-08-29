@@ -19,7 +19,7 @@ use PKP\context\Context;
 use PKP\core\Core;
 use PKP\facades\Locale;
 use PKP\invitation\core\enums\InvitationAction;
-use PKP\invitation\invitations\userRoleAssignment\payload\UserGroupPayload;
+use PKP\invitation\invitations\userRoleAssignment\helpers\UserGroupHelper;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
@@ -95,9 +95,9 @@ class UserRoleAssignmentInvitationNotify extends Mailable
         $count = 1;
         foreach ($userUserGroups as $userUserGroup) {
             if ($userUserGroup instanceof UserUserGroup) {
-                $userGroupPayload = UserGroupPayload::fromUserUserGroup($userUserGroup);
+                $userGroupHelper = UserGroupHelper::fromUserUserGroup($userUserGroup);
             } else {
-                $userGroupPayload = UserGroupPayload::fromArray($userUserGroup);
+                $userGroupHelper = UserGroupHelper::fromArray($userUserGroup);
             }
             
             if ($count == 1) {
@@ -106,10 +106,10 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
             $userGroupToUse = $userGroup;
             if (!isset($userGroupToUse)) {
-                $userGroupToUse = Repo::userGroup()->get($userGroupPayload->userGroupId);
+                $userGroupToUse = Repo::userGroup()->get($userGroupHelper->userGroupId);
             }
 
-            $userGroupSection = $this->getUserUserGroupSection($userGroupPayload, $userGroupToUse, $context, $count, $locale);
+            $userGroupSection = $this->getUserUserGroupSection($userGroupHelper, $userGroupToUse, $context, $count, $locale);
 
             $retString .= $userGroupSection;
 
@@ -119,7 +119,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
         return $retString;
     }
 
-    private function getUserUserGroupSection(UserGroupPayload $userUserGroup, UserGroup $userGroup, Context $context, int  $count, string $locale): string 
+    private function getUserUserGroupSection(UserGroupHelper $userUserGroup, UserGroup $userGroup, Context $context, int  $count, string $locale): string 
     {
         $sectionEndingDate = '';
         if (isset($userUserGroup->dateEnd)) {
@@ -179,7 +179,7 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
         // Roles Added
         $userGroupsAddedTitle = __('emails.userRoleAssignmentInvitationNotify.newlyAssignedRoles');
-        $userGroupsAdded = $this->getAllUserUserGroupSection($this->invitation->userGroupsToAdd, null, $context, $locale, $userGroupsAddedTitle);
+        $userGroupsAdded = $this->getAllUserUserGroupSection($this->invitation->getSpecificPayload()->userGroupsToAdd, null, $context, $locale, $userGroupsAddedTitle);
 
 
         $existingUserGroupsTitle = __('emails.userRoleAssignmentInvitationNotify.alreadyAssignedRoles');
@@ -189,10 +189,10 @@ class UserRoleAssignmentInvitationNotify extends Mailable
 
         if (isset($user)) {
             // Roles Removed
-            foreach ($this->invitation->userGroupsToRemove as $userUserGroup) {
-                $userGroupPayload = UserGroupPayload::fromArray($userUserGroup);
+            foreach ($this->invitation->getSpecificPayload()->userGroupsToRemove as $userUserGroup) {
+                $userGroupHelper = UserGroupHelper::fromArray($userUserGroup);
                 
-                $userGroup = Repo::userGroup()->get($userGroupPayload->userGroupId);
+                $userGroup = Repo::userGroup()->get($userGroupHelper->userGroupId);
                 $userUserGroups = UserUserGroup::withUserId($user->getId())
                     ->withUserGroupId($userGroup->getId())
                     ->get();

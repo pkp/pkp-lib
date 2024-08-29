@@ -1,25 +1,25 @@
 <?php
 
 /**
- * @file classes/invitation/invitations/userRoleAssignment/payload/UserGroupPayload.php
+ * @file classes/invitation/invitations/userRoleAssignment/helpers/UserGroupHelper.php
  *
  * Copyright (c) 2024 Simon Fraser University
  * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class UserGroupPayload
+ * @class UserGroupHelper
  *
  * @brief A helper object for UserGroup assignment data storage
  */
 
-namespace PKP\invitation\invitations\userRoleAssignment\payload;
+namespace PKP\invitation\invitations\userRoleAssignment\helpers;
 
 use APP\facades\Repo;
 use PKP\userGroup\relationships\UserUserGroup;
 use PKP\userGroup\UserGroup;
 
 
-class UserGroupPayload
+class UserGroupHelper
 {
     public ?UserGroup $userGroup;
 
@@ -30,7 +30,7 @@ class UserGroupPayload
         public ?string $dateEnd = null) {
     }
 
-    public function getUserGroupName()
+    public function getUserGroup()
     {
         $this->userGroup = Repo::userGroup()->get($this->userGroupId);
     }

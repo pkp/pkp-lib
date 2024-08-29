@@ -13,17 +13,17 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\handlers\api;
 
-use APP\facades\Repo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
 use PKP\invitation\core\CreateInvitationController;
+use PKP\invitation\core\Invitation;
+use PKP\invitation\invitations\userRoleAssignment\resources\UserRoleAssignmentInviteResource;
 use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
-use PKP\validation\ValidatorFactory;
 
 class UserRoleAssignmentCreateController extends CreateInvitationController
 {
@@ -71,28 +71,28 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
         $reqInput = $illuminateRequest->all();
         $payload = $reqInput['invitationData'];
 
-        $rules = $this->invitation->getValidationRules('populate');
-
-        // Perform validation
-        $validator = ValidatorFactory::make(
-            $payload,
-            $rules,
-            []
-        );
-
-        if ($validator->fails()) {
+        if (!$this->invitation->validate($payload, Invitation::VALIDATION_CONTEXT_INVITE)) {
             return response()->json([
-                'errors' => $validator->errors()
+                'errors' => $this->invitation->getErrors()
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        $this->invitation->fillFromArgs($payload);
+        $this->invitation->fillFromData($payload);
 
-        $this->invitation->updatePayload();
+        $updateResult = $this->invitation->updatePayload(Invitation::VALIDATION_CONTEXT_POPULATE);
+
+        if (is_null($updateResult)) { // Validation Error
+            return response()->json([
+                'errors' => $this->invitation->getErrors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
         // Here we should consider returning a certain json taken from the custom invitation
         // in order to be able to fully control the response
-        return response()->json($this->invitation, Response::HTTP_OK);
+        return response()->json(
+            (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest),
+            Response::HTTP_OK
+        );
     }
     
     /**
@@ -101,7 +101,8 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
     public function get(Request $illuminateRequest): JsonResponse 
     {
         return response()->json(
-            $this->invitation, Response::HTTP_OK
+            (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest),
+            Response::HTTP_OK
         );
     }
     
@@ -110,28 +111,16 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
      */
     public function invite(Request $illuminateRequest): JsonResponse 
     {
-        $data = [
-            'userGroupsToAdd' => $this->invitation->userGroupsToAdd,
-            'userGroupsToRemove' => $this->invitation->userGroupsToRemove,
-        ];
-
-        $rules = $this->invitation->getValidationRules();
-        $inviteRules = $this->invitation->getInviteValidationRules();
-
-        $rules = array_merge($rules, $inviteRules);
-
-        $validator = ValidatorFactory::make($data, $rules);
-
-        if ($validator->fails()) {
+        if (!$this->invitation->validate([], Invitation::VALIDATION_CONTEXT_INVITE)) {
             return response()->json([
-                'errors' => $validator->errors()
+                'errors' => $this->invitation->getErrors()
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
         $this->invitation->invite();
 
         return response()->json(
-            $this->invitation, 
+            (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest), 
             Response::HTTP_OK
         );
     }

@@ -59,6 +59,8 @@ class CompileContextMetricsTest extends PKPTestCase
 
         DAORegistry::registerDAO('TemporaryTotalsDAO', $temporaryTotalsDAOMock);
 
-        $this->assertNull($compileContextMetricsJob->handle());
+        $compileContextMetricsJob->handle();
+
+        $this->expectNotToPerformAssertions();
     }
 }

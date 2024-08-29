@@ -121,6 +121,8 @@ class NewAnnouncementNotifyUsersTest extends PKPTestCase
         
         app()->instance(UserRepository::class, $userRepoMock);
 
-        $this->assertNull($newAnnouncementNotifyUsersJob->handle());
+        $newAnnouncementNotifyUsersJob->handle();
+        
+        $this->expectNotToPerformAssertions();
     }
 }

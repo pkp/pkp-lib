@@ -47,8 +47,9 @@ class RemoveExpiredInvitationsJobTest extends PKPTestCase
         /** @var RemoveExpiredInvitationsJob $removeExpiredInvitationsJob */
         $removeExpiredInvitationsJob = unserialize($this->serializedJobData);
 
-        // Test that the job can be handled without causing an exception.
-        $this->assertNull($removeExpiredInvitationsJob->handle());
+        $removeExpiredInvitationsJob->handle();
+
+        $this->expectNotToPerformAssertions();
     }
 }
 

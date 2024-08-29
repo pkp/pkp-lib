@@ -58,7 +58,7 @@ class ArchiveUsageStatsLogFileTest extends PKPTestCase
         // we need to create a dummy file if not existed as to avoid mocking PHP's built in functions
         $dummyFileName = $this->createDummyFileIfNeeded($archiveUsageStatsLogFileJob, 'loadId');
 
-        $this->assertNull($archiveUsageStatsLogFileJob->handle());
+        $archiveUsageStatsLogFileJob->handle();
 
         if ($dummyFileName) {
             unlink(
@@ -69,6 +69,8 @@ class ArchiveUsageStatsLogFileTest extends PKPTestCase
                     .$dummyFileName
             );
         }
+
+        $this->expectNotToPerformAssertions();
     }
 
     /**

@@ -59,8 +59,9 @@ class RemoveSubmissionFileFromSearchIndexJobTest extends PKPTestCase
         DAORegistry::registerDAO('MonographSearchDAO', $submissionSearchDAOMock);   // for OMP
         DAORegistry::registerDAO('PreprintSearchDAO', $submissionSearchDAOMock);    // for OPS
 
-        // Test that the job can be handled without causing an exception.
-        $this->assertNull($removeSubmissionFileFromSearchIndexJob->handle());
+        $removeSubmissionFileFromSearchIndexJob->handle();
+
+        $this->expectNotToPerformAssertions();
     }
 }
 

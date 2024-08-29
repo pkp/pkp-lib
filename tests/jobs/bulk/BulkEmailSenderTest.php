@@ -70,6 +70,8 @@ class BulkEmailSenderTest extends PKPTestCase
         
         app()->instance(UserRepository::class, $userRepoMock);
 
-        $this->assertNull($bulkEmailSenderJob->handle());
+        $bulkEmailSenderJob->handle();
+
+        $this->expectNotToPerformAssertions();
     }
 }

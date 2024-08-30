@@ -102,7 +102,7 @@
 				<div class="pkpStats__content">
 					<div class="pkpStats__table" role="region" aria-live="polite">
 						<pkp-table
-							aria-label="{translate key="stats.trends"}"
+							labelled-by="editorialActivityTabelLabel"
 							class="pkpTable--editorialStats"
 						>
 							<table-header>

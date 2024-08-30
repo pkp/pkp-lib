@@ -93,7 +93,7 @@
 				</div>
 				<div class="pkpStats__panel" role="region" aria-live="polite">
 					<pkp-header>
-						<h2>
+						<h2 id="contextDetailTableLabel">
 							{translate key="stats.views"}
 							<tooltip
 								tooltip="{translate key="stats.context.tooltip.text"}"
@@ -110,7 +110,7 @@
 							</pkp-button>
 						</template>
 					</pkp-header>
-					<pkp-table aria-label="{translate key="stats.views"}">
+					<pkp-table labelled-by="contextDetailTableLabel" :class="tableClasses">
 						<table-header>
 							<table-column v-for="column in tableColumns" :key="column.name" :id="column.name">
 								{{ column.label }}

@@ -182,7 +182,7 @@
 						</template>
 					</pkp-header>
 					<pkp-table
-						aria-label="{translate key="stats.publications.details"}"
+						labelled-by="publicationDetailTableLabel"
 						:class="tableClasses"
 						@sort="setOrderBy"
 					>

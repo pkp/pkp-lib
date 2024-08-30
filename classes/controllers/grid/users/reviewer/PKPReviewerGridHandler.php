@@ -409,15 +409,16 @@ class PKPReviewerGridHandler extends GridHandler
         // Form handling
         $reviewerForm = new $formClassName($this->getSubmission(), $this->getReviewRound());
         $reviewerForm->readInputData();
+
         if ($reviewerForm->validate()) {
             $reviewAssignment = $reviewerForm->execute();
             $json = DAO::getDataChangedEvent($reviewAssignment->getId());
             $json->setGlobalEvent('update:decisions');
             return $json;
-        } else {
-            // There was an error, redisplay the form
-            return new JSONMessage(true, $reviewerForm->fetch($request));
         }
+
+        // There was an error, redisplay the form
+        return new JSONMessage(false);
     }
 
     /**

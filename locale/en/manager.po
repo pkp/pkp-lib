@@ -1238,21 +1238,37 @@ msgstr "Never Remind"
 msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr "Defaults can be modified for each review during the editorial process."
 
-msgid "manager.setup.reviewOptions.reminders.response"
-msgstr "Response Reminder"
+msgid "manager.setup.reviewOptions.reminders"
+msgstr "Set Reminders for Review"
 
-msgid "manager.setup.reviewOptions.reminders.response.description"
+msgid "manager.setup.reviewOptions.reminders.description"
 msgstr ""
-"Send an email reminder if a reviewer has not responded to a review request "
-"this many days after the response due date."
+"Send an email reminder before or after for review request response (if reviewer has not responded "
+"to review request yet) or review submission (if reviewer has not submitted review yet)"
 
-msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr "Review Reminder"
+msgid "manager.setup.reviewOptions.reminders.response.before"
+msgstr "Review Request Response - Before Due Date"
 
-msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr ""
-"Send an email reminder if a reviewer has not submitted a recommendation "
-"within this many days after the review's due date."
+msgid "manager.setup.reviewOptions.reminders.response.after"
+msgstr "Review Request Response - After Due Date"
+
+msgid "manager.setup.reviewOptions.reminders.submit.before"
+msgstr "Review Submission - Before Due Date"
+
+msgid "manager.setup.reviewOptions.reminders.submit.after"
+msgstr "Review Submission - After Due Date"
+
+msgid "manager.setup.reviewOptions.reminders.label.before.days"
+msgstr "{$value} days before due date"
+
+msgid "manager.setup.reviewOptions.reminders.label.after.days"
+msgstr "{$value} days after due date"
+
+msgid "manager.setup.reviewOptions.reminders.min.label"
+msgstr "None"
+
+msgid "manager.setup.reviewOptions.reminders.disbale.label"
+msgstr "No reminder set"
 
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Default Review Mode"

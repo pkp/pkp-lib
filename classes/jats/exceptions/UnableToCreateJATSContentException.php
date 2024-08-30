@@ -20,6 +20,10 @@ class UnableToCreateJATSContentException extends Exception
 {
     public function __construct(public ?Throwable $innerException = null)
     {
-        parent::__construct(__('publication.jats.defaultContentCreationError'), null, $innerException);
+        parent::__construct(
+            __('publication.jats.defaultContentCreationError'), 
+            $innerException?->getCode() ?? 0, 
+            $innerException
+        );
     }
 }

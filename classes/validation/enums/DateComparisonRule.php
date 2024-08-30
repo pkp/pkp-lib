@@ -24,4 +24,3 @@ enum DateComparisonRule: string
     case GREATER_OR_EQUAL = 'after_or_equal';
     case LESSER_OR_EQUAL = 'before_or_equal';
 }
- 

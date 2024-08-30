@@ -180,6 +180,8 @@ class ReviewReminderTest extends PKPTestCase
         
         app()->instance(EventRepository::class, $eventRepoMock);
 
-        $this->assertNull($reviewReminderJob->handle());
+        $reviewReminderJob->handle();
+
+        $this->expectNotToPerformAssertions();
     }
 }

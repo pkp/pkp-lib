@@ -33,7 +33,7 @@
 		</div>
 		<div class="pkpStats__panel">
 			<pkp-header>
-				<h1 id="editorialActivityTabelLabel">
+				<h1 id="editorialActivityTableLabel">
 					{translate key="stats.trends"}
 					<span v-if="isLoading" class="pkpSpinner" aria-hidden="true"></span>
 				</h1>
@@ -102,11 +102,11 @@
 				<div class="pkpStats__content">
 					<div class="pkpStats__table" role="region" aria-live="polite">
 						<pkp-table
-							labelled-by="editorialActivityTabelLabel"
+							labelled-by="editorialActivityTableLabel"
 							class="pkpTable--editorialStats"
 						>
 							<table-header>
-								<table-column v-for="column in tableColumns" :key="column.name" :id="column.name">
+								<table-column v-for="column in tableColumns" :key="column.name" :id="column.name" class="!max-w-[8rem] truncate">
 									{{ column.label }}
 								</table-column>
 							</table-header>

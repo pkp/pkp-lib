@@ -102,8 +102,8 @@
 				<div class="pkpStats__content">
 					<div class="pkpStats__table" role="region" aria-live="polite">
 						<pkp-table
-							labelled-by="editorialActivityTableLabel"
 							class="pkpTable--editorialStats"
+							labelled-by="editorialActivityTableLabel"
 						>
 							<table-header>
 								<table-column v-for="column in tableColumns" :key="column.name" :id="column.name" class="!max-w-[8rem] truncate">

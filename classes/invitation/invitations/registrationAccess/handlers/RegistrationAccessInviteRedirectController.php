@@ -1,31 +1,30 @@
 <?php
 
 /**
- * @file classes/invitation/invitations/handlers/ChangeProfileEmailInviteRedirectController.php
+ * @file classes/invitation/invitations/registrationAccess/handlers/RegistrationAccessInviteRedirectController.php
  *
  * Copyright (c) 2024 Simon Fraser University
  * Copyright (c) 2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ChangeProfileEmailInviteRedirectController
+ * @class RegistrationAccessInviteRedirectController
  *
- * @brief Change Profile Email invitation
  */
 
-namespace PKP\invitation\invitations\handlers;
+namespace PKP\invitation\invitations\registrationAccess\handlers;
 
 use APP\core\Request;
 use APP\facades\Repo;
-use APP\notification\NotificationManager;
+use Exception;
 use PKP\core\PKPApplication;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\InvitationActionRedirectController;
-use PKP\invitation\invitations\ChangeProfileEmailInvite;
+use PKP\invitation\invitations\registrationAccess\RegistrationAccessInvite;
 
-class ChangeProfileEmailInviteRedirectController extends InvitationActionRedirectController
+class RegistrationAccessInviteRedirectController extends InvitationActionRedirectController
 {
-    public function getInvitation(): ChangeProfileEmailInvite
+    public function getInvitation(): RegistrationAccessInvite
     {
         return $this->invitation;
     }
@@ -36,21 +35,37 @@ class ChangeProfileEmailInviteRedirectController extends InvitationActionRedirec
             $request->getDispatcher()->handle404();
         }
 
-        $user = Repo::user()->get($this->invitation->invitationModel->userId);
+        $user = Repo::user()->get($this->invitation->invitationModel->userId, true);
 
-        $notificationManager = new NotificationManager();
-        $notificationManager->createTrivialNotification($user->getId());
+        if (!$user) {
+            throw new Exception();
+        }
 
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
             null,
             'user',
-            'profile',
+            'activateUser',
             [
-                'contact'
+                $user->getUsername(),
             ]
         );
+
+        if (isset($this->invitationModel->contextId)) {
+            $context = $request->getContext();
+
+            $url = PKPApplication::get()->getDispatcher()->url(
+                PKPApplication::get()->getRequest(),
+                PKPApplication::ROUTE_PAGE,
+                $context->getData('urlPath'),
+                'user',
+                'activateUser',
+                [
+                    $user->getUsername(),
+                ]
+            );
+        }
 
         $request->redirectUrl($url);
     }
@@ -61,19 +76,16 @@ class ChangeProfileEmailInviteRedirectController extends InvitationActionRedirec
             $request->getDispatcher()->handle404();
         }
 
-        $user = Repo::user()->get($this->invitation->invitationModel->userId);
-
-        $notificationManager = new NotificationManager();
-        $notificationManager->createTrivialNotification($user->getId());
+        $context = $request->getContext();
 
         $url = PKPApplication::get()->getDispatcher()->url(
             PKPApplication::get()->getRequest(),
             PKPApplication::ROUTE_PAGE,
-            null,
+            $context->getData('urlPath'),
             'user',
-            'profile',
+            'login',
+            null,
             [
-                'contact'
             ]
         );
 
@@ -83,7 +95,7 @@ class ChangeProfileEmailInviteRedirectController extends InvitationActionRedirec
     public function preRedirectActions(InvitationAction $action)
     {
         if ($action == InvitationAction::ACCEPT) {
-            $this->getInvitation()->finalise();
+            $this->getInvitation()->finalize();
         } elseif ($action == InvitationAction::DECLINE) {
             $this->getInvitation()->decline();
         }

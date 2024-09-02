@@ -9,7 +9,7 @@
  *
  * @class ReceiveInvitationController
  *
- * @brief Interface for all Invitation API Handlers
+ * @brief Defines the API actions of the "Receive" phase of the invitation
  */
 
 namespace PKP\invitation\core;

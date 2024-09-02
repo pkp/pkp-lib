@@ -9,7 +9,7 @@
  *
  * @class ShouldValidate
  *
- * @brief Interface for all Invitation API Handlers
+ * @brief Trait that have all the invitations that define validation rules on their payload properties
  */
 
 namespace PKP\invitation\core\traits;
@@ -30,9 +30,9 @@ trait ShouldValidate
         return $this->errors;
     }
 
-    protected function addError(string $error): void
+    protected function addError(string $field, string $error): void
     {
-        $this->errors[] = $error;
+        $this->errors[$field] = $error;
     }
 
     protected function clearErrors(): void

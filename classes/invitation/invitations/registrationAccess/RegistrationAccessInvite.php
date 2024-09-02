@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/invitation/invitations/RegistrationAccessInvite.php
+ * @file classes/invitation/invitations/registrationAccess/RegistrationAccessInvite.php
  *
  * Copyright (c) 2023-2024 Simon Fraser University
  * Copyright (c) 2023-2024 John Willinsky
@@ -12,7 +12,7 @@
  * @brief Registration with Access Key invitation
  */
 
-namespace PKP\invitation\invitations;
+namespace PKP\invitation\invitations\registrationAccess;
 
 use APP\facades\Repo;
 use Exception;
@@ -24,7 +24,7 @@ use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
-use PKP\invitation\invitations\handlers\RegistrationAccessInviteRedirectController;
+use PKP\invitation\invitations\registrationAccess\handlers\RegistrationAccessInviteRedirectController;
 use PKP\invitation\models\InvitationModel;
 use PKP\user\User;
 
@@ -48,7 +48,7 @@ class RegistrationAccessInvite extends Invitation implements IBackofficeHandleab
         });
     }
 
-    protected function preDispatchActions(): void
+    protected function preInviteActions(): void
     {
         $pendingInvitations = InvitationModel::byStatus(InvitationStatus::PENDING)
             ->byType(self::INVITATION_TYPE)
@@ -61,7 +61,7 @@ class RegistrationAccessInvite extends Invitation implements IBackofficeHandleab
         }
     }
 
-    public function finalise(): void
+    public function finalize(): void
     {
         $user = Repo::user()->get($this->invitationModel->userId, true);
 

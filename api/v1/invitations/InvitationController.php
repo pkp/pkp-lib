@@ -19,6 +19,7 @@ use APP\facades\Repo;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use PKP\core\PKPBaseController;
 use PKP\core\PKPRequest;
@@ -27,6 +28,7 @@ use PKP\invitation\core\CreateInvitationController;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\ReceiveInvitationController;
 use PKP\invitation\models\InvitationModel;
+use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
 
 class InvitationController extends PKPBaseController
@@ -34,6 +36,10 @@ class InvitationController extends PKPBaseController
     public const PARAM_TYPE = 'type';
     public const PARAM_ID = 'invitationId';
     public const PARAM_KEY = 'key';
+
+    public $noParamRequired = [
+        'getMany',
+    ];
 
     public $requiresType = [
         'add',
@@ -47,7 +53,7 @@ class InvitationController extends PKPBaseController
 
     public $requiresIdAndKey = [
         'receive',
-        'finalise',
+        'finalize',
         'refine',
         'decline',
     ];
@@ -91,6 +97,12 @@ class InvitationController extends PKPBaseController
      */
     public function getGroupRoutes(): void
     {
+        Route::get('', $this->getMany(...))
+            ->name('invitation.getMany')
+            ->middleware([
+                self::roleAuthorizer(Role::getAllRoles()),
+            ]);
+
         // Get By Id Methods
         Route::get('{invitationId}', $this->get(...))
             ->name('invitation.get')
@@ -176,30 +188,35 @@ class InvitationController extends PKPBaseController
             $invitation = Repo::invitation()->getByIdAndKey($invitationId, $invitationKey);
         }
 
-        if (!isset($invitation)) {
-            throw new Exception('Invitation could not be created');
+        if ($actionName == 'getMany') {
+            $this->addPolicy(new UserRolesRequiredPolicy($request), true);
+        } else {
+            if (!isset($invitation)) {
+                throw new Exception('Invitation could not be created');
+            }
+
+            $this->invitation = $invitation;
+
+            if (!$this->invitation instanceof IApiHandleable) {
+                throw new Exception('This invitation does not support API handling');
+            }
+
+            $this->createInvitationHandler = $invitation->getCreateInvitationController($this->invitation);
+            $this->receiveInvitationHandler = $invitation->getReceiveInvitationController($this->invitation);
+
+            if (!isset($this->createInvitationHandler) || !isset($this->receiveInvitationHandler)) {
+                throw new Exception('This invitation should have defined its API handling code');
+            }
+
+            $this->selectedHandler = $this->getHandlerForAction($actionName);
+
+            if (!method_exists($this->selectedHandler, $actionName)) {
+                throw new Exception("The handler does not support the method: {$actionName}");
+            }
+
+            $this->selectedHandler->authorize($this, $request, $args, $roleAssignments);
         }
-
-        $this->invitation = $invitation;
-
-        if (!$this->invitation instanceof IApiHandleable) {
-            throw new Exception('This invitation does not support API handling');
-        }
-
-        $this->createInvitationHandler = $invitation->getCreateInvitationController();
-        $this->receiveInvitationHandler = $invitation->getReceiveInvitationController();
-
-        if (!isset($this->createInvitationHandler) || !isset($this->receiveInvitationHandler)) {
-            throw new Exception('This invitation should have defined its API handling code');
-        }
-
-        $this->selectedHandler = $this->getHandlerForAction($actionName);
-
-        if (!method_exists($this->selectedHandler, $actionName)) {
-            throw new Exception("The handler does not support the method: {$actionName}");
-        }
-
-        $this->selectedHandler->authorize($this, $request, $args, $roleAssignments);
+        
 
         return parent::authorize($request, $args, $roleAssignments);
     }
@@ -242,5 +259,40 @@ class InvitationController extends PKPBaseController
     public function decline(Request $illuminateRequest): JsonResponse
     {
         return $this->selectedHandler->decline($illuminateRequest);
+    }
+
+    public function getMany(Request $illuminateRequest): JsonResponse
+    {
+        $context = $illuminateRequest->attributes->get('context'); /** @var \PKP\context\Context $context */
+        $invitationType = $this->getParameter(self::PARAM_TYPE);
+
+        $count = $illuminateRequest->query('count', 10); // default count to 10 if not provided
+        $offset = $illuminateRequest->query('offset', 0); // default offset to 0 if not provided
+        
+        $query = InvitationModel::query()
+            ->when($invitationType, function ($query, $invitationType) {
+                return $query->byType($invitationType);
+            })
+            ->when($context, function ($query, $context) {
+                return $query->byContextId($context->getId());
+            })
+            ->stillActive();
+        
+        $maxCount = $query->count();
+
+        $invitations = $query->skip($offset)
+            ->take($count)
+            ->get();
+
+        $finalCollection = $invitations->map(function ($invitation) {
+            $specificInvitation = Repo::invitation()->getById($invitation->id);
+            $specificInvitation->fillCustomProperties();
+            return $specificInvitation;
+        });
+
+        return response()->json([
+            'itemsMax' => $maxCount,
+            'items' => $finalCollection,
+        ], Response::HTTP_OK);
     }
 }

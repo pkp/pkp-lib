@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/invitation/invitations/ReviewerAccessInvite.php
+ * @file classes/invitation/invitations/reviewerAccess/ReviewerAccessInvite.php
  *
  * Copyright (c) 2023 Simon Fraser University
  * Copyright (c) 2023 John Willinsky
@@ -12,7 +12,7 @@
  * @brief Reviewer with Access Key invitation
  */
 
-namespace PKP\invitation\invitations;
+namespace PKP\invitation\invitations\reviewerAccess;
 
 use APP\core\Application;
 use APP\facades\Repo;
@@ -25,7 +25,7 @@ use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitationActionRedirectController;
 use PKP\invitation\core\traits\ShouldValidate;
-use PKP\invitation\invitations\handlers\ReviewerAccessInviteRedirectController;
+use PKP\invitation\invitations\reviewerAccess\handlers\ReviewerAccessInviteRedirectController;
 use PKP\invitation\models\InvitationModel;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\security\Validation;
@@ -37,6 +37,10 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
     public const INVITATION_TYPE = 'reviewerAccess';
 
     public ?int $reviewAssignmentId = null;
+
+    protected array $notAccessibleAfterInvite = [
+        'reviewAssignmentId',
+    ];
 
     public static function getType(): string
     {
@@ -59,13 +63,9 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
         return ($context->getData('numWeeksPerReview') + 4) * 7;
     }
 
-    public function getHiddenAfterDispatch(): array
+    public function getNotAccessibleAfterInvite(): array
     {
-        $baseHiddenItems = parent::getHiddenAfterDispatch();
-
-        $additionalHiddenItems = ['reviewAssignmentId'];
-
-        return array_merge($baseHiddenItems, $additionalHiddenItems);
+        return array_merge(parent::getNotAccessibleAfterInvite(), $this->notAccessibleAfterInvite);
     }
 
     public function updateMailableWithUrl(Mailable $mailable): void
@@ -79,7 +79,7 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
         });
     }
 
-    public function preDispatchActions(): void
+    public function preInviteActions(): void
     {
         if (!isset($this->reviewAssignmentId)) {
             throw new Exception('The review assignment id should be declared before dispatch');
@@ -102,7 +102,7 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
         }
     }
 
-    public function finalise(): void
+    public function finalize(): void
     {
         $contextDao = Application::getContextDAO();
         $context = $contextDao->getById($this->invitationModel->contextId);
@@ -158,7 +158,7 @@ class ReviewerAccessInvite extends Invitation implements IBackofficeHandleable, 
             $reviewAssignment = Repo::reviewAssignment()->get($this->reviewAssignmentId);
 
             if (!$reviewAssignment) {
-                $this->addError('The review assignment ID does not correspond to a valid assignment');
+                $this->addError('reviewAssignmentId', 'The review assignment ID does not correspond to a valid assignment');
             }
         }
 

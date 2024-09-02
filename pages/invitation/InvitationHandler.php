@@ -67,13 +67,13 @@ class InvitationHandler extends Handler
         return $invitation;
     }
 
-    public static function getActionUrl(InvitationAction $action, Invitation $invitation): string
+    public static function getActionUrl(InvitationAction $action, Invitation $invitation): ?string
     {
         $invitationId = $invitation->getId();
         $invitationKey = $invitation->getKey();
 
         if (!isset($invitationId) || !isset($invitationKey)) {
-            throw new Exception();
+            return null;
         }
 
         $request = Application::get()->getRequest();

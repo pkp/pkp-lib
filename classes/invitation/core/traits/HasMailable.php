@@ -9,7 +9,7 @@
  *
  * @class HasMailable
  *
- * @brief Interface for all Invitation API Handlers
+ * @brief Trait for all invitations that have their own distinct mailables
  */
 
 namespace PKP\invitation\core\traits;

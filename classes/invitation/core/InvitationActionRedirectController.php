@@ -9,7 +9,7 @@
  *
  * @class InvitationActionRedirectController
  *
- * @brief Interface for all Invitation API Handlers
+ * @brief Declares the accept/decline url handlers.
  */
 
 namespace PKP\invitation\core;

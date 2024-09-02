@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/invitation/invitations/handlers/ReviewerAccessInviteRedirectController.php
+ * @file classes/invitation/invitations/handlers/reviewerAccess/ReviewerAccessInviteRedirectController.php
  *
  * Copyright (c) 2024 Simon Fraser University
  * Copyright (c) 2024 John Willinsky
@@ -9,10 +9,9 @@
  *
  * @class ReviewerAccessInviteRedirectController
  *
- * @brief Change Profile Email invitation
  */
 
-namespace PKP\invitation\invitations\handlers;
+namespace PKP\invitation\invitations\reviewerAccess\handlers;
 
 use APP\core\Request;
 use APP\facades\Repo;
@@ -21,7 +20,7 @@ use PKP\core\PKPApplication;
 use PKP\invitation\core\enums\InvitationAction;
 use PKP\invitation\core\enums\InvitationStatus;
 use PKP\invitation\core\InvitationActionRedirectController;
-use PKP\invitation\invitations\ReviewerAccessInvite;
+use PKP\invitation\invitations\reviewerAccess\ReviewerAccessInvite;
 
 class ReviewerAccessInviteRedirectController extends InvitationActionRedirectController
 {
@@ -85,7 +84,7 @@ class ReviewerAccessInviteRedirectController extends InvitationActionRedirectCon
     public function preRedirectActions(InvitationAction $action)
     {
         if ($action == InvitationAction::ACCEPT) {
-            $this->getInvitation()->finalise();
+            $this->getInvitation()->finalize();
         } elseif ($action == InvitationAction::DECLINE) {
             $this->getInvitation()->decline();
         }

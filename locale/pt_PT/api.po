@@ -1,9 +1,9 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2023.
 # Carlos Costa <carlos.costa@uc.pt>, 2023.
-# José Carvalho <jcarvalho@keep.pt>, 2023.
+# José Carvalho <jcarvalho@keep.pt>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-10-31 11:06+0000\n"
+"PO-Revision-Date: 2024-09-03 08:12+0000\n"
 "Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/pt_PT/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "api.400.propReadOnly"
 msgstr "A propriedade {$prop} não pode ser modificada."
@@ -357,3 +357,6 @@ msgstr ""
 
 msgid "api.highlights.404.highlightNotFound"
 msgstr "O destaque que solicitou não foi encontrado."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "Não pode ser atribuído um DOI a este item."

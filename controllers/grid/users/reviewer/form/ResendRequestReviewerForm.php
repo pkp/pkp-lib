@@ -21,6 +21,7 @@ use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use PKP\context\Context;
+use PKP\controllers\grid\users\reviewer\form\traits\HasReviewDueDate;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\log\event\PKPSubmissionEventLogEntry;
@@ -33,6 +34,8 @@ use PKP\submission\reviewRound\ReviewRound;
 
 class ResendRequestReviewerForm extends ReviewerNotifyActionForm
 {
+    use HasReviewDueDate;
+
     /**
      * Constructor
      */
@@ -48,6 +51,16 @@ class ResendRequestReviewerForm extends ReviewerNotifyActionForm
         // Validation checks for this form
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'responseDueDate', 'required', 'editor.review.errorAddingReviewer'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'reviewDueDate', 'required', 'editor.review.errorAddingReviewer'));
+        $this->addCheck(
+            new \PKP\form\validation\FormValidatorDateCompare(
+                $this,
+                'reviewDueDate',
+                \Carbon\Carbon::parse(Application::get()->getRequest()->getUserVar('responseDueDate')),
+                \PKP\validation\enums\DateComparisonRule::GREATER_OR_EQUAL,
+                'required',
+                'editor.review.errorAddingReviewer.dateValidationFailed'
+            )
+        );
     }
 
     /**
@@ -73,7 +86,7 @@ class ResendRequestReviewerForm extends ReviewerNotifyActionForm
     {
         parent::initData();
 
-        [$reviewDueDate, $responseDueDate] = ReviewerForm::getDueDates(Application::get()->getRequest()->getContext());
+        [$reviewDueDate, $responseDueDate] = $this->getDueDates(Application::get()->getRequest()->getContext());
 
         $this->setData('responseDueDate', $responseDueDate);
         $this->setData('reviewDueDate', $reviewDueDate);

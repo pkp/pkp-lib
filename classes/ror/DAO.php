@@ -49,10 +49,7 @@ class DAO extends EntityDAO
     /** @copydoc EntityDAO::$primaryTableColumns */
     public $primaryTableColumns = [
         'id' => 'ror_id',
-        'ror' => 'ror',
-        'locale' => 'locale',
-        'name' => 'name',
-        'status' => 'status'
+        'ror' => 'ror'
     ];
 
     /**
@@ -60,7 +57,7 @@ class DAO extends EntityDAO
      */
     public function getParentColumn(): string
     {
-        return 'ror_id';
+        return '';
     }
 
     /**
@@ -136,6 +133,10 @@ class DAO extends EntityDAO
      */
     public function update(Ror $ror): void
     {
+        if(empty($ror->getId())){
+            $ror->setId($this->getIdByRor($ror->getData('ror')));
+        }
+
         parent::_update($ror);
     }
 
@@ -145,6 +146,25 @@ class DAO extends EntityDAO
     public function delete(Ror $ror): void
     {
         parent::_delete($ror);
+    }
+
+    /**
+     * Get ror_id for given ror.
+     *
+     * @param string $ror
+     * @return int
+     */
+    public function getIdByRor(string $ror): int
+    {
+        $row = DB::table($this->table)
+            ->where('ror', '=', $ror)
+            ->first($this->primaryKeyColumn);
+
+        if(!empty($row->{$this->primaryKeyColumn})){
+            return $row->{$this->primaryKeyColumn};
+        }
+
+        return 0;
     }
 
     /**

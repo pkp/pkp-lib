@@ -79,9 +79,6 @@ class Schema extends \PKP\core\maps\Schema
         $output = [];
         foreach ($props as $prop) {
             switch ($prop) {
-                case '_href':
-                    $output[$prop] = $this->getApiUrl('rors/' . $item->getId());
-                    break;
                 default:
                     $output[$prop] = $item->getData($prop);
                     break;

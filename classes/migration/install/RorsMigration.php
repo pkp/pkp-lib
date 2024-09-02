@@ -26,27 +26,22 @@ class RorsMigration extends Migration
     public function up(): void
     {
         Schema::create('rors', function (Blueprint $table) {
-            $table->comment('Ror data dump cache');
+            $table->comment('Ror registry dataset cache');
             $table->bigInteger('ror_id')->autoIncrement();
             $table->string('ror')->nullable(false);
-            $table->string('locale', 28)->nullable(false);
-            $table->string('name')->nullable(false);
-            $table->tinyInteger('status')->default(0);
 
-            $table->unique(['ror']);
-            $table->index(['locale'], 'rors_locale');
-            $table->index(['name'], 'rors_name');
-            $table->index(['status'], 'rors_status');
+            $table->unique(['ror'], 'rors_unique');
         });
 
         Schema::create('ror_settings', function (Blueprint $table) {
-            $table->comment('More data about RORs');
+            $table->comment('More data about Ror, including localized properties like names.');
             $table->bigInteger('ror_setting_id')->autoIncrement();
             $table->bigInteger('ror_id');
             $table->string('locale', 28)->default('');
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 
+            $table->index(['ror_id'], 'ror_settings_ror_id');
             $table->unique(['ror_id', 'locale', 'setting_name'], 'ror_settings_unique');
             $table->foreign('ror_id')->references('ror_id')->on('rors')->cascadeOnDelete();
         });

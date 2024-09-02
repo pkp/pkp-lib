@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\announcement\Announcement;
 use PKP\controllers\grid\GridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
@@ -129,9 +130,9 @@ class NotificationsGridCellProvider extends GridCellProvider
                 return '—';
             case Application::ASSOC_TYPE_ANNOUNCEMENT:
                 $announcementId = $notification->assocId;
-                $announcement = Repo::announcement()->get($announcementId);
+                $announcement = Announcement::find($announcementId);
                 if ($announcement) {
-                    return $announcement->getLocalizedTitle();
+                    return $announcement->getLocalizedData('title');
                 }
                 return null;
             case Application::ASSOC_TYPE_SUBMISSION:

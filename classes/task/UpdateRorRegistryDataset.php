@@ -82,10 +82,10 @@ class UpdateRorRegistryDataset extends ScheduledTask
 
     /** @var array|int[] Mappings database vs CSV */
     private array $mapping = [
-        'ror_id' => 0,
-        'names' => 25,
-        'default_locale' => 27,
-        'is_active' => 29
+        'ror' => 0,
+        'displayLocale' => 27,
+        'isActive' => 29,
+        'names' => 25
     ];
 
     /** @var string No language found in ror registry */
@@ -115,7 +115,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
 
         try {
             // cleanup
-             $this->cleanup([$pathZipFile, $pathZipDir]);
+            $this->cleanup([$pathZipFile, $pathZipDir]);
 
             $client = Application::get()->getHttpClient();
 
@@ -181,7 +181,6 @@ class UpdateRorRegistryDataset extends ScheduledTask
 
             // process csv file
             $i = 1;
-            error_log('Started updating Ror registry dataset');
             if (($handle = fopen($pathCsv, 'r')) !== false) {
                 while (($row = fgetcsv($handle, 0)) !== false) {
                     if ($i > 1) $this->processRow($row);
@@ -189,7 +188,6 @@ class UpdateRorRegistryDataset extends ScheduledTask
                 }
                 fclose($handle);
             }
-            error_log('Finished updating Ror registry dataset end');
         } catch (Exception $e) {
             $this->addExecutionLogEntry(
                 $e->getMessage(),
@@ -204,7 +202,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
         );
 
         // cleanup
-         $this->cleanup([$pathZipFile, $pathZipDir]);
+        $this->cleanup([$pathZipFile, $pathZipDir]);
 
         return true;
     }
@@ -219,11 +217,17 @@ class UpdateRorRegistryDataset extends ScheduledTask
         $params = [];
 
         // id > ror
-        $params['ror'] = $row[$this->mapping['ror_id']];
+        $params['ror'] = $row[$this->mapping['ror']];
 
         // ror_display_lang
-        $params['default_locale'] =
-            str_replace($this->defaultLanguageIn, $this->defaultLanguageOut, $row[$this->mapping['default_locale']]);
+        $params['displayLocale'] =
+            str_replace($this->defaultLanguageIn, $this->defaultLanguageOut, $row[$this->mapping['displayLocale']]);
+
+        // is_active
+        $params['isActive'] = 0;
+        if (strtolower($row[$this->mapping['isActive']]) === strtolower('active')) {
+            $params['isActive'] = 1;
+        }
 
         // names.types.label
         // "en: label1; it: label2" => [["name"]["en"] => "label1"],["name"]["it" => "label2"]]
@@ -236,12 +240,6 @@ class UpdateRorRegistryDataset extends ScheduledTask
                     $params['name'][$tmp2[0]] = trim($tmp2[1]);
                 }
             }
-        }
-
-        // status
-        $params['is_active'] = 0;
-        if (strtolower($row[$this->mapping['is_active']]) === strtolower('active')) {
-            $params['is_active'] = 1;
         }
 
         Repo::ror()->updateOrInsert(Repo::ror()->newDataObject($params));

@@ -29,8 +29,12 @@ class RorsMigration extends Migration
             $table->comment('Ror registry dataset cache');
             $table->bigInteger('ror_id')->autoIncrement();
             $table->string('ror')->nullable(false);
+            $table->string('display_locale', 28)->default('');
+            $table->smallInteger('is_active')->nullable(false)->default(0);
 
             $table->unique(['ror'], 'rors_unique');
+            $table->index(['display_locale'], 'rors_display_locale');
+            $table->index(['is_active'], 'rors_is_active');
         });
 
         Schema::create('ror_settings', function (Blueprint $table) {

@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
-use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -32,8 +31,6 @@ use PKP\services\PKPSchemaService;
  */
 class DAO extends EntityDAO
 {
-    use EntityWithParent;
-
     /** @copydoc EntityDAO::$schema */
     public $schema = PKPSchemaService::SCHEMA_ROR;
 
@@ -49,7 +46,10 @@ class DAO extends EntityDAO
     /** @copydoc EntityDAO::$primaryTableColumns */
     public $primaryTableColumns = [
         'id' => 'ror_id',
-        'ror' => 'ror'
+        'ror' => 'ror',
+        'displayLocale' => 'display_locale',
+        'isActive' => 'is_active',
+        'testColumn' => 'test_column'
     ];
 
     /**
@@ -133,7 +133,7 @@ class DAO extends EntityDAO
      */
     public function update(Ror $ror): void
     {
-        if(empty($ror->getId())){
+        if (empty($ror->getId())) {
             $ror->setId($this->getIdByRor($ror->getData('ror')));
         }
 
@@ -160,7 +160,7 @@ class DAO extends EntityDAO
             ->where('ror', '=', $ror)
             ->first($this->primaryKeyColumn);
 
-        if(!empty($row->{$this->primaryKeyColumn})){
+        if (!empty($row->{$this->primaryKeyColumn})) {
             return $row->{$this->primaryKeyColumn};
         }
 
@@ -190,8 +190,7 @@ class DAO extends EntityDAO
     {
         if ($this->existsByRor($ror->getData('ror'))) {
             $this->update($ror);
-        }
-        else {
+        } else {
             $this->insert($ror);
         }
     }

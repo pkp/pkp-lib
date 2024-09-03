@@ -16,38 +16,43 @@
 /**
  * Mapping Ror data dump and OJS
  *
- * | index | ror                                     | ojs                                             |
- * |-------|-----------------------------------------|-------------------------------------------------|
- * | 0     | id                                      | rors.ror                                        |
- * | 1     | admin.created.date                      |                                                 |
- * | 2     | admin.created.schema_version            |                                                 |
- * | 3     | admin.last_modified.date                |                                                 |
- * | 4     | admin.last_modified.schema_version      |                                                 |
- * | 5     | domains                                 |                                                 |
- * | 6     | established                             |                                                 |
- * | 7     | external_ids.type.fundref.all           |                                                 |
- * | 8     | external_ids.type.fundref.preferred     |                                                 |
- * | 9     | external_ids.type.grid.all              |                                                 |
- * | 10    | external_ids.type.grid.preferred        |                                                 |
- * | 11    | external_ids.type.isni.all              |                                                 |
- * | 12    | external_ids.type.isni.preferred        |                                                 |
- * | 13    | external_ids.type.wikidata.all          |                                                 |
- * | 14    | external_ids.type.wikidata.preferred    |                                                 |
- * | 15    | links.type.website                      |                                                 |
- * | 16    | links.type.wikipedia                    |                                                 |
- * | 17    | locations.geonames_id                   |                                                 |
- * | 18    | locations.geonames_details.country_code |                                                 |
- * | 19    | locations.geonames_details.country_name |                                                 |
- * | 20    | locations.geonames_details.lat          |                                                 |
- * | 21    | locations.geonames_details.lng          |                                                 |
- * | 22    | locations.geonames_details.name         |                                                 |
- * | 23    | names.types.acronym                     |                                                 |
- * | 24    | names.types.alias                       |                                                 |
- * | 25    | names.types.label                       | ror_settings[locale,setting_name,setting_value] |
- * | 26    | names.types.ror_display                 | rors.name                                       |
- * | 27    | ror_display_lang                        | rors.locale                                     |
- * | 28    | relationships                           |                                                 |
- * | 29    | status                                  | rors.status                                     |
+ *  0 id                rors.ror
+ * 25 names.types.label ror_settings['locale' => 'en', 'setting_name' => 'name',           'setting_value' => 'name']
+ * 27 ror_display_lang  ror_settings['locale' =>   '', 'setting_name' => 'default_locale', 'setting_value' => 'en']
+ * 29 status            ror_settings['locale' =>   '', 'setting_name' => 'is_active',      'setting_value' => '1']
+ *
+ * | index | ror registry                            | ojs          |
+ * |-------|-----------------------------------------|--------------|
+ * | 0     | id                                      | rors.ror     |
+ * | 1     | admin.created.date                      |              |
+ * | 2     | admin.created.schema_version            |              |
+ * | 3     | admin.last_modified.date                |              |
+ * | 4     | admin.last_modified.schema_version      |              |
+ * | 5     | domains                                 |              |
+ * | 6     | established                             |              |
+ * | 7     | external_ids.type.fundref.all           |              |
+ * | 8     | external_ids.type.fundref.preferred     |              |
+ * | 9     | external_ids.type.grid.all              |              |
+ * | 10    | external_ids.type.grid.preferred        |              |
+ * | 11    | external_ids.type.isni.all              |              |
+ * | 12    | external_ids.type.isni.preferred        |              |
+ * | 13    | external_ids.type.wikidata.all          |              |
+ * | 14    | external_ids.type.wikidata.preferred    |              |
+ * | 15    | links.type.website                      |              |
+ * | 16    | links.type.wikipedia                    |              |
+ * | 17    | locations.geonames_id                   |              |
+ * | 18    | locations.geonames_details.country_code |              |
+ * | 19    | locations.geonames_details.country_name |              |
+ * | 20    | locations.geonames_details.lat          |              |
+ * | 21    | locations.geonames_details.lng          |              |
+ * | 22    | locations.geonames_details.name         |              |
+ * | 23    | names.types.acronym                     |              |
+ * | 24    | names.types.alias                       |              |
+ * | 25    | names.types.label                       | ror_settings |
+ * | 26    | names.types.ror_display                 | ror_settings |
+ * | 27    | ror_display_lang                        | ror_settings |
+ * | 28    | relationships                           |              |
+ * | 29    | status                                  | ror_settings |
  */
 
 namespace PKP\task;
@@ -57,7 +62,6 @@ use DirectoryIterator;
 use Exception;
 use PKP\facades\Repo;
 use PKP\file\PrivateFileManager;
-use PKP\ror\Ror;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\scheduledTask\ScheduledTaskHelper;
 use ZipArchive;
@@ -79,11 +83,16 @@ class UpdateRorRegistryDataset extends ScheduledTask
     /** @var array|int[] Mappings database vs CSV */
     private array $mapping = [
         'ror_id' => 0,
-        'default_name' => 26,
+        'names' => 25,
         'default_locale' => 27,
-        'alternate_names' => 25,
-        'status' => 29
+        'is_active' => 29
     ];
+
+    /** @var string No language found in ror registry */
+    private string $defaultLanguageIn = 'no_lang_code';
+
+    /** @var string Replace no language found with this language code */
+    private string $defaultLanguageOut = 'en';
 
     /**
      * @copydoc ScheduledTask::getName()
@@ -106,40 +115,42 @@ class UpdateRorRegistryDataset extends ScheduledTask
 
         try {
             // cleanup
-            $this->cleanup([$pathZipFile, $pathZipDir]);
+             $this->cleanup([$pathZipFile, $pathZipDir]);
 
             $client = Application::get()->getHttpClient();
 
-            // get url to the latest version
+            // get url of the latest version
             $responseUrl = $client->request('GET', $this->urlVersions);
             $responseUrlA = json_decode($responseUrl->getBody(), true);
-
             if ($responseUrl->getStatusCode() !== 200 || empty($responseUrlA) || json_last_error() !== JSON_ERROR_NONE) {
                 $this->addExecutionLogEntry(
                     'Update Ror registry dataset > url latest version not found.',
                     ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
                 return false;
             }
-
             if (!empty($responseUrlA['hits']['hits'][0]['files'][0]['links']['self'])) {
                 $downloadUrl = $responseUrlA['hits']['hits'][0]['files'][0]['links']['self'];
             }
 
             // download file
-            $response = $client->request('GET', $downloadUrl, ['sink' => $pathZipFile]);
-            if ($responseUrl->getStatusCode() !== 200) {
+            $responseFile = $client->request('GET', $downloadUrl, ['sink' => $pathZipFile]);
+            if ($responseFile->getStatusCode() !== 200) {
                 $this->addExecutionLogEntry(
                     'Update Ror registry dataset > error downloading zip file.',
                     ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR
                 );
                 return false;
             }
+
             // extract file
+            if (!$this->fileManager->fileExists($pathZipFile)) return false;
             $zip = new ZipArchive();
             if ($zip->open($pathZipFile) === true) {
                 $zip->extractTo($pathZipDir);
                 $zip->close();
             }
+
+            // check if extracted directory exists, return false if not
             if (!$this->fileManager->fileExists($pathZipDir, 'dir')) {
                 $this->addExecutionLogEntry(
                     'Update Ror registry dataset > errors extracting file.',
@@ -148,7 +159,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
                 return false;
             }
 
-            // path of csv file
+            // get path of csv file
             $iterator = new DirectoryIterator($pathZipDir);
             foreach ($iterator as $fileinfo) {
                 if (!$fileinfo->isDot()) {
@@ -159,6 +170,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
                 }
             }
 
+            // check if csv file exists, return false if not
             if (!$this->fileManager->fileExists($pathCsv)) {
                 $this->addExecutionLogEntry(
                     'Update Ror registry dataset > csv file not found.',
@@ -169,6 +181,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
 
             // process csv file
             $i = 1;
+            error_log('Started updating Ror registry dataset');
             if (($handle = fopen($pathCsv, 'r')) !== false) {
                 while (($row = fgetcsv($handle, 0)) !== false) {
                     if ($i > 1) $this->processRow($row);
@@ -176,6 +189,7 @@ class UpdateRorRegistryDataset extends ScheduledTask
                 }
                 fclose($handle);
             }
+            error_log('Finished updating Ror registry dataset end');
         } catch (Exception $e) {
             $this->addExecutionLogEntry(
                 $e->getMessage(),
@@ -189,6 +203,9 @@ class UpdateRorRegistryDataset extends ScheduledTask
             ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_COMPLETED
         );
 
+        // cleanup
+         $this->cleanup([$pathZipFile, $pathZipDir]);
+
         return true;
     }
 
@@ -196,42 +213,38 @@ class UpdateRorRegistryDataset extends ScheduledTask
      * Process row and update database
      *
      * @param array $row
-     * @return Ror
      */
     private function processRow(array $row): void
     {
         $params = [];
 
         // id > ror
-        $params['ror_id'] = $row[$this->mapping['ror_id']];
-
-        // names.types.ror_display > name
-        $params['default_name'] = $row[$this->mapping['default_name']];
+        $params['ror'] = $row[$this->mapping['ror_id']];
 
         // ror_display_lang
         $params['default_locale'] =
-            str_replace('no_lang_code', 'en', $row[$this->mapping['default_locale']]);
+            str_replace($this->defaultLanguageIn, $this->defaultLanguageOut, $row[$this->mapping['default_locale']]);
 
         // names.types.label
-        // "en: label1; it: label2" > [["en" => "label1"],["it" => "label2"]]
-        $alternateNames = [];
-        if (!empty($row[$this->mapping['alternate_names']])) {
-            $tmp1 = array_map('trim', explode(';', $row[$this->mapping['alternate_names']]));
+        // "en: label1; it: label2" => [["name"]["en"] => "label1"],["name"]["it" => "label2"]]
+        if (!empty($row[$this->mapping['names']])) {
+            $tmp1 = array_map('trim', explode(';', $row[$this->mapping['names']]));
             for ($i = 0; $i < count($tmp1); $i++) {
                 $tmp2 = array_map('trim', explode(':', $tmp1[$i]));
                 if (count($tmp2) === 2) {
-                    $tmp2[0] = str_replace('no_lang_code', 'en', $tmp2[0]);
-                    $alternateNames[] = [$tmp2[0] => trim($tmp2[1])];
+                    $tmp2[0] = str_replace($this->defaultLanguageIn, $this->defaultLanguageOut, $tmp2[0]);
+                    $params['name'][$tmp2[0]] = trim($tmp2[1]);
                 }
             }
         }
-        $params['alternate_names'] = json_encode($alternateNames);
 
         // status
-        $params['status'] = 0;
-        if (strtolower($row[$this->mapping['status']]) === strtolower('active')) $params['status'] = 1;
+        $params['is_active'] = 0;
+        if (strtolower($row[$this->mapping['is_active']]) === strtolower('active')) {
+            $params['is_active'] = 1;
+        }
 
-        Repo::ror()->newDataObject($params);
+        Repo::ror()->updateOrInsert(Repo::ror()->newDataObject($params));
     }
 
     /**

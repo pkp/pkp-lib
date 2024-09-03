@@ -179,4 +179,20 @@ class DAO extends EntityDAO
             ->where('ror', '=', $ror)
             ->exists();
     }
+
+    /**
+     * Insert on duplicate update.
+     *
+     * @param Ror $ror
+     * @return void
+     */
+    public function updateOrInsert(Ror $ror): void
+    {
+        if ($this->existsByRor($ror->getData('ror'))) {
+            $this->update($ror);
+        }
+        else {
+            $this->insert($ror);
+        }
+    }
 }

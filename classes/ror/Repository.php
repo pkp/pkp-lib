@@ -165,11 +165,6 @@ class Repository
      */
     public function updateOrInsert(Ror $ror): void
     {
-        if ($this->dao->existsByRor($ror->getData('ror'))) {
-            $this->dao->update($ror);
-        }
-        else {
-            $this->dao->insert($ror);
-        }
+        $this->dao->updateOrInsert($ror);
     }
 }

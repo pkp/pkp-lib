@@ -455,7 +455,7 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
     /**
      * @inheritDoc
      */
-    public function updatePayload(string $validationContext = Invitation::VALIDATION_CONTEXT_DEFAULT): ?bool
+    public function updatePayload(?string $validationContext = null): ?bool
     {
         // Encrypt the password if it exists
         // There is already a validation rule that makes username and password fields interconnected

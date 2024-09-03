@@ -79,13 +79,7 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
 
         $this->invitation->fillFromData($payload);
 
-        $updateResult = $this->invitation->updatePayload(Invitation::VALIDATION_CONTEXT_POPULATE);
-
-        if (!isset($updateResult)) {
-            return response()->json([
-                'errors' => $this->invitation->getErrors()
-            ], Response::HTTP_UNPROCESSABLE_ENTITY);
-        }
+        $this->invitation->updatePayload();
 
         // Here we should consider returning a certain json taken from the custom invitation
         // in order to be able to fully control the response

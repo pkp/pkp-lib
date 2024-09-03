@@ -198,7 +198,7 @@ abstract class Invitation
      *          False: if database update FAILED
      *          null : if invitation validation failed for properties
      */
-    public function updatePayload(string $validationContext = Invitation::VALIDATION_CONTEXT_DEFAULT): ?bool
+    public function updatePayload(?string $validationContext = null): ?bool
     {
         // Convert the current payload object to an array
         $currentPayloadArray = $this->payload->toArray();
@@ -233,7 +233,7 @@ abstract class Invitation
         }
 
         // Validate only the changed data if the ShouldValidate trait is used
-        if (in_array(ShouldValidate::class, class_uses($this))) {
+        if (in_array(ShouldValidate::class, class_uses($this)) && isset($validationContext)) {
             if (!$this->validate($changedData, $validationContext)) {
                 return null; // Validation failed
             }

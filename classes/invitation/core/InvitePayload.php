@@ -37,7 +37,9 @@ abstract class InvitePayload
     public static function fromArray(array $data): static
     {
         $className = get_called_class();
-        $filteredData = Arr::only($data, array_keys(get_class_vars($className)));
+        $classVars = get_class_vars($className);
+
+        $filteredData = array_merge($classVars, Arr::only($data, array_keys($classVars)));
 
         // Instantiate the subclass with the array, letting the constructor handle the details
         return new $className(...$filteredData);

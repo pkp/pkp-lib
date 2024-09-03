@@ -71,7 +71,7 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
         $reqInput = $illuminateRequest->all();
         $payload = $reqInput['invitationData'];
 
-        if (!$this->invitation->validate($payload, Invitation::VALIDATION_CONTEXT_INVITE)) {
+        if (!$this->invitation->validate($payload, Invitation::VALIDATION_CONTEXT_POPULATE)) {
             return response()->json([
                 'errors' => $this->invitation->getErrors()
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -81,7 +81,7 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
 
         $updateResult = $this->invitation->updatePayload(Invitation::VALIDATION_CONTEXT_POPULATE);
 
-        if (is_null($updateResult)) { // Validation Error
+        if (!isset($updateResult)) {
             return response()->json([
                 'errors' => $this->invitation->getErrors()
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -117,7 +117,13 @@ class UserRoleAssignmentCreateController extends CreateInvitationController
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        $this->invitation->invite();
+        $inviteResult = $this->invitation->invite();
+
+        if (!isset($inviteResult)) {
+            return response()->json([
+                'errors' => $this->invitation->getErrors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
 
         return response()->json(
             (new UserRoleAssignmentInviteResource($this->invitation))->toArray($illuminateRequest), 

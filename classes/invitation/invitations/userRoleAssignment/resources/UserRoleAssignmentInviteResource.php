@@ -23,7 +23,7 @@ class UserRoleAssignmentInviteResource extends JsonResource
     /**
      * Transform the resource into an array.
      */
-    public function toArray($request)
+    public function toArray(Request $request)
     {
         // Get all attributes of the invitationModel as an array
         $invitationData = $this->invitationModel->toArray();
@@ -39,6 +39,7 @@ class UserRoleAssignmentInviteResource extends JsonResource
             'emailBody' => $this->getSpecificPayload()->emailBody,
             'userGroupsToAdd' => $this->transformUserGroups($this->getSpecificPayload()->userGroupsToAdd),
             'userGroupsToRemove' => $this->transformUserGroups($this->getSpecificPayload()->userGroupsToRemove),
+            'username' => $this->getSpecificPayload()->username,
         ]);
     }
 

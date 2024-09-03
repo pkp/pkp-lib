@@ -215,7 +215,7 @@ abstract class Invitation
         }
 
         // Determine which properties are not allowed to be changed based on the current status
-         $checkArray = [];
+        $checkArray = [];
         if ($this->getStatus() == InvitationStatus::INITIALIZED) {
             $checkArray = $this->getNotAccessibleBeforeInvite();
         } elseif ($this->getStatus() == InvitationStatus::PENDING) {

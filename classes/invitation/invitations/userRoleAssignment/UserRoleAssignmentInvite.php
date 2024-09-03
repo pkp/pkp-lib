@@ -82,6 +82,10 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
         // Set the email send data
         $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
 
+        if (!isset($emailTemplate)) {
+            throw new \Exception('No email template found for key ' . $mailable::getEmailTemplateKey());
+        }
+
         $inviter = $this->getInviter();
 
         $reciever = $this->getMailableReceiver($locale);
@@ -455,8 +459,9 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
     {
         // Encrypt the password if it exists
         // There is already a validation rule that makes username and password fields interconnected
-        if (isset($this->payload->username) && isset($this->payload->password)) {
+        if (isset($this->payload->username) && isset($this->payload->password) && !$this->payload->passwordHashed) {
             $this->payload->password = Validation::encryptCredentials($this->payload->username, $this->payload->password);
+            $this->payload->passwordHashed = true;
         }
 
         // Call the parent updatePayload method to continue the normal update process

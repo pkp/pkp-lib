@@ -153,11 +153,17 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
         $reqInput = $illuminateRequest->all();
         $payload = $reqInput['invitationData'];
 
+        if (!$this->invitation->validate($payload, Invitation::VALIDATION_CONTEXT_REFINE)) {
+            return response()->json([
+                'errors' => $this->invitation->getErrors()
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
         $this->invitation->fillFromData($payload);
 
         $updateResult = $this->invitation->updatePayload(Invitation::VALIDATION_CONTEXT_REFINE);
 
-        if (is_null($updateResult)) { // Validation Error
+        if (!isset($updateResult)) {
             return response()->json([
                 'errors' => $this->invitation->getErrors()
             ], Response::HTTP_UNPROCESSABLE_ENTITY);

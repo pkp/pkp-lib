@@ -105,45 +105,39 @@ class InvitationController extends PKPBaseController
      */
     public function getGroupRoutes(): void
     {
-        Route::get('', $this->getMany(...))
-            ->name('invitation.getMany')
-            ->middleware([
-                self::roleAuthorizer(Role::getAllRoles()),
-            ]);
+        Route::middleware([
+            'has.user',
+            'has.context',
+            self::roleAuthorizer([
+                Role::ROLE_ID_SITE_ADMIN,
+                Role::ROLE_ID_MANAGER,
+                Role::ROLE_ID_SUB_EDITOR,
+                ROLE::ROLE_ID_ASSISTANT,
+            ]),
+        ])->group(function () {
 
-        // Get By Id Methods
-        Route::get('{invitationId}', $this->get(...))
-            ->name('invitation.get')
-            ->whereNumber('invitationId')
-            ->middleware([
-                self::roleAuthorizer(Role::getAllRoles()),
-            ]);
+            Route::get('', $this->getMany(...))
+                ->name('invitation.getMany');
 
-        Route::post('add/{type}', $this->add(...))
-            ->name('invitation.add')
-            ->middleware([
-                self::roleAuthorizer(Role::getAllRoles()),
-            ]);
+            // Get By Id Methods
+            Route::get('{invitationId}', $this->get(...))
+                ->name('invitation.get')
+                ->whereNumber('invitationId');
 
-        Route::put('{invitationId}/populate', $this->populate(...))
-            ->name('invitation.populate')
-            ->whereNumber('invitationId')
-            ->middleware([
-                self::roleAuthorizer(Role::getAllRoles()),
-            ]);
+            Route::post('add/{type}', $this->add(...))
+                ->name('invitation.add');
+            
+            Route::put('{invitationId}/populate', $this->populate(...))
+                ->name('invitation.populate')
+                ->whereNumber('invitationId');
 
-        Route::put('{invitationId}/invite', $this->invite(...))
-            ->name('invitation.invite')
-            ->whereNumber('invitationId')
-            ->middleware([
-                self::roleAuthorizer(Role::getAllRoles()),
-            ]);
+            Route::put('{invitationId}/invite', $this->invite(...))
+                ->name('invitation.invite')
+                ->whereNumber('invitationId');
 
-        Route::get('{invitationId}/getMailable', $this->getMailable(...))
-            ->name('invitation.getMailable')
-            ->middleware([
-                self::roleAuthorizer(Role::getAllRoles()),
-            ]);
+            Route::get('{invitationId}/getMailable', $this->getMailable(...))
+                ->name('invitation.getMailable');
+        });
 
         // Get By Key methods.
         Route::get('{invitationId}/key/{key}', $this->receive(...))

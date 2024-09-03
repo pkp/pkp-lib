@@ -18,10 +18,14 @@
 namespace APP\API\v1\submissions;
 
 use APP\facades\Repo;
+use APP\publication\Publication;
+use APP\submission\Submission;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
+use PKP\components\forms\publication\TitleAbstractForm;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
 use PKP\services\PKPSchemaService;
@@ -150,5 +154,34 @@ class SubmissionController extends \PKP\API\v1\submissions\PKPSubmissionControll
             Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication),
             Response::HTTP_OK
         );
+    }
+
+    /**
+     * @copydoc \PKP\api\v1\submissions\PKPSubmissionController::getPublicationTitleAbstractForm()
+     */
+    protected function getPublicationTitleAbstractForm(Request $illuminateRequest): JsonResponse
+    {
+        $data = $this->getSubmissionAndPublicationData($illuminateRequest);
+
+        if (isset($data['error'])) {
+            return response()->json([ 'error' => $data['error'],], $data['status']);
+        }
+
+        $submission = $data['submission']; /** @var Submission $submission */
+        $publication = $data['publication']; /** @var Publication $publication*/
+        $context = $data['context']; /** @var Context $context*/
+        $publicationApiUrl = $data['publicationApiUrl']; /** @var String $publicationApiUrl*/
+
+        $section = Repo::section()->get($publication->getData('sectionId'), $context->getId());
+        $locales = $this->getPublicationFormLocales($context, $submission);
+
+        $titleAbstract = new TitleAbstractForm(
+            $publicationApiUrl,
+            $locales,
+            $publication,
+            $section->getData('wordCount'),
+            !$section->getData('abstractsNotRequired')
+        );
+        return response()->json($titleAbstract->getConfig(), Response::HTTP_OK);
     }
 }

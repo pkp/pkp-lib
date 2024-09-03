@@ -1,7 +1,7 @@
-# Petro Bilous <petrobilous@ukr.net>, 2023.
+# Petro Bilous <petrobilous@ukr.net>, 2023, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-10-22 15:06+0000\n"
+"PO-Revision-Date: 2024-09-05 15:30+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "uk/>\n"
@@ -9,9 +9,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "api.400.tokenCouldNotBeDecoded"
 msgstr "Токен API не вдалося розшифрувати через таку помилку: {$error}"
@@ -362,3 +362,6 @@ msgstr ""
 
 msgid "api.highlights.404.highlightNotFound"
 msgstr "Виділення, яке ви запитували, не знайдено."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "Цьому елементу DOI не може бути надано."

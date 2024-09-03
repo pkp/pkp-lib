@@ -27,6 +27,7 @@ use PKP\plugins\Hook;
  */
 class PKPSchemaService
 {
+    public const SCHEMA_AFFILIATION = 'affiliation';
     public const SCHEMA_ANNOUNCEMENT = 'announcement';
     public const SCHEMA_AUTHOR = 'author';
     public const SCHEMA_CATEGORY = 'category';
@@ -68,11 +69,12 @@ class PKPSchemaService
      *
      * @hook Schema::get::(schemaName) [[schema]]
      * @hook Schema::get::
+     * @hook Schema::get::before::
      */
     public function get($schemaName, $forceReload = false)
     {
         Hook::run('Schema::get::before::' . $schemaName, [&$forceReload]);
-        
+
         if (!$forceReload && array_key_exists($schemaName, $this->_schemas)) {
             return $this->_schemas[$schemaName];
         }

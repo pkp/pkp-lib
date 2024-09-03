@@ -21,6 +21,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\LazyCollection;
 use PKP\core\EntityDAO;
+use PKP\core\traits\EntityWithParent;
 use PKP\services\PKPSchemaService;
 
 /**
@@ -30,6 +31,8 @@ use PKP\services\PKPSchemaService;
  */
 class DAO extends EntityDAO
 {
+    use EntityWithParent;
+
     /** @copydoc EntityDAO::$schema */
     public $schema = PKPSchemaService::SCHEMA_AFFILIATION;
 
@@ -45,6 +48,7 @@ class DAO extends EntityDAO
     /** @copydoc EntityDAO::$primaryTableColumns */
     public $primaryTableColumns = [
         'id' => 'author_affiliation_id',
+        'authorId' => 'author_id',
         'ror' => 'ror'
     ];
 
@@ -53,7 +57,7 @@ class DAO extends EntityDAO
      */
     public function getParentColumn(): string
     {
-        return '';
+        return 'author_id';
     }
 
     /**

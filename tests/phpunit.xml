@@ -13,7 +13,7 @@
     convertNoticesToExceptions="true"
     convertWarningsToExceptions="true"
     processIsolation="false"
-    stopOnFailure="true">
+    stopOnFailure="false">
     <testsuites>
         <testsuite name="LibraryJobs">
             <directory suffix="Test.php">jobs</directory>

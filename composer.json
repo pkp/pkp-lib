@@ -7,6 +7,7 @@
 		"elcobvg/laravel-opcache": "^0.5.0",
 		"ezyang/htmlpurifier": "^4.17",
 		"firebase/php-jwt": "6.*",
+		"fpdf/fpdf": "*",
 		"geoip2/geoip2": "~3.0",
 		"gettext/gettext": "5.*",
 		"gettext/translator": "1.2.*",

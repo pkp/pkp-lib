@@ -39,6 +39,7 @@ use PKP\log\event\Repository as EventLogRepository;
 use PKP\log\Repository as EmailLogEntryRepository;
 use PKP\note\Repository as NoteRepository;
 use PKP\notification\Notification as NotificationRepository;
+use PKP\ror\Repository as RorRepository;
 use PKP\stageAssignment\Repository as StageAssignmentRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
@@ -113,6 +114,11 @@ class Repo
     public static function jats(): JatsRepository
     {
         return app(JatsRepository::class);
+    }
+
+    public static function ror(): RorRepository
+    {
+        return app(RorRepository::class);
     }
 
     public static function stageAssignment(): StageAssignmentRepository

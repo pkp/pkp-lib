@@ -26,7 +26,7 @@ msgid "editor.submission.workflowDecision.submission"
 msgstr "決定を記録しました"
 
 msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "投稿は辞退されました。"
+msgstr "投稿は不採用されました。"
 
 msgid "editor.submission.workflowDecision.submission.accepted"
 msgstr "投稿が採用されました。"

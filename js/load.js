@@ -162,11 +162,11 @@ VueRegistry.registerComponent('PkpPagination', Pagination);
 VueRegistry.registerComponent('PkpProgressBar', ProgressBar);
 VueRegistry.registerComponent('PkpSearch', Search);
 VueRegistry.registerComponent('PkpTable', Table);
+VueRegistry.registerComponent('PkpTableBody', TableBody);
 VueRegistry.registerComponent('PkpTableCell', TableCell);
-VueRegistry.registerComponent('TableColumn', TableColumn);
-VueRegistry.registerComponent('TableHeader', TableHeader);
-VueRegistry.registerComponent('TableBody', TableBody);
-VueRegistry.registerComponent('TableRow', TableRow);
+VueRegistry.registerComponent('PkpTableColumn', TableColumn);
+VueRegistry.registerComponent('PkpTableHeader', TableHeader);
+VueRegistry.registerComponent('PkpTableRow', TableRow);
 VueRegistry.registerComponent('PkpTooltip', Tooltip);
 
 // Register Form components

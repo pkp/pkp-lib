@@ -111,14 +111,14 @@
 						</template>
 					</pkp-header>
 					<pkp-table labelled-by="contextDetailTableLabel">
-						<table-header>
-							<table-column v-for="column in tableColumns" :key="column.name" :id="column.name">
+						<pkp-table-header>
+							<pkp-table-column v-for="column in tableColumns" :key="column.name" :id="column.name">
 								{{ column.label }}
-							</table-column>
-						</table-header>
-						<table-body>
-							<table-row v-for="(row) in items" :key="row.key">
-								<table-cell>
+							</pkp-table-column>
+						</pkp-table-header>
+						<pkp-table-body>
+							<pkp-table-row v-for="(row) in items" :key="row.key">
+								<pkp-table-cell>
 									<a
 										:href="row.url"
 										class="pkpStats__itemLink"
@@ -126,20 +126,20 @@
 									>
 										<span class="pkpStats__itemTitle">{{ localize(row.name) }}</span>
 									</a>
-								</table-cell>
-								<table-cell>{{ row.total }}</table-cell>
-							</table-row>
+								</pkp-table-cell>
+								<pkp-table-cell>{{ row.total }}</pkp-table-cell>
+							</pkp-table-row>
 							<template #no-content v-if="!items.length">
-								<table-row class="pkpStats__noRecords">
-									<table-cell :colspan="tableColumns.length" class="!py-8 !px-4 !text-center">
+								<pkp-table-row class="pkpStats__noRecords">
+									<pkp-table-cell :colspan="tableColumns.length" class="!py-8 !px-4 !text-center">
 										<template v-if="isLoadingItems">
 											<spinner></spinner>
 											{translate key="common.loading"}
 										</template>
-									</table-cell>
-								</table-row>
+									</pkp-table-cell>
+								</pkp-table-row>
 							</template>
-						</table-body>
+						</pkp-table-body>
 					</pkp-table>
 				</div>
 			</div>

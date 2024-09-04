@@ -14,7 +14,7 @@ namespace PKP\tests\jobs\notifications;
 
 use Mockery;
 use PKP\tests\PKPTestCase;
-use APP\user\Repository as UserRepository;
+use PKP\user\Repository as UserRepository;
 use PKP\jobs\notifications\StatisticsReportNotify;
 
 /**

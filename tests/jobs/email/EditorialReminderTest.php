@@ -17,7 +17,7 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\tests\PKPTestCase;
 use PKP\jobs\email\EditorialReminder;
-use APP\user\Repository as UserRepository;
+use PKP\user\Repository as UserRepository;
 use PKP\submission\reviewRound\ReviewRound;
 use APP\submission\Collector as SubmissionCollector;
 use APP\submission\Repository as SubmissionRepository;
@@ -76,7 +76,7 @@ class EditorialReminderTest extends PKPTestCase
 
         // Need to replace the container binding of `context` with a mock object
         \APP\core\Services::register(
-            new class extends \APP\services\OJSServiceProvider
+            new class implements \Pimple\ServiceProviderInterface
             {
                 public function register(\Pimple\Container $pimple)
                 {

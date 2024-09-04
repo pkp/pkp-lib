@@ -16,7 +16,6 @@
 
 namespace PKP\controllers\grid\navigationMenus\form;
 
-use APP\core\Services;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -38,7 +37,7 @@ class PKPNavigationMenuItemsForm extends Form
      * @param int $contextId
      * @param int $navigationMenuItemId
      */
-    public function __construct($contextId, $navigationMenuItemId)
+    public function __construct(int $contextId, $navigationMenuItemId)
     {
         $this->_contextId = $contextId;
         $this->navigationMenuItemId = $navigationMenuItemId;
@@ -89,7 +88,7 @@ class PKPNavigationMenuItemsForm extends Form
                 'supportEmail' => __('plugins.generic.tinymce.variables.supportContactEmail', ['value' => $context->getData('supportEmail')]),
             ]);
         }
-        $types = Services::get('navigationMenu')->getMenuItemTypes();
+        $types = app()->get('navigationMenu')->getMenuItemTypes();
 
         $typeTitles = [0 => __('grid.navigationMenus.navigationMenu.selectType')];
         foreach ($types as $type => $settings) {
@@ -108,7 +107,7 @@ class PKPNavigationMenuItemsForm extends Form
             }
         }
 
-        $customTemplates = Services::get('navigationMenu')->getMenuItemCustomEditTemplates();
+        $customTemplates = app()->get('navigationMenu')->getMenuItemCustomEditTemplates();
 
         $templateArray = [
             'navigationMenuItemTypeTitles' => $typeTitles,
@@ -131,7 +130,7 @@ class PKPNavigationMenuItemsForm extends Form
         $navigationMenuItem = $navigationMenuItemDao->getById($this->navigationMenuItemId);
 
         if ($navigationMenuItem) {
-            Services::get('navigationMenu')
+            app()->get('navigationMenu')
                 ->setAllNMILocalizedTitles($navigationMenuItem);
 
             $formData = [
@@ -181,7 +180,7 @@ class PKPNavigationMenuItemsForm extends Form
         } else {
             $localizedTitlesFromDB = $navigationMenuItem->getTitle(null);
 
-            Services::get('navigationMenu')
+            app()->get('navigationMenu')
                 ->setAllNMILocalizedTitles($navigationMenuItem);
 
             $localizedTitles = $navigationMenuItem->getTitle(null);

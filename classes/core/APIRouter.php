@@ -3,13 +3,11 @@
 /**
  * @file classes/core/APIRouter.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2014-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class APIRouter
- *
- * @ingroup core
  *
  * @brief Map HTTP requests to a REST API using the laravel router
  *
@@ -23,12 +21,14 @@ namespace PKP\core;
 use APP\core\Application;
 use Exception;
 use Illuminate\Http\Response;
+use PKP\core\PKPBaseController;
+use PKP\core\PKPRequest;
+use PKP\handler\APIHandler;
 
 class APIRouter extends PKPRouter
 {
     /**
      * Determines path info parts
-     *
      */
     protected function getPathInfoParts(): array
     {
@@ -36,18 +36,32 @@ class APIRouter extends PKPRouter
     }
 
     /**
+     * Get the API controller file path
+     */
+    protected function getSourceFilePath(): string
+    {
+        return sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
+    }
+
+    /**
      * Determines whether this router can route the given request.
-     *
-     * @param PKPRequest $request
      *
      * @return bool true, if the router supports this request, otherwise false
      */
-    public function supports($request): bool
+    public function supports(PKPRequest $request): bool
     {
         $pathInfoParts = $this->getPathInfoParts();
 
-        if (!is_null($pathInfoParts) && count($pathInfoParts) >= 2 && $pathInfoParts[1] == 'api') {
-            // Context-specific API requests: [index.php]/{contextPath}/api
+        if (is_null($pathInfoParts)) {
+            return false;
+        }
+
+        if (count($pathInfoParts) < 2) {
+            return false;
+        }
+
+        // Context-specific API requests: [index.php]/{contextPath}/api
+        if ($pathInfoParts[1] === 'api') {
             return true;
         }
 
@@ -60,6 +74,7 @@ class APIRouter extends PKPRouter
     public function getVersion(): string
     {
         $pathInfoParts = $this->getPathInfoParts();
+
         return Core::cleanFileVar($pathInfoParts[2] ?? '');
     }
 
@@ -69,6 +84,7 @@ class APIRouter extends PKPRouter
     public function getEntity(): string
     {
         $pathInfoParts = $this->getPathInfoParts();
+
         return Core::cleanFileVar($pathInfoParts[3] ?? '');
     }
 
@@ -76,11 +92,11 @@ class APIRouter extends PKPRouter
     // Implement template methods from PKPRouter
     //
     /**
-     * @copydoc PKPRouter::route()
+     * @copydoc \PKP\core\PKPRouter::route()
      */
     public function route(PKPRequest $request): void
     {
-        $sourceFile = sprintf('api/%s/%s/index.php', $this->getVersion(), $this->getEntity());
+        $sourceFile = $this->getSourceFilePath();
 
         if (!file_exists($sourceFile)) {
             response()->json([
@@ -90,8 +106,14 @@ class APIRouter extends PKPRouter
             exit;
         }
 
-        $handler = require('./' . $sourceFile);
+        $handler = require('./' . $sourceFile); /** @var \PKP\handler\APIHandler|\PKP\core\PKPBaseController $handler */
+
+        if ($handler instanceof PKPBaseController) {
+            $handler = new APIHandler($handler); /** @var \PKP\handler\APIHandler $handler */
+        }
+
         $this->setHandler($handler);
+        $handler->runRoutes();
     }
 
     /**
@@ -132,7 +154,8 @@ class APIRouter extends PKPRouter
         ?array $path = null,
         ?array $params = null,
         ?string $anchor = null,
-        bool $escape = false
+        bool $escape = false,
+        ?string $urlLocaleForPage = null
     ): string {
         // APIHandlers do not understand $op, $path or $anchor. All routing is baked
         // into the $endpoint string. It only accepts a string as the $newContext,

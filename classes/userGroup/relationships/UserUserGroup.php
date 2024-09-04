@@ -17,10 +17,13 @@ namespace PKP\userGroup\relationships;
 use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Eloquence\Behaviours\HasCamelCasing;
 use PKP\core\Core;
 
 class UserUserGroup extends \Illuminate\Database\Eloquent\Model
 {
+    use HasCamelCasing;
+
     public $timestamps = false;
     public $incrementing = false;
     protected $primaryKey = null;
@@ -39,46 +42,6 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
         return Attribute::make(
             get: fn ($value, $attributes) => Repo::userGroup()->get($attributes['user_group_id']),
             set: fn ($value) => $value->getId()
-        );
-    }
-
-    public function userId(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($user, $attributes) => $attributes['user_id'],
-            set: fn ($value) => ['user_id' => $value]
-        );
-    }
-
-    public function userGroupId(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($userGroup, $attributes) => $attributes['user_group_id'],
-            set: fn ($value) => ['user_group_id' => $value]
-        );
-    }
-
-    public function dateStart(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($userGroup, $attributes) => $attributes['date_start'],
-            set: fn ($value) => ['date_start' => $value]
-        );
-    }
-
-    public function dateEnd(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($userGroup, $attributes) => $attributes['date_end'],
-            set: fn ($value) => ['date_end' => $value]
-        );
-    }
-
-    public function masthead(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($userGroup, $attributes) => $attributes['masthead'],
-            set: fn ($value) => ['masthead' => $value]
         );
     }
 
@@ -114,11 +77,11 @@ class UserUserGroup extends \Illuminate\Database\Eloquent\Model
             ->where('user_user_groups.date_end', '<=', $currentDateTime);
     }
 
-    public function scopeWithContextId(Builder $query, int $contextId): Builder
+    public function scopeWithContextId(Builder $query, ?int $contextId): Builder
     {
         return $query
             ->join('user_groups as ug', 'user_user_groups.user_group_id', '=', 'ug.user_group_id')
-            ->where('ug.context_id', $contextId);
+            ->whereRaw('COALESCE(ug.context_id, 0) = ?', [(int) $contextId]);
     }
 
     public function scopeWithMasthead(Builder $query): Builder

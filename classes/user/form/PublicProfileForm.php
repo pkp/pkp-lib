@@ -21,7 +21,6 @@ use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\template\TemplateManager;
 use PKP\core\Core;
-use PKP\orcid\OrcidManager;
 use PKP\user\User;
 
 class PublicProfileForm extends BaseProfileForm
@@ -50,7 +49,6 @@ class PublicProfileForm extends BaseProfileForm
         $user = $this->getUser();
 
         $this->_data = [
-            'orcid' => $user->getOrcid(),
             'userUrl' => $user->getUrl(),
             'biography' => $user->getBiography(null), // Localized
         ];
@@ -65,9 +63,7 @@ class PublicProfileForm extends BaseProfileForm
     {
         parent::readInputData();
 
-        $this->readUserVars([
-            'orcid', 'userUrl', 'biography',
-        ]);
+        $this->readUserVars(['userUrl', 'biography',]);
     }
 
     /**
@@ -159,26 +155,6 @@ class PublicProfileForm extends BaseProfileForm
             'profileImageMaxHeight' => self::PROFILE_IMAGE_MAX_HEIGHT,
             'publicSiteFilesPath' => $publicFileManager->getSiteFilesPath(),
         ]);
-
-        // FIXME: ORCID validation/authorization requires a context so this should not appear at the
-        //        site level for the time-being
-        if ($request->getContext() !== null && OrcidManager::isEnabled()) {
-            $user = $request->getUser();
-            $targetOp = 'profile';
-            $templateMgr->assign([
-                'orcidEnabled' => true,
-                'targetOp' => $targetOp,
-                'orcidUrl' => OrcidManager::getOrcidUrl(),
-                'orcidOAuthUrl' => OrcidManager::buildOAuthUrl('authorizeOrcid', ['targetOp' => $targetOp]),
-                'orcidClientId' => OrcidManager::getClientId(),
-                'orcidIcon' => OrcidManager::getIcon(),
-                'orcidAuthenticated' => $user !== null && !empty($user->hasVerifiedOrcid()),
-            ]);
-        } else {
-            $templateMgr->assign([
-                'orcidEnabled' => false,
-            ]);
-        }
 
         return parent::fetch($request, $template, $display);
     }

@@ -1,21 +1,23 @@
-# Martin Brändle <martin.braendle@uzh.ch>, 2022.
+# Martin Brändle <martin.braendle@uzh.ch>, 2022, 2024.
 # Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022.
 # Fulvio Delle Donne <fulviodelledonne@libero.it>, 2022.
+# Gabriele Raimondi <gabriele.raimondi5@unibo.it>, 2024.
+# Martina Marafioti <martina.marafioti3@unibo.it>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:53+00:00\n"
-"PO-Revision-Date: 2022-09-22 18:31+0000\n"
-"Last-Translator: Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>\n"
+"PO-Revision-Date: 2024-08-23 14:45+0000\n"
+"Last-Translator: Martina Marafioti <martina.marafioti3@unibo.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/it_IT/>\n"
-"Language: it_IT\n"
+"submission/it/>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
@@ -50,6 +52,8 @@ msgstr ""
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"Selezionare un ruolo editoriale se si desidera modificare e pubblicare "
+"personalmente questo invio."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Requisiti per le proposte"
@@ -60,7 +64,7 @@ msgstr ""
 "Devi aver letto e completato i requisiti qui indicati prima di procedere."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "Sì, il mio invio soddisfa tutti questi requisiti."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Proposta completata"
@@ -128,7 +132,7 @@ msgstr "Non usare per default (sarà comunque disponibile agli editor)"
 
 msgid "metadata.filters.settings.isOptional.validationMessage"
 msgstr ""
-"Errore interno. E' stato inserito un carattere non valido per l'impostazione "
+"Errore interno. È stato inserito un carattere non valido per l'impostazione "
 "dei 'filtri opzionali'. Segnala l'errore come bug."
 
 msgid "metadata.property.displayName.author"
@@ -545,7 +549,7 @@ msgid "submission.coverage"
 msgstr "Informazione sulla copertura"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Dettagli di invio"
 
 msgid "submission.done"
 msgstr "Completata"
@@ -615,6 +619,7 @@ msgstr "Invio iniziale completato."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$filename} ({$username}) ha accettato i termini di copyright per l'invio."
 
 msgid "submission.event.fileRevised"
 msgstr ""
@@ -667,9 +672,13 @@ msgstr "Aggiornato il file di revisioni del revisore"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} ha inviato un promemoria a {$recipientName} per il suo "
+"incarico di revisione"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"È stata inviata un'e-mail automatica di promemoria a {$recipientName} per "
+"l'assegnazione della revisione"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Una email è stata mandata:"
@@ -702,7 +711,7 @@ msgid "submission.firstPublished"
 msgstr "Prima pubblicazione"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "Per gli editori"
 
 msgid "submission.galley"
 msgstr "Gabbia"
@@ -833,7 +842,7 @@ msgid "submission.layout.galleyLanguageRequired"
 msgstr "Inserire la lingua della gabbia."
 
 msgid "submission.layout.galleyLocaleRequired"
-msgstr "E' necessario indicare la lingua della gabbia."
+msgstr "È necessario indicare la lingua della gabbia."
 
 msgid "submission.layout.galleyRemoteURL"
 msgstr "URL remota"
@@ -980,7 +989,7 @@ msgid "submission.review"
 msgstr "Revisione"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Revisionare e inviare"
 
 msgid "submission.reviewed"
 msgstr "Revisionato"
@@ -1019,7 +1028,7 @@ msgid "submissions.queued"
 msgstr "Accodato"
 
 msgid "submissions.queuedUnassigned"
-msgstr "In attesa di assegnazione ad un Editor."
+msgstr "In attesa di assegnazione a un Editor."
 
 msgid "submissions.ruling"
 msgstr "Parere"
@@ -1098,7 +1107,7 @@ msgstr "Gestisci i file in subordine"
 msgid "submission.upload.instructions"
 msgstr ""
 "Carica tutti i file di cui la redazione avrà bisogno per valutare la tua "
-"sottomissione."
+"proposta."
 
 msgid "submission.upload.percentComplete"
 msgstr "Caricamento {$percent}% completato"
@@ -1194,7 +1203,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Per favore inserisci le citazioni."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Inserire la dichiarazione di disponibilità dei dati."
 
 msgid "submission.form.name"
 msgstr "Dai al file un nome comprensibile"
@@ -1258,9 +1267,9 @@ msgstr "Trovata una possibile duplicazione o revisione"
 
 msgid "submission.upload.possibleRevisionDescription"
 msgstr ""
-"Il nome del file caricato è molto simile ad un file già inserito, "
-"\"{$revisedFileName}.\" Con questo file si intende sovrascrivere "
-"\"{$revisedFileName}\"? Se è cosi, selezionare il file da questo elenco. "
+"Il nome del file caricato è molto simile a un file già inserito, \""
+"{$revisedFileName}.\" Con questo file si intende sovrascrivere \""
+"{$revisedFileName}\"? Se è cosi, selezionare il file da questo elenco. "
 "Altrimenti selezionare \"Questa non è la revisione di un file esistente\" "
 "prima di procedere."
 
@@ -1276,12 +1285,12 @@ msgid "submission.upload.uploadNewFile"
 msgstr "Questa non è una revisione di un file esistente"
 
 msgid "submission.upload.userGroup"
-msgstr "Carica questo file nel mio ruolo come ..."
+msgstr "Carica questo file nel mio ruolo come..."
 
 msgid "submission.upload.userGroupDescription"
 msgstr ""
-"Se stai inserndo un Volume, puoi caricare tutti i capitoli del volume, "
-"usando il tuo ruolo di edtor di voume."
+"Se stai inserendo un Volume, puoi caricare tutti i capitoli del volume, "
+"usando il tuo ruolo di editor di volume."
 
 msgid "submission.upload.uploadLibraryFile"
 msgstr "Carica un file come materiale di supporto"
@@ -1290,18 +1299,18 @@ msgid "submission.upload.libraryCategory"
 msgstr "Categoria del documento che riporta la proposta"
 
 msgid "submission.upload.finalDraft"
-msgstr "Carica files"
+msgstr "Carica file"
 
 msgid "submission.upload.copyeditedVersion"
 msgstr "Carica file (versione dopo il copyediting)"
 
 msgid "submission.upload.uploadFiles"
-msgstr "Carica files"
+msgstr "Carica i file"
 
 msgid "submission.upload.response.description"
 msgstr ""
-"Dopo aver revisionato il file assegnato, registra ogni commente nel file qui "
-"sotto e/o carica una copia annotata del dile (o un altro file)."
+"Dopo aver revisionato il file assegnato, registra ogni commento nel file qui "
+"sotto e/o carica una copia annotata del file (o un altro file)."
 
 msgid "submission.upload.productionReady"
 msgstr "Carica un file pronto per la produzione"
@@ -1344,7 +1353,7 @@ msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "Nuove revisioni sono state inviate."
 
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Sono giunte tutte le revisioni ed ora è necessaria una decisione."
+msgstr "Sono giunte tutte le revisioni e ora è necessaria una decisione."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Una revisione è in ritardo."
@@ -1356,7 +1365,7 @@ msgid "editor.submission.roundStatus.recommendationsReady"
 msgstr "Sono state inviate nuove valutazioni da parte degli editor."
 
 msgid "editor.submission.roundStatus.recommendationsCompleted"
-msgstr "Sono giunte tutte le valutazioni ed ora è necessaria una decisione."
+msgstr "Sono giunte tutte le valutazioni e ora è necessaria una decisione."
 
 msgid "editor.submission.status.inactiveDaysInStage"
 msgstr "Inattivo per più di {$days} giorni nella fase {$stage}."
@@ -1587,6 +1596,8 @@ msgstr "Il round di revisione per la proposta {$title}, e' stato cancellato."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
+"Può annullare il turno di revisione solo se nessun revisore associato ha "
+"revisioni completate o inviate disponibili."
 
 msgid "editor.submission.decision.resubmit"
 msgstr "Invia di nuovo per revisione"
@@ -1742,8 +1753,7 @@ msgstr "Approva le bozze"
 
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr ""
-"Il file non sarà disponibile al pubblico o acquistabile. Vuoi non "
-"approvarlo ?"
+"Il file non sarà disponibile al pubblico o acquistabile. Vuoi non approvarlo?"
 
 msgid "editor.submission.decision.revertDecline"
 msgstr "Invertire il declino"
@@ -1871,7 +1881,7 @@ msgid "submission.noActionRequired"
 msgstr "Nessuna azione richiesta"
 
 msgid "submission.actionNeeded"
-msgstr "E' richiesta un'azione"
+msgstr "È richiesta un'azione"
 
 msgid "reviewer.submission.reviewFiles"
 msgstr "File della revisione"
@@ -2268,19 +2278,19 @@ msgstr ""
 
 msgid "submission.license.cc.by3.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/"
-"\">2<img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by/3.0/88x31.png\" /></a><p>Questo articolo è pubblicato sotto licenza <a "
-"rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/"
-"\">Creative Commons Attribution 3.0 Unported</a>.</p>"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3."
+"0/88x31.png\" /></a><p>Questo articolo è pubblicato sotto licenza <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative "
+"Commons Attribution 3.0 Unported</a>.</p>"
 
 msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
-"\">2<img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
-"sa/3.0/88x31.png\" />3</a>4<p>Questo articolo è pubblicato sotto licenza <a "
-"rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
-"\">Creative Commons Attribution-ShareAlike 3.0 Unported</a>.</p>"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
+"3.0/88x31.png\" /></a><p>Questo articolo è pubblicato sotto licenza <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\""
+">Creative Commons Attribution-ShareAlike 3.0 Unported</a>.</p>"
 
 msgid "submission.queries.submission"
 msgstr "Discussioni prima della revisione"
@@ -2370,7 +2380,7 @@ msgid "submission.list.reviewCancelled"
 msgstr "Incarico di revisione cancellato"
 
 msgid "submission.list.confirmDelete"
-msgstr "Cancelli la proposta ?"
+msgstr "Cancelli la proposta?"
 
 msgid "submission.list.viewAllSubmissions"
 msgstr "Vedi tutte le proposte"
@@ -2399,8 +2409,8 @@ msgstr "Apri le discussioni"
 msgid "submission.list.dualWorkflowLinks"
 msgstr ""
 "Ti sono stati assegnati molteplici ruoli per questa proposta. Vuoi accedere "
-"come <a href=\"{$urlAuthorWorkflow}\">Autore</a>  o come <a href="
-"\"{$urlEditorialWorkflow}\">Editor</a>?"
+"come <a href=\"{$urlAuthorWorkflow}\">Autore</a> o come <a href=\""
+"{$urlEditorialWorkflow}\">Editor</a>?"
 
 msgid "submission.list.reviewerWorkflowLink"
 msgstr ""
@@ -2536,7 +2546,7 @@ msgid "publication.datePublished.errorFormat"
 msgstr "La data deve avere il formato YYY-MM-DD, ad esempio 2019-01-01."
 
 msgid "publication.event.versionCreated"
-msgstr "E' stata creata una nuova versione."
+msgstr "È stata creata una nuova versione."
 
 msgid "publication.publicationLicense"
 msgstr "Permessi e dichiarazioni"
@@ -2586,10 +2596,9 @@ msgstr ""
 msgid "doi.submission.notPublished"
 msgstr ""
 
-#, fuzzy
 msgid "submission.viewingPreview"
 msgstr ""
-"Questa è una preview non ancora pubblicata  <a href=\"{$url}\">Vai "
+"Questa è una preview non ancora pubblicata <a href=\"{$url}\">Vai "
 "all'articolo</a>"
 
 msgid "author.submit.noFiles"
@@ -2689,3 +2698,11 @@ msgstr ""
 msgid "submission.submissionFile"
 msgstr "File del contributo"
 
+msgid "editor.submission.roundStatus.returnedToReview"
+msgstr "Riportato indietro per la revisione."
+
+msgid "submission.authors.label"
+msgstr "Autori"
+
+msgid "submission.author.list"
+msgstr "Elenco degli autori della presentazione"

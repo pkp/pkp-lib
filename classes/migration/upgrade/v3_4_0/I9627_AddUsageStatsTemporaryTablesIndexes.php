@@ -39,22 +39,20 @@ class I9627_AddUsageStatsTemporaryTablesIndexes extends Migration
             });
         }
 
-        $sm = Schema::getConnection()->getDoctrineSchemaManager();
-        Schema::table('usage_stats_total_temporary_records', function (Blueprint $table) use ($sm) {
-            $indexesFound = $sm->listTableIndexes('usage_stats_total_temporary_records');
-            if (!array_key_exists('ust_load_id_context_id_ip', $indexesFound)) {
+        Schema::table('usage_stats_total_temporary_records', function (Blueprint $table) {
+            if (!Schema::hasIndex('usage_stats_total_temporary_records', 'ust_load_id_context_id_ip')) {
                 $table->index(['load_id', 'context_id', 'ip'], 'ust_load_id_context_id_ip');
             }
         });
-        Schema::table('usage_stats_unique_item_investigations_temporary_records', function (Blueprint $table) use ($sm) {
-            $indexesFound = $sm->listTableIndexes('usage_stats_unique_item_investigations_temporary_records');
-            if (!array_key_exists('usii_load_id_context_id_ip', $indexesFound)) {
+
+        Schema::table('usage_stats_unique_item_investigations_temporary_records', function (Blueprint $table) {
+            if (!Schema::hasIndex('usage_stats_unique_item_investigations_temporary_records', 'usii_load_id_context_id_ip')) {
                 $table->index(['load_id', 'context_id', 'ip'], 'usii_load_id_context_id_ip');
             }
         });
-        Schema::table('usage_stats_unique_item_requests_temporary_records', function (Blueprint $table) use ($sm) {
-            $indexesFound = $sm->listTableIndexes('usage_stats_unique_item_requests_temporary_records');
-            if (!array_key_exists('usir_load_id_context_id_ip', $indexesFound)) {
+        
+        Schema::table('usage_stats_unique_item_requests_temporary_records', function (Blueprint $table) {
+            if (!Schema::hasIndex('usage_stats_unique_item_requests_temporary_records', 'usir_load_id_context_id_ip')) {
                 $table->index(['load_id', 'context_id', 'ip'], 'usir_load_id_context_id_ip');
             }
         });

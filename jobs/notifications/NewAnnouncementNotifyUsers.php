@@ -18,7 +18,6 @@ namespace PKP\jobs\notifications;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use Illuminate\Bus\Batchable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Mail;
@@ -29,6 +28,7 @@ use PKP\job\exceptions\JobException;
 use PKP\jobs\BaseJob;
 use PKP\mail\mailables\AnnouncementNotify;
 use PKP\notification\managerDelegate\AnnouncementNotificationManager;
+use PKP\notification\Notification;
 use PKP\user\User;
 
 class NewAnnouncementNotifyUsers extends BaseJob

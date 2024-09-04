@@ -20,7 +20,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\grid\CategoryGridDataProvider;
 use PKP\db\DAORegistry;
-use PKP\note\NoteDAO;
+use PKP\note\Note;
 use PKP\query\QueryDAO;
 use PKP\submission\reviewRound\ReviewRoundDAO;
 use PKP\submissionFile\SubmissionFile;
@@ -148,11 +148,10 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
                     if ($submissionFile->getData('assocType') != Application::ASSOC_TYPE_NOTE) {
                         break;
                     }
-                    $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-                    $note = $noteDao->getById($submissionFile->getData('assocId'));
+                    $note = Note::find($submissionFile->getData('assocId'));
                     $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-                    if ($note && $note->getAssocType() == Application::ASSOC_TYPE_QUERY) {
-                        $query = $queryDao->getById($note->getAssocId());
+                    if ($note?->assocType == Application::ASSOC_TYPE_QUERY) {
+                        $query = $queryDao->getById($note->assocId);
                     }
                     if ($query && $query->getStageId() == $stageId) {
                         $stageSubmissionFiles[$key] = $submissionFile;

@@ -195,21 +195,13 @@ class Validation
      *
      * @return bool
      */
-    public static function isAuthorized($roleId, $contextId = 0)
+    public static function isAuthorized($roleId, ?int $contextId = Application::SITE_CONTEXT_ID)
     {
         if (!self::isLoggedIn()) {
             return false;
         }
 
-        if ($contextId === -1) {
-            // Get context ID from request
-            $request = Application::get()->getRequest();
-            $context = $request->getContext();
-            $contextId = $context == null ? Application::CONTEXT_SITE : $context->getId();
-        }
-
         $user = Auth::user(); /** @var \PKP\user\User $user */
-
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
         return $roleDao->userHasRole($contextId, $user->getId(), $roleId);
     }
@@ -412,12 +404,12 @@ class Validation
         }
 
         // You cannot administer administrators
-        if ($roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $administeredUserId, Role::ROLE_ID_SITE_ADMIN)) {
+        if ($roleDao->userHasRole(\PKP\core\PKPApplication::SITE_CONTEXT_ID, $administeredUserId, Role::ROLE_ID_SITE_ADMIN)) {
             return false;
         }
 
         // Otherwise, administrators can administer everyone
-        if ($roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $administratorUserId, Role::ROLE_ID_SITE_ADMIN)) {
+        if ($roleDao->userHasRole(\PKP\core\PKPApplication::SITE_CONTEXT_ID, $administratorUserId, Role::ROLE_ID_SITE_ADMIN)) {
             return true;
         }
 
@@ -425,7 +417,7 @@ class Validation
         // that the administrator user doesn't have a manager role in.
         $userGroups = Repo::userGroup()->userUserGroups($administeredUserId);
         foreach ($userGroups as $userGroup) {
-            if ($userGroup->getContextId() != \PKP\core\PKPApplication::CONTEXT_SITE && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
+            if ($userGroup->getContextId() != \PKP\core\PKPApplication::SITE_CONTEXT_ID && !$roleDao->userHasRole($userGroup->getContextId(), $administratorUserId, Role::ROLE_ID_MANAGER)) {
                 // Found an assignment: disqualified.
                 return false;
             }
@@ -456,7 +448,7 @@ class Validation
      *
      * @return int The authorized administration level
      */
-    public static function getAdministrationLevel(int $administeredUserId, int $administratorUserId, int $contextId = null): int
+    public static function getAdministrationLevel(int $administeredUserId, int $administratorUserId, ?int $contextId = null): int
     {
         // You can administer yourself
         if ($administeredUserId == $administratorUserId) {
@@ -465,7 +457,7 @@ class Validation
 
         $filteredSiteAdminUserGroups = Repo::userGroup()
             ->getCollector()
-            ->filterByContextIds([\PKP\core\PKPApplication::CONTEXT_SITE])
+            ->filterByContextIds([\PKP\core\PKPApplication::SITE_CONTEXT_ID])
             ->filterByRoleIds([Role::ROLE_ID_SITE_ADMIN]);
 
         // You cannot administer administrators

@@ -33,7 +33,7 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\mail\mailables\ReviewRequest;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\reviewForm\ReviewFormDAO;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
@@ -72,6 +72,17 @@ class ReviewerForm extends Form
         // Validation checks for this form
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'responseDueDate', 'required', 'editor.review.errorAddingReviewer'));
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'reviewDueDate', 'required', 'editor.review.errorAddingReviewer'));
+
+        $this->addCheck(
+            new \PKP\form\validation\FormValidatorDateCompare(
+                $this,
+                'reviewDueDate',
+                \Carbon\Carbon::parse(Application::get()->getRequest()->getUserVar('responseDueDate')),
+                \PKP\validation\enums\DateComparisonRule::GREATER_OR_EQUAL,
+                'required',
+                'editor.review.errorAddingReviewer.dateValidationFailed'
+            )
+        );
 
         $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
         $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
@@ -379,7 +390,7 @@ class ReviewerForm extends Form
         $msgKey = $this->getData('skipEmail') ? 'notification.addedReviewerNoEmail' : 'notification.addedReviewer';
         $notificationMgr->createTrivialNotification(
             $currentUser->getId(),
-            PKPNotification::NOTIFICATION_TYPE_SUCCESS,
+            Notification::NOTIFICATION_TYPE_SUCCESS,
             ['contents' => __($msgKey, ['reviewerName' => $reviewer->getFullName()])]
         );
 

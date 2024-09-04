@@ -13,7 +13,6 @@
 
 namespace PKP\emailTemplate;
 
-use APP\core\Services;
 use APP\emailTemplate\DAO;
 use APP\facades\Repo;
 use PKP\context\Context;
@@ -105,7 +104,7 @@ class Repository
 
         if (isset($props['contextId'])) {
             $validator->after(function ($validator) use ($props, $context) {
-                if (!Services::get('context')->exists($props['contextId'])) {
+                if (!app()->get('context')->exists($props['contextId'])) {
                     $validator->errors()->add('contextId', __('api.contexts.404.contextNotFound'));
                 }
                 if ($context->getId() !== $props['contextId']) {

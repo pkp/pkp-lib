@@ -21,8 +21,8 @@ use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\facades\Locale;
 use PKP\invitation\core\enums\InvitationStatus;
-use PKP\invitation\models\InvitationModel;
 use PKP\invitation\invitations\ChangeProfileEmailInvite;
+use PKP\invitation\models\InvitationModel;
 use PKP\user\User;
 
 class ContactForm extends BaseProfileForm
@@ -76,7 +76,7 @@ class ContactForm extends BaseProfileForm
             ->byUserId($this->_user->getId())
             ->stillActive()
             ->first();
-        
+
         $invitation = new ChangeProfileEmailInvite($invitationModel);
 
         $templateMgr->assign([
@@ -133,7 +133,7 @@ class ContactForm extends BaseProfileForm
             ->byUserId($user->getId())
             ->stillActive()
             ->first();
-        
+
         if ($invitationModel) {
             $invitation = new ChangeProfileEmailInvite($invitationModel);
 

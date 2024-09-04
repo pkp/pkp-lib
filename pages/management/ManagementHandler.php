@@ -175,7 +175,7 @@ class ManagementHandler extends Handler
             ]);
 
             // Get contact information for site administrator
-            $userGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_SITE_ADMIN], PKPApplication::CONTEXT_SITE);
+            $userGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID);
             $adminUserGroup = $userGroups->first();
 
             $siteAdmin = Repo::user()->getCollector()

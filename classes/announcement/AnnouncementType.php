@@ -25,20 +25,16 @@ class AnnouncementType extends \PKP\core\DataObject
     //
     /**
      * Get context ID for this announcement.
-     *
-     * @return int
      */
-    public function getContextId()
+    public function getContextId(): ?int
     {
         return $this->getData('contextId');
     }
 
     /**
      * Set context ID for this announcement.
-     *
-     * @param int $contextId
      */
-    public function setContextId($contextId)
+    public function setContextId(?int $contextId)
     {
         $this->setData('contextId', $contextId);
     }

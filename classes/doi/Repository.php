@@ -15,7 +15,6 @@
 namespace PKP\doi;
 
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\App;
@@ -72,13 +71,13 @@ abstract class Repository
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id, int $contextId = null): ?Doi
+    public function get(int $id, ?int $contextId = null): ?Doi
     {
         return $this->dao->get($id, $contextId);
     }
 
     /** @copydoc DAO::exists() */
-    public function exists(int $id, int $contextId = null): bool
+    public function exists(int $id, ?int $contextId = null): bool
     {
         return $this->dao->exists($id, $contextId);
     }
@@ -155,7 +154,7 @@ abstract class Repository
         // The contextId must match an existing context
         $validator->after(function ($validator) use ($object, $props) {
             if (isset($props['contextId']) && !$validator->errors()->get('contextId')) {
-                if (!Services::get('context')->exists($props['contextId'])) {
+                if (!app()->get('context')->exists($props['contextId'])) {
                     $validator->errors()->add('contextId', __('api.contexts.404.contextNotFound'));
                 }
             }

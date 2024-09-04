@@ -1,9 +1,9 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023, 2024.
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-10-12 23:26+0000\n"
+"PO-Revision-Date: 2024-08-23 14:45+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/hy/"
 ">\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "Այս {$param} պարամետրը չի աջակցվում։"
@@ -368,3 +368,6 @@ msgstr ""
 
 msgid "api.highlights.404.highlightNotFound"
 msgstr "Ձեր հայցած կարևոր կետը չի գտնվել:"
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "Այս նյութին հնարավոր չէ DOI նշանակել:"

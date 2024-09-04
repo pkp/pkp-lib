@@ -15,7 +15,6 @@ namespace PKP\publication;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\publication\DAO;
@@ -72,13 +71,13 @@ abstract class Repository
     }
 
     /** @copydoc DAO::exists() */
-    public function exists(int $id, int $submissionId = null): bool
+    public function exists(int $id, ?int $submissionId = null): bool
     {
         return $this->dao->exists($id, $submissionId);
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id, int $submissionId = null): ?Publication
+    public function get(int $id, ?int $submissionId = null): ?Publication
     {
         return $this->dao->get($id, $submissionId);
     }
@@ -299,7 +298,7 @@ abstract class Repository
 
             $submissionContext = $this->request->getContext();
             if ($submissionContext->getId() !== $submission->getData('contextId')) {
-                $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+                $submissionContext = app()->get('context')->get($submission->getData('contextId'));
             }
 
             $supportedLocales = $submission->getPublicationLanguages($submissionContext->getSupportedSubmissionMetadataLocales());
@@ -407,7 +406,7 @@ abstract class Repository
         if (array_key_exists('coverImage', $params)) {
             $submissionContext = $this->request->getContext();
             if ($submissionContext->getId() !== $submission->getData('contextId')) {
-                $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+                $submissionContext = app()->get('context')->get($submission->getData('contextId'));
             }
 
             $supportedLocales = $submission->getPublicationLanguages($submissionContext->getSupportedSubmissionMetadataLocales());
@@ -551,7 +550,7 @@ abstract class Repository
 
         $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()?->getId()
             ? Application::get()->getRequest()->getContext()
-            : Services::get('context')->get($submission->getData('contextId'));
+            : app()->get('context')->get($submission->getData('contextId'));
 
         event(new PublicationPublished($newPublication, $publication, $submission, $context));
     }
@@ -640,7 +639,7 @@ abstract class Repository
 
         $context = $submission->getData('contextId') === Application::get()->getRequest()->getContext()->getId()
             ? Application::get()->getRequest()->getContext()
-            : Services::get('context')->get($submission->getData('contextId'));
+            : app()->get('context')->get($submission->getData('contextId'));
 
         event(new PublicationUnpublished($newPublication, $publication, $submission, $context));
     }
@@ -729,13 +728,13 @@ abstract class Repository
         // Get the submission context
         $submissionContext = $this->request->getContext();
         if ($submissionContext->getId() !== $submission->getData('contextId')) {
-            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+            $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
 
         $temporaryFileManager = new TemporaryFileManager();
         $temporaryFile = $temporaryFileManager->getFile((int) $value['temporaryFileId'], $userId);
         $fileNameBase = join('_', ['submission', $submission->getId(), $publication->getId(), $settingName]); // eg - submission_1_1_coverImage
-        $fileName = Services::get('context')->moveTemporaryFile($submissionContext, $temporaryFile, $fileNameBase, $userId, $localeKey);
+        $fileName = app()->get('context')->moveTemporaryFile($submissionContext, $temporaryFile, $fileNameBase, $userId, $localeKey);
 
         if ($fileName) {
             if ($isImage) {

@@ -35,7 +35,7 @@ use PKP\db\DAORegistry;
 use PKP\identity\Identity;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
@@ -409,7 +409,7 @@ class UserGridHandler extends GridHandler
                 // Successful edit of an existing user.
                 $notificationManager = new NotificationManager();
                 $user = $request->getUser();
-                $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.editedUser')]);
+                $notificationManager->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.editedUser')]);
 
                 // Prepare the grid row data.
                 return \PKP\db\DAO::getDataChangedEvent($userId);
@@ -584,7 +584,7 @@ class UserGridHandler extends GridHandler
 
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
         if (
-            !$roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $user->getId(), Role::ROLE_ID_SITE_ADMIN) && !(
+            !$roleDao->userHasRole(\PKP\core\PKPApplication::SITE_CONTEXT_ID, $user->getId(), Role::ROLE_ID_SITE_ADMIN) && !(
                 $context &&
                 $roleDao->userHasRole($context->getId(), $user->getId(), Role::ROLE_ID_MANAGER)
             )
@@ -618,7 +618,7 @@ class UserGridHandler extends GridHandler
 
         $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */
         if (
-            !$roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $user->getId(), Role::ROLE_ID_SITE_ADMIN) && !(
+            !$roleDao->userHasRole(\PKP\core\PKPApplication::SITE_CONTEXT_ID, $user->getId(), Role::ROLE_ID_SITE_ADMIN) && !(
                 $context &&
                 $roleDao->userHasRole($context->getId(), $user->getId(), Role::ROLE_ID_MANAGER)
             )

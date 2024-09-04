@@ -44,6 +44,12 @@
 				{/foreach}
 			</ul>
 
+            {if $statusClass != 'notinstalled'}
+                <div class="release_installed">
+                    {translate key="manager.plugins.pluginGallery.installed" version=$plugin->getInstalledVersion()->getVersionString()|escape}
+                </div>
+            {/if}
+
 			<div class="release">
 				{translate key="manager.plugins.pluginGallery.version" version=$plugin->getVersion()|escape date=$plugin->getDate()|date_format:$dateFormatShort}
 			</div>

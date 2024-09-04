@@ -21,10 +21,12 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\InteractsWithTime;
 use PKP\invitation\core\enums\InvitationStatus;
+use Eloquence\Behaviours\HasCamelCasing;
 
 class InvitationModel extends Model
 {
     use InteractsWithTime;
+    use HasCamelCasing;
 
     /**
      * Model's database table
@@ -74,70 +76,17 @@ class InvitationModel extends Model
     ];
 
     protected $visible = [
-        'invitation_id',  
-        'status', 
-        'createdAt', 
+        'id',
+        'status',
+        'createdAt',
         'updatedAt',
-        'user_id',
-        'context_id',
-        'expiry_date',
+        'userId',
+        'contextId',
+        'expiryDate',
         'email',
     ];
 
-    public function keyHash(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($user, $attributes) => $attributes['key_hash'],
-            set: fn ($value) => ['key_hash' => $value]
-        );
-    }
 
-    public function userId(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($user, $attributes) => $attributes['user_id'],
-            set: fn ($value) => ['user_id' => $value]
-        );
-    }
-
-    public function expiryDate(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($user, $attributes) => new Carbon($attributes['expiry_date']),
-            set: fn ($value) => ['expiry_date' => $value]
-        );
-    }
-
-    public function updatedAt(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($user, $attributes) => new Carbon($attributes['updated_at']),
-            set: fn ($value) => ['updated_at' => $value]
-        );
-    }
-
-    public function createdAt(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($user, $attributes) => new Carbon($attributes['created_at']),
-            set: fn ($value) => ['created_at' => $value]
-        );
-    }
-
-    public function contextId(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($user, $attributes) => $attributes['context_id'],
-            set: fn ($value) => ['context_id' => $value]
-        );
-    }
-    public function className(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($user, $attributes) => $attributes['class_name'],
-            set: fn ($value) => ['class_name' => $value]
-        );
-    }
     public function id(): Attribute
     {
         return Attribute::make(
@@ -249,7 +198,7 @@ class InvitationModel extends Model
     {
         // Apply the NotExpired scope
         $query->notExpired();
-        
+
         // Apply the NotHandled scope
         return $query->notHandled();
     }
@@ -257,14 +206,14 @@ class InvitationModel extends Model
     public function markAs(InvitationStatus $status): bool
     {
         $this->status = $status;
-        $this->updated_at = Carbon::now();
-        
+        $this->updatedAt = Carbon::now();
+
         return $this->save();
     }
 
     /**
      * Mark all invitations with a given status.
-     * 
+     *
      */
     public static function markAllAs(InvitationStatus $status, Collection $ids): int
     {

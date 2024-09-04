@@ -16,7 +16,6 @@
 
 namespace PKP\submissionFile;
 
-use APP\core\Services;
 use APP\facades\Repo;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleMetadata;
@@ -400,7 +399,7 @@ class SubmissionFile extends \PKP\core\DataObject
      */
     public function getLanguages(): array
     {
-        $props = Services::get('schema')->getMultilingualProps(PKPSchemaService::SCHEMA_SUBMISSION_FILE);
+        $props = app()->get('schema')->getMultilingualProps(PKPSchemaService::SCHEMA_SUBMISSION_FILE);
         $locales = array_map(fn (string $prop): array => array_keys($this->getData($prop) ?? []), $props);
         return collect([$this->getData('locale')])
             ->concat($locales)

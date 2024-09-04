@@ -17,7 +17,6 @@
 
 namespace PKP\sushi;
 
-use APP\core\Services;
 use APP\facades\Repo;
 use DateTime;
 use PKP\context\Context;
@@ -302,7 +301,7 @@ abstract class CounterR5Report
         // get the first month the usage data is available for COUNTER R5, it is either:
         // the next month of the COUNTER R5 start, or
         // this journal's first publication date.
-        $statsService = Services::get('sushiStats');
+        $statsService = app()->get('sushiStats');
         $counterR5StartDate = $statsService->getEarliestDate();
         $firstDatePublished = Repo::publication()->getDateBoundaries(
             Repo::publication()

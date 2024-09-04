@@ -18,12 +18,12 @@ namespace PKP\mail\traits;
 
 use APP\core\Application;
 use APP\mail\variables\ContextEmailVariable;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use Exception;
 use Illuminate\Mail\Mailables\Headers;
 use PKP\mail\Mailable;
 use PKP\mail\variables\ContextEmailVariable as PKPContextEmailVariable;
+use PKP\notification\Notification;
 
 trait Unsubscribe
 {
@@ -136,7 +136,7 @@ trait Unsubscribe
     /**
      * Set the message to be displayed in the footer
      */
-    protected function setFooterText(string $locale, string $localeKey = null): string
+    protected function setFooterText(string $locale, ?string $localeKey = null): string
     {
         if (is_null($localeKey)) {
             $localeKey = $this->defaultUnsubscribeLocaleKey;

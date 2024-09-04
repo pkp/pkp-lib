@@ -19,7 +19,7 @@ use PKP\i18n\interfaces\LocaleInterface;
 
 /**
  * @method static string get(string $key, array $replace = [], $locale = null) Get the translation for a given key.
- * @method static string choice(string $key, int $number, array $replace = [], string $locale = null) Get a translation according to an integer value.
+ * @method static string choice(string $key, int $number, array $replace = [], ?string $locale = null) Get a translation according to an integer value.
  * @method static string getLocale() Get the default locale being used.
  * @method static void setLocale(string $locale) Set the default locale.
  * @method static string getPrimaryLocale() Deprecated on 3.4.0, use Context::getPrimaryLocale()
@@ -41,7 +41,7 @@ use PKP\i18n\interfaces\LocaleInterface;
  * @method static \Sokil\IsoCodes\Database\Currencies getCurrencies(?string $locale = null) Retrieve the currencies
  * @method static \Sokil\IsoCodes\Database\LanguagesInterface getLanguages(?string $locale = null, bool $fromCache = true) Retrieve the languages
  * @method static \Sokil\IsoCodes\Database\Scripts getScripts(?string $locale = null) Retrieve the scripts
- * @method static array getFormattedDisplayNames(array $filterByLocales = null, array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH, bool $omitLocaleCodeInDisplay = true) Get the formatted locale display names with country if same language code present multiple times
+ * @method static array getFormattedDisplayNames(?array $filterByLocales = null, ?array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH, bool $omitLocaleCodeInDisplay = true) Get the formatted locale display names with country if same language code present multiple times
  * @method static UITranslator getUiTranslator() provides UITranslator
  */
 

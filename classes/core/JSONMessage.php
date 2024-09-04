@@ -42,7 +42,7 @@ class JSONMessage
      * @param $elementId The DOM element to be replaced.
      * @param $additionalAttributes Additional data to be returned.
      */
-    public function __construct(bool $status = true, string $content = '', string $elementId = '0', array $additionalAttributes = [])
+    public function __construct(bool $status = true, string|array $content = '', string $elementId = '0', array $additionalAttributes = [])
     {
         // Set internal state.
         $this->setStatus($status);

@@ -18,12 +18,11 @@ namespace PKP\controllers\tab\workflow;
 
 use APP\core\Application;
 use APP\handler\Handler;
-use APP\notification\Notification;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRoundDAO;
@@ -102,7 +101,7 @@ class PKPReviewRoundTabHandler extends Handler
         // user is accessing the last review round for this stage.
         $notificationRequestOptions = [
             Notification::NOTIFICATION_LEVEL_NORMAL => [
-                PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => [Application::ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId()]],
+                Notification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => [Application::ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId()]],
             Notification::NOTIFICATION_LEVEL_TRIVIAL => [],
         ];
         $templateMgr->assign('reviewRoundNotificationRequestOptions', $notificationRequestOptions);

@@ -18,7 +18,6 @@ namespace PKP\pages\authorDashboard;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\handler\Handler;
@@ -167,7 +166,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
         $user = $request->getUser();
         $submissionContext = $request->getContext();
         if ($submission->getData('contextId') !== $submissionContext->getId()) {
-            $submissionContext = Services::get('context')->get($submission->getData('contextId'));
+            $submissionContext = app()->get('context')->get($submission->getData('contextId'));
         }
 
         $contextUserGroups = Repo::userGroup()->getByRoleIds([Role::ROLE_ID_AUTHOR], $submission->getData('contextId'));

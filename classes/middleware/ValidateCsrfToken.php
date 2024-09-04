@@ -20,15 +20,33 @@ use APP\core\Application;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use PKP\middleware\HasUser;
+use PKP\middleware\traits\HasRequiredMiddleware;
 
 class ValidateCsrfToken
 {
+    use HasRequiredMiddleware;
+
+    /**
+     * @copydoc \PKP\middleware\traits\HasRequiredMiddleware::requiredMiddleware()
+     */
+    public function requiredMiddleware(): array
+    {
+        return [
+            HasUser::class,
+        ];
+    }
+    
     /**
      * Determine and validate CSRF token
-     *
      */
     public function handle(Request $request, Closure $next)
     {
+        if (!$this->hasRequiredMiddleware($request)) {
+            // Required middleware not attached to target routes, move to next
+            return $next($request);
+        }
+
         if($this->isApiRequest($request)) {
             return $next($request);
         }
@@ -47,11 +65,21 @@ class ValidateCsrfToken
     }
 
     /**
-     * Check if this is a API request
+     * Check if this is an API request
      */
     protected function isApiRequest(Request $request): bool
     {
-        return $request->query('apiToken', null) ? true : false;
+        // API Token may be sent as request query param.
+        // Deprecated since 3.4: API Token in query parameters is no longer recommended. Authorization header should be used.
+        if ($request->query('apiToken')) {
+            return true;
+        }
+
+        if ($request->header('authorization')) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

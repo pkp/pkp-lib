@@ -19,7 +19,6 @@
 namespace PKP\controllers\grid\users\author\form;
 
 use APP\author\Author;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\template\TemplateManager;
@@ -206,7 +205,7 @@ class PKPAuthorForm extends Form
     {
         $publication = $this->getPublication(); /** @var Publication $publication */
         $submission = Repo::submission()->get($publication->getData('submissionId'));
-        $context = Services::get('context')->get($submission->getData('contextId'));
+        $context = app()->get('context')->get($submission->getData('contextId'));
 
         $author = $this->getAuthor();
         if (!$author) {

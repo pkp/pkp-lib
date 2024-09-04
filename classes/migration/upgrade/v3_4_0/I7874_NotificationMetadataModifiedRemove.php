@@ -9,7 +9,7 @@
  *
  * @class I7874_NotificationMetadataModifiedRemove
  *
- * @brief Removes deprecated PKPNotification::NOTIFICATION_TYPE_METADATA_MODIFIED setting
+ * @brief Removes deprecated Notification::NOTIFICATION_TYPE_METADATA_MODIFIED setting
  *
  */
 
@@ -30,7 +30,7 @@ class I7874_NotificationMetadataModifiedRemove extends Migration
     public function up(): void
     {
         $this->subscribedToMetadataChangedNotification = DB::table('notification_subscription_settings')
-            ->where('setting_value', '=', 0x1000002) // PKP\notification\PKPNotification::NOTIFICATION_TYPE_METADATA_MODIFIED
+            ->where('setting_value', '=', 0x1000002) // PKP\notification\Notification::NOTIFICATION_TYPE_METADATA_MODIFIED
             ->get();
 
         $this->subscribedToMetadataChangedNotification->each(function (stdClass $row) {

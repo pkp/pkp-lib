@@ -336,8 +336,8 @@
 		// Remove all event handlers in our namespace.
 		$element = this.getHtmlElement();
 		$element.unbind('.pkpHandler');
-		// form-success which is registered in ModalHandler was not removed when Modal closed
-		// this ensure to remove that binding
+		// form-success which is registered in ModalHandler was not
+		// removed when Modal closed. This ensures that binding is removed.
 		this.unbindGlobalAll();
 
 		// Remove all our data items except for the

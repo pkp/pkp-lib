@@ -16,7 +16,6 @@
 namespace PKP\components\fileAttachers;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use Exception;
 use PKP\context\Context;
@@ -76,7 +75,7 @@ class ReviewFiles extends BaseAttacher
             $files[] = [
                 'id' => $file->getId(),
                 'name' => $file->getData('name'),
-                'documentType' => Services::get('file')->getDocumentType($file->getData('documentType')),
+                'documentType' => app()->get('file')->getDocumentType($file->getData('documentType')),
                 'reviewerName' => $this->reviewAssignments[$file->getData('assocId')]->getReviewerFullName(),
                 'url' => $request->getDispatcher()->url(
                     $request,

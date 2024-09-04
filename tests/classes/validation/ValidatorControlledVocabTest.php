@@ -19,6 +19,7 @@
 namespace PKP\tests\classes\validation;
 
 use APP\core\Application;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\MockObject\MockObject;
 use PKP\controlledVocab\ControlledVocab;
 use PKP\controlledVocab\ControlledVocabDAO;
@@ -26,6 +27,7 @@ use PKP\db\DAORegistry;
 use PKP\tests\PKPTestCase;
 use PKP\validation\ValidatorControlledVocab;
 
+#[CoversClass(ValidatorControlledVocab::class)]
 class ValidatorControlledVocabTest extends PKPTestCase
 {
     /**
@@ -36,9 +38,6 @@ class ValidatorControlledVocabTest extends PKPTestCase
         return [...parent::getMockedDAOs(), 'ControlledVocabDAO'];
     }
 
-    /**
-     * @covers ValidatorControlledVocab
-     */
     public function testValidatorControlledVocab()
     {
         // Mock a ControlledVocab object
@@ -54,7 +53,7 @@ class ValidatorControlledVocabTest extends PKPTestCase
         // Set up the mock enumerate() method
         $mockControlledVocab->expects($this->any())
             ->method('enumerate')
-            ->will($this->returnValue([1 => 'vocab1', 2 => 'vocab2']));
+            ->willReturn([1 => 'vocab1', 2 => 'vocab2']);
 
         // Mock the ControlledVocabDAO
         $mockControlledVocabDao = $this->getMockBuilder(ControlledVocabDAO::class)
@@ -65,7 +64,7 @@ class ValidatorControlledVocabTest extends PKPTestCase
         $mockControlledVocabDao->expects($this->any())
             ->method('getBySymbolic')
             ->with('testVocab', Application::ASSOC_TYPE_CITATION, 333)
-            ->will($this->returnValue($mockControlledVocab));
+            ->willReturn($mockControlledVocab);
 
         DAORegistry::registerDAO('ControlledVocabDAO', $mockControlledVocabDao);
 

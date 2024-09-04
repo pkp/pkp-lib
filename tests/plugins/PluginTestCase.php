@@ -79,13 +79,14 @@ class PluginTestCase extends DatabaseTestCase
             public function url(
                 PKPRequest $request,
                 ?string $newContext = null,
-                $handler = null,
-                $op = null,
-                $path = null,
-                $params = null,
-                $anchor = null,
-                $escape = false
-            ) {
+                ?string $handler = null,
+                ?string $op = null,
+                ?array $path = null,
+                ?array $params = null,
+                ?string $anchor = null,
+                bool $escape = false
+            ): string {
+                return '';
             }
 
             public function handleAuthorizationFailure(
@@ -97,10 +98,10 @@ class PluginTestCase extends DatabaseTestCase
         };
         $mockRequest->expects($this->any())
             ->method('getRouter')
-            ->will($this->returnValue($router));
+            ->willReturn($router);
         $mockRequest->expects($this->any())
             ->method('getUser')
-            ->will($this->returnValue(null));
+            ->willReturn(null);
         Registry::set('request', $mockRequest);
 
         // Instantiate the installer.
@@ -126,7 +127,7 @@ class PluginTestCase extends DatabaseTestCase
         // self::assertTrue($installer->execute());
 
         // Test whether the filter groups have been installed.
-        $filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /** @var FilterGroupDAO $filterGroupDao */
+        $filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /** @var \PKP\filter\FilterGroupDAO $filterGroupDao */
         foreach ($filterGroups as $filterGroupSymbolic) {
             // Check the group.
             self::assertInstanceOf('FilterGroup', $filterGroupDao->getObjectBySymbolic($filterGroupSymbolic), $filterGroupSymbolic);

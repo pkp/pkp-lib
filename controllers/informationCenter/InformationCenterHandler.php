@@ -27,8 +27,8 @@ use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\log\event\EventLogEntry;
-use PKP\note\NoteDAO;
-use PKP\notification\PKPNotification;
+use PKP\note\Note;
+use PKP\notification\Notification;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\Role;
 use PKP\security\Validation;
@@ -129,17 +129,17 @@ abstract class InformationCenterHandler extends Handler
         $this->setupTemplate($request);
 
         $noteId = (int) $request->getUserVar('noteId');
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $note = $noteDao->getById($noteId);
+        $note = Note::find($noteId);
 
-        if (!$request->checkCSRF() || !$note || $note->getAssocType() != $this->_getAssocType() || $note->getAssocId() != $this->_getAssocId()) {
+        if (!$request->checkCSRF() || $note?->assocType != $this->_getAssocType() || $note?->assocId != $this->_getAssocId()) {
             throw new \Exception('Invalid note!');
         }
-        $noteDao->deleteById($noteId);
+
+        $note->delete();
 
         $user = $request->getUser();
         $notificationManager = new NotificationManager();
-        $notificationManager->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.removedNote')]);
+        $notificationManager->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.removedNote')]);
 
         $json = new JSONMessage(true);
         $jsonViewNotesResponse = $this->viewNotes($args, $request);
@@ -162,14 +162,12 @@ abstract class InformationCenterHandler extends Handler
         $this->setupTemplate($request);
 
         $templateMgr = TemplateManager::getManager($request);
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $notes = $noteDao->getByAssoc($this->_getAssocType(), $this->_getAssocId());
+        $notes = Note::withAssoc($this->_getAssocType(), $this->_getAssocId())->get();
         $templateMgr->assign('notes', $notes);
 
         $user = $request->getUser();
         $templateMgr->assign('currentUserId', $user->getId());
         $templateMgr->assign('notesDeletable', true);
-
         $templateMgr->assign('notesListId', 'notesList');
 
         return $templateMgr->fetch('controllers/informationCenter/notesList.tpl');

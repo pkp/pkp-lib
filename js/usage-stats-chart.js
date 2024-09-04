@@ -43,62 +43,55 @@
 
 	// Define default chart options
 	var chartOptions = {
-		legend: {
-			display: false,
+		plugins: {
+			legend: {
+				display: false,
+			},
 		},
-		tooltips: {
-			titleColor: '#333',
-			bodyColor: '#333',
-			footerColor: '#333',
+		tooltip: {
+			titleFontColor: '#333',
+			bodyFontColor: '#333',
+			footerFontColor: '#333',
 			backgroundColor: '#ddd',
 			cornerRadius: 2,
 		},
 		elements: {
 			line: {
-				borderColor: 'rgba(0,0,0,0.3)',
-				borderWidth: 1,
+				borderColor: 'rgba(0,0,0,0.4)',
+				borderWidth: 2,
 				borderJoinStyle: 'round',
 				backgroundColor: 'rgba(0,0,0,0.3)',
+				tension: 0.5,
+				fill: true,
 			},
-			rectangle: {
+			bar: {
 				backgroundColor: 'rgba(0,0,0,0.3)',
 			},
 			point: {
 				radius: 2,
 				hoverRadius: 6,
-				borderWidth: 0,
+				borderWidth: 2,
 				hitRadius: 5,
 			},
 		},
 		scales: {
-			xAxes: [
-				{
-					gridLines: {
-						color: 'rgba(0,0,0,0.05)',
-						drawTicks: false,
-					},
-				},
-			],
-			yAxes: [
-				{
-					gridLines: {
-						color: 'rgba(0,0,0,0.05)',
-						drawTicks: false,
-					},
-				},
-			],
-		},
-	};
-
-	if (pkpUsageStats.config.chartType === 'bar') {
-		chartOptions.scales.xAxes = [
-			{
-				gridLines: {
-					color: 'transparent',
+			x: {
+				grid: {
+					color:
+						pkpUsageStats.config.chartType === 'bar'
+							? 'transparent'
+							: 'rgba(0,0,0,0.05)',
+					drawTicks: false,
 				},
 			},
-		];
-	}
+			y: {
+				grid: {
+					color: 'rgba(0,0,0,0.05)',
+					drawTicks: false,
+				},
+			},
+		},
+	};
 
 	// Fire an event to allow third-party customization of the options
 	var optionsEvent = document.createEvent('Event');

@@ -31,15 +31,14 @@ class GenreDAO extends DAO
      * Retrieve a genre by type id.
      *
      * @param int $genreId
-     * @param null|mixed $contextId
      *
      * @return Genre
      */
-    public function getById($genreId, $contextId = null)
+    public function getById($genreId, ?int $contextId = null)
     {
         $params = [(int) $genreId];
         if ($contextId) {
-            $params[] = (int) $contextId;
+            $params[] = $contextId;
         }
 
         $result = $this->retrieve(
@@ -60,13 +59,13 @@ class GenreDAO extends DAO
      *
      * @return DAOResultFactory<Genre> containing matching genres
      */
-    public function getEnabledByContextId($contextId, $rangeInfo = null)
+    public function getEnabledByContextId(int $contextId, $rangeInfo = null)
     {
         $result = $this->retrieveRange(
             'SELECT * FROM genres
 			WHERE	enabled = ? AND context_id = ?
 			ORDER BY seq',
-            [1, (int) $contextId],
+            [1, $contextId],
             $rangeInfo
         );
 
@@ -77,18 +76,17 @@ class GenreDAO extends DAO
      * Retrieve genres based on whether they are dependent or not.
      *
      * @param bool $dependentFilesOnly
-     * @param int $contextId
      * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
      * @return DAOResultFactory<Genre> containing matching genres
      */
-    public function getByDependenceAndContextId($dependentFilesOnly, $contextId, $rangeInfo = null)
+    public function getByDependenceAndContextId($dependentFilesOnly, int $contextId, $rangeInfo = null)
     {
         $result = $this->retrieveRange(
             'SELECT * FROM genres
 			WHERE enabled = ? AND context_id = ? AND dependent = ?
 			ORDER BY seq',
-            [1, (int) $contextId, (int) $dependentFilesOnly],
+            [1, $contextId, (int) $dependentFilesOnly],
             $rangeInfo
         );
 
@@ -99,18 +97,17 @@ class GenreDAO extends DAO
      * Retrieve genres based on whether they are supplementary or not.
      *
      * @param bool $supplementaryFilesOnly
-     * @param int $contextId
      * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
      * @return DAOResultFactory<Genre>
      */
-    public function getBySupplementaryAndContextId($supplementaryFilesOnly, $contextId, $rangeInfo = null)
+    public function getBySupplementaryAndContextId($supplementaryFilesOnly, int $contextId, $rangeInfo = null)
     {
         $result = $this->retrieveRange(
             'SELECT * FROM genres
 			WHERE enabled = ? AND context_id = ? AND supplementary = ?
 			ORDER BY seq',
-            [1, (int) $contextId, (int) $supplementaryFilesOnly],
+            [1, $contextId, (int) $supplementaryFilesOnly],
             $rangeInfo
         );
 
@@ -120,18 +117,17 @@ class GenreDAO extends DAO
     /**
      * Retrieve genres that are not supplementary or dependent.
      *
-     * @param int $contextId
      * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
      * @return DAOResultFactory<Genre>
      */
-    public function getPrimaryByContextId($contextId, $rangeInfo = null)
+    public function getPrimaryByContextId(int $contextId, $rangeInfo = null)
     {
         $result = $this->retrieveRange(
             'SELECT * FROM genres
 			WHERE enabled = ? AND context_id = ? AND dependent = ? AND supplementary = ?
 			ORDER BY seq',
-            [1, (int) $contextId, 0, 0],
+            [1, $contextId, 0, 0],
             $rangeInfo
         );
 
@@ -141,16 +137,15 @@ class GenreDAO extends DAO
     /**
      * Retrieve all genres
      *
-     * @param int $contextId
      * @param ?\PKP\db\DBResultRange $rangeInfo optional
      *
      * @return DAOResultFactory<Genre> containing matching genres
      */
-    public function getByContextId($contextId, $rangeInfo = null)
+    public function getByContextId(int $contextId, $rangeInfo = null)
     {
         $result = $this->retrieveRange(
             'SELECT * FROM genres WHERE context_id = ? ORDER BY seq',
-            [(int) $contextId],
+            [$contextId],
             $rangeInfo
         );
 
@@ -177,15 +172,14 @@ class GenreDAO extends DAO
      * Retrieves the genre associated with a key.
      *
      * @param string $key the entry key
-     * @param int $contextId Optional context ID
      *
      * @return Genre
      */
-    public function getByKey($key, $contextId = null)
+    public function getByKey($key, ?int $contextId = null)
     {
         $params = [$key];
         if ($contextId) {
-            $params[] = (int) $contextId;
+            $params[] = $contextId;
         }
 
         $result = $this->retrieve(
@@ -343,10 +337,8 @@ class GenreDAO extends DAO
     /**
      * Delete the genre entries associated with a context.
      * Called when deleting a Context in ContextDAO.
-     *
-     * @param int $contextId Context ID
      */
-    public function deleteByContextId($contextId)
+    public function deleteByContextId(int $contextId)
     {
         $genres = $this->getByContextId($contextId);
         while ($genre = $genres->next()) {
@@ -361,10 +353,9 @@ class GenreDAO extends DAO
     /**
      * Install default data for settings.
      *
-     * @param int $contextId Context ID
      * @param array $locales List of locale codes
      */
-    public function installDefaults($contextId, $locales)
+    public function installDefaults(int $contextId, $locales)
     {
         $xmlDao = new XMLDAO();
         $data = $xmlDao->parseStruct('registry/genres.xml', ['genre']);
@@ -424,14 +415,13 @@ class GenreDAO extends DAO
      * If a key exists for a context.
      *
      * @param string $key
-     * @param int $contextId
      * @param int $genreId (optional) Current genre to be ignored
      *
      * @return bool
      */
-    public function keyExists($key, $contextId, $genreId = null)
+    public function keyExists($key, int $contextId, $genreId = null)
     {
-        $params = [$key, (int) $contextId];
+        $params = [$key, $contextId];
         if ($genreId) {
             $params[] = (int) $genreId;
         }

@@ -102,7 +102,7 @@ abstract class Plugin
      *
      * @param string $category Name of category plugin was registered to
      * @param string $path The path the plugin was found in
-     * @param int $mainContextId To identify if the plugin is enabled
+     * @param ?int $mainContextId To identify if the plugin is enabled
      *  we need a context. This context is usually taken from the
      *  request but sometimes there is no context in the request
      *  (e.g. when executing CLI commands). Then the main context
@@ -356,7 +356,7 @@ abstract class Plugin
         $plugin = basename($pluginPath);
         $category = basename(dirname($pluginPath));
 
-        $contextId = PKPApplication::CONTEXT_SITE;
+        $contextId = PKPApplication::SITE_CONTEXT_ID;
         if (Application::isInstalled()) {
             $context = Application::get()->getRequest()->getContext();
             if ($context instanceof \PKP\context\Context) {
@@ -489,7 +489,7 @@ abstract class Plugin
     /**
      * Retrieve a plugin setting within the given context
      *
-     * @param int $contextId Context ID
+     * @param ?int $contextId Context ID
      * @param string $name Setting name
      */
     public function getSetting($contextId, $name)
@@ -505,7 +505,7 @@ abstract class Plugin
     /**
      * Update a plugin setting within the given context.
      *
-     * @param int $contextId Context ID
+     * @param ?int $contextId Context ID
      * @param string $name The name of the setting
      * @param mixed $value Setting value
      * @param string $type optional
@@ -535,7 +535,7 @@ abstract class Plugin
     public function installSiteSettings($hookName, $args)
     {
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
-        $pluginSettingsDao->installSettings(PKPApplication::CONTEXT_SITE, $this->getName(), $this->getInstallSitePluginSettingsFile());
+        $pluginSettingsDao->installSettings(PKPApplication::SITE_CONTEXT_ID, $this->getName(), $this->getInstallSitePluginSettingsFile());
 
         return false;
     }

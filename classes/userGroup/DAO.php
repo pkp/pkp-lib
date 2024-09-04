@@ -16,6 +16,7 @@
 
 namespace PKP\userGroup;
 
+use APP\core\Application;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -117,20 +118,6 @@ class DAO extends EntityDAO
     }
 
     /**
-     * @copydoc EntityDAO::fromRow()
-     */
-    public function fromRow(object $row): UserGroup
-    {
-        // The database layer uses null for context_id when a user_group is site-wide
-        // but the PHP layer uses a CONTEXT_SITE constant. Map from DB to PHP.
-        if ($row->context_id === null) {
-            $row->context_id = PKPApplication::CONTEXT_SITE;
-        }
-
-        return parent::fromRow($row);
-    }
-
-    /**
      * @copydoc EntityDAO::insert()
      */
     public function insert(UserGroup $userGroup): int
@@ -157,13 +144,13 @@ class DAO extends EntityDAO
     /**
      * Retrieves a keyed Collection (key = user_group_id, value = count) with the amount of active users for each user group
      */
-    public function getUserCountByContextId(?int $contextId = null): Collection
+    public function getUserCountByContextId(?int $contextId = Application::SITE_CONTEXT_ID_ALL): Collection
     {
         $currentDateTime = Core::getCurrentDate();
         return DB::table('user_groups', 'ug')
             ->join('user_user_groups AS uug', 'uug.user_group_id', '=', 'ug.user_group_id')
             ->join('users AS u', 'u.user_id', '=', 'uug.user_id')
-            ->when($contextId !== null, fn (Builder $query) => $query->where('ug.context_id', '=', $contextId))
+            ->when($contextId !== Application::SITE_CONTEXT_ID_ALL, fn (Builder $query) => $query->whereRaw('COALESCE(ug.context_id, 0) = ?', [(int) $contextId]))
             ->where('u.disabled', '=', 0)
             ->where(
                 fn (Builder $q) =>

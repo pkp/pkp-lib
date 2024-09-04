@@ -21,13 +21,11 @@ namespace PKP\tests\classes\form\validation;
 use PKP\form\Form;
 use PKP\form\validation\FormValidatorBoolean;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(FormValidatorBoolean::class)]
 class FormValidatorBooleanTest extends PKPTestCase
 {
-    /**
-     * @covers FormValidatorBoolean
-     * @covers FormValidator
-     */
     public function testIsValid()
     {
         $form = new Form('some template');

@@ -18,7 +18,6 @@
 namespace PKP\API\v1\submissions;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -310,7 +309,7 @@ class PKPSubmissionFileController extends PKPBaseController
                 $request->getContext()->getId(),
                 $submission->getId()
             );
-        $fileId = Services::get('file')->add(
+        $fileId = app()->get('file')->add(
             $_FILES['file']['tmp_name'],
             $submissionDir . '/' . uniqid() . '.' . $extension
         );
@@ -348,7 +347,7 @@ class PKPSubmissionFileController extends PKPBaseController
             );
 
         if (!empty($errors)) {
-            Services::get('file')->delete($fileId);
+            app()->get('file')->delete($fileId);
             return response()->json($errors, Response::HTTP_BAD_REQUEST);
         }
 
@@ -359,7 +358,7 @@ class PKPSubmissionFileController extends PKPBaseController
             SubmissionFile::SUBMISSION_FILE_QUERY,
         ];
         if (in_array($params['fileStage'], $notAllowedFileStages)) {
-            Services::get('file')->delete($fileId);
+            app()->get('file')->delete($fileId);
             return response()->json([
                 'error' => __('api.submissionFiles.403.unauthorizedFileStageIdWrite'),
             ], Response::HTTP_BAD_REQUEST);
@@ -374,7 +373,7 @@ class PKPSubmissionFileController extends PKPBaseController
         ];
         if (in_array($params['fileStage'], $reviewFileStages)) {
             if (empty($params['assocType']) || $params['assocType'] !== Application::ASSOC_TYPE_REVIEW_ROUND || empty($params['assocId'])) {
-                Services::get('file')->delete($fileId);
+                app()->get('file')->delete($fileId);
                 return response()->json([
                     'error' => __('api.submissionFiles.400.missingReviewRoundAssocType'),
                 ], Response::HTTP_BAD_REQUEST);
@@ -387,7 +386,7 @@ class PKPSubmissionFileController extends PKPBaseController
             if (!$reviewRound
                     || $reviewRound->getData('submissionId') != $params['submissionId']
                     || $reviewRound->getData('stageId') != $stageId) {
-                Services::get('file')->delete($fileId);
+                app()->get('file')->delete($fileId);
                 return response()->json([
                     'error' => __('api.submissionFiles.400.reviewRoundSubmissionNotMatch'),
                 ], Response::HTTP_BAD_REQUEST);
@@ -458,7 +457,7 @@ class PKPSubmissionFileController extends PKPBaseController
                     $request->getContext()->getId(),
                     $submission->getId()
                 );
-            $fileId = Services::get('file')->add(
+            $fileId = app()->get('file')->add(
                 $_FILES['file']['tmp_name'],
                 $submissionDir . '/' . uniqid() . '.' . $extension
             );

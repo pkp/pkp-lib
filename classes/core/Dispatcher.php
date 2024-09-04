@@ -3,20 +3,17 @@
 /**
  * @file classes/core/Dispatcher.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Dispatcher
- *
- * @ingroup core
  *
  * @brief Class dispatching HTTP requests to handlers.
  */
 
 namespace PKP\core;
 
-use APP\core\Services;
 use PKP\config\Config;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
@@ -155,7 +152,7 @@ class Dispatcher
 
         // Reload the context after generic plugins have loaded so that changes to
         // the context schema can take place
-        $contextSchema = Services::get('schema')->get(PKPSchemaService::SCHEMA_CONTEXT, true);
+        $contextSchema = app()->get('schema')->get(PKPSchemaService::SCHEMA_CONTEXT, true);
         $request->getRouter()->getContext($request, true);
 
         $router->route($request);
@@ -218,7 +215,7 @@ class Dispatcher
         ?array $params = null,
         ?string $anchor = null,
         bool $escape = false,
-        ?string $urlLocaleForPage = null,
+        ?string $urlLocaleForPage = null
     ): string {
         // Instantiate the requested router
         if (!isset($this->_routerNames[$shortcut])) {

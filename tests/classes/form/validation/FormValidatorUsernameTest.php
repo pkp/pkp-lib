@@ -22,13 +22,11 @@ use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\form\validation\FormValidatorUsername;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(FormValidatorUsername::class)]
 class FormValidatorUsernameTest extends PKPTestCase
 {
-    /**
-     * @covers FormValidatorUsername
-     * @covers FormValidator
-     */
     public function testIsValid()
     {
         $form = new Form('some template');

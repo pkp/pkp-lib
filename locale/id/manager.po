@@ -1,12 +1,12 @@
-# Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021.
+# Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021, 2024.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2024-08-22 09:26+0000\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/id/>\n"
 "Language: id\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "manager.website.information"
 msgstr "Informasi"
@@ -51,7 +51,7 @@ msgid "manager.announcements.edit"
 msgstr "Edit Pengumuman"
 
 msgid "manager.announcements.editTitle"
-msgstr "Edit"
+msgstr "Sunting"
 
 msgid "manager.announcements.form.dateExpireDayIncompleteDate"
 msgstr "Pilih tahun dan/atau bulan di samping hari tanggal masa berakhir."
@@ -133,7 +133,7 @@ msgid "manager.announcementTypes.edit"
 msgstr "Edit Tipe Pengumuman"
 
 msgid "manager.announcementTypes.editTitle"
-msgstr "Edit"
+msgstr "Sunting"
 
 msgid "manager.announcementTypes.form.saveAndCreateAnother"
 msgstr "Simpan dan Buat yang Lain"
@@ -468,7 +468,7 @@ msgstr "Berkas Penelusuran"
 
 msgid "manager.files.confirmDelete"
 msgstr ""
-"Hapus direktori atau file ini?  Perhatikan direktori harus kosong sebelum "
+"Hapus direktori atau file ini? Perhatikan direktori harus kosong sebelum "
 "dapat dihapus."
 
 msgid "manager.files.createDir"
@@ -810,9 +810,9 @@ msgstr ""
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
-"Awalan DOI ditugaskan dengan agensi pendaftaran (contoh <a href=\"http://www."
-"crossref.org\" target=\"_new\">Crossref</a>) dan dalam format 10.xxxx "
-"(contoh 10.1234):"
+"Prefiks DOI diberiksn oleh agensi pendaftaran, seperti <a href=\"http://www."
+"crossref.org\" target=\"_new\">Crossref</a> atau <a href=\"https://datacite."
+"org\" target=\"new\">DataCite</a>. Contoh: dan dalam format 10.xxxx"
 
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr ""
@@ -856,7 +856,7 @@ msgstr ""
 "objek penerbitan dengan penugasan awalan DOI yang sama:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Gunakan pola default."
+msgstr "Bawaan - buat sufiks 8 karakter unik secara otomatis."
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
@@ -1003,7 +1003,7 @@ msgid "manager.setup.submissionsNotifications"
 msgstr "Pemberitahuan"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr "Beri  Tahu Narahubung Utama"
+msgstr "Beri Tahu Narahubung Utama"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
 msgstr "Ya, kirim salinan ke {$email}"
@@ -1025,7 +1025,7 @@ msgstr "Salah satualamat email atau lebih berikut tidak valid."
 
 msgid "manager.setup.notifications.description"
 msgstr ""
-"Penulis, secara otomatis,  dikirimi pemberitahuan bahwa naskahnya sudah "
+"Penulis, secara otomatis, dikirimi email pemberitahuan bahwa naskahnya sudah "
 "masuk. Anda bisa mengirim salinannya ke alamat surel berikut:"
 
 msgid "manager.setup.notifyUsers"
@@ -1173,7 +1173,7 @@ msgstr "Cara Mereview Bawaan"
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
 "Tampilkan tautan ke <button type=\"button\">bagaimana memastikan semua file "
-"tetap anomim</button>  selama proses unggah"
+"tetap anomim</button> selama proses unggah"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Hubungan Sponsor dan Uraian Kebijakan"
@@ -1232,14 +1232,11 @@ msgstr ""
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Daftar Tilik Pra-Penyerahan Naskah"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"Saat melakukan penyerahan naskah untuk jurnal, Penulis terlebih dahulu "
-"diminta untuk mengecek kelengkapan item di daftar ini, sebelum melanjutkan "
-"proses. Daftar tersebut juga ditampilkan di Panduan Penulis, di bawah "
-"Tentang Jurnal.  Daftar ini dapat diedit, tapi terlebih dahulu diberi tanda "
-"centang sebelum diproses."
+"Saat melakukan penyerahan naskah, Penulis terlebih dahulu diminta untuk "
+"mengecek kelengkapan item di daftar ini, sebelum melanjutkan proses kirim "
+"naskah."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
@@ -1270,7 +1267,7 @@ msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} ({$percentage}%)"
 
 msgid "manager.statistics.statistics.totalNewValue"
-msgstr "{$numTotal} ({$numNew} new)"
+msgstr "{$numTotal} ({$numNew} baru)"
 
 msgid "manager.statistics.statistics.registeredUsers"
 msgstr "Pengguna Terdaftar"
@@ -1329,7 +1326,7 @@ msgid "plugins.categories.reports"
 msgstr "Plugin Laporan"
 
 msgid "plugins.categories.themes.description"
-msgstr "Plugin Tema  dapat digunakan untuk mengubah penampilan sistem."
+msgstr "Plugin Tema dapat digunakan untuk mengubah tampilan website."
 
 msgid "plugins.categories.themes"
 msgstr "Plugin Tema"
@@ -2098,7 +2095,7 @@ msgstr "Aktifkan metadata lembaga pendukung"
 
 msgid "manager.setup.metadata.agencies.noRequest"
 msgstr ""
-"Jangan meminta  data lembaga pendukung dari penulis saat menyerahkan naskah."
+"Jangan meminta data lembaga pendukung dari penulis saat menyerahkan naskah."
 
 msgid "manager.setup.metadata.agencies.request"
 msgstr ""
@@ -2170,7 +2167,10 @@ msgid "plugins.importexport.common.error.encodingError"
 msgstr "Konten tidak dikodekan sebagai {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Grup pengguna tidak dikenal {$param}"
+msgstr ""
+"Termasuk file yang diimpor adalah '{$authorName}' penulis, dengan kelompok "
+"pengguna '{$userGroupName}'. Tidak ada kelompok pengguna yang ditetapkan "
+"dalam instalasi tujuan dengan kelompok pengguna dengan nama ini."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
 msgstr "UserGroup Missing untuk nama penulis {$param}"
@@ -2225,7 +2225,7 @@ msgstr ""
 
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr ""
-"Username \"{$username}\" dan surel \"{$email}\" tidak cocok dengan pengguna  "
+"Username \"{$username}\" dan surel \"{$email}\" tidak cocok dengan pengguna "
 "yang ada."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
@@ -3069,18 +3069,14 @@ msgstr ""
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
-"Email ini dikirimkan Reviewer kepada Editor Bagian sebagai respon terhadap "
-"permohonan review untuk memberitahu Editor Bagian bahwa permohonan review "
-"diterima dan akan diselesaikan pada tanggal yang ditetapkan."
+"Email ini dikirimkan secara otomatis ketika Reviewer menerima permintaan "
+"review"
 
 msgid "mailable.reviewDecline.name"
 msgstr ""
 
 msgid "mailable.reviewDecline.description"
-msgstr ""
-"Email ini dikirimkan Reviewer kepada Editor Bagian sebagai respon terhadap "
-"permohonan review untuk memberitahu Editor Bagian bahwa permohonan review "
-"ditolak."
+msgstr "Email ini dikirim oleh Reviewer ketika permohonan review ditolak"
 
 msgid "mailable.reviewRemind.name"
 msgstr ""

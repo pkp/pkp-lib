@@ -21,7 +21,7 @@ use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use Firebase\JWT\JWT;
 use PKP\config\Config;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\user\User;
 
 class APIProfileForm extends BaseProfileForm
@@ -130,7 +130,7 @@ class APIProfileForm extends BaseProfileForm
         $notificationManager = new NotificationManager();
         $notificationManager->createTrivialNotification(
             $user->getId(),
-            PKPNotification::NOTIFICATION_TYPE_WARNING,
+            Notification::NOTIFICATION_TYPE_WARNING,
             [
                 'contents' => __('user.apiKey.secretRequired'),
             ]

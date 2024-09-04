@@ -52,7 +52,7 @@ class FailedJob extends BaseRepository
         );
     }
 
-    public function getRedispatchableJobsInQueue(string $queue = null, array $columns = ['*']): collection
+    public function getRedispatchableJobsInQueue(?string $queue = null, array $columns = ['*']): collection
     {
         $failedJobs = $this->newQuery()->select($columns);
 
@@ -63,7 +63,7 @@ class FailedJob extends BaseRepository
         return $failedJobs->where('payload', '<>', '')->get();
     }
 
-    public function redispatchToQueue(string $queue = null, array $failedIds = []): int
+    public function redispatchToQueue(?string $queue = null, array $failedIds = []): int
     {
         $failedJobs = $this->newQuery();
 

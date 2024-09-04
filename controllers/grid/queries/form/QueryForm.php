@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/form/QueryForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryForm
@@ -22,13 +22,11 @@ use APP\facades\Repo;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\queries\traits\StageMailable;
-use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
-use PKP\note\NoteDAO;
-use PKP\notification\NotificationDAO;
+use PKP\note\Note;
 use PKP\query\Query;
 use PKP\query\QueryDAO;
 use PKP\security\Role;
@@ -85,14 +83,11 @@ class QueryForm extends Form
             // Add the current user as a participant by default.
             $queryDao->insertParticipant($query->getId(), $request->getUser()->getId());
 
-            // Create a head note
-            $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-            $headNote = $noteDao->newDataObject();
-            $headNote->setUserId($request->getUser()->getId());
-            $headNote->setAssocType(Application::ASSOC_TYPE_QUERY);
-            $headNote->setAssocId($query->getId());
-            $headNote->setDateCreated(Core::getCurrentDate());
-            $noteDao->insertObject($headNote);
+            Note::create([
+                'userId' =>  $request->getUser()->getId(),
+                'assocType' => Application::ASSOC_TYPE_QUERY,
+                'assocId' => $query->getId(),
+            ]);
         } else {
             $query = $queryDao->getById($queryId, $assocType, $assocId);
             assert(isset($query));
@@ -218,8 +213,8 @@ class QueryForm extends Form
             $headNote = $query->getHeadNote();
             $this->_data = [
                 'queryId' => $query->getId(),
-                'subject' => $headNote ? $headNote->getTitle() : null,
-                'comment' => $headNote ? $headNote->getContents() : null,
+                'subject' => $headNote?->title,
+                'comment' => $headNote?->contents,
                 'userIds' => $queryDao->getParticipantIds($query->getId()),
                 'template' => null,
             ];
@@ -249,7 +244,7 @@ class QueryForm extends Form
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'isNew' => $this->_isNew,
-            'noteId' => $headNote->getId(),
+            'noteId' => $headNote->id,
             'actionArgs' => $actionArgs,
             'csrfToken' => $request->getSession()->token(),
             'stageId' => $this->getStageId(),
@@ -315,7 +310,7 @@ class QueryForm extends Form
             $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany();
 
             // if current user is editor/journal manager/site admin and not have author role , add all reviewers
-            if (array_intersect($assignedRoles, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) || (empty($assignedRoles) && ($user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::CONTEXT_SITE)))) {
+            if (array_intersect($assignedRoles, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) || (empty($assignedRoles) && ($user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID)))) {
                 foreach ($reviewAssignments as $reviewAssignment) {
                     $includeUsers[] = $reviewAssignment->getReviewerId();
                 }
@@ -393,7 +388,7 @@ class QueryForm extends Form
         $allowedEditTimeNotice = ['show' => false, 'limit' => 60];
         if (array_intersect($assignedRoles, [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) {
             $allowedEditTimeNotice['show'] = true;
-            $allowedEditTimeNotice['limit'] = (int) ($allowedEditTimeNotice['limit'] - (time() - strtotime($headNote->getDateCreated())) / 60);
+            $allowedEditTimeNotice['limit'] = (int) ($allowedEditTimeNotice['limit'] - $headNote->dateCreated->diffInMinutes());
         }
 
         $templateMgr->assign([
@@ -469,13 +464,12 @@ class QueryForm extends Form
                     // if participant has no role in this stage and is not a reviewer
                     if (empty($assignedRoles) && $reviewAssignments->isEmpty()) {
                         // if participant is current user and the user has admin or manager role, ignore participant
-                        if (($participantId == $user->getId()) && ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()))) {
+                        if ($participantId == $user->getId() && ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()))) {
                             continue;
-                        } else {
-                            $this->addError('users', __('editor.discussion.errorNotStageParticipant'));
-                            $this->addErrorField('users');
-                            break;
                         }
+                        $this->addError('users', __('editor.discussion.errorNotStageParticipant'));
+                        $this->addErrorField('users');
+                        break;
                     }
                     // is participant a blind reviewer
                     $blindReviewer = false;
@@ -496,18 +490,14 @@ class QueryForm extends Form
                         $this->addErrorField('users');
                         break;
                     }
-                } else {
-                    // if participant has no role/assignment in the current stage
-                    if (empty($assignedRoles)) {
-                        // if participant is current user and the user has admin or manager role, ignore participant
-                        if (($participantId == $user->getId()) && ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::CONTEXT_SITE) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()))) {
-                            continue;
-                        } else {
-                            $this->addError('users', __('editor.discussion.errorNotStageParticipant'));
-                            $this->addErrorField('users');
-                            break;
-                        }
+                } elseif (empty($assignedRoles)) { // if participant has no role/assignment in the current stage
+                    // if participant is current user and the user has admin or manager role, ignore participant
+                    if (($participantId == $user->getId()) && ($user->hasRole([Role::ROLE_ID_SITE_ADMIN], PKPApplication::SITE_CONTEXT_ID) || $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()))) {
+                        continue;
                     }
+                    $this->addError('users', __('editor.discussion.errorNotStageParticipant'));
+                    $this->addErrorField('users');
+                    break;
                 }
             }
         }
@@ -524,11 +514,10 @@ class QueryForm extends Form
         $query = $this->getQuery();
 
         $headNote = $query->getHeadNote();
-        $headNote->setTitle($this->getData('subject'));
-        $headNote->setContents($this->getData('comment'));
+        $headNote->title = $this->getData('subject');
+        $headNote->contents = $this->getData('comment');
 
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $noteDao->updateObject($headNote);
+        $headNote->save();
 
         $queryDao->updateObject($query);
 
@@ -543,8 +532,9 @@ class QueryForm extends Form
         $removed = array_diff($oldParticipantIds, $newParticipantIds);
         foreach ($removed as $userId) {
             // Delete this users' notifications relating to this query
-            $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-            $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_QUERY, $query->getId(), $userId);
+            Notification::withAssoc(Application::ASSOC_TYPE_QUERY, $query->getId())
+                ->withUserId($userId)
+                ->delete();
         }
 
         // Stamp the submission status modification date.

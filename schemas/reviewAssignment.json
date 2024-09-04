@@ -189,7 +189,11 @@
 		"reviewerId": {
 			"type": "integer",
 			"description": "reviewer's unique ID",
-			"apiSummary": true
+			"apiSummary": true,			
+			"validation": [
+				"nullable"
+			]
+
 		},
 		"reviewFormId": {
 			"type": "integer",

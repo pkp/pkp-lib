@@ -16,6 +16,7 @@
 
 namespace PKP\controllers\grid\admin\context;
 
+use APP\core\Application;
 use PKP\controllers\grid\GridRow;
 use PKP\core\PKPApplication;
 use PKP\linkAction\LinkAction;
@@ -76,7 +77,7 @@ class ContextGridRow extends GridRow
         $this->addAction(
             new LinkAction(
                 'wizard',
-                new RedirectAction($dispatcher->url($request, PKPApplication::ROUTE_PAGE, 'index', 'admin', 'wizard', [$element->getId()])),
+                new RedirectAction($dispatcher->url($request, PKPApplication::ROUTE_PAGE, Application::SITE_CONTEXT_PATH, 'admin', 'wizard', [$element->getId()])),
                 __('grid.action.wizard'),
                 'wrench'
             )

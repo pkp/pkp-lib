@@ -18,11 +18,11 @@
 
 namespace PKP\security;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
-use PKP\core\PKPApplication;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 
@@ -41,7 +41,7 @@ class RoleDAO extends DAO
     /**
      * Validation check to see if a user belongs to any group that has a given role
      */
-    public function userHasRole(int $contextId, int $userId, int|array $roleIds): bool
+    public function userHasRole(?int $contextId, int $userId, int|array $roleIds): bool
     {
         return DB::table('user_groups AS ug')
             ->join('user_user_groups AS uug', 'ug.user_group_id', '=', 'uug.user_group_id')
@@ -49,11 +49,8 @@ class RoleDAO extends DAO
             ->whereIn('ug.role_id', is_array($roleIds) ? $roleIds : [$roleIds])
             ->where(fn (Builder $q) => $q->whereNull('uug.date_start')->orWhere('uug.date_start', '<=', Core::getCurrentDate()))
             ->where(fn (Builder $q) => $q->whereNull('uug.date_end')->orWhere('uug.date_end', '>', Core::getCurrentDate()))
-            ->when(
-                $contextId === PKPApplication::CONTEXT_SITE,
-                fn (Builder $q) => $q->whereNull('ug.context_id'),
-                fn (Builder $q) => $q->where('ug.context_id', $contextId)
-            )->exists();
+            ->whereRaw('COALESCE(ug.context_id, 0) = ?', [(int) $contextId])
+            ->exists();
     }
 
     /**
@@ -62,18 +59,14 @@ class RoleDAO extends DAO
      *
      * @return array of Roles
      */
-    public function getByUserId(int $userId, ?int $contextId = null)
+    public function getByUserId(int $userId, ?int $contextId = Application::SITE_CONTEXT_ID_ALL)
     {
         $result = DB::table('user_groups AS ug')
             ->join('user_user_groups AS uug', 'ug.user_group_id', '=', 'uug.user_group_id')
             ->where('uug.user_id', $userId)
             ->where(fn (Builder $q) => $q->whereNull('uug.date_start')->orWhere('uug.date_start', '<=', Core::getCurrentDate()))
             ->where(fn (Builder $q) => $q->whereNull('uug.date_end')->orWhere('uug.date_end', '>', Core::getCurrentDate()))
-            ->when($contextId !== null, fn (Builder $q) => $q->when(
-                $contextId === PKPApplication::CONTEXT_SITE,
-                fn (Builder $q) => $q->whereNull('ug.context_id'),
-                fn (Builder $q) => $q->where('ug.context_id', $contextId)
-            ))
+            ->when($contextId !== Application::SITE_CONTEXT_ID_ALL, fn (Builder $q) => $q->whereRaw('COALESCE(ug.context_id, 0) = ?', [(int) $contextId]))
             ->distinct()
             ->select(['ug.role_id AS role_id'])
             ->get();
@@ -103,7 +96,7 @@ class RoleDAO extends DAO
         foreach ($userGroups as $userGroup) {
             $role = $roleDao->newDataObject();
             $role->setRoleId($userGroup->getRoleId());
-            $roles[$userGroup->getContextId()][$userGroup->getRoleId()] = $role;
+            $roles[(int) $userGroup->getContextId()][$userGroup->getRoleId()] = $role;
         }
 
         return $roles;

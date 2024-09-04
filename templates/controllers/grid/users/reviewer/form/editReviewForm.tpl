@@ -23,7 +23,7 @@
 	<input type="hidden" name="submissionId" value="{$submissionId|escape}" />
 	<input type="hidden" name="reviewRoundId" value="{$reviewRoundId|escape}" />
 
-	{fbvFormSection title="editor.review.importantDates"}
+	{fbvFormSection title="editor.review.importantDates" description="editor.review.importantDates.notice"}
 		{fbvElement type="text" id="responseDueDate" name="responseDueDate" label="submission.task.responseDueDate" value=$responseDueDate inline=true size=$fbvStyles.size.MEDIUM class="datepicker"}
 		{fbvElement type="text" id="reviewDueDate" name="reviewDueDate" label="editor.review.reviewDueDate" value=$reviewDueDate inline=true size=$fbvStyles.size.MEDIUM class="datepicker"}
 	{/fbvFormSection}

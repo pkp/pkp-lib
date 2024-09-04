@@ -15,6 +15,7 @@
 
 namespace PKP\filter;
 
+use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\xml\XMLNode;
 
@@ -115,7 +116,7 @@ class FilterHelper
 
         // We ensure idempotence of plug-in installation by checking
         // for existing identical filters.
-        $similarFilters = $filterDao->getObjectsByGroupAndClass($filterGroupSymbolic, $filterClassName, 0, (bool) $isTemplate)->toArray();
+        $similarFilters = $filterDao->getObjectsByGroupAndClass($filterGroupSymbolic, $filterClassName, Application::SITE_CONTEXT_ID, (bool) $isTemplate)->toArray();
 
         if (count($similarFilters) > 0) {
             // Go through similar filters and eliminate them if they don't have the exact same settings.
@@ -137,7 +138,7 @@ class FilterHelper
         }
 
         // Configure (and optionally install) the filter.
-        $installedFilter = $filterDao->configureObject($filterClassName, $filterGroupSymbolic, $settings, (bool) $isTemplate, 0, $subFilters, $persist);
+        $installedFilter = $filterDao->configureObject($filterClassName, $filterGroupSymbolic, $settings, (bool) $isTemplate, Application::SITE_CONTEXT_ID, $subFilters, $persist);
         if (!$installedFilter instanceof \PKP\filter\PersistableFilter) {
             throw new \Exception($filterClassName . ' expected to be an instance of PersistableFilter');
         }

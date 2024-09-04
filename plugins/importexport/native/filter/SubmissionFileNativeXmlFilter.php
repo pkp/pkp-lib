@@ -90,7 +90,8 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
 
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genre = $genreDao->getById($submissionFile->getData('genreId'));
-        $uploaderUser = Repo::user()->get($submissionFile->getData('uploaderUserId'), true);
+        // @todo The uploader should always exist, see https://github.com/pkp/pkp-lib/issues/9414
+        $uploaderUser = $submissionFile->getData('uploaderUserId') ? Repo::user()->get($submissionFile->getData('uploaderUserId'), true) : null;
 
         // Create the submission_file node and set metadata
         $submissionFileNode = $doc->createElementNS($deployment->getNamespace(), $this->getSubmissionFileElementName());

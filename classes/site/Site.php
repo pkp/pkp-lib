@@ -82,17 +82,17 @@ class Site extends \PKP\core\DataObject
     /**
      * Get redirect
      */
-    public function getRedirect(): bool
+    public function getRedirect(): ?int
     {
-        return $this->getData('redirect');
+        return $this->getData('redirectContextId');
     }
 
     /**
      * Set redirect
      */
-    public function setRedirect(bool $redirect): void
+    public function setRedirect(?int $redirect): void
     {
-        $this->setData('redirect', $redirect);
+        $this->setData('redirectContextId', $redirect);
     }
 
     /**

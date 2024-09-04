@@ -45,9 +45,14 @@ class Config
         ],
         'email' => [
             'smtp_password',
+            'smtp_username',
         ],
         'security' => [
             'api_key_secret',
+            'salt',
+        ],
+        'captcha' => [
+            'recaptcha_private_key',
         ],
     ];
 
@@ -62,7 +67,7 @@ class Config
 
         return in_array($key, static::SENSITIVE_DATA[$section]);
     }
-    
+
     /**
      * Retrieve a specified configuration variable.
      *

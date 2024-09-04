@@ -22,12 +22,11 @@ use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\form\validation\FormValidatorLocale;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(FormValidatorLocale::class)]
 class FormValidatorLocaleTest extends PKPTestCase
 {
-    /**
-     * @covers FormValidatorLocale::getMessage
-     */
     public function testGetMessage()
     {
         $form = new Form('some template');
@@ -35,9 +34,6 @@ class FormValidatorLocaleTest extends PKPTestCase
         self::assertSame('##some.message.key## (English)', $formValidator->getMessage());
     }
 
-    /**
-     * @covers FormValidatorLocale::getFieldValue
-     */
     public function testGetFieldValue()
     {
         $form = new Form('some template');

@@ -17,9 +17,12 @@ namespace PKP\userGroup\relationships;
 use APP\facades\Repo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Eloquence\Behaviours\HasCamelCasing;
 
 class UserGroupStage extends \Illuminate\Database\Eloquent\Model
 {
+    use HasCamelCasing;
+
     public $timestamps = false;
     public $incrementing = false;
     protected $primaryKey = null;
@@ -37,30 +40,6 @@ class UserGroupStage extends \Illuminate\Database\Eloquent\Model
         return Attribute::make(
             get: fn ($value, $attributes) => Repo::userGroup()->get($attributes['user_group_id']),
             set: fn ($value) => $value->getId()
-        );
-    }
-
-    public function stageId(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value, $attributes) => $attributes['stage_id'],
-            set: fn ($value) => ['stage_id' => $value]
-        );
-    }
-
-    public function userGroupId(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($userGroup, $attributes) => $attributes['user_group_id'],
-            set: fn ($value) => ['user_group_id' => $value]
-        );
-    }
-
-    public function contextId(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value, $attributes) => $attributes['context_id'],
-            set: fn ($value) => ['context_id' => $value]
         );
     }
 

@@ -17,7 +17,6 @@
 
 namespace PKP\API\v1\stats\contexts;
 
-use APP\core\Services;
 use APP\services\ContextService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -157,7 +156,7 @@ class PKPStatsContextController extends PKPBaseController
         }
 
         // Get a list of contexts with their total views matching the params
-        $statsService = Services::get('contextStats'); /** @var PKPStatsContextService $statsService */
+        $statsService = app()->get('contextStats'); /** @var PKPStatsContextService $statsService */
         $totalMetrics = $statsService->getTotals($allowedParams);
 
         // Get the stats for each context
@@ -223,7 +222,7 @@ class PKPStatsContextController extends PKPBaseController
             ], Response::HTTP_BAD_REQUEST);
         }
 
-        $statsService = Services::get('contextStats'); /** @var PKPStatsContextService $statsService */
+        $statsService = app()->get('contextStats'); /** @var PKPStatsContextService $statsService */
 
         // Identify contexts which should be included in the results when a searchPhrase is passed
         if (!empty($allowedParams['searchPhrase'])) {
@@ -261,7 +260,7 @@ class PKPStatsContextController extends PKPBaseController
         $responseCSV = str_contains($illuminateRequest->headers->get('Accept'), 'text/csv') ? true : false;
 
         $request = $this->getRequest();
-        $contextService = Services::get('context'); /** @var ContextService $contextService */
+        $contextService = app()->get('context'); /** @var ContextService $contextService */
 
         $context = $contextService->get((int) $illuminateRequest->route('contextId', null));
         if (!$context) {
@@ -293,7 +292,7 @@ class PKPStatsContextController extends PKPBaseController
         $dateStart = array_key_exists('dateStart', $allowedParams) ? $allowedParams['dateStart'] : null;
         $dateEnd = array_key_exists('dateEnd', $allowedParams) ? $allowedParams['dateEnd'] : null;
 
-        $statsService = Services::get('contextStats');
+        $statsService = app()->get('contextStats');
         $contextViews = $statsService->getTotal($context->getId(), $dateStart, $dateEnd);
 
         // Get basic context details for display
@@ -324,7 +323,7 @@ class PKPStatsContextController extends PKPBaseController
         $responseCSV = str_contains($illuminateRequest->headers->get('Accept'), 'text/csv') ? true : false;
 
         $request = $this->getRequest();
-        $contextService = Services::get('context'); /** @var ContextService $contextService */
+        $contextService = app()->get('context'); /** @var ContextService $contextService */
 
         $context = $contextService->get((int) $illuminateRequest->route('contextId'));
         if (!$context) {
@@ -368,11 +367,11 @@ class PKPStatsContextController extends PKPBaseController
             ], Response::HTTP_BAD_REQUEST);
         }
 
-        $statsService = Services::get('contextStats'); /** @var PKPStatsContextService $statsService */
+        $statsService = app()->get('contextStats'); /** @var PKPStatsContextService $statsService */
         $data = $statsService->getTimeline($allowedParams['timelineInterval'], $allowedParams);
 
         if ($responseCSV) {
-            $csvColumnNames = Services::get('contextStats')->getTimelineReportColumnNames();
+            $csvColumnNames = app()->get('contextStats')->getTimelineReportColumnNames();
             return response()->withFile($data, $csvColumnNames, count($data));
         }
 
@@ -432,7 +431,7 @@ class PKPStatsContextController extends PKPBaseController
      */
     protected function _processSearchPhrase(string $searchPhrase, array $contextIds = []): array
     {
-        $searchPhraseContextIds = Services::get('context')->getIds(['searchPhrase' => $searchPhrase]);
+        $searchPhraseContextIds = app()->get('context')->getIds(['searchPhrase' => $searchPhrase]);
         if (!empty($contextIds)) {
             return array_intersect($contextIds, $searchPhraseContextIds->toArray());
         }
@@ -457,7 +456,8 @@ class PKPStatsContextController extends PKPBaseController
     protected function getItemForCSV(int $contextId, int $contextViews): array
     {
         // Get context title for display
-        $contexts = Services::get('context')->getManySummary([]);
+        $contexts = app()->get('context')->getManySummary([]);
+        // @todo: Avoid retrieving all contexts just to grab one item
         $context = array_filter($contexts, function ($context) use ($contextId) {
             return $context->id == $contextId;
         });
@@ -479,8 +479,8 @@ class PKPStatsContextController extends PKPBaseController
             'request' => $this->getRequest(),
             'apiRequest' => $illuminateRequest,
         ];
-        $context = Services::get('context')->get($contextId);
-        $contextProps = Services::get('context')->getSummaryProperties($context, $propertyArgs);
+        $context = app()->get('context')->get($contextId);
+        $contextProps = app()->get('context')->getSummaryProperties($context, $propertyArgs);
         return [
             'total' => $contextViews,
             'context' => $contextProps,

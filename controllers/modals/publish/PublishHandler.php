@@ -18,7 +18,6 @@ namespace PKP\controllers\modals\publish;
 
 use APP\components\forms\publication\PublishForm;
 use APP\core\Application;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\publication\Publication;
@@ -94,7 +93,7 @@ class PublishHandler extends Handler
 
         $submissionContext = $request->getContext();
         if (!$submissionContext || $submissionContext->getId() !== $this->submission->getData('contextId')) {
-            $submissionContext = Services::get('context')->get($this->submission->getData('contextId'));
+            $submissionContext = app()->get('context')->get($this->submission->getData('contextId'));
         }
 
         $primaryLocale = $submissionContext->getPrimaryLocale();

@@ -20,17 +20,13 @@ use APP\core\Application;
 
 class ContextFileManager extends PrivateFileManager
 {
-    /** @var int the ID of the associated context */
-    public $contextId;
-
     /**
      * Constructor.
      * Create a manager for handling context file uploads.
      */
-    public function __construct($contextId)
+    public function __construct(public int $contextId)
     {
         parent::__construct();
-        $this->contextId = (int) $contextId;
     }
 
     /**

@@ -25,7 +25,7 @@ use PKP\core\PKPApplication;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewerReinstate;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\plugins\Hook;
 use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
@@ -87,7 +87,7 @@ class ReinstateReviewerForm extends ReviewerNotifyActionForm
             // Insert a trivial notification to indicate the reviewer was reinstated successfully.
             $currentUser = $request->getUser();
             $notificationMgr = new NotificationManager();
-            $notificationMgr->createTrivialNotification($currentUser->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.reinstatedReviewer')]);
+            $notificationMgr->createTrivialNotification($currentUser->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('notification.reinstatedReviewer')]);
 
             // Add log
             $eventLog = Repo::eventLog()->newDataObject([

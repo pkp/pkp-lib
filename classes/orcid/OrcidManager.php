@@ -20,6 +20,8 @@ use APP\facades\Repo;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\Core;
+use PKP\jobs\orcid\RevokeOrcidToken;
+use PKP\user\User;
 
 class OrcidManager
 {
@@ -99,14 +101,7 @@ class OrcidManager
      */
     public static function getOrcidUrl(?Context $context = null): string
     {
-        if (self::isGloballyConfigured()) {
-            $apiType = Application::get()->getRequest()->getSite()->getData(self::API_TYPE);
-        } else {
-            if ($context === null) {
-                $context = Application::get()->getRequest()->getContext();
-            }
-            $apiType = $context->getData(self::API_TYPE);
-        }
+        $apiType = self::getApiType();
         return in_array($apiType, [self::API_PUBLIC_PRODUCTION, self::API_MEMBER_PRODUCTION]) ? self::ORCID_URL : self::ORCID_URL_SANDBOX;
     }
 
@@ -117,14 +112,7 @@ class OrcidManager
      */
     public static function getApiPath(?Context $context = null): string
     {
-        if (self::isGloballyConfigured()) {
-            $apiType = Application::get()->getRequest()->getSite()->getData(self::API_TYPE);
-        } else {
-            if ($context === null) {
-                $context = Application::get()->getRequest()->getContext();
-            }
-            $apiType = $context->getData(self::API_TYPE);
-        }
+        $apiType = self::getApiType();
 
         return match ($apiType) {
             self::API_PUBLIC_SANDBOX => self::ORCID_API_URL_PUBLIC_SANDBOX,
@@ -141,15 +129,7 @@ class OrcidManager
      */
     public static function isSandbox(?Context $context = null): bool
     {
-        if (self::isGloballyConfigured()) {
-            $apiType = Application::get()->getRequest()->getSite()->getData(self::API_TYPE);
-        } else {
-            if ($context === null) {
-                $context = Application::get()->getRequest()->getContext();
-            }
-            $apiType = $context->getData(self::API_TYPE);
-        }
-
+        $apiType = self::getApiType();
         return in_array($apiType, [self::API_PUBLIC_SANDBOX, self::API_MEMBER_SANDBOX]);
     }
 
@@ -228,20 +208,8 @@ class OrcidManager
      */
     public static function isMemberApiEnabled(?Context $context = null): bool
     {
-        if (self::isGloballyConfigured()) {
-            $apiType = Application::get()->getRequest()->getSite()->getData(self::API_TYPE);
-        } else {
-            if ($context === null) {
-                $context = Application::get()->getRequest()->getContext();
-            }
-            $apiType = $context->getData(self::API_TYPE);
-        }
-
-        if (in_array($apiType, [self::API_MEMBER_PRODUCTION, self::API_MEMBER_SANDBOX])) {
-            return true;
-        } else {
-            return false;
-        }
+        $apiType = self::getApiType();
+        return in_array($apiType, [self::API_MEMBER_PRODUCTION, self::API_MEMBER_SANDBOX]);
     }
 
     /**
@@ -315,20 +283,26 @@ class OrcidManager
 
     /**
      * Remove all data fields, which belong to an ORCID access token from the
-     * given Author object. Also updates fields in the db.
+     * given Author or User object. Also updates fields in the db.
      *
-     * @param bool $updateAuthor If true, update the author fields in the database.
-     *      Use only if not called from a function, which will already update the author.
+     * @param bool $updateDb If true, update the underlying fields in the database.
+     *      Use only if not called from a function, which will already update the object.
      */
-    public static function removeOrcidAccessToken(Author $author, bool $updateAuthor = false): void
+    public static function removeOrcidAccessToken(Author|User $identity, bool $updateDb = false): void
     {
-        $author->setData('orcidAccessToken', null);
-        $author->setData('orcidAccessScope', null);
-        $author->setData('orcidRefreshToken', null);
-        $author->setData('orcidAccessExpiresOn', null);
+        dispatch(new RevokeOrcidToken(Application::get()->getRequest()->getContext(), $identity));
 
-        if ($updateAuthor) {
-            Repo::author()->dao->update($author);
+        $identity->setData('orcidAccessToken', null);
+        $identity->setData('orcidAccessScope', null);
+        $identity->setData('orcidRefreshToken', null);
+        $identity->setData('orcidAccessExpiresOn', null);
+
+        if ($updateDb) {
+            if ($identity instanceof User) {
+                Repo::user()->edit($identity);
+            } else {
+                Repo::author()->edit($identity);
+            }
         }
     }
 
@@ -362,5 +336,30 @@ class OrcidManager
         $fineStamp = date('Y-m-d H:i:s') . substr(microtime(), 1, 4);
         $logFilePath = Config::getVar('files', 'files_dir') . '/orcid.log';
         error_log("{$fineStamp} {$level} {$message}\n", 3, $logFilePath);
+    }
+
+    /**
+     * Gets the ORCID API endpoint to revoke an access token
+     */
+    public static function getTokenRevocationUrl(): string
+    {
+        return self::getOauthPath() . 'revoke';
+    }
+
+    /**
+     * Helper method get the ORCID Api Type.
+     */
+    private static function getApiType(?Context $context = null): string
+    {
+        if (self::isGloballyConfigured()) {
+            $apiType = Application::get()->getRequest()->getSite()->getData(self::API_TYPE);
+        } else {
+            if ($context === null) {
+                $context = Application::get()->getRequest()->getContext();
+            }
+            $apiType = $context->getData(self::API_TYPE);
+        }
+
+        return $apiType;
     }
 }

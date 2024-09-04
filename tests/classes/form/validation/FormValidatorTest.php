@@ -22,7 +22,9 @@ use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\tests\PKPTestCase;
 use PKP\validation\ValidatorUrl;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(FormValidator::class)]
 class FormValidatorTest extends PKPTestCase
 {
     private Form $form;
@@ -33,13 +35,6 @@ class FormValidatorTest extends PKPTestCase
         $this->form = new Form('some template');
     }
 
-    /**
-     * @covers FormValidator::__construct
-     * @covers FormValidator::getField
-     * @covers FormValidator::getForm
-     * @covers FormValidator::getValidator
-     * @covers FormValidator::getType
-     */
     public function testConstructor()
     {
         // Instantiate a test validator
@@ -60,18 +55,12 @@ class FormValidatorTest extends PKPTestCase
         self::assertSame($validator, $formValidator->getValidator());
     }
 
-    /**
-     * @covers FormValidator::getMessage
-     */
     public function testGetMessage()
     {
         $formValidator = new FormValidator($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('##some.message.key##', $formValidator->getMessage());
     }
 
-    /**
-     * @covers FormValidator::getFieldValue
-     */
     public function testGetFieldValue()
     {
         $formValidator = new FormValidator($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
@@ -98,9 +87,6 @@ class FormValidatorTest extends PKPTestCase
         self::assertSame([' some text '], $formValidator->getFieldValue());
     }
 
-    /**
-     * @covers FormValidator::isEmptyAndOptional
-     */
     public function testIsEmptyAndOptional()
     {
         // When the validation type is "required" then the method should return
@@ -142,9 +128,6 @@ class FormValidatorTest extends PKPTestCase
         self::assertTrue($formValidator->isEmptyAndOptional());
     }
 
-    /**
-     * @covers FormValidator::isValid
-     */
     public function testIsValid()
     {
         // We don't need to test the case where a validator is set, this

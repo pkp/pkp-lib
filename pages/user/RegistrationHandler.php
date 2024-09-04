@@ -22,7 +22,7 @@ use APP\pages\user\UserHandler;
 use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\core\PKPRequest;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\notification\PKPNotificationManager;
 use PKP\observers\events\UserRegisteredContext;
 use PKP\observers\events\UserRegisteredSite;
@@ -85,7 +85,7 @@ class RegistrationHandler extends UserHandler
             $notificationMgr = new PKPNotificationManager();
             $notificationMgr->createTrivialNotification(
                 $userId,
-                PKPNotification::NOTIFICATION_TYPE_ERROR,
+                Notification::NOTIFICATION_TYPE_ERROR,
                 ['contents' => __('email.compose.error')]
             );
             trigger_error($e->getMessage(), E_USER_WARNING);

@@ -53,6 +53,6 @@ class TestJobFailure extends BaseJob
      */
     public function handle(): void
     {
-        throw new Exception('cli.test.job');
+        throw new Exception('Test failure job');
     }
 }

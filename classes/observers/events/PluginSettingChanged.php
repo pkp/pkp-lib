@@ -35,7 +35,7 @@ class PluginSettingChanged
         Plugin $plugin,
         string $settingName,
         $newValue,
-        ?int $contextId = null
+        ?int $contextId
     ) {
         $this->plugin = $plugin;
         $this->settingName = $settingName;

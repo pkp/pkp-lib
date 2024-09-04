@@ -29,9 +29,8 @@ use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\ReviewCompleteNotifyEditors;
-use PKP\notification\NotificationDAO;
+use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
-use PKP\notification\PKPNotification;
 use PKP\reviewForm\ReviewFormDAO;
 use PKP\reviewForm\ReviewFormElement;
 use PKP\reviewForm\ReviewFormElementDAO;
@@ -191,7 +190,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             $notification = $notificationMgr->createNotification(
                 Application::get()->getRequest(),
                 $userId,
-                PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
+                Notification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
                 $submission->getData('contextId'),
                 PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 $reviewAssignment->getId()
@@ -199,7 +198,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
 
             // Check if user is subscribed to this type of notification emails
             if (!$notification || in_array(
-                PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
+                Notification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
                 $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
                     NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
                     $userId,
@@ -237,13 +236,10 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         }
 
         // Remove the task
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notificationDao->deleteByAssoc(
-            PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT,
-            $reviewAssignment->getId(),
-            $reviewAssignment->getReviewerId(),
-            PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT
-        );
+        Notification::withAssoc(PKPApplication::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment->getId())
+            ->withUserId($reviewAssignment->getReviewerId())
+            ->withType(Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT)
+            ->delete();
 
         // Add log
         $reviewer = Repo::user()->get($reviewAssignment->getReviewerId(), true);

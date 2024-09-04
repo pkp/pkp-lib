@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2024-06-25 11:45+0000\n"
+"PO-Revision-Date: 2024-08-20 21:11+0000\n"
 "Last-Translator: Johanna Skaug <johanna.skaug@ub.uio.no>\n"
 "Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/nb_NO/>\n"
@@ -204,6 +204,9 @@ msgstr "Tildel DOI-er"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
+"Du er i ferd med å tildele nye DOI-er til {$count} element(er). DOI tildeles "
+"til alle elementer som ikke allerede har en DOI. Er du sikker på at du "
+"ønsker å tildele DOI til disse elementene?"
 
 msgid "manager.dois.actions.depositAll.label"
 msgstr "Deponer alle DOI-er"
@@ -214,32 +217,41 @@ msgstr ""
 msgid "manager.dois.actions.description"
 msgstr "Utfør handling for {$count} valgte element(er)."
 
+#, fuzzy
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Massehandlinger"
 
 msgid "manager.dois.depositStatus"
 msgstr "Deponeringsstatus"
 
+#, fuzzy
 msgid "manager.dois.publicationStatus"
-msgstr ""
+msgstr "Publiseringsstatus"
 
+#, fuzzy
 msgid "manager.dois.registration.submittedDescription"
-msgstr ""
+msgstr "Metadata for dette elementet er send inn til {$registrationAgency}."
 
+#, fuzzy
 msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr ""
+msgstr "Dette elementet har blitt manuelt registrert."
 
+#, fuzzy
 msgid "manager.dois.registration.notSubmittedDescription"
 msgstr ""
+"Metadata for dette elementet er ikke blitt sendt inn til "
+"{$registrationAgency}."
 
+#, fuzzy
 msgid "manager.dois.registration.notPublishedDescription"
-msgstr ""
+msgstr "Dette elementet kan ikke deponeres før det er publisert."
 
 msgid "manager.dois.registration.viewError"
 msgstr "Vis feil"
 
+#, fuzzy
 msgid "manager.dois.registration.viewError.title"
-msgstr ""
+msgstr "Registreringsfeilmelding"
 
 msgid "manager.dois.registration.viewRecord"
 msgstr ""
@@ -260,7 +272,7 @@ msgid "manager.dois.status.unregistered"
 msgstr "Uregistrert"
 
 msgid "manager.dois.status.submitted"
-msgstr ""
+msgstr "Innsendt"
 
 msgid "manager.dois.status.registered"
 msgstr "Registrert"
@@ -299,10 +311,10 @@ msgid "manager.dois.status.stale.description"
 msgstr ""
 
 msgid "manager.dois.update.failedCreation"
-msgstr ""
+msgstr "DOI-oppdatering mislyktes"
 
 msgid "manager.dois.update.partialFailure"
-msgstr ""
+msgstr "Noen DOI(-er) kunne ikke oppdateres"
 
 msgid "manager.dois.notification.exportSuccess"
 msgstr ""
@@ -323,7 +335,7 @@ msgid "manager.dois.notification.depositQueuedSuccess"
 msgstr ""
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "DOI-statuser"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
@@ -344,7 +356,7 @@ msgid "manager.institutions.form.ror"
 msgstr "ROR"
 
 msgid "manager.institutions.form.ror.description"
-msgstr ""
+msgstr "Research Organization Registry ID for denne institusjonen."
 
 msgid "manager.institutions.form.ipRanges"
 msgstr ""
@@ -356,7 +368,7 @@ msgid "manager.institutions.deleteInstitution"
 msgstr "Slett institusjon"
 
 msgid "manager.institutions.confirmDelete"
-msgstr ""
+msgstr "Er du sikker på at du vil slette institusjonen?"
 
 msgid "manager.institutions.invalidIPRange"
 msgstr ""
@@ -385,8 +397,9 @@ msgstr "Detaljene om påminnelse om fagfellevurdering har blitt oppdatert."
 msgid "manager.dois.title"
 msgstr "DOI-er"
 
+#, fuzzy
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
-msgstr ""
+msgstr "Følgende feil ble returnert av {$registrationAgency}:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
@@ -3617,3 +3630,11 @@ msgstr "Det er for øyeblikket ingen COUNTER R5 bruksstatistikk tilgjengelig."
 
 msgid "plugins.importexport.common.validation"
 msgstr "Valider XML før eksport og registrering."
+
+msgid "manager.announcements.notEnabled"
+msgstr ""
+"Du må <a href=\"#announcements/announcement-settings\">aktivere oppslag</a>."
+
+msgid "manager.highlights.confirmDelete"
+msgstr ""
+"Er du sikker på at du vil slette {$title}? Denne handlingen kan ikke angres."

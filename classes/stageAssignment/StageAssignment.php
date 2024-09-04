@@ -22,21 +22,23 @@
 
 namespace PKP\stageAssignment;
 
+use Eloquence\Behaviours\HasCamelCasing;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Str;
 use PKP\userGroup\relationships\UserGroupStage;
 
 class StageAssignment extends Model
 {
+    use HasCamelCasing;
+
     protected $table = 'stage_assignments';
     protected $primaryKey = 'stage_assignment_id';
     public $timestamps = false;
 
     protected $fillable = [
-        'submissionId', 'userGroupId', 'userId', 
+        'submissionId', 'userGroupId', 'userId',
         'dateAssigned', 'recommendOnly', 'canChangeMetadata'
     ];
 
@@ -45,7 +47,7 @@ class StageAssignment extends Model
     /**
      * One to many relationship with user_group_stage table => UserGroupStage Eloquent Model
      *
-     * To eagerly fill the userGroupStages Collection, the calling code should add 
+     * To eagerly fill the userGroupStages Collection, the calling code should add
      * StageAssignment::with(['userGroupStages'])
      */
     public function userGroupStages(): HasMany
@@ -66,76 +68,11 @@ class StageAssignment extends Model
         );
     }
 
-    /**
-     * Accessor and Mutator for submission_id => submissionId
-     */
-    protected function submissionId(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value, $attributes) => $attributes['submission_id'],
-            set: fn ($value) => ['submission_id' => $value],
-        );
-    }
-
-    /**
-     * Accessor and Mutator for user_group_id => userGroupId
-     */
-    protected function userGroupId(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value, $attributes) => $attributes['user_group_id'],
-            set: fn ($value) => ['user_group_id' => $value],
-        );
-    }
-
-    /**
-     * Accessor and Mutator for user_id => userId
-     */
-    protected function userId(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value, $attributes) => $attributes['user_id'],
-            set: fn ($value) => ['user_id' => $value],
-        );
-    }
-
-    /**
-     * Accessor and Mutator for date_assigned => dateAssigned
-     */
-    protected function dateAssigned(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value, $attributes) => $attributes['date_assigned'],
-            set: fn ($value) => ['date_assigned' => $value],
-        );
-    }
-
-    /**
-     * Accessor and Mutator for recommend_only => recommendOnly
-     */
-    protected function recommendOnly(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value, $attributes) => $attributes['recommend_only'],
-            set: fn ($value) => ['recommend_only' => $value],
-        );
-    }
-
-    /**
-     * Accessor and Mutator for can_change_metadata => canChangeMetadata
-     */
-    protected function canChangeMetadata(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value, $attributes) => $attributes['can_change_metadata'],
-            set: fn ($value) => ['can_change_metadata' => $value],
-        );
-    }
 
     // Scopes
 
     /**
-     * Scope a query to only include stage assignments that are related 
+     * Scope a query to only include stage assignments that are related
      * to userGroupStages having specific stageIds
      */
     public function scopeWithStageIds(Builder $query, ?array $stageIds): Builder

@@ -16,7 +16,6 @@
 
 namespace PKP\site;
 
-use APP\core\Services;
 use Illuminate\Support\Facades\DB;
 use PKP\services\PKPSchemaService;
 
@@ -24,7 +23,7 @@ class SiteDAO extends \PKP\db\DAO
 {
     /** @var array Maps schema properties for the primary table to their column names */
     public $primaryTableColumns = [
-        'redirect' => 'redirect',
+        'redirectContextId' => 'redirect_context_id',
         'primaryLocale' => 'primary_locale',
         'minPasswordLength' => 'min_password_length',
         'installedLocales' => 'installed_locales',
@@ -61,7 +60,7 @@ class SiteDAO extends \PKP\db\DAO
      */
     public function _fromRow(array $primaryRow, bool $callHook = true): Site
     {
-        $schemaService = Services::get('schema');
+        $schemaService = app()->get('schema');
         $schema = $schemaService->get(PKPSchemaService::SCHEMA_SITE);
 
         $site = $this->newDataObject();
@@ -102,7 +101,7 @@ class SiteDAO extends \PKP\db\DAO
         $type = 'array';
         $this->update(
             'INSERT INTO site
-				(redirect, min_password_length, primary_locale, installed_locales, supported_locales)
+				(redirect_context_id, min_password_length, primary_locale, installed_locales, supported_locales)
 				VALUES
 				(?, ?, ?, ?, ?)',
             [
@@ -120,14 +119,15 @@ class SiteDAO extends \PKP\db\DAO
      */
     public function updateObject(Site $site): void
     {
-        $schemaService = Services::get('schema');
+        $schemaService = app()->get('schema');
         $schema = $schemaService->get(PKPSchemaService::SCHEMA_SITE);
         $sanitizedProps = $schemaService->sanitize(PKPSchemaService::SCHEMA_SITE, $site->_data);
 
         $set = $params = [];
         foreach ($this->primaryTableColumns as $propName => $column) {
             $set[] = $column . ' = ?';
-            $params[] = $this->convertToDb($sanitizedProps[$propName], $schema->properties->{$propName}->type);
+            $property = $schema->properties->{$propName};
+            $params[] = $this->convertToDb($sanitizedProps[$propName], $property->type, in_array('nullable', $property->validation ?? []));
         }
         $this->update('UPDATE site SET ' . join(',', $set), $params);
 

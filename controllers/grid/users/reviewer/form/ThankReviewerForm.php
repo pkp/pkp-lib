@@ -26,7 +26,7 @@ use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\ReviewAcknowledgement;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\plugins\Hook;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -141,7 +141,7 @@ class ThankReviewerForm extends Form
                 $notificationMgr = new NotificationManager();
                 $notificationMgr->createTrivialNotification(
                     $request->getUser()->getId(),
-                    PKPNotification::NOTIFICATION_TYPE_ERROR,
+                    Notification::NOTIFICATION_TYPE_ERROR,
                     ['contents' => __('email.compose.error')]
                 );
                 trigger_error($e->getMessage(), E_USER_WARNING);

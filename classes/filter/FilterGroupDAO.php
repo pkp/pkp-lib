@@ -18,6 +18,7 @@
 
 namespace PKP\filter;
 
+use APP\core\Application;
 use PKP\db\DAORegistry;
 
 class FilterGroupDAO extends \PKP\db\DAO
@@ -61,8 +62,8 @@ class FilterGroupDAO extends \PKP\db\DAO
     {
         $result = $this->retrieve(
             'SELECT * FROM filter_groups' .
-                ' WHERE filter_group_id = ?',
-            [$filterGroupId]
+                ' WHERE COALESCE(filter_group_id, 0) = ?',
+            [(int) $filterGroupId]
         );
         $row = (array) $result->current();
         return $row ? $this->_fromRow($row) : null;
@@ -115,13 +116,13 @@ class FilterGroupDAO extends \PKP\db\DAO
         $filterDao = DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
 
         // Check whether there are still templates saved for this filter group.
-        $filterTemplates = $filterDao->getObjectsByGroup($filterGroup->getSymbolic(), \PKP\core\PKPApplication::CONTEXT_ID_NONE, true, false);
+        $filterTemplates = $filterDao->getObjectsByGroup($filterGroup->getSymbolic(), Application::SITE_CONTEXT_ID, true, false);
         if (!empty($filterTemplates)) {
             return false;
         }
 
         // Check whether there are still filters saved for this filter group.
-        $filters = $filterDao->getObjectsByGroup($filterGroup->getSymbolic(), \PKP\core\PKPApplication::CONTEXT_ID_NONE, false, false);
+        $filters = $filterDao->getObjectsByGroup($filterGroup->getSymbolic(), Application::SITE_CONTEXT_ID, false, false);
         if (!empty($filters)) {
             return false;
         }

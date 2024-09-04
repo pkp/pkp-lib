@@ -22,22 +22,17 @@ use PKP\form\Form;
 
 class LibraryFileForm extends Form
 {
-    /** @var int the id of the context this library file is attached to */
-    public $contextId;
-
-    /** @var LibraryFileManager the library file manager instantiated in this form. */
-    public $libraryFileManager;
+    /** the library file manager instantiated in this form. */
+    public LibraryFileManager $libraryFileManager;
 
     /**
      * Constructor.
      *
      * @param string $template
-     * @param int $contextId
+     * @param int $contextId The id of the context this library file is attached to
      */
-    public function __construct($template, $contextId)
+    public function __construct($template, public int $contextId)
     {
-        $this->contextId = $contextId;
-
         parent::__construct($template);
         $this->libraryFileManager = $libraryFileManager = new LibraryFileManager($contextId);
 
@@ -61,7 +56,7 @@ class LibraryFileForm extends Form
      *
      * @param null|mixed $template
      */
-    public function fetch($request, $template = null, $display = false)
+    public function fetch($request, $template = null, $display = false): ?string
     {
         // load the file types for the selector on the form.
         $templateMgr = TemplateManager::getManager($request);
@@ -76,7 +71,7 @@ class LibraryFileForm extends Form
      *
      * @see Form::readInputData()
      */
-    public function readInputData()
+    public function readInputData(): void
     {
         $this->readUserVars(['libraryFileName', 'fileType', 'publicAccess']);
     }

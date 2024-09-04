@@ -20,7 +20,6 @@
 
 namespace PKP\user;
 
-use Exception;
 use Illuminate\Contracts\Auth\Authenticatable;
 use PKP\db\DAORegistry;
 use PKP\identity\Identity;
@@ -402,11 +401,11 @@ class User extends Identity implements Authenticatable
      * Check if this user has a role in a context
      *
      * @param int|array $roles Role(s) to check for
-     * @param int $contextId The context to check for roles in.
+     * @param ?int $contextId The context to check for roles in.
      *
      * @return bool
      */
-    public function hasRole($roles, $contextId)
+    public function hasRole($roles, ?int $contextId)
     {
         $contextRoles = $this->getRoles($contextId);
 
@@ -430,13 +429,14 @@ class User extends Identity implements Authenticatable
     /**
      * Get this user's roles in a context
      *
-     * @param int $contextId The context to retrieve roles in.
+     * @param ?int $contextId The context to retrieve roles in.
      * @param bool $noCache Force the roles to be retrieved from the database
      *
      * @return array
      */
-    public function getRoles($contextId, $noCache = false)
+    public function getRoles(?int $contextId, $noCache = false)
     {
+        $contextId = (int) $contextId;
         if ($noCache || empty($this->_roles[$contextId])) {
             $userRolesDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $userRolesDao */
             $this->setRoles($userRolesDao->getByUserId($this->getId(), $contextId), $contextId);
@@ -449,42 +449,64 @@ class User extends Identity implements Authenticatable
      * Set this user's roles in a context
      *
      * @param array $roles The roles to assign this user
-     * @param int $contextId The context to assign these roles
+     * @param ?int $contextId The context to assign these roles
      */
-    public function setRoles($roles, $contextId)
+    public function setRoles($roles, ?int $contextId)
     {
+        $contextId = (int) $contextId;
         $this->_roles[$contextId] = $roles;
     }
 
+    /**
+     * @copydoc \Illuminate\Contracts\Auth\Authenticatable::getAuthIdentifierName
+     */
     public function getAuthIdentifierName()
     {
         return 'user_id';
     }
 
+    /**
+     * @copydoc \Illuminate\Contracts\Auth\Authenticatable::getAuthIdentifier
+     */
     public function getAuthIdentifier()
     {
         return $this->getId();
     }
 
+    /**
+     * @copydoc \Illuminate\Contracts\Auth\Authenticatable::getAuthPassword
+     */
     public function getAuthPassword()
     {
-        return $this->getData('password');
+        return $this->getPassword();
     }
 
+    /**
+     * @copydoc \Illuminate\Contracts\Auth\Authenticatable::getAuthPasswordName
+     */
+    public function getAuthPasswordName()
+    {
+        return 'password';
+    }
+
+    /**
+     * @copydoc \Illuminate\Contracts\Auth\Authenticatable::getRememberToken
+     */
     public function getRememberToken()
     {
         return $this->getData('rememberToken');
     }
 
+    /**
+     * @copydoc \Illuminate\Contracts\Auth\Authenticatable::setRememberToken
+     */
     public function setRememberToken($value)
     {
         return $this->setData('rememberToken', $value);
     }
 
     /**
-     * Get the column name for the "remember me" token.
-     *
-     * @return string
+     * @copydoc \Illuminate\Contracts\Auth\Authenticatable::getRememberTokenName
      */
     public function getRememberTokenName()
     {

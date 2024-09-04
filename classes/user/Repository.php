@@ -23,8 +23,7 @@ use PKP\context\SubEditorsDAO;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\file\TemporaryFileDAO;
-use PKP\note\NoteDAO;
-use PKP\notification\NotificationDAO;
+use PKP\note\Note;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\RoleDAO;
@@ -138,7 +137,7 @@ class Repository
     {
         $request = Application::get()->getRequest();
         $context = $request->getContext();
-        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
+        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::SITE_CONTEXT_ID;
         $currentUser = $request->getUser();
 
         // Logged out users can never view gossip fields
@@ -216,9 +215,9 @@ class Repository
             }
 
             // Has admin role?
-            if ($contextId != PKPApplication::CONTEXT_ID_NONE &&
-                array_key_exists(PKPApplication::CONTEXT_ID_NONE, $userRoles) &&
-                in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles[PKPApplication::CONTEXT_ID_NONE])
+            if ($contextId != PKPApplication::SITE_CONTEXT_ID &&
+                array_key_exists(PKPApplication::SITE_CONTEXT_ID, $userRoles) &&
+                in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles[PKPApplication::SITE_CONTEXT_ID])
             ) {
                 $userRoleIds[] = Role::ROLE_ID_SITE_ADMIN;
             }
@@ -331,12 +330,7 @@ class Repository
             Repo::submissionFile()->edit($submissionFile, ['uploaderUserId' => $newUserId]);
         }
 
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $notes = $noteDao->getByUserId($oldUserId);
-        while ($note = $notes->next()) {
-            $note->setUserId($newUserId);
-            $noteDao->updateObject($note);
-        }
+        Repo::note()->transfer($oldUserId, $newUserId);
 
         Repo::decision()->dao->reassignDecisions($oldUserId, $newUserId);
 
@@ -356,8 +350,7 @@ class Repository
             $submissionCommentDao->updateObject($submissionComment);
         }
 
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notificationDao->transferNotifications($oldUserId, $newUserId);
+        Repo::notification()->transfer($oldUserId, $newUserId);
 
         // Delete the old user and associated info.
         Application::get()->getRequest()->getSessionGuard()->invalidateOtherSessions($oldUserId);

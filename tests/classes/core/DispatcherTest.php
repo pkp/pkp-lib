@@ -21,12 +21,14 @@ namespace PKP\tests\classes\core;
 use APP\core\Application;
 use APP\core\Request;
 use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\Attributes\CoversMethod;
 use PKP\core\Dispatcher;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\tests\PKPTestCase;
 
+#[CoversMethod(Dispatcher::class, 'url')]
 class DispatcherTest extends PKPTestCase
 {
     public const PATHINFO_ENABLED = true;
@@ -59,7 +61,7 @@ class DispatcherTest extends PKPTestCase
         // Set up the getContextName() method
         $mockApplication->expects($this->any())
             ->method('getContextName')
-            ->will($this->returnValue('firstContext'));
+            ->willReturn('firstContext');
 
         $this->dispatcher = $mockApplication->getDispatcher(); // this also adds the component router
         $this->dispatcher->addRouterName(\PKP\core\PKPPageRouter::class, 'page');
@@ -67,9 +69,6 @@ class DispatcherTest extends PKPTestCase
         $this->request = new Request();
     }
 
-    /**
-     * @covers Dispatcher::url
-     */
     public function testUrl()
     {
         $this->_setUpMockDAO();
@@ -101,15 +100,15 @@ class DispatcherTest extends PKPTestCase
             ->getMock();
         $contextObject->expects($this->any())
             ->method('getPath')
-            ->will($this->returnValue('context1'));
+            ->willReturn('context1');
         $contextObject->expects($this->any())
             ->method('getSupportedLocales')
-            ->will($this->returnValue(['en']));
+            ->willReturn(['en']);
 
         $mockFirstContextDao->expects($this->any())
             ->method('getByPath')
             ->with('context1')
-            ->will($this->returnValue($contextObject));
+            ->willReturn($contextObject);
 
         DAORegistry::registerDAO('FirstContextDAO', $mockFirstContextDao);
     }

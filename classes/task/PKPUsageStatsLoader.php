@@ -17,7 +17,6 @@
 namespace PKP\task;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\statistics\StatisticsHelper;
 use Illuminate\Support\Facades\Bus;
 use PKP\file\FileManager;
@@ -142,7 +141,7 @@ abstract class PKPUsageStatsLoader extends FileLoader
         $date = substr($loadId, -12, 8);
         // Get the date when the version that uses the new log file format (and COUNTER R5) is installed.
         // Only the log files later than that day can be (regularly) processed here.
-        $statsService = Services::get('sushiStats');
+        $statsService = app()->get('sushiStats');
         $dateR5Installed = date('Ymd', strtotime($statsService->getEarliestDate()));
         if ($date < $dateR5Installed) {
             // the log file is in old log file format
@@ -174,9 +173,9 @@ abstract class PKPUsageStatsLoader extends FileLoader
         // If the daily metrics are not kept, and this is not the current month (which is kept in the DB)
         // the CLI script to reprocess the whole month should be called.
         if (!$site->getData('keepDailyUsageStats') && $month != $currentMonth && $month != $lastMonth) {
-            $statsService = Services::get('sushiStats');
+            $statsService = app()->get('sushiStats');
             $counterMonthExists = $statsService->monthExists($month);
-            $geoService = Services::get('geoStats');
+            $geoService = app()->get('geoStats');
             $geoMonthExists = $geoService->monthExists($month);
             if ($counterMonthExists || $geoMonthExists) {
                 $this->addExecutionLogEntry(__(

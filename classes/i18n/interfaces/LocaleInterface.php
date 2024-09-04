@@ -175,7 +175,7 @@ interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
      *
      * @return array The list of locales with formatted display name
      */
-    public function getFormattedDisplayNames(array $filterByLocales = null, array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH, bool $omitLocaleCodeInDisplay = true): array;
+    public function getFormattedDisplayNames(?array $filterByLocales = null, ?array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH, bool $omitLocaleCodeInDisplay = true): array;
 
     /**
      *  Get UI Translator, which provides all translations used in backend UI (vue.js)

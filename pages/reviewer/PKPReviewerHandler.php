@@ -28,7 +28,7 @@ use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewer\form\PKPReviewerReviewStep3Form;
 use PKP\submission\reviewer\form\ReviewerReviewForm;
@@ -169,7 +169,7 @@ class PKPReviewerHandler extends Handler
             $reviewerForm->saveForLater();
             $notificationMgr = new NotificationManager();
             $user = $request->getUser();
-            $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('common.changesSaved')]);
+            $notificationMgr->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS, ['contents' => __('common.changesSaved')]);
             return \PKP\db\DAO::getDataChangedEvent();
         }
         // Submit the form data and move forward

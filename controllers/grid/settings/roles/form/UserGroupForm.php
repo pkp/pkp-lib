@@ -45,7 +45,7 @@ class UserGroupForm extends Form
      * @param int $contextId id.
      * @param int $userGroupId group id.
      */
-    public function __construct($contextId, $userGroupId = null)
+    public function __construct(int $contextId, $userGroupId = null)
     {
         parent::__construct('controllers/grid/settings/roles/form/userGroupForm.tpl');
         $this->_contextId = $contextId;

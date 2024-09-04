@@ -17,6 +17,8 @@
 namespace PKP\site;
 
 use APP\core\Application;
+use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
 use PKP\plugins\Hook;
@@ -181,23 +183,25 @@ class VersionDAO extends \PKP\db\DAO
      */
     public function getCurrentProducts(?int $contextId): array
     {
-        $result = $this->retrieve(
-            'SELECT v.*
-            FROM versions v
-            LEFT JOIN plugin_settings ps
-                ON LOWER(v.product_class_name) = ps.plugin_name
-                AND ps.setting_name = \'enabled\'
-                ' . ($contextId !== null ? ' AND (context_id = ? OR v.sitewide = 1) ' : '') . '
-            WHERE v.current = 1 AND (ps.setting_value = \'1\' OR v.lazy_load <> 1)',
-            $contextId !== null ? [$contextId] : [],
-            false
-        );
+        $versions = DB::table('versions', 'v')
+            ->leftJoin(
+                'plugin_settings AS ps',
+                fn (JoinClause $j) => $j->on('ps.plugin_name', '=', DB::raw('LOWER(v.product_class_name)'))
+                    ->where('ps.setting_name', '=', 'enabled')
+                    ->when(
+                        $contextId !== Application::SITE_CONTEXT_ID_ALL,
+                        fn (Builder $q) => $q->where(fn (Builder $q) => $q->whereRaw('COALESCE(context_id, 0) = ?', [(int) $contextId])->orWhere('v.sitewide', '=', 1))
+                    )
+            )
+            ->where('v.current', '=', 1)
+            ->where(fn (Builder $q) => $q->where('ps.setting_value', '=', 1)->orWhere('v.lazy_load', '!=', 1))
+            ->get();
 
-        $productArray = [];
-        foreach ($result as $row) {
-            $productArray[$row->product_type][$row->product] = $this->_returnVersionFromRow((array) $row);
+        $products = [];
+        foreach ($versions as $version) {
+            $products[$version->product_type][$version->product] = $this->_returnVersionFromRow((array) $version);
         }
-        return $productArray;
+        return $products;
     }
 
     /**

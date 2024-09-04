@@ -139,6 +139,7 @@
 		return mergedOptions;
 	};
 
+
 	/**
 	 * Attach a modal to the dom and make it visible
 	 * @param {jQueryObject} $handledElement The modal.
@@ -146,7 +147,7 @@
 	$.pkp.controllers.modal.ModalHandler.prototype.modalOpen =
 			function($handledElement) {
 
-		this.uniqueModalId = "id" + Math.random().toString(16).slice(2);
+		this.uniqueModalId = 'id' + Math.random().toString(16).slice(2);
 
 		// Trigger events
 		$handledElement.trigger('pkpModalOpen', [$handledElement]);

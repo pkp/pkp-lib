@@ -19,6 +19,7 @@ namespace PKP\services\queryBuilders;
 
 use APP\core\Application;
 use APP\submission\Submission;
+use Exception;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\plugins\Hook;
@@ -141,7 +142,11 @@ abstract class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
     {
         $q = DB::table('metrics_submission');
 
-        if (!empty($this->contextIds)) {
+        if (empty($this->contextIds)) {
+            throw new Exception('Statistics cannot be retrieved without a context id. Pass the Application::SITE_CONTEXT_ID_ALL wildcard to get statistics from all contexts.');
+        }
+
+        if (!in_array(Application::SITE_CONTEXT_ID_ALL, $this->contextIds)) {
             $q->whereIn(PKPStatisticsHelper::STATISTICS_DIMENSION_CONTEXT_ID, $this->contextIds);
         }
 

@@ -16,7 +16,6 @@
 
 namespace PKP\jobs\statistics;
 
-use APP\core\Services;
 use PKP\jobs\BaseJob;
 use PKP\site\Site;
 
@@ -49,14 +48,14 @@ class CompileMonthlyMetrics extends BaseJob
         $currentMonth = date('Ym');
         $lastMonth = date('Ym', strtotime('last month'));
 
-        $geoService = Services::get('geoStats');
+        $geoService = app()->get('geoStats');
         $geoService->deleteMonthlyMetrics($this->month);
         $geoService->addMonthlyMetrics($this->month);
         if (!$this->site->getData('keepDailyUsageStats') && $this->month != $currentMonth && $this->month != $lastMonth) {
             $geoService->deleteDailyMetrics($this->month);
         }
 
-        $counterService = Services::get('sushiStats');
+        $counterService = app()->get('sushiStats');
         $counterService->deleteMonthlyMetrics($this->month);
         $counterService->addMonthlyMetrics($this->month);
         if (!$this->site->getData('keepDailyUsageStats') && $this->month != $currentMonth && $this->month != $lastMonth) {

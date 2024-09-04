@@ -16,7 +16,6 @@
 
 namespace PKP\db;
 
-use APP\core\Services;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
@@ -74,7 +73,7 @@ abstract class SchemaDAO extends DAO
      */
     public function insertObject($object)
     {
-        $schemaService = Services::get('schema');
+        $schemaService = app()->get('schema');
         $schema = $schemaService->get($this->schemaName);
         $sanitizedProps = $schemaService->sanitize($this->schemaName, $object->_data);
 
@@ -136,7 +135,7 @@ abstract class SchemaDAO extends DAO
      */
     public function updateObject($object)
     {
-        $schemaService = Services::get('schema');
+        $schemaService = app()->get('schema');
         $schema = $schemaService->get($this->schemaName);
         $sanitizedProps = $schemaService->sanitize($this->schemaName, $object->_data);
 
@@ -224,7 +223,7 @@ abstract class SchemaDAO extends DAO
      */
     public function _fromRow($primaryRow)
     {
-        $schemaService = Services::get('schema');
+        $schemaService = app()->get('schema');
         $schema = $schemaService->get($this->schemaName);
 
         $object = $this->newDataObject();
@@ -269,8 +268,8 @@ abstract class SchemaDAO extends DAO
      */
     private function _getPrimaryDbProps($object)
     {
-        $schema = Services::get('schema')->get($this->schemaName);
-        $sanitizedProps = Services::get('schema')->sanitize($this->schemaName, $object->_data);
+        $schema = app()->get('schema')->get($this->schemaName);
+        $sanitizedProps = app()->get('schema')->sanitize($this->schemaName, $object->_data);
 
         $primaryDbProps = [];
         foreach ($this->primaryTableColumns as $propName => $columnName) {

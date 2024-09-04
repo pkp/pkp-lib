@@ -142,7 +142,7 @@ class PKPPageRouter extends PKPRouter
     public function getCacheFilename(PKPRequest $request): string
     {
         if (!isset($this->_cacheFilename)) {
-            $id = $_SERVER['PATH_INFO'] ?? 'index';
+            $id = $_SERVER['PATH_INFO'] ?? Application::SITE_CONTEXT_PATH;
             $id .= '-' . Locale::getLocale();
             $path = Core::getBaseDir();
             $this->_cacheFilename = $path . '/cache/wc-' . md5($id) . '.html';
@@ -168,10 +168,10 @@ class PKPPageRouter extends PKPRouter
             // A non-installation page was called although
             // the system is not yet installed. Redirect to
             // the installation page.
-            $request->redirect('index', 'install');
+            $request->redirect(Application::SITE_CONTEXT_PATH, 'install');
         } elseif (Application::isInstalled() && in_array($page, $this->getInstallationPages())) {
             // Redirect to the index page
-            $request->redirect('index', 'index');
+            $request->redirect(Application::SITE_CONTEXT_PATH, 'index');
         }
 
         // Redirect requests from logged-out users to a context which is not
@@ -437,19 +437,19 @@ class PKPPageRouter extends PKPRouter
         } else {
             // The user is at the site context, check to see if they are
             // only registered in one place w/ one role
-            $userGroups = Repo::userGroup()->userUserGroups($userId, \PKP\core\PKPApplication::CONTEXT_ID_NONE);
+            $userGroups = Repo::userGroup()->userUserGroups($userId, \PKP\core\PKPApplication::SITE_CONTEXT_ID);
             if ($userGroups->count() == 1) {
                 $firstUserGroup = $userGroups->first();
                 $contextDao = Application::getContextDAO();
                 $context = $contextDao->getById($firstUserGroup->getContextId());
                 if (!isset($context)) {
-                    $request->redirect('index', 'index');
+                    $request->redirect(Application::SITE_CONTEXT_PATH, 'index');
                 }
                 if ($firstUserGroup->getRoleId() == Role::ROLE_ID_READER) {
                     $request->redirect(null, 'index');
                 }
             }
-            return $request->url('index', 'index');
+            return $request->url(Application::SITE_CONTEXT_PATH, 'index');
         }
     }
 
@@ -487,14 +487,13 @@ class PKPPageRouter extends PKPRouter
     private function _getContextAndLocales(PKPRequest $request, string $contextPath): array
     {
         return [
-            $context = $this->getCurrentContext() ?? (($contextPath === 'index' || !$contextPath || $contextPath === Application::CONTEXT_ID_ALL)
+            /** @deprecated 3.5 The usage of "_" as a site context has been deprecated */
+            $context = $this->getCurrentContext() ?? (in_array($contextPath, [Application::SITE_CONTEXT_PATH, '', '_'])
                 ? null
                 : Application::getContextDAO()->getByPath($contextPath)),
             $context?->getSupportedLocales()
-                ?? (($contextPath === 'index')
-                    ? (Application::isInstalled()
-                        ? $request->getSite()->getSupportedLocales()
-                        : array_keys(Locale::getLocales()))
+                ?? ($contextPath === Application::SITE_CONTEXT_PATH
+                    ? (Application::isInstalled() ? $request->getSite()->getSupportedLocales() : array_keys(Locale::getLocales()))
                     : [])
         ];
     }

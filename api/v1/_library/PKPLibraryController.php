@@ -18,7 +18,6 @@
 namespace PKP\API\v1\_library;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\file\LibraryFileManager;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -142,7 +141,7 @@ class PKPLibraryController extends PKPBaseController
             'filename' => $file->getServerFileName(),
             'name' => $file->getName(null),
             'mimetype' => $file->getFileType(),
-            'documentType' => Services::get('file')->getDocumentType($file->getFileType()),
+            'documentType' => app()->get('file')->getDocumentType($file->getFileType()),
             'submissionId' => $file->getSubmissionId() ?? 0,
             'type' => $file->getType(),
             'typeName' => __($libraryFileManager->getTitleKeyFromType($file->getType())),

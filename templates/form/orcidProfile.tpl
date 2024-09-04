@@ -25,7 +25,17 @@
 
 {capture name=orcidLink assign=orcidLink}
     {if $orcidAuthenticated}
-        <a href="{$orcid}" target="_blank">{$orcidIcon}{$orcid}</a>
+        <a href="{$orcid}" target="_blank" id='orcid-link' >{$orcidIcon}{$orcid}</a>
+        <style>
+            #orcid-link {
+                display: flex;
+                gap: 0.5rem;
+            }
+            #orcid-link svg {
+                width: 2rem;
+                height: 1.5rem;
+            }
+        </style>
     {else}
         <a href="{$orcid}" target="_blank">{$orcid}</a>&nbsp;{$orcidButton}
     {/if}

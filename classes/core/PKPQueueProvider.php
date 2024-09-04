@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * @file classes/core/PKPQueueProvider.php
  *
@@ -76,10 +74,10 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
      */
     public function runJobsViaDaemon(string $connection, string $queue, array $workerOptions = []): void
     {
-        $worker = PKPContainer::getInstance()['queue.worker']; /** @var \Illuminate\Queue\Worker $worker */
+        $worker = $this->app->get('queue.worker'); /** @var \Illuminate\Queue\Worker $worker */
 
         $worker
-            ->setCache(app()->get('cache.store'))
+            ->setCache($this->app->get('cache.store'))
             ->daemon(
                 $connection,
                 $queue,
@@ -98,9 +96,9 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
             return;
         }
 
-        $laravelContainer = PKPContainer::getInstance();
+        $worker = $this->app->get('queue.worker'); /** @var \Illuminate\Queue\Worker $worker */
 
-        $laravelContainer['queue.worker']->runNextJob(
+        $worker->runNextJob(
             'database',
             $job->queue ?? Config::getVar('queues', 'default_queue', 'queue'),
             $this->getWorkerOptions()
@@ -114,7 +112,13 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     public function boot()
     {
         if (Config::getVar('queues', 'job_runner', true)) {
-            register_shutdown_function(function () {
+            $currentWorkingDir = getcwd();
+            register_shutdown_function(function () use ($currentWorkingDir) {
+                
+                // restore the current working directory
+                // see: https://www.php.net/manual/en/function.register-shutdown-function.php#refsect1-function.register-shutdown-function-notes
+                chdir($currentWorkingDir);
+
                 // As this runs at the current request's end but the 'register_shutdown_function' registered
                 // at the service provider's registration time at application initial bootstrapping,
                 // need to check the maintenance status within the 'register_shutdown_function'

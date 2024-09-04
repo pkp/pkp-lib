@@ -15,9 +15,7 @@ namespace PKP\submissionFile;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
-use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\publication\Publication;
 use Exception;
@@ -32,8 +30,8 @@ use PKP\file\FileManager;
 use PKP\log\event\SubmissionFileEventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\RevisedVersionNotify;
-use PKP\note\NoteDAO;
-use PKP\notification\PKPNotification;
+use PKP\note\Note;
+use PKP\notification\Notification;
 use PKP\plugins\Hook;
 use PKP\query\QueryDAO;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
@@ -76,13 +74,13 @@ abstract class Repository
     }
 
     /** @copydoc DAO::get() */
-    public function get(int $id, int $submissionId = null): ?SubmissionFile
+    public function get(int $id, ?int $submissionId = null): ?SubmissionFile
     {
         return $this->dao->get($id, $submissionId);
     }
 
     /** @copydoc DAO::exists() */
-    public function exists(int $id, int $submissionId = null): bool
+    public function exists(int $id, ?int $submissionId = null): bool
     {
         return $this->dao->exists($id, $submissionId);
     }
@@ -319,7 +317,7 @@ abstract class Repository
             $notificationMgr = new NotificationManager();
             $notificationMgr->updateNotification(
                 $this->request,
-                [PKPNotification::NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS],
+                [Notification::NOTIFICATION_TYPE_PENDING_INTERNAL_REVISIONS, Notification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS],
                 $authorUserIds,
                 PKPApplication::ASSOC_TYPE_SUBMISSION,
                 $submissionFile->getData('submissionId')
@@ -428,8 +426,7 @@ abstract class Repository
             });
 
         // Delete notes for this submission file
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $noteDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId());
+        Note::withAssoc(Application::ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId())->delete();
 
         // Update tasks
         $notificationMgr = new NotificationManager();
@@ -488,7 +485,7 @@ abstract class Repository
                 ->includeDependentFiles(true)
                 ->getCount();
             if (!$countFileShares) {
-                Services::get('file')->delete($revision->fileId);
+                app()->get('file')->delete($revision->fileId);
             }
         }
 
@@ -701,20 +698,19 @@ abstract class Repository
             }
 
             // Get the associated note.
-            $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-            $note = $noteDao->getById($submissionFile->getData('assocId'));
+            $note = Note::find($submissionFile->getData('assocId'));
 
             // The note should be associated with a query. If not, fail.
-            if ($note?->getAssocType() != PKPApplication::ASSOC_TYPE_QUERY) {
+            if ($note?->assocType != PKPApplication::ASSOC_TYPE_QUERY) {
                 return null;
             }
 
             // Get the associated query.
             $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-            $query = $queryDao->getById($note->getAssocId());
+            $query = $queryDao->getById($note->assocId);
 
             // The query will have an associated file stage.
-            return $query ? $query->getStageId() : null;
+            return $query?->getStageId();
         }
 
         throw new Exception('Could not determine the workflow stage id from submission file ' . $submissionFile->getId() . ' with file stage ' . $submissionFile->getData('fileStage'));
@@ -764,7 +760,7 @@ abstract class Repository
     protected function notifyEditorsRevisionsUploaded(SubmissionFile $submissionFile): void
     {
         $submission = Repo::submission()->get($submissionFile->getData('submissionId'));
-        $context = Services::get('context')->get($submission->getData('contextId'));
+        $context = app()->get('context')->get($submission->getData('contextId'));
         $uploader = Repo::user()->get($submissionFile->getData('uploaderUserId'));
         $user = $this->request->getUser();
 
@@ -861,7 +857,7 @@ abstract class Repository
 
         $oldFileId = $submissionFile->getData('fileId');
 
-        $oldFile = Services::get('file')->get($oldFileId);
+        $oldFile = app()->get('file')->get($oldFileId);
 
         $submission = Repo::submission()->get($newPublication->getData('submissionId'));
 
@@ -874,7 +870,7 @@ abstract class Repository
                 $newPublication->getData('submissionId')
             );
 
-        $newFileId = Services::get('file')->add(
+        $newFileId = app()->get('file')->add(
             Config::getVar('files', 'files_dir') . '/' . $oldFile->path,
             $submissionDir . '/' . uniqid() . '.' . $extension
         );

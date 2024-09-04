@@ -22,12 +22,11 @@ use PKP\db\DAORegistry;
 use PKP\filter\FilterGroup;
 use PKP\filter\FilterGroupDAO;
 use PKP\tests\DatabaseTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(FilterGroupDAO::class)]
 class FilterGroupDAOTest extends DatabaseTestCase
 {
-    /**
-     * @covers FilterGroupDAO
-     */
     public function testFilterGroupCrud()
     {
         $filterGroupDao = DAORegistry::getDAO('FilterGroupDAO'); /** @var FilterGroupDAO $filterGroupDao */

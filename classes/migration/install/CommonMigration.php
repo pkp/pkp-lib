@@ -15,6 +15,7 @@
 namespace PKP\migration\install;
 
 use APP\core\Application;
+use Exception;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -47,7 +48,10 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::create('site', function (Blueprint $table) {
             $table->comment('A singleton table describing basic information about the site.');
             $table->bigIncrements('site_id');
-            $table->bigInteger('redirect')->default(0)->comment('If not 0, redirect to the specified journal/conference/... site.');
+            $table->bigInteger('redirect_context_id')->nullable()->comment('If not null, redirect to the specified journal/conference/... site.');
+            $contextDao = Application::getContextDAO();
+            $table->foreign('redirect_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->nullOnDelete();
+            $table->index(['redirect_context_id'], 'site_context_id');
             $table->string('primary_locale', 28)->comment('Primary locale for the site.');
             $table->smallInteger('min_password_length')->default(6);
             $table->string('installed_locales', 1024)->default('en')->comment('Locales for which support has been installed.');
@@ -93,6 +97,7 @@ class CommonMigration extends \PKP\migration\Migration
 
         switch (DB::getDriverName()) {
             case 'mysql':
+            case 'mariadb':
                 Schema::table('users', function (Blueprint $table) {
                     $table->unique(['username'], 'users_username');
                     $table->unique(['email'], 'users_email');
@@ -102,6 +107,7 @@ class CommonMigration extends \PKP\migration\Migration
                 DB::unprepared('CREATE UNIQUE INDEX users_username on users (LOWER(username));');
                 DB::unprepared('CREATE UNIQUE INDEX users_email on users (LOWER(email));');
                 break;
+            default: throw new Exception('Unexpected database driver!');
         }
 
         Schema::create('user_settings', function (Blueprint $table) {
@@ -170,10 +176,10 @@ class CommonMigration extends \PKP\migration\Migration
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'notification_subscription_settings_user_id');
 
-            $table->bigInteger('context')->nullable();
+            $table->bigInteger('context_id')->nullable();
             $contextDao = Application::getContextDAO();
-            $table->foreign('context')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
-            $table->index(['context'], 'notification_subscription_settings_context');
+            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'notification_subscription_settings_context');
 
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
         });
@@ -235,7 +241,9 @@ class CommonMigration extends \PKP\migration\Migration
             $table->comment('More data about plugins, including localized properties. This table is frequently used to store plugin-specific configuration.');
             $table->bigIncrements('plugin_setting_id');
             $table->string('plugin_name', 80);
-            $table->bigInteger('context_id');
+            $table->bigInteger('context_id')->nullable();
+            $table->foreign('context_id', 'plugin_settings_context_id')->references(Application::getContextDAO()->primaryKeyColumn)->on(Application::getContextDAO()->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'plugin_settings_context_id');
             $table->string('setting_name', 80);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');

@@ -1,13 +1,14 @@
 # Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
 # Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
+# Martin Brändle <martin.braendle@uzh.ch>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2023-04-28 14:09+0000\n"
-"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"PO-Revision-Date: 2024-08-22 09:26+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/user/de/>"
 "\n"
 "Language: de\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
 msgstr "Konto-Information"
@@ -797,3 +798,10 @@ msgstr "Auf Zeitschriftenebene konfiguriert"
 
 msgid "orcid.verify.duplicateOrcidAuthor"
 msgstr "Doppelte ORCIDs von Beitragenden entdeckt."
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr ""
+"Der Zugang zum Workflow für unvollständige Einreichungen ist eingeschränkt."
+
+msgid "user.usernameOrEmail"
+msgstr "Benutzer/innen-Name oder E-Mail"

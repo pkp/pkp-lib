@@ -191,7 +191,8 @@ abstract class PKPRouter
             $path = $this->getRequestedContextPath($request);
 
             // Resolve the path to the context
-            if ($path === 'index' || $path === '' || $path === Application::CONTEXT_ID_ALL) {
+            /** @deprecated 3.5 The usage of "_" as a site context has been deprecated */
+            if (in_array($path, [Application::SITE_CONTEXT_PATH, '', '_'])) {
                 $this->_context = null;
             } else {
                 // FIXME: Can't just use Application::get()->getContextDAO() without test breakage
@@ -365,7 +366,7 @@ abstract class PKPRouter
      *
      * @param $newContext Context path (defaulting to the current request's context)
      *
-     * @return An array consisting of the base url and context.
+     * @return array An array consisting of the base url and context.
      */
     public function _urlGetBaseAndContext(PKPRequest $request, ?string $newContext = null): array
     {
@@ -376,7 +377,7 @@ abstract class PKPRouter
             // No new context has been set so determine
             // the current request's context
             $contextObject = $this->getContext($request);
-            $contextValue = $contextObject?->getPath() ?? 'index';
+            $contextValue = $contextObject?->getPath() ?? Application::SITE_CONTEXT_PATH;
         }
 
         // Check whether the base URL is overridden.
@@ -392,7 +393,7 @@ abstract class PKPRouter
      * @param $params The parameter list to be transformed to a url part.
      * @param $escape Whether or not to escape structural elements
      *
-     * @return The encoded parameters or an empty array if no parameters were given.
+     * @return array The encoded parameters or an empty array if no parameters were given.
      */
     public function _urlGetAdditionalParameters(PKPRequest $request, ?array $params = null, bool $escape = true): array
     {

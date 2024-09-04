@@ -54,7 +54,7 @@ class PKPThemeForm extends FormComponent
             $contextId = $context->getId();
         } else {
             $activeTheme = Application::get()->getRequest()->getSite()->getData('themePluginPath');
-            $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
+            $contextId = \PKP\core\PKPApplication::SITE_CONTEXT_ID;
         }
 
         $themes = $themeOptions = [];

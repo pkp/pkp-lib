@@ -18,7 +18,6 @@ namespace PKP\controllers\wizard\fileUpload\form;
 
 use APP\core\Application;
 use APP\core\Request;
-use APP\core\Services;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\db\DAORegistry;
@@ -193,7 +192,7 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
         $extension = $fileManager->parseFileExtension($_FILES['uploadedFile']['name']);
 
         $submissionDir = Repo::submissionFile()->getSubmissionDir($request->getContext()->getId(), $this->getData('submissionId'));
-        $fileId = Services::get('file')->add(
+        $fileId = app()->get('file')->add(
             $_FILES['uploadedFile']['tmp_name'],
             $submissionDir . '/' . uniqid() . '.' . $extension
         );

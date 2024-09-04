@@ -3,8 +3,8 @@
 /**
  * @file controllers/informationCenter/form/NewNoteForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NewNoteForm
@@ -18,9 +18,8 @@ namespace PKP\controllers\informationCenter\form;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
-use PKP\db\DAORegistry;
 use PKP\form\Form;
-use PKP\note\NoteDAO;
+use PKP\note\Note;
 
 class NewNoteForm extends Form
 {
@@ -85,9 +84,8 @@ class NewNoteForm extends Form
     public function fetch($request, $template = null, $display = false)
     {
         $templateMgr = TemplateManager::getManager($request);
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
         $templateMgr->assign([
-            'notes' => $noteDao->getByAssoc($this->getAssocType(), $this->getAssocId()),
+            'notes' => Note::withAssoc($this->getAssocType(), $this->getAssocId())->get(),
             'submitNoteText' => $this->getSubmitNoteLocaleKey(),
             'newNoteFormTemplate' => $this->getNewNoteFormTemplate(),
         ]);
@@ -112,15 +110,15 @@ class NewNoteForm extends Form
         $request = Application::get()->getRequest();
         $user = $request->getUser();
 
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $note = $noteDao->newDataObject();
-
-        $note->setUserId($user->getId());
-        $note->setContents($this->getData('newNote'));
-        $note->setAssocType($this->getAssocType());
-        $note->setAssocId($this->getAssocId());
-
         parent::execute(...$functionArgs);
-        return $noteDao->insertObject($note);
+
+        $note = Note::create([
+            'userId' => $user->getId(),
+            'assocType' => $this->getAssocType(),
+            'assocId' => $this->getAssocId(),
+            'contents' => $this->getData('newNote'),
+        ]);
+
+        return $note->id;
     }
 }

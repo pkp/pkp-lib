@@ -19,6 +19,7 @@
 namespace PKP\core;
 
 use APP\core\Application;
+use Exception;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -77,7 +78,7 @@ class DataObject
      * Get a piece of data for this object, localized to the current
      * locale if possible.
      */
-    public function getLocalizedData(string $key, string $preferredLocale = null, string &$selectedLocale = null): mixed
+    public function getLocalizedData(string $key, ?string $preferredLocale = null, ?string &$selectedLocale = null): mixed
     {
         foreach ($this->getLocalePrecedence($preferredLocale) as $locale) {
             $value = & $this->getData($key, $locale);
@@ -109,7 +110,7 @@ class DataObject
      * 4. Context's primary locale if context available
      * 5. Site's primary locale
      */
-    public function getLocalePrecedence(string $preferredLocale = null): array
+    public function getLocalePrecedence(?string $preferredLocale = null): array
     {
         $request = Application::get()->getRequest();
 

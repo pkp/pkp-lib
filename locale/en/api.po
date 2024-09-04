@@ -23,6 +23,9 @@ msgstr "Unable to process API request."
 msgid "api.417.routeResponseIsNull"
 msgstr "Unable to receive any expected response."
 
+msgid "api.400.routeNotDefined"
+msgstr "No API route was provided."
+
 msgid "api.400.paramNotSupported"
 msgstr "The {$param} parameter is not supported."
 
@@ -67,6 +70,9 @@ msgstr "The following locales are not supported: {$locales}."
 
 msgid "api.dois.403.editItemOutOfContext"
 msgstr "You cannot edit an item's DOI that is not in this context."
+
+msgid "api.dois.403.editItemDoiCantBeAssigned"
+msgstr "A DOI cannot be assigned to this item."
 
 msgid "api.dois.403.pubTypeNotRecognized"
 msgstr "The publication type was not recognized."

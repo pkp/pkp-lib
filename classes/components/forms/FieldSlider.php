@@ -20,27 +20,20 @@ class FieldSlider extends Field
     /** @copydoc Field::$component */
     public $component = 'field-slider';
 
-
     /**
      * Range min value
-     *
-     * @var int|float
      */
-    public $min;
+    public int|float $min;
 
     /**
      * Range max value
-     *
-     * @var int|float
      */
-    public $max;
+    public int|float $max;
 
     /**
      * Range step value
-     *
-     * @var int|float
      */
-    public $step = 1;
+    public int|float $step = 1;
 
     /**
      * Label for min value, it displays actual value when not present
@@ -66,8 +59,6 @@ class FieldSlider extends Field
      * Expects translation string, which might contain {$value} placeholder. It fallback to valueLabel is not present..
      */
     public ?string $valueLabelMax = null;
-
-
 
     /**
      * @copydoc Field::getConfig()

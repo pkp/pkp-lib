@@ -28,7 +28,10 @@ use PKP\facades\Locale;
 use PKP\i18n\LocaleConversion;
 use PKP\i18n\LocaleMetadata;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(Locale::class)]
+#[CoversClass(LocaleConversion::class)]
 class LocaleTest extends PKPTestCase
 {
     private \PKP\i18n\Locale $_locale;
@@ -86,9 +89,6 @@ class LocaleTest extends PKPTestCase
             ->getMock();
     }
 
-    /**
-     * @covers \PKP\i18n\Locale
-     */
     public function testIsLocaleComplete()
     {
         self::assertTrue(Locale::getMetadata('en')->isComplete());
@@ -96,9 +96,6 @@ class LocaleTest extends PKPTestCase
         self::assertNull(Locale::getMetadata('xx_XX'));
     }
 
-    /**
-     * @covers \PKP\i18n\Locale
-     */
     public function testGetLocales()
     {
         $this->_primaryLocale = 'en_US';
@@ -112,9 +109,6 @@ class LocaleTest extends PKPTestCase
         self::assertEquals($expectedLocales, $locales);
     }
 
-    /**
-     * @covers \PKP\i18n\Locale
-     */
     public function testGetLocalesWithCountryName()
     {
         $expectedLocalesWithCountry = [
@@ -127,9 +121,6 @@ class LocaleTest extends PKPTestCase
         self::assertEquals($expectedLocalesWithCountry, $locales);
     }
 
-    /**
-     * @covers \PKP\i18n\LocaleConversion
-     */
     public function testGet3LetterFrom2LetterIsoLanguage()
     {
         self::assertEquals('eng', LocaleConversion::get3LetterFrom2LetterIsoLanguage('en'));
@@ -138,9 +129,6 @@ class LocaleTest extends PKPTestCase
         self::assertNull(LocaleConversion::get3LetterFrom2LetterIsoLanguage('xx'));
     }
 
-    /**
-     * @covers \PKP\i18n\LocaleConversion
-     */
     public function testGet2LetterFrom3LetterIsoLanguage()
     {
         self::assertEquals('en', LocaleConversion::get2LetterFrom3LetterIsoLanguage('eng'));
@@ -149,9 +137,6 @@ class LocaleTest extends PKPTestCase
         self::assertNull(LocaleConversion::get2LetterFrom3LetterIsoLanguage('xxx'));
     }
 
-    /**
-     * @covers \PKP\i18n\LocaleConversion
-     */
     public function testGet3LetterIsoFromLocale()
     {
         self::assertEquals('eng', LocaleConversion::get3LetterIsoFromLocale('en'));
@@ -160,9 +145,6 @@ class LocaleTest extends PKPTestCase
         self::assertNull(LocaleConversion::get3LetterIsoFromLocale('xx_XX'));
     }
 
-    /**
-     * @covers \PKP\i18n\LocaleConversion
-     */
     public function testGetLocaleFrom3LetterIso()
     {
         // A locale that does not have to be disambiguated.

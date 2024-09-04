@@ -24,8 +24,8 @@ use PKP\jobs\notifications\StatisticsReportMail;
 use PKP\jobs\notifications\StatisticsReportNotify;
 use PKP\mail\Mailer;
 use PKP\notification\managerDelegate\EditorialReportNotificationManager;
+use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
-use PKP\notification\PKPNotification;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\security\Role;
 
@@ -59,19 +59,19 @@ class StatisticsReport extends ScheduledTask
 
             /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
             $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
-            $editorialReportNotificationManager = new EditorialReportNotificationManager(PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT);
+            $editorialReportNotificationManager = new EditorialReportNotificationManager(Notification::NOTIFICATION_TYPE_EDITORIAL_REPORT);
             $editorialReportNotificationManager->initialize(
                 $context
             );
 
             $userIdsToNotify = $notificationSubscriptionSettingsDao->getSubscribedUserIds(
                 [NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY],
-                [PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT],
+                [Notification::NOTIFICATION_TYPE_EDITORIAL_REPORT],
                 [$context->getId()],
                 $this->_roleIds
             );
 
-            foreach ($userIdsToNotify->chunk(PKPNotification::NOTIFICATION_CHUNK_SIZE_LIMIT) as $notifyUserIds) {
+            foreach ($userIdsToNotify->chunk(Notification::NOTIFICATION_CHUNK_SIZE_LIMIT) as $notifyUserIds) {
                 $notifyJob = new StatisticsReportNotify(
                     $notifyUserIds,
                     $editorialReportNotificationManager
@@ -81,7 +81,7 @@ class StatisticsReport extends ScheduledTask
 
             $userIdsToMail = $notificationSubscriptionSettingsDao->getSubscribedUserIds(
                 [NotificationSubscriptionSettingsDAO::BLOCKED_NOTIFICATION_KEY, NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY],
-                [PKPNotification::NOTIFICATION_TYPE_EDITORIAL_REPORT],
+                [Notification::NOTIFICATION_TYPE_EDITORIAL_REPORT],
                 [$context->getId()],
                 $this->_roleIds
             );

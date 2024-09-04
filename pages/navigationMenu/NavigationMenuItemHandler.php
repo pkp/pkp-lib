@@ -17,7 +17,6 @@
 namespace PKP\pages\navigationMenu;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\core\PKPRequest;
@@ -76,7 +75,7 @@ class NavigationMenuItemHandler extends Handler
         $navigationMenuItem->setContent((array) $request->getUserVar('content'), null);
         $navigationMenuItem->setTitle((array) $request->getUserVar('title'), null);
 
-        Services::get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
+        app()->get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $navigationMenuItem);
 
         $templateMgr->assign('title', $navigationMenuItem->getLocalizedTitle());
 
@@ -106,7 +105,7 @@ class NavigationMenuItemHandler extends Handler
     {
         $path = array_shift($args);
         $context = $request->getContext();
-        $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
+        $contextId = \PKP\core\PKPApplication::SITE_CONTEXT_ID;
         if ($context) {
             $contextId = $context->getId();
         }

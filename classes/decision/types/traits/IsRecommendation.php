@@ -14,7 +14,6 @@
 namespace PKP\decision\types\traits;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\submission\Submission;
@@ -174,7 +173,7 @@ trait IsRecommendation
                 $newSubmissionFile->setData('fileStage', SubmissionFile::SUBMISSION_FILE_QUERY);
                 $newSubmissionFile->setData('sourceSubmissionFileId', $submissionFile->getId());
                 $newSubmissionFile->setData('assocType', Application::ASSOC_TYPE_NOTE);
-                $newSubmissionFile->setData('assocId', $note->getId());
+                $newSubmissionFile->setData('assocId', $note->id);
                 Repo::submissionFile()->add($newSubmissionFile);
                 $mailable->attachSubmissionFile($newSubmissionFile->getId(), $newSubmissionFile->getLocalizedData('name'));
             } elseif (isset($attachment[Mailable::ATTACHMENT_LIBRARY_FILE])) {
@@ -208,7 +207,7 @@ trait IsRecommendation
     {
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
         $submissionDir = Repo::submissionFile()->getSubmissionDir($context->getId(), $submission->getId());
-        $fileId = Services::get('file')->add(
+        $fileId = app()->get('file')->add(
             $filepath,
             $submissionDir . '/' . uniqid() . '.' . $extension
         );
@@ -221,7 +220,7 @@ trait IsRecommendation
             'submissionId' => $submission->getId(),
             'uploaderUserId' => $uploader->getId(),
             'assocType' => Application::ASSOC_TYPE_NOTE,
-            'assocId' => $note->getId(),
+            'assocId' => $note->id,
         ]);
         Repo::submissionFile()->add($submissionFile);
     }

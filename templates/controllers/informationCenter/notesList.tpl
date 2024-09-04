@@ -10,7 +10,7 @@
 
 <div id="{$notesListId}" class="pkp_notes_list">
 	{foreach from=$notes item=$note}
-		{assign var=noteId value=$note->getId()}
+		{assign var=noteId value=$note->id}
 		{include file="controllers/informationCenter/note.tpl"}
 	{/foreach}
 	{if $notes->isEmpty()}

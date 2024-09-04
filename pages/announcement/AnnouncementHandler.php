@@ -98,7 +98,7 @@ class AnnouncementHandler extends Handler
     protected function isAnnouncementsEnabled(Request $request): bool
     {
         $contextOrSite = $request->getContext() ?? $request->getSite();
-        return $contextOrSite->getData('enableAnnouncements');
+        return (bool) $contextOrSite->getData('enableAnnouncements');
     }
 
     protected function getAnnouncementsIntro(Request $request): ?string

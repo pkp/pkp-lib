@@ -19,7 +19,7 @@ namespace PKP\security\authorization\internal;
 
 use APP\core\Application;
 use PKP\db\DAORegistry;
-use PKP\note\NoteDAO;
+use PKP\note\Note;
 use PKP\security\authorization\AuthorizationPolicy;
 
 class SubmissionFileNotQueryAccessPolicy extends SubmissionFileBaseAccessPolicy
@@ -43,9 +43,8 @@ class SubmissionFileNotQueryAccessPolicy extends SubmissionFileBaseAccessPolicy
         }
 
         // Check if that note is associated with a query
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $note = $noteDao->getById($submissionFile->getData('assocId'));
-        if ($note->getAssocType() != Application::ASSOC_TYPE_QUERY) {
+        $note = Note::find($submissionFile->getData('assocId'));
+        if ($note->assocType != Application::ASSOC_TYPE_QUERY) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 

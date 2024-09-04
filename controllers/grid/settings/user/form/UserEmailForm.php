@@ -24,7 +24,7 @@ use Exception;
 use Illuminate\Support\Facades\Mail;
 use PKP\form\Form;
 use PKP\mail\Mailable;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 
 class UserEmailForm extends Form
 {
@@ -106,7 +106,7 @@ class UserEmailForm extends Form
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification(
                 $request->getUser()->getId(),
-                PKPNotification::NOTIFICATION_TYPE_ERROR,
+                Notification::NOTIFICATION_TYPE_ERROR,
                 ['contents' => __('email.compose.error')]
             );
             error_log($e->getMessage());

@@ -10,7 +10,7 @@
  *}
 
 {* These variables are both "safe" to be used unescaped. *}
-{assign var="noteId" value=$note->getId()}
+{assign var="noteId" value=$note->id}
 {assign var="formId" value="deleteNoteForm-$noteId"}
 
 <script type="text/javascript">
@@ -25,11 +25,11 @@
 <div id="note-{$noteId}" class="note">
 	<div class="details">
 		<span class="user">
-			{assign var=noteUser value=$note->getUser()}
+			{assign var=noteUser value=$note->user}
 			{$noteUser->getFullName()|escape}
 		</span>
 		<span class="date">
-			{$note->getDateCreated()|date_format:$datetimeFormatShort}
+			{$note->dateCreated|date_format:$datetimeFormatShort}
 		</span>
 		{if ($notesDeletable && array_intersect(array(PKP\security\Role::ROLE_ID_MANAGER, PKP\security\Role::ROLE_ID_SUB_EDITOR), (array)$userRoles))}
 			<div class="actions">
@@ -46,8 +46,8 @@
 	</div>
 	<div class="message">
 		{if $noteFileDownloadLink}
-			{include file="linkAction/linkAction.tpl" action=$noteFileDownloadLink contextId=$note->getId()}
+			{include file="linkAction/linkAction.tpl" action=$noteFileDownloadLink contextId=$note->id}
 		{/if}
-		{include file="controllers/revealMore.tpl" content=$note->getContents()|strip_unsafe_html}
+		{include file="controllers/revealMore.tpl" content=$note->contents|strip_unsafe_html}
 	</div>
 </div>

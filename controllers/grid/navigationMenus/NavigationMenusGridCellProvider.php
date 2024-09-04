@@ -17,7 +17,6 @@
 namespace PKP\controllers\grid\navigationMenus;
 
 use APP\core\Application;
-use APP\core\Services;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\GridCellProvider;
 use PKP\controllers\grid\GridColumn;
@@ -80,7 +79,7 @@ class NavigationMenusGridCellProvider extends GridCellProvider
 
                 $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
                 foreach ($items as $item) {
-                    Services::get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $item);
+                    app()->get('navigationMenu')->transformNavMenuItemTitle($templateMgr, $item);
                     $navigationMenusTitles = $navigationMenusTitles . $item->getLocalizedTitle() . ', ';
                 }
 

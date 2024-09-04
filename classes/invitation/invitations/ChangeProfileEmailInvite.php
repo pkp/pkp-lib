@@ -69,7 +69,7 @@ class ChangeProfileEmailInvite extends Invitation implements IBackofficeHandleab
         $site = $request->getSite();
         $sitePrimaryLocale = $site->getPrimaryLocale();
 
-        $emailTemplate = Repo::emailTemplate()->getByKey(Application::CONTEXT_ID_NONE, $mailable::getEmailTemplateKey());
+        $emailTemplate = Repo::emailTemplate()->getByKey(Application::SITE_CONTEXT_ID, $mailable::getEmailTemplateKey());
         $mailable->subject($emailTemplate->getLocalizedData('subject', $sitePrimaryLocale))
             ->body($emailTemplate->getLocalizedData('body', $sitePrimaryLocale));
 

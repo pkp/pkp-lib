@@ -206,8 +206,7 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
             });
         }
         // The submissions_publication_id index was created for <3.3.0 but may be incorrect.
-        $schemaManager = DB::getDoctrineSchemaManager();
-        if (in_array('submissions_publication_id', array_keys($schemaManager->listTableIndexes('submissions')))) {
+        if (Schema::hasIndex('submissions', 'submissions_publication_id')) {
             Schema::table('submissions', function (Blueprint $table) {
                 $table->dropIndex('submissions_publication_id');
             });

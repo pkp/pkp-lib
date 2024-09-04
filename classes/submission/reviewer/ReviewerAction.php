@@ -29,7 +29,7 @@ use PKP\core\PKPRequest;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\ReviewConfirm;
 use PKP\mail\mailables\ReviewDecline;
-use PKP\notification\PKPNotification;
+use PKP\notification\Notification;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\Validation;
@@ -79,7 +79,7 @@ class ReviewerAction
                     $notificationMgr = new NotificationManager();
                     $notificationMgr->createTrivialNotification(
                         $request->getUser()->getId(),
-                        PKPNotification::NOTIFICATION_TYPE_ERROR,
+                        Notification::NOTIFICATION_TYPE_ERROR,
                         ['contents' => __('email.compose.error')]
                     );
                     trigger_error($e->getMessage(), E_USER_WARNING);

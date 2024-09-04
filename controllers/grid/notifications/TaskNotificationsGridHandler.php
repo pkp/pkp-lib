@@ -16,9 +16,7 @@
 
 namespace PKP\controllers\grid\notifications;
 
-use APP\notification\Notification;
-use PKP\db\DAORegistry;
-use PKP\notification\NotificationDAO;
+use PKP\notification\Notification;
 
 class TaskNotificationsGridHandler extends NotificationsGridHandler
 {
@@ -45,13 +43,14 @@ class TaskNotificationsGridHandler extends NotificationsGridHandler
         $user = $request->getUser();
 
         // Get all level task notifications.
-        $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notifications = $notificationDao->getByUserId($user->getId(), Notification::NOTIFICATION_LEVEL_TASK)->toArray();
+        $notifications = Notification::withUserId($user->getId())
+            ->withLevel(Notification::NOTIFICATION_LEVEL_TASK)
+            ->get();
 
         // Checkbox selection requires the array keys match the notification id
         $notificationsForRow = [];
         foreach ($notifications as $notification) {
-            $notificationsForRow[$notification->getId()] = $notification;
+            $notificationsForRow[$notification->id] = $notification;
         }
         return $notificationsForRow;
     }

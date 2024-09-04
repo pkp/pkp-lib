@@ -29,12 +29,10 @@ class SetupContextBasedOnRequestUrl
      *
      * @example
      *      1. admin section (failed job list) : index.php/index/api/v1/jobs/all
-     *      2. admin section (create context) : index.php/_/api/v1/contexts
+     *      2. admin section (create context) : index.php/index/api/v1/contexts
+     * @deprecated 3.5 The constant is  usage of "_" as a site context has been deprecated
      */
-    public const NON_CONTEXTUAL_PATHS = [
-        'index',
-        '_',
-    ];
+    public const NON_CONTEXTUAL_PATHS = [Application::SITE_CONTEXT_PATH, '_'];
 
     /**
      * Determine and apply the correct context based on request url

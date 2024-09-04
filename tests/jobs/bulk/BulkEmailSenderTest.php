@@ -16,7 +16,7 @@ use Mockery;
 use PKP\tests\PKPTestCase;
 use PKP\jobs\bulk\BulkEmailSender;
 use PKP\user\Collector as UserCollector;
-use APP\user\Repository as UserRepository;
+use PKP\user\Repository as UserRepository;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 

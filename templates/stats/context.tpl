@@ -129,15 +129,8 @@
 								</table-cell>
 								<table-cell>{{ row.total }}</table-cell>
 							</table-row>
-							<template #no-content v-if="!items.length">
-								<table-row class="pkpStats__noRecords">
-									<table-cell :colspan="tableColumns.length" class="!py-8 !px-4 !text-center">
-										<template v-if="isLoadingItems">
-											<spinner></spinner>
-											{translate key="common.loading"}
-										</template>
-									</table-cell>
-								</table-row>
+							<template #no-content v-if="!items.length && isLoadingItems">
+								{translate key="common.loading"}
 							</template>
 						</table-body>
 					</pkp-table>

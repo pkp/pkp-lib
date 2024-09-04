@@ -16,7 +16,7 @@ use Mockery;
 use PKP\db\DAORegistry;
 use APP\core\Application;
 use PKP\tests\PKPTestCase;
-use APP\user\Repository as UserRepository;
+use PKP\user\Repository as UserRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
 use PKP\jobs\notifications\StatisticsReportMail;
 
@@ -99,7 +99,7 @@ class StatisticsReportMailTest extends PKPTestCase
 
         // Need to replace the container binding of `editorialStats` with mock object
         \APP\core\Services::register(
-            new class extends \APP\services\OJSServiceProvider
+            new class implements \Pimple\ServiceProviderInterface
             {
                 public function register(\Pimple\Container $pimple)
                 {

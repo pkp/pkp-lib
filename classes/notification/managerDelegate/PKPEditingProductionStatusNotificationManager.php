@@ -33,7 +33,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): string|array|null
     {
         return match($notification->type) {
             Notification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR => __('notification.type.assignCopyeditors'),

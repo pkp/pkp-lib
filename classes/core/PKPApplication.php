@@ -25,6 +25,8 @@ use Exception;
 use GuzzleHttp\Client;
 use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Database\MySqlConnection;
+use Illuminate\Database\MariaDbConnection;
+use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
@@ -76,7 +78,7 @@ interface iPKPApplicationInfoProvider
 
 abstract class PKPApplication implements iPKPApplicationInfoProvider
 {
-    public const PHP_REQUIRED_VERSION = '8.0.2';
+    public const PHP_REQUIRED_VERSION = '8.2.0';
 
     // Constant used to distinguish between editorial and author workflows
     public const WORKFLOW_TYPE_EDITORIAL = 'editorial';
@@ -272,9 +274,13 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         if (Application::isInstalled()) {
             // Retrieve the current offset
             $offset = (new DateTime())->format('P');
-            $statement = DB::connection() instanceof MySqlConnection
-                ? "SET time_zone = '{$offset}'"
-                : "SET TIME ZONE INTERVAL '{$offset}' HOUR TO MINUTE";
+            $statement = match (true) {
+                DB::connection() instanceof MySqlConnection,
+                DB::connection() instanceof MariaDbConnection
+                    => "SET time_zone = '{$offset}'",
+                DB::connection() instanceof PostgresConnection
+                    => "SET TIME ZONE INTERVAL '{$offset}' HOUR TO MINUTE"
+            };
             DB::statement($statement);
         }
     }
@@ -480,7 +486,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'NavigationMenuDAO' => 'PKP\navigationMenu\NavigationMenuDAO',
             'NavigationMenuItemDAO' => 'PKP\navigationMenu\NavigationMenuItemDAO',
             'NavigationMenuItemAssignmentDAO' => 'PKP\navigationMenu\NavigationMenuItemAssignmentDAO',
-            'NoteDAO' => 'PKP\note\NoteDAO',
             'NotificationSettingsDAO' => 'PKP\notification\NotificationSettingsDAO',
             'NotificationSubscriptionSettingsDAO' => 'PKP\notification\NotificationSubscriptionSettingsDAO',
             'PluginGalleryDAO' => 'PKP\plugins\PluginGalleryDAO',

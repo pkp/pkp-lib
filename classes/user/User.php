@@ -20,7 +20,6 @@
 
 namespace PKP\user;
 
-use Exception;
 use Illuminate\Contracts\Auth\Authenticatable;
 use PKP\db\DAORegistry;
 use PKP\identity\Identity;
@@ -458,35 +457,56 @@ class User extends Identity implements Authenticatable
         $this->_roles[$contextId] = $roles;
     }
 
+    /**
+     * @copydoc \Illuminate\Contracts\Auth\Authenticatable::getAuthIdentifierName
+     */
     public function getAuthIdentifierName()
     {
         return 'user_id';
     }
 
+    /**
+     * @copydoc \Illuminate\Contracts\Auth\Authenticatable::getAuthIdentifier
+     */
     public function getAuthIdentifier()
     {
         return $this->getId();
     }
 
+    /**
+     * @copydoc \Illuminate\Contracts\Auth\Authenticatable::getAuthPassword
+     */
     public function getAuthPassword()
     {
-        return $this->getData('password');
+        return $this->getPassword();
     }
 
+    /**
+     * @copydoc \Illuminate\Contracts\Auth\Authenticatable::getAuthPasswordName
+     */
+    public function getAuthPasswordName()
+    {
+        return 'password';
+    }
+
+    /**
+     * @copydoc \Illuminate\Contracts\Auth\Authenticatable::getRememberToken
+     */
     public function getRememberToken()
     {
         return $this->getData('rememberToken');
     }
 
+    /**
+     * @copydoc \Illuminate\Contracts\Auth\Authenticatable::setRememberToken
+     */
     public function setRememberToken($value)
     {
         return $this->setData('rememberToken', $value);
     }
 
     /**
-     * Get the column name for the "remember me" token.
-     *
-     * @return string
+     * @copydoc \Illuminate\Contracts\Auth\Authenticatable::getRememberTokenName
      */
     public function getRememberTokenName()
     {

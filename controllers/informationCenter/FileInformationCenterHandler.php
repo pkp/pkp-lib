@@ -133,13 +133,12 @@ class FileInformationCenterHandler extends InformationCenterHandler
         $this->setupTemplate($request);
 
         $templateMgr = TemplateManager::getManager($request);
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
 
         $notes = collect();
         $sourceSubmissionFileId = $this->submissionFile->getData('sourceSubmissionFileId');
 
         if (!is_null($sourceSubmissionFileId)) {
-            $notes = $noteDao->getByAssoc($this->_getAssocType(), $sourceSubmissionFileId);
+            $notes = Note::withAssoc($this->_getAssocType(), $sourceSubmissionFileId)->get();
         }
 
         $templateMgr->assign('notes', $notes);

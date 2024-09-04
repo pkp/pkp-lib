@@ -19,7 +19,6 @@ use APP\migration\upgrade\v3_4_0\MergeLocalesMigration;
 use APP\statistics\StatisticsHelper;
 use DateTime;
 use Exception;
-use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\JoinClause;
@@ -433,9 +432,10 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     protected function checkForeignKeySupport(): void
     {
         // Check if database engine supports foreign key constraints
-        if (!(DB::connection() instanceof MySqlConnection)) {
+        if (DB::connection() instanceof PostgresConnection) {
             return;
         }
+        
         $defaultEngine = DB::scalar('SELECT ENGINE FROM INFORMATION_SCHEMA.ENGINES WHERE SUPPORT = "DEFAULT"');
         if (strtolower($defaultEngine) !== 'innodb') {
             throw new Exception(
@@ -1310,20 +1310,20 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
      */
     protected function dropForeignKeys(): void
     {
-        if (DB::getDoctrineSchemaManager()->introspectTable('submission_files')->hasForeignKey('submission_files_file_id_foreign')) {
+        if ($this->hasForeignKey('submission_files', 'submission_files_file_id_foreign')) {
             Schema::table('submission_files', fn (Blueprint $table) => $table->dropForeign('submission_files_file_id_foreign'));
         }
         Schema::table('submission_file_revisions', function (Blueprint $table) {
             foreach (['submission_file_revisions_submission_file_id_foreign', 'submission_file_revisions_file_id_foreign'] as $foreignKeyName) {
-                if (DB::getDoctrineSchemaManager()->introspectTable('submission_file_revisions')->hasForeignKey($foreignKeyName)) {
+                if ($this->hasForeignKey('submission_file_revisions', $foreignKeyName)) {
                     $table->dropForeign($foreignKeyName);
                 }
             }
         });
-        if (DB::getDoctrineSchemaManager()->introspectTable('review_files')->hasForeignKey('review_files_submission_file_id_foreign')) {
+        if ($this->hasForeignKey('review_files', 'review_files_submission_file_id_foreign')) {
             Schema::table('review_files', fn (Blueprint $table) => $table->dropForeign('review_files_submission_file_id_foreign'));
         }
-        if (DB::getDoctrineSchemaManager()->introspectTable('review_round_files')->hasForeignKey('review_round_files_submission_file_id_foreign')) {
+        if ($this->hasForeignKey('review_round_files', 'review_round_files_submission_file_id_foreign')) {
             Schema::table('review_round_files', fn (Blueprint $table) => $table->dropForeign('review_round_files_submission_file_id_foreign'));
         }
     }

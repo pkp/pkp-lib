@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueryNotesGridCellProvider.php
  *
- * Copyright (c) 2016-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2016-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNotesGridCellProvider
@@ -19,10 +19,12 @@ namespace PKP\controllers\grid\queries;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
+use Illuminate\Database\Eloquent\Model;
 use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
+use PKP\core\DataObject;
 use PKP\core\PKPString;
 use PKP\note\Note;
 use PKP\submissionFile\SubmissionFile;
@@ -59,14 +61,14 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider
     {
         $element = $row->getData();
         $columnId = $column->getId();
-        assert($element instanceof \PKP\core\DataObject && !empty($columnId));
+        assert(($element instanceof DataObject || $element instanceof Model) && !empty($columnId));
         /** @var Note $element */
-        $user = $element->getUser();
+        $user = $element->user;
         $datetimeFormatShort = PKPString::convertStrftimeFormat(Application::get()->getRequest()->getContext()->getLocalizedDateTimeFormatShort());
 
         switch ($columnId) {
             case 'from':
-                return ['label' => ($user ? $user->getUsername() : '&mdash;') . '<br />' . date($datetimeFormatShort, strtotime($element->getDateCreated()))];
+                return ['label' => ($user?->getUsername() ?? '&mdash;') . '<br />' . $element->dateCreated->format($datetimeFormatShort)];
         }
 
         return parent::getTemplateVarsFromRowColumn($row, $column);

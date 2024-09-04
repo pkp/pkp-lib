@@ -70,11 +70,11 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 $reviewAssignment = Repo::reviewAssignment()->get($notification->assocId);
                 $workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var WorkflowStageDAO $workflowStageDao */
                 $operation = $reviewAssignment->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW ? $workflowStageDao::WORKFLOW_STAGE_PATH_INTERNAL_REVIEW : $workflowStageDao::WORKFLOW_STAGE_PATH_EXTERNAL_REVIEW;
-                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', $operation, $reviewAssignment->getSubmissionId());
+                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', $operation, [$reviewAssignment->getSubmissionId()]);
             case Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT:
             case Notification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED:
                 $reviewAssignment = Repo::reviewAssignment()->get($notification->assocId);
-                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', $reviewAssignment->getSubmissionId());
+                return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'reviewer', 'submission', [$reviewAssignment->getSubmissionId()]);
             case Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT:
                 if ($notification->assocType != Application::ASSOC_TYPE_ANNOUNCEMENT) {
                     throw new \Exception('Unexpected assoc type!');
@@ -117,7 +117,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
      *
      * @copydoc PKPNotificationOperationManager::getNotificationContents()
      */
-    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): string|array|null
     {
         switch ($notification->type) {
             case Notification::NOTIFICATION_TYPE_SUCCESS:
@@ -365,7 +365,7 @@ class PKPNotificationManager extends PKPNotificationOperationManager
         foreach ($notificationTypes as $type) {
             $managerDelegate = $this->getMgrDelegate($type, $assocType, $assocId);
             if (!$managerDelegate) {
-                throw new Exception('Unable to get manager delegate!');
+                throw new \Exception('Unable to get manager delegate!');
             }
             $managerDelegate->updateNotification($request, $userIds, $assocType, $assocId);
         }

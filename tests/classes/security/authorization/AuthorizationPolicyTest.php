@@ -21,12 +21,11 @@ namespace PKP\tests\classes\security\authorization;
 use APP\core\Application;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(AuthorizationPolicy::class)]
 class AuthorizationPolicyTest extends PKPTestCase
 {
-    /**
-     * @covers AuthorizationPolicy
-     */
     public function testAuthorizationPolicy()
     {
         $policy = new AuthorizationPolicy('some message');

@@ -30,7 +30,7 @@ use PKP\file\FileManager;
 use PKP\log\event\SubmissionFileEventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
 use PKP\mail\mailables\RevisedVersionNotify;
-use PKP\note\NoteDAO;
+use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\plugins\Hook;
 use PKP\query\QueryDAO;
@@ -426,8 +426,7 @@ abstract class Repository
             });
 
         // Delete notes for this submission file
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $noteDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId());
+        Note::withAssoc(Application::ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId())->delete();
 
         // Update tasks
         $notificationMgr = new NotificationManager();
@@ -699,20 +698,19 @@ abstract class Repository
             }
 
             // Get the associated note.
-            $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-            $note = $noteDao->getById($submissionFile->getData('assocId'));
+            $note = Note::find($submissionFile->getData('assocId'));
 
             // The note should be associated with a query. If not, fail.
-            if ($note?->getAssocType() != PKPApplication::ASSOC_TYPE_QUERY) {
+            if ($note?->assocType != PKPApplication::ASSOC_TYPE_QUERY) {
                 return null;
             }
 
             // Get the associated query.
             $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-            $query = $queryDao->getById($note->getAssocId());
+            $query = $queryDao->getById($note->assocId);
 
             // The query will have an associated file stage.
-            return $query ? $query->getStageId() : null;
+            return $query?->getStageId();
         }
 
         throw new Exception('Could not determine the workflow stage id from submission file ' . $submissionFile->getId() . ' with file stage ' . $submissionFile->getData('fileStage'));

@@ -49,7 +49,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
     /**
      * @copydoc INotificationInfoProvider::getNotificationMessage()
      */
-    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): string|array|null
     {
         return null;
     }

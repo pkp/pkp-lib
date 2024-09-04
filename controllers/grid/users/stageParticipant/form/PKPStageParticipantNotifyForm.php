@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/users/stageParticipant/form/PKPStageParticipantNotifyForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStageParticipantNotifyForm
@@ -31,7 +31,7 @@ use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\log\event\EventLogEntry;
 use PKP\log\SubmissionEmailLogEventType;
-use PKP\note\NoteDAO;
+use PKP\note\Note;
 use PKP\notification\Notification;
 use PKP\query\QueryDAO;
 use PKP\security\Role;
@@ -190,15 +190,7 @@ class PKPStageParticipantNotifyForm extends Form
             $queryDao->insertParticipant($query->getId(), $request->getUser()->getId());
         }
 
-        // Create a head note
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $headNote = $noteDao->newDataObject();
-        $headNote->setUserId($request->getUser()->getId());
-        $headNote->setAssocType(PKPApplication::ASSOC_TYPE_QUERY);
-        $headNote->setAssocId($query->getId());
-        $headNote->setDateCreated(Core::getCurrentDate());
-
-        // Populate mailable with data before compiling headNote title and content
+        // Populate mailable with data before compiling headNote
         $mailable
             ->addData(['authorName' => $user->getFullName()]) // For compatibility with removed AUTHOR_ASSIGN and AUTHOR_NOTIFY
             ->sender($request->getUser())
@@ -206,18 +198,23 @@ class PKPStageParticipantNotifyForm extends Form
             ->body($this->getData('message'))
             ->subject($template->getLocalizedData('subject'));
 
-        // Compile and insert note
-        $headNote->setTitle(Mail::compileParams(
-            $template->getLocalizedData('subject'),
-            $mailable->getData()
-        ));
         //Substitute email template variables not available before form being executed
         $additionalVariables = $this->getEmailVariableNames($template->getData('key'));
-        $headNote->setContents(Mail::compileParams(
-            $this->getData('message'),
-            array_intersect_key($mailable->getData(), $additionalVariables)
-        ));
-        $noteDao->insertObject($headNote);
+
+        // Create a head note
+        $headNote = Note::create([
+            'userId' =>  $request->getUser()->getId(),
+            'assocType' => PKPApplication::ASSOC_TYPE_QUERY,
+            'assocId' => $query->getId(),
+            'title' => Mail::compileParams(
+                $template->getLocalizedData('subject'),
+                $mailable->getData()
+            ),
+            'contents' => Mail::compileParams(
+                $this->getData('message'),
+                array_intersect_key($mailable->getData(), $additionalVariables)
+            ),
+        ]);
 
         // Send the email
         $notificationMgr = new NotificationManager();

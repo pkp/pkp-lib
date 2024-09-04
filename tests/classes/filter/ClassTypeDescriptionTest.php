@@ -20,12 +20,11 @@ namespace PKP\tests\classes\filter;
 
 use PKP\filter\ClassTypeDescription;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(ClassTypeDescription::class)]
 class ClassTypeDescriptionTest extends PKPTestCase
 {
-    /**
-     * @covers ClassTypeDescription
-     */
     public function testInstantiateAndCheck()
     {
         $typeDescription = new ClassTypeDescription('lib.pkp.tests.classes.filter.TestClass1');

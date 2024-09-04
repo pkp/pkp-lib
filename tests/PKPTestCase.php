@@ -181,7 +181,7 @@ abstract class PKPTestCase extends TestCase
      *
      * @return Request
      */
-    protected function mockRequest($path = 'index/test-page/test-op', $userId = null)
+    protected function mockRequest(string $path = 'index/test-page/test-op', int $userId = 0)
     {
         // Back up the default request.
         if (!isset($this->registryBackup['request'])) {
@@ -205,8 +205,7 @@ abstract class PKPTestCase extends TestCase
         $request->setRouter($router);
 
         // Test user.
-        $session = $request->getSession();
-        $session->setUserId($userId);
+        $request->getSessionGuard()->setUserId($userId);
 
         return $request;
     }

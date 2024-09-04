@@ -28,7 +28,7 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage($notification)
      */
-    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): string|array|null
     {
         return match($notification->type) {
             Notification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_SUBMISSION,

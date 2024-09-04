@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/form/QueryForm.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2003-2021 John Willinsky
+ * Copyright (c) 2014-2024 Simon Fraser University
+ * Copyright (c) 2003-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryForm
@@ -22,12 +22,11 @@ use APP\facades\Repo;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\queries\traits\StageMailable;
-use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
-use PKP\note\NoteDAO;
+use PKP\note\Note;
 use PKP\query\Query;
 use PKP\query\QueryDAO;
 use PKP\security\Role;
@@ -84,14 +83,11 @@ class QueryForm extends Form
             // Add the current user as a participant by default.
             $queryDao->insertParticipant($query->getId(), $request->getUser()->getId());
 
-            // Create a head note
-            $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-            $headNote = $noteDao->newDataObject();
-            $headNote->setUserId($request->getUser()->getId());
-            $headNote->setAssocType(Application::ASSOC_TYPE_QUERY);
-            $headNote->setAssocId($query->getId());
-            $headNote->setDateCreated(Core::getCurrentDate());
-            $noteDao->insertObject($headNote);
+            Note::create([
+                'userId' =>  $request->getUser()->getId(),
+                'assocType' => Application::ASSOC_TYPE_QUERY,
+                'assocId' => $query->getId(),
+            ]);
         } else {
             $query = $queryDao->getById($queryId, $assocType, $assocId);
             assert(isset($query));
@@ -217,8 +213,8 @@ class QueryForm extends Form
             $headNote = $query->getHeadNote();
             $this->_data = [
                 'queryId' => $query->getId(),
-                'subject' => $headNote ? $headNote->getTitle() : null,
-                'comment' => $headNote ? $headNote->getContents() : null,
+                'subject' => $headNote?->title,
+                'comment' => $headNote?->contents,
                 'userIds' => $queryDao->getParticipantIds($query->getId()),
                 'template' => null,
             ];
@@ -248,7 +244,7 @@ class QueryForm extends Form
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
             'isNew' => $this->_isNew,
-            'noteId' => $headNote->getId(),
+            'noteId' => $headNote->id,
             'actionArgs' => $actionArgs,
             'csrfToken' => $request->getSession()->token(),
             'stageId' => $this->getStageId(),
@@ -392,7 +388,7 @@ class QueryForm extends Form
         $allowedEditTimeNotice = ['show' => false, 'limit' => 60];
         if (array_intersect($assignedRoles, [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) {
             $allowedEditTimeNotice['show'] = true;
-            $allowedEditTimeNotice['limit'] = (int) ($allowedEditTimeNotice['limit'] - (time() - strtotime($headNote->getDateCreated())) / 60);
+            $allowedEditTimeNotice['limit'] = (int) ($allowedEditTimeNotice['limit'] - $headNote->dateCreated->diffInMinutes());
         }
 
         $templateMgr->assign([
@@ -518,11 +514,10 @@ class QueryForm extends Form
         $query = $this->getQuery();
 
         $headNote = $query->getHeadNote();
-        $headNote->setTitle($this->getData('subject'));
-        $headNote->setContents($this->getData('comment'));
+        $headNote->title = $this->getData('subject');
+        $headNote->contents = $this->getData('comment');
 
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $noteDao->updateObject($headNote);
+        $headNote->save();
 
         $queryDao->updateObject($query);
 

@@ -20,6 +20,8 @@ namespace PKP\tests\classes\core;
 
 use APP\core\Application;
 use APP\core\Request;
+use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\BackupGlobals;
 use PHPUnit\Framework\MockObject\MockObject;
 use PKP\core\PKPComponentRouter;
 use PKP\core\PKPRequest;
@@ -29,9 +31,16 @@ use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\tests\PKPTestCase;
 
-/**
- * @backupGlobals enabled
- */
+#[BackupGlobals(true)]
+#[CoversMethod(PKPRouter::class, 'getApplication')]
+#[CoversMethod(PKPRouter::class, 'setApplication')]
+#[CoversMethod(PKPRouter::class, 'getDispatcher')]
+#[CoversMethod(PKPRouter::class, 'setDispatcher')]
+#[CoversMethod(PKPRouter::class, 'supports')]
+#[CoversMethod(PKPRouter::class, 'isCacheable')]
+#[CoversMethod(PKPRouter::class, 'getRequestedContextPath')]
+#[CoversMethod(PKPRouter::class, 'getContext')]
+#[CoversMethod(PKPRouter::class, 'getIndexUrl')]
 class PKPRouterTestCase extends PKPTestCase
 {
     protected PKPRouter|MockObject $router;
@@ -58,20 +67,12 @@ class PKPRouterTestCase extends PKPTestCase
         parent::tearDown();
     }
 
-    /**
-     * @covers PKPRouter::getApplication
-     * @covers PKPRouter::setApplication
-     */
     public function testGetSetApplication()
     {
         $application = $this->_setUpMockEnvironment();
         self::assertSame($application, $this->router->getApplication());
     }
 
-    /**
-     * @covers PKPRouter::getDispatcher
-     * @covers PKPRouter::setDispatcher
-     */
     public function testGetSetDispatcher()
     {
         $application = $this->_setUpMockEnvironment();
@@ -79,27 +80,18 @@ class PKPRouterTestCase extends PKPTestCase
         self::assertSame($dispatcher, $this->router->getDispatcher());
     }
 
-    /**
-     * @covers PKPRouter::supports
-     */
     public function testSupports()
     {
         $this->request = new Request();
         self::assertTrue($this->router->supports($this->request));
     }
 
-    /**
-     * @covers PKPRouter::isCacheable
-     */
     public function testIsCacheable()
     {
         $this->request = new Request();
         self::assertFalse($this->router->isCacheable($this->request));
     }
 
-    /**
-     * @covers PKPRouter::getRequestedContextPath
-     */
     public function testGetRequestedContextPathWithEmptyPathInfo()
     {
         $this->_setUpMockEnvironment();
@@ -110,9 +102,6 @@ class PKPRouterTestCase extends PKPTestCase
         );
     }
 
-    /**
-     * @covers PKPRouter::getRequestedContextPath
-     */
     public function testGetRequestedContextPathWithFullPathInfo()
     {
         $this->_setUpMockEnvironment();
@@ -128,9 +117,6 @@ class PKPRouterTestCase extends PKPTestCase
         );
     }
 
-    /**
-     * @covers PKPRouter::getRequestedContextPath
-     */
     public function testGetRequestedContextPathWithInvalidPathInfo()
     {
         $this->_setUpMockEnvironment();
@@ -141,9 +127,6 @@ class PKPRouterTestCase extends PKPTestCase
         );
     }
 
-    /**
-     * @covers PKPRouter::getContext
-     */
     public function testGetContext()
     {
         // We use a 1-level context
@@ -165,15 +148,12 @@ class PKPRouterTestCase extends PKPTestCase
         $mockDao->expects($this->once())
             ->method('getByPath')
             ->with('contextPath')
-            ->will($this->returnValue($expectedResult));
+            ->willReturn($expectedResult);
         $result = $this->router->getContext($this->request);
         self::assertInstanceOf('Context', $result);
         self::assertEquals($expectedResult, $result);
     }
 
-    /**
-     * @covers PKPRouter::getContext
-     */
     public function testGetContextForIndex()
     {
         // We use a 1-level context
@@ -184,9 +164,6 @@ class PKPRouterTestCase extends PKPTestCase
         self::assertNull($result);
     }
 
-    /**
-     * @covers PKPRouter::getIndexUrl
-     */
     public function testGetIndexUrl()
     {
         $this->_setUpMockEnvironment();
@@ -220,9 +197,6 @@ class PKPRouterTestCase extends PKPTestCase
         );
     }
 
-    /**
-     * @covers PKPRouter::getIndexUrl
-     */
     public function testGetIndexUrlRestful()
     {
         $this->_setUpMockEnvironment();
@@ -253,7 +227,7 @@ class PKPRouterTestCase extends PKPTestCase
         // Set up the getContextName() method
         $mockApplication->expects($this->any())
             ->method('getContextName')
-            ->will($this->returnValue($contextName));
+            ->willReturn($contextName);
 
         $this->router->setApplication($mockApplication);
         Registry::set('application', $mockApplication);
@@ -268,7 +242,7 @@ class PKPRouterTestCase extends PKPTestCase
             ->getMock();
         $this->request->expects($this->any())
             ->method('getServerHost')
-            ->will($this->returnValue('mydomain.org'));
+            ->willReturn('mydomain.org');
         $this->request->setRouter($this->router);
 
         return $mockApplication;
@@ -294,21 +268,21 @@ class PKPRouterTestCase extends PKPTestCase
                 ->getMock();
             $firstContextInstance->expects($this->any())
                 ->method('getId')
-                ->will($this->returnValue(1));
+                ->willReturn(1);
             $firstContextInstance->expects($this->any())
                 ->method('getPath')
-                ->will($this->returnValue($firstContextPath));
+                ->willReturn($firstContextPath);
             $firstContextInstance->expects($this->any())
                 ->method('getSetting')
-                ->will($this->returnValue(null));
+                ->willReturn(null);
             $firstContextInstance->expects($this->any())
                 ->method('getSupportedLocales')
-                ->will($this->returnValue($supportedLocales));
+                ->willReturn($supportedLocales);
 
             $mockFirstContextDao->expects($this->any())
                 ->method('getByPath')
                 ->with($firstContextPath)
-                ->will($this->returnValue($firstContextInstance));
+                ->willReturn($firstContextInstance);
         }
 
         DAORegistry::registerDAO('FirstContextDAO', $mockFirstContextDao);

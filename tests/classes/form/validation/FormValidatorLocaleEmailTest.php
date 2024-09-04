@@ -22,14 +22,11 @@ use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\form\validation\FormValidatorLocaleEmail;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(FormValidatorLocaleEmail::class)]
 class FormValidatorLocaleEmailTest extends PKPTestCase
 {
-    /**
-     * @covers FormValidatorLocaleEmail
-     * @covers FormValidatorLocale
-     * @covers FormValidator
-     */
     public function testIsValid()
     {
         $form = new Form('some template');

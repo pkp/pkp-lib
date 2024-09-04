@@ -21,7 +21,9 @@ namespace PKP\tests\classes\config;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(Config::class)]
 class ConfigTest extends PKPTestCase
 {
     /**
@@ -32,27 +34,19 @@ class ConfigTest extends PKPTestCase
         return [...parent::getMockedRegistryKeys(), 'configData', 'configFile'];
     }
 
-    /**
-     * @covers Config::getConfigFileName
-     */
+    
     public function testGetDefaultConfigFileName()
     {
         $expectedResult = Core::getBaseDir() . '/config.inc.php';
         self::assertEquals($expectedResult, Config::getConfigFileName());
     }
 
-    /**
-     * @covers Config::setConfigFileName
-     */
     public function testSetConfigFileName()
     {
         Config::setConfigFileName('some_config');
         self::assertEquals('some_config', Config::getConfigFileName());
     }
 
-    /**
-     * @covers Config::reloadData
-     */
     public function testReloadDataWithNonExistentConfigFile()
     {
         Config::setConfigFileName('some_config');
@@ -60,9 +54,6 @@ class ConfigTest extends PKPTestCase
         Config::reloadData();
     }
 
-    /**
-     * @covers Config::reloadData
-     */
     public function testReloadDataAndGetData()
     {
         Config::setConfigFileName('lib/pkp/tests/config/config.TEMPLATE.mysql.inc.php');
@@ -88,10 +79,6 @@ class ConfigTest extends PKPTestCase
         self::assertEquals($expectedResult, $result['general']);
     }
 
-    /**
-     * @covers Config::getVar
-     * @covers Config::getData
-     */
     public function testGetVar()
     {
         Config::setConfigFileName('lib/pkp/tests/config/config.TEMPLATE.mysql.inc.php');
@@ -100,13 +87,22 @@ class ConfigTest extends PKPTestCase
         self::assertNull(Config::getVar('non-existent-config-section', 'non-existent-config-var'));
     }
 
-    /**
-     * @covers Config::getVar
-     * @covers Config::getData
-     */
     public function testGetVarFromOtherConfig()
     {
         Config::setConfigFileName('lib/pkp/tests/config/config.TEMPLATE.pgsql.inc.php');
         self::assertEquals('pgsql', Config::getVar('database', 'driver'));
+    }
+
+    public function testHasVar()
+    {
+        Config::setConfigFileName('lib/pkp/tests/config/config.mysql.inc.php');
+        self::assertTrue(Config::hasVar('general', 'installed'));
+    }
+
+    public function testIsSensitive()
+    {
+        Config::setConfigFileName('lib/pkp/tests/config/config.mysql.inc.php');
+        self::assertTrue(Config::isSensitive('database', 'password'));
+        self::assertFalse(Config::isSensitive('database', 'driver'));
     }
 }

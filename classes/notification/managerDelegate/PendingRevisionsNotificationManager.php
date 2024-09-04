@@ -50,7 +50,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): string|array|null
     {
         $stageData = $this->_getStageDataByType();
         $stageKey = $stageData['translationKey'];

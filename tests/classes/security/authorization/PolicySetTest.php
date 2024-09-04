@@ -18,15 +18,14 @@
 
 namespace PKP\tests\classes\security\authorization;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\tests\PKPTestCase;
 
+#[CoversClass(PolicySetTest::class)]
 class PolicySetTest extends PKPTestCase
 {
-    /**
-     * @covers PolicySet
-     */
     public function testPolicySet()
     {
         // Test combining algorithm and default effect.

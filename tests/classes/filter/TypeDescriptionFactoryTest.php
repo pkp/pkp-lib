@@ -20,12 +20,11 @@ namespace PKP\tests\classes\filter;
 
 use PKP\filter\TypeDescriptionFactory;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(TypeDescriptionFactory::class)]
 class TypeDescriptionFactoryTest extends PKPTestCase
 {
-    /**
-     * @covers TypeDescriptionFactory
-     */
     public function testInstantiateTypeDescription()
     {
         $typeDescriptionFactory = TypeDescriptionFactory::getInstance();

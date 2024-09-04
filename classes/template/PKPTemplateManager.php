@@ -664,10 +664,10 @@ class PKPTemplateManager extends Smarty
         // properly by our build script
         $this->addJavaScript(
             'jqueryValidate',
-            $baseUrl . '/lib/pkp/js/lib/jquery/plugins/validate/jquery.validate.min.js',
+            $baseUrl . '/js/build/jquery-validation/jquery.validate.min.js',
             $args
         );
-        $jqvLocalePath = 'lib/pkp/js/lib/jquery/plugins/validate/localization/messages_';
+        $jqvLocalePath = 'js/build/jquery-validation/localization/messages_';
         foreach ($localeChecks as $localeCheck) {
             if (file_exists($jqvLocalePath . $localeCheck . '.js')) {
                 $this->addJavaScript('jqueryValidateLocale', $baseUrl . '/' . $jqvLocalePath . $localeCheck . '.js', $args);
@@ -868,7 +868,7 @@ class PKPTemplateManager extends Smarty
         $min = Config::getVar('general', 'enable_minified') ? '.min' : '';
         $this->addJavaScript(
             'jquery',
-            $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js',
+            $request->getBaseUrl() . '/js/build/jquery/jquery' . $min . '.js',
             [
                 'priority' => self::STYLE_SEQUENCE_CORE,
                 'contexts' => 'backend',
@@ -876,7 +876,7 @@ class PKPTemplateManager extends Smarty
         );
         $this->addJavaScript(
             'jqueryUI',
-            $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js',
+            $request->getBaseUrl() . '/js/build/jquery-ui/jquery-ui' . $min . '.js',
             [
                 'priority' => self::STYLE_SEQUENCE_CORE,
                 'contexts' => 'backend',

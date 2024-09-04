@@ -2156,6 +2156,9 @@ msgstr "This is not a valid currency."
 msgid "validator.date"
 msgstr "This is not a valid date."
 
+msgid "validator.date.comparison"
+msgstr "Invalid dates provided for comparison."
+
 msgid "validator.date_format"
 msgstr "This does not match the format {$format}."
 

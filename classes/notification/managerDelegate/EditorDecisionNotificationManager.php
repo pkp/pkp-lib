@@ -27,7 +27,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): string|array|null
     {
         return match ($notification->type) {
             Notification::NOTIFICATION_TYPE_EDITOR_DECISION_INTERNAL_REVIEW => __('notification.type.editorDecisionInternalReview'),

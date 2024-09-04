@@ -51,7 +51,7 @@ class EditorialReportNotificationManager extends NotificationManagerDelegate
     /**
      * @copydoc PKPNotificationOperationManager::getNotificationMessage()
      */
-    public function getNotificationMessage(PKPRequest $request, Notification $notification): ?string
+    public function getNotificationMessage(PKPRequest $request, Notification $notification): string|array|null
     {
         return __('notification.type.editorialReport', [], $this->_context->getPrimaryLocale());
     }

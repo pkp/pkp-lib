@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueryNotesGridHandler.php
  *
- * Copyright (c) 2016-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2016-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNotesGridHandler
@@ -28,9 +28,9 @@ use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
+use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\note\Note;
-use PKP\note\NoteDAO;
 use PKP\notification\Notification;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\query\Query;
@@ -185,12 +185,11 @@ class QueryNotesGridHandler extends GridHandler
      */
     public function loadData($request, $filter = null)
     {
-        return $this->getQuery()
-            ->getReplies(null, NoteDAO::NOTE_ORDER_DATE_CREATED, \PKP\db\DAO::SORT_DIRECTION_ASC)
+        return Note::withAssoc(PKPApplication::ASSOC_TYPE_QUERY, $this->getQuery()->getId())
+            ->withSort(Note::NOTE_ORDER_DATE_CREATED, DAO::SORT_DIRECTION_ASC)
+            ->lazy()
             ->filter(function (Note $note) use ($request) {
-                return (bool) $note->getContents() || (
-                    $note->getUserId() === $request->getUser()->getId()
-                );
+                return $note->contents || $note->userId === $request->getUser()->getId();
             });
     }
 
@@ -223,7 +222,7 @@ class QueryNotesGridHandler extends GridHandler
         if ($queryNoteForm->validate()) {
             $note = $queryNoteForm->execute();
             $this->insertedNoteNotify($note);
-            return \PKP\db\DAO::getDataChangedEvent($this->getQuery()->getId());
+            return DAO::getDataChangedEvent($this->getQuery()->getId());
         } else {
             return new JSONMessage(true, $queryNoteForm->fetch($request));
         }
@@ -243,11 +242,7 @@ class QueryNotesGridHandler extends GridHandler
             [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_SUB_EDITOR]
         )));
 
-        if ($note === null) {
-            return $isAdmin;
-        } else {
-            return ($note->getUserId() == $this->_user->getId() || $isAdmin);
-        }
+        return $note?->userId == $this->_user->getId() || $isAdmin;
     }
 
     /**
@@ -261,11 +256,9 @@ class QueryNotesGridHandler extends GridHandler
     public function deleteNote($args, $request)
     {
         $query = $this->getQuery();
-        $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
-        $note = $noteDao->getById($request->getUserVar('noteId'));
-        $user = $request->getUser();
+        $note = Note::find((int) $request->getUserVar('noteId'));
 
-        if (!$request->checkCSRF() || !$note || $note->getAssocType() != Application::ASSOC_TYPE_QUERY || $note->getAssocId() != $query->getId()) {
+        if (!$request->checkCSRF() || $note?->assocType != Application::ASSOC_TYPE_QUERY || $note?->assocId != $query->getId()) {
             // The note didn't exist or has the wrong assoc info.
             return new JSONMessage(false);
         }
@@ -275,8 +268,8 @@ class QueryNotesGridHandler extends GridHandler
             return new JSONMessage(false);
         }
 
-        $noteDao->deleteObject($note);
-        return \PKP\db\DAO::getDataChangedEvent($note->getId());
+        $note->delete();
+        return DAO::getDataChangedEvent($note->id);
     }
 
     /**
@@ -286,12 +279,12 @@ class QueryNotesGridHandler extends GridHandler
     {
         $notificationManager = new NotificationManager();
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $query = $queryDao->getById($note->getData('assocId'));
-        $sender = Repo::user()->get($note->getData('userId'));
+        $query = $queryDao->getById($note->assocId);
+        $sender = $note->user;
         $request = Application::get()->getRequest();
         $context = $request->getContext();
         $submission = $this->getSubmission();
-        $title = $query->getHeadNote()->getData('title');
+        $title = $query->getHeadNote()->title;
 
         /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
@@ -301,7 +294,7 @@ class QueryNotesGridHandler extends GridHandler
             ->getCollector()
             ->filterByAssoc(
                 PKPApplication::ASSOC_TYPE_NOTE,
-                [$note->getId()]
+                [$note->id]
             )->filterBySubmissionIds([$submission->getId()])
             ->getMany();
 
@@ -347,7 +340,7 @@ class QueryNotesGridHandler extends GridHandler
                 ->sender($sender)
                 ->recipients([$recipient])
                 ->subject(__('common.re') . ' ' . $title)
-                ->body($note->getContents())
+                ->body($note->contents)
                 ->allowUnsubscribe($notification);
 
             $submissionFiles->each(fn (SubmissionFile $item) => $mailable->attachSubmissionFile(

@@ -15,6 +15,7 @@
 namespace PKP\migration\install;
 
 use APP\core\Application;
+use Exception;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -96,6 +97,7 @@ class CommonMigration extends \PKP\migration\Migration
 
         switch (DB::getDriverName()) {
             case 'mysql':
+            case 'mariadb':
                 Schema::table('users', function (Blueprint $table) {
                     $table->unique(['username'], 'users_username');
                     $table->unique(['email'], 'users_email');
@@ -105,6 +107,7 @@ class CommonMigration extends \PKP\migration\Migration
                 DB::unprepared('CREATE UNIQUE INDEX users_username on users (LOWER(username));');
                 DB::unprepared('CREATE UNIQUE INDEX users_email on users (LOWER(email));');
                 break;
+            default: throw new Exception('Unexpected database driver!');
         }
 
         Schema::create('user_settings', function (Blueprint $table) {

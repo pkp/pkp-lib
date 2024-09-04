@@ -3,8 +3,8 @@
 /**
  * @file controllers/grid/queries/QueriesAccessHelper.php
  *
- * Copyright (c) 2016-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2016-2024 Simon Fraser University
+ * Copyright (c) 2000-2024 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueriesAccessHelper
@@ -115,7 +115,7 @@ class QueriesAccessHelper
      *
      * @param int $queryId Query ID
      *
-     * @return bool True iff the user is allowed to edit the query.
+     * @return bool True if the user is allowed to edit the query.
      */
     public function getCanEdit($queryId)
     {
@@ -128,7 +128,7 @@ class QueriesAccessHelper
         // Assistants, authors and reviewers are allowed, if they created the query less than x seconds ago
         if ($this->hasStageRole($query->getStageId(), [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) {
             $headNote = $query->getHeadNote();
-            if ($headNote->getUserId() == $this->_user->getId() && (time() - strtotime($headNote->getDateCreated()) < 3600)) {
+            if ($headNote->userId == $this->_user->getId() && ($headNote->dateCreated->diffInHours() < 1)) {
                 return true;
             }
         }
@@ -147,7 +147,7 @@ class QueriesAccessHelper
      *
      * @param int $queryId Query ID
      *
-     * @return bool True iff the user is allowed to delete the query.
+     * @return bool True if the user is allowed to delete the query.
      */
     public function getCanDelete($queryId)
     {
@@ -156,7 +156,7 @@ class QueriesAccessHelper
         $query = $queryDao->getById($queryId);
         if ($query) {
             $headNote = $query->getHeadNote();
-            if ($headNote?->getUserId() == $this->_user->getId() && $headNote?->getTitle() == '') {
+            if ($headNote?->userId == $this->_user->getId() && $headNote?->title == '') {
                 return true;
             }
         }

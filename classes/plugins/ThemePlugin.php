@@ -16,6 +16,7 @@
 
 namespace PKP\plugins;
 
+use Illuminate\Support\Facades\Cache;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
@@ -911,10 +912,9 @@ abstract class ThemePlugin extends LazyLoadPlugin
         $templateMgr = TemplateManager::getManager($request);
 
         // Register Chart.js on the frontend article view
-        $min = Config::getVar('general', 'enable_minified') ? '.min' : '';
         $templateMgr->addJavaScript(
             'chartJS',
-            $request->getBaseUrl() . '/lib/pkp/js/lib/Chart' . $min . '.js',
+            $request->getBaseUrl() . '/js/build/chart.js/chart.umd.js',
             [
                 'contexts' => $this->getSubmissionViewContext(),
             ]

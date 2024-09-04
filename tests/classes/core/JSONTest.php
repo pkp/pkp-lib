@@ -20,13 +20,12 @@ namespace PKP\tests\classes\core;
 
 use PKP\core\JSONMessage;
 use PKP\tests\PKPTestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use stdClass;
 
+#[CoversClass(JSONMessage::class)]
 class JSONTest extends PKPTestCase
 {
-    /**
-     * @covers JSONMessage
-     */
     public function testGetString()
     {
         // Create a test object.

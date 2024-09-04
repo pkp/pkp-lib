@@ -16,6 +16,8 @@
 namespace PKP\tests;
 
 use Illuminate\Database\MySqlConnection;
+use Illuminate\Database\MariaDbConnection;
+use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use PHPUnit\Framework\TestCase;
 use PKP\config\Config;
@@ -37,16 +39,22 @@ abstract class PKPTestHelper
     public static function backupTables($tables, $test)
     {
         $dao = new DAO();
+
         foreach ($tables as $table) {
-            $createLikeSql = DB::getDefaultConnection() instanceof MySqlConnection
-                ? "CREATE TABLE backup_{$table} LIKE {$table}"
-                : "CREATE TABLE backup_{$table} (LIKE {$table})";
+            $createLikeSql = match (true) {
+                DB::connection() instanceof MySqlConnection,
+                DB::connection() instanceof MariaDbConnection
+                    => "CREATE TABLE backup_{$table} LIKE {$table}",
+                DB::connection() instanceof PostgresConnection
+                    => "CREATE TABLE backup_{$table} (LIKE {$table})"
+            };
 
             $sqls = [
                 "DROP TABLE IF EXISTS backup_{$table}",
                 $createLikeSql,
                 "INSERT INTO backup_{$table} SELECT * FROM {$table}"
             ];
+
             foreach ($sqls as $sql) {
                 $dao->update($sql, [], true, false);
             }
@@ -80,14 +88,21 @@ abstract class PKPTestHelper
     public static function restoreDB($test)
     {
         $filename = getenv('DATABASEDUMP');
-        if (!$filename || !file_exists($filename)) {
+        
+        if (!$filename) {
             $test->fail('Database dump filename needs to be specified in env variable DATABASEDUMP!');
+            return;
+        }
+
+        if (!file_exists($filename)) {
+            $test->fail("The backup database dump file named {$filename} not found");
             return;
         }
 
         $output = $status = null;
         switch (DB::getDefaultConnection()) {
             case 'mysql':
+            case 'mariadb':
                 exec(
                     $cmd = 'zcat ' .
                     escapeshellarg($filename) .

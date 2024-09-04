@@ -41,12 +41,12 @@ class I9462_UserUserGroupsStartEndDate extends Migration
             if (Schema::hasColumn($table->getTable(), 'date_start')) {
                 $table->dropColumn('date_start');
             };
+
             if (Schema::hasColumn($table->getTable(), 'date_end')) {
                 $table->dropColumn('date_end');
             };
-            $sm = Schema::getConnection()->getDoctrineSchemaManager();
-            $indexesFound = $sm->listTableIndexes('user_user_groups');
-            if (!array_key_exists('user_user_groups_unique', $indexesFound)) {
+
+            if (!Schema::hasIndex('user_user_groups', 'user_user_groups_unique')) {
                 $table->unique(['user_group_id', 'user_id'], 'user_user_groups_unique');
             }
         });

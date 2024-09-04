@@ -20,14 +20,11 @@ namespace PKP\tests\classes\validation;
 
 use PKP\tests\PKPTestCase;
 use PKP\validation\ValidatorISSN;
+use PHPUnit\Framework\Attributes\CoversClass;
 
+#[CoversClass(ValidatorISSN::class)]
 class ValidatorISSNTest extends PKPTestCase
 {
-    /**
-     * @covers ValidatorISSN
-     * @covers ValidatorRegExp
-     * @covers Validator
-     */
     public function testValidatorISSN()
     {
         $validator = new ValidatorISSN();

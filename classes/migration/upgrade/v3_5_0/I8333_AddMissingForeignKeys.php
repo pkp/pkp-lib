@@ -214,7 +214,7 @@ abstract class I8333_AddMissingForeignKeys extends \PKP\migration\Migration
     {
         Schema::table('filters', function (Blueprint $table) {
             $table->foreign('parent_filter_id', 'filters_parent_filter_id')->references('filter_id')->on('filters')->onDelete('cascade');
-            if (!DB::getDoctrineSchemaManager()->introspectTable('filters')->hasIndex('filters_parent_filter_id')) {
+            if (!Schema::hasIndex('filters', 'filters_parent_filter_id')) {
                 $table->index(['parent_filter_id'], 'filters_parent_filter_id');
             }
         });
@@ -225,7 +225,7 @@ abstract class I8333_AddMissingForeignKeys extends \PKP\migration\Migration
                 $table->foreign('parent_id', 'navigation_menu_item_assignments_parent_id')
                     ->references('navigation_menu_item_id')->on('navigation_menu_items')
                     ->onDelete('cascade');
-                if (!DB::getDoctrineSchemaManager()->introspectTable('navigation_menu_item_assignments')->hasIndex('navigation_menu_item_assignments_parent_id')) {
+                if (!Schema::hasIndex('navigation_menu_item_assignments', 'navigation_menu_item_assignments_parent_id')) {
                     $table->index(['parent_id'], 'navigation_menu_item_assignments_parent_id');
                 }
             }
@@ -239,7 +239,7 @@ abstract class I8333_AddMissingForeignKeys extends \PKP\migration\Migration
                     $table->foreign('context_id', "{$tableName}_context_id")
                         ->references($this->getContextKeyField())
                         ->on($this->getContextTable())->onDelete('cascade');
-                    if (!DB::getDoctrineSchemaManager()->introspectTable($tableName)->hasIndex("{$tableName}_context_id")) {
+                    if (!Schema::hasIndex($tableName, "{$tableName}_context_id")) {
                         $table->index(['context_id'], "{$tableName}_context_id");
                     }
                 }
@@ -252,7 +252,7 @@ abstract class I8333_AddMissingForeignKeys extends \PKP\migration\Migration
                 $table->foreign('sender_id', 'email_log_sender_id')
                     ->references('user_id')->on('users')
                     ->onDelete('cascade');
-                if (!DB::getDoctrineSchemaManager()->introspectTable('email_log')->hasIndex('email_log_sender_id')) {
+                if (!Schema::hasIndex('email_log', 'email_log_sender_id')) {
                     $table->index(['sender_id'], 'email_log_sender_id');
                 }
             }

@@ -1,12 +1,13 @@
 # M. Ali <vorteem@gmail.com>, 2022, 2023.
 # Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2023.
+# "M. Ali" <vorteem@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2023-09-03 02:58+0000\n"
-"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"PO-Revision-Date: 2024-08-16 18:40+0000\n"
+"Last-Translator: \"M. Ali\" <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ar/>"
 "\n"
 "Language: ar\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 4.13.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "user.accountInformation"
 msgstr "معلومات الحساب"
@@ -738,3 +739,6 @@ msgstr "تم الكشف عن مُعرَّفات ORCiD مكررة للمساهم�
 
 msgid "orcid.verify.hasUnauthenticatedOrcid"
 msgstr "تم الكشف عن مُعرَّفات ORCiD غير مرخصة للمساهمين."
+
+msgid "user.authorization.submission.incomplete.workflowAccessRestrict"
+msgstr "الوصول لمجريات العمل مقيد بالنسبة إلى طلبات التقديم غير المكتملة."

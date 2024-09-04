@@ -609,26 +609,3 @@ msgstr "გამოტოვეთ ეს ელფოსტა"
 
 msgid "editor.decision.stepError"
 msgstr "იყო პრობლემა {$stepName} საფეხურთან დაკავშირებით."
-
-msgid "editor.review.logResponse.for"
-msgstr "ჟურნალის პასუხი"
-
-msgid "editor.review.logResponse"
-msgstr "ჟურნალის პასუხი"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "პასუხი უნდა შეირჩეს"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "რეცენზენტმა მიიღო გადახედვის მოწვევა"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "რეცენზენტმა უარი თქვა განხილვის მოწვევაზე"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "ჩაწერეთ პასუხი რეცენზენტის სახელით"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"თუ რეცენზენტი დაგიკავშირდება ელ.ფოსტით ან სხვა საშუალებით, შეგიძლიათ ჩაწეროთ"
-" მათი პასუხი მათთვის"

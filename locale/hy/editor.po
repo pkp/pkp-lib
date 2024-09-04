@@ -619,26 +619,3 @@ msgstr "{$stepName} քայլի հետ կապված խնդիր առաջացավ:"
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Նույն հաստատությունը որպես հեղինակ"
-
-msgid "editor.review.logResponse.for"
-msgstr "Տեղեկամատյան պատասխան"
-
-msgid "editor.review.logResponse"
-msgstr "Գրանցման պատասխան"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "Պատասխանը պետք է ընտրվի"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "Գրախոսը ընդունել է վերանայման հրավերը"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "Գրախոսը մերժել է վերանայման հրավերը"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "Գրանցեք պատասխանը վերանայողի անունից"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"Եթե ​​ակնարկը ձեզ հետ է կապում էլփոստի կամ այլ միջոցների միջոցով, կարող եք "
-"արձանագրել դրանց պատասխանը նրանց համար"

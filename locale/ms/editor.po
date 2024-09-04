@@ -598,26 +598,3 @@ msgstr ""
 
 msgid "editor.decision.stepError"
 msgstr ""
-
-msgid "editor.review.logResponse.for"
-msgstr "Tindak balas log untuk"
-
-msgid "editor.review.logResponse"
-msgstr "Respons Log"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "Respons mesti dipilih"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "Pengulas telah menerima jemputan untuk mengkaji"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "Pengulas telah menolak jemputan untuk mengkaji"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "Catat respons bagi pihak pengulas"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"Sekiranya pengulas menghubungi anda melalui e -mel atau cara lain, anda "
-"boleh merakam jawapan mereka untuk mereka"

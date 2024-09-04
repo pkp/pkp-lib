@@ -615,26 +615,3 @@ msgstr "Preskoči ovu e-poštu"
 
 msgid "editor.decision.stepError"
 msgstr "Došlo je do problema s korakom {$stepName}."
-
-msgid "editor.review.logResponse.for"
-msgstr "Odgovor zapisnika za"
-
-msgid "editor.review.logResponse"
-msgstr "Odgovor dnevnika"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "Odgovor mora biti odabran"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "Recenzent je prihvatio poziv za pregled"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "Recenzent je odbio poziv za pregled"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "Zabilježite odgovor u ime recenzenta"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"Ako vas recenzent kontaktira putem e -pošte ili bilo kojeg drugog sredstva, "
-"možete zabilježiti njihov odgovor za njih"

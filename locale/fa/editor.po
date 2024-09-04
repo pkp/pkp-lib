@@ -585,26 +585,3 @@ msgstr ""
 
 msgid "editor.decision.stepError"
 msgstr ""
-
-msgid "editor.review.logResponse.for"
-msgstr "پاسخ ورود به سیستم برای"
-
-msgid "editor.review.logResponse"
-msgstr "پاسخ ورود به سیستم"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "یک پاسخ باید انتخاب شود"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "داور دعوت به بررسی را پذیرفته است"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "داور دعوت به بررسی را رد کرده است"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "پاسخ را از طرف داوری ضبط کنید"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"اگر داور از طریق ایمیل یا هر وسیله دیگری با شما تماس بگیرد ، می توانید پاسخ "
-"آنها را برای آنها ضبط کنید"

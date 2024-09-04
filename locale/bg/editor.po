@@ -624,26 +624,3 @@ msgstr "Имаше проблем със стъпка {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Същата институция като автора"
-
-msgid "editor.review.logResponse.for"
-msgstr "Отговор на дневника за"
-
-msgid "editor.review.logResponse"
-msgstr "Отговор на дневника"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "Трябва да бъде избран отговор"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "Рецензентът е приел поканата за преглед"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "Рецензентът отказа поканата за преглед"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "Запишете отговора от името на рецензента"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"Ако рецензентът се свърже с вас чрез имейл или някакви други средства, "
-"можете да запишете отговора им за тях"

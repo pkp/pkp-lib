@@ -612,26 +612,3 @@ msgstr "Askeleen {$stepName} kanssa oli ongelma."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Sama instituutio kuin kirjoittajalla"
-
-msgid "editor.review.logResponse.for"
-msgstr "Lokivaste jstk"
-
-msgid "editor.review.logResponse"
-msgstr "Lokivaste"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "Vastaus on valittava"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "Arvioija on hyväksynyt tarkistamisen kutsun"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "Arvioija on hylännyt tarkistamisen kutsun"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "Tallenna vastaus arvioijan puolesta"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"Jos arvioija ottaa sinuun yhteyttä sähköpostitse tai muilla keinoilla, voit "
-"tallentaa heidän vastauksensa heille"

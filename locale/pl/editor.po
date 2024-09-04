@@ -616,26 +616,3 @@ msgstr "Pomiń tego maila"
 
 msgid "editor.decision.stepError"
 msgstr "Wystąpił problem z krokiem {$stepName}."
-
-msgid "editor.review.logResponse.for"
-msgstr "Odpowiedź dziennika dla"
-
-msgid "editor.review.logResponse"
-msgstr "Reakcja dziennika"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "Należy wybrać odpowiedź"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "Recenzent przyjął zaproszenie do przeglądu"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "Recenzent odmówił zaproszenia do przeglądu"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "Zapisz odpowiedź w imieniu recenzenta"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"Jeśli recenzent skontaktuje się z Tobą za pośrednictwem poczty "
-"elektronicznej lub innych środków, możesz zarejestrować ich odpowiedź"

@@ -632,26 +632,3 @@ msgstr "Возникла проблема с шагом {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Та же организация, что и у автора"
-
-msgid "editor.review.logResponse.for"
-msgstr "Ответ журнала для"
-
-msgid "editor.review.logResponse"
-msgstr "Ответ журнала"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "Ответ должен быть выбран"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "Рецензент принял приглашение на рассмотрение"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "Рецензент отказался от приглашения на рассмотрение"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "Запишите ответ от имени рецензента"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"Если рецензент связывается с вами по электронной почте или любым другим "
-"способам, вы можете записать их ответ для них"

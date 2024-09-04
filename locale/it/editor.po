@@ -601,26 +601,3 @@ msgstr ""
 
 msgid "editor.decision.stepError"
 msgstr ""
-
-msgid "editor.review.logResponse.for"
-msgstr "Risposta del registro per"
-
-msgid "editor.review.logResponse"
-msgstr "Risposta del registro"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "Una risposta deve essere selezionata"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "Il revisore ha accettato l'invito a rivedere"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "Il revisore ha rifiutato l'invito a rivedere"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "Registra la risposta per conto del revisore"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"Se il revisore ti contatta tramite e -mail o qualsiasi altro mezzo, puoi "
-"registrare la loro risposta per loro"

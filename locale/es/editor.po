@@ -631,26 +631,3 @@ msgstr "Hubo un problema con el paso {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "La misma institución que el autor/a"
-
-msgid "editor.review.logResponse.for"
-msgstr "Respuesta de registro para"
-
-msgid "editor.review.logResponse"
-msgstr "Respuesta de registro"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "Se debe seleccionar una respuesta"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "El revisor ha aceptado la invitación para revisar"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "El revisor ha rechazado la invitación para revisar"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "Registre la respuesta en nombre del revisor"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"Si el revisor lo contacta por correo electrónico o cualquier otro medio, "
-"puede registrar su respuesta para ellos"

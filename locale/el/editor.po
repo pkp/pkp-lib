@@ -605,26 +605,3 @@ msgstr "Παραλείψτε αυτό το email"
 
 msgid "editor.decision.stepError"
 msgstr ""
-
-msgid "editor.review.logResponse.for"
-msgstr "Απάντηση καταγραφής για"
-
-msgid "editor.review.logResponse"
-msgstr "Κούτσουρο"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "Πρέπει να επιλεγεί μια απάντηση"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "Ο αναθεωρητής δέχτηκε την πρόσκληση για επανεξέταση"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "Ο αναθεωρητής απέρριψε την πρόσκληση για επανεξέταση"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "Καταγράψτε την απάντηση εκ μέρους του κριτικού"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"Εάν ο κριτικός επικοινωνήσει μαζί σας μέσω email ή οποιουδήποτε άλλου μέσου,"
-" μπορείτε να καταγράψετε την απάντησή τους για αυτούς"

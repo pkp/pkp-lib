@@ -619,26 +619,3 @@ msgstr "Prišlo je do težave pri koraku {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Ista institucija kot pri avtorju"
-
-msgid "editor.review.logResponse.for"
-msgstr "Odgovor dnevnika za"
-
-msgid "editor.review.logResponse"
-msgstr "Odgovor dnevnika"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "Izbrati je treba odgovor"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "Recenzent je sprejel povabilo na pregled"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "Recenzent je zavrnil povabilo na pregled"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "Zapišite odgovor v imenu recenzenta"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"Če vas recenzent kontaktira po e -pošti ali kakršnih koli drugih sredstvih, "
-"lahko zanje zapišete njihov odgovor"

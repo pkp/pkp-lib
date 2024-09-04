@@ -615,26 +615,3 @@ msgstr ""
 
 msgid "editor.decision.stepError"
 msgstr ""
-
-msgid "editor.review.logResponse.for"
-msgstr "Log reactie voor"
-
-msgid "editor.review.logResponse"
-msgstr "LOD -reactie"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "Een reactie moet worden geselecteerd"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "Recensent heeft de uitnodiging om te beoordelen aanvaard"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "Reviewer heeft de uitnodiging om te beoordelen te weigeren"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "Noteer de reactie namens de recensent"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"Als de recensent via e -mail of op een andere manier contact met u opneemt, "
-"kunt u zijn reactie voor hen vastleggen"

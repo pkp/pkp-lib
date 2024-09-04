@@ -616,26 +616,3 @@ msgstr "V kroku {$stepName} došlo k problému."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Stejná instituce jako u autora"
-
-msgid "editor.review.logResponse.for"
-msgstr "Odpověď protokolu pro"
-
-msgid "editor.review.logResponse"
-msgstr "Odpověď protokolu"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "Musí být vybrána odpověď"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "Recenzent přijal pozvání ke kontrole"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "Recenzent odmítl pozvání ke kontrole"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "Zaznamenejte odpověď jménem recenzenta"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"Pokud vás recenzent kontaktuje prostřednictvím e -mailu nebo jiných "
-"prostředků, můžete na ně zaznamenat jejich odpověď"

@@ -734,29 +734,3 @@ msgstr "Hi ha hagut un problema en el pas {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "La mateixa institució que l'autor/a"
-
-msgid ""
-msgstr "Language: ca\n"
-
-msgid "editor.review.logResponse.for"
-msgstr "Resposta del registre per"
-
-msgid "editor.review.logResponse"
-msgstr "Resposta del registre"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "Cal seleccionar una resposta"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "El crític ha acceptat la invitació a revisar"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "El crític ha rebutjat la invitació a la revisió"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "Registra la resposta en nom del crític"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"Si el revisor us contacta per correu electrònic o qualsevol altre mitjà, "
-"podeu registrar la seva resposta per a ells"

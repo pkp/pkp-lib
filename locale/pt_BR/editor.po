@@ -640,26 +640,3 @@ msgstr "Houve um problema na etapa {$stepName}."
 
 msgid "reviewer.list.reviewerSameInstitution"
 msgstr "Mesma instituição do autor"
-
-msgid "editor.review.logResponse.for"
-msgstr "Resposta de log para"
-
-msgid "editor.review.logResponse"
-msgstr "Resposta de log"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "Uma resposta deve ser selecionada"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "O revisor aceitou o convite para revisar"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "O revisor recusou o convite para revisar"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "Registre a resposta em nome do revisor"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr ""
-"Se o revisor entrar em contato com você por e -mail ou qualquer outro meio, "
-"você poderá gravar a resposta deles para eles"

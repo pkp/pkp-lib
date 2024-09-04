@@ -1,17 +1,18 @@
 # Emma U <emmaupkp@gmail.com>, 2021.
 # TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
+# Bjorn-Ole Kamm <pkp_trans@b-ok.de>, 2024.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-12-11 08:31+0000\n"
-"Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
+"PO-Revision-Date: 2024-06-18 07:16+0000\n"
+"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
 "Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
-"ja_JP/>\n"
-"Language: ja_JP\n"
+"ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "この投稿物を完全に削除してもよろしいですか？"
@@ -47,40 +48,43 @@ msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "決定を変更"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr ""
+msgstr "この投稿に対してこの決定を記録する権限がありません。"
 
 msgid "editor.submission.workflowDecision.invalidEditor"
-msgstr ""
+msgstr "編集者は認識されなかったため、この投稿に対する決定を記録する権限がない可能性"
+"があります。"
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
-msgstr ""
+msgstr "下記の受信者にメールを送信することはできません: {$names}."
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "この査読ラウンドは見つかりませんでした。"
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
-msgstr ""
+msgstr "査読ラウンドが提供されましたが、この決定は査読段階では行われません。"
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr ""
+msgstr "この査読ラウンドは本投稿の一部ではありません。"
 
 msgid "editor.submission.workflowDecision.invalidStage"
-msgstr ""
+msgstr "本投稿は、この決定を下すのに適切なワークフローの段階ではありません。"
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
-msgstr ""
+msgstr "編集上の決定を記録するには、この投稿を担当する必要があります。"
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
-msgstr ""
+msgstr "この決定を行うには、査読ラウンド ID を指定する必要があります。"
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
-msgstr ""
+msgstr "この段階に最終決定を下せる編集者が配置されていなければ、推奨を行うことはでき"
+"ません。"
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
-msgstr ""
+msgstr "本投稿に関して決定を下すことができませんでした。投稿 ID "
+"が見つからないか、要求された投稿と一致しません。"
 
 msgid "editor.submission.workflowDecision.typeInvalid"
-msgstr ""
+msgstr "この決定は見つかりませんでした。認識される決定タイプを指定してください。"
 
 msgid "editor.review.notInitiated"
 msgstr "査読プロセスはまだ開まっていません。"
@@ -89,7 +93,7 @@ msgid "editor.submission.copyediting.personalMessageToUser"
 msgstr "ユーザーへのメッセージ"
 
 msgid "editor.submission.externalReviewDescription"
-msgstr "下記のファイルを選択することで、査読ステージに移行します。"
+msgstr "以下からファイルを選択して査読段階に送ってください。"
 
 msgid "editor.submission.fileAuditor.form.fileRequired"
 msgstr "ユーザーを割り当てるファイルを1つ以上選択する必要があります。"
@@ -101,7 +105,7 @@ msgid "editor.submission.fileAuditor.skipEmail"
 msgstr "監査役にメールを送らない"
 
 msgid "editor.submission.fileAuditor.form.userRequired"
-msgstr "割り当てるユーザーを選択する必要があります。"
+msgstr "指定ユーザーを選択する必要があります。"
 
 msgid "editor.submission.uploadSelectFiles"
 msgstr "ファイルのアップロード/選択"
@@ -144,7 +148,7 @@ msgid "editor.review.enrollReviewer.short"
 msgstr "既存のユーザーを登録する"
 
 msgid "editor.review.unassignReviewer"
-msgstr "査読者の未割当"
+msgstr "査読者の未指定"
 
 msgid "editor.review.cancelReviewer"
 msgstr "査読者の取り消し"
@@ -153,7 +157,7 @@ msgid "editor.review.reinstateReviewer"
 msgstr "査読者の復活"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "査読依頼を再送信"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "査読タイプ"
@@ -207,10 +211,10 @@ msgid "editor.review.NotifyAuthorResubmit"
 msgstr "改訂版では、新たな査読が行われます。"
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
-msgstr ""
+msgstr "改訂版は新たな査読の対象にはなりません。"
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
-msgstr ""
+msgstr "改訂版は新たな査読の対象にはなります。"
 
 msgid "editor.review.dateAccepted"
 msgstr "査読受理日"
@@ -288,7 +292,7 @@ msgid "editor.review.reviewerThanked"
 msgstr "査読者へ謝意送付済み"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "依頼送信済み"
 
 msgid "editor.review.reviewerComments"
 msgstr "査読者コメント"
@@ -316,7 +320,8 @@ msgid "editor.review.errorReinstatingReviewer"
 msgstr "査読者の復活にエラーが生じました。 もう一度お試しください。"
 
 msgid "editor.review.errorResendingReviewerRequest"
-msgstr ""
+msgstr "査読依頼を再検討するよう査読者にお願いする際にエラーが発生しました。もう一度"
+"お試しください。"
 
 msgid "editor.review.userGroupSelect"
 msgstr "この査読者のユーザーグループにユーザーを登録する"
@@ -340,7 +345,7 @@ msgstr ""
 "め、作成できません。"
 
 msgid "editor.discussion.errorNotStageParticipant"
-msgstr "選択された参加者は、このステージに割り当てられません。"
+msgstr "選択された参加者は、この段階に割り当てられません。"
 
 msgid "editor.submission.schedulePublication"
 msgstr "公開スケジュール"
@@ -380,7 +385,7 @@ msgstr ""
 "なります。このファイルを非承認にしますか？"
 
 msgid "editor.submission.addAuditor"
-msgstr "監査役の任命"
+msgstr "監査役を指定"
 
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
 msgstr ""
@@ -505,7 +510,7 @@ msgid "reviewer.list.activeReviewsDescription"
 msgstr "現在任命されているアクティブな査読"
 
 msgid "reviewer.list.assignedToLastRound"
-msgstr ""
+msgstr "この査読者は前回のラウンドで査読を完了しました。"
 
 msgid "reviewer.list.completedReviews"
 msgstr "査読完了"
@@ -532,13 +537,13 @@ msgid "reviewer.list.averageCompletion"
 msgstr "査読完了までの平均日数"
 
 msgid "reviewer.list.neverAssigned"
-msgstr "割り当てなし"
+msgstr "査読歴なし"
 
 msgid "reviewer.list.reassign"
 msgstr "再任命"
 
 msgid "reviewer.list.reassign.withName"
-msgstr ""
+msgstr "{$name} を再指定"
 
 msgid "reviewer.list.currentlyAssigned"
 msgstr "査読者はすでにこの投稿の査読に割り当てられています。"
@@ -562,49 +567,31 @@ msgid "reviewer.list.empty"
 msgstr "査読者が見つかりませんでした"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "以前のラウンドに任命した"
 
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "決定キャンセル"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "この決定をキャンセルしてもよろしいですか?"
 
 msgid "editor.decision.completeSteps"
-msgstr ""
+msgstr "この決定を下すには、以下のステップを完了してください"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "このメールをスキップしないでください"
 
 msgid "editor.decision.emailSkipped"
-msgstr ""
+msgstr "このステップはスキップされ、メールは送信されません。"
 
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "決定記録"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "メールをスキップ"
 
 msgid "editor.decision.stepError"
-msgstr ""
+msgstr "{$stepName} ステップで問題が発生しました。"
 
-msgid "editor.review.logResponse.for"
-msgstr "のログ応答"
-
-msgid "editor.review.logResponse"
-msgstr "ログ応答"
-
-msgid "editor.review.logResponse.form.responseRequired"
-msgstr "応答を選択する必要があります"
-
-msgid "editor.review.logResponse.form.option.accepted"
-msgstr "レビュアーは、レビューへの招待状を受け入れました"
-
-msgid "editor.review.logResponse.form.option.declined"
-msgstr "レビューアはレビューへの招待を拒否しました"
-
-msgid "editor.review.logResponse.form.detail"
-msgstr "レビュアーに代わって応答を記録します"
-
-msgid "editor.review.logResponse.form.subDetail"
-msgstr "電子メールまたはその他の手段を通じてレビュアーがあなたに連絡した場合、あなたは彼らのために彼らの応答を記録することができます"
+msgid "reviewer.list.reviewerSameInstitution"
+msgstr "著者と同じ所属機関"

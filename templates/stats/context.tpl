@@ -110,7 +110,7 @@
 							</pkp-button>
 						</template>
 					</pkp-header>
-					<pkp-table labelled-by="contextDetailTableLabel" :class="tableClasses">
+					<pkp-table labelled-by="contextDetailTableLabel">
 						<table-header>
 							<table-column v-for="column in tableColumns" :key="column.name" :id="column.name">
 								{{ column.label }}

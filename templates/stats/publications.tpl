@@ -183,7 +183,6 @@
 					</pkp-header>
 					<pkp-table
 						labelled-by="publicationDetailTableLabel"
-						:class="tableClasses"
 						@sort="setOrderBy"
 					>
 						<table-header>

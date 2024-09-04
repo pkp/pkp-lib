@@ -16,7 +16,7 @@ use Mockery;
 use PKP\db\DAORegistry;
 use APP\core\Application;
 use PKP\tests\PKPTestCase;
-use APP\user\Repository as UserRepository;
+use PKP\user\Repository as UserRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
 use PKP\jobs\notifications\StatisticsReportMail;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;

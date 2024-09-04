@@ -18,7 +18,7 @@
             <div class="orcid_button_container">{$orcidIcon} {translate key='orcid.connect'}</div>
         {/if}
     </button>
-    <a href="{url router="page" page="orcid" op="about"}"> {translate key='orcid.about.title'}</a>
+    <a href="{url router="page" page="orcid" op="about"}">{translate key='orcid.about.title'}</a>
 {/capture}
 
 
@@ -44,7 +44,7 @@
                 console.log(status + ", error: " + error);
                 {rdelim}
             {rdelim});
-        var oauthWindow = window.open("{$orcidOAuthUrl}", "_blank", "toolbar=no, scrollbars=yes, width=500, height=700, top=500, left=500");
+        var oauthWindow = window.open("{$orcidOAuthUrl}", "_blank", "toolbar=no, scrollbars=yes, width=540, height=700, top=500, left=500");
         oauthWindow.opener = self;
         return false;
         {rdelim}

@@ -41,6 +41,7 @@ class PKPSchemaService
     public const SCHEMA_PUBLICATION = 'publication';
     public const SCHEMA_REVIEW_ASSIGNMENT = 'reviewAssignment';
     public const SCHEMA_REVIEW_ROUND = 'reviewRound';
+    public const SCHEMA_ROR = 'ror';
     public const SCHEMA_SECTION = 'section';
     public const SCHEMA_SITE = 'site';
     public const SCHEMA_SUBMISSION = 'submission';

@@ -27,6 +27,7 @@ use PKP\plugins\Hook;
  */
 class PKPSchemaService
 {
+    public const SCHEMA_AFFILIATION = 'affiliation';
     public const SCHEMA_ANNOUNCEMENT = 'announcement';
     public const SCHEMA_AUTHOR = 'author';
     public const SCHEMA_CATEGORY = 'category';

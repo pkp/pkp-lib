@@ -24,6 +24,7 @@
 
 namespace PKP\facades;
 
+use PKP\affiliation\Affiliation as AffiliationRepository;
 use PKP\announcement\Repository as AnnouncementRepository;
 use PKP\author\Repository as AuthorRepository;
 use PKP\category\Repository as CategoryRepository;
@@ -46,6 +47,11 @@ use PKP\userGroup\Repository as UserGroupRepository;
 
 class Repo
 {
+    public static function affiliation(): AffiliationRepository
+    {
+        return app(AffiliationRepository::class);
+    }
+
     public static function announcement(): AnnouncementRepository
     {
         return app(AnnouncementRepository::class);

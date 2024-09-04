@@ -151,7 +151,7 @@ class AuthorizeUserData
                 echo '
                     <html><body><script type="text/javascript">' .
                         $this->renderFrontendErrorNotification($errorMessages) .
-                        'opener.$("#profileTabs").tabs("load", 3);
+                        'opener.$("#profileTabs").tabs("load", 0);
                         window.close();
                     </script></body></html>
                 ';

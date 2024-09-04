@@ -14,11 +14,11 @@
 
 namespace PKP\mail\mailables;
 
-use PKP\mail\traits\OrcidVariables;
 use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
+use PKP\mail\traits\OrcidVariables;
 use PKP\mail\traits\Recipient;
 use PKP\security\Role;
 
@@ -36,7 +36,7 @@ class OrcidCollectAuthorId extends Mailable
     public function __construct(Context $context, Submission $submission, string $oauthUrl)
     {
         parent::__construct([$context, $submission]);
-        $this->setupOrcidVariables($oauthUrl);
+        $this->setupOrcidVariables($oauthUrl, $context);
     }
 
     /**

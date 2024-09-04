@@ -10,7 +10,7 @@
  * @brief Tests for the submission search reindexing job.
  */
 
-namespace PKP\tests\jobs\submissions;
+namespace PKP\tests\jobs\invitations;
 
 use PKP\tests\PKPTestCase;
 use PKP\jobs\invitations\RemoveExpiredInvitationsJob;

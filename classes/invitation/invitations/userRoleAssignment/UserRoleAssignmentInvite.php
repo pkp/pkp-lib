@@ -459,9 +459,9 @@ class UserRoleAssignmentInvite extends Invitation implements IApiHandleable
     {
         // Encrypt the password if it exists
         // There is already a validation rule that makes username and password fields interconnected
-        if (isset($this->payload->username) && isset($this->payload->password) && !$this->payload->passwordHashed) {
-            $this->payload->password = Validation::encryptCredentials($this->payload->username, $this->payload->password);
-            $this->payload->passwordHashed = true;
+        if (isset($this->getSpecificPayload()->username) && isset($this->getSpecificPayload()->password) && !$this->getSpecificPayload()->passwordHashed) {
+            $this->getSpecificPayload()->password = Validation::encryptCredentials($this->getSpecificPayload()->username, $this->getSpecificPayload()->password);
+            $this->getSpecificPayload()->passwordHashed = true;
         }
 
         // Call the parent updatePayload method to continue the normal update process

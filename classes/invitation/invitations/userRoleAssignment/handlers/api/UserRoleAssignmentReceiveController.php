@@ -106,7 +106,8 @@ class UserRoleAssignmentReceiveController extends ReceiveInvitationController
 
         foreach ($this->invitation->getSpecificPayload()->userGroupsToRemove as $userUserGroup) {
             $userGroupHelper = UserGroupHelper::fromArray($userUserGroup);
-            Repo::userGroup()-> deleteAssignmentsByUserId(
+            Repo::userGroup()->endAssignments(
+                $this->invitation->getContextId(),
                 $user->getId(),
                 $userGroupHelper->userGroupId
             );

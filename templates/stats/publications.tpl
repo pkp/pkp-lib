@@ -185,8 +185,8 @@
 						labelled-by="publicationDetailTableLabel"
 						@sort="setOrderBy"
 					>
-						<pkp-table-header>
-							<pkp-table-column
+						<table-header>
+							<table-column
 								v-for="column in tableColumns"
 								:key="column.name"
 								:id="column.name"
@@ -205,11 +205,11 @@
 								<template v-else>
 									{{ column.label }}
 								</template>
-							</pkp-table-column>
-						</pkp-table-header>
-						<pkp-table-body>
-							<pkp-table-row v-for="(row) in items" :key="row.key">
-								<pkp-table-cell>
+							</table-column>
+						</table-header>
+						<table-body>
+							<table-row v-for="(row) in items" :key="row.key">
+								<table-cell>
 									<a
 										:href="row.publication.urlPublished"
 										class="pkpStats__itemLink"
@@ -218,17 +218,17 @@
 										<span class="pkpStats__itemAuthors">{{ row.publication.authorsStringShort }}</span>
 										<span class="pkpStats__itemTitle">{{ localize(row.publication.fullTitle) }}</span>
 									</a>
-								</pkp-table-cell>
-								<pkp-table-cell>{{ row.abstractViews }}</pkp-table-cell>
-								<pkp-table-cell>{{ row.galleyViews }}</pkp-table-cell>
-								<pkp-table-cell>{{ row.pdfViews }}</pkp-table-cell>
-								<pkp-table-cell>{{ row.htmlViews }}</pkp-table-cell>
-								<pkp-table-cell>{{ row.otherViews }}</pkp-table-cell>
-								<pkp-table-cell>{{ row.total }}</pkp-table-cell>
-							</pkp-table-row>
+								</table-cell>
+								<table-cell>{{ row.abstractViews }}</table-cell>
+								<table-cell>{{ row.galleyViews }}</table-cell>
+								<table-cell>{{ row.pdfViews }}</table-cell>
+								<table-cell>{{ row.htmlViews }}</table-cell>
+								<table-cell>{{ row.otherViews }}</table-cell>
+								<table-cell>{{ row.total }}</table-cell>
+							</table-row>
 							<template #no-content v-if="!items.length">
-								<pkp-table-row class="pkpStats__noRecords">
-									<pkp-table-cell :colspan="tableColumns.length" class="!py-8 !px-4 !text-center">
+								<table-row class="pkpStats__noRecords">
+									<table-cell :colspan="tableColumns.length" class="!py-8 !px-4 !text-center">
 										<template v-if="isLoadingItems">
 											<spinner></spinner>
 											{translate key="common.loading"}
@@ -236,10 +236,10 @@
 										<template v-else>
 											{translate key="stats.publications.none"}
 										</template>
-									</pkp-table-cell>
-								</pkp-table-row>
+									</table-cell>
+								</table-row>
 							</template>
-						</pkp-table-body>
+						</table-body>
 					</pkp-table>
 					<pagination
 						v-if="lastPage > 1"

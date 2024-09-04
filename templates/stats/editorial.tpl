@@ -105,27 +105,27 @@
 							class="pkpTable--editorialStats"
 							labelled-by="editorialActivityTableLabel"
 						>
-							<pkp-table-header>
-								<pkp-table-column v-for="column in tableColumns" :key="column.name" :id="column.name" class="!max-w-[8rem] truncate">
+							<table-header>
+								<table-column v-for="column in tableColumns" :key="column.name" :id="column.name" class="!max-w-[8rem] truncate">
 									{{ column.label }}
-								</pkp-table-column>
-							</pkp-table-header>
-							<pkp-table-body>
-								<pkp-table-row
+								</table-column>
+							</table-header>
+							<table-body>
+								<table-row
 									v-for="(row, index) in tableRows"
 									:key="row.key"
 								>
-									<pkp-table-cell>
+									<table-cell>
 										{{ row.name }}
 										<tooltip v-if="row.description"
 											:label="t('stats.descriptionForStat', {ldelim}stat: row.name{rdelim})"
 											:tooltip="row.description"
 										></tooltip>
-									</pkp-table-cell>
-									<pkp-table-cell>{{ row.dateRange }}</pkp-table-cell>
-									<pkp-table-cell>{{ row.total }}</pkp-table-cell>
-								</pkp-table-row>
-							</pkp-table-body>
+									</table-cell>
+									<table-cell>{{ row.dateRange }}</table-cell>
+									<table-cell>{{ row.total }}</table-cell>
+								</table-row>
+							</table-body>
 						</pkp-table>
 					</div>
 				</div>

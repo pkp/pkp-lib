@@ -14,7 +14,14 @@
 
 namespace PKP\invitation\invitations\userRoleAssignment\payload;
 
+use Illuminate\Validation\Rule;
+use PKP\invitation\core\Invitation;
 use PKP\invitation\core\InvitePayload;
+use PKP\invitation\invitations\userRoleAssignment\rules\AllowedKeysRule;
+use PKP\invitation\invitations\userRoleAssignment\rules\RemoveUserGroupRule;
+use PKP\invitation\invitations\userRoleAssignment\rules\UserGroupExistsRule;
+use PKP\invitation\invitations\userRoleAssignment\rules\UsernameExistsRule;
+use PKP\invitation\invitations\userRoleAssignment\UserRoleAssignmentInvite;
 
 class UserRoleAssignmentInvitePayload extends InvitePayload
 {
@@ -34,5 +41,104 @@ class UserRoleAssignmentInvitePayload extends InvitePayload
     ) 
     {
         parent::__construct(get_object_vars($this));
+    }
+
+    public function getValidationRules(UserRoleAssignmentInvite $invitation, string $validationContext = Invitation::VALIDATION_CONTEXT_DEFAULT): array
+    {
+        $validationRules = [
+            'givenName' => [
+                Rule::excludeIf(!is_null($invitation->getUserId()) && $validationContext === Invitation::VALIDATION_CONTEXT_FINALIZE),
+                Rule::prohibitedIf(!is_null($invitation->getUserId())),
+                Rule::when(in_array($validationContext, [Invitation::VALIDATION_CONTEXT_INVITE]), ['nullable']),
+                Rule::requiredIf($validationContext === Invitation::VALIDATION_CONTEXT_FINALIZE),
+                'sometimes',
+                'string',
+                'max:255',
+            ],
+            'familyName' => [
+                Rule::excludeIf(!is_null($invitation->getUserId()) && $validationContext === Invitation::VALIDATION_CONTEXT_FINALIZE),
+                Rule::prohibitedIf(!is_null($invitation->getUserId())),
+                Rule::when(in_array($validationContext, [Invitation::VALIDATION_CONTEXT_INVITE]), ['nullable']),
+                Rule::requiredIf($validationContext === Invitation::VALIDATION_CONTEXT_FINALIZE),
+                'sometimes',
+                'string',
+                'max:255',
+            ],
+            'affiliation' => [
+                Rule::excludeIf(!is_null($invitation->getUserId()) && $validationContext === Invitation::VALIDATION_CONTEXT_FINALIZE),
+                Rule::prohibitedIf(!is_null($invitation->getUserId())),
+                Rule::when(in_array($validationContext, [Invitation::VALIDATION_CONTEXT_INVITE]), ['nullable']),
+                Rule::requiredIf($validationContext === Invitation::VALIDATION_CONTEXT_FINALIZE),
+                'sometimes',
+                'string',
+                'max:255',
+            ],
+            'country' => [
+                Rule::excludeIf(!is_null($invitation->getUserId()) && $validationContext === Invitation::VALIDATION_CONTEXT_FINALIZE),
+                Rule::prohibitedIf(!is_null($invitation->getUserId())),
+                Rule::when(in_array($validationContext, [Invitation::VALIDATION_CONTEXT_INVITE]), ['nullable']),
+                Rule::requiredIf($validationContext === Invitation::VALIDATION_CONTEXT_FINALIZE),
+                'sometimes',
+                'string',
+                'max:255',
+            ],
+            'userGroupsToAdd' => [
+                Rule::requiredIf($validationContext === Invitation::VALIDATION_CONTEXT_INVITE),
+                'sometimes',
+                'array',
+                'bail',
+            ],
+            'userGroupsToAdd.*' => [
+                'array',
+                new AllowedKeysRule(['userGroupId', 'masthead', 'dateStart', 'dateEnd']),
+            ],
+            'userGroupsToAdd.*.userGroupId' => [
+                'distinct',
+                'required',
+                'integer',
+                new UserGroupExistsRule(),
+            ],
+            'userGroupsToAdd.*.masthead' => 'required|bool',
+            'userGroupsToAdd.*.dateStart' => 'required|date|after_or_equal:today',
+            'userGroupsToRemove' => [
+                'sometimes',
+                'bail',
+                Rule::prohibitedIf(is_null($invitation->getUserId())), 
+                Rule::when(in_array($validationContext, [Invitation::VALIDATION_CONTEXT_INVITE, Invitation::VALIDATION_CONTEXT_FINALIZE]), ['nullable']),
+            ],
+            'userGroupsToRemove.*' => [
+                'array',
+                new AllowedKeysRule(['userGroupId']),
+            ],
+            'userGroupsToRemove.*.userGroupId' => [
+                'distinct',
+                'required',
+                'integer',
+                new UserGroupExistsRule(),
+                new RemoveUserGroupRule($invitation),
+            ],
+            'username' => [
+                'bail',
+                Rule::prohibitedIf(!is_null($invitation->getUserId())),
+                Rule::requiredIf(is_null($invitation->getUserId()) && $validationContext === Invitation::VALIDATION_CONTEXT_FINALIZE),
+                'max:32',
+                new UsernameExistsRule(),
+                Rule::when($validationContext === Invitation::VALIDATION_CONTEXT_INVITE, ['nullable']),
+                'required_with:password',
+            ],
+            'password' => [
+                'bail',
+                Rule::prohibitedIf(!is_null($invitation->getUserId())),
+                Rule::requiredIf(is_null($invitation->getUserId()) && $validationContext === Invitation::VALIDATION_CONTEXT_FINALIZE),
+                'max:255',
+                Rule::when($validationContext === Invitation::VALIDATION_CONTEXT_INVITE, ['nullable']),
+                'required_with:username'
+            ],
+            'orcid' => [
+                Rule::when(in_array($validationContext, [Invitation::VALIDATION_CONTEXT_INVITE, Invitation::VALIDATION_CONTEXT_FINALIZE]), ['nullable']),
+            ],
+        ];
+
+        return $validationRules;
     }
 }

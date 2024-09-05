@@ -979,8 +979,8 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewId = $request->getUserVar('reviewAssignmentId');
         $submissionComments = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, null, $reviewId, true);
         $submissionCommentsPrivate = $submissionCommentDao->getReviewerCommentsByReviewerId($submissionId, null, $reviewId, false);
-        $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
-        $submission = Repo::submission()->get($submissionId);
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $reviewAssignments = Repo::reviewAssignment()->getCollector()->filterBySubmissionIds([$submission->getId()])->getMany();
         $alphabet = range('A', 'Z');
         $reviewerLetter = "";
@@ -1199,7 +1199,7 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewId = $request->getUserVar('reviewAssignmentId');
         $authorFriendly = $request->getUserVar('authorFriendly');
         $xmlFileName = "submission_review_{$submissionId}-{$reviewId}.xml";
-        $submission = Repo::submission()->get($submissionId);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $publication = $submission->getCurrentPublication();
         $htmlTitle = $publication->getLocalizedTitle(null, 'html');
         $mappings = [
@@ -1211,7 +1211,7 @@ class PKPReviewerGridHandler extends GridHandler
             '</u>' 	=> '</underline>',
         ];
         $articleTitle = str_replace(array_keys($mappings), array_values($mappings), $htmlTitle);
-        $reviewAssignment = Repo::reviewAssignment()->get($reviewId);
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
         $recommendation = $reviewAssignment->getLocalizedRecommendation();
         $impl = new DOMImplementation();
         $doctype = $impl->createDocumentType('article',

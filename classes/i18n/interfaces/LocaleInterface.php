@@ -37,8 +37,7 @@ interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
     public const DEFAULT_LOCALE = 'en';
 
     /** Regular expression to validate and extract pieces of a locale code */
-    public const LOCALE_EXPRESSION = '/^(?P<language>[a-z]{2})(?:_(?P<country>[A-Za-z]{2,4}))?(?:@(?P<script>[A-Za-z\d]{5,8}|\d[A-Za-z\d]{3}))?$/';
-    public const LOCALE_EXPRESSION_SUBMISSION = '/^(?P<language>[A-Za-z]{2,4})(?:[_-](?P<script>[A-Za-z]{4,5}|[0-9]{4}))?(?:[_-](?P<country>[A-Za-z]{2}|[0-9]{3}))?(?:@(?P<variant>[a-z]{2,30})(?:[_-](?P<variant_script>(?&script)))?)?$/';
+    public const LOCALE_EXPRESSION = '/^(?P<language>[A-Za-z]{2,4})(?:[_-](?P<script>[A-Za-z]{4,5}|[0-9]{4}))?(?:[_-](?P<country>[A-Za-z]{2}|[0-9]{3}))?(?:@(?P<variant>[a-z]{2,30})(?:[_-](?P<variant_script>(?&script)))?)?$/';
 
     /**
      * Attempts to retrieve the primary locale for the current context, if not available, then for the site.
@@ -72,11 +71,6 @@ interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
      * Check if the supplied locale is valid.
      */
     public function isLocaleValid(?string $locale): bool;
-
-    /**
-     * Check if the supplied submission locale is valid.
-     */
-    public function isSubmissionLocaleValid(?string $locale): bool;
 
     /**
      * Retrieves the metadata of a locale

@@ -217,6 +217,16 @@ class DepositSubmissionTest extends PKPTestCase
             {
                 return [];
             }
+
+            public function exportIssues(array $issues, Context $context): array
+            {
+                return [];
+            }
+
+            public function depositIssues(array $issues, Context $context): array
+            {
+                return [];
+            }
         };
         
         $depositSubmissionMock = Mockery::mock(DepositSubmission::class, [

@@ -14,18 +14,6 @@
 		{translate key=$pageTitle}
 	</h1>
 	<div class="app__contentPanel">
-		<pkp-table
-			:columns="columns"
-			:rows="rows"
-			:description="description"
-			:label="label"
-		></pkp-table>
-
-		<pagination v-if="lastPage > 1"
-			:current-page="currentPage"
-			:last-page="lastPage"
-			:is-loading="isLoadingItems"
-			@set-page="handlePagination"
-		/>
+		<jobs-page v-bind="pageInitConfig" />
 	</div>
 {/block}

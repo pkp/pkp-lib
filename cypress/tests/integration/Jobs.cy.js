@@ -23,7 +23,7 @@ describe('Jobs tests', function() {
         cy.waitJQuery();
 
         cy.get('.pkpTable')
-          .find('span:contains("queuedTestJob")')
+          .find('td:contains("queuedTestJob")')
           .should('have.length', 2)
           .should('be.visible');
 
@@ -34,7 +34,7 @@ describe('Jobs tests', function() {
         cy.waitJQuery();
 
         cy.get('.pkpTable')
-          .find('span:contains("queuedTestJob")')
+          .find('td:contains("queuedTestJob")')
           .should('have.length', 0);
 
         cy.logout();
@@ -62,7 +62,7 @@ describe('Jobs tests', function() {
 
       // check for 4 failed job rows
       cy.get('.pkpTable')
-        .find('span:contains("queuedTestJob")')
+        .find('td:contains("queuedTestJob")')
         .should('have.length', 4)
         .should('be.visible');
 
@@ -71,7 +71,7 @@ describe('Jobs tests', function() {
 
       // check for 3 failed job rows
       cy.get('.pkpTable')
-        .find('span:contains("queuedTestJob")')
+        .find('td:contains("queuedTestJob")')
         .should('have.length', 3)
         .should('be.visible');
 
@@ -80,7 +80,7 @@ describe('Jobs tests', function() {
 
       // check for 2 failed job rows
       cy.get('.pkpTable')
-        .find('span:contains("queuedTestJob")')
+        .find('td:contains("queuedTestJob")')
         .should('have.length', 2);
 
       // Back to Jobs page
@@ -90,7 +90,7 @@ describe('Jobs tests', function() {
 
       // Check for one job in queue which just redispatch from failed job page
       cy.get('.pkpTable')
-        .find('span:contains("queuedTestJob")')
+        .find('td:contains("queuedTestJob")')
         .should('have.length', 1);
 
       // Back to failed jobs page
@@ -114,7 +114,7 @@ describe('Jobs tests', function() {
 
       // check for 0 failed job rows after requeue all action
       cy.get('.pkpTable')
-        .find('span:contains("queuedTestJob")')
+        .find('td:contains("queuedTestJob")')
         .should('have.length', 0);
 
       // Confirm that 'Requeue All Failed Jobs' button has removed from view
@@ -127,7 +127,7 @@ describe('Jobs tests', function() {
 
       // Check for 2 more jobs(in totla 3) in queue which just redispatch via requeue all action
       cy.get('.pkpTable')
-        .find('span:contains("queuedTestJob")')
+        .find('td:contains("queuedTestJob")')
         .should('have.length', 3);
 
       // purge all existing jobs in the test queue
@@ -137,7 +137,7 @@ describe('Jobs tests', function() {
       cy.waitJQuery();
 
       cy.get('.pkpTable')
-        .find('span:contains("queuedTestJob")')
+        .find('td:contains("queuedTestJob")')
         .should('have.length', 0);
 
       cy.logout();
